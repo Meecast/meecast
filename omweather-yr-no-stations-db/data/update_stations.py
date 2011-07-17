@@ -20,12 +20,8 @@ cur = cu.execute("select name, id from countries")
 countries = []
 ids = []
 for row in cur:
-    countries += [row[0]]
-    ids += [row[1]]
-c.commit()
-
-for country_name in countries:
-
+    country_name = row[0]
+    id = row[1]
     country_name =country_name.encode('utf8')
     country_name_url = baseurl + "/" + country_name.replace(" ","_")
     print country_name_url
@@ -46,6 +42,7 @@ for country_name in countries:
         print anchor.content 
 
 
+c.commit()
 #    #Search  bad stations
 #    cur = cu.execute("select distinct substr(name,1,1) from stations where region_id = (select id from regions where name= \"%s\") and name == russian_name order by name" % country_name)
 #

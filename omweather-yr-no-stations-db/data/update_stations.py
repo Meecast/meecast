@@ -15,11 +15,13 @@ baseurl = 'http://www.yr.no/place/'
 c = db.connect(database=r"./yr.no.db")
 cu = c.cursor()
 
-cur = cu.execute("select name from countries")
+cur = cu.execute("select name, id from countries")
 
 countries = []
+ids = []
 for row in cur:
     countries += [row[0]]
+    ids += [row[1]]
 c.commit()
 
 for country_name in countries:
@@ -34,6 +36,14 @@ for country_name in countries:
     oFile = open(r"./%s.html"%(country_name),'wb')
     oFile.write(fileToSave)
     oFile.close
+    #parse xml file
+    doc = libxml2.htmlReadFile(r"./%s.html" % (country_name), "UTF-8", libxml2.HTML_PARSE_RECOVER)
+    ctxt = doc.xpathNewContext()
+    anchors = ctxt.xpathEval("//div[@class='yr-list-places clear clearfix']/dl/dd/a")
+    for anchor in anchors:
+        href = anchor.prop("href")
+        print href 
+        print anchor.content 
 
 
 #    #Search  bad stations

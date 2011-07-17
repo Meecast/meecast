@@ -168,26 +168,43 @@ Rectangle {
                     width: parent.width
                     height: 50
 
-                    Text {
-                        id: station_name
-                        text: {(stationModel.count > 0) ? stationModel.get(0).name : ""}
+                    Row {
+                        spacing: 10
+                        Text {
+                            id: station_name
+                            text: {(stationModel.count > 0) ? stationModel.get(0).name : ""}
+                            font.pointSize: 14
 
-
-                    }
-
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            current_station++;
-                            if (current_station >= stationModel.count)
-                                current_station = 0;
-                            station_name.text = stationModel.get(current_station).name;
-                            xmlModel.query = "/data/station[@id='"+stationModel.get(current_station).id+"']/item[not(@current)]";
-                            xmlModel.reload();
-                            currentxmlModel.query = "/data/station[@id='"+stationModel.get(current_station).id+"']/item[@current='true']";
-                            currentxmlModel.reload();
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: {
+                                    current_station++;
+                                    if (current_station >= stationModel.count)
+                                        current_station = 0;
+                                    station_name.text = stationModel.get(current_station).name;
+                                    xmlModel.query = "/data/station[@id='"+stationModel.get(current_station).id+"']/item[not(@current)]";
+                                    xmlModel.reload();
+                                    currentxmlModel.query = "/data/station[@id='"+stationModel.get(current_station).id+"']/item[@current='true']";
+                                    currentxmlModel.reload();
+                                }
+                            }
+                        }
+                        Text {
+                            text: "Refresh"
+                            font.pointSize: 14
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: {
+                                    //appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml")
+                                    console.log("launch");
+                                    stationModel.reload();
+                                    xmlModel.reload();
+                                    currentxmlModel.reload();
+                                }
+                            }
                         }
                     }
+
                 }
 
                 ListView {

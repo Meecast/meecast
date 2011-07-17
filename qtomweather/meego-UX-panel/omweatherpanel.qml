@@ -45,11 +45,19 @@ FlipPanel {
                         item.goBack.connect(handleGoBack);
                 }
             }
+            XmlListModel {
+                id: stationModel
+                source: "/home/meego/.config/com.meecast.omweather/qmldata.xml"
+                query: "/data/station"
 
+                XmlRole {name:  "id"; query: "@id/string()"}
+                XmlRole {name:  "name"; query: "@name/string()"}
+
+            }
             XmlListModel {
                 id: currentxmlModel
-                source: "datanew.xml"
-                query: "/data/item[@current='true']"
+                source: "/home/meego/.config/com.meecast.omweather/qmldata.xml"
+                query: "/data/station[1]/item[@current='true']"
 
                 XmlRole {name: "dayname"; query: "dayname/string()"}
                 XmlRole {name: "temperature_low"; query: "temperature_low/string()"}
@@ -63,14 +71,11 @@ FlipPanel {
                 XmlRole {name: "id_item"; query: "@id/number()"}
                 //XmlRole {name: "current"; query:  "@current/boolean()"}
             }
-            Item {
-                Text {text: currentxmlModel.count}
-            }
 
             XmlListModel {
                 id: xmlModel
-                source: "datanew.xml"
-                query: "/data/item[not(@current)]"
+                source: "/home/meego/.config/com.meecast.omweather/qmldata.xml"
+                query: "/data/station[1]/item[not(@current)]"
 
                 XmlRole {name: "dayname"; query: "dayname/string()"}
                 XmlRole {name: "temperature_low"; query: "temperature_low/string()"}
@@ -142,7 +147,7 @@ FlipPanel {
             }
 
             Component {
-                id: itemDelegateFull
+                id: itemDelegateCurrent
                 Item {
                     Image {
                         id: forecast_icon
@@ -164,6 +169,7 @@ FlipPanel {
                         Text {text: qsTr("Humidity") + ": " + humidity }
                         Text {text: qsTr("Wind") + ": " + wind_direction}
                         Text {text: qsTr("Speed") + ": " + wind_speed}
+                        /*
                         Text {text: (wind_gust != "N/A") ?
                               (qsTr("Wind gust") + ": " + wind_gust) : ""}
 
@@ -171,18 +177,64 @@ FlipPanel {
                               (qsTr("Ppcp") + ": " + ppcp) : ""}
                         Text {text: (pressure != "N/A") ?
                               (qsTr("Pressure") + ": " + pressure) : ""}
-
+                        */
                     }
                 }
             }
+            property int current_station: 0;
+
             Column {
                 id: columnlist
                 anchors.fill: parent
 
+                Rectangle {
+                    id: station
+                    width: parent.width
+                    height: 50
+
+                    Row {
+                        spacing: 10
+                        Text {
+                            id: station_name
+                            text: {(stationModel.count > 0) ? stationModel.get(0).name : ""}
+                            font.pointSize: 14
+
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: {
+                                    current_station++;
+                                    if (current_station >= stationModel.count)
+                                        current_station = 0;
+                                    station_name.text = stationModel.get(current_station).name;
+                                    xmlModel.query = "/data/station[@id='"+stationModel.get(current_station).id+"']/item[not(@current)]";
+                                    xmlModel.reload();
+                                    currentxmlModel.query = "/data/station[@id='"+stationModel.get(current_station).id+"']/item[@current='true']";
+                                    currentxmlModel.reload();
+                                }
+                            }
+                        }
+                        Text {
+                            text: "Refresh"
+                            font.pointSize: 14
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: {
+                                    appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml")
+                                    console.log("launch");
+                                    stationModel.reload();
+                                    xmlModel.reload();
+                                    currentxmlModel.reload();
+                                }
+                            }
+                        }
+                    }
+
+                }
+
                 ListView {
                     id: currentlist
                     model: currentxmlModel
-                    delegate: itemDelegateFull
+                    delegate: itemDelegateCurrent
                     //anchors.top: parent.top
                     //anchors.left: parent.left
                     width: parent.width

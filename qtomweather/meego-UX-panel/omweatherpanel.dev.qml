@@ -28,11 +28,12 @@ Rectangle {
 
                 XmlRole {name:  "id"; query: "@id/string()"}
                 XmlRole {name:  "name"; query: "@name/string()"}
+
             }
             XmlListModel {
                 id: currentxmlModel
                 source: "../test/qmldata.xml"
-                query: "/data/station[@name='Vitebsk']/item[@current='true']"
+                query: "/data/station[1]/item[@current='true']"
 
                 XmlRole {name: "dayname"; query: "dayname/string()"}
                 XmlRole {name: "temperature_low"; query: "temperature_low/string()"}
@@ -46,14 +47,11 @@ Rectangle {
                 XmlRole {name: "id_item"; query: "@id/number()"}
                 //XmlRole {name: "current"; query:  "@current/boolean()"}
             }
-            Item {
-                Text {text: currentxmlModel.count}
-            }
 
             XmlListModel {
                 id: xmlModel
                 source: "../test/qmldata.xml"
-                query: "/data/station[@name='Vitebsk']/item[not(@current)]"
+                query: "/data/station[1]/item[not(@current)]"
 
                 XmlRole {name: "dayname"; query: "dayname/string()"}
                 XmlRole {name: "temperature_low"; query: "temperature_low/string()"}
@@ -159,9 +157,38 @@ Rectangle {
                     }
                 }
             }
+            property int current_station: 0;
+
             Column {
                 id: columnlist
                 anchors.fill: parent
+
+                Rectangle {
+                    id: station
+                    width: parent.width
+                    height: 50
+
+                    Text {
+                        id: station_name
+                        text: {(stationModel.count > 0) ? stationModel.get(0).name : ""}
+
+
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            current_station++;
+                            if (current_station >= stationModel.count)
+                                current_station = 0;
+                            station_name.text = stationModel.get(current_station).name;
+                            xmlModel.query = "/data/station[@id='"+stationModel.get(current_station).id+"']/item[not(@current)]";
+                            xmlModel.reload();
+                            currentxmlModel.query = "/data/station[@id='"+stationModel.get(current_station).id+"']/item[@current='true']";
+                            currentxmlModel.reload();
+                        }
+                    }
+                }
 
                 ListView {
                     id: currentlist

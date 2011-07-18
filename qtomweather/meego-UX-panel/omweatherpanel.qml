@@ -89,44 +89,40 @@ FlipPanel {
                 Item {
                     id: day
                     width: list.cellWidth
-                    height: list.cellHeight
-
-                    Rectangle {
-                        id: background_part
-                        anchors.fill: parent
-                        color: "#008080"
+                    //height: list.cellHeight
 
 
-                    }
-                    Text {text:  id_item}
-                    Text {
-                        id: day_name
-                        text: dayname
-                        color: "white"
-                        font.pointSize: 14
-                        anchors.left: parent.left
-                        anchors.leftMargin: 20
-                        //anchors.centerIn: parent
-                        //anchors.top: parent.top
-                    }
+                    //Text {text:  id_item}
+                    Column {
+                        Text {
+                            id: day_name
+                            text: dayname
+                            color: "white"
+                            font.pointSize: 14
+                            //anchors.left: parent.left
+                            //anchors.leftMargin: 20
+                            //anchors.centerIn: parent
+                            //anchors.top: parent.top
+                        }
 
-                    Image {
-                        id: forecast_icon
-                        source: icon
-                        width: 80
-                        height: 80
-                        anchors.top: day_name.bottom
-                        //anchors.topMargin: 20
-                        //anchors.leftMargin: 5
-                        anchors.left: parent.left
-                    }
-                    Text {
-                        id: temp
-                        text: (temperature) ? temperature : (temperature_low + " : " + temperature_high)
-                        anchors.top: forecast_icon.top; anchors.topMargin: 10
-                        anchors.left: forecast_icon.right; anchors.leftMargin: 10
-                        color: "white"
-                        font.pointSize: 14
+                        Image {
+                            id: forecast_icon
+                            source: icon
+                            width: 120
+                            height: 120
+                            //anchors.top: day_name.bottom
+                            //anchors.topMargin: 20
+                            //anchors.leftMargin: 5
+                            //anchors.left: parent.left
+                        }
+                        Text {
+                            id: temp
+                            text: (temperature) ? temperature : (temperature_low + " - " + temperature_high)
+                            //anchors.top: forecast_icon.top; anchors.topMargin: 10
+                            //anchors.left: forecast_icon.right; anchors.leftMargin: 10
+                            color: "white"
+                            font.pointSize: 14
+                        }
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -149,35 +145,64 @@ FlipPanel {
             Component {
                 id: itemDelegateCurrent
                 Item {
-                    Image {
-                        id: forecast_icon
-                        source: icon
-                        anchors.top: parent.top
-                        anchors.topMargin: 20
-                        anchors.leftMargin: 20
-                        anchors.left: parent.left
-                    }
-                    Column {
-                        spacing: 5
-                        anchors.right: parent.right
-                        anchors.left: forecast_icon.right
-                        anchors.top: forecast_icon.top
-                        anchors.topMargin: 10
+                    anchors.fill: parent
+                    Row {
+                        anchors.fill: parent
+                        spacing: 20
+                        Column {
+                            width: parent.width * 0.5
+                            height: parent.height
+                            spacing: 20
+                            Image {
+                                id: forecast_icon
+                                source: icon
+                                width: parent.width*0.5
+                                height: parent.width*0.5
+                            }
+                            Text {
+                                text: dayname
+                                color: "white"
+                                font.pointSize: 18
+                            }
+                        }
+                        Column {
+                            spacing: 10
 
-                        Text {text: qsTr("Temperature") + ": " + (temperature) ? temperature : (temperature_low + " : " + temperature_high)}
-                        Text {text: description }
-                        Text {text: qsTr("Humidity") + ": " + humidity }
-                        Text {text: qsTr("Wind") + ": " + wind_direction}
-                        Text {text: qsTr("Speed") + ": " + wind_speed}
-                        /*
-                        Text {text: (wind_gust != "N/A") ?
-                              (qsTr("Wind gust") + ": " + wind_gust) : ""}
+                            Text {
+                                font.pointSize: 36
+                                color: "white"
+                                text: (temperature) ? temperature : (temperature_low + " - " + temperature_high)
+                            }
+                            Text {
+                                text: description
+                                color: "white"
+                                font.pointSize: 16
+                            }
+                            Text {
+                                text: qsTr("Humidity") + ": " + humidity
+                                color: "white"
+                                font.pointSize: 16
+                            }
+                            Text {
+                                text: qsTr("Wind") + ": " + wind_direction
+                                color: "white"
+                                font.pointSize: 16
+                            }
+                            Text {
+                                text: qsTr("Speed") + ": " + wind_speed
+                                color: "white"
+                                font.pointSize: 16
+                            }
+                            /*
+                            Text {text: (wind_gust != "N/A") ?
+                                  (qsTr("Wind gust") + ": " + wind_gust) : ""}
 
-                        Text {text: (ppcp != "N/A") ?
-                              (qsTr("Ppcp") + ": " + ppcp) : ""}
-                        Text {text: (pressure != "N/A") ?
-                              (qsTr("Pressure") + ": " + pressure) : ""}
-                        */
+                            Text {text: (ppcp != "N/A") ?
+                                  (qsTr("Ppcp") + ": " + ppcp) : ""}
+                            Text {text: (pressure != "N/A") ?
+                                  (qsTr("Pressure") + ": " + pressure) : ""}
+                            */
+                        }
                     }
                 }
             }
@@ -189,15 +214,18 @@ FlipPanel {
 
                 Rectangle {
                     id: station
+                    color: "#008080"
                     width: parent.width
-                    height: 50
+                    height: parent.height * 0.05
 
                     Row {
                         spacing: 10
+                        anchors.fill: parent
                         Text {
                             id: station_name
+                            width: parent.width / 2
                             text: {(stationModel.count > 0) ? stationModel.get(0).name : ""}
-                            font.pointSize: 14
+                            font.pointSize: 16
 
                             MouseArea {
                                 anchors.fill: parent
@@ -215,7 +243,7 @@ FlipPanel {
                         }
                         Text {
                             text: "Refresh"
-                            font.pointSize: 14
+                            font.pointSize: 16
                             MouseArea {
                                 anchors.fill: parent
                                 onClicked: {
@@ -238,20 +266,21 @@ FlipPanel {
                     //anchors.top: parent.top
                     //anchors.left: parent.left
                     width: parent.width
-                    height: 200
+                    height: parent.height * 0.4
                 }
                 GridView {
                     id: list
-
-                    //anchors.top: currentlist.bottom
-                    cellWidth: parent.width/2; cellHeight: 120
+                    anchors.top: currentlist.bottom
+                    cellWidth: parent.width / 3 -1
+                    cellHeight: 200
                     model: xmlModel
                     delegate: itemDelegate
                     width: parent.width
-                    height: parent.height - 200
+                    height: parent.height * 0.55
                     //anchors.fill: parent
                 }
             }
+
         }
     }
     Component {

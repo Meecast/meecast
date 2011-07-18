@@ -225,11 +225,12 @@ main (int argc, char *argv[])
   translate_hash = hash_table_create();
 
   /*update weather forecast*/
+  /*
   for (i=0; i < config->stationsList().size();i++){
       if (config->stationsList().at(i)->updateData(true)){
           success ++;
       }
-  }
+  }*/
 
   QDomDocument doc;
   QDomElement station;

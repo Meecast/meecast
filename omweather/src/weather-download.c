@@ -497,7 +497,7 @@ get_station_url(gchar **url, gchar **filename, gchar **hour_url,
                 if(station_source && (!strcmp(station_source, "yr.no") && station_code)){
                         /* replace '_' to '/' */
                         for (i=0;i<strlen(station_code);++i)
-                           if (station_code[i] == '_')
+                           if (station_code[i] == '#')
                               station_code[i] = '/'; 
                 }
                snprintf(buffer, sizeof(buffer) - 1,
@@ -514,7 +514,7 @@ get_station_url(gchar **url, gchar **filename, gchar **hour_url,
                 if(station_source && (!strcmp(station_source, "yr.no") && station_code)){
                         /* replace '_' to '/' */
                         for (i=0;i<strlen(station_code);++i)
-                           if (station_code[i] == '_')
+                           if (station_code[i] == '#')
                               station_code[i] = '/'; 
                 }
 
@@ -538,7 +538,7 @@ get_station_url(gchar **url, gchar **filename, gchar **hour_url,
            /* replace '_' to '/' */
            for (i=0;i<strlen(station_code);++i)
               if (station_code[i] == '/')
-                  station_code[i] = '_'; 
+                  station_code[i] = '#'; 
         }
         memset(buffer, 0, sizeof(buffer));
         snprintf(buffer, sizeof(buffer) - 1, "%s/%s.xml.new",

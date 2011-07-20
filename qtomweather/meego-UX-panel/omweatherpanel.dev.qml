@@ -2,11 +2,9 @@ import Qt 4.7
 
 Rectangle {
     id: rect
-    width: 650
+    width: 500
     height: 900
     color: "#008080"
-
-
 
             Loader {
                 id: uiloader

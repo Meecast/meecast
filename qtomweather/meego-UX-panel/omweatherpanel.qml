@@ -112,7 +112,8 @@ FlipPanel {
                         delegate: itemDelegateCurrent
                         width: parent.width
                         height: parent.height
-                        boundsBehavior: "StopAtBounds"
+                        interactive: false
+                        clip: true
                     }
                     Rectangle {
                         anchors.bottom: parent.bottom
@@ -128,9 +129,9 @@ FlipPanel {
                     model: xmlModel
                     delegate: itemDelegate
                     width: parent.width
-                    //height: parent.height - rect1.height - rect2.height
-                    height: 1100 
-                    boundsBehavior: "DragOverBounds"
+                    height: 80 * xmlModel.count
+                    interactive: false
+                    clip: true
                 }
 
             }

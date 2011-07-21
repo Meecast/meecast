@@ -73,7 +73,8 @@ Rectangle {
             delegate: itemDelegateCurrent
             width: parent.width
             height: parent.height
-            boundsBehavior: "StopAtBounds"
+            interactive: false
+            clip: true
         }
         Rectangle {
             anchors.bottom: parent.bottom
@@ -89,8 +90,9 @@ Rectangle {
         model: xmlModel
         delegate: itemDelegate
         width: parent.width
-        height: parent.height - rect1.height - rect2.height
-        //boundsBehavior: "StopAtBounds"
+        height: 80 * xmlModel.count
+        interactive: false
+        clip: true
     }
 
 

@@ -20,6 +20,8 @@ cur = cu.execute("select name, id from countries")
 for row in cur:
     # Search country region
     country_name = row[0]
+    if country_name[0] <= 'S' :
+        continue
     id = row[1]
     country_name = country_name.encode('utf8')
     country_name_url = baseurl + "/place/" + country_name.replace(" ","_")
@@ -44,8 +46,12 @@ for row in cur:
             id_region = row1[0]
         c.commit()
         region_name_url = baseurl + anchor.prop("href")
+        print region_name_url
         req = urllib2.Request(region_name_url, None, {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'})
-        page = urllib2.urlopen(req)
+        try:
+            page = urllib2.urlopen(req)
+        except:
+            continue
 
         fileToSave = page.read()
         oFile = open(r"./%s.html"%(anchor.content),'wb')
@@ -59,7 +65,9 @@ for row in cur:
             print anchor1.content 
             print anchor1.prop("href")
             code = anchor1.prop("href")
-            code = code.replace("/place/", "")
+            code = re.sub("/place/", "", code)
+            code = re.sub("/$", "", code)
+            code = re.sub("/", "#", code)
             print code
             cu2 = c.cursor()
             cur2 = cu2.execute('insert into stations (name, region_id, code) values  ("%s", "%s", "%s")' % (anchor1.content, id_region, code))

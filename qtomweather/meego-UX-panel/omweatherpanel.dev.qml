@@ -5,6 +5,29 @@ Rectangle {
     width: 500
     height: 900
 
+    function reload(update)
+    {
+        if (update){
+            appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml")
+            console.log("start xml-qml");
+        }
+        stationModel.reload();
+        xmlModel.reload();
+        currentxmlModel.reload();
+    }
+
+    Timer {
+        id: refreshTimer
+        interval: 1000
+        onTriggered: {
+            //xmlModel.reload();
+            //console.log(xmlModel.status);
+            //reload(false);
+        }
+        repeat: true
+    }
+
+
     property int current_station: 0;
     // change station and update button
     Rectangle {
@@ -38,20 +61,33 @@ Rectangle {
             }
         }
         Image {
+            id: refresh
             //source: "/opt/com.meecast.omweather/share/buttons_icons/refresh_arrows.png"
             source: "refresh_arrows.png"
             anchors.rightMargin: 10
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
+
+
+            transformOrigin: Item.Center
+                     NumberAnimation on rotation {
+                         from: 0; to: 360
+                         duration: 2000
+                         loops: Animation.Infinite
+                     }
+
+
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
+                    //console.log("click");
+
                     //appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml")
-                    console.log("launch");
                     stationModel.reload();
                     xmlModel.reload();
                     currentxmlModel.reload();
+                    //refreshTimer.start();
                 }
             }
         }

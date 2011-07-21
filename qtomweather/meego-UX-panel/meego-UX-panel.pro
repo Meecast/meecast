@@ -29,5 +29,7 @@ OTHER_FILES += \
 #install
 panel.files = data/omweather.panel
 panel.path = /usr/share/meego-ux-panels/panels
+qml.files = omweatherpanel.qml
+qml.path = /opt/com.meecast.omweather/share/omweather/qml
 
-INSTALLS += panel
+INSTALLS += panel qml

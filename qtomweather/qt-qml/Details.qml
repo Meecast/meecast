@@ -15,7 +15,7 @@ Rectangle {
 
     XmlListModel {
         id: detailModel
-        source: "datanew.xml"
+        source: "/tmp/1.xml"
         query: "/data/item[@id='"+item_id+"']"
 
         XmlRole {name: "dayname"; query: "dayname/string()"}

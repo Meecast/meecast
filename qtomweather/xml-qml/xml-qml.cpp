@@ -134,7 +134,7 @@ make_item(QDomDocument doc, Core::Data *data, int num, bool current)
     if (current){
         str = QString::fromStdString(data->FullDayName() +", " + data->DayOfMonthName() + " " + data->FullMonthName());
     }else {
-        str = QString::fromStdString(data->ShortDayName());
+        str = QString::fromStdString(data->FullDayName());
     }
     QDomText t = doc.createTextNode(str);
     el.appendChild(t);

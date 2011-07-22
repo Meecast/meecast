@@ -20,8 +20,8 @@ cur = cu.execute("select name, id from countries")
 for row in cur:
     # Search country region
     country_name = row[0]
-    if country_name[0] <= 'R' :
-        continue
+#    if country_name[0] <= 'R' :
+#        continue
     id = row[1]
     country_name = country_name.encode('utf8')
     country_name_url = baseurl + "/place/" + country_name.replace(" ","_")

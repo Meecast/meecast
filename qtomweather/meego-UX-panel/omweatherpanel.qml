@@ -3,6 +3,7 @@ import MeeGo.Components 0.1
 import MeeGo.Panels 0.1
 import MeeGo.Sharing 0.1
 import MeeGo.Media 0.1
+import "/opt/com.meecast.omweather/lib/omweaatherplugin" 0.1
 
 FlipPanel {
     id: container
@@ -10,6 +11,8 @@ FlipPanel {
     Translator {
         catalog: "meego-ux-panels-omweather"
     }
+    
+    Config {id: config}
 
     front: SimplePanel {
         id: frontPanel
@@ -57,7 +60,7 @@ FlipPanel {
                         id: station_name
                         font.pointSize: 24
                         color: "white"
-                        text: {(stationModel.count > 0) ? stationModel.get(0).name : ""}
+                        text: {(stationModel.count > 0) ? stationModel.get(0).name + " " + config.iconset() : ""}
                         anchors.leftMargin: 10
                         anchors.left: parent.left
                         anchors.verticalCenter: parent.verticalCenter
@@ -86,8 +89,8 @@ FlipPanel {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml")
-                                console.log("launch");
+                                var ret = appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml");
+                                console.log("launch ret = " + ret);
                                 stationModel.reload();
                                 xmlModel.reload();
                                 currentxmlModel.reload();
@@ -407,7 +410,15 @@ FlipPanel {
         id: backPanelContent
         Text {
             anchors.fill: parent
-            text: "back omweather"
+            text: "settings"
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    //appsModel.launch("meego-qml-launcher --opengl --fullscreen --app OmweatherSettings --cmd showPage");
+                    qApp.launchDesktopByName("/opt/com.meecast.omweather/share/omweather/qml/omweather-settings.desktop")
+                }
+            }
         }
     }
 }

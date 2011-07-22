@@ -35,9 +35,13 @@ LIBS += -L ../core  ../core/libomweather-core.a
 
 
 #install
+target.path = /opt/com.meecast.omweather/lib/OmweatherPlugin
+
 panel.files = data/omweather.panel
 panel.path = /usr/share/meego-ux-panels/panels
 qml.files = omweatherpanel.qml
 qml.path = /opt/com.meecast.omweather/share/omweather/qml
+qmldir.files = qmldir
+qmldir.path = /opt/com.meecast.omweather/lib/OmweatherPlugin
 
-INSTALLS += panel qml
+INSTALLS += panel qml target qmldir

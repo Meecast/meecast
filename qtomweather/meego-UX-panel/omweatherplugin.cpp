@@ -41,4 +41,4 @@ void OmweatherPlugin::initializeEngine(QDeclarativeEngine *engine, const char *u
     Q_UNUSED(engine);
 }
 
-Q_EXPORT_PLUGIN2(omweatherplugin, OmweatherPlugin);
+Q_EXPORT_PLUGIN2(OmweatherPlugin, OmweatherPlugin);

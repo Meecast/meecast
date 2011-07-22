@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 
-TARGET = omweaatherplugin
+TARGET = OmweatherPlugin
 TEMPLATE = lib
 
 CONFIG += qt plugin

@@ -29,6 +29,7 @@ Rectangle {
 
 
     property int current_station: 0;
+    property bool isAnim: false;
     // change station and update button
     Rectangle {
         id: rect1
@@ -60,6 +61,7 @@ Rectangle {
                 }
             }
         }
+
         Image {
             id: refresh
             //source: "/opt/com.meecast.omweather/share/buttons_icons/refresh_arrows.png"
@@ -68,21 +70,22 @@ Rectangle {
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-
-
-            transformOrigin: Item.Center
-                     NumberAnimation on rotation {
-                         from: 0; to: 360
-                         duration: 2000
-                         loops: Animation.Infinite
-                     }
-
+            RotationAnimation on rotation {
+                id: anim_refresh
+                loops: Animation.Infinite
+                from: 0
+                to: 360
+                duration: 2000
+                running: false
+            }
 
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
                     //console.log("click");
-
+                    if (isAnim) isAnim = false
+                    else isAnim = true
+                    anim_refresh.running = isAnim
                     //appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml")
                     stationModel.reload();
                     xmlModel.reload();

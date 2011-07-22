@@ -5,26 +5,21 @@ Rectangle {
     width: 500
     height: 900
 
-    function reload(update)
+    function reload()
     {
-        if (update){
-            appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml")
-            console.log("start xml-qml");
-        }
-        stationModel.reload();
-        xmlModel.reload();
-        currentxmlModel.reload();
+
     }
 
     Timer {
         id: refreshTimer
         interval: 1000
         onTriggered: {
+            reload();
             //xmlModel.reload();
             //console.log(xmlModel.status);
             //reload(false);
         }
-        repeat: true
+        repeat: false
     }
 
 
@@ -83,14 +78,15 @@ Rectangle {
                 anchors.fill: parent
                 onClicked: {
                     //console.log("click");
-                    if (isAnim) isAnim = false
-                    else isAnim = true
-                    anim_refresh.running = isAnim
-                    //appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml")
-                    stationModel.reload();
-                    xmlModel.reload();
-                    currentxmlModel.reload();
-                    //refreshTimer.start();
+                    if (isAnim) isAnim = false;
+                    else isAnim = true;
+                    anim_refresh.running = isAnim;
+                    //var res = appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml");
+                    //console.log("res = " + res);
+                    //stationModel.reload();
+                    //xmlModel.reload();
+                    //currentxmlModel.reload();
+                    refreshTimer.start();
                 }
             }
         }

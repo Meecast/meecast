@@ -5,25 +5,33 @@
 #-------------------------------------------------
 
 
-TARGET = meego-UX-panel
-TEMPLATE = app
+TARGET = omweaatherplugin
+TEMPLATE = lib
 
+CONFIG += qt plugin
+QT += declarative
 
 TEXTDOMAIN = "omweather"
 CATALOUGE  = omweather.por
 
+SOURCES += omweatherplugin.cpp \
+    configqml.cpp
 
-
-SOURCES += main.c 
-
+HEADERS += \
+    omweatherplugin.h \
+    configqml.h
 
 FORMS    +=
 
 OTHER_FILES += \
     omweatherpanel.qml \
     omweatherpanel.dev.qml \
-    Details.qml
+    Details.qml \
+    qmldir
 
+INCLUDEPATH += ../core
+#LIBS += -L ../core -lomweather-core
+LIBS += -L ../core  ../core/libomweather-core.a
 
 
 #install

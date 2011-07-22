@@ -39,9 +39,17 @@ for row in cur:
     anchors = ctxt.xpathEval("//div[@class='yr-list-places clear clearfix']/dl/dd/a")
     for anchor in anchors:
         cu1 = c.cursor()
-        cur1 = cu1.execute('insert into regions (name, country_id) values  ("%s", "%s")' % (anchor.content, id))
+        cur1 = cu1.execute('select id from regions where name="%s"' % (anchor.content))
         c.commit()
-        cur1 = cu1.execute('select id from regions where name="%s" and country_id="%s"' % (anchor.content, id))
+        for row1 in cur1:
+            print row1  
+        if (cur1.rowcount >0):
+            region_name = anchor.content + '/' + country_name
+        else:
+            region_name = anchor.content 
+        cur1 = cu1.execute('insert into regions (name, country_id) values  ("%s", "%s")' % (region_name, id))
+        c.commit()
+        cur1 = cu1.execute('select id from regions where name="%s" and country_id="%s"' % (region_name, id))
         for row1 in cur1:
             id_region = row1[0]
         c.commit()

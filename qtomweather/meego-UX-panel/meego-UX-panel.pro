@@ -28,7 +28,7 @@ OTHER_FILES += \
     omweatherpanel.dev.qml \
     Details.qml \
     qmldir \
-    OmweatherSettings.qml
+    main.qml
 
 INCLUDEPATH += ../core
 #LIBS += -L ../core -lomweather-core

@@ -415,8 +415,8 @@ FlipPanel {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    //appsModel.launch("meego-qml-launcher --opengl --fullscreen --app OmweatherSettings --cmd showPage");
-                    qApp.launchDesktopByName("/opt/com.meecast.omweather/share/omweather/qml/omweather-settings.desktop")
+                    appsModel.launch("meego-qml-launcher --opengl --fullscreen --app omweather-settings --cmd showPage");
+                    //qApp.launchDesktopByName("/usr/share/meego-ux-appgrid/applications/omweather-settings.desktop")
                 }
             }
         }

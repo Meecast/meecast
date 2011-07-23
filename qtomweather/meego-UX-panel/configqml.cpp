@@ -68,6 +68,7 @@ ConfigQml::icons()
     }
     return icons;
 }
+
 QString
 ConfigQml::iconSet(){
     QString c;
@@ -77,6 +78,21 @@ ConfigQml::iconSet(){
 void
 ConfigQml::iconSet(QString c){
     ConfigQml::Config::iconSet(c.toStdString());
+}
+QStringList
+ConfigQml::UpdatePeriodValues()
+{
+    QStringList l;
+    l << "2 hour" << "1 hour" << "30 min" << "10 min" << "never";
+    return l;
+}
+QStringList
+ConfigQml::UpdatePeriodKeys()
+{
+    QStringList l;
+    l << QString::number(2*60*60) << QString::number(60*60) << QString::number(30*60);
+    l << QString::number(10*60) << QString::number(INT_MAX);
+    return l;
 }
 void
 ConfigQml::UpdatePeriod(const int period){

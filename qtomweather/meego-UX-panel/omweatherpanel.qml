@@ -3,7 +3,7 @@ import MeeGo.Components 0.1
 import MeeGo.Panels 0.1
 import MeeGo.Sharing 0.1
 import MeeGo.Media 0.1
-import "/opt/com.meecast.omweather/lib/omweaatherplugin" 0.1
+import "/opt/com.meecast.omweather/lib/OmweatherPlugin" 0.1
 
 FlipPanel {
     id: container
@@ -60,7 +60,7 @@ FlipPanel {
                         id: station_name
                         font.pointSize: 24
                         color: "white"
-                        text: {(stationModel.count > 0) ? stationModel.get(0).name + " " + config.iconset() : ""}
+                        text: {(stationModel.count > 0) ? stationModel.get(0).name + " " + config.iconSet() : ""}
                         anchors.leftMargin: 10
                         anchors.left: parent.left
                         anchors.verticalCenter: parent.verticalCenter

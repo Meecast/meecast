@@ -54,6 +54,8 @@ public slots:
     QStringList icons();
     QString iconSet();
     void iconSet(QString c);
+    QStringList UpdatePeriodValues();
+    QStringList UpdatePeriodKeys();
     void UpdatePeriod(const int period);
     int UpdatePeriod();
     void TemperatureUnit(QString text);

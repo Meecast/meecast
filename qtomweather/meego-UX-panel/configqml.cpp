@@ -37,10 +37,72 @@ ConfigQml::ConfigQml(const std::string& filename, const std::string& schema_file
 {
 }
 
+QStringList
+ConfigQml::icons()
+{
+    QStringList icons;
+    Dirent *dp = 0;
+    DIR *dir_fd = opendir((Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath).c_str());
+    //std::cerr << (Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath) << std::endl;
+    int i = 0;
+    if(dir_fd){
+        while((dp = readdir(dir_fd))){
+            std::string name = dp->d_name;
+            if(name == "." || name == "..")
+                continue;
+            if(dp->d_type == DT_DIR && name[0] != '.'){
+                try{
+                    icons << QString::fromStdString(name);
+                }
+                catch(std::string& err){
+                    std::cerr << "error " << err << std::endl;
+                    continue;
+                }
+                catch(const char *err){
+                    std::cerr << "error " << err << std::endl;
+                    continue;
+                }
+            }
+        }
+        closedir(dir_fd);
+    }
+    return icons;
+}
 QString
-ConfigQml::iconset(){
+ConfigQml::iconSet(){
     QString c;
     c = ConfigQml::Config::iconSet().c_str();
     return c;
 }
-
+void
+ConfigQml::iconSet(QString c){
+    ConfigQml::Config::iconSet(c.toStdString());
+}
+void
+ConfigQml::UpdatePeriod(const int period){
+    ConfigQml::Config::UpdatePeriod(period);
+}
+int
+ConfigQml::UpdatePeriod(){
+    return ConfigQml::Config::UpdatePeriod();
+}
+QString
+ConfigQml::TemperatureUnit()
+{
+    return ConfigQml::Config::TemperatureUnit().c_str();
+}
+void
+ConfigQml::TemperatureUnit(QString c)
+{
+    ConfigQml::Config::TemperatureUnit(c.toStdString());
+}
+QString
+ConfigQml::WindSpeedUnit()
+{
+    return ConfigQml::Config::WindSpeedUnit().c_str();
+}
+void
+ConfigQml::WindSpeedUnit(QString c)
+{
+    ConfigQml::Config::WindSpeedUnit(c.toStdString());
+}

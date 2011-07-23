@@ -32,7 +32,17 @@
 
 #include <QObject>
 #include "core.h"
-#include <QString>
+#include <QStringList>
+
+#if defined (BSD) && !_POSIX_SOURCE
+    #include <sys/dir.h>
+    typedef struct dirent Dirent;
+#else
+    #include <dirent.h>
+    #include <linux/fs.h>
+    typedef struct dirent Dirent;
+#endif
+
 
 class ConfigQml : public QObject, public Core::Config
 {
@@ -41,7 +51,15 @@ public:
     explicit ConfigQml();
     explicit ConfigQml(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
 public slots:
-    QString iconset();
+    QStringList icons();
+    QString iconSet();
+    void iconSet(QString c);
+    void UpdatePeriod(const int period);
+    int UpdatePeriod();
+    void TemperatureUnit(QString text);
+    QString TemperatureUnit();
+    void WindSpeedUnit(QString text);
+    QString WindSpeedUnit();
 };
 
 #endif // CONFIGQML_H

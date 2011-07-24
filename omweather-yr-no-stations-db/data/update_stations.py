@@ -41,9 +41,10 @@ for row in cur:
         cu1 = c.cursor()
         cur1 = cu1.execute('select id from regions where name="%s"' % (anchor.content))
         c.commit()
+        row1 = ""
         for row1 in cur1:
             print row1  
-        if (cur1.rowcount >0):
+        if (row1 != ""):
             region_name = anchor.content + '/' + country_name
         else:
             region_name = anchor.content 

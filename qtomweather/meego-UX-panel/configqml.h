@@ -54,14 +54,19 @@ public slots:
     QStringList icons();
     QString iconSet();
     void iconSet(QString c);
-    QStringList UpdatePeriodValues();
-    QStringList UpdatePeriodKeys();
-    void UpdatePeriod(const int period);
-    int UpdatePeriod();
+    QStringList UpdatePeriods();
+    void UpdatePeriod(QString str);
+    QString UpdatePeriod();
+    void UpdateConnect(bool uc);
+    bool UpdateConnect();
+    QStringList TemperatureUnits();
     void TemperatureUnit(QString text);
     QString TemperatureUnit();
+    QStringList WindSpeedUnits();
     void WindSpeedUnit(QString text);
     QString WindSpeedUnit();
+private:
+    QHash<QString, int> period_hash;
 };
 
 #endif // CONFIGQML_H

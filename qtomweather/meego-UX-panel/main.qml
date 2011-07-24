@@ -44,6 +44,7 @@ Window {
                     replaceDropDownTitle: true
                     onTriggered: {
                         //txt.text = payload[index] + " = " + data + " - " + model[index];
+                        config.iconSet(model[index])
                     }
                 }
             }
@@ -62,13 +63,62 @@ Window {
                     anchors.right: parent.right
                     anchors.rightMargin: 10
                     title: config.UpdatePeriod()
-                    model: config.UpdatePeriodValues()
-                    payload: config.UpdatePeriodKeys()
+                    model: config.UpdatePeriods()
+                    //payload: config.UpdatePeriodKeys()
                     width: 300
                     titleColor: black
                     replaceDropDownTitle: true
                     onTriggered: {
                         //txt.text = payload[index] + " = " + data + " - " + model[index];
+                        config.iconSet(model[index])
+                    }
+                }
+            }
+            Image {
+                source: "image://theme/pulldown_box"
+                width: parent
+
+                Text {
+                    id: txt_temperature
+                    font.pointSize: 18
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    text: "Temperature Units"
+                }
+                UX.DropDown {
+                    anchors.right: parent.right
+                    anchors.rightMargin: 10
+                    title: config.TemperatureUnit()
+                    model: config.TemperatureUnits()
+                    width: 300
+                    titleColor: black
+                    replaceDropDownTitle: true
+                    onTriggered: {
+                        config.TemperatureUnit(model[index])
+                    }
+                }
+            }
+            Image {
+                source: "image://theme/pulldown_box"
+                width: parent
+
+                Text {
+                    id: txt_windspeed
+                    font.pointSize: 18
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    text: "Wind speed Units"
+                }
+                UX.DropDown {
+                    anchors.right: parent.right
+                    anchors.rightMargin: 10
+                    title: config.WindSpeedUnit()
+                    model: config.WindSpeedUnits()
+                    width: 300
+                    titleColor: black
+                    replaceDropDownTitle: true
+                    onTriggered: {
+                        config.WindSpeedUnit(model[index])
                     }
                 }
             }

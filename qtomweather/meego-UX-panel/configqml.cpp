@@ -80,12 +80,13 @@ ConfigQml::iconSet(QString c){
     ConfigQml::Config::iconSet(c.toStdString());
 }
 QStringList
-ConfigQml::UpdatePeriodValues()
+ConfigQml::UpdatePeriods()
 {
     QStringList l;
     l << "2 hour" << "1 hour" << "30 min" << "10 min" << "never";
     return l;
 }
+/*
 QStringList
 ConfigQml::UpdatePeriodKeys()
 {
@@ -93,14 +94,55 @@ ConfigQml::UpdatePeriodKeys()
     l << QString::number(2*60*60) << QString::number(60*60) << QString::number(30*60);
     l << QString::number(10*60) << QString::number(INT_MAX);
     return l;
-}
+}*/
 void
-ConfigQml::UpdatePeriod(const int period){
+ConfigQml::UpdatePeriod(QString str){
+    int period;
+    if (str == "2 hour")
+        period = 2*60*60;
+    else if (str == "1 hour")
+        period = 60*60;
+    else if (str == "30 min")
+        period = 30*60;
+    else if (str == "10 min")
+        period = 10*60;
+    else if (str == "never")
+        period = INT_MAX;
     ConfigQml::Config::UpdatePeriod(period);
 }
-int
+QString
 ConfigQml::UpdatePeriod(){
-    return ConfigQml::Config::UpdatePeriod();
+    int val = ConfigQml::Config::UpdatePeriod();
+    QString res;
+    if (val == 2*60*60)
+        res = "2 hour";
+    else if (val == 60*60)
+        res = "1 hour";
+    else if (val == 30*60)
+        res = "30 min";
+    else if (val == 10*60)
+        res = "10 min";
+    else if (val == INT_MAX)
+        res = "never";
+    return res;
+
+}
+void
+ConfigQml::UpdateConnect(bool uc)
+{
+    ConfigQml::Config::UpdateConnect(uc);
+}
+bool
+ConfigQml::UpdateConnect()
+{
+    return ConfigQml::Config::UpdateConnect();
+}
+QStringList
+ConfigQml::TemperatureUnits()
+{
+    QStringList l;
+    l << "C" << "F";
+    return l;
 }
 QString
 ConfigQml::TemperatureUnit()
@@ -111,6 +153,13 @@ void
 ConfigQml::TemperatureUnit(QString c)
 {
     ConfigQml::Config::TemperatureUnit(c.toStdString());
+}
+QStringList
+ConfigQml::WindSpeedUnits()
+{
+    QStringList l;
+    l << "m/s" << "km/h" << "mi/h";
+    return l;
 }
 QString
 ConfigQml::WindSpeedUnit()

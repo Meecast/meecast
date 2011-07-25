@@ -158,6 +158,21 @@ ConfigQml::WindSpeedUnit(QString c)
 {
     ConfigQml::Config::WindSpeedUnit(c.toStdString());
 }
+
+QStringList
+ConfigQml::Stations()
+{
+    //Core::StationsList *stationlist = new Core::StationList;
+    Core::StationsList stationlist = ConfigQml::Config::stationsList();
+    Core::StationsList::iterator cur;
+    QStringList l;
+    for (cur=stationlist.begin(); cur<stationlist.end(); cur++){
+        //l << (*cur)->name() + " (" + (*cur)->id() + ")";
+        l << (*cur)->name().c_str();
+    }
+    return l;
+}
+
 void
 ConfigQml::saveConfig()
 {

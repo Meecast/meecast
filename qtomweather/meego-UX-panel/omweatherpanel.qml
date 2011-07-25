@@ -60,7 +60,7 @@ FlipPanel {
                         id: station_name
                         font.pointSize: 24
                         color: "white"
-                        text: {(stationModel.count > 0) ? stationModel.get(0).name + " " + config.iconSet() : ""}
+                        text: {(stationModel.count > 0) ? stationModel.get(0).name : ""}
                         anchors.leftMargin: 10
                         anchors.left: parent.left
                         anchors.verticalCenter: parent.verticalCenter

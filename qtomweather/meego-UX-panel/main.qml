@@ -201,12 +201,89 @@ Window {
         ApplicationPage {
             id: stationsPage
 	    title: qsTr("OMWeather Stations Settings")
+
+            UX.ModalDialog {
+                id: newstation
+                title: qsTr("New Station")
+                showAcceptButton: true
+                showCancelButton: true
+                acceptButtonText: qsTr("OK")
+                cancelButtonText: qsTr("Cancel")
+                content: Item {
+                    width: parent.width
+                    height: parent.height
+                    Column {
+                        width: parent.width
+
+
+                        Image {
+                            source: "image://theme/pulldown_box"
+                            width: parent.width
+                            Text {
+                                anchors.top: parent.top
+                                anchors.left: parent.left
+                                anchors.leftMargin: 10
+                                text: qsTr("Temperature Units")
+                                width: 100
+                                height: parent.height
+                                verticalAlignment: Text.AlignVCenter
+                            }
+                            UX.DropDown {
+                                anchors.right: parent.right
+                                anchors.rightMargin: 10
+                                anchors.verticalCenter: parent.verticalCenter
+                                title: config.TemperatureUnit()
+                                model: config.TemperatureUnits()
+                                width: 300
+                                titleColor: black
+                                replaceDropDownTitle: true
+                                onTriggered: {
+                                    config.TemperatureUnit(model[index])
+                                }
+                            }
+                        }
+                        Image {
+                            source: "image://theme/pulldown_box"
+                            width: parent.width
+
+                            Text {
+                                anchors.top: parent.top
+                                anchors.left: parent.left
+                                anchors.leftMargin: 10
+                                text: qsTr("Wind speed Units")
+                                width: 100
+                                height: parent.height
+                                verticalAlignment: Text.AlignVCenter
+                            }
+                            UX.DropDown {
+                                anchors.right: parent.right
+                                anchors.rightMargin: 10
+                                anchors.verticalCenter: parent.verticalCenter
+                                title: config.WindSpeedUnit()
+                                model: config.WindSpeedUnits()
+                                width: 300
+                                titleColor: black
+                                replaceDropDownTitle: true
+                                onTriggered: {
+                                    config.WindSpeedUnit(model[index])
+                                }
+                            }
+                        }
+                    }
+
+                }
+                onAccepted: {
+                }
+                onRejected: {
+                }
+            }
+
             Item {
                 parent: stationsPage.content
                 anchors.fill: parent
                 ListView {
 		    id: stationlist
-		    height: parent.height
+                    height: parent.height - 100
                     width: parent.width
                     model: config.Stations()
                     delegate:
@@ -233,12 +310,20 @@ Window {
                                 anchors.rightMargin: 10
                                 text: qsTr("Delete")
                                 onClicked: {
-					but.text = modelData
+                                        //but.text = config.Stations().size()
                                 }
                             }
 
                         }
 
+                }
+                UX.Button {
+                    //height: 40
+                    anchors.top: stationlist.bottom
+                    text: qsTr("Add new station")
+                    onClicked: {
+                        newstation.show();
+                    }
                 }
             }
         }

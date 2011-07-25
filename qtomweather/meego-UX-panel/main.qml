@@ -70,7 +70,7 @@ Window {
                     replaceDropDownTitle: true
                     onTriggered: {
                         //txt.text = payload[index] + " = " + data + " - " + model[index];
-                        config.iconSet(model[index])
+                        config.UpdatePeriod(model[index])
                     }
                 }
             }
@@ -119,6 +119,15 @@ Window {
                     replaceDropDownTitle: true
                     onTriggered: {
                         config.WindSpeedUnit(model[index])
+                    }
+                }
+            }
+            Text {
+                text: "save"
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        config.saveConfig();
                     }
                 }
             }

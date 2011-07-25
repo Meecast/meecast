@@ -49,7 +49,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_OBJECT
 public:
     explicit ConfigQml();
-    explicit ConfigQml(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
+    //explicit ConfigQml(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
 public slots:
     QStringList icons();
     QString iconSet();
@@ -65,6 +65,7 @@ public slots:
     QStringList WindSpeedUnits();
     void WindSpeedUnit(QString text);
     QString WindSpeedUnit();
+    void saveConfig();
 private:
     QHash<QString, int> period_hash;
 };

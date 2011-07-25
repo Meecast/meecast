@@ -29,13 +29,13 @@
 
 #include "configqml.h"
 
-ConfigQml::ConfigQml() : QObject(), Core::Config()
-{
+ConfigQml::ConfigQml() : QObject(), Core::Config(Core::AbstractConfig::getConfigPath()+"config.xml")
+{    
 }
-
+/*
 ConfigQml::ConfigQml(const std::string& filename, const std::string& schema_filename) : QObject(),Core::Config(filename, schema_filename)
 {
-}
+}*/
 
 QStringList
 ConfigQml::icons()
@@ -170,4 +170,9 @@ void
 ConfigQml::WindSpeedUnit(QString c)
 {
     ConfigQml::Config::WindSpeedUnit(c.toStdString());
+}
+void
+ConfigQml::saveConfig()
+{
+    ConfigQml::Config::saveConfig();
 }

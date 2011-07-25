@@ -171,7 +171,7 @@ Window {
                             anchors.top: parent.top
                             anchors.left: parent.left
                             anchors.leftMargin: 10
-                            text: qsTr("Stations")
+                            text: qsTr("Stations") + " >"
                             width: 100
                             height: parent.height
                             verticalAlignment: Text.AlignVCenter
@@ -200,10 +200,13 @@ Window {
         id: stationsPageComponent
         ApplicationPage {
             id: stationsPage
+	    title: qsTr("OMWeather Stations Settings")
             Item {
                 parent: stationsPage.content
                 anchors.fill: parent
                 ListView {
+		    id: stationlist
+		    height: parent.height
                     width: parent.width
                     model: config.Stations()
                     delegate:
@@ -212,7 +215,8 @@ Window {
                             width: parent.width
 
                             Text {
-                                anchors.top: parent.top
+				id: txt
+                                //anchors.top: parent.top
                                 anchors.left: parent.left
                                 anchors.leftMargin: 10
                                 text: modelData
@@ -220,15 +224,18 @@ Window {
                                 height: parent.height
                                 verticalAlignment: Text.AlignVCenter
                             }
-/*
+
                             UX.Button {
+				id: but
+				height: 40
                                 anchors.verticalCenter: parent.verticalCenter
                                 anchors.right: parent.right
                                 anchors.rightMargin: 10
                                 text: qsTr("Delete")
-                                onClick: {
+                                onClicked: {
+					but.text = modelData
                                 }
-                            }*/
+                            }
 
                         }
 

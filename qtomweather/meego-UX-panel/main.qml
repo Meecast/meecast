@@ -21,21 +21,76 @@ Window {
                 width: parent.width
 
 
+                Image {
+                    source: "image://theme/pulldown_box"
+                    width: parent.width
+                    Text {
+                        anchors.top: parent.top
+                        anchors.left: parent.left
+                        anchors.leftMargin: 10
+                        text: qsTr("Temperature Units")
+                        width: 100
+                        height: parent.height
+                        verticalAlignment: Text.AlignVCenter
+                    }
+                    UX.DropDown {
+                        anchors.right: parent.right
+                        anchors.rightMargin: 10
+                        anchors.verticalCenter: parent.verticalCenter
+                        title: config.TemperatureUnit()
+                        model: config.TemperatureUnits()
+                        width: 300
+                        titleColor: black
+                        replaceDropDownTitle: true
+                        onTriggered: {
+                            config.TemperatureUnit(model[index])
+                        }
+                    }
+                }
+                Image {
+                    source: "image://theme/pulldown_box"
+                    width: parent.width
+
+                    Text {
+                        anchors.top: parent.top
+                        anchors.left: parent.left
+                        anchors.leftMargin: 10
+                        text: qsTr("Wind speed Units")
+                        width: 100
+                        height: parent.height
+                        verticalAlignment: Text.AlignVCenter
+                    }
+                    UX.DropDown {
+                        anchors.right: parent.right
+                        anchors.rightMargin: 10
+                        anchors.verticalCenter: parent.verticalCenter
+                        title: config.WindSpeedUnit()
+                        model: config.WindSpeedUnits()
+                        width: 300
+                        titleColor: black
+                        replaceDropDownTitle: true
+                        onTriggered: {
+                            config.WindSpeedUnit(model[index])
+                        }
+                    }
+                }
             Image {
                 source: "image://theme/pulldown_box"
-                width: parent
-
+                width: parent.width
 
                 Text {
-                    id: txt
-                    font.pointSize: 18
                     anchors.top: parent.top
                     anchors.left: parent.left
-                    text: "IconSet"
+                    anchors.leftMargin: 10
+                    text: qsTr("IconSet")
+                    width: 100
+                    height: parent.height
+                    verticalAlignment: Text.AlignVCenter
                 }
                 UX.DropDown {
                     anchors.right: parent.right
                     anchors.rightMargin: 10
+                    anchors.verticalCenter: parent.verticalCenter
                     title: config.iconSet()
                     model: config.icons()
                     //model: ["meecast", "glance", "other"]
@@ -50,21 +105,23 @@ Window {
             }
             Image {
                 source: "image://theme/pulldown_box"
-                width: parent
+                width: parent.width
 
                 Text {
-                    id: txt_updateperiod
-                    font.pointSize: 18
                     anchors.top: parent.top
                     anchors.left: parent.left
-                    text: "Ipdate Period"
+                    anchors.leftMargin: 10
+                    text: qsTr("Update interval")
+                    width: 100
+                    height: parent.height
+                    verticalAlignment: Text.AlignVCenter
                 }
                 UX.DropDown {
                     anchors.right: parent.right
                     anchors.rightMargin: 10
+                    anchors.verticalCenter: parent.verticalCenter
                     title: config.UpdatePeriod()
                     model: config.UpdatePeriods()
-                    //payload: config.UpdatePeriodKeys()
                     width: 300
                     titleColor: black
                     replaceDropDownTitle: true
@@ -76,60 +133,39 @@ Window {
             }
             Image {
                 source: "image://theme/pulldown_box"
-                width: parent
+                width: parent.width
 
                 Text {
-                    id: txt_temperature
-                    font.pointSize: 18
                     anchors.top: parent.top
                     anchors.left: parent.left
-                    text: "Temperature Units"
+                    anchors.leftMargin: 10
+                    text: qsTr("Auto-update on connection")
+                    width: 100
+                    height: parent.height
+                    verticalAlignment: Text.AlignVCenter
                 }
-                UX.DropDown {
-                    anchors.right: parent.right
-                    anchors.rightMargin: 10
-                    title: config.TemperatureUnit()
-                    model: config.TemperatureUnits()
-                    width: 300
-                    titleColor: black
-                    replaceDropDownTitle: true
-                    onTriggered: {
-                        config.TemperatureUnit(model[index])
-                    }
-                }
-            }
-            Image {
-                source: "image://theme/pulldown_box"
-                width: parent
 
-                Text {
-                    id: txt_windspeed
-                    font.pointSize: 18
-                    anchors.top: parent.top
-                    anchors.left: parent.left
-                    text: "Wind speed Units"
-                }
-                UX.DropDown {
+                UX.ToggleButton {
+                    on: config.UpdateConnect()
+                    anchors.verticalCenter: parent.verticalCenter
                     anchors.right: parent.right
                     anchors.rightMargin: 10
-                    title: config.WindSpeedUnit()
-                    model: config.WindSpeedUnits()
-                    width: 300
-                    titleColor: black
-                    replaceDropDownTitle: true
-                    onTriggered: {
-                        config.WindSpeedUnit(model[index])
+
+                    onToggled: {
+                        config.UpdateConnect(isOn);
                     }
                 }
+
             }
-            Text {
-                text: "save"
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        config.saveConfig();
-                    }
+
+
+            UX.Button{
+                height: 40
+                text: qsTr("Save")
+                onClicked: {
+                    config.saveConfig();
                 }
+
             }
             }
         }

@@ -49,7 +49,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_OBJECT
 public:
     explicit ConfigQml();
-    //explicit ConfigQml(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
+
 public slots:
     QStringList icons();
     QString iconSet();

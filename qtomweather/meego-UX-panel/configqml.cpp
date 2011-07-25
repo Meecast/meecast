@@ -32,10 +32,6 @@
 ConfigQml::ConfigQml() : QObject(), Core::Config(Core::AbstractConfig::getConfigPath()+"config.xml")
 {    
 }
-/*
-ConfigQml::ConfigQml(const std::string& filename, const std::string& schema_filename) : QObject(),Core::Config(filename, schema_filename)
-{
-}*/
 
 QStringList
 ConfigQml::icons()
@@ -43,7 +39,6 @@ ConfigQml::icons()
     QStringList icons;
     Dirent *dp = 0;
     DIR *dir_fd = opendir((Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath).c_str());
-    //std::cerr << (Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath) << std::endl;
     int i = 0;
     if(dir_fd){
         while((dp = readdir(dir_fd))){
@@ -86,15 +81,7 @@ ConfigQml::UpdatePeriods()
     l << "2 hour" << "1 hour" << "30 min" << "10 min" << "never";
     return l;
 }
-/*
-QStringList
-ConfigQml::UpdatePeriodKeys()
-{
-    QStringList l;
-    l << QString::number(2*60*60) << QString::number(60*60) << QString::number(30*60);
-    l << QString::number(10*60) << QString::number(INT_MAX);
-    return l;
-}*/
+
 void
 ConfigQml::UpdatePeriod(QString str){
     int period;

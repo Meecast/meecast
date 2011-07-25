@@ -172,6 +172,12 @@ ConfigQml::Stations()
     }
     return l;
 }
+int
+ConfigQml::StationsCount()
+{
+    Core::StationsList stationlist = ConfigQml::Config::stationsList();
+    return stationlist.size();
+}
 
 void
 ConfigQml::saveConfig()

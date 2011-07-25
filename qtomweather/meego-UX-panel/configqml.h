@@ -66,6 +66,7 @@ public slots:
     void WindSpeedUnit(QString text);
     QString WindSpeedUnit();
     QStringList Stations();
+    int StationsCount();
     void saveConfig();
 private:
     QHash<QString, int> period_hash;

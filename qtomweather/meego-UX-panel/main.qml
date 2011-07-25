@@ -283,11 +283,12 @@ Window {
                 anchors.fill: parent
                 ListView {
 		    id: stationlist
-                    height: parent.height - 100
+                    height: config.StationsCount() * 77
                     width: parent.width
                     model: config.Stations()
                     delegate:
                         Image {
+                            id: img
                             source: "image://theme/pulldown_box"
                             width: parent.width
 

@@ -68,8 +68,10 @@ public slots:
     QStringList Stations();
     int StationsCount();
     void saveConfig();
+    QStringList Sources();
+    QStringList Countries(QString source);
 private:
-    QHash<QString, int> period_hash;
+    Core::DatabaseSqlite *db;
 };
 
 #endif // CONFIGQML_H

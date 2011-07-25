@@ -31,6 +31,7 @@
 
 ConfigQml::ConfigQml() : QObject(), Core::Config(Core::AbstractConfig::getConfigPath()+"config.xml")
 {    
+    db = new Core::DatabaseSqlite("");
 }
 
 QStringList
@@ -183,4 +184,57 @@ void
 ConfigQml::saveConfig()
 {
     ConfigQml::Config::saveConfig();
+}
+QStringList
+ConfigQml::Sources()
+{
+    std::string path(Core::AbstractConfig::prefix);
+    path += Core::AbstractConfig::sourcesPath;
+    Core::SourceList *sourcelist = new Core::SourceList(path);
+    QStringList l;
+    for (int i=0; i<sourcelist->size(); i++){
+        l << QString::fromStdString(sourcelist->at(i)->name());
+    }
+    return l;
+}
+QStringList
+ConfigQml::Countries(QString source)
+{
+    QStringList l;
+    l << "111";
+    std::string path(Core::AbstractConfig::prefix);
+    path += Core::AbstractConfig::sharePath;
+    path += "db/";
+
+    if (source == "") return l;
+    QString filename(source);
+    filename.append(".db");
+    filename.prepend(path.c_str());
+    l << filename;
+    if (!this->db) {
+        this->db->set_databasename(filename.toStdString());
+    }else {
+        this->db->set_databasename(filename.toStdString());
+
+    }
+
+    l << "set database";
+    //return l;
+    if (!this->db->open_database()){
+        l << "error open db";
+        return l;
+    }
+    l << "open database";
+    return l;
+
+    Core::listdata * list = db->create_countries_list();
+    l << "create country";
+
+    Core::listdata::iterator cur;
+
+    if (!list)
+        return l;
+    for (cur=list->begin(); cur<list->end(); cur++)
+        l << QString::fromStdString((*cur).second) + QString::fromStdString((*cur).first);
+    return l;
 }

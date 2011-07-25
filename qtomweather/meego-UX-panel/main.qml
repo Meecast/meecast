@@ -209,8 +209,9 @@ Window {
                 showCancelButton: true
                 acceptButtonText: qsTr("OK")
                 cancelButtonText: qsTr("Cancel")
+                width: 800
                 content: Item {
-                    width: parent.width
+                    width: 800
                     height: parent.height
                     Column {
                         width: parent.width
@@ -223,22 +224,23 @@ Window {
                                 anchors.top: parent.top
                                 anchors.left: parent.left
                                 anchors.leftMargin: 10
-                                text: qsTr("Temperature Units")
+                                text: qsTr("Sources")
                                 width: 100
                                 height: parent.height
                                 verticalAlignment: Text.AlignVCenter
                             }
                             UX.DropDown {
+                                id: source
                                 anchors.right: parent.right
                                 anchors.rightMargin: 10
                                 anchors.verticalCenter: parent.verticalCenter
-                                title: config.TemperatureUnit()
-                                model: config.TemperatureUnits()
-                                width: 300
+                                //title: config.TemperatureUnit()
+                                model: config.Sources()
+                                width: 500
                                 titleColor: black
                                 replaceDropDownTitle: true
                                 onTriggered: {
-                                    config.TemperatureUnit(model[index])
+                                    country.model = config.Countries(model[index])
                                 }
                             }
                         }
@@ -250,22 +252,23 @@ Window {
                                 anchors.top: parent.top
                                 anchors.left: parent.left
                                 anchors.leftMargin: 10
-                                text: qsTr("Wind speed Units")
+                                text: qsTr("Countries")
                                 width: 100
                                 height: parent.height
                                 verticalAlignment: Text.AlignVCenter
                             }
                             UX.DropDown {
+                                id: country
                                 anchors.right: parent.right
                                 anchors.rightMargin: 10
                                 anchors.verticalCenter: parent.verticalCenter
-                                title: config.WindSpeedUnit()
-                                model: config.WindSpeedUnits()
-                                width: 300
+                                //title: config.WindSpeedUnit()
+                                model: config.Countries("gismeteo.ru")
+                                width: 600
                                 titleColor: black
                                 replaceDropDownTitle: true
                                 onTriggered: {
-                                    config.WindSpeedUnit(model[index])
+                                    //config.WindSpeedUnit(model[index])
                                 }
                             }
                         }

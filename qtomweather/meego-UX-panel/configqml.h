@@ -69,7 +69,10 @@ public slots:
     int StationsCount();
     void saveConfig();
     QStringList Sources();
-    QStringList Countries(QString source);
+    QStringList Countries(QString source, bool isKeys);
+    QStringList Regions(QString country, bool isKeys);
+    QStringList Cities(QString region, bool isKeys);
+    //void saveStation(QString city, QString region, QString country, QString source);
 private:
     Core::DatabaseSqlite *db;
 };

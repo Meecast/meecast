@@ -210,9 +210,10 @@ Window {
                 acceptButtonText: qsTr("OK")
                 cancelButtonText: qsTr("Cancel")
                 width: 800
+                height: 6 * 77
                 content: Item {
                     width: 800
-                    height: parent.height
+                    height: 6 * 77
                     Column {
                         width: parent.width
 
@@ -240,7 +241,9 @@ Window {
                                 titleColor: black
                                 replaceDropDownTitle: true
                                 onTriggered: {
-                                    country.model = config.Countries(model[index])
+                                    country.model = config.Countries(model[index], false);
+                                    country.payload = config.Countries(model[index], true);
+                                    country.title = "";
                                 }
                             }
                         }
@@ -263,12 +266,77 @@ Window {
                                 anchors.rightMargin: 10
                                 anchors.verticalCenter: parent.verticalCenter
                                 //title: config.WindSpeedUnit()
-                                model: config.Countries("gismeteo.ru")
-                                width: 600
+                                model: config.Countries(source.title, false)
+                                payload: config.Countries(source.title, true)
+                                width: 500
                                 titleColor: black
                                 replaceDropDownTitle: true
                                 onTriggered: {
-                                    //config.WindSpeedUnit(model[index])
+                                    region.model = config.Regions(payload[index], false);
+                                    region.payload = config.Regions(payload[index], true);
+                                    region.title = "";
+                                    //console.log(country.selectedItem+" "+country.selectedTitle);
+                                    //stationsPage.title = country.selectedIndex+" "+country.selectedTitle;
+                                }
+                            }
+                        }
+                        Image {
+                            source: "image://theme/pulldown_box"
+                            width: parent.width
+
+                            Text {
+                                anchors.top: parent.top
+                                anchors.left: parent.left
+                                anchors.leftMargin: 10
+                                text: qsTr("Region")
+                                width: 100
+                                height: parent.height
+                                verticalAlignment: Text.AlignVCenter
+                            }
+                            UX.DropDown {
+                                id: region
+                                anchors.right: parent.right
+                                anchors.rightMargin: 10
+                                anchors.verticalCenter: parent.verticalCenter
+                                //title: config.WindSpeedUnit()
+                                //model: config.Regions(country.payload, false)
+                                //payload: config.Regions(source.payload, true)
+                                width: 500
+                                titleColor: black
+                                replaceDropDownTitle: true
+                                onTriggered: {
+                                    city.model = config.Cities(payload[index], false);
+                                    city.payload = config.Cities(payload[index], true);
+                                    city.title = "";
+                                }
+                            }
+                        }
+                        Image {
+                            source: "image://theme/pulldown_box"
+                            width: parent.width
+
+                            Text {
+                                anchors.top: parent.top
+                                anchors.left: parent.left
+                                anchors.leftMargin: 10
+                                text: qsTr("City")
+                                width: 100
+                                height: parent.height
+                                verticalAlignment: Text.AlignVCenter
+                            }
+                            UX.DropDown {
+                                id: city
+                                anchors.right: parent.right
+                                anchors.rightMargin: 10
+                                anchors.verticalCenter: parent.verticalCenter
+                                //title: config.WindSpeedUnit()
+                                //model: config.Regions(country.payload, false)
+                                //payload: config.Regions(source.payload, true)
+                                width: 500
+                                titleColor: black
+                                replaceDropDownTitle: true
+                                onTriggered: {
+
                                 }
                             }
                         }
@@ -276,6 +344,7 @@ Window {
 
                 }
                 onAccepted: {
+
                 }
                 onRejected: {
                 }

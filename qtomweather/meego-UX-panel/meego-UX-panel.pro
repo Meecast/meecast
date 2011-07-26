@@ -9,7 +9,7 @@ TARGET = OmweatherPlugin
 TEMPLATE = lib
 
 CONFIG += qt plugin
-QT += declarative
+QT += declarative sql
 
 TEXTDOMAIN = "omweather"
 CATALOUGE  = omweather.por
@@ -32,8 +32,8 @@ OTHER_FILES += \
 
 INCLUDEPATH += ../core
 #LIBS += -L ../core -lomweather-core
-LIBS += -L ../core  ../core/libomweather-core.a
-
+LIBS += -L ../core  ../core/libomweather-core.a  
+LIBS += -lsqlite3
 
 #install
 target.path = /opt/com.meecast.omweather/lib/OmweatherPlugin

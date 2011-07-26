@@ -217,15 +217,14 @@ ConfigQml::Countries(QString source)
         this->db->set_databasename(filename.toStdString());
 
     }
-
     l << "set database";
-    //return l;
+
     if (!this->db->open_database()){
         l << "error open db";
         return l;
     }
     l << "open database";
-    return l;
+    //return l;
 
     Core::listdata * list = db->create_countries_list();
     l << "create country";

@@ -15,11 +15,13 @@ TEXTDOMAIN = "omweather"
 CATALOUGE  = omweather.por
 
 SOURCES += omweatherplugin.cpp \
-    configqml.cpp
+    configqml.cpp \
+    stationmodel.cpp
 
 HEADERS += \
     omweatherplugin.h \
-    configqml.h
+    configqml.h \
+    stationmodel.h
 
 FORMS    +=
 

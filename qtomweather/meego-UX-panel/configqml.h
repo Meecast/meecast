@@ -66,7 +66,7 @@ public slots:
     QStringList WindSpeedUnits();
     void WindSpeedUnit(QString text);
     QString WindSpeedUnit();
-    QStringList Stations();
+    QList<QObject*> Stations();
     int StationsCount();
     void saveConfig();
     QStringList Sources();

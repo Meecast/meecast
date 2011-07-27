@@ -46,7 +46,7 @@ Window {
                             title: config.TemperatureUnit()
                             model: config.TemperatureUnits()
                             width: 300
-                            titleColor: black
+                            titleColor: "black"
                             replaceDropDownTitle: true
                             onTriggered: {
                                 config.TemperatureUnit(model[index])
@@ -73,7 +73,7 @@ Window {
                             title: config.WindSpeedUnit()
                             model: config.WindSpeedUnits()
                             width: 300
-                            titleColor: black
+                            titleColor: "black"
                             replaceDropDownTitle: true
                             onTriggered: {
                                 config.WindSpeedUnit(model[index])
@@ -101,7 +101,7 @@ Window {
                             model: config.icons()
                             //model: ["meecast", "glance", "other"]
                             width: 300
-                            titleColor: black
+                            titleColor: "black"
                             replaceDropDownTitle: true
                             onTriggered: {
                                 //txt.text = payload[index] + " = " + data + " - " + model[index];
@@ -129,7 +129,7 @@ Window {
                             title: config.UpdatePeriod()
                             model: config.UpdatePeriods()
                             width: 300
-                            titleColor: black
+                            titleColor: "black"
                             replaceDropDownTitle: true
                             onTriggered: {
                                 //txt.text = payload[index] + " = " + data + " - " + model[index];
@@ -238,7 +238,7 @@ Window {
                                 //title: config.TemperatureUnit()
                                 model: config.Sources()
                                 width: 500
-                                titleColor: black
+                                titleColor: "black"
                                 replaceDropDownTitle: true
                                 onTriggered: {
                                     country.model = config.Countries(model[index], false);
@@ -276,7 +276,7 @@ Window {
                                 model: config.Countries(source.title, false)
                                 payload: config.Countries(source.title, true)
                                 width: 500
-                                titleColor: black
+                                titleColor: "black"
                                 replaceDropDownTitle: true
                                 onTriggered: {
                                     region.model = config.Regions(payload[index], false);
@@ -311,7 +311,7 @@ Window {
                                 //model: config.Regions(country.payload, false)
                                 //payload: config.Regions(source.payload, true)
                                 width: 500
-                                titleColor: black
+                                titleColor: "black"
                                 replaceDropDownTitle: true
                                 onTriggered: {
                                     city.model = config.Cities(payload[index], false);
@@ -343,7 +343,7 @@ Window {
                                 //model: config.Regions(country.payload, false)
                                 //payload: config.Regions(source.payload, true)
                                 width: 500
-                                titleColor: black
+                                titleColor: "black"
                                 replaceDropDownTitle: true
                                 onTriggered: {
 
@@ -387,7 +387,7 @@ Window {
                                 //anchors.top: parent.top
                                 anchors.left: parent.left
                                 anchors.leftMargin: 10
-                                text: modelData
+                                text: model.modelData.name
                                 width: 100
                                 height: parent.height
                                 verticalAlignment: Text.AlignVCenter
@@ -401,7 +401,8 @@ Window {
                                 anchors.rightMargin: 10
                                 text: qsTr("Delete")
                                 onClicked: {
-                                    config.removeStation(3);
+                                    config.removeStation(model.modelData.id);
+                                    stationlist.model = config.Stations();
                                 }
                             }
 

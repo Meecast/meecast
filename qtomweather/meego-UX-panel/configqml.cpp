@@ -28,6 +28,7 @@
 /*******************************************************************************/
 
 #include "configqml.h"
+#include "stationmodel.h"
 
 ConfigQml::ConfigQml() : QObject(), Core::Config(Core::AbstractConfig::getConfigPath()+"config.xml")
 {    
@@ -165,15 +166,15 @@ ConfigQml::WindSpeedUnit(QString c)
     ConfigQml::Config::WindSpeedUnit(c.toStdString());
 }
 
-QStringList
+QList<QObject*>
 ConfigQml::Stations()
 {
-    Core::StationsList::iterator cur;
-    QStringList l;
-    for (cur=stationlist->begin(); cur<stationlist->end(); cur++){
-        l << (*cur)->name().c_str();
+    QList<QObject*> st;
+    for (unsigned int i=0; i<stationlist->size(); i++){
+        st.append(new StationModel(QString::fromStdString(stationlist->at(i)->name()), i));
     }
-    return l;
+
+    return st;
 }
 int
 ConfigQml::StationsCount()
@@ -298,12 +299,14 @@ ConfigQml::saveStation(QString city_id, QString city_name, QString region, QStri
     station->converter(sourcelist->at(source_id)->binary());
 
     stationlist->push_back(station);
+    ConfigQml::Config::stationsList(*stationlist);
     ConfigQml::Config::saveConfig();
 }
 void
 ConfigQml::removeStation(int index)
 {
-    //stationlist->
+    stationlist->erase(stationlist->begin()+index);
+    ConfigQml::Config::stationsList(*stationlist);
     ConfigQml::Config::saveConfig();
 }
 

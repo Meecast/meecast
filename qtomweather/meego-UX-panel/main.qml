@@ -171,10 +171,17 @@ Window {
                             anchors.top: parent.top
                             anchors.left: parent.left
                             anchors.leftMargin: 10
-                            text: qsTr("Stations") + " >"
+                            text: qsTr("Stations")
                             width: 100
                             height: parent.height
                             verticalAlignment: Text.AlignVCenter
+                        }
+                        Image {
+                            anchors.right: parent.right
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.margins: 10
+                            source: "image://theme/settings/pulldown_arrow_up"
+                            transform: Rotation {angle: 90}
                         }
                         MouseArea {
                             anchors.fill: parent
@@ -185,13 +192,6 @@ Window {
 
                     }
 
-                    UX.Button{
-                        height: 40
-                        text: qsTr("Save")
-                        onClicked: {
-                            config.saveConfig();
-                        }
-                    }
                 }
             }
         }

@@ -80,6 +80,7 @@ ConfigQml::iconSet(){
 void
 ConfigQml::iconSet(QString c){
     ConfigQml::Config::iconSet(c.toStdString());
+    ConfigQml::Config::saveConfig();
 }
 QStringList
 ConfigQml::UpdatePeriods()
@@ -103,6 +104,7 @@ ConfigQml::UpdatePeriod(QString str){
     else if (str == "never")
         period = INT_MAX;
     ConfigQml::Config::UpdatePeriod(period);
+    ConfigQml::Config::saveConfig();
 }
 QString
 ConfigQml::UpdatePeriod(){
@@ -125,6 +127,7 @@ void
 ConfigQml::UpdateConnect(bool uc)
 {
     ConfigQml::Config::UpdateConnect(uc);
+    ConfigQml::Config::saveConfig();
 }
 bool
 ConfigQml::UpdateConnect()
@@ -147,6 +150,7 @@ void
 ConfigQml::TemperatureUnit(QString c)
 {
     ConfigQml::Config::TemperatureUnit(c.toStdString());
+    ConfigQml::Config::saveConfig();
 }
 QStringList
 ConfigQml::WindSpeedUnits()
@@ -164,6 +168,7 @@ void
 ConfigQml::WindSpeedUnit(QString c)
 {
     ConfigQml::Config::WindSpeedUnit(c.toStdString());
+    ConfigQml::Config::saveConfig();
 }
 
 QList<QObject*>

@@ -12,14 +12,13 @@ Rectangle {
 
     Timer {
         id: refreshTimer
-        interval: 1000
+        interval: (periodModel.count > 0) ? periodModel.get(0).period : 1000
         onTriggered: {
-            reload();
-            //xmlModel.reload();
-            //console.log(xmlModel.status);
-            //reload(false);
+            console.log("update");
+
         }
-        repeat: false
+        running: false
+        repeat: true
     }
 
 
@@ -33,6 +32,12 @@ Rectangle {
         color: "#202020"
         anchors.top: parent.top
 
+        Component.onCompleted: {
+            //refreshTimer.running = true;
+            //stationModel.reload();
+
+        }
+
         Text {
             id: station_name
             font.pointSize: 24
@@ -45,6 +50,8 @@ Rectangle {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
+                    console.log(stationModel.count);
+                    console.log(periodModel.count);
                     current_station++;
                     if (current_station >= stationModel.count)
                         current_station = 0;
@@ -130,7 +137,13 @@ Rectangle {
         clip: true
     }
 
+            XmlListModel {
+                id: periodModel
+                source: "../test/qmldata.xml    "
+                query: "/data/update1"
 
+                XmlRole {name: "period"; query: "period/number()"}
+            }
             // model with stantions
             XmlListModel {
                 id: stationModel

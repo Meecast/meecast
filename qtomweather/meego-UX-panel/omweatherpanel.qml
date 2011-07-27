@@ -89,8 +89,8 @@ FlipPanel {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                var ret = appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml");
-                                console.log("launch ret = " + ret);
+                                appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml");
+                                //console.log("launch ret = " + ret);
                                 stationModel.reload();
                                 xmlModel.reload();
                                 currentxmlModel.reload();
@@ -358,7 +358,15 @@ FlipPanel {
             }
         }
     } //component itemDelegate
+    XmlListModel {
+        id: periodModel
+        source: "/home/meego/.config/com.meecast.omweather/qmldata.xml"
+        query: "/data"
 
+        XmlRole {name: "period"; query: "update_period/number()"}
+    }
+    XmlListModel {
+    }
     XmlListModel {
         id: stationModel
         source: "/home/meego/.config/com.meecast.omweather/qmldata.xml"

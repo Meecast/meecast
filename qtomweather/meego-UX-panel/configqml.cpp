@@ -29,6 +29,7 @@
 
 #include "configqml.h"
 #include "stationmodel.h"
+#include <QProcess>
 
 ConfigQml::ConfigQml() : QObject(), Core::Config(Core::AbstractConfig::getConfigPath()+"config.xml")
 {    
@@ -80,7 +81,7 @@ ConfigQml::iconSet(){
 void
 ConfigQml::iconSet(QString c){
     ConfigQml::Config::iconSet(c.toStdString());
-    ConfigQml::Config::saveConfig();
+    saveConfig();
 }
 QStringList
 ConfigQml::UpdatePeriods()
@@ -104,7 +105,7 @@ ConfigQml::UpdatePeriod(QString str){
     else if (str == "never")
         period = INT_MAX;
     ConfigQml::Config::UpdatePeriod(period);
-    ConfigQml::Config::saveConfig();
+    saveConfig();
 }
 QString
 ConfigQml::UpdatePeriod(){
@@ -127,7 +128,7 @@ void
 ConfigQml::UpdateConnect(bool uc)
 {
     ConfigQml::Config::UpdateConnect(uc);
-    ConfigQml::Config::saveConfig();
+    saveConfig();
 }
 bool
 ConfigQml::UpdateConnect()
@@ -150,7 +151,7 @@ void
 ConfigQml::TemperatureUnit(QString c)
 {
     ConfigQml::Config::TemperatureUnit(c.toStdString());
-    ConfigQml::Config::saveConfig();
+    saveConfig();
 }
 QStringList
 ConfigQml::WindSpeedUnits()
@@ -168,7 +169,7 @@ void
 ConfigQml::WindSpeedUnit(QString c)
 {
     ConfigQml::Config::WindSpeedUnit(c.toStdString());
-    ConfigQml::Config::saveConfig();
+    saveConfig();
 }
 
 QList<QObject*>
@@ -191,6 +192,8 @@ void
 ConfigQml::saveConfig()
 {
     ConfigQml::Config::saveConfig();
+    //QProcess proc;
+    //proc.start("/opt/com.meecast.omweather/bin/xml-qml");
 }
 QStringList
 ConfigQml::Sources()
@@ -305,13 +308,13 @@ ConfigQml::saveStation(QString city_id, QString city_name, QString region, QStri
 
     stationlist->push_back(station);
     ConfigQml::Config::stationsList(*stationlist);
-    ConfigQml::Config::saveConfig();
+    saveConfig();
 }
 void
 ConfigQml::removeStation(int index)
 {
     stationlist->erase(stationlist->begin()+index);
     ConfigQml::Config::stationsList(*stationlist);
-    ConfigQml::Config::saveConfig();
+    saveConfig();
 }
 

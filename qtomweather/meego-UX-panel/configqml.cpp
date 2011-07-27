@@ -298,7 +298,12 @@ ConfigQml::saveStation(QString city_id, QString city_name, QString region, QStri
     station->converter(sourcelist->at(source_id)->binary());
 
     stationlist->push_back(station);
-    ConfigQml::Config::stationsList(*stationlist);
+    ConfigQml::Config::saveConfig();
+}
+void
+ConfigQml::removeStation(int index)
+{
+    //stationlist->
     ConfigQml::Config::saveConfig();
 }
 

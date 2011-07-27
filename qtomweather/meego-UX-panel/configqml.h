@@ -74,6 +74,7 @@ public slots:
     QStringList Regions(QString country, bool isKeys);
     QStringList Cities(QString region, bool isKeys);
     void saveStation(QString city_id, QString city_name, QString region, QString country, QString source, int source_id);
+    void removeStation(int index);
 private:
     Core::DatabaseSqlite *db;
     Core::StationsList *stationlist;

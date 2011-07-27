@@ -352,7 +352,7 @@ Window {
                                        country.selectedTitle,
                                        source.selectedTitle,
                                        source.selectedIndex);
-                    //stationlist.model.reload();
+                    stationlist.model = config.Stations();
                 }
                 onRejected: {
                 }
@@ -391,7 +391,7 @@ Window {
                                 anchors.rightMargin: 10
                                 text: qsTr("Delete")
                                 onClicked: {
-                                        //but.text = config.Stations().size()
+                                    config.removeStation(3);
                                 }
                             }
 

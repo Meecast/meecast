@@ -202,6 +202,15 @@ Window {
             id: stationsPage
 	    title: qsTr("OMWeather Stations Settings")
 
+            menuContent: UX.ActionMenu {
+                id: actions
+                model: [qsTr("Add new station")]
+                onTriggered: {
+                    newstation.show();
+                    stationsPage.closeMenu();
+                }
+            }
+
             UX.ModalDialog {
                 id: newstation
                 title: qsTr("New Station")
@@ -373,7 +382,7 @@ Window {
                 anchors.fill: parent
                 ListView {
 		    id: stationlist
-                    height: config.StationsCount() * 77
+                    height: config.StationsCount() * 77 + 5
                     width: parent.width
                     model: config.Stations()
                     delegate:
@@ -403,20 +412,14 @@ Window {
                                 onClicked: {
                                     config.removeStation(model.modelData.id);
                                     stationlist.model = config.Stations();
+                                    stationlist.height = config.StationsCount() * 77 + 5;
                                 }
                             }
 
                         }
 
                 }
-                UX.Button {
-                    //height: 40
-                    anchors.top: stationlist.bottom
-                    text: qsTr("Add new station")
-                    onClicked: {
-                        newstation.show();
-                    }
-                }
+
             }
         }
     }

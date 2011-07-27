@@ -13,6 +13,8 @@ FlipPanel {
     }
     
     Config {id: config}
+    
+    
 
     front: SimplePanel {
         id: frontPanel
@@ -27,7 +29,19 @@ FlipPanel {
             }
             contentHeight: frontItemOmweather.height
             clip: true
-
+            Timer {
+                id: refreshTimer
+                interval: updateModel.get(0).period * 1000
+                onTriggered: {
+                    appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml");
+                    stationModel.reload();
+                    xmlModel.reload();
+                    currentxmlModel.reload();
+                    refreshModel.reload();
+                }
+                running: true
+                repeat: true
+            }
             property int current_station: 0;
             Item {
                 id: frontItemOmweather
@@ -76,6 +90,7 @@ FlipPanel {
                                 xmlModel.reload();
                                 currentxmlModel.query = "/data/station[@id='"+stationModel.get(current_station).id+"']/item[@current='true']";
                                 currentxmlModel.reload();
+                                //refreshTimer.running = true;
                             }
                         }
                     }
@@ -89,8 +104,8 @@ FlipPanel {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml");
-                                //console.log("launch ret = " + ret);
+                                var ret = appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml");
+                                console.log("launch ret = " + ret);
                                 stationModel.reload();
                                 xmlModel.reload();
                                 currentxmlModel.reload();
@@ -358,15 +373,7 @@ FlipPanel {
             }
         }
     } //component itemDelegate
-    XmlListModel {
-        id: periodModel
-        source: "/home/meego/.config/com.meecast.omweather/qmldata.xml"
-        query: "/data"
 
-        XmlRole {name: "period"; query: "update_period/number()"}
-    }
-    XmlListModel {
-    }
     XmlListModel {
         id: stationModel
         source: "/home/meego/.config/com.meecast.omweather/qmldata.xml"
@@ -374,6 +381,14 @@ FlipPanel {
 
         XmlRole {name:  "id"; query: "@id/string()"}
         XmlRole {name:  "name"; query: "@name/string()"}
+
+    }
+    XmlListModel {
+        id: updateModel
+        source: "/home/meego/.config/com.meecast.omweather/qmldata.xml"
+        query: "/data/update"
+
+        XmlRole {name:  "period"; query: "period/number()"}
 
     }
     XmlListModel {

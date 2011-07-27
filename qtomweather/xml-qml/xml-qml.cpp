@@ -238,6 +238,14 @@ main (int argc, char *argv[])
   QDomElement root = doc.createElement("data");
   doc.appendChild(root);
 
+  QDomElement el1 = doc.createElement("update");
+  QDomElement el = doc.createElement("period");
+  QDomText t = doc.createTextNode(QString::number(config->UpdatePeriod()));
+  el.appendChild(t);
+  el1.appendChild(el);
+  root.appendChild(el1);
+
+
   Core::StationsList::iterator cur;
   for (cur=config->stationsList().begin(); cur<config->stationsList().end(); cur++){
       std::cerr << (*cur)->fileName() << " " << (*cur)->name() << std::endl;

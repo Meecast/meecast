@@ -10,7 +10,7 @@
  
 Name:       com.meecast.omweather
 Summary:    Weather for Meego
-Version:    0.3.22
+Version:    0.3.23
 Release:    1
 Group:      Utility
 License:    GPLv2.1
@@ -122,8 +122,10 @@ rm %{buildroot}/opt/com.meecast.omweather/lib/libomweather-core.a
 %endif
 /usr/share
 %changelog
-* Mon Jul 11 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.22
+* Mon Aug 01 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.23
   * began support Tabblet UX
+* Thu Jul 26 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.22
+  * fixed desktop file
 * Sun Jul 03 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.21
   * Adapted for Meego 1.2
   * Fixed probem with night information

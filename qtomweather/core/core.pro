@@ -63,7 +63,7 @@ HEADERS = \
 
 
 #installs
-desktop.files = data/desktop/omweather.desktop
+desktop.files = data/desktop/omweather-settings.desktop
 desktop.path = /usr/share/applications
 
 icon.files = data/desktop/Icon/omweather.png

@@ -32,6 +32,12 @@
 ConfigQml::ConfigQml() : QObject(), Core::Config(Core::AbstractConfig::getConfigPath()+"config.xml")
 {    
     db = new Core::DatabaseSqlite("");
+    stationlist = new Core::StationsList;
+    *stationlist = ConfigQml::Config::stationsList();
+}
+ConfigQml::~ConfigQml(){
+    delete db;
+    delete stationlist;
 }
 
 QStringList
@@ -40,7 +46,6 @@ ConfigQml::icons()
     QStringList icons;
     Dirent *dp = 0;
     DIR *dir_fd = opendir((Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath).c_str());
-    int i = 0;
     if(dir_fd){
         while((dp = readdir(dir_fd))){
             std::string name = dp->d_name;
@@ -85,7 +90,7 @@ ConfigQml::UpdatePeriods()
 
 void
 ConfigQml::UpdatePeriod(QString str){
-    int period;
+    int period = INT_MAX;
     if (str == "2 hour")
         period = 2*60*60;
     else if (str == "1 hour")
@@ -163,12 +168,9 @@ ConfigQml::WindSpeedUnit(QString c)
 QStringList
 ConfigQml::Stations()
 {
-    //Core::StationsList *stationlist = new Core::StationList;
-    Core::StationsList stationlist = ConfigQml::Config::stationsList();
     Core::StationsList::iterator cur;
     QStringList l;
-    for (cur=stationlist.begin(); cur<stationlist.end(); cur++){
-        //l << (*cur)->name() + " (" + (*cur)->id() + ")";
+    for (cur=stationlist->begin(); cur<stationlist->end(); cur++){
         l << (*cur)->name().c_str();
     }
     return l;
@@ -176,8 +178,7 @@ ConfigQml::Stations()
 int
 ConfigQml::StationsCount()
 {
-    Core::StationsList stationlist = ConfigQml::Config::stationsList();
-    return stationlist.size();
+    return stationlist->size();
 }
 
 void
@@ -192,7 +193,7 @@ ConfigQml::Sources()
     path += Core::AbstractConfig::sourcesPath;
     Core::SourceList *sourcelist = new Core::SourceList(path);
     QStringList l;
-    for (int i=0; i<sourcelist->size(); i++){
+    for (unsigned int i=0; i<sourcelist->size(); i++){
         l << QString::fromStdString(sourcelist->at(i)->name());
     }
     return l;
@@ -267,33 +268,37 @@ ConfigQml::Cities(QString region, bool isKeys)
         else l << QString::fromStdString((*cur).second);
     return l;
 }
-/*
+
 void
-ConfigQml::saveStation(QString city, QString region, QString country, QString source)
+ConfigQml::saveStation(QString city_id, QString city_name, QString region, QString country, QString source, int source_id)
 {
-    std::string code = city.toStdString();
-    int index = source.toInt();
+    Core::Station *station;
+    std::string code = city_id.toStdString();
 
     std::string path(Core::AbstractConfig::prefix);
     path += Core::AbstractConfig::sourcesPath;
     Core::SourceList *sourcelist = new Core::SourceList(path);
 
-    std::string url_template = sourcelist->at(index)->url_template();
+    std::string url_template = sourcelist->at(source_id)->url_template();
 
     char forecast_url[4096];
     snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), code.c_str());
     station = new Core::Station(
-                ui->sourceCombo->currentText().toStdString(),
+                source.toStdString(),
                 code,
-                ui->cityCombo->currentText().toStdString(),
-                ui->countryCombo->currentText().toStdString(),
-                ui->regionCombo->currentText().toStdString(),
+                city_name.toStdString(),
+                country.toStdString(),
+                region.toStdString(),
                 forecast_url);
     std::string filename(Core::AbstractConfig::getConfigPath());
-    filename += ui->sourceCombo->currentText().toStdString();
+    filename += source.toStdString();
     filename += "_";
     filename += code;
     station->fileName(filename);
-    station->converter(sourcelist->at(index)->binary());
+    station->converter(sourcelist->at(source_id)->binary());
+
+    stationlist->push_back(station);
+    ConfigQml::Config::stationsList(*stationlist);
+    ConfigQml::Config::saveConfig();
 }
-*/
+

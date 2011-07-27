@@ -344,7 +344,15 @@ Window {
 
                 }
                 onAccepted: {
-
+                    //console.log(source.selectedIndex + " " + source.selectedTitle);
+                    //console.log(city.selectedIndex + " " + city.selectedTitle + " " + city.payload[city.selectedIndex]);
+                    config.saveStation(city.payload[city.selectedIndex],
+                                       city.selectedTitle,
+                                       region.selectedTitle,
+                                       country.selectedTitle,
+                                       source.selectedTitle,
+                                       source.selectedIndex);
+                    //stationlist.model.reload();
                 }
                 onRejected: {
                 }

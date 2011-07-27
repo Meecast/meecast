@@ -243,7 +243,14 @@ Window {
                                 onTriggered: {
                                     country.model = config.Countries(model[index], false);
                                     country.payload = config.Countries(model[index], true);
-                                    country.title = "";
+                                    country.selectedIndex = -1;
+                                    country.selectedTitle = "";
+                                    region.selectedIndex = -1;
+                                    region.selectedTitle = "";
+                                    region.model = "";
+                                    city.selectedIndex = -1;
+                                    city.selectedTitle = "";
+                                    city.model = "";
                                 }
                             }
                         }
@@ -274,9 +281,11 @@ Window {
                                 onTriggered: {
                                     region.model = config.Regions(payload[index], false);
                                     region.payload = config.Regions(payload[index], true);
-                                    region.title = "";
-                                    //console.log(country.selectedItem+" "+country.selectedTitle);
-                                    //stationsPage.title = country.selectedIndex+" "+country.selectedTitle;
+                                    region.selectedIndex = -1;
+                                    region.selectedTitle = "";
+                                    city.selectedIndex = -1;
+                                    city.selectedTitle = "";
+                                    city.model = "";
                                 }
                             }
                         }
@@ -307,7 +316,8 @@ Window {
                                 onTriggered: {
                                     city.model = config.Cities(payload[index], false);
                                     city.payload = config.Cities(payload[index], true);
-                                    city.title = "";
+                                    city.selectedIndex = -1;
+                                    city.selectedTitle = "";
                                 }
                             }
                         }

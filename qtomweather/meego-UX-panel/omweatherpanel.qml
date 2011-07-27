@@ -408,17 +408,18 @@ FlipPanel {
     }
     Component {
         id: backPanelContent
-        Text {
-            anchors.fill: parent
-            text: "settings"
-
-            MouseArea {
-                anchors.fill: parent
+        Item {
+            anchors.top: parent.top
+            width: parent.width
+            height: 60
+            Button {
+                text: qsTr("OMWeather Settings")
                 onClicked: {
                     appsModel.launch("meego-qml-launcher --opengl --fullscreen --app omweather-settings --cmd showPage");
                     //qApp.launchDesktopByName("/usr/share/meego-ux-appgrid/applications/omweather-settings.desktop")
                 }
             }
         }
+
     }
 }

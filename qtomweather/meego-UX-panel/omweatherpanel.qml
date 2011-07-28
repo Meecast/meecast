@@ -31,13 +31,17 @@ FlipPanel {
             clip: true
             Timer {
                 id: refreshTimer
-                interval: updateModel.get(0).period * 1000
+                interval: updateModel.get(0).period
                 onTriggered: {
                     appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml");
                     stationModel.reload();
                     xmlModel.reload();
                     currentxmlModel.reload();
-                    refreshModel.reload();
+                    updateModel.reload();
+                    //var str = "interval" + refreshTimer.interval + " ("+updateModel.get(0).period+")";
+                    refreshTimer.interval = updateModel.get(0).period;
+                    //str = str + refreshTimer.interval;
+                    //station_name.text = str;
                 }
                 running: true
                 repeat: true

@@ -225,12 +225,12 @@ main (int argc, char *argv[])
   translate_hash = hash_table_create();
 
   /*update weather forecast*/
-  /*
+
   for (i=0; i < config->stationsList().size();i++){
       if (config->stationsList().at(i)->updateData(true)){
           success ++;
       }
-  }*/
+  }
 
   QDomDocument doc;
   QDomElement station;
@@ -240,7 +240,7 @@ main (int argc, char *argv[])
 
   QDomElement el1 = doc.createElement("update");
   QDomElement el = doc.createElement("period");
-  QDomText t = doc.createTextNode(QString::number(config->UpdatePeriod()));
+  QDomText t = doc.createTextNode(QString::number(config->UpdatePeriod()*1000));
   el.appendChild(t);
   el1.appendChild(el);
   root.appendChild(el1);

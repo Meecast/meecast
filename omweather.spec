@@ -97,7 +97,7 @@ rm %{buildroot}/opt/com.meecast.omweather/lib/libomweather-core.a
 /opt/com.meecast.omweather/bin
 /opt/com.meecast.omweather/bin/omweather-settings
 #%if %{wantmeegopanel}
-/opt/com.meecast.omweather/bin/omweather-qml
+#/opt/com.meecast.omweather/bin/omweather-qml
 #/opt/com.meecast.omweather/bin/omweather-settouch
 #%endif
 /opt/com.meecast.omweather/share
@@ -109,6 +109,7 @@ rm %{buildroot}/opt/com.meecast.omweather/lib/libomweather-core.a
 #/usr/share/omweather/sources/weather.com.xml
 # >> files
 %if  %{wantmeegopanel}
+/usr/share/omweather-settings
 /opt/com.meecast.omweather/libexec
 /opt/com.meecast.omweather/libexec/meego-panel-omweather
 #/usr/share/meego-panel-omweather

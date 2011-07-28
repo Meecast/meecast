@@ -63,8 +63,8 @@ HEADERS = \
 
 
 #installs
-desktop.files = data/desktop/omweather-settings.desktop
-desktop.path = /usr/share/applications
+#desktop.files = data/desktop/omweather-settings.desktop
+#desktop.path = /usr/share/applications
 
 icon.files = data/desktop/Icon/omweather.png
 icon.path = /usr/share/icons/
@@ -101,6 +101,6 @@ images.files += data/images/*.png
 alib.files = libomweather-core.a
 alib.path = /opt/com.meecast.omweather/lib
 
-INSTALLS += target data xsd buttonicons images alib icon icon50 icon255 icon16 icon32 icon64 icon128 desktop
+INSTALLS += target data xsd buttonicons images alib icon icon50 icon255 icon16 icon32 icon64 icon128
 QMAKE_CLEAN += lib$$TARGET* \
     *.pro.user

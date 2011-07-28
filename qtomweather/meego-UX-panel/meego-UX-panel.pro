@@ -42,9 +42,14 @@ target.path = /opt/com.meecast.omweather/lib/OmweatherPlugin
 
 panel.files = data/omweather.panel
 panel.path = /usr/share/meego-ux-panels/panels
+desktop.files = data/omweather-settings.desktop
+desktop.path = /usr/share/applications
 qml.files = omweatherpanel.qml
 qml.path = /opt/com.meecast.omweather/share/omweather/qml
 qmldir.files = qmldir
 qmldir.path = /opt/com.meecast.omweather/lib/OmweatherPlugin
+settings.files = main.qml
+settings.path = /usr/share/omweather-settings
 
-INSTALLS += panel qml target qmldir
+INSTALLS += panel qml target qmldir settings desktop
+

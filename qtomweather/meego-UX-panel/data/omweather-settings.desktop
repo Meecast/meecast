@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=OMWeather Settings
+Icon=omweather
+Exec=meego-qml-launcher --opengl --fullscreen --app omweather-settings
+#Exec=meego-qml-launcher --opengl --fullscreen --app ../../opt/com.meecast.omweather/share/omweather-settings
+#Exec=qmlviewer /usr/share/omweather-settings/main.qml

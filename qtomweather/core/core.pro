@@ -75,6 +75,9 @@ icon50.path = /opt/com.meecast.omweather/share/icons/
 icon255.files = data/desktop/Icon/omweather255.png
 icon255.path = /opt/com.meecast.omweather/share/icons/
 
+iconpanel.files = data/desktop/Icon/pnl_icn_omweather.png
+iconpanel.path = /opt/com.meecast.omweather/share/icons/
+
 icon16.files = data/desktop/Icon/16/omweather.png
 icon16.path = /usr/share/icons/hicolor/16x16/apps/
 
@@ -101,6 +104,6 @@ images.files += data/images/*.png
 alib.files = libomweather-core.a
 alib.path = /opt/com.meecast.omweather/lib
 
-INSTALLS += target data xsd buttonicons images alib icon icon50 icon255 icon16 icon32 icon64 icon128
+INSTALLS += target data xsd buttonicons images alib icon icon50 icon255 icon16 icon32 icon64 icon128 iconpanel
 QMAKE_CLEAN += lib$$TARGET* \
     *.pro.user

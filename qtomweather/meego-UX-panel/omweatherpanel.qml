@@ -13,7 +13,8 @@ FlipPanel {
     }
     
     Config {id: config}
-    
+
+		
     
 
     front: SimplePanel {
@@ -47,11 +48,20 @@ FlipPanel {
                 running: true
                 repeat: true
             }
+            Connections {
+        	    target: config
+        	    onConfigChanged: {
+			station_name.text += " 9";
+                            	    }
+                                }
+
             property int current_station: 0;
             Item {
                 id: frontItemOmweather
                 width: parent.width
 		height: rect1.height + rect2.height + list.height
+
+
                 /*
                 Loader {
                     id: uiloader
@@ -443,7 +453,7 @@ FlipPanel {
             Button {
                 text: qsTr("OMWeather Settings")
                 onClicked: {
-                    appsModel.launch("meego-qml-launcher --opengl --fullscreen --app omweather-settings --cmd showPage");
+                    appsModel.launch("meego-qml-launcher --opengl --fullscreen --app omweather-settings");
                     //qApp.launchDesktopByName("/usr/share/meego-ux-appgrid/applications/omweather-settings.desktop")
                 }
             }

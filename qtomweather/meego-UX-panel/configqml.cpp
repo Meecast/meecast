@@ -31,15 +31,31 @@
 #include "stationmodel.h"
 #include <QProcess>
 
+#include "omweatherintf.h"
+#include "omweatheradaptor.h"
+
 ConfigQml::ConfigQml() : QObject(), Core::Config(Core::AbstractConfig::getConfigPath()+"config.xml")
 {    
     db = new Core::DatabaseSqlite("");
     stationlist = new Core::StationsList;
     *stationlist = ConfigQml::Config::stationsList();
+
+    new OmweatherAdaptor(this);
+    QDBusConnection::sessionBus().registerObject("/", this);
+
+    com::meecast::omweather *iface;
+    iface = new com::meecast::omweather(QString(), QString(), QDBusConnection::sessionBus(), this);
+    QDBusConnection::sessionBus().connect(QString(), QString(), "com.meecast.omweather", "change", this, SLOT(changeSlot()));
 }
 ConfigQml::~ConfigQml(){
     delete db;
     delete stationlist;
+}
+
+void
+ConfigQml::changeSlot()
+{
+    emit configChanged();
 }
 
 QStringList
@@ -192,6 +208,8 @@ void
 ConfigQml::saveConfig()
 {
     ConfigQml::Config::saveConfig();
+    //emit configChanged();
+    emit change();
     //QProcess proc;
     //proc.start("/opt/com.meecast.omweather/bin/xml-qml");
 }

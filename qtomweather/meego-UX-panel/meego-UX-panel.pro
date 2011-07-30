@@ -16,12 +16,16 @@ CATALOUGE  = omweather.por
 
 SOURCES += omweatherplugin.cpp \
     configqml.cpp \
-    stationmodel.cpp
+    stationmodel.cpp \ 
+    omweatherintf.cpp \
+    omweatheradaptor.cpp
 
 HEADERS += \
     omweatherplugin.h \
     configqml.h \
-    stationmodel.h
+    stationmodel.h \
+    omweatherintf.h \
+    omweatheradaptor.h
 
 FORMS    +=
 

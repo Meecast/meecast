@@ -33,6 +33,7 @@
 #include <QObject>
 #include "core.h"
 #include <QStringList>
+#include <QtDBus/QtDBus>
 
 #if defined (BSD) && !_POSIX_SOURCE
     #include <sys/dir.h>
@@ -50,6 +51,10 @@ class ConfigQml : public QObject, public Core::Config
 public:
     explicit ConfigQml();
     ~ConfigQml();
+Q_SIGNALS:
+    void change();
+signals:
+    void configChanged();
 
 public slots:
     QStringList icons();
@@ -78,6 +83,8 @@ public slots:
 private:
     Core::DatabaseSqlite *db;
     Core::StationsList *stationlist;
+private slots:
+    void changeSlot();
 };
 
 #endif // CONFIGQML_H

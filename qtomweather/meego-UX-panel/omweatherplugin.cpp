@@ -29,10 +29,12 @@
 
 #include "omweatherplugin.h"
 #include "configqml.h"
+#include "updateqml.h"
 
 void OmweatherPlugin::registerTypes(const char *uri)
 {
     qmlRegisterType<ConfigQml>(uri, 0, 1, "Config");
+    qmlRegisterType<UpdateQml>(uri, 0, 1, "Updater");
 }
 
 void OmweatherPlugin::initializeEngine(QDeclarativeEngine *engine, const char *uri)

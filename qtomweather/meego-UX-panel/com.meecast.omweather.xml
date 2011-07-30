@@ -2,6 +2,7 @@
  "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node>
     <interface name="com.meecast.omweather">
-        <signal name="change"></signal>
+        <signal name="configChange"></signal>
+        <signal name="reload"></signal>
     </interface>
 </node>

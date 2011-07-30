@@ -18,14 +18,16 @@ SOURCES += omweatherplugin.cpp \
     configqml.cpp \
     stationmodel.cpp \ 
     omweatherintf.cpp \
-    omweatheradaptor.cpp
+    omweatheradaptor.cpp \
+    updateqml.cpp
 
 HEADERS += \
     omweatherplugin.h \
     configqml.h \
     stationmodel.h \
     omweatherintf.h \
-    omweatheradaptor.h
+    omweatheradaptor.h \
+    updateqml.h
 
 FORMS    +=
 
@@ -56,4 +58,3 @@ settings.files = main.qml
 settings.path = /usr/share/omweather-settings
 
 INSTALLS += panel qml target qmldir settings desktop
-

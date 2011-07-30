@@ -12,7 +12,7 @@ FlipPanel {
         catalog: "meego-ux-panels-omweather"
     }
     
-    Config {id: config}
+    Updater {id: updater}
 
     front: SimplePanel {
         id: frontPanel
@@ -33,7 +33,7 @@ FlipPanel {
                 interval: updateModel.get(0).period
                 onTriggered: {
                     //appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml");
-                    //config.makeQmlData(true);
+                    //updater.makeQmlData(true);
                     stationModel.reload();
                     xmlModel.reload();
                     currentxmlModel.reload();
@@ -45,8 +45,8 @@ FlipPanel {
             }
 
             Connections {
-                target: config
-                onConfigChanged: {
+                target: updater
+                onReload: {
                     station_name.text += " 9";
                     stationModel.reload();
                     xmlModel.reload();
@@ -132,7 +132,7 @@ FlipPanel {
                             onClicked: {
                                 station_name.text = "start update";
                                 anim_refresh.running = true;
-                                config.makeQmlData(true);
+                                updater.makeQmlData(true);
                             }
                         }
                     }

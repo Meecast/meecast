@@ -27,8 +27,8 @@
 */
 /*******************************************************************************/
 
-#ifndef CONFIGQML_H
-#define CONFIGQML_H
+#ifndef UPDATEQML_H
+#define UPDATEQML_H
 
 #include <QObject>
 #include "core.h"
@@ -44,45 +44,25 @@
     typedef struct dirent Dirent;
 #endif
 
-
-class ConfigQml : public QObject, public Core::Config
+class UpdateQml : public QObject
 {
     Q_OBJECT
 public:
-    explicit ConfigQml();
-    ~ConfigQml();
+    explicit UpdateQml();
+    ~UpdateQml();
 
-Q_SIGNALS:
+signals:
     void configChange();
+    void reload();
 
 public slots:
-    QStringList icons();
-    QString iconSet();
-    void iconSet(QString c);
-    QStringList UpdatePeriods();
-    void UpdatePeriod(QString str);
-    QString UpdatePeriod();
-    void UpdateConnect(bool uc);
-    bool UpdateConnect();
-    QStringList TemperatureUnits();
-    void TemperatureUnit(QString text);
-    QString TemperatureUnit();
-    QStringList WindSpeedUnits();
-    void WindSpeedUnit(QString text);
-    QString WindSpeedUnit();
-    QList<QObject*> Stations();
-    int StationsCount();
-    void saveConfig();
-    QStringList Sources();
-    QStringList Countries(QString source, bool isKeys);
-    QStringList Regions(QString country, bool isKeys);
-    QStringList Cities(QString region, bool isKeys);
-    void saveStation(QString city_id, QString city_name, QString region, QString country, QString source, int source_id);
-    void removeStation(int index);
+    void makeQmlData(bool isDownload);
 private:
-    Core::DatabaseSqlite *db;
-    Core::StationsList *stationlist;
-
+    Core::Config *config;
+    QDomElement make_item(QDomDocument doc, Core::Data *data, int num, bool current);
+    Core::DataParser* current_data(std::string& str);
+private slots:
+    void configChangeSlot();
 };
 
-#endif // CONFIGQML_H
+#endif // UPDATEQML_H

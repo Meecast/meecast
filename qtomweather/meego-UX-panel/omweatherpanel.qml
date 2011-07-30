@@ -14,9 +14,6 @@ FlipPanel {
     
     Config {id: config}
 
-		
-    
-
     front: SimplePanel {
         id: frontPanel
         panelTitle: qsTr("OMWeather")
@@ -35,25 +32,30 @@ FlipPanel {
                 id: refreshTimer
                 interval: updateModel.get(0).period
                 onTriggered: {
-                    appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml");
+                    //appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml");
+                    //config.makeQmlData(true);
                     stationModel.reload();
                     xmlModel.reload();
                     currentxmlModel.reload();
                     updateModel.reload();
-                    //var str = "interval" + refreshTimer.interval + " ("+updateModel.get(0).period+")";
                     refreshTimer.interval = updateModel.get(0).period;
-                    //str = str + refreshTimer.interval;
-                    //station_name.text = str;
                 }
                 running: true
                 repeat: true
             }
+
             Connections {
-        	    target: config
-        	    onConfigChanged: {
-			station_name.text += " 9";
-                            	    }
-                                }
+                target: config
+                onConfigChanged: {
+                    station_name.text += " 9";
+                    stationModel.reload();
+                    xmlModel.reload();
+                    currentxmlModel.reload();
+                    updateModel.reload();
+                    refreshTimer.interval = updateModel.get(0).period;
+                    if (anim_refresh.running) anim_refresh.running = false;
+                }
+            }
 
             property int current_station: 0;
             Item {
@@ -116,14 +118,21 @@ FlipPanel {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
 
+                        RotationAnimation on rotation {
+                            id: anim_refresh
+                            loops: Animation.Infinite
+                            from: 0
+                            to: 360
+                            duration: 2000
+                            running: false
+                        }
+
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                var ret = appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml");
-                                console.log("launch ret = " + ret);
-                                stationModel.reload();
-                                xmlModel.reload();
-                                currentxmlModel.reload();
+                                station_name.text = "start update";
+                                anim_refresh.running = true;
+                                config.makeQmlData(true);
                             }
                         }
                     }

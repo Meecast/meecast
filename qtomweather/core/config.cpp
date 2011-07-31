@@ -250,7 +250,7 @@ namespace Core{
                 }
 /* Hack for yr.no */
                 if  (source_name=="yr.no")
-                    forecastURL.replace("_","/");
+                    forecastURL.replace("#","/");
                 Station *st = new Station(source_name.toStdString(),
                                           station_id.toStdString(),
                                           station_name.toStdString(),

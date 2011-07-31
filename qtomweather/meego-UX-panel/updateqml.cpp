@@ -126,13 +126,11 @@ UpdateQml::makeQmlData(bool isDownload)
     Core::StationsList::iterator cur;
     for (cur=config->stationsList().begin(); cur<config->stationsList().end(); cur++){
         qDebug() <<"111 add station "<< QString::fromStdString((*cur)->fileName()) << " " << QString::fromStdString((*cur)->name());
+        station = doc.createElement("station");
+        station.setAttribute("name", QString::fromStdString((*cur)->name()));
+        station.setAttribute("id", QString::fromStdString((*cur)->id()));
         dp = current_data((*cur)->fileName());
-
         if (dp){
-            station = doc.createElement("station");
-            station.setAttribute("name", QString::fromStdString((*cur)->name()));
-            station.setAttribute("id", QString::fromStdString((*cur)->id()));
-
             current_day = time(NULL);
             tm = localtime(&current_day);
             year = 1900 + tm->tm_year;
@@ -150,9 +148,9 @@ UpdateQml::makeQmlData(bool isDownload)
                 num++;
             }
             
-            root.appendChild(station);
-        }
 
+        }
+        root.appendChild(station);
     }
     
     QFile file(QString::fromStdString(Core::AbstractConfig::getConfigPath() + "qmldata.xml"));

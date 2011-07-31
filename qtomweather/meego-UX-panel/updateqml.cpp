@@ -81,7 +81,7 @@ UpdateQml::makeQmlData(bool isDownload)
     int year, current_month;
     int i, num = 0;
 
-    //config->ReLoadConfig();
+    config->ReLoadConfig();
     //config->saveConfig();
 
     if (isDownload){
@@ -183,7 +183,7 @@ UpdateQml::make_item(QDomDocument doc, Core::Data *data, int num, bool current)
     if (data->temperature_hi().value() != INT_MAX){
         QDomElement el = doc.createElement("temperature_hi");
         data->temperature_hi().units(config->TemperatureUnit());
-        QDomText t = doc.createTextNode(QString::number(data->temperature_hi().value()) + "°" +
+        QDomText t = doc.createTextNode(QString::number(data->temperature_hi().value()) +
                                         QString::fromStdString(config->TemperatureUnit()));
         el.appendChild(t);
         item.appendChild(el);
@@ -191,7 +191,7 @@ UpdateQml::make_item(QDomDocument doc, Core::Data *data, int num, bool current)
     if (data->temperature_low().value() != INT_MAX){
         QDomElement el = doc.createElement("temperature_low");
         data->temperature_low().units(config->TemperatureUnit());
-        QDomText t = doc.createTextNode(QString::number(data->temperature_low().value()) + "°" +
+        QDomText t = doc.createTextNode(QString::number(data->temperature_low().value()) +
                                         QString::fromStdString(config->TemperatureUnit()));
         el.appendChild(t);
         item.appendChild(el);
@@ -199,7 +199,7 @@ UpdateQml::make_item(QDomDocument doc, Core::Data *data, int num, bool current)
     if (data->temperature().value() != INT_MAX){
         QDomElement el = doc.createElement("temperature");
         data->temperature().units(config->TemperatureUnit());
-        QDomText t = doc.createTextNode(QString::number(data->temperature().value()) + "°" +
+        QDomText t = doc.createTextNode(QString::number(data->temperature().value()) +
                                         QString::fromStdString(config->TemperatureUnit()));
         el.appendChild(t);
         item.appendChild(el);

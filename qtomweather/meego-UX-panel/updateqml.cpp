@@ -51,12 +51,14 @@ UpdateQml::UpdateQml() : QObject()
     }
     catch(const std::string &str){
         config = new Core::Config();
+        config->saveConfig();
     }
     catch(const char *str){
         config = new Core::Config();
+        config->saveConfig();
     }
 
-    config->saveConfig();
+
 }
 UpdateQml::~UpdateQml()
 {
@@ -66,8 +68,8 @@ UpdateQml::~UpdateQml()
 void
 UpdateQml::configChangeSlot()
 {
-    //makeQmlData(false);
-    emit reload();
+    makeQmlData(false);
+    //emit reload();
 }
 
 void
@@ -81,8 +83,24 @@ UpdateQml::makeQmlData(bool isDownload)
     int year, current_month;
     int i, num = 0;
 
-    config->ReLoadConfig();
+    //config->ReLoadConfig();
     //config->saveConfig();
+    delete config;
+    try{
+        config = new Core::Config(Core::AbstractConfig::getConfigPath()+
+                               "config.xml",
+                               Core::AbstractConfig::prefix+
+                               Core::AbstractConfig::schemaPath+
+                               "config.xsd");
+    }
+    catch(const std::string &str){
+        config = new Core::Config();
+        config->saveConfig();
+    }
+    catch(const char *str){
+        config = new Core::Config();
+        config->saveConfig();
+    }
 
     if (isDownload){
         for (i=0; i < config->stationsList().size();i++){

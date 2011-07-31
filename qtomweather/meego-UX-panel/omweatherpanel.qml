@@ -32,13 +32,9 @@ FlipPanel {
                 id: refreshTimer
                 interval: updateModel.get(0).period
                 onTriggered: {
-                    //appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml");
+                    anim_refresh.running = true;
                     updater.updateData();
-                    stationModel.reload();
-                    xmlModel.reload();
-                    currentxmlModel.reload();
-                    updateModel.reload();
-                    refreshTimer.interval = updateModel.get(0).period;
+
                 }
                 running: true
                 repeat: true
@@ -53,7 +49,10 @@ FlipPanel {
                     currentxmlModel.reload();
                     updateModel.reload();
                     refreshTimer.interval = updateModel.get(0).period;
-                    if (anim_refresh.running) anim_refresh.running = false;
+                    if (anim_refresh.running) {
+                        anim_refresh.running = false;
+                        //refresh_rotation.angle = 0;
+                    }
                 }
             }
 
@@ -116,6 +115,8 @@ FlipPanel {
                         anchors.rightMargin: 10
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
+
+                        //transform: Rotation {id: refresh_rotation; angle: 0;}
 
                         RotationAnimation on rotation {
                             id: anim_refresh

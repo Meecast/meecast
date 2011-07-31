@@ -110,7 +110,11 @@ UpdateQml::makeQmlData()
 
     QDomElement el1 = doc.createElement("update");
     QDomElement el = doc.createElement("period");
-    QDomText t = doc.createTextNode(QString::number(config->UpdatePeriod()*1000));
+    QDomText t;
+    if (config->UpdatePeriod() != INT_MAX)
+        t = doc.createTextNode(QString::number(config->UpdatePeriod()*1000));
+    else
+        t = doc.createTextNode("0");
     el.appendChild(t);
     el1.appendChild(el);
     root.appendChild(el1);

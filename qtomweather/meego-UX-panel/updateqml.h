@@ -34,6 +34,7 @@
 #include "core.h"
 #include <QStringList>
 #include <QtDBus/QtDBus>
+#include <QDebug>
 
 #if defined (BSD) && !_POSIX_SOURCE
     #include <sys/dir.h>
@@ -52,7 +53,7 @@ public:
     ~UpdateQml();
 
 signals:
-    void configChange();
+    //void configChange();
     void reload();
 
 public slots:

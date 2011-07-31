@@ -8,8 +8,8 @@
  * Do not edit! All changes made to it will be lost.
  */
 
-#ifndef OMWEATHERINTF_H_1312040924
-#define OMWEATHERINTF_H_1312040924
+#ifndef OMWEATHERINTF_H_1312051085
+#define OMWEATHERINTF_H_1312051085
 
 #include <QtCore/QObject>
 #include <QtCore/QByteArray>
@@ -38,7 +38,6 @@ public:
 public Q_SLOTS: // METHODS
 Q_SIGNALS: // SIGNALS
     void configChange();
-    void reload();
 };
 
 namespace com {

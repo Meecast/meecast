@@ -42,6 +42,7 @@ INCLUDEPATH += ../core
 #LIBS += -L ../core -lomweather-core
 LIBS += -L ../core  ../core/libomweather-core.a  
 LIBS += -lsqlite3
+LIBS += -lcurl
 
 #install
 target.path = /opt/com.meecast.omweather/lib/OmweatherPlugin

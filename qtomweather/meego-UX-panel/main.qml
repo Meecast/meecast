@@ -12,6 +12,7 @@ Window {
         applicationPage = appPageComponent
     }
     Config {id: config}
+    Updater {id: updater}
     Component {
         id: appPageComponent
         ApplicationPage {
@@ -49,6 +50,7 @@ Window {
                             titleColor: "black"
                             replaceDropDownTitle: true
                             onTriggered: {
+                        	//updater.makeQmlData(true); /* for debug omweather plugin */
                                 config.TemperatureUnit(model[index])
                             }
                         }

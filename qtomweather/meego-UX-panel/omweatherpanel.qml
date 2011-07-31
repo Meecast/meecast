@@ -132,7 +132,7 @@ FlipPanel {
                             onClicked: {
                                 station_name.text = "start update";
                                 anim_refresh.running = true;
-                                updater.makeQmlData(true);
+                                updater.makeQmlData(false);
                             }
                         }
                     }

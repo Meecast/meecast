@@ -40,7 +40,7 @@ UpdateQml::UpdateQml() : QObject()
 
     com::meecast::omweather *iface;
     iface = new com::meecast::omweather(QString(), QString(), QDBusConnection::sessionBus(), this);
-    QDBusConnection::sessionBus().connect(QString(), QString(), "com.meecast.omweather", "configChange", this, SLOT(cofigChangeSlot()));
+    QDBusConnection::sessionBus().connect(QString(), QString(), "com.meecast.omweather", "configChange", this, SLOT(configChangeSlot()));
 
     config = new Core::Config(Core::AbstractConfig::getConfigPath()+
                            "config.xml",
@@ -57,8 +57,8 @@ UpdateQml::~UpdateQml()
 void
 UpdateQml::configChangeSlot()
 {
-    makeQmlData(false);
-    //emit reload();
+    //makeQmlData(false);
+    emit reload();
 }
 
 void
@@ -70,10 +70,10 @@ UpdateQml::makeQmlData(bool isDownload)
     time_t current_day;
     struct tm   *tm = NULL;
     int year, current_month;
-    unsigned short i, num = 0;
+    int i, num = 0;
 
-    config->ReLoadConfig();
-    config->saveConfig();
+    //config->ReLoadConfig();
+    //config->saveConfig();
 
     if (isDownload){
         for (i=0; i < config->stationsList().size();i++){
@@ -98,7 +98,7 @@ UpdateQml::makeQmlData(bool isDownload)
 
     Core::StationsList::iterator cur;
     for (cur=config->stationsList().begin(); cur<config->stationsList().end(); cur++){
-        std::cerr << (*cur)->fileName() << " " << (*cur)->name() << std::endl;
+        qDebug() <<"111 add station "<< QString::fromStdString((*cur)->fileName()) << " " << QString::fromStdString((*cur)->name());
         dp = current_data((*cur)->fileName());
 
         if (dp){
@@ -122,10 +122,12 @@ UpdateQml::makeQmlData(bool isDownload)
                 if (current) current = false;
                 num++;
             }
+            
             root.appendChild(station);
         }
 
     }
+    
     QFile file(QString::fromStdString(Core::AbstractConfig::getConfigPath() + "qmldata.xml"));
     if (!file.open(QIODevice::WriteOnly)){
         std::cerr<<"error file open 1.xml"<<std::endl;

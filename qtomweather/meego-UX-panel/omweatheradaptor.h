@@ -9,8 +9,8 @@
  * before re-generating it.
  */
 
-#ifndef OMWEATHERADAPTOR_H_1312040996
-#define OMWEATHERADAPTOR_H_1312040996
+#ifndef OMWEATHERADAPTOR_H_1312051091
+#define OMWEATHERADAPTOR_H_1312051091
 
 #include <QtCore/QObject>
 #include <QtDBus/QtDBus>
@@ -31,7 +31,6 @@ class OmweatherAdaptor: public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Introspection", ""
 "  <interface name=\"com.meecast.omweather\">\n"
 "    <signal name=\"configChange\"/>\n"
-"    <signal name=\"reload\"/>\n"
 "  </interface>\n"
         "")
 public:
@@ -42,7 +41,6 @@ public: // PROPERTIES
 public Q_SLOTS: // METHODS
 Q_SIGNALS: // SIGNALS
     void configChange();
-    void reload();
 };
 
 #endif

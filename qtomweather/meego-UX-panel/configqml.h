@@ -56,6 +56,7 @@ Q_SIGNALS:
     void configChange();
 
 public slots:
+    //void configChangeSlot();
     QStringList icons();
     QString iconSet();
     void iconSet(QString c);

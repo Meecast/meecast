@@ -46,12 +46,23 @@ ConfigQml::ConfigQml() : QObject(), Core::Config(Core::AbstractConfig::getConfig
 
     com::meecast::omweather *iface;
     iface = new com::meecast::omweather(QString(), QString(), QDBusConnection::sessionBus(), this);
+    //QDBusConnection::sessionBus().connect(QString(), QString(), "com.meecast.omweather", "configChange", this, SLOT(configChangeSlot()));
 
 }
 ConfigQml::~ConfigQml(){
     delete db;
     delete stationlist;
 }
+/*
+void
+ConfigQml::configChangeSlot()
+{
+    //makeQmlData(false);
+    //emit reload();
+    QString c = "mi/h";
+    ConfigQml::Config::WindSpeedUnit(c.toStdString());
+    ConfigQml::Config::saveConfig();
+}*/
 
 QStringList
 ConfigQml::icons()

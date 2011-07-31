@@ -3,6 +3,5 @@
 <node>
     <interface name="com.meecast.omweather">
         <signal name="configChange"></signal>
-        <signal name="reload"></signal>
     </interface>
 </node>

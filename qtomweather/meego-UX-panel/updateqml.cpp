@@ -42,11 +42,20 @@ UpdateQml::UpdateQml() : QObject()
     iface = new com::meecast::omweather(QString(), QString(), QDBusConnection::sessionBus(), this);
     QDBusConnection::sessionBus().connect(QString(), QString(), "com.meecast.omweather", "configChange", this, SLOT(configChangeSlot()));
 
-    config = new Core::Config(Core::AbstractConfig::getConfigPath()+
-                           "config.xml",
-                           Core::AbstractConfig::prefix+
-                           Core::AbstractConfig::schemaPath+
-                           "config.xsd");
+    try{
+        config = new Core::Config(Core::AbstractConfig::getConfigPath()+
+                               "config.xml",
+                               Core::AbstractConfig::prefix+
+                               Core::AbstractConfig::schemaPath+
+                               "config.xsd");
+    }
+    catch(const std::string &str){
+        config = new Core::Config();
+    }
+    catch(const char *str){
+        config = new Core::Config();
+    }
+
     config->saveConfig();
 }
 UpdateQml::~UpdateQml()

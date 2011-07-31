@@ -50,7 +50,7 @@ Window {
                             titleColor: "black"
                             replaceDropDownTitle: true
                             onTriggered: {
-                        	//updater.makeQmlData(true); /* for debug omweather plugin */
+                                //updater.makeQmlData(); /* for debug omweather plugin */
                                 config.TemperatureUnit(model[index])
                             }
                         }

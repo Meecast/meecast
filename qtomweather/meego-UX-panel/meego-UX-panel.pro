@@ -19,7 +19,8 @@ SOURCES += omweatherplugin.cpp \
     stationmodel.cpp \ 
     omweatherintf.cpp \
     omweatheradaptor.cpp \
-    updateqml.cpp
+    updateqml.cpp \
+    updatethread.cpp
 
 HEADERS += \
     omweatherplugin.h \
@@ -27,7 +28,8 @@ HEADERS += \
     stationmodel.h \
     omweatherintf.h \
     omweatheradaptor.h \
-    updateqml.h
+    updateqml.h \
+    updatethread.h
 
 FORMS    +=
 

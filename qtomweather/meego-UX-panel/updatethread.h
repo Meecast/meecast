@@ -27,47 +27,23 @@
 */
 /*******************************************************************************/
 
-#ifndef UPDATEQML_H
-#define UPDATEQML_H
+#ifndef UPDATETHREAD_H
+#define UPDATETHREAD_H
 
-#include <QObject>
+#include <QThread>
 #include "core.h"
-#include <QStringList>
-#include <QtDBus/QtDBus>
-#include <QDebug>
-#include "updatethread.h"
 
-#if defined (BSD) && !_POSIX_SOURCE
-    #include <sys/dir.h>
-    typedef struct dirent Dirent;
-#else
-    #include <dirent.h>
-    #include <linux/fs.h>
-    typedef struct dirent Dirent;
-#endif
-
-class UpdateQml : public QObject
+class UpdateThread : public QThread
 {
     Q_OBJECT
 public:
-    explicit UpdateQml();
-    ~UpdateQml();
+    explicit UpdateThread(QObject *parent = 0);
 
 signals:
-    //void configChange();
-    void reload();
 
 public slots:
-    void makeQmlData();
-    void updateData();
-private:
-    Core::Config *config;
-    UpdateThread *thread;
-    QDomElement make_item(QDomDocument doc, Core::Data *data, int num, bool current);
-    Core::DataParser* current_data(std::string& str);
-private slots:
-    void configChangeSlot();
-    void downloadFinishedSlot();
+protected:
+    void run();
 };
 
-#endif // UPDATEQML_H
+#endif // UPDATETHREAD_H

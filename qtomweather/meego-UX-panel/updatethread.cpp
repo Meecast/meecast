@@ -27,47 +27,34 @@
 */
 /*******************************************************************************/
 
-#ifndef UPDATEQML_H
-#define UPDATEQML_H
-
-#include <QObject>
-#include "core.h"
-#include <QStringList>
-#include <QtDBus/QtDBus>
-#include <QDebug>
 #include "updatethread.h"
 
-#if defined (BSD) && !_POSIX_SOURCE
-    #include <sys/dir.h>
-    typedef struct dirent Dirent;
-#else
-    #include <dirent.h>
-    #include <linux/fs.h>
-    typedef struct dirent Dirent;
-#endif
-
-class UpdateQml : public QObject
+UpdateThread::UpdateThread(QObject *parent) :
+    QThread(parent)
 {
-    Q_OBJECT
-public:
-    explicit UpdateQml();
-    ~UpdateQml();
+}
 
-signals:
-    //void configChange();
-    void reload();
+void
+UpdateThread::run()
+{
+    Core::Config *config = NULL;
+    try{
+        config = new Core::Config(Core::AbstractConfig::getConfigPath()+
+                               "config.xml",
+                               Core::AbstractConfig::prefix+
+                               Core::AbstractConfig::schemaPath+
+                               "config.xsd");
+    }
+    catch(const std::string &str){
+        config = new Core::Config();
+        config->saveConfig();
+    }
+    catch(const char *str){
+        config = new Core::Config();
+        config->saveConfig();
+    }
 
-public slots:
-    void makeQmlData();
-    void updateData();
-private:
-    Core::Config *config;
-    UpdateThread *thread;
-    QDomElement make_item(QDomDocument doc, Core::Data *data, int num, bool current);
-    Core::DataParser* current_data(std::string& str);
-private slots:
-    void configChangeSlot();
-    void downloadFinishedSlot();
-};
-
-#endif // UPDATEQML_H
+    for (short i=0; i < config->stationsList().size();i++){
+        config->stationsList().at(i)->updateData(true);
+    }
+}

@@ -35,6 +35,8 @@
 
 UpdateQml::UpdateQml() : QObject()
 {
+    config = NULL;
+
     new OmweatherAdaptor(this);
     QDBusConnection::sessionBus().registerObject("/", this);
 
@@ -42,38 +44,36 @@ UpdateQml::UpdateQml() : QObject()
     iface = new com::meecast::omweather(QString(), QString(), QDBusConnection::sessionBus(), this);
     QDBusConnection::sessionBus().connect(QString(), QString(), "com.meecast.omweather", "configChange", this, SLOT(configChangeSlot()));
 
-    try{
-        config = new Core::Config(Core::AbstractConfig::getConfigPath()+
-                               "config.xml",
-                               Core::AbstractConfig::prefix+
-                               Core::AbstractConfig::schemaPath+
-                               "config.xsd");
-    }
-    catch(const std::string &str){
-        config = new Core::Config();
-        config->saveConfig();
-    }
-    catch(const char *str){
-        config = new Core::Config();
-        config->saveConfig();
-    }
-
-
+    thread = new UpdateThread();
+    connect(thread, SIGNAL(finished()), this, SLOT(downloadFinishedSlot()));
 }
 UpdateQml::~UpdateQml()
 {
-    delete config;
+    if (config) delete config;
+    if (thread) delete thread;
 }
 
 void
 UpdateQml::configChangeSlot()
 {
-    makeQmlData(false);
+    makeQmlData();
     //emit reload();
+}
+void
+UpdateQml::downloadFinishedSlot()
+{
+    makeQmlData();
 }
 
 void
-UpdateQml::makeQmlData(bool isDownload)
+UpdateQml::updateData()
+{
+    thread->start();
+}
+
+/*from config and downloaded files makes qmldata.xml, then emit reload signal */
+void
+UpdateQml::makeQmlData()
 {
     Core::DataParser *dp = NULL;
     Core::Data *temp_data = NULL;
@@ -85,7 +85,7 @@ UpdateQml::makeQmlData(bool isDownload)
 
     //config->ReLoadConfig();
     //config->saveConfig();
-    delete config;
+    if (config) delete config;
     try{
         config = new Core::Config(Core::AbstractConfig::getConfigPath()+
                                "config.xml",
@@ -100,14 +100,6 @@ UpdateQml::makeQmlData(bool isDownload)
     catch(const char *str){
         config = new Core::Config();
         config->saveConfig();
-    }
-
-    if (isDownload){
-        for (i=0; i < config->stationsList().size();i++){
-            config->stationsList().at(i)->updateData(true);
-        }
-        //QTimer *timer = new QTimer(this);
-        //timer->start(5000);
     }
 
     QDomDocument doc;

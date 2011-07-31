@@ -33,7 +33,7 @@ FlipPanel {
                 interval: updateModel.get(0).period
                 onTriggered: {
                     //appsModel.launch("/opt/com.meecast.omweather/bin/xml-qml");
-                    //updater.makeQmlData(true);
+                    updater.updateData();
                     stationModel.reload();
                     xmlModel.reload();
                     currentxmlModel.reload();
@@ -47,7 +47,7 @@ FlipPanel {
             Connections {
                 target: updater
                 onReload: {
-                    station_name.text += " 9";
+                    //station_name.text += " 9";
                     stationModel.reload();
                     xmlModel.reload();
                     currentxmlModel.reload();
@@ -107,7 +107,6 @@ FlipPanel {
                                 xmlModel.reload();
                                 currentxmlModel.query = "/data/station[@id='"+stationModel.get(current_station).id+"']/item[@current='true']";
                                 currentxmlModel.reload();
-                                //refreshTimer.running = true;
                             }
                         }
                     }
@@ -130,9 +129,9 @@ FlipPanel {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                station_name.text = "start update";
+                                //station_name.text = "start update";
                                 anim_refresh.running = true;
-                                updater.makeQmlData(false);
+                                updater.updateData();
                             }
                         }
                     }

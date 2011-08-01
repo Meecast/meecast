@@ -30,7 +30,7 @@ FlipPanel {
             clip: true
             Timer {
                 id: refreshTimer
-                //interval: updateModel.get(0).period
+                interval: updateModel.get(0).period
                 onTriggered: {
                     anim_refresh.running = true;
                     updater.updateData();
@@ -48,16 +48,16 @@ FlipPanel {
                     xmlModel.reload();
                     currentxmlModel.reload();
                     updateModel.reload();
-                    refreshTimer.interval = updateModel.get(0).period;
+                    if (updateModel.get(0).period == 0){
+                        refreshTimer.running = false;
+                    }else {
+                        refreshTimer.interval = updateModel.get(0).period;
+                        refreshTimer.running = true;
+                    }
                     if (anim_refresh.running) {
                         anim_refresh.running = false;
                         //refresh_rotation.angle = 0;
                     }
-                }
-            }
-            Component.onCompleted: {
-                if (updateModel.get(0).period != ""){
-                    refreshTimer.interval = updateModel.get(0).period;
                 }
             }
 

@@ -18,7 +18,7 @@ FlipPanel {
         id: frontPanel
         panelTitle: qsTr("OMWeather")
         //leftIconSource: "image://theme/panels/pnl_icn_photos"
-        leftIconSource: "/opt/com.meecast.omweather/share/icons/pnl_icn_omweather.png"
+        //leftIconSource: "/opt/com.meecast.omweather/share/icons/pnl_icn_omweather.png"
         panelComponent:Flickable {
             anchors.fill: parent
             interactive: (height < contentHeight)
@@ -456,7 +456,7 @@ FlipPanel {
         panelTitle: qsTr("OMWeather back")
         bpContent: backPanelContent
         isBackPanel: true
-        leftIconSource: "image://theme/panels/pnl_icn_photos"
+        //leftIconSource: "image://theme/panels/pnl_icn_photos"
     }
     Component {
         id: backPanelContent

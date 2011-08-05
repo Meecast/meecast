@@ -1,28 +1,29 @@
 import Qt 4.7
-import MeeGo.Labs.Components 0.1
-import MeeGo.Components 0.1 as UX
+import MeeGo.Labs.Components 0.1 as Labs
+import MeeGo.Components 0.1
 import "/opt/com.meecast.omweather/lib/OmweatherPlugin" 0.1
 
 Window {
-    id: scene
-    showsearch: false
-    title: "OMWeather Settings"
+    id: window 
+    //showsearch: false
+    //title: "OMWeather Settings"
 
     Component.onCompleted: {
-        applicationPage = appPageComponent
+        //applicationPage = appPageComponent
+	switchBook(appPageComponent);
     }
     Config {id: config}
     Updater {id: updater}
     Component {
         id: appPageComponent
-        ApplicationPage {
+        AppPage {
             id: appPage
-            title: "OMWeather Settings"
+            pageTitle: "OMWeather Settings"
 
             Item {
                 id: main
 
-                parent: appPage.content
+                //parent: appPage.content
                 anchors.fill: parent
                 Column {
                     width: parent.width
@@ -40,7 +41,7 @@ Window {
                             height: parent.height
                             verticalAlignment: Text.AlignVCenter
                         }
-                        UX.DropDown {
+                        DropDown {
                             anchors.right: parent.right
                             anchors.rightMargin: 10
                             anchors.verticalCenter: parent.verticalCenter
@@ -68,7 +69,7 @@ Window {
                             height: parent.height
                             verticalAlignment: Text.AlignVCenter
                         }
-                        UX.DropDown {
+                        DropDown {
                             anchors.right: parent.right
                             anchors.rightMargin: 10
                             anchors.verticalCenter: parent.verticalCenter
@@ -95,7 +96,7 @@ Window {
                             height: parent.height
                             verticalAlignment: Text.AlignVCenter
                         }
-                        UX.DropDown {
+                        DropDown {
                             anchors.right: parent.right
                             anchors.rightMargin: 10
                             anchors.verticalCenter: parent.verticalCenter
@@ -124,7 +125,7 @@ Window {
                             height: parent.height
                             verticalAlignment: Text.AlignVCenter
                         }
-                        UX.DropDown {
+                        DropDown {
                             anchors.right: parent.right
                             anchors.rightMargin: 10
                             anchors.verticalCenter: parent.verticalCenter
@@ -153,7 +154,7 @@ Window {
                             verticalAlignment: Text.AlignVCenter
                         }
 
-                        UX.ToggleButton {
+                        ToggleButton {
                             on: config.UpdateConnect()
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.right: parent.right
@@ -188,7 +189,8 @@ Window {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                appPage.addApplicationPage(stationsPageComponent);
+                                //appPage.addApplicationPage(stationsPageComponent);
+				window.addPage(stationsPageComponent);
                             }
                         }
 
@@ -200,20 +202,26 @@ Window {
     }
     Component {
         id: stationsPageComponent
-        ApplicationPage {
+        AppPage {
             id: stationsPage
-	    title: qsTr("OMWeather Stations Settings")
+	    pageTitle: qsTr("OMWeather Stations Settings")
 
-            menuContent: UX.ActionMenu {
+            /*menuContent: UX.ActionMenu {
                 id: actions
                 model: [qsTr("Add new station")]
                 onTriggered: {
                     newstation.show();
                     stationsPage.closeMenu();
                 }
-            }
+            }*/
+	    actionMenuModel: [qsTr("Add new station")]
+	    actionMenuPayload: [0]
+	    onActionMenuTriggered: {
+		if (!selectedItem)
+		    newstation.show();
+	    }
 
-            UX.ModalDialog {
+            ModalDialog {
                 id: newstation
                 title: qsTr("New Station")
                 showAcceptButton: true
@@ -241,7 +249,7 @@ Window {
                                 height: parent.height
                                 verticalAlignment: Text.AlignVCenter
                             }
-                            UX.DropDown {
+                            DropDown {
                                 id: source
                                 anchors.right: parent.right
                                 anchors.rightMargin: 10
@@ -278,7 +286,7 @@ Window {
                                 height: parent.height
                                 verticalAlignment: Text.AlignVCenter
                             }
-                            UX.DropDown {
+                            DropDown {
                                 id: country
                                 anchors.right: parent.right
                                 anchors.rightMargin: 10
@@ -313,7 +321,7 @@ Window {
                                 height: parent.height
                                 verticalAlignment: Text.AlignVCenter
                             }
-                            UX.DropDown {
+                            DropDown {
                                 id: region
                                 anchors.right: parent.right
                                 anchors.rightMargin: 10
@@ -345,7 +353,7 @@ Window {
                                 height: parent.height
                                 verticalAlignment: Text.AlignVCenter
                             }
-                            UX.DropDown {
+                            DropDown {
                                 id: city
                                 anchors.right: parent.right
                                 anchors.rightMargin: 10
@@ -380,7 +388,7 @@ Window {
             }
 
             Item {
-                parent: stationsPage.content
+                //parent: stationsPage.content
                 anchors.fill: parent
                 ListView {
 		    id: stationlist
@@ -404,7 +412,7 @@ Window {
                                 verticalAlignment: Text.AlignVCenter
                             }
 
-                            UX.Button {
+                            Button {
 				id: but
 				height: 40
                                 anchors.verticalCenter: parent.verticalCenter

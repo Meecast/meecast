@@ -2,7 +2,6 @@ import Qt 4.7
 import MeeGo.Components 0.1
 import MeeGo.Panels 0.1
 import MeeGo.Sharing 0.1
-import MeeGo.Media 0.1
 import "/opt/com.meecast.omweather/lib/OmweatherPlugin" 0.1
 
 FlipPanel {
@@ -451,27 +450,19 @@ FlipPanel {
         XmlRole {name: "id_item"; query: "@id/number()"}
     }
 
-    back: BackPanelGeneric {
+    back: BackPanelStandard {
         id: backPanel
-        panelTitle: qsTr("OMWeather back")
-        bpContent: backPanelContent
+        panelTitle: qsTr("OMWeather")
+        subheaderText: qsTr("OMWeather settings")
+        //bpContent: backPanelContent
         isBackPanel: true
         //leftIconSource: "image://theme/panels/pnl_icn_photos"
-    }
-    Component {
-        id: backPanelContent
-        Item {
-            anchors.top: parent.top
-            width: parent.width
-            height: 60
-            Button {
-                text: qsTr("OMWeather Settings")
-                onClicked: {
-                    appsModel.launch("meego-qml-launcher --opengl --fullscreen --app omweather-settings");
-                    //qApp.launchDesktopByName("/usr/share/meego-ux-appgrid/applications/omweather-settings.desktop")
-                }
-            }
-        }
+        clearButtonText: qsTr("Open OMWeather settings")
 
+        onClearHistClicked: {
+            //qApp.launchDesktopByName(omweatherDesktop);
+            appsModel.launch("meego-qml-launcher --opengl --fullscreen --app omweather-settings");
+        }
     }
+
 }

@@ -35,8 +35,20 @@
 
 #define DATA_XSD_PATH "/opt/com.meecast.omweather/share/xsd/data.xsd"
 
-ConfigQml::ConfigQml() : QObject(), Core::Config(Core::AbstractConfig::getConfigPath()+"config.xml")
-{    
+ConfigQml::ConfigQml() : QObject() {    
+    try {
+        Core::Config(Core::AbstractConfig::getConfigPath()+"config.xml",
+					Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"config.xsd");
+
+    }catch (const std::string &str){
+        Core::Config();
+        ConfigQml::Config::saveConfig();
+    }
+    catch (const char *str){
+        Core::Config();
+        ConfigQml::Config::saveConfig();
+    }
+    
     db = new Core::DatabaseSqlite("");
     stationlist = new Core::StationsList;
     *stationlist = ConfigQml::Config::stationsList();
@@ -75,7 +87,7 @@ ConfigQml::ConfigQml() : QObject(), Core::Config(Core::AbstractConfig::getConfig
         }
         closedir(dir_fd);
     }
-
+    
 }
 ConfigQml::~ConfigQml(){
     delete db;

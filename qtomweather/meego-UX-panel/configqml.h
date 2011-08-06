@@ -58,19 +58,19 @@ Q_SIGNALS:
 public slots:
     //void configChangeSlot();
     QStringList icons();
-    QString iconSet();
+    int iconSet();
     void iconSet(QString c);
     QStringList UpdatePeriods();
     void UpdatePeriod(QString str);
-    QString UpdatePeriod();
+    int UpdatePeriod();
     void UpdateConnect(bool uc);
     bool UpdateConnect();
     QStringList TemperatureUnits();
     void TemperatureUnit(QString text);
-    QString TemperatureUnit();
+    int TemperatureUnit();
     QStringList WindSpeedUnits();
     void WindSpeedUnit(QString text);
-    QString WindSpeedUnit();
+    int WindSpeedUnit();
     QList<QObject*> Stations();
     int StationsCount();
     void saveConfig();
@@ -83,6 +83,11 @@ public slots:
 private:
     Core::DatabaseSqlite *db;
     Core::StationsList *stationlist;
+
+    QStringList temperature_list;
+    QStringList wind_list;
+    QStringList icon_list;
+    QStringList update_list;
 
 };
 

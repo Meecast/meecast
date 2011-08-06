@@ -45,8 +45,9 @@ Window {
                             anchors.right: parent.right
                             anchors.rightMargin: 10
                             anchors.verticalCenter: parent.verticalCenter
-                            title: config.TemperatureUnit()
+                            //title: config.TemperatureUnit()
                             model: config.TemperatureUnits()
+			    selectedIndex: config.TemperatureUnit() 
                             width: 300
                             titleColor: "black"
                             replaceDropDownTitle: true
@@ -73,8 +74,8 @@ Window {
                             anchors.right: parent.right
                             anchors.rightMargin: 10
                             anchors.verticalCenter: parent.verticalCenter
-                            title: config.WindSpeedUnit()
                             model: config.WindSpeedUnits()
+                            selectedIndex: config.WindSpeedUnit()
                             width: 300
                             titleColor: "black"
                             replaceDropDownTitle: true
@@ -100,8 +101,8 @@ Window {
                             anchors.right: parent.right
                             anchors.rightMargin: 10
                             anchors.verticalCenter: parent.verticalCenter
-                            title: config.iconSet()
                             model: config.icons()
+                            selectedIndex: config.iconSet()
                             //model: ["meecast", "glance", "other"]
                             width: 300
                             titleColor: "black"
@@ -129,8 +130,8 @@ Window {
                             anchors.right: parent.right
                             anchors.rightMargin: 10
                             anchors.verticalCenter: parent.verticalCenter
-                            title: config.UpdatePeriod()
                             model: config.UpdatePeriods()
+                            selectedIndex: config.UpdatePeriod()
                             width: 300
                             titleColor: "black"
                             replaceDropDownTitle: true

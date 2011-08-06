@@ -48,6 +48,34 @@ ConfigQml::ConfigQml() : QObject(), Core::Config(Core::AbstractConfig::getConfig
     iface = new com::meecast::omweather(QString(), QString(), QDBusConnection::sessionBus(), this);
     //QDBusConnection::sessionBus().connect(QString(), QString(), "com.meecast.omweather", "configChange", this, SLOT(configChangeSlot()));
 
+    temperature_list << "C" << "F";
+    update_list << "2 hour" << "1 hour" << "30 min" << "10 min" << "never";
+    wind_list << "m/s" << "km/h" << "mi/h";
+
+    Dirent *dp = 0;
+    DIR *dir_fd = opendir((Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath).c_str());
+    if(dir_fd){
+        while((dp = readdir(dir_fd))){
+            std::string name = dp->d_name;
+            if(name == "." || name == "..")
+                continue;
+            if(dp->d_type == DT_DIR && name[0] != '.'){
+                try{
+                    icon_list << QString::fromStdString(name);
+                }
+                catch(std::string& err){
+                    std::cerr << "error " << err << std::endl;
+                    continue;
+                }
+                catch(const char *err){
+                    std::cerr << "error " << err << std::endl;
+                    continue;
+                }
+            }
+        }
+        closedir(dir_fd);
+    }
+
 }
 ConfigQml::~ConfigQml(){
     delete db;
@@ -67,38 +95,12 @@ ConfigQml::configChangeSlot()
 QStringList
 ConfigQml::icons()
 {
-    QStringList icons;
-    Dirent *dp = 0;
-    DIR *dir_fd = opendir((Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath).c_str());
-    if(dir_fd){
-        while((dp = readdir(dir_fd))){
-            std::string name = dp->d_name;
-            if(name == "." || name == "..")
-                continue;
-            if(dp->d_type == DT_DIR && name[0] != '.'){
-                try{
-                    icons << QString::fromStdString(name);
-                }
-                catch(std::string& err){
-                    std::cerr << "error " << err << std::endl;
-                    continue;
-                }
-                catch(const char *err){
-                    std::cerr << "error " << err << std::endl;
-                    continue;
-                }
-            }
-        }
-        closedir(dir_fd);
-    }
-    return icons;
+    return icon_list;
 }
 
-QString
+int
 ConfigQml::iconSet(){
-    QString c;
-    c = ConfigQml::Config::iconSet().c_str();
-    return c;
+    return icon_list.indexOf(ConfigQml::Config::iconSet().c_str());
 }
 void
 ConfigQml::iconSet(QString c){
@@ -108,9 +110,7 @@ ConfigQml::iconSet(QString c){
 QStringList
 ConfigQml::UpdatePeriods()
 {
-    QStringList l;
-    l << "2 hour" << "1 hour" << "30 min" << "10 min" << "never";
-    return l;
+    return update_list;
 }
 
 void
@@ -129,7 +129,7 @@ ConfigQml::UpdatePeriod(QString str){
     ConfigQml::Config::UpdatePeriod(period);
     saveConfig();
 }
-QString
+int
 ConfigQml::UpdatePeriod(){
     int val = ConfigQml::Config::UpdatePeriod();
     QString res;
@@ -143,7 +143,7 @@ ConfigQml::UpdatePeriod(){
         res = "10 min";
     else if (val == INT_MAX)
         res = "never";
-    return res;
+    return update_list.indexOf(res);
 
 }
 void
@@ -160,14 +160,12 @@ ConfigQml::UpdateConnect()
 QStringList
 ConfigQml::TemperatureUnits()
 {
-    QStringList l;
-    l << "C" << "F";
-    return l;
+    return temperature_list;
 }
-QString
+int
 ConfigQml::TemperatureUnit()
 {
-    return ConfigQml::Config::TemperatureUnit().c_str();
+    return temperature_list.indexOf(ConfigQml::Config::TemperatureUnit().c_str());
 }
 void
 ConfigQml::TemperatureUnit(QString c)
@@ -178,14 +176,12 @@ ConfigQml::TemperatureUnit(QString c)
 QStringList
 ConfigQml::WindSpeedUnits()
 {
-    QStringList l;
-    l << "m/s" << "km/h" << "mi/h";
-    return l;
+    return wind_list;
 }
-QString
+int
 ConfigQml::WindSpeedUnit()
 {
-    return ConfigQml::Config::WindSpeedUnit().c_str();
+    return wind_list.indexOf(ConfigQml::Config::WindSpeedUnit().c_str());
 }
 void
 ConfigQml::WindSpeedUnit(QString c)

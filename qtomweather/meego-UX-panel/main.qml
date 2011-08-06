@@ -255,8 +255,8 @@ Window {
                                 anchors.right: parent.right
                                 anchors.rightMargin: 10
                                 anchors.verticalCenter: parent.verticalCenter
-                                //title: config.TemperatureUnit()
                                 model: config.Sources()
+				selectedIndex: -1
                                 width: 500
                                 titleColor: "black"
                                 replaceDropDownTitle: true
@@ -264,12 +264,8 @@ Window {
                                     country.model = config.Countries(model[index], false);
                                     country.payload = config.Countries(model[index], true);
                                     country.selectedIndex = -1;
-                                    country.selectedTitle = "";
                                     region.selectedIndex = -1;
-                                    region.selectedTitle = "";
-                                    region.model = "";
                                     city.selectedIndex = -1;
-                                    city.selectedTitle = "";
                                     city.model = "";
                                 }
                             }
@@ -302,9 +298,7 @@ Window {
                                     region.model = config.Regions(payload[index], false);
                                     region.payload = config.Regions(payload[index], true);
                                     region.selectedIndex = -1;
-                                    region.selectedTitle = "";
                                     city.selectedIndex = -1;
-                                    city.selectedTitle = "";
                                     city.model = "";
                                 }
                             }
@@ -337,7 +331,6 @@ Window {
                                     city.model = config.Cities(payload[index], false);
                                     city.payload = config.Cities(payload[index], true);
                                     city.selectedIndex = -1;
-                                    city.selectedTitle = "";
                                 }
                             }
                         }
@@ -377,10 +370,10 @@ Window {
                     //console.log(source.selectedIndex + " " + source.selectedTitle);
                     //console.log(city.selectedIndex + " " + city.selectedTitle + " " + city.payload[city.selectedIndex]);
                     config.saveStation(city.payload[city.selectedIndex],
-                                       city.selectedTitle,
-                                       region.selectedTitle,
-                                       country.selectedTitle,
-                                       source.selectedTitle,
+                                       city.model[city.selectedIndex],
+                                       region.model[region.selectedIndex],
+                                       country.model[country.selectedIndex],
+                                       source.model[source.selectedIndex],
                                        source.selectedIndex);
                     stationlist.model = config.Stations();
                 }

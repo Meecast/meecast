@@ -36,6 +36,11 @@ RESOURCES += omweather-settings.qrc
 TRANSLATIONS += omweather-settings_ru.qm
 
 #install
+#installs
+#desktop.files = data/desktop/omweather-settings.desktop
+#desktop.path = /usr/share/applications
+
+
 
 target.path = /opt/com.meecast.omweather/bin
 

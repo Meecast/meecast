@@ -51,9 +51,9 @@ Weather Forecast on Meego.
 # >> build pre
 #export PATH=/usr/lib/qt4/bin:$PATH
 %if %{wantmeegopanel}
-qmake PREFIX=%{_prefix} CONFIG+=meegopanel -r
+qmake PREFIX=%{_prefix} CONFIG+=meegopanel CONFIG+=UXpanel -r
 %else
-qmake PREFIX=%{_prefix}  -r
+qmake PREFIX=%{_prefix} CONFIG+=UXpanel -r
 %endif
 make
 # << build pre

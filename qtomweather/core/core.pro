@@ -62,10 +62,6 @@ HEADERS = \
     windspeed.h
 
 
-#installs
-#desktop.files = data/desktop/omweather-settings.desktop
-#desktop.path = /usr/share/applications
-
 icon.files = data/desktop/Icon/omweather.png
 icon.path = /usr/share/icons/
 

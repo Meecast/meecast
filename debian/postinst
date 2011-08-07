@@ -1,0 +1,27 @@
+#! /bin/sh
+
+#if test -f /usr/share/applications/hildon-home/omweather-home.desktop ; then
+#    rm  -f /usr/share/applications/hildon-home/omweather-home.desktop
+#    sleep 2
+#fi
+
+#if test ! -f  /usr/share/applications/hildon-home/omweather-home.desktop ; then
+#   cp /usr/share/omweather/omweather-home.desktop /usr/share/applications/hildon-home/omweather-home.desktop
+#fi
+
+
+
+#if first installation then exit
+if [ -z "$2" ]; then
+    exit 0
+fi
+#	cat <<EOF > /tmp/request-reboot.txt
+#In order to complete plugin upgrade the device must be rebooted.
+#Do not forget to reboot the device after update OMWeather.
+#EOF
+
+#        maemo-confirm-text "Reboot is needed" /tmp/request-reboot.txt
+
+
+exit 0
+

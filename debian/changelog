@@ -1,0 +1,7 @@
+omweather (0.3.24) unstable; urgency=low
+
+  * began support MeeGo 1.2.0.90 on Tablet UX
+  * began support Harmattan 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 05 Aug 2011 20:44:20 +0200
+

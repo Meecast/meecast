@@ -118,7 +118,7 @@ int main(int argc, char* argv[])
 
 
     config = controller->config();
-    std::cerr<<"iconpath = "<<config->prefix_path()<<std::endl;
+    std::cerr<<"iconpath = "<<config->imagespath().toStdString() << std::endl;
     //update_weather_forecast(config);
     
     QDeclarativeView *qview;
@@ -126,9 +126,12 @@ int main(int argc, char* argv[])
  //   qview->rootContext()->setContextProperty("Forecast_model", model);
     //qview->rootContext()->setContextProperty("Config", config);
     std::cerr << "qml path = " << Core::AbstractConfig::layoutqml << std::endl;
+    /*
     qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::prefix + 
                                                                 Core::AbstractConfig::sharePath + 
                                                                 Core::AbstractConfig::layoutqml)));
+    */
+    qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::layoutqml)));
     qview->show();
     /*This code provide Segmantation fault
     delete dadapt;

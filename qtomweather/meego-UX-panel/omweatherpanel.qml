@@ -20,6 +20,8 @@ FlipPanel {
         //leftIconSource: "/opt/com.meecast.omweather/share/icons/pnl_icn_omweather.png"
         panelComponent:Flickable {
             anchors.fill: parent
+            anchors.margins: 0
+            flickableDirection: Flickable.VerticalFlick
             interactive: (height < contentHeight)
             onInteractiveChanged: {
                 if (!interactive)
@@ -92,7 +94,7 @@ FlipPanel {
 
                     Text {
                         id: station_name
-                        font.pointSize: 24
+                        font.pointSize: 20
                         color: "white"
                         text: {(stationModel.count > 0) ? stationModel.get(0).name : ""}
                         anchors.leftMargin: 10
@@ -195,7 +197,7 @@ FlipPanel {
 
             Text {
                 id: txt_dayname
-                font.pointSize: 18
+                font.pointSize: 10
                 color: "white"
                 anchors.topMargin: 20
                 anchors.leftMargin:10
@@ -206,7 +208,7 @@ FlipPanel {
 
             Text {
                 id: txt_desc
-                font.pointSize: 14
+                font.pointSize: 10
                 color: "white"
                 anchors.topMargin: 20
                 anchors.leftMargin:10
@@ -216,7 +218,7 @@ FlipPanel {
             }
             Text {
                 id: txt_humidity
-                font.pointSize: 14
+                font.pointSize: 10
                 color: "white"
                 anchors.leftMargin:10
                 anchors.top: txt_desc.bottom
@@ -225,7 +227,7 @@ FlipPanel {
             }
             Text {
                 id: txt_wind
-                font.pointSize: 14
+                font.pointSize: 10
                 color: "white"
                 anchors.leftMargin:10
                 anchors.top: txt_humidity.bottom
@@ -234,7 +236,7 @@ FlipPanel {
             }
             Text {
                 id: txt_speed
-                font.pointSize: 14
+                font.pointSize: 10
                 color: "white"
                 anchors.leftMargin:10
                 anchors.top: txt_wind.bottom
@@ -247,7 +249,7 @@ FlipPanel {
                     id: txt_temp
                     anchors.rightMargin: 30
                     anchors.right: parent.right
-                    font.pointSize: 18
+                    font.pointSize: 14
                     color: "white"
                     text: temperature
                 }
@@ -259,7 +261,7 @@ FlipPanel {
                     anchors.right: parent.right
                     Text {
                         id: txt_templo
-                        font.pointSize: 18
+                        font.pointSize: 14
                         color: "#889397"
                         text: temperature_low
                     }
@@ -267,7 +269,7 @@ FlipPanel {
                         id: txt_temphi
                         anchors.rightMargin: 20
                         anchors.right: txt_templo.left
-                        font.pointSize: 18
+                        font.pointSize: 14
                         color: "#31c2ee"
                         text: temperature_high
                     }
@@ -322,7 +324,7 @@ FlipPanel {
                 Text {
                     text: dayname
                     color: "white"
-                    font.pointSize: 16
+                    font.pointSize: 12
                     anchors.leftMargin: 10
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
@@ -343,7 +345,7 @@ FlipPanel {
                             id: txt_temp
                             anchors.rightMargin: 30
                             anchors.right: parent.right
-                            font.pointSize: 16
+                            font.pointSize: 12
                             color: "white"
                             text: temperature
                             anchors.verticalCenter: parent.verticalCenter
@@ -358,7 +360,7 @@ FlipPanel {
                         height: parent.height
                         Text {
                             id: txt_templo
-                            font.pointSize: 16
+                            font.pointSize: 12
                             color: "#889397"
                             text: temperature_low
                             anchors.verticalCenter: parent.verticalCenter
@@ -367,7 +369,7 @@ FlipPanel {
                             id: txt_temphi
                             anchors.rightMargin: 20
                             anchors.right: txt_templo.left
-                            font.pointSize: 16
+                            font.pointSize: 12
                             color: "#31c2ee"
                             text: temperature_high
                             anchors.verticalCenter: parent.verticalCenter

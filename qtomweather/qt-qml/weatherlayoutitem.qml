@@ -10,8 +10,9 @@ LayoutItem {    //Sized by the layout
 Rectangle {
     width: 480
     height: 796
-    //color: "green"
-    color: getColor(-40)
+    color: "black"
+    //color: getColor(-40)
+    property int margin: 16
 
     function getColor(t)
     {
@@ -47,44 +48,43 @@ Rectangle {
         flickableDirection: Flickable.VerticalFlick
         clip: true
         Item {
-            anchors.left: parent.left
-            anchors.top: parent.top
-            anchors.leftMargin: 16
-            anchors.rightMargin: 16
-            width: parent.width - 2*16
+            //anchors.left: parent.left
+            //anchors.top: parent.top
+            //anchors.leftMargin: 16
+            //anchors.rightMargin: 16
+            //width: parent.width - 2*16
+            anchors.fill: parent
             height: 900
-
+            /*
             Loader {
                 id: background
                 anchors.fill: parent
                 sourceComponent: Image {source: "../core/data/images/background.png"}
-            }
+            }*/
             Rectangle {
+                id: station_rect
                 anchors.left: parent.left
                 anchors.top: parent.top
-                width: parent.width
+                anchors.leftMargin: margin
+                anchors.rightMargin: margin
+                width: parent.width - 2*margin
                 height: 72
                 color: "black"
+
 
                 ListView {
                     id: station
                     anchors.fill: parent
-                    width: parent.width
+                    //width: parent.width
                     orientation: ListView.Horizontal
                     model: ["Moscow", "Vitebsk", "San Francisco", "Berlin"]
-                    //focus: true
-                    clip: true
-                    //highlightFollowsCurrentItem: true
-                    //snapMode: ListView.SnapOneItem
-                    //highlightRangeMode: ListView.StrictlyEnforceRange
-                    //preferredHighlightBegin: 0
-                    //preferredHighlightEnd: 0
-                    Component.onCompleted: {
-                        //positionViewAtIndex(currentIndex, ListView.Center);
-                        currentIndex = 0;
-                        contentX = -160
-                    }
 
+                    clip: true
+                    interactive: false
+                    //property int item_width: parent.width / 3 + 10
+                    property int item_width: 160
+
+                    /*
                     onMovementStarted: {
                         console.log("movement started "+contentX);
                         if (currentIndex < count-1) currentIndex++;
@@ -96,27 +96,46 @@ Rectangle {
                         contentX = -160 + currentIndex*160
                         //positionViewAtIndex(currentIndex, ListView.Center)
                         console.log("movement ended "+contentX);
-                    }
+                    }*/
                     onCurrentIndexChanged: {
-                        console.log("current index = "+currentIndex);
-                        //currentItem.x = 160
+                        console.log("current index = "+currentIndex+" item_width="+item_width);
+                        contentX = -item_width + currentIndex*item_width
+                        //contentX = -160
 
-                        //console.log("current index changed "+contentX);
+                        console.log("current index changed contentX="+contentX);
                     }
                     delegate: Item {
                         height: 72
-                        width: 160
+                        width: station.item_width
                         Text {
                             //anchors.fill: parent
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.horizontalCenter: parent.horizontalCenter
                             //anchors.centerIn: parent.Center
                             text: modelData
-                            color: ListView.isCurrentItem ? "red" : "white"
+                            color: "white"
+                            //color: ListView.isCurrentItem ? "red" : "white"
                             font.pointSize: 20
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                station.currentIndex = index;
+                                //station.positionViewAtIndex(index, ListView.Center);
+                                console.log("on click "+index);
+                            }
                         }
 
                     }
+                    Component.onCompleted: {
+                        if (count > 1) currentIndex = 1;
+                        else if (count == 1) currentIndex = 0;
+                        else if (count == 0) currentIdex = -1;
+                        //station.currentIndex = 0;
+                        //station.contentX = -160;
+                        //console.log("on complete contentx = "+station.contentX);
+                    }
+
                 }
                 Loader {
                     anchors.fill: parent
@@ -132,6 +151,17 @@ Rectangle {
                         GradientStop {position: 1.0; color: "#FF000000"}
                     }
                 }*/
+            }
+
+            Rectangle {
+                anchors.top: station_rect.bottom
+                width: parent.width
+                height: 274
+                color: getColor(30)
+                Loader {
+                    anchors.fill: parent
+                    sourceComponent: Image {source: "../core/data/images/mask_background.png"}
+                }
             }
 
         }

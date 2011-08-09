@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += declarative
+QT       += declarative sql xml xmlpatterns
 
 TARGET = omweather-qml
 TEMPLATE = app

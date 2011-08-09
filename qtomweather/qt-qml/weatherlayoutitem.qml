@@ -8,16 +8,139 @@ LayoutItem {    //Sized by the layout
     preferredSize: "256x256"
 */
 Rectangle {
-    width: 800
-    height: 480
+    width: 480
+    height: 796
+    //color: "green"
+    color: getColor(-40)
 
-    Loader {
-        id: background
+    function getColor(t)
+    {
+        var c1, c2, c3;
+        if (t >= 30){
+            c2 = (t - 50)*(246/255-60/255)/(30-50) + 60/255;
+            return Qt.rgba(1, c2, 0, 1);
+        }else if (t < 30 && t >= 15){
+            c1 = (t - 30)*(114/255-1)/(15-30) + 1;
+            c2 = (t - 30)*(1-246/255)/(15-30) + 246/255;
+            return Qt.rgba(c1, c2, 0, 1);
+        }else if (t < 15 && t >= 0){
+            c1 = (t - 15)*(1-114/255)/(0-15) + 144/255;
+            c3 = (t - 15)*(1-0)/(0-15) + 0;
+            return Qt.rgba(c1, 1, c3, 1);
+        }else if (t < 0 && t >= -15){
+            c1 = (t - 0)*(0-1)/(-15-0) + 1;
+            c2 = (t - 0)*(216/255-1)/(-15-0) + 1;
+            return Qt.rgba(c1, c2, 1, 1);
+        }else if (t < -15 && t >= -30){
+            c2 = (t + 15)*(66/255-216/255)/(-30+15) + 216/255;
+            return Qt.rgba(0, c2, 1, 1);
+        }else if (t < -30){
+            c1 = (t + 30)*(132/255-0)/(-30+15) + 0;
+            c2 = (t + 30)*(0-66/255)/(-30+15) + 66/255;
+            return Qt.rgba(c1, c2, 1, 1);
+        }
+
+    }
+
+    Flickable {
         anchors.fill: parent
-        sourceComponent: Image {source: Config.imagespath + "/background.png"}
+        flickableDirection: Flickable.VerticalFlick
+        clip: true
+        Item {
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.leftMargin: 16
+            anchors.rightMargin: 16
+            width: parent.width - 2*16
+            height: 900
+
+            Loader {
+                id: background
+                anchors.fill: parent
+                sourceComponent: Image {source: "../core/data/images/background.png"}
+            }
+            Rectangle {
+                anchors.left: parent.left
+                anchors.top: parent.top
+                width: parent.width
+                height: 72
+                color: "black"
+
+                ListView {
+                    id: station
+                    anchors.fill: parent
+                    width: parent.width
+                    orientation: ListView.Horizontal
+                    model: ["Moscow", "Vitebsk", "San Francisco", "Berlin"]
+                    //focus: true
+                    clip: true
+                    //highlightFollowsCurrentItem: true
+                    //snapMode: ListView.SnapOneItem
+                    //highlightRangeMode: ListView.StrictlyEnforceRange
+                    //preferredHighlightBegin: 0
+                    //preferredHighlightEnd: 0
+                    Component.onCompleted: {
+                        //positionViewAtIndex(currentIndex, ListView.Center);
+                        currentIndex = 0;
+                        contentX = -160
+                    }
+
+                    onMovementStarted: {
+                        console.log("movement started "+contentX);
+                        if (currentIndex < count-1) currentIndex++;
+                        else currentIndex = 0;
+                        console.log("movement started "+contentX);
+
+                    }
+                    onMovementEnded: {
+                        contentX = -160 + currentIndex*160
+                        //positionViewAtIndex(currentIndex, ListView.Center)
+                        console.log("movement ended "+contentX);
+                    }
+                    onCurrentIndexChanged: {
+                        console.log("current index = "+currentIndex);
+                        //currentItem.x = 160
+
+                        //console.log("current index changed "+contentX);
+                    }
+                    delegate: Item {
+                        height: 72
+                        width: 160
+                        Text {
+                            //anchors.fill: parent
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            //anchors.centerIn: parent.Center
+                            text: modelData
+                            color: ListView.isCurrentItem ? "red" : "white"
+                            font.pointSize: 20
+                        }
+
+                    }
+                }
+                Loader {
+                    anchors.fill: parent
+                    sourceComponent: Image {source: "../core/data/images/mask_title.png"}
+                }
+                /*
+                Rectangle {
+                    anchors.fill: parent
+                    gradient: Gradient {
+                        //rotation: 90
+                        GradientStop {position: 0.0; color: "#FF000000"}
+                        GradientStop {position: 0.5; color: "#00000000"}
+                        GradientStop {position: 1.0; color: "#FF000000"}
+                    }
+                }*/
+            }
+
+        }
+
     }
 
 
+
+/*
     Rectangle {
         id: panel
         z: 5
@@ -309,6 +432,6 @@ Rectangle {
         Behavior on opacity {
             NumberAnimation {duration: 300; properties: "opacity"}
         }
-    }
+    }*/
 
 }

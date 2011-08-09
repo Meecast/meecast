@@ -30,8 +30,6 @@
 #include "weather-dbus.h"
 /*******************************************************************************/
 #define GCONF_KEY_CURRENT_CONNECTIVITY  "/system/osso/connectivity/IAP/current"
-#define MCE_MATCH_RULE "type='signal',interface='" MCE_SIGNAL_IF \
-                        "',member='" MCE_DEVICE_ORIENTATION_SIG "'"
 /*******************************************************************************/
 #ifdef USE_CONIC
     #include <conic/conic.h>

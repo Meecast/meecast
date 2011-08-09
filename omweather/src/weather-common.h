@@ -141,6 +141,8 @@
 #define OMWEATHER_SIGNAL_RELOAD_CONFIG_PATH "/org/maemo/omweather/reload_config"
 #define OMWEATHER_RELOAD_CONFIG "reload_config"
 #define OMWEATHER_RELOAD_PLUGIN "reload_plugin"
+#define MCE_MATCH_RULE "type='signal',interface='" MCE_SIGNAL_IF \
+                        "',member='" MCE_DEVICE_ORIENTATION_SIG "'"
 
 /*******************************************************************************/
 enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED,

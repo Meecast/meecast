@@ -28,10 +28,33 @@
 */
 /*******************************************************************************/
 #include "weather-portrait.h"
-#if defined OS2009
-    #include <mce/dbus-names.h>
-    #include <mce/mode-names.h>
+#if defined OS2009 
+#include <mce/dbus-names.h>
+#include <mce/mode-names.h>
 /*******************************************************************************/
+DBusHandlerResult
+get_mce_signal_cb_popup(DBusConnection *conn, DBusMessage *msg, gpointer data){
+
+    DBusMessageIter iter;
+    const char *mode_name = NULL;
+    
+    if (dbus_message_is_signal(msg, MCE_SIGNAL_IF, MCE_DEVICE_ORIENTATION_SIG)){
+        if (dbus_message_iter_init(msg, &iter)){
+            dbus_message_iter_get_basic(&iter, &mode_name);
+            fprintf(stderr,"New status %s\n",mode_name);
+
+            if (!strcmp(mode_name, "landscape") && app->portrait_position && data)
+               init_landscape(data);
+            else
+                if (!strcmp(mode_name, "portrait") && !app->portrait_position && data)
+                    init_portrait(data);
+        }else
+            fprintf(stderr,"message did not have argument");
+    }
+
+    return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+}
+
 DBusHandlerResult
 get_mce_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
 

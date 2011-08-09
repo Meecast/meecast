@@ -72,6 +72,7 @@ destroy_popup_window(void){
     /* For end of Clutter animation in popup window */
     free_clutter_objects_list(&app->clutter_objects_in_popup_form);
 #endif
+    dbus_connection_remove_filter(app->dbus_conn, get_mce_signal_cb_popup, app->popup_window); 
     if (app->popup_window)
         gtk_widget_destroy(GTK_WIDGET(app->popup_window));
     app->popup_window = NULL;

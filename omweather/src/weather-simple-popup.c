@@ -32,6 +32,11 @@
 #include "weather-hash.h"
 #include "weather-popup.h"
 #include "weather-data.h"
+#if defined OS2009 
+    #include <mce/dbus-names.h>
+    #include <mce/mode-names.h>
+#endif
+
 /*******************************************************************************/
 gboolean
 jump_panarea(gpointer user_data){
@@ -78,6 +83,7 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     GtkWidget       *window = NULL;
 #if defined OS2009
     HildonAppMenu   *menu = NULL;
+    DBusError   error;
 #endif
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -89,6 +95,28 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     window = hildon_window_new();
 #endif
     gtk_window_set_title(GTK_WINDOW(window), _("Forecast"));
+
+     check_device_position(app->dbus_conn);
+     if (app->portrait_position){
+        fprintf(stderr,"Portrait Position\n ");
+        init_portrait(window);
+     }else{
+        fprintf(stderr,"Landscape Position\n ");
+        init_landscape(window);
+     }
+#if defined OS2009 
+        dbus_error_init (&error);
+        dbus_bus_add_match(app->dbus_conn, MCE_MATCH_RULE, &error);
+        if(dbus_error_is_set(&error)){
+             fprintf(stderr,"dbus_bus_add_match failed: %s", error.message);
+             dbus_error_free(&error);
+        }
+        if(!dbus_connection_add_filter(app->dbus_conn,
+                                      get_mce_signal_cb_popup, window, NULL)){
+             fprintf(stderr,"Error dbus_connection_add_filter failed\n");
+        }
+#endif
+
 
     gtk_container_add(GTK_CONTAINER(window), create_mainbox_for_forecast_window(window, user_data));
 #if defined OS2009

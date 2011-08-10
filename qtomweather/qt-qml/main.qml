@@ -149,6 +149,7 @@ Rectangle {
             }
 
             Rectangle {
+                id: current_rect
                 anchors.top: station_rect.bottom
                 width: parent.width
                 height: 274
@@ -199,7 +200,7 @@ Rectangle {
                     width: parent.width
                     height: 44
                     color: "white"
-                    font.pointSize: 18
+                    font.pointSize: 16
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                 }
@@ -277,7 +278,7 @@ Rectangle {
                     height: 30
                 }
                 Text {
-                    text: Current.wind_speed
+                    text: Current.wind_speed + ' ' + Config.windspeedunit
                     anchors.left: wind_speed.right
                     anchors.leftMargin: 8
                     anchors.top: humidity.bottom
@@ -289,8 +290,88 @@ Rectangle {
                 }
 
             }
+            ListView {
+                id: list
+                anchors.top: current_rect.bottom
+                model: Forecast_model
+                delegate: itemDelegate
+                width: parent.width
+                //height: 80 * Forecast_model.count
+                height: 800
+                interactive: false
+                clip: true
+            }
+            Component {
+                id: itemDelegate
+                Item {
+                    id: day
+                    width: parent.width
+                    height: 80
+
+                    Rectangle {
+                        width: parent.width
+                        height: 80
+                        color: (index % 2 != 0) ? "black" : "#0f0f0f"
+
+                        Text {
+                            text: date
+                            color: "white"
+                            font.pointSize: 16
+                            anchors.left: parent.left
+                            anchors.leftMargin: margin
+                            height:parent.height
+                            verticalAlignment: Text.AlignVCenter
+                        }
+                        Image {
+                            source: Config.iconspath + "/" + Config.iconset + "/" + pict
+                            width: 64
+                            height: 64
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                        Text {
+                            id: txt_temphi
+                            font.pointSize: 16
+                            color: getColor(temp_high)
+                            text: temp_high + '°'
+                            anchors.right: parent.right
+                            anchors.rightMargin: margin + 70
+                            height:parent.height
+                            verticalAlignment: Text.AlignVCenter
+                        }
+                        Text {
+                            id: txt_templo
+                            font.pointSize: 16
+                            color: getColor(temp_low)
+                            text: temp_low + '°'
+                            anchors.right: parent.right
+                            anchors.rightMargin: margin
+                            height:parent.height
+                            verticalAlignment: Text.AlignVCenter
+                        }
+
+
+                        /*
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                uiloader.source = "Details.qml";
+                                //list.visible = false;
+                                columnlist.visible = false
+                                uiloader.item.item_id = id_item;
+                                //uiloader.item.width = frontItemOmweather.width
+                                //uiloader.item.height = frontItemOmweather.height
+                            }
+                            hoverEnabled: true
+
+                        }*/
+
+                    }
+                }
+            } //component itemDelegate
 
         }
 
     }
+
 }

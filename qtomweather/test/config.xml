@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config xmlns="http://omweather.garage.maemo.org/schemas">
  <base>../core/data/</base>
- <iconset>Meecast</iconset>
+ <iconset>Glance</iconset>
  <temperature_unit>C</temperature_unit>
  <wind_speed_unit>m/s</wind_speed_unit>
  <current_station_id>0</current_station_id>
- <update_period>600</update_period>
+ <update_period>2147483647</update_period>
  <update_connect>false</update_connect>
  <station>
   <source_name>weather.com</source_name>
-  <station_name>Apia/Fagali</station_name>
-  <station_id>WSXX0001</station_id>
-  <country>American Samoa</country>
-  <region>American Samoa</region>
-  <file_name>/home/tanya/work/omweather/trunk/qtomweather/test/weather.com_WSXX0001</file_name>
-  <forecast_url>http://xml.weather.com/weather/local/WSXX0001?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=10&amp;cc=*</forecast_url>
-  <converter>/home/tanya/work/omweather/trunk/omweather-weather-com-stations-db/src/weathercom</converter>
- </station>
- <station>
-  <source_name>gismeteo.ru</source_name>
   <station_name>Vitebsk</station_name>
-  <station_id>4218</station_id>
+  <station_id>BOXX0014</station_id>
   <country>Belarus</country>
   <region>Belarus</region>
-  <file_name>/home/tanya/work/omweather/trunk/qtomweather/gismeteo.ru_4218</file_name>
-  <forecast_url>http://www.gismeteo.by/city/weekly/4218/</forecast_url>
-  <converter>gismeteoru</converter>
+  <file_name>/home/tanya/work/omweather/trunk/qtomweather/test/weather.com_BOXX0014</file_name>
+  <forecast_url>http://xml.weather.com/weather/local/BOXX0014?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=10&amp;cc=*</forecast_url>
+  <converter>/home/tanya/work/omweather/trunk/omweather-weather-com-stations-db/srcweathercom</converter>
+ </station>
+ <station>
+  <source_name>weather.com</source_name>
+  <station_name>Moscow</station_name>
+  <station_id>RSXX0063</station_id>
+  <country>Russia</country>
+  <region>Russia</region>
+  <file_name>/home/tanya/work/omweather/trunk/qtomweather/test/weather.com_RSXX0063</file_name>
+  <forecast_url>http://xml.weather.com/weather/local/RSXX0063?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=10&amp;cc=*</forecast_url>
+  <converter>/home/tanya/work/omweather/trunk/omweather-weather-com-stations-db/srcweathercom</converter>
  </station>
 </config>

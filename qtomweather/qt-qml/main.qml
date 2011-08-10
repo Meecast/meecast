@@ -134,7 +134,7 @@ Rectangle {
                 }
                 Loader {
                     anchors.fill: parent
-                    sourceComponent: Image {source: "../core/data/images/mask_title.png"}
+                    sourceComponent: Image {source: Config.imagespath + "/mask_title.png"}
                 }
                 /*
                 Rectangle {
@@ -152,19 +152,142 @@ Rectangle {
                 anchors.top: station_rect.bottom
                 width: parent.width
                 height: 274
-                color: getColor(23)
+                color: getColor(Current.temperature_high)
                 Loader {
                     anchors.fill: parent
-                    sourceComponent: Image {source: "../core/data/images/mask_background.png"}
+                    sourceComponent: Image {source: Config.imagespath + "/mask_background.png"}
                 }
                 Text {
+                    id: now
+                    width: 160
+                    height: 84
                     anchors.top: parent.top
                     anchors.left: parent.left
                     anchors.leftMargin: margin
                     color: "white"
-                    text: Current.description()
+                    text: "Now"
                     font.pointSize: 24
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
                 }
+                Image {
+                    id: icon
+                    source: Config.iconspath + "/" + Config.iconset + "/" + Current.icon
+                    width: 128
+                    height: 128
+                    anchors.top: parent.top
+                    anchors.topMargin: -22
+                    anchors.left: now.right
+                }
+                Text {
+                    anchors.top: parent.top
+                    anchors.left: icon.right
+                    anchors.rightMargin: margin
+                    width: 160
+                    height: 84
+                    color: "white"
+                    text: Current.temperature_high + '°'
+                    font.pointSize: 24
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                }
+                Text {
+                    id: desc
+                    text: Current.description
+                    anchors.left: parent.left
+                    anchors.top: now.bottom
+                    width: parent.width
+                    height: 44
+                    color: "white"
+                    font.pointSize: 18
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                }
+                Image {
+                    id: humidity
+                    source: Config.imagespath + "/humidity.png"
+                    anchors.top: desc.bottom
+                    anchors.topMargin: 32
+                    anchors.left: parent.left
+                    anchors.leftMargin: margin
+                    width: 30
+                    height: 30
+                }
+                Text {
+                    text: Current.humidity+"%"
+                    anchors.left: humidity.right
+                    anchors.leftMargin: 8
+                    anchors.top: desc.bottom
+                    anchors.topMargin: 32
+                    height: 30
+                    color: "white"
+                    font.pointSize: 16
+                    verticalAlignment: Text.AlignVCenter
+                }
+                Image {
+                    id: wind_direction
+                    source: Config.imagespath + "/wind_direction.png"
+                    anchors.top: desc.bottom
+                    anchors.topMargin: 32
+                    anchors.left: parent.left
+                    anchors.leftMargin: margin+224
+                    width: 30
+                    height: 30
+                }
+                Text {
+                    text: Current.wind_direction
+                    anchors.left: wind_direction.right
+                    anchors.leftMargin: 8
+                    anchors.top: desc.bottom
+                    anchors.topMargin: 32
+                    height: 30
+                    color: "white"
+                    font.pointSize: 16
+                    verticalAlignment: Text.AlignVCenter
+                }
+                Image {
+                    id: pressure
+                    source: Config.imagespath + "/pressure.png"
+                    anchors.top: humidity.bottom
+                    anchors.topMargin: 22
+                    anchors.left: parent.left
+                    anchors.leftMargin: margin
+                    width: 30
+                    height: 30
+                }
+                Text {
+                    text: Current.pressure
+                    anchors.left: pressure.right
+                    anchors.leftMargin: 8
+                    anchors.top: humidity.bottom
+                    anchors.topMargin: 22
+                    height: 30
+                    color: "white"
+                    font.pointSize: 16
+                    verticalAlignment: Text.AlignVCenter
+                }
+                Image {
+                    id: wind_speed
+                    source: Config.imagespath + "/wind_speed.png"
+                    anchors.top: humidity.bottom
+                    anchors.topMargin: 22
+                    anchors.left: parent.left
+                    anchors.leftMargin: margin+224
+                    width: 30
+                    height: 30
+                }
+                Text {
+                    text: Current.wind_speed
+                    anchors.left: wind_speed.right
+                    anchors.leftMargin: 8
+                    anchors.top: humidity.bottom
+                    anchors.topMargin: 22
+                    height: 30
+                    color: "white"
+                    font.pointSize: 16
+                    verticalAlignment: Text.AlignVCenter
+                }
+
             }
 
         }

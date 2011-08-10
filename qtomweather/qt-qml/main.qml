@@ -1,0 +1,173 @@
+import Qt 4.7
+/*
+LayoutItem {    //Sized by the layout
+    id: weatherlayoutitem
+
+    minimumSize: "128x128"
+    maximumSize: "300x300"
+    preferredSize: "256x256"
+*/
+Rectangle {
+    width: 480
+    height: 796
+    color: "black"
+    //color: getColor(-40)
+    property int margin: 16
+
+    function getColor(t)
+    {
+        var c1, c2, c3;
+        if (t >= 30){
+            c2 = (t - 50)*(246/255-60/255)/(30-50) + 60/255;
+            return Qt.rgba(1, c2, 0, 1);
+        }else if (t < 30 && t >= 15){
+            c1 = (t - 30)*(114/255-1)/(15-30) + 1;
+            c2 = (t - 30)*(1-246/255)/(15-30) + 246/255;
+            return Qt.rgba(c1, c2, 0, 1);
+        }else if (t < 15 && t >= 0){
+            c1 = (t - 15)*(1-114/255)/(0-15) + 144/255;
+            c3 = (t - 15)*(1-0)/(0-15) + 0;
+            return Qt.rgba(c1, 1, c3, 1);
+        }else if (t < 0 && t >= -15){
+            c1 = (t - 0)*(0-1)/(-15-0) + 1;
+            c2 = (t - 0)*(216/255-1)/(-15-0) + 1;
+            return Qt.rgba(c1, c2, 1, 1);
+        }else if (t < -15 && t >= -30){
+            c2 = (t + 15)*(66/255-216/255)/(-30+15) + 216/255;
+            return Qt.rgba(0, c2, 1, 1);
+        }else if (t < -30){
+            c1 = (t + 30)*(132/255-0)/(-30+15) + 0;
+            c2 = (t + 30)*(0-66/255)/(-30+15) + 66/255;
+            return Qt.rgba(c1, c2, 1, 1);
+        }
+
+    }
+
+    Flickable {
+        anchors.fill: parent
+        flickableDirection: Flickable.VerticalFlick
+        clip: true
+        Item {
+            anchors.fill: parent
+            height: 900
+            /*
+            Loader {
+                id: background
+                anchors.fill: parent
+                sourceComponent: Image {source: "../core/data/images/background.png"}
+            }*/
+            Rectangle {
+                id: station_rect
+                anchors.left: parent.left
+                anchors.top: parent.top
+                anchors.leftMargin: margin
+                anchors.rightMargin: margin
+                width: parent.width - 2*margin
+                height: 72
+                color: "black"
+
+
+                ListView {
+                    id: station
+                    anchors.fill: parent
+                    //width: parent.width
+                    orientation: ListView.Horizontal
+                    model: ["Moscow", "Vitebsk", "San Francisco", "Berlin"]
+
+                    clip: true
+                    interactive: false
+                    //property int item_width: parent.width / 3 + 10
+                    property int item_width: 160
+
+                    /*
+                    onMovementStarted: {
+                        console.log("movement started "+contentX);
+                        if (currentIndex < count-1) currentIndex++;
+                        else currentIndex = 0;
+                        console.log("movement started "+contentX);
+
+                    }
+                    onMovementEnded: {
+                        contentX = -160 + currentIndex*160
+                        //positionViewAtIndex(currentIndex, ListView.Center)
+                        console.log("movement ended "+contentX);
+                    }*/
+                    onCurrentIndexChanged: {
+                        console.log("current index = "+currentIndex+" item_width="+item_width);
+                        contentX = -item_width + currentIndex*item_width
+                        //contentX = -160
+
+                        console.log("current index changed contentX="+contentX);
+                    }
+                    delegate: Item {
+                        height: 72
+                        width: station.item_width
+                        Text {
+                            //anchors.fill: parent
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            //anchors.centerIn: parent.Center
+                            text: modelData
+                            color: "white"
+                            //color: ListView.isCurrentItem ? "red" : "white"
+                            font.pointSize: 20
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                station.currentIndex = index;
+                                //station.positionViewAtIndex(index, ListView.Center);
+                                console.log("on click "+index);
+                            }
+                        }
+
+                    }
+                    Component.onCompleted: {
+                        if (count > 1) currentIndex = 1;
+                        else if (count == 1) currentIndex = 0;
+                        else if (count == 0) currentIdex = -1;
+                        //station.currentIndex = 0;
+                        //station.contentX = -160;
+                        //console.log("on complete contentx = "+station.contentX);
+                    }
+
+                }
+                Loader {
+                    anchors.fill: parent
+                    sourceComponent: Image {source: "../core/data/images/mask_title.png"}
+                }
+                /*
+                Rectangle {
+                    anchors.fill: parent
+                    gradient: Gradient {
+                        //rotation: 90
+                        GradientStop {position: 0.0; color: "#FF000000"}
+                        GradientStop {position: 0.5; color: "#00000000"}
+                        GradientStop {position: 1.0; color: "#FF000000"}
+                    }
+                }*/
+            }
+
+            Rectangle {
+                anchors.top: station_rect.bottom
+                width: parent.width
+                height: 274
+                color: getColor(23)
+                Loader {
+                    anchors.fill: parent
+                    sourceComponent: Image {source: "../core/data/images/mask_background.png"}
+                }
+                Text {
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    anchors.leftMargin: margin
+                    color: "white"
+                    text: Current.description()
+                    font.pointSize: 24
+                }
+            }
+
+        }
+
+    }
+}

@@ -35,22 +35,27 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 class Controller : public QObject
-
 {
     Q_OBJECT
-    ConfigQml *_config;
-    QDeclarativeView *_qview;
-    Core::DataParser *_dp;
-    DataModel *_model; 
-    public:
+
+public:
     Controller();
     ConfigQml* config();
     QDeclarativeView *qview();
     virtual ~Controller();
-    public Q_SLOTS:
+
+public Q_SLOTS:
     void reload_config();
     void load_config();
     void load_data();
+
+private:
+    ConfigQml *_config;
+    QDeclarativeView *_qview;
+    Core::DataParser *_dp;
+    DataModel *_model; 
+    DataItem *_current;
+
 
 };
 

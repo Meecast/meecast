@@ -132,6 +132,7 @@ int main(int argc, char* argv[])
                                                                 Core::AbstractConfig::layoutqml)));
     */
     qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::layoutqml)));
+    //qview->setSource(QUrl::fromLocalFile("main.qml"));
     qview->show();
     /*This code provide Segmantation fault
     delete dadapt;

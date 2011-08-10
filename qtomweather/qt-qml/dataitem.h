@@ -43,7 +43,6 @@
 class DataItem : public QObject, public Core::Data
 {
     Q_OBJECT
-    public:
     enum Roles {
         NameRole = Qt::UserRole+1,
         Temp_hiRole,
@@ -70,27 +69,37 @@ class DataItem : public QObject, public Core::Data
         PressureLabelRole
     };
 public:
+    Q_PROPERTY(QString description READ description)
+    Q_PROPERTY(QString temperature_high READ temperature_high)
+    Q_PROPERTY(QString temperature_low READ temperature_low)
+    Q_PROPERTY(QString wind_direction READ wind_direction)
+    Q_PROPERTY(QString wind_speed READ wind_speed)
+    Q_PROPERTY(QString humidity READ humidity)
+    Q_PROPERTY(QString pressure READ pressure)
+    Q_PROPERTY(QString icon READ icon)
+    Q_PROPERTY(QString shortdate READ shortdate)
+
     DataItem();
     DataItem(const Core::Data *data);
     virtual ~DataItem(){};
     QVariant data(int role);
     QHash<int, QByteArray> roleNames() const;
-    inline QString temperature_high();
-    inline QString temperature_low();
-    inline QString wind_direction();
-    inline QString wind_speed();
+    QString temperature_high();
+    QString temperature_low();
+    QString wind_direction();
+    QString wind_speed();
     inline QString wind_gust();
-    inline QString humidity();
-    inline QString icon();
+    QString humidity();
+    QString icon();
     inline bool current();
-    inline QString description();
+    QString description();
     inline QString date();
-    inline QString shortdate();
+    QString shortdate();
     inline QString fulldate();
     inline QString start();
     inline QString end();
     inline QString flike();
-    inline QString pressure();
+    QString pressure();
     inline QString ppcp();
 
 };

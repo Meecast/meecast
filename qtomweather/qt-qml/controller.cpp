@@ -122,10 +122,13 @@ Controller::load_data()
   tm->tm_isdst = 1;
   current_day = mktime(tm);
   /* fill current date */
-  if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL) + i))) {
-      forecast_data = new DataItem(temp_data);
-      forecast_data->Text(_(forecast_data->Text().c_str()));
-      _model->appendRow(forecast_data);
+  if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(/*time(NULL)*/current_day + 12*3600 + i))) {
+      std::cout << "make current" << std::endl;
+      _current = new DataItem(temp_data);
+      _current->Text(_(_current->Text().c_str()));
+      //std::cout << "desc = " <<_current->description() << std::endl;
+      qDebug() << "desc = " <<_current->description();
+      //_model->appendRow(forecast_data);
   }
 
   /* set next day */
@@ -137,6 +140,7 @@ Controller::load_data()
       forecast_data->Text(_(forecast_data->Text().c_str()));
       _model->appendRow(forecast_data);
   }
+  _qview->rootContext()->setContextProperty("Current", _current);
   _qview->rootContext()->setContextProperty("Forecast_model", _model);
 }
 

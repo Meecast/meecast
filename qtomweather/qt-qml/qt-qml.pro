@@ -63,7 +63,7 @@ qml.files = *.qml
 qml.path = /opt/com.meecast.omweather/share/omweather/qml
 
 #INSTALLS += desktop qml icon64
-INSTALLS += desktop qml panel 
+INSTALLS += desktop qml 
 
 DATADIR=/opt/com.meecast.omweather/share
 

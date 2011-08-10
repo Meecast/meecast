@@ -37,7 +37,33 @@ DataItem::DataItem()
 DataItem::DataItem(const Core::Data* data):QObject(),Core::Data(data){
 
 }
+void
+DataItem::update(QString filename)
+{
+    int i = 0;
+    Core::DataParser* dp = NULL;
+    Core::Data *temp_data = NULL;
+    if (!filename.isEmpty()){
+        try{
+            dp = new Core::DataParser(filename.toStdString(),
+                                      Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd");
+        }
+        catch(const std::string &str){
+            std::cerr<<"Error in DataParser class: "<< str << std::endl;
+            //return NULL;
+        }
+        catch(const char *str){
+            std::cerr<<"Error in DataParser class: "<< str << std::endl;
+            //return NULL;
+        }
+    }
 
+    if  (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
+        i = i + 3600*24;
+        DataItem::Data(temp_data);
+    }
+
+}
 QHash<int, QByteArray> DataItem::roleNames() const
 {
     QHash<int,QByteArray> names;

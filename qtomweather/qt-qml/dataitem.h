@@ -102,6 +102,8 @@ public:
     QString pressure();
     inline QString ppcp();
 
+    Q_INVOKABLE void update(QString filename);
+
 };
 
 #endif // DATAITEM_H

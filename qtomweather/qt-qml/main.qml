@@ -66,7 +66,26 @@ Rectangle {
                 height: 72
                 color: "black"
 
-
+                Text {
+                    id: stationname
+                    anchors.fill: parent
+                    text: Config.stationname
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    color: "white"
+                    font.pointSize: 20
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            Config.changestation();
+                            list.model.update(Config.filename);
+                            Current.update(Config.filename);
+                            stationname.text = Config.stationname;
+                            console.log(Current.temperature_high);
+                        }
+                    }
+                }
+                /*
                 ListView {
                     id: station
                     anchors.fill: parent
@@ -79,19 +98,6 @@ Rectangle {
                     //property int item_width: parent.width / 3 + 10
                     property int item_width: 160
 
-                    /*
-                    onMovementStarted: {
-                        console.log("movement started "+contentX);
-                        if (currentIndex < count-1) currentIndex++;
-                        else currentIndex = 0;
-                        console.log("movement started "+contentX);
-
-                    }
-                    onMovementEnded: {
-                        contentX = -160 + currentIndex*160
-                        //positionViewAtIndex(currentIndex, ListView.Center)
-                        console.log("movement ended "+contentX);
-                    }*/
                     onCurrentIndexChanged: {
                         console.log("current index = "+currentIndex+" item_width="+item_width);
                         contentX = -item_width + currentIndex*item_width
@@ -131,21 +137,11 @@ Rectangle {
                         //console.log("on complete contentx = "+station.contentX);
                     }
 
-                }
+                }*/
                 Loader {
                     anchors.fill: parent
                     sourceComponent: Image {source: Config.imagespath + "/mask_title.png"}
                 }
-                /*
-                Rectangle {
-                    anchors.fill: parent
-                    gradient: Gradient {
-                        //rotation: 90
-                        GradientStop {position: 0.0; color: "#FF000000"}
-                        GradientStop {position: 0.5; color: "#00000000"}
-                        GradientStop {position: 1.0; color: "#FF000000"}
-                    }
-                }*/
             }
 
             Rectangle {
@@ -296,8 +292,8 @@ Rectangle {
                 model: Forecast_model
                 delegate: itemDelegate
                 width: parent.width
-                //height: 80 * Forecast_model.count
-                height: 800
+                height: 80 * Forecast_model.count()
+                //height: 800
                 interactive: false
                 clip: true
             }
@@ -342,7 +338,7 @@ Rectangle {
                         Text {
                             id: txt_templo
                             font.pointSize: 16
-                            color: getColor(temp_low)
+                            color: "#889397"
                             text: temp_low + '°'
                             anchors.right: parent.right
                             anchors.rightMargin: margin

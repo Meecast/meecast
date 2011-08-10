@@ -42,6 +42,11 @@ DataModel::rowCount(const QModelIndex &parent) const
     Q_UNUSED(parent);
     return _list.size();
 }
+int
+DataModel::count()
+{
+    return _list.size();
+}
 
 QVariant
 DataModel::data(const QModelIndex &index, int role) const

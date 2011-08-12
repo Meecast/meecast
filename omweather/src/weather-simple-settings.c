@@ -2996,6 +2996,7 @@ weather_simple_window_settings(gpointer user_data){
 
     app->settings_window = window;
     gtk_window_set_title(GTK_WINDOW(window), _("OMWeather Settings"));
+    init_landscape(window);
     gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
     gtk_window_set_modal(GTK_WINDOW(window), TRUE);
 

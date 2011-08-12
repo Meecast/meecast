@@ -522,6 +522,7 @@ typedef struct OMWeatherApplet{
 #endif
 #ifdef OS2009
     gboolean    portrait_position;
+    gboolean    popup_portrait_position;
     HDHomePluginItem *home_window;
 #endif
 #if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)

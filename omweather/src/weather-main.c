@@ -88,9 +88,11 @@ main(int argc, char *argv[]){
              if (app->portrait_position){
                 fprintf(stderr,"Portrait Position\n ");
                 init_portrait(app->main_view);
+                app->portrait_position = TRUE;
              }else{
                 fprintf(stderr,"Landscape Position\n ");
                 init_landscape(app->main_view);
+                app->portrait_position = FALSE;
              }
           #endif
           gtk_widget_show_all(GTK_WIDGET(app->main_view));

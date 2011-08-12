@@ -43,11 +43,14 @@ get_mce_signal_cb_popup(DBusConnection *conn, DBusMessage *msg, gpointer data){
             dbus_message_iter_get_basic(&iter, &mode_name);
             fprintf(stderr,"New status %s\n",mode_name);
 
-            if (!strcmp(mode_name, "landscape") && app->portrait_position && data)
-               init_landscape(data);
-            else
-                if (!strcmp(mode_name, "portrait") && !app->portrait_position && data)
+            if (!strcmp(mode_name, "landscape") && app->popup_portrait_position && data){
+               init_landscape(data);  
+               app->popup_portrait_position = FALSE;
+            }else
+                if (!strcmp(mode_name, "portrait") && !app->popup_portrait_position && data){
                     init_portrait(data);
+                    app->popup_portrait_position = TRUE;
+                }
         }else
             fprintf(stderr,"message did not have argument");
     }
@@ -66,11 +69,14 @@ get_mce_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
             dbus_message_iter_get_basic(&iter, &mode_name);
             fprintf(stderr,"New status %s\n",mode_name);
 
-            if (!strcmp(mode_name, "landscape") && app->portrait_position)
+            if (!strcmp(mode_name, "landscape") && app->portrait_position){
                init_landscape(app->main_view);
-            else
-                if (!strcmp(mode_name, "portrait") && !app->portrait_position )
+               app->portrait_position = FALSE;
+            } else
+                if (!strcmp(mode_name, "portrait") && !app->portrait_position){
                     init_portrait(app->main_view);
+                    app->portrait_position = TRUE;
+               }
         }else
             fprintf(stderr,"message did not have argument");
     }
@@ -92,7 +98,6 @@ init_portrait(GtkWidget *win){
   gtk_widget_realize(win);
   set_portrait(win, "_HILDON_PORTRAIT_MODE_SUPPORT", 1);
   set_portrait(win, "_HILDON_PORTRAIT_MODE_REQUEST", 1);
-  app->portrait_position = TRUE;
 }
 /*******************************************************************************/
 void 
@@ -102,7 +107,6 @@ init_landscape(GtkWidget *win){
 
   set_portrait(win, "_HILDON_PORTRAIT_MODE_SUPPORT", 0);
   set_portrait(win, "_HILDON_PORTRAIT_MODE_REQUEST", 0);
-  app->portrait_position = FALSE;
 }
 /*******************************************************************************/
 void

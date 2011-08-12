@@ -100,9 +100,11 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
      if (app->portrait_position){
         fprintf(stderr,"Portrait Position\n ");
         init_portrait(window);
+        app->popup_portrait_position = TRUE; 
      }else{
         fprintf(stderr,"Landscape Position\n ");
         init_landscape(window);
+        app->popup_portrait_position = FALSE; 
      }
 #if defined OS2009 
         dbus_error_init (&error);

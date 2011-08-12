@@ -54,7 +54,7 @@ private:
     QDeclarativeView *_qview;
     Core::DataParser *_dp;
     DataModel *_model; 
-    DataItem *_current;
+    DataModel *_current;
 
 
 };

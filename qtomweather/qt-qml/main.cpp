@@ -101,7 +101,7 @@ int main(int argc, char* argv[])
 
     //Add the QML snippet into the layout
 
-    ConfigQml *config;
+    //ConfigQml *config;
     Controller *controller;
 
     QTranslator translator;
@@ -117,8 +117,8 @@ int main(int argc, char* argv[])
     
 
 
-    config = controller->config();
-    std::cerr<<"iconpath = "<<config->imagespath().toStdString() << std::endl;
+    //config = controller->config();
+    //std::cerr<<"iconpath = "<<config->imagespath().toStdString() << std::endl;
     //update_weather_forecast(config);
     
     QDeclarativeView *qview;

@@ -32,6 +32,7 @@
 #define DATAMODEL_H
 
 #include <QAbstractListModel>
+#include <QModelIndex>
 #include <QList>
 #include <QVariant>
 #include "dataitem.h"
@@ -44,11 +45,11 @@ public:
     explicit DataModel(DataItem* prototype, QObject* parent = 0);
     ~DataModel();
     Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const;
-    Q_INVOKABLE int count();
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
+    Q_INVOKABLE QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
     void appendRow(DataItem* item);
+    Q_INVOKABLE DataItem* find(const int row);
     void clear();
-    Q_INVOKABLE void update(QString filename);
+    Q_INVOKABLE void update(QString filename, bool isCurrent);
 
 private:
     DataItem* _prototype;

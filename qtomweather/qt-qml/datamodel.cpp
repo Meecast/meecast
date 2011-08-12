@@ -42,11 +42,6 @@ DataModel::rowCount(const QModelIndex &parent) const
     Q_UNUSED(parent);
     return _list.size();
 }
-int
-DataModel::count()
-{
-    return _list.size();
-}
 
 QVariant
 DataModel::data(const QModelIndex &index, int role) const
@@ -54,6 +49,12 @@ DataModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= _list.size())
         return QVariant();
     return _list.at(index.row())->data(role);
+}
+DataItem*
+DataModel::find(const int row)
+{
+    qDebug() << "222 " << row << _list.at(row)->description();
+    return _list.at(row);
 }
 
 DataModel::~DataModel()
@@ -79,12 +80,12 @@ DataModel::appendRow(DataItem *item)
     //return (_list.size() - 1);
 }
 void
-DataModel::update(QString filename)
+DataModel::update(QString filename, bool isCurrent)
 {
     this->clear();
     DataItem *forecast_data = NULL;
 
-    int i = 0;
+    int i;
     Core::DataParser* dp = NULL;
     Core::Data *temp_data = NULL;
     if (!filename.isEmpty()){
@@ -101,13 +102,23 @@ DataModel::update(QString filename)
             //return NULL;
         }
     }
+    if (isCurrent){
+        i = 0;
+        if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
+            forecast_data = new DataItem(temp_data);
+            forecast_data->Text(forecast_data->Text().c_str());
+            this->appendRow(forecast_data);
 
-    while  (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
-        i = i + 3600*24;
-        forecast_data = new DataItem(temp_data);
-        forecast_data->Text(forecast_data->Text().c_str());
-        this->appendRow(forecast_data);
+        }
+    }else {
+        i = 3600*24;
+        while  (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
+            i = i + 3600*24;
+            forecast_data = new DataItem(temp_data);
+            forecast_data->Text(forecast_data->Text().c_str());
+            this->appendRow(forecast_data);
 
+        }
     }
     this->reset();
 }

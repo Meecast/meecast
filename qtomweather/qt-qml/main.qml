@@ -78,10 +78,11 @@ Rectangle {
                         anchors.fill: parent
                         onClicked: {
                             Config.changestation();
-                            list.model.update(Config.filename);
-                            Current.update(Config.filename);
+                            Forecast_model.update(Config.filename, false);
+                            Current.update(Config.filename, true);
+                            //Current.update(Config.filename);
                             stationname.text = Config.stationname;
-                            console.log(Current.temperature_high);
+                            console.log("11111 "+Forecast_model.indexFromItem(1));
                         }
                     }
                 }
@@ -149,140 +150,156 @@ Rectangle {
                 anchors.top: station_rect.bottom
                 width: parent.width
                 height: 274
-                color: getColor(Current.temperature_high)
+                //color: getColor(Current.temperature_high)
                 Loader {
                     anchors.fill: parent
                     sourceComponent: Image {source: Config.imagespath + "/mask_background.png"}
                 }
-                Text {
-                    id: now
-                    width: 160
-                    height: 84
-                    anchors.top: parent.top
-                    anchors.left: parent.left
-                    anchors.leftMargin: margin
-                    color: "white"
-                    text: "Now"
-                    font.pointSize: 24
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
+                ListView {
+                    anchors.fill: parent
+                    model: Current
+                    delegate: currentDelegate
+                    interactive: false
                 }
-                Image {
-                    id: icon
-                    source: Config.iconspath + "/" + Config.iconset + "/" + Current.icon
-                    width: 128
-                    height: 128
-                    anchors.top: parent.top
-                    anchors.topMargin: -22
-                    anchors.left: now.right
-                }
-                Text {
-                    anchors.top: parent.top
-                    anchors.left: icon.right
-                    anchors.rightMargin: margin
-                    width: 160
-                    height: 84
-                    color: "white"
-                    text: Current.temperature_high + '°'
-                    font.pointSize: 24
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
-                }
-                Text {
-                    id: desc
-                    text: Current.description
-                    anchors.left: parent.left
-                    anchors.top: now.bottom
-                    width: parent.width
-                    height: 44
-                    color: "white"
-                    font.pointSize: 16
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
-                }
-                Image {
-                    id: humidity
-                    source: Config.imagespath + "/humidity.png"
-                    anchors.top: desc.bottom
-                    anchors.topMargin: 32
-                    anchors.left: parent.left
-                    anchors.leftMargin: margin
-                    width: 30
-                    height: 30
-                }
-                Text {
-                    text: Current.humidity+"%"
-                    anchors.left: humidity.right
-                    anchors.leftMargin: 8
-                    anchors.top: desc.bottom
-                    anchors.topMargin: 32
-                    height: 30
-                    color: "white"
-                    font.pointSize: 16
-                    verticalAlignment: Text.AlignVCenter
-                }
-                Image {
-                    id: wind_direction
-                    source: Config.imagespath + "/wind_direction.png"
-                    anchors.top: desc.bottom
-                    anchors.topMargin: 32
-                    anchors.left: parent.left
-                    anchors.leftMargin: margin+224
-                    width: 30
-                    height: 30
-                }
-                Text {
-                    text: Current.wind_direction
-                    anchors.left: wind_direction.right
-                    anchors.leftMargin: 8
-                    anchors.top: desc.bottom
-                    anchors.topMargin: 32
-                    height: 30
-                    color: "white"
-                    font.pointSize: 16
-                    verticalAlignment: Text.AlignVCenter
-                }
-                Image {
-                    id: pressure
-                    source: Config.imagespath + "/pressure.png"
-                    anchors.top: humidity.bottom
-                    anchors.topMargin: 22
-                    anchors.left: parent.left
-                    anchors.leftMargin: margin
-                    width: 30
-                    height: 30
-                }
-                Text {
-                    text: Current.pressure
-                    anchors.left: pressure.right
-                    anchors.leftMargin: 8
-                    anchors.top: humidity.bottom
-                    anchors.topMargin: 22
-                    height: 30
-                    color: "white"
-                    font.pointSize: 16
-                    verticalAlignment: Text.AlignVCenter
-                }
-                Image {
-                    id: wind_speed
-                    source: Config.imagespath + "/wind_speed.png"
-                    anchors.top: humidity.bottom
-                    anchors.topMargin: 22
-                    anchors.left: parent.left
-                    anchors.leftMargin: margin+224
-                    width: 30
-                    height: 30
-                }
-                Text {
-                    text: Current.wind_speed + ' ' + Config.windspeedunit
-                    anchors.left: wind_speed.right
-                    anchors.leftMargin: 8
-                    anchors.top: humidity.bottom
-                    anchors.topMargin: 22
-                    height: 30
-                    color: "white"
-                    font.pointSize: 16
-                    verticalAlignment: Text.AlignVCenter
+                Component {
+                    id: currentDelegate
+                    Item {
+                        //anchors.fill: ListView
+
+                        Text {
+                            id: now
+                            width: 160
+                            height: 84
+                            anchors.top: parent.top
+                            anchors.left: parent.left
+                            anchors.leftMargin: margin
+                            color: "white"
+                            text: "Now"
+                            font.pointSize: 24
+                            verticalAlignment: Text.AlignVCenter
+                            horizontalAlignment: Text.AlignHCenter
+                        }
+                        Image {
+                            id: icon
+                            source: Config.iconspath + "/" + Config.iconset + "/" + model.pict
+                            width: 128
+                            height: 128
+                            anchors.top: parent.top
+                            anchors.topMargin: -22
+                            anchors.left: now.right
+                        }
+                        Text {
+                            anchors.top: parent.top
+                            anchors.left: icon.right
+                            anchors.rightMargin: margin
+                            width: 160
+                            height: 84
+                            color: "white"
+                            text: model.temp_high + '°'
+                            font.pointSize: 24
+                            verticalAlignment: Text.AlignVCenter
+                            horizontalAlignment: Text.AlignHCenter
+                            Component.onCompleted: {
+                                current_rect.color = getColor(temp_high);
+                            }
+                        }
+                        Text {
+                            id: desc
+                            text: model.description
+                            anchors.left: parent.left
+                            anchors.top: now.bottom
+                            width: current_rect.width
+                            height: 44
+                            color: "white"
+                            font.pointSize: 16
+                            verticalAlignment: Text.AlignVCenter
+                            horizontalAlignment: Text.AlignHCenter
+                        }
+                        Image {
+                            id: humidity
+                            source: Config.imagespath + "/humidity.png"
+                            anchors.top: desc.bottom
+                            anchors.topMargin: 32
+                            anchors.left: parent.left
+                            anchors.leftMargin: margin
+                            width: 30
+                            height: 30
+                        }
+                        Text {
+                            text: model.humidity+"%"
+                            anchors.left: humidity.right
+                            anchors.leftMargin: 8
+                            anchors.top: desc.bottom
+                            anchors.topMargin: 32
+                            height: 30
+                            color: "white"
+                            font.pointSize: 16
+                            verticalAlignment: Text.AlignVCenter
+                        }
+                        Image {
+                            id: wind_direction
+                            source: Config.imagespath + "/wind_direction.png"
+                            anchors.top: desc.bottom
+                            anchors.topMargin: 32
+                            anchors.left: parent.left
+                            anchors.leftMargin: margin+224
+                            width: 30
+                            height: 30
+                        }
+                        Text {
+                            text: model.wind_direction
+                            anchors.left: wind_direction.right
+                            anchors.leftMargin: 8
+                            anchors.top: desc.bottom
+                            anchors.topMargin: 32
+                            height: 30
+                            color: "white"
+                            font.pointSize: 16
+                            verticalAlignment: Text.AlignVCenter
+                        }
+                        Image {
+                            id: pressure
+                            source: Config.imagespath + "/pressure.png"
+                            anchors.top: humidity.bottom
+                            anchors.topMargin: 22
+                            anchors.left: parent.left
+                            anchors.leftMargin: margin
+                            width: 30
+                            height: 30
+                        }
+                        Text {
+                            text: model.pressure
+                            anchors.left: pressure.right
+                            anchors.leftMargin: 8
+                            anchors.top: humidity.bottom
+                            anchors.topMargin: 22
+                            height: 30
+                            color: "white"
+                            font.pointSize: 16
+                            verticalAlignment: Text.AlignVCenter
+                        }
+                        Image {
+                            id: wind_speed
+                            source: Config.imagespath + "/wind_speed.png"
+                            anchors.top: humidity.bottom
+                            anchors.topMargin: 22
+                            anchors.left: parent.left
+                            anchors.leftMargin: margin+224
+                            width: 30
+                            height: 30
+                        }
+                        Text {
+                            text: model.wind_speed + ' ' + Config.windspeedunit
+                            anchors.left: wind_speed.right
+                            anchors.leftMargin: 8
+                            anchors.top: humidity.bottom
+                            anchors.topMargin: 22
+                            height: 30
+                            color: "white"
+                            font.pointSize: 16
+                            verticalAlignment: Text.AlignVCenter
+                        }
+                    }
                 }
 
             }
@@ -292,7 +309,7 @@ Rectangle {
                 model: Forecast_model
                 delegate: itemDelegate
                 width: parent.width
-                height: 80 * Forecast_model.count()
+                height: 80 * Forecast_model.rowCount()
                 //height: 800
                 interactive: false
                 clip: true

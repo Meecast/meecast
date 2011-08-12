@@ -49,6 +49,8 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString windspeedunit READ windspeedunit NOTIFY windspeedunitChanged)
     Q_PROPERTY(QColor fontcolor READ fontcolor NOTIFY fontcolorChanged)
     Q_PROPERTY(QString stationname READ stationname NOTIFY stationnameChanged)
+    Q_PROPERTY(QString prevstationname READ prevstationname NOTIFY prevstationnameChanged)
+    Q_PROPERTY(QString nextstationname READ nextstationname NOTIFY nextstationnameChanged)
     Q_PROPERTY(QString filename READ filename NOTIFY filenameChanged)
     public:
     ConfigQml();
@@ -61,8 +63,12 @@ class ConfigQml : public QObject, public Core::Config
     QString windspeedunit();
     QColor fontcolor();
     QString stationname();
+    QString prevstationname();
+    QString nextstationname();
     QString filename();
     Q_INVOKABLE void changestation();
+    Q_INVOKABLE void nextstation();
+    Q_INVOKABLE void prevstation();
     Q_INVOKABLE void updatestations();
     Q_INVOKABLE void runsetting();
     Q_INVOKABLE void closeapplication();
@@ -77,6 +83,8 @@ class ConfigQml : public QObject, public Core::Config
     void windspeedunitChanged();
     void fontcolorChanged();
     void stationnameChanged();
+    void prevstationnameChanged();
+    void nextstationnameChanged();
     void filenameChanged();
     public Q_SLOTS:
     void reload_config();

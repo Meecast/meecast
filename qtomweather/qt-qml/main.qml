@@ -67,8 +67,38 @@ Rectangle {
                 color: "black"
 
                 Text {
+                    id: prevstationname
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    height: parent.height
+                    width: parent.width / 3
+                    text: Config.prevstationname
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    color: "white"
+                    font.pointSize: 20
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            if (prevstationname.text != ""){
+                                console.log("prev station");
+                                Config.prevstation();
+                                Forecast_model.update(Config.filename, false);
+                                Current.update(Config.filename, true);
+                                stationname.text = Config.stationname;
+                                prevstationname.text = Config.prevstationname;
+                                nextstationname.text = Config.nextstationname;
+                            }
+                        }
+                    }
+                }
+
+                Text {
                     id: stationname
-                    anchors.fill: parent
+                    anchors.top: parent.top
+                    anchors.left: prevstationname.right
+                    height: parent.height
+                    width: parent.width / 3
                     text: Config.stationname
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
@@ -77,12 +107,34 @@ Rectangle {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            Config.changestation();
-                            Forecast_model.update(Config.filename, false);
-                            Current.update(Config.filename, true);
-                            //Current.update(Config.filename);
-                            stationname.text = Config.stationname;
-                            console.log("11111 "+Forecast_model.indexFromItem(1));
+                            console.log("11111 ");
+                        }
+                    }
+                }
+                Text {
+                    id: nextstationname
+                    anchors.top: parent.top
+                    //anchors.left: stationname.rigth
+                    anchors.right: parent.right
+                    height: parent.height
+                    width: parent.width / 3
+                    text: Config.nextstationname
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    color: "white"
+                    font.pointSize: 20
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            if (nextstationname.text != ""){
+                                console.log("next station");
+                                Config.nextstation();
+                                Forecast_model.update(Config.filename, false);
+                                Current.update(Config.filename, true);
+                                stationname.text = Config.stationname;
+                                prevstationname.text = Config.prevstationname;
+                                nextstationname.text = Config.nextstationname;
+                            }
                         }
                     }
                 }

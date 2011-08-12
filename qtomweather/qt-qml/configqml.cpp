@@ -100,6 +100,28 @@ ConfigQml::stationname()
         return "Unknown";
 }
 QString
+ConfigQml::nextstationname()
+{
+    if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
+        && (this->current_station_id() + 1) < this->stationsList().size()
+        &&  this->stationsList().at(this->current_station_id()+1)){
+        return this->stationsList().at(this->current_station_id()+1)->name().c_str();
+    }else {
+        return "";
+    }
+}
+QString
+ConfigQml::prevstationname()
+{
+    if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
+        && (this->current_station_id() - 1) >= 0
+        &&  this->stationsList().at(this->current_station_id()-1)){
+        return this->stationsList().at(this->current_station_id()-1)->name().c_str();
+    }else {
+        return "";
+    }
+}
+QString
 ConfigQml::filename()
 {
     if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
@@ -108,13 +130,36 @@ ConfigQml::filename()
     else
         return QString();
 }
-void ConfigQml::changestation()
+void
+ConfigQml::changestation()
 {
     if ((uint)(this->current_station_id() + 1) < this->stationsList().size()){
        this->current_station_id(this->current_station_id() + 1);
 
    }else {
        this->current_station_id(0);
+   }
+
+}
+void
+ConfigQml::nextstation()
+{
+    if ((uint)(this->current_station_id() + 1) < this->stationsList().size()){
+       this->current_station_id(this->current_station_id() + 1);
+
+   }else {
+       this->current_station_id(0);
+   }
+
+}
+void
+ConfigQml::prevstation()
+{
+    if ((uint)(this->current_station_id() - 1) >= 0){
+       this->current_station_id(this->current_station_id() - 1);
+
+   }else {
+       this->current_station_id(stationsList().size());
    }
 
 }

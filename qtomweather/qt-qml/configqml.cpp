@@ -188,6 +188,8 @@ ConfigQml::updatestations()
 
         }
     }
+
+    emit configChanged();
 }
 void
 ConfigQml::runsetting()

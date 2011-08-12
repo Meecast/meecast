@@ -52,7 +52,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString prevstationname READ prevstationname NOTIFY prevstationnameChanged)
     Q_PROPERTY(QString nextstationname READ nextstationname NOTIFY nextstationnameChanged)
     Q_PROPERTY(QString filename READ filename NOTIFY filenameChanged)
-    public:
+public:
     ConfigQml();
     ConfigQml(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
     QString iconset();
@@ -74,7 +74,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_INVOKABLE void closeapplication();
     void refreshconfig();
     virtual ~ConfigQml(){};
-    signals:
+signals:
     void iconsetChanged();
     void iconspathChanged();
     void imagespathChanged();
@@ -86,7 +86,8 @@ class ConfigQml : public QObject, public Core::Config
     void prevstationnameChanged();
     void nextstationnameChanged();
     void filenameChanged();
-    public Q_SLOTS:
+    void configChanged();
+public Q_SLOTS:
     void reload_config();
 
        };

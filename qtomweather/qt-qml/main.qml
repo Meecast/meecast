@@ -42,6 +42,12 @@ Rectangle {
         }
 
     }
+    Connections {
+        target: Config
+        onConfigChanged: {
+            console.log("qqqqqqqqqqqqqqqqqqqq");
+        }
+    }
 
     Flickable {
         anchors.fill: parent
@@ -107,7 +113,11 @@ Rectangle {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            console.log("11111 ");
+                            console.log("refresh ");
+                            Config.updatestations();
+                            Forecast_model.update(Config.filename, false);
+                            Current.update(Config.filename, true);
+                            console.log("update done");
                         }
                     }
                 }

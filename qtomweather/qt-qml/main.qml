@@ -1,4 +1,5 @@
 import Qt 4.7
+import com.nokia.meego 1.0
 /*
 LayoutItem {    //Sized by the layout
     id: weatherlayoutitem
@@ -7,11 +8,11 @@ LayoutItem {    //Sized by the layout
     maximumSize: "300x300"
     preferredSize: "256x256"
 */
-Rectangle {
-    width: 480
-    height: 796
-    color: "black"
-    //color: getColor(-40)
+
+PageStackWindow {
+
+    platformStyle: PageStackWindowStyle { id: defaultStyle }
+
     property int margin: 16
 
     function getColor(t)
@@ -42,22 +43,30 @@ Rectangle {
         }
 
     }
-    Connections {
-        target: Config
-        onConfigChanged: {
-            console.log("qqqqqqqqqqqqqqqqqqqq");
-        }
-    }
+    initialPage: Page {
+        id: main
+        orientationLock: PageOrientation.LockPortrait
+        //width: 480
+        //height: 796
+        //color: "black"
+        //color: getColor(-40)
 
-    Flickable {
-        anchors.fill: parent
-        flickableDirection: Flickable.VerticalFlick
-        clip: true
-        Item {
+        Connections {
+            target: Config
+            onConfigChanged: {
+                console.log("qqqqqqqqqqqqqqqqqqqq");
+            }
+        }
+
+        Flickable {
             anchors.fill: parent
-            height: 900
-            /*
-            Loader {
+            flickableDirection: Flickable.VerticalFlick
+            clip: true
+            Item {
+                anchors.fill: parent
+                height: 900
+                /*
+                Loader {
                 id: background
                 anchors.fill: parent
                 sourceComponent: Image {source: "../core/data/images/background.png"}
@@ -66,9 +75,7 @@ Rectangle {
                 id: station_rect
                 anchors.left: parent.left
                 anchors.top: parent.top
-                anchors.leftMargin: margin
-                anchors.rightMargin: margin
-                width: parent.width - 2*margin
+                width: parent.width
                 height: 72
                 color: "black"
 
@@ -115,9 +122,9 @@ Rectangle {
                         onClicked: {
                             console.log("refresh ");
                             Config.updatestations();
-                            Forecast_model.update(Config.filename, false);
-                            Current.update(Config.filename, true);
                             console.log("update done");
+                            Current.update(Config.filename, true);
+                            Forecast_model.update(Config.filename, false);
                         }
                     }
                 }
@@ -447,6 +454,7 @@ Rectangle {
 
         }
 
-    }
+        }
 
+    }
 }

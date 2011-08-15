@@ -1,7 +1,7 @@
 import Qt 4.7
 import Qt.labs.components 1.0
 import com.nokia.meego 1.0
-//import "/opt/com.meecast.omweather/lib/OmweatherPlugin" 0.1
+import "/opt/com.meecast.omweather/lib/OmweatherPlugin" 0.1
 
 Page {
     id: settings
@@ -21,18 +21,19 @@ Page {
         }*/
     }
     orientationLock: PageOrientation.LockPortrait
-
+    Config {id: config}
     Item {
         id: mainitem
 
         SelectionDialog {
             id: temperature_dlg
             titleText: "Temperature Units"
-            //selectedIndex: 1
+            selectedIndex: config.TemperatureUnit()
             model: ListModel {
                 ListElement {name: "C"}
                 ListElement {name: "F"}
             }
+            //model: config.TemperatureUnits()
             //model: ["C", "F"]
         }
 

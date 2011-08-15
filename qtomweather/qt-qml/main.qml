@@ -12,6 +12,52 @@ LayoutItem {    //Sized by the layout
 PageStackWindow {
 
     platformStyle: PageStackWindowStyle { id: defaultStyle }
+    /*
+    ToolBarLayout {
+        id: toolbar
+        visible: false
+
+        ToolIcon {
+            iconId: "toolbar-back"
+            onClicked: {
+                menu.close();
+                pageStack.pop();
+            }
+        }
+        ToolIcon {
+            iconId: "toolbar-view-menu"
+            onClicked: {
+                menu.status == (DialogStatus.Closed) ? menu.open() : menu.close()
+            }
+        }
+    }*/
+    Menu {
+        id: menu
+        visualParent: pageStack
+        MenuLayout {
+            MenuItem {
+                id: item1
+                text: "Update"
+                onClicked: {
+                    // update
+                    console.log("refresh ");
+                    Config.updatestations();
+                    console.log("update done");
+                    Current.update(Config.filename, true);
+                    Forecast_model.update(Config.filename, false);
+                    //menu.accept();
+                }
+            }
+            MenuItem {
+                id: item2
+                text: "Settings"
+                onClicked: {
+                    // open settings
+                }
+            }
+        }
+    }
+
 
     property int margin: 16
 
@@ -43,8 +89,16 @@ PageStackWindow {
         }
 
     }
+
     initialPage: Page {
         id: main
+        tools: ToolBarLayout {
+            ToolIcon {
+                iconId: "toolbar-view-menu"
+                onClicked: menu.open();
+                anchors.right: parent == undefined ? undefined : parent.right
+            }
+        }
         orientationLock: PageOrientation.LockPortrait
         //width: 480
         //height: 796
@@ -121,10 +175,6 @@ PageStackWindow {
                         anchors.fill: parent
                         onClicked: {
                             console.log("refresh ");
-                            Config.updatestations();
-                            console.log("update done");
-                            Current.update(Config.filename, true);
-                            Forecast_model.update(Config.filename, false);
                         }
                     }
                 }

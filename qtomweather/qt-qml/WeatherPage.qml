@@ -12,6 +12,15 @@ Page {
         }
     }
     orientationLock: PageOrientation.LockPortrait
+    function openFile(file)
+    {
+        var component = Qt.createComponent(file);
+        if (component.status == Component.Ready){
+            pageStack.push(component);
+        }else {
+            console.log("error open file");
+        }
+    }
 
     Menu {
         id: menu
@@ -35,6 +44,8 @@ Page {
                 text: "Settings"
                 onClicked: {
                     // open settings
+                    console.log("open settings");
+                    main.openFile("SettingsPage.qml");
                 }
             }
         }

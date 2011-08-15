@@ -40,7 +40,8 @@ OTHER_FILES += \
     omweather.qml \
     omweatherpanel.qml \
     main.qml \
-    WeatherPage.qml
+    WeatherPage.qml \
+    SettingsPage.qml
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 

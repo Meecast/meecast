@@ -1,6 +1,7 @@
-import Qt 4.7
+//import Qt 4.7
+import QtQuick 1.1
 //import Qt.labs.components 1.0
-import com.meego 1.0
+import com.nokia.meego 1.0
 import "/opt/com.meecast.omweather/lib/OmweatherPlugin" 0.1
 
 Page {
@@ -28,12 +29,12 @@ Page {
         MySelectionDialog {
             id: temperature_dlg
             titleText: "Temperature Units"
-            selectedIndex: config.TemperatureUnit()
+            selectedIndex: 0
             /*model: ListModel {
                 ListElement {name: "C"; key: "c"}
                 ListElement {name: "F"; key: "f"}
             }*/
-            model: config.Stations()
+            model: config.TemperatureUnits()
             //model: ["C", "F"]
         }
 

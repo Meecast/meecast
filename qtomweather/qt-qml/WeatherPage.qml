@@ -96,6 +96,17 @@ Page {
         Item {
             anchors.fill: parent
             height: 900
+            Column {
+            Text {text: "No weather stations are set up."}
+            Button {
+                text: "Set them up"
+            }
+            }
+        }
+        Item {
+            visible: false
+            anchors.fill: parent
+            height: 900
             /*
             Loader {
                 id: background

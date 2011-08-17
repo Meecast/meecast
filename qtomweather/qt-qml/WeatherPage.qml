@@ -30,12 +30,11 @@ Page {
                 text: "Update"
                 onClicked: {
                     // update
-                    console.log("refresh ");
                     Config.updatestations();
-                    console.log("update done");
                     Current.update(Config.filename, true);
                     Forecast_model.update(Config.filename, false);
-                    //menu.accept();
+                    list.height = 80 * Forecast_model.rowCount();
+
                 }
             }
             MenuItem {
@@ -421,7 +420,7 @@ Page {
                         color: (index % 2 != 0) ? "black" : "#0f0f0f"
 
                         Text {
-                            text: date
+                            text: model.date
                             color: "white"
                             font.pointSize: 16
                             anchors.left: parent.left
@@ -430,7 +429,7 @@ Page {
                             verticalAlignment: Text.AlignVCenter
                         }
                         Image {
-                            source: Config.iconspath + "/" + Config.iconset + "/" + pict
+                            source: Config.iconspath + "/" + Config.iconset + "/" + model.pict
                             width: 64
                             height: 64
                             anchors.horizontalCenter: parent.horizontalCenter
@@ -440,7 +439,7 @@ Page {
                             id: txt_temphi
                             font.pointSize: 16
                             color: getColor(temp_high)
-                            text: temp_high + '°'
+                            text: model.temp_high + '°'
                             anchors.right: parent.right
                             anchors.rightMargin: margin + 70
                             height:parent.height
@@ -450,7 +449,7 @@ Page {
                             id: txt_templo
                             font.pointSize: 16
                             color: "#889397"
-                            text: temp_low + '°'
+                            text: model.temp_low + '°'
                             anchors.right: parent.right
                             anchors.rightMargin: margin
                             height:parent.height

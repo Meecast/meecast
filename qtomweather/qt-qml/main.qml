@@ -7,7 +7,7 @@ PageStackWindow {
     id: rootWindow
     platformStyle: PageStackWindowStyle { id: defaultStyle }
 
-    initialPage: SettingsPage {}
+    initialPage: WeatherPage {}
 
     /*
     ToolBarLayout {

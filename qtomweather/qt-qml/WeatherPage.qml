@@ -1,13 +1,12 @@
-import Qt 4.7
+import QtQuick 1.1
 import com.nokia.meego 1.0
 
 Page {
     id: main
     tools: ToolBarLayout {
         ToolIcon {
-            platformStyle: ToolItemStyle {inverted: true}
             iconId: "toolbar-view-menu"
-            onClicked: menu.open();
+            onClicked: {(myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()}
             anchors.right: parent == undefined ? undefined : parent.right
         }
     }
@@ -18,12 +17,12 @@ Page {
         if (component.status == Component.Ready){
             pageStack.push(component);
         }else {
-            console.log("error open file");
+            console.log("error open file "+file);
         }
     }
 
     Menu {
-        id: menu
+        id: myMenu
         visualParent: pageStack
         MenuLayout {
             MenuItem {

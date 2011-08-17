@@ -77,6 +77,22 @@ ConfigQml::temperatureunit(){
     return c;
 }
 
+SelectModel* ConfigQml::temperature_list()
+{
+
+    SelectModel model;
+    model.addData(SelectData("C", ""));
+    model.addData(SelectData("F", ""));
+    return &model;
+
+}
+QStringList ConfigQml::temperature_list1()
+{
+    QStringList l;
+    l << "C" << "F";
+    return l;
+}
+
 QString
 ConfigQml::windspeedunit(){
     QString c;

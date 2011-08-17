@@ -17,7 +17,8 @@ SOURCES += main.cpp \
     dataitem.cpp \
     datamodel.cpp \
     dbusadaptor.cpp \
-    controller.cpp
+    controller.cpp \
+    selectmodel.cpp
 
 HEADERS  += \
     dataqml.h \
@@ -26,7 +27,8 @@ HEADERS  += \
     dataitem.h \
     datamodel.h \
     dbusadaptor.h \
-    controller.h
+    controller.h \
+    selectmodel.h
 
 FORMS    +=
 RESOURCES += weatherlayoutitem.qrc
@@ -61,7 +63,7 @@ desktop.files = omweather.desktop
 desktop.path = /usr/share/applications
 icon64.path = /usr/share/pixmaps
 icon64.files += omweather.png
-qml.files = *.qml
+qml.files = *.qml *.js
 qml.path = /opt/com.meecast.omweather/share/omweather/qml
 
 #INSTALLS += desktop qml icon64

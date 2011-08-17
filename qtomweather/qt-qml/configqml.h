@@ -36,6 +36,7 @@
 #include <QColor>
 #include "datamodel.h"
 #include "dataitem.h"
+#include "selectmodel.h"
 
 class ConfigQml : public QObject, public Core::Config
 
@@ -66,12 +67,15 @@ public:
     QString prevstationname();
     QString nextstationname();
     QString filename();
+
     Q_INVOKABLE void changestation();
     Q_INVOKABLE void nextstation();
     Q_INVOKABLE void prevstation();
     Q_INVOKABLE void updatestations();
     Q_INVOKABLE void runsetting();
     Q_INVOKABLE void closeapplication();
+    Q_INVOKABLE SelectModel* temperature_list();
+    Q_INVOKABLE QStringList temperature_list1();
     void refreshconfig();
     virtual ~ConfigQml(){};
 signals:

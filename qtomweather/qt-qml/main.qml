@@ -5,7 +5,15 @@ import com.nokia.meego 1.0
 
 PageStackWindow {
     id: rootWindow
-    platformStyle: PageStackWindowStyle { id: defaultStyle }
+
+    platformStyle: defaultStyle;
+
+    PageStackWindowStyle { id: defaultStyle }
+    PageStackWindowStyle {
+        id: customStyle
+        background: "image://theme/meegotouch-wallpaper-portrait";
+        backgroundFillMode: Image.PreserveAspectCrop
+    }
 
     initialPage: WeatherPage {}
 

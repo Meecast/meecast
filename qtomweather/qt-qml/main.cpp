@@ -60,6 +60,8 @@
 #include <libintl.h>
 #include <locale.h>
 
+#include "selectmodel.h"
+
 #define _(String) gettext(String)
 
 
@@ -83,8 +85,12 @@ update_weather_forecast(Core::Config *config){
 
 int main(int argc, char* argv[])
 {
-    QApplication::setGraphicsSystem("native");
+    //QApplication::setGraphicsSystem("native");
     QApplication app(argc, argv);
+
+    app.setProperty("NoMStyle", true);
+
+    QDir::setCurrent(app.applicationDirPath());
      
     textdomain("omweather");
 /*
@@ -123,6 +129,11 @@ int main(int argc, char* argv[])
     
     QDeclarativeView *qview;
     qview = controller->qview();
+
+    SelectModel model;
+    model.addData(SelectData("C", ""));
+    model.addData(SelectData("F", ""));
+    qview->rootContext()->setContextProperty("temp_model", &model);
  //   qview->rootContext()->setContextProperty("Forecast_model", model);
     //qview->rootContext()->setContextProperty("Config", config);
     std::cerr << "qml path = " << Core::AbstractConfig::layoutqml << std::endl;

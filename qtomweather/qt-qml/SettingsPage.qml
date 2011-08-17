@@ -2,7 +2,7 @@
 import QtQuick 1.1
 //import Qt.labs.components 1.0
 import com.nokia.meego 1.0
-import "/opt/com.meecast.omweather/lib/OmweatherPlugin" 0.1
+//import "/opt/com.meecast.omweather/lib/OmweatherPlugin" 0.1
 
 Page {
     id: settings
@@ -22,7 +22,7 @@ Page {
         }*/
     }
     orientationLock: PageOrientation.LockPortrait
-    Config {id: config}
+    //Config {id: config}
     Item {
         id: mainitem
 
@@ -34,7 +34,7 @@ Page {
                 ListElement {name: "C"; key: "c"}
                 ListElement {name: "F"; key: "f"}
             }*/
-            model: config.TemperatureUnits()
+            model: Config.temperature_list1()
             //model: ["C", "F"]
         }
 
@@ -45,8 +45,8 @@ Page {
 
             Button {
                 text: temperature_dlg.selectedIndex >= 0 ?
-                          "Temperature Units: " + temperature_dlg.model.get(temperature_dlg.selectedIndex).name :
-                          "Temperature Units"
+                        "Temperature Units" : //"Temperature Units: " + temperature_dlg.model.get(temperature_dlg.selectedIndex).name :
+                        "Temperature Units"
                 onClicked: {
                     temperature_dlg.open();
                 }

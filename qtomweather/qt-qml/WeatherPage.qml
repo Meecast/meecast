@@ -53,6 +53,9 @@ Page {
     function getColor(t)
     {
         var c1, c2, c3;
+        if (Config.temperatureunit == "F"){
+            t = (t - 32) * 5 / 9;
+        }
         if (t >= 30){
             c2 = (t - 50)*(246/255-60/255)/(30-50) + 60/255;
             return Qt.rgba(1, c2, 0, 1);

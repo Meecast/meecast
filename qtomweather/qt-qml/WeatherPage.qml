@@ -1,8 +1,10 @@
-import QtQuick 1.1
+//import QtQuick 1.1
+import Qt 4.7
 import com.nokia.meego 1.0
 
 Page {
     id: main
+    property int margin: 16
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-view-menu"
@@ -30,11 +32,7 @@ Page {
                 text: "Update"
                 onClicked: {
                     // update
-                    Config.updatestations();
-                    Current.update(Config.filename, true);
-                    Forecast_model.update(Config.filename, false);
-                    list.height = 80 * Forecast_model.rowCount();
-
+                    main.update();
                 }
             }
             MenuItem {
@@ -48,7 +46,6 @@ Page {
             }
         }
     }
-    property int margin: 16
 
     function getColor(t)
     {
@@ -81,11 +78,31 @@ Page {
         }
 
     }
+    function update()
+    {
+        Config.updatestations();
+        main.updatemodels();
+
+    }
+    function updatemodels()
+    {
+        Current.update(Config.filename, true);
+        Forecast_model.update(Config.filename, false);
+        list.height = 80 * Forecast_model.rowCount();
+        dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
+        current_rect.visible = Current.rowCount() == 0 ? false : true;
+        list.visible = (Forecast_model.rowCount() == 0) ? false : true;
+    }
 
     Connections {
         target: Config
         onConfigChanged: {
-            console.log("qqqqqqqqqqqqqqqqqqqq");
+            console.log("qqqqqqqqqqqqqqqqqqqq "+Config.stationname);
+            //prevstationname = Config.prevstationname;
+            //stationname = Config.stationname;
+            //nextstationname = Config.nextstationname;
+            startview.visible = Config.stationname == "Unknown" ? true : false;
+            mainview.visible = Config.stationname == "Unknown" ? false : true;
         }
     }
 
@@ -94,19 +111,39 @@ Page {
         flickableDirection: Flickable.VerticalFlick
         clip: true
         Item {
-            anchors.fill: parent
-            height: 900
+            id: startview
+            visible: Config.stationname == "Unknown" ? true : false
+            anchors.top: station_rect.bottom
+            width: parent.width
+            height: parent.height - 200
             Column {
-            Text {text: "No weather stations are set up."}
-            Button {
-                text: "Set them up"
-            }
+                width: parent.width
+                anchors.verticalCenter: parent.verticalCenter
+
+                spacing: 20
+                Label {
+                    horizontalAlignment: Text.AlignHCenter
+                    text: qsTr("No weather stations are set up.")
+                    font.pixelSize: 40
+                    color: "#303030"
+                    wrapMode: Text.Wrap
+                    width: parent.width
+                    //anchors.horizontalCenter: parent.horizontalCenter
+                }
+                Button {
+                    text: qsTr("Set them up")
+                    onClicked: {
+                        main.openFile("SettingsPage.qml");
+                    }
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
             }
         }
+
         Item {
-            visible: false
+            id: mainview
+            visible: Config.stationname == "Unknown" ? false : true
             anchors.fill: parent
-            height: 900
             /*
             Loader {
                 id: background
@@ -138,8 +175,7 @@ Page {
                             if (prevstationname.text != ""){
                                 console.log("prev station");
                                 Config.prevstation();
-                                Forecast_model.update(Config.filename, false);
-                                Current.update(Config.filename, true);
+                                main.updatemodels();
                                 stationname.text = Config.stationname;
                                 prevstationname.text = Config.prevstationname;
                                 nextstationname.text = Config.nextstationname;
@@ -184,8 +220,7 @@ Page {
                             if (nextstationname.text != ""){
                                 console.log("next station");
                                 Config.nextstation();
-                                Forecast_model.update(Config.filename, false);
-                                Current.update(Config.filename, true);
+                                main.updatemodels();
                                 stationname.text = Config.stationname;
                                 prevstationname.text = Config.prevstationname;
                                 nextstationname.text = Config.nextstationname;
@@ -251,9 +286,38 @@ Page {
                     sourceComponent: Image {source: Config.imagespath + "/mask_title.png"}
                 }
             }
+            Item {
+                id: dataview
+                visible: (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false
+                anchors.top: station_rect.bottom
+                width: parent.width
+                height: parent.height - 200
+                Column {
+                    width: parent.width
+                    anchors.verticalCenter: parent.verticalCenter
 
+                    spacing: 20
+                    Label {
+                        horizontalAlignment: Text.AlignHCenter
+                        text: qsTr("Looks like there is no info for this day. Update usually helps.")
+                        font.pixelSize: 40
+                        color: "#303030"
+                        wrapMode: Text.Wrap
+                        width: parent.width
+                        //anchors.horizontalCenter: parent.horizontalCenter
+                    }
+                    Button {
+                        text: qsTr("Update")
+                        onClicked: {
+                            main.update();
+                        }
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+                }
+            }
             Rectangle {
                 id: current_rect
+                visible: Current.rowCount() == 0 ? false : true
                 anchors.top: station_rect.bottom
                 width: parent.width
                 height: 274
@@ -412,6 +476,7 @@ Page {
             }
             ListView {
                 id: list
+                visible: Forecast_model.rowCount() == 0 ? false : true
                 anchors.top: current_rect.bottom
                 model: Forecast_model
                 delegate: itemDelegate

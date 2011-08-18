@@ -7,6 +7,12 @@ Page {
     property int margin: 16
     tools: ToolBarLayout {
         ToolIcon {
+            iconId: "toolbar-settings"
+            onClicked: {
+                main.openFile("SettingsPage.qml");
+            }
+        }
+        ToolIcon {
             iconId: "toolbar-view-menu"
             onClicked: {(myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()}
             anchors.right: parent == undefined ? undefined : parent.right
@@ -37,11 +43,11 @@ Page {
             }
             MenuItem {
                 id: item2
-                text: "Settings"
+                text: "About"
                 onClicked: {
                     // open settings
-                    console.log("open settings");
-                    main.openFile("SettingsPage.qml");
+                    console.log("open about");
+                    main.openFile("AboutPage.qml");
                 }
             }
         }

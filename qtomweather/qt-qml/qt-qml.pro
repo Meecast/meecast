@@ -44,7 +44,8 @@ OTHER_FILES += \
     main.qml \
     WeatherPage.qml \
     SettingsPage.qml \
-    FullWeatherPage.qml
+    FullWeatherPage.qml \
+    AboutPage.qml
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 

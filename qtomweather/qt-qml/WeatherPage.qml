@@ -7,9 +7,9 @@ Page {
     property int margin: 16
     tools: ToolBarLayout {
         ToolIcon {
-            iconId: "toolbar-settings"
+            iconId: "toolbar-refresh"
             onClicked: {
-                main.openFile("StationsPage.qml");
+                main.update();
             }
         }
         ToolIcon {
@@ -35,18 +35,16 @@ Page {
         MenuLayout {
             MenuItem {
                 id: item1
-                text: "Update"
+                text: qsTr("Settings")
                 onClicked: {
-                    // update
-                    main.update();
+                    main.openFile("StationsPage.qml");
+
                 }
             }
             MenuItem {
                 id: item2
-                text: "About"
+                text: qsTr("About")
                 onClicked: {
-                    // open settings
-                    console.log("open about");
                     main.openFile("AboutPage.qml");
                 }
             }

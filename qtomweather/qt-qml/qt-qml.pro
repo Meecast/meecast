@@ -46,7 +46,8 @@ OTHER_FILES += \
     SettingsPage.qml \
     FullWeatherPage.qml \
     AboutPage.qml \
-    StationsPage.qml
+    StationsPage.qml \
+    NewStationPage.qml
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 

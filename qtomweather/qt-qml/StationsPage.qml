@@ -13,15 +13,23 @@ Page {
             onClicked: {
                 pageStack.pop();
             }
-        }/*
+        }
         ToolIcon {
-            platformStyle: ToolItemStyle {inverted: true}
-            iconId: "toolbar-view-menu"
-            onClicked: menu.open();
+            iconId: "toolbar-add"
+            onClicked: {stations.openFile("NewStationPage.qml")}
             anchors.right: parent == undefined ? undefined : parent.right
-        }*/
+        }
     }
     orientationLock: PageOrientation.LockPortrait
+    function openFile(file)
+    {
+        var component = Qt.createComponent(file);
+        if (component.status == Component.Ready){
+            pageStack.push(component);
+        }else {
+            console.log("error open file "+file);
+        }
+    }
     //Config {id: config1}
     Item {
         id: mainitem

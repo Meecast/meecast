@@ -68,6 +68,14 @@ public:
     QString filename();
     Q_INVOKABLE QStringList stations();
     Q_INVOKABLE void removeStation(int index);
+    Q_INVOKABLE QStringList Sources();
+    Q_INVOKABLE QStringList Countries(QString source);
+    Q_INVOKABLE QStringList Regions(int index);
+    Q_INVOKABLE QStringList Cities(int country_index, int index);
+    Q_INVOKABLE void saveStation(int city_id, QString city,
+                                 int region_id, QString region,
+                                 int country_id, QString country,
+                                 int source_id, QString source);
     Q_INVOKABLE void changestation();
     Q_INVOKABLE void nextstation();
     Q_INVOKABLE void prevstation();
@@ -92,6 +100,11 @@ signals:
     void configChanged();
 public Q_SLOTS:
     void reload_config();
+private:
+    Core::DatabaseSqlite *db;
+    int getCountryId(int index);
+    int getRegionId(int country, int index);
+    QString getCityId(int region_id, int index);
 
        };
 

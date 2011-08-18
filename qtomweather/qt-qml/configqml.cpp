@@ -33,6 +33,7 @@
 //ConfigQml::ConfigQml():QObject(),Core::Config("config.xml", "../core/data/config.xsd"){}
 ConfigQml::ConfigQml(const std::string& filename, const std::string& schema_filename):QObject(),Core::Config(filename, schema_filename)
 {
+    db = new Core::DatabaseSqlite("");
 }
 
 ConfigQml::ConfigQml():QObject(),Core::Config(){
@@ -115,7 +116,163 @@ ConfigQml::removeStation(int index)
     //ConfigQml::Config::stationsList(*stationlist);
     saveConfig();
 }
+QStringList
+ConfigQml::Sources()
+{
+    std::string path(Core::AbstractConfig::prefix);
+    path += Core::AbstractConfig::sourcesPath;
+    Core::SourceList *sourcelist = new Core::SourceList(path);
+    QStringList l;
+    for (unsigned int i=0; i<sourcelist->size(); i++){
+        l << QString::fromStdString(sourcelist->at(i)->name());
+    }
+    return l;
+}
+QStringList
+ConfigQml::Countries(QString source)
+{
+    QStringList l;
+    std::string path(Core::AbstractConfig::prefix);
+    path += Core::AbstractConfig::sharePath;
+    path += "db/";
 
+    if (source == "") return l;
+    QString filename(source);
+    filename.append(".db");
+    filename.prepend(path.c_str());
+    if (!this->db) {
+        this->db->set_databasename(filename.toStdString());
+    }else {
+        this->db->set_databasename(filename.toStdString());
+
+    }
+
+    if (!this->db->open_database()){
+        l << "error open db";
+        return l;
+    }
+
+    Core::listdata * list = db->create_countries_list();
+
+    Core::listdata::iterator cur;
+
+    if (!list)
+        return l;
+    for (cur=list->begin(); cur<list->end(); cur++){
+        l << QString::fromStdString((*cur).second);
+        /*if (isKeys) {
+            l << QString::fromStdString((*cur).first);
+        }else {
+            l << QString::fromStdString((*cur).second);
+        }*/
+    }
+
+    return l;
+}
+
+int
+ConfigQml::getCountryId(int index)
+{
+    Core::listdata * list = db->create_countries_list();
+
+    Core::listdata::iterator cur;
+
+    if (!list)
+        return 0;
+    cur = list->begin()+index;
+    return atoi((*cur).first.c_str());
+}
+int
+ConfigQml::getRegionId(int country, int index)
+{
+    Core::listdata * list = db->create_region_list(getCountryId(country));
+
+    Core::listdata::iterator cur;
+
+    if (!list)
+        return 0;
+    cur = list->begin()+index;
+    return atoi((*cur).first.c_str());
+}
+QString
+ConfigQml::getCityId(int region_id, int index)
+{
+    Core::listdata * list = db->create_stations_list(region_id);
+    Core::listdata::iterator cur;
+
+    if (!list)
+        return 0;
+    cur = list->begin()+index;
+    return QString::fromStdString((*cur).first);
+}
+
+QStringList
+ConfigQml::Regions(int index)
+{
+    QStringList l;
+
+    Core::listdata * list = db->create_region_list(getCountryId(index));
+
+    if (list->size() == 0) return l;
+    Core::listdata::iterator cur;
+    for (cur=list->begin(); cur<list->end(); cur++)
+        l << QString::fromStdString((*cur).second);
+
+    return l;
+}
+QStringList
+ConfigQml::Cities(int country_index, int index)
+{
+    QStringList l;
+    Core::listdata * list = db->create_stations_list(getRegionId(country_index, index));
+
+    if (list->size() == 0) return l;
+    Core::listdata::iterator cur;
+    for (cur=list->begin(); cur<list->end(); cur++)
+        l << QString::fromStdString((*cur).second);
+
+    return l;
+}
+void
+//ConfigQml::saveStation(QString city_id, QString city_name, QString region, QString country, QString source, int source_id)
+ConfigQml::saveStation(int city_id, QString city,
+                       int region_id, QString region,
+                       int country_id, QString country,
+                       int source_id, QString source)
+{
+    Core::Station *station;
+    region_id = getRegionId(country_id, region_id);
+    country_id = getCountryId(country_id);
+    //city_id = getCityId(region_id, city_id);
+    //std::string code = city_id.toStdString();
+    std::string code = getCityId(region_id, city_id).toStdString();
+
+    std::string path(Core::AbstractConfig::prefix);
+    path += Core::AbstractConfig::sourcesPath;
+    Core::SourceList *sourcelist = new Core::SourceList(path);
+
+    std::string url_template = sourcelist->at(source_id)->url_template();
+
+    char forecast_url[4096];
+    snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), code.c_str());
+    station = new Core::Station(
+                source.toStdString(),
+                code,
+                city.toStdString(),
+                country.toStdString(),
+                region.toStdString(),
+                forecast_url);
+    std::string filename(Core::AbstractConfig::getConfigPath());
+    filename += source.toStdString();
+    filename += "_";
+    filename += code;
+    station->fileName(filename);
+    station->converter(sourcelist->at(source_id)->binary());
+
+    stationsList().push_back(station);
+    //ConfigQml::Config::stationsList(*stationlist);
+    saveConfig();
+}
 QString
 ConfigQml::stationname()
 {

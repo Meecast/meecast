@@ -47,6 +47,8 @@ CommonDialog {
 
     // Common API
     property alias model: selectionListView.model
+    property string selectedText: ""
+
     property int selectedIndex: -1   // read & write
     //property string titleText: "Selection Dialog"
 
@@ -65,7 +67,7 @@ CommonDialog {
                 MouseArea {
                     id: delegateMouseArea
                     anchors.fill: parent;
-                    onPressed: selectedIndex = index;
+                    onPressed: {selectedIndex = index; selectedText = modelData;}
                     onClicked:  accept();
                 }
 
@@ -124,7 +126,7 @@ CommonDialog {
     content: Item {
 
         id: selectionContent
-        property int listViewHeight : 5 * root.platformStyle.itemHeight
+        property int listViewHeight : root.model.length * root.platformStyle.itemHeight
         property int maxListViewHeight : visualParent
         ? visualParent.height * 0.87
                 - root.platformStyle.titleBarHeight - root.platformStyle.contentSpacing - 50

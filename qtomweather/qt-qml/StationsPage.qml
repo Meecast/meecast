@@ -31,6 +31,7 @@ Page {
         }
     }
     //Config {id: config1}
+
     Item {
         id: mainitem
         anchors.fill: parent

@@ -16,10 +16,12 @@ Page {
             iconId: "toolbar-done"
             onClicked: {
                 //save station
-                Config.saveStation(city_dlg.selectedIndex, city_dlg.selectedText,
+                if (city_dlg.selectedIndex >= 0){
+                    Config.saveStation(city_dlg.selectedIndex, city_dlg.selectedText,
                                    region_dlg.selectedIndex, region_dlg.selectedText,
                                    country_dlg.selectedIndex, country_dlg.selectedText,
-                                    source_dlg.selectedIndex, source_dlg.selectedText);
+                                   source_dlg.selectedIndex, source_dlg.selectedText);
+                }
                 pageStack.pop();
             }
         }

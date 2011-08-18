@@ -9,7 +9,7 @@ Page {
         ToolIcon {
             iconId: "toolbar-settings"
             onClicked: {
-                main.openFile("SettingsPage.qml");
+                main.openFile("StationsPage.qml");
             }
         }
         ToolIcon {

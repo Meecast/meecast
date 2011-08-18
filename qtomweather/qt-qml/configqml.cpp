@@ -77,16 +77,7 @@ ConfigQml::temperatureunit(){
     return c;
 }
 
-SelectModel* ConfigQml::temperature_list()
-{
-
-    SelectModel model;
-    model.addData(SelectData("C", ""));
-    model.addData(SelectData("F", ""));
-    return &model;
-
-}
-QStringList ConfigQml::temperature_list1()
+QStringList ConfigQml::temperature_list()
 {
     QStringList l;
     l << "C" << "F";
@@ -106,6 +97,25 @@ ConfigQml::fontcolor(){
     c.setNamedColor(ConfigQml::Config::FontColor().c_str());
     return c;
 }
+QStringList
+ConfigQml::stations()
+{
+    QStringList l;
+    for (unsigned int i=0; i<stationsList().size(); i++){
+        l << QString::fromStdString(stationsList().at(i)->name());
+
+    }
+    return l;
+}
+void
+ConfigQml::removeStation(int index)
+{
+    stationsList().erase(stationsList().begin() + index);
+    //stationlist->erase(stationlist->begin()+index);
+    //ConfigQml::Config::stationsList(*stationlist);
+    saveConfig();
+}
+
 QString
 ConfigQml::stationname()
 {

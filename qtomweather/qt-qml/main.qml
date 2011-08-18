@@ -14,7 +14,9 @@ PageStackWindow {
         background: "image://theme/meegotouch-wallpaper-portrait";
         backgroundFillMode: Image.PreserveAspectCrop
     }
-
+    Component.onCompleted: {
+        theme.inverted = true;
+    }
     initialPage: WeatherPage {}
 
     /*

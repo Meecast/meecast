@@ -17,6 +17,7 @@ PageStackWindow {
     Component.onCompleted: {
         theme.inverted = true;
     }
+
     initialPage: WeatherPage {}
 
     /*

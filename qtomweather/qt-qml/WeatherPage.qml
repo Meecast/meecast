@@ -113,7 +113,6 @@ Page {
         Item {
             id: startview
             visible: Config.stationname == "Unknown" ? true : false
-            anchors.top: station_rect.bottom
             width: parent.width
             height: parent.height - 200
             Column {
@@ -536,20 +535,16 @@ Page {
                         }
 
 
-                        /*
+
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                uiloader.source = "Details.qml";
-                                //list.visible = false;
-                                columnlist.visible = false
-                                uiloader.item.item_id = id_item;
-                                //uiloader.item.width = frontItemOmweather.width
-                                //uiloader.item.height = frontItemOmweather.height
+                                main.openFile("FullWeatherPage.qml");
+                                //FullWeatherPage.station = "dfsfs";
                             }
                             hoverEnabled: true
 
-                        }*/
+                        }
 
                     }
                 }

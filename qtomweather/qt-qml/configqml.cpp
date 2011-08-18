@@ -313,6 +313,15 @@ ConfigQml::filename()
     else
         return QString();
 }
+QString
+ConfigQml::source()
+{
+    if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
+                                                &&  this->stationsList().at(this->current_station_id()))
+        return this->stationsList().at(this->current_station_id())->sourceName().c_str();
+    else
+        return QString();
+}
 void
 ConfigQml::changestation()
 {

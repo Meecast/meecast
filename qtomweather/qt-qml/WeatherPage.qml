@@ -12,6 +12,10 @@ Page {
                 main.update();
             }
         }
+        Image {
+            id: sourceicon
+            source: Config.imagespath + "/" + Config.source + ".png"
+        }
         ToolIcon {
             iconId: "toolbar-view-menu"
             onClicked: {(myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()}
@@ -97,6 +101,16 @@ Page {
         current_rect.visible = Current.rowCount() == 0 ? false : true;
         list.visible = (Forecast_model.rowCount() == 0) ? false : true;
     }
+    function updatestationname()
+    {
+        main.updatemodels();
+        stationname.text = Config.stationname;
+        prevstationname.text = Config.prevstationname;
+        nextstationname.text = Config.nextstationname;
+        sourceicon.visible = false;
+        sourceicon.source = Config.imagespath + "/" + Config.source + ".png";
+        sourceicon.visible = true;
+    }
 
     Connections {
         target: Config
@@ -176,12 +190,8 @@ Page {
                         anchors.fill: parent
                         onClicked: {
                             if (prevstationname.text != ""){
-                                console.log("prev station");
                                 Config.prevstation();
-                                main.updatemodels();
-                                stationname.text = Config.stationname;
-                                prevstationname.text = Config.prevstationname;
-                                nextstationname.text = Config.nextstationname;
+                                main.updatestationname();
                             }
                         }
                     }
@@ -198,12 +208,7 @@ Page {
                     horizontalAlignment: Text.AlignHCenter
                     color: "white"
                     font.pointSize: 20
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            console.log("refresh ");
-                        }
-                    }
+
                 }
                 Text {
                     id: nextstationname
@@ -221,12 +226,8 @@ Page {
                         anchors.fill: parent
                         onClicked: {
                             if (nextstationname.text != ""){
-                                console.log("next station");
                                 Config.nextstation();
-                                main.updatemodels();
-                                stationname.text = Config.stationname;
-                                prevstationname.text = Config.prevstationname;
-                                nextstationname.text = Config.nextstationname;
+                                main.updatestationname();
                             }
                         }
                     }

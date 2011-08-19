@@ -24,6 +24,10 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
 	    font.pixelSize: 32
         }
+        Rectangle {
+            color: "purple"
+            x: 0; y: 80; width: 480; height: 200
+        }
 	Image {
             id: icon
 	    source: Config.iconspath + "/" + Config.iconset + "/28.png" 

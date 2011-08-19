@@ -54,7 +54,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString nextstationname READ nextstationname NOTIFY nextstationnameChanged)
     Q_PROPERTY(QString filename READ filename NOTIFY filenameChanged)
     Q_PROPERTY(QString source READ source NOTIFY sourceChanged)
-    Q_PROPERTY(QString version READ version)
+    Q_PROPERTY(QString version READ version NOTIFY versionChanged)
 public:
     ConfigQml();
     ConfigQml(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
@@ -103,6 +103,7 @@ signals:
     void nextstationnameChanged();
     void filenameChanged();
     void sourceChanged();
+    void versionChanged();
     void configChanged();
 public Q_SLOTS:
     void reload_config();

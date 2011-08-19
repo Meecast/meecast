@@ -544,8 +544,8 @@ Page {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                main.openFile("FullWeatherPage.qml");
-                                //FullWeatherPage.station = "dfsfs";
+                                pageStack.push(Qt.resolvedUrl("FullWeatherPage.qml"),
+                                               {day: index})
                             }
                             hoverEnabled: true
 

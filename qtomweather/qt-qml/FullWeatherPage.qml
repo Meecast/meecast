@@ -5,7 +5,7 @@ import com.nokia.meego 1.0
 Page {
     id: fullweather
     property int margin: 16
-    property string station: ""
+    property int day: 0
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"
@@ -21,7 +21,7 @@ Page {
         flickableDirection: Flickable.VerticalFlick
         clip: true
         Label {
-            text: "day view " + station
+            text: " day " + day
         }
     }
 }

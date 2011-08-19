@@ -20,7 +20,7 @@ Page {
         clip: true
         Label {
             id: titletext
-            text: "Meecast for Harmattan"
+            text: "MeeCast for Harmattan"
             anchors.horizontalCenter: parent.horizontalCenter
 	    font.pixelSize: 32
         }
@@ -31,6 +31,15 @@ Page {
 	    anchors.top: titletext.bottom
 	    anchors.topMargin: 25
         }
+     	Label {
+            id: versiontext
+            text: "Version" + " " + Config.version 
+            anchors.horizontalCenter: parent.horizontalCenter
+	    anchors.top: icon.bottom
+	    anchors.topMargin: 5
+	    font.pixelSize: 24
+        }
+
 
     }
 }

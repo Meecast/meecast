@@ -95,12 +95,21 @@ ConfigQml::windspeedunit(){
     return c;
 }
 
+QString
+ConfigQml::version(){
+    QString c;
+    c = QString(OMWEATHER_VERSION);
+    return c;
+}
+
+
 QColor
 ConfigQml::fontcolor(){
     QColor c;
     c.setNamedColor(ConfigQml::Config::FontColor().c_str());
     return c;
 }
+
 QStringList
 ConfigQml::stations()
 {

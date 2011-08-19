@@ -272,6 +272,7 @@ ConfigQml::saveStation(int city_id, QString city,
     stationsList().push_back(station);
     //ConfigQml::Config::stationsList(*stationlist);
     saveConfig();
+    emit configChanged();
 }
 QString
 ConfigQml::stationname()

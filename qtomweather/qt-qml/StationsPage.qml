@@ -31,6 +31,13 @@ Page {
         }
     }
     //Config {id: config1}
+    Connections {
+        target: Config
+        onConfigChanged: {
+            console.log("wwwwwwwww");
+            stationslist.model = Config.stations();
+        }
+    }
 
     Item {
         id: mainitem

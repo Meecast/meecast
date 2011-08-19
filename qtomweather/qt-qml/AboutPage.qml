@@ -19,7 +19,8 @@ Page {
         flickableDirection: Flickable.VerticalFlick
         clip: true
         Label {
-            text: "about "
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "Meecast for Harmattan"
         }
     }
 }

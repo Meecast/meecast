@@ -101,21 +101,16 @@ Page {
         }
 
         Rectangle {
-            id: current_rect_background
+            id: current_rect
             anchors.top: day_rect.bottom
             width: parent.width
             height: 274
-            //color: getColor(Current.temperature_high)
+            color: getColor(Current.temperature_high)
             Loader {
                 anchors.fill: parent
                 sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}
             }
-        }
-        Rectangle {
-            id: current_rect
-            anchors.top: day_rect.bottom
-            width: parent.width
-            //height: 274
+
             Text {
                 id: now
                 width: 160

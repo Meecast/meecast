@@ -10,7 +10,6 @@ Page {
         ToolIcon {
             iconId: "toolbar-refresh"
             onClicked: {
-                isUpdate = true;
                 main.update();
             }
         }
@@ -91,6 +90,7 @@ Page {
     function update()
     {
         console.log("start update");
+        isUpdate = true;
         Config.updatestations();
         //main.updatemodels();
 

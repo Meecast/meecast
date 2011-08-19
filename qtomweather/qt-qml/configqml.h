@@ -36,6 +36,7 @@
 #include <QColor>
 #include "datamodel.h"
 #include "dataitem.h"
+#include "updatethread.h"
 
 class ConfigQml : public QObject, public Core::Config
 
@@ -105,9 +106,12 @@ public Q_SLOTS:
     void reload_config();
 private:
     Core::DatabaseSqlite *db;
+    UpdateThread *thread;
     int getCountryId(int index);
     int getRegionId(int country, int index);
     QString getCityId(int region_id, int index);
+private slots:
+    void downloadFinishedSlot();
 
        };
 

@@ -34,6 +34,9 @@
 ConfigQml::ConfigQml(const std::string& filename, const std::string& schema_filename):QObject(),Core::Config(filename, schema_filename)
 {
     db = new Core::DatabaseSqlite("");
+
+    thread = new UpdateThread();
+    connect(thread, SIGNAL(finished()), this, SLOT(downloadFinishedSlot()));
 }
 
 ConfigQml::ConfigQml():QObject(),Core::Config(){
@@ -370,18 +373,12 @@ ConfigQml::refreshconfig(){
 void
 ConfigQml::updatestations()
 {
-    uint i;
-    int success = 0;
-    Core::Station* station;
+    thread->start();
 
-    for (i=0; i < this->stationsList().size();i++){
-        station = this->stationsList().at(i);
-        if (station->updateData(true)){
-            success ++;
-
-        }
-    }
-
+}
+void
+ConfigQml::downloadFinishedSlot()
+{
     emit configChanged();
 }
 void

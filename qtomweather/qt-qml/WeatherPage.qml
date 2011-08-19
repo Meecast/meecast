@@ -5,10 +5,12 @@ import com.nokia.meego 1.0
 Page {
     id: main
     property int margin: 16
+    property bool isUpdate: false
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-refresh"
             onClicked: {
+                isUpdate = true;
                 main.update();
             }
         }
@@ -88,8 +90,9 @@ Page {
     }
     function update()
     {
+        console.log("start update");
         Config.updatestations();
-        main.updatemodels();
+        //main.updatemodels();
 
     }
     function updatemodels()
@@ -105,8 +108,6 @@ Page {
     {
         main.updatemodels();
         stationname.text = Config.stationname;
-        //prevstationname.text = Config.prevstationname;
-        //nextstationname.text = Config.nextstationname;
         prevstationimage.visible = Config.prevstationname == "" ? false : true;
         nextstationimage.visible = Config.nextstationname == "" ? false : true;
         sourceicon.visible = false;
@@ -117,10 +118,10 @@ Page {
     Connections {
         target: Config
         onConfigChanged: {
-            console.log("qqqqqqqqqqqqqqqqqqqq "+Config.stationname);
-            //prevstationname = Config.prevstationname;
-            //stationname = Config.stationname;
-            //nextstationname = Config.nextstationname;
+            console.log("end update");
+            //updateview.visible = false;
+            //station_rect.visible = true;
+            isUpdate = false;
             startview.visible = Config.stationname == "Unknown" ? true : false;
             mainview.visible = Config.stationname == "Unknown" ? false : true;
         }
@@ -170,13 +171,37 @@ Page {
                 sourceComponent: Image {source: "../core/data/images/background.png"}
             }*/
             Rectangle {
+                id: updateview
+                anchors.left: parent.left
+                anchors.top: parent.top
+                width: parent.width
+                height: 72
+                color: "black"
+                visible: isUpdate ? true : false
+
+                Column {
+                    anchors.fill: parent
+                    spacing: 8
+                    Label {
+                        text: qsTr("Updating forecast")
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+                    ProgressBar {
+                        id: pb
+                        indeterminate: true
+                        width: parent.width-2*margin
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+                }
+            }
+            Rectangle {
                 id: station_rect
                 anchors.left: parent.left
                 anchors.top: parent.top
                 width: parent.width
                 height: 72
                 color: "black"
-
+                visible: isUpdate ? false : true
                 Image {
                     id: prevstationimage
                     source: Config.imagespath + "/arrow_left.png"

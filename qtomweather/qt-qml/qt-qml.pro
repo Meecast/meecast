@@ -18,7 +18,8 @@ SOURCES += main.cpp \
     datamodel.cpp \
     dbusadaptor.cpp \
     controller.cpp \
-    selectmodel.cpp
+    selectmodel.cpp \
+    updatethread.cpp
 
 HEADERS  += \
     dataqml.h \
@@ -28,7 +29,8 @@ HEADERS  += \
     datamodel.h \
     dbusadaptor.h \
     controller.h \
-    selectmodel.h
+    selectmodel.h \
+    updatethread.h
 
 FORMS    +=
 RESOURCES += weatherlayoutitem.qrc

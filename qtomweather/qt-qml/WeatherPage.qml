@@ -116,11 +116,12 @@ Page {
     Connections {
         target: Config
         onConfigChanged: {
-            console.log("end update");
-            main.updatestationname();
-            isUpdate = false;
+            console.log("end update station name = "+Config.stationname);
             startview.visible = Config.stationname == "Unknown" ? true : false;
             mainview.visible = Config.stationname == "Unknown" ? false : true;
+            main.updatestationname();
+            isUpdate = false;
+
         }
     }
 
@@ -150,7 +151,7 @@ Page {
                 Button {
                     text: qsTr("Set them up")
                     onClicked: {
-                        main.openFile("SettingsPage.qml");
+                        main.openFile("StationsPage.qml");
                     }
                     anchors.horizontalCenter: parent.horizontalCenter
                 }

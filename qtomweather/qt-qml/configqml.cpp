@@ -126,10 +126,11 @@ ConfigQml::removeStation(int index)
     stationsList().erase(stationsList().begin() + index);
     //stationlist->erase(stationlist->begin()+index);
     //ConfigQml::Config::stationsList(*stationlist);
-
+    if (this->stationsList().size() > 0){
+        this->current_station_id(0);
+    }
     saveConfig();
-    this->ReLoadConfig();
-    this->refreshconfig();
+    refreshconfig();
 }
 QStringList
 ConfigQml::Sources()
@@ -287,15 +288,17 @@ ConfigQml::saveStation(int city_id, QString city,
     stationsList().push_back(station);
     //ConfigQml::Config::stationsList(*stationlist);
     saveConfig();
-    this->ReLoadConfig();
-    this->refreshconfig();
+    refreshconfig();
 
 }
 QString
 ConfigQml::stationname()
 {
+    if (this->current_station_id() == INT_MAX && this->stationsList().size() > 0){
+        this->current_station_id(0);
+    }
     if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
-                                                &&  this->stationsList().at(this->current_station_id()))
+        &&  this->stationsList().at(this->current_station_id()))
         return this->stationsList().at(this->current_station_id())->name().c_str();
     else
         return "Unknown";

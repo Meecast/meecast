@@ -19,8 +19,18 @@ Page {
         flickableDirection: Flickable.VerticalFlick
         clip: true
         Label {
-            anchors.horizontalCenter: parent.horizontalCenter
+            id: titletext
             text: "Meecast for Harmattan"
+            anchors.horizontalCenter: parent.horizontalCenter
+	    font.pixelSize: 32
         }
+	Image {
+            id: icon
+	    source: Config.iconspath + "/" + Config.iconset + "/28.png" 
+            anchors.horizontalCenter: parent.horizontalCenter
+	    anchors.top: titletext.bottom
+	    anchors.topMargin: 25
+        }
+
     }
 }

@@ -105,8 +105,10 @@ Page {
     {
         main.updatemodels();
         stationname.text = Config.stationname;
-        prevstationname.text = Config.prevstationname;
-        nextstationname.text = Config.nextstationname;
+        //prevstationname.text = Config.prevstationname;
+        //nextstationname.text = Config.nextstationname;
+        prevstationimage.visible = Config.prevstationname == "" ? false : true;
+        nextstationimage.visible = Config.nextstationname == "" ? false : true;
         sourceicon.visible = false;
         sourceicon.source = Config.imagespath + "/" + Config.source + ".png";
         sourceicon.visible = true;
@@ -175,21 +177,20 @@ Page {
                 height: 72
                 color: "black"
 
-                Text {
-                    id: prevstationname
+                Image {
+                    id: prevstationimage
+                    source: Config.imagespath + "/arrow_left.png"
+                    width: 30
+                    height: 30
                     anchors.top: parent.top
                     anchors.left: parent.left
-                    height: parent.height
-                    width: parent.width / 3
-                    text: Config.prevstationname
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
-                    color: "white"
-                    font.pointSize: 20
+                    anchors.topMargin: 21
+                    anchors.leftMargin: margin
+                    visible: Config.prevstationname == "" ? false : true;
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            if (prevstationname.text != ""){
+                            if (prevstationimage.visible){
                                 Config.prevstation();
                                 main.updatestationname();
                             }
@@ -200,9 +201,9 @@ Page {
                 Text {
                     id: stationname
                     anchors.top: parent.top
-                    anchors.left: prevstationname.right
+                    anchors.left: parent.left
                     height: parent.height
-                    width: parent.width / 3
+                    width: parent.width
                     text: Config.stationname
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
@@ -210,85 +211,33 @@ Page {
                     font.pointSize: 20
 
                 }
-                Text {
-                    id: nextstationname
+                Image {
+                    id: nextstationimage
+                    source: Config.imagespath + "/arrow_right.png"
+                    width: 30
+                    height: 30
                     anchors.top: parent.top
-                    //anchors.left: stationname.rigth
                     anchors.right: parent.right
-                    height: parent.height
-                    width: parent.width / 3
-                    text: Config.nextstationname
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
-                    color: "white"
-                    font.pointSize: 20
+                    //anchors.verticalCenter: parent.verticalCenter
+                    anchors.topMargin: 21
+                    anchors.rightMargin: margin
+                    visible: Config.nextstationname == "" ? false : true;
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            if (nextstationname.text != ""){
+                            if (nextstationimage.visible){
                                 Config.nextstation();
                                 main.updatestationname();
                             }
                         }
                     }
                 }
+
                 /*
-                ListView {
-                    id: station
-                    anchors.fill: parent
-                    //width: parent.width
-                    orientation: ListView.Horizontal
-                    model: ["Moscow", "Vitebsk", "San Francisco", "Berlin"]
-
-                    clip: true
-                    interactive: false
-                    //property int item_width: parent.width / 3 + 10
-                    property int item_width: 160
-
-                    onCurrentIndexChanged: {
-                        console.log("current index = "+currentIndex+" item_width="+item_width);
-                        contentX = -item_width + currentIndex*item_width
-                        //contentX = -160
-
-                        console.log("current index changed contentX="+contentX);
-                    }
-                    delegate: Item {
-                        height: 72
-                        width: station.item_width
-                        Text {
-                            //anchors.fill: parent
-                            anchors.verticalCenter: parent.verticalCenter
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            //anchors.centerIn: parent.Center
-                            text: modelData
-                            color: "white"
-                            //color: ListView.isCurrentItem ? "red" : "white"
-                            font.pointSize: 20
-                        }
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                station.currentIndex = index;
-                                //station.positionViewAtIndex(index, ListView.Center);
-                                console.log("on click "+index);
-                            }
-                        }
-
-                    }
-                    Component.onCompleted: {
-                        if (count > 1) currentIndex = 1;
-                        else if (count == 1) currentIndex = 0;
-                        else if (count == 0) currentIdex = -1;
-                        //station.currentIndex = 0;
-                        //station.contentX = -160;
-                        //console.log("on complete contentx = "+station.contentX);
-                    }
-
-                }*/
                 Loader {
                     anchors.fill: parent
                     sourceComponent: Image {source: Config.imagespath + "/mask_title.png"}
-                }
+                }*/
             }
             Item {
                 id: dataview

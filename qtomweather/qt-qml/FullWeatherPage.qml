@@ -99,6 +99,136 @@ Page {
                 font.pointSize: 20
             }
         }
+
+        Rectangle {
+            id: current_rect_background
+            anchors.top: day_rect.bottom
+            width: parent.width
+            height: 274
+            //color: getColor(Current.temperature_high)
+            Loader {
+                anchors.fill: parent
+                sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}
+            }
+        }
+        Rectangle {
+            id: current_rect
+            anchors.top: day_rect.bottom
+            width: parent.width
+            //height: 274
+            Text {
+                id: now
+                width: 160
+                height: 84
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.leftMargin: margin
+                color: "white"
+                text: "Day"
+                font.pointSize: 24
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+            Image {
+                id: icon
+                source: Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(day, "pict")
+                width: 128
+                height: 128
+                anchors.top: parent.top
+                anchors.topMargin: -22
+                anchors.left: now.right
+            }
+            Text {
+                anchors.top: parent.top
+                anchors.left: icon.right
+                anchors.rightMargin: margin
+                width: 160
+                height: 84
+                color: "white"
+                text: Forecast_model.getdata(day, "temp_high") + '°'
+                font.pointSize: 24
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                Component.onCompleted: {
+                    current_rect.color = getColor(Forecast_model.getdata(day, "temp_high"));
+                }
+            }
+            Text {
+                id: desc
+                text: Forecast_model.getdata(day, "description")
+                anchors.left: parent.left
+                anchors.top: now.bottom
+                width: current_rect.width
+                height: 44
+                color: "white"
+                font.pointSize: 16
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+            /*
+            ListModel {
+                id: condition
+                ListElement {
+                    key: "Humidity:"
+                    value: "humidity"
+                    add: ' ' + Config.windspeedunit
+                }
+                ListElement {
+                    key: qsTr("Wind direction:")
+                    value: Forecast_model.getdata(day, "wind_direction")
+                }
+                ListElement {
+                    key: qsTr("Pressure:")
+                    value: Forecast_model.getdata(day, "pressure")
+                }
+                ListElement {
+                    key: qsTr("Wind speed:")
+                    value: Forecast_model.getdata(day, "wind_speded") + ' ' + Config.windspeedunit
+                }
+            }*/
+            ListModel {
+                id: condition
+
+            }
+            Component.onCompleted: {
+                condition.append({cond_name: qsTr("Humidity"),
+                                 value: Forecast_model.getdata(day, "humidity")+'%'});
+                condition.append({cond_name: qsTr("Wind direction:"),
+                                 value: Forecast_model.getdata(day, "wind_direction")});
+                condition.append({cond_name: qsTr("Pressure:"),
+                                 value: Forecast_model.getdata(day, "pressure")});
+                condition.append({cond_name: qsTr("Wind speed:"),
+                                 value: Forecast_model.getdata(day, "wind_speded") + ' ' + Config.windspeedunit});
+            }
+            GridView {
+                id: grid
+                anchors.top: desc.bottom
+                anchors.topMargin: 32
+                anchors.left: parent.left
+                anchors.leftMargin: margin
+                anchors.right: parent.right
+                anchors.rightMargin: margin
+                width: parent.width - 2*margin
+                height: 800
+                cellWidth: (parent.width - 2*margin) / 2
+                model: condition
+                delegate: Column {
+                    width: grid.width / 2
+                    spacing: 3
+                    Text {
+                        text: model.cond_name
+                        color: "#999999"
+                        font.pointSize: 16
+                    }
+                    Text {
+                        text: model.value
+                        color: "white"
+                        font.pointSize: 16
+                    }
+                }
+            }
+
+        }
     }
 }
 

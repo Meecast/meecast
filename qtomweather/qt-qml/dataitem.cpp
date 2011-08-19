@@ -92,7 +92,13 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[PressureLabelRole] = "pressure_label";
     return names;
 }
-
+int
+DataItem::getRole(QString roleName)
+{
+    QHash<int, QByteArray> roles = roleNames();
+    int i = roles.key(roleName.toUtf8(), -1);
+    return i;
+}
 QVariant DataItem::data(int role)
 {
     switch (role){

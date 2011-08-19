@@ -50,6 +50,14 @@ DataModel::data(const QModelIndex &index, int role) const
         return QVariant();
     return _list.at(index.row())->data(role);
 }
+QVariant
+DataModel::getdata(const int index, QString role)
+{
+    if (index < 0 || index >= _list.size())
+        return QVariant();
+    DataItem *item = _list.at(index);
+    return item->data(item->getRole(role));
+}
 DataItem*
 DataModel::find(const int row)
 {

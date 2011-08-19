@@ -50,6 +50,7 @@ public:
     Q_INVOKABLE DataItem* find(const int row);
     void clear();
     Q_INVOKABLE void update(QString filename, bool isCurrent);
+    Q_INVOKABLE QVariant getdata(const int index, QString role);
 
 private:
     DataItem* _prototype;

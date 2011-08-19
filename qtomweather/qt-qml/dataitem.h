@@ -83,6 +83,7 @@ public:
     DataItem(const Core::Data *data);
     virtual ~DataItem(){};
     QVariant data(int role);
+    int getRole(QString roleName);
     QHash<int, QByteArray> roleNames() const;
     QString temperature_high();
     QString temperature_low();

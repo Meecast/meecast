@@ -117,7 +117,10 @@ ConfigQml::removeStation(int index)
     stationsList().erase(stationsList().begin() + index);
     //stationlist->erase(stationlist->begin()+index);
     //ConfigQml::Config::stationsList(*stationlist);
+
     saveConfig();
+    this->ReLoadConfig();
+    this->refreshconfig();
 }
 QStringList
 ConfigQml::Sources()
@@ -275,7 +278,9 @@ ConfigQml::saveStation(int city_id, QString city,
     stationsList().push_back(station);
     //ConfigQml::Config::stationsList(*stationlist);
     saveConfig();
-    emit configChanged();
+    this->ReLoadConfig();
+    this->refreshconfig();
+
 }
 QString
 ConfigQml::stationname()
@@ -368,6 +373,7 @@ ConfigQml::refreshconfig(){
     emit ConfigQml::windspeedunitChanged();
     emit ConfigQml::fontcolorChanged();
     emit ConfigQml::stationnameChanged();
+    emit ConfigQml::configChanged();
 }
 
 void

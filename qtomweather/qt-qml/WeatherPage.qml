@@ -92,8 +92,6 @@ Page {
         console.log("start update");
         isUpdate = true;
         Config.updatestations();
-        //main.updatemodels();
-
     }
     function updatemodels()
     {
@@ -119,8 +117,7 @@ Page {
         target: Config
         onConfigChanged: {
             console.log("end update");
-            //updateview.visible = false;
-            //station_rect.visible = true;
+            main.updatestationname();
             isUpdate = false;
             startview.visible = Config.stationname == "Unknown" ? true : false;
             mainview.visible = Config.stationname == "Unknown" ? false : true;

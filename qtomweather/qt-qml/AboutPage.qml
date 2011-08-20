@@ -33,8 +33,17 @@ Page {
 	Image {
             id: backgroundmask 
 	    source: Config.imagespath + "/mask_background.png"
-            x: 0; y: 80; width: parent.width; height: 274
+            x: 0; y: 80; width: parent.width; 
         }
+	Image {
+            id: titlemask 
+	    source: Config.imagespath + "/mask_title.png"
+//            x: 0; y: 80; width: parent.width; 	
+//	    anchors.bottom: versiontext.bottom
+	    anchors.verticalCenter: versiontext.verticalCenter
+	
+        }
+
 
 	Image {
             id: icon

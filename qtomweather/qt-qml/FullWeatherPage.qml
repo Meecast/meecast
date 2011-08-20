@@ -173,7 +173,7 @@ Page {
                                  value: Forecast_model.getdata(day, "wind_direction")});
                 if ((Forecast_model.getdata(day, "pressure")) != "N/A")
                     condition.append({cond_name: qsTr("Pressure:"),
-                                 value: Forecast_model.getdata(day, "pressure")});
+                                 value: Forecast_model.getdata(day, "pressure") + " mbar"});
                 if ((Forecast_model.getdata(day, "wind_speed")) != "N/A")
                     condition.append({cond_name: qsTr("Wind speed:"),
                                  value: Forecast_model.getdata(day, "wind_speed") + ' ' + Config.windspeedunit});

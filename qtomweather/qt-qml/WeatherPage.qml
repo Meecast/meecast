@@ -433,7 +433,7 @@ Page {
                             height: 30
                         }
                         Text {
-                            text: model.pressure
+                            text: model.pressure + " mbar"
                             anchors.left: pressure.right
                             anchors.leftMargin: 8
                             anchors.top: humidity.bottom

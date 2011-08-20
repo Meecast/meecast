@@ -1,7 +1,6 @@
 [Desktop Entry]
-Name=Omweather
-GenericName=Other Maemo Weather
-Comment=Other Maemo Weather
+Name=MeeCast
+GenericName=MeeCast
 Exec=/opt/com.meecast.omweather/bin/omweather-qml
 Icon=omweather
 Terminal=false

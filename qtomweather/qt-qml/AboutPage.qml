@@ -55,7 +55,8 @@ Page {
         Label {
             id: abouttext 
             text: "About:"
-	    anchors.top: backgroundmask.bottom
+	    anchors.top: versiontext.bottom 
+	    anchors.topMargin: 45 
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    color: "#303030"
@@ -69,7 +70,22 @@ Page {
 	    wrapMode: Text.Wrap                                                                                                                                            
             width: parent.width - 20
 	}
-
+        Label {
+            id: projectsitetext 
+            text: "Project website:"
+	    anchors.top: aboutfulltext.bottom 
+	    anchors.topMargin: 45 
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    color: "#303030"
+        }
+	Label {
+            id: projectfulltext 
+	    text: "http://meecast.com"
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    anchors.top: projectsitetext.bottom
+	}
 
     }
 }

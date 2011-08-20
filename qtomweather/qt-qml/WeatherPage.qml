@@ -203,16 +203,23 @@ Page {
                 height: 72
                 color: "black"
                 visible: isUpdate ? false : true
-                Image {
-                    id: prevstationimage
-                    source: Config.imagespath + "/arrow_left.png"
-                    width: 30
-                    height: 30
+                Rectangle {
+                    width: 72
+                    height: 72
                     anchors.top: parent.top
                     anchors.left: parent.left
-                    anchors.topMargin: 21
-                    anchors.leftMargin: margin
-                    visible: Config.prevstationname == "" ? false : true;
+                    color: "black"
+                    Image {
+                        id: prevstationimage
+                        source: Config.imagespath + "/arrow_left.png"
+                        width: 30
+                        height: 30
+                        anchors.top: parent.top
+                        anchors.left: parent.left
+                        anchors.topMargin: 21
+                        anchors.leftMargin: margin
+                        visible: Config.prevstationname == "" ? false : true;
+                    }
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
@@ -222,6 +229,7 @@ Page {
                             }
                         }
                     }
+
                 }
 
                 Text {
@@ -237,17 +245,24 @@ Page {
                     font.pointSize: 20
 
                 }
-                Image {
-                    id: nextstationimage
-                    source: Config.imagespath + "/arrow_right.png"
-                    width: 30
-                    height: 30
+                Rectangle {
+                    width: 72
+                    height: 72
                     anchors.top: parent.top
                     anchors.right: parent.right
-                    //anchors.verticalCenter: parent.verticalCenter
-                    anchors.topMargin: 21
-                    anchors.rightMargin: margin
-                    visible: Config.nextstationname == "" ? false : true;
+                    color: "black"
+                    Image {
+                        id: nextstationimage
+                        source: Config.imagespath + "/arrow_right.png"
+                        width: 30
+                        height: 30
+                        anchors.top: parent.top
+                        anchors.right: parent.right
+                        //anchors.verticalCenter: parent.verticalCenter
+                        anchors.topMargin: 21
+                        anchors.rightMargin: margin
+                        visible: Config.nextstationname == "" ? false : true;
+                    }
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {

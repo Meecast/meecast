@@ -27,13 +27,13 @@ Page {
 
         Rectangle {
             color: "purple"
-            x: 0; y: 80; width: 480; height: 274
+            x: 0; y: 80; width: parent.width; height: 274
         }
 
 	Image {
             id: backgroundmask 
 	    source: Config.imagespath + "/mask_background.png"
-            x: 0; y: 80; width: 480; height: 274
+            x: 0; y: 80; width: parent.width; height: 274
         }
 
 	Image {
@@ -56,7 +56,7 @@ Page {
             id: abouttext 
             text: "About:"
 	    anchors.top: versiontext.bottom 
-	    anchors.topMargin: 45 
+	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    color: "#303030"
@@ -74,7 +74,7 @@ Page {
             id: projectsitetext 
             text: "Project website:"
 	    anchors.top: aboutfulltext.bottom 
-	    anchors.topMargin: 45 
+	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    color: "#303030"
@@ -86,6 +86,62 @@ Page {
 	    anchors.left: parent.left
 	    anchors.top: projectsitetext.bottom
 	}
+	Rectangle {
+	    id: splitter
+            color: "#303030"
+            x: 20; width: parent.width - 40; height: 2
+	    anchors.top: projectfulltext.bottom 
+	    anchors.leftMargin: 20
+	    anchors.topMargin: 30 
+        }
 
+        Label {
+            id: projectadministratortext 
+            text: "Project administrator:"
+	    anchors.top: splitter.bottom 
+	    anchors.topMargin: 30 
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    color: "#303030"
+        }
+	Label {
+            id: prohectadministatorfulltext 
+	    text: "Vlad Vasilyeu"
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    anchors.top: projectadministratortext.bottom
+	}
+        Label {
+            id: leadprogrammertext 
+            text: "Lead programmers:"
+	    anchors.top: prohectadministatorfulltext.bottom 
+	    anchors.topMargin: 30 
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    color: "#303030"
+        }
+	Label {
+            id: leadprogrammerfulltext 
+	    text: "Tanya Makava, Vlad Vasilyeu"
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    anchors.top: leadprogrammertext.bottom
+	}
+	Label {
+            id: leaddesignertext 
+            text: "Lead designer:"
+	    anchors.top: leadprogrammerfulltext.bottom 
+	    anchors.topMargin: 30 
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    color: "#303030"
+        }
+	Label {
+            id: leaddesignerfulltext 
+	    text: "Andrew Zhilin"
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    anchors.top: leaddesignertext.bottom
+	}
     }
 }

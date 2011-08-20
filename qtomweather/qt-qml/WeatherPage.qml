@@ -126,9 +126,12 @@ Page {
     }
 
     Flickable {
+        id: flickable
         anchors.fill: parent
+        contentWidth: flickable.width
+        contentHeight: station_rect.height + current_rect.height + list.height
         flickableDirection: Flickable.VerticalFlick
-        clip: true
+        //clip: true
         Item {
             id: startview
             visible: Config.stationname == "Unknown" ? true : false

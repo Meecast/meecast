@@ -3,7 +3,7 @@ TEMPLATE = subdirs
 CONFIG += ordered
 
 #SUBDIRS += core qt-qml meego-mpl
-SUBDIRS += core qt-qml qtsetting xml-qml meego-UX-panel
+SUBDIRS += core qt-qml qtsetting xml-qml
 
 CONFIG(meegopanel):SUBDIRS += netbook-UX
 CONFIG(UXpanel):SUBDIRS += meego-UX-panel 

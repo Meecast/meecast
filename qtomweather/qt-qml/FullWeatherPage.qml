@@ -197,7 +197,7 @@ Page {
                 anchors.right: parent.right
                 anchors.rightMargin: margin
                 width: parent.width - 2*margin
-                height: 800
+                height: 250
                 cellWidth: (parent.width - 2*margin) / 2
                 model: condition
                 delegate: Column {
@@ -215,8 +215,17 @@ Page {
                     }
                 }
             }
+            Rectangle {
+		id: splitter
+		color: "#303030"
+		x: 20; width: parent.width - 40; height: 2
+		anchors.top: grid.bottom 
+		anchors.leftMargin: 20
+		//anchors.topMargin: 30 
+	    }
 
         }
+
     }
 }
 

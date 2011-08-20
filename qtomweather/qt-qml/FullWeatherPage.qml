@@ -160,40 +160,33 @@ Page {
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
             }
-            /*
-            ListModel {
-                id: condition
-                ListElement {
-                    key: "Humidity:"
-                    value: "humidity"
-                    add: ' ' + Config.windspeedunit
-                }
-                ListElement {
-                    key: qsTr("Wind direction:")
-                    value: Forecast_model.getdata(day, "wind_direction")
-                }
-                ListElement {
-                    key: qsTr("Pressure:")
-                    value: Forecast_model.getdata(day, "pressure")
-                }
-                ListElement {
-                    key: qsTr("Wind speed:")
-                    value: Forecast_model.getdata(day, "wind_speded") + ' ' + Config.windspeedunit
-                }
-            }*/
-            ListModel {
-                id: condition
 
+            ListModel {
+                id: condition
             }
             Component.onCompleted: {
-                condition.append({cond_name: qsTr("Humidity"),
+                if ((Forecast_model.getdata(day, "humidity")) != "N/A")
+                    condition.append({cond_name: qsTr("Humidity"),
                                  value: Forecast_model.getdata(day, "humidity")+'%'});
-                condition.append({cond_name: qsTr("Wind direction:"),
+                if ((Forecast_model.getdata(day, "wind_direction")) != "")
+                    condition.append({cond_name: qsTr("Wind direction:"),
                                  value: Forecast_model.getdata(day, "wind_direction")});
-                condition.append({cond_name: qsTr("Pressure:"),
+                if ((Forecast_model.getdata(day, "pressure")) != "N/A")
+                    condition.append({cond_name: qsTr("Pressure:"),
                                  value: Forecast_model.getdata(day, "pressure")});
-                condition.append({cond_name: qsTr("Wind speed:"),
-                                 value: Forecast_model.getdata(day, "wind_speded") + ' ' + Config.windspeedunit});
+                if ((Forecast_model.getdata(day, "wind_speed")) != "N/A")
+                    condition.append({cond_name: qsTr("Wind speed:"),
+                                 value: Forecast_model.getdata(day, "wind_speed") + ' ' + Config.windspeedunit});
+
+                if ((Forecast_model.getdata(day, "ppcp")) != "N/A")
+                    condition.append({cond_name: qsTr("Ppcp:"),
+                                 value: Forecast_model.getdata(day, "ppcp")});
+                if ((Forecast_model.getdata(day, "wind_gust")) != "N/A")
+                    condition.append({cond_name: qsTr("Wind gust:"),
+                                 value: Forecast_model.getdata(day, "wind_gust") + ' ' + Config.windspeedunit});
+                if ((Forecast_model.getdata(day, "flike")) != "N/A")
+                    condition.append({cond_name: qsTr("Flike:"),
+                                 value: Forecast_model.getdata(day, "flike") + ' ' + Config.temperatureunit});
             }
             GridView {
                 id: grid

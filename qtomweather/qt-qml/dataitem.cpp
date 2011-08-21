@@ -80,6 +80,7 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[DateRole] = "date";
     names[ShortDateRole] = "shortdate";
     names[FullDateRole] = "fulldate";
+    names[DayLengthRole] = "daylength";
     names[StartRole] = "start";
     names[EndRole] = "end";
     names[PressureRole] = "pressure";
@@ -140,6 +141,8 @@ QVariant DataItem::data(int role)
         return sunrise();
     case SunSetRole:
         return sunset();
+    case DayLengthRole:
+        return daylength();
     case FlikeRole:
         return flike();
     case PpcpRole:
@@ -243,7 +246,18 @@ DataItem::sunset() {
     }
     t.setTime_t(DataItem::Data::SunSetTime());
     return t.toString("hh:mm");
+}
 
+QString
+DataItem::daylength() {
+    QString c;
+    QDateTime t;
+    if (DataItem::Data::DayLength() == 0){
+        c = "N/A";
+        return c;
+    }
+    t.setTime_t(DataItem::Data::DayLength());
+    return t.toString("hh:mm");
 }
 
 QString

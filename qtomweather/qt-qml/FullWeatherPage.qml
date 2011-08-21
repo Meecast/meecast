@@ -188,8 +188,14 @@ Page {
                     condition.append({cond_name: qsTr("Flike:"),
                                  value: Forecast_model.getdata(day, "flike") + ' ' + Config.temperatureunit});
 		if ((Forecast_model.getdata(day, "sunrise")) != "N/A")
-                    condition2.append({cond_name: qsTr("Sunrise"),
+                    condition2.append({cond_name: qsTr("Sunrise:"),
                                  value: Forecast_model.getdata(day, "sunrise")});
+                if ((Forecast_model.getdata(day, "sunset")) != "N/A")
+                    condition2.append({cond_name: qsTr("Sunset:"),
+                                 value: Forecast_model.getdata(day, "sunset")});
+		if ((Forecast_model.getdata(day, "daylength")) != "N/A")
+                    condition2.append({cond_name: qsTr("Day length:"),
+                                 value: Forecast_model.getdata(day, "daylength")});
 
             }
             GridView {

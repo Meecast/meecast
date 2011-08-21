@@ -139,7 +139,6 @@ Controller::load_data()
   /* fill other days */
   while  (_dp != NULL && (temp_data = _dp->data().GetDataForTime( current_day + 12 * 3600  + i))) {
       i = i + 3600*24;
-      std::cerr<<"Test "<<i<< std::endl;
       forecast_data = new DataItem(temp_data);
       forecast_data->Text(_(forecast_data->Text().c_str()));
       forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 12 * 3600  + i));

@@ -135,6 +135,15 @@ namespace Core {
         return _sunrise;
     }
 ////////////////////////////////////////////////////////////////////////////////
+    time_t
+    Data::DayLength() const{
+        time_t t = 0;
+        t = _sunset - _sunrise;
+        if (t < 0)
+            t = 0;
+        return t;
+    }
+////////////////////////////////////////////////////////////////////////////////
     void
     Data::SunSetTime(time_t sunset_time){
         _sunset = sunset_time;

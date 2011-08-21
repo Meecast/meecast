@@ -77,6 +77,7 @@ namespace Core{
             time_t SunRiseTime(void) const;
             void  SunSetTime(time_t sunset_time);
             time_t SunSetTime(void) const;
+            time_t DayLength(void) const;
             //void  WindSpeed(float windspeed);
             //float WindSpeed(void) const;
             Windspeed& WindSpeed();

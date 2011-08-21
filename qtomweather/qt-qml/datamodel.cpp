@@ -115,6 +115,9 @@ DataModel::update(QString filename, bool isCurrent)
         if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
             forecast_data = new DataItem(temp_data);
             forecast_data->Text(forecast_data->Text().c_str());
+            forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(time(NULL)  + i));
+            forecast_data->SunSetTime(dp->data().GetSunSetForTime(time(NULL)  + i));
+            forecast_data->LastUpdate(dp->LastUpdate());
             this->appendRow(forecast_data);
 
         }
@@ -124,6 +127,9 @@ DataModel::update(QString filename, bool isCurrent)
             i = i + 3600*24;
             forecast_data = new DataItem(temp_data);
             forecast_data->Text(forecast_data->Text().c_str());
+            forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(time(NULL)  + i));
+            forecast_data->SunSetTime(dp->data().GetSunSetForTime(time(NULL)  + i));
+            forecast_data->LastUpdate(dp->LastUpdate());
             this->appendRow(forecast_data);
 
         }

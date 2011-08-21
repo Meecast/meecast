@@ -343,7 +343,7 @@ DataItem::lastupdate() {
             if ((temp.toTime_t() - _lastupdate.toTime_t()) < 3600)
                 return c.number(((temp.toTime_t() - _lastupdate.toTime_t())/60), 'i', 0) + " minutes ago";
             else
-                if ((temp.toTime_t() - _lastupdate.toTime_t()) < 2*24*3600)
+                if ((temp.toTime_t() - _lastupdate.toTime_t()) < 2*3600)
                     return c.number(((temp.toTime_t() - _lastupdate.toTime_t())/3600), 'i', 0) + " hour ago";
                 else
                     if ((temp.toTime_t() - _lastupdate.toTime_t()) < 24*3600)

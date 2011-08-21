@@ -112,8 +112,8 @@ public:
     inline QString flike();
     QString pressure();
     inline QString ppcp();
-    inline QString sunrise();
-    inline QString sunset();
+    QString sunrise();
+    QString sunset();
     QString daylength();
     QString lastupdate();
     void LastUpdate(time_t date_and_time);

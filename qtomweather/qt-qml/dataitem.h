@@ -66,7 +66,9 @@ class DataItem : public QObject, public Core::Data
         HumidityLabelRole,
         WindLabelRole,
         WindSpeedLabelRole,
-        PressureLabelRole
+        PressureLabelRole,
+        SunSetRole,
+        SunRiseRole
     };
 public:
     Q_PROPERTY(QString description READ description)
@@ -78,6 +80,8 @@ public:
     Q_PROPERTY(QString pressure READ pressure)
     Q_PROPERTY(QString icon READ icon)
     Q_PROPERTY(QString shortdate READ shortdate)
+    Q_PROPERTY(QString sunrise READ sunrise)
+    Q_PROPERTY(QString sunset READ sunset)
 
     DataItem();
     DataItem(const Core::Data *data);
@@ -102,6 +106,8 @@ public:
     inline QString flike();
     QString pressure();
     inline QString ppcp();
+    inline QString sunrise();
+    inline QString sunset();
 
     Q_INVOKABLE void update(QString filename);
 

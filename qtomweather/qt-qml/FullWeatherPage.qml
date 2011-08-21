@@ -187,6 +187,10 @@ Page {
                 if ((Forecast_model.getdata(day, "flike")) != "N/A")
                     condition.append({cond_name: qsTr("Flike:"),
                                  value: Forecast_model.getdata(day, "flike") + ' ' + Config.temperatureunit});
+		if ((Forecast_model.getdata(day, "sunrise")) != "N/A")
+                    condition2.append({cond_name: qsTr("Sunrise"),
+                                 value: Forecast_model.getdata(day, "sunrise")});
+
             }
             GridView {
                 id: grid
@@ -221,8 +225,38 @@ Page {
 		x: 20; width: parent.width - 40; height: 2
 		anchors.top: grid.bottom 
 		anchors.leftMargin: 20
-		//anchors.topMargin: 30 
 	    }
+	    ListModel {
+                id: condition2
+            }
+            GridView {
+                id: grid2
+                anchors.top: splitter.bottom
+                anchors.topMargin: 32
+                anchors.left: parent.left
+                anchors.leftMargin: margin
+                anchors.right: parent.right
+                anchors.rightMargin: margin
+                width: parent.width - 2*margin
+                height: 250
+                cellWidth: (parent.width - 2*margin) / 2
+                model: condition2
+                delegate: Column {
+                    width: grid.width / 2
+                    spacing: 3
+                    Text {
+                        text: model.cond_name
+                        color: "#999999"
+                        font.pointSize: 16
+                    }
+                    Text {
+                        text: model.value
+                        color: "white"
+                        font.pointSize: 16
+                    }
+                }
+            }
+ 
 
         }
 

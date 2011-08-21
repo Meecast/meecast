@@ -74,11 +74,18 @@ namespace Core {
                 }else if (tag == "wind_direction"){
                     forecast_data->WindDirection(el.text().toStdString());
                 }else if (tag == "flike"){
+                    std::cout<<"flike 1 "<<std::sendl;
                     forecast_data->Flike().value(el.text().toFloat());
                 }else if (tag == "pressure"){
                     forecast_data->Pressure(el.text().toInt());
-                }else if (tag == "ppcp")
+                }else if (tag == "ppcp"){
                     forecast_data->Ppcp(el.text().toFloat());
+                }else if (tag == "sunrise"){
+                    std::cout<<"Sunrise 1 "<<std::sendl;
+                    forecast_data->SunRiseTime(el.text().toInt());
+                }else if (tag == "sunset")
+                    forecast_data->SunSetTime(el.text().toInt());
+
 
                 n = n.nextSibling();
             }

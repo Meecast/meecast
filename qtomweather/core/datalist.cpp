@@ -118,9 +118,10 @@ namespace Core {
          for(it=this->begin(); it!=this->end(); ++it) {
             ++(next_it = it);
             temp_data = *it;
-            if (temp_data->StartTime() >= begin_day_time && temp_data->StartTime() < end_day_time){
-                if (temp_data->SunRiseTime()>0)
+            if (temp_data->StartTime() <= _time && temp_data->EndTime() > _time){
+                if (temp_data->SunRiseTime() > 0){
                     result_time = temp_data->SunRiseTime();
+                }
             }
          }
          return result_time;

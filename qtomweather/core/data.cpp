@@ -128,6 +128,7 @@ namespace Core {
     void
     Data::SunRiseTime(time_t sunrise_time){
         _sunrise = sunrise_time;
+
     }
     time_t
     Data::SunRiseTime() const{

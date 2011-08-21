@@ -59,7 +59,7 @@ DataItem::update(QString filename)
     }
 
     if  (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
-        i = i + 3600*24;
+        //i = i + 3600*24;
         DataItem::Data(temp_data);
     }
 
@@ -85,6 +85,8 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[PressureRole] = "pressure";
     names[FlikeRole] = "flike";
     names[PpcpRole] = "ppcp";
+    names[SunRiseRole] = "sunrise";
+    names[SunSetRole] = "sunset";
     names[TemperatureLabelRole] = "temperature_label";
     names[HumidityLabelRole] = "humidity_label";
     names[WindLabelRole] = "wind_label";
@@ -134,6 +136,10 @@ QVariant DataItem::data(int role)
         return end();
     case PressureRole:
         return pressure();
+    case SunRiseRole:
+        return sunrise();
+    case SunSetRole:
+        return sunset();
     case FlikeRole:
         return flike();
     case PpcpRole:
@@ -214,6 +220,32 @@ DataItem::wind_speed() {
     }
     return c.number((DataItem::Data::WindSpeed().value()), 'f', 0);
 }
+
+QString
+DataItem::sunrise() {
+    QString c;
+    QDateTime t;
+    if (DataItem::Data::SunRiseTime() == 0){
+        c = "N/A";
+        return c;
+    }
+    t.setTime_t(DataItem::Data::SunRiseTime());
+    return t.toString("hh:mm");
+}
+
+QString
+DataItem::sunset() {
+    QString c;
+    QDateTime t;
+    if (DataItem::Data::SunSetTime() == 0){
+        c = "N/A";
+        return c;
+    }
+    t.setTime_t(DataItem::Data::SunSetTime());
+    return t.toString("hh:mm");
+
+}
+
 QString
 DataItem::wind_gust() {
     QString c;

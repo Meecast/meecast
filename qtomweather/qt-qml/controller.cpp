@@ -129,6 +129,7 @@ Controller::load_data()
       forecast_data->Text(_(forecast_data->Text().c_str()));
       forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 12 * 3600  + i));
       forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 12 * 3600  + i));
+      forecast_data->LastUpdate(_dp->LastUpdate());
       //std::cout << "desc = " <<_current->description() << std::endl;
       //qDebug() << "desc = " <<forecast_data->description();
       _current->appendRow(forecast_data);
@@ -143,6 +144,7 @@ Controller::load_data()
       forecast_data->Text(_(forecast_data->Text().c_str()));
       forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 12 * 3600  + i));
       forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 12 * 3600  + i));
+      forecast_data->LastUpdate(_dp->LastUpdate());
       _model->appendRow(forecast_data);
   }
   _qview->rootContext()->setContextProperty("Current", _current);

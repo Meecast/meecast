@@ -196,6 +196,10 @@ Page {
 		if ((Forecast_model.getdata(day, "daylength")) != "N/A")
                     condition2.append({cond_name: qsTr("Day length:"),
                                  value: Forecast_model.getdata(day, "daylength")});
+		if ((Forecast_model.getdata(day, "lastupdate")) != "N/A")
+                    condition2.append({cond_name: qsTr("Last update:"),
+                                 value: Forecast_model.getdata(day, "lastupdate")});
+
 
             }
             GridView {

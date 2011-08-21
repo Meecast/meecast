@@ -35,7 +35,7 @@ DataItem::DataItem()
 }
 
 DataItem::DataItem(const Core::Data* data):QObject(),Core::Data(data){
-
+    _lastupdate = QDateTime();
 }
 void
 DataItem::update(QString filename)
@@ -43,6 +43,7 @@ DataItem::update(QString filename)
     int i = 0;
     Core::DataParser* dp = NULL;
     Core::Data *temp_data = NULL;
+    _lastupdate = QDateTime();
     if (!filename.isEmpty()){
         try{
             dp = new Core::DataParser(filename.toStdString(),
@@ -88,6 +89,7 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[PpcpRole] = "ppcp";
     names[SunRiseRole] = "sunrise";
     names[SunSetRole] = "sunset";
+    names[LastUpdateRole] = "lastupdate";
     names[TemperatureLabelRole] = "temperature_label";
     names[HumidityLabelRole] = "humidity_label";
     names[WindLabelRole] = "wind_label";
@@ -147,6 +149,8 @@ QVariant DataItem::data(int role)
         return flike();
     case PpcpRole:
         return ppcp();
+    case LastUpdateRole:
+        return lastupdate();
     case TemperatureLabelRole:
         return QString(QString::fromUtf8( _("Temperature:")));
     case HumidityLabelRole:
@@ -325,6 +329,24 @@ DataItem::pressure() {
     return c.number((DataItem::Data::Pressure()), 'i', 0);
 }
 QString
+DataItem::lastupdate() {
+    QString c;
+    QDateTime temp;
+    temp = temp.currentDateTime();
+
+    if ((temp.toTime_t() - _lastupdate.toTime_t()) =< 24*3600)
+        return c.number(((temp.toTime_t() - _lastupdate.toTime_t())/3600), 'i', 0) + " hour ago";
+    else
+        if ((temp.toTime_t() - _lastupdate.toTime_t()) < 24*3600)
+            return c.number(((temp.toTime_t() - _lastupdate.toTime_t())/3600), 'i', 0) + " hours ago";
+        else
+            if ((temp.toTime_t() - _lastupdate.toTime_t()) < 2*24*3600)
+                return c.number(((temp.toTime_t() - _lastupdate.toTime_t())/3600), 'i', 0) + " day ago";
+            else 
+                return c.number(((temp.toTime_t() - _lastupdate.toTime_t())/3600*24), 'i', 0) + " days ago";
+}
+
+QString
 DataItem::ppcp() {
     QString c;
     if (DataItem::Data::Ppcp() == INT_MAX){
@@ -332,4 +354,8 @@ DataItem::ppcp() {
         return c;
     }
     return c.number((DataItem::Data::Ppcp()), 'f', 0);
+}
+void
+DataItem::LastUpdate(time_t date_and_time){
+    _lastupdate.setTime_t(date_and_time);
 }

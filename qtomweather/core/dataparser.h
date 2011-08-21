@@ -40,12 +40,14 @@ namespace Core {
     class DataParser : public Parser {
         DataList *_list;
         int _timezone;
+        time_t _last_update;
         #ifdef LIBXML
         void processNode(const xmlpp::Node* node);
         #endif
         public:
             DataParser(const std::string& filename, const std::string& schema_filename = "/usr/share/omweather/schemas/data.xsd");
             DataParser();
+            time_t LastUpdate();
             virtual ~DataParser();
             DataList& data();
     };

@@ -32,6 +32,7 @@
 #include "dataparser.h"
 #include <iostream>
 #include <stdlib.h>
+#include <QFileInfo>
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
@@ -42,9 +43,12 @@ namespace Core {
         Data *forecast_data;
         forecast_data = new Data();
         _list->push_back(forecast_data);
+        _last_update = 0;
     }
     DataParser::DataParser(const std::string& filename, const std::string& schema_filename) : Parser(filename, schema_filename) {
         _timezone = 0;
+        _last_update = 0;
+        struct stat     statv;
         _list = new DataList;
 #ifdef LIBXML
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
@@ -62,6 +66,12 @@ namespace Core {
         }
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
 #else
+        if(stat(filename.c_str(), &statv))
+            _last_update = 0;
+        else{
+            _last_update = statv.st_mtime;
+        }
+
         QDomElement root = _doc.documentElement();
         Data* forecast_data;
 
@@ -120,6 +130,11 @@ namespace Core {
         }
 #endif
     }
+////////////////////////////////////////////////////////////////////////////////
+    time_t
+    DataParser::LastUpdate(){
+        return _last_update;
+    } 
 ////////////////////////////////////////////////////////////////////////////////
     DataParser::~DataParser(){
        Data* forecast_data;

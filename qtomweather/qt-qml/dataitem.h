@@ -69,8 +69,11 @@ class DataItem : public QObject, public Core::Data
         PressureLabelRole,
         SunSetRole,
         SunRiseRole,
-        DayLengthRole
+        DayLengthRole,
+        LastUpdateRole
     };
+    QDateTime _lastupdate;
+
 public:
     Q_PROPERTY(QString description READ description)
     Q_PROPERTY(QString temperature_high READ temperature_high)
@@ -84,6 +87,7 @@ public:
     Q_PROPERTY(QString sunrise READ sunrise)
     Q_PROPERTY(QString sunset READ sunset)
     Q_PROPERTY(QString daylength READ daylength)
+    Q_PROPERTY(QString lastupdate READ lastupdate)
 
     DataItem();
     DataItem(const Core::Data *data);
@@ -111,6 +115,8 @@ public:
     inline QString sunrise();
     inline QString sunset();
     QString daylength();
+    QString lastupdate();
+    void LastUpdate(time_t date_and_time);
 
     Q_INVOKABLE void update(QString filename);
 

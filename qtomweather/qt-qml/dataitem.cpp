@@ -349,8 +349,10 @@ DataItem::lastupdate() {
                     if ((temp.toTime_t() - _lastupdate.toTime_t()) < 24*3600)
                         return c.number(((temp.toTime_t() - _lastupdate.toTime_t())/3600), 'i', 0) + " hours ago";
                     else
-                        if ((temp.toTime_t() - _lastupdate.toTime_t()) < 2*24*3600)
-                            return c.number(((temp.toTime_t() - _lastupdate.toTime_t())/24*3600), 'i', 0) + " day ago";
+                        if ((temp.toTime_t() - _lastupdate.toTime_t()) < 2*24*3600){
+                            std::cerr<<"ddd "<<(int)((temp.toTime_t() - _lastupdate.toTime_t())/24*3600)<< "   "<< temp.toTime_t() - _lastupdate.toTime_t()<<std::endl;
+                            return c.number(((int)((temp.toTime_t() - _lastupdate.toTime_t())/24*3600)), 'i', 0) + " day ago";
+                        }
                         else 
                             return c.number(((temp.toTime_t() - _lastupdate.toTime_t())/3600*24), 'i', 0) + " days ago";
 }

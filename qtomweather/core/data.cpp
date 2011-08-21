@@ -55,6 +55,8 @@ namespace Core {
         _current = 0;
         _start_time = 0;
         _end_time = 0;
+        _sunrise = 0;
+        _sunset = 0;
         _ppcp = INT_MAX;
     }
     ////////////////////////////////////////////////////////////////////////////////
@@ -84,6 +86,8 @@ namespace Core {
         _full_day_name = data->_full_day_name;
         _full_month_name = data->_full_month_name; 
         _day_of_month_name = data->_day_of_month_name;
+        _sunrise = data->_sunrise;
+        _sunset = data->_sunset;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void
@@ -119,6 +123,24 @@ namespace Core {
     time_t
     Data::EndTime() const{
         return _end_time;
+    }
+////////////////////////////////////////////////////////////////////////////////
+    void
+    Data::SunRiseTime(time_t sunrise_time){
+        _sunrise = sunrise_time;
+    }
+    time_t
+    Data::SunRiseTime() const{
+        return _sunrise;
+    }
+////////////////////////////////////////////////////////////////////////////////
+    void
+    Data::SunSetTime(time_t sunset_time){
+        _sunset = sunset_time;
+    }
+    time_t
+    Data::SunSetTime() const{
+        return _sunset;
     }
 ////////////////////////////////////////////////////////////////////////////////
      Temperature&

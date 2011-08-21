@@ -44,6 +44,8 @@ namespace Core{
     class Data {
         time_t _start_time;
         time_t _end_time;
+        time_t _sunrise;
+        time_t _sunset;
         Temperature *_flike;
         //float _windSpeed;
         Windspeed *_windSpeed;
@@ -71,6 +73,10 @@ namespace Core{
             time_t StartTime(void) const;
             void  EndTime(time_t end_time);
             time_t EndTime(void) const;
+            void  SunRiseTime(time_t sunrise_time);
+            time_t SunRiseTime(void) const;
+            void  SunSetTime(time_t sunset_time);
+            time_t SunSetTime(void) const;
             //void  WindSpeed(float windspeed);
             //float WindSpeed(void) const;
             Windspeed& WindSpeed();

@@ -39,6 +39,8 @@ namespace Core{
     class DataList: public std::vector<Data*>  {
         public:
             Data* GetDataForTime(time_t _time);
+            time_t GetSunRiseForTime(time_t _time);
+            time_t GetSunSetForTime(time_t _time);
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

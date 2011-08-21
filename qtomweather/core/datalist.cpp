@@ -100,6 +100,56 @@ namespace Core {
          }
          return temp_data_result;
        }
+////////////////////////////////////////////////////////////////////////////////
+       time_t 
+       DataList::GetSunRiseForTime(time_t _time){
+         std::vector<Data*>::const_iterator next_it, it;
+         struct tm   *begin_day = NULL;
+         struct tm   *end_day = NULL;
+         time_t result_time = 0;
+         time_t begin_day_time, end_day_time;
+         Data* temp_data;
+
+         begin_day = localtime(&_time); begin_day->tm_hour = 0; begin_day->tm_min = 0; begin_day->tm_sec = 0;
+         begin_day_time = mktime(begin_day); 
+         end_day = localtime(&_time); begin_day->tm_hour = 23; begin_day->tm_min = 59; begin_day->tm_sec = 59;
+         end_day_time = mktime(end_day); 
+
+         for(it=this->begin(); it!=this->end(); ++it) {
+            ++(next_it = it);
+            temp_data = *it;
+            if (temp_data->StartTime() >= begin_day_time && temp_data->StartTime() < end_day_time){
+                if (temp_data->SunRiseTime()>0)
+                    result_time = temp_data->SunRiseTime();
+            }
+         }
+         return result_time;
+       }
+////////////////////////////////////////////////////////////////////////////////
+       time_t 
+       DataList::GetSunSetForTime(time_t _time){
+         std::vector<Data*>::const_iterator next_it, it;
+         struct tm   *begin_day = NULL;
+         struct tm   *end_day = NULL;
+         time_t result_time = 0;
+         time_t begin_day_time, end_day_time;
+         Data* temp_data;
+
+         begin_day = localtime(&_time); begin_day->tm_hour = 0; begin_day->tm_min = 0; begin_day->tm_sec = 0;
+         begin_day_time = mktime(begin_day); 
+         end_day = localtime(&_time); begin_day->tm_hour = 23; begin_day->tm_min = 59; begin_day->tm_sec = 59;
+         end_day_time = mktime(end_day); 
+
+         for(it=this->begin(); it!=this->end(); ++it) {
+            ++(next_it = it);
+            temp_data = *it;
+            if (temp_data->StartTime() >= begin_day_time && temp_data->StartTime() < end_day_time){
+                if (temp_data->SunSetTime()>0)
+                    result_time = temp_data->SunSetTime();
+            }
+         }
+         return result_time;
+       }
 
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

@@ -15,7 +15,7 @@ Page {
         }
         Image {
             id: sourceicon
-            source: Config.imagespath + "/" + Config.source + ".png"
+            source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
         }
         ToolIcon {
             iconId: "toolbar-view-menu"

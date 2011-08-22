@@ -40,7 +40,10 @@ ConfigQml::ConfigQml(const std::string& filename, const std::string& schema_file
 }
 
 ConfigQml::ConfigQml():QObject(),Core::Config(){
+db = new Core::DatabaseSqlite("");
 
+    thread = new UpdateThread();
+    connect(thread, SIGNAL(finished()), this, SLOT(downloadFinishedSlot()));
 }
 
 QString
@@ -151,7 +154,6 @@ ConfigQml::Countries(QString source)
     std::string path(Core::AbstractConfig::prefix);
     path += Core::AbstractConfig::sharePath;
     path += "db/";
-
     if (source == "") return l;
     QString filename(source);
     filename.append(".db");
@@ -162,14 +164,11 @@ ConfigQml::Countries(QString source)
         this->db->set_databasename(filename.toStdString());
 
     }
-
     if (!this->db->open_database()){
         l << "error open db";
         return l;
     }
-
     Core::listdata * list = db->create_countries_list();
-
     Core::listdata::iterator cur;
 
     if (!list)

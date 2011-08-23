@@ -55,8 +55,7 @@ private:
     Core::DataParser *_dp;
     DataModel *_model; 
     DataModel *_current;
-
-
+    DataModel *_night_model;
 };
 
 #endif // CONTROLLER_H

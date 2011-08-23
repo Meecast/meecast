@@ -535,7 +535,9 @@ Page {
                             anchors.fill: parent
                             onClicked: {
                                 pageStack.push(Qt.resolvedUrl("FullWeatherPage.qml"),
-                                               {day: index})
+                                               {day: index, day_period: "night"}
+					       )
+
                             }
                             hoverEnabled: true
 

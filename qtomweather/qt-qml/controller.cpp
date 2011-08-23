@@ -114,6 +114,7 @@ Controller::load_data()
         _dp = current_data(_config->stationsList().at(_config->current_station_id())->fileName());
   _model = new DataModel(new DataItem, qApp);
   _current = new DataModel(new DataItem, qApp);
+  _night_model = new DataModel(new DataItem, qApp);
   /* set current day */ 
   current_day = time(NULL);
   tm = localtime(&current_day);
@@ -147,8 +148,22 @@ Controller::load_data()
       forecast_data->LastUpdate(_dp->LastUpdate());
       _model->appendRow(forecast_data);
   }
+  /* set next night */
+  i = 3600*24;
+  /* fill other nights */
+  while  (_dp != NULL && (temp_data = _dp->data().GetDataForTime( current_day + 23 * 3600  + i))) {
+      i = i + 3600*24;
+      forecast_data = new DataItem(temp_data);
+      forecast_data->Text(_(forecast_data->Text().c_str()));
+      forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 23 * 3600  + i));
+      forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 23 * 3600  + i));
+      forecast_data->LastUpdate(_dp->LastUpdate());
+      _night_model->appendRow(forecast_data);
+  }
+
   _qview->rootContext()->setContextProperty("Current", _current);
   _qview->rootContext()->setContextProperty("Forecast_model", _model);
+  _qview->rootContext()->setContextProperty("Forecast_night_model", _night_model);
 }
 
 void

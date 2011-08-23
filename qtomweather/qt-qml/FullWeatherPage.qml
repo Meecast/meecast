@@ -6,6 +6,9 @@ Page {
     id: fullweather
     property int margin: 16
     property int day: 0
+    property string day_period: "day"
+    property string day_period_name: ""
+    property string image_source: ""
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"
@@ -119,15 +122,15 @@ Page {
                 anchors.left: parent.left
                 anchors.leftMargin: margin
                 color: "white"
-                text: "Day"
+                text: day_period_name;
                 font.pointSize: 24
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
             }
             Image {
                 id: icon
-                source: Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(day, "pict")
-                width: 128
+                source:  image_source 
+		width: 128
                 height: 128
                 anchors.top: parent.top
                 anchors.topMargin: -22
@@ -165,6 +168,14 @@ Page {
                 id: condition
             }
             Component.onCompleted: {
+		if (day_period == "day"){
+			day_period_name = "Day";
+		        image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(day, "pict")
+                }
+		if (day_period == "night"){
+			day_period_name = "Night";
+		        image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_night_model.getdata(day, "pict")
+	        }
                 if ((Forecast_model.getdata(day, "humidity")) != "N/A")
                     condition.append({cond_name: qsTr("Humidity"),
                                  value: Forecast_model.getdata(day, "humidity")+'%'});

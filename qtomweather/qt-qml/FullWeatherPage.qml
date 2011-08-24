@@ -17,12 +17,20 @@ Page {
                 pageStack.pop();
             }
         }
+        ToolButton {
+            id: "toolbarnight"
+            onClicked: { day_period = "night"; updateperiod()}
+            //anchors.right: parent == undefined ? undefined : parent.right
+            iconSource: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
+        }
+ 
         ToolIcon {
             iconId: "toolbar-view-menu"
             onClicked: {(myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()}
             anchors.right: parent == undefined ? undefined : parent.right
         }
-    }
+
+   }
     orientationLock: PageOrientation.LockPortrait
     function openFile(file)
     {
@@ -33,7 +41,61 @@ Page {
             console.log("error open file "+file);
         }
     }
+    function updateperiod()
+    {
+        condition.clear()
+	if (day_period == "day"){
+	    day_period_name = "Day";
+	    image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(day, "pict")
+  	    if ((Forecast_model.getdata(day, "humidity")) != "N/A")
+	        condition.append({cond_name: qsTr("Humidity"),
+			 value: Forecast_model.getdata(day, "humidity")+'%'});
 
+	}
+	if (day_period == "night"){
+	    day_period_name = "Night";
+	    image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_night_model.getdata(day, "pict")
+	    if ((Forecast_night_model.getdata(day, "humidity")) != "N/A")
+	        condition.append({cond_name: qsTr("Humidity"),
+			 value: Forecast_night_model.getdata(day, "humidity")+'%'});
+
+	}
+        if ((Forecast_model.getdata(day, "wind_direction")) != "")
+	    condition.append({cond_name: qsTr("Wind direction:"),
+			 value: Forecast_model.getdata(day, "wind_direction")});
+	if ((Forecast_model.getdata(day, "pressure")) != "N/A")
+	    condition.append({cond_name: qsTr("Pressure:"),
+			 value: Forecast_model.getdata(day, "pressure") + " mbar"});
+	if ((Forecast_model.getdata(day, "wind_speed")) != "N/A")
+	    condition.append({cond_name: qsTr("Wind speed:"),
+			 value: Forecast_model.getdata(day, "wind_speed") + ' ' + Config.windspeedunit});
+
+	if ((Forecast_model.getdata(day, "ppcp")) != "N/A")
+	    condition.append({cond_name: qsTr("Ppcp:"),
+			 value: Forecast_model.getdata(day, "ppcp")});
+	if ((Forecast_model.getdata(day, "wind_gust")) != "N/A")
+	    condition.append({cond_name: qsTr("Wind gust:"),
+			 value: Forecast_model.getdata(day, "wind_gust") + ' ' + Config.windspeedunit});
+	if ((Forecast_model.getdata(day, "flike")) != "N/A")
+	    condition.append({cond_name: qsTr("Flike:"),
+			 value: Forecast_model.getdata(day, "flike") + ' ' + Config.temperatureunit});
+	if ((Forecast_model.getdata(day, "sunrise")) != "N/A")
+	    condition2.append({cond_name: qsTr("Sunrise:"),
+			 value: Forecast_model.getdata(day, "sunrise")});
+	if ((Forecast_model.getdata(day, "sunset")) != "N/A")
+	    condition2.append({cond_name: qsTr("Sunset:"),
+			 value: Forecast_model.getdata(day, "sunset")});
+	if ((Forecast_model.getdata(day, "daylength")) != "N/A")
+	    condition2.append({cond_name: qsTr("Day length:"),
+			 value: Forecast_model.getdata(day, "daylength")});
+	if ((Forecast_model.getdata(day, "lastupdate")) != "N/A")
+	    condition2.append({cond_name: qsTr("Last update:"),
+			 value: Forecast_model.getdata(day, "lastupdate")});
+	console.log("gggggggggggggg")
+
+
+    }
+ 
     Menu {
         id: myMenu
         visualParent: pageStack
@@ -168,50 +230,7 @@ Page {
                 id: condition
             }
             Component.onCompleted: {
-		if (day_period == "day"){
-			day_period_name = "Day";
-		        image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(day, "pict")
-                }
-		if (day_period == "night"){
-			day_period_name = "Night";
-		        image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_night_model.getdata(day, "pict")
-	        }
-                if ((Forecast_model.getdata(day, "humidity")) != "N/A")
-                    condition.append({cond_name: qsTr("Humidity"),
-                                 value: Forecast_model.getdata(day, "humidity")+'%'});
-                if ((Forecast_model.getdata(day, "wind_direction")) != "")
-                    condition.append({cond_name: qsTr("Wind direction:"),
-                                 value: Forecast_model.getdata(day, "wind_direction")});
-                if ((Forecast_model.getdata(day, "pressure")) != "N/A")
-                    condition.append({cond_name: qsTr("Pressure:"),
-                                 value: Forecast_model.getdata(day, "pressure") + " mbar"});
-                if ((Forecast_model.getdata(day, "wind_speed")) != "N/A")
-                    condition.append({cond_name: qsTr("Wind speed:"),
-                                 value: Forecast_model.getdata(day, "wind_speed") + ' ' + Config.windspeedunit});
-
-                if ((Forecast_model.getdata(day, "ppcp")) != "N/A")
-                    condition.append({cond_name: qsTr("Ppcp:"),
-                                 value: Forecast_model.getdata(day, "ppcp")});
-                if ((Forecast_model.getdata(day, "wind_gust")) != "N/A")
-                    condition.append({cond_name: qsTr("Wind gust:"),
-                                 value: Forecast_model.getdata(day, "wind_gust") + ' ' + Config.windspeedunit});
-                if ((Forecast_model.getdata(day, "flike")) != "N/A")
-                    condition.append({cond_name: qsTr("Flike:"),
-                                 value: Forecast_model.getdata(day, "flike") + ' ' + Config.temperatureunit});
-		if ((Forecast_model.getdata(day, "sunrise")) != "N/A")
-                    condition2.append({cond_name: qsTr("Sunrise:"),
-                                 value: Forecast_model.getdata(day, "sunrise")});
-                if ((Forecast_model.getdata(day, "sunset")) != "N/A")
-                    condition2.append({cond_name: qsTr("Sunset:"),
-                                 value: Forecast_model.getdata(day, "sunset")});
-		if ((Forecast_model.getdata(day, "daylength")) != "N/A")
-                    condition2.append({cond_name: qsTr("Day length:"),
-                                 value: Forecast_model.getdata(day, "daylength")});
-		if ((Forecast_model.getdata(day, "lastupdate")) != "N/A")
-                    condition2.append({cond_name: qsTr("Last update:"),
-                                 value: Forecast_model.getdata(day, "lastupdate")});
-
-
+		updateperiod()
             }
             GridView {
                 id: grid

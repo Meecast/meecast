@@ -50,6 +50,12 @@ Page {
   	    if ((Forecast_model.getdata(day, "humidity")) != "N/A")
 	        condition.append({cond_name: qsTr("Humidity"),
 			 value: Forecast_model.getdata(day, "humidity")+'%'});
+            if ((Forecast_model.getdata(day, "wind_direction")) != "")
+	        condition.append({cond_name: qsTr("Wind direction:"),
+			 value: Forecast_model.getdata(day, "wind_direction")});
+     	    if ((Forecast_model.getdata(day, "pressure")) != "N/A")
+	        condition.append({cond_name: qsTr("Pressure:"),
+			 value: Forecast_model.getdata(day, "pressure") + " mbar"});
 
 	}
 	if (day_period == "night"){
@@ -58,14 +64,15 @@ Page {
 	    if ((Forecast_night_model.getdata(day, "humidity")) != "N/A")
 	        condition.append({cond_name: qsTr("Humidity"),
 			 value: Forecast_night_model.getdata(day, "humidity")+'%'});
+            if ((Forecast_night_model.getdata(day, "wind_direction")) != "")
+	        condition.append({cond_name: qsTr("Wind direction:"),
+			 value: Forecast_night_model.getdata(day, "wind_direction")});
+     	    if ((Forecast_night_model.getdata(day, "pressure")) != "N/A")
+	        condition.append({cond_name: qsTr("Pressure:"),
+			 value: Forecast_night_model.getdata(day, "pressure") + " mbar"});
+
 
 	}
-        if ((Forecast_model.getdata(day, "wind_direction")) != "")
-	    condition.append({cond_name: qsTr("Wind direction:"),
-			 value: Forecast_model.getdata(day, "wind_direction")});
-	if ((Forecast_model.getdata(day, "pressure")) != "N/A")
-	    condition.append({cond_name: qsTr("Pressure:"),
-			 value: Forecast_model.getdata(day, "pressure") + " mbar"});
 	if ((Forecast_model.getdata(day, "wind_speed")) != "N/A")
 	    condition.append({cond_name: qsTr("Wind speed:"),
 			 value: Forecast_model.getdata(day, "wind_speed") + ' ' + Config.windspeedunit});

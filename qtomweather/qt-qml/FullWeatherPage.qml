@@ -18,7 +18,7 @@ Page {
             }
         }
         ToolButton {
-            id: "toolbarnight"
+            id: "toolbarday"
             onClicked: { day_period = "day"; updateperiod()}
             iconSource:  Config.imagespath + "/day.png"
         }

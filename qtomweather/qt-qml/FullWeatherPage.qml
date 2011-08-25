@@ -17,8 +17,10 @@ Page {
                 pageStack.pop();
             }
         }
+        ButtonRow{
         ToolButton {
             id: "toolbarday"
+            platformStyle: TabButtonStyle{}
             onClicked: { day_period = "day"; updateperiod()}
             iconSource:  Config.imagespath + "/day.png"
 	    flat: true 
@@ -27,13 +29,14 @@ Page {
         }
         ToolButton {
             id: "toolbarnight"
+            platformStyle: TabButtonStyle{}
             onClicked: { day_period = "night"; updateperiod()}
             iconSource:  Config.imagespath + "/night.png"
 	    flat: true
 	    checkable: true
 	    checked: flase 
         }
-
+}
         ToolIcon {
             iconId: "toolbar-view-menu"
             onClicked: {(myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()}

@@ -21,11 +21,17 @@ Page {
             id: "toolbarday"
             onClicked: { day_period = "day"; updateperiod()}
             iconSource:  Config.imagespath + "/day.png"
+	    flat: true 
+	    checkable: true
+	    checked: true 
         }
         ToolButton {
             id: "toolbarnight"
             onClicked: { day_period = "night"; updateperiod()}
             iconSource:  Config.imagespath + "/night.png"
+	    flat: true
+	    checkable: true
+	    checked: flase 
         }
 
         ToolIcon {
@@ -50,6 +56,8 @@ Page {
         condition.clear()
 	condition2.clear()
 	if (day_period == "day"){
+	    toolbarnight.checked = false
+	    toolbarday.checked = true
 	    day_period_name = "Day";
 	    image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(day, "pict")
   	    if ((Forecast_model.getdata(day, "humidity")) != "N/A")
@@ -76,6 +84,8 @@ Page {
 	}
 	if (day_period == "night"){
 	    day_period_name = "Night";
+	    toolbarnight.checked = true 
+	    toolbarday.checked = false
 	    image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_night_model.getdata(day, "pict")
 	    if ((Forecast_night_model.getdata(day, "humidity")) != "N/A")
 	        condition.append({cond_name: qsTr("Humidity"),

@@ -84,6 +84,9 @@ Page {
             if ((Forecast_model.getdata(day, "flike")) != "N/A")
 	    	condition.append({cond_name: qsTr("Flike:"),
 			 value: Forecast_model.getdata(day, "flike") + ' ' + Config.temperatureunit});
+	    if ((Forecast_model.getdata(day, "temp_high")) != "N/A")
+		temperature.text =  Forecast_model.getdata(day, "temp_high") + '°'
+
 	}
 	if (day_period == "night"){
 	    day_period_name = "Night";
@@ -111,6 +114,9 @@ Page {
             if ((Forecast_night_model.getdata(day, "flike")) != "N/A")
 	    	condition.append({cond_name: qsTr("Flike:"),
 			 value: Forecast_night_model.getdata(day, "flike") + ' ' + Config.temperatureunit});
+	    if ((Forecast_night_model.getdata(day, "temp_high")) != "N/A")
+		temperature.text =  Forecast_night_model.getdata(day, "temp_high") + '°'
+
 
 	}
 
@@ -231,13 +237,14 @@ Page {
                 anchors.left: now.right
             }
             Text {
+		id: temperature
                 anchors.top: parent.top
                 anchors.left: icon.right
                 anchors.rightMargin: margin
                 width: 160
                 height: 84
                 color: "white"
-                text: Forecast_model.getdata(day, "temp_high") + '°'
+                //text: Forecast_model.getdata(day, "temp_high") + '°'
                 font.pointSize: 24
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter

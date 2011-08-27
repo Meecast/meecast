@@ -124,7 +124,8 @@ Controller::load_data()
   tm->tm_isdst = 1;
   current_day = mktime(tm);
   /* fill current date */
-  if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(/*time(NULL)*/current_day + 12*3600 + i))) {
+//  if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(/*time(NULL)*/current_day))) {
+  if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))) {
       std::cout << "make current" << std::endl;
       forecast_data = new DataItem(temp_data);
       forecast_data->Text(_(forecast_data->Text().c_str()));

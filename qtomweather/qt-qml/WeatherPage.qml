@@ -339,7 +339,7 @@ Page {
                             anchors.left: parent.left
                             anchors.leftMargin: margin
                             color: "white"
-                            text: "Now"
+                            text: model.current == true ? "Now" : "Today"
                             font.pointSize: 24
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter

@@ -93,6 +93,7 @@ int main(int argc, char* argv[])
     QDir::setCurrent(app.applicationDirPath());
      
     textdomain("omweather");
+    bindtextdomain("omweather", "/opt/com.meecast.omweather/share/locale");
 /*
     //Set up a graphics scene with a QGraphicsWidget and Layout
     QGraphicsView view;

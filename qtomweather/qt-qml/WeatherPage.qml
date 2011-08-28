@@ -205,6 +205,7 @@ Page {
                 color: "black"
                 visible: isUpdate ? false : true
                 Rectangle {
+		    id: left_arrow
                     width: 72
                     height: 72
                     anchors.top: parent.top
@@ -217,8 +218,7 @@ Page {
                         height: 62
                         anchors.top: parent.top
                         anchors.left: parent.left
-                        anchors.topMargin: 21
-                        anchors.leftMargin: margin
+                        //anchors.leftMargin: margin
                         visible: Config.prevstationname == "" ? false : true;
                         smooth: true	
                     }
@@ -234,20 +234,8 @@ Page {
 
                 }
 
-                Text {
-                    id: stationname
-                    anchors.top: parent.top
-                    anchors.left: parent.left
-                    height: parent.height
-                    width: parent.width
-                    text: Config.stationname
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
-                    color: "white"
-                    font.pointSize: 20
-
-                }
-                Rectangle {
+               Rectangle {
+		    id: right_arrow
                     width: 72
                     height: 72
                     anchors.top: parent.top
@@ -261,8 +249,7 @@ Page {
                         anchors.top: parent.top
                         anchors.right: parent.right
                         //anchors.verticalCenter: parent.verticalCenter
-                        anchors.topMargin: 21
-                        anchors.rightMargin: margin
+                        //anchors.rightMargin: margin
                         visible: Config.nextstationname == "" ? false : true;
                         smooth: true	
                     }
@@ -276,7 +263,21 @@ Page {
                         }
                     }
                 }
+                Text {
+                    id: stationname
+                    anchors.top: parent.top
+                    anchors.left: left_arrow.right
+                    anchors.right: right_arrow.left
+                    height: parent.height
+                    width: parent.width - right_arrow.width - left_arrow.width
+                    text: Config.stationname
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    color: "white"
+                    font.pointSize: 20
 
+                }
+ 
                 /*
                 Loader {
                     anchors.fill: parent

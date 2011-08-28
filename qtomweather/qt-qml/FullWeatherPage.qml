@@ -235,6 +235,7 @@ Page {
                 anchors.top: parent.top
                 anchors.topMargin: -22
                 anchors.left: now.right
+		smooth: true
             }
             Text {
 		id: temperature

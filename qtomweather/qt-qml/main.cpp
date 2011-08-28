@@ -91,7 +91,7 @@ int main(int argc, char* argv[])
     app.setProperty("NoMStyle", true);
 
     QDir::setCurrent(app.applicationDirPath());
-     
+
     textdomain("omweather");
     bindtextdomain("omweather", "/opt/com.meecast.omweather/share/locale");
 /*
@@ -108,6 +108,9 @@ int main(int argc, char* argv[])
 
     //Add the QML snippet into the layout
 
+    //QString locale = QLocale::system().name();
+    //std::cerr<<"locale: "<<locale.toStdString()<<std::endl;
+    
     //ConfigQml *config;
     Controller *controller;
 

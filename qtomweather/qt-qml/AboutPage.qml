@@ -34,6 +34,7 @@ Page {
             id: backgroundmask 
 	    source: Config.imagespath + "/mask_background.png"
             x: 0; y: 80; width: parent.width; 
+	    smooth: true
         }
 	Image {
             id: titlemask 
@@ -41,7 +42,7 @@ Page {
 //            x: 0; y: 80; width: parent.width; 	
 //	    anchors.bottom: versiontext.bottom
 	    anchors.verticalCenter: versiontext.verticalCenter
-	
+            smooth: true	
         }
 
 
@@ -51,6 +52,7 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
 	    anchors.top: titletext.bottom
 	    anchors.topMargin: 25
+            smooth: true	
         }
 
      	Label {

@@ -16,6 +16,7 @@ Page {
         Image {
             id: sourceicon
             source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
+            smooth: true	
         }
         ToolIcon {
             iconId: "toolbar-view-menu"
@@ -219,6 +220,7 @@ Page {
                         anchors.topMargin: 21
                         anchors.leftMargin: margin
                         visible: Config.prevstationname == "" ? false : true;
+                        smooth: true	
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -262,6 +264,7 @@ Page {
                         anchors.topMargin: 21
                         anchors.rightMargin: margin
                         visible: Config.nextstationname == "" ? false : true;
+                        smooth: true	
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -352,6 +355,7 @@ Page {
                             anchors.top: parent.top
                             anchors.topMargin: -22
                             anchors.left: now.right
+			    smooth: true    
                         }
                         Text {
                             anchors.top: parent.top
@@ -389,6 +393,7 @@ Page {
                             anchors.leftMargin: margin
                             width: 30
                             height: 30
+			    smooth: true
                         }
                         Text {
                             text: model.humidity+"%"
@@ -410,6 +415,7 @@ Page {
                             anchors.leftMargin: margin+224
                             width: 30
                             height: 30
+			    smooth: true
                         }
                         Text {
                             text: model.wind_direction
@@ -431,6 +437,7 @@ Page {
                             anchors.leftMargin: margin
                             width: 30
                             height: 30
+			    smooth: true
                         }
                         Text {
                             text: model.pressure + " mbar"
@@ -452,6 +459,7 @@ Page {
                             anchors.leftMargin: margin+224
                             width: 30
                             height: 30
+			    smooth: true
                         }
                         Text {
                             text: model.wind_speed + ' ' + Config.windspeedunit
@@ -507,6 +515,7 @@ Page {
                             height: 64
                             anchors.horizontalCenter: parent.horizontalCenter
                             anchors.verticalCenter: parent.verticalCenter
+                            smooth: true
                         }
                         Text {
                             id: txt_temphi

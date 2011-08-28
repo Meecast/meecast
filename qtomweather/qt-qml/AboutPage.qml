@@ -68,7 +68,7 @@ Page {
 	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
-	    color: "#303030"
+	    color: "#999999"
         }
 	Label {
             id: aboutfulltext 
@@ -86,7 +86,7 @@ Page {
 	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
-	    color: "#303030"
+	    color: "#999999"
         }
 	Label {
             id: projectfulltext 
@@ -97,7 +97,7 @@ Page {
 	}
 	Rectangle {
 	    id: splitter
-            color: "#303030"
+            color: "#999999"
             x: 20; width: parent.width - 40; height: 2
 	    anchors.top: projectfulltext.bottom 
 	    anchors.leftMargin: 20
@@ -111,7 +111,7 @@ Page {
 	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
-	    color: "#303030"
+	    color: "#999999"
         }
 	Label {
             id: prohectadministatorfulltext 
@@ -127,7 +127,7 @@ Page {
 	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
-	    color: "#303030"
+	    color: "#999999"
         }
 	Label {
             id: leadprogrammerfulltext 
@@ -143,7 +143,7 @@ Page {
 	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
-	    color: "#303030"
+	    color: "#999999"
         }
 	Label {
             id: leaddesignerfulltext 

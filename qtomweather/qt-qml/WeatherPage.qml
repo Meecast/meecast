@@ -213,8 +213,8 @@ Page {
                     Image {
                         id: prevstationimage
                         source: Config.imagespath + "/arrow_left.png"
-                        width: 30
-                        height: 30
+                        width:  62 
+                        height: 62
                         anchors.top: parent.top
                         anchors.left: parent.left
                         anchors.topMargin: 21
@@ -256,8 +256,8 @@ Page {
                     Image {
                         id: nextstationimage
                         source: Config.imagespath + "/arrow_right.png"
-                        width: 30
-                        height: 30
+                        width: 62 
+                        height: 62
                         anchors.top: parent.top
                         anchors.right: parent.right
                         //anchors.verticalCenter: parent.verticalCenter

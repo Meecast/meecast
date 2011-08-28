@@ -70,7 +70,8 @@ class DataItem : public QObject, public Core::Data
         SunSetRole,
         SunRiseRole,
         DayLengthRole,
-        LastUpdateRole
+        LastUpdateRole,
+        NowLabelRole
     };
     QDateTime _lastupdate;
 

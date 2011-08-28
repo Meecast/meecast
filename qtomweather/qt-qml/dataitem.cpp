@@ -95,6 +95,7 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[WindLabelRole] = "wind_label";
     names[WindSpeedLabelRole] = "wind_speed_label";
     names[PressureLabelRole] = "pressure_label";
+    names[NowLabelRole] = "now_label";
     return names;
 }
 int
@@ -161,6 +162,8 @@ QVariant DataItem::data(int role)
         return QString(QString::fromUtf8( _("Speed:")));
     case PressureLabelRole:
         return QString(QString::fromUtf8( _("Pressure:")));
+    case NowLabelRole:
+        return QString(QString::fromUtf8( _("Now")));
     default:
         return QVariant();
     }

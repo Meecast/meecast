@@ -65,7 +65,7 @@ install: build
 	dh_installdirs
 
 	# Add here commands to install the package
-	$(MAKE) INSTALL_ROOT=$(CURDIR)/debian/omweather install 
+	$(MAKE) INSTALL_ROOT=$(CURDIR)/debian/meecast install 
 
 # Build architecture-independent files here.
 binary-indep: build install

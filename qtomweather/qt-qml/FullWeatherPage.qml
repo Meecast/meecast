@@ -59,12 +59,12 @@ Page {
         condition.clear()
 	condition2.clear()
 	if (day_period == "day"){
-	    toolbarnight.checked = false
 	    toolbarday.checked = true
-	    day_period_name = "Day";
+	    toolbarnight.checked = false
+	    day_period_name = Config.tr("Day")
 	    image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(day, "pict")
   	    if ((Forecast_model.getdata(day, "humidity")) != "N/A")
-                condition.append({cond_name: Config.tr("Humidity"),
+                condition.append({cond_name: Config.tr("Humidity:"),
 			 value: Forecast_model.getdata(day, "humidity")+'%'});
             if ((Forecast_model.getdata(day, "wind_direction")) != "")
                 condition.append({cond_name: Config.tr("Wind direction:"),
@@ -89,12 +89,12 @@ Page {
 
 	}
 	if (day_period == "night"){
-	    day_period_name = "Night";
+	    day_period_name = Config.tr(Night")
 	    toolbarnight.checked = true 
 	    toolbarday.checked = false
 	    image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_night_model.getdata(day, "pict")
 	    if ((Forecast_night_model.getdata(day, "humidity")) != "N/A")
-                condition.append({cond_name: Config.tr("Humidity"),
+                condition.append({cond_name: Config.tr("Humidity:"),
 			 value: Forecast_night_model.getdata(day, "humidity")+'%'});
             if ((Forecast_night_model.getdata(day, "wind_direction")) != "")
                 condition.append({cond_name: Config.tr("Wind direction:"),

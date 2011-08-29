@@ -267,7 +267,7 @@ Page {
                     id: stationname
                     anchors.top: parent.top
                     anchors.left: left_arrow.right
-                    anchors.right: right_arrow.left
+                    //anchors.right: right_arrow.left
                     height: parent.height
                     width: parent.width - right_arrow.width - left_arrow.width
                     text: Config.stationname
@@ -275,7 +275,7 @@ Page {
                     horizontalAlignment: Text.AlignHCenter
                     color: "white"
                     font.pointSize: 20
-
+                    wrapMode: Text.Wrap
                 }
  
                 /*

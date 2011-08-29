@@ -142,7 +142,7 @@ Page {
                 id: item2
                 text: qsTr("About")
                 onClicked: {
-                    main.openFile("AboutPage.qml");
+                    fullweather.openFile("AboutPage.qml");
                 }
             }
         }

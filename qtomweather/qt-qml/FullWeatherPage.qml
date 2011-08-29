@@ -89,7 +89,7 @@ Page {
 
 	}
 	if (day_period == "night"){
-	    day_period_name = Config.tr(Night")
+	    day_period_name = Config.tr("Night")
 	    toolbarnight.checked = true 
 	    toolbarday.checked = false
 	    image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_night_model.getdata(day, "pict")

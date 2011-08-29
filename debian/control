@@ -1,4 +1,4 @@
-Source: omweather
+Source: meecast 
 Section: user/desktop
 Priority: optional
 Maintainer: Vlad Vasiliev <vlad@gas.by>
@@ -10,18 +10,13 @@ Build-Depends: debhelper (>= 4.0.0), libxml2-dev, libcurl3-dev, libsqlite3-dev
 #Build-Depends: debhelper (>= 4.0.0), libxml2-dev,libcurl3-dev, libpango1.0-dev, libosso-gnomevfs2-dev, libgtk2.0-dev, libosso-dev (>= 1), hildon-desktop-dev, libconic0-dev, libxcomposite-dev, libxdamage-dev, liblocation-dev, libhildonhelp-dev, libhildonhelp-dev, maemo-installer-utils, intltool, libsqlite3-dev, mce-dev, tablet-browser-interface-dev
 Standards-Version: 3.6.0
 
-Package: omweather
+Package: meecast 
 Architecture: any
 #For Maemo
 Depends: ${shlibs:Depends} 
 #For Non Maemo
 #Depends: ${shlibs:Depends}, mawk | awk,
-Description: Weather Forecast on Nokia N900. Ultra-customisable weather widget for showing forecast the way you want.
-XB-Description-pl_PL: Prognoza pogody dla Nokii N900. Konfigurowalny widżet pogodowy.
-XB-Description-ru_RU: Прогноз погоды для Nokia N900. Гибко настраиваемый погодный виджет.
-XB-Description-fi_FI: Sääennusteet Nokia N900:lle. Vapaasti muokattavissa oleva sovelma sääennusteen näyttämiseen haluamallasi tavalla.
-XB-Description-es_ES: Pronósticos meteorológicos en el Nokia N900. Panel ultra personalizable para mostrar el pronóstico como quieras.
-XB-Description-es_MX: Pronósticos meteorológicos en el Nokia N900. Panel ultra personalizable para mostrar el pronóstico como quieras.
+Description: MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code 
 XB-Maemo-Display-Name: OMWeather
 Xsbc-Bugtracker: https://bugs.maemo.org/enter_bug.cgi?product=OmWeather
 XB-Maemo-Icon-26:

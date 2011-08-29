@@ -64,25 +64,25 @@ Page {
 	    day_period_name = "Day";
 	    image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(day, "pict")
   	    if ((Forecast_model.getdata(day, "humidity")) != "N/A")
-	        condition.append({cond_name: qsTr("Humidity"),
+                condition.append({cond_name: Config.tr("Humidity"),
 			 value: Forecast_model.getdata(day, "humidity")+'%'});
             if ((Forecast_model.getdata(day, "wind_direction")) != "")
-	        condition.append({cond_name: qsTr("Wind direction:"),
+                condition.append({cond_name: Config.tr("Wind direction:"),
 			 value: Forecast_model.getdata(day, "wind_direction")});
      	    if ((Forecast_model.getdata(day, "pressure")) != "N/A")
-	        condition.append({cond_name: qsTr("Pressure:"),
+                condition.append({cond_name: Config.tr("Pressure:"),
 			 value: Forecast_model.getdata(day, "pressure") + " mbar"});
     	    if ((Forecast_model.getdata(day, "wind_speed")) != "N/A")
-	        condition.append({cond_name: qsTr("Wind speed:"),
+                condition.append({cond_name: Config.tr("Wind speed:"),
 			 value: Forecast_model.getdata(day, "wind_speed") + ' ' + Config.windspeedunit});
     	    if ((Forecast_model.getdata(day, "ppcp")) != "N/A")
-	        condition.append({cond_name: qsTr("Ppcp:"),
+                condition.append({cond_name: Config.tr("Ppcp:"),
 			 value: Forecast_model.getdata(day, "ppcp")});
             if ((Forecast_model.getdata(day, "wind_gust")) != "N/A")
-	        condition.append({cond_name: qsTr("Wind gust:"),
+                condition.append({cond_name: Config.tr("Wind gust:"),
 			 value: Forecast_model.getdata(day, "wind_gust") + ' ' + Config.windspeedunit});
             if ((Forecast_model.getdata(day, "flike")) != "N/A")
-	    	condition.append({cond_name: qsTr("Flike:"),
+                condition.append({cond_name: Config.tr("Flike:"),
 			 value: Forecast_model.getdata(day, "flike") + ' ' + Config.temperatureunit});
 	    if ((Forecast_model.getdata(day, "temp_high")) != "N/A")
 		temperature.text =  Forecast_model.getdata(day, "temp_high") + '°'
@@ -94,25 +94,25 @@ Page {
 	    toolbarday.checked = false
 	    image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_night_model.getdata(day, "pict")
 	    if ((Forecast_night_model.getdata(day, "humidity")) != "N/A")
-	        condition.append({cond_name: qsTr("Humidity"),
+                condition.append({cond_name: Config.tr("Humidity"),
 			 value: Forecast_night_model.getdata(day, "humidity")+'%'});
             if ((Forecast_night_model.getdata(day, "wind_direction")) != "")
-	        condition.append({cond_name: qsTr("Wind direction:"),
+                condition.append({cond_name: Config.tr("Wind direction:"),
 			 value: Forecast_night_model.getdata(day, "wind_direction")});
      	    if ((Forecast_night_model.getdata(day, "pressure")) != "N/A")
-	        condition.append({cond_name: qsTr("Pressure:"),
+                condition.append({cond_name: Config.tr("Pressure:"),
 			 value: Forecast_night_model.getdata(day, "pressure") + " mbar"});
     	    if ((Forecast_night_model.getdata(day, "wind_speed")) != "N/A")
-	        condition.append({cond_name: qsTr("Wind speed:"),
+                condition.append({cond_name: Config.tr("Wind speed:"),
 			 value: Forecast_night_model.getdata(day, "wind_speed") + ' ' + Config.windspeedunit});
     	    if ((Forecast_night_model.getdata(day, "ppcp")) != "N/A")
-	        condition.append({cond_name: qsTr("Ppcp:"),
+                condition.append({cond_name: Config.tr("Ppcp:"),
 			 value: Forecast_night_model.getdata(day, "ppcp")});
             if ((Forecast_night_model.getdata(day, "wind_gust")) != "N/A")
-	        condition.append({cond_name: qsTr("Wind gust:"),
+                condition.append({cond_name: Config.tr("Wind gust:"),
 			 value: Forecast_night_model.getdata(day, "wind_gust") + ' ' + Config.windspeedunit});
             if ((Forecast_night_model.getdata(day, "flike")) != "N/A")
-	    	condition.append({cond_name: qsTr("Flike:"),
+                condition.append({cond_name: Config.tr("Flike:"),
 			 value: Forecast_night_model.getdata(day, "flike") + ' ' + Config.temperatureunit});
 	    if ((Forecast_night_model.getdata(day, "temp_high")) != "N/A")
 		temperature.text =  Forecast_night_model.getdata(day, "temp_high") + '°'
@@ -121,16 +121,16 @@ Page {
 	}
 
 	if ((Forecast_model.getdata(day, "sunrise")) != "N/A")
-	    condition2.append({cond_name: qsTr("Sunrise:"),
+            condition2.append({cond_name: Config.tr("Sunrise:"),
 			 value: Forecast_model.getdata(day, "sunrise")});
 	if ((Forecast_model.getdata(day, "sunset")) != "N/A")
-	    condition2.append({cond_name: qsTr("Sunset:"),
+            condition2.append({cond_name: Config.tr("Sunset:"),
 			 value: Forecast_model.getdata(day, "sunset")});
 	if ((Forecast_model.getdata(day, "daylength")) != "N/A")
-	    condition2.append({cond_name: qsTr("Day length:"),
+            condition2.append({cond_name: Config.tr("Day length:"),
 			 value: Forecast_model.getdata(day, "daylength")});
 	if ((Forecast_model.getdata(day, "lastupdate")) != "N/A")
-	    condition2.append({cond_name: qsTr("Last update:"),
+            condition2.append({cond_name: Config.tr("Last update:"),
 			 value: Forecast_model.getdata(day, "lastupdate")});
     }
  
@@ -140,7 +140,7 @@ Page {
         MenuLayout {
             MenuItem {
                 id: item2
-                text: qsTr("About")
+                text: Config.tr("About")
                 onClicked: {
                     fullweather.openFile("AboutPage.qml");
                 }

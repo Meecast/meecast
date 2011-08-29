@@ -41,7 +41,7 @@ Page {
         MenuLayout {
             MenuItem {
                 id: item1
-                text: qsTr("Settings")
+                text: Config.tr("Settings")
                 onClicked: {
                     main.openFile("StationsPage.qml");
 
@@ -49,7 +49,7 @@ Page {
             }
             MenuItem {
                 id: item2
-                text: qsTr("About")
+                text: Config.tr("About")
                 onClicked: {
                     main.openFile("AboutPage.qml");
                 }
@@ -145,7 +145,7 @@ Page {
                 spacing: 20
                 Label {
                     horizontalAlignment: Text.AlignHCenter
-                    text: qsTr("No weather stations are set up.")
+                    text: Config.tr("No weather stations are set up.")
                     font.pixelSize: 40
                     color: "#303030"
                     wrapMode: Text.Wrap
@@ -153,7 +153,7 @@ Page {
                     //anchors.horizontalCenter: parent.horizontalCenter
                 }
                 Button {
-                    text: qsTr("Set them up")
+                    text: Config.tr("Set them up")
                     onClicked: {
                         main.openFile("StationsPage.qml");
                     }
@@ -185,7 +185,7 @@ Page {
                     anchors.fill: parent
                     spacing: 8
                     Label {
-                        text: qsTr("Updating forecast")
+                        text: Config.tr("Updating forecast")
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
                     ProgressBar {
@@ -297,7 +297,7 @@ Page {
                     spacing: 20
                     Label {
                         horizontalAlignment: Text.AlignHCenter
-                        text: qsTr("Looks like there is no info for this day. Update usually helps.")
+                        text: Config.tr("Looks like there is no info for this day. Update usually helps.")
                         font.pixelSize: 40
                         color: "#303030"
                         wrapMode: Text.Wrap
@@ -305,7 +305,7 @@ Page {
                         //anchors.horizontalCenter: parent.horizontalCenter
                     }
                     Button {
-                        text: qsTr("Update")
+                        text: Config.tr("Update")
                         onClicked: {
                             main.update();
                         }

@@ -32,7 +32,7 @@ Page {
 
         MySelectionDialog {
             id: source_dlg
-            titleText: qsTr("Select source")
+            titleText: Config.tr("Select source")
             selectedIndex: -1
             model: Config.Sources()
             onAccepted: {
@@ -41,7 +41,7 @@ Page {
         }
         MySelectionDialog {
             id: country_dlg
-            titleText: qsTr("Select country")
+            titleText: Config.tr("Select country")
             selectedIndex: -1
             model: []
             onAccepted: {
@@ -50,7 +50,7 @@ Page {
         }
         MySelectionDialog {
             id: region_dlg
-            titleText: qsTr("Select region")
+            titleText: Config.tr("Select region")
             selectedIndex: -1
             model: []
             onAccepted: {
@@ -59,7 +59,7 @@ Page {
         }
         MySelectionDialog {
             id: city_dlg
-            titleText: qsTr("Select city")
+            titleText: Config.tr("Select city")
             selectedIndex: -1
             model: []
             onAccepted: {
@@ -75,7 +75,7 @@ Page {
             Button {
                 text: source_dlg.selectedIndex >= 0 ?
                         source_dlg.selectedText :
-                        qsTr("Select source")
+                        Config.tr("Select source")
                 onClicked: {
                     source_dlg.open();
                 }
@@ -83,7 +83,7 @@ Page {
             Button {
                 text: country_dlg.selectedIndex >= 0 ?
                         country_dlg.selectedText :
-                        qsTr("Select country")
+                        Config.tr("Select country")
                 onClicked: {
                     country_dlg.open();
                 }
@@ -91,7 +91,7 @@ Page {
             Button {
                 text: region_dlg.selectedIndex >= 0 ?
                         region_dlg.selectedText :
-                        qsTr("Select region")
+                        Config.tr("Select region")
                 onClicked: {
                     region_dlg.open();
                 }
@@ -99,7 +99,7 @@ Page {
             Button {
                 text: city_dlg.selectedIndex >= 0 ?
                         city_dlg.selectedText :
-                        qsTr("Select city")
+                        Config.tr("Select city")
                 onClicked: {
                     city_dlg.open();
                 }

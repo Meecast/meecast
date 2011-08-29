@@ -88,6 +88,7 @@ public:
     Q_INVOKABLE void runsetting();
     Q_INVOKABLE void closeapplication();
     Q_INVOKABLE QStringList temperature_list();
+    Q_INVOKABLE QString tr(QString str);
     void refreshconfig();
     virtual ~ConfigQml(){};
 signals:

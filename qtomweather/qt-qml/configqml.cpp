@@ -421,3 +421,9 @@ ConfigQml::reload_config()
    this->ReLoadConfig();
    this->refreshconfig();
 }
+
+QString
+ConfigQml::tr(QString str)
+{
+    return QString(QString::fromUtf8(_(str.toAscii())));
+}

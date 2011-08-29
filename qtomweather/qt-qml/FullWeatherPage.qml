@@ -284,6 +284,8 @@ Page {
                 height: 250
                 cellWidth: (parent.width - 2*margin) / 2
                 model: condition
+                interactive: false
+                clip: true
                 delegate: Column {
                     width: grid.width / 2
                     spacing: 3
@@ -321,6 +323,8 @@ Page {
                 height: 250
                 cellWidth: (parent.width - 2*margin) / 2
                 model: condition2
+                interactive: false
+                clip: true
                 delegate: Column {
                     width: grid.width / 2
                     spacing: 3

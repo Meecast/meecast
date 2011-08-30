@@ -134,19 +134,6 @@ Page {
 			 value: Forecast_model.getdata(day, "lastupdate")});
     }
  
-    Menu {
-        id: myMenu
-        visualParent: pageStack
-        MenuLayout {
-            MenuItem {
-                id: item2
-                text: Config.tr("About")
-                onClicked: {
-                    fullweather.openFile("AboutPage.qml");
-                }
-            }
-        }
-    }
     function getColor(t)
     {
         var c1, c2, c3;

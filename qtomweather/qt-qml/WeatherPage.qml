@@ -35,28 +35,6 @@ Page {
         }
     }
 
-    Menu {
-        id: myMenu
-        visualParent: pageStack
-        MenuLayout {
-            MenuItem {
-                id: item1
-                text: Config.tr("Settings")
-                onClicked: {
-                    main.openFile("StationsPage.qml");
-
-                }
-            }
-            MenuItem {
-                id: item2
-                text: Config.tr("About")
-                onClicked: {
-                    main.openFile("AboutPage.qml");
-                }
-            }
-        }
-    }
-
     function getColor(t)
     {
         var c1, c2, c3;

@@ -20,24 +20,36 @@ PageStackWindow {
 
     initialPage: WeatherPage {}
 
-    /*
-    ToolBarLayout {
-        id: toolbar
-        visible: false
+    function openFile(file)
+    {
+        var component = Qt.createComponent(file);
+        if (component.status == Component.Ready){
+            pageStack.push(component);
+        }else {
+            console.log("error open file "+file);
+        }
+    }
 
-        ToolIcon {
-            iconId: "toolbar-back"
-            onClicked: {
-                menu.close();
-                pageStack.pop();
+    Menu {
+        id: myMenu
+        visualParent: pageStack
+        MenuLayout {
+            MenuItem {
+                id: item1
+                text: Config.tr("Manage locations")
+                onClicked: {
+                    rootWindow.openFile("StationsPage.qml");
+
+                }
+            }
+            MenuItem {
+                id: item2
+                text: Config.tr("About")
+                onClicked: {
+                    rootWindow.openFile("AboutPage.qml");
+                }
             }
         }
-        ToolIcon {
-            iconId: "toolbar-view-menu"
-            onClicked: {
-                menu.status == (DialogStatus.Closed) ? menu.open() : menu.close()
-            }
-        }
-    }*/
+    }
 
 }

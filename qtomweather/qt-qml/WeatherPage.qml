@@ -252,7 +252,7 @@ Page {
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     color: "white"
-                    font.pointSize: 22
+                    font.pointSize: 20
                     wrapMode: Text.Wrap
                 }
  

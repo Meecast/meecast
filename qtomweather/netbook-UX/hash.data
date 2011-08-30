@@ -276,4 +276,4 @@
     g_hash_table_insert(hash, (void*)"Ю", _("Ю"));
     g_hash_table_insert(hash, (void*)"Ю-В", _("Ю-В"));
     g_hash_table_insert(hash, (void*)"Ю-З", _("Ю-З"));
-    g_hash_table_insert(hash, "Partly Cloudy, Heavy Rain, T-Storm", _("Partly Cloudy, Heavy Rain, T-Storm"));
+    g_hash_table_insert(hash, (void*)"Partly Cloudy, Heavy Rain, T-Storm", _("Partly Cloudy, Heavy Rain, T-Storm"));

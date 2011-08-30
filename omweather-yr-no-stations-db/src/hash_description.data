@@ -1,11 +1,11 @@
 
-    g_hash_table_insert(hash, "Klarvær", "Clear sky");
-    g_hash_table_insert(hash, "Regnbyger", "Rain showers");
+    g_hash_table_insert(hash, "Klarvær", "Clear Sky");
+    g_hash_table_insert(hash, "Regnbyger", "Rain Showers");
     g_hash_table_insert(hash, "Skyet", "Cloudy");
     g_hash_table_insert(hash, "Lettskyet", "Fair");
-    g_hash_table_insert(hash, "Delvis skyet", "Partly cloudy");
+    g_hash_table_insert(hash, "Delvis skyet", "Partly Cloudy");
     g_hash_table_insert(hash, "Regn", "Rain");
     g_hash_table_insert(hash, "Sludd", "Sleet");
-    g_hash_table_insert(hash, "Kraftig regn", "Heavy rain");
+    g_hash_table_insert(hash, "Kraftig regn", "Heavy Rain");
 
 /* http://www.yr.no/om_yrno/1.1940495 */ 

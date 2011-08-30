@@ -58,11 +58,12 @@ Page {
                     anchors.leftMargin: margin
                 }
                 Button {
-                    text: "Delete"
+                    //text: "Delete"
+                    iconSource: "image://theme/icon-m-toolbar-cancle-white"
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.right: parent.right
                     anchors.rightMargin: margin
-                    width: 100
+                    width: 50
                     onClicked: {
                         Config.removeStation(index);
                         stationslist.model = Config.stations();

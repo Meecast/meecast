@@ -252,7 +252,7 @@ Page {
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     color: "white"
-                    font.pointSize: 20
+                    font.pointSize: 22
                     wrapMode: Text.Wrap
                 }
  
@@ -322,7 +322,7 @@ Page {
                             anchors.leftMargin: margin
                             color: "white"
                             text: model.current == true ? Config.tr("Now") : Config.tr("Today") 
-                            font.pointSize: 24
+                            font.pointSize: 26
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter
                         }
@@ -344,7 +344,7 @@ Page {
                             height: 84
                             color: "white"
                             text: model.temp_high + '°'
-                            font.pointSize: 24
+                            font.pointSize: 26
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter
                             Component.onCompleted: {
@@ -359,7 +359,7 @@ Page {
                             width: current_rect.width
                             height: 44
                             color: "white"
-                            font.pointSize: 16
+                            font.pointSize: 18
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter
                         }
@@ -382,7 +382,7 @@ Page {
                             anchors.topMargin: 32
                             height: 30
                             color: "white"
-                            font.pointSize: 16
+                            font.pointSize: 18
                             verticalAlignment: Text.AlignVCenter
                         }
                         Image {
@@ -404,7 +404,7 @@ Page {
                             anchors.topMargin: 32
                             height: 30
                             color: "white"
-                            font.pointSize: 16
+                            font.pointSize: 18
                             verticalAlignment: Text.AlignVCenter
                         }
                         Image {
@@ -426,7 +426,7 @@ Page {
                             anchors.topMargin: 22
                             height: 30
                             color: "white"
-                            font.pointSize: 16
+                            font.pointSize: 18
                             verticalAlignment: Text.AlignVCenter
                         }
                         Image {
@@ -448,7 +448,7 @@ Page {
                             anchors.topMargin: 22
                             height: 30
                             color: "white"
-                            font.pointSize: 16
+                            font.pointSize: 18
                             verticalAlignment: Text.AlignVCenter
                         }
                     }
@@ -482,7 +482,7 @@ Page {
                         Text {
                             text: model.date
                             color: "white"
-                            font.pointSize: 16
+                            font.pointSize: 18
                             anchors.left: parent.left
                             anchors.leftMargin: margin
                             height:parent.height
@@ -498,7 +498,7 @@ Page {
                         }
                         Text {
                             id: txt_temphi
-                            font.pointSize: 16
+                            font.pointSize: 18
                             color: getColor(temp_high)
                             text: model.temp_high + '°'
                             anchors.right: parent.right
@@ -508,7 +508,7 @@ Page {
                         }
                         Text {
                             id: txt_templo
-                            font.pointSize: 16
+                            font.pointSize: 18
                             color: "#889397"
                             text: model.temp_low + '°'
                             anchors.right: parent.right

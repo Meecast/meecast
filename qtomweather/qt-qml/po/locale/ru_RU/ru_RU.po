@@ -202,7 +202,6 @@ msgid "AM Light Snow"
 msgstr "До полудня легкий снег"
 
 #: omweather/src/hash.data:18
-#, fuzzy
 msgid "AM Light Snow / Wind"
 msgstr "После полудня небольшой снег / Ветер"
 
@@ -329,7 +328,6 @@ msgstr ""
 "Дизайн интерфейса для Fremantle: Krebber Jan Niemelä Ulla\n"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:415
-#, fuzzy
 msgid "Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n"
 msgstr "Автор и поддержка: Влад Васильев, <vlad@gas.by>\n"
 
@@ -497,10 +495,7 @@ msgstr ""
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:414
 #, fuzzy
 msgid "Copyright(c) 2010-2011 by Tanya Makova\n"
-msgstr ""
-"\n"
-"Copyright(c) 2006-2010\n"
-"Владислав Васильев, Павел Фиалко"
+msgstr "Copyright(c) 2010-2011 by Таня Макова\n"
 
 #: omweather/src/weather-download.c:226
 msgid ""
@@ -545,22 +540,20 @@ msgid "Day length"
 msgstr "Долгота дня"
 
 #: omweather/src/hash.data:6
-#, fuzzy
 msgid "Day length:"
-msgstr "Долгота дня"
+msgstr "Долгота дня:"
 
 #: omweather/src/weather-popup.c:913
 msgid "Day:"
 msgstr "День:"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:417
-#, fuzzy
 msgid ""
 "Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
 "zhilin@ovi.com>\n"
 msgstr ""
-"Дизайн интерфейса и набор иконок по-умолчанию: Андрей Жилин, "
-"<az@pocketpcrussia.com>\n"
+"Дизайн интерфейса и наборa иконок по-умолчанию: Copyright 2006-2011  Андрей Жилин, "
+"<andrew.zhilin@ovi.com>\n"
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
 msgid "Detailed"
@@ -1419,9 +1412,8 @@ msgid "Partly Cloudy, Heavy Rain"
 msgstr "Небольшая облачность, Сильный Дождь"
 
 #: omweather/src/hash.data:277
-#, fuzzy
 msgid "Partly Cloudy, Heavy Rain, T-Storm"
-msgstr "Пасмурно, Сильный Дождь, Гроза"
+msgstr "Небольшая облачность, Сильный Дождь, Гроза"
 
 #: omweather/src/hash.data:173
 msgid "Partly Cloudy, Heavy Snow"
@@ -1840,18 +1832,16 @@ msgid "Sunny / Wind"
 msgstr "Солнечно / Ветер"
 
 #: omweather/src/hash.data:7
-#, fuzzy
 msgid "Sunrise:"
-msgstr "Восход: "
+msgstr "Восход:"
 
 #: omweather/src/weather-popup.c:125 omweather/src/weather-popup.c:1019
 msgid "Sunrise: "
 msgstr "Восход: "
 
 #: omweather/src/hash.data:8
-#, fuzzy
 msgid "Sunset:"
-msgstr "Закат: "
+msgstr "Закат:"
 
 #: omweather/src/weather-popup.c:139 omweather/src/weather-popup.c:1150
 msgid "Sunset: "
@@ -2119,7 +2109,6 @@ msgid "Wind speed units:"
 msgstr "Единицы скорости ветра:"
 
 #: omweather/src/hash.data:5
-#, fuzzy
 msgid "Wind speed:"
 msgstr "Скорость ветра:"
 

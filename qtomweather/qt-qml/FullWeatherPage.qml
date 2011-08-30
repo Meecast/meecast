@@ -63,6 +63,7 @@ Page {
 	    toolbarnight.checked = false
 	    day_period_name = Config.tr("Day")
 	    image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(day, "pict")
+            current_rect.color = getColor(Forecast_model.getdata(day, "temp_high"));
   	    if ((Forecast_model.getdata(day, "humidity")) != "N/A")
                 condition.append({cond_name: Config.tr("Humidity:"),
 			 value: Forecast_model.getdata(day, "humidity")+'%'});
@@ -89,10 +90,11 @@ Page {
 
 	}
 	if (day_period == "night"){
-	    day_period_name = Config.tr("Night")
-	    toolbarnight.checked = true 
-	    toolbarday.checked = false
-	    image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_night_model.getdata(day, "pict")
+            day_period_name = Config.tr("Night");
+            toolbarnight.checked = true;
+            toolbarday.checked = false;
+            image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_night_model.getdata(day, "pict");
+            current_rect.color = getColor(Forecast_model.getdata(day, "temp_low"));
 	    if ((Forecast_night_model.getdata(day, "humidity")) != "N/A")
                 condition.append({cond_name: Config.tr("Humidity:"),
 			 value: Forecast_night_model.getdata(day, "humidity")+'%'});
@@ -114,8 +116,8 @@ Page {
             if ((Forecast_night_model.getdata(day, "flike")) != "N/A")
                 condition.append({cond_name: Config.tr("Flike:"),
 			 value: Forecast_night_model.getdata(day, "flike") + ' ' + Config.temperatureunit});
-	    if ((Forecast_night_model.getdata(day, "temp_high")) != "N/A")
-		temperature.text =  Forecast_night_model.getdata(day, "temp_high") + '°'
+            if ((Forecast_night_model.getdata(day, "temp_low")) != "N/A")
+                temperature.text =  Forecast_night_model.getdata(day, "temp_low") + '°'
 
 
 	}
@@ -169,6 +171,7 @@ Page {
         anchors.fill: parent
         flickableDirection: Flickable.VerticalFlick
         clip: true
+
         Rectangle {
             id: day_rect
             anchors.left: parent.left
@@ -176,6 +179,67 @@ Page {
             width: parent.width
             height: 72
             color: "black"
+            Rectangle {
+                id: left_arrow
+                width: 72
+                height: 72
+                anchors.top: parent.top
+                anchors.left: parent.left
+                color: "black"
+                visible: day > 0 ? true : false;
+                Image {
+                    id: prevstationimage
+                    source: Config.imagespath + "/arrow_left.png"
+                    width:  62
+                    height: 62
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    //anchors.leftMargin: margin
+                    smooth: true
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        if (day > 0){
+                            console.log("prev day");
+                            day--;
+                            fullweather.updateperiod();
+                        }
+                    }
+                }
+
+            }
+            Rectangle {
+                 id: right_arrow
+                 width: 72
+                 height: 72
+                 anchors.top: parent.top
+                 anchors.right: parent.right
+                 color: "black"
+                 visible: day < (Forecast_model.rowCount()-1) ? true : false;
+                 Image {
+                     id: nextstationimage
+                     source: Config.imagespath + "/arrow_right.png"
+                     width: 62
+                     height: 62
+                     anchors.top: parent.top
+                     anchors.right: parent.right
+                     //anchors.verticalCenter: parent.verticalCenter
+                     //anchors.rightMargin: margin
+
+                     smooth: true
+                 }
+                 MouseArea {
+                     anchors.fill: parent
+                     onClicked: {
+                         if (day < Forecast_model.rowCount()-1){
+                            console.log("next day");
+                            day++;
+                            fullweather.updateperiod();
+                        }
+                     }
+                 }
+             }
             Text {
                 id: dayname
                 anchors.top: parent.top
@@ -195,7 +259,6 @@ Page {
             anchors.top: day_rect.bottom
             width: parent.width
             height: 274
-            color: getColor(Current.temperature_high)
             Loader {
                 anchors.fill: parent
                 sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}

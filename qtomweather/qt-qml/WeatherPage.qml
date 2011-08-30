@@ -189,6 +189,7 @@ Page {
                     anchors.top: parent.top
                     anchors.left: parent.left
                     color: "black"
+                    visible: Config.prevstationname == "" ? false : true;
                     Image {
                         id: prevstationimage
                         source: Config.imagespath + "/arrow_left.png"
@@ -197,8 +198,7 @@ Page {
                         anchors.top: parent.top
                         anchors.left: parent.left
                         //anchors.leftMargin: margin
-                        visible: Config.prevstationname == "" ? false : true;
-                        smooth: true	
+                        smooth: true
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -219,6 +219,7 @@ Page {
                     anchors.top: parent.top
                     anchors.right: parent.right
                     color: "black"
+                    visible: Config.nextstationname == "" ? false : true;
                     Image {
                         id: nextstationimage
                         source: Config.imagespath + "/arrow_right.png"
@@ -228,8 +229,7 @@ Page {
                         anchors.right: parent.right
                         //anchors.verticalCenter: parent.verticalCenter
                         //anchors.rightMargin: margin
-                        visible: Config.nextstationname == "" ? false : true;
-                        smooth: true	
+                        smooth: true
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -523,7 +523,7 @@ Page {
                             anchors.fill: parent
                             onClicked: {
                                 pageStack.push(Qt.resolvedUrl("FullWeatherPage.qml"),
-                                               {day: index, day_period: "day"}
+                                               {day: index, day_period: "day" }
 					       )
 
                             }

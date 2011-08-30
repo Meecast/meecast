@@ -479,7 +479,7 @@ get_date_for_hour_weather(gchar *temp_string){
     strcat(buff, " ");
     temp_point = strchr(temp_string,' ');
     strcat(buff, temp_point+1);
-    strptime(buff, "%d %b %Y %T", &tmp_tm);
+    strptime(buff, "%d %b %Y %H:%M", &tmp_tm);
     /* fprintf(stderr, "\ntmp_tm hour %d\n", (&tmp_tm)->tm_hour); */
     return tmp_tm;
 }
@@ -955,20 +955,6 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
   /* fprintf(stderr, "Result (%d nodes):\n", size); */
   for(i = 0; i < size; ++i) {
       day = NULL;
-      if(!timezone_flag){
-          utc_time = mktime(&tmp_tm);
-          temp_char = strstr(nodes->nodeTab[i]->children->content, "Local: ");
-          if (temp_char && strlen(temp_char) > 8)
-              temp_char = temp_char + 7;
-           tmp_tm_loc = get_date_for_hour_weather(temp_char);
-           loc_time = mktime(&tmp_tm_loc);
-           time_diff = difftime(loc_time, utc_time);
-           if(time_diff)
-               timezone_flag = TRUE;
-           location_timezone = (gint)time_diff/3600;
-           /* fprintf(stderr, "\nTimezone %i\n", location_timezone); */
-           fprintf(file_out,"  <timezone>%i</timezone>\n", location_timezone);
-      }
 
       /* Take UTC time: */
       if (!nodes->nodeTab[i]->children->content)
@@ -979,6 +965,23 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
 
       tmp_tm = get_date_for_hour_weather(temp_char);
       utc_time = mktime(&tmp_tm);
+      /* fprintf(stderr," UTC Temp char %s %li", temp_char, utc_time); */
+      if(!timezone_flag){
+          utc_time = mktime(&tmp_tm);
+          temp_char = strstr(nodes->nodeTab[i]->children->content, "Local: ");
+          if (temp_char && strlen(temp_char) > 8)
+              temp_char = temp_char + 7;
+           tmp_tm_loc = get_date_for_hour_weather(temp_char);
+           loc_time = mktime(&tmp_tm_loc);
+           /* fprintf(stderr," Local Temp char %s %li\n", temp_char, loc_time); */
+           time_diff = difftime(loc_time, utc_time);
+//           if(time_diff)
+           timezone_flag = TRUE;
+           location_timezone = (gint)time_diff/3600;
+           /* fprintf(stderr, "\nTimezone %i\n", location_timezone); */
+           fprintf(file_out,"  <timezone>%i</timezone>\n", location_timezone);
+      }
+
       fprintf(file_out,"    <period start=\"%li\"", utc_time);
       fprintf(file_out," end=\"%li\">\n", utc_time + 6*3600); 
 

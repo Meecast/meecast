@@ -6,6 +6,7 @@
     g_hash_table_insert(hash, (void*)"Day length:", _("Day length:"));
     g_hash_table_insert(hash, (void*)"Sunrise:", _("Sunrise:"));
     g_hash_table_insert(hash, (void*)"Sunset:", _("Sunset:"));
+    g_hash_table_insert(hash, (void*)"Last update:", _("Last update:"));
 
     /* weather forecast string */
     g_hash_table_insert(hash, (void*)"AM Clouds / PM Sun", _("AM Clouds / PM Sun"));
@@ -275,4 +276,4 @@
     g_hash_table_insert(hash, (void*)"Ю", _("Ю"));
     g_hash_table_insert(hash, (void*)"Ю-В", _("Ю-В"));
     g_hash_table_insert(hash, (void*)"Ю-З", _("Ю-З"));
-    g_hash_table_insert(hash, (void*)"Partly Cloudy, Heavy Rain, T-Storm", _("Partly Cloudy, Heavy Rain, T-Storm"));
+    g_hash_table_insert(hash, "Partly Cloudy, Heavy Rain, T-Storm", _("Partly Cloudy, Heavy Rain, T-Storm"));

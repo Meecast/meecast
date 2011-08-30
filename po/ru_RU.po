@@ -2101,7 +2101,7 @@ msgstr "Ветер"
 
 #: omweather/src/hash.data:4
 msgid "Wind direction:"
-msgstr ""
+msgstr "Направление ветра"
 
 #: omweather/src/weather-settings.c:3974
 msgid "Wind speed units:"

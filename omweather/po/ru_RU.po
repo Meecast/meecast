@@ -930,9 +930,8 @@ msgid "Last update from server: "
 msgstr "Последнее обновление с сервера: "
 
 #: omweather/src/hash.data:9
-#, fuzzy
 msgid "Last update:"
-msgstr "Последнее обновление: "
+msgstr "Последнее обновление:"
 
 #: omweather/src/weather-simple-popup.c:271
 #: omweather/src/weather-simple-popup.c:273
@@ -2102,7 +2101,7 @@ msgstr "Ветер"
 
 #: omweather/src/hash.data:4
 msgid "Wind direction:"
-msgstr ""
+msgstr "Направление ветра"
 
 #: omweather/src/weather-settings.c:3974
 msgid "Wind speed units:"

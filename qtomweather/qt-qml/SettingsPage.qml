@@ -48,7 +48,7 @@ Page {
         anchors.top: parent.top
         anchors.left: parent.left
         width: parent.width
-        text: "Settings"
+        text: Config.tr("Settings")
         font.pointSize: 24
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
@@ -70,7 +70,7 @@ Page {
             Label {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
-                text: model.title
+                text: Config.tr(model.title)
                 font.pointSize: 22
             }
 

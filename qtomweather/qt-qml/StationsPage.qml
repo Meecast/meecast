@@ -48,7 +48,7 @@ Page {
             anchors.top: parent.top
             anchors.left: parent.left
             width: parent.width
-            text: "Manage locations"
+            text: Config.tr("Manage locations")
             font.pointSize: 24
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter

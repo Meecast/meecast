@@ -351,12 +351,12 @@ Page {
                             Component.onCompleted: {
 			        if (model.temp == "N/A"){
 				   text = ""
-				   if (model.temp_low != "N/A")
-				       text = model.temp_low + '°'
+				   if (model.temp_high != "N/A")
+				       text = model.temp_high + '°'
 				   if ((model.temp_low != "N/A") && (model.temp_high != "N/A"))
 				       text =  text + " / "
-				   if (model.temp_high != "N/A")
-				       text = text + model.temp_high + '°'
+				   if (model.temp_low != "N/A")
+				       text = text + model.temp_low + '°'
                                    current_rect.color = getColor(temp_high);
 				}
 				else{

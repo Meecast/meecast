@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-31 08:36+0300\n"
+"POT-Creation-Date: 2011-08-31 12:57+0300\n"
 "PO-Revision-Date: 2011-02-11 21:24+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -912,7 +912,7 @@ msgstr "Korkea"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:722
-#: qtomweather/qt-qml/dataitem.cpp:158
+#: qtomweather/qt-qml/dataitem.cpp:161
 msgid "Humidity:"
 msgstr "Ilmankosteus: "
 
@@ -1300,7 +1300,7 @@ msgstr "Ei säätietoja tälle asemalle."
 #: omweather/src/weather-simple-settings.c:2886
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:592
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:847
-#: qtomweather/qt-qml/dataitem.cpp:166
+#: qtomweather/qt-qml/dataitem.cpp:169
 msgid "Now"
 msgstr "Nyt"
 
@@ -1506,7 +1506,7 @@ msgstr "Paineen yksiköt:"
 
 #: omweather/src/weather-popup.c:1308
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:697
-#: qtomweather/qt-qml/dataitem.cpp:164
+#: qtomweather/qt-qml/dataitem.cpp:167
 msgid "Pressure:"
 msgstr "Ilmanpaine:"
 
@@ -1833,7 +1833,7 @@ msgstr "Nopeus"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:772
-#: qtomweather/qt-qml/dataitem.cpp:162
+#: qtomweather/qt-qml/dataitem.cpp:165
 msgid "Speed:"
 msgstr "Nopeus:"
 
@@ -1924,7 +1924,7 @@ msgid "Temperature units:"
 msgstr "Lämpötilan yksikkö:"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:660
-#: qtomweather/qt-qml/dataitem.cpp:156
+#: qtomweather/qt-qml/dataitem.cpp:159
 msgid "Temperature:"
 msgstr "Lämpötila:"
 
@@ -2153,7 +2153,7 @@ msgstr "Tuulen nopeuden yksikkö:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:747
-#: qtomweather/qt-qml/dataitem.cpp:160
+#: qtomweather/qt-qml/dataitem.cpp:163
 msgid "Wind:"
 msgstr "Tuuli:"
 

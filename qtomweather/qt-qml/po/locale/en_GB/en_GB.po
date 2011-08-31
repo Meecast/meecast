@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en_GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-31 08:36+0300\n"
+"POT-Creation-Date: 2011-08-31 12:57+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -832,7 +832,7 @@ msgstr ""
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:722
-#: qtomweather/qt-qml/dataitem.cpp:158
+#: qtomweather/qt-qml/dataitem.cpp:161
 msgid "Humidity:"
 msgstr ""
 
@@ -1217,7 +1217,7 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:2886
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:592
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:847
-#: qtomweather/qt-qml/dataitem.cpp:166
+#: qtomweather/qt-qml/dataitem.cpp:169
 msgid "Now"
 msgstr ""
 
@@ -1419,7 +1419,7 @@ msgstr ""
 
 #: omweather/src/weather-popup.c:1308
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:697
-#: qtomweather/qt-qml/dataitem.cpp:164
+#: qtomweather/qt-qml/dataitem.cpp:167
 msgid "Pressure:"
 msgstr ""
 
@@ -1749,7 +1749,7 @@ msgstr ""
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:772
-#: qtomweather/qt-qml/dataitem.cpp:162
+#: qtomweather/qt-qml/dataitem.cpp:165
 msgid "Speed:"
 msgstr ""
 
@@ -1841,7 +1841,7 @@ msgid "Temperature units:"
 msgstr ""
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:660
-#: qtomweather/qt-qml/dataitem.cpp:156
+#: qtomweather/qt-qml/dataitem.cpp:159
 msgid "Temperature:"
 msgstr ""
 
@@ -2064,7 +2064,7 @@ msgstr ""
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:747
-#: qtomweather/qt-qml/dataitem.cpp:160
+#: qtomweather/qt-qml/dataitem.cpp:163
 msgid "Wind:"
 msgstr ""
 

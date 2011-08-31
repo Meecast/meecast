@@ -277,6 +277,7 @@ DataItem::daylength() {
         return c;
     }
     t.setTime_t(DataItem::Data::DayLength());
+    t = t.toUTC();
     return t.toString("hh:mm");
 }
 

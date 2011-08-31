@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-31 14:46+0300\n"
+"POT-Creation-Date: 2011-08-31 23:00+0300\n"
 "PO-Revision-Date: 2011-02-11 21:24+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -2221,6 +2221,14 @@ msgstr "sijainnin paikallisaika"
 msgid "d:"
 msgstr "d:"
 
+#: qtomweather/qt-qml/dataitem.cpp:370
+msgid "day ago"
+msgstr ""
+
+#: qtomweather/qt-qml/dataitem.cpp:372
+msgid "days ago"
+msgstr ""
+
 #: omweather/src/weather-config.c:332
 msgid "every 2 hours"
 msgstr "2 tunnin välein"
@@ -2260,6 +2268,15 @@ msgstr "laskeva"
 #: omweather/src/weather-simple-popup.c:1047
 msgid "feels like"
 msgstr "tuntuu iholla"
+
+#: qtomweather/qt-qml/dataitem.cpp:364
+msgid "hour ago"
+msgstr ""
+
+#: qtomweather/qt-qml/dataitem.cpp:367
+#, fuzzy
+msgid "hours ago"
+msgstr "2 tuntia"
 
 #: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
 #: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
@@ -2331,6 +2348,16 @@ msgstr "mi/h"
 msgid "mi/s"
 msgstr "mi/s"
 
+#: qtomweather/qt-qml/dataitem.cpp:358
+#, fuzzy
+msgid "minute ago"
+msgstr "1 minuutti"
+
+#: qtomweather/qt-qml/dataitem.cpp:361
+#, fuzzy
+msgid "minutes ago"
+msgstr "3 minuuttia"
+
 #: omweather/src/weather-popup.c:961 omweather/src/weather-popup.c:1094
 #: omweather/src/weather-simple-settings.c:2727
 msgid "mm"
@@ -2369,6 +2396,11 @@ msgstr "nmi"
 #: omweather/src/hash.data:271
 msgid "rising"
 msgstr "nousussa"
+
+#: qtomweather/qt-qml/dataitem.cpp:355
+#, fuzzy
+msgid "seconds ago"
+msgstr "60 sekuntia"
 
 #: omweather/src/weather-popup.c:271
 msgid "station local time"
@@ -2600,10 +2632,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Tämän hetken sää\n"
 #~ "ei ole saatavilla"
-
-#, fuzzy
-#~ msgid "seconds"
-#~ msgstr "60 sekuntia"
 
 #~ msgid ""
 #~ "\n"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it_IT\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-31 14:46+0300\n"
+"POT-Creation-Date: 2011-08-31 23:00+0300\n"
 "PO-Revision-Date: 2010-07-27 17:04+0100\n"
 "Last-Translator: Luca <luca>\n"
 "Language-Team: Italiano\n"
@@ -2225,6 +2225,14 @@ msgstr "posizione attuale ora locale"
 msgid "d:"
 msgstr "g:"
 
+#: qtomweather/qt-qml/dataitem.cpp:370
+msgid "day ago"
+msgstr ""
+
+#: qtomweather/qt-qml/dataitem.cpp:372
+msgid "days ago"
+msgstr ""
+
 #: omweather/src/weather-config.c:332
 msgid "every 2 hours"
 msgstr "ogni 2 ore"
@@ -2264,6 +2272,15 @@ msgstr "rientranti"
 #: omweather/src/weather-simple-popup.c:1047
 msgid "feels like"
 msgstr "percepita come"
+
+#: qtomweather/qt-qml/dataitem.cpp:364
+msgid "hour ago"
+msgstr ""
+
+#: qtomweather/qt-qml/dataitem.cpp:367
+#, fuzzy
+msgid "hours ago"
+msgstr "2 ore"
 
 #: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
 #: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
@@ -2335,6 +2352,16 @@ msgstr "mi/h"
 msgid "mi/s"
 msgstr "mi/s"
 
+#: qtomweather/qt-qml/dataitem.cpp:358
+#, fuzzy
+msgid "minute ago"
+msgstr "1 minuto"
+
+#: qtomweather/qt-qml/dataitem.cpp:361
+#, fuzzy
+msgid "minutes ago"
+msgstr "3 minuti"
+
 #: omweather/src/weather-popup.c:961 omweather/src/weather-popup.c:1094
 #: omweather/src/weather-simple-settings.c:2727
 msgid "mm"
@@ -2374,6 +2401,11 @@ msgstr "mi"
 #: omweather/src/hash.data:271
 msgid "rising"
 msgstr "nascente"
+
+#: qtomweather/qt-qml/dataitem.cpp:355
+#, fuzzy
+msgid "seconds ago"
+msgstr "60 secondo"
 
 #: omweather/src/weather-popup.c:271
 msgid "station local time"
@@ -2566,10 +2598,6 @@ msgstr ""
 #~ "The current weather\n"
 #~ "is not available"
 #~ msgstr "Valido tempo per tempo:"
-
-#, fuzzy
-#~ msgid "seconds"
-#~ msgstr "60 secondo"
 
 #~ msgid ""
 #~ "\n"

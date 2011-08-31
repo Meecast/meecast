@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-31 14:46+0300\n"
+"POT-Creation-Date: 2011-08-31 23:00+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -1550,9 +1550,8 @@ msgid "Rain Shower and Windy"
 msgstr "Ливневый дождь и ветрено"
 
 #: omweather/src/hash.data:199
-#, fuzzy
 msgid "Rain Showers"
-msgstr "Ливневый дождь"
+msgstr "Ливневые дожди"
 
 #: omweather/src/hash.data:200
 msgid "Rain and Snow"
@@ -2185,6 +2184,14 @@ msgstr "местное время текущего местонахождени�
 msgid "d:"
 msgstr "д:"
 
+#: qtomweather/qt-qml/dataitem.cpp:370
+msgid "day ago"
+msgstr ""
+
+#: qtomweather/qt-qml/dataitem.cpp:372
+msgid "days ago"
+msgstr ""
+
 #: omweather/src/weather-config.c:332
 msgid "every 2 hours"
 msgstr "каждые 2 часа"
@@ -2224,6 +2231,15 @@ msgstr "падает"
 #: omweather/src/weather-simple-popup.c:1047
 msgid "feels like"
 msgstr "по ощущениям"
+
+#: qtomweather/qt-qml/dataitem.cpp:364
+msgid "hour ago"
+msgstr ""
+
+#: qtomweather/qt-qml/dataitem.cpp:367
+#, fuzzy
+msgid "hours ago"
+msgstr "2 часа"
 
 #: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
 #: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
@@ -2295,6 +2311,16 @@ msgstr "ми/ч"
 msgid "mi/s"
 msgstr "ми/с"
 
+#: qtomweather/qt-qml/dataitem.cpp:358
+#, fuzzy
+msgid "minute ago"
+msgstr "минуту"
+
+#: qtomweather/qt-qml/dataitem.cpp:361
+#, fuzzy
+msgid "minutes ago"
+msgstr "3 минуты"
+
 #: omweather/src/weather-popup.c:961 omweather/src/weather-popup.c:1094
 #: omweather/src/weather-simple-settings.c:2727
 msgid "mm"
@@ -2333,6 +2359,11 @@ msgstr "м.ми"
 #: omweather/src/hash.data:271
 msgid "rising"
 msgstr "возрастает"
+
+#: qtomweather/qt-qml/dataitem.cpp:355
+#, fuzzy
+msgid "seconds ago"
+msgstr "секунд"
 
 #: omweather/src/weather-popup.c:271
 msgid "station local time"
@@ -2551,9 +2582,6 @@ msgstr ""
 #~ "The current weather\n"
 #~ "is not available"
 #~ msgstr "Нет данных для текущей погоды."
-
-#~ msgid "seconds"
-#~ msgstr "секунд"
 
 #~ msgid ""
 #~ "\n"

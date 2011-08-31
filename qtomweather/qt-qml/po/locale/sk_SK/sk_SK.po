@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-31 14:46+0300\n"
+"POT-Creation-Date: 2011-08-31 23:00+0300\n"
 "PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -2208,6 +2208,14 @@ msgstr "miestneho času aktuálnej polohy"
 msgid "d:"
 msgstr "d:"
 
+#: qtomweather/qt-qml/dataitem.cpp:370
+msgid "day ago"
+msgstr ""
+
+#: qtomweather/qt-qml/dataitem.cpp:372
+msgid "days ago"
+msgstr ""
+
 #: omweather/src/weather-config.c:332
 msgid "every 2 hours"
 msgstr "každé 2 hodiny"
@@ -2247,6 +2255,15 @@ msgstr "klesá"
 #: omweather/src/weather-simple-popup.c:1047
 msgid "feels like"
 msgstr "na pocit"
+
+#: qtomweather/qt-qml/dataitem.cpp:364
+msgid "hour ago"
+msgstr ""
+
+#: qtomweather/qt-qml/dataitem.cpp:367
+#, fuzzy
+msgid "hours ago"
+msgstr "2 hodiny"
 
 #: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
 #: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
@@ -2318,6 +2335,16 @@ msgstr "mi/h"
 msgid "mi/s"
 msgstr "mi/s"
 
+#: qtomweather/qt-qml/dataitem.cpp:358
+#, fuzzy
+msgid "minute ago"
+msgstr "1 minúta"
+
+#: qtomweather/qt-qml/dataitem.cpp:361
+#, fuzzy
+msgid "minutes ago"
+msgstr "3 minúty"
+
 #: omweather/src/weather-popup.c:961 omweather/src/weather-popup.c:1094
 #: omweather/src/weather-simple-settings.c:2727
 msgid "mm"
@@ -2356,6 +2383,11 @@ msgstr "nmi"
 #: omweather/src/hash.data:271
 msgid "rising"
 msgstr "rastie"
+
+#: qtomweather/qt-qml/dataitem.cpp:355
+#, fuzzy
+msgid "seconds ago"
+msgstr "10 sekúnd"
 
 #: omweather/src/weather-popup.c:271
 msgid "station local time"

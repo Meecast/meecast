@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-31 14:46+0300\n"
+"POT-Creation-Date: 2011-08-31 23:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2122,6 +2122,14 @@ msgstr ""
 msgid "d:"
 msgstr ""
 
+#: qtomweather/qt-qml/dataitem.cpp:370
+msgid "day ago"
+msgstr ""
+
+#: qtomweather/qt-qml/dataitem.cpp:372
+msgid "days ago"
+msgstr ""
+
 #: omweather/src/weather-config.c:332
 msgid "every 2 hours"
 msgstr ""
@@ -2160,6 +2168,14 @@ msgstr ""
 
 #: omweather/src/weather-simple-popup.c:1047
 msgid "feels like"
+msgstr ""
+
+#: qtomweather/qt-qml/dataitem.cpp:364
+msgid "hour ago"
+msgstr ""
+
+#: qtomweather/qt-qml/dataitem.cpp:367
+msgid "hours ago"
 msgstr ""
 
 #: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
@@ -2232,6 +2248,14 @@ msgstr ""
 msgid "mi/s"
 msgstr ""
 
+#: qtomweather/qt-qml/dataitem.cpp:358
+msgid "minute ago"
+msgstr ""
+
+#: qtomweather/qt-qml/dataitem.cpp:361
+msgid "minutes ago"
+msgstr ""
+
 #: omweather/src/weather-popup.c:961 omweather/src/weather-popup.c:1094
 #: omweather/src/weather-simple-settings.c:2727
 msgid "mm"
@@ -2269,6 +2293,10 @@ msgstr ""
 
 #: omweather/src/hash.data:271
 msgid "rising"
+msgstr ""
+
+#: qtomweather/qt-qml/dataitem.cpp:355
+msgid "seconds ago"
 msgstr ""
 
 #: omweather/src/weather-popup.c:271

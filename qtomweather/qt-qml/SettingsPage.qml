@@ -41,6 +41,14 @@ Page {
             page: "UnitsPage.qml"
             title: "Units"
         }
+        ListElement {
+            page: "UpdatePage.qml"
+            title: "Update"
+        }
+        ListElement {
+            page: "VisualsPage.qml"
+            title: "Visuals"
+        }
     }
 
     Label {
@@ -49,7 +57,7 @@ Page {
         anchors.left: parent.left
         width: parent.width
         text: Config.tr("Settings")
-        font.pointSize: 24
+        font.pixelSize: 28
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
     }
@@ -59,7 +67,7 @@ Page {
         model: settingsModel
         anchors.fill: parent
         anchors.top: title.bottom
-        anchors.topMargin: margin
+        anchors.topMargin: 30
         anchors.leftMargin: margin
         anchors.rightMargin: margin
 
@@ -71,7 +79,6 @@ Page {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
                 text: Config.tr(model.title)
-                font.pointSize: 22
             }
 
             Image {

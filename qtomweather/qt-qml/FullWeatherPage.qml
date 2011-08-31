@@ -273,7 +273,7 @@ Page {
                 anchors.leftMargin: margin
                 color: "white"
                 text: day_period_name;
-                font.pointSize: 24
+                font.pointSize: 26
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
             }
@@ -296,7 +296,7 @@ Page {
                 height: 84
                 color: "white"
                 //text: Forecast_model.getdata(day, "temp_high") + '°'
-                font.pointSize: 24
+                font.pointSize: 26
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
                 Component.onCompleted: {
@@ -311,7 +311,7 @@ Page {
                 width: current_rect.width
                 height: 44
                 color: "white"
-                font.pointSize: 16
+                font.pointSize: 18
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
             }
@@ -342,12 +342,12 @@ Page {
                     Text {
                         text: model.cond_name
                         color: "#999999"
-                        font.pointSize: 16
+                        font.pointSize: 18
                     }
                     Text {
                         text: model.value
                         color: "white"
-                        font.pointSize: 16
+                        font.pointSize: 18
                     }
                 }
             }
@@ -381,12 +381,12 @@ Page {
                     Text {
                         text: model.cond_name
                         color: "#999999"
-                        font.pointSize: 16
+                        font.pointSize: 18
                     }
                     Text {
                         text: model.value
                         color: "white"
-                        font.pointSize: 16
+                        font.pointSize: 18
                     }
                 }
             }

@@ -30,6 +30,17 @@ Page {
     Item {
         id: mainitem
 
+        Label {
+            id: title
+            anchors.top: parent.top
+            anchors.left: parent.left
+            width: parent.width
+            text: Config.tr("New location")
+            font.pixelSize: 28
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+
         MySelectionDialog {
             id: source_dlg
             titleText: Config.tr("Select source")
@@ -70,9 +81,13 @@ Page {
         //parent: appPage.content
         anchors.fill: parent
         Column {
+            anchors.top: title.bottom
+            anchors.topMargin: 30
             width: parent.width
             spacing: 20
+
             Button {
+                anchors.horizontalCenter: parent.horizontalCenter
                 text: source_dlg.selectedIndex >= 0 ?
                         source_dlg.selectedText :
                         Config.tr("Select source")
@@ -81,6 +96,7 @@ Page {
                 }
             }
             Button {
+                anchors.horizontalCenter: parent.horizontalCenter
                 text: country_dlg.selectedIndex >= 0 ?
                         country_dlg.selectedText :
                         Config.tr("Select country")
@@ -89,6 +105,7 @@ Page {
                 }
             }
             Button {
+                anchors.horizontalCenter: parent.horizontalCenter
                 text: region_dlg.selectedIndex >= 0 ?
                         region_dlg.selectedText :
                         Config.tr("Select region")
@@ -97,6 +114,7 @@ Page {
                 }
             }
             Button {
+                anchors.horizontalCenter: parent.horizontalCenter
                 text: city_dlg.selectedIndex >= 0 ?
                         city_dlg.selectedText :
                         Config.tr("Select city")

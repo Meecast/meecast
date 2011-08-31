@@ -49,7 +49,7 @@ Page {
             anchors.left: parent.left
             width: parent.width
             text: Config.tr("Manage locations")
-            font.pointSize: 24
+            font.pixelSize: 28
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
         }
@@ -58,7 +58,7 @@ Page {
             id: stationslist
             anchors.fill: parent
             anchors.top: title.bottom
-            anchors.topMargin: margin
+            anchors.topMargin: 30
 
             model: Config.stations()
 

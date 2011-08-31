@@ -36,9 +36,9 @@ PageStackWindow {
         MenuLayout {
             MenuItem {
                 id: item1
-                text: Config.tr("Manage locations")
+                text: Config.tr("Settings")
                 onClicked: {
-                    rootWindow.openFile("StationsPage.qml");
+                    rootWindow.openFile("SettingsPage.qml");
 
                 }
             }

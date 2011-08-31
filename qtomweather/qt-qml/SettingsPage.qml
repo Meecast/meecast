@@ -1,11 +1,11 @@
-//import Qt 4.7
-import QtQuick 1.1
+import Qt 4.7
+//import QtQuick 1.1
 //import Qt.labs.components 1.0
 import com.nokia.meego 1.0
-import "/opt/com.meecast.omweather/lib/OmweatherPlugin" 0.1
 
 Page {
     id: settings
+    property int margin: 16
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"
@@ -22,37 +22,73 @@ Page {
         }*/
     }
     orientationLock: PageOrientation.LockPortrait
-    Config {id: config1}
-    Item {
-        id: mainitem
-
-        MySelectionDialog {
-            id: temperature_dlg
-            titleText: "Temperature Units"
-            //selectedIndex: 0
-            /*model: ListModel {
-                ListElement {name: "C"; key: "c"}
-                ListElement {name: "F"; key: "f"}
-            }*/
-            model: Config.temperature_list()
-            //model: config1.Stations()
-            //model: ["C", "F"]
-        }
-
-        //parent: appPage.content
-        anchors.fill: parent
-        Column {
-            width: parent.width
-
-            Button {
-                text: temperature_dlg.selectedIndex >= 0 ?
-                        "Temperature Units" : //"Temperature Units: " + temperature_dlg.model.get(temperature_dlg.selectedIndex).name :
-                        "Temperature Units"
-                onClicked: {
-                    temperature_dlg.open();
-                }
-            }
-
+    function openFile(file)
+    {
+        var component = Qt.createComponent(file);
+        if (component.status == Component.Ready){
+            pageStack.push(component);
+        }else {
+            console.log("error open file "+file);
         }
     }
+    ListModel {
+        id: settingsModel
+        ListElement {
+            page: "StationsPage.qml"
+            title: "Manage locations"
+        }
+        ListElement {
+            page: "UnitsPage.qml"
+            title: "Units"
+        }
+    }
+
+    Label {
+        id: title
+        anchors.top: parent.top
+        anchors.left: parent.left
+        width: parent.width
+        text: "Settings"
+        font.pointSize: 24
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+    }
+
+    ListView {
+        id: listview
+        model: settingsModel
+        anchors.fill: parent
+        anchors.top: title.bottom
+        anchors.topMargin: margin
+        anchors.leftMargin: margin
+        anchors.rightMargin: margin
+
+        delegate: Item {
+            height: 80
+            width: parent.width
+
+            Label {
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+                text: model.title
+                font.pointSize: 22
+            }
+
+            Image {
+                source: "image://theme/icon-m-common-drilldown-arrow-inverse"
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    settings.openFile(model.page);
+                }
+            }
+        }
+    }
+    ScrollDecorator {
+        flickableItem: listview
+    }
+
 }

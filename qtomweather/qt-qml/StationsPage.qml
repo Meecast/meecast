@@ -43,9 +43,23 @@ Page {
         id: mainitem
         anchors.fill: parent
 
+        Label {
+            id: title
+            anchors.top: parent.top
+            anchors.left: parent.left
+            width: parent.width
+            text: "Manage locations"
+            font.pointSize: 24
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+
         ListView {
             id: stationslist
             anchors.fill: parent
+            anchors.top: title.bottom
+            anchors.topMargin: margin
+
             model: Config.stations()
 
             delegate: Item {

@@ -2237,9 +2237,8 @@ msgid "hour ago"
 msgstr ""
 
 #: qtomweather/qt-qml/dataitem.cpp:367
-#, fuzzy
 msgid "hours ago"
-msgstr "2 часа"
+msgstr "часов назад"
 
 #: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
 #: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
@@ -2312,14 +2311,12 @@ msgid "mi/s"
 msgstr "ми/с"
 
 #: qtomweather/qt-qml/dataitem.cpp:358
-#, fuzzy
 msgid "minute ago"
-msgstr "минуту"
+msgstr "минуту назад"
 
 #: qtomweather/qt-qml/dataitem.cpp:361
-#, fuzzy
 msgid "minutes ago"
-msgstr "3 минуты"
+msgstr "минут назад"
 
 #: omweather/src/weather-popup.c:961 omweather/src/weather-popup.c:1094
 #: omweather/src/weather-simple-settings.c:2727
@@ -2361,9 +2358,8 @@ msgid "rising"
 msgstr "возрастает"
 
 #: qtomweather/qt-qml/dataitem.cpp:355
-#, fuzzy
 msgid "seconds ago"
-msgstr "секунд"
+msgstr "секунд назад"
 
 #: omweather/src/weather-popup.c:271
 msgid "station local time"

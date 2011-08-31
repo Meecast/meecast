@@ -137,14 +137,13 @@ DataModel::update(QString filename, bool isCurrent)
     }else {
         i = 3600*24;
         while  (dp != NULL && (temp_data = dp->data().GetDataForTime(current_day + 12*3600 + i))) {
-            i = i + 3600*24;
             forecast_data = new DataItem(temp_data);
             forecast_data->Text(forecast_data->Text().c_str());
-            forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(time(NULL)  + i));
-            forecast_data->SunSetTime(dp->data().GetSunSetForTime(time(NULL)  + i));
+            forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 12*3600 + i));
+            forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 12*3600  + i));
             forecast_data->LastUpdate(dp->LastUpdate());
             this->appendRow(forecast_data);
-
+            i = i + 3600*24;
         }
     }
     this->reset();

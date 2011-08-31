@@ -352,24 +352,24 @@ DataItem::lastupdate() {
     temp = temp.currentDateTime();
 
     if ((temp.toTime_t() - _lastupdate.toTime_t()) < 60)
-        return c.number(((temp.toTime_t() - _lastupdate.toTime_t())), 'i', 0) + " seconds ago";
+        return c.number(((temp.toTime_t() - _lastupdate.toTime_t())), 'i', 0) + " " + _("seconds ago");
     else
         if ((temp.toTime_t() - _lastupdate.toTime_t()) < 2*60)
-            return c.number(((temp.toTime_t() - _lastupdate.toTime_t())/60), 'i', 0) + " minute ago";
+            return c.number(((temp.toTime_t() - _lastupdate.toTime_t())/60), 'i', 0) + " " + _("minute ago");
         else
             if ((temp.toTime_t() - _lastupdate.toTime_t()) < 3600)
-                return c.number(((temp.toTime_t() - _lastupdate.toTime_t())/60), 'i', 0) + " minutes ago";
+                return c.number(((temp.toTime_t() - _lastupdate.toTime_t())/60), 'i', 0) + " " + _("minutes ago");
             else
                 if ((temp.toTime_t() - _lastupdate.toTime_t()) < 2*3600)
-                    return c.number(((temp.toTime_t() - _lastupdate.toTime_t())/3600), 'i', 0) + " hour ago";
+                    return c.number(((temp.toTime_t() - _lastupdate.toTime_t())/3600), 'i', 0) + " " + _("hour ago");
                 else
                     if ((temp.toTime_t() - _lastupdate.toTime_t()) < 24*3600)
-                        return c.number(((temp.toTime_t() - _lastupdate.toTime_t())/3600), 'i', 0) + " hours ago";
+                        return c.number(((temp.toTime_t() - _lastupdate.toTime_t())/3600), 'i', 0) + " " + _("hours ago");
                     else
                         if ((temp.toTime_t() - _lastupdate.toTime_t()) < 2*24*3600)
-                            return c.number(((int)((temp.toTime_t() - _lastupdate.toTime_t())/(24*3600))), 'i', 0) + " day ago";
+                            return c.number(((int)((temp.toTime_t() - _lastupdate.toTime_t())/(24*3600))), 'i', 0) + " " + _("day ago");
                         else
-                            return c.number((int)((temp.toTime_t() - _lastupdate.toTime_t())/(3600*24)), 'i', 0) + " days ago";
+                            return c.number((int)((temp.toTime_t() - _lastupdate.toTime_t())/(3600*24)), 'i', 0) + " " + _("days ago");
 }
 
 QString

@@ -117,7 +117,7 @@ Controller::load_data()
   /* set current day */ 
   current_day = time(NULL);
   temp_data = _dp->data().GetDataForTime(time(NULL));
-  if (temp_data){
+  if (temp_data)
       current_day = current_day + 3600*_dp->timezone();
   tm = localtime(&current_day);
   year = 1900 + tm->tm_year;

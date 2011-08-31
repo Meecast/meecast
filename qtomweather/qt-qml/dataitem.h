@@ -47,6 +47,7 @@ class DataItem : public QObject, public Core::Data
         NameRole = Qt::UserRole+1,
         Temp_hiRole,
         Temp_loRole,
+        Temp_Role,
         IconRole,
         Wind_directionRole,
         Wind_speedRole,
@@ -98,6 +99,7 @@ public:
     QHash<int, QByteArray> roleNames() const;
     QString temperature_high();
     QString temperature_low();
+    QString temperature();
     QString wind_direction();
     QString wind_speed();
     inline QString wind_gust();

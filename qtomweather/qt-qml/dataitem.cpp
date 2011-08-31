@@ -71,6 +71,7 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[NameRole] = "name";
     names[Temp_hiRole] = "temp_high";
     names[Temp_loRole] = "temp_low";
+    names[Temp_Role] = "temp";
     names[IconRole] = "pict";
     names[Wind_directionRole] = "wind_direction";
     names[Wind_speedRole] = "wind_speed";
@@ -114,6 +115,8 @@ QVariant DataItem::data(int role)
         return temperature_high();
     case Temp_loRole:
         return temperature_low();
+    case Temp_Role:
+        return temperature();
     case IconRole:
         return icon();
     case Wind_directionRole:
@@ -177,6 +180,16 @@ DataItem::temperature_high() {
         return c;
     }
     return c.number((DataItem::Data::temperature_hi().value()),'f',0);
+}
+
+QString
+DataItem::temperature() {
+    QString c;
+    if (DataItem::Data::temperature().value() == INT_MAX){
+        c = "N/A";
+        return c;
+    }
+    return c.number((DataItem::Data::temperature().value()),'f',0);
 }
 
 QString

@@ -348,7 +348,20 @@ Page {
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter
                             Component.onCompleted: {
-                                current_rect.color = getColor(temp_high);
+			        if (model.temp == "N/A"){
+				   text = ""
+				   if (model.temp_low != "N/A")
+				       text = model.temp_low + '°'
+				   if ((model.temp_low != "N/A") && (model.temp_high != "N/A"))
+				       text =  text + " / "
+				   if (model.temp_high != "N/A")
+				       text = text + model.temp_high + '°'
+                                   current_rect.color = getColor(temp_high);
+				}
+				else{
+				   text = model.temp + '°' 
+                                   current_rect.color = getColor(temp);
+				}
                             }
                         }
                         Text {

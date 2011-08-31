@@ -88,7 +88,7 @@ DataModel::appendRow(DataItem *item)
     //return (_list.size() - 1);
 }
 void
-DataModel::update(QString filename, bool isCurrent)
+DataModel::update(QString filename, int  period)
 {
     this->clear();
     DataItem *forecast_data = NULL;
@@ -123,28 +123,43 @@ DataModel::update(QString filename, bool isCurrent)
     tm->tm_isdst = 1;
     current_day = mktime(tm);
     /* fill current date */
-    if (isCurrent){
-        i = 0;
-        if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
-            forecast_data = new DataItem(temp_data);
-            forecast_data->Text(forecast_data->Text().c_str());
-            forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(time(NULL)  + i));
-            forecast_data->SunSetTime(dp->data().GetSunSetForTime(time(NULL)  + i));
-            forecast_data->LastUpdate(dp->LastUpdate());
-            this->appendRow(forecast_data);
+    switch (period) {
+        case current_period:
+            i = 0;
+            if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
+                forecast_data = new DataItem(temp_data);
+                forecast_data->Text(forecast_data->Text().c_str());
+                forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(time(NULL)  + i));
+                forecast_data->SunSetTime(dp->data().GetSunSetForTime(time(NULL)  + i));
+                forecast_data->LastUpdate(dp->LastUpdate());
+                this->appendRow(forecast_data);
+            }
+            break;
+        case day_period:
+            i = 3600*24;
+            while  (dp != NULL && (temp_data = dp->data().GetDataForTime(current_day + 12*3600 + i))) {
+                forecast_data = new DataItem(temp_data);
+                forecast_data->Text(forecast_data->Text().c_str());
+                forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 12*3600 + i));
+                forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 12*3600  + i));
+                forecast_data->LastUpdate(dp->LastUpdate());
+                this->appendRow(forecast_data);
+                i = i + 3600*24;
+            }
+            break;
+        case night_period:
+            i = 3600*24;
+            while  (dp != NULL && (temp_data = dp->data().GetDataForTime(current_day + 22*3600 + i))) {
+                forecast_data = new DataItem(temp_data);
+                forecast_data->Text(forecast_data->Text().c_str());
+                forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 22*3600 + i));
+                forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 22*3600  + i));
+                forecast_data->LastUpdate(dp->LastUpdate());
+                this->appendRow(forecast_data);
+                i = i + 3600*24;
+            }
+            break;
 
-        }
-    }else {
-        i = 3600*24;
-        while  (dp != NULL && (temp_data = dp->data().GetDataForTime(current_day + 12*3600 + i))) {
-            forecast_data = new DataItem(temp_data);
-            forecast_data->Text(forecast_data->Text().c_str());
-            forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 12*3600 + i));
-            forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 12*3600  + i));
-            forecast_data->LastUpdate(dp->LastUpdate());
-            this->appendRow(forecast_data);
-            i = i + 3600*24;
-        }
     }
     this->reset();
 }

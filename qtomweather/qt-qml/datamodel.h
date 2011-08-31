@@ -41,6 +41,12 @@ class DataModel : public QAbstractListModel
 {
     Q_OBJECT
 
+    enum Periods{
+        current_period,
+        day_period,
+        night_period
+    };
+
 public:
     explicit DataModel(DataItem* prototype, QObject* parent = 0);
     ~DataModel();
@@ -49,7 +55,7 @@ public:
     void appendRow(DataItem* item);
     Q_INVOKABLE DataItem* find(const int row);
     void clear();
-    Q_INVOKABLE void update(QString filename, bool isCurrent);
+    Q_INVOKABLE void update(QString filename, int period);
     Q_INVOKABLE QVariant getdata(const int index, QString role);
 
 private:

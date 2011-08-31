@@ -103,12 +103,12 @@ Controller::load_data()
   int year, current_month;
   DataItem *forecast_data = NULL;
   Core::Data *temp_data = NULL;
+  Core::Station *st = NULL;
   int i = 0;
   
   if (_dp)
       delete _dp;
   _dp = NULL;
-  std::cout<<"Data"<<std::endl;
   if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0 &&
         _config->stationsList().at(_config->current_station_id()))
         _dp = current_data(_config->stationsList().at(_config->current_station_id())->fileName());
@@ -117,6 +117,13 @@ Controller::load_data()
   _night_model = new DataModel(new DataItem, qApp);
   /* set current day */ 
   current_day = time(NULL);
+  std::cerr<<"Timezone1 "<< current_day<<std::endl;   
+  temp_data = _dp->data().GetDataForTime(time(NULL));
+  if (temp_data){
+      st = _config->stationsList().at(_config->current_station_id());
+      current_day = current_day + st->timezone();
+   std::cerr<<"Timezone2 "<< current_day<<std::endl;   
+   }
   tm = localtime(&current_day);
   year = 1900 + tm->tm_year;
   current_month = tm->tm_mon;

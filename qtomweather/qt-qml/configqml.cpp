@@ -90,7 +90,12 @@ QStringList ConfigQml::temperature_list()
     l << "C" << "F";
     return l;
 }
-
+void ConfigQml::temperature_unit(QString c)
+{
+    ConfigQml::Config::TemperatureUnit(c.toStdString());
+    saveConfig();
+    refreshconfig();
+}
 QString
 ConfigQml::windspeedunit(){
     QString c;

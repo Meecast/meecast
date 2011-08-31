@@ -76,9 +76,10 @@ namespace Core {
         Data* forecast_data;
 
         QDomElement e = root.firstChildElement("timezone");
-        if (!e.isNull())
+        if (!e.isNull()){
             _timezone = e.text().toInt();
-
+            std::cerr<<"TIMEZONE in entering   "<<e.text().toStdString()<<std::endl;
+        }
         QDomNodeList nodelist = root.elementsByTagName("period");
         for (int i=0; i<nodelist.count(); i++){
             forecast_data = new Data();
@@ -130,6 +131,11 @@ namespace Core {
         }
 #endif
     }
+    int
+    DataParser::timezone(){
+        return _timezone;
+    }
+
 ////////////////////////////////////////////////////////////////////////////////
     time_t
     DataParser::LastUpdate(){

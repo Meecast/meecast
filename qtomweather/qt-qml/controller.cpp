@@ -103,7 +103,6 @@ Controller::load_data()
   int year, current_month;
   DataItem *forecast_data = NULL;
   Core::Data *temp_data = NULL;
-  Core::Station *st = NULL;
   int i = 0;
   
   if (_dp)
@@ -117,13 +116,9 @@ Controller::load_data()
   _night_model = new DataModel(new DataItem, qApp);
   /* set current day */ 
   current_day = time(NULL);
-  std::cerr<<"Timezone1 "<< current_day<<std::endl;   
   temp_data = _dp->data().GetDataForTime(time(NULL));
   if (temp_data){
-      st = _config->stationsList().at(_config->current_station_id());
-      current_day = current_day + st->timezone();
-   std::cerr<<"Timezone2 "<< current_day<<std::endl;   
-   }
+      current_day = current_day + 3600*_dp->timezone();
   tm = localtime(&current_day);
   year = 1900 + tm->tm_year;
   current_month = tm->tm_mon;

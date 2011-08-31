@@ -76,7 +76,7 @@ namespace Core{
             void forecastURL(const std::string& region);
             std::string& forecastURL() const;
             void timezone(const int timezone = 0);
-            int timezone() const;
+            int station_timezone() const;
             bool updateData(bool force);
             void updateSource(const Source* source);
             void fileName(const std::string& fileName);

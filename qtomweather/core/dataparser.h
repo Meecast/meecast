@@ -49,6 +49,7 @@ namespace Core {
             DataParser();
             time_t LastUpdate();
             virtual ~DataParser();
+            int timezone();
             DataList& data();
     };
 } // namespace Core

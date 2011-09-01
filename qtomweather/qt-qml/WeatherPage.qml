@@ -1,6 +1,7 @@
 //import QtQuick 1.1
 import Qt 4.7
 import com.nokia.meego 1.0
+import Qt.labs.gestures 1.0
 
 Page {
     id: main
@@ -112,6 +113,16 @@ Page {
         contentHeight: station_rect.height + current_rect.height + list.height
         flickableDirection: Flickable.VerticalFlick
         //clip: true
+
+        GestureArea {
+            anchors.fill: parent
+            onPan: console.log("pan");
+            onPinch: console.log("pinch");
+            onSwipe: console.log("swipe");
+            onTapAndHold: console.log("tap and hold");
+            onTap: console.log("tap");
+
+        }
         Item {
             id: startview
             visible: Config.stationname == "Unknown" ? true : false

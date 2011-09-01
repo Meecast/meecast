@@ -134,6 +134,7 @@ Controller::load_data()
       forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 12 * 3600  + i));
       forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 12 * 3600  + i));
       forecast_data->LastUpdate(_dp->LastUpdate());
+      forecast_data->temperatureunit = _config->temperatureunit();
       //std::cout << "desc = " <<_current->description() << std::endl;
       //qDebug() << "desc = " <<forecast_data->description();
       _current->appendRow(forecast_data);
@@ -148,6 +149,7 @@ Controller::load_data()
       forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 12 * 3600  + i));
       forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 12 * 3600  + i));
       forecast_data->LastUpdate(_dp->LastUpdate());
+      forecast_data->temperatureunit = _config->temperatureunit();
       _model->appendRow(forecast_data);
       i = i + 3600*24;
   }
@@ -160,6 +162,7 @@ Controller::load_data()
       forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 22 * 3600  + i));
       forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 22 * 3600  + i));
       forecast_data->LastUpdate(_dp->LastUpdate());
+      forecast_data->temperatureunit = _config->temperatureunit();
       _night_model->appendRow(forecast_data);
       i = i + 3600*24;
   }

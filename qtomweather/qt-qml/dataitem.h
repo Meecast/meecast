@@ -123,6 +123,7 @@ public:
 
     Q_INVOKABLE void update(QString filename);
 
+    QString temperatureunit;
 };
 
 #endif // DATAITEM_H

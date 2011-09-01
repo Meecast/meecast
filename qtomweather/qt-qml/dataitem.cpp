@@ -36,6 +36,7 @@ DataItem::DataItem()
 
 DataItem::DataItem(const Core::Data* data):QObject(),Core::Data(data){
     _lastupdate = QDateTime();
+    temperatureunit = "C";
 }
 void
 DataItem::update(QString filename)
@@ -175,7 +176,7 @@ QVariant DataItem::data(int role)
 QString
 DataItem::temperature_high() {
     QString c;
-    //DataItem::Data::temperature_hi().units("F");
+    DataItem::Data::temperature_hi().units(temperatureunit.toStdString());
     if (DataItem::Data::temperature_hi().value() == INT_MAX){
         c = "N/A";
         return c;

@@ -34,6 +34,21 @@ DataModel::DataModel(DataItem* prototype, QObject *parent) :
     QAbstractListModel(parent), _prototype(prototype)
 {
     setRoleNames(_prototype->roleNames());
+    try{
+        _config = new Core::Config(Core::AbstractConfig::getConfigPath()+
+                               "config.xml",
+                               Core::AbstractConfig::prefix+
+                               Core::AbstractConfig::schemaPath+
+                               "config.xsd");
+    }
+    catch(const std::string &str){
+        std::cerr<<"Error in Config class: "<< str <<std::endl;
+        _config = new Core::Config();
+    }
+    catch(const char *str){
+        std::cerr<<"Error in Config class: "<< str <<std::endl;
+        _config = new Core::Config();
+    }
 }
 
 int
@@ -100,6 +115,23 @@ DataModel::update(QString filename, int  period)
     struct tm   *tm = NULL;
     int year, current_month;
 
+    if (_config) delete _config;
+    try{
+        _config = new Core::Config(Core::AbstractConfig::getConfigPath()+
+                               "config.xml",
+                               Core::AbstractConfig::prefix+
+                               Core::AbstractConfig::schemaPath+
+                               "config.xsd");
+    }
+    catch(const std::string &str){
+        std::cerr<<"Error in Config class: "<< str <<std::endl;
+        _config = new Core::Config();
+    }
+    catch(const char *str){
+        std::cerr<<"Error in Config class: "<< str <<std::endl;
+        _config = new Core::Config();
+    }
+
     if (!filename.isEmpty()){
         try{
             dp = new Core::DataParser(filename.toStdString(),
@@ -137,6 +169,7 @@ DataModel::update(QString filename, int  period)
                 forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(time(NULL)  + i));
                 forecast_data->SunSetTime(dp->data().GetSunSetForTime(time(NULL)  + i));
                 forecast_data->LastUpdate(dp->LastUpdate());
+                forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
                 this->appendRow(forecast_data);
             }
             break;
@@ -148,6 +181,7 @@ DataModel::update(QString filename, int  period)
                 forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 12*3600 + i));
                 forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 12*3600  + i));
                 forecast_data->LastUpdate(dp->LastUpdate());
+                forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
                 this->appendRow(forecast_data);
                 i = i + 3600*24;
             }
@@ -160,6 +194,7 @@ DataModel::update(QString filename, int  period)
                 forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 22*3600 + i));
                 forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 22*3600  + i));
                 forecast_data->LastUpdate(dp->LastUpdate());
+                forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
                 this->appendRow(forecast_data);
                 i = i + 3600*24;
             }

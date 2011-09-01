@@ -61,6 +61,7 @@ public:
 private:
     DataItem* _prototype;
     QList<DataItem*>_list;
+    Core::Config *_config;
 };
 
 #endif // DATAMODEL_H

@@ -89,6 +89,8 @@ public:
     Q_INVOKABLE void closeapplication();
     Q_INVOKABLE QStringList temperature_list();
     Q_INVOKABLE void temperature_unit(QString c);
+    Q_INVOKABLE QStringList windspeed_list();
+    Q_INVOKABLE void windspeed_unit(QString c);
     Q_INVOKABLE QString tr(QString str);
     void refreshconfig();
     virtual ~ConfigQml(){};

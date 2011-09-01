@@ -102,7 +102,18 @@ ConfigQml::windspeedunit(){
     c = QString(QString::fromUtf8(_(ConfigQml::Config::WindSpeedUnit().c_str())));
     return c;
 }
-
+QStringList ConfigQml::windspeed_list()
+{
+    QStringList l;
+    l << "m/s" << "km/h" << "mi/h";
+    return l;
+}
+void ConfigQml::windspeed_unit(QString c)
+{
+    ConfigQml::Config::WindSpeedUnit(c.toStdString());
+    saveConfig();
+    refreshconfig();
+}
 QString
 ConfigQml::version(){
     QString c;

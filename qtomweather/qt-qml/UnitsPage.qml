@@ -35,6 +35,16 @@ Page {
         }
 
     }
+    MySelectionDialog {
+        id: wind_dlg
+        model: Config.windspeed_list()
+        titleText: Config.tr("Wind speed units")
+        selectedIndex: -1
+        onAccepted: {
+            Config.windspeed_unit(selectedText);
+        }
+
+    }
 
     Label {
         id: title
@@ -60,6 +70,16 @@ Page {
             }
             Component.onCompleted: {
                 temperature_dlg.selectedIndex = units.getIndex(temperature_dlg.model, Config.temperatureunit)
+            }
+        }
+        Button {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: Config.tr("Wind speed")+": "+Config.windspeedunit
+            onClicked: {
+                wind_dlg.open();
+            }
+            Component.onCompleted: {
+                wind_dlg.selectedIndex = units.getIndex(wind_dlg.model, Config.windspeedunit)
             }
         }
     }

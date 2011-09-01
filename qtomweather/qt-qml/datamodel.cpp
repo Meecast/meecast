@@ -170,6 +170,7 @@ DataModel::update(QString filename, int  period)
                 forecast_data->SunSetTime(dp->data().GetSunSetForTime(time(NULL)  + i));
                 forecast_data->LastUpdate(dp->LastUpdate());
                 forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
+                forecast_data->windunit = _config->WindSpeedUnit().c_str();
                 this->appendRow(forecast_data);
             }
             break;
@@ -182,6 +183,7 @@ DataModel::update(QString filename, int  period)
                 forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 12*3600  + i));
                 forecast_data->LastUpdate(dp->LastUpdate());
                 forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
+                forecast_data->windunit = _config->WindSpeedUnit().c_str();
                 this->appendRow(forecast_data);
                 i = i + 3600*24;
             }
@@ -195,6 +197,7 @@ DataModel::update(QString filename, int  period)
                 forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 22*3600  + i));
                 forecast_data->LastUpdate(dp->LastUpdate());
                 forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
+                forecast_data->windunit = _config->WindSpeedUnit().c_str();
                 this->appendRow(forecast_data);
                 i = i + 3600*24;
             }

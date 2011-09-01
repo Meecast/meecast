@@ -37,6 +37,7 @@ DataItem::DataItem()
 DataItem::DataItem(const Core::Data* data):QObject(),Core::Data(data){
     _lastupdate = QDateTime();
     temperatureunit = "C";
+    windunit = "m/c";
 }
 void
 DataItem::update(QString filename)
@@ -187,6 +188,7 @@ DataItem::temperature_high() {
 QString
 DataItem::temperature() {
     QString c;
+    DataItem::Data::temperature_hi().units(temperatureunit.toStdString());
     if (DataItem::Data::temperature().value() == INT_MAX){
         c = "N/A";
         return c;
@@ -197,6 +199,7 @@ DataItem::temperature() {
 QString
 DataItem::temperature_low() {
     QString c;
+    DataItem::Data::temperature_hi().units(temperatureunit.toStdString());
     if (DataItem::Data::temperature_low().value() == INT_MAX){
         c = "N/A";
         return c;
@@ -207,6 +210,7 @@ DataItem::temperature_low() {
 QString
 DataItem::flike() {
     QString c;
+    DataItem::Data::temperature_hi().units(temperatureunit.toStdString());
     if (DataItem::Data::Flike().value() == INT_MAX){
         c = "N/A";
         return c;
@@ -239,6 +243,7 @@ DataItem::wind_direction() {
 QString
 DataItem::wind_speed() {
     QString c;
+    DataItem::Data::WindSpeed().units(windunit.toStdString());
     if (DataItem::Data::WindSpeed().value() == INT_MAX){
         c = "N/A";
         return c;

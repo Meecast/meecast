@@ -2,7 +2,7 @@
 Name=MeeCast
 GenericName=MeeCast
 Exec=/usr/bin/single-instance /opt/com.meecast.omweather/bin/omweather-qml
-Icon=omweather
+Icon=/opt/com.meecast.omweather/share/icons/meecast.svg
 Terminal=false
 Type=Application
 Categories=Utility;

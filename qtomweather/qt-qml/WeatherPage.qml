@@ -344,7 +344,7 @@ Page {
                             width: 160
                             height: 84
                             color: "white"
-                            text: model.temp_high + '°'
+                            text: model.temp_high + '°' + Config.temperatureunit
                             font.pointSize: 26
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter
@@ -352,16 +352,16 @@ Page {
 			        if (model.temp == "N/A"){
 				   text = ""
 				   if (model.temp_high != "N/A")
-				       text = model.temp_high + '°'
+                                       text = model.temp_high + '°' + Config.temperatureunit
 				   if ((model.temp_low != "N/A") && (model.temp_high != "N/A"))
 				       text =  text + " / "
 				   if (model.temp_low != "N/A")
-				       text = text + model.temp_low + '°'
-                                   current_rect.color = getColor(temp_high);
+                                       text = text + model.temp_low + '°' + Config.temperatureunit
+                                   current_rect.color = getColor(model.temp_high);
 				}
 				else{
-				   text = model.temp + '°' 
-                                   current_rect.color = getColor(temp);
+                                   text = model.temp + '°' + Config.temperatureunit
+                                   current_rect.color = getColor(model.temp);
 				}
                             }
                         }

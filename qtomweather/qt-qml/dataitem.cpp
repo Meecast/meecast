@@ -175,6 +175,7 @@ QVariant DataItem::data(int role)
 QString
 DataItem::temperature_high() {
     QString c;
+    //DataItem::Data::temperature_hi().units("F");
     if (DataItem::Data::temperature_hi().value() == INT_MAX){
         c = "N/A";
         return c;

@@ -20,9 +20,7 @@ Page {
     function getIndex(model, value)
     {
         var i=0;
-        console.log(model.length+" "+model[0]+" "+value);
         while (i<model.length && model[i]!=value) i++;
-        console.log(i);
         if (i == model.length) return -1;
         else return i;
     }

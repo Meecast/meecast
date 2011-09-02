@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-31 23:00+0300\n"
+"POT-Creation-Date: 2011-09-03 01:27+0300\n"
 "PO-Revision-Date: 2011-02-11 20:54+0100\n"
 "Last-Translator: Claudius Henrichs <claudius.h@gmx.de>\n"
 "Language-Team: Claudius Henrichs <claudius.h@gmx.de>\n"
@@ -908,7 +908,7 @@ msgstr "Hoch"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:722
-#: qtomweather/qt-qml/dataitem.cpp:161
+#: qtomweather/qt-qml/dataitem.cpp:163
 msgid "Humidity:"
 msgstr "Luftfeuchtigkeit: "
 
@@ -1296,7 +1296,7 @@ msgstr "Keine Wetterdaten für diese Station."
 #: omweather/src/weather-simple-settings.c:2886
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:592
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:847
-#: qtomweather/qt-qml/dataitem.cpp:169
+#: qtomweather/qt-qml/dataitem.cpp:171
 msgid "Now"
 msgstr "Jetzt"
 
@@ -1502,7 +1502,7 @@ msgstr "Luftdruck:"
 
 #: omweather/src/weather-popup.c:1308
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:697
-#: qtomweather/qt-qml/dataitem.cpp:167
+#: qtomweather/qt-qml/dataitem.cpp:169
 msgid "Pressure:"
 msgstr "Luftdruck: "
 
@@ -1834,7 +1834,7 @@ msgstr "Geschwindigkeit"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:772
-#: qtomweather/qt-qml/dataitem.cpp:165
+#: qtomweather/qt-qml/dataitem.cpp:167
 msgid "Speed:"
 msgstr "Geschwindigkeit:"
 
@@ -1925,7 +1925,7 @@ msgid "Temperature units:"
 msgstr "Temperatur:"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:660
-#: qtomweather/qt-qml/dataitem.cpp:159
+#: qtomweather/qt-qml/dataitem.cpp:161
 msgid "Temperature:"
 msgstr "Temperatur:"
 
@@ -2153,7 +2153,7 @@ msgstr "Windgeschwindigkeit:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:747
-#: qtomweather/qt-qml/dataitem.cpp:163
+#: qtomweather/qt-qml/dataitem.cpp:165
 msgid "Wind:"
 msgstr "Wind: "
 
@@ -2216,11 +2216,11 @@ msgstr "Ortszeit des aktuellen Standorts"
 msgid "d:"
 msgstr "T:"
 
-#: qtomweather/qt-qml/dataitem.cpp:370
+#: qtomweather/qt-qml/dataitem.cpp:377
 msgid "day ago"
 msgstr ""
 
-#: qtomweather/qt-qml/dataitem.cpp:372
+#: qtomweather/qt-qml/dataitem.cpp:379
 msgid "days ago"
 msgstr ""
 
@@ -2264,11 +2264,11 @@ msgstr "fallend"
 msgid "feels like"
 msgstr "gefühlt"
 
-#: qtomweather/qt-qml/dataitem.cpp:364
+#: qtomweather/qt-qml/dataitem.cpp:371
 msgid "hour ago"
 msgstr ""
 
-#: qtomweather/qt-qml/dataitem.cpp:367
+#: qtomweather/qt-qml/dataitem.cpp:374
 #, fuzzy
 msgid "hours ago"
 msgstr "2 Stunden"
@@ -2343,12 +2343,12 @@ msgstr "mi/h"
 msgid "mi/s"
 msgstr "mi/s"
 
-#: qtomweather/qt-qml/dataitem.cpp:358
+#: qtomweather/qt-qml/dataitem.cpp:365
 #, fuzzy
 msgid "minute ago"
 msgstr "1 Minute"
 
-#: qtomweather/qt-qml/dataitem.cpp:361
+#: qtomweather/qt-qml/dataitem.cpp:368
 #, fuzzy
 msgid "minutes ago"
 msgstr "3 Minuten"
@@ -2392,7 +2392,7 @@ msgstr "nmi"
 msgid "rising"
 msgstr "steigend"
 
-#: qtomweather/qt-qml/dataitem.cpp:355
+#: qtomweather/qt-qml/dataitem.cpp:362
 #, fuzzy
 msgid "seconds ago"
 msgstr "60 Sekunden"

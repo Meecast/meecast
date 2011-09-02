@@ -194,6 +194,23 @@ Page {
                 height: 72
                 color: "black"
                 visible: isUpdate ? false : true
+
+                Text {
+                    id: stationname
+                    anchors.top: parent.top
+                    anchors.left: left_arrow.right
+                    //anchors.right: right_arrow.left
+                    height: parent.height
+                    width: parent.width - right_arrow.width - left_arrow.width
+                    text: Config.stationname
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    color: "white"
+                    font.pointSize: 20
+                    //wrapMode: Text.Wrap
+                    elide: Text.ElideRight
+                }
+
                 Rectangle {
 		    id: left_arrow
                     width: 72
@@ -253,20 +270,7 @@ Page {
                         }
                     }
                 }
-                Text {
-                    id: stationname
-                    anchors.top: parent.top
-                    anchors.left: left_arrow.right
-                    //anchors.right: right_arrow.left
-                    height: parent.height
-                    width: parent.width - right_arrow.width - left_arrow.width
-                    text: Config.stationname
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
-                    color: "white"
-                    font.pointSize: 20
-                    wrapMode: Text.Wrap
-                }
+
  
                 /*
                 Loader {

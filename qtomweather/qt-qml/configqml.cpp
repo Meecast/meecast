@@ -52,7 +52,42 @@ ConfigQml::iconset(){
     c = ConfigQml::Config::iconSet().c_str();
     return c;
 }
-
+QStringList
+ConfigQml::icon_list()
+{
+    QStringList icon_list;
+    Dirent *dp = 0;
+    DIR *dir_fd = opendir((Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath).c_str());
+    if(dir_fd){
+        while((dp = readdir(dir_fd))){
+            std::string name = dp->d_name;
+            if(name == "." || name == "..")
+                continue;
+            if(dp->d_type == DT_DIR && name[0] != '.'){
+                try{
+                    icon_list << QString::fromStdString(name);
+                }
+                catch(std::string& err){
+                    std::cerr << "error " << err << std::endl;
+                    continue;
+                }
+                catch(const char *err){
+                    std::cerr << "error " << err << std::endl;
+                    continue;
+                }
+            }
+        }
+        closedir(dir_fd);
+    }
+    return icon_list;
+}
+void
+ConfigQml::set_iconset(QString c)
+{
+    ConfigQml::Config::iconSet(c.toStdString());
+    saveConfig();
+    refreshconfig();
+}
 QString
 ConfigQml::iconspath(){
     QString c;

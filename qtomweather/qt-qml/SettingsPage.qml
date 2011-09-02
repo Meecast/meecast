@@ -40,11 +40,11 @@ Page {
         ListElement {
             page: "UnitsPage.qml"
             title: "Units"
-        }
+        }/*
         ListElement {
             page: "UpdatePage.qml"
             title: "Update"
-        }
+        }*/
         ListElement {
             page: "VisualsPage.qml"
             title: "Visuals"

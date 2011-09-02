@@ -87,8 +87,8 @@ Page {
     {
         main.updatemodels();
         stationname.text = Config.stationname;
-        prevstationimage.visible = Config.prevstationname == "" ? false : true;
-        nextstationimage.visible = Config.nextstationname == "" ? false : true;
+        left_arrow.visible = Config.prevstationname == "" ? false : true;
+        right_arrow.visible = Config.nextstationname == "" ? false : true;
         sourceicon.visible = false;
         sourceicon.source = Config.imagespath + "/" + Config.source + ".png";
         sourceicon.visible = true;
@@ -355,7 +355,7 @@ Page {
                             width: 160
                             height: 84
                             color: "white"
-                            text: model.temp_high + '°' + Config.temperatureunit
+                            text: model.temp_high + '°'
                             font.pointSize: 26
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter
@@ -363,11 +363,11 @@ Page {
 			        if (model.temp == "N/A"){
 				   text = ""
 				   if (model.temp_high != "N/A")
-                                       text = model.temp_high + '°' + Config.temperatureunit
+                                       text = model.temp_high + '°'
 				   if ((model.temp_low != "N/A") && (model.temp_high != "N/A"))
 				       text =  text + " / "
 				   if (model.temp_low != "N/A")
-                                       text = text + model.temp_low + '°' + Config.temperatureunit
+                                       text = text + model.temp_low + '°'
                                    current_rect.color = getColor(model.temp_high);
 				}
 				else{

@@ -154,7 +154,8 @@ DataModel::update(QString filename, int  period)
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     tm->tm_isdst = 1;
 
-    temp_data = dp->data().GetDataForTime(time(NULL));
+    if (dp)
+        temp_data = dp->data().GetDataForTime(time(NULL));
     if (temp_data)
         current_day = current_day + 3600*dp->timezone();
 

@@ -52,7 +52,7 @@ create_and_fill_config(){
     }
     //std::cerr<<"End of creating Config class: " <<std::endl;
     config->saveConfig();
-    std::cerr<<"End of creating Config class: " <<std::endl;
+    std::cerr<<"End of creating Config class" <<std::endl;
 
     return config;
 }
@@ -114,9 +114,11 @@ Controller::load_data()
   _model = new DataModel(new DataItem, qApp);
   _current = new DataModel(new DataItem, qApp);
   _night_model = new DataModel(new DataItem, qApp);
+
   /* set current day */ 
   current_day = time(NULL);
-  temp_data = _dp->data().GetDataForTime(time(NULL));
+  if (_dp)
+      temp_data = _dp->data().GetDataForTime(time(NULL));
   if (temp_data)
       current_day = current_day + 3600*_dp->timezone();
   tm = localtime(&current_day);
@@ -127,6 +129,7 @@ Controller::load_data()
   current_day = mktime(tm);
   /* fill current date */
 //  if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(/*time(NULL)*/current_day))) {
+
   if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))) {
       std::cout << "make current" << std::endl;
       forecast_data = new DataItem(temp_data);
@@ -169,7 +172,7 @@ Controller::load_data()
       _night_model->appendRow(forecast_data);
       i = i + 3600*24;
   }
-
+  std::cerr << "make models" << std::endl;
   _qview->rootContext()->setContextProperty("Current", _current);
   _qview->rootContext()->setContextProperty("Forecast_model", _model);
   _qview->rootContext()->setContextProperty("Forecast_night_model", _night_model);

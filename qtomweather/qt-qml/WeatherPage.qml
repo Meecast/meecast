@@ -113,7 +113,7 @@ Page {
         contentHeight: station_rect.height + current_rect.height + list.height
         flickableDirection: Flickable.VerticalFlick
         //clip: true
-
+        /*
         GestureArea {
             anchors.fill: parent
             onPan: console.log("pan");
@@ -122,7 +122,7 @@ Page {
             onTapAndHold: console.log("tap and hold");
             onTap: console.log("tap");
 
-        }
+        }*/
         Item {
             id: startview
             visible: Config.stationname == "Unknown" ? true : false
@@ -371,7 +371,7 @@ Page {
                                    current_rect.color = getColor(model.temp_high);
 				}
 				else{
-                                   text = model.temp + '°' + Config.temperatureunit
+                                   text = model.temp + '°'
                                    current_rect.color = getColor(model.temp);
 				}
                             }

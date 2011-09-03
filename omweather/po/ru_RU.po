@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-03 19:55+0300\n"
+"POT-Creation-Date: 2011-09-03 20:09+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -246,9 +246,8 @@ msgid "AM Snow Showers"
 msgstr "До полудня мокрый снег"
 
 #: omweather/src/hash.data:32
-#, fuzzy
 msgid "AM Snow Showers / Wind"
-msgstr "После полудня мокрый снег / Ветер"
+msgstr "До полудня мокрый снег / Ветер"
 
 #: omweather/src/weather-home.c:1286 omweather/src/weather-help.c:100
 #: omweather/src/weather-simple-popup.c:1163
@@ -2128,13 +2127,13 @@ msgstr "Ветер"
 msgid "Wind direction:"
 msgstr "Направление ветра:"
 
+#: omweather/src/hash.data:5
+msgid "Wind speed"
+msgstr "Скорость ветра"
+
 #: omweather/src/weather-settings.c:3974
 msgid "Wind speed units:"
 msgstr "Единицы скорости ветра:"
-
-#: omweather/src/hash.data:5
-msgid "Wind speed:"
-msgstr "Скорость ветра:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:747

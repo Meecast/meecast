@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en_US\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-03 19:55+0300\n"
+"POT-Creation-Date: 2011-09-03 20:09+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -2075,12 +2075,12 @@ msgstr ""
 msgid "Wind direction:"
 msgstr ""
 
-#: omweather/src/weather-settings.c:3974
-msgid "Wind speed units:"
+#: omweather/src/hash.data:5
+msgid "Wind speed"
 msgstr ""
 
-#: omweather/src/hash.data:5
-msgid "Wind speed:"
+#: omweather/src/weather-settings.c:3974
+msgid "Wind speed units:"
 msgstr ""
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468

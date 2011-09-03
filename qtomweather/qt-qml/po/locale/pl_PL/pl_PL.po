@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-03 19:55+0300\n"
+"POT-Creation-Date: 2011-09-03 20:09+0300\n"
 "PO-Revision-Date: 2010-04-13 21:48+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <dominikowski@gmail.com>\n"
@@ -2167,13 +2167,13 @@ msgstr "Wiatr"
 msgid "Wind direction:"
 msgstr ""
 
-#: omweather/src/weather-settings.c:3974
-msgid "Wind speed units:"
-msgstr "Jednostki prędkości wiatru:"
-
 #: omweather/src/hash.data:5
 #, fuzzy
-msgid "Wind speed:"
+msgid "Wind speed"
+msgstr "Jednostki prędkości wiatru:"
+
+#: omweather/src/weather-settings.c:3974
+msgid "Wind speed units:"
 msgstr "Jednostki prędkości wiatru:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468

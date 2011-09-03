@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-03 19:55+0300\n"
+"POT-Creation-Date: 2011-09-03 20:09+0300\n"
 "PO-Revision-Date: 2011-02-17 22:57+0100\n"
 "Last-Translator: Alejandro López <alejandro.lopez@free.fr>\n"
 "Language-Team: \n"
@@ -2180,14 +2180,14 @@ msgstr "Viento"
 msgid "Wind direction:"
 msgstr ""
 
+#: omweather/src/hash.data:5
+#, fuzzy
+msgid "Wind speed"
+msgstr "Velocidad del viento:"
+
 #: omweather/src/weather-settings.c:3974
 msgid "Wind speed units:"
 msgstr "Unidades de velocidad de viento:"
-
-#: omweather/src/hash.data:5
-#, fuzzy
-msgid "Wind speed:"
-msgstr "Velocidad del viento:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:747

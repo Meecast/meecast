@@ -7,6 +7,7 @@
     g_hash_table_insert(hash, (void*)"Sunrise:", _("Sunrise:"));
     g_hash_table_insert(hash, (void*)"Sunset:", _("Sunset:"));
     g_hash_table_insert(hash, (void*)"Last update:", _("Last update:"));
+    g_hash_table_insert(hash, (void*)"Manage locations", _("Manage locations"));
 
     /* weather forecast string */
     g_hash_table_insert(hash, (void*)"AM Clouds / PM Sun", _("AM Clouds / PM Sun"));
@@ -111,6 +112,7 @@
     g_hash_table_insert(hash, (void*)"Mist", _("Mist"));
     g_hash_table_insert(hash, (void*)"Mostly Clear", _("Mostly Clear"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy  and  Windy", _("Mostly Cloudy and Windy"));
+    g_hash_table_insert(hash, (void*)"Mostly Cloudy and  Windy", _("Mostly Cloudy and Windy"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy / Wind", _("Mostly Cloudy / Wind"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy Few Snow", _("Mostly Cloudy Few Snow"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy Light Rain", _("Mostly Cloudy Light Rain"));

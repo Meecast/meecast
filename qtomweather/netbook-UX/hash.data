@@ -9,6 +9,12 @@
     g_hash_table_insert(hash, (void*)"Last update:", _("Last update:"));
     g_hash_table_insert(hash, (void*)"Manage locations", _("Manage locations"));
     g_hash_table_insert(hash, (void*)"Updating forecast", _("Updating forecast"));
+    g_hash_table_insert(hash, (void*)"Temperature units", _("Temperature units"));
+    g_hash_table_insert(hash, (void*)"Wind speed units", _("Wind speed units"));
+    g_hash_table_insert(hash, (void*)"Iconset", _("Iconset"));
+    g_hash_table_insert(hash, (void*)"Iconsets", _("Iconsets"));
+    g_hash_table_insert(hash, (void*)"Set locations", _("Set locations"));
+    g_hash_table_insert(hash, (void*)"No locations are set up yet.", _("No locations are set up yet."));
 
     /* weather forecast string */
     g_hash_table_insert(hash, (void*)"AM Clouds / PM Sun", _("AM Clouds / PM Sun"));

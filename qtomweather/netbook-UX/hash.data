@@ -2,7 +2,7 @@
     /* Label strings */
 
     g_hash_table_insert(hash, (void*)"Wind direction:", _("Wind direction:"));
-    g_hash_table_insert(hash, (void*)"Wind speed:", _("Wind speed:"));
+    g_hash_table_insert(hash, (void*)"Wind speed", _("Wind speed"));
     g_hash_table_insert(hash, (void*)"Day length:", _("Day length:"));
     g_hash_table_insert(hash, (void*)"Sunrise:", _("Sunrise:"));
     g_hash_table_insert(hash, (void*)"Sunset:", _("Sunset:"));

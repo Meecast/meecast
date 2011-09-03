@@ -150,8 +150,12 @@ int main(int argc, char* argv[])
     qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::prefix +
                                                                 Core::AbstractConfig::sharePath +
                                                                 Core::AbstractConfig::layoutqml)));
-    qview->show();
-    /*This code provide Segmantation fault
+    /* Trying to make fullscreen http://wiki.meego.com/QML/Full-screen_applications */
+    qview->setResizeMode(QDeclarativeView::SizeRootObjectToView);
+    //qview->setGeometry(QRect(0,0,854,480));
+    qview->showFullScreen();
+    //qview->show();
+    /*This code provides Segmantation fault
     delete dadapt;
     delete controller;
     */

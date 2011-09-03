@@ -126,12 +126,20 @@ Page {
             onTap: console.log("tap");
 
         }*/
-        Item {
+        Rectangle {
             id: startview
             visible: Config.stationname == "Unknown" ? true : false
             width: parent.width
-            height: parent.height
+            height: 854 - 72 - 36
+            Rectangle {
+                anchors.left: parent.left
+                anchors.top: parent.top
+                width: parent.width
+                height: 72
+                color: "black"
+            }
             Text {
+                id: empty_text
                 anchors.left: parent.left
                 anchors.top: parent.top
                 width: parent.width
@@ -142,19 +150,40 @@ Page {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }
+
+            Loader {
+                id: empty_background1
+                anchors.top: empty_text.bottom
+                anchors.left: parent.left
+                width: parent.width
+                height: 274
+                sourceComponent: Image {source: Config.imagespath + "/mask_background.png"}
+            }
+            Rectangle {
+                anchors.top: empty_background1.bottom
+                width: parent.width
+                height: dataview.height - 274
+                color: "black"
+            }
             Label {
                 horizontalAlignment: Text.AlignHCenter
                 text: Config.tr("No locations are set up yet.")
-                font.pixelSize: 40
-                color: "#303030"
+                font.pixelSize: 60
+                color: "#999999"
                 wrapMode: Text.Wrap
-                width: parent.width
-                anchors.verticalCenter: parent.verticalCenter
+                width: parent.width - 2*margin
+                //anchors.verticalCenter: parent.verticalCenter
+                anchors.top: parent.top
+                anchors.topMargin: 250
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: margin
+                anchors.rightMargin: margin
             }
             Button {
                 text: Config.tr("Set locations")
                 onClicked: {
-                    main.openFile("StationsPage.qml");
+                    main.update();
                 }
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom

@@ -1983,7 +1983,6 @@ msgid "Update already running."
 msgstr "Обновление уже работает."
 
 #: omweather/src/hash.data:11
-#, fuzzy
 msgid "Updating forecast"
 msgstr "Идет обновление данных о погоде."
 

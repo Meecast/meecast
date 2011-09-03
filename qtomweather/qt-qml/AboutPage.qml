@@ -65,7 +65,7 @@ Page {
         }
         Label {
             id: abouttext 
-            text: "About" + ":"
+            text: qsTr("About") + ":"
 	    anchors.top: versiontext.bottom 
 	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20

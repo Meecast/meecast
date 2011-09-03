@@ -145,7 +145,7 @@ Controller::load_data()
   }
 
   /* set next day */
-  i = 3600*24;
+//  i = 3600*24;
   /* fill other days */
   while  (_dp != NULL && (temp_data = _dp->data().GetDataForTime( current_day + 12 * 3600  + i))) {
       forecast_data = new DataItem(temp_data);
@@ -159,7 +159,7 @@ Controller::load_data()
       i = i + 3600*24;
   }
   /* set next night */
-  i = 3600*24;
+//  i = 3600*24;
   /* fill other nights */
   while  (_dp != NULL && (temp_data = _dp->data().GetDataForTime( current_day + 22 * 3600  + i))) {
       forecast_data = new DataItem(temp_data);

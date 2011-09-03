@@ -176,7 +176,7 @@ DataModel::update(QString filename, int  period)
             }
             break;
         case day_period:
-            i = 3600*24;
+        //    i = 3600*24;
             while  (dp != NULL && (temp_data = dp->data().GetDataForTime(current_day + 12*3600 + i))) {
                 forecast_data = new DataItem(temp_data);
                 forecast_data->Text(forecast_data->Text().c_str());
@@ -190,7 +190,7 @@ DataModel::update(QString filename, int  period)
             }
             break;
         case night_period:
-            i = 3600*24;
+          //  i = 3600*24;
             while  (dp != NULL && (temp_data = dp->data().GetDataForTime(current_day + 22*3600 + i))) {
                 forecast_data = new DataItem(temp_data);
                 forecast_data->Text(forecast_data->Text().c_str());

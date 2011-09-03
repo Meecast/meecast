@@ -156,8 +156,8 @@ DataModel::update(QString filename, int  period)
 
     if (dp)
         temp_data = dp->data().GetDataForTime(time(NULL));
-    if (temp_data)
-        current_day = current_day + 3600*dp->timezone();
+//    if (temp_data)
+//        current_day = current_day + 3600*dp->timezone();
 
     current_day = mktime(tm);
     /* fill current date */

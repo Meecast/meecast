@@ -1047,9 +1047,8 @@ msgid ""
 msgstr ""
 
 #: omweather/src/hash.data:10
-#, fuzzy
 msgid "Manage locations"
-msgstr "Выберите местоположение"
+msgstr "Управление местоположениями"
 
 #: omweather/src/weather-simple-settings.c:2240
 msgid "Manual"

@@ -119,9 +119,10 @@ Controller::load_data()
   current_day = time(NULL);
   if (_dp)
       temp_data = _dp->data().GetDataForTime(time(NULL));
-  if (temp_data)
-      current_day = current_day + 3600*_dp->timezone();
-  tm = localtime(&current_day);
+//  if (temp_data)
+//      current_day = current_day + 3600*_dp->timezone();
+ // tm = localtime(&current_day);
+  tm = gmtime(&current_day);
   year = 1900 + tm->tm_year;
   current_month = tm->tm_mon;
   tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
@@ -145,7 +146,7 @@ Controller::load_data()
   }
 
   /* set next day */
-//  i = 3600*24;
+  i = 3600*24;
   /* fill other days */
   while  (_dp != NULL && (temp_data = _dp->data().GetDataForTime( current_day + 12 * 3600  + i))) {
       forecast_data = new DataItem(temp_data);
@@ -159,7 +160,7 @@ Controller::load_data()
       i = i + 3600*24;
   }
   /* set next night */
-//  i = 3600*24;
+  i = 3600*24;
   /* fill other nights */
   while  (_dp != NULL && (temp_data = _dp->data().GetDataForTime( current_day + 22 * 3600  + i))) {
       forecast_data = new DataItem(temp_data);

@@ -74,7 +74,7 @@ Page {
                 condition.append({cond_name: Config.tr("Pressure:"),
 			 value: Forecast_model.getdata(day, "pressure") + " mbar"});
     	    if ((Forecast_model.getdata(day, "wind_speed")) != "N/A")
-                condition.append({cond_name: Config.tr("Wind speed:") + ":",
+                condition.append({cond_name: Config.tr("Wind speed") + ":",
 			 value: Forecast_model.getdata(day, "wind_speed") + ' ' + Config.windspeedunit});
     	    if ((Forecast_model.getdata(day, "ppcp")) != "N/A")
                 condition.append({cond_name: Config.tr("Ppcp:"),
@@ -105,7 +105,7 @@ Page {
                 condition.append({cond_name: Config.tr("Pressure:"),
 			 value: Forecast_night_model.getdata(day, "pressure") + " mbar"});
     	    if ((Forecast_night_model.getdata(day, "wind_speed")) != "N/A")
-                condition.append({cond_name: Config.tr("Wind speed:"),
+                condition.append({cond_name: Config.tr("Wind speed") + ":",
 			 value: Forecast_night_model.getdata(day, "wind_speed") + ' ' + Config.windspeedunit});
     	    if ((Forecast_night_model.getdata(day, "ppcp")) != "N/A")
                 condition.append({cond_name: Config.tr("Ppcp:"),

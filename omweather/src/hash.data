@@ -8,6 +8,7 @@
     g_hash_table_insert(hash, (void*)"Sunset:", _("Sunset:"));
     g_hash_table_insert(hash, (void*)"Last update:", _("Last update:"));
     g_hash_table_insert(hash, (void*)"Manage locations", _("Manage locations"));
+    g_hash_table_insert(hash, (void*)"Updating forecast", _("Updating forecast"));
 
     /* weather forecast string */
     g_hash_table_insert(hash, (void*)"AM Clouds / PM Sun", _("AM Clouds / PM Sun"));

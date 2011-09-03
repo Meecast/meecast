@@ -12,6 +12,7 @@ Page {
             iconId: "toolbar-refresh"
             onClicked: {
                 main.update();
+                //console.log(main.getColor(-15));
             }
         }
         Image {
@@ -59,6 +60,7 @@ Page {
             return Qt.rgba(c1, c2, 1, 1);
         }else if (t < -15 && t >= -30){
             c2 = (t + 15)*(66/255-216/255)/(-30+15) + 216/255;
+            //console.log(t+ " "+c2);
             return Qt.rgba(0, c2, 1, 1);
         }else if (t < -30){
             c1 = (t + 30)*(132/255-0)/(-30+15) + 0;
@@ -67,6 +69,7 @@ Page {
         }
 
     }
+
     function update()
     {
         console.log("start update");
@@ -127,28 +130,35 @@ Page {
             id: startview
             visible: Config.stationname == "Unknown" ? true : false
             width: parent.width
-            height: parent.height - 200
-            Column {
+            height: parent.height
+            Text {
+                anchors.left: parent.left
+                anchors.top: parent.top
+                width: parent.width
+                height: 72
+                color: "white"
+                font.pointSize: 28
+                text: Config.tr("MeeCast")
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+            Label {
+                horizontalAlignment: Text.AlignHCenter
+                text: Config.tr("No locations are set up yet.")
+                font.pixelSize: 40
+                color: "#303030"
+                wrapMode: Text.Wrap
                 width: parent.width
                 anchors.verticalCenter: parent.verticalCenter
-
-                spacing: 20
-                Label {
-                    horizontalAlignment: Text.AlignHCenter
-                    text: Config.tr("No weather stations are set up.")
-                    font.pixelSize: 40
-                    color: "#303030"
-                    wrapMode: Text.Wrap
-                    width: parent.width
-                    //anchors.horizontalCenter: parent.horizontalCenter
+            }
+            Button {
+                text: Config.tr("Set locations")
+                onClicked: {
+                    main.openFile("StationsPage.qml");
                 }
-                Button {
-                    text: Config.tr("Set them up")
-                    onClicked: {
-                        main.openFile("StationsPage.qml");
-                    }
-                    anchors.horizontalCenter: parent.horizontalCenter
-                }
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 30
             }
         }
 
@@ -278,34 +288,53 @@ Page {
                     sourceComponent: Image {source: Config.imagespath + "/mask_title.png"}
                 }*/
             }
-            Item {
+            Rectangle {
                 id: dataview
-                visible: (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false
+                visible: (Forecast_model.rowCount() == 0 && Current.rowCount() == 0) ? true : false
                 anchors.top: station_rect.bottom
                 width: parent.width
-                height: parent.height - 200
-                Column {
+                //height: current_rect.height + list.height
+                height: 854 - 72 - 72 - 36
+                //color: "black"
+                Loader {
+                    id: empty_background
+                    anchors.top: parent.top
+                    anchors.left: parent.left
                     width: parent.width
-                    anchors.verticalCenter: parent.verticalCenter
-
-                    spacing: 20
-                    Label {
-                        horizontalAlignment: Text.AlignHCenter
-                        text: Config.tr("Looks like there is no info for this day. Update usually helps.")
-                        font.pixelSize: 40
-                        color: "#303030"
-                        wrapMode: Text.Wrap
-                        width: parent.width
-                        //anchors.horizontalCenter: parent.horizontalCenter
-                    }
-                    Button {
-                        text: Config.tr("Update")
-                        onClicked: {
-                            main.update();
-                        }
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
+                    height: 274
+                    sourceComponent: Image {source: Config.imagespath + "/mask_background.png"}
                 }
+                Rectangle {
+                    anchors.top: empty_background.bottom
+                    width: parent.width
+                    height: dataview.height - 274
+                    color: "black"
+                }
+                Label {
+                    horizontalAlignment: Text.AlignHCenter
+                    text: Config.tr("Looks like there's no info for this location.")
+                    font.pixelSize: 60
+                    color: "#999999"
+                    wrapMode: Text.Wrap
+                    width: parent.width - 2*margin
+                    //anchors.verticalCenter: parent.verticalCenter
+                    anchors.top: parent.top
+                    anchors.topMargin: 200
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.leftMargin: margin
+                    anchors.rightMargin: margin
+                }
+                Button {
+                    text: Config.tr("Try to update")
+                    onClicked: {
+                        main.update();
+                    }
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 30
+                }
+
             }
             Rectangle {
                 id: current_rect

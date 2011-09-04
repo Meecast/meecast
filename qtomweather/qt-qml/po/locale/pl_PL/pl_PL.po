@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-04 09:59+0300\n"
+"POT-Creation-Date: 2011-09-04 22:49+0300\n"
 "PO-Revision-Date: 2010-04-13 21:48+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <dominikowski@gmail.com>\n"
@@ -461,6 +461,11 @@ msgstr "Pochmurnie, zamieć śnieżna"
 #: omweather/src/hash.data:58
 msgid "Cloudy, Few Snow"
 msgstr "Pochmurnie, słaby śnieg"
+
+#: omweather/src/hash.data:295
+#, fuzzy
+msgid "Cloudy, Heavy Rain"
+msgstr "Głównie pochmurnie, silny śnieg"
 
 #: omweather/src/hash.data:59
 #, fuzzy

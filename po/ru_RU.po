@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-04 09:59+0300\n"
+"POT-Creation-Date: 2011-09-04 22:49+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -459,6 +459,10 @@ msgstr "Облачно, Поземок"
 #: omweather/src/hash.data:58
 msgid "Cloudy, Few Snow"
 msgstr "Облачно Небольшой снег"
+
+#: omweather/src/hash.data:295
+msgid "Cloudy, Heavy Rain"
+msgstr "Облачно, Сильный Дождь"
 
 #: omweather/src/hash.data:59
 msgid "Cloudy, Heavy Rain, T-Storm"

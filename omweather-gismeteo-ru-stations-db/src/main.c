@@ -529,7 +529,9 @@ get_date_for_hour_weather(gchar *temp_string){
     gchar buffer[256];
     gchar temp_buffer[256];
     gchar buff[256];
+    time_t t;
     struct tm   tmp_tm = {0};
+    struct tm   * tmp_tm1;
     gchar *temp_point;
     memset(buffer, 0, sizeof(buffer));
     memset(temp_buffer, 0, sizeof(temp_buffer));
@@ -571,7 +573,10 @@ get_date_for_hour_weather(gchar *temp_string){
     temp_point = strchr(temp_string,' ');
     strcat(buff, temp_point+1);
     strptime(buff, "%d %b %Y %T", &tmp_tm);
-    /* fprintf(stderr, "\ntmp_tm hour %d\n", (&tmp_tm)->tm_hour); */
+    t = mktime(&tmp_tm);
+    tmp_tm1 = localtime(&t);
+    tmp_tm = *tmp_tm1;
+    /* fprintf(stderr, "\ntmp_wday hour %d\n", (&tmp_tm)->tm_wday); */
     return tmp_tm;
 }
 /*******************************************************************************/
@@ -1063,6 +1068,7 @@ parse_xml_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data){
       if (!flag){
           day = g_hash_table_new(g_str_hash, g_str_equal);
           g_hash_table_insert(day, "day_date", g_strdup(buff));
+          memset(buff, 0, sizeof(buff));
           strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
           g_hash_table_insert(day, "day_name", g_strdup(buff));
           forecast = g_slist_append(forecast,(gpointer)day);

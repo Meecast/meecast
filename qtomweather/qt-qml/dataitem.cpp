@@ -188,7 +188,7 @@ DataItem::temperature_high() {
 QString
 DataItem::temperature() {
     QString c;
-    DataItem::Data::temperature_hi().units(temperatureunit.toStdString());
+    DataItem::Data::temperature().units(temperatureunit.toStdString());
     if (DataItem::Data::temperature().value() == INT_MAX){
         c = "N/A";
         return c;
@@ -199,7 +199,7 @@ DataItem::temperature() {
 QString
 DataItem::temperature_low() {
     QString c;
-    DataItem::Data::temperature_hi().units(temperatureunit.toStdString());
+    DataItem::Data::temperature_low().units(temperatureunit.toStdString());
     if (DataItem::Data::temperature_low().value() == INT_MAX){
         c = "N/A";
         return c;
@@ -210,7 +210,7 @@ DataItem::temperature_low() {
 QString
 DataItem::flike() {
     QString c;
-    DataItem::Data::temperature_hi().units(temperatureunit.toStdString());
+    DataItem::Data::Flike().units(temperatureunit.toStdString());
     if (DataItem::Data::Flike().value() == INT_MAX){
         c = "N/A";
         return c;

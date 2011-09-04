@@ -15,6 +15,8 @@
     g_hash_table_insert(hash, (void*)"Iconsets", _("Iconsets"));
     g_hash_table_insert(hash, (void*)"Set locations", _("Set locations"));
     g_hash_table_insert(hash, (void*)"No locations are set up yet.", _("No locations are set up yet."));
+    g_hash_table_insert(hash, (void*)"Looks like there's no info for this location.", _("Looks like there's no info for this location."));
+    g_hash_table_insert(hash, (void*)"Try to update", _("Try to update"));
 
     /* weather forecast string */
     g_hash_table_insert(hash, (void*)"AM Clouds / PM Sun", _("AM Clouds / PM Sun"));

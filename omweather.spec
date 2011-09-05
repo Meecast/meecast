@@ -10,7 +10,7 @@
  
 Name:       com.meecast.omweather
 Summary:    Weather for Meego
-Version:    0.3.24
+Version:0.3.24
 Release:    1
 Group:      Utility
 License:    GPLv2.1

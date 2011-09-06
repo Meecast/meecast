@@ -48,7 +48,6 @@ CommonDialog {
     // Common API
     property alias model: selectionListView.model
     property string selectedText: ""
-
     property int selectedIndex: -1   // read & write
     //property string titleText: "Selection Dialog"
 
@@ -99,7 +98,28 @@ CommonDialog {
                     text: modelData
                     font: root.platformStyle.itemFont
                 }
+                SectionScroller {
+                    listView: selectionListView
+                }
+                 // The delegate for each section header
+
             }
+
+        }
+        Component {
+		id: sectionHeading
+		Rectangle {
+		    width: root.width
+		    height: childrenRect.height
+		    color: Qt.rgba(0, 0, 0, 0.2)
+		    Text {
+			anchors.right: parent.right
+			anchors.rightMargin: 15
+			text: section
+			font.bold: true
+		       font.pixelSize: 20
+		    }
+		}
         }
 
     onStatusChanged: {
@@ -137,7 +157,7 @@ CommonDialog {
         height: listViewHeight > maxListViewHeight ? maxListViewHeight : listViewHeight
         width: root.width
         y : root.platformStyle.contentSpacing
-
+        
         ListView {
             id: selectionListView
 
@@ -147,6 +167,9 @@ CommonDialog {
             focus: true
             clip: true
             pressDelay: __pressDelay
+            section.property: "alphabet"
+            section.criteria: ViewSection.FullString
+            section.delegate: sectionHeading
 
             ScrollDecorator {
                 id: scrollDecorator
@@ -156,6 +179,7 @@ CommonDialog {
         }
 
     }
+
 }
 
 

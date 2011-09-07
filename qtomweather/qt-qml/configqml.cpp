@@ -300,7 +300,40 @@ ConfigQml::Cities(int country_index, int index)
     return l;
 }
 void
-//ConfigQml::saveStation(QString city_id, QString city_name, QString region, QString country, QString source, int source_id)
+ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QString country, QString source, int source_id)
+{
+    Core::Station *station;
+    std::string code = city_id.toStdString();
+
+    std::string path(Core::AbstractConfig::prefix);
+    path += Core::AbstractConfig::sourcesPath;
+    Core::SourceList *sourcelist = new Core::SourceList(path);
+
+    std::string url_template = sourcelist->at(source_id)->url_template();
+
+    char forecast_url[4096];
+    snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), code.c_str());
+    station = new Core::Station(
+                source.toStdString(),
+                code,
+                city_name.toStdString(),
+                country.toStdString(),
+                region.toStdString(),
+                forecast_url);
+    std::string filename(Core::AbstractConfig::getConfigPath());
+    filename += source.toStdString();
+    filename += "_";
+    filename += code;
+    station->fileName(filename);
+    station->converter(sourcelist->at(source_id)->binary());
+
+    stationsList().push_back(station);
+    //ConfigQml::Config::stationsList(*stationlist);
+    saveConfig();
+    refreshconfig();
+
+}
+void
 ConfigQml::saveStation(int city_id, QString city,
                        int region_id, QString region,
                        int country_id, QString country,

@@ -6,9 +6,8 @@ import com.nokia.meego 1.0
 Page {
     id: citypage
     property string source: ""
-    property string country_id: ""
+    property int source_id: -1
     property string country_name: ""
-    property string region_id: ""
     property string region_name: ""
     tools: ToolBarLayout {
         ToolIcon {
@@ -53,6 +52,8 @@ Page {
                     anchors.fill: parent
                     onClicked: {
                         console.log(model.key);
+                        Config.saveStation1(model.key, model.name, region_name, country_name,
+                                            source, source_id);
                         //city_model.populate(source, model.key);
 
                     }

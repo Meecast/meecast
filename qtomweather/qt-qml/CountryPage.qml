@@ -6,6 +6,7 @@ import com.nokia.meego 1.0
 Page {
     id: countrypage
     property string source: ""
+    property int source_id: -1
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"
@@ -51,7 +52,7 @@ Page {
                         console.log(model.key);
                         region_model.populate(source, model.key);
                         pageStack.push(Qt.resolvedUrl("RegionPage.qml"),
-                                       {source: source, country_id: model.key, country_name: model.name}
+                                       {source: source, source_id: source_id, country_name: model.name}
                                        );
 
                     }

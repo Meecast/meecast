@@ -81,6 +81,7 @@ public:
                                  int region_id, QString region,
                                  int country_id, QString country,
                                  int source_id, QString source);
+    Q_INVOKABLE void saveStation1(QString city_id, QString city_name, QString region, QString country, QString source, int source_id);
     Q_INVOKABLE void changestation();
     Q_INVOKABLE void nextstation();
     Q_INVOKABLE void prevstation();

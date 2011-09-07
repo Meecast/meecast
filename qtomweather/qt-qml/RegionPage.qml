@@ -6,7 +6,7 @@ import com.nokia.meego 1.0
 Page {
     id: regionpage
     property string source: ""
-    property string country_id: ""
+    property int source_id: -1
     property string country_name: ""
     tools: ToolBarLayout {
         ToolIcon {
@@ -53,9 +53,8 @@ Page {
                         console.log(model.key);
                         city_model.populate(source, model.key);
                         pageStack.push(Qt.resolvedUrl("CityPage.qml"),
-                                       {source: source,
-                                       country_id: country_id, country_name: country_name,
-                                       region_id: model.key, region_name: model.name}
+                                       {source: source, source_id: source_id,
+                                       country_name: country_name, region_name: model.name}
                                        );
 
                     }

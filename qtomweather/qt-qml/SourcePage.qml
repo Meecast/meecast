@@ -49,7 +49,7 @@ Page {
                     onClicked: {
                         country_model.populate(model.name);
                         pageStack.push(Qt.resolvedUrl("CountryPage.qml"),
-                                       {source: model.name}
+                                       {source: model.name, source_id: index}
                                        );
                     }
                 }

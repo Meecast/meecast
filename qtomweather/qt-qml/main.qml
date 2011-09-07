@@ -18,7 +18,7 @@ PageStackWindow {
         theme.inverted = true;
     }
 
-    initialPage: ListPage {}
+    initialPage: SourcePage {}
 
     function openFile(file)
     {

@@ -180,14 +180,14 @@ Controller::load_data()
 
 
   /**** temp */
-  QStringList countries = _config->Countries("weather.com");
-  SelectModel* model = new SelectModel(qApp);;
-  for (int j=0; j<countries.size(); j++){
-      QString str = countries.at(j);
-      model->addData(new SelectData(str, "", str.left(1)));
-      qDebug() << countries.at(j) << str.left(1);
+  QStringList sources = _config->Sources();
+  SelectModel* source_model = new SelectModel(qApp);;
+  for (int j=0; j<sources.size(); j++){
+      QString str = sources.at(j);
+      source_model->addData(new SelectData(str, "", str.left(1)));
+      //qDebug() << countries.at(j) << str.left(1);
   }
-  _qview->rootContext()->setContextProperty("temp_model", model);
+  _qview->rootContext()->setContextProperty("source_model", source_model);
 }
 
 void

@@ -52,7 +52,8 @@ OTHER_FILES += \
     NewStationPage.qml \
     UnitsPage.qml \
     VisualsPage.qml \
-    ListPage.qml
+    ListPage.qml \
+    SourcePage.qml
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 

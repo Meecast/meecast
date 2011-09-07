@@ -135,8 +135,8 @@ int main(int argc, char* argv[])
     qview = controller->qview();
 
     SelectModel model;
-    model.addData(SelectData("C", ""));
-    model.addData(SelectData("F", ""));
+    model.addData(new SelectData("C", "", "a"));
+    model.addData(new SelectData("F", "", "a"));
     qview->rootContext()->setContextProperty("temp_model", &model);
  //   qview->rootContext()->setContextProperty("Forecast_model", model);
     //qview->rootContext()->setContextProperty("Config", config);

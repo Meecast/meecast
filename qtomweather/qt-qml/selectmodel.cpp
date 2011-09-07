@@ -1,17 +1,67 @@
+/* vim: set sw=4 ts=4 et: */
+/*
+ * This file is part of Other Maemo Weather(omweather)
+ *
+ * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2010-2011 Tanya Makova
+ *     for the code
+ *
+ * Copyright (C) 2008 Andrew Zhilin
+ *		      az@pocketpcrussia.com
+ *	for default icon set (Glance)
+ *
+ * This software is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU weather-config.h General Public
+ * License along with this software; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA
+*/
+/*******************************************************************************/
+
 #include "selectmodel.h"
 
-SelectData::SelectData(const QString &name, const QString &key)
-    : _name(name), _key(key)
+SelectData::SelectData(): _name(""), _key(""), _category(""){};
+
+SelectData::SelectData(const QString &name, const QString &key, const QString &category)
+    : _name(name), _key(key), _category(category)
 {
 }
 
-QString SelectData::name() const
+QString SelectData::name()
 {
     return _name;
 }
-QString SelectData::key() const
+QString SelectData::key()
 {
     return _key;
+}
+QString SelectData::category()
+{
+    return _category;
+}
+void SelectData::setName(QString name)
+{
+    _name = name;
+    emit nameChanged(name);
+}
+void SelectData::setKey(QString key)
+{
+    _key = key;
+    emit keyChanged(key);
+}
+void SelectData::setCategory(QString category)
+{
+    _category = category;
+    emit categoryChanged(category);
 }
 
 SelectModel::SelectModel(QObject *parent)
@@ -20,7 +70,13 @@ SelectModel::SelectModel(QObject *parent)
     QHash<int, QByteArray> roles;
     roles[NameRole] = "name";
     roles[KeyRole] = "key";
+    roles[CategoryRole] = "category";
     setRoleNames(roles);
+}
+
+SelectData* SelectModel::get(int index)
+{
+    return _list.at(index);
 }
 
 int SelectModel::rowCount(const QModelIndex &parent) const
@@ -28,7 +84,7 @@ int SelectModel::rowCount(const QModelIndex &parent) const
     return _list.count();
 }
 
-void SelectModel::addData(const SelectData &data)
+void SelectModel::addData(SelectData* data)
 {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     _list << data;
@@ -39,10 +95,13 @@ QVariant SelectModel::data(const QModelIndex & index, int role) const {
      if (index.row() < 0 || index.row() > _list.count())
          return QVariant();
 
-     const SelectData &data = _list[index.row()];
+     SelectData* data = _list[index.row()];
      if (role == NameRole)
-         return data.name();
+         return data->name();
      else if (role == KeyRole)
-         return data.key();
+         return data->key();
+     else if (role == CategoryRole)
+         return data->category();
      return QVariant();
  }
+

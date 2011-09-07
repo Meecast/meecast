@@ -27,13 +27,14 @@
 */
 /*******************************************************************************/
 
-#include "countrymodel.h"
+#include "regionmodel.h"
 
-CountryModel::CountryModel(QObject *parent): SelectModel(parent)
+RegionModel::RegionModel(QObject *parent): SelectModel(parent)
 {
 }
+
 void
-CountryModel::populate(QString source)
+RegionModel::populate(QString source, QString country)
 {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     _list.clear();
@@ -57,11 +58,11 @@ CountryModel::populate(QString source)
         qDebug() << "error open database";
         return;
     }
-    Core::listdata * list = db->create_countries_list();
-    Core::listdata::iterator cur;
 
-    if (!list)
-        return;
+    Core::listdata * list = db->create_region_list(country.toInt());
+
+    if (list->size() == 0) return;
+    Core::listdata::iterator cur;
     for (cur=list->begin(); cur<list->end(); cur++){
         QString str = QString::fromStdString((*cur).second);
         _list.append(new SelectData(str, QString::fromStdString((*cur).first), str.left(1)));

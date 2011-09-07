@@ -7,7 +7,7 @@
  *     for the code
  *
  * Copyright (C) 2008 Andrew Zhilin
- *		      az@pocketpcrussia.com 
+ *		      az@pocketpcrussia.com
  *	for default icon set (Glance)
  *
  * This software is free software; you can redistribute it and/or
@@ -26,39 +26,21 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
+
+#ifndef REGIONMODEL_H
+#define REGIONMODEL_H
+
 #include "core.h"
 #include <QObject>
-#include <QDeclarativeView>
-#include <QDeclarativeContext>
-#include "configqml.h"
+#include <QDebug>
 #include "selectmodel.h"
-#include "countrymodel.h"
-#include "regionmodel.h"
 
-#ifndef CONTROLLER_H
-#define CONTROLLER_H
-class Controller : public QObject
+class RegionModel : public SelectModel
 {
     Q_OBJECT
-
 public:
-    Controller();
-    ConfigQml* config();
-    QDeclarativeView *qview();
-    virtual ~Controller();
-
-public Q_SLOTS:
-    void reload_config();
-    void load_config();
-    void load_data();
-
-private:
-    ConfigQml *_config;
-    QDeclarativeView *_qview;
-    Core::DataParser *_dp;
-    DataModel *_model; 
-    DataModel *_current;
-    DataModel *_night_model;
+    RegionModel(QObject *parent = 0);
+    Q_INVOKABLE void populate(QString source, QString country);
 };
 
-#endif // CONTROLLER_H
+#endif // REGIONMODEL_H

@@ -182,6 +182,7 @@ Controller::load_data()
   /* models for station selection */
   SelectModel* source_model = new SelectModel(qApp);
   CountryModel* country_model = new CountryModel(qApp);
+  RegionModel* region_model = new RegionModel(qApp);
   //country_model->populate("gismeteo.ru");
   QStringList sources = _config->Sources();
   for (int j=0; j<sources.size(); j++){
@@ -191,6 +192,7 @@ Controller::load_data()
   }
   _qview->rootContext()->setContextProperty("source_model", source_model);
   _qview->rootContext()->setContextProperty("country_model", country_model);
+  _qview->rootContext()->setContextProperty("region_model", region_model);
 }
 
 void

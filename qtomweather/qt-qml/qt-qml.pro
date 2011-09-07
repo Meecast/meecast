@@ -20,7 +20,8 @@ SOURCES += main.cpp \
     controller.cpp \
     selectmodel.cpp \
     updatethread.cpp \
-    countrymodel.cpp
+    countrymodel.cpp \
+    regionmodel.cpp
 
 HEADERS  += \
     dataqml.h \
@@ -32,7 +33,8 @@ HEADERS  += \
     controller.h \
     selectmodel.h \
     updatethread.h \
-    countrymodel.h
+    countrymodel.h \
+    regionmodel.h
 
 FORMS    +=
 RESOURCES += weatherlayoutitem.qrc
@@ -56,7 +58,8 @@ OTHER_FILES += \
     VisualsPage.qml \
     ListPage.qml \
     SourcePage.qml \
-    CountryPage.qml
+    CountryPage.qml \
+    RegionPage.qml
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 

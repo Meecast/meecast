@@ -49,12 +49,11 @@ Page {
                     anchors.fill: parent
                     onClicked: {
                         console.log(model.key);
-                        /*
-                        region_model.populate(model.key);
+                        region_model.populate(source, model.key);
                         pageStack.push(Qt.resolvedUrl("RegionPage.qml"),
                                        {source: source, country_id: model.key, country_name: model.name}
                                        );
-                        */
+
                     }
                 }
             }

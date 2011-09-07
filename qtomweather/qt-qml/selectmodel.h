@@ -79,7 +79,7 @@ public:
     void addData(SelectData* data);
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
 
-private:
+protected:
     QList<SelectData*> _list;
 };
 

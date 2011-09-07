@@ -19,7 +19,8 @@ SOURCES += main.cpp \
     dbusadaptor.cpp \
     controller.cpp \
     selectmodel.cpp \
-    updatethread.cpp
+    updatethread.cpp \
+    countrymodel.cpp
 
 HEADERS  += \
     dataqml.h \
@@ -30,7 +31,8 @@ HEADERS  += \
     dbusadaptor.h \
     controller.h \
     selectmodel.h \
-    updatethread.h
+    updatethread.h \
+    countrymodel.h
 
 FORMS    +=
 RESOURCES += weatherlayoutitem.qrc
@@ -53,7 +55,8 @@ OTHER_FILES += \
     UnitsPage.qml \
     VisualsPage.qml \
     ListPage.qml \
-    SourcePage.qml
+    SourcePage.qml \
+    CountryPage.qml
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 

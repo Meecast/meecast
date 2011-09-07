@@ -179,15 +179,18 @@ Controller::load_data()
   _qview->rootContext()->setContextProperty("Forecast_night_model", _night_model);
 
 
-  /**** temp */
+  /* models for station selection */
+  SelectModel* source_model = new SelectModel(qApp);
+  CountryModel* country_model = new CountryModel(qApp);
+  //country_model->populate("gismeteo.ru");
   QStringList sources = _config->Sources();
-  SelectModel* source_model = new SelectModel(qApp);;
   for (int j=0; j<sources.size(); j++){
       QString str = sources.at(j);
       source_model->addData(new SelectData(str, "", str.left(1)));
       //qDebug() << countries.at(j) << str.left(1);
   }
   _qview->rootContext()->setContextProperty("source_model", source_model);
+  _qview->rootContext()->setContextProperty("country_model", country_model);
 }
 
 void

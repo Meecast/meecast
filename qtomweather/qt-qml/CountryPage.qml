@@ -4,7 +4,8 @@ import Qt 4.7
 import com.nokia.meego 1.0
 
 Page {
-    id: sourcepage
+    id: countrypage
+    property string source: ""
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"
@@ -29,9 +30,9 @@ Page {
     }*/
 
     ListView {
-        id: sourcelist
+        id: countrylist
         anchors.fill: parent
-        model: source_model
+        model: country_model
 
         delegate: Component {
             id: listdelegate
@@ -47,14 +48,39 @@ Page {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        country_model.populate(model.name);
-                        pageStack.push(Qt.resolvedUrl("CountryPage.qml"),
-                                       {source: model.name}
+                        console.log(model.key);
+                        /*
+                        region_model.populate(model.key);
+                        pageStack.push(Qt.resolvedUrl("RegionPage.qml"),
+                                       {source: source, country_id: model.key, country_name: model.name}
                                        );
+                        */
                     }
                 }
             }
         }
+        section {
+            property: "category"
+            criteria: ViewSection.FullString
+            delegate: Rectangle {
+                color: "black"
+                width: parent.width
+                height: childrenRect.height + 4
+                Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    font.pointSize: 24
+                    text: section
+                    color: "white"
+                }
+            }
+
+        }
+        ScrollDecorator {
+            flickableItem: countrylist
+        }
+    }
+    SectionScroller {
+        listView: countrylist
     }
 
 }

@@ -31,6 +31,7 @@
 #include <QDeclarativeView>
 #include <QDeclarativeContext>
 #include "configqml.h"
+#include "selectmodel.h"
 
 #ifndef CONTROLLER_H
 #define CONTROLLER_H

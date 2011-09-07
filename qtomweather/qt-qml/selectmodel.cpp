@@ -29,9 +29,16 @@
 
 #include "selectmodel.h"
 
-SelectData::SelectData(): _name(""), _key(""), _category(""){};
+SelectData::SelectData(){};
 
-SelectData::SelectData(const QString &name, const QString &key, const QString &category)
+SelectData::SelectData(const SelectData* d)
+{
+    _name = d->_name;
+    _key = d->_key;
+    _category = d->_category;
+}
+
+SelectData::SelectData(QString name, QString key, QString category)
     : _name(name), _key(key), _category(category)
 {
 }
@@ -74,9 +81,11 @@ SelectModel::SelectModel(QObject *parent)
     setRoleNames(roles);
 }
 
-SelectData* SelectModel::get(int index)
+QVariant SelectModel::get(int index)
 {
-    return _list.at(index);
+    QVariantMap map;
+    map.insert(QLatin1String("category"), _list.at(index)->category());
+    return map;
 }
 
 int SelectModel::rowCount(const QModelIndex &parent) const
@@ -87,7 +96,7 @@ int SelectModel::rowCount(const QModelIndex &parent) const
 void SelectModel::addData(SelectData* data)
 {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
-    _list << data;
+    _list.append(data);
     endInsertRows();
 }
 

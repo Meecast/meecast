@@ -177,6 +177,17 @@ Controller::load_data()
   _qview->rootContext()->setContextProperty("Current", _current);
   _qview->rootContext()->setContextProperty("Forecast_model", _model);
   _qview->rootContext()->setContextProperty("Forecast_night_model", _night_model);
+
+
+  /**** temp */
+  QStringList countries = _config->Countries("weather.com");
+  SelectModel* model = new SelectModel(qApp);;
+  for (int j=0; j<countries.size(); j++){
+      QString str = countries.at(j);
+      model->addData(new SelectData(str, "", str.left(1)));
+      qDebug() << countries.at(j) << str.left(1);
+  }
+  _qview->rootContext()->setContextProperty("temp_model", model);
 }
 
 void

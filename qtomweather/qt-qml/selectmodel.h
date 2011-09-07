@@ -31,6 +31,7 @@
 #define SELECTMODEL_H
 
 #include <QAbstractListModel>
+#include <QObject>
 #include <QStringList>
 
 class SelectData: public QObject
@@ -41,7 +42,9 @@ class SelectData: public QObject
     Q_PROPERTY(QString key READ key WRITE setKey NOTIFY keyChanged)
 public:
     SelectData();
-    SelectData(const QString &name, const QString &key, const QString &category);
+    SelectData(const SelectData* d);
+    SelectData(QString name, QString key, QString category);
+    virtual ~SelectData(){};
 
     QString name();
     QString key();
@@ -71,10 +74,11 @@ public:
     };
     SelectModel(QObject *parent = 0);
 
-    Q_INVOKABLE SelectData* get(int index);
+    Q_INVOKABLE QVariant get(int index);
     Q_INVOKABLE int rowCount(const QModelIndex & parent = QModelIndex()) const;
     void addData(SelectData* data);
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+
 private:
     QList<SelectData*> _list;
 };

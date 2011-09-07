@@ -18,7 +18,7 @@ PageStackWindow {
         theme.inverted = true;
     }
 
-    initialPage: WeatherPage {}
+    initialPage: ListPage {}
 
     function openFile(file)
     {

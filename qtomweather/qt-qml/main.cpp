@@ -134,10 +134,10 @@ int main(int argc, char* argv[])
     QDeclarativeView *qview;
     qview = controller->qview();
 
-    SelectModel model;
-    model.addData(new SelectData("C", "", "a"));
-    model.addData(new SelectData("F", "", "a"));
-    qview->rootContext()->setContextProperty("temp_model", &model);
+    //SelectModel model;
+    //model.addData(new SelectData("C", "", "a"));
+    //model.addData(new SelectData("F", "", "a"));
+    //qview->rootContext()->setContextProperty("temp_model", &model);
  //   qview->rootContext()->setContextProperty("Forecast_model", model);
     //qview->rootContext()->setContextProperty("Config", config);
     std::cerr << "qml path = " << Core::AbstractConfig::layoutqml << std::endl;

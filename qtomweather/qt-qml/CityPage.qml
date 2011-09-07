@@ -55,7 +55,10 @@ Page {
                         Config.saveStation1(model.key, model.name, region_name, country_name,
                                             source, source_id);
                         //city_model.populate(source, model.key);
-
+                        pageStack.pop();
+                        pageStack.pop();
+                        pageStack.pop();
+                        pageStack.pop();
                     }
                 }
             }

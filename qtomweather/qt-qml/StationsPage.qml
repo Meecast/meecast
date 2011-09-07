@@ -16,7 +16,7 @@ Page {
         }
         ToolIcon {
             iconId: "toolbar-add"
-            onClicked: {stations.openFile("NewStationPage.qml")}
+            onClicked: {stations.openFile("SourcePage.qml")}
             anchors.right: parent == undefined ? undefined : parent.right
         }
     }

@@ -987,11 +987,11 @@ msgstr "Расположение:"
 
 #: qtomweather/qt-qml/AboutPage.qml:143
 msgid "Lead designer"
-msgstr ""
+msgstr "Ведущий дизайнер"
 
 #: qtomweather/qt-qml/AboutPage.qml:127
 msgid "Lead programmers"
-msgstr ""
+msgstr "Ведущие программисты"
 
 #: omweather/src/hash.data:102
 msgid "Light Drizzle"
@@ -1562,11 +1562,11 @@ msgstr "Давление: "
 
 #: qtomweather/qt-qml/AboutPage.qml:111
 msgid "Project administrator"
-msgstr ""
+msgstr "Администратор проекта"
 
 #: qtomweather/qt-qml/AboutPage.qml:86
 msgid "Project website"
-msgstr ""
+msgstr "Web-сайт проекта"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:922
 msgid "Provided by"

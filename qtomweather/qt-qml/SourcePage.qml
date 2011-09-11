@@ -16,17 +16,17 @@ Page {
     }
     orientationLock: PageOrientation.LockPortrait
 
-    /*
+    
     Label {
         id: title
         anchors.top: parent.top
         anchors.left: parent.left
         width: parent.width
-        text: Config.tr("Countries")
+        text: Config.tr("Sources")
         font.pixelSize: 28
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-    }*/
+    }
 
     ListView {
         id: sourcelist

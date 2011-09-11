@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-11 12:32+0300\n"
+"POT-Creation-Date: 2011-09-11 18:47+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -461,7 +461,7 @@ msgstr "Облачно, Поземок"
 msgid "Cloudy, Few Snow"
 msgstr "Облачно Небольшой снег"
 
-#: omweather/src/hash.data:295
+#: omweather/src/hash.data:296
 msgid "Cloudy, Heavy Rain"
 msgstr "Облачно, Сильный Дождь"
 
@@ -1486,7 +1486,7 @@ msgstr "Небольшая облачность, мгла"
 msgid "Partly Cloudy, Heavy Rain"
 msgstr "Небольшая облачность, Сильный Дождь"
 
-#: omweather/src/hash.data:294
+#: omweather/src/hash.data:295
 msgid "Partly Cloudy, Heavy Rain, T-Storm"
 msgstr "Небольшая облачность, Сильный Дождь, Гроза"
 
@@ -2002,6 +2002,10 @@ msgstr "Грозы"
 msgid "T-Storms Early"
 msgstr "С утра грозы"
 
+#: omweather/src/hash.data:258
+msgid "T-Storms Late"
+msgstr "Позже грозы"
+
 #: omweather/src/weather-popup.c:947 omweather/src/weather-popup.c:950
 #: omweather/src/weather-popup.c:1080 omweather/src/weather-popup.c:1083
 #: omweather/src/weather-simple-settings.c:1267
@@ -2040,7 +2044,7 @@ msgid ""
 "under the terms of the GNU General Public License\n"
 msgstr ""
 
-#: omweather/src/hash.data:258
+#: omweather/src/hash.data:259
 msgid "Thunder"
 msgstr "Гром"
 
@@ -2096,7 +2100,7 @@ msgstr "Единицы"
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: omweather/src/hash.data:259
+#: omweather/src/hash.data:260
 msgid "Unlimited"
 msgstr "Без ограничений"
 
@@ -2142,7 +2146,7 @@ msgstr ""
 msgid "Use device temperature sensor"
 msgstr "Использовать встроенный датчик температуры"
 
-#: omweather/src/hash.data:260
+#: omweather/src/hash.data:261
 msgid "VAR"
 msgstr "Переменный"
 
@@ -2150,7 +2154,7 @@ msgstr "Переменный"
 msgid "Valid time for current weather:"
 msgstr "Актуальность текущей погоды:"
 
-#: omweather/src/hash.data:261
+#: omweather/src/hash.data:262
 msgid "Very High"
 msgstr "Очень высокое"
 
@@ -2167,7 +2171,7 @@ msgstr "Видимость:"
 msgid "Visuals"
 msgstr "Оформление"
 
-#: omweather/src/hash.data:262
+#: omweather/src/hash.data:263
 msgid "W"
 msgstr "ЗЗ"
 
@@ -2177,31 +2181,31 @@ msgstr "ЗЗ"
 msgid "WLAN"
 msgstr "WLAN"
 
-#: omweather/src/hash.data:263
+#: omweather/src/hash.data:264
 msgid "WNW"
 msgstr "ЗСЗ"
 
-#: omweather/src/hash.data:264
+#: omweather/src/hash.data:265
 msgid "WNW_short"
 msgstr "ЗСЗ"
 
-#: omweather/src/hash.data:265
+#: omweather/src/hash.data:266
 msgid "WSW"
 msgstr "ЗЮЗ"
 
-#: omweather/src/hash.data:266
+#: omweather/src/hash.data:267
 msgid "WSW_short"
 msgstr "ЗЮЗ"
 
-#: omweather/src/hash.data:267
+#: omweather/src/hash.data:268
 msgid "W_short"
 msgstr "З"
 
-#: omweather/src/hash.data:268
+#: omweather/src/hash.data:269
 msgid "Waning Crescent"
 msgstr "Убывающая старая луна"
 
-#: omweather/src/hash.data:269
+#: omweather/src/hash.data:270
 msgid "Waning Gibbous"
 msgstr "Убывающая Луна"
 
@@ -2209,11 +2213,11 @@ msgstr "Убывающая Луна"
 msgid "Warning"
 msgstr "Предупреждение"
 
-#: omweather/src/hash.data:270
+#: omweather/src/hash.data:271
 msgid "Waxing Crescent"
 msgstr "Растущая Луна"
 
-#: omweather/src/hash.data:271
+#: omweather/src/hash.data:272
 msgid "Waxing Gibbous"
 msgstr "Растущая молодая Луна"
 
@@ -2238,7 +2242,7 @@ msgstr "Стиль виджета"
 msgid "Widget style and Iconset"
 msgstr "Стиль виджета и набор иконок"
 
-#: omweather/src/hash.data:272
+#: omweather/src/hash.data:273
 msgid "Wind"
 msgstr "Ветер"
 
@@ -2277,19 +2281,19 @@ msgstr "Ветер:"
 msgid "Wind: "
 msgstr "Ветер: "
 
-#: omweather/src/hash.data:276
+#: omweather/src/hash.data:277
 msgid "Wintry Mix"
 msgstr "Поземка"
 
-#: omweather/src/hash.data:274
+#: omweather/src/hash.data:275
 msgid "Wintry Mix / Wind"
 msgstr "Поземка / Ветер"
 
-#: omweather/src/hash.data:273
+#: omweather/src/hash.data:274
 msgid "Wintry Mix / Wind Early"
 msgstr "Поземка / C утра ветер"
 
-#: omweather/src/hash.data:275
+#: omweather/src/hash.data:276
 msgid "Wintry Mix to Snow"
 msgstr "Поземка переходящая в снег"
 
@@ -2371,7 +2375,7 @@ msgstr "каждый час"
 msgid "every minute (Debug)"
 msgstr "каждую минуту (отладка)"
 
-#: omweather/src/hash.data:277
+#: omweather/src/hash.data:278
 msgid "falling"
 msgstr "падает"
 
@@ -2405,13 +2409,13 @@ msgstr "дюймы"
 msgid "km"
 msgstr "км"
 
-#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:278
+#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:279
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
 msgid "km/h"
 msgstr "км/ч"
 
-#: omweather/src/hash.data:279
+#: omweather/src/hash.data:280
 msgid "km/s"
 msgstr "км/с"
 
@@ -2421,11 +2425,11 @@ msgstr "км/с"
 msgid "m"
 msgstr "м"
 
-#: omweather/src/hash.data:280
+#: omweather/src/hash.data:281
 msgid "m/h"
 msgstr "м/ч"
 
-#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:281
+#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:282
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
 msgid "m/s"
@@ -2447,13 +2451,13 @@ msgstr "мбар"
 msgid "mi"
 msgstr "ми"
 
-#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:282
+#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:283
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
 msgid "mi/h"
 msgstr "ми/ч"
 
-#: omweather/src/hash.data:283
+#: omweather/src/hash.data:284
 msgid "mi/s"
 msgstr "ми/с"
 
@@ -2500,7 +2504,7 @@ msgstr "следующая"
 msgid "nmi"
 msgstr "м.ми"
 
-#: omweather/src/hash.data:284
+#: omweather/src/hash.data:285
 msgid "rising"
 msgstr "возрастает"
 
@@ -2516,39 +2520,39 @@ msgstr "местного времени станции"
 msgid "station name"
 msgstr "в названии станции"
 
-#: omweather/src/hash.data:285
+#: omweather/src/hash.data:286
 msgid "steady"
 msgstr "устойчивое"
 
-#: omweather/src/hash.data:286
+#: omweather/src/hash.data:287
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:287
+#: omweather/src/hash.data:288
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:288
+#: omweather/src/hash.data:289
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:289
+#: omweather/src/hash.data:290
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:290
+#: omweather/src/hash.data:291
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:291
+#: omweather/src/hash.data:292
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:292
+#: omweather/src/hash.data:293
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:293
+#: omweather/src/hash.data:294
 msgid "Ю-З"
 msgstr ""
 

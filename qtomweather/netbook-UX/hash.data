@@ -255,6 +255,7 @@
     g_hash_table_insert(hash, (void*)"T-Storm", _("T-Storm"));
     g_hash_table_insert(hash, (void*)"T-Storms Early", _("T-Storms Early"));
     g_hash_table_insert(hash, (void*)"T-Storms", _("T-Storms"));
+    g_hash_table_insert(hash, (void*)"T-Storms Late", _("T-Storms Late"));
     g_hash_table_insert(hash, (void*)"Thunder", _("Thunder"));
     g_hash_table_insert(hash, (void*)"Unlimited", _("Unlimited"));
     g_hash_table_insert(hash, (void*)"VAR", _("VAR"));

@@ -20,18 +20,6 @@ Page {
     }
     orientationLock: PageOrientation.LockPortrait
 
-    /*
-    Label {
-        id: title
-        anchors.top: parent.top
-        anchors.left: parent.left
-        width: parent.width
-        text: Config.tr("Countries")
-        font.pixelSize: 28
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-    }*/
-
     ListView {
         id: citylist
         anchors.fill: parent
@@ -82,6 +70,27 @@ Page {
     SectionScroller {
         listView: citylist
     }
+    Rectangle {
+      id: labelrect
+      anchors.top: parent.top
+      anchors.left: parent.left
+      width: parent.width
+      color: "black" 
+      border.color: "black"
+      border.width: 3 
+      height: 32
+	    Label {
+		id: title
+		anchors.top: parent.top
+		anchors.left: parent.left
+		width: parent.width
+		text: Config.tr("Stations")
+		font.pixelSize: 28
+		horizontalAlignment: Text.AlignHCenter
+		verticalAlignment: Text.AlignVCenter
+	    }
+    }
+
 
 }
 

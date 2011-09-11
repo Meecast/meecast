@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-04 22:49+0300\n"
+"POT-Creation-Date: 2011-09-11 10:54+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -525,6 +525,11 @@ msgstr "Не могу получить адрес сервера."
 msgid "Couldn't resolve proxy."
 msgstr "Не могу получить адрес прокси."
 
+#: qtomweather/qt-qml/CountryPage.qml:102
+#, fuzzy
+msgid "Countries"
+msgstr "Страна"
+
 #: omweather/src/weather-simple-settings.c:764
 #: omweather/src/weather-simple-settings.c:2313
 msgid "Country"
@@ -539,6 +544,7 @@ msgid "Custom"
 msgstr "Настраиваемый"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:584
+#: qtomweather/qt-qml/FullWeatherPage.qml:64
 msgid "Day"
 msgstr "День"
 
@@ -546,7 +552,7 @@ msgstr "День"
 msgid "Day length"
 msgstr "Долгота дня"
 
-#: omweather/src/hash.data:6
+#: omweather/src/hash.data:6 qtomweather/qt-qml/FullWeatherPage.qml:132
 msgid "Day length:"
 msgstr "Долгота дня:"
 
@@ -763,6 +769,12 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Первая четверть"
 
+#: qtomweather/qt-qml/FullWeatherPage.qml:86
+#: qtomweather/qt-qml/FullWeatherPage.qml:117
+#, fuzzy
+msgid "Flike:"
+msgstr "По ощущениям:"
+
 #: omweather/src/hash.data:88
 msgid "Fog"
 msgstr "Туман"
@@ -900,6 +912,8 @@ msgstr "Высокий"
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:722
 #: qtomweather/qt-qml/dataitem.cpp:163
+#: qtomweather/qt-qml/FullWeatherPage.qml:68
+#: qtomweather/qt-qml/FullWeatherPage.qml:99
 msgid "Humidity:"
 msgstr "Влажность:"
 
@@ -911,7 +925,12 @@ msgstr "Набор иконок:"
 msgid "Icon size:"
 msgstr "Размер иконок:"
 
-#: omweather/src/hash.data:14
+#: qtomweather/qt-qml/VisualsPage.qml:31
+#, fuzzy
+msgid "Icons"
+msgstr "Набор иконок"
+
+#: omweather/src/hash.data:14 qtomweather/qt-qml/VisualsPage.qml:57
 msgid "Iconset"
 msgstr "Набор иконок"
 
@@ -949,7 +968,7 @@ msgstr "Последнее обновление на сервере: "
 msgid "Last update from server: "
 msgstr "Последнее обновление с сервера: "
 
-#: omweather/src/hash.data:9
+#: omweather/src/hash.data:9 qtomweather/qt-qml/FullWeatherPage.qml:135
 msgid "Last update:"
 msgstr "Последнее обновление:"
 
@@ -1056,7 +1075,7 @@ msgstr ""
 msgid "Long"
 msgstr "Длительный"
 
-#: omweather/src/hash.data:18
+#: omweather/src/hash.data:18 qtomweather/qt-qml/WeatherPage.qml:344
 msgid "Looks like there's no info for this location."
 msgstr "Очень похоже, что нет данных для этого местоположения."
 
@@ -1070,13 +1089,17 @@ msgid ""
 "com>\n"
 msgstr ""
 
-#: omweather/src/hash.data:10
+#: omweather/src/hash.data:10 qtomweather/qt-qml/StationsPage.qml:52
 msgid "Manage locations"
 msgstr "Управление местоположениями"
 
 #: omweather/src/weather-simple-settings.c:2240
 msgid "Manual"
 msgstr "Ручной"
+
+#: qtomweather/qt-qml/WeatherPage.qml:149
+msgid "MeeCast"
+msgstr ""
 
 #: omweather/src/weather-settings.c:3901
 msgid "Meters"
@@ -1266,11 +1289,17 @@ msgstr "Никогда"
 msgid "New"
 msgstr "Новолуние"
 
+#: qtomweather/qt-qml/NewStationPage.qml:38
+#, fuzzy
+msgid "New location"
+msgstr "Установите местоположения"
+
 #: omweather/src/weather-settings.c:4275
 msgid "Next update:"
 msgstr "Следующие обновление:"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:588
+#: qtomweather/qt-qml/FullWeatherPage.qml:93
 msgid "Night"
 msgstr "Ночь"
 
@@ -1286,7 +1315,7 @@ msgstr "Нет"
 msgid "No current weather data."
 msgstr "Нет данных для текущей погоды."
 
-#: omweather/src/hash.data:17
+#: omweather/src/hash.data:17 qtomweather/qt-qml/WeatherPage.qml:170
 msgid "No locations are set up yet."
 msgstr "Местоположения еще не выабраны."
 
@@ -1304,7 +1333,7 @@ msgstr "Нет данных для этой станции."
 #: omweather/src/weather-simple-settings.c:2886
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:592
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:847
-#: qtomweather/qt-qml/dataitem.cpp:171
+#: qtomweather/qt-qml/dataitem.cpp:171 qtomweather/qt-qml/WeatherPage.qml:398
 msgid "Now"
 msgstr "Сейчас"
 
@@ -1490,6 +1519,11 @@ msgstr "Период"
 msgid "Position:"
 msgstr "Позиция:"
 
+#: qtomweather/qt-qml/FullWeatherPage.qml:80
+#: qtomweather/qt-qml/FullWeatherPage.qml:111
+msgid "Ppcp:"
+msgstr ""
+
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836
 msgid "Preference|Update"
@@ -1506,6 +1540,8 @@ msgstr "Единицы давления:"
 #: omweather/src/weather-popup.c:1308
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:697
 #: qtomweather/qt-qml/dataitem.cpp:169
+#: qtomweather/qt-qml/FullWeatherPage.qml:74
+#: qtomweather/qt-qml/FullWeatherPage.qml:105
 msgid "Pressure:"
 msgstr "Давление:"
 
@@ -1607,6 +1643,11 @@ msgstr "Опрашивать датчик каждые:"
 msgid "Region"
 msgstr "Район"
 
+#: qtomweather/qt-qml/RegionPage.qml:91
+#, fuzzy
+msgid "Regions"
+msgstr "Район"
+
 #: omweather/src/hash.data:217
 msgid "Rush Hour Traffic"
 msgstr ""
@@ -1685,9 +1726,33 @@ msgstr "Морские мили"
 msgid "Search"
 msgstr "Поиск"
 
+#: qtomweather/qt-qml/NewStationPage.qml:73
+#: qtomweather/qt-qml/NewStationPage.qml:120
+#, fuzzy
+msgid "Select city"
+msgstr "Выбор страны"
+
+#: qtomweather/qt-qml/NewStationPage.qml:55
+#: qtomweather/qt-qml/NewStationPage.qml:102
+#, fuzzy
+msgid "Select country"
+msgstr "Выбор страны"
+
 #: omweather/src/weather-simple-settings.c:2168
 msgid "Select location"
 msgstr "Выберите местоположение"
+
+#: qtomweather/qt-qml/NewStationPage.qml:64
+#: qtomweather/qt-qml/NewStationPage.qml:111
+#, fuzzy
+msgid "Select region"
+msgstr "Выбор района"
+
+#: qtomweather/qt-qml/NewStationPage.qml:46
+#: qtomweather/qt-qml/NewStationPage.qml:93
+#, fuzzy
+msgid "Select source"
+msgstr "Выбор источника"
 
 #: omweather/src/weather-simple-settings.c:1035
 #, c-format
@@ -1718,12 +1783,13 @@ msgstr "Датчик"
 msgid "Set"
 msgstr "Набор"
 
-#: omweather/src/hash.data:16
+#: omweather/src/hash.data:16 qtomweather/qt-qml/WeatherPage.qml:184
 msgid "Set locations"
 msgstr "Установите местоположения"
 
 #: omweather/src/weather-home.c:1291 omweather/src/weather-simple-popup.c:1156
 #: omweather/src/weather-simple-status.c:158
+#: qtomweather/qt-qml/SettingsPage.qml:59
 msgid "Settings"
 msgstr "Настройки"
 
@@ -1831,6 +1897,11 @@ msgstr "Источник"
 msgid "Source:"
 msgstr "Источник:"
 
+#: qtomweather/qt-qml/SourcePage.qml:74
+#, fuzzy
+msgid "Sources"
+msgstr "Источник"
+
 #: omweather/src/weather-popup.c:998 omweather/src/weather-popup.c:1004
 #: omweather/src/weather-popup.c:1011 omweather/src/weather-popup.c:1129
 #: omweather/src/weather-popup.c:1135 omweather/src/weather-popup.c:1142
@@ -1854,7 +1925,7 @@ msgid "Station %i"
 msgstr "Станция %i"
 
 #: omweather/src/weather-settings.c:1114 omweather/src/weather-settings.c:1292
-#: omweather/src/weather-settings.c:1297
+#: omweather/src/weather-settings.c:1297 qtomweather/qt-qml/CityPage.qml:87
 msgid "Stations"
 msgstr "Станции"
 
@@ -1874,7 +1945,7 @@ msgstr "Солнечно"
 msgid "Sunny / Wind"
 msgstr "Солнечно / Ветер"
 
-#: omweather/src/hash.data:7
+#: omweather/src/hash.data:7 qtomweather/qt-qml/FullWeatherPage.qml:126
 msgid "Sunrise:"
 msgstr "Восход:"
 
@@ -1882,7 +1953,7 @@ msgstr "Восход:"
 msgid "Sunrise: "
 msgstr "Восход: "
 
-#: omweather/src/hash.data:8
+#: omweather/src/hash.data:8 qtomweather/qt-qml/FullWeatherPage.qml:129
 msgid "Sunset:"
 msgstr "Закат:"
 
@@ -1921,10 +1992,11 @@ msgstr "С утра грозы"
 #: omweather/src/weather-popup.c:947 omweather/src/weather-popup.c:950
 #: omweather/src/weather-popup.c:1080 omweather/src/weather-popup.c:1083
 #: omweather/src/weather-simple-settings.c:1267
+#: qtomweather/qt-qml/UnitsPage.qml:67
 msgid "Temperature"
 msgstr "Температура"
 
-#: omweather/src/hash.data:12
+#: omweather/src/hash.data:12 qtomweather/qt-qml/UnitsPage.qml:31
 msgid "Temperature units"
 msgstr "Единицы температуры"
 
@@ -1961,6 +2033,7 @@ msgstr "Гром"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
+#: qtomweather/qt-qml/WeatherPage.qml:398
 msgid "Today"
 msgstr "Сегодня"
 
@@ -1979,7 +2052,7 @@ msgstr ""
 msgid "Transparency:"
 msgstr "Прозрачность:"
 
-#: omweather/src/hash.data:19
+#: omweather/src/hash.data:19 qtomweather/qt-qml/WeatherPage.qml:358
 msgid "Try to update"
 msgstr "Попробуйте обновить"
 
@@ -1991,6 +2064,7 @@ msgstr "Тип нажатия"
 #: omweather/src/weather-settings.c:1338
 #: omweather/src/weather-simple-settings.c:1251
 #: omweather/src/weather-simple-settings.c:2732
+#: qtomweather/qt-qml/UnitsPage.qml:54
 msgid "Units"
 msgstr "Единицы"
 
@@ -2022,7 +2096,7 @@ msgstr "Обновление"
 msgid "Update already running."
 msgstr "Обновление уже работает."
 
-#: omweather/src/hash.data:11
+#: omweather/src/hash.data:11 qtomweather/qt-qml/WeatherPage.qml:217
 msgid "Updating forecast"
 msgstr "Идет обновление данных о погоде."
 
@@ -2076,7 +2150,7 @@ msgid "Visible:"
 msgstr "Видимость:"
 
 #: omweather/src/weather-settings.c:1121 omweather/src/weather-settings.c:1307
-#: omweather/src/weather-settings.c:1312
+#: omweather/src/weather-settings.c:1312 qtomweather/qt-qml/VisualsPage.qml:44
 msgid "Visuals"
 msgstr "Оформление"
 
@@ -2155,15 +2229,24 @@ msgstr "Стиль виджета и набор иконок"
 msgid "Wind"
 msgstr "Ветер"
 
-#: omweather/src/hash.data:4
+#: omweather/src/hash.data:4 qtomweather/qt-qml/FullWeatherPage.qml:71
+#: qtomweather/qt-qml/FullWeatherPage.qml:102
 msgid "Wind direction:"
 msgstr "Направление ветра:"
 
-#: omweather/src/hash.data:5
+#: qtomweather/qt-qml/FullWeatherPage.qml:83
+#: qtomweather/qt-qml/FullWeatherPage.qml:114
+#, fuzzy
+msgid "Wind gust:"
+msgstr "Ветер:"
+
+#: omweather/src/hash.data:5 qtomweather/qt-qml/FullWeatherPage.qml:77
+#: qtomweather/qt-qml/FullWeatherPage.qml:108
+#: qtomweather/qt-qml/UnitsPage.qml:77
 msgid "Wind speed"
 msgstr "Скорость ветра"
 
-#: omweather/src/hash.data:13
+#: omweather/src/hash.data:13 qtomweather/qt-qml/UnitsPage.qml:41
 msgid "Wind speed units"
 msgstr "Единицы скорости ветра"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-04 22:49+0300\n"
+"POT-Creation-Date: 2011-09-11 10:54+0300\n"
 "PO-Revision-Date: 2010-04-13 21:48+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <dominikowski@gmail.com>\n"
@@ -540,6 +540,11 @@ msgstr "Nie można było nawiązać połączenia z komputerem głównym."
 msgid "Couldn't resolve proxy."
 msgstr "Nie można było rozwiązać proxy."
 
+#: qtomweather/qt-qml/CountryPage.qml:102
+#, fuzzy
+msgid "Countries"
+msgstr "Kraj"
+
 #: omweather/src/weather-simple-settings.c:764
 #: omweather/src/weather-simple-settings.c:2313
 msgid "Country"
@@ -554,6 +559,7 @@ msgid "Custom"
 msgstr ""
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:584
+#: qtomweather/qt-qml/FullWeatherPage.qml:64
 #, fuzzy
 msgid "Day"
 msgstr "Dzień:"
@@ -562,7 +568,7 @@ msgstr "Dzień:"
 msgid "Day length"
 msgstr "Długość dnia"
 
-#: omweather/src/hash.data:6
+#: omweather/src/hash.data:6 qtomweather/qt-qml/FullWeatherPage.qml:132
 #, fuzzy
 msgid "Day length:"
 msgstr "Długość dnia"
@@ -780,6 +786,12 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Pierwsza kwadra"
 
+#: qtomweather/qt-qml/FullWeatherPage.qml:86
+#: qtomweather/qt-qml/FullWeatherPage.qml:117
+#, fuzzy
+msgid "Flike:"
+msgstr "Odczuwalna:"
+
 #: omweather/src/hash.data:88
 msgid "Fog"
 msgstr "Mgła"
@@ -917,6 +929,8 @@ msgstr "Wysokie"
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:722
 #: qtomweather/qt-qml/dataitem.cpp:163
+#: qtomweather/qt-qml/FullWeatherPage.qml:68
+#: qtomweather/qt-qml/FullWeatherPage.qml:99
 msgid "Humidity:"
 msgstr "Wilgotność:"
 
@@ -928,7 +942,12 @@ msgstr "Zestaw ikon:"
 msgid "Icon size:"
 msgstr "Rozmiar ikon:"
 
-#: omweather/src/hash.data:14
+#: qtomweather/qt-qml/VisualsPage.qml:31
+#, fuzzy
+msgid "Icons"
+msgstr "Zestaw ikon:"
+
+#: omweather/src/hash.data:14 qtomweather/qt-qml/VisualsPage.qml:57
 #, fuzzy
 msgid "Iconset"
 msgstr "Zestaw ikon:"
@@ -968,7 +987,7 @@ msgstr "Ostatnia aktualizacja na serwerze: "
 msgid "Last update from server: "
 msgstr "Ostatnia aktualizacja z serwera: "
 
-#: omweather/src/hash.data:9
+#: omweather/src/hash.data:9 qtomweather/qt-qml/FullWeatherPage.qml:135
 #, fuzzy
 msgid "Last update:"
 msgstr "Ostatnia aktualizacja: "
@@ -1076,7 +1095,7 @@ msgstr "Raporty dla alergików"
 msgid "Long"
 msgstr "Długie"
 
-#: omweather/src/hash.data:18
+#: omweather/src/hash.data:18 qtomweather/qt-qml/WeatherPage.qml:344
 #, fuzzy
 msgid "Looks like there's no info for this location."
 msgstr "Brak danych pogodowych dla tej stacji."
@@ -1091,7 +1110,7 @@ msgid ""
 "com>\n"
 msgstr ""
 
-#: omweather/src/hash.data:10
+#: omweather/src/hash.data:10 qtomweather/qt-qml/StationsPage.qml:52
 #, fuzzy
 msgid "Manage locations"
 msgstr "Wybór stacji"
@@ -1099,6 +1118,10 @@ msgstr "Wybór stacji"
 #: omweather/src/weather-simple-settings.c:2240
 msgid "Manual"
 msgstr "Ręcznie"
+
+#: qtomweather/qt-qml/WeatherPage.qml:149
+msgid "MeeCast"
+msgstr ""
 
 #: omweather/src/weather-settings.c:3901
 msgid "Meters"
@@ -1291,11 +1314,17 @@ msgstr "Nigdy"
 msgid "New"
 msgstr "Nów"
 
+#: qtomweather/qt-qml/NewStationPage.qml:38
+#, fuzzy
+msgid "New location"
+msgstr "Wybór stacji"
+
 #: omweather/src/weather-settings.c:4275
 msgid "Next update:"
 msgstr "Następna aktualizacja:"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:588
+#: qtomweather/qt-qml/FullWeatherPage.qml:93
 #, fuzzy
 msgid "Night"
 msgstr "Noc:"
@@ -1312,7 +1341,7 @@ msgstr "Nie"
 msgid "No current weather data."
 msgstr "Brak bieżących danych pogodowych."
 
-#: omweather/src/hash.data:17
+#: omweather/src/hash.data:17 qtomweather/qt-qml/WeatherPage.qml:170
 msgid "No locations are set up yet."
 msgstr ""
 
@@ -1330,7 +1359,7 @@ msgstr "Brak danych pogodowych dla tej stacji."
 #: omweather/src/weather-simple-settings.c:2886
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:592
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:847
-#: qtomweather/qt-qml/dataitem.cpp:171
+#: qtomweather/qt-qml/dataitem.cpp:171 qtomweather/qt-qml/WeatherPage.qml:398
 msgid "Now"
 msgstr "Teraz"
 
@@ -1525,6 +1554,11 @@ msgstr "Okres"
 msgid "Position:"
 msgstr "Położenie:"
 
+#: qtomweather/qt-qml/FullWeatherPage.qml:80
+#: qtomweather/qt-qml/FullWeatherPage.qml:111
+msgid "Ppcp:"
+msgstr ""
+
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836
 msgid "Preference|Update"
@@ -1541,6 +1575,8 @@ msgstr "Jednostki ciśnienia:"
 #: omweather/src/weather-popup.c:1308
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:697
 #: qtomweather/qt-qml/dataitem.cpp:169
+#: qtomweather/qt-qml/FullWeatherPage.qml:74
+#: qtomweather/qt-qml/FullWeatherPage.qml:105
 msgid "Pressure:"
 msgstr "Ciśnienie:"
 
@@ -1643,6 +1679,11 @@ msgstr "Odczytywanie danych czujnika co:"
 msgid "Region"
 msgstr "Region"
 
+#: qtomweather/qt-qml/RegionPage.qml:91
+#, fuzzy
+msgid "Regions"
+msgstr "Region"
+
 #: omweather/src/hash.data:217
 msgid "Rush Hour Traffic"
 msgstr "Ruch w godzinach szczytu"
@@ -1721,10 +1762,34 @@ msgstr "Mile morskie"
 msgid "Search"
 msgstr "Szukaj"
 
+#: qtomweather/qt-qml/NewStationPage.qml:73
+#: qtomweather/qt-qml/NewStationPage.qml:120
+#, fuzzy
+msgid "Select city"
+msgstr "Wybór kraju"
+
+#: qtomweather/qt-qml/NewStationPage.qml:55
+#: qtomweather/qt-qml/NewStationPage.qml:102
+#, fuzzy
+msgid "Select country"
+msgstr "Wybór kraju"
+
 #: omweather/src/weather-simple-settings.c:2168
 #, fuzzy
 msgid "Select location"
 msgstr "Wybór stacji"
+
+#: qtomweather/qt-qml/NewStationPage.qml:64
+#: qtomweather/qt-qml/NewStationPage.qml:111
+#, fuzzy
+msgid "Select region"
+msgstr "Wybór regionu"
+
+#: qtomweather/qt-qml/NewStationPage.qml:46
+#: qtomweather/qt-qml/NewStationPage.qml:93
+#, fuzzy
+msgid "Select source"
+msgstr "Wybór źródła"
 
 #: omweather/src/weather-simple-settings.c:1035
 #, c-format
@@ -1755,13 +1820,14 @@ msgstr "Czujnik"
 msgid "Set"
 msgstr "Ustaw"
 
-#: omweather/src/hash.data:16
+#: omweather/src/hash.data:16 qtomweather/qt-qml/WeatherPage.qml:184
 #, fuzzy
 msgid "Set locations"
 msgstr "Wybór stacji"
 
 #: omweather/src/weather-home.c:1291 omweather/src/weather-simple-popup.c:1156
 #: omweather/src/weather-simple-status.c:158
+#: qtomweather/qt-qml/SettingsPage.qml:59
 msgid "Settings"
 msgstr "Ustawienia"
 
@@ -1869,6 +1935,11 @@ msgstr "Źródło"
 msgid "Source:"
 msgstr "Źródło"
 
+#: qtomweather/qt-qml/SourcePage.qml:74
+#, fuzzy
+msgid "Sources"
+msgstr "Źródło"
+
 #: omweather/src/weather-popup.c:998 omweather/src/weather-popup.c:1004
 #: omweather/src/weather-popup.c:1011 omweather/src/weather-popup.c:1129
 #: omweather/src/weather-popup.c:1135 omweather/src/weather-popup.c:1142
@@ -1892,7 +1963,7 @@ msgid "Station %i"
 msgstr "Stacja %i"
 
 #: omweather/src/weather-settings.c:1114 omweather/src/weather-settings.c:1292
-#: omweather/src/weather-settings.c:1297
+#: omweather/src/weather-settings.c:1297 qtomweather/qt-qml/CityPage.qml:87
 msgid "Stations"
 msgstr "Stacje"
 
@@ -1912,7 +1983,7 @@ msgstr "Słonecznie"
 msgid "Sunny / Wind"
 msgstr "Słonecznie / wiatr"
 
-#: omweather/src/hash.data:7
+#: omweather/src/hash.data:7 qtomweather/qt-qml/FullWeatherPage.qml:126
 #, fuzzy
 msgid "Sunrise:"
 msgstr "Wschód: "
@@ -1921,7 +1992,7 @@ msgstr "Wschód: "
 msgid "Sunrise: "
 msgstr "Wschód: "
 
-#: omweather/src/hash.data:8
+#: omweather/src/hash.data:8 qtomweather/qt-qml/FullWeatherPage.qml:129
 #, fuzzy
 msgid "Sunset:"
 msgstr "Zachód: "
@@ -1963,10 +2034,11 @@ msgstr "Wcześnie burze"
 #: omweather/src/weather-popup.c:947 omweather/src/weather-popup.c:950
 #: omweather/src/weather-popup.c:1080 omweather/src/weather-popup.c:1083
 #: omweather/src/weather-simple-settings.c:1267
+#: qtomweather/qt-qml/UnitsPage.qml:67
 msgid "Temperature"
 msgstr "Temperatura"
 
-#: omweather/src/hash.data:12
+#: omweather/src/hash.data:12 qtomweather/qt-qml/UnitsPage.qml:31
 #, fuzzy
 msgid "Temperature units"
 msgstr "Jednostki temperatury:"
@@ -2005,6 +2077,7 @@ msgstr "Burza"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
+#: qtomweather/qt-qml/WeatherPage.qml:398
 msgid "Today"
 msgstr "Dzisiaj"
 
@@ -2023,7 +2096,7 @@ msgstr ""
 msgid "Transparency:"
 msgstr "Przezroczystość:"
 
-#: omweather/src/hash.data:19
+#: omweather/src/hash.data:19 qtomweather/qt-qml/WeatherPage.qml:358
 #, fuzzy
 msgid "Try to update"
 msgstr "Ostatnia aktualizacja: "
@@ -2036,6 +2109,7 @@ msgstr "Rodzaj kliknięcia:"
 #: omweather/src/weather-settings.c:1338
 #: omweather/src/weather-simple-settings.c:1251
 #: omweather/src/weather-simple-settings.c:2732
+#: qtomweather/qt-qml/UnitsPage.qml:54
 msgid "Units"
 msgstr "Jednostki"
 
@@ -2067,7 +2141,7 @@ msgstr "Zaktualizuj"
 msgid "Update already running."
 msgstr "Aktualizacja w trakcie."
 
-#: omweather/src/hash.data:11
+#: omweather/src/hash.data:11 qtomweather/qt-qml/WeatherPage.qml:217
 #, fuzzy
 msgid "Updating forecast"
 msgstr "Aktualizowanie prognoz"
@@ -2122,7 +2196,7 @@ msgid "Visible:"
 msgstr "Widoczność:"
 
 #: omweather/src/weather-settings.c:1121 omweather/src/weather-settings.c:1307
-#: omweather/src/weather-settings.c:1312
+#: omweather/src/weather-settings.c:1312 qtomweather/qt-qml/VisualsPage.qml:44
 msgid "Visuals"
 msgstr "Wizualne"
 
@@ -2202,16 +2276,25 @@ msgstr "Styl widżetu i zestaw ikon"
 msgid "Wind"
 msgstr "Wiatr"
 
-#: omweather/src/hash.data:4
+#: omweather/src/hash.data:4 qtomweather/qt-qml/FullWeatherPage.qml:71
+#: qtomweather/qt-qml/FullWeatherPage.qml:102
 msgid "Wind direction:"
 msgstr ""
 
-#: omweather/src/hash.data:5
+#: qtomweather/qt-qml/FullWeatherPage.qml:83
+#: qtomweather/qt-qml/FullWeatherPage.qml:114
+#, fuzzy
+msgid "Wind gust:"
+msgstr "Wiatr:"
+
+#: omweather/src/hash.data:5 qtomweather/qt-qml/FullWeatherPage.qml:77
+#: qtomweather/qt-qml/FullWeatherPage.qml:108
+#: qtomweather/qt-qml/UnitsPage.qml:77
 #, fuzzy
 msgid "Wind speed"
 msgstr "Jednostki prędkości wiatru:"
 
-#: omweather/src/hash.data:13
+#: omweather/src/hash.data:13 qtomweather/qt-qml/UnitsPage.qml:41
 #, fuzzy
 msgid "Wind speed units"
 msgstr "Jednostki prędkości wiatru:"

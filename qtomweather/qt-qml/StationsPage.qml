@@ -6,6 +6,7 @@ import com.nokia.meego 1.0
 
 Page {
     id: stations
+    objectName: "stationspage"
     property int margin: 16
     tools: ToolBarLayout {
         ToolIcon {

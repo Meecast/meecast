@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-11 11:05+0300\n"
+"POT-Creation-Date: 2011-09-11 12:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -238,6 +238,7 @@ msgstr ""
 #: omweather/src/weather-simple-popup.c:1163
 #: omweather/src/weather-simple-status.c:179
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:373
+#: qtomweather/qt-qml/AboutPage.qml:68
 msgid "About"
 msgstr ""
 
@@ -929,6 +930,14 @@ msgstr ""
 msgid "Layout:"
 msgstr ""
 
+#: qtomweather/qt-qml/AboutPage.qml:143
+msgid "Lead designer"
+msgstr ""
+
+#: qtomweather/qt-qml/AboutPage.qml:127
+msgid "Lead programmers"
+msgstr ""
+
 #: omweather/src/hash.data:102
 msgid "Light Drizzle"
 msgstr ""
@@ -1041,6 +1050,12 @@ msgstr ""
 
 #: qtomweather/qt-qml/WeatherPage.qml:149
 msgid "MeeCast"
+msgstr ""
+
+#: qtomweather/qt-qml/AboutPage.qml:77
+msgid ""
+"MeeCast - multiplatform highly customizable open source weather forecast "
+"client based on OMWeather code. Copyright @ 2006-2011"
 msgstr ""
 
 #: omweather/src/weather-settings.c:3901
@@ -1488,6 +1503,14 @@ msgstr ""
 
 #: omweather/src/weather-home.c:1393 omweather/src/weather-home.c:1448
 msgid "Pressure: "
+msgstr ""
+
+#: qtomweather/qt-qml/AboutPage.qml:111
+msgid "Project administrator"
+msgstr ""
+
+#: qtomweather/qt-qml/AboutPage.qml:86
+msgid "Project website"
 msgstr ""
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:922

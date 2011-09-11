@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-11 10:54+0300\n"
+"POT-Creation-Date: 2011-09-11 12:32+0300\n"
 "PO-Revision-Date: 2011-09-05 17:49+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -269,6 +269,7 @@ msgstr "ap: Lumikuuroja / Tuulista"
 #: omweather/src/weather-simple-popup.c:1163
 #: omweather/src/weather-simple-status.c:179
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:373
+#: qtomweather/qt-qml/AboutPage.qml:68
 msgid "About"
 msgstr "Tietoja"
 
@@ -1007,6 +1008,14 @@ msgstr "Piha ja puutarha sää"
 msgid "Layout:"
 msgstr "Asettelu:"
 
+#: qtomweather/qt-qml/AboutPage.qml:143
+msgid "Lead designer"
+msgstr ""
+
+#: qtomweather/qt-qml/AboutPage.qml:127
+msgid "Lead programmers"
+msgstr ""
+
 #: omweather/src/hash.data:102
 msgid "Light Drizzle"
 msgstr "Kevyttä tihkusadetta"
@@ -1121,6 +1130,12 @@ msgstr "Manuaalinen"
 
 #: qtomweather/qt-qml/WeatherPage.qml:149
 msgid "MeeCast"
+msgstr ""
+
+#: qtomweather/qt-qml/AboutPage.qml:77
+msgid ""
+"MeeCast - multiplatform highly customizable open source weather forecast "
+"client based on OMWeather code. Copyright @ 2006-2011"
 msgstr ""
 
 #: omweather/src/weather-settings.c:3901
@@ -1570,6 +1585,14 @@ msgstr "Ilmanpaine:"
 #: omweather/src/weather-home.c:1393 omweather/src/weather-home.c:1448
 msgid "Pressure: "
 msgstr "Ilmanpaine: "
+
+#: qtomweather/qt-qml/AboutPage.qml:111
+msgid "Project administrator"
+msgstr ""
+
+#: qtomweather/qt-qml/AboutPage.qml:86
+msgid "Project website"
+msgstr ""
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:922
 msgid "Provided by"

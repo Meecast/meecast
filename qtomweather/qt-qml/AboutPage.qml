@@ -65,7 +65,7 @@ Page {
         }
         Label {
             id: abouttext 
-            text: qsTr("About") + ":"
+            text: Config.tr("About") + ":"
 	    anchors.top: versiontext.bottom 
 	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20
@@ -74,7 +74,7 @@ Page {
         }
 	Label {
             id: aboutfulltext 
-	    text: "MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright @ 2006-2011"
+	    text: Config.tr("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright @ 2006-2011")
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    anchors.top: abouttext.bottom
@@ -83,7 +83,7 @@ Page {
 	}
         Label {
             id: projectsitetext 
-            text: "Project website:"
+            text: Config.tr("Project website") + ":"
 	    anchors.top: aboutfulltext.bottom 
 	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20
@@ -108,7 +108,7 @@ Page {
 
         Label {
             id: projectadministratortext 
-            text: "Project administrator:"
+            text: Config.tr("Project administrator") + ":"
 	    anchors.top: splitter.bottom 
 	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20
@@ -124,7 +124,7 @@ Page {
 	}
         Label {
             id: leadprogrammertext 
-            text: "Lead programmers:"
+            text: Config.tr ("Lead programmers") + ":"
 	    anchors.top: prohectadministatorfulltext.bottom 
 	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20
@@ -140,7 +140,7 @@ Page {
 	}
 	Label {
             id: leaddesignertext 
-            text: "Lead designer:"
+            text: Config.tr("Lead designer") + ":"
 	    anchors.top: leadprogrammerfulltext.bottom 
 	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20

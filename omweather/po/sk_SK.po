@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-11 10:54+0300\n"
+"POT-Creation-Date: 2011-09-11 12:32+0300\n"
 "PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -268,6 +268,7 @@ msgstr "Snehové prehánky / Vietor"
 #: omweather/src/weather-simple-popup.c:1163
 #: omweather/src/weather-simple-status.c:179
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:373
+#: qtomweather/qt-qml/AboutPage.qml:68
 msgid "About"
 msgstr "O aplikácií"
 
@@ -1008,6 +1009,14 @@ msgstr "Počasie pre trávnik a záhradu"
 msgid "Layout:"
 msgstr "Rozloženie:"
 
+#: qtomweather/qt-qml/AboutPage.qml:143
+msgid "Lead designer"
+msgstr ""
+
+#: qtomweather/qt-qml/AboutPage.qml:127
+msgid "Lead programmers"
+msgstr ""
+
 #: omweather/src/hash.data:102
 msgid "Light Drizzle"
 msgstr "Slabé mrholenie"
@@ -1125,6 +1134,12 @@ msgstr "Ručné"
 
 #: qtomweather/qt-qml/WeatherPage.qml:149
 msgid "MeeCast"
+msgstr ""
+
+#: qtomweather/qt-qml/AboutPage.qml:77
+msgid ""
+"MeeCast - multiplatform highly customizable open source weather forecast "
+"client based on OMWeather code. Copyright @ 2006-2011"
 msgstr ""
 
 #: omweather/src/weather-settings.c:3901
@@ -1576,6 +1591,14 @@ msgstr "Tlak:"
 #: omweather/src/weather-home.c:1393 omweather/src/weather-home.c:1448
 msgid "Pressure: "
 msgstr "Tlak:"
+
+#: qtomweather/qt-qml/AboutPage.qml:111
+msgid "Project administrator"
+msgstr ""
+
+#: qtomweather/qt-qml/AboutPage.qml:86
+msgid "Project website"
+msgstr ""
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:922
 msgid "Provided by"

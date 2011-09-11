@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-11 10:54+0300\n"
+"POT-Creation-Date: 2011-09-11 12:32+0300\n"
 "PO-Revision-Date: 2011-02-11 20:54+0100\n"
 "Last-Translator: Claudius Henrichs <claudius.h@gmx.de>\n"
 "Language-Team: Claudius Henrichs <claudius.h@gmx.de>\n"
@@ -264,6 +264,7 @@ msgstr "Schneeschauer / Wind"
 #: omweather/src/weather-simple-popup.c:1163
 #: omweather/src/weather-simple-status.c:179
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:373
+#: qtomweather/qt-qml/AboutPage.qml:68
 msgid "About"
 msgstr "Info"
 
@@ -1014,6 +1015,14 @@ msgstr "Gartenwetter"
 msgid "Layout:"
 msgstr "Layout:"
 
+#: qtomweather/qt-qml/AboutPage.qml:143
+msgid "Lead designer"
+msgstr ""
+
+#: qtomweather/qt-qml/AboutPage.qml:127
+msgid "Lead programmers"
+msgstr ""
+
 #: omweather/src/hash.data:102
 msgid "Light Drizzle"
 msgstr "Leichter Nieselregen"
@@ -1128,6 +1137,12 @@ msgstr "Manuell"
 
 #: qtomweather/qt-qml/WeatherPage.qml:149
 msgid "MeeCast"
+msgstr ""
+
+#: qtomweather/qt-qml/AboutPage.qml:77
+msgid ""
+"MeeCast - multiplatform highly customizable open source weather forecast "
+"client based on OMWeather code. Copyright @ 2006-2011"
 msgstr ""
 
 #: omweather/src/weather-settings.c:3901
@@ -1584,6 +1599,14 @@ msgstr "Luftdruck: "
 #: omweather/src/weather-home.c:1393 omweather/src/weather-home.c:1448
 msgid "Pressure: "
 msgstr "Luftdruck: "
+
+#: qtomweather/qt-qml/AboutPage.qml:111
+msgid "Project administrator"
+msgstr ""
+
+#: qtomweather/qt-qml/AboutPage.qml:86
+msgid "Project website"
+msgstr ""
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:922
 msgid "Provided by"

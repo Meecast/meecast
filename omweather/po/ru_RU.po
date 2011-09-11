@@ -526,9 +526,8 @@ msgid "Couldn't resolve proxy."
 msgstr "Не могу получить адрес прокси."
 
 #: qtomweather/qt-qml/CountryPage.qml:102
-#, fuzzy
 msgid "Countries"
-msgstr "Страна"
+msgstr "Страны"
 
 #: omweather/src/weather-simple-settings.c:764
 #: omweather/src/weather-simple-settings.c:2313
@@ -771,7 +770,6 @@ msgstr "Первая четверть"
 
 #: qtomweather/qt-qml/FullWeatherPage.qml:86
 #: qtomweather/qt-qml/FullWeatherPage.qml:117
-#, fuzzy
 msgid "Flike:"
 msgstr "По ощущениям:"
 
@@ -926,9 +924,8 @@ msgid "Icon size:"
 msgstr "Размер иконок:"
 
 #: qtomweather/qt-qml/VisualsPage.qml:31
-#, fuzzy
 msgid "Icons"
-msgstr "Набор иконок"
+msgstr "Наборы иконок"
 
 #: omweather/src/hash.data:14 qtomweather/qt-qml/VisualsPage.qml:57
 msgid "Iconset"
@@ -1290,9 +1287,8 @@ msgid "New"
 msgstr "Новолуние"
 
 #: qtomweather/qt-qml/NewStationPage.qml:38
-#, fuzzy
 msgid "New location"
-msgstr "Установите местоположения"
+msgstr "Новое местоположение"
 
 #: omweather/src/weather-settings.c:4275
 msgid "Next update:"
@@ -1644,9 +1640,8 @@ msgid "Region"
 msgstr "Район"
 
 #: qtomweather/qt-qml/RegionPage.qml:91
-#, fuzzy
 msgid "Regions"
-msgstr "Район"
+msgstr "Районы"
 
 #: omweather/src/hash.data:217
 msgid "Rush Hour Traffic"
@@ -1728,15 +1723,13 @@ msgstr "Поиск"
 
 #: qtomweather/qt-qml/NewStationPage.qml:73
 #: qtomweather/qt-qml/NewStationPage.qml:120
-#, fuzzy
 msgid "Select city"
-msgstr "Выбор страны"
+msgstr "Выберите город"
 
 #: qtomweather/qt-qml/NewStationPage.qml:55
 #: qtomweather/qt-qml/NewStationPage.qml:102
-#, fuzzy
 msgid "Select country"
-msgstr "Выбор страны"
+msgstr "Выберите страну"
 
 #: omweather/src/weather-simple-settings.c:2168
 msgid "Select location"
@@ -1744,15 +1737,13 @@ msgstr "Выберите местоположение"
 
 #: qtomweather/qt-qml/NewStationPage.qml:64
 #: qtomweather/qt-qml/NewStationPage.qml:111
-#, fuzzy
 msgid "Select region"
-msgstr "Выбор района"
+msgstr "Выберите область"
 
 #: qtomweather/qt-qml/NewStationPage.qml:46
 #: qtomweather/qt-qml/NewStationPage.qml:93
-#, fuzzy
 msgid "Select source"
-msgstr "Выбор источника"
+msgstr "Выберите источник"
 
 #: omweather/src/weather-simple-settings.c:1035
 #, c-format
@@ -1898,9 +1889,8 @@ msgid "Source:"
 msgstr "Источник:"
 
 #: qtomweather/qt-qml/SourcePage.qml:74
-#, fuzzy
 msgid "Sources"
-msgstr "Источник"
+msgstr "Источники"
 
 #: omweather/src/weather-popup.c:998 omweather/src/weather-popup.c:1004
 #: omweather/src/weather-popup.c:1011 omweather/src/weather-popup.c:1129
@@ -2236,9 +2226,8 @@ msgstr "Направление ветра:"
 
 #: qtomweather/qt-qml/FullWeatherPage.qml:83
 #: qtomweather/qt-qml/FullWeatherPage.qml:114
-#, fuzzy
 msgid "Wind gust:"
-msgstr "Ветер:"
+msgstr "Порывы ветра:"
 
 #: omweather/src/hash.data:5 qtomweather/qt-qml/FullWeatherPage.qml:77
 #: qtomweather/qt-qml/FullWeatherPage.qml:108

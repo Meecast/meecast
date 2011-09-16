@@ -1328,7 +1328,7 @@ msgstr "Нет данных для текущей погоды."
 
 #: omweather/src/hash.data:17 qtomweather/qt-qml/WeatherPage.qml:170
 msgid "No locations are set up yet."
-msgstr "Местоположения еще не выабраны."
+msgstr "Местоположения еще не выбраны."
 
 #: omweather/src/weather-popup.c:657
 msgid "No weather data for this day."

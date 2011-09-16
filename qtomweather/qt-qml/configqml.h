@@ -91,7 +91,7 @@ public:
     Q_INVOKABLE QStringList temperature_list();
     Q_INVOKABLE void temperature_unit(QString c);
     Q_INVOKABLE QStringList windspeed_list();
-    Q_INVOKABLE void windspeed_unit(QString c);
+    Q_INVOKABLE void windspeed_unit(int index);
     Q_INVOKABLE QStringList icon_list();
     Q_INVOKABLE void set_iconset(QString c);
     Q_INVOKABLE QString tr(QString str);
@@ -120,6 +120,7 @@ private:
     int getCountryId(int index);
     int getRegionId(int country, int index);
     QString getCityId(int region_id, int index);
+    QStringList wind_list;
 private slots:
     void downloadFinishedSlot();
 

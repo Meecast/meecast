@@ -41,7 +41,7 @@ Page {
         titleText: Config.tr("Wind speed units")
         selectedIndex: -1
         onAccepted: {
-            Config.windspeed_unit(selectedText);
+            Config.windspeed_unit(selectedIndex);
         }
 
     }

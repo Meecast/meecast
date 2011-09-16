@@ -37,6 +37,8 @@ ConfigQml::ConfigQml(const std::string& filename, const std::string& schema_file
 
     thread = new UpdateThread();
     connect(thread, SIGNAL(finished()), this, SLOT(downloadFinishedSlot()));
+
+    wind_list << "m/s" << "km/h" << "mi/h";
 }
 
 ConfigQml::ConfigQml():QObject(),Core::Config(){
@@ -44,6 +46,8 @@ db = new Core::DatabaseSqlite("");
 
     thread = new UpdateThread();
     connect(thread, SIGNAL(finished()), this, SLOT(downloadFinishedSlot()));
+
+    wind_list << "m/s" << "km/h" << "mi/h";
 }
 
 QString
@@ -140,12 +144,14 @@ ConfigQml::windspeedunit(){
 QStringList ConfigQml::windspeed_list()
 {
     QStringList l;
-    l << "m/s" << "km/h" << "mi/h";
+    for (int i=0; i < wind_list.size(); i++){
+        l.append(QString(QString::fromUtf8(_(wind_list.at(i).toStdString().c_str()))));
+    }
     return l;
 }
-void ConfigQml::windspeed_unit(QString c)
+void ConfigQml::windspeed_unit(int index)
 {
-    ConfigQml::Config::WindSpeedUnit(c.toStdString());
+    ConfigQml::Config::WindSpeedUnit(wind_list.at(index).toStdString());
     saveConfig();
     refreshconfig();
 }

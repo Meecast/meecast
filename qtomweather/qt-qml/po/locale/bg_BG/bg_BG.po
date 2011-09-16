@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-11 18:47+0300\n"
+"POT-Creation-Date: 2011-09-16 09:17+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1055,7 +1055,7 @@ msgstr ""
 #: qtomweather/qt-qml/AboutPage.qml:77
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright @ 2006-2011"
+"client based on OMWeather code. Copyright (C) 2006-2011"
 msgstr ""
 
 #: omweather/src/weather-settings.c:3901

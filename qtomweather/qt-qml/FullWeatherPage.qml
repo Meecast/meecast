@@ -9,6 +9,7 @@ Page {
     property string day_period: "day"
     property string day_period_name: ""
     property string image_source: ""
+    property string description_text: ""
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"
@@ -64,7 +65,9 @@ Page {
 	    day_period_name = Config.tr("Day")
 	    image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(day, "pict")
             current_rect.color = getColor(Forecast_model.getdata(day, "temp_high"));
-	    description = Forecast_model.getdata(day, "decription")
+	    description_text = Forecast_model.getdata(day, "description") ? Forecast_model.getdata(day, "description") : ""
+
+	   
   	    if ((Forecast_model.getdata(day, "humidity")) != "N/A")
                 condition.append({cond_name: Config.tr("Humidity:"),
 			 value: Forecast_model.getdata(day, "humidity")+'%'});
@@ -96,7 +99,7 @@ Page {
             toolbarday.checked = false;
             image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_night_model.getdata(day, "pict");
             current_rect.color = getColor(Forecast_model.getdata(day, "temp_low"));
-	    description = Forecast_night_model.getdata(day, "decription")
+	    description_text = Forecast_night_model.getdata(day, "description") ? Forecast_night_model.getdata(day, "description") : "" 
 	    if ((Forecast_night_model.getdata(day, "humidity")) != "N/A")
                 condition.append({cond_name: Config.tr("Humidity:"),
 			 value: Forecast_night_model.getdata(day, "humidity")+'%'});
@@ -307,7 +310,7 @@ Page {
             }
             Text {
                 id: desc
-                text: description 
+                text: description_text 
                 anchors.left: parent.left
                 anchors.top: now.bottom
                 width: current_rect.width

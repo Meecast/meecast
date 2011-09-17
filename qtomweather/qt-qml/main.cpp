@@ -131,7 +131,6 @@ int main(int argc, char* argv[])
     //update_weather_forecast(config);
     
     QDeclarativeView *qview;
-    QObject::connect((QObject*)qview->engine(), SIGNAL(quit()), &app, SLOT(quit()));
     qview = controller->qview();
 
     //SelectModel model;
@@ -151,6 +150,7 @@ int main(int argc, char* argv[])
                                                                 Core::AbstractConfig::sharePath +
                                                                 Core::AbstractConfig::layoutqml)));
     /* Trying to make fullscreen http://wiki.meego.com/QML/Full-screen_applications */
+    QObject::connect((QObject*)qview->engine(), SIGNAL(quit()), &app, SLOT(quit()));
     qview->setResizeMode(QDeclarativeView::SizeRootObjectToView);
     //qview->setGeometry(QRect(0,0,854,480));
     qview->showFullScreen();

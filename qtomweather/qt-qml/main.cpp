@@ -126,12 +126,12 @@ int main(int argc, char* argv[])
     connection.registerObject("/org/meego/omweather", controller);
     
 
-
     //config = controller->config();
     //std::cerr<<"iconpath = "<<config->imagespath().toStdString() << std::endl;
     //update_weather_forecast(config);
     
     QDeclarativeView *qview;
+    QObject::connect((QObject*)qview->engine(), SIGNAL(quit()), &app, SLOT(quit()));
     qview = controller->qview();
 
     //SelectModel model;

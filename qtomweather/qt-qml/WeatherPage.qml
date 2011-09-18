@@ -363,7 +363,7 @@ Page {
                     }
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.bottom: parent.bottom
-                    anchors.bottomMargin: 30
+                    anchors.bottomMargin: 50
                 }
 
             }

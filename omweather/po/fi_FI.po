@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-09-16 09:17+0300\n"
-"PO-Revision-Date: 2011-09-19 20:35+0200\n"
+"PO-Revision-Date: 2011-09-19 21:19+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
 "Language: \n"
@@ -961,7 +961,7 @@ msgstr "Kuvakkeet"
 #: omweather/src/hash.data:14
 #: qtomweather/qt-qml/VisualsPage.qml:57
 msgid "Iconset"
-msgstr "Kuvakke"
+msgstr "Kuvakkeet"
 
 #: omweather/src/hash.data:15
 msgid "Iconsets"
@@ -1581,7 +1581,7 @@ msgstr "Sijainti:"
 #: qtomweather/qt-qml/FullWeatherPage.qml:80
 #: qtomweather/qt-qml/FullWeatherPage.qml:111
 msgid "Ppcp:"
-msgstr ""
+msgstr "Sateen todennäköisyys:"
 
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836

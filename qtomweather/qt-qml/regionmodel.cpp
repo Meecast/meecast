@@ -62,11 +62,13 @@ RegionModel::populate(QString source, QString country)
     Core::listdata * list = db->create_region_list(country.toInt());
 
     if (list->size() == 0) return;
-    Core::listdata::iterator cur;
-    for (cur=list->begin(); cur<list->end(); cur++){
-        QString str = QString::fromStdString((*cur).second);
-        _list.append(new SelectData(str, QString::fromStdString((*cur).first), str.left(1)));
+    qDebug() << "list size = " << list->size() << " at 0 " << QString::fromStdString(list->at(0).second);
+    for (int i=0; i < list->size(); i++){
+        QString str = QString::fromStdString(list->at(i).second);
+        _list.append(new SelectData(str, QString::fromStdString(list->at(i).first), str.left(1)));
+
     }
     endInsertRows();
     reset();
+
 }

@@ -48,7 +48,7 @@ Page {
 			    onClicked: {
 				console.log(model.key);
 				region_model.populate(source, model.key);
-				pageStack.push(Qt.resolvedUrl("RegionPage.qml"),
+                                pageStack.push(Qt.resolvedUrl("RegionPage.qml"),
 					       {source: source, source_id: source_id, country_name: model.name}
 					       );
 

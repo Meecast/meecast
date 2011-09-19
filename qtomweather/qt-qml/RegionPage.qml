@@ -69,6 +69,7 @@ Page {
             flickableItem: regionlist
         }
     }
+
     SectionScroller {
         listView: regionlist
     }

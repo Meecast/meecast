@@ -1,8 +1,13 @@
 meecast (0.3.27) unstable; urgency=low
 
-  * Test 
+  * Adapted for Fremantle (N900)
+  * Fixed wind speed units translation 
+  * Fixed bug with night description
+  * Changed copyright symbol in About window
+  * Fixed Russian translation
+  * changed icon for deb package
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 11 Sep 2011 13:04:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 19 Sep 2011 12:54:20 +0200
 
 meecast (0.3.26) unstable; urgency=low
 

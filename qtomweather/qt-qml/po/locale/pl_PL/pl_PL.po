@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-16 09:17+0300\n"
+"POT-Creation-Date: 2011-09-20 08:48+0300\n"
 "PO-Revision-Date: 2010-04-13 21:48+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <dominikowski@gmail.com>\n"
@@ -560,7 +560,7 @@ msgid "Custom"
 msgstr ""
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:584
-#: qtomweather/qt-qml/FullWeatherPage.qml:64
+#: qtomweather/qt-qml/FullWeatherPage.qml:65
 #, fuzzy
 msgid "Day"
 msgstr "Dzień:"
@@ -569,7 +569,7 @@ msgstr "Dzień:"
 msgid "Day length"
 msgstr "Długość dnia"
 
-#: omweather/src/hash.data:6 qtomweather/qt-qml/FullWeatherPage.qml:132
+#: omweather/src/hash.data:6 qtomweather/qt-qml/FullWeatherPage.qml:137
 #, fuzzy
 msgid "Day length:"
 msgstr "Długość dnia"
@@ -787,8 +787,8 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Pierwsza kwadra"
 
-#: qtomweather/qt-qml/FullWeatherPage.qml:86
-#: qtomweather/qt-qml/FullWeatherPage.qml:117
+#: qtomweather/qt-qml/FullWeatherPage.qml:90
+#: qtomweather/qt-qml/FullWeatherPage.qml:122
 #, fuzzy
 msgid "Flike:"
 msgstr "Odczuwalna:"
@@ -930,8 +930,8 @@ msgstr "Wysokie"
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:722
 #: qtomweather/qt-qml/dataitem.cpp:163
-#: qtomweather/qt-qml/FullWeatherPage.qml:68
-#: qtomweather/qt-qml/FullWeatherPage.qml:99
+#: qtomweather/qt-qml/FullWeatherPage.qml:72
+#: qtomweather/qt-qml/FullWeatherPage.qml:104
 msgid "Humidity:"
 msgstr "Wilgotność:"
 
@@ -988,7 +988,7 @@ msgstr "Ostatnia aktualizacja na serwerze: "
 msgid "Last update from server: "
 msgstr "Ostatnia aktualizacja z serwera: "
 
-#: omweather/src/hash.data:9 qtomweather/qt-qml/FullWeatherPage.qml:135
+#: omweather/src/hash.data:9 qtomweather/qt-qml/FullWeatherPage.qml:140
 #, fuzzy
 msgid "Last update:"
 msgstr "Ostatnia aktualizacja: "
@@ -1104,7 +1104,7 @@ msgstr "Raporty dla alergików"
 msgid "Long"
 msgstr "Długie"
 
-#: omweather/src/hash.data:18 qtomweather/qt-qml/WeatherPage.qml:344
+#: omweather/src/hash.data:18 qtomweather/qt-qml/WeatherPage.qml:346
 #, fuzzy
 msgid "Looks like there's no info for this location."
 msgstr "Brak danych pogodowych dla tej stacji."
@@ -1128,7 +1128,7 @@ msgstr "Wybór stacji"
 msgid "Manual"
 msgstr "Ręcznie"
 
-#: qtomweather/qt-qml/WeatherPage.qml:149
+#: qtomweather/qt-qml/WeatherPage.qml:151
 msgid "MeeCast"
 msgstr ""
 
@@ -1339,7 +1339,7 @@ msgid "Next update:"
 msgstr "Następna aktualizacja:"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:588
-#: qtomweather/qt-qml/FullWeatherPage.qml:93
+#: qtomweather/qt-qml/FullWeatherPage.qml:97
 #, fuzzy
 msgid "Night"
 msgstr "Noc:"
@@ -1356,7 +1356,7 @@ msgstr "Nie"
 msgid "No current weather data."
 msgstr "Brak bieżących danych pogodowych."
 
-#: omweather/src/hash.data:17 qtomweather/qt-qml/WeatherPage.qml:170
+#: omweather/src/hash.data:17 qtomweather/qt-qml/WeatherPage.qml:172
 msgid "No locations are set up yet."
 msgstr ""
 
@@ -1374,7 +1374,7 @@ msgstr "Brak danych pogodowych dla tej stacji."
 #: omweather/src/weather-simple-settings.c:2886
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:592
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:847
-#: qtomweather/qt-qml/dataitem.cpp:171 qtomweather/qt-qml/WeatherPage.qml:398
+#: qtomweather/qt-qml/dataitem.cpp:171 qtomweather/qt-qml/WeatherPage.qml:400
 msgid "Now"
 msgstr "Teraz"
 
@@ -1569,8 +1569,8 @@ msgstr "Okres"
 msgid "Position:"
 msgstr "Położenie:"
 
-#: qtomweather/qt-qml/FullWeatherPage.qml:80
-#: qtomweather/qt-qml/FullWeatherPage.qml:111
+#: qtomweather/qt-qml/FullWeatherPage.qml:84
+#: qtomweather/qt-qml/FullWeatherPage.qml:116
 msgid "Ppcp:"
 msgstr ""
 
@@ -1590,8 +1590,8 @@ msgstr "Jednostki ciśnienia:"
 #: omweather/src/weather-popup.c:1308
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:697
 #: qtomweather/qt-qml/dataitem.cpp:169
-#: qtomweather/qt-qml/FullWeatherPage.qml:74
-#: qtomweather/qt-qml/FullWeatherPage.qml:105
+#: qtomweather/qt-qml/FullWeatherPage.qml:78
+#: qtomweather/qt-qml/FullWeatherPage.qml:110
 msgid "Pressure:"
 msgstr "Ciśnienie:"
 
@@ -1702,7 +1702,7 @@ msgstr "Odczytywanie danych czujnika co:"
 msgid "Region"
 msgstr "Region"
 
-#: qtomweather/qt-qml/RegionPage.qml:91
+#: qtomweather/qt-qml/RegionPage.qml:92
 #, fuzzy
 msgid "Regions"
 msgstr "Region"
@@ -1843,7 +1843,7 @@ msgstr "Czujnik"
 msgid "Set"
 msgstr "Ustaw"
 
-#: omweather/src/hash.data:16 qtomweather/qt-qml/WeatherPage.qml:184
+#: omweather/src/hash.data:16 qtomweather/qt-qml/WeatherPage.qml:186
 #, fuzzy
 msgid "Set locations"
 msgstr "Wybór stacji"
@@ -2006,7 +2006,7 @@ msgstr "Słonecznie"
 msgid "Sunny / Wind"
 msgstr "Słonecznie / wiatr"
 
-#: omweather/src/hash.data:7 qtomweather/qt-qml/FullWeatherPage.qml:126
+#: omweather/src/hash.data:7 qtomweather/qt-qml/FullWeatherPage.qml:131
 #, fuzzy
 msgid "Sunrise:"
 msgstr "Wschód: "
@@ -2015,7 +2015,7 @@ msgstr "Wschód: "
 msgid "Sunrise: "
 msgstr "Wschód: "
 
-#: omweather/src/hash.data:8 qtomweather/qt-qml/FullWeatherPage.qml:129
+#: omweather/src/hash.data:8 qtomweather/qt-qml/FullWeatherPage.qml:134
 #, fuzzy
 msgid "Sunset:"
 msgstr "Zachód: "
@@ -2105,7 +2105,7 @@ msgstr "Burza"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
-#: qtomweather/qt-qml/WeatherPage.qml:398
+#: qtomweather/qt-qml/WeatherPage.qml:400
 msgid "Today"
 msgstr "Dzisiaj"
 
@@ -2124,7 +2124,7 @@ msgstr ""
 msgid "Transparency:"
 msgstr "Przezroczystość:"
 
-#: omweather/src/hash.data:19 qtomweather/qt-qml/WeatherPage.qml:358
+#: omweather/src/hash.data:19 qtomweather/qt-qml/WeatherPage.qml:360
 #, fuzzy
 msgid "Try to update"
 msgstr "Ostatnia aktualizacja: "
@@ -2169,7 +2169,7 @@ msgstr "Zaktualizuj"
 msgid "Update already running."
 msgstr "Aktualizacja w trakcie."
 
-#: omweather/src/hash.data:11 qtomweather/qt-qml/WeatherPage.qml:217
+#: omweather/src/hash.data:11 qtomweather/qt-qml/WeatherPage.qml:219
 #, fuzzy
 msgid "Updating forecast"
 msgstr "Aktualizowanie prognoz"
@@ -2304,19 +2304,19 @@ msgstr "Styl widżetu i zestaw ikon"
 msgid "Wind"
 msgstr "Wiatr"
 
-#: omweather/src/hash.data:4 qtomweather/qt-qml/FullWeatherPage.qml:71
-#: qtomweather/qt-qml/FullWeatherPage.qml:102
+#: omweather/src/hash.data:4 qtomweather/qt-qml/FullWeatherPage.qml:75
+#: qtomweather/qt-qml/FullWeatherPage.qml:107
 msgid "Wind direction:"
 msgstr ""
 
-#: qtomweather/qt-qml/FullWeatherPage.qml:83
-#: qtomweather/qt-qml/FullWeatherPage.qml:114
+#: qtomweather/qt-qml/FullWeatherPage.qml:87
+#: qtomweather/qt-qml/FullWeatherPage.qml:119
 #, fuzzy
 msgid "Wind gust:"
 msgstr "Wiatr:"
 
-#: omweather/src/hash.data:5 qtomweather/qt-qml/FullWeatherPage.qml:77
-#: qtomweather/qt-qml/FullWeatherPage.qml:108
+#: omweather/src/hash.data:5 qtomweather/qt-qml/FullWeatherPage.qml:81
+#: qtomweather/qt-qml/FullWeatherPage.qml:113
 #: qtomweather/qt-qml/UnitsPage.qml:77
 #, fuzzy
 msgid "Wind speed"

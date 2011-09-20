@@ -130,6 +130,8 @@ get_data_from_russia_data(gchar *temp_string){
     gchar buffer[256];
     gchar temp_buffer[256];
     struct tm   tmp_tm = {0};
+    time_t t;
+    struct tm   * tmp_tm1;
     gchar *temp_point;
     memset(buffer, 0, sizeof(buffer));
     memset(temp_buffer, 0, sizeof(temp_buffer));
@@ -168,6 +170,10 @@ get_data_from_russia_data(gchar *temp_string){
     snprintf(temp_buffer, 6, "%s", temp_point);
     strcat(buffer, temp_buffer);
     strptime(buffer, "%d %b %Y", &tmp_tm);
+    t = mktime(&tmp_tm);
+    tmp_tm1 = localtime(&t);
+    tmp_tm = *tmp_tm1;
+
     return tmp_tm;
 }
 /*******************************************************************************/
@@ -473,6 +479,8 @@ get_date_for_current_weather(gchar *temp_string){
     gchar buffer[512];
     gchar temp_buffer[256];
     struct tm   tmp_tm = {0};
+    time_t t;
+    struct tm   * tmp_tm1;
     gchar *temp_point;
     gchar *temp_char;
     time_t rawtime;
@@ -520,6 +528,9 @@ get_date_for_current_weather(gchar *temp_string){
     strcat(buffer, temp_buffer);
     /* fprintf(stderr, "\n%s\n", buffer); */
     strptime(buffer, "%d %b %Y %T", &tmp_tm);
+    t = mktime(&tmp_tm);
+    tmp_tm1 = localtime(&t);
+    tmp_tm = *tmp_tm1;
     /* fprintf(stderr, "\ntmp_tm min %d\n", (&tmp_tm)->tm_min); */
     return tmp_tm;
 }

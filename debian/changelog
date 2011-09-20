@@ -1,8 +1,10 @@
 meecast (0.3.28) unstable; urgency=low
 
-  * Test
+  * Updated Finish translation 
+  * Adapted for new QTComponents
+  * Fixed problem with periodically crashing 
 
- -- Vlad Vasiliev <vlad@gas.by>  Mon, 19 Sep 2011 12:54:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 20 Sep 2011 12:54:20 +0200
 
 meecast (0.3.27) unstable; urgency=low
 

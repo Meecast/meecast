@@ -84,9 +84,11 @@ icon64.path = /usr/share/pixmaps
 icon64.files += omweather.png
 qml.files = *.qml *.js
 qml.path = /opt/com.meecast.omweather/share/omweather/qml
+searchicon.files += gfx/*.png
+searchicon.path += /opt/com.meecast.omweather/share/omweather/qml
 
 #INSTALLS += desktop qml icon64
-INSTALLS += desktop qml 
+INSTALLS += desktop qml searchicon.path
 
 DATADIR=/opt/com.meecast.omweather/share
 

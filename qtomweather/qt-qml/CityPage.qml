@@ -46,7 +46,7 @@ Page {
                     }
                 }
             }
-        }
+        }/*
         section {
             property: "category"
             criteria: ViewSection.FullString
@@ -65,11 +65,21 @@ Page {
         }
         ScrollDecorator {
             flickableItem: citylist
-        }
+        }*/
+                AdaptiveSearch {
+                    id: adaptive
+                    anchors.fill: parent
+                    model: parent.model
+
+                    onFilterUpdated: {
+                        citylist.model = adaptive.filtermodel
+                    }
+                }
     }
+    /*
     SectionScroller {
         listView: citylist
-    }
+    }*/
     Rectangle {
       id: labelrect
       anchors.top: parent.top

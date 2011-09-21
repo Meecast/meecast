@@ -57,7 +57,7 @@ Page {
 			
 		    }
 		}
-
+                /*
 		section {
 		    property: "category"
 		    criteria: ViewSection.FullString
@@ -73,11 +73,11 @@ Page {
 			}
 		    }
 
-		}
+                }
 		
 		ScrollDecorator {
 		    flickableItem: countrylist
-		}
+                }*/
 
                 AdaptiveSearch {
                     id: adaptive
@@ -88,10 +88,10 @@ Page {
                         countrylist.model = adaptive.filtermodel
                     }
                 }
-	    }
+            }/*
 	    SectionScroller {
 		listView: countrylist
-	    }
+            }*/
 
 
     }

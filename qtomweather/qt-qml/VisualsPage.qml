@@ -66,7 +66,7 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             text: Config.tr("FullScreen")
             checkable: true
-            checked: rootWindow.showStatusBar
+            checked: !rootWindow.showStatusBar
             onClicked: {
                 rootWindow.showStatusBar = !rootWindow.showStatusBar;
             }

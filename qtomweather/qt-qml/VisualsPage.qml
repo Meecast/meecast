@@ -62,6 +62,15 @@ Page {
                 icon_dlg.selectedIndex = units.getIndex(icon_dlg.model, Config.iconset);
             }
         }
+        Button {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: Config.tr("FullScreen")
+            checkable: true
+            checked: rootWindow.showStatusBar
+            onClicked: {
+                rootWindow.showStatusBar = !rootWindow.showStatusBar;
+            }
+        }
 
     }
 

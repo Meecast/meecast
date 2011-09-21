@@ -1,8 +1,10 @@
 meecast (0.3.29) unstable; urgency=low
 
-  * test 
+  * fixed problem with refresh button fro Fremantle
+  * fixed problem with wind_speed for value "N/A"
+  * added translators to window About
 
- -- Vlad Vasiliev <vlad@gas.by>  Mon, 20 Sep 2011 12:54:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 21 Sep 2011 12:24:20 +0200
 
 meecast (0.3.28) unstable; urgency=low
 
@@ -10,7 +12,7 @@ meecast (0.3.28) unstable; urgency=low
   * Adapted for new QTComponents
   * Fixed problem with periodically crashing 
 
- -- Vlad Vasiliev <vlad@gas.by>  Mon, 20 Sep 2011 12:54:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Tue, 20 Sep 2011 12:54:20 +0200
 
 meecast (0.3.27) unstable; urgency=low
 

@@ -1,6 +1,6 @@
 //import QtQuick 1.1
 import Qt 4.7
-import org.maemo.fremantle 1.0
+import com.nokia.meego 1.0
 
 Page {
     id: about
@@ -17,7 +17,8 @@ Page {
     Flickable {
         anchors.fill: parent
         flickableDirection: Flickable.VerticalFlick
-        clip: true
+//        clip: true
+        contentHeight: 1200
         Label {
             id: titletext
             text: "MeeCast for Harmattan"

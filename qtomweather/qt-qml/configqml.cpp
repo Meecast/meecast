@@ -515,5 +515,5 @@ ConfigQml::reload_config()
 QString
 ConfigQml::tr(QString str)
 {
-    return QString(QString::fromUtf8(_(str.toAscii())));
+    return QString(QString::fromUtf8(_(str.toUtf8())));
 }

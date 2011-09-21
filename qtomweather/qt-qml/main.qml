@@ -9,6 +9,8 @@ PageStackWindow {
     id: rootWindow
 
     platformStyle: defaultStyle;
+    showStatusBar: false;
+    showToolBar: false;
 
     PageStackWindowStyle { id: defaultStyle }
     PageStackWindowStyle {

@@ -19,35 +19,43 @@ Page {
 
     }
     orientationLock: PageOrientation.LockPortrait
+    Rectangle {
+        id: rect
+        anchors.top: labelrect.bottom
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        width: parent.width
+        color: Qt.rgba(0, 0, 0, 0.1)
+        ListView {
+            id: citylist
+            anchors.top: rect.top
+            anchors.bottom: rect.bottom
+            anchors.fill: rect
+            model: city_model
 
-    ListView {
-        id: citylist
-        anchors.fill: parent
-        model: city_model
-
-        delegate: Component {
-            id: listdelegate
-            Item {
-                width: parent.width
-                height: 50
-                Text {
-                    text: model.name
-                    color: "white"
-                    font.pointSize: 30
+            delegate: Component {
+                id: listdelegate
+                Item {
+                    width: parent.width
                     height: 50
-                }
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        console.log(model.key);
-                        Config.saveStation1(model.key, model.name, region_name, country_name,
-                                            source, source_id);
-			pageStack.pop(pageStack.find(function(page) { return page.objectName == "stationspage" }));
+                    Text {
+                        text: model.name
+                        color: "white"
+                        font.pointSize: 30
+                        height: 50
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            console.log(model.key);
+                            Config.saveStation1(model.key, model.name, region_name, country_name,
+                                                source, source_id);
+                                    pageStack.pop(pageStack.find(function(page) { return page.objectName == "stationspage" }));
+                        }
                     }
                 }
-            }
-        }/*
-        section {
+            }/*
+            section {
             property: "category"
             criteria: ViewSection.FullString
             delegate: Rectangle {
@@ -75,30 +83,31 @@ Page {
                         citylist.model = adaptive.filtermodel
                     }
                 }
-    }
-    /*
-    SectionScroller {
+            }
+        /*
+        SectionScroller {
         listView: citylist
     }*/
+    }
     Rectangle {
-      id: labelrect
-      anchors.top: parent.top
-      anchors.left: parent.left
-      width: parent.width
-      color: "black" 
-      border.color: "black"
-      border.width: 3 
-      height: 32
-	    Label {
-		id: title
-		anchors.top: parent.top
-		anchors.left: parent.left
-		width: parent.width
-		text: Config.tr("Stations")
-		font.pixelSize: 28
-		horizontalAlignment: Text.AlignHCenter
-		verticalAlignment: Text.AlignVCenter
-	    }
+        id: labelrect
+        anchors.top: parent.top
+        anchors.left: parent.left
+        width: parent.width
+        color: "black"
+        border.color: "black"
+        border.width: 3
+        height: 32
+        Label {
+            id: title
+            anchors.top: parent.top
+            anchors.left: parent.left
+            width: parent.width
+            text: Config.tr("Stations")
+            font.pixelSize: 28
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
     }
 
 

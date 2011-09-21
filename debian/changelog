@@ -1,6 +1,6 @@
 meecast (0.3.30) unstable; urgency=low
 
-  * test 
+  * Disabled Statusbar and Toolbar 
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 21 Sep 2011 12:24:20 +0200
 

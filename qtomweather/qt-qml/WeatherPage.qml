@@ -19,6 +19,7 @@ Page {
         }
         Image {
             id: sourceicon
+	    anchors.horizontalCenter: parent.horizontalCenter
             source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
             smooth: true	
         }

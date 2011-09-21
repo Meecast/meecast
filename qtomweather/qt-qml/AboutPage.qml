@@ -1,6 +1,6 @@
 //import QtQuick 1.1
 import Qt 4.7
-import com.nokia.meego 1.0
+import org.maemo.fremantle 1.0
 
 Page {
     id: about
@@ -154,5 +154,34 @@ Page {
 	    anchors.left: parent.left
 	    anchors.top: leaddesignertext.bottom
 	}
+        Label {
+            id: translatorstext
+            text: Config.tr("Translators") + ":"
+            anchors.top: leaddesignerfulltext.bottom
+            anchors.topMargin: 30
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            color: "#999999"
+        }
+	Label {
+            id: translatorsfulltext 
+	    text: Config.tr ("\
+French -  Nicolas Granziano, \n \
+\tPhilippe, Benot Knecht \n \
+Russian - Pavel Fialko, Vlad Vasiliev, \n \
+\tEd Bartosh\n \
+Finnish - Marko Vertainen\n \
+German -  Claudius Henrichs\n \
+Italian - Pavel Fialko, Alessandro Pasotti,\n \
+\tSalvatore Fiorenzo, Luca Onnis\n \
+Spanish - Alejandro Lopez\n \
+Polish - Tomasz Dominikowski\n \
+Slovak - Roman Moravčík")
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    anchors.top: translatorstext.bottom
+	}
+
+	                                                                                                    
     }
 }

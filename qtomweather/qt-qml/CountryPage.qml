@@ -46,7 +46,7 @@ Page {
 			MouseArea {
 			    anchors.fill: parent 
 			    onClicked: {
-				console.log(model.key);
+                                console.log("key = "+model.key+" name="+model.name);
 				region_model.populate(source, model.key);
                                 pageStack.push(Qt.resolvedUrl("RegionPage.qml"),
 					       {source: source, source_id: source_id, country_name: model.name}
@@ -78,6 +78,16 @@ Page {
 		ScrollDecorator {
 		    flickableItem: countrylist
 		}
+
+                AdaptiveSearch {
+                    id: adaptive
+                    anchors.fill: parent
+                    model: parent.model
+
+                    onFilterUpdated: {
+                        countrylist.model = adaptive.filtermodel
+                    }
+                }
 	    }
 	    SectionScroller {
 		listView: countrylist

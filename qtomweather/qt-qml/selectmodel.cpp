@@ -85,6 +85,8 @@ QVariant SelectModel::get(int index)
 {
     QVariantMap map;
     map.insert(QLatin1String("category"), _list.at(index)->category());
+    map.insert(QLatin1String("name"), _list.at(index)->name());
+    map.insert(QLatin1String("key"), _list.at(index)->key());
     return map;
 }
 

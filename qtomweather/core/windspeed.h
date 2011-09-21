@@ -47,8 +47,8 @@ namespace Core{
             virtual ~Windspeed();
             void units(const std::string& name);
             std::string& units() const;
+            float value(const bool absolute = false);
             void value(const float value);
-            float value() const;
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

@@ -76,7 +76,9 @@ namespace Core {
         _value = value;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    float Windspeed::value() const{
+    float Windspeed::value(const bool absolute){
+        if (absolute)
+            return _value;
         if(*_units == "km/h")
              return(_value * 3.6f);
         else if (*_units == "mi/h")

@@ -108,7 +108,7 @@ namespace Core {
                 }else if (tag == "wind_speed"){
                     if (el.text() == "calm")
                         //forecast_data->WindSpeed(0);
-                        forecast_data->WindSpeed().value(0);
+                        forecast_data->WindSpeed().value((float)0);
                     else
                         //forecast_data->WindSpeed(el.text().toFloat());
                         forecast_data->WindSpeed().value(el.text().toFloat());

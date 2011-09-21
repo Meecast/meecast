@@ -244,7 +244,7 @@ QString
 DataItem::wind_speed() {
     QString c;
     DataItem::Data::WindSpeed().units(windunit.toStdString());
-    if (DataItem::Data::WindSpeed().value() == INT_MAX){
+    if (DataItem::Data::WindSpeed().value(TRUE) == INT_MAX){
         c = "N/A";
         return c;
     }

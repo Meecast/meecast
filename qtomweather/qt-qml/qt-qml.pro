@@ -88,7 +88,7 @@ searchicon.files += gfx/*.png
 searchicon.path += /opt/com.meecast.omweather/share/omweather/qml
 
 #INSTALLS += desktop qml icon64
-INSTALLS += desktop qml searchicon.path
+INSTALLS += desktop qml searchicon
 
 DATADIR=/opt/com.meecast.omweather/share
 

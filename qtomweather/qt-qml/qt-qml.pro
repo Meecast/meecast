@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += declarative sql xml xmlpatterns
+QT       += declarative sql xml xmlpatterns network
 
 TARGET = omweather-qml
 TEMPLATE = app
@@ -18,6 +18,7 @@ SOURCES += main.cpp \
     datamodel.cpp \
     dbusadaptor.cpp \
     controller.cpp \
+    networkingcontrol.cpp \
     selectmodel.cpp \
     updatethread.cpp \
     countrymodel.cpp \
@@ -32,6 +33,7 @@ HEADERS  += \
     datamodel.h \
     dbusadaptor.h \
     controller.h \
+    networkingcontrol.h \
     selectmodel.h \
     updatethread.h \
     countrymodel.h \

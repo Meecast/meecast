@@ -8,8 +8,8 @@ import com.nokia.meego 1.0
 PageStackWindow {
     id: rootWindow
 
-    platformStyle: defaultStyle;
-    showStatusBar: false;
+    platformStyle: defaultStyle
+    showStatusBar: true
 
     PageStackWindowStyle { id: defaultStyle }
     PageStackWindowStyle {

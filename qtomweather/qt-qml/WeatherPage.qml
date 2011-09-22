@@ -129,6 +129,45 @@ Page {
             onTap: console.log("tap");
 
         }*/
+        MouseArea {
+            id: mouseArea
+            anchors.fill: parent
+
+            property int x1: 0
+            property int y1: 0
+
+            onPressed: {
+                x1 = mouseX;
+                y1 = mouseY;
+            }
+
+            onReleased: {
+                var x2 = x1 - mouseX;
+                var y2 = y1 - mouseY;
+                if (Math.abs(x2) > Math.abs(y2)) {
+                    if (x1 > mouseX){
+                        console.log("left");
+                        if (prevstationimage.visible){
+                            Config.prevstation();
+                            main.updatestationname();
+                        }
+                    } else {
+                        console.log("right");
+                        if (nextstationimage.visible){
+                            Config.nextstation();
+                            main.updatestationname();
+                        }
+
+                    }
+                } else {
+                    if (y1 > mouseY) {
+                        console.log("up");
+                    }else {
+                        console.log("down");
+                    }
+                }
+            }
+        }
         Rectangle {
             id: startview
             visible: Config.stationname == "Unknown" ? true : false

@@ -130,18 +130,20 @@ Page {
 
         }*/
         MouseArea {
-            id: mouseArea
+            id: mouseAreaSwipe
             anchors.fill: parent
 
             property int x1: 0
             property int y1: 0
 
             onPressed: {
+                console.log("onPressed");
                 x1 = mouseX;
                 y1 = mouseY;
             }
 
             onReleased: {
+                console.log("onReleased");
                 var dx = x1 - mouseX;
                 var dy = y1 - mouseY;
                 if (Math.abs(dx) < 10 && Math.abs(dy) < 10){
@@ -164,6 +166,7 @@ Page {
                         }
 
                     }
+
                 } else {
                     if (y1 > mouseY) {
                         console.log("up "+dy);
@@ -622,6 +625,7 @@ Page {
                 //height: 800
                 interactive: false
                 clip: true
+
             }
             Component {
                 id: itemDelegate
@@ -674,16 +678,15 @@ Page {
                         }
 
 
-
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
+                                console.log("day onclicked");
                                 pageStack.push(Qt.resolvedUrl("FullWeatherPage.qml"),
                                                {day: index, day_period: "day" }
 					       )
 
                             }
-                            hoverEnabled: true
 
                         }
 

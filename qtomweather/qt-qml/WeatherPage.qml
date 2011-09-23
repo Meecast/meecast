@@ -13,7 +13,7 @@ Page {
         ToolIcon {
             iconId: (!isUpdate) ? "toolbar-refresh" : "toolbar-stop-dimmed"
             onClicked: {
-                main.update();
+                if (!isUpdate) main.update();
                 //console.log(main.getColor(-15));
             }
         }

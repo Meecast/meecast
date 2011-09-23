@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=X-MeeGoApplicationExtension
+Name=MeeCast
+Exec=mapplicationextensionrunner
+
+[X-MeeGoApplicationExtension]
+Interface=com.omweather.meecast/1.0
+Extension=libmeecast-extension.so

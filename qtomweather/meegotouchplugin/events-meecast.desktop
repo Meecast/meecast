@@ -4,5 +4,6 @@ Name=MeeCast
 Exec=mapplicationextensionrunner
 
 [X-MeeGoApplicationExtension]
-Interface=com.omweather.meecast/1.0
-Extension=libmeecast-extension.so
+Interface=com.nokia.home.EventsExtensionInterface/1.0
+Extension=libevents-meecast.so
+Identifier=libevents-meecast

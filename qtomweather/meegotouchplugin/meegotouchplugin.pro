@@ -9,7 +9,7 @@ HEADERS = meegotouchplugin.h
 SOURCES = meegotouchplugin.cpp
 
 
-TARGET = $$qtLibraryTarget(meecast-extension)
+TARGET = $$qtLibraryTarget(events-meecast)
 DESTDIR = ../../../lib
 target.path += /usr/lib/meegotouch/applicationextensions/ 
 INSTALLS += target desktop_entry

@@ -14,7 +14,7 @@ MeecastApplicationExtension::~MeecastApplicationExtension()
     delete button;
 }
 
-void MeecastApplicationExtension::MeecastExtensionSpecificOperation()
+void MeecastApplicationExtension::meecastExtensionSpecificOperation()
 {
     // do something specific to the demo extension interface
 }

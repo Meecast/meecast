@@ -12,10 +12,10 @@ class MeecastExtensionInterface : public MApplicationExtensionInterface
     Q_INTERFACES(MApplicationExtensionInterface)
 
 public:
-    virtual void MeecastExtensionSpecificOperation() = 0;
+    virtual void meecastExtensionSpecificOperation() = 0;
 };
 
-Q_DECLARE_INTERFACE(MeecastExtensionInterface, "com.omweather.meecast.DemoExtensionInterface/1.0")
+Q_DECLARE_INTERFACE(MeecastExtensionInterface, "com.nokia.home.EventsExtensionInterface/1.0")
 
 
 class MButton;
@@ -29,7 +29,7 @@ public:
     MeecastApplicationExtension();
     virtual ~MeecastApplicationExtension();
 
-    virtual void MeecastExtensionSpecificOperation();
+    virtual void meecastExtensionSpecificOperation();
 
     virtual bool initialize(const QString &interface);
     virtual MWidget *widget();

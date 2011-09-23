@@ -11,7 +11,7 @@ Page {
     property bool isUpdate: false
     tools: ToolBarLayout {
         ToolIcon {
-            iconId: "toolbar-refresh"
+            iconId: (!isUpdate) ? "toolbar-refresh" : "toolbar-stop-dimmed"
             onClicked: {
                 main.update();
                 //console.log(main.getColor(-15));
@@ -142,17 +142,22 @@ Page {
             }
 
             onReleased: {
-                var x2 = x1 - mouseX;
-                var y2 = y1 - mouseY;
-                if (Math.abs(x2) > Math.abs(y2)) {
+                var dx = x1 - mouseX;
+                var dy = y1 - mouseY;
+                if (Math.abs(dx) < 10 && Math.abs(dy) < 10){
+                    console.log("maybe click");
+                    mouse.accepted = false;
+                    return;
+                }else {
+                if (Math.abs(dx) > Math.abs(dy)) {
                     if (x1 > mouseX){
-                        console.log("left");
+                        console.log("left "+dx);
                         if (prevstationimage.visible){
                             Config.prevstation();
                             main.updatestationname();
                         }
                     } else {
-                        console.log("right");
+                        console.log("right "+dx);
                         if (nextstationimage.visible){
                             Config.nextstation();
                             main.updatestationname();
@@ -161,11 +166,33 @@ Page {
                     }
                 } else {
                     if (y1 > mouseY) {
-                        console.log("up");
+                        console.log("up "+dy);
                     }else {
-                        console.log("down");
+                        console.log("down "+dy);
                     }
                 }
+            }
+            }
+            onCanceled: {
+                var dx = x1 - mouseX;
+                var dy = y1 - mouseY;
+                if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) {
+                    if (x1 > mouseX){
+                        console.log("left "+dx);
+                        if (prevstationimage.visible){
+                            Config.prevstation();
+                            main.updatestationname();
+                        }
+                    } else {
+                        console.log("right "+dx);
+                        if (nextstationimage.visible){
+                            Config.nextstation();
+                            main.updatestationname();
+                        }
+
+                    }
+                }
+                console.log("oncanceled dx="+dx+" dy="+dy);
             }
         }
         Rectangle {

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-09-20 08:48+0300\n"
-"PO-Revision-Date: 2011-02-17 22:57+0100\n"
+"PO-Revision-Date: 2011-09-24 15:53+0100\n"
 "Last-Translator: Alejandro López <alejandro.lopez@free.fr>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -28,7 +28,7 @@ msgstr ""
 "H: "
 
 #: omweather/src/weather-help.c:80
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "\n"
 "Hildon desktop applet\n"
@@ -51,7 +51,7 @@ msgstr ""
 "para Nokia N800/N810/N900\n"
 "que muestra pronósticos meteorológicos.\n"
 "Versión %s Build: %s\n"
-"Copyright(c) 2006-2010\n"
+"Copyright(c) 2006-2011\n"
 "Vlad Vasiliev, Pavel Fialco\n"
 "Copyright(c) 2008\n"
 "para los íconos por defecto (Glance)\n"
@@ -62,8 +62,10 @@ msgstr ""
 "para la Semi-transparencia\n"
 "y los fondos coloreados\n"
 
-#: omweather/src/weather-home.c:1383 omweather/src/weather-home.c:1439
-#: omweather/src/weather-popup.c:965 omweather/src/weather-popup.c:1098
+#: omweather/src/weather-home.c:1383
+#: omweather/src/weather-home.c:1439
+#: omweather/src/weather-popup.c:965
+#: omweather/src/weather-popup.c:1098
 msgid ""
 "\n"
 "Humidity: "
@@ -79,8 +81,10 @@ msgstr ""
 "\n"
 "P: "
 
-#: omweather/src/weather-popup.c:954 omweather/src/weather-popup.c:959
-#: omweather/src/weather-popup.c:1087 omweather/src/weather-popup.c:1092
+#: omweather/src/weather-popup.c:954
+#: omweather/src/weather-popup.c:959
+#: omweather/src/weather-popup.c:1087
+#: omweather/src/weather-popup.c:1092
 msgid ""
 "\n"
 "Precipitation: "
@@ -88,12 +92,14 @@ msgstr ""
 "\n"
 "Precipitación: "
 
-#: omweather/src/weather-popup.c:976 omweather/src/weather-popup.c:1108
-#, fuzzy
+#: omweather/src/weather-popup.c:976
+#: omweather/src/weather-popup.c:1108
 msgid ""
 "\n"
 "Pressure: "
-msgstr "Presión: "
+msgstr ""
+"\n"
+"Presión: "
 
 #: omweather/src/weather-home.c:1577
 msgid ""
@@ -217,9 +223,8 @@ msgid "AM Light Snow"
 msgstr "Nevisca por la mañana"
 
 #: omweather/src/hash.data:29
-#, fuzzy
 msgid "AM Light Snow / Wind"
-msgstr "Nieve ligera / Viento por la tarde"
+msgstr "Nieve ligera / Viento por la mañana"
 
 #: omweather/src/hash.data:31
 msgid "AM Light Wintry Mix"
@@ -262,11 +267,11 @@ msgid "AM Snow Showers"
 msgstr "Nevisca por la mañana"
 
 #: omweather/src/hash.data:40
-#, fuzzy
 msgid "AM Snow Showers / Wind"
-msgstr "Nevisca / Viento"
+msgstr "Nevisca / Viento por la mañana"
 
-#: omweather/src/weather-home.c:1286 omweather/src/weather-help.c:100
+#: omweather/src/weather-home.c:1286
+#: omweather/src/weather-help.c:100
 #: omweather/src/weather-simple-popup.c:1163
 #: omweather/src/weather-simple-status.c:179
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:373
@@ -290,7 +295,8 @@ msgstr "Agregar"
 msgid "Add Station"
 msgstr "Agregar estación"
 
-#: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
+#: omweather/src/weather-settings.c:1158
+#: omweather/src/weather-settings.c:1377
 #: omweather/src/weather-settings.c:1381
 msgid "Alerts"
 msgstr "Alertas"
@@ -347,9 +353,8 @@ msgstr ""
 "Diseño de la IU para Fremantle: Krebber Jan Niemelä Ulla\n"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:415
-#, fuzzy
 msgid "Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n"
-msgstr "Autor y mantenimiento: Vlad Vasiliev, <vlad@gas.by>\n"
+msgstr "Autor y mantenimiento: Vlad Vasilyeu, <vlad@gas.by>\n"
 
 #: omweather/src/weather-help.c:111
 msgid "Authors"
@@ -359,7 +364,8 @@ msgstr "Autores"
 msgid "Automatically update data when connecting to the Internet"
 msgstr "Actualizar automáticamente los datos al conectarse a internet"
 
-#: omweather/src/weather-settings.c:3378 omweather/src/weather-settings.c:3382
+#: omweather/src/weather-settings.c:3378
+#: omweather/src/weather-settings.c:3382
 msgid "Background color:"
 msgstr "Color de fondo:"
 
@@ -376,15 +382,18 @@ msgstr "Escala de Beaufort"
 msgid "Blowing Snow"
 msgstr "Ventisca alta"
 
-#: omweather/src/weather-home.c:1536 omweather/src/weather-home.c:1562
+#: omweather/src/weather-home.c:1536
+#: omweather/src/weather-home.c:1562
 #: omweather/src/weather-simple-popup.c:1041
 #: omweather/src/weather-simple-popup.c:1051
 #: omweather/src/weather-simple-settings.c:1281
 msgid "C"
 msgstr "C"
 
-#: omweather/src/weather-popup.c:1265 omweather/src/weather-popup.c:1275
-#: omweather/src/weather-popup.c:1446 omweather/src/weather-popup.c:1454
+#: omweather/src/weather-popup.c:1265
+#: omweather/src/weather-popup.c:1275
+#: omweather/src/weather-popup.c:1446
+#: omweather/src/weather-popup.c:1454
 msgid "C\n"
 msgstr "C\n"
 
@@ -421,9 +430,8 @@ msgid "Clear / Wind"
 msgstr "Despejado / Viento"
 
 #: omweather/src/hash.data:46
-#, fuzzy
 msgid "Clear Sky"
-msgstr "Despejado, Humo"
+msgstr "Cielo despejado"
 
 #: omweather/src/hash.data:47
 msgid "Clear, Drifting Snow"
@@ -478,14 +486,12 @@ msgid "Cloudy, Few Snow"
 msgstr "Nublado, algo de nieve"
 
 #: omweather/src/hash.data:296
-#, fuzzy
 msgid "Cloudy, Heavy Rain"
-msgstr "Bastante nublado , Mucha lluvia"
+msgstr "Nublado, Mucha lluvia"
 
 #: omweather/src/hash.data:59
-#, fuzzy
 msgid "Cloudy, Heavy Rain, T-Storm"
-msgstr "Nublado, lluvia ligera, tormenta eléctrica"
+msgstr "Nublado, mucha lluvia, tormentas eléctricas"
 
 #: omweather/src/hash.data:60
 msgid "Cloudy, Heavy Snow"
@@ -504,9 +510,8 @@ msgid "Cloudy, Rain"
 msgstr "Nublado, Lluvia"
 
 #: omweather/src/hash.data:64
-#, fuzzy
 msgid "Cloudy, Rain, T-Storm"
-msgstr "Nublado, lluvia ligera, tormenta eléctrica"
+msgstr "Nublado, lluvia, tormentas eléctricas"
 
 #: omweather/src/hash.data:65
 msgid "Cloudy, Smoke"
@@ -517,20 +522,12 @@ msgid "Cloudy, Snow"
 msgstr "Nublado, nieve"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:413
-#, fuzzy
 msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
-msgstr ""
-"\n"
-"Copyright(c) 2006-2010\n"
-"Vlad Vasiliev, Pavel Fialko"
+msgstr "Copyright(c) 2006-2011 por Vlad Vasiliev y Pavel Fialko, "
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:414
-#, fuzzy
 msgid "Copyright(c) 2010-2011 by Tanya Makova\n"
-msgstr ""
-"\n"
-"Copyright(c) 2006-2010\n"
-"Vlad Vasiliev, Pavel Fialko"
+msgstr "Copyright(c) 2006-2011 por Tanya Makova\n"
 
 #: omweather/src/weather-download.c:226
 msgid ""
@@ -554,9 +551,8 @@ msgid "Couldn't resolve proxy."
 msgstr "No se pudo resolver el proxy."
 
 #: qtomweather/qt-qml/CountryPage.qml:102
-#, fuzzy
 msgid "Countries"
-msgstr "País"
+msgstr "Países"
 
 #: omweather/src/weather-simple-settings.c:764
 #: omweather/src/weather-simple-settings.c:2313
@@ -573,37 +569,33 @@ msgstr "Personal"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:584
 #: qtomweather/qt-qml/FullWeatherPage.qml:65
-#, fuzzy
 msgid "Day"
-msgstr "Día:"
+msgstr "Día"
 
 #: omweather/src/weather-popup.c:1182
 msgid "Day length"
 msgstr "Duración del día"
 
-#: omweather/src/hash.data:6 qtomweather/qt-qml/FullWeatherPage.qml:137
-#, fuzzy
+#: omweather/src/hash.data:6
+#: qtomweather/qt-qml/FullWeatherPage.qml:137
 msgid "Day length:"
-msgstr "Duración del día"
+msgstr "Duración del día:"
 
 #: omweather/src/weather-popup.c:913
 msgid "Day:"
 msgstr "Día:"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:417
-#, fuzzy
-msgid ""
-"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
-"zhilin@ovi.com>\n"
-msgstr ""
-"Diseño de la IU e íconos por defecto: Andrew Zhilin, <az@pocketpcrussia."
-"com>\n"
+msgid "Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew.zhilin@ovi.com>\n"
+msgstr "Diseño de la IU e íconos por defecto: Copyright 2006-2011 Andrew Zhilin, <andrew.zhilin@ovi.com>\n"
 
-#: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
+#: omweather/src/weather-popup.c:462
+#: omweather/src/weather-popup.c:602
 msgid "Detailed"
 msgstr "Detallado"
 
-#: omweather/src/weather-settings.c:1128 omweather/src/weather-settings.c:1321
+#: omweather/src/weather-settings.c:1128
+#: omweather/src/weather-settings.c:1321
 #: omweather/src/weather-settings.c:1325
 msgid "Display"
 msgstr "Mostrar"
@@ -729,15 +721,18 @@ msgstr "Configuración Extendida"
 msgid "Extreme"
 msgstr "Extremo"
 
-#: omweather/src/weather-home.c:1537 omweather/src/weather-home.c:1563
+#: omweather/src/weather-home.c:1537
+#: omweather/src/weather-home.c:1563
 #: omweather/src/weather-simple-popup.c:1042
 #: omweather/src/weather-simple-popup.c:1052
 #: omweather/src/weather-simple-settings.c:1289
 msgid "F"
 msgstr "F"
 
-#: omweather/src/weather-popup.c:1266 omweather/src/weather-popup.c:1276
-#: omweather/src/weather-popup.c:1447 omweather/src/weather-popup.c:1455
+#: omweather/src/weather-popup.c:1266
+#: omweather/src/weather-popup.c:1276
+#: omweather/src/weather-popup.c:1447
+#: omweather/src/weather-popup.c:1455
 msgid "F\n"
 msgstr "F\n"
 
@@ -767,7 +762,8 @@ msgstr "No pude inicializar GConf. Configuración no grabada.\n"
 msgid "Fair"
 msgstr "Despejado"
 
-#: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
+#: omweather/src/weather-popup.c:1269
+#: omweather/src/weather-popup.c:1449
 msgid "Feels like:"
 msgstr "Sensación térmica:"
 
@@ -792,10 +788,8 @@ msgid "Few Snow Showers / Wind"
 msgstr "Neviscas / Viento"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:428
-msgid ""
-"Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
-"Lopez; Slovak - Roman Moravčík\n"
-msgstr ""
+msgid "Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Slovak - Roman Moravčík\n"
+msgstr "Finlandés - Marko Vertainen; Alemán - Claudius Henrichs;  Castellano - Alejandro López; Eslovaco - Roman Moravčík\n"
 
 #: omweather/src/hash.data:84
 msgid "First Quarter"
@@ -803,9 +797,8 @@ msgstr "Cuarto creciente"
 
 #: qtomweather/qt-qml/FullWeatherPage.qml:90
 #: qtomweather/qt-qml/FullWeatherPage.qml:122
-#, fuzzy
 msgid "Flike:"
-msgstr "Sensación térmica:"
+msgstr "Luminosidad:"
 
 #: omweather/src/hash.data:88
 msgid "Fog"
@@ -831,7 +824,8 @@ msgstr "Niebla"
 msgid "Font color:"
 msgstr "Color de la tipografía:"
 
-#: omweather/src/weather-settings.c:3227 omweather/src/weather-settings.c:3231
+#: omweather/src/weather-settings.c:3227
+#: omweather/src/weather-settings.c:3231
 msgid "Font:"
 msgstr "Tipografía:"
 
@@ -906,11 +900,11 @@ msgid "GUI|Clear"
 msgstr "Borrar"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:418
-msgid ""
-"Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>"
-msgstr ""
+msgid "Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>"
+msgstr "Íconos de Grzanka: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>"
 
-#: omweather/src/weather-popup.c:1354 omweather/src/weather-popup.c:1493
+#: omweather/src/weather-popup.c:1354
+#: omweather/src/weather-popup.c:1493
 msgid "Gust:"
 msgstr "Ráfagas: "
 
@@ -943,7 +937,8 @@ msgstr "Nieve intensa"
 msgid "High"
 msgstr "Máxima"
 
-#: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
+#: omweather/src/weather-popup.c:1281
+#: omweather/src/weather-popup.c:1457
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:722
 #: qtomweather/qt-qml/dataitem.cpp:163
 #: qtomweather/qt-qml/FullWeatherPage.qml:72
@@ -955,24 +950,23 @@ msgstr "Humedad: "
 msgid "Icon set:"
 msgstr "Juego de íconos:"
 
-#: omweather/src/weather-settings.c:3558 omweather/src/weather-settings.c:3563
+#: omweather/src/weather-settings.c:3558
+#: omweather/src/weather-settings.c:3563
 msgid "Icon size:"
 msgstr "Tamaño de los íconos: "
 
 #: qtomweather/qt-qml/VisualsPage.qml:31
-#, fuzzy
 msgid "Icons"
-msgstr "Juego de íconos:"
+msgstr "Íconos"
 
-#: omweather/src/hash.data:14 qtomweather/qt-qml/VisualsPage.qml:57
-#, fuzzy
+#: omweather/src/hash.data:14
+#: qtomweather/qt-qml/VisualsPage.qml:57
 msgid "Iconset"
-msgstr "Juego de íconos:"
+msgstr "Juego de íconos"
 
 #: omweather/src/hash.data:15
-#, fuzzy
 msgid "Iconsets"
-msgstr "Juego de íconos:"
+msgstr "Juegos de íconos:"
 
 #: omweather/src/hash.data:99
 msgid "Isolated T-Storms"
@@ -983,10 +977,8 @@ msgid "Isolated T-Storms / Wind"
 msgstr "Tormentas eléctricas aisladas / Viento"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:429
-msgid ""
-"Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
-"Polish - Tomasz Dominikowski;"
-msgstr ""
+msgid "Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski;"
+msgstr "Italiano - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polaco - Tomasz Dominikowski;"
 
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
@@ -1000,14 +992,15 @@ msgstr "Cuarto menguante"
 msgid "Last update at server: "
 msgstr "Última actualización en el servidor: "
 
-#: omweather/src/weather-popup.c:278 omweather/src/weather-popup.c:282
+#: omweather/src/weather-popup.c:278
+#: omweather/src/weather-popup.c:282
 msgid "Last update from server: "
 msgstr "Última actualización desde el servidor: "
 
-#: omweather/src/hash.data:9 qtomweather/qt-qml/FullWeatherPage.qml:140
-#, fuzzy
+#: omweather/src/hash.data:9
+#: qtomweather/qt-qml/FullWeatherPage.qml:140
 msgid "Last update:"
-msgstr "Última actualización: "
+msgstr "Última actualización:"
 
 #: omweather/src/weather-simple-popup.c:271
 #: omweather/src/weather-simple-popup.c:273
@@ -1021,17 +1014,18 @@ msgstr "Última actualización: "
 msgid "Lawn and Garden Weather"
 msgstr "Clima para jardinería"
 
-#: omweather/src/weather-settings.c:2924 omweather/src/weather-settings.c:2931
+#: omweather/src/weather-settings.c:2924
+#: omweather/src/weather-settings.c:2931
 msgid "Layout:"
 msgstr "Distribución: "
 
 #: qtomweather/qt-qml/AboutPage.qml:143
 msgid "Lead designer"
-msgstr ""
+msgstr "Diseñador líder"
 
 #: qtomweather/qt-qml/AboutPage.qml:127
 msgid "Lead programmers"
-msgstr ""
+msgstr "Programadores líderes"
 
 #: omweather/src/hash.data:102
 msgid "Light Drizzle"
@@ -1121,28 +1115,23 @@ msgstr "Reportes locales de polen"
 msgid "Long"
 msgstr "Largo"
 
-#: omweather/src/hash.data:18 qtomweather/qt-qml/WeatherPage.qml:346
-#, fuzzy
+#: omweather/src/hash.data:18
+#: qtomweather/qt-qml/WeatherPage.qml:346
 msgid "Looks like there's no info for this location."
-msgstr "No hay datos del clima para esta estación."
+msgstr "Parece no haber información para esta ubicación."
 
 #: omweather/src/hash.data:122
 msgid "Low"
 msgstr "Mínima"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:416
-#, fuzzy
-msgid ""
-"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
-"com>\n"
-msgstr ""
-"Mantenimiento: Pavel Fialko, <pavelnf@gmail.com>\n"
-"Tanya Makova, <tanyshk@gmail.com>\n"
+msgid "Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail.com>\n"
+msgstr "Mantenimiento: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail.com>\n"
 
-#: omweather/src/hash.data:10 qtomweather/qt-qml/StationsPage.qml:52
-#, fuzzy
+#: omweather/src/hash.data:10
+#: qtomweather/qt-qml/StationsPage.qml:52
 msgid "Manage locations"
-msgstr "Elegir ubicación"
+msgstr "Administrar ubicaciones"
 
 #: omweather/src/weather-simple-settings.c:2240
 msgid "Manual"
@@ -1150,13 +1139,11 @@ msgstr "Manual"
 
 #: qtomweather/qt-qml/WeatherPage.qml:151
 msgid "MeeCast"
-msgstr ""
+msgstr "MeeCast"
 
 #: qtomweather/qt-qml/AboutPage.qml:77
-msgid ""
-"MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2011"
-msgstr ""
+msgid "MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2011"
+msgstr "MeeCast - cliente de pronósticos del tiempo de código abierto, altamente personalizable y multiplataforma, basado en el código de OMWeather. Copyright (C) 2006, 2011"
 
 #: omweather/src/weather-settings.c:3901
 msgid "Meters"
@@ -1206,7 +1193,8 @@ msgstr "Bastante nuboso con nieve"
 msgid "Mostly Cloudy T-Storm"
 msgstr "Bastante nuboso con tormentas eléctricas"
 
-#: omweather/src/hash.data:125 omweather/src/hash.data:126
+#: omweather/src/hash.data:125
+#: omweather/src/hash.data:126
 msgid "Mostly Cloudy and Windy"
 msgstr "Bastante nuboso y ventoso"
 
@@ -1231,9 +1219,8 @@ msgid "Mostly Cloudy, Heavy Rain"
 msgstr "Bastante nublado , Mucha lluvia"
 
 #: omweather/src/hash.data:139
-#, fuzzy
 msgid "Mostly Cloudy, Heavy Rain, T-Storm"
-msgstr "Bastante nuboso, lluvia, tormentas eléctricas"
+msgstr "Bastante nuboso, mucha lluvia, tormentas eléctricas"
 
 #: omweather/src/hash.data:140
 msgid "Mostly Cloudy, Heavy Snow"
@@ -1283,12 +1270,18 @@ msgstr "Bastante soleado"
 msgid "N"
 msgstr "N"
 
-#: omweather/src/weather-home.c:658 omweather/src/weather-home.c:664
-#: omweather/src/weather-home.c:665 omweather/src/weather-home.c:671
-#: omweather/src/weather-home.c:677 omweather/src/weather-home.c:2643
-#: omweather/src/weather-home.c:2727 omweather/src/weather-home.c:2735
-#: omweather/src/weather-home.c:2818 omweather/src/weather-home.c:2822
-#: omweather/src/weather-home.c:2835 omweather/src/weather-home.c:2839
+#: omweather/src/weather-home.c:658
+#: omweather/src/weather-home.c:664
+#: omweather/src/weather-home.c:665
+#: omweather/src/weather-home.c:671
+#: omweather/src/weather-home.c:677
+#: omweather/src/weather-home.c:2643
+#: omweather/src/weather-home.c:2727
+#: omweather/src/weather-home.c:2735
+#: omweather/src/weather-home.c:2818
+#: omweather/src/weather-home.c:2822
+#: omweather/src/weather-home.c:2835
+#: omweather/src/weather-home.c:2839
 #: omweather/src/hash.data:152
 msgid "N/A"
 msgstr "N/D"
@@ -1337,8 +1330,10 @@ msgstr "N"
 msgid "Name:"
 msgstr "Nombre:"
 
-#: omweather/src/weather-settings.c:920 omweather/src/weather-settings.c:4190
-#: omweather/src/weather-config.c:324 omweather/src/weather-sensor.c:141
+#: omweather/src/weather-settings.c:920
+#: omweather/src/weather-settings.c:4190
+#: omweather/src/weather-config.c:324
+#: omweather/src/weather-sensor.c:141
 #: omweather/src/weather-simple-settings.c:2802
 msgid "Never"
 msgstr "Nunca"
@@ -1348,9 +1343,8 @@ msgid "New"
 msgstr "Nueva"
 
 #: qtomweather/qt-qml/NewStationPage.qml:38
-#, fuzzy
 msgid "New location"
-msgstr "Elegir ubicación"
+msgstr "Nueva ubicación"
 
 #: omweather/src/weather-settings.c:4275
 msgid "Next update:"
@@ -1358,9 +1352,8 @@ msgstr "Próxima actualización:"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:588
 #: qtomweather/qt-qml/FullWeatherPage.qml:97
-#, fuzzy
 msgid "Night"
-msgstr "Noche:"
+msgstr "Noche"
 
 #: omweather/src/weather-popup.c:1046
 msgid "Night:"
@@ -1374,25 +1367,30 @@ msgstr "No"
 msgid "No current weather data."
 msgstr "El clima actual no está disponible"
 
-#: omweather/src/hash.data:17 qtomweather/qt-qml/WeatherPage.qml:172
+#: omweather/src/hash.data:17
+#: qtomweather/qt-qml/WeatherPage.qml:172
 msgid "No locations are set up yet."
-msgstr ""
+msgstr "Todavía no se definió ninguna ubicación."
 
 #: omweather/src/weather-popup.c:657
 msgid "No weather data for this day."
 msgstr "No hay datos del clima para este día."
 
-#: omweather/src/weather-popup.c:681 omweather/src/weather-simple-popup.c:608
+#: omweather/src/weather-popup.c:681
+#: omweather/src/weather-simple-popup.c:608
 msgid "No weather data for this station."
 msgstr "No hay datos del clima para esta estación."
 
-#: omweather/src/weather-home.c:2734 omweather/src/weather-home.c:2746
-#: omweather/src/weather-popup.c:459 omweather/src/weather-popup.c:570
+#: omweather/src/weather-home.c:2734
+#: omweather/src/weather-home.c:2746
+#: omweather/src/weather-popup.c:459
+#: omweather/src/weather-popup.c:570
 #: omweather/src/weather-popup.c:576
 #: omweather/src/weather-simple-settings.c:2886
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:592
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:847
-#: qtomweather/qt-qml/dataitem.cpp:171 qtomweather/qt-qml/WeatherPage.qml:400
+#: qtomweather/qt-qml/dataitem.cpp:171
+#: qtomweather/qt-qml/WeatherPage.qml:400
 msgid "Now"
 msgstr "Ahora"
 
@@ -1417,7 +1415,8 @@ msgstr "Ahora + 7 días vert."
 msgid "Now: "
 msgstr "Ahora: "
 
-#: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1222
+#: omweather/src/weather-help.c:67
+#: omweather/src/weather-simple-popup.c:1222
 msgid "OK"
 msgstr "Aceptar"
 
@@ -1430,11 +1429,13 @@ msgstr "Pronóstico OMWeather"
 msgid "OMWeather Settings"
 msgstr "Configuración de OMWeather"
 
-#: omweather/src/weather-home.c:1268 omweather/src/weather-home.c:2856
+#: omweather/src/weather-home.c:1268
+#: omweather/src/weather-home.c:2856
 msgid "OMWeather settings"
 msgstr "Configuración de OMWeather"
 
-#: omweather/src/weather-help.c:64 omweather/src/weather-help.c:70
+#: omweather/src/weather-help.c:64
+#: omweather/src/weather-help.c:70
 msgid "Other Maemo Weather Info"
 msgstr "Información de Other Maemo Weather"
 
@@ -1487,9 +1488,8 @@ msgid "PM Snow Showers"
 msgstr "Nevisca por la tarde"
 
 #: omweather/src/hash.data:176
-#, fuzzy
 msgid "PM Snow Showers / Wind"
-msgstr "Nevisca / Viento"
+msgstr "Nevisca / Viento por la noche"
 
 #: omweather/src/hash.data:177
 msgid "PM T-Showers"
@@ -1499,7 +1499,8 @@ msgstr "Chaparrones por la tarde"
 msgid "PM T-Storms"
 msgstr "Tormentas eléctricas aisladas por la tarde"
 
-#: omweather/src/hash.data:179 omweather/src/hash.data:185
+#: omweather/src/hash.data:179
+#: omweather/src/hash.data:185
 msgid "Partly Cloudy"
 msgstr "Parcialmente nublado"
 
@@ -1536,32 +1537,28 @@ msgid "Partly Cloudy, Heavy Rain"
 msgstr "Parcialmente nublado , Mucha lluvia"
 
 #: omweather/src/hash.data:295
-#, fuzzy
 msgid "Partly Cloudy, Heavy Rain, T-Storm"
-msgstr "Bastante nuboso, lluvia, tormentas eléctricas"
+msgstr "Parcialmente nublado, mucha lluvia, tormentas eléctricas"
 
 #: omweather/src/hash.data:189
-#, fuzzy
 msgid "Partly Cloudy, Heavy Snow"
-msgstr "Bastante nuboso , Mucha nieve"
+msgstr "Parcialmente nublado, Mucha nieve"
 
 #: omweather/src/hash.data:191
 msgid "Partly Cloudy, Light Rain"
 msgstr "Parcialmente nublado, lluvia ligera"
 
 #: omweather/src/hash.data:190
-#, fuzzy
 msgid "Partly Cloudy, Light Rain, T-Storm"
-msgstr "Bastante nuboso, lluvia ligera, tormenta eléctrica"
+msgstr "Parcialmente nublado, lluvias leves, tormentas eléctricas"
 
 #: omweather/src/hash.data:192
 msgid "Partly Cloudy, Rain"
 msgstr "Parcialmente nublado, Lluvia"
 
 #: omweather/src/hash.data:193
-#, fuzzy
 msgid "Partly Cloudy, Rain, T-Storm"
-msgstr "Bastante nuboso, lluvia, tormentas eléctricas"
+msgstr "Parcialmente nublado, lluvia, tormentas eléctricas"
 
 #: omweather/src/hash.data:194
 msgid "Partly Cloudy, Smoke"
@@ -1586,7 +1583,7 @@ msgstr "Posición:"
 #: qtomweather/qt-qml/FullWeatherPage.qml:84
 #: qtomweather/qt-qml/FullWeatherPage.qml:116
 msgid "Ppcp:"
-msgstr ""
+msgstr "Ppcp:"
 
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836
@@ -1609,21 +1606,22 @@ msgstr "Unidades de presión: "
 msgid "Pressure:"
 msgstr "Presión:"
 
-#: omweather/src/weather-home.c:1393 omweather/src/weather-home.c:1448
+#: omweather/src/weather-home.c:1393
+#: omweather/src/weather-home.c:1448
 msgid "Pressure: "
 msgstr "Presión: "
 
 #: qtomweather/qt-qml/AboutPage.qml:111
 msgid "Project administrator"
-msgstr ""
+msgstr "Administrador del proyecto"
 
 #: qtomweather/qt-qml/AboutPage.qml:86
 msgid "Project website"
-msgstr ""
+msgstr "Sitio web del proyecto"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:922
 msgid "Provided by"
-msgstr ""
+msgstr "Provisto por"
 
 #: omweather/src/hash.data:216
 msgid "Rain"
@@ -1690,7 +1688,6 @@ msgid "Rain Shower and Windy"
 msgstr "Chaparrones y viento"
 
 #: omweather/src/hash.data:212
-#, fuzzy
 msgid "Rain Showers"
 msgstr "Chaparrones"
 
@@ -1717,9 +1714,8 @@ msgid "Region"
 msgstr "Región"
 
 #: qtomweather/qt-qml/RegionPage.qml:92
-#, fuzzy
 msgid "Regions"
-msgstr "Región"
+msgstr "Regiones"
 
 #: omweather/src/hash.data:217
 msgid "Rush Hour Traffic"
@@ -1777,7 +1773,7 @@ msgstr "Guardar"
 
 #: omweather/src/hash.data:228
 msgid "Scattered Showers"
-msgstr "Chaparrones dispersos"
+msgstr "Chaparrones aislados"
 
 #: omweather/src/hash.data:230
 msgid "Scattered Snow"
@@ -1801,13 +1797,11 @@ msgstr "Buscar"
 
 #: qtomweather/qt-qml/NewStationPage.qml:73
 #: qtomweather/qt-qml/NewStationPage.qml:120
-#, fuzzy
 msgid "Select city"
-msgstr "Selección de país"
+msgstr "Selección de ciudad"
 
 #: qtomweather/qt-qml/NewStationPage.qml:55
 #: qtomweather/qt-qml/NewStationPage.qml:102
-#, fuzzy
 msgid "Select country"
 msgstr "Selección de país"
 
@@ -1817,13 +1811,11 @@ msgstr "Elegir ubicación"
 
 #: qtomweather/qt-qml/NewStationPage.qml:64
 #: qtomweather/qt-qml/NewStationPage.qml:111
-#, fuzzy
 msgid "Select region"
 msgstr "Selección de región"
 
 #: qtomweather/qt-qml/NewStationPage.qml:46
 #: qtomweather/qt-qml/NewStationPage.qml:93
-#, fuzzy
 msgid "Select source"
 msgstr "Selección de origen"
 
@@ -1847,8 +1839,10 @@ msgstr "Selección de origen"
 msgid "Selecting station"
 msgstr "Selección de estación"
 
-#: omweather/src/weather-settings.c:1150 omweather/src/weather-settings.c:1362
-#: omweather/src/weather-settings.c:1366 omweather/src/weather-sensor.c:263
+#: omweather/src/weather-settings.c:1150
+#: omweather/src/weather-settings.c:1362
+#: omweather/src/weather-settings.c:1366
+#: omweather/src/weather-sensor.c:263
 msgid "Sensor"
 msgstr "Sensor"
 
@@ -1857,12 +1851,13 @@ msgstr "Sensor"
 msgid "Set"
 msgstr "Íconos"
 
-#: omweather/src/hash.data:16 qtomweather/qt-qml/WeatherPage.qml:186
-#, fuzzy
+#: omweather/src/hash.data:16
+#: qtomweather/qt-qml/WeatherPage.qml:186
 msgid "Set locations"
-msgstr "Elegir ubicación"
+msgstr "Elegir ubicaciones"
 
-#: omweather/src/weather-home.c:1291 omweather/src/weather-simple-popup.c:1156
+#: omweather/src/weather-home.c:1291
+#: omweather/src/weather-simple-popup.c:1156
 #: omweather/src/weather-simple-status.c:158
 #: qtomweather/qt-qml/SettingsPage.qml:59
 msgid "Settings"
@@ -1974,18 +1969,21 @@ msgid "Source:"
 msgstr "Origen:"
 
 #: qtomweather/qt-qml/SourcePage.qml:74
-#, fuzzy
 msgid "Sources"
-msgstr "Origen"
+msgstr "Orígenes"
 
-#: omweather/src/weather-popup.c:998 omweather/src/weather-popup.c:1004
-#: omweather/src/weather-popup.c:1011 omweather/src/weather-popup.c:1129
-#: omweather/src/weather-popup.c:1135 omweather/src/weather-popup.c:1142
+#: omweather/src/weather-popup.c:998
+#: omweather/src/weather-popup.c:1004
+#: omweather/src/weather-popup.c:1011
+#: omweather/src/weather-popup.c:1129
+#: omweather/src/weather-popup.c:1135
+#: omweather/src/weather-popup.c:1142
 #: omweather/src/weather-simple-settings.c:1389
 msgid "Speed"
 msgstr "Velocidad"
 
-#: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
+#: omweather/src/weather-popup.c:1332
+#: omweather/src/weather-popup.c:1472
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:772
 #: qtomweather/qt-qml/dataitem.cpp:167
 msgid "Speed:"
@@ -2000,12 +1998,15 @@ msgstr "Estado:"
 msgid "Station %i"
 msgstr "Estación %i"
 
-#: omweather/src/weather-settings.c:1114 omweather/src/weather-settings.c:1292
-#: omweather/src/weather-settings.c:1297 qtomweather/qt-qml/CityPage.qml:87
+#: omweather/src/weather-settings.c:1114
+#: omweather/src/weather-settings.c:1292
+#: omweather/src/weather-settings.c:1297
+#: qtomweather/qt-qml/CityPage.qml:87
 msgid "Stations"
 msgstr "Estaciones"
 
-#: omweather/src/hash.data:250 omweather/src/weather-alerts.c:154
+#: omweather/src/hash.data:250
+#: omweather/src/weather-alerts.c:154
 msgid "Storm"
 msgstr "Tormenta"
 
@@ -2021,21 +2022,23 @@ msgstr "Soleado"
 msgid "Sunny / Wind"
 msgstr "Soleado / Viento"
 
-#: omweather/src/hash.data:7 qtomweather/qt-qml/FullWeatherPage.qml:131
-#, fuzzy
+#: omweather/src/hash.data:7
+#: qtomweather/qt-qml/FullWeatherPage.qml:131
 msgid "Sunrise:"
-msgstr "Amanecer: "
+msgstr "Amanecer:"
 
-#: omweather/src/weather-popup.c:125 omweather/src/weather-popup.c:1019
+#: omweather/src/weather-popup.c:125
+#: omweather/src/weather-popup.c:1019
 msgid "Sunrise: "
 msgstr "Amanecer: "
 
-#: omweather/src/hash.data:8 qtomweather/qt-qml/FullWeatherPage.qml:134
-#, fuzzy
+#: omweather/src/hash.data:8
+#: qtomweather/qt-qml/FullWeatherPage.qml:134
 msgid "Sunset:"
-msgstr "Ocaso: "
+msgstr "Ocaso:"
 
-#: omweather/src/weather-popup.c:139 omweather/src/weather-popup.c:1150
+#: omweather/src/weather-popup.c:139
+#: omweather/src/weather-popup.c:1150
 msgid "Sunset: "
 msgstr "Ocaso: "
 
@@ -2049,11 +2052,11 @@ msgstr "Pasar a la estación siguiente después de: "
 
 #: omweather/src/hash.data:254
 msgid "T-Showers"
-msgstr "Tormentas eléctricas ligeras"
+msgstr "Leves tormentas eléctricas"
 
 #: omweather/src/hash.data:253
 msgid "T-Showers Early"
-msgstr "Tormentas eléctricas ligeras temprano"
+msgstr "Leves tormentas eléctricas temprano"
 
 #: omweather/src/hash.data:255
 msgid "T-Storm"
@@ -2068,21 +2071,22 @@ msgid "T-Storms Early"
 msgstr "Tormentas eléctricas temprano"
 
 #: omweather/src/hash.data:258
-#, fuzzy
 msgid "T-Storms Late"
-msgstr "Tormentas eléctricas"
+msgstr "Tormentas eléctricas tarde"
 
-#: omweather/src/weather-popup.c:947 omweather/src/weather-popup.c:950
-#: omweather/src/weather-popup.c:1080 omweather/src/weather-popup.c:1083
+#: omweather/src/weather-popup.c:947
+#: omweather/src/weather-popup.c:950
+#: omweather/src/weather-popup.c:1080
+#: omweather/src/weather-popup.c:1083
 #: omweather/src/weather-simple-settings.c:1267
 #: qtomweather/qt-qml/UnitsPage.qml:67
 msgid "Temperature"
 msgstr "Temperatura"
 
-#: omweather/src/hash.data:12 qtomweather/qt-qml/UnitsPage.qml:31
-#, fuzzy
+#: omweather/src/hash.data:12
+#: qtomweather/qt-qml/UnitsPage.qml:31
 msgid "Temperature units"
-msgstr "Unidades de temperatura:"
+msgstr "Unidades de temperatura"
 
 #: omweather/src/weather-settings.c:3858
 msgid "Temperature units:"
@@ -2093,7 +2097,8 @@ msgstr "Unidades de temperatura:"
 msgid "Temperature:"
 msgstr "Temperatura:"
 
-#: omweather/src/weather-popup.c:1259 omweather/src/weather-popup.c:1441
+#: omweather/src/weather-popup.c:1259
+#: omweather/src/weather-popup.c:1441
 msgid "Temperature: "
 msgstr "Temperatura: "
 
@@ -2103,13 +2108,11 @@ msgstr "Gracias"
 
 #: omweather/src/weather-download.c:401
 msgid "The weather has been updated."
-msgstr "El clima fue actualizado."
+msgstr "El pronóstico fue actualizado."
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:438
-msgid ""
-"This software is free software; you can redistribute it and/or modify it "
-"under the terms of the GNU General Public License\n"
-msgstr ""
+msgid "This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License\n"
+msgstr "Este software es libre; puede redistribuirlo y/o modificarlo respetando los términos de la Licencia para el Público en General de GNU (GNU General Public License)\n"
 
 #: omweather/src/hash.data:259
 msgid "Thunder"
@@ -2126,26 +2129,26 @@ msgid "Translators"
 msgstr "Traductores"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:427
-msgid ""
-"Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - "
-"Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
-msgstr ""
+msgid "Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
+msgstr "Traductores: Francés - Nicolas Granziano, Philippe, Benoit Knecht; Ruso - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 
-#: omweather/src/weather-settings.c:3272 omweather/src/weather-settings.c:3277
+#: omweather/src/weather-settings.c:3272
+#: omweather/src/weather-settings.c:3277
 #: omweather/src/weather-settings.c:3295
 msgid "Transparency:"
 msgstr "Transparencia:"
 
-#: omweather/src/hash.data:19 qtomweather/qt-qml/WeatherPage.qml:360
-#, fuzzy
+#: omweather/src/hash.data:19
+#: qtomweather/qt-qml/WeatherPage.qml:360
 msgid "Try to update"
-msgstr "Última actualización: "
+msgstr "Intentar actualizar"
 
 #: omweather/src/weather-settings.c:3452
 msgid "Type of click:"
 msgstr "Tipo de click:"
 
-#: omweather/src/weather-settings.c:1135 omweather/src/weather-settings.c:1334
+#: omweather/src/weather-settings.c:1135
+#: omweather/src/weather-settings.c:1334
 #: omweather/src/weather-settings.c:1338
 #: omweather/src/weather-simple-settings.c:1251
 #: omweather/src/weather-simple-settings.c:2732
@@ -2153,8 +2156,10 @@ msgstr "Tipo de click:"
 msgid "Units"
 msgstr "Unidades"
 
-#: omweather/src/weather-home.c:240 omweather/src/weather-settings.c:78
-#: omweather/src/weather-popup.c:266 omweather/src/weather-popup.c:278
+#: omweather/src/weather-home.c:240
+#: omweather/src/weather-settings.c:78
+#: omweather/src/weather-popup.c:266
+#: omweather/src/weather-popup.c:278
 #: omweather/src/weather-download.c:468
 #: omweather/src/weather-simple-popup.c:163
 #: omweather/src/weather-simple-popup.c:271
@@ -2172,7 +2177,8 @@ msgstr "Desconocido"
 msgid "Unlimited"
 msgstr "Ilimitado"
 
-#: omweather/src/weather-settings.c:1142 omweather/src/weather-settings.c:1348
+#: omweather/src/weather-settings.c:1142
+#: omweather/src/weather-settings.c:1348
 #: omweather/src/weather-settings.c:1352
 msgid "Update"
 msgstr "Actualización"
@@ -2181,10 +2187,10 @@ msgstr "Actualización"
 msgid "Update already running."
 msgstr "Actualización ya en progreso."
 
-#: omweather/src/hash.data:11 qtomweather/qt-qml/WeatherPage.qml:219
-#, fuzzy
+#: omweather/src/hash.data:11
+#: qtomweather/qt-qml/WeatherPage.qml:219
 msgid "Updating forecast"
-msgstr "Actualizando clima"
+msgstr "Actualizando el pronóstico"
 
 #: omweather/src/weather-settings.c:4264
 msgid "Updating of weather data:"
@@ -2192,7 +2198,7 @@ msgstr "Actualización de los datos del clima:"
 
 #: omweather/src/weather-download.c:174
 msgid "Updating weather"
-msgstr "Actualizando clima"
+msgstr "Actualizando el pronóstico"
 
 #: omweather/src/weather-settings.c:1944
 msgid ""
@@ -2228,7 +2234,8 @@ msgstr "Validez del clima actual:"
 msgid "Very High"
 msgstr "Muy alta"
 
-#: omweather/src/weather-settings.c:3517 omweather/src/weather-settings.c:3522
+#: omweather/src/weather-settings.c:3517
+#: omweather/src/weather-settings.c:3522
 msgid "Visible items:"
 msgstr "Elementos visibles:"
 
@@ -2236,8 +2243,10 @@ msgstr "Elementos visibles:"
 msgid "Visible:"
 msgstr "Visibilidad:"
 
-#: omweather/src/weather-settings.c:1121 omweather/src/weather-settings.c:1307
-#: omweather/src/weather-settings.c:1312 qtomweather/qt-qml/VisualsPage.qml:44
+#: omweather/src/weather-settings.c:1121
+#: omweather/src/weather-settings.c:1307
+#: omweather/src/weather-settings.c:1312
+#: qtomweather/qt-qml/VisualsPage.qml:44
 msgid "Visuals"
 msgstr "Visual"
 
@@ -2296,9 +2305,8 @@ msgid "Weather data provided by: "
 msgstr "Datos del clima provistos por: "
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:410
-#, fuzzy
 msgid "Weather forecast for the Meego. Version "
-msgstr "Pronóstico meteorológico para Meego. Versión 0.3.\n"
+msgstr "Pronóstico meteorológico para Meego. Versión "
 
 #: omweather/src/weather-utils.c:797
 msgid "Widget OMWeather is reloading"
@@ -2317,41 +2325,44 @@ msgstr "Estilo de interfaz e íconos"
 msgid "Wind"
 msgstr "Viento"
 
-#: omweather/src/hash.data:4 qtomweather/qt-qml/FullWeatherPage.qml:75
+#: omweather/src/hash.data:4
+#: qtomweather/qt-qml/FullWeatherPage.qml:75
 #: qtomweather/qt-qml/FullWeatherPage.qml:107
 msgid "Wind direction:"
-msgstr ""
+msgstr "Dirección del viento:"
 
 #: qtomweather/qt-qml/FullWeatherPage.qml:87
 #: qtomweather/qt-qml/FullWeatherPage.qml:119
-#, fuzzy
 msgid "Wind gust:"
-msgstr "Viento:"
+msgstr "Ráfaga:"
 
-#: omweather/src/hash.data:5 qtomweather/qt-qml/FullWeatherPage.qml:81
+#: omweather/src/hash.data:5
+#: qtomweather/qt-qml/FullWeatherPage.qml:81
 #: qtomweather/qt-qml/FullWeatherPage.qml:113
 #: qtomweather/qt-qml/UnitsPage.qml:77
-#, fuzzy
 msgid "Wind speed"
-msgstr "Velocidad del viento:"
+msgstr "Velocidad del viento"
 
-#: omweather/src/hash.data:13 qtomweather/qt-qml/UnitsPage.qml:41
-#, fuzzy
+#: omweather/src/hash.data:13
+#: qtomweather/qt-qml/UnitsPage.qml:41
 msgid "Wind speed units"
-msgstr "Unidades de velocidad de viento:"
+msgstr "Unidades de velocidad de viento"
 
 #: omweather/src/weather-settings.c:3974
 msgid "Wind speed units:"
 msgstr "Unidades de velocidad de viento:"
 
-#: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
+#: omweather/src/weather-popup.c:1327
+#: omweather/src/weather-popup.c:1468
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:747
 #: qtomweather/qt-qml/dataitem.cpp:165
 msgid "Wind:"
 msgstr "Viento:"
 
-#: omweather/src/weather-home.c:1409 omweather/src/weather-home.c:1464
-#: omweather/src/weather-popup.c:992 omweather/src/weather-popup.c:1123
+#: omweather/src/weather-home.c:1409
+#: omweather/src/weather-home.c:1464
+#: omweather/src/weather-popup.c:992
+#: omweather/src/weather-popup.c:1123
 msgid "Wind: "
 msgstr "Viento: "
 
@@ -2396,10 +2407,8 @@ msgid "Zooming in popup window"
 msgstr "Acercamiento de la ventana emergente"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:439
-msgid ""
-"as published by the Free Software Foundation; either version 2.1 of the "
-"License, or (at your option) any later version."
-msgstr ""
+msgid "as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version."
+msgstr "Según fue publicada por la Free Software Foundation; ya sea la versión 2.1 de la licencia, o cualquier versión posterior (a su discreción)."
 
 #: omweather/src/weather-popup.c:286
 msgid "current location local time"
@@ -2411,11 +2420,11 @@ msgstr "d:"
 
 #: qtomweather/qt-qml/dataitem.cpp:377
 msgid "day ago"
-msgstr ""
+msgstr "día atrás"
 
 #: qtomweather/qt-qml/dataitem.cpp:379
 msgid "days ago"
-msgstr ""
+msgstr "días atrás"
 
 #: omweather/src/weather-config.c:332
 msgid "every 2 hours"
@@ -2459,16 +2468,18 @@ msgstr "Sensación térmica"
 
 #: qtomweather/qt-qml/dataitem.cpp:371
 msgid "hour ago"
-msgstr ""
+msgstr "hora atrás"
 
 #: qtomweather/qt-qml/dataitem.cpp:374
-#, fuzzy
 msgid "hours ago"
-msgstr "2 horas"
+msgstr "horas atrás"
 
-#: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
-#: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
-#: omweather/src/weather-popup.c:983 omweather/src/weather-popup.c:1115
+#: omweather/src/weather-home.c:1400
+#: omweather/src/weather-home.c:1455
+#: omweather/src/weather-home.c:1605
+#: omweather/src/weather-settings.c:4068
+#: omweather/src/weather-popup.c:983
+#: omweather/src/weather-popup.c:1115
 #: omweather/src/weather-popup.c:1313
 #: omweather/src/weather-simple-settings.c:1479
 msgid "inHg"
@@ -2478,13 +2489,15 @@ msgstr "pul Hg"
 msgid "inch"
 msgstr "pulgada"
 
-#: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
+#: omweather/src/weather-home.c:1588
+#: omweather/src/weather-popup.c:1297
 #: omweather/src/weather-simple-settings.c:1336
 #: omweather/src/weather-simple-settings.c:2670
 msgid "km"
 msgstr "km"
 
-#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:279
+#: omweather/src/weather-settings.c:3994
+#: omweather/src/hash.data:279
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
 msgid "km/h"
@@ -2494,7 +2507,8 @@ msgstr "km/h"
 msgid "km/s"
 msgstr "km/s"
 
-#: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1296
+#: omweather/src/weather-home.c:1587
+#: omweather/src/weather-popup.c:1296
 #: omweather/src/weather-simple-settings.c:1328
 #: omweather/src/weather-simple-settings.c:2664
 msgid "m"
@@ -2504,29 +2518,36 @@ msgstr "m"
 msgid "m/h"
 msgstr "m/h"
 
-#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:282
+#: omweather/src/weather-settings.c:3980
+#: omweather/src/hash.data:282
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
 msgid "m/s"
 msgstr "m/s"
 
-#: omweather/src/weather-home.c:1397 omweather/src/weather-home.c:1452
-#: omweather/src/weather-home.c:1604 omweather/src/weather-settings.c:4055
-#: omweather/src/weather-popup.c:980 omweather/src/weather-popup.c:1112
+#: omweather/src/weather-home.c:1397
+#: omweather/src/weather-home.c:1452
+#: omweather/src/weather-home.c:1604
+#: omweather/src/weather-settings.c:4055
+#: omweather/src/weather-popup.c:980
+#: omweather/src/weather-popup.c:1112
 #: omweather/src/weather-popup.c:1312
 #: omweather/src/weather-simple-settings.c:1471
 #: omweather/src/weather-simple-settings.c:2716
 msgid "mb"
 msgstr "mb"
 
-#: omweather/src/weather-home.c:1589 omweather/src/weather-home.c:1590
-#: omweather/src/weather-popup.c:1298 omweather/src/weather-popup.c:1299
+#: omweather/src/weather-home.c:1589
+#: omweather/src/weather-home.c:1590
+#: omweather/src/weather-popup.c:1298
+#: omweather/src/weather-popup.c:1299
 #: omweather/src/weather-simple-settings.c:1345
 #: omweather/src/weather-simple-settings.c:2676
 msgid "mi"
 msgstr "mi"
 
-#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:283
+#: omweather/src/weather-settings.c:4008
+#: omweather/src/hash.data:283
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
 msgid "mi/h"
@@ -2537,23 +2558,25 @@ msgid "mi/s"
 msgstr "mi/s"
 
 #: qtomweather/qt-qml/dataitem.cpp:365
-#, fuzzy
 msgid "minute ago"
-msgstr "1 minuto"
+msgstr "minuto atrás"
 
 #: qtomweather/qt-qml/dataitem.cpp:368
-#, fuzzy
 msgid "minutes ago"
-msgstr "3 minutos"
+msgstr "minutos atrás"
 
-#: omweather/src/weather-popup.c:961 omweather/src/weather-popup.c:1094
+#: omweather/src/weather-popup.c:961
+#: omweather/src/weather-popup.c:1094
 #: omweather/src/weather-simple-settings.c:2727
 msgid "mm"
 msgstr "mm"
 
-#: omweather/src/weather-home.c:1403 omweather/src/weather-home.c:1458
-#: omweather/src/weather-home.c:1606 omweather/src/weather-settings.c:4078
-#: omweather/src/weather-popup.c:986 omweather/src/weather-popup.c:1118
+#: omweather/src/weather-home.c:1403
+#: omweather/src/weather-home.c:1458
+#: omweather/src/weather-home.c:1606
+#: omweather/src/weather-settings.c:4078
+#: omweather/src/weather-popup.c:986
+#: omweather/src/weather-popup.c:1118
 #: omweather/src/weather-popup.c:1314
 #: omweather/src/weather-simple-settings.c:1488
 msgid "mmHg"
@@ -2586,9 +2609,8 @@ msgid "rising"
 msgstr "en ascenso"
 
 #: qtomweather/qt-qml/dataitem.cpp:362
-#, fuzzy
 msgid "seconds ago"
-msgstr "10 segundos"
+msgstr "segundos atrás"
 
 #: omweather/src/weather-popup.c:271
 msgid "station local time"

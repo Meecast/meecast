@@ -3,30 +3,30 @@
 #include <MLibrary>
 
 M_LIBRARY
-Q_EXPORT_PLUGIN2(meecastextension, MeecastApplicationExtension)
+Q_EXPORT_PLUGIN2(weatherextension, WeatherApplicationExtension)
 
-MeecastApplicationExtension::MeecastApplicationExtension() : button(0)
+WeatherApplicationExtension::WeatherApplicationExtension() : button(0)
 {
 }
 
-MeecastApplicationExtension::~MeecastApplicationExtension()
+WeatherApplicationExtension::~WeatherApplicationExtension()
 {
     delete button;
 }
 
-void MeecastApplicationExtension::meecastExtensionSpecificOperation()
+void WeatherApplicationExtension::weatherExtensionSpecificOperation()
 {
     // do something specific to the demo extension interface
 }
 
-bool MeecastApplicationExtension::initialize(const QString &)
+bool WeatherApplicationExtension::initialize(const QString &)
 {
     button = new MButton("Hello World");
 
     return true;
 }
 
-MWidget *MeecastApplicationExtension::widget()
+MWidget *WeatherApplicationExtension::widget()
 {
     return button;
 }

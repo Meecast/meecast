@@ -7,29 +7,29 @@
 
 
 
-class MeecastExtensionInterface : public MApplicationExtensionInterface
+class WeatherExtensionInterface : public MApplicationExtensionInterface
 {
     Q_INTERFACES(MApplicationExtensionInterface)
 
 public:
-    virtual void meecastExtensionSpecificOperation() = 0;
+    virtual void weatherExtensionSpecificOperation() = 0;
 };
 
-Q_DECLARE_INTERFACE(MeecastExtensionInterface, "com.nokia.home.EventsExtensionInterface/1.0")
+Q_DECLARE_INTERFACE(WeatherExtensionInterface, "com.nokia.home.EventsExtensionInterface/1.0")
 
 
 class MButton;
 
-class MeecastApplicationExtension : public QObject, public MeecastExtensionInterface
+class WeatherApplicationExtension : public QObject, public WeatherExtensionInterface
 {
     Q_OBJECT
-    Q_INTERFACES(MeecastExtensionInterface MApplicationExtensionInterface)
+    Q_INTERFACES(WeatherExtensionInterface MApplicationExtensionInterface)
 
 public:
-    MeecastApplicationExtension();
-    virtual ~MeecastApplicationExtension();
+    WeatherApplicationExtension();
+    virtual ~WeatherApplicationExtension();
 
-    virtual void meecastExtensionSpecificOperation();
+    virtual void weatherExtensionSpecificOperation();
 
     virtual bool initialize(const QString &interface);
     virtual MWidget *widget();

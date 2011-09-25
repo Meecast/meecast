@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=X-MeeGoApplicationExtension
-Name=MeeCast
+Name=Weather Extension Meecast
 Exec=mapplicationextensionrunner
 
 [X-MeeGoApplicationExtension]

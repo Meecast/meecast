@@ -5,11 +5,7 @@
 //#include <duiapplicationextensioninterface.h>
 #include <QObject>
 #include <MApplicationExtensionInterface>
-
-#include <iostream>
-#include <QFile>
-#include <fstream>
-#include <QTextStream>
+#include <QProcess>
 
 
 
@@ -27,12 +23,12 @@ public:
     ~MyMWidget(){};
 
     Q_INVOKABLE void startapplication(){
-        QFile ioFile("/tmp/1.log");
-
-        ioFile.open(QIODevice::Append | QIODevice::Text);
-        QTextStream out(&ioFile);
-        out<<"sssssssssssssssssssssssssssssss";	
-        ioFile.close();
+	QString executable("/usr/bin/invoker");    
+	QStringList arguments;
+	arguments << "--single-instance";
+	arguments << "--type=e";
+	arguments <<"/opt/com.meecast.omweather/bin/omweather-qml";	
+        process.start(executable, arguments);
     }
 
     QString icon(){
@@ -47,7 +43,7 @@ public:
     } 
     QString temperature(){
         QString c;
-	c="London";
+	c="+15";
 	return c;
     }
 
@@ -56,6 +52,9 @@ public:
 	    emit stationChanged();
 	    emit temperatureChanged();
     };
+
+private:
+    QProcess process;
 
 signals:
     void iconChanged();

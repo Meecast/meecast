@@ -7,7 +7,9 @@
 
      MouseArea {
          anchors.fill: parent
-          onClicked: { parent.color = 'red'; Applet.startapplication() }
+          onClicked: {
+	 	Applet.startapplication() 
+	  }
      }
 
 

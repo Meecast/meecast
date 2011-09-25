@@ -1,4 +1,5 @@
 
+QT += declarative
 TEMPLATE = lib
 CONFIG += plugin \
     gui \

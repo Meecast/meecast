@@ -1,17 +1,21 @@
 #include <MButton>
+#include <MContainer>
 #include "meegotouchplugin.h"
 #include <MLibrary>
+#include <QDeclarativeComponent>
+#include <QDeclarativeView>
+
 
 M_LIBRARY
 Q_EXPORT_PLUGIN2(weatherextension, WeatherApplicationExtension)
 
-WeatherApplicationExtension::WeatherApplicationExtension() : button(0)
+WeatherApplicationExtension::WeatherApplicationExtension() : box(0)
 {
 }
 
 WeatherApplicationExtension::~WeatherApplicationExtension()
 {
-    delete button;
+    delete box;
 }
 
 void WeatherApplicationExtension::weatherExtensionSpecificOperation()
@@ -21,13 +25,19 @@ void WeatherApplicationExtension::weatherExtensionSpecificOperation()
 
 bool WeatherApplicationExtension::initialize(const QString &)
 {
-    button = new MButton("Hello World");
+   QGraphicsObject* mWidget;
 
-    return true;
+   QDeclarativeView* view = new QDeclarativeView();
+   view->setSource(QUrl::fromLocalFile("/opt/com.meecast.omweather/share/omweather/qml/applet.qml"));
+   box = new MWidget();
+   mWidget = qobject_cast<QGraphicsObject*>(view->rootObject());
+   mlWidget->setParentItem(box);
+
+   return true;
 }
 
 MWidget *WeatherApplicationExtension::widget()
 {
-    return button;
+    return box;
 }
 

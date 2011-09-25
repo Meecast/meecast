@@ -1,5 +1,6 @@
 #include <QString>
 #include <MWidget>
+//#include <MContainer>
 
 //#include <duiapplicationextensioninterface.h>
 #include <QObject>
@@ -18,7 +19,9 @@ public:
 Q_DECLARE_INTERFACE(WeatherExtensionInterface, "com.nokia.home.EventsExtensionInterface/1.0")
 
 
-class MButton;
+//class MContainer;
+//class MButton;
+class MWidget;
 
 class WeatherApplicationExtension : public QObject, public WeatherExtensionInterface
 {
@@ -35,6 +38,9 @@ public:
     virtual MWidget *widget();
 
 private:
-    MButton *button;
+    MWidget *box;
+    //MContainer *box;
+    //MButton *box;
+    //MButton *button;
 };
 

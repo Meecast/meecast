@@ -3,6 +3,7 @@
 #include "meegotouchplugin.h"
 #include <MLibrary>
 #include <QDeclarativeComponent>
+#include <QDeclarativeContext>
 #include <QDeclarativeView>
 
 
@@ -26,13 +27,14 @@ void WeatherApplicationExtension::weatherExtensionSpecificOperation()
 bool WeatherApplicationExtension::initialize(const QString &)
 {
    QGraphicsObject* mWidget;
-
+   
    QDeclarativeView* view = new QDeclarativeView();
    view->setSource(QUrl::fromLocalFile("/opt/com.meecast.omweather/share/omweather/qml/applet.qml"));
-   box = new MWidget();
+   box = new MyMWidget();
    mWidget = qobject_cast<QGraphicsObject*>(view->rootObject());
-   mlWidget->setParentItem(box);
+   mWidget->setParentItem(box);
 
+   view->rootContext()->setContextProperty("Applet", box);
    return true;
 }
 

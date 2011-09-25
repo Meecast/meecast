@@ -9,6 +9,8 @@ CONFIG += plugin \
 HEADERS = meegotouchplugin.h
 SOURCES = meegotouchplugin.cpp
 
+INCLUDEPATH += ../core
+LIBS += -L ../core ../core/libomweather-core.a
 
 TARGET = $$qtLibraryTarget(events-meecast)
 DESTDIR = lib

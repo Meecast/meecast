@@ -1,13 +1,11 @@
 #include <QString>
 #include <MWidget>
-//#include <MContainer>
-
-//#include <duiapplicationextensioninterface.h>
 #include <QObject>
 #include <MApplicationExtensionInterface>
 #include <QProcess>
 
 
+#include "core.h"
 
 class MyMWidget : public MWidget
 {
@@ -18,6 +16,7 @@ class MyMWidget : public MWidget
 public:
 
     MyMWidget(){
+        _stationname = "Unknown";
     };
 
     ~MyMWidget(){};
@@ -36,10 +35,14 @@ public:
 	c="/opt/com.meecast.omweather/share/icons/Meecast/28.png";
 	return c;
     } 
+    void station(const std::string& stationname){
+	_stationname = stationname.c_str();
+    }
     QString station(){
         QString c;
-	c="Moscow";
+	c="+15";
 	return c;
+	//return _stationname;
     } 
     QString temperature(){
         QString c;
@@ -55,7 +58,7 @@ public:
 
 private:
     QProcess process;
-
+    QString  _stationname;
 signals:
     void iconChanged();
     void stationChanged();

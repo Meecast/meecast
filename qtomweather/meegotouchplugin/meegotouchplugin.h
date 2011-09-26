@@ -5,7 +5,6 @@
 #include <QProcess>
 
 
-#include "core.h"
 
 class MyMWidget : public MWidget
 {
@@ -17,6 +16,8 @@ public:
 
     MyMWidget(){
         _stationname = "Unknown";
+        _temperature = "";
+	_iconpath = "/opt/com.meecast.omweather/share/icons/Meecast/49.png";
     };
 
     ~MyMWidget(){};
@@ -30,19 +31,20 @@ public:
         process.start(executable, arguments);
     }
 
+    void icon(const std::string& iconpath){
+	_iconpath = iconpath.c_str();
+    }
+
     QString icon(){
-        QString c;
-	c="/opt/com.meecast.omweather/share/icons/Meecast/28.png";
-	return c;
+	return _iconpath; 
     } 
+
     void station(const std::string& stationname){
 	_stationname = stationname.c_str();
     }
+
     QString station(){
-        QString c;
-	c="+15";
-	return c;
-	//return _stationname;
+	return _stationname;
     } 
     QString temperature(){
         QString c;
@@ -59,6 +61,8 @@ public:
 private:
     QProcess process;
     QString  _stationname;
+    QString  _temperature;
+    QString  _iconpath;
 signals:
     void iconChanged();
     void stationChanged();
@@ -76,8 +80,6 @@ public:
 Q_DECLARE_INTERFACE(WeatherExtensionInterface, "com.nokia.home.EventsExtensionInterface/1.0")
 
 
-//class MContainer;
-//class MButton;
 class MyMWidget;
 
 class WeatherApplicationExtension : public QObject, public WeatherExtensionInterface
@@ -96,8 +98,5 @@ public:
 
 private:
     MyMWidget *box;
-    //MContainer *box;
-    //MButton *box;
-    //MButton *button;
 };
 

@@ -119,12 +119,13 @@ int main(int argc, char* argv[])
     app.installTranslator(&translator);
 
     controller = new Controller(); 
+    /* D-BUS */
     DbusAdaptor* dadapt = new DbusAdaptor(controller);
 
     QDBusConnection connection = QDBusConnection::sessionBus();
     connection.registerService("org.meego.omweather");
     connection.registerObject("/org/meego/omweather", controller);
-    
+   
 
     //config = controller->config();
     //std::cerr<<"iconpath = "<<config->imagespath().toStdString() << std::endl;

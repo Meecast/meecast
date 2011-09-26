@@ -35,6 +35,7 @@
 #include "countrymodel.h"
 #include "regionmodel.h"
 #include "citymodel.h"
+#include "dbusadaptor_applet.h"
 
 #ifndef CONTROLLER_H
 #define CONTROLLER_H

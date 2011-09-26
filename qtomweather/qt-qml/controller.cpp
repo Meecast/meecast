@@ -131,6 +131,7 @@ Controller::load_data()
   /* fill current date */
 //  if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(/*time(NULL)*/current_day))) {
 
+  MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
   if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))) {
       std::cout << "make current" << std::endl;
       forecast_data = new DataItem(temp_data);
@@ -143,8 +144,10 @@ Controller::load_data()
       //std::cout << "desc = " <<_current->description() << std::endl;
       //qDebug() << "desc = " <<forecast_data->description();
       _current->appendRow(forecast_data);
+      dbusclient->SetCurrentData(forecast_data->temperature(), forecast_data->temperature(), _config->stationname()); 
   }
 
+      dbusclient->SetCurrentData("xxxx", "ddddd", "sssss"); 
   /* set next day */
   i = 3600*24;
   /* fill other days */

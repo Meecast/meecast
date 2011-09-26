@@ -1,0 +1,9 @@
+<node>
+   <interface name="com.meecast.applet">
+      <method name="SetCurrentData">
+         <arg name="station" type="s" direction="in"/>
+         <arg name="temperature" type="s" direction="in"/>
+         <arg name="icon" type="s" direction="in"/>
+      </method>
+   </interface>
+</node>

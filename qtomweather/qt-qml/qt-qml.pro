@@ -17,6 +17,7 @@ SOURCES += main.cpp \
     dataitem.cpp \
     datamodel.cpp \
     dbusadaptor.cpp \
+    dbusadaptor_applet.cpp \
     controller.cpp \
     networkingcontrol.cpp \
     selectmodel.cpp \
@@ -32,6 +33,7 @@ HEADERS  += \
     dataitem.h \
     datamodel.h \
     dbusadaptor.h \
+    dbusadaptor_applet.h \
     controller.h \
     networkingcontrol.h \
     selectmodel.h \

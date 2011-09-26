@@ -1,13 +1,15 @@
 
-QT += declarative
+QT += declarative 
+
 TEMPLATE = lib
 CONFIG += plugin \
+    qdbus \
     gui \
     link_pkgconfig \
     meegotouch
 
-HEADERS = meegotouchplugin.h
-SOURCES = meegotouchplugin.cpp
+HEADERS = meegotouchplugin.h dbusadaptor.h
+SOURCES = meegotouchplugin.cpp dbusadaptor.cpp
 
 
 TARGET = $$qtLibraryTarget(events-meecast)

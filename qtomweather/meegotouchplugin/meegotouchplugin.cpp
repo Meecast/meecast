@@ -35,6 +35,7 @@ bool WeatherApplicationExtension::initialize(const QString &)
    view->setSource(QUrl::fromLocalFile("/opt/com.meecast.omweather/share/omweather/qml/applet.qml"));
    box = new MyMWidget();
    box->station("London");
+   box->temperature("+10");
    mWidget = qobject_cast<QGraphicsObject*>(view->rootObject());
    mWidget->setParentItem(box);
    view->rootContext()->setContextProperty("Applet", box);

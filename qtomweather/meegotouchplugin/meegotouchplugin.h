@@ -46,10 +46,13 @@ public:
     QString station(){
 	return _stationname;
     } 
+
+    void temperature(const std::string& temperature){
+	_temperature = temperature.c_str();
+    }
+
     QString temperature(){
-        QString c;
-	c="+15";
-	return c;
+	return _temperature;
     }
 
     void refreshview(){

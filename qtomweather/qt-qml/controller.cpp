@@ -144,10 +144,9 @@ Controller::load_data()
       //std::cout << "desc = " <<_current->description() << std::endl;
       //qDebug() << "desc = " <<forecast_data->description();
       _current->appendRow(forecast_data);
-      dbusclient->SetCurrentData(forecast_data->temperature(), forecast_data->temperature(), _config->stationname()); 
+      dbusclient->SetCurrentData( _config->stationname(), forecast_data->temperature(), (_config->iconspath() + "/" + _config->iconset() + "/" + forecast_data->icon())); 
   }
 
-      dbusclient->SetCurrentData("xxxx", "ddddd", "sssss"); 
   /* set next day */
   i = 3600*24;
   /* fill other days */

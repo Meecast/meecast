@@ -36,6 +36,7 @@
 #include <QList>
 #include <QVariant>
 #include "dataitem.h"
+#include "dbusadaptor_applet.h"
 
 class DataModel : public QAbstractListModel
 {

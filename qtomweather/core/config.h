@@ -79,6 +79,7 @@ namespace Core{
             std::string& stationname();
             std::string& nextstationname();
             std::string& prevstationname();
+            std::string& iconspath();
             //void stationsList(std::vector<Core::Station*> list);
             void stationsList(StationsList list);
             void saveConfig();

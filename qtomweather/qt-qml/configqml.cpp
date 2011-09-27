@@ -92,12 +92,11 @@ ConfigQml::set_iconset(QString c)
     saveConfig();
     refreshconfig();
 }
+
 QString
 ConfigQml::iconspath(){
-    QString c;
-    c = ConfigQml::Config::prefix_path().c_str();
-    c.append("/icons");
-    return c;
+    std::cerr<<ConfigQml::Config::iconspath().c_str()<<std::endl;
+    return ConfigQml::Config::iconspath().c_str(); 
 }
 
 QString
@@ -141,7 +140,9 @@ ConfigQml::windspeedunit(){
     c = QString(QString::fromUtf8(_(ConfigQml::Config::WindSpeedUnit().c_str())));
     return c;
 }
-QStringList ConfigQml::windspeed_list()
+
+QStringList 
+ConfigQml::windspeed_list()
 {
     QStringList l;
     for (int i=0; i < wind_list.size(); i++){
@@ -149,12 +150,15 @@ QStringList ConfigQml::windspeed_list()
     }
     return l;
 }
-void ConfigQml::windspeed_unit(int index)
+
+void 
+ConfigQml::windspeed_unit(int index)
 {
     ConfigQml::Config::WindSpeedUnit(wind_list.at(index).toStdString());
     saveConfig();
     refreshconfig();
 }
+
 QString
 ConfigQml::version(){
     QString c;

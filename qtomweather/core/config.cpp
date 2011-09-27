@@ -405,7 +405,15 @@ namespace Core{
             _name = new std::string(""); 
             return *_name;
         }
-}
+    }
+////////////////////////////////////////////////////////////////////////////////
+    std::string&
+    Config::iconspath(){
+        std::string *_path;
+        _path = _pathPrefix;
+        _path->append("/icons");
+        return *_path;
+    }
 
 ////////////////////////////////////////////////////////////////////////////////
 #ifdef LIBXML

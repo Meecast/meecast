@@ -3,7 +3,11 @@
       <method name="SetCurrentData">
          <arg name="station" type="s" direction="in"/>
          <arg name="temperature" type="s" direction="in"/>
+         <arg name="temperature_hi" type="s" direction="in"/>
+         <arg name="temperature_low" type="s" direction="in"/>
          <arg name="icon" type="s" direction="in"/>
+         <arg name="until_valid_time" type="u" direction="in"/>
+         <arg name="current" type="b" direction="in"/>
       </method>
    </interface>
 </node>

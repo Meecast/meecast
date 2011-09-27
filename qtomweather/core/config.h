@@ -77,6 +77,8 @@ namespace Core{
             std::string& FontColor(void);
             StationsList& stationsList();
             std::string& stationname();
+            std::string& nextstationname();
+            std::string& prevstationname();
             //void stationsList(std::vector<Core::Station*> list);
             void stationsList(StationsList list);
             void saveConfig();

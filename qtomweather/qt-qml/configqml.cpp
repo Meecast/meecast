@@ -380,43 +380,25 @@ ConfigQml::saveStation(int city_id, QString city,
     refreshconfig();
 
 }
+
 QString
 ConfigQml::stationname()
 {
-/*
-    if (this->current_station_id() == INT_MAX && this->stationsList().size() > 0){
-        this->current_station_id(0);
-    }
-    if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
-        &&  this->stationsList().at(this->current_station_id()))
-        return this->stationsList().at(this->current_station_id())->name().c_str();
-    else
-        return "Unknown";
-*/
     return ConfigQml::Config::stationname().c_str();
 }
+
 QString
 ConfigQml::nextstationname()
 {
-    if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
-        && (this->current_station_id() + 1) < this->stationsList().size()
-        &&  this->stationsList().at(this->current_station_id()+1)){
-        return this->stationsList().at(this->current_station_id()+1)->name().c_str();
-    }else {
-        return "";
-    }
+    return ConfigQml::Config::nextstationname().c_str(); 
 }
+
 QString
 ConfigQml::prevstationname()
 {
-    if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
-        && (this->current_station_id() - 1) >= 0
-        &&  this->stationsList().at(this->current_station_id()-1)){
-        return this->stationsList().at(this->current_station_id()-1)->name().c_str();
-    }else {
-        return "";
-    }
+    return ConfigQml::Config::prevstationname().c_str(); 
 }
+
 QString
 ConfigQml::filename()
 {

@@ -332,17 +332,16 @@ namespace Core{
     Config::WindSpeedUnit(){
         return *_wind_speed_unit;
     }
-    ////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
     void
     Config::UpdateConnect(const bool uc){
         _update_connect = uc;
     }
-    ////////////////////////////////////////////////////////////////////////////////
     bool
     Config::UpdateConnect(void){
         return _update_connect;
     }
-
+////////////////////////////////////////////////////////////////////////////////
     void
     Config::UpdatePeriod(const int period){
         _update_period = period;
@@ -378,6 +377,35 @@ namespace Core{
             return *_name;
         }
     }
+////////////////////////////////////////////////////////////////////////////////
+    std::string&
+    Config::prevstationname()
+    {
+        if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
+            && (this->current_station_id() - 1) >= 0
+            &&  this->stationsList().at(this->current_station_id()-1)){
+             return this->stationsList().at(this->current_station_id()-1)->name();
+        }else{
+            std::string *_name;
+            _name = new std::string(""); 
+            return *_name;
+        }
+    }
+
+////////////////////////////////////////////////////////////////////////////////    
+    std::string&
+    Config::nextstationname()
+    {
+        if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
+            && (this->current_station_id() + 1) < this->stationsList().size()
+            &&  this->stationsList().at(this->current_station_id()+1)){
+             return this->stationsList().at(this->current_station_id()+1)->name();
+        }else {
+            std::string *_name;
+            _name = new std::string(""); 
+            return *_name;
+        }
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 #ifdef LIBXML

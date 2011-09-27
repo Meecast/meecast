@@ -363,6 +363,23 @@ namespace Core{
         return *_font_color;
     }
 ////////////////////////////////////////////////////////////////////////////////
+    std::string&
+    Config::stationname()
+    {
+        if (this->current_station_id() == INT_MAX && this->stationsList().size() > 0){
+            this->current_station_id(0);
+        }
+        if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
+            &&  this->stationsList().at(this->current_station_id()))
+            return this->stationsList().at(this->current_station_id())->name();
+        else{
+            std::string *_name;
+            _name = new std::string("Unknown"); 
+            return *_name;
+        }
+    }
+
+////////////////////////////////////////////////////////////////////////////////
 #ifdef LIBXML
     void Config::processNode(const xmlpp::Node* node){
         Station* station;

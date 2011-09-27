@@ -383,6 +383,7 @@ ConfigQml::saveStation(int city_id, QString city,
 QString
 ConfigQml::stationname()
 {
+/*
     if (this->current_station_id() == INT_MAX && this->stationsList().size() > 0){
         this->current_station_id(0);
     }
@@ -391,6 +392,8 @@ ConfigQml::stationname()
         return this->stationsList().at(this->current_station_id())->name().c_str();
     else
         return "Unknown";
+*/
+    return ConfigQml::Config::stationname().c_str();
 }
 QString
 ConfigQml::nextstationname()

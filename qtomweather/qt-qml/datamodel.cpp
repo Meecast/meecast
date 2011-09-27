@@ -175,8 +175,8 @@ DataModel::update(QString filename, int  period)
                 forecast_data->windunit = _config->WindSpeedUnit().c_str();
                 this->appendRow(forecast_data);
                 MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
-                dbusclient->SetCurrentData( _config->stationname(), forecast_data->temperature() + "°",
-                                            (_config->iconspath() + "/" + _config->iconset() + "/" + forecast_data->icon())); 
+//                dbusclient->SetCurrentData( _config->stationname(), forecast_data->temperature() + "°",
+//                                            (_config->iconspath() + "/" + _config->iconset() + "/" + forecast_data->icon())); 
 
             }
             break;

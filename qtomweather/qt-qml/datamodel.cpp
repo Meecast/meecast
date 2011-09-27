@@ -175,13 +175,12 @@ DataModel::update(QString filename, int  period)
                 forecast_data->windunit = _config->WindSpeedUnit().c_str();
                 this->appendRow(forecast_data);
                 MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
-                QString stroka =  _config->iconspath().c_str();
-                stroka.append("/") ;
-                stroka.append(_config->iconSet().c_str());
-                stroka.append("/") ;
-                stroka.append(forecast_data->icon()) ;
-                dbusclient->SetCurrentData(_config->stationname().c_str() , forecast_data->temperature(), stroka); 
-                std::cerr<<"name "<<_config->stationname().c_str()<<std::endl;
+                QString icon_string =  _config->iconspath().c_str();
+                icon_string.append("/") ;
+                icon_string.append(_config->iconSet().c_str());
+                icon_string.append("/") ;
+                icon_string.append(forecast_data->icon()) ;
+                dbusclient->SetCurrentData(_config->stationname().c_str(), forecast_data->temperature(), forecast_data->temperature_high(), forecast_data->temperature_low(), icon_string, 0, 0); 
             }
             break;
         case day_period:

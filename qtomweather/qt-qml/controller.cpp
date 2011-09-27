@@ -144,7 +144,7 @@ Controller::load_data()
       //qDebug() << "desc = " <<forecast_data->description();
       _current->appendRow(forecast_data);
       MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
-      dbusclient->SetCurrentData( _config->stationname(), forecast_data->temperature(), (_config->iconspath() + "/" + _config->iconset() + "/" + forecast_data->icon())); 
+      dbusclient->SetCurrentData( _config->stationname(), forecast_data->temperature(), forecast_data->temperature_high(), forecast_data->temperature_low(), (_config->iconspath() + "/" + _config->iconset() + "/" + forecast_data->icon()), 0, 0);
   }
 
   /* set next day */

@@ -88,7 +88,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
 
    this->temperature(temperature);
    this->temperature_high(temperature_high);
-   this->temperature_high(temperature_low);
+   this->temperature_low(temperature_low);
    this->station(station);
    this->icon(icon);
    this->refreshview();

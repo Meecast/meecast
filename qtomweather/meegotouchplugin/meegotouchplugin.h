@@ -42,6 +42,15 @@ class MyMWidget : public MWidget
    Q_PROPERTY(QString temperature READ temperature NOTIFY temperatureChanged)  
    Q_PROPERTY(QString temperature_high READ temperature_high NOTIFY temperature_highChanged)  
    Q_PROPERTY(QString temperature_low READ temperature_low NOTIFY temperature_lowChanged)  
+
+private:
+    QProcess process;
+    QString  _stationname;
+    QString  _temperature;
+    QString  _temperature_high;
+    QString  _temperature_low;
+    QString  _iconpath;
+
 public:
 
     MyMWidget(){
@@ -112,15 +121,8 @@ public:
     };
 
 public Q_SLOTS:
-    void SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low,  const QString &icon, const uint until_valid_time, bool current){
+    void SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low,  const QString &icon, const uint until_valid_time, bool current);
 
-private:
-    QProcess process;
-    QString  _stationname;
-    QString  _temperature;
-    QString  _temperature_high;
-    QString  _temperature_low;
-    QString  _iconpath;
 signals:
     void iconChanged();
     void stationChanged();

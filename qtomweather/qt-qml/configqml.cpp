@@ -95,7 +95,6 @@ ConfigQml::set_iconset(QString c)
 
 QString
 ConfigQml::iconspath(){
-    std::cerr<<ConfigQml::Config::iconspath().c_str()<<std::endl;
     return ConfigQml::Config::iconspath().c_str(); 
 }
 
@@ -412,6 +411,7 @@ ConfigQml::filename()
     else
         return QString();
 }
+
 QString
 ConfigQml::source()
 {
@@ -421,6 +421,7 @@ ConfigQml::source()
     else
         return QString();
 }
+
 void
 ConfigQml::changestation()
 {
@@ -430,8 +431,9 @@ ConfigQml::changestation()
    }else {
        this->current_station_id(0);
    }
-
+   this->saveConfig();
 }
+
 void
 ConfigQml::nextstation()
 {
@@ -441,8 +443,9 @@ ConfigQml::nextstation()
    }else {
        this->current_station_id(0);
    }
-
+   this->saveConfig();
 }
+
 void
 ConfigQml::prevstation()
 {
@@ -452,7 +455,7 @@ ConfigQml::prevstation()
    }else {
        this->current_station_id(stationsList().size());
    }
-
+   this->saveConfig();
 }
 void
 ConfigQml::refreshconfig(){

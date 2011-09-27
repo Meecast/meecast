@@ -178,9 +178,10 @@ DataModel::update(QString filename, int  period)
                 QString stroka =  _config->iconspath().c_str();
                 stroka.append("/") ;
                 stroka.append(_config->iconSet().c_str());
+                stroka.append("/") ;
                 stroka.append(forecast_data->icon()) ;
-                dbusclient->SetCurrentData(_config->stationname().c_str() , forecast_data->temperature() + "°", stroka); 
-
+                dbusclient->SetCurrentData(_config->stationname().c_str() , forecast_data->temperature(), stroka); 
+                std::cerr<<"name "<<_config->stationname().c_str()<<std::endl;
             }
             break;
         case day_period:

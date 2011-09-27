@@ -84,9 +84,11 @@ MWidget *WeatherApplicationExtension::widget(){
 }
 
 void 
-MyMWidget::SetCurrentData(const QString &station, const QString &temperature, const QString &icon){
+MyMWidget::SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low,  const QString &icon, const uint until_valid_time, bool current){
 
    this->temperature(temperature);
+   this->temperature_high(temperature_high);
+   this->temperature_high(temperature_low);
    this->station(station);
    this->icon(icon);
    this->refreshview();

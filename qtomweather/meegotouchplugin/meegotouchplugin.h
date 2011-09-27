@@ -40,11 +40,15 @@ class MyMWidget : public MWidget
    Q_PROPERTY(QString icon READ icon NOTIFY iconChanged)  
    Q_PROPERTY(QString station READ station NOTIFY stationChanged)  
    Q_PROPERTY(QString temperature READ temperature NOTIFY temperatureChanged)  
+   Q_PROPERTY(QString temperature_high READ temperature_high NOTIFY temperature_highChanged)  
+   Q_PROPERTY(QString temperature_low READ temperature_low NOTIFY temperature_lowChanged)  
 public:
 
     MyMWidget(){
       _stationname = "Unknown";
       _temperature = "";
+      _temperature_low = "";
+      _temperature_high = "";
 	  _iconpath = "/opt/com.meecast.omweather/share/icons/Meecast/49.png";
     };
 
@@ -83,24 +87,46 @@ public:
 	    return _temperature;
     }
 
+    void temperature_high(const QString &temperature){
+	    _temperature_high = temperature;
+    }
+
+    QString temperature_high(){
+	    return _temperature_high;
+    }
+
+    void temperature_low(const QString &temperature){
+	    _temperature_low = temperature;
+    }
+
+    QString temperature_low(){
+	    return _temperature_low;
+    }
+
     void refreshview(){
 	    emit iconChanged();
 	    emit stationChanged();
 	    emit temperatureChanged();
+	    emit temperature_highChanged();
+	    emit temperature_lowChanged();
     };
 
 public Q_SLOTS:
-    void SetCurrentData(const QString &station, const QString &temperature, const QString &icon);
+    void SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low,  const QString &icon, const uint until_valid_time, bool current){
 
 private:
     QProcess process;
     QString  _stationname;
     QString  _temperature;
+    QString  _temperature_high;
+    QString  _temperature_low;
     QString  _iconpath;
 signals:
     void iconChanged();
     void stationChanged();
     void temperatureChanged();
+    void temperature_highChanged();
+    void temperature_lowChanged();
 };
 
 class WeatherExtensionInterface : public MApplicationExtensionInterface

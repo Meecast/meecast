@@ -180,7 +180,9 @@ DataModel::update(QString filename, int  period)
                 icon_string.append(_config->iconSet().c_str());
                 icon_string.append("/") ;
                 icon_string.append(forecast_data->icon()) ;
-                dbusclient->SetCurrentData(_config->stationname().c_str(), forecast_data->temperature(), forecast_data->temperature_high(), forecast_data->temperature_low(), icon_string, 0, 0); 
+                dbusclient->SetCurrentData(_config->stationname().c_str(), forecast_data->temperature(), 
+                                           forecast_data->temperature_high(), forecast_data->temperature_low(), 
+                                           icon_string, 0, forecast_data->current()); 
             }
             break;
         case day_period:

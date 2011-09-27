@@ -64,8 +64,6 @@ WeatherApplicationExtension::initialize(const QString &){
    QDeclarativeView* view = new QDeclarativeView();
    view->setSource(QUrl::fromLocalFile("/opt/com.meecast.omweather/share/omweather/qml/applet.qml"));
    box = new MyMWidget();
-   box->station("London");
-   box->temperature("+10");
    mWidget = qobject_cast<QGraphicsObject*>(view->rootObject());
    mWidget->setParentItem(box);
    view->rootContext()->setContextProperty("Applet", box);
@@ -91,6 +89,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
    this->temperature_low(temperature_low);
    this->station(station);
    this->icon(icon);
+   this->current(current);
    this->refreshview();
 
 }

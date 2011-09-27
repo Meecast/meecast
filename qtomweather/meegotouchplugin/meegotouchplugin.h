@@ -42,6 +42,7 @@ class MyMWidget : public MWidget
    Q_PROPERTY(QString temperature READ temperature NOTIFY temperatureChanged)  
    Q_PROPERTY(QString temperature_high READ temperature_high NOTIFY temperature_highChanged)  
    Q_PROPERTY(QString temperature_low READ temperature_low NOTIFY temperature_lowChanged)  
+   Q_PROPERTY(bool current READ current NOTIFY currentChanged)  
 
 private:
     QProcess process;
@@ -50,6 +51,7 @@ private:
     QString  _temperature_high;
     QString  _temperature_low;
     QString  _iconpath;
+    bool    _current;
 
 public:
 
@@ -59,6 +61,7 @@ public:
       _temperature_low = "";
       _temperature_high = "";
 	  _iconpath = "/opt/com.meecast.omweather/share/icons/Meecast/49.png";
+      _current = false;
     };
 
     ~MyMWidget(){};
@@ -112,12 +115,19 @@ public:
 	    return _temperature_low;
     }
 
+    void current(bool cur){
+        _current = cur;
+    }
+    bool current(){
+        return _current;
+    }
     void refreshview(){
 	    emit iconChanged();
 	    emit stationChanged();
 	    emit temperatureChanged();
 	    emit temperature_highChanged();
 	    emit temperature_lowChanged();
+	    emit currentChanged();
     };
 
 public Q_SLOTS:
@@ -129,6 +139,7 @@ signals:
     void temperatureChanged();
     void temperature_highChanged();
     void temperature_lowChanged();
+    void currentChanged();
 };
 
 class WeatherExtensionInterface : public MApplicationExtensionInterface

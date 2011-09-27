@@ -51,9 +51,10 @@
 	     Text {
 		 id: temperature 
 		 y: texty 
-		 font.pointSize: 20; 
+		 font.pointSize: Applet.current ? 22 : 20 
 		 color: "white"
 		 text: temp()
+		 font.bold : Applet.current ? true : false 
   	     }
 
 	     Image {

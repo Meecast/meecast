@@ -105,7 +105,7 @@ public:
     inline QString wind_gust();
     QString humidity();
     QString icon();
-    inline bool current();
+    bool current();
     QString description();
     inline QString date();
     QString shortdate();

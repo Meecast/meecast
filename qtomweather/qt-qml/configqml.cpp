@@ -432,6 +432,16 @@ ConfigQml::source()
         return QString();
 }
 
+QString
+ConfigQml::viewURL()
+{
+    if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
+                                                &&  this->stationsList().at(this->current_station_id()))
+        return this->stationsList().at(this->current_station_id())->viewURL().c_str();
+    else
+        return QString();
+}
+
 void
 ConfigQml::changestation()
 {
@@ -487,9 +497,11 @@ ConfigQml::updatestations()
 }
 
 void
-ConfigQml::showweb(QString source)
+ConfigQml::showweb()
 {
-    QDesktopServices::openUrl(QUrl(source));
+    if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
+                                                &&  this->stationsList().at(this->current_station_id()))
+        QDesktopServices::openUrl(QUrl(this->stationsList().at(this->current_station_id())->viewURL().c_str()));     
 }
 
 void

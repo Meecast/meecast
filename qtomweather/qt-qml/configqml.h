@@ -73,6 +73,7 @@ public:
     QString filename();
     QString source();
     QString version();
+    QString viewURL();
     Q_INVOKABLE QStringList stations();
     Q_INVOKABLE void removeStation(int index);
     Q_INVOKABLE QStringList Sources();
@@ -88,7 +89,7 @@ public:
     Q_INVOKABLE void nextstation();
     Q_INVOKABLE void prevstation();
     Q_INVOKABLE void updatestations();
-    Q_INVOKABLE void showweb(QString source);
+    Q_INVOKABLE void showweb();
     Q_INVOKABLE void runsetting();
     Q_INVOKABLE void closeapplication();
     Q_INVOKABLE QStringList temperature_list();

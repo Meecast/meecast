@@ -138,6 +138,11 @@ Config::saveConfig()
         el.appendChild(t);
         st.appendChild(el);
 
+        el = doc.createElement("view_url");
+        t = doc.createTextNode(QString::fromStdString((*i)->viewURL()));
+        el.appendChild(t);
+        st.appendChild(el);
+
         el = doc.createElement("converter");
         t = doc.createTextNode(QString::fromStdString((*i)->converter()));
         el.appendChild(t);
@@ -223,7 +228,7 @@ Config::LoadConfig(){
 
         nodelist = root.elementsByTagName("station");
         for (int i=0; i<nodelist.count(); i++){
-            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter;
+            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL;
             QDomElement e = nodelist.at(i).toElement();
             QDomNode n = e.firstChild();
             while (!n.isNull()){
@@ -244,6 +249,8 @@ Config::LoadConfig(){
                     fileName = el.text();
                 else if (tag == "forecast_url")
                     forecastURL = el.text();
+                else if (tag == "view_url")
+                    viewURL = el.text();
                 else if (tag == "converter")
                     converter = el.text();
                 n = n.nextSibling();
@@ -251,12 +258,16 @@ Config::LoadConfig(){
 /* Hack for yr.no */
             if  (source_name=="yr.no")
                 forecastURL.replace("#","/");
+            if  (source_name=="yr.no")
+                viewURL.replace("#","/");
+
             Station *st = new Station(source_name.toStdString(),
                                       station_id.toStdString(),
                                       station_name.toStdString(),
                                       country.toStdString(),
                                       region.toStdString(),
-                                      forecastURL.toStdString());
+                                      forecastURL.toStdString(),
+                                      viewURL.toStdString());
             st->fileName(fileName.toStdString());
             st->converter(converter.toStdString());
             _stations->push_back(st);
@@ -366,12 +377,10 @@ std::string&
 Config::stationname()
 {
     if (this->current_station_id() == INT_MAX && this->stationsList().size() > 0){
-        std::cerr<<"Station nn=ame0 "<< this->current_station_id()<<std::endl;
         this->current_station_id(0);
     }
     if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
         &&  this->stationsList().at(this->current_station_id())){
-        std::cerr<<"Station nn=ame1 "<< this->current_station_id()<<std::endl;
         return this->stationsList().at(this->current_station_id())->name();
     }
     else{

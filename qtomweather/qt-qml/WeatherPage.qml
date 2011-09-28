@@ -25,7 +25,7 @@ Page {
 	    MouseArea{
 	        anchors.fill: parent
 		onClicked: {
- 		    Config.showweb("http://www.ya.ru");	
+ 		    Config.showweb();	
 		}
 	    }
         }

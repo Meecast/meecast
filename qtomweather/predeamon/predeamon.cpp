@@ -75,16 +75,16 @@ create_and_fill_config(){
 int
 main (int argc, char *argv[])
 {
-  char buffer[4096];
   time_t current_day;
   struct tm   *tm = NULL;
   int year, current_month;
   Core::Data *temp_data = NULL;
   Core::DataParser* dp = NULL;
-  int i, num = 0;
   int success = 0;
-  Core::Data *forecast_data = NULL;
-
+  uint i = 0;
+  QString temp;
+  QString temp_high;
+  QString temp_low;
   config = create_and_fill_config();
 
   /*update weather forecast*/
@@ -119,16 +119,24 @@ main (int argc, char *argv[])
         icon_string.append(config->iconSet().c_str());
         icon_string.append("/") ;
         icon_string.append(temp_data->Icon()) ;
-        QString temp;
-        DataItem::Data::temperature_low().units(temperatureunit.toStdString());
-        if (DataItem::Data::temperature_low().value(TRUE) == INT_MAX){
+        temp_data->temperature_low().units(config->TemperatureUnit());
+        temp_data->temperature_hi().units(config->TemperatureUnit());
+        temp_data->temperature_low().units(config->TemperatureUnit());
+        if (temp_data->temperature().value(TRUE) == INT_MAX){
             temp = "N/A";
-        }
-         temp.number((DataItem::Data::temperature_low().value()),'f',0);
+        }else
+            temp = temp.number((temp_data->temperature().value()),'f',0);
+        if (temp_data->temperature_hi().value(TRUE) == INT_MAX){
+            temp_high = "N/A";
+        }else
+            temp_high = temp.number((temp_data->temperature_hi().value()),'f',0);
 
-        dbusclient->SetCurrentData(config->stationname().c_str(), temp.number((DataItem::Data::temperature_low().value()),'f',0);
+        if (temp_data->temperature_low().value(TRUE) == INT_MAX){
+            temp_low = "N/A";
+        }else
+            temp_low = temp.number((temp_data->temperature_low().value()),'f',0);
 
-                                   temp_data->temperature_hi().c_str(), temp_data->temperature_low().c_str(), 
+        dbusclient->SetCurrentData(config->stationname().c_str(), temp, temp_high, temp_low, 
                                    icon_string, 0, temp_data->Current()); 
     }
 

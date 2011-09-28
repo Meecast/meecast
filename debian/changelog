@@ -1,12 +1,14 @@
 meecast (0.3.30) unstable; urgency=low
 
-  * Disabled Statusbar  
+  * Done psossibilti for Active/Disable Statusbar  
+  * Updated Spanish translation
+  * addded applet for Harmattan
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 21 Sep 2011 12:24:20 +0200
 
 meecast (0.3.29) unstable; urgency=low
 
-  * fixed problem with refresh button fro Fremantle
+  * fixed problem with refresh button for Fremantle
   * fixed problem with wind_speed for value "N/A"
   * added translators to window About
 

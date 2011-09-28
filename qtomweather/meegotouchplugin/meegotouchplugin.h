@@ -75,6 +75,11 @@ public:
         process.start(executable, arguments);
     }
 
+    Q_INVOKABLE void startpredeamon(){
+        QString executable("/opt/com.meecast.omweather/bin/predaemon");    
+        process.start(executable);
+    }
+
     void icon(const QString &iconpath){
 	    _iconpath = iconpath;
     }

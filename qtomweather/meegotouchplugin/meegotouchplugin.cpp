@@ -73,7 +73,7 @@ WeatherApplicationExtension::initialize(const QString &){
    QDBusConnection connection = QDBusConnection::sessionBus();
    bool ret = connection.registerService("com.meecast.applet");
    ret = connection.registerObject("/com/meecast/applet", box);
-
+   box->startpredeamon();
    return true;
 }
 

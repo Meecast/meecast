@@ -30,7 +30,7 @@
 
 #include "dbusadaptor_applet.h"
 
-
+#define DATA_XSD_PATH "/opt/com.meecast.omweather/share/xsd/data.xsd"
 
 void init_omweather_core(void);
 
@@ -72,6 +72,23 @@ create_and_fill_config(){
     return config;
 }
 
+Core::DataParser*
+current_data(std::string& str){
+  Core::DataParser* dp;
+  try{
+        dp = new Core::DataParser(str, DATA_XSD_PATH);
+    }
+    catch(const std::string &str){
+        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+        return NULL;
+    }
+    catch(const char *str){
+        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+        return NULL;
+    }
+    return dp;
+}
+
 int
 main (int argc, char *argv[])
 {
@@ -87,6 +104,7 @@ main (int argc, char *argv[])
   QString temp_low;
   config = create_and_fill_config();
 
+   QCoreApplication a(argc, argv);
   /*update weather forecast*/
 
   for (i=0; i < config->stationsList().size();i++){
@@ -95,7 +113,8 @@ main (int argc, char *argv[])
       }
   }
 
-  /* set current day */ 
+    dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
+    /* set current day */ 
     current_day = time(NULL);
     //tm = localtime(&current_day);
     tm = gmtime(&current_day);
@@ -115,10 +134,12 @@ main (int argc, char *argv[])
     if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
         MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
         QString icon_string =  config->iconspath().c_str();
+        QString icon_number;
         icon_string.append("/") ;
         icon_string.append(config->iconSet().c_str());
         icon_string.append("/") ;
-        icon_string.append(temp_data->Icon()) ;
+        icon_number =icon_number.number((temp_data->Icon()), 'i', 0) + ".png";
+        icon_string.append(icon_number) ;
         temp_data->temperature_low().units(config->TemperatureUnit());
         temp_data->temperature_hi().units(config->TemperatureUnit());
         temp_data->temperature_low().units(config->TemperatureUnit());

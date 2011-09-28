@@ -39,6 +39,7 @@ namespace Core {
         _library = new std::string;
         _binary = new std::string;
         _url_template = new std::string;
+        _url_for_view = new std::string;
         _hasForecast = false;
         _hasDetail = false;
         _hasSearch = false;
@@ -84,6 +85,9 @@ namespace Core {
                             _url_template->assign(el.attribute("url").toStdString());
 
                         //_url_template->assign(el.text().toStdString());
+                    }else if (tag =="showurl"){
+                        if (el.hasAttribute("url"))
+                            _url_for_view->assign(el.attribute("url").toStdString());
                     }
                     n = n.nextSibling();
                 }
@@ -152,6 +156,7 @@ namespace Core {
         if (_binary)
             delete _binary;
         delete _url_template;
+        delete _url_for_view;
         if(_libraryHandler)
             dlclose(_libraryHandler);
     }
@@ -168,6 +173,9 @@ namespace Core {
             _binary = new std::string(*(source._binary));
             delete _url_template;
             _url_template = new std::string(*(source._url_template));
+            delete _url_for_view;
+            _url_for_view = new std::string(*(source._url_for_view));
+
         }
         return *this;
     }
@@ -235,14 +243,21 @@ namespace Core {
         }
         // url_template tag
         if(nodeName == "forecast"){
-
             const xmlpp::Element* nodeElement = dynamic_cast<const xmlpp::Element*>(node);
             const xmlpp::Attribute* attribute = nodeElement->get_attribute("url");
             if (attribute)
                 _url_template->assign(attribute->get_value().c_str());
-
             return;
         }
+        // url_showurl tag
+        if(nodeName == "showurl"){
+            const xmlpp::Element* nodeElement = dynamic_cast<const xmlpp::Element*>(node);
+            const xmlpp::Attribute* attribute = nodeElement->get_attribute("url");
+            if (attribute)
+                _url_for_view->assign(attribute->get_value().c_str());
+            return;
+        }
+
     }
 #endif
 ////////////////////////////////////////////////////////////////////////////////
@@ -261,7 +276,11 @@ namespace Core {
     std::string& Source::url_template() const{
         return *_url_template;
     }
-    ////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
+    std::string& Source::url_for_view() const{
+        return *_url_for_view;
+    }
+///////////////////////////////////////////////////////////////////////////////
     std::string& Source::binary() const{
         return *_binary;
     }

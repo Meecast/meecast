@@ -49,6 +49,7 @@ namespace Core {
         std::string *_library;
         std::string *_binary;
         std::string *_url_template;
+        std::string *_url_for_view;
         void *_libraryHandler;
         bool _hasForecast;
         bool _hasDetail;
@@ -70,6 +71,7 @@ namespace Core {
             std::string& name() const;
             std::string& logo() const;
             std::string& url_template() const;
+            std::string& url_for_view() const;
             std::string& binary() const;
             virtual ~Source();
             StationsList& search(const std::string& station);

@@ -36,13 +36,15 @@
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const std::string& source_name, const std::string& id, const std::string& name,
-                     const std::string& country, const std::string& region, const std::string& forecastURL){
+                     const std::string& country, const std::string& region, const std::string& forecastURL,
+                     const std::string& viewURL){
         _sourceName = new std::string(source_name);
         _id = new std::string(id);
         _name = new std::string(name);
         _country = new std::string(country);
         _region = new std::string(region);
         _forecastURL = new std::string(forecastURL);
+        _viewURL = new std::string(viewURL);
         _timezone = 0;
         _fileName = new std::string();
         _source = this->getSourceByName();
@@ -56,6 +58,7 @@ namespace Core {
         delete _country;
         delete _region;
         delete _forecastURL;
+        delete _viewURL;
         if(_data)
             delete _data;
         if(_fileName)
@@ -73,6 +76,7 @@ namespace Core {
         _country = new std::string(*(station._country));
         _region = new std::string(*(station._region));
         _forecastURL = new std::string(*(station._forecastURL));
+        _viewURL = new std::string(*(station._viewURL));
         _fileName = new std::string(*(station._fileName));
         _converter = new std::string(*(station._converter));
     }
@@ -91,6 +95,8 @@ namespace Core {
             _region = new std::string(*(station._region));
             delete _forecastURL;
             _forecastURL = new std::string(*(station._forecastURL));
+            delete _viewURL;
+            _viewURL = new std::string(*(station._viewURL));
             delete _fileName;
             _fileName = new std::string(*(station._fileName));
             delete _converter;
@@ -138,6 +144,11 @@ namespace Core {
     std::string& Station::forecastURL() const{
         return *_forecastURL;
     }
+    ////////////////////////////////////////////////////////////////////////////////
+    std::string& Station::viewURL() const{
+        return *_viewURL;
+    }
+
     ////////////////////////////////////////////////////////////////////////////////
     void Station::country(const std::string& country){
         _country->assign(country);

@@ -8,4 +8,5 @@
 <search url="http://xml.weather.com/search/search?where=%s" />
 <library>libomweather-weather-com-source.so</library>
 <binary>/opt/com.meecast.omweather/lib/weathercom</binary>
+<showurl url="http://www.weather.com/weather/tenday/%s/" />
 </source>

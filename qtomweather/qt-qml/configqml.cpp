@@ -319,16 +319,21 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
     Core::SourceList *sourcelist = new Core::SourceList(path);
 
     std::string url_template = sourcelist->at(source_id)->url_template();
+    std::string url_for_view = sourcelist->at(source_id)->url_for_view();
 
     char forecast_url[4096];
     snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), code.c_str());
+    char view_url[4096];
+    snprintf(view_url, sizeof(view_url)-1, url_for_view.c_str(), code.c_str());
+
     station = new Core::Station(
                 source.toStdString(),
                 code,
                 city_name.toStdString(),
                 country.toStdString(),
                 region.toStdString(),
-                forecast_url);
+                forecast_url,
+                view_url);
     std::string filename(Core::AbstractConfig::getConfigPath());
     filename += source.toStdString();
     filename += "_";
@@ -360,16 +365,21 @@ ConfigQml::saveStation(int city_id, QString city,
     Core::SourceList *sourcelist = new Core::SourceList(path);
 
     std::string url_template = sourcelist->at(source_id)->url_template();
+    std::string url_for_view = sourcelist->at(source_id)->url_for_view();
 
     char forecast_url[4096];
     snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), code.c_str());
+    char view_url[4096];
+    snprintf(view_url, sizeof(forecast_url)-1, url_for_view.c_str(), code.c_str());
+
     station = new Core::Station(
                 source.toStdString(),
                 code,
                 city.toStdString(),
                 country.toStdString(),
                 region.toStdString(),
-                forecast_url);
+                forecast_url,
+                view_url);
     std::string filename(Core::AbstractConfig::getConfigPath());
     filename += source.toStdString();
     filename += "_";

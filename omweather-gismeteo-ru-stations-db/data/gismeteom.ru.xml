@@ -7,5 +7,6 @@
 <detail url="http://gismeteo.ru/city/hourly/%s/" />
 <search url="http://xoap.weather.com/search/search?where=%s" />
 <binary>/opt/com.meecast.omweather/lib/gismeteoru</binary>
+<showurl url="http://www.gismeteo.by/city/daily/%s/" />
 </source>
 

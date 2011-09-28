@@ -49,6 +49,7 @@ namespace Core{
         std::string *_region;
         std::string *_fileName;
         std::string *_forecastURL;
+        std::string *_viewURL;
         std::string *_converter;
         int _timezone;
         Data *_data; /* Is it really needed ? Vlad */
@@ -58,7 +59,7 @@ namespace Core{
         public:
         Station(const std::string& source_name, const std::string& id, const std::string& name,
                     const std::string& country = 0, const std::string& region = 0, 
-                    const std::string& forecastURL = 0);
+                    const std::string& forecastURL = 0, const std::string& viewURL = 0);
             Station(const Station& station);
             Station& operator=(const Station& station);
             Source *_source;
@@ -75,6 +76,8 @@ namespace Core{
             std::string& region() const;
             void forecastURL(const std::string& region);
             std::string& forecastURL() const;
+            void viewURL(const std::string& region);
+            std::string& viewURL() const;
             void timezone(const int timezone = 0);
             int station_timezone() const;
             bool updateData(bool force);

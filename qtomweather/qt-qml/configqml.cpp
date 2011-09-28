@@ -475,6 +475,13 @@ ConfigQml::updatestations()
     thread->start();
 
 }
+
+void
+ConfigQml::showweb(QString source)
+{
+    QDesktopServices::openUrl(QUrl(source));
+}
+
 void
 ConfigQml::downloadFinishedSlot()
 {

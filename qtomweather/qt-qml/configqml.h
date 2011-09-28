@@ -34,6 +34,8 @@
 #include "core.h"
 #include <QObject>
 #include <QColor>
+#include <QDesktopServices>
+#include <QUrl>
 #include "datamodel.h"
 #include "dataitem.h"
 #include "updatethread.h"
@@ -86,6 +88,7 @@ public:
     Q_INVOKABLE void nextstation();
     Q_INVOKABLE void prevstation();
     Q_INVOKABLE void updatestations();
+    Q_INVOKABLE void showweb(QString source);
     Q_INVOKABLE void runsetting();
     Q_INVOKABLE void closeapplication();
     Q_INVOKABLE QStringList temperature_list();

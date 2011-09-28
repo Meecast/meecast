@@ -199,6 +199,7 @@ Controller::load_data()
   _qview->rootContext()->setContextProperty("country_model", country_model);
   _qview->rootContext()->setContextProperty("region_model", region_model);
   _qview->rootContext()->setContextProperty("city_model", city_model);
+  
 }
 
 void

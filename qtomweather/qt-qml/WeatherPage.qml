@@ -21,7 +21,13 @@ Page {
             id: sourceicon
 	    anchors.horizontalCenter: parent.horizontalCenter
             source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
-            smooth: true	
+            smooth: true
+	    MouseArea{
+	        anchors.fill: parent
+		onClicked: {
+ 		    Config.showweb("http://www.ya.ru");	
+		}
+	    }
         }
         ToolIcon {
             iconId: "toolbar-view-menu"

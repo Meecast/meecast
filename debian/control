@@ -5,7 +5,7 @@ Maintainer: Vlad Vasiliev <vlad@gas.by>
 #Non Maemo
 #Build-Depends: debhelper (>= 4.0.0), libxml2-dev,libcurl3-dev, libpango1.0-dev, libgtk2.0-dev, libosso-dev (>= 1), libxcomposite-dev, libxdamage-dev, libhildonhelp-dev, libhildonhelp-dev,  intltool
 #Fremantle
-Build-Depends: debhelper (>= 4.0.0), libxml2-dev, libcurl3-dev, libsqlite3-dev, libqt4-dev, libglib2.0-dev, libdbus-glib-1-dev  
+Build-Depends: debhelper (>= 4.0.0), libxml2-dev, libcurl3-dev, libsqlite3-dev, libqt4-dev, libglib2.0-dev, libdbus-glib-1-dev, libmeegotouch-dev  
 #Diablo
 #Build-Depends: debhelper (>= 4.0.0), libxml2-dev,libcurl3-dev, libpango1.0-dev, libosso-gnomevfs2-dev, libgtk2.0-dev, libosso-dev (>= 1), hildon-desktop-dev, libconic0-dev, libxcomposite-dev, libxdamage-dev, liblocation-dev, libhildonhelp-dev, libhildonhelp-dev, maemo-installer-utils, intltool, libsqlite3-dev, mce-dev, tablet-browser-interface-dev
 Standards-Version: 3.6.0

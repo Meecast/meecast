@@ -36,6 +36,9 @@
 #include "dbusadaptor.h"
 
 
+#include <QtCore/QCoreApplication>
+#include <QtCore/QDateTime>
+
 
 
 M_LIBRARY
@@ -84,12 +87,27 @@ MWidget *WeatherApplicationExtension::widget(){
 void 
 MyMWidget::SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low,  const QString &icon, const uint until_valid_time, bool current){
 
+   QDateTime local_time, utc_time;
+   local_time = QDateTime::currentDateTime();
+   utc_time = QDateTime::currentDateTimeUtc();
+   utc_time.setTimeSpec(QT::UTC);
+
    this->temperature(temperature);
    this->temperature_high(temperature_high);
    this->temperature_low(temperature_low);
-   this->station(station);
+//   this->station(station);
+   QString c;
+//   c=c.number(until_valid_time + (local_time.toTime_t() - utc_time.toTime_t()));
+   c=c.number((local_time.toTime_t() - utc_time.toTime_t()));
+   this->station(c);
    this->icon(icon);
    this->current(current);
    this->refreshview();
+   QTimer::singleShot(600000, this, SLOT(update_data()));
+
 
 }
+void MyMWidget::update_data(){
+        this->startpredeamon();
+}
+

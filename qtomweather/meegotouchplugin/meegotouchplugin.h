@@ -80,6 +80,7 @@ public:
         process.start(executable);
     }
 
+
     void icon(const QString &iconpath){
 	    _iconpath = iconpath;
     }
@@ -137,6 +138,7 @@ public:
 
 public Q_SLOTS:
     void SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low,  const QString &icon, const uint until_valid_time, bool current);
+    void update_data();
 
 signals:
     void iconChanged();

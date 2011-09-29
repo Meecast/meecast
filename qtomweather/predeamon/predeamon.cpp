@@ -130,15 +130,13 @@ main (int argc, char *argv[])
 
     current_day = mktime(tm);
     /* fill current date */
-    i = 0;
-    if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
-        MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
+    if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL)))) {
         QString icon_string =  config->iconspath().c_str();
         QString icon_number;
         icon_string.append("/") ;
         icon_string.append(config->iconSet().c_str());
         icon_string.append("/") ;
-        icon_number =icon_number.number((temp_data->Icon()), 'i', 0) + ".png";
+        icon_number = icon_number.number((temp_data->Icon()), 'i', 0) + ".png";
         icon_string.append(icon_number) ;
         temp_data->temperature_low().units(config->TemperatureUnit());
         temp_data->temperature_hi().units(config->TemperatureUnit());
@@ -157,8 +155,9 @@ main (int argc, char *argv[])
         }else
             temp_low = temp.number((temp_data->temperature_low().value()),'f',0);
 
+        MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
         dbusclient->SetCurrentData(config->stationname().c_str(), temp, temp_high, temp_low, 
-                                   icon_string, 0, temp_data->Current()); 
+                                   icon_string, temp_data->EndTime() , temp_data->Current()); 
     }
 
   if (dp){

@@ -8,7 +8,7 @@ Standards-Version: 3.6.0
 Package: meecast-applet-enable 
 Architecture: any
 #For Maemo
-Depends: ${shlibs:Depends}  
+Depends: ${shlibs:Depends}, meecast 
 Description: Activating MeeCast Applet on event region  
 XB-Maemo-Display-Name: Meecast 
 Xsbc-Bugtracker: https://bugs.maemo.org/enter_bug.cgi?product=OmWeather

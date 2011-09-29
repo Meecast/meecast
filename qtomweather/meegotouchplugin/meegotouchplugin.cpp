@@ -87,23 +87,20 @@ MWidget *WeatherApplicationExtension::widget(){
 void 
 MyMWidget::SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low,  const QString &icon, const uint until_valid_time, bool current){
 
-   QDateTime local_time, utc_time;
-   local_time = QDateTime::currentDateTime();
+   QDateTime utc_time;
    utc_time = QDateTime::currentDateTimeUtc();
-   utc_time.setTimeSpec(QT::UTC);
 
    this->temperature(temperature);
    this->temperature_high(temperature_high);
    this->temperature_low(temperature_low);
-//   this->station(station);
-   QString c;
-//   c=c.number(until_valid_time + (local_time.toTime_t() - utc_time.toTime_t()));
-   c=c.number((local_time.toTime_t() - utc_time.toTime_t()));
-   this->station(c);
+   this->station(station);
    this->icon(icon);
    this->current(current);
    this->refreshview();
-   QTimer::singleShot(600000, this, SLOT(update_data()));
+   if ((until_valid_time - utc_time.toTime_t()) >0 && (until_valid_time - utc_time.toTime_t()) < 12* 3600)
+        QTimer::singleShot((until_valid_time - utc_time.toTime_t()), this, SLOT(update_data()));
+   else
+        QTimer::singleShot(6000000, this, SLOT(update_data()));
 
 
 }

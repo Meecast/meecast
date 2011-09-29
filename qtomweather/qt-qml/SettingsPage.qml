@@ -39,63 +39,99 @@ Page {
         }
         ListElement {
             page: "UnitsPage.qml"
-            title: "Units"
+            title: "Measurement units"
         }/*
         ListElement {
             page: "UpdatePage.qml"
             title: "Update"
+        }
+        ListElement {
+            page: "SourcePage.qml"
+            title: "Source"
         }*/
         ListElement {
             page: "VisualsPage.qml"
-            title: "Visuals"
+            title: "Appearance"
+        }
+    }
+    Rectangle {
+        id: title_rect
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.leftMargin: margin
+        anchors.rightMargin: margin
+        width: parent.width - 2*margin
+        height: 80
+        color: "black"
+        Label {
+            id: title
+            anchors.fill: parent
+            color: "white"
+            text: Config.tr("Settings")
+            font.family: "Nokia Pure Light"
+            font.pixelSize: 30
+            horizontalAlignment: Text.AlignLeft
+            verticalAlignment: Text.AlignVCenter
         }
     }
 
-    Label {
-        id: title
-        anchors.top: parent.top
-        anchors.left: parent.left
-        width: parent.width
-        text: Config.tr("Settings")
-        font.pixelSize: 28
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-    }
-
-    ListView {
-        id: listview
-        model: settingsModel
+    Rectangle{
         anchors.fill: parent
-        anchors.top: title.bottom
-        anchors.topMargin: 30
+        anchors.top: title_rect.bottom
+        anchors.topMargin: 80
         anchors.leftMargin: margin
         anchors.rightMargin: margin
 
-        delegate: Item {
-            height: 80
+        Loader {
+            id: background
+            anchors.top: parent.top
+            anchors.left: parent.left
             width: parent.width
+            height: 274
+            sourceComponent: Image {source: Config.imagespath + "/mask_background_grid.png"}
+        }
+        Rectangle {
+            anchors.top: background.bottom
+            width: parent.width
+            height: parent.height - 274
+            color: "black"
+        }
 
-            Label {
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
-                text: Config.tr(model.title)
-            }
+        ListView {
+            id: listview
+            model: settingsModel
+            anchors.fill: parent
+            //anchors.top: title_rect.bottom
+            //anchors.topMargin: 80
+            //anchors.leftMargin: margin
+            //anchors.rightMargin: margin
 
-            Image {
-                source: "image://theme/icon-m-common-drilldown-arrow-inverse"
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    settings.openFile(model.page);
+            delegate: Item {
+                height: 80
+                width: parent.width
+
+                Label {
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: Config.tr(model.title)
+                }
+
+                Image {
+                    source: "image://theme/icon-m-common-drilldown-arrow-inverse"
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        settings.openFile(model.page);
+                    }
                 }
             }
         }
-    }
-    ScrollDecorator {
-        flickableItem: listview
+        ScrollDecorator {
+            flickableItem: listview
+        }
     }
 
 }

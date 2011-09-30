@@ -40,34 +40,37 @@ Page {
         }
     }
 
-    Item {
-        id: mainitem
+    Rectangle{
         anchors.fill: parent
+        anchors.top: title_rect.bottom
+        anchors.topMargin: 80
+        anchors.leftMargin: margin
+        anchors.rightMargin: margin
 
-        Label {
-            id: title
+        Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left
             width: parent.width
-            text: Config.tr("Manage locations")
-            font.pixelSize: 28
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
+            height: 274
+            color: "#999999"
         }
-        /*
-        Label {
-            anchors.fill: parent
-            anchors.top: title.bottom
-            anchors.topMargin: 30
-            text: Config.tr("Click the '+' to add a new location")
-            visible: (Config.stations().count >0) ? false : true
-        }*/
+        Loader {
+            id: background
+            anchors.top: parent.top
+            anchors.left: parent.left
+            width: parent.width
+            height: 274
+            sourceComponent: Image {source: Config.imagespath + "/mask_background_grid.png"}
+        }
+        Rectangle {
+            anchors.top: background.bottom
+            width: parent.width
+            height: parent.height - 274
+            color: "black"
+        }
         ListView {
             id: stationslist
             anchors.fill: parent
-            anchors.top: title.bottom
-            anchors.topMargin: 30
-
             model: Config.stations()
 
             delegate: Item {
@@ -75,16 +78,13 @@ Page {
                 height: 80
                 Label {
                     text: modelData
-                    anchors.verticalCenter: parent.verticalCenter
                     anchors.left: parent.left
-                    anchors.leftMargin: margin
+                    anchors.verticalCenter: parent.verticalCenter
                 }
                 Button {
-                    //text: "Delete"
                     iconSource: "image://theme/icon-m-toolbar-cancle-white"
-                    anchors.verticalCenter: parent.verticalCenter
                     anchors.right: parent.right
-                    anchors.rightMargin: margin
+                    anchors.verticalCenter: parent.verticalCenter
                     width: 50
                     onClicked: {
                         Config.removeStation(index);
@@ -92,6 +92,26 @@ Page {
                     }
                 }
             }
+        }
+    }
+    Rectangle {
+        id: title_rect
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.leftMargin: margin
+        anchors.rightMargin: margin
+        width: parent.width - 2*margin
+        height: 80
+        color: "black"
+        Label {
+            id: title
+            anchors.fill: parent
+            color: "white"
+            text: Config.tr("Manage locations")
+            font.family: "Nokia Pure Light"
+            font.pixelSize: 30
+            horizontalAlignment: Text.AlignLeft
+            verticalAlignment: Text.AlignVCenter
         }
     }
 }

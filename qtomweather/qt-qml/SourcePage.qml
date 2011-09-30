@@ -16,66 +16,80 @@ Page {
     }
     orientationLock: PageOrientation.LockPortrait
 
-    
-    Rectangle {
-      id: rect
-      anchors.top: labelrect.bottom 
-      anchors.bottom: parent.bottom
-      anchors.left: parent.left
-      width: parent.width 
-      color: Qt.rgba(0, 0, 0, 0.1)
+    Rectangle{
+        anchors.fill: parent
+        anchors.top: title_rect.bottom
+        anchors.topMargin: 80
+        anchors.leftMargin: margin
+        anchors.rightMargin: margin
 
+        Loader {
+            id: background
+            anchors.top: parent.top
+            anchors.left: parent.left
+            width: parent.width
+            height: 274
+            sourceComponent: Image {source: Config.imagespath + "/mask_background_grid.png"}
+        }
+        Rectangle {
+            anchors.top: background.bottom
+            width: parent.width
+            height: parent.height - 274
+            color: "black"
+        }
 
-      ListView {
-          id: sourcelist
-          anchors.fill: parent
-          model: source_model
-          anchors.top: rect.top 
-          anchors.bottom: rect.bottom 
-   
-          delegate: Component {
-              id: listdelegate
-              Item {
-                  width: parent.width
-                  height: 50
-                  Text {
-                      text: model.name
-                      color: "white"
-                      font.pointSize: 30
-                      height: 50
-                  }
-                  MouseArea {
-                      anchors.fill: parent
-                      onClicked: {
-                          country_model.populate(model.name);
-                          pageStack.push(Qt.resolvedUrl("CountryPage.qml"),
-                                         {source: model.name, source_id: index}
-                                         );
-                      }
-                  }
-              }
-          }
+        ListView {
+            id: sourcelist
+            anchors.fill: parent
+            model: source_model
+
+            delegate: Item {
+                height: 80
+                width: parent.width
+
+                Label {
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: model.name
+                }
+
+                Image {
+                    source: "image://theme/icon-m-common-drilldown-arrow-inverse"
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        country_model.populate(model.name);
+                        pageStack.push(Qt.resolvedUrl("CountryPage.qml"),
+                                       {source: model.name, source_id: index}
+                                       );
+                    }
+                }
+            }
         }
     }
+
     Rectangle {
-      id: labelrect
-      anchors.top: parent.top
-      anchors.left: parent.left
-      width: parent.width
-      color: "black" 
-      border.color: "black"
-      border.width: 3 
-      height: 32
-	    Label {
-		id: title
-		anchors.top: parent.top
-		anchors.left: parent.left
-		width: parent.width
-		text: Config.tr("Sources")
-		font.pixelSize: 28
-		horizontalAlignment: Text.AlignHCenter
-		verticalAlignment: Text.AlignVCenter
-	    }
+        id: title_rect
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.leftMargin: margin
+        anchors.rightMargin: margin
+        width: parent.width - 2*margin
+        height: 80
+        color: "black"
+        Label {
+            id: title
+            anchors.fill: parent
+            color: "white"
+            text: Config.tr("Select the weather source")
+            font.family: "Nokia Pure Light"
+            font.pixelSize: 30
+            horizontalAlignment: Text.AlignLeft
+            verticalAlignment: Text.AlignVCenter
+        }
     }
 
 

@@ -54,26 +54,6 @@ Page {
             title: "Appearance"
         }
     }
-    Rectangle {
-        id: title_rect
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-        width: parent.width - 2*margin
-        height: 80
-        color: "black"
-        Label {
-            id: title
-            anchors.fill: parent
-            color: "white"
-            text: Config.tr("Settings")
-            font.family: "Nokia Pure Light"
-            font.pixelSize: 30
-            horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
-        }
-    }
 
     Rectangle{
         anchors.fill: parent
@@ -133,5 +113,24 @@ Page {
             flickableItem: listview
         }
     }
-
+    Rectangle {
+        id: title_rect
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.leftMargin: margin
+        anchors.rightMargin: margin
+        width: parent.width - 2*margin
+        height: 80
+        color: "black"
+        Label {
+            id: title
+            anchors.fill: parent
+            color: "white"
+            text: Config.tr("Settings")
+            font.family: "Nokia Pure Light"
+            font.pixelSize: 30
+            horizontalAlignment: Text.AlignLeft
+            verticalAlignment: Text.AlignVCenter
+        }
+    }
 }

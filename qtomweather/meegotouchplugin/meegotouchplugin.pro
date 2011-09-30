@@ -8,8 +8,8 @@ CONFIG += plugin \
     link_pkgconfig \
     meegotouch
 
-HEADERS = meegotouchplugin.h dbusadaptor.h
-SOURCES = meegotouchplugin.cpp dbusadaptor.cpp
+HEADERS = meegotouchplugin.h dbusadaptor.h eventfeedif.h
+SOURCES = meegotouchplugin.cpp dbusadaptor.cpp eventfeedif.cpp
 
 
 TARGET = $$qtLibraryTarget(events-meecast)

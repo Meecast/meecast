@@ -34,10 +34,8 @@
 #include <QDeclarativeContext>
 #include <QDeclarativeView>
 #include "dbusadaptor.h"
+#include "eventfeedif.h"
 
-
-#include <QtCore/QCoreApplication>
-#include <QtCore/QDateTime>
 
 
 
@@ -76,6 +74,10 @@ WeatherApplicationExtension::initialize(const QString &){
    QDBusConnection connection = QDBusConnection::sessionBus();
    bool ret = connection.registerService("com.meecast.applet");
    ret = connection.registerObject("/com/meecast/applet", box);
+   new EventFeedIf(box); 
+   ret = connection.registerService("com.nokia.home.EventFeed");
+   ret = connection.registerObject("/eventfeed", box);
+
    box->startpredeamon();
    return true;
 }
@@ -102,6 +104,11 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
    else
         QTimer::singleShot(36000000, this, SLOT(update_data()));
 
+
+}
+void 
+MyMWidget::refreshRequested(){
+    this->startpredeamon();
 
 }
 void MyMWidget::update_data(){

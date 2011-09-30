@@ -98,13 +98,13 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
    this->current(current);
    this->refreshview();
    if ((until_valid_time - utc_time.toTime_t()) >0 && (until_valid_time - utc_time.toTime_t()) < 12* 3600)
-        QTimer::singleShot((until_valid_time - utc_time.toTime_t()), this, SLOT(update_data()));
+        QTimer::singleShot((until_valid_time - utc_time.toTime_t() + 600000), this, SLOT(update_data()));
    else
-        QTimer::singleShot(6000000, this, SLOT(update_data()));
+        QTimer::singleShot(36000000, this, SLOT(update_data()));
 
 
 }
 void MyMWidget::update_data(){
-        this->startpredeamon();
+    this->startpredeamon();
 }
 

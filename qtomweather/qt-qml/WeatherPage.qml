@@ -261,7 +261,7 @@ Page {
             Button {
                 text: Config.tr("Set locations")
                 onClicked: {
-   		    main.openFile("StationsPage.qml")
+                    main.openFile("SourcePage.qml")
                 }
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom

@@ -53,14 +53,14 @@ Page {
             font.pixelSize: 28
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-        }/*
+        }
         Label {
             anchors.fill: parent
             anchors.top: title.bottom
             anchors.topMargin: 30
-            text: Config.tr("Click '+' to add new location")
+            text: Config.tr("Click the '+' to add a new location")
             visible: (Config.stations().count >0) ? false : true
-        }*/
+        }
         ListView {
             id: stationslist
             anchors.fill: parent

@@ -246,7 +246,7 @@ Page {
             Label {
                 horizontalAlignment: Text.AlignHCenter
                 text: Config.tr("No locations are set up yet.")
-                font.pixelSize: 60
+                font.pixelSize: 54 
                 color: "#999999"
                 wrapMode: Text.Wrap
                 width: parent.width - 2*margin

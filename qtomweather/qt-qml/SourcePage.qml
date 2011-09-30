@@ -5,6 +5,7 @@ import com.nokia.meego 1.0
 
 Page {
     id: sourcepage
+    property int margin: 16
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"

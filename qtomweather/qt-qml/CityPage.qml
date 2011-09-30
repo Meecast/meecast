@@ -5,6 +5,7 @@ import com.nokia.meego 1.0
 
 Page {
     id: citypage
+    property int margin: 16
     property string source: ""
     property int source_id: -1
     property string country_name: ""
@@ -19,42 +20,66 @@ Page {
 
     }
     orientationLock: PageOrientation.LockPortrait
-    Rectangle {
-        id: rect
-        anchors.top: labelrect.bottom
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        width: parent.width
-        color: Qt.rgba(0, 0, 0, 0.1)
+    Rectangle{
+        anchors.fill: parent
+        anchors.top: title_rect.bottom
+        anchors.topMargin: 80
+        anchors.leftMargin: margin
+        anchors.rightMargin: margin
+
+        Rectangle {
+            anchors.top: parent.top
+            anchors.left: parent.left
+            width: parent.width
+            height: 274
+            color: "#999999"
+        }
+        Loader {
+            id: background
+            anchors.top: parent.top
+            anchors.left: parent.left
+            width: parent.width
+            height: 274
+            sourceComponent: Image {source: Config.imagespath + "/mask_background_grid.png"}
+        }
+        Rectangle {
+            anchors.top: background.bottom
+            width: parent.width
+            height: parent.height - 274
+            color: "black"
+        }
         ListView {
             id: citylist
-            anchors.top: rect.top
-            anchors.bottom: rect.bottom
-            anchors.fill: rect
+            anchors.fill: parent
+            anchors.top: title_rect.bottom
             model: city_model
 
-            delegate: Component {
-                id: listdelegate
-                Item {
-                    width: parent.width
-                    height: 50
-                    Text {
-                        text: model.name
-                        color: "white"
-                        font.pointSize: 30
-                        height: 50
-                    }
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            console.log(model.key);
-                            Config.saveStation1(model.key, model.name, region_name, country_name,
-                                                source, source_id);
-                                    pageStack.pop(pageStack.find(function(page) { return page.objectName == "stationspage" }));
-                        }
+            delegate: Item {
+                height: 80
+                width: parent.width
+
+                Label {
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: model.name
+                }
+
+                Image {
+                    source: "image://theme/icon-m-common-drilldown-arrow-inverse"
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        console.log(model.key);
+                        Config.saveStation1(model.key, model.name, region_name, country_name,
+                                            source, source_id);
+                                pageStack.pop(pageStack.find(function(page) { return page.objectName == "stationspage" }));
                     }
                 }
-            }/*
+            }
+            /*
             section {
             property: "category"
             criteria: ViewSection.FullString
@@ -90,26 +115,25 @@ Page {
     }*/
     }
     Rectangle {
-        id: labelrect
+        id: title_rect
         anchors.top: parent.top
         anchors.left: parent.left
-        width: parent.width
+        anchors.leftMargin: margin
+        anchors.rightMargin: margin
+        width: parent.width - 2*margin
+        height: 80
         color: "black"
-        border.color: "black"
-        border.width: 3
-        height: 32
         Label {
             id: title
-            anchors.top: parent.top
-            anchors.left: parent.left
-            width: parent.width
-            text: Config.tr("Stations")
-            font.pixelSize: 28
-            horizontalAlignment: Text.AlignHCenter
+            anchors.fill: parent
+            color: "white"
+            text: Config.tr("Select location")
+            font.family: "Nokia Pure Light"
+            font.pixelSize: 30
+            horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter
         }
     }
-
 
 }
 

@@ -62,6 +62,13 @@ Page {
         anchors.leftMargin: margin
         anchors.rightMargin: margin
 
+        Rectangle {
+            anchors.top: parent.top
+            anchors.left: parent.left
+            width: parent.width
+            height: 274
+            color: "#999999"
+        }
         Loader {
             id: background
             anchors.top: parent.top

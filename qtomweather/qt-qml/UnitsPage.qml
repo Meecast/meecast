@@ -85,9 +85,13 @@ Page {
         }
         ButtonColumn {
             width: parent.width
+            platformStyle: ButtonStyle {
+                horizontalAlignment: Text.AlignLeft
+            }
             Button {
                 text: Config.tr("Celcius")
                 checked: (Config.temperatureunit == 'C')
+
                 onClicked: {
                     Config.temperature_unit('C');
                 }
@@ -120,6 +124,9 @@ Page {
         }
         ButtonColumn {
             width: parent.width
+            platformStyle: ButtonStyle {
+                horizontalAlignment: Text.AlignLeft
+            }
             Button {
                 text: Config.tr("m/s")
                 checked: (Config.windspeedunit == 'm/s')

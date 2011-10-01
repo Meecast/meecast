@@ -38,7 +38,6 @@
 
 
 
-
 M_LIBRARY
 Q_EXPORT_PLUGIN2(weatherextension, WeatherApplicationExtension)
 
@@ -74,10 +73,8 @@ WeatherApplicationExtension::initialize(const QString &){
    QDBusConnection connection = QDBusConnection::sessionBus();
    bool ret = connection.registerService("com.meecast.applet");
    ret = connection.registerObject("/com/meecast/applet", box);
-   new EventFeedIf(box); 
-   ret = connection.registerService("com.nokia.home.EventFeed");
-   ret = connection.registerObject("/eventfeed", box);
-
+   EventFeedIf* client =  new EventFeedIf("com.nokia.home.EventFeed", "/eventfeed", QDBusConnection::sessionBus(), 0); 
+   QObject::connect(client, SIGNAL(refreshRequested()), box, SLOT(refreshRequested1()));  
    box->startpredeamon();
    return true;
 }
@@ -107,9 +104,8 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
 
 }
 void 
-MyMWidget::refreshRequested(){
+MyMWidget::refreshRequested1(){
     this->startpredeamon();
-
 }
 void MyMWidget::update_data(){
     this->startpredeamon();

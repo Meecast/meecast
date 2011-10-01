@@ -5,6 +5,7 @@ meecast (0.3.30) unstable; urgency=low
   * Added applet for Harmattan
   * Added possibilty to show weather forecast in web browser after
     tapping on picture of source weather forecast
+  * Redisigned setting windows
 
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 29 Sep 2011 19:24:20 +0200
 

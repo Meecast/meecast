@@ -737,7 +737,6 @@ msgid "Fair"
 msgstr "Ясная погода"
 
 #: qtomweather/qt-qml/UnitsPage.qml:100
-#, fuzzy
 msgid "Farenheit"
 msgstr "Фаренгейт"
 
@@ -1139,9 +1138,8 @@ msgid "Manual"
 msgstr "Ручной"
 
 #: qtomweather/qt-qml/UnitsPage.qml:178
-#, fuzzy
 msgid "Measurement units"
-msgstr "Единицы давления:"
+msgstr "Единицы измерений:"
 
 #: qtomweather/qt-qml/WeatherPage.qml:227
 msgid "MeeCast"

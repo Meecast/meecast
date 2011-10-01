@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-30 16:22+0300\n"
+"POT-Creation-Date: 2011-10-01 12:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -355,7 +355,7 @@ msgstr ""
 msgid "Cannot get path to the HOME directory. Quitting.\n"
 msgstr ""
 
-#: omweather/src/weather-settings.c:3864
+#: omweather/src/weather-settings.c:3864 qtomweather/qt-qml/UnitsPage.qml:92
 msgid "Celcius"
 msgstr ""
 
@@ -687,6 +687,10 @@ msgstr ""
 
 #: omweather/src/hash.data:79
 msgid "Fair"
+msgstr ""
+
+#: qtomweather/qt-qml/UnitsPage.qml:100
+msgid "Farenheit"
 msgstr ""
 
 #: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
@@ -1065,6 +1069,10 @@ msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2240
 msgid "Manual"
+msgstr ""
+
+#: qtomweather/qt-qml/UnitsPage.qml:178
+msgid "Measurement units"
 msgstr ""
 
 #: qtomweather/qt-qml/WeatherPage.qml:227
@@ -1972,11 +1980,11 @@ msgstr ""
 #: omweather/src/weather-popup.c:947 omweather/src/weather-popup.c:950
 #: omweather/src/weather-popup.c:1080 omweather/src/weather-popup.c:1083
 #: omweather/src/weather-simple-settings.c:1267
-#: qtomweather/qt-qml/UnitsPage.qml:67
 msgid "Temperature"
 msgstr ""
 
 #: omweather/src/hash.data:12 qtomweather/qt-qml/UnitsPage.qml:31
+#: qtomweather/qt-qml/UnitsPage.qml:81
 msgid "Temperature units"
 msgstr ""
 
@@ -2044,7 +2052,6 @@ msgstr ""
 #: omweather/src/weather-settings.c:1338
 #: omweather/src/weather-simple-settings.c:1251
 #: omweather/src/weather-simple-settings.c:2732
-#: qtomweather/qt-qml/UnitsPage.qml:54
 msgid "Units"
 msgstr ""
 
@@ -2216,11 +2223,11 @@ msgstr ""
 
 #: omweather/src/hash.data:5 qtomweather/qt-qml/FullWeatherPage.qml:81
 #: qtomweather/qt-qml/FullWeatherPage.qml:113
-#: qtomweather/qt-qml/UnitsPage.qml:77
 msgid "Wind speed"
 msgstr ""
 
 #: omweather/src/hash.data:13 qtomweather/qt-qml/UnitsPage.qml:41
+#: qtomweather/qt-qml/UnitsPage.qml:120
 msgid "Wind speed units"
 msgstr ""
 
@@ -2368,6 +2375,7 @@ msgstr ""
 #: omweather/src/weather-settings.c:3994 omweather/src/hash.data:280
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
+#: qtomweather/qt-qml/UnitsPage.qml:138
 msgid "km/h"
 msgstr ""
 
@@ -2388,6 +2396,7 @@ msgstr ""
 #: omweather/src/weather-settings.c:3980 omweather/src/hash.data:283
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
+#: qtomweather/qt-qml/UnitsPage.qml:131
 msgid "m/s"
 msgstr ""
 
@@ -2410,6 +2419,7 @@ msgstr ""
 #: omweather/src/weather-settings.c:4008 omweather/src/hash.data:284
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
+#: qtomweather/qt-qml/UnitsPage.qml:145
 msgid "mi/h"
 msgstr ""
 

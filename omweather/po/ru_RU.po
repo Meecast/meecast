@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-30 16:22+0300\n"
+"POT-Creation-Date: 2011-10-01 12:00+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -74,11 +74,12 @@ msgstr ""
 "Атмосферные осадки: "
 
 #: omweather/src/weather-popup.c:976 omweather/src/weather-popup.c:1108
-#, fuzzy
 msgid ""
 "\n"
 "Pressure: "
-msgstr "Давление: "
+msgstr ""
+"\n"
+"Давление: "
 
 #: omweather/src/weather-home.c:1577
 msgid ""
@@ -250,9 +251,8 @@ msgid "AM Snow Showers / Wind"
 msgstr "До полудня мокрый снег / Ветер"
 
 #: omweather/src/hash.data:41
-#, fuzzy
 msgid "AM Snow Showers / Wind Late"
-msgstr "До полудня мокрый снег / Ветер"
+msgstr "До полудня мокрый снег / Позже ветер"
 
 #: omweather/src/weather-home.c:1286 omweather/src/weather-help.c:100
 #: omweather/src/weather-simple-popup.c:1163
@@ -387,7 +387,7 @@ msgstr "Штиль"
 msgid "Cannot get path to the HOME directory. Quitting.\n"
 msgstr "Невозможно получить путь к домашней директории. Выходим.\n"
 
-#: omweather/src/weather-settings.c:3864
+#: omweather/src/weather-settings.c:3864 qtomweather/qt-qml/UnitsPage.qml:92
 msgid "Celcius"
 msgstr "Цельсий"
 
@@ -735,6 +735,11 @@ msgstr "Не возможно инициализировать GConf. Настр
 #: omweather/src/hash.data:79
 msgid "Fair"
 msgstr "Ясная погода"
+
+#: qtomweather/qt-qml/UnitsPage.qml:100
+#, fuzzy
+msgid "Farenheit"
+msgstr "Фаренгейт"
 
 #: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
 msgid "Feels like:"
@@ -1132,6 +1137,11 @@ msgstr "Управление местоположениями"
 #: omweather/src/weather-simple-settings.c:2240
 msgid "Manual"
 msgstr "Ручной"
+
+#: qtomweather/qt-qml/UnitsPage.qml:178
+#, fuzzy
+msgid "Measurement units"
+msgstr "Единицы давления:"
 
 #: qtomweather/qt-qml/WeatherPage.qml:227
 msgid "MeeCast"
@@ -1798,9 +1808,8 @@ msgid "Select source"
 msgstr "Выберите источник"
 
 #: qtomweather/qt-qml/SourcePage.qml:95
-#, fuzzy
 msgid "Select the weather source"
-msgstr "Выберите источник"
+msgstr "Выберите источник прогноза погоды"
 
 #: omweather/src/weather-simple-settings.c:1035
 #, c-format
@@ -2039,11 +2048,11 @@ msgstr "Позже грозы"
 #: omweather/src/weather-popup.c:947 omweather/src/weather-popup.c:950
 #: omweather/src/weather-popup.c:1080 omweather/src/weather-popup.c:1083
 #: omweather/src/weather-simple-settings.c:1267
-#: qtomweather/qt-qml/UnitsPage.qml:67
 msgid "Temperature"
 msgstr "Температура"
 
 #: omweather/src/hash.data:12 qtomweather/qt-qml/UnitsPage.qml:31
+#: qtomweather/qt-qml/UnitsPage.qml:81
 msgid "Temperature units"
 msgstr "Единицы температуры"
 
@@ -2111,7 +2120,6 @@ msgstr "Тип нажатия"
 #: omweather/src/weather-settings.c:1338
 #: omweather/src/weather-simple-settings.c:1251
 #: omweather/src/weather-simple-settings.c:2732
-#: qtomweather/qt-qml/UnitsPage.qml:54
 msgid "Units"
 msgstr "Единицы"
 
@@ -2288,11 +2296,11 @@ msgstr "Порывы ветра:"
 
 #: omweather/src/hash.data:5 qtomweather/qt-qml/FullWeatherPage.qml:81
 #: qtomweather/qt-qml/FullWeatherPage.qml:113
-#: qtomweather/qt-qml/UnitsPage.qml:77
 msgid "Wind speed"
 msgstr "Скорость ветра"
 
 #: omweather/src/hash.data:13 qtomweather/qt-qml/UnitsPage.qml:41
+#: qtomweather/qt-qml/UnitsPage.qml:120
 msgid "Wind speed units"
 msgstr "Единицы скорости ветра"
 
@@ -2442,6 +2450,7 @@ msgstr "км"
 #: omweather/src/weather-settings.c:3994 omweather/src/hash.data:280
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
+#: qtomweather/qt-qml/UnitsPage.qml:138
 msgid "km/h"
 msgstr "км/ч"
 
@@ -2462,6 +2471,7 @@ msgstr "м/ч"
 #: omweather/src/weather-settings.c:3980 omweather/src/hash.data:283
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
+#: qtomweather/qt-qml/UnitsPage.qml:131
 msgid "m/s"
 msgstr "м/с"
 
@@ -2484,6 +2494,7 @@ msgstr "ми"
 #: omweather/src/weather-settings.c:4008 omweather/src/hash.data:284
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
+#: qtomweather/qt-qml/UnitsPage.qml:145
 msgid "mi/h"
 msgstr "ми/ч"
 

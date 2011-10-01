@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 4.0.0)
 Standards-Version: 3.6.0
 
 Package: meecast-applet-enable 
-Architecture: any
+Architecture: all 
 #For Maemo
 Depends: ${shlibs:Depends}, meecast 
 Description: Activating MeeCast Applet on event region  

@@ -74,7 +74,7 @@ WeatherApplicationExtension::initialize(const QString &){
    bool ret = connection.registerService("com.meecast.applet");
    ret = connection.registerObject("/com/meecast/applet", box);
    EventFeedIf* client =  new EventFeedIf("com.nokia.home.EventFeed", "/eventfeed", QDBusConnection::sessionBus(), 0); 
-   QObject::connect(client, SIGNAL(refreshRequested()), box, SLOT(refreshRequested1()));  
+   QObject::connect(client, SIGNAL(refreshRequested()), box, SLOT(refreshRequested()));  
    box->startpredeamon();
    return true;
 }
@@ -104,7 +104,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
 
 }
 void 
-MyMWidget::refreshRequested1(){
+MyMWidget::refreshRequested(){
     this->startpredeamon();
 }
 void MyMWidget::update_data(){

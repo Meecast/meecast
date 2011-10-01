@@ -129,23 +129,23 @@ Page {
             }
             Button {
                 text: Config.tr("m/s")
-                checked: (Config.windspeedunit == 'm/s')
+                checked: (Config.windspeedunit == "m/s")
                 onClicked: {
-                    Config.windspeed_unit('m/s');
+                    Config.windspeed_unit("0");
                 }
             }
             Button {
                 text: Config.tr("km/h")
-                checked: (Config.windspeedunit == 'km/h')
+                checked: (Config.windspeedunit == "km/h")
                 onClicked: {
-                    Config.windspeed_unit('km/h');
+                    Config.windspeed_unit("1");
                 }
             }
             Button {
                 text: Config.tr("mi/h")
-                checked: (Config.windspeedunit == 'mi/h')
+                checked: (Config.windspeedunit == "mi/h")
                 onClicked: {
-                    Config.windspeed_unit('mi/h');
+                    Config.windspeed_unit("2");
                 }
             }
 

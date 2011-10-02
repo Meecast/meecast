@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-01 12:00+0300\n"
+"POT-Creation-Date: 2011-10-02 09:46+0300\n"
 "PO-Revision-Date: 2011-09-05 17:49+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -898,8 +898,8 @@ msgstr "Täysikuu"
 msgid "Full forecast"
 msgstr "Täysi ennuste"
 
-#: qtomweather/qt-qml/VisualsPage.qml:67
-msgid "FullScreen"
+#: qtomweather/qt-qml/VisualsPage.qml:102
+msgid "Fullscreen mode"
 msgstr ""
 
 #: omweather/src/weather-home.c:1641
@@ -978,12 +978,12 @@ msgstr "Kuvakkeet:"
 msgid "Icon size:"
 msgstr "Kuvakkeen koko:"
 
-#: qtomweather/qt-qml/VisualsPage.qml:31
+#: qtomweather/qt-qml/VisualsPage.qml:40
 #, fuzzy
 msgid "Icons"
 msgstr "Kuvakke"
 
-#: omweather/src/hash.data:14 qtomweather/qt-qml/VisualsPage.qml:57
+#: omweather/src/hash.data:14 qtomweather/qt-qml/VisualsPage.qml:120
 msgid "Iconset"
 msgstr "Kuvakke"
 
@@ -2240,7 +2240,8 @@ msgid "Visible:"
 msgstr "Näkyvyys:"
 
 #: omweather/src/weather-settings.c:1121 omweather/src/weather-settings.c:1307
-#: omweather/src/weather-settings.c:1312 qtomweather/qt-qml/VisualsPage.qml:44
+#: omweather/src/weather-settings.c:1312
+#: qtomweather/qt-qml/VisualsPage.qml:151
 msgid "Visuals"
 msgstr "Ulkoasu"
 

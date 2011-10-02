@@ -1,3 +1,9 @@
+meecast (0.3.31) unstable; urgency=low
+
+  * Nothing 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 29 Sep 2011 19:24:20 +0200
+
 meecast (0.3.30) unstable; urgency=low
 
   * Added possibility to Active / Disable  Statusbar using settings

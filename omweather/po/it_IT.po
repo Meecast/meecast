@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it_IT\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-01 12:00+0300\n"
+"POT-Creation-Date: 2011-10-02 09:46+0300\n"
 "PO-Revision-Date: 2010-07-27 17:04+0100\n"
 "Last-Translator: Luca <luca>\n"
 "Language-Team: Italiano\n"
@@ -898,8 +898,8 @@ msgstr "Piena"
 msgid "Full forecast"
 msgstr "Previsioni complete: "
 
-#: qtomweather/qt-qml/VisualsPage.qml:67
-msgid "FullScreen"
+#: qtomweather/qt-qml/VisualsPage.qml:102
+msgid "Fullscreen mode"
 msgstr ""
 
 #: omweather/src/weather-home.c:1641
@@ -979,12 +979,12 @@ msgstr "Set di icone:"
 msgid "Icon size:"
 msgstr "Dimensioni icone:"
 
-#: qtomweather/qt-qml/VisualsPage.qml:31
+#: qtomweather/qt-qml/VisualsPage.qml:40
 #, fuzzy
 msgid "Icons"
 msgstr "Icona fissati:"
 
-#: omweather/src/hash.data:14 qtomweather/qt-qml/VisualsPage.qml:57
+#: omweather/src/hash.data:14 qtomweather/qt-qml/VisualsPage.qml:120
 #, fuzzy
 msgid "Iconset"
 msgstr "Icona fissati:"
@@ -2264,7 +2264,8 @@ msgid "Visible:"
 msgstr "Visibile:"
 
 #: omweather/src/weather-settings.c:1121 omweather/src/weather-settings.c:1307
-#: omweather/src/weather-settings.c:1312 qtomweather/qt-qml/VisualsPage.qml:44
+#: omweather/src/weather-settings.c:1312
+#: qtomweather/qt-qml/VisualsPage.qml:151
 msgid "Visuals"
 msgstr "Visuali"
 

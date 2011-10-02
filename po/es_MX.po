@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-01 12:00+0300\n"
+"POT-Creation-Date: 2011-10-02 09:46+0300\n"
 "PO-Revision-Date: 2011-09-24 15:53+0100\n"
 "Last-Translator: Alejandro López <alejandro.lopez@free.fr>\n"
 "Language-Team: \n"
@@ -896,8 +896,8 @@ msgstr "Llena"
 msgid "Full forecast"
 msgstr "Pronóstico completo"
 
-#: qtomweather/qt-qml/VisualsPage.qml:67
-msgid "FullScreen"
+#: qtomweather/qt-qml/VisualsPage.qml:102
+msgid "Fullscreen mode"
 msgstr ""
 
 # Gust => Ráfaga
@@ -978,11 +978,11 @@ msgstr "Juego de íconos:"
 msgid "Icon size:"
 msgstr "Tamaño de los íconos: "
 
-#: qtomweather/qt-qml/VisualsPage.qml:31
+#: qtomweather/qt-qml/VisualsPage.qml:40
 msgid "Icons"
 msgstr "Íconos"
 
-#: omweather/src/hash.data:14 qtomweather/qt-qml/VisualsPage.qml:57
+#: omweather/src/hash.data:14 qtomweather/qt-qml/VisualsPage.qml:120
 msgid "Iconset"
 msgstr "Juego de íconos"
 
@@ -2241,7 +2241,8 @@ msgid "Visible:"
 msgstr "Visibilidad:"
 
 #: omweather/src/weather-settings.c:1121 omweather/src/weather-settings.c:1307
-#: omweather/src/weather-settings.c:1312 qtomweather/qt-qml/VisualsPage.qml:44
+#: omweather/src/weather-settings.c:1312
+#: qtomweather/qt-qml/VisualsPage.qml:151
 msgid "Visuals"
 msgstr "Visual"
 

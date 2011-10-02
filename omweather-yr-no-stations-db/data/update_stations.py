@@ -54,7 +54,7 @@ for row in cur:
         for row1 in cur1:
             id_region = row1[0]
         c.commit()
-        region_name_url = baseurl + anchor.prop("href")
+        region_name_url = baseurl + urllib2.quote(anchor.prop("href"))
         print region_name_url
         req = urllib2.Request(region_name_url, None, {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'})
         try:
@@ -73,7 +73,7 @@ for row in cur:
         for anchor1 in anchors1:
             print anchor1.content 
             print anchor1.prop("href")
-            code = anchor1.prop("href")
+            code = urllib2.quote(anchor1.prop("href"))
             code = re.sub("/place/", "", code)
             code = re.sub("/$", "", code)
             code = re.sub("/", "#", code)

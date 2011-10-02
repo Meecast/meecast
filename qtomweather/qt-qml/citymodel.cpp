@@ -64,7 +64,7 @@ CityModel::populate(QString source, QString region)
     if (list->size() == 0) return;
     Core::listdata::iterator cur;
     for (cur=list->begin(); cur<list->end(); cur++){
-        QString str = QString::fromStdString((*cur).second);
+        QString str = QString::fromUtf8((*cur).second.c_str());
         _list.append(new SelectData(str, QString::fromStdString((*cur).first), str.left(1)));
     }
     endInsertRows();

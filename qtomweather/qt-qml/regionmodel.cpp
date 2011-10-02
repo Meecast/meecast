@@ -64,9 +64,8 @@ RegionModel::populate(QString source, QString country)
     if (list->size() == 0) return;
     qDebug() << "list size = " << list->size() << " at 0 " << QString::fromStdString(list->at(0).second);
     for (int i=0; i < list->size(); i++){
-        QString str = QString::fromStdString(list->at(i).second);
+        QString str = QString::fromUtf8(list->at(i).second.c_str());
         _list.append(new SelectData(str, QString::fromStdString(list->at(i).first), str.left(1)));
-
     }
     endInsertRows();
     reset();

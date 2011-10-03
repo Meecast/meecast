@@ -68,6 +68,7 @@
     g_hash_table_insert(hash, (void*)"Drifting Snow", _("Drifting Snow"));
     g_hash_table_insert(hash, (void*)"Drizzle / Fog", _("Drizzle / Fog"));
     g_hash_table_insert(hash, (void*)"Drizzle Late", _("Drizzle Late"));    
+    g_hash_table_insert(hash, (void*)"Drizzle Early", _("Drizzle Early"));    
     g_hash_table_insert(hash, (void*)"Drizzle", _("Drizzle"));
     g_hash_table_insert(hash, (void*)"E", _("E"));
     g_hash_table_insert(hash, (void*)"ENE", _("ENE"));

@@ -49,8 +49,10 @@ Page {
 
         ListView {
             id: countrylist
-            anchors.fill: parent
-            anchors.top: title_rect.bottom
+            //anchors.fill: parent
+            anchors.top: search.bottom
+            anchors.bottom: parent.bottom
+            width: parent.width
             model: country_model
 
             delegate: Item {
@@ -102,7 +104,7 @@ Page {
 		ScrollDecorator {
 		    flickableItem: countrylist
                 }*/
-
+        /*
             AdaptiveSearch {
                 id: adaptive
                 anchors.fill: parent
@@ -111,12 +113,21 @@ Page {
                 onFilterUpdated: {
                     countrylist.model = adaptive.filtermodel
                 }
-            }
+            }*/
         }/*
         SectionScroller {
 		listView: countrylist
             }*/
-
+        SearchField {
+            id: search
+            model: countrylist.model
+            anchors.top: parent.top
+            width: parent.width
+            height: 80
+            onFiltered: {
+                countrylist.model = search.filtermodel;
+            }
+        }
 
     }
     Rectangle {

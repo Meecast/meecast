@@ -55,6 +55,7 @@ Item {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
+                        searchInput.text = "";
                         filter = "";
                         fillModel();
                         searchfield.filtered();

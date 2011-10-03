@@ -49,6 +49,7 @@ Page {
         ListView {
             id: sourcelist
             anchors.fill: parent
+            //anchors.top: search.bottom
             model: source_model
 
             delegate: Item {
@@ -77,6 +78,18 @@ Page {
                 }
             }
         }
+        /*
+        SearchField {
+            id: search
+            model: sourcelist.model
+            anchors.top: parent.top
+            width: parent.width
+            height: 80
+            onFiltered: {
+                console.log(search.filter + " "+ search.filtermodel.count);
+                sourcelist.model = search.filtermodel;
+            }
+        }*/
     }
 
     Rectangle {

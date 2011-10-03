@@ -67,7 +67,8 @@ OTHER_FILES += \
     CountryPage.qml \
     RegionPage.qml \
     CityPage.qml \
-    IconsetPage.qml
+    IconsetPage.qml \
+    SearchField.qml
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 

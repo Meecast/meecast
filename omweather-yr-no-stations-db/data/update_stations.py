@@ -10,7 +10,8 @@ import re
 import string
 
 
-baseurl = 'http://www.yr.no'
+#baseurl = 'http://m.yr.no'
+baseurl = 'http://yr.no'
 #connect to database
 c = db.connect(database=r"./yr.no.db")
 cu = c.cursor()

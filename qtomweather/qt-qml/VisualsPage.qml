@@ -103,13 +103,14 @@ Page {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
             }
-            CheckBox{
+            Switch {
                 checked: !rootWindow.showStatusBar
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
-                onClicked: {
+                onCheckedChanged: {
                     rootWindow.showStatusBar = !rootWindow.showStatusBar;
                 }
+                platformStyle: SwitchStyle {inverted: true}
             }
 
         }
@@ -148,7 +149,7 @@ Page {
             id: title
             anchors.fill: parent
             color: "white"
-            text: Config.tr("Visuals")
+            text: Config.tr("Appearance")
             font.family: "Nokia Pure Light"
             font.pixelSize: 30
             horizontalAlignment: Text.AlignLeft

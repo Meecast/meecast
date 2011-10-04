@@ -71,7 +71,7 @@ Page {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        console.log(model.key);
+                        //console.log(model.key);
                         city_model.populate(source, model.key);
                         pageStack.push(Qt.resolvedUrl("CityPage.qml"),
                                        {source: source, source_id: source_id,

@@ -44,7 +44,8 @@ Item {
         TextField {
             id: searchInput
             placeholderText: Config.tr("Enter search")
-            width: parent.width - searchButton.width
+            //width: parent.width - searchButton.width
+            width: parent.width
 
             Image {
                 id: clearText
@@ -65,11 +66,16 @@ Item {
             maximumLength: 50
 
             Keys.onPressed: {
-                console.log("pressed "+event.key+" text = "+searchInput.text);
+                if (event.key == Qt.Key_Return || event.key == Qt.Key_Enter){
+                    filter = searchInput.text;
+                    searchfield.find();
+                }
                 event.accepted = true;
+                parent.focus = true;
             }
 
         }
+        /*
         Button {
             id: searchButton
             text: "Search"
@@ -79,7 +85,7 @@ Item {
                 filter = searchInput.text;
                 searchfield.find();
             }
-        }
+        }*/
     }
 }
 

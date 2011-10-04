@@ -49,8 +49,10 @@ Page {
         }
         ListView {
             id: regionlist
-            anchors.fill: parent
-            anchors.top: title_rect.bottom
+            //anchors.fill: parent
+            anchors.top: search.bottom
+            anchors.bottom: parent.bottom
+            width: parent.width
             model: region_model
 
             delegate: Item {
@@ -100,7 +102,7 @@ Page {
         ScrollDecorator {
             flickableItem: regionlist
         }*/
-                AdaptiveSearch {
+                /*AdaptiveSearch {
                     id: adaptive
                     anchors.fill: parent
                     model: parent.model
@@ -108,12 +110,22 @@ Page {
                     onFilterUpdated: {
                         regionlist.model = adaptive.filtermodel
                     }
-                }
+                }*/
             }
         /*
         SectionScroller {
         listView: regionlist
     }*/
+        SearchField {
+            id: search
+            model: regionlist.model
+            anchors.top: parent.top
+            width: parent.width
+            height: 80
+            onFiltered: {
+                regionlist.model = search.filtermodel;
+            }
+        }
     }
 
     Rectangle {

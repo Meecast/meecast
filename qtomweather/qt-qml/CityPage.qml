@@ -50,8 +50,10 @@ Page {
         }
         ListView {
             id: citylist
-            anchors.fill: parent
-            anchors.top: title_rect.bottom
+            //anchors.fill: parent
+            anchors.top: search.bottom
+            anchors.bottom: parent.bottom
+            width: parent.width
             model: city_model
 
             delegate: Item {
@@ -99,7 +101,7 @@ Page {
         ScrollDecorator {
             flickableItem: citylist
         }*/
-                AdaptiveSearch {
+                /*AdaptiveSearch {
                     id: adaptive
                     anchors.fill: parent
                     model: parent.model
@@ -107,12 +109,22 @@ Page {
                     onFilterUpdated: {
                         citylist.model = adaptive.filtermodel
                     }
-                }
+                }*/
             }
         /*
         SectionScroller {
         listView: citylist
     }*/
+        SearchField {
+            id: search
+            model: citylist.model
+            anchors.top: parent.top
+            width: parent.width
+            height: 80
+            onFiltered: {
+                citylist.model = search.filtermodel;
+            }
+        }
     }
     Rectangle {
         id: title_rect

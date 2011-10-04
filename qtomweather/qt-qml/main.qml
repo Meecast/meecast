@@ -9,7 +9,7 @@ PageStackWindow {
     id: rootWindow
 
     platformStyle: defaultStyle
-    showStatusBar: true
+    showStatusBar: !Config.fullscreen
 
     PageStackWindowStyle { id: defaultStyle }
     PageStackWindowStyle {

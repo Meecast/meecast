@@ -158,6 +158,19 @@ ConfigQml::windspeed_unit(int index)
     refreshconfig();
 }
 
+bool
+ConfigQml::fullscreen()
+{
+    return ConfigQml::Config::Fullscreen();
+}
+void
+ConfigQml::setfullscreen(bool c)
+{
+    ConfigQml::Config::Fullscreen(c);
+    saveConfig();
+    refreshconfig();
+}
+
 QString
 ConfigQml::version(){
     QString c;

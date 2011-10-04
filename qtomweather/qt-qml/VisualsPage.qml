@@ -104,13 +104,16 @@ Page {
                 anchors.verticalCenter: parent.verticalCenter
             }
             Switch {
-                checked: !rootWindow.showStatusBar
+                //checked: !rootWindow.showStatusBar
+                id: fullscreen
+                checked: Config.fullscreen
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
                 onCheckedChanged: {
-                    rootWindow.showStatusBar = !rootWindow.showStatusBar;
+                    rootWindow.showStatusBar = !fullscreen.checked;
+                    Config.setfullscreen(fullscreen.checked);
                 }
-                platformStyle: SwitchStyle {inverted: true}
+                //platformStyle: SwitchStyle {inverted: true}
             }
 
         }

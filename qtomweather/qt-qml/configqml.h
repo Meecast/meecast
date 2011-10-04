@@ -50,6 +50,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString iconsbutton READ iconsbutton NOTIFY iconsbuttonChanged)
     Q_PROPERTY(QString temperatureunit READ temperatureunit NOTIFY temperatureunitChanged)
     Q_PROPERTY(QString windspeedunit READ windspeedunit NOTIFY windspeedunitChanged)
+    Q_PROPERTY(bool fullscreen READ fullscreen NOTIFY fullscreenChanged)
     Q_PROPERTY(QColor fontcolor READ fontcolor NOTIFY fontcolorChanged)
     Q_PROPERTY(QString stationname READ stationname NOTIFY stationnameChanged)
     Q_PROPERTY(QString prevstationname READ prevstationname NOTIFY prevstationnameChanged)
@@ -66,6 +67,7 @@ public:
     QString iconsbutton();
     QString temperatureunit();
     QString windspeedunit();
+    bool fullscreen();
     QColor fontcolor();
     QString stationname();
     QString prevstationname();
@@ -96,6 +98,7 @@ public:
     Q_INVOKABLE void temperature_unit(QString c);
     Q_INVOKABLE QStringList windspeed_list();
     Q_INVOKABLE void windspeed_unit(int index);
+    Q_INVOKABLE void setfullscreen(bool c);
     Q_INVOKABLE QStringList icon_list();
     Q_INVOKABLE void set_iconset(QString c);
     Q_INVOKABLE QString tr(QString str);
@@ -108,6 +111,7 @@ signals:
     void iconsbuttonChanged();
     void temperatureunitChanged();
     void windspeedunitChanged();
+    void fullscreenChanged();
     void fontcolorChanged();
     void stationnameChanged();
     void prevstationnameChanged();

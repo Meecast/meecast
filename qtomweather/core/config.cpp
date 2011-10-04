@@ -41,6 +41,7 @@ Config::Config()
     _temperature_unit = new std::string("C");
     _wind_speed_unit = new std::string("m/s");
     _update_connect = false;
+    _fullscreen = false;
     _font_color = new std::string("#00ff00");
     _stations = new StationsList;
     _current_station_id = INT_MAX;
@@ -94,6 +95,14 @@ Config::saveConfig()
 
     el = doc.createElement("update_connect");
     if (_update_connect)
+        t = doc.createTextNode("true");
+    else
+        t = doc.createTextNode("false");
+    el.appendChild(t);
+    root.appendChild(el);
+
+    el = doc.createElement("fullscreen");
+    if (_fullscreen)
         t = doc.createTextNode("true");
     else
         t = doc.createTextNode("false");
@@ -176,6 +185,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _temperature_unit = new std::string("C");
     _wind_speed_unit = new std::string("m/s");
     _update_connect = false;
+    _fullscreen = false;
     _update_period = INT_MAX;
     _font_color = new std::string("#00ff00");
     _stations = new StationsList;
@@ -222,6 +232,9 @@ Config::LoadConfig(){
         el = root.firstChildElement("update_connect");
         if (!el.isNull())
             _update_connect = (el.text() == "true") ? true : false;
+        el = root.firstChildElement("fullscreen");
+        if (!el.isNull())
+            _fullscreen = (el.text() == "true") ? true : false;
         el = root.firstChildElement("update_period");
         if (!el.isNull())
             _update_period = el.text().toInt();
@@ -351,6 +364,15 @@ Config::UpdateConnect(const bool uc){
 bool
 Config::UpdateConnect(void){
     return _update_connect;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::Fullscreen(const bool uc){
+    _fullscreen = uc;
+}
+bool
+Config::Fullscreen(void){
+    return _fullscreen;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void
@@ -489,6 +511,15 @@ void Config::processNode(const xmlpp::Node* node){
         const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
         std::string str = nodeText->get_content();
         (str.compare("true")) ? (_update_connect = false) : (_update_connect = true);
+        return;
+    }
+    // fullscreen
+    if(nodeName == "fullscreen"){
+        xmlpp::Node::NodeList list = node->get_children();
+        xmlpp::Node::NodeList::iterator iter = list.begin();
+        const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+        std::string str = nodeText->get_content();
+        (str.compare("true")) ? (_fullscreen = false) : (_fullscreen = true);
         return;
     }
     // update period

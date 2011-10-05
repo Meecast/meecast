@@ -67,7 +67,7 @@ Page {
                 }
 
                 Image {
-                    source: "image://theme/icon-m-common-drilldown-arrow-inverse"
+                    source: "image://theme/icon-s-common-add-inverse"
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                 }

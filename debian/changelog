@@ -1,6 +1,10 @@
 meecast (0.3.31) unstable; urgency=low
 
   * Updated Finish translation 
+  * Added new iconsets 
+  * Changed search system for countries, regions, cities lists
+  * Redesigned settings windows 
+  * Added new config option - fullscreen mode (saved in config file)
 
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 29 Sep 2011 19:24:20 +0200
 
@@ -11,7 +15,7 @@ meecast (0.3.30) unstable; urgency=low
   * Added applet for Harmattan
   * Added possibilty to show weather forecast in web browser after
     tapping on picture of source weather forecast
-  * Redisigned setting windows
+  * Redesigned setting windows
 
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 29 Sep 2011 19:24:20 +0200
 

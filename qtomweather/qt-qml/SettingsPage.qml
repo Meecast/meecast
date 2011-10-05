@@ -135,7 +135,7 @@ Page {
             anchors.fill: parent
             color: "white"
             text: Config.tr("Settings")
-            //font.family: localFont.name
+            font.family: "Nokia Pure Text Light"
             font.pixelSize: 30
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter

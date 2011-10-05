@@ -18,7 +18,7 @@ Page {
         anchors.fill: parent
         flickableDirection: Flickable.VerticalFlick
 //        clip: true
-        contentHeight: 1200
+        contentHeight: 1300
         Label {
             id: titletext
             text: "MeeCast for Harmattan"
@@ -181,6 +181,28 @@ Slovak - Roman Moravčík")
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    anchors.top: translatorstext.bottom
+	}
+        Label {
+            id: licensetext  
+            text: Config.tr("License") + ":"
+            anchors.top: translatorsfulltext.bottom
+            anchors.topMargin: 30
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            color: "#999999"
+        }
+	Label {
+            id: licensefulltext 
+	    text: Config.tr ("This software is free software; you can\n \
+redistribute it and/or modify it under \n \
+the terms of the GNU General Public\n \
+License as published by the Free Software \n \
+Foundation; either version 2.1 of the \n \
+License, or (at your option) any \n \
+later version.");
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    anchors.top: licensetext.bottom
 	}
 
 	                                                                                                    

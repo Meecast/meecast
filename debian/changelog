@@ -1,12 +1,13 @@
 meecast (0.3.31) unstable; urgency=low
 
-  * Updated Finish translation 
+  * Updated Finish and Russian translations 
   * Added new iconsets 
   * Changed search system for countries, regions, cities lists
   * Redesigned settings windows 
   * Added new config option - fullscreen mode (saved in config file)
+  * Added License to About window
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 29 Sep 2011 19:24:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 6 Sep 2011 09:24:20 +0200
 
 meecast (0.3.30) unstable; urgency=low
 

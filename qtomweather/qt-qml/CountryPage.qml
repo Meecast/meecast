@@ -151,7 +151,7 @@ Page {
             anchors.fill: parent
             color: "white"
             text: Config.tr("Select country")
-            font.family: "Nokia Pure Light"
+            //font.family: "Nokia Pure Light"
             font.pixelSize: 30
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter

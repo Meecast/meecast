@@ -140,7 +140,7 @@ Page {
             anchors.fill: parent
             color: "white"
             text: Config.tr("Select location")
-            font.family: "Nokia Pure Light"
+            //font.family: "NokiaPureMgLight"
             font.pixelSize: 30
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter

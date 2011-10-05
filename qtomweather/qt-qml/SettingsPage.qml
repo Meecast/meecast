@@ -21,6 +21,7 @@ Page {
             anchors.right: parent == undefined ? undefined : parent.right
         }*/
     }
+    //FontLoader {id: localFont; source: "fonts/nokia/Nokia Pure/NokiaPureMbLight.ttf"}
     orientationLock: PageOrientation.LockPortrait
     function openFile(file)
     {
@@ -134,7 +135,7 @@ Page {
             anchors.fill: parent
             color: "white"
             text: Config.tr("Settings")
-            font.family: "Nokia Pure Light"
+            //font.family: localFont.name
             font.pixelSize: 30
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter

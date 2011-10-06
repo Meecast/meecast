@@ -78,6 +78,63 @@ Page {
         }
 
     }
+    function getAngle(s)
+    {
+        var a;
+
+        /*
+        switch (s[0]){
+        case 'N':
+            a = 0;
+            break;
+        case 'S':
+            a = 8;
+            break;
+        case 'E':
+            a = 4;
+            break;
+        case 'W':
+            a = -4;
+            break;
+        }
+        if (a.length == 1) return a*22.5;*/
+        switch (s){
+        case 'N':
+            return 0;
+        case 'NNE':
+            return 22.5;
+        case 'NE':
+            return 45;
+        case 'ENE':
+            return (45+22.5);
+        case 'E':
+            return 90;
+        case 'ESE':
+            return (90+22.5);
+        case 'SE':
+            return (90+45);
+        case 'SSE':
+            return (180-22.5);
+        case 'S':
+            return 180;
+        case 'SSW':
+            return (180+22.5);
+        case 'SW':
+            return (180+45);
+        case 'WSW':
+            return (270-22.5);
+        case 'W':
+            return 270;
+        case 'WNW':
+            return (270+22.5);
+        case 'NW':
+            return (270+45);
+        case 'NNW':
+            return (360-22.5);
+
+        }
+
+    }
 
     function update()
     {
@@ -551,8 +608,9 @@ Page {
                             verticalAlignment: Text.AlignVCenter
                         }
                         Image {
-                            id: wind_direction
-                            source: Config.imagespath + "/wind_direction.png"
+                            id: wind_direction_background
+                            //source: Config.imagespath + "/wind_direction.png"
+                            source: Config.imagespath + "/wind_direction_background.png"
                             anchors.top: desc.bottom
                             anchors.topMargin: 32
                             anchors.left: parent.left
@@ -560,6 +618,23 @@ Page {
                             width: 30
                             height: 30
 			    smooth: true
+                        }
+                        Image {
+                            id: wind_direction
+                            //source: Config.imagespath + "/wind_direction.png"
+                            source: Config.imagespath + "/wind_direction_arrow.png"
+                            anchors.top: desc.bottom
+                            anchors.topMargin: 32
+                            anchors.left: parent.left
+                            anchors.leftMargin: margin+224
+                            width: 30
+                            height: 30
+                            smooth: true
+                            transform: Rotation {
+                                origin.x: 15
+                                origin.y: 15
+                                angle: main.getAngle(model.wind_direction)
+                            }
                         }
                         Text {
                             text: model.wind_direction

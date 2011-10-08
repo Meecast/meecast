@@ -73,7 +73,7 @@ Page {
 			 value: Forecast_model.getdata(day, "humidity")+'%'});
             if ((Forecast_model.getdata(day, "wind_direction")) != "")
                 condition.append({cond_name: Config.tr("Wind direction:"),
-			 value: Forecast_model.getdata(day, "wind_direction")});
+			 value: Config.tr(Forecast_model.getdata(day, "wind_direction"))});
      	    if ((Forecast_model.getdata(day, "pressure")) != "N/A")
                 condition.append({cond_name: Config.tr("Pressure:"),
 			 value: Forecast_model.getdata(day, "pressure") + " mbar"});
@@ -105,7 +105,7 @@ Page {
 			 value: Forecast_night_model.getdata(day, "humidity")+'%'});
             if ((Forecast_night_model.getdata(day, "wind_direction")) != "")
                 condition.append({cond_name: Config.tr("Wind direction:"),
-			 value: Forecast_night_model.getdata(day, "wind_direction")});
+			 value: Config.tr(Forecast_night_model.getdata(day, "wind_direction"))});
      	    if ((Forecast_night_model.getdata(day, "pressure")) != "N/A")
                 condition.append({cond_name: Config.tr("Pressure:"),
 			 value: Forecast_night_model.getdata(day, "pressure") + " mbar"});

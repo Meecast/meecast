@@ -236,7 +236,7 @@ DataItem::icon() {
 QString
 DataItem::wind_direction() {
     QString c;
-    c = QString(QString::fromUtf8(_(DataItem::Data::WindDirection().c_str())));
+    c = QString(QString::fromUtf8(DataItem::Data::WindDirection().c_str()));
     return c;
 }
 

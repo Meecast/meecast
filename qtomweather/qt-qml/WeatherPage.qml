@@ -637,7 +637,7 @@ Page {
                             }
                         }
                         Text {
-                            text: model.wind_direction
+                            text: Config.tr(model.wind_direction)
                             anchors.left: wind_direction.right
                             anchors.leftMargin: 8
                             anchors.top: desc.bottom

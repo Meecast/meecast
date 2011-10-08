@@ -193,7 +193,7 @@ Rectangle {
                         color: "white"
                     }
                     Text {
-                        text: (wind_direction != "N/A") ? (wind_label + " " + wind_direction) : ""
+                        text: (wind_direction != "N/A") ? (wind_label + " " + Config.tr(wind_direction)) : ""
                         font.pointSize: 14
                         color: "white"
                     }

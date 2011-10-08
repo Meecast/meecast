@@ -99,37 +99,37 @@ Page {
         }
         if (a.length == 1) return a*22.5;*/
         switch (s){
-        case 'N':
-            return 0;
-        case 'NNE':
-            return 22.5;
-        case 'NE':
-            return 45;
-        case 'ENE':
-            return (45+22.5);
-        case 'E':
-            return 90;
-        case 'ESE':
-            return (90+22.5);
-        case 'SE':
-            return (90+45);
-        case 'SSE':
-            return (180-22.5);
         case 'S':
-            return 180;
+            return 0;
         case 'SSW':
-            return (180+22.5);
+            return 22.5;
         case 'SW':
-            return (180+45);
+            return 45;
         case 'WSW':
-            return (270-22.5);
+            return (45+22.5);
         case 'W':
-            return 270;
+            return 90;
         case 'WNW':
-            return (270+22.5);
+            return (90+22.5);
         case 'NW':
-            return (270+45);
+            return (90+45);
         case 'NNW':
+            return (180-22.5);
+        case 'N':
+            return 180;
+        case 'NNE':
+            return (180+22.5);
+        case 'NE':
+            return (180+45);
+        case 'ENE':
+            return (270-22.5);
+        case 'E':
+            return 270;
+        case 'ESE':
+            return (270+22.5);
+        case 'SE':
+            return (270+45);
+        case 'SSE':
             return (360-22.5);
 
         }

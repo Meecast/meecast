@@ -1,9 +1,15 @@
+meecast (0.3.33) unstable; urgency=low
+
+  * Removed qt-components-base-icons from dependences for Fremantle version
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 9 Oct 2011 09:24:20 +0200
+
 meecast (0.3.32) unstable; urgency=low
 
   * Changed wind icon to show actual wind direction
   * Fixed problem for Fremantle with old version of QtComponents
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 6 Sep 2011 09:24:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 8 Oct 2011 09:24:20 +0200
 
 meecast (0.3.31) unstable; urgency=low
 
@@ -15,7 +21,7 @@ meecast (0.3.31) unstable; urgency=low
   * Added License to About window
   * Updated yr.no database (fixed problem with NonLatin letters)
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 6 Sep 2011 09:24:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 6 Oct 2011 09:24:20 +0200
 
 meecast (0.3.30) unstable; urgency=low
 

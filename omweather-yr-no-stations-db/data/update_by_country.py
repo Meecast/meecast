@@ -14,20 +14,32 @@ import zipfile
 #Country name and code
 country = "Belarus"
 country_code = "BY"
-
+replacing_dict = { "Minsk":"Minsk fylke" } 
 
 
 baseurl = "http://download.geonames.org/export/dump/"
+
+
+
+def normalizing (source):
+    result = source.replace("'","")
+    result = result.replace(" ","_")
+    return result
+
 
 #connect to database
 c = db.connect(database=r"./yr.no.db")
 cu = c.cursor()
 
-#cheking country name
-cur = cu.execute("select name, id from countries where name='%s'" %(country))
+#checking country name
+cur = cu.execute("select id from countries where name='%s'" %(country))
 if (cur.fetchone() == None ):
-   print "Country " + country + " is absent in the database yr.no.db"
-   exit (-1);
+    print "Country " + country + " is absent in the database yr.no.db"
+    exit (-1);
+
+cur = cu.execute("select id from countries where name='%s'" %(country))
+for row in cur:
+    country_id = row[0]
 
 #zip filename
 myzipfile = country_code + ".zip"
@@ -43,11 +55,50 @@ outfile.write(z.read(country_code + ".txt"))
 outfile.close()
 fh.close()
 
+#fill regions
+regions = {}
 fh = open(country_code + ".txt")
-#pattern = re.compile("/t*ADM1*")
 for line in fh.readlines():
-    pattern = re.split('(\t+)', line)
+    pattern = re.split('(\t)', line)
     if (pattern[14] == "ADM1"):
-        print pattern[4]
-#   if  (pattern.match(line)):
-#        print line
+        regions[pattern[20]] = pattern[4]
+fh.close
+
+regions_name = {}
+regions_name_second = {}
+fh = open(country_code + ".txt")
+for line in fh.readlines():
+    pattern = re.split('(\t)', line)
+    if (pattern[14] == "PPLA" or pattern[14] == "PPLC"):
+        for key in regions.keys():
+            if (key == pattern[20]):
+                regions_name[key] = normalizing(pattern[4]) 
+                regions_name_second[key] = normalizing(pattern[6])
+fh.close
+
+for key in regions.keys():
+    if (regions_name.get(key) == None): 
+        regions_name[key] = regions[key] 
+
+regions_name["0"] = "Other/" + country
+
+for key in regions_name.keys():
+    #checking regions name
+    cur = cu.execute("select name, id from regions where country_id='%i' and name = '%s'" %(country_id,regions_name[key]))
+    if (cur.fetchone() == None ):
+        pattern = re.split ('(,)',regions_name_second[key])
+        flag = 0 
+        for variant in pattern:
+            cur = cu.execute("select name, id from regions where country_id='%i' and name = '%s'" %(country_id,variant))
+            if (cur.fetchone()):
+                flag = 1
+                regions_name[key] = variant
+        if (flag == 0):
+            if (replacing_dict[regions_name[key]]):
+                regions_name[key] = replacing_dict[regions_name[key]]
+            else:
+                print "Error in " + key + " " + regions_name[key]
+    print regions_name[key]  + ' '  + key
+
+
+

@@ -33,7 +33,7 @@ if (cur.fetchone() == None ):
 myzipfile = country_code + ".zip"
 #downloading the dump file
 url = baseurl + myzipfile
-urllib.urlretrieve (url, myzipfile)
+#urllib.urlretrieve (url, myzipfile)
 
 #unzip file
 fh = open(myzipfile, 'rb')
@@ -44,5 +44,10 @@ outfile.close()
 fh.close()
 
 fh = open(country_code + ".txt")
+#pattern = re.compile("/t*ADM1*")
 for line in fh.readlines():
-    print line
+    pattern = re.split('(\t+)', line)
+    if (pattern[14] == "ADM1"):
+        print pattern[4]
+#   if  (pattern.match(line)):
+#        print line

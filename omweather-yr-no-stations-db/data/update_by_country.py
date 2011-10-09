@@ -80,7 +80,7 @@ for key in regions.keys():
     if (regions_name.get(key) == None): 
         regions_name[key] = regions[key] 
 
-regions_name["0"] = "Other/" + country
+regions_name["00"] = "Other/" + country
 
 for key in regions_name.keys():
     #checking regions name
@@ -100,5 +100,12 @@ for key in regions_name.keys():
                 print "Error in " + key + " " + regions_name[key]
     print regions_name[key]  + ' '  + key
 
-
+fh = open(country_code + ".txt")
+for line in fh.readlines():
+    pattern = re.split('(\t)', line)
+    if (pattern[14] == "PPLA" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
+        if (pattern[20] != "" and pattern[28] != "0"):
+            result = country + "#" + re.sub("Other/" + country, "Other", regions_name[pattern[20]]) + "#" + normalizing(pattern[4])
+            print result
+fh.close
 

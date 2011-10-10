@@ -18,7 +18,12 @@ replacing_dict = { "Minsk":"Minsk fylke" }
 
 
 baseurl = "http://download.geonames.org/export/dump/"
+yrnourl = 'http://yr.no'
 
+def normalizing2 (source):
+    result = source
+    result = result.replace(" ","_")
+    return result
 
 
 def normalizing (source):
@@ -106,7 +111,20 @@ for line in fh.readlines():
     pattern = re.split('(\t)', line)
     if (pattern[14] == "PPLA" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
         if (pattern[20] != "" and pattern[28] != "0"):
-            result = country + "#" + re.sub("Other/" + country, "Other", regions_name[pattern[20]]) + "#" + normalizing(pattern[4])
+            result = country + "#" + re.sub("Other/" + country, "Other", normalizing(regions_name[pattern[20]])) + "#" + normalizing2(pattern[4].encode('utf8'))
+            #check station
+            country = country.encode('utf8')
+            country_name_url = yrnourl + "/place/" + "/"+result.replace("#","/")
+            print country_name_url
+            req = urllib2.Request(country_name_url, None, {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'})
+            page = urllib2.urlopen(req)
+            for line2 in page.readlines():
+                print line2
+            #fileToSave = page.read()
+            #oFile = open(r"./%s.html"%(country+result),'wb')
+            #oFile.write(fileToSave)
+            #oFile.close
+
             cur = cu.execute("select id from regions where country_id='%i' and name = '%s'" %(country_id,regions_name[pattern[20]]))
             region_id = None
             for row in cur:
@@ -116,13 +134,10 @@ for line in fh.readlines():
             for row in cur:
                 station_id = row[0]
             if (station_id == None):
-                cur = cu.execute("insert into stations (region_id, name, longititude, latitude, code) values ( '%i', '%s', '%s', '%s', '%s')" %(region_id, normalizing(pattern[4]), pattern[10], pattern[8], result))
+                cur = cu.execute("insert into stations (region_id, name, longititude, latitude, code) values ( '%i', '%s', '%s', '%s', '%s')" %(region_id, normalizing(pattern[4]), pattern[10], pattern[8], result.replace("'","%27")))
                 c.commit()
-#                print region_id, normalizing(pattern[4]), pattern[8], pattern[10], result
-#                print "insert into stations (region_id, name, longititude, latitude, code values ( '%i', '%s', '%s', '%s', '%s')" %(region_id, normalizing(pattern[4]), pattern[8], pattern[10], result)
-#                print result
             else:
-                cur = cu.execute("update stations set region_id ='%i', name='%s', longititude='%s', latitude='%s', code = '%s' where id ='%i'" %(region_id, normalizing(pattern[4]), pattern[10], pattern[8], result, station_id))
+                cur = cu.execute("update stations set region_id ='%i', name='%s', longititude='%s', latitude='%s', code='%s' where id ='%i'" %(region_id, normalizing(pattern[4]), pattern[10], pattern[8], result.replace("'","%27"), station_id))
                 c.commit()
 fh.close
 

@@ -148,3 +148,20 @@ for line in fh.readlines():
                 c.commit()
 fh.close
 
+#filling lat, lon for regions
+cur = cu.execute("select id from regions where country_id='%i'" %(country_id))
+for row in cur:
+    region_id = row[0]
+    cur1 = cu.execute("select min(latitude) from stations where region_id='%i'" %(region_id))
+    for row1 in cur1:
+        minlat = row1[0]
+    cur2 = cu.execute("select max(latitude) from stations where region_id='%i'" %(region_id))
+    for row2 in cur2:
+        maxlat = row2[0]
+    cur3 = cu.execute("select min(longititude) from stations where region_id='%i'" %(region_id))
+    for row3 in cur3:
+        minlong = row3[0]
+    cur4 = cu.execute("select max(longititude) from stations where region_id='%i'" %(region_id))
+    for row4 in cur4:
+        maxlong = row4[0]
+    print "Id %i minlat %s maxlat %s minlong %s maxlong %s"%(region_id, minlat,  maxlat, minlong, maxlong) 

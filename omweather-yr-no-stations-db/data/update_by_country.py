@@ -150,18 +150,23 @@ fh.close
 
 #filling lat, lon for regions
 cur = cu.execute("select id from regions where country_id='%i'" %(country_id))
+cu1 = c.cursor()
 for row in cur:
     region_id = row[0]
-    cur1 = cu.execute("select min(latitude) from stations where region_id='%i'" %(region_id))
+    cur1 = cu1.execute("select min(latitude) from stations where region_id='%i'" %(region_id))
     for row1 in cur1:
         minlat = row1[0]
-    cur2 = cu.execute("select max(latitude) from stations where region_id='%i'" %(region_id))
+    cur2 = cu1.execute("select max(latitude) from stations where region_id='%i'" %(region_id))
     for row2 in cur2:
         maxlat = row2[0]
-    cur3 = cu.execute("select min(longititude) from stations where region_id='%i'" %(region_id))
+    cur3 = cu1.execute("select min(longititude) from stations where region_id='%i'" %(region_id))
     for row3 in cur3:
         minlong = row3[0]
-    cur4 = cu.execute("select max(longititude) from stations where region_id='%i'" %(region_id))
+    cur4 = cu1.execute("select max(longititude) from stations where region_id='%i'" %(region_id))
     for row4 in cur4:
         maxlong = row4[0]
     print "Id %i minlat %s maxlat %s minlong %s maxlong %s"%(region_id, minlat,  maxlat, minlong, maxlong) 
+    if (minlat != None or maxlat != None or minlong != None or maxlong != None):
+        cu1.execute("update regions set  latitudemax='%s', latitudemin='%s', longititudemax='%s', longititudemin='%s' where id ='%i'" %(maxlat, minlat, maxlong, minlong, region_id))
+        c.commit()
+

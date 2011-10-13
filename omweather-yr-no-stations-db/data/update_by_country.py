@@ -14,7 +14,8 @@ import zipfile
 #Country name and code
 country = "Belarus"
 country_code = "BY"
-replacing_dict = { "Minsk":"Horad Minsk", "Mahiljow":"Minsk fylke" } 
+replacing_dict = { "Minsk":"Horad Minsk" } 
+replacing_dict_after_region_filling = { "Mahiljow":"Minsk fylke" } 
 
 
 baseurl = "http://download.geonames.org/export/dump/"
@@ -111,18 +112,24 @@ for line in fh.readlines():
     pattern = re.split('(\t)', line)
     if (pattern[14] == "PPLA" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
         if (pattern[20] != "" and pattern[28] != "0"):
+
+            if (replacing_dict_after_region_filling.get(regions_name[pattern[20]])):
+                fixed_regions_name = replacing_dict_after_region_filling[regions_name[pattern[20]]]
+            else:
+                fixed_regions_name = regions_name[pattern[20]]
+
             #check station
-            result = country + "#" + re.sub("Other/" + country, "Other", normalizing(regions_name[pattern[20]])) + "#" + pattern[4].encode('utf8')
+            result = country + "#" + re.sub("Other/" + country, "Other", normalizing(fixed_regions_name)) + "#" + pattern[4].encode('utf8')
             country = country.encode('utf8')
-            country_name_url = yrnourl + "/place/" + "/"+result.replace("#","/")
+            country_name_url = yrnourl + "/place/" + result.replace("#","/")
 #            print country_name_url
             req = urllib2.Request(country_name_url, None, {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'})
             page = urllib2.urlopen(req)
             for line2 in page.readlines():
                 if (line2.find("Det har oppstått en feil") != -1):
-                    result = country + "#" + re.sub("Other/" + country, "Other", normalizing(regions_name[pattern[20]])) + "#" + normalizing2(pattern[4].encode('utf8'))+ "/"
+                    result = country + "#" + re.sub("Other/" + country, "Other", normalizing(fixed_regions_name)) + "#" + normalizing2(pattern[4].encode('utf8')) 
                     country = country.encode('utf8')
-                    country_name_url = yrnourl + "/place/" + "/"+result.replace("#","/")
+                    country_name_url = yrnourl + "/place/" + result.replace("#","/")
 #                   print country_name_url
                     req = urllib2.Request(country_name_url, None, {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'})
                     page2 = urllib2.urlopen(req)
@@ -131,12 +138,12 @@ for line in fh.readlines():
                         if (line3.find("Det har oppstått en feil") != -1):
                             print "problem in " + country_name_url
                             continue
-
-            cur = cu.execute("select id from regions where country_id='%i' and name = '%s'" %(country_id,regions_name[pattern[20]]))
+ 
+            cur = cu.execute("select id from regions where country_id='%i' and name = '%s'" %(country_id, regions_name[pattern[20]]))
             region_id = None
             for row in cur:
                 region_id = row[0]
-            cur = cu.execute("select id from stations where region_id='%i' and name = '%s'" %(region_id,normalizing(pattern[4])))
+            cur = cu.execute("select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing(pattern[4])))
             station_id= None
             for row in cur:
                 station_id = row[0]

@@ -172,7 +172,7 @@ for row in cur:
     cur4 = cu1.execute("select max(longititude) from stations where region_id='%i'" %(region_id))
     for row4 in cur4:
         maxlong = row4[0]
-    print "Id %i minlat %s maxlat %s minlong %s maxlong %s"%(region_id, minlat,  maxlat, minlong, maxlong) 
+    # print "Id %i minlat %s maxlat %s minlong %s maxlong %s"%(region_id, minlat,  maxlat, minlong, maxlong) 
     if (minlat != None or maxlat != None or minlong != None or maxlong != None):
         cu1.execute("update regions set  latitudemax='%s', latitudemin='%s', longititudemax='%s', longititudemin='%s' where id ='%i'" %(maxlat, minlat, maxlong, minlong, region_id))
         c.commit()

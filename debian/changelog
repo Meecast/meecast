@@ -1,8 +1,14 @@
+meecast (0.3.34) unstable; urgency=low
+
+  * Nothing 
+
+ -- vlad vasiliev <vlad@gas.by>  sun, 9 oct 2011 09:24:20 +0200
+
 meecast (0.3.33) unstable; urgency=low
 
-  * Removed qt-components-base-icons from dependences for Fremantle version
+  * removed qt-components-base-icons from dependences for fremantle version
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 9 Oct 2011 09:24:20 +0200
+ -- vlad vasiliev <vlad@gas.by>  Sun, 9 oct 2011 09:24:20 +0200
 
 meecast (0.3.32) unstable; urgency=low
 

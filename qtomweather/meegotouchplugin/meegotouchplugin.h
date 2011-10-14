@@ -72,12 +72,12 @@ public:
         arguments << "--single-instance";
         arguments << "--type=e";
         arguments <<"/opt/com.meecast.omweather/bin/omweather-qml";	
-        process.start(executable, arguments);
+        process.startDetached(executable, arguments);
     }
 
     Q_INVOKABLE void startpredeamon(){
         QString executable("/opt/com.meecast.omweather/bin/predaemon");    
-        process.start(executable);
+        process.startDetached(executable);
     }
 
 

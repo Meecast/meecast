@@ -1,7 +1,7 @@
 meecast (0.3.34) unstable; urgency=low
 
   * Improved in event widget
-  * Added stations in yr.no database
+  * Added stations in yr.no database (Belarus, Finland)
 
  -- vlad vasiliev <vlad@gas.by>  sun, 9 oct 2011 09:24:20 +0200
 

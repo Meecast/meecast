@@ -110,7 +110,8 @@ for line in fh.readlines():
                 fixed_regions_name = regions_name[pattern[20]]
 
             #check station
-            result = country + "#" + re.sub("Other/" + country, "Other", normalizing(fixed_regions_name)) + "#" + pattern[4].encode('utf8')
+            u1 = urllib.quote(pattern[2])
+            result = country + "#" + re.sub("Other/" + country, "Other", normalizing(fixed_regions_name)) + "#" + u1.encode('utf-8') 
             country = country.encode('utf8')
             country_name_url = yrnourl + "/place/" + result.replace("#","/")
 #            print country_name_url
@@ -118,10 +119,10 @@ for line in fh.readlines():
             page = urllib2.urlopen(req)
             for line2 in page.readlines():
                 if (line2.find("Det har oppstått en feil") != -1):
-                    result = country + "#" + re.sub("Other/" + country, "Other", normalizing(fixed_regions_name)) + "#" + normalizing2(pattern[4].encode('utf8')) 
+                    u1 = urllib.quote(pattern[2])
+                    result = country + "#" + re.sub("Other/" + country, "Other", normalizing(fixed_regions_name)) + "#" + u1.encode('utf-8') 
                     country = country.encode('utf8')
                     country_name_url = yrnourl + "/place/" + result.replace("#","/")
-#                   print country_name_url
                     req = urllib2.Request(country_name_url, None, {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'})
                     page2 = urllib2.urlopen(req)
 

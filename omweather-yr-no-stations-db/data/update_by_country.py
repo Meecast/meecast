@@ -14,8 +14,8 @@ import zipfile
 #Country name and code
 country = "Finland"
 country_code = "FI"
-replacing_dict = { "Lapin_Laeaeni":"Laponia", "Province_of_Western_Finland":"Western_Finland", 
-                   "Province_of_Southern_Finland": "Southern_Finland", "Itae-Suomen_Laeaeni": "Eastern_Finland" } 
+replacing_dict = { "Lapin_Laeaeni":"Laponia", "Province_of_Western_Finland":"Western Finland", 
+                   "Province_of_Southern_Finland": "Southern Finland", "Itae-Suomen_Laeaeni": "Eastern Finland" } 
 replacing_dict_after_region_filling = {  } 
 
 
@@ -102,7 +102,8 @@ for line in fh.readlines():
     pattern = re.split('(\t)', line)
     if (pattern[14] == "PPLA" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
         if (pattern[20] != "" and pattern[28] != "0"):
-
+            if (regions_name.get(pattern[20]) == None):
+                continue
             if (replacing_dict_after_region_filling.get(regions_name[pattern[20]])):
                 fixed_regions_name = replacing_dict_after_region_filling[regions_name[pattern[20]]]
             else:

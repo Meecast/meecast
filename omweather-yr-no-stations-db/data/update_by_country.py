@@ -33,10 +33,17 @@ import zipfile
 #		"Central_Macedonia":"Central Macedonia", "East_Macedonia_and_Thrace":"East Macedonia and Thrace",
 #		"West_Macedonia":"West Macedonia"} 
 #replacing_dict_after_region_filling = {  } 
-country = "Macedonia"
-country_code = "MK"
-replacing_dict = {"Opstina Gjorce Petrov":"Ðorce Petrov", "Opstina Mavrovo i Rostusa":"Rostuša",
-		"Opstina Caska":"Caška", "Opstina Cesinovo":"Cešinovo", "Opstina Vrapciste":"Vraneštica"} 
+#country = "Macedonia"
+#country_code = "MK"
+#replacing_dict = {"Opstina Gjorce Petrov":"Ðorce Petrov", "Opstina Mavrovo i Rostusa":"Rostuša",
+#		"Opstina Caska":"Caška", "Opstina Cesinovo":"Cešinovo", "Opstina Vrapciste":"Vraneštica"} 
+#replacing_dict_after_region_filling = { } 
+country = "France"
+country_code = "FR"
+replacing_dict = {"Region_Bourgogne":"Burgundy", "Region_Centre":"Centre", "Region_Haute-Normandie":"Upper Normandy",
+		"Region_Basse-Normandie":"Lower Normandy", 
+		"Region_Provence-Alpes-Cote_dAzur":"Provence-Alpes-Côte d’Azur",
+		"Region_Pays_de_la_Loire":"Loire", "Region_Picardie":"Picardy"} 
 replacing_dict_after_region_filling = { } 
 
 
@@ -44,6 +51,10 @@ replacing_dict_after_region_filling = { }
 
 baseurl = "http://download.geonames.org/export/dump/"
 yrnourl = 'http://yr.no'
+
+def normalizing3 (source):
+    result = source.replace("'","%92")
+    return result
 
 def normalizing2 (source):
     result = source.replace("'","%92")
@@ -94,10 +105,10 @@ fh = open(country_code + ".txt")
 for line in fh.readlines():
     pattern = re.split('(\t)', line)
     if (pattern[14] == "ADM1"):
-#        regions_name[pattern[20]] = normalizing(pattern[4])
-#        regions_name_second[pattern[20]] = normalizing(pattern[6])
-        regions_name[pattern[20]] = pattern[4]
-        regions_name_second[pattern[20]] = pattern[6]
+        regions_name[pattern[20]] = normalizing(pattern[4])
+        regions_name_second[pattern[20]] = normalizing(pattern[6])
+#        regions_name[pattern[20]] = pattern[4]
+#        regions_name_second[pattern[20]] = pattern[6]
 fh.close
 
 
@@ -105,13 +116,13 @@ regions_name["00"] = "Other/" + country
 print country_id
 #checking regions name
 for key in regions_name.keys():
-    cur = cu.execute("select name, id from regions where country_id='%i' and name = '%s'" %(country_id,regions_name[key]))
+    cur = cu.execute("select name, id from regions where country_id='%i' and name = '%s'" %(country_id,normalizing3(regions_name[key])))
     if (cur.fetchone() == None ):
         pattern = re.split ('(,)',regions_name_second[key])
         flag = 0 
         for variant in pattern:
         #    print variant
-            cur = cu.execute("select name, id from regions where country_id='%i' and name = '%s'" %(country_id,variant))
+            cur = cu.execute("select name, id from regions where country_id='%i' and name = '%s'" %(country_id,normalizing3(variant)))
             if (cur.fetchone()):
                 flag = 1
                 regions_name[key] = variant
@@ -157,10 +168,15 @@ for line in fh.readlines():
                             print "problem in " + country_name_url
                             continue
  
-            cur = cu.execute("select id from regions where country_id='%i' and name = '%s'" %(country_id, regions_name[pattern[20]]))
+ 	    #Temporary for France
+            if (regions_name[pattern[20]]=="Centre"):
+            	cur = cu.execute("select id from regions where country_id='%i' and name = '%s'" %(country_id, "Centre/France"))
+	    else:
+            	cur = cu.execute("select id from regions where country_id='%i' and name = '%s'" %(country_id, regions_name[pattern[20]]))
             region_id = None
             for row in cur:
                 region_id = row[0]
+#	    print pattern[20]
 #	    print regions_name[pattern[20]] 
 #	    print region_id 
 #	    print  normalizing(pattern[4])

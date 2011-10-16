@@ -18,11 +18,15 @@ import zipfile
 #                   "Province_of_Southern_Finland": "Southern Finland", "Itae-Suomen_Laeaeni": "Eastern Finland" } 
 #replacing_dict_after_region_filling = {  } 
 
-#Västra Götalands Län
-country = "Sweden"
-country_code = "SE"
-replacing_dict = { "Vaestra_Goetalands_Laen":"Västra Götaland"} 
+#country = "Sweden"
+#country_code = "SE"
+#replacing_dict = { "Vaestra_Goetalands_Laen":"Västra Götaland"} 
+#replacing_dict_after_region_filling = {  } 
+country = "Germany"
+country_code = "DE"
+replacing_dict = { "Land_Niedersachsen": "Lower Saxony", "Land_Nordrhein-Westfalen":"North Rhine-Westphalia" } 
 replacing_dict_after_region_filling = {  } 
+
 
 
 baseurl = "http://download.geonames.org/export/dump/"
@@ -121,7 +125,7 @@ for line in fh.readlines():
             result = country + "#" + re.sub("Other/" + country, "Other", normalizing(fixed_regions_name)) + "#" + u1.encode('utf-8') 
             country = country.encode('utf8')
             country_name_url = yrnourl + "/place/" + result.replace("#","/")
-#            print country_name_url
+            #print country_name_url
             req = urllib2.Request(country_name_url, None, {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'})
             page = urllib2.urlopen(req)
             for line2 in page.readlines():

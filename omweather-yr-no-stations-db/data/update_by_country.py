@@ -22,9 +22,16 @@ import zipfile
 #country_code = "SE"
 #replacing_dict = { "Vaestra_Goetalands_Laen":"Västra Götaland"} 
 #replacing_dict_after_region_filling = {  } 
-country = "Germany"
-country_code = "DE"
-replacing_dict = { "Land_Niedersachsen": "Lower Saxony", "Land_Nordrhein-Westfalen":"North Rhine-Westphalia" } 
+#country = "Germany"
+#country_code = "DE"
+#replacing_dict = { "Land_Niedersachsen": "Lower Saxony", "Land_Nordrhein-Westfalen":"North Rhine-Westphalia" } 
+#replacing_dict_after_region_filling = {  } 
+country = "Greece"
+country_code = "GR"
+replacing_dict = { "North_Aegean":"North_Aegean", "South_Aegean": "South Aegean", "Ionian_Islands":"Ionian Islands",
+		"West_Greece":"West Greece", "Central_Greece":"Central Greece", 
+		"Central_Macedonia":"Central Macedonia", "East_Macedonia_and_Thrace":"East Macedonia and Thrace",
+		"West_Macedonia":"West Macedonia"} 
 replacing_dict_after_region_filling = {  } 
 
 
@@ -81,8 +88,10 @@ fh = open(country_code + ".txt")
 for line in fh.readlines():
     pattern = re.split('(\t)', line)
     if (pattern[14] == "ADM1"):
-        regions_name[pattern[20]] = normalizing(pattern[4])
-        regions_name_second[pattern[20]] = normalizing(pattern[6])
+#        regions_name[pattern[20]] = normalizing(pattern[4])
+#        regions_name_second[pattern[20]] = normalizing(pattern[6])
+        regions_name[pattern[20]] = pattern[4]
+        regions_name_second[pattern[20]] = pattern[6]
 fh.close
 
 

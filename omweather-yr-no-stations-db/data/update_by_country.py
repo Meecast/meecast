@@ -26,13 +26,19 @@ import zipfile
 #country_code = "DE"
 #replacing_dict = { "Land_Niedersachsen": "Lower Saxony", "Land_Nordrhein-Westfalen":"North Rhine-Westphalia" } 
 #replacing_dict_after_region_filling = {  } 
-country = "Greece"
-country_code = "GR"
-replacing_dict = { "North_Aegean":"North_Aegean", "South_Aegean": "South Aegean", "Ionian_Islands":"Ionian Islands",
-		"West_Greece":"West Greece", "Central_Greece":"Central Greece", 
-		"Central_Macedonia":"Central Macedonia", "East_Macedonia_and_Thrace":"East Macedonia and Thrace",
-		"West_Macedonia":"West Macedonia"} 
-replacing_dict_after_region_filling = {  } 
+#country = "Greece"
+#country_code = "GR"
+#replacing_dict = { "North_Aegean":"North_Aegean", "South_Aegean": "South Aegean", "Ionian_Islands":"Ionian Islands",
+#		"West_Greece":"West Greece", "Central_Greece":"Central Greece", 
+#		"Central_Macedonia":"Central Macedonia", "East_Macedonia_and_Thrace":"East Macedonia and Thrace",
+#		"West_Macedonia":"West Macedonia"} 
+#replacing_dict_after_region_filling = {  } 
+country = "Macedonia"
+country_code = "MK"
+replacing_dict = {"Opstina Gjorce Petrov":"Ðorce Petrov", "Opstina Mavrovo i Rostusa":"Rostuša",
+		"Opstina Caska":"Caška", "Opstina Cesinovo":"Cešinovo", "Opstina Vrapciste":"Vraneštica"} 
+replacing_dict_after_region_filling = { } 
+
 
 
 

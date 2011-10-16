@@ -12,10 +12,16 @@ import string
 import zipfile
 
 #Country name and code
-country = "Finland"
-country_code = "FI"
-replacing_dict = { "Lapin_Laeaeni":"Laponia", "Province_of_Western_Finland":"Western Finland", 
-                   "Province_of_Southern_Finland": "Southern Finland", "Itae-Suomen_Laeaeni": "Eastern Finland" } 
+#country = "Finland"
+#country_code = "FI"
+#replacing_dict = { "Lapin_Laeaeni":"Laponia", "Province_of_Western_Finland":"Western Finland", 
+#                   "Province_of_Southern_Finland": "Southern Finland", "Itae-Suomen_Laeaeni": "Eastern Finland" } 
+#replacing_dict_after_region_filling = {  } 
+
+#Västra Götalands Län
+country = "Sweden"
+country_code = "SE"
+replacing_dict = { "Vaestra_Goetalands_Laen":"Västra Götaland"} 
 replacing_dict_after_region_filling = {  } 
 
 
@@ -31,6 +37,7 @@ def normalizing2 (source):
 def normalizing (source):
     result = source.replace("'","")
     result = result.replace(" ","_")
+    result = result.replace("%20","_")
     return result
 
 
@@ -105,9 +112,9 @@ for line in fh.readlines():
             if (regions_name.get(pattern[20]) == None):
                 continue
             if (replacing_dict_after_region_filling.get(regions_name[pattern[20]])):
-                fixed_regions_name = replacing_dict_after_region_filling[regions_name[pattern[20]]]
+                fixed_regions_name = urllib.quote(replacing_dict_after_region_filling[regions_name[pattern[20]]])
             else:
-                fixed_regions_name = regions_name[pattern[20]]
+                fixed_regions_name = urllib.quote(regions_name[pattern[20]])
 
             #check station
             u1 = urllib.quote(pattern[2])
@@ -135,6 +142,9 @@ for line in fh.readlines():
             region_id = None
             for row in cur:
                 region_id = row[0]
+#	    print regions_name[pattern[20]] 
+#	    print region_id 
+#	    print  normalizing(pattern[4])
             cur = cu.execute("select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing(pattern[4])))
             station_id= None
             for row in cur:

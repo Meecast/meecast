@@ -90,12 +90,12 @@ url = baseurl + myzipfile
 urllib.urlretrieve (url, myzipfile)
 
 #unzip file
-fh = open(myzipfile, 'rb')
-z = zipfile.ZipFile(fh)
-outfile = open(country_code + ".txt", 'wb')
-outfile.write(z.read(country_code + ".txt"))
-outfile.close()
-fh.close()
+#fh = open(myzipfile, 'rb')
+#z = zipfile.ZipFile(fh)
+#outfile = open(country_code + ".txt", 'wb')
+#outfile.write(z.read(country_code + ".txt"))
+#outfile.close()
+#fh.close()
 
 #fill regions
 regions = {}
@@ -151,7 +151,7 @@ for line in fh.readlines():
             result = country + "#" + re.sub("Other/" + country, "Other", normalizing(fixed_regions_name)) + "#" + u1.encode('utf-8') 
             country = country.encode('utf8')
             country_name_url = yrnourl + "/place/" + result.replace("#","/")
-            #print country_name_url
+            print country_name_url
             req = urllib2.Request(country_name_url, None, {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'})
             page = urllib2.urlopen(req)
             for line2 in page.readlines():

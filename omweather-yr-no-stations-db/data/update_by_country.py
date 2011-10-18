@@ -87,7 +87,7 @@ for row in cur:
 myzipfile = country_code + ".zip"
 #downloading the dump file
 url = baseurl + myzipfile
-urllib.urlretrieve (url, myzipfile)
+#urllib.urlretrieve (url, myzipfile)
 
 #unzip file
 #fh = open(myzipfile, 'rb')
@@ -138,7 +138,7 @@ fh = open(country_code + ".txt")
 for line in fh.readlines():
     pattern = re.split('(\t)', line)
     if (pattern[14] == "PPLA" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
-        if (pattern[20] != "" and pattern[28] != "0"):
+        if (pattern[20] != "" and int(pattern[28]) >= 10000):
             if (regions_name.get(pattern[20]) == None):
                 continue
             if (replacing_dict_after_region_filling.get(regions_name[pattern[20]])):

@@ -691,6 +691,17 @@ Page {
                             font.pointSize: 18
                             verticalAlignment: Text.AlignVCenter
                         }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                console.log("current day onclicked");
+                                pageStack.push(Qt.resolvedUrl("FullWeatherPage.qml"),
+                                               {day: index, day_period: "day", current: true }
+                                               )
+
+                            }
+
+                        }
                     }
                 }
 

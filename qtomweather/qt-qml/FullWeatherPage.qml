@@ -6,10 +6,12 @@ Page {
     id: fullweather
     property int margin: 16
     property int day: 0
+    property bool current: false
     property string day_period: "day"
     property string day_period_name: ""
     property string image_source: ""
     property string description_text: ""
+
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"
@@ -22,7 +24,11 @@ Page {
         ToolButton {
             id: "toolbarday"
             platformStyle: TabButtonStyle{}
-            onClicked: { day_period = "day"; updateperiod()}
+            onClicked: {
+                day_period = "day";
+                if (current) updateperiod_current();
+                else updateperiod();
+            }
             iconSource:  Config.imagespath + "/day.png"
 	    flat: true 
 	    checkable: true
@@ -31,7 +37,11 @@ Page {
         ToolButton {
             id: "toolbarnight"
             platformStyle: TabButtonStyle{}
-            onClicked: { day_period = "night"; updateperiod()}
+            onClicked: {
+                day_period = "night";
+                if (current) updateperiod_current();
+                else updateperiod();
+            }
             iconSource:  Config.imagespath + "/night.png"
 	    flat: true
 	    checkable: true
@@ -59,13 +69,13 @@ Page {
     {
         condition.clear()
 	condition2.clear()
-	if (day_period == "day"){
+        if (day_period == "day"){
 	    toolbarday.checked = true
 	    toolbarnight.checked = false
 	    day_period_name = Config.tr("Day")
-	    image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(day, "pict")
+            image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(day, "pict")
             current_rect.color = getColor(Forecast_model.getdata(day, "temp_high"));
-	    description_text = Forecast_model.getdata(day, "description") ? Forecast_model.getdata(day, "description") : ""
+            description_text = Forecast_model.getdata(day, "description") ? Forecast_model.getdata(day, "description") : ""
 
 	   
   	    if ((Forecast_model.getdata(day, "humidity")) != "N/A")
@@ -139,6 +149,91 @@ Page {
 	if ((Forecast_model.getdata(day, "lastupdate")) != "N/A")
             condition2.append({cond_name: Config.tr("Last update:"),
 			 value: Forecast_model.getdata(day, "lastupdate")});
+    }
+    function updateperiod_current()
+    {
+        condition.clear()
+        condition2.clear()
+        if (day_period == "day"){
+            toolbarday.checked = true
+            toolbarnight.checked = false
+            day_period_name = Config.tr("Day")
+            image_source = Config.iconspath + "/" + Config.iconset + "/" + Current.pict
+            current_rect.color = getColor(Current.temp_high);
+            description_text = Current.description ? Current.description : ""
+
+
+            if ((Current.humidity) != "N/A")
+                condition.append({cond_name: Config.tr("Humidity:"),
+                         value: Current.humidity+'%'});
+            if ((Current.wind_direction) != "")
+                condition.append({cond_name: Config.tr("Wind direction:"),
+                         value: Config.tr(Current.wind_direction)});
+            if ((Current.pressure) != "N/A")
+                condition.append({cond_name: Config.tr("Pressure:"),
+                         value: Current.pressure + " mbar"});
+            if ((Current.wind_speed) != "N/A")
+                condition.append({cond_name: Config.tr("Wind speed") + ":",
+                         value: Current.wind_speed + ' ' + Config.windspeedunit});
+            if ((Current.ppcp) != "N/A")
+                condition.append({cond_name: Config.tr("Ppcp:"),
+                         value: Current.ppcp});
+            if ((Current.wind_gust) != "N/A")
+                condition.append({cond_name: Config.tr("Wind gust:"),
+                         value: Current.wind_gust + ' ' + Config.windspeedunit});
+            if ((Current.flike) != "N/A")
+                condition.append({cond_name: Config.tr("Flike:"),
+                         value: Current.flike + ' ' + Config.temperatureunit});
+            if ((Current.temp_high) != "N/A")
+                temperature.text =  Current.temp_high + '°'
+
+        }
+        if (day_period == "night"){
+            day_period_name = Config.tr("Night");
+            toolbarnight.checked = true;
+            toolbarday.checked = false;
+            image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_night_model.getdata(day, "pict");
+            current_rect.color = getColor(Forecast_model.getdata(day, "temp_low"));
+            description_text = Forecast_night_model.getdata(day, "description") ? Forecast_night_model.getdata(day, "description") : ""
+            if ((Forecast_night_model.getdata(day, "humidity")) != "N/A")
+                condition.append({cond_name: Config.tr("Humidity:"),
+                         value: Forecast_night_model.getdata(day, "humidity")+'%'});
+            if ((Forecast_night_model.getdata(day, "wind_direction")) != "")
+                condition.append({cond_name: Config.tr("Wind direction:"),
+                         value: Config.tr(Forecast_night_model.getdata(day, "wind_direction"))});
+            if ((Forecast_night_model.getdata(day, "pressure")) != "N/A")
+                condition.append({cond_name: Config.tr("Pressure:"),
+                         value: Forecast_night_model.getdata(day, "pressure") + " mbar"});
+            if ((Forecast_night_model.getdata(day, "wind_speed")) != "N/A")
+                condition.append({cond_name: Config.tr("Wind speed") + ":",
+                         value: Forecast_night_model.getdata(day, "wind_speed") + ' ' + Config.windspeedunit});
+            if ((Forecast_night_model.getdata(day, "ppcp")) != "N/A")
+                condition.append({cond_name: Config.tr("Ppcp:"),
+                         value: Forecast_night_model.getdata(day, "ppcp")});
+            if ((Forecast_night_model.getdata(day, "wind_gust")) != "N/A")
+                condition.append({cond_name: Config.tr("Wind gust:"),
+                         value: Forecast_night_model.getdata(day, "wind_gust") + ' ' + Config.windspeedunit});
+            if ((Forecast_night_model.getdata(day, "flike")) != "N/A")
+                condition.append({cond_name: Config.tr("Flike:"),
+                         value: Forecast_night_model.getdata(day, "flike") + ' ' + Config.temperatureunit});
+            if ((Forecast_night_model.getdata(day, "temp_low")) != "N/A")
+                temperature.text =  Forecast_night_model.getdata(day, "temp_low") + '°'
+
+
+        }
+
+        if ((Current.sunrise) != "N/A")
+            condition2.append({cond_name: Config.tr("Sunrise:"),
+                         value: Current.sunrise});
+        if ((Current.sunset) != "N/A")
+            condition2.append({cond_name: Config.tr("Sunset:"),
+                         value: Current.sunset});
+        if ((Current.daylength) != "N/A")
+            condition2.append({cond_name: Config.tr("Day length:"),
+                         value: Current.daylength});
+        if ((Current.lastupdate) != "N/A")
+            condition2.append({cond_name: Config.tr("Last update:"),
+                         value: Current.lastupdate});
     }
  
     function getColor(t)
@@ -300,13 +395,9 @@ Page {
                 width: 160
                 height: 84
                 color: "white"
-                //text: Forecast_model.getdata(day, "temp_high") + '°'
                 font.pointSize: 26
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
-                Component.onCompleted: {
-                    current_rect.color = getColor(Forecast_model.getdata(day, "temp_high"));
-                }
             }
             Text {
                 id: desc
@@ -325,7 +416,8 @@ Page {
                 id: condition
             }
             Component.onCompleted: {
-		updateperiod()
+                if (current) updateperiod_current();
+                else updateperiod();
             }
             GridView {
                 id: grid

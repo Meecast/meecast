@@ -100,7 +100,6 @@ Controller::load_data()
 {
   time_t current_day;
   struct tm   *tm = NULL;
-  int year, current_month;
   DataItem *forecast_data = NULL;
   Core::Data *temp_data = NULL;
   int i = 0;
@@ -117,31 +116,21 @@ Controller::load_data()
 
   /* set current day */ 
   current_day = time(NULL);
-  if (_dp)
-      temp_data = _dp->data().GetDataForTime(time(NULL));
-//  if (temp_data)
-//      current_day = current_day + 3600*_dp->timezone();
- // tm = localtime(&current_day);
+
   tm = gmtime(&current_day);
-  year = 1900 + tm->tm_year;
-  current_month = tm->tm_mon;
   tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
   tm->tm_isdst = 1;
-  current_day = mktime(tm);
-  /* fill current date */
-//  if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(/*time(NULL)*/current_day))) {
+  current_day = mktime(tm); /* today 00:00:00 */
 
   if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))) {
       std::cout << "make current" << std::endl;
       forecast_data = new DataItem(temp_data);
       forecast_data->Text(_(forecast_data->Text().c_str()));
-      forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 12 * 3600  + i));
-      forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 12 * 3600  + i));
+      forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 12 * 3600));
+      forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 12 * 3600));
       forecast_data->LastUpdate(_dp->LastUpdate());
       forecast_data->temperatureunit = _config->temperatureunit();
       forecast_data->windunit = _config->windspeedunit();
-      //std::cout << "desc = " <<_current->description() << std::endl;
-      //qDebug() << "desc = " <<forecast_data->description();
       _current->appendRow(forecast_data);
       MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
       dbusclient->SetCurrentData( _config->stationname(), forecast_data->temperature(),

@@ -61,6 +61,7 @@ private:
     DataModel *_model; 
     DataModel *_current;
     DataModel *_night_model;
+    DataModel *_current_night;
 };
 
 #endif // CONTROLLER_H

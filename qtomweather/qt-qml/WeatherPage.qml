@@ -192,6 +192,7 @@ Page {
             onTap: console.log("tap");
 
         }*/
+        /*
         MouseArea {
             id: mouseAreaSwipe
             anchors.fill: parent
@@ -260,7 +261,7 @@ Page {
                 }
                 console.log("oncanceled dx="+dx+" dy="+dy);
             }
-        }
+        }*/
         Rectangle {
             id: startview
             visible: Config.stationname == "Unknown" ? true : false
@@ -530,10 +531,19 @@ Page {
                             anchors.left: parent.left
                             anchors.leftMargin: margin
                             color: "white"
-                            text: model.current == true ? Config.tr("Now") : Config.tr("Today") 
+                            text: model.current == true ? Config.tr("Now") : Config.tr("Today")
                             font.pointSize: 26
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: {
+                                    console.log("current day onclicked");
+                                    pageStack.push(Qt.resolvedUrl("FullWeatherPage.qml"),
+                                                   {day: index, day_period: "day", current: true }
+                                                   )
+                                }
+                            }
                         }
                         Image {
                             id: icon
@@ -691,18 +701,9 @@ Page {
                             font.pointSize: 18
                             verticalAlignment: Text.AlignVCenter
                         }
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                console.log("current day onclicked");
-                                pageStack.push(Qt.resolvedUrl("FullWeatherPage.qml"),
-                                               {day: index, day_period: "day", current: true }
-                                               )
 
-                            }
-
-                        }
                     }
+
                 }
 
             }

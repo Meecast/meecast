@@ -12,6 +12,9 @@ Page {
     property string image_source: ""
     property string description_text: ""
 
+    property variant model_day:  (current) ? Current : Forecast_model
+    property variant model_night:  (current) ? Current_night : Forecast_night_model
+
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"
@@ -26,8 +29,7 @@ Page {
             platformStyle: TabButtonStyle{}
             onClicked: {
                 day_period = "day";
-                if (current) updateperiod_current();
-                else updateperiod();
+                updateperiod();
             }
             iconSource:  Config.imagespath + "/day.png"
 	    flat: true 
@@ -39,8 +41,7 @@ Page {
             platformStyle: TabButtonStyle{}
             onClicked: {
                 day_period = "night";
-                if (current) updateperiod_current();
-                else updateperiod();
+                updateperiod();
             }
             iconSource:  Config.imagespath + "/night.png"
 	    flat: true
@@ -73,168 +74,84 @@ Page {
 	    toolbarday.checked = true
 	    toolbarnight.checked = false
 	    day_period_name = Config.tr("Day")
-            image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(day, "pict")
-            current_rect.color = getColor(Forecast_model.getdata(day, "temp_high"));
-            description_text = Forecast_model.getdata(day, "description") ? Forecast_model.getdata(day, "description") : ""
+            image_source = Config.iconspath + "/" + Config.iconset + "/" + model_day.getdata(day, "pict")
+            current_rect.color = getColor(model_day.getdata(day, "temp_high"));
+            description_text = model_day.getdata(day, "description") ? model_day.getdata(day, "description") : ""
 
 	   
-  	    if ((Forecast_model.getdata(day, "humidity")) != "N/A")
+            if ((model_day.getdata(day, "humidity")) != "N/A")
                 condition.append({cond_name: Config.tr("Humidity:"),
-			 value: Forecast_model.getdata(day, "humidity")+'%'});
-            if ((Forecast_model.getdata(day, "wind_direction")) != "")
+                         value: model_day.getdata(day, "humidity")+'%'});
+            if ((model_day.getdata(day, "wind_direction")) != "")
                 condition.append({cond_name: Config.tr("Wind direction:"),
-			 value: Config.tr(Forecast_model.getdata(day, "wind_direction"))});
-     	    if ((Forecast_model.getdata(day, "pressure")) != "N/A")
+                         value: Config.tr(model_day.getdata(day, "wind_direction"))});
+            if ((model_day.getdata(day, "pressure")) != "N/A")
                 condition.append({cond_name: Config.tr("Pressure:"),
-			 value: Forecast_model.getdata(day, "pressure") + " mbar"});
-    	    if ((Forecast_model.getdata(day, "wind_speed")) != "N/A")
+                         value: model_day.getdata(day, "pressure") + " mbar"});
+            if ((model_day.getdata(day, "wind_speed")) != "N/A")
                 condition.append({cond_name: Config.tr("Wind speed") + ":",
-			 value: Forecast_model.getdata(day, "wind_speed") + ' ' + Config.windspeedunit});
-    	    if ((Forecast_model.getdata(day, "ppcp")) != "N/A")
+                         value: model_day.getdata(day, "wind_speed") + ' ' + Config.windspeedunit});
+            if ((model_day.getdata(day, "ppcp")) != "N/A")
                 condition.append({cond_name: Config.tr("Ppcp:"),
-			 value: Forecast_model.getdata(day, "ppcp")});
-            if ((Forecast_model.getdata(day, "wind_gust")) != "N/A")
+                         value: model_day.getdata(day, "ppcp")});
+            if ((model_day.getdata(day, "wind_gust")) != "N/A")
                 condition.append({cond_name: Config.tr("Wind gust:"),
-			 value: Forecast_model.getdata(day, "wind_gust") + ' ' + Config.windspeedunit});
-            if ((Forecast_model.getdata(day, "flike")) != "N/A")
+                         value: model_day.getdata(day, "wind_gust") + ' ' + Config.windspeedunit});
+            if ((model_day.getdata(day, "flike")) != "N/A")
                 condition.append({cond_name: Config.tr("Flike:"),
-			 value: Forecast_model.getdata(day, "flike") + ' ' + Config.temperatureunit});
-	    if ((Forecast_model.getdata(day, "temp_high")) != "N/A")
-		temperature.text =  Forecast_model.getdata(day, "temp_high") + '°'
+                         value: model_day.getdata(day, "flike") + ' ' + Config.temperatureunit});
+            if ((model_day.getdata(day, "temp_high")) != "N/A")
+                temperature.text =  model_day.getdata(day, "temp_high") + '°'
 
 	}
 	if (day_period == "night"){
             day_period_name = Config.tr("Night");
             toolbarnight.checked = true;
             toolbarday.checked = false;
-            image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_night_model.getdata(day, "pict");
-            current_rect.color = getColor(Forecast_model.getdata(day, "temp_low"));
-	    description_text = Forecast_night_model.getdata(day, "description") ? Forecast_night_model.getdata(day, "description") : "" 
-	    if ((Forecast_night_model.getdata(day, "humidity")) != "N/A")
+            image_source = Config.iconspath + "/" + Config.iconset + "/" + model_night.getdata(day, "pict");
+            current_rect.color = getColor(model_day.getdata(day, "temp_low"));
+            description_text = model_night.getdata(day, "description") ? model_night.getdata(day, "description") : ""
+            if ((model_night.getdata(day, "humidity")) != "N/A")
                 condition.append({cond_name: Config.tr("Humidity:"),
-			 value: Forecast_night_model.getdata(day, "humidity")+'%'});
-            if ((Forecast_night_model.getdata(day, "wind_direction")) != "")
+                         value: model_night.getdata(day, "humidity")+'%'});
+            if ((model_night.getdata(day, "wind_direction")) != "")
                 condition.append({cond_name: Config.tr("Wind direction:"),
-			 value: Config.tr(Forecast_night_model.getdata(day, "wind_direction"))});
-     	    if ((Forecast_night_model.getdata(day, "pressure")) != "N/A")
+                         value: Config.tr(model_night.getdata(day, "wind_direction"))});
+            if ((model_night.getdata(day, "pressure")) != "N/A")
                 condition.append({cond_name: Config.tr("Pressure:"),
-			 value: Forecast_night_model.getdata(day, "pressure") + " mbar"});
-    	    if ((Forecast_night_model.getdata(day, "wind_speed")) != "N/A")
+                         value: model_night.getdata(day, "pressure") + " mbar"});
+            if ((model_night.getdata(day, "wind_speed")) != "N/A")
                 condition.append({cond_name: Config.tr("Wind speed") + ":",
-			 value: Forecast_night_model.getdata(day, "wind_speed") + ' ' + Config.windspeedunit});
-    	    if ((Forecast_night_model.getdata(day, "ppcp")) != "N/A")
+                         value: model_night.getdata(day, "wind_speed") + ' ' + Config.windspeedunit});
+            if ((model_night.getdata(day, "ppcp")) != "N/A")
                 condition.append({cond_name: Config.tr("Ppcp:"),
-			 value: Forecast_night_model.getdata(day, "ppcp")});
-            if ((Forecast_night_model.getdata(day, "wind_gust")) != "N/A")
+                         value: model_night.getdata(day, "ppcp")});
+            if ((model_night.getdata(day, "wind_gust")) != "N/A")
                 condition.append({cond_name: Config.tr("Wind gust:"),
-			 value: Forecast_night_model.getdata(day, "wind_gust") + ' ' + Config.windspeedunit});
-            if ((Forecast_night_model.getdata(day, "flike")) != "N/A")
+                         value: model_night.getdata(day, "wind_gust") + ' ' + Config.windspeedunit});
+            if ((model_night.getdata(day, "flike")) != "N/A")
                 condition.append({cond_name: Config.tr("Flike:"),
-			 value: Forecast_night_model.getdata(day, "flike") + ' ' + Config.temperatureunit});
-            if ((Forecast_night_model.getdata(day, "temp_low")) != "N/A")
-                temperature.text =  Forecast_night_model.getdata(day, "temp_low") + '°'
+                         value: model_night.getdata(day, "flike") + ' ' + Config.temperatureunit});
+            if ((model_night.getdata(day, "temp_low")) != "N/A")
+                temperature.text =  model_night.getdata(day, "temp_low") + '°'
 
 
 	}
 
-	if ((Forecast_model.getdata(day, "sunrise")) != "N/A")
+        if ((model_day.getdata(day, "sunrise")) != "N/A")
             condition2.append({cond_name: Config.tr("Sunrise:"),
-			 value: Forecast_model.getdata(day, "sunrise")});
-	if ((Forecast_model.getdata(day, "sunset")) != "N/A")
+                         value: model_day.getdata(day, "sunrise")});
+        if ((model_day.getdata(day, "sunset")) != "N/A")
             condition2.append({cond_name: Config.tr("Sunset:"),
-			 value: Forecast_model.getdata(day, "sunset")});
-	if ((Forecast_model.getdata(day, "daylength")) != "N/A")
+                         value: model_day.getdata(day, "sunset")});
+        if ((model_day.getdata(day, "daylength")) != "N/A")
             condition2.append({cond_name: Config.tr("Day length:"),
-			 value: Forecast_model.getdata(day, "daylength")});
-	if ((Forecast_model.getdata(day, "lastupdate")) != "N/A")
+                         value: model_day.getdata(day, "daylength")});
+        if ((model_day.getdata(day, "lastupdate")) != "N/A")
             condition2.append({cond_name: Config.tr("Last update:"),
-			 value: Forecast_model.getdata(day, "lastupdate")});
+                         value: model_day.getdata(day, "lastupdate")});
     }
-    function updateperiod_current()
-    {
-        condition.clear()
-        condition2.clear()
-        if (day_period == "day"){
-            toolbarday.checked = true
-            toolbarnight.checked = false
-            day_period_name = Config.tr("Day")
-            image_source = Config.iconspath + "/" + Config.iconset + "/" + Current.pict
-            current_rect.color = getColor(Current.temp_high);
-            description_text = Current.description ? Current.description : ""
 
-
-            if ((Current.humidity) != "N/A")
-                condition.append({cond_name: Config.tr("Humidity:"),
-                         value: Current.humidity+'%'});
-            if ((Current.wind_direction) != "")
-                condition.append({cond_name: Config.tr("Wind direction:"),
-                         value: Config.tr(Current.wind_direction)});
-            if ((Current.pressure) != "N/A")
-                condition.append({cond_name: Config.tr("Pressure:"),
-                         value: Current.pressure + " mbar"});
-            if ((Current.wind_speed) != "N/A")
-                condition.append({cond_name: Config.tr("Wind speed") + ":",
-                         value: Current.wind_speed + ' ' + Config.windspeedunit});
-            if ((Current.ppcp) != "N/A")
-                condition.append({cond_name: Config.tr("Ppcp:"),
-                         value: Current.ppcp});
-            if ((Current.wind_gust) != "N/A")
-                condition.append({cond_name: Config.tr("Wind gust:"),
-                         value: Current.wind_gust + ' ' + Config.windspeedunit});
-            if ((Current.flike) != "N/A")
-                condition.append({cond_name: Config.tr("Flike:"),
-                         value: Current.flike + ' ' + Config.temperatureunit});
-            if ((Current.temp_high) != "N/A")
-                temperature.text =  Current.temp_high + '°'
-
-        }
-        if (day_period == "night"){
-            day_period_name = Config.tr("Night");
-            toolbarnight.checked = true;
-            toolbarday.checked = false;
-            image_source = Config.iconspath + "/" + Config.iconset + "/" + Forecast_night_model.getdata(day, "pict");
-            current_rect.color = getColor(Forecast_model.getdata(day, "temp_low"));
-            description_text = Forecast_night_model.getdata(day, "description") ? Forecast_night_model.getdata(day, "description") : ""
-            if ((Forecast_night_model.getdata(day, "humidity")) != "N/A")
-                condition.append({cond_name: Config.tr("Humidity:"),
-                         value: Forecast_night_model.getdata(day, "humidity")+'%'});
-            if ((Forecast_night_model.getdata(day, "wind_direction")) != "")
-                condition.append({cond_name: Config.tr("Wind direction:"),
-                         value: Config.tr(Forecast_night_model.getdata(day, "wind_direction"))});
-            if ((Forecast_night_model.getdata(day, "pressure")) != "N/A")
-                condition.append({cond_name: Config.tr("Pressure:"),
-                         value: Forecast_night_model.getdata(day, "pressure") + " mbar"});
-            if ((Forecast_night_model.getdata(day, "wind_speed")) != "N/A")
-                condition.append({cond_name: Config.tr("Wind speed") + ":",
-                         value: Forecast_night_model.getdata(day, "wind_speed") + ' ' + Config.windspeedunit});
-            if ((Forecast_night_model.getdata(day, "ppcp")) != "N/A")
-                condition.append({cond_name: Config.tr("Ppcp:"),
-                         value: Forecast_night_model.getdata(day, "ppcp")});
-            if ((Forecast_night_model.getdata(day, "wind_gust")) != "N/A")
-                condition.append({cond_name: Config.tr("Wind gust:"),
-                         value: Forecast_night_model.getdata(day, "wind_gust") + ' ' + Config.windspeedunit});
-            if ((Forecast_night_model.getdata(day, "flike")) != "N/A")
-                condition.append({cond_name: Config.tr("Flike:"),
-                         value: Forecast_night_model.getdata(day, "flike") + ' ' + Config.temperatureunit});
-            if ((Forecast_night_model.getdata(day, "temp_low")) != "N/A")
-                temperature.text =  Forecast_night_model.getdata(day, "temp_low") + '°'
-
-
-        }
-
-        if ((Current.sunrise) != "N/A")
-            condition2.append({cond_name: Config.tr("Sunrise:"),
-                         value: Current.sunrise});
-        if ((Current.sunset) != "N/A")
-            condition2.append({cond_name: Config.tr("Sunset:"),
-                         value: Current.sunset});
-        if ((Current.daylength) != "N/A")
-            condition2.append({cond_name: Config.tr("Day length:"),
-                         value: Current.daylength});
-        if ((Current.lastupdate) != "N/A")
-            condition2.append({cond_name: Config.tr("Last update:"),
-                         value: Current.lastupdate});
-    }
  
     function getColor(t)
     {
@@ -316,7 +233,7 @@ Page {
                  anchors.top: parent.top
                  anchors.right: parent.right
                  color: "black"
-                 visible: day < (Forecast_model.rowCount()-1) ? true : false;
+                 visible: day < (model_day.rowCount()-1) ? true : false;
                  Image {
                      id: nextstationimage
                      source: Config.imagespath + "/arrow_right.png"
@@ -332,7 +249,7 @@ Page {
                  MouseArea {
                      anchors.fill: parent
                      onClicked: {
-                         if (day < Forecast_model.rowCount()-1){
+                         if (!current && day < model_day.rowCount()-1){
                             console.log("next day");
                             day++;
                             fullweather.updateperiod();
@@ -346,7 +263,7 @@ Page {
                 anchors.left: parent.left
                 height: parent.height
                 width: parent.width
-                text: Forecast_model.getdata(day, "date");
+                text: (current) ? Config.tr("Today") : model_day.getdata(day, "date");
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
                 color: "white"
@@ -416,8 +333,7 @@ Page {
                 id: condition
             }
             Component.onCompleted: {
-                if (current) updateperiod_current();
-                else updateperiod();
+                updateperiod();
             }
             GridView {
                 id: grid

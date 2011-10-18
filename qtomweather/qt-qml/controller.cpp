@@ -113,6 +113,7 @@ Controller::load_data()
   _model = new DataModel(new DataItem, qApp);
   _current = new DataModel(new DataItem, qApp);
   _night_model = new DataModel(new DataItem, qApp);
+  _current_night = new DataModel(new DataItem, qApp);
 
   /* set current day */ 
   current_day = time(NULL);
@@ -121,9 +122,8 @@ Controller::load_data()
   tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
   tm->tm_isdst = 1;
   current_day = mktime(tm); /* today 00:00:00 */
-
+  /* fill current day */
   if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))) {
-      std::cout << "make current" << std::endl;
       forecast_data = new DataItem(temp_data);
       forecast_data->Text(_(forecast_data->Text().c_str()));
       forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 12 * 3600));
@@ -136,6 +136,23 @@ Controller::load_data()
       dbusclient->SetCurrentData( _config->stationname(), forecast_data->temperature(),
                                   forecast_data->temperature_high(), forecast_data->temperature_low(), 
                                   (_config->iconspath() + "/" + _config->iconset() + "/" + forecast_data->icon()), forecast_data->Data::EndTime(), forecast_data->current());
+  }
+
+  /* fill current day */
+  if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(current_day + 22 * 3600))) {
+      forecast_data = new DataItem(temp_data);
+      forecast_data->Text(_(forecast_data->Text().c_str()));
+      forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 22 * 3600));
+      forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 22 * 3600));
+      forecast_data->LastUpdate(_dp->LastUpdate());
+      forecast_data->temperatureunit = _config->temperatureunit();
+      forecast_data->windunit = _config->windspeedunit();
+      _current_night->appendRow(forecast_data);
+      /*MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
+      dbusclient->SetCurrentData( _config->stationname(), forecast_data->temperature(),
+                                  forecast_data->temperature_high(), forecast_data->temperature_low(),
+                                  (_config->iconspath() + "/" + _config->iconset() + "/" + forecast_data->icon()), forecast_data->Data::EndTime(), forecast_data->current());
+      */
   }
 
   /* set next day */
@@ -168,6 +185,7 @@ Controller::load_data()
   }
   std::cerr << "make models" << std::endl;
   _qview->rootContext()->setContextProperty("Current", _current);
+  _qview->rootContext()->setContextProperty("Current_night", _current_night);
   _qview->rootContext()->setContextProperty("Forecast_model", _model);
   _qview->rootContext()->setContextProperty("Forecast_night_model", _night_model);
 

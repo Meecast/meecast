@@ -536,15 +536,7 @@ Page {
                             font.pointSize: 26
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: {
-                                    console.log("current day onclicked");
-                                    pageStack.push(Qt.resolvedUrl("FullWeatherPage.qml"),
-                                                   {day: index, day_period: "day", current: true }
-                                                   )
-                                }
-                            }
+
                         }
                         Image {
                             id: icon
@@ -706,6 +698,15 @@ Page {
                     }
 
                 }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        console.log("current day onclicked");
+                        pageStack.push(Qt.resolvedUrl("FullWeatherPage.qml"),
+                                       {day: 0, day_period: "day", current: true }
+                                       )
+                    }
+                }
 
             }
             ListView {
@@ -778,7 +779,7 @@ Page {
                                 console.log("day onclicked");
                                 pageStack.push(Qt.resolvedUrl("FullWeatherPage.qml"),
                                                {day: index, day_period: "day" }
-					       )
+                                               )
 
                             }
 

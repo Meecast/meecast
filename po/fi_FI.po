@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-05 21:45+0300\n"
+"POT-Creation-Date: 2011-10-19 14:13+0300\n"
 "PO-Revision-Date: 2011-09-05 17:49+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -563,7 +563,7 @@ msgid "Custom"
 msgstr "Oma asettelu"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:584
-#: qtomweather/qt-qml/FullWeatherPage.qml:65
+#: qtomweather/qt-qml/FullWeatherPage.qml:76
 msgid "Day"
 msgstr "Päivällä"
 
@@ -571,7 +571,7 @@ msgstr "Päivällä"
 msgid "Day length"
 msgstr "Päivän pituus"
 
-#: omweather/src/hash.data:6 qtomweather/qt-qml/FullWeatherPage.qml:137
+#: omweather/src/hash.data:6 qtomweather/qt-qml/FullWeatherPage.qml:148
 msgid "Day length:"
 msgstr "Päivän pituus:"
 
@@ -801,8 +801,8 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Ensimmäinen neljännes"
 
-#: qtomweather/qt-qml/FullWeatherPage.qml:90
-#: qtomweather/qt-qml/FullWeatherPage.qml:122
+#: qtomweather/qt-qml/FullWeatherPage.qml:101
+#: qtomweather/qt-qml/FullWeatherPage.qml:133
 #, fuzzy
 msgid "Flike:"
 msgstr "Tuntuu iholla:"
@@ -974,8 +974,8 @@ msgstr "Korkea"
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:722
 #: qtomweather/qt-qml/dataitem.cpp:163
-#: qtomweather/qt-qml/FullWeatherPage.qml:72
-#: qtomweather/qt-qml/FullWeatherPage.qml:104
+#: qtomweather/qt-qml/FullWeatherPage.qml:83
+#: qtomweather/qt-qml/FullWeatherPage.qml:115
 msgid "Humidity:"
 msgstr "Ilmankosteus: "
 
@@ -1032,7 +1032,7 @@ msgstr "Viimeisin päivitys palvelimella: "
 msgid "Last update from server: "
 msgstr "Viimeisin päivitys palvelimelta: "
 
-#: omweather/src/hash.data:9 qtomweather/qt-qml/FullWeatherPage.qml:140
+#: omweather/src/hash.data:9 qtomweather/qt-qml/FullWeatherPage.qml:151
 msgid "Last update:"
 msgstr "Viimeisin päivitys:"
 
@@ -1151,7 +1151,7 @@ msgstr "Paikallinen siitepöly raportti"
 msgid "Long"
 msgstr "Pitkä"
 
-#: omweather/src/hash.data:18 qtomweather/qt-qml/WeatherPage.qml:422
+#: omweather/src/hash.data:18 qtomweather/qt-qml/WeatherPage.qml:481
 msgid "Looks like there's no info for this location."
 msgstr "Tälle sijainnille ei näytä olevan säätietoja."
 
@@ -1180,7 +1180,7 @@ msgstr "Manuaalinen"
 msgid "Measurement units"
 msgstr "Paineen yksiköt:"
 
-#: qtomweather/qt-qml/WeatherPage.qml:227
+#: qtomweather/qt-qml/WeatherPage.qml:286
 msgid "MeeCast"
 msgstr ""
 
@@ -1388,7 +1388,7 @@ msgid "Next update:"
 msgstr "Seuraava päivitys:"
 
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:588
-#: qtomweather/qt-qml/FullWeatherPage.qml:97
+#: qtomweather/qt-qml/FullWeatherPage.qml:108
 msgid "Night"
 msgstr "Yöllä"
 
@@ -1404,7 +1404,7 @@ msgstr "Ei"
 msgid "No current weather data."
 msgstr "Ei tämän hetkistä säätietoa."
 
-#: omweather/src/hash.data:17 qtomweather/qt-qml/WeatherPage.qml:248
+#: omweather/src/hash.data:17 qtomweather/qt-qml/WeatherPage.qml:307
 msgid "No locations are set up yet."
 msgstr "Sijainteja ei ole vielä asetettu."
 
@@ -1422,7 +1422,7 @@ msgstr "Ei säätietoja tälle asemalle."
 #: omweather/src/weather-simple-settings.c:2886
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:592
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:847
-#: qtomweather/qt-qml/dataitem.cpp:171 qtomweather/qt-qml/WeatherPage.qml:476
+#: qtomweather/qt-qml/dataitem.cpp:171 qtomweather/qt-qml/WeatherPage.qml:535
 msgid "Now"
 msgstr "Nyt"
 
@@ -1608,8 +1608,8 @@ msgstr "Jakso"
 msgid "Position:"
 msgstr "Sijainti:"
 
-#: qtomweather/qt-qml/FullWeatherPage.qml:84
-#: qtomweather/qt-qml/FullWeatherPage.qml:116
+#: qtomweather/qt-qml/FullWeatherPage.qml:95
+#: qtomweather/qt-qml/FullWeatherPage.qml:127
 msgid "Ppcp:"
 msgstr ""
 
@@ -1629,8 +1629,8 @@ msgstr "Paineen yksiköt:"
 #: omweather/src/weather-popup.c:1308
 #: qtomweather/netbook-UX/meego-panel-omweather.cpp:697
 #: qtomweather/qt-qml/dataitem.cpp:169
-#: qtomweather/qt-qml/FullWeatherPage.qml:78
-#: qtomweather/qt-qml/FullWeatherPage.qml:110
+#: qtomweather/qt-qml/FullWeatherPage.qml:89
+#: qtomweather/qt-qml/FullWeatherPage.qml:121
 msgid "Pressure:"
 msgstr "Ilmanpaine:"
 
@@ -1883,7 +1883,7 @@ msgstr "Anturi"
 msgid "Set"
 msgstr "Aseta"
 
-#: omweather/src/hash.data:16 qtomweather/qt-qml/WeatherPage.qml:262
+#: omweather/src/hash.data:16 qtomweather/qt-qml/WeatherPage.qml:321
 msgid "Set locations"
 msgstr "Aseta sijainnit"
 
@@ -2040,7 +2040,7 @@ msgstr "Aurinkoista"
 msgid "Sunny / Wind"
 msgstr "Aurinkoista / Tuulista"
 
-#: omweather/src/hash.data:7 qtomweather/qt-qml/FullWeatherPage.qml:131
+#: omweather/src/hash.data:7 qtomweather/qt-qml/FullWeatherPage.qml:142
 msgid "Sunrise:"
 msgstr "Auringonnousu:"
 
@@ -2048,7 +2048,7 @@ msgstr "Auringonnousu:"
 msgid "Sunrise: "
 msgstr "Auringonnousu: "
 
-#: omweather/src/hash.data:8 qtomweather/qt-qml/FullWeatherPage.qml:134
+#: omweather/src/hash.data:8 qtomweather/qt-qml/FullWeatherPage.qml:145
 msgid "Sunset:"
 msgstr "Auringonlasku:"
 
@@ -2124,12 +2124,13 @@ msgstr "Säätiedot päivitetty."
 #: qtomweather/qt-qml/AboutPage.qml:196
 #, fuzzy
 msgid ""
-"This software is free software; you can redistribute \n"
-" it and/or modify it under the terms \n"
-" of the GNU General Public License\n"
-" as published by the Free Software Foundation; \n"
-" either version 2.1 of the License, \n"
-" or (at your option) any later version."
+"This software is free software; you can\n"
+" redistribute it and/or modify it under \n"
+" the terms of the GNU General Public\n"
+" License as published by the Free Software \n"
+" Foundation; either version 2.1 of the \n"
+" License, or (at your option) any \n"
+" later version."
 msgstr ""
 "Tämä on vapaa ohjelma; tätä ohjelmaa saa levittää edelleen ja muuttaa GNU "
 "General Public Licensen (GPL-lisenssi) ehtojen mukaisesti\n"
@@ -2148,7 +2149,8 @@ msgstr "Ukkosta"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
-#: qtomweather/qt-qml/WeatherPage.qml:476
+#: qtomweather/qt-qml/FullWeatherPage.qml:266
+#: qtomweather/qt-qml/WeatherPage.qml:535
 msgid "Today"
 msgstr "Tänään"
 
@@ -2169,7 +2171,7 @@ msgstr ""
 msgid "Transparency:"
 msgstr "Läpinäkyvyys:"
 
-#: omweather/src/hash.data:19 qtomweather/qt-qml/WeatherPage.qml:436
+#: omweather/src/hash.data:19 qtomweather/qt-qml/WeatherPage.qml:495
 msgid "Try to update"
 msgstr "Yritä päivittää"
 
@@ -2212,7 +2214,7 @@ msgstr "Päivitä"
 msgid "Update already running."
 msgstr "Päivitys on jo käynnissä."
 
-#: omweather/src/hash.data:11 qtomweather/qt-qml/WeatherPage.qml:295
+#: omweather/src/hash.data:11 qtomweather/qt-qml/WeatherPage.qml:354
 msgid "Updating forecast"
 msgstr "Päivitetään säätietoja"
 
@@ -2345,19 +2347,19 @@ msgstr "Sovelman tyyli ja kuvakkeet"
 msgid "Wind"
 msgstr "Tuulista"
 
-#: omweather/src/hash.data:4 qtomweather/qt-qml/FullWeatherPage.qml:75
-#: qtomweather/qt-qml/FullWeatherPage.qml:107
+#: omweather/src/hash.data:4 qtomweather/qt-qml/FullWeatherPage.qml:86
+#: qtomweather/qt-qml/FullWeatherPage.qml:118
 msgid "Wind direction:"
 msgstr "Tuulen suunta:"
 
-#: qtomweather/qt-qml/FullWeatherPage.qml:87
-#: qtomweather/qt-qml/FullWeatherPage.qml:119
+#: qtomweather/qt-qml/FullWeatherPage.qml:98
+#: qtomweather/qt-qml/FullWeatherPage.qml:130
 #, fuzzy
 msgid "Wind gust:"
 msgstr "Tuuli:"
 
-#: omweather/src/hash.data:5 qtomweather/qt-qml/FullWeatherPage.qml:81
-#: qtomweather/qt-qml/FullWeatherPage.qml:113
+#: omweather/src/hash.data:5 qtomweather/qt-qml/FullWeatherPage.qml:92
+#: qtomweather/qt-qml/FullWeatherPage.qml:124
 msgid "Wind speed"
 msgstr "Tuulen nopeus"
 

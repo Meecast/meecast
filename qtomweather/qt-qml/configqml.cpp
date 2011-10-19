@@ -136,7 +136,8 @@ void ConfigQml::temperature_unit(QString c)
 QString
 ConfigQml::windspeedunit(){
     QString c;
-    c = QString(QString::fromUtf8(_(ConfigQml::Config::WindSpeedUnit().c_str())));
+    //c = QString(QString::fromUtf8(_(ConfigQml::Config::WindSpeedUnit().c_str())));
+    c = ConfigQml::Config::WindSpeedUnit().c_str();
     return c;
 }
 

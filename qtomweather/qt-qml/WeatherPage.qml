@@ -145,8 +145,9 @@ Page {
     function updatemodels()
     {
         Current.update(Config.filename, 0);
-        Forecast_model.update(Config.filename, 1);
-        Forecast_night_model.update(Config.filename, 2);
+        Current_night.update(Config.filename, 1);
+        Forecast_model.update(Config.filename, 2);
+        Forecast_night_model.update(Config.filename, 3);
         list.height = 80 * Forecast_model.rowCount();
         dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
         current_rect.visible = Current.rowCount() == 0 ? false : true;

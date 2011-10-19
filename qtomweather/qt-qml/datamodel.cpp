@@ -185,6 +185,18 @@ DataModel::update(QString filename, int  period)
                                            icon_string, forecast_data->EndTime(), forecast_data->current()); 
             }
             break;
+        case current_night_period:
+            if (dp != NULL && (temp_data = dp->data().GetDataForTime(current_day + 22*3600))) {
+                forecast_data = new DataItem(temp_data);
+                forecast_data->Text(forecast_data->Text().c_str());
+                forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 22*3600));
+                forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 22*3600));
+                forecast_data->LastUpdate(dp->LastUpdate());
+                forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
+                forecast_data->windunit = _config->WindSpeedUnit().c_str();
+                this->appendRow(forecast_data);
+            }
+            break;
         case day_period:
           //  i = 3600*24;
             i = 0;

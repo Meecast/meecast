@@ -44,6 +44,7 @@ class DataModel : public QAbstractListModel
 
     enum Periods{
         current_period,
+        current_night_period,
         day_period,
         night_period
     };

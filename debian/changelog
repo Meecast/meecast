@@ -1,11 +1,16 @@
+meecast (0.4.1) unstable; urgency=low
+
+
+ -- Vlad vasiliev <vlad@gas.by>  sun, 18 Oct 2011 09:24:20 +0200
+
 meecast (0.3.34) unstable; urgency=low
 
   * Improved in event widget
-  * Added stations in yr.no database (Belarus, Finland, Sweden, Greece,
+  * Added stations in yr.no database (Belarus, Finland, Sweden, Germany, Greece,
     Macedonia, France)
   * Fixed problem with Macedonia in yr,no database
 
- -- vlad vasiliev <vlad@gas.by>  sun, 18 Oct 2011 09:24:20 +0200
+ -- vlad vasiliev <vlad@gas.by>  Thu, 18 Oct 2011 09:24:20 +0200
 
 meecast (0.3.33) unstable; urgency=low
 

@@ -38,12 +38,16 @@ import zipfile
 #replacing_dict = {"Opstina Gjorce Petrov":"Ðorce Petrov", "Opstina Mavrovo i Rostusa":"Rostuša",
 #		"Opstina Caska":"Caška", "Opstina Cesinovo":"Cešinovo", "Opstina Vrapciste":"Vraneštica"} 
 #replacing_dict_after_region_filling = { } 
-country = "France"
-country_code = "FR"
-replacing_dict = {"Region_Bourgogne":"Burgundy", "Region_Centre":"Centre", "Region_Haute-Normandie":"Upper Normandy",
-		"Region_Basse-Normandie":"Lower Normandy", 
-		"Region_Provence-Alpes-Cote_dAzur":"Provence-Alpes-Côte d’Azur",
-		"Region_Pays_de_la_Loire":"Loire", "Region_Picardie":"Picardy"} 
+#country = "France"
+#country_code = "FR"
+#replacing_dict = {"Region_Bourgogne":"Burgundy", "Region_Centre":"Centre", "Region_Haute-Normandie":"Upper Normandy",
+#		"Region_Basse-Normandie":"Lower Normandy", 
+#		"Region_Provence-Alpes-Cote_dAzur":"Provence-Alpes-Côte d’Azur",
+#		"Region_Pays_de_la_Loire":"Loire", "Region_Picardie":"Picardy"} 
+#replacing_dict_after_region_filling = { } 
+country = "United Kingdom"
+country_code = "GB"
+replacing_dict = {"Northern_Ireland": "Northern Ireland"} 
 replacing_dict_after_region_filling = { } 
 
 
@@ -87,15 +91,15 @@ for row in cur:
 myzipfile = country_code + ".zip"
 #downloading the dump file
 url = baseurl + myzipfile
-#urllib.urlretrieve (url, myzipfile)
+urllib.urlretrieve (url, myzipfile)
 
 #unzip file
-#fh = open(myzipfile, 'rb')
-#z = zipfile.ZipFile(fh)
-#outfile = open(country_code + ".txt", 'wb')
-#outfile.write(z.read(country_code + ".txt"))
-#outfile.close()
-#fh.close()
+fh = open(myzipfile, 'rb')
+z = zipfile.ZipFile(fh)
+outfile = open(country_code + ".txt", 'wb')
+outfile.write(z.read(country_code + ".txt"))
+outfile.close()
+fh.close()
 
 #fill regions
 regions = {}
@@ -148,7 +152,7 @@ for line in fh.readlines():
 
             #check station
             u1 = urllib.quote(pattern[2])
-            result = country + "#" + re.sub("Other/" + country, "Other", normalizing(fixed_regions_name)) + "#" + u1.encode('utf-8') 
+            result = normalizing(country) + "#" + re.sub("Other/" + normalizing(country), "Other", normalizing(fixed_regions_name)) + "#" + u1.encode('utf-8') 
             country = country.encode('utf8')
             country_name_url = yrnourl + "/place/" + result.replace("#","/")
             print country_name_url
@@ -157,7 +161,7 @@ for line in fh.readlines():
             for line2 in page.readlines():
                 if (line2.find("Det har oppstått en feil") != -1):
                     u1 = urllib.quote(pattern[2])
-                    result = country + "#" + re.sub("Other/" + country, "Other", normalizing(fixed_regions_name)) + "#" + u1.encode('utf-8') 
+                    result = normalizing(country) + "#" + re.sub("Other/" + normalizing(country), "Other", normalizing(fixed_regions_name)) + "#" + u1.encode('utf-8') 
                     country = country.encode('utf8')
                     country_name_url = yrnourl + "/place/" + result.replace("#","/")
                     req = urllib2.Request(country_name_url, None, {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'})
@@ -168,11 +172,8 @@ for line in fh.readlines():
                             print "problem in " + country_name_url
                             continue
  
- 	    #Temporary for France
-            if (regions_name[pattern[20]]=="Centre"):
-            	cur = cu.execute("select id from regions where country_id='%i' and name = '%s'" %(country_id, "Centre/France"))
-	    else:
-            	cur = cu.execute("select id from regions where country_id='%i' and name = '%s'" %(country_id, regions_name[pattern[20]]))
+	    
+           	cur = cu.execute("select id from regions where country_id='%i' and name = '%s'" %(country_id, regions_name[pattern[20]]))
             region_id = None
             for row in cur:
                 region_id = row[0]

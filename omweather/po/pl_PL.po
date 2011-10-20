@@ -1176,7 +1176,7 @@ msgstr "Ręcznie"
 #: qtomweather/qt-qml/UnitsPage.qml:178
 #, fuzzy
 msgid "Measurement units"
-msgstr "Jednostki ciśnienia:"
+msgstr "Jednostki ciśnienia"
 
 #: qtomweather/qt-qml/WeatherPage.qml:286
 msgid "MeeCast"

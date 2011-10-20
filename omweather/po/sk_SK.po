@@ -1182,7 +1182,7 @@ msgstr "Ručné"
 #: qtomweather/qt-qml/UnitsPage.qml:178
 #, fuzzy
 msgid "Measurement units"
-msgstr "Jednotky tlaku:"
+msgstr "Jednotky tlaku"
 
 #: qtomweather/qt-qml/WeatherPage.qml:286
 msgid "MeeCast"

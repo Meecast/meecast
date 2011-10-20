@@ -1180,7 +1180,7 @@ msgstr "Manuale"
 #: qtomweather/qt-qml/UnitsPage.qml:178
 #, fuzzy
 msgid "Measurement units"
-msgstr "Pressione unità: "
+msgstr "Pressione unità"
 
 #: qtomweather/qt-qml/WeatherPage.qml:286
 msgid "MeeCast"

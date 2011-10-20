@@ -1185,7 +1185,7 @@ msgstr "Manuell"
 #: qtomweather/qt-qml/UnitsPage.qml:178
 #, fuzzy
 msgid "Measurement units"
-msgstr "Luftdruck:"
+msgstr "Luftdruck"
 
 #: qtomweather/qt-qml/WeatherPage.qml:286
 msgid "MeeCast"

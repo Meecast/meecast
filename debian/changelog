@@ -11,6 +11,8 @@ meecast (0.3.34) unstable; urgency=low
   * Added stations in yr.no database (Belarus, Finland, Sweden, Germany, Greece,
     Macedonia, France)
   * Fixed problem with Macedonia in yr.no database
+  * Added details info for today weather (day and night)
+  * Fixed bug with wind speed units settings
 
  -- Vlad Vasiliev <vlad@gas.by>  Tue, 18 Oct 2011 09:24:20 +0200
 

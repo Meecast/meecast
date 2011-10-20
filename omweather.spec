@@ -3,14 +3,14 @@
 # spectacle version 0.18
 # 
 # >> macros
-%define wantmeegopanel 1
+%define wantmeegopanel 0
 %define all_x86 i386 i586 i686 %{ix86}
 %define all_arm %{arm}
 # << macros
  
-Name:       com.meecast.omweather
+Name:       com.meecast
 Summary:    Weather for Meego
-Version:0.3.24
+Version:    0.4.1
 Release:    1
 Group:      Utility
 License:    GPLv2.1
@@ -32,7 +32,7 @@ BuildRequires:  gettext
 BuildRequires:  qt-qmake
 BuildRequires:  libqt-devel
 #BuildRequires:  libmeegotouch
-#BuildRequires:  libmeegotouch-devel
+BuildRequires:  libmeegotouch-devel
 BuildRequires:  desktop-file-utils
 
 
@@ -108,6 +108,7 @@ rm %{buildroot}/opt/com.meecast.omweather/lib/libomweather-core.a
 #/usr/share/omweather/db/weather.com.db
 #/usr/share/omweather/sources/weather.com.xml
 # >> files
+/usr/lib/meegotouch/applicationextensions/libevents-meecast.so
 %if  %{wantmeegopanel}
 /usr/share/omweather-settings
 /opt/com.meecast.omweather/libexec

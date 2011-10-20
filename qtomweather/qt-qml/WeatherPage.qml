@@ -684,7 +684,7 @@ Page {
 			    smooth: true
                         }
                         Text {
-                            text: model.wind_speed + ' ' + Config.windspeedunit
+                            text: model.wind_speed + ' ' + Config.tr(Config.windspeedunit)
                             anchors.left: wind_speed.right
                             anchors.leftMargin: 8
                             anchors.top: humidity.bottom

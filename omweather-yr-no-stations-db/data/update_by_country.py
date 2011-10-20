@@ -45,10 +45,15 @@ import zipfile
 #		"Region_Provence-Alpes-Cote_dAzur":"Provence-Alpes-Côte d’Azur",
 #		"Region_Pays_de_la_Loire":"Loire", "Region_Picardie":"Picardy"} 
 #replacing_dict_after_region_filling = { } 
-country = "United Kingdom"
-country_code = "GB"
-replacing_dict = {"Northern_Ireland": "Northern Ireland"} 
+#country = "United kingdom"
+#country_code = "gb"
+#replacing_dict = {"northern_ireland": "northern ireland"} 
+#replacing_dict_after_region_filling = { } 
+country = "Austria"
+country_code = "AT"
+replacing_dict = {"Oberoesterreich":"Upper Austria", "Niederoesterreich":"Lower Austria" } 
 replacing_dict_after_region_filling = { } 
+
 
 
 
@@ -142,7 +147,7 @@ fh = open(country_code + ".txt")
 for line in fh.readlines():
     pattern = re.split('(\t)', line)
     if (pattern[14] == "PPLA" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
-        if (pattern[20] != "" and int(pattern[28]) >= 10000):
+        if (pattern[20] != "" and int(pattern[28]) > 0):
             if (regions_name.get(pattern[20]) == None):
                 continue
             if (replacing_dict_after_region_filling.get(regions_name[pattern[20]])):

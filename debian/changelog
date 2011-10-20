@@ -2,6 +2,9 @@ meecast (0.4.1) unstable; urgency=low
 
   * Nothing
   * Removed old code for Omweather(Fremantle) from postrm script
+  * Added details info for today weather (day and night)
+  * Fixed bug with wind speed units settings
+  * Added Russian description to package
 
  -- Vlad vasiliev <vlad@gas.by>  Thu, 20 Oct 2011 09:24:20 +0200
 
@@ -11,8 +14,6 @@ meecast (0.3.34) unstable; urgency=low
   * Added stations in yr.no database (Belarus, Finland, Sweden, Germany, Greece,
     Macedonia, France)
   * Fixed problem with Macedonia in yr.no database
-  * Added details info for today weather (day and night)
-  * Fixed bug with wind speed units settings
 
  -- Vlad Vasiliev <vlad@gas.by>  Tue, 18 Oct 2011 09:24:20 +0200
 

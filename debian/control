@@ -19,6 +19,7 @@ Depends: ${shlibs:Depends}, qt-components
 Description: MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code 
 XB-Maemo-Display-Name: Meecast 
 XB-Description-ru_RU: MeeCast - мультиплатформенный гибко-настраиваемый клиент для отображения прогноза погоды основанный на коде OMWeather 
+XB-Description-fi_FI: MeeCast - useilla alustoilla toimiva avoimen lähdekoodin sääohjelma. Perustuu OMWetherin koodiin. 
 Xsbc-Bugtracker: https://bugs.maemo.org/enter_bug.cgi?product=OmWeather
 XB-Maemo-Icon-26:
  iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/gD+AP7rGNSCAAAACXBI

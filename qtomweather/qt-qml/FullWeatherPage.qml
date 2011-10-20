@@ -90,13 +90,13 @@ Page {
                          value: model_day.getdata(day, "pressure") + " mbar"});
             if ((model_day.getdata(day, "wind_speed")) != "N/A")
                 condition.append({cond_name: Config.tr("Wind speed") + ":",
-                         value: model_day.getdata(day, "wind_speed") + ' ' + Config.windspeedunit});
+                         value: model_day.getdata(day, "wind_speed") + ' ' + Config.tr(Config.windspeedunit)});
             if ((model_day.getdata(day, "ppcp")) != "N/A")
                 condition.append({cond_name: Config.tr("Ppcp:"),
                          value: model_day.getdata(day, "ppcp")});
             if ((model_day.getdata(day, "wind_gust")) != "N/A")
                 condition.append({cond_name: Config.tr("Wind gust:"),
-                         value: model_day.getdata(day, "wind_gust") + ' ' + Config.windspeedunit});
+                         value: model_day.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
             if ((model_day.getdata(day, "flike")) != "N/A")
                 condition.append({cond_name: Config.tr("Flike:"),
                          value: model_day.getdata(day, "flike") + ' ' + Config.temperatureunit});
@@ -122,13 +122,13 @@ Page {
                          value: model_night.getdata(day, "pressure") + " mbar"});
             if ((model_night.getdata(day, "wind_speed")) != "N/A")
                 condition.append({cond_name: Config.tr("Wind speed") + ":",
-                         value: model_night.getdata(day, "wind_speed") + ' ' + Config.windspeedunit});
+                         value: model_night.getdata(day, "wind_speed") + ' ' + Config.tr(Config.windspeedunit)});
             if ((model_night.getdata(day, "ppcp")) != "N/A")
                 condition.append({cond_name: Config.tr("Ppcp:"),
                          value: model_night.getdata(day, "ppcp")});
             if ((model_night.getdata(day, "wind_gust")) != "N/A")
                 condition.append({cond_name: Config.tr("Wind gust:"),
-                         value: model_night.getdata(day, "wind_gust") + ' ' + Config.windspeedunit});
+                         value: model_night.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
             if ((model_night.getdata(day, "flike")) != "N/A")
                 condition.append({cond_name: Config.tr("Flike:"),
                          value: model_night.getdata(day, "flike") + ' ' + Config.temperatureunit});

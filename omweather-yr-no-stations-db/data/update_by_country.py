@@ -49,11 +49,19 @@ import zipfile
 #country_code = "gb"
 #replacing_dict = {"northern_ireland": "northern ireland"} 
 #replacing_dict_after_region_filling = { } 
-country = "Switzerland"
-country_code = "CH"
-replacing_dict = {"Kanton_Basel-Stadt":"Basel-Stadt", "Kanton_Appenzell_Innerrhoden": "Appenzell Innerrhoden",
-		"Kanton_St._Gallen":"Sankt Gallen", "Kanton_Appenzell_Ausserrhoden":"Appenzell Ausserrhoden"} 
+#country = "Switzerland"
+#country_code = "CH"
+#replacing_dict = {"Kanton_Basel-Stadt":"Basel-Stadt", "Kanton_Appenzell_Innerrhoden": "Appenzell Innerrhoden",
+#		"Kanton_St._Gallen":"Sankt Gallen", "Kanton_Appenzell_Ausserrhoden":"Appenzell Ausserrhoden"} 
+#replacing_dict_after_region_filling = { } 
+country = "Australia"
+country_code = "AU"
+replacing_dict = {"State_of_New_South_Wales":"New South Wales", "Northern_Territory":"Northern Territory", 
+                  "Australian_Capital_Territory":"Australian Capital Territory", "State_of_South_Australia":"South Australia",
+                  "State_of_Western_Australia":"Western Australia"}
+
 replacing_dict_after_region_filling = { } 
+
 
 
 
@@ -148,7 +156,7 @@ fh = open(country_code + ".txt")
 for line in fh.readlines():
     pattern = re.split('(\t)', line)
     if (pattern[14] == "PPLA" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
-        if (pattern[20] != "" and int(pattern[28]) >= 800):
+        if (pattern[20] != "" and int(pattern[28]) >= 1000):
             if (regions_name.get(pattern[20]) == None):
                 continue
             if (replacing_dict_after_region_filling.get(regions_name[pattern[20]])):

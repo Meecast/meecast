@@ -19,11 +19,12 @@ Depends: ${shlibs:Depends}, qt-components
 Description: MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code 
 XB-Maemo-Display-Name: Meecast 
 XB-Description-ru_RU: MeeCast - мультиплатформенный гибко-настраиваемый клиент для отображения прогноза погоды основанный на коде OMWeather 
-XB-Description-fi_FI: MeeCast - useilla alustoilla toimiva avoimen lähdekoodin sääohjelma. Perustuu OMWetherin koodiin. 
-XB-Description-de_DE: MeeCast - Plattformübergreifende, anpassbare Open Source-Anwendung zur Wettervorhersage basierend auf dem Code von OMWeather.
-XB-Description-es_ES: MeeCast - cliente de pronósticos del tiempo de código abierto, altamente personalizable y multiplataforma, basado en el código de OMWeather. 
-XB-Description-es_MX: MeeCast - cliente de pronósticos del tiempo de código abierto, altamente personalizable y multiplataforma, basado en el código de OMWeather. 
+XB-Description-fi_FI: MeeCast - useilla alustoilla toimiva avoimen lähdekoodin sääohjelma. Perustuu OMWetherin koodiin 
+XB-Description-de_DE: MeeCast - Plattformübergreifende, anpassbare Open Source-Anwendung zur Wettervorhersage basierend auf dem Code von OMWeather
+XB-Description-es_ES: MeeCast - cliente de pronósticos del tiempo de código abierto, altamente personalizable y multiplataforma, basado en el código de OMWeather 
+XB-Description-es_MX: MeeCast - cliente de pronósticos del tiempo de código abierto, altamente personalizable y multiplataforma, basado en el código de OMWeather 
 XB-Description-pl_PL: MeeCast - wieloplatformowy, wysoce konfigurowalny klient prognozy pogody oparty na kodzie OMWeather
+XB-Description-ua_UA: MeeCast - багатаплатформова, гнучко налаштована програма прогнозу погоди з відкритими вихідними текстами на основі
 Xsbc-Bugtracker: https://bugs.maemo.org/enter_bug.cgi?product=OmWeather
 XB-Maemo-Icon-26:
  iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/gD+AP7rGNSCAAAACXBI

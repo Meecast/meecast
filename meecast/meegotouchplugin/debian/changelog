@@ -1,3 +1,9 @@
+meecast-applet-enable (0.2) unstable; urgency=low
+
+  * Changed description  
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 22 Oct 2011 19:24:20 +0200
+
 meecast-applet-enable (0.1) unstable; urgency=low
 
   * First release  

@@ -10,7 +10,7 @@ Architecture: all
 #For Maemo
 Depends: ${shlibs:Depends}, meecast 
 Description: Activating MeeCast Applet on event region  
-XB-Maemo-Display-Name: Meecast 
+XB-Maemo-Display-Name: Activating MeeCast Apple 
 Xsbc-Bugtracker: https://bugs.maemo.org/enter_bug.cgi?product=OmWeather
 XB-Maemo-Icon-26:
  iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/gD+AP7rGNSCAAAACXBI

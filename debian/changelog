@@ -3,7 +3,7 @@ meecast (0.4.1) unstable; urgency=low
   * Removed old code for Omweather(Fremantle) from postrm script
   * Added details info for today weather (day and night)
   * Fixed bug with wind speed units settings
-  * Added Russian, Finish, Spain and Germany description to package
+  * Added Russian, Finish, Spain, Polish and Germany description to package
   * Updated Germany translation 
   * Added stations in yr.no database (United Kingdom, Austria, Switzerland)
 

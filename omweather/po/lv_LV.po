@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lv_LV\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-23 10:47+0300\n"
+"POT-Creation-Date: 2011-10-23 10:51+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -1741,6 +1741,10 @@ msgstr ""
 
 #: meecast/qt-qml/NewStationPage.qml:46 meecast/qt-qml/NewStationPage.qml:93
 msgid "Select source"
+msgstr ""
+
+#: meecast/qt-qml/IconsetPage.qml:97
+msgid "Select the iconset"
 msgstr ""
 
 #: meecast/qt-qml/SourcePage.qml:108

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-23 10:47+0300\n"
+"POT-Creation-Date: 2011-10-23 10:51+0300\n"
 "PO-Revision-Date: 2010-02-13 00:46+0200\n"
 "Last-Translator: Nicolas Graziano <nicolas.graziano@gmail.com>\n"
 "Language-Team: French <>\n"
@@ -1851,6 +1851,11 @@ msgstr "Choisir la région"
 #, fuzzy
 msgid "Select source"
 msgstr "Choisir la source"
+
+#: meecast/qt-qml/IconsetPage.qml:97
+#, fuzzy
+msgid "Select the iconset"
+msgstr "Choisir la région"
 
 #: meecast/qt-qml/SourcePage.qml:108
 #, fuzzy

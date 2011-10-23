@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-23 10:47+0300\n"
+"POT-Creation-Date: 2011-10-23 10:51+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -1806,6 +1806,11 @@ msgstr "Выберите область"
 #: meecast/qt-qml/NewStationPage.qml:46 meecast/qt-qml/NewStationPage.qml:93
 msgid "Select source"
 msgstr "Выберите источник"
+
+#: meecast/qt-qml/IconsetPage.qml:97
+#, fuzzy
+msgid "Select the iconset"
+msgstr "Выберите область"
 
 #: meecast/qt-qml/SourcePage.qml:108
 msgid "Select the weather source"

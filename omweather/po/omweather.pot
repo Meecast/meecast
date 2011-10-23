@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-23 10:48+0300\n"
+"POT-Creation-Date: 2011-10-23 11:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1739,6 +1739,10 @@ msgstr ""
 
 #: meecast/qt-qml/NewStationPage.qml:46 meecast/qt-qml/NewStationPage.qml:93
 msgid "Select source"
+msgstr ""
+
+#: meecast/qt-qml/IconsetPage.qml:97
+msgid "Select the iconset"
 msgstr ""
 
 #: meecast/qt-qml/SourcePage.qml:108

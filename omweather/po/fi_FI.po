@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-23 10:47+0300\n"
+"POT-Creation-Date: 2011-10-23 10:51+0300\n"
 "PO-Revision-Date: 2011-09-05 17:49+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -1837,6 +1837,11 @@ msgstr "Alueen valinta"
 #, fuzzy
 msgid "Select source"
 msgstr "Lähteen valinta"
+
+#: meecast/qt-qml/IconsetPage.qml:97
+#, fuzzy
+msgid "Select the iconset"
+msgstr "Alueen valinta"
 
 #: meecast/qt-qml/SourcePage.qml:108
 #, fuzzy

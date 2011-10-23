@@ -54,12 +54,15 @@ import zipfile
 #replacing_dict = {"Kanton_Basel-Stadt":"Basel-Stadt", "Kanton_Appenzell_Innerrhoden": "Appenzell Innerrhoden",
 #		"Kanton_St._Gallen":"Sankt Gallen", "Kanton_Appenzell_Ausserrhoden":"Appenzell Ausserrhoden"} 
 #replacing_dict_after_region_filling = { } 
-country = "Australia"
-country_code = "AU"
-replacing_dict = {"State_of_New_South_Wales":"New South Wales", "Northern_Territory":"Northern Territory", 
-                  "Australian_Capital_Territory":"Australian Capital Territory", "State_of_South_Australia":"South Australia",
-                  "State_of_Western_Australia":"Western Australia"}
-
+country = "Russia"
+country_code = "RU"
+replacing_dict = {"Khabarovskiy_Kray":"Khabarovsk", "Ryazanskaya_Oblast":"Ryazan", "Sankt-Peterburg":"St. Petersburg",
+        "North_Ossetia":"North Ossetia-Alania", "Ulyanovskaya_Oblast":"Ulyanovsk", "Voronezhskaya_Oblast": "Voronezh",
+        "Moskovskaya_Oblast":"Moscow oblast", "Respublika_Mariy-El":"Mari El", "Primorskiy_Kray":"Primorsky", "Tyumenskaya_Oblast":"Tyumen",
+        "Bryanskaya_Oblast":"Bryansk","Krasnoyarskiy_Kray":"Krasnoyarsk","Zabaykalskiy_Kray":"Chita","Kamtchatski_Kray":"Kamchatka",
+        "Nizhegorodskaya_Oblast":"Nizhny_Novgorod", "Chelyabinskaya_Oblast":"Chelyabinsk", "Altayskiy_Kray":"Altai Krai",
+        "Orlovskaya_Oblast":"Oryol","Yaroslavskaya_Oblast":"Yaroslavl", "Yevreyskaya_Avtonomnaya_Oblast":"Jewish Autonomous Oblast",
+        "Respublika_Altay":"Altai"}
 replacing_dict_after_region_filling = { } 
 
 
@@ -156,7 +159,7 @@ fh = open(country_code + ".txt")
 for line in fh.readlines():
     pattern = re.split('(\t)', line)
     if (pattern[14] == "PPLA" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
-        if (pattern[20] != "" and int(pattern[28]) >= 1000):
+        if (pattern[20] != "" and int(pattern[28]) >= 50000):
             if (regions_name.get(pattern[20]) == None):
                 continue
             if (replacing_dict_after_region_filling.get(regions_name[pattern[20]])):
@@ -169,7 +172,7 @@ for line in fh.readlines():
             result = normalizing(country) + "#" + re.sub("Other/" + normalizing(country), "Other", normalizing(fixed_regions_name)) + "#" + u1.encode('utf-8') 
             country = country.encode('utf8')
             country_name_url = yrnourl + "/place/" + result.replace("#","/")
-            print country_name_url
+            #print country_name_url
             req = urllib2.Request(country_name_url, None, {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'})
             page = urllib2.urlopen(req)
             for line2 in page.readlines():

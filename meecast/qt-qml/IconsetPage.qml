@@ -94,7 +94,7 @@ Page {
             id: title
             anchors.fill: parent
             color: "white"
-            text: Config.tr("Select the Iconset")
+            text: Config.tr("Select the iconset")
             //font.family: "Nokia Pure Light"
             font.pixelSize: 30
             horizontalAlignment: Text.AlignLeft

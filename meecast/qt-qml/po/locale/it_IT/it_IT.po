@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it_IT\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-23 10:47+0300\n"
+"POT-Creation-Date: 2011-10-23 10:51+0300\n"
 "PO-Revision-Date: 2010-07-27 17:04+0100\n"
 "Last-Translator: Luca <luca>\n"
 "Language-Team: Italiano\n"
@@ -1854,6 +1854,11 @@ msgstr "Seleziona Stato"
 #, fuzzy
 msgid "Select source"
 msgstr "Seleziona fonte"
+
+#: meecast/qt-qml/IconsetPage.qml:97
+#, fuzzy
+msgid "Select the iconset"
+msgstr "Seleziona Stato"
 
 #: meecast/qt-qml/SourcePage.qml:108
 #, fuzzy

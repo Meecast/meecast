@@ -97,7 +97,7 @@ Page {
                     }
                 }
                 Button {
-                    text: Config.tr("Farenheit")
+                    text: Config.tr("Fahrenheit")
                     checked: (Config.temperatureunit == 'F')
                     onClicked: {
                         Config.temperature_unit('F');

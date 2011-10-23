@@ -5,9 +5,12 @@ meecast (0.4.1) unstable; urgency=low
   * Fixed bug with wind speed units settings
   * Added Russian, Finish, Spain, Polish and Germany description to package
   * Updated Germany translation 
-  * Added stations in yr.no database (United Kingdom, Austria, Switzerland)
+  * Added stations in yr.no database (United Kingdom, Austria, Switzerland,
+    Russia)
+  * Added symbol '%' to string Ppcp
+  * Fixed term Fahrenheit 
 
- -- Vlad vasiliev <vlad@gas.by>  Thu, 20 Oct 2011 09:24:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 23 Oct 2011 09:24:20 +0200
 
 meecast (0.3.34) unstable; urgency=low
 

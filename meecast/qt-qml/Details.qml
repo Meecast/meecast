@@ -61,7 +61,7 @@ Rectangle {
                       (qsTr("Wind gust") + ": " + wind_gust) : ""}
 
                 Text {text: (ppcp != "N/A") ?
-                      (qsTr("Ppcp") + ": " + ppcp) : ""}
+                      (qsTr("Ppcp") + ": " + ppcp + '%') : ""}
                 Text {text: (pressure != "N/A") ?
                       (qsTr("Pressure") + ": " + pressure) : ""}
 

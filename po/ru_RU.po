@@ -1808,9 +1808,8 @@ msgid "Select source"
 msgstr "Выберите источник"
 
 #: meecast/qt-qml/IconsetPage.qml:97
-#, fuzzy
 msgid "Select the iconset"
-msgstr "Выберите область"
+msgstr "Выберите набор иконок"
 
 #: meecast/qt-qml/SourcePage.qml:108
 msgid "Select the weather source"

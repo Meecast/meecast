@@ -24,7 +24,8 @@ SOURCES += main.cpp \
     updatethread.cpp \
     countrymodel.cpp \
     regionmodel.cpp \
-    citymodel.cpp
+    citymodel.cpp \
+    #gpsposition.cpp
 
 HEADERS  += \
     dataqml.h \
@@ -40,7 +41,8 @@ HEADERS  += \
     updatethread.h \
     countrymodel.h \
     regionmodel.h \
-    citymodel.h
+    citymodel.h \
+    #gpsposition.h
 
 FORMS    +=
 RESOURCES += weatherlayoutitem.qrc
@@ -198,3 +200,5 @@ transinstallsk.extra = cp po/locale/sk_SK/omweather.mo $(INSTALL_ROOT)$$DATADIR/
 transinstallsk.path = /opt/com.meecast.omweather/share/locale/sk/LC_MESSAGES
 transinstallsk.files = po/locale/sk_SK/omweather.mo
 INSTALLS += transinstallsk
+
+

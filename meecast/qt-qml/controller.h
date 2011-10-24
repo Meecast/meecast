@@ -36,6 +36,7 @@
 #include "regionmodel.h"
 #include "citymodel.h"
 #include "dbusadaptor_applet.h"
+//#include "gpsposition.h"
 
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
@@ -62,6 +63,7 @@ private:
     DataModel *_current;
     DataModel *_night_model;
     DataModel *_current_night;
+    //GpsPosition *_gps;
 };
 
 #endif // CONTROLLER_H

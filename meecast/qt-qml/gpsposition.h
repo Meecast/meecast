@@ -3,10 +3,12 @@
 
 #include <QObject>
 #include <QDebug>
-#include <QtMobility/qmobilityglobal.h>
-#include <QtLocation/QGeoPositionInfo>
-#include <QtLocation/QGeoPositionInfoSource>
-#include <QtLocation/QGeoCoordinate>
+#include <QGeoPositionInfo>
+//#include <qmobilityglobal.h>
+#include <QGeoPositionInfoSource>
+#include <QGeoCoordinate>
+
+QTM_USE_NAMESPACE
 
 class GpsPosition : public QObject
 {

@@ -25,7 +25,7 @@ SOURCES += main.cpp \
     countrymodel.cpp \
     regionmodel.cpp \
     citymodel.cpp \
-    #gpsposition.cpp
+    gpsposition.cpp
 
 HEADERS  += \
     dataqml.h \
@@ -42,7 +42,7 @@ HEADERS  += \
     countrymodel.h \
     regionmodel.h \
     citymodel.h \
-    #gpsposition.h
+    gpsposition.h
 
 FORMS    +=
 RESOURCES += weatherlayoutitem.qrc
@@ -74,6 +74,8 @@ OTHER_FILES += \
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 
+CONFIG += mobility
+MOBILITY += location
 
 
 INCLUDEPATH += ../core                                                                                                        

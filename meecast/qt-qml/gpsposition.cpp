@@ -15,7 +15,7 @@ GpsPosition::GpsPosition(QObject *parent) :
 void GpsPosition::positionUpdated(QGeoPositionInfo info)
 {
     qDebug() << "gps info " << info;
-    QGeoCoordinate coord = info.coordinate;
+    QGeoCoordinate coord = info.coordinate();
     if (coord.isValid()){
         QString longitude;
         longitude.setNum(coord.longitude());

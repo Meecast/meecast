@@ -15,7 +15,11 @@ class GpsPosition : public QObject
     Q_OBJECT
 public:
     explicit GpsPosition(QObject *parent = 0);
-
+    ~GpsPosition();
+    double latitude;
+    double longitude;
+private:
+    QGeoPositionInfoSource * _location;
 signals:
 
 private slots:

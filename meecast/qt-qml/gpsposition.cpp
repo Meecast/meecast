@@ -3,24 +3,30 @@
 GpsPosition::GpsPosition(QObject *parent) :
     QObject(parent)
 {
-    QGeoPositionInfoSource * source = QGeoPositionInfoSource::createDefaultSource(this);
-    if (source){
-        connect(source, SIGNAL(positionUpdated(QGeoPositionInfo)), this, SLOT(positionUpdated(QGeoPositionInfo)));
-        source->startUpdates();
+    _location = QGeoPositionInfoSource::createDefaultSource(this);
+    if (_location){
+        connect(_location, SIGNAL(positionUpdated(QGeoPositionInfo)), this, SLOT(positionUpdated(QGeoPositionInfo)));
+        _location->startUpdates();
+        //_location->startUpdates(1000);
     }else {
-        qDebug() << "error geo source";
+        qDebug() << "default gps source not exist";
+
     }
+}
+
+GpsPosition::~GpsPosition()
+{
+    _location->stopUpdates();
 }
 
 void GpsPosition::positionUpdated(QGeoPositionInfo info)
 {
-    qDebug() << "gps info " << info;
+    //qDebug() << "gps info " << info;
     QGeoCoordinate coord = info.coordinate();
     if (coord.isValid()){
-        QString longitude;
-        longitude.setNum(coord.longitude());
-        QString latitude;
-        latitude.setNum(coord.latitude());
+        longitude = coord.longitude();
+        latitude = coord.latitude();
         qDebug() << "lon = " << longitude << ", lat = " << latitude;
+        _location->stopUpdates();
     }
 }

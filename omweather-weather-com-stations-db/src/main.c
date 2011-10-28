@@ -918,7 +918,12 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         tmp_tm.tm_hour = 0; tmp_tm.tm_min = 0; tmp_tm.tm_sec = 0;
 
                         t_start = mktime(&tmp_tm);
-                        
+
+                        /* for sunrise and sunset valid date */ 
+			current_time = t_start + 12*3600;
+		        tm = localtime(&current_time);
+			fprintf(stderr, "t_start %i\n", t_start);
+
                         xmlFree(temp_xml_string);
 
                         memset(temp_hi, 0, sizeof(temp_hi));
@@ -961,7 +966,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     setlocale(LC_TIME, "");
                                     /* set begin of day in localtime */
                                     tmp_tm2.tm_year = tm->tm_year;
-                                    tmp_tm2.tm_mday = tmp_tm.tm_mday; tmp_tm2.tm_mon = tmp_tm.tm_mon;  
+                                    tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
                                     t_sunrise = mktime(&tmp_tm2);
                                     xmlFree(temp_xml_string);
                                     continue;
@@ -974,7 +979,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     setlocale(LC_TIME, "");
                                     /* set begin of day in localtime */
                                     tmp_tm2.tm_year = tm->tm_year;
-                                    tmp_tm2.tm_mday = tmp_tm.tm_mday; tmp_tm2.tm_mon = tmp_tm.tm_mon;  
+                                    tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
                                     t_sunset = mktime(&tmp_tm2);
                                     xmlFree(temp_xml_string);
                                     continue;

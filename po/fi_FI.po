@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-23 10:51+0300\n"
-"PO-Revision-Date: 2011-10-25 11:31+0200\n"
+"PO-Revision-Date: 2011-10-28 12:23+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
 "Language: \n"
@@ -1173,7 +1173,7 @@ msgstr "Ylläpito: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gma
 #: omweather/src/hash.data:10
 #: meecast/qt-qml/StationsPage.qml:110
 msgid "Manage locations"
-msgstr "Hallitse sijanteja"
+msgstr "Hallitse sijainteja"
 
 #: omweather/src/weather-simple-settings.c:2240
 msgid "Manual"

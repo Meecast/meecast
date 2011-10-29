@@ -1,6 +1,7 @@
 omweather-gismeteo-ru-stations-db (0.9.7) unstable; urgency=low
 
   * Fixed problem with first day of month  
+  * Added new strings for translation
 
  --  Vlad Vasiliev <vlad@gas.by>  Sun, 30 Oct 2011 08:16:30 +0200
 

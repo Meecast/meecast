@@ -552,8 +552,9 @@ get_date_for_hour_weather(gchar *temp_string){
         return tmp_tm;
     snprintf(buffer, strlen(temp_string) - strlen(temp_point+1),"%s", temp_string);
     snprintf(temp_buffer, strlen(temp_point) - strlen(strchr(temp_point + 1,'-')),"%s", temp_point+1);
-    temp_point = strrchr(temp_string,'-');
+    temp_point = strchr(temp_point+1,'-');
     snprintf(buff, strlen(temp_point) - strlen(strchr(temp_point + 1,' ')),"%s", temp_point+1);
+
     if (!strcoll(temp_buffer, "01"))
         strcat(buff," Jan");
     if (!strcoll(temp_buffer, "02"))
@@ -1051,6 +1052,7 @@ parse_xml_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data){
       setlocale(LC_TIME, "POSIX");
       strftime(buff, sizeof(buff) - 1, "%b %d", &tmp_tm);
       setlocale(LC_TIME, "");
+
       tmp = forecast;
       flag = FALSE;
       night_flag = FALSE;

@@ -49,6 +49,7 @@ namespace Core{
             std::string *_wind_speed_unit;
             bool         _update_connect;
             bool         _fullscreen;
+            bool         _gps;
             int          _update_period;
             std::string *_font_color;
             int          _current_station_id;
@@ -74,6 +75,8 @@ namespace Core{
             bool UpdateConnect(void);
             void Fullscreen(const bool uc);
             bool Fullscreen(void);
+            void Gps(const bool uc);
+            bool Gps(void);
             void UpdatePeriod(const int period);
             int UpdatePeriod(void);
             void FontColor(const std::string& text);

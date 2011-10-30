@@ -172,6 +172,19 @@ ConfigQml::setfullscreen(bool c)
     refreshconfig();
 }
 
+bool
+ConfigQml::gps()
+{
+    return ConfigQml::Config::Gps();
+}
+void
+ConfigQml::setgps(bool c)
+{
+    ConfigQml::Config::Gps(c);
+    saveConfig();
+    refreshconfig();
+}
+
 QString
 ConfigQml::version(){
     QString c;

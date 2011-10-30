@@ -68,9 +68,34 @@ Page {
             height: parent.height - 274
             color: "black"
         }
+        Column {
+            anchors.fill: parent
+        Item {
+            width: parent.width
+            height: 80
+            Label {
+                text: Config.tr("Find location via GPS")
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            Switch {
+                //checked: !rootWindow.showStatusBar
+                id: gps
+                checked: Config.gps
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                onCheckedChanged: {
+                    Config.setgps(gps.checked);
+                }
+                //platformStyle: SwitchStyle {inverted: true}
+            }
+
+        }
         ListView {
             id: stationslist
-            anchors.fill: parent
+            //anchors.fill: parent
+            width: parent.width
+            height: parent.height - 80
             model: Config.stations()
 
             delegate: Item {
@@ -92,6 +117,7 @@ Page {
                     }
                 }
             }
+        }
         }
     }
     Rectangle {

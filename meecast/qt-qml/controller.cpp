@@ -81,7 +81,7 @@ Controller::Controller() : QObject()
   _dp = NULL;
   this->load_config();
   this->load_data();
-  //_gps = new GpsPosition();
+
 
 }
 
@@ -89,9 +89,7 @@ Controller::~Controller()
 {
   if (_dp) 
       delete _dp;
-  /*if (_gps)
-      delete _gps;
-  */
+
 }
 
 QDeclarativeView* 

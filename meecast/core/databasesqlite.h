@@ -60,6 +60,7 @@ public:
     listdata* create_countries_list();
     listdata* create_region_list(int country_id);
     listdata* create_stations_list(int region_id);
+    void get_nearest_station(double lat, double lon);
 };
 } // namespace Core
 

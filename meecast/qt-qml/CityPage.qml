@@ -74,10 +74,10 @@ Page {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        console.log(model.key);
+                        //console.log(model.key);
                         Config.saveStation1(model.key, model.name, region_name, country_name,
                                             source, source_id);
-                                pageStack.pop(pageStack.find(function(page) { return page.objectName == "stationspage" }));
+                        pageStack.pop(pageStack.find(function(page) { return page.objectName == "stationspage" }));
                     }
                 }
             }

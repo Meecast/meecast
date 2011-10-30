@@ -565,3 +565,15 @@ ConfigQml::tr(QString str)
 {
     return QString(QString::fromUtf8(_(str.toUtf8())));
 }
+void
+ConfigQml::enableGps()
+{
+    GpsPosition gps = new GpsPosition();
+    connect(gps, SIGNAL(findCoord(double, double)), this, SLOT(addGpsStation(double, double)));
+}
+void
+ConfigQml::addGpsStation(double latitude, double longitude)
+{
+    /*TODO: find station via gps */
+    //saveStation1();
+}

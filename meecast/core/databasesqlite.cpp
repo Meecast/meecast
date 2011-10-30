@@ -224,4 +224,51 @@ DatabaseSqlite::create_stations_list(int region_id)
     return list;
 }
 
-} // namespace Core
+void
+DatabaseSqlite::get_nearest_station(double lat, double lon)
+{
+    char sql[256];
+    int rc;
+    char *errMsg = NULL;
+    char **result;
+    int nrow, ncol;
+    double  distance,
+            min_distance = 40000.0;
+    listdata* stations_list;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if (!db)
+        return; /* database doesn't open */
+    snprintf(sql,
+             sizeof(sql) - 1,
+             "SELECT id, name FROM regions WHERE latitudemax>%f and latitudemin<%f and longititudemax>%f and longititudemin<%f",
+             lat, lat, lon, lon);
+    rc = sqlite3_get_table(db,
+                           sql,
+                           &result,
+                           &nrow,
+                           &ncol,
+                           &errMsg);
+    if(rc != SQLITE_OK){
+#ifndef RELEASE
+        std::cerr << errMsg << std::endl;
+#endif
+        sqlite3_free(errMsg);
+        return NULL;
+    }
+    for (int i=0; i<ncol*nrow; i=i+2){
+        /* id_region = result[ncol+i]
+           name_region = result[ncol+i+1]
+        */
+        stations_list = create_stations_list(result[ncol+i]);
+    }
+    sqlite3_free_table(result);
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+    //return list;
+}
+
+}// namespace Core

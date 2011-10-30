@@ -39,6 +39,7 @@
 #include "datamodel.h"
 #include "dataitem.h"
 #include "updatethread.h"
+#include "gpsposition.h"
 
 class ConfigQml : public QObject, public Core::Config
 
@@ -105,6 +106,7 @@ public:
     Q_INVOKABLE QStringList icon_list();
     Q_INVOKABLE void set_iconset(QString c);
     Q_INVOKABLE QString tr(QString str);
+    Q_INVOKABLE void enableGps();
     void refreshconfig();
     virtual ~ConfigQml(){};
 signals:
@@ -126,6 +128,7 @@ signals:
     void configChanged();
 public Q_SLOTS:
     void reload_config();
+    void addGpsStation(double latitude, double longitude);
 private:
     Core::DatabaseSqlite *db;
     UpdateThread *thread;

@@ -28,5 +28,6 @@ void GpsPosition::positionUpdated(QGeoPositionInfo info)
         latitude = coord.latitude();
         qDebug() << "lon = " << longitude << ", lat = " << latitude;
         _location->stopUpdates();
+        emit findCoord(latitude, longitude);
     }
 }

@@ -21,6 +21,7 @@ public:
 private:
     QGeoPositionInfoSource * _location;
 signals:
+    void findCoord(double latitude, double longitude);
 
 private slots:
     void positionUpdated(QGeoPositionInfo info);

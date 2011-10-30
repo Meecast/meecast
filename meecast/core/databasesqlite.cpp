@@ -59,20 +59,15 @@ DatabaseSqlite::open_database()
     int rc;
     char * msg;
     std::string key ("gismeteo.ru.db");
-    //std::cerr << (databasename->length() - databasename->rfind(key)) << " " << key.length() << std::endl;
+   // std::cerr << (databasename->length() - databasename->rfind(key)) << " " << key.length() << std::endl;
     if (sqlite3_open(databasename->c_str(), &db)){
         std::cerr << "error open " << *databasename << std::endl;
         return false;
     }
     if (databasename->rfind(key) != std::string::npos && (databasename->length() - databasename->rfind(key)) == key.length()) {
-        getenv("LC_ALL");
-        if(!lang.empty()){
-            lang = getenv("LC_MESSAGES");
-            if(!lang.empty())
-                lang = getenv("LANG");
-        }
-
-        if (!lang.empty() && !lang.compare("ru_RU"))
+    if (getenv("LANG") != NULL)
+        lang.assign(getenv("LANG"));
+        if (!lang.empty() && !lang.compare("ru"))
             rc = sqlite3_exec(db, "CREATE TEMP VIEW nstations AS SELECT russian_name as name, id, region_id, longititude, latitude, code, id_gismeteo_new, id_gismeteo_old  FROM stations",
                   NULL, NULL, &msg);
         else
@@ -88,6 +83,7 @@ DatabaseSqlite::open_database()
     }
     return true;
 }
+
 listdata*
 DatabaseSqlite::create_countries_list()
 {

@@ -8,6 +8,7 @@ Page {
     id: stations
     objectName: "stationspage"
     property int margin: 16
+    property int removedStation: -1
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"
@@ -68,6 +69,19 @@ Page {
             height: parent.height - 274
             color: "black"
         }
+        QueryDialog {
+            id: confirm
+            titleText: Config.tr("Confirmation")
+            message: Config.tr("Just remove it?")
+            acceptButtonText: Config.tr("Remove")
+            rejectButtonText: Config.tr("Not remove");
+            onAccepted: {
+                if (removedStation > -1){
+                    Config.removeStation(removedStation);
+                    stationslist.model = Config.stations();
+                }
+            }
+        }
         Column {
             anchors.fill: parent
         Item {
@@ -112,8 +126,8 @@ Page {
                     anchors.verticalCenter: parent.verticalCenter
                     width: 50
                     onClicked: {
-                        Config.removeStation(index);
-                        stationslist.model = Config.stations();
+                        removedStation = index;
+                        confirm.open();
                     }
                 }
             }

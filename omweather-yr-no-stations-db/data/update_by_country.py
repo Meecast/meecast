@@ -54,15 +54,14 @@ import zipfile
 #replacing_dict = {"Kanton_Basel-Stadt":"Basel-Stadt", "Kanton_Appenzell_Innerrhoden": "Appenzell Innerrhoden",
 #		"Kanton_St._Gallen":"Sankt Gallen", "Kanton_Appenzell_Ausserrhoden":"Appenzell Ausserrhoden"} 
 #replacing_dict_after_region_filling = { } 
-country = "Russia"
-country_code = "RU"
-replacing_dict = {"Khabarovskiy_Kray":"Khabarovsk", "Ryazanskaya_Oblast":"Ryazan", "Sankt-Peterburg":"St. Petersburg",
-        "North_Ossetia":"North Ossetia-Alania", "Ulyanovskaya_Oblast":"Ulyanovsk", "Voronezhskaya_Oblast": "Voronezh",
-        "Moskovskaya_Oblast":"Moscow oblast", "Respublika_Mariy-El":"Mari El", "Primorskiy_Kray":"Primorsky", "Tyumenskaya_Oblast":"Tyumen",
-        "Bryanskaya_Oblast":"Bryansk","Krasnoyarskiy_Kray":"Krasnoyarsk","Zabaykalskiy_Kray":"Chita","Kamtchatski_Kray":"Kamchatka",
-        "Nizhegorodskaya_Oblast":"Nizhny Novgorod", "Chelyabinskaya_Oblast":"Chelyabinsk", "Altayskiy_Kray":"Altai Krai",
-        "Orlovskaya_Oblast":"Oryol","Yaroslavskaya_Oblast":"Yaroslavl", "Yevreyskaya_Avtonomnaya_Oblast":"Jewish Autonomous Oblast",
-        "Respublika_Altay":"Altai"}
+country = "Poland"
+country_code = "PL"
+replacing_dict = {"Wojewodztwo_Wielkopolskie":"Greater Poland","Wojewodztwo_Malopolskie":"Lesser Poland",
+        "Wojewodztwo_Kujawsko-Pomorskie":"Kuyavian-Pomerania","Wojewodztwo_Dolnoslaskie":"Lower Silesia",
+        "Wojewodztwo_Podkarpackie":"Subcarpathia","Wojewodztwo_Podlaskie":"Podlachia",
+        "Wojewodztwo_Warminsko-Mazurskie":"Warmia-Masuria","Wojewodztwo_Zachodniopomorskie":"West Pomerania",
+        "Wojewodztwo_Swietokrzyskie":"Swiety Krzyz"
+        }
 replacing_dict_after_region_filling = { } 
 
 
@@ -159,7 +158,7 @@ fh = open(country_code + ".txt")
 for line in fh.readlines():
     pattern = re.split('(\t)', line)
     if (pattern[14] == "PPLA" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
-        if (pattern[20] != "" and int(pattern[28]) >= 10000):
+        if (pattern[20] != "" and int(pattern[28]) >= 1000):
             if (regions_name.get(pattern[20]) == None):
                 continue
             if (replacing_dict_after_region_filling.get(regions_name[pattern[20]])):

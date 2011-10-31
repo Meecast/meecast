@@ -254,7 +254,7 @@ DatabaseSqlite::calculate_distance(double lat1, double lon1, double lat2,
 void
 DatabaseSqlite::get_nearest_station(double lat, double lon, char country[], char region[], char code[], char name[])
 {
-    char sql[256];
+    char sql[512];
     int rc;
     char *errMsg = NULL;
     char **result;
@@ -270,18 +270,21 @@ DatabaseSqlite::get_nearest_station(double lat, double lon, char country[], char
         return; /* database doesn't open */
     snprintf(sql,
              sizeof(sql) - 1,
-             "SELECT regions.name, stations.code, stations.name, stations.latitude, stations.longititude, countries.name\
-             FROM regions left join stations on regions.id=stations.region_id \
+             "select regions.name, stations.code, stations.name, stations.latitude, stations.longititude, countries.name \
+             from regions left join stations on regions.id=stations.region_id \
              left join countries on regions.country_id=countries.id \
-             WHERE regions.latitudemax>%f and regions.latitudemin<%f and regions.longititudemax>%f and regions.longititudemin<%f",
+             where regions.latitudemax>%f and regions.latitudemin<%f and regions.longititudemax>%f and regions.longititudemin<%f",
              lat, lat, lon, lon);
     std::cerr << "sql = " << sql << std::endl;
+
     rc = sqlite3_get_table(db,
                            sql,
                            &result,
                            &nrow,
                            &ncol,
                            &errMsg);
+
+    //rc = sqlite3_exec(db, sql, callback, 0, &errMsg);
     if(rc != SQLITE_OK){
 #ifndef RELEASE
         std::cerr << errMsg << std::endl;
@@ -289,14 +292,16 @@ DatabaseSqlite::get_nearest_station(double lat, double lon, char country[], char
         sqlite3_free(errMsg);
         return;
     }
+
     std::cerr << (ncol*nrow) << " " << ncol << " " << nrow  << std::endl;
     for (int i=0; i<ncol*nrow; i=i+6){
-        std::cerr << "aaaaaa " << i << std::endl;
+        /*std::cerr << "aaaaaa " << i << std::endl;
         std::cerr << result[ncol+i+0] << std::endl;
         std::cerr << result[ncol+i+1] << std::endl;
         std::cerr << result[ncol+i+2] << std::endl;
         std::cerr << result[ncol+i+3] << std::endl;
         std::cerr << result[ncol+i+4] << std::endl;
+        */
         distance = calculate_distance(lat, lon, atoi(result[ncol+i+3]), atoi(result[ncol+i+4]));
         if (distance < min_distance){
             std::cerr << result[ncol+i+2] << std::endl;
@@ -305,12 +310,12 @@ DatabaseSqlite::get_nearest_station(double lat, double lon, char country[], char
             strcpy(region, result[ncol+i+0]);
             strcpy(code, result[ncol+i+1]);
             strcpy(name, result[ncol+i+2]);
-            std::cerr << code << country << region << name << std::endl;
+            //std::cerr << code << country << region << name << std::endl;
 
         }
     }
     sqlite3_free_table(result);
-    std::cerr << "end function" << std::endl;
+    //std::cerr << "end function" << std::endl;
 
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

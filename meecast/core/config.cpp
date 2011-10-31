@@ -127,7 +127,7 @@ Config::saveConfig()
         st.appendChild(el);
 
         el = doc.createElement("station_name");
-        t = doc.createTextNode(QString::fromStdString((*i)->name()));
+        t = doc.createTextNode(QString::fromUtf8((*i)->name().c_str()));
         el.appendChild(t);
         st.appendChild(el);
 
@@ -289,7 +289,7 @@ Config::LoadConfig(){
 
             Station *st = new Station(source_name.toStdString(),
                                       station_id.toStdString(),
-                                      station_name.toStdString(),
+                                      station_name.toUtf8().data(),
                                       country.toStdString(),
                                       region.toStdString(),
                                       forecastURL.toStdString(),

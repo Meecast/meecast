@@ -205,8 +205,7 @@ ConfigQml::stations()
 {
     QStringList l;
     for (unsigned int i=0; i<stationsList().size(); i++){
-        l << QString::fromStdString(stationsList().at(i)->name());
-
+        l << QString::fromUtf8(stationsList().at(i)->name().c_str());
     }
     return l;
 }
@@ -356,7 +355,7 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
     station = new Core::Station(
                 source.toStdString(),
                 code,
-                city_name.toStdString(),
+                city_name.toUtf8().data(),
                 country.toStdString(),
                 region.toStdString(),
                 forecast_url,
@@ -402,7 +401,7 @@ ConfigQml::saveStation(int city_id, QString city,
     station = new Core::Station(
                 source.toStdString(),
                 code,
-                city.toStdString(),
+                city.toUtf8().data(),
                 country.toStdString(),
                 region.toStdString(),
                 forecast_url,
@@ -424,19 +423,22 @@ ConfigQml::saveStation(int city_id, QString city,
 QString
 ConfigQml::stationname()
 {
-    return ConfigQml::Config::stationname().c_str();
+    QString qstr = "";
+    return qstr.fromUtf8(ConfigQml::Config::stationname().c_str()); 
 }
 
 QString
 ConfigQml::nextstationname()
 {
-    return ConfigQml::Config::nextstationname().c_str(); 
+    QString qstr = "";
+    return qstr.fromUtf8(ConfigQml::Config::nextstationname().c_str()); 
 }
 
 QString
 ConfigQml::prevstationname()
 {
-    return ConfigQml::Config::prevstationname().c_str(); 
+    QString qstr = "";
+    return qstr.fromUtf8(ConfigQml::Config::prevstationname().c_str()); 
 }
 
 QString

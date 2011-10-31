@@ -1,23 +1,5 @@
 
     /* Label strings */
-
-    g_hash_table_insert(hash, (void*)"Wind direction:", _("Wind direction:"));
-    g_hash_table_insert(hash, (void*)"Wind speed", _("Wind speed"));
-    g_hash_table_insert(hash, (void*)"Day length:", _("Day length:"));
-    g_hash_table_insert(hash, (void*)"Sunrise:", _("Sunrise:"));
-    g_hash_table_insert(hash, (void*)"Sunset:", _("Sunset:"));
-    g_hash_table_insert(hash, (void*)"Last update:", _("Last update:"));
-    g_hash_table_insert(hash, (void*)"Manage locations", _("Manage locations"));
-    g_hash_table_insert(hash, (void*)"Updating forecast", _("Updating forecast"));
-    g_hash_table_insert(hash, (void*)"Temperature units", _("Temperature units"));
-    g_hash_table_insert(hash, (void*)"Wind speed units", _("Wind speed units"));
-    g_hash_table_insert(hash, (void*)"Iconset", _("Iconset"));
-    g_hash_table_insert(hash, (void*)"Iconsets", _("Iconsets"));
-    g_hash_table_insert(hash, (void*)"Set locations", _("Set locations"));
-    g_hash_table_insert(hash, (void*)"No locations are set up yet.", _("No locations are set up yet."));
-    g_hash_table_insert(hash, (void*)"Looks like there's no info for this location.", _("Looks like there's no info for this location."));
-    g_hash_table_insert(hash, (void*)"Try to update", _("Try to update"));
-
     /* weather forecast string */
     g_hash_table_insert(hash, (void*)"AM Clouds / PM Sun", _("AM Clouds / PM Sun"));
     g_hash_table_insert(hash, (void*)"AM Drizzle / Wind", _("AM Drizzle / Wind"));
@@ -36,15 +18,15 @@
     g_hash_table_insert(hash, (void*)"AM Rain", _("AM Rain"));
     g_hash_table_insert(hash, (void*)"AM Showers / Wind", _("AM Showers / Wind"));
     g_hash_table_insert(hash, (void*)"AM Showers", _("AM Showers"));
-    g_hash_table_insert(hash, (void*)"AM Snow Showers", _("AM Snow Showers"));
-    g_hash_table_insert(hash, (void*)"AM Snow Showers / Wind", _("AM Snow Showers / Wind"));
     g_hash_table_insert(hash, (void*)"AM Snow Showers / Wind Late", _("AM Snow Showers / Wind Late"));
+    g_hash_table_insert(hash, (void*)"AM Snow Showers / Wind", _("AM Snow Showers / Wind"));
+    g_hash_table_insert(hash, (void*)"AM Snow Showers", _("AM Snow Showers"));
     g_hash_table_insert(hash, (void*)"AM Snow", _("AM Snow"));
     g_hash_table_insert(hash, (void*)"Blowing Snow", _("Blowing Snow"));    
     g_hash_table_insert(hash, (void*)"CALM", _("CALM"));
     g_hash_table_insert(hash, (void*)"Clear / Wind", _("Clear / Wind"));
-    g_hash_table_insert(hash, (void*)"Clear", _("Clear"));
     g_hash_table_insert(hash, (void*)"Clear Sky", _("Clear Sky"));
+    g_hash_table_insert(hash, (void*)"Clear", _("Clear"));
     g_hash_table_insert(hash, (void*)"Clear, Drifting Snow", _("Clear, Drifting Snow"));
     g_hash_table_insert(hash, (void*)"Clear, Fog, Drizzle", _("Clear, Fog, Drizzle"));
     g_hash_table_insert(hash, (void*)"Clear, Smoke", _("Clear, Smoke"));
@@ -57,6 +39,7 @@
     g_hash_table_insert(hash, (void*)"Cloudy", _("Cloudy"));
     g_hash_table_insert(hash, (void*)"Cloudy, Drifting Snow", _("Cloudy, Drifting Snow"));
     g_hash_table_insert(hash, (void*)"Cloudy, Few Snow", _("Cloudy, Few Snow"));
+    g_hash_table_insert(hash, (void*)"Cloudy, Heavy Rain", _("Cloudy, Heavy Rain"));
     g_hash_table_insert(hash, (void*)"Cloudy, Heavy Rain, T-Storm", _("Cloudy, Heavy Rain, T-Storm"));
     g_hash_table_insert(hash, (void*)"Cloudy, Heavy Snow", _("Cloudy, Heavy Snow"));
     g_hash_table_insert(hash, (void*)"Cloudy, Light Rain", _("Cloudy, Light Rain"));
@@ -65,10 +48,11 @@
     g_hash_table_insert(hash, (void*)"Cloudy, Rain, T-Storm", _("Cloudy, Rain, T-Storm"));
     g_hash_table_insert(hash, (void*)"Cloudy, Smoke", _("Cloudy, Smoke"));
     g_hash_table_insert(hash, (void*)"Cloudy, Snow", _("Cloudy, Snow"));
+    g_hash_table_insert(hash, (void*)"Day length:", _("Day length:"));
     g_hash_table_insert(hash, (void*)"Drifting Snow", _("Drifting Snow"));
     g_hash_table_insert(hash, (void*)"Drizzle / Fog", _("Drizzle / Fog"));
-    g_hash_table_insert(hash, (void*)"Drizzle Late", _("Drizzle Late"));    
     g_hash_table_insert(hash, (void*)"Drizzle Early", _("Drizzle Early"));    
+    g_hash_table_insert(hash, (void*)"Drizzle Late", _("Drizzle Late"));    
     g_hash_table_insert(hash, (void*)"Drizzle", _("Drizzle"));
     g_hash_table_insert(hash, (void*)"E", _("E"));
     g_hash_table_insert(hash, (void*)"ENE", _("ENE"));
@@ -97,9 +81,12 @@
     g_hash_table_insert(hash, (void*)"Heavy Rain", _("Heavy Rain"));
     g_hash_table_insert(hash, (void*)"Heavy Snow", _("Heavy Snow"));
     g_hash_table_insert(hash, (void*)"High", _("High"));
+    g_hash_table_insert(hash, (void*)"Iconset", _("Iconset"));
+    g_hash_table_insert(hash, (void*)"Iconsets", _("Iconsets"));
     g_hash_table_insert(hash, (void*)"Isolated T-Storms / Wind", _("Isolated T-Storms / Wind"));
     g_hash_table_insert(hash, (void*)"Isolated T-Storms", _("Isolated T-Storms"));
     g_hash_table_insert(hash, (void*)"Last Quarter", _("Last Quarter"));
+    g_hash_table_insert(hash, (void*)"Last update:", _("Last update:"));
     g_hash_table_insert(hash, (void*)"Lawn and Garden Weather", _("Lawn and Garden Weather"));
     g_hash_table_insert(hash, (void*)"Light Drizzle", _("Light Drizzle"));
     g_hash_table_insert(hash, (void*)"Light Freezing Rain", _("Light Freezing Rain"));
@@ -121,17 +108,19 @@
     g_hash_table_insert(hash, (void*)"Light Snow Shower", _("Light Snow Shower"));
     g_hash_table_insert(hash, (void*)"Light Snow", _("Light Snow"));
     g_hash_table_insert(hash, (void*)"Local Pollen Reports", _("Local Pollen Reports"));
+    g_hash_table_insert(hash, (void*)"Looks like there's no info for this location.", _("Looks like there's no info for this location."));
     g_hash_table_insert(hash, (void*)"Low", _("Low"));
+    g_hash_table_insert(hash, (void*)"Manage locations", _("Manage locations"));
     g_hash_table_insert(hash, (void*)"Mist", _("Mist"));
     g_hash_table_insert(hash, (void*)"Mostly Clear", _("Mostly Clear"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy  and  Windy", _("Mostly Cloudy and Windy"));
-    g_hash_table_insert(hash, (void*)"Mostly Cloudy and  Windy", _("Mostly Cloudy and Windy"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy / Wind", _("Mostly Cloudy / Wind"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy Few Snow", _("Mostly Cloudy Few Snow"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy Light Rain", _("Mostly Cloudy Light Rain"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy Rain", _("Mostly Cloudy Rain"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy Snow", _("Mostly Cloudy Snow"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy T-Storm", _("Mostly Cloudy T-Storm"));
+    g_hash_table_insert(hash, (void*)"Mostly Cloudy and  Windy", _("Mostly Cloudy and Windy"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy", _("Mostly Cloudy"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy, Drifting Snow", _("Mostly Cloudy, Drifting Snow"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy, Few Snow", _("Mostly Cloudy, Few Snow"));
@@ -163,6 +152,7 @@
     g_hash_table_insert(hash, (void*)"NW_short", _("NW_short"));
     g_hash_table_insert(hash, (void*)"N_short", _("N_short"));
     g_hash_table_insert(hash, (void*)"New", _("New"));
+    g_hash_table_insert(hash, (void*)"No locations are set up yet.", _("No locations are set up yet."));
     g_hash_table_insert(hash, (void*)"Overcast", _("Overcast"));
     g_hash_table_insert(hash, (void*)"PM Fog", _("PM Fog"));
     g_hash_table_insert(hash, (void*)"PM Light Rain / Wind", _("PM Light Rain / Wind"));
@@ -174,11 +164,10 @@
     g_hash_table_insert(hash, (void*)"PM Rain", _("PM Rain"));
     g_hash_table_insert(hash, (void*)"PM Showers / Wind", _("PM Showers / Wind"));
     g_hash_table_insert(hash, (void*)"PM Showers", _("PM Showers"));
-    g_hash_table_insert(hash, (void*)"PM Snow Showers", _("PM Snow Showers"));
     g_hash_table_insert(hash, (void*)"PM Snow Showers / Wind", _("PM Snow Showers / Wind"));
+    g_hash_table_insert(hash, (void*)"PM Snow Showers", _("PM Snow Showers"));
     g_hash_table_insert(hash, (void*)"PM T-Showers", _("PM T-Showers"));
     g_hash_table_insert(hash, (void*)"PM T-Storms", _("PM T-Storms"));
-    g_hash_table_insert(hash, (void*)"Partly Cloudy", _("Partly Cloudy"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy / Wind", _("Partly Cloudy / Wind"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy Few Snow", _("Partly Cloudy Few Snow"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy Light Rain", _("Partly Cloudy Light Rain"));
@@ -188,9 +177,10 @@
     g_hash_table_insert(hash, (void*)"Partly Cloudy, Few Snow", _("Partly Cloudy, Few Snow"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy, Haze", _("Partly Cloudy, Haze"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy, Heavy Rain", _("Partly Cloudy, Heavy Rain"));
+    g_hash_table_insert(hash, (void*)"Partly Cloudy, Heavy Rain, T-Storm", _("Partly Cloudy, Heavy Rain, T-Storm"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy, Heavy Snow", _("Partly Cloudy, Heavy Snow"));
-    g_hash_table_insert(hash, (void*)"Partly Cloudy, Light Rain, T-Storm", _("Partly Cloudy, Light Rain, T-Storm"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy, Light Rain", _("Partly Cloudy, Light Rain"));
+    g_hash_table_insert(hash, (void*)"Partly Cloudy, Light Rain, T-Storm", _("Partly Cloudy, Light Rain, T-Storm"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy, Rain", _("Partly Cloudy, Rain"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy, Rain, T-Storm", _("Partly Cloudy, Rain, T-Storm"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy, Smoke", _("Partly Cloudy, Smoke"));
@@ -231,6 +221,7 @@
     g_hash_table_insert(hash, (void*)"Scattered Snow Showers", _("Scattered Snow Showers"));
     g_hash_table_insert(hash, (void*)"Scattered Snow", _("Scattered Snow"));
     g_hash_table_insert(hash, (void*)"Scattered T-Storms", _("Scattered T-Storms"));
+    g_hash_table_insert(hash, (void*)"Set locations", _("Set locations"));
     g_hash_table_insert(hash, (void*)"Showers / Wind Early", _("Showers / Wind Early"));
     g_hash_table_insert(hash, (void*)"Showers / Wind", _("Showers / Wind"));
     g_hash_table_insert(hash, (void*)"Showers Early", _("Showers Early"));
@@ -252,14 +243,19 @@
     g_hash_table_insert(hash, (void*)"Storm", _("Storm"));
     g_hash_table_insert(hash, (void*)"Sunny / Wind", _("Sunny / Wind"));
     g_hash_table_insert(hash, (void*)"Sunny", _("Sunny"));
+    g_hash_table_insert(hash, (void*)"Sunrise:", _("Sunrise:"));
+    g_hash_table_insert(hash, (void*)"Sunset:", _("Sunset:"));
     g_hash_table_insert(hash, (void*)"T-Showers Early", _("T-Showers Early"));
     g_hash_table_insert(hash, (void*)"T-Showers", _("T-Showers"));
     g_hash_table_insert(hash, (void*)"T-Storm", _("T-Storm"));
     g_hash_table_insert(hash, (void*)"T-Storms Early", _("T-Storms Early"));
-    g_hash_table_insert(hash, (void*)"T-Storms", _("T-Storms"));
     g_hash_table_insert(hash, (void*)"T-Storms Late", _("T-Storms Late"));
+    g_hash_table_insert(hash, (void*)"T-Storms", _("T-Storms"));
+    g_hash_table_insert(hash, (void*)"Temperature units", _("Temperature units"));
     g_hash_table_insert(hash, (void*)"Thunder", _("Thunder"));
+    g_hash_table_insert(hash, (void*)"Try to update", _("Try to update"));
     g_hash_table_insert(hash, (void*)"Unlimited", _("Unlimited"));
+    g_hash_table_insert(hash, (void*)"Updating forecast", _("Updating forecast"));
     g_hash_table_insert(hash, (void*)"VAR", _("VAR"));
     g_hash_table_insert(hash, (void*)"Very High", _("Very High"));
     g_hash_table_insert(hash, (void*)"W", _("W"));
@@ -272,6 +268,9 @@
     g_hash_table_insert(hash, (void*)"Waning Gibbous", _("Waning Gibbous"));
     g_hash_table_insert(hash, (void*)"Waxing Crescent", _("Waxing Crescent"));
     g_hash_table_insert(hash, (void*)"Waxing Gibbous", _("Waxing Gibbous"));
+    g_hash_table_insert(hash, (void*)"Wind direction:", _("Wind direction:"));
+    g_hash_table_insert(hash, (void*)"Wind speed units", _("Wind speed units"));
+    g_hash_table_insert(hash, (void*)"Wind speed", _("Wind speed"));
     g_hash_table_insert(hash, (void*)"Wind", _("Wind"));
     g_hash_table_insert(hash, (void*)"Wintry Mix / Wind Early", _("Wintry Mix / Wind Early"));
     g_hash_table_insert(hash, (void*)"Wintry Mix / Wind", _("Wintry Mix / Wind"));
@@ -294,5 +293,3 @@
     g_hash_table_insert(hash, (void*)"Ю", _("Ю"));
     g_hash_table_insert(hash, (void*)"Ю-В", _("Ю-В"));
     g_hash_table_insert(hash, (void*)"Ю-З", _("Ю-З"));
-    g_hash_table_insert(hash, (void*)"Partly Cloudy, Heavy Rain, T-Storm", _("Partly Cloudy, Heavy Rain, T-Storm"));
-    g_hash_table_insert(hash, (void*)"Cloudy, Heavy Rain", _("Cloudy, Heavy Rain"));

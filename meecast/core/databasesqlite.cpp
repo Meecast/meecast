@@ -224,8 +224,35 @@ DatabaseSqlite::create_stations_list(int region_id)
     return list;
 }
 
+#define PI   (3.14159265358979323846)
+#define EARTH_RADIUS (3443.91847)
+#define deg2rad(deg) ((deg) * (PI / 180.0))
+/*******************************************************************************/
+double
+DatabaseSqlite::calculate_distance(double lat1, double lon1, double lat2,
+                   double lon2) {
+    double dlat, dlon, slat, slon, a;
+
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    /* Convert to radians. */
+    lat1 = deg2rad(lat1);
+    lon1 = deg2rad(lon1);
+    lat2 = deg2rad(lat2);
+    lon2 = deg2rad(lon2);
+
+    dlat = lat2 - lat1;
+    dlon = lon2 - lon1;
+
+    slat = sin(dlat / 2.0F);
+    slon = sin(dlon / 2.0F);
+    a = (slat * slat) + (cos(lat1) * cos(lat2) * slon * slon);
+    return ((2.0F * atan2(sqrt(a), sqrt(1.0F - a))) * EARTH_RADIUS);
+}
+
 void
-DatabaseSqlite::get_nearest_station(double lat, double lon)
+DatabaseSqlite::get_nearest_station(double lat, double lon, char country[], char region[], char code[], char name[])
 {
     char sql[256];
     int rc;
@@ -235,6 +262,7 @@ DatabaseSqlite::get_nearest_station(double lat, double lon)
     double  distance,
             min_distance = 40000.0;
     listdata* stations_list;
+    //char country[50], region[50], code[50], name[50];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -242,7 +270,10 @@ DatabaseSqlite::get_nearest_station(double lat, double lon)
         return; /* database doesn't open */
     snprintf(sql,
              sizeof(sql) - 1,
-             "SELECT id, name FROM regions WHERE latitudemax>%f and latitudemin<%f and longititudemax>%f and longititudemin<%f",
+             "SELECT regions.name, stations.code, stations.name, stations.latitude, stations.longititude, countries.name\
+             FROM regions left join stations on regions.id=stations.region_id \
+             left join countries on regions.country_id=countries.id \
+             WHERE regions.latitudemax>%f and regions.latitudemin<%f and regions.longititudemax>%f and regions.longititudemin<%f",
              lat, lat, lon, lon);
     rc = sqlite3_get_table(db,
                            sql,
@@ -255,20 +286,26 @@ DatabaseSqlite::get_nearest_station(double lat, double lon)
         std::cerr << errMsg << std::endl;
 #endif
         sqlite3_free(errMsg);
-        return NULL;
+        return;
     }
-    for (int i=0; i<ncol*nrow; i=i+2){
-        /* id_region = result[ncol+i]
-           name_region = result[ncol+i+1]
-        */
-        stations_list = create_stations_list(result[ncol+i]);
+    for (int i=0; i<ncol*nrow; i=i+6){
+        distance = calculate_distance(lat, lon, atoi(result[ncol+i+3]), atoi(result[ncol+i+4]));
+        if (distance < min_distance){
+            min_distance = distance;
+            //snprintf(country, siziof(country)-1, "%s", result[ncol+i+5]);
+            strcpy(country, result[ncol+i+5]);
+            strcpy(region, result[ncol+i+0]);
+            strcpy(code, result[ncol+i+1]);
+            strcpy(region, result[ncol+i+2]);
+        }
+
     }
     sqlite3_free_table(result);
 
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
-    //return list;
+
 }
 
 }// namespace Core

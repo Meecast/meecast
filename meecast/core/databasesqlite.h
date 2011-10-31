@@ -39,6 +39,8 @@
 #include <stdlib.h>
 #include <vector>
 #include <stdio.h>
+#include <string.h>
+#include <math.h>
 
 #include "databaseabstract.h"
 
@@ -51,6 +53,7 @@ class DatabaseSqlite : public DatabaseAbstract
 private:
     sqlite3 *db;
     std::string *databasename;
+    double calculate_distance(double lat1, double lon1, double lat2, double lon2);
 
 public:
     DatabaseSqlite(const std::string& filename);
@@ -60,7 +63,7 @@ public:
     listdata* create_countries_list();
     listdata* create_region_list(int country_id);
     listdata* create_stations_list(int region_id);
-    void get_nearest_station(double lat, double lon);
+    void get_nearest_station(double lat, double lon, char country[], char region[], char code[], char name[]);
 };
 } // namespace Core
 

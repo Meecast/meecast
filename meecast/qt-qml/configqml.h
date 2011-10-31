@@ -136,6 +136,7 @@ private:
     int getRegionId(int country, int index);
     QString getCityId(int region_id, int index);
     QStringList wind_list;
+
 private slots:
     void downloadFinishedSlot();
 

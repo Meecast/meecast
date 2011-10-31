@@ -572,31 +572,34 @@ ConfigQml::tr(QString str)
 void
 ConfigQml::enableGps()
 {
-    GpsPosition *gps = new GpsPosition();
+    //GpsPosition *gps = new GpsPosition();
     qDebug() << "create gps, add slot";
-    connect(gps, SIGNAL(findCoord(double, double)), this, SLOT(addGpsStation(double, double)));
+    //connect(gps, SIGNAL(findCoord(double, double)), this, SLOT(addGpsStation(double, double)));
+    addGpsStation(55.1882, 30.2177);
 }
 void
 ConfigQml::addGpsStation(double latitude, double longitude)
 {
-    Core::DatabaseSqlite *db_w;
+    Core::DatabaseSqlite *db_w = new Core::DatabaseSqlite("");
     char country[50], region[50], code[50], name[50];
     qDebug() << "gggggggggg lat=" << latitude << " lon" << longitude;
     std::string path(Core::AbstractConfig::prefix);
     path += Core::AbstractConfig::sharePath;
     path += "db/";
-    QString filename("weather.com");
+    qDebug() << "path=" << QString::fromStdString(path);
+    QString filename = "weather.com";
     filename.append(".db");
     filename.prepend(path.c_str());
+    qDebug() << "filename=" << filename;
     db_w->set_databasename(filename.toStdString());
     qDebug() << "filename=" << filename;
     if (!db_w->open_database()){
         qDebug() << "error open database";
         return;
     }
-
+    qDebug() << "open database ok";
     db_w->get_nearest_station(latitude, longitude, country, region, code, name);
-    qDebug() << name;
+    qDebug() << "find station " << name;
 
     //saveStation1();
 }

@@ -275,6 +275,7 @@ DatabaseSqlite::get_nearest_station(double lat, double lon, char country[], char
              left join countries on regions.country_id=countries.id \
              WHERE regions.latitudemax>%f and regions.latitudemin<%f and regions.longititudemax>%f and regions.longititudemin<%f",
              lat, lat, lon, lon);
+    std::cerr << "sql = " << sql << std::endl;
     rc = sqlite3_get_table(db,
                            sql,
                            &result,
@@ -288,19 +289,28 @@ DatabaseSqlite::get_nearest_station(double lat, double lon, char country[], char
         sqlite3_free(errMsg);
         return;
     }
+    std::cerr << (ncol*nrow) << " " << ncol << " " << nrow  << std::endl;
     for (int i=0; i<ncol*nrow; i=i+6){
+        std::cerr << "aaaaaa " << i << std::endl;
+        std::cerr << result[ncol+i+0] << std::endl;
+        std::cerr << result[ncol+i+1] << std::endl;
+        std::cerr << result[ncol+i+2] << std::endl;
+        std::cerr << result[ncol+i+3] << std::endl;
+        std::cerr << result[ncol+i+4] << std::endl;
         distance = calculate_distance(lat, lon, atoi(result[ncol+i+3]), atoi(result[ncol+i+4]));
         if (distance < min_distance){
+            std::cerr << result[ncol+i+2] << std::endl;
             min_distance = distance;
-            //snprintf(country, siziof(country)-1, "%s", result[ncol+i+5]);
             strcpy(country, result[ncol+i+5]);
             strcpy(region, result[ncol+i+0]);
             strcpy(code, result[ncol+i+1]);
-            strcpy(region, result[ncol+i+2]);
-        }
+            strcpy(name, result[ncol+i+2]);
+            std::cerr << code << country << region << name << std::endl;
 
+        }
     }
     sqlite3_free_table(result);
+    std::cerr << "end function" << std::endl;
 
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

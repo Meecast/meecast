@@ -263,7 +263,7 @@ Config::LoadConfig(){
         nodelist = root.elementsByTagName("station");
         for (int i=0; i<nodelist.count(); i++){
             QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL;
-            bool gps;
+            bool gps = false;
             QDomElement e = nodelist.at(i).toElement();
             QDomNode n = e.firstChild();
             while (!n.isNull()){
@@ -288,11 +288,8 @@ Config::LoadConfig(){
                     viewURL = el.text();
                 else if (tag == "converter")
                     converter = el.text();
-                else if (tag == "gps"){
-                    if (el.text() == "true")
-                        gps = true;
-                    else gps = false;
-                }
+                else if (tag == "gps")
+                    gps = (el.text() == "true") ? true : false;
                 n = n.nextSibling();
             }
 /* Hack for yr.no */

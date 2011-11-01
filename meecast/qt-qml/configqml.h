@@ -133,6 +133,7 @@ public Q_SLOTS:
 private:
     Core::DatabaseSqlite *db;
     UpdateThread *thread;
+    GpsPosition *_gps;
     int getCountryId(int index);
     int getRegionId(int country, int index);
     int getGpsStation();

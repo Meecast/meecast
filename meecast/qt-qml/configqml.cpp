@@ -38,14 +38,18 @@ ConfigQml::ConfigQml(const std::string& filename, const std::string& schema_file
     thread = new UpdateThread();
     connect(thread, SIGNAL(finished()), this, SLOT(downloadFinishedSlot()));
 
+    _gps = NULL;
+
     wind_list << "m/s" << "km/h" << "mi/h";
 }
 
 ConfigQml::ConfigQml():QObject(),Core::Config(){
-db = new Core::DatabaseSqlite("");
+    db = new Core::DatabaseSqlite("");
 
     thread = new UpdateThread();
     connect(thread, SIGNAL(finished()), this, SLOT(downloadFinishedSlot()));
+
+    _gps = NULL;
 
     wind_list << "m/s" << "km/h" << "mi/h";
 }
@@ -186,6 +190,8 @@ ConfigQml::setgps(bool c)
     if (c)
         enableGps();
     else {
+        if (_gps)
+            delete _gps;
         /* find exist gps station */
         int index = getGpsStation();
         if (index > -1){
@@ -586,9 +592,11 @@ ConfigQml::tr(QString str)
 void
 ConfigQml::enableGps()
 {
-    GpsPosition *gps = new GpsPosition();
-    qDebug() << "create gps, add slot";
-    connect(gps, SIGNAL(findCoord(double, double)), this, SLOT(addGpsStation(double, double)));
+    if (!_gps) {
+        _gps = new GpsPosition();
+        qDebug() << "create gps, add slot";
+        connect(_gps, SIGNAL(findCoord(double, double)), this, SLOT(addGpsStation(double, double)));
+    }
     //addGpsStation(55.1882, 30.2177);
 }
 void

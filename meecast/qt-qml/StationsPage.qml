@@ -99,6 +99,7 @@ Page {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
                 onCheckedChanged: {
+                    console.log("swithc checked changed");
                     Config.setgps(gps.checked);
                 }
                 //platformStyle: SwitchStyle {inverted: true}

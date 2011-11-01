@@ -337,7 +337,8 @@ ConfigQml::Cities(int country_index, int index)
     return l;
 }
 void
-ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QString country, QString source, int source_id)
+ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QString country,
+                        QString source, int source_id, bool gps)
 {
     Core::Station *station;
     std::string code = city_id.toStdString();
@@ -361,7 +362,8 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
                 country.toStdString(),
                 region.toStdString(),
                 forecast_url,
-                view_url);
+                view_url,
+                gps);
     std::string filename(Core::AbstractConfig::getConfigPath());
     filename += source.toStdString();
     filename += "_";
@@ -407,7 +409,8 @@ ConfigQml::saveStation(int city_id, QString city,
                 country.toStdString(),
                 region.toStdString(),
                 forecast_url,
-                view_url);
+                view_url,
+                false);
     std::string filename(Core::AbstractConfig::getConfigPath());
     filename += source.toStdString();
     filename += "_";
@@ -608,5 +611,5 @@ ConfigQml::addGpsStation(double latitude, double longitude)
     }
 
     saveStation1(QString::fromStdString(code), QString::fromStdString(name)+" (GPS)", QString::fromStdString(region),
-                 QString::fromStdString(country), "weather.com", source_id);
+                 QString::fromStdString(country), "weather.com", source_id, true);
 }

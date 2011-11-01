@@ -37,7 +37,7 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const std::string& source_name, const std::string& id, const std::string& name,
                      const std::string& country, const std::string& region, const std::string& forecastURL,
-                     const std::string& viewURL){
+                     const std::string& viewURL, const bool gps){
         _sourceName = new std::string(source_name);
         _id = new std::string(id);
         _name = new std::string(name);
@@ -49,6 +49,7 @@ namespace Core {
         _fileName = new std::string();
         _source = this->getSourceByName();
         _converter = new std::string();
+        _gps = gps;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::~Station(){
@@ -79,6 +80,7 @@ namespace Core {
         _viewURL = new std::string(*(station._viewURL));
         _fileName = new std::string(*(station._fileName));
         _converter = new std::string(*(station._converter));
+        _gps = station._gps;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station& Station::operator=(const Station& station){
@@ -181,6 +183,15 @@ namespace Core {
     ////////////////////////////////////////////////////////////////////////////////
     std::string& Station::converter() const{
         return *_converter;
+    }
+    ////////////////////////////////////////////////////////////////////////////////
+    void Station::gps(const bool gps)
+    {
+        _gps = gps;
+    }
+    ////////////////////////////////////////////////////////////////////////////////
+    bool Station::gps() const{
+        return _gps;
     }
 ////////////////////////////////////////////////////////////////////////////////
     bool Station::dataValid(){

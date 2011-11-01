@@ -166,6 +166,14 @@ Config::saveConfig()
         el.appendChild(t);
         st.appendChild(el);
 
+        el = doc.createElement("gps");
+        if ((*i)->gps() == false)
+            t = doc.createTextNode("false");
+        else
+            t = doc.createTextNode("true");
+        el.appendChild(t);
+        st.appendChild(el);
+
         root.appendChild(st);
         ++i;
     }
@@ -255,6 +263,7 @@ Config::LoadConfig(){
         nodelist = root.elementsByTagName("station");
         for (int i=0; i<nodelist.count(); i++){
             QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL;
+            bool gps;
             QDomElement e = nodelist.at(i).toElement();
             QDomNode n = e.firstChild();
             while (!n.isNull()){
@@ -279,6 +288,11 @@ Config::LoadConfig(){
                     viewURL = el.text();
                 else if (tag == "converter")
                     converter = el.text();
+                else if (tag == "gps"){
+                    if (el.text() == "true")
+                        gps = true;
+                    else gps = false;
+                }
                 n = n.nextSibling();
             }
 /* Hack for yr.no */
@@ -293,7 +307,8 @@ Config::LoadConfig(){
                                       country.toStdString(),
                                       region.toStdString(),
                                       forecastURL.toStdString(),
-                                      viewURL.toStdString());
+                                      viewURL.toStdString(),
+                                      gps);
             st->fileName(fileName.toStdString());
             st->converter(converter.toStdString());
             _stations->push_back(st);

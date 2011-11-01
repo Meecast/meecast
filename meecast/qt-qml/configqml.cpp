@@ -572,16 +572,15 @@ ConfigQml::tr(QString str)
 void
 ConfigQml::enableGps()
 {
-    //GpsPosition *gps = new GpsPosition();
+    GpsPosition *gps = new GpsPosition();
     qDebug() << "create gps, add slot";
-    //connect(gps, SIGNAL(findCoord(double, double)), this, SLOT(addGpsStation(double, double)));
-    addGpsStation(55.1882, 30.2177);
+    connect(gps, SIGNAL(findCoord(double, double)), this, SLOT(addGpsStation(double, double)));
+    //addGpsStation(55.1882, 30.2177);
 }
 void
 ConfigQml::addGpsStation(double latitude, double longitude)
 {
     Core::DatabaseSqlite *db_w = new Core::DatabaseSqlite("");
-    //char country[50], region[50], code[50], name[50];
     std::string country, region, code, name;
     int source_id = 0;
     qDebug() << "gggggggggg lat=" << latitude << " lon" << longitude;

@@ -39,7 +39,6 @@
 #include <stdlib.h>
 #include <vector>
 #include <stdio.h>
-#include <string.h>
 #include <math.h>
 
 #include "databaseabstract.h"
@@ -63,7 +62,6 @@ public:
     listdata* create_countries_list();
     listdata* create_region_list(int country_id);
     listdata* create_stations_list(int region_id);
-    //void get_nearest_station(double lat, double lon, char country[], char region[], char code[], char name[]);
     void get_nearest_station(double lat, double lon, std::string& country, std::string& region, std::string& code, std::string& name);
 };
 } // namespace Core

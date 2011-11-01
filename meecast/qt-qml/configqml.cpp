@@ -582,6 +582,7 @@ ConfigQml::addGpsStation(double latitude, double longitude)
 {
     Core::DatabaseSqlite *db_w = new Core::DatabaseSqlite("");
     char country[50], region[50], code[50], name[50];
+    int source_id = 0;
     qDebug() << "gggggggggg lat=" << latitude << " lon" << longitude;
     std::string path(Core::AbstractConfig::prefix);
     path += Core::AbstractConfig::sharePath;
@@ -597,5 +598,15 @@ ConfigQml::addGpsStation(double latitude, double longitude)
     db_w->get_nearest_station(latitude, longitude, country, region, code, name);
     qDebug() << "find station " << name;
 
-    //saveStation1();
+    path = Core::AbstractConfig::prefix;
+    path += Core::AbstractConfig::sourcesPath;
+    Core::SourceList *sourcelist = new Core::SourceList(path);
+
+    for (int i=0; i < sourcelist->size(); i++){
+        if (sourcelist->at(i)->name() == "weather.com")
+            source_id = i;
+    }
+
+    saveStation1(QString::fromStdString(code), QString::fromStdString(name)+" (gps)", QString::fromStdString(region),
+                 QString::fromStdString(country), "weather.com", source_id);
 }

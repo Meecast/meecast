@@ -180,8 +180,19 @@ ConfigQml::gps()
 void
 ConfigQml::setgps(bool c)
 {
+    /* if gps option changed */
+    if (c == ConfigQml::Config::Gps())
+        return;
     if (c)
         enableGps();
+    else {
+        /* find exist gps station */
+        int index = getGpsStation();
+        if (index > -1){
+            /* delete gps station */
+            removeStation(index);
+        }
+    }
     ConfigQml::Config::Gps(c);
     saveConfig();
     refreshconfig();
@@ -612,4 +623,15 @@ ConfigQml::addGpsStation(double latitude, double longitude)
 
     saveStation1(QString::fromStdString(code), QString::fromStdString(name)+" (GPS)", QString::fromStdString(region),
                  QString::fromStdString(country), "weather.com", source_id, true);
+}
+
+int
+ConfigQml::getGpsStation()
+{
+    int index = -1;
+    for (unsigned int i=0; i<stationsList().size(); i++){
+        if (stationsList().at(i)->gps() == true)
+            index = i;
+    }
+    return index;
 }

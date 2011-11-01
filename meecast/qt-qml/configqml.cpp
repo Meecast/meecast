@@ -572,16 +572,17 @@ ConfigQml::tr(QString str)
 void
 ConfigQml::enableGps()
 {
-    GpsPosition *gps = new GpsPosition();
+    //GpsPosition *gps = new GpsPosition();
     qDebug() << "create gps, add slot";
-    connect(gps, SIGNAL(findCoord(double, double)), this, SLOT(addGpsStation(double, double)));
-    //addGpsStation(55.1882, 30.2177);
+    //connect(gps, SIGNAL(findCoord(double, double)), this, SLOT(addGpsStation(double, double)));
+    addGpsStation(55.1882, 30.2177);
 }
 void
 ConfigQml::addGpsStation(double latitude, double longitude)
 {
     Core::DatabaseSqlite *db_w = new Core::DatabaseSqlite("");
-    char country[50], region[50], code[50], name[50];
+    //char country[50], region[50], code[50], name[50];
+    std::string country, region, code, name;
     int source_id = 0;
     qDebug() << "gggggggggg lat=" << latitude << " lon" << longitude;
     std::string path(Core::AbstractConfig::prefix);
@@ -596,17 +597,17 @@ ConfigQml::addGpsStation(double latitude, double longitude)
         return;
     }
     db_w->get_nearest_station(latitude, longitude, country, region, code, name);
-    qDebug() << "find station " << name;
+    qDebug() << "find station " << name.c_str();
 
     path = Core::AbstractConfig::prefix;
     path += Core::AbstractConfig::sourcesPath;
     Core::SourceList *sourcelist = new Core::SourceList(path);
 
     for (int i=0; i < sourcelist->size(); i++){
-        if (sourcelist->at(i)->name() == "weather.com")
+        if (sourcelist->at(i)->name().compare("weather.com") == 0)
             source_id = i;
     }
 
-    saveStation1(QString::fromStdString(code), QString::fromStdString(name)+" (gps)", QString::fromStdString(region),
+    saveStation1(QString::fromStdString(code), QString::fromStdString(name)+" (GPS)", QString::fromStdString(region),
                  QString::fromStdString(country), "weather.com", source_id);
 }

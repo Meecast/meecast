@@ -252,7 +252,8 @@ DatabaseSqlite::calculate_distance(double lat1, double lon1, double lat2,
 }
 
 void
-DatabaseSqlite::get_nearest_station(double lat, double lon, char country[], char region[], char code[], char name[])
+//DatabaseSqlite::get_nearest_station(double lat, double lon, char country[], char region[], char code[], char name[])
+DatabaseSqlite::get_nearest_station(double lat, double lon, std::string& country, std::string& region, std::string& code, std::string& name)
 {
     char sql[512];
     int rc;
@@ -306,10 +307,14 @@ DatabaseSqlite::get_nearest_station(double lat, double lon, char country[], char
         if (distance < min_distance){
             std::cerr << result[ncol+i+2] << std::endl;
             min_distance = distance;
-            strcpy(country, result[ncol+i+5]);
-            strcpy(region, result[ncol+i+0]);
-            strcpy(code, result[ncol+i+1]);
-            strcpy(name, result[ncol+i+2]);
+            //strcpy(country, result[ncol+i+5]);
+            //strcpy(region, result[ncol+i+0]);
+            //strcpy(code, result[ncol+i+1]);
+            //strcpy(name, result[ncol+i+2]);
+            country = result[ncol+i+5];
+            region = result[ncol+i+0];
+            code = result[ncol+i+1];
+            name = result[ncol+i+2];
             //std::cerr << code << country << region << name << std::endl;
 
         }

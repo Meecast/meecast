@@ -2,7 +2,7 @@ meecast (0.4.2) unstable; urgency=low
 
   * Fixed problem with first day of month for weather.com
   * Updated Germany and Finish translations 
-  * Added stations in yr.no database (Poland)
+  * Added stations in yr.no database (Poland, Australia)
   * Enabled russian names for stations of source gismeteo.ru in locale RU
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 23 Oct 2011 09:24:20 +0200

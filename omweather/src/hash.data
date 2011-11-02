@@ -61,6 +61,7 @@
     g_hash_table_insert(hash, (void*)"ESE_short", _("ESE_short"));
     g_hash_table_insert(hash, (void*)"E_short", _("E_short"));
     g_hash_table_insert(hash, (void*)"Extreme", _("Extreme"));
+    g_hash_table_insert(hash, (void*)"Exit", _("Exit"));
     g_hash_table_insert(hash, (void*)"Fair", _("Fair"));
     g_hash_table_insert(hash, (void*)"Few Showers / Wind", _("Few Showers / Wind"));
     g_hash_table_insert(hash, (void*)"Few Showers", _("Few Showers"));

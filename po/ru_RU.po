@@ -507,9 +507,8 @@ msgid "Cloudy, Snow"
 msgstr "Облачно, Cнег"
 
 #: meecast/qt-qml/StationsPage.qml:74
-#, fuzzy
 msgid "Confirmation"
-msgstr "Анимация"
+msgstr "Подтверждение"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:413
 msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
@@ -704,7 +703,7 @@ msgstr "Ошибка при инициализации апплета."
 
 #: omweather/src/hash.data:64
 msgid "Exit"
-msgstr ""
+msgstr "Выход"
 
 #: omweather/src/weather-simple-settings.c:1892
 #: omweather/src/weather-simple-settings.c:2771

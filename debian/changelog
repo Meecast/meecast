@@ -4,6 +4,7 @@ meecast (0.4.2) unstable; urgency=low
   * Updated Germany and Finish translations 
   * Added stations in yr.no database (Poland, Australia)
   * Enabled russian names for stations of source gismeteo.ru in locale RU
+  * Fixed bug #12482  Missing translation for 'Exit' menu item (Fremantle)
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 23 Oct 2011 09:24:20 +0200
 

@@ -604,6 +604,7 @@ ConfigQml::addGpsStation(double latitude, double longitude)
 {
     Core::DatabaseSqlite *db_w = new Core::DatabaseSqlite("");
     std::string country, region, code, name;
+    int index;
     int source_id = 0;
     qDebug() << "gggggggggg lat=" << latitude << " lon" << longitude;
     std::string path(Core::AbstractConfig::prefix);
@@ -620,6 +621,21 @@ ConfigQml::addGpsStation(double latitude, double longitude)
     db_w->get_nearest_station(latitude, longitude, country, region, code, name);
     qDebug() << "find station " << name.c_str();
 
+    index = getGpsStation();
+    if (index > -1){ /* gps station already exist */
+        if (code.compare(stationsList().at(index)->id()) != 0){ /* found another station */
+            stationsList().erase(stationsList().begin() + index); /* delete previous gps station */
+            qDebug() << "FOUND NEW STATION, DELETE PREV";
+        }else {
+            /* found the same station, do nothing */
+            qDebug() << "FOUND THE SAME STATION";
+            return;
+        }
+    }else {
+        qDebug() << "FOUND FIRST GPS STATION";
+    }
+
+    /* save new gps station */
     path = Core::AbstractConfig::prefix;
     path += Core::AbstractConfig::sourcesPath;
     Core::SourceList *sourcelist = new Core::SourceList(path);
@@ -631,6 +647,9 @@ ConfigQml::addGpsStation(double latitude, double longitude)
 
     saveStation1(QString::fromStdString(code), QString::fromStdString(name)+" (GPS)", QString::fromStdString(region),
                  QString::fromStdString(country), "weather.com", source_id, true);
+    qDebug() << "SAVE GPS STATION";
+
+    /* TODO: save gps station's coordinates */
 }
 
 int

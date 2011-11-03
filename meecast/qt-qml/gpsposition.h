@@ -7,6 +7,7 @@
 //#include <qmobilityglobal.h>
 #include <QGeoPositionInfoSource>
 #include <QGeoCoordinate>
+#include <QTimer>
 
 QTM_USE_NAMESPACE
 
@@ -20,12 +21,14 @@ public:
     double longitude;
 private:
     QGeoPositionInfoSource * _location;
+    bool _isUpdated;
+    QTimer *_timer;
 signals:
     void findCoord(double latitude, double longitude);
 
 private slots:
     void positionUpdated(QGeoPositionInfo info);
-
+    void timeout();
 };
 
 #endif // GPSPOSITION_H

@@ -9,6 +9,7 @@ Page {
     objectName: "stationspage"
     property int margin: 16
     property int removedStation: -1
+    property string removedStationName: ""
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"
@@ -71,10 +72,10 @@ Page {
         }
         QueryDialog {
             id: confirm
-            titleText: Config.tr("Confirmation")
-            message: Config.tr("Just remove it?")
-            acceptButtonText: Config.tr("Remove")
-            rejectButtonText: Config.tr("Not remove");
+            titleText: Config.tr("Delete location?")
+            message: removedStationName
+            acceptButtonText: Config.tr("Yes")
+            rejectButtonText: Config.tr("No");
             onAccepted: {
                 if (removedStation > -1){
                     Config.removeStation(removedStation);
@@ -128,6 +129,7 @@ Page {
                     width: 50
                     onClicked: {
                         removedStation = index;
+                        removedStationName = modelData;
                         confirm.open();
                     }
                 }

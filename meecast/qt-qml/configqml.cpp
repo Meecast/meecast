@@ -41,6 +41,11 @@ ConfigQml::ConfigQml(const std::string& filename, const std::string& schema_file
     _gps = NULL;
 
     wind_list << "m/s" << "km/h" << "mi/h";
+
+    if (gps()){
+        _gps = new GpsPosition();
+        _gps->startTimer();
+    }
 }
 
 ConfigQml::ConfigQml():QObject(),Core::Config(){
@@ -52,6 +57,11 @@ ConfigQml::ConfigQml():QObject(),Core::Config(){
     _gps = NULL;
 
     wind_list << "m/s" << "km/h" << "mi/h";
+
+    if (gps()){
+        _gps = new GpsPosition();
+        _gps->startTimer();
+    }
 }
 
 QString
@@ -596,6 +606,7 @@ ConfigQml::enableGps()
 {
     if (!_gps) {
         _gps = new GpsPosition();
+        _gps->startGps();
         qDebug() << "create gps, add slot";
         connect(_gps, SIGNAL(findCoord(double, double)), this, SLOT(addGpsStation(double, double)));
     }

@@ -12,8 +12,6 @@ GpsPosition::GpsPosition(QObject *parent) :
     _latitude = 0;
     _longitude = 0;
     if (_location){
-        connect(_location, SIGNAL(positionUpdated(QGeoPositionInfo)), this, SLOT(positionUpdated(QGeoPositionInfo)));
-        _location->startUpdates();
         _isUpdated = true;
 
     }else {
@@ -49,9 +47,7 @@ void GpsPosition::positionUpdated(QGeoPositionInfo info)
         emit findCoord(latitude, longitude);
 
         /* set timer */
-        _timer = new QTimer(this);
-        connect(_timer, SIGNAL(timeout()), this, SLOT(timeout()));
-        _timer->start(UPDATE_PERIOD * 1000 * 60); /* UPDATE_PERIOD min */
+        startTimer();
     }
 }
 void GpsPosition::timeout()
@@ -73,4 +69,17 @@ void GpsPosition::setLastCoordinates(double latitude, double longitude)
 {
     _latitude = latitude;
     _longitude = longitude;
+}
+void GpsPosition::startGps()
+{
+    if (_location){
+        connect(_location, SIGNAL(positionUpdated(QGeoPositionInfo)), this, SLOT(positionUpdated(QGeoPositionInfo)));
+        _location->startUpdates();
+    }
+}
+void GpsPosition::startTimer()
+{
+    _timer = new QTimer(this);
+    connect(_timer, SIGNAL(timeout()), this, SLOT(timeout()));
+    _timer->start(UPDATE_PERIOD * 1000 * 60); /* UPDATE_PERIOD min */
 }

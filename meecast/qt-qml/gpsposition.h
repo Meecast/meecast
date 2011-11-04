@@ -18,6 +18,8 @@ public:
     explicit GpsPosition(QObject *parent = 0);
     ~GpsPosition();
     void setLastCoordinates(double latitude, double longitude);
+    void startGps();
+    void startTimer();
 private:
     QGeoPositionInfoSource * _location;
     bool _isUpdated;

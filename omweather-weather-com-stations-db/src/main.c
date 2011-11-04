@@ -920,9 +920,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         t_start = mktime(&tmp_tm);
 
                         /* for sunrise and sunset valid date */ 
-			current_time = t_start + 12*3600;
-		        tm = localtime(&current_time);
-			fprintf(stderr, "t_start %i\n", t_start);
+            			current_time = t_start + 12*3600;
+		                tm = localtime(&current_time);
 
                         xmlFree(temp_xml_string);
 

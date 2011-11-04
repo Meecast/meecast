@@ -190,8 +190,10 @@ ConfigQml::setgps(bool c)
     if (c)
         enableGps();
     else {
-        if (_gps)
+        if (_gps){
             delete _gps;
+            _gps = NULL;
+        }
         /* find exist gps station */
         int index = getGpsStation();
         if (index > -1){

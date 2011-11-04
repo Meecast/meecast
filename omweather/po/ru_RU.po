@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-02 19:00+0300\n"
+"POT-Creation-Date: 2011-11-04 09:21+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -506,10 +506,6 @@ msgstr "Облачно, Дымка"
 msgid "Cloudy, Snow"
 msgstr "Облачно, Cнег"
 
-#: meecast/qt-qml/StationsPage.qml:74
-msgid "Confirmation"
-msgstr "Подтверждение"
-
 #: meecast/netbook-UX/meego-panel-omweather.cpp:413
 msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
 msgstr "Copyright(c) 2006-2011 Владислав Васильев, Павел Фиалко, "
@@ -568,6 +564,10 @@ msgstr "Долгота дня:"
 #: omweather/src/weather-popup.c:913
 msgid "Day:"
 msgstr "День:"
+
+#: meecast/qt-qml/StationsPage.qml:75
+msgid "Delete location?"
+msgstr "Удалить местоположение?"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
@@ -776,7 +776,7 @@ msgstr "Небольшой мокрый снег"
 msgid "Few Snow Showers / Wind"
 msgstr "Небольшой снег с дождем / Ветер"
 
-#: meecast/qt-qml/StationsPage.qml:91
+#: meecast/qt-qml/StationsPage.qml:92
 msgid "Find location via GPS"
 msgstr ""
 
@@ -999,10 +999,6 @@ msgid ""
 "Polish - Tomasz Dominikowski;"
 msgstr ""
 
-#: meecast/qt-qml/StationsPage.qml:75
-msgid "Just remove it?"
-msgstr ""
-
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
 msgstr "Километры"
@@ -1152,7 +1148,7 @@ msgid ""
 "com>\n"
 msgstr ""
 
-#: omweather/src/hash.data:114 meecast/qt-qml/StationsPage.qml:151
+#: omweather/src/hash.data:114 meecast/qt-qml/StationsPage.qml:153
 msgid "Manage locations"
 msgstr "Управление местоположениями"
 
@@ -1379,7 +1375,7 @@ msgstr "Ночь"
 msgid "Night:"
 msgstr "Ночь:"
 
-#: omweather/src/weather-settings.c:825
+#: omweather/src/weather-settings.c:825 meecast/qt-qml/StationsPage.qml:78
 msgid "No"
 msgstr "Нет"
 
@@ -1398,10 +1394,6 @@ msgstr "Нет данных для этого дня."
 #: omweather/src/weather-popup.c:681 omweather/src/weather-simple-popup.c:608
 msgid "No weather data for this station."
 msgstr "Нет данных для этой станции."
-
-#: meecast/qt-qml/StationsPage.qml:77
-msgid "Not remove"
-msgstr ""
 
 #: omweather/src/weather-home.c:2734 omweather/src/weather-home.c:2746
 #: omweather/src/weather-popup.c:459 omweather/src/weather-popup.c:570
@@ -1725,10 +1717,6 @@ msgstr "Опрашивать датчик каждые:"
 #: omweather/src/weather-simple-settings.c:2327
 msgid "Region"
 msgstr "Район"
-
-#: meecast/qt-qml/StationsPage.qml:76
-msgid "Remove"
-msgstr ""
 
 #: omweather/src/hash.data:210
 msgid "Rush Hour Traffic"
@@ -2382,7 +2370,7 @@ msgstr ""
 "Неправильный код станции\n"
 "или индекс!!!"
 
-#: omweather/src/weather-settings.c:824
+#: omweather/src/weather-settings.c:824 meecast/qt-qml/StationsPage.qml:77
 msgid "Yes"
 msgstr "Да"
 
@@ -2635,6 +2623,9 @@ msgstr ""
 #: omweather/src/hash.data:296
 msgid "Ю-З"
 msgstr ""
+
+#~ msgid "Confirmation"
+#~ msgstr "Подтверждение"
 
 #~ msgid "Farenheit"
 #~ msgstr "Фаренгейт"

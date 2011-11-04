@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-02 19:00+0300\n"
+"POT-Creation-Date: 2011-11-04 09:21+0300\n"
 "PO-Revision-Date: 2010-04-13 21:48+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <dominikowski@gmail.com>\n"
@@ -513,11 +513,6 @@ msgstr "Pochmurnie, dym"
 msgid "Cloudy, Snow"
 msgstr "Pochmurnie, śnieg"
 
-#: meecast/qt-qml/StationsPage.qml:74
-#, fuzzy
-msgid "Confirmation"
-msgstr "Dotacje"
-
 #: meecast/netbook-UX/meego-panel-omweather.cpp:413
 #, fuzzy
 msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
@@ -586,6 +581,11 @@ msgstr "Długość dnia"
 #: omweather/src/weather-popup.c:913
 msgid "Day:"
 msgstr "Dzień:"
+
+#: meecast/qt-qml/StationsPage.qml:75
+#, fuzzy
+msgid "Delete location?"
+msgstr "Wybór stacji"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
@@ -795,7 +795,7 @@ msgstr "Lekki przelotny śnieg"
 msgid "Few Snow Showers / Wind"
 msgstr "Lekki przelotny śnieg / wiatr"
 
-#: meecast/qt-qml/StationsPage.qml:91
+#: meecast/qt-qml/StationsPage.qml:92
 msgid "Find location via GPS"
 msgstr ""
 
@@ -1020,10 +1020,6 @@ msgid ""
 "Polish - Tomasz Dominikowski;"
 msgstr ""
 
-#: meecast/qt-qml/StationsPage.qml:75
-msgid "Just remove it?"
-msgstr ""
-
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
 msgstr "Kilometry"
@@ -1175,7 +1171,7 @@ msgid ""
 "com>\n"
 msgstr ""
 
-#: omweather/src/hash.data:114 meecast/qt-qml/StationsPage.qml:151
+#: omweather/src/hash.data:114 meecast/qt-qml/StationsPage.qml:153
 #, fuzzy
 msgid "Manage locations"
 msgstr "Wybór stacji"
@@ -1409,7 +1405,7 @@ msgstr "Noc:"
 msgid "Night:"
 msgstr "Noc:"
 
-#: omweather/src/weather-settings.c:825
+#: omweather/src/weather-settings.c:825 meecast/qt-qml/StationsPage.qml:78
 msgid "No"
 msgstr "Nie"
 
@@ -1428,10 +1424,6 @@ msgstr "Brak danych pogodowych na ten dzień."
 #: omweather/src/weather-popup.c:681 omweather/src/weather-simple-popup.c:608
 msgid "No weather data for this station."
 msgstr "Brak danych pogodowych dla tej stacji."
-
-#: meecast/qt-qml/StationsPage.qml:77
-msgid "Not remove"
-msgstr ""
 
 #: omweather/src/weather-home.c:2734 omweather/src/weather-home.c:2746
 #: omweather/src/weather-popup.c:459 omweather/src/weather-popup.c:570
@@ -1765,10 +1757,6 @@ msgstr "Odczytywanie danych czujnika co:"
 #: omweather/src/weather-simple-settings.c:2327
 msgid "Region"
 msgstr "Region"
-
-#: meecast/qt-qml/StationsPage.qml:76
-msgid "Remove"
-msgstr ""
 
 #: omweather/src/hash.data:210
 msgid "Rush Hour Traffic"
@@ -2443,7 +2431,7 @@ msgstr ""
 "Niepoprawny kod stacji \n"
 "lub kod ZIP."
 
-#: omweather/src/weather-settings.c:824
+#: omweather/src/weather-settings.c:824 meecast/qt-qml/StationsPage.qml:77
 msgid "Yes"
 msgstr "Tak"
 
@@ -2701,6 +2689,10 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:296
 msgid "Ю-З"
 msgstr "Ю-З"
+
+#, fuzzy
+#~ msgid "Confirmation"
+#~ msgstr "Dotacje"
 
 #, fuzzy
 #~ msgid "Farenheit"

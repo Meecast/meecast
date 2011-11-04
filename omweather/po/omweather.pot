@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-02 19:04+0300\n"
+"POT-Creation-Date: 2011-11-04 09:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -474,10 +474,6 @@ msgstr ""
 msgid "Cloudy, Snow"
 msgstr ""
 
-#: meecast/qt-qml/StationsPage.qml:74
-msgid "Confirmation"
-msgstr ""
-
 #: meecast/netbook-UX/meego-panel-omweather.cpp:413
 msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
 msgstr ""
@@ -533,6 +529,10 @@ msgstr ""
 
 #: omweather/src/weather-popup.c:913
 msgid "Day:"
+msgstr ""
+
+#: meecast/qt-qml/StationsPage.qml:75
+msgid "Delete location?"
 msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
@@ -729,7 +729,7 @@ msgstr ""
 msgid "Few Snow Showers / Wind"
 msgstr ""
 
-#: meecast/qt-qml/StationsPage.qml:91
+#: meecast/qt-qml/StationsPage.qml:92
 msgid "Find location via GPS"
 msgstr ""
 
@@ -933,10 +933,6 @@ msgid ""
 "Polish - Tomasz Dominikowski;"
 msgstr ""
 
-#: meecast/qt-qml/StationsPage.qml:75
-msgid "Just remove it?"
-msgstr ""
-
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
 msgstr ""
@@ -1086,7 +1082,7 @@ msgid ""
 "com>\n"
 msgstr ""
 
-#: omweather/src/hash.data:114 meecast/qt-qml/StationsPage.qml:151
+#: omweather/src/hash.data:114 meecast/qt-qml/StationsPage.qml:153
 msgid "Manage locations"
 msgstr ""
 
@@ -1313,7 +1309,7 @@ msgstr ""
 msgid "Night:"
 msgstr ""
 
-#: omweather/src/weather-settings.c:825
+#: omweather/src/weather-settings.c:825 meecast/qt-qml/StationsPage.qml:78
 msgid "No"
 msgstr ""
 
@@ -1331,10 +1327,6 @@ msgstr ""
 
 #: omweather/src/weather-popup.c:681 omweather/src/weather-simple-popup.c:608
 msgid "No weather data for this station."
-msgstr ""
-
-#: meecast/qt-qml/StationsPage.qml:77
-msgid "Not remove"
 msgstr ""
 
 #: omweather/src/weather-home.c:2734 omweather/src/weather-home.c:2746
@@ -1658,10 +1650,6 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:786
 #: omweather/src/weather-simple-settings.c:2327
 msgid "Region"
-msgstr ""
-
-#: meecast/qt-qml/StationsPage.qml:76
-msgid "Remove"
 msgstr ""
 
 #: omweather/src/hash.data:210
@@ -2309,7 +2297,7 @@ msgid ""
 "or ZIP code!!!"
 msgstr ""
 
-#: omweather/src/weather-settings.c:824
+#: omweather/src/weather-settings.c:824 meecast/qt-qml/StationsPage.qml:77
 msgid "Yes"
 msgstr ""
 

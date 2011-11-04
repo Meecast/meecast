@@ -1,5 +1,8 @@
 #include "gpsposition.h"
 
+#define UPDATE_PERIOD 10
+#define UPDATE_DISTANCE 10
+
 GpsPosition::GpsPosition(QObject *parent) :
     QObject(parent)
 {
@@ -48,7 +51,7 @@ void GpsPosition::positionUpdated(QGeoPositionInfo info)
         /* set timer */
         _timer = new QTimer(this);
         connect(_timer, SIGNAL(timeout()), this, SLOT(timeout()));
-        _timer->start(10 * 1000 * 60); /* 10 min */
+        _timer->start(UPDATE_PERIOD * 1000 * 60); /* UPDATE_PERIOD min */
     }
 }
 void GpsPosition::timeout()
@@ -59,8 +62,9 @@ void GpsPosition::timeout()
     if (coord.isValid()){
         /* check distance between the last and found coordinates */
         if (Core::DatabaseSqlite::calculate_distance(_latitude, _longitude,
-                                                     coord.latitude(), coord.longitude()) > 10){
-            /* distance more then 10 km */
+                                                     coord.latitude(), coord.longitude()
+                                                     ) > UPDATE_DISTANCE){
+            /* distance more then UPDATE_DISTANCE km */
             emit findCoord(coord.latitude(), coord.longitude());
         }
     }

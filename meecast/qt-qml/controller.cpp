@@ -82,7 +82,6 @@ Controller::Controller() : QObject()
   this->load_config();
   this->load_data();
 
-
 }
 
 Controller::~Controller()

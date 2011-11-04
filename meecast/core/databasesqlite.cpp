@@ -225,7 +225,7 @@ DatabaseSqlite::create_stations_list(int region_id)
 }
 
 #define PI   (3.14159265358979323846)
-#define EARTH_RADIUS (3443.91847)
+#define EARTH_RADIUS (6378.137)
 #define deg2rad(deg) ((deg) * (PI / 180.0))
 /*******************************************************************************/
 double

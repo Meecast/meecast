@@ -1,7 +1,7 @@
 meecast (0.4.2) unstable; urgency=low
 
   * Fixed problem with first day of month for weather.com
-  * Updated Germany and Finish translations 
+  * Updated Germany, French, Russian and Finish translations 
   * Added stations in yr.no database (Poland, Australia)
   * Enabled russian names for stations of source gismeteo.ru in locale RU
   * Fixed bug #12482  Missing translation for 'Exit' menu item (Fremantle)

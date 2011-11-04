@@ -694,7 +694,7 @@ msgstr "Включить GPS"
 
 #: meecast/qt-qml/SearchField.qml:46
 msgid "Enter search"
-msgstr ""
+msgstr "Поиск"
 
 #: omweather/src/weather-home.c:841
 #, c-format

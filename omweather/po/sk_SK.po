@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 09:21+0300\n"
+"POT-Creation-Date: 2011-11-04 12:28+0300\n"
 "PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -711,6 +711,10 @@ msgstr "Upraviť vlastné rozloženie"
 #: omweather/src/weather-settings.c:2865
 msgid "Enable GPS"
 msgstr "Povoliť GPS"
+
+#: meecast/qt-qml/SearchField.qml:46
+msgid "Enter search"
+msgstr ""
 
 #: omweather/src/weather-home.c:841
 #, c-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 09:21+0300\n"
+"POT-Creation-Date: 2011-11-04 12:28+0300\n"
 "PO-Revision-Date: 2011-09-24 15:53+0100\n"
 "Last-Translator: Alejandro López <alejandro.lopez@free.fr>\n"
 "Language-Team: \n"
@@ -707,6 +707,10 @@ msgstr "Editar distrib. personal"
 #: omweather/src/weather-settings.c:2865
 msgid "Enable GPS"
 msgstr "Activar GPS"
+
+#: meecast/qt-qml/SearchField.qml:46
+msgid "Enter search"
+msgstr ""
 
 #: omweather/src/weather-home.c:841
 #, c-format

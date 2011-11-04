@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 09:21+0300\n"
+"POT-Creation-Date: 2011-11-04 12:28+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -691,6 +691,10 @@ msgstr "Настроить виджет"
 #: omweather/src/weather-settings.c:2865
 msgid "Enable GPS"
 msgstr "Включить GPS"
+
+#: meecast/qt-qml/SearchField.qml:46
+msgid "Enter search"
+msgstr ""
 
 #: omweather/src/weather-home.c:841
 #, c-format

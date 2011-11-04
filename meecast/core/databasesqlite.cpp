@@ -229,8 +229,8 @@ DatabaseSqlite::create_stations_list(int region_id)
 #define deg2rad(deg) ((deg) * (PI / 180.0))
 /*******************************************************************************/
 double
-DatabaseSqlite::calculate_distance(double lat1, double lon1, double lat2,
-                   double lon2) {
+DatabaseSqlite::calculate_distance(double lat1, double lon1,
+                                   double lat2, double lon2) {
     double dlat, dlon, slat, slon, a;
 
 #ifdef DEBUGFUNCTIONCALL
@@ -252,7 +252,10 @@ DatabaseSqlite::calculate_distance(double lat1, double lon1, double lat2,
 }
 
 void
-DatabaseSqlite::get_nearest_station(double lat, double lon, std::string& country, std::string& region, std::string& code, std::string& name)
+DatabaseSqlite::get_nearest_station(double lat, double lon,
+                                    std::string& country, std::string& region,
+                                    std::string& code, std::string& name,
+                                    double& latitude, double& longitude)
 {
     char sql[512];
     int rc;
@@ -294,13 +297,15 @@ DatabaseSqlite::get_nearest_station(double lat, double lon, std::string& country
 
     std::cerr << (ncol*nrow) << " " << ncol << " " << nrow  << std::endl;
     for (int i=0; i<ncol*nrow; i=i+6){
-        distance = calculate_distance(lat, lon, atoi(result[ncol+i+3]), atoi(result[ncol+i+4]));
+        distance = DatabaseSqlite::calculate_distance(lat, lon, atof(result[ncol+i+3]), atof(result[ncol+i+4]));
         if (distance < min_distance){
             min_distance = distance;
             country = result[ncol+i+5];
             region = result[ncol+i+0];
             code = result[ncol+i+1];
             name = result[ncol+i+2];
+            latitude = atof(result[ncol+i+3]);
+            longitude = atof(result[ncol+i+4]);
         }
     }
     sqlite3_free_table(result);

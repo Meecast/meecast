@@ -608,6 +608,7 @@ ConfigQml::addGpsStation(double latitude, double longitude)
     std::string country, region, code, name;
     int index;
     int source_id = 0;
+    double lat, lon;
     qDebug() << "gggggggggg lat=" << latitude << " lon" << longitude;
     std::string path(Core::AbstractConfig::prefix);
     path += Core::AbstractConfig::sharePath;
@@ -620,7 +621,7 @@ ConfigQml::addGpsStation(double latitude, double longitude)
         qDebug() << "error open database";
         return;
     }
-    db_w->get_nearest_station(latitude, longitude, country, region, code, name);
+    db_w->get_nearest_station(latitude, longitude, country, region, code, name, lat, lon);
     qDebug() << "find station " << name.c_str();
 
     index = getGpsStation();
@@ -651,7 +652,8 @@ ConfigQml::addGpsStation(double latitude, double longitude)
                  QString::fromStdString(country), "weather.com", source_id, true);
     qDebug() << "SAVE GPS STATION";
 
-    /* TODO: save gps station's coordinates */
+    /* save gps station's coordinates */
+    _gps->setLastCoordinates(lat, lon);
 }
 
 int

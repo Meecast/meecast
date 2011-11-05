@@ -52,14 +52,17 @@ void GpsPosition::positionUpdated(QGeoPositionInfo info)
 }
 void GpsPosition::timeout()
 {
-    qDebug() << "\ntimeout\n";
+    double distance = 0;
+    qDebug() << "\ntimeout\n\n";
     QGeoCoordinate coord = _location->lastKnownPosition(true).coordinate();
+    qDebug() << "SAVED POSITION lat = " << _latitude << " lon = " << _longitude;
     qDebug() << "LAST POSITION lat = " << coord.latitude() << " lon = " << coord.longitude();
     if (coord.isValid()){
+        distance = Core::DatabaseSqlite::calculate_distance(_latitude, _longitude,
+                                                            coord.latitude(), coord.longitude());
+        qDebug() << "distancd = " << distance;
         /* check distance between the last and found coordinates */
-        if (Core::DatabaseSqlite::calculate_distance(_latitude, _longitude,
-                                                     coord.latitude(), coord.longitude()
-                                                     ) > UPDATE_DISTANCE){
+        if (distance > UPDATE_DISTANCE){
             /* distance more then UPDATE_DISTANCE km */
             emit findCoord(coord.latitude(), coord.longitude());
         }

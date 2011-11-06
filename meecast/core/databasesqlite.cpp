@@ -316,4 +316,50 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
 
 }
 
+void DatabaseSqlite::get_station_coordinate(std::string code, double &latitude, double &longitude)
+{
+    char sql[512];
+    int rc;
+    char *errMsg = NULL;
+    char **result;
+    int nrow, ncol;
+
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if (!db)
+        return; /* database doesn't open */
+    snprintf(sql,
+             sizeof(sql) - 1,
+             "select latitude, longititude \
+             from stations \
+             where code='%s'",
+             code);
+    std::cerr << "sql = " << sql << std::endl;
+
+    rc = sqlite3_get_table(db,
+                           sql,
+                           &result,
+                           &nrow,
+                           &ncol,
+                           &errMsg);
+
+    //rc = sqlite3_exec(db, sql, callback, 0, &errMsg);
+    if(rc != SQLITE_OK){
+#ifndef RELEASE
+        std::cerr << errMsg << std::endl;
+#endif
+        sqlite3_free(errMsg);
+        return;
+    }
+    latitude = atof(result[0]);
+    longitude = atof(result[1]);
+
+    sqlite3_free_table(result);
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+}
+
 }// namespace Core

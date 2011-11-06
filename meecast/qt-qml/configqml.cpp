@@ -33,22 +33,17 @@
 //ConfigQml::ConfigQml():QObject(),Core::Config("config.xml", "../core/data/config.xsd"){}
 ConfigQml::ConfigQml(const std::string& filename, const std::string& schema_filename):QObject(),Core::Config(filename, schema_filename)
 {
-    db = new Core::DatabaseSqlite("");
-
-    thread = new UpdateThread();
-    connect(thread, SIGNAL(finished()), this, SLOT(downloadFinishedSlot()));
-
-    _gps = NULL;
-
-    wind_list << "m/s" << "km/h" << "mi/h";
-
-    if (gps()){
-        _gps = new GpsPosition();
-        _gps->startTimer();
-    }
+    init();
 }
 
-ConfigQml::ConfigQml():QObject(),Core::Config(){
+ConfigQml::ConfigQml():QObject(),Core::Config()
+{
+    init();
+}
+
+void ConfigQml::init()
+{
+    int index;
     db = new Core::DatabaseSqlite("");
 
     thread = new UpdateThread();
@@ -61,6 +56,26 @@ ConfigQml::ConfigQml():QObject(),Core::Config(){
     if (gps()){
         _gps = new GpsPosition();
         _gps->startTimer();
+        // if gps station exist, find it coordinates
+        index = getGpsStation();
+        if (index > -1){
+            // get index station coordinates
+            Core::DatabaseSqlite *db_w = new Core::DatabaseSqlite("");
+            double lat, lon;
+            std::string path(Core::AbstractConfig::prefix);
+            path += Core::AbstractConfig::sharePath;
+            path += "db/";
+            QString filename = "weather.com";
+            filename.append(".db");
+            filename.prepend(path.c_str());
+            db_w->set_databasename(filename.toStdString());
+            if (!db_w->open_database()){
+                qDebug() << "error open database";
+                return;
+            }
+            db_w->get_station_coordinate(stationsList().at(index)->id(), lat, lon);
+            _gps->setLastCoordinates(lat, lon);
+        }
     }
 }
 

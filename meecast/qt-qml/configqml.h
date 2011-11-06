@@ -138,6 +138,7 @@ private:
     int getRegionId(int country, int index);
     int getGpsStation();
     QString getCityId(int region_id, int index);
+    void init();
     QStringList wind_list;
 
 private slots:

@@ -66,6 +66,7 @@ public:
                              std::string& code, std::string& name,
                              double& latitude, double& longitude);
     static double calculate_distance(double lat1, double lon1, double lat2, double lon2);
+    void get_station_coordinate(std::string code, double& latitude, double& longitude);
 };
 } // namespace Core
 

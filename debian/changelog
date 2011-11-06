@@ -1,6 +1,6 @@
 meecast (0.4.3) unstable; urgency=low
 
-  * Nothing 
+  * Added current weather for gismeteo.ru source 
 
  -- Vlad Vasiliev <vlad@gas.by>  Sat, 5 Nov 2011 19:24:20 +0200
 

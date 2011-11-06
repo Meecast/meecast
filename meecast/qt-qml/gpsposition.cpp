@@ -1,7 +1,7 @@
 #include "gpsposition.h"
 
-#define UPDATE_PERIOD 30
-#define UPDATE_DISTANCE 20
+#define UPDATE_PERIOD 20
+#define UPDATE_DISTANCE 30.0
 
 GpsPosition::GpsPosition(QObject *parent) :
     QObject(parent)
@@ -72,6 +72,7 @@ void GpsPosition::setLastCoordinates(double latitude, double longitude)
 {
     _latitude = latitude;
     _longitude = longitude;
+    qDebug() << "SET LAST COORDINATE lat = " << latitude << " lon = " << longitude;
 }
 void GpsPosition::startGps()
 {

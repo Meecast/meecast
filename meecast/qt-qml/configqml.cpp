@@ -56,6 +56,7 @@ void ConfigQml::init()
     if (gps()){
         _gps = new GpsPosition();
         _gps->startTimer();
+        connect(_gps, SIGNAL(findCoord(double, double)), this, SLOT(addGpsStation(double, double)));
         // if gps station exist, find it coordinates
         index = getGpsStation();
         if (index > -1){
@@ -68,13 +69,16 @@ void ConfigQml::init()
             QString filename = "weather.com";
             filename.append(".db");
             filename.prepend(path.c_str());
+            qDebug() << "file name = " << filename;
             db_w->set_databasename(filename.toStdString());
             if (!db_w->open_database()){
                 qDebug() << "error open database";
                 return;
             }
+            qDebug() << "gps station name = " << QString::fromStdString(stationsList().at(index)->id());
             db_w->get_station_coordinate(stationsList().at(index)->id(), lat, lon);
             _gps->setLastCoordinates(lat, lon);
+            delete db_w;
         }
     }
 }

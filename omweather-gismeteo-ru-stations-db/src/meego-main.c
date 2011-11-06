@@ -900,6 +900,7 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
     time_t      utc_time;
     gint        location_timezone = 0;
     gboolean timezone_flag = FALSE;
+    gboolean sunrise_flag = FALSE;
     struct tm   tmp_tm_loc = {0};
     struct tm   tmp_tm = {0};
     struct tm   current_tm = {0};
@@ -1234,8 +1235,6 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
     xmlXPathFreeObject(xpathObj8);
   if (xpathObj9)
     xmlXPathFreeObject(xpathObj9);
-  if (xpathCtx)
-    xmlXPathFreeContext(xpathCtx); 
   /* fill current data */
   utc_time = mktime(&current_tm);
   if (utc_time != -1){
@@ -1252,10 +1251,55 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
       fprintf(file_out,"    </period>\n");
   }
 // Sun rise  /html/body/div/*//div/div/div/div/div[2]/ul[@class='sun']/li[1]/text() 
-// Sun set  /html/body/div/*//div/div/div/div/div[2]/ul[@class='sun']/li[3]/text() 
+//
+///html/body/div/*//div/div/div/div/div[2]/ul/@title
+  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/*//div/div/div/div/div[2]/ul[1]/@title", xpathCtx);
+  
+  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
+             xpathObj->nodesetval->nodeTab[0] && xpathObj->nodesetval->nodeTab[0]->children->content){
+        temp_char = strrchr((char*)xpathObj->nodesetval->nodeTab[0]->children->content, ' ');
+        temp_char ++;
+        strptime(temp_char, "%d.%m.%Y", &current_tm);
+        current_tm.tm_min = 0;
+        current_tm.tm_hour = 0;
+        utc_time = mktime(&current_tm);
+        fprintf(file_out,"    <period start=\"%li\"", utc_time);
+        fprintf(file_out," end=\"%li\">\n", utc_time + 24*3600); 
+        sunrise_flag = TRUE;
+  }
+  if (xpathObj)
+    xmlXPathFreeObject(xpathObj);
+
+  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/*//div/div/div/div/div[2]/ul[@class='sun']/li[1]/text()", xpathCtx);
+  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
+      setlocale(LC_TIME, "POSIX");
+      strptime(xpathObj->nodesetval->nodeTab[0]->content, "%H:%M", &current_tm);
+      setlocale(LC_TIME, "");
+      utc_time = mktime(&current_tm);
+      fprintf(file_out,"    <sunrise>%li</sunrise>\n", utc_time);
+  }
+  if (xpathObj)
+    xmlXPathFreeObject(xpathObj);
+
+  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/*//div/div/div/div/div[2]/ul[@class='sun']/li[2]/text()", xpathCtx);
+  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
+        setlocale(LC_TIME, "POSIX");
+        strptime(xpathObj->nodesetval->nodeTab[0]->content, "%H:%M", &current_tm);
+        setlocale(LC_TIME, "");
+        utc_time = mktime(&current_tm);
+        fprintf(file_out,"    <sunset>%li</sunset>\n", utc_time);
+  }
+  if (xpathObj)
+      xmlXPathFreeObject(xpathObj);
+
+  if (sunrise_flag)
+      fprintf(file_out,"    </period>");
+
   /* Clean */
   g_hash_table_destroy(hash_for_translate);
   g_hash_table_destroy(hash_for_icons);
+  if (xpathCtx)
+    xmlXPathFreeContext(xpathCtx); 
 
   fprintf(file_out,"</station>");
   fclose(file_out);

@@ -1,6 +1,7 @@
 meecast (0.4.3) unstable; urgency=low
 
   * Added current weather for gismeteo.ru source 
+  * Added sunrise and sunset for current day in gismereo.ru source
 
  -- Vlad Vasiliev <vlad@gas.by>  Sat, 5 Nov 2011 19:24:20 +0200
 

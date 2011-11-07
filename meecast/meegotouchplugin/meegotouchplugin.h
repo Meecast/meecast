@@ -31,6 +31,10 @@
 #include <QObject>
 #include <MApplicationExtensionInterface>
 #include <QProcess>
+// Debug
+#include <QFile>
+#include <QTextStream>
+#include <QDate>
 
 
 
@@ -76,6 +80,14 @@ public:
     }
 
     Q_INVOKABLE void startpredeamon(){
+	// Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDate::currentDate(), QLocale::LongFormat) << "startpredeamon \n";
+	    file.close();
+	}
+	// Debug end 
         QString executable("/opt/com.meecast.omweather/bin/predaemon");    
         process.startDetached(executable);
     }

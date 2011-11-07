@@ -1,7 +1,7 @@
 #include "gpsposition.h"
 
 #define UPDATE_PERIOD 20
-#define UPDATE_DISTANCE 30.0
+#define UPDATE_DISTANCE 20.0
 
 GpsPosition::GpsPosition(QObject *parent) :
     QObject(parent)

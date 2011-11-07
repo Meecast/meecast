@@ -1214,6 +1214,19 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
             /* fprintf (stderr, "temperature %s\n", xpathObj9->nodesetval->nodeTab[i*5+3]->content); */
 			fprintf(file_out,"     <humidity>%s</humidity>\n", g_strdup(xpathObj9->nodesetval->nodeTab[i*5+3]->content));
          }
+	 /* added feels like */
+         if (xpathObj9 && !xmlXPathNodeSetIsEmpty(xpathObj9->nodesetval) &&
+             xpathObj9->nodesetval->nodeNr >= (i*5+4) &&
+             xpathObj9->nodesetval->nodeTab[i*5+4] && xpathObj9->nodesetval->nodeTab[i*5+4]->content){
+		snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj9->nodesetval->nodeTab[i*5+4]->content);
+             	memset(temp_buffer, 0, sizeof(temp_buffer));
+             	for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
+                	 if (buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9'))
+                     		sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+            	 }
+		 fprintf(file_out,"     <flike>%s</flike>\n", temp_buffer); 
+         }
+
       fprintf(file_out,"    </period>\n");
   }	
   /* Cleanup */

@@ -84,7 +84,7 @@ public:
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
-	    out <<  QLocale::system().toString(QDate::currentDate(), QLocale::LongFormat) << "startpredeamon \n";
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "startpredeamon \n";
 	    file.close();
 	}
 	// Debug end 

@@ -106,7 +106,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
-	    out <<  QLocale::system().toString(QDate::currentDate(), QLocale::LongFormat) << "SetCurrentData "<< (until_valid_time - utc_time.toTime_t() + 600000)<<"\n";
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "SetCurrentData "<< (until_valid_time - utc_time.toTime_t() + 600000)<<"\n";
 	    file.close();
 	}
 	// Debug end 
@@ -117,7 +117,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
-	    out <<  QLocale::system().toString(QDate::currentDate(), QLocale::LongFormat) << "SetCurrentData 36000000"<< "\n";
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "SetCurrentData 36000000"<< "\n";
 	    file.close();
 	}
 	// Debug end 

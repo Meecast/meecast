@@ -5,7 +5,7 @@ meecast (0.4.3) unstable; urgency=low
   * Added feels like for gismeteo.ru
   * Fixed bug with automatic update of the GPS location 
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 5 Nov 2011 19:24:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Tue, 8 Nov 2011 00:12:23 +0200
 
 meecast (0.4.2) unstable; urgency=low
 

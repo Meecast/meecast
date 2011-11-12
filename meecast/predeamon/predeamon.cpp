@@ -65,8 +65,6 @@ create_and_fill_config(){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
         config = new Core::Config();
     }
-    //std::cerr<<"End of creating Config class: " <<std::endl;
-    config->saveConfig();
     std::cerr<<"End of creating Config class: " <<std::endl;
 
     return config;

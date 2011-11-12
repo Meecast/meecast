@@ -179,8 +179,9 @@ DataModel::update(QString filename, int  period)
                 icon_string.append("/") ;
                 icon_string.append(_config->iconSet().c_str());
                 icon_string.append("/") ;
-                icon_string.append(forecast_data->icon()) ;
-                dbusclient->SetCurrentData(_config->stationname().c_str(), forecast_data->temperature(), 
+                icon_string.append(forecast_data->icon());
+                QString stationname = "";
+                dbusclient->SetCurrentData(stationname.fromUtf8(_config->stationname().c_str()), forecast_data->temperature(), 
                                            forecast_data->temperature_high(), forecast_data->temperature_low(), 
                                            icon_string, forecast_data->EndTime(), forecast_data->current()); 
             }

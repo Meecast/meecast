@@ -1,3 +1,8 @@
+meecast (0.4.4) unstable; urgency=low
+
+
+ -- Vlad Vasiliev <vlad@gas.by>  Tue, 8 Nov 2011 00:12:23 +0200
+
 meecast (0.4.3) unstable; urgency=low
 
   * Added current weather for gismeteo.ru source 

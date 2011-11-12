@@ -5,6 +5,7 @@ meecast (0.4.3) unstable; urgency=low
   * Added feels like for gismeteo.ru
   * Fixed bug with automatic update of the GPS location 
   * Fixed displaying of station name for non-Latin symbol in event applet 
+  * Limited time for autoupdating (about 1 hour)
 
  -- Vlad Vasiliev <vlad@gas.by>  Tue, 8 Nov 2011 00:12:23 +0200
 

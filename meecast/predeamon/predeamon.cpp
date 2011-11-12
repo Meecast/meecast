@@ -103,8 +103,13 @@ main (int argc, char *argv[])
   config = create_and_fill_config();
 
    QCoreApplication a(argc, argv);
-  /*update weather forecast*/
 
+  /* Check time for previous updating */
+  dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
+  if (abs(time(NULL) - dp->LastUpdate()) < 3600)
+      exit (-2);
+
+  /*update weather forecast*/
   for (i=0; i < config->stationsList().size();i++){
       if (config->stationsList().at(i)->updateData(true)){
           success ++;

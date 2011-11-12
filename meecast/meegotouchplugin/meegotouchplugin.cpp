@@ -103,6 +103,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
    this->refreshview();
    if ((until_valid_time - utc_time.toTime_t()) >0 && (until_valid_time - utc_time.toTime_t()) < 12* 3600){
 	// Debug begin
+#if 0
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
@@ -110,9 +111,10 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
 	    file.close();
 	}
 	// Debug end 
-
-        QTimer::singleShot((until_valid_time - utc_time.toTime_t() + 600000), this, SLOT(update_data()));
+#endif
+        QTimer::singleShot(((until_valid_time - utc_time.toTime_t())*100000 + 600000), this, SLOT(update_data()));
    }else{
+#if 0
       // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -122,15 +124,39 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
 	}
 	// Debug end 
 
+#endif
         QTimer::singleShot(36000000, this, SLOT(update_data()));
    }
 
 }
 void 
 MyMWidget::refreshRequested(){
+#if 0
+	// Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "refreshRequested"<< "\n";
+	    file.close();
+	}
+	// Debug end 
+
+#endif
+
     this->startpredeamon();
 }
 void MyMWidget::update_data(){
+#if 0
+    // Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "update_data"<< "\n";
+	    file.close();
+	}
+	// Debug end 
+
+#endif
     this->startpredeamon();
 }
 

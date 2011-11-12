@@ -80,14 +80,16 @@ public:
     }
 
     Q_INVOKABLE void startpredeamon(){
+#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
-	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "startpredeamon \n";
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "startpredeamon"<< _stationname<< "\n";
 	    file.close();
 	}
 	// Debug end 
+#endif
         QString executable("/opt/com.meecast.omweather/bin/predaemon");    
         process.startDetached(executable);
     }
@@ -140,6 +142,16 @@ public:
         return _current;
     }
     void refreshview(){
+#if 0
+        // Debug begin
+        QFile file("/tmp/1.log");
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "refreshview"<< " \n";
+            file.close();
+        }
+        // Debug end 
+#endif
 	    emit iconChanged();
 	    emit stationChanged();
 	    emit temperatureChanged();

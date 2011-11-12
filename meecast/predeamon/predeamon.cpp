@@ -156,7 +156,9 @@ main (int argc, char *argv[])
             temp_low = temp.number((temp_data->temperature_low().value()),'f',0);
 
         MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
-        dbusclient->SetCurrentData(config->stationname().c_str(), temp, temp_high, temp_low, 
+        QString stationname = "";
+        dbusclient->SetCurrentData(stationname.fromUtf8(config->stationname().c_str()),
+                                   temp, temp_high, temp_low, 
                                    icon_string, temp_data->EndTime() , temp_data->Current()); 
     }
 

@@ -369,7 +369,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node,  const gch
                                         /* Normalize speed to km/h from m/s */
                                         /* fprintf(stderr, "Wind  speed    %s\n", temp_buffer); */
                                         speed = atoi((char*)temp_xml_string);
-                                        speed = speed * 3600/1000;
+                                        /* speed = speed * 3600/1000; why??? */
                                         memset(buff, 0, sizeof(buff));
                                         snprintf(buff, sizeof(buff)-1, "%i", speed);
 			                            fprintf(file_out,"     <wind_speed>%s</wind_speed>\n",  buff);

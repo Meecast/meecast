@@ -1,6 +1,6 @@
 meecast (0.4.4) unstable; urgency=low
 
-  * Nothing
+  * Fixed segmentation fault with nill GPS station 
 
  -- Vlad Vasiliev <vlad@gas.by>  Tue, 8 Nov 2011 00:12:23 +0200
 

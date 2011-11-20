@@ -349,8 +349,16 @@ void DatabaseSqlite::get_station_coordinate(std::string code, double &latitude, 
         std::cerr << errMsg << std::endl;
 #endif
         sqlite3_free(errMsg);
+        latitude = -1;
+        longitude = -1;
         return;
     }
+    if (nrow == 0){
+        latitude = -1;
+        longitude = -1;
+        return;
+    }
+
     latitude = atof(result[ncol+0]);
     longitude = atof(result[ncol+1]);
 

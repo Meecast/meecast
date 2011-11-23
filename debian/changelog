@@ -2,6 +2,7 @@ meecast (0.4.4) unstable; urgency=low
 
   * Fixed segmentation fault with nill GPS station 
   * Fixed wrong wind speed values in yr.no 
+  * Small improvements in external view
 
  -- Vlad Vasiliev <vlad@gas.by>  Tue, 8 Nov 2011 00:12:23 +0200
 

@@ -99,7 +99,7 @@ Page {
                          value: model_day.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
             if ((model_day.getdata(day, "flike")) != "N/A")
                 condition.append({cond_name: Config.tr("Flike:"),
-                         value: model_day.getdata(day, "flike") + ' ' + Config.temperatureunit});
+                         value: model_day.getdata(day, "flike") + '°' + Config.temperatureunit});
             if ((model_day.getdata(day, "temp_high")) != "N/A")
                 temperature.text =  model_day.getdata(day, "temp_high") + '°'
 
@@ -131,7 +131,7 @@ Page {
                          value: model_night.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
             if ((model_night.getdata(day, "flike")) != "N/A")
                 condition.append({cond_name: Config.tr("Flike:"),
-                         value: model_night.getdata(day, "flike") + ' ' + Config.temperatureunit});
+                         value: model_night.getdata(day, "flike") + '°' + Config.temperatureunit});
             if ((model_night.getdata(day, "temp_low")) != "N/A")
                 temperature.text =  model_night.getdata(day, "temp_low") + '°'
 
@@ -338,13 +338,13 @@ Page {
             GridView {
                 id: grid
                 anchors.top: desc.bottom
-                anchors.topMargin: 32
+                anchors.topMargin: 20
                 anchors.left: parent.left
                 anchors.leftMargin: margin
                 anchors.right: parent.right
                 anchors.rightMargin: margin
                 width: parent.width - 2*margin
-                height: 250
+                height: 260
                 cellWidth: (parent.width - 2*margin) / 2
                 model: condition
                 interactive: false
@@ -377,13 +377,13 @@ Page {
             GridView {
                 id: grid2
                 anchors.top: splitter.bottom
-                anchors.topMargin: 32
+                anchors.topMargin: 20
                 anchors.left: parent.left
                 anchors.leftMargin: margin
                 anchors.right: parent.right
                 anchors.rightMargin: margin
                 width: parent.width - 2*margin
-                height: 250
+                height: 245
                 cellWidth: (parent.width - 2*margin) / 2
                 model: condition2
                 interactive: false

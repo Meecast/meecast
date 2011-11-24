@@ -62,13 +62,19 @@ import zipfile
 #        "Wojewodztwo_Warminsko-Mazurskie":"Warmia-Masuria","Wojewodztwo_Zachodniopomorskie":"West Pomerania",
 #        "Wojewodztwo_Swietokrzyskie":"Swiety Krzyz"
 #        }
-country = "Australia"
-country_code = "AU"
-replacing_dict = {"State_of_New_South_Wales":"New South Wales", "Northern_Territory": "Northern Territory",
-                  "State_of_South_Australia":"South Australia", "Australian_Capital_Territory":"Australian Capital Territory",
-                  "State_of_Western_Australia":"Western Australia"} 
+#country = "Australia"
+#country_code = "AU"
+#replacing_dict = {"State_of_New_South_Wales":"New South Wales", "Northern_Territory": "Northern Territory",
+#                  "State_of_South_Australia":"South Australia", "Australian_Capital_Territory":"Australian Capital Territory",
+#                  "State_of_Western_Australia":"Western Australia"} 
+
+#replacing_dict_after_region_filling = { } 
+country = "China"
+country_code = "CN"
+replacing_dict = {"Inner_Mongolia_Autonomous_Region":"Nei Mongol"} 
 
 replacing_dict_after_region_filling = { } 
+
 
 
 
@@ -113,16 +119,16 @@ for row in cur:
 myzipfile = country_code + ".zip"
 #downloading the dump file
 url = baseurl + myzipfile
-urllib.urlretrieve (url, myzipfile)
+#urllib.urlretrieve (url, myzipfile)
 
 
 #unzip file
-fh = open(myzipfile, 'rb')
-z = zipfile.ZipFile(fh)
-outfile = open(country_code + ".txt", 'wb')
-outfile.write(z.read(country_code + ".txt"))
-outfile.close()
-fh.close()
+#fh = open(myzipfile, 'rb')
+#z = zipfile.ZipFile(fh)
+#outfile = open(country_code + ".txt", 'wb')
+#outfile.write(z.read(country_code + ".txt"))
+#outfile.close()
+#fh.close()
 
 #fill regions
 regions = {}
@@ -165,7 +171,7 @@ fh = open(country_code + ".txt")
 for line in fh.readlines():
     pattern = re.split('(\t)', line)
     if (pattern[14] == "PPLA" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
-        if (pattern[20] != "" and int(pattern[28]) >= 1000):
+        if (pattern[20] != "" and int(pattern[28]) >= 10000):
             if (regions_name.get(pattern[20]) == None):
                 continue
             if (replacing_dict_after_region_filling.get(regions_name[pattern[20]])):

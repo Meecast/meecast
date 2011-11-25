@@ -137,6 +137,27 @@ Page {
                 }
             }
         }
+        Item {
+            width: parent.width
+            height: 80
+            Label {
+                text: Config.tr("Widget in event's view")
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            Switch {
+                //checked: !rootWindow.showStatusBar
+                id: eventwidget 
+                checked: Config.eventwidget
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                onCheckedChanged: {
+                    Config.seteventwidget(eventwidget.checked);
+                }
+                //platformStyle: SwitchStyle {inverted: true}
+            }
+
+        }
     }
     }
     Rectangle {

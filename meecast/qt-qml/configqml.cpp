@@ -206,6 +206,28 @@ ConfigQml::setfullscreen(bool c)
 }
 
 bool
+ConfigQml::eventwidget()
+{
+    QFile file("/usr/share/meegotouch/applicationextensions/events-weather.desktop");
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream in(&file);
+	QString  line = in.readAll();
+        file.close();
+	if (line.indexOf("meecast") == -1)
+	    return false;
+        else
+	    return true;
+    }else
+        return false;
+
+    return true;
+}
+void
+ConfigQml::seteventwidget(bool c)
+{
+}
+
+bool
 ConfigQml::gps()
 {
     return ConfigQml::Config::Gps();

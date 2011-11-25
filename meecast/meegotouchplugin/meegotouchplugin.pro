@@ -25,6 +25,6 @@ desktop_entry.files = *.desktop
 applet.path =  /opt/com.meecast.omweather/share/omweather/qml 
 applet.files = *.qml
 
-package.path =  /opt/com.meecast.omweather/share/omweather/packages
+package.path =  /opt/com.meecast.omweather/share/packages
 package.files = *.deb
 

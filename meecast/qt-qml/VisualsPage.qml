@@ -141,7 +141,7 @@ Page {
             width: parent.width
             height: 80
             Label {
-                text: Config.tr("Widget in event's view")
+                text: Config.tr("Widget in events view")
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
             }

@@ -224,8 +224,19 @@ ConfigQml::eventwidget()
 }
 void
 ConfigQml::seteventwidget(bool c)
-{
-        QDesktopServices::openUrl(QUrl("file:///opt/com.meecast.omweather/share/packages/meecast-applet-enable_0.2_all.deb"));     
+{    
+    QFile file("/usr/share/meegotouch/applicationextensions/events-weather.desktop");
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream in(&file);
+	QString  line = in.readAll();
+        file.close();
+	if (line.indexOf("meecast") != -1)
+	    return;
+    }
+
+    if (c)
+    	QDesktopServices::openUrl(QUrl("file:///opt/com.meecast.omweather/share/packages/meecast-applet-enable_0.2_all.deb"));
+    
 }
 
 bool

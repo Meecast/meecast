@@ -9,8 +9,10 @@ Package: meecast-applet-enable
 Architecture: all 
 #For Maemo
 Depends: ${shlibs:Depends}, meecast 
-Description: Activating MeeCast Applet on event region  
-XB-Maemo-Display-Name: Activating MeeCast Apple 
+Description: Activating MeeCast Applet in events view. You should uninstall AccuWeather before installing this package. 
+XB-Maemo-Display-Name: Activating MeeCast Applet 
+XB-Description-ru_RU: Активизация апплета MeeCast в области событий. Вы должны деинсталировать AccuWeather перед установкой этого пакета. 
+XB-Description-fi_FI: Ottaksesi MeeCast sovelman käyttöön tapahtumanäytössä sinun tulee ensin poistaa AccuWeather. Vasta sen jälkeen voit asentaa tämän paketin.
 Xsbc-Bugtracker: https://bugs.maemo.org/enter_bug.cgi?product=OmWeather
 XB-Maemo-Icon-26:
  iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/gD+AP7rGNSCAAAACXBI

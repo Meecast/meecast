@@ -225,6 +225,7 @@ ConfigQml::eventwidget()
 void
 ConfigQml::seteventwidget(bool c)
 {
+        QDesktopServices::openUrl(QUrl("file:///opt/com.meecast.omweather/share/packages/meecast-applet-enable_0.2_all.deb"));     
 }
 
 bool

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 12:28+0300\n"
+"POT-Creation-Date: 2011-11-25 21:13+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -315,7 +315,7 @@ msgstr "Произошла неизвестная ошибка."
 msgid "Animation"
 msgstr "Анимация"
 
-#: meecast/qt-qml/VisualsPage.qml:155
+#: meecast/qt-qml/VisualsPage.qml:176
 msgid "Appearance"
 msgstr "Внешний вид"
 
@@ -2301,6 +2301,10 @@ msgstr "Прогоноз погоды для Meego. Версия "
 #: omweather/src/weather-utils.c:797
 msgid "Widget OMWeather is reloading"
 msgstr "Виджет OMWeather перегружается"
+
+#: meecast/qt-qml/VisualsPage.qml:144
+msgid "Widget in events view"
+msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2914
 #: omweather/src/weather-simple-settings.c:2922

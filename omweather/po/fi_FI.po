@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 12:28+0300\n"
-"PO-Revision-Date: 2011-10-28 12:23+0200\n"
+"POT-Creation-Date: 2011-11-25 21:13+0300\n"
+"PO-Revision-Date: 2011-11-05 11:06+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
 "Language: \n"
@@ -328,7 +328,7 @@ msgstr "Tapahtui tuntematon virhe."
 msgid "Animation"
 msgstr "Animaatio"
 
-#: meecast/qt-qml/VisualsPage.qml:155
+#: meecast/qt-qml/VisualsPage.qml:176
 msgid "Appearance"
 msgstr "Ulkoasu"
 
@@ -579,9 +579,8 @@ msgid "Day:"
 msgstr "Päivällä:"
 
 #: meecast/qt-qml/StationsPage.qml:75
-#, fuzzy
 msgid "Delete location?"
-msgstr "Valitse sijainti"
+msgstr "Poista sijainti?"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
@@ -709,7 +708,7 @@ msgstr "Käytä GPS:ää"
 
 #: meecast/qt-qml/SearchField.qml:46
 msgid "Enter search"
-msgstr ""
+msgstr "Syötä hakutermi"
 
 #: omweather/src/weather-home.c:841
 #, c-format
@@ -722,7 +721,7 @@ msgstr "Virhe alustettaessa OMWeather sovelmaa"
 
 #: omweather/src/hash.data:64
 msgid "Exit"
-msgstr ""
+msgstr "Poistu"
 
 #: omweather/src/weather-simple-settings.c:1892
 #: omweather/src/weather-simple-settings.c:2771
@@ -797,7 +796,7 @@ msgstr "Ajoittaisia lumikuuroja / Tuulista"
 
 #: meecast/qt-qml/StationsPage.qml:92
 msgid "Find location via GPS"
-msgstr ""
+msgstr "Etsi sijainti automaattisesti"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:428
 msgid ""
@@ -875,7 +874,7 @@ msgid ""
 " Polish - Tomasz Dominikowski\n"
 " Slovak - Roman Moravčík"
 msgstr ""
-"Ranska - Nicolas Granziano, \n"
+" Ranska - Nicolas Granziano, \n"
 " \tPhilippe, Benot Knech\n"
 " Venäjä - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
@@ -1002,7 +1001,7 @@ msgstr "Kuvakkeet"
 
 #: omweather/src/hash.data:85 meecast/qt-qml/VisualsPage.qml:124
 msgid "Iconset"
-msgstr "Kuvake"
+msgstr "Kuvakkeet"
 
 #: omweather/src/hash.data:86
 msgid "Iconsets"
@@ -2132,7 +2131,7 @@ msgid ""
 " License, or (at your option) any \n"
 " later version."
 msgstr ""
-"Tämä ohjelma on vapaa; tätä ohjelmaa\n"
+" Tämä ohjelma on vapaa; tätä ohjelmaa\n"
 " on sallittu levittää edelleen ja muuttaa\n"
 " GNU yleisen lisenssin (GPL-lisenssin)\n"
 " ehtojen mukaan sellaisina kuin Free\n"
@@ -2339,6 +2338,10 @@ msgstr "Sääennuste Meego laitteille. Versio"
 msgid "Widget OMWeather is reloading"
 msgstr "Uudelleen ladataan OMWeather sovelma"
 
+#: meecast/qt-qml/VisualsPage.qml:144
+msgid "Widget in events view"
+msgstr ""
+
 #: omweather/src/weather-simple-settings.c:2914
 #: omweather/src/weather-simple-settings.c:2922
 msgid "Widget style"
@@ -2360,7 +2363,7 @@ msgstr "Tuulen suunta:"
 #: meecast/qt-qml/FullWeatherPage.qml:98
 #: meecast/qt-qml/FullWeatherPage.qml:130
 msgid "Wind gust:"
-msgstr "Tuulen puuskat:"
+msgstr "Tuulenpuuskat:"
 
 #: omweather/src/hash.data:274 meecast/qt-qml/FullWeatherPage.qml:92
 #: meecast/qt-qml/FullWeatherPage.qml:124

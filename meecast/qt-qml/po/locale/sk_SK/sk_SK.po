@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 12:28+0300\n"
+"POT-Creation-Date: 2011-11-25 21:13+0300\n"
 "PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -328,7 +328,7 @@ msgstr "Nastala neznáma chyba."
 msgid "Animation"
 msgstr "Animácie"
 
-#: meecast/qt-qml/VisualsPage.qml:155
+#: meecast/qt-qml/VisualsPage.qml:176
 msgid "Appearance"
 msgstr ""
 
@@ -2348,6 +2348,10 @@ msgstr "Predpoveď počasia pre Meego. Verzia "
 #: omweather/src/weather-utils.c:797
 msgid "Widget OMWeather is reloading"
 msgstr "Widget OMWeather sa znovu načítava."
+
+#: meecast/qt-qml/VisualsPage.qml:144
+msgid "Widget in events view"
+msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2914
 #: omweather/src/weather-simple-settings.c:2922

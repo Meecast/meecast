@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 12:28+0300\n"
+"POT-Creation-Date: 2011-11-25 21:13+0300\n"
 "PO-Revision-Date: 2011-09-24 15:53+0100\n"
 "Last-Translator: Alejandro López <alejandro.lopez@free.fr>\n"
 "Language-Team: \n"
@@ -328,7 +328,7 @@ msgstr "Se produjo un error desconocido."
 msgid "Animation"
 msgstr "Animación"
 
-#: meecast/qt-qml/VisualsPage.qml:155
+#: meecast/qt-qml/VisualsPage.qml:176
 msgid "Appearance"
 msgstr ""
 
@@ -2345,6 +2345,10 @@ msgstr "Pronóstico meteorológico para Meego. Versión "
 #: omweather/src/weather-utils.c:797
 msgid "Widget OMWeather is reloading"
 msgstr "El panel OMWeather se está recargando"
+
+#: meecast/qt-qml/VisualsPage.qml:144
+msgid "Widget in events view"
+msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2914
 #: omweather/src/weather-simple-settings.c:2922

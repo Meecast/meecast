@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en_GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-04 12:28+0300\n"
+"POT-Creation-Date: 2011-11-25 21:13+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -288,7 +288,7 @@ msgstr ""
 msgid "Animation"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:155
+#: meecast/qt-qml/VisualsPage.qml:176
 msgid "Appearance"
 msgstr ""
 
@@ -2238,6 +2238,10 @@ msgstr ""
 
 #: omweather/src/weather-utils.c:797
 msgid "Widget OMWeather is reloading"
+msgstr ""
+
+#: meecast/qt-qml/VisualsPage.qml:144
+msgid "Widget in events view"
 msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2914

@@ -88,9 +88,7 @@ Page {
 	    	width: parent.width
 		font.pixelSize: 23
 		color: "white"
-		text: Config.tr("Application manager will now start \n"
-                       +"for installing package 'MeeCast applet'.\n"
-                       +"You should uninstall AccuWeather \nbefore installing this package")
+		text: Config.tr("Application manager will now start\nfor installing package 'MeeCast applet'.\nYou should uninstall AccuWeather \nbefore installing this package")
 	    }
 	    Rectangle {
 		id: black_rect
@@ -162,10 +160,7 @@ Page {
 		id: text2
 		font.pixelSize: 22
 		color: "white"
-		text: Config.tr("For disabling Meecast widget,"
-                                +"you should uninstall package\n"
-                                +"'Activating MeeCast Applet'\n"
-                                +"using Application manager")
+		text: Config.tr("For disabling MeeCast widget,\nyou should uninstall package\n'Activating MeeCast Applet'\nusing Application manager")
 	    }	
 	    Rectangle {
 		id: black_rect2

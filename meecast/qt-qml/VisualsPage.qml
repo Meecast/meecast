@@ -46,15 +46,14 @@ Page {
 
     }
      Dialog {
-	id: myDialog
+	id: enableDialog
 	title: Item {
 	    id: titleField
-	    height: myDialog.platformStyle.titleBarHeight
+	    height: enableDialog.platformStyle.titleBarHeight
 	    width: parent.width
 
 	    Label {
 		id: titleLabel
-		anchors.left: supplement.right
 		anchors.verticalCenter: titleField.verticalCenter
 		font.capitalization: Font.MixedCase
 		color: "white"
@@ -65,13 +64,11 @@ Page {
 		id: closeButton
 		anchors.verticalCenter: titleField.verticalCenter
 		anchors.right: titleField.right
-
 		source: "image://theme/icon-m-framework-close"
-
 		MouseArea {
 		    id: closeButtonArea
 		    anchors.fill: parent
-		    onClicked:  { myDialog.close() }
+		    onClicked:  { enableDialog.close() }
 		}
 	    }
 	}
@@ -92,8 +89,66 @@ Page {
 	buttons: ButtonRow {
 	    platformStyle: ButtonStyle { }
 	    anchors.horizontalCenter: parent.horizontalCenter
-	    Button {id: b1; text: Config.tr("OK"); onClicked: Config.seteventwidget(eventwidget.checked)}
-	    Button {id: b2; text: Config.tr("Cancel"); onClicked: myDialog.close()}
+	    Button {id: b1; text: Config.tr("OK"); 
+                    onClicked: {
+		    Config.seteventwidget(eventwidget.checked)
+                    event_widget_status = eventwidget.checked;                  
+                    }
+                   }
+	    Button {id: b2; text: Config.tr("Cancel"); onClicked: enableDialog.close()}
+	}
+    }
+    Dialog {
+	id: disableDialog
+	title: Item {
+	    id: titleField2
+	    height: disableDialog.platformStyle.titleBarHeight
+	    width: parent.width
+
+	    Label {
+		id: titleLabel2
+		anchors.verticalCenter: titleField2.verticalCenter
+		font.capitalization: Font.MixedCase
+		color: "white"
+		text: Config.tr("Information")
+	    }
+
+	    Image {
+		id: closeButton2
+		anchors.verticalCenter: titleField2.verticalCenter
+		anchors.right: titleField2.right
+		source: "image://theme/icon-m-framework-close"
+		MouseArea {
+		    id: closeButtonArea2
+		    anchors.fill: parent
+		    onClicked:  { disableDialog.close() }
+		}
+	    }
+	}
+
+	content:Item {
+	    id: name2
+	    height: childrenRect.height
+	    Text {
+		id: text2
+		font.pixelSize: 22
+		color: "white"
+		text: Config.tr("You should uninstall package\n"
+                                +"'Activating MeeCast Applet'\n"
+                                +"using Application manager")
+	    }
+	}
+
+	buttons: ButtonRow {
+	    platformStyle: ButtonStyle { }
+	    anchors.horizontalCenter: parent.horizontalCenter
+	    Button {id: b12; text: Config.tr("OK"); 
+                    onClicked: {
+		    Config.seteventwidget(eventwidget.checked)
+                    event_widget_status = eventwidget.checked;                  
+                    }
+                   }
+	    Button {id: b22; text: Config.tr("Cancel"); onClicked: disableDialog.close()}
 	}
     }
 
@@ -207,9 +262,9 @@ Page {
                 onCheckedChanged: {
          	    if (event_widget_status != checked){          
                        if (checked)
-                           myDialog.open();
+                           enableDialog.open();
                        else
-                           myDialog.open();
+                           disableDialog.open();
 		    }
                     Config.seteventwidget(eventwidget.checked);
                 }

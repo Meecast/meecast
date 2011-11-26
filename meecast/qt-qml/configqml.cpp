@@ -223,6 +223,9 @@ ConfigQml::eventwidget()
 void
 ConfigQml::seteventwidget(bool c)
 {    
+    if (!c)
+    	QDesktopServices::openUrl(QUrl("file:///usr/bin/installui"));
+
     QFile file("/usr/share/meegotouch/applicationextensions/events-weather.desktop");
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
         QTextStream in(&file);

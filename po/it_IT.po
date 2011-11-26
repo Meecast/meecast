@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it_IT\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-25 21:13+0300\n"
+"POT-Creation-Date: 2011-11-26 19:48+0300\n"
 "PO-Revision-Date: 2010-07-27 17:04+0100\n"
 "Last-Translator: Luca <luca>\n"
 "Language-Team: Italiano\n"
@@ -312,8 +312,12 @@ msgstr "Si è verificato un errore sconosciuto."
 msgid "Animation"
 msgstr "Animazione"
 
-#: meecast/qt-qml/VisualsPage.qml:176
+#: meecast/qt-qml/VisualsPage.qml:318
 msgid "Appearance"
+msgstr ""
+
+#: meecast/qt-qml/VisualsPage.qml:91
+msgid "Application manager will now start \n"
 msgstr ""
 
 #: omweather/src/weather-settings.c:823
@@ -382,6 +386,10 @@ msgstr "C\n"
 #: omweather/src/hash.data:26
 msgid "CALM"
 msgstr "CALMA"
+
+#: meecast/qt-qml/VisualsPage.qml:107
+msgid "Cancel"
+msgstr "Annulla"
 
 #: omweather/src/weather-config.c:383
 #, fuzzy, c-format
@@ -848,6 +856,10 @@ msgstr "Colore caratteri:"
 msgid "Font:"
 msgstr "Caratteri:"
 
+#: meecast/qt-qml/VisualsPage.qml:165
+msgid "For disabling Meecast widget,"
+msgstr ""
+
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
 msgstr "Previsione"
@@ -919,7 +931,7 @@ msgstr "Piena"
 msgid "Full forecast"
 msgstr "Previsioni complete: "
 
-#: meecast/qt-qml/VisualsPage.qml:102
+#: meecast/qt-qml/VisualsPage.qml:240
 msgid "Fullscreen mode"
 msgstr ""
 
@@ -999,12 +1011,12 @@ msgstr "Set di icone:"
 msgid "Icon size:"
 msgstr "Dimensioni icone:"
 
-#: meecast/qt-qml/VisualsPage.qml:40
+#: meecast/qt-qml/VisualsPage.qml:41
 #, fuzzy
 msgid "Icons"
 msgstr "Icona fissati:"
 
-#: omweather/src/hash.data:85 meecast/qt-qml/VisualsPage.qml:124
+#: omweather/src/hash.data:85 meecast/qt-qml/VisualsPage.qml:262
 #, fuzzy
 msgid "Iconset"
 msgstr "Icona fissati:"
@@ -1013,6 +1025,11 @@ msgstr "Icona fissati:"
 #, fuzzy
 msgid "Iconsets"
 msgstr "Icona fissati:"
+
+#: meecast/qt-qml/VisualsPage.qml:61 meecast/qt-qml/VisualsPage.qml:135
+#, fuzzy
+msgid "Information"
+msgstr "Animazione"
 
 #: omweather/src/hash.data:88
 msgid "Isolated T-Storms"
@@ -1466,6 +1483,7 @@ msgid "Now: "
 msgstr "Ora:"
 
 #: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1222
+#: meecast/qt-qml/VisualsPage.qml:114
 msgid "OK"
 msgstr "OK"
 
@@ -1481,6 +1499,10 @@ msgstr "Impostazioni OMWeather"
 #: omweather/src/weather-home.c:1268 omweather/src/weather-home.c:2856
 msgid "OMWeather settings"
 msgstr "Impostazioni OMWeather "
+
+#: meecast/qt-qml/VisualsPage.qml:181
+msgid "Ok"
+msgstr ""
 
 #: omweather/src/weather-help.c:64 omweather/src/weather-help.c:70
 msgid "Other Maemo Weather Info"
@@ -2365,7 +2387,7 @@ msgstr ""
 msgid "Widget OMWeather is reloading"
 msgstr "Il widged OMWeather sta ricaricando"
 
-#: meecast/qt-qml/VisualsPage.qml:144
+#: meecast/qt-qml/VisualsPage.qml:282
 msgid "Widget in events view"
 msgstr ""
 
@@ -2704,10 +2726,6 @@ msgid "Ю-З"
 msgstr ""
 
 #, fuzzy
-#~ msgid "Confirmation"
-#~ msgstr "Animazione"
-
-#, fuzzy
 #~ msgid "Farenheit"
 #~ msgstr "Fahrenheit"
 
@@ -2804,9 +2822,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Temperatura"
 #~ msgstr "Temperatura: "
-
-#~ msgid "Cancel"
-#~ msgstr "Annulla"
 
 #, fuzzy
 #~ msgid "List of the found station(s):"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-25 21:13+0300\n"
+"POT-Creation-Date: 2011-11-26 19:48+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -315,9 +315,13 @@ msgstr "Произошла неизвестная ошибка."
 msgid "Animation"
 msgstr "Анимация"
 
-#: meecast/qt-qml/VisualsPage.qml:176
+#: meecast/qt-qml/VisualsPage.qml:318
 msgid "Appearance"
 msgstr "Внешний вид"
+
+#: meecast/qt-qml/VisualsPage.qml:91
+msgid "Application manager will now start \n"
+msgstr ""
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -385,6 +389,10 @@ msgstr "С\n"
 #: omweather/src/hash.data:26
 msgid "CALM"
 msgstr "Штиль"
+
+#: meecast/qt-qml/VisualsPage.qml:107
+msgid "Cancel"
+msgstr "Отменить"
 
 #: omweather/src/weather-config.c:383
 #, c-format
@@ -827,6 +835,10 @@ msgstr "Цвет шрифта:"
 msgid "Font:"
 msgstr "Шрифт:"
 
+#: meecast/qt-qml/VisualsPage.qml:165
+msgid "For disabling Meecast widget,"
+msgstr ""
+
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
 msgstr "Прогноз"
@@ -899,7 +911,7 @@ msgstr "Полнолуние"
 msgid "Full forecast"
 msgstr "Полный прогноз"
 
-#: meecast/qt-qml/VisualsPage.qml:102
+#: meecast/qt-qml/VisualsPage.qml:240
 msgid "Fullscreen mode"
 msgstr "Полноэкранный режим"
 
@@ -977,17 +989,22 @@ msgstr "Набор иконок:"
 msgid "Icon size:"
 msgstr "Размер иконок:"
 
-#: meecast/qt-qml/VisualsPage.qml:40
+#: meecast/qt-qml/VisualsPage.qml:41
 msgid "Icons"
 msgstr "Наборы иконок"
 
-#: omweather/src/hash.data:85 meecast/qt-qml/VisualsPage.qml:124
+#: omweather/src/hash.data:85 meecast/qt-qml/VisualsPage.qml:262
 msgid "Iconset"
 msgstr "Набор иконок"
 
 #: omweather/src/hash.data:86
 msgid "Iconsets"
 msgstr "Наборы иконок:"
+
+#: meecast/qt-qml/VisualsPage.qml:61 meecast/qt-qml/VisualsPage.qml:135
+#, fuzzy
+msgid "Information"
+msgstr "Подтверждение"
 
 #: omweather/src/hash.data:88
 msgid "Isolated T-Storms"
@@ -1431,6 +1448,7 @@ msgid "Now: "
 msgstr "Сейчас: "
 
 #: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1222
+#: meecast/qt-qml/VisualsPage.qml:114
 msgid "OK"
 msgstr "ОК"
 
@@ -1446,6 +1464,10 @@ msgstr "Настройки OMWeather"
 #: omweather/src/weather-home.c:1268 omweather/src/weather-home.c:2856
 msgid "OMWeather settings"
 msgstr "Настройки OMWeather"
+
+#: meecast/qt-qml/VisualsPage.qml:181
+msgid "Ok"
+msgstr ""
 
 #: omweather/src/weather-help.c:64 omweather/src/weather-help.c:70
 msgid "Other Maemo Weather Info"
@@ -2302,7 +2324,7 @@ msgstr "Прогоноз погоды для Meego. Версия "
 msgid "Widget OMWeather is reloading"
 msgstr "Виджет OMWeather перегружается"
 
-#: meecast/qt-qml/VisualsPage.qml:144
+#: meecast/qt-qml/VisualsPage.qml:282
 msgid "Widget in events view"
 msgstr ""
 
@@ -2632,9 +2654,6 @@ msgstr ""
 msgid "Ю-З"
 msgstr ""
 
-#~ msgid "Confirmation"
-#~ msgstr "Подтверждение"
-
 #~ msgid "Farenheit"
 #~ msgstr "Фаренгейт"
 
@@ -2742,9 +2761,6 @@ msgstr ""
 
 #~ msgid "Temp."
 #~ msgstr "Температура"
-
-#~ msgid "Cancel"
-#~ msgstr "Отменить"
 
 #~ msgid "List of the found station(s):"
 #~ msgstr "Список найденных станций:"

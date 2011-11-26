@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en_GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-25 21:13+0300\n"
+"POT-Creation-Date: 2011-11-26 19:48+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -288,8 +288,12 @@ msgstr ""
 msgid "Animation"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:176
+#: meecast/qt-qml/VisualsPage.qml:318
 msgid "Appearance"
+msgstr ""
+
+#: meecast/qt-qml/VisualsPage.qml:91
+msgid "Application manager will now start \n"
 msgstr ""
 
 #: omweather/src/weather-settings.c:823
@@ -352,6 +356,10 @@ msgstr ""
 
 #: omweather/src/hash.data:26
 msgid "CALM"
+msgstr ""
+
+#: meecast/qt-qml/VisualsPage.qml:107
+msgid "Cancel"
 msgstr ""
 
 #: omweather/src/weather-config.c:383
@@ -780,6 +788,10 @@ msgstr ""
 msgid "Font:"
 msgstr ""
 
+#: meecast/qt-qml/VisualsPage.qml:165
+msgid "For disabling Meecast widget,"
+msgstr ""
+
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
 msgstr ""
@@ -833,7 +845,7 @@ msgstr ""
 msgid "Full forecast"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:102
+#: meecast/qt-qml/VisualsPage.qml:240
 msgid "Fullscreen mode"
 msgstr ""
 
@@ -911,16 +923,20 @@ msgstr ""
 msgid "Icon size:"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:40
+#: meecast/qt-qml/VisualsPage.qml:41
 msgid "Icons"
 msgstr ""
 
-#: omweather/src/hash.data:85 meecast/qt-qml/VisualsPage.qml:124
+#: omweather/src/hash.data:85 meecast/qt-qml/VisualsPage.qml:262
 msgid "Iconset"
 msgstr ""
 
 #: omweather/src/hash.data:86
 msgid "Iconsets"
+msgstr ""
+
+#: meecast/qt-qml/VisualsPage.qml:61 meecast/qt-qml/VisualsPage.qml:135
+msgid "Information"
 msgstr ""
 
 #: omweather/src/hash.data:88
@@ -1365,6 +1381,7 @@ msgid "Now: "
 msgstr ""
 
 #: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1222
+#: meecast/qt-qml/VisualsPage.qml:114
 msgid "OK"
 msgstr ""
 
@@ -1379,6 +1396,10 @@ msgstr ""
 
 #: omweather/src/weather-home.c:1268 omweather/src/weather-home.c:2856
 msgid "OMWeather settings"
+msgstr ""
+
+#: meecast/qt-qml/VisualsPage.qml:181
+msgid "Ok"
 msgstr ""
 
 #: omweather/src/weather-help.c:64 omweather/src/weather-help.c:70
@@ -2240,7 +2261,7 @@ msgstr ""
 msgid "Widget OMWeather is reloading"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:144
+#: meecast/qt-qml/VisualsPage.qml:282
 msgid "Widget in events view"
 msgstr ""
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-25 21:13+0300\n"
+"POT-Creation-Date: 2011-11-26 19:48+0300\n"
 "PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -328,8 +328,12 @@ msgstr "Nastala neznáma chyba."
 msgid "Animation"
 msgstr "Animácie"
 
-#: meecast/qt-qml/VisualsPage.qml:176
+#: meecast/qt-qml/VisualsPage.qml:318
 msgid "Appearance"
+msgstr ""
+
+#: meecast/qt-qml/VisualsPage.qml:91
+msgid "Application manager will now start \n"
 msgstr ""
 
 #: omweather/src/weather-settings.c:823
@@ -399,6 +403,10 @@ msgstr "C\n"
 #: omweather/src/hash.data:26
 msgid "CALM"
 msgstr "Bezvetrie"
+
+#: meecast/qt-qml/VisualsPage.qml:107
+msgid "Cancel"
+msgstr ""
 
 #: omweather/src/weather-config.c:383
 #, c-format
@@ -848,6 +856,10 @@ msgstr "Farba písma:"
 msgid "Font:"
 msgstr "Písmo:"
 
+#: meecast/qt-qml/VisualsPage.qml:165
+msgid "For disabling Meecast widget,"
+msgstr ""
+
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
 msgstr "Predpoveď"
@@ -920,7 +932,7 @@ msgstr "Spln"
 msgid "Full forecast"
 msgstr "Úplná predpoveď"
 
-#: meecast/qt-qml/VisualsPage.qml:102
+#: meecast/qt-qml/VisualsPage.qml:240
 msgid "Fullscreen mode"
 msgstr ""
 
@@ -998,12 +1010,12 @@ msgstr "Téma ikon:"
 msgid "Icon size:"
 msgstr "Veľkosť ikon:"
 
-#: meecast/qt-qml/VisualsPage.qml:40
+#: meecast/qt-qml/VisualsPage.qml:41
 #, fuzzy
 msgid "Icons"
 msgstr "Téma ikon:"
 
-#: omweather/src/hash.data:85 meecast/qt-qml/VisualsPage.qml:124
+#: omweather/src/hash.data:85 meecast/qt-qml/VisualsPage.qml:262
 #, fuzzy
 msgid "Iconset"
 msgstr "Téma ikon:"
@@ -1012,6 +1024,11 @@ msgstr "Téma ikon:"
 #, fuzzy
 msgid "Iconsets"
 msgstr "Téma ikon:"
+
+#: meecast/qt-qml/VisualsPage.qml:61 meecast/qt-qml/VisualsPage.qml:135
+#, fuzzy
+msgid "Information"
+msgstr "Animácie"
 
 #: omweather/src/hash.data:88
 msgid "Isolated T-Storms"
@@ -1463,6 +1480,7 @@ msgid "Now: "
 msgstr "Teraz: "
 
 #: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1222
+#: meecast/qt-qml/VisualsPage.qml:114
 msgid "OK"
 msgstr "OK"
 
@@ -1478,6 +1496,10 @@ msgstr "Nastavenie OMWeather"
 #: omweather/src/weather-home.c:1268 omweather/src/weather-home.c:2856
 msgid "OMWeather settings"
 msgstr "Nastavenie OMWeather"
+
+#: meecast/qt-qml/VisualsPage.qml:181
+msgid "Ok"
+msgstr ""
 
 #: omweather/src/weather-help.c:64 omweather/src/weather-help.c:70
 msgid "Other Maemo Weather Info"
@@ -2349,7 +2371,7 @@ msgstr "Predpoveď počasia pre Meego. Verzia "
 msgid "Widget OMWeather is reloading"
 msgstr "Widget OMWeather sa znovu načítava."
 
-#: meecast/qt-qml/VisualsPage.qml:144
+#: meecast/qt-qml/VisualsPage.qml:282
 msgid "Widget in events view"
 msgstr ""
 
@@ -2685,10 +2707,6 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:296
 msgid "Ю-З"
 msgstr "Ю-З"
-
-#, fuzzy
-#~ msgid "Confirmation"
-#~ msgstr "Animácie"
 
 #, fuzzy
 #~ msgid "Farenheit"

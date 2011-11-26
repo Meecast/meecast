@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-25 21:13+0300\n"
+"POT-Creation-Date: 2011-11-26 19:48+0300\n"
 "PO-Revision-Date: 2011-11-05 11:06+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -328,9 +328,13 @@ msgstr "Tapahtui tuntematon virhe."
 msgid "Animation"
 msgstr "Animaatio"
 
-#: meecast/qt-qml/VisualsPage.qml:176
+#: meecast/qt-qml/VisualsPage.qml:318
 msgid "Appearance"
 msgstr "Ulkoasu"
+
+#: meecast/qt-qml/VisualsPage.qml:91
+msgid "Application manager will now start \n"
+msgstr ""
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -398,6 +402,10 @@ msgstr "С\n"
 #: omweather/src/hash.data:26
 msgid "CALM"
 msgstr "Tyyntä"
+
+#: meecast/qt-qml/VisualsPage.qml:107
+msgid "Cancel"
+msgstr "Peruuta"
 
 #: omweather/src/weather-config.c:383
 #, c-format
@@ -843,6 +851,10 @@ msgstr "Kirjasimen väri:"
 msgid "Font:"
 msgstr "Fontti:"
 
+#: meecast/qt-qml/VisualsPage.qml:165
+msgid "For disabling Meecast widget,"
+msgstr ""
+
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
 msgstr "Ennuste"
@@ -916,7 +928,7 @@ msgstr "Täysikuu"
 msgid "Full forecast"
 msgstr "Täysi ennuste"
 
-#: meecast/qt-qml/VisualsPage.qml:102
+#: meecast/qt-qml/VisualsPage.qml:240
 msgid "Fullscreen mode"
 msgstr "Koko näytön tila"
 
@@ -995,17 +1007,22 @@ msgstr "Kuvakkeet:"
 msgid "Icon size:"
 msgstr "Kuvakkeen koko:"
 
-#: meecast/qt-qml/VisualsPage.qml:40
+#: meecast/qt-qml/VisualsPage.qml:41
 msgid "Icons"
 msgstr "Kuvakkeet"
 
-#: omweather/src/hash.data:85 meecast/qt-qml/VisualsPage.qml:124
+#: omweather/src/hash.data:85 meecast/qt-qml/VisualsPage.qml:262
 msgid "Iconset"
 msgstr "Kuvakkeet"
 
 #: omweather/src/hash.data:86
 msgid "Iconsets"
 msgstr "Kuvakkeet"
+
+#: meecast/qt-qml/VisualsPage.qml:61 meecast/qt-qml/VisualsPage.qml:135
+#, fuzzy
+msgid "Information"
+msgstr "Animaatio"
 
 #: omweather/src/hash.data:88
 msgid "Isolated T-Storms"
@@ -1455,6 +1472,7 @@ msgid "Now: "
 msgstr "Nyt: "
 
 #: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1222
+#: meecast/qt-qml/VisualsPage.qml:114
 msgid "OK"
 msgstr "OK"
 
@@ -1470,6 +1488,10 @@ msgstr "OMWeather asetukset"
 #: omweather/src/weather-home.c:1268 omweather/src/weather-home.c:2856
 msgid "OMWeather settings"
 msgstr "OMWeather asetukset"
+
+#: meecast/qt-qml/VisualsPage.qml:181
+msgid "Ok"
+msgstr ""
 
 #: omweather/src/weather-help.c:64 omweather/src/weather-help.c:70
 msgid "Other Maemo Weather Info"
@@ -2338,7 +2360,7 @@ msgstr "Sääennuste Meego laitteille. Versio"
 msgid "Widget OMWeather is reloading"
 msgstr "Uudelleen ladataan OMWeather sovelma"
 
-#: meecast/qt-qml/VisualsPage.qml:144
+#: meecast/qt-qml/VisualsPage.qml:282
 msgid "Widget in events view"
 msgstr ""
 
@@ -2671,10 +2693,6 @@ msgid "Ю-З"
 msgstr ""
 
 #, fuzzy
-#~ msgid "Confirmation"
-#~ msgstr "Animaatio"
-
-#, fuzzy
 #~ msgid "Farenheit"
 #~ msgstr "Fahrenheit"
 
@@ -2786,9 +2804,6 @@ msgstr ""
 
 #~ msgid "Temp."
 #~ msgstr "Lämpöt."
-
-#~ msgid "Cancel"
-#~ msgstr "Peruuta"
 
 #~ msgid "List of the found station(s):"
 #~ msgstr "Lista löydetyistä asemista:"

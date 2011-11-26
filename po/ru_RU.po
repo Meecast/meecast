@@ -1002,9 +1002,8 @@ msgid "Iconsets"
 msgstr "Наборы иконок:"
 
 #: meecast/qt-qml/VisualsPage.qml:61 meecast/qt-qml/VisualsPage.qml:135
-#, fuzzy
 msgid "Information"
-msgstr "Подтверждение"
+msgstr "Информация"
 
 #: omweather/src/hash.data:88
 msgid "Isolated T-Storms"

@@ -55,6 +55,7 @@ Page {
 	    Label {
 		id: titleLabel
 		anchors.verticalCenter: titleField.verticalCenter
+		anchors.horizontalCenter: titleField.horizontalCenter
 		font.capitalization: Font.MixedCase
 		color: "white"
 		text: Config.tr("Information")
@@ -76,26 +77,47 @@ Page {
 	content:Item {
 	    id: name
 	    height: childrenRect.height
+	    Rectangle {
+		id: black_rect1
+		anchors.top: text.bottom
+		height: 40
+		color: "black"
+	    }
 	    Text {
 		id: text
-		font.pixelSize: 22
+	    	width: parent.width
+		font.pixelSize: 23
 		color: "white"
 		text: Config.tr("Application manager will now start \n"
                        +"for installing package 'MeeCast applet'.\n"
-                       +"You should uninstall AccuWeather before \ninstalling this package")
+                       +"You should uninstall AccuWeather \nbefore installing this package")
+	    }
+	    Rectangle {
+		id: black_rect
+		anchors.top: text.bottom
+		height: 40
+		color: "black"
 	    }
 	}
 
 	buttons: ButtonRow {
 	    platformStyle: ButtonStyle { }
 	    anchors.horizontalCenter: parent.horizontalCenter
-	    Button {id: b1; text: Config.tr("OK"); 
-                    onClicked: {
-		    Config.seteventwidget(eventwidget.checked)
-                    event_widget_status = eventwidget.checked;                  
-                    }
+            Button {id: b2; 
+                   text: Config.tr("Cancel"); 
+                   onClicked: {
+                       eventwidget.checked = false
+                       enableDialog.close()
                    }
-	    Button {id: b2; text: Config.tr("Cancel"); onClicked: enableDialog.close()}
+            }
+	    Button {id: b1; 
+                    text: Config.tr("OK"); 
+                    onClicked: {
+		        Config.seteventwidget(eventwidget.checked)
+                        event_widget_status = eventwidget.checked;                  
+                        enableDialog.close()
+                    }
+            }
 	}
     }
     Dialog {
@@ -129,26 +151,34 @@ Page {
 	content:Item {
 	    id: name2
 	    height: childrenRect.height
+	    Rectangle {
+		id: black_rect12
+		anchors.top: text.bottom
+		height: 40
+		color: "black"
+	    }
+
 	    Text {
 		id: text2
 		font.pixelSize: 22
 		color: "white"
-		text: Config.tr("You should uninstall package\n"
+		text: Config.tr("For disabling Meecast widget,"
+                                +"you should uninstall package\n"
                                 +"'Activating MeeCast Applet'\n"
                                 +"using Application manager")
+	    }	
+	    Rectangle {
+		id: black_rect2
+		anchors.top: text.bottom
+		height: 40
+		color: "black"
 	    }
 	}
 
 	buttons: ButtonRow {
 	    platformStyle: ButtonStyle { }
 	    anchors.horizontalCenter: parent.horizontalCenter
-	    Button {id: b12; text: Config.tr("OK"); 
-                    onClicked: {
-		    Config.seteventwidget(eventwidget.checked)
-                    event_widget_status = eventwidget.checked;                  
-                    }
-                   }
-	    Button {id: b22; text: Config.tr("Cancel"); onClicked: disableDialog.close()}
+	    Button {id: b22; text: Config.tr("Ok"); onClicked: disableDialog.close()}
 	}
     }
 
@@ -256,7 +286,6 @@ Page {
             Switch {
                 id: eventwidget 
                 checked: Config.eventwidget
-                //checked: false 
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
                 onCheckedChanged: {
@@ -266,7 +295,6 @@ Page {
                        else
                            disableDialog.open();
 		    }
-                    Config.seteventwidget(eventwidget.checked);
                 }
                 //platformStyle: SwitchStyle {inverted: true}
             }

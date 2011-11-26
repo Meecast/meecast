@@ -6,6 +6,7 @@ import com.nokia.meego 1.0
 Page {
     id: visuals
     property int margin: 16
+    property bool event_widget_status: Config.eventwidget
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"
@@ -44,6 +45,58 @@ Page {
         }
 
     }
+     Dialog {
+	id: myDialog
+	title: Item {
+	    id: titleField
+	    height: myDialog.platformStyle.titleBarHeight
+	    width: parent.width
+
+	    Label {
+		id: titleLabel
+		anchors.left: supplement.right
+		anchors.verticalCenter: titleField.verticalCenter
+		font.capitalization: Font.MixedCase
+		color: "white"
+		text: Config.tr("Information")
+	    }
+
+	    Image {
+		id: closeButton
+		anchors.verticalCenter: titleField.verticalCenter
+		anchors.right: titleField.right
+
+		source: "image://theme/icon-m-framework-close"
+
+		MouseArea {
+		    id: closeButtonArea
+		    anchors.fill: parent
+		    onClicked:  { myDialog.close() }
+		}
+	    }
+	}
+
+	content:Item {
+	    id: name
+	    height: childrenRect.height
+	    Text {
+		id: text
+		font.pixelSize: 22
+		color: "white"
+		text: Config.tr("Application manager will now start \n"
+                       +"for installing package 'MeeCast applet'.\n"
+                       +"You should uninstall AccuWeather before \ninstalling this package")
+	    }
+	}
+
+	buttons: ButtonRow {
+	    platformStyle: ButtonStyle { }
+	    anchors.horizontalCenter: parent.horizontalCenter
+	    Button {id: b1; text: Config.tr("OK"); onClicked: Config.seteventwidget(eventwidget.checked)}
+	    Button {id: b2; text: Config.tr("Cancel"); onClicked: myDialog.close()}
+	}
+    }
+
     Rectangle{
         anchors.fill: parent
         anchors.top: title_rect.bottom
@@ -146,12 +199,18 @@ Page {
                 anchors.verticalCenter: parent.verticalCenter
             }
             Switch {
-                //checked: !rootWindow.showStatusBar
                 id: eventwidget 
                 checked: Config.eventwidget
+                //checked: false 
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
                 onCheckedChanged: {
+         	    if (event_widget_status != checked){          
+                       if (checked)
+                           myDialog.open();
+                       else
+                           myDialog.open();
+		    }
                     Config.seteventwidget(eventwidget.checked);
                 }
                 //platformStyle: SwitchStyle {inverted: true}

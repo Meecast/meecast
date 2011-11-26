@@ -219,8 +219,6 @@ ConfigQml::eventwidget()
 	    return true;
     }else
         return false;
-
-    return true;
 }
 void
 ConfigQml::seteventwidget(bool c)

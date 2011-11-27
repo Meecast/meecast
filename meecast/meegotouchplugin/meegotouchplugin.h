@@ -86,7 +86,7 @@ public:
     }
 
     Q_INVOKABLE void startpredeamon(){
-//#if 0
+#if 0
 
 	// Debug begin
 	QFile file("/tmp/1.log");
@@ -96,7 +96,7 @@ public:
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
         QString executable("/opt/com.meecast.omweather/bin/predaemon");    
         process.startDetached(executable);
     }

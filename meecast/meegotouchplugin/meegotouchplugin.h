@@ -35,6 +35,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDate>
+#include <QTimer>
 
 
 
@@ -56,7 +57,7 @@ private:
     QString  _temperature_low;
     QString  _iconpath;
     bool    _current;
-
+    QTimer  *_timer;
 public:
 
     MyMWidget(){
@@ -66,9 +67,13 @@ public:
       _temperature_high = "";
 	  _iconpath = "/opt/com.meecast.omweather/share/icons/Meecast/49.png";
       _current = false;
+      _timer = new QTimer(this);
+      _timer->setSingleShot(true);
     };
 
-    ~MyMWidget(){};
+    ~MyMWidget(){
+      delete _timer;
+    };
 
     Q_INVOKABLE void startapplication(){
         QString executable("/usr/bin/invoker");    

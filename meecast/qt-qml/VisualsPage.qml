@@ -151,7 +151,7 @@ Page {
 	    height: childrenRect.height
 	    Rectangle {
 		id: black_rect12
-		anchors.top: text.bottom
+		anchors.bottom: text2.top
 		height: 40
 		color: "black"
 	    }
@@ -164,7 +164,7 @@ Page {
 	    }	
 	    Rectangle {
 		id: black_rect2
-		anchors.top: text.bottom
+		anchors.top: text2.bottom
 		height: 40
 		color: "black"
 	    }
@@ -173,7 +173,12 @@ Page {
 	buttons: ButtonRow {
 	    platformStyle: ButtonStyle { }
 	    anchors.horizontalCenter: parent.horizontalCenter
-	    Button {id: b22; text: Config.tr("Ok"); onClicked: disableDialog.close()}
+	    Button {id: b22; text: Config.tr("Ok"); 
+                    onClicked: {
+                        eventwidget.checked = true 
+                        disableDialog.close()
+                    }
+            }
 	}
     }
 

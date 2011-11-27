@@ -326,10 +326,13 @@ msgid ""
 "You should uninstall AccuWeather \n"
 "before installing this package"
 msgstr ""
-"Сейчас будет запущено Управление\n"
-"Приложениями для того чтобы устаноаить пакет\n"
-"'MeeCast applet'. Вы должны деинсталировать\n"
-"пакет AccuWeather до установки этой программы"
+"Сейчас будет запущена программа\n" 
+"'Управление Приложениями' для\n"
+"того чтобы установить пакет\n"
+"'MeeCast applet'.\n"
+"Вы должны деинсталировать\n"
+"пакет AccuWeather до\n"
+"установки этой программы"
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -844,7 +847,6 @@ msgid "Font:"
 msgstr "Шрифт:"
 
 #: meecast/qt-qml/VisualsPage.qml:163
-#, fuzzy
 msgid ""
 "For disabling MeeCast widget,\n"
 "you should uninstall package\n"
@@ -854,7 +856,8 @@ msgstr ""
 "Для отключения виджета MeeCast\n"
 "Вы должны деинсталировать пакет\n"
 "'Activating MeeCast Applet'\n"
-"используя Упрваление Приложениями"
+"используя прогамму\n"
+"'Управление Приложениями'"
 
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"

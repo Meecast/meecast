@@ -1,11 +1,13 @@
 meecast (0.4.4) unstable; urgency=low
 
+  * Added posiibility to install events applet using MeeCast
+  * Fixed problem with autoupdating in evnets applet
   * Fixed segmentation fault with nill GPS station 
   * Fixed wrong wind speed values in yr.no 
   * Small improvements in external view
   * Added stations in yr.no database (China)
 
- -- Vlad Vasiliev <vlad@gas.by>  Tue, 8 Nov 2011 00:12:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 28 Nov 2011 12:42:23 +0200
 
 meecast (0.4.3) unstable; urgency=low
 

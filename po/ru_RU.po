@@ -1961,7 +1961,7 @@ msgstr "Местами ливни"
 
 #: omweather/src/hash.data:230
 msgid "Sleet"
-msgstr ""
+msgstr "Мокрый снег"
 
 #: omweather/src/hash.data:233
 msgid "Smoke"

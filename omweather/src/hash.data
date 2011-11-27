@@ -227,6 +227,7 @@
     g_hash_table_insert(hash, (void*)"Showers / Wind", _("Showers / Wind"));
     g_hash_table_insert(hash, (void*)"Showers Early", _("Showers Early"));
     g_hash_table_insert(hash, (void*)"Showers Late", _("Showers Late"));
+    g_hash_table_insert(hash, (void*)"Sleet", _("Sleet"));
     g_hash_table_insert(hash, (void*)"Showers in the Vicinity", _("Showers in the Vicinity"));
     g_hash_table_insert(hash, (void*)"Showers", _("Showers"));
     g_hash_table_insert(hash, (void*)"Smoke", _("Smoke"));

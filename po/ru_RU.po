@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-26 20:27+0300\n"
+"POT-Creation-Date: 2011-11-27 14:31+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -315,7 +315,7 @@ msgstr "Произошла неизвестная ошибка."
 msgid "Animation"
 msgstr "Анимация"
 
-#: meecast/qt-qml/VisualsPage.qml:313
+#: meecast/qt-qml/VisualsPage.qml:318
 msgid "Appearance"
 msgstr "Внешний вид"
 
@@ -326,7 +326,7 @@ msgid ""
 "You should uninstall AccuWeather \n"
 "before installing this package"
 msgstr ""
-"Сейчас будет запущена программа\n" 
+"Сейчас будет запущена программа\n"
 "'Управление Приложениями' для\n"
 "того чтобы установить пакет\n"
 "'MeeCast applet'.\n"
@@ -931,7 +931,7 @@ msgstr "Полнолуние"
 msgid "Full forecast"
 msgstr "Полный прогноз"
 
-#: meecast/qt-qml/VisualsPage.qml:235
+#: meecast/qt-qml/VisualsPage.qml:240
 msgid "Fullscreen mode"
 msgstr "Полноэкранный режим"
 
@@ -1013,7 +1013,7 @@ msgstr "Размер иконок:"
 msgid "Icons"
 msgstr "Наборы иконок"
 
-#: omweather/src/hash.data:85 meecast/qt-qml/VisualsPage.qml:257
+#: omweather/src/hash.data:85 meecast/qt-qml/VisualsPage.qml:262
 msgid "Iconset"
 msgstr "Набор иконок"
 
@@ -1935,7 +1935,7 @@ msgstr "Показать температуру:"
 msgid "Show wind"
 msgstr "Показать ветер"
 
-#: omweather/src/hash.data:231
+#: omweather/src/hash.data:232
 msgid "Showers"
 msgstr "Ливни"
 
@@ -1955,55 +1955,59 @@ msgstr "С утра ливни"
 msgid "Showers Late"
 msgstr "Позже ливни"
 
-#: omweather/src/hash.data:230
+#: omweather/src/hash.data:231
 msgid "Showers in the Vicinity"
 msgstr "Местами ливни"
 
-#: omweather/src/hash.data:232
+#: omweather/src/hash.data:230
+msgid "Sleet"
+msgstr ""
+
+#: omweather/src/hash.data:233
 msgid "Smoke"
 msgstr "Дымка"
 
-#: omweather/src/hash.data:243
+#: omweather/src/hash.data:244
 msgid "Snow"
 msgstr "Снег"
 
-#: omweather/src/hash.data:233
+#: omweather/src/hash.data:234
 msgid "Snow / Wind"
 msgstr "Снег / Ветер"
 
-#: omweather/src/hash.data:235
+#: omweather/src/hash.data:236
 msgid "Snow Shower"
 msgstr "Мокрый снег"
 
-#: omweather/src/hash.data:234
+#: omweather/src/hash.data:235
 msgid "Snow Shower / Wind"
 msgstr "Мокрый снег / Ветер"
 
-#: omweather/src/hash.data:236
+#: omweather/src/hash.data:237
 msgid "Snow Showers / Wind Early"
 msgstr "Мокрый снег / С утра ветер"
 
-#: omweather/src/hash.data:237
+#: omweather/src/hash.data:238
 msgid "Snow Showers Early"
 msgstr "С утра мокрый снег"
 
-#: omweather/src/hash.data:238
+#: omweather/src/hash.data:239
 msgid "Snow Showers Late"
 msgstr "Позже мокрый снег"
 
-#: omweather/src/hash.data:239
+#: omweather/src/hash.data:240
 msgid "Snow and Freezing Rain"
 msgstr "Снег с холодным дождем"
 
-#: omweather/src/hash.data:240
+#: omweather/src/hash.data:241
 msgid "Snow to Rain"
 msgstr "Снег переходящий в дождь"
 
-#: omweather/src/hash.data:242
+#: omweather/src/hash.data:243
 msgid "Snow to Wintry Mix"
 msgstr "Снег переходящий в поземку"
 
-#: omweather/src/hash.data:241
+#: omweather/src/hash.data:242
 msgid "Snow to Wintry Mix / Wind"
 msgstr "Снег переходящий в поземку / Ветер"
 
@@ -2042,7 +2046,7 @@ msgstr "Станция %i"
 msgid "Stations"
 msgstr "Станции"
 
-#: omweather/src/hash.data:244 omweather/src/weather-alerts.c:154
+#: omweather/src/hash.data:245 omweather/src/weather-alerts.c:154
 msgid "Storm"
 msgstr "Шторм"
 
@@ -2050,15 +2054,15 @@ msgstr "Шторм"
 msgid "Successfully loaded"
 msgstr "Успешно загружено"
 
-#: omweather/src/hash.data:246
+#: omweather/src/hash.data:247
 msgid "Sunny"
 msgstr "Солнечно"
 
-#: omweather/src/hash.data:245
+#: omweather/src/hash.data:246
 msgid "Sunny / Wind"
 msgstr "Солнечно / Ветер"
 
-#: omweather/src/hash.data:247 meecast/qt-qml/FullWeatherPage.qml:142
+#: omweather/src/hash.data:248 meecast/qt-qml/FullWeatherPage.qml:142
 msgid "Sunrise:"
 msgstr "Восход:"
 
@@ -2066,7 +2070,7 @@ msgstr "Восход:"
 msgid "Sunrise: "
 msgstr "Восход: "
 
-#: omweather/src/hash.data:248 meecast/qt-qml/FullWeatherPage.qml:145
+#: omweather/src/hash.data:249 meecast/qt-qml/FullWeatherPage.qml:145
 msgid "Sunset:"
 msgstr "Закат:"
 
@@ -2082,27 +2086,27 @@ msgstr "Поменять местами температуры"
 msgid "Switch to the next station after:"
 msgstr "Переключится на следующую станцию через:"
 
-#: omweather/src/hash.data:250
+#: omweather/src/hash.data:251
 msgid "T-Showers"
 msgstr "Грозовые ливни"
 
-#: omweather/src/hash.data:249
+#: omweather/src/hash.data:250
 msgid "T-Showers Early"
 msgstr "Грозовые ливни с утра"
 
-#: omweather/src/hash.data:251
+#: omweather/src/hash.data:252
 msgid "T-Storm"
 msgstr "Гроза"
 
-#: omweather/src/hash.data:254
+#: omweather/src/hash.data:255
 msgid "T-Storms"
 msgstr "Грозы"
 
-#: omweather/src/hash.data:252
+#: omweather/src/hash.data:253
 msgid "T-Storms Early"
 msgstr "С утра грозы"
 
-#: omweather/src/hash.data:253
+#: omweather/src/hash.data:254
 msgid "T-Storms Late"
 msgstr "Позже грозы"
 
@@ -2112,7 +2116,7 @@ msgstr "Позже грозы"
 msgid "Temperature"
 msgstr "Температура"
 
-#: omweather/src/hash.data:255 meecast/qt-qml/UnitsPage.qml:31
+#: omweather/src/hash.data:256 meecast/qt-qml/UnitsPage.qml:31
 #: meecast/qt-qml/UnitsPage.qml:81
 msgid "Temperature units"
 msgstr "Единицы температуры"
@@ -2155,7 +2159,7 @@ msgid ""
 "under the terms of the GNU General Public License\n"
 msgstr ""
 
-#: omweather/src/hash.data:256
+#: omweather/src/hash.data:257
 msgid "Thunder"
 msgstr "Гром"
 
@@ -2180,7 +2184,7 @@ msgstr ""
 msgid "Transparency:"
 msgstr "Прозрачность:"
 
-#: omweather/src/hash.data:257 meecast/qt-qml/WeatherPage.qml:495
+#: omweather/src/hash.data:258 meecast/qt-qml/WeatherPage.qml:495
 msgid "Try to update"
 msgstr "Попробуйте обновить"
 
@@ -2210,7 +2214,7 @@ msgstr "Единицы"
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: omweather/src/hash.data:258
+#: omweather/src/hash.data:259
 msgid "Unlimited"
 msgstr "Без ограничений"
 
@@ -2223,7 +2227,7 @@ msgstr "Обновление"
 msgid "Update already running."
 msgstr "Обновление уже работает."
 
-#: omweather/src/hash.data:259 meecast/qt-qml/WeatherPage.qml:354
+#: omweather/src/hash.data:260 meecast/qt-qml/WeatherPage.qml:354
 msgid "Updating forecast"
 msgstr "Идет обновление данных о погоде."
 
@@ -2256,7 +2260,7 @@ msgstr ""
 msgid "Use device temperature sensor"
 msgstr "Использовать встроенный датчик температуры"
 
-#: omweather/src/hash.data:260
+#: omweather/src/hash.data:261
 msgid "VAR"
 msgstr "Переменный"
 
@@ -2264,7 +2268,7 @@ msgstr "Переменный"
 msgid "Valid time for current weather:"
 msgstr "Актуальность текущей погоды:"
 
-#: omweather/src/hash.data:261
+#: omweather/src/hash.data:262
 msgid "Very High"
 msgstr "Очень высокое"
 
@@ -2281,7 +2285,7 @@ msgstr "Видимость:"
 msgid "Visuals"
 msgstr "Оформление"
 
-#: omweather/src/hash.data:262
+#: omweather/src/hash.data:263
 msgid "W"
 msgstr "ЗЗ"
 
@@ -2291,31 +2295,31 @@ msgstr "ЗЗ"
 msgid "WLAN"
 msgstr "WLAN"
 
-#: omweather/src/hash.data:263
+#: omweather/src/hash.data:264
 msgid "WNW"
 msgstr "ЗСЗ"
 
-#: omweather/src/hash.data:264
+#: omweather/src/hash.data:265
 msgid "WNW_short"
 msgstr "ЗСЗ"
 
-#: omweather/src/hash.data:265
+#: omweather/src/hash.data:266
 msgid "WSW"
 msgstr "ЗЮЗ"
 
-#: omweather/src/hash.data:266
+#: omweather/src/hash.data:267
 msgid "WSW_short"
 msgstr "ЗЮЗ"
 
-#: omweather/src/hash.data:267
+#: omweather/src/hash.data:268
 msgid "W_short"
 msgstr "З"
 
-#: omweather/src/hash.data:268
+#: omweather/src/hash.data:269
 msgid "Waning Crescent"
 msgstr "Убывающая старая луна"
 
-#: omweather/src/hash.data:269
+#: omweather/src/hash.data:270
 msgid "Waning Gibbous"
 msgstr "Убывающая Луна"
 
@@ -2323,11 +2327,11 @@ msgstr "Убывающая Луна"
 msgid "Warning"
 msgstr "Предупреждение"
 
-#: omweather/src/hash.data:270
+#: omweather/src/hash.data:271
 msgid "Waxing Crescent"
 msgstr "Растущая Луна"
 
-#: omweather/src/hash.data:271
+#: omweather/src/hash.data:272
 msgid "Waxing Gibbous"
 msgstr "Растущая молодая Луна"
 
@@ -2343,7 +2347,7 @@ msgstr "Прогоноз погоды для Meego. Версия "
 msgid "Widget OMWeather is reloading"
 msgstr "Виджет OMWeather перегружается"
 
-#: meecast/qt-qml/VisualsPage.qml:277
+#: meecast/qt-qml/VisualsPage.qml:282
 msgid "Widget in events view"
 msgstr "Виджет на экране событий"
 
@@ -2356,11 +2360,11 @@ msgstr "Стиль виджета"
 msgid "Widget style and Iconset"
 msgstr "Стиль виджета и набор иконок"
 
-#: omweather/src/hash.data:275
+#: omweather/src/hash.data:276
 msgid "Wind"
 msgstr "Ветер"
 
-#: omweather/src/hash.data:272 meecast/qt-qml/FullWeatherPage.qml:86
+#: omweather/src/hash.data:273 meecast/qt-qml/FullWeatherPage.qml:86
 #: meecast/qt-qml/FullWeatherPage.qml:118
 msgid "Wind direction:"
 msgstr "Направление ветра:"
@@ -2370,12 +2374,12 @@ msgstr "Направление ветра:"
 msgid "Wind gust:"
 msgstr "Порывы ветра:"
 
-#: omweather/src/hash.data:274 meecast/qt-qml/FullWeatherPage.qml:92
+#: omweather/src/hash.data:275 meecast/qt-qml/FullWeatherPage.qml:92
 #: meecast/qt-qml/FullWeatherPage.qml:124
 msgid "Wind speed"
 msgstr "Скорость ветра"
 
-#: omweather/src/hash.data:273 meecast/qt-qml/UnitsPage.qml:41
+#: omweather/src/hash.data:274 meecast/qt-qml/UnitsPage.qml:41
 #: meecast/qt-qml/UnitsPage.qml:120
 msgid "Wind speed units"
 msgstr "Единицы скорости ветра"
@@ -2395,19 +2399,19 @@ msgstr "Ветер:"
 msgid "Wind: "
 msgstr "Ветер: "
 
-#: omweather/src/hash.data:279
+#: omweather/src/hash.data:280
 msgid "Wintry Mix"
 msgstr "Поземка"
 
-#: omweather/src/hash.data:277
+#: omweather/src/hash.data:278
 msgid "Wintry Mix / Wind"
 msgstr "Поземка / Ветер"
 
-#: omweather/src/hash.data:276
+#: omweather/src/hash.data:277
 msgid "Wintry Mix / Wind Early"
 msgstr "Поземка / C утра ветер"
 
-#: omweather/src/hash.data:278
+#: omweather/src/hash.data:279
 msgid "Wintry Mix to Snow"
 msgstr "Поземка переходящая в снег"
 
@@ -2489,7 +2493,7 @@ msgstr "каждый час"
 msgid "every minute (Debug)"
 msgstr "каждую минуту (отладка)"
 
-#: omweather/src/hash.data:280
+#: omweather/src/hash.data:281
 msgid "falling"
 msgstr "падает"
 
@@ -2523,14 +2527,14 @@ msgstr "дюймы"
 msgid "km"
 msgstr "км"
 
-#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:281
+#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:282
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
 #: meecast/qt-qml/UnitsPage.qml:138
 msgid "km/h"
 msgstr "км/ч"
 
-#: omweather/src/hash.data:282
+#: omweather/src/hash.data:283
 msgid "km/s"
 msgstr "км/с"
 
@@ -2540,11 +2544,11 @@ msgstr "км/с"
 msgid "m"
 msgstr "м"
 
-#: omweather/src/hash.data:283
+#: omweather/src/hash.data:284
 msgid "m/h"
 msgstr "м/ч"
 
-#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:284
+#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:285
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
 #: meecast/qt-qml/UnitsPage.qml:131
@@ -2567,14 +2571,14 @@ msgstr "мбар"
 msgid "mi"
 msgstr "ми"
 
-#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:285
+#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:286
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
 #: meecast/qt-qml/UnitsPage.qml:145
 msgid "mi/h"
 msgstr "ми/ч"
 
-#: omweather/src/hash.data:286
+#: omweather/src/hash.data:287
 msgid "mi/s"
 msgstr "ми/с"
 
@@ -2621,7 +2625,7 @@ msgstr "следующая"
 msgid "nmi"
 msgstr "м.ми"
 
-#: omweather/src/hash.data:287
+#: omweather/src/hash.data:288
 msgid "rising"
 msgstr "возрастает"
 
@@ -2637,39 +2641,39 @@ msgstr "местного времени станции"
 msgid "station name"
 msgstr "в названии станции"
 
-#: omweather/src/hash.data:288
+#: omweather/src/hash.data:289
 msgid "steady"
 msgstr "устойчивое"
 
-#: omweather/src/hash.data:289
+#: omweather/src/hash.data:290
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:290
+#: omweather/src/hash.data:291
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:291
+#: omweather/src/hash.data:292
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:292
+#: omweather/src/hash.data:293
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:293
+#: omweather/src/hash.data:294
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:294
+#: omweather/src/hash.data:295
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:295
+#: omweather/src/hash.data:296
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:296
+#: omweather/src/hash.data:297
 msgid "Ю-З"
 msgstr ""
 

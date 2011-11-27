@@ -69,6 +69,7 @@ public:
       _current = false;
       _timer = new QTimer(this);
       _timer->setSingleShot(true);
+      connect(_timer, SIGNAL(timeout()), this, SLOT(update_data()));
     };
 
     ~MyMWidget(){
@@ -85,7 +86,8 @@ public:
     }
 
     Q_INVOKABLE void startpredeamon(){
-#if 0
+//#if 0
+
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -94,7 +96,7 @@ public:
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
         QString executable("/opt/com.meecast.omweather/bin/predaemon");    
         process.startDetached(executable);
     }

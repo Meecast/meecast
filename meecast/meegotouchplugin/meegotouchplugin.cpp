@@ -111,7 +111,8 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
 	    file.close();
 	}
 	// Debug end 
-        QTimer::singleShot(((until_valid_time - utc_time.toTime_t() + 60)*1000), this, SLOT(update_data()));
+     //   QTimer::singleShot(((until_valid_time - utc_time.toTime_t() + 60)*1000), this, SLOT(update_data()));
+        _timer->start(((until_valid_time - utc_time.toTime_t() + 60)*1000));
    }else{
       // Debug begin
 	QFile file("/tmp/1.log");
@@ -123,7 +124,9 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
 	// Debug end 
 
 //        QTimer::singleShot(36000000, this, SLOT(update_data()));
-        QTimer::singleShot(3600000, this, SLOT(update_data()));
+        //QTimer::singleShot(3600000, this, SLOT(update_data()));
+
+        _timer->start(3600000);
    }
 
 }

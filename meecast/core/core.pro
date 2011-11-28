@@ -39,7 +39,8 @@ SOURCES = \
     datalist.cpp \
     databasesqlite.cpp \
     downloader.cpp \
-    windspeed.cpp
+    windspeed.cpp \
+    pressure.cpp
 
 
 HEADERS = \ 
@@ -59,7 +60,8 @@ HEADERS = \
     databasesqlite.h \
     databaseabstract.h \
     downloader.h \
-    windspeed.h
+    windspeed.h \
+    pressure.h
 
 
 icon.files = data/desktop/Icon/meecast.svg
@@ -119,3 +121,5 @@ alib.path = /opt/com.meecast.omweather/lib
 INSTALLS += target databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango xsd buttonicons images alib icon icon50 icon255 icon16 icon32 icon64 icon128 iconpanel
 QMAKE_CLEAN += lib$$TARGET* \
     *.pro.user
+
+

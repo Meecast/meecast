@@ -38,6 +38,7 @@ DataItem::DataItem(const Core::Data* data):QObject(),Core::Data(data){
     _lastupdate = QDateTime();
     temperatureunit = "C";
     windunit = "m/c";
+    pressureunit = "mbar";
 }
 void
 DataItem::update(QString filename)
@@ -346,11 +347,12 @@ DataItem::end()
 QString
 DataItem::pressure() {
     QString c;
-    if (DataItem::Data::Pressure() == INT_MAX){
+    DataItem::Data::pressure().units(pressureunit.toStdString());
+    if (DataItem::Data::pressure().value(TRUE) == INT_MAX){
         c = "N/A";
         return c;
     }
-    return c.number((DataItem::Data::Pressure()), 'i', 0);
+    return c.number((DataItem::Data::pressure().value()), 'f', 0);
 }
 QString
 DataItem::lastupdate() {

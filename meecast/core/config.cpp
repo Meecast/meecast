@@ -40,6 +40,7 @@ Config::Config()
     _iconset = new std::string("Meecast");
     _temperature_unit = new std::string("C");
     _wind_speed_unit = new std::string("m/s");
+    _pressure_unit = new std::string("mbar");
     _update_connect = false;
     _fullscreen = false;
     _gps = false;
@@ -81,6 +82,11 @@ Config::saveConfig()
 
     el = doc.createElement("wind_speed_unit");
     t = doc.createTextNode(QString::fromStdString(*_wind_speed_unit));
+    el.appendChild(t);
+    root.appendChild(el);
+
+    el = doc.createElement("pressure_unit");
+    t = doc.createTextNode(QString::fromStdString(*_pressure_unit));
     el.appendChild(t);
     root.appendChild(el);
 
@@ -201,6 +207,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _iconset = new std::string("Meecast");
     _temperature_unit = new std::string("C");
     _wind_speed_unit = new std::string("m/s");
+    _pressure_unit = new std::string("mbar");
     _update_connect = false;
     _fullscreen = false;
     _gps = false;
@@ -247,6 +254,9 @@ Config::LoadConfig(){
         el = root.firstChildElement("wind_speed_unit");
         if (!el.isNull())
             _wind_speed_unit->assign(el.text().toStdString());
+        el = root.firstChildElement("pressure_unit");
+        if (!el.isNull())
+            _pressure_unit->assign(el.text().toStdString());
         el = root.firstChildElement("update_connect");
         if (!el.isNull())
             _update_connect = (el.text() == "true") ? true : false;
@@ -380,6 +390,17 @@ Config::WindSpeedUnit(const std::string& text){
 std::string&
 Config::WindSpeedUnit(){
     return *_wind_speed_unit;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::PressureUnit(const std::string& text){
+    /* ToDo Check access to path */
+    _pressure_unit->assign(text);
+}
+////////////////////////////////////////////////////////////////////////////////
+std::string&
+Config::PressureUnit(){
+    return *_pressure_unit;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

@@ -177,9 +177,11 @@ make_item(QDomDocument doc, Core::Data *data, int num, bool current)
         el.appendChild(t);
         item.appendChild(el);
     }
-    if (data->Pressure() != INT_MAX){
+    if (data->pressure().value() != INT_MAX){
         QDomElement el = doc.createElement("pressure");
-        QDomText t = doc.createTextNode(QString::number(data->Pressure()));
+        data->pressure().units(config->PressureUnit());
+        QDomText t = doc.createTextNode(QString::number(data->pressure().value()) +
+                                        QString::fromStdString(config->PressureUnit()));
         el.appendChild(t);
         item.appendChild(el);
     }

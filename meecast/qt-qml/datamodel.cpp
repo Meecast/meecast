@@ -173,6 +173,7 @@ DataModel::update(QString filename, int  period)
                 forecast_data->LastUpdate(dp->LastUpdate());
                 forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
                 forecast_data->windunit = _config->WindSpeedUnit().c_str();
+                forecast_data->pressureunit = _config->PressureUnit().c_str();
                 this->appendRow(forecast_data);
                 MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
                 QString icon_string =  _config->iconspath().c_str();
@@ -195,6 +196,7 @@ DataModel::update(QString filename, int  period)
                 forecast_data->LastUpdate(dp->LastUpdate());
                 forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
                 forecast_data->windunit = _config->WindSpeedUnit().c_str();
+                forecast_data->pressureunit = _config->PressureUnit().c_str();
                 this->appendRow(forecast_data);
             }
             break;
@@ -209,6 +211,7 @@ DataModel::update(QString filename, int  period)
                 forecast_data->LastUpdate(dp->LastUpdate());
                 forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
                 forecast_data->windunit = _config->WindSpeedUnit().c_str();
+                forecast_data->pressureunit = _config->PressureUnit().c_str();
                 this->appendRow(forecast_data);
                 i = i + 3600*24;
             }
@@ -224,6 +227,7 @@ DataModel::update(QString filename, int  period)
                 forecast_data->LastUpdate(dp->LastUpdate());
                 forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
                 forecast_data->windunit = _config->WindSpeedUnit().c_str();
+                forecast_data->pressureunit = _config->PressureUnit().c_str();
                 this->appendRow(forecast_data);
                 i = i + 3600*24;
             }

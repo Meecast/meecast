@@ -662,7 +662,7 @@ Page {
 			    smooth: true
                         }
                         Text {
-                            text: model.pressure + " mbar"
+                            text: model.pressure + ' ' + Config.tr(Config.pressureunit)
                             anchors.left: pressure.right
                             anchors.leftMargin: 8
                             anchors.top: humidity.bottom

@@ -817,7 +817,7 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                                             g_hash_table_insert(current_weather, "wind_direction", g_strdup(buffer));
                                                             /*Wind speed. m/s in km/h*/
                                                             speed = atoi (temp_buffer);
-                                                            speed = speed * 3600/1000;
+                                                            //speed = speed * 3600/1000;
                                                             sprintf(temp_buffer, "%i", speed);
                                                             g_hash_table_insert(current_weather, "wind_speed", g_strdup(temp_buffer));
                                                          }

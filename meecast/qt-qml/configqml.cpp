@@ -52,6 +52,7 @@ void ConfigQml::init()
     _gps = NULL;
 
     wind_list << "m/s" << "km/h" << "mi/h";
+    press_list << "mbar" << "Pa" << "mmHg";
 
     if (gps()){
         _gps = new GpsPosition();
@@ -188,6 +189,32 @@ void
 ConfigQml::windspeed_unit(int index)
 {
     ConfigQml::Config::WindSpeedUnit(wind_list.at(index).toStdString());
+    saveConfig();
+    refreshconfig();
+}
+
+QString
+ConfigQml::pressureunit(){
+    QString c;
+    //c = QString(QString::fromUtf8(_(ConfigQml::Config::WindSpeedUnit().c_str())));
+    c = ConfigQml::Config::PressureUnit().c_str();
+    return c;
+}
+
+QStringList
+ConfigQml::pressure_list()
+{
+    QStringList l;
+    for (int i=0; i < press_list.size(); i++){
+        l.append(QString(QString::fromUtf8(_(press_list.at(i).toStdString().c_str()))));
+    }
+    return l;
+}
+
+void
+ConfigQml::pressure_unit(int index)
+{
+    ConfigQml::Config::PressureUnit(press_list.at(index).toStdString());
     saveConfig();
     refreshconfig();
 }

@@ -45,6 +45,16 @@ Page {
         }
 
     }
+    MySelectionDialog {
+        id: pressure_dlg
+        model: Config.pressure_list()
+        titleText: Config.tr("Pressure units")
+        selectedIndex: -1
+        onAccepted: {
+            Config.pressure_unit(selectedIndex);
+        }
+
+    }
     Rectangle{
         anchors.fill: parent
         anchors.top: title_rect.bottom
@@ -149,7 +159,43 @@ Page {
                     }
                 }
 
-            }/*
+            }
+            Label {
+                text: Config.tr("Pressure units")
+                height: 80
+                horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignVCenter
+            }
+            ButtonColumn {
+                width: parent.width
+                platformStyle: ButtonStyle {
+                    horizontalAlignment: Text.AlignLeft
+                }
+                Button {
+                    text: Config.tr("mbar")
+                    checked: (Config.pressureunit == "mbar")
+                    onClicked: {
+                        Config.pressure_unit("0");
+                    }
+                }
+                Button {
+                    text: Config.tr("Pa")
+                    checked: (Config.pressureunit == "Pa")
+                    onClicked: {
+                        Config.pressure_unit("1");
+                    }
+                }
+                Button {
+                    text: Config.tr("mmHg")
+                    checked: (Config.pressureunit == "mmHg")
+                    onClicked: {
+                        Config.pressure_unit("2");
+                    }
+                }
+
+            }
+
+            /*
         Button {
             anchors.horizontalCenter: parent.horizontalCenter
             text: Config.tr("Wind speed")+": "+Config.windspeedunit

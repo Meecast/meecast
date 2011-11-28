@@ -51,6 +51,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString iconsbutton READ iconsbutton NOTIFY iconsbuttonChanged)
     Q_PROPERTY(QString temperatureunit READ temperatureunit NOTIFY temperatureunitChanged)
     Q_PROPERTY(QString windspeedunit READ windspeedunit NOTIFY windspeedunitChanged)
+    Q_PROPERTY(QString pressureunit READ pressureunit NOTIFY pressureunitChanged)
     Q_PROPERTY(bool fullscreen READ fullscreen NOTIFY fullscreenChanged)
     Q_PROPERTY(bool eventwidget READ eventwidget NOTIFY eventwidgetChanged)
     Q_PROPERTY(bool gps READ gps NOTIFY gpsChanged)
@@ -70,6 +71,7 @@ public:
     QString iconsbutton();
     QString temperatureunit();
     QString windspeedunit();
+    QString pressureunit();
     bool fullscreen();
     bool eventwidget();
     bool gps();
@@ -104,6 +106,8 @@ public:
     Q_INVOKABLE void temperature_unit(QString c);
     Q_INVOKABLE QStringList windspeed_list();
     Q_INVOKABLE void windspeed_unit(int index);
+    Q_INVOKABLE QStringList pressure_list();
+    Q_INVOKABLE void pressure_unit(int index);
     Q_INVOKABLE void setfullscreen(bool c);
     Q_INVOKABLE void seteventwidget(bool c);
     Q_INVOKABLE void setgps(bool c);
@@ -120,6 +124,7 @@ signals:
     void iconsbuttonChanged();
     void temperatureunitChanged();
     void windspeedunitChanged();
+    void pressureunitChanged();
     void fullscreenChanged();
     void eventwidgetChanged();
     void gpsChanged();
@@ -144,6 +149,7 @@ private:
     QString getCityId(int region_id, int index);
     void init();
     QStringList wind_list;
+    QStringList press_list;
 
 private slots:
     void downloadFinishedSlot();

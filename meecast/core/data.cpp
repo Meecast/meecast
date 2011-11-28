@@ -41,7 +41,8 @@ namespace Core {
         _windSpeed = new Windspeed(INT_MAX, "m/s");
         _windGust = INT_MAX;
         _humidity = INT_MAX;
-        _pressure = INT_MAX;
+        //_pressure = INT_MAX;
+        _pressure = new Pressure(INT_MAX, "mbar");
         _icon = INT_MAX;
         _windDirection = new std::string("N/A");
         _text = new std::string("N/A");
@@ -69,7 +70,8 @@ namespace Core {
         _windSpeed = data->_windSpeed;
         _windGust = INT_MAX;
         _humidity = data->_humidity;
-        _pressure = INT_MAX;
+        //_pressure = INT_MAX;
+        _pressure = data->_pressure;
         _icon = data->_icon;
         _windDirection = data->_windDirection;
         _text = data->_text;
@@ -79,7 +81,6 @@ namespace Core {
         _current = data->_current;
         _start_time = data->_start_time;
         _end_time = data->_end_time;
-        _pressure = data->_pressure;
         _flike = data->_flike;
         _ppcp = data->_ppcp;
         _short_day_name = data->_short_day_name;
@@ -287,15 +288,17 @@ namespace Core {
         return *_temperature;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    void
+    /*void
     Data::Pressure(float pressure){
         _pressure =(int)pressure;
     }
 
     int
     Data::Pressure() const{
-        /* need to check type ( ) */
         return _pressure;
+    }*/
+    Pressure& Data::pressure(){
+        return *_pressure;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void

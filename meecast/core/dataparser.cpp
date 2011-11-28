@@ -117,7 +117,8 @@ namespace Core {
                 }else if (tag == "flike"){
                     forecast_data->Flike().value(el.text().toFloat());
                 }else if (tag == "pressure"){
-                    forecast_data->Pressure(el.text().toFloat());
+                    //forecast_data->Pressure(el.text().toFloat());
+                    forecast_data->pressure().value(el.text().toFloat());
                 }else if (tag == "ppcp"){
                     forecast_data->Ppcp(el.text().toFloat());
                 }else if (tag == "sunrise"){
@@ -280,7 +281,8 @@ namespace Core {
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
             /* std::cout<<"pressure "<< nodeText->get_content() <<std::endl;*/
-            forecast_data->Pressure(atoi(nodeText->get_content().c_str()));
+            //forecast_data->Pressure(atoi(nodeText->get_content().c_str()));
+            forecast_data->pressure().value(atoi(nodeText->get_content().c_str()));
             return;
         }
         // Ppcp tag

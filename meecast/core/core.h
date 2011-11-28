@@ -42,6 +42,8 @@
 #include "datalist.h"
 #include "dataparser.h"
 #include "temperature.h"
+#include "pressure.h"
+#include "windspeed.h"
 #include "stationlist.h"
 #include "abstractconfig.h"
 #include "databasesqlite.h"
@@ -60,6 +62,8 @@ namespace Core{
     class StationList;
     class DataParser;
     class Temperature;
+    class Pressure;
+    class Windspeed;
     class DatabaseSqlite;
     class DatabaseAbstract;
     class Downloader;

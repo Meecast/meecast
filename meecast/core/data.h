@@ -37,6 +37,7 @@
 #include <string>
 #include "temperature.h"
 #include "windspeed.h"
+#include "pressure.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
@@ -49,10 +50,11 @@ namespace Core{
         Temperature *_flike;
         //float _windSpeed;
         Windspeed *_windSpeed;
+        Pressure *_pressure;
         std::string *_windDirection;
         float _windGust;
         int _humidity;
-        int _pressure;
+        //int _pressure;
         std::string *_text;
         std::string *_short_day_name;
         std::string *_full_day_name;
@@ -103,8 +105,9 @@ namespace Core{
             Temperature& temperature_low();
             Temperature& temperature();
             Temperature& Flike();
-            void  Pressure(float pressure);
-            int Pressure(void) const;
+            //void  Pressure(float pressure);
+            //int Pressure(void) const;
+            Pressure& pressure();
             void  Ppcp(float ppcp);
             float Ppcp(void) const;
     };

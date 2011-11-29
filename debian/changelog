@@ -1,3 +1,9 @@
+meecast (0.4.5) unstable; urgency=low
+
+  * Nothing 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 28 Nov 2011 12:42:23 +0200
+
 meecast (0.4.4) unstable; urgency=low
 
   * Added posiibility to install events applet using MeeCast

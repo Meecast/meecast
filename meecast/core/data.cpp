@@ -269,6 +269,7 @@ namespace Core {
        delete _temperature_hi;
        delete _temperature_low;
        delete _temperature;
+       delete _pressure;
        delete _flike;
        delete _short_day_name;
        delete _full_day_name;

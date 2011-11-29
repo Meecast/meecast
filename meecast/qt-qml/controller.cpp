@@ -133,6 +133,7 @@ Controller::load_data()
       forecast_data->LastUpdate(_dp->LastUpdate());
       forecast_data->temperatureunit = _config->temperatureunit();
       forecast_data->windunit = _config->windspeedunit();
+      forecast_data->pressureunit = _config->pressureunit();
       _current->appendRow(forecast_data);
       MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
       dbusclient->SetCurrentData( _config->stationname(), forecast_data->temperature(),
@@ -149,6 +150,7 @@ Controller::load_data()
       forecast_data->LastUpdate(_dp->LastUpdate());
       forecast_data->temperatureunit = _config->temperatureunit();
       forecast_data->windunit = _config->windspeedunit();
+      forecast_data->pressureunit = _config->pressureunit();
       _current_night->appendRow(forecast_data);
       /*MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
       dbusclient->SetCurrentData( _config->stationname(), forecast_data->temperature(),
@@ -168,6 +170,7 @@ Controller::load_data()
       forecast_data->LastUpdate(_dp->LastUpdate());
       forecast_data->temperatureunit = _config->temperatureunit();
       forecast_data->windunit = _config->windspeedunit();
+      forecast_data->pressureunit = _config->pressureunit();
       _model->appendRow(forecast_data);
       i = i + 3600*24;
   }
@@ -182,6 +185,7 @@ Controller::load_data()
       forecast_data->LastUpdate(_dp->LastUpdate());
       forecast_data->temperatureunit = _config->temperatureunit();
       forecast_data->windunit = _config->windspeedunit();
+      forecast_data->pressureunit = _config->pressureunit();
       _night_model->appendRow(forecast_data);
       i = i + 3600*24;
   }

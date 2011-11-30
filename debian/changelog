@@ -12,6 +12,7 @@ meecast (0.4.4) unstable; urgency=low
   * Fixed wrong wind speed values in yr.no and gismeteo.ru
   * Small improvements in external view
   * Added stations in yr.no database (China)
+  * Updated Russian and Finish translations 
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 28 Nov 2011 12:42:23 +0200
 

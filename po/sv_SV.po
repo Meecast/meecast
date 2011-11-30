@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Copyright (C) 2011 
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#  Angela Nennebrandt <EMAIL@ADDRESS>, 2012.
 #
 #, fuzzy
 msgid ""
@@ -244,7 +244,7 @@ msgstr ""
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
 #: meecast/qt-qml/AboutPage.qml:69
 msgid "About"
-msgstr ""
+msgstr "Om"
 
 #: omweather/src/weather-download.c:417
 msgid "Access denied to the given URL."
@@ -290,7 +290,7 @@ msgstr ""
 
 #: meecast/qt-qml/VisualsPage.qml:318
 msgid "Appearance"
-msgstr ""
+msgstr "Utseende"
 
 #: meecast/qt-qml/VisualsPage.qml:91
 msgid ""
@@ -747,7 +747,7 @@ msgstr ""
 
 #: meecast/qt-qml/StationsPage.qml:92
 msgid "Find location via GPS"
-msgstr ""
+msgstr "Hitta område via GPS"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:428
 msgid ""
@@ -855,7 +855,7 @@ msgstr ""
 
 #: meecast/qt-qml/VisualsPage.qml:240
 msgid "Fullscreen mode"
-msgstr ""
+msgstr "Fullskärms läge"
 
 #: omweather/src/weather-home.c:1641
 msgid "G: "
@@ -937,7 +937,7 @@ msgstr ""
 
 #: omweather/src/hash.data:85 meecast/qt-qml/VisualsPage.qml:262
 msgid "Iconset"
-msgstr ""
+msgstr "Ikoninställningar"
 
 #: omweather/src/hash.data:86
 msgid "Iconsets"
@@ -1098,7 +1098,7 @@ msgstr ""
 
 #: omweather/src/hash.data:112 meecast/qt-qml/WeatherPage.qml:481
 msgid "Looks like there's no info for this location."
-msgstr ""
+msgstr "Ingen info finns för området"
 
 #: omweather/src/hash.data:113
 msgid "Low"
@@ -1112,7 +1112,7 @@ msgstr ""
 
 #: omweather/src/hash.data:114 meecast/qt-qml/StationsPage.qml:153
 msgid "Manage locations"
-msgstr ""
+msgstr "Försök uppdatera"
 
 #: omweather/src/weather-simple-settings.c:2240
 msgid "Manual"
@@ -1120,7 +1120,7 @@ msgstr ""
 
 #: meecast/qt-qml/UnitsPage.qml:224
 msgid "Measurement units"
-msgstr ""
+msgstr "Måttenheter"
 
 #: meecast/qt-qml/WeatherPage.qml:286
 msgid "MeeCast"
@@ -1347,7 +1347,7 @@ msgstr ""
 
 #: omweather/src/hash.data:156 meecast/qt-qml/WeatherPage.qml:307
 msgid "No locations are set up yet."
-msgstr ""
+msgstr "Inget område är valt"
 
 #: omweather/src/weather-popup.c:657
 msgid "No weather data for this day."
@@ -1783,7 +1783,7 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:2168
 #: meecast/qt-qml/CityPage.qml:142
 msgid "Select location"
-msgstr ""
+msgstr "Välj område"
 
 #: meecast/qt-qml/NewStationPage.qml:64 meecast/qt-qml/NewStationPage.qml:111
 #: meecast/qt-qml/RegionPage.qml:144
@@ -1800,17 +1800,17 @@ msgstr ""
 
 #: meecast/qt-qml/SourcePage.qml:108
 msgid "Select the weather source"
-msgstr ""
+msgstr "Välj väderkälla"
 
 #: omweather/src/weather-simple-settings.c:1035
 #, c-format
 msgid "Selecting country"
-msgstr ""
+msgstr "Välj land"
 
 #: omweather/src/weather-simple-settings.c:1043
 #, c-format
 msgid "Selecting region"
-msgstr ""
+msgstr "Välj län"
 
 #: omweather/src/weather-simple-settings.c:1039
 #, c-format
@@ -1833,13 +1833,13 @@ msgstr ""
 
 #: omweather/src/hash.data:225 meecast/qt-qml/WeatherPage.qml:321
 msgid "Set locations"
-msgstr ""
+msgstr "Inget område är valt"
 
 #: omweather/src/weather-home.c:1291 omweather/src/weather-simple-popup.c:1156
 #: omweather/src/weather-simple-status.c:158
 #: meecast/qt-qml/SettingsPage.qml:137
 msgid "Settings"
-msgstr ""
+msgstr "Inställningar"
 
 #: omweather/src/weather-settings.c:3465
 msgid "Short"
@@ -2049,7 +2049,7 @@ msgstr ""
 #: omweather/src/hash.data:256 meecast/qt-qml/UnitsPage.qml:31
 #: meecast/qt-qml/UnitsPage.qml:91
 msgid "Temperature units"
-msgstr ""
+msgstr "Enheter temperatur"
 
 #: omweather/src/weather-settings.c:3858
 msgid "Temperature units:"
@@ -2116,7 +2116,7 @@ msgstr ""
 
 #: omweather/src/hash.data:258 meecast/qt-qml/WeatherPage.qml:495
 msgid "Try to update"
-msgstr ""
+msgstr "Försök uppdatera"
 
 #: omweather/src/weather-settings.c:3452
 msgid "Type of click:"
@@ -2307,7 +2307,7 @@ msgstr ""
 #: omweather/src/hash.data:274 meecast/qt-qml/UnitsPage.qml:41
 #: meecast/qt-qml/UnitsPage.qml:130
 msgid "Wind speed units"
-msgstr ""
+msgstr "Enheter vindstyrka"
 
 #: omweather/src/weather-settings.c:3974
 msgid "Wind speed units:"

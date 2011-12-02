@@ -1,6 +1,7 @@
 meecast (0.4.5) unstable; urgency=low
 
   * Added pressure units settings 
+  * Added Swedish translation. Thanks Angela Nennebrandt 
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 28 Nov 2011 12:42:23 +0200
 

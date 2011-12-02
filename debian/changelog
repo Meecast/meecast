@@ -6,8 +6,8 @@ meecast (0.4.5) unstable; urgency=low
 
 meecast (0.4.4) unstable; urgency=low
 
-  * Added posiibility to install events applet using MeeCast
-  * Fixed problem with autoupdating in evnets applet
+  * Added possibility to install events applet using MeeCast
+  * Fixed problem with autoupdating in events applet
   * Fixed segmentation fault with nill GPS station 
   * Fixed wrong wind speed values in yr.no and gismeteo.ru
   * Small improvements in external view

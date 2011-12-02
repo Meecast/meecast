@@ -177,7 +177,8 @@ Italian - Pavel Fialko, Alessandro Pasotti,\n \
 \tSalvatore Fiorenzo, Luca Onnis\n \
 Spanish - Alejandro Lopez\n \
 Polish - Tomasz Dominikowski\n \
-Slovak - Roman Moravčík")
+Slovak - Roman Moravčík \n \
+Swedish - Angela Nennebrandt")
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    anchors.top: translatorstext.bottom

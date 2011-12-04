@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-29 09:06+0300\n"
+"POT-Creation-Date: 2011-12-03 23:33+0300\n"
 "PO-Revision-Date: 2010-04-13 21:48+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <dominikowski@gmail.com>\n"
@@ -897,7 +897,8 @@ msgid ""
 " \tSalvatore Fiorenzo, Luca Onnis\n"
 " Spanish - Alejandro Lopez\n"
 " Polish - Tomasz Dominikowski\n"
-" Slovak - Roman Moravčík"
+" Slovak - Roman Moravčík \n"
+" Swedish - Angela Nennebrandt"
 msgstr ""
 "French - Nicolas Granziano, Philippe \n"
 "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
@@ -1093,7 +1094,7 @@ msgstr ""
 msgid "Lead programmers"
 msgstr ""
 
-#: meecast/qt-qml/AboutPage.qml:187
+#: meecast/qt-qml/AboutPage.qml:188
 msgid "License"
 msgstr ""
 
@@ -2195,7 +2196,7 @@ msgstr "Podziękowania"
 msgid "The weather has been updated."
 msgstr "Prognoza została zaktualizowana."
 
-#: meecast/qt-qml/AboutPage.qml:196
+#: meecast/qt-qml/AboutPage.qml:197
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"

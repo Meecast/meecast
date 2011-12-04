@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-29 09:06+0300\n"
+"POT-Creation-Date: 2011-12-03 23:33+0300\n"
 "PO-Revision-Date: 2011-11-03 23:28+0200\n"
 "Last-Translator: Nicolas Graziano <nicolas.graziano@gmail.com>\n"
 "Language-Team: French <>\n"
@@ -886,6 +886,7 @@ msgid "Freezing Drizzle"
 msgstr "Bruine verglaçante"
 
 #: meecast/qt-qml/AboutPage.qml:169
+#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -897,7 +898,8 @@ msgid ""
 " \tSalvatore Fiorenzo, Luca Onnis\n"
 " Spanish - Alejandro Lopez\n"
 " Polish - Tomasz Dominikowski\n"
-" Slovak - Roman Moravčík"
+" Slovak - Roman Moravčík \n"
+" Swedish - Angela Nennebrandt"
 msgstr ""
 "Français - Nicolas Graziano, \n"
 " \tPhilippe, Benot Knecht\n"
@@ -1097,7 +1099,7 @@ msgstr "Designer principal"
 msgid "Lead programmers"
 msgstr "Programmeur principal"
 
-#: meecast/qt-qml/AboutPage.qml:187
+#: meecast/qt-qml/AboutPage.qml:188
 msgid "License"
 msgstr "Licence"
 
@@ -2168,7 +2170,7 @@ msgstr "Remerciements"
 msgid "The weather has been updated."
 msgstr "La météo a été mise à jour."
 
-#: meecast/qt-qml/AboutPage.qml:196
+#: meecast/qt-qml/AboutPage.qml:197
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"

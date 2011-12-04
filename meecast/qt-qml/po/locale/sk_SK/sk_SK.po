@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-29 09:06+0300\n"
+"POT-Creation-Date: 2011-12-03 23:33+0300\n"
 "PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -898,7 +898,8 @@ msgid ""
 " \tSalvatore Fiorenzo, Luca Onnis\n"
 " Spanish - Alejandro Lopez\n"
 " Polish - Tomasz Dominikowski\n"
-" Slovak - Roman Moravčík"
+" Slovak - Roman Moravčík \n"
+" Swedish - Angela Nennebrandt"
 msgstr ""
 "Francúzština - Nicolas Granziano, Philippe, Benot Knecht\n"
 "Ruština - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
@@ -1096,7 +1097,7 @@ msgstr ""
 msgid "Lead programmers"
 msgstr ""
 
-#: meecast/qt-qml/AboutPage.qml:187
+#: meecast/qt-qml/AboutPage.qml:188
 msgid "License"
 msgstr ""
 
@@ -2186,7 +2187,7 @@ msgstr "Poďakovanie"
 msgid "The weather has been updated."
 msgstr "Údaje o počasí boli aktualizované."
 
-#: meecast/qt-qml/AboutPage.qml:196
+#: meecast/qt-qml/AboutPage.qml:197
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"

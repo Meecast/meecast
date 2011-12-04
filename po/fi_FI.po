@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-29 09:06+0300\n"
+"POT-Creation-Date: 2011-12-03 23:33+0300\n"
 "PO-Revision-Date: 2011-11-27 14:00+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -890,6 +890,7 @@ msgid "Freezing Drizzle"
 msgstr "Jäätävää tihkusadetta"
 
 #: meecast/qt-qml/AboutPage.qml:169
+#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -901,7 +902,8 @@ msgid ""
 " \tSalvatore Fiorenzo, Luca Onnis\n"
 " Spanish - Alejandro Lopez\n"
 " Polish - Tomasz Dominikowski\n"
-" Slovak - Roman Moravčík"
+" Slovak - Roman Moravčík \n"
+" Swedish - Angela Nennebrandt"
 msgstr ""
 " Ranska - Nicolas Granziano, \n"
 " \tPhilippe, Benot Knech\n"
@@ -1099,7 +1101,7 @@ msgstr "Pääsuunnittelija"
 msgid "Lead programmers"
 msgstr "Pääohjelmoijat"
 
-#: meecast/qt-qml/AboutPage.qml:187
+#: meecast/qt-qml/AboutPage.qml:188
 msgid "License"
 msgstr "Lisenssi"
 
@@ -2172,7 +2174,7 @@ msgstr "Kiitokset"
 msgid "The weather has been updated."
 msgstr "Säätiedot päivitetty."
 
-#: meecast/qt-qml/AboutPage.qml:196
+#: meecast/qt-qml/AboutPage.qml:197
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"

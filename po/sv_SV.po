@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-30 17:05+0300\n"
+"POT-Creation-Date: 2011-12-03 23:33+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -829,7 +829,8 @@ msgid ""
 " \tSalvatore Fiorenzo, Luca Onnis\n"
 " Spanish - Alejandro Lopez\n"
 " Polish - Tomasz Dominikowski\n"
-" Slovak - Roman Moravčík"
+" Slovak - Roman Moravčík \n"
+" Swedish - Angela Nennebrandt"
 msgstr ""
 
 #: omweather/src/weather-help.c:141
@@ -1004,7 +1005,7 @@ msgstr ""
 msgid "Lead programmers"
 msgstr ""
 
-#: meecast/qt-qml/AboutPage.qml:187
+#: meecast/qt-qml/AboutPage.qml:188
 msgid "License"
 msgstr ""
 
@@ -1778,7 +1779,7 @@ msgstr ""
 #: meecast/qt-qml/CountryPage.qml:153 meecast/qt-qml/NewStationPage.qml:55
 #: meecast/qt-qml/NewStationPage.qml:102
 msgid "Select country"
-msgstr ""
+msgstr "Välj land"
 
 #: omweather/src/weather-simple-settings.c:2168
 #: meecast/qt-qml/CityPage.qml:142
@@ -1788,7 +1789,7 @@ msgstr "Välj område"
 #: meecast/qt-qml/NewStationPage.qml:64 meecast/qt-qml/NewStationPage.qml:111
 #: meecast/qt-qml/RegionPage.qml:144
 msgid "Select region"
-msgstr ""
+msgstr "Välj län"
 
 #: meecast/qt-qml/NewStationPage.qml:46 meecast/qt-qml/NewStationPage.qml:93
 msgid "Select source"
@@ -2072,7 +2073,7 @@ msgstr ""
 msgid "The weather has been updated."
 msgstr ""
 
-#: meecast/qt-qml/AboutPage.qml:196
+#: meecast/qt-qml/AboutPage.qml:197
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"

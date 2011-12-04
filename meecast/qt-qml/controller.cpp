@@ -128,8 +128,8 @@ Controller::load_data()
   if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))) {
       forecast_data = new DataItem(temp_data);
       forecast_data->Text(_(forecast_data->Text().c_str()));
-      forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 12 * 3600));
-      forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 12 * 3600));
+      forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 14 * 3600));
+      forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 14 * 3600));
       forecast_data->LastUpdate(_dp->LastUpdate());
       forecast_data->temperatureunit = _config->temperatureunit();
       forecast_data->windunit = _config->windspeedunit();
@@ -141,12 +141,12 @@ Controller::load_data()
                                   (_config->iconspath() + "/" + _config->iconset() + "/" + forecast_data->icon()), forecast_data->Data::EndTime(), forecast_data->current());
   }
 
-  /* fill current day */
-  if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(current_day + 22 * 3600))) {
+  /* fill current night */
+  if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(current_day + 3 * 3600))) {
       forecast_data = new DataItem(temp_data);
       forecast_data->Text(_(forecast_data->Text().c_str()));
-      forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 22 * 3600));
-      forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 22 * 3600));
+      forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 3 * 3600));
+      forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 3 * 3600));
       forecast_data->LastUpdate(_dp->LastUpdate());
       forecast_data->temperatureunit = _config->temperatureunit();
       forecast_data->windunit = _config->windspeedunit();
@@ -162,11 +162,11 @@ Controller::load_data()
   /* set next day */
   i = 3600*24;
   /* fill other days */
-  while  (_dp != NULL && (temp_data = _dp->data().GetDataForTime( current_day + 12 * 3600  + i))) {
+  while  (_dp != NULL && (temp_data = _dp->data().GetDataForTime( current_day + 14 * 3600  + i))) {
       forecast_data = new DataItem(temp_data);
       forecast_data->Text(_(forecast_data->Text().c_str()));
-      forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 12 * 3600  + i));
-      forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 12 * 3600  + i));
+      forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 14 * 3600  + i));
+      forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 14 * 3600  + i));
       forecast_data->LastUpdate(_dp->LastUpdate());
       forecast_data->temperatureunit = _config->temperatureunit();
       forecast_data->windunit = _config->windspeedunit();
@@ -177,11 +177,11 @@ Controller::load_data()
   /* set next night */
   i = 3600*24;
   /* fill other nights */
-  while  (_dp != NULL && (temp_data = _dp->data().GetDataForTime( current_day + 22 * 3600  + i))) {
+  while  (_dp != NULL && (temp_data = _dp->data().GetDataForTime( current_day + 3 * 3600  + i))) {
       forecast_data = new DataItem(temp_data);
       forecast_data->Text(_(forecast_data->Text().c_str()));
-      forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 22 * 3600  + i));
-      forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 22 * 3600  + i));
+      forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 3 * 3600  + i));
+      forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 3 * 3600  + i));
       forecast_data->LastUpdate(_dp->LastUpdate());
       forecast_data->temperatureunit = _config->temperatureunit();
       forecast_data->windunit = _config->windspeedunit();
@@ -189,7 +189,6 @@ Controller::load_data()
       _night_model->appendRow(forecast_data);
       i = i + 3600*24;
   }
-  std::cerr << "make models" << std::endl;
   _qview->rootContext()->setContextProperty("Current", _current);
   _qview->rootContext()->setContextProperty("Current_night", _current_night);
   _qview->rootContext()->setContextProperty("Forecast_model", _model);

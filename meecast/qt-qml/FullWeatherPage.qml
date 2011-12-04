@@ -100,9 +100,13 @@ Page {
             if ((model_day.getdata(day, "flike")) != "N/A")
                 condition.append({cond_name: Config.tr("Flike:"),
                          value: model_day.getdata(day, "flike") + '°' + Config.temperatureunit});
-            if ((model_day.getdata(day, "temp_high")) != "N/A")
-                temperature.text =  model_day.getdata(day, "temp_high") + '°'
 
+            if ((model_day.getdata(day, "temp")) != "N/A")
+                temperature.text =  model_day.getdata(day, "temp") + '°'
+	    else{
+                if ((model_day.getdata(day, "temp_high")) != "N/A")
+               	    temperature.text =  model_day.getdata(day, "temp_high") + '°'
+            }
 	}
 	if (day_period == "night"){
             day_period_name = Config.tr("Night");
@@ -132,9 +136,12 @@ Page {
             if ((model_night.getdata(day, "flike")) != "N/A")
                 condition.append({cond_name: Config.tr("Flike:"),
                          value: model_night.getdata(day, "flike") + '°' + Config.temperatureunit});
-            if ((model_night.getdata(day, "temp_low")) != "N/A")
-                temperature.text =  model_night.getdata(day, "temp_low") + '°'
-
+            if ((model_night.getdata(day, "temp")) != "N/A")
+                temperature.text =  model_night.getdata(day, "temp") + '°'
+	    else{
+                if ((model_night.getdata(day, "temp_low")) != "N/A")
+                    temperature.text =  model_night.getdata(day, "temp_low") + '°'
+            }
 
 	}
 

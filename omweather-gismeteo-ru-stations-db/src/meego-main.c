@@ -1140,7 +1140,7 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
          /* added temperature */
          if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) &&
              xpathObj3->nodesetval->nodeTab[i] && xpathObj3->nodesetval->nodeTab[i]->content){
-            /* fprintf (stderr, "temperature %s\n", xpathObj3->nodesetval->nodeTab[i]->content); */
+             /* fprintf (stderr, "temperature %s\n", xpathObj3->nodesetval->nodeTab[i]->content); */
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj3->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
@@ -1152,23 +1152,23 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
          /* added icon */
          if (xpathObj4 && !xmlXPathNodeSetIsEmpty(xpathObj4->nodesetval) &&
              xpathObj4->nodesetval->nodeTab[i] && xpathObj4->nodesetval->nodeTab[i]->children->content){
-            /* fprintf (stderr, "sdfff %s\n", xpathObj4->nodesetval->nodeTab[i]->children->content); */
             temp_char = strrchr((char*)xpathObj4->nodesetval->nodeTab[i]->children->content, '/');
             temp_char ++;
-			fprintf(file_out,"     <icon>%s</icon>\n",  choose_hour_weather_icon(hash_for_icons, temp_char));
+            /* fprintf (stderr, "icon %s %s \n", xpathObj4->nodesetval->nodeTab[i]->children->content, choose_hour_weather_icon(hash_for_icons, temp_char)); */
+            fprintf(file_out,"     <icon>%s</icon>\n",  choose_hour_weather_icon(hash_for_icons, temp_char));
          }
          /* added text */
          if (xpathObj5 && !xmlXPathNodeSetIsEmpty(xpathObj5->nodesetval) &&
              xpathObj5->nodesetval->nodeTab[i] && xpathObj5->nodesetval->nodeTab[i]->content){
-            /* fprintf (stderr, "sdfff %s\n", xpathObj5->nodesetval->nodeTab[i]->content); */
-			 fprintf(file_out,"     <description>%s</description>\n", hash_gismeteo_table_find(hash_for_translate, xpathObj5->nodesetval->nodeTab[i]->content, FALSE));
+             /* fprintf (stderr, "description %s\n", xpathObj5->nodesetval->nodeTab[i]->content); */
+             fprintf(file_out,"     <description>%s</description>\n", hash_gismeteo_table_find(hash_for_translate, xpathObj5->nodesetval->nodeTab[i]->content, FALSE));
          }
          /* added pressure */
          if (xpathObj6 && !xmlXPathNodeSetIsEmpty(xpathObj6->nodesetval) &&
              xpathObj6->nodesetval->nodeNr >= (i*5+2) &&
              xpathObj6->nodesetval->nodeTab[i*5+2] && xpathObj6->nodesetval->nodeTab[i*5+2]->content){
-            pressure = atoi((char*)xpathObj6->nodesetval->nodeTab[i*5+2]->content);
-            pressure = pressure * 1.333224;
+             pressure = atoi((char*)xpathObj6->nodesetval->nodeTab[i*5+2]->content);
+             pressure = pressure * 1.333224;
 			fprintf(file_out,"     <pressure>%i</pressure>\n", pressure);
          }
          /* added wind speed */

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-03 23:33+0300\n"
+"POT-Creation-Date: 2011-12-04 18:41+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1133,6 +1133,10 @@ msgid ""
 "client based on OMWeather code. Copyright (C) 2006-2011"
 msgstr ""
 
+#: meecast/qt-qml/AboutPage.qml:24
+msgid "MeeCast for Harmattan"
+msgstr ""
+
 #: omweather/src/weather-settings.c:3901
 msgid "Meters"
 msgstr ""
@@ -1779,7 +1783,7 @@ msgstr ""
 #: meecast/qt-qml/CountryPage.qml:153 meecast/qt-qml/NewStationPage.qml:55
 #: meecast/qt-qml/NewStationPage.qml:102
 msgid "Select country"
-msgstr ""
+msgstr "Välj land"
 
 #: omweather/src/weather-simple-settings.c:2168
 #: meecast/qt-qml/CityPage.qml:142
@@ -1789,7 +1793,7 @@ msgstr "Välj område"
 #: meecast/qt-qml/NewStationPage.qml:64 meecast/qt-qml/NewStationPage.qml:111
 #: meecast/qt-qml/RegionPage.qml:144
 msgid "Select region"
-msgstr ""
+msgstr "Välj län"
 
 #: meecast/qt-qml/NewStationPage.qml:46 meecast/qt-qml/NewStationPage.qml:93
 msgid "Select source"

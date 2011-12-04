@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-03 23:33+0300\n"
+"POT-Creation-Date: 2011-12-04 18:41+0300\n"
 "PO-Revision-Date: 2011-10-28 11:52+0100\n"
 "Last-Translator: Claudius Henrichs <claudius.h@gmx.de>\n"
 "Language-Team: Claudius Henrichs <claudius.h@gmx.de>\n"
@@ -1222,6 +1222,10 @@ msgstr ""
 "MeeCast - Plattformübergreifende, anpassbare Open Source-Anwendung zur "
 "Wettervorhersage basierend auf dem Code von OMWeather. Copyright (C) "
 "2006-2011"
+
+#: meecast/qt-qml/AboutPage.qml:24
+msgid "MeeCast for Harmattan"
+msgstr ""
 
 #: omweather/src/weather-settings.c:3901
 msgid "Meters"

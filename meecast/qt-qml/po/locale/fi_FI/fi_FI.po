@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-03 23:33+0300\n"
+"POT-Creation-Date: 2011-12-04 18:41+0300\n"
 "PO-Revision-Date: 2011-11-27 14:00+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -1232,6 +1232,10 @@ msgid ""
 msgstr ""
 "MeeCast - useilla alustoilla toimiva avoimen lähdekoodin sääohjelma. "
 "Perustuu OMWeatherin koodiin. Copyright (C) 2006-2011"
+
+#: meecast/qt-qml/AboutPage.qml:24
+msgid "MeeCast for Harmattan"
+msgstr ""
 
 #: omweather/src/weather-settings.c:3901
 msgid "Meters"

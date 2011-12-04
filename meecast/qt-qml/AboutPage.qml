@@ -21,7 +21,7 @@ Page {
         contentHeight: 1450
         Label {
             id: titletext
-            text: "MeeCast for Harmattan"
+            text: Config.tr("MeeCast for Harmattan")
             anchors.horizontalCenter: parent.horizontalCenter
 	    font.pixelSize: 32
         }

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-04 18:41+0300\n"
+"POT-Creation-Date: 2011-12-05 22:39+0300\n"
 "PO-Revision-Date: 2010-04-13 21:48+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <dominikowski@gmail.com>\n"
@@ -577,18 +577,16 @@ msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
 #: meecast/qt-qml/FullWeatherPage.qml:76
-#, fuzzy
 msgid "Day"
-msgstr "Dzień:"
+msgstr "Dzień"
 
 #: omweather/src/weather-popup.c:1182
 msgid "Day length"
 msgstr "Długość dnia"
 
-#: omweather/src/hash.data:51 meecast/qt-qml/FullWeatherPage.qml:148
-#, fuzzy
+#: omweather/src/hash.data:51 meecast/qt-qml/FullWeatherPage.qml:155
 msgid "Day length:"
-msgstr "Długość dnia"
+msgstr "Długość dnia:"
 
 #: omweather/src/weather-popup.c:913
 msgid "Day:"
@@ -826,7 +824,7 @@ msgid "First Quarter"
 msgstr "Pierwsza kwadra"
 
 #: meecast/qt-qml/FullWeatherPage.qml:101
-#: meecast/qt-qml/FullWeatherPage.qml:133
+#: meecast/qt-qml/FullWeatherPage.qml:137
 #, fuzzy
 msgid "Flike:"
 msgstr "Odczuwalna:"
@@ -1004,7 +1002,7 @@ msgstr "Wysokie"
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
 #: meecast/qt-qml/dataitem.cpp:164 meecast/qt-qml/FullWeatherPage.qml:83
-#: meecast/qt-qml/FullWeatherPage.qml:115
+#: meecast/qt-qml/FullWeatherPage.qml:119
 msgid "Humidity:"
 msgstr "Wilgotność:"
 
@@ -1066,8 +1064,7 @@ msgstr "Ostatnia aktualizacja na serwerze: "
 msgid "Last update from server: "
 msgstr "Ostatnia aktualizacja z serwera: "
 
-#: omweather/src/hash.data:90 meecast/qt-qml/FullWeatherPage.qml:151
-#, fuzzy
+#: omweather/src/hash.data:90 meecast/qt-qml/FullWeatherPage.qml:158
 msgid "Last update:"
 msgstr "Ostatnia aktualizacja: "
 
@@ -1430,10 +1427,9 @@ msgid "Next update:"
 msgstr "Następna aktualizacja:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:588
-#: meecast/qt-qml/FullWeatherPage.qml:108
-#, fuzzy
+#: meecast/qt-qml/FullWeatherPage.qml:112
 msgid "Night"
-msgstr "Noc:"
+msgstr "Noc"
 
 #: omweather/src/weather-popup.c:1046
 msgid "Night:"
@@ -1470,9 +1466,8 @@ msgid "Now"
 msgstr "Teraz"
 
 #: omweather/src/weather-simple-settings.c:2880
-#, fuzzy
 msgid "Now + 2 days vert."
-msgstr "Teraz + 7 dni pion."
+msgstr "Teraz + 2 dni pion."
 
 #: omweather/src/weather-simple-settings.c:2889
 msgid "Now + 3 days hor."
@@ -1670,7 +1665,7 @@ msgid "Position:"
 msgstr "Położenie:"
 
 #: meecast/qt-qml/FullWeatherPage.qml:95
-#: meecast/qt-qml/FullWeatherPage.qml:127
+#: meecast/qt-qml/FullWeatherPage.qml:131
 msgid "Ppcp:"
 msgstr ""
 
@@ -1684,9 +1679,8 @@ msgid "Pressure"
 msgstr "Ciśnienie"
 
 #: meecast/qt-qml/UnitsPage.qml:51 meecast/qt-qml/UnitsPage.qml:164
-#, fuzzy
 msgid "Pressure units"
-msgstr "Jednostki ciśnienia:"
+msgstr "Jednostki ciśnienia"
 
 #: omweather/src/weather-settings.c:4049
 msgid "Pressure units:"
@@ -1695,7 +1689,7 @@ msgstr "Jednostki ciśnienia:"
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
 #: meecast/qt-qml/dataitem.cpp:170 meecast/qt-qml/FullWeatherPage.qml:89
-#: meecast/qt-qml/FullWeatherPage.qml:121
+#: meecast/qt-qml/FullWeatherPage.qml:125
 msgid "Pressure:"
 msgstr "Ciśnienie:"
 
@@ -1903,7 +1897,6 @@ msgstr "Wybór stacji"
 
 #: meecast/qt-qml/NewStationPage.qml:64 meecast/qt-qml/NewStationPage.qml:111
 #: meecast/qt-qml/RegionPage.qml:144
-#, fuzzy
 msgid "Select region"
 msgstr "Wybór regionu"
 
@@ -2113,19 +2106,17 @@ msgstr "Słonecznie"
 msgid "Sunny / Wind"
 msgstr "Słonecznie / wiatr"
 
-#: omweather/src/hash.data:248 meecast/qt-qml/FullWeatherPage.qml:142
-#, fuzzy
+#: omweather/src/hash.data:248 meecast/qt-qml/FullWeatherPage.qml:149
 msgid "Sunrise:"
-msgstr "Wschód: "
+msgstr "Wschód:"
 
 #: omweather/src/weather-popup.c:125 omweather/src/weather-popup.c:1019
 msgid "Sunrise: "
 msgstr "Wschód: "
 
-#: omweather/src/hash.data:249 meecast/qt-qml/FullWeatherPage.qml:145
-#, fuzzy
+#: omweather/src/hash.data:249 meecast/qt-qml/FullWeatherPage.qml:152
 msgid "Sunset:"
-msgstr "Zachód: "
+msgstr "Zachód:"
 
 #: omweather/src/weather-popup.c:139 omweather/src/weather-popup.c:1150
 msgid "Sunset: "
@@ -2174,9 +2165,8 @@ msgstr "Temperatura"
 
 #: omweather/src/hash.data:256 meecast/qt-qml/UnitsPage.qml:31
 #: meecast/qt-qml/UnitsPage.qml:91
-#, fuzzy
 msgid "Temperature units"
-msgstr "Jednostki temperatury:"
+msgstr "Jednostki temperatury"
 
 #: omweather/src/weather-settings.c:3858
 msgid "Temperature units:"
@@ -2184,9 +2174,8 @@ msgstr "Jednostki temperatury:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
 #: meecast/qt-qml/dataitem.cpp:162
-#, fuzzy
 msgid "Temperature:"
-msgstr "Temperatura: "
+msgstr "Temperatura:"
 
 #: omweather/src/weather-popup.c:1259 omweather/src/weather-popup.c:1441
 msgid "Temperature: "
@@ -2223,7 +2212,7 @@ msgstr "Burza"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
-#: meecast/qt-qml/FullWeatherPage.qml:266 meecast/qt-qml/WeatherPage.qml:535
+#: meecast/qt-qml/FullWeatherPage.qml:273 meecast/qt-qml/WeatherPage.qml:535
 msgid "Today"
 msgstr "Dzisiaj"
 
@@ -2287,7 +2276,6 @@ msgid "Update already running."
 msgstr "Aktualizacja w trakcie."
 
 #: omweather/src/hash.data:260 meecast/qt-qml/WeatherPage.qml:354
-#, fuzzy
 msgid "Updating forecast"
 msgstr "Aktualizowanie prognoz"
 
@@ -2426,27 +2414,26 @@ msgid "Wind"
 msgstr "Wiatr"
 
 #: omweather/src/hash.data:273 meecast/qt-qml/FullWeatherPage.qml:86
-#: meecast/qt-qml/FullWeatherPage.qml:118
+#: meecast/qt-qml/FullWeatherPage.qml:122
 msgid "Wind direction:"
 msgstr ""
 
 #: meecast/qt-qml/FullWeatherPage.qml:98
-#: meecast/qt-qml/FullWeatherPage.qml:130
+#: meecast/qt-qml/FullWeatherPage.qml:134
 #, fuzzy
 msgid "Wind gust:"
 msgstr "Wiatr:"
 
 #: omweather/src/hash.data:275 meecast/qt-qml/FullWeatherPage.qml:92
-#: meecast/qt-qml/FullWeatherPage.qml:124
+#: meecast/qt-qml/FullWeatherPage.qml:128
 #, fuzzy
 msgid "Wind speed"
 msgstr "Jednostki prędkości wiatru:"
 
 #: omweather/src/hash.data:274 meecast/qt-qml/UnitsPage.qml:41
 #: meecast/qt-qml/UnitsPage.qml:130
-#, fuzzy
 msgid "Wind speed units"
-msgstr "Jednostki prędkości wiatru:"
+msgstr "Jednostki prędkości wiatru"
 
 #: omweather/src/weather-settings.c:3974
 msgid "Wind speed units:"

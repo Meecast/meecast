@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-04 18:41+0300\n"
+"POT-Creation-Date: 2011-12-05 22:39+0300\n"
 "PO-Revision-Date: 2011-11-27 14:00+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -586,7 +586,7 @@ msgstr "Päivällä"
 msgid "Day length"
 msgstr "Päivän pituus"
 
-#: omweather/src/hash.data:51 meecast/qt-qml/FullWeatherPage.qml:148
+#: omweather/src/hash.data:51 meecast/qt-qml/FullWeatherPage.qml:155
 msgid "Day length:"
 msgstr "Päivän pituus:"
 
@@ -827,7 +827,7 @@ msgid "First Quarter"
 msgstr "Ensimmäinen neljännes"
 
 #: meecast/qt-qml/FullWeatherPage.qml:101
-#: meecast/qt-qml/FullWeatherPage.qml:133
+#: meecast/qt-qml/FullWeatherPage.qml:137
 msgid "Flike:"
 msgstr "Tuntuu:"
 
@@ -1014,7 +1014,7 @@ msgstr "Korkea"
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
 #: meecast/qt-qml/dataitem.cpp:164 meecast/qt-qml/FullWeatherPage.qml:83
-#: meecast/qt-qml/FullWeatherPage.qml:115
+#: meecast/qt-qml/FullWeatherPage.qml:119
 msgid "Humidity:"
 msgstr "Ilmankosteus: "
 
@@ -1074,7 +1074,7 @@ msgstr "Viimeisin päivitys palvelimella: "
 msgid "Last update from server: "
 msgstr "Viimeisin päivitys palvelimelta: "
 
-#: omweather/src/hash.data:90 meecast/qt-qml/FullWeatherPage.qml:151
+#: omweather/src/hash.data:90 meecast/qt-qml/FullWeatherPage.qml:158
 msgid "Last update:"
 msgstr "Viimeisin päivitys:"
 
@@ -1434,7 +1434,7 @@ msgid "Next update:"
 msgstr "Seuraava päivitys:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:588
-#: meecast/qt-qml/FullWeatherPage.qml:108
+#: meecast/qt-qml/FullWeatherPage.qml:112
 msgid "Night"
 msgstr "Yöllä"
 
@@ -1664,7 +1664,7 @@ msgid "Position:"
 msgstr "Sijainti:"
 
 #: meecast/qt-qml/FullWeatherPage.qml:95
-#: meecast/qt-qml/FullWeatherPage.qml:127
+#: meecast/qt-qml/FullWeatherPage.qml:131
 msgid "Ppcp:"
 msgstr "Sateen todennäköisyys:"
 
@@ -1689,7 +1689,7 @@ msgstr "Paineen yksiköt:"
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
 #: meecast/qt-qml/dataitem.cpp:170 meecast/qt-qml/FullWeatherPage.qml:89
-#: meecast/qt-qml/FullWeatherPage.qml:121
+#: meecast/qt-qml/FullWeatherPage.qml:125
 msgid "Pressure:"
 msgstr "Ilmanpaine:"
 
@@ -2098,7 +2098,7 @@ msgstr "Aurinkoista"
 msgid "Sunny / Wind"
 msgstr "Aurinkoista / Tuulista"
 
-#: omweather/src/hash.data:248 meecast/qt-qml/FullWeatherPage.qml:142
+#: omweather/src/hash.data:248 meecast/qt-qml/FullWeatherPage.qml:149
 msgid "Sunrise:"
 msgstr "Auringonnousu:"
 
@@ -2106,7 +2106,7 @@ msgstr "Auringonnousu:"
 msgid "Sunrise: "
 msgstr "Auringonnousu: "
 
-#: omweather/src/hash.data:249 meecast/qt-qml/FullWeatherPage.qml:145
+#: omweather/src/hash.data:249 meecast/qt-qml/FullWeatherPage.qml:152
 msgid "Sunset:"
 msgstr "Auringonlasku:"
 
@@ -2211,7 +2211,7 @@ msgstr "Ukkosta"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
-#: meecast/qt-qml/FullWeatherPage.qml:266 meecast/qt-qml/WeatherPage.qml:535
+#: meecast/qt-qml/FullWeatherPage.qml:273 meecast/qt-qml/WeatherPage.qml:535
 msgid "Today"
 msgstr "Tänään"
 
@@ -2413,17 +2413,17 @@ msgid "Wind"
 msgstr "Tuulista"
 
 #: omweather/src/hash.data:273 meecast/qt-qml/FullWeatherPage.qml:86
-#: meecast/qt-qml/FullWeatherPage.qml:118
+#: meecast/qt-qml/FullWeatherPage.qml:122
 msgid "Wind direction:"
 msgstr "Tuulen suunta:"
 
 #: meecast/qt-qml/FullWeatherPage.qml:98
-#: meecast/qt-qml/FullWeatherPage.qml:130
+#: meecast/qt-qml/FullWeatherPage.qml:134
 msgid "Wind gust:"
 msgstr "Tuulenpuuskat:"
 
 #: omweather/src/hash.data:275 meecast/qt-qml/FullWeatherPage.qml:92
-#: meecast/qt-qml/FullWeatherPage.qml:124
+#: meecast/qt-qml/FullWeatherPage.qml:128
 msgid "Wind speed"
 msgstr "Tuulen nopeus"
 

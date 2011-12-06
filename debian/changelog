@@ -4,7 +4,7 @@ meecast (0.4.5) unstable; urgency=low
   * Added Swedish translation. Thanks Angela Nennebrandt 
   * Fixed Bug #12480 - Title in info screen should be translatable 
   * Changed algorithm for day/night time
-  * Updated Polish translation
+  * Updated Polish and Germany translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 28 Nov 2011 12:42:23 +0200
 

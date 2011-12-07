@@ -5,6 +5,8 @@ PKGCONFIG += libcurl
 PKGCONFIG += sqlite3
 CONFIG += link_pkgconfig staticlib
 
+CONFIG += qdeclarative-boostable
+CONFIG += qt-boostable 
 
 
 system(pkg-config --exists libxml++-2.6) {
@@ -18,7 +20,11 @@ system(pkg-config --exists libxml++-2.6) {
     QT += xml
 }
 
+
 CONFIG(localdebug):DEFINES += LOCALDEBUG
+
+QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
+QMAKE_LFLAGS += -pie -rdynamic
 
 system(pkg-config --exists meego-panel) {
  DEFINES += MEEGO_MPL

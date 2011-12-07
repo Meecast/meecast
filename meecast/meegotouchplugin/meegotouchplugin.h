@@ -80,7 +80,7 @@ public:
         QString executable("/usr/bin/invoker");    
         QStringList arguments;
         arguments << "--single-instance";
-        arguments << "--type=e";
+        arguments << "--type=d";
         arguments <<"/opt/com.meecast.omweather/bin/omweather-qml";	
         process.startDetached(executable, arguments);
     }

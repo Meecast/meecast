@@ -27,7 +27,7 @@
 */
 /*******************************************************************************/
 
-
+#include <QtCore/QtGlobal>
 #include <QApplication>
 #include <QGraphicsView>
 #include <QGraphicsScene>
@@ -83,7 +83,7 @@ update_weather_forecast(Core::Config *config){
 }
 //////////////////////////////////////////////////////////////////////////////
 
-int main(int argc, char* argv[])
+Q_DECL_EXPORT int main(int argc, char* argv[])
 {
     //QApplication::setGraphicsSystem("native");
     QApplication app(argc, argv);

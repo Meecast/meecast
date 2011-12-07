@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=MeeCast
 GenericName=MeeCast
-Exec=/usr/bin/single-instance /opt/com.meecast.omweather/bin/omweather-qml
+Exec=/usr/bin/invoker --single-instance --type=d /opt/com.meecast.omweather/bin/omweather-qml
 Icon=/opt/com.meecast.omweather/share/icons/meecast.svg
 Terminal=false
 Type=Application

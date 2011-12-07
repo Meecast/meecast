@@ -76,6 +76,10 @@ CONFIG(localdebug):DEFINES += LOCALDEBUG
 
 CONFIG += mobility
 MOBILITY += location
+CONFIG += qdeclarative-boostable
+
+QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
+QMAKE_LFLAGS += -pie -rdynamic
 
 
 INCLUDEPATH += ../core                                                                                                        

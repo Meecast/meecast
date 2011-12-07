@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-05 22:39+0300\n"
+"POT-Creation-Date: 2011-12-07 09:07+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -388,23 +388,23 @@ msgstr ""
 
 #: omweather/src/hash.data:29
 msgid "Clear"
-msgstr ""
+msgstr "Klart"
 
 #: omweather/src/hash.data:27
 msgid "Clear / Wind"
-msgstr ""
+msgstr "Klart / Vind"
 
 #: omweather/src/hash.data:28
 msgid "Clear Sky"
-msgstr ""
+msgstr "Klar himmel"
 
 #: omweather/src/hash.data:30
 msgid "Clear, Drifting Snow"
-msgstr ""
+msgstr "Klart, Snödrev"
 
 #: omweather/src/hash.data:31
 msgid "Clear, Fog, Drizzle"
-msgstr ""
+msgstr "Klart, Dimma, Duggregn"
 
 #: omweather/src/hash.data:32
 msgid "Clear, Smoke"
@@ -420,11 +420,11 @@ msgstr ""
 
 #: omweather/src/hash.data:39
 msgid "Cloudy"
-msgstr ""
+msgstr "Molnigt"
 
 #: omweather/src/hash.data:34
 msgid "Cloudy / Wind"
-msgstr ""
+msgstr "Molnigt / Vind"
 
 #: omweather/src/hash.data:35
 msgid "Cloudy Few Snow"
@@ -432,19 +432,19 @@ msgstr ""
 
 #: omweather/src/hash.data:36
 msgid "Cloudy Light Rain"
-msgstr ""
+msgstr "Molnigt Lätt Regn"
 
 #: omweather/src/hash.data:37
 msgid "Cloudy T-Storm"
-msgstr ""
+msgstr "Molnig Åskväder"
 
 #: omweather/src/hash.data:38
 msgid "Cloudy and Windy"
-msgstr ""
+msgstr "Målnigt och blåsigt"
 
 #: omweather/src/hash.data:40
 msgid "Cloudy, Drifting Snow"
-msgstr ""
+msgstr "Molningt, Snödrev"
 
 #: omweather/src/hash.data:41
 msgid "Cloudy, Few Snow"
@@ -464,19 +464,19 @@ msgstr ""
 
 #: omweather/src/hash.data:45
 msgid "Cloudy, Light Rain"
-msgstr ""
+msgstr "Molnigt, Lätt Regn"
 
 #: omweather/src/hash.data:46
 msgid "Cloudy, Light Rain, T-Storm"
-msgstr ""
+msgstr "Molnigt, Lätt Regn, Åskväder"
 
 #: omweather/src/hash.data:47
 msgid "Cloudy, Rain"
-msgstr ""
+msgstr "Molnigt, Regn"
 
 #: omweather/src/hash.data:48
 msgid "Cloudy, Rain, T-Storm"
-msgstr ""
+msgstr "Molnigt, Regn, Åskväder"
 
 #: omweather/src/hash.data:49
 msgid "Cloudy, Smoke"
@@ -484,7 +484,7 @@ msgstr ""
 
 #: omweather/src/hash.data:50
 msgid "Cloudy, Snow"
-msgstr ""
+msgstr "Molnigt, Snö"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:413
 msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
@@ -600,7 +600,7 @@ msgstr ""
 
 #: omweather/src/hash.data:53
 msgid "Drizzle / Fog"
-msgstr ""
+msgstr "Duggregn / Dimma"
 
 #: omweather/src/hash.data:54
 msgid "Drizzle Early"
@@ -766,7 +766,7 @@ msgstr ""
 
 #: omweather/src/hash.data:75
 msgid "Fog"
-msgstr ""
+msgstr "Dimma"
 
 #: omweather/src/hash.data:72
 msgid "Fog Early / Clouds Late"
@@ -782,7 +782,7 @@ msgstr ""
 
 #: omweather/src/hash.data:76
 msgid "Foggy"
-msgstr ""
+msgstr "Dimmigt"
 
 #: omweather/src/weather-settings.c:3257
 msgid "Font color:"
@@ -830,7 +830,7 @@ msgid ""
 " Spanish - Alejandro Lopez\n"
 " Polish - Tomasz Dominikowski\n"
 " Slovak - Roman Moravčík \n"
-" Swedish - Angela Nennebrandt"
+" Swedish - Angela Nennebrandt, Tomislav Veleckovik"
 msgstr ""
 
 #: omweather/src/weather-help.c:141
@@ -1035,11 +1035,11 @@ msgstr ""
 
 #: omweather/src/hash.data:97
 msgid "Light Rain Early"
-msgstr ""
+msgstr "Lätt Regn Tidigt"
 
 #: omweather/src/hash.data:98
 msgid "Light Rain Late"
-msgstr ""
+msgstr "Lätt Regn Sent"
 
 #: omweather/src/hash.data:99
 msgid "Light Rain Shower"
@@ -1055,7 +1055,7 @@ msgstr ""
 
 #: omweather/src/hash.data:102
 msgid "Light Rain and Windy"
-msgstr ""
+msgstr "Lätt Regn och Blåsigt"
 
 #: omweather/src/hash.data:103
 msgid "Light Rain with Thunder"
@@ -1063,15 +1063,15 @@ msgstr ""
 
 #: omweather/src/hash.data:110
 msgid "Light Snow"
-msgstr ""
+msgstr "Lätt Snöfall"
 
 #: omweather/src/hash.data:105
 msgid "Light Snow / Fog"
-msgstr ""
+msgstr "Lätt Snöfall / Dimma"
 
 #: omweather/src/hash.data:106
 msgid "Light Snow / Wind"
-msgstr ""
+msgstr "Lätt Snöfall / Vind"
 
 #: omweather/src/hash.data:107
 msgid "Light Snow Early"
@@ -1155,15 +1155,15 @@ msgstr ""
 
 #: omweather/src/hash.data:116
 msgid "Mostly Clear"
-msgstr ""
+msgstr "Mestadels Klart"
 
 #: omweather/src/hash.data:125
 msgid "Mostly Cloudy"
-msgstr ""
+msgstr "Mestadels Molnigt"
 
 #: omweather/src/hash.data:118
 msgid "Mostly Cloudy / Wind"
-msgstr ""
+msgstr "Mestadels Molnigt / Vind"
 
 #: omweather/src/hash.data:119
 msgid "Mostly Cloudy Few Snow"
@@ -1187,7 +1187,7 @@ msgstr ""
 
 #: omweather/src/hash.data:117 omweather/src/hash.data:124
 msgid "Mostly Cloudy and Windy"
-msgstr ""
+msgstr "Mestadels Molnigt och Blåsigt"
 
 #: omweather/src/hash.data:126
 msgid "Mostly Cloudy, Drifting Snow"
@@ -1199,11 +1199,11 @@ msgstr ""
 
 #: omweather/src/hash.data:128
 msgid "Mostly Cloudy, Fog"
-msgstr ""
+msgstr "Mestadels Molnigt, Dimma"
 
 #: omweather/src/hash.data:129
 msgid "Mostly Cloudy, Fog, Drizzle"
-msgstr ""
+msgstr "Mestadels Molnigt, Dimma, Duggregn"
 
 #: omweather/src/hash.data:130
 msgid "Mostly Cloudy, Heavy Rain"
@@ -1223,7 +1223,7 @@ msgstr ""
 
 #: omweather/src/hash.data:134
 msgid "Mostly Cloudy, Light Rain"
-msgstr ""
+msgstr "Mestadels Molnigt, Lätt Regn"
 
 #: omweather/src/hash.data:135
 msgid "Mostly Cloudy, Light Rain, Drizzle"
@@ -1235,7 +1235,7 @@ msgstr ""
 
 #: omweather/src/hash.data:137
 msgid "Mostly Cloudy, Rain"
-msgstr ""
+msgstr "Mestadels Molngit, Regn"
 
 #: omweather/src/hash.data:138
 msgid "Mostly Cloudy, Rain, T-Storm"
@@ -1247,7 +1247,7 @@ msgstr ""
 
 #: omweather/src/hash.data:140
 msgid "Mostly Cloudy, Snow"
-msgstr ""
+msgstr "Mestadels Molnigt, Snö"
 
 #: omweather/src/hash.data:141
 msgid "Mostly Cloudy, T-Storm"
@@ -1255,7 +1255,7 @@ msgstr ""
 
 #: omweather/src/hash.data:142
 msgid "Mostly Sunny"
-msgstr ""
+msgstr "Mestadels Soligt"
 
 #: omweather/src/hash.data:143
 msgid "N"
@@ -1489,7 +1489,7 @@ msgstr ""
 
 #: omweather/src/hash.data:172
 msgid "Partly Cloudy / Wind"
-msgstr ""
+msgstr "Delvis Molnigt / Vind"
 
 #: omweather/src/hash.data:173
 msgid "Partly Cloudy Few Snow"
@@ -1505,7 +1505,7 @@ msgstr ""
 
 #: omweather/src/hash.data:176
 msgid "Partly Cloudy and Windy"
-msgstr ""
+msgstr "Delvis Molnigt och Blåsigt"
 
 #: omweather/src/hash.data:178
 msgid "Partly Cloudy, Few Snow"
@@ -1529,19 +1529,19 @@ msgstr ""
 
 #: omweather/src/hash.data:183
 msgid "Partly Cloudy, Light Rain"
-msgstr ""
+msgstr "Delvis Molnigt, Lätt Regn"
 
 #: omweather/src/hash.data:184
 msgid "Partly Cloudy, Light Rain, T-Storm"
-msgstr ""
+msgstr "Delvis Molnigt, Lätt Regn, Åskväder"
 
 #: omweather/src/hash.data:185
 msgid "Partly Cloudy, Rain"
-msgstr ""
+msgstr "Delvis Molnigt, Regn"
 
 #: omweather/src/hash.data:186
 msgid "Partly Cloudy, Rain, T-Storm"
-msgstr ""
+msgstr "Delvis Molnigt, Regn, Åskväder"
 
 #: omweather/src/hash.data:187
 msgid "Partly Cloudy, Smoke"
@@ -1549,7 +1549,7 @@ msgstr ""
 
 #: omweather/src/hash.data:188
 msgid "Partly Cloudy, Snow"
-msgstr ""
+msgstr "Delvis Molnigt, Snö"
 
 #: omweather/src/hash.data:189
 msgid "Partly Cloudy, T-Storm"
@@ -1618,11 +1618,11 @@ msgstr ""
 
 #: omweather/src/hash.data:197
 msgid "Rain / Snow"
-msgstr ""
+msgstr "Regn / Snö"
 
 #: omweather/src/hash.data:191
 msgid "Rain / Snow / Wind"
-msgstr ""
+msgstr "Regn / Snö / Vind"
 
 #: omweather/src/hash.data:192
 msgid "Rain / Snow Early"
@@ -1650,7 +1650,7 @@ msgstr ""
 
 #: omweather/src/hash.data:200
 msgid "Rain / Wind"
-msgstr ""
+msgstr "Regn / Vind"
 
 #: omweather/src/hash.data:199
 msgid "Rain / Wind Early"
@@ -1904,11 +1904,11 @@ msgstr ""
 
 #: omweather/src/hash.data:244
 msgid "Snow"
-msgstr ""
+msgstr "Snö"
 
 #: omweather/src/hash.data:234
 msgid "Snow / Wind"
-msgstr ""
+msgstr "Snö / Vind"
 
 #: omweather/src/hash.data:236
 msgid "Snow Shower"
@@ -1983,7 +1983,7 @@ msgstr ""
 
 #: omweather/src/hash.data:245 omweather/src/weather-alerts.c:154
 msgid "Storm"
-msgstr ""
+msgstr "Storm"
 
 #: omweather/src/weather-download.c:392
 msgid "Successfully loaded"
@@ -1991,11 +1991,11 @@ msgstr ""
 
 #: omweather/src/hash.data:247
 msgid "Sunny"
-msgstr ""
+msgstr "Soligt"
 
 #: omweather/src/hash.data:246
 msgid "Sunny / Wind"
-msgstr ""
+msgstr "Soligt / Vind"
 
 #: omweather/src/hash.data:248 meecast/qt-qml/FullWeatherPage.qml:149
 msgid "Sunrise:"
@@ -2292,7 +2292,7 @@ msgstr ""
 
 #: omweather/src/hash.data:276
 msgid "Wind"
-msgstr ""
+msgstr "Vind"
 
 #: omweather/src/hash.data:273 meecast/qt-qml/FullWeatherPage.qml:86
 #: meecast/qt-qml/FullWeatherPage.qml:122

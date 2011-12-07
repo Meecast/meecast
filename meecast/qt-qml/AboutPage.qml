@@ -178,7 +178,7 @@ Italian - Pavel Fialko, Alessandro Pasotti,\n \
 Spanish - Alejandro Lopez\n \
 Polish - Tomasz Dominikowski\n \
 Slovak - Roman Moravčík \n \
-Swedish - Angela Nennebrandt")
+Swedish - Angela Nennebrandt, Tomislav Veleckovik")
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    anchors.top: translatorstext.bottom

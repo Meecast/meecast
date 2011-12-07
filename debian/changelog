@@ -1,7 +1,8 @@
 meecast (0.4.5) unstable; urgency=low
 
   * Added pressure units settings 
-  * Added Swedish translation. Thanks Angela Nennebrandt 
+  * Added Swedish translation. Thanks Angela Nennebrandt and Tomislav
+    Veleckovik 
   * Fixed Bug #12480 - Title in info screen should be translatable 
   * Changed algorithm for day/night time
   * Updated Polish and Germany translations

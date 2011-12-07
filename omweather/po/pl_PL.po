@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-05 22:39+0300\n"
+"POT-Creation-Date: 2011-12-07 09:07+0300\n"
 "PO-Revision-Date: 2010-04-13 21:48+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <dominikowski@gmail.com>\n"
@@ -896,7 +896,7 @@ msgid ""
 " Spanish - Alejandro Lopez\n"
 " Polish - Tomasz Dominikowski\n"
 " Slovak - Roman Moravčík \n"
-" Swedish - Angela Nennebrandt"
+" Swedish - Angela Nennebrandt, Tomislav Veleckovik"
 msgstr ""
 "French - Nicolas Granziano, Philippe \n"
 "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
@@ -937,7 +937,7 @@ msgstr "Pełna prognoza"
 
 #: meecast/qt-qml/VisualsPage.qml:240
 msgid "Fullscreen mode"
-msgstr "Tryb pełnoekranowy" 
+msgstr "Tryb pełnoekranowy"
 
 #: omweather/src/weather-home.c:1641
 msgid "G: "
@@ -1209,7 +1209,7 @@ msgstr "Ręcznie"
 
 #: meecast/qt-qml/UnitsPage.qml:224
 msgid "Measurement units"
-msgstr "Jednostki pomiaru" 
+msgstr "Jednostki pomiaru"
 
 #: meecast/qt-qml/WeatherPage.qml:286
 msgid "MeeCast"
@@ -1444,7 +1444,7 @@ msgstr "Brak bieżących danych pogodowych."
 
 #: omweather/src/hash.data:156 meecast/qt-qml/WeatherPage.qml:307
 msgid "No locations are set up yet."
-msgstr "Brak ustawionych położeń." 
+msgstr "Brak ustawionych położeń."
 
 #: omweather/src/weather-popup.c:657
 msgid "No weather data for this day."
@@ -1885,12 +1885,12 @@ msgstr "Wybór kraju"
 #: meecast/qt-qml/CountryPage.qml:153 meecast/qt-qml/NewStationPage.qml:55
 #: meecast/qt-qml/NewStationPage.qml:102
 msgid "Select country"
-msgstr "Wybierz kraj" 
+msgstr "Wybierz kraj"
 
 #: omweather/src/weather-simple-settings.c:2168
 #: meecast/qt-qml/CityPage.qml:142
 msgid "Select location"
-msgstr "Wybierz położenie" 
+msgstr "Wybierz położenie"
 
 #: meecast/qt-qml/NewStationPage.qml:64 meecast/qt-qml/NewStationPage.qml:111
 #: meecast/qt-qml/RegionPage.qml:144
@@ -1899,7 +1899,7 @@ msgstr "Wybór regionu"
 
 #: meecast/qt-qml/NewStationPage.qml:46 meecast/qt-qml/NewStationPage.qml:93
 msgid "Select source"
-msgstr "Wybierz źródło" 
+msgstr "Wybierz źródło"
 
 #: meecast/qt-qml/IconsetPage.qml:97
 #, fuzzy
@@ -2229,7 +2229,7 @@ msgstr "Przezroczystość:"
 
 #: omweather/src/hash.data:258 meecast/qt-qml/WeatherPage.qml:495
 msgid "Try to update"
-msgstr "Spróbuj zaktualizować" 
+msgstr "Spróbuj zaktualizować"
 
 #: omweather/src/weather-settings.c:3452
 msgid "Type of click:"
@@ -2393,7 +2393,7 @@ msgstr "Ustawienia OMWeather"
 
 #: meecast/qt-qml/VisualsPage.qml:282
 msgid "Widget in events view"
-msgstr "Widżety w widoku zdarzeń" 
+msgstr "Widżety w widoku zdarzeń"
 
 #: omweather/src/weather-simple-settings.c:2914
 #: omweather/src/weather-simple-settings.c:2922
@@ -2411,7 +2411,7 @@ msgstr "Wiatr"
 #: omweather/src/hash.data:273 meecast/qt-qml/FullWeatherPage.qml:86
 #: meecast/qt-qml/FullWeatherPage.qml:122
 msgid "Wind direction:"
-msgstr "Kierunek wiatru:" 
+msgstr "Kierunek wiatru:"
 
 #: meecast/qt-qml/FullWeatherPage.qml:98
 #: meecast/qt-qml/FullWeatherPage.qml:134
@@ -2422,7 +2422,7 @@ msgstr "Wiatr:"
 #: omweather/src/hash.data:275 meecast/qt-qml/FullWeatherPage.qml:92
 #: meecast/qt-qml/FullWeatherPage.qml:128
 msgid "Wind speed"
-msgstr "Prędkość wiatru" 
+msgstr "Prędkość wiatru"
 
 #: omweather/src/hash.data:274 meecast/qt-qml/UnitsPage.qml:41
 #: meecast/qt-qml/UnitsPage.qml:130

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-05 22:39+0300\n"
-"PO-Revision-Date: 2011-10-28 11:52+0100\n"
+"POT-Creation-Date: 2011-12-07 09:07+0300\n"
+"PO-Revision-Date: 2011-12-06 14:16+0100\n"
 "Last-Translator: Claudius Henrichs <claudius.h@gmx.de>\n"
 "Language-Team: Claudius Henrichs <claudius.h@gmx.de>\n"
 "Language: \n"
@@ -333,6 +333,11 @@ msgid ""
 "You should uninstall AccuWeather \n"
 "before installing this package"
 msgstr ""
+"Programm-Manager wird jetzt zur\n"
+"Installation des Pakets \"MeeCast \n"
+"Applet\" gestartet. Bitte AccuWeather\n"
+"vor der Installation dieses Pakets\n"
+"deinstallieren."
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -586,9 +591,8 @@ msgid "Day:"
 msgstr "Tag:"
 
 #: meecast/qt-qml/StationsPage.qml:75
-#, fuzzy
 msgid "Delete location?"
-msgstr "Standort wählen"
+msgstr "Standort löschen?"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
@@ -716,7 +720,7 @@ msgstr "GPS aktivieren"
 
 #: meecast/qt-qml/SearchField.qml:46
 msgid "Enter search"
-msgstr ""
+msgstr "Suchbegriff eingeben"
 
 #: omweather/src/weather-home.c:841
 #, c-format
@@ -729,7 +733,7 @@ msgstr "Fehler bei der Initialisierung des OMWeather-Applet"
 
 #: omweather/src/hash.data:64
 msgid "Exit"
-msgstr ""
+msgstr "Beenden"
 
 #: omweather/src/weather-simple-settings.c:1892
 #: omweather/src/weather-simple-settings.c:2771
@@ -805,7 +809,7 @@ msgstr "Leichte Schneeschauer / Wind"
 
 #: meecast/qt-qml/StationsPage.qml:92
 msgid "Find location via GPS"
-msgstr ""
+msgstr "Standort per GPS ermitteln"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:428
 msgid ""
@@ -859,6 +863,10 @@ msgid ""
 "'Activating MeeCast Applet'\n"
 "using Application manager"
 msgstr ""
+"Zum Deaktivieren des MeeCast-\n"
+"Widgets, bitte das Paket\n"
+"'Activating MeeCast Applet' im\n"
+"Programm-Manager deinstallieren."
 
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
@@ -891,7 +899,7 @@ msgid ""
 " Spanish - Alejandro Lopez\n"
 " Polish - Tomasz Dominikowski\n"
 " Slovak - Roman Moravčík \n"
-" Swedish - Angela Nennebrandt"
+" Swedish - Angela Nennebrandt, Tomislav Veleckovik"
 msgstr ""
 "Deutsch - Claudius Henrichs\n"
 "Finnisch - Marko Vertainen\n"
@@ -902,6 +910,7 @@ msgstr ""
 "Polnisch - Tomasz Dominikowski\n"
 "Russisch - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
+"Schwedisch - Angela Nennebrandt\n"
 "Slowakisch - Roman Moravčík\n"
 "Spanisch - Alejandro Lopez"
 
@@ -1027,9 +1036,8 @@ msgid "Iconsets"
 msgstr "Symbolsätze"
 
 #: meecast/qt-qml/VisualsPage.qml:61 meecast/qt-qml/VisualsPage.qml:133
-#, fuzzy
 msgid "Information"
-msgstr "Animation"
+msgstr "Information"
 
 #: omweather/src/hash.data:88
 msgid "Isolated T-Storms"
@@ -1225,7 +1233,7 @@ msgstr ""
 
 #: meecast/qt-qml/AboutPage.qml:24
 msgid "MeeCast for Harmattan"
-msgstr ""
+msgstr "MeeCast für Harmattan"
 
 #: omweather/src/weather-settings.c:3901
 msgid "Meters"
@@ -1503,7 +1511,7 @@ msgstr "OMWeather Einstellungen"
 
 #: meecast/qt-qml/VisualsPage.qml:176
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: omweather/src/weather-help.c:64 omweather/src/weather-help.c:70
 msgid "Other Maemo Weather Info"
@@ -1571,7 +1579,7 @@ msgstr "Nachmittags Gewitter"
 
 #: meecast/qt-qml/UnitsPage.qml:182
 msgid "Pa"
-msgstr ""
+msgstr "Pa"
 
 #: omweather/src/hash.data:177
 msgid "Partly Cloudy"
@@ -1668,9 +1676,8 @@ msgid "Pressure"
 msgstr "Luftdruck"
 
 #: meecast/qt-qml/UnitsPage.qml:51 meecast/qt-qml/UnitsPage.qml:164
-#, fuzzy
 msgid "Pressure units"
-msgstr "Luftdruck:"
+msgstr "Einheit für Luftdruck"
 
 #: omweather/src/weather-settings.c:4049
 msgid "Pressure units:"
@@ -1987,7 +1994,7 @@ msgstr "Schauer in der Nähe"
 
 #: omweather/src/hash.data:230
 msgid "Sleet"
-msgstr ""
+msgstr "Graupel"
 
 #: omweather/src/hash.data:233
 msgid "Smoke"
@@ -2386,7 +2393,7 @@ msgstr "OMWeather Widget wird neu geladen"
 
 #: meecast/qt-qml/VisualsPage.qml:282
 msgid "Widget in events view"
-msgstr ""
+msgstr "Widget in der Ereignisansicht"
 
 #: omweather/src/weather-simple-settings.c:2914
 #: omweather/src/weather-simple-settings.c:2922
@@ -2605,7 +2612,7 @@ msgstr "mb"
 
 #: meecast/qt-qml/UnitsPage.qml:175
 msgid "mbar"
-msgstr ""
+msgstr "mbar"
 
 #: omweather/src/weather-home.c:1589 omweather/src/weather-home.c:1590
 #: omweather/src/weather-popup.c:1298 omweather/src/weather-popup.c:1299
@@ -2691,35 +2698,35 @@ msgstr "beständig"
 
 #: omweather/src/hash.data:290
 msgid "В"
-msgstr ""
+msgstr "В"
 
 #: omweather/src/hash.data:291
 msgid "З"
-msgstr ""
+msgstr "З"
 
 #: omweather/src/hash.data:292
 msgid "С"
-msgstr ""
+msgstr "С"
 
 #: omweather/src/hash.data:293
 msgid "С-В"
-msgstr ""
+msgstr "С-В"
 
 #: omweather/src/hash.data:294
 msgid "С-З"
-msgstr ""
+msgstr "С-З"
 
 #: omweather/src/hash.data:295
 msgid "Ю"
-msgstr ""
+msgstr "Ю"
 
 #: omweather/src/hash.data:296
 msgid "Ю-В"
-msgstr ""
+msgstr "Ю-В"
 
 #: omweather/src/hash.data:297
 msgid "Ю-З"
-msgstr ""
+msgstr "Ю-З"
 
 #~ msgid "Farenheit"
 #~ msgstr "Fahrenheit"

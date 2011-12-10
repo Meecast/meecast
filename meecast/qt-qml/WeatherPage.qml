@@ -735,11 +735,21 @@ Page {
                         color: (index % 2 != 0) ? "black" : "#0f0f0f"
 
                         Text {
-                            text: model.date
-                            color: "white"
+                            id: txt_date
+                            text: model.fulldate
+                            color: "#889397"
                             font.pointSize: 18
                             anchors.left: parent.left
                             anchors.leftMargin: margin
+                            height:parent.height
+                            verticalAlignment: Text.AlignVCenter
+                        }
+                        Text {
+                            text: model.shortdate
+                            color: "white"
+                            font.pointSize: 18
+                            anchors.left: parent.left
+                            anchors.leftMargin: (margin + txt_date.width + 8)
                             height:parent.height
                             verticalAlignment: Text.AlignVCenter
                         }

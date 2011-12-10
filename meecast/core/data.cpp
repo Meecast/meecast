@@ -50,6 +50,7 @@ namespace Core {
         _full_day_name = new std::string();
         _full_month_name = new std::string();
         _day_of_month_name = new std::string();
+        _month_name = new std::string();
         _temperature_hi = new Temperature(INT_MAX, "C");
         _temperature_low = new Temperature(INT_MAX, "C");
         _temperature = new Temperature(INT_MAX, "C");
@@ -87,6 +88,7 @@ namespace Core {
         _full_day_name = data->_full_day_name;
         _full_month_name = data->_full_month_name; 
         _day_of_month_name = data->_day_of_month_name;
+        _month_name = data->_month_name;
         _sunrise = data->_sunrise;
         _sunset = data->_sunset;
     }
@@ -102,6 +104,7 @@ namespace Core {
         delete _full_day_name;
         delete _full_month_name;
         delete _day_of_month_name;
+        delete _month_name;
         tmp_time_date_struct = gmtime(&start_time);
         strftime(buffer, sizeof(buffer), "%a", tmp_time_date_struct);
         _short_day_name = new std::string(buffer);
@@ -111,6 +114,8 @@ namespace Core {
         _full_month_name = new std::string(buffer);
         strftime(buffer, sizeof(buffer), "%d", tmp_time_date_struct);
         _day_of_month_name = new std::string(buffer);
+        strftime(buffer, sizeof(buffer), "%m", tmp_time_date_struct);
+        _month_name = new std::string(buffer);
     }
     time_t
     Data::StartTime() const{
@@ -254,6 +259,11 @@ namespace Core {
          return *_day_of_month_name;
      }
 ////////////////////////////////////////////////////////////////////////////////
+    std::string&
+    Data::MonthName(){
+        return *_month_name;
+    }
+////////////////////////////////////////////////////////////////////////////////
     time_t
     Data::GetTimeDistance(time_t need_time){
         if(_end_time >= need_time && _start_time < need_time)
@@ -275,6 +285,7 @@ namespace Core {
        delete _full_day_name;
        delete _full_month_name;
        delete _day_of_month_name;
+        delete _month_name;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Temperature& Data::temperature_hi(){

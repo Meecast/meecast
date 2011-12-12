@@ -299,6 +299,10 @@ msgid ""
 "You should uninstall AccuWeather \n"
 "before installing this package"
 msgstr ""
+"Applikationmanager startar nu\n"
+"för installation av 'Meecast applet'\n"
+"Du bör avinstallera AccuWeather\n"
+"innan installation av detta paket"
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -364,7 +368,7 @@ msgstr ""
 
 #: meecast/qt-qml/VisualsPage.qml:105
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: omweather/src/weather-config.c:383
 #, c-format
@@ -529,15 +533,15 @@ msgstr ""
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
 #: meecast/qt-qml/FullWeatherPage.qml:76
 msgid "Day"
-msgstr ""
+msgstr "Dag"
 
 #: omweather/src/weather-popup.c:1182
 msgid "Day length"
-msgstr ""
+msgstr "Daglängd"
 
 #: omweather/src/hash.data:51 meecast/qt-qml/FullWeatherPage.qml:155
 msgid "Day length:"
-msgstr ""
+msgstr "Daglängd:"
 
 #: omweather/src/weather-popup.c:913
 msgid "Day:"
@@ -545,7 +549,7 @@ msgstr ""
 
 #: meecast/qt-qml/StationsPage.qml:75
 msgid "Delete location?"
-msgstr ""
+msgstr "Radera område?"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
@@ -799,6 +803,10 @@ msgid ""
 "'Activating MeeCast Applet'\n"
 "using Application manager"
 msgstr ""
+"För att avaktivera MeeCast widget\n"
+"ska du avinstallera paketet\n"
+"Aktivera MeeCast Applet genom \n"
+"Program vyn."
 
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
@@ -922,7 +930,7 @@ msgstr ""
 #: meecast/qt-qml/dataitem.cpp:164 meecast/qt-qml/FullWeatherPage.qml:83
 #: meecast/qt-qml/FullWeatherPage.qml:119
 msgid "Humidity:"
-msgstr ""
+msgstr "Fuktighet:"
 
 #: omweather/src/weather-settings.c:3326
 msgid "Icon set:"
@@ -934,7 +942,7 @@ msgstr ""
 
 #: meecast/qt-qml/VisualsPage.qml:41
 msgid "Icons"
-msgstr ""
+msgstr "Ikoner"
 
 #: omweather/src/hash.data:85 meecast/qt-qml/VisualsPage.qml:262
 msgid "Iconset"
@@ -980,14 +988,14 @@ msgstr ""
 
 #: omweather/src/hash.data:90 meecast/qt-qml/FullWeatherPage.qml:158
 msgid "Last update:"
-msgstr ""
+msgstr "Senast uppdaterad:"
 
 #: omweather/src/weather-simple-popup.c:271
 #: omweather/src/weather-simple-popup.c:273
 #: omweather/src/weather-simple-popup.c:280
 #, c-format
 msgid "Last update: "
-msgstr ""
+msgstr "Senast uppdaterad: "
 
 #: omweather/src/hash.data:91
 msgid "Lawn and Garden Weather"
@@ -1327,7 +1335,7 @@ msgstr ""
 
 #: meecast/qt-qml/NewStationPage.qml:38
 msgid "New location"
-msgstr ""
+msgstr "Nytt område"
 
 #: omweather/src/weather-settings.c:4275
 msgid "Next update:"
@@ -1336,15 +1344,15 @@ msgstr ""
 #: meecast/netbook-UX/meego-panel-omweather.cpp:588
 #: meecast/qt-qml/FullWeatherPage.qml:112
 msgid "Night"
-msgstr ""
+msgstr "Natt"
 
 #: omweather/src/weather-popup.c:1046
 msgid "Night:"
-msgstr ""
+msgstr "Natt:"
 
 #: omweather/src/weather-settings.c:825 meecast/qt-qml/StationsPage.qml:78
 msgid "No"
-msgstr ""
+msgstr "Nej"
 
 #: omweather/src/weather-popup.c:669
 msgid "No current weather data."
@@ -1370,7 +1378,7 @@ msgstr ""
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
 #: meecast/qt-qml/dataitem.cpp:172 meecast/qt-qml/WeatherPage.qml:535
 msgid "Now"
-msgstr ""
+msgstr "Nu"
 
 #: omweather/src/weather-simple-settings.c:2880
 msgid "Now + 2 days vert."
@@ -1579,22 +1587,22 @@ msgstr ""
 
 #: meecast/qt-qml/UnitsPage.qml:51 meecast/qt-qml/UnitsPage.qml:164
 msgid "Pressure units"
-msgstr ""
+msgstr "Tryckenheter"
 
 #: omweather/src/weather-settings.c:4049
 msgid "Pressure units:"
-msgstr ""
+msgstr "Tryckenheter:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
 #: meecast/qt-qml/dataitem.cpp:170 meecast/qt-qml/FullWeatherPage.qml:89
 #: meecast/qt-qml/FullWeatherPage.qml:125
 msgid "Pressure:"
-msgstr ""
+msgstr "Tryck:"
 
 #: omweather/src/weather-home.c:1393 omweather/src/weather-home.c:1448
 msgid "Pressure: "
-msgstr ""
+msgstr "Tryck: "
 
 #: meecast/qt-qml/AboutPage.qml:112
 msgid "Project administrator"
@@ -1778,7 +1786,7 @@ msgstr ""
 
 #: meecast/qt-qml/NewStationPage.qml:73 meecast/qt-qml/NewStationPage.qml:120
 msgid "Select city"
-msgstr ""
+msgstr "Välj stad"
 
 #: meecast/qt-qml/CountryPage.qml:153 meecast/qt-qml/NewStationPage.qml:55
 #: meecast/qt-qml/NewStationPage.qml:102
@@ -1959,13 +1967,13 @@ msgstr ""
 #: omweather/src/weather-popup.c:1135 omweather/src/weather-popup.c:1142
 #: omweather/src/weather-simple-settings.c:1389
 msgid "Speed"
-msgstr ""
+msgstr "Hastighet"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
 #: meecast/qt-qml/dataitem.cpp:168
 msgid "Speed:"
-msgstr ""
+msgstr "Hastighet:"
 
 #: omweather/src/weather-settings.c:522
 msgid "State:"
@@ -1999,19 +2007,19 @@ msgstr "Soligt / Vind"
 
 #: omweather/src/hash.data:248 meecast/qt-qml/FullWeatherPage.qml:149
 msgid "Sunrise:"
-msgstr ""
+msgstr "Soluppgång:"
 
 #: omweather/src/weather-popup.c:125 omweather/src/weather-popup.c:1019
 msgid "Sunrise: "
-msgstr ""
+msgstr "Soluppgång: "
 
 #: omweather/src/hash.data:249 meecast/qt-qml/FullWeatherPage.qml:152
 msgid "Sunset:"
-msgstr ""
+msgstr "Solnedgång:"
 
 #: omweather/src/weather-popup.c:139 omweather/src/weather-popup.c:1150
 msgid "Sunset: "
-msgstr ""
+msgstr "Solnedgång: "
 
 #: omweather/src/weather-settings.c:3773
 msgid "Swap hi/low temperature"
@@ -2063,11 +2071,11 @@ msgstr ""
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
 #: meecast/qt-qml/dataitem.cpp:162
 msgid "Temperature:"
-msgstr ""
+msgstr "Temperatur:"
 
 #: omweather/src/weather-popup.c:1259 omweather/src/weather-popup.c:1441
 msgid "Temperature: "
-msgstr ""
+msgstr "Temperatur: "
 
 #: omweather/src/weather-help.c:138
 msgid "Thanks"
@@ -2102,11 +2110,11 @@ msgstr ""
 #: omweather/src/weather-simple-popup.c:424
 #: meecast/qt-qml/FullWeatherPage.qml:273 meecast/qt-qml/WeatherPage.qml:535
 msgid "Today"
-msgstr ""
+msgstr "Idag"
 
 #: omweather/src/weather-help.c:154 meecast/qt-qml/AboutPage.qml:160
 msgid "Translators"
-msgstr ""
+msgstr "Översättare"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:427
 msgid ""
@@ -2164,7 +2172,7 @@ msgstr ""
 
 #: omweather/src/hash.data:260 meecast/qt-qml/WeatherPage.qml:354
 msgid "Updating forecast"
-msgstr ""
+msgstr "Uppdaterar prognos"
 
 #: omweather/src/weather-settings.c:4264
 msgid "Updating of weather data:"
@@ -2279,7 +2287,7 @@ msgstr ""
 
 #: meecast/qt-qml/VisualsPage.qml:282
 msgid "Widget in events view"
-msgstr ""
+msgstr "Widget i vyn Händelser"
 
 #: omweather/src/weather-simple-settings.c:2914
 #: omweather/src/weather-simple-settings.c:2922
@@ -2297,17 +2305,17 @@ msgstr "Vind"
 #: omweather/src/hash.data:273 meecast/qt-qml/FullWeatherPage.qml:86
 #: meecast/qt-qml/FullWeatherPage.qml:122
 msgid "Wind direction:"
-msgstr ""
+msgstr "Vindriktning:"
 
 #: meecast/qt-qml/FullWeatherPage.qml:98
 #: meecast/qt-qml/FullWeatherPage.qml:134
 msgid "Wind gust:"
-msgstr ""
+msgstr "Vindstöt:"
 
 #: omweather/src/hash.data:275 meecast/qt-qml/FullWeatherPage.qml:92
 #: meecast/qt-qml/FullWeatherPage.qml:128
 msgid "Wind speed"
-msgstr ""
+msgstr "Vindhastighet"
 
 #: omweather/src/hash.data:274 meecast/qt-qml/UnitsPage.qml:41
 #: meecast/qt-qml/UnitsPage.qml:130
@@ -2353,7 +2361,7 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:824 meecast/qt-qml/StationsPage.qml:77
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: omweather/src/weather-simple-popup.c:1232
 msgid "You can make donation here: "

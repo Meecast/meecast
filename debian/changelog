@@ -1,6 +1,6 @@
 meecast (0.4.5) unstable; urgency=low
 
-  * Changed date format
+  * Changed date format in main window
   * Added pressure units settings 
   * Added Swedish translation. Thanks Angela Nennebrandt and Tomislav
     Veleckovik 

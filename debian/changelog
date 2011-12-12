@@ -1,3 +1,9 @@
+meecast (0.4.6) unstable; urgency=low
+
+  * Nothing 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 12 Dec 2011 23:42:23 +0200
+
 meecast (0.4.5) unstable; urgency=low
 
   * Changed date format in main window
@@ -8,7 +14,7 @@ meecast (0.4.5) unstable; urgency=low
   * Changed algorithm for day/night time
   * Updated Polish, Spain and Germany translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Mon, 28 Nov 2011 12:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 12 Dec 2011 23:42:23 +0200
 
 meecast (0.4.4) unstable; urgency=low
 

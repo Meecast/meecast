@@ -331,7 +331,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node,  const gch
 			                                fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
                                         }
                                         if (period == 1){
-                                            snprintf(buff, sizeof(buff)-1, "day%s",(char*)temp_xml_string);
+                                            snprintf(buff, sizeof(buff)-1, "night%s",(char*)temp_xml_string);
 			                                fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
                                         }
                                         if (period == 2){
@@ -339,7 +339,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node,  const gch
 			                                fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
                                         }
                                         if (period == 3){
-                                            snprintf(buff, sizeof(buff)-1, "night%s",(char*)temp_xml_string);
+                                            snprintf(buff, sizeof(buff)-1, "day%s",(char*)temp_xml_string);
 			                                fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
                                         }
                                         xmlFree(temp_xml_string);

@@ -106,7 +106,8 @@ main (int argc, char *argv[])
 
   /* Check time for previous updating */
   dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
-  if (dp && (abs(time(NULL) - dp->LastUpdate()) < 3600))
+  /* 50*60 = 60 minutes - minimal time between updates */ 
+  if (dp && (abs(time(NULL) - dp->LastUpdate()) < 50*60))
       exit (-2);
 
   /*update weather forecast*/

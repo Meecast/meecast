@@ -159,11 +159,25 @@ main (int argc, char *argv[])
         }else
             temp_low = temp.number((temp_data->temperature_low().value()),'f',0);
 
+        /* Call DBUS */
         MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
+        /* Preparing time for updateing */
+        uint result_time = 0;
+        if (config->UpdatePeriod() != INT_MAX){
+            if ((time(NULL) - dp->LastUpdate()) > config->UpdatePeriod())
+                result_time = time(NULL) + 10;
+            else
+                if (dp->LastUpdate() + config->UpdatePeriod() < temp_data->EndTime())
+                   result_time = dp->LastUpdate() + config->UpdatePeriod();  
+                else
+                   result_time = temp_data->EndTime();
+        }else
+            result_time = temp_data->EndTime();
+
         QString stationname = "";
         dbusclient->SetCurrentData(stationname.fromUtf8(config->stationname().c_str()),
                                    temp, temp_high, temp_low, 
-                                   icon_string, temp_data->EndTime() , temp_data->Current()); 
+                                   icon_string, result_time, temp_data->Current()); 
     }
 
   if (dp){

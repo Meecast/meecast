@@ -104,19 +104,17 @@ main (int argc, char *argv[])
 
    QCoreApplication a(argc, argv);
 
-  /* Check time for previous updating */
-  dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
-  /* 50*60 = 60 minutes - minimal time between updates */ 
-  if (dp && (abs(time(NULL) - dp->LastUpdate()) < 50*60))
-      exit (-2);
-
-  /*update weather forecast*/
-  for (i=0; i < config->stationsList().size();i++){
-      if (config->stationsList().at(i)->updateData(true)){
-          success ++;
-      }
-  }
-
+    /* Check time for previous updating */
+    dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
+    /* 50*60 = 60 minutes - minimal time between updates */ 
+    if (dp && (abs(time(NULL) - dp->LastUpdate()) > 50*60)){
+        /*update weather forecast*/
+        for (i=0; i < config->stationsList().size();i++){
+            if (config->stationsList().at(i)->updateData(true)){
+                success ++;
+            }
+        }
+    }
     dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
     /* set current day */ 
     current_day = time(NULL);

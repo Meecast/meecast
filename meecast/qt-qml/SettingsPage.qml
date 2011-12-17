@@ -41,11 +41,8 @@ Page {
         ListElement {
             page: "UnitsPage.qml"
             title: "Measurement units"
-        }/*
-        ListElement {
-            page: "UpdatePage.qml"
-            title: "Update"
         }
+	/* 
         ListElement {
             page: "SourcePage.qml"
             title: "Source"
@@ -54,6 +51,11 @@ Page {
             page: "VisualsPage.qml"
             title: "Appearance"
         }
+	ListElement {
+            page: "UpdatePage.qml"
+            title: "Update"
+        }
+
     }
 
     Rectangle{

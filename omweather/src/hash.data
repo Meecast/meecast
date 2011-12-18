@@ -165,6 +165,7 @@
     g_hash_table_insert(hash, (void*)"PM Rain", _("PM Rain"));
     g_hash_table_insert(hash, (void*)"PM Showers / Wind", _("PM Showers / Wind"));
     g_hash_table_insert(hash, (void*)"PM Showers", _("PM Showers"));
+    g_hash_table_insert(hash, (void*)"PM Snow", _("PM Snow"));
     g_hash_table_insert(hash, (void*)"PM Snow Showers / Wind", _("PM Snow Showers / Wind"));
     g_hash_table_insert(hash, (void*)"PM Snow Showers", _("PM Snow Showers"));
     g_hash_table_insert(hash, (void*)"PM T-Showers", _("PM T-Showers"));
@@ -204,6 +205,7 @@
     g_hash_table_insert(hash, (void*)"Rain Shower", _("Rain Shower"));
     g_hash_table_insert(hash, (void*)"Rain Showers", _("Rain Showers"));
     g_hash_table_insert(hash, (void*)"Rain and Snow", _("Rain and Snow"));
+    g_hash_table_insert(hash, (void*)"Rain to Snow / Wind", _("Rain to Snow / Wind"));
     g_hash_table_insert(hash, (void*)"Rain to Wintry Mix / Wind", _("Rain to Wintry Mix / Wind"));
     g_hash_table_insert(hash, (void*)"Rain to Wintry Mix", _("Rain to Wintry Mix"));
     g_hash_table_insert(hash, (void*)"Rain", _("Rain"));

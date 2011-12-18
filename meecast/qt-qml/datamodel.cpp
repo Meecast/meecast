@@ -182,9 +182,22 @@ DataModel::update(QString filename, int  period)
                 icon_string.append("/") ;
                 icon_string.append(forecast_data->icon());
                 QString stationname = "";
+                /* Preparing time for updateing */
+                uint result_time = 0;
+                if (_config->UpdatePeriod() != INT_MAX){
+                    if ((time(NULL) - dp->LastUpdate()) > _config->UpdatePeriod())
+                        result_time = time(NULL) + 10;
+                    else
+                        if (dp->LastUpdate() + _config->UpdatePeriod() < temp_data->EndTime())
+                           result_time = dp->LastUpdate() + _config->UpdatePeriod();  
+                        else
+                           result_time = temp_data->EndTime();
+                }else
+                    result_time = temp_data->EndTime();
+
                 dbusclient->SetCurrentData(stationname.fromUtf8(_config->stationname().c_str()), forecast_data->temperature(), 
                                            forecast_data->temperature_high(), forecast_data->temperature_low(), 
-                                           icon_string, forecast_data->EndTime(), forecast_data->current()); 
+                                           icon_string, result_time, forecast_data->current()); 
             }
             break;
         case current_night_period:

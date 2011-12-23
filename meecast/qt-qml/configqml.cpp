@@ -556,6 +556,20 @@ ConfigQml::prevstationname()
     return qstr.fromUtf8(ConfigQml::Config::prevstationname().c_str()); 
 }
 
+int
+ConfigQml::updateinterval()
+{
+    return ConfigQml::Config::UpdatePeriod(); 
+}
+
+void
+ConfigQml::updateinterval(int interval)
+{
+    ConfigQml::Config::UpdatePeriod(interval);
+    saveConfig();
+    refreshconfig();
+}
+
 QString
 ConfigQml::filename()
 {
@@ -621,6 +635,7 @@ ConfigQml::prevstation()
    }
    this->saveConfig();
 }
+
 void
 ConfigQml::refreshconfig(){
     emit ConfigQml::iconsetChanged();
@@ -653,6 +668,7 @@ ConfigQml::downloadFinishedSlot()
 {
     emit configChanged();
 }
+
 void
 ConfigQml::runsetting()
 {

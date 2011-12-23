@@ -74,40 +74,12 @@ Page {
             height: parent.height - 274
             color: "black"
         }
-    Rectangle{
-        anchors.fill: parent
-        anchors.top: title_rect.bottom
-        anchors.topMargin: 80
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-
-        Rectangle {
-            anchors.top: parent.top
-            anchors.left: parent.left
-            width: parent.width
-            height: 274
-            color: "#999999"
-        }
-        Loader {
-            id: background
-            anchors.top: parent.top
-            anchors.left: parent.left
-            width: parent.width
-            height: 274
-            sourceComponent: Image {source: Config.imagespath + "/mask_background_grid.png"}
-        }
-        Rectangle {
-            anchors.top: background.bottom
-            width: parent.width
-            height: parent.height - 274
-            color: "black"
-        }
         Column {
             anchors.fill: parent
             //spacing: 20
 
             Label {
-                text: Config.tr("Temperature units")
+                text: Config.tr("Update interval")
                 height: 80
                 horizontalAlignment: Text.AlignLeft
                 verticalAlignment: Text.AlignVCenter
@@ -118,21 +90,37 @@ Page {
                     horizontalAlignment: Text.AlignLeft
                 }
                 Button {
-                    text: Config.tr("Celcius")
-                    checked: (Config.temperatureunit == 'C')
-
+                    text: Config.tr("Never")
+                    checked: (!(Config.updateinterval == 3600 || Config.updateinterval == 7200 || Config.updateinterval == 14400))
                     onClicked: {
-                        Config.temperature_unit('C');
+                        Config.updateinterval(2147483647);
                     }
+	        }
+                Button {
+                    text: Config.tr("1 hour")
+                    checked: (Config.updateinterval == 3600)
+                    onClicked: {
+                        Config.updateinterval(3600);
+                    }
+	        }
+                Button {
+                    text: Config.tr("2 hours")
+                    checked: (Config.updateinterval == '7200')
+                    onClicked: {
+                        Config.updateinterval(7200);
+                    }
+	        }
+                Button {
+                    text: Config.tr("4 hours")
+                    checked: (Config.updateinterval == '14400')
+                    onClicked: {
+                        Config.updateinterval(14400);
+                    }
+	        }
 
-
-	}
-
-		}
-	}
-
+	    }
+        }
     }
-}
 }
     
 

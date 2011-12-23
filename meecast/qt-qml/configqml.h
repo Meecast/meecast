@@ -62,6 +62,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString filename READ filename NOTIFY filenameChanged)
     Q_PROPERTY(QString source READ source NOTIFY sourceChanged)
     Q_PROPERTY(QString version READ version NOTIFY versionChanged)
+    Q_PROPERTY(int updateinterval READ updateinterval NOTIFY updateintervalChanged)
 public:
     ConfigQml();
     ConfigQml(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
@@ -82,6 +83,7 @@ public:
     QString filename();
     QString source();
     QString version();
+    int updateinterval();
     QString viewURL();
     Q_INVOKABLE QStringList stations();
     Q_INVOKABLE void removeStation(int index);
@@ -106,6 +108,7 @@ public:
     Q_INVOKABLE void temperature_unit(QString c);
     Q_INVOKABLE QStringList windspeed_list();
     Q_INVOKABLE void windspeed_unit(int index);
+    Q_INVOKABLE void updateinterval(int interval);
     Q_INVOKABLE QStringList pressure_list();
     Q_INVOKABLE void pressure_unit(int index);
     Q_INVOKABLE void setfullscreen(bool c);
@@ -135,6 +138,7 @@ signals:
     void filenameChanged();
     void sourceChanged();
     void versionChanged();
+    void updateintervalChanged();
     void configChanged();
 public Q_SLOTS:
     void reload_config();

@@ -100,7 +100,7 @@ Page {
                     text: Config.tr("30 minutes")
                     checked: (Config.updateinterval == 1800)
                     onClicked: {
-                        Config.update_interval('1800');
+                        Config.update_interval(1800);
                     }
 	        }
                 Button {
@@ -112,14 +112,14 @@ Page {
 	        }
                 Button {
                     text: Config.tr("2 hours")
-                    checked: (Config.updateinterval == '7200')
+                    checked: (Config.updateinterval == 7200)
                     onClicked: {
                         Config.update_interval(7200);
                     }
 	        }
                 Button {
                     text: Config.tr("4 hours")
-                    checked: (Config.updateinterval == '14400')
+                    checked: (Config.updateinterval == 14400)
                     onClicked: {
                         Config.update_interval(14400);
                     }

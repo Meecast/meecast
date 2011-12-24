@@ -2255,9 +2255,8 @@ msgid "Update already running."
 msgstr "Обновление уже работает."
 
 #: meecast/qt-qml/UpdatePage.qml:82
-#, fuzzy
 msgid "Update interval"
-msgstr "Идет обновление данных о погоде."
+msgstr "Интервал обновления"
 
 #: omweather/src/hash.data:262 meecast/qt-qml/WeatherPage.qml:354
 msgid "Updating forecast"

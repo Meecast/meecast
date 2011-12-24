@@ -91,9 +91,16 @@ Page {
                 }
                 Button {
                     text: Config.tr("Never")
-                    checked: (!(Config.updateinterval == 3600 || Config.updateinterval == 7200 || Config.updateinterval == 14400))
+                    checked: (!(Config.updateinterval == 1800 || Config.updateinterval == 3600 || Config.updateinterval == 7200 || Config.updateinterval == 14400))
                     onClicked: {
                         Config.updateinterval(2147483647);
+                    }
+	        }
+                Button {
+                    text: Config.tr("30 minutes")
+                    checked: (Config.updateinterval == 1800)
+                    onClicked: {
+                        Config.updateinterval(1800);
                     }
 	        }
                 Button {

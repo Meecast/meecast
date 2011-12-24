@@ -432,7 +432,10 @@ Config::Gps(void){
 ////////////////////////////////////////////////////////////////////////////////
 void
 Config::UpdatePeriod(const int period){
-    _update_period = period;
+    if (period > 3600 * 24)
+        _update_period = INT_MAX;
+    else 
+        _update_period = period;
 }
 int
 Config::UpdatePeriod(void){

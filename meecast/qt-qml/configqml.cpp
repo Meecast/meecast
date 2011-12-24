@@ -563,7 +563,7 @@ ConfigQml::updateinterval()
 }
 
 void
-ConfigQml::updateinterval(int interval)
+ConfigQml::update_interval(int interval)
 {
     ConfigQml::Config::UpdatePeriod(interval);
     saveConfig();

@@ -108,7 +108,7 @@ public:
     Q_INVOKABLE void temperature_unit(QString c);
     Q_INVOKABLE QStringList windspeed_list();
     Q_INVOKABLE void windspeed_unit(int index);
-    Q_INVOKABLE void updateinterval(int interval);
+    Q_INVOKABLE void update_interval(int interval);
     Q_INVOKABLE QStringList pressure_list();
     Q_INVOKABLE void pressure_unit(int index);
     Q_INVOKABLE void setfullscreen(bool c);

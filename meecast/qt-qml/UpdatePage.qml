@@ -48,7 +48,7 @@ Page {
 
     Rectangle{
         anchors.fill: parent
-        anchors.top: title_rect.bottom
+//        anchors.top: title_rect.bottom
         anchors.topMargin: 80
         anchors.leftMargin: margin
         anchors.rightMargin: margin
@@ -93,35 +93,35 @@ Page {
                     text: Config.tr("Never")
                     checked: (!(Config.updateinterval == 1800 || Config.updateinterval == 3600 || Config.updateinterval == 7200 || Config.updateinterval == 14400))
                     onClicked: {
-                        Config.updateinterval(2147483647);
+                        Config.update_interval(2147483647);
                     }
 	        }
                 Button {
                     text: Config.tr("30 minutes")
                     checked: (Config.updateinterval == 1800)
                     onClicked: {
-                        Config.updateinterval(1800);
+                        Config.update_interval('1800');
                     }
 	        }
                 Button {
                     text: Config.tr("1 hour")
                     checked: (Config.updateinterval == 3600)
                     onClicked: {
-                        Config.updateinterval(3600);
+                        Config.update_interval(3600);
                     }
 	        }
                 Button {
                     text: Config.tr("2 hours")
                     checked: (Config.updateinterval == '7200')
                     onClicked: {
-                        Config.updateinterval(7200);
+                        Config.update_interval(7200);
                     }
 	        }
                 Button {
                     text: Config.tr("4 hours")
                     checked: (Config.updateinterval == '14400')
                     onClicked: {
-                        Config.updateinterval(14400);
+                        Config.update_interval(14400);
                     }
 	        }
 

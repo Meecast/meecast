@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-24 09:43+0300\n"
+"POT-Creation-Date: 2011-12-24 09:45+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,6 +89,7 @@ msgstr ""
 #: omweather/src/weather-settings.c:4240
 #: omweather/src/weather-simple-settings.c:1696
 #: omweather/src/weather-simple-settings.c:2805
+#: meecast/qt-qml/UpdatePage.qml:107
 msgid "1 hour"
 msgstr ""
 
@@ -108,7 +109,7 @@ msgstr ""
 msgid "15 minutes"
 msgstr ""
 
-#: omweather/src/weather-settings.c:4242
+#: omweather/src/weather-settings.c:4242 meecast/qt-qml/UpdatePage.qml:114
 msgid "2 hours"
 msgstr ""
 
@@ -120,7 +121,7 @@ msgstr ""
 msgid "3 minutes"
 msgstr ""
 
-#: omweather/src/weather-sensor.c:153
+#: omweather/src/weather-sensor.c:153 meecast/qt-qml/UpdatePage.qml:100
 msgid "30 minutes"
 msgstr ""
 
@@ -131,6 +132,7 @@ msgstr ""
 #: omweather/src/weather-settings.c:4244
 #: omweather/src/weather-simple-settings.c:1705
 #: omweather/src/weather-simple-settings.c:2808
+#: meecast/qt-qml/UpdatePage.qml:121
 msgid "4 hours"
 msgstr ""
 
@@ -932,7 +934,7 @@ msgstr ""
 msgid "Icon size:"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:41
+#: meecast/qt-qml/VisualsPage.qml:41 meecast/qt-qml/UpdatePage.qml:41
 msgid "Icons"
 msgstr ""
 
@@ -1318,6 +1320,7 @@ msgstr ""
 #: omweather/src/weather-settings.c:920 omweather/src/weather-settings.c:4190
 #: omweather/src/weather-config.c:324 omweather/src/weather-sensor.c:141
 #: omweather/src/weather-simple-settings.c:2802
+#: meecast/qt-qml/UpdatePage.qml:93
 msgid "Never"
 msgstr ""
 
@@ -2168,6 +2171,10 @@ msgstr ""
 
 #: omweather/src/weather-download.c:425
 msgid "Update already running."
+msgstr ""
+
+#: meecast/qt-qml/UpdatePage.qml:82
+msgid "Update interval"
 msgstr ""
 
 #: omweather/src/hash.data:262 meecast/qt-qml/WeatherPage.qml:354

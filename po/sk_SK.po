@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-23 20:21+0300\n"
+"POT-Creation-Date: 2011-12-24 09:45+0300\n"
 "PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -117,6 +117,7 @@ msgstr "1 deň"
 #: omweather/src/weather-settings.c:4240
 #: omweather/src/weather-simple-settings.c:1696
 #: omweather/src/weather-simple-settings.c:2805
+#: meecast/qt-qml/UpdatePage.qml:107
 msgid "1 hour"
 msgstr "1 hodina"
 
@@ -136,7 +137,7 @@ msgstr "10 sekúnd"
 msgid "15 minutes"
 msgstr "15 minút"
 
-#: omweather/src/weather-settings.c:4242
+#: omweather/src/weather-settings.c:4242 meecast/qt-qml/UpdatePage.qml:114
 msgid "2 hours"
 msgstr "2 hodiny"
 
@@ -148,7 +149,7 @@ msgstr "20 sekúnd"
 msgid "3 minutes"
 msgstr "3 minúty"
 
-#: omweather/src/weather-sensor.c:153
+#: omweather/src/weather-sensor.c:153 meecast/qt-qml/UpdatePage.qml:100
 msgid "30 minutes"
 msgstr "30 minút"
 
@@ -159,6 +160,7 @@ msgstr "30 sekúnd"
 #: omweather/src/weather-settings.c:4244
 #: omweather/src/weather-simple-settings.c:1705
 #: omweather/src/weather-simple-settings.c:2808
+#: meecast/qt-qml/UpdatePage.qml:121
 msgid "4 hours"
 msgstr "4 hodiny"
 
@@ -1019,7 +1021,7 @@ msgstr "Téma ikon:"
 msgid "Icon size:"
 msgstr "Veľkosť ikon:"
 
-#: meecast/qt-qml/VisualsPage.qml:41
+#: meecast/qt-qml/VisualsPage.qml:41 meecast/qt-qml/UpdatePage.qml:41
 #, fuzzy
 msgid "Icons"
 msgstr "Téma ikon:"
@@ -1416,6 +1418,7 @@ msgstr "Názov:"
 #: omweather/src/weather-settings.c:920 omweather/src/weather-settings.c:4190
 #: omweather/src/weather-config.c:324 omweather/src/weather-sensor.c:141
 #: omweather/src/weather-simple-settings.c:2802
+#: meecast/qt-qml/UpdatePage.qml:93
 msgid "Never"
 msgstr "Nikdy"
 
@@ -2286,6 +2289,11 @@ msgstr "Aktualizácia"
 #: omweather/src/weather-download.c:425
 msgid "Update already running."
 msgstr "Aktualizácia práve prebieha."
+
+#: meecast/qt-qml/UpdatePage.qml:82
+#, fuzzy
+msgid "Update interval"
+msgstr "Aktualizujem údaje o počasí"
 
 #: omweather/src/hash.data:262 meecast/qt-qml/WeatherPage.qml:354
 #, fuzzy

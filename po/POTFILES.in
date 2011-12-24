@@ -32,3 +32,4 @@ meecast/qt-qml/VisualsPage.qml
 meecast/qt-qml/WeatherPage.qml
 meecast/qt-qml/IconsetPage.qml
 meecast/qt-qml/SearchField.qml
+meecast/qt-qml/UpdatePage.qml

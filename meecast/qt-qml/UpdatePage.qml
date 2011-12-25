@@ -6,6 +6,7 @@ import com.nokia.meego 1.0
 Page {
     id: update 
     property int margin: 16
+    property int screen_width : 854
     property bool event_widget_status: Config.eventwidget
     tools: ToolBarLayout {
         ToolIcon {
@@ -45,6 +46,54 @@ Page {
         }
 
     }
+    Rectangle {
+	id: dataview
+	visible: ( event_widget_status == false) ? true : false
+//	anchors.top: station_rect.bottom
+	width: parent.width
+	//height: current_rect.height + list.height
+	height: screen_width - 72 - 72 - 36
+	//color: "black"
+	Loader {
+	    id: empty_background
+	    anchors.top: parent.top
+	    anchors.left: parent.left
+	    width: parent.width
+	    height: 274
+	    sourceComponent: Image {source: Config.imagespath + "/mask_background.png"}
+	}
+	Rectangle {
+	    anchors.top: empty_background.bottom
+	    width: parent.width
+	    height: dataview.height - 274
+	    color: "black"
+	}
+	Label {
+	    horizontalAlignment: Text.AlignHCenter
+	    text: Config.tr("You need activate event widget in")
+	    font.pixelSize: 54 
+	    color: "#999999"
+	    wrapMode: Text.Wrap
+	    width: parent.width - 2*margin
+	    //anchors.verticalCenter: parent.verticalCenter
+	    anchors.top: parent.top
+	    anchors.topMargin: 200
+	    anchors.left: parent.left
+	    anchors.right: parent.right
+	    anchors.leftMargin: margin
+	    anchors.rightMargin: margin
+	}
+	Button {
+	    text: Config.tr("Try to update")
+	    onClicked: {
+		main.update();
+	    }
+	    anchors.horizontalCenter: parent.horizontalCenter
+	    anchors.bottom: parent.bottom
+	    anchors.bottomMargin: 50
+	}
+
+    }
 
     Rectangle{
         anchors.fill: parent
@@ -52,6 +101,7 @@ Page {
         anchors.topMargin: 80
         anchors.leftMargin: margin
         anchors.rightMargin: margin
+	visible: ( event_widget_status == true) ? true : false
 
         Rectangle {
             anchors.top: parent.top

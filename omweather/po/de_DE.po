@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-25 19:03+0300\n"
+"POT-Creation-Date: 2011-12-25 20:34+0300\n"
 "PO-Revision-Date: 2011-12-06 14:16+0100\n"
 "Last-Translator: Claudius Henrichs <claudius.h@gmx.de>\n"
 "Language-Team: Claudius Henrichs <claudius.h@gmx.de>\n"
@@ -114,7 +114,7 @@ msgstr "Jeden Tag"
 #: omweather/src/weather-settings.c:4240
 #: omweather/src/weather-simple-settings.c:1696
 #: omweather/src/weather-simple-settings.c:2805
-#: meecast/qt-qml/UpdatePage.qml:157
+#: meecast/qt-qml/UpdatePage.qml:147
 msgid "1 hour"
 msgstr "Jede Stunde"
 
@@ -134,7 +134,7 @@ msgstr "10 Sekunden"
 msgid "15 minutes"
 msgstr "15 Minuten"
 
-#: omweather/src/weather-settings.c:4242 meecast/qt-qml/UpdatePage.qml:164
+#: omweather/src/weather-settings.c:4242 meecast/qt-qml/UpdatePage.qml:154
 msgid "2 hours"
 msgstr "2 Stunden"
 
@@ -146,7 +146,7 @@ msgstr "20 Sekunden"
 msgid "3 minutes"
 msgstr "3 Minuten"
 
-#: omweather/src/weather-sensor.c:153 meecast/qt-qml/UpdatePage.qml:150
+#: omweather/src/weather-sensor.c:153 meecast/qt-qml/UpdatePage.qml:140
 msgid "30 minutes"
 msgstr "30 Minuten"
 
@@ -157,7 +157,7 @@ msgstr "30 Sekunden"
 #: omweather/src/weather-settings.c:4244
 #: omweather/src/weather-simple-settings.c:1705
 #: omweather/src/weather-simple-settings.c:2808
-#: meecast/qt-qml/UpdatePage.qml:171
+#: meecast/qt-qml/UpdatePage.qml:161
 msgid "4 hours"
 msgstr "Alle 4 Stunden"
 
@@ -1423,7 +1423,7 @@ msgstr "Name:"
 #: omweather/src/weather-settings.c:920 omweather/src/weather-settings.c:4190
 #: omweather/src/weather-config.c:324 omweather/src/weather-sensor.c:141
 #: omweather/src/weather-simple-settings.c:2802
-#: meecast/qt-qml/UpdatePage.qml:143
+#: meecast/qt-qml/UpdatePage.qml:133
 msgid "Never"
 msgstr "Nie"
 
@@ -2248,7 +2248,6 @@ msgid "Transparency:"
 msgstr "Transparenz:"
 
 #: omweather/src/hash.data:261 meecast/qt-qml/WeatherPage.qml:495
-#: meecast/qt-qml/UpdatePage.qml:87
 msgid "Try to update"
 msgstr "Aktualisieren"
 
@@ -2291,7 +2290,7 @@ msgstr "Aktualisierung"
 msgid "Update already running."
 msgstr "Aktualisierung wird bereits ausgeführt."
 
-#: meecast/qt-qml/UpdatePage.qml:132
+#: meecast/qt-qml/UpdatePage.qml:122
 #, fuzzy
 msgid "Update interval"
 msgstr "Wetter aktualisieren"
@@ -2500,7 +2499,9 @@ msgid "You can make donation here: "
 msgstr "Hier können Sie spenden: "
 
 #: meecast/qt-qml/UpdatePage.qml:73
-msgid "You need activate event widget in"
+msgid ""
+"You should activate 'Widget in the events view' option in MeeCast appearance "
+"settings for auto update."
 msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2758

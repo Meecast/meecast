@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-25 19:03+0300\n"
+"POT-Creation-Date: 2011-12-25 20:34+0300\n"
 "PO-Revision-Date: 2011-11-27 14:00+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -120,7 +120,7 @@ msgstr "1 päivä"
 #: omweather/src/weather-settings.c:4240
 #: omweather/src/weather-simple-settings.c:1696
 #: omweather/src/weather-simple-settings.c:2805
-#: meecast/qt-qml/UpdatePage.qml:157
+#: meecast/qt-qml/UpdatePage.qml:147
 msgid "1 hour"
 msgstr "1 tunti"
 
@@ -140,7 +140,7 @@ msgstr "10 sekuntia"
 msgid "15 minutes"
 msgstr "15 minuuttia"
 
-#: omweather/src/weather-settings.c:4242 meecast/qt-qml/UpdatePage.qml:164
+#: omweather/src/weather-settings.c:4242 meecast/qt-qml/UpdatePage.qml:154
 msgid "2 hours"
 msgstr "2 tuntia"
 
@@ -152,7 +152,7 @@ msgstr "20 sekuntia"
 msgid "3 minutes"
 msgstr "3 minuuttia"
 
-#: omweather/src/weather-sensor.c:153 meecast/qt-qml/UpdatePage.qml:150
+#: omweather/src/weather-sensor.c:153 meecast/qt-qml/UpdatePage.qml:140
 msgid "30 minutes"
 msgstr "30 minuuttia"
 
@@ -163,7 +163,7 @@ msgstr "30 sekuntia"
 #: omweather/src/weather-settings.c:4244
 #: omweather/src/weather-simple-settings.c:1705
 #: omweather/src/weather-simple-settings.c:2808
-#: meecast/qt-qml/UpdatePage.qml:171
+#: meecast/qt-qml/UpdatePage.qml:161
 msgid "4 hours"
 msgstr "4 tuntia"
 
@@ -1425,7 +1425,7 @@ msgstr "Nimi:"
 #: omweather/src/weather-settings.c:920 omweather/src/weather-settings.c:4190
 #: omweather/src/weather-config.c:324 omweather/src/weather-sensor.c:141
 #: omweather/src/weather-simple-settings.c:2802
-#: meecast/qt-qml/UpdatePage.qml:143
+#: meecast/qt-qml/UpdatePage.qml:133
 msgid "Never"
 msgstr "Ei koskaan"
 
@@ -2251,7 +2251,6 @@ msgid "Transparency:"
 msgstr "Läpinäkyvyys:"
 
 #: omweather/src/hash.data:261 meecast/qt-qml/WeatherPage.qml:495
-#: meecast/qt-qml/UpdatePage.qml:87
 msgid "Try to update"
 msgstr "Yritä päivittää"
 
@@ -2294,7 +2293,7 @@ msgstr "Päivitä"
 msgid "Update already running."
 msgstr "Päivitys on jo käynnissä."
 
-#: meecast/qt-qml/UpdatePage.qml:132
+#: meecast/qt-qml/UpdatePage.qml:122
 #, fuzzy
 msgid "Update interval"
 msgstr "Päivitetään säätietoja"
@@ -2504,7 +2503,9 @@ msgid "You can make donation here: "
 msgstr "Voit tehdä lahjoituksen täällä:"
 
 #: meecast/qt-qml/UpdatePage.qml:73
-msgid "You need activate event widget in"
+msgid ""
+"You should activate 'Widget in the events view' option in MeeCast appearance "
+"settings for auto update."
 msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2758

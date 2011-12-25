@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-25 19:03+0300\n"
+"POT-Creation-Date: 2011-12-25 20:34+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -105,7 +105,7 @@ msgstr "1 день"
 #: omweather/src/weather-settings.c:4240
 #: omweather/src/weather-simple-settings.c:1696
 #: omweather/src/weather-simple-settings.c:2805
-#: meecast/qt-qml/UpdatePage.qml:157
+#: meecast/qt-qml/UpdatePage.qml:147
 msgid "1 hour"
 msgstr "1 час"
 
@@ -125,7 +125,7 @@ msgstr "10 секунд"
 msgid "15 minutes"
 msgstr "15 минут"
 
-#: omweather/src/weather-settings.c:4242 meecast/qt-qml/UpdatePage.qml:164
+#: omweather/src/weather-settings.c:4242 meecast/qt-qml/UpdatePage.qml:154
 msgid "2 hours"
 msgstr "2 часа"
 
@@ -137,7 +137,7 @@ msgstr "20 секунд"
 msgid "3 minutes"
 msgstr "3 минуты"
 
-#: omweather/src/weather-sensor.c:153 meecast/qt-qml/UpdatePage.qml:150
+#: omweather/src/weather-sensor.c:153 meecast/qt-qml/UpdatePage.qml:140
 msgid "30 minutes"
 msgstr "30 минут"
 
@@ -148,7 +148,7 @@ msgstr "30 секунд"
 #: omweather/src/weather-settings.c:4244
 #: omweather/src/weather-simple-settings.c:1705
 #: omweather/src/weather-simple-settings.c:2808
-#: meecast/qt-qml/UpdatePage.qml:171
+#: meecast/qt-qml/UpdatePage.qml:161
 msgid "4 hours"
 msgstr "4 часа"
 
@@ -1403,7 +1403,7 @@ msgstr "Название:"
 #: omweather/src/weather-settings.c:920 omweather/src/weather-settings.c:4190
 #: omweather/src/weather-config.c:324 omweather/src/weather-sensor.c:141
 #: omweather/src/weather-simple-settings.c:2802
-#: meecast/qt-qml/UpdatePage.qml:143
+#: meecast/qt-qml/UpdatePage.qml:133
 msgid "Never"
 msgstr "Никогда"
 
@@ -2217,7 +2217,6 @@ msgid "Transparency:"
 msgstr "Прозрачность:"
 
 #: omweather/src/hash.data:261 meecast/qt-qml/WeatherPage.qml:495
-#: meecast/qt-qml/UpdatePage.qml:87
 msgid "Try to update"
 msgstr "Попробуйте обновить"
 
@@ -2260,7 +2259,7 @@ msgstr "Обновление"
 msgid "Update already running."
 msgstr "Обновление уже работает."
 
-#: meecast/qt-qml/UpdatePage.qml:132
+#: meecast/qt-qml/UpdatePage.qml:122
 msgid "Update interval"
 msgstr "Интервал обновления"
 
@@ -2469,8 +2468,11 @@ msgid "You can make donation here: "
 msgstr "Вы можете сделать пожертвования здесь: "
 
 #: meecast/qt-qml/UpdatePage.qml:73
-msgid "You need activate event widget in"
-msgstr ""
+msgid ""
+"You should activate 'Widget in the events view' option in MeeCast appearance "
+"settings for auto update."
+msgstr "Для автообновления Вы должны активировать опцию 'Виджет на экране событий' " 
+"в настройках внешнего вида MeeCast." 
 
 #: omweather/src/weather-simple-settings.c:2758
 msgid "Zoom in popup window "

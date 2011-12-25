@@ -70,7 +70,7 @@ Page {
 	}
 	Label {
 	    horizontalAlignment: Text.AlignHCenter
-	    text: Config.tr("You need to activate 'Widget in events view' in menu 'Appearance' for autoupdating")
+	    text: Config.tr("You should activate 'Widget in the events view' option in MeeCast appearance settings for auto update.")
 	    font.pixelSize: 54 
 	    color: "#999999"
 	    wrapMode: Text.Wrap
@@ -83,16 +83,6 @@ Page {
 	    anchors.leftMargin: margin
 	    anchors.rightMargin: margin
 	}
-	Button {
-	    text: Config.tr("Go to menu")
-	    onClicked: {
-	        openFile("VisualsPage.qml")	
-	    }
-	    anchors.horizontalCenter: parent.horizontalCenter
-	    anchors.bottom: parent.bottom
-	    anchors.bottomMargin: 50
-	}
-
     }
 
     Rectangle{

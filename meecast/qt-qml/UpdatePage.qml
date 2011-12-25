@@ -70,7 +70,7 @@ Page {
 	}
 	Label {
 	    horizontalAlignment: Text.AlignHCenter
-	    text: Config.tr("You need activate event widget in")
+	    text: Config.tr("You need to activate 'Widget in events view' in menu 'Appearance' for autoupdating")
 	    font.pixelSize: 54 
 	    color: "#999999"
 	    wrapMode: Text.Wrap
@@ -84,9 +84,9 @@ Page {
 	    anchors.rightMargin: margin
 	}
 	Button {
-	    text: Config.tr("Try to update")
+	    text: Config.tr("Go to menu")
 	    onClicked: {
-		main.update();
+	        openFile("VisualsPage.qml")	
 	    }
 	    anchors.horizontalCenter: parent.horizontalCenter
 	    anchors.bottom: parent.bottom

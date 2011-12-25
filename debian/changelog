@@ -1,5 +1,6 @@
 meecast (0.4.6) unstable; urgency=low
 
+  * Added autoupdating function
   * Updated Swedish translation
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 15 Jan 2011 23:42:23 +0200

@@ -444,9 +444,8 @@ msgid "Clear, Drifting Snow"
 msgstr "Ясно, Поземок"
 
 #: omweather/src/hash.data:31
-#, fuzzy
 msgid "Clear, Fog"
-msgstr "Чисто, Дымка"
+msgstr "Ясно, Туман"
 
 #: omweather/src/hash.data:32
 msgid "Clear, Fog, Drizzle"
@@ -655,9 +654,8 @@ msgid "Drizzle / Fog"
 msgstr "Изморось / Туман"
 
 #: omweather/src/hash.data:57
-#, fuzzy
 msgid "Drizzle / Wind"
-msgstr "До полудня изморось / Ветер"
+msgstr "Изморось / Ветер"
 
 #: omweather/src/hash.data:55
 msgid "Drizzle Early"
@@ -1555,9 +1553,8 @@ msgid "PM Showers / Wind"
 msgstr "После полудня ливни / Ветер"
 
 #: omweather/src/hash.data:170
-#, fuzzy
 msgid "PM Snow"
-msgstr "С утра снег"
+msgstr "После полудня снег"
 
 #: omweather/src/hash.data:172
 msgid "PM Snow Showers"
@@ -1674,9 +1671,8 @@ msgid "Pressure"
 msgstr "Давление"
 
 #: meecast/qt-qml/UnitsPage.qml:51 meecast/qt-qml/UnitsPage.qml:164
-#, fuzzy
 msgid "Pressure units"
-msgstr "Единицы давления:"
+msgstr "Единицы давления"
 
 #: omweather/src/weather-settings.c:4049
 msgid "Pressure units:"
@@ -1778,9 +1774,8 @@ msgid "Rain and Snow"
 msgstr "Дождь со снегом"
 
 #: omweather/src/hash.data:210
-#, fuzzy
 msgid "Rain to Snow / Wind"
-msgstr "Дождь / Снег / Ветер"
+msgstr "Дождь переходящий в снег / Ветер"
 
 #: omweather/src/hash.data:212
 msgid "Rain to Wintry Mix"

@@ -91,7 +91,7 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:2805
 #: meecast/qt-qml/UpdatePage.qml:147
 msgid "1 hour"
-msgstr ""
+msgstr "1 timme"
 
 #: omweather/src/weather-sensor.c:143
 msgid "1 minute"
@@ -111,7 +111,7 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:4242 meecast/qt-qml/UpdatePage.qml:154
 msgid "2 hours"
-msgstr ""
+msgstr "2 timmar"
 
 #: omweather/src/weather-settings.c:4194
 msgid "20 seconds"
@@ -123,7 +123,7 @@ msgstr ""
 
 #: omweather/src/weather-sensor.c:153 meecast/qt-qml/UpdatePage.qml:140
 msgid "30 minutes"
-msgstr ""
+msgstr "30 minuter"
 
 #: omweather/src/weather-settings.c:4196
 msgid "30 seconds"
@@ -134,7 +134,7 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:2808
 #: meecast/qt-qml/UpdatePage.qml:161
 msgid "4 hours"
-msgstr ""
+msgstr "4 timmar"
 
 #: omweather/src/weather-settings.c:4198
 msgid "40 seconds"
@@ -1340,7 +1340,7 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:2802
 #: meecast/qt-qml/UpdatePage.qml:133
 msgid "Never"
-msgstr ""
+msgstr "Aldrig"
 
 #: omweather/src/hash.data:157
 msgid "New"
@@ -2187,7 +2187,7 @@ msgstr ""
 #: omweather/src/weather-settings.c:1142 omweather/src/weather-settings.c:1348
 #: omweather/src/weather-settings.c:1352
 msgid "Update"
-msgstr ""
+msgstr "Uppdatera"
 
 #: omweather/src/weather-download.c:425
 msgid "Update already running."
@@ -2195,7 +2195,7 @@ msgstr ""
 
 #: meecast/qt-qml/UpdatePage.qml:122
 msgid "Update interval"
-msgstr ""
+msgstr "Uppdatera intervall"
 
 #: omweather/src/hash.data:264 meecast/qt-qml/WeatherPage.qml:354
 msgid "Updating forecast"

@@ -2,6 +2,7 @@ meecast (0.4.6) unstable; urgency=low
 
   * Added autoupdating function
   * Updated Swedish translation
+  * Added trimming of whitespace in Search Field 
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 15 Jan 2011 23:42:23 +0200
 

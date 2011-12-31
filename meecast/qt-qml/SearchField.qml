@@ -68,6 +68,8 @@ Item {
             Keys.onPressed: {
                 if (event.key == Qt.Key_Return || event.key == Qt.Key_Enter){
                     filter = searchInput.text;
+                    filter = filter.replace(/\s*$/g,"");
+                    filter = filter.replace(/^\s*/g,"");
                     searchfield.find();
                 }
                 event.accepted = true;

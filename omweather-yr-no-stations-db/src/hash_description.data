@@ -7,6 +7,7 @@
     g_hash_table_insert(hash, "Regn", "Rain");
     g_hash_table_insert(hash, "Sludd", "Sleet");
     g_hash_table_insert(hash, "Snø", "Snow");
+    g_hash_table_insert(hash, "Snøbyger", "Light Snow");
     g_hash_table_insert(hash, "Kraftig regn", "Heavy Rain");
 
 /* http://www.yr.no/om_yrno/1.1940495 */ 

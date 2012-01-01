@@ -10,6 +10,8 @@ Item {
     property QtObject filtermodel: ListModel{}
 
     property string filter: ""
+    property string first_string: ""
+    property string second_string: ""
 
     signal filtered();
 
@@ -30,9 +32,11 @@ Item {
         fillModel();
         if (filter.length > 0){
             for (var i=filtermodel.count-1; i >= 0; i--){
-                if (filtermodel.get(i).name.indexOf(filter) != 0){
+  
+                first_string = filter.toLocaleUpperCase()
+                second_string =filtermodel.get(i).name.toLocaleUpperCase();
+                if (second_string.indexOf(first_string) != 0){
                     filtermodel.remove(i);
-
                 }
             }
             searchfield.filtered();

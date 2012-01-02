@@ -162,6 +162,11 @@ Config::saveConfig()
         el.appendChild(t);
         st.appendChild(el);
 
+        el = doc.createElement("detail_url");
+        t = doc.createTextNode(QString::fromStdString((*i)->detailURL()));
+        el.appendChild(t);
+        st.appendChild(el);
+
         el = doc.createElement("view_url");
         t = doc.createTextNode(QString::fromStdString((*i)->viewURL()));
         el.appendChild(t);
@@ -272,7 +277,7 @@ Config::LoadConfig(){
 
         nodelist = root.elementsByTagName("station");
         for (int i=0; i<nodelist.count(); i++){
-            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL;
+            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL;
             bool gps = false;
             QDomElement e = nodelist.at(i).toElement();
             QDomNode n = e.firstChild();
@@ -294,6 +299,8 @@ Config::LoadConfig(){
                     fileName = el.text();
                 else if (tag == "forecast_url")
                     forecastURL = el.text();
+		else if (tag == "detail_url")
+                    detailURL = el.text();
                 else if (tag == "view_url")
                     viewURL = el.text();
                 else if (tag == "converter")
@@ -314,6 +321,7 @@ Config::LoadConfig(){
                                       country.toStdString(),
                                       region.toStdString(),
                                       forecastURL.toStdString(),
+				      detailURL.toStdString(),
                                       viewURL.toStdString(),
                                       gps);
             st->fileName(fileName.toStdString());

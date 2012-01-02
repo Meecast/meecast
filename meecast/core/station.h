@@ -49,6 +49,7 @@ namespace Core{
         std::string *_region;
         std::string *_fileName;
         std::string *_forecastURL;
+        std::string *_detailURL;
         std::string *_viewURL;
         std::string *_converter;
         int _timezone;
@@ -60,7 +61,9 @@ namespace Core{
         public:
         Station(const std::string& source_name, const std::string& id, const std::string& name,
                     const std::string& country = 0, const std::string& region = 0, 
-                    const std::string& forecastURL = 0, const std::string& viewURL = 0, const bool gps = false);
+                    const std::string& forecastURL = 0,
+		    const std::string& detailURL = 0,
+		    const std::string& viewURL = 0, const bool gps = false);
             Station(const Station& station);
             Station& operator=(const Station& station);
             Source *_source;
@@ -77,6 +80,8 @@ namespace Core{
             std::string& region() const;
             void forecastURL(const std::string& region);
             std::string& forecastURL() const;
+            void detailURL(const std::string& region);
+            std::string& detailURL() const;
             void viewURL(const std::string& region);
             std::string& viewURL() const;
             void timezone(const int timezone = 0);

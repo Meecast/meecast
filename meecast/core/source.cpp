@@ -39,6 +39,7 @@ namespace Core {
         _library = new std::string;
         _binary = new std::string;
         _url_template = new std::string;
+        _url_detail_template = new std::string;
         _url_for_view = new std::string;
         _hasForecast = false;
         _hasDetail = false;
@@ -72,8 +73,6 @@ namespace Core {
                         _name->assign(el.text().toStdString());
                     }else if (tag == "logo"){
                         _logo->assign(el.text().toStdString());
-                    }else if (tag == "detail"){
-                        _hasDetail = (el.text() == "true") ? true : false;
                     }else if (tag == "search"){
                         _hasSearch = (el.text() == "true") ? true : false;
                     }else if (tag == "library"){
@@ -83,8 +82,11 @@ namespace Core {
                     }else if (tag == "forecast"){
                         if (el.hasAttribute("url"))
                             _url_template->assign(el.attribute("url").toStdString());
-
-                        //_url_template->assign(el.text().toStdString());
+                    }else if (tag == "detail"){
+                        if (el.hasAttribute("url")){
+                            _hasDetail = (el.text() == "true") ? true : false;
+                            _url_detail_template->assign(el.attribute("url").toStdString());
+			}
                     }else if (tag =="showurl"){
                         if (el.hasAttribute("url"))
                             _url_for_view->assign(el.attribute("url").toStdString());
@@ -156,6 +158,7 @@ namespace Core {
         if (_binary)
             delete _binary;
         delete _url_template;
+        delete _url_detail_template;
         delete _url_for_view;
         if(_libraryHandler)
             dlclose(_libraryHandler);
@@ -173,6 +176,9 @@ namespace Core {
             _binary = new std::string(*(source._binary));
             delete _url_template;
             _url_template = new std::string(*(source._url_template));
+	    delete _url_detail_template;
+            _url_detail_template = new std::string(*(source._url_detail_template));
+
             delete _url_for_view;
             _url_for_view = new std::string(*(source._url_for_view));
 
@@ -249,6 +255,15 @@ namespace Core {
                 _url_template->assign(attribute->get_value().c_str());
             return;
         }
+	// url_template tag
+        if(nodeName == "detail"){
+            const xmlpp::Element* nodeElement = dynamic_cast<const xmlpp::Element*>(node);
+            const xmlpp::Attribute* attribute = nodeElement->get_attribute("url");
+            if (attribute)
+                _url_detail_template->assign(attribute->get_value().c_str());
+            return;
+        }
+
         // url_showurl tag
         if(nodeName == "showurl"){
             const xmlpp::Element* nodeElement = dynamic_cast<const xmlpp::Element*>(node);
@@ -276,6 +291,11 @@ namespace Core {
     std::string& Source::url_template() const{
         return *_url_template;
     }
+////////////////////////////////////////////////////////////////////////////////
+    std::string& Source::url_detail_template() const{
+        return *_url_detail_template;
+    }
+
 /////////////////////////////////////////////////////////////////////////////////
     std::string& Source::url_for_view() const{
         return *_url_for_view;

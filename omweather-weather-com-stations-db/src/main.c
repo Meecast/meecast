@@ -1178,14 +1178,14 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
            }
         }
     }
-   fprintf(file_out,"</station>");
    fclose(file_out);
    return count_day;
 }
 
 /*******************************************************************************/
 gint
-convert_station_weather_data(const gchar *station_id_with_path, const gchar *result_file,  gboolean get_detail_data){
+convert_station_weather_data(const gchar *station_id_with_path, const gchar *result_file,
+	                     const gchar *station_detail_id_with_path,	gboolean get_detail_data){
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;
     gint    days_number = -1;
@@ -1193,6 +1193,7 @@ convert_station_weather_data(const gchar *station_id_with_path, const gchar *res
             buffer2[1024],
             *delimiter = NULL;
     struct stat file_info;
+    FILE        *file_out;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1272,6 +1273,11 @@ convert_station_weather_data(const gchar *station_id_with_path, const gchar *res
 //                    days_number = parse_xml_detail_data(buffer, root_node, data);
 //                else
                     days_number = parse_and_write_xml_data(buffer, root_node, result_file);
+		    if (days_number > 0){
+                    	file_out = fopen(result_file, "a");
+    			if (file_out)
+                            fprintf(file_out,"</station>");
+		    }
             }
             xmlFreeDoc(doc);
             xmlCleanupParser();
@@ -1286,10 +1292,13 @@ int
 main(int argc, char *argv[]){
     int result; 
     if (argc != 3) {
-        fprintf(stderr, "weathercom <input_file> <output_file>\n");
+        fprintf(stderr, "weathercom <input_file> <output_file> <input_detail_fail>\n");
         return -1;
     }
-    result = convert_station_weather_data(argv[1], argv[2], FALSE);
+    if (argc == 3) 
+    	result = convert_station_weather_data(argv[1], argv[2], "", FALSE);
+    if (argc == 4)
+    	result = convert_station_weather_data(argv[1], argv[2], argv[3], FALSE);
     fprintf(stderr, "\nresult = %d\n", result);
     return result;
 }

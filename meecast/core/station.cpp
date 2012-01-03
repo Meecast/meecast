@@ -219,6 +219,7 @@ namespace Core {
 
 ////////////////////////////////////////////////////////////////////////////////
     bool Station::updateData(bool force){
+    bool result = false;
 //        if(!force || dataValid())
 //            return true;
         std::string command;
@@ -227,16 +228,27 @@ namespace Core {
         //std::cerr<<" URL "<<command<<std::endl;
         //if (system(command.c_str()) == 0){
         if (Downloader::downloadData(this->fileName()+".orig", this->forecastURL())) {
+            result = true;
+        }else{
+            std::cerr<<"ERROR downloading  "<<this->forecastURL()<<std::endl;
+            result = false;
+        }
+        if ((result) && (this->detailURL() != "") && (Downloader::downloadData(this->fileName()+".detail.orig", this->detailURL()))){
+            command = this->converter()+ " " +  this->fileName() + ".orig " + this->fileName()+" " + this->fileName()+".detail.orig";
+            std::cerr<<" EXEC "<<command<<std::endl;
+            if (system(command.c_str()) == 0)
+                result = true;
+            else
+               result = false;
+        }else{
             command = this->converter()+ " " +  this->fileName() + ".orig " + this->fileName();
             std::cerr<<" EXEC "<<command<<std::endl;
             if (system(command.c_str()) == 0)
-                return true;
+                result = true;
             else
-               return false;
-        }else{
-            std::cerr<<" EXEC22 "<<command<<std::endl;
-            return false;
+               result = false;
         }
+        return result;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void Station::updateSource(const Source* source){

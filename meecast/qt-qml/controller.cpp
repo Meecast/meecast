@@ -112,10 +112,12 @@ Controller::load_data()
   if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0 &&
         _config->stationsList().at(_config->current_station_id()))
         _dp = current_data(_config->stationsList().at(_config->current_station_id())->fileName());
+
   _model = new DataModel(new DataItem, qApp);
   _current = new DataModel(new DataItem, qApp);
   _night_model = new DataModel(new DataItem, qApp);
   _current_night = new DataModel(new DataItem, qApp);
+  _hours_model = new DataModel(new DataItem, qApp);
 
   /* set current day */ 
   current_day = time(NULL);
@@ -206,6 +208,7 @@ Controller::load_data()
   _qview->rootContext()->setContextProperty("Current_night", _current_night);
   _qview->rootContext()->setContextProperty("Forecast_model", _model);
   _qview->rootContext()->setContextProperty("Forecast_night_model", _night_model);
+  _qview->rootContext()->setContextProperty("Forecast_hours_model", _hours_model);
 
 
   /* models for station selection */

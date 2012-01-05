@@ -59,6 +59,7 @@ private:
     QDeclarativeView *_qview;
     Core::DataParser *_dp;
     DataModel *_model; 
+    DataModel *_hours_model; 
     DataModel *_current;
     DataModel *_night_model;
     DataModel *_current_night;

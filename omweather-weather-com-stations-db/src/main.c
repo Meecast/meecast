@@ -673,34 +673,37 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
                             /* 1 hour for weather.com */
     		            	fprintf(file_out," end=\"%li\" hour=\"true\">\n", t_start + 1*3600); 
 
-    #if 0                       
                             for(child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
                                 if( child_node2->type == XML_ELEMENT_NODE){
                                     /* hour temperature */
                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"tmp"))    {
                                         temp_xml_string = xmlNodeGetContent(child_node2);
-                                        g_hash_table_insert(detail, "hour_temperature", g_strdup((char*)temp_xml_string));
+			                fprintf(file_out,"     <temperature>%s</temperature>\n",
+						         (char*)temp_xml_string); 
                                         xmlFree(temp_xml_string);
                                         continue;
                                    }
                                    /* feels like for hour */
                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"flik")){
                                         temp_xml_string = xmlNodeGetContent(child_node2);
-                                        g_hash_table_insert(detail, "hour_feels_like", g_strdup((char*)temp_xml_string));
+			    	        fprintf(file_out,"     <flike>%s</flike>\n",
+						         (char*)temp_xml_string); 
                                         xmlFree(temp_xml_string);
                                         continue;
                                    }
                                    /* icon for hour */
                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"icon")){
                                         temp_xml_string = xmlNodeGetContent(child_node2);
-                                        g_hash_table_insert(detail, "hour_icon", g_strdup((char*)temp_xml_string));
+			                fprintf(file_out,"     <icon>%s</icon>\n", 
+							   (char*)temp_xml_string);
                                         xmlFree(temp_xml_string);
                                         continue;
                                    }
                                    /* title for hour */
                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t")){
                                         temp_xml_string = xmlNodeGetContent(child_node2);
-                                        g_hash_table_insert(detail, "hour_title", g_strdup((char*)temp_xml_string));
+			                fprintf(file_out,"     <description>%s</description>\n",
+							   (char*)temp_xml_string);
                                         xmlFree(temp_xml_string);
                                         continue;
                                    }
@@ -711,19 +714,20 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
                                                 /* speed */
                                                 if(!xmlStrcmp(child_node3->name, (const xmlChar *)"s")){
                                                     temp_xml_string = xmlNodeGetContent(child_node3);
-                                                    g_hash_table_insert(detail, "hour_wind_speed", g_strdup((char*)temp_xml_string));
+			                            fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n", 
+						            (double)(atoi((char*)temp_xml_string)) * 1000/3600);
                                                     xmlFree(temp_xml_string);
                                                 }
                                                 /* gust */
                                                 if(!xmlStrcmp(child_node3->name, (const xmlChar *)"gust") ){
                                                     temp_xml_string = xmlNodeGetContent(child_node3);
-                                                    g_hash_table_insert(detail, "hour_wind_gust", g_strdup((char*)temp_xml_string));
+			                            fprintf(file_out,"     <wind_gust>%s</wind_gust>\n", (char*)temp_xml_string);
                                                     xmlFree(temp_xml_string);
                                                 }
                                                 /* direction */
                                                 if(!xmlStrcmp(child_node3->name, (const xmlChar *)"t")){
                                                     temp_xml_string = xmlNodeGetContent(child_node3);
-                                                    g_hash_table_insert(detail, "hour_wind_direction", g_strdup((char*)temp_xml_string));
+			                            fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", (char*)temp_xml_string);
                                                     xmlFree(temp_xml_string);
                                                 }
                                             }
@@ -732,13 +736,13 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
                                    /* hour humidity */
                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"hmid") ){
                                         temp_xml_string = xmlNodeGetContent(child_node2);
-                                        g_hash_table_insert(detail, "hour_humidity", g_strdup((char*)temp_xml_string));
+			                fprintf(file_out,"     <humidity>%s</humidity>\n",
+						         (char*)temp_xml_string);
                                         xmlFree(temp_xml_string);
                                         continue;
                                    }
                                 }
                             }
-    #endif                       
                             fprintf(file_out,"    </period>\n");
                             count_hour++;
                         }
@@ -1023,7 +1027,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
 			    fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n",  (double)(atoi(wind_speed_day)) * 1000/3600);
 			if (wind_direction_day[0] != 0)
 			    fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_day);
-            if (wind_gust[0] != 0)
+                        if (wind_gust[0] != 0)
 			    fprintf(file_out,"     <wind_gust>%s</wind_gust>\n", wind_gust);
 			if (humidity_day[0] != 0)
 			    fprintf(file_out,"     <humidity>%s</humidity>\n", humidity_day);

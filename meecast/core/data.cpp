@@ -54,7 +54,8 @@ namespace Core {
         _temperature_hi = new Temperature(INT_MAX, "C");
         _temperature_low = new Temperature(INT_MAX, "C");
         _temperature = new Temperature(INT_MAX, "C");
-        _current = 0;
+        _current = false;
+        _hour = false;
         _start_time = 0;
         _end_time = 0;
         _sunrise = 0;
@@ -216,6 +217,15 @@ namespace Core {
       bool
       Data::Current() const{
          return _current;
+      }
+///////////////////////////////////////////////////////////////////////////////
+     void
+     Data::Hour(bool hour){
+         _hour = hour;
+     }
+      bool
+      Data::Hour() const{
+         return _hour;
       }
 ////////////////////////////////////////////////////////////////////////////////
      void

@@ -101,6 +101,7 @@ void
 Controller::load_data()
 {
   time_t current_day;
+  time_t current_hour;
   struct tm   *tm = NULL;
   DataItem *forecast_data = NULL;
   Core::Data *temp_data = NULL;
@@ -121,11 +122,11 @@ Controller::load_data()
 
   /* set current day */ 
   current_day = time(NULL);
-
   tm = gmtime(&current_day);
   tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
   tm->tm_isdst = 1;
   current_day = mktime(tm); /* today 00:00:00 */
+
   /* fill current day */
   if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))) {
       forecast_data = new DataItem(temp_data);
@@ -204,6 +205,26 @@ Controller::load_data()
       _night_model->appendRow(forecast_data);
       i = i + 3600*24;
   }
+  /* set current hour */
+  current_hour = time(NULL);
+  tm = gmtime(&current_day);
+  tm->tm_sec = 0; tm->tm_min = 1; 
+  tm->tm_isdst = 1;
+  current_hour = mktime(tm); /* today 00:00:00 */
+  i = 0;
+  
+  /* fill hours */
+  while  (_dp != NULL && i<24*3600 && (temp_data = _dp->data().GetDataForTime(current_hour + i, true))) {
+      forecast_data = new DataItem(temp_data);
+      forecast_data->Text(_(forecast_data->Text().c_str()));
+      std::cerr<< forecast_data->Text().c_str()<<std::endl;
+      forecast_data->temperatureunit = _config->temperatureunit();
+      forecast_data->windunit = _config->windspeedunit();
+      forecast_data->pressureunit = _config->pressureunit();
+      _hours_model->appendRow(forecast_data);
+      i = i + 3600;
+  }
+
   _qview->rootContext()->setContextProperty("Current", _current);
   _qview->rootContext()->setContextProperty("Current_night", _current_night);
   _qview->rootContext()->setContextProperty("Forecast_model", _model);

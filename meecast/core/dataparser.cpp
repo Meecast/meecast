@@ -86,6 +86,8 @@ namespace Core {
             e = nodelist.at(i).toElement();
             forecast_data->StartTime(e.attribute("start").toInt());
             forecast_data->EndTime(e.attribute("end").toInt());
+            if (e.hasAttribute("hour") && e.attribute("hour") == "true")
+                forecast_data->Hour(1);
             if (e.hasAttribute("current") && e.attribute("current") == "true")
                 forecast_data->Current(1);
             QDomNode n = e.firstChild();
@@ -188,6 +190,12 @@ namespace Core {
             if (attribute && attribute->get_value() == "true"){
                 forecast_data->Current(1);
             }
+            attribute = nodeElement->get_attribute("hour");
+
+            if (attribute && attribute->get_value() == "true"){
+                forecast_data->Hour(1);
+            }
+
             xmlpp::Node::NodeList list = node->get_children();
             for(xmlpp::Node::NodeList::iterator iter = list.begin(); iter != list.end(); ++iter)
                 processNode(*iter);

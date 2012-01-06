@@ -54,6 +54,8 @@ namespace Core {
             forecast_data->EndTime(e.attribute("end").toInt());
             if (e.hasAttribute("current") && e.attribute("current") == "true")
                 forecast_data->Current(1);
+            if (e.hasAttribute("hour") && e.attribute("hour") == "true")
+                forecast_data->Hour(1);
             QDomNode n = e.firstChild();
             while (!n.isNull()){
                 QDomElement el = n.toElement();

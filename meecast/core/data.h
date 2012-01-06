@@ -66,6 +66,7 @@ namespace Core{
         Temperature *_temperature_low;
         Temperature *_temperature;
         bool _current;
+        bool _hour;
         float _ppcp;
         public:
             Data();
@@ -94,6 +95,8 @@ namespace Core{
             int   Icon(void) const;
             void  Current(bool current);
             bool  Current(void) const;
+            void  Hour(bool hour);
+            bool  Hour(void) const;
             void  Text(const std::string& text);
             std::string& Text(void);
             std::string& ShortDayName(void);

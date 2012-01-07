@@ -321,7 +321,10 @@ DataItem::shortdate()
 {
     QDateTime t;
     t.setTime_t(DataItem::Data::StartTime());
-    return t.toString("ddd");
+    if (DataItem::Data::Hour())
+        return t.toString("HH:mm");
+    else
+        return t.toString("ddd");
     //return QString::fromUtf8(DataItem::ShortDayName().c_str());
 
 }

@@ -53,7 +53,7 @@ Page {
             id: "toolbarclock"
             platformStyle: TabButtonStyle{}
             onClicked: {
-                day_period = "clock";
+                day_period = "hours";
                 updateperiod();
             }
             iconSource:  Config.imagespath + "/clock.png"
@@ -87,6 +87,12 @@ Page {
         if (day_period == "day"){
 	    toolbarday.checked = true
 	    toolbarnight.checked = false
+	    toolbarclock.checked = false
+            day_rect.visible = true;
+            current_rect.visible = true;
+            hours_list.visible = false;
+            flickable.contentHeight = day_rect.height + current_rect.height;
+
 	    day_period_name = Config.tr("Day")
             image_source = Config.iconspath + "/" + Config.iconset + "/" + model_day.getdata(day, "pict")
             current_rect.color = getColor(model_day.getdata(day, "temp_high"));
@@ -126,6 +132,12 @@ Page {
             day_period_name = Config.tr("Night");
             toolbarnight.checked = true;
             toolbarday.checked = false;
+            toolbarclock.checked = false;
+            day_rect.visible = true;
+            current_rect.visible = true;
+            hours_list.visible = false;
+            flickable.contentHeight = day_rect.height + current_rect.height;
+
             image_source = Config.iconspath + "/" + Config.iconset + "/" + model_night.getdata(day, "pict");
             current_rect.color = getColor(model_day.getdata(day, "temp_low"));
             description_text = model_night.getdata(day, "description") ? model_night.getdata(day, "description") : ""
@@ -158,7 +170,48 @@ Page {
             }
 
 	}
+	if (day_period == "hours"){
+            day_period_name = Config.tr("Hours");
+            toolbarnight.checked = false;
+            toolbarday.checked = false;
+            toolbarclock.checked = true;
+            day_rect.visible = false;
+            current_rect.visible = false;
+            hours_list.visible = true;
+            flickable.contentHeight = hours_list.height;
 
+            image_source = Config.iconspath + "/" + Config.iconset + "/" + model_night.getdata(day, "pict");
+            current_rect.color = getColor(model_day.getdata(day, "temp_low"));
+            description_text = model_night.getdata(day, "description") ? model_night.getdata(day, "description") : ""
+            if ((model_night.getdata(day, "humidity")) != "N/A")
+                condition.append({cond_name: Config.tr("Humidity:"),
+                         value: model_night.getdata(day, "humidity")+'%'});
+            if ((model_night.getdata(day, "wind_direction")) != "")
+                condition.append({cond_name: Config.tr("Wind direction:"),
+                         value: Config.tr(model_night.getdata(day, "wind_direction"))});
+            if ((model_night.getdata(day, "pressure")) != "N/A")
+                condition.append({cond_name: Config.tr("Pressure:"),
+                         value: model_night.getdata(day, "pressure") + ' ' + Config.tr(Config.pressureunit)});
+            if ((model_night.getdata(day, "wind_speed")) != "N/A")
+                condition.append({cond_name: Config.tr("Wind speed") + ":",
+                         value: model_night.getdata(day, "wind_speed") + ' ' + Config.tr(Config.windspeedunit)});
+            if ((model_night.getdata(day, "ppcp")) != "N/A")
+                condition.append({cond_name: Config.tr("Ppcp:"),
+                         value: model_night.getdata(day, "ppcp")} + '%');
+            if ((model_night.getdata(day, "wind_gust")) != "N/A")
+                condition.append({cond_name: Config.tr("Wind gust:"),
+                         value: model_night.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
+            if ((model_night.getdata(day, "flike")) != "N/A")
+                condition.append({cond_name: Config.tr("Flike:"),
+                         value: model_night.getdata(day, "flike") + '°' + Config.temperatureunit});
+            if ((model_night.getdata(day, "temp")) != "N/A")
+                temperature.text =  model_night.getdata(day, "temp") + '°'
+	    else{
+                if ((model_night.getdata(day, "temp_low")) != "N/A")
+                    temperature.text =  model_night.getdata(day, "temp_low") + '°'
+            }
+
+	}
         if ((model_day.getdata(day, "sunrise")) != "N/A")
             condition2.append({cond_name: Config.tr("Sunrise:"),
                          value: model_day.getdata(day, "sunrise")});
@@ -206,9 +259,11 @@ Page {
 
     }
     Flickable {
+        id: flickable
         anchors.fill: parent
         flickableDirection: Flickable.VerticalFlick
-        clip: true
+
+        contentWidth: flickable.width
 
         Rectangle {
             id: day_rect
@@ -427,6 +482,81 @@ Page {
  
 
         }
+        ListView {
+                id: hours_list
+                visible: false 
+                anchors.top: parent.top
+                model: Forecast_hours_model 
+                delegate: itemDelegate
+                width: parent.width
+                height: 80 * Forecast_hours_model.rowCount()
+                //height: 800
+                interactive: false
+                clip: true
+
+        }
+        Component {
+                id: itemDelegate
+                Item {
+                    id: day
+                    width: parent.width
+                    height: 80
+
+                    Rectangle {
+                        width: parent.width
+                        height: 80
+                        color: (index % 2 != 0) ? "black" : "#0f0f0f"
+
+                        Text {
+                            id: txt_date
+                            text: model.fulldate
+                            color: "#889397"
+                            font.pointSize: 18
+                            anchors.left: parent.left
+                            anchors.leftMargin: margin
+                            height:parent.height
+                            verticalAlignment: Text.AlignVCenter
+                        }
+                        Text {
+                            text: model.shortdate
+                            color: "white"
+                            font.pointSize: 18
+                            anchors.left: parent.left
+                            anchors.leftMargin: (margin + txt_date.width + 8)
+                            height:parent.height
+                            verticalAlignment: Text.AlignVCenter
+                        }
+                        Image {
+                            source: Config.iconspath + "/" + Config.iconset + "/" + model.pict
+                            width: 64
+                            height: 64
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.verticalCenter: parent.verticalCenter
+                            smooth: true
+                        }
+                        Text {
+                            id: txt_temp
+                            font.pointSize: 18
+                            color: getColor(temp_high)
+                            text: model.temp + '°'
+                            anchors.right: parent.right
+                            anchors.rightMargin: margin + 70
+                            height:parent.height
+                            verticalAlignment: Text.AlignVCenter
+                        }
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                console.log("hour onclicked");
+//                                pageStack.push(Qt.resolvedUrl("FullWeatherPage.qml"),
+//                                               {day: index, day_period: "day" }
+//                                               )
+                            }
+                        }
+                    }
+                }
+        } //component itemDelegate
 
     }
 }

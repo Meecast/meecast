@@ -81,6 +81,7 @@ namespace Core {
         _temperature_low = data->_temperature_low;
         _temperature = data->_temperature;
         _current = data->_current;
+        _hour = data->_hour;
         _start_time = data->_start_time;
         _end_time = data->_end_time;
         _flike = data->_flike;

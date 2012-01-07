@@ -223,7 +223,7 @@ Controller::load_data()
 	      forecast_data->windunit = _config->windspeedunit();
 	      forecast_data->pressureunit = _config->pressureunit();
 	      _hours_model->appendRow(forecast_data);
-	      std::cerr<<"ffffffff "<< current_hour +i<<" ";
+	      std::cerr<<"ffffffff "<< current_hour +i<<" "<<forecast_data->Hour()<<" ";
 	      std::cerr<< forecast_data->Text().c_str()<<std::endl;
       }
       i = i + 3600;

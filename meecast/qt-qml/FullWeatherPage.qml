@@ -14,6 +14,7 @@ Page {
 
     property variant model_day:  (current) ? Current : Forecast_model
     property variant model_night:  (current) ? Current_night : Forecast_night_model
+    property variant model_hours:  Forecast_hours_model
 
     tools: ToolBarLayout {
         ToolIcon {
@@ -48,6 +49,19 @@ Page {
 	    checkable: true
 	    checked: flase 
         }
+        ToolButton {
+            id: "toolbarclock"
+            platformStyle: TabButtonStyle{}
+            onClicked: {
+                day_period = "clock";
+                updateperiod();
+            }
+            iconSource:  Config.imagespath + "/clock.png"
+	    flat: true
+	    checkable: true
+	    checked: flase 
+        }
+
 }
         ToolIcon {
             iconId: "toolbar-view-menu"

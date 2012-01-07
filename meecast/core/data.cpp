@@ -214,19 +214,19 @@ namespace Core {
      Data::Current(bool current){
          _current = current;
      }
-      bool
-      Data::Current() const{
+     bool
+     Data::Current() const{
          return _current;
-      }
+     }
 ///////////////////////////////////////////////////////////////////////////////
      void
      Data::Hour(bool hour){
          _hour = hour;
      }
-      bool
-      Data::Hour() const{
+     bool
+     Data::Hour() const{
          return _hour;
-      }
+     }
 ////////////////////////////////////////////////////////////////////////////////
      void
      Data::Icon(int icon){

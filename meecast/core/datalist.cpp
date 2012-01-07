@@ -51,10 +51,12 @@ namespace Core {
          for(it=this->begin(); it!=this->end(); ++it) {
             ++(next_it = it);
             temp_data = *it;
-            std::cerr<<"Is_hour "<<is_hour<<"Hour "<< temp_data->Hour()<<std::endl;
+           // std::cerr<<"Is_hour "<<is_hour<<"Hour "<< temp_data->Hour()<<std::endl;
             if (is_hour && !temp_data->Hour())
                 continue;
-            std::cerr<<"yyyyyyyyyyyyyyyy "<<temp_data->StartTime() <<" "<<temp_data->EndTime() <<std::endl;
+	 //   else
+	 //	if (is_hour)
+         //   		std::cerr<<"yyyyyyyyyyyyyyyy "<<temp_data->StartTime() <<" "<<temp_data->EndTime() <<std::endl;
             if (temp_data->StartTime() >= begin_day_time && temp_data->StartTime() < end_day_time){  
                 if (temp_data->temperature_hi().value(true) != INT_MAX){
                     if (hi_day_temp != INT_MAX){
@@ -90,12 +92,14 @@ namespace Core {
             result_time = temp_data->GetTimeDistance(_time);
             if (temp_time == -1)
                 temp_time = result_time;
-             std::cerr<<"111111111111 "<<_time<<" "<<temp_time<<" "<< result_time<<std::endl;
+	    // if (is_hour)
+            //     std::cerr<<"111111111111 "<<_time<<" "<<temp_time<<" "<< result_time<<std::endl;
             /* select min period including _time */
             if ((result_time > 0) && result_time <= temp_time){
                 temp_time = result_time; 
                 temp_data_result = temp_data;
-                std::cerr<<"111111111111"<<std::endl;
+	     //if (is_hour)
+             //   std::cerr<<"success"<<std::endl;
             }
          }
          if (temp_data_result){

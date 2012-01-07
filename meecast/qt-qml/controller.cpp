@@ -207,21 +207,25 @@ Controller::load_data()
   }
   /* set current hour */
   current_hour = time(NULL);
-  tm = gmtime(&current_day);
+  tm = gmtime(&current_hour);
   tm->tm_sec = 0; tm->tm_min = 1; 
   tm->tm_isdst = 1;
-  current_hour = mktime(tm); /* today 00:00:00 */
-  i = 0;
+  current_hour = mktime(tm); 
+  i =0;
   
   /* fill hours */
-  while  (_dp != NULL && i<24*3600 && (temp_data = _dp->data().GetDataForTime(current_hour + i, true))) {
-      forecast_data = new DataItem(temp_data);
-      forecast_data->Text(_(forecast_data->Text().c_str()));
-      std::cerr<< forecast_data->Text().c_str()<<std::endl;
-      forecast_data->temperatureunit = _config->temperatureunit();
-      forecast_data->windunit = _config->windspeedunit();
-      forecast_data->pressureunit = _config->pressureunit();
-      _hours_model->appendRow(forecast_data);
+  while  (_dp != NULL && i<24*3600) {
+	  
+      if (temp_data = _dp->data().GetDataForTime(current_hour + i, true)){
+	      forecast_data = new DataItem(temp_data);
+	      forecast_data->Text(_(forecast_data->Text().c_str()));
+	      forecast_data->temperatureunit = _config->temperatureunit();
+	      forecast_data->windunit = _config->windspeedunit();
+	      forecast_data->pressureunit = _config->pressureunit();
+	      _hours_model->appendRow(forecast_data);
+	      std::cerr<<"ffffffff "<< current_hour +i<<" ";
+	      std::cerr<< forecast_data->Text().c_str()<<std::endl;
+      }
       i = i + 3600;
   }
 

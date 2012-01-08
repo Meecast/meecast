@@ -52,6 +52,7 @@ Page {
         ToolButton {
             id: "toolbarclock"
             platformStyle: TabButtonStyle{}
+            visible: (check_hours()) ? true : false
             onClicked: {
                 day_period = "hours";
                 updateperiod();
@@ -80,6 +81,21 @@ Page {
             console.log("error open file "+file);
         }
     }
+
+    function check_hours ()
+    {
+        var i = 0;
+        var result = 0;
+        var fulldate = model_day.getdata(day, "fulldate");
+        while (i<model_hours.rowCount())
+        {   
+            if (model_hours.getdata(i, "fulldate") == fulldate)
+		result = 1;
+	    i++;
+        }
+        return result;
+    }
+
     function updateperiod()
     {
         condition.clear()
@@ -179,37 +195,6 @@ Page {
             current_rect.visible = false;
             hours_list.visible = true;
             flickable.contentHeight = hours_list.height;
-
-            image_source = Config.iconspath + "/" + Config.iconset + "/" + model_night.getdata(day, "pict");
-            current_rect.color = getColor(model_day.getdata(day, "temp_low"));
-            description_text = model_night.getdata(day, "description") ? model_night.getdata(day, "description") : ""
-            if ((model_night.getdata(day, "humidity")) != "N/A")
-                condition.append({cond_name: Config.tr("Humidity:"),
-                         value: model_night.getdata(day, "humidity")+'%'});
-            if ((model_night.getdata(day, "wind_direction")) != "")
-                condition.append({cond_name: Config.tr("Wind direction:"),
-                         value: Config.tr(model_night.getdata(day, "wind_direction"))});
-            if ((model_night.getdata(day, "pressure")) != "N/A")
-                condition.append({cond_name: Config.tr("Pressure:"),
-                         value: model_night.getdata(day, "pressure") + ' ' + Config.tr(Config.pressureunit)});
-            if ((model_night.getdata(day, "wind_speed")) != "N/A")
-                condition.append({cond_name: Config.tr("Wind speed") + ":",
-                         value: model_night.getdata(day, "wind_speed") + ' ' + Config.tr(Config.windspeedunit)});
-            if ((model_night.getdata(day, "ppcp")) != "N/A")
-                condition.append({cond_name: Config.tr("Ppcp:"),
-                         value: model_night.getdata(day, "ppcp")} + '%');
-            if ((model_night.getdata(day, "wind_gust")) != "N/A")
-                condition.append({cond_name: Config.tr("Wind gust:"),
-                         value: model_night.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
-            if ((model_night.getdata(day, "flike")) != "N/A")
-                condition.append({cond_name: Config.tr("Flike:"),
-                         value: model_night.getdata(day, "flike") + '°' + Config.temperatureunit});
-            if ((model_night.getdata(day, "temp")) != "N/A")
-                temperature.text =  model_night.getdata(day, "temp") + '°'
-	    else{
-                if ((model_night.getdata(day, "temp_low")) != "N/A")
-                    temperature.text =  model_night.getdata(day, "temp_low") + '°'
-            }
 
 	}
         if ((model_day.getdata(day, "sunrise")) != "N/A")

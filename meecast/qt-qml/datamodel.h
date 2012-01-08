@@ -56,6 +56,7 @@ public:
     Q_INVOKABLE QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
     void appendRow(DataItem* item);
     Q_INVOKABLE DataItem* find(const int row);
+    Q_INVOKABLE void remove(const int row);
     void clear();
     Q_INVOKABLE void update(QString filename, int period);
     Q_INVOKABLE QVariant getdata(const int index, QString role);

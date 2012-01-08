@@ -95,6 +95,12 @@ DataModel::clear()
 }
 
 void
+DataModel::remove(const int row)
+{
+    this->_list.removeAt(row);
+}
+
+void
 DataModel::appendRow(DataItem *item)
 {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());

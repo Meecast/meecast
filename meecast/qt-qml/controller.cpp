@@ -215,16 +215,13 @@ Controller::load_data()
   
   /* fill hours */
   while  (_dp != NULL && i<24*3600) {
-	  
       if (temp_data = _dp->data().GetDataForTime(current_hour + i, true)){
-	      forecast_data = new DataItem(temp_data);
-	      forecast_data->Text(_(forecast_data->Text().c_str()));
-	      forecast_data->temperatureunit = _config->temperatureunit();
-	      forecast_data->windunit = _config->windspeedunit();
-	      forecast_data->pressureunit = _config->pressureunit();
-	      _hours_model->appendRow(forecast_data);
-	      std::cerr<<"ffffffff "<< current_hour +i<<" "<<forecast_data->Hour()<<" ";
-	      std::cerr<< forecast_data->Text().c_str()<<std::endl;
+          forecast_data = new DataItem(temp_data);
+          forecast_data->Text(_(forecast_data->Text().c_str()));
+          forecast_data->temperatureunit = _config->temperatureunit();
+          forecast_data->windunit = _config->windspeedunit();
+          forecast_data->pressureunit = _config->pressureunit();
+          _hours_model->appendRow(forecast_data);
       }
       i = i + 3600;
   }

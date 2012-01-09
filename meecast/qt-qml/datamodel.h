@@ -46,7 +46,8 @@ class DataModel : public QAbstractListModel
         current_period,
         current_night_period,
         day_period,
-        night_period
+        night_period,
+	hours_period
     };
 
 public:

@@ -118,6 +118,7 @@ DataModel::update(QString filename, int  period)
     Core::DataParser* dp = NULL;
     Core::Data *temp_data = NULL;
     time_t current_day;
+    time_t current_hour;
     struct tm   *tm = NULL;
     int year, current_month;
 
@@ -251,7 +252,28 @@ DataModel::update(QString filename, int  period)
                 i = i + 3600*24;
             }
             break;
-
+        case hours_period:
+	    /* set current hour */
+            current_hour = time(NULL);
+            tm = gmtime(&current_hour);
+            tm->tm_sec = 0; tm->tm_min = 1; 
+            tm->tm_isdst = 1;
+            current_hour = mktime(tm); 
+            i =0;
+            
+            /* fill hours */
+            while  (dp != NULL && i<24*3600) {
+                if (temp_data = dp->data().GetDataForTime(current_hour + i, true)){
+                    forecast_data = new DataItem(temp_data);
+                    forecast_data->Text(_(forecast_data->Text().c_str()));
+                    forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
+                    forecast_data->windunit = _config->WindSpeedUnit().c_str();
+                    forecast_data->pressureunit = _config->PressureUnit().c_str();
+                    this->appendRow(forecast_data);
+                }
+                i = i + 3600;
+            }
+            break;
     }
     this->reset();
 }

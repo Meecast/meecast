@@ -681,7 +681,8 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
 			    if (!first_item && hour == 0) 
 		 	        offset = 3600*24;
                             first_item = 0;
-                            t_start = current_day + 3600*hour + offset - timezone*3600; 
+                            //t_start = current_day + 3600*hour + offset - timezone*3600; 
+                            t_start = current_day + 3600*hour + offset; 
                             xmlFree(temp_xml_string);
                             fprintf(file_out,"    <period start=\"%li\"", t_start);
                             /* 1 hour for weather.com */

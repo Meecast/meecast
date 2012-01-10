@@ -191,7 +191,7 @@ Page {
             toolbarnight.checked = false;
             toolbarday.checked = false;
             toolbarclock.checked = true;
-            day_rect.visible = false;
+            day_rect.visible = true;
             current_rect.visible = false;
             hours_list.visible = true;
             flickable.contentHeight = hours_list.height;
@@ -470,7 +470,8 @@ Page {
         ListView {
                 id: hours_list
                 visible: false 
-                anchors.top: parent.top
+               // anchors.top: parent.top
+                anchors.top: day_rect.bottom
                 model: Forecast_hours_model 
                 delegate: itemDelegate
                 width: parent.width

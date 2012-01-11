@@ -3,10 +3,10 @@ meecast (0.4.6) unstable; urgency=low
   * Added autoupdating function
   * Updated Swedish, Finish, Russian translation
   * Added trimming of whitespace in Search Field 
-  * Search Field is made insensitive
+  * Search Field has been made case-insensitive 
   * Added hours forecast for source weather.com
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 15 Jan 2011 23:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 11 Jan 2011 22:42:23 +0200
 
 meecast (0.4.5) unstable; urgency=low
 

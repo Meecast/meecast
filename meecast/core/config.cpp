@@ -163,9 +163,19 @@ Config::saveConfig()
         st.appendChild(el);
 
         el = doc.createElement("detail_url");
-        t = doc.createTextNode(QString::fromStdString((*i)->detailURL()));
-        el.appendChild(t);
-        st.appendChild(el);
+        if (QString::fromStdString((*i)->detailURL()) != "" && QString::fromStdString((*i)->sourceName()) == "weather.com"){
+            t = doc.createTextNode("test");
+            el.appendChild(t);
+            st.appendChild(el);
+        }else{
+            t = doc.createTextNode(QString::fromStdString((*i)->detailURL()));
+            el.appendChild(t);
+            st.appendChild(el);
+        }
+//        t = doc.createTextNode(QString::fromStdString((*i)->detailURL()));
+//        el.appendChild(t);
+//        st.appendChild(el);
+        /* Temporary hack for weather.com This must be delete after version 0.4.0 */
 
         el = doc.createElement("view_url");
         t = doc.createTextNode(QString::fromStdString((*i)->viewURL()));

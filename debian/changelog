@@ -1,7 +1,7 @@
 meecast (0.4.6) unstable; urgency=low
 
   * Added autoupdating function
-  * Updated Swedish, Finish, Russian translation
+  * Updated Swedish, Finish and Russian translations
   * Added trimming of whitespace in Search Field 
   * Search Field has been made case-insensitive 
   * Added hours forecast for source weather.com

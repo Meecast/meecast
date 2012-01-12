@@ -1,3 +1,9 @@
+meecast (0.4.7) unstable; urgency=low
+
+  * Nothing 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 11 Jan 2011 22:42:23 +0200
+
 meecast (0.4.6) unstable; urgency=low
 
   * Added autoupdating function

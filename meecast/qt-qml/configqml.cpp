@@ -300,7 +300,7 @@ ConfigQml::setgps(bool c)
 QString
 ConfigQml::version(){
     QString c;
-    c = QString(OMWEATHER_VERSION);
+    c = QString(MEECAST_VERSION);
     return c;
 }
 

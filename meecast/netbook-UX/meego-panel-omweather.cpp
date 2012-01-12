@@ -408,7 +408,7 @@ make_bottom_content_about() {
 
   label = clutter_text_new();
   about_text = _("Weather forecast for the Meego. Version ");
-  about_text += OMWEATHER_VERSION;
+  about_text += MEECAST_VERSION;
   about_text += ".\n";
   about_text += _("Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, ");
   about_text += _("Copyright(c) 2010-2011 by Tanya Makova\n");

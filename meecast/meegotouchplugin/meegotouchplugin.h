@@ -166,6 +166,11 @@ public:
 	    emit temperature_highChanged();
 	    emit temperature_lowChanged();
 	    emit currentChanged();
+           
+	   
+	    /* Left corner */
+	    int x = 280;
+	    int y = 230;
 
 	    QString wallpaper_path;
             MGConfItem *wallpaperItem = new MGConfItem("/desktop/meego/background/portrait/picture_filename", this);
@@ -184,26 +189,22 @@ public:
 
 	    //image.load("/home/user/.wallpapers/wallpaper.png");
 	    paint.begin(&image);
-	    QColor myPenColor = QColor(255, 255, 255, 255);// set default color
 	    QPen pen;
+	    QColor myPenColor = QColor(255, 255, 255, 128);// set default color
 	    pen.setColor(myPenColor);
 	    paint.setPen(pen);
-	    QBrush brush;
-///	    QColor myBrushColor = QColor(118, 118, 118, 30);
-	    QColor myBrushColor = QColor(255, 255, 255, 255);
-	    brush.setColor(myBrushColor);
-	    paint.setBrush(brush);
-//	    paint.setBrush(Qt::white);
+	    paint.setBrush(QColor(118, 118, 118, 30));
 	    
-	    /* Left corner */
-	    int x = 300;
-	    int y = 240;
-	    /* Rect */
+	    	    /* Rect */
 	    //paint.drawRect(300,380, 178, 140);
-	    paint.drawRoundedRect(x, y, 178, 140, 15.0, 15.0);
-	    
+	    paint.drawRoundedRect(x, y, 198, 140, 15.0, 15.0);
+
+	    myPenColor = QColor(255, 255, 255, 255);// set default color
+	    pen.setColor(myPenColor);
+	    paint.setPen(pen);
+
 	    /* Icon */
-	    QPoint point(x + 50, y + 21);
+	    QPoint point(x + 60, y + 21);
 	    QImage icon;
 	    icon.load(_iconpath);
 	    paint.drawImage(point, icon); 
@@ -215,8 +216,8 @@ public:
 	    /* Temperature */
 	    paint.setFont(QFont("Arial", 22));
 	    if (_temperature == "N/A" || _temperature == ""){
-		paint.drawText(x, y + 20, 40, 30, Qt::AlignHCenter, _temperature_high + '°'); 
-		paint.drawText(x, y + 70, 40, 30, Qt::AlignHCenter, _temperature_low + '°'); 
+		paint.drawText(x + 10, y + 40, 60, 30, Qt::AlignHCenter, _temperature_high + '°'); 
+		paint.drawText(x + 10, y + 80, 60, 30, Qt::AlignHCenter, _temperature_low + '°'); 
 	    }else{
 		if (_current)
 			paint.setFont(QFont("Arial Bold", 24));

@@ -30,6 +30,7 @@
 #include <MWidget>
 #include <QObject>
 #include <MApplicationExtensionInterface>
+#include <MGConfItem>
 #include <QProcess>
 // Debug
 #include <QFile>
@@ -165,6 +166,69 @@ public:
 	    emit temperature_highChanged();
 	    emit temperature_lowChanged();
 	    emit currentChanged();
+
+	    QString wallpaper_path;
+            MGConfItem *wallpaperItem = new MGConfItem("/desktop/meego/background/portrait/picture_filename", this);
+	    if (!wallpaperItem || wallpaperItem->value() == QVariant::Invalid)
+	        wallpaper_path = "";
+            else
+		wallpaper_path = wallpaperItem->value().toString();
+            
+	    if (wallpaper_path.indexOf("MeeCast",0) != -1)
+                wallpaper_path = "/home/user/.wallpapers/wallpaper.png";
+
+	    QPainter paint;
+	    QImage image;
+
+	    image.load(wallpaper_path);
+
+	    //image.load("/home/user/.wallpapers/wallpaper.png");
+	    paint.begin(&image);
+	    QColor myPenColor = QColor(255, 255, 255, 255);// set default color
+	    QPen pen;
+	    pen.setColor(myPenColor);
+	    paint.setPen(pen);
+	    QBrush brush;
+///	    QColor myBrushColor = QColor(118, 118, 118, 30);
+	    QColor myBrushColor = QColor(255, 255, 255, 255);
+	    brush.setColor(myBrushColor);
+	    paint.setBrush(brush);
+//	    paint.setBrush(Qt::white);
+	    
+	    /* Left corner */
+	    int x = 300;
+	    int y = 240;
+	    /* Rect */
+	    //paint.drawRect(300,380, 178, 140);
+	    paint.drawRoundedRect(x, y, 178, 140, 15.0, 15.0);
+	    
+	    /* Icon */
+	    QPoint point(x + 50, y + 21);
+	    QImage icon;
+	    icon.load(_iconpath);
+	    paint.drawImage(point, icon); 
+		    
+	    /* Station */
+	    paint.setFont(QFont("Arial", 18));
+	    paint.drawText( x + 1, y, 176, 22, Qt::AlignHCenter, _stationname);
+
+	    /* Temperature */
+	    paint.setFont(QFont("Arial", 22));
+	    if (_temperature == "N/A" || _temperature == ""){
+		paint.drawText(x, y + 20, 40, 30, Qt::AlignHCenter, _temperature_high + '°'); 
+		paint.drawText(x, y + 70, 40, 30, Qt::AlignHCenter, _temperature_low + '°'); 
+	    }else{
+		if (_current)
+			paint.setFont(QFont("Arial Bold", 24));
+		paint.drawText(x + 10, y + 50, 40, 30, Qt::AlignHCenter, _temperature + '°'); 
+	    }
+	    paint.end();
+	    image.save("/home/user/.wallpapers/wallpaper_MeeCast.png");
+	    MGConfItem *newwallpaperItem = new MGConfItem("/desktop/meego/background/portrait/picture_filename", this);
+	    newwallpaperItem->set("/home/user/.wallpapers/wallpaper.png");
+	    newwallpaperItem->set("/home/user/.wallpapers/wallpaper_MeeCast.png");
+	    delete newwallpaperItem;
+
     };
 
 public Q_SLOTS:

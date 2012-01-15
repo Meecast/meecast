@@ -195,7 +195,7 @@ public:
 	    paint.setPen(pen);
 	    paint.setBrush(QColor(118, 118, 118, 30));
 	    
-	    	    /* Rect */
+	    /* Rect */
 	    //paint.drawRect(300,380, 178, 140);
 	    paint.drawRoundedRect(x, y, 198, 140, 15.0, 15.0);
 
@@ -211,7 +211,7 @@ public:
 		    
 	    /* Station */
 	    paint.setFont(QFont("Arial", 18));
-	    paint.drawText( x + 1, y, 176, 22, Qt::AlignHCenter, _stationname);
+	    paint.drawText( x + 1, y, 176, 25, Qt::AlignHCenter, _stationname);
 
 	    /* Temperature */
 	    paint.setFont(QFont("Arial", 22));
@@ -229,6 +229,7 @@ public:
 	    newwallpaperItem->set("/home/user/.wallpapers/wallpaper.png");
 	    newwallpaperItem->set("/home/user/.wallpapers/wallpaper_MeeCast.png");
 	    delete newwallpaperItem;
+	    delete wallpaperItem;
 
     };
 

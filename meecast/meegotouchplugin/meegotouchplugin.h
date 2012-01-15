@@ -193,7 +193,7 @@ public:
 	    QColor myPenColor = QColor(255, 255, 255, 128);// set default color
 	    pen.setColor(myPenColor);
 	    paint.setPen(pen);
-	    paint.setBrush(QColor(118, 118, 118, 30));
+	    paint.setBrush(QColor(118, 118, 118, 50));
 	    
 	    /* Rect */
 	    //paint.drawRect(300,380, 178, 140);
@@ -228,8 +228,8 @@ public:
 	    MGConfItem *newwallpaperItem = new MGConfItem("/desktop/meego/background/portrait/picture_filename", this);
 	    newwallpaperItem->set("/home/user/.wallpapers/wallpaper.png");
 	    newwallpaperItem->set("/home/user/.wallpapers/wallpaper_MeeCast.png");
-	    delete newwallpaperItem;
-	    delete wallpaperItem;
+	    //delete newwallpaperItem;
+	    //delete wallpaperItem;
 
     };
 

@@ -211,7 +211,7 @@ public:
 		    
 	    /* Station */
 	    paint.setFont(QFont("Arial", 18));
-	    paint.drawText( x + 1, y, 176, 25, Qt::AlignHCenter, _stationname);
+	    paint.drawText( x + 1, y, 196, 25, Qt::AlignHCenter, _stationname);
 
 	    /* Temperature */
 	    paint.setFont(QFont("Arial", 22));

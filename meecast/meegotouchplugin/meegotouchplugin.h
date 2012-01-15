@@ -169,7 +169,7 @@ public:
            
 	   
 	    /* Left corner */
-	    int x = 280;
+	    int x = 275;
 	    int y = 230;
 
 	    QString wallpaper_path;

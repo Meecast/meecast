@@ -59,6 +59,10 @@ private:
     QString  _iconpath;
     bool    _current;
     QTimer  *_timer;
+    MGConfItem *wallpaperItem;
+    MGConfItem *original_wallpaperItem;
+    QString wallpaper_path;
+
 public:
 
     MyMWidget(){
@@ -71,6 +75,24 @@ public:
       _timer = new QTimer(this);
       _timer->setSingleShot(true);
       connect(_timer, SIGNAL(timeout()), this, SLOT(update_data()));
+      wallpaperItem = new MGConfItem("/desktop/meego/background/portrait/picture_filename", this); 
+      original_wallpaperItem = new MGConfItem("/desktop/meego/background/portrait/picture_filename_original", this);
+      if (!original_wallpaperItem || original_wallpaperItem->value() == QVariant::Invalid){
+          original_wallpaperItem = new MGConfItem("/desktop/meego/background/portrait/picture_filename_original", this);
+      }
+      wallpaper_path = wallpaperItem->value().toString();
+      if (!wallpaperItem || wallpaperItem->value() == QVariant::Invalid)
+        wallpaper_path = "/home/user/.wallpapers/wallpaper.png";
+      else{
+        wallpaper_path = wallpaperItem->value().toString();
+        if (wallpaper_path.indexOf("MeeCast",0) != -1){
+            if (!original_wallpaperItem || original_wallpaperItem->value() == QVariant::Invalid){
+                wallpaper_path = original_wallpaperItem->value().toString();
+            }
+        }
+      }
+
+      connect(wallpaperItem, SIGNAL(valueChanged()), SLOT(updateWallpaperPath()));
     };
 
     ~MyMWidget(){
@@ -149,39 +171,31 @@ public:
     bool current(){
         return _current;
     }
-    void refreshview(){
-#if 0
-        // Debug begin
+    void updateWallpaperPath(){ 
         QFile file("/tmp/1.log");
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
             QTextStream out(&file);
-            out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "refreshview"<< " \n";
+            out <<  "refreshview"<< " \n";
             file.close();
         }
-        // Debug end 
-#endif
-	    emit iconChanged();
-	    emit stationChanged();
-	    emit temperatureChanged();
-	    emit temperature_highChanged();
-	    emit temperature_lowChanged();
-	    emit currentChanged();
-           
-	   
-	    /* Left corner */
+
+        if (!wallpaperItem || wallpaperItem->value() == QVariant::Invalid){
+                wallpaper_path = wallpaperItem->value().toString();
+        }
+        if (wallpaper_path.indexOf("MeeCast",0) != -1){
+            original_wallpaperItem->set(wallpaper_path);
+	        if (!wallpaperItem || wallpaperItem->value() == QVariant::Invalid)
+	            wallpaper_path = "/home/user/.wallpapers/wallpaper.png";
+            else
+		        wallpaper_path = wallpaperItem->value().toString();
+        }
+    }
+    void refreshwallpaper(){
+        /* Left corner */
 	    int x = 275;
 	    int y = 230;
 
-	    QString wallpaper_path;
-            MGConfItem *wallpaperItem = new MGConfItem("/desktop/meego/background/portrait/picture_filename", this);
-	    if (!wallpaperItem || wallpaperItem->value() == QVariant::Invalid)
-	        wallpaper_path = "";
-            else
-		wallpaper_path = wallpaperItem->value().toString();
-            
-	    if (wallpaper_path.indexOf("MeeCast",0) != -1)
-                wallpaper_path = "/home/user/.wallpapers/wallpaper.png";
-
+	
 	    QPainter paint;
 	    QImage image;
 
@@ -216,22 +230,38 @@ public:
 	    /* Temperature */
 	    paint.setFont(QFont("Arial", 22));
 	    if (_temperature == "N/A" || _temperature == ""){
-		paint.drawText(x + 10, y + 40, 60, 30, Qt::AlignHCenter, _temperature_high + '°'); 
-		paint.drawText(x + 10, y + 80, 60, 30, Qt::AlignHCenter, _temperature_low + '°'); 
+            paint.drawText(x + 10, y + 40, 60, 30, Qt::AlignHCenter, _temperature_high + '°'); 
+            paint.drawText(x + 10, y + 80, 60, 30, Qt::AlignHCenter, _temperature_low + '°'); 
 	    }else{
-		if (_current)
-			paint.setFont(QFont("Arial Bold", 24));
-		paint.drawText(x + 10, y + 50, 40, 30, Qt::AlignHCenter, _temperature + '°'); 
+            if (_current)
+                paint.setFont(QFont("Arial Bold", 24));
+            paint.drawText(x + 10, y + 55, 40, 30, Qt::AlignHCenter, _temperature + '°'); 
 	    }
 	    paint.end();
 	    image.save("/home/user/.wallpapers/wallpaper_MeeCast.png");
-	    MGConfItem *newwallpaperItem = new MGConfItem("/desktop/meego/background/portrait/picture_filename", this);
-	    newwallpaperItem->set("/home/user/.wallpapers/wallpaper.png");
-	    newwallpaperItem->set("/home/user/.wallpapers/wallpaper_MeeCast.png");
-	    //delete newwallpaperItem;
-	    //delete wallpaperItem;
-
-    };
+	    wallpaperItem->set("/home/user/.wallpapers/wallpaper_MeeCast0.png");
+	    wallpaperItem->set("/home/user/.wallpapers/wallpaper_MeeCast.png");
+    }
+    void refreshview(){
+#if 0
+        // Debug begin
+        QFile file("/tmp/1.log");
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "refreshview"<< " \n";
+            file.close();
+        }
+        // Debug end 
+#endif
+	    emit iconChanged();
+	    emit stationChanged();
+	    emit temperatureChanged();
+	    emit temperature_highChanged();
+	    emit temperature_lowChanged();
+	    emit currentChanged();
+        refreshwallpaper();           
+	   
+	    };
 
 public Q_SLOTS:
     void SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low,  const QString &icon, const uint until_valid_time, bool current);

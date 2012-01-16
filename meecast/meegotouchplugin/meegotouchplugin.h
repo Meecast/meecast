@@ -75,11 +75,9 @@ public:
       _timer = new QTimer(this);
       _timer->setSingleShot(true);
       connect(_timer, SIGNAL(timeout()), this, SLOT(update_data()));
-      wallpaperItem = new MGConfItem("/desktop/meego/background/portrait/picture_filename", this); 
+      wallpaperItem = new MGConfItem ("/desktop/meego/background/portrait/picture_filename"); 
+      connect(wallpaperItem, SIGNAL(valueChanged()), this, SLOT(updateWallpaperPath()));
       original_wallpaperItem = new MGConfItem("/desktop/meego/background/portrait/picture_filename_original", this);
-      if (!original_wallpaperItem || original_wallpaperItem->value() == QVariant::Invalid){
-          original_wallpaperItem = new MGConfItem("/desktop/meego/background/portrait/picture_filename_original", this);
-      }
       wallpaper_path = wallpaperItem->value().toString();
       if (!wallpaperItem || wallpaperItem->value() == QVariant::Invalid)
         wallpaper_path = "/home/user/.wallpapers/wallpaper.png";
@@ -92,7 +90,6 @@ public:
         }
       }
 
-      connect(wallpaperItem, SIGNAL(valueChanged()), SLOT(updateWallpaperPath()));
     };
 
     ~MyMWidget(){
@@ -171,30 +168,11 @@ public:
     bool current(){
         return _current;
     }
-    void updateWallpaperPath(){ 
-        QFile file("/tmp/1.log");
-        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-            QTextStream out(&file);
-            out <<  "refreshview"<< " \n";
-            file.close();
-        }
-
-        if (!wallpaperItem || wallpaperItem->value() == QVariant::Invalid){
-                wallpaper_path = wallpaperItem->value().toString();
-        }
-        if (wallpaper_path.indexOf("MeeCast",0) != -1){
-            original_wallpaperItem->set(wallpaper_path);
-	        if (!wallpaperItem || wallpaperItem->value() == QVariant::Invalid)
-	            wallpaper_path = "/home/user/.wallpapers/wallpaper.png";
-            else
-		        wallpaper_path = wallpaperItem->value().toString();
-        }
-    }
     void refreshwallpaper(){
         /* Left corner */
 	    int x = 275;
 	    int y = 230;
-
+	    
 	
 	    QPainter paint;
 	    QImage image;
@@ -253,21 +231,21 @@ public:
         }
         // Debug end 
 #endif
-	    emit iconChanged();
-	    emit stationChanged();
-	    emit temperatureChanged();
-	    emit temperature_highChanged();
-	    emit temperature_lowChanged();
-	    emit currentChanged();
-        refreshwallpaper();           
+       emit iconChanged();
+       emit stationChanged();
+       emit temperatureChanged();
+       emit temperature_highChanged();
+       emit temperature_lowChanged();
+       emit currentChanged();
+       refreshwallpaper();           
 	   
-	    };
+    };
 
 public Q_SLOTS:
     void SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low,  const QString &icon, const uint until_valid_time, bool current);
     void update_data();
     void refreshRequested();
-
+    void updateWallpaperPath();
 signals:
     void iconChanged();
     void stationChanged();

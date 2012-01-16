@@ -158,4 +158,14 @@ void MyMWidget::update_data(){
 #endif
     this->startpredeamon();
 }
+void MyMWidget::updateWallpaperPath(){ 
+    if (wallpaperItem && wallpaperItem->value() != QVariant::Invalid){
+        QString new_wallpaper_path = wallpaperItem->value().toString();
+        if (new_wallpaper_path.indexOf("MeeCast",0) == -1){
+            original_wallpaperItem->set(new_wallpaper_path);
+            wallpaper_path = new_wallpaper_path;
+            this->refreshwallpaper();
+        }
+    }
+}
 

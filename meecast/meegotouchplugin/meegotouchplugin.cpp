@@ -159,13 +159,38 @@ void MyMWidget::update_data(){
     this->startpredeamon();
 }
 void MyMWidget::updateWallpaperPath(){ 
-    if (wallpaperItem && wallpaperItem->value() != QVariant::Invalid){
-        QString new_wallpaper_path = wallpaperItem->value().toString();
+    // Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  "updateWallpaperPath start"<< "\n";
+	    file.close();
+	}
+	// Debug end 
+
+    if (_wallpaperItem && _wallpaperItem->value() != QVariant::Invalid){
+         QString new_wallpaper_path = _wallpaperItem->value().toString();
         if (new_wallpaper_path.indexOf("MeeCast",0) == -1){
-            original_wallpaperItem->set(new_wallpaper_path);
-            wallpaper_path = new_wallpaper_path;
-            this->refreshwallpaper();
+        
+
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  "New wallpaper path "<<new_wallpaper_path<< "\n";
+	    file.close();
+	    }
+
+            _original_wallpaperItem->set(new_wallpaper_path);
+            _wallpaper_path = new_wallpaper_path;
+            this->refreshwallpaper(true);
         }
     }
+
+    if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  "updateWallpaperPath stop"<< "\n";
+	    file.close();
+	}
+	// Debug end 
+
 }
 

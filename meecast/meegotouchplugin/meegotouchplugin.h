@@ -32,6 +32,7 @@
 #include <MApplicationExtensionInterface>
 #include <MGConfItem>
 #include <QProcess>
+#include <QDir>
 // Debug
 #include <QFile>
 #include <QTextStream>
@@ -59,9 +60,9 @@ private:
     QString  _iconpath;
     bool    _current;
     QTimer  *_timer;
-    MGConfItem *wallpaperItem;
-    MGConfItem *original_wallpaperItem;
-    QString wallpaper_path;
+    MGConfItem *_wallpaperItem;
+    MGConfItem *_original_wallpaperItem;
+    QString _wallpaper_path;
 
 public:
 
@@ -75,21 +76,20 @@ public:
       _timer = new QTimer(this);
       _timer->setSingleShot(true);
       connect(_timer, SIGNAL(timeout()), this, SLOT(update_data()));
-      wallpaperItem = new MGConfItem ("/desktop/meego/background/portrait/picture_filename"); 
-      connect(wallpaperItem, SIGNAL(valueChanged()), this, SLOT(updateWallpaperPath()));
-      original_wallpaperItem = new MGConfItem("/desktop/meego/background/portrait/picture_filename_original", this);
-      wallpaper_path = wallpaperItem->value().toString();
-      if (!wallpaperItem || wallpaperItem->value() == QVariant::Invalid)
-        wallpaper_path = "/home/user/.wallpapers/wallpaper.png";
+      _wallpaperItem = new MGConfItem ("/desktop/meego/background/portrait/picture_filename"); 
+      connect(_wallpaperItem, SIGNAL(valueChanged()), this, SLOT(updateWallpaperPath()));
+      _original_wallpaperItem = new MGConfItem("/desktop/meego/background/portrait/picture_filename_original", this);
+      _wallpaper_path = _wallpaperItem->value().toString();
+      if (!_wallpaperItem || _wallpaperItem->value() == QVariant::Invalid)
+        _wallpaper_path = "/home/user/.wallpapers/wallpaper.png";
       else{
-        wallpaper_path = wallpaperItem->value().toString();
-        if (wallpaper_path.indexOf("MeeCast",0) != -1){
-            if (!original_wallpaperItem || original_wallpaperItem->value() == QVariant::Invalid){
-                wallpaper_path = original_wallpaperItem->value().toString();
+        _wallpaper_path = _wallpaperItem->value().toString();
+        if (_wallpaper_path.indexOf("MeeCast",0) == -1){
+            if (!_original_wallpaperItem || _original_wallpaperItem->value() == QVariant::Invalid){
+                _original_wallpaperItem->set(_wallpaper_path);
             }
         }
       }
-
     };
 
     ~MyMWidget(){
@@ -168,16 +168,45 @@ public:
     bool current(){
         return _current;
     }
-    void refreshwallpaper(){
+    void refreshwallpaper(bool new_wallpaper = false){
+
         /* Left corner */
 	    int x = 275;
 	    int y = 230;
 	    
-	
+	    // Debug begin
+        QFile file("/tmp/1.log");
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out <<  "Start refreshwallpaper"<< " \n";
+            file.close();
+        }
+
 	    QPainter paint;
 	    QImage image;
+        QDir dir("/home/user/.cache/com.meecast.omweather");
+        
+        if (!dir.exists())
+            dir.mkpath("/home/user/.cache/com.meecast.omweather");
 
-	    image.load(wallpaper_path);
+	    image.load(_wallpaper_path);
+
+	    // Debug begin
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out <<  "Refreshwallpaper "<<_wallpaper_path<< " \n";
+            file.close();
+        }
+
+        if (new_wallpaper)
+            image.save("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
+
+	    // Debug begin
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out <<  "Refreshwallpaper saved "<<_wallpaper_path<< " to original\n";
+            file.close();
+        }
 
 	    //image.load("/home/user/.wallpapers/wallpaper.png");
 	    paint.begin(&image);
@@ -208,17 +237,45 @@ public:
 	    /* Temperature */
 	    paint.setFont(QFont("Arial", 22));
 	    if (_temperature == "N/A" || _temperature == ""){
-            paint.drawText(x + 10, y + 40, 60, 30, Qt::AlignHCenter, _temperature_high + '°'); 
-            paint.drawText(x + 10, y + 80, 60, 30, Qt::AlignHCenter, _temperature_low + '°'); 
+            QString temp_string = _temperature_high + QString::fromUtf8("°");
+            paint.drawText(x + 10, y + 40, 60, 30, Qt::AlignHCenter, temp_string); 
+            temp_string = _temperature_low + QString::fromUtf8("°");
+            paint.drawText(x + 10, y + 80, 60, 30, Qt::AlignHCenter, temp_string); 
 	    }else{
             if (_current)
                 paint.setFont(QFont("Arial Bold", 24));
-            paint.drawText(x + 10, y + 55, 40, 30, Qt::AlignHCenter, _temperature + '°'); 
+            QString temp_string = _temperature + QString::fromUtf8("°");
+            paint.drawText(x + 10, y + 55, 40, 30, Qt::AlignHCenter, temp_string); 
 	    }
 	    paint.end();
-	    image.save("/home/user/.wallpapers/wallpaper_MeeCast.png");
-	    wallpaperItem->set("/home/user/.wallpapers/wallpaper_MeeCast0.png");
-	    wallpaperItem->set("/home/user/.wallpapers/wallpaper_MeeCast.png");
+        // Debug begin
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out <<  "Refreshwallpaper paint has been finished\n";
+            file.close();
+        }
+
+
+	    image.save("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png");
+
+        // Debug begin
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out <<  "Refreshwallpaper saved "<<_wallpaper_path<< " to original\n";
+            file.close();
+        }
+
+
+	    _wallpaperItem->set("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
+	    _wallpaperItem->set("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png");
+        // Debug begin
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out <<  "Stop refreshwallpaper"<< " \n";
+            file.close();
+        }
+
+
     }
     void refreshview(){
 #if 0

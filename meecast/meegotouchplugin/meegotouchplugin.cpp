@@ -170,12 +170,12 @@ void MyMWidget::updateWallpaperPath(){
 
     if (_wallpaperItem && _wallpaperItem->value() != QVariant::Invalid){
          QString new_wallpaper_path = _wallpaperItem->value().toString();
-        if (new_wallpaper_path.indexOf("MeeCast",0) == -1){
+        if (new_wallpaper_path.indexOf("MeeCast",0) == -1 && new_wallpaper_path != ""){
         
 
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
-	    out <<  "New wallpaper path "<<new_wallpaper_path<< "\n";
+	    out <<  "New wallpaper path ."<<new_wallpaper_path<< ".\n";
 	    file.close();
 	    }
 

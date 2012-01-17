@@ -198,14 +198,15 @@ public:
             file.close();
         }
 
-        if (new_wallpaper)
+        if (new_wallpaper){
             image.save("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
 
-	    // Debug begin
-        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-            QTextStream out(&file);
-            out <<  "Refreshwallpaper saved "<<_wallpaper_path<< " to original\n";
-            file.close();
+            // Debug begin
+            if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+                QTextStream out(&file);
+                out <<  "Refreshwallpaper saved "<<_wallpaper_path<< " to original\n";
+                file.close();
+            }
         }
 
 	    //image.load("/home/user/.wallpapers/wallpaper.png");
@@ -261,7 +262,7 @@ public:
         // Debug begin
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
             QTextStream out(&file);
-            out <<  "Refreshwallpaper saved "<<_wallpaper_path<< " to original\n";
+            out <<  "Refreshwallpaper /home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png  saved \n";
             file.close();
         }
 

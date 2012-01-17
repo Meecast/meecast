@@ -80,7 +80,9 @@ WeatherApplicationExtension::initialize(const QString &){
    ret = connection.registerObject("/com/meecast/applet", box);
    EventFeedIf* client =  new EventFeedIf("com.nokia.home.EventFeed", "/eventfeed", QDBusConnection::sessionBus(), 0); 
    QObject::connect(client, SIGNAL(refreshRequested()), box, SLOT(refreshRequested()));  
-   box->startpredeamon();
+
+   QTimer::singleShot(1000, box, SLOT(refreshRequested()));
+//   box->startpredeamon();
    return true;
 }
 
@@ -159,6 +161,7 @@ void MyMWidget::update_data(){
     this->startpredeamon();
 }
 void MyMWidget::updateWallpaperPath(){ 
+#if 0
     // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -167,30 +170,31 @@ void MyMWidget::updateWallpaperPath(){
 	    file.close();
 	}
 	// Debug end 
+#endif
 
     if (_wallpaperItem && _wallpaperItem->value() != QVariant::Invalid){
          QString new_wallpaper_path = _wallpaperItem->value().toString();
         if (new_wallpaper_path.indexOf("MeeCast",0) == -1 && new_wallpaper_path != ""){
         
-
+#if 0
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "New wallpaper path ."<<new_wallpaper_path<< ".\n";
 	    file.close();
 	    }
-
+#endif
             _original_wallpaperItem->set(new_wallpaper_path);
             _wallpaper_path = new_wallpaper_path;
             this->refreshwallpaper(true);
         }
     }
-
+#if 0
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "updateWallpaperPath stop"<< "\n";
 	    file.close();
 	}
 	// Debug end 
-
+#endif
 }
 

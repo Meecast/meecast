@@ -79,11 +79,9 @@ public:
       _wallpaperItem = new MGConfItem ("/desktop/meego/background/portrait/picture_filename"); 
       connect(_wallpaperItem, SIGNAL(valueChanged()), this, SLOT(updateWallpaperPath()));
       _original_wallpaperItem = new MGConfItem("/desktop/meego/background/portrait/picture_filename_original", this);
-      _wallpaper_path = _wallpaperItem->value().toString();
       if (!_wallpaperItem || _wallpaperItem->value() == QVariant::Invalid)
         _wallpaper_path = "/home/user/.wallpapers/wallpaper.png";
       else{
-          
         if (!_original_wallpaperItem || _original_wallpaperItem->value() == QVariant::Invalid)
             _wallpaper_path = _wallpaperItem->value().toString();
         else

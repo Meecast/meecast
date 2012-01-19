@@ -133,7 +133,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
 }
 void 
 MyMWidget::refreshRequested(){
-#if 0
+//#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -143,7 +143,7 @@ MyMWidget::refreshRequested(){
 	}
 	// Debug end 
 
-#endif
+//#endif
 
     this->startpredeamon();
 }

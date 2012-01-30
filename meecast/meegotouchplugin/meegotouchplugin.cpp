@@ -105,7 +105,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
    this->refreshview();
    if ((until_valid_time - utc_time.toTime_t()) > 0 && 
        (until_valid_time - utc_time.toTime_t()) < 12* 3600){
-//#if 0
+#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -114,10 +114,10 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
         _timer->start(((until_valid_time - utc_time.toTime_t() + 60)*1000));
    }else{
-//#if 0
+#if 0
       // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -126,14 +126,14 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
         _timer->start(3600000);
    }
 
 }
 void 
 MyMWidget::refreshRequested(){
-//#if 0
+#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -143,12 +143,12 @@ MyMWidget::refreshRequested(){
 	}
 	// Debug end 
 
-//#endif
+#endif
 
     this->startpredeamon();
 }
 void MyMWidget::update_data(){
-//#if 0
+#if 0
     // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -157,11 +157,11 @@ void MyMWidget::update_data(){
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
     this->startpredeamon();
 }
 void MyMWidget::updateWallpaperPath(){ 
-//#if 0
+#if 0
     // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -170,31 +170,31 @@ void MyMWidget::updateWallpaperPath(){
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
 
     if (_wallpaperItem && _wallpaperItem->value() != QVariant::Invalid){
          QString new_wallpaper_path = _wallpaperItem->value().toString();
         if (new_wallpaper_path.indexOf("MeeCast",0) == -1 && new_wallpaper_path != ""){
         
-//#if 0
+#if 0
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "New wallpaper path ."<<new_wallpaper_path<< ".\n";
 	    file.close();
 	    }
-//#endif
+#endif
             _original_wallpaperItem->set(new_wallpaper_path);
             _wallpaper_path = new_wallpaper_path;
             this->refreshwallpaper(true);
         }
     }
-//#if 0
+#if 0
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "updateWallpaperPath stop"<< "\n";
 	    file.close();
 	}
 	// Debug end 
-//#endif
+#endif
 }
 

@@ -543,7 +543,7 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
 int
 main(int argc, char *argv[]){
     int result; 
-    if (argc != 3) {
+    if (argc < 3) {
         fprintf(stderr, "yrno <input_file> <output_file>\n");
         return -1;
     }

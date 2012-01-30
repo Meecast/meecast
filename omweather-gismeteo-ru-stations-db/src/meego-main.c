@@ -1770,7 +1770,7 @@ convert_station_gismeteo_data(const gchar *station_id_with_path, const gchar *re
 int
 main(int argc, char *argv[]){
     int result; 
-    if (argc != 3) {
+    if (argc < 3) {
         fprintf(stderr, "gismeteoru <input_file> <output_file>\n");
         return -1;
     }

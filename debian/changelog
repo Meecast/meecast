@@ -1,8 +1,14 @@
-meecast (0.4.7) unstable; urgency=low
+meecast (0.4.8) unstable; urgency=low
 
   * Added stations in yr.no database (Mexico)
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 11 Jan 2011 22:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 15 Jan 2011 22:42:23 +0200
+
+meecast (0.4.7) unstable; urgency=low
+
+  * Fixed problem with new stations in sources yr.no and gismeteo.ru 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 16 Jan 2011 18:42:23 +0200
 
 meecast (0.4.6) unstable; urgency=low
 

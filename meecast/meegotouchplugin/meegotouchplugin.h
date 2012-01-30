@@ -93,7 +93,6 @@ public:
             _wallpaper_path = _wallpaperItem->value().toString();
         else{
             _wallpaper_path = _original_wallpaperItem->value().toString();
-            if ()
             if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "PreInit2 MyWidget ."<<_wallpaper_path<<".\n";

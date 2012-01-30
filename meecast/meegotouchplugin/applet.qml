@@ -3,7 +3,7 @@
  Rectangle {
      id: page 
      width: 127; height: 96
-     color: "black"
+     color: "800000FF"
 
      property string mytext: ""
      property int texty: 0

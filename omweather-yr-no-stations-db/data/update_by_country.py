@@ -74,21 +74,27 @@ import zipfile
 #replacing_dict = {"Inner_Mongolia_Autonomous_Region":"Nei Mongol"} 
 
 #replacing_dict_after_region_filling = { } 
-country = "Mexico"
-country_code = "MX"
-replacing_dict = {"Estado_de_Coahuila_de_Zaragoza":"Coahuila de Zaragoza",
-		  "Estado_de_San_Luis_Potosi":"San Luis Potosí",
-		  "Estado_de_Michoacan_de_Ocampo":"Michoacán de Ocampo",
-		  "Estado_de_Queretaro_de_Arteaga":"Querétaro de Arteaga",
-		  "Estado_de_Baja_California_Sur":"Baja California Sur",
-		  "Estado_de_Baja_California":"Baja California",
-		  "Estado_de_Nuevo_Leon":"Nuevo León",
-		  "Estado_de_Quintana_Roo":"Quintana Roo",
-		  "Distrito_Federal":"Distrito Federal"}
+#country = "Mexico"
+#country_code = "MX"
+#replacing_dict = {"Estado_de_Coahuila_de_Zaragoza":"Coahuila de Zaragoza",
+#		  "Estado_de_San_Luis_Potosi":"San Luis Potosí",
+#		  "Estado_de_Michoacan_de_Ocampo":"Michoacán de Ocampo",
+#		  "Estado_de_Queretaro_de_Arteaga":"Querétaro de Arteaga",
+#		  "Estado_de_Baja_California_Sur":"Baja California Sur",
+#		  "Estado_de_Baja_California":"Baja California",
+#		  "Estado_de_Nuevo_Leon":"Nuevo León",
+#		  "Estado_de_Quintana_Roo":"Quintana Roo",
+#		  "Distrito_Federal":"Distrito Federal"}
+#
+#replacing_dict_after_region_filling = { } 
+#
+
+country = "Netherlands"
+country_code = "NL"
+replacing_dict = {"Provincie_Zuid-Holland":"South Holland","Provincie_Zeeland":"Zealand",
+                  "Provincie_Noord-Holland":"North Holland", "Provincie_Noord-Brabant": "North Brabant"}
 
 replacing_dict_after_region_filling = { } 
-
-
 
 
 
@@ -136,12 +142,12 @@ urllib.urlretrieve (url, myzipfile)
 
 
 #unzip file
-fh = open(myzipfile, 'rb')
-z = zipfile.ZipFile(fh)
-outfile = open(country_code + ".txt", 'wb')
-outfile.write(z.read(country_code + ".txt"))
-outfile.close()
-fh.close()
+#fh = open(myzipfile, 'rb')
+#z = zipfile.ZipFile(fh)
+#outfile = open(country_code + ".txt", 'wb')
+#outfile.write(z.read(country_code + ".txt"))
+#outfile.close()
+#fh.close()
 
 #fill regions
 regions = {}
@@ -216,14 +222,16 @@ for line in fh.readlines():
  
 	    
            	cur = cu.execute("select id from regions where country_id='%i' and name = '%s'" %(country_id, regions_name[pattern[20]]))
+            print "select id from regions where country_id='%i' and name = '%s'" %(country_id, regions_name[pattern[20]])
             region_id = None
             for row in cur:
                 region_id = row[0]
-#	    print country_id
-#            print pattern[20]
-#            print regions_name[pattern[20]] 
-#            print region_id 
-#            print  normalizing(pattern[4])
+ 	        print country_id
+            print pattern[20]
+            print regions_name[pattern[20]] 
+            print region_id 
+            print  normalizing(pattern[4])
+            print "select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing(pattern[4]));
             cur = cu.execute("select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing(pattern[4])))
             station_id= None
             for row in cur:

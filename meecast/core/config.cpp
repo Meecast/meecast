@@ -43,6 +43,7 @@ Config::Config()
     _pressure_unit = new std::string("mbar");
     _update_connect = false;
     _fullscreen = false;
+    _lockscreen = false;
     _gps = false;
     _font_color = new std::string("#00ff00");
     _stations = new StationsList;
@@ -110,6 +111,14 @@ Config::saveConfig()
 
     el = doc.createElement("fullscreen");
     if (_fullscreen)
+        t = doc.createTextNode("true");
+    else
+        t = doc.createTextNode("false");
+    el.appendChild(t);
+    root.appendChild(el);
+
+    el = doc.createElement("lockscreen");
+    if (_lockscreen)
         t = doc.createTextNode("true");
     else
         t = doc.createTextNode("false");
@@ -227,6 +236,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _pressure_unit = new std::string("mbar");
     _update_connect = false;
     _fullscreen = false;
+    _lockscreen = false;
     _gps = false;
     _update_period = INT_MAX;
     _font_color = new std::string("#00ff00");
@@ -280,6 +290,9 @@ Config::LoadConfig(){
         el = root.firstChildElement("fullscreen");
         if (!el.isNull())
             _fullscreen = (el.text() == "true") ? true : false;
+        el = root.firstChildElement("lockscreen");
+        if (!el.isNull())
+            _lockscreen = (el.text() == "true") ? true : false;
         el = root.firstChildElement("gps");
         if (!el.isNull())
             _gps = (el.text() == "true") ? true : false;
@@ -442,6 +455,15 @@ Config::Fullscreen(void){
 }
 ////////////////////////////////////////////////////////////////////////////////
 void
+Config::Lockscreen(const bool uc){
+    _lockscreen = uc;
+}
+bool
+Config::Lockscreen(void){
+    return _lockscreen;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
 Config::Gps(const bool uc){
     _gps = uc;
 }
@@ -600,6 +622,16 @@ void Config::processNode(const xmlpp::Node* node){
         (str.compare("true")) ? (_fullscreen = false) : (_fullscreen = true);
         return;
     }
+    // lockscreen
+    if(nodeName == "lockscreen"){
+        xmlpp::Node::NodeList list = node->get_children();
+        xmlpp::Node::NodeList::iterator iter = list.begin();
+        const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+        std::string str = nodeText->get_content();
+        (str.compare("true")) ? (_lockscreen = false) : (_lockscreen = true);
+        return;
+    }
+
     // gps
     if(nodeName == "gps"){
         xmlpp::Node::NodeList list = node->get_children();

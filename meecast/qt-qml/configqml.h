@@ -53,6 +53,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString windspeedunit READ windspeedunit NOTIFY windspeedunitChanged)
     Q_PROPERTY(QString pressureunit READ pressureunit NOTIFY pressureunitChanged)
     Q_PROPERTY(bool fullscreen READ fullscreen NOTIFY fullscreenChanged)
+    Q_PROPERTY(bool lockscreen READ lockscreen NOTIFY lockscreenChanged)
     Q_PROPERTY(bool eventwidget READ eventwidget NOTIFY eventwidgetChanged)
     Q_PROPERTY(bool gps READ gps NOTIFY gpsChanged)
     Q_PROPERTY(QColor fontcolor READ fontcolor NOTIFY fontcolorChanged)
@@ -74,6 +75,7 @@ public:
     QString windspeedunit();
     QString pressureunit();
     bool fullscreen();
+    bool lockscreen();
     bool eventwidget();
     bool gps();
     QColor fontcolor();
@@ -112,6 +114,7 @@ public:
     Q_INVOKABLE QStringList pressure_list();
     Q_INVOKABLE void pressure_unit(int index);
     Q_INVOKABLE void setfullscreen(bool c);
+    Q_INVOKABLE void setlockscreen(bool c);
     Q_INVOKABLE void seteventwidget(bool c);
     Q_INVOKABLE void setgps(bool c);
     Q_INVOKABLE QStringList icon_list();
@@ -129,6 +132,7 @@ signals:
     void windspeedunitChanged();
     void pressureunitChanged();
     void fullscreenChanged();
+    void lockscreenChanged();
     void eventwidgetChanged();
     void gpsChanged();
     void fontcolorChanged();

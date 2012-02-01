@@ -233,6 +233,19 @@ ConfigQml::setfullscreen(bool c)
 }
 
 bool
+ConfigQml::lockscreen()
+{
+    return ConfigQml::Config::Lockscreen();
+}
+void
+ConfigQml::setlockscreen(bool c)
+{
+    ConfigQml::Config::Lockscreen(c);
+    saveConfig();
+    refreshconfig();
+}
+
+bool
 ConfigQml::eventwidget()
 {
     QFile file("/usr/share/meegotouch/applicationextensions/events-weather.desktop");

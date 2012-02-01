@@ -50,6 +50,7 @@ namespace Core{
             std::string *_pressure_unit;
             bool         _update_connect;
             bool         _fullscreen;
+            bool         _lockscreen;
             bool         _gps;
             int          _update_period;
             std::string *_font_color;
@@ -78,6 +79,8 @@ namespace Core{
             bool UpdateConnect(void);
             void Fullscreen(const bool uc);
             bool Fullscreen(void);
+            void Lockscreen(const bool uc);
+            bool Lockscreen(void);
             void Gps(const bool uc);
             bool Gps(void);
             void UpdatePeriod(const int period);

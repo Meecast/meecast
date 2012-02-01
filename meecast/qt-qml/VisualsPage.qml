@@ -300,6 +300,34 @@ Page {
             }
 
         }
+        Item {
+            width: parent.width
+            height: 80
+            Label {
+                text: Config.tr("Widget in lockscreen")
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            Switch {
+                id: lockscreen 
+                checked: Config.lockscreen
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                onCheckedChanged: {
+         	    if (event_widget_status != checked){          
+                       if (checked){
+                           enableDialog.open();
+                           Config.setlockscreen(lockscreen.checked);
+		       }
+                       else
+                           Config.setlockscreen(lockscreen.checked);
+		    }
+                }
+                //platformStyle: SwitchStyle {inverted: true}
+            }
+
+        }
+
     }
     }
     Rectangle {

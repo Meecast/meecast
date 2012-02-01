@@ -8,6 +8,8 @@
          <arg name="icon" type="s" direction="in"/>
          <arg name="until_valid_time" type="u" direction="in"/>
          <arg name="current" type="b" direction="in"/>
+         <arg name="lockscreen" type="b" direction="in"/>
+         <arg name="last_update" type="s" direction="in"/>
       </method>
    </interface>
 </node>

@@ -204,7 +204,7 @@ DataModel::update(QString filename, int  period)
 
                 dbusclient->SetCurrentData(stationname.fromUtf8(_config->stationname().c_str()), forecast_data->temperature(), 
                                            forecast_data->temperature_high(), forecast_data->temperature_low(), 
-                                           icon_string, result_time, forecast_data->current()); 
+                                           icon_string, result_time, forecast_data->current(), _config->Lockscreen(),"Last update"); 
             }
             break;
         case current_night_period:

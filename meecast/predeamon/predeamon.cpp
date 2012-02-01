@@ -175,7 +175,7 @@ main (int argc, char *argv[])
         QString stationname = "";
         dbusclient->SetCurrentData(stationname.fromUtf8(config->stationname().c_str()),
                                    temp, temp_high, temp_low, 
-                                   icon_string, result_time, temp_data->Current()); 
+                                   icon_string, result_time, temp_data->Current(), config->Lockscreen(), "Last update"); 
     }
 
   if (dp){

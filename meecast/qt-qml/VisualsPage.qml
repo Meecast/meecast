@@ -314,14 +314,12 @@ Page {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
                 onCheckedChanged: {
-         	    if (event_widget_status != checked){          
+         	        if (event_widget_status != checked){          
                        if (checked){
                            enableDialog.open();
-                           Config.setlockscreen(lockscreen.checked);
-		       }
-                       else
-                           Config.setlockscreen(lockscreen.checked);
-		    }
+                       }
+                    }
+                    Config.setlockscreen(lockscreen.checked);
                 }
                 //platformStyle: SwitchStyle {inverted: true}
             }

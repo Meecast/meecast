@@ -8,8 +8,8 @@
  * Do not edit! All changes made to it will be lost.
  */
 
-#ifndef DBUSADAPTOR_APPLET_H_1317131471
-#define DBUSADAPTOR_APPLET_H_1317131471
+#ifndef DBUSADAPTOR_APPLET_H_1328120837
+#define DBUSADAPTOR_APPLET_H_1328120837
 
 #include <QtCore/QObject>
 #include <QtCore/QByteArray>
@@ -36,10 +36,10 @@ public:
     ~MeecastIf();
 
 public Q_SLOTS: // METHODS
-    inline QDBusPendingReply<> SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, uint until_valid_time, bool current)
+    inline QDBusPendingReply<> SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, uint until_valid_time, bool current, bool lockscreen, const QString &last_update)
     {
         QList<QVariant> argumentList;
-        argumentList << qVariantFromValue(station) << qVariantFromValue(temperature) << qVariantFromValue(temperature_hi) << qVariantFromValue(temperature_low) << qVariantFromValue(icon) << qVariantFromValue(until_valid_time) << qVariantFromValue(current);
+        argumentList << qVariantFromValue(station) << qVariantFromValue(temperature) << qVariantFromValue(temperature_hi) << qVariantFromValue(temperature_low) << qVariantFromValue(icon) << qVariantFromValue(until_valid_time) << qVariantFromValue(current) << qVariantFromValue(lockscreen) << qVariantFromValue(last_update);
         return asyncCallWithArgumentList(QLatin1String("SetCurrentData"), argumentList);
     }
 

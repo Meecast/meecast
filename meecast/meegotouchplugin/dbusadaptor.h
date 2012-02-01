@@ -9,8 +9,8 @@
  * before re-generating it.
  */
 
-#ifndef DBUSADAPTOR_H_1317131288
-#define DBUSADAPTOR_H_1317131288
+#ifndef DBUSADAPTOR_H_1328122973
+#define DBUSADAPTOR_H_1328122973
 
 #include <QtCore/QObject>
 #include <QtDBus/QtDBus>
@@ -38,6 +38,8 @@ class MeecastIf: public QDBusAbstractAdaptor
 "      <arg direction=\"in\" type=\"s\" name=\"icon\"/>\n"
 "      <arg direction=\"in\" type=\"u\" name=\"until_valid_time\"/>\n"
 "      <arg direction=\"in\" type=\"b\" name=\"current\"/>\n"
+"      <arg direction=\"in\" type=\"b\" name=\"lockscreen\"/>\n"
+"      <arg direction=\"in\" type=\"s\" name=\"last_update\"/>\n"
 "    </method>\n"
 "  </interface>\n"
         "")
@@ -47,7 +49,7 @@ public:
 
 public: // PROPERTIES
 public Q_SLOTS: // METHODS
-    void SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, uint until_valid_time, bool current);
+    void SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, uint until_valid_time, bool current, bool lockscreen, const QString &last_update);
 Q_SIGNALS: // SIGNALS
 };
 

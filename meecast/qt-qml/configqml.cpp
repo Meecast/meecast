@@ -242,6 +242,13 @@ ConfigQml::setlockscreen(bool c)
 {
     ConfigQml::Config::Lockscreen(c);
     saveConfig();
+    /*
+    if (QFile("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png").exists()){
+        MGConfItem *wallpaperItem;
+        wallpaperItem = new MGConfItem ("/desktop/meego/background/portrait/picture_filename");
+        wallpaperItem->set("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
+    }
+    */
     refreshconfig();
 }
 
@@ -738,7 +745,7 @@ ConfigQml::addGpsStation(double latitude, double longitude)
     int index;
     int source_id = 0;
     double lat, lon;
-    qDebug() << "gggggggggg lat=" << latitude << " lon" << longitude;
+    /* qDebug() << "gggggggggg lat=" << latitude << " lon" << longitude; */
     std::string path(Core::AbstractConfig::prefix);
     path += Core::AbstractConfig::sharePath;
     path += "db/";

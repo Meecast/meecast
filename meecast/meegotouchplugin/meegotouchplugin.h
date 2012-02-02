@@ -59,6 +59,7 @@ private:
     QString  _temperature_low;
     QString  _iconpath;
     bool    _current;
+    bool    _lockscreen;
     QTimer  *_timer;
     MGConfItem *_wallpaperItem;
     MGConfItem *_original_wallpaperItem;
@@ -73,6 +74,7 @@ public:
       _temperature_high = "";
 	  _iconpath = "/opt/com.meecast.omweather/share/icons/Meecast/49.png";
       _current = false;
+      _lockscreen = false;
       _timer = new QTimer(this);
       _timer->setSingleShot(true);
       connect(_timer, SIGNAL(timeout()), this, SLOT(update_data()));
@@ -196,11 +198,16 @@ public:
     bool current(){
         return _current;
     }
+
+    void lockscreen(bool cur){
+        _lockscreen = cur;
+    }
+    bool lockscreen(){
+        return _lockscreen;
+    }
+
     void refreshwallpaper(bool new_wallpaper = false){
 
-        /* Left corner */
-	    int x = 275;
-	    int y = 230;
 #if 0	    
 	    // Debug begin
         QFile file("/tmp/1.log");
@@ -210,7 +217,6 @@ public:
             file.close();
         }
 #endif
-	    QPainter paint;
 	    QImage image;
         QDir dir("/home/user/.cache/com.meecast.omweather");
         
@@ -239,6 +245,14 @@ public:
 #endif
         }
 
+        if (!lockscreen())
+            return;
+
+        /* Left corner */
+	    int x = 275;
+	    int y = 230;
+
+	    QPainter paint;
 	    paint.begin(&image);
 	    QPen pen;
 	    QColor myPenColor = QColor(255, 255, 255, 128);// set default color
@@ -330,7 +344,8 @@ public:
     };
 
 public Q_SLOTS:
-    void SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low,  const QString &icon, const uint until_valid_time, bool current);
+    void SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low, const QString &icon, 
+                        const uint until_valid_time, bool current, bool lockscreen_param, const QString &last_update);
     void update_data();
     void refreshRequested();
     void updateWallpaperPath();

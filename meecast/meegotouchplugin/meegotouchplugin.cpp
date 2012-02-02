@@ -260,14 +260,14 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
 	    paint.setBrush(QColor(118, 118, 118, 50));
 	    
 	    /* Rect */
-	    paint.drawRoundedRect(x, y, 198, 140, 15.0, 15.0);
+	    paint.drawRoundedRect(x, y, 198, 150, 15.0, 15.0);
 
 	    myPenColor = QColor(255, 255, 255, 255);// set default color
 	    pen.setColor(myPenColor);
 	    paint.setPen(pen);
 
 	    /* Icon */
-	    QPoint point(x + 60, y + 21);
+	    QPoint point(x + 70, y + 21);
 	    QImage icon;
 	    icon.load(_iconpath);
 	    paint.drawImage(point, icon); 
@@ -289,10 +289,10 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
             QString temp_string = _temperature + QString::fromUtf8("°");
             paint.drawText(x + 10, y + 55, 60, 40, Qt::AlignHCenter, temp_string); 
 	    }
-        /* Last update */
 
-	    paint.setFont(QFont("Arial", 22));
-        paint.drawText(x + 10, y + 85, 100, 40, Qt::AlignHCenter, lastupdate()); 
+        /* Last update */
+	    paint.setFont(QFont("Arial", 13));
+        paint.drawText(x + 10, y + 128, 170, 35, Qt::AlignHCenter, lastupdate()); 
 
 	    paint.end();
 #if 0

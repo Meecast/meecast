@@ -173,9 +173,13 @@ main (int argc, char *argv[])
             result_time = temp_data->EndTime();
 
         QString stationname = "";
+        QDateTime t;
+        t.setTime_t(dp->LastUpdate());
         dbusclient->SetCurrentData(stationname.fromUtf8(config->stationname().c_str()),
                                    temp, temp_high, temp_low, 
-                                   icon_string, result_time, temp_data->Current(), config->Lockscreen(), "Last update"); 
+                                   icon_string, result_time,
+                                   temp_data->Current(), config->Lockscreen(), 
+                                   t.toString("dd MMM h:m")); 
     }
 
   if (dp){

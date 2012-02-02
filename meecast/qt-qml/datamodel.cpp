@@ -201,10 +201,13 @@ DataModel::update(QString filename, int  period)
                            result_time = temp_data->EndTime();
                 }else
                     result_time = temp_data->EndTime();
-
+                QDateTime t;
+                t.setTime_t(dp->LastUpdate());
                 dbusclient->SetCurrentData(stationname.fromUtf8(_config->stationname().c_str()), forecast_data->temperature(), 
-                                           forecast_data->temperature_high(), forecast_data->temperature_low(), 
-                                           icon_string, result_time, forecast_data->current(), _config->Lockscreen(),"Last update"); 
+                                           forecast_data->temperature_high(), 
+                                           forecast_data->temperature_low(), 
+                                           icon_string, result_time, forecast_data->current(), 
+                                           _config->Lockscreen(), t.toString("dd MMM h:m")); 
             }
             break;
         case current_night_period:

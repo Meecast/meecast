@@ -152,9 +152,16 @@ Controller::load_data()
       }else
           result_time = temp_data->EndTime();
 
+      QDateTime t;
+      t.setTime_t(_dp->LastUpdate());
       dbusclient->SetCurrentData( _config->stationname(), forecast_data->temperature(),
-                                  forecast_data->temperature_high(), forecast_data->temperature_low(), 
-                                  (_config->iconspath() + "/" + _config->iconset() + "/" + forecast_data->icon()), result_time, forecast_data->current(), _config->Lockscreen(), "Last update");
+                                  forecast_data->temperature_high(),
+                                  forecast_data->temperature_low(), 
+                                  (_config->iconspath() + "/" + _config->iconset() + "/" + forecast_data->icon()), 
+                                  result_time, 
+                                  forecast_data->current(), 
+                                  _config->Lockscreen(),
+                                  t.toString("dd MMM h:m"));
   }
 
   /* fill current night */

@@ -109,6 +109,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
    this->icon(icon);
    this->current(current);
    this->lockscreen(lockscreen_param);
+   this->lastupdate(last_update);
    this->refreshview();
    if ((until_valid_time - utc_time.toTime_t()) > 0 && 
        (until_valid_time - utc_time.toTime_t()) < 12* 3600){
@@ -288,6 +289,11 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
             QString temp_string = _temperature + QString::fromUtf8("°");
             paint.drawText(x + 10, y + 55, 60, 40, Qt::AlignHCenter, temp_string); 
 	    }
+        /* Last update */
+
+	    paint.setFont(QFont("Arial", 22));
+        paint.drawText(x + 10, y + 85, 100, 40, Qt::AlignHCenter, lastupdate()); 
+
 	    paint.end();
 #if 0
         // Debug begin

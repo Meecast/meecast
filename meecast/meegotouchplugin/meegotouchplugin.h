@@ -58,6 +58,7 @@ private:
     QString  _temperature_high;
     QString  _temperature_low;
     QString  _iconpath;
+    QString  _lastupdate;
     bool    _current;
     bool    _lockscreen;
     QTimer  *_timer;
@@ -193,6 +194,15 @@ public:
     QString temperature_low(){
 	    return _temperature_low;
     }
+
+    void lastupdate(const QString &lastupdate){
+	    _lastupdate = lastupdate;
+    }
+
+    QString lastupdate(){
+	    return _lastupdate;
+    } 
+
 
     void current(bool cur){
         _current = cur;

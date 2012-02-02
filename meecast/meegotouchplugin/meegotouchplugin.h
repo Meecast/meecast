@@ -126,6 +126,8 @@ public:
       delete _timer;
     };
 
+    void refreshwallpaper(bool new_wallpaper = false);
+
     Q_INVOKABLE void startapplication(){
         QString executable("/usr/bin/invoker");    
         QStringList arguments;
@@ -206,123 +208,7 @@ public:
         return _lockscreen;
     }
 
-    void refreshwallpaper(bool new_wallpaper = false){
-
-#if 0	    
-	    // Debug begin
-        QFile file("/tmp/1.log");
-        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-            QTextStream out(&file);
-            out <<  "Start refreshwallpaper"<< " \n";
-            file.close();
-        }
-#endif
-	    QImage image;
-        QDir dir("/home/user/.cache/com.meecast.omweather");
-        
-        if (!dir.exists())
-            dir.mkpath("/home/user/.cache/com.meecast.omweather");
-
-	    image.load(_wallpaper_path);
-
-#if 0	    
-	    // Debug begin
-        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-            QTextStream out(&file);
-            out <<  "Refreshwallpaper "<<_wallpaper_path<< " \n";
-            file.close();
-        }
-#endif
-        if (new_wallpaper){
-            image.save("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
-#if 0
-            // Debug begin
-            if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-                QTextStream out(&file);
-                out <<  "Refreshwallpaper saved "<<_wallpaper_path<< " to original\n";
-                file.close();
-            }
-#endif
-        }
-
-        if (!lockscreen())
-            return;
-
-        /* Left corner */
-	    int x = 275;
-	    int y = 230;
-
-	    QPainter paint;
-	    paint.begin(&image);
-	    QPen pen;
-	    QColor myPenColor = QColor(255, 255, 255, 128);// set default color
-	    pen.setColor(myPenColor);
-	    paint.setPen(pen);
-	    paint.setBrush(QColor(118, 118, 118, 50));
-	    
-	    /* Rect */
-	    paint.drawRoundedRect(x, y, 198, 140, 15.0, 15.0);
-
-	    myPenColor = QColor(255, 255, 255, 255);// set default color
-	    pen.setColor(myPenColor);
-	    paint.setPen(pen);
-
-	    /* Icon */
-	    QPoint point(x + 60, y + 21);
-	    QImage icon;
-	    icon.load(_iconpath);
-	    paint.drawImage(point, icon); 
-		    
-	    /* Station */
-	    paint.setFont(QFont("Arial", 18));
-	    paint.drawText( x + 1, y, 196, 28, Qt::AlignHCenter, _stationname);
-
-	    /* Temperature */
-	    paint.setFont(QFont("Arial", 22));
-	    if (_temperature == "N/A" || _temperature == ""){
-            QString temp_string = _temperature_high + QString::fromUtf8("°");
-            paint.drawText(x + 10, y + 40, 60, 40, Qt::AlignHCenter, temp_string); 
-            temp_string = _temperature_low + QString::fromUtf8("°");
-            paint.drawText(x + 10, y + 80, 60, 40, Qt::AlignHCenter, temp_string); 
-	    }else{
-            if (_current)
-                paint.setFont(QFont("Arial Bold", 24));
-            QString temp_string = _temperature + QString::fromUtf8("°");
-            paint.drawText(x + 10, y + 55, 60, 40, Qt::AlignHCenter, temp_string); 
-	    }
-	    paint.end();
-#if 0
-        // Debug begin
-        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-            QTextStream out(&file);
-            out <<  "Refreshwallpaper paint has been finished\n";
-            file.close();
-        }
-#endif
-
-	    image.save("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png");
-#if 0
-        // Debug begin
-        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-            QTextStream out(&file);
-            out <<  "Refreshwallpaper /home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png  saved \n";
-            file.close();
-        }
-#endif
-
-	    _wallpaperItem->set("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
-	    _wallpaperItem->set("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png");
-#if 0
-        // Debug begin
-        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-            QTextStream out(&file);
-            out <<  "Stop refreshwallpaper"<< " \n";
-            file.close();
-        }
-#endif
-
-    }
-    void refreshview(){
+        void refreshview(){
 #if 0
         // Debug begin
         QFile file("/tmp/1.log");

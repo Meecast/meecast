@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it_IT\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-10 21:02+0300\n"
+"POT-Creation-Date: 2012-02-05 17:08+0300\n"
 "PO-Revision-Date: 2010-07-27 17:04+0100\n"
 "Last-Translator: Luca <luca>\n"
 "Language-Team: Italiano\n"
@@ -314,11 +314,11 @@ msgstr "Si è verificato un errore sconosciuto."
 msgid "Animation"
 msgstr "Animazione"
 
-#: meecast/qt-qml/VisualsPage.qml:318
+#: meecast/qt-qml/VisualsPage.qml:409
 msgid "Appearance"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:91
+#: meecast/qt-qml/VisualsPage.qml:92
 msgid ""
 "Application manager will now start\n"
 "for installing package 'MeeCast applet'.\n"
@@ -393,7 +393,7 @@ msgstr "C\n"
 msgid "CALM"
 msgstr "CALMA"
 
-#: meecast/qt-qml/VisualsPage.qml:105
+#: meecast/qt-qml/VisualsPage.qml:106
 msgid "Cancel"
 msgstr "Annulla"
 
@@ -872,7 +872,7 @@ msgstr "Colore caratteri:"
 msgid "Font:"
 msgstr "Caratteri:"
 
-#: meecast/qt-qml/VisualsPage.qml:163
+#: meecast/qt-qml/VisualsPage.qml:226
 msgid ""
 "For disabling MeeCast widget,\n"
 "you should uninstall package\n"
@@ -952,7 +952,7 @@ msgstr "Piena"
 msgid "Full forecast"
 msgstr "Previsioni complete: "
 
-#: meecast/qt-qml/VisualsPage.qml:240
+#: meecast/qt-qml/VisualsPage.qml:303
 msgid "Fullscreen mode"
 msgstr ""
 
@@ -1037,12 +1037,12 @@ msgstr "Set di icone:"
 msgid "Icon size:"
 msgstr "Dimensioni icone:"
 
-#: meecast/qt-qml/VisualsPage.qml:41 meecast/qt-qml/UpdatePage.qml:42
+#: meecast/qt-qml/VisualsPage.qml:42 meecast/qt-qml/UpdatePage.qml:42
 #, fuzzy
 msgid "Icons"
 msgstr "Icona fissati:"
 
-#: omweather/src/hash.data:87 meecast/qt-qml/VisualsPage.qml:262
+#: omweather/src/hash.data:87 meecast/qt-qml/VisualsPage.qml:325
 #, fuzzy
 msgid "Iconset"
 msgstr "Icona fissati:"
@@ -1052,7 +1052,8 @@ msgstr "Icona fissati:"
 msgid "Iconsets"
 msgstr "Icona fissati:"
 
-#: meecast/qt-qml/VisualsPage.qml:61 meecast/qt-qml/VisualsPage.qml:133
+#: meecast/qt-qml/VisualsPage.qml:62 meecast/qt-qml/VisualsPage.qml:134
+#: meecast/qt-qml/VisualsPage.qml:161
 #, fuzzy
 msgid "Information"
 msgstr "Animazione"
@@ -1514,7 +1515,7 @@ msgid "Now: "
 msgstr "Ora:"
 
 #: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1222
-#: meecast/qt-qml/VisualsPage.qml:112
+#: meecast/qt-qml/VisualsPage.qml:113
 msgid "OK"
 msgstr "OK"
 
@@ -1531,7 +1532,7 @@ msgstr "Impostazioni OMWeather"
 msgid "OMWeather settings"
 msgstr "Impostazioni OMWeather "
 
-#: meecast/qt-qml/VisualsPage.qml:176
+#: meecast/qt-qml/VisualsPage.qml:204 meecast/qt-qml/VisualsPage.qml:239
 msgid "Ok"
 msgstr ""
 
@@ -2446,7 +2447,11 @@ msgstr ""
 msgid "Widget OMWeather is reloading"
 msgstr "Il widged OMWeather sta ricaricando"
 
-#: meecast/qt-qml/VisualsPage.qml:282
+#: meecast/qt-qml/VisualsPage.qml:371
+msgid "Widget in LockScreen"
+msgstr ""
+
+#: meecast/qt-qml/VisualsPage.qml:345
 msgid "Widget in events view"
 msgstr ""
 
@@ -2532,6 +2537,13 @@ msgstr "Si"
 #: omweather/src/weather-simple-popup.c:1232
 msgid "You can make donation here: "
 msgstr "Puoi effettuare la donazione qui:"
+
+#: meecast/qt-qml/VisualsPage.qml:191
+msgid ""
+"You should activate \n"
+"'Widget in events view'\n"
+" for using LockScreen widget"
+msgstr ""
 
 #: meecast/qt-qml/UpdatePage.qml:73
 msgid ""

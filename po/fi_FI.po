@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-10 21:02+0300\n"
+"POT-Creation-Date: 2012-02-05 17:08+0300\n"
 "PO-Revision-Date: 2012-01-10 18:22+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -330,11 +330,11 @@ msgstr "Tapahtui tuntematon virhe."
 msgid "Animation"
 msgstr "Animaatio"
 
-#: meecast/qt-qml/VisualsPage.qml:318
+#: meecast/qt-qml/VisualsPage.qml:409
 msgid "Appearance"
 msgstr "Ulkoasu"
 
-#: meecast/qt-qml/VisualsPage.qml:91
+#: meecast/qt-qml/VisualsPage.qml:92
 msgid ""
 "Application manager will now start\n"
 "for installing package 'MeeCast applet'.\n"
@@ -413,7 +413,7 @@ msgstr "С\n"
 msgid "CALM"
 msgstr "Tyyntä"
 
-#: meecast/qt-qml/VisualsPage.qml:105
+#: meecast/qt-qml/VisualsPage.qml:106
 msgid "Cancel"
 msgstr "Peruuta"
 
@@ -869,7 +869,7 @@ msgstr "Kirjasimen väri:"
 msgid "Font:"
 msgstr "Fontti:"
 
-#: meecast/qt-qml/VisualsPage.qml:163
+#: meecast/qt-qml/VisualsPage.qml:226
 msgid ""
 "For disabling MeeCast widget,\n"
 "you should uninstall package\n"
@@ -957,7 +957,7 @@ msgstr "Täysikuu"
 msgid "Full forecast"
 msgstr "Täysi ennuste"
 
-#: meecast/qt-qml/VisualsPage.qml:240
+#: meecast/qt-qml/VisualsPage.qml:303
 msgid "Fullscreen mode"
 msgstr "Koko näytön tila"
 
@@ -1041,11 +1041,11 @@ msgstr "Kuvakkeet:"
 msgid "Icon size:"
 msgstr "Kuvakkeen koko:"
 
-#: meecast/qt-qml/VisualsPage.qml:41 meecast/qt-qml/UpdatePage.qml:42
+#: meecast/qt-qml/VisualsPage.qml:42 meecast/qt-qml/UpdatePage.qml:42
 msgid "Icons"
 msgstr "Kuvakkeet"
 
-#: omweather/src/hash.data:87 meecast/qt-qml/VisualsPage.qml:262
+#: omweather/src/hash.data:87 meecast/qt-qml/VisualsPage.qml:325
 msgid "Iconset"
 msgstr "Kuvakkeet"
 
@@ -1053,7 +1053,8 @@ msgstr "Kuvakkeet"
 msgid "Iconsets"
 msgstr "Kuvakkeet"
 
-#: meecast/qt-qml/VisualsPage.qml:61 meecast/qt-qml/VisualsPage.qml:133
+#: meecast/qt-qml/VisualsPage.qml:62 meecast/qt-qml/VisualsPage.qml:134
+#: meecast/qt-qml/VisualsPage.qml:161
 msgid "Information"
 msgstr "Tiedot"
 
@@ -1510,7 +1511,7 @@ msgid "Now: "
 msgstr "Nyt: "
 
 #: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1222
-#: meecast/qt-qml/VisualsPage.qml:112
+#: meecast/qt-qml/VisualsPage.qml:113
 msgid "OK"
 msgstr "OK"
 
@@ -1527,7 +1528,7 @@ msgstr "OMWeather asetukset"
 msgid "OMWeather settings"
 msgstr "OMWeather asetukset"
 
-#: meecast/qt-qml/VisualsPage.qml:176
+#: meecast/qt-qml/VisualsPage.qml:204 meecast/qt-qml/VisualsPage.qml:239
 msgid "Ok"
 msgstr "Ok"
 
@@ -2422,7 +2423,12 @@ msgstr "Sääennuste Meego laitteille. Versio"
 msgid "Widget OMWeather is reloading"
 msgstr "Uudelleen ladataan OMWeather sovelma"
 
-#: meecast/qt-qml/VisualsPage.qml:282
+#: meecast/qt-qml/VisualsPage.qml:371
+#, fuzzy
+msgid "Widget in LockScreen"
+msgstr "Sovellus tapahtumat-näkymässä"
+
+#: meecast/qt-qml/VisualsPage.qml:345
 msgid "Widget in events view"
 msgstr "Sovellus tapahtumat-näkymässä"
 
@@ -2505,6 +2511,16 @@ msgstr "Kyllä"
 #: omweather/src/weather-simple-popup.c:1232
 msgid "You can make donation here: "
 msgstr "Voit tehdä lahjoituksen täällä:"
+
+#: meecast/qt-qml/VisualsPage.qml:191
+#, fuzzy
+msgid ""
+"You should activate \n"
+"'Widget in events view'\n"
+" for using LockScreen widget"
+msgstr ""
+"Aktivoi 'Sovellus tapahtumat-näkymässä' valinta MeeCastin ulkoasuasetuksissa "
+"käyttääksesi automaattista päivitystä."
 
 #: meecast/qt-qml/UpdatePage.qml:73
 msgid ""

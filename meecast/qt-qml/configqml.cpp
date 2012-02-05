@@ -255,31 +255,36 @@ ConfigQml::setlockscreen(bool c)
 bool
 ConfigQml::eventwidget()
 {
+    bool result = false;
     QFile file("/usr/share/meegotouch/applicationextensions/events-weather.desktop");
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
         QTextStream in(&file);
-	QString  line = in.readAll();
+        QString  line = in.readAll();
         file.close();
-	if (line.indexOf("meecast") == -1)
-	    return false;
+	    if (line.indexOf("meecast") == -1)
+	        result = false;
         else
-	    return true;
+	        result = true;
     }else
-        return false;
+        result = false;
+    if (result == false)
+        setlockscreen(false);
+    return result;
 }
 void
 ConfigQml::seteventwidget(bool c)
 {    
-    if (!c)
+    if (!c){
     	QDesktopServices::openUrl(QUrl("file:///usr/bin/installui"));
-
+        setlockscreen(false);
+    }
     QFile file("/usr/share/meegotouch/applicationextensions/events-weather.desktop");
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
         QTextStream in(&file);
-	QString  line = in.readAll();
+        QString  line = in.readAll();
         file.close();
-	if (line.indexOf("meecast") != -1)
-	    return;
+        if (line.indexOf("meecast") != -1)
+	        return;
     }
 
     if (c)

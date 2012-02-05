@@ -7,6 +7,7 @@ Page {
     id: visuals
     property int margin: 16
     property bool event_widget_status: Config.eventwidget
+    property bool lockscreen_widget_status: Config.lockscreen
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"
@@ -145,6 +146,33 @@ Page {
 		}
 	    }
 	}
+    Dialog {
+	id: warningDialog
+	title: Item {
+	    id: titleField3
+	    height: disableDialog.platformStyle.titleBarHeight
+	    width: parent.width
+
+	    Label {
+		id: titleLabel3
+		anchors.verticalCenter: titleField3.verticalCenter
+		font.capitalization: Font.MixedCase
+		color: "white"
+		text: Config.tr("Information")
+	    }
+
+	    Image {
+		id: closeButton3
+		anchors.verticalCenter: titleField3.verticalCenter
+		anchors.right: titleField3.right
+		source: "image://theme/icon-m-framework-close"
+		MouseArea {
+		    id: closeButtonArea3
+		    anchors.fill: parent
+		    onClicked:  { disableDialog.close() }
+		}
+	    }
+	}
 
 	content:Item {
 	    id: name2
@@ -160,7 +188,7 @@ Page {
 		id: text2
 		font.pixelSize: 22
 		color: "white"
-		text: Config.tr("For disabling MeeCast widget,\nyou should uninstall package\n'Activating MeeCast Applet'\nusing Application manager")
+		text: Config.tr("You should activate \n'Widget in events view'\n for using LockScreen widget")
 	    }	
 	    Rectangle {
 		id: black_rect2
@@ -174,6 +202,41 @@ Page {
 	    platformStyle: ButtonStyle { }
 	    anchors.horizontalCenter: parent.horizontalCenter
 	    Button {id: b22; text: Config.tr("Ok"); 
+                    onClicked: {
+                        warningDialog.close()
+                        lockscreen.checked = false 
+                    }
+            }
+	}
+    }
+	content:Item {
+	    id: name3
+	    height: childrenRect.height
+	    Rectangle {
+		id: black_rect13
+		anchors.bottom: text2.top
+		height: 40
+		color: "black"
+	    }
+
+	    Text {
+		id: text3
+		font.pixelSize: 22
+		color: "white"
+		text: Config.tr("For disabling MeeCast widget,\nyou should uninstall package\n'Activating MeeCast Applet'\nusing Application manager")
+	    }	
+	    Rectangle {
+		id: black_rect3
+		anchors.top: text2.bottom
+		height: 40
+		color: "black"
+	    }
+	}
+
+	buttons: ButtonRow {
+	    platformStyle: ButtonStyle { }
+	    anchors.horizontalCenter: parent.horizontalCenter
+	    Button {id: b24; text: Config.tr("Ok"); 
                     onClicked: {
                         eventwidget.checked = true 
                         disableDialog.close()
@@ -303,8 +366,9 @@ Page {
         Item {
             width: parent.width
             height: 80
+            id: lockscreenitem
             Label {
-                text: Config.tr("Widget in lockscreen")
+                text: Config.tr("Widget in LockScreen")
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
             }
@@ -314,12 +378,13 @@ Page {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
                 onCheckedChanged: {
-//         	        if (event_widget_status != checked){          
-//                       if (checked){
-//                           enableDialog.open();
-//                       }
-//                    }
-                    Config.setlockscreen(lockscreen.checked);
+                    if (lockscreen_widget_status != checked){
+                        if (event_widget_status){
+                            Config.setlockscreen(lockscreen.checked);
+                            lockscreen_widget_status = checked;
+                        }else
+                            warningDialog.open();
+                   }                    
                 }
                 //platformStyle: SwitchStyle {inverted: true}
             }

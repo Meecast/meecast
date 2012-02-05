@@ -1,6 +1,7 @@
 meecast (0.4.8) unstable; urgency=low
 
-  * Added stations in yr.no database (Mexico, Netherland)
+  * Added stations in yr.no database (Mexico, Netherland, Bulgaria)
+  * Added stations in gismeteo.ru database (Bulgaria)
   * Added LockScreen widget
   * Decreased size of image files. Thanks Wolfgang Fürst
 

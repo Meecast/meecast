@@ -89,10 +89,20 @@ import zipfile
 #replacing_dict_after_region_filling = { } 
 #
 
-country = "Netherlands"
-country_code = "NL"
-replacing_dict = {"Provincie_Zuid-Holland":"South Holland","Provincie_Zeeland":"Zealand",
-                  "Provincie_Noord-Holland":"North Holland", "Provincie_Noord-Brabant": "North Brabant"}
+#country = "Netherlands"
+#country_code = "NL"
+#replacing_dict = {"Provincie_Zuid-Holland":"South Holland","Provincie_Zeeland":"Zealand",
+#                  "Provincie_Noord-Holland":"North Holland", "Provincie_Noord-Brabant": "North Brabant"}
+
+replacing_dict_after_region_filling = { } 
+
+country = "Bulgaria"
+country_code = "BG"
+replacing_dict = {"Oblast_Turgovishte":"Targovishte", "Oblast_Veliko_Turnovo":"Veliko Tarnovo",
+                  "Oblast_Yambol":"Jambol", "Oblast_Kurdzhali":"Kardzhali",
+                  "Oblast_Sofiya-Grad":"Sofia", "Oblast_Stara_Zagora":"Stara Zagora",
+                  "Oblast_Khaskovo":"Haskovo", "Oblast_Sofiya":"Sofia-distriktet",
+                  "Oblast_Smolyan":"Smoljan"}
 
 replacing_dict_after_region_filling = { } 
 
@@ -142,12 +152,12 @@ urllib.urlretrieve (url, myzipfile)
 
 
 #unzip file
-#fh = open(myzipfile, 'rb')
-#z = zipfile.ZipFile(fh)
-#outfile = open(country_code + ".txt", 'wb')
-#outfile.write(z.read(country_code + ".txt"))
-#outfile.close()
-#fh.close()
+fh = open(myzipfile, 'rb')
+z = zipfile.ZipFile(fh)
+outfile = open(country_code + ".txt", 'wb')
+outfile.write(z.read(country_code + ".txt"))
+outfile.close()
+fh.close()
 
 #fill regions
 regions = {}
@@ -226,12 +236,12 @@ for line in fh.readlines():
             region_id = None
             for row in cur:
                 region_id = row[0]
- 	        print country_id
-            print pattern[20]
-            print regions_name[pattern[20]] 
-            print region_id 
-            print  normalizing(pattern[4])
-            print "select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing(pattern[4]));
+# 	        print country_id
+#            print pattern[20]
+#            print regions_name[pattern[20]] 
+#            print region_id 
+#            print  normalizing(pattern[4])
+#            print "select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing(pattern[4]));
             cur = cu.execute("select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing(pattern[4])))
             station_id= None
             for row in cur:

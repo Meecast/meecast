@@ -4,7 +4,7 @@ meecast (0.4.8) unstable; urgency=low
   * Added stations in gismeteo.ru database (Bulgaria)
   * Added LockScreen widget
   * Decreased size of image files. Thanks Wolfgang Fürst
-  * Updated Russian translations
+  * Updated Russian, Finland translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 10 Feb 2011 16:42:23 +0200
 

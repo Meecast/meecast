@@ -194,7 +194,7 @@ Page {
             day_rect.visible = true;
             current_rect.visible = false;
             hours_list.visible = true;
-            flickable.contentHeight = hours_list.height + current_rect;
+            flickable.contentHeight = hours_list.height + day_rect.height;
 
 	}
         if ((model_day.getdata(day, "sunrise")) != "N/A")

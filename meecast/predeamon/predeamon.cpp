@@ -179,7 +179,7 @@ main (int argc, char *argv[])
                                    temp, temp_high, temp_low, 
                                    icon_string, result_time,
                                    temp_data->Current(), config->Lockscreen(), 
-                                   t.toString("dd MMM h:m")); 
+                                   t.toString("dd MMM h:mm")); 
     }
 
   if (dp){

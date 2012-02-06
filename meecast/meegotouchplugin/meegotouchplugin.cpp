@@ -82,6 +82,20 @@ WeatherApplicationExtension::initialize(const QString &){
    QObject::connect(client, SIGNAL(refreshRequested()), box, SLOT(refreshRequested()));  
 
    QTimer::singleShot(1000, box, SLOT(refreshRequested()));
+
+   /* Copy wallpaper */
+   if (!(QFile::exists("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png"))){
+       QDir dir("/home/user/.cache/com.meecast.omweather");
+       if (!dir.exists())
+           dir.mkpath("/home/user/.cache/com.meecast.omweather");
+
+       MGConfItem *wallpaperItem;
+       wallpaperItem = new MGConfItem ("/desktop/meego/background/portrait/picture_filename"); 
+
+       if (QFile::exists(wallpaperItem->value().toString()))
+           QFile::copy(wallpaperItem->value().toString(),
+                   "/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png"); 
+   }
 //   box->startpredeamon();
    return true;
 }

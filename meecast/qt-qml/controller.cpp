@@ -161,7 +161,7 @@ Controller::load_data()
                                   result_time, 
                                   forecast_data->current(), 
                                   _config->Lockscreen(),
-                                  t.toString("dd MMM h:m"));
+                                  t.toString("dd MMM h:mm"));
   }
 
   /* fill current night */

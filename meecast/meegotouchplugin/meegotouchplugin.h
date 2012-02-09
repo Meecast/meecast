@@ -65,10 +65,22 @@ private:
     MGConfItem *_wallpaperItem;
     MGConfItem *_original_wallpaperItem;
     QString _wallpaper_path;
-
+    QImage _image;
 public:
 
     MyMWidget(){
+
+        
+//#if 0
+	QFile file("/tmp/1.log");
+    if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  "Begin PreInit MyWidget ."<<".\n";
+	    file.close();
+	}
+
+//#endif
+
       _stationname = "Unknown";
       _temperature = "";
       _temperature_low = "";
@@ -85,42 +97,59 @@ public:
       if (!_wallpaperItem || _wallpaperItem->value() == QVariant::Invalid)
         _wallpaper_path = "/home/user/.wallpapers/wallpaper.png";
       else{
-#if 0
+//#if 0
           // Debug begin
-	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "PreInit MyWidget ."<<_wallpaperItem->value().toString()<<".\n";
 	    file.close();
 	}
-#endif
+//#endif
+
+#if 0
         if (!_original_wallpaperItem || _original_wallpaperItem->value() == QVariant::Invalid)
             _wallpaper_path = _wallpaperItem->value().toString();
         else{
             _wallpaper_path = _original_wallpaperItem->value().toString();
-#if 0
+//#if 0
             if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "PreInit2 MyWidget ."<<_wallpaper_path<<".\n";
 	    file.close();
 	        }
-#endif
+//#endif
         }
+#endif
+        _wallpaper_path = _wallpaperItem->value().toString();
         if (_wallpaper_path.indexOf("MeeCast",0) == -1){
             if (!_original_wallpaperItem || 
                 _original_wallpaperItem->value() == QVariant::Invalid)
                 _original_wallpaperItem->set(_wallpaper_path);
         }
       }
-#if 0
+	  _image.load(_wallpaper_path);
+      if (_image.dotsPerMeterX() != 3780 || _image.dotsPerMeterY() != 3780 ){
+        _image.setDotsPerMeterX(3780);
+        _image.setDotsPerMeterY(3780);
+      }
+      if (_wallpaper_path.indexOf("MeeCast",0) == -1){
+        _image.save("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out <<  "PreInit3 MyWidget ."<<_wallpaper_path<<".\n";
+            file.close();
+	    }
+
+      }
+
+//#if 0
     // Debug begin
-	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
-	    out <<  "Init MyWidget ."<<_wallpaper_path<<".\n";
+	    out <<  "Finish Init MyWidget ."<<_wallpaper_path<<".\n";
 	    file.close();
 	}
-#endif
+//#endif
     };
 
     ~MyMWidget(){
@@ -139,7 +168,7 @@ public:
     }
 
     Q_INVOKABLE void startpredeamon(){
-#if 0
+//#if 0
 
 	// Debug begin
 	QFile file("/tmp/1.log");
@@ -149,7 +178,7 @@ public:
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
         QString executable("/opt/com.meecast.omweather/bin/predaemon");    
         process.startDetached(executable);
     }
@@ -219,7 +248,7 @@ public:
     }
 
         void refreshview(){
-#if 0
+//#if 0
         // Debug begin
         QFile file("/tmp/1.log");
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -228,7 +257,7 @@ public:
             file.close();
         }
         // Debug end 
-#endif
+//#endif
        emit iconChanged();
        emit stationChanged();
        emit temperatureChanged();

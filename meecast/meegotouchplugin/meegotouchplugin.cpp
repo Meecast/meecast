@@ -78,7 +78,8 @@ WeatherApplicationExtension::initialize(const QString &){
    QDBusConnection connection = QDBusConnection::sessionBus();
    bool ret = connection.registerService("com.meecast.applet");
    ret = connection.registerObject("/com/meecast/applet", box);
-   EventFeedIf* client =  new EventFeedIf("com.nokia.home.EventFeed", "/eventfeed", QDBusConnection::sessionBus(), 0); 
+   EventFeedIf* client =  new EventFeedIf("com.nokia.home.EventFeed", "/eventfeed",
+                                           QDBusConnection::sessionBus(), 0); 
    QObject::connect(client, SIGNAL(refreshRequested()), box, SLOT(refreshRequested()));  
 
    QTimer::singleShot(1000, box, SLOT(refreshRequested()));
@@ -183,7 +184,7 @@ void MyMWidget::update_data(){
     this->startpredeamon();
 }
 void MyMWidget::updateWallpaperPath(){ 
-#if 0
+//#if 0
     // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -192,36 +193,37 @@ void MyMWidget::updateWallpaperPath(){
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
 
     if (_wallpaperItem && _wallpaperItem->value() != QVariant::Invalid){
          QString new_wallpaper_path = _wallpaperItem->value().toString();
         if (new_wallpaper_path.indexOf("MeeCast",0) == -1 && new_wallpaper_path != ""){
         
-#if 0
+//#if 0
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "New wallpaper path ."<<new_wallpaper_path<< ".\n";
 	    file.close();
 	    }
-#endif
+//#endif
             _original_wallpaperItem->set(new_wallpaper_path);
             _wallpaper_path = new_wallpaper_path;
             this->refreshwallpaper(true);
         }
     }
-#if 0
+
+//#if 0
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "updateWallpaperPath stop"<< "\n";
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
 }
 void MyMWidget::refreshwallpaper(bool new_wallpaper){
 
-#if 0	    
+//#if 0	    
 	    // Debug begin
         QFile file("/tmp/1.log");
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -229,33 +231,36 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
             out <<  "Start refreshwallpaper"<< " \n";
             file.close();
         }
-#endif
-	    QImage image;
+//#endif
         QDir dir("/home/user/.cache/com.meecast.omweather");
         
         if (!dir.exists())
             dir.mkpath("/home/user/.cache/com.meecast.omweather");
 
-	    image.load(_wallpaper_path);
 
-#if 0	    
+//#if 0	    
 	    // Debug begin
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
             QTextStream out(&file);
             out <<  "Refreshwallpaper "<<_wallpaper_path<< " \n";
             file.close();
         }
-#endif
+//#endif
         if (new_wallpaper){
-            image.save("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
-#if 0
+            _image.load(_wallpaper_path);
+            if (_image.dotsPerMeterX() != 3780 || _image.dotsPerMeterY() != 3780 ){
+                _image.setDotsPerMeterX(3780);
+                _image.setDotsPerMeterY(3780);
+            }
+            _image.save("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
+//#if 0
             // Debug begin
             if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
                 QTextStream out(&file);
                 out <<  "Refreshwallpaper saved "<<_wallpaper_path<< " to original\n";
                 file.close();
             }
-#endif
+//#endif
         }
 
         if (!lockscreen())
@@ -266,6 +271,7 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
 	    int y = 230;
 
 	    QPainter paint;
+        QImage image = _image;
 	    paint.begin(&image);
 	    QPen pen;
 	    QColor myPenColor = QColor(255, 255, 255, 128);// set default color
@@ -309,35 +315,35 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
         paint.drawText(x + 10, y + 128, 170, 35, Qt::AlignHCenter, lastupdate()); 
 
 	    paint.end();
-#if 0
+//#if 0
         // Debug begin
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
             QTextStream out(&file);
             out <<  "Refreshwallpaper paint has been finished\n";
             file.close();
         }
-#endif
+//#endif
 
 	    image.save("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png");
-#if 0
+//#if 0
         // Debug begin
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
             QTextStream out(&file);
             out <<  "Refreshwallpaper /home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png  saved \n";
             file.close();
         }
-#endif
+//#endif
 
 	    _wallpaperItem->set("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
 	    _wallpaperItem->set("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png");
-#if 0
+//#if 0
         // Debug begin
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
             QTextStream out(&file);
             out <<  "Stop refreshwallpaper"<< " \n";
             file.close();
         }
-#endif
+//#endif
 
     }
 

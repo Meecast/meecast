@@ -1698,13 +1698,12 @@ msgid "Pressure"
 msgstr "Pression"
 
 #: meecast/qt-qml/UnitsPage.qml:51 meecast/qt-qml/UnitsPage.qml:164
-#, fuzzy
 msgid "Pressure units"
-msgstr "Unités de pression :"
+msgstr "Unités de pression"
 
 #: omweather/src/weather-settings.c:4049
 msgid "Pressure units:"
-msgstr "Unités de pression :"
+msgstr "Unités de pression:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697

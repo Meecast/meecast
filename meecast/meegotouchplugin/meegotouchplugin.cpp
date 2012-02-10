@@ -206,7 +206,6 @@ void MyMWidget::updateWallpaperPath(){
 	    file.close();
 	    }
 //#endif
-            _original_wallpaperItem->set(new_wallpaper_path);
             _wallpaper_path = new_wallpaper_path;
             this->refreshwallpaper(true);
         }

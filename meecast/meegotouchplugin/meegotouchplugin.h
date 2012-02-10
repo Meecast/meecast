@@ -93,7 +93,6 @@ public:
       connect(_timer, SIGNAL(timeout()), this, SLOT(update_data()));
       _wallpaperItem = new MGConfItem ("/desktop/meego/background/portrait/picture_filename"); 
       connect(_wallpaperItem, SIGNAL(valueChanged()), this, SLOT(updateWallpaperPath()));
-      _original_wallpaperItem = new MGConfItem("/desktop/meego/background/portrait/picture_filename_original", this);
       if (!_wallpaperItem || _wallpaperItem->value() == QVariant::Invalid)
         _wallpaper_path = "/home/user/.wallpapers/wallpaper.png";
       else{
@@ -105,26 +104,10 @@ public:
 	    file.close();
 	}
 //#endif
-
-#if 0
-        if (!_original_wallpaperItem || _original_wallpaperItem->value() == QVariant::Invalid)
-            _wallpaper_path = _wallpaperItem->value().toString();
-        else{
-            _wallpaper_path = _original_wallpaperItem->value().toString();
-//#if 0
-            if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-	    QTextStream out(&file);
-	    out <<  "PreInit2 MyWidget ."<<_wallpaper_path<<".\n";
-	    file.close();
-	        }
-//#endif
         }
-#endif
         _wallpaper_path = _wallpaperItem->value().toString();
         if (_wallpaper_path.indexOf("MeeCast",0) == -1){
-            if (!_original_wallpaperItem || 
-                _original_wallpaperItem->value() == QVariant::Invalid)
-                _original_wallpaperItem->set(_wallpaper_path);
+            _wallpaper_path = "/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png";
         }
       }
 	  _image.load(_wallpaper_path);

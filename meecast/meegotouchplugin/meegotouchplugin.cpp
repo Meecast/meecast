@@ -264,6 +264,14 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
 
         if (!lockscreen())
             return;
+//#if 0
+        // Debug begin
+        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+            out <<  "Refreshwallpaper paint has been started\n";
+            file.close();
+        }
+//#endif
 
         /* Left corner */
 	    int x = 275;

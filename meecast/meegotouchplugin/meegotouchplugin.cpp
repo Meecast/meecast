@@ -32,7 +32,6 @@
 #include <MLibrary>
 #include <QDeclarativeComponent>
 #include <QDeclarativeContext>
-#include <QDeclarativeView>
 #include "dbusadaptor.h"
 #include "eventfeedif.h"
 
@@ -53,6 +52,7 @@ WeatherApplicationExtension::WeatherApplicationExtension() : box(0){
 
 WeatherApplicationExtension::~WeatherApplicationExtension(){
     delete box;
+    delete view;
 }
 
 void 
@@ -66,7 +66,7 @@ WeatherApplicationExtension::initialize(const QString &){
    QGraphicsObject* mWidget;
 
    /* QDeclarative QML */
-   QDeclarativeView* view = new QDeclarativeView();
+   view = new QDeclarativeView();
    view->setSource(QUrl::fromLocalFile("/opt/com.meecast.omweather/share/omweather/qml/applet.qml"));
    box = new MyMWidget();
    mWidget = qobject_cast<QGraphicsObject*>(view->rootObject());
@@ -128,7 +128,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
    this->refreshview();
    if ((until_valid_time - utc_time.toTime_t()) > 0 && 
        (until_valid_time - utc_time.toTime_t()) < 12* 3600){
-#if 0
+//#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -137,10 +137,10 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
         _timer->start(((until_valid_time - utc_time.toTime_t() + 60)*1000));
    }else{
-#if 0
+//#if 0
       // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -149,14 +149,14 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
         _timer->start(3600000);
    }
 
 }
 void 
 MyMWidget::refreshRequested(){
-#if 0
+//#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -166,12 +166,12 @@ MyMWidget::refreshRequested(){
 	}
 	// Debug end 
 
-#endif
+//#endif
 
     this->startpredeamon();
 }
 void MyMWidget::update_data(){
-#if 0
+//#if 0
     // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -180,7 +180,7 @@ void MyMWidget::update_data(){
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
     this->startpredeamon();
 }
 void MyMWidget::updateWallpaperPath(){ 
@@ -195,8 +195,13 @@ void MyMWidget::updateWallpaperPath(){
 	// Debug end 
 //#endif
 
-    if (_wallpaperItem && _wallpaperItem->value() != QVariant::Invalid){
-         QString new_wallpaper_path = _wallpaperItem->value().toString();
+    MGConfItem *wallpaperItem;
+    wallpaperItem = new MGConfItem ("/desktop/meego/background/portrait/picture_filename"); 
+  //  if (_wallpaperItem && _wallpaperItem->value() != QVariant::Invalid){
+  //       QString new_wallpaper_path = _wallpaperItem->value().toString();
+    if (wallpaperItem && wallpaperItem->value() != QVariant::Invalid){
+         QString new_wallpaper_path = wallpaperItem->value().toString();
+
         if (new_wallpaper_path.indexOf("MeeCast",0) == -1 && new_wallpaper_path != ""){
         
 //#if 0
@@ -209,6 +214,7 @@ void MyMWidget::updateWallpaperPath(){
             _wallpaper_path = new_wallpaper_path;
             this->refreshwallpaper(true);
         }
+        delete wallpaperItem;
     }
 
 //#if 0
@@ -246,12 +252,14 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
         }
 //#endif
         if (new_wallpaper){
-            _image.load(_wallpaper_path);
-            if (_image.dotsPerMeterX() != 3780 || _image.dotsPerMeterY() != 3780 ){
-                _image.setDotsPerMeterX(3780);
-                _image.setDotsPerMeterY(3780);
+            delete _image;
+            _image = new QImage;
+            _image->load(_wallpaper_path);
+            if (_image->dotsPerMeterX() != 3780 || _image->dotsPerMeterY() != 3780 ){
+                _image->setDotsPerMeterX(3780);
+                _image->setDotsPerMeterY(3780);
             }
-            _image.save("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
+            _image->save("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
 //#if 0
             // Debug begin
             if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -278,7 +286,7 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
 	    int y = 230;
 
 	    QPainter paint;
-        QImage image = _image;
+            QImage image = _image->copy();
 	    paint.begin(&image);
 	    QPen pen;
 	    QColor myPenColor = QColor(255, 255, 255, 128);// set default color
@@ -300,7 +308,8 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
 	    paint.drawImage(point, icon); 
 		    
 	    /* Station */
-	    paint.setFont(QFont("Arial", 18));
+//	    paint.setFont(QFont("Arial", 18));
+	    paint.setFont(QFont("Nokia Pure Light", 18));
 	    paint.drawText( x + 1, y, 196, 28, Qt::AlignHCenter, _stationname);
 
 	    /* Temperature */

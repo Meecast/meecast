@@ -32,6 +32,7 @@
 #include <MApplicationExtensionInterface>
 #include <MGConfItem>
 #include <QProcess>
+#include <QDeclarativeView>
 #include <QDir>
 // Debug
 #include <QFile>
@@ -65,7 +66,7 @@ private:
     MGConfItem *_wallpaperItem;
     MGConfItem *_original_wallpaperItem;
     QString _wallpaper_path;
-    QImage _image;
+    QImage *_image;
 public:
 
     MyMWidget(){
@@ -85,7 +86,7 @@ public:
       _temperature = "";
       _temperature_low = "";
       _temperature_high = "";
-	  _iconpath = "/opt/com.meecast.omweather/share/icons/Meecast/49.png";
+      _iconpath = "/opt/com.meecast.omweather/share/icons/Meecast/49.png";
       _current = false;
       _lockscreen = false;
       _timer = new QTimer(this);
@@ -109,13 +110,14 @@ public:
             _wallpaper_path = "/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png";
         }
       }
-	  _image.load(_wallpaper_path);
-      if (_image.dotsPerMeterX() != 3780 || _image.dotsPerMeterY() != 3780 ){
-        _image.setDotsPerMeterX(3780);
-        _image.setDotsPerMeterY(3780);
+      _image = new QImage;
+      _image->load(_wallpaper_path);
+      if (_image->dotsPerMeterX() != 3780 || _image->dotsPerMeterY() != 3780 ){
+        _image->setDotsPerMeterX(3780);
+        _image->setDotsPerMeterY(3780);
       }
       if (_wallpaper_path.indexOf("MeeCast",0) == -1){
-        _image.save("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
+        _image->save("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
         if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
             QTextStream out(&file);
             out <<  "PreInit3 MyWidget ."<<_wallpaper_path<<".\n";
@@ -293,6 +295,7 @@ public:
     virtual MWidget *widget();
 
 private:
+    QDeclarativeView* view;
     MyMWidget *box;
 };
 

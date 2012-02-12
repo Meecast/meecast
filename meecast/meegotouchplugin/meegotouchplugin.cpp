@@ -195,13 +195,11 @@ void MyMWidget::updateWallpaperPath(){
 	// Debug end 
 //#endif
 
-    MGConfItem *wallpaperItem;
-    wallpaperItem = new MGConfItem ("/desktop/meego/background/portrait/picture_filename"); 
-  //  if (_wallpaperItem && _wallpaperItem->value() != QVariant::Invalid){
-  //       QString new_wallpaper_path = _wallpaperItem->value().toString();
-    if (wallpaperItem && wallpaperItem->value() != QVariant::Invalid){
-         QString new_wallpaper_path = wallpaperItem->value().toString();
+   if (_wallpaperItem && _wallpaperItem->value() != QVariant::Invalid){
+         QString new_wallpaper_path = _wallpaperItem->value().toString();
 
+        if (!(QFile::exists(new_wallpaper_path)))
+            return;  
         if (new_wallpaper_path.indexOf("MeeCast",0) == -1 && new_wallpaper_path != ""){
         
 //#if 0
@@ -214,7 +212,6 @@ void MyMWidget::updateWallpaperPath(){
             _wallpaper_path = new_wallpaper_path;
             this->refreshwallpaper(true);
         }
-        delete wallpaperItem;
     }
 
 //#if 0

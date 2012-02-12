@@ -106,7 +106,7 @@ public:
 	}
 //#endif
         _wallpaper_path = _wallpaperItem->value().toString();
-        if (_wallpaper_path.indexOf("MeeCast",0) == -1){
+        if (_wallpaper_path.indexOf("MeeCast",0) != -1){
             _wallpaper_path = "/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png";
         }
       }

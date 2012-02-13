@@ -409,9 +409,8 @@ msgid "Clear, Drifting Snow"
 msgstr "Klart, Snödrev"
 
 #: omweather/src/hash.data:31
-#, fuzzy
 msgid "Clear, Fog"
-msgstr "Klart, Dimma, Duggregn"
+msgstr "Klart, Dimma"
 
 #: omweather/src/hash.data:32
 msgid "Clear, Fog, Drizzle"
@@ -552,7 +551,7 @@ msgstr "Daglängd:"
 
 #: omweather/src/weather-popup.c:913
 msgid "Day:"
-msgstr ""
+msgstr "Dag:"
 
 #: meecast/qt-qml/StationsPage.qml:75
 msgid "Delete location?"

@@ -280,7 +280,7 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
 
         /* Left corner */
 	    int x = 275;
-	    int y = 230;
+	    int y = 240;
 
 	    QPainter paint;
             QImage image = _image->copy();
@@ -292,7 +292,7 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
 	    paint.setBrush(QColor(118, 118, 118, 50));
 	    
 	    /* Rect */
-	    paint.drawRoundedRect(x, y, 198, 150, 15.0, 15.0);
+	    paint.drawRoundedRect(x, y, 198, 160, 15.0, 15.0);
 
 	    myPenColor = QColor(255, 255, 255, 255);// set default color
 	    pen.setColor(myPenColor);
@@ -325,7 +325,7 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
 
         /* Last update */
 	    paint.setFont(QFont("Arial", 13));
-        paint.drawText(x + 10, y + 128, 170, 35, Qt::AlignHCenter, lastupdate()); 
+        paint.drawText(x + 10, y + 138, 170, 35, Qt::AlignHCenter, lastupdate()); 
 
 	    paint.end();
 //#if 0

@@ -142,8 +142,7 @@ main (int argc, char *argv[])
         icon_string.append(icon_number) ;
         temp_data->temperature_low().units(config->TemperatureUnit());
         temp_data->temperature_hi().units(config->TemperatureUnit());
-        temp_data->temperature_low().units(config->TemperatureUnit());
-        std::cerr<<"Unit "<<config->TemperatureUnit()<<std::endl;
+        temp_data->temperature().units(config->TemperatureUnit());
         if (temp_data->temperature().value(TRUE) == INT_MAX){
             temp = "N/A";
         }else

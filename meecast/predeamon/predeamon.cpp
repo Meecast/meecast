@@ -143,6 +143,7 @@ main (int argc, char *argv[])
         temp_data->temperature_low().units(config->TemperatureUnit());
         temp_data->temperature_hi().units(config->TemperatureUnit());
         temp_data->temperature_low().units(config->TemperatureUnit());
+        std::cerr<<"Unit "<<config->TemperatureUnit()<<std::endl;
         if (temp_data->temperature().value(TRUE) == INT_MAX){
             temp = "N/A";
         }else

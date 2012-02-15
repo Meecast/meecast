@@ -172,17 +172,26 @@ Config::saveConfig()
         st.appendChild(el);
 
         el = doc.createElement("detail_url");
-        /* Temporary hack for weather.com This must be delete after version 0.4.0 */
+        /* Temporary hack for weather.com and gismeteo.ru. This must be delete after version 0.5.0 */
         if (QString::fromStdString((*i)->detailURL()) == "" && QString::fromStdString((*i)->sourceName()) == "weather.com"){
-	    char forecast_detail_url[4096];
+            char forecast_detail_url[4096];
             snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, "http://xml.weather.com/weather/local/%s?cm_ven=1CW&site=wx.com-bar&cm_ite=wx-cc&par=1CWFFv1.1.9&cm_pla=wx.com-bar&cm_cat=FFv1.1.9&unit=m&hbhf=12", (*i)->id().c_str());
             t = doc.createTextNode(QString::fromStdString(forecast_detail_url));
             el.appendChild(t);
             st.appendChild(el);
         }else{
-            t = doc.createTextNode(QString::fromStdString((*i)->detailURL()));
-            el.appendChild(t);
-            st.appendChild(el);
+            if (QString::fromStdString((*i)->sourceName()) == "gismeteo.ru"){
+                char forecast_detail_url[4096];
+                snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, "http://www.gismeteo.by/city/hourly/%s/", (*i)->id().c_str());
+                t = doc.createTextNode(QString::fromStdString(forecast_detail_url));
+                el.appendChild(t);
+                st.appendChild(el);
+            }
+            else{
+                t = doc.createTextNode(QString::fromStdString((*i)->detailURL()));
+                el.appendChild(t);
+                st.appendChild(el);
+            }
         }
 //        t = doc.createTextNode(QString::fromStdString((*i)->detailURL()));
 //        el.appendChild(t);

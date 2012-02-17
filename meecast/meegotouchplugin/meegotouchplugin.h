@@ -28,12 +28,15 @@
 /*******************************************************************************/
 #include <QString>
 #include <MWidget>
+#include <MLabel>
+#include <MImageWidget>
 #include <QObject>
 #include <MApplicationExtensionInterface>
 #include <MGConfItem>
 #include <QProcess>
-#include <QDeclarativeView>
 #include <QDir>
+#include <QGraphicsGridLayout>
+#include <MButton>
 // Debug
 #include <QFile>
 #include <QTextStream>
@@ -67,6 +70,11 @@ private:
     MGConfItem *_original_wallpaperItem;
     QString _wallpaper_path;
     QImage *_image;
+    MLabel *_station_label;
+    MLabel *_temperature_label;
+    MLabel *_temperature_hi_label;
+    MLabel *_temperature_low_label;
+    MImageWidget *_icon;
 public:
 
     MyMWidget(){
@@ -91,6 +99,28 @@ public:
       _lockscreen = false;
       _timer = new QTimer(this);
       _timer->setSingleShot(true);
+
+      QGraphicsGridLayout  *layout = new QGraphicsGridLayout();
+      _station_label = new MLabel();
+      _station_label->setColor("white");
+      _station_label->setFont(QFont("Arial", 12));
+      layout->addItem(_station_label, 0, 0, 1, 5, Qt::AlignHCenter);
+      _temperature_label = new MLabel();
+      _temperature_label->setFont(QFont("Arial", 12));
+      _temperature_label->setColor("white");
+      layout->addItem(_temperature_label, 2, 0, 2, 1);
+      _temperature_hi_label = new MLabel();
+      _temperature_hi_label->setColor("white");
+      layout->addItem(_temperature_hi_label, 0, 2, 1, 1);
+      _temperature_low_label = new MLabel();
+      _temperature_low_label->setColor("white");
+      layout->addItem(_temperature_low_label, 0, 3, 1, 1);
+      _icon = new MImageWidget();
+      layout->addItem(_icon, 1, 1, 5, 5);
+      layout->setSpacing(0.0);
+//      layout->setColumnFixedWidth(0,10);
+      setLayout(layout);
+
       connect(_timer, SIGNAL(timeout()), this, SLOT(update_data()));
       _wallpaperItem = new MGConfItem ("/desktop/meego/background/portrait/picture_filename"); 
       connect(_wallpaperItem, SIGNAL(valueChanged()), this, SLOT(updateWallpaperPath()));
@@ -231,7 +261,7 @@ public:
         return _lockscreen;
     }
 
-        void refreshview(){
+    void refreshview(){
 //#if 0
         // Debug begin
         QFile file("/tmp/1.log");
@@ -248,6 +278,12 @@ public:
        emit temperature_highChanged();
        emit temperature_lowChanged();
        emit currentChanged();
+       _station_label->setText(station());
+       _temperature_label->setText(temperature());
+       QPixmap pixmap = QPixmap(icon());
+//       pixmap=pixmap.scaled(QSize(128, 128), Qt::KeepAspectRatio);
+       _icon->setPixmap(pixmap);
+//       _icon->setPixmap(QPixmap(icon()));
        refreshwallpaper();           
 	   
     };
@@ -295,7 +331,6 @@ public:
     virtual MWidget *widget();
 
 private:
-    QDeclarativeView* view;
     MyMWidget *box;
 };
 

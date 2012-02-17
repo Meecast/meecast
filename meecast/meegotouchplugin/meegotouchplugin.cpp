@@ -26,10 +26,10 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
-#include <MButton>
 #include <MContainer>
 #include "meegotouchplugin.h"
 #include <MLibrary>
+//#include <QGraphicsLayout>
 #include <QDeclarativeComponent>
 #include <QDeclarativeContext>
 #include "dbusadaptor.h"
@@ -56,7 +56,7 @@ WeatherApplicationExtension::WeatherApplicationExtension() : box(0){
 
 WeatherApplicationExtension::~WeatherApplicationExtension(){
     delete box;
-    delete view;
+//    delete view;
 }
 
 void 
@@ -70,13 +70,12 @@ WeatherApplicationExtension::initialize(const QString &){
    QGraphicsObject* mWidget;
 
    /* QDeclarative QML */
-   view = new QDeclarativeView();
-   view->setSource(QUrl::fromLocalFile("/opt/com.meecast.omweather/share/omweather/qml/applet.qml"));
+//   view = new QDeclarativeView();
+//   view->setSource(QUrl::fromLocalFile("/opt/com.meecast.omweather/share/omweather/qml/applet.qml"));
    box = new MyMWidget();
-   mWidget = qobject_cast<QGraphicsObject*>(view->rootObject());
-   mWidget->setParentItem(box);
-   view->rootContext()->setContextProperty("Applet", box);
-
+//   mWidget = qobject_cast<QGraphicsObject*>(view->rootObject());
+//   mWidget->setParentItem(box);
+//   view->rootContext()->setContextProperty("Applet", box);
    /* D-BUS */
    new MeecastIf(box);
    QDBusConnection connection = QDBusConnection::sessionBus();
@@ -380,4 +379,4 @@ int main (int argc, char *argv[]) {
     int result = app.exec();
     return result;
 }
-
+#endif

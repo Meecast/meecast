@@ -2,6 +2,7 @@
 QT += declarative 
 
 TEMPLATE = lib
+#TEMPLATE = app
 CONFIG += plugin \
     qdbus \
     gui \
@@ -13,6 +14,7 @@ SOURCES = meegotouchplugin.cpp dbusadaptor.cpp eventfeedif.cpp
 
 
 TARGET = $$qtLibraryTarget(events-meecast)
+#TARGET = test
 DESTDIR = lib
 target.path += /usr/lib/meegotouch/applicationextensions/ 
 INSTALLS += target desktop_entry applet package

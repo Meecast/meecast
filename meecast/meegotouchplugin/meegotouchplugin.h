@@ -73,7 +73,7 @@ public:
 
         
 //#if 0
-	QFile file("/tmp/1.log");
+    QFile file("/tmp/1.log");
     if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
 	    out <<  "Begin PreInit MyWidget ."<<".\n";

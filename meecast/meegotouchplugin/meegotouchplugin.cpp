@@ -40,7 +40,11 @@
 #include <QTextStream>
 #include <QDate>
 
-
+#if 0
+#include <MApplication>
+#include <MApplicationWindow>
+#include <MApplicationPage>
+#endif
 
 M_LIBRARY
 Q_EXPORT_PLUGIN2(weatherextension, WeatherApplicationExtension)
@@ -359,4 +363,21 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
 //#endif
 
     }
+#if 0
+int main (int argc, char *argv[]) {
+    MApplication app(argc, argv);
+    MApplicationWindow window;
+    window.showFullScreen();
+    MApplicationPage page;
+    page.setPannable(false);
+    page.appear(MApplication::instance()->activeWindow());
+
+    WeatherApplicationExtension *WAE;
+    WAE = new WeatherApplicationExtension();
+    WAE->initialize("dddd");
+
+    page.setCentralWidget(WAE->widget());
+    int result = app.exec();
+    return result;
+}
 

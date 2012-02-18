@@ -29,6 +29,7 @@
 #include <QString>
 #include <MWidget>
 #include <MLabel>
+#include <QLabel>
 #include <MImageWidget>
 #include <QObject>
 #include <MApplicationExtensionInterface>
@@ -36,6 +37,7 @@
 #include <QProcess>
 #include <QDir>
 #include <QGraphicsGridLayout>
+#include <QGraphicsAnchorLayout>
 #include <MButton>
 // Debug
 #include <QFile>
@@ -75,6 +77,7 @@ private:
     MLabel *_temperature_hi_label;
     MLabel *_temperature_low_label;
     MImageWidget *_icon;
+    QImage *_events_image;
 public:
 
     MyMWidget(){
@@ -100,14 +103,34 @@ public:
       _timer = new QTimer(this);
       _timer->setSingleShot(true);
 
-      QGraphicsGridLayout  *layout = new QGraphicsGridLayout();
-      _station_label = new MLabel();
+      _events_image = new QImage (QSize(128,128), QImage::Format_ARGB32);
+//      QGraphicsGridLayout  *layout = new QGraphicsGridLayout();
+      QGraphicsAnchorLayout *layout = new QGraphicsAnchorLayout();
+      _station_label = new MLabel("ttttttt");
+      _station_label->setWrapMode(QTextOption::WordWrap);
       _station_label->setColor("white");
       _station_label->setFont(QFont("Arial", 12));
-      layout->addItem(_station_label, 0, 0, 1, 5, Qt::AlignHCenter);
       _temperature_label = new MLabel();
-      _temperature_label->setFont(QFont("Arial", 12));
+      _temperature_label->setFont(QFont("Arial", 2));
       _temperature_label->setColor("white");
+
+      _icon = new MImageWidget();
+
+//      layout->addItem(_icon, 0, 0);
+ //     layout->setSpacing(0);
+//      layout->addAnchor(layout, Qt::AnchorTop, _station_label, Qt::AnchorTop);
+//      layout->addAnchor(layout, Qt::AnchorHorizontalCenter, _station_label, Qt::AnchorHorizontalCenter);
+   //   layout->addAnchor(_station_label, Qt::AnchorBottom, _temperature_label, Qt::AnchorTop);
+  //    layout->addAnchor(layout, Qt::AnchorRight, _icon, Qt::AnchorRight);
+  //    layout->addAnchor(_station_label, Qt::AnchorBottom, _icon, Qt::AnchorTop);
+
+
+     //layout->addAnchor(_temperature_label, Qt::AnchorRight, _icon, Qt::AnchorLeft);
+      layout->addAnchor(layout, Qt::AnchorTop, _icon, Qt::AnchorTop);
+      layout->addAnchor(layout, Qt::AnchorLeft, _icon, Qt::AnchorLeft);
+      setLayout(layout);
+/*
+      layout->addItem(_station_label, 0, 0, 1, 3, Qt::AlignCenter);
       layout->addItem(_temperature_label, 2, 0, 2, 1);
       _temperature_hi_label = new MLabel();
       _temperature_hi_label->setColor("white");
@@ -115,11 +138,10 @@ public:
       _temperature_low_label = new MLabel();
       _temperature_low_label->setColor("white");
       layout->addItem(_temperature_low_label, 0, 3, 1, 1);
-      _icon = new MImageWidget();
-      layout->addItem(_icon, 1, 1, 5, 5);
-      layout->setSpacing(0.0);
+      layout->addItem(_icon, 1, 1, 5, 3, Qt::AlignLeft);
+      layout->setSpacing(0);
+*/
 //      layout->setColumnFixedWidth(0,10);
-      setLayout(layout);
 
       connect(_timer, SIGNAL(timeout()), this, SLOT(update_data()));
       _wallpaperItem = new MGConfItem ("/desktop/meego/background/portrait/picture_filename"); 
@@ -278,12 +300,52 @@ public:
        emit temperature_highChanged();
        emit temperature_lowChanged();
        emit currentChanged();
-       _station_label->setText(station());
-       _temperature_label->setText(temperature());
-       QPixmap pixmap = QPixmap(icon());
-//       pixmap=pixmap.scaled(QSize(128, 128), Qt::KeepAspectRatio);
-       _icon->setPixmap(pixmap);
+//       _station_label->setText(station());
+//       _temperature_label->setText(temperature());
+//       QPixmap pixmap = QPixmap(icon());
+//       pixmap=pixmap.scaled(QSize(72, 72), Qt::KeepAspectRatio);
+//       _icon->setPixmap(pixmap);
 //       _icon->setPixmap(QPixmap(icon()));
+        /* Left corner */
+	    int x = 0;
+	    int y = 0;
+
+	    QPainter paint;
+	    paint.begin(_events_image);
+	    QPen pen;
+
+	    QColor myPenColor = QColor(255, 255, 255, 255);// set default color
+	    pen.setColor(myPenColor);
+	    paint.setPen(pen);
+
+	    /* Icon */
+	    QPoint point(x + 40, y + 14);
+	    QImage icon;
+	    icon.load(_iconpath);
+            icon = icon.scaled(72, 72);
+	    paint.drawImage(point, icon); 
+		    
+	    /* Station */
+	    paint.setFont(QFont("Arial", 12));
+	   // paint.setFont(QFont("Nokia Pure Light", 14));
+	    paint.drawText( x , y, 128, 17, Qt::AlignHCenter, _stationname);
+
+	    /* Temperature */
+	    paint.setFont(QFont("Arial", 20));
+	    if (_temperature == "N/A" || _temperature == ""){
+            QString temp_string = _temperature_high + QString::fromUtf8("°");
+            paint.drawText(x, y + 20, 60, 40, Qt::AlignHCenter, temp_string); 
+            temp_string = _temperature_low + QString::fromUtf8("°");
+            paint.drawText(x, y + 40, 60, 40, Qt::AlignHCenter, temp_string); 
+	    }else{
+            if (_current)
+                paint.setFont(QFont("Arial Bold", 22));
+            QString temp_string = _temperature + QString::fromUtf8("°");
+            paint.drawText(x, y + 35, 60, 40, Qt::AlignHCenter, temp_string); 
+	    }
+
+	    paint.end();
+            _icon->setImage(*_events_image);
        refreshwallpaper();           
 	   
     };

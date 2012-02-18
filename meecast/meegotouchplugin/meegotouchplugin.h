@@ -38,6 +38,7 @@
 #include <QDir>
 #include <QGraphicsGridLayout>
 #include <QGraphicsAnchorLayout>
+#include <QGraphicsScene>
 #include <MButton>
 // Debug
 #include <QFile>
@@ -72,7 +73,6 @@ private:
     MGConfItem *_original_wallpaperItem;
     QString _wallpaper_path;
     QImage *_image;
-    MLabel *_station_label;
     MLabel *_temperature_label;
     MLabel *_temperature_hi_label;
     MLabel *_temperature_low_label;
@@ -103,18 +103,14 @@ public:
       _timer = new QTimer(this);
       _timer->setSingleShot(true);
 
-      _events_image = new QImage (QSize(128,128), QImage::Format_ARGB32);
+      _events_image = new QImage (QSize(127, 96), QImage::Format_ARGB32);
 //      QGraphicsGridLayout  *layout = new QGraphicsGridLayout();
       QGraphicsAnchorLayout *layout = new QGraphicsAnchorLayout();
-      _station_label = new MLabel("ttttttt");
-      _station_label->setWrapMode(QTextOption::WordWrap);
-      _station_label->setColor("white");
-      _station_label->setFont(QFont("Arial", 12));
       _temperature_label = new MLabel();
       _temperature_label->setFont(QFont("Arial", 2));
       _temperature_label->setColor("white");
 
-      _icon = new MImageWidget();
+      _icon = new MImageWidget(_events_image);
 
 //      layout->addItem(_icon, 0, 0);
  //     layout->setSpacing(0);
@@ -126,8 +122,13 @@ public:
 
 
      //layout->addAnchor(_temperature_label, Qt::AnchorRight, _icon, Qt::AnchorLeft);
-      layout->addAnchor(layout, Qt::AnchorTop, _icon, Qt::AnchorTop);
-      layout->addAnchor(layout, Qt::AnchorLeft, _icon, Qt::AnchorLeft);
+//      layout->addAnchor(layout, Qt::AnchorTop, _icon, Qt::AnchorTop);
+      layout->addAnchor(layout, Qt::AnchorHorizontalCenter, _icon, Qt::AnchorHorizontalCenter);
+      //layout->addAnchor(layout, Qt::AnchorBottom, _icon, Qt::AnchorBottom);
+      //layout->addAnchor(layout, Qt::AnchorLeft, _icon, Qt::AnchorLeft);
+    //  layout->addAnchor(layout, Qt::AnchorRight, _icon, Qt::AnchorRight);
+      layout->setContentsMargins(1, 1, 1, 1);
+      layout->setSpacing(0);
       setLayout(layout);
 /*
       layout->addItem(_station_label, 0, 0, 1, 3, Qt::AlignCenter);
@@ -315,35 +316,34 @@ public:
          paint.begin(_events_image);
          QPen pen;
 
-         //paint.fillRect( QRect(0, 0, 128, 128), Qt::transparent); 
          QColor myPenColor = QColor(255, 255, 255, 255);// set default color
          pen.setColor(myPenColor);
          paint.setPen(pen);
 
          /* Icon */
-	 QPoint point(x + 40, y + 19);
+	     QPoint point(x + 50, y + 18);
          QImage icon;
-	 icon.load(_iconpath);
+         icon.load(_iconpath);
          icon = icon.scaled(72, 72);
-	 paint.drawImage(point, icon); 
+	     paint.drawImage(point, icon); 
 		    
 	 /* Station */
 	 paint.setFont(QFont("Arial", 12));
 	 // paint.setFont(QFont("Nokia Pure Light", 14));
-	 paint.drawText( x , y, 128, 19, Qt::AlignHCenter, _stationname);
+	 paint.drawText( x , y, 127, 19, Qt::AlignHCenter, _stationname);
 
 	 /* Temperature */
 	 paint.setFont(QFont("Arial", 20));
 	 if (_temperature == "N/A" || _temperature == ""){
                 QString temp_string = _temperature_high + QString::fromUtf8("°");
-                paint.drawText(x, y + 20, 60, 40, Qt::AlignHCenter, temp_string); 
+                paint.drawText(x, y + 20, 60, 50, Qt::AlignHCenter, temp_string); 
                 temp_string = _temperature_low + QString::fromUtf8("°");
-                paint.drawText(x, y + 50, 60, 40, Qt::AlignHCenter, temp_string); 
+                paint.drawText(x, y + 50, 60, 50, Qt::AlignHCenter, temp_string); 
 	  }else{
 		 if (_current)
-			paint.setFont(QFont("Arial Bold", 22));
-	         QString temp_string = _temperature + QString::fromUtf8("°");
-		 paint.drawText(x, y + 35, 60, 40, Qt::AlignHCenter, temp_string); 
+			paint.setFont(QFont("Arial Bold", 21));
+         QString temp_string = _temperature + QString::fromUtf8("°");
+	     paint.drawText(x, y + 35, 60, 48, Qt::AlignHCenter, temp_string); 
 	  }
 
 	  paint.end();

@@ -28,7 +28,6 @@
 /*******************************************************************************/
 #include <QString>
 #include <MWidget>
-#include <MLabel>
 #include <QLabel>
 #include <MImageWidget>
 #include <QObject>
@@ -36,10 +35,7 @@
 #include <MGConfItem>
 #include <QProcess>
 #include <QDir>
-#include <QGraphicsGridLayout>
 #include <QGraphicsAnchorLayout>
-#include <QGraphicsScene>
-#include <MButton>
 // Debug
 #include <QFile>
 #include <QTextStream>
@@ -73,11 +69,9 @@ private:
     MGConfItem *_original_wallpaperItem;
     QString _wallpaper_path;
     QImage *_image;
-    MLabel *_temperature_label;
-    MLabel *_temperature_hi_label;
-    MLabel *_temperature_low_label;
     MImageWidget *_icon;
     QImage *_events_image;
+    bool _down;
 public:
 
     MyMWidget(){
@@ -102,15 +96,13 @@ public:
       _lockscreen = false;
       _timer = new QTimer(this);
       _timer->setSingleShot(true);
+      _down = false;
 
       _events_image = new QImage (QSize(127, 96), QImage::Format_ARGB32);
-//      QGraphicsGridLayout  *layout = new QGraphicsGridLayout();
       QGraphicsAnchorLayout *layout = new QGraphicsAnchorLayout();
-      _temperature_label = new MLabel();
-      _temperature_label->setFont(QFont("Arial", 2));
-      _temperature_label->setColor("white");
 
       _icon = new MImageWidget(_events_image);
+      grabMouse();
 
 //      layout->addItem(_icon, 0, 0);
  //     layout->setSpacing(0);
@@ -130,18 +122,6 @@ public:
       layout->setContentsMargins(1, 1, 1, 1);
       layout->setSpacing(0);
       setLayout(layout);
-/*
-      layout->addItem(_station_label, 0, 0, 1, 3, Qt::AlignCenter);
-      layout->addItem(_temperature_label, 2, 0, 2, 1);
-      _temperature_hi_label = new MLabel();
-      _temperature_hi_label->setColor("white");
-      layout->addItem(_temperature_hi_label, 0, 2, 1, 1);
-      _temperature_low_label = new MLabel();
-      _temperature_low_label->setColor("white");
-      layout->addItem(_temperature_low_label, 0, 3, 1, 1);
-      layout->addItem(_icon, 1, 1, 5, 3, Qt::AlignLeft);
-      layout->setSpacing(0);
-*/
 //      layout->setColumnFixedWidth(0,10);
 
       connect(_timer, SIGNAL(timeout()), this, SLOT(update_data()));
@@ -188,7 +168,41 @@ public:
 	}
 //#endif
     };
+    
+    void
+    mousePressEvent(QGraphicsSceneMouseEvent *event){
+        _down = true;
+//#if 0
 
+	// Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "mousePressEvent\n";
+	    file.close();
+	}
+	// Debug end 
+//#endif
+
+    }
+    void
+    mouseReleaseEvent(QGraphicsSceneMouseEvent *event){
+        if (_down)
+           startapplication();
+        _down = false;
+//#if 0
+
+	// Debug begin
+	QFile file("/tmp/1.log");
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "mouseReleaseEvent\n";
+	    file.close();
+	}
+	// Debug end 
+//#endif
+
+    }
     ~MyMWidget(){
       delete _timer;
     };
@@ -320,17 +334,18 @@ public:
          pen.setColor(myPenColor);
          paint.setPen(pen);
 
-         /* Icon */
-	     QPoint point(x + 50, y + 18);
-         QImage icon;
-         icon.load(_iconpath);
-         icon = icon.scaled(72, 72);
-	     paint.drawImage(point, icon); 
-		    
 	 /* Station */
 	 paint.setFont(QFont("Arial", 12));
 	 // paint.setFont(QFont("Nokia Pure Light", 14));
-	 paint.drawText( x , y, 127, 19, Qt::AlignHCenter, _stationname);
+	 paint.drawText( x , y, 127, 21, Qt::AlignHCenter, _stationname);
+
+         /* Icon */
+         QPoint point(x + 50, y + 19);
+         QImage icon;
+         icon.load(_iconpath);
+         icon = icon.scaled(72, 72);
+         paint.drawImage(point, icon); 
+		    
 
 	 /* Temperature */
 	 paint.setFont(QFont("Arial", 20));
@@ -338,7 +353,7 @@ public:
                 QString temp_string = _temperature_high + QString::fromUtf8("°");
                 paint.drawText(x, y + 20, 60, 50, Qt::AlignHCenter, temp_string); 
                 temp_string = _temperature_low + QString::fromUtf8("°");
-                paint.drawText(x, y + 50, 60, 50, Qt::AlignHCenter, temp_string); 
+                paint.drawText(x, y + 55, 60, 50, Qt::AlignHCenter, temp_string); 
 	  }else{
 		 if (_current)
 			paint.setFont(QFont("Arial Bold", 21));

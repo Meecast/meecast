@@ -307,46 +307,49 @@ public:
 //       _icon->setPixmap(pixmap);
 //       _icon->setPixmap(QPixmap(icon()));
         /* Left corner */
-	    int x = 0;
-	    int y = 0;
+         int x = 0;
+         int y = 0;
 
-	    QPainter paint;
-	    paint.begin(_events_image);
-	    QPen pen;
+         QPainter paint;
+         _events_image->fill(Qt::green);
+         paint.begin(_events_image);
+         QPen pen;
 
-	    QColor myPenColor = QColor(255, 255, 255, 255);// set default color
-	    pen.setColor(myPenColor);
-	    paint.setPen(pen);
+         //paint.fillRect( QRect(0, 0, 128, 128), Qt::transparent); 
+         QColor myPenColor = QColor(255, 255, 255, 255);// set default color
+         pen.setColor(myPenColor);
+         paint.setPen(pen);
 
-	    /* Icon */
-	    QPoint point(x + 40, y + 14);
-	    QImage icon;
-	    icon.load(_iconpath);
-            icon = icon.scaled(72, 72);
-	    paint.drawImage(point, icon); 
+         /* Icon */
+	 QPoint point(x + 40, y + 19);
+         QImage icon;
+	 icon.load(_iconpath);
+         icon = icon.scaled(72, 72);
+	 paint.drawImage(point, icon); 
 		    
-	    /* Station */
-	    paint.setFont(QFont("Arial", 12));
-	   // paint.setFont(QFont("Nokia Pure Light", 14));
-	    paint.drawText( x , y, 128, 17, Qt::AlignHCenter, _stationname);
+	 /* Station */
+	 paint.setFont(QFont("Arial", 12));
+	 // paint.setFont(QFont("Nokia Pure Light", 14));
+	 paint.drawText( x , y, 128, 19, Qt::AlignHCenter, _stationname);
 
-	    /* Temperature */
-	    paint.setFont(QFont("Arial", 20));
-	    if (_temperature == "N/A" || _temperature == ""){
-            QString temp_string = _temperature_high + QString::fromUtf8("°");
-            paint.drawText(x, y + 20, 60, 40, Qt::AlignHCenter, temp_string); 
-            temp_string = _temperature_low + QString::fromUtf8("°");
-            paint.drawText(x, y + 40, 60, 40, Qt::AlignHCenter, temp_string); 
-	    }else{
-            if (_current)
-                paint.setFont(QFont("Arial Bold", 22));
-            QString temp_string = _temperature + QString::fromUtf8("°");
-            paint.drawText(x, y + 35, 60, 40, Qt::AlignHCenter, temp_string); 
-	    }
+	 /* Temperature */
+	 paint.setFont(QFont("Arial", 20));
+	 if (_temperature == "N/A" || _temperature == ""){
+                QString temp_string = _temperature_high + QString::fromUtf8("°");
+                paint.drawText(x, y + 20, 60, 40, Qt::AlignHCenter, temp_string); 
+                temp_string = _temperature_low + QString::fromUtf8("°");
+                paint.drawText(x, y + 50, 60, 40, Qt::AlignHCenter, temp_string); 
+	  }else{
+		 if (_current)
+			paint.setFont(QFont("Arial Bold", 22));
+	         QString temp_string = _temperature + QString::fromUtf8("°");
+		 paint.drawText(x, y + 35, 60, 40, Qt::AlignHCenter, temp_string); 
+	  }
 
-	    paint.end();
-            _icon->setImage(*_events_image);
-       refreshwallpaper();           
+	  paint.end();
+          _icon->setImage(*_events_image);
+
+          refreshwallpaper();           
 	   
     };
 

@@ -177,6 +177,10 @@ void MyMWidget::update_data(){
 //#endif
     this->startpredeamon();
 }
+void MyMWidget::updateStandbyPath(){
+/* To Do make changed to path for MeeCast */
+} 
+
 void MyMWidget::updateWallpaperPath(){ 
 //#if 0
     // Debug begin
@@ -399,7 +403,54 @@ void MyMWidget::refresheventswidget(){
 
 }
 
+void MyMWidget::refreshstandby(){
+      QImage *image;
+      image = new QImage (QSize(120, 120), QImage::Format_Mono);
+        /* Left corner */
+         int x = 0;
+         int y = 0;
 
+         QPainter paint;
+         image->fill(Qt::black);
+         paint.begin(image);
+         QPen pen;
+
+         QColor myPenColor = QColor(255, 255, 255, 255);// set default color
+         pen.setColor(myPenColor);
+         paint.setPen(pen);
+
+	 /* Station */
+	 paint.setFont(QFont("Arial", 12));
+	 // paint.setFont(QFont("Nokia Pure Light", 14));
+	 paint.drawText( x , y, 127, 21, Qt::AlignHCenter, _stationname);
+
+         /* Icon */
+         QPoint point(x + 50, y + 19);
+         QImage icon;
+         icon.load(_iconpath);
+         icon = icon.scaled(72, 72);
+         paint.drawImage(point, icon); 
+		    
+	 /* Temperature */
+	 paint.setFont(QFont("Arial", 20));
+	 if (_temperature == "N/A" || _temperature == ""){
+                QString temp_string = _temperature_high + QString::fromUtf8("°");
+                paint.drawText(x, y + 20, 60, 50, Qt::AlignHCenter, temp_string); 
+                temp_string = _temperature_low + QString::fromUtf8("°");
+                paint.drawText(x, y + 55, 60, 50, Qt::AlignHCenter, temp_string); 
+	  }else{
+		 if (_current)
+			paint.setFont(QFont("Arial Bold", 21));
+         QString temp_string = _temperature + QString::fromUtf8("°");
+	     paint.drawText(x, y + 35, 60, 48, Qt::AlignHCenter, temp_string); 
+	  }
+
+	  paint.end();
+
+	  image->save("/home/user/.cache/com.meecast.omweather/logo.png");
+
+    _standbyItem->set("/home/user/.cache/com.meecast.omweather/logo.png");
+}
 
 #if 0
 int main (int argc, char *argv[]) {

@@ -47,13 +47,6 @@
 class MyMWidget : public MWidget
 {
    Q_OBJECT                                                                                                                                                                       
-   Q_PROPERTY(QString icon READ icon NOTIFY iconChanged)  
-   Q_PROPERTY(QString station READ station NOTIFY stationChanged)  
-   Q_PROPERTY(QString temperature READ temperature NOTIFY temperatureChanged)  
-   Q_PROPERTY(QString temperature_high READ temperature_high NOTIFY temperature_highChanged)  
-   Q_PROPERTY(QString temperature_low READ temperature_low NOTIFY temperature_lowChanged)  
-   Q_PROPERTY(bool current READ current NOTIFY currentChanged)  
-
 private:
     QProcess process;
     QString  _stationname;
@@ -64,8 +57,10 @@ private:
     QString  _lastupdate;
     bool    _current;
     bool    _lockscreen;
+    bool    _standbyscreen;
     QTimer  *_timer;
     MGConfItem *_wallpaperItem;
+    MGConfItem *_standbyItem;
     MGConfItem *_original_wallpaperItem;
     QString _wallpaper_path;
     QImage *_image;
@@ -94,6 +89,7 @@ public:
       _iconpath = "/opt/com.meecast.omweather/share/icons/Meecast/49.png";
       _current = false;
       _lockscreen = false;
+      _standbyscreen = false;
       _timer = new QTimer(this);
       _timer->setSingleShot(true);
       _down = false;
@@ -111,8 +107,10 @@ public:
       layout->setSpacing(0);
       setLayout(layout);
     
+      /* preparing for standby screen */
+      _standbyItem = new MGConfItem ("/desktop/meego/screen_lock/low_power_mode/operator_logo"); 
+      connect(_standbyItem, SIGNAL(valueChanged()), this, SLOT(updateStandbyPath()));
       /* preparing for wallpaper widget */
-      connect(_timer, SIGNAL(timeout()), this, SLOT(update_data()));
       _wallpaperItem = new MGConfItem ("/desktop/meego/background/portrait/picture_filename"); 
       connect(_wallpaperItem, SIGNAL(valueChanged()), this, SLOT(updateWallpaperPath()));
       if (!_wallpaperItem || _wallpaperItem->value() == QVariant::Invalid)
@@ -147,6 +145,7 @@ public:
 
       }
 
+      connect(_timer, SIGNAL(timeout()), this, SLOT(update_data()));
 //#if 0
     // Debug begin
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -175,6 +174,7 @@ public:
 
     void refreshwallpaper(bool new_wallpaper = false);
     void refresheventswidget(void);
+    void refreshstandby(void);
 
     Q_INVOKABLE void startapplication(){
         QString executable("/usr/bin/invoker");    
@@ -277,7 +277,10 @@ public:
         // Debug end 
 //#endif
           refresheventswidget();
-          refreshwallpaper();           
+          if (_lockscreen)
+              refreshwallpaper();           
+          if (_lockscreen)
+              refreshstandby();
 	   
     };
 
@@ -287,6 +290,7 @@ public Q_SLOTS:
     void update_data();
     void refreshRequested();
     void updateWallpaperPath();
+    void updateStandbyPath();
 signals:
     void iconChanged();
     void stationChanged();

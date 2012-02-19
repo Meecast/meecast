@@ -29,9 +29,6 @@
 #include <MContainer>
 #include "meegotouchplugin.h"
 #include <MLibrary>
-//#include <QGraphicsLayout>
-#include <QDeclarativeComponent>
-#include <QDeclarativeContext>
 #include "dbusadaptor.h"
 #include "eventfeedif.h"
 
@@ -69,13 +66,8 @@ bool
 WeatherApplicationExtension::initialize(const QString &){
    QGraphicsObject* mWidget;
 
-   /* QDeclarative QML */
-//   view = new QDeclarativeView();
-//   view->setSource(QUrl::fromLocalFile("/opt/com.meecast.omweather/share/omweather/qml/applet.qml"));
    box = new MyMWidget();
-//   mWidget = qobject_cast<QGraphicsObject*>(view->rootObject());
-//   mWidget->setParentItem(box);
-//   view->rootContext()->setContextProperty("Applet", box);
+
    /* D-BUS */
    new MeecastIf(box);
    QDBusConnection connection = QDBusConnection::sessionBus();
@@ -170,7 +162,6 @@ MyMWidget::refreshRequested(){
 	// Debug end 
 
 //#endif
-
     this->startpredeamon();
 }
 void MyMWidget::update_data(){
@@ -362,6 +353,54 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
 //#endif
 
     }
+
+void MyMWidget::refresheventswidget(){
+        /* Left corner */
+         int x = 0;
+         int y = 0;
+
+         QPainter paint;
+         _events_image->fill(Qt::transparent);
+         paint.begin(_events_image);
+         QPen pen;
+
+         QColor myPenColor = QColor(255, 255, 255, 255);// set default color
+         pen.setColor(myPenColor);
+         paint.setPen(pen);
+
+	 /* Station */
+	 paint.setFont(QFont("Arial", 12));
+	 // paint.setFont(QFont("Nokia Pure Light", 14));
+	 paint.drawText( x , y, 127, 21, Qt::AlignHCenter, _stationname);
+
+         /* Icon */
+         QPoint point(x + 50, y + 19);
+         QImage icon;
+         icon.load(_iconpath);
+         icon = icon.scaled(72, 72);
+         paint.drawImage(point, icon); 
+		    
+	 /* Temperature */
+	 paint.setFont(QFont("Arial", 20));
+	 if (_temperature == "N/A" || _temperature == ""){
+                QString temp_string = _temperature_high + QString::fromUtf8("°");
+                paint.drawText(x, y + 20, 60, 50, Qt::AlignHCenter, temp_string); 
+                temp_string = _temperature_low + QString::fromUtf8("°");
+                paint.drawText(x, y + 55, 60, 50, Qt::AlignHCenter, temp_string); 
+	  }else{
+		 if (_current)
+			paint.setFont(QFont("Arial Bold", 21));
+         QString temp_string = _temperature + QString::fromUtf8("°");
+	     paint.drawText(x, y + 35, 60, 48, Qt::AlignHCenter, temp_string); 
+	  }
+
+	  paint.end();
+          _icon->setImage(*_events_image);
+
+}
+
+
+
 #if 0
 int main (int argc, char *argv[]) {
     MApplication app(argc, argv);

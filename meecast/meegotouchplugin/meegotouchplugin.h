@@ -97,33 +97,21 @@ public:
       _timer = new QTimer(this);
       _timer->setSingleShot(true);
       _down = false;
-
-      _events_image = new QImage (QSize(127, 96), QImage::Format_ARGB32);
+      
+      /* preparing for events widget */ 
       QGraphicsAnchorLayout *layout = new QGraphicsAnchorLayout();
-
+      _events_image = new QImage (QSize(127, 96), QImage::Format_ARGB32);
+      _events_image->load("/opt/com.meecast.omweather/share/icons/Meecast/49.png");
+      *_events_image = _events_image->scaled(127, 96);
       _icon = new MImageWidget(_events_image);
       grabMouse();
 
-//      layout->addItem(_icon, 0, 0);
- //     layout->setSpacing(0);
-//      layout->addAnchor(layout, Qt::AnchorTop, _station_label, Qt::AnchorTop);
-//      layout->addAnchor(layout, Qt::AnchorHorizontalCenter, _station_label, Qt::AnchorHorizontalCenter);
-   //   layout->addAnchor(_station_label, Qt::AnchorBottom, _temperature_label, Qt::AnchorTop);
-  //    layout->addAnchor(layout, Qt::AnchorRight, _icon, Qt::AnchorRight);
-  //    layout->addAnchor(_station_label, Qt::AnchorBottom, _icon, Qt::AnchorTop);
-
-
-     //layout->addAnchor(_temperature_label, Qt::AnchorRight, _icon, Qt::AnchorLeft);
-//      layout->addAnchor(layout, Qt::AnchorTop, _icon, Qt::AnchorTop);
       layout->addAnchor(layout, Qt::AnchorHorizontalCenter, _icon, Qt::AnchorHorizontalCenter);
-      //layout->addAnchor(layout, Qt::AnchorBottom, _icon, Qt::AnchorBottom);
-      //layout->addAnchor(layout, Qt::AnchorLeft, _icon, Qt::AnchorLeft);
-    //  layout->addAnchor(layout, Qt::AnchorRight, _icon, Qt::AnchorRight);
       layout->setContentsMargins(1, 1, 1, 1);
       layout->setSpacing(0);
       setLayout(layout);
-//      layout->setColumnFixedWidth(0,10);
-
+    
+      /* preparing for wallpaper widget */
       connect(_timer, SIGNAL(timeout()), this, SLOT(update_data()));
       _wallpaperItem = new MGConfItem ("/desktop/meego/background/portrait/picture_filename"); 
       connect(_wallpaperItem, SIGNAL(valueChanged()), this, SLOT(updateWallpaperPath()));
@@ -168,46 +156,25 @@ public:
 	}
 //#endif
     };
-    
+
+     ~MyMWidget(){
+      delete _timer;
+    };
+   
     void
     mousePressEvent(QGraphicsSceneMouseEvent *event){
         _down = true;
-//#if 0
-
-	// Debug begin
-	QFile file("/tmp/1.log");
-	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-	    QTextStream out(&file);
-	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "mousePressEvent\n";
-	    file.close();
-	}
-	// Debug end 
-//#endif
-
     }
+
     void
     mouseReleaseEvent(QGraphicsSceneMouseEvent *event){
         if (_down)
            startapplication();
         _down = false;
-//#if 0
-
-	// Debug begin
-	QFile file("/tmp/1.log");
-	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-	    QTextStream out(&file);
-	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "mouseReleaseEvent\n";
-	    file.close();
-	}
-	// Debug end 
-//#endif
-
     }
-    ~MyMWidget(){
-      delete _timer;
-    };
 
     void refreshwallpaper(bool new_wallpaper = false);
+    void refresheventswidget(void);
 
     Q_INVOKABLE void startapplication(){
         QString executable("/usr/bin/invoker");    
@@ -283,10 +250,10 @@ public:
 	    return _lastupdate;
     } 
 
-
     void current(bool cur){
         _current = cur;
     }
+
     bool current(){
         return _current;
     }
@@ -309,61 +276,7 @@ public:
         }
         // Debug end 
 //#endif
-       emit iconChanged();
-       emit stationChanged();
-       emit temperatureChanged();
-       emit temperature_highChanged();
-       emit temperature_lowChanged();
-       emit currentChanged();
-//       _station_label->setText(station());
-//       _temperature_label->setText(temperature());
-//       QPixmap pixmap = QPixmap(icon());
-//       pixmap=pixmap.scaled(QSize(72, 72), Qt::KeepAspectRatio);
-//       _icon->setPixmap(pixmap);
-//       _icon->setPixmap(QPixmap(icon()));
-        /* Left corner */
-         int x = 0;
-         int y = 0;
-
-         QPainter paint;
-         _events_image->fill(Qt::green);
-         paint.begin(_events_image);
-         QPen pen;
-
-         QColor myPenColor = QColor(255, 255, 255, 255);// set default color
-         pen.setColor(myPenColor);
-         paint.setPen(pen);
-
-	 /* Station */
-	 paint.setFont(QFont("Arial", 12));
-	 // paint.setFont(QFont("Nokia Pure Light", 14));
-	 paint.drawText( x , y, 127, 21, Qt::AlignHCenter, _stationname);
-
-         /* Icon */
-         QPoint point(x + 50, y + 19);
-         QImage icon;
-         icon.load(_iconpath);
-         icon = icon.scaled(72, 72);
-         paint.drawImage(point, icon); 
-		    
-
-	 /* Temperature */
-	 paint.setFont(QFont("Arial", 20));
-	 if (_temperature == "N/A" || _temperature == ""){
-                QString temp_string = _temperature_high + QString::fromUtf8("°");
-                paint.drawText(x, y + 20, 60, 50, Qt::AlignHCenter, temp_string); 
-                temp_string = _temperature_low + QString::fromUtf8("°");
-                paint.drawText(x, y + 55, 60, 50, Qt::AlignHCenter, temp_string); 
-	  }else{
-		 if (_current)
-			paint.setFont(QFont("Arial Bold", 21));
-         QString temp_string = _temperature + QString::fromUtf8("°");
-	     paint.drawText(x, y + 35, 60, 48, Qt::AlignHCenter, temp_string); 
-	  }
-
-	  paint.end();
-          _icon->setImage(*_events_image);
-
+          refresheventswidget();
           refreshwallpaper();           
 	   
     };

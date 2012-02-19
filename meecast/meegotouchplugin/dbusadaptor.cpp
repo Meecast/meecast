@@ -33,9 +33,9 @@ MeecastIf::~MeecastIf()
     // destructor
 }
 
-void MeecastIf::SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, uint until_valid_time, bool current, bool lockscreen, const QString &last_update)
+void MeecastIf::SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, uint until_valid_time, bool current, bool lockscreen, bool standbyscreen, const QString &last_update)
 {
     // handle method call com.meecast.applet.SetCurrentData
-    QMetaObject::invokeMethod(parent(), "SetCurrentData", Q_ARG(QString, station), Q_ARG(QString, temperature), Q_ARG(QString, temperature_hi), Q_ARG(QString, temperature_low), Q_ARG(QString, icon), Q_ARG(uint, until_valid_time), Q_ARG(bool, current), Q_ARG(bool, lockscreen), Q_ARG(QString, last_update));
+    QMetaObject::invokeMethod(parent(), "SetCurrentData", Q_ARG(QString, station), Q_ARG(QString, temperature), Q_ARG(QString, temperature_hi), Q_ARG(QString, temperature_low), Q_ARG(QString, icon), Q_ARG(uint, until_valid_time), Q_ARG(bool, current), Q_ARG(bool, lockscreen), Q_ARG(bool, standbyscreen), Q_ARG(QString, last_update));
 }
 

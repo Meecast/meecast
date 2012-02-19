@@ -22,7 +22,7 @@ CC	predeamon/Makefile	/^CC            = gcc$/;"	m
 CC	qt-qml/Makefile	/^CC            = gcc$/;"	m
 CC	qtsetting/Makefile	/^CC            = gcc$/;"	m
 CC	xml-qml/Makefile	/^CC            = gcc$/;"	m
-CFLAGS	core/Makefile	/^CFLAGS        = -pipe -g -fPIC -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+CFLAGS	core/Makefile	/^CFLAGS        = -pipe -g -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -fPIC -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
 CFLAGS	meegotouchplugin/Makefile	/^CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)$/;"	m
 CFLAGS	predeamon/Makefile	/^CFLAGS        = -pipe -g -DQT_SHARED -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtCore -DQT_SHARED -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtXml -I\/usr\/include\/qt4\/QtCore -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
 CFLAGS	qt-qml/Makefile	/^CFLAGS        = -pipe -g -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
@@ -95,10 +95,10 @@ CXX	predeamon/Makefile	/^CXX           = g++$/;"	m
 CXX	qt-qml/Makefile	/^CXX           = g++$/;"	m
 CXX	qtsetting/Makefile	/^CXX           = g++$/;"	m
 CXX	xml-qml/Makefile	/^CXX           = g++$/;"	m
-CXXFLAGS	core/Makefile	/^CXXFLAGS      = -pipe -g -fPIC -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+CXXFLAGS	core/Makefile	/^CXXFLAGS      = -pipe -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -g -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -fPIC -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
 CXXFLAGS	meegotouchplugin/Makefile	/^CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)$/;"	m
 CXXFLAGS	predeamon/Makefile	/^CXXFLAGS      = -pipe -g -DQT_SHARED -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtCore -DQT_SHARED -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtXml -I\/usr\/include\/qt4\/QtCore -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
-CXXFLAGS	qt-qml/Makefile	/^CXXFLAGS      = -pipe -g -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+CXXFLAGS	qt-qml/Makefile	/^CXXFLAGS      = -pipe -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -g -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
 CXXFLAGS	qtsetting/Makefile	/^CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
 CXXFLAGS	xml-qml/Makefile	/^CXXFLAGS      = -pipe -O2 -g -Wno-psabi -pthread -I\/usr\/include\/dbus-1.0 -I\/usr\/lib\/dbus-1.0\/include -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -DQT_SHARED -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtCore -DQT_SHARED -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtXml -I\/usr\/include\/qt4\/QtCore $(DEFINES)$/;"	m
 CategoryRole	qt-qml/selectmodel.h	/^        CategoryRole = Qt::UserRole + 3$/;"	e	enum:SelectModel::SelectModelRoles
@@ -160,7 +160,7 @@ Countries	meego-UX-panel/configqml.cpp	/^ConfigQml::Countries(QString source, bo
 Countries	qt-qml/configqml.cpp	/^ConfigQml::Countries(QString source)$/;"	f	class:ConfigQml
 CountryModel	qt-qml/countrymodel.cpp	/^CountryModel::CountryModel(QObject *parent): SelectModel(parent)$/;"	f	class:CountryModel
 CountryModel	qt-qml/countrymodel.h	/^class CountryModel : public SelectModel$/;"	c
-Current	core/data.cpp	/^      Data::Current() const{$/;"	f	class:Core::Data
+Current	core/data.cpp	/^     Data::Current() const{$/;"	f	class:Core::Data
 Current	core/data.cpp	/^     Data::Current(bool current){$/;"	f	class:Core::Data
 CurrentRole	qt-qml/dataitem.h	/^        CurrentRole,$/;"	e	enum:DataItem::Roles
 DATABASEABSTRACT_H	core/databaseabstract.h	33;"	d
@@ -178,10 +178,10 @@ DATA_XSD_PATH	netbook-UX/meego-netbookUX-omweather.cpp	42;"	d	file:
 DATA_XSD_PATH	predeamon/predeamon.cpp	33;"	d	file:
 DATA_XSD_PATH	xml-qml/xml-qml.cpp	41;"	d	file:
 DAY	netbook-UX/meego-netbookUX-common.h	/^enum {DAY=1, NIGHT=2, CURRENT=3};$/;"	e	enum:__anon1
-DBUSADAPTOR_APPLET_H_1317131471	predeamon/dbusadaptor_applet.h	12;"	d
-DBUSADAPTOR_APPLET_H_1317131471	qt-qml/dbusadaptor_applet.h	12;"	d
-DBUSADAPTOR_H_1298437762	qt-qml/dbusadaptor.h	13;"	d
-DBUSADAPTOR_H_1317131288	meegotouchplugin/dbusadaptor.h	13;"	d
+DBUSADAPTOR_APPLET_H_1328120837	predeamon/dbusadaptor_applet.h	12;"	d
+DBUSADAPTOR_APPLET_H_1328120837	qt-qml/dbusadaptor_applet.h	12;"	d
+DBUSADAPTOR_H_1328120702	qt-qml/dbusadaptor.h	13;"	d
+DBUSADAPTOR_H_1328122973	meegotouchplugin/dbusadaptor.h	13;"	d
 DEFAULT_MARGIN	qt-qml/UIConstants.js	/^var DEFAULT_MARGIN = 16;$/;"	v
 DEFINES	core/Makefile	/^DEFINES       = -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
 DEFINES	meegotouchplugin/Makefile	/^DEFINES       = -DM_LIBRARY_NAME=\\"lib${QMAKE_TARGET}\\" -DQT_PLUGIN -DQT_DECLARATIVE_LIB -DQT_DBUS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
@@ -282,7 +282,7 @@ GETTEXT_PACKAGE	netbook-UX/meego-netbookUX-common.h	37;"	d
 GETTEXT_PACKAGE	netbook-UX/meego-panel-omweather.cpp	45;"	d	file:
 GETTEXT_PACKAGE	xml-qml/xml-qml.cpp	46;"	d	file:
 GPSPOSITION_H	qt-qml/gpsposition.h	2;"	d
-GetDataForTime	core/datalist.cpp	/^     DataList::GetDataForTime(time_t _time){  $/;"	f	class:Core::DataList
+GetDataForTime	core/datalist.cpp	/^     DataList::GetDataForTime(time_t _time, bool is_hour){  $/;"	f	class:Core::DataList
 GetSunRiseForTime	core/datalist.cpp	/^       DataList::GetSunRiseForTime(time_t _time){$/;"	f	class:Core::DataList
 GetSunSetForTime	core/datalist.cpp	/^       DataList::GetSunSetForTime(time_t _time){$/;"	f	class:Core::DataList
 GetTimeDistance	core/data.cpp	/^    Data::GetTimeDistance(time_t need_time){$/;"	f	class:Core::Data
@@ -296,6 +296,8 @@ HEADER_DEFAULT_HEIGHT_LANDSCAPE	qt-qml/UIConstants.js	/^var HEADER_DEFAULT_HEIGH
 HEADER_DEFAULT_HEIGHT_PORTRAIT	qt-qml/UIConstants.js	/^var HEADER_DEFAULT_HEIGHT_PORTRAIT = 72;$/;"	v
 HEADER_DEFAULT_TOP_SPACING_LANDSCAPE	qt-qml/UIConstants.js	/^var HEADER_DEFAULT_TOP_SPACING_LANDSCAPE = 16;$/;"	v
 HEADER_DEFAULT_TOP_SPACING_PORTRAIT	qt-qml/UIConstants.js	/^var HEADER_DEFAULT_TOP_SPACING_PORTRAIT = 20;$/;"	v
+Hour	core/data.cpp	/^     Data::Hour() const{$/;"	f	class:Core::Data
+Hour	core/data.cpp	/^     Data::Hour(bool hour){$/;"	f	class:Core::Data
 Humidity	core/data.cpp	/^     Data::Humidity() const{$/;"	f	class:Core::Data
 Humidity	core/data.cpp	/^     Data::Humidity(int humidity){$/;"	f	class:Core::Data
 HumidityLabelRole	qt-qml/dataitem.h	/^        HumidityLabelRole,$/;"	e	enum:DataItem::Roles
@@ -333,7 +335,7 @@ IconRole	qt-qml/dataitem.h	/^        IconRole,$/;"	e	enum:DataItem::Roles
 KeyRole	qt-qml/selectmodel.h	/^        KeyRole = Qt::UserRole + 2,$/;"	e	enum:SelectModel::SelectModelRoles
 LFLAGS	meegotouchplugin/Makefile	/^LFLAGS        = -shared$/;"	m
 LFLAGS	predeamon/Makefile	/^LFLAGS        = $/;"	m
-LFLAGS	qt-qml/Makefile	/^LFLAGS        = -Wl,-rpath,\/usr\/lib$/;"	m
+LFLAGS	qt-qml/Makefile	/^LFLAGS        = -pie -rdynamic -Wl,-rpath,\/usr\/lib$/;"	m
 LFLAGS	qtsetting/Makefile	/^LFLAGS        = $/;"	m
 LFLAGS	xml-qml/Makefile	/^LFLAGS        = -Wl,-O1$/;"	m
 LIBS	meegotouchplugin/Makefile	/^LIBS          = $(SUBLIBS)  -L\/usr\/lib -L\/usr\/lib -lmeegotouchcore -lmeegotouchsettings -lmeegotouchextensions -lQtDeclarative -lQtDBus -lQtGui -lQtCore -lpthread $/;"	m
@@ -352,11 +354,14 @@ LastUpdate	core/dataparser.cpp	/^    DataParser::LastUpdate(){$/;"	f	class:Core:
 LastUpdate	qt-qml/dataitem.cpp	/^DataItem::LastUpdate(time_t date_and_time){$/;"	f	class:DataItem
 LastUpdateRole	qt-qml/dataitem.h	/^        LastUpdateRole,$/;"	e	enum:DataItem::Roles
 LoadConfig	core/config.cpp	/^Config::LoadConfig(){$/;"	f	class:Core::Config
+Lockscreen	core/config.cpp	/^Config::Lockscreen(const bool uc){$/;"	f	class:Core::Config
+Lockscreen	core/config.cpp	/^Config::Lockscreen(void){$/;"	f	class:Core::Config
 MAINPAGE_H	qtsetting-touch/mainpage.h	2;"	d
 MAINWINDOW_H	qt-qml/mainwindow.h	32;"	d
 MAKEFILE	Makefile	/^MAKEFILE      = Makefile$/;"	m
 MARGIN_DEFAULT	qt-qml/UIConstants.js	/^var MARGIN_DEFAULT = 0;$/;"	v
 MARGIN_XLARGE	qt-qml/UIConstants.js	/^var MARGIN_XLARGE = 16;$/;"	v
+MEECAST_VERSION	core/core.h	53;"	d
 MKDIR	Makefile	/^MKDIR         = mkdir -p$/;"	m
 MKDIR	core/Makefile	/^MKDIR         = mkdir -p$/;"	m
 MKDIR	meegotouchplugin/Makefile	/^MKDIR         = mkdir -p$/;"	m
@@ -380,6 +385,7 @@ MeecastIf	predeamon/dbusadaptor_applet.cpp	/^MeecastIf::MeecastIf(const QString 
 MeecastIf	predeamon/dbusadaptor_applet.h	/^class MeecastIf: public QDBusAbstractInterface$/;"	c
 MeecastIf	qt-qml/dbusadaptor_applet.cpp	/^MeecastIf::MeecastIf(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent)$/;"	f	class:MeecastIf
 MeecastIf	qt-qml/dbusadaptor_applet.h	/^class MeecastIf: public QDBusAbstractInterface$/;"	c
+MonthName	core/data.cpp	/^    Data::MonthName(){$/;"	f	class:Core::Data
 MyMWidget	meegotouchplugin/meegotouchplugin.h	/^    MyMWidget(){$/;"	f	class:MyMWidget
 MyMWidget	meegotouchplugin/meegotouchplugin.h	/^class MyMWidget : public MWidget$/;"	c
 NETWORKINGCONTROL_H	qt-qml/networkingcontrol.h	32;"	d
@@ -404,7 +410,6 @@ OBJECTS_DIR	xml-qml/Makefile	/^OBJECTS_DIR   = .\/$/;"	m
 OMWEATHERADAPTOR_H_1312051091	meego-UX-panel/omweatheradaptor.h	13;"	d
 OMWEATHERINTF_H_1312051085	meego-UX-panel/omweatherintf.h	12;"	d
 OMWEATHERPLUGIN_H	meego-UX-panel/omweatherplugin.h	31;"	d
-OMWEATHER_VERSION	core/core.h	53;"	d
 OPACITY_DISABLED	qt-qml/UIConstants.js	/^var OPACITY_DISABLED = 0.5;$/;"	v
 OPACITY_ENABLED	qt-qml/UIConstants.js	/^var OPACITY_ENABLED = 1.0;$/;"	v
 OmweatherAdaptor	meego-UX-panel/omweatheradaptor.cpp	/^OmweatherAdaptor::OmweatherAdaptor(QObject *parent)$/;"	f	class:OmweatherAdaptor
@@ -517,10 +522,10 @@ SelectData	qt-qml/selectmodel.h	/^class SelectData: public QObject$/;"	c
 SelectModel	qt-qml/selectmodel.cpp	/^SelectModel::SelectModel(QObject *parent)$/;"	f	class:SelectModel
 SelectModel	qt-qml/selectmodel.h	/^class SelectModel : public QAbstractListModel$/;"	c
 SelectModelRoles	qt-qml/selectmodel.h	/^    enum SelectModelRoles {$/;"	g	class:SelectModel
-SetCurrentData	meegotouchplugin/dbusadaptor.cpp	/^void MeecastIf::SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, uint until_valid_time, bool current)$/;"	f	class:MeecastIf
-SetCurrentData	meegotouchplugin/meegotouchplugin.cpp	/^MyMWidget::SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low,  const QString &icon, const uint until_valid_time, bool current){$/;"	f	class:MyMWidget
-SetCurrentData	predeamon/dbusadaptor_applet.h	/^    inline QDBusPendingReply<> SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, uint until_valid_time, bool current)$/;"	f	class:MeecastIf
-SetCurrentData	qt-qml/dbusadaptor_applet.h	/^    inline QDBusPendingReply<> SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, uint until_valid_time, bool current)$/;"	f	class:MeecastIf
+SetCurrentData	meegotouchplugin/dbusadaptor.cpp	/^void MeecastIf::SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, uint until_valid_time, bool current, bool lockscreen, const QString &last_update)$/;"	f	class:MeecastIf
+SetCurrentData	meegotouchplugin/meegotouchplugin.cpp	/^MyMWidget::SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low,  $/;"	f	class:MyMWidget
+SetCurrentData	predeamon/dbusadaptor_applet.h	/^    inline QDBusPendingReply<> SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, uint until_valid_time, bool current, bool lockscreen, const QString &last_update)$/;"	f	class:MeecastIf
+SetCurrentData	qt-qml/dbusadaptor_applet.h	/^    inline QDBusPendingReply<> SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, uint until_valid_time, bool current, bool lockscreen, const QString &last_update)$/;"	f	class:MeecastIf
 Setting	qtsetting/setting.cpp	/^Setting::Setting(QWidget *parent) :$/;"	f	class:Setting
 Setting	qtsetting/setting.h	/^class Setting : public QDialog$/;"	c
 Setting	qtsetting/ui_setting.h	/^    class Setting: public Ui_Setting {};$/;"	c	namespace:Ui
@@ -655,10 +660,13 @@ _current_station_id	core/config.h	/^            int          _current_station_id
 _data	core/station.h	/^        Data *_data; \/* Is it really needed ? Vlad *\/$/;"	m	class:Core::Station
 _day_of_month_name	core/data.h	/^        std::string *_day_of_month_name;$/;"	m	class:Core::Data
 _declarative_component	qt-qml/qmllayoutitem.h	/^    QDeclarativeComponent *_declarative_component;$/;"	m	class:QmlLayoutItem
+_detailURL	core/station.h	/^        std::string *_detailURL;$/;"	m	class:Core::Station
 _doc	core/parserqt.h	/^            QDomDocument _doc;$/;"	m	class:Core::ParserQt
+_down	meegotouchplugin/meegotouchplugin.h	/^    bool _down;$/;"	m	class:MyMWidget
 _dp	qt-qml/controller.h	/^    Core::DataParser *_dp;$/;"	m	class:Controller
 _end_time	core/data.h	/^        time_t _end_time;$/;"	m	class:Core::Data
 _engine	qt-qml/qmllayoutitem.h	/^    QDeclarativeEngine *_engine;$/;"	m	class:QmlLayoutItem
+_events_image	meegotouchplugin/meegotouchplugin.h	/^    QImage *_events_image;$/;"	m	class:MyMWidget
 _fileName	core/station.h	/^        std::string *_fileName;$/;"	m	class:Core::Station
 _filename	core/config.h	/^            std::string *_filename;$/;"	m	class:Core::Config
 _flike	core/data.h	/^        Temperature *_flike;$/;"	m	class:Core::Data
@@ -674,15 +682,20 @@ _hasDetail	core/source.h	/^        bool _hasDetail;$/;"	m	class:Core::Source
 _hasForecast	core/source.h	/^        bool _hasForecast;$/;"	m	class:Core::Source
 _hasProxy	core/connection.h	/^        bool _hasProxy;$/;"	m	class:Core::Connection
 _hasSearch	core/source.h	/^        bool _hasSearch;$/;"	m	class:Core::Source
+_hour	core/data.h	/^        bool _hour;$/;"	m	class:Core::Data
+_hours_model	qt-qml/controller.h	/^    DataModel *_hours_model; $/;"	m	class:Controller
 _humidity	core/data.h	/^        int _humidity;$/;"	m	class:Core::Data
 _icon	core/data.h	/^        int _icon;$/;"	m	class:Core::Data
+_icon	meegotouchplugin/meegotouchplugin.h	/^    MImageWidget *_icon;$/;"	m	class:MyMWidget
 _iconpath	meegotouchplugin/meegotouchplugin.h	/^    QString  _iconpath;$/;"	m	class:MyMWidget
 _iconset	core/config.h	/^            std::string *_iconset;$/;"	m	class:Core::Config
 _id	core/station.h	/^        std::string *_id;$/;"	m	class:Core::Station
 _id	meego-UX-panel/stationmodel.h	/^    int _id;$/;"	m	class:StationModel
+_image	meegotouchplugin/meegotouchplugin.h	/^    QImage *_image;$/;"	m	class:MyMWidget
 _isUpdated	qt-qml/gpsposition.h	/^    bool _isUpdated;$/;"	m	class:GpsPosition
 _key	qt-qml/selectmodel.h	/^    QString _key;$/;"	m	class:SelectData
 _last_update	core/dataparser.h	/^        time_t _last_update;$/;"	m	class:Core::DataParser
+_lastupdate	meegotouchplugin/meegotouchplugin.h	/^    QString  _lastupdate;$/;"	m	class:MyMWidget
 _lastupdate	qt-qml/dataitem.h	/^    QDateTime _lastupdate;$/;"	m	class:DataItem
 _latitude	qt-qml/gpsposition.h	/^    double _latitude;$/;"	m	class:GpsPosition
 _library	core/source.h	/^        std::string *_library;$/;"	m	class:Core::Source
@@ -692,15 +705,19 @@ _list	core/dataparserqt.h	/^        DataList *_list;$/;"	m	class:Core::DataParse
 _list	qt-qml/datamodel.h	/^    QList<DataItem*>_list;$/;"	m	class:DataModel
 _list	qt-qml/selectmodel.h	/^    QList<SelectData*> _list;$/;"	m	class:SelectModel
 _location	qt-qml/gpsposition.h	/^    QGeoPositionInfoSource * _location;$/;"	m	class:GpsPosition
+_lockscreen	core/config.h	/^            bool         _lockscreen;$/;"	m	class:Core::Config
+_lockscreen	meegotouchplugin/meegotouchplugin.h	/^    bool    _lockscreen;$/;"	m	class:MyMWidget
 _logo	core/source.h	/^        std::string *_logo;$/;"	m	class:Core::Source
 _longitude	qt-qml/gpsposition.h	/^    double _longitude;$/;"	m	class:GpsPosition
 _model	qt-qml/controller.h	/^    DataModel *_model; $/;"	m	class:Controller
+_month_name	core/data.h	/^        std::string *_month_name;$/;"	m	class:Core::Data
 _name	core/source.h	/^        std::string *_name;$/;"	m	class:Core::Source
 _name	core/station.h	/^        std::string *_name;$/;"	m	class:Core::Station
 _name	meego-UX-panel/stationmodel.h	/^    QString _name;$/;"	m	class:StationModel
 _name	qt-qml/selectmodel.h	/^    QString _name;$/;"	m	class:SelectData
 _night_model	qt-qml/controller.h	/^    DataModel *_night_model;$/;"	m	class:Controller
 _obj	qt-qml/qmllayoutitem.h	/^    QGraphicsLayoutItem* _obj;$/;"	m	class:QmlLayoutItem
+_original_wallpaperItem	meegotouchplugin/meegotouchplugin.h	/^    MGConfItem *_original_wallpaperItem;$/;"	m	class:MyMWidget
 _pathPrefix	core/config.h	/^            std::string *_pathPrefix;$/;"	m	class:Core::Config
 _ppcp	core/data.h	/^        float _ppcp;$/;"	m	class:Core::Data
 _pressure	core/data.h	/^        Pressure *_pressure;$/;"	m	class:Core::Data
@@ -718,6 +735,8 @@ _sourceGetForecast	core/source.h	/^        bool (*_sourceGetForecast)(const std:
 _sourceInit	core/source.h	/^        void (*_sourceInit)();$/;"	m	class:Core::Source
 _sourceName	core/station.h	/^        std::string *_sourceName;$/;"	m	class:Core::Station
 _sourceSearch	core/source.h	/^        StationsList& (*_sourceSearch)(const std::string& station);$/;"	m	class:Core::Source
+_standbyItem	meegotouchplugin/meegotouchplugin.h	/^    MGConfItem *_standbyItem;$/;"	m	class:MyMWidget
+_standbyscreen	meegotouchplugin/meegotouchplugin.h	/^    bool    _standbyscreen;$/;"	m	class:MyMWidget
 _start_time	core/data.h	/^        time_t _start_time;$/;"	m	class:Core::Data
 _stationlist	qtsetting-touch/mainpage.h	/^    Core::StationsList *_stationlist;$/;"	m	class:MainPage
 _stationlist	qtsetting/settingstations.h	/^    Core::StationsList *_stationlist;$/;"	m	class:SettingStations
@@ -745,12 +764,15 @@ _units	core/temperature.h	/^        std::string *_units;$/;"	m	class:Core::Tempe
 _units	core/windspeed.h	/^        std::string *_units;$/;"	m	class:Core::Windspeed
 _update_connect	core/config.h	/^            bool         _update_connect;$/;"	m	class:Core::Config
 _update_period	core/config.h	/^            int          _update_period;$/;"	m	class:Core::Config
+_url_detail_template	core/source.h	/^        std::string *_url_detail_template;$/;"	m	class:Core::Source
 _url_for_view	core/source.h	/^        std::string *_url_for_view;$/;"	m	class:Core::Source
 _url_template	core/source.h	/^        std::string *_url_template;$/;"	m	class:Core::Source
 _value	core/pressure.h	/^        float _value;$/;"	m	class:Core::Pressure
 _value	core/temperature.h	/^        float _value;$/;"	m	class:Core::Temperature
 _value	core/windspeed.h	/^        float _value;$/;"	m	class:Core::Windspeed
 _viewURL	core/station.h	/^        std::string *_viewURL;$/;"	m	class:Core::Station
+_wallpaperItem	meegotouchplugin/meegotouchplugin.h	/^    MGConfItem *_wallpaperItem;$/;"	m	class:MyMWidget
+_wallpaper_path	meegotouchplugin/meegotouchplugin.h	/^    QString _wallpaper_path;$/;"	m	class:MyMWidget
 _windDirection	core/data.h	/^        std::string *_windDirection;$/;"	m	class:Core::Data
 _windGust	core/data.h	/^        float _windGust;$/;"	m	class:Core::Data
 _windSpeed	core/data.h	/^        Windspeed *_windSpeed;$/;"	m	class:Core::Data
@@ -851,6 +873,8 @@ deg2rad	core/databasesqlite.cpp	229;"	d	file:
 delClicked	qtsetting-touch/mainpage.cpp	/^void MainPage::delClicked()$/;"	f	class:MainPage
 delbutton	qtsetting-touch/mainpage.h	/^    MButton *addbutton, *delbutton;$/;"	m	class:MainPage
 description	qt-qml/dataitem.cpp	/^DataItem::description()$/;"	f	class:DataItem
+detailURL	core/station.cpp	/^    std::string& Station::detailURL() const{$/;"	f	class:Core::Station
+detailURL	core/station.cpp	/^    void Station::detailURL(const std::string& detailURL){$/;"	f	class:Core::Station
 detail_event_cb	netbook-UX/meego-panel-omweather.cpp	/^detail_event_cb (ClutterActor *actor,$/;"	f
 downloadData	core/downloader.cpp	/^Downloader::downloadData(const std::string &filename, const std::string &url)$/;"	f	class:Core::Downloader
 downloadFinishedSlot	meego-UX-panel/updateqml.cpp	/^UpdateQml::downloadFinishedSlot()$/;"	f	class:UpdateQml
@@ -934,6 +958,7 @@ horizontalLayout	qtsetting/ui_settingstations.h	/^    QHBoxLayout *horizontalLay
 horizontalLayout_2	qtsetting/ui_settingstations.h	/^    QHBoxLayout *horizontalLayout_2;$/;"	m	class:Ui_SettingStations
 horizontalSpacer	qtsetting/ui_setting.h	/^    QSpacerItem *horizontalSpacer;$/;"	m	class:Ui_Setting
 horizontalSpacer	qtsetting/ui_settingstations.h	/^    QSpacerItem *horizontalSpacer;$/;"	m	class:Ui_SettingStations
+hours_period	qt-qml/datamodel.h	/^	hours_period$/;"	e	enum:DataModel::Periods
 humidity	qt-qml/dataitem.cpp	/^DataItem::humidity() {$/;"	f	class:DataItem
 icon	meegotouchplugin/meegotouchplugin.h	/^    QString icon(){$/;"	f	class:MyMWidget
 icon	meegotouchplugin/meegotouchplugin.h	/^    void icon(const QString &iconpath){$/;"	f	class:MyMWidget
@@ -981,6 +1006,8 @@ label_4	qtsetting/ui_setting.h	/^    QLabel *label_4;$/;"	m	class:Ui_Setting
 label_4	qtsetting/ui_settingstations.h	/^    QLabel *label_4;$/;"	m	class:Ui_SettingStations
 label_5	qtsetting/ui_settingstations.h	/^    QLabel *label_5;$/;"	m	class:Ui_SettingStations
 label_6	qtsetting/ui_settingstations.h	/^    QLabel *label_6;$/;"	m	class:Ui_SettingStations
+lastupdate	meegotouchplugin/meegotouchplugin.h	/^    QString lastupdate(){$/;"	f	class:MyMWidget
+lastupdate	meegotouchplugin/meegotouchplugin.h	/^    void lastupdate(const QString &lastupdate){$/;"	f	class:MyMWidget
 lastupdate	qt-qml/dataitem.cpp	/^DataItem::lastupdate() {$/;"	f	class:DataItem
 layoutqml	core/abstractconfig.cpp	/^    std::string AbstractConfig::layoutqml = "main.qml";$/;"	m	class:Core::AbstractConfig	file:
 layoutqml	core/abstractconfig.h	/^            static std::string layoutqml;$/;"	m	class:Core::AbstractConfig
@@ -990,11 +1017,15 @@ listWidget	qtsetting/ui_settingstations.h	/^    QListWidget *listWidget;$/;"	m	c
 listdata	core/databaseabstract.h	/^typedef std::vector< std::pair<std::string, std::string> > listdata;$/;"	t	namespace:Core
 load_config	qt-qml/controller.cpp	/^Controller::load_config()$/;"	f	class:Controller
 load_data	qt-qml/controller.cpp	/^Controller::load_data()$/;"	f	class:Controller
+lockscreen	meegotouchplugin/meegotouchplugin.h	/^    bool lockscreen(){$/;"	f	class:MyMWidget
+lockscreen	meegotouchplugin/meegotouchplugin.h	/^    void lockscreen(bool cur){$/;"	f	class:MyMWidget
+lockscreen	qt-qml/configqml.cpp	/^ConfigQml::lockscreen()$/;"	f	class:ConfigQml
+lockscreenChanged	qt-qml/moc_configqml.cpp	/^void ConfigQml::lockscreenChanged()$/;"	f	class:ConfigQml
 logo	core/source.cpp	/^    std::string& Source::logo() const{$/;"	f	class:Core::Source
 main	meego-UX-panel/main.c	/^main(void){$/;"	f
 main	netbook-UX/meego-panel-omweather.cpp	/^main (int argc, char *argv[])$/;"	f
 main	predeamon/predeamon.cpp	/^main (int argc, char *argv[])$/;"	f
-main	qt-qml/main.cpp	/^int main(int argc, char* argv[])$/;"	f
+main	qt-qml/main.cpp	/^Q_DECL_EXPORT int main(int argc, char* argv[])$/;"	f
 main	qtsetting-touch/main.cpp	/^int main(int argc, char *argv[])$/;"	f
 main	qtsetting/main.cpp	/^int main(int argc, char *argv[])$/;"	f
 main	xml-qml/xml-qml.cpp	/^main (int argc, char *argv[])$/;"	f
@@ -1031,6 +1062,8 @@ metaObject	qt-qml/moc_selectmodel.cpp	/^const QMetaObject *SelectModel::metaObje
 metaObject	qt-qml/moc_updatethread.cpp	/^const QMetaObject *UpdateThread::metaObject() const$/;"	f	class:UpdateThread
 metaObject	qtsetting/moc_setting.cpp	/^const QMetaObject *Setting::metaObject() const$/;"	f	class:Setting
 metaObject	qtsetting/moc_settingstations.cpp	/^const QMetaObject *SettingStations::metaObject() const$/;"	f	class:SettingStations
+mousePressEvent	meegotouchplugin/meegotouchplugin.h	/^    mousePressEvent(QGraphicsSceneMouseEvent *event){$/;"	f	class:MyMWidget
+mouseReleaseEvent	meegotouchplugin/meegotouchplugin.h	/^    mouseReleaseEvent(QGraphicsSceneMouseEvent *event){$/;"	f	class:MyMWidget
 name	core/source.cpp	/^    std::string& Source::name() const{$/;"	f	class:Core::Source
 name	core/station.cpp	/^    std::string& Station::name() const{$/;"	f	class:Core::Station
 name	core/station.cpp	/^    void Station::name(const std::string& name){$/;"	f	class:Core::Station
@@ -1041,7 +1074,7 @@ nextstation	qt-qml/configqml.cpp	/^ConfigQml::nextstation()$/;"	f	class:ConfigQm
 nextstationname	core/config.cpp	/^Config::nextstationname()$/;"	f	class:Core::Config
 nextstationname	qt-qml/configqml.cpp	/^ConfigQml::nextstationname()$/;"	f	class:ConfigQml
 nextstationnameChanged	qt-qml/moc_configqml.cpp	/^void ConfigQml::nextstationnameChanged()$/;"	f	class:ConfigQml
-night_period	qt-qml/datamodel.h	/^        night_period$/;"	e	enum:DataModel::Periods
+night_period	qt-qml/datamodel.h	/^        night_period,$/;"	e	enum:DataModel::Periods
 nokia	meegotouchplugin/eventfeedif.h	/^  namespace nokia {$/;"	n	namespace:com
 obj	qt-qml/qmllayoutitem.cpp	/^QmlLayoutItem::obj() const{$/;"	f	class:QmlLayoutItem
 okButton	qtsetting/ui_setting.h	/^    QPushButton *okButton;$/;"	m	class:Ui_Setting
@@ -1187,8 +1220,11 @@ refreshRequested	meegotouchplugin/moc_eventfeedif.cpp	/^void EventFeedIf::refres
 refresh_button_event_cb	netbook-UX/meego-panel-omweather.cpp	/^refresh_button_event_cb (ClutterActor *actor,$/;"	f
 refresh_timeline	netbook-UX/meego-panel-omweather.cpp	/^ClutterTimeline *refresh_timeline = NULL;$/;"	v
 refreshconfig	qt-qml/configqml.cpp	/^ConfigQml::refreshconfig(){$/;"	f	class:ConfigQml
+refresheventswidget	meegotouchplugin/meegotouchplugin.cpp	/^void MyMWidget::refresheventswidget(){$/;"	f	class:MyMWidget
+refreshstandby	meegotouchplugin/meegotouchplugin.cpp	/^void MyMWidget::refreshstandby(){$/;"	f	class:MyMWidget
 refreshview	meegotouchplugin/meegotouchplugin.h	/^    void refreshview(){$/;"	f	class:MyMWidget
 refreshview	qt-qml/dataqml.cpp	/^DataQml::refreshview(){$/;"	f	class:DataQml
+refreshwallpaper	meegotouchplugin/meegotouchplugin.cpp	/^void MyMWidget::refreshwallpaper(bool new_wallpaper){$/;"	f	class:MyMWidget
 region	core/station.cpp	/^    std::string& Station::region() const{$/;"	f	class:Core::Station
 region	core/station.cpp	/^    void Station::region(const std::string& region){$/;"	f	class:Core::Station
 regionChanged	qtsetting-touch/stationpage.cpp	/^StationPage::regionChanged(int val)$/;"	f	class:StationPage
@@ -1199,6 +1235,7 @@ registerTypes	meego-UX-panel/omweatherplugin.cpp	/^void OmweatherPlugin::registe
 reload_config	qt-qml/configqml.cpp	/^ConfigQml::reload_config()$/;"	f	class:ConfigQml
 reload_config	qt-qml/controller.cpp	/^Controller::reload_config()$/;"	f	class:Controller
 reload_config	qt-qml/dbusadaptor.cpp	/^void DbusAdaptor::reload_config()$/;"	f	class:DbusAdaptor
+remove	qt-qml/datamodel.cpp	/^DataModel::remove(const int row)$/;"	f	class:DataModel
 remove	qtsetting/settingstations.cpp	/^SettingStations::remove()$/;"	f	class:SettingStations
 removeButton	qtsetting/ui_settingstations.h	/^    QPushButton *removeButton;$/;"	m	class:Ui_SettingStations
 removeStation	meego-UX-panel/configqml.cpp	/^ConfigQml::removeStation(int index)$/;"	f	class:ConfigQml
@@ -1233,6 +1270,7 @@ set_iconset	qt-qml/configqml.cpp	/^ConfigQml::set_iconset(QString c)$/;"	f	class
 seteventwidget	qt-qml/configqml.cpp	/^ConfigQml::seteventwidget(bool c)$/;"	f	class:ConfigQml
 setfullscreen	qt-qml/configqml.cpp	/^ConfigQml::setfullscreen(bool c)$/;"	f	class:ConfigQml
 setgps	qt-qml/configqml.cpp	/^ConfigQml::setgps(bool c)$/;"	f	class:ConfigQml
+setlockscreen	qt-qml/configqml.cpp	/^ConfigQml::setlockscreen(bool c)$/;"	f	class:ConfigQml
 setupUi	qtsetting/ui_setting.h	/^    void setupUi(QDialog *Setting)$/;"	f	class:Ui_Setting
 setupUi	qtsetting/ui_settingstations.h	/^    void setupUi(QDialog *SettingStations)$/;"	f	class:Ui_SettingStations
 sharePath	core/abstractconfig.cpp	/^    std::string AbstractConfig::sharePath = "..\/core\/data\/";$/;"	m	class:Core::AbstractConfig	file:
@@ -1370,15 +1408,21 @@ updateData	core/station.cpp	/^    bool Station::updateData(bool force){$/;"	f	cl
 updateData	meego-UX-panel/updateqml.cpp	/^UpdateQml::updateData()$/;"	f	class:UpdateQml
 updateFilterModel	qt-qml/search.js	/^function updateFilterModel(name) {$/;"	f
 updateSource	core/station.cpp	/^    void Station::updateSource(const Source* source){$/;"	f	class:Core::Station
+updateStandbyPath	meegotouchplugin/meegotouchplugin.cpp	/^void MyMWidget::updateStandbyPath(){$/;"	f	class:MyMWidget
 updateUniqueChars.fillFilterModel	qt-qml/search.js	/^function fillFilterModel() {$/;"	f
 updateUniqueChars.filterButtonCount	qt-qml/search.js	/^function filterButtonCount() {$/;"	f
 updateUniqueChars.filterButtonText	qt-qml/search.js	/^function filterButtonText(index) {$/;"	f
+updateWallpaperPath	meegotouchplugin/meegotouchplugin.cpp	/^void MyMWidget::updateWallpaperPath(){ $/;"	f	class:MyMWidget
 update_data	meegotouchplugin/meegotouchplugin.cpp	/^void MyMWidget::update_data(){$/;"	f	class:MyMWidget
+update_interval	qt-qml/configqml.cpp	/^ConfigQml::update_interval(int interval)$/;"	f	class:ConfigQml
 update_list	meego-UX-panel/configqml.h	/^    QStringList update_list;$/;"	m	class:ConfigQml
 update_weather_forecast	netbook-UX/meego-panel-omweather.cpp	/^static void* update_weather_forecast(void* data){$/;"	f	file:
 update_weather_forecast	qt-qml/main.cpp	/^update_weather_forecast(Core::Config *config){$/;"	f
+updateinterval	qt-qml/configqml.cpp	/^ConfigQml::updateinterval()$/;"	f	class:ConfigQml
+updateintervalChanged	qt-qml/moc_configqml.cpp	/^void ConfigQml::updateintervalChanged()$/;"	f	class:ConfigQml
 updatestations	qt-qml/configqml.cpp	/^ConfigQml::updatestations()$/;"	f	class:ConfigQml
 updating	netbook-UX/meego-panel-omweather.cpp	/^bool updating = false;$/;"	v
+url_detail_template	core/source.cpp	/^    std::string& Source::url_detail_template() const{$/;"	f	class:Core::Source
 url_for_view	core/source.cpp	/^    std::string& Source::url_for_view() const{$/;"	f	class:Core::Source
 url_template	core/source.cpp	/^    std::string& Source::url_template() const{$/;"	f	class:Core::Source
 validator	core/parser.h	/^            xmlpp::SchemaValidator *validator;$/;"	m	class:Core::Parser
@@ -1430,7 +1474,7 @@ writedata	core/downloader.cpp	/^Downloader::writedata(void *ptr, size_t size, si
 ~MeecastIf	meegotouchplugin/dbusadaptor.cpp	/^MeecastIf::~MeecastIf()$/;"	f	class:MeecastIf
 ~MeecastIf	predeamon/dbusadaptor_applet.cpp	/^MeecastIf::~MeecastIf()$/;"	f	class:MeecastIf
 ~MeecastIf	qt-qml/dbusadaptor_applet.cpp	/^MeecastIf::~MeecastIf()$/;"	f	class:MeecastIf
-~MyMWidget	meegotouchplugin/meegotouchplugin.h	/^    ~MyMWidget(){$/;"	f	class:MyMWidget
+~MyMWidget	meegotouchplugin/meegotouchplugin.h	/^     ~MyMWidget(){$/;"	f	class:MyMWidget
 ~NetworkingControl	qt-qml/networkingcontrol.h	/^    virtual ~NetworkingControl(){};$/;"	f	class:NetworkingControl
 ~OmweatherAdaptor	meego-UX-panel/omweatheradaptor.cpp	/^OmweatherAdaptor::~OmweatherAdaptor()$/;"	f	class:OmweatherAdaptor
 ~OmweatherIntf	meego-UX-panel/omweatherintf.cpp	/^OmweatherIntf::~OmweatherIntf()$/;"	f	class:OmweatherIntf

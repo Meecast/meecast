@@ -207,7 +207,8 @@ DataModel::update(QString filename, int  period)
                                            forecast_data->temperature_high(), 
                                            forecast_data->temperature_low(), 
                                            icon_string, result_time, forecast_data->current(), 
-                                           _config->Lockscreen(), t.toString("dd MMM h:mm")); 
+                                           _config->Lockscreen(), _config->Standbyscreen(),
+                                           t.toString("dd MMM h:mm")); 
             }
             break;
         case current_night_period:

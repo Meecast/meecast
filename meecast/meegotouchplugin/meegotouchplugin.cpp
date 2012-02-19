@@ -102,13 +102,13 @@ MWidget *WeatherApplicationExtension::widget(){
 
 void 
 MyMWidget::SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low,  
-                          const QString &icon, const uint until_valid_time, bool current, bool lockscreen_param, const QString &last_update){
+                          const QString &icon, const uint until_valid_time, bool current, bool lockscreen_param, bool standbyscreen_param, const QString &last_update){
 
    if (lockscreen() && !lockscreen_param){
         this->current(current);
 	    _wallpaperItem->set("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
    }
-
+/* To do check standbyscreen */
    QDateTime utc_time;
    utc_time = QDateTime::currentDateTimeUtc();
 
@@ -119,6 +119,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
    this->icon(icon);
    this->current(current);
    this->lockscreen(lockscreen_param);
+   this->standbyscreen(standbyscreen_param);
    this->lastupdate(last_update);
    this->refreshview();
    if ((until_valid_time - utc_time.toTime_t()) > 0 && 

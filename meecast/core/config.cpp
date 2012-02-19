@@ -44,6 +44,7 @@ Config::Config()
     _update_connect = false;
     _fullscreen = false;
     _lockscreen = false;
+    _standbyscreen = false;
     _gps = false;
     _font_color = new std::string("#00ff00");
     _stations = new StationsList;
@@ -119,6 +120,14 @@ Config::saveConfig()
 
     el = doc.createElement("lockscreen");
     if (_lockscreen)
+        t = doc.createTextNode("true");
+    else
+        t = doc.createTextNode("false");
+    el.appendChild(t);
+    root.appendChild(el);
+
+    el = doc.createElement("standbyscreen");
+    if (_standbyscreen)
         t = doc.createTextNode("true");
     else
         t = doc.createTextNode("false");
@@ -246,6 +255,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _update_connect = false;
     _fullscreen = false;
     _lockscreen = false;
+    _standbyscreen = false;
     _gps = false;
     _update_period = INT_MAX;
     _font_color = new std::string("#00ff00");
@@ -302,6 +312,9 @@ Config::LoadConfig(){
         el = root.firstChildElement("lockscreen");
         if (!el.isNull())
             _lockscreen = (el.text() == "true") ? true : false;
+        el = root.firstChildElement("standbyscreen");
+        if (!el.isNull())
+            _standbyscreen = (el.text() == "true") ? true : false;
         el = root.firstChildElement("gps");
         if (!el.isNull())
             _gps = (el.text() == "true") ? true : false;
@@ -473,6 +486,15 @@ Config::Lockscreen(void){
 }
 ////////////////////////////////////////////////////////////////////////////////
 void
+Config::Standbyscreen(const bool uc){
+    _standbyscreen = uc;
+}
+bool
+Config::Standbyscreen(void){
+    return _standbyscreen;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
 Config::Gps(const bool uc){
     _gps = uc;
 }
@@ -640,7 +662,15 @@ void Config::processNode(const xmlpp::Node* node){
         (str.compare("true")) ? (_lockscreen = false) : (_lockscreen = true);
         return;
     }
-
+    // lockscreen
+    if(nodeName == "standbyscreen"){
+        xmlpp::Node::NodeList list = node->get_children();
+        xmlpp::Node::NodeList::iterator iter = list.begin();
+        const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+        std::string str = nodeText->get_content();
+        (str.compare("true")) ? (_standbyscreen = false) : (_standbyscreen = true);
+        return;
+    }
     // gps
     if(nodeName == "gps"){
         xmlpp::Node::NodeList list = node->get_children();

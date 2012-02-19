@@ -264,6 +264,12 @@ public:
     bool lockscreen(){
         return _lockscreen;
     }
+    void standbyscreen(bool cur){
+        _standbyscreen = cur;
+    }
+    bool syandbyscreen(){
+        return _standbyscreen;
+    }
 
     void refreshview(){
 //#if 0
@@ -277,16 +283,15 @@ public:
         // Debug end 
 //#endif
           refresheventswidget();
-          if (_lockscreen)
-              refreshwallpaper();           
-          if (_lockscreen)
+          refreshwallpaper();           
+          if (_standbyscreen)
               refreshstandby();
 	   
     };
 
 public Q_SLOTS:
     void SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low, const QString &icon, 
-                        const uint until_valid_time, bool current, bool lockscreen_param, const QString &last_update);
+                        const uint until_valid_time, bool current, bool lockscreen_param, bool standbyscreen_param, const QString &last_update);
     void update_data();
     void refreshRequested();
     void updateWallpaperPath();

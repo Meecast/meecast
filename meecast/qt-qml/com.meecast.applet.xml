@@ -9,6 +9,7 @@
          <arg name="until_valid_time" type="u" direction="in"/>
          <arg name="current" type="b" direction="in"/>
          <arg name="lockscreen" type="b" direction="in"/>
+         <arg name="standbyscreen" type="b" direction="in"/>
          <arg name="last_update" type="s" direction="in"/>
       </method>
    </interface>

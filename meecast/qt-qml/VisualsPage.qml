@@ -8,6 +8,7 @@ Page {
     property int margin: 16
     property bool event_widget_status: Config.eventwidget
     property bool lockscreen_widget_status: Config.lockscreen
+    property bool standbyscreen_widget_status: Config.standbyscreen
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"
@@ -209,6 +210,70 @@ Page {
             }
 	}
     }
+    Dialog {
+	id: warningDialog4
+	title: Item {
+	    id: titleField4
+	    height: disableDialog.platformStyle.titleBarHeight
+	    width: parent.width
+
+	    Label {
+		id: titleLabel4
+		anchors.verticalCenter: titleField3.verticalCenter
+		font.capitalization: Font.MixedCase
+		color: "white"
+		text: Config.tr("Information")
+	    }
+
+	    Image {
+		id: closeButton4
+		anchors.verticalCenter: titleField3.verticalCenter
+		anchors.right: titleField4.right
+		source: "image://theme/icon-m-framework-close"
+		MouseArea {
+		    id: closeButtonArea4
+		    anchors.fill: parent
+		    onClicked:  { disableDialog.close() }
+		}
+	    }
+	}
+
+	content:Item {
+	    id: name24
+	    height: childrenRect.height
+	    Rectangle {
+		id: black_rect124
+		anchors.bottom: text2.top
+		height: 40
+		color: "black"
+	    }
+
+	    Text {
+		id: text24
+		font.pixelSize: 22
+		color: "white"
+		text: Config.tr("You should activate \n'Widget in events view'\n for using StandbyScreen widget")
+	    }	
+	    Rectangle {
+		id: black_rect24
+		anchors.top: text24.bottom
+		height: 40
+		color: "black"
+	    }
+	}
+
+	buttons: ButtonRow {
+	    platformStyle: ButtonStyle { }
+	    anchors.horizontalCenter: parent.horizontalCenter
+	    Button {id: b24; text: Config.tr("Ok"); 
+                    onClicked: {
+                        warningDialog4.close()
+                        standbyscreen.checked = false 
+                    }
+            }
+	}
+    }
+
 	content:Item {
 	    id: name3
 	    height: childrenRect.height
@@ -236,7 +301,7 @@ Page {
 	buttons: ButtonRow {
 	    platformStyle: ButtonStyle { }
 	    anchors.horizontalCenter: parent.horizontalCenter
-	    Button {id: b24; text: Config.tr("Ok"); 
+	    Button {id: b23; text: Config.tr("Ok"); 
                     onClicked: {
                         eventwidget.checked = true 
                         disableDialog.close()
@@ -384,6 +449,33 @@ Page {
                             lockscreen_widget_status = checked;
                         }else
                             warningDialog.open();
+                   }                    
+                }
+                //platformStyle: SwitchStyle {inverted: true}
+            }
+
+        }
+        Item {
+            width: parent.width
+            height: 80
+            id: standbyscreenitem
+            Label {
+                text: Config.tr("Widget in StandbyScreen")
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            Switch {
+                id: standbyscreen 
+                checked: Config.standbyscreen
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                onCheckedChanged: {
+                    if (standbyscreen_widget_status != checked){
+                        if (event_widget_status){
+                            Config.setstandbyscreen(standbyscreen.checked);
+                            standbyscreen_widget_status = checked;
+                        }else
+                            warningDialog4.open();
                    }                    
                 }
                 //platformStyle: SwitchStyle {inverted: true}

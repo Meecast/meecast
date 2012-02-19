@@ -242,13 +242,20 @@ ConfigQml::setlockscreen(bool c)
 {
     ConfigQml::Config::Lockscreen(c);
     saveConfig();
-    /*
-    if (QFile("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png").exists()){
-        MGConfItem *wallpaperItem;
-        wallpaperItem = new MGConfItem ("/desktop/meego/background/portrait/picture_filename");
-        wallpaperItem->set("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
-    }
-    */
+    refreshconfig();
+}
+
+bool
+ConfigQml::standbyscreen()
+{
+    return ConfigQml::Config::Standbyscreen();
+}
+void
+ConfigQml::setstandbyscreen(bool c)
+{
+    std::cerr<<"Stand by screen "<<c<<std::endl;
+    ConfigQml::Config::Standbyscreen(c);
+    saveConfig();
     refreshconfig();
 }
 
@@ -267,8 +274,10 @@ ConfigQml::eventwidget()
 	        result = true;
     }else
         result = false;
-    if (result == false)
+    if (result == false){
         setlockscreen(false);
+        setstandbyscreen(false);
+     }
     return result;
 }
 void
@@ -277,6 +286,7 @@ ConfigQml::seteventwidget(bool c)
     if (!c){
     	QDesktopServices::openUrl(QUrl("file:///usr/bin/installui"));
         setlockscreen(false);
+        setstandbyscreen(false);
     }
     QFile file("/usr/share/meegotouch/applicationextensions/events-weather.desktop");
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)){

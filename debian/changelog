@@ -4,8 +4,10 @@ meecast (0.4.9) unstable; urgency=low
   * Fixed problem with temperature in Farenheit unit and autoupdating
   * Updated Germany, Polish, Swedish translations
   * Added hours forecast for source gismeteo.ru
+  * Rewrote events widget
+  * Added StandbyScreen widget
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 10 Feb 2011 16:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 18 Feb 2011 22:42:23 +0200
 
 meecast (0.4.8) unstable; urgency=low
 

@@ -405,20 +405,20 @@ void MyMWidget::refresheventswidget(){
 }
 
 void MyMWidget::refreshstandby(){
-      QImage *image;
-      image = new QImage (QSize(120, 120), QImage::Format_Mono);
-        /* Left corner */
-         int x = 0;
-         int y = 0;
+     QImage *image;
+     image = new QImage (QSize(120, 120), QImage::Format_Mono);
+     /* Left corner */
+     int x = 0;
+     int y = 0;
 
-         QPainter paint;
-         image->fill(Qt::black);
-         paint.begin(image);
-         QPen pen;
+     QPainter paint;
+     image->fill(Qt::black);
+     paint.begin(image);
+     QPen pen;
 
-         QColor myPenColor = QColor(255, 255, 255, 255);// set default color
-         pen.setColor(myPenColor);
-         paint.setPen(pen);
+     QColor myPenColor = QColor(255, 255, 255, 255);// set default color
+     pen.setColor(myPenColor);
+     paint.setPen(pen);
 
 	 /* Station */
 	 paint.setFont(QFont("Arial", 12));

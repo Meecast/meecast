@@ -253,8 +253,9 @@ ConfigQml::standbyscreen()
 void
 ConfigQml::setstandbyscreen(bool c)
 {
-    std::cerr<<"Stand by screen "<<c<<std::endl;
     ConfigQml::Config::Standbyscreen(c);
+    if (!c && (QFile::exists("/home/user/.cache/com.meecast.omweather/logo.png")))
+       QFile::remove("/home/user/.cache/com.meecast.omweather/logo.png"); 
     saveConfig();
     refreshconfig();
 }

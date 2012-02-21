@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-05 17:08+0300\n"
+"POT-Creation-Date: 2012-02-21 12:16+0300\n"
 "PO-Revision-Date: 2011-11-03 23:28+0200\n"
 "Last-Translator: Nicolas Graziano <nicolas.graziano@gmail.com>\n"
 "Language-Team: French <>\n"
@@ -331,11 +331,11 @@ msgstr "Une erreur inconnue s'est produite."
 msgid "Animation"
 msgstr "Animation"
 
-#: meecast/qt-qml/VisualsPage.qml:409
+#: meecast/qt-qml/VisualsPage.qml:501
 msgid "Appearance"
 msgstr "Apparence"
 
-#: meecast/qt-qml/VisualsPage.qml:92
+#: meecast/qt-qml/VisualsPage.qml:93
 msgid ""
 "Application manager will now start\n"
 "for installing package 'MeeCast applet'.\n"
@@ -411,7 +411,7 @@ msgstr "C\n"
 msgid "CALM"
 msgstr "Calme"
 
-#: meecast/qt-qml/VisualsPage.qml:106
+#: meecast/qt-qml/VisualsPage.qml:107
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -872,7 +872,7 @@ msgstr "Couleur de police :"
 msgid "Font:"
 msgstr "Police :"
 
-#: meecast/qt-qml/VisualsPage.qml:226
+#: meecast/qt-qml/VisualsPage.qml:291
 msgid ""
 "For disabling MeeCast widget,\n"
 "you should uninstall package\n"
@@ -955,7 +955,7 @@ msgstr "Plein"
 msgid "Full forecast"
 msgstr "Prévision complète"
 
-#: meecast/qt-qml/VisualsPage.qml:303
+#: meecast/qt-qml/VisualsPage.qml:368
 msgid "Fullscreen mode"
 msgstr "Mode plein écran"
 
@@ -1040,11 +1040,11 @@ msgstr "Sélection d'icônes :"
 msgid "Icon size:"
 msgstr "Taille d'icône :"
 
-#: meecast/qt-qml/VisualsPage.qml:42 meecast/qt-qml/UpdatePage.qml:42
+#: meecast/qt-qml/VisualsPage.qml:43 meecast/qt-qml/UpdatePage.qml:42
 msgid "Icons"
 msgstr "Icônes"
 
-#: omweather/src/hash.data:87 meecast/qt-qml/VisualsPage.qml:325
+#: omweather/src/hash.data:87 meecast/qt-qml/VisualsPage.qml:390
 msgid "Iconset"
 msgstr "Icônes"
 
@@ -1052,8 +1052,8 @@ msgstr "Icônes"
 msgid "Iconsets"
 msgstr "Icônes"
 
-#: meecast/qt-qml/VisualsPage.qml:62 meecast/qt-qml/VisualsPage.qml:134
-#: meecast/qt-qml/VisualsPage.qml:161
+#: meecast/qt-qml/VisualsPage.qml:63 meecast/qt-qml/VisualsPage.qml:135
+#: meecast/qt-qml/VisualsPage.qml:162 meecast/qt-qml/VisualsPage.qml:225
 #, fuzzy
 msgid "Information"
 msgstr "Confirmation"
@@ -1509,7 +1509,7 @@ msgid "Now: "
 msgstr "Maintenant : "
 
 #: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1222
-#: meecast/qt-qml/VisualsPage.qml:113
+#: meecast/qt-qml/VisualsPage.qml:114
 msgid "OK"
 msgstr "OK"
 
@@ -1526,7 +1526,8 @@ msgstr "Paramètres de OMWeather"
 msgid "OMWeather settings"
 msgstr "Paramètres de OMWeather"
 
-#: meecast/qt-qml/VisualsPage.qml:204 meecast/qt-qml/VisualsPage.qml:239
+#: meecast/qt-qml/VisualsPage.qml:205 meecast/qt-qml/VisualsPage.qml:268
+#: meecast/qt-qml/VisualsPage.qml:304
 msgid "Ok"
 msgstr ""
 
@@ -1698,13 +1699,12 @@ msgid "Pressure"
 msgstr "Pression"
 
 #: meecast/qt-qml/UnitsPage.qml:51 meecast/qt-qml/UnitsPage.qml:164
-#, fuzzy
 msgid "Pressure units"
-msgstr "Unités de pression :"
+msgstr "Unités de pression"
 
 #: omweather/src/weather-settings.c:4049
 msgid "Pressure units:"
-msgstr "Unités de pression :"
+msgstr "Unités de pression:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
@@ -2416,11 +2416,15 @@ msgstr "Prévisions météo pour Meego. Version "
 msgid "Widget OMWeather is reloading"
 msgstr "Rechargement du gadget OMWeather"
 
-#: meecast/qt-qml/VisualsPage.qml:371
+#: meecast/qt-qml/VisualsPage.qml:436
 msgid "Widget in LockScreen"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:345
+#: meecast/qt-qml/VisualsPage.qml:463
+msgid "Widget in StandbyScreen"
+msgstr ""
+
+#: meecast/qt-qml/VisualsPage.qml:410
 msgid "Widget in events view"
 msgstr ""
 
@@ -2504,11 +2508,18 @@ msgstr "Oui"
 msgid "You can make donation here: "
 msgstr "Vous pouvez faire un don ici : "
 
-#: meecast/qt-qml/VisualsPage.qml:191
+#: meecast/qt-qml/VisualsPage.qml:192
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using LockScreen widget"
+msgstr ""
+
+#: meecast/qt-qml/VisualsPage.qml:255
+msgid ""
+"You should activate \n"
+"'Widget in events view'\n"
+" for using StandbyScreen widget"
 msgstr ""
 
 #: meecast/qt-qml/UpdatePage.qml:73

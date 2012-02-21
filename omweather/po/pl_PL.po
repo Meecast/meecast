@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-05 17:08+0300\n"
+"POT-Creation-Date: 2012-02-21 12:16+0300\n"
 "PO-Revision-Date: 2010-04-13 21:48+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <dominikowski@gmail.com>\n"
@@ -203,9 +203,8 @@ msgid "AM Light Snow"
 msgstr "Rano lekki śnieg"
 
 #: omweather/src/hash.data:11
-#, fuzzy
 msgid "AM Light Snow / Wind"
-msgstr "Po południu lekki śnieg / wiatr"
+msgstr "Rano lekki śnieg / wiatr"
 
 #: omweather/src/hash.data:13
 msgid "AM Light Wintry Mix"
@@ -248,14 +247,12 @@ msgid "AM Snow Showers"
 msgstr "Rano przelotny śnieg"
 
 #: omweather/src/hash.data:22
-#, fuzzy
 msgid "AM Snow Showers / Wind"
-msgstr "Przelotny śnieg / wiatr"
+msgstr "Rano przelotny śnieg / wiatr"
 
 #: omweather/src/hash.data:21
-#, fuzzy
 msgid "AM Snow Showers / Wind Late"
-msgstr "Przelotny śnieg / wiatr"
+msgstr "Rano przelotny śnieg / później wiatr"
 
 #: omweather/src/weather-home.c:1286 omweather/src/weather-help.c:100
 #: omweather/src/weather-simple-popup.c:1163
@@ -317,11 +314,11 @@ msgstr "Wystąpił nieznany błąd."
 msgid "Animation"
 msgstr "Dotacje"
 
-#: meecast/qt-qml/VisualsPage.qml:409
+#: meecast/qt-qml/VisualsPage.qml:501
 msgid "Appearance"
 msgstr "Wygląd"
 
-#: meecast/qt-qml/VisualsPage.qml:92
+#: meecast/qt-qml/VisualsPage.qml:93
 msgid ""
 "Application manager will now start\n"
 "for installing package 'MeeCast applet'.\n"
@@ -396,7 +393,7 @@ msgstr "C\n"
 msgid "CALM"
 msgstr "SPOKOJNIE"
 
-#: meecast/qt-qml/VisualsPage.qml:106
+#: meecast/qt-qml/VisualsPage.qml:107
 msgid "Cancel"
 msgstr ""
 
@@ -438,14 +435,12 @@ msgid "Clear, Drifting Snow"
 msgstr "Bezchmurnie, zamieć śnieżna"
 
 #: omweather/src/hash.data:31
-#, fuzzy
 msgid "Clear, Fog"
-msgstr "Bezchmurnie, dym"
+msgstr "Bezchmurnie, mgła"
 
 #: omweather/src/hash.data:32
-#, fuzzy
 msgid "Clear, Fog, Drizzle"
-msgstr "Głównie pochmurnie, mgła, mżawka"
+msgstr "Bezchmurnie, mgła, mżawka"
 
 #: omweather/src/hash.data:33
 msgid "Clear, Smoke"
@@ -492,19 +487,16 @@ msgid "Cloudy, Few Snow"
 msgstr "Pochmurnie, słaby śnieg"
 
 #: omweather/src/hash.data:43
-#, fuzzy
 msgid "Cloudy, Heavy Rain"
-msgstr "Głównie pochmurnie, silny śnieg"
+msgstr "Pochmurnie, silny deszcz"
 
 #: omweather/src/hash.data:44
-#, fuzzy
 msgid "Cloudy, Heavy Rain, T-Storm"
-msgstr "Pochmurnie, lekki deszcz, burza"
+msgstr "Pochmurnie, silny deszcz, burza"
 
 #: omweather/src/hash.data:45
-#, fuzzy
 msgid "Cloudy, Heavy Snow"
-msgstr "Głównie pochmurnie, silny śnieg"
+msgstr "Pochmurnie, silny śnieg"
 
 #: omweather/src/hash.data:46
 msgid "Cloudy, Light Rain"
@@ -515,14 +507,12 @@ msgid "Cloudy, Light Rain, T-Storm"
 msgstr "Pochmurnie, lekki deszcz, burza"
 
 #: omweather/src/hash.data:48
-#, fuzzy
 msgid "Cloudy, Rain"
-msgstr "Pochmurnie, lekki deszcz"
+msgstr "Pochmurnie, deszcz"
 
 #: omweather/src/hash.data:49
-#, fuzzy
 msgid "Cloudy, Rain, T-Storm"
-msgstr "Pochmurnie, lekki deszcz, burza"
+msgstr "Pochmurnie, deszcz, burza"
 
 #: omweather/src/hash.data:50
 msgid "Cloudy, Smoke"
@@ -662,9 +652,8 @@ msgid "Drizzle / Fog"
 msgstr "Mżawka / mgła"
 
 #: omweather/src/hash.data:57
-#, fuzzy
 msgid "Drizzle / Wind"
-msgstr "Rano mżawka / wiatr"
+msgstr "Mżawka / wiatr"
 
 #: omweather/src/hash.data:55
 #, fuzzy
@@ -869,7 +858,7 @@ msgstr "Kolor czcionki:"
 msgid "Font:"
 msgstr "Czcionka:"
 
-#: meecast/qt-qml/VisualsPage.qml:226
+#: meecast/qt-qml/VisualsPage.qml:291
 msgid ""
 "For disabling MeeCast widget,\n"
 "you should uninstall package\n"
@@ -947,7 +936,7 @@ msgstr "Pełnia"
 msgid "Full forecast"
 msgstr "Pełna prognoza"
 
-#: meecast/qt-qml/VisualsPage.qml:303
+#: meecast/qt-qml/VisualsPage.qml:368
 msgid "Fullscreen mode"
 msgstr "Tryb pełnoekranowy"
 
@@ -1031,12 +1020,12 @@ msgstr "Zestaw ikon:"
 msgid "Icon size:"
 msgstr "Rozmiar ikon:"
 
-#: meecast/qt-qml/VisualsPage.qml:42 meecast/qt-qml/UpdatePage.qml:42
+#: meecast/qt-qml/VisualsPage.qml:43 meecast/qt-qml/UpdatePage.qml:42
 #, fuzzy
 msgid "Icons"
 msgstr "Zestaw ikon:"
 
-#: omweather/src/hash.data:87 meecast/qt-qml/VisualsPage.qml:325
+#: omweather/src/hash.data:87 meecast/qt-qml/VisualsPage.qml:390
 #, fuzzy
 msgid "Iconset"
 msgstr "Zestaw ikon:"
@@ -1046,8 +1035,8 @@ msgstr "Zestaw ikon:"
 msgid "Iconsets"
 msgstr "Zestaw ikon:"
 
-#: meecast/qt-qml/VisualsPage.qml:62 meecast/qt-qml/VisualsPage.qml:134
-#: meecast/qt-qml/VisualsPage.qml:161
+#: meecast/qt-qml/VisualsPage.qml:63 meecast/qt-qml/VisualsPage.qml:135
+#: meecast/qt-qml/VisualsPage.qml:162 meecast/qt-qml/VisualsPage.qml:225
 #, fuzzy
 msgid "Information"
 msgstr "Dotacje"
@@ -1313,14 +1302,12 @@ msgid "Mostly Cloudy, Fog, Drizzle"
 msgstr "Głównie pochmurnie, mgła, mżawka"
 
 #: omweather/src/hash.data:132
-#, fuzzy
 msgid "Mostly Cloudy, Heavy Rain"
-msgstr "Głównie pochmurnie, silny śnieg"
+msgstr "Głównie pochmurnie, silny deszcz"
 
 #: omweather/src/hash.data:133
-#, fuzzy
 msgid "Mostly Cloudy, Heavy Rain, T-Storm"
-msgstr "Głównie pochmurnie, deszcz, burza"
+msgstr "Głównie pochmurnie, silny deszcz, burza"
 
 #: omweather/src/hash.data:134
 msgid "Mostly Cloudy, Heavy Snow"
@@ -1505,7 +1492,7 @@ msgid "Now: "
 msgstr "Teraz: "
 
 #: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1222
-#: meecast/qt-qml/VisualsPage.qml:113
+#: meecast/qt-qml/VisualsPage.qml:114
 msgid "OK"
 msgstr "OK"
 
@@ -1522,7 +1509,8 @@ msgstr "Ustawienia OMWeather"
 msgid "OMWeather settings"
 msgstr "Ustawienia OMWeather"
 
-#: meecast/qt-qml/VisualsPage.qml:204 meecast/qt-qml/VisualsPage.qml:239
+#: meecast/qt-qml/VisualsPage.qml:205 meecast/qt-qml/VisualsPage.qml:268
+#: meecast/qt-qml/VisualsPage.qml:304
 msgid "Ok"
 msgstr ""
 
@@ -1575,18 +1563,16 @@ msgid "PM Showers / Wind"
 msgstr "Po południu przelotne deszcze / wiatr"
 
 #: omweather/src/hash.data:170
-#, fuzzy
 msgid "PM Snow"
-msgstr "Rano śnieg"
+msgstr "Po południu śnieg"
 
 #: omweather/src/hash.data:172
 msgid "PM Snow Showers"
 msgstr "Po południu przelotny śnieg"
 
 #: omweather/src/hash.data:171
-#, fuzzy
 msgid "PM Snow Showers / Wind"
-msgstr "Przelotny śnieg / wiatr"
+msgstr "Po południu przelotny śnieg / wiatr"
 
 #: omweather/src/hash.data:173
 #, fuzzy
@@ -1634,38 +1620,32 @@ msgid "Partly Cloudy, Haze"
 msgstr "Częściowe zachmurzenie, lekka mgła"
 
 #: omweather/src/hash.data:183
-#, fuzzy
 msgid "Partly Cloudy, Heavy Rain"
-msgstr "Głównie pochmurnie, silny śnieg"
+msgstr "Częściowe zachmurzenie, silny deszcz`"
 
 #: omweather/src/hash.data:184
-#, fuzzy
 msgid "Partly Cloudy, Heavy Rain, T-Storm"
-msgstr "Głównie pochmurnie, deszcz, burza"
+msgstr "Częściowe zachmurzenie, silny deszcz, burza"
 
 #: omweather/src/hash.data:185
-#, fuzzy
 msgid "Partly Cloudy, Heavy Snow"
-msgstr "Głównie pochmurnie, silny śnieg"
+msgstr "Częściowe zachmurzenie, silny śnieg"
 
 #: omweather/src/hash.data:186
 msgid "Partly Cloudy, Light Rain"
 msgstr "Częściowe zachmurzenie, lekki deszcz"
 
 #: omweather/src/hash.data:187
-#, fuzzy
 msgid "Partly Cloudy, Light Rain, T-Storm"
-msgstr "Głównie pochmurnie, lekki deszcz, burza"
+msgstr "Częściowe zachmurzenie, lekki deszcz, burza"
 
 #: omweather/src/hash.data:188
-#, fuzzy
 msgid "Partly Cloudy, Rain"
-msgstr "Częściowe zachmurzenie, lekki deszcz"
+msgstr "Częściowe zachmurzenie, deszcz"
 
 #: omweather/src/hash.data:189
-#, fuzzy
 msgid "Partly Cloudy, Rain, T-Storm"
-msgstr "Głównie pochmurnie, deszcz, burza"
+msgstr "Częściowe zachmurzenie, deszcz, burza"
 
 #: omweather/src/hash.data:190
 msgid "Partly Cloudy, Smoke"
@@ -2425,12 +2405,17 @@ msgstr ""
 msgid "Widget OMWeather is reloading"
 msgstr "Ustawienia OMWeather"
 
-#: meecast/qt-qml/VisualsPage.qml:371
+#: meecast/qt-qml/VisualsPage.qml:436
 #, fuzzy
 msgid "Widget in LockScreen"
 msgstr "Widżety w widoku zdarzeń"
 
-#: meecast/qt-qml/VisualsPage.qml:345
+#: meecast/qt-qml/VisualsPage.qml:463
+#, fuzzy
+msgid "Widget in StandbyScreen"
+msgstr "Widżety w widoku zdarzeń"
+
+#: meecast/qt-qml/VisualsPage.qml:410
 msgid "Widget in events view"
 msgstr "Widżety w widoku zdarzeń"
 
@@ -2515,11 +2500,18 @@ msgstr "Tak"
 msgid "You can make donation here: "
 msgstr "Tutaj można składać dotacje:"
 
-#: meecast/qt-qml/VisualsPage.qml:191
+#: meecast/qt-qml/VisualsPage.qml:192
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using LockScreen widget"
+msgstr ""
+
+#: meecast/qt-qml/VisualsPage.qml:255
+msgid ""
+"You should activate \n"
+"'Widget in events view'\n"
+" for using StandbyScreen widget"
 msgstr ""
 
 #: meecast/qt-qml/UpdatePage.qml:73

@@ -1,5 +1,11 @@
 meecast (0.4.9) unstable; urgency=low
 
+  * Nothing 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 18 Feb 2011 22:42:23 +0200
+
+meecast (0.4.9) unstable; urgency=low
+
   * Fixed problem with lockscreen widget and wallpaper image with various dpi 
   * Fixed problem with temperature in Farenheit unit and autoupdating
   * Updated Germany, Polish, Swedish translations

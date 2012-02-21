@@ -306,7 +306,7 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
 	    paint.drawText( x + 1, y, 196, 28, Qt::AlignHCenter, _stationname);
 
 	    /* Temperature */
-	    paint.setFont(QFont("Arial", 22));
+	    paint.setFont(QFont("Nokia Pure", 22));
 	    if (_temperature == "N/A" || _temperature == ""){
             QString temp_string = _temperature_high + QString::fromUtf8("°");
             paint.drawText(x + 10, y + 40, 60, 40, Qt::AlignHCenter, temp_string); 
@@ -314,13 +314,13 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
             paint.drawText(x + 10, y + 80, 60, 40, Qt::AlignHCenter, temp_string); 
 	    }else{
             if (_current)
-                paint.setFont(QFont("Arial Bold", 24));
+                paint.setFont(QFont("Nokia Pure Bold", 24));
             QString temp_string = _temperature + QString::fromUtf8("°");
             paint.drawText(x + 10, y + 55, 60, 40, Qt::AlignHCenter, temp_string); 
 	    }
 
         /* Last update */
-	    paint.setFont(QFont("Arial", 13));
+	    paint.setFont(QFont("Nokia Pure", 13));
         paint.drawText(x + 10, y + 138, 170, 35, Qt::AlignHCenter, lastupdate()); 
 
 	    paint.end();
@@ -371,7 +371,7 @@ void MyMWidget::refresheventswidget(){
          paint.setPen(pen);
 
 	 /* Station */
-	 paint.setFont(QFont("Arial", 12));
+	 paint.setFont(QFont("Nokia Pure", 12));
 	 // paint.setFont(QFont("Nokia Pure Light", 14));
 	 paint.drawText( x , y, 127, 21, Qt::AlignHCenter, _stationname);
 
@@ -383,7 +383,7 @@ void MyMWidget::refresheventswidget(){
          paint.drawImage(point, icon); 
 		    
 	 /* Temperature */
-	 paint.setFont(QFont("Arial", 20));
+	 paint.setFont(QFont("Nokia Pure", 20));
 	 if (_temperature == "N/A" || _temperature == ""){
                 QString temp_string = _temperature_high + QString::fromUtf8("°");
                 paint.drawText(x, y + 20, 60, 50, Qt::AlignHCenter, temp_string); 
@@ -391,7 +391,7 @@ void MyMWidget::refresheventswidget(){
                 paint.drawText(x, y + 55, 60, 50, Qt::AlignHCenter, temp_string); 
 	  }else{
 		 if (_current)
-			paint.setFont(QFont("Arial Bold", 21));
+			paint.setFont(QFont("Nokia Pure Bold", 21));
          QString temp_string = _temperature + QString::fromUtf8("°");
 	     paint.drawText(x, y + 35, 60, 48, Qt::AlignHCenter, temp_string); 
 	  }
@@ -418,7 +418,7 @@ void MyMWidget::refreshstandby(){
      paint.setPen(pen);
 
 	 /* Station */
-	 paint.setFont(QFont("Arial", 12));
+	 paint.setFont(QFont("Nokia Pure", 12));
 	 // paint.setFont(QFont("Nokia Pure Light", 14));
 	 paint.drawText( x , y, 127, 21, Qt::AlignHCenter, _stationname);
 
@@ -430,7 +430,7 @@ void MyMWidget::refreshstandby(){
          paint.drawImage(point, icon); 
 		    
 	 /* Temperature */
-	 paint.setFont(QFont("Arial", 20));
+	 paint.setFont(QFont("Nokia Pure", 20));
 	 if (_temperature == "N/A" || _temperature == ""){
                 QString temp_string = _temperature_high + QString::fromUtf8("°");
                 paint.drawText(x, y + 20, 60, 50, Qt::AlignHCenter, temp_string); 
@@ -438,7 +438,7 @@ void MyMWidget::refreshstandby(){
                 paint.drawText(x, y + 55, 60, 50, Qt::AlignHCenter, temp_string); 
 	  }else{
 		 if (_current)
-			paint.setFont(QFont("Arial Bold", 21));
+			paint.setFont(QFont("Nokia Pure Bold", 21));
          QString temp_string = _temperature + QString::fromUtf8("°");
 	     paint.drawText(x, y + 35, 60, 48, Qt::AlignHCenter, temp_string); 
 	  }

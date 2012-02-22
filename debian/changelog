@@ -1,8 +1,9 @@
 meecast (0.5) unstable; urgency=low
 
   * Changed font to Nokia Pure for Lock Screen and StandbyScreen 
+  * Fixed problem with disabling Meecast widget in StandbyScreen
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 18 Feb 2011 22:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 22 Feb 2011 15:42:23 +0200
 
 meecast (0.4.9) unstable; urgency=low
 

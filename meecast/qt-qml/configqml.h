@@ -40,6 +40,7 @@
 #include "dataitem.h"
 #include "updatethread.h"
 #include "gpsposition.h"
+#include <MGConfItem>
 
 class ConfigQml : public QObject, public Core::Config
 

@@ -77,6 +77,7 @@ CONFIG(localdebug):DEFINES += LOCALDEBUG
 CONFIG += mobility
 MOBILITY += location
 CONFIG += qdeclarative-boostable
+CONFIG += meegotouch 
 
 QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
 QMAKE_LFLAGS += -pie -rdynamic

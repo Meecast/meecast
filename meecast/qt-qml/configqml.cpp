@@ -256,6 +256,8 @@ ConfigQml::setstandbyscreen(bool c)
     ConfigQml::Config::Standbyscreen(c);
     if (!c && (QFile::exists("/home/user/.cache/com.meecast.omweather/logo.png")))
        QFile::remove("/home/user/.cache/com.meecast.omweather/logo.png"); 
+    MGConfItem standbyItem("/desktop/meego/screen_lock/low_power_mode/operator_logo");
+    standbyItem.set("/home/user/.cache/com.meecast.omweather/nologo.png");
     saveConfig();
     refreshconfig();
 }

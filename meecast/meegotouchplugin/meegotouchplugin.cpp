@@ -417,6 +417,7 @@ void MyMWidget::refreshstandby(){
      pen.setColor(myPenColor);
      paint.setPen(pen);
 
+      _standbyItem->set("/home/user/.cache/com.meecast.omweather/nologo.png");
 	 /* Station */
 	 paint.setFont(QFont("Nokia Pure", 12));
 	 // paint.setFont(QFont("Nokia Pure Light", 14));

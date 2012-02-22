@@ -220,6 +220,7 @@ void MyMWidget::updateWallpaperPath(){
 	// Debug end 
 #endif
 }
+
 void MyMWidget::refreshwallpaper(bool new_wallpaper){
 
 #if 0	    
@@ -280,7 +281,7 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
 	    int y = 240;
 
 	    QPainter paint;
-            QImage image = _image->copy();
+        QImage image = _image->copy();
 	    paint.begin(&image);
 	    QPen pen;
 	    QColor myPenColor = QColor(255, 255, 255, 128);// set default color

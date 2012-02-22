@@ -2394,9 +2394,8 @@ msgid "Widget in LockScreen"
 msgstr "Виджет на LockScreen экране"
 
 #: meecast/qt-qml/VisualsPage.qml:463
-#, fuzzy
 msgid "Widget in StandbyScreen"
-msgstr "Виджет на LockScreen экране"
+msgstr "Виджет на StandbyScreen экране"
 
 #: meecast/qt-qml/VisualsPage.qml:410
 msgid "Widget in events view"
@@ -2495,14 +2494,13 @@ msgstr ""
 "событий'  "
 
 #: meecast/qt-qml/VisualsPage.qml:255
-#, fuzzy
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using StandbyScreen widget"
 msgstr ""
 "Для использования \n"
-"LockScreen виджета\n"
+"StandbyScreen виджета\n"
 "Вы должны активировать \n"
 "опцию 'Виджет на экране \n"
 "событий'  "

@@ -1,3 +1,9 @@
+meecast (0.5.1) unstable; urgency=low
+
+  * Fixed problem with negative temperatures in source gismeteo.ru 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 22 Feb 2011 15:42:23 +0200
+
 meecast (0.5) unstable; urgency=low
 
   * Changed font to Nokia Pure for Lock Screen and StandbyScreen 

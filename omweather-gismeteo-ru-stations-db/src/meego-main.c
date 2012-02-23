@@ -214,8 +214,12 @@ fill_day (xmlNode *root_node, GHashTable *day, gint part_of_day, GHashTable *has
                 if (count_of_string == 1){
                     memset(temp_buffer, 0, sizeof(temp_buffer));
                     for (i = 0 ; (i<(strlen(buffer)) && i < buff_size); i++ ){
-                        if (buffer[i] == '-' || (buffer[i]>='0' && buffer[i]<='9'))
-                            sprintf(temp_buffer,"%s%c",temp_buffer, buffer[i]);
+                        if ((uint)buffer[i] == 226 || buffer[i] == '-' || (buffer[i]>='0' && buffer[i]<='9')){
+                             if ((uint)buffer[i] == 226)
+                                sprintf(temp_buffer,"%s-",temp_buffer);
+                             else
+                                sprintf(temp_buffer,"%s%c",temp_buffer, buffer[i]);
+                        }
                     }
                     switch (part_of_day){
                         case DAY: g_hash_table_insert(day, "day_hi_temperature", g_strdup(temp_buffer));
@@ -949,8 +953,12 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
         snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj->nodesetval->nodeTab[0]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
-                 if (buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9'))
-                     sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+                 if ((uint)buffer[j] == 226 || buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')) {
+                     if ((uint)buffer[j] == 226)
+                        sprintf(temp_buffer,"%s-",temp_buffer);
+                     else
+                        sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+                 }
              }
         snprintf(current_temperature, sizeof(current_temperature)-1,"%s", temp_buffer);
   }
@@ -1144,9 +1152,15 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj3->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
-                 if (buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9'))
-                     sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+                 if ((uint)buffer[j] == 226 ||  buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')){
+                     if ((uint)buffer[j] == 226){
+                        sprintf(temp_buffer,"%s-",temp_buffer);
+                     }
+                     else
+                        sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+                 }
              }
+			 /* fprintf(stderr, "     <temperature>%s</temperature>\n", temp_buffer); */
 			 fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 
          }
          /* added icon */
@@ -1571,8 +1585,18 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
    }
    /* added temperature */
    if (xpathObj4 && !xmlXPathNodeSetIsEmpty(xpathObj4->nodesetval) && xpathObj4->nodesetval->nodeTab[i]->content){
-       temperature = atoi(xpathObj4->nodesetval->nodeTab[i]->content);
-       fprintf(file_out,"     <temperature>%i</temperature>\n", temperature);
+      
+       snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj4->nodesetval->nodeTab[i]->content);
+             memset(temp_buffer, 0, sizeof(temp_buffer));
+             for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
+                 if ((uint)buffer[j] == 226  || buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')){
+                     if ((uint)buffer[j] == 226)
+                        sprintf(temp_buffer,"%s-",temp_buffer);
+                     else
+                        sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+                 }
+             }
+       fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer);
        /* fprintf (stderr, "temperature %s\n", xpathObj3->nodesetval->nodeTab[i]->content); */
    }
    /* added pressure */
@@ -1626,8 +1650,18 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
   }
   /* added feels like */
   if (xpathObj9 && !xmlXPathNodeSetIsEmpty(xpathObj9->nodesetval) && xpathObj9->nodesetval->nodeTab[i*5+4]->content){
-     temperature = atoi(xpathObj9->nodesetval->nodeTab[i*5+4]->content);
-     fprintf(file_out,"     <flike>%i</flike>\n", temperature );
+             snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj9->nodesetval->nodeTab[i*5+4]->content);
+             memset(temp_buffer, 0, sizeof(temp_buffer));
+             for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
+                 if ((uint)buffer[j] == 226 ||  buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')){
+                     if ((uint)buffer[j] == 226)
+                        sprintf(temp_buffer,"%s-",temp_buffer);
+                     else
+                        sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+                 }
+             }
+
+     fprintf(file_out,"     <flike>%i</flike>\n", temp_buffer);
   }
 
 

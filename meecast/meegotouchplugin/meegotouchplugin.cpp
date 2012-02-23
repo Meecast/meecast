@@ -304,7 +304,7 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
 		    
 	    /* Station */
 	    paint.setFont(QFont("Nokia Pure Light", 18));
-	    paint.drawText( x + 1, y, 196, 28, Qt::AlignHCenter, _stationname);
+	    paint.drawText( x + 1, y, 196, 28, Qt::AlignHCenter, _stationname.mid(0, 19));
 
 	    /* Temperature */
 	    paint.setFont(QFont("Nokia Pure", 22));
@@ -374,7 +374,7 @@ void MyMWidget::refresheventswidget(){
 	 /* Station */
 	 paint.setFont(QFont("Nokia Pure", 12));
 	 // paint.setFont(QFont("Nokia Pure Light", 14));
-	 paint.drawText( x , y, 127, 21, Qt::AlignHCenter, _stationname);
+	 paint.drawText( x , y, 127, 21, Qt::AlignHCenter, _stationname.mid(0, 16));
 
          /* Icon */
          QPoint point(x + 50, y + 19);
@@ -422,7 +422,7 @@ void MyMWidget::refreshstandby(){
 	 /* Station */
 	 paint.setFont(QFont("Nokia Pure", 12));
 	 // paint.setFont(QFont("Nokia Pure Light", 14));
-	 paint.drawText( x , y, 127, 21, Qt::AlignHCenter, _stationname);
+	 paint.drawText( x , y, 127, 21, Qt::AlignHCenter, _stationname.mid(0,18));
 
          /* Icon */
          QPoint point(x + 50, y + 19);

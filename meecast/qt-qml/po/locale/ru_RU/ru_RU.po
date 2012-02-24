@@ -452,9 +452,8 @@ msgid "Clear, Fog, Drizzle"
 msgstr "Ясно, Туман, Изморось"
 
 #: omweather/src/hash.data:33
-#, fuzzy
 msgid "Clear, Haze"
-msgstr "Чисто, Дымка"
+msgstr "Чисто, Мгла"
 
 #: omweather/src/hash.data:34
 msgid "Clear, Smoke"

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<source xmlns="https://garage.maemo.org/projects/omweather/">
+<name>foreca.com</name>
+<logo>foreca.com.png</logo>
+<base>foreca.com.db</base>
+<forecast url="http://foreca.mobi/7d.php?l=%s" />
+<detail url="http://foreca.mobi/index.php?l=%s" />
+<search url="http://xoap.weather.com/search/search?where=%s" />
+<library>libomweather-yr-no-source.so</library>
+<binary>/opt/com.meecast.omweather/lib/forecacom</binary>
+<showurl url="http://foreca.mobi/index.php?l=%s" />
+</source>

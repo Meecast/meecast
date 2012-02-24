@@ -28,11 +28,11 @@ PKGCONFIG += libxml-2.0 \
 db.files = data/foreca.com.db
 db.path = /opt/com.meecast.omweather/share/db/
 
-source.files = data/foreaca.com.xml
+source.files = data/foreca.com.xml
 source.path = /opt/com.meecast.omweather/share/sources/
 
 #install
 target.path = /opt/com.meecast.omweather/lib
-INSTALLS += target db  source
+INSTALLS += target db source
 
 

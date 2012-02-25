@@ -32,6 +32,28 @@
 /*******************************************************************************/
 #define buff_size 2048
 static GHashTable *data = NULL;
+/*******************************************************************************/
+gchar*
+choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
+{
+    gchar *result;
+    gchar *source;
+    gchar *tmp_result = NULL;
+
+    if(!image)
+        return g_strdup("49");
+    source = g_strdup_printf("%s", image);
+    tmp_result = hash_forecacom_table_find(hash_for_icons, source, FALSE);
+    if (tmp_result && (strlen(tmp_result) == 2 || strlen(tmp_result) == 1)){
+       result = g_strdup(tmp_result);
+       g_free(source);
+       return result;
+    }else{
+       fprintf(stderr,"Unknown strings %s\n", image);
+       g_free(source);
+       return g_strdup("49");
+    }
+}
 
 /*******************************************************************************/
 gint
@@ -70,6 +92,7 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
     gchar       *temp_char2;
     gint        pressure; 
     gint        speed;
+    gint        ppcp;
 
     gchar       *image = NULL;
     double      time_diff = 0;
@@ -123,22 +146,14 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
   if (size > 10)
     size = 10;
   fprintf(stderr, "SIZE!!!!!!!!!!!!!!: %i\n", size); 
- // xpathObj2 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0' and @title]/text()", xpathCtx);
-  xpathObj2 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/th[@title]/text()", xpathCtx);
- // xpathObj3 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c3']/text()", xpathCtx);
-  xpathObj3 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/following-sibling::*[@class='temp']/text()", xpathCtx);
-//  xpathObj4 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c1']/div/img/@src", xpathCtx);
-  xpathObj4 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/following-sibling::*[@class='clicon']/img/@src", xpathCtx);
- // xpathObj5 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c2']/span/text()", xpathCtx);
-  xpathObj5 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/following-sibling::*[@class='cltext']/text()", xpathCtx);
- // xpathObj6 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c4']/text()", xpathCtx);
-  xpathObj6 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/following-sibling::*/text()", xpathCtx);
-//  xpathObj7 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c5']/div/text()", xpathCtx);
-  xpathObj7 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/following-sibling::*/dl[@class='wind']/dd/text()", xpathCtx);
-//  xpathObj8 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c5']/div/img/@title", xpathCtx);
-  xpathObj8 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/following-sibling::*/dl/dt/text()", xpathCtx);
-//  xpathObj9 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c6']/text()", xpathCtx);
-  xpathObj9 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/following-sibling::*/text()", xpathCtx);
+  xpathObj2 = xmlXPathEvalExpression("/html/body/div/div/table/tbody/tr/td[@class='in']//span[1]/text()", xpathCtx);
+  xpathObj3 = xmlXPathEvalExpression("/html/body/div/div/table/tbody/tr/td[@class='in']//span[2]/text()", xpathCtx);
+  xpathObj4 = xmlXPathEvalExpression("/html/body/div/div/table/tbody/tr/td[2]/img/@alt", xpathCtx);
+  xpathObj5 = xmlXPathEvalExpression("/html/body/div/div/table/tbody/tr/td[2]/text()", xpathCtx);
+  xpathObj6 = xmlXPathEvalExpression("/html/body/div/div/table/tbody/tr/td[3]/img/@src", xpathCtx);
+  xpathObj7 = xmlXPathEvalExpression("/html/body/div/div/table/tbody/tr/td[@class='in2']/text()[1]", xpathCtx);
+  xpathObj8 = xmlXPathEvalExpression("/html/body/div/div/table/tbody/tr/td[@class='in2']/text()[2]", xpathCtx);
+  
   /* fprintf(stderr, "Result (%d nodes):\n", size); */
   for(i = 0; i < size; ++i) {
       day = NULL;
@@ -177,37 +192,16 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
        
       fprintf(stderr, "Day %s\n",temp_char);
 
-#if 0
-      /* Check Day and Night */
-      if (xpathObj2 && !xmlXPathNodeSetIsEmpty(xpathObj2->nodesetval) && xpathObj2->nodesetval->nodeTab[i]->content && (
-           !strcmp(xpathObj2->nodesetval->nodeTab[i]->content, "Ночь")||
-           !strcmp(xpathObj2->nodesetval->nodeTab[i]->content, "День"))
-          ){
-            if (!strcmp(xpathObj2->nodesetval->nodeTab[i]->content, "Ночь"))
-                night_flag = TRUE;
-            /* fprintf(stderr,"Day : %s\n", xpathObj2->nodesetval->nodeTab[i]->content); */
-      }else{
-          continue;
-      }
-      /* Look up this day in hash */
-      while(tmp){
-          day = (GHashTable*)tmp->data;
-          if (g_hash_table_lookup(day, "day_date") &&
-              !strcmp(g_hash_table_lookup(day,"day_date"), buff)){
-                  flag = TRUE;
-                  break;
-          }
-          tmp = g_slist_next(tmp);
-      }
-#endif
- 
-         /* added temperature */
-         if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) &&
-             xpathObj3->nodesetval->nodeTab[i] && xpathObj3->nodesetval->nodeTab[i]->content){
+
+         /* added hi temperature */
+         if (xpathObj2 && !xmlXPathNodeSetIsEmpty(xpathObj2->nodesetval) &&
+             xpathObj2->nodesetval->nodeTab[i] && xpathObj2->nodesetval->nodeTab[i]->content){
              /* fprintf (stderr, "temperature %s\n", xpathObj3->nodesetval->nodeTab[i]->content); */
-             snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj3->nodesetval->nodeTab[i]->content);
+             snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj2->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
+                 if (buffer[j] == '&')
+                    break;
                  if ((uint)buffer[j] == 226 ||  buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')){
                      if ((uint)buffer[j] == 226){
                         sprintf(temp_buffer,"%s-",temp_buffer);
@@ -217,86 +211,73 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
                  }
              }
 			 /* fprintf(stderr, "     <temperature>%s</temperature>\n", temp_buffer); */
-			 fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 
+			 fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_buffer); 
          }
-         /* added icon */
-         if (xpathObj4 && !xmlXPathNodeSetIsEmpty(xpathObj4->nodesetval) &&
-             xpathObj4->nodesetval->nodeTab[i] && xpathObj4->nodesetval->nodeTab[i]->children->content){
-            temp_char = strrchr((char*)xpathObj4->nodesetval->nodeTab[i]->children->content, '/');
-            temp_char ++;
-            /* fprintf (stderr, "icon %s %s \n", xpathObj4->nodesetval->nodeTab[i]->children->content, choose_hour_weather_icon(hash_for_icons, temp_char)); */
-            //fprintf(file_out,"     <icon>%s</icon>\n",  choose_hour_weather_icon(hash_for_icons, temp_char));
-         }
-         /* added text */
-         if (xpathObj5 && !xmlXPathNodeSetIsEmpty(xpathObj5->nodesetval) &&
-             xpathObj5->nodesetval->nodeTab[i] && xpathObj5->nodesetval->nodeTab[i]->content){
-             /* fprintf (stderr, "description %s\n", xpathObj5->nodesetval->nodeTab[i]->content); */
-             fprintf(file_out,"     <description>%s</description>\n", hash_forecacom_table_find(hash_for_translate, xpathObj5->nodesetval->nodeTab[i]->content, FALSE));
-         }
-         /* added pressure */
-         if (xpathObj6 && !xmlXPathNodeSetIsEmpty(xpathObj6->nodesetval) &&
-             xpathObj6->nodesetval->nodeNr >= (i*5+2) &&
-             xpathObj6->nodesetval->nodeTab[i*5+2] && xpathObj6->nodesetval->nodeTab[i*5+2]->content){
-             pressure = atoi((char*)xpathObj6->nodesetval->nodeTab[i*5+2]->content);
-             pressure = pressure * 1.333224;
-			fprintf(file_out,"     <pressure>%i</pressure>\n", pressure);
-         }
-         /* added wind speed */
-         if (xpathObj7 && !xmlXPathNodeSetIsEmpty(xpathObj7->nodesetval) &&
-             xpathObj7->nodesetval->nodeTab[i] && xpathObj7->nodesetval->nodeTab[i]->content){
-            /* Normalize speed to km/h from m/s */
-            /* fprintf(stderr, "Wind  speed    \n"); */ 
-            speed = atoi (xpathObj7->nodesetval->nodeTab[i]->content);
-			fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n",  (double)(speed));
+         /* added lo temperature */
+         if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) &&
+             xpathObj3->nodesetval->nodeTab[i] && xpathObj3->nodesetval->nodeTab[i]->content){
+             /* fprintf (stderr, "temperature %s\n", xpathObj3->nodesetval->nodeTab[i]->content); */
+             snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj3->nodesetval->nodeTab[i]->content);
+             memset(temp_buffer, 0, sizeof(temp_buffer));
+             for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
+                 if (buffer[j] == '&')
+                    break;
+                 if ((uint)buffer[j] == 226 ||  buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')){
+                     if ((uint)buffer[j] == 226){
+                        sprintf(temp_buffer,"%s-",temp_buffer);
+                     }
+                     else
+                        sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+                 }
+             }
+			 /* fprintf(stderr, "     <temperature>%s</temperature>\n", temp_buffer); */
+			 fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_buffer); 
          }
          /* added wind direction */
-         if (xpathObj8 && !xmlXPathNodeSetIsEmpty(xpathObj8->nodesetval) &&
-             xpathObj8->nodesetval->nodeTab[i] && xpathObj8->nodesetval->nodeTab[i]->content){
-             /* fprintf (stderr, "Wind direction: %s\n", xpathObj8->nodesetval->nodeTab[i]->content); */ 
-             snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj8->nodesetval->nodeTab[i]->content);
-             /* Wind direction */
-             if (!strcoll(buffer, "З"))
-                  sprintf(buffer,"%s","W");
-             if (!strcoll(buffer, "Ю"))
-                  sprintf(buffer,"%s","S");
-             if (!strcoll(buffer, "В"))
-                  sprintf(buffer,"%s","E");
-             if (!strcoll(buffer, "С"))
-                  sprintf(buffer,"%s","N");
-             if (!strcoll(buffer, "ЮЗ"))
-                  sprintf(buffer,"%s","SW");
-             if (!strcoll(buffer, "ЮВ"))
-                  sprintf(buffer,"%s","SE");
-             if (!strcoll(buffer, "СЗ"))
-                  sprintf(buffer,"%s","NW");
-             if (!strcoll(buffer, "СВ"))
-                  sprintf(buffer,"%s","NE");
-             if (!strcoll(buffer, "безветрие"))
-                  sprintf(buffer,"%s","CALM");
-             if (!strcoll(buffer, "Ш"))
-                  sprintf(buffer,"%s","CALM");
-			 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", buffer);
-         }
-         /* added humidity */
-         if (xpathObj9 && !xmlXPathNodeSetIsEmpty(xpathObj9->nodesetval) &&
-             xpathObj9->nodesetval->nodeNr >= (i*5+3) &&
-             xpathObj9->nodesetval->nodeTab[i*5+3] && xpathObj9->nodesetval->nodeTab[i*5+3]->content){
-            /* fprintf (stderr, "temperature %s\n", xpathObj9->nodesetval->nodeTab[i*5+3]->content); */
-			fprintf(file_out,"     <humidity>%s</humidity>\n", g_strdup(xpathObj9->nodesetval->nodeTab[i*5+3]->content));
-         }
-	 /* added feels like */
-         if (xpathObj9 && !xmlXPathNodeSetIsEmpty(xpathObj9->nodesetval) &&
-             xpathObj9->nodesetval->nodeNr >= (i*5+4) &&
-             xpathObj9->nodesetval->nodeTab[i*5+4] && xpathObj9->nodesetval->nodeTab[i*5+4]->content){
-		snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj9->nodesetval->nodeTab[i*5+4]->content);
-             	memset(temp_buffer, 0, sizeof(temp_buffer));
-             	for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
-                	 if (buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9'))
-                     		sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
-            	 }
-		 fprintf(file_out,"     <flike>%s</flike>\n", temp_buffer); 
+         if (xpathObj4 && !xmlXPathNodeSetIsEmpty(xpathObj4->nodesetval) &&
+             xpathObj4->nodesetval->nodeTab[i] && xpathObj4->nodesetval->nodeTab[i]->children->content){
+            /* fprintf(stderr, "Wind  direction  %s  \n", xpathObj4->nodesetval->nodeTab[i]->children->content);  */
+			fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  xpathObj4->nodesetval->nodeTab[i]->children->content);
          }
 
+        /* added wind speed */
+         if (xpathObj5 && !xmlXPathNodeSetIsEmpty(xpathObj5->nodesetval) &&
+             xpathObj5->nodesetval->nodeTab[i] && xpathObj5->nodesetval->nodeTab[i]->content){
+            /* fprintf(stderr, "Wind  direction  %s  \n", xpathObj4->nodesetval->nodeTab[i]->children->content);  */
+			fprintf(file_out,"     <wind_speed>%s</wind_speed>\n",  
+                                   xpathObj5->nodesetval->nodeTab[i]->content);
+         }
+
+         /* added icon */
+         if (xpathObj6 && !xmlXPathNodeSetIsEmpty(xpathObj6->nodesetval) &&
+             xpathObj6->nodesetval->nodeTab[i] && xpathObj6->nodesetval->nodeTab[i]->children->content){
+            temp_char = strrchr((char*)xpathObj6->nodesetval->nodeTab[i]->children->content, '/');
+            temp_char ++;
+            /*  fprintf (stderr, "icon %s %s \n", xpathObj6->nodesetval->nodeTab[i]->children->content, choose_hour_weather_icon(hash_for_icons, temp_char)); */ 
+            fprintf(file_out,"     <icon>%s</icon>\n",  
+                                   choose_hour_weather_icon(hash_for_icons, temp_char));
+         }
+         /* added text */
+         if (xpathObj7 && !xmlXPathNodeSetIsEmpty(xpathObj7->nodesetval) &&
+             xpathObj7->nodesetval->nodeTab[i] && xpathObj7->nodesetval->nodeTab[i]->content){
+             /* fprintf (stderr, "description %s\n", xpathObj7->nodesetval->nodeTab[i]->content); */
+             fprintf(file_out,"     <description>%s</description>\n", 
+                                    xpathObj7->nodesetval->nodeTab[i]->content);
+         }
+         /* added ppcp */
+         if (xpathObj8 && !xmlXPathNodeSetIsEmpty(xpathObj8->nodesetval) &&
+             xpathObj8->nodesetval->nodeTab[i] && xpathObj8->nodesetval->nodeTab[i]->content){
+             snprintf(buffer, sizeof(buffer) - 1, "%s", xpathObj8->nodesetval->nodeTab[i]->content); 
+             memset(temp_buffer, 0, sizeof(temp_buffer));
+             for (j = 0 ; (j<(strlen(buffer)) && j < strlen(buffer)); j++ ){
+                 if (buffer[j] == '%')
+                    break;
+                 if ( (buffer[j]>='0' && buffer[j]<='9')){
+                        sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+                 }
+             }
+             fprintf(file_out,"     <ppcp>%s</ppcp>\n", temp_buffer);
+         }
       fprintf(file_out,"    </period>\n");
 
 
@@ -320,8 +301,6 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
     xmlXPathFreeObject(xpathObj7);
   if (xpathObj8)
     xmlXPathFreeObject(xpathObj8);
-  if (xpathObj9)
-    xmlXPathFreeObject(xpathObj9);
   /* fill current data */
   utc_time = mktime(&current_tm);
   if (utc_time != -1){
@@ -390,7 +369,7 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
 
   fclose(file_out);
 
-  return size/4;
+  return size;
 }
 
 /*******************************************************************************/
@@ -402,7 +381,8 @@ convert_station_forecacom_data(const gchar *station_id_with_path, const gchar *r
     gint    days_number = -1;
     gchar   buffer[1024],
             *delimiter = NULL;
-    
+    FILE    *file_out;
+
     if(!station_id_with_path)
         return -1;
 /* check for new file, if it exist, than rename it */
@@ -441,6 +421,14 @@ convert_station_forecacom_data(const gchar *station_id_with_path, const gchar *r
              //       days_number = parse_xml_detail_data(buffer, root_node, data);
              //   else
                 days_number = parse_and_write_xml_data(buffer, doc, result_file);
+                if (days_number > 0){
+                    file_out = fopen(result_file, "a");
+    			    if (file_out){
+                        fprintf(file_out,"</station>");
+                        fclose(file_out);
+                    }
+		        }
+
             }
             xmlFreeDoc(doc);
             xmlCleanupParser();

@@ -2,6 +2,8 @@ meecast (0.5.2) unstable; urgency=low
 
   * Added station Juankoski to yr.no database
   * Fixed problem with long station name in events widget
+  * Updated Russian translation
+  * Added new source foreca.com
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 23 Feb 2011 22:42:23 +0200
 
@@ -16,7 +18,7 @@ meecast (0.5) unstable; urgency=low
 
   * Changed font to Nokia Pure for Lock Screen and StandbyScreen 
   * Fixed problem with disabling Meecast widget in StandbyScreen
-  * Updated Russian translations
+  * Updated Russian translation
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 22 Feb 2011 15:42:23 +0200
 

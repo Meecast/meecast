@@ -2333,7 +2333,7 @@ msgstr "Оформление"
 
 #: omweather/src/hash.data:268
 msgid "W"
-msgstr "ЗЗ"
+msgstr "З"
 
 #: omweather/src/weather-simple-settings.c:1789
 #: omweather/src/weather-simple-settings.c:1796

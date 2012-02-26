@@ -880,18 +880,18 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
             /* Fill current day */
             if(!xmlStrcmp(cur_node->name, (const xmlChar *) "cc" ) ){
             //    current = g_hash_table_new(g_str_hash, g_str_equal);
-		memset(temp_hi, 0, sizeof(temp_hi));
-		memset(temp_flike, 0, sizeof(temp_flike));
-		memset(humidity_day, 0, sizeof(humidity_day));
-		memset(humidity_night, 0, sizeof(humidity_night));
-		memset(pressure, 0, sizeof(pressure));
-		memset(pressure_direction, 0, sizeof(pressure_direction));
-		memset(description_day, 0, sizeof(description_day));
-		memset(icon_day, 0, sizeof(icon_day));
-		memset(icon_night, 0, sizeof(icon_night));
-		memset(wind_speed_day, 0, sizeof(wind_speed_day));
-		memset(wind_gust, 0, sizeof(wind_gust));
-		memset(visible, 0, sizeof(visible));
+                memset(temp_hi, 0, sizeof(temp_hi));
+                memset(temp_flike, 0, sizeof(temp_flike));
+                memset(humidity_day, 0, sizeof(humidity_day));
+                memset(humidity_night, 0, sizeof(humidity_night));
+                memset(pressure, 0, sizeof(pressure));
+                memset(pressure_direction, 0, sizeof(pressure_direction));
+                memset(description_day, 0, sizeof(description_day));
+                memset(icon_day, 0, sizeof(icon_day));
+                memset(icon_night, 0, sizeof(icon_night));
+                memset(wind_speed_day, 0, sizeof(wind_speed_day));
+                memset(wind_gust, 0, sizeof(wind_gust));
+                memset(visible, 0, sizeof(visible));
 
                 for(child_node = cur_node->children; child_node != NULL; child_node = child_node->next){
                     /* last update */

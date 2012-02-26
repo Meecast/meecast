@@ -374,7 +374,7 @@ void MyMWidget::refresheventswidget(){
 	 /* Station */
 	 paint.setFont(QFont("Nokia Pure", 12));
 	 // paint.setFont(QFont("Nokia Pure Light", 14));
-	 paint.drawText( x , y, 127, 21, Qt::AlignHCenter, _stationname.mid(0, 15));
+	 paint.drawText( x , y, 127, 21, Qt::AlignHCenter, _stationname.mid(0, 14));
 
          /* Icon */
          QPoint point(x + 50, y + 19);

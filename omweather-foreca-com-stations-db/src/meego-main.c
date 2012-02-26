@@ -276,7 +276,14 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
         fprintf(file_out,"     <flike>%s</flike>\n", temp_buffer); 
     }
     fprintf(file_out,"    </period>\n");
+
+
+
     /* To DO sunrise and sunset */
+    xpathObj = xmlXPathEvalExpression("/html/body/div/div/table//tr/th/text()", xpathCtx);
+    
+
+
     fclose(file_out);
     return 1; 
     /* Day weather forecast */

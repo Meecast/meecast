@@ -135,9 +135,11 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
         return(-1);
     }
     temp_char = strchr(xpathObj->nodesetval->nodeTab[0]->content, ' ');
-    if (temp_char == NULL)
+    if (temp_char == NULL || strlen(temp_char)<2)
         return -1;
-    temp_char = strchr(temp_char, " ");
+    temp_char = temp_char + 1;
+    temp_char = strchr(temp_char, ' ');
+    fprintf(stderr,"aqqqqqqqqqqq %s\n", temp_char);
     if (temp_char != NULL){
         for (j=0; j<strlen(temp_char)-1; j++){
             if (temp_char[j] == ' ' || temp_char[j] == '\n')
@@ -170,7 +172,6 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
         t_end = t_start + 3600*4 - 1;
         fprintf(file_out," end=\"%li\" current=\"true\" >\n", t_end);
 
-        fprintf(file_out,"    </period>\n");
     }
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
@@ -194,7 +195,7 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
             }
         }
         /* fprintf(stderr, "     <temperature>%s</temperature>\n", temp_buffer); */
-        fprintf(file_out,"     <temperature>%s</temperaturei>\n", temp_buffer); 
+        fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 
     }
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
@@ -218,7 +219,23 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
         fprintf(file_out,"     <wind_speed>%s</wind_speed>\n",  
                                xpathObj->nodesetval->nodeTab[0]->content);
      }
+    if (xpathObj)
+        xmlXPathFreeObject(xpathObj);
 
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[3]/td[4]/img/@src", xpathCtx);
+    /* added icon */
+    if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
+        xpathObj->nodesetval->nodeTab[0] && 
+        xpathObj->nodesetval->nodeTab[0]->children->content){
+       temp_char = strrchr((char*)xpathObj->nodesetval->nodeTab[0]->children->content, '/');
+       temp_char ++;
+       /*  fprintf (stderr, "icon %s %s \n", xpathObj6->nodesetval->nodeTab[i]->children->content, choose_hour_weather_icon(hash_for_icons, temp_char)); */ 
+       fprintf(file_out,"     <icon>%s</icon>\n",  
+                              choose_hour_weather_icon(hash_for_icons, temp_char));
+    }
+
+
+    fprintf(file_out,"    </period>\n");
     fclose(file_out);
     return 1; 
     /* Day weather forecast */
@@ -524,7 +541,7 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
          /* added hi temperature */
          if (xpathObj2 && !xmlXPathNodeSetIsEmpty(xpathObj2->nodesetval) &&
              xpathObj2->nodesetval->nodeTab[i] && xpathObj2->nodesetval->nodeTab[i]->content){
-             fprintf (stderr, "temperature %s\n", xpathObj2->nodesetval->nodeTab[i]->content); 
+             /* fprintf (stderr, "temperature %s\n", xpathObj2->nodesetval->nodeTab[i]->content); */
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj2->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){

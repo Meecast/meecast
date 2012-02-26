@@ -1,5 +1,6 @@
 
     g_hash_table_insert(hash, "d412.png", "13");
+    g_hash_table_insert(hash, "n412.png", "13");
     g_hash_table_insert(hash, "d200.png", "28");
     g_hash_table_insert(hash, "d211.png", "5");
     g_hash_table_insert(hash, "d432.png", "16");

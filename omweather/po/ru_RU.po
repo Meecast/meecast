@@ -1520,16 +1520,15 @@ msgstr "Информация"
 
 #: omweather/src/hash.data:160
 msgid "Overcast"
-msgstr "Пасмурно"
+msgstr "Облачно"
 
 #: omweather/src/hash.data:161
 msgid "Overcast and light snow"
-msgstr ""
+msgstr "Облачно и небольшой снег"
 
 #: omweather/src/hash.data:162
-#, fuzzy
 msgid "Overcast and snow"
-msgstr "Пасмурно"
+msgstr "Облачно и снег"
 
 #: omweather/src/hash.data:163
 msgid "PM Fog"
@@ -1668,14 +1667,12 @@ msgid "Partly Cloudy, T-Storm"
 msgstr "Малооблочно, Гроза"
 
 #: omweather/src/hash.data:178
-#, fuzzy
 msgid "Partly cloudy"
-msgstr "Небольшая облачность"
+msgstr "Переменная облачность"
 
 #: omweather/src/hash.data:179
-#, fuzzy
 msgid "Partly cloudy and light snow"
-msgstr "Небольшая облачность и ветер"
+msgstr "Переменная облачность и небольшой снег"
 
 #: omweather/src/weather-simple-settings.c:1676
 msgid "Period"

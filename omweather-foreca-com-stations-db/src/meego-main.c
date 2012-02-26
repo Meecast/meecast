@@ -153,9 +153,7 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
 
     xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[3]/td[@class='in']/text()", xpathCtx);
     if (xpathObj && xpathObj->nodesetval->nodeTab[0]->content){
-     
-       snprintf(buffer, sizeof(buffer)-1,"%s %s", temp_char, xpathObj->nodesetval->nodeTab[0]->content);
-        fprintf(stderr,"ddddd %s\n", buffer);
+        snprintf(buffer, sizeof(buffer)-1,"%s %s", temp_char, xpathObj->nodesetval->nodeTab[0]->content);
         current_time = time(NULL);
         tm = localtime(&current_time);
 
@@ -280,10 +278,40 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
 
 
     /* To DO sunrise and sunset */
-    xpathObj = xmlXPathEvalExpression("/html/body/div/div/table//tr/th/text()", xpathCtx);
+
+    xpathObj = xmlXPathEvalExpression("/html/body/div/div/table//tr[th]/*/text()", xpathCtx);
+    /* Day weather forecast */
+    nodes   = xpathObj->nodesetval;
+    size = (nodes) ? nodes->nodeNr : 0; 
     
+    for(i = 1; i < (size-1) ; ++i) {
+       fprintf(stderr,"ssssssssssssss %s\n", xpathObj->nodesetval->nodeTab[i]->content);
+       
+       snprintf(buffer, sizeof(buffer)-1,"/html/body/div/div/table//tr[th][%i]/following-sibling::*", i);
+       xpathObj2 = xmlXPathEvalExpression(buffer, xpathCtx);
+       nodes   = xpathObj2->nodesetval;
+       fprintf(stderr,"Nodes %i\n", nodes->nodeNr);
+       for (j = 0; j <(nodes->nodeNr); ++j){
+            xpathObj3 = xpathObj2->nodesetval->nodeTab[j]->children; 
+         //   fprintf(stderr, "ssssssssssssssss %s\n", xpathObj3->nodesetval->nodeTab[0]->content);
+       }
+#if 0
+        current_time = time(NULL);
+        tm = localtime(&current_time);
 
+        setlocale(LC_TIME, "POSIX");
+        strptime((const char*)buffer, "%A %d/%m %H:%M", &tmp_tm);
+        setlocale(LC_TIME, "");
+        /* set begin of day in localtime */
+        tmp_tm.tm_year = tm->tm_year;
 
+        t_start = mktime(&tmp_tm);
+        fprintf(file_out,"    <period start=\"%li\"", (t_start +1));
+        /* set end of current time in localtime */
+        t_end = t_start + 3600*4 - 1;
+        fprintf(file_out," end=\"%li\" current=\"true\" >\n", t_end);
+#endif
+    }
     fclose(file_out);
     return 1; 
     /* Day weather forecast */
@@ -655,8 +683,7 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
          /* added text */
          if (xpathObj7 && !xmlXPathNodeSetIsEmpty(xpathObj7->nodesetval) &&
              xpathObj7->nodesetval->nodeTab[i] && xpathObj7->nodesetval->nodeTab[i]->content){
-             /* fprintf (stderr, "description %s\n", xpathObj7->nodesetval->nodeTab[i]->content); */
-            snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj->nodesetval->nodeTab[0]->content);
+            snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj7->nodesetval->nodeTab[i]->content);
             memset(temp_buffer, 0, sizeof(temp_buffer));
             for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
                if (buffer[j] == 13 || buffer[j] == 10)

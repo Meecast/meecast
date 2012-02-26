@@ -139,7 +139,6 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
         return -1;
     temp_char = temp_char + 1;
     temp_char = strchr(temp_char, ' ');
-    fprintf(stderr,"aqqqqqqqqqqq %s\n", temp_char);
     if (temp_char != NULL){
         for (j=0; j<strlen(temp_char)-1; j++){
             if (temp_char[j] == ' ' || temp_char[j] == '\n')
@@ -233,8 +232,42 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
        fprintf(file_out,"     <icon>%s</icon>\n",  
                               choose_hour_weather_icon(hash_for_icons, temp_char));
     }
+    if (xpathObj)
+        xmlXPathFreeObject(xpathObj);
 
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[4]/td/text()[1]", xpathCtx);
+    /* added text */
+    if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
+        xpathObj->nodesetval->nodeTab[0] && xpathObj->nodesetval->nodeTab[0]->content){
+        /* fprintf (stderr, "description %s\n", xpathObj7->nodesetval->nodeTab[i]->content); */
+        fprintf(file_out,"     <description>%s</description>\n", 
+                               xpathObj->nodesetval->nodeTab[0]->content);
+    }
+    if (xpathObj)
+        xmlXPathFreeObject(xpathObj);
 
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[4]/td/text()[2]", xpathCtx);
+
+    temp_char = strstr(xpathObj->nodesetval->nodeTab[0]->content, "Feels Like:");
+    if (temp_char != NULL){
+        temp_char = strchr(temp_char, ':');
+        temp_char = temp_char + 2;
+        snprintf(buffer, sizeof(buffer)-1,"%s", temp_char);
+        memset(temp_buffer, 0, sizeof(temp_buffer));
+        for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
+            if (buffer[j] == '&')
+               break;
+            if ((uint)buffer[j] == 226 ||  buffer[j] == '-' || 
+                (buffer[j]>='0' && buffer[j]<='9')){
+                if ((uint)buffer[j] == 226)
+                   sprintf(temp_buffer,"%s-",temp_buffer);
+                else
+                   sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+            }
+        }
+        /* fprintf(stderr, "     <temperature>%s</temperature>\n", temp_buffer); */
+        fprintf(file_out,"     <flike>%s</flike>\n", temp_buffer); 
+    }
     fprintf(file_out,"    </period>\n");
     fclose(file_out);
     return 1; 

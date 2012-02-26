@@ -240,8 +240,15 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
         xpathObj->nodesetval->nodeTab[0] && xpathObj->nodesetval->nodeTab[0]->content){
         /* fprintf (stderr, "description %s\n", xpathObj7->nodesetval->nodeTab[i]->content); */
-        fprintf(file_out,"     <description>%s</description>\n", 
-                               xpathObj->nodesetval->nodeTab[0]->content);
+
+        snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj->nodesetval->nodeTab[0]->content);
+        memset(temp_buffer, 0, sizeof(temp_buffer));
+        for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
+           if (buffer[j] == 13 || buffer[j] == 10)
+                continue;
+           sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+        }
+        fprintf(file_out,"     <description>%s</description>\n", temp_buffer);
     }
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
@@ -269,6 +276,7 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
         fprintf(file_out,"     <flike>%s</flike>\n", temp_buffer); 
     }
     fprintf(file_out,"    </period>\n");
+    /* To DO sunrise and sunset */
     fclose(file_out);
     return 1; 
     /* Day weather forecast */
@@ -641,8 +649,14 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
          if (xpathObj7 && !xmlXPathNodeSetIsEmpty(xpathObj7->nodesetval) &&
              xpathObj7->nodesetval->nodeTab[i] && xpathObj7->nodesetval->nodeTab[i]->content){
              /* fprintf (stderr, "description %s\n", xpathObj7->nodesetval->nodeTab[i]->content); */
-             fprintf(file_out,"     <description>%s</description>\n", 
-                                    xpathObj7->nodesetval->nodeTab[i]->content);
+            snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj->nodesetval->nodeTab[0]->content);
+            memset(temp_buffer, 0, sizeof(temp_buffer));
+            for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
+               if (buffer[j] == 13 || buffer[j] == 10)
+                    continue;
+               sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+            }
+            fprintf(file_out,"     <description>%s</description>\n", temp_buffer);
          }
          /* added ppcp */
          if (xpathObj8 && !xmlXPathNodeSetIsEmpty(xpathObj8->nodesetval) &&

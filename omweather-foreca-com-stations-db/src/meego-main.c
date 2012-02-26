@@ -196,7 +196,17 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
         /* fprintf(stderr, "     <temperature>%s</temperature>\n", temp_buffer); */
         fprintf(file_out,"     <temperature>%s</temperaturei>\n", temp_buffer); 
     }
+    if (xpathObj)
+        xmlXPathFreeObject(xpathObj);
 
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[3]/td[3]/img/@alt", xpathCtx);
+    /* added wind direction */
+    if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
+        xpathObj->nodesetval->nodeTab[0] && 
+        xpathObj->nodesetval->nodeTab[0]->children->content){
+       /* fprintf(stderr, "Wind  direction  %s  \n", xpathObj4->nodesetval->nodeTab[i]->children->content);  */
+       fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  xpathObj->nodesetval->nodeTab[0]->children->content);
+    }
     fclose(file_out);
     return 1; 
     /* Day weather forecast */

@@ -492,9 +492,8 @@ msgid "Cloudy and Windy"
 msgstr "Облачно и ветер"
 
 #: omweather/src/hash.data:41
-#, fuzzy
 msgid "Cloudy and light snow"
-msgstr "Переменная облачность и небольшой снег"
+msgstr "Облачно и небольшой снег"
 
 #: omweather/src/hash.data:43
 msgid "Cloudy, Drifting Snow"

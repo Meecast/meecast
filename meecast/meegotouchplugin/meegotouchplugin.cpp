@@ -48,93 +48,92 @@ M_LIBRARY
 Q_EXPORT_PLUGIN2(weatherextension, WeatherApplicationExtension)
 
 
-void drawwallpaper(QImage image, QString iconpath, QString stationname,  QString temperature,
-                    QString temperature_low   
+void drawwallpaper(QImage image, QHash <QString, QString> hash){
 
-){
-//void drawwallpaper(QImage image, QString iconpath, QString stationname,
-//                   QString temperature, QString temperature_low, 
-//                   QString temperature_hi, QString lastupdate){
-QString temperature_hi = "FF";
-QString lastupdate = "2323";
-        /* Left corner */
-	    int x = 275;
-	    int y = 240;
+    QString temperature_hi = hash["temperature_hi"];
+    QString temperature = hash["temperature"];
+    QString temperature_low = hash["temperature_low"];
+    QString lastupdate = hash["lastupdate"]; 
+    QString stationname = hash["stationname"];
+    QString iconpath = hash["iconpath"];
 
-	    QPainter paint;
-	    paint.begin(&image);
-	    QPen pen;
-	    QColor myPenColor = QColor(255, 255, 255, 128);// set default color
-	    pen.setColor(myPenColor);
-	    paint.setPen(pen);
-	    paint.setBrush(QColor(118, 118, 118, 50));
-	    
-	    /* Rect */
-	    paint.drawRoundedRect(x, y, 198, 160, 15.0, 15.0);
+    /* Left corner */
+    int x = 275;
+    int y = 240;
 
-	    myPenColor = QColor(255, 255, 255, 255);// set default color
-	    pen.setColor(myPenColor);
-	    paint.setPen(pen);
+    QPainter paint;
+    paint.begin(&image);
+    QPen pen;
+    QColor myPenColor = QColor(255, 255, 255, 128);// set default color
+    pen.setColor(myPenColor);
+    paint.setPen(pen);
+    paint.setBrush(QColor(118, 118, 118, 50));
+    
+    /* Rect */
+    paint.drawRoundedRect(x, y, 198, 160, 15.0, 15.0);
 
-	    /* Icon */
-	    QPoint point(x + 70, y + 21);
-	    QImage icon;
-	    icon.load(iconpath);
-	    paint.drawImage(point, icon); 
-		    
-	    /* Station */
-	    paint.setFont(QFont("Nokia Pure Light", 18));
-	    paint.drawText( x + 1, y, 196, 28, Qt::AlignHCenter, stationname.mid(0, 19));
+    myPenColor = QColor(255, 255, 255, 255);// set default color
+    pen.setColor(myPenColor);
+    paint.setPen(pen);
 
-	    /* Temperature */
-	    paint.setFont(QFont("Nokia Pure", 22));
-	    if (temperature == "N/A" || temperature == ""){
-            QString temp_string = temperature_hi + QString::fromUtf8("°");
-            paint.drawText(x + 10, y + 40, 60, 40, Qt::AlignHCenter, temp_string); 
-            temp_string = temperature_low + QString::fromUtf8("°");
-            paint.drawText(x + 10, y + 80, 60, 40, Qt::AlignHCenter, temp_string); 
-	    }else{
-//            if (current)
-//                paint.setFont(QFont("Nokia Pure Bold", 24));
-            QString temp_string = temperature + QString::fromUtf8("°");
-            paint.drawText(x + 10, y + 55, 60, 40, Qt::AlignHCenter, temp_string); 
-	    }
+    /* Icon */
+    QPoint point(x + 70, y + 21);
+    QImage icon;
+    icon.load(iconpath);
+    paint.drawImage(point, icon); 
+        
+    /* Station */
+    paint.setFont(QFont("Nokia Pure Light", 18));
+    paint.drawText( x + 1, y, 196, 28, Qt::AlignHCenter, stationname.mid(0, 19));
 
-        /* Last update */
-	    paint.setFont(QFont("Nokia Pure", 13));
-        paint.drawText(x + 10, y + 138, 170, 35, Qt::AlignHCenter, lastupdate); 
+    /* Temperature */
+    paint.setFont(QFont("Nokia Pure", 22));
+    if (temperature == "N/A" || temperature == ""){
+        QString temp_string = temperature_hi + QString::fromUtf8("°");
+        paint.drawText(x + 10, y + 40, 60, 40, Qt::AlignHCenter, temp_string); 
+        temp_string = temperature_low + QString::fromUtf8("°");
+        paint.drawText(x + 10, y + 80, 60, 40, Qt::AlignHCenter, temp_string); 
+    }else{
+        if (hash["current"] == "TRUE")
+            paint.setFont(QFont("Nokia Pure Bold", 24));
+        QString temp_string = temperature + QString::fromUtf8("°");
+        paint.drawText(x + 10, y + 55, 60, 40, Qt::AlignHCenter, temp_string); 
+    }
 
-	    paint.end();
+    /* Last update */
+    paint.setFont(QFont("Nokia Pure", 13));
+    paint.drawText(x + 10, y + 138, 170, 35, Qt::AlignHCenter, lastupdate); 
+
+    paint.end();
 #if 0
-        // Debug begin
-        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-            QTextStream out(&file);
-            out <<  "Refreshwallpaper paint has been finished\n";
-            file.close();
-        }
+    // Debug begin
+    if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+        QTextStream out(&file);
+        out <<  "Refreshwallpaper paint has been finished\n";
+        file.close();
+    }
 #endif
 
-	    image.save("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png");
+    image.save("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png");
 #if 0
-        // Debug begin
-        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-            QTextStream out(&file);
-            out <<  "Refreshwallpaper /home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png  saved \n";
-            file.close();
-        }
+    // Debug begin
+    if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+        QTextStream out(&file);
+        out <<  "Refreshwallpaper /home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png  saved \n";
+        file.close();
+    }
 #endif
 
-        MGConfItem *wallpaperItem;
-        wallpaperItem = new MGConfItem ("/desktop/meego/background/portrait/picture_filename"); 
-	    wallpaperItem->set("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
-	    wallpaperItem->set("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png");
+    MGConfItem  wallpaperItem("/desktop/meego/background/portrait/picture_filename"); 
+    wallpaperItem.set("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
+    wallpaperItem.set("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast.png");
 #if 0
-        // Debug begin
-        if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
-            QTextStream out(&file);
-            out <<  "Stop refreshwallpaper"<< " \n";
-            file.close();
-        }
+    // Debug begin
+    if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+        QTextStream out(&file);
+        out <<  "Stop refreshwallpaper"<< " \n";
+        file.close();
+    }
 #endif
 }
 WeatherApplicationExtension::WeatherApplicationExtension() : box(0){
@@ -364,14 +363,19 @@ void MyMWidget::refreshwallpaper(bool new_wallpaper){
             file.close();
         }
 #endif
-        QFuture<void> f1 =  QtConcurrent::run(drawwallpaper, QImage(_image->copy()), QString(_iconpath),
-                                                             QString(_stationname), QString(_temperature),
-                                                             QString(_temperature_low)
-                                                             );
-  //      QFuture<void> f1 =  QtConcurrent::run(drawwallpaper, QImage(_image->copy()), QString(_iconpath),
-  //                                                           QString(_stationname), QString(_temperature),
-  //                                                           QString(_temperature_low), QString(_temperature_high),
-  //                                                           QString(lastupdate()) );
+        QHash <QString, QString> hash;
+        hash["temperature"] = _temperature;
+        hash["temperature_low"] = _temperature_low;
+        hash["temperature_hi"] = _temperature_high;
+        hash["iconpath"] = _iconpath;
+        hash["stationname"] = _stationname;
+        hash["lastupdate"] = lastupdate();
+        if (_current)
+            hash["current"] = "TRUE";
+        else
+            hash["current"] = "FALSE";
+        QFuture<void> f1 =  QtConcurrent::run(drawwallpaper, QImage(_image->copy()), QHash <QString, QString> (hash));
+
         return;
         /* Left corner */
 	    int x = 275;

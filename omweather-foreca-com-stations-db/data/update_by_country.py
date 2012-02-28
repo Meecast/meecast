@@ -12,6 +12,7 @@ import string
 
 #Country name and code
 country = "Europe/Finland"
+id_region = "66" 
 #
 baseurl = "http://foreca.com/Europe/%s/browse"
 url = "http://foreca.com/%s/browse" %(country) 
@@ -22,7 +23,7 @@ print url
 c = db.connect(database=r"./foreca.com.db")
 cu = c.cursor()
 
-#urllib.urlretrieve (url, "./temp.html")
+urllib.urlretrieve (url, "./temp.html")
 #/html/body/div/div[2]/div[4]/div/div[2]/div[4]/p/a
 
 # /html/body/div/div[2]/div[4]/div/div[2]/div[@class='col3']//a/@href
@@ -33,16 +34,24 @@ anchors = ctxt.xpathEval("/html/body/div/div[2]/div[4]/div/div[2]/div[@class='co
 for anchor in anchors:
     print anchor.content
     name = re.split("/", anchor.content)[-1];
-    #urllib.urlretrieve ("http://foreca.com/%s/%si" %(country, anchor), "./station.html")
-    doc1 = libxml2.htmlReadFile(r"./station.html", "UTF-8", libxml2.HTML_PARSE_RECOVER)
+    urllib.urlretrieve ("http://foreca.com/%s/%s" %(country, anchor), "./station%s.html"%(name))
+    doc1 = libxml2.htmlReadFile(r"./stationi%s.html"%(name), "UTF-8", libxml2.HTML_PARSE_RECOVER)
     ctxt1 = doc1.xpathNewContext()
     anchors1 = ctxt1.xpathEval("/html/body/div/div/div[4]/div/div[2]/div/div/div[2]/a")
     for anchor1 in anchors1:
         print anchor1.prop("href")
         code = re.split("=", anchor1.prop("href"))[1]
         print name, "-", code;
-#        os.unlink("./station.html");
-    break
+    cur = cu.execute("select id from stations where region_id='%s' and name = '%s'" %(id_region, name))
+    station_id= None
+    code = None
+    for row in cur:
+        station_id = row[0]
+    if (station_id == None):
+        cur = cu.execute('insert into stations (name, region_id, code) values  ("%s", "%s", "%s")' % (name, id_region, code))
+    c.commit()
+    os.unlink("./stationi%s.html"%(name));
+#    break
 #os.unlink("./temp.html");
 #os.unlink("./temp.html");
-c.close()
+c.close()                                                                                                                                                                                   

@@ -11,8 +11,12 @@ import re
 import string
 
 #Country name and code
-country = "Europe/Finland"
-id_region = "66" 
+country = "Europe/Belarus"
+id_region = "18" 
+
+def normalizing (source):
+    result = source.replace("'","")
+    return result
 
 def main():
     #
@@ -24,14 +28,14 @@ def main():
     stations_parser()
     doc = libxml2.htmlReadFile(r"./temp.html", "UTF-8", libxml2.HTML_PARSE_RECOVER)
     ctxt = doc.xpathNewContext()
-    anchors = ctxt.xpathEval("/html/body/div/div[2]/div[4]/div/div[2]/div[4]/p/a/@href")
+    anchors = ctxt.xpathEval("/html/body/div/div/div[4]/div/div[2]/div[4]/p/a/@href")
     for anchor in anchors:
         letter = re.split("=", anchor.content)[-1]
         new_url = url + "?bl=%s" %(letter)
         print new_url
         urllib.urlretrieve (new_url, "./temp.html")
         stations_parser()
-    #os.unlink("./temp.html");
+#    os.unlink("./temp.html");
     return 0
 
 def stations_parser():
@@ -42,10 +46,10 @@ def stations_parser():
 
     doc = libxml2.htmlReadFile(r"./temp.html", "UTF-8", libxml2.HTML_PARSE_RECOVER)
     ctxt = doc.xpathNewContext()
-    anchors = ctxt.xpathEval("/html/body/div/div[2]/div[4]/div/div[2]/div[@class='col3']//a/@href")
+    anchors = ctxt.xpathEval("/html/body/div/div/div[4]/div/div[2]/div[@class='col3']//a/@href")
     for anchor in anchors:
         #print anchor.content
-        name = re.split("/", anchor.content)[-1];
+        name = normalizing(re.split("/", anchor.content)[-1])
         cityurl = "http://foreca.com/%s" %(anchor.content)
         urllib.urlretrieve (cityurl, "./station%s.html" %(name))
         doc1 = libxml2.htmlReadFile(r"./station%s.html" %(name), "UTF-8", libxml2.HTML_PARSE_RECOVER)

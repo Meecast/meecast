@@ -32,10 +32,11 @@ doc = libxml2.htmlReadFile(r"./temp.html", "UTF-8", libxml2.HTML_PARSE_RECOVER)
 ctxt = doc.xpathNewContext()
 anchors = ctxt.xpathEval("/html/body/div/div[2]/div[4]/div/div[2]/div[@class='col3']//a/@href")
 for anchor in anchors:
-    print anchor.content
+    #print anchor.content
     name = re.split("/", anchor.content)[-1];
-    urllib.urlretrieve ("http://foreca.com/%s/%s" %(country, anchor), "./station%s.html"%(name))
-    doc1 = libxml2.htmlReadFile(r"./stationi%s.html"%(name), "UTF-8", libxml2.HTML_PARSE_RECOVER)
+    cityurl = "http://foreca.com/%s" %(anchor.content)
+    urllib.urlretrieve (cityurl, "./station%s.html" %(name))
+    doc1 = libxml2.htmlReadFile(r"./station%s.html" %(name), "UTF-8", libxml2.HTML_PARSE_RECOVER)
     ctxt1 = doc1.xpathNewContext()
     anchors1 = ctxt1.xpathEval("/html/body/div/div/div[4]/div/div[2]/div/div/div[2]/a")
     for anchor1 in anchors1:
@@ -44,14 +45,13 @@ for anchor in anchors:
         print name, "-", code;
     cur = cu.execute("select id from stations where region_id='%s' and name = '%s'" %(id_region, name))
     station_id= None
-    code = None
     for row in cur:
         station_id = row[0]
     if (station_id == None):
         cur = cu.execute('insert into stations (name, region_id, code) values  ("%s", "%s", "%s")' % (name, id_region, code))
+    code = None
     c.commit()
-    os.unlink("./stationi%s.html"%(name));
+    os.unlink("./station%s.html"%(name));
 #    break
-#os.unlink("./temp.html");
-#os.unlink("./temp.html");
+os.unlink("./temp.html");
 c.close()                                                                                                                                                                                   

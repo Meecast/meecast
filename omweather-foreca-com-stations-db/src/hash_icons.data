@@ -13,7 +13,7 @@
     g_hash_table_insert(hash, "d300.png", "26");
     g_hash_table_insert(hash, "n300.png", "26");
     g_hash_table_insert(hash, "d400.png", "26");
-    g_hash_table_insert(hash, "d400.png", "26");
+    g_hash_table_insert(hash, "n400.png", "26");
     g_hash_table_insert(hash, "d411.png", "5");
     g_hash_table_insert(hash, "d422.png", "14");
     g_hash_table_insert(hash, "d431.png", "5");

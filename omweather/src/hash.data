@@ -161,6 +161,7 @@
     g_hash_table_insert(hash, (void*)"New", _("New"));
     g_hash_table_insert(hash, (void*)"No locations are set up yet.", _("No locations are set up yet."));
     g_hash_table_insert(hash, (void*)"Overcast", _("Overcast"));
+    g_hash_table_insert(hash, (void*)"Overcast and light rain", _("Overcast and light rain"));
     g_hash_table_insert(hash, (void*)"Overcast and light snow", _("Overcast and light snow"));
     g_hash_table_insert(hash, (void*)"Overcast and light wet snow", _("Overcast and light wet snow"));
     g_hash_table_insert(hash, (void*)"Overcast and snow", _("Overcast and snow"));

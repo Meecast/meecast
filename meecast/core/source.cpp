@@ -41,6 +41,7 @@ namespace Core {
         _url_template = new std::string;
         _url_detail_template = new std::string;
         _url_for_view = new std::string;
+        _cookie = new std::string;
         _hasForecast = false;
         _hasDetail = false;
         _hasSearch = false;
@@ -86,10 +87,12 @@ namespace Core {
                         if (el.hasAttribute("url")){
                             _hasDetail = (el.text() == "true") ? true : false;
                             _url_detail_template->assign(el.attribute("url").toStdString());
-			}
+                        }
                     }else if (tag =="showurl"){
                         if (el.hasAttribute("url"))
                             _url_for_view->assign(el.attribute("url").toStdString());
+                    }else if (tag =="cookie"){
+                        _cookie->assign(el.text().toStdString());
                     }
                     n = n.nextSibling();
                 }
@@ -176,11 +179,12 @@ namespace Core {
             _binary = new std::string(*(source._binary));
             delete _url_template;
             _url_template = new std::string(*(source._url_template));
-	    delete _url_detail_template;
+            delete _url_detail_template;
             _url_detail_template = new std::string(*(source._url_detail_template));
-
             delete _url_for_view;
             _url_for_view = new std::string(*(source._url_for_view));
+            delete _cookie;
+            _cookie = new std::string(*(source._cookie));
 
         }
         return *this;
@@ -272,6 +276,15 @@ namespace Core {
                 _url_for_view->assign(attribute->get_value().c_str());
             return;
         }
+        // cookie tag
+        if(nodeName == "cookie"){
+            xmlpp::Node::NodeList list = node->get_children();
+            xmlpp::Node::NodeList::iterator iter = list.begin();
+            const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+            _cookie->assign(nodeText->get_content());
+
+            return;
+        }
 
     }
 #endif
@@ -299,6 +312,10 @@ namespace Core {
 /////////////////////////////////////////////////////////////////////////////////
     std::string& Source::url_for_view() const{
         return *_url_for_view;
+    }
+/////////////////////////////////////////////////////////////////////////////////
+    std::string& Source::cookie() const{
+        return *_cookie;
     }
 ///////////////////////////////////////////////////////////////////////////////
     std::string& Source::binary() const{

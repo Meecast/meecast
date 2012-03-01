@@ -9,4 +9,5 @@
 <library>libomweather-yr-no-source.so</library>
 <binary>/opt/com.meecast.omweather/lib/forecacom</binary>
 <showurl url="http://foreca.mobi/index.php?l=%s" />
+<cookie>st=u%3D36757923%26lang%3Den%26res%3D240x320%26units%3Dmetric%26time%3D24h</cookie>
 </source>

@@ -180,6 +180,11 @@ Config::saveConfig()
         el.appendChild(t);
         st.appendChild(el);
 
+        el = doc.createElement("cookie");
+        t = doc.createTextNode(QString::fromStdString((*i)->cookie()));
+        el.appendChild(t);
+        st.appendChild(el);
+
         el = doc.createElement("detail_url");
         /* Temporary hack for weather.com and gismeteo.ru. This must be delete after version 0.5.0 */
         if (QString::fromStdString((*i)->detailURL()) == "" && QString::fromStdString((*i)->sourceName()) == "weather.com"){
@@ -324,7 +329,7 @@ Config::LoadConfig(){
 
         nodelist = root.elementsByTagName("station");
         for (int i=0; i<nodelist.count(); i++){
-            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL;
+            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, cookie;
             bool gps = false;
             QDomElement e = nodelist.at(i).toElement();
             QDomNode n = e.firstChild();
@@ -346,7 +351,9 @@ Config::LoadConfig(){
                     fileName = el.text();
                 else if (tag == "forecast_url")
                     forecastURL = el.text();
-		else if (tag == "detail_url")
+                else if (tag == "cookie")
+                    cookie = el.text();
+                else if (tag == "detail_url")
                     detailURL = el.text();
                 else if (tag == "view_url")
                     viewURL = el.text();
@@ -368,8 +375,9 @@ Config::LoadConfig(){
                                       country.toStdString(),
                                       region.toStdString(),
                                       forecastURL.toStdString(),
-				      detailURL.toStdString(),
+				                      detailURL.toStdString(),
                                       viewURL.toStdString(),
+                                      cookie.toStdString(),
                                       gps);
             st->fileName(fileName.toStdString());
             st->converter(converter.toStdString());

@@ -63,7 +63,7 @@ Downloader::progress(void *ptr, double totald, double nowd, double totalu, doubl
 
 }
 bool
-Downloader::downloadData(const std::string &filename, const std::string &url)
+Downloader::downloadData(const std::string &filename, const std::string &url, const std::string &cookie)
 {
     CURL *curl;
     CURLcode res;
@@ -79,6 +79,7 @@ Downloader::downloadData(const std::string &filename, const std::string &url)
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, Downloader::writedata);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
+        curl_easy_setopt(curl, CURLOPT_COOKIE, cookie.c_str()); 
         //curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 0);
         //curl_easy_setopt(curl, CURLOPT_PROGRESSFUNCTION, Downloader::progress);
         res = curl_easy_perform(curl);

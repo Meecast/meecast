@@ -498,6 +498,7 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
     std::string url_template = sourcelist->at(source_id)->url_template();
     std::string url_detail_template = sourcelist->at(source_id)->url_detail_template();
     std::string url_for_view = sourcelist->at(source_id)->url_for_view();
+    std::string cookie = sourcelist->at(source_id)->cookie();
 
     char forecast_url[4096];
     snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), code.c_str());
@@ -513,8 +514,9 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
                 country.toStdString(),
                 region.toStdString(),
                 forecast_url,
-		forecast_detail_url,
+                forecast_detail_url,
                 view_url,
+                cookie,
                 gps);
     std::string filename(Core::AbstractConfig::getConfigPath());
     filename += source.toStdString();
@@ -549,6 +551,7 @@ ConfigQml::saveStation(int city_id, QString city,
     std::string url_template = sourcelist->at(source_id)->url_template();
     std::string url_detail_template = sourcelist->at(source_id)->url_detail_template();
     std::string url_for_view = sourcelist->at(source_id)->url_for_view();
+    std::string cookie = sourcelist->at(source_id)->cookie();
 
 
     char forecast_url[4096];
@@ -566,6 +569,7 @@ ConfigQml::saveStation(int city_id, QString city,
                 region.toStdString(),
                 forecast_url,
                 view_url,
+                cookie,
                 false);
     std::string filename(Core::AbstractConfig::getConfigPath());
     filename += source.toStdString();

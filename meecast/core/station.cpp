@@ -37,8 +37,8 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const std::string& source_name, const std::string& id, const std::string& name,
                      const std::string& country, const std::string& region, 
-		     const std::string& forecastURL, const std::string& detailURL,
-                     const std::string& viewURL, const bool gps){
+                     const std::string& forecastURL, const std::string& detailURL,
+                     const std::string& viewURL, const std::string&  cookie, const bool gps){
         _sourceName = new std::string(source_name);
         _id = new std::string(id);
         _name = new std::string(name);
@@ -46,6 +46,7 @@ namespace Core {
         _region = new std::string(region);
         _forecastURL = new std::string(forecastURL);
         _detailURL = new std::string(detailURL);
+        _cookie = new std::string(cookie);
         _viewURL = new std::string(viewURL);
         _timezone = 0;
         _fileName = new std::string();
@@ -62,6 +63,7 @@ namespace Core {
         delete _region;
         delete _forecastURL;
         delete _detailURL;
+        delete _cookie;
         delete _viewURL;
         if(_data)
             delete _data;
@@ -81,6 +83,7 @@ namespace Core {
         _region = new std::string(*(station._region));
         _forecastURL = new std::string(*(station._forecastURL));
         _detailURL = new std::string(*(station._detailURL));
+        _cookie = new std::string(*(station._cookie));
         _viewURL = new std::string(*(station._viewURL));
         _fileName = new std::string(*(station._fileName));
         _converter = new std::string(*(station._converter));
@@ -101,8 +104,10 @@ namespace Core {
             _region = new std::string(*(station._region));
             delete _forecastURL;
             _forecastURL = new std::string(*(station._forecastURL));
-	    delete _detailURL;
+            delete _detailURL;
             _detailURL = new std::string(*(station._detailURL));
+            delete _cookie;
+            _cookie = new std::string(*(station._cookie));
             delete _viewURL;
             _viewURL = new std::string(*(station._viewURL));
             delete _fileName;
@@ -161,7 +166,10 @@ namespace Core {
         return *_detailURL;
     }
     ////////////////////////////////////////////////////////////////////////////////
-
+    std::string& Station::cookie() const{
+        return *_cookie;
+    }
+    ////////////////////////////////////////////////////////////////////////////////
     std::string& Station::viewURL() const{
         return *_viewURL;
     }
@@ -227,13 +235,13 @@ namespace Core {
         //command = command + this->fileName() + ".orig '" + this->forecastURL() + "'";
         //std::cerr<<" URL "<<command<<std::endl;
         //if (system(command.c_str()) == 0){
-        if (Downloader::downloadData(this->fileName()+".orig", this->forecastURL())) {
+        if (Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie())) {
             result = true;
         }else{
             std::cerr<<"ERROR downloading  "<<this->forecastURL()<<std::endl;
             result = false;
         }
-        if ((result) && (this->detailURL() != "") && (Downloader::downloadData(this->fileName()+".detail.orig", this->detailURL()))){
+        if ((result) && (this->detailURL() != "") && (Downloader::downloadData(this->fileName()+".detail.orig", this->detailURL(), this->cookie()))){
             command = this->converter()+ " " +  this->fileName() + ".orig " + this->fileName()+" " + this->fileName()+".detail.orig";
             std::cerr<<" EXEC "<<command<<std::endl;
             if (system(command.c_str()) == 0)

@@ -11,8 +11,8 @@ import re
 import string
 
 #Country name and code
-country = "Europe/Russia"
-id_region = "158" 
+country = "Europe/Sweden"
+id_region = "182" 
 
 def normalizing (source):
     result = source.replace("'","")
@@ -24,7 +24,6 @@ def main():
     print url
 
     urllib.urlretrieve (url, "./temp.html")
-    #/html/body/div/div[2]/div[4]/div/div[2]/div[4]/p/a
     stations_parser()
     doc = libxml2.htmlReadFile(r"./temp.html", "UTF-8", libxml2.HTML_PARSE_RECOVER)
     ctxt = doc.xpathNewContext()

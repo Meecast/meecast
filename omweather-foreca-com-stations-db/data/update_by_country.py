@@ -11,8 +11,8 @@ import re
 import string
 
 #Country name and code
-country = "Europe/Germany"
-id_region = "73" 
+country = "Europe/Russia"
+id_region = "158" 
 
 def normalizing (source):
     result = source.replace("'","")
@@ -25,14 +25,14 @@ def main():
 
     urllib.urlretrieve (url, "./temp.html")
     #/html/body/div/div[2]/div[4]/div/div[2]/div[4]/p/a
-#    stations_parser()
+    stations_parser()
     doc = libxml2.htmlReadFile(r"./temp.html", "UTF-8", libxml2.HTML_PARSE_RECOVER)
     ctxt = doc.xpathNewContext()
     anchors = ctxt.xpathEval("/html/body/div/div/div[4]/div/div[2]/div[4]/p/a/@href")
     for anchor in anchors:
         letter = re.split("=", anchor.content)[-1]
-        if (letter < 'K'):
-            continue
+#        if (letter < 'K'):
+#            continue
         new_url = url + "?bl=%s" %(letter)
         print new_url
         urllib.urlretrieve (new_url, "./temp.html")
@@ -65,12 +65,15 @@ def stations_parser():
             print anchor1.prop("href")
             code = re.split("=", anchor1.prop("href"))[1]
             print name, "-", code;
-        cur = cu.execute("select id from stations where region_id='%s' and name = '%s'" %(id_region, anchors2[i]))
+        real_name = ""
+        real_name = anchors2[i].content
+        real_name = normalizing(real_name)
+        cur = cu.execute("select id from stations where region_id='%s' and name = '%s'" %(id_region, real_name))
         station_id= None
         for row in cur:
             station_id = row[0]
         if (station_id == None):
-            cur = cu.execute('insert into stations (name, region_id, code) values  ("%s", "%s", "%s")' % (anchors2[i], id_region, code))
+            cur = cu.execute('insert into stations (name, region_id, code) values  ("%s", "%s", "%s")' % (real_name, id_region, code))
         code = None
         c.commit()
         i = i + 1

@@ -1,0 +1,223 @@
+meecast (0.5.3) unstable; urgency=low
+
+  * Updated Swedish translation 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 3 Mar 2011 12:42:23 +0200
+
+meecast (0.5.2) unstable; urgency=low
+
+  * Added station Juankoski to yr.no database
+  * Fixed problem with long station name in events widget
+  * Updated Russian translation
+  * Added new source foreca.com
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 3 Mar 2011 12:42:23 +0200
+
+meecast (0.5.1) unstable; urgency=low
+
+  * Fixed problem with negative temperatures in source gismeteo.ru 
+  * Fixed problem with long station name in events, lockscreen and standby widget 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 23 Feb 2011 22:42:23 +0200
+
+meecast (0.5) unstable; urgency=low
+
+  * Changed font to Nokia Pure for Lock Screen and StandbyScreen 
+  * Fixed problem with disabling Meecast widget in StandbyScreen
+  * Updated Russian translation
+
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 22 Feb 2011 15:42:23 +0200
+
+meecast (0.4.9) unstable; urgency=low
+
+  * Fixed problem with lockscreen widget and wallpaper images with various dpi 
+  * Fixed problem with temperature in Farenheit unit and autoupdating
+  * Updated Germany, Polish, Swedish translations
+  * Added hours forecast for source gismeteo.ru
+  * Rewrote events widget
+  * Added StandbyScreen widget
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 18 Feb 2011 22:42:23 +0200
+
+meecast (0.4.8) unstable; urgency=low
+
+  * Added stations in yr.no database (Mexico, Netherland, Bulgaria)
+  * Added stations in gismeteo.ru database (Bulgaria)
+  * Added LockScreen widget
+  * Decreased size of image files. Thanks Wolfgang Fürst
+  * Updated Russian, Finland translations
+  * Small improvement in hours view 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 10 Feb 2011 16:42:23 +0200
+
+meecast (0.4.7) unstable; urgency=low
+
+  * Fixed problem with new stations in sources yr.no and gismeteo.ru 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 16 Jan 2011 18:42:23 +0200
+
+meecast (0.4.6) unstable; urgency=low
+
+  * Added autoupdating function
+  * Updated Swedish, Finish and Russian translations
+  * Added trimming of whitespace in Search Field 
+  * Search Field has been made case-insensitive 
+  * Added hours forecast for source weather.com
+
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 11 Jan 2011 22:42:23 +0200
+
+meecast (0.4.5) unstable; urgency=low
+
+  * Changed date format in main window
+  * Added pressure units settings 
+  * Added Swedish translation. Thanks Angela Nennebrandt and Tomislav
+    Veleckovik 
+  * Fixed Bug #12480 - Title in info screen should be translatable 
+  * Changed algorithm for day/night time
+  * Updated Polish, Spain and Germany translations
+
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 12 Dec 2011 23:42:23 +0200
+
+meecast (0.4.4) unstable; urgency=low
+
+  * Added possibility to install events applet using MeeCast
+  * Fixed problem with autoupdating in events applet
+  * Fixed segmentation fault with nill GPS station 
+  * Fixed wrong wind speed values in yr.no and gismeteo.ru
+  * Small improvements in external view
+  * Added stations in yr.no database (China)
+  * Updated Russian and Finish translations 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 28 Nov 2011 12:42:23 +0200
+
+meecast (0.4.3) unstable; urgency=low
+
+  * Added current weather for gismeteo.ru source 
+  * Added sunrise and sunset for current day in gismereo.ru source
+  * Added feels like for gismeteo.ru
+  * Fixed bug with automatic update of the GPS location 
+  * Fixed displaying of station name for non-Latin symbol in event applet 
+  * Limited time for autoupdating (about 1 hour)
+
+ -- Vlad Vasiliev <vlad@gas.by>  Tue, 8 Nov 2011 00:12:23 +0200
+
+meecast (0.4.2) unstable; urgency=low
+
+  * Fixed problem with first day of month for weather.com
+  * Updated Germany, French, Russian and Finish translations 
+  * Added stations in yr.no database (Poland, Australia)
+  * Enabled russian names for stations of source gismeteo.ru in locale RU
+  * Fixed bug #12482  Missing translation for 'Exit' menu item (Fremantle)
+  * Added search for location by GPS 
+  * Fixed bug #12479 - Missing translation "Enter search"
+  * Fixed bug #12481 - Confirmation dialog when deleting a station (added
+    confirmation dialog)
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 5 Nov 2011 19:24:20 +0200
+
+meecast (0.4.1) unstable; urgency=low
+
+  * Removed old code for Omweather(Fremantle) from postrm script
+  * Added details info for today weather (day and night)
+  * Fixed bug with wind speed units settings
+  * Added Russian, Finish, Spain, Polish and Germany description to package
+  * Updated Germany translation 
+  * Added stations in yr.no database (United Kingdom, Austria, Switzerland,
+    Russia)
+  * Added symbol '%' to string Ppcp
+  * Fixed term Fahrenheit 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 23 Oct 2011 09:24:20 +0200
+
+meecast (0.3.34) unstable; urgency=low
+
+  * Improved in event widget
+  * Added stations in yr.no database (Belarus, Finland, Sweden, Germany, Greece,
+    Macedonia, France)
+  * Fixed problem with Macedonia in yr.no database
+
+ -- Vlad Vasiliev <vlad@gas.by>  Tue, 18 Oct 2011 09:24:20 +0200
+
+meecast (0.3.33) unstable; urgency=low
+
+  * removed qt-components-base-icons from dependences for fremantle version
+
+ -- vlad vasiliev <vlad@gas.by>  Sun, 9 Oct 2011 09:24:20 +0200
+
+meecast (0.3.32) unstable; urgency=low
+
+  * Changed wind icon to show actual wind direction
+  * Fixed problem for Fremantle with old version of QtComponents
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 8 Oct 2011 09:24:20 +0200
+
+meecast (0.3.31) unstable; urgency=low
+
+  * Updated Finish and Russian translations 
+  * Added new iconsets 
+  * Changed search system for countries, regions, cities lists
+  * Redesigned settings windows 
+  * Added new config option - fullscreen mode (saved in config file)
+  * Added License to About window
+  * Updated yr.no database (fixed problem with NonLatin letters)
+
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 6 Oct 2011 09:24:20 +0200
+
+meecast (0.3.30) unstable; urgency=low
+
+  * Added possibility to Active / Disable  Statusbar using settings
+  * Updated Spanish translation
+  * Added applet for Harmattan
+  * Added possibilty to show weather forecast in web browser after
+    tapping on picture of source weather forecast
+  * Redesigned setting windows
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 29 Sep 2011 19:24:20 +0200
+
+meecast (0.3.29) unstable; urgency=low
+
+  * fixed problem with refresh button for Fremantle
+  * fixed problem with wind_speed for value "N/A"
+  * added translators to window About
+
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 21 Sep 2011 12:24:20 +0200
+
+meecast (0.3.28) unstable; urgency=low
+
+  * Updated Finish translation 
+  * Adapted for new QTComponents
+  * Fixed problem with periodically crashing 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Tue, 20 Sep 2011 12:54:20 +0200
+
+meecast (0.3.27) unstable; urgency=low
+
+  * Adapted for Fremantle (N900)
+  * Fixed wind speed units translation 
+  * Fixed bug with night description
+  * Changed copyright symbol in About window
+  * Fixed Russian translation
+  * changed icon for deb package
+
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 19 Sep 2011 12:54:20 +0200
+
+meecast (0.3.26) unstable; urgency=low
+
+  * Updated Finish and Russian translation 
+  * Improved in settings (added SectionScroller)
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 11 Sep 2011 13:04:20 +0200
+
+meecast (0.3.25) unstable; urgency=low
+
+  * Updated translation 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 04 Sep 2011 23:04:20 +0200
+
+meecast (0.3.24) unstable; urgency=low
+
+  * began support MeeGo 1.2.0.90 on Tablet UX
+  * began support Harmattan 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 05 Aug 2011 20:44:20 +0200
+

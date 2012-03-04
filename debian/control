@@ -13,6 +13,7 @@ Standards-Version: 3.6.0
 Package: meecast 
 Architecture: any
 #For Maemo
+# For Tizen
 Depends: ${shlibs:Depends}, qt-components, applauncherd 
 #For Non Maemo
 #Depends: ${shlibs:Depends}, mawk | awk,

@@ -17,7 +17,6 @@ Page {
     Flickable {
         anchors.fill: parent
         flickableDirection: Flickable.VerticalFlick
-//        clip: true
         contentHeight: 1450
         Label {
             id: titletext

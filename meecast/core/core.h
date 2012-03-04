@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasiliev
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -50,7 +50,7 @@
 #include "databaseabstract.h"
 #include "downloader.h"
 
-#define MEECAST_VERSION "0.5.2"
+#define MEECAST_VERSION "0.5.3"
 namespace Core{
     class Connection;
     class AbstractConfig;

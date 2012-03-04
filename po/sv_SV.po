@@ -1096,7 +1096,7 @@ msgstr "Lätta regnskurar och underkylt regn"
 
 #: omweather/src/hash.data:107
 msgid "Light Rain and Shower"
-msgstr ""
+msgstr "Lätta regnskurar"
 
 #: omweather/src/hash.data:108
 msgid "Light Rain and Windy"

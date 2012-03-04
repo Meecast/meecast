@@ -762,23 +762,23 @@ msgstr ""
 
 #: omweather/src/hash.data:73
 msgid "Few Showers"
-msgstr ""
+msgstr "Fåtal skurar"
 
 #: omweather/src/hash.data:72
 msgid "Few Showers / Wind"
-msgstr ""
+msgstr "Fåtal skurar/ Vind"
 
 #: omweather/src/hash.data:76
 msgid "Few Snow"
-msgstr ""
+msgstr "Lite snö"
 
 #: omweather/src/hash.data:75
 msgid "Few Snow Showers"
-msgstr ""
+msgstr "Mindre snöfall"
 
 #: omweather/src/hash.data:74
 msgid "Few Snow Showers / Wind"
-msgstr ""
+msgstr "Mindre snöfall/ Vind"
 
 #: meecast/qt-qml/StationsPage.qml:92
 msgid "Find location via GPS"
@@ -934,23 +934,23 @@ msgstr ""
 
 #: omweather/src/hash.data:85
 msgid "Haze"
-msgstr ""
+msgstr "Ljusdiffusion"
 
 #: omweather/src/hash.data:88
 msgid "Heavy Rain"
-msgstr ""
+msgstr "Kraftigt regn"
 
 #: omweather/src/hash.data:86
 msgid "Heavy Rain / Wind"
-msgstr ""
+msgstr "Kraftigt regn / Vind"
 
 #: omweather/src/hash.data:87
 msgid "Heavy Rain Shower"
-msgstr ""
+msgstr "Kraftiga regnskurar"
 
 #: omweather/src/hash.data:89
 msgid "Heavy Snow"
-msgstr ""
+msgstr "Kraftigt snöfall"
 
 #: omweather/src/hash.data:90
 msgid "High"
@@ -1088,15 +1088,15 @@ msgstr "Lätt Regn Sent"
 
 #: omweather/src/hash.data:105
 msgid "Light Rain Shower"
-msgstr ""
+msgstr "Lätta regnskurar"
 
 #: omweather/src/hash.data:106
 msgid "Light Rain and Freezing Rain"
-msgstr ""
+msgstr "Lätta regnskurar och underkylt regn"
 
 #: omweather/src/hash.data:107
 msgid "Light Rain and Shower"
-msgstr ""
+msgstr "Lätta regnskurar"
 
 #: omweather/src/hash.data:108
 msgid "Light Rain and Windy"

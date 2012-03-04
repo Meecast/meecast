@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?>
+
+<cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="com.samsung.slp.nativeide.config.sbi.gcc45sbox2.cdeb.emulator.715029978">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.samsung.slp.nativeide.config.sbi.gcc45sbox2.cdeb.emulator.715029978" moduleId="org.eclipse.cdt.core.settings" name="Tizen-Emulator">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="com.samsung.slp.nativeide.buildArtefactType.cdeb" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=com.samsung.slp.nativeide.buildArtefactType.cdeb" cleanCommand="rm -f" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;" id="com.samsung.slp.nativeide.config.sbi.gcc45sbox2.cdeb.emulator.715029978" name="Tizen-Emulator" parent="com.samsung.slp.nativeide.config.sbi.gcc45sbox2.cdeb.emulator">
+					<folderInfo id="com.samsung.slp.nativeide.config.sbi.gcc45sbox2.cdeb.emulator.715029978." name="/" resourcePath="">
+						<toolChain id="com.samsung.slp.nativeide.toolchain.sbi.gcc45sbox2.cdeb.emulator.1011751797" name="[SBOX2] GCC-4.5 Custom Debian" superClass="com.samsung.slp.nativeide.toolchain.sbi.gcc45sbox2.cdeb.emulator">
+							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="com.samsung.slp.nativeide.target.sbi.gnu.platform.base.1596489007" osList="linux,win32" superClass="com.samsung.slp.nativeide.target.sbi.gnu.platform.base"/>
+							<builder buildPath="${workspace_loc:/test1}" id="org.tizen.nativeapp.target.sbi.gcc45sbox2.builder.cdeb.251263245" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Tizen Custom Debian Builder" superClass="org.tizen.nativeapp.target.sbi.gcc45sbox2.builder.cdeb"/>
+							<tool id="com.samsung.slp.nativeide.tool.sbi.gnu.archiver.cdeb.base.1608827054" name="GCC Archiver" superClass="com.samsung.slp.nativeide.tool.sbi.gnu.archiver.cdeb.base"/>
+							<tool command="g++" id="com.samsung.slp.nativeide.tool.sbi.gnu.cpp.compiler.cdeb.base.556776546" name="GCC C++ Compiler" superClass="com.samsung.slp.nativeide.tool.sbi.gnu.cpp.compiler.cdeb.base">
+								<option id="sbi.gnu.cpp.compiler.option.target.2114029820" name="SLP-Target" superClass="sbi.gnu.cpp.compiler.option.target" valueType="userObjs">
+									<listOptionValue builtIn="false" value="tizen-emulator-1.0.sb2_gcc45sbox2.i386.cdeb"/>
+								</option>
+							</tool>
+							<tool command="gcc" id="com.samsung.slp.nativeide.tool.sbi.gnu.c.compiler.cdeb.base.854547002" name="GCC C Compiler" superClass="com.samsung.slp.nativeide.tool.sbi.gnu.c.compiler.cdeb.base">
+								<option id="sbi.gnu.c.compiler.option.target.179975326" name="SLP-Target" superClass="sbi.gnu.c.compiler.option.target" valueType="userObjs">
+									<listOptionValue builtIn="false" value="tizen-emulator-1.0.sb2_gcc45sbox2.i386.cdeb"/>
+								</option>
+							</tool>
+							<tool id="com.samsung.slp.nativeide.tool.sbi.gnu.c.linker.cdeb.base.994256610" name="GCC C Linker" superClass="com.samsung.slp.nativeide.tool.sbi.gnu.c.linker.cdeb.base"/>
+							<tool command="g++" id="com.samsung.slp.nativeide.tool.sbi.gnu.cpp.linker.cdeb.base.1340711479" name="GCC C++ Linker" superClass="com.samsung.slp.nativeide.tool.sbi.gnu.cpp.linker.cdeb.base"/>
+							<tool command="as" id="com.samsung.tizen.nativeapp.tool.sbi.gnu.assembler.cdeb.base.1807083215" name="GCC Assembler" superClass="com.samsung.tizen.nativeapp.tool.sbi.gnu.assembler.cdeb.base"/>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="com.samsung.slp.nativeide.config.sbi.gcc45sbox2.cdeb.device.438948729">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.samsung.slp.nativeide.config.sbi.gcc45sbox2.cdeb.device.438948729" moduleId="org.eclipse.cdt.core.settings" name="Tizen-Device">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="com.samsung.slp.nativeide.buildArtefactType.cdeb" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=com.samsung.slp.nativeide.buildArtefactType.cdeb" cleanCommand="rm -f" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;" id="com.samsung.slp.nativeide.config.sbi.gcc45sbox2.cdeb.device.438948729" name="Tizen-Device" parent="com.samsung.slp.nativeide.config.sbi.gcc45sbox2.cdeb.device">
+					<folderInfo id="com.samsung.slp.nativeide.config.sbi.gcc45sbox2.cdeb.device.438948729." name="/" resourcePath="">
+						<toolChain id="com.samsung.slp.nativeide.toolchain.sbi.gcc45sbox2.cdeb.device.484064623" name="[SBOX2] GCC-4.5 Custom Debian" superClass="com.samsung.slp.nativeide.toolchain.sbi.gcc45sbox2.cdeb.device">
+							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="com.samsung.slp.nativeide.target.sbi.gnu.platform.base.243786400" osList="linux,win32" superClass="com.samsung.slp.nativeide.target.sbi.gnu.platform.base"/>
+							<builder buildPath="${workspace_loc:/test1}" id="org.tizen.nativeapp.target.sbi.gcc45sbox2.builder.cdeb.2021249090" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Tizen Custom Debian Builder" superClass="org.tizen.nativeapp.target.sbi.gcc45sbox2.builder.cdeb"/>
+							<tool id="com.samsung.slp.nativeide.tool.sbi.gnu.archiver.cdeb.base.885014025" name="GCC Archiver" superClass="com.samsung.slp.nativeide.tool.sbi.gnu.archiver.cdeb.base"/>
+							<tool command="g++" id="com.samsung.slp.nativeide.tool.sbi.gnu.cpp.compiler.cdeb.base.267316537" name="GCC C++ Compiler" superClass="com.samsung.slp.nativeide.tool.sbi.gnu.cpp.compiler.cdeb.base">
+								<option id="sbi.gnu.cpp.compiler.option.target.937507953" name="SLP-Target" superClass="sbi.gnu.cpp.compiler.option.target" valueType="userObjs">
+									<listOptionValue builtIn="false" value="tizen-device-1.0.sb2_gcc45sbox2.armel.cdeb"/>
+								</option>
+							</tool>
+							<tool command="gcc" id="com.samsung.slp.nativeide.tool.sbi.gnu.c.compiler.cdeb.base.2092633446" name="GCC C Compiler" superClass="com.samsung.slp.nativeide.tool.sbi.gnu.c.compiler.cdeb.base">
+								<option id="sbi.gnu.c.compiler.option.target.970826643" name="SLP-Target" superClass="sbi.gnu.c.compiler.option.target" valueType="userObjs">
+									<listOptionValue builtIn="false" value="tizen-device-1.0.sb2_gcc45sbox2.armel.cdeb"/>
+								</option>
+							</tool>
+							<tool id="com.samsung.slp.nativeide.tool.sbi.gnu.c.linker.cdeb.base.1377620086" name="GCC C Linker" superClass="com.samsung.slp.nativeide.tool.sbi.gnu.c.linker.cdeb.base"/>
+							<tool command="g++" id="com.samsung.slp.nativeide.tool.sbi.gnu.cpp.linker.cdeb.base.2054284746" name="GCC C++ Linker" superClass="com.samsung.slp.nativeide.tool.sbi.gnu.cpp.linker.cdeb.base"/>
+							<tool command="as" id="com.samsung.tizen.nativeapp.tool.sbi.gnu.assembler.cdeb.base.1297161676" name="GCC Assembler" superClass="com.samsung.tizen.nativeapp.tool.sbi.gnu.assembler.cdeb.base"/>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="test1.com.samsung.slp.nativebuild.target.sbi.gcc45sbox2.cdeb.1095586019" name="Tizen Custom Debian Project" projectType="com.samsung.slp.nativebuild.target.sbi.gcc45sbox2.cdeb"/>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+	</storageModule>
+	<storageModule moduleId="com.samsung.tizen.nativeapp.projectInfo" version="1.0.0"/>
+</cproject>

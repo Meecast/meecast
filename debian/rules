@@ -7,10 +7,9 @@
 #export DH_VERBOSE=1
 
 
-#CFLAGS = -Wall -pedantic -DRELEASE -DDEBUGFUNCTIONCALL -g 
-CFLAGS = -Wall -pedantic -DRELEASE -UDEBUGCONNECT -g
-#CFLAGS = -Wall -pedantic 
+CFLAGS = -Wall -pedantic -DRELEASE
 
+PKGDIR = debian/PKG
 
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
 	CFLAGS += -O0
@@ -23,19 +22,12 @@ endif
 
 configure: configure-stamp
 configure-stamp:
-	dh_testdir
+#	dh_testdir
+	cd omweather-foreca-com-stations-db; ./autogen.sh
 	# Add here commands to configure the package.
-	#For OS2008
-#	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-gps=yes
-	#For OS2009
-#	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-gps=yes --enable-hildonanimation
-#	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-gps=yes --enable-clutter 
-
-
-#For NONMAEMO PLATFORM
-#	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --enable-static --enable-nonmaemo --enable-clutter
+	cd omweather-foreca-com-stations-db; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/com.meecast.omweather --disable-static
 	touch configure-stamp
-
+	cd .. 
 
 build: build-stamp
 
@@ -43,8 +35,8 @@ build-stamp: configure-stamp
 	dh_testdir
 
 	# Add here commands to compile the package.
-	qmake  
-	#$(MAKE)
+	
+	cd omweather-foreca-com-stations-db; $(MAKE)
 
 	touch build-stamp
 
@@ -65,7 +57,8 @@ install: build
 	dh_installdirs
 
 	# Add here commands to install the package
-	$(MAKE) INSTALL_ROOT=$(CURDIR)/debian/meecast install 
+	cd  omweather-foreca-com-stations-db; $(MAKE) install DESTDIR=$(CURDIR)/debian/meecast
+
 
 # Build architecture-independent files here.
 binary-indep: build install
@@ -75,12 +68,12 @@ binary-indep: build install
 binary-arch: build install
 	dh_testdir
 	dh_testroot
-#	dh_installchangelogs
+#	dh_installchangelogs 
 #	dh_installdocs
 #	dh_installexamples
-#	dh_install
+#	dh_install 
 #	dh_installmenu
-#	dh_installdebconf
+#	dh_installdebconf	
 #	dh_installlogrotate
 #	dh_installemacsen
 #	dh_installpam
@@ -99,7 +92,6 @@ binary-arch: build install
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol
-# This is the HACK for optified
 	dh_md5sums
 	dh_builddeb
 

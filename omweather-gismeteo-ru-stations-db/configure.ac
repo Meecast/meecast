@@ -26,7 +26,7 @@ AC_FUNC_STRFTIME
 dnl glibc2 needs this
 AC_DEFINE([_XOPEN_SOURCE], [1], [glibc2 needs this])
 dnl check packages
-PKG_CHECK_MODULES(GTK, [gtk+-2.0])
+PKG_CHECK_MODULES(GTK, [gtk+-3.0])
 AC_SUBST(GTK_LIBS)
 AC_SUBST(GTK_CFLAGS)
 

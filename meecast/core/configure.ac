@@ -1,8 +1,7 @@
 AC_PREREQ(2.59)
-AC_INIT(omweather-yr-no-source, 0.1)
-AM_INIT_AUTOMAKE(omweather-yr-no-source, 0.1)
-AC_CONFIG_HEADER([src/config.h:src/config.h.in])
-AC_CONFIG_SRCDIR([src/meego-main.c])
+AC_INIT(meecast-core, 0.1)
+AM_INIT_AUTOMAKE(meecast-core, 0.1)
+AC_CONFIG_HEADER([config_package.h:config_package.h.in])
 AC_CANONICAL_HOST
 AC_GNU_SOURCE
 dnl Checks for programs.
@@ -35,8 +34,6 @@ AC_SUBST(LIBXML2_LIBS)
 AC_SUBST(LIBXML2_CFLAGS)
 
 dnl Config files
-AC_CONFIG_FILES([Makefile
-		src/Makefile
-		data/Makefile])
+AC_CONFIG_FILES([Makefile])
 dnl Produce output files
 AC_OUTPUT

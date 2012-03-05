@@ -32,7 +32,9 @@
 #include "dataparser.h"
 #include <iostream>
 #include <stdlib.h>
-#include <QFileInfo>
+#ifdef QT
+    #include <QFileInfo>
+#endif
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
@@ -66,6 +68,7 @@ namespace Core {
         }
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
 #else
+#ifdef QT
         if(stat(filename.c_str(), &statv))
             _last_update = 0;
         else{
@@ -132,6 +135,7 @@ namespace Core {
             }
             _list->push_back(forecast_data);
         }
+#endif
 #endif
     }
     int

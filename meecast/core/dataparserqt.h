@@ -32,11 +32,11 @@
 #ifndef DATAPARSERQT_H
 #define DATAPARSERQT_H
 ////////////////////////////////////////////////////////////////////////////////
-#include <QtXml/QDomDocument>
-
-#include <QFile>
-#include <QDebug>
-
+#ifdef QT
+    #include <QtXml/QDomDocument>
+    #include <QFile>
+    #include <QDebug>
+#endif
 #include "data.h"
 #include "datalist.h"
 #include "parserqt.h"

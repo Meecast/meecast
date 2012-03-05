@@ -36,10 +36,12 @@
     #include <libxml++/libxml++.h>
     #include <libxml++/validators/schemavalidator.h>
 #else
-#include <QtXmlPatterns/QXmlSchema>
-#include <QtXmlPatterns/QXmlSchemaValidator>
-#include <QtXml/QDomDocument>
-#include <QFile>
+#ifdef QT   
+    #include <QtXmlPatterns/QXmlSchema>
+    #include <QtXmlPatterns/QXmlSchemaValidator>
+    #include <QtXml/QDomDocument>
+    #include <QFile>
+#endif
 #endif
 #include <string>
 #include <iostream>
@@ -52,7 +54,9 @@ namespace Core {
             xmlpp::DomParser *parser;
             xmlpp::SchemaValidator *validator;
             #else
-            QDomDocument _doc;
+            #ifdef QT
+                QDomDocument _doc;
+            #endif
             #endif
             Parser(const std::string& filename, const std::string& schema_filename);
             Parser();

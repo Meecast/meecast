@@ -18,6 +18,7 @@ system(pkg-config --exists libxml++-2.6) {
 } else {
     message("Not libxml++-2.6")
     QT += xml
+    DEFINES += QT
 }
 
 

@@ -32,7 +32,7 @@ source.files = data/foreca.com.xml
 source.path = /opt/com.meecast.omweather/share/sources/
 
 #install
-target.path = /opt/com.meecast.omweather/lib
+target.path = /opt/com.meecast.omweather/bin
 INSTALLS += target db source
 
 

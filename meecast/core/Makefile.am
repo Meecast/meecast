@@ -1,9 +1,8 @@
 # vim: set sw=4 ts=4 et:
 #
-# This file is part of omweather-gismeteo-ru-source
+# This file is part of MeeCast 
 #
-# Copyright (C) 2009 Vlad Vasiliev
-# Copyright (C) 2009 Pavel Fialko
+# Copyright (C) 2012 Vlad Vasilyeu
 # 	for the code
 #
 # This software is free software; you can redistribute it and/or
@@ -21,14 +20,47 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
 # 02110-1301 USA
 
-libhhdir = /usr/lib/omweather
-libhh_LTLIBRARIES = libomweather-gismeteo-ru-source.la
-libomweather_gismeteo_ru_source_la_SOURCES = hash.c hash.h hash_description.data \
-                                             hash_icons.data main.c main.h
-libomweather_gismeteo_ru_source_la_CFLAGS = $(GTK_CFLAGS) $(LIBXML2_CFLAGS) \
+libhhdir = /lib
+libhh_LTLIBRARIES = libmeecast-core.la
+libmeecast_core_la_SOURCES = abstractconfig.cpp \
+abstractconfig.h \
+autogen.sh \
+config.cpp \
+connection.cpp \
+connection.h \
+core.h \
+databaseabstract.h \
+databasesqlite.cpp \
+databasesqlite.h \
+data.cpp \
+data.h \
+datalist.cpp \
+datalist.h \
+dataparser.cpp \
+dataparser.h \
+downloader.cpp \
+downloader.h \
+parser.cpp \
+parser.h \
+pressure.cpp \
+pressure.h \
+source.cpp \
+source.h \
+sourcelist.cpp \
+sourcelist.h \
+station.cpp \
+station.h \
+stationlist.cpp \
+stationlist.h \
+temperature.cpp \
+temperature.h \
+windspeed.cpp \
+windspeed.h 
+                             
+libmeecast_core_la_CFLAGS = $(GTK_CFLAGS) $(LIBXML2_CFLAGS) \
 					    -Wall -pedantic
-libomweather_gismeteo_ru_source_la_LDFLAGS = -module -avoid-version 
-libomweather_gismeteo_ru_source_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) 
+libmeecast_core_la_LDFLAGS = -module -avoid-version 
+libmeecast_core_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) 
 
 clean-local:
 	$(RM) *.core core core.* stamp-*.h *~

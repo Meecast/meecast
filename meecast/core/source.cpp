@@ -56,7 +56,7 @@ namespace Core {
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
-
+#ifdef QT 
             if(1){
                 #ifdef LIBXML
                 //Walk the tree:
@@ -141,7 +141,7 @@ namespace Core {
                 }
                 */
             }
-
+#endif
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         }catch(const std::exception& ex){
             throw(ex.what());

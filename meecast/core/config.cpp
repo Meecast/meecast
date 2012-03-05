@@ -59,7 +59,7 @@ Config::Config()
 void
 Config::saveConfig()
 {
-    #ifndef LIBXML
+    #ifdef QT 
     QDomDocument doc;
     doc.appendChild(doc.createProcessingInstruction("xml", "version=\"1.0\" encoding=\"utf-8\""));
 
@@ -240,8 +240,8 @@ Config::saveConfig()
         return;
     }
 
-    QTextStream ts(&file);
-    ts << doc.toString();
+//    QTextStream ts(&file);
+//    ts << doc.toString();
     //file.write(doc.toString());
     //std::cerr << doc.toString().toStdString() << std::endl;
     file.close();
@@ -287,6 +287,7 @@ Config::LoadConfig(){
             processNode(pNode);
         }
     #else //LIBXML
+    #if def
         QDomElement root = _doc.documentElement();
 
         QDomNodeList nodelist;
@@ -389,6 +390,7 @@ Config::LoadConfig(){
             _current_station_id = 0;
 
     #endif //LIBXML
+    #endif
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
     }
     catch(const std::exception& ex){

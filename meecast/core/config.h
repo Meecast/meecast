@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -33,7 +33,9 @@
 #define CONFIG_H
 ////////////////////////////////////////////////////////////////////////////////
 #include <string>
-#include <QTextStream>
+#ifdef QT
+    #include <QTextStream>
+#endif
 #include "parser.h"
 #include "stationlist.h"
 ////////////////////////////////////////////////////////////////////////////////

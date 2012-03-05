@@ -69,6 +69,7 @@ namespace Core {
         }
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
     #else //LIBXML
+    #ifdef QT
     QFile file(QString::fromStdString(filename));
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
             std::cerr<<"error file open"<<std::endl;
@@ -102,6 +103,7 @@ namespace Core {
             return;
         }
         file.close();
+    #endif
     #endif //LIBXML
     }
 ////////////////////////////////////////////////////////////////////////////////

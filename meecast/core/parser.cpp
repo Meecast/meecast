@@ -103,6 +103,8 @@ namespace Core {
             return;
         }
         file.close();
+    #else
+        _doc = xmlParseFile(filename.c_str());
     #endif
     #endif //LIBXML
     }

@@ -36,12 +36,14 @@
     #include <libxml++/libxml++.h>
     #include <libxml++/validators/schemavalidator.h>
 #else
-#ifdef QT   
-    #include <QtXmlPatterns/QXmlSchema>
-    #include <QtXmlPatterns/QXmlSchemaValidator>
-    #include <QtXml/QDomDocument>
-    #include <QFile>
-#endif
+    #ifdef QT   
+        #include <QtXmlPatterns/QXmlSchema>
+        #include <QtXmlPatterns/QXmlSchemaValidator>
+        #include <QtXml/QDomDocument>
+        #include <QFile>
+    #else
+        #include <libxml/parser.h>
+    #endif
 #endif
 #include <string>
 #include <iostream>
@@ -51,12 +53,14 @@ namespace Core {
     class Parser : public AbstractConfig{
         protected:
             #ifdef LIBXML
-            xmlpp::DomParser *parser;
-            xmlpp::SchemaValidator *validator;
+                xmlpp::DomParser *parser;
+                xmlpp::SchemaValidator *validator;
             #else
-            #ifdef QT
-                QDomDocument _doc;
-            #endif
+                #ifdef QT
+                    QDomDocument _doc;
+                #else
+                    xmlDocPtr _doc;
+                #endif
             #endif
             Parser(const std::string& filename, const std::string& schema_filename);
             Parser();

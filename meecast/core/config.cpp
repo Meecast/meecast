@@ -287,7 +287,7 @@ Config::LoadConfig(){
             processNode(pNode);
         }
     #else //LIBXML
-    #if def
+    #ifdef QT
         QDomElement root = _doc.documentElement();
 
         QDomNodeList nodelist;
@@ -388,7 +388,18 @@ Config::LoadConfig(){
         }
         if (nodelist.count()>0 && _current_station_id == INT_MAX)
             _current_station_id = 0;
-
+    #else
+       if (!_doc)
+           return;
+       xmlNodePtr root = xmlDocGetRootElement(_doc);
+       if (!root)
+           return;
+       for(xmlNodePtr p = root->children; p; p = p->next) {
+            if (p->type != XML_ELEMENT_NODE)
+                continue;
+            if (xmlStrcmp(p->name, (const xmlChar*)"base"))
+                std::cerr << "Base !!!!" << std::endl;
+       }
     #endif //LIBXML
     #endif
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED

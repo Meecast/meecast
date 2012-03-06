@@ -28,6 +28,8 @@ configure-stamp:
 #	cd omweather-foreca-com-stations-db; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/com.meecast.omweather 
 	cd meecast/core; ./autogen.sh
 	cd meecast/core; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/com.meecast.omweather --disable-static
+	cd meecast/tizen; ./autogen.sh
+	cd meecast/tizen; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/com.meecast.omweather --disable-static
 	touch configure-stamp
 	cd .. 
 
@@ -40,6 +42,7 @@ build-stamp: configure-stamp
 	
 #	cd omweather-foreca-com-stations-db; $(MAKE)
 	cd meecast/core; $(MAKE)
+	cd meecast/tizen; $(MAKE)
 
 	touch build-stamp
 

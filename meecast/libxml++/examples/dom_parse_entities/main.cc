@@ -1,0 +1,118 @@
+// -*- C++ -*-
+
+/* main.cc
+ *
+ * Copyright (C) 2002 The libxml++ development team
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU Library General Public
+ * License along with this library; if not, write to the Free
+ * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
+#include <libxml++/libxml++.h>
+
+#include <iostream>
+
+void print_node(const xmlpp::Node* node, bool substitute_entities, unsigned int indentation = 0)
+{  
+  const Glib::ustring indent(indentation, ' ');
+  std::cout << std::endl; //Separate nodes by an empty line.
+
+  if (substitute_entities)
+  {
+    // Entities have been substituted. Print the text nodes.
+    const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(node);
+    if (nodeText && !nodeText->is_white_space())
+    {
+      std::cout << indent << "text = " << nodeText->get_content() << std::endl;
+    }
+  }
+  else
+  {
+    // Entities have not been substituted. Print the entity reference nodes.
+    const xmlpp::EntityReference* nodeEntityReference = dynamic_cast<const xmlpp::EntityReference*>(node);
+    if (nodeEntityReference)
+    {
+      std::cout << indent << "entity reference name = " << nodeEntityReference->get_name() << std::endl;
+      std::cout << indent <<  "  resolved text = " << nodeEntityReference->get_resolved_text() << std::endl;
+      std::cout << indent <<  "  original text = " << nodeEntityReference->get_original_text() << std::endl;
+    }
+  } // end if (substitute_entities)
+
+  const xmlpp::ContentNode* nodeContent = dynamic_cast<const xmlpp::ContentNode*>(node);
+  if(!nodeContent)
+  {
+    //Recurse through child nodes:
+    xmlpp::Node::NodeList list = node->get_children();
+    for(xmlpp::Node::NodeList::iterator iter = list.begin(); iter != list.end(); ++iter)
+    {   
+      print_node(*iter, substitute_entities, indentation + 2); //recursive
+    }
+  }
+}
+
+int main(int argc, char* argv[])
+{
+  // Set the global C++ locale to the user-configured locale,
+  // so we can use std::cout with UTF-8, via Glib::ustring, without exceptions.
+  std::locale::global(std::locale(""));
+
+  std::string filepath;
+  if(argc > 1 )
+    filepath = argv[1]; //Allow the user to specify a different XML file to parse.
+  else
+    filepath = "example.xml";
+  
+  // Parse first without, then with, entity substitution.
+  bool substitute_entities = false;
+  while (true)
+  {
+    if (substitute_entities)
+      std::cout << std::endl << "<<< With entity substitution >>>" << std::endl;
+    else
+      std::cout << std::endl << "<<< Without entity substitution >>>" << std::endl;
+
+    #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+    try
+    {
+    #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+      xmlpp::DomParser parser;
+      parser.set_validate();
+      parser.set_substitute_entities(substitute_entities);
+      parser.parse_file(filepath);
+      if(parser)
+      {
+        //Walk the tree:
+        const xmlpp::Node* pNode = parser.get_document()->get_root_node(); //deleted by DomParser.
+        print_node(pNode, substitute_entities);
+      }
+    #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+    }
+    catch(const std::exception& ex)
+    {
+      std::cout << "Exception caught: " << ex.what() << std::endl;
+    }
+    #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+
+    if (substitute_entities) break;
+
+    substitute_entities = true;
+  }
+
+  return 0;
+}
+

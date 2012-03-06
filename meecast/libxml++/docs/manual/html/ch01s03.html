@@ -1,0 +1,59 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Compilation and Linking</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="libxml++ - An XML Parser for C++">
+<link rel="up" href="chapter-introduction.html" title="Chapter 1. libxml++">
+<link rel="prev" href="ch01s02.html" title="UTF-8 and Glib::ustring">
+<link rel="next" href="chapter-parsers.html" title="Chapter 2. Parsers">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">Compilation and Linking</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="ch01s02.html">Prev</a> </td>
+<th width="60%" align="center">Chapter 1. libxml++</th>
+<td width="20%" align="right"> <a accesskey="n" href="chapter-parsers.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="sect1" title="Compilation and Linking">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id2627605"></a>Compilation and Linking</h2></div></div></div>
+<p>To use libxml++ in your application, you must tell the compiler where to find the include headers and where to find the libxml++ library. libxml++ provides a pkg-config .pc file to make this easy. For instance, the following command will provide the necessary compiler options:
+    <span class="command"><strong>pkg-config libxml++-2.6 --cflags --libs</strong></span>
+    </p>
+<p>When using autoconf and automake, this is even easier with the PKG_CHECK_MODULES macro in your configure.ac file. For instance:
+    </p>
+<pre class="programlisting">
+    PKG_CHECK_MODULES(SOMEAPP, libxml++-2.6 &gt;= 2.10.0)
+    AC_SUBST(SOMEAPP_CFLAGS)
+    AC_SUBST(SOMEAPP_LIBS)
+    </pre>
+<p>
+    </p>
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="ch01s02.html">Prev</a> </td>
+<td width="20%" align="center"><a accesskey="u" href="chapter-introduction.html">Up</a></td>
+<td width="40%" align="right"> <a accesskey="n" href="chapter-parsers.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">UTF-8 and Glib::ustring </td>
+<td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+<td width="40%" align="right" valign="top"> Chapter 2. Parsers</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

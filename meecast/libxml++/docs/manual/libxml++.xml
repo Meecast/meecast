@@ -1,0 +1,640 @@
+<?xml version="1.0"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+  "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+  <!ENTITY date "February 2002">
+  <!ENTITY url_examples_base "http://git.gnome.org/browse/libxml++/tree/examples/">
+]>
+
+<book id="index" lang="en">
+  <bookinfo>
+    <title>libxml++ - An XML Parser for C++</title>
+    <author>
+      <firstname>Murray</firstname>
+      <surname>Cumming</surname>
+      <affiliation>
+	      <address><email>murrayc@murrayc.com</email></address>
+      </affiliation>
+    </author>
+    <date>12th September 2004</date>
+    <abstract>
+      <para>This is an introduction to libxml's C++ binding, with simple examples.</para>
+    </abstract>
+  </bookinfo>
+  <chapter id="chapter-introduction">
+    <title>libxml++</title>
+    <para>
+      libxml++ is a C++ API for the popular libxml XML parser, written in C. libxml is famous for its high performance and compliance to standard specifications, but its C API is quite difficult even for common tasks. 
+    </para>
+
+    <para>
+      libxml++ presents a simple C++-like API that can achieve common tasks with less code. Unlike some other C++ parsers, it does not try to avoid the advantages of standard C++ features such as namespaces, STL containers or runtime type identification, and it does not try to conform to standard API specifications meant for Java. Therefore libxml++ requires a fairly modern C++ compiler such as g++ 3. 
+    </para>
+
+    <para>But libxml++ was created mainly to fill the need for an API-stable and ABI-stable C++ XML parser which could be used as a shared library dependency by C++ applications that are distributed widely in binary form. That means that installed applications will not break when new versions of libxml++ are installed on a user's computer. Gradual improvement of the libxml++ API is still possible via non-breaking API additions, and new independent versions of the ABI that can be installed in parallel with older versions. These are the general techniques and principles followed by the <ulink
+url="http://www.gnome.org">GNOME</ulink> project, of which libxml++ is a part.</para>
+
+    <sect1>
+    <title>Installation</title>
+    <para>libxml++ is packaged by major Linux and *BSD distributions and can be installed from source on Linux and Windows, using any modern compiler, such as g++, SUN Forte, or MSVC++.</para>
+    <para>For instance, to install libxml++ and its documentation on debian, use apt-get or synaptic like so:
+    <programlisting>
+    # apt-get install libxml++2.6-dev libxml++2.6-doc
+    </programlisting>
+    </para>
+    <para>To check that you have the libxml++ development packages installed, and that your environment is working properly, try <command>pkg-config libxml++-2.6 --modversion</command>.</para>
+    <para>The source code may be downloaded from <ulink
+url="http://libxmlplusplus.sourceforge.net">libxmlplusplus.sourceforge.net</ulink>
+. libxml++ is licensed under the LGPL, which allows its use via dynamic linking in both open source and closed-source software. The underlying libxml library uses the even more generous MIT licence.</para>
+    </sect1>
+
+    <sect1>
+    <title>UTF-8 and Glib::ustring</title>
+    <para>The libxml++ API takes, and gives, strings in the UTF-8 Unicode encoding, which can support all known languages and locales. This choice was made because, of the encodings that have this capability, UTF-8 is the most commonly accepted choice. UTF-8 is a multi-byte encoding, meaning that some characters use more than 1 byte. But for compatibility, old-fashioned 7-bit ASCII strings are unchanged when encoded as UTF-8, and UTF-8 strings do not contain null bytes which would cause old code to misjudge the number of bytes. For these reasons, you can store a UTF-8 string in a std::string object. However, the std::string API will operate on that string in terms of bytes, instead of characters.</para>
+    <para>Because Standard C++ has no string class that can fully handle UTF-8, libxml++ uses the Glib::ustring class from the glibmm library. Glib::ustring has almost exactly the same API as std::string, but methods such as length() and operator[] deal with whole UTF-8 characters rather than raw bytes.</para>
+    <para>There are implicit conversions between std::string and Glib::ustring, so you can use std::string wherever you see a Glib::ustring in the API, if you really don't care about any locale other than English. However, that is unlikely in today's connected world.</para>
+    <para>glibmm also provides useful API to convert between encodings and locales.</para>
+    </sect1>
+
+    <sect1>
+    <title>Compilation and Linking</title>
+    <para>To use libxml++ in your application, you must tell the compiler where to find the include headers and where to find the libxml++ library. libxml++ provides a pkg-config .pc file to make this easy. For instance, the following command will provide the necessary compiler options:
+    <command>pkg-config libxml++-2.6 --cflags --libs</command>
+    </para>
+    <para>When using autoconf and automake, this is even easier with the PKG_CHECK_MODULES macro in your configure.ac file. For instance:
+    <programlisting>
+    PKG_CHECK_MODULES(SOMEAPP, libxml++-2.6 >= 2.10.0)
+    AC_SUBST(SOMEAPP_CFLAGS)
+    AC_SUBST(SOMEAPP_LIBS)
+    </programlisting>
+    </para>
+    </sect1>
+
+    </chapter>
+
+  <chapter id="chapter-parsers">
+    <title>Parsers</title>
+    <para>Like the underlying libxml library, libxml++ allows the use of 3 parsers, depending on your needs - the DOM, SAX, and TextReader parsers. The relative advantages and behaviour of these parsers will be explained here.</para>
+    <para>All of the parsers may parse XML documents directly from disk, a string, or a C++ std::istream. Although the libxml++ API uses only Glib::ustring, and therefore the UTF-8 encoding, libxml++ can parse documents in any encoding, converting to UTF-8 automatically. This conversion will not lose any information because UTF-8 can represent any locale.</para>
+    <para>Remember that white space is usually significant in XML documents, so the parsers might provide unexpected text nodes that contain only spaces and new lines. The parser does not know whether you care about these text nodes, but your application may choose to ignore them.</para> 
+  
+    <sect1>
+      <title>DOM Parser</title>
+      <para>The DOM parser parses the whole document at once and stores the structure in memory, available via <literal>Parser::get_document()</literal>. With methods such as <literal>Document::get_root_node()</literal> and <literal>Node::get_children()</literal>, you may then navigate into the heirarchy of XML nodes without restriction, jumping forwards or backwards in the document based on the information that you encounter. Therefore the DOM parser uses a relatively large amount of memory.</para>
+      <para>You should use C++ RTTI (via <literal>dynamic_cast&lt;&gt;</literal>) to identify the specific node type and to perform actions which are not possible with all node types. For instance, only <literal>Element</literal>s have attributes. Here is the inheritance hierarchy of node types:</para>
+
+      <para>
+      <itemizedlist>
+      <listitem><para>xmlpp::Node:
+        <itemizedlist>
+          <listitem><para>xmlpp::Attribute
+          <itemizedlist>
+            <listitem><para>xmlpp::AttributeDeclaration</para></listitem>
+            <listitem><para>xmlpp::AttributeNode</para></listitem>
+          </itemizedlist>
+          </para></listitem>
+          <listitem><para>xmlpp::ContentNode
+          <itemizedlist>
+            <listitem><para>xmlpp::CdataNode</para></listitem>
+            <listitem><para>xmlpp::CommentNode</para></listitem>
+            <listitem><para>xmlpp::EntityDeclaration</para></listitem>
+            <listitem><para>xmlpp::ProcessingInstructionNode</para></listitem>
+            <listitem><para>xmlpp::TextNode</para></listitem>
+          </itemizedlist>
+          </para></listitem>
+          <listitem><para>xmlpp::Element</para></listitem>
+          <listitem><para>xmlpp::EntityReference</para></listitem>
+        </itemizedlist>
+        </para></listitem>
+ 
+      </itemizedlist>
+    </para>
+
+      <para>Although you may obtain pointers to the <literal>Node</literal>s, these <literal>Node</literal>s are always owned by their parent <literal>Node</literal>. In most cases that means that the <literal>Node</literal> will exist, and your pointer will be valid, as long as the <literal>Document</literal> instance exists.</para>
+      <para>There are also several methods which can create new child <literal>Node</literal>s. By using these, and one of the <literal>Document::write_*()</literal> methods, you can use libxml++ to build a new XML document.</para>
+
+
+<sect2>
+<title>Example</title>
+<para>This example looks in the document for expected elements and then examines them. All these examples are included in the libxml++ source distribution.</para>
+<para><ulink url="&url_examples_base;dom_parser">Source Code</ulink></para>
+<!-- start inserted example code -->
+<para>File: main.cc
+<programlisting>
+#ifdef HAVE_CONFIG_H
+#include &lt;config.h&gt;
+#endif
+
+#include &lt;libxml++/libxml++.h&gt;
+
+#include &lt;iostream&gt;
+
+void print_node(const xmlpp::Node* node, unsigned int indentation = 0)
+{
+  const Glib::ustring indent(indentation, ' ');
+  std::cout &lt;&lt; std::endl; //Separate nodes by an empty line.
+  
+  const xmlpp::ContentNode* nodeContent = dynamic_cast&lt;const xmlpp::ContentNode*&gt;(node);
+  const xmlpp::TextNode* nodeText = dynamic_cast&lt;const xmlpp::TextNode*&gt;(node);
+  const xmlpp::CommentNode* nodeComment = dynamic_cast&lt;const xmlpp::CommentNode*&gt;(node);
+
+  if(nodeText &amp;&amp; nodeText-&gt;is_white_space()) //Let's ignore the indenting - you don't always want to do this.
+    return;
+    
+  const Glib::ustring nodename = node-&gt;get_name();
+
+  if(!nodeText &amp;&amp; !nodeComment &amp;&amp; !nodename.empty()) //Let's not say &quot;name: text&quot;.
+  {
+    const Glib::ustring namespace_prefix = node-&gt;get_namespace_prefix();
+
+    std::cout &lt;&lt; indent &lt;&lt; &quot;Node name = &quot;;
+    if(!namespace_prefix.empty())
+      std::cout &lt;&lt; namespace_prefix &lt;&lt; &quot;:&quot;;
+    std::cout &lt;&lt; nodename &lt;&lt; std::endl;
+  }
+  else if(nodeText) //Let's say when it's text. - e.g. let's say what that white space is.
+  {
+    std::cout &lt;&lt; indent &lt;&lt; &quot;Text Node&quot; &lt;&lt; std::endl;
+  }
+
+  //Treat the various node types differently: 
+  if(nodeText)
+  {
+    std::cout &lt;&lt; indent &lt;&lt; &quot;text = \&quot;&quot; &lt;&lt; nodeText-&gt;get_content() &lt;&lt; &quot;\&quot;&quot; &lt;&lt; std::endl;
+  }
+  else if(nodeComment)
+  {
+    std::cout &lt;&lt; indent &lt;&lt; &quot;comment = &quot; &lt;&lt; nodeComment-&gt;get_content() &lt;&lt; std::endl;
+  }
+  else if(nodeContent)
+  {
+    std::cout &lt;&lt; indent &lt;&lt; &quot;content = &quot; &lt;&lt; nodeContent-&gt;get_content() &lt;&lt; std::endl;
+  }
+  else if(const xmlpp::Element* nodeElement = dynamic_cast&lt;const xmlpp::Element*&gt;(node))
+  {
+    //A normal Element node:
+
+    //line() works only for ElementNodes.
+    std::cout &lt;&lt; indent &lt;&lt; &quot;     line = &quot; &lt;&lt; node-&gt;get_line() &lt;&lt; std::endl;
+
+    //Print attributes:
+    const xmlpp::Element::AttributeList&amp; attributes = nodeElement-&gt;get_attributes();
+    for(xmlpp::Element::AttributeList::const_iterator iter = attributes.begin(); iter != attributes.end(); ++iter)
+    {
+      const xmlpp::Attribute* attribute = *iter;
+      const Glib::ustring namespace_prefix = attribute-&gt;get_namespace_prefix();
+
+      std::cout &lt;&lt; indent &lt;&lt; &quot;  Attribute &quot;;
+      if(!namespace_prefix.empty())
+        std::cout &lt;&lt; namespace_prefix  &lt;&lt; &quot;:&quot;;
+      std::cout &lt;&lt; attribute-&gt;get_name() &lt;&lt; &quot; = &quot; &lt;&lt; attribute-&gt;get_value() &lt;&lt; std::endl;
+    }
+
+    const xmlpp::Attribute* attribute = nodeElement-&gt;get_attribute(&quot;title&quot;);
+    if(attribute)
+    {
+      std::cout &lt;&lt; indent &lt;&lt; &quot;title = &quot; &lt;&lt; attribute-&gt;get_value() &lt;&lt; std::endl;
+    }
+  }
+  
+  if(!nodeContent)
+  {
+    //Recurse through child nodes:
+    xmlpp::Node::NodeList list = node-&gt;get_children();
+    for(xmlpp::Node::NodeList::iterator iter = list.begin(); iter != list.end(); ++iter)
+    {
+      print_node(*iter, indentation + 2); //recursive
+    }
+  }
+}
+
+int main(int argc, char* argv[])
+{
+  // Set the global C++ locale to the user-configured locale,
+  // so we can use std::cout with UTF-8, via Glib::ustring, without exceptions.
+  std::locale::global(std::locale(&quot;&quot;));
+
+  bool validate = false;
+  bool set_throw_messages = false;
+  bool throw_messages = false;
+  bool substitute_entities = true;
+
+  int argi = 1;
+  while (argc &gt; argi &amp;&amp; *argv[argi] == '-') // option
+  {
+    switch (*(argv[argi]+1))
+    {
+      case 'v':
+        validate = true;
+        break;
+      case 't':
+       set_throw_messages = true;
+       throw_messages = true;
+       break;
+      case 'e':
+       set_throw_messages = true;
+       throw_messages = false;
+       break;
+      case 'E':
+        substitute_entities = false;
+        break;
+     default:
+       std::cout &lt;&lt; &quot;Usage: &quot; &lt;&lt; argv[0] &lt;&lt; &quot; [-v] [-t] [-e] [filename]&quot; &lt;&lt; std::endl
+                 &lt;&lt; &quot;       -v  Validate&quot; &lt;&lt; std::endl
+                 &lt;&lt; &quot;       -t  Throw messages in an exception&quot; &lt;&lt; std::endl
+                 &lt;&lt; &quot;       -e  Write messages to stderr&quot; &lt;&lt; std::endl
+                 &lt;&lt; &quot;       -E  Do not substitute entities&quot; &lt;&lt; std::endl;
+       return 1;
+     }
+     argi++;
+  }
+  std::string filepath;
+  if(argc &gt; argi)
+    filepath = argv[argi]; //Allow the user to specify a different XML file to parse.
+  else
+    filepath = &quot;example.xml&quot;;
+ 
+  #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+  try
+  {
+  #endif //LIBXMLCPP_EXCEPTIONS_ENABLED 
+    xmlpp::DomParser parser;
+    if (validate)
+      parser.set_validate();
+    if (set_throw_messages)
+      parser.set_throw_messages(throw_messages);
+    //We can have the text resolved/unescaped automatically.
+    parser.set_substitute_entities(substitute_entities);
+    parser.parse_file(filepath);
+    if(parser)
+    {
+      //Walk the tree:
+      const xmlpp::Node* pNode = parser.get_document()-&gt;get_root_node(); //deleted by DomParser.
+      print_node(pNode);
+    }
+  #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+  }
+  catch(const std::exception&amp; ex)
+  {
+    std::cout &lt;&lt; &quot;Exception caught: &quot; &lt;&lt; ex.what() &lt;&lt; std::endl;
+  }
+  #endif //LIBXMLCPP_EXCEPTIONS_ENABLED 
+
+  return 0;
+}
+
+</programlisting>
+</para>
+<!-- end inserted example code -->
+</sect2>
+
+
+    </sect1>
+
+
+    <sect1>
+      <title>SAX Parser</title>
+      <para>The SAX parser presents each node of the XML document in sequence. So when you process one node, you must have already stored information about any relevant previous nodes, and you have no information at that time about subsequent nodes. The SAX parser uses less memory than the DOM parser and it is a suitable abstraction for documents that can be processed sequentially rather than as a whole.</para>   
+
+      <para>By using the <literal>parse_chunk()</literal> method instead of <literal>parse()</literal>, you can even parse parts of the XML document before you have received the whole document.</para>
+
+      <para>As shown in the example, you should derive your own class from SaxParser and override some of the virtual methods. These &quot;handler&quot; methods will be called while the document is parsed.</para>
+ 
+<sect2>
+<title>Example</title>
+<para>This example shows how the handler methods are called during parsing.</para>
+<para><ulink url="&url_examples_base;sax_parser">Source Code</ulink></para>
+<!-- start inserted example code -->
+<para>File: myparser.h
+<programlisting>
+#ifndef __LIBXMLPP_EXAMPLES_MYPARSER_H
+#define __LIBXMLPP_EXAMPLES_MYPARSER_H
+
+#include &lt;libxml++/libxml++.h&gt;
+
+class MySaxParser : public xmlpp::SaxParser
+{
+public:
+  MySaxParser();
+  virtual ~MySaxParser();
+
+protected:
+  //overrides:
+#ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+  virtual void on_start_document();
+  virtual void on_end_document();
+  virtual void on_start_element(const Glib::ustring&amp; name,
+                                const AttributeList&amp; properties);
+  virtual void on_end_element(const Glib::ustring&amp; name);
+  virtual void on_characters(const Glib::ustring&amp; characters);
+  virtual void on_comment(const Glib::ustring&amp; text);
+  virtual void on_warning(const Glib::ustring&amp; text);
+  virtual void on_error(const Glib::ustring&amp; text);
+  virtual void on_fatal_error(const Glib::ustring&amp; text);
+#endif
+};
+
+
+#endif //__LIBXMLPP_EXAMPLES_MYPARSER_H
+</programlisting>
+</para>
+<para>File: myparser.cc
+<programlisting>
+#include &quot;myparser.h&quot;
+#include &lt;glibmm/convert.h&gt; //For Glib::ConvertError
+
+#include &lt;iostream&gt;
+
+MySaxParser::MySaxParser()
+  : xmlpp::SaxParser()
+{
+}
+
+MySaxParser::~MySaxParser()
+{
+}
+
+#ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+void MySaxParser::on_start_document()
+{
+  std::cout &lt;&lt; &quot;on_start_document()&quot; &lt;&lt; std::endl;
+}
+
+void MySaxParser::on_end_document()
+{
+  std::cout &lt;&lt; &quot;on_end_document()&quot; &lt;&lt; std::endl;
+}
+
+void MySaxParser::on_start_element(const Glib::ustring&amp; name,
+                                   const AttributeList&amp; attributes)
+{
+  std::cout &lt;&lt; &quot;node name=&quot; &lt;&lt; name &lt;&lt; std::endl;
+
+  // Print attributes:
+  for(xmlpp::SaxParser::AttributeList::const_iterator iter = attributes.begin(); iter != attributes.end(); ++iter)
+  {
+    try
+    {
+      std::cout &lt;&lt; &quot;  Attribute name=&quot; &lt;&lt; iter-&gt;name &lt;&lt; std::endl;
+    }
+    catch(const Glib::ConvertError&amp; ex)
+    {
+      std::cerr &lt;&lt; &quot;MySaxParser::on_start_element(): Exception caught while converting name for std::cout: &quot; &lt;&lt; ex.what() &lt;&lt; std::endl;
+    }
+
+    try
+    {
+      std::cout &lt;&lt; &quot;    , value= &quot; &lt;&lt; iter-&gt;value &lt;&lt; std::endl;
+    }
+    catch(const Glib::ConvertError&amp; ex)
+    {
+      std::cerr &lt;&lt; &quot;MySaxParser::on_start_element(): Exception caught while converting value for std::cout: &quot; &lt;&lt; ex.what() &lt;&lt; std::endl;
+    }
+  }
+}
+
+void MySaxParser::on_end_element(const Glib::ustring&amp; /* name */)
+{
+  std::cout &lt;&lt; &quot;on_end_element()&quot; &lt;&lt; std::endl;
+}
+
+void MySaxParser::on_characters(const Glib::ustring&amp; text)
+{
+  try
+  {
+    std::cout &lt;&lt; &quot;on_characters(): &quot; &lt;&lt; text &lt;&lt; std::endl;
+  }
+  catch(const Glib::ConvertError&amp; ex)
+  {
+    std::cerr &lt;&lt; &quot;MySaxParser::on_characters(): Exception caught while converting text for std::cout: &quot; &lt;&lt; ex.what() &lt;&lt; std::endl;
+  }
+}
+
+void MySaxParser::on_comment(const Glib::ustring&amp; text)
+{
+  try
+  {
+    std::cout &lt;&lt; &quot;on_comment(): &quot; &lt;&lt; text &lt;&lt; std::endl;
+  }
+  catch(const Glib::ConvertError&amp; ex)
+  {
+    std::cerr &lt;&lt; &quot;MySaxParser::on_comment(): Exception caught while converting text for std::cout: &quot; &lt;&lt; ex.what() &lt;&lt; std::endl;
+  }
+}
+
+void MySaxParser::on_warning(const Glib::ustring&amp; text)
+{
+  try
+  {
+    std::cout &lt;&lt; &quot;on_warning(): &quot; &lt;&lt; text &lt;&lt; std::endl;
+  }
+  catch(const Glib::ConvertError&amp; ex)
+  {
+    std::cerr &lt;&lt; &quot;MySaxParser::on_warning(): Exception caught while converting text for std::cout: &quot; &lt;&lt; ex.what() &lt;&lt; std::endl;
+  }
+}
+
+void MySaxParser::on_error(const Glib::ustring&amp; text)
+{
+  try
+  {
+    std::cout &lt;&lt; &quot;on_error(): &quot; &lt;&lt; text &lt;&lt; std::endl;
+  }
+  catch(const Glib::ConvertError&amp; ex)
+  {
+    std::cerr &lt;&lt; &quot;MySaxParser::on_error(): Exception caught while converting text for std::cout: &quot; &lt;&lt; ex.what() &lt;&lt; std::endl;
+  }
+}
+
+void MySaxParser::on_fatal_error(const Glib::ustring&amp; text)
+{
+  try
+  {
+    std::cout &lt;&lt; &quot;on_fatal_error(): &quot; &lt;&lt; text &lt;&lt; std::endl;
+  }
+  catch(const Glib::ConvertError&amp; ex)
+  {
+    std::cerr &lt;&lt; &quot;MySaxParser::on_characters(): Exception caught while converting value for std::cout: &quot; &lt;&lt; ex.what() &lt;&lt; std::endl;
+  }
+}
+#endif
+</programlisting>
+</para>
+<para>File: main.cc
+<programlisting>
+#ifdef HAVE_CONFIG_H
+#include &lt;config.h&gt;
+#endif
+
+#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+
+#include &quot;myparser.h&quot;
+
+int
+main(int argc, char* argv[])
+{
+  // Set the global C and C++ locale to the user-configured locale,
+  // so we can use std::cout with UTF-8, via Glib::ustring, without exceptions.
+  std::locale::global(std::locale(&quot;&quot;));
+
+  std::string filepath;
+  if(argc &gt; 1 )
+    filepath = argv[1]; //Allow the user to specify a different XML file to parse.
+  else
+    filepath = &quot;example.xml&quot;;
+    
+  // Parse the entire document in one go:
+  #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+  try
+  {
+  #endif //LIBXMLCPP_EXCEPTIONS_ENABLED 
+    MySaxParser parser;
+    parser.set_substitute_entities(true); //
+    parser.parse_file(filepath);
+  #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+  }
+  catch(const xmlpp::exception&amp; ex)
+  {
+    std::cout &lt;&lt; &quot;libxml++ exception: &quot; &lt;&lt; ex.what() &lt;&lt; std::endl;
+  }
+  #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+
+ 
+  // Demonstrate incremental parsing, sometimes useful for network connections:
+  {
+    //std::cout &lt;&lt; &quot;Incremental SAX Parser:&quot; &lt;&lt; std:endl;
+    
+    std::ifstream is(filepath.c_str());
+    /* char buffer[64];
+    const size_t buffer_size = sizeof(buffer) / sizeof(char); */
+
+    //Parse the file:
+    MySaxParser parser;
+    parser.parse_file(filepath);
+
+    //Or parse chunks (though this seems to have problems):
+/*
+    do
+    {
+      memset(buffer, 0, buffer_size);
+      is.read(buffer, buffer_size-1);
+      if(is &amp;&amp; is.gcount())
+      {
+        Glib::ustring input(buffer, is.gcount());
+        parser.parse_chunk(input);
+      }
+    }
+    while(is);
+
+    parser.finish_chunk_parsing();
+*/
+  }
+
+
+  return 0;
+}
+
+</programlisting>
+</para>
+<!-- end inserted example code -->
+</sect2>
+
+    </sect1>
+
+    <sect1>
+      <title>TextReader Parser</title>
+      <para>Like the SAX parser, the TextReader parser is suitable for sequential parsing, but instead of implementing handlers for specific parts of the document, it allows you to detect the current node type, process the node accordingly, and skip forward in the document as much as necessary. Unlike the DOM parser, you may not move backwards in the XML document. And unlike the SAX parser, you must not waste time processing nodes that do not interest you. </para>
+      <para>All methods are on the single parser instance, but their result depends on the current context. For instance, use <literal>read()</literal> to move to the next node, and <literal>move_to_element()</literal> to navigate to child nodes. These methods will return false when no more nodes are available. Then use methods such as <literal>get_name()</literal> and <literal>get_value()</literal> to examine the elements and their attributes.</para> 
+
+<sect2>
+<title>Example</title>
+<para>This example examines each node in turn, then moves to the next node.</para>
+<para><ulink url="&url_examples_base;textreader">Source Code</ulink></para>
+<!-- start inserted example code -->
+<para>File: main.cc
+<programlisting>
+#ifdef HAVE_CONFIG_H
+#include &lt;config.h&gt;
+#endif
+
+#include &lt;libxml++/libxml++.h&gt;
+#include &lt;libxml++/parsers/textreader.h&gt;
+
+#include &lt;iostream&gt;
+
+struct indent {
+  int depth_;
+  indent(int depth): depth_(depth) {};
+};
+
+std::ostream &amp; operator&lt;&lt;(std::ostream &amp; o, indent const &amp; in)
+{
+  for(int i = 0; i != in.depth_; ++i)
+  {
+    o &lt;&lt; &quot;  &quot;;
+  }
+  return o;
+}
+
+int main(int /* argc */, char** /* argv */)
+{
+  // Set the global C and C++ locale to the user-configured locale,
+  // so we can use std::cout with UTF-8, via Glib::ustring, without exceptions.
+  std::locale::global(std::locale(&quot;&quot;));
+
+  #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+  try
+  {
+  #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+    xmlpp::TextReader reader(&quot;example.xml&quot;);
+
+    while(reader.read())
+    {
+      int depth = reader.get_depth();
+      std::cout &lt;&lt; indent(depth) &lt;&lt; &quot;--- node ---&quot; &lt;&lt; std::endl;
+      std::cout &lt;&lt; indent(depth) &lt;&lt; &quot;name: &quot; &lt;&lt; reader.get_name() &lt;&lt; std::endl;
+      std::cout &lt;&lt; indent(depth) &lt;&lt; &quot;depth: &quot; &lt;&lt; reader.get_depth() &lt;&lt; std::endl;
+
+      if(reader.has_attributes())
+      {
+        std::cout &lt;&lt; indent(depth) &lt;&lt; &quot;attributes: &quot; &lt;&lt; std::endl;
+        reader.move_to_first_attribute();
+        do
+        {
+          std::cout &lt;&lt; indent(depth) &lt;&lt; &quot;  &quot; &lt;&lt; reader.get_name() &lt;&lt; &quot;: &quot; &lt;&lt; reader.get_value() &lt;&lt; std::endl;
+        } while(reader.move_to_next_attribute());
+        reader.move_to_element();
+      }
+      else
+      {
+        std::cout &lt;&lt; indent(depth) &lt;&lt; &quot;no attributes&quot; &lt;&lt; std::endl;
+      }
+
+      if(reader.has_value())
+        std::cout &lt;&lt; indent(depth) &lt;&lt; &quot;value: '&quot; &lt;&lt; reader.get_value() &lt;&lt; &quot;'&quot; &lt;&lt; std::endl;
+      else
+        std::cout &lt;&lt; indent(depth) &lt;&lt; &quot;novalue&quot; &lt;&lt; std::endl;
+
+    }
+  #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+  }
+  catch(const std::exception&amp; e)
+  {
+    std::cout &lt;&lt; &quot;Exception caught: &quot; &lt;&lt; e.what() &lt;&lt; std::endl;
+  }
+  #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+}
+
+</programlisting>
+</para>
+<!-- end inserted example code -->
+</sect2>
+
+
+    </sect1>
+
+  
+  </chapter>
+
+
+</book>

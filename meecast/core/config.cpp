@@ -394,11 +394,71 @@ Config::LoadConfig(){
        xmlNodePtr root = xmlDocGetRootElement(_doc);
        if (!root)
            return;
+       std::string   source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, cookie;
        for(xmlNodePtr p = root->children; p; p = p->next) {
             if (p->type != XML_ELEMENT_NODE)
                 continue;
-            if (xmlStrcmp(p->name, (const xmlChar*)"base"))
-                std::cerr << "Base !!!!" << std::endl;
+            if (!xmlStrcmp(p->name, (const xmlChar*)"iconset")){
+                _iconset->assign(std::string((char *)xmlNodeGetContent(p)));
+                std::cerr << "Iconset !!!!" << xmlNodeGetContent(p)<< std::endl;
+            }
+            if (!xmlStrcmp(p->name, (const xmlChar*)"current_station_id")){
+                _iconset->assign(std::string((char *)xmlNodeGetContent(p)));
+                _current_station_id = atoi((char *)xmlNodeGetContent(p)); 
+                std::cerr << "Iconset !!!!" << _current_station_id << std::endl;
+            }
+            if (!xmlStrcmp(p->name, (const xmlChar*)"station")){
+                bool gps = false;
+                for(xmlNodePtr p1 = p->children; p1; p1 = p1->next) {
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"source_name"))
+                        source_name = std::string((char *)xmlNodeGetContent(p1)); 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"station_name"))
+                        station_name = std::string((char *)xmlNodeGetContent(p1)); 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"station_id"))
+                        station_id = std::string((char *)xmlNodeGetContent(p1)); 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"country"))
+                        country = std::string((char *)xmlNodeGetContent(p1)); 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"region"))
+                        region = std::string((char *)xmlNodeGetContent(p1)); 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"file_name"))
+                        fileName = std::string((char *)xmlNodeGetContent(p1)); 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"forecast_url"))
+                        forecastURL = std::string((char *)xmlNodeGetContent(p1)); 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"cookie"))
+                        cookie = std::string((char *)xmlNodeGetContent(p1)); 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"detail_url"))
+                        detailURL = std::string((char *)xmlNodeGetContent(p1)); 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"view_url"))
+                        viewURL = std::string((char *)xmlNodeGetContent(p1)); 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"converter"))
+                        converter = std::string((char *)xmlNodeGetContent(p1)); 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"gps")){
+                        if(!xmlStrcmp(xmlNodeGetContent(p1),(const xmlChar*)"true"))
+                            gps = true;
+                        else
+                            gps = false;
+                     }
+
+                  //  if  (source_name=="yr.no")
+                  //      forecastURL.replace("#","/");
+                  //  if  (source_name=="yr.no")
+                  //      viewURL.replace("#","/");
+
+                }
+                Station *st = new Station(source_name,
+                                      station_id,
+                                      station_name,
+                                      country,
+                                      region,
+                                      forecastURL,
+				                      detailURL,
+                                      viewURL,
+                                      cookie,
+                                      gps);
+                     st->fileName(fileName);
+                     st->converter(converter);
+                     _stations->push_back(st);
+            }
        }
     #endif //LIBXML
     #endif

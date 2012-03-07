@@ -23,9 +23,9 @@ endif
 configure: configure-stamp
 configure-stamp:
 #	dh_testdir
-#	cd omweather-foreca-com-stations-db; ./autogen.sh
+	cd omweather-foreca-com-stations-db; ./autogen.sh
 	# Add here commands to configure the package.
-#	cd omweather-foreca-com-stations-db; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/com.meecast.omweather 
+	cd omweather-foreca-com-stations-db; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/com.meecast.omweather 
 	cd meecast/core; ./autogen.sh
 	cd meecast/core; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/com.meecast.omweather 
 	cd meecast/tizen; ./autogen.sh
@@ -40,7 +40,7 @@ build-stamp: configure-stamp
 
 	# Add here commands to compile the package.
 	
-#	cd omweather-foreca-com-stations-db; $(MAKE)
+	cd omweather-foreca-com-stations-db; $(MAKE)
 	cd meecast/core; $(MAKE)
 	cd meecast/tizen; $(MAKE)
 
@@ -64,6 +64,8 @@ install: build
 
 	# Add here commands to install the package
 	cd  omweather-foreca-com-stations-db; $(MAKE) install DESTDIR=$(CURDIR)/debian/meecast
+	cd meecast/core; $(MAKE) install DESTDIR=$(CURDIR)/debian/meecast
+	cd meecast/tizen; $(MAKE) install DESTDIR=$(CURDIR)/debian/meecast
 
 
 # Build architecture-independent files here.

@@ -33,6 +33,8 @@ Core::StationsList stationslist;
 Core::DataParser* dp = NULL;
 FILE *file;
 
+#define DATA_XSD_PATH "/opt/com.meecast.omweather/share/xsd/data.xsd"
+
 Core::Config *
 create_and_fill_config(){
     Core::Config *config;
@@ -60,10 +62,43 @@ create_and_fill_config(){
     return config;
 }
 
+Core::DataParser*
+current_data(std::string& str){
+  Core::DataParser* dp;
+  try{
+        dp = new Core::DataParser(str, DATA_XSD_PATH);
+    }
+    catch(const std::string &str){
+        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+        return NULL;
+    }
+    catch(const char *str){
+        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+        return NULL;
+    }
+    return dp;
+}
+
 int
 main(int argc, char *argv[]){
     int result = 0; 
+    int i, success;
+    Core::DataParser* dp = NULL;
     config = create_and_fill_config();
     fprintf(stderr, "\nresult = %d\n", result);
+    /* Check time for previous updating */
+    dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
+
+    /* 25*60 = 30 minutes - minimal time between updates */ 
+    if (dp && (abs(time(NULL) - dp->LastUpdate()) > 25*60)){
+        /*update weather forecast*/
+        for (i=0; i < config->stationsList().size();i++){
+            if (config->stationsList().at(i)->updateData(true)){
+                success ++;
+            }
+        }
+    }
+
+    config->saveConfig();
     return result;
 }

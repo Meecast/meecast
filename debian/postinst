@@ -5,10 +5,6 @@
 #    sleep 2
 #fi
 
-if test ! -f  /usr/share/applications/hildon-home/omweather-home.desktop ; then
-   mv /usr/share/meegotouch/applicationextensions/events-weather.desktop /usr/share/meegotouch/applicationextensions/events-weather.desktop.old  
-   mv /usr/share/meegotouch/applicationextensions/events-weather.desktop.old /usr/share/meegotouch/applicationextensions/events-weather.desktop  
-fi
 
 
 

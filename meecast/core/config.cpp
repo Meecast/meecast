@@ -405,7 +405,7 @@ Config::LoadConfig(){
             if (!xmlStrcmp(p->name, (const xmlChar*)"current_station_id")){
                 _iconset->assign(std::string((char *)xmlNodeGetContent(p)));
                 _current_station_id = atoi((char *)xmlNodeGetContent(p)); 
-                std::cerr << "Iconset !!!!" << _current_station_id << std::endl;
+                std::cerr << "Station id " << _current_station_id << std::endl;
             }
             if (!xmlStrcmp(p->name, (const xmlChar*)"station")){
                 bool gps = false;

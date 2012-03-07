@@ -52,6 +52,13 @@ namespace Core {
         _last_update = 0;
         struct stat     statv;
         _list = new DataList;
+        Data* forecast_data;
+        if(stat(filename.c_str(), &statv))
+            _last_update = 0;
+        else{
+            _last_update = statv.st_mtime;
+        }
+
 #ifdef LIBXML
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
@@ -69,14 +76,8 @@ namespace Core {
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
 #else
 #ifdef QT
-        if(stat(filename.c_str(), &statv))
-            _last_update = 0;
-        else{
-            _last_update = statv.st_mtime;
-        }
-
+        
         QDomElement root = _doc.documentElement();
-        Data* forecast_data;
 
         QDomElement e = root.firstChildElement("timezone");
         if (!e.isNull()){
@@ -135,6 +136,51 @@ namespace Core {
             }
             _list->push_back(forecast_data);
         }
+#else
+      if (!_doc)
+           return;
+       xmlNodePtr root = xmlDocGetRootElement(_doc);
+       if (!root)
+           return;
+       for(xmlNodePtr p = root->children; p; p = p->next) {
+            if (p->type != XML_ELEMENT_NODE)
+                continue;
+            if (!xmlStrcmp(p->name, (const xmlChar*)"timezone")){
+                _timezone = atoi((char *)xmlNodeGetContent(p));
+                std::cerr<<"TIMEZONE in entering   "<<_timezone<<std::endl;
+            }
+            if (!xmlStrcmp(p->name, (const xmlChar*)"period")){
+                forecast_data = new Data();
+                if (xmlGetProp(p, (const xmlChar*)"start"))
+                    forecast_data->StartTime(atoi((const char *)xmlGetProp(p, (const xmlChar*)"start")));
+                if (xmlGetProp(p, (const xmlChar*)"end"))
+                    forecast_data->EndTime(atoi((const char *)xmlGetProp(p, (const xmlChar*)"end")));
+                if (xmlGetProp(p, (const xmlChar*)"hour"))
+                    forecast_data->Hour(1);
+                if (xmlGetProp(p, (const xmlChar*)"current"))
+                    forecast_data->Current(1);
+                for(xmlNodePtr p1 = p->children; p1; p1 = p1->next) {
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"temperature"))
+                        forecast_data->temperature().value((float)atof((char *)xmlNodeGetContent(p1)));
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"temperature_hi"))
+                        forecast_data->temperature_hi().value((float)atof((char *)xmlNodeGetContent(p1)));
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"temperature_low"))
+                        forecast_data->temperature_low().value((float)atof((char *)xmlNodeGetContent(p1)));
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"icon"))
+                        forecast_data->temperature_low().value(atoi((char *)xmlNodeGetContent(p1)));
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"description"))
+                        forecast_data->Text((char *)xmlNodeGetContent(p1));
+                }
+
+                  //  if  (source_name=="yr.no")
+                  //      forecastURL.replace("#","/");
+                  //  if  (source_name=="yr.no")
+                  //      viewURL.replace("#","/");
+                _list->push_back(forecast_data);
+
+            }
+       }
+
 #endif
 #endif
     }

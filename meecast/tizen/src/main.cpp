@@ -84,6 +84,7 @@ main(int argc, char *argv[]){
     int result = 0; 
     int i, success;
     Core::DataParser* dp = NULL;
+    Core::Data *temp_data = NULL;
     config = create_and_fill_config();
     fprintf(stderr, "\nresult = %d\n", result);
     /* Check time for previous updating */
@@ -99,6 +100,9 @@ main(int argc, char *argv[]){
         }
     }
 
+    if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL)))) {
+        std::cerr<<"Temperature "<<  temp_data->temperature_hi().value(true)<<std::endl;
+    }
     config->saveConfig();
     return result;
 }

@@ -59,7 +59,7 @@ windspeed.h
                              
 libmeecast_core_la_CPPFLAGS = $(GTK_CFLAGS) $(LIBXML2_CFLAGS) \
 					    -Wall -pedantic
-libmeecast_core_la_LDFLAGS = -module -avoid-version 
+libmeecast_core_la_LDFLAGS = -module -avoid-version -static 
 libmeecast_core_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) 
 
 clean-local:

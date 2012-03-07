@@ -163,8 +163,8 @@ namespace Core {
         delete _url_template;
         delete _url_detail_template;
         delete _url_for_view;
-        if(_libraryHandler)
-            dlclose(_libraryHandler);
+//        if(_libraryHandler)
+//            dlclose(_libraryHandler);
     }
 ////////////////////////////////////////////////////////////////////////////////
     Source& Source::operator=(const Source& source){

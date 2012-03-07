@@ -22,11 +22,12 @@
 
 bin_PROGRAMS = meecasttizen 
 meecasttizen_SOURCES  =  main.cpp main.h
-meecasttizen_CXXFLAGS = $(GTK_CFLAGS) $(LIBXML2_CFLAGS) \
-                      -I../../core \
-					    -Wall -pedantic
-meecasttizen_LDFLAGS = -module -avoid-version 
-meecasttizen_LDADD = $(GTK_LIBS) $(LIBXML2_LIBS) 
+meecasttizen_CXXFLAGS = $(GTK_CFLAGS) $(LIBXML2_CFLAGS) $(SQLITE_CFLGAS) $(LIBCURL_CFLAGS) \
+                      -I../../core 
+meecasttizen_LDFLAGS = -avoid-version  
+meecasttizen_LDADD = -L../../core/.libs/ ../../core/.libs/libmeecast-core.a \
+                     $(GTK_LIBS) $(LIBXML2_LIBS) $(SQLITE_LIBS) $(LIBCURL_LIBS) 
+
 
 clean-local:
 	$(RM) *.core core core.* stamp-*.h *~

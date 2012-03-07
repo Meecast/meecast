@@ -25,9 +25,45 @@
 #include <config.h>
 #endif
 #include "main.h"
+/*******************************************************************************/
+
+/* Global section */
+Core::Config *config;
+Core::StationsList stationslist;
+Core::DataParser* dp = NULL;
+FILE *file;
+
+Core::Config *
+create_and_fill_config(){
+    Core::Config *config;
+    std::cerr<<"Create Config class: " << Core::AbstractConfig::prefix+
+                               Core::AbstractConfig::schemaPath+
+                               "config.xsd"<< std::endl;
+    try{
+        config = new Core::Config(Core::AbstractConfig::getConfigPath()+
+                               "config.xml",
+                               Core::AbstractConfig::prefix+
+                               Core::AbstractConfig::schemaPath+
+                               "config.xsd");
+        std::cerr << "count station:" << config->stationsList().size() << std::endl;
+    }
+    catch(const std::string &str){
+        std::cerr<<"Error in Config class: "<< str <<std::endl;
+        config = new Core::Config();
+    }
+    catch(const char *str){
+        std::cerr<<"Error in Config class: "<< str <<std::endl;
+        config = new Core::Config();
+    }
+    std::cerr<<"End of creating Config class: " <<std::endl;
+
+    return config;
+}
+
 int
 main(int argc, char *argv[]){
     int result = 0; 
+    config = create_and_fill_config();
     fprintf(stderr, "\nresult = %d\n", result);
     return result;
 }

@@ -27,9 +27,9 @@ configure-stamp:
 	# Add here commands to configure the package.
 #	cd omweather-foreca-com-stations-db; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/com.meecast.omweather 
 	cd meecast/core; ./autogen.sh
-	cd meecast/core; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/com.meecast.omweather --disable-static
+	cd meecast/core; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/com.meecast.omweather 
 	cd meecast/tizen; ./autogen.sh
-	cd meecast/tizen; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/com.meecast.omweather --disable-static
+	cd meecast/tizen; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/com.meecast.omweather 
 	touch configure-stamp
 	cd .. 
 

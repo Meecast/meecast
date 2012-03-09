@@ -21,7 +21,7 @@
 # 02110-1301 USA 
 
 omweather_weather_com_sourcedir = $(datadir)/omweather/sources
-omweather_weather_com_source_DATA = foreca.com.xml
+omweather_weather_com_source_DATA = tizen/foreca.com.xml
 
 omweather_weather_com_source_dbdir = $(datadir)/omweather/db
 omweather_weather_com_source_db_DATA = foreca.com.db

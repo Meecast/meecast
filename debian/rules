@@ -7,7 +7,8 @@
 #export DH_VERBOSE=1
 
 
-CFLAGS = -Wall -pedantic -DRELEASE
+CFLAGS = -Wall -pedantic -DTIZEN
+CPPFLAGS = -DTIZEN 
 
 PKGDIR = debian/PKG
 
@@ -25,11 +26,11 @@ configure-stamp:
 #	dh_testdir
 	cd omweather-foreca-com-stations-db; ./autogen.sh
 	# Add here commands to configure the package.
-	cd omweather-foreca-com-stations-db; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/com.meecast.omweather 
+	cd omweather-foreca-com-stations-db; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/apps/com.meecast.omweather 
 	cd meecast/core; ./autogen.sh
-	cd meecast/core; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/com.meecast.omweather 
+	cd meecast/core; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/apps/com.meecast.omweather 
 	cd meecast/tizen; ./autogen.sh
-	cd meecast/tizen; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/com.meecast.omweather 
+	cd meecast/tizen; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/apps/com.meecast.omweather 
 	touch configure-stamp
 	cd .. 
 

@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -51,7 +51,11 @@ namespace Core {
     std::string AbstractConfig::layoutqml = "/usr/share/omweather/qml/weatherlayoutitem.qml";
     //std::string AbstractConfig::configPath = "~/.config/omweather/";
     */
+#ifdef TIZEN
+    std::string AbstractConfig::prefix = "/opt/apps/com.meecast.omweather";
+#else
     std::string AbstractConfig::prefix = "/opt/com.meecast.omweather";
+#endif
     std::string AbstractConfig::sharePath = "/share/";
     std::string AbstractConfig::schemaPath = "/share/xsd/";
     std::string AbstractConfig::iconsPath = "/share/icons/";

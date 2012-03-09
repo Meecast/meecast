@@ -24,3 +24,12 @@
 SUBDIRS = src 
 
 EXTRA_DIST =	autogen.sh 
+icons_crystallargedir = $(datadir)/icons/Glance
+icons_crystallarge_DATA = ../core/data/icons/Glance/*.png
+imagesdir = $(datadir)/images
+images_DATA = ../core/data/images/*.png
+
+
+
+EXTRA_DIST = $(icons_crystallarge_DATA) $(image) 
+

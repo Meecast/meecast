@@ -21,12 +21,12 @@
 # 02110-1301 USA
 
 bin_PROGRAMS = meecasttizen 
-meecasttizen_SOURCES  =  main.cpp main.h
+meecasttizen_SOURCES  =  main.cpp main.h main_window.cpp main_window.h
 meecasttizen_CXXFLAGS = $(GTK_CFLAGS) $(LIBXML2_CFLAGS) $(SQLITE_CFLGAS) $(LIBCURL_CFLAGS) \
-                      -I../../core 
+                       $(ELEMENTARY_CFLAGS) -I../../core 
 meecasttizen_LDFLAGS = -avoid-version  
 meecasttizen_LDADD = -L../../core/.libs/ ../../core/.libs/libmeecast-core.a \
-                     $(GTK_LIBS) $(LIBXML2_LIBS) $(SQLITE_LIBS) $(LIBCURL_LIBS) 
+                     $(ELEMENTARY_LIBS) $(GTK_LIBS) $(LIBXML2_LIBS) $(SQLITE_LIBS) $(LIBCURL_LIBS) 
 
 
 clean-local:

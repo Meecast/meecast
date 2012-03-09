@@ -403,7 +403,6 @@ Config::LoadConfig(){
                 std::cerr << "Iconset !!!!" << xmlNodeGetContent(p)<< std::endl;
             }
             if (!xmlStrcmp(p->name, (const xmlChar*)"current_station_id")){
-                _iconset->assign(std::string((char *)xmlNodeGetContent(p)));
                 _current_station_id = atoi((char *)xmlNodeGetContent(p)); 
                 std::cerr << "Station id " << _current_station_id << std::endl;
             }

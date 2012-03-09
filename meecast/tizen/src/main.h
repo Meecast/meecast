@@ -1,6 +1,6 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of omweather-foreca-com-source
+ * This file is part of Meecast for Tizen 
  *
  * Copyright (C) 2012 Vlad Vasilyeu
  * 	for the code
@@ -29,4 +29,6 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "core.h"
+#include <Elementary.h>
+void create_main_window(Core::Config *config, Core::DataParser* dp);
 /*******************************************************************************/

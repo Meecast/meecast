@@ -1,6 +1,6 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of omweather-foreca-com-stations-db
+ * This file is part of Meecast for Tizen
  *
  * Copyright (C) 2012 Vlad Vasilyeu
  * 	for the code
@@ -79,6 +79,40 @@ current_data(std::string& str){
     return dp;
 }
 
+EAPI_MAIN int
+elm_main(int argc, char **argv)
+{
+    Core::DataParser* dp = NULL;
+    Core::Data *temp_data = NULL;
+    int i = 0, success = 0;
+    config = create_and_fill_config();
+    /* Check time for previous updating */
+    dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
+
+    /* 25*60 = 30 minutes - minimal time between updates */ 
+    if (dp && (abs(time(NULL) - dp->LastUpdate()) > 25*60)){
+        /*update weather forecast*/
+        for (i=0; i < config->stationsList().size();i++){
+            if (config->stationsList().at(i)->updateData(true)){
+                success ++;
+            }
+        }
+    }
+
+    if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL)))) {
+        std::cerr<<"Temperature "<<  temp_data->temperature_hi().value(true)<<std::endl;
+    }
+  
+    create_main_window(config, dp);
+
+    // run the mainloop and process events and callbacks
+    elm_run();
+    elm_shutdown();
+    return 0;
+}
+ELM_MAIN()
+
+#if 0
 int
 main(int argc, char *argv[]){
     int result = 0; 
@@ -106,3 +140,4 @@ main(int argc, char *argv[]){
     config->saveConfig();
     return result;
 }
+#endif

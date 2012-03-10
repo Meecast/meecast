@@ -30,5 +30,8 @@
 #include <unistd.h>
 #include "core.h"
 #include <Elementary.h>
-void create_main_window(Core::Config *config, Core::DataParser* dp);
+#include <Ecore.h>
+#include <Ecore_Evas.h>
+#include <Edje.h>
+void create_main_window(Ecore_Evas *ee, Core::Config *config, Core::DataParser* dp);
 /*******************************************************************************/

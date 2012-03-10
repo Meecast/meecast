@@ -23,11 +23,23 @@
 bin_PROGRAMS = meecasttizen 
 meecasttizen_SOURCES  =  main.cpp main.h main_window.cpp main_window.h
 meecasttizen_CXXFLAGS = $(GTK_CFLAGS) $(LIBXML2_CFLAGS) $(SQLITE_CFLGAS) $(LIBCURL_CFLAGS) \
-                       $(ELEMENTARY_CFLAGS) -I../../core 
+                       $(ELEMENTARY_CFLAGS) $(EDJE_CFLAGS) -I../../core 
 meecasttizen_LDFLAGS = -avoid-version  
 meecasttizen_LDADD = -L../../core/.libs/ ../../core/.libs/libmeecast-core.a \
-                     $(ELEMENTARY_LIBS) $(GTK_LIBS) $(LIBXML2_LIBS) $(SQLITE_LIBS) $(LIBCURL_LIBS) 
+                     $(ELEMENTARY_LIBS) $(GTK_LIBS) $(LIBXML2_LIBS) $(SQLITE_LIBS) $(LIBCURL_LIBS) \
+                     $(EDJE_LIBS)
 
 
-clean-local:
-	$(RM) *.core core core.* stamp-*.h *~
+EDJE_CC = edje_cc
+EDJE_FLAGS = -v -id ../../core/data -fd $(top_srcdir)/edc
+files_DATA = mainwindow.edj
+filesdir = $(datadir)/edje
+EXTRA_DIST = edc/mainwindow.edc
+
+mainwindow.edj: Makefile edc/mainwindow.edc
+	$(EDJE_CC) $(EDJE_FLAGS) \
+	edc/mainwindow.edc \
+	mainwindow.edj
+
+
+clean-local: $(RM)  *.edj *.core core core.* stamp-*.h *~

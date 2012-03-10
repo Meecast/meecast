@@ -1,0 +1,112 @@
+collections {
+
+    images {
+    	image: "images/mask_background_main.png" COMP;
+    }
+    group {
+        name: "mainwindow";
+	parts{
+	    part {
+                name: "station_rect";
+                type: RECT; 
+                mouse_events: 0; 
+                description {
+                   state: "default" 0.0; 
+                   color: 0 0 0 255; // white
+                   // define part coordinates:
+                   rel1 { // top-left point at (0, 0) [WIDTH * 0 + 0, HEIGHT * 0 + 0]
+                      relative: 0.0 0.0;
+                   }
+                   rel2 { // bottom-right point at (WIDTH * 1.0 - 1, HEIGHT * 1.0 - 1)
+                      relative: 1.0 0.10;
+                   }
+                }
+            }
+	    part {								
+	        name: "mask_background_main";				
+	        type: IMAGE;						
+	        mouse_events: 0;					
+								
+	        description {						
+		    state: "default" 0.0;				
+		    image {						
+	                normal: "images/mask_background_main.png";	
+		    }						
+		    fill {						
+		        smooth: 0;				
+  		    //   size {					
+		    //	    relative: 0.5 0.5;			
+			   // offset: 24 24;			
+		    //   }					
+		    }	
+		    rel1 { // top-left point at (0, 0) [WIDTH * 0 + 0, HEIGHT * 0 + 0]
+                       relative: 0.0 0.0;
+		       offset: 0 72;
+                    }
+                    rel2 { // bottom-right point at (WIDTH * 1.0 - 1, HEIGHT * 1.0 - 1)
+                       relative: 1.0 0.4;
+		      // offset: 0 340;
+                    }
+					
+	        }							
+            }
+	    part {
+	        name: "station_name";
+		type: TEXT;
+		description{
+		    text {
+		       font: "Sans";
+		       size: 30;
+		       text: "";
+		    }
+	            rel1 { // top-left point at (0, 0) [WIDTH * 0 + 0, HEIGHT * 0 + 0]
+                       relative: 0.0 0.0;
+		       offset: 0 5;
+                    }
+                    rel2 { // bottom-right point at (WIDTH * 1.0 - 1, HEIGHT * 1.0 - 1)
+                       relative: 1.0 0.10;
+		       offset: 0 5;
+                    }
+		}
+	    }
+	    part {
+	        name: "period_name";
+		type: TEXT;
+		description{
+		    text {
+		       font: "Sans";
+		       size: 30;
+		       text: "";
+		    }
+	            rel1 { // top-left point at (0, 0) [WIDTH * 0 + 0, HEIGHT * 0 + 0]
+                       //relative: 0.0 0.8;
+		       offset: 0 72;
+                    }
+                    rel2 { // bottom-right point at (WIDTH * 1.0 - 1, HEIGHT * 1.0 - 1)
+                       relative: 0.4 0.19;
+		       //offset: 0 0;
+                    }
+		}
+	    }
+	    part {
+	        name: "main_temperature";
+		type: TEXT;
+		description{
+		    text {
+		       font: "Sans";
+		       size: 30;
+		       text: "hello world";
+		    }
+	            rel1 { // top-left point at (0, 0) [WIDTH * 0 + 0, HEIGHT * 0 + 0]
+                       relative: 0.6 0.0;
+		       offset: 0 72;
+                    }
+                    rel2 { // bottom-right point at (WIDTH * 1.0 - 1, HEIGHT * 1.0 - 1)
+                       relative: 1.0 0.19;
+		       //offset: 0 0;
+                    }
+		}
+	    }
+	}
+    }
+}

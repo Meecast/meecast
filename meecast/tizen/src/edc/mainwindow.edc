@@ -1,7 +1,10 @@
+externals { external: "elm"; }
+
 collections {
 
     images {
     	image: "images/mask_background_main.png" COMP;
+        #include "crystal_icons.edc"
     }
     group {
         name: "mainwindow";
@@ -50,6 +53,19 @@ collections {
 					
 	        }							
             }
+	    part {								
+            	name: "main_icon";
+                type: EXTERNAL;
+                source: "elm/icon";             //here we use a elementary button
+                description {
+                    state : "default" 0.0;
+                    rel1.relative: 0.4 0.07;
+                    rel2.relative: 0.6 0.20;
+                    params {                //list of parameters specific to the external object
+                      string: "icon" "/opt/apps/com.meecast.omweather/share/icons/Glance/0.png";     //the icon
+                    }                        
+                }
+            }
 	    part {
 	        name: "station_name";
 		type: TEXT;
@@ -59,11 +75,11 @@ collections {
 		       size: 30;
 		       text: "";
 		    }
-	            rel1 { // top-left point at (0, 0) [WIDTH * 0 + 0, HEIGHT * 0 + 0]
-                       relative: 0.0 0.0;
+	            rel1 { 
+		       relative: 0.0 0.0;
 		       offset: 0 5;
                     }
-                    rel2 { // bottom-right point at (WIDTH * 1.0 - 1, HEIGHT * 1.0 - 1)
+                    rel2 {
                        relative: 1.0 0.10;
 		       offset: 0 5;
                     }
@@ -78,13 +94,11 @@ collections {
 		       size: 30;
 		       text: "";
 		    }
-	            rel1 { // top-left point at (0, 0) [WIDTH * 0 + 0, HEIGHT * 0 + 0]
-                       //relative: 0.0 0.8;
+	            rel1 {
 		       offset: 0 72;
                     }
-                    rel2 { // bottom-right point at (WIDTH * 1.0 - 1, HEIGHT * 1.0 - 1)
+                    rel2 { 
                        relative: 0.4 0.19;
-		       //offset: 0 0;
                     }
 		}
 	    }
@@ -97,16 +111,36 @@ collections {
 		       size: 30;
 		       text: "hello world";
 		    }
-	            rel1 { // top-left point at (0, 0) [WIDTH * 0 + 0, HEIGHT * 0 + 0]
-                       relative: 0.6 0.0;
+	            rel1 {
+		       relative: 0.6 0.0;
 		       offset: 0 72;
                     }
-                    rel2 { // bottom-right point at (WIDTH * 1.0 - 1, HEIGHT * 1.0 - 1)
-                       relative: 1.0 0.19;
-		       //offset: 0 0;
+                    rel2 {
+		       relative: 1.0 0.19;
                     }
 		}
 	    }
+	    part {
+	        name: "main_description";
+		type: TEXT;
+		description{
+		    text {
+		       font: "Sans";
+		       size: 30;
+		       text: "hello world";
+		    }
+	            rel1 {
+		       relative: 0.0 0.0;
+		       offset: 0 156;
+                    }
+                    rel2 {
+		       relative: 1.0 0.22;
+                    }
+		}
+	    }
+	  
+
+	  
 	}
     }
 }

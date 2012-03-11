@@ -170,6 +170,19 @@ namespace Core {
                         forecast_data->Icon(atoi((char *)xmlNodeGetContent(p1)));
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"description"))
                         forecast_data->Text((char *)xmlNodeGetContent(p1));
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"humidity"))
+                        forecast_data->Humidity(atoi((char *)xmlNodeGetContent(p1)));
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"pressure"))
+                        forecast_data->pressure().value((float)atof((char *)xmlNodeGetContent(p1)));
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"wind_speed")){
+                        if (!xmlStrcmp(xmlNodeGetContent(p1), (const xmlChar*)"clam"))
+                            forecast_data->WindSpeed().value((float)0);
+                        else
+                            forecast_data->WindSpeed().value((float)atof((char *)xmlNodeGetContent(p1)));
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"wind_direction"))
+                        forecast_data->WindDirection((char *)xmlNodeGetContent(p1));
+ 
                 }
 
                   //  if  (source_name=="yr.no")

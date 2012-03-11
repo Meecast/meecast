@@ -4,6 +4,11 @@ collections {
 
     images {
     	image: "images/mask_background_main.png" COMP;
+    	image: "images/humidity.png" COMP;
+    	image: "images/pressure.png" COMP;
+	image: "images/wind_direction_background.png" COMP;
+	image: "images/wind_direction_arrow.png" COMP;
+	image: "images/wind_speed.png" COMP;
         #include "crystal_icons.edc"
     }
     group {
@@ -37,22 +42,106 @@ collections {
 		    }						
 		    fill {						
 		        smooth: 0;				
-  		    //   size {					
-		    //	    relative: 0.5 0.5;			
-			   // offset: 24 24;			
-		    //   }					
 		    }	
-		    rel1 { // top-left point at (0, 0) [WIDTH * 0 + 0, HEIGHT * 0 + 0]
+		    rel1 { 
                        relative: 0.0 0.0;
 		       offset: 0 72;
                     }
-                    rel2 { // bottom-right point at (WIDTH * 1.0 - 1, HEIGHT * 1.0 - 1)
+                    rel2 {
                        relative: 1.0 0.4;
 		      // offset: 0 340;
                     }
 					
 	        }							
             }
+	    part {								
+	        name: "icon_humidity";				
+	        type: IMAGE;						
+	        mouse_events: 0;					
+								
+	        description {						
+		    state: "default" 0.0;				
+		    image {						
+	                normal: "images/humidity.png";	
+		    }						
+		    fill {						
+		        smooth: 0;				
+		    }	
+		    rel1 { 
+                       relative: 0.03 0.25;
+                    }
+                    rel2 {
+                       relative: 0.09 0.29;
+                    }
+					
+	        }
+	    }
+	    part {								
+	        name: "icon_pressure";				
+	        type: IMAGE;						
+	        mouse_events: 0;					
+								
+	        description {						
+		    state: "default" 0.0;				
+		    image {						
+	                normal: "images/pressure.png";	
+		    }						
+		    fill {						
+		        smooth: 0;				
+		    }	
+		    rel1 { 
+                       relative: 0.03 0.32;
+                    }
+                    rel2 {
+                       relative: 0.09 0.36;
+                    }
+					
+	        }
+	    }
+	    part {								
+	        name: "icon_wind_direction_background";				
+	        type: IMAGE;						
+	        mouse_events: 0;					
+								
+	        description {						
+		    state: "default" 0.0;				
+		    image {						
+	                normal: "images/wind_direction_background.png";	
+		    }						
+		    fill {						
+		        smooth: 0;				
+		    }	
+		    rel1 { 
+                       relative: 0.53 0.25;
+                    }
+                    rel2 {
+                       relative: 0.59 0.29;
+                    }
+					
+	        }
+	    }
+	    part {								
+	        name: "icon_wind_direction_arrow";				
+	        type: IMAGE;						
+	        mouse_events: 0;					
+								
+	        description {						
+		    state: "default" 0.0;				
+		    image {						
+	                normal: "images/wind_direction_arrow.png";	
+		    }						
+		    fill {						
+		        smooth: 0;				
+		    }	
+		    rel1 { 
+                       relative: 0.53 0.25;
+                    }
+                    rel2 {
+                       relative: 0.59 0.29;
+                    }
+					
+	        }
+	    }
 	    part {								
             	name: "main_icon";
                 type: EXTERNAL;
@@ -66,6 +155,28 @@ collections {
                     }                        
                 }
             }
+	    part {								
+	        name: "icon_wind_speed";				
+	        type: IMAGE;						
+	        mouse_events: 0;					
+								
+	        description {						
+		    state: "default" 0.0;				
+		    image {						
+	                normal: "images/wind_speed.png";	
+		    }						
+		    fill {						
+		        smooth: 0;				
+		    }	
+		    rel1 { 
+                       relative: 0.53 0.32;
+                    }
+                    rel2 {
+                       relative: 0.59 0.36;
+                    }
+					
+	        }
+	    }
 	    part {
 	        name: "station_name";
 		type: TEXT;
@@ -126,7 +237,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 30;
+		       size: 25;
 		       text: "hello world";
 		    }
 	            rel1 {
@@ -138,9 +249,116 @@ collections {
                     }
 		}
 	    }
-	  
+	    part {
+	        name: "humidity_label";
+		type: TEXT;
+		description{
+		    text {
+		       font: "Sans";
+		       size: 24;
+		       text: "";
+		    }
+		    rel1 { 
+                       relative: 0.11 0.25;
+                    }
+                    rel2 {
+                       relative: 0.24 0.29;
+                    }
+	       	}
+	    }
 
+	    part {
+	        name: "pressure_label";
+		type: TEXT;
+		description{
+		    text {
+		       font: "Sans";
+		       size: 24;
+		       text: "";
+		    }
+		    rel1 { 
+                       relative: 0.11 0.32;
+                    }
+                    rel2 {
+                       relative: 0.24 0.36;
+                    }
+	       	}
+	    }  
+	    part {
+	        name: "wind_direction_label";
+		type: TEXT;
+		description{
+		    text {
+		       font: "Sans";
+		       size: 24;
+		       text: "";
+		    }
+		    rel1 { 
+                       relative: 0.54 0.25;
+                    }
+                    rel2 {
+                       relative: 0.74 0.29;
+                    }
+	       	}
+	    }
+
+	    part {
+	        name: "wind_speed_label";
+		type: TEXT;
+		description{
+		    text {
+		       font: "Sans";
+		       size: 24;
+		       text: "100%";
+		    }
+		    rel1 { 
+                       relative: 0.54 0.32;
+                    }
+                    rel2 {
+                       relative: 0.74 0.36;
+                    }
+	       	}
+	    }
 	  
+	}
+    }
+    group {
+        name: "dayblock";
+	parts{
+	    part {
+                name: "bg_rect";
+                type: RECT; 
+                mouse_events: 0; 
+                description {
+                   state: "default" 0.0; 
+                   color: 0 0 0 255; // white
+                   // define part coordinates:
+                   rel1 { // top-left point at (0, 0) [WIDTH * 0 + 0, HEIGHT * 0 + 0]
+                      relative: 0.0 0.0;
+                   }
+                   rel2 { // bottom-right point at (WIDTH * 1.0 - 1, HEIGHT * 1.0 - 1)
+                      relative: 1.0 1.0;
+                   }
+                }
+            }
+
+	    part {
+	        name: "wind_speed_label";
+		type: TEXT;
+		description{
+		    text {
+		       font: "Sans";
+		       size: 24;
+		       text: "10ddsdsdsd0%";
+		    }
+		    rel1 { 
+                       relative: 0.0 0.0;
+                    }
+                    rel2 {
+                       relative: 0.1 1.0;
+                    }
+	       	}
+	    }
 	}
     }
 }

@@ -119,9 +119,9 @@ main(void)
     if (dp && (abs(time(NULL) - dp->LastUpdate()) > 25*60)){
         /*update weather forecast*/
         for (i=0; i < config->stationsList().size();i++){
-//            if (config->stationsList().at(i)->updateData(true)){
-//                success ++;
-//            }
+            if (config->stationsList().at(i)->updateData(true)){
+                success ++;
+            }
         }
     }
 

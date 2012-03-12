@@ -31,6 +31,8 @@
 
 #include "config.h"
 #include "station.h"
+#include <iostream>
+#include <fstream>
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
 ////////////////////////////////////////////////////////////////////////////////
@@ -240,11 +242,47 @@ Config::saveConfig()
         return;
     }
 
-//    QTextStream ts(&file);
-//    ts << doc.toString();
-    //file.write(doc.toString());
+    QTextStream ts(&file);
+    ts << doc.toString();
+    file.write(doc.toString());
     //std::cerr << doc.toString().toStdString() << std::endl;
     file.close();
+    #else
+    using namespace std;
+    ofstream file_out;
+    file_out.open(_filename->c_str());
+    file_out<<"<?xml version=\"1.0\" encoding=\"utf-8\"?>"<<endl;
+    file_out<<"<config xmlns=\"http://omweather.garage.maemo.org/schemas\">"<<endl;
+    file_out<<" <base>"<< *_pathPrefix<<"</base>"<<endl;
+    file_out<<" <iconset>"<< *_iconset<<"</iconset>"<<endl;
+    file_out<<" <temperature_unit>"<< *_temperature_unit<<"</temperature_unit>"<<endl;
+    file_out<<" <wind_speed_unit>"<< *_wind_speed_unit<<"</wind_speed_unit>"<<endl;
+    file_out<<" <pressure_unit>"<< *_pressure_unit<<"</pressure_unit>"<<endl;
+    file_out<<" <current_station_id>"<< _current_station_id<<"</current_station_id>"<<endl;
+    file_out<<" <update_period>"<< _update_period<<"</update_period>"<<endl;
+    std::vector<Station*>::iterator i = _stations->begin();
+    while (i != _stations->end()){
+
+        file_out<<"  <station>"<<endl;
+        file_out<<"  <source_name>"<< (*i)->sourceName()<<"</source_name>"<<endl;
+        file_out<<"  <station_name>"<< (*i)->name()<<"</station_name>"<<endl;
+        file_out<<"  <station_id>"<< (*i)->name()<<"</station_id>"<<endl;
+        file_out<<"  <country>"<< (*i)->country()<<"</country>"<<endl;
+        file_out<<"  <region>"<< (*i)->region()<<"</region>"<<endl;
+        file_out<<"  <file_name>"<< (*i)->fileName()<<"</file_name>"<<endl;
+        file_out<<"  <forecast_url>"<< (*i)->forecastURL()<<"</forecast_url>"<<endl;
+        file_out<<"  <detail_url>"<< (*i)->detailURL()<<"</detail_url>"<<endl;
+        file_out<<"  <view_url>"<< (*i)->viewURL()<<"</view_url>"<<endl;
+        file_out<<"  <converter>"<< (*i)->converter()<<"</converter>"<<endl;
+        if ((*i)->gps() == false)
+            file_out<<"  <gps>false</gps>"<<endl;
+        else
+            file_out<<"  <gps>true</gps>"<<endl;
+        file_out<<"  </station>"<<endl;
+        ++i;
+    }
+    file_out<<"</config>"<<endl;
+    file_out.close();
     #endif
 }
 ////////////////////////////////////////////////////////////////////////////////

@@ -28,14 +28,10 @@
 /*******************************************************************************/
 
 /* Global section */
-Core::Config *config;
-Core::StationsList stationslist;
-Core::DataParser* dp = NULL;
 FILE *file;
 #define WIDTH  (480)
 #define HEIGHT (800)
 
-Ecore_Evas *ee;
 #define DATA_XSD_PATH "/opt/com.meecast.omweather/share/xsd/data.xsd"
 
 Core::Config *
@@ -92,49 +88,46 @@ int
 main(void)
 {
     int x, y, w, h;
-    Core::DataParser* dp = NULL;
-    Core::Data *temp_data = NULL;
     int i = 0, success = 0;
+    struct _App app;
 
-   if (!ecore_evas_init())
-     return EXIT_FAILURE;
+    app.dp = NULL;
 
-   if (!edje_init())
-     return EXIT_FAILURE;
+    if (!ecore_evas_init())
+        return EXIT_FAILURE;
 
-   /* this will give you a window with an Evas canvas under the first
-    * engine available */
-   ee = ecore_evas_new(NULL, 0, 0, WIDTH, HEIGHT, NULL);
-   if (!ee)
-     goto error;
+    if (!edje_init())
+        return EXIT_FAILURE;
 
-   ecore_evas_callback_delete_request_set(ee, _on_delete);
-   ecore_evas_title_set(ee, "MeeCast");
+    /* this will give you a window with an Evas canvas under the first
+     * engine available */
+    app.ee = ecore_evas_new(NULL, 0, 0, WIDTH, HEIGHT, NULL);
+    if (!app.ee)
+      goto error;
 
-        config = create_and_fill_config();
+    ecore_evas_callback_delete_request_set(app.ee, _on_delete);
+    ecore_evas_title_set(app.ee, "MeeCast");
+
+    app.config = create_and_fill_config();
     /* Check time for previous updating */
-    dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
+    app.dp = current_data(app.config->stationsList().at(app.config->current_station_id())->fileName());
 
     /* 25*60 = 30 minutes - minimal time between updates */ 
-    if (dp && (abs(time(NULL) - dp->LastUpdate()) > 25*60)){
+    if (app.dp && (abs(time(NULL) - app.dp->LastUpdate()) > 25*60)){
         /*update weather forecast*/
-        for (i=0; i < config->stationsList().size();i++){
-            if (config->stationsList().at(i)->updateData(true)){
+        for (i=0; i < app.config->stationsList().size();i++){
+            if (app.config->stationsList().at(i)->updateData(true)){
                 success ++;
             }
         }
     }
 
-    if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL)))) {
-        std::cerr<<"Temperature "<<  temp_data->temperature_hi().value(true)<<std::endl;
-    }
-
-   create_main_window(ee, config, dp);
-   ecore_evas_show(ee);
+   create_main_window(&app);
+   ecore_evas_show(app.ee);
 
    ecore_main_loop_begin();
 
-   ecore_evas_free(ee);
+   ecore_evas_free(app.ee);
    ecore_evas_shutdown();
    edje_shutdown();
    return 0;

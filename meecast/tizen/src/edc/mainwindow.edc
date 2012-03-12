@@ -9,6 +9,8 @@ collections {
 	image: "images/wind_direction_background.png" COMP;
 	image: "images/wind_direction_arrow.png" COMP;
 	image: "images/wind_speed.png" COMP;
+	image: "images/arrow_left.png" COMP;
+	image: "images/arrow_right.png" COMP;
 	image: "button_icons/refresh_arrows.png" COMP; 
 	image: "button_icons/config.png" COMP; 
         #include "crystal_icons.edc"
@@ -31,6 +33,54 @@ collections {
                    }
                 }
             }
+	    part {								
+	        name: "left_arrow";				
+	        type: IMAGE;						
+	        mouse_events: 1;					
+								
+	        description {						
+		    state: "default" 0.0;				
+		    image {						
+	                normal: "images/arrow_left.png";	
+		    }						
+		    fill {						
+		        smooth: 0;				
+		    }	
+		    rel1 { 
+                       relative: 0.0 0.02;
+                    }
+                    rel2 {
+                       relative: 0.12 0.11;
+		      // offset: 0 340;
+                    }
+					
+	        }							
+            }
+	    part {								
+	        name: "right_arrow";				
+	        type: IMAGE;						
+	        mouse_events: 1;					
+								
+	        description {						
+		    state: "default" 0.0;				
+		    image {						
+	                normal: "images/arrow_right.png";	
+		    }						
+		    fill {						
+		        smooth: 0;				
+		    }	
+		    rel1 { 
+                       relative: 0.88 0.02;
+                    }
+                    rel2 {
+                       relative: 1.0 0.11;
+		      // offset: 0 340;
+                    }
+					
+	        }							
+            }
+
+
 	    part {								
 	        name: "main_background_rect";				
 	        type: RECT;						

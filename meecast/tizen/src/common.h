@@ -24,15 +24,15 @@
 #ifndef _main_h
 #define _main_h 1
 #endif
+#include "core.h"
 /*******************************************************************************/
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-//#include "core.h"
-#include <Elementary.h>
-#include <Ecore.h>
-#include <Ecore_Evas.h>
-#include <Edje.h>
-#include "common.h"
-void create_main_window(void *data);
+struct _App {
+    Ecore_Evas *ee;
+    Evas_Object *top_main_window;
+    Evas_Object *day_list_main_window;
+    Evas_Object *menu;
+    Core::DataParser* dp;
+    Core::Config *config;
+    Core::StationsList *stationslist;
+};
 /*******************************************************************************/

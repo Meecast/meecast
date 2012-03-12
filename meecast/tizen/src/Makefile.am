@@ -41,5 +41,12 @@ mainwindow.edj: Makefile edc/mainwindow.edc
 	edc/mainwindow.edc \
 	mainwindow.edj
 
+desktopdir    = /opt/share/applications
+desktop_files = com.meecast.omweather.desktop
+desktop_DATA  = $(desktop_files)
+
+icondir    = /opt/apps/com.meecast.omweather/res/icons/default/small/
+icon_files = com.meecast.omweather.png
+icon_DATA  = $(icon_files)
 
 clean-local: $(RM)  *.edj *.core core core.* stamp-*.h *~

@@ -231,13 +231,13 @@ create_main_window(void *data)
     /* Change color for background */
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj, "main_background_rect");
     if (temp_data->temperature().value(true) != INT_MAX)
-        set_color_by_temp(temp_edje_obj, (int)temp_data->temperature().value());
+        set_color_by_temp(temp_edje_obj, (int)temp_data->temperature().value(true));
     else{
         if (temp_data->temperature_hi().value(true) != INT_MAX){
-            set_color_by_temp(temp_edje_obj, (int)temp_data->temperature_hi().value());
+            set_color_by_temp(temp_edje_obj, (int)temp_data->temperature_hi().value(true));
         }else
         if (temp_data->temperature_low().value(true) != INT_MAX){
-            set_color_by_temp(temp_edje_obj, (int)temp_data->temperature_low().value());
+            set_color_by_temp(temp_edje_obj, (int)temp_data->temperature_low().value(true));
         }
     }
     temp_edje_obj = NULL;
@@ -299,7 +299,7 @@ create_main_window(void *data)
             snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
             edje_object_part_text_set(edje_obj_block, "max_temp", buffer);
             temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_block, "max_temp");
-            set_color_by_temp(temp_edje_obj, (int)temp_data->temperature_hi().value());
+            set_color_by_temp(temp_edje_obj, (int)temp_data->temperature_hi().value(true));
             temp_edje_obj = NULL;
         }
         evas_object_box_append(list_box, edje_obj_block);

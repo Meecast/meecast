@@ -1,0 +1,15 @@
+Name=meecast
+Exec=/opt/apps/com.meecast.omweather/bin/meecasttizen
+Icon=com.meecast.omweather.png
+Type=Application
+MimeType=
+Hidden=False
+Version=0.1.0
+X-SLP-BaseLayoutWidth=720
+X-SLP-BaseLayoutHeight=1280
+X-SLP-IsHorizontalScale=True
+X-SLP-TaskManage=True
+X-SLP-Multiple=False
+X-SLP-Removable=false
+
+Name[en_US]=MeeCast

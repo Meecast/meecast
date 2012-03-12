@@ -9,6 +9,8 @@ collections {
 	image: "images/wind_direction_background.png" COMP;
 	image: "images/wind_direction_arrow.png" COMP;
 	image: "images/wind_speed.png" COMP;
+	image: "button_icons/refresh_arrows.png" COMP; 
+	image: "button_icons/config.png" COMP; 
         #include "crystal_icons.edc"
     }
     group {
@@ -20,15 +22,33 @@ collections {
                 mouse_events: 0; 
                 description {
                    state: "default" 0.0; 
-                   color: 0 0 0 255; // white
-                   // define part coordinates:
-                   rel1 { // top-left point at (0, 0) [WIDTH * 0 + 0, HEIGHT * 0 + 0]
+                   color: 0 0 0 255; 
+                   rel1 { 
                       relative: 0.0 0.0;
                    }
-                   rel2 { // bottom-right point at (WIDTH * 1.0 - 1, HEIGHT * 1.0 - 1)
+                   rel2 { 
                       relative: 1.0 0.10;
                    }
                 }
+            }
+	    part {								
+	        name: "main_background_rect";				
+	        type: RECT;						
+	        mouse_events: 0;					
+								
+	        description {						
+		    state: "default" 0.0;				
+                    color: 255 0 0 255; // white
+		    rel1 { 
+                       relative: 0.0 0.0;
+		       offset: 0 72;
+                    }
+                    rel2 {
+                       relative: 1.0 0.4;
+		      // offset: 0 340;
+                    }
+					
+	        }							
             }
 	    part {								
 	        name: "mask_background_main";				
@@ -188,11 +208,11 @@ collections {
 		    }
 	            rel1 { 
 		       relative: 0.0 0.0;
-		       offset: 0 5;
+		       offset: 0 8;
                     }
                     rel2 {
                        relative: 1.0 0.10;
-		       offset: 0 5;
+		       offset: 0 8;
                     }
 		}
 	    }
@@ -257,6 +277,7 @@ collections {
 		       font: "Sans";
 		       size: 24;
 		       text: "";
+		       align: 0 0.5;
 		    }
 		    rel1 { 
                        relative: 0.11 0.25;
@@ -275,6 +296,7 @@ collections {
 		       font: "Sans";
 		       size: 24;
 		       text: "";
+		       align: 0 0.5;
 		    }
 		    rel1 { 
                        relative: 0.11 0.32;
@@ -292,12 +314,13 @@ collections {
 		       font: "Sans";
 		       size: 24;
 		       text: "";
+		       align: 0 0.5;
 		    }
 		    rel1 { 
-                       relative: 0.54 0.25;
+                       relative: 0.63 0.25;
                     }
                     rel2 {
-                       relative: 0.74 0.29;
+                       relative: 0.84 0.29;
                     }
 	       	}
 	    }
@@ -309,13 +332,14 @@ collections {
 		    text {
 		       font: "Sans";
 		       size: 24;
-		       text: "100%";
+		       text: "";
+		       align: 0 0.5;
 		    }
 		    rel1 { 
-                       relative: 0.54 0.32;
+                       relative: 0.63 0.32;
                     }
                     rel2 {
-                       relative: 0.74 0.36;
+                       relative: 0.84 0.36;
                     }
 	       	}
 	    }
@@ -410,5 +434,101 @@ collections {
 	       	}
 	    }
 	}
+    }
+    group {
+        name: "menu";
+	parts{
+	    part {
+                name: "bg_rect";
+                type: RECT; 
+                mouse_events: 0; 
+                description {
+                   state: "default" 0.0; 
+                   color: 0 0 0 255; 
+                   rel1 { 
+                      relative: 0.0 0.0;
+                   }
+                   rel2 {
+                      relative: 1.0 1.0;
+                   }
+                }
+            }
+	    part {
+                name: "bg_top_line";
+                type: RECT; 
+                mouse_events: 0; 
+                description {
+                   state: "default" 0.0; 
+                   color: 128 128 128 255; 
+                   rel1 { 
+                      relative: 0.0 0.0;
+                   }
+                   rel2 {
+                      relative: 1.0 0.02;
+                   }
+                }
+            }
+	    part {								
+	        name: "refresh_button";				
+	        type: IMAGE;						
+	        mouse_events: 0;					
+								
+	        description {						
+		    state: "default" 0.0;				
+		    image {						
+	                normal: "button_icons/refresh_arrows.png";	
+		    }						
+		    fill {						
+		        smooth: 0;				
+		    }	
+		    rel1 { 
+                       relative: 0.03 0.15;
+                    }
+                    rel2 {
+                       relative: 0.12 0.85;
+                    }
+					
+	        }
+	    }
+	    part {								
+            	name: "source_logo";
+                type: EXTERNAL;
+                source: "elm/icon";             
+                description {
+                    state : "default" 0.0;
+                    rel1.relative: 0.2 0.2;
+                    rel2.relative: 0.8 0.8;
+                    params {                //list of parameters specific to the external object
+                      string: "icon" "/opt/apps/com.meecast.omweather/share/images/weather.com.png";     
+                    }                        
+                }
+            }
+	    part {								
+	        name: "menu_button";				
+	        type: IMAGE;						
+	        mouse_events: 0;					
+								
+	        description {						
+		    state: "default" 0.0;				
+		    image {						
+	                normal: "button_icons/config.png";	
+		    }						
+		    fill {						
+		        smooth: 0;				
+		    }	
+		    rel1 { 
+                       relative: 0.89 0.15;
+                    }
+                    rel2 {
+                       relative: 0.98 0.85;
+                    }
+					
+	        }
+	    }
+
+
+
+
+        }
     }
 }

@@ -29,7 +29,7 @@ libomweather_weather_com_source_la_CFLAGS = $(GLIB_CFLAGS) $(LIBXML2_CFLAGS) \
 libomweather_weather_com_source_la_LDFLAGS = -module -avoid-version 
 libomweather_weather_com_source_la_LIBADD = $(GLIB_LIBS) $(LIBXML2_LIBS)
 
-bindir = /usr/lib/omweather
+#bindir = /usr/lib/omweather
 bin_PROGRAMS = weathercom
 
 weathercom_SOURCES = main.c main.h

@@ -21,7 +21,7 @@
 # 02110-1301 USA
 
 bin_PROGRAMS = meecasttizen 
-meecasttizen_SOURCES  =  main.cpp main.h main_window.cpp main_window.h
+meecasttizen_SOURCES  =  main.cpp main.h main_window.cpp main_window.h setting_window.cpp setting_window.h
 meecasttizen_CXXFLAGS = $(GTK_CFLAGS) $(LIBXML2_CFLAGS) $(SQLITE_CFLGAS) $(LIBCURL_CFLAGS) \
                        $(ELEMENTARY_CFLAGS) $(EDJE_CFLAGS) -I../../core 
 meecasttizen_LDFLAGS = -avoid-version  
@@ -32,14 +32,19 @@ meecasttizen_LDADD = -L../../core/.libs/ ../../core/.libs/libmeecast-core.a \
 
 EDJE_CC = edje_cc
 EDJE_FLAGS = -v -id ../../core/data -fd $(top_srcdir)/edc
-files_DATA = mainwindow.edj
+files_DATA = mainwindow.edj settingwindow.edj
 filesdir = $(datadir)/edje
-EXTRA_DIST = edc/mainwindow.edc
+EXTRA_DIST = edc/mainwindow.edc edc/settingwindow.edc
 
 mainwindow.edj: Makefile edc/mainwindow.edc
 	$(EDJE_CC) $(EDJE_FLAGS) \
 	edc/mainwindow.edc \
 	mainwindow.edj
+
+settingwindow.edj: Makefile edc/settingwindow.edc
+	$(EDJE_CC) $(EDJE_FLAGS) \
+	edc/settingwindow.edc \
+	settingwindow.edj
 
 desktopdir    = /opt/share/applications
 desktop_files = com.meecast.omweather.desktop

@@ -29,6 +29,10 @@
 struct _App {
     Ecore_Evas *ee;
     Evas_Object *top_main_window;
+    Evas_Object *setting_top_main_window;
+    Evas_Object *setting_menu;
+    Evas_Object *setting_top_main_window2;
+    Evas_Object *setting_menu2;
     Evas_Object *day_list_main_window;
     Evas_Object *menu;
     Core::DataParser* dp;

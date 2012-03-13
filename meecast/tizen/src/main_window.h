@@ -30,4 +30,5 @@
 #include "common.h"
 /*******************************************************************************/
 void create_main_window(void *data);
+void create_setting_window(void *data);
 Core::DataParser* current_data(std::string& str);

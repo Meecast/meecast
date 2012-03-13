@@ -23,10 +23,10 @@
 bin_PROGRAMS = forecacom 
 forecacom_SOURCES  =  hash.c hash.h hash_description.data \
                                              hash_icons.data meego-main.c meego-main.h
-forecacom_CFLAGS = $(GTK_CFLAGS) $(LIBXML2_CFLAGS) \
+forecacom_CFLAGS = $(GLIB_CFLAGS) $(LIBXML2_CFLAGS) \
 					    -Wall -pedantic
 forecacom_LDFLAGS = -module -avoid-version 
-forecacom_LDADD = $(GTK_LIBS) $(LIBXML2_LIBS) 
+forecacom_LDADD = $(GLIB_LIBS) $(LIBXML2_LIBS) 
 
 clean-local:
 	$(RM) *.core core core.* stamp-*.h *~

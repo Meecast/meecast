@@ -262,11 +262,10 @@ Config::saveConfig()
     file_out<<" <update_period>"<< _update_period<<"</update_period>"<<endl;
     std::vector<Station*>::iterator i = _stations->begin();
     while (i != _stations->end()){
-
         file_out<<"  <station>"<<endl;
         file_out<<"  <source_name>"<< (*i)->sourceName()<<"</source_name>"<<endl;
         file_out<<"  <station_name>"<< (*i)->name()<<"</station_name>"<<endl;
-        file_out<<"  <station_id>"<< (*i)->name()<<"</station_id>"<<endl;
+        file_out<<"  <station_id>"<< (*i)->id()<<"</station_id>"<<endl;
         file_out<<"  <country>"<< (*i)->country()<<"</country>"<<endl;
         file_out<<"  <region>"<< (*i)->region()<<"</region>"<<endl;
         file_out<<"  <file_name>"<< (*i)->fileName()<<"</file_name>"<<endl;

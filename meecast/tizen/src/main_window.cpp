@@ -150,7 +150,7 @@ create_main_window(void *data)
     evas_object_focus_set(bg, EINA_TRUE);
 
 
-    if (app->config->stationsList().size() > 0)
+    if ((app->config->stationsList().size() > 0) && (app->config->current_station_id() < app->config->stationsList().size()))
         app->dp = current_data(app->config->stationsList().at(app->config->current_station_id())->fileName());
     else
         app->dp = NULL;
@@ -161,7 +161,7 @@ create_main_window(void *data)
     app->top_main_window = edje_obj; 
 
     /* Preparing data */
-    if (app->dp != NULL && (!(temp_data = app->dp->data().GetDataForTime(time(NULL))))){    
+    if (app->dp != NULL && (temp_data = app->dp->data().GetDataForTime(time(NULL)))){    
     
         if (!edje_object_file_set(edje_obj, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "mainwindow")){
             Edje_Load_Error err = edje_object_load_error_get(edje_obj);

@@ -40,7 +40,14 @@ struct _App {
     Core::DataParser* dp;
     Core::Config *config;
     int index_list;
+    int country_id;
+    int region_id;
+    int source_id;
     std::string *source;
+    std::string *country;
+    std::string *region;
+    std::string *station_code;
+    std::string *station;
     Core::StationsList *stationslist;
 };
 /*******************************************************************************/

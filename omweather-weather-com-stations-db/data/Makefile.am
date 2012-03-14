@@ -21,10 +21,10 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
 # 02110-1301 USA 
 
-omweather_weather_com_sourcedir = $(datadir)/omweather/sources
+omweather_weather_com_sourcedir = $(datadir)/sources
 omweather_weather_com_source_DATA = weather.com.xml
 
-omweather_weather_com_source_dbdir = $(datadir)/omweather/db
+omweather_weather_com_source_dbdir = $(datadir)/db
 omweather_weather_com_source_db_DATA = weather.com.db
 
 copyright_iconsdir = $(datadir)/omweather/copyright_icons

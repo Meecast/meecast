@@ -53,102 +53,148 @@ namespace Core {
         _sourceGetForecast = 0;
         _sourceGetDetail = 0;
 
+              std::cerr<<"Begn111111111111111111111111"<<std::endl;
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
-        try{
+    try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
-#ifdef QT 
-            if(1){
-                #ifdef LIBXML
-                //Walk the tree:
-                const xmlpp::Node* pNode = parser->get_document()->get_root_node(); //deleted by DomParser.
-                processNode(pNode);
-                #else //LIBXML
+        if(1){
+            #ifdef LIBXML
+            //Walk the tree:
+            const xmlpp::Node* pNode = parser->get_document()->get_root_node(); //deleted by DomParser.
+            processNode(pNode);
+            #else
+            //LIBXML
+            #ifdef QT
+            QDomElement root = _doc.documentElement();
+            QDomNode n = root.firstChild();
+            while (!n.isNull()){
+                QDomElement el = n.toElement();
+                QString tag = el.tagName();
 
-                QDomElement root = _doc.documentElement();
-                QDomNode n = root.firstChild();
-                while (!n.isNull()){
-                    QDomElement el = n.toElement();
-                    QString tag = el.tagName();
-
-                    if (tag == "name"){
-                        _name->assign(el.text().toStdString());
-                    }else if (tag == "logo"){
-                        _logo->assign(el.text().toStdString());
-                    }else if (tag == "search"){
-                        _hasSearch = (el.text() == "true") ? true : false;
-                    }else if (tag == "library"){
-                        _library->assign(el.text().toStdString());
-                    }else if (tag == "binary"){
-                        _binary->assign(el.text().toStdString());
-                    }else if (tag == "forecast"){
-                        if (el.hasAttribute("url"))
-                            _url_template->assign(el.attribute("url").toStdString());
-                    }else if (tag == "detail"){
-                        if (el.hasAttribute("url")){
-                            _hasDetail = (el.text() == "true") ? true : false;
-                            _url_detail_template->assign(el.attribute("url").toStdString());
-                        }
-                    }else if (tag =="showurl"){
-                        if (el.hasAttribute("url"))
-                            _url_for_view->assign(el.attribute("url").toStdString());
-                    }else if (tag =="cookie"){
-                        _cookie->assign(el.text().toStdString());
+                if (tag == "name"){
+                    _name->assign(el.text().toStdString());
+                }else if (tag == "logo"){
+                    _logo->assign(el.text().toStdString());
+                }else if (tag == "search"){
+                    _hasSearch = (el.text() == "true") ? true : false;
+                }else if (tag == "library"){
+                    _library->assign(el.text().toStdString());
+                }else if (tag == "binary"){
+                    _binary->assign(el.text().toStdString());
+                }else if (tag == "forecast"){
+                    if (el.hasAttribute("url"))
+                        _url_template->assign(el.attribute("url").toStdString());
+                }else if (tag == "detail"){
+                    if (el.hasAttribute("url")){
+                        _hasDetail = (el.text() == "true") ? true : false;
+                        _url_detail_template->assign(el.attribute("url").toStdString());
                     }
-                    n = n.nextSibling();
+                }else if (tag =="showurl"){
+                    if (el.hasAttribute("url"))
+                        _url_for_view->assign(el.attribute("url").toStdString());
+                }else if (tag =="cookie"){
+                    _cookie->assign(el.text().toStdString());
                 }
-                #endif //LIBXML
-                // TODO check binaryName for empty
-                /*
-                std::string binaryWithPath = prefix + libPath;
-                binaryWithPath += *_library;
-                _libraryHandler = dlopen(binaryWithPath.c_str(), RTLD_NOW);
-                if(!_libraryHandler)
-                    throw(std::string("Failed, while loading source library."));
-                void *_handler = 0;
-                char *possibleError = 0;
-                // init function from source
-                dlerror();
-                _handler = dlsym(_libraryHandler, "init");
-                possibleError = dlerror();
-                if(possibleError)
-                    throw(std::string(possibleError));
-                _sourceInit = (void(*)())_handler;
-                // search function from source
-                _handler = possibleError = 0;
-                dlerror();
-                _handler = dlsym(_libraryHandler, "search");
-                possibleError = dlerror();
-                if(!possibleError){
-                    _sourceSearch = (StationsList& (*)(const std::string&))_handler;
-                }
-                // forecast function from source
-                _handler = possibleError = 0;
-                dlerror();
-                _handler = dlsym(_libraryHandler, "forecast");
-                possibleError = dlerror();
-                if(!possibleError){
-                    _sourceGetForecast = (bool (*)(const std::string&, const std::string&))_handler;
-                    _hasForecast = true;
-                }
-                // detail function from source
-                _handler = possibleError = 0;
-                dlerror();
-                _handler = dlsym(_libraryHandler, "detail");
-                possibleError = dlerror();
-                if(!possibleError){
-                    _sourceGetDetail = (bool (*)(const std::string&, const std::string&))_handler;
-                    _hasDetail = true;
-                }
-                */
+                n = n.nextSibling();
             }
-#endif
+            #else
+          if (!_doc)
+               return;
+           xmlNodePtr root = xmlDocGetRootElement(_doc);
+           if (!root)
+               return;
+           for(xmlNodePtr p = root->children; p; p = p->next) {
+                if (p->type != XML_ELEMENT_NODE)
+                    continue;
+                if (!xmlStrcmp(p->name, (const xmlChar*)"name")){
+                    _name->assign((char *)xmlNodeGetContent(p));
+                    continue;
+                }
+                if (!xmlStrcmp(p->name, (const xmlChar*)"logo")){
+                    _logo->assign((char *)xmlNodeGetContent(p));
+                    continue;
+                }
+                if (!xmlStrcmp(p->name, (const xmlChar*)"binary")){
+                    _binary->assign((char *)xmlNodeGetContent(p));
+                    continue;
+                }
+                if (!xmlStrcmp(p->name, (const xmlChar*)"forecast")){
+                    if (xmlGetProp(p, (const xmlChar*)"url"))
+                        _url_template->assign((char *)xmlGetProp(p, (const xmlChar*)"url"));
+                    continue;
+                }
+                if (!xmlStrcmp(p->name, (const xmlChar*)"detail")){
+                    if (xmlGetProp(p, (const xmlChar*)"url"))
+                        _url_detail_template->assign((char *)xmlGetProp(p, (const xmlChar*)"url"));
+                    continue;
+                }
+                if (!xmlStrcmp(p->name, (const xmlChar*)"showurl")){
+                    if (xmlGetProp(p, (const xmlChar*)"url"))
+                        _url_for_view->assign((char *)xmlGetProp(p, (const xmlChar*)"url"));
+                    continue;
+                }
+                if (!xmlStrcmp(p->name, (const xmlChar*)"cookie")){
+                    _cookie->assign((char *)xmlNodeGetContent(p));
+                    continue;
+                }
+
+
+
+           }
+     
+            #endif
+            #endif //LIBXML
+            // TODO check binaryName for empty
+            /*
+            std::string binaryWithPath = prefix + libPath;
+            binaryWithPath += *_library;
+            _libraryHandler = dlopen(binaryWithPath.c_str(), RTLD_NOW);
+            if(!_libraryHandler)
+                throw(std::string("Failed, while loading source library."));
+            void *_handler = 0;
+            char *possibleError = 0;
+            // init function from source
+            dlerror();
+            _handler = dlsym(_libraryHandler, "init");
+            possibleError = dlerror();
+            if(possibleError)
+                throw(std::string(possibleError));
+            _sourceInit = (void(*)())_handler;
+            // search function from source
+            _handler = possibleError = 0;
+            dlerror();
+            _handler = dlsym(_libraryHandler, "search");
+            possibleError = dlerror();
+            if(!possibleError){
+                _sourceSearch = (StationsList& (*)(const std::string&))_handler;
+            }
+            // forecast function from source
+            _handler = possibleError = 0;
+            dlerror();
+            _handler = dlsym(_libraryHandler, "forecast");
+            possibleError = dlerror();
+            if(!possibleError){
+                _sourceGetForecast = (bool (*)(const std::string&, const std::string&))_handler;
+                _hasForecast = true;
+            }
+            // detail function from source
+            _handler = possibleError = 0;
+            dlerror();
+            _handler = dlsym(_libraryHandler, "detail");
+            possibleError = dlerror();
+            if(!possibleError){
+                _sourceGetDetail = (bool (*)(const std::string&, const std::string&))_handler;
+                _hasDetail = true;
+            }
+            */
+        }
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
-        }catch(const std::exception& ex){
-            throw(ex.what());
-        }
-        catch(std::string& er){
-            throw(er);
-        }
+    }catch(const std::exception& ex){
+        throw(ex.what());
+    }
+    catch(std::string& er){
+        throw(er);
+    }
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
 
     }
@@ -309,7 +355,7 @@ namespace Core {
         return *_url_detail_template;
     }
 
-/////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
     std::string& Source::url_for_view() const{
         return *_url_for_view;
     }
@@ -323,3 +369,4 @@ namespace Core {
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core
+

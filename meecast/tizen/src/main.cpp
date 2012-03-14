@@ -110,8 +110,11 @@ main(void)
 
     app.config = create_and_fill_config();
     /* Check time for previous updating */
-    app.dp = current_data(app.config->stationsList().at(app.config->current_station_id())->fileName());
-
+    if (app.config->stationsList().size() > 0)
+        app.dp = current_data(app.config->stationsList().at(app.config->current_station_id())->fileName());
+    else 
+        app.dp = NULL;
+#if 0
     /* 25*60 = 30 minutes - minimal time between updates */ 
     if (app.dp && (abs(time(NULL) - app.dp->LastUpdate()) > 25*60)){
         /*update weather forecast*/
@@ -121,7 +124,7 @@ main(void)
             }
         }
     }
-
+#endif
    create_main_window(&app);
    ecore_evas_show(app.ee);
 
@@ -145,46 +148,4 @@ error_edj:
    ecore_evas_shutdown();
    return -2;
 }
-#if 0
-EAPI_MAIN int
-elm_main(int argc, char **argv)
-{
-  
-    create_main_window(config, dp);
 
-    // run the mainloop and process events and callbacks
-    elm_run();
-    elm_shutdown();
-    return 0;
-}
-ELM_MAIN()
-#endif
-#if 0
-int
-main(int argc, char *argv[]){
-    int result = 0; 
-    int i, success;
-    Core::DataParser* dp = NULL;
-    Core::Data *temp_data = NULL;
-    config = create_and_fill_config();
-    fprintf(stderr, "\nresult = %d\n", result);
-    /* Check time for previous updating */
-    dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
-
-    /* 25*60 = 30 minutes - minimal time between updates */ 
-    if (dp && (abs(time(NULL) - dp->LastUpdate()) > 25*60)){
-        /*update weather forecast*/
-        for (i=0; i < config->stationsList().size();i++){
-            if (config->stationsList().at(i)->updateData(true)){
-                success ++;
-            }
-        }
-    }
-
-    if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL)))) {
-        std::cerr<<"Temperature "<<  temp_data->temperature_hi().value(true)<<std::endl;
-    }
-    config->saveConfig();
-    return result;
-}
-#endif

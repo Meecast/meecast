@@ -4,6 +4,7 @@ collections {
 
     images {
     	image: "images/mask_background_main.png" COMP;
+        image: "images/mask_background.png" COMP;	
     	image: "images/humidity.png" COMP;
     	image: "images/pressure.png" COMP;
 	image: "images/wind_direction_background.png" COMP;
@@ -13,6 +14,126 @@ collections {
 	image: "images/arrow_right.png" COMP;
 	image: "button_icons/refresh_arrows.png" COMP; 
 	image: "button_icons/config.png" COMP; 
+    }
+    group {
+        name: "nullwindow";
+	parts{
+	   part {								
+	        name: "main_background_rect";				
+	        type: RECT;						
+	        mouse_events: 0;					
+								
+	        description {						
+		    state: "default" 0.0;				
+                    color: 255 0 0 255; // white
+		    rel1 { 
+                       relative: 0.0 0.0;
+		       offset: 0 72;
+                    }
+                    rel2 {
+                       relative: 1.0 0.4;
+		      // offset: 0 340;
+                    }
+					
+	        }							
+            }
+	    part {								
+	        name: "mask_background_main";				
+	        type: IMAGE;						
+	        mouse_events: 0;					
+								
+	        description {						
+		    state: "default" 0.0;				
+		    image {						
+	                normal: "images/mask_background.png";	
+		    }						
+		    fill {						
+		        smooth: 0;				
+		    }	
+		    rel1 { 
+                       relative: 0.0 0.0;
+		       offset: 0 72;
+                    }
+                    rel2 {
+                       relative: 1.0 0.4;
+		      // offset: 0 340;
+                    }
+					
+	        }							
+            }
+	    part {
+	        name: "Message1";
+		type: TEXT;
+   	        multiline: 1;
+		entry_mode: NONE;
+		description{
+		    visible: 1;
+		    color: 255 255 255 255;
+		    state: "default" 0.0;
+		    fixed: 1 1;
+		    text {
+		       font: "Sans";
+		       size: 34;
+		       text: "No locations are";
+		    }
+	            rel1 { 
+		       relative: 0.0 0.4;
+		       offset: 0 8;
+                    }
+                    rel2 {
+                       relative: 1.0 0.45;
+		       offset: 0 8;
+                    }
+		}
+	    }
+	    part {
+	        name: "Message2";
+		type: TEXT;
+   	        multiline: 1;
+		entry_mode: NONE;
+		description{
+		    visible: 1;
+		    color: 255 255 255 255;
+		    state: "default" 0.0;
+		    fixed: 1 1;
+		    text {
+		       font: "Sans";
+		       size: 34;
+		       text: "set up yet.";
+		    }
+	            rel1 { 
+		       relative: 0.0 0.45;
+		       offset: 0 8;
+                    }
+                    rel2 {
+                       relative: 1.0 0.50;
+		       offset: 0 8;
+                    }
+		}
+	    }
+
+	    part {
+	        name: "program_name";
+		type: TEXT;
+		description{
+		    text {
+		       font: "Sans";
+		       size: 34;
+		       text: "MeeCast";
+		    }
+	            rel1 { 
+		       relative: 0.0 0.0;
+		       offset: 0 8;
+                    }
+                    rel2 {
+                       relative: 1.0 0.10;
+		       offset: 0 8;
+                    }
+		}
+	    }
+
+
+	}
     }
     group {
         name: "mainwindow";

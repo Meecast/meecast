@@ -35,8 +35,11 @@ struct _App {
     Evas_Object *setting_menu2;
     Evas_Object *day_list_main_window;
     Evas_Object *menu;
+    Evas_Object *dialog;
+    Evas_Object *list;
     Core::DataParser* dp;
     Core::Config *config;
+    int index_list;
     Core::StationsList *stationslist;
 };
 /*******************************************************************************/

@@ -141,7 +141,7 @@ create_main_window(void *data)
     evas = ecore_evas_get(app->ee);
 
     bg = evas_object_rectangle_add(evas);
-    evas_object_color_set(bg, 255, 0, 0, 255); /* red bg */
+    evas_object_color_set(bg, 0, 0, 0, 255); /* red bg */
     evas_object_move(bg, 0, 0); /* at canvas' origin */
     evas_object_resize(bg, WIDTH, HEIGHT); /* covers full canvas */
     evas_object_show(bg);
@@ -150,180 +150,198 @@ create_main_window(void *data)
     evas_object_focus_set(bg, EINA_TRUE);
 
 
-    app->dp = current_data(app->config->stationsList().at(app->config->current_station_id())->fileName());
+    if (app->config->stationsList().size() > 0)
+        app->dp = current_data(app->config->stationsList().at(app->config->current_station_id())->fileName());
+    else
+        app->dp = NULL;
 
     evas_object_del(app->top_main_window);
 
     edje_obj = edje_object_add(evas);
     app->top_main_window = edje_obj; 
-    /* exercising Edje loading error, on purpose */
-    if (!edje_object_file_set(edje_obj, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "mainwindow")){
-        Edje_Load_Error err = edje_object_load_error_get(edje_obj);
-        const char *errmsg = edje_load_error_str(err);
-        fprintf(stderr, "Could not load 'mainwindow' from mainwindow.edj:"
-                        " %s\n", errmsg);
-    }
 
     /* Preparing data */
-    if (app->dp == NULL || (!(temp_data = app->dp->data().GetDataForTime(time(NULL)))))
-        return; 
-    temp_data->temperature_low().units(app->config->TemperatureUnit());
-    temp_data->temperature_hi().units(app->config->TemperatureUnit());
-    temp_data->temperature().units(app->config->TemperatureUnit());
-
-    /* Filling window */
-    /*Station name */
-    edje_object_part_text_set(edje_obj, "station_name", app->config->stationname().c_str());
-    /* Current o not current period */
-    if (temp_data->Current())
-        edje_object_part_text_set(edje_obj, "period_name", "Now");
-    else
-        edje_object_part_text_set(edje_obj, "period_name", "Today");
-
-    /* Temperature */
-    if (temp_data->temperature().value(true) == INT_MAX){
-      if ((temp_data->temperature_hi().value(true) == INT_MAX) &&
-          (temp_data->temperature_low().value(true) == INT_MAX)){ 
-        edje_object_part_text_set(edje_obj, "main_temperature", "N/A");
-      } 
-      if ((temp_data->temperature_hi().value(true) != INT_MAX) &&
-          (temp_data->temperature_low().value(true) != INT_MAX)){ 
-        snprintf(buffer, sizeof(buffer) - 1, "%0.f°/ %0.f°", temp_data->temperature_low().value(),
-                                                             temp_data->temperature_hi().value());
-        edje_object_part_text_set(edje_obj, "main_temperature", buffer);
-      }  
-      if (temp_data->temperature_hi().value(true) != INT_MAX){
-        snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
-        edje_object_part_text_set(edje_obj, "main_temperature", buffer);
-      }
-      if (temp_data->temperature_low().value(true) != INT_MAX){
-        snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
-        edje_object_part_text_set(edje_obj, "main_temperature", buffer);
-      }
-    }else{
-        snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature().value());
-        edje_object_part_text_set(edje_obj, "main_temperature", buffer);
-    }
-
-    /* Description for current weather forecast */
-    edje_object_part_text_set(edje_obj, "main_description", temp_data->Text().c_str());
-
-    /* Main Icon */
-    snprintf(buffer, sizeof(buffer) - 1, "%s/%s/%i.png", app->config->iconspath().c_str(), app->config->iconSet().c_str(), temp_data->Icon());
-    param.type = EDJE_EXTERNAL_PARAM_TYPE_STRING;
-    param.name = "icon";
-    param.s = buffer;
-    edje_object_part_external_param_set (edje_obj, "main_icon", &param);
+    if (app->dp != NULL && (!(temp_data = app->dp->data().GetDataForTime(time(NULL))))){    
     
-    /* Main humidity */
-    if (temp_data->Humidity() != INT_MAX){
-        snprintf (buffer, sizeof(buffer) -1, "%i", temp_data->Humidity());
-        edje_object_part_text_set(edje_obj, "humidity_label", buffer);
-    }
-
-    /* Main presssure */
-    snprintf (buffer, sizeof(buffer) -1, "%i", temp_data->pressure().value());
-    edje_object_part_text_set(edje_obj, "pressure_label", buffer);
-    
-    /* Main wind direction */
-    snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
-    edje_object_part_text_set(edje_obj, "wind_direction_label", buffer);
-    /* Main wind speed */
-    snprintf (buffer, sizeof(buffer) -1, "%0.f", temp_data->WindSpeed().value());
-    edje_object_part_text_set(edje_obj, "wind_speed_label", buffer);
-
-    evas_object_move(edje_obj, 0, 0);
-    evas_object_resize(edje_obj, WIDTH, HEIGHT);
-    evas_object_show(edje_obj);
-    /* Change color for background */
-    temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj, "main_background_rect");
-    if (temp_data->temperature().value(true) != INT_MAX)
-        set_color_by_temp(temp_edje_obj, (int)temp_data->temperature().value(true));
-    else{
-        if (temp_data->temperature_hi().value(true) != INT_MAX){
-            set_color_by_temp(temp_edje_obj, (int)temp_data->temperature_hi().value(true));
-        }else
-        if (temp_data->temperature_low().value(true) != INT_MAX){
-            set_color_by_temp(temp_edje_obj, (int)temp_data->temperature_low().value(true));
-        }
-    }
-    temp_edje_obj = NULL;
-
-    /* show or hide arrows */
-    temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj, "left_arrow");
-    if (app->config->prevstationname().length() < 1)
-        evas_object_hide(temp_edje_obj);
-    else
-        evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, left_arrow_down, app); 
-
-    temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj, "right_arrow");
-    if (app->config->nextstationname().length() < 1)
-        evas_object_hide(temp_edje_obj);
-    else
-        evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, right_arrow_down, app); 
-    temp_edje_obj = NULL;
-
-
-    /* Fill list of days with weather forecast */
-    /* set current day */ 
-    current_day = time(NULL);
-    tm = gmtime(&current_day);
-    tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
-    tm->tm_isdst = 1;
-    current_day = mktime(tm); /* today 00:00:00 */
-
-
-    /* fill other days */
-    i = 3600*24;
-    j = 0;
-    list_box = evas_object_box_add(evas); 
-    app->day_list_main_window = list_box;
-    evas_object_box_layout_set(
-                  list_box, evas_object_box_layout_vertical, NULL, NULL);
-    while  (app->dp != NULL && (temp_data = app->dp->data().GetDataForTime( current_day + 14 * 3600  + i))) {
-        edje_obj_block = edje_object_add(evas);
-        if (!edje_object_file_set(edje_obj_block, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "dayblock")){
-            Edje_Load_Error err = edje_object_load_error_get(edje_obj_block);
+        if (!edje_object_file_set(edje_obj, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "mainwindow")){
+            Edje_Load_Error err = edje_object_load_error_get(edje_obj);
             const char *errmsg = edje_load_error_str(err);
-            fprintf(stderr, "Could not load 'dayblock' from mainwindow.edj:"
+            fprintf(stderr, "Could not load 'mainwindow' from mainwindow.edj:"
                             " %s\n", errmsg);
         }
-        evas_object_resize(edje_obj_block, WIDTH, 80);
-        edje_object_part_text_set(edje_obj_block, "full_day_name", temp_data->FullDayName().c_str());
-        /* Icon */
-        snprintf(buffer, sizeof(buffer) - 1, "%s/%s/%i.png", app->config->iconspath().c_str(), 
-                                                             app->config->iconSet().c_str(), temp_data->Icon());
+
+        temp_data->temperature_low().units(app->config->TemperatureUnit());
+        temp_data->temperature_hi().units(app->config->TemperatureUnit());
+        temp_data->temperature().units(app->config->TemperatureUnit());
+
+        /* Filling window */
+        /*Station name */
+        edje_object_part_text_set(edje_obj, "station_name", app->config->stationname().c_str());
+        /* Current o not current period */
+        if (temp_data->Current())
+            edje_object_part_text_set(edje_obj, "period_name", "Now");
+        else
+            edje_object_part_text_set(edje_obj, "period_name", "Today");
+
+        /* Temperature */
+        if (temp_data->temperature().value(true) == INT_MAX){
+          if ((temp_data->temperature_hi().value(true) == INT_MAX) &&
+              (temp_data->temperature_low().value(true) == INT_MAX)){ 
+            edje_object_part_text_set(edje_obj, "main_temperature", "N/A");
+          } 
+          if ((temp_data->temperature_hi().value(true) != INT_MAX) &&
+              (temp_data->temperature_low().value(true) != INT_MAX)){ 
+            snprintf(buffer, sizeof(buffer) - 1, "%0.f°/ %0.f°", temp_data->temperature_low().value(),
+                                                                 temp_data->temperature_hi().value());
+            edje_object_part_text_set(edje_obj, "main_temperature", buffer);
+          }  
+          if (temp_data->temperature_hi().value(true) != INT_MAX){
+            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
+            edje_object_part_text_set(edje_obj, "main_temperature", buffer);
+          }
+          if (temp_data->temperature_low().value(true) != INT_MAX){
+            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
+            edje_object_part_text_set(edje_obj, "main_temperature", buffer);
+          }
+        }else{
+            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature().value());
+            edje_object_part_text_set(edje_obj, "main_temperature", buffer);
+        }
+
+        /* Description for current weather forecast */
+        edje_object_part_text_set(edje_obj, "main_description", temp_data->Text().c_str());
+
+        /* Main Icon */
+        snprintf(buffer, sizeof(buffer) - 1, "%s/%s/%i.png", app->config->iconspath().c_str(), app->config->iconSet().c_str(), temp_data->Icon());
         param.type = EDJE_EXTERNAL_PARAM_TYPE_STRING;
         param.name = "icon";
         param.s = buffer;
-        edje_object_part_external_param_set (edje_obj_block, "icon", &param);
+        edje_object_part_external_param_set (edje_obj, "main_icon", &param);
+        
+        /* Main humidity */
+        if (temp_data->Humidity() != INT_MAX){
+            snprintf (buffer, sizeof(buffer) -1, "%i", temp_data->Humidity());
+            edje_object_part_text_set(edje_obj, "humidity_label", buffer);
+        }
 
-        if (temp_data->temperature_low().value(true) != INT_MAX){
-            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
-            edje_object_part_text_set(edje_obj_block, "min_temp", buffer);
+        /* Main presssure */
+        snprintf (buffer, sizeof(buffer) -1, "%i", temp_data->pressure().value());
+        edje_object_part_text_set(edje_obj, "pressure_label", buffer);
+        
+        /* Main wind direction */
+        snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
+        edje_object_part_text_set(edje_obj, "wind_direction_label", buffer);
+        /* Main wind speed */
+        snprintf (buffer, sizeof(buffer) -1, "%0.f", temp_data->WindSpeed().value());
+        edje_object_part_text_set(edje_obj, "wind_speed_label", buffer);
+
+        /* Change color for background */
+        temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj, "main_background_rect");
+        if (temp_data->temperature().value(true) != INT_MAX)
+            set_color_by_temp(temp_edje_obj, (int)temp_data->temperature().value(true));
+        else{
+            if (temp_data->temperature_hi().value(true) != INT_MAX){
+                set_color_by_temp(temp_edje_obj, (int)temp_data->temperature_hi().value(true));
+            }else
+            if (temp_data->temperature_low().value(true) != INT_MAX){
+                set_color_by_temp(temp_edje_obj, (int)temp_data->temperature_low().value(true));
+            }
         }
-        if (temp_data->temperature_hi().value(true) != INT_MAX){
-            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
-            edje_object_part_text_set(edje_obj_block, "max_temp", buffer);
-            temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_block, "max_temp");
-            set_color_by_temp(temp_edje_obj, (int)temp_data->temperature_hi().value(true));
-            temp_edje_obj = NULL;
+        temp_edje_obj = NULL;
+
+        evas_object_move(edje_obj, 0, 0);
+        evas_object_resize(edje_obj, WIDTH, HEIGHT);
+        evas_object_show(edje_obj);
+
+
+        /* show or hide arrows */
+        temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj, "left_arrow");
+        if (app->config->prevstationname().length() < 1)
+            evas_object_hide(temp_edje_obj);
+        else
+            evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, left_arrow_down, app); 
+
+        temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj, "right_arrow");
+        if (app->config->nextstationname().length() < 1)
+            evas_object_hide(temp_edje_obj);
+        else
+            evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, right_arrow_down, app); 
+        temp_edje_obj = NULL;
+
+
+        /* Fill list of days with weather forecast */
+        /* set current day */ 
+        current_day = time(NULL);
+        tm = gmtime(&current_day);
+        tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+        tm->tm_isdst = 1;
+        current_day = mktime(tm); /* today 00:00:00 */
+
+
+        /* fill other days */
+        i = 3600*24;
+        j = 0;
+        list_box = evas_object_box_add(evas); 
+        app->day_list_main_window = list_box;
+        evas_object_box_layout_set(
+                      list_box, evas_object_box_layout_vertical, NULL, NULL);
+        while  (app->dp != NULL && (temp_data = app->dp->data().GetDataForTime( current_day + 14 * 3600  + i))) {
+            edje_obj_block = edje_object_add(evas);
+            if (!edje_object_file_set(edje_obj_block, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "dayblock")){
+                Edje_Load_Error err = edje_object_load_error_get(edje_obj_block);
+                const char *errmsg = edje_load_error_str(err);
+                fprintf(stderr, "Could not load 'dayblock' from mainwindow.edj:"
+                                " %s\n", errmsg);
+            }
+            evas_object_resize(edje_obj_block, WIDTH, 80);
+            edje_object_part_text_set(edje_obj_block, "full_day_name", temp_data->FullDayName().c_str());
+            /* Icon */
+            snprintf(buffer, sizeof(buffer) - 1, "%s/%s/%i.png", app->config->iconspath().c_str(), 
+                                                                 app->config->iconSet().c_str(), temp_data->Icon());
+            param.type = EDJE_EXTERNAL_PARAM_TYPE_STRING;
+            param.name = "icon";
+            param.s = buffer;
+            edje_object_part_external_param_set (edje_obj_block, "icon", &param);
+
+            if (temp_data->temperature_low().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
+                edje_object_part_text_set(edje_obj_block, "min_temp", buffer);
+            }
+            if (temp_data->temperature_hi().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
+                edje_object_part_text_set(edje_obj_block, "max_temp", buffer);
+                temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_block, "max_temp");
+                set_color_by_temp(temp_edje_obj, (int)temp_data->temperature_hi().value(true));
+                temp_edje_obj = NULL;
+            }
+            evas_object_box_append(list_box, edje_obj_block);
+            evas_object_show(edje_obj_block);
+            if (j % 2 == 0 ){
+                temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_block, "bg_rect");
+                evas_object_color_set(temp_edje_obj, 16, 16, 16, 255);
+                temp_edje_obj = NULL;
+            }
+            i = i + 3600*24;
+            j++;
         }
-        evas_object_box_append(list_box, edje_obj_block);
-        evas_object_show(edje_obj_block);
-        if (j % 2 == 0 ){
-            temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_block, "bg_rect");
-            evas_object_color_set(temp_edje_obj, 16, 16, 16, 255);
-            temp_edje_obj = NULL;
+        evas_object_move(list_box, 0, 320);
+        evas_object_resize(list_box, WIDTH, 80*j);
+        evas_object_show(list_box);
+
+    }else{
+        if (!edje_object_file_set(edje_obj, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "nullwindow")){
+            Edje_Load_Error err = edje_object_load_error_get(edje_obj);
+            const char *errmsg = edje_load_error_str(err);
+            fprintf(stderr, "Could not load 'nullwindow' from mainwindow.edj:"
+                            " %s\n", errmsg);
         }
-        i = i + 3600*24;
-        j++;
+        evas_object_move(edje_obj, 0, 0);
+        evas_object_resize(edje_obj, WIDTH, HEIGHT);
+        evas_object_show(edje_obj);
     }
-    evas_object_move(list_box, 0, 320);
-    evas_object_resize(list_box, WIDTH, 80*j);
-    evas_object_show(list_box);
 
     evas_object_del(app->menu);
+
     /* Fill menu */
     edje_obj_menu = edje_object_add(evas);
     if (!edje_object_file_set(edje_obj_menu, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "menu")){
@@ -332,18 +350,18 @@ create_main_window(void *data)
         fprintf(stderr, "Could not load 'menu' from mainwindow.edj:"
                         " %s\n", errmsg);
     }
-    /* Source Logo */
-    snprintf(buffer, sizeof(buffer) - 1, "/opt/apps/com.meecast.omweather/share/images/%s.png",
-    app->config->stationsList().at(app->config->current_station_id())->sourceName().c_str());
-    
+    if (app->dp){
+        /* Source Logo */
+        snprintf(buffer, sizeof(buffer) - 1, "/opt/apps/com.meecast.omweather/share/images/%s.png",
+        app->config->stationsList().at(app->config->current_station_id())->sourceName().c_str());
+        param.type = EDJE_EXTERNAL_PARAM_TYPE_STRING;
+        param.name = "icon";
+        param.s = buffer;
+        edje_object_part_external_param_set (edje_obj_menu, "source_logo", &param);
 
-    param.type = EDJE_EXTERNAL_PARAM_TYPE_STRING;
-    param.name = "icon";
-    param.s = buffer;
-    edje_object_part_external_param_set (edje_obj_menu, "source_logo", &param);
-
-    temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "refresh_button");
-    evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, download_forecast, app); 
+        temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "refresh_button");
+        evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, download_forecast, app); 
+    }
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "menu_button");
     evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, menu, app); 
 

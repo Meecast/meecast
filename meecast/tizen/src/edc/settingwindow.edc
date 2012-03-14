@@ -235,6 +235,18 @@ collections {
 		    rel2.relative: 0.9 0.11;
 		}
 	    }
+	    part {								
+            	name: "list_rect";
+                type: RECT;
+		mouse_events: 0;
+                description {
+                    state : "default" 0.0;
+                    color: 0 0 0 0; 
+                    rel1.relative: 0.09 0.07;
+                    rel2.relative: 1.0 0.60;
+                }
+            }
+
 	}
     }
     group {
@@ -302,6 +314,116 @@ collections {
 	    }
         }
     }
+    group {
+        name: "dialog";
+	parts{
+	    part {
+                name: "bg_rect";
+                type: RECT; 
+                //mouse_events: 1; 
+                description {
+                   state: "default" 0.0; 
+                   color: 0 0 0 128; 
+                   rel1 { 
+                      relative: 0.0 0.0;
+                   }
+                   rel2 {
+                      relative: 1.0 1.0;
+                   }
+                }
+            }
+	    part {
+                name: "bg_top_line";
+                type: RECT; mouse_events: 0; 
+                description {
+                   state: "default" 0.0; 
+                   color: 128 128 128 255; 
+                   rel1 { 
+                      relative: 0.0 0.0;
+                   }
+                   rel2 {
+                      relative: 1.0 0.02;
+                   }
+                }
+            }
+	    part {
+	        name: "dialog_text";
+		type: TEXT;
+                mouse_events: 1; 
+		description{
+		    text {
+		       font: "Sans";
+		       size: 30;
+		       text: "Do you want delete station?";
+		       align: 0 0.5;
+		    }
+		    rel1.relative: 0.05 0.4;
+		    rel2.relative: 0.95 0.5;
+		}
+	    }
+            /* EXTERNAL elementary button with a label */
+            part { name: "bt_yes";
+                type: RECT;
 
+                mouse_events: 1; 
+                description { state: "default" 0;
+
+                   color: 128 128 128 255; 
+                   rel1 {
+                    relative: 0.1 0.5;
+                   }
+                   rel2 {
+                    relative: 0.4 0.6;
+                   }
+                }   
+            }
+	    part {
+	        name: "label_yes";
+		type: TEXT;
+                mouse_events: 1; 
+		description{
+		    text {
+		       font: "Sans";
+		       size: 30;
+		       text: "Yes";
+		       align: 0.5 0.5;
+		    }
+		    rel1.relative: 0.1 0.5;
+		    rel2.relative: 0.4 0.6;
+		}
+	    }
+
+	    /* EXTERNAL elementary button with a label */
+            part { name: "bt_no";
+                type: RECT;
+
+                mouse_events: 1; 
+                description { state: "default" 0;
+                   color: 128 128 128 255; 
+                   rel1 {
+                    relative: 0.5 0.5;
+                   }
+                   rel2 {
+                    relative: 0.8 0.6;
+                   }
+                }   
+            }
+	    part {
+	        name: "label_no";
+		type: TEXT;
+                mouse_events: 1; 
+		description{
+		    text {
+		       font: "Sans";
+		       size: 30;
+		       text: "No";
+		       align: 0.5 0.5;
+		    }
+		    rel1.relative: 0.5 0.5;
+		    rel2.relative: 0.8 0.6;
+		}
+	    }
+        }
+    }
 
 }

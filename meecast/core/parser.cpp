@@ -104,7 +104,7 @@ namespace Core {
         }
         file.close();
     #else
-        _doc = xmlParseFile(filename.c_str());
+        _doc = xmlReadFile(filename.c_str(), "UTF-8", XML_PARSE_RECOVER);
     #endif
     #endif //LIBXML
     }

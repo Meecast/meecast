@@ -25,11 +25,14 @@ SUBDIRS = src
 
 icons_crystallargedir = $(datadir)/icons/Glance
 icons_crystallarge_DATA = ../core/data/icons/Glance/*.png
+icons_meecastlargedir = $(datadir)/icons/Meecast
+icons_meecastlarge_DATA = ../core/data/icons/Meecast/*.png
+
 imagesdir = $(datadir)/images
 images_DATA = ../core/data/images/*.png
 
 
 
-EXTRA_DIST = autogen.sh $(icons_crystallarge_DATA) $(image) 
+EXTRA_DIST = autogen.sh $(icons_meecastlarge_DATA) $(icons_crystallarge_DATA) $(image) 
 
 

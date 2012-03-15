@@ -30,6 +30,9 @@ configure-stamp:
 	cd omweather-foreca-com-stations-db; ./autogen.sh
 	cd omweather-foreca-com-stations-db; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/apps/com.meecast.omweather 
 
+	cd omweather-gismeteo-ru-stations-db; ./autogen.sh
+	cd omweather-gismeteo-ru-stations-db; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/apps/com.meecast.omweather 
+
 	cd meecast/core; ./autogen.sh
 	cd meecast/core; CFLAGS="$(CFLAGS)" ./configure --prefix=/opt/apps/com.meecast.omweather 
 
@@ -47,6 +50,7 @@ build-stamp: configure-stamp
 	
 	cd omweather-weather-com-stations-db; $(MAKE)
 	cd omweather-foreca-com-stations-db; $(MAKE)
+	cd omweather-gismeteo-ru-stations-db; $(MAKE)
 	cd meecast/core; $(MAKE)
 	cd meecast/tizen; $(MAKE)
 
@@ -71,6 +75,7 @@ install: build
 	# Add here commands to install the package
 	cd  omweather-weather-com-stations-db; $(MAKE) install DESTDIR=$(CURDIR)/debian/meecast
 	cd  omweather-foreca-com-stations-db; $(MAKE) install DESTDIR=$(CURDIR)/debian/meecast
+	cd  omweather-gismeteo-ru-stations-db; $(MAKE) install DESTDIR=$(CURDIR)/debian/meecast
 	cd meecast/core; $(MAKE) install DESTDIR=$(CURDIR)/debian/meecast
 	cd meecast/tizen; $(MAKE) install DESTDIR=$(CURDIR)/debian/meecast
 

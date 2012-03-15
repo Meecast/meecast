@@ -21,14 +21,14 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
 # 02110-1301 USA
 
-libhhdir = /usr/lib/omweather
-libhh_LTLIBRARIES = libomweather-gismeteo-ru-source.la
-libomweather_gismeteo_ru_source_la_SOURCES = hash.c hash.h hash_description.data \
-                                             hash_icons.data main.c main.h
-libomweather_gismeteo_ru_source_la_CFLAGS = $(GTK_CFLAGS) $(LIBXML2_CFLAGS) \
+bin_PROGRAMS = gismeteoru 
+gismeteoru_SOURCES  =  hash.c hash.h hash_description.data \
+                                             hash_icons.data meego-main.c meego-main.h
+gismeteoru_CFLAGS = $(GLIB_CFLAGS) $(LIBXML2_CFLAGS) \
 					    -Wall -pedantic
-libomweather_gismeteo_ru_source_la_LDFLAGS = -module -avoid-version 
-libomweather_gismeteo_ru_source_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) 
+gismeteoru_LDFLAGS = -module -avoid-version 
+gismeteoru_LDADD = $(GLIB_LIBS) $(LIBXML2_LIBS) 
+
 
 clean-local:
 	$(RM) *.core core core.* stamp-*.h *~

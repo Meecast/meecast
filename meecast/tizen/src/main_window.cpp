@@ -225,19 +225,22 @@ create_main_window(void *data)
         
         /* Main humidity */
         if (temp_data->Humidity() != INT_MAX){
-            snprintf (buffer, sizeof(buffer) -1, "%i", temp_data->Humidity());
+            snprintf (buffer, sizeof(buffer) -1, "%i%%", temp_data->Humidity());
             edje_object_part_text_set(edje_obj, "humidity_label", buffer);
         }
 
         /* Main presssure */
-        snprintf (buffer, sizeof(buffer) -1, "%i", temp_data->pressure().value());
+        if (temp_data->pressure().value(true) == INT_MAX)
+            snprintf (buffer, sizeof(buffer) -1, "N/A");
+        else
+            snprintf (buffer, sizeof(buffer) -1, "%i", (int)temp_data->pressure().value());
         edje_object_part_text_set(edje_obj, "pressure_label", buffer);
         
         /* Main wind direction */
         snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
         edje_object_part_text_set(edje_obj, "wind_direction_label", buffer);
         /* Main wind speed */
-        snprintf (buffer, sizeof(buffer) -1, "%0.f", temp_data->WindSpeed().value());
+        snprintf (buffer, sizeof(buffer) -1, "%0.f m/s", temp_data->WindSpeed().value());
         edje_object_part_text_set(edje_obj, "wind_speed_label", buffer);
 
         /* Change color for background */

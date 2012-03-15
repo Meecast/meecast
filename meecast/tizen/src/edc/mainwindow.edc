@@ -73,7 +73,7 @@ collections {
 		    fixed: 1 1;
 		    text {
 		       font: "Sans";
-		       size: 34;
+		       size: 36;
 		       text: "No locations are";
 		    }
 	            rel1 { 
@@ -98,7 +98,7 @@ collections {
 		    fixed: 1 1;
 		    text {
 		       font: "Sans";
-		       size: 34;
+		       size: 36;
 		       text: "set up yet.";
 		    }
 	            rel1 { 
@@ -669,7 +669,7 @@ collections {
                     rel1.relative: 0.2 0.2;
                     rel2.relative: 0.8 0.8;
                     params {                //list of parameters specific to the external object
-                      string: "icon" "/opt/apps/com.meecast.omweather/share/images/weather.com.png";     
+                      string: "icon" "";     
                     }                        
                 }
             }

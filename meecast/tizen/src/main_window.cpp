@@ -82,6 +82,7 @@ download_forecast(void *data, Evas *e, Evas_Object *o, void *event_info){
     for (short i=0; i < app->config->stationsList().size();i++){
         app->config->stationsList().at(i)->updateData(true);
     }
+    create_main_window(data);
 }
 /*******************************************************************************/
 static void
@@ -138,6 +139,7 @@ create_main_window(void *data)
     time_t current_day;
     struct tm   *tm = NULL;
 
+    fprintf(stderr,"Load!!!!!!!! yy %i %i\n",app->config->current_station_id(),  app->config->stationsList().size() );
     evas = ecore_evas_get(app->ee);
 
     bg = evas_object_rectangle_add(evas);
@@ -150,8 +152,10 @@ create_main_window(void *data)
     evas_object_focus_set(bg, EINA_TRUE);
 
 
-    if ((app->config->stationsList().size() > 0) && (app->config->current_station_id() < app->config->stationsList().size()))
+    if ((app->config->stationsList().size() > 0) && (app->config->current_station_id() < app->config->stationsList().size())){
+        fprintf(stderr,"ttttttttttttttttttttttttttttttt\n");
         app->dp = current_data(app->config->stationsList().at(app->config->current_station_id())->fileName());
+    }
     else
         app->dp = NULL;
 
@@ -159,7 +163,8 @@ create_main_window(void *data)
 
     edje_obj = edje_object_add(evas);
     app->top_main_window = edje_obj; 
-
+     if (app->dp)
+    fprintf(stderr,"Load!!!!!!!! yy %p %p\n", app->dp, app->dp->data().GetDataForTime(time(NULL)));
     /* Preparing data */
     if (app->dp != NULL && (temp_data = app->dp->data().GetDataForTime(time(NULL)))){    
     
@@ -335,6 +340,12 @@ create_main_window(void *data)
             fprintf(stderr, "Could not load 'nullwindow' from mainwindow.edj:"
                             " %s\n", errmsg);
         }
+        if (app->config->stationsList().size() > 0){
+
+            edje_object_part_text_set(edje_obj, "Message1", "Looks like there's no info" );
+            edje_object_part_text_set(edje_obj, "Message2", "for this location.");
+        }
+
         evas_object_move(edje_obj, 0, 0);
         evas_object_resize(edje_obj, WIDTH, HEIGHT);
         evas_object_show(edje_obj);

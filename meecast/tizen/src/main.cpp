@@ -65,6 +65,7 @@ Core::DataParser*
 current_data(std::string& str){
   Core::DataParser* dp;
   try{
+        fprintf(stderr,"rrrrrrrrrrr %s\n", str.c_str());
         dp = new Core::DataParser(str, DATA_XSD_PATH);
     }
     catch(const std::string &str){
@@ -75,6 +76,7 @@ current_data(std::string& str){
         std::cerr<<"Error in DataParser class: "<< str <<std::endl;
         return NULL;
     }
+    fprintf(stderr,"ooooorrrrrrrrrrr %p\n", dp);
     return dp;
 }
 
@@ -109,13 +111,11 @@ main(void)
     ecore_evas_title_set(app.ee, "MeeCast");
 
     app.config = create_and_fill_config();
-    fprintf(stderr,"pppppppppp\n");
     /* Check time for previous updating */
     if ((app.config->stationsList().size() > 0) && app.config->current_station_id() > app.config->stationsList().size()) 
         app.dp = current_data(app.config->stationsList().at(app.config->current_station_id())->fileName());
     else 
         app.dp = NULL;
-    fprintf(stderr,"pppppppppp\n");
 #if 0
     /* 25*60 = 30 minutes - minimal time between updates */ 
     if (app.dp && (abs(time(NULL) - app.dp->LastUpdate()) > 25*60)){

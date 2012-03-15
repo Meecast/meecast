@@ -90,7 +90,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 25;
+		       size: 30;
 		       text: "Manage locations";
 		       align: 0.0 0.5;
 		    }
@@ -111,6 +111,129 @@ collections {
 		    }
 		    rel1.relative: 0.8 0.11;
 		    rel2.relative: 0.95 0.15;
+		}
+	    }
+	    part {
+                name: "measurement_units_box";
+                type: RECT; 
+                mouse_events: 1; 
+                description {
+                   state: "default" 0.0; 
+                   color: 0 0 0 0; 
+                   rel1.relative: 0.05 0.17;
+                   rel2.relative: 0.9 0.28;
+                   }
+            }
+	    part {
+	        name: "measurement_units_label";
+		type: TEXT;
+                mouse_events: 0; 
+		description{
+		    text {
+		       font: "Sans";
+		       size: 30;
+		       text: "Measurement units";
+		       align: 0.0 0.5;
+		    }
+		    rel1.relative: 0.05 0.18;
+		    rel2.relative: 0.9 0.28;
+		}
+	    }
+	    part {
+	        name: "measurement_units_label2";
+		type: TEXT;
+                mouse_events: 0; 
+		description{
+		    text {
+		       font: "Sans";
+		       size: 30;
+		       text: ">";
+		       align: 1.0 0.5;
+		    }
+		    rel1.relative: 0.8 0.18;
+		    rel2.relative: 0.95 0.28;
+		}
+	    }
+	    part {
+                name: "appearance_box";
+                type: RECT; 
+                mouse_events: 1; 
+                description {
+                   state: "default" 0.0; 
+                   color: 0 0 0 0; 
+                   rel1.relative: 0.05 0.27;
+                   rel2.relative: 0.9 0.38;
+                   }
+            }
+	    part {
+	        name: "appearance_label";
+		type: TEXT;
+                mouse_events: 0; 
+		description{
+		    text {
+		       font: "Sans";
+		       size: 30;
+		       text: "Appearance";
+		       align: 0.0 0.5;
+		    }
+		    rel1.relative: 0.05 0.27;
+		    rel2.relative: 0.9 0.37;
+		}
+	    }
+	    part {
+	        name: "appearance_label2";
+		type: TEXT;
+                mouse_events: 0; 
+		description{
+		    text {
+		       font: "Sans";
+		       size: 30;
+		       text: ">";
+		       align: 1.0 0.5;
+		    }
+		    rel1.relative: 0.8 0.27;
+		    rel2.relative: 0.95 0.37;
+		}
+	    }
+	    part {
+                name: "update_box";
+                type: RECT; 
+                mouse_events: 1; 
+                description {
+                   state: "default" 0.0; 
+                   color: 0 0 0 0; 
+                   rel1.relative: 0.05 0.37;
+                   rel2.relative: 0.9 0.48;
+                   }
+            }
+	    part {
+	        name: "update_label";
+		type: TEXT;
+                mouse_events: 0; 
+		description{
+		    text {
+		       font: "Sans";
+		       size: 30;
+		       text: "Appearance";
+		       align: 0.0 0.5;
+		    }
+		    rel1.relative: 0.05 0.37;
+		    rel2.relative: 0.9 0.47;
+		}
+	    }
+	    part {
+	        name: "update_label2";
+		type: TEXT;
+                mouse_events: 0; 
+		description{
+		    text {
+		       font: "Sans";
+		       size: 30;
+		       text: ">";
+		       align: 1.0 0.5;
+		    }
+		    rel1.relative: 0.8 0.37;
+		    rel2.relative: 0.95 0.47;
 		}
 	    }
 

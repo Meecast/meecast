@@ -88,6 +88,7 @@ _sel_source_cb(void *data, Evas_Object *obj, void *event_info)
 
     evas_object_del(app->list);
     evas_object_del(app->setting_top_main_window2);
+    evas_object_del(app->setting_menu2);
     app->index_list = elm_genlist_item_index_get(elm_genlist_selected_item_get(app->list));
     create_countries_window(data);
 }
@@ -99,6 +100,7 @@ _sel_country_cb(void *data, Evas_Object *obj, void *event_info)
 
     evas_object_del(app->list);
     evas_object_del(app->setting_top_main_window2);
+    evas_object_del(app->setting_menu2);
     app->index_list = elm_genlist_item_index_get(elm_genlist_selected_item_get(app->list));
     create_regions_window(data);
 }
@@ -110,6 +112,7 @@ _sel_region_cb(void *data, Evas_Object *obj, void *event_info)
 
     evas_object_del(app->list);
     evas_object_del(app->setting_top_main_window2);
+    evas_object_del(app->setting_menu2);
     app->index_list = elm_genlist_item_index_get(elm_genlist_selected_item_get(app->list));
     create_stations_window(data);
 }
@@ -122,6 +125,10 @@ _sel_station_cb(void *data, Evas_Object *obj, void *event_info)
 
     evas_object_del(app->list);
     evas_object_del(app->setting_top_main_window2);
+    evas_object_del(app->setting_top_main_window);
+
+    evas_object_del(app->setting_menu);
+    evas_object_del(app->setting_menu2);
 
     std::string path(Core::AbstractConfig::prefix);
     path += Core::AbstractConfig::sharePath;
@@ -189,52 +196,23 @@ _sel_station_cb(void *data, Evas_Object *obj, void *event_info)
              app->config->current_station_id(0);
         //ConfigQml::Config::stationsList(*stationlist);
         app->config->saveConfig();
-
-        std::cerr<<"ssssssssssssssssssssssssssssss"<<app->config->stationsList().size()<<std::endl;
+    }
+    
+    fprintf(stderr,"Updating....\n");
+    for (short i=0; i < app->config->stationsList().size();i++){
+        app->config->stationsList().at(i)->updateData(true);
     }
 
-#if 0
-    Core::Station *station;
-    std::string code = city_id.toStdString();
+    delete app->config;
+    app->config = new Core::Config(Core::AbstractConfig::getConfigPath()+
+                               "config.xml",
+                               Core::AbstractConfig::prefix+
+                               Core::AbstractConfig::schemaPath+
+                               "config.xsd");
+ 
 
-    std::string path(Core::AbstractConfig::prefix);
-    path += Core::AbstractConfig::sourcesPath;
-    Core::SourceList *sourcelist = new Core::SourceList(path);
+           create_main_window(data);
 
-    std::string url_template = sourcelist->at(source_id)->url_template();
-    std::string url_detail_template = sourcelist->at(source_id)->url_detail_template();
-    std::string url_for_view = sourcelist->at(source_id)->url_for_view();
-    std::string cookie = sourcelist->at(source_id)->cookie();
-
-    char forecast_url[4096];
-    snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), code.c_str());
-    char forecast_detail_url[4096];
-    snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, url_detail_template.c_str(), code.c_str());
-    char view_url[4096];
-    snprintf(view_url, sizeof(view_url)-1, url_for_view.c_str(), code.c_str());
-
-    station = new Core::Station(
-                source.toStdString(),
-                code,
-                city_name.toUtf8().data(),
-                country.toStdString(),
-                region.toStdString(),
-                forecast_url,
-                forecast_detail_url,
-                view_url,
-                cookie,
-                gps);
-    std::string filename(Core::AbstractConfig::getConfigPath());
-    filename += source.toStdString();
-    filename += "_";
-    filename += code;
-    station->fileName(filename);
-    station->converter(sourcelist->at(source_id)->binary());
-
-    stationsList().push_back(station);
-    //ConfigQml::Config::stationsList(*stationlist);
-    saveConfig();
-#endif
 }
 
 static void
@@ -280,7 +258,7 @@ _item_content_add_get(void *data, Evas_Object *obj, const char *part)
 
    Evas_Object *ic = elm_icon_add(obj);
    if (!strcmp(part, "elm.swallow.end")){
-        elm_icon_standard_set(ic, "new");
+        elm_icon_standard_set(ic, "save");
    }
    evas_object_size_hint_aspect_set(ic, EVAS_ASPECT_CONTROL_VERTICAL, 1, 1);
    return ic;

@@ -32,6 +32,7 @@
 #include "config.h"
 #include "station.h"
 #include <iostream>
+#include <string.h>
 #include <fstream>
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
@@ -248,6 +249,7 @@ Config::saveConfig()
     //std::cerr << doc.toString().toStdString() << std::endl;
     file.close();
     #else
+    char buffer[4096];
     using namespace std;
     ofstream file_out;
     file_out.open(_filename->c_str());
@@ -269,9 +271,45 @@ Config::saveConfig()
         file_out<<"  <country>"<< (*i)->country()<<"</country>"<<endl;
         file_out<<"  <region>"<< (*i)->region()<<"</region>"<<endl;
         file_out<<"  <file_name>"<< (*i)->fileName()<<"</file_name>"<<endl;
-        file_out<<"  <forecast_url>"<< (*i)->forecastURL()<<"</forecast_url>"<<endl;
-        file_out<<"  <detail_url>"<< (*i)->detailURL()<<"</detail_url>"<<endl;
-        file_out<<"  <view_url>"<< (*i)->viewURL()<<"</view_url>"<<endl;
+        //file_out<<"  <forecast_url>"<< (*i)->forecastURL()<<"</forecast_url>"<<endl;
+        {
+           std::string temp("");
+           snprintf(buffer, sizeof(buffer)-1, "%s", (char *)(*i)->forecastURL().c_str()); 
+           for (int i= 0;i<strlen(buffer); i ++){
+                if (buffer[i] == '&')
+                   temp += "&amp;";
+                else
+                    temp += buffer[i];
+           }
+           file_out<<"  <forecast_url>"<< temp <<"</forecast_url>"<<endl;
+        }
+
+//        file_out<<"  <detail_url>"<< (*i)->detailURL()<<"</detail_url>"<<endl;
+        {
+           std::string temp("");
+           snprintf(buffer, sizeof(buffer)-1, "%s", (char *)(*i)->detailURL().c_str()); 
+           for (int i= 0;i<strlen(buffer); i ++){
+                if (buffer[i] == '&')
+                   temp += "&amp;";
+                else
+                    temp += buffer[i];
+           }
+           file_out<<"  <detail_url>"<< temp <<"</detail_url>"<<endl;
+        }
+
+//        file_out<<"  <view_url>"<< (*i)->viewURL()<<"</view_url>"<<endl;
+        {
+           std::string temp("");
+           snprintf(buffer, sizeof(buffer)-1, "%s", (*i)->viewURL().c_str()); 
+           for (int i= 0;i<strlen(buffer); i ++){
+                if (buffer[i] == '&')
+                   temp += "&amp;";
+                else
+                    temp += buffer[i];
+           }
+           file_out<<"  <view_url>"<< temp <<"</view_url>"<<endl;
+        }
+
         file_out<<"  <converter>"<< (*i)->converter()<<"</converter>"<<endl;
         if ((*i)->gps() == false)
             file_out<<"  <gps>false</gps>"<<endl;

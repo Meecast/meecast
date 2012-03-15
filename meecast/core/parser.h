@@ -42,7 +42,7 @@
         #include <QtXml/QDomDocument>
         #include <QFile>
     #else
-        #include <libxml/parser.h>
+         #include <libxml/parser.h>
     #endif
 #endif
 #include <string>

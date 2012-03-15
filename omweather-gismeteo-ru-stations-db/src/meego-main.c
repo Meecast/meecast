@@ -1060,9 +1060,8 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
    /* Day weather forecast */
    /* Evaluate xpath expression */
    // xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/@title", xpathCtx);
-   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/@title", xpathCtx);
-  
-
+//   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/@title", xpathCtx);
+   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody/tr/th/@title", xpathCtx);
    if(xpathObj == NULL) {
         fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", "//*[@class='c0 day']/div/text()");
         xmlXPathFreeContext(xpathCtx); 
@@ -1071,23 +1070,23 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
 
   nodes   = xpathObj->nodesetval;
   size = (nodes) ? nodes->nodeNr : 0;
-  /* fprintf(stderr, "SIZE!!!!!!!!!!!!!!: %i\n", size); */
- // xpathObj2 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0' and @title]/text()", xpathCtx);
-  xpathObj2 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/th[@title]/text()", xpathCtx);
- // xpathObj3 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c3']/text()", xpathCtx);
-  xpathObj3 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/following-sibling::*[@class='temp']/text()", xpathCtx);
+  fprintf(stderr, "SIZE!!!!!!!!!!!!!!: %i\n", size); 
+  xpathObj2 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div//table/tbody/tr/th[@title]/text()", xpathCtx);
+  xpathObj3 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div//table/tbody//*/td[@class='temp']/span[@class='value m_temp c']/text()", xpathCtx);
+ 
 //  xpathObj4 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c1']/div/img/@src", xpathCtx);
-  xpathObj4 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/following-sibling::*[@class='clicon']/img/@src", xpathCtx);
+  xpathObj4 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div//table/tbody/tr/th/following-sibling::*[@class='clicon']/img/@src", xpathCtx);
  // xpathObj5 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c2']/span/text()", xpathCtx);
-  xpathObj5 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/following-sibling::*[@class='cltext']/text()", xpathCtx);
+  xpathObj5 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div//table/tbody/tr/th/following-sibling::*[@class='cltext']/text()", xpathCtx);
  // xpathObj6 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c4']/text()", xpathCtx);
-  xpathObj6 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/following-sibling::*/text()", xpathCtx);
-//  xpathObj7 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c5']/div/text()", xpathCtx);
-  xpathObj7 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/following-sibling::*/dl[@class='wind']/dd/text()", xpathCtx);
-//  xpathObj8 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c5']/div/img/@title", xpathCtx);
-  xpathObj8 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/following-sibling::*/dl/dt/text()", xpathCtx);
+  //xpathObj6 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div//table/tbody/tr/th/following-sibling::*/text()", xpathCtx);
+  xpathObj6 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div//table/tbody//*/td/span[@class='value m_press torr']/text()", xpathCtx);
+//  xpathObj7 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div//table/tbody/tr/th/following-sibling::*/dl[@class='wind']/dd/text()", xpathCtx);
+  xpathObj7 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div//table/tbody//*/dl[@class='wind']/dd/span[@class='value m_wind ms']/text()", xpathCtx);
+  //xpathObj8 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div//table/tbody/tr/th/following-sibling::*/dl/dt/text()", xpathCtx);
+  xpathObj8 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div//table/tbody//*/dt[@class]/text()", xpathCtx);
 //  xpathObj9 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c6']/text()", xpathCtx);
-  xpathObj9 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/following-sibling::*/text()", xpathCtx);
+  xpathObj9 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div//table/tbody/tr/th/following-sibling::*/text()", xpathCtx);
   /* fprintf(stderr, "Result (%d nodes):\n", size); */
   for(i = 0; i < size; ++i) {
       day = NULL;
@@ -1196,7 +1195,7 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
          /* added wind direction */
          if (xpathObj8 && !xmlXPathNodeSetIsEmpty(xpathObj8->nodesetval) &&
              xpathObj8->nodesetval->nodeTab[i] && xpathObj8->nodesetval->nodeTab[i]->content){
-             /* fprintf (stderr, "Wind direction: %s\n", xpathObj8->nodesetval->nodeTab[i]->content); */ 
+             fprintf (stderr, "Wind direction: %s\n", xpathObj8->nodesetval->nodeTab[i]->content);  
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj8->nodesetval->nodeTab[i]->content);
              /* Wind direction */
              if (!strcoll(buffer, "З"))

@@ -1,0 +1,130 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>TextReader Parser</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="libxml++ - An XML Parser for C++">
+<link rel="up" href="chapter-parsers.html" title="Chapter 2. Parsers">
+<link rel="prev" href="ch02s02.html" title="SAX Parser">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">TextReader Parser</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="ch02s02.html">Prev</a> </td>
+<th width="60%" align="center">Chapter 2. Parsers</th>
+<td width="20%" align="right"> </td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="sect1" title="TextReader Parser">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id2592555"></a>TextReader Parser</h2></div></div></div>
+<p>Like the SAX parser, the TextReader parser is suitable for sequential parsing, but instead of implementing handlers for specific parts of the document, it allows you to detect the current node type, process the node accordingly, and skip forward in the document as much as necessary. Unlike the DOM parser, you may not move backwards in the XML document. And unlike the SAX parser, you must not waste time processing nodes that do not interest you. </p>
+<p>All methods are on the single parser instance, but their result depends on the current context. For instance, use <code class="literal">read()</code> to move to the next node, and <code class="literal">move_to_element()</code> to navigate to child nodes. These methods will return false when no more nodes are available. Then use methods such as <code class="literal">get_name()</code> and <code class="literal">get_value()</code> to examine the elements and their attributes.</p>
+<div class="sect2" title="Example">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id2592603"></a>Example</h3></div></div></div>
+<p>This example examines each node in turn, then moves to the next node.</p>
+<p><a class="ulink" href="http://git.gnome.org/browse/libxml++/tree/examples/textreader" target="_top">Source Code</a></p>
+<p>File: main.cc
+</p>
+<pre class="programlisting">
+#ifdef HAVE_CONFIG_H
+#include &lt;config.h&gt;
+#endif
+
+#include &lt;libxml++/libxml++.h&gt;
+#include &lt;libxml++/parsers/textreader.h&gt;
+
+#include &lt;iostream&gt;
+
+struct indent {
+  int depth_;
+  indent(int depth): depth_(depth) {};
+};
+
+std::ostream &amp; operator&lt;&lt;(std::ostream &amp; o, indent const &amp; in)
+{
+  for(int i = 0; i != in.depth_; ++i)
+  {
+    o &lt;&lt; "  ";
+  }
+  return o;
+}
+
+int main(int /* argc */, char** /* argv */)
+{
+  // Set the global C and C++ locale to the user-configured locale,
+  // so we can use std::cout with UTF-8, via Glib::ustring, without exceptions.
+  std::locale::global(std::locale(""));
+
+  #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+  try
+  {
+  #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+    xmlpp::TextReader reader("example.xml");
+
+    while(reader.read())
+    {
+      int depth = reader.get_depth();
+      std::cout &lt;&lt; indent(depth) &lt;&lt; "--- node ---" &lt;&lt; std::endl;
+      std::cout &lt;&lt; indent(depth) &lt;&lt; "name: " &lt;&lt; reader.get_name() &lt;&lt; std::endl;
+      std::cout &lt;&lt; indent(depth) &lt;&lt; "depth: " &lt;&lt; reader.get_depth() &lt;&lt; std::endl;
+
+      if(reader.has_attributes())
+      {
+        std::cout &lt;&lt; indent(depth) &lt;&lt; "attributes: " &lt;&lt; std::endl;
+        reader.move_to_first_attribute();
+        do
+        {
+          std::cout &lt;&lt; indent(depth) &lt;&lt; "  " &lt;&lt; reader.get_name() &lt;&lt; ": " &lt;&lt; reader.get_value() &lt;&lt; std::endl;
+        } while(reader.move_to_next_attribute());
+        reader.move_to_element();
+      }
+      else
+      {
+        std::cout &lt;&lt; indent(depth) &lt;&lt; "no attributes" &lt;&lt; std::endl;
+      }
+
+      if(reader.has_value())
+        std::cout &lt;&lt; indent(depth) &lt;&lt; "value: '" &lt;&lt; reader.get_value() &lt;&lt; "'" &lt;&lt; std::endl;
+      else
+        std::cout &lt;&lt; indent(depth) &lt;&lt; "novalue" &lt;&lt; std::endl;
+
+    }
+  #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+  }
+  catch(const std::exception&amp; e)
+  {
+    std::cout &lt;&lt; "Exception caught: " &lt;&lt; e.what() &lt;&lt; std::endl;
+  }
+  #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+}
+
+</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="ch02s02.html">Prev</a> </td>
+<td width="20%" align="center"><a accesskey="u" href="chapter-parsers.html">Up</a></td>
+<td width="40%" align="right"> </td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">SAX Parser </td>
+<td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+<td width="40%" align="right" valign="top"> </td>
+</tr>
+</table>
+</div>
+</body>
+</html>

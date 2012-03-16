@@ -893,6 +893,7 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
     xmlXPathObjectPtr xpathObj7 = NULL; 
     xmlXPathObjectPtr xpathObj8 = NULL; 
     xmlXPathObjectPtr xpathObj9 = NULL; 
+    xmlXPathObjectPtr xpathObj10 = NULL; 
     xmlNodeSetPtr nodes;
     gchar       *temp_char;
     gint        pressure; 
@@ -1086,7 +1087,8 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
   //xpathObj8 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div//table/tbody/tr/th/following-sibling::*/dl/dt/text()", xpathCtx);
   xpathObj8 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div//table/tbody//*/dt[@class]/text()", xpathCtx);
 //  xpathObj9 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c6']/text()", xpathCtx);
-  xpathObj9 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div//table/tbody/tr/th/following-sibling::*/text()", xpathCtx);
+  xpathObj9 = xmlXPathEvalExpression("/html/body/div/div/div/div/div//div/table/tbody/tr/td[6]/text()", xpathCtx);
+  xpathObj10 = xmlXPathEvalExpression("/html/body/div/div/div/div/div//div/table/tbody/tr/td[7]/span[@class='value m_temp c']/text()", xpathCtx);
   /* fprintf(stderr, "Result (%d nodes):\n", size); */
   for(i = 0; i < size; ++i) {
       day = NULL;
@@ -1151,15 +1153,14 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj3->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
-                 if ((uint)buffer[j] == 226 ||  buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')){
-                     if ((uint)buffer[j] == 226){
+                 if ((char)buffer[j] == -30 ||  buffer[j] == '-' || buffer[j] == '&' || (buffer[j]>='0' && buffer[j]<='9')){
+                     if ((char)buffer[j] == -30 || buffer[j] == '&'){
                         sprintf(temp_buffer,"%s-",temp_buffer);
                      }
                      else
                         sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
                  }
              }
-			 /* fprintf(stderr, "     <temperature>%s</temperature>\n", temp_buffer); */
 			 fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 
          }
          /* added icon */
@@ -1218,26 +1219,29 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
                   sprintf(buffer,"%s","CALM");
              if (!strcoll(buffer, "Ш"))
                   sprintf(buffer,"%s","CALM");
-			 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", buffer);
+			 /* fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", buffer); */
          }
          /* added humidity */
          if (xpathObj9 && !xmlXPathNodeSetIsEmpty(xpathObj9->nodesetval) &&
-             xpathObj9->nodesetval->nodeNr >= (i*5+3) &&
-             xpathObj9->nodesetval->nodeTab[i*5+3] && xpathObj9->nodesetval->nodeTab[i*5+3]->content){
-            /* fprintf (stderr, "temperature %s\n", xpathObj9->nodesetval->nodeTab[i*5+3]->content); */
-			fprintf(file_out,"     <humidity>%s</humidity>\n", g_strdup(xpathObj9->nodesetval->nodeTab[i*5+3]->content));
+             xpathObj9->nodesetval->nodeTab[i] && xpathObj9->nodesetval->nodeTab[i]->content){
+             /* fprintf (stderr, "description %s\n", xpathObj5->nodesetval->nodeTab[i]->content); */
+			fprintf(file_out,"     <humidity>%s</humidity>\n", g_strdup(xpathObj9->nodesetval->nodeTab[i]->content));
          }
 	 /* added feels like */
-         if (xpathObj9 && !xmlXPathNodeSetIsEmpty(xpathObj9->nodesetval) &&
-             xpathObj9->nodesetval->nodeNr >= (i*5+4) &&
-             xpathObj9->nodesetval->nodeTab[i*5+4] && xpathObj9->nodesetval->nodeTab[i*5+4]->content){
-		snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj9->nodesetval->nodeTab[i*5+4]->content);
-             	memset(temp_buffer, 0, sizeof(temp_buffer));
-             	for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
-                	 if (buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9'))
-                     		sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
-            	 }
-		 fprintf(file_out,"     <flike>%s</flike>\n", temp_buffer); 
+        if (xpathObj10 && !xmlXPathNodeSetIsEmpty(xpathObj10->nodesetval) &&
+             xpathObj10->nodesetval->nodeTab[i] && xpathObj10->nodesetval->nodeTab[i]->content){
+             snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj10->nodesetval->nodeTab[i]->content);
+             memset(temp_buffer, 0, sizeof(temp_buffer));
+             for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
+                 if ((char)buffer[j] == -30 ||  buffer[j] == '-' || buffer[j] == '&' || (buffer[j]>='0' && buffer[j]<='9')){
+                     if ((char)buffer[j] == -30 || buffer[j] == '&'){
+                        sprintf(temp_buffer,"%s-",temp_buffer);
+                     }
+                     else
+                        sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+                 }
+             }
+		     fprintf(file_out,"     <flike>%s</flike>\n", temp_buffer); 
          }
 
       fprintf(file_out,"    </period>\n");
@@ -1261,6 +1265,9 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
     xmlXPathFreeObject(xpathObj8);
   if (xpathObj9)
     xmlXPathFreeObject(xpathObj9);
+  if (xpathObj10)
+    xmlXPathFreeObject(xpathObj10);
+
   /* fill current data */
   utc_time = mktime(&current_tm);
   if (utc_time != -1){

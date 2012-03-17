@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-03 18:03+0300\n"
+"POT-Creation-Date: 2012-03-17 21:04+0300\n"
 "PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -275,7 +275,7 @@ msgstr "Snehové prehánky / Vietor"
 #: omweather/src/weather-simple-popup.c:1163
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/AboutPage.qml:69
+#: meecast/qt-qml/AboutPage.qml:68
 msgid "About"
 msgstr "O aplikácií"
 
@@ -917,7 +917,7 @@ msgstr "Predpoveď: \n"
 msgid "Freezing Drizzle"
 msgstr "Mrznúce mrholenie"
 
-#: meecast/qt-qml/AboutPage.qml:169
+#: meecast/qt-qml/AboutPage.qml:168
 #, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
@@ -1127,15 +1127,15 @@ msgstr "Počasie pre trávnik a záhradu"
 msgid "Layout:"
 msgstr "Rozloženie:"
 
-#: meecast/qt-qml/AboutPage.qml:144
+#: meecast/qt-qml/AboutPage.qml:143
 msgid "Lead designer"
 msgstr ""
 
-#: meecast/qt-qml/AboutPage.qml:128
+#: meecast/qt-qml/AboutPage.qml:127
 msgid "Lead programmers"
 msgstr ""
 
-#: meecast/qt-qml/AboutPage.qml:188
+#: meecast/qt-qml/AboutPage.qml:187
 msgid "License"
 msgstr ""
 
@@ -1263,13 +1263,13 @@ msgstr "Jednotky tlaku"
 msgid "MeeCast"
 msgstr ""
 
-#: meecast/qt-qml/AboutPage.qml:78
+#: meecast/qt-qml/AboutPage.qml:77
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2011"
 msgstr ""
 
-#: meecast/qt-qml/AboutPage.qml:24
+#: meecast/qt-qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
 msgstr ""
 
@@ -1817,11 +1817,11 @@ msgstr "Tlak:"
 msgid "Pressure: "
 msgstr "Tlak:"
 
-#: meecast/qt-qml/AboutPage.qml:112
+#: meecast/qt-qml/AboutPage.qml:111
 msgid "Project administrator"
 msgstr ""
 
-#: meecast/qt-qml/AboutPage.qml:87
+#: meecast/qt-qml/AboutPage.qml:86
 msgid "Project website"
 msgstr ""
 
@@ -2315,7 +2315,7 @@ msgstr "Poďakovanie"
 msgid "The weather has been updated."
 msgstr "Údaje o počasí boli aktualizované."
 
-#: meecast/qt-qml/AboutPage.qml:197
+#: meecast/qt-qml/AboutPage.qml:196
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2342,7 +2342,7 @@ msgstr "Hrmenie"
 msgid "Today"
 msgstr "Dnes"
 
-#: omweather/src/weather-help.c:154 meecast/qt-qml/AboutPage.qml:160
+#: omweather/src/weather-help.c:154 meecast/qt-qml/AboutPage.qml:159
 msgid "Translators"
 msgstr "Predkladatelia"
 

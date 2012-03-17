@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-03 18:03+0300\n"
+"POT-Creation-Date: 2012-03-17 21:04+0300\n"
 "PO-Revision-Date: 2012-02-29 18:12+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -275,7 +275,7 @@ msgstr "ap: Lumikuuroja / Myöhemmin tuulista"
 #: omweather/src/weather-simple-popup.c:1163
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/AboutPage.qml:69
+#: meecast/qt-qml/AboutPage.qml:68
 msgid "About"
 msgstr "Tietoja"
 
@@ -917,7 +917,7 @@ msgstr "Ennuste: \n"
 msgid "Freezing Drizzle"
 msgstr "Jäätävää tihkusadetta"
 
-#: meecast/qt-qml/AboutPage.qml:169
+#: meecast/qt-qml/AboutPage.qml:168
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1126,15 +1126,15 @@ msgstr "Piha ja puutarha sää"
 msgid "Layout:"
 msgstr "Asettelu:"
 
-#: meecast/qt-qml/AboutPage.qml:144
+#: meecast/qt-qml/AboutPage.qml:143
 msgid "Lead designer"
 msgstr "Pääsuunnittelija"
 
-#: meecast/qt-qml/AboutPage.qml:128
+#: meecast/qt-qml/AboutPage.qml:127
 msgid "Lead programmers"
 msgstr "Pääohjelmoijat"
 
-#: meecast/qt-qml/AboutPage.qml:188
+#: meecast/qt-qml/AboutPage.qml:187
 msgid "License"
 msgstr "Lisenssi"
 
@@ -1258,7 +1258,7 @@ msgstr "Mittayksiköt"
 msgid "MeeCast"
 msgstr "MeeCast"
 
-#: meecast/qt-qml/AboutPage.qml:78
+#: meecast/qt-qml/AboutPage.qml:77
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2011"
@@ -1266,7 +1266,7 @@ msgstr ""
 "MeeCast - useilla alustoilla toimiva avoimen lähdekoodin sääohjelma. "
 "Perustuu OMWeatherin koodiin. Copyright (C) 2006-2011"
 
-#: meecast/qt-qml/AboutPage.qml:24
+#: meecast/qt-qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
 msgstr "MeeCast Harmattanille"
 
@@ -1800,11 +1800,11 @@ msgstr "Ilmanpaine:"
 msgid "Pressure: "
 msgstr "Ilmanpaine: "
 
-#: meecast/qt-qml/AboutPage.qml:112
+#: meecast/qt-qml/AboutPage.qml:111
 msgid "Project administrator"
 msgstr "Projektin hallinta"
 
-#: meecast/qt-qml/AboutPage.qml:87
+#: meecast/qt-qml/AboutPage.qml:86
 msgid "Project website"
 msgstr "Projektin web-sivusto"
 
@@ -2285,7 +2285,7 @@ msgstr "Kiitokset"
 msgid "The weather has been updated."
 msgstr "Säätiedot päivitetty."
 
-#: meecast/qt-qml/AboutPage.qml:197
+#: meecast/qt-qml/AboutPage.qml:196
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2322,7 +2322,7 @@ msgstr "Ukkosta"
 msgid "Today"
 msgstr "Tänään"
 
-#: omweather/src/weather-help.c:154 meecast/qt-qml/AboutPage.qml:160
+#: omweather/src/weather-help.c:154 meecast/qt-qml/AboutPage.qml:159
 msgid "Translators"
 msgstr "Kääntäjät"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-03 18:03+0300\n"
+"POT-Creation-Date: 2012-03-17 21:04+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -260,7 +260,7 @@ msgstr "До полудня снегопады / Позже ветер"
 #: omweather/src/weather-simple-popup.c:1163
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/AboutPage.qml:69
+#: meecast/qt-qml/AboutPage.qml:68
 msgid "About"
 msgstr "О программе"
 
@@ -902,7 +902,7 @@ msgstr "Прогноз: \n"
 msgid "Freezing Drizzle"
 msgstr "Изморось с градом"
 
-#: meecast/qt-qml/AboutPage.qml:169
+#: meecast/qt-qml/AboutPage.qml:168
 #, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
@@ -1106,15 +1106,15 @@ msgstr ""
 msgid "Layout:"
 msgstr "Расположение:"
 
-#: meecast/qt-qml/AboutPage.qml:144
+#: meecast/qt-qml/AboutPage.qml:143
 msgid "Lead designer"
 msgstr "Ведущий дизайнер"
 
-#: meecast/qt-qml/AboutPage.qml:128
+#: meecast/qt-qml/AboutPage.qml:127
 msgid "Lead programmers"
 msgstr "Ведущие программисты"
 
-#: meecast/qt-qml/AboutPage.qml:188
+#: meecast/qt-qml/AboutPage.qml:187
 msgid "License"
 msgstr ""
 
@@ -1236,13 +1236,13 @@ msgstr "Единицы измерений"
 msgid "MeeCast"
 msgstr ""
 
-#: meecast/qt-qml/AboutPage.qml:78
+#: meecast/qt-qml/AboutPage.qml:77
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2011"
 msgstr ""
 
-#: meecast/qt-qml/AboutPage.qml:24
+#: meecast/qt-qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
 msgstr ""
 
@@ -1771,11 +1771,11 @@ msgstr "Давление:"
 msgid "Pressure: "
 msgstr "Давление: "
 
-#: meecast/qt-qml/AboutPage.qml:112
+#: meecast/qt-qml/AboutPage.qml:111
 msgid "Project administrator"
 msgstr "Администратор проекта"
 
-#: meecast/qt-qml/AboutPage.qml:87
+#: meecast/qt-qml/AboutPage.qml:86
 msgid "Project website"
 msgstr "Web-сайт проекта"
 
@@ -2256,7 +2256,7 @@ msgstr "Благодарности"
 msgid "The weather has been updated."
 msgstr "Данные о погоде обновлены."
 
-#: meecast/qt-qml/AboutPage.qml:197
+#: meecast/qt-qml/AboutPage.qml:196
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2283,7 +2283,7 @@ msgstr "Гром"
 msgid "Today"
 msgstr "Сегодня"
 
-#: omweather/src/weather-help.c:154 meecast/qt-qml/AboutPage.qml:160
+#: omweather/src/weather-help.c:154 meecast/qt-qml/AboutPage.qml:159
 msgid "Translators"
 msgstr "Переводчики"
 

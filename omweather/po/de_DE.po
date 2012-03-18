@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-03 18:03+0300\n"
-"PO-Revision-Date: 2011-12-06 14:16+0100\n"
+"POT-Creation-Date: 2012-03-17 21:04+0300\n"
+"PO-Revision-Date: 2012-03-10 15:41+0100\n"
 "Last-Translator: Claudius Henrichs <claudius.h@gmx.de>\n"
 "Language-Team: Claudius Henrichs <claudius.h@gmx.de>\n"
 "Language: \n"
@@ -269,7 +269,7 @@ msgstr "Vormittags Schneeschauer / Wind"
 #: omweather/src/weather-simple-popup.c:1163
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/AboutPage.qml:69
+#: meecast/qt-qml/AboutPage.qml:68
 msgid "About"
 msgstr "Info"
 
@@ -450,18 +450,16 @@ msgid "Clear, Drifting Snow"
 msgstr "Klar, Schneetreiben"
 
 #: omweather/src/hash.data:31
-#, fuzzy
 msgid "Clear, Fog"
-msgstr "Klar, Rauch"
+msgstr "Klar, Nebel"
 
 #: omweather/src/hash.data:32
 msgid "Clear, Fog, Drizzle"
 msgstr "Klar, Nebel, Niesel"
 
 #: omweather/src/hash.data:33
-#, fuzzy
 msgid "Clear, Haze"
-msgstr "Klar, Rauch"
+msgstr "Klar, Dunst"
 
 #: omweather/src/hash.data:34
 msgid "Clear, Smoke"
@@ -500,19 +498,16 @@ msgid "Cloudy and Windy"
 msgstr "Bewölkt und windig"
 
 #: omweather/src/hash.data:41
-#, fuzzy
 msgid "Cloudy and light rain"
-msgstr "Teilweise bewölkt und windig"
+msgstr "Bewölkt und leichter Regen"
 
 #: omweather/src/hash.data:42
-#, fuzzy
 msgid "Cloudy and light snow"
-msgstr "Teilweise bewölkt und windig"
+msgstr "Bewölkt und leichter Schneefall"
 
 #: omweather/src/hash.data:43
-#, fuzzy
 msgid "Cloudy and snow showers"
-msgstr "Teilweise bewölkt und windig"
+msgstr "Bewölkt und Schneeschauer"
 
 #: omweather/src/hash.data:45
 msgid "Cloudy, Drifting Snow"
@@ -681,9 +676,8 @@ msgid "Drizzle / Fog"
 msgstr "Nieselregen / Nebel"
 
 #: omweather/src/hash.data:61
-#, fuzzy
 msgid "Drizzle / Wind"
-msgstr "Vormittags Nieselregen / Wind"
+msgstr "Nieselregen / Wind"
 
 #: omweather/src/hash.data:59
 msgid "Drizzle Early"
@@ -917,8 +911,7 @@ msgstr "Vorhersage: \n"
 msgid "Freezing Drizzle"
 msgstr "Überfrierender Nieselregen"
 
-#: meecast/qt-qml/AboutPage.qml:169
-#, fuzzy
+#: meecast/qt-qml/AboutPage.qml:168
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -942,7 +935,7 @@ msgstr ""
 "Polnisch - Tomasz Dominikowski\n"
 "Russisch - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
-"Schwedisch - Angela Nennebrandt\n"
+"Schwedisch - Angela Nennebrandt, Tomislav Veleckovik\n"
 "Slowakisch - Roman Moravčík\n"
 "Spanisch - Alejandro Lopez"
 
@@ -1041,9 +1034,8 @@ msgid "High"
 msgstr "Hoch"
 
 #: meecast/qt-qml/FullWeatherPage.qml:190
-#, fuzzy
 msgid "Hours"
-msgstr "2 Stunden"
+msgstr "Stunden"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
@@ -1128,15 +1120,15 @@ msgstr "Gartenwetter"
 msgid "Layout:"
 msgstr "Layout:"
 
-#: meecast/qt-qml/AboutPage.qml:144
+#: meecast/qt-qml/AboutPage.qml:143
 msgid "Lead designer"
 msgstr "Chefdesigner"
 
-#: meecast/qt-qml/AboutPage.qml:128
+#: meecast/qt-qml/AboutPage.qml:127
 msgid "Lead programmers"
 msgstr "Chefentwickler"
 
-#: meecast/qt-qml/AboutPage.qml:188
+#: meecast/qt-qml/AboutPage.qml:187
 msgid "License"
 msgstr "Lizenz"
 
@@ -1260,7 +1252,7 @@ msgstr "Maßeinheiten"
 msgid "MeeCast"
 msgstr "MeeCast"
 
-#: meecast/qt-qml/AboutPage.qml:78
+#: meecast/qt-qml/AboutPage.qml:77
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2011"
@@ -1269,7 +1261,7 @@ msgstr ""
 "Wettervorhersage basierend auf dem Code von OMWeather. Copyright (C) "
 "2006-2011"
 
-#: meecast/qt-qml/AboutPage.qml:24
+#: meecast/qt-qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
 msgstr "MeeCast für Harmattan"
 
@@ -1394,7 +1386,6 @@ msgid "Mostly Sunny"
 msgstr "Überwiegend sonnig"
 
 #: omweather/src/hash.data:122
-#, fuzzy
 msgid "Mostly clear"
 msgstr "Überwiegend klar"
 
@@ -1567,43 +1558,36 @@ msgid "Overcast"
 msgstr "Bedeckt"
 
 #: omweather/src/hash.data:165
-#, fuzzy
 msgid "Overcast and light rain"
-msgstr "Bedeckt"
+msgstr "Bedeckt und leichter Regen"
 
 #: omweather/src/hash.data:166
 msgid "Overcast and light snow"
-msgstr ""
+msgstr "Bedeckt und leichter Schneefall"
 
 #: omweather/src/hash.data:167 omweather/src/hash.data:171
-#, fuzzy
 msgid "Overcast and light wet snow"
-msgstr "Bedeckt"
+msgstr "Bedeckt und leichter Schneeregen"
 
 #: omweather/src/hash.data:169
-#, fuzzy
 msgid "Overcast and showers"
-msgstr "Bedeckt"
+msgstr "Bedeckt und Schauer"
 
 #: omweather/src/hash.data:168
-#, fuzzy
 msgid "Overcast and snow"
-msgstr "Bedeckt"
+msgstr "Bedeckt und Schneefall"
 
 #: omweather/src/hash.data:172
-#, fuzzy
 msgid "Overcast and snow showers"
-msgstr "Bedeckt"
+msgstr "Bedeckt und Schneeschauer"
 
 #: omweather/src/hash.data:170
-#, fuzzy
 msgid "Overcast and wet snow"
-msgstr "Bedeckt"
+msgstr "Bedeckt und Schneeregen"
 
 #: omweather/src/hash.data:173
-#, fuzzy
 msgid "Overcast and wet snow showers"
-msgstr "Bedeckt"
+msgstr "Bedeckt und Schneeregenschauer"
 
 #: omweather/src/hash.data:174
 msgid "PM Fog"
@@ -1646,9 +1630,8 @@ msgid "PM Showers / Wind"
 msgstr "Nachmittags Schauer / Wind"
 
 #: omweather/src/hash.data:184
-#, fuzzy
 msgid "PM Snow"
-msgstr "Vormittags Schnee"
+msgstr "Nachmittags Schnee"
 
 #: omweather/src/hash.data:186
 msgid "PM Snow Showers"
@@ -1743,34 +1726,28 @@ msgid "Partly Cloudy, T-Storm"
 msgstr "Teilweise bewölkt, Gewitter"
 
 #: omweather/src/hash.data:189
-#, fuzzy
 msgid "Partly cloudy"
 msgstr "Teilweise bewölkt"
 
 #: omweather/src/hash.data:190
-#, fuzzy
 msgid "Partly cloudy and light rain"
-msgstr "Teilweise bewölkt und windig"
+msgstr "Teilweise bewölkt und leichter Regen"
 
 #: omweather/src/hash.data:191
-#, fuzzy
 msgid "Partly cloudy and light snow"
-msgstr "Teilweise bewölkt und windig"
+msgstr "Teilweise bewölkt und leichter Schneefall"
 
 #: omweather/src/hash.data:192
-#, fuzzy
 msgid "Partly cloudy and light wet snow"
-msgstr "Teilweise bewölkt und windig"
+msgstr "Teilweise bewölkt und leichter Schneeregen"
 
 #: omweather/src/hash.data:193
-#, fuzzy
 msgid "Partly cloudy and showers"
-msgstr "Teilweise bewölkt und windig"
+msgstr "Teilweise bewölkt und Schauer"
 
 #: omweather/src/hash.data:194
-#, fuzzy
 msgid "Partly cloudy and snow showers"
-msgstr "Teilweise bewölkt und windig"
+msgstr "Teilweise bewölkt und Schneeschauer"
 
 #: omweather/src/weather-simple-settings.c:1676
 msgid "Period"
@@ -1813,11 +1790,11 @@ msgstr "Luftdruck: "
 msgid "Pressure: "
 msgstr "Luftdruck: "
 
-#: meecast/qt-qml/AboutPage.qml:112
+#: meecast/qt-qml/AboutPage.qml:111
 msgid "Project administrator"
 msgstr "Projektadministrator"
 
-#: meecast/qt-qml/AboutPage.qml:87
+#: meecast/qt-qml/AboutPage.qml:86
 msgid "Project website"
 msgstr "Projektseite"
 
@@ -1898,9 +1875,8 @@ msgid "Rain and Snow"
 msgstr "Regen und Schnee"
 
 #: omweather/src/hash.data:230
-#, fuzzy
 msgid "Rain to Snow / Wind"
-msgstr "Regen / Schnee / Wind"
+msgstr "Regen bis Schnee / Wind"
 
 #: omweather/src/hash.data:232
 msgid "Rain to Wintry Mix"
@@ -2299,7 +2275,7 @@ msgstr "Dank"
 msgid "The weather has been updated."
 msgstr "Wetter wurde aktualisiert."
 
-#: meecast/qt-qml/AboutPage.qml:197
+#: meecast/qt-qml/AboutPage.qml:196
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2336,7 +2312,7 @@ msgstr "Donner"
 msgid "Today"
 msgstr "Heute"
 
-#: omweather/src/weather-help.c:154 meecast/qt-qml/AboutPage.qml:160
+#: omweather/src/weather-help.c:154 meecast/qt-qml/AboutPage.qml:159
 msgid "Translators"
 msgstr "Übersetzer"
 
@@ -2397,9 +2373,8 @@ msgid "Update already running."
 msgstr "Aktualisierung wird bereits ausgeführt."
 
 #: meecast/qt-qml/UpdatePage.qml:122
-#, fuzzy
 msgid "Update interval"
-msgstr "Wetter aktualisieren"
+msgstr "Aktualisierungsintervall"
 
 #: omweather/src/hash.data:284 meecast/qt-qml/WeatherPage.qml:355
 msgid "Updating forecast"
@@ -2521,14 +2496,12 @@ msgid "Widget OMWeather is reloading"
 msgstr "OMWeather Widget wird neu geladen"
 
 #: meecast/qt-qml/VisualsPage.qml:436
-#, fuzzy
 msgid "Widget in LockScreen"
-msgstr "Widget in der Ereignisansicht"
+msgstr "Widget im Sperrbildschirm"
 
 #: meecast/qt-qml/VisualsPage.qml:463
-#, fuzzy
 msgid "Widget in StandbyScreen"
-msgstr "Widget in der Ereignisansicht"
+msgstr "Widget in Standbyansicht"
 
 #: meecast/qt-qml/VisualsPage.qml:410
 msgid "Widget in events view"
@@ -2620,6 +2593,9 @@ msgid ""
 "'Widget in events view'\n"
 " for using LockScreen widget"
 msgstr ""
+"Aktivieren Sie die Option \n"
+"\"Widget in der Ereignisansicht\" \n"
+"für das Widget im Sperrbildschirm."
 
 #: meecast/qt-qml/VisualsPage.qml:255
 msgid ""
@@ -2627,12 +2603,18 @@ msgid ""
 "'Widget in events view'\n"
 " for using StandbyScreen widget"
 msgstr ""
+"Aktivieren Sie die Option \n"
+"\"Widget in der Ereignisansicht\" \n"
+"für das Widget im Standby."
 
 #: meecast/qt-qml/UpdatePage.qml:73
 msgid ""
 "You should activate 'Widget in the events view' option in MeeCast appearance "
 "settings for auto update."
 msgstr ""
+"Aktivieren Sie die Option \"Widget in der Ereignisansicht\" in den "
+"Einstellungen für das MeeCast-Erscheinungsbild für automatische "
+"Aktualisierung."
 
 #: omweather/src/weather-simple-settings.c:2758
 msgid "Zoom in popup window "

@@ -11,8 +11,8 @@ import re
 import string
 
 #Country name and code
-country = "Europe/Sweden"
-id_region = "182" 
+country = "Europe/Estonia"
+id_region = "61" 
 
 def normalizing (source):
     result = source.replace("'","")
@@ -30,8 +30,8 @@ def main():
     anchors = ctxt.xpathEval("/html/body/div/div/div[4]/div/div[2]/div[4]/p/a/@href")
     for anchor in anchors:
         letter = re.split("=", anchor.content)[-1]
-#        if (letter < 'K'):
-#            continue
+        #if (letter < 'K'):
+        #    continue
         new_url = url + "?bl=%s" %(letter)
         print new_url
         urllib.urlretrieve (new_url, "./temp.html")
@@ -46,7 +46,7 @@ def stations_parser():
     c = db.connect(database=r"./foreca.com.db")
     cu = c.cursor()
 
-    doc = libxml2.htmlReadFile(r"./temp.html", "UTF-8", libxml2.HTML_PARSE_RECOVER)
+    doc = libxml2.htmlReadFile(r"./temp.html", "UTF-8", libxml2.HTML_PARSE_RECOVER) 
     ctxt = doc.xpathNewContext()
     anchors = ctxt.xpathEval("/html/body/div/div/div[4]/div/div[2]/div[@class='col3']//a/@href")
     anchors2 = ctxt.xpathEval("/html/body/div/div/div[4]/div/div[2]/div[@class='col3']//a/text()")
@@ -57,13 +57,18 @@ def stations_parser():
         name = normalizing(re.split("/", anchor.content)[-1])
         cityurl = "http://foreca.com/%s" %(anchor.content)
         urllib.urlretrieve (cityurl, "./station%s.html" %(name))
-        doc1 = libxml2.htmlReadFile(r"./station%s.html" %(name), "UTF-8", libxml2.HTML_PARSE_RECOVER)
+        doc1 = libxml2.htmlReadFile(r"./station%s.html" %(name), "UTF-8", libxml2.HTML_PARSE_RECOVER +
+                                                                          libxml2.HTML_PARSE_NOERROR +
+                                                                          libxml2.HTML_PARSE_NOWARNING)
         ctxt1 = doc1.xpathNewContext()
         anchors1 = ctxt1.xpathEval("/html/body/div/div/div[4]/div/div[2]/div/div/div[2]/a")
         for anchor1 in anchors1:
-            print anchor1.prop("href")
-            code = re.split("=", anchor1.prop("href"))[1]
-            print name, "-", code;
+            if anchor1.prop("href"):
+                break
+        if (anchor1.prop("href").find("=") == -1):
+            continue
+        code = re.split("=", anchor1.prop("href"))[1]
+        print name, "-", code;
         real_name = ""
         real_name = anchors2[i].content
         real_name = normalizing(real_name)

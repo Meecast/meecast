@@ -95,9 +95,11 @@ namespace Core {
 	    // if (is_hour)
             //     std::cerr<<"111111111111 "<<_time<<" "<<temp_time<<" "<< result_time<<std::endl;
             /* select min period including _time */
-            if ((result_time > 0) && result_time <= temp_time){
-                temp_time = result_time; 
-                temp_data_result = temp_data;
+            if (((result_time > 0) && result_time <= temp_time) || (result_time > 0 && !is_hour && temp_data->Current()) ){
+                if (!(temp_data_result && temp_data_result->Current()) || is_hour){
+                    temp_time = result_time; 
+                    temp_data_result = temp_data;
+                }
 	     //if (is_hour)
              //   std::cerr<<"success"<<std::endl;
             }

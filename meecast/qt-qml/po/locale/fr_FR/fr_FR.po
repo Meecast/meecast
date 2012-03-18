@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-03 18:03+0300\n"
+"POT-Creation-Date: 2012-03-17 21:04+0300\n"
 "PO-Revision-Date: 2011-11-03 23:28+0200\n"
 "Last-Translator: Nicolas Graziano <nicolas.graziano@gmail.com>\n"
 "Language-Team: French <>\n"
@@ -276,7 +276,7 @@ msgstr "Matin : averses de neige / vent en soirée"
 #: omweather/src/weather-simple-popup.c:1163
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/AboutPage.qml:69
+#: meecast/qt-qml/AboutPage.qml:68
 msgid "About"
 msgstr "À propos"
 
@@ -917,7 +917,7 @@ msgstr "Prévision : \n"
 msgid "Freezing Drizzle"
 msgstr "Bruine verglaçante"
 
-#: meecast/qt-qml/AboutPage.qml:169
+#: meecast/qt-qml/AboutPage.qml:168
 #, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
@@ -1129,15 +1129,15 @@ msgstr "Météo du jardin"
 msgid "Layout:"
 msgstr "Disposition :"
 
-#: meecast/qt-qml/AboutPage.qml:144
+#: meecast/qt-qml/AboutPage.qml:143
 msgid "Lead designer"
 msgstr "Designer principal"
 
-#: meecast/qt-qml/AboutPage.qml:128
+#: meecast/qt-qml/AboutPage.qml:127
 msgid "Lead programmers"
 msgstr "Programmeur principal"
 
-#: meecast/qt-qml/AboutPage.qml:188
+#: meecast/qt-qml/AboutPage.qml:187
 msgid "License"
 msgstr "Licence"
 
@@ -1261,13 +1261,13 @@ msgstr "Unités"
 msgid "MeeCast"
 msgstr ""
 
-#: meecast/qt-qml/AboutPage.qml:78
+#: meecast/qt-qml/AboutPage.qml:77
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2011"
 msgstr ""
 
-#: meecast/qt-qml/AboutPage.qml:24
+#: meecast/qt-qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
 msgstr ""
 
@@ -1811,11 +1811,11 @@ msgstr "Pression :"
 msgid "Pressure: "
 msgstr "Pression : "
 
-#: meecast/qt-qml/AboutPage.qml:112
+#: meecast/qt-qml/AboutPage.qml:111
 msgid "Project administrator"
 msgstr "Administrateur du projet"
 
-#: meecast/qt-qml/AboutPage.qml:87
+#: meecast/qt-qml/AboutPage.qml:86
 msgid "Project website"
 msgstr "Site du projet"
 
@@ -2297,7 +2297,7 @@ msgstr "Remerciements"
 msgid "The weather has been updated."
 msgstr "La météo a été mise à jour."
 
-#: meecast/qt-qml/AboutPage.qml:197
+#: meecast/qt-qml/AboutPage.qml:196
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2324,7 +2324,7 @@ msgstr "Orage"
 msgid "Today"
 msgstr "Aujourd'hui"
 
-#: omweather/src/weather-help.c:154 meecast/qt-qml/AboutPage.qml:160
+#: omweather/src/weather-help.c:154 meecast/qt-qml/AboutPage.qml:159
 msgid "Translators"
 msgstr "Traducteurs"
 

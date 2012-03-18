@@ -1,8 +1,18 @@
+meecast (0.5.4) unstable; urgency=low
+
+  * Added stations to foreca.com database (Poland, Ukraine, Moldova, Latvia,
+    Lithuania, Estonia)
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 17 Mar 2011 22:42:23 +0200
+
 meecast (0.5.3) unstable; urgency=low
 
+  * Fixed problem with gismeteo.ru
+  * Fixed problem with Current weather for weather.com
+  * Added stations to foreca.com database (Bulgaria)
   * Updated Germany translation
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 3 Mar 2011 12:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 17 Mar 2011 22:42:23 +0200
 
 meecast (0.5.2) unstable; urgency=low
 

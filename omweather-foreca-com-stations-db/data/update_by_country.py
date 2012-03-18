@@ -11,8 +11,8 @@ import re
 import string
 
 #Country name and code
-country = "Europe/Lithuania"
-id_region = "111" 
+country = "Europe/Estonia"
+id_region = "61" 
 
 def normalizing (source):
     result = source.replace("'","")

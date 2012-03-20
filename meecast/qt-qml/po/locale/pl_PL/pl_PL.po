@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 17:14+0300\n"
+"POT-Creation-Date: 2012-03-20 17:19+0300\n"
 "PO-Revision-Date: 2010-04-13 21:48+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <dominikowski@gmail.com>\n"
@@ -1671,12 +1671,7 @@ msgstr "Częściowe zachmurzenie, lekki deszcz"
 msgid "Partly Cloudy T-Storm"
 msgstr "Częściowe zachmurzenie, burza"
 
-#: omweather/src/hash.data:196
-#, fuzzy
-msgid "Partly Cloudy and Windly"
-msgstr "Częściowe zachmurzenie, wietrznie"
-
-#: omweather/src/hash.data:200
+#: omweather/src/hash.data:196 omweather/src/hash.data:200
 msgid "Partly Cloudy and Windy"
 msgstr "Częściowe zachmurzenie, wietrznie"
 
@@ -2874,6 +2869,10 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:322
 msgid "Ю-З"
 msgstr "Ю-З"
+
+#, fuzzy
+#~ msgid "Partly Cloudy and Windly"
+#~ msgstr "Częściowe zachmurzenie, wietrznie"
 
 #, fuzzy
 #~ msgid "Farenheit"

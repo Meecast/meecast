@@ -193,7 +193,7 @@
     g_hash_table_insert(hash, (void*)"Partly cloudy and showers", _("Partly cloudy and showers"));
     g_hash_table_insert(hash, (void*)"Partly cloudy and snow showers", _("Partly cloudy and snow showers"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy / Wind", _("Partly Cloudy / Wind"));
-    g_hash_table_insert(hash, (void*)"Partly Cloudy and Windly", _("Partly Cloudy and Windly"));
+    g_hash_table_insert(hash, (void*)"Partly Cloudy and Windy", _("Partly Cloudy and Windy"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy Few Snow", _("Partly Cloudy Few Snow"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy Light Rain", _("Partly Cloudy Light Rain"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy T-Storm", _("Partly Cloudy T-Storm"));

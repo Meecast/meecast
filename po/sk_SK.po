@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 17:14+0300\n"
+"POT-Creation-Date: 2012-03-20 17:19+0300\n"
 "PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -1692,12 +1692,7 @@ msgstr "Oblačno so slabým dažďom"
 msgid "Partly Cloudy T-Storm"
 msgstr "Oblačno s búrkou"
 
-#: omweather/src/hash.data:196
-#, fuzzy
-msgid "Partly Cloudy and Windly"
-msgstr "Oblačno a veterno"
-
-#: omweather/src/hash.data:200
+#: omweather/src/hash.data:196 omweather/src/hash.data:200
 msgid "Partly Cloudy and Windy"
 msgstr "Oblačno a veterno"
 
@@ -2900,6 +2895,10 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:322
 msgid "Ю-З"
 msgstr "Ю-З"
+
+#, fuzzy
+#~ msgid "Partly Cloudy and Windly"
+#~ msgstr "Oblačno a veterno"
 
 #, fuzzy
 #~ msgid "Farenheit"

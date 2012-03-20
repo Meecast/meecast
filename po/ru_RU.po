@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 17:14+0300\n"
+"POT-Creation-Date: 2012-03-20 17:19+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -1654,12 +1654,7 @@ msgstr "Малообачно Небольшой Дождь"
 msgid "Partly Cloudy T-Storm"
 msgstr "Малооблочно Гроза"
 
-#: omweather/src/hash.data:196
-#, fuzzy
-msgid "Partly Cloudy and Windly"
-msgstr "Небольшая облачность и ветер"
-
-#: omweather/src/hash.data:200
+#: omweather/src/hash.data:196 omweather/src/hash.data:200
 msgid "Partly Cloudy and Windy"
 msgstr "Небольшая облачность и ветер"
 
@@ -2844,6 +2839,10 @@ msgstr ""
 #: omweather/src/hash.data:322
 msgid "Ю-З"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Partly Cloudy and Windly"
+#~ msgstr "Небольшая облачность и ветер"
 
 #~ msgid "Farenheit"
 #~ msgstr "Фаренгейт"

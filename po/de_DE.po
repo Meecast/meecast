@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 17:14+0300\n"
+"POT-Creation-Date: 2012-03-20 17:19+0300\n"
 "PO-Revision-Date: 2012-03-10 15:41+0100\n"
 "Last-Translator: Claudius Henrichs <claudius.h@gmx.de>\n"
 "Language-Team: Claudius Henrichs <claudius.h@gmx.de>\n"
@@ -1673,12 +1673,7 @@ msgstr "Teilweise bewölkt / Leichter Regen"
 msgid "Partly Cloudy T-Storm"
 msgstr "Teilweise bewölkt / Gewitter"
 
-#: omweather/src/hash.data:196
-#, fuzzy
-msgid "Partly Cloudy and Windly"
-msgstr "Teilweise bewölkt und windig"
-
-#: omweather/src/hash.data:200
+#: omweather/src/hash.data:196 omweather/src/hash.data:200
 msgid "Partly Cloudy and Windy"
 msgstr "Teilweise bewölkt und windig"
 
@@ -2873,6 +2868,10 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:322
 msgid "Ю-З"
 msgstr "Ю-З"
+
+#, fuzzy
+#~ msgid "Partly Cloudy and Windly"
+#~ msgstr "Teilweise bewölkt und windig"
 
 #~ msgid "Farenheit"
 #~ msgstr "Fahrenheit"

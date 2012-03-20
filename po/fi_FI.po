@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 17:14+0300\n"
+"POT-Creation-Date: 2012-03-20 17:19+0300\n"
 "PO-Revision-Date: 2012-02-29 18:12+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -1681,12 +1681,7 @@ msgstr "Puolipilvistä ja kevyttä sadetta"
 msgid "Partly Cloudy T-Storm"
 msgstr "Puolipilvistä ja ukkosta"
 
-#: omweather/src/hash.data:196
-#, fuzzy
-msgid "Partly Cloudy and Windly"
-msgstr "Puolipilvistä ja tuulista"
-
-#: omweather/src/hash.data:200
+#: omweather/src/hash.data:196 omweather/src/hash.data:200
 msgid "Partly Cloudy and Windy"
 msgstr "Puolipilvistä ja tuulista"
 
@@ -2885,6 +2880,10 @@ msgstr ""
 #: omweather/src/hash.data:322
 msgid "Ю-З"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Partly Cloudy and Windly"
+#~ msgstr "Puolipilvistä ja tuulista"
 
 #, fuzzy
 #~ msgid "Farenheit"

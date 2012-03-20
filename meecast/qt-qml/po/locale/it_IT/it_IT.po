@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it_IT\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-20 17:14+0300\n"
+"POT-Creation-Date: 2012-03-20 17:19+0300\n"
 "PO-Revision-Date: 2010-07-27 17:04+0100\n"
 "Last-Translator: Luca <luca>\n"
 "Language-Team: Italiano\n"
@@ -1696,12 +1696,7 @@ msgstr "Parzialmente nuvoloso con deboli piogge"
 msgid "Partly Cloudy T-Storm"
 msgstr "Parzialmente nuvoloso con temporale"
 
-#: omweather/src/hash.data:196
-#, fuzzy
-msgid "Partly Cloudy and Windly"
-msgstr "Parzialmente nuvoloso e ventoso"
-
-#: omweather/src/hash.data:200
+#: omweather/src/hash.data:196 omweather/src/hash.data:200
 msgid "Partly Cloudy and Windy"
 msgstr "Parzialmente nuvoloso e ventoso"
 
@@ -2917,6 +2912,10 @@ msgstr ""
 #: omweather/src/hash.data:322
 msgid "Ю-З"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Partly Cloudy and Windly"
+#~ msgstr "Parzialmente nuvoloso e ventoso"
 
 #, fuzzy
 #~ msgid "Farenheit"

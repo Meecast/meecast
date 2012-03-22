@@ -660,7 +660,7 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
                         strptime((char *)temp_xml_string, "%D", &last_update_time);
 		        last_update_time.tm_sec = 0; last_update_time.tm_min = 0;
 		       	last_update_time.tm_hour = 0;
-			last_update_time.tm_isdst = 1;
+                last_update_time.tm_isdst = 1;
 
                         current_day = mktime(&last_update_time);
                         setlocale(LC_TIME, "");
@@ -1257,7 +1257,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
 	                        fprintf(file_out," end=\"%li\">\n", t_sunrise);
                                 if (temp_hi[0] != 0 && temp_low[0] != 0){ 
 	                            fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_hi); 
-				    fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
+				                fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
                                 }else{
                                     if (temp_hi[0] != 0)
 	                                    fprintf(file_out,"     <temperature>%s</temperature>\n", temp_hi); 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<source xmlns="https://garage.maemo.org/projects/omweather/">
+<name>bom.gov.au</name>
+<logo>bom.gov.au</logo>
+<base>bom.gov.au.db</base>
+<forecast url="ftp://ftp2.bom.gov.au/anon/gen/fwo/%s.xml" />
+<search url="http://xoap.weather.com/search/search?where=%s" />
+<library>libomweather-yr-no-source.so</library>
+<binary>/opt/com.meecast.omweather/lib/</binary>
+<showurl url="ftp://ftp2.bom.gov.au/anon/gen/fwo/%s.wrap.html" />
+</source>

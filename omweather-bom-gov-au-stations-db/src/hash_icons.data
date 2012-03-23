@@ -1,0 +1,51 @@
+
+    g_hash_table_insert(hash, "d000.png", "32");
+    g_hash_table_insert(hash, "n000.png", "31");
+    g_hash_table_insert(hash, "d100.png", "34");
+    g_hash_table_insert(hash, "n100.png", "33");
+    g_hash_table_insert(hash, "d210.png", "39");
+    g_hash_table_insert(hash, "d220.png", "39");
+    g_hash_table_insert(hash, "d222.png", "28");
+    g_hash_table_insert(hash, "n312.png", "13");
+    g_hash_table_insert(hash, "d412.png", "13");
+    g_hash_table_insert(hash, "n412.png", "13");
+    g_hash_table_insert(hash, "d200.png", "28");
+    g_hash_table_insert(hash, "n200.png", "29");
+    g_hash_table_insert(hash, "d211.png", "5");
+    g_hash_table_insert(hash, "d212.png", "28");
+    g_hash_table_insert(hash, "n432.png", "16");
+    g_hash_table_insert(hash, "d432.png", "16");
+    g_hash_table_insert(hash, "d300.png", "26");
+    g_hash_table_insert(hash, "n300.png", "26");
+    g_hash_table_insert(hash, "d310.png", "39");
+    g_hash_table_insert(hash, "d312.png", "30");
+    g_hash_table_insert(hash, "d322.png", "13");
+    g_hash_table_insert(hash, "d400.png", "26");
+    g_hash_table_insert(hash, "n400.png", "26");
+    g_hash_table_insert(hash, "n410.png", "11");
+    g_hash_table_insert(hash, "d410.png", "11");
+    g_hash_table_insert(hash, "d411.png", "5");
+    g_hash_table_insert(hash, "n411.png", "5");
+    g_hash_table_insert(hash, "d421.png", "5");
+    g_hash_table_insert(hash, "d420.png", "11");
+    g_hash_table_insert(hash, "d422.png", "14");
+    g_hash_table_insert(hash, "d430.png", "12");
+    g_hash_table_insert(hash, "d431.png", "5");
+    g_hash_table_insert(hash, "n431.png", "5");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

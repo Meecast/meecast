@@ -1210,7 +1210,7 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
                   sprintf(buffer,"%s","CALM");
              if (!strcoll(buffer, "Ш"))
                   sprintf(buffer,"%s","CALM");
-			 /* fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", buffer); */
+			 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", buffer); 
          }
          /* added humidity */
          if (xpathObj9 && !xmlXPathNodeSetIsEmpty(xpathObj9->nodesetval) &&

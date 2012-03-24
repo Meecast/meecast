@@ -11,8 +11,8 @@ import re
 import string
 
 #Country name and code
-country = "Europe/Estonia"
-id_region = "61" 
+country = "Europe/Romania"
+id_region = "157" 
 
 def normalizing (source):
     result = source.replace("'","")
@@ -30,8 +30,8 @@ def main():
     anchors = ctxt.xpathEval("/html/body/div/div/div[4]/div/div[2]/div[4]/p/a/@href")
     for anchor in anchors:
         letter = re.split("=", anchor.content)[-1]
-        #if (letter < 'K'):
-        #    continue
+        if (letter < 'S'):
+            continue
         new_url = url + "?bl=%s" %(letter)
         print new_url
         urllib.urlretrieve (new_url, "./temp.html")

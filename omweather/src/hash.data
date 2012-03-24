@@ -40,7 +40,9 @@
     g_hash_table_insert(hash, (void*)"Cloudy and Windy", _("Cloudy and Windy"));
     g_hash_table_insert(hash, (void*)"Cloudy and light rain", _("Cloudy and light rain"));
     g_hash_table_insert(hash, (void*)"Cloudy and light snow", _("Cloudy and light snow"));
+    g_hash_table_insert(hash, (void*)"Cloudy and light wet snow", _("Cloudy and light wet snow"));
     g_hash_table_insert(hash, (void*)"Cloudy and snow showers", _("Cloudy and snow showers"));
+    g_hash_table_insert(hash, (void*)"Cloudy and showers", _("Cloudy and showers"));
     g_hash_table_insert(hash, (void*)"Cloudy", _("Cloudy"));
     g_hash_table_insert(hash, (void*)"Cloudy, Drifting Snow", _("Cloudy, Drifting Snow"));
     g_hash_table_insert(hash, (void*)"Cloudy, Few Snow", _("Cloudy, Few Snow"));
@@ -192,6 +194,7 @@
     g_hash_table_insert(hash, (void*)"Partly cloudy and light wet snow", _("Partly cloudy and light wet snow"));
     g_hash_table_insert(hash, (void*)"Partly cloudy and showers", _("Partly cloudy and showers"));
     g_hash_table_insert(hash, (void*)"Partly cloudy and snow showers", _("Partly cloudy and snow showers"));
+    g_hash_table_insert(hash, (void*)"Partly cloudy and wet snow showers", _("Partly cloudy and wet snow showers"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy / Wind", _("Partly Cloudy / Wind"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy and Windly", _("Partly Cloudy and Windly"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy Few Snow", _("Partly Cloudy Few Snow"));

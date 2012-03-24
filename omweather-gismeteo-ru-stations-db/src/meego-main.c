@@ -1591,10 +1591,9 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
                         sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
                  }
              }
-       /* fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); */
-       fprintf (stderr, "temperature %s\n", xpathObj4->nodesetval->nodeTab[i]->content); 
+        fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 
+       /* fprintf (stderr, "temperature %s\n", xpathObj4->nodesetval->nodeTab[i]->content); */
    }
-    fprintf(stderr,"11111ssssssssssss\n");
    /* added pressure */
    if (xpathObj5 && !xmlXPathNodeSetIsEmpty(xpathObj5->nodesetval) && xpathObj5->nodesetval->nodeTab[i]->content){
       pressure = atoi((char*)xpathObj5->nodesetval->nodeTab[i]->content);

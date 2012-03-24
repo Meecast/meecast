@@ -40,7 +40,9 @@
     g_hash_table_insert(hash, (void*)"Cloudy and Windy", _("Cloudy and Windy"));
     g_hash_table_insert(hash, (void*)"Cloudy and light rain", _("Cloudy and light rain"));
     g_hash_table_insert(hash, (void*)"Cloudy and light snow", _("Cloudy and light snow"));
+    g_hash_table_insert(hash, (void*)"Cloudy and light wet snow", _("Cloudy and light wet snow"));
     g_hash_table_insert(hash, (void*)"Cloudy and snow showers", _("Cloudy and snow showers"));
+    g_hash_table_insert(hash, (void*)"Cloudy and showers", _("Cloudy and showers"));
     g_hash_table_insert(hash, (void*)"Cloudy", _("Cloudy"));
     g_hash_table_insert(hash, (void*)"Cloudy, Drifting Snow", _("Cloudy, Drifting Snow"));
     g_hash_table_insert(hash, (void*)"Cloudy, Few Snow", _("Cloudy, Few Snow"));

@@ -1,0 +1,51 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>UTF-8 and Glib::ustring</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="libxml++ - An XML Parser for C++">
+<link rel="up" href="chapter-introduction.html" title="Chapter 1. libxml++">
+<link rel="prev" href="chapter-introduction.html" title="Chapter 1. libxml++">
+<link rel="next" href="ch01s03.html" title="Compilation and Linking">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">UTF-8 and Glib::ustring</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="chapter-introduction.html">Prev</a> </td>
+<th width="60%" align="center">Chapter 1. libxml++</th>
+<td width="20%" align="right"> <a accesskey="n" href="ch01s03.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="sect1" title="UTF-8 and Glib::ustring">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id2627563"></a>UTF-8 and Glib::ustring</h2></div></div></div>
+<p>The libxml++ API takes, and gives, strings in the UTF-8 Unicode encoding, which can support all known languages and locales. This choice was made because, of the encodings that have this capability, UTF-8 is the most commonly accepted choice. UTF-8 is a multi-byte encoding, meaning that some characters use more than 1 byte. But for compatibility, old-fashioned 7-bit ASCII strings are unchanged when encoded as UTF-8, and UTF-8 strings do not contain null bytes which would cause old code to misjudge the number of bytes. For these reasons, you can store a UTF-8 string in a std::string object. However, the std::string API will operate on that string in terms of bytes, instead of characters.</p>
+<p>Because Standard C++ has no string class that can fully handle UTF-8, libxml++ uses the Glib::ustring class from the glibmm library. Glib::ustring has almost exactly the same API as std::string, but methods such as length() and operator[] deal with whole UTF-8 characters rather than raw bytes.</p>
+<p>There are implicit conversions between std::string and Glib::ustring, so you can use std::string wherever you see a Glib::ustring in the API, if you really don't care about any locale other than English. However, that is unlikely in today's connected world.</p>
+<p>glibmm also provides useful API to convert between encodings and locales.</p>
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="chapter-introduction.html">Prev</a> </td>
+<td width="20%" align="center"><a accesskey="u" href="chapter-introduction.html">Up</a></td>
+<td width="40%" align="right"> <a accesskey="n" href="ch01s03.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Chapter 1. libxml++ </td>
+<td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+<td width="40%" align="right" valign="top"> Compilation and Linking</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

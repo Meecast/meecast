@@ -1,6 +1,6 @@
 meecast (0.5.4) unstable; urgency=low
 
-  * Added stations to foreca.com database (Poland, Ukraine, Moldova, Latvia)
+  * Added stations to foreca.com database (Poland, Ukraine, Moldova, Latvia, Lithuania)
 
  -- Vlad Vasiliev <vlad@gas.by>  Sat, 17 Mar 2011 22:42:23 +0200
 

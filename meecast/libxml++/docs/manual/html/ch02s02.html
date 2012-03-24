@@ -1,0 +1,294 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SAX Parser</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="libxml++ - An XML Parser for C++">
+<link rel="up" href="chapter-parsers.html" title="Chapter 2. Parsers">
+<link rel="prev" href="chapter-parsers.html" title="Chapter 2. Parsers">
+<link rel="next" href="ch02s03.html" title="TextReader Parser">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<div class="navheader">
+<table width="100%" summary="Navigation header">
+<tr><th colspan="3" align="center">SAX Parser</th></tr>
+<tr>
+<td width="20%" align="left">
+<a accesskey="p" href="chapter-parsers.html">Prev</a> </td>
+<th width="60%" align="center">Chapter 2. Parsers</th>
+<td width="20%" align="right"> <a accesskey="n" href="ch02s03.html">Next</a>
+</td>
+</tr>
+</table>
+<hr>
+</div>
+<div class="sect1" title="SAX Parser">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id2588010"></a>SAX Parser</h2></div></div></div>
+<p>The SAX parser presents each node of the XML document in sequence. So when you process one node, you must have already stored information about any relevant previous nodes, and you have no information at that time about subsequent nodes. The SAX parser uses less memory than the DOM parser and it is a suitable abstraction for documents that can be processed sequentially rather than as a whole.</p>
+<p>By using the <code class="literal">parse_chunk()</code> method instead of <code class="literal">parse()</code>, you can even parse parts of the XML document before you have received the whole document.</p>
+<p>As shown in the example, you should derive your own class from SaxParser and override some of the virtual methods. These "handler" methods will be called while the document is parsed.</p>
+<div class="sect2" title="Example">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id2588051"></a>Example</h3></div></div></div>
+<p>This example shows how the handler methods are called during parsing.</p>
+<p><a class="ulink" href="http://git.gnome.org/browse/libxml++/tree/examples/sax_parser" target="_top">Source Code</a></p>
+<p>File: myparser.h
+</p>
+<pre class="programlisting">
+#ifndef __LIBXMLPP_EXAMPLES_MYPARSER_H
+#define __LIBXMLPP_EXAMPLES_MYPARSER_H
+
+#include &lt;libxml++/libxml++.h&gt;
+
+class MySaxParser : public xmlpp::SaxParser
+{
+public:
+  MySaxParser();
+  virtual ~MySaxParser();
+
+protected:
+  //overrides:
+#ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+  virtual void on_start_document();
+  virtual void on_end_document();
+  virtual void on_start_element(const Glib::ustring&amp; name,
+                                const AttributeList&amp; properties);
+  virtual void on_end_element(const Glib::ustring&amp; name);
+  virtual void on_characters(const Glib::ustring&amp; characters);
+  virtual void on_comment(const Glib::ustring&amp; text);
+  virtual void on_warning(const Glib::ustring&amp; text);
+  virtual void on_error(const Glib::ustring&amp; text);
+  virtual void on_fatal_error(const Glib::ustring&amp; text);
+#endif
+};
+
+
+#endif //__LIBXMLPP_EXAMPLES_MYPARSER_H
+</pre>
+<p>
+</p>
+<p>File: myparser.cc
+</p>
+<pre class="programlisting">
+#include "myparser.h"
+#include &lt;glibmm/convert.h&gt; //For Glib::ConvertError
+
+#include &lt;iostream&gt;
+
+MySaxParser::MySaxParser()
+  : xmlpp::SaxParser()
+{
+}
+
+MySaxParser::~MySaxParser()
+{
+}
+
+#ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+void MySaxParser::on_start_document()
+{
+  std::cout &lt;&lt; "on_start_document()" &lt;&lt; std::endl;
+}
+
+void MySaxParser::on_end_document()
+{
+  std::cout &lt;&lt; "on_end_document()" &lt;&lt; std::endl;
+}
+
+void MySaxParser::on_start_element(const Glib::ustring&amp; name,
+                                   const AttributeList&amp; attributes)
+{
+  std::cout &lt;&lt; "node name=" &lt;&lt; name &lt;&lt; std::endl;
+
+  // Print attributes:
+  for(xmlpp::SaxParser::AttributeList::const_iterator iter = attributes.begin(); iter != attributes.end(); ++iter)
+  {
+    try
+    {
+      std::cout &lt;&lt; "  Attribute name=" &lt;&lt; iter-&gt;name &lt;&lt; std::endl;
+    }
+    catch(const Glib::ConvertError&amp; ex)
+    {
+      std::cerr &lt;&lt; "MySaxParser::on_start_element(): Exception caught while converting name for std::cout: " &lt;&lt; ex.what() &lt;&lt; std::endl;
+    }
+
+    try
+    {
+      std::cout &lt;&lt; "    , value= " &lt;&lt; iter-&gt;value &lt;&lt; std::endl;
+    }
+    catch(const Glib::ConvertError&amp; ex)
+    {
+      std::cerr &lt;&lt; "MySaxParser::on_start_element(): Exception caught while converting value for std::cout: " &lt;&lt; ex.what() &lt;&lt; std::endl;
+    }
+  }
+}
+
+void MySaxParser::on_end_element(const Glib::ustring&amp; /* name */)
+{
+  std::cout &lt;&lt; "on_end_element()" &lt;&lt; std::endl;
+}
+
+void MySaxParser::on_characters(const Glib::ustring&amp; text)
+{
+  try
+  {
+    std::cout &lt;&lt; "on_characters(): " &lt;&lt; text &lt;&lt; std::endl;
+  }
+  catch(const Glib::ConvertError&amp; ex)
+  {
+    std::cerr &lt;&lt; "MySaxParser::on_characters(): Exception caught while converting text for std::cout: " &lt;&lt; ex.what() &lt;&lt; std::endl;
+  }
+}
+
+void MySaxParser::on_comment(const Glib::ustring&amp; text)
+{
+  try
+  {
+    std::cout &lt;&lt; "on_comment(): " &lt;&lt; text &lt;&lt; std::endl;
+  }
+  catch(const Glib::ConvertError&amp; ex)
+  {
+    std::cerr &lt;&lt; "MySaxParser::on_comment(): Exception caught while converting text for std::cout: " &lt;&lt; ex.what() &lt;&lt; std::endl;
+  }
+}
+
+void MySaxParser::on_warning(const Glib::ustring&amp; text)
+{
+  try
+  {
+    std::cout &lt;&lt; "on_warning(): " &lt;&lt; text &lt;&lt; std::endl;
+  }
+  catch(const Glib::ConvertError&amp; ex)
+  {
+    std::cerr &lt;&lt; "MySaxParser::on_warning(): Exception caught while converting text for std::cout: " &lt;&lt; ex.what() &lt;&lt; std::endl;
+  }
+}
+
+void MySaxParser::on_error(const Glib::ustring&amp; text)
+{
+  try
+  {
+    std::cout &lt;&lt; "on_error(): " &lt;&lt; text &lt;&lt; std::endl;
+  }
+  catch(const Glib::ConvertError&amp; ex)
+  {
+    std::cerr &lt;&lt; "MySaxParser::on_error(): Exception caught while converting text for std::cout: " &lt;&lt; ex.what() &lt;&lt; std::endl;
+  }
+}
+
+void MySaxParser::on_fatal_error(const Glib::ustring&amp; text)
+{
+  try
+  {
+    std::cout &lt;&lt; "on_fatal_error(): " &lt;&lt; text &lt;&lt; std::endl;
+  }
+  catch(const Glib::ConvertError&amp; ex)
+  {
+    std::cerr &lt;&lt; "MySaxParser::on_characters(): Exception caught while converting value for std::cout: " &lt;&lt; ex.what() &lt;&lt; std::endl;
+  }
+}
+#endif
+</pre>
+<p>
+</p>
+<p>File: main.cc
+</p>
+<pre class="programlisting">
+#ifdef HAVE_CONFIG_H
+#include &lt;config.h&gt;
+#endif
+
+#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+
+#include "myparser.h"
+
+int
+main(int argc, char* argv[])
+{
+  // Set the global C and C++ locale to the user-configured locale,
+  // so we can use std::cout with UTF-8, via Glib::ustring, without exceptions.
+  std::locale::global(std::locale(""));
+
+  std::string filepath;
+  if(argc &gt; 1 )
+    filepath = argv[1]; //Allow the user to specify a different XML file to parse.
+  else
+    filepath = "example.xml";
+    
+  // Parse the entire document in one go:
+  #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+  try
+  {
+  #endif //LIBXMLCPP_EXCEPTIONS_ENABLED 
+    MySaxParser parser;
+    parser.set_substitute_entities(true); //
+    parser.parse_file(filepath);
+  #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+  }
+  catch(const xmlpp::exception&amp; ex)
+  {
+    std::cout &lt;&lt; "libxml++ exception: " &lt;&lt; ex.what() &lt;&lt; std::endl;
+  }
+  #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+
+ 
+  // Demonstrate incremental parsing, sometimes useful for network connections:
+  {
+    //std::cout &lt;&lt; "Incremental SAX Parser:" &lt;&lt; std:endl;
+    
+    std::ifstream is(filepath.c_str());
+    /* char buffer[64];
+    const size_t buffer_size = sizeof(buffer) / sizeof(char); */
+
+    //Parse the file:
+    MySaxParser parser;
+    parser.parse_file(filepath);
+
+    //Or parse chunks (though this seems to have problems):
+/*
+    do
+    {
+      memset(buffer, 0, buffer_size);
+      is.read(buffer, buffer_size-1);
+      if(is &amp;&amp; is.gcount())
+      {
+        Glib::ustring input(buffer, is.gcount());
+        parser.parse_chunk(input);
+      }
+    }
+    while(is);
+
+    parser.finish_chunk_parsing();
+*/
+  }
+
+
+  return 0;
+}
+
+</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="navfooter">
+<hr>
+<table width="100%" summary="Navigation footer">
+<tr>
+<td width="40%" align="left">
+<a accesskey="p" href="chapter-parsers.html">Prev</a> </td>
+<td width="20%" align="center"><a accesskey="u" href="chapter-parsers.html">Up</a></td>
+<td width="40%" align="right"> <a accesskey="n" href="ch02s03.html">Next</a>
+</td>
+</tr>
+<tr>
+<td width="40%" align="left" valign="top">Chapter 2. Parsers </td>
+<td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td>
+<td width="40%" align="right" valign="top"> TextReader Parser</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

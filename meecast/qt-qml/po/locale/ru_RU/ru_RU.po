@@ -1731,9 +1731,8 @@ msgid "Partly cloudy and snow showers"
 msgstr "Переменная облачность и снегопады"
 
 #: omweather/src/hash.data:195
-#, fuzzy
 msgid "Partly cloudy and wet snow showers"
-msgstr "Переменная облачность и снегопады"
+msgstr "Переменная облачность и кратковременный мокрый снег"
 
 #: omweather/src/weather-simple-settings.c:1676
 msgid "Period"

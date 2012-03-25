@@ -945,8 +945,8 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
         snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj->nodesetval->nodeTab[0]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
-                 if ((char)buffer[j] == -30 || buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')) {
-                     if ((char)buffer[j] == -30)
+                 if ((char)buffer[j] == -30 || (uint)buffer[j] == 226 ||  buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')) {
+                     if ((char)buffer[j] == -30 || (uint)buffer[j] == 226)
                         sprintf(temp_buffer,"%s-",temp_buffer);
                      else
                         sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
@@ -1144,8 +1144,8 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj3->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
-                 if ((char)buffer[j] == -30 ||  buffer[j] == '-' || buffer[j] == '&' || (buffer[j]>='0' && buffer[j]<='9')){
-                     if ((char)buffer[j] == -30 || buffer[j] == '&'){
+                 if ((char)buffer[j] == -30 || (uint)buffer[j] == 226 || buffer[j] == '-' || buffer[j] == '&' || (buffer[j]>='0' && buffer[j]<='9')){
+                     if ((char)buffer[j] == -30 || buffer[j] == '&' || (uint)buffer[j] == 226){
                         sprintf(temp_buffer,"%s-",temp_buffer);
                      }
                      else
@@ -1584,8 +1584,8 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
        snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj4->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
-                 if ((char)buffer[j] == -30  || buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')){
-                     if ((char)buffer[j] == -30)
+                 if ((char)buffer[j] == -30  || (uint)buffer[j] == 226 || buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')){
+                     if ((char)buffer[j] == -30 || (uint)buffer[j] == 226)
                         sprintf(temp_buffer,"%s-",temp_buffer);
                      else
                         sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
@@ -1648,8 +1648,8 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj9->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
-                 if ((char)buffer[j] == -30 ||  buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')){
-                     if ((char)buffer[j] == -30)
+                 if ((char)buffer[j] == -30 || (uint)buffer[j] == 226 ||  buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')){
+                     if ((char)buffer[j] == -30 || (uint)buffer[j] == 226)
                         sprintf(temp_buffer,"%s-",temp_buffer);
                      else
                         sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
@@ -1725,7 +1725,7 @@ convert_station_gismeteo_data(const gchar *station_id_with_path, const gchar *re
     if(!access(buffer, R_OK))
         if ((lstat(buffer, &file_info) == 0) && (file_info.st_size > 0)){ 
             /* check that the file containe valid data */
-            doc =  htmlReadFile(station_id_with_path, "UTF-8", 0);
+            doc =  htmlReadFile(station_id_with_path, "UTF-8", HTML_PARSE_NOWARNING);
             if(doc){
                 root_node = xmlDocGetRootElement(doc);
                 if(root_node->type == XML_ELEMENT_NODE &&
@@ -1765,7 +1765,7 @@ convert_station_gismeteo_data(const gchar *station_id_with_path, const gchar *re
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
         /* check that the file containe valid data */
-        doc =  htmlReadFile(station_id_with_path, "UTF-8", 0);
+        doc =  htmlReadFile(station_id_with_path, "UTF-8", HTML_PARSE_NOWARNING);
         if(!doc)
             return -1;
         root_node = xmlDocGetRootElement(doc);
@@ -1797,7 +1797,7 @@ convert_station_gismeteo_data(const gchar *station_id_with_path, const gchar *re
                  xmlFreeDoc(doc);
                  xmlCleanupParser();
                  if(!access(detail_path_data, R_OK)){
-                     doc =  htmlReadFile(detail_path_data, "UTF-8", 0);
+                     doc =  htmlReadFile(detail_path_data, "UTF-8", HTML_PARSE_NOWARNING);
                     if(doc){
                         root_node = NULL;
                         root_node = xmlDocGetRootElement(doc);

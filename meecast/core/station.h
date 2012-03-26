@@ -60,11 +60,14 @@ namespace Core{
         bool prepareFile();
         Source *getSourceByName();
         public:
-        Station(const std::string& source_name, const std::string& id, const std::string& name,
+            Station(const std::string& source_name, const std::string& id, const std::string& name,
                     const std::string& country = 0, const std::string& region = 0, 
                     const std::string& forecastURL = 0,
-		    const std::string& detailURL = 0,
-		    const std::string& viewURL = 0, const std::string& cookie = 0, const bool gps = false);
+		            const std::string& detailURL = 0,
+		            const std::string& viewURL = 0, const std::string& cookie = 0, const bool gps = false);
+            Station(const std::string& source_name, const std::string& id, const std::string& name,
+                    const std::string& country = 0, const std::string& region = 0, 
+		            const bool gps = false);
             Station(const Station& station);
             Station& operator=(const Station& station);
             Source *_source;

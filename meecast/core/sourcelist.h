@@ -55,6 +55,7 @@ namespace Core {
             virtual ~SourceList();
             StationsList& searchStation(const std::string& station);
             Source* source_by_name(const std::string& source_name);
+            int source_id_by_name(const std::string& source_name);
 };
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

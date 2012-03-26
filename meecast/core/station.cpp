@@ -90,6 +90,8 @@ Station::Station(const std::string& source_name, const std::string& id, const st
         filename += source_name;
         filename += "_";
         filename += id;
+        if (source_name == "bom.gov.au")
+            filename += "_" + name;
         _fileName = new std::string(filename);
         _converter = new std::string(sourcelist->at(source_id)->binary());
 

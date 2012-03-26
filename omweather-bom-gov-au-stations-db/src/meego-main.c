@@ -491,7 +491,7 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
 
 /*******************************************************************************/
 gint
-parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *result_file){
+parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htmlDocPtr doc, const gchar *result_file){
     xmlNode     *cur_node = NULL,
                 *cur_node0 = NULL,
                 *child_node = NULL,
@@ -550,8 +550,8 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
                                 fprintf(stderr,"Station %s\n", id_station);
                                 xmlFree(temp_xml_string);
                                 /* If station in xml not station in config file exit */
-                               // if( strcmp(id_station, station_id) )
-                               //     return -1;
+                                if(strcmp(id_station, station_name))
+                                    continue;
                                 for (child_node = cur_node->children; child_node; child_node = child_node->next){
                                     if (child_node->type == XML_ELEMENT_NODE ){
                                         fprintf(stderr,"Children Node %s\n", child_node->name);
@@ -582,7 +582,7 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
                                             /* get end time for period */
                                             if (xmlGetProp(child_node, (const xmlChar*)"end-time-utc") != NULL){
                                                 snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
-                                                                      xmlGetProp(child_node, (const xmlChar*)"start-time-utc"));
+                                                                      xmlGetProp(child_node, (const xmlChar*)"end-time-utc"));
                                                 strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
                                                 utc_time_end = mktime(&tmp_tm);
                                             }
@@ -654,6 +654,7 @@ convert_station_bomgovau_data(const gchar *station_id_with_path, const gchar *re
     xmlNode *root_node = NULL;
     gint    days_number = -1;
     gchar   buffer[1024],
+            buffer2[1024],
             *delimiter = NULL;
     FILE    *file_out;
 
@@ -684,14 +685,25 @@ convert_station_bomgovau_data(const gchar *station_id_with_path, const gchar *re
             if(delimiter){
                 delimiter++; /* delete '/' */
                 snprintf(buffer, sizeof(buffer) - 1, "%s", delimiter);
-                delimiter = strrchr(buffer, '.');
+                delimiter = strrchr(buffer, '_');
                 if(!delimiter){
                     xmlFreeDoc(doc);
                     xmlCleanupParser();
                     return -1;
                 }
                 *delimiter = 0;
-                days_number = parse_and_write_xml_data(buffer, doc, result_file);
+                delimiter++; /* delete '_' */
+                snprintf(buffer2, sizeof(buffer2) - 1, "%s", delimiter);
+                delimiter = strrchr(buffer2, '.');
+                if(!delimiter){
+                    xmlFreeDoc(doc);
+                    xmlCleanupParser();
+                    return -1;
+                }
+                
+                *delimiter = 0;
+                fprintf(stderr,"Buf %s buf2 %s\n", buffer, buffer2);
+                days_number = parse_and_write_xml_data(buffer, buffer2, doc, result_file);
                 xmlFreeDoc(doc);
                 xmlCleanupParser();
                 if(!access(detail_path_data, R_OK)){

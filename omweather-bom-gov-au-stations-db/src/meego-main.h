@@ -43,7 +43,6 @@ void source_destroy(void);
 void free_fields(gpointer key, gpointer val, gpointer user_data);
 gint get_station_weather_data(const gchar *station_id_with_path, GHashTable *data, gboolean get_detail_data);
 //gint parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *data);
-gint parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *result_file);
-
+gint parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htmlDocPtr doc, const gchar *result_file);
 /*******************************************************************************/
 #endif

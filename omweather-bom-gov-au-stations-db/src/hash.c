@@ -31,7 +31,7 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-GHashTable *hash_icons_forecacom_table_create(void) {
+GHashTable *hash_icons_bomgovau_table_create(void) {
     GHashTable *hash = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -43,7 +43,7 @@ GHashTable *hash_icons_forecacom_table_create(void) {
 
 /*******************************************************************************/
 gpointer 
-hash_forecacom_table_find(GHashTable *hash, gpointer key, gboolean search_short_name) {
+hash_bomgovau_table_find(GHashTable *hash, gpointer key, gboolean search_short_name) {
     gpointer orig_key, search_text, 
              value = NULL, 
              result = NULL;

@@ -43,7 +43,7 @@ choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
     if(!image)
         return g_strdup("49");
     source = g_strdup_printf("%s", image);
-    tmp_result = hash_forecacom_table_find(hash_for_icons, source, FALSE);
+    tmp_result = hash_bomgovau_table_find(hash_for_icons, source, FALSE);
     if (tmp_result && (strlen(tmp_result) == 2 || strlen(tmp_result) == 1)){
        result = g_strdup(tmp_result);
        g_free(source);
@@ -116,7 +116,7 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
     if (!file_out)
         return -1;
 
-    hash_for_icons = hash_icons_forecacom_table_create();
+    hash_for_icons = hash_icons_bomgovau_table_create();
     /* Create xpath evaluation context */
     xpathCtx = xmlXPathNewContext(doc);
     if(xpathCtx == NULL) {
@@ -508,7 +508,8 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
                 buffer[1024],
                 buff[256];
     int         i;
-    int         temp_hi, temp_low, icon;
+    int         temp_hi, temp_low;
+    gchar       icon[256];
     int         check_timezone = FALSE;
     gchar       temp_buffer[buff_size];
     struct tm   tmp_tm = {0};
@@ -520,6 +521,7 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
     FILE        *file_out;
     time_t      utc_time_start;
     time_t      utc_time_end;
+    GHashTable *hash_for_icons;
 
     if(!doc)
         return -1;
@@ -527,6 +529,8 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
+
+    hash_for_icons = hash_icons_bomgovau_table_create();
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", station_id);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
@@ -556,8 +560,9 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
                                     if (child_node->type == XML_ELEMENT_NODE ){
                                         fprintf(stderr,"Children Node %s\n", child_node->name);
                                         /* clear variables */
-                                        temp_hi = INT_MAX; temp_low = INT_MAX; icon = INT_MAX;
+                                        temp_hi = INT_MAX; temp_low = INT_MAX; 
                                         memset(short_text, 0, sizeof(short_text));
+                                        memset(icon, 0, sizeof(icon));
                                         memset(ppcp, 0, sizeof(ppcp));
                                         /* station name */
                                         if (!xmlStrcmp(child_node->name, (const xmlChar *)"forecast-period") ){
@@ -595,7 +600,9 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
                                                         if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "air_temperature_maximum" ))
                                                             temp_hi = atoi(xmlNodeGetContent(child_node2));
                                                         if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "forecast_icon_code" ))
-                                                            icon = atoi(xmlNodeGetContent(child_node2));
+
+                                                            snprintf(icon, sizeof(icon) - 1, "%s", choose_hour_weather_icon(hash_for_icons, xmlNodeGetContent(child_node2))); 
+                                                        
                                                     }
                                                     if(!xmlStrcmp(child_node2->name, (const xmlChar *) "text")){                           
                                                         if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "precis" )){
@@ -622,8 +629,8 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
                                             fprintf(file_out,"     <temperature_hi>%i</temperature_hi>\n", temp_hi);				                
                                         if (temp_low != INT_MAX)
                                             fprintf(file_out,"     <temperature_low>%i</temperature_low>\n", temp_low);
-                                        if (icon != INT_MAX)
-                                            fprintf(file_out, "     <icon>%i</icon>\n", icon);
+                                        if (strlen(icon)>0)
+                                            fprintf(file_out, "     <icon>%s</icon>\n", icon);
                                         if (strlen (short_text)>0)
                                             fprintf(file_out, "     <description>%s</description>\n", short_text);
                                         if (strlen (ppcp)>0)
@@ -641,6 +648,7 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
         }
     }
 
+    g_hash_table_destroy(hash_for_icons);
     fclose(file_out);
     return count_day;
  

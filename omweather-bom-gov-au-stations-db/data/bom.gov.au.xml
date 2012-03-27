@@ -5,6 +5,7 @@
 <base>bom.gov.au.db</base>
 <forecast url="ftp://ftp2.bom.gov.au/anon/gen/fwo/%s.xml" />
 <search url="http://xoap.weather.com/search/search?where=%s" />
+<detail url="http://www.bom.gov.au/nsw/observations/nswall.shtml#%s"/>
 <library>libomweather-yr-no-source.so</library>
 <binary>/opt/com.meecast.omweather/lib/bomgovau</binary>
 <showurl url="ftp://ftp2.bom.gov.au/anon/gen/fwo/%s.wrap.html" />

@@ -41,8 +41,6 @@ choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
     gchar *source;
     gchar *tmp_result = NULL;
 
-    if(!image)
-        return g_strdup("49");
     source = g_strdup_printf("%s", image);
     tmp_result = hash_bomgovau_table_find(hash_for_icons, source, FALSE);
     if (tmp_result && (strlen(tmp_result) == 2 || strlen(tmp_result) == 1)){
@@ -142,7 +140,6 @@ parse_and_write_detail_data(const gchar *station_name, htmlDocPtr doc, const gch
     size = (nodes) ? nodes->nodeNr : 0; 
     
     for(i = 1; i < (size-1) ; ++i) {
-       fprintf(stderr,"ssssssssssssss %s\n", xpathObj->nodesetval->nodeTab[i]->content);
        if (!strcmp( xpathObj->nodesetval->nodeTab[i]->content, hash_bomgovau_table_find(hash_for_stations, station_name, FALSE))){
             fprintf(stderr, "FIND!!!!!!!!!!!!!!!! %s \n", xpathObj->nodesetval->nodeTab[i]->content);
             xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-datetime')]/text()", xpathCtx);
@@ -156,11 +153,34 @@ parse_and_write_detail_data(const gchar *station_name, htmlDocPtr doc, const gch
             /* set begin of day in localtime */
             tmp_tm.tm_year = tm->tm_year;
             tmp_tm.tm_mon = tm->tm_mon;  
-            t_start = mktime(&tmp_tm) - au_timezone*3600;
-            t_end = t_start - 2*3600;
+            t_start = mktime(&tmp_tm);// - au_timezone*3600;
+            t_end = t_start + 2*3600;
             fprintf(stderr, "Time %s %li\n", xpathObj2->nodesetval->nodeTab[i]->content, t_start);
-            fprintf(file_out,"    <period start=\"%li\"", t_start);
+            fprintf(file_out,"    <period start=\"%li\" current=\"true\"", t_start);
             fprintf(file_out," end=\"%li\">\n", t_end); 
+
+            xmlFree(xpathObj2);
+            xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-tmp')]/text()", xpathCtx);
+            
+            fprintf(file_out,"     <temperature>%s</temperature>\n", (const char*)xpathObj2->nodesetval->nodeTab[i]->content);				                
+            xmlFree(xpathObj2);
+            xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-relhum')]/text()", xpathCtx);
+            fprintf(file_out,"     <humidity>%s</humidity>\n", (const char*)xpathObj2->nodesetval->nodeTab[i]->content);				                
+            xmlFree(xpathObj2);
+            xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-wind-dir')]/text()", xpathCtx);
+            fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  xpathObj2->nodesetval->nodeTab[i]->content);
+            xmlFree(xpathObj2);
+            xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-wind-spd-kmh')]/text()", xpathCtx);
+
+            fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", ((atoi((const char*)xpathObj2->nodesetval->nodeTab[i]->content) * 1000)/3600));
+ 
+            xmlFree(xpathObj2);
+            xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-wind-gust-kmh')]/text()", xpathCtx);
+            fprintf(file_out,"     <wind_gust>%i</wind_gust>\n", ((atoi(xpathObj2->nodesetval->nodeTab[i]->content)*1000)/3600));
+            xmlFree(xpathObj2);
+            xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-pressure')]/text()", xpathCtx);
+            fprintf(file_out,"     <pressure>%s</pressure>\n", xpathObj2->nodesetval->nodeTab[i]->content);
+
 
             fprintf(file_out,"    </period>\n");
             break;

@@ -1,10 +1,12 @@
 meecast (0.5.5) unstable; urgency=low
 
+  * Added stations to foreca.com database (Austria)
   * Fixed problem with negative temperature in gismeteo.ru
   * Added icon for gismeteo.ru data
   * Fixed problem with Ppcp
+  * Began adding the new source bom.fov.au
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 25 Mar 2011 22:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2011 21:42:23 +0200
 
 meecast (0.5.4) unstable; urgency=low
 

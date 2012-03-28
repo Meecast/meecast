@@ -9,6 +9,8 @@ import libxml2, sys
 import os
 import re
 import string
+#Query for absent regions
+#SELECT regions.name  FROM regions WHERE regions.id NOT IN (SELECT stations.region_id FROM stations)
 
 #Country name and code
 country = "Europe/Austria"

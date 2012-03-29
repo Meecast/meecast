@@ -1,3 +1,9 @@
+meecast (0.5.6) unstable; urgency=low
+
+  * Nothing 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2011 21:42:23 +0200
+
 meecast (0.5.5) unstable; urgency=low
 
   * Added stations to foreca.com database (Austria)

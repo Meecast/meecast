@@ -58,7 +58,8 @@ void drawstandby(QHash <QString, QString> hash){
     QString iconpath = hash["iconpath"];
     
     QImage *image;
-    image = new QImage (QSize(120, 120), QImage::Format_Mono);
+    image = new QImage (QSize(120, 120), QImage::Format_RGB32);
+
     /* Left corner */
     int x = 0;
     int y = 0;
@@ -82,6 +83,8 @@ void drawstandby(QHash <QString, QString> hash){
     /* Icon */
     QPoint point(x + 50, y + 19);
     QImage icon;
+    iconpath = "/opt/com.meecast.omweather/share/images/smallcontour/" +
+                                 iconpath.right(iconpath.length() - iconpath.lastIndexOf("/") - 1);
     icon.load(iconpath);
     icon = icon.scaled(72, 72);
     paint.drawImage(point, icon); 
@@ -94,8 +97,12 @@ void drawstandby(QHash <QString, QString> hash){
                temp_string = temperature_low + QString::fromUtf8("°");
                paint.drawText(x, y + 55, 60, 50, Qt::AlignHCenter, temp_string); 
      }else{
-   	 if (hash["current"] == "TRUE")
-   		paint.setFont(QFont("Nokia Pure Bold", 21));
+   	    if (hash["current"] == "TRUE"){
+   		    paint.setFont(QFont("Nokia Pure Bold", 21));
+            myPenColor = QColor(0, 255, 0, 255);// set default color
+            pen.setColor(myPenColor);
+            paint.setPen(pen);
+        }
         QString temp_string = temperature + QString::fromUtf8("°");
         paint.drawText(x, y + 35, 60, 48, Qt::AlignHCenter, temp_string); 
      }

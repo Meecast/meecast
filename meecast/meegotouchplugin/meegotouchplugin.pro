@@ -17,7 +17,7 @@ TARGET = $$qtLibraryTarget(events-meecast)
 #TARGET = test
 DESTDIR = lib
 target.path += /usr/lib/meegotouch/applicationextensions/ 
-INSTALLS += target desktop_entry applet package
+INSTALLS += target desktop_entry applet package datasmallcontour
 
 #desktop_entry.path =  /usr/share/meegotouch/applicationextensions/ 
 desktop_entry.path =  /opt/com.meecast.omweather/share/applet 
@@ -30,3 +30,5 @@ applet.files = *.qml
 package.path =  /opt/com.meecast.omweather/share/packages
 package.files = *.deb
 
+datasmallcontour.files += data/smallcontour/*.png
+datasmallcontour.path = /opt/com.meecast.omweather/share/images/smallcontour

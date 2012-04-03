@@ -15,7 +15,7 @@ import string
 #Country name and code
 country = "Europe/France"
 id_region = "68" 
-first_letter = "D"
+first_letter = "I"
 
 def normalizing (source):
     result = source.replace("'","")

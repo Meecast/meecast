@@ -252,6 +252,7 @@
     g_hash_table_insert(hash, (void*)"Scattered T-Storms", _("Scattered T-Storms"));
     g_hash_table_insert(hash, (void*)"Set locations", _("Set locations"));
     g_hash_table_insert(hash, (void*)"Showers / Wind Early", _("Showers / Wind Early"));
+    g_hash_table_insert(hash, (void*)"Shallow Fog", _("Shallow Fog"));
     g_hash_table_insert(hash, (void*)"Showers / Wind", _("Showers / Wind"));
     g_hash_table_insert(hash, (void*)"Showers Early", _("Showers Early"));
     g_hash_table_insert(hash, (void*)"Showers Late", _("Showers Late"));

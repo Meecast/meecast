@@ -2,6 +2,8 @@ meecast (0.5.6) unstable; urgency=low
 
   * Added Belgium, Albabnia, Andorra, Czech Republic, Hungary, Iceland, Italy to foreca.com database
   * Fixed problem with current weather for weather.com source
+  * Fixed problem with current weather for foreca.com source
+  * Improvement in widget for stanby screen 
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2011 21:42:23 +0200
 

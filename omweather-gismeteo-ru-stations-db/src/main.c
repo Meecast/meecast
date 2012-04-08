@@ -523,14 +523,13 @@ get_date_for_current_weather(gchar *temp_string){
     return tmp_tm;
 }
 /*******************************************************************************/
+
 struct tm
 get_date_for_hour_weather(gchar *temp_string){
     gchar buffer[256];
     gchar temp_buffer[256];
     gchar buff[256];
-    time_t t;
     struct tm   tmp_tm = {0};
-    struct tm   * tmp_tm1;
     gchar *temp_point;
     memset(buffer, 0, sizeof(buffer));
     memset(temp_buffer, 0, sizeof(temp_buffer));
@@ -540,9 +539,8 @@ get_date_for_hour_weather(gchar *temp_string){
         return tmp_tm;
     snprintf(buffer, strlen(temp_string) - strlen(temp_point+1),"%s", temp_string);
     snprintf(temp_buffer, strlen(temp_point) - strlen(strchr(temp_point + 1,'-')),"%s", temp_point+1);
-    temp_point = strchr(temp_point+1,'-');
+    temp_point = strrchr(temp_string,'-');
     snprintf(buff, strlen(temp_point) - strlen(strchr(temp_point + 1,' ')),"%s", temp_point+1);
-
     if (!strcoll(temp_buffer, "01"))
         strcat(buff," Jan");
     if (!strcoll(temp_buffer, "02"))
@@ -572,11 +570,8 @@ get_date_for_hour_weather(gchar *temp_string){
     strcat(buff, " ");
     temp_point = strchr(temp_string,' ');
     strcat(buff, temp_point+1);
-    strptime(buff, "%d %b %Y %T", &tmp_tm);
-    t = mktime(&tmp_tm);
-    tmp_tm1 = localtime(&t);
-    tmp_tm = *tmp_tm1;
-    /* fprintf(stderr, "\ntmp_wday hour %d\n", (&tmp_tm)->tm_wday); */
+    strptime(buff, "%d %b %Y %H:%M", &tmp_tm);
+    /* fprintf(stderr, "\ntmp_tm hour %d\n", (&tmp_tm)->tm_hour); */
     return tmp_tm;
 }
 /*******************************************************************************/
@@ -1736,9 +1731,11 @@ parse_xml_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data){
   return size/4;
 }
 #endif
-/*******************************************************************************/
+
+
+
 void
-fill_detail_data(htmlDocPtr doc, GHashTable *location, GHashTable *hash_for_icons, GHashTable *hash_for_translate, GHashTable *data){
+fill_detail_data(htmlDocPtr doc, GHashTable *hash_for_icons, GHashTable *hash_for_translate, GHashTable *data){
     #define buff_size 2048
     xmlNode     *cur_node = NULL;
     xmlNode     *child_node = NULL;
@@ -1808,7 +1805,8 @@ fill_detail_data(htmlDocPtr doc, GHashTable *location, GHashTable *hash_for_icon
   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div/span[@class='icon date']/text()", xpathCtx);
 
   hours_data = g_hash_table_new(g_str_hash, g_str_equal);
-  current_weather = g_hash_table_lookup(data, "current");
+
+
   if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
       strptime(xpathObj->nodesetval->nodeTab[0]->content, "%d.%m.%Y %H:%M:%S", &tmp_tm);
       memset(buff, 0, sizeof(buff));
@@ -1816,227 +1814,121 @@ fill_detail_data(htmlDocPtr doc, GHashTable *location, GHashTable *hash_for_icon
       strftime(buff, sizeof(buff) - 1, "%D %I:%M %p", &tmp_tm);
       setlocale(LC_TIME, "");
       g_hash_table_insert(hours_data, "last_update", g_strdup(buff));
-      g_hash_table_insert(current_weather, "last_update", g_strdup(buff));
   }
   if (xpathObj)
     xmlXPathFreeObject(xpathObj);
 
-  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div[@class='temp']/text()", xpathCtx);
-  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
-      g_hash_table_insert(current_weather, "day_hi_temperature", g_strdup(xpathObj->nodesetval->nodeTab[0]->content));
-  }
-  if (xpathObj)
-    xmlXPathFreeObject(xpathObj);
 
-  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/dl/dt[@class='png']/@style", xpathCtx);
-  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->children->content){
-        if (xpathObj->nodesetval->nodeTab[0]->children->content){
-           temp_char = strrchr(xpathObj->nodesetval->nodeTab[0]->children->content, '/');
-           temp_char ++;
-           image = g_strdup(temp_char);
-           i = 0;
-           memset(temp_buffer, 0, sizeof(temp_buffer));
-           while((image[i] != ')') && (i < strlen(image))){
-             sprintf(temp_buffer,"%s%c",temp_buffer, image[i]);
-             i++;
-            }
-        }
-        if (image)
-            g_free(image);
-        /* fprintf(stderr, "\nImage %s\n", temp_buffer); */
-        g_hash_table_insert(current_weather, "icon", choose_hour_weather_icon(hash_for_icons, temp_buffer));
-  }
-  if (xpathObj)
-    xmlXPathFreeObject(xpathObj);
+  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//div/table/tbody/tr[@class='wrow forecast']/th/@title", xpathCtx);
+  xpathObj2 = xmlXPathEvalExpression("/html/body/div/div/div//div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*[@class='clicon']/img/@src", xpathCtx);
+  xpathObj3 = xmlXPathEvalExpression("/html/body/div/div/div//div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*[@class='cltext']/text()", xpathCtx);
+  xpathObj4 = xmlXPathEvalExpression("/html/body/div/div/div/div//div/table/tbody/tr/td/span[@class='value m_temp c']/text()", xpathCtx);
+  xpathObj5 = xmlXPathEvalExpression("/html/body/div/div/div/div//div/table/tbody/tr/td/span[@class='value m_press torr']/text()", xpathCtx);
+  xpathObj6 = xmlXPathEvalExpression("/html/body/div/div/div//div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*/dl[@class='wind']/dd/text()", xpathCtx);
+  xpathObj7 = xmlXPathEvalExpression("/html/body/div/div/div//div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*/dl/dt/text()", xpathCtx);
+  xpathObj8 = xmlXPathEvalExpression("/html/body/div/div/div/div//div/table/tbody/tr/td[6]/text()", xpathCtx);
+  xpathObj9 = xmlXPathEvalExpression("/html/body/div/div/div/div//div/table/tbody/tr/td[7]/span[@class='value m_temp c']/text()", xpathCtx);
 
-  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/dl/dd/text()", xpathCtx);
-  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
-      g_hash_table_insert(current_weather, "title", g_strdup(hash_gismeteo_table_find(hash_for_translate, xpathObj->nodesetval->nodeTab[0]->content, FALSE)));
-  }
-  if (xpathObj)
-    xmlXPathFreeObject(xpathObj);
-
-  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div[@class='wicon barp']/text()", xpathCtx);
-  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
-      if (strlen(xpathObj->nodesetval->nodeTab[0]->content) > 0){
-                        pressure = atoi(xpathObj->nodesetval->nodeTab[0]->content);
-                        pressure = pressure * 1.333224;
-                        snprintf(temp_buffer, sizeof(temp_buffer)-1,"%i", pressure);
-      }
-      g_hash_table_insert(current_weather, "pressure", g_strdup(temp_buffer));
-  }
-  if (xpathObj)
-    xmlXPathFreeObject(xpathObj);
-
-  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div[@class='wicon hum']/text()", xpathCtx);
-  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
-      g_hash_table_insert(current_weather, "humidity", g_strdup(xpathObj->nodesetval->nodeTab[0]->content));
-  }
-  if (xpathObj)
-    xmlXPathFreeObject(xpathObj);
-
-  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div[@class='wicon wind']/dl/dt/text()", xpathCtx);
-  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
-     snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj->nodesetval->nodeTab[0]->content);
-     /* Wind direction */
-     if (!strcoll(buffer, "З"))
-          sprintf(buffer,"%s","W");
-     if (!strcoll(buffer, "Ю"))
-          sprintf(buffer,"%s","S");
-     if (!strcoll(buffer, "В"))
-          sprintf(buffer,"%s","E");
-     if (!strcoll(buffer, "С"))
-          sprintf(buffer,"%s","N");
-     if (!strcoll(buffer, "ЮЗ"))
-          sprintf(buffer,"%s","SW");
-     if (!strcoll(buffer, "ЮВ"))
-          sprintf(buffer,"%s","SE");
-     if (!strcoll(buffer, "СЗ"))
-          sprintf(buffer,"%s","NW");
-     if (!strcoll(buffer, "СВ"))
-          sprintf(buffer,"%s","NE");
-     if (!strcoll(buffer, "безветрие"))
-          sprintf(buffer,"%s","CALM");
-     if (!strcoll(buffer, "Ш"))
-          sprintf(buffer,"%s","CALM");
-     g_hash_table_insert(current_weather, "wind_direction", g_strdup(buffer));
-  }
-  if (xpathObj)
-    xmlXPathFreeObject(xpathObj);
-
-  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div[@class='wicon wind']/dl/dd/text()", xpathCtx);
-  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
-      /* Normalize speed to km/h from m/s */
-      /* fprintf(stderr, "Wind  speed    %s\n", temp_buffer); */
-      speed = atoi (xpathObj->nodesetval->nodeTab[0]->content);
-      speed = speed * 3600/1000;
-      sprintf(buffer, "%i", speed);
-      g_hash_table_insert(current_weather, "wind_speed", g_strdup(buffer));
-  }
-  if (xpathObj)
-    xmlXPathFreeObject(xpathObj);
-  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/table/tbody/tr[@class='wrow forecast']/th/@title", xpathCtx);
-  xpathObj2 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*[@class='clicon']/img/@src", xpathCtx);
-  xpathObj3 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*[@class='cltext']/text()", xpathCtx);
-  xpathObj4 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*[@class='temp']/text()", xpathCtx);
-  xpathObj5 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*/text()", xpathCtx);
-  xpathObj6 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*/dl[@class='wind']/dd/text()", xpathCtx);
-  xpathObj7 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*/dl/dt/text()", xpathCtx);
-  xpathObj8 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*/text()", xpathCtx);
-  xpathObj9 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*/text()", xpathCtx);
   nodes   = xpathObj->nodesetval;
   size = (nodes) ? nodes->nodeNr : 0;
   if (size > 8)
       size = 8;
   for(i = 0; i < size; ++i) {
-      /* Take UTC time: */
-      if (!nodes->nodeTab[i]->children->content)
-          continue;
-      temp_char = strstr(nodes->nodeTab[i]->children->content, "UTC: ");
-      if (temp_char && strlen(temp_char) > 6)
-              temp_char = temp_char + 5;
+          /* Take UTC time: */
+          if (!nodes->nodeTab[i]->children->content)
+              continue;
+          temp_char = strstr(nodes->nodeTab[i]->children->content, "UTC: ");
+          if (temp_char && strlen(temp_char) > 6)
+                  temp_char = temp_char + 5;
 
-      detail = g_hash_table_new(g_str_hash, g_str_equal);
-      tmp_tm = get_date_for_hour_weather(temp_char);
-      memset(buff, 0, sizeof(buff));
-      setlocale(LC_TIME, "POSIX");
+          detail = g_hash_table_new(g_str_hash, g_str_equal);
+          tmp_tm = get_date_for_hour_weather(temp_char);
+          memset(buff, 0, sizeof(buff));
+          setlocale(LC_TIME, "POSIX");
 
-      strftime(buff, sizeof(buff) - 1, "%H", &tmp_tm);
-      g_hash_table_insert(detail, "hours", g_strdup(buff));
-      strftime(buffer, sizeof(buff) - 1, "%D %I:%M %p", &tmp_tm);
+          strftime(buff, sizeof(buff) - 1, "%H", &tmp_tm);
+          g_hash_table_insert(detail, "hours", g_strdup(buff));
+          strftime(buffer, sizeof(buffer) - 1, "%D %I:%M %p", &tmp_tm);
 
-      setlocale(LC_TIME, "");
-
-      if(!timezone_flag){
-          utc_time = mktime(&tmp_tm);
-          temp_char = strstr(nodes->nodeTab[i]->children->content, "Local: ");
-          if (temp_char && strlen(temp_char) > 8)
-              temp_char = temp_char + 7;
-           tmp_tm_loc = get_date_for_hour_weather(temp_char);
-           loc_time = mktime(&tmp_tm_loc);
-           time_diff = difftime(loc_time, utc_time);
-           if(time_diff)
-               timezone_flag = TRUE;
-           location_timezone = (gint)time_diff/3600;
-           /* fprintf(stderr, "\nTimezone %i\n", location_timezone); */
-           snprintf(temp_buffer, sizeof(temp_buffer)-1, "%i",location_timezone);
-           g_hash_table_insert(location, "station_time_zone", g_strdup(temp_buffer));
+          setlocale(LC_TIME, "");
+          
+          fprintf(stderr,"TIME %s\n", buff);
+          fprintf(stderr,"TIME %s\n", buffer);
+           
+       /* added icon */
+       if (xpathObj2 && !xmlXPathNodeSetIsEmpty(xpathObj2->nodesetval) && xpathObj2->nodesetval->nodeTab[i]->children->content){
+          fprintf (stderr, "sdfff %s\n", xpathObj2->nodesetval->nodeTab[i]->children->content); 
+          temp_char = strrchr((char*)xpathObj2->nodesetval->nodeTab[i]->children->content, '/');
+          temp_char ++;
+          g_hash_table_insert(detail, "hour_icon", choose_hour_weather_icon(hash_for_icons, temp_char));
+       }
+       /* added text */
+       if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) && xpathObj3->nodesetval->nodeTab[i]->content){
+          g_hash_table_insert(detail, "hour_title", 
+                               g_strdup(hash_gismeteo_table_find(hash_for_translate, xpathObj3->nodesetval->nodeTab[i]->content, FALSE)));
+       }
+       /* added temperature */
+       if (xpathObj4 && !xmlXPathNodeSetIsEmpty(xpathObj4->nodesetval) && xpathObj4->nodesetval->nodeTab[i]->content){
+        /*    fprintf (stderr, "temperature %s\n", xpathObj4->nodesetval->nodeTab[i]->content); */
+            g_hash_table_insert(detail, "hour_temperature", g_strdup(xpathObj4->nodesetval->nodeTab[i]->content));
+       }
+       /* added pressure */
+       if (xpathObj5 && !xmlXPathNodeSetIsEmpty(xpathObj5->nodesetval) && xpathObj5->nodesetval->nodeTab[i*5+2]->content){
+          pressure = atoi((char*)xpathObj5->nodesetval->nodeTab[i*5+2]->content);
+          pressure = pressure * 1.333224;
+          snprintf(buffer, sizeof(buffer)-1,"%i", pressure);
+          /* fprintf (stderr, "pressure %s\n", xpathObj5->nodesetval->nodeTab[i*5+2]->content); */
+          g_hash_table_insert(detail, "hour_pressure", g_strdup(buffer));
+       }
+       /* added wind speed */
+       if (xpathObj6 && !xmlXPathNodeSetIsEmpty(xpathObj6->nodesetval) && xpathObj6->nodesetval->nodeTab[i]->content){
+          /* Normalize speed to km/h from m/s */
+          /* fprintf(stderr, "Wind  speed    %s\n", temp_buffer); */
+          speed = atoi (xpathObj6->nodesetval->nodeTab[i]->content);
+          speed = speed * 3600/1000;
+          sprintf(buffer, "%i", speed);
+          g_hash_table_insert(detail, "hour_wind_speed", g_strdup(buffer));
+       }
+       /* added wind direction */
+       if (xpathObj7 && !xmlXPathNodeSetIsEmpty(xpathObj7->nodesetval) && xpathObj7->nodesetval->nodeTab[i]->content){
+           /* fprintf (stderr, "Wind direction: %s\n", xpathObj7->nodesetval->nodeTab[i]->content); */
+           snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj7->nodesetval->nodeTab[i]->content);
+           /* Wind direction */
+           if (!strcoll(buffer, "З"))
+                sprintf(buffer,"%s","W");
+           if (!strcoll(buffer, "Ю"))
+                sprintf(buffer,"%s","S");
+           if (!strcoll(buffer, "В"))
+                sprintf(buffer,"%s","E");
+           if (!strcoll(buffer, "С"))
+                sprintf(buffer,"%s","N");
+           if (!strcoll(buffer, "ЮЗ"))
+                sprintf(buffer,"%s","SW");
+           if (!strcoll(buffer, "ЮВ"))
+                sprintf(buffer,"%s","SE");
+           if (!strcoll(buffer, "СЗ"))
+                sprintf(buffer,"%s","NW");
+           if (!strcoll(buffer, "СВ"))
+                sprintf(buffer,"%s","NE");
+           if (!strcoll(buffer, "безветрие"))
+                sprintf(buffer,"%s","CALM");
+           if (!strcoll(buffer, "Ш"))
+                sprintf(buffer,"%s","CALM");
+     
+           g_hash_table_insert(detail, "hour_wind_direction", g_strdup(buffer));
+       }
+      /* added humidity */
+      if (xpathObj8 && !xmlXPathNodeSetIsEmpty(xpathObj8->nodesetval) && xpathObj8->nodesetval->nodeTab[i]->content){
+         /* fprintf (stderr, "temperature %s\n", xpathObj9->nodesetval->nodeTab[i*5+3]->content); */
+         g_hash_table_insert(detail, "hour_humidity", g_strdup(xpathObj8->nodesetval->nodeTab[i]->content));
       }
- 
-   /* added icon */
-   if (xpathObj2 && !xmlXPathNodeSetIsEmpty(xpathObj2->nodesetval) && xpathObj2->nodesetval->nodeTab[i]->children->content){
-      /* fprintf (stderr, "sdfff %s\n", xpathObj4->nodesetval->nodeTab[i]->children->content); */
-      temp_char = strrchr((char*)xpathObj2->nodesetval->nodeTab[i]->children->content, '/');
-      temp_char ++;
-      g_hash_table_insert(detail, "hour_icon", choose_hour_weather_icon(hash_for_icons, temp_char));
-   }
-   /* added text */
-   if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) && xpathObj3->nodesetval->nodeTab[i]->content){
-      g_hash_table_insert(detail, "hour_title", 
-                           g_strdup(hash_gismeteo_table_find(hash_for_translate, xpathObj3->nodesetval->nodeTab[i]->content, FALSE)));
-   }
-   /* added temperature */
-   if (xpathObj4 && !xmlXPathNodeSetIsEmpty(xpathObj4->nodesetval) && xpathObj4->nodesetval->nodeTab[i]->content){
-       /* fprintf (stderr, "temperature %s\n", xpathObj3->nodesetval->nodeTab[i]->content); */
-        g_hash_table_insert(detail, "hour_temperature", g_strdup(xpathObj4->nodesetval->nodeTab[i]->content));
-   }
-   /* added pressure */
-   if (xpathObj5 && !xmlXPathNodeSetIsEmpty(xpathObj5->nodesetval) && xpathObj5->nodesetval->nodeTab[i*5+2]->content){
-      pressure = atoi((char*)xpathObj5->nodesetval->nodeTab[i*5+2]->content);
-      pressure = pressure * 1.333224;
-      snprintf(buffer, sizeof(buffer)-1,"%i", pressure);
-      /* fprintf (stderr, "pressure %s\n", xpathObj5->nodesetval->nodeTab[i*5+2]->content); */
-      g_hash_table_insert(detail, "hour_pressure", g_strdup(buffer));
-   }
-   /* added wind speed */
-   if (xpathObj6 && !xmlXPathNodeSetIsEmpty(xpathObj6->nodesetval) && xpathObj6->nodesetval->nodeTab[i]->content){
-      /* Normalize speed to km/h from m/s */
-      /* fprintf(stderr, "Wind  speed    %s\n", temp_buffer); */
-      speed = atoi (xpathObj6->nodesetval->nodeTab[i]->content);
-      speed = speed * 3600/1000;
-      sprintf(buffer, "%i", speed);
-      g_hash_table_insert(detail, "hour_wind_speed", g_strdup(buffer));
-   }
-   /* added wind direction */
-   if (xpathObj7 && !xmlXPathNodeSetIsEmpty(xpathObj7->nodesetval) && xpathObj7->nodesetval->nodeTab[i]->content){
-       /* fprintf (stderr, "Wind direction: %s\n", xpathObj7->nodesetval->nodeTab[i]->content); */
-       snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj7->nodesetval->nodeTab[i]->content);
-       /* Wind direction */
-       if (!strcoll(buffer, "З"))
-            sprintf(buffer,"%s","W");
-       if (!strcoll(buffer, "Ю"))
-            sprintf(buffer,"%s","S");
-       if (!strcoll(buffer, "В"))
-            sprintf(buffer,"%s","E");
-       if (!strcoll(buffer, "С"))
-            sprintf(buffer,"%s","N");
-       if (!strcoll(buffer, "ЮЗ"))
-            sprintf(buffer,"%s","SW");
-       if (!strcoll(buffer, "ЮВ"))
-            sprintf(buffer,"%s","SE");
-       if (!strcoll(buffer, "СЗ"))
-            sprintf(buffer,"%s","NW");
-       if (!strcoll(buffer, "СВ"))
-            sprintf(buffer,"%s","NE");
-       if (!strcoll(buffer, "безветрие"))
-            sprintf(buffer,"%s","CALM");
-       if (!strcoll(buffer, "Ш"))
-            sprintf(buffer,"%s","CALM");
- 
-       g_hash_table_insert(detail, "hour_wind_direction", g_strdup(buffer));
-   }
-  /* added humidity */
-  if (xpathObj8 && !xmlXPathNodeSetIsEmpty(xpathObj8->nodesetval) && xpathObj8->nodesetval->nodeTab[i*5+3]->content){
-     /* fprintf (stderr, "temperature %s\n", xpathObj9->nodesetval->nodeTab[i*5+3]->content); */
-     g_hash_table_insert(detail, "hour_humidity", g_strdup(xpathObj8->nodesetval->nodeTab[i*5+3]->content));
-  }
-  /* added feels like */
-  if (xpathObj9 && !xmlXPathNodeSetIsEmpty(xpathObj9->nodesetval) && xpathObj9->nodesetval->nodeTab[i*5+4]->content){
-     /* fprintf (stderr, "hour_feels_like %s\n", xpathObj9->nodesetval->nodeTab[i*5+4]->content); */
-     g_hash_table_insert(detail, "hour_feels_like", g_strdup(xpathObj9->nodesetval->nodeTab[i*5+4]->content));
-  }
+      /* added feels like */
+      if (xpathObj9 && !xmlXPathNodeSetIsEmpty(xpathObj9->nodesetval) && xpathObj9->nodesetval->nodeTab[i]->content){
+         /* fprintf (stderr, "hour_feels_like %s\n", xpathObj9->nodesetval->nodeTab[i*5+4]->content); */
+         g_hash_table_insert(detail, "hour_feels_like", g_strdup(xpathObj9->nodesetval->nodeTab[i]->content));
+      }
 
-  hour_weather = g_slist_append(hour_weather,(gpointer)detail);
+      hour_weather = g_slist_append(hour_weather,(gpointer)detail);
 
   }
   g_hash_table_insert(hours_data, "hours_data", (gpointer)hour_weather);
@@ -2067,19 +1959,11 @@ fill_detail_data(htmlDocPtr doc, GHashTable *location, GHashTable *hash_for_icon
 gint
 parse_xml_detail_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data){
 
-    return -1;
-    GHashTable  *current_weather = NULL;
     GHashTable  *hash_for_icons;
     GHashTable  *hash_for_translate;
-    GHashTable  *location = NULL;
     hash_for_translate = hash_description_gismeteo_table_create();
     hash_for_icons = hash_icons_gismeteo_table_create();
-    current_weather = g_hash_table_new(g_str_hash, g_str_equal);
-    location = g_hash_table_new(g_str_hash, g_str_equal);
-//    fill_current_data(root_node, current_weather, data, hash_for_translate, hash_for_icons);
-    g_hash_table_insert(data, "location", (gpointer)location);
-    g_hash_table_insert(data, "current", (gpointer)current_weather);
-    fill_detail_data(doc, location, hash_for_icons, hash_for_translate, data);
+    fill_detail_data(doc, hash_for_icons, hash_for_translate, data);
     g_hash_table_destroy(hash_for_translate);
     g_hash_table_destroy(hash_for_icons);
 

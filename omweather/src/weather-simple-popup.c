@@ -933,6 +933,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
 
     hours_weather = g_hash_table_lookup(g_hash_table_lookup(app->station_data, "detail"), "hours_data");
 
+    fprintf(stderr,"hours_weather %p\n", hours_weather);
     if(hours_weather){
         while(hours_weather){
             hour_weather = (GHashTable*)hours_weather->data;

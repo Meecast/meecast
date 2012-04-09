@@ -1,8 +1,9 @@
 omweather-gismeteo-ru-stations-db (0.9.8) unstable; urgency=low
 
   * Updated database for Bulgaria  
+  * Fixed problem with parser for gismeteo.ru
 
- --  Vlad Vasiliev <vlad@gas.by>  Mon, 6 Feb 2012 21:16:30 +0200
+ --  Vlad Vasiliev <vlad@gas.by>  Mon, 9 Apr 2012 22:16:30 +0200
 
 omweather-gismeteo-ru-stations-db (0.9.7) unstable; urgency=low
 

@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-gismeteo-ru-stations-db
  *
- * Copyright (C) 2009-2011 Vlad Vasiliev
+ * Copyright (C) 2009-2012 Vlad Vasilyeu
  * Copyright (C) 2009 Pavel Fialko
  * 	for the code
  *

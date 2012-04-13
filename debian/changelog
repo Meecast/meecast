@@ -1,7 +1,7 @@
 meecast (0.5.4) unstable; urgency=low
 
   * Added stations to foreca.com database (Poland, Ukraine, Moldova, Latvia,
-    Lithuania, Estonia, Romania, Norway, Denmark, Netherlands)
+    Lithuania, Estonia, Romania, Norway, Denmark, Netherlands, Greece)
   * Fixed problem with wind direction in source gismeteo.ru
   * Added icons and descriptions for foreca.com data
   * Updated Russian translation

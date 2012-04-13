@@ -31,6 +31,17 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
+GHashTable *hash_stations_table_create(void) {
+    GHashTable *hash = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    hash = g_hash_table_new(g_str_hash, g_str_equal);
+#include "hash_stations.data"
+    return hash;
+}
+
+/*******************************************************************************/
 GHashTable *hash_icons_bomgovau_table_create(void) {
     GHashTable *hash = NULL;
 #ifdef DEBUGFUNCTIONCALL

@@ -641,7 +641,7 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"zone") ){
                             temp_xml_string = xmlNodeGetContent(child_node);
                             //    snprintf(timezone, sizeof(timezone) - 1, "%s", (char*)temp_xml_string);
-			    timezone = atoi((char*)temp_xml_string);
+			                timezone = atoi((char*)temp_xml_string);
                             xmlFree(temp_xml_string);
                             continue;
                         }

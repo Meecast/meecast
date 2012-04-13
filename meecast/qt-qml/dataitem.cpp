@@ -399,6 +399,7 @@ DataItem::ppcp() {
     }
     return c.number((DataItem::Data::Ppcp()), 'f', 0);
 }
+
 void
 DataItem::LastUpdate(time_t date_and_time){
     _lastupdate.setTime_t(date_and_time);

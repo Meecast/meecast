@@ -1,6 +1,7 @@
 meecast (0.5.5) unstable; urgency=low
 
   * Added icon for gismeteo.ru data
+  * Fixed problem with Ppcp
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 25 Mar 2011 22:42:23 +0200
 

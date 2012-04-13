@@ -1542,7 +1542,7 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
       t_start = mktime(&tmp_tm);
       fprintf(file_out,"    <period start=\"%li\"", t_start);
       /* 1 hour for weather.com */
-      fprintf(file_out," end=\"%li\" hour=\"true\">\n", t_start + 1*3600); 
+      fprintf(file_out," end=\"%li\" hour=\"true\">\n", t_start + 4*3600); 
 
       memset(buff, 0, sizeof(buff));
       setlocale(LC_TIME, "POSIX");

@@ -33,6 +33,8 @@
 #define buff_size 2048
 static GHashTable *data = NULL;
 int au_timezone = 0;
+gchar current_icon[256];
+gchar current_title[1024];
 /*******************************************************************************/
 gchar*
 choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
@@ -59,8 +61,6 @@ parse_and_write_detail_data(const gchar *station_name, htmlDocPtr doc, const gch
     gchar       buff[256],
                 buffer[buff_size],
                 current_temperature[20],
-                current_icon[10],
-                current_title[1024],
                 current_pressure[15],
                 current_humidity[15],
                 current_wind_direction[15],
@@ -140,28 +140,22 @@ parse_and_write_detail_data(const gchar *station_name, htmlDocPtr doc, const gch
     size = (nodes) ? nodes->nodeNr : 0; 
     
     for(i = 1; i < (size-1) ; ++i) {
-       if (!strcmp( xpathObj->nodesetval->nodeTab[i]->content, hash_bomgovau_table_find(hash_for_stations, station_name, FALSE))){
-            fprintf(stderr, "FIND!!!!!!!!!!!!!!!! %s \n", xpathObj->nodesetval->nodeTab[i]->content);
+       if (!strcmp((const char*)xpathObj->nodesetval->nodeTab[i]->content, hash_bomgovau_table_find(hash_for_stations, station_name, FALSE))){
             xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-datetime')]/text()", xpathCtx);
             current_time = time(NULL);
             tm = localtime(&current_time);
             setlocale(LC_TIME, "POSIX");
-            fprintf(stderr, "Time %s %li\n", xpathObj2->nodesetval->nodeTab[i]->content, t_start);
             strptime((const char*)xpathObj2->nodesetval->nodeTab[i]->content, "%d/%I:%M %p", &tmp_tm);
-            fprintf(stderr, "Time2 %s %li\n", xpathObj2->nodesetval->nodeTab[i]->content, t_start);
             setlocale(LC_TIME, "");
             /* set begin of day in localtime */
             tmp_tm.tm_year = tm->tm_year;
             tmp_tm.tm_mon = tm->tm_mon;  
-            t_start = mktime(&tmp_tm);// - au_timezone*3600;
+            t_start = mktime(&tmp_tm)-2*3600;// - au_timezone*3600;
             t_end = t_start + 2*3600;
-            fprintf(stderr, "Time %s %li\n", xpathObj2->nodesetval->nodeTab[i]->content, t_start);
             fprintf(file_out,"    <period start=\"%li\" current=\"true\"", t_start);
             fprintf(file_out," end=\"%li\">\n", t_end); 
-
             xmlFree(xpathObj2);
             xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-tmp')]/text()", xpathCtx);
-            
             fprintf(file_out,"     <temperature>%s</temperature>\n", (const char*)xpathObj2->nodesetval->nodeTab[i]->content);				                
             xmlFree(xpathObj2);
             xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-relhum')]/text()", xpathCtx);
@@ -171,18 +165,17 @@ parse_and_write_detail_data(const gchar *station_name, htmlDocPtr doc, const gch
             fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  xpathObj2->nodesetval->nodeTab[i]->content);
             xmlFree(xpathObj2);
             xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-wind-spd-kmh')]/text()", xpathCtx);
-
             fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", ((atoi((const char*)xpathObj2->nodesetval->nodeTab[i]->content) * 1000)/3600));
- 
             xmlFree(xpathObj2);
             xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-wind-gust-kmh')]/text()", xpathCtx);
             fprintf(file_out,"     <wind_gust>%i</wind_gust>\n", ((atoi(xpathObj2->nodesetval->nodeTab[i]->content)*1000)/3600));
             xmlFree(xpathObj2);
             xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-pressure')]/text()", xpathCtx);
             fprintf(file_out,"     <pressure>%s</pressure>\n", xpathObj2->nodesetval->nodeTab[i]->content);
-
-
+            fprintf(file_out, "     <description>%s</description>\n", current_title);
+            fprintf(file_out, "     <icon>%s</icon>\n", current_icon);
             fprintf(file_out,"    </period>\n");
+            xmlFree(xpathObj2);
             break;
        }
 
@@ -227,6 +220,7 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
     time_t      utc_time_start;
     time_t      utc_time_end;
     GHashTable *hash_for_icons;
+    int index = INT_MAX;
 
     if(!doc)
         return -1;
@@ -240,6 +234,8 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
 
+    memset(current_icon, 0, sizeof(icon));
+    memset(current_title, 0, sizeof(icon));
     root_node = xmlDocGetRootElement(doc);
 
     for(cur_node0 = root_node->children; cur_node0; cur_node0 = cur_node0->next){
@@ -247,7 +243,6 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
             if (!xmlStrcmp(cur_node0->name, (const xmlChar *) "forecast" ) ){
                 for(cur_node = cur_node0->children; cur_node; cur_node = cur_node->next){
                     if( cur_node->type == XML_ELEMENT_NODE ){
-                        fprintf(stderr,"Node %s\n", cur_node->name);
                         /* get weather data */
                         if(!xmlStrcmp(cur_node->name, (const xmlChar *) "area")){
                             if(xmlGetProp(cur_node, (const xmlChar*)"type") &&
@@ -256,14 +251,12 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
                                 temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"description");
                                 snprintf(id_station, sizeof(id_station) - 1,
                                             "%s", temp_xml_string);
-                                fprintf(stderr,"Station %s\n", id_station);
                                 xmlFree(temp_xml_string);
                                 /* If station in xml not station in config file exit */
                                 if(strcmp(id_station, station_name))
                                     continue;
                                 for (child_node = cur_node->children; child_node; child_node = child_node->next){
                                     if (child_node->type == XML_ELEMENT_NODE ){
-                                        fprintf(stderr,"Children Node %s\n", child_node->name);
                                         /* clear variables */
                                         temp_hi = INT_MAX; temp_low = INT_MAX; 
                                         memset(short_text, 0, sizeof(short_text));
@@ -297,6 +290,12 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
                                                 strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
                                                 utc_time_end = mktime(&tmp_tm) + au_timezone*3600;
                                             }
+                                            /* get index */
+                                            if (xmlGetProp(child_node, (const xmlChar*)"index") != NULL){
+                                                index = atoi(xmlGetProp(child_node, (const xmlChar*)"index"));
+                                                fprintf(stderr,"Index %i\n", index);
+                                            }
+
                                             for (child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
 
                                                 if (child_node2->type == XML_ELEMENT_NODE ){
@@ -306,9 +305,7 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
                                                         if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "air_temperature_maximum" ))
                                                             temp_hi = atoi(xmlNodeGetContent(child_node2));
                                                         if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "forecast_icon_code" ))
-
                                                             snprintf(icon, sizeof(icon) - 1, "%s", choose_hour_weather_icon(hash_for_icons, xmlNodeGetContent(child_node2))); 
-                                                        
                                                     }
                                                     if(!xmlStrcmp(child_node2->name, (const xmlChar *) "text")){                           
                                                         if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "precis" )){
@@ -316,8 +313,8 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
                                                                      xmlNodeGetContent(child_node2));
                                                             if (strlen (short_text) >1)
                                                                 short_text[strlen(short_text) - 1] = 0;
-
-                                                        }                                                                                                          if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "probability_of_precipitation")){
+                                                        }
+                                                        if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "probability_of_precipitation")){
                                                             snprintf(ppcp, sizeof(ppcp)-1,"%s",
                                                                      xmlNodeGetContent(child_node2));
                                                             if (strlen (ppcp) >1)
@@ -335,10 +332,16 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
                                             fprintf(file_out,"     <temperature_hi>%i</temperature_hi>\n", temp_hi);				                
                                         if (temp_low != INT_MAX)
                                             fprintf(file_out,"     <temperature_low>%i</temperature_low>\n", temp_low);
-                                        if (strlen(icon)>0)
+                                        if (strlen(icon)>0){
                                             fprintf(file_out, "     <icon>%s</icon>\n", icon);
-                                        if (strlen (short_text)>0)
+                                            if (index==0)
+                                                snprintf(current_icon, sizeof(current_icon)-1,"%s", icon);
+                                        }
+                                        if (strlen (short_text)>0){
                                             fprintf(file_out, "     <description>%s</description>\n", short_text);
+                                            if (index==0)
+                                                snprintf(current_title, sizeof(current_title)-1,"%s", short_text);
+                                        }
                                         if (strlen (ppcp)>0)
                                             fprintf(file_out, "     <ppcp>%s</ppcp>\n", ppcp);
 

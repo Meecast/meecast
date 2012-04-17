@@ -13,7 +13,7 @@ import string
 #SELECT regions.name  FROM regions WHERE regions.id NOT IN (SELECT stations.region_id FROM stations)
 
 #Country name and code
-country = "Noth America/United States/Connecticut"
+country = "Noth America/United States/Florida"
 id_region = "202" 
 first_letter = "A"
 

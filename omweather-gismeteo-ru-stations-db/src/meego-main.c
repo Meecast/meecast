@@ -1282,7 +1282,7 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
                  }
              }
 
-     fprintf(file_out,"     <flike>%i</flike>\n", temp_buffer);
+     fprintf(file_out,"     <flike>%s</flike>\n", temp_buffer);
   }
 
    fprintf(file_out,"    </period>\n");

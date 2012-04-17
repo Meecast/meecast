@@ -1,6 +1,7 @@
 meecast (0.5.6) unstable; urgency=low
 
-  * Added Belgium, Albabnia, Andorra, Czech Republic, Hungary, Iceland, Italy to foreca.com database
+  * Added Belgium, Albabnia, Andorra, Czech Republic, Hungary, Iceland, Italy,United States to foreca.com database
+  * Changed the name of the location Vught on 's-Hertogenbosch
   * Fixed problem with current weather for weather.com source
   * Fixed problem with current weather for foreca.com source
   * Fixed problem with weather forecast for current day for weather.com source

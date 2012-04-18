@@ -425,7 +425,7 @@ make_bottom_content_about() {
 
   label = clutter_text_new();
   about_text = _("Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n");
-  about_text += _("Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Slovak - Roman Moravčík\n");
+  about_text += _("Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n");
   about_text += _("Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski;");
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
   pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 0.85);

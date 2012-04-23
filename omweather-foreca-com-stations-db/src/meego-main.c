@@ -70,7 +70,6 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
     GSList      *forecast = NULL;
     GSList      *tmp = NULL;
     GHashTable  *day = NULL;
-    gboolean    flag;
     gboolean    night_flag;
     gint        size;
     gint        i, j;
@@ -100,6 +99,7 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
     gint        location_timezone = 0;
     gboolean timezone_flag = FALSE;
     gboolean sunrise_flag = FALSE;
+    gboolean    flag;
     struct tm   tmp_tm_loc = {0};
     struct tm   tmp_tm = {0};
     struct tm   current_tm = {0};
@@ -290,17 +290,33 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
     /* Day weather forecast */
     nodes   = xpathObj->nodesetval;
     size = (nodes) ? nodes->nodeNr : 0; 
-    
-    for(i = 1; i < (size-1) ; ++i) {
-       fprintf(stderr,"ssssssssssssss %s\n", xpathObj->nodesetval->nodeTab[i]->content);
+    snprintf(buffer, sizeof(buffer)-1,"(/html/body/div/div/table//tr/th/text() | /html/body/div/div/table//tr/td[@class='in']/text() | /html/body/div/div/table//tr/td/span/text() | /html/body/div/div/table//tr/td/img/@alt | /html/body/div/div/table//tr/td/text())");
+    xpathObj2 = xmlXPathEvalExpression(buffer, xpathCtx);
+   
+    for(i = 1; i < (size) ; ++i) {
+       fprintf(stderr,"Content: %s\n", xpathObj->nodesetval->nodeTab[i]->content);
        
-       snprintf(buffer, sizeof(buffer)-1,"/html/body/div/div/table//tr[th][%i]/following-sibling::*", i);
-       xpathObj2 = xmlXPathEvalExpression(buffer, xpathCtx);
        nodes   = xpathObj2->nodesetval;
        fprintf(stderr,"Nodes %i\n", nodes->nodeNr);
+       flag = FALSE;
        for (j = 0; j <(nodes->nodeNr); ++j){
-            xpathObj3 = xpathObj2->nodesetval->nodeTab[j]->children; 
-         //   fprintf(stderr, "ssssssssssssssss %s\n", xpathObj3->nodesetval->nodeTab[0]->content);
+           if (!flag && xpathObj2->nodesetval->nodeTab[j]->content && 
+               xpathObj->nodesetval->nodeTab[i]->content &&
+               !strcmp(xpathObj->nodesetval->nodeTab[i]->content, 
+                       xpathObj2->nodesetval->nodeTab[j]->content)){
+               flag = TRUE;
+               fprintf(stderr, "ssssssssssssssss %s\n", xpathObj2->nodesetval->nodeTab[j]->content);
+           }
+           if (flag && i+1 < size && xpathObj2->nodesetval->nodeTab[j]->content && 
+               xpathObj->nodesetval->nodeTab[i+1]->content &&
+               !strcmp(xpathObj->nodesetval->nodeTab[i+1]->content, 
+                       xpathObj2->nodesetval->nodeTab[j]->content))
+               flag = FALSE;
+           if (flag){
+            if (xpathObj2->nodesetval->nodeTab[j]->content)
+                fprintf(stderr,"Text: %s\n", xpathObj2->nodesetval->nodeTab[j]->content);
+           }
+
        }
 #if 0
         current_time = time(NULL);

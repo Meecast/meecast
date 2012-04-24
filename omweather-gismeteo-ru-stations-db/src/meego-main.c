@@ -1145,7 +1145,7 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//div/table/tbody/tr[@class='wrow forecast']/th/@title", xpathCtx);
   xpathObj2 = xmlXPathEvalExpression("/html/body/div/div/div//div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*[@class='clicon']/img/@src", xpathCtx);
   xpathObj3 = xmlXPathEvalExpression("/html/body/div/div/div//div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*[@class='cltext']/text()", xpathCtx);
-  xpathObj4 = xmlXPathEvalExpression("/html/body/div/div/div/div//div/table/tbody/tr/td/span[@class='value m_temp c']/text()", xpathCtx);
+  xpathObj4 = xmlXPathEvalExpression("/html/body/div/div/div/div//div/table/tbody/tr/td[@class='temp']/span[@class='value m_temp c']/text()", xpathCtx);
   xpathObj5 = xmlXPathEvalExpression("/html/body/div/div/div/div//div/table/tbody/tr/td/span[@class='value m_press torr']/text()", xpathCtx);
   xpathObj6 = xmlXPathEvalExpression("/html/body/div/div/div//div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*/dl[@class='wind']/dd/text()", xpathCtx);
   xpathObj7 = xmlXPathEvalExpression("/html/body/div/div/div//div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*/dl/dt/text()", xpathCtx);
@@ -1218,7 +1218,7 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
                  }
              }
         fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 
-       /* fprintf (stderr, "temperature %s\n", xpathObj4->nodesetval->nodeTab[i]->content); */
+       fprintf (stderr, "temperature %s %s\n", xpathObj4->nodesetval->nodeTab[i]->content, temp_buffer); 
    }
    /* added pressure */
    if (xpathObj5 && !xmlXPathNodeSetIsEmpty(xpathObj5->nodesetval) && xpathObj5->nodesetval->nodeTab[i]->content){

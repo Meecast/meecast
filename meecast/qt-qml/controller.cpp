@@ -222,7 +222,7 @@ Controller::load_data()
   i =0;
   
   /* fill hours */
-  while  (_dp != NULL && i<24*3600) {
+  while  (_dp != NULL && i<5*24*3600) {
     if (temp_data = _dp->data().GetDataForTime(current_hour + i, true)){
         if (temp_data->StartTime() + 60 == current_hour + i){
             forecast_data = new DataItem(temp_data);

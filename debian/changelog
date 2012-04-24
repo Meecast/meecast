@@ -1,6 +1,6 @@
 meecast (0.5.7) unstable; urgency=low
 
-  * Nothing 
+  * Added hours weather forecast for foreca.com source  
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2011 21:42:23 +0200
 

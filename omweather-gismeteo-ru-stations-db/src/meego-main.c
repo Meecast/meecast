@@ -1143,7 +1143,8 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
   if (xpathObj)
     xmlXPathFreeObject(xpathObj);
   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div//div/table/tbody/tr[@class='wrow forecast']/th/@title", xpathCtx);
-  xpathObj2 = xmlXPathEvalExpression("/html/body/div/div/div//div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*[@class='clicon']/img/@src", xpathCtx);
+ // xpathObj2 = xmlXPathEvalExpression("/html/body/div/div/div//div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*[@class='clicon']/img/@src", xpathCtx);
+  xpathObj2 = xmlXPathEvalExpression("/html/body/div/div/div//div/table/tbody//td[@class='clicon']/img/@src", xpathCtx);
   xpathObj3 = xmlXPathEvalExpression("/html/body/div/div/div//div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*[@class='cltext']/text()", xpathCtx);
   xpathObj4 = xmlXPathEvalExpression("/html/body/div/div/div/div//div/table/tbody/tr/td[@class='temp']/span[@class='value m_temp c']/text()", xpathCtx);
   xpathObj5 = xmlXPathEvalExpression("/html/body/div/div/div/div//div/table/tbody/tr/td/span[@class='value m_press torr']/text()", xpathCtx);
@@ -1195,7 +1196,7 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
  
    /* added icon */
    if (xpathObj2 && !xmlXPathNodeSetIsEmpty(xpathObj2->nodesetval) && xpathObj2->nodesetval->nodeTab[i]->children->content){
-      /* fprintf (stderr, "Icon %s\n", xpathObj2->nodesetval->nodeTab[i]->children->content); */
+      fprintf (stderr, "Icon %s\n", xpathObj2->nodesetval->nodeTab[i]->children->content); 
       temp_char = strrchr((char*)xpathObj2->nodesetval->nodeTab[i]->children->content, '/');
       temp_char ++;
       fprintf(file_out,"     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_char));

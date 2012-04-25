@@ -448,40 +448,14 @@ get_date_for_hour_weather(gchar *temp_string){
     temp_point = strchr(temp_string,'-');
     temp_point = strchr(temp_point,'-');
     snprintf(buff, strlen(temp_point) - strlen(strchr(temp_point + 1,' ')),"%s", temp_point+1);
-    #if 0
-    if (!strcoll(temp_buffer, "01"))
-        strcat(buff," Jan");
-    if (!strcoll(temp_buffer, "02"))
-        strcat(buff," Feb");
-    if (!strcoll(temp_buffer, "03")) 
-        strcat(buff," Mar");
-    if (!strcoll(temp_buffer, "04"))
-        strcat(buff," Apr"); 
-    if (!strcoll(temp_buffer, "05"))
-        strcat(buff," May");
-    if (!strcoll(temp_buffer, "06"))   
-        strcat(buff," Jun");
-    if (!strcoll(temp_buffer, "07")) 
-        strcat(buff," Jul"); 
-    if (!strcoll(temp_buffer, "08"))
-        strcat(buff," Aug");
-    if (!strcoll(temp_buffer, "09"))
-        strcat(buff," Sep");  
-    if (!strcoll(temp_buffer, "10"))  
-        strcat(buff," Oct");  
-    if (!strcoll(temp_buffer, "11"))  
-        strcat(buff," Nov"); 
-    if (!strcoll(temp_buffer, "12"))
-        strcat(buff," Dec");
-    #endif
     strcat(buff, " ");
     strcat(buff, buffer);
     strcat(buff, " ");
     temp_point = strchr(temp_string,' ');
     strcat(buff, temp_point+1);
-    fprintf(stderr, "Buffer %s\n", buff);
+    /* fprintf(stderr, "Buffer %s\n", buff); */
     strptime(buff, "%m-%d %Y %H:%M", &tmp_tm);
-    fprintf(stderr, "\ntmp_tm hour %d\n", (&tmp_tm)->tm_hour); 
+    /* fprintf(stderr, "\ntmp_tm hour %d\n", (&tmp_tm)->tm_hour); */
     return tmp_tm;
 }
 /*******************************************************************************/
@@ -1166,7 +1140,7 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
       /* Take UTC time: */
       if (!nodes->nodeTab[i]->children->content)
           continue;
-      fprintf(stderr," Time %s\n", nodes->nodeTab[i]->children->content);
+      /* fprintf(stderr," Time %s\n", nodes->nodeTab[i]->children->content); */
       temp_char = strstr(nodes->nodeTab[i]->children->content, "UTC: ");
       if (temp_char && strlen(temp_char) > 6)
               temp_char = temp_char + 5;
@@ -1202,17 +1176,15 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
  
    /* added icon */
    if (xpathObj2 && !xmlXPathNodeSetIsEmpty(xpathObj2->nodesetval) && xpathObj2->nodesetval->nodeTab[i]->children->content){
-      fprintf (stderr, "Icon %s\n", xpathObj2->nodesetval->nodeTab[i]->children->content); 
+      /* fprintf (stderr, "Icon %s\n", xpathObj2->nodesetval->nodeTab[i]->children->content); */
       temp_char = strrchr((char*)xpathObj2->nodesetval->nodeTab[i]->children->content, '/');
       temp_char ++;
       fprintf(file_out,"     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_char));
    }
-   fprintf(stderr,"oooooo\n");
    /* added text */
    if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) && xpathObj3->nodesetval->nodeTab[i]->content){
-       fprintf(file_out,"     <description>%s</description>\n", (char*)hash_gismeteo_table_find(hash_for_translate, xpathObj3->nodesetval->nodeTab[i]->content, FALSE));
+      fprintf(file_out,"     <description>%s</description>\n", (char*)hash_gismeteo_table_find(hash_for_translate, xpathObj3->nodesetval->nodeTab[i]->content, FALSE)); 
    }
-   fprintf(stderr,"oooooo\n");
    /* added temperature */
    if (xpathObj4 && !xmlXPathNodeSetIsEmpty(xpathObj4->nodesetval) && xpathObj4->nodesetval->nodeTab[i]->content){
       
@@ -1227,7 +1199,7 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
                  }
              }
         fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 
-       fprintf (stderr, "temperature %s %s\n", xpathObj4->nodesetval->nodeTab[i]->content, temp_buffer); 
+        /* fprintf (stderr, "temperature %s %s\n", xpathObj4->nodesetval->nodeTab[i]->content, temp_buffer); */
    }
    /* added pressure */
    if (xpathObj5 && !xmlXPathNodeSetIsEmpty(xpathObj5->nodesetval) && xpathObj5->nodesetval->nodeTab[i]->content){
@@ -1235,7 +1207,7 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
       pressure = pressure * 1.333224;
       snprintf(buffer, sizeof(buffer)-1,"%i", pressure);
       fprintf(file_out,"     <pressure>%s</pressure>\n", buffer);
-      fprintf (stderr, "pressure %s\n", xpathObj5->nodesetval->nodeTab[i]->content); 
+      /* fprintf (stderr, "pressure %s\n", xpathObj5->nodesetval->nodeTab[i]->content); */
    }
    /* added wind speed */
    if (xpathObj6 && !xmlXPathNodeSetIsEmpty(xpathObj6->nodesetval) && xpathObj6->nodesetval->nodeTab[i]->content){
@@ -1246,10 +1218,9 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
       sprintf(buffer, "%i", speed);
       fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", buffer);
    }
-   fprintf(stderr, "ppppppppppp\n");
    /* added wind direction */
    if (xpathObj7 && !xmlXPathNodeSetIsEmpty(xpathObj7->nodesetval) && xpathObj7->nodesetval->nodeTab[i]->content){
-        fprintf (stderr, "Wind direction: %s\n", xpathObj7->nodesetval->nodeTab[i]->content); 
+       /*  fprintf (stderr, "Wind direction: %s\n", xpathObj7->nodesetval->nodeTab[i]->content); */
        snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj7->nodesetval->nodeTab[i]->content);
        /* Wind direction */
        if (!strcoll(buffer, "З"))
@@ -1275,12 +1246,10 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
  
        fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", buffer);
    }
-   fprintf(stderr, "ppppppppppp\n");
   /* added humidity */
   if (xpathObj8 && !xmlXPathNodeSetIsEmpty(xpathObj8->nodesetval) && xpathObj8->nodesetval->nodeTab[i]->content){
      fprintf(file_out,"     <humidity>%s</humidity>\n", xpathObj8->nodesetval->nodeTab[i]->content);
   }
-   fprintf(stderr, "ppppp111111pppppp\n");
   /* added feels like */
   if (xpathObj9 && !xmlXPathNodeSetIsEmpty(xpathObj9->nodesetval) && xpathObj9->nodesetval->nodeTab[i]->content){
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj9->nodesetval->nodeTab[i]->content);

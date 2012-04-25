@@ -1146,7 +1146,7 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
               temp_char = temp_char + 5;
 
       tmp_tm = get_date_for_hour_weather(temp_char);
-      t_start = mktime(&tmp_tm);
+      t_start = timegm(&tmp_tm);
       fprintf(file_out,"    <period start=\"%li\"", t_start);
       /* 1 hour for weather.com */
       fprintf(file_out," end=\"%li\" hour=\"true\">\n", t_start + 4*3600); 

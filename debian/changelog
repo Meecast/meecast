@@ -15,7 +15,8 @@ meecast (0.5.6) unstable; urgency=low
   * Fixed problem with weather forecast for current day for weather.com source
   * Fixed problem with hour flike temperature for gismeteo.ru
   * Improvement in widget for standby screen
-  * Added Dutch translation. Thanks Tom Leenders 
+  * Added Dutch translation. Thanks Tom Leenders
+  * Added Bulgarian translation. Thanks Zlatko Enikov	 
   * Updated Russian and Finish translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2011 21:42:23 +0200

@@ -99,7 +99,7 @@ Page {
     function updateperiod()
     {
         condition.clear()
-	condition2.clear()
+        condition2.clear()
         if (day_period == "day"){
 	    toolbarday.checked = true
 	    toolbarnight.checked = false
@@ -109,7 +109,7 @@ Page {
             hours_list.visible = false;
             flickable.contentHeight = day_rect.height + current_rect.height;
 
-	    day_period_name = Config.tr("Day")
+	        day_period_name = Config.tr("Day")
             image_source = Config.iconspath + "/" + Config.iconset + "/" + model_day.getdata(day, "pict")
             current_rect.color = getColor(model_day.getdata(day, "temp_high"));
             description_text = model_day.getdata(day, "description") ? model_day.getdata(day, "description") : ""
@@ -504,7 +504,7 @@ Page {
                             verticalAlignment: Text.AlignVCenter
                         }
                         Text {
-                            text: model.shortdate
+                            text: model.hourdate
                             color: "white"
                             font.pointSize: 18
                             anchors.left: parent.left

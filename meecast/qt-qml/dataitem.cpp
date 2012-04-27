@@ -85,6 +85,7 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[DateRole] = "date";
     names[ShortDateRole] = "shortdate";
     names[FullDateRole] = "fulldate";
+    names[HourDateRole] = "hourdate";
     names[DayLengthRole] = "daylength";
     names[StartRole] = "start";
     names[EndRole] = "end";
@@ -140,6 +141,8 @@ QVariant DataItem::data(int role)
         return shortdate();
     case FullDateRole:
         return fulldate();
+    case HourDateRole:
+        return hourdate();
     case StartRole:
         return start();
     case EndRole:
@@ -321,13 +324,20 @@ DataItem::shortdate()
 {
     QDateTime t;
     t.setTime_t(DataItem::Data::StartTime());
-    if (DataItem::Data::Hour())
-        return t.toString("HH:mm");
-    else
-        return t.toString("ddd");
+    return t.toString("ddd");
     //return QString::fromUtf8(DataItem::ShortDayName().c_str());
 
 }
+QString
+DataItem::hourdate()
+{
+    QDateTime t;
+    t.setTime_t(DataItem::Data::StartTime());
+    return t.toString("HH:mm");
+    //return QString::fromUtf8(DataItem::ShortDayName().c_str());
+
+}
+
 QString
 DataItem::fulldate()
 {

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<source xmlns="https://garage.maemo.org/projects/omweather/">
+<name>hko.gov.hk</name>
+<logo>foreca.com.png</logo>
+<base>hko.gov.hk.db</base>
+<forecast url="http://www.hko.gov.hk/textonly/forecast/nday.htm" />
+<detail url="http://www.hko.gov.hk/textonly/forecast/englishwx2.htm" />
+<search url="http://xoap.weather.com/search/search?where=%s" />
+<library>libomweather-hko-gov-hk-source.so</library>
+<binary>/opt/com.meecast.omweather/lib/hkogovhk</binary>
+<showurl url="http://www.hko.gov.hk/contente.htm" />
+</source>

@@ -43,7 +43,7 @@ choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
     if(!image)
         return g_strdup("49");
     source = g_strdup_printf("%s", image);
-    tmp_result = hash_forecacom_table_find(hash_for_icons, source, FALSE);
+    tmp_result = hash_hkogovhk_table_find(hash_for_icons, source, FALSE);
     if (tmp_result && (strlen(tmp_result) == 2 || strlen(tmp_result) == 1)){
        result = g_strdup(tmp_result);
        g_free(source);
@@ -116,7 +116,7 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
     if (!file_out)
         return -1;
 
-    hash_for_icons = hash_icons_forecacom_table_create();
+   // hash_for_icons = hash_icons_forecacom_table_create();
     /* Create xpath evaluation context */
     xpathCtx = xmlXPathNewContext(doc);
     if(xpathCtx == NULL) {
@@ -461,7 +461,7 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
 
-    hash_for_icons = hash_icons_forecacom_table_create();
+   // hash_for_icons = hash_icons_forecacom_table_create();
     /* Create xpath evaluation context */
     xpathCtx = xmlXPathNewContext(doc);
     if(xpathCtx == NULL) {
@@ -665,6 +665,7 @@ parse_current_weather(const gchar *detail_path_data, const gchar *result_file){
     struct tm   tmp_tm = {0};
     time_t      t_start = 0, t_end = 0;
     int   temperature, humidity, icon;
+    GHashTable *hash_for_icons;
 
     file_out = fopen(result_file, "a");
     if (!file_out)
@@ -673,6 +674,7 @@ parse_current_weather(const gchar *detail_path_data, const gchar *result_file){
     if (!file_in)
         return;
 
+    hash_for_icons = hash_icons_hkogovhk_table_create();
     while(fgets(buffer, sizeof(buffer), file_in)){
         if (strstr(buffer,"<I>"))
             if (comma = strstr(buffer, "at ")){
@@ -704,7 +706,8 @@ parse_current_weather(const gchar *detail_path_data, const gchar *result_file){
             if (comma = strstr(buffer, "No. ")){
                 comma = comma + 3;
                 icon = atoi (comma);
-                fprintf(file_out,"     <icon>%i</icon>\n", icon);				                
+                snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%i", icon);
+                fprintf(file_out,"     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer));				                
             }
             if (comma = strstr(buffer, " - ")){
                 comma = comma + 3;

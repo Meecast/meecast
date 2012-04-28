@@ -29,7 +29,7 @@
 #define _hash_h 1
 /*******************************************************************************/
 /*******************************************************************************/
-GHashTable* hash_icons_forecacom_table_create(void);
-gpointer hash_forecacom_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
+GHashTable* hash_icons_hkogovhk_table_create(void);
+gpointer hash_hkogovhk_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
 /*******************************************************************************/
 #endif

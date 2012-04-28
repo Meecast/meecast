@@ -167,7 +167,7 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
         t_start = mktime(&tmp_tm);
         fprintf(file_out,"    <period start=\"%li\"", (t_start + 1 - 2*3600));
         /* set end of current time in localtime */
-        t_end = t_start + 3600*6 - 1;
+        t_end = t_start + 3600*4 - 1;
         fprintf(file_out," end=\"%li\" current=\"true\" >\n", t_end);
 
     }

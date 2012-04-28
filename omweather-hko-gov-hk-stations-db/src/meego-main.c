@@ -660,7 +660,11 @@ parse_current_weather(const gchar *detail_path_data, const gchar *result_file){
     FILE    *file_out;
     FILE    *file_in;
     gchar buffer [4096];
+    gchar temp_buffer [1024];
     gchar *comma = NULL;
+    struct tm   tmp_tm = {0};
+    time_t      t_start = 0, t_end = 0;
+    int   temperature, humidity, icon;
 
     file_out = fopen(result_file, "a");
     if (!file_out)
@@ -671,11 +675,46 @@ parse_current_weather(const gchar *detail_path_data, const gchar *result_file){
 
     while(fgets(buffer, sizeof(buffer), file_in)){
         if (strstr(buffer,"<I>"))
-            if (comma = strstr(buffer, "at "))
-               comma = comma + 4;
-            fprintf(file_out,"%s", comma); 
+            if (comma = strstr(buffer, "at ")){
+                comma = comma + 3;
+                setlocale(LC_TIME, "POSIX");
+                /* 3:02 HKT 28/Apr/2012 */
+                strptime((const char*)comma, "%H:%M HKT %d/%b/%Y", &tmp_tm);
+                setlocale(LC_TIME, "");
 
+                t_start = timegm(&tmp_tm) - 8*3600;
+                fprintf(file_out,"    <period start=\"%li\"", (t_start + 1 - 2*3600));
+                /* set end of current time in localtime */
+                t_end = t_start + 3600*4 - 1;
+                fprintf(file_out," end=\"%li\" current=\"true\" >\n", t_end);
+            }
+        if (strstr(buffer,"Air Temperature"))
+            if (comma = strstr(buffer, ": ")){
+                comma = comma + 2;
+                temperature = atoi (comma);
+                fprintf(file_out,"     <temperature>%i</temperature>\n", temperature); 
+            }
+        if (strstr(buffer,"Relative Humidity"))
+            if (comma = strstr(buffer, ": ")){
+                comma = comma + 2;
+                humidity = atoi (comma);
+                fprintf(file_out,"     <humidity>%i</humidity>\n", humidity);				                
+            }
+        if (strstr(buffer,"Weather Cartoon"))
+            if (comma = strstr(buffer, "No. ")){
+                comma = comma + 3;
+                icon = atoi (comma);
+                fprintf(file_out,"     <icon>%i</icon>\n", icon);				                
+            }
+            if (comma = strstr(buffer, " - ")){
+                comma = comma + 3;
+                snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%s", comma);
+                if (strlen(temp_buffer) > 3)
+                    temp_buffer[strlen(temp_buffer) - 2] = 0; 
+                fprintf(file_out,"     <title>%s</title>\n", temp_buffer);				                
+            }
     }
+    fprintf(file_out,"    </period>\n");
     fclose(file_out);
     fclose(file_in);
 }
@@ -693,7 +732,14 @@ convert_station_hkogovhk_data(const gchar *station_id_with_path, const gchar *re
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
-    fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", station_id);
+    /* prepare station id */
+    *buffer = 0;
+    delimiter = strrchr(station_id_with_path, '/');
+    if(delimiter){
+        delimiter++; /* delete '/' */
+        snprintf(buffer, sizeof(buffer) - 1, "%s", delimiter);
+    }
+    fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", buffer);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
     fclose(file_out);

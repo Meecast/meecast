@@ -44,15 +44,9 @@ choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
         return g_strdup("49");
     source = g_strdup_printf("%s", image);
     tmp_result = hash_hkogovhk_table_find(hash_for_icons, source, FALSE);
-    if (tmp_result && (strlen(tmp_result) == 2 || strlen(tmp_result) == 1)){
-       result = g_strdup(tmp_result);
-       g_free(source);
-       return result;
-    }else{
-       fprintf(stderr,"Unknown strings %s\n", image);
-       g_free(source);
-       return g_strdup("49");
-    }
+    result = g_strdup(tmp_result);
+    g_free(source);
+    return result;
 }
 /*******************************************************************************/
 gint
@@ -661,11 +655,14 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
     gchar buffer [4096];
     gchar temp_buffer [1024];
     gchar *comma = NULL;
+    gchar *comma2 = NULL;
     struct tm   tmp_tm = {0};
     time_t      t_start = 0, t_end = 0;
     int   temperature, humidity, icon;
+    double wind_speed;
     int   year=0;
     int   number_of_day = 0;
+    fpos_t pos;
     GHashTable *hash_for_icons;
 
     file_out = fopen(result_file, "a");
@@ -699,6 +696,57 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
                 t_end = t_start + 3600*24 - 1;
                 fprintf(file_out," end=\"%li\">\n", t_end);
                 number_of_day ++; 
+            }
+        if (strstr(buffer,"Wind"))
+            if (comma = strstr(buffer, ": ")){
+                comma = comma + 2;
+                comma2 = strstr(comma, "force");               
+                snprintf(temp_buffer, comma2 - comma, "%s", comma);
+                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer)); 
+                comma = strstr(comma2, " ");               
+                comma++;
+                switch (atoi(comma)){
+                    case 0: wind_speed = 0.278; break;
+                    case 1: wind_speed = 4 * 0.278; break; 
+                    case 2: wind_speed = 9 * 0.278; break; 
+                    case 3: wind_speed = 15 * 0.278; break; 
+                    case 4: wind_speed = 25 * 0.278; break; 
+                    case 5: wind_speed = 35 * 0.278; break; 
+                    case 6: wind_speed = 45 * 0.278; break; 
+                    case 7: wind_speed = 57 * 0.278; break; 
+                    case 8: wind_speed = 70 * 0.278; break; 
+                    case 9: wind_speed = 81 * 0.278; break; 
+                    case 10: wind_speed = 95 * 0.278; break; 
+                    case 11: wind_speed = 110 * 0.278; break; 
+                    case 12: wind_speed = 120 * 0.278; break;
+                }
+                fprintf(file_out, "     <wind_speed>%f</wind_speed>\n", wind_speed); 
+            }
+        if (strstr(buffer,"Weather"))
+            if (comma = strstr(buffer, ": ")){
+                comma = comma + 2;
+                snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%s", comma);
+                fgetpos (file_in, &pos);
+                if (fgets(buffer, sizeof(buffer), file_in)){
+                    if (strstr(buffer, "Temp Range:")){
+                        temp_buffer[strlen(temp_buffer)-1] = 0;
+                    }else{
+                        temp_buffer[strlen(temp_buffer)-1] = ' ';
+                        strcat(temp_buffer, buffer);
+                        temp_buffer[strlen(temp_buffer)-1] = 0;
+                    }
+                }
+                fprintf(file_out, "     <title>%s</title>\n", temp_buffer); 
+            }
+        if (strstr(buffer,"Temp Range"))
+            if (comma = strstr(buffer, ": ")){
+                comma = comma + 2;
+                temperature = atoi (comma);
+                fprintf(file_out, "     <temperature_low>%i</temperature_low>\n", temperature);
+                comma2 = strstr(buffer, "- ");
+                comma2 = comma2 + 2;
+                temperature = atoi (comma2);
+                fprintf(file_out, "     <temperature_hi>%i</temperature_hi>\n", temperature);
             }
 
 #if 0

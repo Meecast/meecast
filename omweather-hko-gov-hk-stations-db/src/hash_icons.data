@@ -1,6 +1,10 @@
 
     g_hash_table_insert(hash, "62", "11");
     g_hash_table_insert(hash, "54", "39");
+    g_hash_table_insert(hash, "South", "S");
+    g_hash_table_insert(hash, "East", "E");
+    g_hash_table_insert(hash, "East to southeast", "ESE");
+    g_hash_table_insert(hash, "Light winds", "Light winds");
 
 
 

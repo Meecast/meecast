@@ -652,6 +652,89 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
 
   return size;
 }
+/*******************************************************************************/
+void
+parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
+
+    FILE    *file_out;
+    FILE    *file_in;
+    gchar buffer [4096];
+    gchar temp_buffer [1024];
+    gchar *comma = NULL;
+    struct tm   tmp_tm = {0};
+    time_t      t_start = 0, t_end = 0;
+    int   temperature, humidity, icon;
+    int   year=0;
+    int   number_of_day = 0;
+    GHashTable *hash_for_icons;
+
+    file_out = fopen(result_file, "a");
+    if (!file_out)
+        return;
+    file_in = fopen(detail_path_data, "r");
+    if (!file_in)
+        return;
+
+    hash_for_icons = hash_icons_hkogovhk_table_create();
+    while(fgets(buffer, sizeof(buffer), file_in)){
+        if (strstr(buffer,"<i>"))
+            if (comma = strstr(buffer, "at ")){
+                comma = comma + 3;
+                setlocale(LC_TIME, "POSIX");
+                /* 3:02 HKT 28/Apr/2012 */
+                strptime((const char*)comma, "%H:%M HKT %d/%b/%Y", &tmp_tm);
+                setlocale(LC_TIME, "");
+                year = tmp_tm.tm_year + 1900;
+            }
+        if (strstr(buffer,"Date/Month"))
+            if (comma = strstr(buffer, "h ")){
+                if (number_of_day != 0)
+                    fprintf(file_out,"    </period>\n");
+                comma = comma + 2;
+                snprintf(temp_buffer, sizeof(temp_buffer) - 1, "00:00 %i %s", year, comma);
+                strptime((const char*)temp_buffer, "%H:%M %Y %d/%m", &tmp_tm);
+                t_start = timegm(&tmp_tm) - 8*3600;
+                fprintf(file_out,"    <period start=\"%li\"", (t_start));
+                /* set end of current time in localtime */
+                t_end = t_start + 3600*24 - 1;
+                fprintf(file_out," end=\"%li\">\n", t_end);
+                number_of_day ++; 
+            }
+
+#if 0
+        if (strstr(buffer,"Air Temperature"))
+            if (comma = strstr(buffer, ": ")){
+                comma = comma + 2;
+                temperature = atoi (comma);
+                fprintf(file_out,"     <temperature>%i</temperature>\n", temperature); 
+            }
+        if (strstr(buffer,"Relative Humidity"))
+            if (comma = strstr(buffer, ": ")){
+                comma = comma + 2;
+                humidity = atoi (comma);
+                fprintf(file_out,"     <humidity>%i</humidity>\n", humidity);				                
+            }
+        if (strstr(buffer,"Weather Cartoon"))
+            if (comma = strstr(buffer, "No. ")){
+                comma = comma + 3;
+                icon = atoi (comma);
+                snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%i", icon);
+                fprintf(file_out,"     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer));				                
+            }
+            if (comma = strstr(buffer, " - ")){
+                comma = comma + 3;
+                snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%s", comma);
+                if (strlen(temp_buffer) > 3)
+                    temp_buffer[strlen(temp_buffer) - 2] = 0; 
+                fprintf(file_out,"     <title>%s</title>\n", temp_buffer);				                
+            }
+#endif
+    }
+    fprintf(file_out,"    </period>\n");
+    fclose(file_out);
+    fclose(file_in);
+}
+/*******************************************************************************/
 
 /*******************************************************************************/
 void
@@ -748,6 +831,7 @@ convert_station_hkogovhk_data(const gchar *station_id_with_path, const gchar *re
     fclose(file_out);
    
     parse_current_weather(detail_path_data, result_file);
+    parse_forecast_weather(station_id_with_path, result_file);
 
     file_out = fopen(result_file, "a");
     if (file_out){

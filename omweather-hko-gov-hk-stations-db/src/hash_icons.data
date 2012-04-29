@@ -1,5 +1,6 @@
 
     g_hash_table_insert(hash, "62", "11");
+    g_hash_table_insert(hash, "54", "39");
 
 
 

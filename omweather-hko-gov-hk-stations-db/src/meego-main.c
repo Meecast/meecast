@@ -652,13 +652,15 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
 
     FILE    *file_out;
     FILE    *file_in;
+    FILE    *file_in2;
     gchar buffer [4096];
+    gchar buffer2 [4096];
     gchar temp_buffer [1024];
     gchar *comma = NULL;
     gchar *comma2 = NULL;
     struct tm   tmp_tm = {0};
     time_t      t_start = 0, t_end = 0;
-    int   temperature, humidity, icon;
+    int   temperature, humidity1, humidity2, icon;
     double wind_speed;
     int   year=0;
     int   number_of_day = 0;
@@ -672,6 +674,11 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
     if (!file_in)
         return;
 
+    file_in2 = fopen(detail_path_data, "r");
+    while(fgets(buffer, sizeof(buffer), file_in2)){
+        if (strstr(buffer,"Weather Cartoons for 7-day weather forecast"))
+            break;
+    }
     hash_for_icons = hash_icons_hkogovhk_table_create();
     while(fgets(buffer, sizeof(buffer), file_in)){
         if (strstr(buffer,"<i>"))
@@ -696,6 +703,13 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
                 t_end = t_start + 3600*24 - 1;
                 fprintf(file_out," end=\"%li\">\n", t_end);
                 number_of_day ++; 
+                fgets(buffer2, sizeof(buffer2), file_in2);
+                if (comma = strstr(buffer2, "no. ")){
+                    comma = comma + 3;
+                    icon = atoi (comma);
+                    snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%i", icon);
+                    fprintf(file_out,"     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer));				                
+                }
             }
         if (strstr(buffer,"Wind"))
             if (comma = strstr(buffer, ": ")){
@@ -748,6 +762,16 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
                 temperature = atoi (comma2);
                 fprintf(file_out, "     <temperature_hi>%i</temperature_hi>\n", temperature);
             }
+        if (strstr(buffer,"R.H. Range"))
+            if (comma = strstr(buffer, ": ")){
+                comma = comma + 2;
+                humidity1 = atoi (comma);
+                comma2 = strstr(buffer, "- ");
+                comma2 = comma2 + 2;
+                humidity2 = atoi (comma2);
+                fprintf(file_out, "     <humidity>%i</humidity>\n", (humidity2 - humidity1)/2 + humidity1);
+            }
+
 
 #if 0
         if (strstr(buffer,"Air Temperature"))
@@ -781,6 +805,7 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
     fprintf(file_out,"    </period>\n");
     fclose(file_out);
     fclose(file_in);
+    fclose(file_in2);
 }
 /*******************************************************************************/
 

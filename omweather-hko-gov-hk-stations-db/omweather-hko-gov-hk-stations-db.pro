@@ -25,7 +25,7 @@ CONFIG = link_pkgconfig -qt
 PKGCONFIG += libxml-2.0 \
              glib-2.0
 
-db.files = data/=hko.gov.hk.db
+db.files = data/hko.gov.hk.db
 db.path = /opt/com.meecast.omweather/share/db/
 
 source.files = data/hko.gov.hk.xml

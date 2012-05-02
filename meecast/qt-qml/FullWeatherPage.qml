@@ -109,7 +109,7 @@ Page {
             hours_list.visible = false;
             flickable.contentHeight = day_rect.height + current_rect.height;
 
-	        day_period_name = Config.tr("Day")
+            day_period_name = Config.tr("Day")
             image_source = Config.iconspath + "/" + Config.iconset + "/" + model_day.getdata(day, "pict")
             current_rect.color = getColor(model_day.getdata(day, "temp_high"));
             description_text = model_day.getdata(day, "description") ? model_day.getdata(day, "description") : ""
@@ -375,6 +375,7 @@ Page {
                 font.pointSize: 26
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
+	
             }
 /*	    
             Text {
@@ -396,18 +397,37 @@ Page {
            Rectangle {
                id: desc  
                height: 44
+	       color: "transparent"
+	       width: parent.width 
                anchors.left: parent.left
                anchors.top: now.bottom
 	       property color textColor: "white"
                Row {  
 	            id: desc_row
-                    Text { id: text; font.pixelSize: 22; color: desc.textColor; text: description_text ; verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter }  
-                    NumberAnimation on x { id: text_anim; from: 450; to: -450 ; duration: 10000; loops: Animation.Infinite }  
-/*                    NumberAnimation  { id: text_anim; properties: "x"; target: desc; from: text.width; to: -text.width ; duration: 10000; loops: Animation.Infinite }  */
+	            width: parent.width 
+                    Text { 
+		          id: text; 
+			  font.pointSize: 22; 
+	                  width: parent.width 
+			  color: desc.textColor; 
+			  text: description_text ; 
+			  verticalAlignment: Text.AlignVCenter; 
+			  horizontalAlignment: Text.AlignHCenter;
+		    	  MouseArea {
+                    	      anchors.fill: parent
+                              onClicked: {
+                                 console.log("!!!!!!!");
+				 if (text_anim.running){
+				     text_anim.running = false;
+				 }else{
+				     text_anim.running = true;
+				 }
+                              }
+               	          }
+		    }  
+                    NumberAnimation on x { id: text_anim; from: 450; to: -450 ; duration: 10000; loops: Animation.Infinite; running : false; }  
 
 	       }  
-	        Component.onCompleted:{/* text_anim.running=false; */
-                console.log("Component.onCompleted rect", description_text.width);}
 	    }
 
             ListModel {
@@ -415,8 +435,6 @@ Page {
             }
             Component.onCompleted: {
                 updateperiod();
-		text_anim.running=true; 
-	        text_anim.start()
                 console.log("Component.onCompleted");
 	
             }

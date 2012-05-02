@@ -113,7 +113,6 @@ Page {
             image_source = Config.iconspath + "/" + Config.iconset + "/" + model_day.getdata(day, "pict")
             current_rect.color = getColor(model_day.getdata(day, "temp_high"));
             description_text = model_day.getdata(day, "description") ? model_day.getdata(day, "description") : ""
-
 	   
             if ((model_day.getdata(day, "humidity")) != "N/A")
                 condition.append({cond_name: Config.tr("Humidity:"),
@@ -377,6 +376,7 @@ Page {
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
             }
+/*	    
             Text {
                 id: desc
                 text: description_text 
@@ -389,12 +389,36 @@ Page {
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
             }
+*/
+
+
+
+           Rectangle {
+               id: desc  
+               height: 44
+               anchors.left: parent.left
+               anchors.top: now.bottom
+	       property color textColor: "white"
+               Row {  
+	            id: desc_row
+                    Text { id: text; font.pixelSize: 22; color: desc.textColor; text: description_text ; verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter }  
+                    NumberAnimation on x { id: text_anim; from: 450; to: -450 ; duration: 10000; loops: Animation.Infinite }  
+/*                    NumberAnimation  { id: text_anim; properties: "x"; target: desc; from: text.width; to: -text.width ; duration: 10000; loops: Animation.Infinite }  */
+
+	       }  
+	        Component.onCompleted:{/* text_anim.running=false; */
+                console.log("Component.onCompleted rect", description_text.width);}
+	    }
 
             ListModel {
                 id: condition
             }
             Component.onCompleted: {
                 updateperiod();
+		text_anim.running=true; 
+	        text_anim.start()
+                console.log("Component.onCompleted");
+	
             }
             GridView {
                 id: grid

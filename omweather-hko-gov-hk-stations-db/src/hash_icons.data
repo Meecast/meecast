@@ -12,7 +12,9 @@
     g_hash_table_insert(hash, "Noth", "N");
     g_hash_table_insert(hash, "West", "W");
     g_hash_table_insert(hash, "Southeast", "SE");
+    g_hash_table_insert(hash, "Southwest", "SW");
     g_hash_table_insert(hash, "East to southeast", "ESE");
+    g_hash_table_insert(hash, "South to southwest", "SSW");
     g_hash_table_insert(hash, "Light winds", "Light winds");
 
 

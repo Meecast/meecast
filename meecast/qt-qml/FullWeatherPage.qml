@@ -386,24 +386,7 @@ Page {
                 horizontalAlignment: Text.AlignHCenter
 	
             }
-/*	    
-            Text {
-                id: desc
-                text: description_text 
-                anchors.left: parent.left
-                anchors.top: now.bottom
-                width: current_rect.width
-                height: 44
-                color: "white"
-                font.pointSize: 18
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-*/
-
-
-
-           Rectangle {
+            Rectangle {
                id: desc  
                height: 44
 	       color: "transparent"

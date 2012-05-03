@@ -11,6 +11,8 @@ Page {
     property string day_period_name: ""
     property string image_source: ""
     property string description_text: ""
+    property variant description_text_alignment: Text.AlignHLeft;
+  
 
     property variant model_day:  (current) ? Current : Forecast_model
     property variant model_night:  (current) ? Current_night : Forecast_night_model
@@ -208,6 +210,13 @@ Page {
         if ((model_day.getdata(day, "lastupdate")) != "N/A")
             condition2.append({cond_name: Config.tr("Last update:"),
                          value: model_day.getdata(day, "lastupdate")});
+	
+	if (description_text.length > 35){
+	    description_text_alignment = Text.AlignHLeft
+	}else{
+	    description_text_alignment = Text.AlignHCenter
+	}
+
     }
 
  
@@ -407,16 +416,15 @@ Page {
 	            width: parent.width 
                     Text { 
 		          id: text; 
-			  font.pointSize: 22; 
+			  font.pointSize: 20; 
 	                  width: parent.width 
 			  color: desc.textColor; 
 			  text: description_text ; 
 			  verticalAlignment: Text.AlignVCenter; 
-			  horizontalAlignment: Text.AlignHCenter;
+			  horizontalAlignment: description_text_alignment; 
 		    	  MouseArea {
                     	      anchors.fill: parent
                               onClicked: {
-                                 console.log("!!!!!!!");
 				 if (text_anim.running){
 				     text_anim.running = false;
 				 }else{
@@ -425,7 +433,7 @@ Page {
                               }
                	          }
 		    }  
-                    NumberAnimation on x { id: text_anim; from: 450; to: -450 ; duration: 10000; loops: Animation.Infinite; running : false; }  
+                    NumberAnimation on x { id: text_anim; from: 450; to: -500 ; duration: 10000; loops: Animation.Infinite; running : false; }  
 
 	       }  
 	    }
@@ -435,8 +443,6 @@ Page {
             }
             Component.onCompleted: {
                 updateperiod();
-                console.log("Component.onCompleted");
-	
             }
             GridView {
                 id: grid

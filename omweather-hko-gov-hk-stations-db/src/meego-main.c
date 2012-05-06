@@ -180,7 +180,6 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
     fclose(file_in);
     fclose(file_in2);
 }
-/*******************************************************************************/
 
 /*******************************************************************************/
 void
@@ -244,7 +243,13 @@ parse_current_weather(const gchar *detail_path_data, const gchar *result_file){
                 if (strlen(temp_buffer) > 3)
                     temp_buffer[strlen(temp_buffer) - 2] = 0; 
                 fprintf(file_out,"     <description>%s</description>\n", temp_buffer);				                
-            }
+            }else
+                if (comma = strstr(buffer, " : ")){
+                    comma = comma + 3;
+                    snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%s", comma);
+                    if (strlen(temp_buffer) > 3)
+                        temp_buffer[strlen(temp_buffer) - 1] = 0; 
+                    fprintf(file_out,"     <description>%s</description>\n", temp_buffer);				                       }
     }
     fprintf(file_out,"    </period>\n");
     fclose(file_out);

@@ -151,7 +151,7 @@ parse_and_write_detail_data(const gchar *station_name, htmlDocPtr doc, const gch
             tmp_tm.tm_year = tm->tm_year;
             tmp_tm.tm_mon = tm->tm_mon;  
             t_start = mktime(&tmp_tm)-2*3600;// - au_timezone*3600;
-            t_end = t_start + 2*3600;
+            t_end = t_start + 4*3600;
             fprintf(file_out,"    <period start=\"%li\" current=\"true\"", t_start);
             fprintf(file_out," end=\"%li\">\n", t_end); 
             xmlFree(xpathObj2);

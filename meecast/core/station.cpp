@@ -81,17 +81,39 @@ Station::Station(const std::string& source_name, const std::string& id, const st
         char view_url[4096];
         snprintf(view_url, sizeof(view_url)-1, url_for_view.c_str(), id.c_str());
 
-        _forecastURL = new std::string(forecast_url);
-        _detailURL = new std::string(forecast_detail_url);
-        _cookie = new std::string(cookie);
-        _viewURL = new std::string(view_url);
-
         std::string filename(Core::AbstractConfig::getConfigPath());
         filename += source_name;
         filename += "_";
         filename += id;
-        if (source_name == "bom.gov.au")
+        _forecastURL = new std::string(forecast_url);
+        _detailURL = new std::string(forecast_detail_url);
+        if (source_name == "bom.gov.au"){
+           if (_id->find("IDV") == 0)
+               _detailURL = new std::string("http://www.bom.gov.au/vic/observations/vicall.shtml");
+           if (_id->find("IDN") == 0)
+               _detailURL = new std::string("http://www.bom.gov.au/nsw/observations/nswall.shtml");     
+           if (_id->find("IDS") == 0)
+               _detailURL = new std::string("http://www.bom.gov.au/sa/observations/saall.shtml");     
+           if (_id->find("IDT") == 0)
+               _detailURL = new std::string("http://www.bom.gov.au/tas/observations/tasall.shtml");     
+
+
+           if (_name->find("Darwin") == 0)
+               _detailURL = new std::string("http://www.bom.gov.au/nt/observations/ntall.shtml");
+           if (_name->find("Brisbane") == 0)
+               _detailURL = new std::string("http://www.bom.gov.au/qld/observations/qldall.shtml");     
+           if (_name->find("Perth") == 0)
+               _detailURL = new std::string("http://www.bom.gov.au/wa/observations/waall.shtml");     
+
+
+           //http://www.bom.gov.au/vic/observations/vicall.shtml
+           //http://www.bom.gov.au/nsw/observations/nswall.shtml
             filename += "_" + name;
+         }
+         _cookie = new std::string(cookie);
+         _viewURL = new std::string(view_url);
+
+
         _fileName = new std::string(filename);
         _converter = new std::string(sourcelist->at(source_id)->binary());
 

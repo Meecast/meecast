@@ -10,6 +10,7 @@ meecast (0.5.7) unstable; urgency=low
   * Changed the name of city's-Hertogenbosch on Den Bosch (Netherlands) in foreca.com
   * Added Europe (Portugal, Spain) to foreca.com database
   * Added descriptions of icons for foreca.com data
+  * Added more stations to bom.gov.au source
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2011 21:42:23 +0200
 

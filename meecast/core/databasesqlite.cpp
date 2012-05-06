@@ -152,7 +152,7 @@ DatabaseSqlite::create_region_list(int country_id)
                  "SELECT id, name FROM regions WHERE country_id = %d ORDER BY name",
                  country_id);
     }
-    //std::cerr << sql << std::endl;
+/*    std::cerr <<"Select region: "<< sql << std::endl; */
     rc = sqlite3_get_table(db,
                            sql,
                            &result,

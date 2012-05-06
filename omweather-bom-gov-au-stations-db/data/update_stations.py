@@ -16,12 +16,29 @@ def search_and_add_stations (filename, cursor):
     for node in nodes:
         anchors = xmldoc.xpathEval('/product/forecast/area[@type="location"][%i]/forecast-period[@index="2"]'%(i))
         if (anchors):
-            cur = cursor.execute("select id from stations where region_id='13' and name = '%s'" %(xmldoc.xpathEval('/product/forecast/area[@type="location"][%i]/@description'%(i))[0].content))
+            region_name = code[0] + code[1] + code[2]
+            region_code = "13"
+            if (region_name == "IDN"):
+                region_code = "302" 
+            if (region_name == "IDV"):
+                region_code = "303"
+            if (region_name == "IDQ"):
+                region_code = "304"
+            if (region_name == "IDW"):
+                region_code = "305"
+            if (region_name == "IDS"):
+                region_code = "306"
+            if (region_name == "IDT"):
+                region_code = "307"
+            if (region_name == "IDD"):
+                region_code = "309"
+
+            cur = cursor.execute("select id from stations where region_id='%s' and name = '%s'" %(region_code, xmldoc.xpathEval('/product/forecast/area[@type="location"][%i]/@description'%(i))[0].content))
             station_id= None
             for row in cur:
                 station_id = row[0]
             if (station_id == None):
-                cur = cursor.execute('insert into stations (name, region_id, code) values  ("%s", "%s", "%s")' % (xmldoc.xpathEval('/product/forecast/area[@type="location"][%i]/@description'%(i))[0].content, "13", code))
+                cur = cursor.execute('insert into stations (name, region_id, code) values  ("%s", "%s", "%s")' % (xmldoc.xpathEval('/product/forecast/area[@type="location"][%i]/@description'%(i))[0].content, region_code, code))
         i = i + 1
     xmldoc.freeDoc()
     return 

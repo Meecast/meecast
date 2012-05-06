@@ -47,7 +47,7 @@ RegionModel::populate(QString source, QString country)
     filename.prepend(path.c_str());
     Core::DatabaseSqlite *db;
     db = new Core::DatabaseSqlite("");
-    qDebug() << "filename = " << filename;
+    qDebug() << "Region list filename = " << filename;
     if (db) {
         db->set_databasename(filename.toStdString());
     }else {

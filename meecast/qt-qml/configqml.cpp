@@ -461,7 +461,7 @@ QStringList
 ConfigQml::Regions(int index)
 {
     QStringList l;
-
+    
     Core::listdata * list = db->create_region_list(getCountryId(index));
 
     if (list->size() == 0) return l;

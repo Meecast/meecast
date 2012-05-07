@@ -235,6 +235,7 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
 
     memset(current_icon, 0, sizeof(icon));
+    sprintf(current_icon, "%s", "48"); 
     memset(current_title, 0, sizeof(icon));
     root_node = xmlDocGetRootElement(doc);
 

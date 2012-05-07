@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-27 15:03+0300\n"
+"POT-Creation-Date: 2012-05-07 20:18+0300\n"
 "PO-Revision-Date: 2012-04-23 15:35+0000\n"
 "Last-Translator: Ilir Gjika <ilir.gjika@gmail.com>\n"
 "Language-Team: Albanian (http://www.transifex.net/projects/p/meecast/"
@@ -607,7 +607,7 @@ msgid "Custom"
 msgstr "Përvetësuar"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
-#: meecast/qt-qml/FullWeatherPage.qml:112
+#: meecast/qt-qml/FullWeatherPage.qml:114
 msgid "Day"
 msgstr "Ditë"
 
@@ -615,7 +615,7 @@ msgstr "Ditë"
 msgid "Day length"
 msgstr "Kohëzgjatja e ditës"
 
-#: omweather/src/hash.data:58 meecast/qt-qml/FullWeatherPage.qml:207
+#: omweather/src/hash.data:58 meecast/qt-qml/FullWeatherPage.qml:208
 msgid "Day length:"
 msgstr "Kohëzgjatja e ditës:"
 
@@ -860,8 +860,8 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Tremujori i parë"
 
-#: meecast/qt-qml/FullWeatherPage.qml:137
-#: meecast/qt-qml/FullWeatherPage.qml:179
+#: meecast/qt-qml/FullWeatherPage.qml:138
+#: meecast/qt-qml/FullWeatherPage.qml:180
 msgid "Flike:"
 msgstr "Flike:"
 
@@ -1047,14 +1047,14 @@ msgstr "Rreshje të dëndura dëbore"
 msgid "High"
 msgstr "E lartë"
 
-#: meecast/qt-qml/FullWeatherPage.qml:190
+#: meecast/qt-qml/FullWeatherPage.qml:191
 msgid "Hours"
 msgstr "Orë"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:167 meecast/qt-qml/FullWeatherPage.qml:119
-#: meecast/qt-qml/FullWeatherPage.qml:161
+#: meecast/qt-qml/dataitem.cpp:167 meecast/qt-qml/FullWeatherPage.qml:120
+#: meecast/qt-qml/FullWeatherPage.qml:162
 msgid "Humidity:"
 msgstr "Lagështira:"
 
@@ -1116,7 +1116,7 @@ msgstr "Përditësimi i fundit tek serveri: "
 msgid "Last update from server: "
 msgstr "Përditësimi i fundit nga serveri: "
 
-#: omweather/src/hash.data:98 meecast/qt-qml/FullWeatherPage.qml:210
+#: omweather/src/hash.data:98 meecast/qt-qml/FullWeatherPage.qml:211
 msgid "Last update:"
 msgstr "Përditësimi i fundit"
 
@@ -1235,7 +1235,7 @@ msgstr "Raporti lokal mbi pjalmet"
 msgid "Long"
 msgstr "I gjatë"
 
-#: omweather/src/hash.data:120 meecast/qt-qml/WeatherPage.qml:482
+#: omweather/src/hash.data:120 meecast/qt-qml/WeatherPage.qml:483
 msgid "Looks like there's no info for this location."
 msgstr "Duket sikur s'paska të dhëna për këtë stacion"
 
@@ -1263,7 +1263,7 @@ msgstr "Me dorë"
 msgid "Measurement units"
 msgstr "Njësitë matëse"
 
-#: meecast/qt-qml/WeatherPage.qml:287
+#: meecast/qt-qml/WeatherPage.qml:288
 msgid "MeeCast"
 msgstr "MeeCast"
 
@@ -1481,7 +1481,7 @@ msgid "Next update:"
 msgstr "Përditësimi që vjen:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:588
-#: meecast/qt-qml/FullWeatherPage.qml:148
+#: meecast/qt-qml/FullWeatherPage.qml:149
 msgid "Night"
 msgstr "Natën"
 
@@ -1497,7 +1497,7 @@ msgstr "Jo"
 msgid "No current weather data."
 msgstr "S'ka të dhëna mbi parashikimin e motit"
 
-#: omweather/src/hash.data:165 meecast/qt-qml/WeatherPage.qml:308
+#: omweather/src/hash.data:165 meecast/qt-qml/WeatherPage.qml:309
 msgid "No locations are set up yet."
 msgstr "S'ke zgjedhur akoma vëndin për të cilin do parashikimet e motit"
 
@@ -1515,7 +1515,7 @@ msgstr "S'ka të dhëna nga ky stacion"
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:175 meecast/qt-qml/WeatherPage.qml:536
+#: meecast/qt-qml/dataitem.cpp:175 meecast/qt-qml/WeatherPage.qml:537
 msgid "Now"
 msgstr "Tani"
 
@@ -1784,8 +1784,8 @@ msgstr "Periudha"
 msgid "Position:"
 msgstr "Posicioni:"
 
-#: meecast/qt-qml/FullWeatherPage.qml:131
-#: meecast/qt-qml/FullWeatherPage.qml:173
+#: meecast/qt-qml/FullWeatherPage.qml:132
+#: meecast/qt-qml/FullWeatherPage.qml:174
 msgid "Ppcp:"
 msgstr "Ppcp:"
 
@@ -1808,8 +1808,8 @@ msgstr "Njesitë e presionit:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:173 meecast/qt-qml/FullWeatherPage.qml:125
-#: meecast/qt-qml/FullWeatherPage.qml:167
+#: meecast/qt-qml/dataitem.cpp:173 meecast/qt-qml/FullWeatherPage.qml:126
+#: meecast/qt-qml/FullWeatherPage.qml:168
 msgid "Pressure:"
 msgstr "Presioni:"
 
@@ -2066,7 +2066,7 @@ msgstr "Sensori"
 msgid "Set"
 msgstr "Vendos"
 
-#: omweather/src/hash.data:253 meecast/qt-qml/WeatherPage.qml:322
+#: omweather/src/hash.data:253 meecast/qt-qml/WeatherPage.qml:323
 msgid "Set locations"
 msgstr "Vendos vëndin"
 
@@ -2231,7 +2231,7 @@ msgstr "Me diell"
 msgid "Sunny / Wind"
 msgstr "Me diell / Erë"
 
-#: omweather/src/hash.data:277 meecast/qt-qml/FullWeatherPage.qml:201
+#: omweather/src/hash.data:277 meecast/qt-qml/FullWeatherPage.qml:202
 msgid "Sunrise:"
 msgstr "Dielli lind në orën:"
 
@@ -2239,7 +2239,7 @@ msgstr "Dielli lind në orën:"
 msgid "Sunrise: "
 msgstr "Dielli lind në orën: "
 
-#: omweather/src/hash.data:278 meecast/qt-qml/FullWeatherPage.qml:204
+#: omweather/src/hash.data:278 meecast/qt-qml/FullWeatherPage.qml:205
 msgid "Sunset:"
 msgstr "Perëndon:"
 
@@ -2342,7 +2342,7 @@ msgstr "Bubullima"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
-#: meecast/qt-qml/FullWeatherPage.qml:327 meecast/qt-qml/WeatherPage.qml:536
+#: meecast/qt-qml/FullWeatherPage.qml:335 meecast/qt-qml/WeatherPage.qml:537
 msgid "Today"
 msgstr "Sot"
 
@@ -2363,7 +2363,7 @@ msgstr ""
 msgid "Transparency:"
 msgstr "Tejduekshmëria:"
 
-#: omweather/src/hash.data:287 meecast/qt-qml/WeatherPage.qml:496
+#: omweather/src/hash.data:287 meecast/qt-qml/WeatherPage.qml:497
 msgid "Try to update"
 msgstr "Provo të perditësosh"
 
@@ -2410,7 +2410,7 @@ msgstr "Përditësimi është duke u kryer"
 msgid "Update interval"
 msgstr "Frekuenca e përditësimeve"
 
-#: omweather/src/hash.data:289 meecast/qt-qml/WeatherPage.qml:355
+#: omweather/src/hash.data:289 meecast/qt-qml/WeatherPage.qml:356
 msgid "Updating forecast"
 msgstr "Duke përditësuar parashikimet"
 
@@ -2552,18 +2552,18 @@ msgstr "Stili i Widget-it dhe Ikonat"
 msgid "Wind"
 msgstr "Era"
 
-#: omweather/src/hash.data:302 meecast/qt-qml/FullWeatherPage.qml:122
-#: meecast/qt-qml/FullWeatherPage.qml:164
+#: omweather/src/hash.data:302 meecast/qt-qml/FullWeatherPage.qml:123
+#: meecast/qt-qml/FullWeatherPage.qml:165
 msgid "Wind direction:"
 msgstr "Era fryn nga:"
 
-#: meecast/qt-qml/FullWeatherPage.qml:134
-#: meecast/qt-qml/FullWeatherPage.qml:176
+#: meecast/qt-qml/FullWeatherPage.qml:135
+#: meecast/qt-qml/FullWeatherPage.qml:177
 msgid "Wind gust:"
 msgstr "Shkulme ere nga:"
 
-#: omweather/src/hash.data:304 meecast/qt-qml/FullWeatherPage.qml:128
-#: meecast/qt-qml/FullWeatherPage.qml:170
+#: omweather/src/hash.data:304 meecast/qt-qml/FullWeatherPage.qml:129
+#: meecast/qt-qml/FullWeatherPage.qml:171
 msgid "Wind speed"
 msgstr "Shpejtësia e erës"
 

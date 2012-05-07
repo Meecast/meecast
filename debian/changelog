@@ -11,6 +11,9 @@ meecast (0.5.7) unstable; urgency=low
   * Added Europe (Portugal, Spain) to foreca.com database
   * Added descriptions of icons for foreca.com data
   * Added more stations to bom.gov.au source
+  * Added Albanian translation. Thanks  Ilir Gjika aka illo1977
+  * Updated Bulgarian translation. Thanks Zlatko Enikov
+  * Updated Dutch translation. Thanks Michiel Pater aka curryfun
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2011 21:42:23 +0200
 

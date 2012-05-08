@@ -9,6 +9,7 @@ meecast (0.5.7) unstable; urgency=low
     Hawaii,Idaho,Illinois,Indiana,Iowa,Kansas) to foreca.com database
   * Changed the name of city's-Hertogenbosch on Den Bosch (Netherlands) in foreca.com
   * Added Europe (Portugal, Spain) to foreca.com database
+  * Added Hong Kong to yr.no
   * Added descriptions of icons for foreca.com data
   * Added more stations to bom.gov.au source
   * Added Albanian translation. Thanks  Ilir Gjika aka illo1977

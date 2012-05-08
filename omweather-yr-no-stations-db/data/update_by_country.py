@@ -96,16 +96,20 @@ import zipfile
 
 #replacing_dict_after_region_filling = { } 
 
-country = "Argentina"
-country_code = "AR"
-replacing_dict = {"Provincia_de_Buenos_Aires":"Buenos Aires", "Santa_Fe_Province": "Santa Fe",
-                  "Provincia_de_Santiago_del_Estero":"Santiago del Estero",
-                  "Provincia_de_Tierra_del_Fuego,_Antartida_e_Islas_del_Atlantico_Sur":"Tierra del Fuego",
-                  "Provincia_de_La_Rioja":"La Rioja", "Provincia_de_Entre_Rios":"Entre Ríos",
-                  "Provincia_de_Santa_Cruz":"Santa Cruz", "Ciudad_Autonoma_de_Buenos_Aires":"Buenos Aires",
-                  "Provincia_de_Rio_Negro":"Río Negro", "Provincia_de_La_Pampa":"La Pampa",
-                  "Provincia_de_San_Luis":"San Luis","Provincia_de_San_Juan":"San Juan"}
-                  
+#country = "Argentina"
+#country_code = "AR"
+#replacing_dict = {"Provincia_de_Buenos_Aires":"Buenos Aires", "Santa_Fe_Province": "Santa Fe",
+#                  "Provincia_de_Santiago_del_Estero":"Santiago del Estero",
+#                  "Provincia_de_Tierra_del_Fuego,_Antartida_e_Islas_del_Atlantico_Sur":"Tierra del Fuego",
+#                  "Provincia_de_La_Rioja":"La Rioja", "Provincia_de_Entre_Rios":"Entre Ríos",
+#                  "Provincia_de_Santa_Cruz":"Santa Cruz", "Ciudad_Autonoma_de_Buenos_Aires":"Buenos Aires",
+#                  "Provincia_de_Rio_Negro":"Río Negro", "Provincia_de_La_Pampa":"La Pampa",
+#                  "Provincia_de_San_Luis":"San Luis","Provincia_de_San_Juan":"San Juan"}
+
+country = "Hong Kong"
+country_code = "HK"
+replacing_dict = {}
+                 
 
 replacing_dict_after_region_filling = { } 
 
@@ -189,6 +193,7 @@ print country_id
 for key in regions_name.keys():
     cur = cu.execute("select name, id from regions where country_id='%i' and name = '%s'" %(country_id,normalizing3(regions_name[key])))
     if (cur.fetchone() == None ):
+        print regions_name_second[key]
         pattern = re.split ('(,)',regions_name_second[key])
         flag = 0 
         for variant in pattern:

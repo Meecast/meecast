@@ -230,7 +230,7 @@ parse_current_weather(const gchar *detail_path_data, const gchar *result_file){
                 humidity = atoi (comma);
                 fprintf(file_out,"     <humidity>%i</humidity>\n", humidity);				                
             }
-        if (strstr(buffer,"Weather Cartoon"))
+        if (strstr(buffer,"Weather Cartoon")){
             if (comma = strstr(buffer, "No. ")){
                 comma = comma + 3;
                 icon = atoi (comma);
@@ -249,7 +249,9 @@ parse_current_weather(const gchar *detail_path_data, const gchar *result_file){
                     snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%s", comma);
                     if (strlen(temp_buffer) > 3)
                         temp_buffer[strlen(temp_buffer) - 1] = 0; 
-                    fprintf(file_out,"     <description>%s</description>\n", temp_buffer);				                       }
+                    fprintf(file_out,"     <description>%s</description>\n", temp_buffer);				                       
+                }
+        }
     }
     fprintf(file_out,"    </period>\n");
     fclose(file_out);

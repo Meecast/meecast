@@ -557,7 +557,7 @@ Page {
                             width: 160
                             height: 84
                             color: "white"
-                            text: model.temp_high + '°'
+                            text: model.temp + '°'
                             font.pointSize: 26
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter

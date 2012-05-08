@@ -3,6 +3,7 @@ meecast (0.5.7) unstable; urgency=low
   * Added hours weather forecast for foreca.com source  
   * Fixed problem with temperetaure and icons in hours weather forecast in gismeteo.ru source
   * Fixed problem with showing hours instead of day week name in main window
+  * Fixed problem with current temperature
   * Added new source of weather forecast hko.gov.hk
   * Added animation for string with weather forecast description
   * Added United States(Alabama, Alaska,Arizona, Arkansas, Colorado, Connecticut, Delaware,Florida,Georgia,

@@ -8,6 +8,7 @@
     g_hash_table_insert(hash, "65", "17");
     g_hash_table_insert(hash, "76", "27");
     g_hash_table_insert(hash, "50", "32");
+    g_hash_table_insert(hash, "90", "36");
     g_hash_table_insert(hash, "South", "S");
     g_hash_table_insert(hash, "East", "E");
     g_hash_table_insert(hash, "Noth", "N");

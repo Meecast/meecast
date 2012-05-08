@@ -5,6 +5,7 @@
     g_hash_table_insert(hash, "54", "39");
     g_hash_table_insert(hash, "51", "44");
     g_hash_table_insert(hash, "60", "26");
+    g_hash_table_insert(hash, "65", "17");
     g_hash_table_insert(hash, "76", "27");
     g_hash_table_insert(hash, "50", "32");
     g_hash_table_insert(hash, "South", "S");
@@ -15,6 +16,7 @@
     g_hash_table_insert(hash, "Southwest", "SW");
     g_hash_table_insert(hash, "East to southeast", "ESE");
     g_hash_table_insert(hash, "South to southwest", "SSW");
+    g_hash_table_insert(hash, "South to southeast", "SSE");
     g_hash_table_insert(hash, "Light winds", "Light winds");
 
 

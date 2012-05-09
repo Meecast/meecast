@@ -189,7 +189,8 @@ Russian - Pavel Fialko, Vlad Vasiliev, \n \
 Finnish - Marko Vertainen\n \
 German -  Claudius Henrichs\n \
 Italian - Pavel Fialko, Alessandro Pasotti,\n \
-\tSalvatore Fiorenzo, Ilir Gjika, Luca Onnis\n \
+\tSalvatore Fiorenzo, Ilir Gjika,\n \
+\tLuca Onnis\n \
 Spanish - Alejandro Lopez\n \
 Polish - Tomasz Dominikowski\n \
 Slovak - Roman Moravčík\n \
@@ -197,8 +198,8 @@ Dutch - Tom Leenders, Michiel Pater\n \
 Bulgarian - Zlatko Enikov\n \
 Albanian - Ilir Gjika\n \
 Swedish - Angela Nennebrandt,\n \
-          Niklas Åkerström, \n \
-	  Tomislav Veleckovik")
+\tNiklas Åkerström, \n \
+\tTomislav Veleckovik")
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    anchors.top: translatorstext.bottom

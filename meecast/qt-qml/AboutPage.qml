@@ -196,7 +196,9 @@ Slovak - Roman Moravčík\n \
 Dutch - Tom Leenders, Michiel Pater\n \
 Bulgarian - Zlatko Enikov\n \
 Albanian - Ilir Gjika\n \
-Swedish - Angela Nennebrandt, Niklas Åkerström, Tomislav Veleckovik")
+Swedish - Angela Nennebrandt,\n
+          Niklas Åkerström, \n
+	  Tomislav Veleckovik")
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    anchors.top: translatorstext.bottom

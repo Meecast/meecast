@@ -1,23 +1,26 @@
-# translation of OMWeather fi_FI.po to Finnish
-# This file is distributed under the same license as the OMWeather package.
-#
+# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Marko Vertainen <marko.vertainen@iki.fi>, 2012.
 # Pavel Fialko <pavelnf@gmail.com>, 2007.
-# vlad <vlad@gas.by>, 2007.
 # Vlad Vasiliev <vlad@gas.by>, 2007.
+# vlad <vlad@gas.by>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: fi_FI\n"
+"Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-07 20:18+0300\n"
-"PO-Revision-Date: 2012-04-10 20:06+0200\n"
+"POT-Creation-Date: 2012-05-09 11:50+0300\n"
+"PO-Revision-Date: 2012-04-26 15:48+0000\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
-"Language-Team: Finnish\n"
-"Language: \n"
+"Language-Team: Finnish (Finland) (http://www.transifex.net/projects/p/"
+"meecast/language/fi_FI/)\n"
+"Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
@@ -934,13 +937,14 @@ msgid ""
 " Finnish - Marko Vertainen\n"
 " German -  Claudius Henrichs\n"
 " Italian - Pavel Fialko, Alessandro Pasotti,\n"
-" \tSalvatore Fiorenzo, Luca Onnis\n"
+" \tSalvatore Fiorenzo, Ilir Gjika, Luca Onnis\n"
 " Spanish - Alejandro Lopez\n"
 " Polish - Tomasz Dominikowski\n"
-" Slovak - Roman Moravčík \n"
-" Dutch - Tom Leenders \n"
-" Bulgarian - Zlatko Enikov \n"
-" Swedish - Angela Nennebrandt, Tomislav Veleckovik"
+" Slovak - Roman Moravčík\n"
+" Dutch - Tom Leenders, Michiel Pater\n"
+" Bulgarian - Zlatko Enikov\n"
+" Albanian - Ilir Gjika\n"
+" Swedish - Angela Nennebrandt,\n"
 msgstr ""
 " Ranska - Nicolas Granziano, \n"
 " \tPhilippe, Benot Knech\n"
@@ -1145,7 +1149,7 @@ msgstr "Pääsuunnittelija"
 msgid "Lead programmers"
 msgstr "Pääohjelmoijat"
 
-#: meecast/qt-qml/AboutPage.qml:205
+#: meecast/qt-qml/AboutPage.qml:208
 msgid "License"
 msgstr "Lisenssi"
 
@@ -2080,7 +2084,7 @@ msgstr "Asetukset"
 
 #: omweather/src/hash.data:254
 msgid "Shallow Fog"
-msgstr ""
+msgstr "Matalaa sumua"
 
 #: omweather/src/weather-settings.c:3465
 msgid "Short"
@@ -2313,7 +2317,7 @@ msgstr "Kiitokset"
 msgid "The weather has been updated."
 msgstr "Säätiedot päivitetty."
 
-#: meecast/qt-qml/AboutPage.qml:214
+#: meecast/qt-qml/AboutPage.qml:217
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2879,354 +2883,32 @@ msgstr "tasainen"
 
 #: omweather/src/hash.data:319
 msgid "В"
-msgstr ""
+msgstr "В"
 
 #: omweather/src/hash.data:320
 msgid "З"
-msgstr ""
+msgstr "З"
 
 #: omweather/src/hash.data:321
 msgid "С"
-msgstr ""
+msgstr "С"
 
 #: omweather/src/hash.data:322
 msgid "С-В"
-msgstr ""
+msgstr "С-В"
 
 #: omweather/src/hash.data:323
 msgid "С-З"
-msgstr ""
+msgstr "С-З"
 
 #: omweather/src/hash.data:324
 msgid "Ю"
-msgstr ""
+msgstr "Ю"
 
 #: omweather/src/hash.data:325
 msgid "Ю-В"
-msgstr ""
+msgstr "Ю-В"
 
 #: omweather/src/hash.data:326
 msgid "Ю-З"
-msgstr ""
-
-#, fuzzy
-#~ msgid "Farenheit"
-#~ msgstr "Fahrenheit"
-
-#, fuzzy
-#~ msgid "Countries"
-#~ msgstr "Maa"
-
-#, fuzzy
-#~ msgid "Regions"
-#~ msgstr "Alue"
-
-#, fuzzy
-#~ msgid "Sources"
-#~ msgstr "Lähde"
-
-#, fuzzy
-#~ msgid "Speed: "
-#~ msgstr "Nopeus:"
-
-#, fuzzy
-#~ msgid "Humidity: "
-#~ msgstr ""
-#~ "\n"
-#~ "Ilmankosteus: "
-
-#~ msgid ""
-#~ "\n"
-#~ "Copyright(c) 2008\n"
-#~ "Andrew Olmsted\n"
-#~ "for Semi-transparency\n"
-#~ "and coloured backgrounds\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Copyright(c) 2008\n"
-#~ "Andrew Olmsted\n"
-#~ "Osittaisesen läpinäkyvyyden\n"
-#~ "ja värillisen taustan osalta\n"
-
-#~ msgid ""
-#~ "\n"
-#~ "Copyright(c) 2008\n"
-#~ "for default icon set (Glance)\n"
-#~ "and design of interface\n"
-#~ "Andrew Zhilin"
-#~ msgstr ""
-#~ "\n"
-#~ "Copyright(c) 2008\n"
-#~ "oletuskuvakkeille (Glance)\n"
-#~ "ja käyttöliittymälle\n"
-#~ "Andrew Zhilin"
-
-#~ msgid ""
-#~ "\n"
-#~ "Hildon desktop applet\n"
-#~ "for Nokia N800/N810/N900\n"
-#~ "to show weather forecasts.\n"
-#~ "Version "
-#~ msgstr ""
-#~ "\n"
-#~ "Hildon työpöytäsovelma\n"
-#~ "sääennusteiden näyttämiseen\n"
-#~ "Nokia 770/N800/N810/N900:lla\n"
-#~ "Versio "
-
-#~ msgid " Build: "
-#~ msgstr " Koonnos: "
-
-#~ msgid "Configuring station"
-#~ msgstr "Asetetaan sääasemaa"
-
-#~ msgid ""
-#~ "GPS station already exist.\n"
-#~ "Only one station can be received via GPS"
-#~ msgstr ""
-#~ "GPS-asema on jo olemassa.\n"
-#~ "Vain yhden aseman tiedot voi hakea GPS:llä"
-
-#~ msgid "s. mi"
-#~ msgstr "s. mi"
-
-#~ msgid "s.mi"
-#~ msgstr "s. mi"
-
-#, fuzzy
-#~ msgid "Extended settings"
-#~ msgstr "OMWeather asetukset"
-
-#~ msgid "Now, today and tomorrow"
-#~ msgstr "Nyt, tämä- ja huominen päivä"
-
-#~ msgid "You didn't select GSM/GPRS for updating weather forecast!"
-#~ msgstr "Et valinnut GSM/GPRS:ää säätietojen päivitykseen!"
-
-#~ msgid "You didn't select WLAN for updating weather forecast!"
-#~ msgstr "Et valinnut WLAN:ia säätitojen päivitykseen!"
-
-#~ msgid "You didn't select WLAN or GSM/GPRS for updating weather forecast!"
-#~ msgstr "Et valinnut WLAN:a tai GSM/GPRS:ää säätietojen päivitykseen!"
-
-#~ msgid "Did not download weather"
-#~ msgstr "Säätietoja ei ladattu."
-
-#~ msgid "Not connected to Internet"
-#~ msgstr "Ei yhteyttä Internettiin."
-
-#, fuzzy
-#~ msgid "Temperatura"
-#~ msgstr "Lämpötila"
-
-#~ msgid "Temp."
-#~ msgstr "Lämpöt."
-
-#~ msgid "List of the found station(s):"
-#~ msgstr "Lista löydetyistä asemista:"
-
-#~ msgid ""
-#~ "Arkady Glazov aka Globster - for testing\n"
-#~ "Alexander Savchenko aka dizel - for testing\n"
-#~ msgstr ""
-#~ "Arkady Glazov aka Globster - testauksesta\n"
-#~ "Alexander Savchenko aka dizel - testauksesta\n"
-
-#~ msgid "Eric Link - for feature request and donation\n"
-#~ msgstr "Eric Link - muutospyynnöstä ja lahjoituksesta\n"
-
-#~ msgid "From the list:"
-#~ msgstr "Listalta:"
-
-#~ msgid ""
-#~ "No one station found! May be you don't have installed omweather-*-station-"
-#~ "db packet"
-#~ msgstr ""
-#~ "Sää-asemia ei löytynyt! Ehkäpä et ole asentanut omweather-*-station-db "
-#~ "pakettia."
-
-#~ msgid "UI Theme Override"
-#~ msgstr "Teeman ohitus"
-
-#~ msgid "Code (Zip):"
-#~ msgstr "Koodi (postinro):"
-
-#~ msgid "Other Maemo Weather Settings"
-#~ msgstr "Other Maemo Weather asetukset"
-
-#~ msgid "Airport Conditions"
-#~ msgstr "Lentokentän säätila"
-
-#~ msgid "Moderate"
-#~ msgstr "Keskinkertainen"
-
-#~ msgid "Invalid symbol in field or field is empty."
-#~ msgstr "Laiton merkki kentässä, tai tyhjä kenttä."
-
-#, fuzzy
-#~ msgid "Hide arrows"
-#~ msgstr "Piilota nuolet:"
-
-#, fuzzy
-#~ msgid "Hide station name"
-#~ msgstr "Piilota aseman nimi:"
-
-#, fuzzy
-#~ msgid "Hide wind"
-#~ msgstr "Piilota nuolet:"
-
-#~ msgid "Current weather on first icon:"
-#~ msgstr "Nykyinen säätieto ensimmäisessä kuvakkeessa:"
-
-#~ msgid "Hide arrows:"
-#~ msgstr "Piilota nuolet:"
-
-#~ msgid "Hide station name:"
-#~ msgstr "Piilota aseman nimi:"
-
-#~ msgid "Interface"
-#~ msgstr "Ulkoasu"
-
-#~ msgid "One column"
-#~ msgstr "Yksi sarake"
-
-#~ msgid "One row"
-#~ msgstr "Yksi rivi"
-
-#~ msgid "Two columns"
-#~ msgstr "Kaksi saraketta"
-
-#~ msgid "Two rows"
-#~ msgstr "Kaksi riviä"
-
-#~ msgid "Arrange"
-#~ msgstr "Järjestä"
-
-#~ msgid ""
-#~ "The current weather\n"
-#~ "is not available"
-#~ msgstr ""
-#~ "Tämän hetken sää\n"
-#~ "ei ole saatavilla"
-
-#~ msgid ""
-#~ "\n"
-#~ "Feels like: "
-#~ msgstr ""
-#~ "\n"
-#~ "Tuntuu iholla:"
-
-#~ msgid ""
-#~ "\n"
-#~ "Visible: "
-#~ msgstr ""
-#~ "\n"
-#~ "Näkyvyys: "
-
-#~ msgid ""
-#~ "\n"
-#~ "Wind: "
-#~ msgstr ""
-#~ "\n"
-#~ "Tuuli: "
-
-#~ msgid " Gust: "
-#~ msgstr " Puuskat:"
-
-#~ msgid " Humidity: "
-#~ msgstr " Ilmankosteus: "
-
-#~ msgid " Add "
-#~ msgstr " Lisää"
-
-#~ msgid "Add Custom Station"
-#~ msgstr "Lisää muu asema"
-
-#~ msgid "Delete"
-#~ msgstr "Poista"
-
-#~ msgid "Events"
-#~ msgstr "Tapahtumat"
-
-#~ msgid "Giant"
-#~ msgstr "Jättimäinen"
-
-#~ msgid "Large"
-#~ msgstr "Suuri"
-
-#~ msgid "Medium"
-#~ msgstr "Keskikoko"
-
-#~ msgid "Miles (Sea)"
-#~ msgstr "Merimaileja"
-
-#~ msgid "Rename"
-#~ msgstr "Uudelleennimeä"
-
-#~ msgid "Show only current weather on first icon:"
-#~ msgstr "Nykyinen säätieto ensimmäisessä kuvakkeessa:"
-
-#~ msgid "Small"
-#~ msgstr "Pieni"
-
-#~ msgid "State(Province):"
-#~ msgstr "Osavaltio (Lääni):"
-
-#~ msgid ""
-#~ "Station code\n"
-#~ " (ZIP Code):"
-#~ msgstr ""
-#~ "Aseman koodi\n"
-#~ " (posti nro):"
-
-#~ msgid "Station(Place):"
-#~ msgstr "Asema (Paikkakunta):"
-
-#~ msgid "Tiny"
-#~ msgstr "Pikkuruinen"
-
-#, fuzzy
-#~ msgid "Background color"
-#~ msgstr "Taustaväri:"
-
-#, fuzzy
-#~ msgid "Font color"
-#~ msgstr "Kirjasimen väri:"
-
-#, fuzzy
-#~ msgid "Icon size"
-#~ msgstr "Kuvakkeen koko:"
-
-#, fuzzy
-#~ msgid "Layout"
-#~ msgstr "Asettelu:"
-
-#, fuzzy
-#~ msgid "Transparency"
-#~ msgstr "Läpinäkyvyys:"
-
-#, fuzzy
-#~ msgid "Visible items"
-#~ msgstr "Näkyvät elementit:"
-
-#~ msgid "Apply"
-#~ msgstr "Käytä"
-
-#~ msgid "Back"
-#~ msgstr "Takaisin"
-
-#~ msgid "Name:       "
-#~ msgstr "Nimi:"
-
-#~ msgid "Refresh"
-#~ msgstr "Päivitä"
-
-#~ msgid "Hide station name and arrows:"
-#~ msgstr "Piilota aseman nimi ja nuolet:"
-
-#~ msgid "Moon: "
-#~ msgstr "Kuu:"
-
-#, fuzzy
-#~ msgid "Edit Station"
-#~ msgstr "Lisää asema"
+msgstr "Ю-З"

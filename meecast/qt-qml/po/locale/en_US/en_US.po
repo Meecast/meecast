@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en_US\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-07 20:18+0300\n"
+"POT-Creation-Date: 2012-05-09 11:50+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -861,13 +861,14 @@ msgid ""
 " Finnish - Marko Vertainen\n"
 " German -  Claudius Henrichs\n"
 " Italian - Pavel Fialko, Alessandro Pasotti,\n"
-" \tSalvatore Fiorenzo, Luca Onnis\n"
+" \tSalvatore Fiorenzo, Ilir Gjika, Luca Onnis\n"
 " Spanish - Alejandro Lopez\n"
 " Polish - Tomasz Dominikowski\n"
-" Slovak - Roman Moravčík \n"
-" Dutch - Tom Leenders \n"
-" Bulgarian - Zlatko Enikov \n"
-" Swedish - Angela Nennebrandt, Tomislav Veleckovik"
+" Slovak - Roman Moravčík\n"
+" Dutch - Tom Leenders, Michiel Pater\n"
+" Bulgarian - Zlatko Enikov\n"
+" Albanian - Ilir Gjika\n"
+" Swedish - Angela Nennebrandt,\n"
 msgstr ""
 
 #: omweather/src/weather-help.c:141
@@ -1047,7 +1048,7 @@ msgstr ""
 msgid "Lead programmers"
 msgstr ""
 
-#: meecast/qt-qml/AboutPage.qml:205
+#: meecast/qt-qml/AboutPage.qml:208
 msgid "License"
 msgstr ""
 
@@ -2218,7 +2219,7 @@ msgstr ""
 msgid "The weather has been updated."
 msgstr ""
 
-#: meecast/qt-qml/AboutPage.qml:214
+#: meecast/qt-qml/AboutPage.qml:217
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"

@@ -570,7 +570,7 @@ std::string&
 Config::nextstationname()
 {
     if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
-        && (this->current_station_id() + 1) < this->stationsList().size()
+        && ((uint)this->current_station_id() + 1) < (uint)this->stationsList().size()
         &&  this->stationsList().at(this->current_station_id()+1)){
          return this->stationsList().at(this->current_station_id()+1)->name();
     }else {

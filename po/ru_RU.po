@@ -1666,11 +1666,11 @@ msgstr "Малооблачно Небольшой Снег"
 
 #: omweather/src/hash.data:193
 msgid "Partly Cloudy Light Rain"
-msgstr "Малообачно Небольшой Дождь"
+msgstr "Малооблачно Небольшой Дождь"
 
 #: omweather/src/hash.data:194
 msgid "Partly Cloudy T-Storm"
-msgstr "Малооблочно Гроза"
+msgstr "Малооблачно Гроза"
 
 #: omweather/src/hash.data:195
 #, fuzzy
@@ -1699,15 +1699,15 @@ msgstr "Небольшая облачность, Сильный Дождь, Гр
 
 #: omweather/src/hash.data:202
 msgid "Partly Cloudy, Heavy Snow"
-msgstr "Малообачно, Сильный Снег"
+msgstr "Малооблачно, Сильный Снег"
 
 #: omweather/src/hash.data:203
 msgid "Partly Cloudy, Light Rain"
-msgstr "Малообачно, Небольшой Дождь"
+msgstr "Малооблачно, Небольшой Дождь"
 
 #: omweather/src/hash.data:204
 msgid "Partly Cloudy, Light Rain, T-Storm"
-msgstr "Малообачно, Небольшой дождь, Гроза"
+msgstr "Малооблачно, Небольшой дождь, Гроза"
 
 #: omweather/src/hash.data:205
 msgid "Partly Cloudy, Rain"
@@ -1719,7 +1719,7 @@ msgstr "Небольшая облачность, Дождь, Гроза"
 
 #: omweather/src/hash.data:207
 msgid "Partly Cloudy, Smoke"
-msgstr "Малообачно, Дымка"
+msgstr "Малооблачно, Дымка"
 
 #: omweather/src/hash.data:208
 msgid "Partly Cloudy, Snow"

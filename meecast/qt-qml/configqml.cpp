@@ -490,6 +490,7 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
 {
     Core::Station *station;
 
+    (void)source_id;
     station = new Core::Station(
                 source.toStdString(),
                 city_id.toStdString(), 
@@ -511,6 +512,7 @@ ConfigQml::saveStation(int city_id, QString city,
                        int source_id, QString source)
 {
     Core::Station *station;
+    (void)source_id;
     region_id = getRegionId(country_id, region_id);
     country_id = getCountryId(country_id);
     std::string code = getCityId(region_id, city_id).toStdString();
@@ -623,7 +625,7 @@ ConfigQml::nextstation()
 void
 ConfigQml::prevstation()
 {
-    if ((uint)(this->current_station_id() - 1) >= 0){
+    if ((int)(this->current_station_id() - 1) >= 0){
        this->current_station_id(this->current_station_id() - 1);
 
    }else {
@@ -665,15 +667,6 @@ ConfigQml::downloadFinishedSlot()
     emit configChanged();
 }
 
-void
-ConfigQml::runsetting()
-{
-    char *args[] = {"/usr/bin/omweather-settouch", (char *) 0 };
-
-    pid_t pID = fork();
-    if (pID == 0)
-        execv("/usr/bin/omweather-settouch", args );
-}
 
 void
 ConfigQml::closeapplication()

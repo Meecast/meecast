@@ -66,7 +66,6 @@ namespace Core {
 #ifdef LOCALDEBUG
         return "../test/";
 #else
-        char filepath[4096];
         struct passwd *pw = getpwuid(getuid());
         std::string path(pw->pw_dir);
         path += "/.config";

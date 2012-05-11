@@ -294,14 +294,11 @@ Station::Station(const std::string& source_name, const std::string& id, const st
 
 ////////////////////////////////////////////////////////////////////////////////
     bool Station::updateData(bool force){
-    bool result = false;
-//        if(!force || dataValid())
-//            return true;
+        bool result = false;
         std::string command;
-        //std::string command = "wget -O ";
-        //command = command + this->fileName() + ".orig '" + this->forecastURL() + "'";
-        //std::cerr<<" URL "<<command<<std::endl;
-        //if (system(command.c_str()) == 0){
+        /* To do */
+        /* Check connection and if force true update connection */
+        force = false;
         if (Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie())) {
             result = true;
         }else{

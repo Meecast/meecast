@@ -3,6 +3,7 @@ meecast (0.5.8) unstable; urgency=low
   * Added United States(Kentucky, Lousiana,Maine,Maryland,Massachusetts, Michigan, Minnesota, Mississippi,
    Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico,New York, North Carolina, North Dakota) to foreca.com database 	
   * Added icons for hko.gov.hk
+  * Added icons for foreca.com 
   * Updated Russian translations
  
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2011 21:42:23 +0200

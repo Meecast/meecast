@@ -4,6 +4,7 @@
     g_hash_table_insert(hash, "53", "39");
     g_hash_table_insert(hash, "54", "39");
     g_hash_table_insert(hash, "51", "44");
+    g_hash_table_insert(hash, "52", "28");
     g_hash_table_insert(hash, "60", "26");
     g_hash_table_insert(hash, "65", "17");
     g_hash_table_insert(hash, "74", "31");

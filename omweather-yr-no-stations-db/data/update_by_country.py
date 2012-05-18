@@ -106,10 +106,19 @@ import zipfile
 #                  "Provincia_de_Rio_Negro":"Río Negro", "Provincia_de_La_Pampa":"La Pampa",
 #                  "Provincia_de_San_Luis":"San Luis","Provincia_de_San_Juan":"San Juan"}
 
-country = "Hong Kong"
-country_code = "HK"
-replacing_dict = {}
-                 
+#country = "Hong Kong"
+#country_code = "HK"
+#replacing_dict = {}
+country = "Chile"
+country_code = "CL"
+replacing_dict = {"Region_Metropolitana_de_Santiago":"Santiago",
+                  "Region_de_Los_Lagos":"Los Lagos",
+                  "Region_de_Los_Rios":"Región de Los Ríos",
+                  "Region_de_Arica_y_Parinacota":"Región de Arica y Parinacota",
+                  "Region_del_Libertador_General_Bernardo_OHiggins":"O’Higgins",
+                  "Region_Aisen_del_General_Carlos_Ibanez_del_Campo":"Aisén",
+                  "Region_de_Magallanes_y_de_la_Antartica_Chilena":"Magallanes y Antártica"}
+                
 
 replacing_dict_after_region_filling = { } 
 

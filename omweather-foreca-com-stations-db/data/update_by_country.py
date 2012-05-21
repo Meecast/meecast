@@ -14,7 +14,7 @@ import string
 
 #Country name and code
 country = "South America/Chile"
-id_region = "202"
+id_region = "39"
 first_letter = "A"
 
 def normalizing (source):

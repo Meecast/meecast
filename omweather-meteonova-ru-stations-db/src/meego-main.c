@@ -43,7 +43,7 @@ choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
     if(!image)
         return g_strdup("49");
     source = g_strdup_printf("%s", image);
-    tmp_result = hash_hkogovhk_table_find(hash_for_icons, source, FALSE);
+  //  tmp_result = hash_hkogovhk_table_find(hash_for_icons, source, FALSE);
     result = g_strdup(tmp_result);
     g_free(source);
     return result;
@@ -60,7 +60,8 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
     gchar *comma = NULL;
     gchar *comma2 = NULL;
     struct tm   tmp_tm = {0};
-    time_t      t_start = 0, t_end = 0;
+    struct tm   *tm;
+    time_t t_start = 0, t_end = 0, current_time = 0;
     int   temperature, humidity1, humidity2, icon;
     double wind_speed;
     int   year=0;
@@ -89,7 +90,7 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
                 tm = localtime(&current_time);
 
                 setlocale(LC_TIME, "POSIX");
-                strptime((const char*)temp_xml_string, "%b %d", &tmp_tm);
+                strptime((const char*)comma, "%b %d", &tmp_tm);
                 setlocale(LC_TIME, "");
                 /* set begin of day in localtime */
                 tmp_tm.tm_year = tm->tm_year;
@@ -102,27 +103,6 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
                 strptime((const char*)comma, "%H:%M HKT %d/%b/%Y", &tmp_tm);
                 setlocale(LC_TIME, "");
                 year = tmp_tm.tm_year + 1900;
-            }
-        if (strstr(buffer,"Date/Month"))
-            if (comma = strstr(buffer, "h ")){
-                if (number_of_day != 0)
-                    fprintf(file_out,"    </period>\n");
-                comma = comma + 2;
-                snprintf(temp_buffer, sizeof(temp_buffer) - 1, "00:00 %i %s", year, comma);
-                strptime((const char*)temp_buffer, "%H:%M %Y %d/%m", &tmp_tm);
-                t_start = timegm(&tmp_tm) - 8*3600;
-                fprintf(file_out,"    <period start=\"%li\"", (t_start));
-                /* set end of current time in localtime */
-                t_end = t_start + 3600*24 - 1;
-                fprintf(file_out," end=\"%li\">\n", t_end);
-                number_of_day ++; 
-                fgets(buffer2, sizeof(buffer2), file_in2);
-                if (comma = strstr(buffer2, "no. ")){
-                    comma = comma + 3;
-                    icon = atoi (comma);
-                    snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%i", icon);
-                    fprintf(file_out,"     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer));				                
-                }
             }
         if (strstr(buffer,"Wind"))
             if (comma = strstr(buffer, ": ")){

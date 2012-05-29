@@ -343,7 +343,13 @@ DataItem::fulldate()
 {
     QDateTime t;
     t.setTime_t(DataItem::Data::StartTime());
-    return QString(t.toString("dd") + " " + t.toString("MMM")); 
+    /* Hack for Finish localization */
+    if (QLocale::system().name() == "fi_FI"){
+        return QString(t.toString("dd") + "." + t.toString("MMM")); 
+    }else{
+        return QString(t.toString("dd") + " " + t.toString("MMM")); 
+    }
+
     //return QString::fromUtf8((DataItem::FullDayName()+" "+DataItem::DayOfMonthName()+", "+DataItem::FullMonthName()).c_str());
     //return QString::fromUtf8((DataItem::DayOfMonthName()+"."+DataItem::MonthName()).c_str());
 }

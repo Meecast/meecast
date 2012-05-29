@@ -83,7 +83,7 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
     }
     hash_for_icons = hash_icons_hkogovhk_table_create();
     while(fgets(buffer, sizeof(buffer), file_in)){
-        if (strstr(buffer,"<i>"))
+        if (strstr(buffer,"Bulletin updated"))
             if (comma = strstr(buffer, "at ")){
                 comma = comma + 3;
                 setlocale(LC_TIME, "POSIX");
@@ -204,7 +204,7 @@ parse_current_weather(const gchar *detail_path_data, const gchar *result_file){
 
     hash_for_icons = hash_icons_hkogovhk_table_create();
     while(fgets(buffer, sizeof(buffer), file_in)){
-        if (strstr(buffer,"<I>"))
+        if (strstr(buffer,"Bulletin updated"))
             if (comma = strstr(buffer, "at ")){
                 comma = comma + 3;
                 setlocale(LC_TIME, "POSIX");

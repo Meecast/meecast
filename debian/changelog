@@ -7,6 +7,7 @@ meecast (0.5.8) unstable; urgency=low
   * Updated Chile for yr.no source
   * Added icons for foreca.com 
   * Updated Russian translations
+  * Removed region Australia in  bom.gov.au source
  
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2011 21:42:23 +0200
 

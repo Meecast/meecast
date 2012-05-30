@@ -285,6 +285,7 @@
     g_hash_table_insert(hash, (void*)"T-Storms", _("T-Storms"));
     g_hash_table_insert(hash, (void*)"Temperature units", _("Temperature units"));
     g_hash_table_insert(hash, (void*)"Thunder", _("Thunder"));
+    g_hash_table_insert(hash, (void*)"Thunder in the Vicinity", _("Thunder in the Vicinity"));
     g_hash_table_insert(hash, (void*)"Try to update", _("Try to update"));
     g_hash_table_insert(hash, (void*)"Unlimited", _("Unlimited"));
     g_hash_table_insert(hash, (void*)"Updating forecast", _("Updating forecast"));

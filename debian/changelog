@@ -1,15 +1,19 @@
 meecast (0.5.8) unstable; urgency=low
 
-  * Added United States(Kentucky, Lousiana,Maine,Maryland,Massachusetts, Michigan, Minnesota, Mississippi,
-   Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New Mexico,New York, North Carolina, North Dakota) to foreca.com database 	
+  * Added United States(Kentucky, Lousiana,Maine,Maryland,Massachusetts,
+    Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire,
+    New Jersey, New Mexico,New York, North Carolina, North Dakota) to foreca.com database 	
+  * Added Slovenia to foreca.com database
   * Added icons for hko.gov.hk
-  * Dixed problem with hko.gov.hk
-  * Updated Chile for yr.no source
+  * Fixed problem with hko.gov.hk
+  * Updated Chile for yr.no and foreca.com sources
   * Added icons for foreca.com 
   * Updated Russian translations
-  * Removed region Australia in  bom.gov.au source
+  * Removed region Australia in bom.gov.au source
+  * Fixed problem with Finish localization for date 
+  * Added current weather in second window
  
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2011 21:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 30 May 2011 21:42:23 +0200
 
 meecast (0.5.7) unstable; urgency=low
 

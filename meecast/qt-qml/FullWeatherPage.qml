@@ -14,7 +14,8 @@ Page {
     property variant description_text_alignment: Text.AlignHLeft;
   
 
-    property variant model_day:  (current) ? Current : Forecast_model
+    property variant model_current:  Current 
+    property variant model_day:  Forecast_model
     property variant model_night:  (current) ? Current_night : Forecast_night_model
     property variant model_hours:  Forecast_hours_model
 
@@ -27,6 +28,20 @@ Page {
             }
         }
         ButtonRow{
+	ToolButton {
+            id: "toolbarnow"
+            platformStyle: TabButtonStyle{}
+            visible: (current) ? true : false
+            onClicked: {
+                day_period = "current";
+                updateperiod();
+            }
+            iconSource:  Config.imagespath + "/now.png"
+	    flat: true
+	    checkable: true
+	    checked: flase 
+        }
+
         ToolButton {
             id: "toolbarday"
             platformStyle: TabButtonStyle{}
@@ -102,7 +117,53 @@ Page {
     {
         condition.clear()
         condition2.clear()
+	if (day_period == "current"){
+	    toolbarnow.checked = true
+	    toolbarday.checked = false 
+	    toolbarnight.checked = false
+	    toolbarclock.checked = false
+            day_rect.visible = true;
+            current_rect.visible = true;
+            hours_list.visible = false;
+            flickable.contentHeight = day_rect.height + current_rect.height;
+
+            day_period_name = Config.tr("Now")
+            image_source = Config.iconspath + "/" + Config.iconset + "/" + model_current.getdata(day, "pict")
+            current_rect.color = getColor(model_current.getdata(day, "temp_high"));
+            description_text = model_current.getdata(day, "description") ? model_current.getdata(day, "description") : ""
+	   
+            if ((model_current.getdata(day, "humidity")) != "N/A")
+                condition.append({cond_name: Config.tr("Humidity:"),
+                         value: model_current.getdata(day, "humidity")+'%'});
+            if ((model_current.getdata(day, "wind_direction")) != "")
+                condition.append({cond_name: Config.tr("Wind direction:"),
+                         value: Config.tr(model_current.getdata(day, "wind_direction"))});
+            if ((model_current.getdata(day, "pressure")) != "N/A")
+                condition.append({cond_name: Config.tr("Pressure:"),
+                         value: model_current.getdata(day, "pressure") + ' ' + Config.tr(Config.pressureunit)});
+            if ((model_current.getdata(day, "wind_speed")) != "N/A")
+                condition.append({cond_name: Config.tr("Wind speed") + ":",
+                         value: model_current.getdata(day, "wind_speed") + ' ' + Config.tr(Config.windspeedunit)});
+            if ((model_current.getdata(day, "ppcp")) != "N/A")
+                condition.append({cond_name: Config.tr("Ppcp:"),
+                         value: model_current.getdata(day, "ppcp") + '%'});
+            if ((model_current.getdata(day, "wind_gust")) != "N/A")
+                condition.append({cond_name: Config.tr("Wind gust:"),
+                         value: model_current.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
+            if ((model_current.getdata(day, "flike")) != "N/A")
+                condition.append({cond_name: Config.tr("Flike:"),
+                         value: model_current.getdata(day, "flike") + '°' + Config.temperatureunit});
+
+            if ((model_current.getdata(day, "temp")) != "N/A")
+                temperature.text =  model_current.getdata(day, "temp") + '°'
+	    else{
+                if ((model_current.getdata(day, "temp_high")) != "N/A")
+               	    temperature.text =  model_current.getdata(day, "temp_high") + '°'
+            }
+	}
+
         if (day_period == "day"){
+	    toolbarnow.checked = false 
 	    toolbarday.checked = true
 	    toolbarnight.checked = false
 	    toolbarclock.checked = false
@@ -147,6 +208,7 @@ Page {
 	}
 	if (day_period == "night"){
             day_period_name = Config.tr("Night");
+	    toolbarnow.checked = false;
             toolbarnight.checked = true;
             toolbarday.checked = false;
             toolbarclock.checked = false;
@@ -189,6 +251,7 @@ Page {
 	}
 	if (day_period == "hours"){
             day_period_name = Config.tr("Hours");
+	    toolbarnow.checked = false;
             toolbarnight.checked = false;
             toolbarday.checked = false;
             toolbarclock.checked = true;

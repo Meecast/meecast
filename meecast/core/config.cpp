@@ -250,6 +250,7 @@ Config::saveConfig()
 ////////////////////////////////////////////////////////////////////////////////
 Config::Config(const std::string& filename, const std::string& schema_filename)
                     : Parser(filename, schema_filename){
+   /* std::cerr<<"new Config"<<std::endl; */
     _filename = new std::string;
     _filename->assign(filename);
     _pathPrefix = new std::string(AbstractConfig::prefix + AbstractConfig::sharePath);
@@ -264,8 +265,10 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _gps = false;
     _update_period = INT_MAX;
     _font_color = new std::string("#00ff00");
+   /* std::cerr<<"new StationList"<<std::endl; */
     _stations = new StationsList;
     _current_station_id = INT_MAX;
+   /* std::cerr<<"Load Config"<<std::endl; */
     this->LoadConfig();
 }
 ////////////////////////////////////////////////////////////////////////////////

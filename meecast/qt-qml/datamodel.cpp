@@ -226,6 +226,7 @@ DataModel::update(QString filename, int  period)
             break;
         case day_period:
           //  i = 3600*24;
+           // fprintf(stderr,"First day in datamodel %i\n", current_day + 14 * 3600);
             i = 0;
             while  (dp != NULL && (temp_data = dp->data().GetDataForTime(current_day + 14*3600 + i))) {
                 forecast_data = new DataItem(temp_data);

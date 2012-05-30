@@ -345,7 +345,7 @@ DataItem::fulldate()
     t.setTime_t(DataItem::Data::StartTime());
     /* Hack for Finish localization */
     if (QLocale::system().name() == "fi_FI"){
-        return QString(t.toString("dd") + "." + t.toString("MMM")); 
+        return QString(t.toString("dd") + "." + t.toString("MM")); 
     }else{
         return QString(t.toString("dd") + " " + t.toString("MMM")); 
     }

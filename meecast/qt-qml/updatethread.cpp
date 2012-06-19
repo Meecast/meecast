@@ -39,21 +39,22 @@ UpdateThread::run()
 {
     Core::Config *config = NULL;
     try{
-        config = new Core::Config(Core::AbstractConfig::getConfigPath()+
-                               "config.xml",
-                               Core::AbstractConfig::prefix+
-                               Core::AbstractConfig::schemaPath+
-                               "config.xsd");
+        config = Core::Config::Instance(Core::AbstractConfig::getConfigPath()+
+                                   "config.xml",
+                                   Core::AbstractConfig::prefix+
+                                   Core::AbstractConfig::schemaPath+
+                                   "config.xsd");
     }
     catch(const std::string &str){
-        config = new Core::Config();
+        std::cerr<<"Error in Config class: "<< str <<std::endl;
+        config =  Core::Config::Instance();
         config->saveConfig();
     }
     catch(const char *str){
-        config = new Core::Config();
+        std::cerr<<"Error in Config class: "<< str <<std::endl;
+        config =  Core::Config::Instance();
         config->saveConfig();
     }
-
     for (short i=0; i < config->stationsList().size();i++){
         config->stationsList().at(i)->updateData(true);
     }

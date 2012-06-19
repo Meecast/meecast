@@ -40,6 +40,7 @@ namespace Core {
     Parser::Parser(){}
     Parser::Parser(const std::string& filename, const std::string& schema_filename)
                         : AbstractConfig(){
+        _filename = filename;
     #ifdef LIBXML
         if(filename.empty())
             throw("Invalid source file.");
@@ -51,6 +52,7 @@ namespace Core {
         r = access(schema_filename.c_str(), R_OK);
         if(r)
             throw("File: " + filename + " - " + std::string(strerror(errno)));
+        _filename = filename;
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
@@ -103,6 +105,26 @@ namespace Core {
         }
         file.close();
     #endif //LIBXML
+    }
+////////////////////////////////////////////////////////////////////////////////
+    void
+    Parser::Reloadfile(){
+    
+    std::cerr<<"_Filename "<<_filename<<std::endl;
+    QFile file(QString::fromStdString(_filename));
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
+            std::cerr<<"error file open"<<std::endl;
+            throw("Invalid source file");
+            return;
+    }
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+        if (!_doc.setContent((&file))){
+            file.close();
+            throw("Error set content");
+            return;
+        }
+        file.close();
+
     }
 ////////////////////////////////////////////////////////////////////////////////
     Parser::~Parser(){

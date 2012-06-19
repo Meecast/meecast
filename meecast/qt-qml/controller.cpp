@@ -31,24 +31,21 @@ ConfigQml *
 create_and_fill_config(){
     ConfigQml *config;
 
-    std::cerr<<"Create Config class: " << Core::AbstractConfig::prefix+
-                               Core::AbstractConfig::schemaPath+
-                               "config.xsd"<< std::endl;
+    std::cerr<<"Create Config class: " << std::endl;
     try{
-        config = new ConfigQml(Core::AbstractConfig::getConfigPath()+
-                               "config.xml",
-                               Core::AbstractConfig::prefix+
-                               Core::AbstractConfig::schemaPath+
-                               "config.xsd");
-        std::cerr << config->stationsList().size() << std::endl;
+        config = ConfigQml::Instance(Core::AbstractConfig::getConfigPath()+
+                                       "config.xml",
+                                       Core::AbstractConfig::prefix+
+                                       Core::AbstractConfig::schemaPath+
+                                       "config.xsd");
     }
     catch(const std::string &str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
-        config = new ConfigQml();
+        config =  ConfigQml::Instance();
     }
     catch(const char *str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
-        config = new ConfigQml();
+        config =  ConfigQml::Instance();
     }
     //std::cerr<<"End of creating Config class: " <<std::endl;
     config->saveConfig();
@@ -273,7 +270,7 @@ Controller::load_data()
 void
 Controller::load_config()
 {
-   std::cout<<"Load";
+   std::cout<<"Load"<<std::endl;
   _config = create_and_fill_config();   
   _qview->rootContext()->setContextProperty("Config", _config);
 }
@@ -281,8 +278,7 @@ void
 Controller::reload_config()
 {
   std::cout<<"Reload";
-  delete _config;
-  this->load_config();
+  _config->ReLoadConfig();
   delete _model;
   this->load_data();
 }

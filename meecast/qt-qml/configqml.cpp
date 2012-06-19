@@ -30,15 +30,41 @@
 
 #include "configqml.h"
 
+ConfigQml* ConfigQml::_self;
+int ConfigQml::_refcount;
+
+
 //ConfigQml::ConfigQml():QObject(),Core::Config("config.xml", "../core/data/config.xsd"){}
 ConfigQml::ConfigQml(const std::string& filename, const std::string& schema_filename):QObject(),Core::Config(filename, schema_filename)
 {
+    std::cerr<<"CONFIG CREATEQML11111!!!!!!!!!!!!!!"<<std::endl;
     init();
 }
 
 ConfigQml::ConfigQml():QObject(),Core::Config()
 {
+    std::cerr<<"CONFIG CREATEQML22222!!!!!!!!!!!!!!"<<std::endl;
     init();
+}
+
+ConfigQml* 
+ConfigQml::Instance()
+{
+    if (!_self)
+        _self = new ConfigQml();
+    _refcount++;
+    std::cerr<<"RefcountQML1: "<<_refcount<<std::endl;
+    return _self;
+}
+
+ConfigQml* 
+ConfigQml::Instance(const std::string& filename, const std::string& schema_filename)
+{
+    if (!_self)
+        _self = new ConfigQml(filename, schema_filename);
+    _refcount++;
+    std::cerr<<"RefcountQML2: "<<_refcount<<std::endl;
+    return _self;
 }
 
 void ConfigQml::init()

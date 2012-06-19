@@ -57,12 +57,18 @@ namespace Core{
             std::string *_font_color;
             int          _current_station_id;
             StationsList *_stations;
-        public:
+        protected:
+            static Config* _self;
+            static int _refcount;
             Config(const std::string& filename, const std::string& schema_filename = prefix + schemaPath + "config.xsd");
             Config();
             Config(const Config& config);
             Config& operator=(const Config& config);
             virtual ~Config();
+           
+        public:
+            static Config* Instance();
+            static Config* Instance(const std::string& filename, const std::string& schema_filename);
             void LoadConfig();
             void ReLoadConfig();
             std::string& prefix_path(void);
@@ -99,6 +105,8 @@ namespace Core{
             //void stationsList(std::vector<Core::Station*> list);
             void stationsList(StationsList list);
             void saveConfig();
+
+
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

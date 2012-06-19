@@ -35,7 +35,7 @@ DataModel::DataModel(DataItem* prototype, QObject *parent) :
 {
     setRoleNames(_prototype->roleNames());
     try{
-        _config = new Core::Config(Core::AbstractConfig::getConfigPath()+
+       _config =  ConfigQml::Instance(Core::AbstractConfig::getConfigPath()+
                                "config.xml",
                                Core::AbstractConfig::prefix+
                                Core::AbstractConfig::schemaPath+
@@ -43,11 +43,11 @@ DataModel::DataModel(DataItem* prototype, QObject *parent) :
     }
     catch(const std::string &str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
-        _config = new Core::Config();
+        _config =  ConfigQml::Instance();
     }
     catch(const char *str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
-        _config = new Core::Config();
+        _config =  ConfigQml::Instance();
     }
 }
 
@@ -122,23 +122,13 @@ DataModel::update(QString filename, int  period)
     struct tm   *tm = NULL;
     int year, current_month;
 
-    if (_config) delete _config;
-    try{
-        _config = new Core::Config(Core::AbstractConfig::getConfigPath()+
-                               "config.xml",
-                               Core::AbstractConfig::prefix+
-                               Core::AbstractConfig::schemaPath+
-                               "config.xsd");
-    }
-    catch(const std::string &str){
-        std::cerr<<"Error in Config class: "<< str <<std::endl;
-        _config = new Core::Config();
-    }
-    catch(const char *str){
-        std::cerr<<"Error in Config class: "<< str <<std::endl;
-        _config = new Core::Config();
-    }
+    std::cerr<<"DataModel::update !!!!!"<<std::endl;
+    std::cerr<<"Station ID1: "<<_config->current_station_id()<<std::endl;
+    if (_config) 
+         _config->ReLoadConfig();
 
+    std::cerr<<"Station ID2: "<<_config->current_station_id()<<std::endl;
+    std::cerr<<"Station name: "<<_config->stationname().toStdString()<<std::endl;
     if (!filename.isEmpty()){
         try{
             dp = new Core::DataParser(filename.toStdString(),
@@ -183,7 +173,8 @@ DataModel::update(QString filename, int  period)
                 forecast_data->pressureunit = _config->PressureUnit().c_str();
                 this->appendRow(forecast_data);
                 MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
-                QString icon_string =  _config->iconspath().c_str();
+               // QString icon_string =  _config->iconspath().c_str();
+                QString icon_string =  _config->iconspath();
                 icon_string.append("/") ;
                 icon_string.append(_config->iconSet().c_str());
                 icon_string.append("/") ;
@@ -203,7 +194,8 @@ DataModel::update(QString filename, int  period)
                     result_time = temp_data->EndTime();
                 QDateTime t;
                 t.setTime_t(dp->LastUpdate());
-                dbusclient->SetCurrentData(stationname.fromUtf8(_config->stationname().c_str()), forecast_data->temperature(), 
+                dbusclient->SetCurrentData(_config->stationname(), 
+                                           forecast_data->temperature(), 
                                            forecast_data->temperature_high(), 
                                            forecast_data->temperature_low(), 
                                            icon_string, result_time, forecast_data->current(), 

@@ -78,24 +78,22 @@ GHashTable *hash_table_create(void) {
 Core::Config *
 create_and_fill_config(){
     Core::Config *config;
-    std::cerr<<"Create Config class: " << Core::AbstractConfig::prefix+
-                               Core::AbstractConfig::schemaPath+
-                               "config.xsd"<< std::endl;
     try{
-        config = new Core::Config(Core::AbstractConfig::getConfigPath()+
-                               "config.xml",
-                               Core::AbstractConfig::prefix+
-                               Core::AbstractConfig::schemaPath+
-                               "config.xsd");
+        config = Core::Config::Instance(Core::AbstractConfig::getConfigPath()+
+                                   "config.xml",
+                                   Core::AbstractConfig::prefix+
+                                   Core::AbstractConfig::schemaPath+
+                                   "config.xsd");
+
         std::cerr << "count station:" << config->stationsList().size() << std::endl;
     }
     catch(const std::string &str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
-        config = new Core::Config();
+        config =  Core::Config::Instance();
     }
     catch(const char *str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
-        config = new Core::Config();
+        config =  Core::Config::Instance();
     }
     //std::cerr<<"End of creating Config class: " <<std::endl;
     config->saveConfig();

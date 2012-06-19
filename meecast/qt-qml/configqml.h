@@ -36,11 +36,15 @@
 #include <QColor>
 #include <QDesktopServices>
 #include <QUrl>
-#include "datamodel.h"
-#include "dataitem.h"
 #include "updatethread.h"
 #include "gpsposition.h"
 #include <MGConfItem>
+
+#include <libintl.h>
+#include <locale.h>
+
+
+#define _(String) gettext(String)
 
 class ConfigQml : public QObject, public Core::Config
 
@@ -66,9 +70,29 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString source READ source NOTIFY sourceChanged)
     Q_PROPERTY(QString version READ version NOTIFY versionChanged)
     Q_PROPERTY(int updateinterval READ updateinterval NOTIFY updateintervalChanged)
-public:
+private:
+    Core::DatabaseSqlite *db;
+    UpdateThread *thread;
+    GpsPosition *_gps;
+    int getCountryId(int index);
+    int getRegionId(int country, int index);
+    int getGpsStation();
+    QString getCityId(int region_id, int index);
+    void init();
+    QStringList wind_list;
+    QStringList press_list;
+protected:
+    static ConfigQml* _self;
+    static int _refcount;
+    virtual ~ConfigQml(){};
     ConfigQml();
     ConfigQml(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
+
+
+
+public:
+    static ConfigQml* Instance();
+    static ConfigQml* Instance(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
     QString iconset();
     QString iconspath();
     QString imagespath();
@@ -125,7 +149,6 @@ public:
     Q_INVOKABLE QString tr(QString str);
     Q_INVOKABLE void enableGps();
     void refreshconfig();
-    virtual ~ConfigQml(){};
 signals:
     void iconsetChanged();
     void iconspathChanged();
@@ -151,18 +174,6 @@ signals:
 public Q_SLOTS:
     void reload_config();
     void addGpsStation(double latitude, double longitude);
-private:
-    Core::DatabaseSqlite *db;
-    UpdateThread *thread;
-    GpsPosition *_gps;
-    int getCountryId(int index);
-    int getRegionId(int country, int index);
-    int getGpsStation();
-    QString getCityId(int region_id, int index);
-    void init();
-    QStringList wind_list;
-    QStringList press_list;
-
 private slots:
     void downloadFinishedSlot();
 

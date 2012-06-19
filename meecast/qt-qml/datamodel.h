@@ -36,6 +36,7 @@
 #include <QList>
 #include <QVariant>
 #include "dataitem.h"
+#include "configqml.h"
 #include "dbusadaptor_applet.h"
 
 class DataModel : public QAbstractListModel
@@ -47,7 +48,7 @@ class DataModel : public QAbstractListModel
         current_night_period,
         day_period,
         night_period,
-	hours_period
+        hours_period
     };
 
 public:
@@ -65,7 +66,8 @@ public:
 private:
     DataItem* _prototype;
     QList<DataItem*>_list;
-    Core::Config *_config;
+//    Core::Config *_config;
+    ConfigQml  *_config;
 };
 
 #endif // DATAMODEL_H

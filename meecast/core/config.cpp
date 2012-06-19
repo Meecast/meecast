@@ -32,10 +32,14 @@
 #include "config.h"
 #include "station.h"
 ////////////////////////////////////////////////////////////////////////////////
-namespace Core{
+namespace Core{  
+    Config* Config::_self;
+    int Config::_refcount;
+
 ////////////////////////////////////////////////////////////////////////////////
 Config::Config()
 {
+    std::cerr<<"CONFIG CREATE111111!!!!!!!!!!!!!!"<<std::endl;
     _pathPrefix = new std::string(AbstractConfig::prefix + AbstractConfig::sharePath);
     _iconset = new std::string("Meecast");
     _temperature_unit = new std::string("C");
@@ -59,6 +63,7 @@ Config::Config()
 void
 Config::saveConfig()
 {
+    std::cerr<<"SaveConfig"<<std::endl;
     #ifndef LIBXML
     QDomDocument doc;
     doc.appendChild(doc.createProcessingInstruction("xml", "version=\"1.0\" encoding=\"utf-8\""));
@@ -248,8 +253,28 @@ Config::saveConfig()
     #endif
 }
 ////////////////////////////////////////////////////////////////////////////////
+Config* 
+Config::Instance(){
+    if (!_self)
+        _self = new Config();
+    _refcount++;
+    std::cerr<<"Refcount1: "<<_refcount<<std::endl;
+    return _self;
+}
+////////////////////////////////////////////////////////////////////////////////
+Config* 
+Config::Instance(const std::string& filename, const std::string& schema_filename){
+    if (!_self)
+        _self = new Config(filename, schema_filename);
+    _refcount++;
+    std::cerr<<"Refcount2: "<<_refcount<<std::endl;
+    return _self;
+}
+
+////////////////////////////////////////////////////////////////////////////////
 Config::Config(const std::string& filename, const std::string& schema_filename)
                     : Parser(filename, schema_filename){
+    std::cerr<<"CONFIG CREATE222222!!!!!!!!!!!!!!"<<std::endl;
    /* std::cerr<<"new Config"<<std::endl; */
     _filename = new std::string;
     _filename->assign(filename);
@@ -275,11 +300,13 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
 void
 Config::ReLoadConfig(){
     _stations->clear();
+    this->Reloadfile();
     this->LoadConfig();
 }
 ////////////////////////////////////////////////////////////////////////////////
 void
 Config::LoadConfig(){
+    std::cerr<<"LoadConfig"<<std::endl;
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
     try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
@@ -300,8 +327,10 @@ Config::LoadConfig(){
         if (!el.isNull())
             _iconset->assign(el.text().toStdString());
         el = root.firstChildElement("current_station_id");
-        if (!el.isNull())
+        if (!el.isNull()){
             _current_station_id = el.text().toInt();
+            std::cerr<<"_CURRENT_STATION_ID "<<_current_station_id<<std::endl;
+        }
         el = root.firstChildElement("temperature_unit");
         if (!el.isNull())
             this->TemperatureUnit(el.text().toStdString());

@@ -56,8 +56,10 @@ namespace Core {
             #endif
             Parser(const std::string& filename, const std::string& schema_filename);
             Parser();
+            std::string _filename;
         public:
             virtual ~Parser();
+            void Reloadfile();
             #ifdef LIBXML
             virtual void processNode(const xmlpp::Node* node) = 0;
             #endif

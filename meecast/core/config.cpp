@@ -299,6 +299,8 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
 ////////////////////////////////////////////////////////////////////////////////
 void
 Config::ReLoadConfig(){
+
+    std::cerr<<"ReLoadConfig"<<std::endl;
     _stations->clear();
     this->Reloadfile();
     this->LoadConfig();

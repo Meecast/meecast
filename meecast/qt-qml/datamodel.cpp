@@ -122,13 +122,9 @@ DataModel::update(QString filename, int  period)
     struct tm   *tm = NULL;
     int year, current_month;
 
-    std::cerr<<"DataModel::update !!!!!"<<std::endl;
-    std::cerr<<"Station ID1: "<<_config->current_station_id()<<std::endl;
-    if (_config) 
-         _config->ReLoadConfig();
+//    if (_config) 
+//         _config->ReLoadConfig();
 
-    std::cerr<<"Station ID2: "<<_config->current_station_id()<<std::endl;
-    std::cerr<<"Station name: "<<_config->stationname().toStdString()<<std::endl;
     if (!filename.isEmpty()){
         try{
             dp = new Core::DataParser(filename.toStdString(),

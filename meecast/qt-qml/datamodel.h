@@ -60,7 +60,8 @@ public:
     Q_INVOKABLE DataItem* find(const int row);
     Q_INVOKABLE void remove(const int row);
     void clear();
-    Q_INVOKABLE void update(QString filename, int period);
+    Q_INVOKABLE void reload_data(QString filename);
+    Q_INVOKABLE void update_model(int period);
     Q_INVOKABLE QVariant getdata(const int index, QString role);
 
 private:

@@ -258,7 +258,7 @@ Config::Instance(){
     if (!_self)
         _self = new Config();
     _refcount++;
-    std::cerr<<"Refcount1: "<<_refcount<<std::endl;
+    std::cerr<<"Refcount for Config: "<<_refcount<<std::endl;
     return _self;
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -267,7 +267,7 @@ Config::Instance(const std::string& filename, const std::string& schema_filename
     if (!_self)
         _self = new Config(filename, schema_filename);
     _refcount++;
-    std::cerr<<"Refcount2: "<<_refcount<<std::endl;
+    std::cerr<<"Refcount for Config: "<<_refcount<<std::endl;
     return _self;
 }
 

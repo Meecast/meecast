@@ -90,7 +90,6 @@ namespace Core{
             bool Lockscreen(void);
             void Standbyscreen(const bool uc);
             bool Standbyscreen(void);
-;
             void Gps(const bool uc);
             bool Gps(void);
             void UpdatePeriod(const int period);

@@ -73,7 +73,7 @@ Core::DataParser*
 current_data(std::string& str){
   Core::DataParser* dp;
   try{
-        dp = new Core::DataParser(str, DATA_XSD_PATH);
+        dp =  Core::DataParser::Instance(str, DATA_XSD_PATH);
     }
     catch(const std::string &str){
         std::cerr<<"Error in DataParser class: "<< str <<std::endl;
@@ -184,7 +184,7 @@ main (int argc, char *argv[])
     }
 
   if (dp){
-      delete dp;
+      dp->DeleteInstance();
       dp = NULL;
   }
 

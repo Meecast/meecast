@@ -107,9 +107,30 @@ DataModel::appendRow(DataItem *item)
     _list.append(item);
     endInsertRows();
     //return (_list.size() - 1);
+} 
+
+void 
+DataModel::reload_data(QString filename)
+{
+   Core::DataParser* dp = NULL;
+   if (!filename.isEmpty()){
+        try{
+            dp = Core::DataParser::Instance(filename.toStdString(),
+                                      Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd");
+        }
+        catch(const std::string &str){
+            std::cerr<<"Error in DataParser class: "<< str << std::endl;
+            //return NULL;
+        }
+        catch(const char *str){
+            std::cerr<<"Error in DataParser class: "<< str << std::endl;
+            //return NULL;
+        }
+    }
+
 }
 void
-DataModel::update(QString filename, int  period)
+DataModel::update_model(int period)
 {
     this->clear();
     DataItem *forecast_data = NULL;
@@ -122,23 +143,9 @@ DataModel::update(QString filename, int  period)
     struct tm   *tm = NULL;
     int year, current_month;
 
-//    if (_config) 
-//         _config->ReLoadConfig();
+    /* std::cerr<<"Update model"<<std::endl; */
 
-    if (!filename.isEmpty()){
-        try{
-            dp = new Core::DataParser(filename.toStdString(),
-                                      Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd");
-        }
-        catch(const std::string &str){
-            std::cerr<<"Error in DataParser class: "<< str << std::endl;
-            //return NULL;
-        }
-        catch(const char *str){
-            std::cerr<<"Error in DataParser class: "<< str << std::endl;
-            //return NULL;
-        }
-    }
+    dp = Core::DataParser::Instance();
     /* set current day */ 
     current_day = time(NULL);
     //tm = localtime(&current_day);
@@ -270,5 +277,7 @@ DataModel::update(QString filename, int  period)
             }
             break;
     }
+    dp->DeleteInstance();
     this->reset();
+    
 }

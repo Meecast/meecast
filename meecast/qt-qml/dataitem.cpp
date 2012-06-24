@@ -49,7 +49,7 @@ DataItem::update(QString filename)
     _lastupdate = QDateTime();
     if (!filename.isEmpty()){
         try{
-            dp = new Core::DataParser(filename.toStdString(),
+            dp = Core::DataParser::Instance(filename.toStdString(),
                                       Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd");
         }
         catch(const std::string &str){

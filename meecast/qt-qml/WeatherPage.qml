@@ -143,18 +143,21 @@ Page {
         isUpdate = true;
         Config.updatestations();
     }
+
     function updatemodels()
     {
-        Current.update(Config.filename, 0);
-        Current_night.update(Config.filename, 1);
-        Forecast_model.update(Config.filename, 2);
-        Forecast_night_model.update(Config.filename, 3);
-        Forecast_hours_model.update(Config.filename, 4);
+        Current.reload_data(Config.filename);
+        Current.update_model(0);
+        Current_night.update_model(1);
+        Forecast_model.update_model(2);
+        Forecast_night_model.update_model(3);
+        Forecast_hours_model.update_model(4);
         list.height = 80 * Forecast_model.rowCount();
         dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
         current_rect.visible = Current.rowCount() == 0 ? false : true;
         list.visible = (Forecast_model.rowCount() == 0) ? false : true;
     }
+
     function updatestationname()
     {
         main.updatemodels();

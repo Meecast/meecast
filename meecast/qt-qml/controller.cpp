@@ -54,23 +54,6 @@ create_and_fill_config(){
     return config;
 }
 
-Core::DataParser*
-current_data(std::string& str){
-  Core::DataParser* dp;
-  try{
-        dp = new Core::DataParser(str, Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd");
-    }
-    catch(const std::string &str){
-        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
-        return NULL;
-    }
-    catch(const char *str){
-        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
-        return NULL;
-    }
-    return dp;
-}
-
 
 Controller::Controller() : QObject()
 {
@@ -84,7 +67,7 @@ Controller::Controller() : QObject()
 Controller::~Controller()
 {
   if (_dp) 
-      delete _dp;
+      _dp->DeleteInstance();
 
 }
 
@@ -104,12 +87,21 @@ Controller::load_data()
   Core::Data *temp_data = NULL;
   int i = 0;
   
-  if (_dp)
-      delete _dp;
-  _dp = NULL;
+  _dp->DeleteInstance(); 
   if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0 &&
-        _config->stationsList().at(_config->current_station_id()))
-        _dp = current_data(_config->stationsList().at(_config->current_station_id())->fileName());
+        _config->stationsList().at(_config->current_station_id())){
+          try{
+                _dp =  Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName(), Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd");
+            }
+            catch(const std::string &str){
+                std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+                return;
+            }
+            catch(const char *str){
+                std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+                return;
+            }
+  }
 
   _model = new DataModel(new DataItem, qApp);
   _current = new DataModel(new DataItem, qApp);

@@ -94,7 +94,7 @@ CONFIG_XSD_PATH	netbook-UX/meego-netbookUX-omweather.cpp	41;"	d	file:
 CONFIG_XSD_PATH	xml-qml/xml-qml.cpp	36;"	d	file:
 CONFIG_XSD_PATH	xml-qml/xml-qml.cpp	40;"	d	file:
 CONNECTION_H	core/connection.h	33;"	d
-CONTROLLER_H	qt-qml/controller.h	41;"	d
+CONTROLLER_H	qt-qml/controller.h	43;"	d
 COPY	Makefile	/^COPY          = cp -f$/;"	m
 COPY	core/Makefile	/^COPY          = cp -f$/;"	m
 COPY	meegotouchplugin/Makefile	/^COPY          = cp -f$/;"	m
@@ -312,6 +312,7 @@ DayLengthRole	qt-qml/dataitem.h	/^        DayLengthRole,$/;"	e	enum:DataItem::Ro
 DayOfMonthName	core/data.cpp	/^     Data::DayOfMonthName(){$/;"	f	class:Core::Data
 DbusAdaptor	qt-qml/dbusadaptor.cpp	/^DbusAdaptor::DbusAdaptor(QObject *parent)$/;"	f	class:DbusAdaptor
 DbusAdaptor	qt-qml/dbusadaptor.h	/^class DbusAdaptor: public QDBusAbstractAdaptor$/;"	c
+DeleteInstance	core/dataparser.cpp	/^    DataParser::DeleteInstance(){$/;"	f	class:Core::DataParser
 DescriptionRole	qt-qml/dataitem.h	/^        DescriptionRole,$/;"	e	enum:DataItem::Roles
 Dirent	core/sourcelist.h	/^    typedef struct dirent Dirent;$/;"	t	typeref:struct:dirent
 Dirent	meego-UX-panel/configqml.h	/^    typedef struct dirent Dirent;$/;"	t	typeref:struct:dirent
@@ -463,6 +464,8 @@ Icon	core/data.cpp	/^     Data::Icon(int icon){$/;"	f	class:Core::Data
 IconRole	qt-qml/dataitem.h	/^        IconRole,$/;"	e	enum:DataItem::Roles
 Instance	core/config.cpp	/^Config::Instance(){$/;"	f	class:Core::Config
 Instance	core/config.cpp	/^Config::Instance(const std::string& filename, const std::string& schema_filename){$/;"	f	class:Core::Config
+Instance	core/dataparser.cpp	/^    DataParser::Instance(){$/;"	f	class:Core::DataParser
+Instance	core/dataparser.cpp	/^    DataParser::Instance(const std::string& filename, const std::string& schema_filename){$/;"	f	class:Core::DataParser
 Instance	qt-qml/configqml.cpp	/^ConfigQml::Instance()$/;"	f	class:ConfigQml
 Instance	qt-qml/configqml.cpp	/^ConfigQml::Instance(const std::string& filename, const std::string& schema_filename)$/;"	f	class:ConfigQml
 KeyRole	qt-qml/selectmodel.h	/^        KeyRole = Qt::UserRole + 2,$/;"	e	enum:SelectModel::SelectModelRoles
@@ -698,6 +701,7 @@ RegionModel	qt-qml/regionmodel.cpp	/^RegionModel::RegionModel(QObject *parent): 
 RegionModel	qt-qml/regionmodel.h	/^class RegionModel : public SelectModel$/;"	c
 Regions	meego-UX-panel/configqml.cpp	/^ConfigQml::Regions(QString country, bool isKeys)$/;"	f	class:ConfigQml
 Regions	qt-qml/configqml.cpp	/^ConfigQml::Regions(int index)$/;"	f	class:ConfigQml
+Reloadfile	core/parser.cpp	/^    Parser::Reloadfile(){$/;"	f	class:Core::Parser
 Roles	qt-qml/dataitem.h	/^    enum Roles {$/;"	g	class:DataItem
 SCROLLDECORATOR_LONG_MARGIN	qt-qml/UIConstants.js	/^var SCROLLDECORATOR_LONG_MARGIN = 4;$/;"	v
 SCROLLDECORATOR_SHORT_MARGIN	qt-qml/UIConstants.js	/^var SCROLLDECORATOR_SHORT_MARGIN = 8;$/;"	v
@@ -886,6 +890,7 @@ Wind_speedRole	qt-qml/dataitem.h	/^        Wind_speedRole,$/;"	e	enum:DataItem::
 Windspeed	core/windspeed.cpp	/^    Windspeed::Windspeed(const Windspeed& windspeed){$/;"	f	class:Core::Windspeed
 Windspeed	core/windspeed.cpp	/^    Windspeed::Windspeed(const float value, const std::string& units){$/;"	f	class:Core::Windspeed
 Windspeed	core/windspeed.h	/^    class Windspeed{$/;"	c	namespace:Core
+_	qt-qml/configqml.h	47;"	d
 _	qt-qml/dataitem.h	41;"	d
 _	qt-qml/main.cpp	65;"	d	file:
 _ALL_SOURCE	core/config_package.h	79;"	d
@@ -898,7 +903,7 @@ __EXTENSIONS__	core/config_package.h	95;"	d
 _binary	core/source.h	/^        std::string *_binary;$/;"	m	class:Core::Source
 _category	qt-qml/selectmodel.h	/^    QString _category;$/;"	m	class:SelectData
 _config	qt-qml/controller.h	/^    ConfigQml *_config;$/;"	m	class:Controller
-_config	qt-qml/datamodel.h	/^    Core::Config *_config;$/;"	m	class:DataModel
+_config	qt-qml/datamodel.h	/^    ConfigQml  *_config;$/;"	m	class:DataModel
 _config	qtsetting-touch/mainpage.h	/^    Core::Config *_config;$/;"	m	class:MainPage
 _config	qtsetting/settingstations.h	/^    Core::Config *_config;$/;"	m	class:SettingStations
 _connected	core/connection.h	/^        bool _connected;$/;"	m	class:Core::Connection
@@ -923,6 +928,7 @@ _engine	qt-qml/qmllayoutitem.h	/^    QDeclarativeEngine *_engine;$/;"	m	class:Qm
 _events_image	meegotouchplugin/meegotouchplugin.h	/^    QImage *_events_image;$/;"	m	class:MyMWidget
 _fileName	core/station.h	/^        std::string *_fileName;$/;"	m	class:Core::Station
 _filename	core/config.h	/^            std::string *_filename;$/;"	m	class:Core::Config
+_filename	core/parser.h	/^            std::string _filename;$/;"	m	class:Core::Parser
 _flike	core/data.h	/^        Temperature *_flike;$/;"	m	class:Core::Data
 _font_color	core/config.h	/^            std::string *_font_color;$/;"	m	class:Core::Config
 _forecastURL	core/station.h	/^        std::string *_forecastURL;$/;"	m	class:Core::Station
@@ -949,13 +955,14 @@ _image	meegotouchplugin/meegotouchplugin.h	/^    QImage *_image;$/;"	m	class:MyM
 _isUpdated	qt-qml/gpsposition.h	/^    bool _isUpdated;$/;"	m	class:GpsPosition
 _itc	tizen/src/setting_window.h	/^static Elm_Genlist_Item_Class _itc;$/;"	v
 _key	qt-qml/selectmodel.h	/^    QString _key;$/;"	m	class:SelectData
-_last_update	core/dataparser.h	/^        time_t _last_update;$/;"	m	class:Core::DataParser
+_last_update	core/dataparser.h	/^            time_t _last_update;$/;"	m	class:Core::DataParser
 _lastupdate	meegotouchplugin/meegotouchplugin.h	/^    QString  _lastupdate;$/;"	m	class:MyMWidget
 _lastupdate	qt-qml/dataitem.h	/^    QDateTime _lastupdate;$/;"	m	class:DataItem
 _latitude	qt-qml/gpsposition.h	/^    double _latitude;$/;"	m	class:GpsPosition
 _library	core/source.h	/^        std::string *_library;$/;"	m	class:Core::Source
 _libraryHandler	core/source.h	/^        void *_libraryHandler;$/;"	m	class:Core::Source
-_list	core/dataparser.h	/^        DataList *_list;$/;"	m	class:Core::DataParser
+_list	core/dataparser.cpp	/^     DataList *DataParser::_list;$/;"	m	class:Core::DataParser	file:
+_list	core/dataparser.h	/^            static DataList *_list;$/;"	m	class:Core::DataParser
 _list	core/dataparserqt.h	/^        DataList *_list;$/;"	m	class:Core::DataParserQt
 _list	qt-qml/datamodel.h	/^    QList<DataItem*>_list;$/;"	m	class:DataModel
 _list	qt-qml/selectmodel.h	/^    QList<SelectData*> _list;$/;"	m	class:SelectModel
@@ -984,11 +991,15 @@ _proxyPort	core/connection.h	/^        int _proxyPort;$/;"	m	class:Core::Connect
 _qview	qt-qml/controller.h	/^    QDeclarativeView *_qview;$/;"	m	class:Controller
 _refcount	core/config.cpp	/^    int Config::_refcount;$/;"	m	class:Core::Config	file:
 _refcount	core/config.h	/^            static int _refcount;$/;"	m	class:Core::Config
+_refcount	core/dataparser.cpp	/^     int DataParser::_refcount = 0;$/;"	m	class:Core::DataParser	file:
+_refcount	core/dataparser.h	/^            static int _refcount;$/;"	m	class:Core::DataParser
 _refcount	qt-qml/configqml.cpp	/^int ConfigQml::_refcount;$/;"	m	class:ConfigQml	file:
 _refcount	qt-qml/configqml.h	/^    static int _refcount;$/;"	m	class:ConfigQml
 _region	core/station.h	/^        std::string *_region;$/;"	m	class:Core::Station
 _self	core/config.cpp	/^    Config* Config::_self;$/;"	m	class:Core::Config	file:
 _self	core/config.h	/^            static Config* _self;$/;"	m	class:Core::Config
+_self	core/dataparser.cpp	/^     DataParser* DataParser::_self;$/;"	m	class:Core::DataParser	file:
+_self	core/dataparser.h	/^            static DataParser* _self;$/;"	m	class:Core::DataParser
 _self	qt-qml/configqml.cpp	/^ConfigQml* ConfigQml::_self;$/;"	m	class:ConfigQml	file:
 _self	qt-qml/configqml.h	/^    static ConfigQml* _self;$/;"	m	class:ConfigQml
 _short_day_name	core/data.h	/^        std::string *_short_day_name;$/;"	m	class:Core::Data
@@ -1021,7 +1032,7 @@ _text	core/data.h	/^        std::string *_text;$/;"	m	class:Core::Data
 _timeout	core/connection.h	/^        long _timeout;$/;"	m	class:Core::Connection
 _timer	meegotouchplugin/meegotouchplugin.h	/^    QTimer  *_timer;$/;"	m	class:MyMWidget
 _timer	qt-qml/gpsposition.h	/^    QTimer *_timer;$/;"	m	class:GpsPosition
-_timezone	core/dataparser.h	/^        int _timezone;$/;"	m	class:Core::DataParser
+_timezone	core/dataparser.h	/^            int _timezone;$/;"	m	class:Core::DataParser
 _timezone	core/dataparserqt.h	/^        int _timezone;$/;"	m	class:Core::DataParserQt
 _timezone	core/station.h	/^        int _timezone;$/;"	m	class:Core::Station
 _units	core/pressure.h	/^        std::string *_units;$/;"	m	class:Core::Pressure
@@ -1242,7 +1253,6 @@ currentChanged	meegotouchplugin/moc_meegotouchplugin.cpp	/^void MyMWidget::curre
 current_data	meego-UX-panel/updateqml.cpp	/^UpdateQml::current_data(std::string& str){$/;"	f	class:UpdateQml
 current_data	netbook-UX/meego-netbookUX-omweather.cpp	/^current_data(std::string& str){$/;"	f
 current_data	predeamon/predeamon.cpp	/^current_data(std::string& str){$/;"	f
-current_data	qt-qml/controller.cpp	/^current_data(std::string& str){$/;"	f
 current_data	xml-qml/xml-qml.cpp	/^current_data(std::string& str){$/;"	f
 current_night_period	qt-qml/datamodel.h	/^        current_night_period,$/;"	e	enum:DataModel::Periods
 current_period	qt-qml/datamodel.h	/^        current_period,$/;"	e	enum:DataModel::Periods
@@ -1643,7 +1653,7 @@ host_triplet	tizen/src/Makefile	/^host_triplet = i386-pc-linux-gnu$/;"	m
 host_vendor	tizen/Makefile	/^host_vendor = pc$/;"	m
 host_vendor	tizen/src/Makefile	/^host_vendor = pc$/;"	m
 hourdate	qt-qml/dataitem.cpp	/^DataItem::hourdate()$/;"	f	class:DataItem
-hours_period	qt-qml/datamodel.h	/^	hours_period$/;"	e	enum:DataModel::Periods
+hours_period	qt-qml/datamodel.h	/^        hours_period$/;"	e	enum:DataModel::Periods
 htmldir	tizen/Makefile	/^htmldir = ${docdir}$/;"	m
 htmldir	tizen/src/Makefile	/^htmldir = ${docdir}$/;"	m
 humidity	qt-qml/dataitem.cpp	/^DataItem::humidity() {$/;"	f	class:DataItem
@@ -1728,6 +1738,7 @@ libexecdir	tizen/src/Makefile	/^libexecdir = ${exec_prefix}\/libexec$/;"	m
 listWidget	qtsetting/ui_settingstations.h	/^    QListWidget *listWidget;$/;"	m	class:Ui_SettingStations
 listdata	core/databaseabstract.h	/^typedef std::vector< std::pair<std::string, std::string> > listdata;$/;"	t	namespace:Core
 load_config	qt-qml/controller.cpp	/^Controller::load_config()$/;"	f	class:Controller
+load_data	core/dataparser.cpp	/^    DataParser::load_data(const std::string& filename, const std::string& schema_filename){$/;"	f	class:Core::DataParser
 load_data	qt-qml/controller.cpp	/^Controller::load_data()$/;"	f	class:Controller
 localedir	tizen/Makefile	/^localedir = ${datarootdir}\/locale$/;"	m
 localedir	tizen/src/Makefile	/^localedir = ${datarootdir}\/locale$/;"	m
@@ -1977,6 +1988,7 @@ registerTypes	meego-UX-panel/omweatherplugin.cpp	/^void OmweatherPlugin::registe
 reload_config	qt-qml/configqml.cpp	/^ConfigQml::reload_config()$/;"	f	class:ConfigQml
 reload_config	qt-qml/controller.cpp	/^Controller::reload_config()$/;"	f	class:Controller
 reload_config	qt-qml/dbusadaptor.cpp	/^void DbusAdaptor::reload_config()$/;"	f	class:DbusAdaptor
+reload_data	qt-qml/datamodel.cpp	/^DataModel::reload_data(QString filename)$/;"	f	class:DataModel
 remove	qt-qml/datamodel.cpp	/^DataModel::remove(const int row)$/;"	f	class:DataModel
 remove	qtsetting/settingstations.cpp	/^SettingStations::remove()$/;"	f	class:SettingStations
 removeButton	qtsetting/ui_settingstations.h	/^    QPushButton *removeButton;$/;"	m	class:Ui_SettingStations
@@ -2173,7 +2185,6 @@ units	core/temperature.cpp	/^    void Temperature::units(const std::string& unit
 units	core/windspeed.cpp	/^    std::string& Windspeed::units() const{$/;"	f	class:Core::Windspeed
 units	core/windspeed.cpp	/^    void Windspeed::units(const std::string& units){$/;"	f	class:Core::Windspeed
 update	qt-qml/dataitem.cpp	/^DataItem::update(QString filename)$/;"	f	class:DataItem
-update	qt-qml/datamodel.cpp	/^DataModel::update(QString filename, int  period)$/;"	f	class:DataModel
 updateCheck	qtsetting/ui_settingstations.h	/^    QCheckBox *updateCheck;$/;"	m	class:Ui_SettingStations
 updateCombo	qtsetting/ui_settingstations.h	/^    QComboBox *updateCombo;$/;"	m	class:Ui_SettingStations
 updateData	core/station.cpp	/^    bool Station::updateData(bool force){$/;"	f	class:Core::Station
@@ -2188,6 +2199,7 @@ updateWallpaperPath	meegotouchplugin/meegotouchplugin.cpp	/^void MyMWidget::upda
 update_data	meegotouchplugin/meegotouchplugin.cpp	/^void MyMWidget::update_data(){$/;"	f	class:MyMWidget
 update_interval	qt-qml/configqml.cpp	/^ConfigQml::update_interval(int interval)$/;"	f	class:ConfigQml
 update_list	meego-UX-panel/configqml.h	/^    QStringList update_list;$/;"	m	class:ConfigQml
+update_model	qt-qml/datamodel.cpp	/^DataModel::update_model(int period)$/;"	f	class:DataModel
 update_weather_forecast	netbook-UX/meego-panel-omweather.cpp	/^static void* update_weather_forecast(void* data){$/;"	f	file:
 update_weather_forecast	qt-qml/main.cpp	/^update_weather_forecast(Core::Config *config){$/;"	f
 updateinterval	qt-qml/configqml.cpp	/^ConfigQml::updateinterval()$/;"	f	class:ConfigQml

@@ -2,6 +2,7 @@ meecast (0.5.9) unstable; urgency=low
 
   * Added icons for hko.gov.hk
   * Fixed problem with day forecast in first start for hko.gov.hk
+  * Fixed problem with switching to next day if today was selected first 
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 30 May 2011 21:42:23 +0200
 

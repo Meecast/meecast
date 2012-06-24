@@ -31,7 +31,7 @@ Page {
 	ToolButton {
             id: "toolbarnow"
             platformStyle: TabButtonStyle{}
-            visible: (current) ? true : false
+            visible: (current && day == 0) ? true : false
             onClicked: {
                 day_period = "current";
                 updateperiod();
@@ -381,8 +381,10 @@ Page {
                  MouseArea {
                      anchors.fill: parent
                      onClicked: {
-                         if (!current && day < model_day.rowCount()-1){
+                        /* if (!current && day < model_day.rowCount()-1){ */
+                        if (day < model_day.rowCount()-1){ 
                             console.log("next day");
+			    day_period="day";
                             day++;
                             fullweather.updateperiod();
                         }
@@ -395,7 +397,7 @@ Page {
                 anchors.left: parent.left
                 height: parent.height
                 width: parent.width
-                text: (current) ? Config.tr("Today") : model_day.getdata(day, "date");
+                text: (current && day == 0) ? Config.tr("Today") : model_day.getdata(day, "date");
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
                 color: "white"

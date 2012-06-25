@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-12 21:27+0300\n"
+"POT-Creation-Date: 2012-06-25 22:13+0300\n"
 "PO-Revision-Date: 2012-04-17 20:38+0000\n"
 "Last-Translator: tomleenders <tjjleenders@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.net/projects/p/meecast/language/"
@@ -571,7 +571,7 @@ msgid "Custom"
 msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
-#: meecast/qt-qml/FullWeatherPage.qml:114
+#: meecast/qt-qml/FullWeatherPage.qml:175
 msgid "Day"
 msgstr "Dag"
 
@@ -579,7 +579,7 @@ msgstr "Dag"
 msgid "Day length"
 msgstr "Daglengte"
 
-#: omweather/src/hash.data:58 meecast/qt-qml/FullWeatherPage.qml:208
+#: omweather/src/hash.data:58 meecast/qt-qml/FullWeatherPage.qml:271
 msgid "Day length:"
 msgstr "Daglengte:"
 
@@ -812,8 +812,9 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Eerste Kwartier"
 
-#: meecast/qt-qml/FullWeatherPage.qml:138
-#: meecast/qt-qml/FullWeatherPage.qml:180
+#: meecast/qt-qml/FullWeatherPage.qml:154
+#: meecast/qt-qml/FullWeatherPage.qml:199
+#: meecast/qt-qml/FullWeatherPage.qml:242
 msgid "Flike:"
 msgstr "Gevoel:"
 
@@ -1002,14 +1003,15 @@ msgstr "Zware Sneeuwval"
 msgid "High"
 msgstr "Hoog"
 
-#: meecast/qt-qml/FullWeatherPage.qml:191
+#: meecast/qt-qml/FullWeatherPage.qml:253
 msgid "Hours"
 msgstr "Uren"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:167 meecast/qt-qml/FullWeatherPage.qml:120
-#: meecast/qt-qml/FullWeatherPage.qml:162
+#: meecast/qt-qml/dataitem.cpp:167 meecast/qt-qml/FullWeatherPage.qml:136
+#: meecast/qt-qml/FullWeatherPage.qml:181
+#: meecast/qt-qml/FullWeatherPage.qml:224
 msgid "Humidity:"
 msgstr "Luchtvochtigheid:"
 
@@ -1071,7 +1073,7 @@ msgstr "Laatste update op server:"
 msgid "Last update from server: "
 msgstr "Laatste update van server:"
 
-#: omweather/src/hash.data:98 meecast/qt-qml/FullWeatherPage.qml:211
+#: omweather/src/hash.data:98 meecast/qt-qml/FullWeatherPage.qml:274
 msgid "Last update:"
 msgstr "Laatste update:"
 
@@ -1190,7 +1192,7 @@ msgstr "Lokale Pollen Rapporten"
 msgid "Long"
 msgstr "Lang"
 
-#: omweather/src/hash.data:120 meecast/qt-qml/WeatherPage.qml:483
+#: omweather/src/hash.data:120 meecast/qt-qml/WeatherPage.qml:486
 msgid "Looks like there's no info for this location."
 msgstr "Waarschijnlijk geen info voor deze lokatie."
 
@@ -1218,7 +1220,7 @@ msgstr "Handleiding"
 msgid "Measurement units"
 msgstr "Meet-eenheden"
 
-#: meecast/qt-qml/WeatherPage.qml:288
+#: meecast/qt-qml/WeatherPage.qml:291
 msgid "MeeCast"
 msgstr ""
 
@@ -1434,7 +1436,7 @@ msgid "Next update:"
 msgstr "Volgende update:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:588
-#: meecast/qt-qml/FullWeatherPage.qml:149
+#: meecast/qt-qml/FullWeatherPage.qml:210
 msgid "Night"
 msgstr "Nacht"
 
@@ -1450,7 +1452,7 @@ msgstr "Geen"
 msgid "No current weather data."
 msgstr "Geen huidige weergegevens."
 
-#: omweather/src/hash.data:165 meecast/qt-qml/WeatherPage.qml:309
+#: omweather/src/hash.data:165 meecast/qt-qml/WeatherPage.qml:312
 msgid "No locations are set up yet."
 msgstr "Nog geen locaties."
 
@@ -1468,7 +1470,8 @@ msgstr "Geen gegevens voor dit station."
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:175 meecast/qt-qml/WeatherPage.qml:537
+#: meecast/qt-qml/dataitem.cpp:175 meecast/qt-qml/FullWeatherPage.qml:130
+#: meecast/qt-qml/WeatherPage.qml:540
 msgid "Now"
 msgstr "Nu"
 
@@ -1742,8 +1745,9 @@ msgstr "Periode"
 msgid "Position:"
 msgstr "Positie:"
 
-#: meecast/qt-qml/FullWeatherPage.qml:132
-#: meecast/qt-qml/FullWeatherPage.qml:174
+#: meecast/qt-qml/FullWeatherPage.qml:148
+#: meecast/qt-qml/FullWeatherPage.qml:193
+#: meecast/qt-qml/FullWeatherPage.qml:236
 msgid "Ppcp:"
 msgstr "Nrsl:"
 
@@ -1766,8 +1770,9 @@ msgstr "Luchtdruk eenh.:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:173 meecast/qt-qml/FullWeatherPage.qml:126
-#: meecast/qt-qml/FullWeatherPage.qml:168
+#: meecast/qt-qml/dataitem.cpp:173 meecast/qt-qml/FullWeatherPage.qml:142
+#: meecast/qt-qml/FullWeatherPage.qml:187
+#: meecast/qt-qml/FullWeatherPage.qml:230
 msgid "Pressure:"
 msgstr "Luchtdruk:"
 
@@ -2023,7 +2028,7 @@ msgstr "Sensor"
 msgid "Set"
 msgstr "Kies"
 
-#: omweather/src/hash.data:254 meecast/qt-qml/WeatherPage.qml:323
+#: omweather/src/hash.data:254 meecast/qt-qml/WeatherPage.qml:326
 msgid "Set locations"
 msgstr "Kies locaties"
 
@@ -2188,7 +2193,7 @@ msgstr "Zonnig"
 msgid "Sunny / Wind"
 msgstr "Zonnig / Wind"
 
-#: omweather/src/hash.data:278 meecast/qt-qml/FullWeatherPage.qml:202
+#: omweather/src/hash.data:278 meecast/qt-qml/FullWeatherPage.qml:265
 msgid "Sunrise:"
 msgstr "Zonsopkomst:"
 
@@ -2196,7 +2201,7 @@ msgstr "Zonsopkomst:"
 msgid "Sunrise: "
 msgstr "Zonsopkomst: "
 
-#: omweather/src/hash.data:279 meecast/qt-qml/FullWeatherPage.qml:205
+#: omweather/src/hash.data:279 meecast/qt-qml/FullWeatherPage.qml:268
 msgid "Sunset:"
 msgstr "Zonsondergang:"
 
@@ -2297,9 +2302,14 @@ msgstr ""
 msgid "Thunder"
 msgstr "Onweer"
 
+#: omweather/src/hash.data:288
+#, fuzzy
+msgid "Thunder in the Vicinity"
+msgstr "Buien in de Omgeving"
+
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
-#: meecast/qt-qml/FullWeatherPage.qml:335 meecast/qt-qml/WeatherPage.qml:537
+#: meecast/qt-qml/FullWeatherPage.qml:400 meecast/qt-qml/WeatherPage.qml:540
 msgid "Today"
 msgstr "Vandaag"
 
@@ -2320,7 +2330,7 @@ msgstr ""
 msgid "Transparency:"
 msgstr "Transparantie:"
 
-#: omweather/src/hash.data:288 meecast/qt-qml/WeatherPage.qml:497
+#: omweather/src/hash.data:289 meecast/qt-qml/WeatherPage.qml:500
 msgid "Try to update"
 msgstr "Probeer te updaten"
 
@@ -2350,7 +2360,7 @@ msgstr "Eenheden"
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: omweather/src/hash.data:289
+#: omweather/src/hash.data:290
 msgid "Unlimited"
 msgstr "Onbeperkt"
 
@@ -2367,7 +2377,7 @@ msgstr "Update loopt al."
 msgid "Update interval"
 msgstr "Update interval"
 
-#: omweather/src/hash.data:290 meecast/qt-qml/WeatherPage.qml:356
+#: omweather/src/hash.data:291 meecast/qt-qml/WeatherPage.qml:359
 msgid "Updating forecast"
 msgstr "Update voorspelling"
 
@@ -2397,7 +2407,7 @@ msgstr ""
 msgid "Use device temperature sensor"
 msgstr "Gebruik temperatuursensor"
 
-#: omweather/src/hash.data:291
+#: omweather/src/hash.data:292
 msgid "VAR"
 msgstr "VAR"
 
@@ -2405,7 +2415,7 @@ msgstr "VAR"
 msgid "Valid time for current weather:"
 msgstr "Tijd geldig voor huidig weer:"
 
-#: omweather/src/hash.data:292
+#: omweather/src/hash.data:293
 msgid "Very High"
 msgstr "Erg Hoog"
 
@@ -2422,7 +2432,7 @@ msgstr "Zichtbaar:"
 msgid "Visuals"
 msgstr ""
 
-#: omweather/src/hash.data:293
+#: omweather/src/hash.data:294
 msgid "W"
 msgstr "W"
 
@@ -2432,31 +2442,31 @@ msgstr "W"
 msgid "WLAN"
 msgstr "WLAN"
 
-#: omweather/src/hash.data:294
+#: omweather/src/hash.data:295
 msgid "WNW"
 msgstr "WNW"
 
-#: omweather/src/hash.data:295
+#: omweather/src/hash.data:296
 msgid "WNW_short"
 msgstr "WNW_kort"
 
-#: omweather/src/hash.data:296
+#: omweather/src/hash.data:297
 msgid "WSW"
 msgstr "WZW"
 
-#: omweather/src/hash.data:297
+#: omweather/src/hash.data:298
 msgid "WSW_short"
 msgstr "WZW_kort"
 
-#: omweather/src/hash.data:298
+#: omweather/src/hash.data:299
 msgid "W_short"
 msgstr "W_kort"
 
-#: omweather/src/hash.data:299
+#: omweather/src/hash.data:300
 msgid "Waning Crescent"
 msgstr "Asgrauwe Maan"
 
-#: omweather/src/hash.data:300
+#: omweather/src/hash.data:301
 msgid "Waning Gibbous"
 msgstr "Krimpende Maan"
 
@@ -2464,11 +2474,11 @@ msgstr "Krimpende Maan"
 msgid "Warning"
 msgstr "Waarschuwing"
 
-#: omweather/src/hash.data:301
+#: omweather/src/hash.data:302
 msgid "Waxing Crescent"
 msgstr "Jonge Maansikkel"
 
-#: omweather/src/hash.data:302
+#: omweather/src/hash.data:303
 msgid "Waxing Gibbous"
 msgstr "Wassende Maan"
 
@@ -2505,26 +2515,29 @@ msgstr "Widget-stijl"
 msgid "Widget style and Iconset"
 msgstr "Widget-stijl en Icoonset"
 
-#: omweather/src/hash.data:306
+#: omweather/src/hash.data:307
 msgid "Wind"
 msgstr "Wind"
 
-#: omweather/src/hash.data:303 meecast/qt-qml/FullWeatherPage.qml:123
-#: meecast/qt-qml/FullWeatherPage.qml:165
+#: omweather/src/hash.data:304 meecast/qt-qml/FullWeatherPage.qml:139
+#: meecast/qt-qml/FullWeatherPage.qml:184
+#: meecast/qt-qml/FullWeatherPage.qml:227
 msgid "Wind direction:"
 msgstr "Windrichting:"
 
-#: meecast/qt-qml/FullWeatherPage.qml:135
-#: meecast/qt-qml/FullWeatherPage.qml:177
+#: meecast/qt-qml/FullWeatherPage.qml:151
+#: meecast/qt-qml/FullWeatherPage.qml:196
+#: meecast/qt-qml/FullWeatherPage.qml:239
 msgid "Wind gust:"
 msgstr "Windvlaag:"
 
-#: omweather/src/hash.data:305 meecast/qt-qml/FullWeatherPage.qml:129
-#: meecast/qt-qml/FullWeatherPage.qml:171
+#: omweather/src/hash.data:306 meecast/qt-qml/FullWeatherPage.qml:145
+#: meecast/qt-qml/FullWeatherPage.qml:190
+#: meecast/qt-qml/FullWeatherPage.qml:233
 msgid "Wind speed"
 msgstr "Windsnelheid"
 
-#: omweather/src/hash.data:304 meecast/qt-qml/UnitsPage.qml:41
+#: omweather/src/hash.data:305 meecast/qt-qml/UnitsPage.qml:41
 #: meecast/qt-qml/UnitsPage.qml:130
 msgid "Wind speed units"
 msgstr "Wind eenheden"
@@ -2544,19 +2557,19 @@ msgstr "Wind:"
 msgid "Wind: "
 msgstr "Wind: "
 
-#: omweather/src/hash.data:310
+#: omweather/src/hash.data:311
 msgid "Wintry Mix"
 msgstr "Winterse Bui"
 
-#: omweather/src/hash.data:308
+#: omweather/src/hash.data:309
 msgid "Wintry Mix / Wind"
 msgstr "Winterse Bui / Wind"
 
-#: omweather/src/hash.data:307
+#: omweather/src/hash.data:308
 msgid "Wintry Mix / Wind Early"
 msgstr "Winterse Bui / Eerst Wind"
 
-#: omweather/src/hash.data:309
+#: omweather/src/hash.data:310
 msgid "Wintry Mix to Snow"
 msgstr "Winterse Bui tot Sneeuw"
 
@@ -2626,11 +2639,11 @@ msgstr "lokale tijd huidige locatie"
 msgid "d:"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:398
+#: meecast/qt-qml/dataitem.cpp:404
 msgid "day ago"
 msgstr "dag geleden"
 
-#: meecast/qt-qml/dataitem.cpp:400
+#: meecast/qt-qml/dataitem.cpp:406
 msgid "days ago"
 msgstr "dagen geleden"
 
@@ -2666,7 +2679,7 @@ msgstr "elk uur"
 msgid "every minute (Debug)"
 msgstr "elke minuut(debug)"
 
-#: omweather/src/hash.data:311
+#: omweather/src/hash.data:312
 msgid "falling"
 msgstr "vallende"
 
@@ -2674,11 +2687,11 @@ msgstr "vallende"
 msgid "feels like"
 msgstr "voelt als"
 
-#: meecast/qt-qml/dataitem.cpp:392
+#: meecast/qt-qml/dataitem.cpp:398
 msgid "hour ago"
 msgstr "uur geleden"
 
-#: meecast/qt-qml/dataitem.cpp:395
+#: meecast/qt-qml/dataitem.cpp:401
 msgid "hours ago"
 msgstr "uren geleden"
 
@@ -2700,14 +2713,14 @@ msgstr ""
 msgid "km"
 msgstr ""
 
-#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:312
+#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:313
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
 #: meecast/qt-qml/UnitsPage.qml:148
 msgid "km/h"
 msgstr "km/u"
 
-#: omweather/src/hash.data:313
+#: omweather/src/hash.data:314
 msgid "km/s"
 msgstr ""
 
@@ -2717,11 +2730,11 @@ msgstr ""
 msgid "m"
 msgstr ""
 
-#: omweather/src/hash.data:314
+#: omweather/src/hash.data:315
 msgid "m/h"
 msgstr "m/u"
 
-#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:315
+#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:316
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
 #: meecast/qt-qml/UnitsPage.qml:141
@@ -2748,22 +2761,22 @@ msgstr ""
 msgid "mi"
 msgstr ""
 
-#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:316
+#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:317
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
 #: meecast/qt-qml/UnitsPage.qml:155
 msgid "mi/h"
 msgstr ""
 
-#: omweather/src/hash.data:317
+#: omweather/src/hash.data:318
 msgid "mi/s"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:386
+#: meecast/qt-qml/dataitem.cpp:392
 msgid "minute ago"
 msgstr "minuut geleden"
 
-#: meecast/qt-qml/dataitem.cpp:389
+#: meecast/qt-qml/dataitem.cpp:395
 msgid "minutes ago"
 msgstr "minuten geleden"
 
@@ -2803,11 +2816,11 @@ msgstr "volgende"
 msgid "nmi"
 msgstr ""
 
-#: omweather/src/hash.data:318
+#: omweather/src/hash.data:319
 msgid "rising"
 msgstr "opkomende"
 
-#: meecast/qt-qml/dataitem.cpp:383
+#: meecast/qt-qml/dataitem.cpp:389
 msgid "seconds ago"
 msgstr "seconden geleden"
 
@@ -2819,39 +2832,39 @@ msgstr "lokale tijd station"
 msgid "station name"
 msgstr "stationsnaam"
 
-#: omweather/src/hash.data:319
+#: omweather/src/hash.data:320
 msgid "steady"
 msgstr "bestendig"
 
-#: omweather/src/hash.data:320
+#: omweather/src/hash.data:321
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:321
+#: omweather/src/hash.data:322
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:322
+#: omweather/src/hash.data:323
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:323
+#: omweather/src/hash.data:324
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:324
+#: omweather/src/hash.data:325
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:325
+#: omweather/src/hash.data:326
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:326
+#: omweather/src/hash.data:327
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:327
+#: omweather/src/hash.data:328
 msgid "Ю-З"
 msgstr ""
 

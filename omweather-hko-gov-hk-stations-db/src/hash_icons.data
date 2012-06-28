@@ -21,6 +21,7 @@
     g_hash_table_insert(hash, "Southwest", "SW");
     g_hash_table_insert(hash, "East to southeast", "ESE");
     g_hash_table_insert(hash, "East to northeast", "ENE");
+    g_hash_table_insert(hash, "West to northwest", "NNW");
     g_hash_table_insert(hash, "South to southwest", "SSW");
     g_hash_table_insert(hash, "South to southeast", "SSE");
     g_hash_table_insert(hash, "Light winds", "Light winds");

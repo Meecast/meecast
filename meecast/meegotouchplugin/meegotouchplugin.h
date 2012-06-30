@@ -173,6 +173,7 @@ public:
         QString executable("/usr/bin/invoker");    
         QStringList arguments;
         arguments << "--single-instance";
+        arguments << "--splash=/opt/com.meecast.omweather/share/images/splash.png";
         arguments << "--type=d";
         arguments <<"/opt/com.meecast.omweather/bin/omweather-qml";	
         process.startDetached(executable, arguments);

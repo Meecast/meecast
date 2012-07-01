@@ -87,7 +87,10 @@ Controller::load_data()
   Core::Data *temp_data = NULL;
   int i = 0;
   
+ /*  std::cerr<<" Controller::load_data()"<<std::endl; */
+
   _dp->DeleteInstance(); 
+         
   if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0 &&
         _config->stationsList().at(_config->current_station_id())){
           try{
@@ -95,11 +98,13 @@ Controller::load_data()
             }
             catch(const std::string &str){
                 std::cerr<<"Error in DataParser class: "<< str <<std::endl;
-                return;
+                _dp = Core::DataParser::Instance();
+            //    return;
             }
             catch(const char *str){
                 std::cerr<<"Error in DataParser class: "<< str <<std::endl;
-                return;
+                _dp = Core::DataParser::Instance();
+           //     return;
             }
   }
 

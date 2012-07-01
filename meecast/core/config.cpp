@@ -454,6 +454,10 @@ Config::current_station_id(int id_station){
 }
 int   
 Config::current_station_id(){
+    if (_current_station_id >= this->stationsList().size())
+        _current_station_id = 0;
+    if (this->stationsList().size() == 0)
+        _current_station_id = INT_MAX;
     return _current_station_id;
 }
 ////////////////////////////////////////////////////////////////////////////////

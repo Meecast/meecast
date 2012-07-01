@@ -166,7 +166,7 @@ namespace Core {
         if (!_self)
             _self = new DataParser();
         _refcount++;
-        /* std::cerr<<"Refcount for DataParser: "<<_refcount<<std::endl; */
+        /*  std::cerr<<"Refcount for DataParser: "<<_refcount<<std::endl; */
         return _self;
     }
 
@@ -196,9 +196,11 @@ namespace Core {
        if (_refcount == 0)
             return;
        _refcount--;
-       /* std::cerr<<"Delete Refcount for DataParser: "<<_refcount<<std::endl; */
-       if (_refcount == 0)
+       /*  std::cerr<<"Delete Refcount for DataParser: "<<_refcount<<std::endl; */ 
+       if (_refcount == 0){
             delete _self;
+            _self = NULL;
+       }
     }
 ////////////////////////////////////////////////////////////////////////////////
     DataParser::~DataParser(){

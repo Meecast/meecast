@@ -172,6 +172,7 @@
     g_hash_table_insert(hash, (void*)"Overcast and snow", _("Overcast and snow"));
     g_hash_table_insert(hash, (void*)"Overcast and wet snow showers", _("Overcast and wet snow showers"));
     g_hash_table_insert(hash, (void*)"Overcast and wet snow", _("Overcast and wet snow"));
+    g_hash_table_insert(hash, (void*)"Overcast, thunderstorms with rain", _("Overcast, thunderstorms with rain"));
     g_hash_table_insert(hash, (void*)"Overcast", _("Overcast"));
     g_hash_table_insert(hash, (void*)"PM Fog", _("PM Fog"));
     g_hash_table_insert(hash, (void*)"PM Light Rain / Wind", _("PM Light Rain / Wind"));

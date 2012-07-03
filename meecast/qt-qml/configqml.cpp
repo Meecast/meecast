@@ -688,6 +688,18 @@ ConfigQml::showweb()
 }
 
 void
+ConfigQml::showwebdonation()
+{
+    QDesktopServices::openUrl(QUrl("http://omweather.garage.maemo.org/"));     
+}
+
+void
+ConfigQml::showwebsupport()
+{
+    QDesktopServices::openUrl(QUrl("http://meecast.com"));     
+}
+
+void
 ConfigQml::downloadFinishedSlot()
 {
     emit configChanged();

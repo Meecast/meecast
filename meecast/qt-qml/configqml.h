@@ -82,10 +82,11 @@ private:
     void init();
     QStringList wind_list;
     QStringList press_list;
+    QSettings *standby_settings;
 protected:
     static ConfigQml* _self;
     static int _refcount;
-    virtual ~ConfigQml(){};
+    virtual ~ConfigQml();
     ConfigQml();
     ConfigQml(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
 
@@ -113,6 +114,7 @@ public:
     QString filename();
     QString source();
     QString version();
+    void saveConfig();
     int updateinterval();
     QString viewURL();
     Q_INVOKABLE QStringList stations();

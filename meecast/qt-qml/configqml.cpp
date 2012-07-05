@@ -47,6 +47,13 @@ ConfigQml::ConfigQml():QObject(),Core::Config()
     init();
 }
 
+ConfigQml::~ConfigQml()
+{
+    if (standby_settings)
+        delete standby_settings;
+}
+
+
 ConfigQml* 
 ConfigQml::Instance()
 {
@@ -72,6 +79,7 @@ void ConfigQml::init()
     int index;
     db = new Core::DatabaseSqlite("");
 
+    standby_settings = new QSettings("/home/user/.config/com.meecast.com/standby.conf",QSettings::NativeFormat); 
     thread = new UpdateThread();
     connect(thread, SIGNAL(finished()), this, SLOT(downloadFinishedSlot()));
 
@@ -108,6 +116,12 @@ void ConfigQml::init()
             delete db_w;
         }
     }
+}
+
+void
+ConfigQml::saveConfg()
+{
+    Config::saveConfig();
 }
 
 QString

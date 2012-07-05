@@ -39,6 +39,7 @@
 #include "updatethread.h"
 #include "gpsposition.h"
 #include <MGConfItem>
+#include <QSettings>
 
 #include <libintl.h>
 #include <locale.h>

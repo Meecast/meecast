@@ -224,6 +224,7 @@ Slovak - Roman Moravčík\n \
 Dutch - Tom Leenders, Michiel Pater\n \
 Bulgarian - Zlatko Enikov\n \
 Albanian - Ilir Gjika\n \
+Chinese - Wong Man Kong, Michael\n \
 Swedish - Angela Nennebrandt,\n \
 \tNiklas Åkerström, \n \
 \tTomislav Veleckovik")

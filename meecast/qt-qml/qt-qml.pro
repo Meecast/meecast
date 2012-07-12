@@ -70,6 +70,8 @@ OTHER_FILES += \
     RegionPage.qml \
     CityPage.qml \
     IconsetPage.qml \
+    StandbyScreen.qml \
+    ColorCell.qml \
     SearchField.qml
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG

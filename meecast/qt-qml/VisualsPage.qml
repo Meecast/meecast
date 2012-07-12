@@ -482,6 +482,27 @@ Page {
             }
 
         }
+        Item {
+            width: parent.width
+            height: 80
+            Label {
+                text: Config.tr("Settings of standbyscreen")
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            Image {
+                source: "image://theme/icon-m-common-drilldown-arrow-inverse"
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    visuals.openFile("StandbyScreen.qml");
+                }
+            }
+        }
+
 
     }
     }

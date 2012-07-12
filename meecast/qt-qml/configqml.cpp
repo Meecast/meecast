@@ -79,7 +79,11 @@ void ConfigQml::init()
     int index;
     db = new Core::DatabaseSqlite("");
 
-    standby_settings = new QSettings("/home/user/.config/com.meecast.com/standby.conf",QSettings::NativeFormat); 
+    /* setting for stndbyscreen */
+    standby_settings = new QSettings("/home/user/.config/com.meecast.omweather/standby.conf",QSettings::NativeFormat); 
+    QVariant v = standby_settings->value("color_font_stationname", QColor(Qt::white));
+    _standby_color_font_stationname = v.value<QColor>();
+ 
     thread = new UpdateThread();
     connect(thread, SIGNAL(finished()), this, SLOT(downloadFinishedSlot()));
 
@@ -119,9 +123,12 @@ void ConfigQml::init()
 }
 
 void
-ConfigQml::saveConfg()
+ConfigQml::saveConfig()
 {
-    Config::saveConfig();
+    Core::Config::saveConfig();
+    standby_settings->setValue("color_font_stationname", _standby_color_font_stationname);
+    standby_settings->sync();
+    qDebug()<<"SaveConfig";
 }
 
 QString
@@ -388,6 +395,18 @@ ConfigQml::fontcolor(){
     QColor c;
     c.setNamedColor(ConfigQml::Config::FontColor().c_str());
     return c;
+}
+
+QColor
+ConfigQml::standby_color_font_stationname(){
+    return _standby_color_font_stationname;
+}
+
+void
+ConfigQml::set_standby_color_font_stationname(QColor c)
+{   
+    _standby_color_font_stationname = c;
+//    saveConfig();
 }
 
 QStringList

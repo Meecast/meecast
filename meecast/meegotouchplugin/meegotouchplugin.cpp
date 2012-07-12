@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of MeeCast (Other Maemo Weather(omweather))
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -57,6 +57,14 @@ void drawstandby(QHash <QString, QString> hash){
     QString stationname = hash["stationname"];
     QString iconpath = hash["iconpath"];
     
+    QSettings *standby_settings;
+    QColor color_font_station_name_standby;
+
+    /* Init qsettings */
+    standby_settings = new QSettings("/home/user/.config/com.meecast.omweather/standby.conf",QSettings::NativeFormat); 
+    QVariant v = standby_settings->value("color_font_stationname", QColor(Qt::white));
+    color_font_station_name_standby = v.value<QColor>();
+
     QImage *image;
     image = new QImage (QSize(120, 120), QImage::Format_RGB32);
 
@@ -69,8 +77,8 @@ void drawstandby(QHash <QString, QString> hash){
     paint.begin(image);
     QPen pen;
 
-    QColor myPenColor = QColor(255, 255, 255, 255);// set default color
-    pen.setColor(myPenColor);
+    /* set  color for station name */
+    QColor myPenColor = QColor(color_font_station_name_standby);    pen.setColor(myPenColor);
     paint.setPen(pen);
 
     MGConfItem standbyItem("/desktop/meego/screen_lock/low_power_mode/operator_logo"); 

@@ -1,6 +1,7 @@
 import QtQuick 1.0
 //import com.nokia.meego 1.0
 
+
  Item {
      id: container
      property alias cellColor: main_rectangle.color

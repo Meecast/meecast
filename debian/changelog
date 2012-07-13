@@ -9,6 +9,7 @@ meecast (0.5.9) unstable; urgency=low
   * Painted icons for standby widget
   * Added icon and text description for foreca.com
   * Added button Donation to window "About"
+  * Added shot name for station Saint-Petersburg
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 30 May 2011 21:42:23 +0200
 

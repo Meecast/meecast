@@ -9,7 +9,13 @@ import QtQuick 1.0
      signal clicked(color cellColor)
 
      width: 50; height: 50
+     
+     function unselected(){
+         selected = false;
+         second_rectangle.border.color = selected ? "white" : "black"
+         second_rectangle.color = selected ? "white" : "black"
 
+     }
      Rectangle {
          id: first_rectangle
          width: 50; height: 50 
@@ -23,8 +29,8 @@ import QtQuick 1.0
          y: 1
          x: 1
          width: 48; height: 48 
-         border.color: selected ? "black" : "white"
-         color: selected ? "black" : "white"
+         border.color: selected ? "white" : "black"
+         color: selected ? "white" : "black"
     }
     Rectangle {
          id: thrid_rectangle

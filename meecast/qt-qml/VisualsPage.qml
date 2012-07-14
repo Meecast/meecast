@@ -486,7 +486,7 @@ Page {
             width: parent.width
             height: 80
             Label {
-                text: Config.tr("Settings of standbyscreen")
+                text: Config.tr("Settings of StandbyScreen")
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
             }

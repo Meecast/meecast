@@ -3,7 +3,6 @@ import Qt 4.7
 //import Qt.labs.components 1.0
 import com.nokia.meego 1.0
 
-
 Page {
     id: standbysettingspage
     property int margin: 16
@@ -18,6 +17,18 @@ Page {
         }
 
     }
+
+    function resetGird(){
+        red_cell.unselected();
+        green_cell.unselected();
+        magenta_cell.unselected();
+        cyan_cell.unselected();
+        blue_cell.unselected();
+        black_cell.unselected();
+        white_cell.unselected();
+        yellow_cell.unselected();
+    }
+
 
     orientationLock: PageOrientation.LockPortrait
 
@@ -110,14 +121,39 @@ Page {
             x: 4; anchors.bottom: page.bottom; anchors.bottomMargin: 4
             rows: 1; columns: 8; spacing: 5
 
-            ColorCell { cellColor: "red"; if (color_font_stationname == "#ff0000") {selected = true};  onClicked: {color_font_stationname = "#ff0000"; cellColor = "white"}}
-            ColorCell { cellColor: "white"; onClicked:{color_font_stationname = "#ffffff";}}
-            ColorCell { cellColor: "cyan"; onClicked: helloText.color = cellColor }
-            ColorCell { cellColor: "magenta"; onClicked: helloText.color = cellColor }
-            ColorCell { cellColor: "green"; onClicked: helloText.color = cellColor }
-            ColorCell { cellColor: "blue"; onClicked: helloText.color = cellColor }
-            ColorCell { cellColor: "yellow"; onClicked: helloText.color = cellColor }
-            ColorCell { cellColor: "black"; onClicked: console.log (color_font_stationname) }
+            ColorCell { cellColor: "red"; 
+                        id: red_cell;
+                        selected : color_font_stationname == "#ff0000" ? true : false;   
+                        onClicked: { resetGird(); color_font_stationname = "#ff0000"; }}
+            ColorCell { cellColor: "white"; 
+                        id: white_cell;
+                        selected : color_font_stationname == "#ffffff" ? true : false; 
+                        onClicked:{ resetGird(); color_font_stationname = "#ffffff";  }}
+            ColorCell { cellColor: "cyan";
+                        id: cyan_cell;
+                        selected : color_font_stationname == "#00ffff" ? true : false; 
+                        onClicked:{ resetGird(); color_font_stationname = "#00ffff"; }}
+        
+            ColorCell { cellColor: "magenta";
+                        id: magenta_cell;
+                        selected : color_font_stationname == "#ff00ff" ? true : false; 
+                        onClicked:{ resetGird(); color_font_stationname = "#ff00ff"; }}
+            ColorCell { cellColor: "green";
+                        id: green_cell;
+                        selected : color_font_stationname == "#ffff00" ? true : false; 
+                        onClicked:{ resetGird(); color_font_stationname = "#ffff00"; }}
+            ColorCell { cellColor: "blue";
+                        id: blue_cell;
+                        selected : color_font_stationname == "#0000ff" ? true : false; 
+                        onClicked:{ resetGird(); color_font_stationname = "#0000ff"; }}
+            ColorCell { cellColor: "yellow"; 
+                        id: yellow_cell;
+                        selected : color_font_stationname == "#ffff00" ? true : false; 
+                        onClicked:{ resetGird(); color_font_stationname = "#ffff00"; }}
+            ColorCell { cellColor: "black";
+                        id: black_cell;
+                        selected : color_font_stationname == "#000000" ? true : false; 
+                        onClicked:{ resetGird(); color_font_stationname = "#000000"; }}
         }
  }
 

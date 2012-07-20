@@ -9,6 +9,7 @@ Page {
     property int margin: 16
     property int screen_width : 854
     property bool isUpdate: false
+    property real flick_start_position: 0
 
     tools: ToolBarLayout {
         ToolIcon {
@@ -186,7 +187,20 @@ Page {
         anchors.fill: parent
         contentWidth: flickable.width
         contentHeight: station_rect.height + current_rect.height + list.height
-        flickableDirection: Flickable.VerticalFlick
+        //flickableDirection: Flickable.VerticalFlick
+        flickableDirection: Flickable.HorizontalAndVerticalFlick 
+	onMovementStarted: { flick_start_position = visibleArea.xPosition; }
+	onMovementEnded: { console.log("Result: ", flick_start_position - visibleArea.yPosition );
+	  if ((flick_start_position - visibleArea.yPosition) < 0.02){
+	       if (nextstationimage.visible){
+	       	Config.nextstation();
+	       	main.updatestationname();
+	       }
+
+	  }
+
+	}
+
         //clip: true
         /*
         GestureArea {

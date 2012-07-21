@@ -1,6 +1,6 @@
 meecast (0.6) unstable; urgency=low
 
-  * Nothing 
+  *  Fixed problem with GPS 
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 15 Jul 2011 15:42:23 +0200
 

@@ -140,8 +140,8 @@ Page {
                         onClicked:{ resetGird(); color_font_stationname = "#ff00ff"; }}
             ColorCell { cellColor: "green";
                         id: green_cell;
-                        selected : color_font_stationname == "#ffff00" ? true : false; 
-                        onClicked:{ resetGird(); color_font_stationname = "#ffff00"; }}
+                        selected : color_font_stationname == "#00ff00" ? true : false; 
+                        onClicked:{ resetGird(); color_font_stationname = "#00ff00"; }}
             ColorCell { cellColor: "blue";
                         id: blue_cell;
                         selected : color_font_stationname == "#0000ff" ? true : false; 

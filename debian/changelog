@@ -1,6 +1,7 @@
 meecast (0.6) unstable; urgency=low
 
-  *  Fixed problem with GPS 
+  * Fixed problem with GPS 
+  * Fixed problem with green color for font in standby settings
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 15 Jul 2011 15:42:23 +0200
 

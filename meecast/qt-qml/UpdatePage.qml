@@ -135,37 +135,51 @@ Page {
                     onClicked: {
                         Config.update_interval(2147483647);
                     }
-	        }
+	            }
+                Button {
+                    text: Config.tr("15 minutes")
+                    checked: (Config.updateinterval == 900)
+                    onClicked: {
+                        Config.update_interval(900);
+                    }
+	            }
                 Button {
                     text: Config.tr("30 minutes")
                     checked: (Config.updateinterval == 1800)
                     onClicked: {
                         Config.update_interval(1800);
                     }
-	        }
+	            }
                 Button {
                     text: Config.tr("1 hour")
                     checked: (Config.updateinterval == 3600)
                     onClicked: {
                         Config.update_interval(3600);
                     }
-	        }
+	            }
                 Button {
                     text: Config.tr("2 hours")
                     checked: (Config.updateinterval == 7200)
                     onClicked: {
                         Config.update_interval(7200);
                     }
-	        }
+	            }
                 Button {
                     text: Config.tr("4 hours")
                     checked: (Config.updateinterval == 14400)
                     onClicked: {
                         Config.update_interval(14400);
                     }
-	        }
+	            }
+                Button {
+                    text: Config.tr("One day")
+                    checked: (Config.updateinterval == 86400)
+                    onClicked: {
+                        Config.update_interval(86400);
+                    }
+	            }
 
-	    }
+	        }
         }
     }
 }

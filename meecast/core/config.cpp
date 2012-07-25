@@ -50,6 +50,7 @@ Config::Config()
     _lockscreen = false;
     _standbyscreen = false;
     _gps = false;
+    _splash = true;
     _font_color = new std::string("#00ff00");
     _stations = new StationsList;
     _current_station_id = INT_MAX;
@@ -147,6 +148,14 @@ Config::saveConfig()
     el.appendChild(t);
     root.appendChild(el);
 
+    el = doc.createElement("splash");
+    if (_splash)
+        t = doc.createTextNode("true");
+    else
+        t = doc.createTextNode("false");
+    el.appendChild(t);
+    root.appendChild(el);
+
     std::vector<Station*>::iterator i = _stations->begin();
     while (i != _stations->end()){
         QDomElement st = doc.createElement("station");
@@ -234,6 +243,7 @@ Config::saveConfig()
         el.appendChild(t);
         st.appendChild(el);
 
+        
         root.appendChild(st);
         ++i;
     }
@@ -288,6 +298,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _lockscreen = false;
     _standbyscreen = false;
     _gps = false;
+    _splash = true;
     _update_period = INT_MAX;
     _font_color = new std::string("#00ff00");
    /* std::cerr<<"new StationList"<<std::endl; */
@@ -357,6 +368,9 @@ Config::LoadConfig(){
         el = root.firstChildElement("gps");
         if (!el.isNull())
             _gps = (el.text() == "true") ? true : false;
+        el = root.firstChildElement("splash");
+        if (!el.isNull())
+            _splash = (el.text() == "true") ? true : false;
         el = root.firstChildElement("update_period");
         if (!el.isNull())
             _update_period = el.text().toInt();
@@ -365,6 +379,7 @@ Config::LoadConfig(){
         for (int i=0; i<nodelist.count(); i++){
             QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, cookie;
             bool gps = false;
+            bool splash = true;
             QDomElement e = nodelist.at(i).toElement();
             QDomNode n = e.firstChild();
             while (!n.isNull()){
@@ -395,6 +410,9 @@ Config::LoadConfig(){
                     converter = el.text();
                 else if (tag == "gps")
                     gps = (el.text() == "true") ? true : false;
+                else if (tag == "splash")
+                    splash = (el.text() == "true") ? true : false;
+
                 n = n.nextSibling();
             }
 /* Hack for yr.no */
@@ -547,6 +565,15 @@ Config::Gps(const bool uc){
 bool
 Config::Gps(void){
     return _gps;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::Splash(const bool uc){
+    _splash = uc;
+}
+bool
+Config::Splash(void){
+    return _splash;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void
@@ -724,6 +751,15 @@ void Config::processNode(const xmlpp::Node* node){
         const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
         std::string str = nodeText->get_content();
         (str.compare("true")) ? (_gps = false) : (_gps = true);
+        return;
+    }
+    // splash
+    if(nodeName == "splash"){
+        xmlpp::Node::NodeList list = node->get_children();
+        xmlpp::Node::NodeList::iterator iter = list.begin();
+        const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+        std::string str = nodeText->get_content();
+        (str.compare("true")) ? (_splash = false) : (_splash = true);
         return;
     }
     // update period

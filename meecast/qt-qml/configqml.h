@@ -62,6 +62,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(bool lockscreen READ lockscreen NOTIFY lockscreenChanged)
     Q_PROPERTY(bool standbyscreen READ standbyscreen NOTIFY standbyscreenChanged)
     Q_PROPERTY(bool eventwidget READ eventwidget NOTIFY eventwidgetChanged)
+    Q_PROPERTY(bool splash READ splash NOTIFY splashChanged)
     Q_PROPERTY(bool gps READ gps NOTIFY gpsChanged)
     Q_PROPERTY(QColor fontcolor READ fontcolor NOTIFY fontcolorChanged)
     Q_PROPERTY(QColor standby_color_font_stationname READ standby_color_font_stationname NOTIFY standby_color_font_stationnameChanged)
@@ -109,6 +110,7 @@ public:
     bool standbyscreen();
     bool eventwidget();
     bool gps();
+    bool splash();
     QColor fontcolor();
     QColor standby_color_font_stationname();
     QString stationname();
@@ -152,6 +154,7 @@ public:
     Q_INVOKABLE void setstandbyscreen(bool c);
     Q_INVOKABLE void seteventwidget(bool c);
     Q_INVOKABLE void setgps(bool c);
+    Q_INVOKABLE void setsplash(bool c);
     Q_INVOKABLE QStringList icon_list();
     Q_INVOKABLE void set_iconset(QString c);
     Q_INVOKABLE void set_standby_color_font_stationname(QColor c);
@@ -181,6 +184,7 @@ signals:
     void versionChanged();
     void updateintervalChanged();
     void configChanged();
+    void splashChanged();
 public Q_SLOTS:
     void reload_config();
     void addGpsStation(double latitude, double longitude);

@@ -351,6 +351,29 @@ ConfigQml::seteventwidget(bool c)
     	QDesktopServices::openUrl(QUrl("file:///opt/com.meecast.omweather/share/packages/meecast-applet-enable_0.2_all.deb"));
     
 }
+bool
+ConfigQml::splash()
+{
+
+    if (QFile::exists("/home/user/.cache/com.meecast.omweather/splash.png"))
+        return true;
+    else
+        return false;
+}
+void
+ConfigQml::setsplash(bool c)
+{
+    ConfigQml::Config::Splash(c);
+    saveConfig();
+    refreshconfig();
+    if (!c && (QFile::exists("/home/user/.cache/com.meecast.omweather/splash.png")))
+       QFile::remove("/home/user/.cache/com.meecast.omweather/splash.png"); 
+
+    if (c)
+        /* Copy splash to cache directory */
+        QFile::copy("/opt/com.meecast.omweather/share/images/splash.png",
+                    "/home/user/.cache/com.meecast.omweather/splash.png");
+}
 
 bool
 ConfigQml::gps()

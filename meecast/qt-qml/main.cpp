@@ -118,9 +118,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     translator.load("ru.qml", "i18n");
     app.installTranslator(&translator);
 
-    std::cerr<<"New controller"<<std::endl;
     controller = new Controller(); 
-    std::cerr<<" After New controller"<<std::endl;
     /* D-BUS */
     DbusAdaptor* dadapt = new DbusAdaptor(controller);
 

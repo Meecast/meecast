@@ -488,7 +488,7 @@ Page {
             height: 80
             id: splashitem
             Label {
-                text: Config.tr("Show starting splash")
+                text: Config.tr("Splash screen")
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
             }

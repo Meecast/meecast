@@ -148,19 +148,20 @@ DataModel::update_model(int period)
     dp = Core::DataParser::Instance();
     /* set current day */ 
     current_day = time(NULL);
+
     //tm = localtime(&current_day);
     tm = gmtime(&current_day);
     year = 1900 + tm->tm_year;
     current_month = tm->tm_mon;
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     tm->tm_isdst = 1;
+    current_day = mktime(tm);
 
     if (dp)
         temp_data = dp->data().GetDataForTime(time(NULL));
 //    if (temp_data)
 //        current_day = current_day + 3600*dp->timezone();
 
-    current_day = mktime(tm);
     /* fill current date */
     switch (period) {
         case current_period:

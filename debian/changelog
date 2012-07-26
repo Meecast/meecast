@@ -5,6 +5,7 @@ meecast (0.6) unstable; urgency=low
   * Added items "15 minutues" and "One day" to Update period list
   * Added setting for Splash screen
   * Fixed problem with temperature in current day
+  * Fixed problem with showing weather forecast for current day and next day
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 15 Jul 2011 15:42:23 +0200
 

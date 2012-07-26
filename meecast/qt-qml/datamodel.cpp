@@ -224,32 +224,36 @@ DataModel::update_model(int period)
           //  i = 3600*24;
            // fprintf(stderr,"First day in datamodel %i\n", current_day + 14 * 3600);
             i = 0;
-            while  (dp != NULL && (temp_data = dp->data().GetDataForTime(current_day + 14*3600 + i))) {
-                forecast_data = new DataItem(temp_data);
-                forecast_data->Text(forecast_data->Text().c_str());
-                forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 14*3600 + i));
-                forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 14*3600  + i));
-                forecast_data->LastUpdate(dp->LastUpdate());
-                forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
-                forecast_data->windunit = _config->WindSpeedUnit().c_str();
-                forecast_data->pressureunit = _config->PressureUnit().c_str();
-                this->appendRow(forecast_data);
+            while  (dp != NULL && ((temp_data = dp->data().GetDataForTime(current_day + 14*3600 + i)) || (i < 7*3600*24))) {
+                if (temp_data){
+                    forecast_data = new DataItem(temp_data);
+                    forecast_data->Text(forecast_data->Text().c_str());
+                    forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 14*3600 + i));
+                    forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 14*3600  + i));
+                    forecast_data->LastUpdate(dp->LastUpdate());
+                    forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
+                    forecast_data->windunit = _config->WindSpeedUnit().c_str();
+                    forecast_data->pressureunit = _config->PressureUnit().c_str();
+                    this->appendRow(forecast_data);
+                }
                 i = i + 3600*24;
             }
             break;
         case night_period:
          //   i = 3600*24;
             i = 0;
-            while  (dp != NULL && (temp_data = dp->data().GetDataForTime(current_day + 3*3600 + i))) {
-                forecast_data = new DataItem(temp_data);
-                forecast_data->Text(forecast_data->Text().c_str());
-                forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 3*3600 + i));
-                forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 3*3600  + i));
-                forecast_data->LastUpdate(dp->LastUpdate());
-                forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
-                forecast_data->windunit = _config->WindSpeedUnit().c_str();
-                forecast_data->pressureunit = _config->PressureUnit().c_str();
-                this->appendRow(forecast_data);
+            while  (dp != NULL && ((temp_data = dp->data().GetDataForTime(current_day + 3*3600 + i)) || (i < 7*3600*24))) {
+                if (temp_data){
+                    forecast_data = new DataItem(temp_data);
+                    forecast_data->Text(forecast_data->Text().c_str());
+                    forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 3*3600 + i));
+                    forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 3*3600  + i));
+                    forecast_data->LastUpdate(dp->LastUpdate());
+                    forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
+                    forecast_data->windunit = _config->WindSpeedUnit().c_str();
+                    forecast_data->pressureunit = _config->PressureUnit().c_str();
+                    this->appendRow(forecast_data);
+                }
                 i = i + 3600*24;
             }
             break;

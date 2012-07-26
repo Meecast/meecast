@@ -3,6 +3,8 @@ meecast (0.6) unstable; urgency=low
   * Fixed problem with GPS 
   * Fixed problem with green color for font in standby settings
   * Added items "15 minutues" and "One day" to Update period list
+  * Added setting for Splash screen
+  * Fixed problem with temperature in current day
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 15 Jul 2011 15:42:23 +0200
 

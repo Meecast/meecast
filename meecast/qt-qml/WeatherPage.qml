@@ -558,6 +558,7 @@ Page {
                             anchors.top: parent.top
                             anchors.left: icon.right
                             anchors.rightMargin: margin
+                            id: temp_text
                             width: 160
                             height: 84
                             color: "white"
@@ -566,20 +567,19 @@ Page {
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter
                             Component.onCompleted: {
-			        if (model.temp == "N/A"){
-				   text = ""
-				   if (model.temp_high != "N/A")
-                                       text = model.temp_high + '°'
-				   if ((model.temp_low != "N/A") && (model.temp_high != "N/A"))
-				       text =  text + " / "
-				   if (model.temp_low != "N/A")
-                                       text = text + model.temp_low + '°'
-                                   current_rect.color = getColor(model.temp_high);
-				}
-				else{
-                                   text = model.temp + '°'
+                                if (model.temp == "N/A"){
+				                    temp_text.text = ""
+				                    if (model.temp_high != "N/A")
+                                       temp_text.text = model.temp_high + '°'
+				                    if ((model.temp_low != "N/A") && (model.temp_high != "N/A"))
+				                       temp_text.text =  temp_text.text + " / "
+				                    if (model.temp_low != "N/A")
+                                       temp_text.text = temp_text.text + model.temp_low + '°'
+                                    current_rect.color = getColor(model.temp_high);
+                                }else{
+                                   temp_text.text = model.temp + '°'
                                    current_rect.color = getColor(model.temp);
-				}
+				                }
                             }
                         }
 		        Rectangle {

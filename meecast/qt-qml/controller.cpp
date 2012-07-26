@@ -125,6 +125,9 @@ Controller::load_data()
   if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))) {
       forecast_data = new DataItem(temp_data);
       forecast_data->Text(_(forecast_data->Text().c_str()));
+
+      fprintf(stderr,"Current time %i\n", time(NULL));
+      std::cerr<<i<< " Text Current "<< forecast_data->Text().c_str()<<std::endl;
       forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 14 * 3600));
       forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 14 * 3600));
       forecast_data->LastUpdate(_dp->LastUpdate());
@@ -180,7 +183,7 @@ Controller::load_data()
   /* set next day */
   //i = 3600*24;
   i = 0;
-  fprintf(stderr,"First day in controller %i\n", current_day + 14 * 3600);
+  fprintf(stderr,"First day in controller %i\n", current_day + 14 * 3600 +i);
   /* fill other days */
   while  (_dp != NULL && ((temp_data = _dp->data().GetDataForTime( current_day + 14 * 3600  + i)) || (i < 7*3600*24))) {
       if (temp_data){
@@ -193,6 +196,7 @@ Controller::load_data()
           forecast_data->windunit = _config->windspeedunit();
           forecast_data->pressureunit = _config->pressureunit();
           std::cerr<<i<< " Text "<< forecast_data->Text().c_str()<<std::endl;
+          fprintf(stderr,"Day in controller %i\n", current_day + 14 * 3600 +i);
           _model->appendRow(forecast_data);
       }
       i = i + 3600*24;

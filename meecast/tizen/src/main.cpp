@@ -29,8 +29,10 @@
 
 /* Global section */
 FILE *file;
-#define WIDTH  (480)
-#define HEIGHT (800)
+//#define WIDTH  (480)
+//#define HEIGHT (800)
+#define WIDTH  (720)
+#define HEIGHT (1280)
 
 #define DATA_XSD_PATH "/opt/com.meecast.omweather/share/xsd/data.xsd"
 

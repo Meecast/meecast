@@ -25,8 +25,11 @@
 #include <config.h>
 #endif
 #include "main_window.h"
-#define WIDTH  (480)
-#define HEIGHT (800)
+//#define WIDTH  (480)
+//#define HEIGHT (800)
+#define WIDTH  (720)
+#define HEIGHT (1280)
+
 
 /*******************************************************************************/
 
@@ -379,7 +382,7 @@ create_main_window(void *data)
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "menu_button");
     evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, menu, app); 
 
-    evas_object_move(edje_obj_menu, 0, 740);
+    evas_object_move(edje_obj_menu, 0, HEIGHT - 60);
     evas_object_resize(edje_obj_menu, WIDTH, 60);
     evas_object_show(edje_obj_menu);
     app->menu = edje_obj_menu;

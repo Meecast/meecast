@@ -1,3 +1,9 @@
+meecast (0.6.1) unstable; urgency=low
+
+  * Nothing 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 28 Jul 2012 00:42:23 +0200
+
 meecast (0.6) unstable; urgency=low
 
   * Fixed problem with GPS 
@@ -7,7 +13,7 @@ meecast (0.6) unstable; urgency=low
   * Fixed problem with temperature in current day
   * Fixed problem with showing weather forecast for current day and next day
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 15 Jul 2011 15:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 28 Jul 2012 00:42:23 +0200
 
 meecast (0.5.9) unstable; urgency=low
 
@@ -23,7 +29,7 @@ meecast (0.5.9) unstable; urgency=low
   * Added short name for station Saint-Petersburg
   * Added setting for color of font in station name on standby screen 
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 15 Jul 2011 15:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 15 Jul 2012 15:42:23 +0200
 
 meecast (0.5.8) unstable; urgency=low
 
@@ -40,7 +46,7 @@ meecast (0.5.8) unstable; urgency=low
   * Fixed problem with Finish localization for date 
   * Added current weather in second window
  
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 30 May 2011 21:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 30 May 2012 21:42:23 +0200
 
 meecast (0.5.7) unstable; urgency=low
 
@@ -64,7 +70,7 @@ meecast (0.5.7) unstable; urgency=low
   * Updated Italy translation. Thanks Ilir Gjika aka illo1977
   * Updated Swedish translation. Thanks Niklas Åkerström aka Nille
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2011 21:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2012 21:42:23 +0200
 
 meecast (0.5.6) unstable; urgency=low
 
@@ -79,7 +85,7 @@ meecast (0.5.6) unstable; urgency=low
   * Added Bulgarian translation. Thanks Zlatko Enikov	 
   * Updated Russian and Finish translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2011 21:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2012 21:42:23 +0200
 
 meecast (0.5.5) unstable; urgency=low
 
@@ -89,7 +95,7 @@ meecast (0.5.5) unstable; urgency=low
   * Fixed problem with Ppcp
   * Began adding the new source bom.fov.au
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2011 21:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2012 21:42:23 +0200
 
 meecast (0.5.4) unstable; urgency=low
 
@@ -101,7 +107,7 @@ meecast (0.5.4) unstable; urgency=low
   * Added icons and descriptions for foreca.com data
   * Updated Russian and Spain translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 25 Mar 2011 22:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 25 Mar 2012 22:42:23 +0200
 
 meecast (0.5.3) unstable; urgency=low
 
@@ -110,7 +116,7 @@ meecast (0.5.3) unstable; urgency=low
   * Added stations to foreca.com database (Bulgaria)
   * Updated Germany translation
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 17 Mar 2011 22:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 17 Mar 2012 22:42:23 +0200
 
 meecast (0.5.2) unstable; urgency=low
 
@@ -119,14 +125,14 @@ meecast (0.5.2) unstable; urgency=low
   * Updated Russian translation
   * Added new source foreca.com
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 3 Mar 2011 12:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 3 Mar 2012 12:42:23 +0200
 
 meecast (0.5.1) unstable; urgency=low
 
   * Fixed problem with negative temperatures in source gismeteo.ru 
   * Fixed problem with long station name in events, lockscreen and standby widget 
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 23 Feb 2011 22:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 23 Feb 2012 22:42:23 +0200
 
 meecast (0.5) unstable; urgency=low
 
@@ -134,7 +140,7 @@ meecast (0.5) unstable; urgency=low
   * Fixed problem with disabling Meecast widget in StandbyScreen
   * Updated Russian translation
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 22 Feb 2011 15:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 22 Feb 2012 15:42:23 +0200
 
 meecast (0.4.9) unstable; urgency=low
 
@@ -145,7 +151,7 @@ meecast (0.4.9) unstable; urgency=low
   * Rewrote events widget
   * Added StandbyScreen widget
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 18 Feb 2011 22:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 18 Feb 2012 22:42:23 +0200
 
 meecast (0.4.8) unstable; urgency=low
 
@@ -156,13 +162,13 @@ meecast (0.4.8) unstable; urgency=low
   * Updated Russian, Finland translations
   * Small improvement in hours view 
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 10 Feb 2011 16:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 10 Feb 2012 16:42:23 +0200
 
 meecast (0.4.7) unstable; urgency=low
 
   * Fixed problem with new stations in sources yr.no and gismeteo.ru 
 
- -- Vlad Vasiliev <vlad@gas.by>  Mon, 16 Jan 2011 18:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 16 Jan 2012 18:42:23 +0200
 
 meecast (0.4.6) unstable; urgency=low
 
@@ -172,7 +178,7 @@ meecast (0.4.6) unstable; urgency=low
   * Search Field has been made case-insensitive 
   * Added hours forecast for source weather.com
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 11 Jan 2011 22:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 11 Jan 2012 22:42:23 +0200
 
 meecast (0.4.5) unstable; urgency=low
 

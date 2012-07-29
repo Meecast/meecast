@@ -114,6 +114,7 @@ namespace Core {
     void
     Parser::Reloadfile(){
     
+    #ifdef QT
         /* std::cerr<<"_Filename "<<_filename<<std::endl; */
         QFile file(QString::fromStdString(_filename));
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -127,7 +128,9 @@ namespace Core {
                 return;
         }
         file.close();
-
+    #else
+        _doc = xmlReadFile(_filename.c_str(), "UTF-8", XML_PARSE_SAX1);
+    #endif
     }
 ////////////////////////////////////////////////////////////////////////////////
     Parser::~Parser(){

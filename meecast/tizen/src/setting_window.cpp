@@ -203,15 +203,15 @@ _sel_station_cb(void *data, Evas_Object *obj, void *event_info)
         app->config->stationsList().at(i)->updateData(true);
     }
 
-    delete app->config;
-    app->config = new Core::Config(Core::AbstractConfig::getConfigPath()+
+    //delete app->config;
+    app->config = Core::Config::Instance(Core::AbstractConfig::getConfigPath()+
                                "config.xml",
                                Core::AbstractConfig::prefix+
                                Core::AbstractConfig::schemaPath+
                                "config.xsd");
  
 
-           create_main_window(data);
+    create_main_window(data);
 
 }
 

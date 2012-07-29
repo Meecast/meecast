@@ -39,28 +39,29 @@ FILE *file;
 Core::Config *
 create_and_fill_config(){
     Core::Config *config;
-    std::cerr<<"Create Config class: " << Core::AbstractConfig::prefix+
-                               Core::AbstractConfig::schemaPath+
-                               "config.xsd"<< std::endl;
+
+    std::cerr<<"Create Config class: " << std::endl;
     try{
-        config = new Core::Config(Core::AbstractConfig::getConfigPath()+
-                               "config.xml",
-                               Core::AbstractConfig::prefix+
-                               Core::AbstractConfig::schemaPath+
-                               "config.xsd");
-        std::cerr << "count station:" << config->stationsList().size() << std::endl;
+        config = Core::Config::Instance(Core::AbstractConfig::getConfigPath()+
+                                       "config.xml",
+                                       Core::AbstractConfig::prefix+
+                                       Core::AbstractConfig::schemaPath+
+                                       "config.xsd");
     }
     catch(const std::string &str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
-        config = new Core::Config();
+        config =  Core::Config::Instance();
     }
     catch(const char *str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
-        config = new Core::Config();
+        config =  Core::Config::Instance();
     }
-    std::cerr<<"End of creating Config class: " <<std::endl;
+    //std::cerr<<"End of creating Config class: " <<std::endl;
+    config->saveConfig();
+    std::cerr<<"End of creating Config class" <<std::endl;
 
     return config;
+
 }
 
 Core::DataParser*
@@ -68,7 +69,7 @@ current_data(std::string& str){
   Core::DataParser* dp;
   try{
         fprintf(stderr,"rrrrrrrrrrr %s\n", str.c_str());
-        dp = new Core::DataParser(str, DATA_XSD_PATH);
+        dp = Core::DataParser::Instance(str, DATA_XSD_PATH);
     }
     catch(const std::string &str){
         std::cerr<<"Error in DataParser class: "<< str <<std::endl;

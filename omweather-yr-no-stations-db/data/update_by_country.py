@@ -94,15 +94,31 @@ import zipfile
 #replacing_dict = {"Provincie_Zuid-Holland":"South Holland","Provincie_Zeeland":"Zealand",
 #                  "Provincie_Noord-Holland":"North Holland", "Provincie_Noord-Brabant": "North Brabant"}
 
-replacing_dict_after_region_filling = { } 
+#replacing_dict_after_region_filling = { } 
 
-country = "Bulgaria"
-country_code = "BG"
-replacing_dict = {"Oblast_Turgovishte":"Targovishte", "Oblast_Veliko_Turnovo":"Veliko Tarnovo",
-                  "Oblast_Yambol":"Jambol", "Oblast_Kurdzhali":"Kardzhali",
-                  "Oblast_Sofiya-Grad":"Sofia", "Oblast_Stara_Zagora":"Stara Zagora",
-                  "Oblast_Khaskovo":"Haskovo", "Oblast_Sofiya":"Sofia-distriktet",
-                  "Oblast_Smolyan":"Smoljan"}
+#country = "Argentina"
+#country_code = "AR"
+#replacing_dict = {"Provincia_de_Buenos_Aires":"Buenos Aires", "Santa_Fe_Province": "Santa Fe",
+#                  "Provincia_de_Santiago_del_Estero":"Santiago del Estero",
+#                  "Provincia_de_Tierra_del_Fuego,_Antartida_e_Islas_del_Atlantico_Sur":"Tierra del Fuego",
+#                  "Provincia_de_La_Rioja":"La Rioja", "Provincia_de_Entre_Rios":"Entre Ríos",
+#                  "Provincia_de_Santa_Cruz":"Santa Cruz", "Ciudad_Autonoma_de_Buenos_Aires":"Buenos Aires",
+#                  "Provincia_de_Rio_Negro":"Río Negro", "Provincia_de_La_Pampa":"La Pampa",
+#                  "Provincia_de_San_Luis":"San Luis","Provincia_de_San_Juan":"San Juan"}
+
+#country = "Hong Kong"
+#country_code = "HK"
+#replacing_dict = {}
+country = "Chile"
+country_code = "CL"
+replacing_dict = {"Region_Metropolitana_de_Santiago":"Santiago",
+                  "Region_de_Los_Lagos":"Los Lagos",
+                  "Region_de_Los_Rios":"Región de Los Ríos",
+                  "Region_de_Arica_y_Parinacota":"Región de Arica y Parinacota",
+                  "Region_del_Libertador_General_Bernardo_OHiggins":"O’Higgins",
+                  "Region_Aisen_del_General_Carlos_Ibanez_del_Campo":"Aisén",
+                  "Region_de_Magallanes_y_de_la_Antartica_Chilena":"Magallanes y Antártica"}
+                
 
 replacing_dict_after_region_filling = { } 
 
@@ -128,6 +144,12 @@ def normalizing (source):
     result = result.replace(" ","_")
     result = result.replace("%20","_")
     return result
+
+def normalizing4 (source):
+    result = source.replace("'","")
+    result = result.replace("%20"," ")
+    return result
+
 
 
 #connect to database
@@ -180,6 +202,7 @@ print country_id
 for key in regions_name.keys():
     cur = cu.execute("select name, id from regions where country_id='%i' and name = '%s'" %(country_id,normalizing3(regions_name[key])))
     if (cur.fetchone() == None ):
+        print regions_name_second[key]
         pattern = re.split ('(,)',regions_name_second[key])
         flag = 0 
         for variant in pattern:
@@ -242,15 +265,15 @@ for line in fh.readlines():
 #            print region_id 
 #            print  normalizing(pattern[4])
 #            print "select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing(pattern[4]));
-            cur = cu.execute("select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing(pattern[4])))
+            cur = cu.execute("select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing4(pattern[4])))
             station_id= None
             for row in cur:
                 station_id = row[0]
             if (station_id == None):
-                cur = cu.execute("insert into stations (region_id, name, longititude, latitude, code) values ( '%i', '%s', '%s', '%s', '%s')" %(region_id, normalizing(pattern[4]), pattern[10], pattern[8], result.replace("'","%27")))
+                cur = cu.execute("insert into stations (region_id, name, longititude, latitude, code) values ( '%i', '%s', '%s', '%s', '%s')" %(region_id, normalizing4(pattern[4]), pattern[10], pattern[8], result.replace("'","%27")))
                 c.commit()
             else:
-                cur = cu.execute("update stations set region_id ='%i', name='%s', longititude='%s', latitude='%s', code='%s' where id ='%i'" %(region_id, normalizing(pattern[4]), pattern[10], pattern[8], result.replace("'","%27"), station_id))
+                cur = cu.execute("update stations set region_id ='%i', name='%s', longititude='%s', latitude='%s', code='%s' where id ='%i'" %(region_id, normalizing4(pattern[4]), pattern[10], pattern[8], result.replace("'","%27"), station_id))
                 c.commit()
 fh.close
 

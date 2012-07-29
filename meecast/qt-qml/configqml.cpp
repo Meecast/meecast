@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -461,7 +461,7 @@ QStringList
 ConfigQml::Regions(int index)
 {
     QStringList l;
-
+    
     Core::listdata * list = db->create_region_list(getCountryId(index));
 
     if (list->size() == 0) return l;
@@ -489,41 +489,15 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
                         QString source, int source_id, bool gps)
 {
     Core::Station *station;
-    std::string code = city_id.toStdString();
 
-    std::string path(Core::AbstractConfig::prefix);
-    path += Core::AbstractConfig::sourcesPath;
-    Core::SourceList *sourcelist = new Core::SourceList(path);
-
-    std::string url_template = sourcelist->at(source_id)->url_template();
-    std::string url_detail_template = sourcelist->at(source_id)->url_detail_template();
-    std::string url_for_view = sourcelist->at(source_id)->url_for_view();
-    std::string cookie = sourcelist->at(source_id)->cookie();
-
-    char forecast_url[4096];
-    snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), code.c_str());
-    char forecast_detail_url[4096];
-    snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, url_detail_template.c_str(), code.c_str());
-    char view_url[4096];
-    snprintf(view_url, sizeof(view_url)-1, url_for_view.c_str(), code.c_str());
-
+    (void)source_id;
     station = new Core::Station(
                 source.toStdString(),
-                code,
+                city_id.toStdString(), 
                 city_name.toUtf8().data(),
                 country.toStdString(),
                 region.toStdString(),
-                forecast_url,
-                forecast_detail_url,
-                view_url,
-                cookie,
                 gps);
-    std::string filename(Core::AbstractConfig::getConfigPath());
-    filename += source.toStdString();
-    filename += "_";
-    filename += code;
-    station->fileName(filename);
-    station->converter(sourcelist->at(source_id)->binary());
 
     stationsList().push_back(station);
     //ConfigQml::Config::stationsList(*stationlist);
@@ -538,28 +512,11 @@ ConfigQml::saveStation(int city_id, QString city,
                        int source_id, QString source)
 {
     Core::Station *station;
+    (void)source_id;
     region_id = getRegionId(country_id, region_id);
     country_id = getCountryId(country_id);
-    //city_id = getCityId(region_id, city_id);
-    //std::string code = city_id.toStdString();
     std::string code = getCityId(region_id, city_id).toStdString();
 
-    std::string path(Core::AbstractConfig::prefix);
-    path += Core::AbstractConfig::sourcesPath;
-    Core::SourceList *sourcelist = new Core::SourceList(path);
-
-    std::string url_template = sourcelist->at(source_id)->url_template();
-    std::string url_detail_template = sourcelist->at(source_id)->url_detail_template();
-    std::string url_for_view = sourcelist->at(source_id)->url_for_view();
-    std::string cookie = sourcelist->at(source_id)->cookie();
-
-
-    char forecast_url[4096];
-    snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), code.c_str());
-    char forecast_detail_url[4096];
-    snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, url_detail_template.c_str(), code.c_str());
-    char view_url[4096];
-    snprintf(view_url, sizeof(forecast_url)-1, url_for_view.c_str(), code.c_str());
 
     station = new Core::Station(
                 source.toStdString(),
@@ -567,16 +524,7 @@ ConfigQml::saveStation(int city_id, QString city,
                 city.toUtf8().data(),
                 country.toStdString(),
                 region.toStdString(),
-                forecast_url,
-                view_url,
-                cookie,
                 false);
-    std::string filename(Core::AbstractConfig::getConfigPath());
-    filename += source.toStdString();
-    filename += "_";
-    filename += code;
-    station->fileName(filename);
-    station->converter(sourcelist->at(source_id)->binary());
 
     stationsList().push_back(station);
     //ConfigQml::Config::stationsList(*stationlist);
@@ -677,7 +625,7 @@ ConfigQml::nextstation()
 void
 ConfigQml::prevstation()
 {
-    if ((uint)(this->current_station_id() - 1) >= 0){
+    if ((int)(this->current_station_id() - 1) >= 0){
        this->current_station_id(this->current_station_id() - 1);
 
    }else {
@@ -719,15 +667,6 @@ ConfigQml::downloadFinishedSlot()
     emit configChanged();
 }
 
-void
-ConfigQml::runsetting()
-{
-    char *args[] = {"/usr/bin/omweather-settouch", (char *) 0 };
-
-    pid_t pID = fork();
-    if (pID == 0)
-        execv("/usr/bin/omweather-settouch", args );
-}
 
 void
 ConfigQml::closeapplication()

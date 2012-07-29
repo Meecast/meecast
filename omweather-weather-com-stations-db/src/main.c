@@ -621,7 +621,7 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
     struct tm   last_update_time = {0};
     GSList      *hour_weather = NULL;
     FILE        *file_out;
-    int         timezone = 0;
+    int         timezone_my = 0;
     int         hour = 0;
     time_t      t_start = 0, t_end = 0,
                 current_day = 0;
@@ -641,7 +641,7 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"zone") ){
                             temp_xml_string = xmlNodeGetContent(child_node);
                             //    snprintf(timezone, sizeof(timezone) - 1, "%s", (char*)temp_xml_string);
-			    timezone = atoi((char*)temp_xml_string);
+			                timezone_my = atoi((char*)temp_xml_string);
                             xmlFree(temp_xml_string);
                             continue;
                         }
@@ -658,9 +658,9 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
                         /* g_hash_table_insert(hours_data, "last_update", g_strdup((char*)temp_xml_string)); */
                         setlocale(LC_TIME, "POSIX");
                         strptime((char *)temp_xml_string, "%D", &last_update_time);
-		        last_update_time.tm_sec = 0; last_update_time.tm_min = 0;
-		       	last_update_time.tm_hour = 0;
-			last_update_time.tm_isdst = 1;
+                        last_update_time.tm_sec = 0; last_update_time.tm_min = 0;
+		       	        last_update_time.tm_hour = 0;
+                        last_update_time.tm_isdst = 1;
 
                         current_day = mktime(&last_update_time);
                         setlocale(LC_TIME, "");
@@ -674,20 +674,24 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
                             /* Get an hour */
                             temp_xml_string = xmlGetProp(child_node, (const xmlChar *)"c");
                             hour = atoi(temp_xml_string);
-			    if (!first_midnight && hour == 0)
-		 	        offset = 3600*24;
-			    if (first_midnight && hour == 0)
-			        first_midnight = 0;
-			    if (!first_item && hour == 0) 
-		 	        offset = 3600*24;
-                            first_item = 0;
-                            //t_start = current_day + 3600*hour + offset - timezone*3600; 
+                            if (!first_midnight && hour == 0)
+                                offset = 3600*24;
+                            if (first_midnight && hour == 0)
+                                first_midnight = 0;
+                            if (!first_item && hour == 0) 
+                                offset = 3600*24;
                             t_start = current_day + 3600*hour + offset; 
+                            if (first_item == 1)
+                                t_start = t_start - 3600;
+                            //t_start = current_day + 3600*hour + offset - timezone*3600; 
                             xmlFree(temp_xml_string);
                             fprintf(file_out,"    <period start=\"%li\"", t_start);
                             /* 1 hour for weather.com */
-    		            fprintf(file_out," end=\"%li\" hour=\"true\">\n", t_start + 1*3600); 
-
+                            if (first_item == 1)
+                                fprintf(file_out," end=\"%li\" hour=\"true\">\n", t_start + 2*3600); 
+                            else
+                                fprintf(file_out," end=\"%li\" hour=\"true\">\n", t_start + 1*3600); 
+                            first_item = 0;
                             for(child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
                                 if( child_node2->type == XML_ELEMENT_NODE){
                                     /* hour temperature */
@@ -783,26 +787,27 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
     xmlChar     *part_of_day = NULL;
     gint        store2day = 0,
                 count_day = 0;
+    gint        timezone_my = 0;
     gchar       temp_hi[256],
-		temp_low[256],
-		temp_flike[256],
+                temp_low[256],
+                temp_flike[256],
                 humidity_day[256],
-		humidity_night[256],
-		pressure[256],
-		visible[256],
-		pressure_direction[256],
+                humidity_night[256],
+                pressure[256],
+                visible[256],
+                pressure_direction[256],
                 ppcp_day[256],
-		ppcp_night[256],
+                ppcp_night[256],
                 description_day[1024],
-		description_night[1024],
+		        description_night[1024],
                 icon_day[256],
-		icon_night[256],
+      	        icon_night[256],
                 wind_speed_day[256],
                 wind_speed_night[256],
                 wind_gust[256],
                 wind_direction_day[256],
                 wind_direction_night[256],
-		timezone[128];
+		        timezone_string[128];
 
 
     struct tm   tmp_tm = {0};
@@ -868,8 +873,9 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         /* station time zone */
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"zone") ){
                             temp_xml_string = xmlNodeGetContent(child_node);
-                            snprintf(timezone, sizeof(timezone) - 1, "%s", (char*)temp_xml_string);
-                            fprintf(file_out,"  <timezone>%s</timezone>\n", timezone);
+                            snprintf(timezone_string, sizeof(timezone_string) - 1, "%s", (char*)temp_xml_string);
+                            fprintf(file_out,"  <timezone>%s</timezone>\n", timezone_string);
+			                timezone_my = atoi((char*)temp_xml_string);
                             xmlFree(temp_xml_string);
                             continue;
                         }
@@ -900,7 +906,9 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         temp_xml_string = xmlNodeGetContent(child_node);
                         setlocale(LC_TIME, "POSIX");
                         strptime((char *)temp_xml_string, "%D %I:%M %p", &tm_l);
-                        t_start = mktime(&tm_l);
+                        t_start = timegm(&tm_l);
+                        /* Added reserving time */
+                        t_start = t_start - 2*3600;
                         setlocale(LC_TIME, "");
                         xmlFree(temp_xml_string);
                         continue;
@@ -1033,9 +1041,9 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                // g_hash_table_insert(data, "current", (gpointer)current);
                 
 		if (temp_hi[0] != 0){
-			fprintf(file_out,"    <period start=\"%li\"", t_start);
+			fprintf(file_out,"    <period start=\"%li\"", t_start - timezone_my*3600);
                         /* 3 hours It must be parameter of start (may be) */
-			fprintf(file_out," end=\"%li\" current=\"true\">\n", t_start + 3*3600); 
+			fprintf(file_out," end=\"%li\" current=\"true\">\n", t_start + 5*3600 - timezone_my*3600); 
 			if (temp_hi[0] != 0 ) 
 			    fprintf(file_out,"     <temperature>%s</temperature>\n", temp_hi); 
 			if (wind_speed_day[0] != 0)
@@ -1257,7 +1265,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
 	                        fprintf(file_out," end=\"%li\">\n", t_sunrise);
                                 if (temp_hi[0] != 0 && temp_low[0] != 0){ 
 	                            fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_hi); 
-				    fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
+				                fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
                                 }else{
                                     if (temp_hi[0] != 0)
 	                                    fprintf(file_out,"     <temperature>%s</temperature>\n", temp_hi); 

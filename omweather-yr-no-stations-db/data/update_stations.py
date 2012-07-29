@@ -16,7 +16,7 @@ baseurl = 'http://yr.no'
 c = db.connect(database=r"./yr.no.db")
 cu = c.cursor()
 
-cur = cu.execute("select name, id from countries")
+cur = cu.execute("select name, id from countries where")
 
 for row in cur:
     # Search country region

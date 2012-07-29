@@ -58,6 +58,7 @@ class DataItem : public QObject, public Core::Data
         DateRole,
         ShortDateRole,
         FullDateRole,
+        HourDateRole,
         StartRole,
         EndRole,
         PressureRole,
@@ -110,6 +111,7 @@ public:
     inline QString date();
     QString shortdate();
     inline QString fulldate();
+    inline QString hourdate();
     inline QString start();
     inline QString end();
     inline QString flike();

@@ -9,10 +9,13 @@ import libxml2, sys
 import os
 import re
 import string
+#Query for absent regions
+#SELECT regions.name  FROM regions WHERE regions.id NOT IN (SELECT stations.region_id FROM stations)
 
 #Country name and code
-country = "Europe/Estonia"
-id_region = "61" 
+country = "Europe/Slovenia"
+id_region = "171"
+first_letter = "A"
 
 def normalizing (source):
     result = source.replace("'","")
@@ -22,16 +25,19 @@ def main():
     #
     url = "http://foreca.com/%s/browse" %(country) 
     print url
-
+	
     urllib.urlretrieve (url, "./temp.html")
-    stations_parser()
-    doc = libxml2.htmlReadFile(r"./temp.html", "UTF-8", libxml2.HTML_PARSE_RECOVER)
+    if (first_letter == "A"): 
+        stations_parser()
+    doc = libxml2.htmlReadFile(r"./temp.html", "UTF-8", libxml2.HTML_PARSE_RECOVER + 
+							libxml2.HTML_PARSE_NOERROR +
+                                                        libxml2.HTML_PARSE_NOWARNING)
     ctxt = doc.xpathNewContext()
     anchors = ctxt.xpathEval("/html/body/div/div/div[4]/div/div[2]/div[4]/p/a/@href")
     for anchor in anchors:
         letter = re.split("=", anchor.content)[-1]
-        #if (letter < 'K'):
-        #    continue
+        if (letter < first_letter):
+            continue
         new_url = url + "?bl=%s" %(letter)
         print new_url
         urllib.urlretrieve (new_url, "./temp.html")
@@ -46,14 +52,16 @@ def stations_parser():
     c = db.connect(database=r"./foreca.com.db")
     cu = c.cursor()
 
-    doc = libxml2.htmlReadFile(r"./temp.html", "UTF-8", libxml2.HTML_PARSE_RECOVER) 
+    doc = libxml2.htmlReadFile(r"./temp.html", "UTF-8", libxml2.HTML_PARSE_RECOVER +
+							libxml2.HTML_PARSE_NOERROR +
+                                                        libxml2.HTML_PARSE_NOWARNING) 
     ctxt = doc.xpathNewContext()
     anchors = ctxt.xpathEval("/html/body/div/div/div[4]/div/div[2]/div[@class='col3']//a/@href")
     anchors2 = ctxt.xpathEval("/html/body/div/div/div[4]/div/div[2]/div[@class='col3']//a/text()")
     i = 0
     for anchor in anchors:
-        #print anchor.content
-        #print anchors2[i]
+       # print anchor.content
+       # print anchors2[i]
         name = normalizing(re.split("/", anchor.content)[-1])
         cityurl = "http://foreca.com/%s" %(anchor.content)
         urllib.urlretrieve (cityurl, "./station%s.html" %(name))

@@ -1,0 +1,678 @@
+<html>
+<head>
+<base href="http://www.meteonova.by/frc.htm">
+<title>МЕТЕОНОВА - погода в Витебске на неделю, прогноз погоды в Витебске на 10 дней, погода в Витебске на 14 дней (на 2 недели), в мае 2012 года - Витебская обл.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<meta name="description" content="Подробный прогноз погоды на две недели по городу Витебск (Витебская обл.) с голосовым сопровождением робота-синоптика, погода в Витебске на сегодня, на завтра, на 3 дня, на 5 дней, на неделю, на 10 дней, на 14 дней, на месяц март 2012 года, на весну 2012 года в Витебске. Температура воды в водоемах, карты погоды, прогноз магнитных бурь">
+<meta name="keywords" content="погода Витебск Витебская обл. прогноз голос робот карта магнитная буря температура осадки ветер влажность давление комфорт январь февраль март апрель май июнь июль август сентябрь октябрь ноябрь декабрь месяц 2012 года weather forecast wetter pogoda Vitebsk Vitebskaya Obl.">
+<link rel='stylesheet' href='http://www.meteonova.by/css/reset-fonts-grids_990.css' type='text/css'>
+<link rel="stylesheet" href="http://www.meteonova.by/css/block.css" type="text/css">
+<link rel="stylesheet" href="http://www.meteonova.by/css/general.css" type="text/css">
+<link rel="stylesheet" href="http://www.meteonova.by/css/mosg_990.css" type="text/css">
+<script type="text/javascript" src="http://www.meteonova.by/js/config.js"></script>
+<script type="text/javascript" src="http://www.meteonova.by/js/engine.js"></script>
+<script type="text/javascript" src="http://www.meteonova.by/js/search.js"></script>
+<script type="text/javascript" src="http://www.meteonova.by/js/dropdownlist.js"></script>
+<script type="text/javascript" src="http://www.meteonova.by/js/decode.js"></script>
+</head>
+
+<body onload="playfrc(0)">
+<div id="doc4" class="yui-t5">
+   <div id="hd">
+     <div id="onhd">
+       <div id="logo"><img src="http://www.meteonova.by/images/logo.png" width="277" height="96" onLoad="transparent(this)"></div>
+
+	      <div id="mainmenu">
+	      	<ul>
+	          <li><a href="http://www.meteonova.by">Главная</a></li>
+	          <li class="line"></li>
+	          <li><a href="/news/">Новости</a></li>
+	          <li class="line"></li>
+	          <li><a href="http://www.meteonova.by/find.htm">Поиск</a></li>
+	          <li class="line"></li>
+<!--
+	          <li><a href="http://www.meteonova.by/map.htm">Карты</a></li>
+	          <li class="line"></li>
+-->
+	          <li><a href="http://www.meteonova.by/wap.htm">Mobile</a></li>
+	          <li class="line"></li>
+	          <li><a href="http://www.meteonova.by/icq.htm">ICQ</a></li>
+	          <li class="line"></li>
+	          <li><a href="http://www.meteonova.by/about.htm">О проекте</a><img src="http://counter.rambler.ru/top100.cnt?2123793" alt="" width="1" height="1" border="0"/><script type="text/javascript">new Image().src = "http://counter.yadro.ru/hit?r" + escape(document.referrer) + ((typeof(screen)=="undefined")?"" : ";s"+screen.width+"*"+screen.height+"*" + (screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + ";u"+escape(document.URL) +  ";" +Math.random();</script></li>
+	    	</ul>
+	      </div>
+     </div>
+   </div>
+<div id="bd">
+	<div id="yui-main">
+	<div class="yui-b">
+      <div class="block_city">
+   		<div class="round_left">
+	 		<img src="http://www.meteonova.by/images/city_left.png"
+	 		width="10" height="46" class="corner" onLoad="transparent(this)"/>
+   		</div>
+			<div class="city_content">
+		    	<div id="city_name" class="city_name">Погода в Витебске</div>
+		    	<div class="other_city"><a href="http://www.meteonova.by/find.htm"><font color="#8ca2fe"><b>Другой город</b></font></a></div>
+        		<div class="serchcontent" style="padding-top:12px; !important">
+        		<div id="search_text" class="search_text">
+	          		<input type="text" id="searchCity" name="search" onkeyup="press(event)">&nbsp;&nbsp;<b style="cursor:pointer; text-decoration:underline;" onClick="gotoPage(getSearchURL(document.getElementById('searchCity').value));">Искать</b>
+	       		</div>
+        </div>
+			</div>
+   		<div class="round_right">
+	 		<img src="http://www.meteonova.by/images/city_right.png"
+	 		width="10" height="46" class="corner" onLoad="transparent(this)"/>
+   		</div>
+    </div>
+ 	  <div class="main_container">
+  		<div class="left_container">
+
+			<div class="block_top ie">
+   				<div class="round_left">
+	 		  	<img src="http://www.meteonova.by/images/block_top_left.png"
+	 				width="9" height="31" class="corner" onLoad="transparent(this)">
+   				</div>
+   				<div class="block_title left_contener_title_width">
+ 				  <div class="icon"><img src="http://www.meteonova.by/images/icon.png" width="26" height="26"  onLoad="transparent(this)"></div>
+ 			 		<div class="title"><b>МЕТЕОНОВА</b></div>
+   				</div>
+
+   				<div class="round_right">
+	 				<img src="http://www.meteonova.by/images/block_top_right.png"
+	 				width="9" height="31" class="corner" onLoad="transparent(this)" />
+   				</div>
+			</div>
+
+				<div class="block_content ie" style="height:192px">
+ 				  <div>
+					<div id="meteonova"></div>
+ 				  </div>
+				</div>
+
+			<div class="block_bottom ie">
+
+   				<div class="round_left">
+	 		  	<img src="http://www.meteonova.by/images/block_bt_left.png"
+	 				width="9" height="14" class="corner"
+	 				onLoad="transparent(this)" />
+   				</div>
+   			<div class="block_bt left_contener_title_width"></div>
+   				<div class="round_right">
+	 				<img src="http://www.meteonova.by/images/block_bt_right.png"
+	 				width="9" height="14" class="corner"
+	 				onLoad="transparent(this)" />
+   				</div>
+			</div>
+  		</div>
+
+  		<div class="center_container">
+			<div class="block_top">
+   			<div class="round_left">
+	 		  	<img src="http://www.meteonova.by/images/block_top_left.png"
+	 				width="9" height="31" class="corner"
+	 				onLoad="transparent(this)" />
+   			</div>
+   			<div class="block_title center_container_title_width">
+ 				  <div class="icon"><img src="http://www.meteonova.by/images/icon.png" width="26" height="26"  onLoad="transparent(this)"></div>
+ 			 		<div class="title"><b>БЛОГ МЕТЕОНОВЫ</b></div>
+
+   			</div>
+   			<div class="round_right">
+	 				<img src="http://www.meteonova.by/images/block_top_right.png"
+	 				width="9" height="31" class="corner"
+	 				onLoad="transparent(this)" />
+   			</div>
+			</div>
+
+			<div class="block_content" style="height:192px">
+	 		 <div class="content">
+     			<div id="blog_title" class="title2"><b>Метеонова расскажет Вам о погоде в Витебске</b></div>
+     			<div id="blog_text" class="text">Прогноз погоды в Витебске на сегодня, на завтра, на 3 дня, на 5 дней, на неделю, на 10 дней, на 2 недели...<br>Подождите, через несколько секунд погода в г. Витебск будет в моем блоге...</div>
+			<div style="margin-top: 7px;"><span id="silence_link" class="under_text"></span><span id="blog_link" class="under_text"></span></div>
+	     		 </div>
+			</div>
+
+			<div class="block_bottom">
+   			<div class="round_left">
+
+	 		  	<img src="http://www.meteonova.by/images/block_bt_left.png"
+	 				width="9" height="14" class="corner"
+	 				onLoad="transparent(this)" />
+   			</div>
+   			<div class="block_bt center_container_title_width"></div>
+   			<div class="round_right">
+	 				<img src="http://www.meteonova.by/images/block_bt_right.png"
+	 				width="9" height="14" class="corner"
+	 				onLoad="transparent(this)" />
+   			</div>
+			</div>
+  		</div>
+  </div>
+  <div class="main_container">
+			<div class="block_top">
+   			<div class="round_left">
+	 		  	<img src="http://www.meteonova.by/images/block_top_left.png"
+	 				width="9" height="31" class="corner" onLoad="transparent(this)" />
+   			</div>
+   			<div class="block_title main_container_title_width">
+ 				  <div class="icon"><img src="http://www.meteonova.by/images/icon.png" width="26" height="26" onLoad="transparent(this)" ></div>
+ 			 		<div class="title"><b>ПОГОДА</b></div>
+ 			 		<div class="top_link">
+	      		  		<ul>
+	          			<li class="first"><b>Прогноз на дни:</b></li>
+	          			<li id="frc_0"><span onClick="numFRC=0; graphObj.hideGraphic(); checkFrcTopLink(); frcObj.showFrc(); graphObj.preloadGraph(); playfrc(0); updateBanners(0);">1-3</span></li>
+	          			<li id="frc_1"><span onClick="numFRC=1; graphObj.hideGraphic(); checkFrcTopLink(); frcObj.showFrc(); graphObj.preloadGraph(); playfrc(0); updateBanners(1);">3-5</span></li>
+	          			<li id="frc_2"><span onClick="numFRC=2; graphObj.hideGraphic(); checkFrcTopLink(); frcObj.showFrc(); graphObj.preloadGraph(); playfrc(0); updateBanners(2);">5-7</span></li>
+	          			<li id="frc_3"><span onClick="numFRC=3; graphObj.hideGraphic(); checkFrcTopLink(); frcObj.showFrc(); graphObj.preloadGraph(); playfrc(0); updateBanners(3);">7-9</span></li>
+	          			<li id="frc_4"><span onClick="numFRC=4; graphObj.hideGraphic(); checkFrcTopLink(); frcObj.showFrc(); graphObj.preloadGraph(); playfrc(0); updateBanners(4);">9-11</span></li>
+	          			<li id="frc_5"><span onClick="numFRC=5; graphObj.hideGraphic(); checkFrcTopLink(); frcObj.showFrc(); graphObj.preloadGraph(); playfrc(0); updateBanners(5);">11-13</span></li>
+	          			<li><a href="http://www.meteonova.by/pro/26666.htm"><b>Для профи</b></a></li>
+	          			<li><a href="http://www.meteonova.by/xml/26666.xml">XML</a></li>
+	          			<li><a href="http://www.meteonova.by/rss/26666.xml">RSS</a></li>
+	          			<li class="last"><a href="Javascript:printtable();">Печать</a></li>
+	    		  	</ul>
+ 			 		</div>
+   			</div>
+   			<div class="round_right">
+	 				<img src="http://www.meteonova.by/images/block_top_right.png"
+	 				width="9" height="31" class="corner" onLoad="transparent(this)" />
+   			</div>
+			</div>
+			<div class="block_content">
+	    	<div id="frc_content_weather" style="height:320px">
+	          <div class="weather_table_1" id="frc_td1">
+        			<div id="frc_weather_row_title_0" class="weather_row_title">Дата/Время суток</div>
+	          		<div id="frc_weather_row_title_1" class="weather_row_title"></div>
+	          		<div id="frc_weather_row_title_2" class="weather_row_title">Облачность<br>Осадки</div>
+	          		<div id="frc_weather_row_title_3" class="weather_row_title" onMouseOver="this.style.background='#e8eef8'; if(typeof(graphObj)!='undefined') graphObj.showGraphic(this,numFRC*4);" onMouseOut="this.style.background='#fff'; if(typeof(graphObj)!='undefined') graphObj.timerHideGraphic();">Давление, мм.&nbsp;<img src="http://www.meteonova.by/images/icons/graph_black.gif" width="19" height="13" border="0" alt="График хода давления" title="График хода давления"></div>
+	          		<div id="frc_weather_row_title_4" class="weather_row_title" onMouseOver="this.style.background='#e8eef8'; if(typeof(graphObj)!='undefined') graphObj.showGraphic(this,numFRC*4+1);" onMouseOut="this.style.background='#fff'; if(typeof(graphObj)!='undefined') graphObj.timerHideGraphic();">Температура&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://www.meteonova.by/images/icons/graph_bred.gif" width="19" height="13" border="0" alt="График хода температуры" title="График хода температуры"></div>
+	          		<div id="frc_weather_row_title_5" class="weather_row_title" onMouseOver="this.style.background='#e8eef8'; if(typeof(graphObj)!='undefined')graphObj.showGraphic(this,numFRC*4+2);" onMouseOut="this.style.background='#fff'; if(typeof(graphObj)!='undefined') graphObj.timerHideGraphic();">Влажность, %&nbsp;&nbsp;<img src="http://www.meteonova.by/images/icons/graph_green.gif" width="19" height="13" border="0" alt="График хода влажности" title="График хода влажности"></div>
+	          		<div id="frc_weather_row_title_6" class="weather_row_title" onMouseOver="this.style.background='#e8eef8'; if(typeof(graphObj)!='undefined') graphObj.showGraphic(this,numFRC*4+3);" onMouseOut="this.style.background='#fff'; if(typeof(graphObj)!='undefined') graphObj.timerHideGraphic();">Ветер, метр/с&nbsp;&nbsp;&nbsp;<img src="http://www.meteonova.by/images/icons/graph_orange.gif" width="19" height="13" border="0" alt="График направления и скорости ветра" title="График направления и скорости ветра"></div>
+	          		<div id="frc_weather_row_title_7" class="weather_row_title">Комфорт, &deg;C</div>
+	          		<div id="frc_weather_row_title_8" class="weather_row_title">Магнитные бури</div>
+	          </div>
+	       </div>
+			</div>
+			<div class="block_bottom">
+   			<div class="round_left">
+	 		  	<img src="http://www.meteonova.by/images/block_bt_left.png"
+	 				width="9" height="14" class="corner" onLoad="transparent(this)" />
+   			</div>
+   			<div class="block_bt main_container_title_width"></div>
+   			<div class="round_right">
+	 				<img src="http://www.meteonova.by/images/block_bt_right.png"
+	 				width="9" height="14" class="corner" onLoad="transparent(this)" />
+   			</div>
+			</div>
+  </div>
+  <div id="ban_500" style="float:left; width:728px; height:90px; padding-bottom:8px; position: relative;">
+    <iframe  src="http://www.meteonova.ru/google.htm" width="728" height="90" frameborder=0 vspace=0 hspace=0 marginwidth=0 marginheight=0 scrolling=no></iframe>
+  </div>
+  <div class="main_container">
+  		<div class="left_container">
+			<div class="block_top ie">
+   			<div class="round_left">
+	 		  	<img src="http://www.meteonova.by/images/block_top_left.png"
+	 				width="9" height="31" class="corner" onLoad="transparent(this)"/>
+   			</div>
+   			<div class="block_title left_contener_title_width">
+ 				  <div class="icon"><img src="http://www.meteonova.by/images/icon.png" width="26" height="26" onLoad="transparent(this)"></div>
+ 			 		<div class="title"><b>АСТРОНОМИЯ</b></div>
+   			</div>
+   			<div class="round_right">
+	 				<img src="http://www.meteonova.by/images/block_top_right.png"
+	 				width="9" height="31" class="corner" onLoad="transparent(this)"/>
+   			</div>
+			</div>
+			<div class="block_content ie" style="height:118px;">
+      	<div class="content" style="margin:8px 0 0 15px;">
+		  	 <div id="astro_date" class="title3"><b>13 мая 2012</b></div>
+			    <div class="astro_inf">
+			      <div class="icon" style="background: url(http://www.meteonova.by/images/astro.gif);"></div>
+			      <div class="data">
+			       	<div class="text_bg" style="background: url(http://www.meteonova.by/images/astro_dolgota.png) no-repeat"><div id="astro_dolgota" class="text_inf">Долгота дня: 16:04</div></div>
+			        <div class="text_bg" style="background: url(http://www.meteonova.by/images/astro_vosxod.png) no-repeat"><div id="astro_vosxod" class="text_inf">Восход: 04:54</div></div>
+			        <div class="text_bg_last" style="background: url(http://www.meteonova.by/images/astro_zaxod.png) no-repeat"><div id="astro_zaxod" class="text_inf">Заход: 20:58</div></div>
+			       </div>
+			      <div class="icon" style="background: url(http://www.meteonova.by/images/astro_moon.gif);" ></div>
+			      <div class="data">
+			       	<div class="text_bg" style="background: url(http://www.meteonova.by/images/astro_moon_day.png) no-repeat"><div id="astro_dolgota" class="text_inf">23-й лунный день</div></div>
+			        <div class="text_bg" style="background: url(http://www.meteonova.by/images/astro_dolgota.png) no-repeat"><div id="astro_phase" class="text_inf">Посл.четв. 12/05</div></div>
+			        <div class="text_bg" style="background: url(http://www.meteonova.by/images/astro_vosxod.png) no-repeat"><div id="astro_vosxod" class="text_inf">Восход: 03:13</div></div>
+			       	<div class="text_bg_last" style="background: url(http://www.meteonova.by/images/astro_zaxod.png) no-repeat"><div id="astro_zaxod" class="text_inf">Заход: 13:59</div></div>
+			       </div>
+			    </div>
+      	</div>
+			</div>
+			<div class="block_bottom ie">
+   			<div class="round_left">
+	 		  	<img src="http://www.meteonova.by/images/block_bt_left.png"
+	 				width="9" height="14" class="corner" onLoad="transparent(this)" />
+   			</div>
+   			<div class="block_bt left_contener_title_width"></div>
+   			<div class="round_right">
+	 				<img src="http://www.meteonova.by/images/block_bt_right.png"
+	 				width="9" height="14" class="corner" onLoad="transparent(this)"/>
+   			</div>
+			</div>
+			<div class="block_top ie">
+   			<div class="round_left">
+	 		  	<img src="http://www.meteonova.by/images/block_top_left.png"
+	 				width="9" height="31" class="corner" onLoad="transparent(this)"/>
+   			</div>
+   			<div class="block_title left_contener_title_width">
+ 				  <div class="icon"><img src="http://www.meteonova.by/images/icon.png" width="26" height="26" onLoad="transparent(this)"></div>
+ 			 		<div class="title"><b>КОНТАКТЫ</b></div>
+   			</div>
+   			<div class="round_right">
+	 				<img src="http://www.meteonova.by/images/block_top_right.png"
+	 				width="9" height="31" class="corner" onLoad="transparent(this)"/>
+   			</div>
+			</div>
+			<div class="block_content ie">
+      	<div class="content">
+					<div class="contacts">
+						<div class="contact"><div class="apun"><img src="http://www.meteonova.by/images/apun.png" width="11" height="11" onLoad="transparent(this)"></div><div class="apun_link"><a href="http://www.meteonova.by/about.htm">О проекте</a></div></div>
+						<div class="contact"><div class="apun"><img src="http://www.meteonova.by/images/apun.png" width="11" height="11" onLoad="transparent(this)"></div><div class="apun_link"><a href="mailto:korolkow@meteonova.by">Руководитель</a></div></div>
+						<div class="contact_last"><div class="apun"><img src="http://www.meteonova.by/images/apun.png" width="11" height="11" onLoad="transparent(this)"></div><div class="apun_link"><a href="http://www.meteonova.by/guestbook.htm">Гостевая книга</a></div></div>
+					</div>
+      	</div>
+			</div>
+			<div class="block_bottom ie">
+   			<div class="round_left">
+	 		  	<img src="http://www.meteonova.by/images/block_bt_left.png"
+	 				width="9" height="14" class="corner" onLoad="transparent(this)"/>
+   			</div>
+   			<div class="block_bt left_contener_title_width"></div>
+   			<div class="round_right">
+	 				<img src="http://www.meteonova.by/images/block_bt_right.png"
+	 				width="9" height="14" class="corner" onLoad="transparent(this)"/>
+   			</div>
+			</div>
+  	</div>
+  <div class="center_container">
+			<div class="block_top" style="z-index:-1;">
+			<div class="block_top" style="z-index:-1;">
+   			<div class="round_left">
+	 		  	<img src="http://www.meteonova.by/images/block_top_left.png"
+	 				width="9" height="31" class="corner" onLoad="transparent(this)"/>
+   			</div>
+   			<div class="block_title center_container_title_width">
+ 				  <div class="icon"><img src="http://www.meteonova.by/images/icon.png" width="26" height="26" onLoad="transparent(this)"></div>
+ 			 		<div class="title"><b>НАРОДНЫЕ ПРИМЕТЫ И ПРАЗДНИКИ</b></div>
+   			</div>
+   			<div class="round_right">
+	 				<img src="http://www.meteonova.by/images/block_top_right.png"
+	 				width="9" height="31" class="corner" onLoad="transparent(this)"/>
+   			</div>
+			</div>
+			<div class="block_content">
+	      			<div class="content"><b> На 14 мая</b>: Еремей - запрягальник, яремник. На Еремея погоже - уборка хороша. Сей неделю после Егорья (6 мая) да другую после Еремея. На Еремея непогода - всю зиму промаешься.</div>
+			</div>
+			<div class="block_bottom">
+   			<div class="round_left">
+	 		  	<img src="http://www.meteonova.by/images/block_bt_left.png"
+	 				width="9" height="14" class="corner" onLoad="transparent(this)"/>
+   			</div>
+   			<div class="block_bt center_container_title_width"></div>
+   			<div class="round_right">
+	 				<img src="http://www.meteonova.by/images/block_bt_right.png"
+	 				width="9" height="14" class="corner" onLoad="transparent(this)"/>
+   			</div>
+			</div>
+	   			<div class="round_left">
+		 		  	<img src="http://www.meteonova.by/images/block_top_left_2.png"
+		 				width="9" height="16" class="corner"
+		 				onLoad="transparent(this)" />
+	   			</div>
+	   			<div class="block_title_2 center_container_title_width"></div>
+	   			<div class="round_right">
+		 				<img src="http://www.meteonova.by/images/block_top_right_2.png"
+		 				width="9" height="16" class="corner"
+		 				onLoad="transparent(this)" />
+
+	   			</div>
+			</div>
+			<div class="block_content_2" align="center"  style="width:100%; min-height:90px;">
+				<div id="smi2adblock_6013"><a href="http://smi2.ru/">...</a></div>
+				<script charset="windows-1251" type="text/javascript" src="http://js.smi2.ru/data/js/6013.js"></script>
+			</div>
+			<div class="block_bottom">
+
+	   			<div class="round_left">
+		 		  	<img src="http://www.meteonova.by/images/block_bt_left.png"
+		 				width="9" height="14" class="corner"
+		 				onLoad="transparent(this)" />
+	   			</div>
+	   			<div class="block_bt center_container_title_width"></div>
+	   			<div class="round_right">
+		 				<img src="http://www.meteonova.by/images/block_bt_right.png"
+		 				width="9" height="14" class="corner"
+		 				onLoad="transparent(this)" />
+	   			</div>
+			</div>
+		</div>
+  </div>
+</div>
+</div>
+	<div class="yui-b">
+  	 <div class="right_main">
+
+				<div class="block_top">
+	   			<div class="round_left">
+
+		 		  	<img src="http://www.meteonova.by/images/block_top_left.png"
+		 				width="9" height="31" class="corner"
+		 				onLoad="transparent(this)" />
+	   			</div>
+	   			<div class="block_title" style="width:222px;">
+	 				  <div class="icon"><img src="http://www.meteonova.by/images/icon.png" width="26" height="26"  onLoad="transparent(this)"></div>
+	 			 		<div class="title"><b>РЕКЛАМА</b></div>
+	   			</div>
+	   			<div class="round_right">
+		 				<img src="http://www.meteonova.by/images/block_top_right.png"
+		 				width="9" height="31" class="corner"
+		 				onLoad="transparent(this)" />
+
+	   			</div>
+				</div>
+
+
+				<div class="block_content"><div class="block_content" style="width:100%;"><div class="content" style="width:210px;"><div id="DIV_DA_24726"></div></div></div><script charset="windows-1251" type="text/javascript" src="http://www.directadvert.ru/show.cgi?adp=24726&div=DIV_DA_24726"></script></div>
+				<div class="block_bottom">
+	   			<div class="round_left">
+		 		  	<img src="http://www.meteonova.by/images/block_bt_left.png"
+		 				width="9" height="14" class="corner"
+		 				onLoad="transparent(this)" />
+
+	   			</div>
+	   			<div class="block_bt" style="width:222px"></div>
+	   			<div class="round_right">
+		 				<img src="http://www.meteonova.by/images/block_bt_right.png"
+		 				width="9" height="14" class="corner"
+		 				onLoad="transparent(this)" />
+	   			</div>
+				</div>
+
+				<div class="block_top">
+	   			<div class="round_left">
+
+		 		  	<img src="http://www.meteonova.by/images/block_top_left.png"
+		 				width="9" height="31" class="corner"
+		 				onLoad="transparent(this)" />
+	   			</div>
+	   			<div class="block_title" style="width:222px;">
+	 				  <div class="icon"><img src="http://www.meteonova.by/images/icon.png" width="26" height="26"  onLoad="transparent(this)"></div>
+	 			 		<div class="title"><b>НОВОСТИ</b></div>
+	   			</div>
+	   			<div class="round_right">
+		 				<img src="http://www.meteonova.by/images/block_top_right.png"
+		 				width="9" height="31" class="corner"
+		 				onLoad="transparent(this)" />
+
+	   			</div>
+				</div>
+				<div class="block_content" style="width:100%;">
+					<div class="content" style="width:210px;">
+					 <div class="news_position"> <div id="news_data">12 мая 15:41</div> <div id="news_text"><img src="http://www.meteonova.ru/news/pictures/s63472520499.jpg"><a href="http://www.meteonova.ru/news/news.n2?item=63472520499">Вулкан Шивелуч вновь ожил</a></div> <div class="news_line"></div></div><div class="news_position"> <div id="news_data">12 мая 12:44</div> <div id="news_text"><img src="http://www.meteonova.ru/news/pictures/s63472509886.jpg"><a href="http://www.meteonova.ru/news/news.n2?item=63472509886">В лидерах - Волгоградская область </a></div> <div class="news_line"></div></div><div class="news_position"> <div id="news_data">12 мая 12:33</div> <div id="news_text"><img src="http://www.meteonova.ru/news/pictures/s63472509235.jpg"><a href="http://www.meteonova.ru/news/news.n2?item=63472509235">Погоду испортят циклонические "парочки"</a></div> <div class="news_line"></div></div><div class="news_position"> <div id="news_data">12 мая 12:21</div> <div id="news_text"><img src="http://www.meteonova.ru/news/pictures/s63472508502.jpg"><a href="http://www.meteonova.ru/news/news.n2?item=63472508502">Холодный северо-запад и жаркий юго-восток</a></div> <div class="news_line"></div></div><div class="news_position"> <div id="news_data">12 мая 11:42</div> <div id="news_text"><img src="http://www.meteonova.ru/news/pictures/s63472506122.jpg"><a href="http://www.meteonova.ru/news/news.n2?item=63472506122">В Перу погибли 5000 пеликанов</a></div> <div class="news_line"></div></div><div class="news_position"> <div id="news_data">12 мая 09:22</div> <div id="news_text"><img src="http://www.meteonova.ru/news/pictures/s63472497737.jpg"><a href="http://www.meteonova.ru/news/news.n2?item=63472497737">Атмосферный фронт несет грозовые ливни и похолодание</a></div></div>
+					</div>
+				</div>
+				<div class="block_bottom">
+
+	   			<div class="round_left">
+		 		  	<img src="http://www.meteonova.by/images/block_bt_left.png"
+		 				width="9" height="14" class="corner"
+		 				onLoad="transparent(this)" />
+	   			</div>
+	   			<div class="block_bt" style="width:222px"></div>
+	   			<div class="round_right">
+		 				<img src="http://www.meteonova.by/images/block_bt_right.png"
+		 				width="9" height="14" class="corner"
+		 				onLoad="transparent(this)" />
+	   			</div>
+				</div>
+			<div class="block_top">
+
+   			<div class="round_left">
+	 		  	<img src="http://www.meteonova.by/images/block_top_left.png"
+	 				width="9" height="31" class="corner"
+	 				onLoad="transparent(this)" />
+   			</div>
+   			<div class="block_title" style="width:222px;">
+ 				  <div class="icon"><img src="http://www.meteonova.by/images/icon.png" width="26" height="26"  onLoad="transparent(this)"></div>
+ 			 		<div class="title"><b>ИНФОРМЕР</b></div>
+   			</div>
+   			<div class="round_right">
+
+	 				<img src="http://www.meteonova.by/images/block_top_right.png"
+	 				width="9" height="31" class="corner"
+	 				onLoad="transparent(this)" />
+   			</div>
+			</div>
+			<div class="block_content" style="width:100%;">
+		    	<div align="center" style="margin:10px 0 10px;"><a href="http://informer.meteonova.ru/index.php?index=26666"><img src="http://www.meteonova.ru/informer/PNG101_26666_000080_000080_F0F0FF_CCCCFF_FFFFFF_000000_000080.PNG"></a></div>
+		      <div align="center"><a href="http://informer.meteonova.ru/index.php?index=26666">Установите себе на сайт</a></div>
+			</div>
+			<div class="block_bottom">
+
+   			<div class="round_left">
+	 		  	<img src="http://www.meteonova.by/images/block_bt_left.png"
+	 				width="9" height="14" class="corner"
+	 				onLoad="transparent(this)" />
+   			</div>
+   			<div class="block_bt" style="width:222px"></div>
+   			<div class="round_right">
+	 				<img src="http://www.meteonova.by/images/block_bt_right.png"
+	 				width="9" height="14" class="corner"
+	 				onLoad="transparent(this)" />
+   			</div>
+			</div>
+		</div>
+	</div>
+ 	<div id="ft" role="contentinfo">
+   		<div class="copyright">Copyright &copy; 2010, Метеосистемы<br><a href="http://www.meteonova.by">Прогноз погоды</a> <a href="http://www.meteonova.by/frc/26666.htm">Погода в Витебске</a> <a href="http://www.meteonova.by/frc/26850.htm">Погода в Минске</a></div>
+   		<div class="counters">
+			<div class="counter"><a target=_blank href=http://pogoda.ru><img width=88 height=31 border=0 src=http://pogoda.ru/images/pogoda88x31.gif alt="Погода.Ru - прогноз погоды" title="Сайт зарегистрирован в каталоге Погода.Ru"></a></div>
+   			<div class="counter"><a href="http://top100.rambler.ru/home?id=2123793" target="_blank"><img src="http://top100-images.rambler.ru/top100/w2.gif" alt="Rambler's Top100" width="88" height="31" border="0" /></a></div>
+   			<div class="counter"><a href="http://www.liveinternet.ru/click" target="_blank"><img src="http://counter.yadro.ru/logo?16.11" border="0" width="88" height="31" alt="" title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня"/></a><img src="http://news.meteonova.ru/cgi-bin/mmcount3.dll?config=novaby&fgcolor=000000&bgcolor=000000&fs=13" border="0" width="1" height="1"></div>
+   		</div>
+ 	</div>
+</div>
+</div>
+<div id="graphic"><img src="http://www.meteonova.by/images/graphicBg.png" onLoad="transparent(this)"></div>
+<script language="JavaScript">
+var spDone=new Array(0,0,0,0,0,0);
+
+setPreloaderPict("graphic","preloader","");
+setPreloaderStyle("graphic","preloader");
+
+var arrFRC=new Array(new Array(),new Array(),new Array(),new Array(),new Array(),new Array());
+
+ arrFRC[0][10]=new Array("td2",13,1,15,4,2,"748","+12","58","Сев <br>2 ","+12",0,"Облачность: 100%, Явления: Слабый ливень");
+ 
+ arrFRC[0][0]=new Array("td4",13,1,3,3,2,"750","+7","84","С<br>2-5","+7",0,"пасмурно с просветами, небольшой дождь");
+ arrFRC[0][1]=new Array("td5",14,2,0,2,1,"752","+4","93","С<br>2-5","+4",0,"облачно");
+ arrFRC[0][2]=new Array("td6",14,2,1,0,1,"752","+10","70","С<br>3-6","+9",0,"ясно");
+ arrFRC[0][3]=new Array("td7",14,2,2,0,1,"752","+14","56","С-В<br>3-6","+14",0,"ясно");
+ arrFRC[0][4]=new Array("td8",14,2,3,0,1,"751","+7","87","С-В<br>3-6","+7",0,"ясно");
+ arrFRC[0][5]=new Array("td9",15,3,0,0,1,"751","+4","88","С-В<br>3-6","+3",0,"ясно");
+ arrFRC[0][6]=new Array("td10",15,3,1,0,1,"750","+11","73","С-В<br>3-6","+11",1,"ясно");
+ arrFRC[0][7]=new Array("td11",15,3,2,0,1,"748","+17","56","С-В<br>3-6","+17",1,"ясно");
+ arrFRC[0][8]=new Array("td12",15,3,3,1,1,"747","+9","93","В<br>3-6","+9",0,"малооблачно");
+ arrFRC[0][9]=new Array("td13",16,4,0,2,1,"747","+7","98","В<br>3-6","+7",0,"облачно, сильный туман");
+
+ arrFRC[1][0]=new Array("td4",16,4,0,2,1,"747","+7","98","В<br>3-6","+7",0,"облачно, сильный туман");
+ arrFRC[1][1]=new Array("td5",16,4,1,3,1,"746","+12","89","В<br>3-6","+12",0,"пасмурно с просветами");
+ arrFRC[1][2]=new Array("td6",16,4,2,1,9,"743","+22","68","В<br>3-6","+24",0,"облачно, небольшой дождь, возможна гроза");
+ arrFRC[1][3]=new Array("td7",16,4,3,1,9,"741","+17","89","В<br>3-6","+17",0,"облачно, дождь, возможна гроза");
+ arrFRC[1][4]=new Array("td8",17,5,0,1,9,"740","+14","96","В<br>3-6","+14",0,"облачно, дождь, возможна гроза");
+ arrFRC[1][5]=new Array("td9",17,5,1,2,1,"740","+18","85","Ю-В<br>3-6","+18",0,"облачно");
+ arrFRC[1][6]=new Array("td10",17,5,2,1,9,"740","+19","88","Ю<br>3-6","+19",0,"облачно, дождь, возможна гроза");
+ arrFRC[1][7]=new Array("td11",17,5,3,1,9,"742","+10","96","З<br>3-6","+10",0,"пасмурно, дождь, возможна гроза");
+ arrFRC[1][8]=new Array("td12",18,6,0,4,3,"744","+8","96","С-З<br>5-9","+5",0,"пасмурно, дождь");
+ arrFRC[1][9]=new Array("td13",18,6,1,4,3,"745","+8","95","С-З<br>3-6","+7",0,"пасмурно, дождь");
+
+ arrFRC[2][0]=new Array("td4",18,6,1,4,3,"745","+8","95","С-З<br>3-6","+7",0,"пасмурно, дождь");
+ arrFRC[2][1]=new Array("td5",18,6,2,4,3,"746","+11","88","С-З<br>5-9","+11",0,"пасмурно, дождь");
+ arrFRC[2][2]=new Array("td6",18,6,3,4,2,"746","+9","92","С<br>3-6","+8",0,"пасмурно, небольшой дождь, местами дымка");
+ arrFRC[2][3]=new Array("td7",19,7,0,4,1,"746","+8","96","С<br>3-6","+8",0,"пасмурно, местами дымка");
+ arrFRC[2][4]=new Array("td8",19,7,1,4,3,"746","+11","97","С-З<br>3-6","+11",0,"пасмурно, дождь, сильный туман");
+ arrFRC[2][5]=new Array("td9",19,7,2,4,3,"746","+16","90","С-З<br>2-5","+16",0,"пасмурно, дождь");
+ arrFRC[2][6]=new Array("td10",19,7,3,4,1,"746","+13","97","С-З<br>3-6","+13",0,"пасмурно");
+ arrFRC[2][7]=new Array("td11",20,1,0,4,1,"745","+12","99","С<br>3-6","+12",0,"пасмурно, местами дымка");
+ arrFRC[2][8]=new Array("td12",20,1,1,4,2,"745","+16","92","С<br>3-6","+16",0,"пасмурно, небольшой дождь");
+ arrFRC[2][9]=new Array("td13",20,1,2,1,9,"745","+20","89","С-В<br>2-5","+19",0,"облачно, дождь, возможна гроза");
+
+ arrFRC[3][0]=new Array("td4",20,1,2,1,9,"745","+20","89","С-В<br>2-5","+19",0,"облачно, дождь, возможна гроза");
+ arrFRC[3][1]=new Array("td5",20,1,3,1,9,"745","+15","95","В<br>3-6","+15",0,"облачно, дождь, возможна гроза");
+ arrFRC[3][2]=new Array("td6",21,2,0,2,2,"746","+11","95","Ю-В<br>3-6","+11",1,"облачно, небольшой дождь");
+ arrFRC[3][3]=new Array("td7",21,2,1,0,1,"746","+16","83","Ю-В<br>2-5","+16",1,"ясно");
+ arrFRC[3][4]=new Array("td8",21,2,2,3,3,"743","+22","65","Ю-В<br>2-5","+24",1,"пасмурно с просветами, дождь");
+ arrFRC[3][5]=new Array("td9",21,2,3,2,2,"742","+15","83","Ю-В<br>2-5","+15",1,"облачно, небольшой дождь");
+ arrFRC[3][6]=new Array("td10",22,3,0,3,1,"742","+12","86","Ю-В<br>1-3","+12",1,"пасмурно с просветами");
+ arrFRC[3][7]=new Array("td11",22,3,1,3,1,"742","+18","72","С<br>1-3","+18",1,"пасмурно с просветами");
+ arrFRC[3][8]=new Array("td12",22,3,2,4,2,"740","+24","71","С<br>3-6","+25",1,"пасмурно, небольшой дождь");
+ arrFRC[3][9]=new Array("td13",22,3,3,4,3,"739","+16","95","С<br>3-6","+16",1,"пасмурно, дождь");
+
+ arrFRC[4][0]=new Array("td4",22,3,3,4,3,"739","+16","95","С<br>3-6","+16",1,"пасмурно, дождь");
+ arrFRC[4][1]=new Array("td5",23,4,0,4,3,"737","+12","98","С-З<br>3-6","+12",1,"пасмурно, дождь");
+ arrFRC[4][2]=new Array("td6",23,4,1,3,2,"738","+18","91","С-З<br>3-6","+18",1,"пасмурно с просветами, небольшой дождь");
+ arrFRC[4][3]=new Array("td7",23,4,2,4,2,"739","+23","80","С<br>5-9","+24",1,"пасмурно, небольшой дождь");
+ arrFRC[4][4]=new Array("td8",23,4,3,3,1,"740","+16","82","С<br>3-6","+16",1,"пасмурно с просветами");
+ arrFRC[4][5]=new Array("td9",24,5,0,2,1,"741","+12","85","С<br>3-6","+12",0,"облачно");
+ arrFRC[4][6]=new Array("td10",24,5,1,1,1,"742","+18","71","С<br>5-9","+18",0,"малооблачно");
+ arrFRC[4][7]=new Array("td11",24,5,2,1,1,"742","+23","59","С<br>5-9","+25",0,"малооблачно");
+ arrFRC[4][8]=new Array("td12",24,5,3,1,1,"742","+16","76","С-З<br>3-6","+16",0,"малооблачно");
+ arrFRC[4][9]=new Array("td13",25,6,0,0,1,"743","+12","76","С-З<br>3-6","+12",0,"ясно");
+
+ arrFRC[5][0]=new Array("td4",25,6,0,0,1,"743","+12","76","С-З<br>3-6","+12",0,"ясно");
+ arrFRC[5][1]=new Array("td5",25,6,1,0,1,"744","+17","66","С-З<br>3-6","+17",0,"ясно");
+ arrFRC[5][2]=new Array("td6",25,6,2,0,1,"744","+22","52","С-З<br>3-6","+25",0,"ясно");
+ arrFRC[5][3]=new Array("td7",25,6,3,1,1,"745","+16","77","С-З<br>3-6","+16",0,"малооблачно");
+ arrFRC[5][4]=new Array("td8",26,7,0,0,1,"746","+12","78","С-З<br>3-6","+12",0,"ясно");
+ arrFRC[5][5]=new Array("td9",26,7,1,1,1,"748","+17","68","С-З<br>2-5","+17",0,"малооблачно");
+ arrFRC[5][6]=new Array("td10",26,7,2,3,3,"748","+23","66","С-З<br>2-5","+24",0,"пасмурно с просветами, дождь");
+ arrFRC[5][7]=new Array("td11",26,7,3,2,2,"748","+16","91","С-З<br>1-3","+16",0,"облачно, небольшой дождь");
+ arrFRC[5][8]=new Array("td12",27,1,0,1,2,"749","+11","88","С<br>3-6","+11",0,"малооблачно, небольшой дождь");
+ arrFRC[5][9]=new Array("td13",27,1,1,0,1,"751","+17","72","С<br>3-6","+17",0,"ясно");
+
+</script>
+</div>
+
+<div id="frc_text_0" style="display: none;"><b>Этой ночью</b> ожидается переменная облачность, температура +3..+5°.  Давление немного выше нормы.<b> Завтра днем</b> ясная погода, +13..15°, ветер северо-восточный,  умеренный.  Давление немного выше нормы. Геомагнитное поле спокойное.<br><b>15-го мая</b>,  в течение суток  ожидается ясная погода; ночью +3..+5°, днем +16..18°, ветер восточный,  умеренный. Возможны небольшие геомагнитные возмущения. <br></div>
+<div id="frc_text_1" style="display: none;"><b>16-го мая</b>,  в течение суток  ожидается переменная облачность, небольшой дождь, возможна гроза, сильный туман; ночью +6..+8°, днем +21..23°, ветер юго-восточный,  умеренный. <br><b>17-го мая</b>, ожидается переменная облачность, сильный дождь, возможна гроза; ночью +13..15°, днем +18..20°, ветер южный,  умеренный. <br></div>
+<div id="frc_text_2" style="display: none;"><b>18-го мая</b>,  в течение суток  ожидается пасмурная погода, сильный дождь, местами дымка; ночью +7..+9°, днем +10..12°, ветер северный,  умеренный.<br><b>19-го мая</b>, ожидается пасмурная погода, небольшой дождь, сильный туман; ночью +7..+9°, днем +15..17°, ветер  слабый. <br></div>
+<div id="frc_text_3" style="display: none;"><b>c 20-го по 22-е мая</b> ожидается переменная облачность, небольшой дождь, возможна гроза, местами дымка, с температурами ночью от +10 до +13, днем от +20 до +24 градусов. Давление  в среднем в пределах нормы. Ветер преимущественно  слабый.</div>
+<div id="frc_text_4" style="display: none;"><b>c 23-го по 25-е мая</b> ожидается переменная облачность, небольшой дождь, с температурами ночью от +11 до +13, днем от +21 до +24 градусов. Давление  в среднем в пределах нормы. Ветер преимущественно северный,  умеренный.</div>
+<div id="frc_text_5" style="display: none;"><b>c 25-го по 27-е мая</b> ожидается малооблачная погода, небольшой дождь, с температурами ночью от +10 до +13, днем от +21 до +24 градусов. Давление неустойчивое,  в среднем в пределах нормы. Ветер преимущественно северный,  умеренный.</div>
+
+<div id="print_content_weather" style="display: none;"></div>
+
+<script type="text/javascript" src="http://www.meteonova.by/js/swfobject.js"></script>
+
+<script language="JavaScript">
+var so = new SWFObject("jessie.swf", "mnova", "174", "180", "9", "#ffffff");
+so.write("meteonova");
+
+function novacmd(cmd)
+{
+var mnova=document.getElementById("mnova");
+mnova.push2stack(cmd);
+}
+
+function novaidle(par)
+{ bl=document.getElementById("blog_link"); if(!bl) return;
+if(bNovaSilence) bl.innerHTML='';
+if (par==3 && !bNovaSilence) { spDone[numFRC]=1; bl.innerHTML='|&nbsp;<a href="javascript:playfrc(1);">Прослушать прогноз</a>';}
+}
+
+function playfrc(bForce)
+{ var o=document.getElementById("blog_link"); if(!o) return;
+if(bNovaSilence) { o.innerHTML=''; return;}
+novacmd("STOP");
+if(spDone[numFRC]==0 || bForce==1)
+ { o.innerHTML='|&nbsp;<a href="javascript:stopfrc()">Остановить прослушивание</a>';
+   novacmd("SPEAK http://www.meteonova.ru/speech/forecast_26666_"+numFRC+".mp3");
+ } else bl.innerHTML='|&nbsp;<a href="javascript:playfrc(1);">Прослушать прогноз</a>';
+
+//if(document.cookie.indexOf("novany=1")==-1) { document.cookie="novany=1; expires=Wed, 3 Mar 2010 00:00:00; path=/;"; novacmd("SPEAK http://www.meteonova.ru/sounds/ny.mp3");}
+}
+
+function stopfrc()
+{
+novacmd("STOP");
+if(bNovaSilence) { document.getElementById("blog_link").innerHTML=''; return;}
+document.getElementById("blog_link").innerHTML='|&nbsp;<a href="javascript:playfrc(1)">Прослушать прогноз</a>';
+spDone[numFRC]=1;
+}
+
+function silencecontrol(flag)
+{ var o=document.getElementById("silence_link"); if(!o) return;
+if(flag==-1) { if(bNovaSilence) o.innerHTML='<a href="javascript:silencecontrol(1)">Включить речь</a>&nbsp;'; else o.innerHTML='<a href="javascript:silencecontrol(0)">Отключить речь</a>&nbsp;';} else
+if(flag==0) { o.innerHTML='<a href="javascript:silencecontrol(1)">Включить речь</a>&nbsp;'; setSilence(1); stopfrc(); } else
+if(flag==1) { o.innerHTML='<a href="javascript:silencecontrol(0)">Отключить речь</a>&nbsp;'; setSilence(0); playfrc(0); }
+}
+
+function initMiniMap(id,region,param,predict)
+{
+if(!document.getElementById(id)) return;
+var som=new SWFObject("mini.swf", "mini"+id, "150", "100", "8", "#ffffff");
+som.addParam('menu', 'false');
+som.addParam('scale', 'noscale');
+som.addParam('salign', 'lt');
+som.addVariable('showMe', region);
+som.addVariable('param', param);
+som.addVariable('predict', predict);
+som.write(id);
+}
+
+function initMiniMaps()
+{
+initMiniMap("map30",state,"APCP_surface",predict);
+initMiniMap("map20",state,"TCDC_entire_atmosphere",predict);
+initMiniMap("map10",state,"TMP_2_m_above_ground",predict);
+}
+
+function updateBanner(id)
+{
+ban=document.getElementById(id);
+s=ban.innerHTML; ban.innerHTML=""; ban.innerHTML=s;
+}
+
+function updateBanners(page)
+{
+//setTimeout('updateBanner("ban_240")',3000);
+setTimeout('updateBanner("ban_500")',2000);
+}
+
+var townindex=26666;
+var geosuffix="";
+var state=1103;
+var predict=6;
+
+var strlocation=new String(document.location);
+var reg=/#\d{1}/;
+var numFRC=reg.exec(strlocation);
+var reg=/\d{1}/;
+numFRC=reg.exec(numFRC);
+strlocation=null;
+if (numFRC==null) numFRC=0;
+
+checkFrcTopLink();
+
+var frcObj=new FrcObject("frc_");
+frcObj.setDiv();
+frcObj.showFrc();
+
+var graphObj=new GraphObj(townindex,'');
+graphObj.preloadGraph();
+
+initMiniMaps();
+
+silencecontrol(-1);
+
+</script>
+
+</body>
+</html>

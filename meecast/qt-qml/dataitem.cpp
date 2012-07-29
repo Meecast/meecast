@@ -85,6 +85,7 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[DateRole] = "date";
     names[ShortDateRole] = "shortdate";
     names[FullDateRole] = "fulldate";
+    names[HourDateRole] = "hourdate";
     names[DayLengthRole] = "daylength";
     names[StartRole] = "start";
     names[EndRole] = "end";
@@ -140,6 +141,8 @@ QVariant DataItem::data(int role)
         return shortdate();
     case FullDateRole:
         return fulldate();
+    case HourDateRole:
+        return hourdate();
     case StartRole:
         return start();
     case EndRole:
@@ -321,19 +324,32 @@ DataItem::shortdate()
 {
     QDateTime t;
     t.setTime_t(DataItem::Data::StartTime());
-    if (DataItem::Data::Hour())
-        return t.toString("HH:mm");
-    else
-        return t.toString("ddd");
+    return t.toString("ddd");
     //return QString::fromUtf8(DataItem::ShortDayName().c_str());
 
 }
+QString
+DataItem::hourdate()
+{
+    QDateTime t;
+    t.setTime_t(DataItem::Data::StartTime());
+    return t.toString("HH:mm");
+    //return QString::fromUtf8(DataItem::ShortDayName().c_str());
+
+}
+
 QString
 DataItem::fulldate()
 {
     QDateTime t;
     t.setTime_t(DataItem::Data::StartTime());
-    return QString(t.toString("dd") + " " + t.toString("MMM")); 
+    /* Hack for Finish localization */
+    if (QLocale::system().name() == "fi_FI"){
+        return QString(t.toString("dd") + "." + t.toString("MM")); 
+    }else{
+        return QString(t.toString("dd") + " " + t.toString("MMM")); 
+    }
+
     //return QString::fromUtf8((DataItem::FullDayName()+" "+DataItem::DayOfMonthName()+", "+DataItem::FullMonthName()).c_str());
     //return QString::fromUtf8((DataItem::DayOfMonthName()+"."+DataItem::MonthName()).c_str());
 }
@@ -399,6 +415,7 @@ DataItem::ppcp() {
     }
     return c.number((DataItem::Data::Ppcp()), 'f', 0);
 }
+
 void
 DataItem::LastUpdate(time_t date_and_time){
     _lastupdate.setTime_t(date_and_time);

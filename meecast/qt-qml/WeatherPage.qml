@@ -9,6 +9,7 @@ Page {
     property int margin: 16
     property int screen_width : 854
     property bool isUpdate: false
+
     tools: ToolBarLayout {
         ToolIcon {
             iconId: (!isUpdate) ? "toolbar-refresh" : "toolbar-stop-dimmed"
@@ -556,7 +557,7 @@ Page {
                             width: 160
                             height: 84
                             color: "white"
-                            text: model.temp_high + '°'
+                            text: model.temp + '°'
                             font.pointSize: 26
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter
@@ -577,18 +578,47 @@ Page {
 				}
                             }
                         }
-                        Text {
-                            id: desc
-                            text: model.description
-                            anchors.left: parent.left
-                            anchors.top: now.bottom
-                            width: current_rect.width
-                            height: 44
-                            color: "white"
-                            font.pointSize: 18
-                            verticalAlignment: Text.AlignVCenter
-                            horizontalAlignment: Text.AlignHCenter
-                        }
+		        Rectangle {
+			       id: desc  
+			       height: 44
+			       color: "transparent"
+			       width: current_rect.width 
+			       anchors.left: parent.left
+			       anchors.top: now.bottom
+			       property color textColor: "white"
+			       Row {  
+				    id: desc_row
+				    width: parent.width 
+				    Text { 
+					  id: text; 
+					  font.pointSize: 20; 
+					  width: parent.width 
+					  color: desc.textColor; 
+					  text: model.description; 
+					  verticalAlignment: Text.AlignVCenter; 
+					  horizontalAlignment: (model.description.length >35) ? Text.AlignHLeft : Text.AlignHCenter; 
+					  MouseArea {
+					      anchors.fill: parent
+					      onClicked: {
+						 if (text_anim.running){
+						     text_anim.running = false;
+						 }else{
+						     text_anim.running = true;
+						 }
+					      }
+					  }
+				    }  
+				    NumberAnimation on x { 
+				         id: text_anim; 
+					 from: 450; to: -500 ; 
+					 duration: 10000; 
+					 loops: Animation.Infinite; 
+					 running : (model.description.length >35) ? true : false;  
+			            }  
+
+			       }  
+			}
+
                         Image {
                             id: humidity
                             source: Config.imagespath + "/humidity.png"

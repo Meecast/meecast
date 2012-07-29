@@ -1,9 +1,80 @@
+meecast (0.5.8) unstable; urgency=low
+
+  * Added United States(Kentucky, Lousiana,Maine,Maryland,Massachusetts,
+    Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire,
+    New Jersey, New Mexico,New York, North Carolina, North Dakota) to foreca.com database 	
+  * Added Slovenia to foreca.com database
+  * Added icons for hko.gov.hk
+  * Fixed problem with hko.gov.hk
+  * Updated Chile for yr.no and foreca.com sources
+  * Added icons for foreca.com 
+  * Updated Russian translations
+  * Removed region Australia in bom.gov.au source
+  * Fixed problem with Finish localization for date 
+  * Added current weather in second window
+ 
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 30 May 2011 21:42:23 +0200
+
+meecast (0.5.7) unstable; urgency=low
+
+  * Added hours weather forecast for foreca.com source  
+  * Fixed problem with temperature and icons in hours weather forecast in gismeteo.ru source
+  * Fixed problem with showing hours instead of day week name in main window
+  * Fixed problem with current temperature
+  * Added new source of weather forecast hko.gov.hk
+  * Added animation for string with weather forecast description
+  * Added United States(Alabama, Alaska,Arizona, Arkansas, Colorado, Connecticut, Delaware,Florida,Georgia,
+    Hawaii,Idaho,Illinois,Indiana,Iowa,Kansas) to foreca.com database
+  * Changed the name of city's-Hertogenbosch on Den Bosch (Netherlands) in foreca.com
+  * Added Europe (Portugal, Spain) to foreca.com database
+  * Added Hong Kong to yr.no
+  * Added descriptions of icons for foreca.com data
+  * Added more stations to bom.gov.au source
+  * Added Albanian translation. Thanks  Ilir Gjika aka illo1977
+  * Updated Bulgarian translation. Thanks Zlatko Enikov
+  * Updated Dutch translation. Thanks Michiel Pater aka curryfun
+  * Updated Polish translation. Thanks kubixmedrek
+  * Updated Italy translation. Thanks Ilir Gjika aka illo1977
+  * Updated Swedish translation. Thanks Niklas Åkerström aka Nille
+
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2011 21:42:23 +0200
+
+meecast (0.5.6) unstable; urgency=low
+
+  * Added Belgium, Albabnia, Andorra, Czech Republic, Hungary, Iceland, Italy,United States to foreca.com database
+  * Changed the name of the location Vught on 's-Hertogenbosch
+  * Fixed problem with current weather for weather.com source
+  * Fixed problem with current weather for foreca.com source
+  * Fixed problem with weather forecast for current day for weather.com source
+  * Fixed problem with hour flike temperature for gismeteo.ru
+  * Improvement in widget for standby screen
+  * Added Dutch translation. Thanks Tom Leenders
+  * Added Bulgarian translation. Thanks Zlatko Enikov	 
+  * Updated Russian and Finish translations
+
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2011 21:42:23 +0200
+
+meecast (0.5.5) unstable; urgency=low
+
+  * Added stations to foreca.com database (Austria)
+  * Fixed problem with negative temperature in gismeteo.ru
+  * Added icon for gismeteo.ru data
+  * Fixed problem with Ppcp
+  * Began adding the new source bom.fov.au
+
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 28 Mar 2011 21:42:23 +0200
+
 meecast (0.5.4) unstable; urgency=low
 
   * Added stations to foreca.com database (Poland, Ukraine, Moldova, Latvia,
-    Lithuania, Estonia)
+    Lithuania, Estonia, Romania, Norway, Denmark, Netherlands, Greece)
+  * Added stations in yr.no database (Argentina)
+  * Added Villa Angela to weather.com database 
+  * Fixed problem with wind direction in source gismeteo.ru
+  * Added icons and descriptions for foreca.com data
+  * Updated Russian and Spain translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 17 Mar 2011 22:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 25 Mar 2011 22:42:23 +0200
 
 meecast (0.5.3) unstable; urgency=low
 

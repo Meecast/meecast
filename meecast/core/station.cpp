@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -35,7 +35,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    Station::Station(const std::string& source_name, const std::string& id, const std::string& name,
+Station::Station(const std::string& source_name, const std::string& id, const std::string& name,
                      const std::string& country, const std::string& region, 
                      const std::string& forecastURL, const std::string& detailURL,
                      const std::string& viewURL, const std::string&  cookie, const bool gps){
@@ -53,6 +53,73 @@ namespace Core {
         _source = this->getSourceByName();
         _converter = new std::string();
         _gps = gps;
+    }
+////////////////////////////////////////////////////////////////////////////////
+    Station::Station(const std::string& source_name, const std::string& id, const std::string& name,
+                     const std::string& country, const std::string& region, const bool gps){
+        _sourceName = new std::string(source_name);
+        _id = new std::string(id);
+        _name = new std::string(name);
+        _country = new std::string(country);
+        _region = new std::string(region);
+        _timezone = 0;
+        _source = this->getSourceByName();
+        _gps = gps;
+        std::string path(Core::AbstractConfig::prefix);
+        path += Core::AbstractConfig::sourcesPath;
+        Core::SourceList *sourcelist = new Core::SourceList(path);
+        int source_id = sourcelist->source_id_by_name(source_name);
+        std::string url_template = sourcelist->at(source_id)->url_template();
+        std::string url_detail_template = sourcelist->at(source_id)->url_detail_template();
+        std::string url_for_view = sourcelist->at(source_id)->url_for_view();
+        std::string cookie = sourcelist->at(source_id)->cookie();
+
+        char forecast_url[4096];
+        snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), id.c_str());
+        char forecast_detail_url[4096];
+        snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, url_detail_template.c_str(), id.c_str());
+        char view_url[4096];
+        snprintf(view_url, sizeof(view_url)-1, url_for_view.c_str(), id.c_str());
+
+        std::string filename(Core::AbstractConfig::getConfigPath());
+        filename += source_name;
+        filename += "_";
+        filename += id;
+        _forecastURL = new std::string(forecast_url);
+        _detailURL = new std::string(forecast_detail_url);
+        if (source_name == "bom.gov.au"){
+           if (_id->find("IDV") == 0)
+               _detailURL = new std::string("http://www.bom.gov.au/vic/observations/vicall.shtml");
+           if (_id->find("IDN") == 0)
+               _detailURL = new std::string("http://www.bom.gov.au/nsw/observations/nswall.shtml");     
+           if (_id->find("IDS") == 0)
+               _detailURL = new std::string("http://www.bom.gov.au/sa/observations/saall.shtml");     
+           if (_id->find("IDT") == 0)
+               _detailURL = new std::string("http://www.bom.gov.au/tas/observations/tasall.shtml");     
+
+
+           if (_name->find("Darwin") == 0)
+               _detailURL = new std::string("http://www.bom.gov.au/nt/observations/ntall.shtml");
+           if (_name->find("Brisbane") == 0)
+               _detailURL = new std::string("http://www.bom.gov.au/qld/observations/qldall.shtml");     
+           if (_name->find("Perth") == 0)
+               _detailURL = new std::string("http://www.bom.gov.au/wa/observations/waall.shtml");     
+
+
+           //http://www.bom.gov.au/vic/observations/vicall.shtml
+           //http://www.bom.gov.au/nsw/observations/nswall.shtml
+            filename += "_" + name;
+         }
+         _cookie = new std::string(cookie);
+         _viewURL = new std::string(view_url);
+
+
+        _fileName = new std::string(filename);
+        _converter = new std::string(sourcelist->at(source_id)->binary());
+
+        delete sourcelist;
+
+
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::~Station(){
@@ -227,14 +294,11 @@ namespace Core {
 
 ////////////////////////////////////////////////////////////////////////////////
     bool Station::updateData(bool force){
-    bool result = false;
-//        if(!force || dataValid())
-//            return true;
+        bool result = false;
         std::string command;
-        //std::string command = "wget -O ";
-        //command = command + this->fileName() + ".orig '" + this->forecastURL() + "'";
-        //std::cerr<<" URL "<<command<<std::endl;
-        //if (system(command.c_str()) == 0){
+        /* To do */
+        /* Check connection and if force true update connection */
+        force = false;
         if (Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie())) {
             result = true;
         }else{

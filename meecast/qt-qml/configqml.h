@@ -107,7 +107,6 @@ public:
     Q_INVOKABLE void prevstation();
     Q_INVOKABLE void updatestations();
     Q_INVOKABLE void showweb();
-    Q_INVOKABLE void runsetting();
     Q_INVOKABLE void closeapplication();
     Q_INVOKABLE QStringList temperature_list();
     Q_INVOKABLE void temperature_unit(QString c);

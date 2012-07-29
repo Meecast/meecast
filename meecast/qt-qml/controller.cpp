@@ -184,7 +184,9 @@ Controller::load_data()
   }
 
   /* set next day */
-  i = 3600*24;
+//  i = 3600*24;
+  i = 0;
+  fprintf(stderr,"First day in controller %i\n", current_day + 14 * 3600);
   /* fill other days */
   while  (_dp != NULL && (temp_data = _dp->data().GetDataForTime( current_day + 14 * 3600  + i))) {
       forecast_data = new DataItem(temp_data);
@@ -195,6 +197,7 @@ Controller::load_data()
       forecast_data->temperatureunit = _config->temperatureunit();
       forecast_data->windunit = _config->windspeedunit();
       forecast_data->pressureunit = _config->pressureunit();
+      std::cerr<<i<< " Text "<< forecast_data->Text().c_str()<<std::endl;
       _model->appendRow(forecast_data);
       i = i + 3600*24;
   }
@@ -222,16 +225,18 @@ Controller::load_data()
   i =0;
   
   /* fill hours */
-  while  (_dp != NULL && i<24*3600) {
-      if (temp_data = _dp->data().GetDataForTime(current_hour + i, true)){
-          forecast_data = new DataItem(temp_data);
-          forecast_data->Text(_(forecast_data->Text().c_str()));
-          forecast_data->temperatureunit = _config->temperatureunit();
-          forecast_data->windunit = _config->windspeedunit();
-          forecast_data->pressureunit = _config->pressureunit();
-          _hours_model->appendRow(forecast_data);
-      }
-      i = i + 3600;
+  while  (_dp != NULL && i<5*24*3600) {
+    if (temp_data = _dp->data().GetDataForTime(current_hour + i, true)){
+        if (temp_data->StartTime() + 60 == current_hour + i){
+            forecast_data = new DataItem(temp_data);
+            forecast_data->Text(_(forecast_data->Text().c_str()));
+            forecast_data->temperatureunit = _config->temperatureunit();
+            forecast_data->windunit = _config->windspeedunit();
+            forecast_data->pressureunit = _config->pressureunit();
+            _hours_model->appendRow(forecast_data);
+        }
+    }
+    i = i + 3600;
   }
 
   _qview->rootContext()->setContextProperty("Current", _current);

@@ -226,6 +226,7 @@ DataModel::update(QString filename, int  period)
             break;
         case day_period:
           //  i = 3600*24;
+           // fprintf(stderr,"First day in datamodel %i\n", current_day + 14 * 3600);
             i = 0;
             while  (dp != NULL && (temp_data = dp->data().GetDataForTime(current_day + 14*3600 + i))) {
                 forecast_data = new DataItem(temp_data);
@@ -257,7 +258,7 @@ DataModel::update(QString filename, int  period)
             }
             break;
         case hours_period:
-	    /* set current hour */
+	        /* set current hour */
             current_hour = time(NULL);
             tm = gmtime(&current_hour);
             tm->tm_sec = 0; tm->tm_min = 1; 
@@ -266,14 +267,16 @@ DataModel::update(QString filename, int  period)
             i =0;
             
             /* fill hours */
-            while  (dp != NULL && i<24*3600) {
+            while  (dp != NULL && i<5*24*3600) {
                 if (temp_data = dp->data().GetDataForTime(current_hour + i, true)){
-                    forecast_data = new DataItem(temp_data);
-                    forecast_data->Text(_(forecast_data->Text().c_str()));
-                    forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
-                    forecast_data->windunit = _config->WindSpeedUnit().c_str();
-                    forecast_data->pressureunit = _config->PressureUnit().c_str();
-                    this->appendRow(forecast_data);
+                    if (temp_data->StartTime() + 60 == current_hour + i){
+                        forecast_data = new DataItem(temp_data);
+                        forecast_data->Text(_(forecast_data->Text().c_str()));
+                        forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
+                        forecast_data->windunit = _config->WindSpeedUnit().c_str();
+                        forecast_data->pressureunit = _config->PressureUnit().c_str();
+                        this->appendRow(forecast_data);
+                    }
                 }
                 i = i + 3600;
             }

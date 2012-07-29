@@ -17,7 +17,7 @@ Page {
     Flickable {
         anchors.fill: parent
         flickableDirection: Flickable.VerticalFlick
-        contentHeight: 1450
+        contentHeight: 1850
         Label {
             id: titletext
             text: Config.tr("MeeCast for Harmattan")
@@ -154,10 +154,26 @@ Page {
 	    anchors.left: parent.left
 	    anchors.top: leaddesignertext.bottom
 	}
+	Label {
+            id: projectmanagertext 
+            text: Config.tr("Project manager") + ":"
+	    anchors.top: leaddesignerfulltext.bottom
+	    anchors.topMargin: 30 
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    color: "#999999"
+        }
+	Label {
+            id: projectmanagerfulltext 
+	    text: "Ludmila Lisovskaya"
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    anchors.top: projectmanagertext.bottom
+	}
         Label {
             id: translatorstext
             text: Config.tr("Translators") + ":"
-            anchors.top: leaddesignerfulltext.bottom
+            anchors.top: projectmanagerfulltext.bottom
             anchors.topMargin: 30
             anchors.leftMargin: 20
             anchors.left: parent.left
@@ -173,11 +189,17 @@ Russian - Pavel Fialko, Vlad Vasiliev, \n \
 Finnish - Marko Vertainen\n \
 German -  Claudius Henrichs\n \
 Italian - Pavel Fialko, Alessandro Pasotti,\n \
-\tSalvatore Fiorenzo, Luca Onnis\n \
+\tSalvatore Fiorenzo, Ilir Gjika,\n \
+\tLuca Onnis\n \
 Spanish - Alejandro Lopez\n \
 Polish - Tomasz Dominikowski\n \
-Slovak - Roman Moravčík \n \
-Swedish - Angela Nennebrandt, Tomislav Veleckovik")
+Slovak - Roman Moravčík\n \
+Dutch - Tom Leenders, Michiel Pater\n \
+Bulgarian - Zlatko Enikov\n \
+Albanian - Ilir Gjika\n \
+Swedish - Angela Nennebrandt,\n \
+\tNiklas Åkerström, \n \
+\tTomislav Veleckovik")
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    anchors.top: translatorstext.bottom

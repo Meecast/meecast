@@ -93,4 +93,13 @@ namespace Core {
         }
         return NULL;
     }
+////////////////////////////////////////////////////////////////////////////////
+    int SourceList::source_id_by_name(const std::string& source_name){
+        for(unsigned i = 0; i < this->size(); i++){
+            if(this->at(i)->name() == source_name)
+                return i;
+        }
+        return -1;
+    }
+
 } // namespace Core

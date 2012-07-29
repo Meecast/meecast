@@ -1,0 +1,4 @@
+
+    g_hash_table_insert(hash, "Sydney", "Sydney Airport");
+    g_hash_table_insert(hash, "Melbourne", "Melbourne Airport");
+

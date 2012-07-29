@@ -1,4 +1,10 @@
-omweather-weather-com-stations-db (1.0.6) unstable; urgency=low
+oomweather-weather-com-stations-db (1.0.7) unstable; urgency=low
+
+  * Added station Villa Angela 
+
+ --  Vlad Vasiliev <vlad@gas.by>  Sun, 25 Mar 2012 11:14:31 +0200
+
+mweather-weather-com-stations-db (1.0.6) unstable; urgency=low
 
   * Fixed station Campbelltown
 

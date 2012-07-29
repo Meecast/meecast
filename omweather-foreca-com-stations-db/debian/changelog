@@ -2,4 +2,12 @@ omweather-foreca-com-stations-db (0.1) unstable; urgency=low
 
   * Initial release.
 
+
  --  Vlad Vasiliev <vlad@gas.by>  Sun, 26 Feb 2011 19:53:20 +0200
+
+Added Albania, Andorra, Czech Republic, Hungary, Iceland, France,Malta,Monaco,United States (California, Washington) to foreca.com database
+Added Spain, Portugal
+Added United States(Alabama, Alaska,Arizona, Arkansas, Colorado, Connecticut, Delaware,Florida,Georgia,Hawaii,Idaho,Illinois,Indiana,Iowa,Kansas)
+Added United states (Ohio,Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, Wisconsin, Wyoming) to foreca.com
+Added South America (Chile) to foreca.com
+

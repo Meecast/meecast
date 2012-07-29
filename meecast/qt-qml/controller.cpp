@@ -31,47 +31,27 @@ ConfigQml *
 create_and_fill_config(){
     ConfigQml *config;
 
-    std::cerr<<"Create Config class: " << Core::AbstractConfig::prefix+
-                               Core::AbstractConfig::schemaPath+
-                               "config.xsd"<< std::endl;
+    std::cerr<<"Create Config class: " << std::endl;
     try{
-        config = new ConfigQml(Core::AbstractConfig::getConfigPath()+
-                               "config.xml",
-                               Core::AbstractConfig::prefix+
-                               Core::AbstractConfig::schemaPath+
-                               "config.xsd");
-        std::cerr << config->stationsList().size() << std::endl;
+        config = ConfigQml::Instance(Core::AbstractConfig::getConfigPath()+
+                                       "config.xml",
+                                       Core::AbstractConfig::prefix+
+                                       Core::AbstractConfig::schemaPath+
+                                       "config.xsd");
     }
     catch(const std::string &str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
-        config = new ConfigQml();
+        config =  ConfigQml::Instance();
     }
     catch(const char *str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
-        config = new ConfigQml();
+        config =  ConfigQml::Instance();
     }
     //std::cerr<<"End of creating Config class: " <<std::endl;
     config->saveConfig();
     std::cerr<<"End of creating Config class" <<std::endl;
 
     return config;
-}
-
-Core::DataParser*
-current_data(std::string& str){
-  Core::DataParser* dp;
-  try{
-        dp = new Core::DataParser(str, Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd");
-    }
-    catch(const std::string &str){
-        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
-        return NULL;
-    }
-    catch(const char *str){
-        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
-        return NULL;
-    }
-    return dp;
 }
 
 
@@ -87,7 +67,7 @@ Controller::Controller() : QObject()
 Controller::~Controller()
 {
   if (_dp) 
-      delete _dp;
+      _dp->DeleteInstance();
 
 }
 
@@ -107,12 +87,26 @@ Controller::load_data()
   Core::Data *temp_data = NULL;
   int i = 0;
   
-  if (_dp)
-      delete _dp;
-  _dp = NULL;
+ /*  std::cerr<<" Controller::load_data()"<<std::endl; */
+
+  _dp->DeleteInstance(); 
+         
   if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0 &&
-        _config->stationsList().at(_config->current_station_id()))
-        _dp = current_data(_config->stationsList().at(_config->current_station_id())->fileName());
+        _config->stationsList().at(_config->current_station_id())){
+          try{
+                _dp =  Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName(), Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd");
+            }
+            catch(const std::string &str){
+                std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+                _dp = Core::DataParser::Instance();
+            //    return;
+            }
+            catch(const char *str){
+                std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+                _dp = Core::DataParser::Instance();
+           //     return;
+            }
+  }
 
   _model = new DataModel(new DataItem, qApp);
   _current = new DataModel(new DataItem, qApp);
@@ -122,6 +116,7 @@ Controller::load_data()
 
   /* set current day */ 
   current_day = time(NULL);
+
   tm = gmtime(&current_day);
   tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
   tm->tm_isdst = 1;
@@ -131,6 +126,9 @@ Controller::load_data()
   if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))) {
       forecast_data = new DataItem(temp_data);
       forecast_data->Text(_(forecast_data->Text().c_str()));
+
+      fprintf(stderr,"Current time %i\n", time(NULL));
+      std::cerr<<i<< " Text Current "<< forecast_data->Text().c_str()<<std::endl;
       forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 14 * 3600));
       forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 14 * 3600));
       forecast_data->LastUpdate(_dp->LastUpdate());
@@ -184,36 +182,40 @@ Controller::load_data()
   }
 
   /* set next day */
-//  i = 3600*24;
+  //i = 3600*24;
   i = 0;
-  fprintf(stderr,"First day in controller %i\n", current_day + 14 * 3600);
   /* fill other days */
-  while  (_dp != NULL && (temp_data = _dp->data().GetDataForTime( current_day + 14 * 3600  + i))) {
-      forecast_data = new DataItem(temp_data);
-      forecast_data->Text(_(forecast_data->Text().c_str()));
-      forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 14 * 3600  + i));
-      forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 14 * 3600  + i));
-      forecast_data->LastUpdate(_dp->LastUpdate());
-      forecast_data->temperatureunit = _config->temperatureunit();
-      forecast_data->windunit = _config->windspeedunit();
-      forecast_data->pressureunit = _config->pressureunit();
-      std::cerr<<i<< " Text "<< forecast_data->Text().c_str()<<std::endl;
-      _model->appendRow(forecast_data);
+  while  (_dp != NULL && ((temp_data = _dp->data().GetDataForTime( current_day + 14 * 3600  + i)) || (i < 7*3600*24))) {
+      // fprintf(stderr,"Controller1 %i\n", current_day + 14 * 3600 + i);
+      if (temp_data){
+          forecast_data = new DataItem(temp_data);
+          forecast_data->Text(_(forecast_data->Text().c_str()));
+          forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 14 * 3600  + i));
+          forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 14 * 3600  + i));
+          forecast_data->LastUpdate(_dp->LastUpdate());
+          forecast_data->temperatureunit = _config->temperatureunit();
+          forecast_data->windunit = _config->windspeedunit();
+          forecast_data->pressureunit = _config->pressureunit();
+          _model->appendRow(forecast_data);
+      }
       i = i + 3600*24;
   }
   /* set next night */
-  i = 3600*24;
+//  i = 3600*24;
+  i = 0;
   /* fill other nights */
-  while  (_dp != NULL && (temp_data = _dp->data().GetDataForTime( current_day + 3 * 3600  + i))) {
-      forecast_data = new DataItem(temp_data);
-      forecast_data->Text(_(forecast_data->Text().c_str()));
-      forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 3 * 3600  + i));
-      forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 3 * 3600  + i));
-      forecast_data->LastUpdate(_dp->LastUpdate());
-      forecast_data->temperatureunit = _config->temperatureunit();
-      forecast_data->windunit = _config->windspeedunit();
-      forecast_data->pressureunit = _config->pressureunit();
-      _night_model->appendRow(forecast_data);
+  while  (_dp != NULL && ((temp_data = _dp->data().GetDataForTime( current_day + 3 * 3600  + i)) || (i < 7*3600*24))) {
+      if (temp_data){
+          forecast_data = new DataItem(temp_data);
+          forecast_data->Text(_(forecast_data->Text().c_str()));
+          forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 3 * 3600  + i));
+          forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 3 * 3600  + i));
+          forecast_data->LastUpdate(_dp->LastUpdate());
+          forecast_data->temperatureunit = _config->temperatureunit();
+          forecast_data->windunit = _config->windspeedunit();
+          forecast_data->pressureunit = _config->pressureunit();
+          _night_model->appendRow(forecast_data);
+      }
       i = i + 3600*24;
   }
   /* set current hour */
@@ -268,7 +270,7 @@ Controller::load_data()
 void
 Controller::load_config()
 {
-   std::cout<<"Load";
+   std::cout<<"Load"<<std::endl;
   _config = create_and_fill_config();   
   _qview->rootContext()->setContextProperty("Config", _config);
 }
@@ -276,8 +278,7 @@ void
 Controller::reload_config()
 {
   std::cout<<"Reload";
-  delete _config;
-  this->load_config();
+  _config->ReLoadConfig();
   delete _model;
   this->load_data();
 }

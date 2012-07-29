@@ -35,7 +35,7 @@ DataModel::DataModel(DataItem* prototype, QObject *parent) :
 {
     setRoleNames(_prototype->roleNames());
     try{
-        _config = new Core::Config(Core::AbstractConfig::getConfigPath()+
+       _config =  ConfigQml::Instance(Core::AbstractConfig::getConfigPath()+
                                "config.xml",
                                Core::AbstractConfig::prefix+
                                Core::AbstractConfig::schemaPath+
@@ -43,11 +43,11 @@ DataModel::DataModel(DataItem* prototype, QObject *parent) :
     }
     catch(const std::string &str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
-        _config = new Core::Config();
+        _config =  ConfigQml::Instance();
     }
     catch(const char *str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
-        _config = new Core::Config();
+        _config =  ConfigQml::Instance();
     }
 }
 
@@ -107,9 +107,30 @@ DataModel::appendRow(DataItem *item)
     _list.append(item);
     endInsertRows();
     //return (_list.size() - 1);
+} 
+
+void 
+DataModel::reload_data(QString filename)
+{
+   Core::DataParser* dp = NULL;
+   if (!filename.isEmpty()){
+        try{
+            dp = Core::DataParser::Instance(filename.toStdString(),
+                                      Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd");
+        }
+        catch(const std::string &str){
+            std::cerr<<"Error in DataParser class: "<< str << std::endl;
+            //return NULL;
+        }
+        catch(const char *str){
+            std::cerr<<"Error in DataParser class: "<< str << std::endl;
+            //return NULL;
+        }
+    }
+
 }
 void
-DataModel::update(QString filename, int  period)
+DataModel::update_model(int period)
 {
     this->clear();
     DataItem *forecast_data = NULL;
@@ -122,52 +143,25 @@ DataModel::update(QString filename, int  period)
     struct tm   *tm = NULL;
     int year, current_month;
 
-    if (_config) delete _config;
-    try{
-        _config = new Core::Config(Core::AbstractConfig::getConfigPath()+
-                               "config.xml",
-                               Core::AbstractConfig::prefix+
-                               Core::AbstractConfig::schemaPath+
-                               "config.xsd");
-    }
-    catch(const std::string &str){
-        std::cerr<<"Error in Config class: "<< str <<std::endl;
-        _config = new Core::Config();
-    }
-    catch(const char *str){
-        std::cerr<<"Error in Config class: "<< str <<std::endl;
-        _config = new Core::Config();
-    }
+    /* std::cerr<<"Update model"<<std::endl; */
 
-    if (!filename.isEmpty()){
-        try{
-            dp = new Core::DataParser(filename.toStdString(),
-                                      Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd");
-        }
-        catch(const std::string &str){
-            std::cerr<<"Error in DataParser class: "<< str << std::endl;
-            //return NULL;
-        }
-        catch(const char *str){
-            std::cerr<<"Error in DataParser class: "<< str << std::endl;
-            //return NULL;
-        }
-    }
+    dp = Core::DataParser::Instance();
     /* set current day */ 
     current_day = time(NULL);
+
     //tm = localtime(&current_day);
     tm = gmtime(&current_day);
     year = 1900 + tm->tm_year;
     current_month = tm->tm_mon;
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     tm->tm_isdst = 1;
+    current_day = mktime(tm);
 
     if (dp)
         temp_data = dp->data().GetDataForTime(time(NULL));
 //    if (temp_data)
 //        current_day = current_day + 3600*dp->timezone();
 
-    current_day = mktime(tm);
     /* fill current date */
     switch (period) {
         case current_period:
@@ -183,7 +177,8 @@ DataModel::update(QString filename, int  period)
                 forecast_data->pressureunit = _config->PressureUnit().c_str();
                 this->appendRow(forecast_data);
                 MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
-                QString icon_string =  _config->iconspath().c_str();
+               // QString icon_string =  _config->iconspath().c_str();
+                QString icon_string =  _config->iconspath();
                 icon_string.append("/") ;
                 icon_string.append(_config->iconSet().c_str());
                 icon_string.append("/") ;
@@ -203,7 +198,8 @@ DataModel::update(QString filename, int  period)
                     result_time = temp_data->EndTime();
                 QDateTime t;
                 t.setTime_t(dp->LastUpdate());
-                dbusclient->SetCurrentData(stationname.fromUtf8(_config->stationname().c_str()), forecast_data->temperature(), 
+                dbusclient->SetCurrentData(_config->stationname(), 
+                                           forecast_data->temperature(), 
                                            forecast_data->temperature_high(), 
                                            forecast_data->temperature_low(), 
                                            icon_string, result_time, forecast_data->current(), 
@@ -228,32 +224,36 @@ DataModel::update(QString filename, int  period)
           //  i = 3600*24;
            // fprintf(stderr,"First day in datamodel %i\n", current_day + 14 * 3600);
             i = 0;
-            while  (dp != NULL && (temp_data = dp->data().GetDataForTime(current_day + 14*3600 + i))) {
-                forecast_data = new DataItem(temp_data);
-                forecast_data->Text(forecast_data->Text().c_str());
-                forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 14*3600 + i));
-                forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 14*3600  + i));
-                forecast_data->LastUpdate(dp->LastUpdate());
-                forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
-                forecast_data->windunit = _config->WindSpeedUnit().c_str();
-                forecast_data->pressureunit = _config->PressureUnit().c_str();
-                this->appendRow(forecast_data);
+            while  (dp != NULL && ((temp_data = dp->data().GetDataForTime(current_day + 14*3600 + i)) || (i < 7*3600*24))) {
+                if (temp_data){
+                    forecast_data = new DataItem(temp_data);
+                    forecast_data->Text(forecast_data->Text().c_str());
+                    forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 14*3600 + i));
+                    forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 14*3600  + i));
+                    forecast_data->LastUpdate(dp->LastUpdate());
+                    forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
+                    forecast_data->windunit = _config->WindSpeedUnit().c_str();
+                    forecast_data->pressureunit = _config->PressureUnit().c_str();
+                    this->appendRow(forecast_data);
+                }
                 i = i + 3600*24;
             }
             break;
         case night_period:
          //   i = 3600*24;
             i = 0;
-            while  (dp != NULL && (temp_data = dp->data().GetDataForTime(current_day + 3*3600 + i))) {
-                forecast_data = new DataItem(temp_data);
-                forecast_data->Text(forecast_data->Text().c_str());
-                forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 3*3600 + i));
-                forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 3*3600  + i));
-                forecast_data->LastUpdate(dp->LastUpdate());
-                forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
-                forecast_data->windunit = _config->WindSpeedUnit().c_str();
-                forecast_data->pressureunit = _config->PressureUnit().c_str();
-                this->appendRow(forecast_data);
+            while  (dp != NULL && ((temp_data = dp->data().GetDataForTime(current_day + 3*3600 + i)) || (i < 7*3600*24))) {
+                if (temp_data){
+                    forecast_data = new DataItem(temp_data);
+                    forecast_data->Text(forecast_data->Text().c_str());
+                    forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 3*3600 + i));
+                    forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 3*3600  + i));
+                    forecast_data->LastUpdate(dp->LastUpdate());
+                    forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
+                    forecast_data->windunit = _config->WindSpeedUnit().c_str();
+                    forecast_data->pressureunit = _config->PressureUnit().c_str();
+                    this->appendRow(forecast_data);
+                }
                 i = i + 3600*24;
             }
             break;
@@ -282,5 +282,7 @@ DataModel::update(QString filename, int  period)
             }
             break;
     }
+    dp->DeleteInstance();
     this->reset();
+    
 }

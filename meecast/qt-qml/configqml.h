@@ -36,11 +36,16 @@
 #include <QColor>
 #include <QDesktopServices>
 #include <QUrl>
-#include "datamodel.h"
-#include "dataitem.h"
 #include "updatethread.h"
 #include "gpsposition.h"
 #include <MGConfItem>
+#include <QSettings>
+
+#include <libintl.h>
+#include <locale.h>
+
+
+#define _(String) gettext(String)
 
 class ConfigQml : public QObject, public Core::Config
 
@@ -57,8 +62,10 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(bool lockscreen READ lockscreen NOTIFY lockscreenChanged)
     Q_PROPERTY(bool standbyscreen READ standbyscreen NOTIFY standbyscreenChanged)
     Q_PROPERTY(bool eventwidget READ eventwidget NOTIFY eventwidgetChanged)
+    Q_PROPERTY(bool splash READ splash NOTIFY splashChanged)
     Q_PROPERTY(bool gps READ gps NOTIFY gpsChanged)
     Q_PROPERTY(QColor fontcolor READ fontcolor NOTIFY fontcolorChanged)
+    Q_PROPERTY(QColor standby_color_font_stationname READ standby_color_font_stationname NOTIFY standby_color_font_stationnameChanged)
     Q_PROPERTY(QString stationname READ stationname NOTIFY stationnameChanged)
     Q_PROPERTY(QString prevstationname READ prevstationname NOTIFY prevstationnameChanged)
     Q_PROPERTY(QString nextstationname READ nextstationname NOTIFY nextstationnameChanged)
@@ -66,9 +73,31 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString source READ source NOTIFY sourceChanged)
     Q_PROPERTY(QString version READ version NOTIFY versionChanged)
     Q_PROPERTY(int updateinterval READ updateinterval NOTIFY updateintervalChanged)
-public:
+private:
+    Core::DatabaseSqlite *db;
+    UpdateThread *thread;
+    GpsPosition *_gps;
+    int getCountryId(int index);
+    int getRegionId(int country, int index);
+    int getGpsStation();
+    QString getCityId(int region_id, int index);
+    void init();
+    QStringList wind_list;
+    QStringList press_list;
+    QSettings *standby_settings;
+    QColor _standby_color_font_stationname;
+protected:
+    static ConfigQml* _self;
+    static int _refcount;
+    virtual ~ConfigQml();
     ConfigQml();
     ConfigQml(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
+
+
+
+public:
+    static ConfigQml* Instance();
+    static ConfigQml* Instance(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
     QString iconset();
     QString iconspath();
     QString imagespath();
@@ -81,13 +110,16 @@ public:
     bool standbyscreen();
     bool eventwidget();
     bool gps();
+    bool splash();
     QColor fontcolor();
+    QColor standby_color_font_stationname();
     QString stationname();
     QString prevstationname();
     QString nextstationname();
     QString filename();
     QString source();
     QString version();
+    void saveConfig();
     int updateinterval();
     QString viewURL();
     Q_INVOKABLE QStringList stations();
@@ -107,6 +139,8 @@ public:
     Q_INVOKABLE void prevstation();
     Q_INVOKABLE void updatestations();
     Q_INVOKABLE void showweb();
+    Q_INVOKABLE void showwebdonation();
+    Q_INVOKABLE void showwebsupport();
     Q_INVOKABLE void closeapplication();
     Q_INVOKABLE QStringList temperature_list();
     Q_INVOKABLE void temperature_unit(QString c);
@@ -120,12 +154,13 @@ public:
     Q_INVOKABLE void setstandbyscreen(bool c);
     Q_INVOKABLE void seteventwidget(bool c);
     Q_INVOKABLE void setgps(bool c);
+    Q_INVOKABLE void setsplash(bool c);
     Q_INVOKABLE QStringList icon_list();
     Q_INVOKABLE void set_iconset(QString c);
+    Q_INVOKABLE void set_standby_color_font_stationname(QColor c);
     Q_INVOKABLE QString tr(QString str);
     Q_INVOKABLE void enableGps();
     void refreshconfig();
-    virtual ~ConfigQml(){};
 signals:
     void iconsetChanged();
     void iconspathChanged();
@@ -140,6 +175,7 @@ signals:
     void eventwidgetChanged();
     void gpsChanged();
     void fontcolorChanged();
+    void standby_color_font_stationnameChanged();
     void stationnameChanged();
     void prevstationnameChanged();
     void nextstationnameChanged();
@@ -148,21 +184,10 @@ signals:
     void versionChanged();
     void updateintervalChanged();
     void configChanged();
+    void splashChanged();
 public Q_SLOTS:
     void reload_config();
     void addGpsStation(double latitude, double longitude);
-private:
-    Core::DatabaseSqlite *db;
-    UpdateThread *thread;
-    GpsPosition *_gps;
-    int getCountryId(int index);
-    int getRegionId(int country, int index);
-    int getGpsStation();
-    QString getCityId(int region_id, int index);
-    void init();
-    QStringList wind_list;
-    QStringList press_list;
-
 private slots:
     void downloadFinishedSlot();
 

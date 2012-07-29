@@ -31,6 +31,8 @@
 #include <QDeclarativeView>
 #include <QDeclarativeContext>
 #include "configqml.h"
+#include "datamodel.h"
+#include "dataitem.h"
 #include "selectmodel.h"
 #include "countrymodel.h"
 #include "regionmodel.h"

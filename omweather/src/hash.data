@@ -172,6 +172,7 @@
     g_hash_table_insert(hash, (void*)"Overcast and snow", _("Overcast and snow"));
     g_hash_table_insert(hash, (void*)"Overcast and wet snow showers", _("Overcast and wet snow showers"));
     g_hash_table_insert(hash, (void*)"Overcast and wet snow", _("Overcast and wet snow"));
+    g_hash_table_insert(hash, (void*)"Overcast, thunderstorms with rain", _("Overcast, thunderstorms with rain"));
     g_hash_table_insert(hash, (void*)"Overcast", _("Overcast"));
     g_hash_table_insert(hash, (void*)"PM Fog", _("PM Fog"));
     g_hash_table_insert(hash, (void*)"PM Light Rain / Wind", _("PM Light Rain / Wind"));
@@ -188,6 +189,7 @@
     g_hash_table_insert(hash, (void*)"PM Snow", _("PM Snow"));
     g_hash_table_insert(hash, (void*)"PM T-Showers", _("PM T-Showers"));
     g_hash_table_insert(hash, (void*)"PM T-Storms", _("PM T-Storms"));
+    g_hash_table_insert(hash, (void*)"Partly cloudy, possible thunderstorms with rain", _("Partly cloudy, possible thunderstorms with rain"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy / Wind", _("Partly Cloudy / Wind"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy Few Snow", _("Partly Cloudy Few Snow"));
     g_hash_table_insert(hash, (void*)"Partly Cloudy Light Rain", _("Partly Cloudy Light Rain"));
@@ -285,6 +287,7 @@
     g_hash_table_insert(hash, (void*)"T-Storms", _("T-Storms"));
     g_hash_table_insert(hash, (void*)"Temperature units", _("Temperature units"));
     g_hash_table_insert(hash, (void*)"Thunder", _("Thunder"));
+    g_hash_table_insert(hash, (void*)"Thunder in the Vicinity", _("Thunder in the Vicinity"));
     g_hash_table_insert(hash, (void*)"Try to update", _("Try to update"));
     g_hash_table_insert(hash, (void*)"Unlimited", _("Unlimited"));
     g_hash_table_insert(hash, (void*)"Updating forecast", _("Updating forecast"));

@@ -40,6 +40,8 @@ namespace Core {
     Parser::Parser(){}
     Parser::Parser(const std::string& filename, const std::string& schema_filename)
                         : AbstractConfig(){
+        _filename = filename;
+        /* std::cerr<<"Parse file "<<filename<<std::endl; */
     #ifdef LIBXML
         if(filename.empty())
             throw("Invalid source file.");
@@ -72,31 +74,30 @@ namespace Core {
     #ifdef QT
     QFile file(QString::fromStdString(filename));
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
-            std::cerr<<"error file open"<<std::endl;
-            throw("Invalid source file");
-            return;
+                std::cerr<<"error file open"<<std::endl;
+                throw("Invalid source file");
+                return;
         }
-    if (false){
-        QXmlSchema schema;
-        if (!schema.load(QUrl(":" + QString::fromStdString(schema_filename)))){
-            throw("Invalid schema file");
-            return;
-        }
-        if (!schema.isValid()){
-            throw("Schema is invalid");
-            return;
-        }
-    
-        QXmlSchemaValidator validator(schema);
-        if (!validator.validate(&file, QUrl::fromLocalFile(file.fileName()))){
-            //qDebug() << "File " << filename << " is invalid";
+        if (false){
+            QXmlSchema schema;
+            if (!schema.load(QUrl(":" + QString::fromStdString(schema_filename)))){
+                throw("Invalid schema file");
+                return;
+            }
+            if (!schema.isValid()){
+                throw("Schema is invalid");
+                return;
+            }
+        
+            QXmlSchemaValidator validator(schema);
+            if (!validator.validate(&file, QUrl::fromLocalFile(file.fileName()))){
+                //qDebug() << "File " << filename << " is invalid";
+                file.close();
+                throw("Xml file is invalid");
+                return;
+            }
             file.close();
-            throw("Xml file is invalid");
-            return;
         }
-        file.close();
-    }
-        file.open(QIODevice::ReadOnly | QIODevice::Text);
         if (!_doc.setContent((&file))){
             file.close();
             throw("Error set content");
@@ -108,6 +109,25 @@ namespace Core {
 
     #endif
     #endif //LIBXML
+    }
+////////////////////////////////////////////////////////////////////////////////
+    void
+    Parser::Reloadfile(){
+    
+        /* std::cerr<<"_Filename "<<_filename<<std::endl; */
+        QFile file(QString::fromStdString(_filename));
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
+                std::cerr<<"error file open"<<std::endl;
+                throw("Invalid source file");
+                return;
+        }
+        if (!_doc.setContent((&file))){
+                file.close();
+                throw("Error set content");
+                return;
+        }
+        file.close();
+
     }
 ////////////////////////////////////////////////////////////////////////////////
     Parser::~Parser(){

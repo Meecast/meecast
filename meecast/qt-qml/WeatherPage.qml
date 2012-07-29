@@ -9,6 +9,7 @@ Page {
     property int margin: 16
     property int screen_width : 854
     property bool isUpdate: false
+    property real flick_start_position: 0
 
     tools: ToolBarLayout {
         ToolIcon {
@@ -143,18 +144,21 @@ Page {
         isUpdate = true;
         Config.updatestations();
     }
+
     function updatemodels()
     {
-        Current.update(Config.filename, 0);
-        Current_night.update(Config.filename, 1);
-        Forecast_model.update(Config.filename, 2);
-        Forecast_night_model.update(Config.filename, 3);
-        Forecast_hours_model.update(Config.filename, 4);
+        Current.reload_data(Config.filename);
+        Current.update_model(0);
+        Current_night.update_model(1);
+        Forecast_model.update_model(2);
+        Forecast_night_model.update_model(3);
+        Forecast_hours_model.update_model(4);
         list.height = 80 * Forecast_model.rowCount();
         dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
         current_rect.visible = Current.rowCount() == 0 ? false : true;
         list.visible = (Forecast_model.rowCount() == 0) ? false : true;
     }
+
     function updatestationname()
     {
         main.updatemodels();
@@ -554,6 +558,7 @@ Page {
                             anchors.top: parent.top
                             anchors.left: icon.right
                             anchors.rightMargin: margin
+                            id: temp_text
                             width: 160
                             height: 84
                             color: "white"
@@ -562,20 +567,19 @@ Page {
                             verticalAlignment: Text.AlignVCenter
                             horizontalAlignment: Text.AlignHCenter
                             Component.onCompleted: {
-			        if (model.temp == "N/A"){
-				   text = ""
-				   if (model.temp_high != "N/A")
-                                       text = model.temp_high + '°'
-				   if ((model.temp_low != "N/A") && (model.temp_high != "N/A"))
-				       text =  text + " / "
-				   if (model.temp_low != "N/A")
-                                       text = text + model.temp_low + '°'
-                                   current_rect.color = getColor(model.temp_high);
-				}
-				else{
-                                   text = model.temp + '°'
+                                if (model.temp == "N/A"){
+				                    temp_text.text = ""
+				                    if (model.temp_high != "N/A")
+                                       temp_text.text = model.temp_high + '°'
+				                    if ((model.temp_low != "N/A") && (model.temp_high != "N/A"))
+				                       temp_text.text =  temp_text.text + " / "
+				                    if (model.temp_low != "N/A")
+                                       temp_text.text = temp_text.text + model.temp_low + '°'
+                                    current_rect.color = getColor(model.temp_high);
+                                }else{
+                                   temp_text.text = model.temp + '°'
                                    current_rect.color = getColor(model.temp);
-				}
+				                }
                             }
                         }
 		        Rectangle {

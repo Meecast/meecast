@@ -35,10 +35,14 @@
 #include <string.h>
 #include <fstream>
 ////////////////////////////////////////////////////////////////////////////////
-namespace Core{
+namespace Core{  
+    Config* Config::_self;
+    int Config::_refcount;
+
 ////////////////////////////////////////////////////////////////////////////////
 Config::Config()
 {
+    std::cerr<<"CONFIG CREATE111111!!!!!!!!!!!!!!"<<std::endl;
     _pathPrefix = new std::string(AbstractConfig::prefix + AbstractConfig::sharePath);
     _iconset = new std::string("Meecast");
     _temperature_unit = new std::string("C");
@@ -49,6 +53,7 @@ Config::Config()
     _lockscreen = false;
     _standbyscreen = false;
     _gps = false;
+    _splash = true;
     _font_color = new std::string("#00ff00");
     _stations = new StationsList;
     _current_station_id = INT_MAX;
@@ -63,6 +68,7 @@ void
 Config::saveConfig()
 {
     #ifdef QT 
+    std::cerr<<"SaveConfig"<<std::endl;
     QDomDocument doc;
     doc.appendChild(doc.createProcessingInstruction("xml", "version=\"1.0\" encoding=\"utf-8\""));
 
@@ -139,6 +145,14 @@ Config::saveConfig()
 
     el = doc.createElement("gps");
     if (_gps)
+        t = doc.createTextNode("true");
+    else
+        t = doc.createTextNode("false");
+    el.appendChild(t);
+    root.appendChild(el);
+
+    el = doc.createElement("splash");
+    if (_splash)
         t = doc.createTextNode("true");
     else
         t = doc.createTextNode("false");
@@ -232,6 +246,7 @@ Config::saveConfig()
         el.appendChild(t);
         st.appendChild(el);
 
+        
         root.appendChild(st);
         ++i;
     }
@@ -323,8 +338,28 @@ Config::saveConfig()
     #endif
 }
 ////////////////////////////////////////////////////////////////////////////////
+Config* 
+Config::Instance(){
+    if (!_self)
+        _self = new Config();
+    _refcount++;
+    std::cerr<<"Refcount for Config: "<<_refcount<<std::endl;
+    return _self;
+}
+////////////////////////////////////////////////////////////////////////////////
+Config* 
+Config::Instance(const std::string& filename, const std::string& schema_filename){
+    if (!_self)
+        _self = new Config(filename, schema_filename);
+    _refcount++;
+    std::cerr<<"Refcount for Config: "<<_refcount<<std::endl;
+    return _self;
+}
+
+////////////////////////////////////////////////////////////////////////////////
 Config::Config(const std::string& filename, const std::string& schema_filename)
                     : Parser(filename, schema_filename){
+    std::cerr<<"CONFIG CREATE222222!!!!!!!!!!!!!!"<<std::endl;
    /* std::cerr<<"new Config"<<std::endl; */
     _filename = new std::string;
     _filename->assign(filename);
@@ -338,6 +373,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _lockscreen = false;
     _standbyscreen = false;
     _gps = false;
+    _splash = true;
     _update_period = INT_MAX;
     _font_color = new std::string("#00ff00");
    /* std::cerr<<"new StationList"<<std::endl; */
@@ -349,12 +385,16 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
 ////////////////////////////////////////////////////////////////////////////////
 void
 Config::ReLoadConfig(){
+
+    std::cerr<<"ReLoadConfig"<<std::endl;
     _stations->clear();
+    this->Reloadfile();
     this->LoadConfig();
 }
 ////////////////////////////////////////////////////////////////////////////////
 void
 Config::LoadConfig(){
+    std::cerr<<"LoadConfig"<<std::endl;
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
     try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
@@ -376,8 +416,10 @@ Config::LoadConfig(){
         if (!el.isNull())
             _iconset->assign(el.text().toStdString());
         el = root.firstChildElement("current_station_id");
-        if (!el.isNull())
+        if (!el.isNull()){
             _current_station_id = el.text().toInt();
+            std::cerr<<"_CURRENT_STATION_ID "<<_current_station_id<<std::endl;
+        }
         el = root.firstChildElement("temperature_unit");
         if (!el.isNull())
             this->TemperatureUnit(el.text().toStdString());
@@ -402,6 +444,9 @@ Config::LoadConfig(){
         el = root.firstChildElement("gps");
         if (!el.isNull())
             _gps = (el.text() == "true") ? true : false;
+        el = root.firstChildElement("splash");
+        if (!el.isNull())
+            _splash = (el.text() == "true") ? true : false;
         el = root.firstChildElement("update_period");
         if (!el.isNull())
             _update_period = el.text().toInt();
@@ -410,6 +455,7 @@ Config::LoadConfig(){
         for (int i=0; i<nodelist.count(); i++){
             QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, cookie;
             bool gps = false;
+            bool splash = true;
             QDomElement e = nodelist.at(i).toElement();
             QDomNode n = e.firstChild();
             while (!n.isNull()){
@@ -440,6 +486,9 @@ Config::LoadConfig(){
                     converter = el.text();
                 else if (tag == "gps")
                     gps = (el.text() == "true") ? true : false;
+                else if (tag == "splash")
+                    splash = (el.text() == "true") ? true : false;
+
                 n = n.nextSibling();
             }
 /* Hack for yr.no */
@@ -570,6 +619,10 @@ Config::current_station_id(int id_station){
 }
 int   
 Config::current_station_id(){
+    if (_current_station_id >= this->stationsList().size())
+        _current_station_id = 0;
+    if (this->stationsList().size() == 0)
+        _current_station_id = INT_MAX;
     return _current_station_id;
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -659,6 +712,15 @@ Config::Gps(const bool uc){
 bool
 Config::Gps(void){
     return _gps;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::Splash(const bool uc){
+    _splash = uc;
+}
+bool
+Config::Splash(void){
+    return _splash;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void
@@ -836,6 +898,15 @@ void Config::processNode(const xmlpp::Node* node){
         const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
         std::string str = nodeText->get_content();
         (str.compare("true")) ? (_gps = false) : (_gps = true);
+        return;
+    }
+    // splash
+    if(nodeName == "splash"){
+        xmlpp::Node::NodeList list = node->get_children();
+        xmlpp::Node::NodeList::iterator iter = list.begin();
+        const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+        std::string str = nodeText->get_content();
+        (str.compare("true")) ? (_splash = false) : (_splash = true);
         return;
     }
     // update period

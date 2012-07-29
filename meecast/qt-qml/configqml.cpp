@@ -30,15 +30,48 @@
 
 #include "configqml.h"
 
+ConfigQml* ConfigQml::_self;
+int ConfigQml::_refcount;
+
+
 //ConfigQml::ConfigQml():QObject(),Core::Config("config.xml", "../core/data/config.xsd"){}
 ConfigQml::ConfigQml(const std::string& filename, const std::string& schema_filename):QObject(),Core::Config(filename, schema_filename)
 {
+    std::cerr<<"CONFIG CREATEQML11111!!!!!!!!!!!!!!"<<std::endl;
     init();
 }
 
 ConfigQml::ConfigQml():QObject(),Core::Config()
 {
+    std::cerr<<"CONFIG CREATEQML22222!!!!!!!!!!!!!!"<<std::endl;
     init();
+}
+
+ConfigQml::~ConfigQml()
+{
+    if (standby_settings)
+        delete standby_settings;
+}
+
+
+ConfigQml* 
+ConfigQml::Instance()
+{
+    if (!_self)
+        _self = new ConfigQml();
+    _refcount++;
+    std::cerr<<"RefcountQML1: "<<_refcount<<std::endl;
+    return _self;
+}
+
+ConfigQml* 
+ConfigQml::Instance(const std::string& filename, const std::string& schema_filename)
+{
+    if (!_self)
+        _self = new ConfigQml(filename, schema_filename);
+    _refcount++;
+    std::cerr<<"RefcountQML2: "<<_refcount<<std::endl;
+    return _self;
 }
 
 void ConfigQml::init()
@@ -46,6 +79,11 @@ void ConfigQml::init()
     int index;
     db = new Core::DatabaseSqlite("");
 
+    /* setting for stndbyscreen */
+    standby_settings = new QSettings("/home/user/.config/com.meecast.omweather/standby.conf",QSettings::NativeFormat); 
+    QVariant v = standby_settings->value("color_font_stationname", QColor(Qt::white));
+    _standby_color_font_stationname = v.value<QColor>();
+ 
     thread = new UpdateThread();
     connect(thread, SIGNAL(finished()), this, SLOT(downloadFinishedSlot()));
 
@@ -82,6 +120,15 @@ void ConfigQml::init()
             delete db_w;
         }
     }
+}
+
+void
+ConfigQml::saveConfig()
+{
+    Core::Config::saveConfig();
+    standby_settings->setValue("color_font_stationname", _standby_color_font_stationname);
+    standby_settings->sync();
+    qDebug()<<"SaveConfig";
 }
 
 QString
@@ -304,6 +351,29 @@ ConfigQml::seteventwidget(bool c)
     	QDesktopServices::openUrl(QUrl("file:///opt/com.meecast.omweather/share/packages/meecast-applet-enable_0.2_all.deb"));
     
 }
+bool
+ConfigQml::splash()
+{
+
+    if (QFile::exists("/home/user/.cache/com.meecast.omweather/splash.png"))
+        return true;
+    else
+        return false;
+}
+void
+ConfigQml::setsplash(bool c)
+{
+    ConfigQml::Config::Splash(c);
+    saveConfig();
+    refreshconfig();
+    if (!c && (QFile::exists("/home/user/.cache/com.meecast.omweather/splash.png")))
+       QFile::remove("/home/user/.cache/com.meecast.omweather/splash.png"); 
+
+    if (c)
+        /* Copy splash to cache directory */
+        QFile::copy("/opt/com.meecast.omweather/share/images/splash.png",
+                    "/home/user/.cache/com.meecast.omweather/splash.png");
+}
 
 bool
 ConfigQml::gps()
@@ -348,6 +418,18 @@ ConfigQml::fontcolor(){
     QColor c;
     c.setNamedColor(ConfigQml::Config::FontColor().c_str());
     return c;
+}
+
+QColor
+ConfigQml::standby_color_font_stationname(){
+    return _standby_color_font_stationname;
+}
+
+void
+ConfigQml::set_standby_color_font_stationname(QColor c)
+{   
+    _standby_color_font_stationname = c;
+//    saveConfig();
 }
 
 QStringList
@@ -659,6 +741,18 @@ ConfigQml::showweb()
     if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
                                                 &&  this->stationsList().at(this->current_station_id()))
         QDesktopServices::openUrl(QUrl(this->stationsList().at(this->current_station_id())->viewURL().c_str()));     
+}
+
+void
+ConfigQml::showwebdonation()
+{
+    QDesktopServices::openUrl(QUrl("http://omweather.garage.maemo.org/"));     
+}
+
+void
+ConfigQml::showwebsupport()
+{
+    QDesktopServices::openUrl(QUrl("http://meecast.com"));     
 }
 
 void

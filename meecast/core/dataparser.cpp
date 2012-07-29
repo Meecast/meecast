@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasiliev
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -37,6 +37,9 @@
 #endif
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
+     DataParser* DataParser::_self;
+     int DataParser::_refcount = 0;
+     DataList *DataParser::_list;
 ////////////////////////////////////////////////////////////////////////////////
     DataParser::DataParser()
     {
@@ -47,10 +50,16 @@ namespace Core {
         _list->push_back(forecast_data);
         _last_update = 0;
     }
+////////////////////////////////////////////////////////////////////////////////
     DataParser::DataParser(const std::string& filename, const std::string& schema_filename) : Parser(filename, schema_filename) {
+        this->load_data(filename, schema_filename);
+           }
+////////////////////////////////////////////////////////////////////////////////
+    void
+    DataParser::load_data(const std::string& filename, const std::string& schema_filename){
         _timezone = 0;
         _last_update = 0;
-        struct stat     statv;
+        struct stat statv;
         _list = new DataList;
         Data* forecast_data;
         if(stat(filename.c_str(), &statv))
@@ -59,6 +68,10 @@ namespace Core {
             _last_update = statv.st_mtime;
         }
 
+        /* std::cerr<<"Filename   "<<filename<<std::endl; */
+        
+        this->_filename = filename;
+        this->Reloadfile();
 #ifdef LIBXML
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
@@ -197,16 +210,59 @@ namespace Core {
 #endif
 #endif
     }
+
+////////////////////////////////////////////////////////////////////////////////
     int
     DataParser::timezone(){
         return _timezone;
     }
-
 ////////////////////////////////////////////////////////////////////////////////
     time_t
     DataParser::LastUpdate(){
         return _last_update;
     } 
+////////////////////////////////////////////////////////////////////////////////
+    DataParser* 
+    DataParser::Instance(){
+        if (!_self)
+            _self = new DataParser();
+        _refcount++;
+        /*  std::cerr<<"Refcount for DataParser: "<<_refcount<<std::endl; */
+        return _self;
+    }
+
+////////////////////////////////////////////////////////////////////////////////
+    DataParser* 
+    DataParser::Instance(const std::string& filename, const std::string& schema_filename){
+        Data* forecast_data;
+        if (!_self)
+            _self = new DataParser(filename, schema_filename);
+        else{
+            while (!_list->empty()){
+                forecast_data = _list->back();
+                delete forecast_data;
+                _list->pop_back();
+            }
+            delete _list;
+            _self->load_data(filename, schema_filename);
+        }
+        if (_refcount == 0)
+            _refcount++;
+        /* std::cerr<<"Refcount for DataParser2: "<<_refcount<<std::endl; */
+        return _self;
+    }
+////////////////////////////////////////////////////////////////////////////////
+    void
+    DataParser::DeleteInstance(){
+       if (_refcount == 0)
+            return;
+       _refcount--;
+       /*  std::cerr<<"Delete Refcount for DataParser: "<<_refcount<<std::endl; */ 
+       if (_refcount == 0){
+            delete _self;
+            _self = NULL;
+       }
+    }
 ////////////////////////////////////////////////////////////////////////////////
     DataParser::~DataParser(){
        Data* forecast_data;

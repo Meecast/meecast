@@ -134,28 +134,12 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     QDeclarativeView *qview;
     qview = controller->qview();
 
-    //SelectModel model;
-    //model.addData(new SelectData("C", "", "a"));
-    //model.addData(new SelectData("F", "", "a"));
-    //qview->rootContext()->setContextProperty("temp_model", &model);
- //   qview->rootContext()->setContextProperty("Forecast_model", model);
-    //qview->rootContext()->setContextProperty("Config", config);
     std::cerr << "qml path = " << Core::AbstractConfig::layoutqml << std::endl;
-    /*
-    qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::prefix + 
-                                                                Core::AbstractConfig::sharePath + 
-                                                                Core::AbstractConfig::layoutqml)));
-    */
-    //qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::layoutqml)));
     qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::prefix +
                                                                 Core::AbstractConfig::sharePath +
                                                                 Core::AbstractConfig::layoutqml)));
-    /* Trying to make fullscreen http://wiki.meego.com/QML/Full-screen_applications */
     QObject::connect((QObject*)qview->engine(), SIGNAL(quit()), &app, SLOT(quit()));
-    qview->setResizeMode(QDeclarativeView::SizeRootObjectToView);
-    //qview->setGeometry(QRect(0,0,854,480));
     qview->showFullScreen();
-    //qview->show();
     /*This code provides Segmantation fault
     delete dadapt;
     delete controller;

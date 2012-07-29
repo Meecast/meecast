@@ -38,17 +38,25 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
     class DataParser : public Parser {
-        DataList *_list;
-        int _timezone;
-        time_t _last_update;
-        #ifdef LIBXML
-        void processNode(const xmlpp::Node* node);
-        #endif
-        public:
+        private:
+            static DataList *_list;
+            int _timezone;
+            time_t _last_update;
+            #ifdef LIBXML
+            void processNode(const xmlpp::Node* node);
+            #endif
+        protected:
+            static DataParser* _self;
+            static int _refcount;
             DataParser(const std::string& filename, const std::string& schema_filename = "/usr/share/omweather/schemas/data.xsd");
             DataParser();
-            time_t LastUpdate();
+            void load_data(const std::string& filename, const std::string& schema_filename = "/usr/share/omweather/schemas/data.xsd");
             virtual ~DataParser();
+        public:
+            static DataParser* Instance(const std::string& filename, const std::string& schema_filename = "/usr/share/omweather/schemas/data.xsd");
+            static DataParser* Instance();
+            static void DeleteInstance();
+            time_t LastUpdate();
             int timezone();
             DataList& data();
     };

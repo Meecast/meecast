@@ -32,9 +32,9 @@ Page {
 
 	Image {
             id: backgroundmask 
-	    source: Config.imagespath + "/mask_background.png"
+	        source: Config.imagespath + "/mask_background.png"
             x: 0; y: 80; width: parent.width; 
-	    smooth: true
+	        smooth: true
         }
 	Image {
             id: titlemask 
@@ -81,7 +81,7 @@ Page {
 	    wrapMode: Text.Wrap                                                                                                                                            
             width: parent.width - 20
 	}
-        Label {
+    Label {
             id: projectsitetext 
             text: Config.tr("Project website") + ":"
 	    anchors.top: aboutfulltext.bottom 
@@ -91,16 +91,43 @@ Page {
 	    color: "#999999"
         }
 	Label {
-            id: projectfulltext 
+        signal clicked
+        id: projectfulltext 
 	    text: "http://meecast.com"
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    anchors.top: projectsitetext.bottom
+        MouseArea {
+            id: mouseArea_web_support
+            anchors.fill: parent
+            onReleased: {
+                Config.showwebsupport();
+            }
+        }
+
 	}
+	Image {
+        signal clicked
+        id: donate_button
+	    source: Config.imagespath + "/btn_donate_LG.png" 
+	    anchors.top: projectsitetext.bottom
+	    anchors.rightMargin: 20
+	    anchors.right: parent.right
+        smooth: true	
+        MouseArea {
+            id: mouseArea
+            anchors.fill: parent
+            onReleased: {
+                Config.showwebdonation();
+            }
+        }
+
+    }
+
 	Rectangle {
 	    id: splitter
-            color: "#999999"
-            x: 20; width: parent.width - 40; height: 2
+        color: "#999999"
+        x: 20; width: parent.width - 40; height: 2
 	    anchors.top: projectfulltext.bottom 
 	    anchors.leftMargin: 20
 	    anchors.topMargin: 30 
@@ -197,6 +224,7 @@ Slovak - Roman Moravčík\n \
 Dutch - Tom Leenders, Michiel Pater\n \
 Bulgarian - Zlatko Enikov\n \
 Albanian - Ilir Gjika\n \
+Chinese - Wong Man Kong, Michael\n \
 Swedish - Angela Nennebrandt,\n \
 \tNiklas Åkerström, \n \
 \tTomislav Veleckovik")

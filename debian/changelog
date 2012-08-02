@@ -1,7 +1,7 @@
 meecast (0.6.1) unstable; urgency=low
 
   * Added icons for hko.gov.hk
-  * Fixed problem with daily updating
+  * Fixed problem with "Daily" and "15 minutes" updatings
 
  -- Vlad Vasiliev <vlad@gas.by>  Sat, 28 Jul 2012 00:42:23 +0200
 

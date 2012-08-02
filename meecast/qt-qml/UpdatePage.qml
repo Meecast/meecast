@@ -131,7 +131,7 @@ Page {
                 }
                 Button {
                     text: Config.tr("Never")
-                    checked: (!(Config.updateinterval == 1800 || Config.updateinterval == 3600 || Config.updateinterval == 7200 || Config.updateinterval == 14400 || Config.updateinterval == 86400))
+                    checked: (!(Config.updateinterval == 900 || Config.updateinterval == 1800 || Config.updateinterval == 3600 || Config.updateinterval == 7200 || Config.updateinterval == 14400 || Config.updateinterval == 86400))
                     onClicked: {
                         Config.update_interval(2147483647);
                     }

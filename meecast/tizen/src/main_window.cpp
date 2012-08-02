@@ -25,10 +25,10 @@
 #include <config.h>
 #endif
 #include "main_window.h"
-//#define WIDTH  (480)
-//#define HEIGHT (800)
-#define WIDTH  (720)
-#define HEIGHT (1280)
+#define WIDTH  (480)
+#define HEIGHT (800)
+//#define WIDTH  (720)
+//#define HEIGHT (1280)
 
 
 /*******************************************************************************/
@@ -260,8 +260,10 @@ create_main_window(void *data)
         }
         temp_edje_obj = NULL;
 
+        
         evas_object_move(edje_obj, 0, 0);
         evas_object_resize(edje_obj, WIDTH, HEIGHT);
+
         evas_object_show(edje_obj);
 
 

@@ -367,12 +367,17 @@ ConfigQml::setsplash(bool c)
     saveConfig();
     refreshconfig();
     if (!c && (QFile::exists("/home/user/.cache/com.meecast.omweather/splash.png")))
-       QFile::remove("/home/user/.cache/com.meecast.omweather/splash.png"); 
+        QFile::remove("/home/user/.cache/com.meecast.omweather/splash.png"); 
 
-    if (c)
+    if (c){
+       /* Check directory */
+        QDir dir("/home/user/.cache/com.meecast.omweather");
+        if (!dir.exists())
+            dir.mkpath("/home/user/.cache/com.meecast.omweather");
         /* Copy splash to cache directory */
         QFile::copy("/opt/com.meecast.omweather/share/images/splash.png",
                     "/home/user/.cache/com.meecast.omweather/splash.png");
+    }
 }
 
 bool

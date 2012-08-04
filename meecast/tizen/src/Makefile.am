@@ -23,11 +23,11 @@
 bin_PROGRAMS = meecasttizen 
 meecasttizen_SOURCES  =  main.cpp main.h main_window.cpp main_window.h setting_window.cpp setting_window.h
 meecasttizen_CXXFLAGS = $(GTK_CFLAGS) $(LIBXML2_CFLAGS) $(SQLITE_CFLGAS) $(LIBCURL_CFLAGS) \
-                       $(ELEMENTARY_CFLAGS) $(EDJE_CFLAGS) -I../../core 
+                       $(ELEMENTARY_CFLAGS) $(EDJE_CFLAGS) $(APPFW_CFLAGS) $(ECOREX_CFLAGS) -I../../core 
 meecasttizen_LDFLAGS = -avoid-version  
 meecasttizen_LDADD = -L../../core/.libs/ ../../core/.libs/libmeecast-core.a \
                      $(ELEMENTARY_LIBS) $(GTK_LIBS) $(LIBXML2_LIBS) $(SQLITE_LIBS) $(LIBCURL_LIBS) \
-                     $(EDJE_LIBS)
+                     $(EDJE_LIBS) $(APPFW_LIBS) $(ECOREX_LIBS)
 
 
 EDJE_CC = edje_cc

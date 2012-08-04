@@ -89,8 +89,125 @@ _on_delete(Ecore_Evas *ee)
    ecore_main_loop_quit();
 }
 
+static bool 
+app_create(void *data)
+{
+	return TRUE;		//EXIT_SUCCESS
+}
+
+static void 
+app_terminate(void *data)
+{
+//	struct appdata *ad = (struct appdata *)data;
+//	_on_exit(ad);
+}
+
+static 
+void app_pause(void *data){
+	// Take necessary actions when application becomes invisible
+}
+
+static void 
+app_resume(void *data){
+	// Take necessary actions when application becomes visible.
+}
+static void 
+app_win_del(void *data, Evas_Object * obj, void *event_info)
+{
+	elm_exit();
+}
+
+static Evas_Object 
+*create_app_win(const char *name){
+	Evas_Object *e;
+	int w, h;
+	e = elm_win_add(NULL, name, ELM_WIN_BASIC);
+	if (e) {
+		elm_win_title_set(e, name);
+		elm_win_borderless_set(e, EINA_TRUE);
+	    evas_object_smart_callback_add(e, "delete,request", app_win_del,
+					       NULL);
+		ecore_x_window_size_get(ecore_x_window_root_first_get(), &w, &h);
+		evas_object_resize(e, w, h);
+	}
+	return e;
+}
+
+static bool 
+app_launch(void *data){
+
+	struct _App *app = (struct _App *)data;
+
+	/*	Use elm_theme_extension_add() API before creating any widgets */
+	//elm_theme_extension_add(NULL, MEECAST_THEME);
+
+	/* main widnow */
+	app->win = create_app_win("MeeCast");
+	if (app->win == NULL) {
+		return FALSE;
+	}
+	evas_object_show(app->win);
+
+	elm_win_indicator_mode_set(app->win, ELM_WIN_INDICATOR_SHOW);
+    
+    /* Prepare config */
+    app->config = create_and_fill_config();
+    if ((app->config->stationsList().size() > 0) && app->config->current_station_id() > app->config->stationsList().size()) 
+        app->dp = current_data(app->config->stationsList().at(app->config->current_station_id())->fileName());
+    else 
+        app->dp = NULL;
+
+	/* load main view */
+    create_main_window(app);
+
+	/* register callback */
+	//ecore_idler_add((Ecore_Task_Cb)_capture_idle_image, ad);
+//	ecore_idler_add((Ecore_Task_Cb) _set_input_entry_focus, ad);
+//	ecore_idler_add((Ecore_Task_Cb) _load_idle_view, ad);
+//
+	return TRUE;		//EXIT_SUCCESS
+}
+
+static void 
+app_service(service_h service, void *data){
+
+	struct _App *app = (struct _App *)data;
+
+	if (app->win != NULL) { /* MeeCast has already launced. */
+		elm_win_activate(app->win);
+		return;
+	}
+	app_launch(app);
+	evas_object_show(app->win);
+
+}
+
+int 
+main(int argc, char *argv[])
+{
+    struct _App app;
+
+	app_event_callback_s event_callback;
+
+	event_callback.create = app_create;
+	event_callback.terminate = app_terminate;
+	event_callback.pause = app_pause;
+	event_callback.resume = app_resume;
+	event_callback.service = app_service;
+	event_callback.low_memory = NULL;
+	event_callback.low_battery = NULL;
+	event_callback.device_orientation = NULL;
+	event_callback.language_changed = NULL;
+	event_callback.region_format_changed = NULL;
+
+	memset(&app, 0x0, sizeof(struct _App));
+
+	return app_efl_main(&argc, &argv, &event_callback, &app);
+}
+
+
 int
-main(void)
+_main(void)
 {
     int x, y, w, h;
     int i = 0, success = 0;

@@ -29,10 +29,12 @@
 #include <stdio.h>
 #include <unistd.h>
 //#include "core.h"
+#include <app.h>
 #include <Elementary.h>
 #include <Ecore.h>
 #include <Ecore_Evas.h>
 #include <Edje.h>
+#include <Ecore_X.h>		/* ecore_x_window_size_get */
 #include "common.h"
 void create_main_window(void *data);
 /*******************************************************************************/

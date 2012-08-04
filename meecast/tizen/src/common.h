@@ -25,9 +25,13 @@
 #define _main_h 1
 #endif
 #include "core.h"
+
 /*******************************************************************************/
 struct _App {
     Ecore_Evas *ee;
+    Evas_Object *win;	//main window
+    Evas_Object *layout;
+    Evas_Object *edje;
     Evas_Object *top_main_window;
     Evas_Object *setting_top_main_window;
     Evas_Object *setting_menu;

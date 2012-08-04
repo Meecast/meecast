@@ -29,7 +29,10 @@
 #define HEIGHT (800)
 //#define WIDTH  (720)
 //#define HEIGHT (1280)
-
+ 
+ #ifndef _EDJ
+ #define _EDJ(x) (Evas_Object *)elm_layout_edje_get(x)
+ #endif  
 
 /*******************************************************************************/
 
@@ -119,6 +122,24 @@ right_arrow_down(void *data, Evas *e, Evas_Object *o, void *event_info){
     app->config->saveConfig();
     create_main_window(data);
 }
+/*******************************************************************************/
+Evas_Object 
+*load_edj (Evas_Object *parent, const char *file, const char *group)
+{
+	Evas_Object *eo;
+	int r;
+	eo = elm_layout_add(parent);
+	if (eo) {
+		r = elm_layout_file_set(eo, file, group);
+		if (!r) {
+			evas_object_del(eo);
+			return NULL;
+		}
+		evas_object_size_hint_weight_set(eo, EVAS_HINT_EXPAND,
+						 EVAS_HINT_EXPAND);
+	}
+	return eo;
+}
 
 /*******************************************************************************/
 void
@@ -142,21 +163,24 @@ create_main_window(void *data)
     time_t current_day;
     struct tm   *tm = NULL;
 
-    fprintf(stderr,"Load!!!!!!!! yy %i %i\n",app->config->current_station_id(),  app->config->stationsList().size() );
-    evas = ecore_evas_get(app->ee);
 
-    bg = evas_object_rectangle_add(evas);
-    evas_object_color_set(bg, 0, 0, 0, 255); /* red bg */
-    evas_object_move(bg, 0, 0); /* at canvas' origin */
-    evas_object_resize(bg, WIDTH, HEIGHT); /* covers full canvas */
-    evas_object_show(bg);
-    ecore_evas_object_associate(app->ee, bg, ECORE_EVAS_OBJECT_ASSOCIATE_BASE);
+    if (app->win == NULL)
+        return;
 
-    evas_object_focus_set(bg, EINA_TRUE);
+    app->layout = elm_layout_add(app->win);
+	if (app->layout == NULL) 
+		return;
+	
+    elm_layout_theme_set(app->layout, "standard", "window", "integration");
+	evas_object_size_hint_weight_set(app->layout, EVAS_HINT_EXPAND,
+					 EVAS_HINT_EXPAND);
+	elm_win_resize_object_add(app->win, app->layout);
 
+	edje_object_signal_emit(_EDJ(app->layout), "elm,state,show,content", "elm");
+	edje_object_signal_emit(_EDJ(app->layout), "elm,state,show,indicator", "elm");
+	evas_object_show(app->layout);
 
     if ((app->config->stationsList().size() > 0) && (app->config->current_station_id() < app->config->stationsList().size())){
-        fprintf(stderr,"ttttttttttttttttttttttttttttttt\n");
         app->dp = current_data(app->config->stationsList().at(app->config->current_station_id())->fileName());
     }
     else
@@ -164,19 +188,16 @@ create_main_window(void *data)
 
     evas_object_del(app->top_main_window);
 
-    edje_obj = edje_object_add(evas);
-    app->top_main_window = edje_obj; 
-     if (app->dp)
-    fprintf(stderr,"Load!!!!!!!! yy %p %p\n", app->dp, app->dp->data().GetDataForTime(time(NULL)));
+    if (app->dp)
+        fprintf(stderr,"Load!!!!!!!! yy %p %p\n", app->dp, app->dp->data().GetDataForTime(time(NULL)));
+
     /* Preparing data */
     if (app->dp != NULL && (temp_data = app->dp->data().GetDataForTime(time(NULL)))){    
-    
-        if (!edje_object_file_set(edje_obj, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "mainwindow")){
-            Edje_Load_Error err = edje_object_load_error_get(edje_obj);
-            const char *errmsg = edje_load_error_str(err);
-            fprintf(stderr, "Could not load 'mainwindow' from mainwindow.edj:"
-                            " %s\n", errmsg);
-        }
+        app->top_main_window = load_edj(app->win, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "mainwindow");
+        edje_obj = elm_layout_edje_get(app->top_main_window);
+        evas_object_show(app->top_main_window);
+        elm_object_part_content_set(app->layout, "elm.swallow.content", app->top_main_window);
+
 
         temp_data->temperature_low().units(app->config->TemperatureUnit());
         temp_data->temperature_hi().units(app->config->TemperatureUnit());
@@ -281,7 +302,10 @@ create_main_window(void *data)
             evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, right_arrow_down, app); 
         temp_edje_obj = NULL;
 
-
+     //   evas_object_show(app->top_main_window);
+     //   elm_object_part_content_set(app->layout, "elm.swallow.content", app->top_main_window);
+}
+#if 0
         /* Fill list of days with weather forecast */
         /* set current day */ 
         current_day = time(NULL);
@@ -294,12 +318,12 @@ create_main_window(void *data)
         /* fill other days */
         i = 3600*24;
         j = 0;
-        list_box = evas_object_box_add(evas); 
+        list_box = evas_object_box_add(app->layout); 
         app->day_list_main_window = list_box;
         evas_object_box_layout_set(
                       list_box, evas_object_box_layout_vertical, NULL, NULL);
         while  (app->dp != NULL && (temp_data = app->dp->data().GetDataForTime( current_day + 14 * 3600  + i))) {
-            edje_obj_block = edje_object_add(evas);
+            edje_obj_block = edje_object_add(app->layout);
             if (!edje_object_file_set(edje_obj_block, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "dayblock")){
                 Edje_Load_Error err = edje_object_load_error_get(edje_obj_block);
                 const char *errmsg = edje_load_error_str(err);
@@ -362,7 +386,7 @@ create_main_window(void *data)
     evas_object_del(app->menu);
 
     /* Fill menu */
-    edje_obj_menu = edje_object_add(evas);
+    edje_obj_menu = edje_object_add(app->layout);
     if (!edje_object_file_set(edje_obj_menu, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "menu")){
         Edje_Load_Error err = edje_object_load_error_get(edje_obj_menu);
         const char *errmsg = edje_load_error_str(err);
@@ -388,7 +412,7 @@ create_main_window(void *data)
     evas_object_resize(edje_obj_menu, WIDTH, 60);
     evas_object_show(edje_obj_menu);
     app->menu = edje_obj_menu;
-
+#endif
 }
 
 

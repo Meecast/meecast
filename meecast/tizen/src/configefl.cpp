@@ -1,6 +1,6 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Meecast for Tizen 
+ * This file is part of Meecast for Tizen
  *
  * Copyright (C) 2012 Vlad Vasilyeu
  * 	for the code
@@ -21,21 +21,44 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
-#ifndef _main_h
-#define _main_h 1
+#ifdef HAVE_CONFIG_H
+#include <config.h>
 #endif
 /*******************************************************************************/
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-//#include "core.h"
-#include <app.h>
-#include <Elementary.h>
-#include <Ecore.h>
-#include <Ecore_Evas.h>
-#include <Edje.h>
-#include <Ecore_X.h>		/* ecore_x_window_size_get */
-#include "common.h"
 #include "configefl.h"
-void create_main_window(void *data);
-/*******************************************************************************/
+
+ConfigEfl* ConfigEfl::_self;
+int ConfigEfl::_refcount;
+
+ConfigEfl::ConfigEfl(const std::string& filename, const std::string& schema_filename):Core::Config(filename, schema_filename)
+{
+}
+
+ConfigEfl::ConfigEfl():Core::Config()
+{
+}
+
+ConfigEfl::~ConfigEfl()
+{
+}
+
+
+ConfigEfl* 
+ConfigEfl::Instance()
+{
+    if (!_self)
+        _self = new ConfigEfl();
+    _refcount++;
+    return _self;
+}
+
+ConfigEfl* 
+ConfigEfl::Instance(const std::string& filename, const std::string& schema_filename)
+{
+    if (!_self)
+        _self = new ConfigEfl(filename, schema_filename);
+    _refcount++;
+    return _self;
+}
+
+

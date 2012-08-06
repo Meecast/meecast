@@ -25,6 +25,7 @@
 #define _main_h 1
 #endif
 #include "core.h"
+#include "configefl.h"
 
 /*******************************************************************************/
 struct _App {
@@ -42,7 +43,7 @@ struct _App {
     Evas_Object *dialog;
     Evas_Object *list;
     Core::DataParser* dp;
-    Core::Config *config;
+    ConfigEfl *config;
     int index_list;
     int country_id;
     int region_id;

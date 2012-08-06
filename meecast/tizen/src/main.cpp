@@ -28,7 +28,6 @@
 /*******************************************************************************/
 
 /* Global section */
-FILE *file;
 #define WIDTH  (480)
 #define HEIGHT (800)
 //#define WIDTH  (720)
@@ -36,13 +35,13 @@ FILE *file;
 
 #define DATA_XSD_PATH "/opt/apps/com.meecast.omweather/share/xsd/data.xsd"
 
-Core::Config *
+ConfigEfl *
 create_and_fill_config(){
-    Core::Config *config;
+    ConfigEfl *config;
 
     std::cerr<<"Create Config class: " << std::endl;
     try{
-        config = Core::Config::Instance(Core::AbstractConfig::getConfigPath()+
+        config = ConfigEfl::Instance(Core::AbstractConfig::getConfigPath()+
                                        "config.xml",
                                        Core::AbstractConfig::prefix+
                                        Core::AbstractConfig::schemaPath+
@@ -50,11 +49,11 @@ create_and_fill_config(){
     }
     catch(const std::string &str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
-        config =  Core::Config::Instance();
+        config =  ConfigEfl::Instance();
     }
     catch(const char *str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
-        config =  Core::Config::Instance();
+        config =  ConfigEfl::Instance();
     }
     //std::cerr<<"End of creating Config class: " <<std::endl;
     config->saveConfig();
@@ -124,7 +123,7 @@ static Evas_Object
 	e = elm_win_add(NULL, name, ELM_WIN_BASIC);
 	if (e) {
 		elm_win_title_set(e, name);
-		elm_win_borderless_set(e, EINA_TRUE);
+        elm_win_borderless_set(e, EINA_TRUE);
 	    evas_object_smart_callback_add(e, "delete,request", app_win_del,
 					       NULL);
 		ecore_x_window_size_get(ecore_x_window_root_first_get(), &w, &h);
@@ -205,69 +204,4 @@ main(int argc, char *argv[])
 	return app_efl_main(&argc, &argv, &event_callback, &app);
 }
 
-
-int
-_main(void)
-{
-    int x, y, w, h;
-    int i = 0, success = 0;
-    struct _App app;
-
-    app.dp = NULL;
-
-    if (!ecore_evas_init())
-        return EXIT_FAILURE;
-
-    if (!edje_init())
-        return EXIT_FAILURE;
-
-    /* this will give you a window with an Evas canvas under the first
-     * engine available */
-    app.ee = ecore_evas_new(NULL, 0, 0, WIDTH, HEIGHT, NULL);
-    if (!app.ee)
-      goto error;
-
-    ecore_evas_callback_delete_request_set(app.ee, _on_delete);
-    ecore_evas_title_set(app.ee, "MeeCast");
-
-    app.config = create_and_fill_config();
-    /* Check time for previous updating */
-    if ((app.config->stationsList().size() > 0) && app.config->current_station_id() > app.config->stationsList().size()) 
-        app.dp = current_data(app.config->stationsList().at(app.config->current_station_id())->fileName());
-    else 
-        app.dp = NULL;
-#if 0
-    /* 25*60 = 30 minutes - minimal time between updates */ 
-    if (app.dp && (abs(time(NULL) - app.dp->LastUpdate()) > 25*60)){
-        /*update weather forecast*/
-        for (i=0; i < app.config->stationsList().size();i++){
-            if (app.config->stationsList().at(i)->updateData(true)){
-                success ++;
-            }
-        }
-    }
-#endif
-   create_main_window(&app);
-   ecore_evas_show(app.ee);
-
-   ecore_main_loop_begin();
-
-   ecore_evas_free(app.ee);
-   ecore_evas_shutdown();
-   edje_shutdown();
-   return 0;
-
-error:
-   fprintf(stderr, "You got to have at least one evas engine built"
-                   " and linked up to ecore-evas for this example to run"
-                   " properly.\n");
-   ecore_evas_shutdown();
-   return -1;
-
-error_edj:
-   fprintf(stderr, "Failed to load basic.edj!\n");
-
-   ecore_evas_shutdown();
-   return -2;
-}
 

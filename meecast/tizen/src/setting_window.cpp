@@ -204,7 +204,7 @@ _sel_station_cb(void *data, Evas_Object *obj, void *event_info)
     }
 
     //delete app->config;
-    app->config = Core::Config::Instance(Core::AbstractConfig::getConfigPath()+
+    app->config = ConfigEfl::Instance(Core::AbstractConfig::getConfigPath()+
                                "config.xml",
                                Core::AbstractConfig::prefix+
                                Core::AbstractConfig::schemaPath+

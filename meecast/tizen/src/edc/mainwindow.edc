@@ -211,16 +211,11 @@ collections {
 	        mouse_events: 0;					
 								
 	        description {						
-		    state: "default" 0.0;				
-		    image {						
-	                normal: "images/mask_background_main.png";	
-		    }						
-		    fill {						
-		        smooth: 0;				
-		    }	
-	        rel1 { relative: 0.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.07); }
-            rel2 { relative: 1.0 0.4; } 
-				
+		        state: "default" 0.0;				
+		        image { normal: "images/mask_background_main.png"; }						
+		        fill { smooth: 0; }	
+	            rel1 { relative: 0.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.07); }
+                rel2 { relative: 1.0 0.4; } 
 	        }							
         }
 	    part {								
@@ -312,38 +307,28 @@ collections {
 	        }
 	    }
 	    part {								
-            	name: "main_icon";
-                type: EXTERNAL;
-                source: "elm/icon";             
-                description {
-                    state : "default" 0.0;
-                    rel1.relative: 0.4 0.07;
-                    rel2.relative: 0.6 0.20;
-                    params {                //list of parameters specific to the external object
-                      string: "icon" "/opt/apps/com.meecast.omweather/share/icons/Glance/0.png";     //the icon
-                    }                        
-                }
+            name: "main_icon";
+            type: EXTERNAL;
+            source: "elm/icon";             
+            description {
+                state : "default" 0.0;
+                rel1.relative: 0.4 0.07;
+                rel2.relative: 0.6 0.20;
+                params {                //list of parameters specific to the external object
+                  string: "icon" "/opt/apps/com.meecast.omweather/share/icons/Glance/0.png";     //the icon
+                }                        
             }
+        }
 	    part {								
 	        name: "icon_wind_speed";				
 	        type: IMAGE;						
 	        mouse_events: 0;					
-								
 	        description {						
-		    state: "default" 0.0;				
-		    image {						
-	                normal: "images/wind_speed.png";	
-		    }						
-		    fill {						
-		        smooth: 0;				
-		    }	
-		    rel1 { 
-                       relative: 0.53 0.32;
-                    }
-                    rel2 {
-                       relative: 0.59 0.36;
-                    }
-					
+                state: "default" 0.0;				
+                image {	normal: "images/wind_speed.png"; }						
+                fill { smooth: 0; }	
+                rel1 { relative: 0.53 0.32; }
+                rel2 { relative: 0.59 0.36; }
 	        }
 	    }
 	    part {
@@ -362,55 +347,42 @@ collections {
 	    }
 	    part {
 	        name: "period_name";
-		type: TEXT;
-		description{
-		    text {
-		       font: "Sans";
-		       size: 30;
-		       text: "";
+            type: TEXT;
+		    description{
+		        fixed: 1 1;
+		        text {
+		            font: "Sans";
+		            size: 30;
+		            text: "";
+		        }
+                rel1 { relative: 0.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.115); }
+                rel2 { relative: 0.4 0.14; }
 		    }
-	            rel1 {
-		       offset: 0 72;
-                    }
-                    rel2 { 
-                       relative: 0.4 0.19;
-                    }
-		}
 	    }
 	    part {
 	        name: "main_temperature";
-		type: TEXT;
-		description{
-		    text {
-		       font: "Sans";
-		       size: 30;
-		       text: "hello world";
+		    type: TEXT;
+		    description{
+		        text {
+		            font: "Sans";
+		            size: 30;
+		            text: "Temperature";
+		        }
+                rel1 { relative: 0.6 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.115); }
+                rel2 { relative: 1.0 0.14; }
 		    }
-	            rel1 {
-		       relative: 0.6 0.0;
-		       offset: 0 72;
-                    }
-                    rel2 {
-		       relative: 1.0 0.19;
-                    }
-		}
 	    }
 	    part {
 	        name: "main_description";
-		type: TEXT;
-		description{
-		    text {
-		       font: "Sans";
-		       size: 25;
-		       text: "hello world";
-		    }
-	            rel1 {
-		       relative: 0.0 0.0;
-		       offset: 0 156;
-                    }
-                    rel2 {
-		       relative: 1.0 0.22;
-                    }
+		    type: TEXT;
+		    description{
+                text {
+		            font: "Sans";
+		            size: 25;
+		            text: "hello world";
+		        }
+                rel1 { relative: 0.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.175);}
+                rel2 { relative: 1.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.19); }
 		}
 	    }
 	    part {

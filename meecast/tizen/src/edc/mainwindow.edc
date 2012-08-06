@@ -1,7 +1,7 @@
 externals { external: "elm"; }
 
 #define FULL_HEIGHT 1280 
-#define STATUS_BAR_HEIGHT 50
+#define STATUS_BAR_HEIGHT 40
 
 collections {
 
@@ -153,7 +153,7 @@ collections {
         }
 
 	    part {
-                name: "station_rect";
+                name: "station_rect"; // Black Box
                 type: RECT; 
                 mouse_events: 0; 
                 description {
@@ -169,48 +169,28 @@ collections {
 	        mouse_events: 1;					
 								
 	        description {						
-		    state: "default" 0.0;				
-		    image {						
-	                normal: "images/arrow_left.png";	
-		    }						
-		    fill {						
-		        smooth: 0;				
-		    }	
-		    rel1 { 
-                       relative: 0.0 0.02;
-                    }
-                    rel2 {
-                       relative: 0.12 0.11;
-		      // offset: 0 340;
-                    }
+		        state: "default" 0.0;
+		        image {	normal: "images/arrow_left.png"; }						
+		        fill { smooth: 0; }	
+                rel1 { relative: 0.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT); }
+                rel2 { relative: 0.12 0.10; }
 					
 	        }							
-            }
+        }
 	    part {								
 	        name: "right_arrow";				
 	        type: IMAGE;						
 	        mouse_events: 1;					
 								
 	        description {						
-		    state: "default" 0.0;				
-		    image {						
-	                normal: "images/arrow_right.png";	
-		    }						
-		    fill {						
-		        smooth: 0;				
-		    }	
-		    rel1 { 
-                       relative: 0.88 0.02;
-                    }
-                    rel2 {
-                       relative: 1.0 0.11;
-		      // offset: 0 340;
-                    }
+                state: "default" 0.0;				
+                image {	normal: "images/arrow_right.png"; }						
+                fill { smooth: 0; }	
+                rel1 { relative: 0.88 (STATUS_BAR_HEIGHT/FULL_HEIGHT); }
+                rel2 { relative: 1.0 0.10; }
 					
-	        }							
-            }
-
-
+	        }						
+        }
 	    part {								
 	        name: "main_background_rect";				
 	        type: RECT;						
@@ -219,7 +199,7 @@ collections {
 	        description {						
 		    state: "default" 0.0;				
                    color: 255 255 255 255; // white
-                   rel1 { relative: 0.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.05); }
+                   rel1 { relative: 0.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.07); }
                    rel2 { relative: 1.0 0.4; // offset: 0 340;
                     }
 					
@@ -238,7 +218,7 @@ collections {
 		    fill {						
 		        smooth: 0;				
 		    }	
-	        rel1 { relative: 0.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.05); }
+	        rel1 { relative: 0.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.07); }
             rel2 { relative: 1.0 0.4; } 
 				
 	        }							

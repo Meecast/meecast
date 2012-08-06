@@ -34,7 +34,7 @@ FILE *file;
 //#define WIDTH  (720)
 //#define HEIGHT (1280)
 
-#define DATA_XSD_PATH "/opt/com.meecast.omweather/share/xsd/data.xsd"
+#define DATA_XSD_PATH "/opt/apps/com.meecast.omweather/share/xsd/data.xsd"
 
 Core::Config *
 create_and_fill_config(){

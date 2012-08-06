@@ -1,5 +1,8 @@
 externals { external: "elm"; }
 
+#define FULL_HEIGHT 1280 
+#define STATUS_BAR_HEIGHT 50
+
 collections {
 
     images {
@@ -7,36 +10,41 @@ collections {
         image: "images/mask_background.png" COMP;	
     	image: "images/humidity.png" COMP;
     	image: "images/pressure.png" COMP;
-	image: "images/wind_direction_background.png" COMP;
-	image: "images/wind_direction_arrow.png" COMP;
-	image: "images/wind_speed.png" COMP;
-	image: "images/arrow_left.png" COMP;
-	image: "images/arrow_right.png" COMP;
-	image: "button_icons/refresh_arrows.png" COMP; 
-	image: "button_icons/config.png" COMP; 
+        image: "images/wind_direction_background.png" COMP;
+        image: "images/wind_direction_arrow.png" COMP;
+        image: "images/wind_speed.png" COMP;
+        image: "images/arrow_left.png" COMP;
+        image: "images/arrow_right.png" COMP;
+        image: "button_icons/refresh_arrows.png" COMP; 
+        image: "button_icons/config.png" COMP; 
     }
     group {
         name: "nullwindow";
 	parts{
-	   part {								
+        part {
+                name: "nullhead";
+                type: RECT;
+                mouse_events: 0;
+                description {
+                    state: "default" 0.0;
+                    rel1 { relative: 0.0 0.0;}
+                    rel2 { relative: 1.0 STATUS_BAR_HEIGHT/FULL_HEIGHT;}
+                    color: 0 0 0 255;
+                }
+        }
+
+	    part {								
 	        name: "main_background_rect";				
 	        type: RECT;						
 	        mouse_events: 0;					
 								
 	        description {						
-		    state: "default" 0.0;				
-                    color: 255 255 255 255; // white
-		    rel1 { 
-                       relative: 0.0 0.0;
-		       offset: 0 72;
-                    }
-                    rel2 {
-                       relative: 1.0 0.4;
-		      // offset: 0 340;
-                    }
-					
+                state: "default" 0.0;				
+                color: 255 255 255 255; // white
+                rel1 { relative: 0.0 STATUS_BAR_HEIGHT/FULL_HEIGHT;}
+                rel2 { relative: 1.0 0.4; }
 	        }							
-            }
+        }
 	    part {								
 	        name: "mask_background_main";				
 	        type: IMAGE;						
@@ -50,17 +58,11 @@ collections {
 		    fill {						
 		        smooth: 0;				
 		    }	
-		    rel1 { 
-                       relative: 0.0 0.0;
-		       offset: 0 72;
-                    }
-                    rel2 {
-                       relative: 1.0 0.4;
-		      // offset: 0 340;
-                    }
+	        rel1 { relative: 0.0 STATUS_BAR_HEIGHT/FULL_HEIGHT;}
+            rel2 { relative: 1.0 0.4; }
 					
 	        }							
-            }
+        }
 	    part {
 	        name: "Message1";
 		type: TEXT;
@@ -138,6 +140,18 @@ collections {
     group {
         name: "mainwindow";
 	parts{
+        part {
+                name: "nullhead"; //Status Bar
+                type: RECT;
+                mouse_events: 0;
+                description {
+                    state: "default" 0.0;
+                    rel1 { relative: 0.0 0.0;}
+                    rel2 { relative: 1.0 STATUS_BAR_HEIGHT/FULL_HEIGHT;}
+                    color: 0 0 0 255;
+                }
+        }
+
 	    part {
                 name: "station_rect";
                 type: RECT; 
@@ -145,14 +159,10 @@ collections {
                 description {
                    state: "default" 0.0; 
                    color: 0 0 0 255; 
-                   rel1 { 
-                      relative: 0.0 0.0;
-                   }
-                   rel2 { 
-                      relative: 1.0 0.10;
-                   }
+                   rel1 { relative: 0.0 STATUS_BAR_HEIGHT/FULL_HEIGHT; }
+                   rel2 { relative: 1.0 0.10; }
                 }
-            }
+        }
 	    part {								
 	        name: "left_arrow";				
 	        type: IMAGE;						
@@ -167,7 +177,7 @@ collections {
 		        smooth: 0;				
 		    }	
 		    rel1 { 
-                       relative: 0.0 0.00;
+                       relative: 0.0 0.02;
                     }
                     rel2 {
                        relative: 0.12 0.11;
@@ -208,18 +218,13 @@ collections {
 								
 	        description {						
 		    state: "default" 0.0;				
-                    color: 255 255 255 255; // white
-		    rel1 { 
-                       relative: 0.0 0.1;
-		       //offset: 0 72;
-                    }
-                    rel2 {
-                       relative: 1.0 0.4;
-		      // offset: 0 340;
+                   color: 255 255 255 255; // white
+                   rel1 { relative: 0.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.05); }
+                   rel2 { relative: 1.0 0.4; // offset: 0 340;
                     }
 					
 	        }							
-            }
+        }
 	    part {								
 	        name: "mask_background_main";				
 	        type: IMAGE;						
@@ -233,17 +238,11 @@ collections {
 		    fill {						
 		        smooth: 0;				
 		    }	
-		    rel1 { 
-                       relative: 0.0 0.1;
-		      // offset: 0 72;
-                    }
-                    rel2 {
-                       relative: 1.0 0.4;
-		      // offset: 0 340;
-                    }
-					
+	        rel1 { relative: 0.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.05); }
+            rel2 { relative: 1.0 0.4; } 
+				
 	        }							
-            }
+        }
 	    part {								
 	        name: "icon_humidity";				
 	        type: IMAGE;						
@@ -369,23 +368,17 @@ collections {
 	    }
 	    part {
 	        name: "station_name";
-		type: TEXT;
-		description{
-		    text {
-		       font: "Sans";
-		       size: 30;
-		       text: "";
-		       align: 0.5 0.5;
+		    type: TEXT;
+		    description{
+                text {
+		            font: "Sans";
+		            size: 30;
+		            text: "";
+		        }
+                rel1 { relative: 0.0 STATUS_BAR_HEIGHT/FULL_HEIGHT; }
+                rel2 { relative: 1.0 0.10; }
+
 		    }
-	            rel1 { 
-		       relative: 0.0 0.0;
-//		       offset: 0 8;
-                    }
-                    rel2 {
-                       relative: 1.0 0.10;
-//		       offset: 0 8;
-                    }
-		}
 	    }
 	    part {
 	        name: "period_name";

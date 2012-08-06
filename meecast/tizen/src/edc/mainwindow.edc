@@ -56,7 +56,7 @@ collections {
 	                normal: "images/mask_background.png";	
 		    }						
 		    fill {						
-		        smooth: 0;				
+		        smooth: 1;				
 		    }	
 	        rel1 { relative: 0.0 STATUS_BAR_HEIGHT/FULL_HEIGHT;}
             rel2 { relative: 1.0 0.4; }
@@ -133,8 +133,6 @@ collections {
                     }
 		}
 	    }
-
-
 	}
     }
     group {
@@ -171,7 +169,7 @@ collections {
 	        description {						
 		        state: "default" 0.0;
 		        image {	normal: "images/arrow_left.png"; }						
-		        fill { smooth: 0; }	
+		        fill { smooth: 1; }	
                 rel1 { relative: 0.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT); }
                 rel2 { relative: 0.12 0.10; }
 					
@@ -185,7 +183,7 @@ collections {
 	        description {						
                 state: "default" 0.0;				
                 image {	normal: "images/arrow_right.png"; }						
-                fill { smooth: 0; }	
+                fill { smooth: 1; }	
                 rel1 { relative: 0.88 (STATUS_BAR_HEIGHT/FULL_HEIGHT); }
                 rel2 { relative: 1.0 0.10; }
 					
@@ -209,11 +207,10 @@ collections {
 	        name: "mask_background_main";				
 	        type: IMAGE;						
 	        mouse_events: 0;					
-								
 	        description {						
 		        state: "default" 0.0;				
 		        image { normal: "images/mask_background_main.png"; }						
-		        fill { smooth: 0; }	
+		        fill { smooth: 1; }	
 	            rel1 { relative: 0.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.07); }
                 rel2 { relative: 1.0 0.4; } 
 	        }							
@@ -222,88 +219,48 @@ collections {
 	        name: "icon_humidity";				
 	        type: IMAGE;						
 	        mouse_events: 0;					
-								
 	        description {						
-		    state: "default" 0.0;				
-		    image {						
-	                normal: "images/humidity.png";	
-		    }						
-		    fill {						
-		        smooth: 0;				
-		    }	
-		    rel1 { 
-                       relative: 0.03 0.25;
-                    }
-                    rel2 {
-                       relative: 0.09 0.29;
-                    }
-					
+		        state: "default" 0.0;				
+		        image {	normal: "images/humidity.png"; }						
+		        fill { smooth: 1; }	
+		        rel1 { relative: 0.03 0.25; }
+                rel2 { relative: 0.09 0.29; }
 	        }
 	    }
 	    part {								
 	        name: "icon_pressure";				
 	        type: IMAGE;						
 	        mouse_events: 0;					
-								
 	        description {						
-		    state: "default" 0.0;				
-		    image {						
-	                normal: "images/pressure.png";	
-		    }						
-		    fill {						
-		        smooth: 0;				
-		    }	
-		    rel1 { 
-                       relative: 0.03 0.32;
-                    }
-                    rel2 {
-                       relative: 0.09 0.36;
-                    }
-					
+		        state: "default" 0.0;				
+		        image { normal: "images/pressure.png"; }						
+		        fill { smooth: 1; }	
+    		    rel1 { relative: 0.03 0.32; }
+                rel2 { relative: 0.09 0.36; }
 	        }
 	    }
 	    part {								
 	        name: "icon_wind_direction_background";				
 	        type: IMAGE;						
 	        mouse_events: 0;					
-								
 	        description {						
-		    state: "default" 0.0;				
-		    image {						
-	                normal: "images/wind_direction_background.png";	
-		    }						
-		    fill {						
-		        smooth: 0;				
-		    }	
-		    rel1 { 
-                       relative: 0.53 0.25;
-                    }
-                    rel2 {
-                       relative: 0.59 0.29;
-                    }
-					
+                state: "default" 0.0;				
+                image {	normal: "images/wind_direction_background.png";	}						
+                fill { smooth: 1; }	
+                rel1 { relative: 0.53 0.25; }
+                rel2 { relative: 0.59 0.29; }
 	        }
 	    }
 	    part {								
 	        name: "icon_wind_direction_arrow";				
 	        type: IMAGE;						
 	        mouse_events: 0;					
-								
 	        description {						
-		    state: "default" 0.0;				
-		    image {						
-	                normal: "images/wind_direction_arrow.png";	
-		    }						
-		    fill {						
-		        smooth: 0;				
-		    }	
-		    rel1 { 
-                       relative: 0.53 0.25;
-                    }
-                    rel2 {
-                       relative: 0.59 0.29;
-                    }
-					
+                state: "default" 0.0;				
+                image {  normal: "images/wind_direction_arrow.png";	}						
+                fill { smooth: 1; }	
+                rel1 { relative: 0.53 0.25; }
+                rel2 { relative: 0.59 0.29; }
 	        }
 	    }
 	    part {								
@@ -326,7 +283,7 @@ collections {
 	        description {						
                 state: "default" 0.0;				
                 image {	normal: "images/wind_speed.png"; }						
-                fill { smooth: 0; }	
+                fill { smooth: 1; }	
                 rel1 { relative: 0.53 0.32; }
                 rel2 { relative: 0.59 0.36; }
 	        }
@@ -387,79 +344,60 @@ collections {
 	    }
 	    part {
 	        name: "humidity_label";
-		type: TEXT;
-		description{
-		    text {
-		       font: "Sans";
-		       size: 24;
-		       text: "";
-		       align: 0 0.5;
-		    }
-		    rel1 { 
-                       relative: 0.11 0.25;
-                    }
-                    rel2 {
-                       relative: 0.24 0.29;
-                    }
+        	type: TEXT;
+		    description{
+		        text {
+		            font: "Sans";
+		            size: 24;
+		            text: "";
+		            align: 0 0.5;
+		        }
+    		    rel1 { relative: 0.11 0.25; }
+                rel2 { relative: 0.24 0.29; }
 	       	}
 	    }
-
 	    part {
 	        name: "pressure_label";
-		type: TEXT;
-		description{
-		    text {
-		       font: "Sans";
-		       size: 24;
-		       text: "";
-		       align: 0 0.5;
-		    }
-		    rel1 { 
-                       relative: 0.11 0.32;
-                    }
-                    rel2 {
-                       relative: 0.24 0.36;
-                    }
+		    type: TEXT;
+		    description{
+		        text {
+		            font: "Sans";
+		            size: 24;
+		            text: "";
+		            align: 0 0.5;
+		        }
+    		    rel1 { relative: 0.11 0.32; }
+                rel2 { relative: 0.24 0.36; }
 	       	}
 	    }  
 	    part {
 	        name: "wind_direction_label";
-		type: TEXT;
-		description{
-		    text {
-		       font: "Sans";
-		       size: 24;
-		       text: "";
-		       align: 0 0.5;
-		    }
-		    rel1 { 
-                       relative: 0.63 0.25;
-                    }
-                    rel2 {
-                       relative: 0.84 0.29;
-                    }
+        	type: TEXT;
+		    description{
+		        text {
+		            font: "Sans";
+		            size: 24;
+		            text: "";
+		            align: 0 0.5;
+		        }
+		        rel1 { relative: 0.63 0.25; }
+                rel2 { relative: 0.84 0.29; }
 	       	}
 	    }
-
 	    part {
 	        name: "wind_speed_label";
-		type: TEXT;
-		description{
-		    text {
-		       font: "Sans";
-		       size: 24;
-		       text: "";
-		       align: 0 0.5;
-		    }
-		    rel1 { 
-                       relative: 0.63 0.32;
-                    }
-                    rel2 {
-                       relative: 0.84 0.36;
-                    }
+		    type: TEXT;
+		    description{
+		        text {
+		            font: "Sans";
+		            size: 24;
+		            text: "";
+		            align: 0 0.5;
+		        }
+		        rel1 { relative: 0.63 0.32; }
+                rel2 { relative: 0.84 0.36; }
 	       	}
 	    }
-	  
 	}
     }
     group {

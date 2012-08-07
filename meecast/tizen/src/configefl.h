@@ -44,6 +44,11 @@ protected:
 public:
     static ConfigEfl* Instance();
     static ConfigEfl* Instance(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
+    void set_screen_width(int width);
+    int  get_screen_width();
+    void set_screen_height(int height);
+    int  get_screen_height();
+
 };
 
 #endif // CONFIGEFL_H

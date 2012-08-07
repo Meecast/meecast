@@ -38,6 +38,7 @@
 ConfigEfl *
 create_and_fill_config(){
     ConfigEfl *config;
+	int w, h;
 
     std::cerr<<"Create Config class: " << std::endl;
     try{
@@ -55,6 +56,9 @@ create_and_fill_config(){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
         config =  ConfigEfl::Instance();
     }
+    ecore_x_window_size_get(ecore_x_window_root_first_get(), &w, &h);
+    config->set_screen_width(w);
+    config->set_screen_height(h);
     //std::cerr<<"End of creating Config class: " <<std::endl;
     config->saveConfig();
     std::cerr<<"End of creating Config class" <<std::endl;

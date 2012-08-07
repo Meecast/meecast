@@ -61,4 +61,23 @@ ConfigEfl::Instance(const std::string& filename, const std::string& schema_filen
     return _self;
 }
 
+void 
+ConfigEfl::set_screen_width(int width){
+    _screen_width = width;
+}
+
+int  
+ConfigEfl::get_screen_width(){
+    return _screen_width;
+}
+
+void 
+ConfigEfl::set_screen_height(int height){
+    _screen_height = height;
+}
+
+int  
+ConfigEfl::get_screen_height(){
+    return _screen_height;
+}
 

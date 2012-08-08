@@ -1,21 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: lv_LV\n"
+"Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-05 14:16+0300\n"
-"PO-Revision-Date: 2008-03-19 10:33+0200\n"
-"Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
-"Language-Team: English <en@li.org>\n"
-"Language: en\n"
+"POT-Creation-Date: 2012-08-08 16:53+0300\n"
+"PO-Revision-Date: 2012-04-19 10:38+0000\n"
+"Last-Translator: ludmilalisovskaya <ludmila.lisovskaya@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: lv_LV\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2)\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
@@ -89,7 +90,7 @@ msgstr ""
 #: omweather/src/weather-settings.c:4240
 #: omweather/src/weather-simple-settings.c:1696
 #: omweather/src/weather-simple-settings.c:2805
-#: meecast/qt-qml/UpdatePage.qml:147
+#: meecast/qt-qml/UpdatePage.qml:154
 msgid "1 hour"
 msgstr ""
 
@@ -105,11 +106,11 @@ msgstr ""
 msgid "10 seconds"
 msgstr ""
 
-#: omweather/src/weather-sensor.c:151
+#: omweather/src/weather-sensor.c:151 meecast/qt-qml/UpdatePage.qml:140
 msgid "15 minutes"
 msgstr ""
 
-#: omweather/src/weather-settings.c:4242 meecast/qt-qml/UpdatePage.qml:154
+#: omweather/src/weather-settings.c:4242 meecast/qt-qml/UpdatePage.qml:161
 msgid "2 hours"
 msgstr ""
 
@@ -121,7 +122,7 @@ msgstr ""
 msgid "3 minutes"
 msgstr ""
 
-#: omweather/src/weather-sensor.c:153 meecast/qt-qml/UpdatePage.qml:140
+#: omweather/src/weather-sensor.c:153 meecast/qt-qml/UpdatePage.qml:147
 msgid "30 minutes"
 msgstr ""
 
@@ -132,7 +133,7 @@ msgstr ""
 #: omweather/src/weather-settings.c:4244
 #: omweather/src/weather-simple-settings.c:1705
 #: omweather/src/weather-simple-settings.c:2808
-#: meecast/qt-qml/UpdatePage.qml:161
+#: meecast/qt-qml/UpdatePage.qml:168
 msgid "4 hours"
 msgstr ""
 
@@ -290,11 +291,11 @@ msgstr ""
 msgid "Animation"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:501
+#: meecast/qt-qml/VisualsPage.qml:546
 msgid "Appearance"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:93
+#: meecast/qt-qml/VisualsPage.qml:94
 msgid ""
 "Application manager will now start\n"
 "for installing package 'MeeCast applet'.\n"
@@ -364,7 +365,7 @@ msgstr ""
 msgid "CALM"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:107
+#: meecast/qt-qml/VisualsPage.qml:108
 msgid "Cancel"
 msgstr ""
 
@@ -465,9 +466,8 @@ msgid "Cloudy and light wet snow"
 msgstr ""
 
 #: omweather/src/hash.data:44
-#, fuzzy
 msgid "Cloudy and showers"
-msgstr "S"
+msgstr ""
 
 #: omweather/src/hash.data:45
 msgid "Cloudy and snow showers"
@@ -555,6 +555,10 @@ msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2896
 msgid "Custom"
+msgstr ""
+
+#: meecast/qt-qml/UpdatePage.qml:175
+msgid "Daily"
 msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
@@ -828,7 +832,7 @@ msgstr ""
 msgid "Font:"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:291
+#: meecast/qt-qml/VisualsPage.qml:292
 msgid ""
 "For disabling MeeCast widget,\n"
 "you should uninstall package\n"
@@ -870,6 +874,7 @@ msgid ""
 " Dutch - Tom Leenders, Michiel Pater\n"
 " Bulgarian - Zlatko Enikov\n"
 " Albanian - Ilir Gjika\n"
+" Chinese - Wong Man Kong, Michael\n"
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
@@ -896,7 +901,7 @@ msgstr ""
 msgid "Full forecast"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:368
+#: meecast/qt-qml/VisualsPage.qml:369
 msgid "Fullscreen mode"
 msgstr ""
 
@@ -979,11 +984,11 @@ msgstr ""
 msgid "Icon size:"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:43 meecast/qt-qml/UpdatePage.qml:42
+#: meecast/qt-qml/VisualsPage.qml:44 meecast/qt-qml/UpdatePage.qml:42
 msgid "Icons"
 msgstr ""
 
-#: omweather/src/hash.data:93 meecast/qt-qml/VisualsPage.qml:390
+#: omweather/src/hash.data:93 meecast/qt-qml/VisualsPage.qml:391
 msgid "Iconset"
 msgstr ""
 
@@ -991,8 +996,8 @@ msgstr ""
 msgid "Iconsets"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:63 meecast/qt-qml/VisualsPage.qml:135
-#: meecast/qt-qml/VisualsPage.qml:162 meecast/qt-qml/VisualsPage.qml:225
+#: meecast/qt-qml/VisualsPage.qml:64 meecast/qt-qml/VisualsPage.qml:136
+#: meecast/qt-qml/VisualsPage.qml:163 meecast/qt-qml/VisualsPage.qml:226
 msgid "Information"
 msgstr ""
 
@@ -1053,7 +1058,7 @@ msgstr ""
 msgid "Lead programmers"
 msgstr ""
 
-#: meecast/qt-qml/AboutPage.qml:236
+#: meecast/qt-qml/AboutPage.qml:237
 msgid "License"
 msgstr ""
 
@@ -1145,7 +1150,7 @@ msgstr ""
 msgid "Long"
 msgstr ""
 
-#: omweather/src/hash.data:120 meecast/qt-qml/WeatherPage.qml:486
+#: omweather/src/hash.data:120 meecast/qt-qml/WeatherPage.qml:487
 msgid "Looks like there's no info for this location."
 msgstr ""
 
@@ -1171,7 +1176,7 @@ msgstr ""
 msgid "Measurement units"
 msgstr ""
 
-#: meecast/qt-qml/WeatherPage.qml:291
+#: meecast/qt-qml/WeatherPage.qml:292
 msgid "MeeCast"
 msgstr ""
 
@@ -1403,7 +1408,7 @@ msgstr ""
 msgid "No current weather data."
 msgstr ""
 
-#: omweather/src/hash.data:165 meecast/qt-qml/WeatherPage.qml:312
+#: omweather/src/hash.data:165 meecast/qt-qml/WeatherPage.qml:313
 msgid "No locations are set up yet."
 msgstr ""
 
@@ -1422,7 +1427,7 @@ msgstr ""
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
 #: meecast/qt-qml/dataitem.cpp:175 meecast/qt-qml/FullWeatherPage.qml:130
-#: meecast/qt-qml/WeatherPage.qml:540
+#: meecast/qt-qml/WeatherPage.qml:541
 msgid "Now"
 msgstr ""
 
@@ -1448,7 +1453,7 @@ msgid "Now: "
 msgstr ""
 
 #: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1223
-#: meecast/qt-qml/VisualsPage.qml:114
+#: meecast/qt-qml/VisualsPage.qml:115
 msgid "OK"
 msgstr ""
 
@@ -1465,8 +1470,8 @@ msgstr ""
 msgid "OMWeather settings"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:205 meecast/qt-qml/VisualsPage.qml:268
-#: meecast/qt-qml/VisualsPage.qml:304
+#: meecast/qt-qml/VisualsPage.qml:206 meecast/qt-qml/VisualsPage.qml:269
+#: meecast/qt-qml/VisualsPage.qml:305
 msgid "Ok"
 msgstr ""
 
@@ -1571,9 +1576,8 @@ msgid "PM Snow Showers / Wind"
 msgstr ""
 
 #: omweather/src/hash.data:190
-#, fuzzy
 msgid "PM T-Showers"
-msgstr "S"
+msgstr ""
 
 #: omweather/src/hash.data:191
 msgid "PM T-Storms"
@@ -1815,9 +1819,8 @@ msgid "Rain Shower and Windy"
 msgstr ""
 
 #: omweather/src/hash.data:235
-#, fuzzy
 msgid "Rain Showers"
-msgstr "S"
+msgstr ""
 
 #: omweather/src/hash.data:236
 msgid "Rain and Snow"
@@ -1976,15 +1979,14 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:1150 omweather/src/weather-settings.c:1362
 #: omweather/src/weather-settings.c:1366 omweather/src/weather-sensor.c:263
-#, fuzzy
 msgid "Sensor"
-msgstr "S"
+msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2228
 msgid "Set"
 msgstr ""
 
-#: omweather/src/hash.data:256 meecast/qt-qml/WeatherPage.qml:326
+#: omweather/src/hash.data:256 meecast/qt-qml/WeatherPage.qml:327
 msgid "Set locations"
 msgstr ""
 
@@ -1994,14 +1996,17 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
+#: meecast/qt-qml/VisualsPage.qml:514
+msgid "Settings of StandbyScreen"
+msgstr ""
+
 #: omweather/src/hash.data:257
 msgid "Shallow Fog"
 msgstr ""
 
 #: omweather/src/weather-settings.c:3465
-#, fuzzy
 msgid "Short"
-msgstr "S"
+msgstr ""
 
 #: omweather/src/weather-settings.c:3824
 msgid "Show arrows"
@@ -2024,9 +2029,8 @@ msgid "Show wind"
 msgstr ""
 
 #: omweather/src/hash.data:263
-#, fuzzy
 msgid "Showers"
-msgstr "S"
+msgstr ""
 
 #: omweather/src/hash.data:259
 msgid "Showers / Wind"
@@ -2121,6 +2125,10 @@ msgstr ""
 msgid "Speed:"
 msgstr ""
 
+#: meecast/qt-qml/VisualsPage.qml:491
+msgid "Splash screen"
+msgstr ""
+
 #: omweather/src/weather-settings.c:522
 msgid "State:"
 msgstr ""
@@ -2136,9 +2144,8 @@ msgid "Stations"
 msgstr ""
 
 #: omweather/src/hash.data:277 omweather/src/weather-alerts.c:154
-#, fuzzy
 msgid "Storm"
-msgstr "S"
+msgstr ""
 
 #: omweather/src/weather-download.c:392
 msgid "Successfully loaded"
@@ -2181,14 +2188,12 @@ msgid "T-Showers"
 msgstr ""
 
 #: omweather/src/hash.data:282
-#, fuzzy
 msgid "T-Showers Early"
-msgstr "S"
+msgstr ""
 
 #: omweather/src/hash.data:284
-#, fuzzy
 msgid "T-Storm"
-msgstr "S"
+msgstr ""
 
 #: omweather/src/hash.data:287
 msgid "T-Storms"
@@ -2199,9 +2204,8 @@ msgid "T-Storms Early"
 msgstr ""
 
 #: omweather/src/hash.data:286
-#, fuzzy
 msgid "T-Storms Late"
-msgstr "S"
+msgstr ""
 
 #: omweather/src/weather-popup.c:947 omweather/src/weather-popup.c:950
 #: omweather/src/weather-popup.c:1080 omweather/src/weather-popup.c:1083
@@ -2235,7 +2239,7 @@ msgstr ""
 msgid "The weather has been updated."
 msgstr ""
 
-#: meecast/qt-qml/AboutPage.qml:245
+#: meecast/qt-qml/AboutPage.qml:246
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2262,7 +2266,7 @@ msgstr ""
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
-#: meecast/qt-qml/FullWeatherPage.qml:400 meecast/qt-qml/WeatherPage.qml:540
+#: meecast/qt-qml/FullWeatherPage.qml:400 meecast/qt-qml/WeatherPage.qml:541
 msgid "Today"
 msgstr ""
 
@@ -2281,7 +2285,7 @@ msgstr ""
 msgid "Transparency:"
 msgstr ""
 
-#: omweather/src/hash.data:291 meecast/qt-qml/WeatherPage.qml:500
+#: omweather/src/hash.data:291 meecast/qt-qml/WeatherPage.qml:501
 msgid "Try to update"
 msgstr ""
 
@@ -2328,7 +2332,7 @@ msgstr ""
 msgid "Update interval"
 msgstr ""
 
-#: omweather/src/hash.data:293 meecast/qt-qml/WeatherPage.qml:359
+#: omweather/src/hash.data:293 meecast/qt-qml/WeatherPage.qml:360
 msgid "Updating forecast"
 msgstr ""
 
@@ -2443,15 +2447,15 @@ msgstr ""
 msgid "Widget OMWeather is reloading"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:436
+#: meecast/qt-qml/VisualsPage.qml:437
 msgid "Widget in LockScreen"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:463
+#: meecast/qt-qml/VisualsPage.qml:464
 msgid "Widget in StandbyScreen"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:410
+#: meecast/qt-qml/VisualsPage.qml:411
 msgid "Widget in events view"
 msgstr ""
 
@@ -2536,14 +2540,14 @@ msgstr ""
 msgid "You can make donation here: "
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:192
+#: meecast/qt-qml/VisualsPage.qml:193
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using LockScreen widget"
 msgstr ""
 
-#: meecast/qt-qml/VisualsPage.qml:255
+#: meecast/qt-qml/VisualsPage.qml:256
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"

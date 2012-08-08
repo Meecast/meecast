@@ -304,8 +304,6 @@ create_main_window(void *data)
 
      //   evas_object_show(app->top_main_window);
      //   elm_object_part_content_set(app->layout, "elm.swallow.content", app->top_main_window);
-}
-#if 0
         /* Fill list of days with weather forecast */
         /* set current day */ 
         current_day = time(NULL);
@@ -314,22 +312,27 @@ create_main_window(void *data)
         tm->tm_isdst = 1;
         current_day = mktime(tm); /* today 00:00:00 */
 
-
+        std::cerr<<"dddddddddddddddddd"<<std::endl;
         /* fill other days */
         i = 3600*24;
         j = 0;
-        list_box = evas_object_box_add(app->layout); 
+        list_box = elm_box_add((app->win)); 
+        std::cerr<<"dddddddddddddddddd"<<std::endl;
         app->day_list_main_window = list_box;
         evas_object_box_layout_set(
                       list_box, evas_object_box_layout_vertical, NULL, NULL);
         while  (app->dp != NULL && (temp_data = app->dp->data().GetDataForTime( current_day + 14 * 3600  + i))) {
-            edje_obj_block = edje_object_add(app->layout);
+//            edje_obj_block = elm_box_add((app->layout));
+//        edje_obj_block = _EDJ(elm_box_add((app->win)));
+        edje_obj_block = edje_object_add(app->layout);
+        std::cerr<<"dddddddddddddddddd"<<std::endl;
             if (!edje_object_file_set(edje_obj_block, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "dayblock")){
                 Edje_Load_Error err = edje_object_load_error_get(edje_obj_block);
                 const char *errmsg = edje_load_error_str(err);
                 fprintf(stderr, "Could not load 'dayblock' from mainwindow.edj:"
                                 " %s\n", errmsg);
             }
+        std::cerr<<"555dddddddddddddddddd"<<std::endl;
             evas_object_resize(edje_obj_block, WIDTH, 80);
             edje_object_part_text_set(edje_obj_block, "full_day_name", temp_data->FullDayName().c_str());
             /* Icon */
@@ -383,6 +386,7 @@ create_main_window(void *data)
         evas_object_show(edje_obj);
     }
 
+#if 0
     evas_object_del(app->menu);
 
     /* Fill menu */

@@ -31,6 +31,7 @@
 struct _App {
     Ecore_Evas *ee;
     Evas_Object *win;	//main window
+    Evas *evass;
     Evas_Object *layout;
     Evas_Object *edje;
     Evas_Object *top_main_window;

@@ -170,7 +170,7 @@ create_main_window(void *data)
     app->layout = elm_layout_add(app->win);
 	if (app->layout == NULL) 
 		return;
-	
+    app->evass = evas_object_evas_get(app->win);	
     elm_layout_theme_set(app->layout, "standard", "window", "integration");
 	evas_object_size_hint_weight_set(app->layout, EVAS_HINT_EXPAND,
 					 EVAS_HINT_EXPAND);
@@ -304,8 +304,6 @@ create_main_window(void *data)
 
      //   evas_object_show(app->top_main_window);
      //   elm_object_part_content_set(app->layout, "elm.swallow.content", app->top_main_window);
-}
-#if 0
         /* Fill list of days with weather forecast */
         /* set current day */ 
         current_day = time(NULL);
@@ -318,12 +316,12 @@ create_main_window(void *data)
         /* fill other days */
         i = 3600*24;
         j = 0;
-        list_box = evas_object_box_add(app->layout); 
+        list_box = evas_object_box_add(app->evass); 
         app->day_list_main_window = list_box;
         evas_object_box_layout_set(
                       list_box, evas_object_box_layout_vertical, NULL, NULL);
         while  (app->dp != NULL && (temp_data = app->dp->data().GetDataForTime( current_day + 14 * 3600  + i))) {
-            edje_obj_block = edje_object_add(app->layout);
+            edje_obj_block = edje_object_add(app->evass);
             if (!edje_object_file_set(edje_obj_block, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "dayblock")){
                 Edje_Load_Error err = edje_object_load_error_get(edje_obj_block);
                 const char *errmsg = edje_load_error_str(err);
@@ -383,6 +381,7 @@ create_main_window(void *data)
         evas_object_show(edje_obj);
     }
 
+#if 0
     evas_object_del(app->menu);
 
     /* Fill menu */

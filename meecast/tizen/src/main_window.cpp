@@ -328,7 +328,7 @@ create_main_window(void *data)
                 fprintf(stderr, "Could not load 'dayblock' from mainwindow.edj:"
                                 " %s\n", errmsg);
             }
-            evas_object_resize(edje_obj_block, WIDTH, 80);
+            evas_object_resize(edje_obj_block, app->config->get_screen_width(), 80);
             edje_object_part_text_set(edje_obj_block, "full_day_name", temp_data->FullDayName().c_str());
             /* Icon */
             snprintf(buffer, sizeof(buffer) - 1, "%s/%s/%i.png", app->config->iconspath().c_str(), 
@@ -359,8 +359,8 @@ create_main_window(void *data)
             i = i + 3600*24;
             j++;
         }
-        evas_object_move(list_box, 0, 320);
-        evas_object_resize(list_box, WIDTH, 80*j);
+        evas_object_move(list_box, 0, app->config->get_screen_height()*0.4);
+        evas_object_resize(list_box, app->config->get_screen_width(), 80*j);
         evas_object_show(list_box);
 
     }else{
@@ -377,15 +377,14 @@ create_main_window(void *data)
         }
 
         evas_object_move(edje_obj, 0, 0);
-        evas_object_resize(edje_obj, WIDTH, HEIGHT);
+        evas_object_resize(edje_obj, app->config->get_screen_width(), app->config->get_screen_height());
         evas_object_show(edje_obj);
     }
 
-#if 0
     evas_object_del(app->menu);
 
     /* Fill menu */
-    edje_obj_menu = edje_object_add(app->layout);
+    edje_obj_menu = edje_object_add(app->evass);
     if (!edje_object_file_set(edje_obj_menu, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "menu")){
         Edje_Load_Error err = edje_object_load_error_get(edje_obj_menu);
         const char *errmsg = edje_load_error_str(err);
@@ -407,11 +406,10 @@ create_main_window(void *data)
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "menu_button");
     evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, menu, app); 
 
-    evas_object_move(edje_obj_menu, 0, HEIGHT - 60);
-    evas_object_resize(edje_obj_menu, WIDTH, 60);
+    evas_object_move(edje_obj_menu, 0, app->config->get_screen_height() - app->config->get_screen_height()*0.075);
+    evas_object_resize(edje_obj_menu, app->config->get_screen_width(), app->config->get_screen_height()*0.075);
     evas_object_show(edje_obj_menu);
     app->menu = edje_obj_menu;
-#endif
 }
 
 

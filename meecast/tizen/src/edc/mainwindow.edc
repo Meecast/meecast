@@ -529,19 +529,10 @@ collections {
 								
 	        description {						
 		    state: "default" 0.0;				
-		    image {						
-	                normal: "button_icons/refresh_arrows.png";	
-		    }						
-		    fill {						
-		        smooth: 0;				
-		    }	
-		    rel1 { 
-                       relative: 0.03 0.15;
-                    }
-                    rel2 {
-                       relative: 0.12 0.85;
-                    }
-					
+		    image { normal: "button_icons/refresh_arrows.png"; }
+		    fill { smooth: 1; }	
+		    rel1 { relative: 0.03 0.15; }
+                    rel2 { relative: 0.12 0.85; }
 	        }
 	    }
 	    part {								
@@ -550,6 +541,7 @@ collections {
                 source: "elm/icon";             
                 description {
                     state : "default" 0.0;
+		    fill { smooth: 1; }	
                     rel1.relative: 0.2 0.2;
                     rel2.relative: 0.8 0.8;
                     params {                //list of parameters specific to the external object
@@ -564,19 +556,10 @@ collections {
 								
 	        description {						
 		    state: "default" 0.0;				
-		    image {						
-	                normal: "button_icons/config.png";	
-		    }						
-		    fill {						
-		        smooth: 0;				
-		    }	
-		    rel1 { 
-                       relative: 0.89 0.15;
-                    }
-                    rel2 {
-                       relative: 0.98 0.85;
-                    }
-					
+		    image { normal: "button_icons/config.png"; }
+		    fill { smooth: 1; }	
+		    rel1 { relative: 0.89 0.15; }
+                    rel2 { relative: 0.98 0.85; }
 	        }
 	    }
 

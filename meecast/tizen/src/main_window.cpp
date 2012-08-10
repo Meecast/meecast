@@ -312,7 +312,7 @@ create_main_window(void *data)
         tm->tm_isdst = 1;
         current_day = mktime(tm); /* today 00:00:00 */
 
-
+        std::cerr<<"dddddddddddddddddd"<<std::endl;
         /* fill other days */
         i = 3600*24;
         j = 0;
@@ -381,6 +381,7 @@ create_main_window(void *data)
         evas_object_show(edje_obj);
     }
 
+#if 0
     evas_object_del(app->menu);
 
     /* Fill menu */

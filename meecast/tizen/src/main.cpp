@@ -71,7 +71,6 @@ Core::DataParser*
 current_data(std::string& str){
   Core::DataParser* dp;
   try{
-        fprintf(stderr,"rrrrrrrrrrr %s\n", str.c_str());
         dp = Core::DataParser::Instance(str, DATA_XSD_PATH);
     }
     catch(const std::string &str){
@@ -82,7 +81,6 @@ current_data(std::string& str){
         std::cerr<<"Error in DataParser class: "<< str <<std::endl;
         return NULL;
     }
-    fprintf(stderr,"ooooorrrrrrrrrrr %p\n", dp);
     return dp;
 }
 

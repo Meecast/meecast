@@ -204,9 +204,9 @@ create_main_window(void *data)
         temp_data->temperature().units(app->config->TemperatureUnit());
 
         /* Filling window */
-        /*Station name */
+        /* Station name */
         edje_object_part_text_set(edje_obj, "station_name", app->config->stationname().c_str());
-        /* Current o not current period */
+        /* Current or not current period */
         if (temp_data->Current())
             edje_object_part_text_set(edje_obj, "period_name", "Now");
         else

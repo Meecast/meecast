@@ -138,7 +138,7 @@ collections {
     group {
         name: "mainwindow";
 	parts{
-        part {
+            part {
                 name: "nullhead"; //Status Bar
                 type: RECT;
                 mouse_events: 0;
@@ -148,8 +148,7 @@ collections {
                     rel2 { relative: 1.0 STATUS_BAR_HEIGHT/FULL_HEIGHT;}
                     color: 0 0 0 255;
                 }
-        }
-
+            }
 	    part {
                 name: "station_rect"; // Black Box
                 type: RECT; 
@@ -203,18 +202,18 @@ collections {
 					
 	        }							
         }
-	    part {								
+            part {								
 	        name: "mask_background_main";				
 	        type: IMAGE;						
 	        mouse_events: 0;					
 	        description {						
-		        state: "default" 0.0;				
-		        image { normal: "images/mask_background_main.png"; }						
-		        fill { smooth: 1; }	
+                    state: "default" 0.0;				
+                    image { normal: "images/mask_background_main.png"; }
+                    fill { smooth: 1; }	
 	            rel1 { relative: 0.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.07); }
-                rel2 { relative: 1.0 0.4; } 
+                    rel2 { relative: 1.0 0.4; } 
 	        }							
-        }
+            }
 	    part {								
 	        name: "icon_humidity";				
 	        type: IMAGE;						
@@ -272,7 +271,7 @@ collections {
                 rel1.relative: 0.4 0.07;
                 rel2.relative: 0.6 0.20;
                 params {                //list of parameters specific to the external object
-                  string: "icon" "/opt/apps/com.meecast.omweather/share/icons/Glance/0.png";     //the icon
+                  string: "icon" "/opt/apps/com.meecast.omweather/share/icons/Glance/49.png";     //the icon
                 }                        
             }
         }
@@ -291,30 +290,29 @@ collections {
 	    part {
 	        name: "station_name";
 		    type: TEXT;
-		    description{
-                text {
+                    description{
+                        text {
 		            font: "Sans";
 		            size: 30;
 		            text: "";
 		        }
-                rel1 { relative: 0.0 STATUS_BAR_HEIGHT/FULL_HEIGHT; }
-                rel2 { relative: 1.0 0.10; }
-
+                        rel1 { relative: 0.0 STATUS_BAR_HEIGHT/FULL_HEIGHT; }
+                        rel2 { relative: 1.0 0.10; }
 		    }
 	    }
 	    part {
 	        name: "period_name";
-            type: TEXT;
-		    description{
-		        fixed: 1 1;
-		        text {
+                type: TEXT;
+	        description{
+                    fixed: 1 1;
+	            text {
 		            font: "Sans";
 		            size: 30;
 		            text: "";
-		        }
-                rel1 { relative: 0.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.115); }
-                rel2 { relative: 0.4 0.14; }
-		    }
+	            }
+                    rel1 { relative: 0.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.115); }
+                    rel2 { relative: 0.4 0.14; }
+                }
 	    }
 	    part {
 	        name: "main_temperature";
@@ -541,7 +539,6 @@ collections {
                 source: "elm/icon";             
                 description {
                     state : "default" 0.0;
-		    fill { smooth: 1; }	
                     rel1.relative: 0.2 0.2;
                     rel2.relative: 0.8 0.8;
                     params {                //list of parameters specific to the external object
@@ -567,5 +564,6 @@ collections {
 
 
         }
+
     }
 }

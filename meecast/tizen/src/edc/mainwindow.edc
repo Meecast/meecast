@@ -3,8 +3,8 @@ externals { external: "elm"; }
 #define FULL_HEIGHT 1280 
 #define STATUS_BAR_HEIGHT 40
 #define LARGE_FONT_SIZE 46  
-#define BIG_FONT_SIZE 44  
-#define MEDIUM_FONT_SIZE 34  
+#define BIG_FONT_SIZE 42  
+#define MEDIUM_FONT_SIZE 32
 
 collections {
 
@@ -353,7 +353,7 @@ collections {
 		            align: 0 0.5;
 		        }
     		    rel1 { relative: 0.11 0.25; }
-                rel2 { relative: 0.24 0.29; }
+                rel2 { relative: 0.26 0.29; }
 	       	}
 	    }
 	    part {
@@ -367,7 +367,7 @@ collections {
 		            align: 0 0.5;
 		        }
     		    rel1 { relative: 0.11 0.32; }
-                rel2 { relative: 0.24 0.36; }
+                rel2 { relative: 0.26 0.36; }
 	       	}
 	    }  
 	    part {
@@ -448,20 +448,16 @@ collections {
 	    }
 	    part {
 	        name: "max_temp";
-		type: TEXT;
-		description{
-		    text {
-		       font: "Sans";
-               size: MEDIUM_FONT_SIZE;
-		       text: "101";
-		       align: 1 0.5;
-		    }
-		    rel1 { 
-                       relative: 0.72 0.0;
-                    }
-                    rel2 {
-                       relative: 0.82 1.0;
-                    }
+               type: TEXT;
+               description{
+                   text {
+		               font: "Sans";
+                       size: MEDIUM_FONT_SIZE;
+		               text: "101";
+		               align: 1 0.5;
+		           }
+		           rel1 { relative: 0.72 0.0; }
+                   rel2 { relative: 0.84 1.0; }
 	       	}
 	    }
 	    part {

@@ -2,6 +2,9 @@ externals { external: "elm"; }
 
 #define FULL_HEIGHT 1280 
 #define STATUS_BAR_HEIGHT 40
+#define LARGE_FONT_SIZE 46  
+#define BIG_FONT_SIZE 44  
+#define MEDIUM_FONT_SIZE 34  
 
 collections {
 
@@ -37,7 +40,6 @@ collections {
 	        name: "main_background_rect";				
 	        type: RECT;						
 	        mouse_events: 0;					
-								
 	        description {						
                 state: "default" 0.0;				
                 color: 255 255 255 255; // white
@@ -75,7 +77,7 @@ collections {
 		    fixed: 1 1;
 		    text {
 		       font: "Sans";
-		       size: 36;
+		       size: LARGE_FONT_SIZE;
 		       text: "No locations are";
 		    }
 	            rel1 { 
@@ -100,7 +102,7 @@ collections {
 		    fixed: 1 1;
 		    text {
 		       font: "Sans";
-		       size: 36;
+		       size: LARGE_FONT_SIZE;
 		       text: "set up yet.";
 		    }
 	            rel1 { 
@@ -120,7 +122,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 34;
+		       size: (MEDIUM_FONT_SIZE + 2);
 		       text: "MeeCast";
 		    }
 	            rel1 { 
@@ -293,7 +295,7 @@ collections {
                     description{
                         text {
 		            font: "Sans";
-		            size: 30;
+		            size:  BIG_FONT_SIZE;
 		            text: "";
 		        }
                         rel1 { relative: 0.0 STATUS_BAR_HEIGHT/FULL_HEIGHT; }
@@ -307,7 +309,7 @@ collections {
                     fixed: 1 1;
 	            text {
 		            font: "Sans";
-		            size: 30;
+		            size:  BIG_FONT_SIZE;
 		            text: "";
 	            }
                     rel1 { relative: 0.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.115); }
@@ -320,7 +322,7 @@ collections {
 		    description{
 		        text {
 		            font: "Sans";
-		            size: 30;
+		            size:  BIG_FONT_SIZE;
 		            text: "Temperature";
 		        }
                 rel1 { relative: 0.6 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.115); }
@@ -333,7 +335,7 @@ collections {
 		    description{
                 text {
 		            font: "Sans";
-		            size: 25;
+		            size: (MEDIUM_FONT_SIZE + 2);
 		            text: "hello world";
 		        }
                 rel1 { relative: 0.0 (STATUS_BAR_HEIGHT/FULL_HEIGHT + 0.175);}
@@ -346,7 +348,7 @@ collections {
 		    description{
 		        text {
 		            font: "Sans";
-		            size: 24;
+		            size: MEDIUM_FONT_SIZE;
 		            text: "";
 		            align: 0 0.5;
 		        }
@@ -360,7 +362,7 @@ collections {
 		    description{
 		        text {
 		            font: "Sans";
-		            size: 24;
+		            size: MEDIUM_FONT_SIZE;
 		            text: "";
 		            align: 0 0.5;
 		        }
@@ -374,7 +376,7 @@ collections {
 		    description{
 		        text {
 		            font: "Sans";
-		            size: 24;
+		            size: MEDIUM_FONT_SIZE;
 		            text: "";
 		            align: 0 0.5;
 		        }
@@ -388,7 +390,7 @@ collections {
 		    description{
 		        text {
 		            font: "Sans";
-		            size: 24;
+		            size: MEDIUM_FONT_SIZE;
 		            text: "";
 		            align: 0 0.5;
 		        }
@@ -432,20 +434,16 @@ collections {
 
 	    part {
 	        name: "full_day_name";
-		type: TEXT;
-		description{
-		    text {
-		       font: "Sans";
-		       size: 24;
-		       text: "";
-		       align: 0 0.5;
-		    }
-		    rel1 { 
-                       relative: 0.05 0.0;
-                    }
-                    rel2 {
-                       relative: 0.45 1.0;
-                    }
+            type: TEXT;
+            description{
+                text {
+                    font: "Sans";
+                    size: MEDIUM_FONT_SIZE;
+		            text: "";
+		           align: 0 0.5;
+		        }
+                rel1 { relative: 0.05 0.0; }
+                rel2 { relative: 0.45 1.0; }
 	       	}
 	    }
 	    part {
@@ -454,7 +452,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 24;
+               size: MEDIUM_FONT_SIZE;
 		       text: "101";
 		       align: 1 0.5;
 		    }
@@ -473,7 +471,7 @@ collections {
                     color: 136 147 151 255;
 		    text {
 		       font: "Sans";
-		       size: 24;
+               size: MEDIUM_FONT_SIZE;
 		       text: "101";
 		       align: 1 0.5;
 		    }

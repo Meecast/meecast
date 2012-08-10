@@ -27,6 +27,7 @@
 #include "main_window.h"
 #define WIDTH  (480)
 #define HEIGHT (800)
+#define DAY_BLOCK_HEIGHT 120
 //#define WIDTH  (720)
 //#define HEIGHT (1280)
  
@@ -328,7 +329,7 @@ create_main_window(void *data)
                 fprintf(stderr, "Could not load 'dayblock' from mainwindow.edj:"
                                 " %s\n", errmsg);
             }
-            evas_object_resize(edje_obj_block, app->config->get_screen_width(), 80);
+            evas_object_resize(edje_obj_block, app->config->get_screen_width(),  DAY_BLOCK_HEIGHT);
             edje_object_part_text_set(edje_obj_block, "full_day_name", temp_data->FullDayName().c_str());
             /* Icon */
             snprintf(buffer, sizeof(buffer) - 1, "%s/%s/%i.png", app->config->iconspath().c_str(), 
@@ -360,7 +361,7 @@ create_main_window(void *data)
             j++;
         }
         evas_object_move(list_box, 0, app->config->get_screen_height()*0.4);
-        evas_object_resize(list_box, app->config->get_screen_width(), 80*j);
+        evas_object_resize(list_box, app->config->get_screen_width(),  DAY_BLOCK_HEIGHT*j);
         evas_object_show(list_box);
 
     }else{
@@ -381,7 +382,6 @@ create_main_window(void *data)
         evas_object_show(edje_obj);
     }
 
-#if 0
     evas_object_del(app->menu);
 
     /* Fill menu */

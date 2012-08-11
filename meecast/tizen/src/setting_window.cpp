@@ -239,7 +239,7 @@ _delete_station_cb(void *data, Evas_Object *obj, void *event_info)
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj, "bt_no");
     evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, _close_dialog_cb, app); 
     evas_object_move(edje_obj, 0, 0);
-    evas_object_resize(edje_obj, WIDTH, HEIGHT);
+    evas_object_resize(edje_obj, app->config->get_screen_width(), app->config->get_screen_height());
     evas_object_show(edje_obj);
     app->dialog = edje_obj;
 }
@@ -332,12 +332,12 @@ create_countries_window(void *data){
         }
     }
     evas_object_move(list, 0, 100);
-    evas_object_resize(list, WIDTH, HEIGHT-120);
+    evas_object_resize(edje_obj, app->config->get_screen_width(), app->config->get_screen_height()-120);
     evas_object_show(list);
     app->list = list;
 
     evas_object_move(edje_obj, 0, 0);
-    evas_object_resize(edje_obj, WIDTH, HEIGHT);
+    evas_object_resize(edje_obj, app->config->get_screen_width(), app->config->get_screen_height());
     evas_object_show(edje_obj);
     app->setting_top_main_window2 = edje_obj;
 
@@ -354,8 +354,9 @@ create_countries_window(void *data){
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "add");
     evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, prepare_for_sources_window, app); 
 
-    evas_object_move(edje_obj_menu, 0, 740);
-    evas_object_resize(edje_obj_menu, WIDTH, 60);
+    evas_object_move(edje_obj_menu, 0, app->config->get_screen_height() - app->config->get_screen_height()*0.075);
+    evas_object_resize(edje_obj, app->config->get_screen_width(), app->config->get_screen_height() - app->config->get_screen_height()*2*0.075 );
+    evas_object_resize(edje_obj_menu,app->config->get_screen_width(),  app->config->get_screen_height()*0.075);
     evas_object_show(edje_obj_menu);
     app->setting_menu2 = edje_obj_menu;
 
@@ -692,7 +693,9 @@ create_setting_window(void *data)
     time_t current_day;
     struct tm   *tm = NULL;
 
-    evas = ecore_evas_get(app->ee);
+   // evas = ecore_evas_get(app->evass);
+
+    evas = evas_object_evas_get(app->win);	
 
     evas_object_del(app->setting_top_main_window);
     evas_object_del(app->setting_menu);
@@ -709,7 +712,7 @@ create_setting_window(void *data)
     evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, manage_location_window, app); 
 
     evas_object_move(edje_obj, 0, 0);
-    evas_object_resize(edje_obj, WIDTH, HEIGHT);
+    evas_object_resize(edje_obj, app->config->get_screen_width(), app->config->get_screen_height());
     evas_object_show(edje_obj);
     app->setting_top_main_window = edje_obj;
 
@@ -724,8 +727,8 @@ create_setting_window(void *data)
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "back");
     evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, close_setting_window, app); 
 
-    evas_object_move(edje_obj_menu, 0, 740);
-    evas_object_resize(edje_obj_menu, WIDTH, 60);
+    evas_object_move(edje_obj_menu, 0, app->config->get_screen_height() - app->config->get_screen_height()*0.075);
+    evas_object_resize(edje_obj_menu,app->config->get_screen_width(),  app->config->get_screen_height()*0.075);
     evas_object_show(edje_obj_menu);
     app->setting_menu = edje_obj_menu;
 }

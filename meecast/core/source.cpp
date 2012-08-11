@@ -53,7 +53,6 @@ namespace Core {
         _sourceGetForecast = 0;
         _sourceGetDetail = 0;
 
-              std::cerr<<"Begn111111111111111111111111"<<std::endl;
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
     try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED

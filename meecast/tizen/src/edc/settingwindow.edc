@@ -1,5 +1,10 @@
 externals { external: "elm"; }
 
+#define LARGE_FONT_SIZE 46  
+#define BIG_FONT_SIZE 42  
+#define MEDIUM_FONT_SIZE 32
+
+
 collections {
 
     images {
@@ -64,7 +69,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 30;
+		       size: BIG_FONT_SIZE;
 		       text: "Settings";
 		       align: 0.0 0.5;
 		    }
@@ -90,7 +95,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 30;
+		       size: BIG_FONT_SIZE;
 		       text: "Manage locations";
 		       align: 0.0 0.5;
 		    }
@@ -105,7 +110,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 30;
+		       size: BIG_FONT_SIZE;
 		       text: ">";
 		       align: 1.0 0.5;
 		    }
@@ -131,7 +136,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 30;
+		       size: BIG_FONT_SIZE;
 		       text: "Measurement units";
 		       align: 0.0 0.5;
 		    }
@@ -146,7 +151,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 30;
+		       size: BIG_FONT_SIZE;
 		       text: ">";
 		       align: 1.0 0.5;
 		    }
@@ -163,7 +168,7 @@ collections {
                    color: 0 0 0 0; 
                    rel1.relative: 0.05 0.27;
                    rel2.relative: 0.9 0.38;
-                   }
+                }
             }
 	    part {
 	        name: "appearance_label";
@@ -172,7 +177,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 30;
+		       size: BIG_FONT_SIZE;
 		       text: "Appearance";
 		       align: 0.0 0.5;
 		    }
@@ -187,7 +192,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 30;
+		       size: BIG_FONT_SIZE;
 		       text: ">";
 		       align: 1.0 0.5;
 		    }
@@ -213,7 +218,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 30;
+		       size: BIG_FONT_SIZE;
 		       text: "Appearance";
 		       align: 0.0 0.5;
 		    }
@@ -228,7 +233,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 30;
+		       size: BIG_FONT_SIZE;
 		       text: ">";
 		       align: 1.0 0.5;
 		    }
@@ -280,7 +285,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 40;
+		       size: LARGE_FONT_SIZE;
 		       text: "<";
 		       align: 0 0.5;
 		    }
@@ -350,7 +355,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 30;
+		       size: BIG_FONT_SIZE;
 		       text: "Select";
 		       align: 0.0 0.5;
 		    }
@@ -412,7 +417,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 40;
+		       size: LARGE_FONT_SIZE;
 		       text: "<";
 		       align: 0 0.5;
 		    }
@@ -427,7 +432,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 40;
+		       size: LARGE_FONT_SIZE;
 		       text: "+";
 		       align: 1 0.5;
 		    }
@@ -476,7 +481,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 30;
+		       size: BIG_FONT_SIZE;
 		       text: "Do you want delete station?";
 		       align: 0 0.5;
 		    }
@@ -507,7 +512,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 30;
+		       size: BIG_FONT_SIZE;
 		       text: "Yes";
 		       align: 0.5 0.5;
 		    }
@@ -538,7 +543,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: 30;
+		       size: BIG_FONT_SIZE;
 		       text: "No";
 		       align: 0.5 0.5;
 		    }

@@ -251,7 +251,7 @@ collections {
 	    part {
                 name: "bg_rect";
                 type: RECT; 
-                mouse_events: 1; 
+           //     mouse_events: 1; 
                 description {
                    state: "default" 0.0; 
                    color: 0 0 0 255; 
@@ -266,7 +266,7 @@ collections {
 	    part {
                 name: "bg_top_line";
                 type: RECT; 
-                mouse_events: 0; 
+            //    mouse_events: 0; 
                 description {
                    state: "default" 0.0; 
                    color: 128 128 128 255; 
@@ -279,23 +279,28 @@ collections {
                 }
             }
 	    part {
-	        name: "back";
-		type: TEXT;
-                mouse_events: 1; 
-		description{
-		    text {
-		       font: "Sans";
-		       size: LARGE_FONT_SIZE;
-		       text: "<";
-		       align: 0 0.5;
-		    }
-		    rel1.relative: 0.05 0.1;
-		    rel2.relative: 0.2 0.9;
-		}
+                name: "back";
+                type: EXTERNAL;
+                source: "elm/button";             
+                description {
+                    state : "default" 0.0;
+		    rel1.relative: 0.8 0.1;
+		    rel2.relative: 0.95 0.9;
+		    fixed: 1 1;
+                    params {                
+                      string: "style" "naviframe/end_btn/default"; 
+                    }                        
+                }
+            }
+	    programs{
+	        program{
+	            name: "back";
+	            signal: "mouse,clicked,1";
+	            source: "back";
+	            action: SIGNAL_EMIT "back,signal" "back";
+	            transition: LINEAR 0.00000;
+	        }
 	    }
-
-
-
         }
     }
     group {
@@ -551,7 +556,7 @@ collections {
 		    rel2.relative: 0.8 0.6;
 		}
 	    }
+	
         }
     }
-
 }

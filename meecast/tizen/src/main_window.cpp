@@ -137,7 +137,6 @@ Evas_Object
 	}
 	return eo;
 }
-
 /*******************************************************************************/
 void
 create_main_window(void *data)
@@ -179,15 +178,16 @@ create_main_window(void *data)
 	evas_object_show(app->layout);
 
 
-
     if ((app->config->stationsList().size() > 0) && (app->config->current_station_id() < app->config->stationsList().size())){
+        std::cerr<<"qqqqqqqqqqq"<<std::endl;
         app->dp = current_data(app->config->stationsList().at(app->config->current_station_id())->fileName());
     }
     else
         app->dp = NULL;
 
-    evas_object_del(app->top_main_window);
-
+   std::cerr<<"rrrrrrrrrrrrrrrrr"<<std::endl;
+   evas_object_del(app->top_main_window);
+    
     if (app->dp)
         fprintf(stderr,"Load!!!!!!!! yy %p %p\n", app->dp, app->dp->data().GetDataForTime(time(NULL)));
     /* Preparing data */
@@ -195,7 +195,7 @@ create_main_window(void *data)
         app->top_main_window = load_edj(app->win, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "mainwindow");
         edje_obj = elm_layout_edje_get(app->top_main_window);
         evas_object_show(app->top_main_window);
-
+//app->top_main_window = edje_obj; 
         temp_data->temperature_low().units(app->config->TemperatureUnit());
         temp_data->temperature_hi().units(app->config->TemperatureUnit());
         temp_data->temperature().units(app->config->TemperatureUnit());

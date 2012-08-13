@@ -149,7 +149,6 @@ create_main_window(void *data)
     Evas_Object *edje_obj_menu;
     Evas_Object *temp_edje_obj = NULL;
     Evas_Object *edje_obj_block;
-    Evas *evas;
     struct _App *app = (struct _App*)data;
     int i, j;
     char  buffer[4096];
@@ -188,12 +187,20 @@ create_main_window(void *data)
    std::cerr<<"rrrrrrrrrrrrrrrrr"<<std::endl;
    evas_object_del(app->top_main_window);
     
-    if (app->dp)
-        fprintf(stderr,"Load!!!!!!!! yy %p %p\n", app->dp, app->dp->data().GetDataForTime(time(NULL)));
+
+    edje_obj = edje_object_add(evas_object_evas_get(app->win));
+    app->top_main_window = edje_obj; 
+     if (app->dp)
+    fprintf(stderr,"Load!!!!!!!! yy %p %p\n", app->dp, app->dp->data().GetDataForTime(time(NULL)));
     /* Preparing data */
     if (app->dp != NULL && (temp_data = app->dp->data().GetDataForTime(time(NULL)))){    
-        app->top_main_window = load_edj(app->win, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "mainwindow");
-        edje_obj = elm_layout_edje_get(app->top_main_window);
+    
+        if (!edje_object_file_set(edje_obj, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "mainwindow")){
+            Edje_Load_Error err = edje_object_load_error_get(edje_obj);
+            const char *errmsg = edje_load_error_str(err);
+            fprintf(stderr, "Could not load 'mainwindow' from mainwindow.edj:"
+                            " %s\n", errmsg);
+        }
         evas_object_show(app->top_main_window);
         temp_data->temperature_low().units(app->config->TemperatureUnit());
         temp_data->temperature_hi().units(app->config->TemperatureUnit());

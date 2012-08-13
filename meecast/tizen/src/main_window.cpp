@@ -195,7 +195,6 @@ create_main_window(void *data)
         app->top_main_window = load_edj(app->win, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "mainwindow");
         edje_obj = elm_layout_edje_get(app->top_main_window);
         evas_object_show(app->top_main_window);
-//app->top_main_window = edje_obj; 
         temp_data->temperature_low().units(app->config->TemperatureUnit());
         temp_data->temperature_hi().units(app->config->TemperatureUnit());
         temp_data->temperature().units(app->config->TemperatureUnit());
@@ -364,7 +363,6 @@ create_main_window(void *data)
         evas_object_move(scroller, 0, app->config->get_screen_height()*0.4); 
         elm_object_content_set(scroller, list_box);
         evas_object_show(scroller);
-
     }else{
         if (!edje_object_file_set(edje_obj, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "nullwindow")){
             Edje_Load_Error err = edje_object_load_error_get(edje_obj);

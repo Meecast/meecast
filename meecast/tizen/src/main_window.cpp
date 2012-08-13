@@ -120,24 +120,6 @@ right_arrow_down(void *data, Evas *e, Evas_Object *o, void *event_info){
     create_main_window(data);
 }
 /*******************************************************************************/
-Evas_Object 
-*load_edj (Evas_Object *parent, const char *file, const char *group)
-{
-	Evas_Object *eo;
-	int r;
-	eo = elm_layout_add(parent);
-	if (eo) {
-		r = elm_layout_file_set(eo, file, group);
-		if (!r) {
-			evas_object_del(eo);
-			return NULL;
-		}
-		evas_object_size_hint_weight_set(eo, EVAS_HINT_EXPAND,
-						 EVAS_HINT_EXPAND);
-	}
-	return eo;
-}
-/*******************************************************************************/
 void
 create_main_window(void *data)
 {

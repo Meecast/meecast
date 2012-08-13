@@ -32,8 +32,7 @@
 static Evas_Object *list;
 
 static void
-close_setting_window (void *data, Evas_Object *obj, const char *emission, const char *source)
-{
+close_setting_window (void *data, Evas_Object *obj, const char *emission, const char *source){
     struct _App *app = (struct _App*)data;
     fprintf(stderr,"Closing....\n");
     evas_object_del(app->setting_top_main_window);
@@ -42,7 +41,8 @@ close_setting_window (void *data, Evas_Object *obj, const char *emission, const 
 }
 
 static void
-close_setting_window2(void *data, Evas *e, Evas_Object *o, void *event_info){
+close_setting_window2 (void *data, Evas_Object *obj, const char *emission, const char *source){
+//close_setting_window2(void *data, Evas *e, Evas_Object *o, void *event_info){
     struct _App *app = (struct _App*)data;
     fprintf(stderr,"Closing2....\n");
    evas_object_del(app->setting_top_main_window2);
@@ -351,7 +351,7 @@ create_countries_window(void *data){
                         " %s\n", errmsg);
     }
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "back");
-    evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, close_setting_window2, app); 
+    //evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, close_setting_window2, app); 
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "add");
     evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, prepare_for_sources_window, app); 
 
@@ -434,7 +434,7 @@ create_regions_window(void *data){
                         " %s\n", errmsg);
     }
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "back");
-    evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, close_setting_window2, app); 
+    //evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, close_setting_window2, app); 
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "add");
     evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, prepare_for_sources_window, app); 
 
@@ -515,7 +515,7 @@ create_stations_window(void *data){
                         " %s\n", errmsg);
     }
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "back");
-    evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, close_setting_window2, app); 
+    //evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, close_setting_window2, app); 
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "add");
     evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, prepare_for_sources_window, app); 
 
@@ -582,11 +582,11 @@ create_sources_window(void *data){
     if (!edje_object_file_set(edje_obj_menu, "/opt/apps/com.meecast.omweather/share/edje/settingwindow.edj", "menu_managelocations")){
         Edje_Load_Error err = edje_object_load_error_get(edje_obj_menu);
         const char *errmsg = edje_load_error_str(err);
-        fprintf(stderr, "Could not load 'menu_managelocations' from mainwindow.edj:"
+        fprintf(stderr, "Could not load 'menu_managelocations' from settingwindow.edj"
                         " %s\n", errmsg);
     }
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "back");
-    evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, close_setting_window2, app); 
+    //evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, close_setting_window2, app); 
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "add");
     evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, prepare_for_sources_window, app); 
 
@@ -608,16 +608,14 @@ create_location_window(void *data){
     Elm_Object_Item *item;
 
     int i;
-
-    evas = ecore_evas_get(app->ee);
-
+    evas = evas_object_evas_get(app->win);	
     edje_obj = edje_object_add(evas);
     fprintf(stderr,"Mange location window....\n");
     /* exercising Edje loading error, on purpose */
     if (!edje_object_file_set(edje_obj, "/opt/apps/com.meecast.omweather/share/edje/settingwindow.edj", "managelistwindow")){
         Edje_Load_Error err = edje_object_load_error_get(edje_obj);
         const char *errmsg = edje_load_error_str(err);
-        fprintf(stderr, "Could not load 'mainwindow' from mainwindow.edj:"
+        fprintf(stderr, "Could not load 'managelistwindow' from settingwindow.edj"
                         " %s\n", errmsg);
     }
     edje_object_part_text_set(edje_obj, "settings_label", "Manage locations");
@@ -643,10 +641,11 @@ create_location_window(void *data){
     fprintf(stderr,"1111d.... %p\n", app->list);
 
     evas_object_move(edje_obj, 0, 0);
-    evas_object_resize(edje_obj, WIDTH, HEIGHT);
+    evas_object_resize(edje_obj, app->config->get_screen_width(), app->config->get_screen_height());
     evas_object_show(edje_obj);
     app->setting_top_main_window2 = edje_obj;
 
+#if 0
     edje_obj_menu = edje_object_add(evas);
     /* exercising Edje loading error, on purpose */
     if (!edje_object_file_set(edje_obj_menu, "/opt/apps/com.meecast.omweather/share/edje/settingwindow.edj", "menu_managelocations")){
@@ -664,6 +663,27 @@ create_location_window(void *data){
     evas_object_resize(edje_obj_menu, WIDTH, 60);
     evas_object_show(edje_obj_menu);
     app->setting_menu2 = edje_obj_menu;
+#endif
+    /* Set layout Edje File */
+    Evas_Object *layout, *ed, *pg ;
+    layout = elm_layout_add(app->win);
+   
+    pg = elm_naviframe_add(app->win);
+    evas_object_size_hint_weight_set(pg, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+    evas_object_size_hint_align_set(pg, 0.0,0.0);
+    evas_object_show(pg);
+
+    if(elm_layout_file_set(layout, "/opt/apps/com.meecast.omweather/share/edje/settingwindow.edj","menu_managelocations")){
+       ed = elm_layout_edje_get(layout);
+       /* Set callback functions */
+       edje_object_signal_callback_add(ed, "clicked", "back", close_setting_window2, app);
+       edje_object_signal_callback_add(ed, "clicked", "add", close_setting_window2, app);
+       elm_naviframe_item_simple_push(pg, layout);
+       evas_object_show(layout);
+       evas_object_move(pg, 0, app->config->get_screen_height() - app->config->get_screen_height()*0.075);
+       evas_object_resize(pg, app->config->get_screen_width(),  app->config->get_screen_height()*0.075);
+       app->setting_menu2 = layout;
+    }
 
 
 }
@@ -735,7 +755,7 @@ create_setting_window(void *data)
     if(elm_layout_file_set(layout, "/opt/apps/com.meecast.omweather/share/edje/settingwindow.edj","menu")){
        ed = elm_layout_edje_get(layout);
        /* Set callback functions */
-       edje_object_signal_callback_add(ed, "back,signal", "back", close_setting_window, app);
+       edje_object_signal_callback_add(ed, "clicked", "back", close_setting_window, app);
        elm_naviframe_item_simple_push(pg, layout);
        evas_object_show(layout);
        evas_object_move(pg, 0, app->config->get_screen_height() - app->config->get_screen_height()*0.075);

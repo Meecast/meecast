@@ -292,15 +292,6 @@ collections {
                     }                        
                 }
             }
-	    programs{
-	        program{
-	            name: "back";
-	            signal: "mouse,clicked,1";
-	            source: "back";
-	            action: SIGNAL_EMIT "back,signal" "back";
-	            transition: LINEAR 0.00000;
-	        }
-	    }
         }
     }
     group {
@@ -443,15 +434,6 @@ collections {
                     }                        
                 }
             }
-	    programs{
-	        program{
-	            name: "back";
-	            signal: "mouse,clicked,1";
-	            source: "back";
-	            action: SIGNAL_EMIT "back,signal" "back";
-	            transition: LINEAR 0.00000;
-	        }
-	    }
         }
     }
     group {

@@ -162,11 +162,11 @@ create_main_window(void *data)
 
     if (app->win == NULL)
         return;
-
+    app->evass = evas_object_evas_get(app->win);	
+/*
     app->layout = elm_layout_add(app->win);
 	if (app->layout == NULL) 
 		return;
-    app->evass = evas_object_evas_get(app->win);	
     elm_layout_theme_set(app->layout, "standard", "window", "integration");
 	evas_object_size_hint_weight_set(app->layout, EVAS_HINT_EXPAND,
 					 EVAS_HINT_EXPAND);
@@ -175,23 +175,20 @@ create_main_window(void *data)
 	edje_object_signal_emit(_EDJ(app->layout), "elm,state,show,content", "elm");
 	edje_object_signal_emit(_EDJ(app->layout), "elm,state,show,indicator", "elm");
 	evas_object_show(app->layout);
-
+*/
 
     if ((app->config->stationsList().size() > 0) && (app->config->current_station_id() < app->config->stationsList().size())){
-        std::cerr<<"qqqqqqqqqqq"<<std::endl;
         app->dp = current_data(app->config->stationsList().at(app->config->current_station_id())->fileName());
     }
     else
         app->dp = NULL;
 
-   std::cerr<<"rrrrrrrrrrrrrrrrr"<<std::endl;
-   evas_object_del(app->top_main_window);
+    evas_object_del(app->top_main_window);
     
 
-    edje_obj = edje_object_add(evas_object_evas_get(app->win));
+    edje_obj = edje_object_add(app->evass);
     app->top_main_window = edje_obj; 
-     if (app->dp)
-    fprintf(stderr,"Load!!!!!!!! yy %p %p\n", app->dp, app->dp->data().GetDataForTime(time(NULL)));
+
     /* Preparing data */
     if (app->dp != NULL && (temp_data = app->dp->data().GetDataForTime(time(NULL)))){    
     

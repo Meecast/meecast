@@ -31,14 +31,13 @@
 /*******************************************************************************/
 static Evas_Object *list;
 
-
 static void
 close_setting_window (void *data, Evas_Object *obj, const char *emission, const char *source)
 {
     struct _App *app = (struct _App*)data;
     fprintf(stderr,"Closing....\n");
-//    evas_object_del(app->setting_top_main_window);
-//    evas_object_del(app->setting_menu);
+    evas_object_del(app->setting_top_main_window);
+    evas_object_del(app->setting_menu);
     create_main_window(app);
 }
 
@@ -707,7 +706,6 @@ create_setting_window(void *data)
 
     evas_object_del(app->setting_top_main_window);
     evas_object_del(app->setting_menu);
-    evas_object_del(app->menu);
 
     edje_obj = edje_object_add(evas);
     /* exercising Edje loading error, on purpose */
@@ -743,7 +741,7 @@ create_setting_window(void *data)
        evas_object_move(pg, 0, app->config->get_screen_height() - app->config->get_screen_height()*0.075);
        evas_object_resize(pg, app->config->get_screen_width(),  app->config->get_screen_height()*0.075);
        app->setting_menu = layout;
-    }    
+    }
 }
 
 

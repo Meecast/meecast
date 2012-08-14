@@ -103,7 +103,7 @@ left_arrow_down(void *data, Evas *e, Evas_Object *o, void *event_info){
     if ((uint)(app->config->current_station_id() - 1) >= 0)
         app->config->current_station_id(app->config->current_station_id() - 1);
     else 
-        app->config->current_station_id(app->stationslist->size());
+        app->config->current_station_id(app->config->stationsList().size());
     app->config->saveConfig();
     create_main_window(data);
 }
@@ -112,8 +112,7 @@ static void
 right_arrow_down(void *data, Evas *e, Evas_Object *o, void *event_info){
 
     struct _App *app = (struct _App*)data;
-    std::cerr<<"tttttttttttttttt "<< app->config->current_station_id()<<" "<< app->stationslist->size()<<std::endl ;
-    if ((uint)(app->config->current_station_id() + 1) < app->stationslist->size())
+    if ((uint)(app->config->current_station_id() + 1) < app->config->stationsList().size())
         app->config->current_station_id(app->config->current_station_id() + 1);
     else 
         app->config->current_station_id(0);

@@ -19,6 +19,7 @@ collections {
         image: "images/arrow_left.png" COMP;
         image: "images/arrow_right.png" COMP;
         image: "button_icons/refresh_arrows.png" COMP; 
+        image: "button_icons/icon_refresh.png" COMP; 
         image: "button_icons/config.png" COMP; 
     }
     group {
@@ -526,7 +527,7 @@ collections {
 								
 	        description {						
 		    state: "default" 0.0;				
-		    image { normal: "button_icons/refresh_arrows.png"; }
+		    image { normal: "button_icons/icon_refresh.png"; }
 		    fill { smooth: 1; }	
 		    rel1 { relative: 0.03 0.15; }
                     rel2 { relative: 0.12 0.85; }

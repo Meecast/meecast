@@ -112,6 +112,7 @@ static void
 right_arrow_down(void *data, Evas *e, Evas_Object *o, void *event_info){
 
     struct _App *app = (struct _App*)data;
+    std::cerr<<"tttttttttttttttt "<< app->config->current_station_id()<<" "<< app->stationslist->size()<<std::endl ;
     if ((uint)(app->config->current_station_id() + 1) < app->stationslist->size())
         app->config->current_station_id(app->config->current_station_id() + 1);
     else 
@@ -142,6 +143,7 @@ create_main_window(void *data)
     struct tm   *tm = NULL;
 
 
+    std::cerr<<"create_main_window"<<std::endl;
     if (app->win == NULL)
         return;
     app->evass = evas_object_evas_get(app->win);	

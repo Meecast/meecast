@@ -221,8 +221,7 @@ _delete_station_cb(void *data, Evas_Object *obj, void *event_info)
     Evas *evas;
     Evas_Object *temp_edje_obj = NULL;
 
-    evas = ecore_evas_get(app->ee);
-
+    evas = evas_object_evas_get(app->win);	
     edje_obj = edje_object_add(evas);
 
     if (!edje_object_file_set(edje_obj, "/opt/apps/com.meecast.omweather/share/edje/settingwindow.edj", "dialog")){

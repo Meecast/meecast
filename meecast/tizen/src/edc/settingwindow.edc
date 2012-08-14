@@ -476,7 +476,7 @@ collections {
 		    text {
 		       font: "Sans";
 		       size: BIG_FONT_SIZE;
-		       text: "Do you want delete station?";
+		       text: "Do you want to delete station?";
 		       align: 0 0.5;
 		    }
 		    rel1.relative: 0.05 0.4;

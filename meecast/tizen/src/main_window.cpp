@@ -84,6 +84,12 @@ static void
 download_forecast(void *data, Evas *e, Evas_Object *o, void *event_info){
     struct _App *app = (struct _App*)data;
     fprintf(stderr,"Updating....\n");
+        Elm_Transit *trans = elm_transit_add();
+        elm_transit_object_add(trans, o);
+        elm_transit_repeat_times_set(trans, -1);
+        elm_transit_effect_rotation_add(trans, 0.0, 360.0);
+        elm_transit_duration_set(trans, 3.0);
+        elm_transit_go(trans);
     for (short i=0; i < app->config->stationsList().size();i++){
         app->config->stationsList().at(i)->updateData(true);
     }
@@ -388,11 +394,12 @@ create_main_window(void *data)
         edje_object_part_external_param_set (edje_obj_menu, "source_logo", &param);
 
         temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "refresh_button");
+        evas_object_resize(temp_edje_obj, 10, 10);
+
         evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, download_forecast, app); 
     }
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "menu_button");
     evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, menu, app); 
-
     evas_object_move(edje_obj_menu, 0, app->config->get_screen_height() - app->config->get_screen_height()*0.075);
     evas_object_resize(edje_obj_menu, app->config->get_screen_width(), app->config->get_screen_height()*0.075);
     evas_object_show(edje_obj_menu);

@@ -8,9 +8,9 @@ externals { external: "elm"; }
 collections {
 
     images {
-    	image: "images/mask_background_main.png" COMP;
-	image: "button_icons/config.png" COMP; 
-	image: "images/mask_background_grid.png" COMP;
+   	    image: "images/mask_background_main.png" COMP;
+	    image: "button_icons/config.png" COMP; 
+	    image: "images/mask_background_grid.png" COMP;
     }
     group {
         name: "settingwindow";
@@ -281,12 +281,12 @@ collections {
 	    part {
                 name: "back";
                 type: EXTERNAL;
-                source: "elm/button";             
+                source: "elm/button"; 
                 description {
                     state : "default" 0.0;
-		    rel1.relative: 0.8 0.1;
-		    rel2.relative: 0.95 0.9;
-		    fixed: 1 1;
+                    rel1.relative: 0.8 0.1;
+                    rel2.relative: 0.95 0.9;
+                    fixed: 1 1;
                     params {                
                       string: "style" "naviframe/end_btn/default"; 
                     }                        

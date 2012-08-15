@@ -407,15 +407,9 @@ collections {
 	    part {
                 name: "bg_rect";
                 type: RECT; 
-         //       mouse_events: 1; 
-         //       dragable {
-         //           confine: "bg_rect";
-         //           x: 0 0 0;
-         //           y: 1 1 0;
-         //       }
                 description {
                    state: "default" 0.0; 
-                   color: 0 0 0 255; // white
+                   color: 0 0 0 255; 
                    rel1 { 
                       relative: 0.0 0.0;
                    }
@@ -520,18 +514,17 @@ collections {
                    }
                 }
             }
-	    part {								
-	        name: "refresh_button";				
-	        type: IMAGE;						
-	        mouse_events: 1;					
-								
-	        description {						
-		    state: "default" 0.0;				
-		    image { normal: "button_icons/icon_refresh.png"; }
-		    fill { smooth: 1; }	
-		    rel1 { relative: 0.03 0.15; }
-                    rel2 { relative: 0.12 0.85; }
-	        }
+	    part {
+            name: "refresh_button";
+            type: IMAGE;                                            
+            mouse_events: 1;                                        
+                description {                                           
+                    state: "default" 0.0;                               
+                    image { normal: "button_icons/icon_refresh.png"; }
+                    fill { smooth: 1; }
+                    rel1 { relative: 0.02 0.15; }
+                    rel2 { relative: 0.11 0.85; }
+                }
 	    }
 	    part {								
             	name: "source_logo";
@@ -559,11 +552,6 @@ collections {
                     rel2 { relative: 0.98 0.85; }
 	        }
 	    }
-
-
-
-
         }
-
     }
 }

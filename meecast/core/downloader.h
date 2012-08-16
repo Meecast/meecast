@@ -37,6 +37,8 @@
 #include <string>
 #include <iostream>
 
+#include "Ecore.h"
+
 namespace Core{
 class Downloader
 {

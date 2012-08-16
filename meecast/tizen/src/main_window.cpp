@@ -91,9 +91,10 @@ download_forecast(void *data, Evas *e, Evas_Object *o, void *event_info){
         elm_transit_duration_set(trans, 3.0);
         elm_transit_go(trans);
     for (short i=0; i < app->config->stationsList().size();i++){
+        ecore_main_loop_iterate();
         app->config->stationsList().at(i)->updateData(true);
     }
-    create_main_window(data);
+//    create_main_window(data);
 }
 /*******************************************************************************/
 static void

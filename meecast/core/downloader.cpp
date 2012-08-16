@@ -40,6 +40,7 @@ Downloader::Downloader()
 size_t
 Downloader::writedata(void *ptr, size_t size, size_t nmemb, FILE *stream)
 {
+    ecore_main_loop_iterate();
     return fwrite(ptr, size, nmemb, stream);
 }
 bool

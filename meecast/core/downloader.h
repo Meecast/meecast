@@ -37,7 +37,34 @@
 #include <string>
 #include <iostream>
 
-#include "Ecore.h"
+#include <Ecore.h>
+#include <Ecore_Con.h>
+#include <fcntl.h>
+
+typedef unsigned int              Ecore_Magic;
+struct _Ecore_Con_Url
+{
+   Ecore_Magic  __magic;
+   CURL *curl_easy;
+   struct curl_slist *headers;
+   Eina_List *additional_headers;
+   Eina_List *response_headers;
+   char *url;
+
+   Ecore_Con_Url_Time time_condition;
+   double timestamp;
+   void *data;
+
+   Ecore_Fd_Handler *fd_handler;
+   int fd;
+   int flags;
+
+   int received;
+   int write_fd;
+
+   Eina_Bool active : 1;
+};
+
 
 namespace Core{
 class Downloader

@@ -88,13 +88,12 @@ download_forecast(void *data, Evas *e, Evas_Object *o, void *event_info){
         elm_transit_object_add(trans, o);
         elm_transit_repeat_times_set(trans, -1);
         elm_transit_effect_rotation_add(trans, 0.0, 360.0);
-        elm_transit_duration_set(trans, 3.0);
+        elm_transit_duration_set(trans, 2.0);
         elm_transit_go(trans);
-    for (short i=0; i < app->config->stationsList().size();i++){
-        ecore_main_loop_iterate();
+    for (short i=0; i < app->config->stationsList().size(); i++){
         app->config->stationsList().at(i)->updateData(true);
     }
-//    create_main_window(data);
+    create_main_window(data);
 }
 /*******************************************************************************/
 static void

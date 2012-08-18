@@ -34,11 +34,8 @@
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
 
-struct _request
-{
-    long size;
-};
 
+static int downloading_count  = 0;
 
 Downloader::Downloader()
 {
@@ -53,78 +50,81 @@ Downloader::writedata(void *ptr, size_t size, size_t nmemb, FILE *stream)
 }
 
 
-static Eina_Bool
-_url_progress_cb(void *data, int type, void *event_info)
-{
-       Ecore_Con_Event_Url_Progress *url_progress = (Ecore_Con_Event_Url_Progress* )event_info;
-          float percent;
-
-        if (url_progress->down.total > 0) {
-                struct _request *req = (Core::_request* )ecore_con_url_data_get(url_progress->url_con);
-                req->size = url_progress->down.now;
-
-                percent = (url_progress->down.now / url_progress->down.total) * 100;
-                printf("Total of download complete: %0.1f (%0.0f)%%\n",
-                percent, url_progress->down.now);
-        }
-    return EINA_TRUE;
+#ifdef TIZEN
+static void
+exe_complete(void *data, const Ecore_Exe *exe){
+    fprintf(stdout, "rrrrrrrrrrrrrrrr\n");
 }
-
 static Eina_Bool
 _url_complete_cb(void *data, int type, void *event_info)
-{
-       Ecore_Con_Event_Url_Complete *url_complete = (Ecore_Con_Event_Url_Complete* )event_info;
+{  
+    Ecore_Exe *exe; 
+    Ecore_Con_Event_Url_Complete *url_complete = (Ecore_Con_Event_Url_Complete* )event_info;
+    std::string *command = (std::string *)ecore_con_url_data_get(url_complete->url_con);
+/* Debug
+    int nbytes = ecore_con_url_received_bytes_get(url_complete->url_con);
 
-        struct _request *req = (Core::_request* )ecore_con_url_data_get(url_complete->url_con);
-        int nbytes = ecore_con_url_received_bytes_get(url_complete->url_con);
-
-         printf("\n");
-         printf("download completed with status code: %d\n", url_complete->status);
-         printf("Total size of downloaded file: %ld bytes\n", req->size);
-         printf("Total size of downloaded file: %ld bytes "
+    printf("\n");
+    printf("download completed with status code: %d\n", url_complete->status);
+    printf("Total size of downloaded file: %ld bytes "
                                       "(from received_bytes_get)\n", nbytes);
 
-         ecore_con_url_shutdown();
-         ecore_con_shutdown();
-         return EINA_TRUE;
+    printf("Command %s\n", command->c_str());
+*/
+    if (command->c_str() != ""){
+        exe =  ecore_exe_run(command->c_str(), NULL);
+        ecore_exe_callback_pre_free_set(exe, exe_complete);   
+    }
+    
+    downloading_count --;
+    if (downloading_count <= 0){
+        ecore_con_url_shutdown();
+        ecore_con_shutdown();
+    }
+    delete command;
+    return EINA_TRUE;
 }
-
+#endif
 bool
-Downloader::downloadData(const std::string &filename, const std::string &url, const std::string &cookie)
+Downloader::downloadData(const std::string &filename, const std::string &url, 
+                         const std::string &cookie, const std::string &converter_command)
 {
+#ifdef TIZEN
     Ecore_Con_Url *ec_url = NULL;
     int fd;
-    struct _request *req;
    
     fd = open(filename.c_str(), O_CREAT | O_WRONLY | O_TRUNC, 0644);
     if (fd == -1){
         std::cerr << "error open file " << filename << std::endl;
         return false;
     }
- 
-
-    ecore_con_init();
-    ecore_con_url_init();
-    ec_url = ecore_con_url_new(url.c_str());
-
-
-    if (!ec_url){
-        return false; 
+    if (downloading_count == 0){
+        ecore_con_init();
+        ecore_con_url_init();
+        ecore_event_handler_add(ECORE_CON_EVENT_URL_COMPLETE, _url_complete_cb, NULL);
     }
 
-    req = (Core::_request* )malloc(sizeof(*req));
-    req->size = 0;
-    ecore_con_url_data_set(ec_url, req);
+    ec_url = ecore_con_url_new(url.c_str());
+
+    if (!ec_url)
+        return false; 
+
     ecore_con_url_fd_set(ec_url, fd);
-    ecore_event_handler_add(ECORE_CON_EVENT_URL_PROGRESS, _url_progress_cb, NULL);
-    ecore_event_handler_add(ECORE_CON_EVENT_URL_COMPLETE, _url_complete_cb, NULL);
+
+    std::string *command_string = new std::string();
+    command_string->assign(converter_command);
+    ecore_con_url_data_set(ec_url, command_string);
+
     curl_easy_setopt(ec_url->curl_easy, CURLOPT_COOKIE, cookie.c_str()); 
+
     if (!ecore_con_url_get(ec_url)){
         printf("could not realize request.\n");
         return false;
     }
+    downloading_count ++;
     return true;
-   #if 0
+#endif
+#ifndef TIZEN
     CURL *curl;
     CURLcode res;
     FILE *fp;

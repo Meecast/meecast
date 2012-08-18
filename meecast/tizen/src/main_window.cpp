@@ -93,7 +93,7 @@ download_forecast(void *data, Evas *e, Evas_Object *o, void *event_info){
     for (short i=0; i < app->config->stationsList().size(); i++){
         app->config->stationsList().at(i)->updateData(true);
     }
-    create_main_window(data);
+//    create_main_window(data);
 }
 /*******************************************************************************/
 static void

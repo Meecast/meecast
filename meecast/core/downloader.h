@@ -37,6 +37,7 @@
 #include <string>
 #include <iostream>
 
+#ifdef TIZEN
 #include <Ecore.h>
 #include <Ecore_Con.h>
 #include <fcntl.h>
@@ -64,7 +65,7 @@ struct _Ecore_Con_Url
 
    Eina_Bool active : 1;
 };
-
+#endif
 
 namespace Core{
 class Downloader
@@ -72,7 +73,8 @@ class Downloader
 public:
     Downloader();
     static size_t writedata(void *ptr, size_t size, size_t nmemb, FILE *stream);
-    static bool downloadData(const std::string &filename, const std::string &url, const std::string &cookie);
+    static bool downloadData(const std::string &filename, const std::string &url, 
+    const std::string &cookie, const std::string &converter_command);
 };
 }
 #endif // DOWNLOADER_H

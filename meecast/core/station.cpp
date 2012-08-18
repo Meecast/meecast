@@ -299,13 +299,22 @@ Station::Station(const std::string& source_name, const std::string& id, const st
         /* To do */
         /* Check connection and if force true update connection */
         force = false;
-        if (Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie())) {
+        if  (this->detailURL() != ""){
+            Downloader::downloadData(this->fileName()+".detail.orig", this->detailURL(), this->cookie(), std::string(""));
+            command =  std::string(std::string(this->converter().c_str()) + " " + " " +  std::string(this->fileName().c_str()) + ".orig " + std::string(this->fileName().c_str()) +" " + std::string(this->fileName().c_str()) + ".detail.orig");
+        }else
+            command =  std::string(std::string(this->converter()) + " " +  std::string(this->fileName()) + ".orig " + std::string(this->fileName()));
+        result = Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie(), command);
+
+        return result;
+#if 0
+        if (Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie(), command)) {
             result = true;
         }else{
             std::cerr<<"ERROR downloading  "<<this->forecastURL()<<std::endl;
             result = false;
         }
-        if ((result) && (this->detailURL() != "") && (Downloader::downloadData(this->fileName()+".detail.orig", this->detailURL(), this->cookie()))){
+        if ((result) && (this->detailURL() != "") && (Downloader::downloadData(this->fileName()+".detail.orig", this->detailURL(), this->cookie(), command))){
             command = this->converter()+ " " +  this->fileName() + ".orig " + this->fileName()+" " + this->fileName()+".detail.orig";
             std::cerr<<" EXEC "<<command<<std::endl;
             if (system(command.c_str()) == 0)
@@ -321,6 +330,7 @@ Station::Station(const std::string& source_name, const std::string& id, const st
                result = false;
         }
         return result;
+#endif
     }
 ////////////////////////////////////////////////////////////////////////////////
     void Station::updateSource(const Source* source){

@@ -79,6 +79,20 @@ delete_station_cb(void *data, Evas *e, Evas_Object *o, void *event_info){
     create_location_window(data);
 }
 
+static void _temp_cb(void *data, Evas_Object * obj, void *event_info)
+{
+    std::cerr<<"ddddddddddddddd"<<std::endl;
+//	retm_if(!data, "data null");
+	Elm_Object_Item *gli = (Elm_Object_Item *) (event_info);
+	elm_genlist_item_selected_set(gli, 0);
+	Evas_Event_Mouse_Up *ev = (Evas_Event_Mouse_Up *) event_info;
+//	retm_if(ev
+//		&& (ev->event_flags & EVAS_EVENT_FLAG_ON_HOLD),
+//		"long focus");
+
+	Eina_Bool status = elm_genlist_item_expanded_get(gli);
+	elm_genlist_item_expanded_set(gli, !status);
+}
 static void
 _sel_source_cb(void *data, Evas_Object *obj, void *event_info)
 {
@@ -207,10 +221,8 @@ _sel_station_cb(void *data, Evas_Object *obj, void *event_info)
                                Core::AbstractConfig::prefix+
                                Core::AbstractConfig::schemaPath+
                                "config.xsd");
- 
 
     create_main_window(data);
-
 }
 
 static void
@@ -453,7 +465,84 @@ create_regions_window(void *data){
     app->setting_menu2 = edje_obj_menu;
 
 }
+void 
+create_units_window(void *data){
+    struct _App *app = (struct _App*)data;
+    Evas_Object *edje_obj;
+    Evas_Object *edje_obj_menu;
+    Evas *evas;
+    Evas_Object *temp_edje_obj = NULL;
+    Elm_Object_Item *main_item;
+    Elm_Object_Item *item;
 
+    int i;
+
+    evas = evas_object_evas_get(app->win);	
+
+    edje_obj = edje_object_add(evas);
+    fprintf(stderr,"Create units window....\n");
+    /* exercising Edje loading error, on purpose */
+    if (!edje_object_file_set(edje_obj, "/opt/apps/com.meecast.omweather/share/edje/settingwindow.edj", "manageunitswindow")){
+        Edje_Load_Error err = edje_object_load_error_get(edje_obj);
+        const char *errmsg = edje_load_error_str(err);
+        fprintf(stderr, "Could not load 'manageunitswindow' from settingwindow.edj"
+                        " %s\n", errmsg);
+    }
+    evas_object_move(edje_obj, 0, 0);
+    evas_object_resize(edje_obj, app->config->get_screen_width(), app->config->get_screen_height());
+    evas_object_show(edje_obj);
+    app->setting_top_main_window2 = edje_obj;
+
+    temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj, "temperature_list");
+    list = elm_genlist_add(temp_edje_obj); 
+                 _itc.item_style = "dialogue/2text/expandable";
+//                 _itc.item_style = "dialogue/1text/expandable";
+                // _itc.item_style = "default";
+                 _itc.func.text_get = _item_label_get;
+                 _itc.func.content_get = _item_content_add_get;
+                 _itc.func.del = NULL;
+    main_item = elm_genlist_item_append(list, &_itc,
+                    (void *)(char *)"Temperature", NULL,
+                    ELM_GENLIST_ITEM_TREE,
+                    _temp_cb, app);
+    item = elm_genlist_item_append(list, &_itc,
+                        (void *)(char *)"Celsium", main_item,
+                        ELM_GENLIST_ITEM_NONE,
+                        _sel_country_cb, app);
+
+    evas_object_show(list);
+
+ evas_object_move(list, 0, app->config->get_screen_height()*0.1);
+
+    evas_object_resize(list, app->config->get_screen_width(), app->config->get_screen_height() - app->config->get_screen_height()*0.12);
+
+    edje_obj_menu = edje_object_add(evas);
+
+
+  /* Set layout Edje File */
+    Evas_Object *layout, *ed, *pg ;
+    layout = elm_layout_add(app->win);
+   
+    pg = elm_naviframe_add(app->win);
+    evas_object_size_hint_weight_set(pg, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+    evas_object_size_hint_align_set(pg, 0.0,0.0);
+    evas_object_show(pg);
+
+
+    if(elm_layout_file_set(layout, "/opt/apps/com.meecast.omweather/share/edje/settingwindow.edj","menu")){
+       ed = elm_layout_edje_get(layout);
+       /* Set callback functions */
+       edje_object_signal_callback_add(ed, "clicked", "back", close_setting_window2, app);
+       elm_naviframe_item_simple_push(pg, layout);
+       evas_object_show(layout);
+       evas_object_move(pg, 0, app->config->get_screen_height() - app->config->get_screen_height()*0.075);
+       evas_object_resize(pg, app->config->get_screen_width(),  app->config->get_screen_height()*0.075);
+       app->setting_menu = layout;
+    }
+
+    app->setting_menu2 = edje_obj_menu;
+
+}
 void 
 create_stations_window(void *data){
     struct _App *app = (struct _App*)data;
@@ -685,6 +774,11 @@ manage_location_window(void *data, Evas *e, Evas_Object *o, void *event_info){
 }
 
 static void
+manage_units_window(void *data, Evas *e, Evas_Object *o, void *event_info){
+    create_units_window(data);
+}
+
+static void
 _signal_cb(void *data, Evas_Object * o, const char *emission, const
            char *source)
            {
@@ -729,6 +823,10 @@ create_setting_window(void *data)
     }
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj, "manage_location_box");
     evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, manage_location_window, app); 
+    temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj, "measurement_units_box");
+    evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, manage_units_window, app); 
+
+
 
     evas_object_move(edje_obj, 0, 0);
     evas_object_resize(edje_obj, app->config->get_screen_width(), app->config->get_screen_height());

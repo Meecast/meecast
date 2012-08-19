@@ -219,7 +219,7 @@ collections {
 		    text {
 		       font: "Sans";
 		       size: BIG_FONT_SIZE;
-		       text: "Appearance";
+		       text: "Updating";
 		       align: 0.0 0.5;
 		    }
 		    rel1.relative: 0.05 0.37;
@@ -239,6 +239,47 @@ collections {
 		    }
 		    rel1.relative: 0.8 0.37;
 		    rel2.relative: 0.95 0.47;
+		}
+	    }
+	    part {
+                name: "about_box";
+                type: RECT; 
+                mouse_events: 1; 
+                description {
+                   state: "default" 0.0; 
+                   color: 0 0 0 0; 
+                   rel1.relative: 0.05 0.47;
+                   rel2.relative: 0.9 0.59;
+                   }
+            }
+	    part {
+	        name: "about_label";
+		type: TEXT;
+                mouse_events: 0; 
+		description{
+		    text {
+		       font: "Sans";
+		       size: BIG_FONT_SIZE;
+		       text: "About";
+		       align: 0.0 0.5;
+		    }
+		    rel1.relative: 0.05 0.48;
+		    rel2.relative: 0.9 0.58;
+		}
+	    }
+	    part {
+	        name: "about_label2";
+		type: TEXT;
+                mouse_events: 0; 
+		description{
+		    text {
+		       font: "Sans";
+		       size: BIG_FONT_SIZE;
+		       text: ">";
+		       align: 1.0 0.5;
+		    }
+		    rel1.relative: 0.8 0.48;
+		    rel2.relative: 0.95 0.58;
 		}
 	    }
 
@@ -373,6 +414,99 @@ collections {
 
 	}
     }
+    group {
+        name: "manageunitswindow";
+	parts{
+	    part {
+                name: "black_background";
+                type: RECT; 
+                mouse_events: 0; 
+                description {
+                   state: "default" 0.0; 
+                   color: 0 0 0 255; 
+                   rel1.relative: 0.0 0.4;
+                   rel2.relative: 1.0 1.0;
+                }
+            }
+	    part {
+                name: "white_background";
+                type: RECT; 
+                mouse_events: 0; 
+                description {
+                   state: "default" 0.0; 
+                   color: 255 255 255 255; 
+                   rel1.relative: 0.0 0.0;
+                   rel2.relative: 1.0 0.4;
+                }
+            }
+	    part {
+                name: "title";
+                type: RECT; 
+                mouse_events: 0; 
+                description {
+                   state: "default" 0.0; 
+                   color: 0 0 0 255; 
+                   rel1.relative: 0.0 0.0;
+                   rel2.relative: 1.0 0.10;
+                   }
+            }
+	    part {
+	        name: "mask_background_main";
+		type: IMAGE;
+		mouse_events: 0;
+		description {						
+		    state: "default" 0.0;				
+		    image {						
+	                normal: "images/mask_background_grid.png";	
+		    }
+		    rel1.relative: 0.0 0.1;
+                    rel2.relative: 1.0 0.4;
+						
+	        }							
+            }
+	    part {
+	        name: "units_settings_label";
+		type: TEXT;
+		description{
+		    text {
+		       font: "Sans";
+		       size: BIG_FONT_SIZE;
+		       text: "Units";
+		       align: 0.0 0.5;
+		    }
+		    rel1.relative: 0.05 0.03;
+		    rel2.relative: 0.9 0.11;
+		}
+	    }
+	    part {								
+            	name: "temperature_list";
+                type: RECT;
+		mouse_events: 0;
+                description {
+                    state : "default" 0.0;
+                    color: 0 0 0 0; 
+                    rel1.relative: 0.09 0.07;
+                    rel2.relative: 1.0 0.60;
+                }
+            }
+
+//	    part {
+//                name: "temperature_list";
+//		type: EXTERNAL;
+//		source: "elm/genlist";
+//		description {
+//                   state: "default" 0.0;
+//		   rel1.to_y: "units_settings_label";
+//                 rel1.relative: 0.05 0.11;
+//		   rel2.relative: 0.9 0.18;
+//		   params { 
+//		       string: "horizontal mode" "scroll";
+//		   }
+//		}
+//	    }
+	}
+    }
+
     group {
         name: "menu_managelocations";
 	parts{

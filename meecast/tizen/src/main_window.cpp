@@ -32,7 +32,7 @@
 #endif  
 
 /*******************************************************************************/
-
+extern int downloading_count; /* This is the hack. Needing of dbus message */
 
 
 static void
@@ -83,8 +83,8 @@ set_color_by_temp(Evas_Object *obj, int t)
 Eina_Bool
 _check_downloading(void *data){
     struct _App *app = (struct _App*)data;
-    fprintf (stdout, "COunt %i\n", app->config->downloading_count());
-    if (app->config->downloading_count() <= 0){
+    fprintf (stdout, "COunt %i\n", downloading_count);
+    if (downloading_count <= 0){
         create_main_window(data);
         return ECORE_CALLBACK_CANCEL;
     }
@@ -92,19 +92,26 @@ _check_downloading(void *data){
 }
 /*******************************************************************************/
 static void
-download_forecast(void *data, Evas *e, Evas_Object *o, void *event_info){
+start_rotate_refresh_button(void *data, Evas_Object *o){
     struct _App *app = (struct _App*)data;
     fprintf(stderr,"Updating....\n");
-        Elm_Transit *trans = elm_transit_add();
-        elm_transit_object_add(trans, o);
-        elm_transit_repeat_times_set(trans, -1);
-        elm_transit_effect_rotation_add(trans, 0.0, 360.0);
-        elm_transit_duration_set(trans, 2.0);
-        elm_transit_go(trans);
+    Elm_Transit *trans = elm_transit_add();
+    elm_transit_object_add(trans, o);
+    elm_transit_repeat_times_set(trans, -1);
+    elm_transit_effect_rotation_add(trans, 0.0, 360.0);
+    elm_transit_duration_set(trans, 2.0);
+    elm_transit_go(trans);
+    ecore_timer_loop_add(2,  _check_downloading, app);
+}
+/*******************************************************************************/
+static void
+download_forecast(void *data, Evas *e, Evas_Object *o, void *event_info){
+    struct _App *app = (struct _App*)data;
+    if (app->config->stationsList().size()>0)
+        start_rotate_refresh_button(data, o);
     for (short i=0; i < app->config->stationsList().size(); i++){
         app->config->stationsList().at(i)->updateData(true);
     }
-    ecore_timer_loop_add(2,  _check_downloading, app);
 }
 /*******************************************************************************/
 static void
@@ -407,6 +414,8 @@ create_main_window(void *data)
         temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "refresh_button");
         evas_object_resize(temp_edje_obj, 10, 10);
 
+        if (downloading_count > 0)
+            start_rotate_refresh_button(app, temp_edje_obj);
         evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, download_forecast, app); 
     }
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_menu, "menu_button");
@@ -415,6 +424,6 @@ create_main_window(void *data)
     evas_object_resize(edje_obj_menu, app->config->get_screen_width(), app->config->get_screen_height()*0.075);
     evas_object_show(edje_obj_menu);
     app->menu = edje_obj_menu;
-}
+   }
 
 

@@ -60,7 +60,6 @@ namespace Core{
             std::string *_font_color;
             int          _current_station_id;
             StationsList *_stations;
-            int          _downloading_count;
         protected:
             static Config* _self;
             static int _refcount;
@@ -80,9 +79,6 @@ namespace Core{
             std::string& iconSet(void);
             void current_station_id(int id_station);
             int current_station_id(void);
-            void inc_downloading_count(void);
-            void dec_downloading_count(void);
-            int downloading_count(void);
             void TemperatureUnit(const std::string& text);
             std::string& TemperatureUnit(void);
             void WindSpeedUnit(const std::string& text);

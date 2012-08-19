@@ -80,6 +80,17 @@ set_color_by_temp(Evas_Object *obj, int t)
 }
 
 /*******************************************************************************/
+Eina_Bool
+_check_downloading(void *data){
+    struct _App *app = (struct _App*)data;
+    fprintf (stdout, "COunt %i\n", app->config->downloading_count());
+    if (app->config->downloading_count() <= 0){
+        create_main_window(data);
+        return ECORE_CALLBACK_CANCEL;
+    }
+    return ECORE_CALLBACK_RENEW;
+}
+/*******************************************************************************/
 static void
 download_forecast(void *data, Evas *e, Evas_Object *o, void *event_info){
     struct _App *app = (struct _App*)data;
@@ -93,7 +104,7 @@ download_forecast(void *data, Evas *e, Evas_Object *o, void *event_info){
     for (short i=0; i < app->config->stationsList().size(); i++){
         app->config->stationsList().at(i)->updateData(true);
     }
-//    create_main_window(data);
+    ecore_timer_loop_add(2,  _check_downloading, app);
 }
 /*******************************************************************************/
 static void

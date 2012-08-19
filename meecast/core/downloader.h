@@ -41,6 +41,7 @@
 #include <Ecore.h>
 #include <Ecore_Con.h>
 #include <fcntl.h>
+#include "config.h"
 
 typedef unsigned int              Ecore_Magic;
 struct _Ecore_Con_Url

@@ -35,7 +35,6 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
 
 
-static int downloading_count  = 0;
 
 Downloader::Downloader()
 {
@@ -53,15 +52,25 @@ Downloader::writedata(void *ptr, size_t size, size_t nmemb, FILE *stream)
 #ifdef TIZEN
 static void
 exe_complete(void *data, const Ecore_Exe *exe){
-    fprintf(stdout, "rrrrrrrrrrrrrrrr\n");
+
+    Core::Config *config;
+    config = Core::Config::Instance();
+    config->dec_downloading_count();
+   
+    if (config->downloading_count() <= 0){
+        ecore_con_url_shutdown();
+        ecore_con_shutdown();
+    }
+
 }
+
 static Eina_Bool
 _url_complete_cb(void *data, int type, void *event_info)
 {  
     Ecore_Exe *exe; 
     Ecore_Con_Event_Url_Complete *url_complete = (Ecore_Con_Event_Url_Complete* )event_info;
     std::string *command = (std::string *)ecore_con_url_data_get(url_complete->url_con);
-/* Debug
+///* Debug
     int nbytes = ecore_con_url_received_bytes_get(url_complete->url_con);
 
     printf("\n");
@@ -70,35 +79,32 @@ _url_complete_cb(void *data, int type, void *event_info)
                                       "(from received_bytes_get)\n", nbytes);
 
     printf("Command %s\n", command->c_str());
-*/
-    if (command->c_str() != ""){
+//*/
+    if (strcmp(command->c_str(),"")){
+        printf("Check Command %s\n", command->c_str());
         exe =  ecore_exe_run(command->c_str(), NULL);
         ecore_exe_callback_pre_free_set(exe, exe_complete);   
     }
-    
-    downloading_count --;
-    if (downloading_count <= 0){
-        ecore_con_url_shutdown();
-        ecore_con_shutdown();
-    }
+
     delete command;
+
     return EINA_TRUE;
 }
-#endif
 bool
 Downloader::downloadData(const std::string &filename, const std::string &url, 
                          const std::string &cookie, const std::string &converter_command)
 {
-#ifdef TIZEN
     Ecore_Con_Url *ec_url = NULL;
     int fd;
-   
+    Core::Config *config;
+    config = Core::Config::Instance();
+
     fd = open(filename.c_str(), O_CREAT | O_WRONLY | O_TRUNC, 0644);
     if (fd == -1){
         std::cerr << "error open file " << filename << std::endl;
         return false;
     }
-    if (downloading_count == 0){
+    if (config->downloading_count() == 0){
         ecore_con_init();
         ecore_con_url_init();
         ecore_event_handler_add(ECORE_CON_EVENT_URL_COMPLETE, _url_complete_cb, NULL);
@@ -121,10 +127,15 @@ Downloader::downloadData(const std::string &filename, const std::string &url,
         printf("could not realize request.\n");
         return false;
     }
-    downloading_count ++;
+    config->inc_downloading_count();
     return true;
 #endif
 #ifndef TIZEN
+bool
+Downloader::downloadData(const std::string &filename, const std::string &url, 
+                         const std::string &cookie, const std::string &converter_command)
+{
+
     CURL *curl;
     CURLcode res;
     FILE *fp;

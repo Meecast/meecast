@@ -58,6 +58,7 @@ Config::Config()
     _stations = new StationsList;
     _current_station_id = INT_MAX;
     _update_period = INT_MAX;
+    _downloading_count  = 0;
     //std::cerr << Core::AbstractConfig::configPath << std::endl;
     std::string path(AbstractConfig::getConfigPath());
     path += "config.xml";
@@ -375,6 +376,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _gps = false;
     _splash = true;
     _update_period = INT_MAX;
+    _downloading_count  = 0;
     _font_color = new std::string("#00ff00");
    /* std::cerr<<"new StationList"<<std::endl; */
     _stations = new StationsList;
@@ -624,6 +626,19 @@ Config::current_station_id(){
     if (this->stationsList().size() == 0)
         _current_station_id = INT_MAX;
     return _current_station_id;
+}
+////////////////////////////////////////////////////////////////////////////////
+int
+Config::downloading_count(void){
+    return _downloading_count;
+}
+void
+Config::inc_downloading_count(void){
+    _downloading_count ++;
+}
+void
+Config::dec_downloading_count(void){
+    _downloading_count --;
 }
 ////////////////////////////////////////////////////////////////////////////////
 std::string&

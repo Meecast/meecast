@@ -83,7 +83,6 @@ set_color_by_temp(Evas_Object *obj, int t)
 Eina_Bool
 _check_downloading(void *data){
     struct _App *app = (struct _App*)data;
-    fprintf (stdout, "COunt %i\n", downloading_count);
     if (downloading_count <= 0){
         create_main_window(data);
         return ECORE_CALLBACK_CANCEL;
@@ -101,12 +100,14 @@ start_rotate_refresh_button(void *data, Evas_Object *o){
     elm_transit_effect_rotation_add(trans, 0.0, 360.0);
     elm_transit_duration_set(trans, 2.0);
     elm_transit_go(trans);
-    ecore_timer_loop_add(2,  _check_downloading, app);
+    ecore_timer_loop_add(1, _check_downloading, app);
 }
 /*******************************************************************************/
 static void
 download_forecast(void *data, Evas *e, Evas_Object *o, void *event_info){
     struct _App *app = (struct _App*)data;
+    if (downloading_count > 0)
+        return;
     if (app->config->stationsList().size()>0)
         start_rotate_refresh_button(data, o);
     for (short i=0; i < app->config->stationsList().size(); i++){

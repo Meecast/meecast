@@ -29,6 +29,7 @@
 /*******************************************************************************/
 static Evas_Object *list;
 
+Evas_Object *eo_radiogroup_repeat;
 struct _gl_dg_item_data {
     int _magic;
     int index;
@@ -41,13 +42,6 @@ struct _gl_dg_item_data {
 typedef struct _gl_dg_item_data gl_dg_item_data;
 
 
-static Elm_Genlist_Item_Class itc_repeat_sub = {
-      .item_style = "dialogue/alarm_1text.1icon/expandable2",
-      .func.text_get = _gl_label_get_repeat_sub,
-      .func.content_get = _gl_icon_get_repeat_sub,
-      .func.state_get = NULL,
-      .func.del = default_gl_dg_item_del,
-};
 
 Elm_Object_Item *item_repeat;
 
@@ -277,10 +271,22 @@ _delete_station_cb(void *data, Evas_Object *obj, void *event_info)
 
 static char *
 _item_label_get(void *data, Evas_Object *obj __UNUSED__, const char *part __UNUSED__)
-{
-   char buf[256];
-   snprintf(buf, sizeof(buf), "%s", (char *)(char *)data);
-   return strdup(buf);
+{	
+
+	char *ret = NULL;
+	gl_dg_item_data *item_data = (gl_dg_item_data *) data;
+
+	if (!strcmp(part, "elm.text.1")) {
+		ret = strdup(item_data->text1);
+	} else if (!strcmp(part,"elm.text.2")) {
+		char temp[32] = { 0 };
+		snprintf(temp, sizeof(temp), "%s", "sssssssss");
+		char *text2 = temp;
+		snprintf(item_data->text2, sizeof(item_data->text2), "%s",
+			 text2);
+		ret = strdup(item_data->text2);
+	}
+	return ret;
 }
 
 static Evas_Object *
@@ -518,15 +524,41 @@ static void _gl_sel_repeat_sub(void *data, Evas_Object * obj, void *event_info)
 static char *_gl_label_get_repeat_sub(void *data, Evas_Object *obj,
                                               const char *part)
 {
+
+std::cerr<<"*_gl_label_get_repeat_sub"<<std::endl;
  //         retvm_if(!data, NULL, "data null");
     char *ret = NULL;
     gl_dg_item_data *item_data = (gl_dg_item_data *)data;
 
-    if (IS_STR_EQUAL(part, STRING_ALARM_VIEW_ELM_TEXT)) {
+    if (!strcmp(part, "elm.text")) {
                    ret = strdup(item_data->text1);
-                                                                }
+    std::cerr<<"*_gl_label_get_repeat_sub "<< item_data->text1<<std::endl;
+    }
     return ret;
 }
+static Evas_Object *_gl_icon_get_repeat_sub(void *data, Evas_Object * obj,
+					    const char *part)
+{
+//	retvm_if(!data, NULL, "data null");
+std::cerr<<"*_gl_icon_get_repeat_sub"<<std::endl;
+	Evas_Object *ret = NULL;
+	gl_dg_item_data *item_data = (gl_dg_item_data *) data;
+//	struct appdata *ad = item_data->ad;
+	//snooze_view *view = ad->view_snooze;
+
+    struct _App *app = (struct _App*)data;
+
+	if (!strcmp(part, "elm.icon")) {
+        std::cerr<<"*_gl_icon_get_repeat_sub icon"<<std::endl;
+		ret = elm_radio_add(obj);
+		elm_radio_state_value_set(ret, item_data->index);
+		elm_radio_group_add(ret, eo_radiogroup_repeat);
+		item_data->icon = ret;
+	}
+//  evas_object_propagate_events_set(ret, EINA_FALSE);
+	return ret;
+}
+
 
 
 static void _units_gl_exp(void *data, Evas_Object * obj,
@@ -536,23 +568,66 @@ static void _units_gl_exp(void *data, Evas_Object * obj,
 	int i = 0;
 	gl_dg_item_data *item_data = NULL;
 
-	Evas_Object *eo_radiogroup_repeat = elm_radio_add(obj);
+    struct _App *app = (struct _App*)data;
+    std::cerr<<"_units_gl_exp "<<list << " " << item_repeat<<std::endl;
+
+    _itc_sub.item_style  = "dialogue/1text.1icon/expandable2";
+    _itc_sub.func.text_get = _gl_label_get_repeat_sub;
+    _itc_sub.func.content_get = _gl_icon_get_repeat_sub;
+    _itc_sub.func.state_get = NULL;
+    _itc_sub.func.del = NULL; 
+    //_itc.func.del = default_gl_dg_item_dell
+    
+	eo_radiogroup_repeat = elm_radio_add(list);
 	elm_radio_value_set(eo_radiogroup_repeat, -1);
+
     item_data = (gl_dg_item_data *)calloc(1, sizeof(gl_dg_item_data));
+    item_data->icon = NULL;
     item_data->index = 0;
+    item_data->app = app;
     snprintf(item_data->text1, sizeof(item_data->text1), "33333333333");
-//		retvm_if(!item_data, FAILED, "item_data null");
-		item_data->item =
-		    elm_genlist_item_append(obj, &itc_repeat_sub,
+
+     item_data->item =
+		    elm_genlist_item_append(list, &_itc_sub,
 					    (void *)item_data,
 					    item_repeat,
 					    ELM_GENLIST_ITEM_NONE,
 					    _gl_sel_repeat_sub, item_data);
-	elm_radio_value_set(eo_radiogroup_repeat, 0);
 
-	return 1;
+    item_data = (gl_dg_item_data *)calloc(1, sizeof(gl_dg_item_data));
+    item_data->icon = NULL;
+    item_data->index = 0;
+    item_data->app = app;
+    snprintf(item_data->text1, sizeof(item_data->text1), "44444444");
+
+     item_data->item =
+		    elm_genlist_item_append(list, &_itc_sub,
+					    (void *)item_data,
+					    item_repeat,
+					    ELM_GENLIST_ITEM_NONE,
+					    _gl_sel_repeat_sub, item_data);
+
+
+
+	elm_radio_value_set(eo_radiogroup_repeat, 0);
+    evas_object_show(eo_radiogroup_repeat);
+//	return 1;
 
 }
+
+static void _units_gl_con(void *data, Evas_Object * obj,
+				      void *event_info)
+{
+    std::cerr<<"_units_gl_con"<<std::endl;
+//	struct appdata *ad = (struct appdata *)data;
+	Elm_Object_Item *item = (Elm_Object_Item *)event_info;
+//	snooze_view *view = ad->view_snooze;
+
+	elm_genlist_item_subitems_clear(item);
+}
+
+
+
 void 
 create_units_window(void *data){
     struct _App *app = (struct _App*)data;
@@ -560,9 +635,9 @@ create_units_window(void *data){
     Evas_Object *edje_obj_menu;
     Evas *evas;
     Evas_Object *temp_edje_obj = NULL;
-    Elm_Object_Item *main_item;
     Elm_Object_Item *item;
 
+    gl_dg_item_data *item_data;
     int i;
 
     evas = evas_object_evas_get(app->win);	
@@ -588,23 +663,29 @@ create_units_window(void *data){
                                    _units_gl_exp, app);
     evas_object_smart_callback_add(list,
                                    "contracted",
-                                   _alarm_view_snooze_gl_con, app);
+                                   _units_gl_con, app);
 
+	elm_genlist_tree_effect_enabled_set(list, EINA_FALSE);
                  _itc.item_style = "dialogue/2text/expandable";
 //                 _itc.item_style = "dialogue/1text/expandable";
                 // _itc.item_style = "default";
                  _itc.func.text_get = _item_label_get;
-                 _itc.func.content_get = _item_content_add_get;
+                // _itc.func.content_get = _item_content_add_get;
+                 _itc.func.content_get = NULL;
                  _itc.func.del = NULL;
-    main_item = elm_genlist_item_append(list, &_itc,
-                    (void *)(char *)"Temperature", NULL,
+
+    item_data = (gl_dg_item_data *)calloc(1, sizeof(gl_dg_item_data));
+    item_data->index = 0;
+    item_data->icon = NULL;
+    item_data->app = app;
+    snprintf(item_data->text1, sizeof(item_data->text1), "Temperature1");
+
+    item_data->item = elm_genlist_item_append(list, &_itc,
+                    (void *)item_data, NULL,
                     ELM_GENLIST_ITEM_TREE,
-                    _temp_cb, app);
-    item_repeat = main_item;
-    item = elm_genlist_item_append(list, &_itc,
-                        (void *)(char *)"Celsium", main_item,
-                        ELM_GENLIST_ITEM_TREE,
-                        _sel_country_cb, app);
+                    _temp_cb, item_data);
+    item_repeat = item_data->item;
+	elm_genlist_item_expanded_set(item_data->item, true);
 
     
     evas_object_show(list);

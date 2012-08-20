@@ -35,6 +35,7 @@ struct _Setting_window {
     Evas_Object *menu;
 };
 static Elm_Genlist_Item_Class _itc;
+static Elm_Genlist_Item_Class _itc_sub;
 void create_main_window(void *data);
 void create_location_window(void *data);
 void create_sources_window(void *data);

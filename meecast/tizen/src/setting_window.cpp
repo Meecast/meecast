@@ -29,6 +29,28 @@
 /*******************************************************************************/
 static Evas_Object *list;
 
+struct _gl_dg_item_data {
+    int _magic;
+    int index;
+    Elm_Object_Item *item;
+    Evas_Object *icon;
+    char text1[50];
+    char text2[50];
+    void *app;
+};
+typedef struct _gl_dg_item_data gl_dg_item_data;
+
+
+static Elm_Genlist_Item_Class itc_repeat_sub = {
+      .item_style = "dialogue/alarm_1text.1icon/expandable2",
+      .func.text_get = _gl_label_get_repeat_sub,
+      .func.content_get = _gl_icon_get_repeat_sub,
+      .func.state_get = NULL,
+      .func.del = default_gl_dg_item_del,
+};
+
+Elm_Object_Item *item_repeat;
+
 static void
 close_setting_window (void *data, Evas_Object *obj, const char *emission, const char *source){
     struct _App *app = (struct _App*)data;
@@ -465,6 +487,72 @@ create_regions_window(void *data){
     app->setting_menu2 = edje_obj_menu;
 
 }
+
+static void _gl_sel_repeat_sub(void *data, Evas_Object * obj, void *event_info)
+{
+    fprintf(stderr, "qwqewewe\n");
+#if 0
+	retm_if(!data, "data null");
+	Elm_Object_Item *gli = (Elm_Object_Item *) (event_info);
+	elm_genlist_item_selected_set(gli, 0);
+	Evas_Event_Mouse_Up *ev = (Evas_Event_Mouse_Up *) event_info;
+	retm_if(ev
+		&& (ev->event_flags & EVAS_EVENT_FLAG_ON_HOLD),
+		STRING_ALARM_VIEW_LONG_FOCUS);
+
+	gl_dg_item_data *item_data = (gl_dg_item_data *) data;
+	struct appdata *ad = item_data->ad;
+	snooze_view *view = ad->view_snooze;
+
+	int cur_focuse = elm_radio_value_get(view->eo_radiogroup_repeat);
+	if (IS_EQUAL(item_data->index, cur_focuse)) {
+		return;
+	}
+	elm_radio_value_set(view->eo_radiogroup_repeat, item_data->index);
+	_alarm_view_snooze_save_repeat(ad);
+	elm_genlist_item_update(view->item_repeat);
+#endif
+}
+
+
+static char *_gl_label_get_repeat_sub(void *data, Evas_Object *obj,
+                                              const char *part)
+{
+ //         retvm_if(!data, NULL, "data null");
+    char *ret = NULL;
+    gl_dg_item_data *item_data = (gl_dg_item_data *)data;
+
+    if (IS_STR_EQUAL(part, STRING_ALARM_VIEW_ELM_TEXT)) {
+                   ret = strdup(item_data->text1);
+                                                                }
+    return ret;
+}
+
+
+static void _units_gl_exp(void *data, Evas_Object * obj,
+                                              void *event_info){
+//	retvm_if(!ad, FAILED, "ad null");
+//	snooze_view *view = ad->view_snooze;
+	int i = 0;
+	gl_dg_item_data *item_data = NULL;
+
+	Evas_Object *eo_radiogroup_repeat = elm_radio_add(obj);
+	elm_radio_value_set(eo_radiogroup_repeat, -1);
+    item_data = (gl_dg_item_data *)calloc(1, sizeof(gl_dg_item_data));
+    item_data->index = 0;
+    snprintf(item_data->text1, sizeof(item_data->text1), "33333333333");
+//		retvm_if(!item_data, FAILED, "item_data null");
+		item_data->item =
+		    elm_genlist_item_append(obj, &itc_repeat_sub,
+					    (void *)item_data,
+					    item_repeat,
+					    ELM_GENLIST_ITEM_NONE,
+					    _gl_sel_repeat_sub, item_data);
+	elm_radio_value_set(eo_radiogroup_repeat, 0);
+
+	return 1;
+
+}
 void 
 create_units_window(void *data){
     struct _App *app = (struct _App*)data;
@@ -495,6 +583,13 @@ create_units_window(void *data){
 
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj, "temperature_list");
     list = elm_genlist_add(temp_edje_obj); 
+    evas_object_smart_callback_add(list,
+                                   "expanded",
+                                   _units_gl_exp, app);
+    evas_object_smart_callback_add(list,
+                                   "contracted",
+                                   _alarm_view_snooze_gl_con, app);
+
                  _itc.item_style = "dialogue/2text/expandable";
 //                 _itc.item_style = "dialogue/1text/expandable";
                 // _itc.item_style = "default";
@@ -505,11 +600,13 @@ create_units_window(void *data){
                     (void *)(char *)"Temperature", NULL,
                     ELM_GENLIST_ITEM_TREE,
                     _temp_cb, app);
+    item_repeat = main_item;
     item = elm_genlist_item_append(list, &_itc,
                         (void *)(char *)"Celsium", main_item,
-                        ELM_GENLIST_ITEM_NONE,
+                        ELM_GENLIST_ITEM_TREE,
                         _sel_country_cb, app);
 
+    
     evas_object_show(list);
 
  evas_object_move(list, 0, app->config->get_screen_height()*0.1);

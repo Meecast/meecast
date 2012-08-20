@@ -30,20 +30,26 @@
 static Evas_Object *list;
 
 Evas_Object *eo_radiogroup_repeat;
-struct _gl_dg_item_data {
-    int _magic;
-    int index;
-    Elm_Object_Item *item;
-    Evas_Object *icon;
-    char text1[50];
-    char text2[50];
-    void *app;
-};
-typedef struct _gl_dg_item_data gl_dg_item_data;
-
 
 
 Elm_Object_Item *item_repeat;
+
+list_item_data
+*list_item_create(int index, char *text1, char *text2,
+		   Evas_Object *icon, void *ad)
+{
+	list_item_data *ret = (list_item_data *)calloc(1, sizeof(list_item_data));
+	ret->index = index;
+	if (text1) {
+		snprintf(ret->text1, sizeof(ret->text1), "%s", text1);
+	}
+	if (text2) {
+		snprintf(ret->text2, sizeof(ret->text2), "%s", text2);
+	}
+	ret->icon = icon;
+	ret->app = ad;
+	return ret;
+}
 
 static void
 close_setting_window (void *data, Evas_Object *obj, const char *emission, const char *source){
@@ -95,20 +101,6 @@ delete_station_cb(void *data, Evas *e, Evas_Object *o, void *event_info){
     create_location_window(data);
 }
 
-static void _temp_cb(void *data, Evas_Object * obj, void *event_info)
-{
-    std::cerr<<"ddddddddddddddd"<<std::endl;
-//	retm_if(!data, "data null");
-	Elm_Object_Item *gli = (Elm_Object_Item *) (event_info);
-	elm_genlist_item_selected_set(gli, 0);
-	Evas_Event_Mouse_Up *ev = (Evas_Event_Mouse_Up *) event_info;
-//	retm_if(ev
-//		&& (ev->event_flags & EVAS_EVENT_FLAG_ON_HOLD),
-//		"long focus");
-
-	Eina_Bool status = elm_genlist_item_expanded_get(gli);
-	elm_genlist_item_expanded_set(gli, !status);
-}
 static void
 _sel_source_cb(void *data, Evas_Object *obj, void *event_info)
 {
@@ -143,6 +135,14 @@ _sel_region_cb(void *data, Evas_Object *obj, void *event_info)
     evas_object_del(app->setting_menu2);
     app->index_list = elm_genlist_item_index_get(elm_genlist_selected_item_get(app->list));
     create_stations_window(data);
+}
+
+static char *
+_item_label_get(void *data, Evas_Object *obj __UNUSED__, const char *part __UNUSED__)
+{
+   char buf[256];
+   snprintf(buf, sizeof(buf), "%s", (char *)(char *)data);
+   return strdup(buf);
 }
 
 static void
@@ -267,26 +267,6 @@ _delete_station_cb(void *data, Evas_Object *obj, void *event_info)
     evas_object_resize(edje_obj, app->config->get_screen_width(), app->config->get_screen_height());
     evas_object_show(edje_obj);
     app->dialog = edje_obj;
-}
-
-static char *
-_item_label_get(void *data, Evas_Object *obj __UNUSED__, const char *part __UNUSED__)
-{	
-
-	char *ret = NULL;
-	gl_dg_item_data *item_data = (gl_dg_item_data *) data;
-
-	if (!strcmp(part, "elm.text.1")) {
-		ret = strdup(item_data->text1);
-	} else if (!strcmp(part,"elm.text.2")) {
-		char temp[32] = { 0 };
-		snprintf(temp, sizeof(temp), "%s", "sssssssss");
-		char *text2 = temp;
-		snprintf(item_data->text2, sizeof(item_data->text2), "%s",
-			 text2);
-		ret = strdup(item_data->text2);
-	}
-	return ret;
 }
 
 static Evas_Object *
@@ -496,28 +476,46 @@ create_regions_window(void *data){
 
 static void _gl_sel_repeat_sub(void *data, Evas_Object * obj, void *event_info)
 {
-    fprintf(stderr, "qwqewewe\n");
-#if 0
-	retm_if(!data, "data null");
 	Elm_Object_Item *gli = (Elm_Object_Item *) (event_info);
 	elm_genlist_item_selected_set(gli, 0);
 	Evas_Event_Mouse_Up *ev = (Evas_Event_Mouse_Up *) event_info;
-	retm_if(ev
-		&& (ev->event_flags & EVAS_EVENT_FLAG_ON_HOLD),
-		STRING_ALARM_VIEW_LONG_FOCUS);
 
-	gl_dg_item_data *item_data = (gl_dg_item_data *) data;
-	struct appdata *ad = item_data->ad;
-	snooze_view *view = ad->view_snooze;
+	list_item_data *item_data = (list_item_data *) data;
+	struct _App *app =  (struct _App*)item_data->app;
 
-	int cur_focuse = elm_radio_value_get(view->eo_radiogroup_repeat);
-	if (IS_EQUAL(item_data->index, cur_focuse)) {
+	int cur_focuse = elm_radio_value_get(eo_radiogroup_repeat);
+	if (item_data->index == cur_focuse) 
 		return;
+	elm_radio_value_set(eo_radiogroup_repeat, item_data->index);
+//	_alarm_view_snooze_save_repeat(ad);
+	elm_genlist_item_update(item_repeat);
+}
+
+static char *
+_item_list_label_get(void *data, Evas_Object *obj __UNUSED__, const char *part __UNUSED__)
+{	
+
+	char *ret = NULL;
+	list_item_data *item_data = (list_item_data *) data;
+
+	if (!strcmp(part, "elm.text.1")) {
+		ret = strdup(item_data->text1);
+	} else if (!strcmp(part,"elm.text.2")) {
+		char temp[32] = { 0 };
+        /*
+		snprintf(temp, sizeof(temp), "%s", 
+	            _(title_duration
+			   [_DURATION_GET_KEY(g_snooze_duration_cur)]));
+        */
+        snprintf(temp, sizeof(temp), "%s", 
+	            title_temperature[g_temperature_cur]);
+
+		char *text2 = temp;
+		snprintf(item_data->text2, sizeof(item_data->text2), "%s",
+			 text2);
+		ret = strdup(item_data->text2);
 	}
-	elm_radio_value_set(view->eo_radiogroup_repeat, item_data->index);
-	_alarm_view_snooze_save_repeat(ad);
-	elm_genlist_item_update(view->item_repeat);
-#endif
+	return ret;
 }
 
 
@@ -526,9 +524,8 @@ static char *_gl_label_get_repeat_sub(void *data, Evas_Object *obj,
 {
 
 std::cerr<<"*_gl_label_get_repeat_sub"<<std::endl;
- //         retvm_if(!data, NULL, "data null");
     char *ret = NULL;
-    gl_dg_item_data *item_data = (gl_dg_item_data *)data;
+    list_item_data *item_data = (list_item_data *)data;
 
     if (!strcmp(part, "elm.text")) {
                    ret = strdup(item_data->text1);
@@ -542,7 +539,7 @@ static Evas_Object *_gl_icon_get_repeat_sub(void *data, Evas_Object * obj,
 //	retvm_if(!data, NULL, "data null");
 std::cerr<<"*_gl_icon_get_repeat_sub"<<std::endl;
 	Evas_Object *ret = NULL;
-	gl_dg_item_data *item_data = (gl_dg_item_data *) data;
+	list_item_data *item_data = (list_item_data *) data;
 //	struct appdata *ad = item_data->ad;
 	//snooze_view *view = ad->view_snooze;
 
@@ -559,14 +556,23 @@ std::cerr<<"*_gl_icon_get_repeat_sub"<<std::endl;
 	return ret;
 }
 
+static void 
+_set_expand_cb(void *data, Evas_Object * obj, void *event_info)
+{
+	Elm_Object_Item *gli = (Elm_Object_Item *) (event_info);
+	elm_genlist_item_selected_set(gli, 0);
+	Evas_Event_Mouse_Up *ev = (Evas_Event_Mouse_Up *) event_info;
+	Eina_Bool status = elm_genlist_item_expanded_get(gli);
+	elm_genlist_item_expanded_set(gli, !status);
+}
 
 
 static void _units_gl_exp(void *data, Evas_Object * obj,
                                               void *event_info){
-//	retvm_if(!ad, FAILED, "ad null");
-//	snooze_view *view = ad->view_snooze;
+    Elm_Genlist_Item_Class _itc;
 	int i = 0;
-	gl_dg_item_data *item_data = NULL;
+	char temp[32] = { 0 };
+	list_item_data *item_data = NULL;
 
     struct _App *app = (struct _App*)data;
     std::cerr<<"_units_gl_exp "<<list << " " << item_repeat<<std::endl;
@@ -580,50 +586,29 @@ static void _units_gl_exp(void *data, Evas_Object * obj,
     
 	eo_radiogroup_repeat = elm_radio_add(list);
 	elm_radio_value_set(eo_radiogroup_repeat, -1);
-
-    item_data = (gl_dg_item_data *)calloc(1, sizeof(gl_dg_item_data));
-    item_data->icon = NULL;
-    item_data->index = 0;
-    item_data->app = app;
-    snprintf(item_data->text1, sizeof(item_data->text1), "33333333333");
-
-     item_data->item =
+    for (i = 0; i != MAX_TEMPERATURE_ITEM_NUM; ++i) {
+       // snprintf(temp, sizeof(temp), "%s", _(title_duration[i]));
+       snprintf(temp, sizeof(temp), "%s", title_temperature[i]);
+       item_data = list_item_create(i, temp, NULL, NULL, app);
+       item_data->item =
 		    elm_genlist_item_append(list, &_itc_sub,
 					    (void *)item_data,
 					    item_repeat,
 					    ELM_GENLIST_ITEM_NONE,
 					    _gl_sel_repeat_sub, item_data);
-
-    item_data = (gl_dg_item_data *)calloc(1, sizeof(gl_dg_item_data));
-    item_data->icon = NULL;
-    item_data->index = 0;
-    item_data->app = app;
-    snprintf(item_data->text1, sizeof(item_data->text1), "44444444");
-
-     item_data->item =
-		    elm_genlist_item_append(list, &_itc_sub,
-					    (void *)item_data,
-					    item_repeat,
-					    ELM_GENLIST_ITEM_NONE,
-					    _gl_sel_repeat_sub, item_data);
-
-
+    }
 
 	elm_radio_value_set(eo_radiogroup_repeat, 0);
     evas_object_show(eo_radiogroup_repeat);
-//	return 1;
-
 }
 
 static void _units_gl_con(void *data, Evas_Object * obj,
 				      void *event_info)
 {
     std::cerr<<"_units_gl_con"<<std::endl;
-//	struct appdata *ad = (struct appdata *)data;
 	Elm_Object_Item *item = (Elm_Object_Item *)event_info;
-//	snooze_view *view = ad->view_snooze;
-
 	elm_genlist_item_subitems_clear(item);
+    /* Save Config */
 }
 
 
@@ -637,7 +622,7 @@ create_units_window(void *data){
     Evas_Object *temp_edje_obj = NULL;
     Elm_Object_Item *item;
 
-    gl_dg_item_data *item_data;
+    list_item_data *item_data;
     int i;
 
     evas = evas_object_evas_get(app->win);	
@@ -667,23 +652,20 @@ create_units_window(void *data){
 
 	elm_genlist_tree_effect_enabled_set(list, EINA_FALSE);
                  _itc.item_style = "dialogue/2text/expandable";
-//                 _itc.item_style = "dialogue/1text/expandable";
-                // _itc.item_style = "default";
-                 _itc.func.text_get = _item_label_get;
-                // _itc.func.content_get = _item_content_add_get;
+                 _itc.func.text_get = _item_list_label_get;
                  _itc.func.content_get = NULL;
                  _itc.func.del = NULL;
 
-    item_data = (gl_dg_item_data *)calloc(1, sizeof(gl_dg_item_data));
+    item_data = (list_item_data *)calloc(1, sizeof(list_item_data));
     item_data->index = 0;
     item_data->icon = NULL;
     item_data->app = app;
-    snprintf(item_data->text1, sizeof(item_data->text1), "Temperature1");
+    snprintf(item_data->text1, sizeof(item_data->text1), "Temperature");
 
     item_data->item = elm_genlist_item_append(list, &_itc,
                     (void *)item_data, NULL,
                     ELM_GENLIST_ITEM_TREE,
-                    _temp_cb, item_data);
+                    _set_expand_cb, item_data);
     item_repeat = item_data->item;
 	elm_genlist_item_expanded_set(item_data->item, true);
 

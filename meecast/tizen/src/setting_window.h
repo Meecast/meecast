@@ -29,11 +29,26 @@
 #include <Evas.h>
 #include "common.h"
 /*******************************************************************************/
+#define MAX_TEMPERATURE_ITEM_NUM 2
 void create_setting_window(void *data);
 struct _Setting_window {
     Evas_Object *top_main_window;
     Evas_Object *menu;
 };
+struct _list_item_data {
+    int index;
+    Elm_Object_Item *item;
+    Evas_Object *icon;
+    char text1[50];
+    char text2[50];
+    void *app;
+};
+typedef struct _list_item_data list_item_data;
+static char *title_temperature[MAX_TEMPERATURE_ITEM_NUM] = {
+    "Celcius",
+    "Fahrenheit"
+};
+static int g_temperature_cur = 0;
 static Elm_Genlist_Item_Class _itc;
 static Elm_Genlist_Item_Class _itc_sub;
 void create_main_window(void *data);

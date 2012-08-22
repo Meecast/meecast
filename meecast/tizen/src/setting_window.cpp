@@ -497,19 +497,18 @@ _item_list_label_get(void *data, Evas_Object *obj __UNUSED__, const char *part _
 
 	char *ret = NULL;
 	list_item_data *item_data = (list_item_data *) data;
-
+	struct _App *app =  (struct _App*)item_data->app;
+ 
 	if (!strcmp(part, "elm.text.1")) {
 		ret = strdup(item_data->text1);
 	} else if (!strcmp(part,"elm.text.2")) {
 		char temp[32] = { 0 };
-        /*
-		snprintf(temp, sizeof(temp), "%s", 
-	            _(title_duration
-			   [_DURATION_GET_KEY(g_snooze_duration_cur)]));
-        */
-        snprintf(temp, sizeof(temp), "%s", 
-	            title_temperature[g_temperature_cur]);
-
+        if (!strcmp(item_data->text1, "Temperature")){
+            for (int i = 0; i != MAX_TEMPERATURE_ITEM_NUM; ++i) {
+                if (!strcmp(temperature_in_config[i], app->config->TemperatureUnit().c_str()))
+                    snprintf(temp, sizeof(temp), "%s", title_temperature[i]);
+            }
+        }
 		char *text2 = temp;
 		snprintf(item_data->text2, sizeof(item_data->text2), "%s",
 			 text2);
@@ -596,9 +595,10 @@ static void _units_gl_exp(void *data, Evas_Object * obj,
 					    item_repeat,
 					    ELM_GENLIST_ITEM_NONE,
 					    _gl_sel_repeat_sub, item_data);
+                       
+       if (!strcmp(temperature_in_config[i], app->config->TemperatureUnit().c_str()))
+	        elm_radio_value_set(eo_radiogroup_repeat, i);
     }
-
-	elm_radio_value_set(eo_radiogroup_repeat, 0);
     evas_object_show(eo_radiogroup_repeat);
 }
 
@@ -643,36 +643,30 @@ create_units_window(void *data){
 
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj, "temperature_list");
     list = elm_genlist_add(temp_edje_obj); 
-    evas_object_smart_callback_add(list,
-                                   "expanded",
-                                   _units_gl_exp, app);
-    evas_object_smart_callback_add(list,
-                                   "contracted",
-                                   _units_gl_con, app);
+    evas_object_smart_callback_add(list, "expanded", _units_gl_exp, app);
+    evas_object_smart_callback_add(list, "contracted", _units_gl_con, app);
 
 	elm_genlist_tree_effect_enabled_set(list, EINA_FALSE);
-                 _itc.item_style = "dialogue/2text/expandable";
-                 _itc.func.text_get = _item_list_label_get;
-                 _itc.func.content_get = NULL;
-                 _itc.func.del = NULL;
+    _itc.item_style = "dialogue/2text/expandable";
+    _itc.func.text_get = _item_list_label_get;
+    _itc.func.content_get = NULL;
+    _itc.func.del = NULL;
 
-    item_data = (list_item_data *)calloc(1, sizeof(list_item_data));
+    item_data = list_item_create(i, NULL, NULL, NULL, app);
+    snprintf(item_data->text1, sizeof(item_data->text1), "Temperature");
     item_data->index = 0;
     item_data->icon = NULL;
     item_data->app = app;
-    snprintf(item_data->text1, sizeof(item_data->text1), "Temperature");
 
-    item_data->item = elm_genlist_item_append(list, &_itc,
-                    (void *)item_data, NULL,
-                    ELM_GENLIST_ITEM_TREE,
-                    _set_expand_cb, item_data);
+    item_data->item = elm_genlist_item_append(list, &_itc, (void *)item_data, NULL,
+                    ELM_GENLIST_ITEM_TREE, _set_expand_cb, item_data);
+
     item_repeat = item_data->item;
 	elm_genlist_item_expanded_set(item_data->item, true);
 
-    
     evas_object_show(list);
 
- evas_object_move(list, 0, app->config->get_screen_height()*0.1);
+    evas_object_move(list, 0, app->config->get_screen_height()*0.1);
 
     evas_object_resize(list, app->config->get_screen_width(), app->config->get_screen_height() - app->config->get_screen_height()*0.12);
 

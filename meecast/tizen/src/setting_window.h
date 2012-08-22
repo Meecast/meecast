@@ -48,6 +48,11 @@ static char *title_temperature[MAX_TEMPERATURE_ITEM_NUM] = {
     "Celcius",
     "Fahrenheit"
 };
+static char *temperature_in_config[MAX_TEMPERATURE_ITEM_NUM] = {
+    "C",
+    "F"
+};
+
 static int g_temperature_cur = 0;
 static Elm_Genlist_Item_Class _itc;
 static Elm_Genlist_Item_Class _itc_sub;

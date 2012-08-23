@@ -487,8 +487,9 @@ static void _gl_sel_repeat_sub(void *data, Evas_Object * obj, void *event_info)
 	if (item_data->index == cur_focuse) 
 		return;
 	elm_radio_value_set(eo_radiogroup_repeat, item_data->index);
-//	_alarm_view_snooze_save_repeat(ad);
 	elm_genlist_item_update(item_repeat);
+    app->config->TemperatureUnit(temperature_in_config[item_data->index]);
+    app->config->saveConfig();
 }
 
 static char *

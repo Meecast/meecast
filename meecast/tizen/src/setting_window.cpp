@@ -51,6 +51,17 @@ list_item_data
 	return ret;
 }
 
+void 
+default_item_del(void *data, Evas_Object *obj)
+{
+	list_item_data *ret = (list_item_data *)data;
+	if (!ret) {
+		return;
+	}
+    if (ret) {
+        free(ret); ret = NULL;
+    }
+}
 static void
 close_setting_window (void *data, Evas_Object *obj, const char *emission, const char *source){
     struct _App *app = (struct _App*)data;
@@ -448,8 +459,7 @@ create_regions_window(void *data){
 
     edje_obj_menu = edje_object_add(evas);
 
-
-  /* Set layout Edje File */
+    /* Set layout Edje File */
     Evas_Object *layout, *ed, *pg ;
     layout = elm_layout_add(app->win);
    
@@ -519,40 +529,32 @@ _item_list_label_get(void *data, Evas_Object *obj __UNUSED__, const char *part _
 }
 
 
-static char *_gl_label_get_repeat_sub(void *data, Evas_Object *obj,
+static char *_gl_label_get_list_sub(void *data, Evas_Object *obj,
                                               const char *part)
 {
 
-std::cerr<<"*_gl_label_get_repeat_sub"<<std::endl;
     char *ret = NULL;
     list_item_data *item_data = (list_item_data *)data;
 
     if (!strcmp(part, "elm.text")) {
                    ret = strdup(item_data->text1);
-    std::cerr<<"*_gl_label_get_repeat_sub "<< item_data->text1<<std::endl;
     }
     return ret;
 }
-static Evas_Object *_gl_icon_get_repeat_sub(void *data, Evas_Object * obj,
+static Evas_Object *_gl_icon_get_list_sub(void *data, Evas_Object * obj,
 					    const char *part)
 {
-//	retvm_if(!data, NULL, "data null");
-std::cerr<<"*_gl_icon_get_repeat_sub"<<std::endl;
 	Evas_Object *ret = NULL;
 	list_item_data *item_data = (list_item_data *) data;
-//	struct appdata *ad = item_data->ad;
-	//snooze_view *view = ad->view_snooze;
-
-    struct _App *app = (struct _App*)data;
+	struct _App *app  = (struct _App*)item_data->app;
 
 	if (!strcmp(part, "elm.icon")) {
-        std::cerr<<"*_gl_icon_get_repeat_sub icon"<<std::endl;
 		ret = elm_radio_add(obj);
 		elm_radio_state_value_set(ret, item_data->index);
 		elm_radio_group_add(ret, eo_radiogroup_repeat);
 		item_data->icon = ret;
 	}
-//  evas_object_propagate_events_set(ret, EINA_FALSE);
+    evas_object_propagate_events_set(ret, EINA_FALSE);
 	return ret;
 }
 
@@ -575,14 +577,12 @@ static void _units_gl_exp(void *data, Evas_Object * obj,
 	list_item_data *item_data = NULL;
 
     struct _App *app = (struct _App*)data;
-    std::cerr<<"_units_gl_exp "<<list << " " << item_repeat<<std::endl;
 
     _itc_sub.item_style  = "dialogue/1text.1icon/expandable2";
-    _itc_sub.func.text_get = _gl_label_get_repeat_sub;
-    _itc_sub.func.content_get = _gl_icon_get_repeat_sub;
+    _itc_sub.func.text_get = _gl_label_get_list_sub;
+    _itc_sub.func.content_get = _gl_icon_get_list_sub;
     _itc_sub.func.state_get = NULL;
-    _itc_sub.func.del = NULL; 
-    //_itc.func.del = default_gl_dg_item_dell
+    _itc_sub.func.del = default_item_del; 
     
 	eo_radiogroup_repeat = elm_radio_add(list);
 	elm_radio_value_set(eo_radiogroup_repeat, -1);
@@ -606,12 +606,12 @@ static void _units_gl_exp(void *data, Evas_Object * obj,
 static void _units_gl_con(void *data, Evas_Object * obj,
 				      void *event_info)
 {
-    std::cerr<<"_units_gl_con"<<std::endl;
+    struct _App *app = (struct _App*)data;
 	Elm_Object_Item *item = (Elm_Object_Item *)event_info;
 	elm_genlist_item_subitems_clear(item);
     /* Save Config */
+    app->config->saveConfig();
 }
-
 
 
 void 
@@ -651,7 +651,7 @@ create_units_window(void *data){
     _itc.item_style = "dialogue/2text/expandable";
     _itc.func.text_get = _item_list_label_get;
     _itc.func.content_get = NULL;
-    _itc.func.del = NULL;
+    _itc.func.del = default_item_del; 
 
     item_data = list_item_create(i, NULL, NULL, NULL, app);
     snprintf(item_data->text1, sizeof(item_data->text1), "Temperature");
@@ -669,7 +669,8 @@ create_units_window(void *data){
 
     evas_object_move(list, 0, app->config->get_screen_height()*0.1);
 
-    evas_object_resize(list, app->config->get_screen_width(), app->config->get_screen_height() - app->config->get_screen_height()*0.12);
+    evas_object_resize(list, app->config->get_screen_width(),
+                             app->config->get_screen_height() - app->config->get_screen_height()*0.12);
 
     edje_obj_menu = edje_object_add(evas);
 

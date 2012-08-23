@@ -336,6 +336,10 @@ create_main_window(void *data)
                 fprintf(stderr, "Could not load 'dayblock' from mainwindow.edj:"
                                 " %s\n", errmsg);
             }
+            temp_data->temperature_low().units(app->config->TemperatureUnit());
+            temp_data->temperature_hi().units(app->config->TemperatureUnit());
+            temp_data->temperature().units(app->config->TemperatureUnit());
+
             evas_object_resize(edje_obj_block, app->config->get_screen_width(),  DAY_BLOCK_HEIGHT);
             edje_object_part_text_set(edje_obj_block, "full_day_name", temp_data->FullDayName().c_str());
             /* Icon */
@@ -345,6 +349,7 @@ create_main_window(void *data)
             param.name = "icon";
             param.s = buffer;
             edje_object_part_external_param_set (edje_obj_block, "icon", &param);
+
 
             if (temp_data->temperature_low().value(true) != INT_MAX){
                 snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());

@@ -28,7 +28,6 @@
 # define __UNUSED__
 /*******************************************************************************/
 static Evas_Object *list;
-
 Evas_Object *eo_radiogroup_temperature;
 Evas_Object *eo_radiogroup_wind_speed;
 
@@ -233,7 +232,6 @@ _sel_station_cb(void *data, Evas_Object *obj, void *event_info)
         app->config->stationsList().push_back(station);
         if (app->config->stationsList().size() > 0)
              app->config->current_station_id(0);
-        //ConfigQml::Config::stationsList(*stationlist);
         app->config->saveConfig();
     }
     
@@ -556,7 +554,7 @@ _item_list_label_get(void *data, Evas_Object *obj __UNUSED__, const char *part _
 }
 
 
-static char *_gl_label_get_list_sub(void *data, Evas_Object *obj,
+static char *_label_get_list_sub(void *data, Evas_Object *obj,
                                               const char *part)
 {
 
@@ -568,7 +566,7 @@ static char *_gl_label_get_list_sub(void *data, Evas_Object *obj,
     }
     return ret;
 }
-static Evas_Object *_gl_icon_get_list_sub(void *data, Evas_Object * obj,
+static Evas_Object *_icon_get_list_sub(void *data, Evas_Object * obj,
 					    const char *part)
 {
 	Evas_Object *ret = NULL;
@@ -620,8 +618,8 @@ static void _units_gl_exp(void *data, Evas_Object * obj,
     
 
     _itc_sub.item_style  = "dialogue/1text.1icon/expandable2";
-    _itc_sub.func.text_get = _gl_label_get_list_sub;
-    _itc_sub.func.content_get = _gl_icon_get_list_sub;
+    _itc_sub.func.text_get = _label_get_list_sub;
+    _itc_sub.func.content_get = _icon_get_list_sub;
     _itc_sub.func.state_get = NULL;
     _itc_sub.func.del = default_item_del; 
     
@@ -634,10 +632,8 @@ static void _units_gl_exp(void *data, Evas_Object * obj,
                item_data = list_item_create(i, TEMPERATURE_UNITS, temp, NULL, NULL, app);
                item_data->item =
                     elm_genlist_item_append(list, &_itc_sub,
-                                (void *)item_data,
-                                main_item,
-                                ELM_GENLIST_ITEM_NONE,
-                                _sel_list_sub, item_data);
+                                (void *)item_data, main_item,
+                                ELM_GENLIST_ITEM_NONE, _sel_list_sub, item_data);
                if (!strcmp(temperature_in_config[i], app->config->TemperatureUnit().c_str()))
                     elm_radio_value_set(eo_radiogroup_temperature, i);
             }
@@ -650,10 +646,8 @@ static void _units_gl_exp(void *data, Evas_Object * obj,
                item_data = list_item_create(i, WIND_SPEED_UNITS, temp, NULL, NULL, app);
                item_data->item =
                     elm_genlist_item_append(list, &_itc_sub,
-                                (void *)item_data,
-                                main_item,
-                                ELM_GENLIST_ITEM_NONE,
-                                _sel_list_sub, item_data);
+                                (void *)item_data, main_item,
+                                ELM_GENLIST_ITEM_NONE, _sel_list_sub, item_data);
                if (!strcmp(wind_speed_in_config[i], app->config->WindSpeedUnit().c_str()))
                     elm_radio_value_set(eo_radiogroup_wind_speed, i);
             }
@@ -787,10 +781,10 @@ create_stations_window(void *data){
     edje_object_part_text_set(edje_obj, "settings_label", "Select location");
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj, "list_rect");
     list = elm_genlist_add(temp_edje_obj); 
-                 _itc.item_style = "default";
-                 _itc.func.text_get = _item_label_get;
-                 _itc.func.content_get = _item_content_add_get;
-                 _itc.func.del = NULL;
+    _itc.item_style = "default";
+    _itc.func.text_get = _item_label_get;
+    _itc.func.content_get = _item_content_add_get;
+    _itc.func.del = NULL;
 
     std::string path(Core::AbstractConfig::prefix);
     path += Core::AbstractConfig::sharePath;
@@ -815,7 +809,8 @@ create_stations_window(void *data){
     }
 
     evas_object_move(list, 0, app->config->get_screen_height()*0.1);
-    evas_object_resize(list, app->config->get_screen_width(), app->config->get_screen_height() - app->config->get_screen_height()*0.12);
+    evas_object_resize(list, app->config->get_screen_width(), 
+                             app->config->get_screen_height() - app->config->get_screen_height()*0.12);
     evas_object_show(list);
     app->list = list;
 
@@ -888,7 +883,8 @@ create_sources_window(void *data){
     }
 
     evas_object_move(list, 0, app->config->get_screen_height()*0.1);
-    evas_object_resize(list, app->config->get_screen_width(), app->config->get_screen_height() - app->config->get_screen_height()*0.15);
+    evas_object_resize(list, app->config->get_screen_width(), 
+                             app->config->get_screen_height() - app->config->get_screen_height()*0.15);
     evas_object_show(list);
     app->list = list;
 
@@ -955,7 +951,8 @@ create_location_window(void *data){
     }
 
     evas_object_move(list, 0, app->config->get_screen_height()*0.1);
-    evas_object_resize(list, app->config->get_screen_width(), app->config->get_screen_height() - app->config->get_screen_height()*0.15);
+    evas_object_resize(list, app->config->get_screen_width(), 
+                             app->config->get_screen_height() - app->config->get_screen_height()*0.15);
     evas_object_show(list);
     app->list = list;
 
@@ -1044,8 +1041,6 @@ create_setting_window(void *data)
     evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, manage_location_window, app); 
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj, "measurement_units_box");
     evas_object_event_callback_add(temp_edje_obj, EVAS_CALLBACK_MOUSE_DOWN, manage_units_window, app); 
-
-
 
     evas_object_move(edje_obj, 0, 0);
     evas_object_resize(edje_obj, app->config->get_screen_width(), app->config->get_screen_height());

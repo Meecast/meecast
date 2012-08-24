@@ -33,6 +33,9 @@ enum { UNKNOWN, TEMPERATURE_UNITS, WIND_SPEED_UNITS };
 struct _Setting_window {
     Evas_Object *top_main_window;
     Evas_Object *menu;
+    Evas_Object *eo_radiogroup_temperature;
+    Evas_Object *eo_radiogroup_wind_speed;
+
 };
 struct _list_item_data {
     int index;

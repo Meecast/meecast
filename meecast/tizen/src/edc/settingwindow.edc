@@ -471,7 +471,7 @@ collections {
 		    text {
 		       font: "Sans";
 		       size: BIG_FONT_SIZE;
-		       text: "Units";
+		       text: "Measurement units";
 		       align: 0.0 0.5;
 		    }
 		    rel1.relative: 0.05 0.03;

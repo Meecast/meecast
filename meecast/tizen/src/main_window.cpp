@@ -210,6 +210,7 @@ create_main_window(void *data)
         temp_data->temperature_low().units(app->config->TemperatureUnit());
         temp_data->temperature_hi().units(app->config->TemperatureUnit());
         temp_data->temperature().units(app->config->TemperatureUnit());
+        temp_data->WindSpeed().units(app->config->WindSpeedUnit());
 
         /* Filling window */
         /* Station name */
@@ -275,7 +276,8 @@ create_main_window(void *data)
         snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
         edje_object_part_text_set(edje_obj, "wind_direction_label", buffer);
         /* Main wind speed */
-        snprintf (buffer, sizeof(buffer) -1, "%0.f m/s", temp_data->WindSpeed().value());
+        snprintf (buffer, sizeof(buffer) -1, "%0.f %s", 
+                                             temp_data->WindSpeed().value(), app->config->WindSpeedUnit().c_str());
         edje_object_part_text_set(edje_obj, "wind_speed_label", buffer);
 
         /* Change color for background */

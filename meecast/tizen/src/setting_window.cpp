@@ -513,7 +513,7 @@ _sel_list_sub(void *data, Evas_Object * obj, void *event_info)
         case WIND_SPEED_UNITS:
             elm_radio_value_set(eo_radiogroup_wind_speed, item_data->index);
 	        elm_genlist_item_update(elm_genlist_item_parent_get(gli));
-            app->config->WindSpeedUnit(wind_speed_in_config[item_data->index - MAX_TEMPERATURE_ITEM_NUM]);
+            app->config->WindSpeedUnit(wind_speed_in_config[item_data->index]);
         break;
     }
     app->config->saveConfig();
@@ -531,7 +531,6 @@ _item_list_label_get(void *data, Evas_Object *obj __UNUSED__, const char *part _
 		ret = strdup(item_data->text1);
 	} else if (!strcmp(part,"elm.text.2")) {
 		char temp[32] = { 0 };
-        std::cerr<<"dddd "<<item_data->magic<<" "<< item_data->text1<<std::endl;
         switch (item_data->magic){
             case TEMPERATURE_UNITS:
                 for (int i = 0; i != MAX_TEMPERATURE_ITEM_NUM; ++i) {
@@ -646,8 +645,8 @@ static void _units_gl_exp(void *data, Evas_Object * obj,
         case WIND_SPEED_UNITS:
             eo_radiogroup_wind_speed = elm_radio_add(list);
             elm_radio_value_set(eo_radiogroup_wind_speed, -1);
-            for (i = 0 + MAX_TEMPERATURE_ITEM_NUM ; i != MAX_WIND_SPEED_ITEM_NUM + MAX_TEMPERATURE_ITEM_NUM; ++i) {
-               snprintf(temp, sizeof(temp), "%s", title_wind_speed[i - MAX_TEMPERATURE_ITEM_NUM]);
+            for (i = 0; i != MAX_WIND_SPEED_ITEM_NUM; ++i) {
+               snprintf(temp, sizeof(temp), "%s", title_wind_speed[i]);
                item_data = list_item_create(i, WIND_SPEED_UNITS, temp, NULL, NULL, app);
                item_data->item =
                     elm_genlist_item_append(list, &_itc_sub,
@@ -655,7 +654,7 @@ static void _units_gl_exp(void *data, Evas_Object * obj,
                                 main_item,
                                 ELM_GENLIST_ITEM_NONE,
                                 _sel_list_sub, item_data);
-               if (!strcmp(wind_speed_in_config[i - MAX_TEMPERATURE_ITEM_NUM], app->config->WindSpeedUnit().c_str()))
+               if (!strcmp(wind_speed_in_config[i], app->config->WindSpeedUnit().c_str()))
                     elm_radio_value_set(eo_radiogroup_wind_speed, i);
             }
         break;

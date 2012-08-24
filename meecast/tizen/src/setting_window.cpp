@@ -35,8 +35,8 @@ Evas_Object *eo_radiogroup_repeat;
 Elm_Object_Item *item_repeat;
 
 list_item_data
-*list_item_create(int index, char *text1, char *text2,
-		   Evas_Object *icon, void *ad)
+*list_item_create(int index, int magic, char *text1, char *text2,
+		   Evas_Object *icon, void *app)
 {
 	list_item_data *ret = (list_item_data *)calloc(1, sizeof(list_item_data));
 	ret->index = index;
@@ -47,7 +47,8 @@ list_item_data
 		snprintf(ret->text2, sizeof(ret->text2), "%s", text2);
 	}
 	ret->icon = icon;
-	ret->app = ad;
+    ret->magic = magic;
+	ret->app = app;
 	return ret;
 }
 
@@ -484,7 +485,8 @@ create_regions_window(void *data){
 
 }
 
-static void _gl_sel_repeat_sub(void *data, Evas_Object * obj, void *event_info)
+static void 
+_sel_list_sub(void *data, Evas_Object * obj, void *event_info)
 {
 	Elm_Object_Item *gli = (Elm_Object_Item *) (event_info);
 	elm_genlist_item_selected_set(gli, 0);
@@ -589,13 +591,13 @@ static void _units_gl_exp(void *data, Evas_Object * obj,
     for (i = 0; i != MAX_TEMPERATURE_ITEM_NUM; ++i) {
        // snprintf(temp, sizeof(temp), "%s", _(title_duration[i]));
        snprintf(temp, sizeof(temp), "%s", title_temperature[i]);
-       item_data = list_item_create(i, temp, NULL, NULL, app);
+       item_data = list_item_create(i, TEMPERATURE_UNITS, temp, NULL, NULL, app);
        item_data->item =
 		    elm_genlist_item_append(list, &_itc_sub,
 					    (void *)item_data,
 					    item_repeat,
 					    ELM_GENLIST_ITEM_NONE,
-					    _gl_sel_repeat_sub, item_data);
+					    _sel_list_sub, item_data);
                        
        if (!strcmp(temperature_in_config[i], app->config->TemperatureUnit().c_str()))
 	        elm_radio_value_set(eo_radiogroup_repeat, i);
@@ -653,7 +655,7 @@ create_units_window(void *data){
     _itc.func.content_get = NULL;
     _itc.func.del = default_item_del; 
 
-    item_data = list_item_create(i, NULL, NULL, NULL, app);
+    item_data = list_item_create(i, TEMPERATURE_UNITS, NULL, NULL, NULL, app);
     snprintf(item_data->text1, sizeof(item_data->text1), "Temperature");
     item_data->index = 0;
     item_data->icon = NULL;

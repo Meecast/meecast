@@ -470,7 +470,7 @@ collections {
 		description{
 		    text {
 		       font: "Sans";
-		       size: BIG_FONT_SIZE;
+		       size: LARGE_FONT_SIZE;
 		       text: "Measurement units";
 		       align: 0.0 0.5;
 		    }
@@ -489,39 +489,8 @@ collections {
                     rel2.relative: 1.0 0.60;
                 }
             }
-	    part {
-	        name: "label_test";
-		type: TEXT;
-		description{
-		    text {
-		       font: "Sans";
-		       size: BIG_FONT_SIZE;
-		       text: "Units";
-		       align: 0.0 0.5;
-		    }
- 		    rel1.to_y: "temperature_list";
-		    rel1.relative: 0.05 0.60;
-		    rel2.relative: 0.9 0.71;
-		}
-	    }
-
-//	    part {
-//                name: "temperature_list";
-//		type: EXTERNAL;
-//		source: "elm/genlist";
-//		description {
-//                   state: "default" 0.0;
-//		   rel1.to_y: "units_settings_label";
-//                 rel1.relative: 0.05 0.11;
-//		   rel2.relative: 0.9 0.18;
-//		   params { 
-//		       string: "horizontal mode" "scroll";
-//		   }
-//		}
-//	    }
-	}
+    	}
     }
-
     group {
         name: "menu_managelocations";
 	parts{

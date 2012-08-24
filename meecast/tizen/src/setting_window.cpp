@@ -30,6 +30,7 @@
 static Evas_Object *list;
 Evas_Object *eo_radiogroup_temperature;
 Evas_Object *eo_radiogroup_wind_speed;
+Evas_Object *eo_radiogroup_pressure;
 
 
 list_item_data
@@ -499,6 +500,10 @@ _sel_list_sub(void *data, Evas_Object * obj, void *event_info)
         case WIND_SPEED_UNITS:
 	        cur_focuse = elm_radio_value_get(eo_radiogroup_wind_speed);
         break;
+        case PRESSURE_UNITS:
+	        cur_focuse = elm_radio_value_get(eo_radiogroup_pressure);
+        break;
+
     }
 	if (item_data->index == cur_focuse) 
 		return;
@@ -513,6 +518,12 @@ _sel_list_sub(void *data, Evas_Object * obj, void *event_info)
 	        elm_genlist_item_update(elm_genlist_item_parent_get(gli));
             app->config->WindSpeedUnit(wind_speed_in_config[item_data->index]);
         break;
+        case PRESSURE_UNITS:
+            elm_radio_value_set(eo_radiogroup_pressure, item_data->index);
+	        elm_genlist_item_update(elm_genlist_item_parent_get(gli));
+            app->config->PressureUnit(pressure_in_config[item_data->index]);
+        break;
+
     }
     app->config->saveConfig();
 }
@@ -538,9 +549,14 @@ _item_list_label_get(void *data, Evas_Object *obj __UNUSED__, const char *part _
             break;
             case WIND_SPEED_UNITS:
                 for (int i = 0; i != MAX_WIND_SPEED_ITEM_NUM; ++i) {
-                    std::cerr<<wind_speed_in_config[i]<<" "<< app->config->WindSpeedUnit().c_str()<<std::endl;
                     if (!strcmp(wind_speed_in_config[i], app->config->WindSpeedUnit().c_str()))
                         snprintf(temp, sizeof(temp), "%s", title_wind_speed[i]);
+                }
+            break;
+            case PRESSURE_UNITS:
+                for (int i = 0; i != MAX_PRESSURE_ITEM_NUM; ++i) {
+                    if (!strcmp(pressure_in_config[i], app->config->PressureUnit().c_str()))
+                        snprintf(temp, sizeof(temp), "%s", title_pressure[i]);
                 }
             break;
         }
@@ -583,6 +599,10 @@ static Evas_Object *_icon_get_list_sub(void *data, Evas_Object * obj,
             case WIND_SPEED_UNITS:
 		        elm_radio_group_add(ret, eo_radiogroup_wind_speed);
             break;
+            case PRESSURE_UNITS:
+		        elm_radio_group_add(ret, eo_radiogroup_pressure);
+            break;
+
         }
 		item_data->icon = ret;
 	}
@@ -652,6 +672,20 @@ static void _units_gl_exp(void *data, Evas_Object * obj,
                     elm_radio_value_set(eo_radiogroup_wind_speed, i);
             }
         break;
+        case PRESSURE_UNITS:
+            eo_radiogroup_pressure = elm_radio_add(list);
+            elm_radio_value_set(eo_radiogroup_pressure, -1);
+            for (i = 0; i != MAX_PRESSURE_ITEM_NUM; ++i) {
+               snprintf(temp, sizeof(temp), "%s", title_pressure[i]);
+               item_data = list_item_create(i, PRESSURE_UNITS, temp, NULL, NULL, app);
+               item_data->item =
+                    elm_genlist_item_append(list, &_itc_sub,
+                                (void *)item_data, main_item,
+                                ELM_GENLIST_ITEM_NONE, _sel_list_sub, item_data);
+               if (!strcmp(pressure_in_config[i], app->config->PressureUnit().c_str()))
+                    elm_radio_value_set(eo_radiogroup_pressure, i);
+            }
+        break;
     }
 }
 
@@ -710,15 +744,16 @@ create_units_window(void *data){
     item_data->index = 0;
     item_data->icon = NULL;
     item_data->app = app;
-
     item_data->item = elm_genlist_item_append(list, &_itc, (void *)item_data, NULL,
                     ELM_GENLIST_ITEM_TREE, _set_expand_cb, item_data);
-
-	elm_genlist_item_expanded_set(item_data->item, true);
+//	elm_genlist_item_expanded_set(item_data->item, true);
 
     item_data = list_item_create(1, WIND_SPEED_UNITS, NULL, NULL, NULL, app);
     snprintf(item_data->text1, sizeof(item_data->text1), "Wind speed units");
-
+    item_data->item = elm_genlist_item_append(list, &_itc, (void *)item_data, NULL,
+                    ELM_GENLIST_ITEM_TREE, _set_expand_cb, item_data);
+    item_data = list_item_create(2, PRESSURE_UNITS, NULL, NULL, NULL, app);
+    snprintf(item_data->text1, sizeof(item_data->text1), "Pressure units");
     item_data->item = elm_genlist_item_append(list, &_itc, (void *)item_data, NULL,
                     ELM_GENLIST_ITEM_TREE, _set_expand_cb, item_data);
 
@@ -727,7 +762,7 @@ create_units_window(void *data){
     evas_object_move(list, 0, app->config->get_screen_height()*0.1);
 
     evas_object_resize(list, app->config->get_screen_width(),
-                             app->config->get_screen_height() - app->config->get_screen_height()*0.12);
+                             (app->config->get_screen_height() - app->config->get_screen_height()*0.18));
 
     edje_obj_menu = edje_object_add(evas);
 
@@ -867,11 +902,11 @@ create_sources_window(void *data){
     edje_object_part_text_set(edje_obj, "settings_label", "Select the weather source");
     temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj, "list_rect");
     list = elm_genlist_add(temp_edje_obj); 
-                 _itc.item_style = "default";
-                 _itc.func.text_get = _item_label_get;
-                 _itc.func.content_get = _item_content_add_get;
-                 //_itc.func.state_get = _item_content_get;
-                 //_itc.func.del = NULL;
+    _itc.item_style = "default";
+    _itc.func.text_get = _item_label_get;
+    _itc.func.content_get = _item_content_add_get;
+    //_itc.func.state_get = _item_content_get;
+    //_itc.func.del = NULL;
     std::string path(Core::AbstractConfig::prefix);
     path += Core::AbstractConfig::sourcesPath;
     Core::SourceList *sourcelist = new Core::SourceList(path);

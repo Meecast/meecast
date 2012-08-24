@@ -29,13 +29,10 @@
 #include <Evas.h>
 #include "common.h"
 /*******************************************************************************/
-enum { UNKNOWN, TEMPERATURE_UNITS, WIND_SPEED_UNITS };
+enum { UNKNOWN, TEMPERATURE_UNITS, WIND_SPEED_UNITS, PRESSURE_UNITS };
 struct _Setting_window {
     Evas_Object *top_main_window;
     Evas_Object *menu;
-    Evas_Object *eo_radiogroup_temperature;
-    Evas_Object *eo_radiogroup_wind_speed;
-
 };
 struct _list_item_data {
     int index;
@@ -66,6 +63,17 @@ static char *wind_speed_in_config[MAX_WIND_SPEED_ITEM_NUM] = {
     "m/s",
     "km/h",
     "mi/h"
+};
+#define MAX_PRESSURE_ITEM_NUM 3
+static char *title_pressure[MAX_PRESSURE_ITEM_NUM] = {
+    "mbar",
+    "Pa",
+    "mmHg"
+};
+static char *pressure_in_config[MAX_PRESSURE_ITEM_NUM] = {
+    "mbar",
+    "Pa",
+    "mmHg"
 };
 
 void create_setting_window(void *data);

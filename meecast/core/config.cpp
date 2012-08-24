@@ -535,13 +535,13 @@ Config::LoadConfig(){
             }
             if (!xmlStrcmp(p->name, (const xmlChar*)"temperature_unit")){
                 _temperature_unit->assign(std::string((char *)xmlNodeGetContent(p)));
-                std::cerr << "Temperature Unit !!!!" << xmlNodeGetContent(p)<< std::endl;
             }
             if (!xmlStrcmp(p->name, (const xmlChar*)"wind_speed_unit")){
                 _wind_speed_unit->assign(std::string((char *)xmlNodeGetContent(p)));
-                std::cerr << "Temperature Unit !!!!" << xmlNodeGetContent(p)<< std::endl;
             }
-
+            if (!xmlStrcmp(p->name, (const xmlChar*)"pressure_unit")){
+                _pressure_unit->assign(std::string((char *)xmlNodeGetContent(p)));
+            }
             if (!xmlStrcmp(p->name, (const xmlChar*)"station")){
                 bool gps = false;
                 for(xmlNodePtr p1 = p->children; p1; p1 = p1->next) {

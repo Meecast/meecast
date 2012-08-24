@@ -211,6 +211,7 @@ create_main_window(void *data)
         temp_data->temperature_hi().units(app->config->TemperatureUnit());
         temp_data->temperature().units(app->config->TemperatureUnit());
         temp_data->WindSpeed().units(app->config->WindSpeedUnit());
+        temp_data->Pressure().units(app->config->PressureUnit());
 
         /* Filling window */
         /* Station name */

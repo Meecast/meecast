@@ -537,6 +537,11 @@ Config::LoadConfig(){
                 _temperature_unit->assign(std::string((char *)xmlNodeGetContent(p)));
                 std::cerr << "Temperature Unit !!!!" << xmlNodeGetContent(p)<< std::endl;
             }
+            if (!xmlStrcmp(p->name, (const xmlChar*)"wind_speed_unit")){
+                _wind_speed_unit->assign(std::string((char *)xmlNodeGetContent(p)));
+                std::cerr << "Temperature Unit !!!!" << xmlNodeGetContent(p)<< std::endl;
+            }
+
             if (!xmlStrcmp(p->name, (const xmlChar*)"station")){
                 bool gps = false;
                 for(xmlNodePtr p1 = p->children; p1; p1 = p1->next) {
@@ -850,6 +855,16 @@ void Config::processNode(const xmlpp::Node* node){
         }
         return;
     }
+    // wind speed unit
+    if(nodeName == "wind_speed_unit"){
+        xmlpp::Node::NodeList list = node->get_children();
+        xmlpp::Node::NodeList::iterator iter = list.begin();
+        const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+        /* Temporary fix for bug */
+        _wind_speed_unit->assign(nodeText->get_content());
+        return;
+    }
+
     // current station id
     if(nodeName == "current_station_id"){
         xmlpp::Node::NodeList list = node->get_children();

@@ -29,8 +29,7 @@
 #include <Evas.h>
 #include "common.h"
 /*******************************************************************************/
-#define MAX_TEMPERATURE_ITEM_NUM 2
-enum { UNKNOWN, TEMPERATURE_UNITS };
+enum { UNKNOWN, TEMPERATURE_UNITS, WIND_SPEED_UNITS };
 struct _Setting_window {
     Evas_Object *top_main_window;
     Evas_Object *menu;
@@ -45,6 +44,7 @@ struct _list_item_data {
     void *app;
 };
 typedef struct _list_item_data list_item_data;
+#define MAX_TEMPERATURE_ITEM_NUM 2
 static char *title_temperature[MAX_TEMPERATURE_ITEM_NUM] = {
     "Celcius",
     "Fahrenheit"
@@ -52,6 +52,17 @@ static char *title_temperature[MAX_TEMPERATURE_ITEM_NUM] = {
 static char *temperature_in_config[MAX_TEMPERATURE_ITEM_NUM] = {
     "C",
     "F"
+};
+#define MAX_WIND_SPEED_ITEM_NUM 3
+static char *title_wind_speed[MAX_WIND_SPEED_ITEM_NUM] = {
+    "m/s",
+    "km/h",
+    "mi/h"
+};
+static char *wind_speed_in_config[MAX_WIND_SPEED_ITEM_NUM] = {
+    "m/s",
+    "km/h",
+    "mi/h"
 };
 
 void create_setting_window(void *data);
@@ -63,3 +74,4 @@ void create_sources_window(void *data);
 void create_countries_window(void *data);
 void create_regions_window(void *data);
 void create_stations_window(void *data);
+

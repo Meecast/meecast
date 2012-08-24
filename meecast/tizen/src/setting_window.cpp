@@ -29,10 +29,9 @@
 /*******************************************************************************/
 static Evas_Object *list;
 
-Evas_Object *eo_radiogroup_repeat;
+Evas_Object *eo_radiogroup_temperature;
+Evas_Object *eo_radiogroup_wind_speed;
 
-
-Elm_Object_Item *item_repeat;
 
 list_item_data
 *list_item_create(int index, int magic, char *text1, char *text2,
@@ -494,13 +493,29 @@ _sel_list_sub(void *data, Evas_Object * obj, void *event_info)
 
 	list_item_data *item_data = (list_item_data *) data;
 	struct _App *app =  (struct _App*)item_data->app;
-
-	int cur_focuse = elm_radio_value_get(eo_radiogroup_repeat);
+    int cur_focuse = -1;
+    switch (item_data->magic){
+        case TEMPERATURE_UNITS:
+	        cur_focuse = elm_radio_value_get(eo_radiogroup_temperature);
+        break;
+        case WIND_SPEED_UNITS:
+	        cur_focuse = elm_radio_value_get(eo_radiogroup_wind_speed);
+        break;
+    }
 	if (item_data->index == cur_focuse) 
 		return;
-	elm_radio_value_set(eo_radiogroup_repeat, item_data->index);
-	elm_genlist_item_update(item_repeat);
-    app->config->TemperatureUnit(temperature_in_config[item_data->index]);
+    switch (item_data->magic){
+        case TEMPERATURE_UNITS:
+	        elm_radio_value_set(eo_radiogroup_temperature, item_data->index);
+	        elm_genlist_item_update(elm_genlist_item_parent_get(gli));
+            app->config->TemperatureUnit(temperature_in_config[item_data->index]);
+        break;
+        case WIND_SPEED_UNITS:
+            elm_radio_value_set(eo_radiogroup_wind_speed, item_data->index);
+	        elm_genlist_item_update(elm_genlist_item_parent_get(gli));
+            app->config->WindSpeedUnit(wind_speed_in_config[item_data->index - MAX_TEMPERATURE_ITEM_NUM]);
+        break;
+    }
     app->config->saveConfig();
 }
 
@@ -516,12 +531,23 @@ _item_list_label_get(void *data, Evas_Object *obj __UNUSED__, const char *part _
 		ret = strdup(item_data->text1);
 	} else if (!strcmp(part,"elm.text.2")) {
 		char temp[32] = { 0 };
-        if (!strcmp(item_data->text1, "Temperature units")){
-            for (int i = 0; i != MAX_TEMPERATURE_ITEM_NUM; ++i) {
-                if (!strcmp(temperature_in_config[i], app->config->TemperatureUnit().c_str()))
-                    snprintf(temp, sizeof(temp), "%s", title_temperature[i]);
-            }
+        std::cerr<<"dddd "<<item_data->magic<<" "<< item_data->text1<<std::endl;
+        switch (item_data->magic){
+            case TEMPERATURE_UNITS:
+                for (int i = 0; i != MAX_TEMPERATURE_ITEM_NUM; ++i) {
+                    if (!strcmp(temperature_in_config[i], app->config->TemperatureUnit().c_str()))
+                        snprintf(temp, sizeof(temp), "%s", title_temperature[i]);
+                }
+            break;
+            case WIND_SPEED_UNITS:
+                for (int i = 0; i != MAX_WIND_SPEED_ITEM_NUM; ++i) {
+                    std::cerr<<wind_speed_in_config[i]<<" "<< app->config->WindSpeedUnit().c_str()<<std::endl;
+                    if (!strcmp(wind_speed_in_config[i], app->config->WindSpeedUnit().c_str()))
+                        snprintf(temp, sizeof(temp), "%s", title_wind_speed[i]);
+                }
+            break;
         }
+
 		char *text2 = temp;
 		snprintf(item_data->text2, sizeof(item_data->text2), "%s",
 			 text2);
@@ -552,8 +578,15 @@ static Evas_Object *_gl_icon_get_list_sub(void *data, Evas_Object * obj,
 
 	if (!strcmp(part, "elm.icon")) {
 		ret = elm_radio_add(obj);
-		elm_radio_state_value_set(ret, item_data->index);
-		elm_radio_group_add(ret, eo_radiogroup_repeat);
+        elm_radio_state_value_set(ret, item_data->index);
+        switch  (item_data->magic){
+            case TEMPERATURE_UNITS:
+		        elm_radio_group_add(ret, eo_radiogroup_temperature);
+            break;
+            case WIND_SPEED_UNITS:
+		        elm_radio_group_add(ret, eo_radiogroup_wind_speed);
+            break;
+        }
 		item_data->icon = ret;
 	}
     evas_object_propagate_events_set(ret, EINA_FALSE);
@@ -576,9 +609,16 @@ static void _units_gl_exp(void *data, Evas_Object * obj,
     Elm_Genlist_Item_Class _itc;
 	int i = 0;
 	char temp[32] = { 0 };
-	list_item_data *item_data = NULL;
-
     struct _App *app = (struct _App*)data;
+	list_item_data *item_data = NULL;
+	list_item_data *main_item_data = NULL;
+    Elm_Object_Item *main_item = NULL; 
+
+    Elm_Object_Item *item = (Elm_Object_Item*)event_info;
+
+    main_item_data = (list_item_data*)elm_object_item_data_get(item);
+    main_item = main_item_data->item;
+    
 
     _itc_sub.item_style  = "dialogue/1text.1icon/expandable2";
     _itc_sub.func.text_get = _gl_label_get_list_sub;
@@ -586,23 +626,40 @@ static void _units_gl_exp(void *data, Evas_Object * obj,
     _itc_sub.func.state_get = NULL;
     _itc_sub.func.del = default_item_del; 
     
-	eo_radiogroup_repeat = elm_radio_add(list);
-	elm_radio_value_set(eo_radiogroup_repeat, -1);
-    for (i = 0; i != MAX_TEMPERATURE_ITEM_NUM; ++i) {
-       // snprintf(temp, sizeof(temp), "%s", _(title_duration[i]));
-       snprintf(temp, sizeof(temp), "%s", title_temperature[i]);
-       item_data = list_item_create(i, TEMPERATURE_UNITS, temp, NULL, NULL, app);
-       item_data->item =
-		    elm_genlist_item_append(list, &_itc_sub,
-					    (void *)item_data,
-					    item_repeat,
-					    ELM_GENLIST_ITEM_NONE,
-					    _sel_list_sub, item_data);
-                       
-       if (!strcmp(temperature_in_config[i], app->config->TemperatureUnit().c_str()))
-	        elm_radio_value_set(eo_radiogroup_repeat, i);
+	switch (main_item_data->magic){
+        case TEMPERATURE_UNITS:
+            eo_radiogroup_temperature = elm_radio_add(list);
+	        elm_radio_value_set(eo_radiogroup_temperature, -1);
+            for (i = 0; i != MAX_TEMPERATURE_ITEM_NUM; ++i) {
+               snprintf(temp, sizeof(temp), "%s", title_temperature[i]);
+               item_data = list_item_create(i, TEMPERATURE_UNITS, temp, NULL, NULL, app);
+               item_data->item =
+                    elm_genlist_item_append(list, &_itc_sub,
+                                (void *)item_data,
+                                main_item,
+                                ELM_GENLIST_ITEM_NONE,
+                                _sel_list_sub, item_data);
+               if (!strcmp(temperature_in_config[i], app->config->TemperatureUnit().c_str()))
+                    elm_radio_value_set(eo_radiogroup_temperature, i);
+            }
+        break;
+        case WIND_SPEED_UNITS:
+            eo_radiogroup_wind_speed = elm_radio_add(list);
+            elm_radio_value_set(eo_radiogroup_wind_speed, -1);
+            for (i = 0 + MAX_TEMPERATURE_ITEM_NUM ; i != MAX_WIND_SPEED_ITEM_NUM + MAX_TEMPERATURE_ITEM_NUM; ++i) {
+               snprintf(temp, sizeof(temp), "%s", title_wind_speed[i - MAX_TEMPERATURE_ITEM_NUM]);
+               item_data = list_item_create(i, WIND_SPEED_UNITS, temp, NULL, NULL, app);
+               item_data->item =
+                    elm_genlist_item_append(list, &_itc_sub,
+                                (void *)item_data,
+                                main_item,
+                                ELM_GENLIST_ITEM_NONE,
+                                _sel_list_sub, item_data);
+               if (!strcmp(wind_speed_in_config[i - MAX_TEMPERATURE_ITEM_NUM], app->config->WindSpeedUnit().c_str()))
+                    elm_radio_value_set(eo_radiogroup_wind_speed, i);
+            }
+        break;
     }
-    evas_object_show(eo_radiogroup_repeat);
 }
 
 static void _units_gl_con(void *data, Evas_Object * obj,
@@ -664,10 +721,9 @@ create_units_window(void *data){
     item_data->item = elm_genlist_item_append(list, &_itc, (void *)item_data, NULL,
                     ELM_GENLIST_ITEM_TREE, _set_expand_cb, item_data);
 
-    item_repeat = item_data->item;
 	elm_genlist_item_expanded_set(item_data->item, true);
 
-    item_data = list_item_create(1, NULL, NULL, NULL, app);
+    item_data = list_item_create(1, WIND_SPEED_UNITS, NULL, NULL, NULL, app);
     snprintf(item_data->text1, sizeof(item_data->text1), "Wind speed units");
 
     item_data->item = elm_genlist_item_append(list, &_itc, (void *)item_data, NULL,

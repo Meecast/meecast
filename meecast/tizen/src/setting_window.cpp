@@ -516,7 +516,7 @@ _item_list_label_get(void *data, Evas_Object *obj __UNUSED__, const char *part _
 		ret = strdup(item_data->text1);
 	} else if (!strcmp(part,"elm.text.2")) {
 		char temp[32] = { 0 };
-        if (!strcmp(item_data->text1, "Temperature")){
+        if (!strcmp(item_data->text1, "Temperature units")){
             for (int i = 0; i != MAX_TEMPERATURE_ITEM_NUM; ++i) {
                 if (!strcmp(temperature_in_config[i], app->config->TemperatureUnit().c_str()))
                     snprintf(temp, sizeof(temp), "%s", title_temperature[i]);
@@ -655,8 +655,8 @@ create_units_window(void *data){
     _itc.func.content_get = NULL;
     _itc.func.del = default_item_del; 
 
-    item_data = list_item_create(i, TEMPERATURE_UNITS, NULL, NULL, NULL, app);
-    snprintf(item_data->text1, sizeof(item_data->text1), "Temperature");
+    item_data = list_item_create(0, TEMPERATURE_UNITS, NULL, NULL, NULL, app);
+    snprintf(item_data->text1, sizeof(item_data->text1), "Temperature units");
     item_data->index = 0;
     item_data->icon = NULL;
     item_data->app = app;
@@ -666,6 +666,12 @@ create_units_window(void *data){
 
     item_repeat = item_data->item;
 	elm_genlist_item_expanded_set(item_data->item, true);
+
+    item_data = list_item_create(1, NULL, NULL, NULL, app);
+    snprintf(item_data->text1, sizeof(item_data->text1), "Wind speed units");
+
+    item_data->item = elm_genlist_item_append(list, &_itc, (void *)item_data, NULL,
+                    ELM_GENLIST_ITEM_TREE, _set_expand_cb, item_data);
 
     evas_object_show(list);
 

@@ -207,11 +207,12 @@ create_main_window(void *data)
                             " %s\n", errmsg);
         }
         evas_object_show(app->top_main_window);
+        /* Preparing units */
         temp_data->temperature_low().units(app->config->TemperatureUnit());
         temp_data->temperature_hi().units(app->config->TemperatureUnit());
         temp_data->temperature().units(app->config->TemperatureUnit());
         temp_data->WindSpeed().units(app->config->WindSpeedUnit());
-        temp_data->Pressure().units(app->config->PressureUnit());
+        temp_data->pressure().units(app->config->PressureUnit());
 
         /* Filling window */
         /* Station name */
@@ -379,7 +380,7 @@ create_main_window(void *data)
         /* Insert box to scroller */
         scroller = elm_scroller_add(app->win);
         evas_object_size_hint_weight_set(scroller, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-        evas_object_resize(scroller, app->config->get_screen_width(), app->config->get_screen_height()*0.5);
+        evas_object_resize(scroller, app->config->get_screen_width(), app->config->get_screen_height()*0.53);
         evas_object_move(scroller, 0, app->config->get_screen_height()*0.4); 
         elm_object_content_set(scroller, list_box);
         evas_object_show(scroller);

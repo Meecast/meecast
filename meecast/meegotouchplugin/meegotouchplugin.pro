@@ -32,3 +32,7 @@ package.files = *.deb
 
 datasmallcontour.files += data/smallcontour/*.png
 datasmallcontour.path = /opt/com.meecast.omweather/share/images/smallcontour
+
+contextreg.files = data/meecast.context
+contextreg.path = /usr/share/contextkit/providers
+INSTALLS += contextreg

@@ -78,6 +78,7 @@ CONFIG(localdebug):DEFINES += LOCALDEBUG
 
 CONFIG += mobility
 MOBILITY += location
+MOBILITY += publishsubscribe
 CONFIG += qdeclarative-boostable
 CONFIG += meegotouch 
 

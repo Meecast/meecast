@@ -40,6 +40,7 @@
 #include "gpsposition.h"
 #include <MGConfItem>
 #include <QSettings>
+#include <QDir>
 
 #include <libintl.h>
 #include <locale.h>

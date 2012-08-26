@@ -321,10 +321,8 @@ public:
     virtual ~WeatherApplicationExtension();
 
     virtual void weatherExtensionSpecificOperation();
-
     virtual bool initialize(const QString &interface);
     virtual MWidget *widget();
-
 private:
     MyMWidget *box;
 };

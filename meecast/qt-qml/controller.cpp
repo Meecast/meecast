@@ -161,6 +161,18 @@ Controller::load_data()
                                   _config->Lockscreen(),
                                   _config->Standbyscreen(),
                                   t.toString("dd MMM h:mm"));
+      publisher = new QValueSpacePublisher("Weather");
+      publisher->setValue("Station", QString(_config->stationname())); 
+      publisher->setValue("Temperature", QVariant(forecast_data->temperature())); 
+      publisher->setValue("HighTemperature", QString(forecast_data->temperature_high())); 
+      publisher->setValue("LowTemperature", QString(forecast_data->temperature_low())); 
+      publisher->setValue("CurrentWeather", QVariant(forecast_data->current())); 
+      publisher->setValue("TimeUpdatingForecast", QString(t.toString("dd MMM h:mm"))); 
+      publisher->setValue("IconPath", QString((_config->iconspath() + "/" + _config->iconset() + "/" + forecast_data->icon()))); 
+
+      publisher->sync();
+      publisher->sync();
+
   }
 
   /* fill current night */

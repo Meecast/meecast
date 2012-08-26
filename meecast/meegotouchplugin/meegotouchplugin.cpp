@@ -222,8 +222,6 @@ void
 WeatherApplicationExtension::weatherExtensionSpecificOperation(){
     // do something specific to the demo extension interface
 }
-
-
 bool 
 WeatherApplicationExtension::initialize(const QString &){
    QGraphicsObject* mWidget;

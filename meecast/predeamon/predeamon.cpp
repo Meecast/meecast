@@ -29,8 +29,20 @@
 #include "core.h"
 
 #include "dbusadaptor_applet.h"
+#include <qvaluespace.h>
+#include <qmobilityglobal.h>
+#include <qvaluespacepublisher.h>
 
 #define DATA_XSD_PATH "/opt/com.meecast.omweather/share/xsd/data.xsd"
+
+
+QTM_BEGIN_NAMESPACE
+ class QValueSpacePublisher;
+QTM_END_NAMESPACE
+
+QTM_USE_NAMESPACE
+
+QValueSpacePublisher *publisher;
 
 void init_omweather_core(void);
 
@@ -99,10 +111,13 @@ main (int argc, char *argv[])
   QString temp;
   QString temp_high;
   QString temp_low;
+
+  QCoreApplication a(argc, argv);
+  a.setOrganizationDomain("meecast.omweather.com");
+  a.setApplicationName("MeeCast");
+  QValueSpace::initValueSpaceServer();
+
   config = create_and_fill_config();
-
-   QCoreApplication a(argc, argv);
-
     /* Check time for previous updating */
     dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
     /* 25*60 = 30 minutes - minimal time between updates */ 
@@ -181,12 +196,26 @@ main (int argc, char *argv[])
                                    config->Lockscreen(), 
                                    config->Standbyscreen(), 
                                    t.toString("dd MMM h:mm")); 
+
+        publisher = new QValueSpacePublisher("Weather");
+        publisher->setValue("Station", QString(stationname.fromUtf8(config->stationname().c_str()))); 
+        publisher->setValue("Temperature", QVariant(temp) ); 
+        publisher->setValue("HighTemperature", QString(temp_high)); 
+        publisher->setValue("LowTemperature", QString(temp_low)); 
+        publisher->setValue("CurrentWeather", QVariant(temp_data->Current())); 
+        publisher->setValue("TimeUpdatingForecast", QString(t.toString("dd MMM h:mm"))); 
+        publisher->setValue("IconPath", QString(icon_string)); 
+
+        publisher->sync();
+        publisher->sync();
+//        delete publisher;
     }
 
   if (dp){
       dp->DeleteInstance();
       dp = NULL;
   }
-
+  QTimer::singleShot(1000, &a, SLOT(quit()));  
+  a.exec();
   return 0;
 }

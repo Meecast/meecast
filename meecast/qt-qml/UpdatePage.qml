@@ -131,7 +131,7 @@ Page {
                 }
                 Button {
                     text: Config.tr("Never")
-                    checked: (!(Config.updateinterval == 900 || Config.updateinterval == 1800 || Config.updateinterval == 3600 || Config.updateinterval == 7200 || Config.updateinterval == 14400 || Config.updateinterval == 86400))
+                    checked: (!(Config.updateinterval == 900 || Config.updateinterval == 1800 || Config.updateinterval == 3600 || Config.updateinterval == 7200 || Config.updateinterval == 14400 || Config.updateinterval == 43200 || Config.updateinterval == 86400))
                     onClicked: {
                         Config.update_interval(2147483647);
                     }
@@ -171,6 +171,14 @@ Page {
                         Config.update_interval(14400);
                     }
 	            }
+                Button {
+                    text: Config.tr("12 hours")
+                    checked: (Config.updateinterval == 43200)
+                    onClicked: {
+                        Config.update_interval(43200);
+                    }
+	            }
+
                 Button {
                     text: Config.tr("Daily")
                     checked: (Config.updateinterval == 86400)

@@ -112,6 +112,9 @@ datashiny.files += data/icons/Shiny/*.png
 datashiny.path = /opt/com.meecast.omweather/share/icons/Shiny
 datatango.files += data/icons/Tango/*.png
 datatango.path = /opt/com.meecast.omweather/share/icons/Tango
+datasimpelmee.files += data/icons/SimpelMee/*.png
+datasimpelmee.path = /opt/com.meecast.omweather/share/icons/SimpelMee
+
 #data.path = /opt/com.meecast.omweather/share
 xsd.files += data/config.xsd
 xsd.files += data/data.xsd
@@ -124,7 +127,7 @@ images.files += data/images/*.png
 alib.files = libomweather-core.a
 alib.path = /opt/com.meecast.omweather/lib
 
-INSTALLS += target databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango xsd buttonicons images alib icon icon50 icon255 icon16 icon32 icon64 icon128 iconpanel
+INSTALLS += target databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee xsd buttonicons images alib icon icon50 icon255 icon16 icon32 icon64 icon128 iconpanel
 QMAKE_CLEAN += lib$$TARGET* \
     *.pro.user
 

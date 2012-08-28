@@ -6,6 +6,7 @@ meecast (0.6.1) unstable; urgency=low
   * Added Contextkit for Billboard compatibility 
   * Added item "12 hours" to Update period list
   * Added new icon pack "SimpelMee". Thanks Kim Venetvirta for this work 
+  * Updated Bulgarian translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Sat, 28 Jul 2012 00:42:23 +0200
 
@@ -46,7 +47,7 @@ meecast (0.5.8) unstable; urgency=low
   * Fixed problem with hko.gov.hk
   * Updated Chile for yr.no and foreca.com sources
   * Added icons for foreca.com 
-  * Updated Russian translations
+  * Updated Russian translation
   * Removed region Australia in bom.gov.au source
   * Fixed problem with Finish localization for date 
   * Added current weather in second window

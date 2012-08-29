@@ -17,7 +17,7 @@ Page {
     Flickable {
         anchors.fill: parent
         flickableDirection: Flickable.VerticalFlick
-        contentHeight: 1850
+        contentHeight: 2000 
         Label {
             id: titletext
             text: Config.tr("MeeCast for Harmattan")
@@ -225,7 +225,8 @@ Dutch - Tom Leenders, Michiel Pater\n \
 Bulgarian - Zlatko Enikov\n \
 Albanian - Ilir Gjika\n \
 Chinese - Wong Man Kong, Michael\n \
-Portugal - Jose Narciso\n \
+Portugal - Jose Narciso,\n \
+Turkish - Burak Kaan Kose,\n \
 Swedish - Angela Nennebrandt,\n \
 \tNiklas Åkerström, \n \
 \tTomislav Veleckovik")

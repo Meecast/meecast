@@ -6,6 +6,7 @@ meecast (0.6.1) unstable; urgency=low
   * Added Contextkit for Billboard compatibility 
   * Added item "12 hours" to Update period list
   * Added new icon pack "SimpelMee". Thanks Kim Venetvirta for this work 
+  * Added Portugal translation. Thanks Jose Narciso
   * Updated Bulgarian, Dutch, Finish translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Sat, 28 Jul 2012 00:42:23 +0200

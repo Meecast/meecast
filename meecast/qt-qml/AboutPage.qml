@@ -225,6 +225,7 @@ Dutch - Tom Leenders, Michiel Pater\n \
 Bulgarian - Zlatko Enikov\n \
 Albanian - Ilir Gjika\n \
 Chinese - Wong Man Kong, Michael\n \
+Portugal - Jose Narciso\n \
 Swedish - Angela Nennebrandt,\n \
 \tNiklas Åkerström, \n \
 \tTomislav Veleckovik")

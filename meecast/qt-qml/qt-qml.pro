@@ -126,6 +126,7 @@ TRANSLIST = bg_BG \
             ru_RU \
             sv_SV \
             sk_SK \
+            tr_TR \
 	    zh_ZH
 
 for(language, TRANSLIST):TRANSLATIONS += po/locale/$${language}/$${language}.po
@@ -229,6 +230,11 @@ transinstallsv.extra = cp po/locale/sv_SV/omweather.mo $(INSTALL_ROOT)$$DATADIR/
 transinstallsv.path = /opt/com.meecast.omweather/share/locale/sv/LC_MESSAGES
 transinstallsv.files = po/locale/sk_SV/omweather.mo
 INSTALLS += transinstallsv
+
+transinstalltr.extra = cp po/locale/tr_TR/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/tr/LC_MESSAGES
+transinstalltr.path = /opt/com.meecast.omweather/share/locale/tr/LC_MESSAGES
+transinstalltr.files = po/locale/tr_TR/omweather.mo
+INSTALLS += transinstalltr
 
 transinstallzh.extra = cp po/locale/zh_ZH/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/zh/LC_MESSAGES
 transinstallzh.path = /opt/com.meecast.omweather/share/locale/zh/LC_MESSAGES

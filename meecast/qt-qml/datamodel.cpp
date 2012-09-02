@@ -168,7 +168,7 @@ DataModel::update_model(int period)
             i = 0;
             if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
                 forecast_data = new DataItem(temp_data);
-                forecast_data->Text(forecast_data->Text().c_str());
+                forecast_data->Text(_(forecast_data->Text().c_str()));
                 forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(time(NULL)  + i));
                 forecast_data->SunSetTime(dp->data().GetSunSetForTime(time(NULL)  + i));
                 forecast_data->LastUpdate(dp->LastUpdate());

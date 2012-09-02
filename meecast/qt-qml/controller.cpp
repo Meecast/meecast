@@ -127,8 +127,6 @@ Controller::load_data()
       forecast_data = new DataItem(temp_data);
       forecast_data->Text(_(forecast_data->Text().c_str()));
 
-      fprintf(stderr,"Current time %i\n", time(NULL));
-      std::cerr<<i<< " Text Current "<< forecast_data->Text().c_str()<<std::endl;
       forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 14 * 3600));
       forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 14 * 3600));
       forecast_data->LastUpdate(_dp->LastUpdate());

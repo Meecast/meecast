@@ -29,6 +29,9 @@
 #include "core.h"
 
 #include "dbusadaptor_applet.h"
+#include <libintl.h>
+#include <locale.h>
+#define _(String) gettext(String)
 #define DATA_XSD_PATH "/opt/com.meecast.omweather/share/xsd/data.xsd"
 void init_omweather_core(void);
 
@@ -99,11 +102,15 @@ main (int argc, char *argv[])
   QString temp_low;
 
     QCoreApplication a(argc, argv);
+    textdomain("omweather");
+    bindtextdomain("omweather", "/opt/com.meecast.omweather/share/locale");
+
     config = create_and_fill_config();
     /* Check time for previous updating */
     dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
-    /* 25*60 = 30 minutes - minimal time between updates */ 
-    if (dp && (abs(time(NULL) - dp->LastUpdate()) > 25*60)){
+
+    /* 25*60 = 25 minutes - minimal time between updates */ 
+    if ((!dp) || (dp && (abs(time(NULL) - dp->LastUpdate()) > 25*60))){
         /*update weather forecast*/
         for (i=0; i < config->stationsList().size();i++){
             if (config->stationsList().at(i)->updateData(true)){
@@ -139,7 +146,7 @@ main (int argc, char *argv[])
         temp_data->temperature_low().units(config->TemperatureUnit());
         temp_data->temperature_hi().units(config->TemperatureUnit());
         temp_data->temperature().units(config->TemperatureUnit());
-        temp_data->Text(temp_data->Text().c_str());
+        temp_data->Text(_(temp_data->Text().c_str()));
         if (temp_data->temperature().value(TRUE) == INT_MAX){
             temp = "N/A";
         }else
@@ -172,10 +179,10 @@ main (int argc, char *argv[])
         QString stationname = "";
         QDateTime t;
         t.setTime_t(dp->LastUpdate());
-        QString description = temp_data->Text().c_str();
+        QString description ="";
         dbusclient->SetCurrentData(stationname.fromUtf8(config->stationname().c_str()),
                                    temp, temp_high, temp_low, 
-                                   icon_string, description,
+                                   icon_string, description.fromUtf8(temp_data->Text().c_str()),
                                    result_time, temp_data->Current(),
                                    config->Lockscreen(), 
                                    config->Standbyscreen(), 

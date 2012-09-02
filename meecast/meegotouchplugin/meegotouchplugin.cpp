@@ -378,8 +378,9 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
    this->refreshview();
 
    /* ContexKit */
+
    publisher->setValue("Station", QString(station)); 
-   publisher->setValue("Temperature", QVariant(temperature) ); 
+   publisher->setValue("Temperature", QVariant(temperature)); 
    publisher->setValue("HighTemperature", QString(temperature_high)); 
    publisher->setValue("LowTemperature", QString(temperature_low)); 
    publisher->setValue("CurrentWeather", QVariant(current)); 
@@ -387,7 +388,6 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
    publisher->setValue("IconPath", QString(icon)); 
    publisher->setValue("Description", QString(description)); 
 
-   publisher->sync();
    publisher->sync();
 
    if ((until_valid_time - utc_time.toTime_t()) > 0 && 
@@ -397,7 +397,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
 	    QTextStream out(&file);
-	    out <<  QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "SetCurrentData next call "<< (until_valid_time - utc_time.toTime_t())<<"s "<<((until_valid_time - utc_time.toTime_t()+60)*1000)<<"ms\n";
+	    out << station << " "<< publisher->path() <<" "<< QCoreApplication::organizationDomain() <<" "<<QCoreApplication::applicationName() <<" "<< QLocale::system().toString(QDateTime::currentDateTime(), QLocale::LongFormat) << "SetCurrentData next call "<< (until_valid_time - utc_time.toTime_t())<<"s "<<((until_valid_time - utc_time.toTime_t()+60)*1000)<<"ms\n";
 	    file.close();
 	}
 	// Debug end 

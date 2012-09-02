@@ -226,6 +226,12 @@ bool
 WeatherApplicationExtension::initialize(const QString &){
    QGraphicsObject* mWidget;
 
+   /* ContextKit */
+   QCoreApplication::setOrganizationDomain("meecast.omweather.com");
+   QCoreApplication::setApplicationName("MeeCast");
+   QValueSpace::initValueSpaceServer();
+
+
    box = new MyMWidget();
 
    /* D-BUS */
@@ -259,10 +265,98 @@ WeatherApplicationExtension::initialize(const QString &){
 MWidget *WeatherApplicationExtension::widget(){
     return box;
 }
+ 
+
+MyMWidget::MyMWidget(){
+
+        
+#if 0
+    QFile file("/tmp/1.log");
+    if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  "Begin PreInit MyWidget ."<<".\n";
+	    file.close();
+	}
+#endif
+      publisher = new QValueSpacePublisher("Weather");
+
+      _stationname = "Unknown";
+      _temperature = "";
+      _temperature_low = "";
+      _temperature_high = "";
+      _iconpath = "/opt/com.meecast.omweather/share/icons/Meecast/49.png";
+      _current = false;
+      _lockscreen = false;
+      _standbyscreen = false;
+      _timer = new QTimer(this);
+      _timer->setSingleShot(true);
+      _down = false;
+      
+      /* preparing for events widget */ 
+      QGraphicsAnchorLayout *layout = new QGraphicsAnchorLayout();
+      _events_image = new QImage (QSize(127, 96), QImage::Format_ARGB32);
+      _events_image->load("/opt/com.meecast.omweather/share/icons/Meecast/49.png");
+      *_events_image = _events_image->scaled(127, 96);
+      _icon = new MImageWidget(_events_image);
+      grabMouse();
+
+      layout->addAnchor(layout, Qt::AnchorHorizontalCenter, _icon, Qt::AnchorHorizontalCenter);
+      layout->setContentsMargins(1, 1, 1, 1);
+      layout->setSpacing(0);
+      setLayout(layout);
+    
+      /* preparing for standby screen */
+      _standbyItem = new MGConfItem ("/desktop/meego/screen_lock/low_power_mode/operator_logo"); 
+      connect(_standbyItem, SIGNAL(valueChanged()), this, SLOT(updateStandbyPath()));
+      /* preparing for wallpaper widget */
+      _wallpaperItem = new MGConfItem ("/desktop/meego/background/portrait/picture_filename"); 
+      connect(_wallpaperItem, SIGNAL(valueChanged()), this, SLOT(updateWallpaperPath()));
+      if (!_wallpaperItem || _wallpaperItem->value() == QVariant::Invalid)
+        _wallpaper_path = "/home/user/.wallpapers/wallpaper.png";
+      else{
+#if 0
+          // Debug begin
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  "PreInit MyWidget ."<<_wallpaperItem->value().toString()<<".\n";
+	    file.close();
+	}
+#endif
+        _wallpaper_path = _wallpaperItem->value().toString();
+        if (_wallpaper_path.indexOf("MeeCast",0) != -1){
+            _wallpaper_path = "/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png";
+        }
+      }
+      _image = new QImage;
+      _image->load(_wallpaper_path);
+      if (_image->dotsPerMeterX() != 3780 || _image->dotsPerMeterY() != 3780 ){
+        _image->setDotsPerMeterX(3780);
+        _image->setDotsPerMeterY(3780);
+      }
+      if (_wallpaper_path.indexOf("MeeCast",0) == -1){
+        _image->save("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png");
+      }
+
+      connect(_timer, SIGNAL(timeout()), this, SLOT(update_data()));
+#if 0
+    // Debug begin
+	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
+	    QTextStream out(&file);
+	    out <<  "Finish Init MyWidget ."<<_wallpaper_path<<".\n";
+	    file.close();
+	}
+#endif
+}
+ 
+MyMWidget::~MyMWidget(){
+    delete _timer;
+    delete publisher;
+}
 
 void 
-MyMWidget::SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low,  
-                          const QString &icon, const uint until_valid_time, bool current, bool lockscreen_param, bool standbyscreen_param, const QString &last_update){
+MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
+                          const QString &temperature_high, const QString &temperature_low,  
+                          const QString &icon, const QString &description, const uint until_valid_time, bool current, bool lockscreen_param, bool standbyscreen_param, const QString &last_update){
 
    if (lockscreen() && !lockscreen_param){
         this->current(current);
@@ -282,6 +376,20 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature, co
    this->standbyscreen(standbyscreen_param);
    this->lastupdate(last_update);
    this->refreshview();
+
+   /* ContexKit */
+   publisher->setValue("Station", QString(station)); 
+   publisher->setValue("Temperature", QVariant(temperature) ); 
+   publisher->setValue("HighTemperature", QString(temperature_high)); 
+   publisher->setValue("LowTemperature", QString(temperature_low)); 
+   publisher->setValue("CurrentWeather", QVariant(current)); 
+   publisher->setValue("TimeUpdatingForecast", QString(last_update)); 
+   publisher->setValue("IconPath", QString(icon)); 
+   publisher->setValue("Description", QString(description)); 
+
+   publisher->sync();
+   publisher->sync();
+
    if ((until_valid_time - utc_time.toTime_t()) > 0 && 
        (until_valid_time - utc_time.toTime_t()) < 12* 3600){
 #if 0

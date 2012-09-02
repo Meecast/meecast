@@ -39,18 +39,6 @@
 #include "configqml.h"
 #include "dbusadaptor_applet.h"
 
-#include <qvaluespace.h>
-#include <qmobilityglobal.h>
-#include <qvaluespacepublisher.h>
-
-
-QTM_BEGIN_NAMESPACE
- class QValueSpacePublisher;
-QTM_END_NAMESPACE
-
-QTM_USE_NAMESPACE
-
-
 class DataModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -81,7 +69,7 @@ private:
     QList<DataItem*>_list;
 //    Core::Config *_config;
     ConfigQml  *_config;
-    QValueSpacePublisher *publisher;
+
 };
 
 #endif // DATAMODEL_H

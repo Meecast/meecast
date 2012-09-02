@@ -39,16 +39,6 @@
 #include "citymodel.h"
 #include "dbusadaptor_applet.h"
 
-#include <qvaluespace.h>
-#include <qmobilityglobal.h>
-#include <qvaluespacepublisher.h>
-
-QTM_BEGIN_NAMESPACE
- class QValueSpacePublisher;
-QTM_END_NAMESPACE
-
-QTM_USE_NAMESPACE
-
 
 
 #ifndef CONTROLLER_H
@@ -77,7 +67,6 @@ private:
     DataModel *_current;
     DataModel *_night_model;
     DataModel *_current_night;
-    QValueSpacePublisher *publisher;
 };
 
 #endif // CONTROLLER_H

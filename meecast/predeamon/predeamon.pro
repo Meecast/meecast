@@ -29,13 +29,11 @@ LIBS += -L ../core  ../core/libomweather-core.a
 
 
 CONFIG += link_pkgconfig \
-         mobility \
          qdbus
 PKGCONFIG += libcurl
 PKGCONFIG += QtCore \
              QtXml
 
-MOBILITY = publishsubscribe
 
 #install
 target.path = /opt/com.meecast.omweather/bin

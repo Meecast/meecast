@@ -198,25 +198,16 @@ DataModel::update_model(int period)
                     result_time = temp_data->EndTime();
                 QDateTime t;
                 t.setTime_t(dp->LastUpdate());
+                QString description = forecast_data->Text().c_str();
                 dbusclient->SetCurrentData(_config->stationname(), 
                                            forecast_data->temperature(), 
                                            forecast_data->temperature_high(), 
                                            forecast_data->temperature_low(), 
-                                           icon_string, result_time, forecast_data->current(), 
+                                           icon_string, description,
+                                           result_time, forecast_data->current(), 
                                            _config->Lockscreen(), _config->Standbyscreen(),
                                            t.toString("dd MMM h:mm")); 
-                publisher = new QValueSpacePublisher("Weather");
-                publisher->setValue("Station", QString(_config->stationname())); 
-                publisher->setValue("Temperature", QVariant(forecast_data->temperature())); 
-                publisher->setValue("HighTemperature", QString(forecast_data->temperature_high())); 
-                publisher->setValue("LowTemperature", QString(forecast_data->temperature_low())); 
-                publisher->setValue("CurrentWeather", QVariant(forecast_data->current())); 
-                publisher->setValue("TimeUpdatingForecast", QString(t.toString("dd MMM h:mm"))); 
-                publisher->setValue("IconPath", QString(icon_string)); 
-
-                publisher->sync();
-                publisher->sync();
-            }
+           }
             break;
         case current_night_period:
             if (dp != NULL && (temp_data = dp->data().GetDataForTime(current_day + 3*3600))) {

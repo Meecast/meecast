@@ -7,7 +7,10 @@ CONFIG += plugin \
     qdbus \
     gui \
     link_pkgconfig \
+    mobility \
     meegotouch
+
+MOBILITY = publishsubscribe
 
 HEADERS = meegotouchplugin.h dbusadaptor.h eventfeedif.h
 SOURCES = meegotouchplugin.cpp dbusadaptor.cpp eventfeedif.cpp

@@ -7,5 +7,6 @@
     <key name="/Weather/CurrentWeather" />
     <key name="/Weather/TimeUpdatingForecast" />
     <key name="/Weather/IconPath" />
+    <key name="/Weather/Description" />
 </provider>
 

@@ -9,11 +9,12 @@
  * before re-generating it.
  */
 
-#ifndef DBUSADAPTOR_H_1329657033
-#define DBUSADAPTOR_H_1329657033
+#ifndef DBUSADAPTOR_H_1346530687
+#define DBUSADAPTOR_H_1346530687
 
 #include <QtCore/QObject>
 #include <QtDBus/QtDBus>
+#include "meegotouchplugin.h"
 class QByteArray;
 template<class T> class QList;
 template<class Key, class Value> class QMap;
@@ -36,6 +37,7 @@ class MeecastIf: public QDBusAbstractAdaptor
 "      <arg direction=\"in\" type=\"s\" name=\"temperature_hi\"/>\n"
 "      <arg direction=\"in\" type=\"s\" name=\"temperature_low\"/>\n"
 "      <arg direction=\"in\" type=\"s\" name=\"icon\"/>\n"
+"      <arg direction=\"in\" type=\"s\" name=\"description\"/>\n"
 "      <arg direction=\"in\" type=\"u\" name=\"until_valid_time\"/>\n"
 "      <arg direction=\"in\" type=\"b\" name=\"current\"/>\n"
 "      <arg direction=\"in\" type=\"b\" name=\"lockscreen\"/>\n"
@@ -45,12 +47,12 @@ class MeecastIf: public QDBusAbstractAdaptor
 "  </interface>\n"
         "")
 public:
-    MeecastIf(QObject *parent);
+    MeecastIf(MyMWidget *parent);
     virtual ~MeecastIf();
 
 public: // PROPERTIES
 public Q_SLOTS: // METHODS
-    void SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, uint until_valid_time, bool current, bool lockscreen, bool standbyscreen, const QString &last_update);
+    void SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, const QString &description, uint until_valid_time, bool current, bool lockscreen, bool standbyscreen, const QString &last_update);
 Q_SIGNALS: // SIGNALS
 };
 

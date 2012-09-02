@@ -62,7 +62,6 @@
 
 #include "selectmodel.h"
 
-#include <qvaluespace.h>
 #define _(String) gettext(String)
 
 
@@ -88,9 +87,6 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 {
     //QApplication::setGraphicsSystem("native");
     QApplication app(argc, argv);
-    app.setOrganizationDomain("meecast.omweather.com");
-    app.setApplicationName("MeeCast");
-    QValueSpace::initValueSpaceServer();
 
     app.setProperty("NoMStyle", true);
 

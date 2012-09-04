@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-08 16:53+0300\n"
-"PO-Revision-Date: 2012-04-25 10:46+0000\n"
+"POT-Creation-Date: 2012-09-04 23:05+0300\n"
+"PO-Revision-Date: 2012-08-21 09:31+0000\n"
 "Last-Translator: zlatko <zlatko23@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/"
 "meecast/language/bg_BG/)\n"
@@ -138,6 +138,11 @@ msgstr "10 минути"
 #: omweather/src/weather-settings.c:4192
 msgid "10 seconds"
 msgstr "10 секунди"
+
+#: meecast/qt-qml/UpdatePage.qml:175
+#, fuzzy
+msgid "12 hours"
+msgstr "2 часа"
 
 #: omweather/src/weather-sensor.c:151 meecast/qt-qml/UpdatePage.qml:140
 msgid "15 minutes"
@@ -616,9 +621,9 @@ msgstr "Страна:"
 msgid "Custom"
 msgstr "Собствен"
 
-#: meecast/qt-qml/UpdatePage.qml:175
+#: meecast/qt-qml/UpdatePage.qml:183
 msgid "Daily"
-msgstr ""
+msgstr "Ежедневно"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
 #: meecast/qt-qml/FullWeatherPage.qml:175
@@ -867,14 +872,12 @@ msgid "Find location via GPS"
 msgstr "Използвай GPS"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:428
-#, fuzzy
 msgid ""
 "Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
 "Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
 msgstr ""
 "Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
-"Lopez; Slovak - Roman Moravčík\n"
-"\n"
+"Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
 
 #: omweather/src/hash.data:79
 msgid "First Quarter"
@@ -964,21 +967,20 @@ msgid ""
 " Bulgarian - Zlatko Enikov\n"
 " Albanian - Ilir Gjika\n"
 " Chinese - Wong Man Kong, Michael\n"
+" Portugal - Jose Narciso,\n"
+" Turkish - Burak Kaan Kose,\n"
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
-"French - Nicolas Granziano, \n"
-"»Philippe, Benot Knecht \n"
-"Russian - Pavel Fialko, Vlad Vasiliev, \n"
-"»Ed Bartosh⏎ Finnish - Marko Vertainen\n"
-"German - Claudius Henrichs\n"
-"Italian - Pavel Fialko, Alessandro Pasotti, \n"
-"»Salvatore Fiorenzo, Luca Onnis\n"
-"Spanish - Alejandro Lopez\n"
-"Polish - Tomasz Dominikowski\n"
-"Slovak - Roman Moravčík \n"
-"Swedish - Angela Nennebrandt, Tomislav Veleckovik"
+"French -  Nicolas Granziano, ⏎ »Philippe, Benot Knecht ⏎ Russian - Pavel "
+"Fialko, Vlad Vasiliev, ⏎ »Ed Bartosh⏎ Finnish - Marko Vertainen⏎ German - "
+"Claudius Henrichs⏎ Italian - Pavel Fialko, Alessandro Pasotti,⏎ »Salvatore "
+"Fiorenzo, Ilir Gjika,⏎ »Luca Onnis⏎ Spanish - Alejandro Lopez⏎ Polish - "
+"Tomasz Dominikowski⏎ Slovak - Roman Moravčík⏎ Dutch - Tom Leenders, Michiel "
+"Pater⏎ Bulgarian - Zlatko Enikov⏎ Albanian - Ilir Gjika⏎ Chinese - Wong Man "
+"Kong, Michael⏎ Swedish - Angela Nennebrandt,⏎ »Niklas Åkerström, ⏎ »Tomislav "
+"Veleckovik"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1119,13 +1121,12 @@ msgid "Isolated T-Storms / Wind"
 msgstr "Изолирани Гръмотевици/Вятър"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:429
-#, fuzzy
 msgid ""
 "Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
 "Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov"
 msgstr ""
 "Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
-"Polish - Tomasz Dominikowski;"
+"Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov"
 
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
@@ -1170,7 +1171,7 @@ msgstr "Главен дизайнер"
 msgid "Lead programmers"
 msgstr "Главни програмисти"
 
-#: meecast/qt-qml/AboutPage.qml:237
+#: meecast/qt-qml/AboutPage.qml:239
 msgid "License"
 msgstr "Лиценз"
 
@@ -1613,9 +1614,8 @@ msgid "Overcast and light wet snow"
 msgstr "Облачно и слаб мокър сняг"
 
 #: omweather/src/hash.data:169
-#, fuzzy
 msgid "Overcast and rain"
-msgstr "Облачно и слаб дъжд"
+msgstr "Облачно и дъжд"
 
 #: omweather/src/hash.data:170
 msgid "Overcast and showers"
@@ -1638,9 +1638,8 @@ msgid "Overcast and wet snow showers"
 msgstr "Мрачно и превалявания от мокър сняг"
 
 #: omweather/src/hash.data:175
-#, fuzzy
 msgid "Overcast, thunderstorms with rain"
-msgstr "Облачно и слаб дъжд"
+msgstr "Облачно, бури и дъжд"
 
 #: omweather/src/hash.data:177
 msgid "PM Fog"
@@ -1811,9 +1810,8 @@ msgid "Partly cloudy and wet snow showers"
 msgstr "Разкъсана облачност и превалявания от мокър сняг"
 
 #: omweather/src/hash.data:192 omweather/src/hash.data:218
-#, fuzzy
 msgid "Partly cloudy, possible thunderstorms with rain"
-msgstr "Разкъсана облачност и слаб дъжд"
+msgstr "Разкъсана облачност, възможни бури и дъжд"
 
 #: omweather/src/weather-simple-settings.c:1676
 msgid "Period"
@@ -1863,9 +1861,8 @@ msgid "Project administrator"
 msgstr "Администратор на проекта"
 
 #: meecast/qt-qml/AboutPage.qml:186
-#, fuzzy
 msgid "Project manager"
-msgstr "Администратор на проекта"
+msgstr "Project manager"
 
 #: meecast/qt-qml/AboutPage.qml:86
 msgid "Project website"
@@ -2118,9 +2115,8 @@ msgid "Settings"
 msgstr "Настройки"
 
 #: meecast/qt-qml/VisualsPage.qml:514
-#, fuzzy
 msgid "Settings of StandbyScreen"
-msgstr "Уиджет на Стендбай екран"
+msgstr "Настройки на StandbyScreen"
 
 #: omweather/src/hash.data:257
 msgid "Shallow Fog"
@@ -2249,7 +2245,7 @@ msgstr "Скорост:"
 
 #: meecast/qt-qml/VisualsPage.qml:491
 msgid "Splash screen"
-msgstr ""
+msgstr "Splash screen"
 
 #: omweather/src/weather-settings.c:522
 msgid "State:"
@@ -2361,7 +2357,7 @@ msgstr "Благодаря"
 msgid "The weather has been updated."
 msgstr "Прогнозата е опреснена."
 
-#: meecast/qt-qml/AboutPage.qml:246
+#: meecast/qt-qml/AboutPage.qml:248
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2393,9 +2389,8 @@ msgid "Thunder"
 msgstr "Гръмотевица"
 
 #: omweather/src/hash.data:290
-#, fuzzy
 msgid "Thunder in the Vicinity"
-msgstr "Валежи в близост"
+msgstr "Гръмотевици наблизо"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424

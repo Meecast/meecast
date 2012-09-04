@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-08 16:53+0300\n"
-"PO-Revision-Date: 2012-04-26 15:48+0000\n"
+"POT-Creation-Date: 2012-09-04 23:05+0300\n"
+"PO-Revision-Date: 2012-08-21 16:01+0000\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
 "meecast/language/fi_FI/)\n"
@@ -138,6 +138,11 @@ msgstr "10 minuuttia"
 #: omweather/src/weather-settings.c:4192
 msgid "10 seconds"
 msgstr "10 sekuntia"
+
+#: meecast/qt-qml/UpdatePage.qml:175
+#, fuzzy
+msgid "12 hours"
+msgstr "2 tuntia"
 
 #: omweather/src/weather-sensor.c:151 meecast/qt-qml/UpdatePage.qml:140
 msgid "15 minutes"
@@ -610,9 +615,9 @@ msgstr "Maa:"
 msgid "Custom"
 msgstr "Oma asettelu"
 
-#: meecast/qt-qml/UpdatePage.qml:175
+#: meecast/qt-qml/UpdatePage.qml:183
 msgid "Daily"
-msgstr ""
+msgstr "Päivittäin"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
 #: meecast/qt-qml/FullWeatherPage.qml:175
@@ -856,13 +861,12 @@ msgid "Find location via GPS"
 msgstr "Etsi sijainti automaattisesti"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:428
-#, fuzzy
 msgid ""
 "Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
 "Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
 msgstr ""
 "Suomi - Marko Vertainen; Saksa - Claudius Henrichs; Espanja - Alejandro "
-"Lopez; Slovakia - Roman Moravčík\n"
+"Lopez; Hollanti - Tom Leenders; Slovakia - Roman Moravčík\n"
 
 #: omweather/src/hash.data:79
 msgid "First Quarter"
@@ -951,22 +955,31 @@ msgid ""
 " Bulgarian - Zlatko Enikov\n"
 " Albanian - Ilir Gjika\n"
 " Chinese - Wong Man Kong, Michael\n"
+" Portugal - Jose Narciso,\n"
+" Turkish - Burak Kaan Kose,\n"
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
-" Ranska - Nicolas Granziano, \n"
-" \tPhilippe, Benot Knech\n"
+"Ranska -  Nicolas Granziano, \n"
+" \tPhilippe, Benot Knecht \n"
 " Venäjä - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
 " Suomi - Marko Vertainen\n"
-" Saksa - Claudius Henrichs\n"
+" Saksa -  Claudius Henrichs\n"
 " Italia - Pavel Fialko, Alessandro Pasotti,\n"
-" \tSalvatore Fiorenzo, Luca Onnis\n"
+" \tSalvatore Fiorenzo, Ilir Gjika,\n"
+" \tLuca Onnis\n"
 " Espanja - Alejandro Lopez\n"
 " Puola - Tomasz Dominikowski\n"
-" Slovakia - Roman Moravčík \n"
-" Ruotsi - Angela Nennebrandt, Tomislav Veleckovik"
+" Slovakia - Roman Moravčík\n"
+" Hollanti - Tom Leenders, Michiel Pater\n"
+" Bulgaria - Zlatko Enikov\n"
+" Albania - Ilir Gjika\n"
+" Kiina - Wong Man Kong, Michael\n"
+" Ruotsi - Angela Nennebrandt,\n"
+" \tNiklas Åkerström, \n"
+" \tTomislav Veleckovik"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1108,13 +1121,12 @@ msgid "Isolated T-Storms / Wind"
 msgstr "Ukkoskuuroja / Tuulista"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:429
-#, fuzzy
 msgid ""
 "Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
 "Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov"
 msgstr ""
 "Italia - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
-"Puola - Tomasz Dominikowski;"
+"Puola - Tomasz Dominikowski; Bulgaria - Zlatko Enikov"
 
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
@@ -1159,7 +1171,7 @@ msgstr "Pääsuunnittelija"
 msgid "Lead programmers"
 msgstr "Pääohjelmoijat"
 
-#: meecast/qt-qml/AboutPage.qml:237
+#: meecast/qt-qml/AboutPage.qml:239
 msgid "License"
 msgstr "Lisenssi"
 
@@ -1601,9 +1613,8 @@ msgid "Overcast and light wet snow"
 msgstr "Pilvistä ja kevyttä räntäsadetta"
 
 #: omweather/src/hash.data:169
-#, fuzzy
 msgid "Overcast and rain"
-msgstr "Pilvistä ja kevyttä vesisadetta"
+msgstr "Pilvistä ja sadetta"
 
 #: omweather/src/hash.data:170
 msgid "Overcast and showers"
@@ -1626,9 +1637,8 @@ msgid "Overcast and wet snow showers"
 msgstr "Pilvistä ja räntäsadetta"
 
 #: omweather/src/hash.data:175
-#, fuzzy
 msgid "Overcast, thunderstorms with rain"
-msgstr "Pilvistä ja kevyttä vesisadetta"
+msgstr "Pilvistä, ukkosta ja vesisadetta"
 
 #: omweather/src/hash.data:177
 msgid "PM Fog"
@@ -1799,9 +1809,8 @@ msgid "Partly cloudy and wet snow showers"
 msgstr "Puolipilvistä ja räntäsadetta"
 
 #: omweather/src/hash.data:192 omweather/src/hash.data:218
-#, fuzzy
 msgid "Partly cloudy, possible thunderstorms with rain"
-msgstr "Puolipilvistä ja kevyttä vesisadetta"
+msgstr "Puolipilvistä, mahdollisesti ukkosta ja sadetta"
 
 #: omweather/src/weather-simple-settings.c:1676
 msgid "Period"
@@ -1851,9 +1860,8 @@ msgid "Project administrator"
 msgstr "Projektin hallinta"
 
 #: meecast/qt-qml/AboutPage.qml:186
-#, fuzzy
 msgid "Project manager"
-msgstr "Projektin hallinta"
+msgstr "Projektipäällikkö"
 
 #: meecast/qt-qml/AboutPage.qml:86
 msgid "Project website"
@@ -2106,9 +2114,8 @@ msgid "Settings"
 msgstr "Asetukset"
 
 #: meecast/qt-qml/VisualsPage.qml:514
-#, fuzzy
 msgid "Settings of StandbyScreen"
-msgstr "Sovellus valmiusnäytössä"
+msgstr "Valmiusnäytön asetukset"
 
 #: omweather/src/hash.data:257
 msgid "Shallow Fog"
@@ -2237,7 +2244,7 @@ msgstr "Nopeus:"
 
 #: meecast/qt-qml/VisualsPage.qml:491
 msgid "Splash screen"
-msgstr ""
+msgstr "Käynnistyskuva"
 
 #: omweather/src/weather-settings.c:522
 msgid "State:"
@@ -2349,7 +2356,7 @@ msgstr "Kiitokset"
 msgid "The weather has been updated."
 msgstr "Säätiedot päivitetty."
 
-#: meecast/qt-qml/AboutPage.qml:246
+#: meecast/qt-qml/AboutPage.qml:248
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2381,9 +2388,8 @@ msgid "Thunder"
 msgstr "Ukkosta"
 
 #: omweather/src/hash.data:290
-#, fuzzy
 msgid "Thunder in the Vicinity"
-msgstr "Sadekuuroja lähialueilla"
+msgstr "Ukkosta lähialueella"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424

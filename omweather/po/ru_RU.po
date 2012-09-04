@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-08 16:53+0300\n"
+"POT-Creation-Date: 2012-09-04 23:05+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -119,6 +119,11 @@ msgstr "10 минут"
 #: omweather/src/weather-settings.c:4192
 msgid "10 seconds"
 msgstr "10 секунд"
+
+#: meecast/qt-qml/UpdatePage.qml:175
+#, fuzzy
+msgid "12 hours"
+msgstr "2 часа"
 
 #: omweather/src/weather-sensor.c:151 meecast/qt-qml/UpdatePage.qml:140
 msgid "15 minutes"
@@ -596,7 +601,7 @@ msgstr "Страна:"
 msgid "Custom"
 msgstr "Настраиваемый"
 
-#: meecast/qt-qml/UpdatePage.qml:175
+#: meecast/qt-qml/UpdatePage.qml:183
 msgid "Daily"
 msgstr ""
 
@@ -933,6 +938,8 @@ msgid ""
 " Bulgarian - Zlatko Enikov\n"
 " Albanian - Ilir Gjika\n"
 " Chinese - Wong Man Kong, Michael\n"
+" Portugal - Jose Narciso,\n"
+" Turkish - Burak Kaan Kose,\n"
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
@@ -1134,7 +1141,7 @@ msgstr "Ведущий дизайнер"
 msgid "Lead programmers"
 msgstr "Ведущие программисты"
 
-#: meecast/qt-qml/AboutPage.qml:237
+#: meecast/qt-qml/AboutPage.qml:239
 msgid "License"
 msgstr ""
 
@@ -2321,7 +2328,7 @@ msgstr "Благодарности"
 msgid "The weather has been updated."
 msgstr "Данные о погоде обновлены."
 
-#: meecast/qt-qml/AboutPage.qml:246
+#: meecast/qt-qml/AboutPage.qml:248
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"

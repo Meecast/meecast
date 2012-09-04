@@ -227,6 +227,7 @@ Albanian - Ilir Gjika\n \
 Chinese - Wong Man Kong, Michael\n \
 Portugal - Jose Narciso,\n \
 Turkish - Burak Kaan Kose,\n \
+Vietnamese - Hieu Nguyen, Anh Dương and truongnx, \n \
 Swedish - Angela Nennebrandt,\n \
 \tNiklas Åkerström, \n \
 \tTomislav Veleckovik")

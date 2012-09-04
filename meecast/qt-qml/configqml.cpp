@@ -440,7 +440,7 @@ void
 ConfigQml::set_standby_color_font_stationname(QColor c)
 {   
     _standby_color_font_stationname = c;
-//    saveConfig();
+    saveConfig();
 }
 QColor
 ConfigQml::standby_color_font_temperature(){
@@ -451,7 +451,7 @@ void
 ConfigQml::set_standby_color_font_temperature(QColor c)
 {   
     _standby_color_font_temperature = c;
-//    saveConfig();
+    saveConfig();
 }
 QColor
 ConfigQml::standby_color_font_current_temperature(){
@@ -462,7 +462,7 @@ void
 ConfigQml::set_standby_color_font_current_temperature(QColor c)
 {   
     _standby_color_font_current_temperature = c;
-//    saveConfig();
+    saveConfig();
 }
 
 QStringList

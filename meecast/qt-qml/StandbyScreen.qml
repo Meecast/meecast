@@ -105,7 +105,7 @@ Page {
         }
     }
     Rectangle {
-        id: page
+        id: box_station_color
         //width: 500;
         height: 60
      
@@ -152,6 +152,78 @@ Page {
                         onClicked:{ resetGird(); color_font_stationname = "#ffff00"; }}
             ColorCell { cellColor: "black";
                         id: black_cell;
+                        selected : color_font_stationname == "#000000" ? true : false; 
+                        onClicked:{ resetGird(); color_font_stationname = "#000000"; }}
+        }
+ }
+    Rectangle {
+        id: title_temperature_color_font
+        anchors.top: box_station_color.bottom
+        anchors.left: parent.left
+        anchors.leftMargin: margin
+        anchors.rightMargin: margin
+        width: parent.width - 2*margin
+        height: 40
+        color: "black"
+        Label {
+            id: title_temperature_color
+            anchors.fill: parent
+            color: "white"
+            text: Config.tr("Select the color of font for temperature")
+            //font.family: "Nokia Pure Light"
+            font.pixelSize: 20
+            horizontalAlignment: Text.AlignLeft
+            verticalAlignment: Text.AlignVCenter
+        }
+    }
+    Rectangle {
+        id: page
+        //width: 500;
+        height: 60
+     
+        anchors.top: title_temperature_color_font.bottom
+        anchors.left: parent.left
+        anchors.topMargin: margin 
+        anchors.leftMargin: margin
+        anchors.rightMargin: margin
+        color: "black"
+
+        Grid {
+            id: colorPickert
+            x: 4; anchors.bottom: page.bottom; anchors.bottomMargin: 4
+            rows: 1; columns: 8; spacing: 5
+
+            ColorCell { cellColor: "red"; 
+                        id: red_cellt;
+                        selected : color_font_stationname == "#ff0000" ? true : false;   
+                        onClicked: { resetGird(); color_font_stationname = "#ff0000"; }}
+            ColorCell { cellColor: "white"; 
+                        id: white_cellt;
+                        selected : color_font_stationname == "#ffffff" ? true : false; 
+                        onClicked:{ resetGird(); color_font_stationname = "#ffffff";  }}
+            ColorCell { cellColor: "cyan";
+                        id: cyan_cellt;
+                        selected : color_font_stationname == "#00ffff" ? true : false; 
+                        onClicked:{ resetGird(); color_font_stationname = "#00ffff"; }}
+        
+            ColorCell { cellColor: "magenta";
+                        id: magenta_cellt;
+                        selected : color_font_stationname == "#ff00ff" ? true : false; 
+                        onClicked:{ resetGird(); color_font_stationname = "#ff00ff"; }}
+            ColorCell { cellColor: "green";
+                        id: green_cellt;
+                        selected : color_font_stationname == "#00ff00" ? true : false; 
+                        onClicked:{ resetGird(); color_font_stationname = "#00ff00"; }}
+            ColorCell { cellColor: "blue";
+                        id: blue_cellt;
+                        selected : color_font_stationname == "#0000ff" ? true : false; 
+                        onClicked:{ resetGird(); color_font_stationname = "#0000ff"; }}
+            ColorCell { cellColor: "yellow"; 
+                        id: yellow_cellt;
+                        selected : color_font_stationname == "#ffff00" ? true : false; 
+                        onClicked:{ resetGird(); color_font_stationname = "#ffff00"; }}
+            ColorCell { cellColor: "black";
+                        id: black_cellt;
                         selected : color_font_stationname == "#000000" ? true : false; 
                         onClicked:{ resetGird(); color_font_stationname = "#000000"; }}
         }

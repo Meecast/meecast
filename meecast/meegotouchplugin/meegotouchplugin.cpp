@@ -59,11 +59,17 @@ void drawstandby(QHash <QString, QString> hash){
     
     QSettings *standby_settings;
     QColor color_font_station_name_standby;
+    QColor color_font_temperature_standby;
+    QColor color_font_current_temperature_standby;
 
     /* Init qsettings */
     standby_settings = new QSettings("/home/user/.config/com.meecast.omweather/standby.conf",QSettings::NativeFormat); 
     QVariant v = standby_settings->value("color_font_stationname", QColor(Qt::white));
     color_font_station_name_standby = v.value<QColor>();
+    v = standby_settings->value("color_font_temperature", QColor(Qt::white));
+    color_font_temperature_standby = v.value<QColor>();
+    v = standby_settings->value("color_font_current_temperature", QColor(Qt::white));
+    color_font_current_temperature_standby = v.value<QColor>();
 
     QImage *image;
     image = new QImage (QSize(120, 120), QImage::Format_RGB32);
@@ -98,6 +104,8 @@ void drawstandby(QHash <QString, QString> hash){
     paint.drawImage(point, icon); 
     
     /* Temperature */
+    myPenColor = QColor(color_font_temperature_standby);    pen.setColor(myPenColor);
+    paint.setPen(pen);
     paint.setFont(QFont("Nokia Pure", 20));
     if (temperature == "N/A" || temperature == ""){
                QString temp_string = temperature_hi + QString::fromUtf8("°");
@@ -107,7 +115,7 @@ void drawstandby(QHash <QString, QString> hash){
      }else{
    	    if (hash["current"] == "TRUE"){
    		    paint.setFont(QFont("Nokia Pure Bold", 21));
-            myPenColor = QColor(0, 255, 0, 255);// set default color
+            myPenColor = QColor(color_font_current_temperature_standby);// set default color
             pen.setColor(myPenColor);
             paint.setPen(pen);
         }

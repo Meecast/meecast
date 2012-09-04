@@ -67,6 +67,8 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(bool gps READ gps NOTIFY gpsChanged)
     Q_PROPERTY(QColor fontcolor READ fontcolor NOTIFY fontcolorChanged)
     Q_PROPERTY(QColor standby_color_font_stationname READ standby_color_font_stationname NOTIFY standby_color_font_stationnameChanged)
+    Q_PROPERTY(QColor standby_color_font_temperature READ standby_color_font_temperature NOTIFY standby_color_font_temperatureChanged)
+    Q_PROPERTY(QColor standby_color_font_current_temperature READ standby_color_font_current_temperature NOTIFY standby_color_font_current_temperatureChanged)
     Q_PROPERTY(QString stationname READ stationname NOTIFY stationnameChanged)
     Q_PROPERTY(QString prevstationname READ prevstationname NOTIFY prevstationnameChanged)
     Q_PROPERTY(QString nextstationname READ nextstationname NOTIFY nextstationnameChanged)
@@ -87,6 +89,8 @@ private:
     QStringList press_list;
     QSettings *standby_settings;
     QColor _standby_color_font_stationname;
+    QColor _standby_color_font_temperature;
+    QColor _standby_color_font_current_temperature;
 protected:
     static ConfigQml* _self;
     static int _refcount;
@@ -114,6 +118,8 @@ public:
     bool splash();
     QColor fontcolor();
     QColor standby_color_font_stationname();
+    QColor standby_color_font_temperature();
+    QColor standby_color_font_current_temperature();
     QString stationname();
     QString prevstationname();
     QString nextstationname();
@@ -159,6 +165,8 @@ public:
     Q_INVOKABLE QStringList icon_list();
     Q_INVOKABLE void set_iconset(QString c);
     Q_INVOKABLE void set_standby_color_font_stationname(QColor c);
+    Q_INVOKABLE void set_standby_color_font_temperature(QColor c);
+    Q_INVOKABLE void set_standby_color_font_current_temperature(QColor c);
     Q_INVOKABLE QString tr(QString str);
     Q_INVOKABLE void enableGps();
     void refreshconfig();
@@ -177,6 +185,8 @@ signals:
     void gpsChanged();
     void fontcolorChanged();
     void standby_color_font_stationnameChanged();
+    void standby_color_font_temperatureChanged();
+    void standby_color_font_current_temperatureChanged();
     void stationnameChanged();
     void prevstationnameChanged();
     void nextstationnameChanged();

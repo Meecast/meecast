@@ -83,7 +83,11 @@ void ConfigQml::init()
     standby_settings = new QSettings("/home/user/.config/com.meecast.omweather/standby.conf",QSettings::NativeFormat); 
     QVariant v = standby_settings->value("color_font_stationname", QColor(Qt::white));
     _standby_color_font_stationname = v.value<QColor>();
- 
+     v = standby_settings->value("color_font_temperature", QColor(Qt::white));
+    _standby_color_font_temperature = v.value<QColor>();
+     v = standby_settings->value("color_font_current_temperature", QColor(Qt::green));
+    _standby_color_font_current_temperature = v.value<QColor>();
+
     thread = new UpdateThread();
     connect(thread, SIGNAL(finished()), this, SLOT(downloadFinishedSlot()));
 
@@ -127,6 +131,8 @@ ConfigQml::saveConfig()
 {
     Core::Config::saveConfig();
     standby_settings->setValue("color_font_stationname", _standby_color_font_stationname);
+    standby_settings->setValue("color_font_temperature", _standby_color_font_temperature);
+    standby_settings->setValue("color_font_current_temperature", _standby_color_font_current_temperature);
     standby_settings->sync();
     qDebug()<<"SaveConfig";
 }
@@ -434,6 +440,28 @@ void
 ConfigQml::set_standby_color_font_stationname(QColor c)
 {   
     _standby_color_font_stationname = c;
+//    saveConfig();
+}
+QColor
+ConfigQml::standby_color_font_temperature(){
+    return _standby_color_font_temperature;
+}
+
+void
+ConfigQml::set_standby_color_font_temperature(QColor c)
+{   
+    _standby_color_font_temperature = c;
+//    saveConfig();
+}
+QColor
+ConfigQml::standby_color_font_current_temperature(){
+    return _standby_color_font_current_temperature;
+}
+
+void
+ConfigQml::set_standby_color_font_current_temperature(QColor c)
+{   
+    _standby_color_font_current_temperature = c;
 //    saveConfig();
 }
 

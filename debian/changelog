@@ -1,6 +1,6 @@
 meecast (0.6.2) unstable; urgency=low
 
-  * Nothing 
+  * Updated Finish, Dutch translation 
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 05 Sep 2012 10:42:23 +0200
 
@@ -13,7 +13,7 @@ meecast (0.6.1) unstable; urgency=low
   * Added item "12 hours" to Update period list
   * Added new icon pack "SimpelMee". Thanks Kim Venetvirta for this work 
   * Added setting for color of font in temperature on standby screen 
-  * Added Portugal translation. Thanks Jose Narciso
+  * Added Portuguese translation. Thanks Jose Narciso
   * Added Turkish translation. Thanks Burak Kaan Kose
   * Added Vietnamese translation. Thanks Hieu Nguyen, Anh Dương and truongnx
   * Updated Bulgarian, Dutch, Finish, Polish translations

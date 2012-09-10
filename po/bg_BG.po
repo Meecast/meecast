@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-04 23:05+0300\n"
+"POT-Creation-Date: 2012-09-10 14:23+0300\n"
 "PO-Revision-Date: 2012-08-21 09:31+0000\n"
 "Last-Translator: zlatko <zlatko23@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/"
@@ -969,6 +969,7 @@ msgid ""
 " Chinese - Wong Man Kong, Michael\n"
 " Portugal - Jose Narciso,\n"
 " Turkish - Burak Kaan Kose,\n"
+" Vietnamese - Hieu Nguyen, Anh Dương and truongnx, \n"
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
@@ -1171,7 +1172,7 @@ msgstr "Главен дизайнер"
 msgid "Lead programmers"
 msgstr "Главни програмисти"
 
-#: meecast/qt-qml/AboutPage.qml:239
+#: meecast/qt-qml/AboutPage.qml:240
 msgid "License"
 msgstr "Лиценз"
 
@@ -2357,7 +2358,7 @@ msgstr "Благодаря"
 msgid "The weather has been updated."
 msgstr "Прогнозата е опреснена."
 
-#: meecast/qt-qml/AboutPage.qml:248
+#: meecast/qt-qml/AboutPage.qml:249
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"

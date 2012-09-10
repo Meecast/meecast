@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-04 23:05+0300\n"
-"PO-Revision-Date: 2012-08-21 16:01+0000\n"
+"POT-Creation-Date: 2012-09-10 14:23+0300\n"
+"PO-Revision-Date: 2012-09-08 06:09+0000\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
 "meecast/language/fi_FI/)\n"
@@ -20,7 +20,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
@@ -140,9 +140,8 @@ msgid "10 seconds"
 msgstr "10 sekuntia"
 
 #: meecast/qt-qml/UpdatePage.qml:175
-#, fuzzy
 msgid "12 hours"
-msgstr "2 tuntia"
+msgstr "12 tuntia"
 
 #: omweather/src/weather-sensor.c:151 meecast/qt-qml/UpdatePage.qml:140
 msgid "15 minutes"
@@ -957,6 +956,7 @@ msgid ""
 " Chinese - Wong Man Kong, Michael\n"
 " Portugal - Jose Narciso,\n"
 " Turkish - Burak Kaan Kose,\n"
+" Vietnamese - Hieu Nguyen, Anh Dương and truongnx, \n"
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
@@ -977,6 +977,8 @@ msgstr ""
 " Bulgaria - Zlatko Enikov\n"
 " Albania - Ilir Gjika\n"
 " Kiina - Wong Man Kong, Michael\n"
+" Portugali - Jose Narciso,\n"
+" Turkki - Burak Kaan Kose,\n"
 " Ruotsi - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
@@ -1171,7 +1173,7 @@ msgstr "Pääsuunnittelija"
 msgid "Lead programmers"
 msgstr "Pääohjelmoijat"
 
-#: meecast/qt-qml/AboutPage.qml:239
+#: meecast/qt-qml/AboutPage.qml:240
 msgid "License"
 msgstr "Lisenssi"
 
@@ -2356,7 +2358,7 @@ msgstr "Kiitokset"
 msgid "The weather has been updated."
 msgstr "Säätiedot päivitetty."
 
-#: meecast/qt-qml/AboutPage.qml:248
+#: meecast/qt-qml/AboutPage.qml:249
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-04 23:05+0300\n"
-"PO-Revision-Date: 2012-08-24 14:44+0000\n"
+"POT-Creation-Date: 2012-09-10 14:23+0300\n"
+"PO-Revision-Date: 2012-09-08 16:52+0000\n"
 "Last-Translator: Jose Narciso <jose.manuel.narciso@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/"
 "meecast/language/pt_PT/)\n"
@@ -18,7 +18,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
@@ -138,9 +138,8 @@ msgid "10 seconds"
 msgstr "10 segundos"
 
 #: meecast/qt-qml/UpdatePage.qml:175
-#, fuzzy
 msgid "12 hours"
-msgstr "2 horas"
+msgstr "12 horas"
 
 #: omweather/src/weather-sensor.c:151 meecast/qt-qml/UpdatePage.qml:140
 msgid "15 minutes"
@@ -457,7 +456,7 @@ msgstr "Ceu Limpo"
 
 #: omweather/src/hash.data:30
 msgid "Clear, Drifting Snow"
-msgstr "Limpo, Neve "
+msgstr "Limpo, Chuviscos de Neve "
 
 #: omweather/src/hash.data:31
 msgid "Clear, Fog"
@@ -513,7 +512,7 @@ msgstr "Nublado e aguaceiros"
 
 #: omweather/src/hash.data:42
 msgid "Cloudy and light snow"
-msgstr "Nublado e pequena queda neve"
+msgstr "Nublado e alguma queda neve"
 
 #: omweather/src/hash.data:43
 msgid "Cloudy and light wet snow"
@@ -609,7 +608,7 @@ msgstr "País:"
 
 #: omweather/src/weather-simple-settings.c:2896
 msgid "Custom"
-msgstr "Personalizado"
+msgstr "Personalizar"
 
 #: meecast/qt-qml/UpdatePage.qml:183
 msgid "Daily"
@@ -856,7 +855,7 @@ msgstr "Alguns Aguaceiros Neve / Vento"
 
 #: meecast/qt-qml/StationsPage.qml:92
 msgid "Find location via GPS"
-msgstr "A identificar localização por GPS"
+msgstr "Identificar localização por GPS"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:428
 msgid ""
@@ -954,19 +953,20 @@ msgid ""
 " Chinese - Wong Man Kong, Michael\n"
 " Portugal - Jose Narciso,\n"
 " Turkish - Burak Kaan Kose,\n"
+" Vietnamese - Hieu Nguyen, Anh Dương and truongnx, \n"
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
 "Francês - Nicolas Granziano, \n"
-" »Philippe, Benot Knecht  \n"
+"                Philippe, Benot Knecht \n"
 "Russo - Pavel Fialko, Vlad Vasiliev, \n"
-" »Ed Bartosh\n"
+"             Ed Bartosh\n"
 "Finlandês - Marko Vertainen\n"
 "Alemão - Claudius Henrichs\n"
-"Italiano - Pavel Fialko, Alessandro Pasotti, \n"
-"»Salvatore Fiorenzo, Ilir Gjika, \n"
-"»Luca Onnis\n"
+"Italiano - Pavel Fialko, Alessandro Pasotti,\n"
+"               Salvatore Fiorenzo, Ilir Gjika,\n"
+"               Luca Onnis\n"
 "Espanhol - Alejandro Lopez\n"
 "Polaco - Tomasz Dominikowski\n"
 "Eslovaco - Roman Moravčík\n"
@@ -974,9 +974,11 @@ msgstr ""
 "Bulgaro - Zlatko Enikov\n"
 "Albanês - Ilir Gjika\n"
 "Chinês - Wong Man Kong, Michael\n"
+"Português - José Narciso,\n"
+"Turco - Burak Kaan Kose,\n"
 "Sueco - Angela Nennebrandt,\n"
-"»Niklas Åkerström, \n"
-"»Tomislav Veleckovik"
+"             Niklas Åkerström, \n"
+"             Tomislav Veleckovik"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1155,7 +1157,7 @@ msgstr "Ultima atualização:"
 
 #: omweather/src/hash.data:99
 msgid "Lawn and Garden Weather"
-msgstr "Tempo de Jardim"
+msgstr "Tempo limpo e agradável"
 
 #: omweather/src/weather-settings.c:2924 omweather/src/weather-settings.c:2931
 msgid "Layout:"
@@ -1169,7 +1171,7 @@ msgstr "Responsável de design"
 msgid "Lead programmers"
 msgstr "Responsável de programação"
 
-#: meecast/qt-qml/AboutPage.qml:239
+#: meecast/qt-qml/AboutPage.qml:240
 msgid "License"
 msgstr "Licença"
 
@@ -1323,111 +1325,111 @@ msgstr "Modificação"
 
 #: omweather/src/hash.data:124
 msgid "Mostly Clear"
-msgstr "Parcialmente Limpo"
+msgstr "Geralmente Limpo"
 
 #: omweather/src/hash.data:133
 msgid "Mostly Cloudy"
-msgstr "Parcialmente Nublado"
+msgstr "Geralmente Nublado"
 
 #: omweather/src/hash.data:126
 msgid "Mostly Cloudy / Wind"
-msgstr "Parcialmente Nublado / Ventoso"
+msgstr "Geralmente Nublado / Ventoso"
 
 #: omweather/src/hash.data:127
 msgid "Mostly Cloudy Few Snow"
-msgstr "Parcialmente Nublado alguma Neve"
+msgstr "Geralmente Nublado alguma Neve"
 
 #: omweather/src/hash.data:128
 msgid "Mostly Cloudy Light Rain"
-msgstr "Parcialmente Nublado alguma Chuva Fraca"
+msgstr "Geralmente Nublado alguma Chuva Fraca"
 
 #: omweather/src/hash.data:129
 msgid "Mostly Cloudy Rain"
-msgstr "Parcialmente Nublado com Chuva"
+msgstr "Geralmente Nublado com Chuva"
 
 #: omweather/src/hash.data:130
 msgid "Mostly Cloudy Snow"
-msgstr "Parcialmente Nublado com Neve"
+msgstr "Geralmente Nublado com Neve"
 
 #: omweather/src/hash.data:131
 msgid "Mostly Cloudy T-Storm"
-msgstr "Parcialmente Nublado com Trovoadas"
+msgstr "Geralmente Nublado com Trovoadas"
 
 #: omweather/src/hash.data:125 omweather/src/hash.data:132
 msgid "Mostly Cloudy and Windy"
-msgstr "Parcialmente Nublado e Ventoso"
+msgstr "Geralmente Nublado e Ventoso"
 
 #: omweather/src/hash.data:134
 msgid "Mostly Cloudy, Drifting Snow"
-msgstr "Parcialmente Nublado, Neve Acumulada"
+msgstr "Geralmente Nublado, Neve Acumulada"
 
 #: omweather/src/hash.data:135
 msgid "Mostly Cloudy, Few Snow"
-msgstr "Parcialmente Nublado, alguma Neve"
+msgstr "Geralmente Nublado, alguma Neve"
 
 #: omweather/src/hash.data:136
 msgid "Mostly Cloudy, Fog"
-msgstr "Parcialmente Nublado, Nevoeiro"
+msgstr "Geralmente Nublado, Nevoeiro"
 
 #: omweather/src/hash.data:137
 msgid "Mostly Cloudy, Fog, Drizzle"
-msgstr "Parcialmente Nublado, Nevoeiro, Chuviscos"
+msgstr "Geralmente Nublado, Nevoeiro, Chuviscos"
 
 #: omweather/src/hash.data:138
 msgid "Mostly Cloudy, Heavy Rain"
-msgstr "Parcialmente Nublado, Chuva Forte"
+msgstr "Geralmente Nublado, Chuva Forte"
 
 #: omweather/src/hash.data:139
 msgid "Mostly Cloudy, Heavy Rain, T-Storm"
-msgstr "Parcialmente Nublado, Chuva Forte, Trovoadas"
+msgstr "Geralmente Nublado, Chuva Forte, Trovoadas"
 
 #: omweather/src/hash.data:140
 msgid "Mostly Cloudy, Heavy Snow"
-msgstr "Parcialmente Nublado, Queda Neve Forte"
+msgstr "Céu geralmente Nublado, Queda Neve Forte"
 
 #: omweather/src/hash.data:141
 msgid "Mostly Cloudy, Heavy Snow, Freezing Rain"
-msgstr "Parcialmente Nublado, Neve Forte, Granizo"
+msgstr "Geralmente Nublado, Neve Forte, Granizo"
 
 #: omweather/src/hash.data:142
 msgid "Mostly Cloudy, Light Rain"
-msgstr "Parcialmente Nublado, Chuva Fraca"
+msgstr "Geralmente Nublado, Chuva Fraca"
 
 #: omweather/src/hash.data:143
 msgid "Mostly Cloudy, Light Rain, Drizzle"
-msgstr "Parcialmente Nublado, Chuva Fraca, Chuviscos"
+msgstr "Geralmente Nublado, Chuva Fraca, Chuviscos"
 
 #: omweather/src/hash.data:144
 msgid "Mostly Cloudy, Light Rain, T-Storm"
-msgstr "Parcialmente Nublado, Chuva Fraca, Trovoadas"
+msgstr "Geralmente Nublado, Chuva Fraca, Trovoadas"
 
 #: omweather/src/hash.data:145
 msgid "Mostly Cloudy, Rain"
-msgstr "Parcialmente Nublado, Chuva"
+msgstr "Geralmente Nublado, Chuva"
 
 #: omweather/src/hash.data:146
 msgid "Mostly Cloudy, Rain, T-Storm"
-msgstr "Parcialmente Nublado, Chuva, Trovoadas"
+msgstr "Geralmente Nublado, Chuva, Trovoadas"
 
 #: omweather/src/hash.data:147
 msgid "Mostly Cloudy, Smoke"
-msgstr "Parcialmente Nublado, Neblina"
+msgstr "Geralmente Nublado, Neblina"
 
 #: omweather/src/hash.data:148
 msgid "Mostly Cloudy, Snow"
-msgstr "Parcialmente Nublado, Neve"
+msgstr "Geralmente Nublado, Neve"
 
 #: omweather/src/hash.data:149
 msgid "Mostly Cloudy, T-Storm"
-msgstr "Parcialmente Nublado, Trovoadas"
+msgstr "Geralmente Nublado, Trovoadas"
 
 #: omweather/src/hash.data:150
 msgid "Mostly Sunny"
-msgstr "Predominantemente Ensolarado"
+msgstr "Geralmente Limpo, ensolarado"
 
 #: omweather/src/hash.data:151
 msgid "Mostly clear"
-msgstr "Predominantemente Limpo"
+msgstr "Geralmente Limpo"
 
 #: omweather/src/hash.data:152
 msgid "N"
@@ -2031,7 +2033,7 @@ msgstr "Queda de Neve Dispersa"
 
 #: omweather/src/hash.data:255
 msgid "Scattered T-Storms"
-msgstr "Trovoadas Dispersas"
+msgstr "Trovoadas dispersas"
 
 #: omweather/src/weather-settings.c:3943
 msgid "Sea miles"
@@ -2161,7 +2163,7 @@ msgstr "Aguaceiros Matinais"
 
 #: omweather/src/hash.data:261
 msgid "Showers Late"
-msgstr "Aguaceiros fim do dia"
+msgstr "Aguaceiros fim da tarde"
 
 #: omweather/src/hash.data:262
 msgid "Showers in the Vicinity"
@@ -2354,7 +2356,7 @@ msgstr "Obrigado"
 msgid "The weather has been updated."
 msgstr "O tempo foi actualizado."
 
-#: meecast/qt-qml/AboutPage.qml:248
+#: meecast/qt-qml/AboutPage.qml:249
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2413,7 +2415,7 @@ msgstr "Transparência:"
 
 #: omweather/src/hash.data:291 meecast/qt-qml/WeatherPage.qml:501
 msgid "Try to update"
-msgstr "A tentar atualizar"
+msgstr "Tente atualizar"
 
 #: omweather/src/weather-settings.c:3452
 msgid "Type of click:"

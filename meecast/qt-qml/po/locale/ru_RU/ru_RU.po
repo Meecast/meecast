@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-04 23:05+0300\n"
+"POT-Creation-Date: 2012-09-10 14:23+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -940,6 +940,7 @@ msgid ""
 " Chinese - Wong Man Kong, Michael\n"
 " Portugal - Jose Narciso,\n"
 " Turkish - Burak Kaan Kose,\n"
+" Vietnamese - Hieu Nguyen, Anh Dương and truongnx, \n"
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
@@ -1141,7 +1142,7 @@ msgstr "Ведущий дизайнер"
 msgid "Lead programmers"
 msgstr "Ведущие программисты"
 
-#: meecast/qt-qml/AboutPage.qml:239
+#: meecast/qt-qml/AboutPage.qml:240
 msgid "License"
 msgstr ""
 
@@ -2328,7 +2329,7 @@ msgstr "Благодарности"
 msgid "The weather has been updated."
 msgstr "Данные о погоде обновлены."
 
-#: meecast/qt-qml/AboutPage.qml:248
+#: meecast/qt-qml/AboutPage.qml:249
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"

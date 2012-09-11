@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-04 23:05+0300\n"
+"POT-Creation-Date: 2012-09-10 14:23+0300\n"
 "PO-Revision-Date: 2012-04-23 15:35+0000\n"
 "Last-Translator: Ilir Gjika <ilir.gjika@gmail.com>\n"
 "Language-Team: Albanian (http://www.transifex.com/projects/p/meecast/"
@@ -953,6 +953,7 @@ msgid ""
 " Chinese - Wong Man Kong, Michael\n"
 " Portugal - Jose Narciso,\n"
 " Turkish - Burak Kaan Kose,\n"
+" Vietnamese - Hieu Nguyen, Anh Dương and truongnx, \n"
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
@@ -1161,7 +1162,7 @@ msgstr "Krye designer"
 msgid "Lead programmers"
 msgstr "Krye programuesi"
 
-#: meecast/qt-qml/AboutPage.qml:239
+#: meecast/qt-qml/AboutPage.qml:240
 msgid "License"
 msgstr "Liçencat"
 
@@ -2351,7 +2352,7 @@ msgstr "Faleminderit"
 msgid "The weather has been updated."
 msgstr "Të dhënat e motit u përditësuan."
 
-#: meecast/qt-qml/AboutPage.qml:248
+#: meecast/qt-qml/AboutPage.qml:249
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"

@@ -31,6 +31,7 @@
 #include <MLibrary>
 #include "dbusadaptor.h"
 #include "eventfeedif.h"
+#include "weatherdataif.h"
 #include <QThread>
 
 // Debug
@@ -252,6 +253,12 @@ WeatherApplicationExtension::initialize(const QString &){
    QObject::connect(client, SIGNAL(refreshRequested()), box, SLOT(refreshRequested()));  
 
    QTimer::singleShot(1000, box, SLOT(refreshRequested()));
+
+   ret = connection.registerService("com.meecast.data");
+   ret = connection.registerObject("/com/meecast/data", box);
+   WeatherDataIf* data_client =  new WeatherDataIf("com.meecast.data", "/",
+                                           QDBusConnection::sessionBus(), box); 
+   QObject::connect(data_client, SIGNAL(GetCurrentWeather()), box, SLOT(refreshRequested()));  
 
    /* Copy wallpaper */
    if (!(QFile::exists("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png"))){

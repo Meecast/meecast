@@ -1,8 +1,7 @@
 <node>
    <interface name="com.meecast.data">
       <method name="GetCurrentWeather">
-	<arg name="station" type="s" direction="out"/>
-	<arg name="station" type="s" direction="out"/>
+	    <arg name="station" type="s" direction="out"/>
         <arg name="temperature" type="s" direction="out"/>
         <arg name="temperature_hi" type="s" direction="out"/>
         <arg name="temperature_low" type="s" direction="out"/>

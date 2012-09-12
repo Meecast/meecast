@@ -225,7 +225,7 @@ Dutch - Tom Leenders, Michiel Pater\n \
 Bulgarian - Zlatko Enikov\n \
 Albanian - Ilir Gjika\n \
 Chinese - Wong Man Kong, Michael\n \
-Portugal - Jose Narciso,\n \
+Portuguese - Jose Narciso,\n \
 Turkish - Burak Kaan Kose,\n \
 Vietnamese - Hieu Nguyen, Anh Dương and truongnx, \n \
 Swedish - Angela Nennebrandt,\n \

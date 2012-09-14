@@ -245,6 +245,7 @@ WeatherApplicationExtension::initialize(const QString &){
 
    /* D-BUS */
    new MeecastIf(box);
+   new WeatherDataIf(box);
    QDBusConnection connection = QDBusConnection::sessionBus();
    bool ret = connection.registerService("com.meecast.applet");
    ret = connection.registerObject("/com/meecast/applet", box);
@@ -255,11 +256,11 @@ WeatherApplicationExtension::initialize(const QString &){
 
    QTimer::singleShot(1000, box, SLOT(refreshRequested()));
 
- //  ret = connection.registerService("com.meecast.data");
- //  ret = connection.registerObject("/com/meecast/data", box);
-   WeatherDataIf* data_client =  new WeatherDataIf("com.meecast.data", "/",
-                                           QDBusConnection::sessionBus(), 0); 
-   QObject::connect(data_client, SIGNAL(GetCurrentWeather()), box, SLOT(refreshRequested()));  
+   ret = connection.registerService("com.meecast.data");
+   ret = connection.registerObject("/com/meecast/data", box);
+   //WeatherDataIf* data_client =  new WeatherDataIf("com.meecast.data", "/",
+   //                                        QDBusConnection::sessionBus(), 0); 
+   //QObject::connect(data_client, SIGNAL(GetCurrentWeather()), box, SLOT(refreshRequested()));  
 
    /* Copy wallpaper */
    if (!(QFile::exists("/home/user/.cache/com.meecast.omweather/wallpaper_MeeCast_original.png"))){
@@ -369,6 +370,19 @@ MyMWidget::~MyMWidget(){
     delete publisher;
 }
 
+QString 
+MyMWidget::GetCurrentWeather(QString &temperature, QString &temperature_hi, QString &temperature_low, QString &icon, QString &description, bool &current, QString &last_update)
+{
+    temperature = this->temperature();
+    temperature_hi = this->temperature_high();
+    temperature_low = this->temperature_low();
+    icon = this->icon();
+    description = this->description();
+    last_update = this->lastupdate();
+    current = this->current();
+    return  this->station();
+}
+
 void 
 MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
                           const QString &temperature_high, const QString &temperature_low,  
@@ -391,6 +405,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
    this->lockscreen(lockscreen_param);
    this->standbyscreen(standbyscreen_param);
    this->lastupdate(last_update);
+   this->description(description);
    this->refreshview();
 
    /* ContexKit */

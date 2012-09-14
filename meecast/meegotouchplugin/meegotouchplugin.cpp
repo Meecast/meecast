@@ -248,16 +248,17 @@ WeatherApplicationExtension::initialize(const QString &){
    QDBusConnection connection = QDBusConnection::sessionBus();
    bool ret = connection.registerService("com.meecast.applet");
    ret = connection.registerObject("/com/meecast/applet", box);
+   //  signal sender=:1.9 -> dest=(null destination) serial=5824 path=/eventfeed; interface=com.nokia.home.EventFeed; member=refreshRequested
    EventFeedIf* client =  new EventFeedIf("com.nokia.home.EventFeed", "/eventfeed",
                                            QDBusConnection::sessionBus(), 0); 
    QObject::connect(client, SIGNAL(refreshRequested()), box, SLOT(refreshRequested()));  
 
    QTimer::singleShot(1000, box, SLOT(refreshRequested()));
 
-   ret = connection.registerService("com.meecast.data");
-   ret = connection.registerObject("/com/meecast/data", box);
+ //  ret = connection.registerService("com.meecast.data");
+ //  ret = connection.registerObject("/com/meecast/data", box);
    WeatherDataIf* data_client =  new WeatherDataIf("com.meecast.data", "/",
-                                           QDBusConnection::sessionBus(), box); 
+                                           QDBusConnection::sessionBus(), 0); 
    QObject::connect(data_client, SIGNAL(GetCurrentWeather()), box, SLOT(refreshRequested()));  
 
    /* Copy wallpaper */
@@ -435,7 +436,7 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 }
 void 
 MyMWidget::refreshRequested(){
-#if 0
+//#if 0
 	// Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -444,7 +445,7 @@ MyMWidget::refreshRequested(){
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
     this->startpredeamon();
 }
 void MyMWidget::update_data(){

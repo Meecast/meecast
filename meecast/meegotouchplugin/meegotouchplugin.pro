@@ -12,8 +12,8 @@ CONFIG += plugin \
 
 MOBILITY = publishsubscribe
 
-HEADERS = meegotouchplugin.h dbusadaptor.h eventfeedif.h
-SOURCES = meegotouchplugin.cpp dbusadaptor.cpp eventfeedif.cpp
+HEADERS = meegotouchplugin.h dbusadaptor.h eventfeedif.h  weatherdataif.h
+SOURCES = meegotouchplugin.cpp dbusadaptor.cpp eventfeedif.cpp  weatherdataif.cpp
 
 
 TARGET = $$qtLibraryTarget(events-meecast)

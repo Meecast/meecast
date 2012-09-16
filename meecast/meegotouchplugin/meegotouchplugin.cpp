@@ -464,7 +464,7 @@ MyMWidget::refreshRequested(){
     this->startpredeamon();
 }
 void MyMWidget::update_data(){
-#if 0
+//#if 0
     // Debug begin
 	QFile file("/tmp/1.log");
 	if (file.open(QIODevice::Append | QIODevice::WriteOnly | QIODevice::Text)){
@@ -473,7 +473,7 @@ void MyMWidget::update_data(){
 	    file.close();
 	}
 	// Debug end 
-#endif
+//#endif
     this->startpredeamon();
 }
 void MyMWidget::updateStandbyPath(){

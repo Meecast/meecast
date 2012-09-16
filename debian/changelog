@@ -3,6 +3,8 @@ meecast (0.6.2) unstable; urgency=low
   * Updated Finish, Dutch, Portuguese, Turkish translations
   * Added icons for hko.gov.hk
   * Added dbus method GetCurrentWeather to applet. For Lockscreen application
+  * Removed Adelaide, Brisbane, Cairns, Canberra, Darwin, Hobart, Newcastle,
+    Perth and Sydney from the Victoria entry in the bom.gov.au source.
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 05 Sep 2012 10:42:23 +0200
 

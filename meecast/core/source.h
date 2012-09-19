@@ -51,6 +51,7 @@ namespace Core {
         std::string *_url_template;
         std::string *_url_detail_template;
         std::string *_url_for_view;
+        std::string *_url_for_map;
         std::string *_cookie;
         void *_libraryHandler;
         bool _hasForecast;
@@ -76,6 +77,7 @@ namespace Core {
             std::string& cookie() const;
             std::string& url_detail_template() const;
             std::string& url_for_view() const;
+            std::string& url_for_map() const;
             std::string& binary() const;
             virtual ~Source();
             StationsList& search(const std::string& station);

@@ -571,7 +571,6 @@ ConfigQml::getCityId(int region_id, int index)
     cur = list->begin()+index;
     return QString::fromStdString((*cur).first);
 }
-
 QStringList
 ConfigQml::Regions(int index)
 {
@@ -601,7 +600,8 @@ ConfigQml::Cities(int country_index, int index)
 }
 void
 ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QString country,
-                        QString source, int source_id, bool gps)
+                        QString source, int source_id, bool gps, 
+                        double latitude, double longitude)
 {
     Core::Station *station;
 
@@ -612,7 +612,7 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
                 city_name.toUtf8().data(),
                 country.toStdString(),
                 region.toStdString(),
-                gps);
+                gps, latitude, longitude);
 
     stationsList().push_back(station);
     //ConfigQml::Config::stationsList(*stationlist);
@@ -627,19 +627,22 @@ ConfigQml::saveStation(int city_id, QString city,
                        int source_id, QString source)
 {
     Core::Station *station;
+    double latitude; 
+    double longitude;
+ 
     (void)source_id;
+
     region_id = getRegionId(country_id, region_id);
     country_id = getCountryId(country_id);
     std::string code = getCityId(region_id, city_id).toStdString();
-
-
+    db->get_station_coordinate(code, latitude, longitude); 
     station = new Core::Station(
                 source.toStdString(),
                 code,
                 city.toUtf8().data(),
                 country.toStdString(),
                 region.toStdString(),
-                false);
+                false, latitude, longitude);
 
     stationsList().push_back(station);
     //ConfigQml::Config::stationsList(*stationlist);
@@ -873,7 +876,7 @@ ConfigQml::addGpsStation(double latitude, double longitude)
     }
 
     saveStation1(QString::fromStdString(code), QString::fromStdString(name)+" (GPS)", QString::fromStdString(region),
-                 QString::fromStdString(country), "weather.com", source_id, true);
+                 QString::fromStdString(country), "weather.com", source_id, true, latitude, longitude);
     qDebug() << "SAVE GPS STATION";
 
     /* save gps station's coordinates */

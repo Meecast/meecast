@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -41,6 +41,7 @@ namespace Core {
         _url_template = new std::string;
         _url_detail_template = new std::string;
         _url_for_view = new std::string;
+        _url_for_map = new std::string;
         _cookie = new std::string;
         _hasForecast = false;
         _hasDetail = false;
@@ -91,6 +92,9 @@ namespace Core {
                     }else if (tag =="showurl"){
                         if (el.hasAttribute("url"))
                             _url_for_view->assign(el.attribute("url").toStdString());
+                    }else if (tag =="mapurl"){
+                        if (el.hasAttribute("url"))
+                            _url_for_map->assign(el.attribute("url").toStdString());
                     }else if (tag =="cookie"){
                         _cookie->assign(el.text().toStdString());
                     }
@@ -163,6 +167,7 @@ namespace Core {
         delete _url_template;
         delete _url_detail_template;
         delete _url_for_view;
+        delete _url_for_map;
         if(_libraryHandler)
             dlclose(_libraryHandler);
     }
@@ -183,6 +188,8 @@ namespace Core {
             _url_detail_template = new std::string(*(source._url_detail_template));
             delete _url_for_view;
             _url_for_view = new std::string(*(source._url_for_view));
+            delete _url_for_map;
+            _url_for_map = new std::string(*(source._url_for_map));
             delete _cookie;
             _cookie = new std::string(*(source._cookie));
 
@@ -276,6 +283,14 @@ namespace Core {
                 _url_for_view->assign(attribute->get_value().c_str());
             return;
         }
+        // url_mapurl tag
+        if(nodeName == "mapurl"){
+            const xmlpp::Element* nodeElement = dynamic_cast<const xmlpp::Element*>(node);
+            const xmlpp::Attribute* attribute = nodeElement->get_attribute("url");
+            if (attribute)
+                _url_for_map->assign(attribute->get_value().c_str());
+            return;
+        }
         // cookie tag
         if(nodeName == "cookie"){
             xmlpp::Node::NodeList list = node->get_children();
@@ -312,6 +327,10 @@ namespace Core {
 /////////////////////////////////////////////////////////////////////////////////
     std::string& Source::url_for_view() const{
         return *_url_for_view;
+    }
+/////////////////////////////////////////////////////////////////////////////////
+    std::string& Source::url_for_map() const{
+        return *_url_for_map;
     }
 /////////////////////////////////////////////////////////////////////////////////
     std::string& Source::cookie() const{

@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -140,7 +140,7 @@ public:
                                  int country_id, QString country,
                                  int source_id, QString source);
     Q_INVOKABLE void saveStation1(QString city_id, QString city_name, QString region,
-                                  QString country, QString source, int source_id, bool gps=false);
+                                  QString country, QString source, int source_id, bool gps=false, double latitude = 0.0, double longitude = 0.0);
     Q_INVOKABLE void changestation();
     Q_INVOKABLE void nextstation();
     Q_INVOKABLE void prevstation();

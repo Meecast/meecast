@@ -199,31 +199,24 @@ Config::saveConfig()
         el.appendChild(t);
         st.appendChild(el);
 
-        el = doc.createElement("detail_url");
-        /* Temporary hack for weather.com and gismeteo.ru. This must be delete after version 0.5.0 */
-        if (QString::fromStdString((*i)->detailURL()) == "" && QString::fromStdString((*i)->sourceName()) == "weather.com"){
-            char forecast_detail_url[4096];
-            snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, "http://xml.weather.com/weather/local/%s?cm_ven=1CW&site=wx.com-bar&cm_ite=wx-cc&par=1CWFFv1.1.9&cm_pla=wx.com-bar&cm_cat=FFv1.1.9&unit=m&hbhf=12", (*i)->id().c_str());
-            t = doc.createTextNode(QString::fromStdString(forecast_detail_url));
+        el = doc.createElement("map_url");
+        /* Temporary hack for weather.com . This must be delete after version 0.7.0 */
+        if ( QString::fromStdString((*i)->mapURL()) == "" 
+            && QString::fromStdString((*i)->sourceName()) == "weather.com"){
+            char map_url[4096];
+            snprintf(map_url, sizeof(map_url)-1, "http://mapserver.weather.com/MapServer/map?layers=sat&lat=%f&lng=%f&bpp=8&fmt=png&w=854&h=480&zoom=6&base=msve-hyb&g=1.5&tx=0.7", (*i)->latitude(), (*i)->longitude());
+            t = doc.createTextNode(QString::fromStdString(map_url));
             el.appendChild(t);
             st.appendChild(el);
         }else{
-            if (QString::fromStdString((*i)->sourceName()) == "gismeteo.ru"){
-                char forecast_detail_url[4096];
-                snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, "http://www.gismeteo.by/city/hourly/%s/", (*i)->id().c_str());
-                t = doc.createTextNode(QString::fromStdString(forecast_detail_url));
-                el.appendChild(t);
-                st.appendChild(el);
-            }
-            else{
-                t = doc.createTextNode(QString::fromStdString((*i)->detailURL()));
-                el.appendChild(t);
-                st.appendChild(el);
-            }
+            t = doc.createTextNode(QString::fromStdString((*i)->mapURL()));
+            el.appendChild(t);
+            st.appendChild(el);
         }
-//        t = doc.createTextNode(QString::fromStdString((*i)->detailURL()));
-//        el.appendChild(t);
-//        st.appendChild(el);
+
+        t = doc.createTextNode(QString::fromStdString((*i)->detailURL()));
+        el.appendChild(t);
+        st.appendChild(el);
 
         el = doc.createElement("view_url");
         t = doc.createTextNode(QString::fromStdString((*i)->viewURL()));
@@ -232,6 +225,16 @@ Config::saveConfig()
 
         el = doc.createElement("converter");
         t = doc.createTextNode(QString::fromStdString((*i)->converter()));
+        el.appendChild(t);
+        st.appendChild(el);
+
+        el = doc.createElement("latitude");
+        t = doc.createTextNode(QString::number((*i)->latitude()));
+        el.appendChild(t);
+        st.appendChild(el);
+
+        el = doc.createElement("longitude");
+        t = doc.createTextNode(QString::number((*i)->longitude()));
         el.appendChild(t);
         st.appendChild(el);
 
@@ -377,7 +380,7 @@ Config::LoadConfig(){
 
         nodelist = root.elementsByTagName("station");
         for (int i=0; i<nodelist.count(); i++){
-            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, cookie;
+            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, mapURL, cookie, latitude, longitude;
             bool gps = false;
             bool splash = true;
             QDomElement e = nodelist.at(i).toElement();
@@ -406,6 +409,12 @@ Config::LoadConfig(){
                     detailURL = el.text();
                 else if (tag == "view_url")
                     viewURL = el.text();
+                else if (tag == "map_url")
+                    mapURL = el.text();
+                else if (tag == "longitude")
+                    longitude = el.text();
+                else if (tag == "latitude")
+                    latitude = el.text();
                 else if (tag == "converter")
                     converter = el.text();
                 else if (tag == "gps")
@@ -429,8 +438,11 @@ Config::LoadConfig(){
                                       forecastURL.toStdString(),
 				                      detailURL.toStdString(),
                                       viewURL.toStdString(),
+                                      mapURL.toStdString(),
                                       cookie.toStdString(),
-                                      gps);
+                                      gps, 
+                                      latitude.toDouble(),
+                                      longitude.toDouble());
             st->fileName(fileName.toStdString());
             st->converter(converter.toStdString());
             _stations->push_back(st);

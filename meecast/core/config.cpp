@@ -31,6 +31,7 @@
 
 #include "config.h"
 #include "station.h"
+#include "databasesqlite.h"
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{  
     Config* Config::_self;
@@ -198,13 +199,35 @@ Config::saveConfig()
         t = doc.createTextNode(QString::fromStdString((*i)->cookie()));
         el.appendChild(t);
         st.appendChild(el);
+        
+        el = doc.createElement("latitude");
+        t = doc.createTextNode(QString::number((*i)->latitude()));
+        el.appendChild(t);
+        st.appendChild(el);
+
+        el = doc.createElement("longitude");
+        t = doc.createTextNode(QString::number((*i)->longitude()));
+        el.appendChild(t);
+        st.appendChild(el);
 
         el = doc.createElement("map_url");
         /* Temporary hack for weather.com . This must be delete after version 0.7.0 */
         if ( QString::fromStdString((*i)->mapURL()) == "" 
             && QString::fromStdString((*i)->sourceName()) == "weather.com"){
+
+            Core::DatabaseSqlite *db;
+            std::string path(Core::AbstractConfig::prefix);
+            path += Core::AbstractConfig::sharePath;
+            path += "db/weather.com.db";
+            db = new Core::DatabaseSqlite("");
+            db->set_databasename(path);
+            db->open_database();
+            double latitude = (*i)->latitude();
+            double longitude = (*i)->longitude();
+            db->get_station_coordinate((*i)->id(), latitude, longitude); 
             char map_url[4096];
-            snprintf(map_url, sizeof(map_url)-1, "http://mapserver.weather.com/MapServer/map?layers=sat&lat=%f&lng=%f&bpp=8&fmt=png&w=854&h=480&zoom=6&base=msve-hyb&g=1.5&tx=0.7", (*i)->latitude(), (*i)->longitude());
+            snprintf(map_url, sizeof(map_url)-1, "http://mapserver.weather.com/MapServer/map?layers=sat&lat=%f&lng=%f&bpp=8&fmt=png&w=854&h=480&zoom=6&base=msve-hyb&g=1.5&tx=0.7", latitude, longitude);
+            delete db;
             t = doc.createTextNode(QString::fromStdString(map_url));
             el.appendChild(t);
             st.appendChild(el);
@@ -228,16 +251,7 @@ Config::saveConfig()
         el.appendChild(t);
         st.appendChild(el);
 
-        el = doc.createElement("latitude");
-        t = doc.createTextNode(QString::number((*i)->latitude()));
-        el.appendChild(t);
-        st.appendChild(el);
-
-        el = doc.createElement("longitude");
-        t = doc.createTextNode(QString::number((*i)->longitude()));
-        el.appendChild(t);
-        st.appendChild(el);
-
+        
         el = doc.createElement("gps");
         if ((*i)->gps() == false)
             t = doc.createTextNode("false");

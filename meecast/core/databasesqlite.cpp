@@ -329,12 +329,11 @@ void DatabaseSqlite::get_station_coordinate(std::string code, double &latitude, 
 #endif
     if (!db)
         return; /* database doesn't open */
-    std::cerr << "in get station coordinate " << code << std::endl;
     snprintf(sql,
              sizeof(sql) - 1,
              "select latitude, longititude from stations where code='%s'",
              code.c_str());
-    std::cerr << "sql = " << sql << std::endl;
+    /* std::cerr << "sql = " << sql << std::endl; */
 
     rc = sqlite3_get_table(db,
                            sql,

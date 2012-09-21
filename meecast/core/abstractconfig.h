@@ -49,6 +49,7 @@ namespace Core {
             static std::string sourcesPath;
             static std::string layoutqml;
             static std::string getConfigPath();
+            static std::string getCachePath();
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

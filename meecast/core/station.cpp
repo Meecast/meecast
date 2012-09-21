@@ -366,6 +366,26 @@ Station::Station(const std::string& source_name, const std::string& id,
             else
                result = false;
         }
+
+        if (this->mapURL() != ""){
+            std::string mapfilename(Core::AbstractConfig::getCachePath());
+            mapfilename += this->sourceName().c_str();
+            mapfilename += "_";
+            mapfilename += _id->c_str();
+            mapfilename += "_map_";
+            mapfilename += "0.png";
+            struct stat attrib;
+            if ((stat(mapfilename.c_str(), &attrib) != 0)
+                ||(stat(mapfilename.c_str(), &attrib) == 0) &&
+                (time(NULL) - attrib.st_mtime > 3600)){
+
+                std::cerr<<mapfilename<<" "<<attrib.st_mtime<< " "<<time(NULL)<< std::endl;
+                Downloader::downloadData(mapfilename, this->mapURL(), "");
+            }
+            
+            
+        }
+
         return result;
     }
 ////////////////////////////////////////////////////////////////////////////////

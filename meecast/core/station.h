@@ -38,6 +38,7 @@ class Source;
 #include "data.h"
 #include "sourcelist.h"
 #include "downloader.h"
+#include <sys/stat.h>
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{

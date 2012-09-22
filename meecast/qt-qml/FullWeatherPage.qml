@@ -12,7 +12,8 @@ Page {
     property string image_source: ""
     property string description_text: ""
     property variant description_text_alignment: Text.AlignHLeft;
-  
+    property string map_pattern: "";  
+
 
     property variant model_current:  Current 
     property variant model_day:  Forecast_model
@@ -153,9 +154,10 @@ Page {
             if ((model_current.getdata(day, "flike")) != "N/A")
                 condition.append({cond_name: Config.tr("Flike:"),
                          value: model_current.getdata(day, "flike") + '°' + Config.temperatureunit});
-            if ((model_current.getdata(day, "map_pattern")) != "")
+            if ((model_current.getdata(day, "map_pattern")) != ""){
+                map_pattern = model_current.getdata(day, "map_pattern")
                 map_text.visible = true;
-            else
+            }else
                 map_text.visible = false;
 
             if ((model_current.getdata(day, "temp")) != "N/A")
@@ -209,9 +211,10 @@ Page {
                 if ((model_day.getdata(day, "temp_high")) != "N/A")
                	    temperature.text =  model_day.getdata(day, "temp_high") + '°'
             }
-            if ((model_day.getdata(day, "map_pattern")) != "")
+            if ((model_day.getdata(day, "map_pattern")) != ""){
+                map_pattern = model_day.getdata(day, "map_pattern")
                 map_text.visible = true;
-            else
+            }else
                 map_text.visible = false;
 	}
 	if (day_period == "night"){
@@ -255,12 +258,11 @@ Page {
                 if ((model_night.getdata(day, "temp_low")) != "N/A")
                     temperature.text =  model_night.getdata(day, "temp_low") + '°'
             }
-            if ((model_night.getdata(day, "map_pattern")) != "")
+            if ((model_night.getdata(day, "map_pattern")) != ""){
+                map_pattern = model_night.getdata(day, "map_pattern")
                 map_text.visible = true;
-            else
+            }else
                 map_text.visible = false;
-
-            console.log(model_night.getdata(day, "map_pattern"));
 
 	}
 	if (day_period == "hours"){
@@ -591,7 +593,7 @@ Page {
                      onClicked: {
                         console.log("Map onclicked");
                         pageStack.push(Qt.resolvedUrl("MapPage.qml"),
-                                       {day: 0, day_period: "day", current: true }
+                                       {map_pattern: map_pattern }
                                        )
                     }
                 }

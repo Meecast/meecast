@@ -5,6 +5,8 @@ import com.nokia.meego 1.0
 Page {
     id: mapweather
     property int margin: 16
+    property string map_pattern: ""
+    property string filename: ""
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"
@@ -33,10 +35,16 @@ Page {
     }
     Image {
         id: mapimage
-        source: "/home/vlad/.cache/com.meecast.omweather/weather.com_AFXX0005_map_0.png"
-       // rotation: 90
+        source: filename 
         // For Full Screen
         transform: Rotation { origin.x: 240; origin.y: 240; angle: 90}
     }
+    Component.onCompleted: {
+        console.log ("Preparing Map")
+        console.log (map_pattern)
+        filename = map_pattern.replace("%s", "0");
+        console.log (filename)
+    }
+
 }
 

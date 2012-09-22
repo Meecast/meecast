@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -168,6 +168,7 @@ DataModel::update_model(int period)
             i = 0;
             if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
                 forecast_data = new DataItem(temp_data);
+                /* Prepare */
                 forecast_data->Text(_(forecast_data->Text().c_str()));
                 forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(time(NULL)  + i));
                 forecast_data->SunSetTime(dp->data().GetSunSetForTime(time(NULL)  + i));
@@ -175,9 +176,11 @@ DataModel::update_model(int period)
                 forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
                 forecast_data->windunit = _config->WindSpeedUnit().c_str();
                 forecast_data->pressureunit = _config->PressureUnit().c_str();
+                /* Add Map */
+
+                /* Add to list */
                 this->appendRow(forecast_data);
                 MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
-               // QString icon_string =  _config->iconspath().c_str();
                 QString icon_string =  _config->iconspath();
                 icon_string.append("/") ;
                 icon_string.append(_config->iconSet().c_str());

@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasiliyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -101,6 +101,7 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[WindSpeedLabelRole] = "wind_speed_label";
     names[PressureLabelRole] = "pressure_label";
     names[NowLabelRole] = "now_label";
+    names[MapPatternRole] = "map_pattern";
     return names;
 }
 int
@@ -159,6 +160,8 @@ QVariant DataItem::data(int role)
         return flike();
     case PpcpRole:
         return ppcp();
+    case MapPatternRole:
+        return map_pattern();
     case LastUpdateRole:
         return lastupdate();
     case TemperatureLabelRole:
@@ -241,6 +244,13 @@ QString
 DataItem::wind_direction() {
     QString c;
     c = QString(QString::fromUtf8(DataItem::Data::WindDirection().c_str()));
+    return c;
+}
+
+QString
+DataItem::map_pattern() {
+    QString c;
+    c = QString(DataItem::Data::MapPattern().c_str());
     return c;
 }
 

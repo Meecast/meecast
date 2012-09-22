@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -73,7 +73,8 @@ class DataItem : public QObject, public Core::Data
         SunRiseRole,
         DayLengthRole,
         LastUpdateRole,
-        NowLabelRole
+        NowLabelRole,
+        MapPatternRole
     };
     QDateTime _lastupdate;
 
@@ -91,6 +92,7 @@ public:
     Q_PROPERTY(QString sunset READ sunset)
     Q_PROPERTY(QString daylength READ daylength)
     Q_PROPERTY(QString lastupdate READ lastupdate)
+    Q_PROPERTY(QString map_pattern READ map_pattern)
 
     DataItem();
     DataItem(const Core::Data *data);
@@ -117,6 +119,7 @@ public:
     inline QString flike();
     QString pressure();
     inline QString ppcp();
+    inline QString map_pattern();
     QString sunrise();
     QString sunset();
     QString daylength();

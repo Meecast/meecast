@@ -153,6 +153,10 @@ Page {
             if ((model_current.getdata(day, "flike")) != "N/A")
                 condition.append({cond_name: Config.tr("Flike:"),
                          value: model_current.getdata(day, "flike") + '°' + Config.temperatureunit});
+            if ((model_current.getdata(day, "map_pattern")) != "")
+                map_text.visible = true;
+            else
+                map_text.visible = false;
 
             if ((model_current.getdata(day, "temp")) != "N/A")
                 temperature.text =  model_current.getdata(day, "temp") + '°'
@@ -201,14 +205,18 @@ Page {
 
             if ((model_day.getdata(day, "temp")) != "N/A")
                 temperature.text =  model_day.getdata(day, "temp") + '°'
-	    else{
+	        else{
                 if ((model_day.getdata(day, "temp_high")) != "N/A")
                	    temperature.text =  model_day.getdata(day, "temp_high") + '°'
             }
+            if ((model_day.getdata(day, "map_pattern")) != "")
+                map_text.visible = true;
+            else
+                map_text.visible = false;
 	}
 	if (day_period == "night"){
             day_period_name = Config.tr("Night");
-	    toolbarnow.checked = false;
+            toolbarnow.checked = false;
             toolbarnight.checked = true;
             toolbarday.checked = false;
             toolbarclock.checked = false;
@@ -243,10 +251,16 @@ Page {
                          value: model_night.getdata(day, "flike") + '°' + Config.temperatureunit});
             if ((model_night.getdata(day, "temp")) != "N/A")
                 temperature.text =  model_night.getdata(day, "temp") + '°'
-	    else{
+	        else{
                 if ((model_night.getdata(day, "temp_low")) != "N/A")
                     temperature.text =  model_night.getdata(day, "temp_low") + '°'
             }
+            if ((model_night.getdata(day, "map_pattern")) != "")
+                map_text.visible = true;
+            else
+                map_text.visible = false;
+
+            console.log(model_night.getdata(day, "map_pattern"));
 
 	}
 	if (day_period == "hours"){
@@ -384,7 +398,7 @@ Page {
                         /* if (!current && day < model_day.rowCount()-1){ */
                         if (day < model_day.rowCount()-1){ 
                             console.log("next day");
-			    day_period="day";
+                            day_period="day";
                             day++;
                             fullweather.updateperiod();
                         }
@@ -431,15 +445,15 @@ Page {
             Image {
                 id: icon
                 source:  image_source 
-		width: 128
+            	width: 128
                 height: 128
                 anchors.top: parent.top
                 anchors.topMargin: -22
                 anchors.left: now.right
-		smooth: true
+		         smooth: true
             }
             Text {
-		id: temperature
+		        id: temperature
                 anchors.top: parent.top
                 anchors.left: icon.right
                 anchors.rightMargin: margin
@@ -449,42 +463,44 @@ Page {
                 font.pointSize: 26
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
-	
             }
             Rectangle {
                id: desc  
                height: 44
-	       color: "transparent"
-	       width: parent.width 
+               color: "transparent"
+               width: parent.width 
                anchors.left: parent.left
                anchors.top: now.bottom
-	       property color textColor: "white"
+               property color textColor: "white"
                Row {  
-	            id: desc_row
-	            width: parent.width 
+	                id: desc_row
+	                width: parent.width 
                     Text { 
-		          id: text; 
-			  font.pointSize: 20; 
-	                  width: parent.width 
-			  color: desc.textColor; 
-			  text: description_text ; 
-			  verticalAlignment: Text.AlignVCenter; 
-			  horizontalAlignment: description_text_alignment; 
-		    	  MouseArea {
+                        id: text; 
+                        font.pointSize: 20; 
+                        width: parent.width 
+                        color: desc.textColor; 
+                        text: description_text ; 
+                        verticalAlignment: Text.AlignVCenter; 
+                        horizontalAlignment: description_text_alignment; 
+		    	        MouseArea {
                     	      anchors.fill: parent
                               onClicked: {
-				 if (text_anim.running){
-				     text_anim.running = false;
-				 }else{
-				     text_anim.running = true;
-				 }
+				                if (text_anim.running){
+				                    text_anim.running = false;
+				                }else{
+				                    text_anim.running = true;
+				                }
                               }
-               	          }
-		    }  
-                    NumberAnimation on x { id: text_anim; from: 450; to: -500 ; duration: 10000; loops: Animation.Infinite; running : false; }  
-
-	       }  
-	    }
+               	        }
+		            }  
+                    NumberAnimation on x { 
+                        id: text_anim; from: 450; to: -500 ; 
+                        duration: 10000; loops: Animation.Infinite; 
+                        running : false; 
+                    } 
+               }  
+            }
 
             ListModel {
                 id: condition
@@ -522,25 +538,25 @@ Page {
                 }
             }
             Rectangle {
-		id: splitter
-		color: "#303030"
-		x: 20; width: parent.width - 40; height: 2
-		anchors.top: grid.bottom 
-		anchors.leftMargin: 20
-	    }
-	    ListModel {
+                id: splitter
+		        color: "#303030"
+		        x: 20; width: parent.width - 40; height: 2
+		        anchors.top: grid.bottom 
+		        anchors.leftMargin: 20
+	        }
+	        ListModel {
                 id: condition2
             }
             GridView {
                 id: grid2
                 anchors.top: splitter.bottom
-                anchors.topMargin: 20
+                anchors.topMargin: 10
                 anchors.left: parent.left
                 anchors.leftMargin: margin
                 anchors.right: parent.right
                 anchors.rightMargin: margin
                 width: parent.width - 2*margin
-                height: 245
+                height: 165
                 cellWidth: (parent.width - 2*margin) / 2
                 model: condition2
                 interactive: false
@@ -560,8 +576,26 @@ Page {
                     }
                 }
             }
- 
-
+            Text {
+                id: map_text
+                anchors.top: grid2.bottom 
+		        anchors.topMargin: 20
+                text: "Map"
+                color: "white"
+                visible: false
+                font.pointSize: 24 
+                width: parent.width 
+                horizontalAlignment: Text.AlignHCenter
+                MouseArea {
+                     anchors.fill: parent
+                     onClicked: {
+                        console.log("Map onclicked");
+                        pageStack.push(Qt.resolvedUrl("MapPage.qml"),
+                                       {day: 0, day_period: "day", current: true }
+                                       )
+                    }
+                }
+            }
         }
         ListView {
                 id: hours_list
@@ -639,6 +673,7 @@ Page {
                     }
                 }
         } //component itemDelegate
+
 
     }
 }

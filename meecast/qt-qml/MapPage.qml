@@ -43,52 +43,25 @@ Page {
         Image {
             id: mapimage
             source: filename 
-//            anchors.fill: maprectangle
             opacity: 1
             // For Full Screen
             transform: Rotation { origin.x: 240; origin.y: 240; angle: 90}
          }
-        Image {
-            id: mapimagebackground
-            source: filenamebackground 
-//            anchors.fill: maprectangle
-            opacity: 0
-            // For Full Screen
-            transform: Rotation { origin.x: 240; origin.y: 240; angle: 90}
-        }
 
-        ParallelAnimation {
-           id: playgame
-           running: true
-           NumberAnimation { target: mapimage; 
-                             property: "opacity"; to: 0; duration: 1000; }
-           NumberAnimation { target: mapimagebackground; 
-                             property: "opacity"; to: 1; duration: 1000; }
-        }
         Timer {
             interval: 1000
             running: true;
             repeat: true;
             onTriggered: {
-                     mapimagebackground.opacity = 0; mapimage.opacity = 1; 
-                     parent.currentImage = parent.currentImage + 1;
-                     if (parent.currentImage >= count_of_maps) 
-                          parent.currentImage = 0;
+                     parent.currentImage = parent.currentImage - 1;
+                     if (parent.currentImage < 0) 
+                          parent.currentImage = count_of_maps;
                      filename = map_pattern.replace("%s", parent.currentImage);
-                     filenamebackground = map_pattern.replace("%s", (parent.currentImage + 1));                           //console.log (filename)
-                     //console.log (filenamebackground)
-                     playgame.start()
             }
         }
     }
     Component.onCompleted: {
-        console.log ("Preparing Map")
-        console.log (map_pattern)
-        filename = map_pattern.replace("%s", "0");
-        filenamebackground = map_pattern.replace("%s", "1");
-        console.log (filename)
-        console.log (count_of_maps)
-        console.log (filenamebackground)
+        filename = map_pattern.replace("%s", (count_of_maps));
     }
 
 }

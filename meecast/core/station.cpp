@@ -383,7 +383,7 @@ Station::Station(const std::string& source_name, const std::string& id,
             /* Check modification time of the last file */
             if ((stat(map_url, &attrib) == 0) &&
                 (time(NULL) - attrib.st_mtime > 3600)){
-                for (int i=4; i>0; i--){
+                for (int i=4; i>=0; i--){
                     snprintf(map_url, sizeof(map_url)-1, mapfilename.c_str(), i);
                     std::cerr<<map_url<<std::endl;
                     if (stat(map_url, &attrib) == 0){

@@ -37,6 +37,8 @@
 
 #include <libintl.h>
 #include <locale.h>
+#include <fstream>
+#include <iostream>
 
 #define _(String) gettext(String)
 

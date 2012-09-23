@@ -261,18 +261,20 @@ QString
 DataItem::count_of_maps() {
     char map_url[4096];
     char number[5];
-    int r;
     int i;
     QString c;
-    for (i=5; i>0; i--){
+    std::cerr<<"Count of Maps"<<std::endl;
+    for (i=4; i>=0; i--){
         std::cerr<<MapPattern().c_str()<<std::endl;
         snprintf(number, sizeof(number) -1, "%i", i);
         snprintf(map_url, sizeof(map_url)-1, MapPattern().c_str(), number);
-        r = access(map_url, R_OK);
-        if (r)
+        
+        std::cerr<<map_url<<std::endl;
+        std::ifstream test(map_url);
+        if (test.good())
             break;
     }
-    return c.number(i-1);
+    return c.number(i);
 }
 
 QString

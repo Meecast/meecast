@@ -157,6 +157,13 @@ DataModel::update_model(int period)
     tm->tm_isdst = 1;
     current_day = mktime(tm);
 
+    std::string mapfilename(Core::AbstractConfig::getCachePath());
+    mapfilename += _config->stationsList().at(_config->current_station_id())->sourceName().c_str();
+    mapfilename += "_";
+    mapfilename += _config->stationsList().at(_config->current_station_id())->id().c_str();
+    mapfilename += "_map_";
+    mapfilename += "%s.png";
+
     if (dp)
         temp_data = dp->data().GetDataForTime(time(NULL));
 //    if (temp_data)
@@ -177,6 +184,7 @@ DataModel::update_model(int period)
                 forecast_data->windunit = _config->WindSpeedUnit().c_str();
                 forecast_data->pressureunit = _config->PressureUnit().c_str();
                 /* Add Map */
+                forecast_data->MapPattern(mapfilename);
 
                 /* Add to list */
                 this->appendRow(forecast_data);
@@ -222,6 +230,9 @@ DataModel::update_model(int period)
                 forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
                 forecast_data->windunit = _config->WindSpeedUnit().c_str();
                 forecast_data->pressureunit = _config->PressureUnit().c_str();
+                /* Add Map */
+                forecast_data->MapPattern(mapfilename);
+
                 this->appendRow(forecast_data);
             }
             break;
@@ -239,6 +250,10 @@ DataModel::update_model(int period)
                     forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
                     forecast_data->windunit = _config->WindSpeedUnit().c_str();
                     forecast_data->pressureunit = _config->PressureUnit().c_str();
+                    /* Add Map */
+                    if (i == 0)
+                        forecast_data->MapPattern(mapfilename);
+
                     this->appendRow(forecast_data);
                 }
                 i = i + 3600*24;
@@ -257,6 +272,10 @@ DataModel::update_model(int period)
                     forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
                     forecast_data->windunit = _config->WindSpeedUnit().c_str();
                     forecast_data->pressureunit = _config->PressureUnit().c_str();
+                    /* Add Map */
+                    if (i == 0)
+                        forecast_data->MapPattern(mapfilename);
+
                     this->appendRow(forecast_data);
                 }
                 i = i + 3600*24;

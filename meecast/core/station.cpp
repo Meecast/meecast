@@ -345,6 +345,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         /* To do */
         /* Check connection and if force true update connection */
         force = false;
+        /* Weather Forecast */
         if (Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie())) {
             result = true;
         }else{
@@ -366,21 +367,40 @@ Station::Station(const std::string& source_name, const std::string& id,
             else
                result = false;
         }
-
+        /* Map */
         if (this->mapURL() != ""){
             std::string mapfilename(Core::AbstractConfig::getCachePath());
+            char map_url[4096];
+            char map_url_additional[4096];
+            struct stat attrib;
             mapfilename += this->sourceName().c_str();
             mapfilename += "_";
             mapfilename += _id->c_str();
             mapfilename += "_map_";
-            mapfilename += "0.png";
-            struct stat attrib;
-            if ((stat(mapfilename.c_str(), &attrib) != 0)
-                ||(stat(mapfilename.c_str(), &attrib) == 0) &&
+            mapfilename += "%i.png";
+            snprintf(map_url, sizeof(map_url)-1, mapfilename.c_str(), 0);
+            std::cerr<<map_url<<std::endl;
+            /* Check modification time of the last file */
+            if ((stat(map_url, &attrib) == 0) &&
                 (time(NULL) - attrib.st_mtime > 3600)){
+                for (int i=4; i>0; i--){
+                    snprintf(map_url, sizeof(map_url)-1, mapfilename.c_str(), i);
+                    std::cerr<<map_url<<std::endl;
+                    if (stat(map_url, &attrib) == 0){
+                        snprintf(map_url_additional, sizeof(map_url_additional)-1,
+                                 mapfilename.c_str(), i+1);
+                        rename(map_url, map_url_additional);
+                    }
+                }
+            }
 
-                std::cerr<<mapfilename<<" "<<attrib.st_mtime<< " "<<time(NULL)<< std::endl;
-                Downloader::downloadData(mapfilename, this->mapURL(), "");
+            snprintf(map_url, sizeof(map_url)-1, mapfilename.c_str(), 0);
+            std::cerr<<map_url<<std::endl;
+            if ((stat(map_url, &attrib) != 0)
+                ||(stat(map_url, &attrib) == 0) &&
+                (time(NULL) - attrib.st_mtime > 3600)){
+                std::cerr<<map_url<<" "<<attrib.st_mtime<< " "<<time(NULL)<< std::endl;
+                Downloader::downloadData(map_url, this->mapURL(), "");
             }
             
             

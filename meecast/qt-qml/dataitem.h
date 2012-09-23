@@ -119,7 +119,7 @@ public:
     inline QString flike();
     QString pressure();
     inline QString ppcp();
-    inline QString map_pattern();
+    QString map_pattern();
     QString sunrise();
     QString sunset();
     QString daylength();

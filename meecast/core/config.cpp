@@ -232,9 +232,11 @@ Config::saveConfig()
             el.appendChild(t);
             st.appendChild(el);
         }else{
-            t = doc.createTextNode(QString::fromStdString((*i)->mapURL()));
-            el.appendChild(t);
-            st.appendChild(el);
+            if (QString::fromStdString((*i)->mapURL()) != ""){
+                t = doc.createTextNode(QString::fromStdString((*i)->mapURL()));
+                el.appendChild(t);
+                st.appendChild(el);
+            }
         }
 
         t = doc.createTextNode(QString::fromStdString((*i)->detailURL()));

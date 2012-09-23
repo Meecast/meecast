@@ -31,6 +31,7 @@ LIBS += -L ../core  ../core/libomweather-core.a
 CONFIG += link_pkgconfig \
          qdbus
 PKGCONFIG += libcurl
+PKGCONFIG += sqlite3
 PKGCONFIG += QtCore \
              QtXml
 

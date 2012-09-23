@@ -116,7 +116,6 @@ Controller::load_data()
   mapfilename += "_map_";
   mapfilename += "%s.png";
     
-  std::cerr<<"MAP PATTERN "<< mapfilename <<std::endl;
   _model = new DataModel(new DataItem, qApp);
   _current = new DataModel(new DataItem, qApp);
   _night_model = new DataModel(new DataItem, qApp);

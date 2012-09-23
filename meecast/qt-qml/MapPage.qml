@@ -8,7 +8,7 @@ Page {
     property string map_pattern: ""
     property string filename: ""
     property string filenamebackground: ""
-    property int totalImage: 4
+    property string count_of_maps: ""
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"
@@ -60,24 +60,25 @@ Page {
         ParallelAnimation {
            id: playgame
            running: true
-           NumberAnimation { target: mapimage; property: "opacity"; to: 0; duration: 2000; }
-           NumberAnimation { target: mapimagebackground; property: "opacity"; to: 1; duration: 2000; }
+           NumberAnimation { target: mapimage; 
+                             property: "opacity"; to: 0; duration: 1000; }
+           NumberAnimation { target: mapimagebackground; 
+                             property: "opacity"; to: 1; duration: 1000; }
         }
         Timer {
-            interval: 2000
+            interval: 1000
             running: true;
             repeat: true;
-            onTriggered: {mapimagebackground.opacity = 0; mapimage.opacity = 1; 
-                          parent.currentImage = parent.currentImage + 1;
-                          if (parent.currentImage >= totalImage) {
-                                parent.currentImage = 0;
-                          }
-                          filename = map_pattern.replace("%s", parent.currentImage);
-                          filenamebackground = map_pattern.replace("%s", (parent.currentImage + 1)); 
-                          console.log (filename)
-                          console.log (filenamebackground)
-
-                          playgame.start()}
+            onTriggered: {
+                     mapimagebackground.opacity = 0; mapimage.opacity = 1; 
+                     parent.currentImage = parent.currentImage + 1;
+                     if (parent.currentImage >= count_of_maps) 
+                          parent.currentImage = 0;
+                     filename = map_pattern.replace("%s", parent.currentImage);
+                     filenamebackground = map_pattern.replace("%s", (parent.currentImage + 1));                           //console.log (filename)
+                     //console.log (filenamebackground)
+                     playgame.start()
+            }
         }
     }
     Component.onCompleted: {
@@ -86,6 +87,7 @@ Page {
         filename = map_pattern.replace("%s", "0");
         filenamebackground = map_pattern.replace("%s", "1");
         console.log (filename)
+        console.log (count_of_maps)
         console.log (filenamebackground)
     }
 

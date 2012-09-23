@@ -74,7 +74,8 @@ class DataItem : public QObject, public Core::Data
         DayLengthRole,
         LastUpdateRole,
         NowLabelRole,
-        MapPatternRole
+        MapPatternRole,
+        CountOfMapsRole
     };
     QDateTime _lastupdate;
 
@@ -93,6 +94,7 @@ public:
     Q_PROPERTY(QString daylength READ daylength)
     Q_PROPERTY(QString lastupdate READ lastupdate)
     Q_PROPERTY(QString map_pattern READ map_pattern)
+    Q_PROPERTY(QString count_of_maps READ count_of_maps)
 
     DataItem();
     DataItem(const Core::Data *data);
@@ -120,6 +122,7 @@ public:
     QString pressure();
     inline QString ppcp();
     QString map_pattern();
+    QString count_of_maps();
     QString sunrise();
     QString sunset();
     QString daylength();

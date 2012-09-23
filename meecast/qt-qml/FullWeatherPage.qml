@@ -13,9 +13,9 @@ Page {
     property string description_text: ""
     property variant description_text_alignment: Text.AlignHLeft;
     property string map_pattern: "";  
+    property string count_of_maps: "0";  
 
-
-    property variant model_current:  Current 
+    property variant model_current: Current 
     property variant model_day:  Forecast_model
     property variant model_night:  (current) ? Current_night : Forecast_night_model
     property variant model_hours:  Forecast_hours_model
@@ -157,12 +157,13 @@ Page {
             if ((model_current.getdata(day, "map_pattern")) != ""){
                 map_pattern = model_current.getdata(day, "map_pattern")
                 map_text.visible = true;
+                count_of_maps = model_current.getdata(day, "count_of_maps")
             }else
                 map_text.visible = false;
 
             if ((model_current.getdata(day, "temp")) != "N/A")
                 temperature.text =  model_current.getdata(day, "temp") + '°'
-	    else{
+     	    else{
                 if ((model_current.getdata(day, "temp_high")) != "N/A")
                	    temperature.text =  model_current.getdata(day, "temp_high") + '°'
             }
@@ -214,6 +215,7 @@ Page {
             if ((model_day.getdata(day, "map_pattern")) != ""){
                 map_pattern = model_day.getdata(day, "map_pattern")
                 map_text.visible = true;
+                count_of_maps = model_day.getdata(day, "count_of_maps")
             }else
                 map_text.visible = false;
 	}
@@ -261,6 +263,7 @@ Page {
             if ((model_night.getdata(day, "map_pattern")) != ""){
                 map_pattern = model_night.getdata(day, "map_pattern")
                 map_text.visible = true;
+                count_of_maps = model_night.getdata(day, "count_of_maps")
             }else
                 map_text.visible = false;
 
@@ -593,7 +596,7 @@ Page {
                      onClicked: {
                         console.log("Map onclicked");
                         pageStack.push(Qt.resolvedUrl("MapPage.qml"),
-                                       {map_pattern: map_pattern }
+                                       {map_pattern: map_pattern, count_of_maps: count_of_maps }
                                        )
                     }
                 }

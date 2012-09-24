@@ -226,7 +226,7 @@ Config::saveConfig()
             double longitude = (*i)->longitude();
             db->get_station_coordinate((*i)->id(), latitude, longitude); 
             char map_url[4096];
-            snprintf(map_url, sizeof(map_url)-1, "http://mapserver.weather.com/MapServer/map?layers=sat&lat=%f&lng=%f&bpp=8&fmt=png&w=854&h=480&zoom=6&base=msve-hyb&g=1.5&tx=0.7", latitude, longitude);
+            snprintf(map_url, sizeof(map_url)-1, "http://mapserver.weather.com/MapServer/map?layers=sat&lat=%f&lng=%f&bpp=8&fmt=png&w=854&h=480&zoom=5&base=msve-hyb&g=1.5&tx=0.7", latitude, longitude);
             delete db;
             t = doc.createTextNode(QString::fromStdString(map_url));
             el.appendChild(t);

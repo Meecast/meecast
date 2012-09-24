@@ -329,6 +329,7 @@ void DatabaseSqlite::get_station_coordinate(std::string code, double &latitude, 
 #endif
     if (!db)
         return; /* database doesn't open */
+
     snprintf(sql,
              sizeof(sql) - 1,
              "select latitude, longititude from stations where code='%s'",
@@ -361,6 +362,7 @@ void DatabaseSqlite::get_station_coordinate(std::string code, double &latitude, 
     latitude = atof(result[ncol+0]);
     longitude = atof(result[ncol+1]);
 
+/*    std::cerr<<"Latitude "<< latitude << " longitude"<<longitude<<std::endl; */
     sqlite3_free_table(result);
 
 #ifdef DEBUGFUNCTIONCALL

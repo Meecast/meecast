@@ -604,8 +604,25 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
                         double latitude, double longitude)
 {
     Core::Station *station;
+    
 
     (void)source_id;
+
+    if (latitude == 0 && longitude == 0 && source == "weather.com"){
+        Core::DatabaseSqlite *db_w = new Core::DatabaseSqlite("");
+        std::string path(Core::AbstractConfig::prefix);
+        path += Core::AbstractConfig::sharePath;
+        path += "db/";
+        QString filename = "weather.com";
+        filename.append(".db");
+        filename.prepend(path.c_str());
+        db_w->set_databasename(filename.toStdString());
+        if (!db_w->open_database()){
+            qDebug() << "error open database";
+            return;
+        }
+        db_w->get_station_coordinate(city_id.toStdString(), latitude, longitude);
+    }
     station = new Core::Station(
                 source.toStdString(),
                 city_id.toStdString(), 

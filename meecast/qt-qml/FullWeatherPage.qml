@@ -581,26 +581,35 @@ Page {
                     }
                 }
             }
-            Text {
-                id: map_text
-                anchors.top: grid2.bottom 
-		        anchors.topMargin: 20
-                text: "Map"
-                color: "white"
-                visible: false
-                font.pointSize: 24 
-                width: parent.width 
-                horizontalAlignment: Text.AlignHCenter
-                MouseArea {
+	    Rectangle {
+               id: map_rect  
+               height: 44
+               color: "transparent"
+               width: parent.width 
+               anchors.left: parent.left
+               anchors.top: now.bottom
+               anchors.top: grid2.bottom 
+               anchors.topMargin: 20
+               Text {
+                    id: map_text
+                    anchors.fill: parent
+                    text: "Map"
+                    color: "white"
+                    visible: false
+                    font.pointSize: 24 
+                    width: parent.width 
+                    horizontalAlignment: Text.AlignHCenter
+               }
+	       MouseArea {
                      anchors.fill: parent
                      onClicked: {
-                        console.log("Map onclicked");
-                        pageStack.push(Qt.resolvedUrl("MapPage.qml"),
-                                       {map_pattern: map_pattern, count_of_maps: count_of_maps }
-                                       )
-                    }
-                }
-            }
+                            console.log("Map onclicked");
+                            pageStack.push(Qt.resolvedUrl("MapPage.qml"),
+                                           {map_pattern: map_pattern, count_of_maps: count_of_maps }
+                                           )
+                      }
+               }
+	    }
         }
         ListView {
                 id: hours_list

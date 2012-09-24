@@ -38,7 +38,7 @@ Page {
     Rectangle {
         id: maprectangle
         property int velocity: 50
-        property int currentImage: 0
+        property int currentImage: count_of_maps 
 
         Image {
             id: mapimage

@@ -380,9 +380,10 @@ Station::Station(const std::string& source_name, const std::string& id,
             mapfilename += "%i.png";
             snprintf(map_url, sizeof(map_url)-1, mapfilename.c_str(), 0);
             std::cerr<<map_url<<std::endl;
-            /* Check modification time of the last file */
+            /* Check modification time of the last file and download map if it more than 3 hours */
             if ((stat(map_url, &attrib) == 0) &&
-                (time(NULL) - attrib.st_mtime > 3600)){
+                (time(NULL) - attrib.st_mtime > 3600*2.5)&&
+                (attrib.st_size > 0)){
                 for (int i=4; i>=0; i--){
                     snprintf(map_url, sizeof(map_url)-1, mapfilename.c_str(), i);
                     std::cerr<<map_url<<std::endl;
@@ -394,11 +395,12 @@ Station::Station(const std::string& source_name, const std::string& id,
                 }
             }
 
-            snprintf(map_url, sizeof(map_url)-1, mapfilename.c_str(), 0);
+            /* snprintf(map_url, sizeof(map_url)-1, mapfilename.c_str(), 0); */
             std::cerr<<map_url<<std::endl;
-            if ((stat(map_url, &attrib) != 0)
-                ||(stat(map_url, &attrib) == 0) &&
-                (time(NULL) - attrib.st_mtime > 3600)){
+            if ((stat(map_url, &attrib) != 0)||
+                (attrib.st_size == 0) ||
+                (stat(map_url, &attrib) == 0) &&
+                (time(NULL) - attrib.st_mtime > 3600*2.5)){
                 std::cerr<<map_url<<" "<<attrib.st_mtime<< " "<<time(NULL)<< std::endl;
                 Downloader::downloadData(map_url, this->mapURL(), "");
             }

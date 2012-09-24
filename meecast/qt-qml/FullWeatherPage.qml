@@ -587,7 +587,6 @@ Page {
                color: "transparent"
                width: parent.width 
                anchors.left: parent.left
-               anchors.top: now.bottom
                anchors.top: grid2.bottom 
                anchors.topMargin: 20
                Text {

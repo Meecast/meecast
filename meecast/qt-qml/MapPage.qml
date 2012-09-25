@@ -37,8 +37,8 @@ Page {
     }
     Rectangle {
         id: maprectangle
-        property int velocity: 50
         property int currentImage: count_of_maps 
+        property int round_robin_count: 0
 
         Image {
             id: mapimage
@@ -55,8 +55,14 @@ Page {
             onTriggered: {
                      parent.currentImage = parent.currentImage - 1;
                      if (parent.currentImage < 0) 
-                          parent.currentImage = count_of_maps;
+                         parent.currentImage = count_of_maps;
                      filename = map_pattern.replace("%s", parent.currentImage);
+                     if (parent.currentImage == 0)
+                         parent.round_robin_count = parent.round_robin_count + 1
+                     if (parent.round_robin_count == 5){
+                         repeat = false;
+                         running = false;
+                     }
             }
         }
     }

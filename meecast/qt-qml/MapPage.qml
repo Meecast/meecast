@@ -39,6 +39,7 @@ Page {
         id: maprectangle
         property int currentImage: count_of_maps 
         property int round_robin_count: 0
+	property bool pause: false
 
         Image {
             id: mapimage
@@ -46,12 +47,28 @@ Page {
             opacity: 1
             // For Full Screen
             transform: Rotation { origin.x: 240; origin.y: 240; angle: 90}
+            MouseArea {
+                     anchors.fill: parent
+                     onClicked: {
+		            if (pause){
+                               parent.pause = false;
+			       map_timer.running = true;
+			       map_timer.repeat = true;
+			    }else{
+			       parent.pause = true;
+			       map_timer.running = false;
+			    }
+                            console.log("Map onclicked");
+                      }
+            }
+
          }
 
         Timer {
             interval: 1000
             running: true;
             repeat: true;
+	    id: map_timer
             onTriggered: {
                      parent.currentImage = parent.currentImage - 1;
                      if (parent.currentImage < 0) 

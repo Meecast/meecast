@@ -1,32 +1,32 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Anh Dương <kut3_prince_9x@yahoo.com.vn>, 2012.
+#   <baloc.ngo@gmail.com>, 2012.
+#   <bhxhkt@gmail.com>, 2012.
 # Hieu Nguyen <hispaf@gmail.com>, 2012.
+#   <vutaikt@yahoo.com.vn>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-10 14:23+0300\n"
-"PO-Revision-Date: 2012-09-01 14:45+0000\n"
-"Last-Translator: Anh Dương <kut3_prince_9x@yahoo.com.vn>\n"
-"Language-Team: Vietnamese (http://www.transifex.com/projects/p/meecast/"
-"language/vi/)\n"
-"Language: vi\n"
+"PO-Revision-Date: 2012-09-23 00:15+0000\n"
+"Last-Translator: Hieu Nguyen <hispaf@gmail.com>\n"
+"Language-Team: Vietnamese (http://www.transifex.com/projects/p/meecast/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
 "\n"
 "H: "
-msgstr ""
-"\n"
-"H:"
+msgstr "\nH:"
 
 #: omweather/src/weather-help.c:80
 #, c-format
@@ -46,72 +46,45 @@ msgid ""
 "Andrew Olmsted\n"
 "for Semi-transparency\n"
 "and coloured backgrounds\n"
-msgstr ""
-"\n"
-"Ứng dụng con dành cho\n"
-"Nokia N800/N810/N900/N9\n"
-"dùng để xem dự báo thời tiết.\n"
-"Phiên bản: %s Đóng gói: %s\n"
-"Bản quyền (c) 2006-2011\n"
-"Vlad Vasiliev, Pavel Fialko\n"
-"Bản quyền (c) 2008\n"
-"cho gói biểu tượng mặc định (Glance)\n"
-"và design của giao diện\n"
-"Andrew Zhilin\n"
-"Bản quyền (c) 2008\n"
-"Andrew Olmsted\n"
-"cho \"Bán nhìn thấu\"\n"
-"cùng hình nền\n"
+msgstr "\nỨng dụng con dành cho\nNokia N800/N810/N900/N9\ndùng để xem dự báo thời tiết.\nPhiên bản: %s Đóng gói: %s\nBản quyền (c) 2006-2011\nVlad Vasiliev, Pavel Fialko\nBản quyền (c) 2008\ncho gói biểu tượng mặc định (Glance)\nvà design của giao diện\nAndrew Zhilin\nBản quyền (c) 2008\nAndrew Olmsted\ncho \"Bán nhìn thấu\"\ncùng hình nền\n"
 
 #: omweather/src/weather-home.c:1383 omweather/src/weather-home.c:1439
 #: omweather/src/weather-popup.c:965 omweather/src/weather-popup.c:1098
 msgid ""
 "\n"
 "Humidity: "
-msgstr ""
-"\n"
-"Độ ẩm:"
+msgstr "\nĐộ ẩm:"
 
 #: omweather/src/weather-home.c:1608
 msgid ""
 "\n"
 "P: "
-msgstr ""
-"\n"
-"P:"
+msgstr "\nP:"
 
 #: omweather/src/weather-popup.c:954 omweather/src/weather-popup.c:959
 #: omweather/src/weather-popup.c:1087 omweather/src/weather-popup.c:1092
 msgid ""
 "\n"
 "Precipitation: "
-msgstr ""
-"\n"
-"Mưa:"
+msgstr "\nMưa:"
 
 #: omweather/src/weather-popup.c:976 omweather/src/weather-popup.c:1108
 msgid ""
 "\n"
 "Pressure: "
-msgstr ""
-"\n"
-"Áp xuất:"
+msgstr "\nÁp xuất:"
 
 #: omweather/src/weather-home.c:1577
 msgid ""
 "\n"
 "V: "
-msgstr ""
-"\n"
-"V:"
+msgstr "\nV:"
 
 #: omweather/src/weather-home.c:1614
 msgid ""
 "\n"
 "W: "
-msgstr ""
-"\n"
-"W:"
+msgstr "\nW:"
 
 #: omweather/src/weather-simple-settings.c:1714
 #: omweather/src/weather-simple-settings.c:2811
@@ -138,9 +111,8 @@ msgid "10 seconds"
 msgstr "10 giây"
 
 #: meecast/qt-qml/UpdatePage.qml:175
-#, fuzzy
 msgid "12 hours"
-msgstr "2 giờ"
+msgstr "12 tiếng"
 
 #: omweather/src/weather-sensor.c:151 meecast/qt-qml/UpdatePage.qml:140
 msgid "15 minutes"
@@ -195,7 +167,7 @@ msgstr "8 tiếng"
 
 #: omweather/src/hash.data:4
 msgid "AM Clouds / PM Sun"
-msgstr ""
+msgstr "Buổi sáng nhiều mây / Buổi chiều trời nắng"
 
 #: omweather/src/hash.data:6
 msgid "AM Drizzle"
@@ -299,12 +271,12 @@ msgstr "Thêm"
 
 #: omweather/src/weather-settings.c:467
 msgid "Add Station"
-msgstr ""
+msgstr "Thêm vị trí"
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
 #: omweather/src/weather-settings.c:1381
 msgid "Alerts"
-msgstr ""
+msgstr "Thông báo"
 
 #: omweather/src/weather-help.c:125
 msgid ""
@@ -321,15 +293,15 @@ msgstr ""
 
 #: omweather/src/weather-download.c:397
 msgid "An unknown error has occurred."
-msgstr ""
+msgstr "Lỗi không xác định"
 
 #: omweather/src/weather-simple-settings.c:413
 msgid "Animation"
-msgstr ""
+msgstr "Hoạt ảnh"
 
 #: meecast/qt-qml/VisualsPage.qml:546
 msgid "Appearance"
-msgstr ""
+msgstr "Giao diện"
 
 #: meecast/qt-qml/VisualsPage.qml:94
 msgid ""
@@ -337,15 +309,15 @@ msgid ""
 "for installing package 'MeeCast applet'.\n"
 "You should uninstall AccuWeather \n"
 "before installing this package"
-msgstr ""
+msgstr "Quản lý ứng dụng sẽ bắt đầu⏎ cài đặt 'MeeCast'.⏎\nBạn nên gỡ bỏ AccuWeather ⏎ trước khi cài ứng dụng này"
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
-msgstr ""
+msgstr "Xóa địa điểm này?"
 
 #: omweather/src/weather-simple-settings.c:848
 msgid "Are you sure?"
-msgstr ""
+msgstr "Xác nhận lại"
 
 #: omweather/src/weather-help.c:103
 msgid ""
@@ -354,176 +326,176 @@ msgid ""
 "Documentation: Marko Vertainen\n"
 "Design UI and default iconset: Andrew Zhilin\n"
 "Design UI for Fremantle: Krebber Jan Niemelä Ulla\n"
-msgstr ""
+msgstr "Tác giả và quản lý: Vlad Vasiliev, <vlad@gas.by>⏎ Duy trì: Pavel Fialko, <pavelnf@gmail.com>⏎ Tài liệu: Marko Vertainen⏎ Thiết kế giao diện và icon: Andrew Zhilin⏎ Thiết kế giao diện cho Fremantle: Krebber Jan Niemelä Ulla⏎\n"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:415
 msgid "Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n"
-msgstr ""
+msgstr "Tác giả và quản lý: Vlad Vasiliev, <vlad@gas.by>\n"
 
 #: omweather/src/weather-help.c:111
 msgid "Authors"
-msgstr ""
+msgstr "Tác giả"
 
 #: omweather/src/weather-settings.c:4156
 msgid "Automatically update data when connecting to the Internet"
-msgstr ""
+msgstr "Tự động cập nhật dữ liệu khi kết nối mạng"
 
 #: omweather/src/weather-settings.c:3378 omweather/src/weather-settings.c:3382
 msgid "Background color:"
-msgstr ""
+msgstr "Màu nền"
 
 #: omweather/src/weather-simple-settings.c:1426
 msgid "Beauf."
-msgstr ""
+msgstr "Thang sức gió"
 
 #: omweather/src/weather-settings.c:4021
 #: omweather/src/weather-simple-settings.c:2707
 msgid "Beaufort scale"
-msgstr ""
+msgstr "Thang đo sức gió"
 
 #: omweather/src/hash.data:25
 msgid "Blowing Snow"
-msgstr ""
+msgstr "Tuyết rơi"
 
 #: omweather/src/weather-home.c:1536 omweather/src/weather-home.c:1562
 #: omweather/src/weather-simple-popup.c:1042
 #: omweather/src/weather-simple-popup.c:1052
 #: omweather/src/weather-simple-settings.c:1281
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #: omweather/src/weather-popup.c:1265 omweather/src/weather-popup.c:1275
 #: omweather/src/weather-popup.c:1446 omweather/src/weather-popup.c:1454
 msgid "C\n"
-msgstr ""
+msgstr "C\n"
 
 #: omweather/src/hash.data:26
 msgid "CALM"
-msgstr ""
+msgstr "Yên bình"
 
 #: meecast/qt-qml/VisualsPage.qml:108
 msgid "Cancel"
-msgstr ""
+msgstr "Thoát"
 
 #: omweather/src/weather-config.c:383
 #, c-format
 msgid "Cannot get path to the HOME directory. Quitting.\n"
-msgstr ""
+msgstr "Không thể lấy đường dẫn tới thư mục Home. Đang đóng ứng dụng\n"
 
 #: omweather/src/weather-settings.c:3864 meecast/qt-qml/UnitsPage.qml:102
 msgid "Celcius"
-msgstr ""
+msgstr "Độ C"
 
 #: omweather/src/weather-simple-settings.c:677
 #: omweather/src/weather-simple-settings.c:710
 #: omweather/src/weather-simple-settings.c:807
 #: omweather/src/weather-simple-settings.c:2341
 msgid "City"
-msgstr ""
+msgstr "Thành phố"
 
 #: omweather/src/weather-settings.c:533
 msgid "City:"
-msgstr ""
+msgstr "Thành phố:"
 
 #: omweather/src/hash.data:29
 msgid "Clear"
-msgstr ""
+msgstr "Trời quang"
 
 #: omweather/src/hash.data:27
 msgid "Clear / Wind"
-msgstr ""
+msgstr "Trời quang / Có gió"
 
 #: omweather/src/hash.data:28
 msgid "Clear Sky"
-msgstr ""
+msgstr "Trời trong"
 
 #: omweather/src/hash.data:30
 msgid "Clear, Drifting Snow"
-msgstr ""
+msgstr "Không mây, Tuyết rơi nhẹ"
 
 #: omweather/src/hash.data:31
 msgid "Clear, Fog"
-msgstr ""
+msgstr "Không mây, ít sưong mù"
 
 #: omweather/src/hash.data:32
 msgid "Clear, Fog, Drizzle"
-msgstr ""
+msgstr "Ko mây, ít sương mù, có mưa phùn"
 
 #: omweather/src/hash.data:33
 msgid "Clear, Haze"
-msgstr ""
+msgstr "Không mây, có sương mù"
 
 #: omweather/src/hash.data:34
 msgid "Clear, Smoke"
-msgstr ""
+msgstr "Không mây, bốc hơi"
 
 #: omweather/src/weather-settings.c:485
 msgid "Close"
-msgstr ""
+msgstr "Ngột ngạt"
 
 #: omweather/src/hash.data:35
 msgid "Clouds Early / Clearing Late"
-msgstr ""
+msgstr "Trời có mây, sau đó trong xanh"
 
 #: omweather/src/hash.data:46
 msgid "Cloudy"
-msgstr ""
+msgstr "Có mây"
 
 #: omweather/src/hash.data:36
 msgid "Cloudy / Wind"
-msgstr ""
+msgstr "Có mây và gió nhẹ"
 
 #: omweather/src/hash.data:37
 msgid "Cloudy Few Snow"
-msgstr ""
+msgstr "Có mây, tuyết rơi nhẹ"
 
 #: omweather/src/hash.data:38
 msgid "Cloudy Light Rain"
-msgstr ""
+msgstr "Có mây, thỉnh thoảng có mưa nhẹ"
 
 #: omweather/src/hash.data:39
 msgid "Cloudy T-Storm"
-msgstr ""
+msgstr "Có mây, mưa to, có sấm sét"
 
 #: omweather/src/hash.data:40
 msgid "Cloudy and Windy"
-msgstr ""
+msgstr "Có mây, nhiều gió"
 
 #: omweather/src/hash.data:41
 msgid "Cloudy and light rain"
-msgstr ""
+msgstr "Có mây, mưa nhẹ"
 
 #: omweather/src/hash.data:42
 msgid "Cloudy and light snow"
-msgstr ""
+msgstr "Có mây, tuyết rơi nhẹ"
 
 #: omweather/src/hash.data:43
 msgid "Cloudy and light wet snow"
-msgstr ""
+msgstr "Nhiều mây, ẩm ướt, có tuyết rơi"
 
 #: omweather/src/hash.data:44
 msgid "Cloudy and showers"
-msgstr ""
+msgstr "Nhiều mây, có mưa rào"
 
 #: omweather/src/hash.data:45
 msgid "Cloudy and snow showers"
-msgstr ""
+msgstr "Có mây, tuyết rơi, mưa rào rải rác"
 
 #: omweather/src/hash.data:47
 msgid "Cloudy, Drifting Snow"
-msgstr ""
+msgstr "Có mây, tuyết rơi nhẹ"
 
 #: omweather/src/hash.data:48
 msgid "Cloudy, Few Snow"
-msgstr ""
+msgstr "Có mây, tuyết rơi rải rác"
 
 #: omweather/src/hash.data:49
 msgid "Cloudy, Heavy Rain"
-msgstr ""
+msgstr "Nhiều mây, có mưa to"
 
 #: omweather/src/hash.data:50
 msgid "Cloudy, Heavy Rain, T-Storm"
-msgstr ""
+msgstr "Nhiều mây, mưa to, có sấm sét"
 
 #: omweather/src/hash.data:51
 msgid "Cloudy, Heavy Snow"
@@ -559,7 +531,7 @@ msgstr "Bản quyền(c) 2006-2011 bởi Vlad Vasilyeu và Pavel Fialko,"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:414
 msgid "Copyright(c) 2010-2011 by Tanya Makova\n"
-msgstr ""
+msgstr "Bản quyền 2010-2011 bởi Tanya Makova \\n"
 
 #: omweather/src/weather-download.c:226
 msgid ""
@@ -570,7 +542,7 @@ msgstr "Không thể kết nối Internet.⏎ Hết hạn hời gian kết nối
 #: omweather/src/weather-config.c:401
 #, c-format
 msgid "Could not create weather cache directory.\n"
-msgstr ""
+msgstr "Bạn không thể tạo ổ đĩa lưu bộ nhớ của thời tiết \\n"
 
 #: omweather/src/weather-download.c:409
 msgid "Couldn't resolve host."
@@ -620,9 +592,9 @@ msgstr "Xóa vị trí?"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
-"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
-"zhilin@ovi.com>\n"
-msgstr ""
+"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, "
+"<andrew.zhilin@ovi.com>\n"
+msgstr "Thiết kế giao diện và biểu tượng mặc định: Bản quyền 2006-2011 Andrew Zhilin, <andrew.zhilin@ovi.com> \\n"
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
 msgid "Detailed"
@@ -645,9 +617,7 @@ msgstr "Đơn vị khoảng cách:"
 msgid ""
 "Does not to add station, because no one\n"
 "of 'omweather-*-stations-db' packages was installed."
-msgstr ""
-"Không thêm được vào trạm,bởi một ai đó⏎ gói 'omweather-*-stations-db' đã "
-"được cài đặt."
+msgstr "Không thêm được vào trạm,bởi một ai đó⏎ gói 'omweather-*-stations-db' đã được cài đặt."
 
 #: omweather/src/weather-simple-popup.c:1171
 #: omweather/src/weather-simple-popup.c:1220
@@ -741,7 +711,7 @@ msgstr "Kích hoạt tìm kiếm"
 #: omweather/src/weather-home.c:841
 #, c-format
 msgid "Error in xml file\n"
-msgstr ""
+msgstr "Lỗi trong tập tin .xml \\n"
 
 #: omweather/src/weather-home.c:914
 msgid "Error initializing the OMWeather applet"
@@ -782,49 +752,49 @@ msgstr ""
 
 #: omweather/src/weather-download.c:413
 msgid "Failed to connect to host or proxy."
-msgstr ""
+msgstr "Lỗi khi kết nối với điểm truy cập."
 
 #: omweather/src/weather-config.c:360
 #, c-format
 msgid "Failed to initialize GConf. Quitting.\n"
-msgstr ""
+msgstr "Lỗi khởi tạo GConf. Đang thoát. \\n\n"
 
 #: omweather/src/weather-config.c:948
 #, c-format
 msgid "Failed to initialize GConf. Settings were not saved.\n"
-msgstr ""
+msgstr "Lỗi khởi tạo GConf. Không lưu được cài đặt. \\n"
 
 #: omweather/src/hash.data:73
 msgid "Fair"
-msgstr ""
+msgstr "Trời đẹp"
 
 #: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
 msgid "Feels like:"
-msgstr ""
+msgstr "Có cảm giác như:"
 
 #: omweather/src/hash.data:75
 msgid "Few Showers"
-msgstr ""
+msgstr "Mưa rào rải rác"
 
 #: omweather/src/hash.data:74
 msgid "Few Showers / Wind"
-msgstr ""
+msgstr "Mưa rào rải rác/ có gió"
 
 #: omweather/src/hash.data:78
 msgid "Few Snow"
-msgstr ""
+msgstr "Tuyết rơi rải rác"
 
 #: omweather/src/hash.data:77
 msgid "Few Snow Showers"
-msgstr ""
+msgstr "Có tuyết và mưa rào rải rác"
 
 #: omweather/src/hash.data:76
 msgid "Few Snow Showers / Wind"
-msgstr ""
+msgstr "Có tuyết và mưa rào rải rác/ gió nhẹ"
 
 #: meecast/qt-qml/StationsPage.qml:92
 msgid "Find location via GPS"
-msgstr ""
+msgstr "Tìm địa điểm qua GPS"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:428
 msgid ""
@@ -834,41 +804,41 @@ msgstr ""
 
 #: omweather/src/hash.data:79
 msgid "First Quarter"
-msgstr ""
+msgstr "Quý một"
 
 #: meecast/qt-qml/FullWeatherPage.qml:154
 #: meecast/qt-qml/FullWeatherPage.qml:199
 #: meecast/qt-qml/FullWeatherPage.qml:242
 msgid "Flike:"
-msgstr ""
+msgstr "Có cảm giác như:"
 
 #: omweather/src/hash.data:83
 msgid "Fog"
-msgstr ""
+msgstr "Ít sương mù"
 
 #: omweather/src/hash.data:80
 msgid "Fog Early / Clouds Late"
-msgstr ""
+msgstr "Sáng sớm có sương mù, sau trời nhiều mây"
 
 #: omweather/src/hash.data:81
 msgid "Fog Late"
-msgstr ""
+msgstr "Sương mù muộn"
 
 #: omweather/src/hash.data:82
 msgid "Fog early / Clearing late"
-msgstr ""
+msgstr "Sáng sớm có sương mù sau trời trong"
 
 #: omweather/src/hash.data:84
 msgid "Foggy"
-msgstr ""
+msgstr "Có sương mù"
 
 #: omweather/src/weather-settings.c:3257
 msgid "Font color:"
-msgstr ""
+msgstr "Màu chữ:"
 
 #: omweather/src/weather-settings.c:3227 omweather/src/weather-settings.c:3231
 msgid "Font:"
-msgstr ""
+msgstr "Font chữ:"
 
 #: meecast/qt-qml/VisualsPage.qml:292
 msgid ""
@@ -876,24 +846,24 @@ msgid ""
 "you should uninstall package\n"
 "'Activating MeeCast Applet'\n"
 "using Application manager"
-msgstr ""
+msgstr "Để tắt widget Meecast \\n Bạn cần gỡ bỏ gói cài đặt \\n ' Activating MeeCast Applet' \\n bằng trình quản lý ứng dụng"
 
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
-msgstr ""
+msgstr "Dự báo"
 
 #: omweather/src/weather-popup.c:1433
 #: omweather/src/weather-simple-popup.c:1028
 msgid "Forecast at: "
-msgstr ""
+msgstr "Dự báo tại:"
 
 #: omweather/src/weather-home.c:1355
 msgid "Forecast: \n"
-msgstr ""
+msgstr "Dự báo: \\n"
 
 #: omweather/src/hash.data:85
 msgid "Freezing Drizzle"
-msgstr ""
+msgstr "Trời băng giá, có mưa phùn"
 
 #: meecast/qt-qml/AboutPage.qml:211
 msgid ""
@@ -936,15 +906,15 @@ msgstr ""
 
 #: omweather/src/hash.data:86
 msgid "Full"
-msgstr ""
+msgstr "Đầy đủ"
 
 #: omweather/src/weather-home.c:1296
 msgid "Full forecast"
-msgstr ""
+msgstr "Dự báo đầy đủ"
 
 #: meecast/qt-qml/VisualsPage.qml:369
 msgid "Fullscreen mode"
-msgstr ""
+msgstr "Toàn màn hình"
 
 #: omweather/src/weather-home.c:1641
 msgid "G: "
@@ -971,23 +941,23 @@ msgstr ""
 #: meecast/netbook-UX/meego-panel-omweather.cpp:418
 msgid ""
 "Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>"
-msgstr ""
+msgstr "Biểu tượng Grzanka's: Bản quyền 2005 bởi Wojciech Grzanka, <wojciech@grzanka.pl>"
 
 #: omweather/src/weather-popup.c:1354 omweather/src/weather-popup.c:1493
 msgid "Gust:"
-msgstr ""
+msgstr "Cơn \"gió hoặc mưa..\":"
 
 #: omweather/src/weather-download.c:421
 msgid "HTTP error."
-msgstr ""
+msgstr "Lỗi http."
 
 #: omweather/src/hash.data:87
 msgid "Haze"
-msgstr ""
+msgstr "Có sương mù"
 
 #: omweather/src/hash.data:90
 msgid "Heavy Rain"
-msgstr ""
+msgstr "Mưa to"
 
 #: omweather/src/hash.data:88
 msgid "Heavy Rain / Wind"
@@ -1023,11 +993,11 @@ msgstr "Thiết lập biểu tượng:"
 
 #: omweather/src/weather-settings.c:3558 omweather/src/weather-settings.c:3563
 msgid "Icon size:"
-msgstr ""
+msgstr "Kích thước biểu tượng:"
 
 #: meecast/qt-qml/VisualsPage.qml:44 meecast/qt-qml/UpdatePage.qml:42
 msgid "Icons"
-msgstr ""
+msgstr "Biểu tượng"
 
 #: omweather/src/hash.data:93 meecast/qt-qml/VisualsPage.qml:391
 msgid "Iconset"
@@ -1201,23 +1171,21 @@ msgstr "Thấp"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
-"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
-"com>\n"
-msgstr ""
-"Phát triển: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
-"com>⏎\n"
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
+"<tanyshk@gmail.com>\n"
+msgstr "Phát triển: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail.com>⏎\n"
 
 #: omweather/src/hash.data:122 meecast/qt-qml/StationsPage.qml:153
 msgid "Manage locations"
-msgstr ""
+msgstr "Quản lý địa điểm"
 
 #: omweather/src/weather-simple-settings.c:2240
 msgid "Manual"
-msgstr ""
+msgstr "Bằng tay"
 
 #: meecast/qt-qml/UnitsPage.qml:224
 msgid "Measurement units"
-msgstr ""
+msgstr "Đơn vị đo"
 
 #: meecast/qt-qml/WeatherPage.qml:292
 msgid "MeeCast"
@@ -1227,11 +1195,11 @@ msgstr ""
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2011"
-msgstr ""
+msgstr "MeeCast - ứng dụng đa nền tảng, có thể chỉnh mã nguồn mở của thời tiết dựa trên mã OMWeather. Bản quyền (C) 2006-2011"
 
 #: meecast/qt-qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
-msgstr ""
+msgstr "MeeCast cho Harmattan"
 
 #: omweather/src/weather-settings.c:3901
 msgid "Meters"
@@ -1247,119 +1215,119 @@ msgstr ""
 
 #: omweather/src/weather-simple-settings.c:434
 msgid "Modification"
-msgstr ""
+msgstr "Sửa đổi"
 
 #: omweather/src/hash.data:124
 msgid "Mostly Clear"
-msgstr ""
+msgstr "Trời trong xanh"
 
 #: omweather/src/hash.data:133
 msgid "Mostly Cloudy"
-msgstr ""
+msgstr "Nhiều mây, không mưa"
 
 #: omweather/src/hash.data:126
 msgid "Mostly Cloudy / Wind"
-msgstr ""
+msgstr "Nhiều mây, không mưa có gió"
 
 #: omweather/src/hash.data:127
 msgid "Mostly Cloudy Few Snow"
-msgstr ""
+msgstr "Có mây, ko mưa, tuyết rơi rải rác"
 
 #: omweather/src/hash.data:128
 msgid "Mostly Cloudy Light Rain"
-msgstr ""
+msgstr "Có mây, mưa rơi vừa"
 
 #: omweather/src/hash.data:129
 msgid "Mostly Cloudy Rain"
-msgstr ""
+msgstr "Có mây, mưa nhẹ"
 
 #: omweather/src/hash.data:130
 msgid "Mostly Cloudy Snow"
-msgstr ""
+msgstr "Nhiều mây, không mưa, có tuyết rơi"
 
 #: omweather/src/hash.data:131
 msgid "Mostly Cloudy T-Storm"
-msgstr ""
+msgstr "Nhiều mây, có sấm sét"
 
 #: omweather/src/hash.data:125 omweather/src/hash.data:132
 msgid "Mostly Cloudy and Windy"
-msgstr ""
+msgstr "Nhiều mây, không mưa, gió to"
 
 #: omweather/src/hash.data:134
 msgid "Mostly Cloudy, Drifting Snow"
-msgstr ""
+msgstr "Nhiều mây, không mưa, tuyết rơi"
 
 #: omweather/src/hash.data:135
 msgid "Mostly Cloudy, Few Snow"
-msgstr ""
+msgstr "Có mây, ko mưa, tuyết rơi rải rác"
 
 #: omweather/src/hash.data:136
 msgid "Mostly Cloudy, Fog"
-msgstr ""
+msgstr "Nhiều mây, ko mưa, ít sương mù"
 
 #: omweather/src/hash.data:137
 msgid "Mostly Cloudy, Fog, Drizzle"
-msgstr ""
+msgstr "Có mây, sương mù ít, mưa phùn"
 
 #: omweather/src/hash.data:138
 msgid "Mostly Cloudy, Heavy Rain"
-msgstr ""
+msgstr "Nhiều mây, mưa to"
 
 #: omweather/src/hash.data:139
 msgid "Mostly Cloudy, Heavy Rain, T-Storm"
-msgstr ""
+msgstr "Nhiều mây, mưavto kèm sấm sét"
 
 #: omweather/src/hash.data:140
 msgid "Mostly Cloudy, Heavy Snow"
-msgstr ""
+msgstr "Nhiều mây, tuyết rơi nặng hạt"
 
 #: omweather/src/hash.data:141
 msgid "Mostly Cloudy, Heavy Snow, Freezing Rain"
-msgstr ""
+msgstr "Nhiều mây, tuyết rơi nặng hạt, băng giá"
 
 #: omweather/src/hash.data:142
 msgid "Mostly Cloudy, Light Rain"
-msgstr ""
+msgstr "Nhiều mây, mưa vừa"
 
 #: omweather/src/hash.data:143
 msgid "Mostly Cloudy, Light Rain, Drizzle"
-msgstr ""
+msgstr "Nhiều mây kèm mưa phùn"
 
 #: omweather/src/hash.data:144
 msgid "Mostly Cloudy, Light Rain, T-Storm"
-msgstr ""
+msgstr "Nhiều mây, mưa vừa kèm sấm sét"
 
 #: omweather/src/hash.data:145
 msgid "Mostly Cloudy, Rain"
-msgstr ""
+msgstr "Nhiều mây, có mưa"
 
 #: omweather/src/hash.data:146
 msgid "Mostly Cloudy, Rain, T-Storm"
-msgstr ""
+msgstr "Nhiều mây, có mưa và sấm chớp"
 
 #: omweather/src/hash.data:147
 msgid "Mostly Cloudy, Smoke"
-msgstr ""
+msgstr "Có mây, bốc hơi nước"
 
 #: omweather/src/hash.data:148
 msgid "Mostly Cloudy, Snow"
-msgstr ""
+msgstr "Nhiều mây, có tuyết"
 
 #: omweather/src/hash.data:149
 msgid "Mostly Cloudy, T-Storm"
-msgstr ""
+msgstr "Nhiều mây và kèm sấm sét"
 
 #: omweather/src/hash.data:150
 msgid "Mostly Sunny"
-msgstr ""
+msgstr "Ít mây, trời nắng"
 
 #: omweather/src/hash.data:151
 msgid "Mostly clear"
-msgstr ""
+msgstr "Ít mây, trời quang"
 
 #: omweather/src/hash.data:152
 msgid "N"
-msgstr ""
+msgstr "Bắc"
 
 #: omweather/src/weather-home.c:658 omweather/src/weather-home.c:664
 #: omweather/src/weather-home.c:665 omweather/src/weather-home.c:671
@@ -1373,7 +1341,7 @@ msgstr ""
 
 #: omweather/src/hash.data:154
 msgid "NE"
-msgstr ""
+msgstr "Đông Bắc"
 
 #: omweather/src/hash.data:155
 msgid "NE_short"
@@ -1381,7 +1349,7 @@ msgstr ""
 
 #: omweather/src/hash.data:156
 msgid "NNE"
-msgstr ""
+msgstr "Bắc Đông Bắc"
 
 #: omweather/src/hash.data:157
 msgid "NNE_short"
@@ -1389,7 +1357,7 @@ msgstr ""
 
 #: omweather/src/hash.data:158
 msgid "NNW"
-msgstr ""
+msgstr "Bắc Tây Bắc"
 
 #: omweather/src/hash.data:159
 msgid "NNW_short"
@@ -1397,11 +1365,11 @@ msgstr ""
 
 #: omweather/src/hash.data:160
 msgid "NO STATION"
-msgstr ""
+msgstr "Không có trạm"
 
 #: omweather/src/hash.data:161
 msgid "NW"
-msgstr ""
+msgstr "Tây Bắc"
 
 #: omweather/src/hash.data:162
 msgid "NW_short"
@@ -1632,107 +1600,107 @@ msgstr "Pa"
 
 #: omweather/src/hash.data:199
 msgid "Partly Cloudy"
-msgstr ""
+msgstr "Ít mây, trời nắng"
 
 #: omweather/src/hash.data:193
 msgid "Partly Cloudy / Wind"
-msgstr ""
+msgstr "Ít mây, trời nắng, gió nhẹ"
 
 #: omweather/src/hash.data:194
 msgid "Partly Cloudy Few Snow"
-msgstr ""
+msgstr "Ít mây, tuyết rơi rải rác"
 
 #: omweather/src/hash.data:195
 msgid "Partly Cloudy Light Rain"
-msgstr ""
+msgstr "Ít mây, mưa nhẹ"
 
 #: omweather/src/hash.data:196
 msgid "Partly Cloudy T-Storm"
-msgstr ""
+msgstr "Mây ít, có mưa kèm sấm sét"
 
 #: omweather/src/hash.data:197
 msgid "Partly Cloudy and Windly"
-msgstr ""
+msgstr "Mây ít, nhiều gió"
 
 #: omweather/src/hash.data:198
 msgid "Partly Cloudy and Windy"
-msgstr ""
+msgstr "Mây ít, có gió thổi"
 
 #: omweather/src/hash.data:200
 msgid "Partly Cloudy, Few Snow"
-msgstr ""
+msgstr "Mây ít, tuyết rơi rải rác"
 
 #: omweather/src/hash.data:201
 msgid "Partly Cloudy, Haze"
-msgstr ""
+msgstr "Trời ít mây, có sương mù"
 
 #: omweather/src/hash.data:202
 msgid "Partly Cloudy, Heavy Rain"
-msgstr ""
+msgstr "Trời ít mây, mưa to vài nơi"
 
 #: omweather/src/hash.data:203
 msgid "Partly Cloudy, Heavy Rain, T-Storm"
-msgstr ""
+msgstr "Có mây, mưa to kèm sấm chớp, sét"
 
 #: omweather/src/hash.data:204
 msgid "Partly Cloudy, Heavy Snow"
-msgstr ""
+msgstr "Ít mây, tuyết rơi nặng hạt"
 
 #: omweather/src/hash.data:205
 msgid "Partly Cloudy, Light Rain"
-msgstr ""
+msgstr "Ít Mây kèm mưa vừa"
 
 #: omweather/src/hash.data:206
 msgid "Partly Cloudy, Light Rain, T-Storm"
-msgstr ""
+msgstr "Ít mây, mưa vừa có sấm chớp"
 
 #: omweather/src/hash.data:207
 msgid "Partly Cloudy, Rain"
-msgstr ""
+msgstr "Có mây và mưa vài nơi"
 
 #: omweather/src/hash.data:208
 msgid "Partly Cloudy, Rain, T-Storm"
-msgstr ""
+msgstr "Có mây, mưa kèm sấm chớp"
 
 #: omweather/src/hash.data:209
 msgid "Partly Cloudy, Smoke"
-msgstr ""
+msgstr "Ít mây, "
 
 #: omweather/src/hash.data:210
 msgid "Partly Cloudy, Snow"
-msgstr ""
+msgstr "Ít mây, có tuyết rơi"
 
 #: omweather/src/hash.data:211
 msgid "Partly Cloudy, T-Storm"
-msgstr ""
+msgstr "Ít Mây có sấm sét"
 
 #: omweather/src/hash.data:219
 msgid "Partly cloudy"
-msgstr ""
+msgstr "Ít mây, nắng nhẹ"
 
 #: omweather/src/hash.data:212
 msgid "Partly cloudy and light rain"
-msgstr ""
+msgstr "Ít mây, mưa vừa"
 
 #: omweather/src/hash.data:213
 msgid "Partly cloudy and light snow"
-msgstr ""
+msgstr "Ít mây, tuyết rơi vừa"
 
 #: omweather/src/hash.data:214
 msgid "Partly cloudy and light wet snow"
-msgstr ""
+msgstr "Ít mây, tuyết rơi, trời ẩm ướt"
 
 #: omweather/src/hash.data:215
 msgid "Partly cloudy and showers"
-msgstr ""
+msgstr "Ít mây, có mưa rào"
 
 #: omweather/src/hash.data:216
 msgid "Partly cloudy and snow showers"
-msgstr ""
+msgstr "Ít mây, có mưa tuyết"
 
 #: omweather/src/hash.data:217
 msgid "Partly cloudy and wet snow showers"
-msgstr ""
+msgstr "Ít mây, mưa tuyết ẩm ướt"
 
 #: omweather/src/hash.data:192 omweather/src/hash.data:218
 msgid "Partly cloudy, possible thunderstorms with rain"
@@ -1740,34 +1708,34 @@ msgstr ""
 
 #: omweather/src/weather-simple-settings.c:1676
 msgid "Period"
-msgstr ""
+msgstr "Thời gian"
 
 #: omweather/src/weather-settings.c:3649
 msgid "Position:"
-msgstr ""
+msgstr "Vị trí:"
 
 #: meecast/qt-qml/FullWeatherPage.qml:148
 #: meecast/qt-qml/FullWeatherPage.qml:193
 #: meecast/qt-qml/FullWeatherPage.qml:236
 msgid "Ppcp:"
-msgstr ""
+msgstr "Mây phủ:"
 
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836
 msgid "Preference|Update"
-msgstr ""
+msgstr "Sở thích|Cập nhật"
 
 #: omweather/src/weather-simple-settings.c:1460
 msgid "Pressure"
-msgstr ""
+msgstr "Áp suất"
 
 #: meecast/qt-qml/UnitsPage.qml:51 meecast/qt-qml/UnitsPage.qml:164
 msgid "Pressure units"
-msgstr ""
+msgstr "Đơn vị đo áp suất"
 
 #: omweather/src/weather-settings.c:4049
 msgid "Pressure units:"
-msgstr ""
+msgstr "Đơn vị đo áp suất:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
@@ -1775,15 +1743,15 @@ msgstr ""
 #: meecast/qt-qml/FullWeatherPage.qml:187
 #: meecast/qt-qml/FullWeatherPage.qml:230
 msgid "Pressure:"
-msgstr ""
+msgstr "Áp suất:"
 
 #: omweather/src/weather-home.c:1393 omweather/src/weather-home.c:1448
 msgid "Pressure: "
-msgstr ""
+msgstr "Áp suất:"
 
 #: meecast/qt-qml/AboutPage.qml:138
 msgid "Project administrator"
-msgstr ""
+msgstr "Admin của dự án:"
 
 #: meecast/qt-qml/AboutPage.qml:186
 msgid "Project manager"
@@ -1791,43 +1759,43 @@ msgstr ""
 
 #: meecast/qt-qml/AboutPage.qml:86
 msgid "Project website"
-msgstr ""
+msgstr "Trang web của dự án"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:922
 msgid "Provided by"
-msgstr ""
+msgstr "Cung cấp bởi"
 
 #: omweather/src/hash.data:240
 msgid "Rain"
-msgstr ""
+msgstr "Có mưa"
 
 #: omweather/src/hash.data:220
 msgid "Rain / Freezing Rain"
-msgstr ""
+msgstr "Có mưa kèm băng giá"
 
 #: omweather/src/hash.data:227
 msgid "Rain / Snow"
-msgstr ""
+msgstr "Có mưa nhẹ, tuyết rơi"
 
 #: omweather/src/hash.data:221
 msgid "Rain / Snow / Wind"
-msgstr ""
+msgstr "Mưa/ Tuyết/ Gió"
 
 #: omweather/src/hash.data:222
 msgid "Rain / Snow Early"
-msgstr ""
+msgstr "Mưa, có tuyết rơi sớm"
 
 #: omweather/src/hash.data:223
 msgid "Rain / Snow Late"
-msgstr ""
+msgstr "Có mưa, Tuyết rơi muộn"
 
 #: omweather/src/hash.data:226
 msgid "Rain / Snow Showers"
-msgstr ""
+msgstr "Có mưa và Mưa tuyết"
 
 #: omweather/src/hash.data:224
 msgid "Rain / Snow Showers / Wind"
-msgstr ""
+msgstr "Mưa/ Mưa tuyết/ Gió"
 
 #: omweather/src/hash.data:225
 msgid "Rain / Snow Showers Late"
@@ -2041,7 +2009,7 @@ msgstr "Cài đặt"
 
 #: meecast/qt-qml/VisualsPage.qml:514
 msgid "Settings of StandbyScreen"
-msgstr ""
+msgstr "Tùy chỉnh Màn hình chờ"
 
 #: omweather/src/hash.data:257
 msgid "Shallow Fog"
@@ -2053,217 +2021,217 @@ msgstr "Ngắn"
 
 #: omweather/src/weather-settings.c:3824
 msgid "Show arrows"
-msgstr ""
+msgstr "Xem kiểu mũi tên"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
-msgstr ""
+msgstr "Chỉ hiện thời tiết hiện tại trên icon ban đầu"
 
 #: omweather/src/weather-settings.c:3801
 msgid "Show station name"
-msgstr ""
+msgstr "Hiển thị tên trạm"
 
 #: omweather/src/weather-sensor.c:86
 msgid "Show temperature at:"
-msgstr ""
+msgstr "Xem nhiệt độ tại:"
 
 #: omweather/src/weather-settings.c:3795
 msgid "Show wind"
-msgstr ""
+msgstr "Xem gió"
 
 #: omweather/src/hash.data:263
 msgid "Showers"
-msgstr ""
+msgstr "Có mưa rào"
 
 #: omweather/src/hash.data:259
 msgid "Showers / Wind"
-msgstr ""
+msgstr "Mưa rào và gió"
 
 #: omweather/src/hash.data:258
 msgid "Showers / Wind Early"
-msgstr ""
+msgstr "Mưa rào và có gió sớm"
 
 #: omweather/src/hash.data:260
 msgid "Showers Early"
-msgstr ""
+msgstr "Mưa rào sớm"
 
 #: omweather/src/hash.data:261
 msgid "Showers Late"
-msgstr ""
+msgstr "Mưa rào muộn"
 
 #: omweather/src/hash.data:262
 msgid "Showers in the Vicinity"
-msgstr ""
+msgstr "Mưa ở vùng lân cận"
 
 #: omweather/src/hash.data:264
 msgid "Sleet"
-msgstr ""
+msgstr "Mưa đá"
 
 #: omweather/src/hash.data:265
 msgid "Smoke"
-msgstr ""
+msgstr "Nước bốc hơi"
 
 #: omweather/src/hash.data:276
 msgid "Snow"
-msgstr ""
+msgstr "Có tuyết rơi"
 
 #: omweather/src/hash.data:266
 msgid "Snow / Wind"
-msgstr ""
+msgstr "Có tuyết và gió"
 
 #: omweather/src/hash.data:268
 msgid "Snow Shower"
-msgstr ""
+msgstr "Có tuyết kèm mưa rào"
 
 #: omweather/src/hash.data:267
 msgid "Snow Shower / Wind"
-msgstr ""
+msgstr "Có gió, mưa rào, tuyết rơi"
 
 #: omweather/src/hash.data:269
 msgid "Snow Showers / Wind Early"
-msgstr ""
+msgstr "Có tuyết rơi, mưa rào kèm gió sớm"
 
 #: omweather/src/hash.data:270
 msgid "Snow Showers Early"
-msgstr ""
+msgstr "Có tuyết kèm mưa rào sớm"
 
 #: omweather/src/hash.data:271
 msgid "Snow Showers Late"
-msgstr ""
+msgstr "Có tuyết kèm mưa rào muộn"
 
 #: omweather/src/hash.data:272
 msgid "Snow and Freezing Rain"
-msgstr ""
+msgstr "Tuyết rơi và mưa băng giá"
 
 #: omweather/src/hash.data:273
 msgid "Snow to Rain"
-msgstr ""
+msgstr "Tuyết rơi sau đó mưa"
 
 #: omweather/src/hash.data:275
 msgid "Snow to Wintry Mix"
-msgstr ""
+msgstr "Tuyết rơi sau đó lạnh giá"
 
 #: omweather/src/hash.data:274
 msgid "Snow to Wintry Mix / Wind"
-msgstr ""
+msgstr "Tuyết rơi, lạnh giá, có gió"
 
 #: omweather/src/weather-simple-settings.c:2295
 msgid "Source"
-msgstr ""
+msgstr "Nguồn"
 
 #: omweather/src/weather-settings.c:498
 msgid "Source:"
-msgstr ""
+msgstr "Nguồn:"
 
 #: omweather/src/weather-popup.c:998 omweather/src/weather-popup.c:1004
 #: omweather/src/weather-popup.c:1011 omweather/src/weather-popup.c:1129
 #: omweather/src/weather-popup.c:1135 omweather/src/weather-popup.c:1142
 #: omweather/src/weather-simple-settings.c:1389
 msgid "Speed"
-msgstr ""
+msgstr "Tốc độ"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
 #: meecast/qt-qml/dataitem.cpp:171
 msgid "Speed:"
-msgstr ""
+msgstr "Tốc độ:"
 
 #: meecast/qt-qml/VisualsPage.qml:491
 msgid "Splash screen"
-msgstr ""
+msgstr "Hình khởi động"
 
 #: omweather/src/weather-settings.c:522
 msgid "State:"
-msgstr ""
+msgstr "Nước"
 
 #: omweather/src/weather-simple-settings.c:2512
 #, c-format
 msgid "Station %i"
-msgstr ""
+msgstr "Địa điểm %i"
 
 #: omweather/src/weather-settings.c:1114 omweather/src/weather-settings.c:1292
 #: omweather/src/weather-settings.c:1297
 msgid "Stations"
-msgstr ""
+msgstr "Địa điểm"
 
 #: omweather/src/hash.data:277 omweather/src/weather-alerts.c:154
 msgid "Storm"
-msgstr ""
+msgstr "Có sấm sét"
 
 #: omweather/src/weather-download.c:392
 msgid "Successfully loaded"
-msgstr ""
+msgstr "Hoàn tất tải về"
 
 #: omweather/src/hash.data:279
 msgid "Sunny"
-msgstr ""
+msgstr "Trời nắng"
 
 #: omweather/src/hash.data:278
 msgid "Sunny / Wind"
-msgstr ""
+msgstr "Trời nắng, có gió"
 
 #: omweather/src/hash.data:280 meecast/qt-qml/FullWeatherPage.qml:265
 msgid "Sunrise:"
-msgstr ""
+msgstr "Lúc bình minh:"
 
 #: omweather/src/weather-popup.c:125 omweather/src/weather-popup.c:1019
 msgid "Sunrise: "
-msgstr ""
+msgstr "Lúc bình minh:"
 
 #: omweather/src/hash.data:281 meecast/qt-qml/FullWeatherPage.qml:268
 msgid "Sunset:"
-msgstr ""
+msgstr "Lúc xế chiều:"
 
 #: omweather/src/weather-popup.c:139 omweather/src/weather-popup.c:1150
 msgid "Sunset: "
-msgstr ""
+msgstr "Lúc xế chiều:"
 
 #: omweather/src/weather-settings.c:3773
 msgid "Swap hi/low temperature"
-msgstr ""
+msgstr "Hoán đổi nhiệt độ Cao/thấp:"
 
 #: omweather/src/weather-settings.c:4180
 msgid "Switch to the next station after:"
-msgstr ""
+msgstr "Chuyển sang quốc gia tiếp theo:"
 
 #: omweather/src/hash.data:283
 msgid "T-Showers"
-msgstr ""
+msgstr "Mưa rào và có sấm"
 
 #: omweather/src/hash.data:282
 msgid "T-Showers Early"
-msgstr ""
+msgstr "Mưa rào và sấm sớm"
 
 #: omweather/src/hash.data:284
 msgid "T-Storm"
-msgstr ""
+msgstr "Mưa rào kèm sấm sét"
 
 #: omweather/src/hash.data:287
 msgid "T-Storms"
-msgstr ""
+msgstr "Mưa rào kèm sấm sét"
 
 #: omweather/src/hash.data:285
 msgid "T-Storms Early"
-msgstr ""
+msgstr "Trời mưa to, có sấm sét sớm"
 
 #: omweather/src/hash.data:286
 msgid "T-Storms Late"
-msgstr ""
+msgstr "Trời mưa to, có sấm sét muộn"
 
 #: omweather/src/weather-popup.c:947 omweather/src/weather-popup.c:950
 #: omweather/src/weather-popup.c:1080 omweather/src/weather-popup.c:1083
 #: omweather/src/weather-simple-settings.c:1267
 msgid "Temperature"
-msgstr ""
+msgstr "Nhiệt độ"
 
 #: omweather/src/hash.data:288 meecast/qt-qml/UnitsPage.qml:31
 #: meecast/qt-qml/UnitsPage.qml:91
 msgid "Temperature units"
-msgstr ""
+msgstr "Đơn vị đo nhiệt độ"
 
 #: omweather/src/weather-settings.c:3858
 msgid "Temperature units:"
-msgstr ""
+msgstr "Đơn vị đo nhiệt độ:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
 #: meecast/qt-qml/dataitem.cpp:165
@@ -2291,17 +2259,13 @@ msgid ""
 " Foundation; either version 2.1 of the \n"
 " License, or (at your option) any \n"
 " later version."
-msgstr ""
-"Phần mềm này là phần mềm miễn phí; bạn có thể⏎ phân phối và sửa chữa nó ở "
-"bên dưới ⏎ các thuật ngữ GNU General Public⏎ Giấy phép được xuất bản bởi "
-"Free Sofrware ⏎ Cơ sở hoặc phiên bản 2.1 thuộc về ⏎ giấy phép, hay (tại tùy "
-"chọn của bạn) một vài⏎ phiên bản muộn hơn."
+msgstr "Phần mềm này là phần mềm miễn phí; bạn có thể⏎ phân phối và sửa chữa nó ở bên dưới ⏎ các thuật ngữ GNU General Public⏎ Giấy phép được xuất bản bởi Free Sofrware ⏎ Cơ sở hoặc phiên bản 2.1 thuộc về ⏎ giấy phép, hay (tại tùy chọn của bạn) một vài⏎ phiên bản muộn hơn."
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:438
 msgid ""
 "This software is free software; you can redistribute it and/or modify it "
 "under the terms of the GNU General Public License\n"
-msgstr ""
+msgstr "Phần mềm này miễn phí. Do đó bạn có thể phát hành lại hoặc chỉnh sửa nó theo các điều khoản của GNU General Public License \\n"
 
 #: omweather/src/hash.data:289
 msgid "Thunder"
@@ -2309,7 +2273,7 @@ msgstr "Sấm"
 
 #: omweather/src/hash.data:290
 msgid "Thunder in the Vicinity"
-msgstr ""
+msgstr "Sấm sét vùng lân cận"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
@@ -2325,12 +2289,12 @@ msgstr "Người dịch"
 msgid ""
 "Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - "
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
-msgstr ""
+msgstr "Dịch: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh \\n"
 
 #: omweather/src/weather-settings.c:3272 omweather/src/weather-settings.c:3277
 #: omweather/src/weather-settings.c:3295
 msgid "Transparency:"
-msgstr ""
+msgstr "Độ trong suốt:"
 
 #: omweather/src/hash.data:291 meecast/qt-qml/WeatherPage.qml:501
 msgid "Try to update"
@@ -2395,7 +2359,7 @@ msgstr "Đang cập nhật thời tiết"
 msgid ""
 "Use Edit layout \n"
 "for tuning images of applet"
-msgstr ""
+msgstr "Dùng Tùy chỉnh giao hiện\nđể điều chinh hình của applet"
 
 #: omweather/src/weather-simple-settings.c:1835
 msgid ""
@@ -2472,7 +2436,7 @@ msgstr ""
 
 #: omweather/src/weather-simple-settings.c:846
 msgid "Warning"
-msgstr ""
+msgstr "Cảnh báo"
 
 #: omweather/src/hash.data:304
 msgid "Waxing Crescent"
@@ -2484,136 +2448,136 @@ msgstr ""
 
 #: omweather/src/weather-popup.c:1553
 msgid "Weather data provided by: "
-msgstr ""
+msgstr "Thông tin thời tiết từ:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:410
 msgid "Weather forecast for the Meego. Version "
-msgstr ""
+msgstr "Dự báo thời tiết cho Meego. Phiên bản"
 
 #: omweather/src/weather-utils.c:797
 msgid "Widget OMWeather is reloading"
-msgstr ""
+msgstr "Đang tải Widget OMWeather"
 
 #: meecast/qt-qml/VisualsPage.qml:437
 msgid "Widget in LockScreen"
-msgstr ""
+msgstr "Widget ở màn hình khóa"
 
 #: meecast/qt-qml/VisualsPage.qml:464
 msgid "Widget in StandbyScreen"
-msgstr ""
+msgstr "Widget ở màn hình nghỉ"
 
 #: meecast/qt-qml/VisualsPage.qml:411
 msgid "Widget in events view"
-msgstr ""
+msgstr "Xem widget ở mục sự kiện"
 
 #: omweather/src/weather-simple-settings.c:2914
 #: omweather/src/weather-simple-settings.c:2922
 msgid "Widget style"
-msgstr ""
+msgstr "Dạng widget"
 
 #: omweather/src/weather-simple-settings.c:393
 msgid "Widget style and Iconset"
-msgstr ""
+msgstr "Dạng widget và biểu tượng"
 
 #: omweather/src/hash.data:309
 msgid "Wind"
-msgstr ""
+msgstr "Gió"
 
 #: omweather/src/hash.data:306 meecast/qt-qml/FullWeatherPage.qml:139
 #: meecast/qt-qml/FullWeatherPage.qml:184
 #: meecast/qt-qml/FullWeatherPage.qml:227
 msgid "Wind direction:"
-msgstr ""
+msgstr "Hướng gió:"
 
 #: meecast/qt-qml/FullWeatherPage.qml:151
 #: meecast/qt-qml/FullWeatherPage.qml:196
 #: meecast/qt-qml/FullWeatherPage.qml:239
 msgid "Wind gust:"
-msgstr ""
+msgstr "Cơn gió mạnh:"
 
 #: omweather/src/hash.data:308 meecast/qt-qml/FullWeatherPage.qml:145
 #: meecast/qt-qml/FullWeatherPage.qml:190
 #: meecast/qt-qml/FullWeatherPage.qml:233
 msgid "Wind speed"
-msgstr ""
+msgstr "Tốc độ gió"
 
 #: omweather/src/hash.data:307 meecast/qt-qml/UnitsPage.qml:41
 #: meecast/qt-qml/UnitsPage.qml:130
 msgid "Wind speed units"
-msgstr ""
+msgstr "Đơn vị vận tốc gió"
 
 #: omweather/src/weather-settings.c:3974
 msgid "Wind speed units:"
-msgstr ""
+msgstr "Đơn vị vận tốc gió:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
 #: meecast/qt-qml/dataitem.cpp:169
 msgid "Wind:"
-msgstr ""
+msgstr "Gió:"
 
 #: omweather/src/weather-home.c:1409 omweather/src/weather-home.c:1464
 #: omweather/src/weather-popup.c:992 omweather/src/weather-popup.c:1123
 msgid "Wind: "
-msgstr ""
+msgstr "Gió:"
 
 #: omweather/src/hash.data:313
 msgid "Wintry Mix"
-msgstr ""
+msgstr "Lạnh giá"
 
 #: omweather/src/hash.data:311
 msgid "Wintry Mix / Wind"
-msgstr ""
+msgstr "Lạnh giá và có gió"
 
 #: omweather/src/hash.data:310
 msgid "Wintry Mix / Wind Early"
-msgstr ""
+msgstr "Lạnh giá kèm gió sớm"
 
 #: omweather/src/hash.data:312
 msgid "Wintry Mix to Snow"
-msgstr ""
+msgstr "Lạnh giá sau đó có tuyết rơi"
 
 #: omweather/src/weather-home.c:844
 msgid ""
 "Wrong station code \n"
 "or ZIP code!!!"
-msgstr ""
+msgstr "Sai mã vùng \\n hoặc mã Zip."
 
 #: omweather/src/weather-settings.c:824 meecast/qt-qml/StationsPage.qml:77
 msgid "Yes"
-msgstr ""
+msgstr "Có"
 
 #: omweather/src/weather-simple-popup.c:1233
 msgid "You can make donation here: "
-msgstr ""
+msgstr "Bạn có thể ủng hộ ở đây:"
 
 #: meecast/qt-qml/VisualsPage.qml:193
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using LockScreen widget"
-msgstr ""
+msgstr "Bạn cần kích hoạt \\n 'Xem widget ở sự kiện' \\n để sử dụng widget ở màn hình khóa"
 
 #: meecast/qt-qml/VisualsPage.qml:256
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using StandbyScreen widget"
-msgstr ""
+msgstr "Bạn cần kích hoạt \\n 'Xem widget ở sự kiện' \\n để sử dụng widget ở màn hình  chờ"
 
 #: meecast/qt-qml/UpdatePage.qml:73
 msgid ""
-"You should activate 'Widget in the events view' option in MeeCast appearance "
-"settings for auto update."
-msgstr ""
+"You should activate 'Widget in the events view' option in MeeCast appearance"
+" settings for auto update."
+msgstr "Bạn cần kích hoạt \\n 'Xem widget ở sự kiện' \\n trong lựa chọn của MeeCast để tự động cập nhật."
 
 #: omweather/src/weather-simple-settings.c:2758
 msgid "Zoom in popup window "
-msgstr ""
+msgstr "Phóng to ở cửa sổ thông báo"
 
 #: omweather/src/weather-simple-settings.c:1915
 msgid "Zooming in popup window"
-msgstr ""
+msgstr "Đang phóng to ở cửa sổ thông báo"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:439
 msgid ""
@@ -2623,7 +2587,7 @@ msgstr ""
 
 #: omweather/src/weather-popup.c:286
 msgid "current location local time"
-msgstr ""
+msgstr "Thời gian vị trí địa phương hiện tại"
 
 #: omweather/src/weather-simple-popup.c:432
 msgid "d:"
@@ -2631,43 +2595,43 @@ msgstr ""
 
 #: meecast/qt-qml/dataitem.cpp:404
 msgid "day ago"
-msgstr ""
+msgstr "ngày trước"
 
 #: meecast/qt-qml/dataitem.cpp:406
 msgid "days ago"
-msgstr ""
+msgstr "Ngày trước"
 
 #: omweather/src/weather-config.c:332
 msgid "every 2 hours"
-msgstr ""
+msgstr "Mỗi 2 giờ"
 
 #: omweather/src/weather-config.c:338
 msgid "every 24 hours"
-msgstr ""
+msgstr "Mỗi 24 giờ"
 
 #: omweather/src/weather-config.c:328
 msgid "every 30 minutes"
-msgstr ""
+msgstr "Mỗi 30 phút"
 
 #: omweather/src/weather-config.c:334
 msgid "every 4 hours"
-msgstr ""
+msgstr "Mỗi 4 giờ"
 
 #: omweather/src/weather-config.c:326
 msgid "every 5 minutes"
-msgstr ""
+msgstr "Mỗi 5 phút "
 
 #: omweather/src/weather-config.c:336
 msgid "every 8 hours"
-msgstr ""
+msgstr "8 Giờ"
 
 #: omweather/src/weather-config.c:330
 msgid "every hour"
-msgstr ""
+msgstr "Mỗi giờ"
 
 #: omweather/src/weather-config.c:340
 msgid "every minute (Debug)"
-msgstr ""
+msgstr "Mỗi phút (gỡ lỗi)"
 
 #: omweather/src/hash.data:314
 msgid "falling"
@@ -2675,15 +2639,15 @@ msgstr ""
 
 #: omweather/src/weather-simple-popup.c:1048
 msgid "feels like"
-msgstr ""
+msgstr "cảm giác như"
 
 #: meecast/qt-qml/dataitem.cpp:398
 msgid "hour ago"
-msgstr ""
+msgstr "Giờ trước"
 
 #: meecast/qt-qml/dataitem.cpp:401
 msgid "hours ago"
-msgstr ""
+msgstr "Giờ trước"
 
 #: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
 #: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
@@ -2764,11 +2728,11 @@ msgstr ""
 
 #: meecast/qt-qml/dataitem.cpp:392
 msgid "minute ago"
-msgstr ""
+msgstr "Phút trước"
 
 #: meecast/qt-qml/dataitem.cpp:395
 msgid "minutes ago"
-msgstr ""
+msgstr "Phút trước"
 
 #: omweather/src/weather-popup.c:961 omweather/src/weather-popup.c:1094
 #: omweather/src/weather-simple-settings.c:2727
@@ -2790,16 +2754,16 @@ msgstr ""
 
 #: omweather/src/weather-simple-settings.c:1688
 msgid "never"
-msgstr ""
+msgstr "Không bao giờ"
 
 #: omweather/src/weather-sensor.c:108
 msgid "new icon"
-msgstr ""
+msgstr "Biểu tượng mới"
 
 #: omweather/src/weather-simple-popup.c:257
 #: omweather/src/weather-simple-popup.c:260
 msgid "next"
-msgstr ""
+msgstr "Tiếp"
 
 #: omweather/src/weather-simple-settings.c:1354
 #: omweather/src/weather-simple-settings.c:2681
@@ -2812,19 +2776,19 @@ msgstr ""
 
 #: meecast/qt-qml/dataitem.cpp:389
 msgid "seconds ago"
-msgstr ""
+msgstr "giây trước"
 
 #: omweather/src/weather-popup.c:271
 msgid "station local time"
-msgstr ""
+msgstr "Thời gian của trạm địa phương"
 
 #: omweather/src/weather-sensor.c:92
 msgid "station name"
-msgstr ""
+msgstr "Tên quốc gia"
 
 #: omweather/src/hash.data:322
 msgid "steady"
-msgstr ""
+msgstr "Ổn định"
 
 #: omweather/src/hash.data:323
 msgid "В"

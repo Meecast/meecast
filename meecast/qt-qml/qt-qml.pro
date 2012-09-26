@@ -110,6 +110,7 @@ INSTALLS += desktop qml searchicon
 DATADIR=/opt/com.meecast.omweather/share
 
 TRANSLIST = bg_BG \
+            ca_CA \
             de_DE \
             en_GB \
             en_US \
@@ -155,6 +156,11 @@ transinstallbg.extra = cp po/locale/bg_BG/omweather.mo $(INSTALL_ROOT)$$DATADIR/
 transinstallbg.path = /opt/com.meecast.omweather/share/locale/bg/LC_MESSAGES
 transinstallbg.files = po/locale/bg_BG/omweather.mo
 INSTALLS += transinstallbg
+
+transinstallca.extra = cp po/locale/ca_CA/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/ca/LC_MESSAGES
+transinstallca.path = /opt/com.meecast.omweather/share/locale/ca/LC_MESSAGES
+transinstallca.files = po/locale/ca_CA/omweather.mo
+INSTALLS += transinstallca
 
 transinstallde.extra = cp po/locale/de_DE/omweather.mo  $(INSTALL_ROOT)$$DATADIR/locale/de/LC_MESSAGES
 transinstallde.path = /opt/com.meecast.omweather/share/locale/de/LC_MESSAGES

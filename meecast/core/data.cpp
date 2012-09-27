@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -109,7 +109,6 @@ namespace Core {
         delete _full_month_name;
         delete _day_of_month_name;
         delete _month_name;
-        delete _map_pattern;
         tmp_time_date_struct = gmtime(&start_time);
         strftime(buffer, sizeof(buffer), "%a", tmp_time_date_struct);
         _short_day_name = new std::string(buffer);
@@ -308,7 +307,8 @@ namespace Core {
        delete _full_day_name;
        delete _full_month_name;
        delete _day_of_month_name;
-        delete _month_name;
+       delete _month_name;
+       delete _map_pattern;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Temperature& Data::temperature_hi(){

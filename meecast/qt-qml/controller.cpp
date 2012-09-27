@@ -214,7 +214,7 @@ Controller::load_data()
           if (i == 0)
             forecast_data->MapPattern(mapfilename);
           else
-            forecast_data->MapPattern("");
+            forecast_data->MapPattern(std::string(""));
           _model->appendRow(forecast_data);
       }
       i = i + 3600*24;

@@ -89,6 +89,7 @@ Controller::load_data()
   
  /*  std::cerr<<" Controller::load_data()"<<std::endl; */
 
+  std::string mapfilename(Core::AbstractConfig::getCachePath());
   _dp->DeleteInstance(); 
          
   if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0 &&
@@ -106,15 +107,14 @@ Controller::load_data()
                 _dp = Core::DataParser::Instance();
            //     return;
             }
+            mapfilename += _config->stationsList().at(_config->current_station_id())->sourceName().c_str();
+            mapfilename += "_";
+            mapfilename += _config->stationsList().at(_config->current_station_id())->id().c_str();
+            mapfilename += "_map_";
+            mapfilename += "%s.png";
   }
 
-
-  std::string mapfilename(Core::AbstractConfig::getCachePath());
-  mapfilename += _config->stationsList().at(_config->current_station_id())->sourceName().c_str();
-  mapfilename += "_";
-  mapfilename += _config->stationsList().at(_config->current_station_id())->id().c_str();
-  mapfilename += "_map_";
-  mapfilename += "%s.png";
+ 
     
   _model = new DataModel(new DataItem, qApp);
   _current = new DataModel(new DataItem, qApp);

@@ -90,9 +90,11 @@ Station::Station(const std::string& source_name, const std::string& id,
         char view_url[4096];
         snprintf(view_url, sizeof(view_url)-1, url_for_view.c_str(), id.c_str());
         char map_url[4096];
-        if (url_for_map != "") 
+        memset(map_url, 0, sizeof(map_url));
+        if (url_for_map.length() > 0) {
             snprintf(map_url, sizeof(map_url)-1, url_for_map.c_str(), _latitude, _longitude);
-        fprintf(stderr,"map_url: %s\n", map_url);
+            fprintf(stderr,"map_url: %s\n", map_url);
+        }
 
         std::string filename(Core::AbstractConfig::getConfigPath());
         filename += source_name;

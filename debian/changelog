@@ -1,8 +1,9 @@
 meecast (0.6.4) unstable; urgency=low
 
   * Fixed segmentation fault  
+  * Fixed problem with detail URL and map URL
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 27 Sep 2012 14:42:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 28 Sep 2012 09:41:23 +0200
 
 meecast (0.6.3) unstable; urgency=low
 

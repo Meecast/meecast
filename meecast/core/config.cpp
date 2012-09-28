@@ -239,6 +239,7 @@ Config::saveConfig()
             }
         }
 
+        el = doc.createElement("detail_url");
         t = doc.createTextNode(QString::fromStdString((*i)->detailURL()));
         el.appendChild(t);
         st.appendChild(el);

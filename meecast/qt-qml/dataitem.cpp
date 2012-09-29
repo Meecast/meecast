@@ -342,6 +342,8 @@ DataItem::current()
 QString
 DataItem::description()
 {
+    if (DataItem::Data::Text() == "")
+        return QString(""); 
     return QString(QString::fromUtf8(_(DataItem::Data::Text().c_str())));
 }
 QString

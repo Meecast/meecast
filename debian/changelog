@@ -1,6 +1,6 @@
 meecast (0.6.5) unstable; urgency=low
 
-  * Nothing 
+  * Fixed problem with nil description 
 
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 28 Sep 2012 09:41:23 +0200
 

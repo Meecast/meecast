@@ -133,7 +133,9 @@ Controller::load_data()
   /* fill current day */
   if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))) {
       forecast_data = new DataItem(temp_data);
-      forecast_data->Text(_(forecast_data->Text().c_str()));
+
+      if (forecast_data->Text() != "")
+        forecast_data->Text(_(forecast_data->Text().c_str()));
 
       forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 14 * 3600));
       forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 14 * 3600));
@@ -178,7 +180,10 @@ Controller::load_data()
   /* fill current night */
   if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(current_day + 3 * 3600))) {
       forecast_data = new DataItem(temp_data);
-      forecast_data->Text(_(forecast_data->Text().c_str()));
+
+      if (forecast_data->Text() != "")
+        forecast_data->Text(_(forecast_data->Text().c_str()));
+
       forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 3 * 3600));
       forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 3 * 3600));
       forecast_data->LastUpdate(_dp->LastUpdate());
@@ -204,7 +209,10 @@ Controller::load_data()
       // fprintf(stderr,"Controller1 %i\n", current_day + 14 * 3600 + i);
       if (temp_data){
           forecast_data = new DataItem(temp_data);
-          forecast_data->Text(_(forecast_data->Text().c_str()));
+
+          if (forecast_data->Text() != "")
+            forecast_data->Text(_(forecast_data->Text().c_str()));
+
           forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 14 * 3600  + i));
           forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 14 * 3600  + i));
           forecast_data->LastUpdate(_dp->LastUpdate());
@@ -226,7 +234,10 @@ Controller::load_data()
   while  (_dp != NULL && ((temp_data = _dp->data().GetDataForTime( current_day + 3 * 3600  + i)) || (i < 7*3600*24))) {
       if (temp_data){
           forecast_data = new DataItem(temp_data);
-          forecast_data->Text(_(forecast_data->Text().c_str()));
+
+          if (forecast_data->Text() != "")
+            forecast_data->Text(_(forecast_data->Text().c_str()));
+
           forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 3 * 3600  + i));
           forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 3 * 3600  + i));
           forecast_data->LastUpdate(_dp->LastUpdate());
@@ -254,7 +265,8 @@ Controller::load_data()
     if (temp_data = _dp->data().GetDataForTime(current_hour + i, true)){
         if (temp_data->StartTime() + 60 == current_hour + i){
             forecast_data = new DataItem(temp_data);
-            forecast_data->Text(_(forecast_data->Text().c_str()));
+            if (forecast_data->Text() != "")
+                forecast_data->Text(_(forecast_data->Text().c_str()));
             forecast_data->temperatureunit = _config->temperatureunit();
             forecast_data->windunit = _config->windspeedunit();
             forecast_data->pressureunit = _config->pressureunit();

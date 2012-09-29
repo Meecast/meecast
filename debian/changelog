@@ -1,6 +1,7 @@
 meecast (0.6.5) unstable; urgency=low
 
   * Fixed problem with nil description 
+  * Returned station Brisbane (Qld) in the bom.gov.au source
 
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 28 Sep 2012 09:41:23 +0200
 

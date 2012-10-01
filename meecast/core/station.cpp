@@ -120,6 +120,8 @@ Station::Station(const std::string& source_name, const std::string& id,
                _detailURL = new std::string("http://www.bom.gov.au/qld/observations/qldall.shtml");     
            if (_name->find("Perth") == 0)
                _detailURL = new std::string("http://www.bom.gov.au/wa/observations/waall.shtml");     
+           if (_name->find("Broome") == 0)
+               _detailURL = new std::string("http://www.bom.gov.au/wa/observations/waall.shtml");     
 
 
            //http://www.bom.gov.au/vic/observations/vicall.shtml

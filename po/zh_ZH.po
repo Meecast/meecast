@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 #   <micmhk@gmail.com>, 2012.
 msgid ""
@@ -9,15 +9,14 @@ msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-10 14:23+0300\n"
-"PO-Revision-Date: 2012-07-16 13:13+0000\n"
+"PO-Revision-Date: 2012-09-26 22:20+0000\n"
 "Last-Translator: michaelmhk <micmhk@gmail.com>\n"
-"Language-Team: Chinese (http://www.transifex.com/projects/p/meecast/language/"
-"zh/)\n"
-"Language: zh\n"
+"Language-Team: Chinese (http://www.transifex.com/projects/p/meecast/language/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Language: zh\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
@@ -43,16 +42,14 @@ msgid ""
 "Andrew Olmsted\n"
 "for Semi-transparency\n"
 "and coloured backgrounds\n"
-msgstr ""
+msgstr "\nHildon desktop applet\nfor the Nokia N800/N810/N900\nto show weather forecasts.\nVersion %s Build: %s\nCopyright(c) 2006-2011\nVlad Vasiliev, Pavel Fialko\nCopyright(c) 2008\nfor default icon set (Glance)\nand design of interface\nAndrew Zhilin\nCopyright(c) 2008\nAndrew Olmsted\nfor Semi-transparency\nand coloured backgrounds\n"
 
 #: omweather/src/weather-home.c:1383 omweather/src/weather-home.c:1439
 #: omweather/src/weather-popup.c:965 omweather/src/weather-popup.c:1098
 msgid ""
 "\n"
 "Humidity: "
-msgstr ""
-"\n"
-"濕度:"
+msgstr "\n濕度:"
 
 #: omweather/src/weather-home.c:1608
 msgid ""
@@ -65,17 +62,13 @@ msgstr ""
 msgid ""
 "\n"
 "Precipitation: "
-msgstr ""
-"\n"
-"降雨/降雪量: "
+msgstr "\n降雨/降雪量: "
 
 #: omweather/src/weather-popup.c:976 omweather/src/weather-popup.c:1108
 msgid ""
 "\n"
 "Pressure: "
-msgstr ""
-"\n"
-"氣壓: "
+msgstr "\n氣壓: "
 
 #: omweather/src/weather-home.c:1577
 msgid ""
@@ -114,9 +107,8 @@ msgid "10 seconds"
 msgstr "10 秒"
 
 #: meecast/qt-qml/UpdatePage.qml:175
-#, fuzzy
 msgid "12 hours"
-msgstr "2 小時"
+msgstr ""
 
 #: omweather/src/weather-sensor.c:151 meecast/qt-qml/UpdatePage.qml:140
 msgid "15 minutes"
@@ -596,8 +588,8 @@ msgstr "刪除地點?"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
-"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
-"zhilin@ovi.com>\n"
+"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, "
+"<andrew.zhilin@ovi.com>\n"
 msgstr ""
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
@@ -918,7 +910,7 @@ msgstr ""
 
 #: meecast/qt-qml/VisualsPage.qml:369
 msgid "Fullscreen mode"
-msgstr ""
+msgstr "全螢幕模式"
 
 #: omweather/src/weather-home.c:1641
 msgid "G: "
@@ -1005,11 +997,11 @@ msgstr ""
 
 #: omweather/src/hash.data:93 meecast/qt-qml/VisualsPage.qml:391
 msgid "Iconset"
-msgstr ""
+msgstr "圖示集"
 
 #: omweather/src/hash.data:94
 msgid "Iconsets"
-msgstr ""
+msgstr "圖示集"
 
 #: meecast/qt-qml/VisualsPage.qml:64 meecast/qt-qml/VisualsPage.qml:136
 #: meecast/qt-qml/VisualsPage.qml:163 meecast/qt-qml/VisualsPage.qml:226
@@ -1175,8 +1167,8 @@ msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
-"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
-"com>\n"
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
+"<tanyshk@gmail.com>\n"
 msgstr ""
 
 #: omweather/src/hash.data:122 meecast/qt-qml/StationsPage.qml:153
@@ -1758,9 +1750,8 @@ msgid "Project administrator"
 msgstr "Project administrator"
 
 #: meecast/qt-qml/AboutPage.qml:186
-#, fuzzy
 msgid "Project manager"
-msgstr "Project administrator"
+msgstr ""
 
 #: meecast/qt-qml/AboutPage.qml:86
 msgid "Project website"
@@ -1848,7 +1839,7 @@ msgstr ""
 
 #: omweather/src/hash.data:239
 msgid "Rain to Wintry Mix"
-msgstr "Ю-З"
+msgstr ""
 
 #: omweather/src/hash.data:238
 msgid "Rain to Wintry Mix / Wind"
@@ -1967,7 +1958,7 @@ msgstr ""
 
 #: meecast/qt-qml/IconsetPage.qml:97
 msgid "Select the iconset"
-msgstr ""
+msgstr "選擇圖示集"
 
 #: meecast/qt-qml/SourcePage.qml:108
 msgid "Select the weather source"
@@ -2572,8 +2563,8 @@ msgstr ""
 
 #: meecast/qt-qml/UpdatePage.qml:73
 msgid ""
-"You should activate 'Widget in the events view' option in MeeCast appearance "
-"settings for auto update."
+"You should activate 'Widget in the events view' option in MeeCast appearance"
+" settings for auto update."
 msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2758
@@ -2648,11 +2639,11 @@ msgstr ""
 
 #: meecast/qt-qml/dataitem.cpp:398
 msgid "hour ago"
-msgstr "1小時前"
+msgstr "小時前"
 
 #: meecast/qt-qml/dataitem.cpp:401
 msgid "hours ago"
-msgstr "數小時前"
+msgstr "小時前"
 
 #: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
 #: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
@@ -2733,7 +2724,7 @@ msgstr "mi/s"
 
 #: meecast/qt-qml/dataitem.cpp:392
 msgid "minute ago"
-msgstr "1分鐘前"
+msgstr "分鐘前"
 
 #: meecast/qt-qml/dataitem.cpp:395
 msgid "minutes ago"
@@ -2781,11 +2772,11 @@ msgstr ""
 
 #: meecast/qt-qml/dataitem.cpp:389
 msgid "seconds ago"
-msgstr "數秒前"
+msgstr "秒前"
 
 #: omweather/src/weather-popup.c:271
 msgid "station local time"
-msgstr "天氣站當地時間"
+msgstr "當地天氣站時間"
 
 #: omweather/src/weather-sensor.c:92
 msgid "station name"

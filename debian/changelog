@@ -6,6 +6,7 @@ meecast (0.6.5) unstable; urgency=low
   * Moved station Broome to region Western Australia in bom.gov.au
   * Removed first Sydney from bom.gov.au
   * Fixed problem with coordinaties of Italy stations in source weather.com 
+  * Updated Albanian translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 28 Sep 2012 09:41:23 +0200
 

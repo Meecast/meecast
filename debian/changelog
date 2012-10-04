@@ -8,6 +8,7 @@ meecast (0.6.5) unstable; urgency=low
   * Fixed problem with coordinaties of Italy stations in source weather.com 
   * Updated Albanian, Catalan, Vietnamese, Chinese, Dutch translations
   * Disabled debug information for applet
+  * Added station Kouvola(Finland) to source weather.com
 
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 28 Sep 2012 09:41:23 +0200
 

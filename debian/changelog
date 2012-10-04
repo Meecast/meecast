@@ -7,6 +7,7 @@ meecast (0.6.5) unstable; urgency=low
   * Removed first Sydney from bom.gov.au
   * Fixed problem with coordinaties of Italy stations in source weather.com 
   * Updated Albanian, Catalan, Vietnamese, Chinese translations
+  * Disabled debug information for applet
 
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 28 Sep 2012 09:41:23 +0200
 

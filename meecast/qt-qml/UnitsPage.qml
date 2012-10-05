@@ -99,7 +99,7 @@ Page {
                     horizontalAlignment: Text.AlignLeft
                 }
                 Button {
-                    text: Config.tr("Celcius")
+                    text: Config.tr("Celsius")
                     checked: (Config.temperatureunit == 'C')
 
                     onClicked: {

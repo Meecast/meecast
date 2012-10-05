@@ -11,16 +11,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-05 14:16+0300\n"
-"PO-Revision-Date: 2012-04-26 15:48+0000\n"
+"POT-Creation-Date: 2012-10-04 12:49+0300\n"
+"PO-Revision-Date: 2012-09-08 06:09+0000\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
-"Language-Team: Finnish (Finland) (http://www.transifex.net/projects/p/"
+"Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
 "meecast/language/fi_FI/)\n"
 "Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
@@ -123,7 +123,7 @@ msgstr "1 päivä"
 #: omweather/src/weather-settings.c:4240
 #: omweather/src/weather-simple-settings.c:1696
 #: omweather/src/weather-simple-settings.c:2805
-#: meecast/qt-qml/UpdatePage.qml:147
+#: meecast/qt-qml/UpdatePage.qml:154
 msgid "1 hour"
 msgstr "1 tunti"
 
@@ -139,11 +139,15 @@ msgstr "10 minuuttia"
 msgid "10 seconds"
 msgstr "10 sekuntia"
 
-#: omweather/src/weather-sensor.c:151
+#: meecast/qt-qml/UpdatePage.qml:175
+msgid "12 hours"
+msgstr "12 tuntia"
+
+#: omweather/src/weather-sensor.c:151 meecast/qt-qml/UpdatePage.qml:140
 msgid "15 minutes"
 msgstr "15 minuuttia"
 
-#: omweather/src/weather-settings.c:4242 meecast/qt-qml/UpdatePage.qml:154
+#: omweather/src/weather-settings.c:4242 meecast/qt-qml/UpdatePage.qml:161
 msgid "2 hours"
 msgstr "2 tuntia"
 
@@ -155,7 +159,7 @@ msgstr "20 sekuntia"
 msgid "3 minutes"
 msgstr "3 minuuttia"
 
-#: omweather/src/weather-sensor.c:153 meecast/qt-qml/UpdatePage.qml:140
+#: omweather/src/weather-sensor.c:153 meecast/qt-qml/UpdatePage.qml:147
 msgid "30 minutes"
 msgstr "30 minuuttia"
 
@@ -166,7 +170,7 @@ msgstr "30 sekuntia"
 #: omweather/src/weather-settings.c:4244
 #: omweather/src/weather-simple-settings.c:1705
 #: omweather/src/weather-simple-settings.c:2808
-#: meecast/qt-qml/UpdatePage.qml:161
+#: meecast/qt-qml/UpdatePage.qml:168
 msgid "4 hours"
 msgstr "4 tuntia"
 
@@ -333,11 +337,11 @@ msgstr "Tapahtui tuntematon virhe."
 msgid "Animation"
 msgstr "Animaatio"
 
-#: meecast/qt-qml/VisualsPage.qml:501
+#: meecast/qt-qml/VisualsPage.qml:546
 msgid "Appearance"
 msgstr "Ulkoasu"
 
-#: meecast/qt-qml/VisualsPage.qml:93
+#: meecast/qt-qml/VisualsPage.qml:94
 msgid ""
 "Application manager will now start\n"
 "for installing package 'MeeCast applet'.\n"
@@ -416,7 +420,7 @@ msgstr "С\n"
 msgid "CALM"
 msgstr "Tyyntä"
 
-#: meecast/qt-qml/VisualsPage.qml:107
+#: meecast/qt-qml/VisualsPage.qml:108
 msgid "Cancel"
 msgstr "Peruuta"
 
@@ -425,9 +429,13 @@ msgstr "Peruuta"
 msgid "Cannot get path to the HOME directory. Quitting.\n"
 msgstr "Kotihakemiston polkua ei löydy. Lopetetaan.\n"
 
-#: omweather/src/weather-settings.c:3864 meecast/qt-qml/UnitsPage.qml:102
+#: omweather/src/weather-settings.c:3864
 msgid "Celcius"
 msgstr "Celsius"
+
+#: meecast/qt-qml/UnitsPage.qml:102
+msgid "Celsius"
+msgstr ""
 
 #: omweather/src/weather-simple-settings.c:677
 #: omweather/src/weather-simple-settings.c:710
@@ -610,8 +618,12 @@ msgstr "Maa:"
 msgid "Custom"
 msgstr "Oma asettelu"
 
+#: meecast/qt-qml/UpdatePage.qml:183
+msgid "Daily"
+msgstr "Päivittäin"
+
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
-#: meecast/qt-qml/FullWeatherPage.qml:175
+#: meecast/qt-qml/FullWeatherPage.qml:182
 msgid "Day"
 msgstr "Päivällä"
 
@@ -619,7 +631,7 @@ msgstr "Päivällä"
 msgid "Day length"
 msgstr "Päivän pituus"
 
-#: omweather/src/hash.data:58 meecast/qt-qml/FullWeatherPage.qml:271
+#: omweather/src/hash.data:58 meecast/qt-qml/FullWeatherPage.qml:290
 msgid "Day length:"
 msgstr "Päivän pituus:"
 
@@ -852,21 +864,20 @@ msgid "Find location via GPS"
 msgstr "Etsi sijainti automaattisesti"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:428
-#, fuzzy
 msgid ""
 "Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
 "Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
 msgstr ""
 "Suomi - Marko Vertainen; Saksa - Claudius Henrichs; Espanja - Alejandro "
-"Lopez; Slovakia - Roman Moravčík\n"
+"Lopez; Hollanti - Tom Leenders; Slovakia - Roman Moravčík\n"
 
 #: omweather/src/hash.data:79
 msgid "First Quarter"
 msgstr "Ensimmäinen neljännes"
 
-#: meecast/qt-qml/FullWeatherPage.qml:154
-#: meecast/qt-qml/FullWeatherPage.qml:199
-#: meecast/qt-qml/FullWeatherPage.qml:242
+#: meecast/qt-qml/FullWeatherPage.qml:155
+#: meecast/qt-qml/FullWeatherPage.qml:206
+#: meecast/qt-qml/FullWeatherPage.qml:255
 msgid "Flike:"
 msgstr "Tuntuu:"
 
@@ -898,7 +909,7 @@ msgstr "Kirjasimen väri:"
 msgid "Font:"
 msgstr "Fontti:"
 
-#: meecast/qt-qml/VisualsPage.qml:291
+#: meecast/qt-qml/VisualsPage.qml:292
 msgid ""
 "For disabling MeeCast widget,\n"
 "you should uninstall package\n"
@@ -946,22 +957,36 @@ msgid ""
 " Dutch - Tom Leenders, Michiel Pater\n"
 " Bulgarian - Zlatko Enikov\n"
 " Albanian - Ilir Gjika\n"
+" Chinese - Wong Man Kong, Michael\n"
+" Portuguese - Jose Narciso,\n"
+" Turkish - Burak Kaan Kose,\n"
+" Catalan - Agustí Clara,\n"
+" Vietnamese - Hieu Nguyen, Anh Dương and truongnx, \n"
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
-" Ranska - Nicolas Granziano, \n"
-" \tPhilippe, Benot Knech\n"
+"Ranska -  Nicolas Granziano, \n"
+" \tPhilippe, Benot Knecht \n"
 " Venäjä - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
 " Suomi - Marko Vertainen\n"
-" Saksa - Claudius Henrichs\n"
+" Saksa -  Claudius Henrichs\n"
 " Italia - Pavel Fialko, Alessandro Pasotti,\n"
-" \tSalvatore Fiorenzo, Luca Onnis\n"
+" \tSalvatore Fiorenzo, Ilir Gjika,\n"
+" \tLuca Onnis\n"
 " Espanja - Alejandro Lopez\n"
 " Puola - Tomasz Dominikowski\n"
-" Slovakia - Roman Moravčík \n"
-" Ruotsi - Angela Nennebrandt, Tomislav Veleckovik"
+" Slovakia - Roman Moravčík\n"
+" Hollanti - Tom Leenders, Michiel Pater\n"
+" Bulgaria - Zlatko Enikov\n"
+" Albania - Ilir Gjika\n"
+" Kiina - Wong Man Kong, Michael\n"
+" Portugali - Jose Narciso,\n"
+" Turkki - Burak Kaan Kose,\n"
+" Ruotsi - Angela Nennebrandt,\n"
+" \tNiklas Åkerström, \n"
+" \tTomislav Veleckovik"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -993,7 +1018,7 @@ msgstr "Täysikuu"
 msgid "Full forecast"
 msgstr "Täysi ennuste"
 
-#: meecast/qt-qml/VisualsPage.qml:368
+#: meecast/qt-qml/VisualsPage.qml:369
 msgid "Fullscreen mode"
 msgstr "Koko näytön tila"
 
@@ -1057,15 +1082,15 @@ msgstr "Kova lumisade"
 msgid "High"
 msgstr "Korkea"
 
-#: meecast/qt-qml/FullWeatherPage.qml:253
+#: meecast/qt-qml/FullWeatherPage.qml:272
 msgid "Hours"
 msgstr "Tunteja"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:167 meecast/qt-qml/FullWeatherPage.qml:136
-#: meecast/qt-qml/FullWeatherPage.qml:181
-#: meecast/qt-qml/FullWeatherPage.qml:224
+#: meecast/qt-qml/dataitem.cpp:173 meecast/qt-qml/FullWeatherPage.qml:137
+#: meecast/qt-qml/FullWeatherPage.qml:188
+#: meecast/qt-qml/FullWeatherPage.qml:237
 msgid "Humidity:"
 msgstr "Ilmankosteus: "
 
@@ -1077,11 +1102,11 @@ msgstr "Kuvakkeet:"
 msgid "Icon size:"
 msgstr "Kuvakkeen koko:"
 
-#: meecast/qt-qml/VisualsPage.qml:43 meecast/qt-qml/UpdatePage.qml:42
+#: meecast/qt-qml/VisualsPage.qml:44 meecast/qt-qml/UpdatePage.qml:42
 msgid "Icons"
 msgstr "Kuvakkeet"
 
-#: omweather/src/hash.data:93 meecast/qt-qml/VisualsPage.qml:390
+#: omweather/src/hash.data:93 meecast/qt-qml/VisualsPage.qml:391
 msgid "Iconset"
 msgstr "Kuvakkeet"
 
@@ -1089,8 +1114,8 @@ msgstr "Kuvakkeet"
 msgid "Iconsets"
 msgstr "Kuvakkeet"
 
-#: meecast/qt-qml/VisualsPage.qml:63 meecast/qt-qml/VisualsPage.qml:135
-#: meecast/qt-qml/VisualsPage.qml:162 meecast/qt-qml/VisualsPage.qml:225
+#: meecast/qt-qml/VisualsPage.qml:64 meecast/qt-qml/VisualsPage.qml:136
+#: meecast/qt-qml/VisualsPage.qml:163 meecast/qt-qml/VisualsPage.qml:226
 msgid "Information"
 msgstr "Tiedot"
 
@@ -1103,13 +1128,12 @@ msgid "Isolated T-Storms / Wind"
 msgstr "Ukkoskuuroja / Tuulista"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:429
-#, fuzzy
 msgid ""
 "Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
 "Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov"
 msgstr ""
 "Italia - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
-"Puola - Tomasz Dominikowski;"
+"Puola - Tomasz Dominikowski; Bulgaria - Zlatko Enikov"
 
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
@@ -1127,7 +1151,7 @@ msgstr "Viimeisin päivitys palvelimella: "
 msgid "Last update from server: "
 msgstr "Viimeisin päivitys palvelimelta: "
 
-#: omweather/src/hash.data:98 meecast/qt-qml/FullWeatherPage.qml:274
+#: omweather/src/hash.data:98 meecast/qt-qml/FullWeatherPage.qml:293
 msgid "Last update:"
 msgstr "Viimeisin päivitys:"
 
@@ -1154,7 +1178,7 @@ msgstr "Pääsuunnittelija"
 msgid "Lead programmers"
 msgstr "Pääohjelmoijat"
 
-#: meecast/qt-qml/AboutPage.qml:236
+#: meecast/qt-qml/AboutPage.qml:241
 msgid "License"
 msgstr "Lisenssi"
 
@@ -1246,7 +1270,7 @@ msgstr "Paikallinen siitepöly raportti"
 msgid "Long"
 msgstr "Pitkä"
 
-#: omweather/src/hash.data:120 meecast/qt-qml/WeatherPage.qml:486
+#: omweather/src/hash.data:120 meecast/qt-qml/WeatherPage.qml:487
 msgid "Looks like there's no info for this location."
 msgstr "Tälle sijainnille ei näytä olevan säätietoja."
 
@@ -1274,7 +1298,7 @@ msgstr "Manuaalinen"
 msgid "Measurement units"
 msgstr "Mittayksiköt"
 
-#: meecast/qt-qml/WeatherPage.qml:291
+#: meecast/qt-qml/WeatherPage.qml:292
 msgid "MeeCast"
 msgstr "MeeCast"
 
@@ -1492,7 +1516,7 @@ msgid "Next update:"
 msgstr "Seuraava päivitys:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:588
-#: meecast/qt-qml/FullWeatherPage.qml:210
+#: meecast/qt-qml/FullWeatherPage.qml:223
 msgid "Night"
 msgstr "Yöllä"
 
@@ -1508,7 +1532,7 @@ msgstr "Ei"
 msgid "No current weather data."
 msgstr "Ei tämän hetkistä säätietoa."
 
-#: omweather/src/hash.data:165 meecast/qt-qml/WeatherPage.qml:312
+#: omweather/src/hash.data:165 meecast/qt-qml/WeatherPage.qml:313
 msgid "No locations are set up yet."
 msgstr "Sijainteja ei ole vielä asetettu."
 
@@ -1526,8 +1550,8 @@ msgstr "Ei säätietoja tälle asemalle."
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:175 meecast/qt-qml/FullWeatherPage.qml:130
-#: meecast/qt-qml/WeatherPage.qml:540
+#: meecast/qt-qml/dataitem.cpp:181 meecast/qt-qml/FullWeatherPage.qml:131
+#: meecast/qt-qml/WeatherPage.qml:541
 msgid "Now"
 msgstr "Nyt"
 
@@ -1553,7 +1577,7 @@ msgid "Now: "
 msgstr "Nyt: "
 
 #: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1223
-#: meecast/qt-qml/VisualsPage.qml:114
+#: meecast/qt-qml/VisualsPage.qml:115
 msgid "OK"
 msgstr "OK"
 
@@ -1570,8 +1594,8 @@ msgstr "OMWeather asetukset"
 msgid "OMWeather settings"
 msgstr "OMWeather asetukset"
 
-#: meecast/qt-qml/VisualsPage.qml:205 meecast/qt-qml/VisualsPage.qml:268
-#: meecast/qt-qml/VisualsPage.qml:304
+#: meecast/qt-qml/VisualsPage.qml:206 meecast/qt-qml/VisualsPage.qml:269
+#: meecast/qt-qml/VisualsPage.qml:305
 msgid "Ok"
 msgstr "Ok"
 
@@ -1596,9 +1620,8 @@ msgid "Overcast and light wet snow"
 msgstr "Pilvistä ja kevyttä räntäsadetta"
 
 #: omweather/src/hash.data:169
-#, fuzzy
 msgid "Overcast and rain"
-msgstr "Pilvistä ja kevyttä vesisadetta"
+msgstr "Pilvistä ja sadetta"
 
 #: omweather/src/hash.data:170
 msgid "Overcast and showers"
@@ -1621,9 +1644,8 @@ msgid "Overcast and wet snow showers"
 msgstr "Pilvistä ja räntäsadetta"
 
 #: omweather/src/hash.data:175
-#, fuzzy
 msgid "Overcast, thunderstorms with rain"
-msgstr "Pilvistä ja kevyttä vesisadetta"
+msgstr "Pilvistä, ukkosta ja vesisadetta"
 
 #: omweather/src/hash.data:177
 msgid "PM Fog"
@@ -1794,9 +1816,8 @@ msgid "Partly cloudy and wet snow showers"
 msgstr "Puolipilvistä ja räntäsadetta"
 
 #: omweather/src/hash.data:192 omweather/src/hash.data:218
-#, fuzzy
 msgid "Partly cloudy, possible thunderstorms with rain"
-msgstr "Puolipilvistä ja kevyttä vesisadetta"
+msgstr "Puolipilvistä, mahdollisesti ukkosta ja sadetta"
 
 #: omweather/src/weather-simple-settings.c:1676
 msgid "Period"
@@ -1806,9 +1827,9 @@ msgstr "Jakso"
 msgid "Position:"
 msgstr "Sijainti:"
 
-#: meecast/qt-qml/FullWeatherPage.qml:148
-#: meecast/qt-qml/FullWeatherPage.qml:193
-#: meecast/qt-qml/FullWeatherPage.qml:236
+#: meecast/qt-qml/FullWeatherPage.qml:149
+#: meecast/qt-qml/FullWeatherPage.qml:200
+#: meecast/qt-qml/FullWeatherPage.qml:249
 msgid "Ppcp:"
 msgstr "Sateen todennäköisyys:"
 
@@ -1831,9 +1852,9 @@ msgstr "Paineen yksiköt:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:173 meecast/qt-qml/FullWeatherPage.qml:142
-#: meecast/qt-qml/FullWeatherPage.qml:187
-#: meecast/qt-qml/FullWeatherPage.qml:230
+#: meecast/qt-qml/dataitem.cpp:179 meecast/qt-qml/FullWeatherPage.qml:143
+#: meecast/qt-qml/FullWeatherPage.qml:194
+#: meecast/qt-qml/FullWeatherPage.qml:243
 msgid "Pressure:"
 msgstr "Ilmanpaine:"
 
@@ -1846,9 +1867,8 @@ msgid "Project administrator"
 msgstr "Projektin hallinta"
 
 #: meecast/qt-qml/AboutPage.qml:186
-#, fuzzy
 msgid "Project manager"
-msgstr "Projektin hallinta"
+msgstr "Projektipäällikkö"
 
 #: meecast/qt-qml/AboutPage.qml:86
 msgid "Project website"
@@ -2090,7 +2110,7 @@ msgstr "Anturi"
 msgid "Set"
 msgstr "Aseta"
 
-#: omweather/src/hash.data:256 meecast/qt-qml/WeatherPage.qml:326
+#: omweather/src/hash.data:256 meecast/qt-qml/WeatherPage.qml:327
 msgid "Set locations"
 msgstr "Aseta sijainnit"
 
@@ -2099,6 +2119,10 @@ msgstr "Aseta sijainnit"
 #: meecast/qt-qml/SettingsPage.qml:139
 msgid "Settings"
 msgstr "Asetukset"
+
+#: meecast/qt-qml/VisualsPage.qml:514
+msgid "Settings of StandbyScreen"
+msgstr "Valmiusnäytön asetukset"
 
 #: omweather/src/hash.data:257
 msgid "Shallow Fog"
@@ -2221,9 +2245,13 @@ msgstr "Nopeus"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
-#: meecast/qt-qml/dataitem.cpp:171
+#: meecast/qt-qml/dataitem.cpp:177
 msgid "Speed:"
 msgstr "Nopeus:"
+
+#: meecast/qt-qml/VisualsPage.qml:491
+msgid "Splash screen"
+msgstr "Käynnistyskuva"
 
 #: omweather/src/weather-settings.c:522
 msgid "State:"
@@ -2255,7 +2283,7 @@ msgstr "Aurinkoista"
 msgid "Sunny / Wind"
 msgstr "Aurinkoista / Tuulista"
 
-#: omweather/src/hash.data:280 meecast/qt-qml/FullWeatherPage.qml:265
+#: omweather/src/hash.data:280 meecast/qt-qml/FullWeatherPage.qml:284
 msgid "Sunrise:"
 msgstr "Auringonnousu:"
 
@@ -2263,7 +2291,7 @@ msgstr "Auringonnousu:"
 msgid "Sunrise: "
 msgstr "Auringonnousu: "
 
-#: omweather/src/hash.data:281 meecast/qt-qml/FullWeatherPage.qml:268
+#: omweather/src/hash.data:281 meecast/qt-qml/FullWeatherPage.qml:287
 msgid "Sunset:"
 msgstr "Auringonlasku:"
 
@@ -2319,7 +2347,7 @@ msgid "Temperature units:"
 msgstr "Lämpötilan yksikkö:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
-#: meecast/qt-qml/dataitem.cpp:165
+#: meecast/qt-qml/dataitem.cpp:171
 msgid "Temperature:"
 msgstr "Lämpötila:"
 
@@ -2335,7 +2363,7 @@ msgstr "Kiitokset"
 msgid "The weather has been updated."
 msgstr "Säätiedot päivitetty."
 
-#: meecast/qt-qml/AboutPage.qml:245
+#: meecast/qt-qml/AboutPage.qml:250
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2367,13 +2395,12 @@ msgid "Thunder"
 msgstr "Ukkosta"
 
 #: omweather/src/hash.data:290
-#, fuzzy
 msgid "Thunder in the Vicinity"
-msgstr "Sadekuuroja lähialueilla"
+msgstr "Ukkosta lähialueella"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
-#: meecast/qt-qml/FullWeatherPage.qml:400 meecast/qt-qml/WeatherPage.qml:540
+#: meecast/qt-qml/FullWeatherPage.qml:419 meecast/qt-qml/WeatherPage.qml:541
 msgid "Today"
 msgstr "Tänään"
 
@@ -2394,7 +2421,7 @@ msgstr ""
 msgid "Transparency:"
 msgstr "Läpinäkyvyys:"
 
-#: omweather/src/hash.data:291 meecast/qt-qml/WeatherPage.qml:500
+#: omweather/src/hash.data:291 meecast/qt-qml/WeatherPage.qml:501
 msgid "Try to update"
 msgstr "Hae säätiedot"
 
@@ -2441,7 +2468,7 @@ msgstr "Päivitys on jo käynnissä."
 msgid "Update interval"
 msgstr "Päivitysväli"
 
-#: omweather/src/hash.data:293 meecast/qt-qml/WeatherPage.qml:359
+#: omweather/src/hash.data:293 meecast/qt-qml/WeatherPage.qml:360
 msgid "Updating forecast"
 msgstr "Päivitetään säätietoja"
 
@@ -2561,15 +2588,15 @@ msgstr "Sääennuste Meego laitteille. Versio"
 msgid "Widget OMWeather is reloading"
 msgstr "Uudelleen ladataan OMWeather sovelma"
 
-#: meecast/qt-qml/VisualsPage.qml:436
+#: meecast/qt-qml/VisualsPage.qml:437
 msgid "Widget in LockScreen"
 msgstr "Sovellus lukitusnäytössä"
 
-#: meecast/qt-qml/VisualsPage.qml:463
+#: meecast/qt-qml/VisualsPage.qml:464
 msgid "Widget in StandbyScreen"
 msgstr "Sovellus valmiusnäytössä"
 
-#: meecast/qt-qml/VisualsPage.qml:410
+#: meecast/qt-qml/VisualsPage.qml:411
 msgid "Widget in events view"
 msgstr "Sovellus tapahtumat-näkymässä"
 
@@ -2586,21 +2613,21 @@ msgstr "Sovelman tyyli ja kuvakkeet"
 msgid "Wind"
 msgstr "Tuulista"
 
-#: omweather/src/hash.data:306 meecast/qt-qml/FullWeatherPage.qml:139
-#: meecast/qt-qml/FullWeatherPage.qml:184
-#: meecast/qt-qml/FullWeatherPage.qml:227
+#: omweather/src/hash.data:306 meecast/qt-qml/FullWeatherPage.qml:140
+#: meecast/qt-qml/FullWeatherPage.qml:191
+#: meecast/qt-qml/FullWeatherPage.qml:240
 msgid "Wind direction:"
 msgstr "Tuulen suunta:"
 
-#: meecast/qt-qml/FullWeatherPage.qml:151
-#: meecast/qt-qml/FullWeatherPage.qml:196
-#: meecast/qt-qml/FullWeatherPage.qml:239
+#: meecast/qt-qml/FullWeatherPage.qml:152
+#: meecast/qt-qml/FullWeatherPage.qml:203
+#: meecast/qt-qml/FullWeatherPage.qml:252
 msgid "Wind gust:"
 msgstr "Tuulenpuuskat:"
 
-#: omweather/src/hash.data:308 meecast/qt-qml/FullWeatherPage.qml:145
-#: meecast/qt-qml/FullWeatherPage.qml:190
-#: meecast/qt-qml/FullWeatherPage.qml:233
+#: omweather/src/hash.data:308 meecast/qt-qml/FullWeatherPage.qml:146
+#: meecast/qt-qml/FullWeatherPage.qml:197
+#: meecast/qt-qml/FullWeatherPage.qml:246
 msgid "Wind speed"
 msgstr "Tuulen nopeus"
 
@@ -2615,7 +2642,7 @@ msgstr "Tuulen nopeuden yksikkö:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
-#: meecast/qt-qml/dataitem.cpp:169
+#: meecast/qt-qml/dataitem.cpp:175
 msgid "Wind:"
 msgstr "Tuuli:"
 
@@ -2656,7 +2683,7 @@ msgstr "Kyllä"
 msgid "You can make donation here: "
 msgstr "Voit tehdä lahjoituksen täällä:"
 
-#: meecast/qt-qml/VisualsPage.qml:192
+#: meecast/qt-qml/VisualsPage.qml:193
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
@@ -2667,7 +2694,7 @@ msgstr ""
 "aktivoimalla ensin 'Sovellus\n"
 "tapahtumat-näkymässä' valinta"
 
-#: meecast/qt-qml/VisualsPage.qml:255
+#: meecast/qt-qml/VisualsPage.qml:256
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
@@ -2710,11 +2737,11 @@ msgstr "sijainnin paikallisaika"
 msgid "d:"
 msgstr "d:"
 
-#: meecast/qt-qml/dataitem.cpp:404
+#: meecast/qt-qml/dataitem.cpp:439
 msgid "day ago"
 msgstr "päivä sitten"
 
-#: meecast/qt-qml/dataitem.cpp:406
+#: meecast/qt-qml/dataitem.cpp:441
 msgid "days ago"
 msgstr "päivää sitten"
 
@@ -2758,11 +2785,11 @@ msgstr "laskeva"
 msgid "feels like"
 msgstr "tuntuu iholla"
 
-#: meecast/qt-qml/dataitem.cpp:398
+#: meecast/qt-qml/dataitem.cpp:433
 msgid "hour ago"
 msgstr "tunti sitten"
 
-#: meecast/qt-qml/dataitem.cpp:401
+#: meecast/qt-qml/dataitem.cpp:436
 msgid "hours ago"
 msgstr "tuntia sitten"
 
@@ -2843,11 +2870,11 @@ msgstr "mi/h"
 msgid "mi/s"
 msgstr "mi/s"
 
-#: meecast/qt-qml/dataitem.cpp:392
+#: meecast/qt-qml/dataitem.cpp:427
 msgid "minute ago"
 msgstr "minuutti sitten"
 
-#: meecast/qt-qml/dataitem.cpp:395
+#: meecast/qt-qml/dataitem.cpp:430
 msgid "minutes ago"
 msgstr "minuuttia sitten"
 
@@ -2891,7 +2918,7 @@ msgstr "nmi"
 msgid "rising"
 msgstr "nousussa"
 
-#: meecast/qt-qml/dataitem.cpp:389
+#: meecast/qt-qml/dataitem.cpp:424
 msgid "seconds ago"
 msgstr "sekuntia sitten"
 
@@ -2938,24 +2965,3 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:330
 msgid "Ю-З"
 msgstr "Ю-З"
-
-#, fuzzy
-#~ msgid ""
-#~ "French -  Nicolas Granziano, \n"
-#~ " \tPhilippe, Benot Knecht \n"
-#~ " Russian - Pavel Fialko, Vlad Vasiliev, \n"
-#~ " \tEd Bartosh\n"
-#~ " Finnish - Marko Vertainen\n"
-#~ " German -  Claudius Henrichs\n"
-#~ " Italian - Pavel Fialko, Alessandro Pasotti,\n"
-#~ " \tSalvatore Fiorenzo, Ilir Gjika, "
-#~ msgstr ""
-#~ "Ranska - Nicolas Granziano, Philippe, Benot Knech\n"
-#~ "Venäjä - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
-#~ "Suomi - Marko Vertainen\n"
-#~ "Saksa - Claudius Henrichs\n"
-#~ "Italia - Pavel Fialko, Alessandro Pasotti,\n"
-#~ "\tSalvatore Fiorenzo, Luca Onnis\n"
-#~ "Espanja - Alejandro Lopez\n"
-#~ "Puola - Tomasz Dominikowski\n"
-#~ "Slovakia - Roman Moravčík"

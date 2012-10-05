@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) and MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -49,6 +49,7 @@ namespace Core {
             static std::string sourcesPath;
             static std::string layoutqml;
             static std::string getConfigPath();
+            static std::string getCachePath();
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

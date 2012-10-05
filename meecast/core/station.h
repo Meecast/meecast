@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -38,6 +38,7 @@ class Source;
 #include "data.h"
 #include "sourcelist.h"
 #include "downloader.h"
+#include <sys/stat.h>
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
@@ -52,7 +53,10 @@ namespace Core{
         std::string *_detailURL;
         std::string *_cookie;
         std::string *_viewURL;
+        std::string *_mapURL;
         std::string *_converter;
+        double _latitude;
+        double _longitude;
         int _timezone;
         bool _gps;
         Data *_data; /* Is it really needed ? Vlad */
@@ -60,14 +64,19 @@ namespace Core{
         bool prepareFile();
         Source *getSourceByName();
         public:
-            Station(const std::string& source_name, const std::string& id, const std::string& name,
+            Station(const std::string& source_name, const std::string& id, 
+                    const std::string& name,
                     const std::string& country = 0, const std::string& region = 0, 
                     const std::string& forecastURL = 0,
 		            const std::string& detailURL = 0,
-		            const std::string& viewURL = 0, const std::string& cookie = 0, const bool gps = false);
-            Station(const std::string& source_name, const std::string& id, const std::string& name,
+		            const std::string& viewURL = 0, 
+		            const std::string& mapURL = 0, 
+                    const std::string& cookie = 0,
+                    const bool gps = false, double latitude = 0.0, double longitude = 0.0);
+            Station(const std::string& source_name, const std::string& id, 
+                    const std::string& name,
                     const std::string& country = 0, const std::string& region = 0, 
-		            const bool gps = false);
+		            const bool gps = false, double latitude = 0.0, double longitude = 0.0);
             Station(const Station& station);
             Station& operator=(const Station& station);
             Source *_source;
@@ -82,13 +91,15 @@ namespace Core{
             std::string& country() const;
             void region(const std::string& region);
             std::string& region() const;
-            void forecastURL(const std::string& region);
+            void forecastURL(const std::string& ForeastURL);
             std::string& forecastURL() const;
-            void cookie(const std::string& region);
+            void cookie(const std::string& Cookie);
             std::string& cookie() const;
             void detailURL(const std::string& region);
+            std::string& mapURL() const;
+            void mapURL(const std::string& MapURL);
             std::string& detailURL() const;
-            void viewURL(const std::string& region);
+            void viewURL(const std::string& ViewURL);
             std::string& viewURL() const;
             void timezone(const int timezone = 0);
             int station_timezone() const;
@@ -100,6 +111,10 @@ namespace Core{
             std::string& converter() const;
             void gps(const bool gps);
             bool gps() const;
+            void latitude(const double latitude);
+            double latitude() const;
+            void longitude(const double longtitude);
+            double longitude() const;
 
 
     };

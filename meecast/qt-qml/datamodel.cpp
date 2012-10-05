@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -148,35 +148,49 @@ DataModel::update_model(int period)
     dp = Core::DataParser::Instance();
     /* set current day */ 
     current_day = time(NULL);
+
     //tm = localtime(&current_day);
     tm = gmtime(&current_day);
     year = 1900 + tm->tm_year;
     current_month = tm->tm_mon;
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     tm->tm_isdst = 1;
+    current_day = mktime(tm);
+
+    std::string mapfilename(Core::AbstractConfig::getCachePath());
+    mapfilename += _config->stationsList().at(_config->current_station_id())->sourceName().c_str();
+    mapfilename += "_";
+    mapfilename += _config->stationsList().at(_config->current_station_id())->id().c_str();
+    mapfilename += "_map_";
+    mapfilename += "%s.png";
 
     if (dp)
         temp_data = dp->data().GetDataForTime(time(NULL));
 //    if (temp_data)
 //        current_day = current_day + 3600*dp->timezone();
 
-    current_day = mktime(tm);
     /* fill current date */
     switch (period) {
         case current_period:
             i = 0;
             if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
                 forecast_data = new DataItem(temp_data);
-                forecast_data->Text(forecast_data->Text().c_str());
+
+                /* Prepare */
+                if (forecast_data->Text() != "")
+                    forecast_data->Text(_(forecast_data->Text().c_str()));
                 forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(time(NULL)  + i));
                 forecast_data->SunSetTime(dp->data().GetSunSetForTime(time(NULL)  + i));
                 forecast_data->LastUpdate(dp->LastUpdate());
                 forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
                 forecast_data->windunit = _config->WindSpeedUnit().c_str();
                 forecast_data->pressureunit = _config->PressureUnit().c_str();
+                /* Add Map */
+                forecast_data->MapPattern(mapfilename);
+
+                /* Add to list */
                 this->appendRow(forecast_data);
                 MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
-               // QString icon_string =  _config->iconspath().c_str();
                 QString icon_string =  _config->iconspath();
                 icon_string.append("/") ;
                 icon_string.append(_config->iconSet().c_str());
@@ -197,25 +211,31 @@ DataModel::update_model(int period)
                     result_time = temp_data->EndTime();
                 QDateTime t;
                 t.setTime_t(dp->LastUpdate());
+                QString description = forecast_data->Text().c_str();
                 dbusclient->SetCurrentData(_config->stationname(), 
                                            forecast_data->temperature(), 
                                            forecast_data->temperature_high(), 
                                            forecast_data->temperature_low(), 
-                                           icon_string, result_time, forecast_data->current(), 
+                                           icon_string, description,
+                                           result_time, forecast_data->current(), 
                                            _config->Lockscreen(), _config->Standbyscreen(),
                                            t.toString("dd MMM h:mm")); 
-            }
+           }
             break;
         case current_night_period:
             if (dp != NULL && (temp_data = dp->data().GetDataForTime(current_day + 3*3600))) {
                 forecast_data = new DataItem(temp_data);
-                forecast_data->Text(forecast_data->Text().c_str());
+                if (forecast_data->Text() != "")
+                    forecast_data->Text(forecast_data->Text().c_str());
                 forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 3*3600));
                 forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 3*3600));
                 forecast_data->LastUpdate(dp->LastUpdate());
                 forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
                 forecast_data->windunit = _config->WindSpeedUnit().c_str();
                 forecast_data->pressureunit = _config->PressureUnit().c_str();
+                /* Add Map */
+                forecast_data->MapPattern(mapfilename);
+
                 this->appendRow(forecast_data);
             }
             break;
@@ -223,32 +243,47 @@ DataModel::update_model(int period)
           //  i = 3600*24;
            // fprintf(stderr,"First day in datamodel %i\n", current_day + 14 * 3600);
             i = 0;
-            while  (dp != NULL && (temp_data = dp->data().GetDataForTime(current_day + 14*3600 + i))) {
-                forecast_data = new DataItem(temp_data);
-                forecast_data->Text(forecast_data->Text().c_str());
-                forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 14*3600 + i));
-                forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 14*3600  + i));
-                forecast_data->LastUpdate(dp->LastUpdate());
-                forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
-                forecast_data->windunit = _config->WindSpeedUnit().c_str();
-                forecast_data->pressureunit = _config->PressureUnit().c_str();
-                this->appendRow(forecast_data);
+            while  (dp != NULL && ((temp_data = dp->data().GetDataForTime(current_day + 14*3600 + i)) || (i < 7*3600*24))) {
+                if (temp_data){
+                    forecast_data = new DataItem(temp_data);
+                    if (forecast_data->Text() != "")
+                        forecast_data->Text(forecast_data->Text().c_str());
+                    forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 14*3600 + i));
+                    forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 14*3600  + i));
+                    forecast_data->LastUpdate(dp->LastUpdate());
+                    forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
+                    forecast_data->windunit = _config->WindSpeedUnit().c_str();
+                    forecast_data->pressureunit = _config->PressureUnit().c_str();
+                    /* Add Map */
+                    if (i == 0)
+                        forecast_data->MapPattern(mapfilename);
+
+                    this->appendRow(forecast_data);
+                }
                 i = i + 3600*24;
             }
             break;
         case night_period:
          //   i = 3600*24;
             i = 0;
-            while  (dp != NULL && (temp_data = dp->data().GetDataForTime(current_day + 3*3600 + i))) {
-                forecast_data = new DataItem(temp_data);
-                forecast_data->Text(forecast_data->Text().c_str());
-                forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 3*3600 + i));
-                forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 3*3600  + i));
-                forecast_data->LastUpdate(dp->LastUpdate());
-                forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
-                forecast_data->windunit = _config->WindSpeedUnit().c_str();
-                forecast_data->pressureunit = _config->PressureUnit().c_str();
-                this->appendRow(forecast_data);
+            while  (dp != NULL && ((temp_data = dp->data().GetDataForTime(current_day + 3*3600 + i)) || (i < 7*3600*24))) {
+                if (temp_data){
+                    forecast_data = new DataItem(temp_data);
+
+                    if (forecast_data->Text() != "")
+                        forecast_data->Text(forecast_data->Text().c_str());
+                    forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(current_day + 3*3600 + i));
+                    forecast_data->SunSetTime(dp->data().GetSunSetForTime(current_day + 3*3600  + i));
+                    forecast_data->LastUpdate(dp->LastUpdate());
+                    forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
+                    forecast_data->windunit = _config->WindSpeedUnit().c_str();
+                    forecast_data->pressureunit = _config->PressureUnit().c_str();
+                    /* Add Map */
+                    if (i == 0)
+                        forecast_data->MapPattern(mapfilename);
+
+                    this->appendRow(forecast_data);
+                }
                 i = i + 3600*24;
             }
             break;
@@ -266,7 +301,8 @@ DataModel::update_model(int period)
                 if (temp_data = dp->data().GetDataForTime(current_hour + i, true)){
                     if (temp_data->StartTime() + 60 == current_hour + i){
                         forecast_data = new DataItem(temp_data);
-                        forecast_data->Text(_(forecast_data->Text().c_str()));
+                        if (forecast_data->Text() != "")
+                            forecast_data->Text(_(forecast_data->Text().c_str()));
                         forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
                         forecast_data->windunit = _config->WindSpeedUnit().c_str();
                         forecast_data->pressureunit = _config->PressureUnit().c_str();

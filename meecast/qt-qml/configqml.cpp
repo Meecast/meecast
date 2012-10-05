@@ -1,6 +1,6 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
  * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
@@ -83,7 +83,11 @@ void ConfigQml::init()
     standby_settings = new QSettings("/home/user/.config/com.meecast.omweather/standby.conf",QSettings::NativeFormat); 
     QVariant v = standby_settings->value("color_font_stationname", QColor(Qt::white));
     _standby_color_font_stationname = v.value<QColor>();
- 
+     v = standby_settings->value("color_font_temperature", QColor(Qt::white));
+    _standby_color_font_temperature = v.value<QColor>();
+     v = standby_settings->value("color_font_current_temperature", QColor(Qt::green));
+    _standby_color_font_current_temperature = v.value<QColor>();
+
     thread = new UpdateThread();
     connect(thread, SIGNAL(finished()), this, SLOT(downloadFinishedSlot()));
 
@@ -127,6 +131,8 @@ ConfigQml::saveConfig()
 {
     Core::Config::saveConfig();
     standby_settings->setValue("color_font_stationname", _standby_color_font_stationname);
+    standby_settings->setValue("color_font_temperature", _standby_color_font_temperature);
+    standby_settings->setValue("color_font_current_temperature", _standby_color_font_current_temperature);
     standby_settings->sync();
     qDebug()<<"SaveConfig";
 }
@@ -351,6 +357,34 @@ ConfigQml::seteventwidget(bool c)
     	QDesktopServices::openUrl(QUrl("file:///opt/com.meecast.omweather/share/packages/meecast-applet-enable_0.2_all.deb"));
     
 }
+bool
+ConfigQml::splash()
+{
+
+    if (QFile::exists("/home/user/.cache/com.meecast.omweather/splash.png"))
+        return true;
+    else
+        return false;
+}
+void
+ConfigQml::setsplash(bool c)
+{
+    ConfigQml::Config::Splash(c);
+    saveConfig();
+    refreshconfig();
+    if (!c && (QFile::exists("/home/user/.cache/com.meecast.omweather/splash.png")))
+        QFile::remove("/home/user/.cache/com.meecast.omweather/splash.png"); 
+
+    if (c){
+       /* Check directory */
+        QDir dir("/home/user/.cache/com.meecast.omweather");
+        if (!dir.exists())
+            dir.mkpath("/home/user/.cache/com.meecast.omweather");
+        /* Copy splash to cache directory */
+        QFile::copy("/opt/com.meecast.omweather/share/images/splash.png",
+                    "/home/user/.cache/com.meecast.omweather/splash.png");
+    }
+}
 
 bool
 ConfigQml::gps()
@@ -406,7 +440,29 @@ void
 ConfigQml::set_standby_color_font_stationname(QColor c)
 {   
     _standby_color_font_stationname = c;
-//    saveConfig();
+    saveConfig();
+}
+QColor
+ConfigQml::standby_color_font_temperature(){
+    return _standby_color_font_temperature;
+}
+
+void
+ConfigQml::set_standby_color_font_temperature(QColor c)
+{   
+    _standby_color_font_temperature = c;
+    saveConfig();
+}
+QColor
+ConfigQml::standby_color_font_current_temperature(){
+    return _standby_color_font_current_temperature;
+}
+
+void
+ConfigQml::set_standby_color_font_current_temperature(QColor c)
+{   
+    _standby_color_font_current_temperature = c;
+    saveConfig();
 }
 
 QStringList
@@ -515,7 +571,6 @@ ConfigQml::getCityId(int region_id, int index)
     cur = list->begin()+index;
     return QString::fromStdString((*cur).first);
 }
-
 QStringList
 ConfigQml::Regions(int index)
 {
@@ -545,18 +600,36 @@ ConfigQml::Cities(int country_index, int index)
 }
 void
 ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QString country,
-                        QString source, int source_id, bool gps)
+                        QString source, int source_id, bool gps, 
+                        double latitude, double longitude)
 {
     Core::Station *station;
+    
 
     (void)source_id;
+
+    if (latitude == 0 && longitude == 0 && source == "weather.com"){
+        Core::DatabaseSqlite *db_w = new Core::DatabaseSqlite("");
+        std::string path(Core::AbstractConfig::prefix);
+        path += Core::AbstractConfig::sharePath;
+        path += "db/";
+        QString filename = "weather.com";
+        filename.append(".db");
+        filename.prepend(path.c_str());
+        db_w->set_databasename(filename.toStdString());
+        if (!db_w->open_database()){
+            qDebug() << "error open database";
+            return;
+        }
+        db_w->get_station_coordinate(city_id.toStdString(), latitude, longitude);
+    }
     station = new Core::Station(
                 source.toStdString(),
                 city_id.toStdString(), 
                 city_name.toUtf8().data(),
                 country.toStdString(),
                 region.toStdString(),
-                gps);
+                gps, latitude, longitude);
 
     stationsList().push_back(station);
     //ConfigQml::Config::stationsList(*stationlist);
@@ -571,19 +644,22 @@ ConfigQml::saveStation(int city_id, QString city,
                        int source_id, QString source)
 {
     Core::Station *station;
+    double latitude; 
+    double longitude;
+ 
     (void)source_id;
+
     region_id = getRegionId(country_id, region_id);
     country_id = getCountryId(country_id);
     std::string code = getCityId(region_id, city_id).toStdString();
-
-
+    db->get_station_coordinate(code, latitude, longitude); 
     station = new Core::Station(
                 source.toStdString(),
                 code,
                 city.toUtf8().data(),
                 country.toStdString(),
                 region.toStdString(),
-                false);
+                false, latitude, longitude);
 
     stationsList().push_back(station);
     //ConfigQml::Config::stationsList(*stationlist);
@@ -817,7 +893,7 @@ ConfigQml::addGpsStation(double latitude, double longitude)
     }
 
     saveStation1(QString::fromStdString(code), QString::fromStdString(name)+" (GPS)", QString::fromStdString(region),
-                 QString::fromStdString(country), "weather.com", source_id, true);
+                 QString::fromStdString(country), "weather.com", source_id, true, latitude, longitude);
     qDebug() << "SAVE GPS STATION";
 
     /* save gps station's coordinates */

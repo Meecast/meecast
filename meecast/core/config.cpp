@@ -31,6 +31,7 @@
 
 #include "config.h"
 #include "station.h"
+#include "databasesqlite.h"
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{  
     Config* Config::_self;
@@ -50,6 +51,7 @@ Config::Config()
     _lockscreen = false;
     _standbyscreen = false;
     _gps = false;
+    _splash = true;
     _font_color = new std::string("#00ff00");
     _stations = new StationsList;
     _current_station_id = INT_MAX;
@@ -147,6 +149,14 @@ Config::saveConfig()
     el.appendChild(t);
     root.appendChild(el);
 
+    el = doc.createElement("splash");
+    if (_splash)
+        t = doc.createTextNode("true");
+    else
+        t = doc.createTextNode("false");
+    el.appendChild(t);
+    root.appendChild(el);
+
     std::vector<Station*>::iterator i = _stations->begin();
     while (i != _stations->end()){
         QDomElement st = doc.createElement("station");
@@ -189,32 +199,50 @@ Config::saveConfig()
         t = doc.createTextNode(QString::fromStdString((*i)->cookie()));
         el.appendChild(t);
         st.appendChild(el);
+        
+        el = doc.createElement("latitude");
+        t = doc.createTextNode(QString::number((*i)->latitude()));
+        el.appendChild(t);
+        st.appendChild(el);
 
-        el = doc.createElement("detail_url");
-        /* Temporary hack for weather.com and gismeteo.ru. This must be delete after version 0.5.0 */
-        if (QString::fromStdString((*i)->detailURL()) == "" && QString::fromStdString((*i)->sourceName()) == "weather.com"){
-            char forecast_detail_url[4096];
-            snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, "http://xml.weather.com/weather/local/%s?cm_ven=1CW&site=wx.com-bar&cm_ite=wx-cc&par=1CWFFv1.1.9&cm_pla=wx.com-bar&cm_cat=FFv1.1.9&unit=m&hbhf=12", (*i)->id().c_str());
-            t = doc.createTextNode(QString::fromStdString(forecast_detail_url));
+        el = doc.createElement("longitude");
+        t = doc.createTextNode(QString::number((*i)->longitude()));
+        el.appendChild(t);
+        st.appendChild(el);
+
+        el = doc.createElement("map_url");
+        /* Temporary hack for weather.com . This must be delete after version 0.7.0 */
+        if ( QString::fromStdString((*i)->mapURL()) == "" 
+            && QString::fromStdString((*i)->sourceName()) == "weather.com"){
+
+            Core::DatabaseSqlite *db;
+            std::string path(Core::AbstractConfig::prefix);
+            path += Core::AbstractConfig::sharePath;
+            path += "db/weather.com.db";
+            db = new Core::DatabaseSqlite("");
+            db->set_databasename(path);
+            db->open_database();
+            double latitude = (*i)->latitude();
+            double longitude = (*i)->longitude();
+            db->get_station_coordinate((*i)->id(), latitude, longitude); 
+            char map_url[4096];
+            snprintf(map_url, sizeof(map_url)-1, "http://mapserver.weather.com/MapServer/map?layers=sat&lat=%f&lng=%f&bpp=8&fmt=png&w=854&h=480&zoom=5&base=msve-hyb&g=1.5&tx=0.7", latitude, longitude);
+            delete db;
+            t = doc.createTextNode(QString::fromStdString(map_url));
             el.appendChild(t);
             st.appendChild(el);
         }else{
-            if (QString::fromStdString((*i)->sourceName()) == "gismeteo.ru"){
-                char forecast_detail_url[4096];
-                snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, "http://www.gismeteo.by/city/hourly/%s/", (*i)->id().c_str());
-                t = doc.createTextNode(QString::fromStdString(forecast_detail_url));
-                el.appendChild(t);
-                st.appendChild(el);
-            }
-            else{
-                t = doc.createTextNode(QString::fromStdString((*i)->detailURL()));
+            if (QString::fromStdString((*i)->mapURL()) != ""){
+                t = doc.createTextNode(QString::fromStdString((*i)->mapURL()));
                 el.appendChild(t);
                 st.appendChild(el);
             }
         }
-//        t = doc.createTextNode(QString::fromStdString((*i)->detailURL()));
-//        el.appendChild(t);
-//        st.appendChild(el);
+
+        el = doc.createElement("detail_url");
+        t = doc.createTextNode(QString::fromStdString((*i)->detailURL()));
+        el.appendChild(t);
+        st.appendChild(el);
 
         el = doc.createElement("view_url");
         t = doc.createTextNode(QString::fromStdString((*i)->viewURL()));
@@ -226,6 +254,7 @@ Config::saveConfig()
         el.appendChild(t);
         st.appendChild(el);
 
+        
         el = doc.createElement("gps");
         if ((*i)->gps() == false)
             t = doc.createTextNode("false");
@@ -234,6 +263,7 @@ Config::saveConfig()
         el.appendChild(t);
         st.appendChild(el);
 
+        
         root.appendChild(st);
         ++i;
     }
@@ -288,6 +318,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _lockscreen = false;
     _standbyscreen = false;
     _gps = false;
+    _splash = true;
     _update_period = INT_MAX;
     _font_color = new std::string("#00ff00");
    /* std::cerr<<"new StationList"<<std::endl; */
@@ -357,14 +388,18 @@ Config::LoadConfig(){
         el = root.firstChildElement("gps");
         if (!el.isNull())
             _gps = (el.text() == "true") ? true : false;
+        el = root.firstChildElement("splash");
+        if (!el.isNull())
+            _splash = (el.text() == "true") ? true : false;
         el = root.firstChildElement("update_period");
         if (!el.isNull())
             _update_period = el.text().toInt();
 
         nodelist = root.elementsByTagName("station");
         for (int i=0; i<nodelist.count(); i++){
-            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, cookie;
+            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, mapURL, cookie, latitude, longitude;
             bool gps = false;
+            bool splash = true;
             QDomElement e = nodelist.at(i).toElement();
             QDomNode n = e.firstChild();
             while (!n.isNull()){
@@ -391,10 +426,19 @@ Config::LoadConfig(){
                     detailURL = el.text();
                 else if (tag == "view_url")
                     viewURL = el.text();
+                else if (tag == "map_url")
+                    mapURL = el.text();
+                else if (tag == "longitude")
+                    longitude = el.text();
+                else if (tag == "latitude")
+                    latitude = el.text();
                 else if (tag == "converter")
                     converter = el.text();
                 else if (tag == "gps")
                     gps = (el.text() == "true") ? true : false;
+                else if (tag == "splash")
+                    splash = (el.text() == "true") ? true : false;
+
                 n = n.nextSibling();
             }
 /* Hack for yr.no */
@@ -411,8 +455,11 @@ Config::LoadConfig(){
                                       forecastURL.toStdString(),
 				                      detailURL.toStdString(),
                                       viewURL.toStdString(),
+                                      mapURL.toStdString(),
                                       cookie.toStdString(),
-                                      gps);
+                                      gps, 
+                                      latitude.toDouble(),
+                                      longitude.toDouble());
             st->fileName(fileName.toStdString());
             st->converter(converter.toStdString());
             _stations->push_back(st);
@@ -547,6 +594,15 @@ Config::Gps(const bool uc){
 bool
 Config::Gps(void){
     return _gps;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::Splash(const bool uc){
+    _splash = uc;
+}
+bool
+Config::Splash(void){
+    return _splash;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void
@@ -724,6 +780,15 @@ void Config::processNode(const xmlpp::Node* node){
         const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
         std::string str = nodeText->get_content();
         (str.compare("true")) ? (_gps = false) : (_gps = true);
+        return;
+    }
+    // splash
+    if(nodeName == "splash"){
+        xmlpp::Node::NodeList list = node->get_children();
+        xmlpp::Node::NodeList::iterator iter = list.begin();
+        const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+        std::string str = nodeText->get_content();
+        (str.compare("true")) ? (_splash = false) : (_splash = true);
         return;
     }
     // update period

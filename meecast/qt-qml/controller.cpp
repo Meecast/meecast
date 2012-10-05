@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -89,6 +89,7 @@ Controller::load_data()
   
  /*  std::cerr<<" Controller::load_data()"<<std::endl; */
 
+  std::string mapfilename(Core::AbstractConfig::getCachePath());
   _dp->DeleteInstance(); 
          
   if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0 &&
@@ -106,8 +107,15 @@ Controller::load_data()
                 _dp = Core::DataParser::Instance();
            //     return;
             }
+            mapfilename += _config->stationsList().at(_config->current_station_id())->sourceName().c_str();
+            mapfilename += "_";
+            mapfilename += _config->stationsList().at(_config->current_station_id())->id().c_str();
+            mapfilename += "_map_";
+            mapfilename += "%s.png";
   }
 
+ 
+    
   _model = new DataModel(new DataItem, qApp);
   _current = new DataModel(new DataItem, qApp);
   _night_model = new DataModel(new DataItem, qApp);
@@ -116,6 +124,7 @@ Controller::load_data()
 
   /* set current day */ 
   current_day = time(NULL);
+
   tm = gmtime(&current_day);
   tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
   tm->tm_isdst = 1;
@@ -124,13 +133,20 @@ Controller::load_data()
   /* fill current day */
   if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))) {
       forecast_data = new DataItem(temp_data);
-      forecast_data->Text(_(forecast_data->Text().c_str()));
+
+      if (forecast_data->Text() != "")
+        forecast_data->Text(_(forecast_data->Text().c_str()));
+
       forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 14 * 3600));
       forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 14 * 3600));
       forecast_data->LastUpdate(_dp->LastUpdate());
       forecast_data->temperatureunit = _config->temperatureunit();
       forecast_data->windunit = _config->windspeedunit();
       forecast_data->pressureunit = _config->pressureunit();
+
+      /* Add map */
+      forecast_data->MapPattern(mapfilename);
+
       _current->appendRow(forecast_data);
       MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
       /* Preparing time for updateing */
@@ -148,10 +164,12 @@ Controller::load_data()
 
       QDateTime t;
       t.setTime_t(_dp->LastUpdate());
+      QString description = forecast_data->Text().c_str();
       dbusclient->SetCurrentData( _config->stationname(), forecast_data->temperature(),
                                   forecast_data->temperature_high(),
                                   forecast_data->temperature_low(), 
                                   (_config->iconspath() + "/" + _config->iconset() + "/" + forecast_data->icon()), 
+                                  description,
                                   result_time, 
                                   forecast_data->current(), 
                                   _config->Lockscreen(),
@@ -162,13 +180,19 @@ Controller::load_data()
   /* fill current night */
   if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(current_day + 3 * 3600))) {
       forecast_data = new DataItem(temp_data);
-      forecast_data->Text(_(forecast_data->Text().c_str()));
+
+      if (forecast_data->Text() != "")
+        forecast_data->Text(_(forecast_data->Text().c_str()));
+
       forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 3 * 3600));
       forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 3 * 3600));
       forecast_data->LastUpdate(_dp->LastUpdate());
       forecast_data->temperatureunit = _config->temperatureunit();
       forecast_data->windunit = _config->windspeedunit();
       forecast_data->pressureunit = _config->pressureunit();
+      /* Add map */
+      forecast_data->MapPattern(mapfilename);
+
       _current_night->appendRow(forecast_data);
       /*MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
       dbusclient->SetCurrentData( _config->stationname(), forecast_data->temperature(),
@@ -180,19 +204,25 @@ Controller::load_data()
   /* set next day */
   //i = 3600*24;
   i = 0;
-  fprintf(stderr,"First day in controller %i\n", current_day + 14 * 3600);
   /* fill other days */
   while  (_dp != NULL && ((temp_data = _dp->data().GetDataForTime( current_day + 14 * 3600  + i)) || (i < 7*3600*24))) {
+      // fprintf(stderr,"Controller1 %i\n", current_day + 14 * 3600 + i);
       if (temp_data){
           forecast_data = new DataItem(temp_data);
-          forecast_data->Text(_(forecast_data->Text().c_str()));
+
+          if (forecast_data->Text() != "")
+            forecast_data->Text(_(forecast_data->Text().c_str()));
+
           forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 14 * 3600  + i));
           forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 14 * 3600  + i));
           forecast_data->LastUpdate(_dp->LastUpdate());
           forecast_data->temperatureunit = _config->temperatureunit();
           forecast_data->windunit = _config->windspeedunit();
           forecast_data->pressureunit = _config->pressureunit();
-          std::cerr<<i<< " Text "<< forecast_data->Text().c_str()<<std::endl;
+          if (i == 0)
+            forecast_data->MapPattern(mapfilename);
+          else
+            forecast_data->MapPattern(std::string(""));
           _model->appendRow(forecast_data);
       }
       i = i + 3600*24;
@@ -204,13 +234,20 @@ Controller::load_data()
   while  (_dp != NULL && ((temp_data = _dp->data().GetDataForTime( current_day + 3 * 3600  + i)) || (i < 7*3600*24))) {
       if (temp_data){
           forecast_data = new DataItem(temp_data);
-          forecast_data->Text(_(forecast_data->Text().c_str()));
+
+          if (forecast_data->Text() != "")
+            forecast_data->Text(_(forecast_data->Text().c_str()));
+
           forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 3 * 3600  + i));
           forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 3 * 3600  + i));
           forecast_data->LastUpdate(_dp->LastUpdate());
           forecast_data->temperatureunit = _config->temperatureunit();
           forecast_data->windunit = _config->windspeedunit();
           forecast_data->pressureunit = _config->pressureunit();
+          if (i == 0)
+            forecast_data->MapPattern(mapfilename);
+          else
+            forecast_data->MapPattern("");
           _night_model->appendRow(forecast_data);
       }
       i = i + 3600*24;
@@ -228,7 +265,8 @@ Controller::load_data()
     if (temp_data = _dp->data().GetDataForTime(current_hour + i, true)){
         if (temp_data->StartTime() + 60 == current_hour + i){
             forecast_data = new DataItem(temp_data);
-            forecast_data->Text(_(forecast_data->Text().c_str()));
+            if (forecast_data->Text() != "")
+                forecast_data->Text(_(forecast_data->Text().c_str()));
             forecast_data->temperatureunit = _config->temperatureunit();
             forecast_data->windunit = _config->windspeedunit();
             forecast_data->pressureunit = _config->pressureunit();

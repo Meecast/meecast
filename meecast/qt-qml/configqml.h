@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -40,6 +40,7 @@
 #include "gpsposition.h"
 #include <MGConfItem>
 #include <QSettings>
+#include <QDir>
 
 #include <libintl.h>
 #include <locale.h>
@@ -62,9 +63,12 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(bool lockscreen READ lockscreen NOTIFY lockscreenChanged)
     Q_PROPERTY(bool standbyscreen READ standbyscreen NOTIFY standbyscreenChanged)
     Q_PROPERTY(bool eventwidget READ eventwidget NOTIFY eventwidgetChanged)
+    Q_PROPERTY(bool splash READ splash NOTIFY splashChanged)
     Q_PROPERTY(bool gps READ gps NOTIFY gpsChanged)
     Q_PROPERTY(QColor fontcolor READ fontcolor NOTIFY fontcolorChanged)
     Q_PROPERTY(QColor standby_color_font_stationname READ standby_color_font_stationname NOTIFY standby_color_font_stationnameChanged)
+    Q_PROPERTY(QColor standby_color_font_temperature READ standby_color_font_temperature NOTIFY standby_color_font_temperatureChanged)
+    Q_PROPERTY(QColor standby_color_font_current_temperature READ standby_color_font_current_temperature NOTIFY standby_color_font_current_temperatureChanged)
     Q_PROPERTY(QString stationname READ stationname NOTIFY stationnameChanged)
     Q_PROPERTY(QString prevstationname READ prevstationname NOTIFY prevstationnameChanged)
     Q_PROPERTY(QString nextstationname READ nextstationname NOTIFY nextstationnameChanged)
@@ -85,6 +89,8 @@ private:
     QStringList press_list;
     QSettings *standby_settings;
     QColor _standby_color_font_stationname;
+    QColor _standby_color_font_temperature;
+    QColor _standby_color_font_current_temperature;
 protected:
     static ConfigQml* _self;
     static int _refcount;
@@ -109,8 +115,11 @@ public:
     bool standbyscreen();
     bool eventwidget();
     bool gps();
+    bool splash();
     QColor fontcolor();
     QColor standby_color_font_stationname();
+    QColor standby_color_font_temperature();
+    QColor standby_color_font_current_temperature();
     QString stationname();
     QString prevstationname();
     QString nextstationname();
@@ -131,7 +140,7 @@ public:
                                  int country_id, QString country,
                                  int source_id, QString source);
     Q_INVOKABLE void saveStation1(QString city_id, QString city_name, QString region,
-                                  QString country, QString source, int source_id, bool gps=false);
+                                  QString country, QString source, int source_id, bool gps=false, double latitude = 0.0, double longitude = 0.0);
     Q_INVOKABLE void changestation();
     Q_INVOKABLE void nextstation();
     Q_INVOKABLE void prevstation();
@@ -152,9 +161,12 @@ public:
     Q_INVOKABLE void setstandbyscreen(bool c);
     Q_INVOKABLE void seteventwidget(bool c);
     Q_INVOKABLE void setgps(bool c);
+    Q_INVOKABLE void setsplash(bool c);
     Q_INVOKABLE QStringList icon_list();
     Q_INVOKABLE void set_iconset(QString c);
     Q_INVOKABLE void set_standby_color_font_stationname(QColor c);
+    Q_INVOKABLE void set_standby_color_font_temperature(QColor c);
+    Q_INVOKABLE void set_standby_color_font_current_temperature(QColor c);
     Q_INVOKABLE QString tr(QString str);
     Q_INVOKABLE void enableGps();
     void refreshconfig();
@@ -173,6 +185,8 @@ signals:
     void gpsChanged();
     void fontcolorChanged();
     void standby_color_font_stationnameChanged();
+    void standby_color_font_temperatureChanged();
+    void standby_color_font_current_temperatureChanged();
     void stationnameChanged();
     void prevstationnameChanged();
     void nextstationnameChanged();
@@ -181,6 +195,7 @@ signals:
     void versionChanged();
     void updateintervalChanged();
     void configChanged();
+    void splashChanged();
 public Q_SLOTS:
     void reload_config();
     void addGpsStation(double latitude, double longitude);

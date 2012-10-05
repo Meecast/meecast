@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -51,6 +51,7 @@ namespace Core {
         _full_month_name = new std::string();
         _day_of_month_name = new std::string();
         _month_name = new std::string();
+        _map_pattern = new std::string();
         _temperature_hi = new Temperature(INT_MAX, "C");
         _temperature_low = new Temperature(INT_MAX, "C");
         _temperature = new Temperature(INT_MAX, "C");
@@ -91,6 +92,7 @@ namespace Core {
         _full_month_name = data->_full_month_name; 
         _day_of_month_name = data->_day_of_month_name;
         _month_name = data->_month_name;
+        _map_pattern = data->_map_pattern;
         _sunrise = data->_sunrise;
         _sunset = data->_sunset;
     }
@@ -189,6 +191,15 @@ namespace Core {
      std::string&
      Data::WindDirection(){
          return *_windDirection;
+     }
+////////////////////////////////////////////////////////////////////////////////
+     void
+     Data::MapPattern(const std::string& text){
+         _map_pattern->assign(text);
+     }
+     std::string&
+     Data::MapPattern(){
+         return *_map_pattern;
      }
 ////////////////////////////////////////////////////////////////////////////////
      void
@@ -296,7 +307,8 @@ namespace Core {
        delete _full_day_name;
        delete _full_month_name;
        delete _day_of_month_name;
-        delete _month_name;
+       delete _month_name;
+       delete _map_pattern;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Temperature& Data::temperature_hi(){

@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -51,6 +51,7 @@ namespace Core {
         std::string *_url_template;
         std::string *_url_detail_template;
         std::string *_url_for_view;
+        std::string *_url_for_map;
         std::string *_cookie;
         void *_libraryHandler;
         bool _hasForecast;
@@ -76,6 +77,7 @@ namespace Core {
             std::string& cookie() const;
             std::string& url_detail_template() const;
             std::string& url_for_view() const;
+            std::string& url_for_map() const;
             std::string& binary() const;
             virtual ~Source();
             StationsList& search(const std::string& station);

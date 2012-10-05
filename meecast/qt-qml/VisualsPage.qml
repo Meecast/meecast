@@ -9,6 +9,7 @@ Page {
     property bool event_widget_status: Config.eventwidget
     property bool lockscreen_widget_status: Config.lockscreen
     property bool standbyscreen_widget_status: Config.standbyscreen
+    property bool splash_status: Config.splash
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"
@@ -45,9 +46,9 @@ Page {
         onAccepted: {
             Config.set_iconset(selectedText);
         }
-
     }
-     Dialog {
+
+    Dialog {
 	id: enableDialog
 	title: Item {
 	    id: titleField
@@ -485,8 +486,32 @@ Page {
         Item {
             width: parent.width
             height: 80
+            id: splashitem
             Label {
-                text: Config.tr("Settings of standbyscreen")
+                text: Config.tr("Splash screen")
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            Switch {
+                id: splash 
+                checked: Config.splash
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                onCheckedChanged: {
+                    if (splash_status != checked){
+                            splash_status = checked;
+                            Config.setsplash(splash_status);
+                    }                   
+                }
+                //platformStyle: SwitchStyle {inverted: true}
+            }
+        }
+
+        Item {
+            width: parent.width
+            height: 80
+            Label {
+                text: Config.tr("Settings of StandbyScreen")
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
             }
@@ -502,7 +527,6 @@ Page {
                 }
             }
         }
-
 
     }
     }

@@ -9,10 +9,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-05 14:16+0300\n"
-"PO-Revision-Date: 2012-04-25 20:27+0000\n"
+"POT-Creation-Date: 2012-10-04 12:49+0300\n"
+"PO-Revision-Date: 2012-08-26 20:31+0000\n"
 "Last-Translator: kubixmedrek <kubix.medrek@gmail.com>\n"
-"Language-Team: Polish (Poland) (http://www.transifex.net/projects/p/meecast/"
+"Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/meecast/"
 "language/pl_PL/)\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
@@ -107,7 +107,7 @@ msgstr "1 dzień"
 #: omweather/src/weather-settings.c:4240
 #: omweather/src/weather-simple-settings.c:1696
 #: omweather/src/weather-simple-settings.c:2805
-#: meecast/qt-qml/UpdatePage.qml:147
+#: meecast/qt-qml/UpdatePage.qml:154
 msgid "1 hour"
 msgstr "1 godzina"
 
@@ -123,11 +123,16 @@ msgstr "10 minut"
 msgid "10 seconds"
 msgstr "10 sekundach"
 
-#: omweather/src/weather-sensor.c:151
+#: meecast/qt-qml/UpdatePage.qml:175
+#, fuzzy
+msgid "12 hours"
+msgstr "2 godziny"
+
+#: omweather/src/weather-sensor.c:151 meecast/qt-qml/UpdatePage.qml:140
 msgid "15 minutes"
 msgstr "15 minut"
 
-#: omweather/src/weather-settings.c:4242 meecast/qt-qml/UpdatePage.qml:154
+#: omweather/src/weather-settings.c:4242 meecast/qt-qml/UpdatePage.qml:161
 msgid "2 hours"
 msgstr "2 godziny"
 
@@ -139,7 +144,7 @@ msgstr "20 sekundach"
 msgid "3 minutes"
 msgstr "3 minuty"
 
-#: omweather/src/weather-sensor.c:153 meecast/qt-qml/UpdatePage.qml:140
+#: omweather/src/weather-sensor.c:153 meecast/qt-qml/UpdatePage.qml:147
 msgid "30 minutes"
 msgstr "30 minut"
 
@@ -150,7 +155,7 @@ msgstr "30 sekundach"
 #: omweather/src/weather-settings.c:4244
 #: omweather/src/weather-simple-settings.c:1705
 #: omweather/src/weather-simple-settings.c:2808
-#: meecast/qt-qml/UpdatePage.qml:161
+#: meecast/qt-qml/UpdatePage.qml:168
 msgid "4 hours"
 msgstr "4 godziny"
 
@@ -316,11 +321,11 @@ msgstr "Wystąpił nieznany błąd."
 msgid "Animation"
 msgstr "Animacja"
 
-#: meecast/qt-qml/VisualsPage.qml:501
+#: meecast/qt-qml/VisualsPage.qml:546
 msgid "Appearance"
 msgstr "Wygląd"
 
-#: meecast/qt-qml/VisualsPage.qml:93
+#: meecast/qt-qml/VisualsPage.qml:94
 msgid ""
 "Application manager will now start\n"
 "for installing package 'MeeCast applet'.\n"
@@ -400,7 +405,7 @@ msgstr "C\n"
 msgid "CALM"
 msgstr "SPOKOJNIE"
 
-#: meecast/qt-qml/VisualsPage.qml:107
+#: meecast/qt-qml/VisualsPage.qml:108
 msgid "Cancel"
 msgstr "Przerwij"
 
@@ -409,9 +414,13 @@ msgstr "Przerwij"
 msgid "Cannot get path to the HOME directory. Quitting.\n"
 msgstr "Nie można uzyskać ścieżki do katalogu domowego. Kończenie.\n"
 
-#: omweather/src/weather-settings.c:3864 meecast/qt-qml/UnitsPage.qml:102
+#: omweather/src/weather-settings.c:3864
 msgid "Celcius"
 msgstr "Celsjusz"
+
+#: meecast/qt-qml/UnitsPage.qml:102
+msgid "Celsius"
+msgstr ""
 
 #: omweather/src/weather-simple-settings.c:677
 #: omweather/src/weather-simple-settings.c:710
@@ -594,8 +603,12 @@ msgstr "Kraj:"
 msgid "Custom"
 msgstr "Własny"
 
+#: meecast/qt-qml/UpdatePage.qml:183
+msgid "Daily"
+msgstr "Dziennie"
+
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
-#: meecast/qt-qml/FullWeatherPage.qml:175
+#: meecast/qt-qml/FullWeatherPage.qml:182
 msgid "Day"
 msgstr "Dzień"
 
@@ -603,7 +616,7 @@ msgstr "Dzień"
 msgid "Day length"
 msgstr "Długość dnia"
 
-#: omweather/src/hash.data:58 meecast/qt-qml/FullWeatherPage.qml:271
+#: omweather/src/hash.data:58 meecast/qt-qml/FullWeatherPage.qml:290
 msgid "Day length:"
 msgstr "Długość dnia:"
 
@@ -836,7 +849,6 @@ msgid "Find location via GPS"
 msgstr "Używaj GPS do znalezienia lokalizacji"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:428
-#, fuzzy
 msgid ""
 "Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
 "Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
@@ -848,9 +860,9 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Pierwsza kwadra"
 
-#: meecast/qt-qml/FullWeatherPage.qml:154
-#: meecast/qt-qml/FullWeatherPage.qml:199
-#: meecast/qt-qml/FullWeatherPage.qml:242
+#: meecast/qt-qml/FullWeatherPage.qml:155
+#: meecast/qt-qml/FullWeatherPage.qml:206
+#: meecast/qt-qml/FullWeatherPage.qml:255
 msgid "Flike:"
 msgstr ""
 
@@ -882,7 +894,7 @@ msgstr "Kolor czcionki:"
 msgid "Font:"
 msgstr "Czcionka:"
 
-#: meecast/qt-qml/VisualsPage.qml:291
+#: meecast/qt-qml/VisualsPage.qml:292
 msgid ""
 "For disabling MeeCast widget,\n"
 "you should uninstall package\n"
@@ -929,22 +941,34 @@ msgid ""
 " Dutch - Tom Leenders, Michiel Pater\n"
 " Bulgarian - Zlatko Enikov\n"
 " Albanian - Ilir Gjika\n"
+" Chinese - Wong Man Kong, Michael\n"
+" Portuguese - Jose Narciso,\n"
+" Turkish - Burak Kaan Kose,\n"
+" Catalan - Agustí Clara,\n"
+" Vietnamese - Hieu Nguyen, Anh Dương and truongnx, \n"
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
-"francuski -  Nicolas Granziano, \n"
-" \tPhilippe, Benot Knecht \n"
-" rosyjski - Pavel Fialko, Vlad Vasiliev, \n"
-" \tEd Bartosh\n"
-" fiński - Marko Vertainen\n"
-" niemiecki -  Claudius Henrichs\n"
-" włoski - Pavel Fialko, Alessandro Pasotti,\n"
-" \tSalvatore Fiorenzo, Luca Onnis\n"
-" hiszpański - Alejandro Lopez\n"
-" polski - Tomasz Dominikowski\n"
-" słowacki - Roman Moravčík \n"
-" szwecki - Angela Nennebrandt, Tomislav Veleckovik"
+"francuski - Nicolas Granziano,\n"
+"Philippe, Benot Knecht\n"
+"rosyjski - Pavel Fialko, Vlad Vasiliev,\n"
+"Ed Bartosh\n"
+"fiński - Marko Vertainen\n"
+"niemiecki - Claudius Henrichs\n"
+"włoski - Pavel Fialko, Alessandro Pasotti,\n"
+"Salvatore Fiorenzo, Ilir Gjika,\n"
+"Luca Onnis\n"
+"hiszpański - Alejandro Lopez\n"
+"polski - Kuba Mędrek, Tomasz Dominikowski\n"
+"słowacki - Roman Moravčík\n"
+"niemiecki - Tom Leenders, Michiel Pater\n"
+"bułgarski - Zlatko Enikov\n"
+"albański - Ilir Gjika\n"
+"chiński - Wong Man Kong, Michael\n"
+"szwedzki - Angela Nennebrandt,\n"
+"Niklas Åkerström,\n"
+"Tomislav Veleckovik"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -976,7 +1000,7 @@ msgstr "Pełnia"
 msgid "Full forecast"
 msgstr "Pełna prognoza"
 
-#: meecast/qt-qml/VisualsPage.qml:368
+#: meecast/qt-qml/VisualsPage.qml:369
 msgid "Fullscreen mode"
 msgstr "Tryb pełnoekranowy"
 
@@ -1041,15 +1065,15 @@ msgstr "Silny śnieg"
 msgid "High"
 msgstr "Wysokie"
 
-#: meecast/qt-qml/FullWeatherPage.qml:253
+#: meecast/qt-qml/FullWeatherPage.qml:272
 msgid "Hours"
 msgstr "Godziny"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:167 meecast/qt-qml/FullWeatherPage.qml:136
-#: meecast/qt-qml/FullWeatherPage.qml:181
-#: meecast/qt-qml/FullWeatherPage.qml:224
+#: meecast/qt-qml/dataitem.cpp:173 meecast/qt-qml/FullWeatherPage.qml:137
+#: meecast/qt-qml/FullWeatherPage.qml:188
+#: meecast/qt-qml/FullWeatherPage.qml:237
 msgid "Humidity:"
 msgstr "Wilgotność:"
 
@@ -1061,11 +1085,11 @@ msgstr "Zestaw ikon:"
 msgid "Icon size:"
 msgstr "Rozmiar ikon:"
 
-#: meecast/qt-qml/VisualsPage.qml:43 meecast/qt-qml/UpdatePage.qml:42
+#: meecast/qt-qml/VisualsPage.qml:44 meecast/qt-qml/UpdatePage.qml:42
 msgid "Icons"
 msgstr "Ikony"
 
-#: omweather/src/hash.data:93 meecast/qt-qml/VisualsPage.qml:390
+#: omweather/src/hash.data:93 meecast/qt-qml/VisualsPage.qml:391
 msgid "Iconset"
 msgstr "Zestaw ikon"
 
@@ -1073,8 +1097,8 @@ msgstr "Zestaw ikon"
 msgid "Iconsets"
 msgstr "Zestawy ikon"
 
-#: meecast/qt-qml/VisualsPage.qml:63 meecast/qt-qml/VisualsPage.qml:135
-#: meecast/qt-qml/VisualsPage.qml:162 meecast/qt-qml/VisualsPage.qml:225
+#: meecast/qt-qml/VisualsPage.qml:64 meecast/qt-qml/VisualsPage.qml:136
+#: meecast/qt-qml/VisualsPage.qml:163 meecast/qt-qml/VisualsPage.qml:226
 msgid "Information"
 msgstr "Informacje"
 
@@ -1087,13 +1111,12 @@ msgid "Isolated T-Storms / Wind"
 msgstr "Miejscowe burze / wiatr"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:429
-#, fuzzy
 msgid ""
 "Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
 "Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov"
 msgstr ""
 "włoski - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
-"polski - Tomasz Dominikowski;"
+"polski - Kuba Mędrek, Tomasz Dominikowski; Bułgarski - Zlatko Enikov"
 
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
@@ -1111,7 +1134,7 @@ msgstr "Ostatnia aktualizacja na serwerze: "
 msgid "Last update from server: "
 msgstr "Ostatnia aktualizacja z serwera: "
 
-#: omweather/src/hash.data:98 meecast/qt-qml/FullWeatherPage.qml:274
+#: omweather/src/hash.data:98 meecast/qt-qml/FullWeatherPage.qml:293
 msgid "Last update:"
 msgstr "Ostatnia aktualizacja: "
 
@@ -1138,7 +1161,7 @@ msgstr "Projekt interfejsu"
 msgid "Lead programmers"
 msgstr "Kierownik zespołu programistów"
 
-#: meecast/qt-qml/AboutPage.qml:236
+#: meecast/qt-qml/AboutPage.qml:241
 msgid "License"
 msgstr "Licencja"
 
@@ -1230,7 +1253,7 @@ msgstr "Raporty dla alergików"
 msgid "Long"
 msgstr "Długie"
 
-#: omweather/src/hash.data:120 meecast/qt-qml/WeatherPage.qml:486
+#: omweather/src/hash.data:120 meecast/qt-qml/WeatherPage.qml:487
 msgid "Looks like there's no info for this location."
 msgstr "Wygląda na to, że nie ma prognoz dla tej lokalizacji"
 
@@ -1258,7 +1281,7 @@ msgstr "Ręcznie"
 msgid "Measurement units"
 msgstr "Jednostki pomiaru"
 
-#: meecast/qt-qml/WeatherPage.qml:291
+#: meecast/qt-qml/WeatherPage.qml:292
 msgid "MeeCast"
 msgstr "MeeCast"
 
@@ -1477,7 +1500,7 @@ msgid "Next update:"
 msgstr "Następna aktualizacja:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:588
-#: meecast/qt-qml/FullWeatherPage.qml:210
+#: meecast/qt-qml/FullWeatherPage.qml:223
 msgid "Night"
 msgstr "Noc"
 
@@ -1493,7 +1516,7 @@ msgstr "Nie"
 msgid "No current weather data."
 msgstr "Brak bieżących danych pogodowych."
 
-#: omweather/src/hash.data:165 meecast/qt-qml/WeatherPage.qml:312
+#: omweather/src/hash.data:165 meecast/qt-qml/WeatherPage.qml:313
 msgid "No locations are set up yet."
 msgstr "Brak ustawionych położeń."
 
@@ -1511,8 +1534,8 @@ msgstr "Brak danych pogodowych dla tej stacji."
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:175 meecast/qt-qml/FullWeatherPage.qml:130
-#: meecast/qt-qml/WeatherPage.qml:540
+#: meecast/qt-qml/dataitem.cpp:181 meecast/qt-qml/FullWeatherPage.qml:131
+#: meecast/qt-qml/WeatherPage.qml:541
 msgid "Now"
 msgstr "Teraz"
 
@@ -1538,7 +1561,7 @@ msgid "Now: "
 msgstr "Teraz: "
 
 #: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1223
-#: meecast/qt-qml/VisualsPage.qml:114
+#: meecast/qt-qml/VisualsPage.qml:115
 msgid "OK"
 msgstr "OK"
 
@@ -1555,8 +1578,8 @@ msgstr "Ustawienia OMWeather"
 msgid "OMWeather settings"
 msgstr "Ustawienia OMWeather"
 
-#: meecast/qt-qml/VisualsPage.qml:205 meecast/qt-qml/VisualsPage.qml:268
-#: meecast/qt-qml/VisualsPage.qml:304
+#: meecast/qt-qml/VisualsPage.qml:206 meecast/qt-qml/VisualsPage.qml:269
+#: meecast/qt-qml/VisualsPage.qml:305
 msgid "Ok"
 msgstr "Ok"
 
@@ -1581,9 +1604,8 @@ msgid "Overcast and light wet snow"
 msgstr "Pochmurno, przelotny śnieg z deszczem"
 
 #: omweather/src/hash.data:169
-#, fuzzy
 msgid "Overcast and rain"
-msgstr "Pochmurno, przelotny deszcz"
+msgstr "Zachmurzenie, deszcz"
 
 #: omweather/src/hash.data:170
 msgid "Overcast and showers"
@@ -1606,9 +1628,8 @@ msgid "Overcast and wet snow showers"
 msgstr "Pochmurno, opady deszczu ze śniegiem"
 
 #: omweather/src/hash.data:175
-#, fuzzy
 msgid "Overcast, thunderstorms with rain"
-msgstr "Pochmurno, przelotny deszcz"
+msgstr "Zachmurzenie, burze z deszczem"
 
 #: omweather/src/hash.data:177
 msgid "PM Fog"
@@ -1672,7 +1693,7 @@ msgstr "Po południu burze"
 
 #: meecast/qt-qml/UnitsPage.qml:182
 msgid "Pa"
-msgstr ""
+msgstr "Pa"
 
 #: omweather/src/hash.data:199
 msgid "Partly Cloudy"
@@ -1779,9 +1800,8 @@ msgid "Partly cloudy and wet snow showers"
 msgstr "Umiarkowane zachmurzenie, opady śniegu z deszczem"
 
 #: omweather/src/hash.data:192 omweather/src/hash.data:218
-#, fuzzy
 msgid "Partly cloudy, possible thunderstorms with rain"
-msgstr "Umiarkowane zachmurzenie i przelotne opady deszczu"
+msgstr "Częściowe zachmurzenie, możliwe burze z deszczem"
 
 #: omweather/src/weather-simple-settings.c:1676
 msgid "Period"
@@ -1791,9 +1811,9 @@ msgstr "Okres"
 msgid "Position:"
 msgstr "Położenie:"
 
-#: meecast/qt-qml/FullWeatherPage.qml:148
-#: meecast/qt-qml/FullWeatherPage.qml:193
-#: meecast/qt-qml/FullWeatherPage.qml:236
+#: meecast/qt-qml/FullWeatherPage.qml:149
+#: meecast/qt-qml/FullWeatherPage.qml:200
+#: meecast/qt-qml/FullWeatherPage.qml:249
 msgid "Ppcp:"
 msgstr ""
 
@@ -1816,9 +1836,9 @@ msgstr "Jednostki ciśnienia:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:173 meecast/qt-qml/FullWeatherPage.qml:142
-#: meecast/qt-qml/FullWeatherPage.qml:187
-#: meecast/qt-qml/FullWeatherPage.qml:230
+#: meecast/qt-qml/dataitem.cpp:179 meecast/qt-qml/FullWeatherPage.qml:143
+#: meecast/qt-qml/FullWeatherPage.qml:194
+#: meecast/qt-qml/FullWeatherPage.qml:243
 msgid "Pressure:"
 msgstr "Ciśnienie:"
 
@@ -1831,9 +1851,8 @@ msgid "Project administrator"
 msgstr "Koordynator projektu"
 
 #: meecast/qt-qml/AboutPage.qml:186
-#, fuzzy
 msgid "Project manager"
-msgstr "Koordynator projektu"
+msgstr "Manager projektu"
 
 #: meecast/qt-qml/AboutPage.qml:86
 msgid "Project website"
@@ -2075,7 +2094,7 @@ msgstr "Czujnik"
 msgid "Set"
 msgstr "Ustaw"
 
-#: omweather/src/hash.data:256 meecast/qt-qml/WeatherPage.qml:326
+#: omweather/src/hash.data:256 meecast/qt-qml/WeatherPage.qml:327
 msgid "Set locations"
 msgstr "Ustaw lokalizację"
 
@@ -2084,6 +2103,10 @@ msgstr "Ustaw lokalizację"
 #: meecast/qt-qml/SettingsPage.qml:139
 msgid "Settings"
 msgstr "Ustawienia"
+
+#: meecast/qt-qml/VisualsPage.qml:514
+msgid "Settings of StandbyScreen"
+msgstr "Ustawienia ekranu czuwania"
 
 #: omweather/src/hash.data:257
 msgid "Shallow Fog"
@@ -2206,9 +2229,13 @@ msgstr "Prędkość"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
-#: meecast/qt-qml/dataitem.cpp:171
+#: meecast/qt-qml/dataitem.cpp:177
 msgid "Speed:"
 msgstr "Prędkość:"
+
+#: meecast/qt-qml/VisualsPage.qml:491
+msgid "Splash screen"
+msgstr ""
 
 #: omweather/src/weather-settings.c:522
 msgid "State:"
@@ -2240,7 +2267,7 @@ msgstr "Słonecznie"
 msgid "Sunny / Wind"
 msgstr "Słonecznie / wiatr"
 
-#: omweather/src/hash.data:280 meecast/qt-qml/FullWeatherPage.qml:265
+#: omweather/src/hash.data:280 meecast/qt-qml/FullWeatherPage.qml:284
 msgid "Sunrise:"
 msgstr "Wschód:"
 
@@ -2248,7 +2275,7 @@ msgstr "Wschód:"
 msgid "Sunrise: "
 msgstr "Wschód: "
 
-#: omweather/src/hash.data:281 meecast/qt-qml/FullWeatherPage.qml:268
+#: omweather/src/hash.data:281 meecast/qt-qml/FullWeatherPage.qml:287
 msgid "Sunset:"
 msgstr "Zachód:"
 
@@ -2304,7 +2331,7 @@ msgid "Temperature units:"
 msgstr "Jednostki temperatury:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
-#: meecast/qt-qml/dataitem.cpp:165
+#: meecast/qt-qml/dataitem.cpp:171
 msgid "Temperature:"
 msgstr "Temperatura:"
 
@@ -2320,7 +2347,7 @@ msgstr "Podziękowania"
 msgid "The weather has been updated."
 msgstr "Prognoza została zaktualizowana."
 
-#: meecast/qt-qml/AboutPage.qml:245
+#: meecast/qt-qml/AboutPage.qml:250
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2349,13 +2376,12 @@ msgid "Thunder"
 msgstr "Burza"
 
 #: omweather/src/hash.data:290
-#, fuzzy
 msgid "Thunder in the Vicinity"
-msgstr "Przelotny deszcz w pobliżu"
+msgstr "Pioruny w pobliżu"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
-#: meecast/qt-qml/FullWeatherPage.qml:400 meecast/qt-qml/WeatherPage.qml:540
+#: meecast/qt-qml/FullWeatherPage.qml:419 meecast/qt-qml/WeatherPage.qml:541
 msgid "Today"
 msgstr "Dzisiaj"
 
@@ -2376,7 +2402,7 @@ msgstr ""
 msgid "Transparency:"
 msgstr "Przezroczystość:"
 
-#: omweather/src/hash.data:291 meecast/qt-qml/WeatherPage.qml:500
+#: omweather/src/hash.data:291 meecast/qt-qml/WeatherPage.qml:501
 msgid "Try to update"
 msgstr "Spróbuj zaktualizować"
 
@@ -2423,7 +2449,7 @@ msgstr "Aktualizacja w trakcie."
 msgid "Update interval"
 msgstr "Aktualizuj co: "
 
-#: omweather/src/hash.data:293 meecast/qt-qml/WeatherPage.qml:359
+#: omweather/src/hash.data:293 meecast/qt-qml/WeatherPage.qml:360
 msgid "Updating forecast"
 msgstr "Aktualizowanie prognoz"
 
@@ -2542,15 +2568,15 @@ msgstr "Prognoza pogody dla MeeGo. Wersja "
 msgid "Widget OMWeather is reloading"
 msgstr "Widżet OMWeather przeładowuje się"
 
-#: meecast/qt-qml/VisualsPage.qml:436
+#: meecast/qt-qml/VisualsPage.qml:437
 msgid "Widget in LockScreen"
-msgstr ""
+msgstr "Widżet na ekranie blokady"
 
-#: meecast/qt-qml/VisualsPage.qml:463
+#: meecast/qt-qml/VisualsPage.qml:464
 msgid "Widget in StandbyScreen"
-msgstr ""
+msgstr "Widżet na ekranie czuwania"
 
-#: meecast/qt-qml/VisualsPage.qml:410
+#: meecast/qt-qml/VisualsPage.qml:411
 msgid "Widget in events view"
 msgstr "Widżety w widoku zdarzeń"
 
@@ -2567,21 +2593,21 @@ msgstr "Styl widżetu i zestaw ikon"
 msgid "Wind"
 msgstr "Wiatr"
 
-#: omweather/src/hash.data:306 meecast/qt-qml/FullWeatherPage.qml:139
-#: meecast/qt-qml/FullWeatherPage.qml:184
-#: meecast/qt-qml/FullWeatherPage.qml:227
+#: omweather/src/hash.data:306 meecast/qt-qml/FullWeatherPage.qml:140
+#: meecast/qt-qml/FullWeatherPage.qml:191
+#: meecast/qt-qml/FullWeatherPage.qml:240
 msgid "Wind direction:"
 msgstr "Kierunek wiatru:"
 
-#: meecast/qt-qml/FullWeatherPage.qml:151
-#: meecast/qt-qml/FullWeatherPage.qml:196
-#: meecast/qt-qml/FullWeatherPage.qml:239
+#: meecast/qt-qml/FullWeatherPage.qml:152
+#: meecast/qt-qml/FullWeatherPage.qml:203
+#: meecast/qt-qml/FullWeatherPage.qml:252
 msgid "Wind gust:"
 msgstr "Prędkość wiatru w porywach"
 
-#: omweather/src/hash.data:308 meecast/qt-qml/FullWeatherPage.qml:145
-#: meecast/qt-qml/FullWeatherPage.qml:190
-#: meecast/qt-qml/FullWeatherPage.qml:233
+#: omweather/src/hash.data:308 meecast/qt-qml/FullWeatherPage.qml:146
+#: meecast/qt-qml/FullWeatherPage.qml:197
+#: meecast/qt-qml/FullWeatherPage.qml:246
 msgid "Wind speed"
 msgstr "Prędkość wiatru"
 
@@ -2596,7 +2622,7 @@ msgstr "Jednostki prędkości wiatru:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
-#: meecast/qt-qml/dataitem.cpp:169
+#: meecast/qt-qml/dataitem.cpp:175
 msgid "Wind:"
 msgstr "Wiatr:"
 
@@ -2637,25 +2663,30 @@ msgstr "Tak"
 msgid "You can make donation here: "
 msgstr "Tutaj można składać dotacje:"
 
-#: meecast/qt-qml/VisualsPage.qml:192
+#: meecast/qt-qml/VisualsPage.qml:193
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using LockScreen widget"
 msgstr ""
+"Musisz włączyć widżet w widoku zdarzeń, aby używać widżetu na ekranie blokady"
 
-#: meecast/qt-qml/VisualsPage.qml:255
+#: meecast/qt-qml/VisualsPage.qml:256
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using StandbyScreen widget"
 msgstr ""
+"Musisz włączyć widżet w widoku zdarzeń, aby używać widżetu na ekranie "
+"czuwania"
 
 #: meecast/qt-qml/UpdatePage.qml:73
 msgid ""
 "You should activate 'Widget in the events view' option in MeeCast appearance "
 "settings for auto update."
 msgstr ""
+"Włącz widżet w widoku zdarzeń (dostępny w menu wyglądu), aby otrzymywać "
+"automatyczne aktualizacje."
 
 #: omweather/src/weather-simple-settings.c:2758
 msgid "Zoom in popup window "
@@ -2670,6 +2701,8 @@ msgid ""
 "as published by the Free Software Foundation; either version 2.1 of the "
 "License, or (at your option) any later version."
 msgstr ""
+"opublikowanej przez Fundację Wolnego Oprogramowania w wersji 2.1 lub "
+"dowolnej późniejszej."
 
 #: omweather/src/weather-popup.c:286
 msgid "current location local time"
@@ -2679,11 +2712,11 @@ msgstr "bieżący czas lokalny położenia"
 msgid "d:"
 msgstr "d:"
 
-#: meecast/qt-qml/dataitem.cpp:404
+#: meecast/qt-qml/dataitem.cpp:439
 msgid "day ago"
 msgstr "dzień temu"
 
-#: meecast/qt-qml/dataitem.cpp:406
+#: meecast/qt-qml/dataitem.cpp:441
 msgid "days ago"
 msgstr "dni temu"
 
@@ -2727,11 +2760,11 @@ msgstr "spada"
 msgid "feels like"
 msgstr "odczuwalna"
 
-#: meecast/qt-qml/dataitem.cpp:398
+#: meecast/qt-qml/dataitem.cpp:433
 msgid "hour ago"
 msgstr "godzinę temu"
 
-#: meecast/qt-qml/dataitem.cpp:401
+#: meecast/qt-qml/dataitem.cpp:436
 msgid "hours ago"
 msgstr "godzin temu"
 
@@ -2812,11 +2845,11 @@ msgstr "mi/h"
 msgid "mi/s"
 msgstr "mi/s"
 
-#: meecast/qt-qml/dataitem.cpp:392
+#: meecast/qt-qml/dataitem.cpp:427
 msgid "minute ago"
 msgstr "minutę temu"
 
-#: meecast/qt-qml/dataitem.cpp:395
+#: meecast/qt-qml/dataitem.cpp:430
 msgid "minutes ago"
 msgstr "minut temu"
 
@@ -2860,7 +2893,7 @@ msgstr ""
 msgid "rising"
 msgstr "rośnie"
 
-#: meecast/qt-qml/dataitem.cpp:389
+#: meecast/qt-qml/dataitem.cpp:424
 msgid "seconds ago"
 msgstr "sekund temu"
 
@@ -2907,24 +2940,3 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:330
 msgid "Ю-З"
 msgstr "Ю-З"
-
-#, fuzzy
-#~ msgid ""
-#~ "French -  Nicolas Granziano, \n"
-#~ " \tPhilippe, Benot Knecht \n"
-#~ " Russian - Pavel Fialko, Vlad Vasiliev, \n"
-#~ " \tEd Bartosh\n"
-#~ " Finnish - Marko Vertainen\n"
-#~ " German -  Claudius Henrichs\n"
-#~ " Italian - Pavel Fialko, Alessandro Pasotti,\n"
-#~ " \tSalvatore Fiorenzo, Ilir Gjika, "
-#~ msgstr ""
-#~ "francuski - Nicolas Granziano, Philippe, Benot Knecht\n"
-#~ "rosyjski - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
-#~ "fiński - Marko Vertainen\n"
-#~ "niemiecki - Claudius Henrichs\n"
-#~ "włoski - Pavel Fialko, Alessandro Pasotti,\n"
-#~ "\tSalvatore Fiorenzo, Luca Onnis\n"
-#~ "hiszpański - Alejandro Lopez\n"
-#~ "polski - Tomasz Dominikowski\n"
-#~ "słowacki - Roman Moravčík"

@@ -9,8 +9,9 @@ meecast (0.6.5) unstable; urgency=low
   * Updated Albanian, Catalan, Vietnamese, Chinese, Dutch translations
   * Disabled debug information for applet
   * Added station Kouvola(Finland) to source weather.com
+  * Added Swiss to foreca.com database
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 28 Sep 2012 09:41:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 07 Oct 2012 15:41:23 +0200
 
 meecast (0.6.4) unstable; urgency=low
 

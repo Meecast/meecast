@@ -169,7 +169,7 @@ Controller::load_data()
                                   forecast_data->temperature_high(),
                                   forecast_data->temperature_low(), 
                                   (_config->iconspath() + "/" + _config->iconset() + "/" + forecast_data->icon()), 
-                                  description,
+                                  description.fromUtf8(temp_data->Text().c_str()),
                                   result_time, 
                                   forecast_data->current(), 
                                   _config->Lockscreen(),

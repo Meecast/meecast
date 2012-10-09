@@ -216,7 +216,8 @@ DataModel::update_model(int period)
                                            forecast_data->temperature(), 
                                            forecast_data->temperature_high(), 
                                            forecast_data->temperature_low(), 
-                                           icon_string, description,
+                                           icon_string,
+                                           description.fromUtf8(temp_data->Text().c_str()),
                                            result_time, forecast_data->current(), 
                                            _config->Lockscreen(), _config->Standbyscreen(),
                                            t.toString("dd MMM h:mm")); 

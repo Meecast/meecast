@@ -410,14 +410,14 @@ MyMWidget::SetCurrentData(const QString &station, const QString &temperature,
 
    /* ContexKit */
 
-   publisher->setValue("Station", QString(station)); 
+   publisher->setValue("Station", QString::fromUtf8(station.toUtf8())); 
    publisher->setValue("Temperature", QVariant(temperature)); 
    publisher->setValue("HighTemperature", QString(temperature_high)); 
    publisher->setValue("LowTemperature", QString(temperature_low)); 
    publisher->setValue("CurrentWeather", QVariant(current)); 
    publisher->setValue("TimeUpdatingForecast", QString(last_update)); 
    publisher->setValue("IconPath", QString(icon)); 
-   publisher->setValue("Description", QString(description)); 
+   publisher->setValue("Description", QString::fromUtf8(description.toUtf8())); 
 
    publisher->sync();
 

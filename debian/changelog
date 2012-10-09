@@ -1,8 +1,10 @@
 meecast (0.6.6) unstable; urgency=low
 
   * Fixed problem Shiny and SumpelMee iconsets 
+  * Fixed problem with ContextKit (description and station text) for BillBoard
+    application
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 07 Oct 2012 15:41:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 09 Oct 2012 11:41:23 +0200
 
 meecast (0.6.5) unstable; urgency=low
 

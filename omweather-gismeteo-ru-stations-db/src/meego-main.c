@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-gismeteo-ru-stations-db
  *
- * Copyright (C) 2009-2011 Vlad Vasiliev
+ * Copyright (C) 2009-2012 Vlad Vasilyru
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or
@@ -992,6 +992,8 @@ parse_and_write_detail_data(const gchar *station_id, htmlDocPtr doc, const gchar
     gint size;
     time_t      t_start = 0, t_end = 0;
     FILE        *file_out;
+
+
 
    /* Create xpath evaluation context */
    xpathCtx = xmlXPathNewContext(doc);

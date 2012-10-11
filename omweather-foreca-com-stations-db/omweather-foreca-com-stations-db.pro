@@ -7,23 +7,23 @@
 
 TARGET = forecacom 
 TEMPLATE = app
-
+QT       += core 
 
 
 HEADERS += src/meego-main.h \
            src/hash.h
 
-SOURCES += src/meego-main.c \
-           src/hash.c
+SOURCES += src/meego-main.cpp \
+           src/hash.cpp
 
 FORMS    +=
 
 OTHER_FILES += \
 
 
-CONFIG = link_pkgconfig -qt
-PKGCONFIG += libxml-2.0 \
-             glib-2.0
+CONFIG += link_pkgconfig 
+PKGCONFIG += libxml-2.0 
+             
 
 db.files = data/foreca.com.db
 db.path = /opt/com.meecast.omweather/share/db/

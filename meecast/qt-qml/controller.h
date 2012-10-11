@@ -37,7 +37,6 @@
 #include "countrymodel.h"
 #include "regionmodel.h"
 #include "citymodel.h"
-#include "dbusadaptor_applet.h"
 
 
 

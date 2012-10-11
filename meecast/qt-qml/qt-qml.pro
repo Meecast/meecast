@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += declarative sql xml xmlpatterns network
+QT       += declarative sql xml xmlpatterns network cascades script svg
+#QT       += sql xml xmlpatterns network cascades
 
 TARGET = omweather-qml
 TEMPLATE = app
@@ -16,8 +17,6 @@ SOURCES += main.cpp \
     qmllayoutitem.cpp \
     dataitem.cpp \
     datamodel.cpp \
-    dbusadaptor.cpp \
-    dbusadaptor_applet.cpp \
     controller.cpp \
     networkingcontrol.cpp \
     selectmodel.cpp \
@@ -33,8 +32,6 @@ HEADERS  += \
     qmllayoutitem.h \
     dataitem.h \
     datamodel.h \
-    dbusadaptor.h \
-    dbusadaptor_applet.h \
     controller.h \
     networkingcontrol.h \
     selectmodel.h \
@@ -77,7 +74,7 @@ OTHER_FILES += \
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 
 CONFIG += mobility
-MOBILITY += location
+#MOBILITY += location
 CONFIG += qdeclarative-boostable
 CONFIG += meegotouch 
 
@@ -86,12 +83,12 @@ QMAKE_LFLAGS += -pie -rdynamic
 
 
 INCLUDEPATH += ../core                                                                                                        
-LIBS += -L ../core ../core/libomweather-core.a  
-CONFIG += qdbus
+LIBS += -lsqlite3 -lcurl -lintl -L ../core ../core/libomweather-core.a  
+#CONFIG += qdbus
 CONFIG += link_pkgconfig
-PKGCONFIG += glib-2.0
-PKGCONFIG += sqlite3
-PKGCONFIG += libcurl
+#PKGCONFIG += glib-2.0
+#PKGCONFIG += sqlite3
+#PKGCONFIG += libcurl
 target.path = /opt/com.meecast.omweather/bin
 INSTALLS += target
 

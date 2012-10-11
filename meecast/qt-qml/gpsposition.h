@@ -3,13 +3,13 @@
 
 #include <QObject>
 #include <QDebug>
-#include <QGeoPositionInfo>
-#include <QGeoPositionInfoSource>
-#include <QGeoCoordinate>
+//#include <QGeoPositionInfo>
+//#include <QGeoPositionInfoSource>
+//#include <QGeoCoordinate>
 #include <QTimer>
 #include "core.h"
 
-QTM_USE_NAMESPACE
+//QTM_USE_NAMESPACE
 
 class GpsPosition : public QObject
 {
@@ -21,7 +21,7 @@ public:
     void startGps();
     void startTimer();
 private:
-    QGeoPositionInfoSource * _location;
+   // QGeoPositionInfoSource * _location;
     bool _isUpdated;
     QTimer *_timer;
     double _latitude;
@@ -30,7 +30,8 @@ signals:
     void findCoord(double latitude, double longitude);
 
 private slots:
-    void positionUpdated(QGeoPositionInfo info);
+ //   void positionUpdated(QGeoPositionInfo info);
+    void positionUpdated();
     void timeout();
 };
 

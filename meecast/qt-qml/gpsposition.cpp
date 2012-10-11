@@ -6,11 +6,12 @@
 GpsPosition::GpsPosition(QObject *parent) :
     QObject(parent)
 {
-    _location = QGeoPositionInfoSource::createDefaultSource(this);
+    //_location = QGeoPositionInfoSource::createDefaultSource(this);
     _isUpdated = false;
     _timer = NULL;
     _latitude = 0;
     _longitude = 0;
+    /*
     if (_location){
         _isUpdated = true;
 
@@ -18,12 +19,15 @@ GpsPosition::GpsPosition(QObject *parent) :
         qDebug() << "default gps source not exist";
 
     }
+    */
 }
 
 GpsPosition::~GpsPosition()
 {
+	/*
     if (_isUpdated)
         _location->stopUpdates();
+     */
     /*if (_timer->isActive())
         _timer->stop();
         */
@@ -31,11 +35,12 @@ GpsPosition::~GpsPosition()
         delete _timer;
 }
 
-void GpsPosition::positionUpdated(QGeoPositionInfo info)
+void GpsPosition::positionUpdated()
 {
     double latitude, longitude;
     //qDebug() << "gps info " << info;
-    QGeoCoordinate coord = info.coordinate();
+    //QGeoCoordinate coord = info.coordinate();
+    /*
     if (coord.isValid()){
         longitude = coord.longitude();
         latitude = coord.latitude();
@@ -46,27 +51,30 @@ void GpsPosition::positionUpdated(QGeoPositionInfo info)
         }
         emit findCoord(latitude, longitude);
 
-        /* set timer */
+        // set timer
         startTimer();
     }
+   */
 }
 void GpsPosition::timeout()
 {
     double distance = 0;
     qDebug() << "\ntimeout\n\n";
-    QGeoCoordinate coord = _location->lastKnownPosition(true).coordinate();
+    //QGeoCoordinate coord = _location->lastKnownPosition(true).coordinate();
     qDebug() << "SAVED POSITION lat = " << _latitude << " lon = " << _longitude;
-    qDebug() << "LAST POSITION lat = " << coord.latitude() << " lon = " << coord.longitude();
+    //qDebug() << "LAST POSITION lat = " << coord.latitude() << " lon = " << coord.longitude();
+    /*
     if (coord.isValid()){
         distance = Core::DatabaseSqlite::calculate_distance(_latitude, _longitude,
                                                             coord.latitude(), coord.longitude());
         qDebug() << "distancd = " << distance;
-        /* check distance between the last and found coordinates */
+        // check distance between the last and found coordinates
         if (distance > UPDATE_DISTANCE){
-            /* distance more then UPDATE_DISTANCE km */
+            // distance more then UPDATE_DISTANCE km
             emit findCoord(coord.latitude(), coord.longitude());
         }
     }
+    */
 }
 void GpsPosition::setLastCoordinates(double latitude, double longitude)
 {
@@ -76,10 +84,10 @@ void GpsPosition::setLastCoordinates(double latitude, double longitude)
 }
 void GpsPosition::startGps()
 {
-    if (_location){
-        connect(_location, SIGNAL(positionUpdated(QGeoPositionInfo)), this, SLOT(positionUpdated(QGeoPositionInfo)));
-        _location->startUpdates();
-    }
+    //if (_location){
+    //    connect(_location, SIGNAL(positionUpdated(QGeoPositionInfo)), this, SLOT(positionUpdated(QGeoPositionInfo)));
+    //    _location->startUpdates();
+    //}
 }
 void GpsPosition::startTimer()
 {

@@ -42,7 +42,7 @@
     typedef struct dirent Dirent;
 #else
     #include <dirent.h>
-    #include <linux/fs.h>
+//    #include <linux/fs.h>
     typedef struct dirent Dirent;
 #endif
 ////////////////////////////////////////////////////////////////////////////////

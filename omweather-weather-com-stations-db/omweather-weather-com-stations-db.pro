@@ -21,8 +21,9 @@ OTHER_FILES += \
 
 
 CONFIG = link_pkgconfig -qt
-PKGCONFIG += libxml-2.0 \
-             glib-2.0
+PKGCONFIG += libxml-2.0 
+
+INCLUDEPATH += ${QNX_TARGET}/usr/include/glib-2.0 ${QNX_TARGET}/usr/lib/glib-2.0/include 
 
 db.files = data/weather.com.db
 db.path =  /opt/com.meecast.omweather/share/db/

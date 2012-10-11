@@ -1,8 +1,8 @@
 VERSION = 1.0
 TARGET = omweather-core
 TEMPLATE = lib
-PKGCONFIG += libcurl
-PKGCONFIG += sqlite3
+#PKGCONFIG += libcurl
+#PKGCONFIG += sqlite3
 CONFIG += link_pkgconfig staticlib
 
 CONFIG += qdeclarative-boostable
@@ -25,6 +25,9 @@ CONFIG(localdebug):DEFINES += LOCALDEBUG
 
 QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
 QMAKE_LFLAGS += -pie -rdynamic
+
+LIBS += -lxml2 -lsqlite3 -lcurl
+INCLUDEPATH += ..src ${QNX_TARGET}/usr/include/libxml
 
 system(pkg-config --exists meego-panel) {
  DEFINES += MEEGO_MPL

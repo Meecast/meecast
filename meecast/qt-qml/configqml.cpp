@@ -154,7 +154,7 @@ ConfigQml::icon_list()
             std::string name = dp->d_name;
             if(name == "." || name == "..")
                 continue;
-            if(dp->d_type == DT_DIR && name[0] != '.'){
+            //if(dp->d_type == DT_DIR && name[0] != '.'){
                 try{
                     icon_list << QString::fromStdString(name);
                 }
@@ -166,7 +166,7 @@ ConfigQml::icon_list()
                     std::cerr << "error " << err << std::endl;
                     continue;
                 }
-            }
+            //}
         }
         closedir(dir_fd);
     }
@@ -306,13 +306,7 @@ ConfigQml::standbyscreen()
 void
 ConfigQml::setstandbyscreen(bool c)
 {
-    ConfigQml::Config::Standbyscreen(c);
-    if (!c && (QFile::exists("/home/user/.cache/com.meecast.omweather/logo.png")))
-       QFile::remove("/home/user/.cache/com.meecast.omweather/logo.png"); 
-    MGConfItem standbyItem("/desktop/meego/screen_lock/low_power_mode/operator_logo");
-    standbyItem.set("/home/user/.cache/com.meecast.omweather/nologo.png");
-    saveConfig();
-    refreshconfig();
+
 }
 
 bool

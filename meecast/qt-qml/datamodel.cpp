@@ -190,7 +190,6 @@ DataModel::update_model(int period)
 
                 /* Add to list */
                 this->appendRow(forecast_data);
-                MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
                 QString icon_string =  _config->iconspath();
                 icon_string.append("/") ;
                 icon_string.append(_config->iconSet().c_str());
@@ -212,15 +211,7 @@ DataModel::update_model(int period)
                 QDateTime t;
                 t.setTime_t(dp->LastUpdate());
                 QString description = forecast_data->Text().c_str();
-                dbusclient->SetCurrentData(_config->stationname(), 
-                                           forecast_data->temperature(), 
-                                           forecast_data->temperature_high(), 
-                                           forecast_data->temperature_low(), 
-                                           icon_string,
-                                           description.fromUtf8(temp_data->Text().c_str()),
-                                           result_time, forecast_data->current(), 
-                                           _config->Lockscreen(), _config->Standbyscreen(),
-                                           t.toString("dd MMM h:mm")); 
+
            }
             break;
         case current_night_period:

@@ -38,7 +38,7 @@
 #include <QUrl>
 #include "updatethread.h"
 #include "gpsposition.h"
-#include <MGConfItem>
+//#include <MGConfItem>
 #include <QSettings>
 #include <QDir>
 

@@ -32,6 +32,30 @@ INCLUDEPATH += ..src ${QNX_TARGET}/usr/include/libxml
 system(pkg-config --exists meego-panel) {
  DEFINES += MEEGO_MPL
 } 
+
+device {
+	CONFIG(release, debug|release) {
+		DESTDIR = ../../o.le-v7
+	}
+	CONFIG(debug, debug|release) {
+		DESTDIR = ../../ o.le-v7-g
+	}
+}
+
+simulator {
+	CONFIG(release, debug|release) {
+		DESTDIR = ../../o
+	}
+	CONFIG(debug, debug|release) {
+		DESTDIR = ../../o-g
+	}
+}
+
+OBJECTS_DIR = $${DESTDIR}/.obj
+MOC_DIR = $${DESTDIR}/.moc
+RCC_DIR = $${DESTDIR}/.rcc
+UI_DIR = $${DESTDIR}/.ui
+INSTALL_ROOT = $${DESTDIR}/.rcc
  
 SOURCES = \
     abstractconfig.cpp \ 

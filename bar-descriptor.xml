@@ -75,7 +75,7 @@
     </configuration>
     <configuration id="com.qnx.qcc.toolChain.1429809141.637573814" name="Simulator-Debug">
         <platformArchitecture>x86</platformArchitecture>
-        <asset type="Qnx/Elf" entry="true" path="x86/o/omweather-qml">omweather-qml</asset>
+        <asset public="true" type="Qnx/Elf" entry="true" path="x86/o/omweather-qml">omweather-qml</asset>
     </configuration>
 
     <!--  The icon for the application, which should be 86x86. -->

@@ -71,18 +71,19 @@
     </icon>
     <configuration id="com.qnx.qcc.toolChain.1429809141" name="Default">
        <platformArchitecture>armle-v7</platformArchitecture>
-       <asset path="arm/o.le-v7-g/test" entry="true" type="Qnx/Elf">test</asset>
+       <asset path="arm/o.le-v7-g/omweather-qml" entry="true" type="Qnx/Elf">omweather-qml</asset>
     </configuration>
-    
+    <configuration id="com.qnx.qcc.toolChain.1429809141.958138046" name="Simulator-Debug">
+       <platformArchitecture>x86</platformArchitecture>
+       <asset entry="true" path="x86/o/omweather-qml" type="Qnx/Elf">omweather-qml</asset>
+    </configuration>
+
     <!--  The icon for the application, which should be 86x86. -->
 
     <asset path="icon.png">icon.png</asset>
     <asset path="assets">assets</asset>
     
     <!-- Locale support -->
-    <asset path="translations" dest="qm">
-        <include name="*.qm"/>
-    </asset>
     <asset path="/home/vlad/workspace/omweather.git">omweather.git</asset>
     
     <!-- Request permission to execute native code.  Required for native applications. -->

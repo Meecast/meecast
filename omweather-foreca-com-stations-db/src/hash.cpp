@@ -24,12 +24,13 @@
  * 02110-1301 USA
  *
 */
-#include <glib.h>
+//#include <glib.h>
 #include <stdio.h>
 #include "hash.h"
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
+#if 0
 /*******************************************************************************/
 GHashTable *hash_icons_forecacom_table_create(void) {
     GHashTable *hash = NULL;
@@ -69,5 +70,5 @@ hash_forecacom_table_find(GHashTable *hash, gpointer key, gboolean search_short_
 #endif
     return result;
 }
-
+#endif
 /*******************************************************************************/

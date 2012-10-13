@@ -52,7 +52,6 @@
 
     <!--  Name of author which is used for signing. Must match the developer name of your development certificate. -->
     <author>Andrew Zhilin</author>
-    <platformVersion>10.0.9.386</platformVersion>
     <description>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code</description>
     
     <!--  Unique author ID assigned by signing authority. Required if using debug tokens. -->
@@ -74,7 +73,7 @@
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="arm/o.le-v7-g/omweather-qml" entry="true" type="Qnx/Elf">omweather-qml</asset>
     </configuration>
-    <configuration id="com.qnx.qcc.toolChain.1429809141.637573814" name="Simulator-Debug">
+    <configuration id="com.qnx.qcc.toolChain.1429809141.958138046" name="Simulator-Debug">
         <platformArchitecture>x86</platformArchitecture>
         <asset public="true" type="Qnx/Elf" entry="true" path="x86/o/omweather-qml">omweather-qml</asset>
     </configuration>
@@ -85,6 +84,7 @@
     <asset path="assets">assets</asset>
     
     <!-- Locale support -->
+
     <!-- Request permission to execute native code.  Required for native applications. -->
     <permission system="true">run_native</permission>
     <permission>access_internet</permission>

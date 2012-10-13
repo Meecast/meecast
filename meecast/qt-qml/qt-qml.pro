@@ -81,9 +81,33 @@ CONFIG += meegotouch
 QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
 QMAKE_LFLAGS += -pie -rdynamic
 
+device {
+	CONFIG(release, debug|release) {
+		DESTDIR = ../../o.le-v7
+	}
+	CONFIG(debug, debug|release) {
+		DESTDIR = ../../ o.le-v7-g
+	}
+}
+
+simulator {
+	CONFIG(release, debug|release) {
+		DESTDIR = ../../o
+	}
+	CONFIG(debug, debug|release) {
+		DESTDIR = ../../o-g
+	}
+}
+
+OBJECTS_DIR = $${DESTDIR}/.obj
+MOC_DIR = $${DESTDIR}/.moc
+RCC_DIR = $${DESTDIR}/.rcc
+UI_DIR = $${DESTDIR}/.ui
+INSTALL_ROOT = $${DESTDIR}/.rcc
+
 
 INCLUDEPATH += ../core                                                                                                        
-LIBS += -lsqlite3 -lcurl -lintl -L ../core ../core/libomweather-core.a  
+LIBS += -lsqlite3 -lcurl -lintl -L ../core $${DESTDIR}/libomweather-core.a  
 #CONFIG += qdbus
 CONFIG += link_pkgconfig
 #PKGCONFIG += glib-2.0

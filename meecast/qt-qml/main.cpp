@@ -84,11 +84,14 @@ update_weather_forecast(Core::Config *config){
 
 Q_DECL_EXPORT int main(int argc, char* argv[])
 {
+	std::cerr<<"Begin"<<std::endl;
     //QApplication::setGraphicsSystem("native");
     QApplication app(argc, argv);
 
+    std::cerr<<"Begin"<<std::endl;
     app.setProperty("NoMStyle", true);
-
+    QString str = QDir::currentPath();
+    std::cerr<<str.toStdString().c_str()<<std::endl;
     QDir::setCurrent(app.applicationDirPath());
 
     textdomain("omweather");

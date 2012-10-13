@@ -74,7 +74,7 @@ HEADERS = \
 
 
 icon.files = data/desktop/Icon/meecast.svg
-icon.path =  /opt/com.meecast.omweather/share/icons/
+icon.path = /opt/com.meecast.omweather/share/icons/
 
 icon50.files = data/desktop/Icon/omweather.png
 icon50.path = /opt/com.meecast.omweather/share/icons/

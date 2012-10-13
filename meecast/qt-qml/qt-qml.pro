@@ -48,31 +48,31 @@ FORMS    +=
 RESOURCES += weatherlayoutitem.qrc
 
 OTHER_FILES += \
-    layoutitem.qml \
-    weatherlayoutitem.qml \
-    Details.qml \
-    ImageButton.qml \
-    TextButton.qml \
-    omweather.qml \
-    omweatherpanel.qml \
-    main.qml \
-    WeatherPage.qml \
-    SettingsPage.qml \
-    FullWeatherPage.qml \
-    AboutPage.qml \
-    StationsPage.qml \
-    NewStationPage.qml \
-    UnitsPage.qml \
-    VisualsPage.qml \
-    ListPage.qml \
-    SourcePage.qml \
-    CountryPage.qml \
-    RegionPage.qml \
-    CityPage.qml \
-    IconsetPage.qml \
-    StandbyScreen.qml \
-    ColorCell.qml \
-    SearchField.qml
+    qml/layoutitem.qml \
+    qml/weatherlayoutitem.qml \
+    qml/Details.qml \
+    qml/ImageButton.qml \
+    qml/TextButton.qml \
+    qml/omweather.qml \
+    qml/omweatherpanel.qml \
+    qml/main.qml \
+    qml/WeatherPage.qml \
+    qml/SettingsPage.qml \
+    qml/FullWeatherPage.qml \
+    qml/AboutPage.qml \
+    qml/StationsPage.qml \
+    qml/NewStationPage.qml \
+    qml/UnitsPage.qml \
+    qml/VisualsPage.qml \
+    qml/ListPage.qml \
+    qml/SourcePage.qml \
+    qml/CountryPage.qml \
+    qml/RegionPage.qml \
+    qml/CityPage.qml \
+    qml/IconsetPage.qml \
+    qml/StandbyScreen.qml \
+    qml/ColorCell.qml \
+    qml/SearchField.qml
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 
@@ -99,7 +99,7 @@ desktop.files = meecast.desktop
 desktop.path = /usr/share/applications
 icon64.path = /usr/share/pixmaps
 icon64.files += omweather.png
-qml.files = *.qml *.js
+qml.files = qml/*.qml *.js
 qml.path = /opt/com.meecast.omweather/share/omweather/qml
 searchicon.files += gfx/*.png
 searchicon.path += /opt/com.meecast.omweather/share/omweather/qml/gfx

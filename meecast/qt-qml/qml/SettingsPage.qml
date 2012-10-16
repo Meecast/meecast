@@ -90,7 +90,8 @@ Page {
 								  horizontalAlignment:  HorizontalAlignment.Fill
 								  verticalAlignment: VerticalAlignment.Center
 								  // Apply a text style to create large, light gray text
-								  textStyle {
+                                opacity: 1.0
+                                textStyle {
 									  base: SystemDefaults.TextStyles.TitleText
 									  color: Color.White
 								  }

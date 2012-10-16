@@ -45,15 +45,15 @@ NavigationPane {
                 // on the ComponentDefinition below, and then push it on to
                 // the stack to display it
                 onTriggered: {
-                    var newPage = pageDefinition.createObject();
-                    navigationPane.push(newPage);
+                    var newPage = settingspageDefinition.createObject();
+                    rootWindow.push(newPage);
                 }
             },
 	    ActionItem {
                 title: "About"
                 ActionBar.placement: ActionBarPlacement.InOverflow
                 onTriggered: {
-                    var newPage = settingspageDefinition.createObject();
+                    var newPage = aboutpageDefinition.createObject();
                     navigationPane.push(newPage);
                 }
             },
@@ -61,7 +61,7 @@ NavigationPane {
                 title: "Refresh"
                 ActionBar.placement: ActionBarPlacement.OnBar
                 onTriggered: {
-                      var newPage = aboutpageDefinition.createObject();
+                      var newPage = pageDefinition.createObject();
                       navigationPane.push(newPage);
                 }
             }

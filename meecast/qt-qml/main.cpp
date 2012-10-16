@@ -181,8 +181,8 @@ int main(int argc, char* argv[])
 
     // Obtain a QMLDocument and load it into the qml variable, using build patterns.
   //     QmlDocument *qml = QmlDocument::create("asset:///hellocascades.qml");
-       //QmlDocument *qml = QmlDocument::create("asset:///qml/main.qml");
-    QmlDocument *qml = QmlDocument::create("asset:///qml/SettingsPage.qml");
+      QmlDocument *qml = QmlDocument::create("asset:///qml/main.qml");
+    //QmlDocument *qml = QmlDocument::create("asset:///qml/SettingsPage.qml");
        QObject::connect((QObject*)qml, SIGNAL(quit()), &app, SLOT(quit()));
    //    QmlDocument *qml = QmlDocument::create("asset:///Weather.qml");
 
@@ -190,8 +190,8 @@ int main(int argc, char* argv[])
        if (!qml->hasErrors()) {
 
            // Create the application Page from QMLDocument.
-    	   //AbstractPane  *appPage = qml->createRootObject<AbstractPane>();
-    	   Page  *appPage = qml->createRootObject<Page>();
+    	   AbstractPane  *appPage = qml->createRootObject<AbstractPane>();
+    	  // Page  *appPage = qml->createRootObject<Page>();
            if (appPage) {
                // Set the main scene for the application to the Page.
                Application::instance()->setScene(appPage);

@@ -5,9 +5,35 @@ NavigationPane {
 
  // Create the initial screen
     Page {
+        property int screen_width : 1280
+        property int screen_height : 768
+        
         content: Container {
-            Label {
-                text: "Initial page"
+            background: Color.create ("#000000")
+            layout: StackLayout {}
+            //horizontalAlignment: HorizontalAlignment.Center
+            //verticalAlignment: VerticalAlignment.Center
+            preferredWidth: screen_width
+            preferredHeight: screen_height
+            Container {
+                id: absoluteLayoutContainer
+                
+                background: Color.create ("#000000")
+                layout: AbsoluteLayout {}
+                preferredWidth: screen_width
+                preferredHeight: screen_height
+                ImageView {
+                    layoutProperties: AbsoluteLayoutProperties {
+                    positionX: 0
+                    positionY: 0
+                    }
+                 imageSource: "asset:///images/mask_background.png"
+                 
+                }
+                
+              //  Label {
+              //      text: "Initial page"
+              //  }
             }
         }
          
@@ -49,13 +75,9 @@ NavigationPane {
                 id: settingspageDefinition
                 source: "SettingsPage.qml"
             },
-	    ComponentDefinition {
+	        ComponentDefinition {
                 id: sboutpageDefinition
                 source: "AboutPage.qml"
-            },
-            ImagePaintDefinition {
-            	id: backgroundPaint
-            	imageSource: "asset:///images/background.png"
             }
         ]
 

@@ -1,28 +1,12 @@
-import Qt 4.7
-//import QtQuick 1.1
-//import Qt.labs.components 1.0
-import com.nokia.meego 1.0
+import QtQuick 1.0
+import bb.cascades 1.0
 
 Page {
+    
     id: settings
     property int margin: 16
-    tools: ToolBarLayout {
-        ToolIcon {
-            iconId: "toolbar-back"
-            onClicked: {
-                //menu.close();
-                pageStack.pop();
-            }
-        }/*
-        ToolIcon {
-            platformStyle: ToolItemStyle {inverted: true}
-            iconId: "toolbar-view-menu"
-            onClicked: menu.open();
-            anchors.right: parent == undefined ? undefined : parent.right
-        }*/
-    }
-    //FontLoader {id: localFont; source: "fonts/nokia/Nokia Pure/NokiaPureMbLight.ttf"}
-    orientationLock: PageOrientation.LockPortrait
+    
+
     function openFile(file)
     {
         var component = Qt.createComponent(file);
@@ -32,115 +16,71 @@ Page {
             console.log("error open file "+file);
         }
     }
-    ListModel {
-        id: settingsModel
-        ListElement {
-            page: "StationsPage.qml"
-            title: "Manage locations"
-        }
-        ListElement {
-            page: "UnitsPage.qml"
-            title: "Measurement units"
-        }
-	/* 
-        ListElement {
-            page: "SourcePage.qml"
-            title: "Source"
-        }*/
-        ListElement {
-            page: "VisualsPage.qml"
-            title: "Appearance"
-        }
-	ListElement {
-            page: "UpdatePage.qml"
-            title: "Update"
-        }
+    
 
-    }
-
-    Rectangle{
-        anchors.fill: parent
-        anchors.top: title_rect.bottom
-        anchors.topMargin: 80
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-
-        Rectangle {
-            anchors.top: parent.top
-            anchors.left: parent.left
-            width: parent.width
-            height: 274
-            color: "#999999"
-        }
-        Loader {
-            id: background
-            anchors.top: parent.top
-            anchors.left: parent.left
-            width: parent.width
-            height: 274
-            sourceComponent: Image {source: Config.imagespath + "/mask_background_grid.png"}
-        }
-        Rectangle {
-            anchors.top: background.bottom
-            width: parent.width
-            height: parent.height - 274
-            color: "black"
-        }
+    content:  Container{
+      id: cont
+      background: Color.Black
+      Container {
+            id: title_rect
+            Label {
+                id: title
+                text: "Settings"
+                horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignVCenter
+                // Apply a text style to create large, light gray text
+                textStyle {
+                    base: SystemDefaults.TextStyles.TitleText
+                    color: Color.White
+                }
+            }
+      }     
+      Container{
+        attachedObjects: [
+                    GroupDataModel {
+                        id: groupDataModel
+                    }
+        ]
 
         ListView {
             id: listview
-            model: settingsModel
-            anchors.fill: parent
-            //anchors.top: title_rect.bottom
-            //anchors.topMargin: 80
-            //anchors.leftMargin: margin
-            //anchors.rightMargin: margin
-
-            delegate: Item {
-                height: 80
-                width: parent.width
-
-                Label {
-                    anchors.left: parent.left
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: Config.tr(model.title)
+            dataModel: groupDataModel
+            onCreationCompleted: {
+                groupDataModel.insert( {"name" : "Manage locations", "qml" : "StationsPage.qml"});
+                groupDataModel.insert( {"name" : "Measurement units", "qml" : "UnitsPage.qml"});
+                groupDataModel.insert( {"name" : "Appearance", "qml" : "VisualsPage.qml"});
+                groupDataModel.insert( {"name" : "Update", "qml" : "Update.qml"});
+            }           
+            listItemComponents: [
+                 ListItemComponent {
+                     type: "item"
+                     Container {
+                          Label {                 
+                              text: ListItemData.name
+                              // Apply a text style to create large, light gray text
+                              textStyle {
+                                  base: SystemDefaults.TextStyles.SmallText
+                                  color: Color.White
+                              }
+                          }
+                          ImageView {
+                          //source: "image://theme/icon-m-common-drilldown-arrow-inverse"
+                         //anchors.right: parent.right
+                         //anchors.verticalCenter: parent.verticalCenter
+                          }
+                     }
                 }
-
-                Image {
-                    source: "image://theme/icon-m-common-drilldown-arrow-inverse"
-                    anchors.right: parent.right
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
+            ]
+            onTriggered: {
+                      
                         settings.openFile(model.page);
-                    }
+            
                 }
             }
         }
-        ScrollDecorator {
-            flickableItem: listview
-        }
+        
+       
     }
-    Rectangle {
-        id: title_rect
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-        width: parent.width - 2*margin
-        height: 80
-        color: "black"
-        Label {
-            id: title
-            anchors.fill: parent
-            color: "white"
-            text: Config.tr("Settings")
-            font.family: "Nokia Pure Text Light"
-            font.pixelSize: 30
-            horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
-        }
-    }
+    
 }
+

@@ -23,8 +23,15 @@ Page {
     content:  Container{
         
       id: cont
-      background: Color.Black
-          
+      //background: Color.Black
+      background: paint.imagePaint
+      attachedObjects: [
+                      ImagePaintDefinition {
+                          id: paint
+                         // imageSource: "asset:///images/mybackground.png"
+                          //repeatPattern: RepeatPattern.XY
+                      }
+      ]    
       Container{
         attachedObjects: [
                     GroupDataModel {

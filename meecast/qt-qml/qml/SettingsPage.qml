@@ -22,17 +22,22 @@ Page {
 
     content:  Container{
         
-      id: cont
-      //background: Color.Black
-      background: paint.imagePaint
-      attachedObjects: [
-                      ImagePaintDefinition {
-                          id: paint
-                         // imageSource: "asset:///images/mybackground.png"
-                          //repeatPattern: RepeatPattern.XY
-                      }
-      ]    
-      Container{
+       id: absoluteLayoutContainer
+                        
+                        background: Color.Black 
+                        layout: AbsoluteLayout {}
+                        preferredWidth: screen_width
+                        preferredHeight: screen_height
+                        ImageView {
+                            layoutProperties: AbsoluteLayoutProperties {
+                            positionX: 0
+                            positionY: 0
+                            }
+                         imageSource: "asset:///images/mask_background.png"
+                         
+                        }
+        
+        Container{
         attachedObjects: [
                     GroupDataModel {
                         id: groupDataModel

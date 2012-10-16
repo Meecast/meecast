@@ -9,12 +9,13 @@ NavigationPane {
         property int screen_height : 768
         
         content: Container {
-            background: Color.create ("#000000")
+            background: Color.Black
             layout: StackLayout {}
             //horizontalAlignment: HorizontalAlignment.Center
             //verticalAlignment: VerticalAlignment.Center
             preferredWidth: screen_width
             preferredHeight: screen_height
+            opacity: 1.0
             Container {
                 id: absoluteLayoutContainer
                 
@@ -30,10 +31,6 @@ NavigationPane {
                  imageSource: "asset:///images/mask_background.png"
                  
                 }
-                
-              //  Label {
-              //      text: "Initial page"
-              //  }
             }
         }
          

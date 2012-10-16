@@ -23,92 +23,96 @@ Page {
     content:  Container{
         
        id: absoluteLayoutContainer
-                        
-                        background: Color.Black 
-                        layout: AbsoluteLayout {}
-                        preferredWidth: screen_width
-                        preferredHeight: screen_height
-                        ImageView {
-                            layoutProperties: AbsoluteLayoutProperties {
-                            positionX: 0
-                            positionY: 0
-                            }
-                         imageSource: "asset:///images/mask_background.png"
-                         
-                        }
-        
-        Container{
-        attachedObjects: [
-                    GroupDataModel {
-                        id: groupDataModel
-                    }
-        ]
-
-        ListView {
-            id: listview
-            dataModel: groupDataModel
-            onCreationCompleted: {
-                groupDataModel.insert( {"name" : "Manage locations", "qml" : "StationsPage.qml"});
-                groupDataModel.insert( {"name" : "Measurement units", "qml" : "UnitsPage.qml"});
-                groupDataModel.insert( {"name" : "Appearance", "qml" : "VisualsPage.qml"});
-                groupDataModel.insert( {"name" : "Update", "qml" : "Update.qml"});
-            }           
-            listItemComponents: [
-                 ListItemComponent {
-                         type: "header"
-                         Label {
-                              text: "Settings"
-                              textStyle {
-                                  base: SystemDefaults.TextStyles.BigText
-                                  color: Color.White
-                              }
-                         }
-                 
-                 },   
-                 ListItemComponent {
-                     type: "item"
-                     id: listitemc
-                     Container {
-                          //preferredWidth: 768
-                          layout: DockLayout {
-                          }
-                     
-                          Label {                 
-                              text: ListItemData.name
-                              preferredWidth: 768
-                              preferredHeight: screen_height
-                              horizontalAlignment:  HorizontalAlignment.Fill
-                              verticalAlignment: VerticalAlignment.Center
-                              // Apply a text style to create large, light gray text
-                              textStyle {
-                                  base: SystemDefaults.TextStyles.TitleText
-                                  color: Color.White
-                              }
-                          }
-                          Label {                 
-                               text: ">"
-                               horizontalAlignment: HorizontalAlignment.Right
-                               verticalAlignment: VerticalAlignment.Center
-                               // Apply a text style to create large, light gray text
-                                textStyle {
-                                   base: SystemDefaults.TextStyles.BigText
-                                   color: Color.White
-                                 }
-                          }
-                          
-                     }
+       background: Color.White
+       layout: AbsoluteLayout {}
+       Container{
+                layoutProperties: AbsoluteLayoutProperties {
+                                positionX: 0
+                                positionY: 0
                 }
-            ]
-            onTriggered: {
-                      
-                        settings.openFile(model.page);
-            
-                }
-            }
+                background: Color.Black
+                preferredWidth: 768
+                preferredHeight: 90
+        }                       
+       ImageView {
+                layoutProperties: AbsoluteLayoutProperties {
+                    positionX: 0
+                    positionY: 90
+                 }
+                imageSource: "asset:///images/mask_background_grid.png"
+                preferredWidth: 768  
         }
-        
-       
+        Container{
+                layoutProperties: AbsoluteLayoutProperties {
+                                positionX: 0
+                                positionY: 350
+                }
+                background: Color.Black
+                preferredWidth: 768
+                preferredHeight: 1000
+        }
+        Container{
+			attachedObjects: [
+				GroupDataModel {
+					id: groupDataModel
+				}
+			]
+			ListView {
+				id: listview
+				dataModel: groupDataModel
+				onCreationCompleted: {
+					groupDataModel.insert( {"name" : "Manage locations", "qml" : "StationsPage.qml"});
+					groupDataModel.insert( {"name" : "Measurement units", "qml" : "UnitsPage.qml"});
+					groupDataModel.insert( {"name" : "Appearance", "qml" : "VisualsPage.qml"});
+					groupDataModel.insert( {"name" : "Update", "qml" : "Update.qml"});
+				}           
+				listItemComponents: [
+					 ListItemComponent {
+					 	type: "header"
+						Label {
+							text: "Settings"
+							textStyle {
+								base: SystemDefaults.TextStyles.BigText
+								color: Color.White
+							}
+						}
+					 },   
+					 ListItemComponent {
+						 type: "item"
+						 id: listitemcomp
+						 Container {
+							  layout: DockLayout {}
+						 
+							  Label {                 
+								  text: ListItemData.name
+								  preferredWidth: 768
+								  preferredHeight: screen_height
+								  horizontalAlignment:  HorizontalAlignment.Fill
+								  verticalAlignment: VerticalAlignment.Center
+								  // Apply a text style to create large, light gray text
+								  textStyle {
+									  base: SystemDefaults.TextStyles.TitleText
+									  color: Color.White
+								  }
+							  }
+							  Label {                 
+								   text: ">"
+								   horizontalAlignment: HorizontalAlignment.Right
+								   verticalAlignment: VerticalAlignment.Center
+								   // Apply a text style to create large, light gray text
+									textStyle {
+									   base: SystemDefaults.TextStyles.BigText
+									   color: Color.White
+									 }
+							  }
+						 }
+					}
+				]
+				onTriggered: {             
+					settings.openFile(model.page);
+				}
+			}
+		}       
     }
-    
 }
 

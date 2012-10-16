@@ -1,11 +1,13 @@
 import QtQuick 1.0
 import bb.cascades 1.0
 
+
 Page {
     
     id: settings
     property int margin: 16
-    
+    property int screen_width  :  768
+    property int screen_height : 1280    
 
     function openFile(file)
     {
@@ -19,22 +21,10 @@ Page {
     
 
     content:  Container{
+        
       id: cont
       background: Color.Black
-      Container {
-            id: title_rect
-            Label {
-                id: title
-                text: "Settings"
-                horizontalAlignment: Text.AlignLeft
-                verticalAlignment: Text.AlignVCenter
-                // Apply a text style to create large, light gray text
-                textStyle {
-                    base: SystemDefaults.TextStyles.TitleText
-                    color: Color.White
-                }
-            }
-      }     
+          
       Container{
         attachedObjects: [
                     GroupDataModel {
@@ -53,21 +43,47 @@ Page {
             }           
             listItemComponents: [
                  ListItemComponent {
+                         type: "header"
+                         Label {
+                              text: "Settings"
+                              textStyle {
+                                  base: SystemDefaults.TextStyles.BigText
+                                  color: Color.White
+                              }
+                         }
+                 
+                 },   
+                 ListItemComponent {
                      type: "item"
+                     id: listitemc
                      Container {
+                          //preferredWidth: 768
+                          layout: DockLayout {
+                          }
+                     
                           Label {                 
                               text: ListItemData.name
+                              preferredWidth: 768
+                              preferredHeight: screen_height
+                              horizontalAlignment:  HorizontalAlignment.Fill
+                              verticalAlignment: VerticalAlignment.Center
                               // Apply a text style to create large, light gray text
                               textStyle {
-                                  base: SystemDefaults.TextStyles.SmallText
+                                  base: SystemDefaults.TextStyles.TitleText
                                   color: Color.White
                               }
                           }
-                          ImageView {
-                          //source: "image://theme/icon-m-common-drilldown-arrow-inverse"
-                         //anchors.right: parent.right
-                         //anchors.verticalCenter: parent.verticalCenter
+                          Label {                 
+                               text: ">"
+                               horizontalAlignment: HorizontalAlignment.Right
+                               verticalAlignment: VerticalAlignment.Center
+                               // Apply a text style to create large, light gray text
+                                textStyle {
+                                   base: SystemDefaults.TextStyles.BigText
+                                   color: Color.White
+                                 }
                           }
+                          
                      }
                 }
             ]

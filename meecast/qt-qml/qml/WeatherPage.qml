@@ -1,8 +1,8 @@
-//import QtQuick 1.1
-import Qt 4.7
-import com.nokia.meego 1.0
-import Qt.labs.gestures 1.0
-
+import QtQuick 1.1
+//import Qt 4.7
+//import com.nokia.meego 1.0
+//import Qt.labs.gestures 1.0
+import bb.cascades 1.0
 
 Page {
     id: main

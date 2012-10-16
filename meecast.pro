@@ -1,6 +1,7 @@
-VERSION = 0.5.9
-TEMPLATE = subdirs
-CONFIG += ordered
+TEMPLATE = app
+TARGET = omweather-qml 
+
+CONFIG += qt warn_on debug_and_release cascades
 
 lupdate_inclusion {
     SOURCES += ../assets/*.qml
@@ -34,9 +35,5 @@ suredelete.commands = $(DEL_FILE) $${MOC_DIR}/*; $(DEL_FILE) $${RCC_DIR}/*; $(DE
 suredelete.depends = distclean
 
 QMAKE_EXTRA_TARGETS += suredelete
-
-
-#SUBDIRS += meecast omweather-weather-com-stations-db omweather-gismeteo-ru-stations-db omweather-yr-no-stations-db omweather-foreca-com-stations-db omweather-bom-gov-au-stations-db omweather-hko-gov-hk-stations-db
-SUBDIRS += meecast omweather-foreca-com-stations-db 
 
 

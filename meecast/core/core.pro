@@ -3,6 +3,7 @@ TARGET = omweather-core
 TEMPLATE = lib
 #PKGCONFIG += libcurl
 #PKGCONFIG += sqlite3
+CONFIG += qt warn_on debug_and_release cascades
 CONFIG += link_pkgconfig staticlib
 
 CONFIG += qdeclarative-boostable
@@ -35,19 +36,19 @@ system(pkg-config --exists meego-panel) {
 
 device {
 	CONFIG(release, debug|release) {
-		DESTDIR = ../../o.le-v7
+		DESTDIR = o.le-v7
 	}
 	CONFIG(debug, debug|release) {
-		DESTDIR = ../../ o.le-v7-g
+		DESTDIR = o.le-v7-g
 	}
 }
 
 simulator {
 	CONFIG(release, debug|release) {
-		DESTDIR = ../../o
+		DESTDIR = o
 	}
 	CONFIG(debug, debug|release) {
-		DESTDIR = ../../o-g
+		DESTDIR = o-g
 	}
 }
 

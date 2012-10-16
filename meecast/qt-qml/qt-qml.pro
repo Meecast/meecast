@@ -4,9 +4,12 @@
 #
 #-------------------------------------------------
 
-QT       += declarative sql xml xmlpatterns network cascades script svg
+QT       += declarative sql xml xmlpatterns network script svg  
+
 #QT       += sql xml xmlpatterns network cascades
 
+CONFIG += qt warn_on debug_and_release cascades
+#CONFIG += qt warn_on debug_and_release 
 TARGET = omweather-qml
 TEMPLATE = app
 
@@ -24,7 +27,7 @@ SOURCES += main.cpp \
     countrymodel.cpp \
     regionmodel.cpp \
     citymodel.cpp \
-    gpsposition.cpp
+    gpsposition.cpp \
 
 HEADERS  += \
     dataqml.h \
@@ -39,10 +42,10 @@ HEADERS  += \
     countrymodel.h \
     regionmodel.h \
     citymodel.h \
-    gpsposition.h
+    gpsposition.h \
 
 FORMS    +=
-RESOURCES += weatherlayoutitem.qrc
+RESOURCES += 
 
 OTHER_FILES += \
     qml/layoutitem.qml \
@@ -71,31 +74,27 @@ OTHER_FILES += \
     qml/ColorCell.qml \
     qml/SearchField.qml
 
-CONFIG(localdebug):DEFINES += LOCALDEBUG
 
-CONFIG += mobility
-#MOBILITY += location
-CONFIG += qdeclarative-boostable
-CONFIG += meegotouch 
+lupdate_inclusion {
+    SOURCES += ../assets/*.qml
+}
 
-QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
-QMAKE_LFLAGS += -pie -rdynamic
 
 device {
 	CONFIG(release, debug|release) {
-		DESTDIR = ../../o.le-v7
+		DESTDIR = o.le-v7
 	}
 	CONFIG(debug, debug|release) {
-		DESTDIR = ../../ o.le-v7-g
+		DESTDIR = o.le-v7-g
 	}
 }
 
 simulator {
 	CONFIG(release, debug|release) {
-		DESTDIR = ../../o
+		DESTDIR = o
 	}
 	CONFIG(debug, debug|release) {
-		DESTDIR = ../../o-g
+		DESTDIR = o-g
 	}
 }
 
@@ -105,11 +104,29 @@ RCC_DIR = $${DESTDIR}/.rcc
 UI_DIR = $${DESTDIR}/.ui
 INSTALL_ROOT = $${DESTDIR}/.rcc
 
+suredelete.target = sureclean
+suredelete.commands = $(DEL_FILE) $${MOC_DIR}/*; $(DEL_FILE) $${RCC_DIR}/*; $(DEL_FILE) $${UI_DIR}/*
+suredelete.depends = distclean
+
+QMAKE_EXTRA_TARGETS += suredelete
+
+
+#CONFIG(localdebug):DEFINES += LOCALDEBUG
+#CONFIG += warn_on debug_and_release cascades
+#CONFIG += qt warn_on  cascades
+#CONFIG += mobility
+#MOBILITY += location
+#CONFIG += qdeclarative-boostable
+#CONFIG += meegotouch 
+
+QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
+#QMAKE_LFLAGS += -pie -rdynamic
+
 
 INCLUDEPATH += ../core                                                                                                        
-LIBS += -lsqlite3 -lcurl -lintl -L ../core $${DESTDIR}/libomweather-core.a  
+LIBS += -lsqlite3 -lcurl -lintl -L ../core lib/$${DESTDIR}/libomweather-core.a  
 #CONFIG += qdbus
-CONFIG += link_pkgconfig
+#CONFIG += link_pkgconfig
 #PKGCONFIG += glib-2.0
 #PKGCONFIG += sqlite3
 #PKGCONFIG += libcurl

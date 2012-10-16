@@ -1,58 +1,63 @@
-//import Qt 4.7
-import QtQuick 1.1
-//import "." 1.0
-import com.nokia.meego 1.0
-//import Qt.labs.components.native 1.0
+import bb.cascades 1.0
 
-
-PageStackWindow {
+NavigationPane {
     id: rootWindow
 
-    platformStyle: defaultStyle
-    showStatusBar: !Config.fullscreen
-
-    PageStackWindowStyle { id: defaultStyle }
-    PageStackWindowStyle {
-        id: customStyle
-        background: "image://theme/meegotouch-wallpaper-portrait";
-        backgroundFillMode: Image.PreserveAspectCrop
-    }
-    Component.onCompleted: {
-        theme.inverted = true;
-    }
-
-    initialPage: WeatherPage {}
-
-    function openFile(file)
-    {
-        var component = Qt.createComponent(file);
-        if (component.status == Component.Ready){
-            pageStack.push(component);
-        }else {
-            console.log("error open file "+file);
-        }
-    }
-
-    Menu {
-        id: myMenu
-        visualParent: pageStack
-        MenuLayout {
-            MenuItem {
-                id: item1
-                text: Config.tr("Settings")
-                onClicked: {
-                    rootWindow.openFile("SettingsPage.qml");
-
-                }
-            }
-            MenuItem {
-                id: item2
-                text: Config.tr("About")
-                onClicked: {
-                    rootWindow.openFile("AboutPage.qml");
-                }
+ // Create the initial screen
+    Page {
+        content: Container {
+            Label {
+                text: "Initial page"
             }
         }
-    }
+         
+        actions: [
+            // Create the "Push" action
+            ActionItem {
+                title: "Setting"
+                //ActionBar.placement: ActionBarPlacement.OnBar
+                ActionBar.placement: ActionBarPlacement.InOverflow
+                 
+                // When this action is selected, create an object that's based
+                // on the ComponentDefinition below, and then push it on to
+                // the stack to display it
+                onTriggered: {
+                    var newPage = pageDefinition.createObject();
+                    navigationPane.push(newPage);
+                }
+            },
+	    ActionItem {
+                title: "About"
+                ActionBar.placement: ActionBarPlacement.InOverflow
+                onTriggered: {
+                    var newPage = settingspageDefinition.createObject();
+                    navigationPane.push(newPage);
+                }
+            },
+            ActionItem {
+                title: "Refresh"
+                ActionBar.placement: ActionBarPlacement.OnBar
+                onTriggered: {
+                      var newPage = aboutpageDefinition.createObject();
+                      navigationPane.push(newPage);
+                }
+            }
+        ]
+         
+        attachedObjects: [
+            ComponentDefinition {
+                id: settingspageDefinition
+                source: "SettingsPage.qml"
+            },
+	    ComponentDefinition {
+                id: sboutpageDefinition
+                source: "AboutPage.qml"
+            },
+            ImagePaintDefinition {
+            	id: backgroundPaint
+            	imageSource: "asset:///images/background.png"
+            }
+        ]
 
+    } // end of Page
 }

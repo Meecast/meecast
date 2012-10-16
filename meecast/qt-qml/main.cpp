@@ -63,6 +63,12 @@
 
 #define _(String) gettext(String)
 
+#include <bb/cascades/QmlDocument>
+#include <bb/cascades/Page>
+#include <bb/cascades/AbstractPane>
+#include <bb/cascades/Application>
+using ::bb::cascades::Application;
+using namespace bb::cascades;
 
 
 //////////////////////////////////////////////////////////////////////////////
@@ -82,18 +88,30 @@ update_weather_forecast(Core::Config *config){
 }
 //////////////////////////////////////////////////////////////////////////////
 
-Q_DECL_EXPORT int main(int argc, char* argv[])
+Q_DECL_EXPORT
+int main(int argc, char* argv[])
 {
 	std::cerr<<"Begin"<<std::endl;
     //QApplication::setGraphicsSystem("native");
-    QApplication app(argc, argv);
+
+	//QApplication app(argc, argv);
+	 Application app(argc, argv);
 
     std::cerr<<"Begin"<<std::endl;
-    app.setProperty("NoMStyle", true);
     QString str = QDir::currentPath();
     std::cerr<<str.toStdString().c_str()<<std::endl;
     QDir::setCurrent(app.applicationDirPath());
 
+    std::cerr<<"begin ssss "<<std::endl;
+    Dirent *dp = 0;
+    DIR *dir_fd = opendir(("./"));
+    if(dir_fd){
+        while((dp = readdir(dir_fd))){
+            std::string name = dp->d_name;
+            std::cerr<<"ssss "<<std::endl;
+            std::cerr<<name.c_str()<<std::endl;
+        }
+  }
     textdomain("omweather");
     bindtextdomain("omweather", "/opt/com.meecast.omweather/share/locale");
 /*
@@ -116,13 +134,14 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     //ConfigQml *config;
     Controller *controller;
 
+    std::cerr<<"Before controller "<<std::endl;
+    std::cerr<<"Before controller2 "<<std::endl;
     QTranslator translator;
     translator.load("ru.qml", "i18n");
     app.installTranslator(&translator);
+   // controller = new Controller();
 
-    controller = new Controller(); 
-
-
+    std::cerr<<"After controller "<<std::endl;
 
 
 
@@ -130,15 +149,61 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     //std::cerr<<"iconpath = "<<config->imagespath().toStdString() << std::endl;
     //update_weather_forecast(config);
     
+/*
     QDeclarativeView *qview;
     qview = controller->qview();
 
+    qview->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
+
+    qview->setAttribute(Qt::WA_OpaquePaintEvent);
+
+    qview->setAttribute(Qt::WA_NoSystemBackground);
+
+    qview->viewport()->setAttribute(Qt::WA_OpaquePaintEvent);
+
+    qview->viewport()->setAttribute(Qt::WA_NoSystemBackground);
+
+*/
     std::cerr << "qml path = " << Core::AbstractConfig::layoutqml << std::endl;
-    qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::prefix +
-                                                                Core::AbstractConfig::sharePath +
-                                                                Core::AbstractConfig::layoutqml)));
-    QObject::connect((QObject*)qview->engine(), SIGNAL(quit()), &app, SLOT(quit()));
-    qview->showFullScreen();
+    //qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::prefix +
+    //                                                            Core::AbstractConfig::sharePath +
+    //                                                            Core::AbstractConfig::layoutqml)));
+//    qview->setSource(QUrl::fromLocalFile(QString::fromStdString("app/native/assets/usr/share/omweather/qml/WeatherPage.qml")));
+  //    qview->setSource(QUrl::fromLocalFile(QString::fromStdString("app/native/assets/main.qml")));
+ //   qview->setSource(QUrl::fromLocalFile(QString::fromStdString("app/native/assets/hellocascades.qml")));
+
+    //qview->setSource(QUrl::fromLocalFile(QString::fromStdString("app/main.qml")));
+    //qview->setResizeMode(QDeclarativeView::SizeRootObjectToView);
+
+
+    std::cerr << "Before show"<< std::endl;
+    //qview->showFullScreen();
+
+    // Obtain a QMLDocument and load it into the qml variable, using build patterns.
+  //     QmlDocument *qml = QmlDocument::create("asset:///hellocascades.qml");
+       QmlDocument *qml = QmlDocument::create("asset:///qml/main.qml");
+       QObject::connect((QObject*)qml, SIGNAL(quit()), &app, SLOT(quit()));
+   //    QmlDocument *qml = QmlDocument::create("asset:///Weather.qml");
+
+       // If the QML document is valid, we process it.
+       if (!qml->hasErrors()) {
+
+           // Create the application Page from QMLDocument.
+    	   AbstractPane  *appPage = qml->createRootObject<AbstractPane>();
+
+           if (appPage) {
+               // Set the main scene for the application to the Page.
+               Application::instance()->setScene(appPage);
+           }
+       }
+     QList<QDeclarativeError> errorList = qml->errors();
+     foreach (const QDeclarativeError &error, errorList) {
+                 qWarning() << error;
+                 std::cerr << "Before show11111111 "<<error.toString().toStdString()<<	 std::endl;
+             }
+
+
+    std::cerr << "After show"<< std::endl;
     /*This code provides Segmantation fault
     delete dadapt;
     delete controller;

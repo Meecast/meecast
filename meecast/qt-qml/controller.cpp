@@ -55,9 +55,10 @@ create_and_fill_config(){
 }
 
 
-Controller::Controller() : QObject()
+Controller::Controller(const std::string& qml_filename ) : QObject()
 {
-  _qview = new QDeclarativeView();
+//  _qview = new QDeclarativeView();
+  _qview  = QmlDocument::create(qml_filename.c_str());
   _dp = NULL;
   this->load_config();
   this->load_data();
@@ -71,7 +72,7 @@ Controller::~Controller()
 
 }
 
-QDeclarativeView* 
+QmlDocument* 
 Controller::qview()
 {
     return _qview;
@@ -266,11 +267,11 @@ Controller::load_data()
     i = i + 3600;
   }
 
-  _qview->rootContext()->setContextProperty("Current", _current);
-  _qview->rootContext()->setContextProperty("Current_night", _current_night);
-  _qview->rootContext()->setContextProperty("Forecast_model", _model);
-  _qview->rootContext()->setContextProperty("Forecast_night_model", _night_model);
-  _qview->rootContext()->setContextProperty("Forecast_hours_model", _hours_model);
+  _qview->setContextProperty("Current", _current);
+  _qview->setContextProperty("Current_night", _current_night);
+  _qview->setContextProperty("Forecast_model", _model);
+  _qview->setContextProperty("Forecast_night_model", _night_model);
+  _qview->setContextProperty("Forecast_hours_model", _hours_model);
 
 
   /* models for station selection */
@@ -285,10 +286,10 @@ Controller::load_data()
       source_model->addData(new SelectData(str, "", str.left(1)));
       //qDebug() << countries.at(j) << str.left(1);
   }
-  _qview->rootContext()->setContextProperty("source_model", source_model);
-  _qview->rootContext()->setContextProperty("country_model", country_model);
-  _qview->rootContext()->setContextProperty("region_model", region_model);
-  _qview->rootContext()->setContextProperty("city_model", city_model);
+  _qview->setContextProperty("source_model", source_model);
+  _qview->setContextProperty("country_model", country_model);
+  _qview->setContextProperty("region_model", region_model);
+  _qview->setContextProperty("city_model", city_model);
   
 }
 
@@ -297,7 +298,7 @@ Controller::load_config()
 {
    std::cout<<"Load"<<std::endl;
   _config = create_and_fill_config();   
-  _qview->rootContext()->setContextProperty("Config", _config);
+  _qview->setContextProperty("Config", _config);
 }
 void
 Controller::reload_config()

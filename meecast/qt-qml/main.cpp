@@ -92,7 +92,6 @@ Q_DECL_EXPORT
 int main(int argc, char* argv[])
 {
 	std::cerr<<"Begin"<<std::endl;
-    //QApplication::setGraphicsSystem("native");
 
 	//QApplication app(argc, argv);
 	 Application app(argc, argv);
@@ -131,7 +130,7 @@ int main(int argc, char* argv[])
     //QString locale = QLocale::system().name();
     //std::cerr<<"locale: "<<locale.toStdString()<<std::endl;
     
-    //ConfigQml *config;
+    ConfigQml *config;
     Controller *controller;
 
     std::cerr<<"Before controller "<<std::endl;
@@ -139,20 +138,21 @@ int main(int argc, char* argv[])
     QTranslator translator;
     translator.load("ru.qml", "i18n");
     app.installTranslator(&translator);
-   // controller = new Controller();
+
+    controller = new Controller("asset:///qml/main.qml");
 
     std::cerr<<"After controller "<<std::endl;
 
 
 
-    //config = controller->config();
+    config = controller->config();
     //std::cerr<<"iconpath = "<<config->imagespath().toStdString() << std::endl;
     //update_weather_forecast(config);
     
-/*
-    QDeclarativeView *qview;
-    qview = controller->qview();
+    QmlDocument *qml; 
+    qml = controller->qview();
 
+/*
     qview->setViewportUpdateMode(QGraphicsView::FullViewportUpdate);
 
     qview->setAttribute(Qt::WA_OpaquePaintEvent);
@@ -181,7 +181,7 @@ int main(int argc, char* argv[])
 
     // Obtain a QMLDocument and load it into the qml variable, using build patterns.
   //     QmlDocument *qml = QmlDocument::create("asset:///hellocascades.qml");
-      QmlDocument *qml = QmlDocument::create("asset:///qml/main.qml");
+    //  QmlDocument *qml = QmlDocument::create("asset:///qml/main.qml");
     //QmlDocument *qml = QmlDocument::create("asset:///qml/SettingsPage.qml");
        QObject::connect((QObject*)qml, SIGNAL(quit()), &app, SLOT(quit()));
    //    QmlDocument *qml = QmlDocument::create("asset:///Weather.qml");

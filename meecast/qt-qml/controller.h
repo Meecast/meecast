@@ -37,8 +37,9 @@
 #include "countrymodel.h"
 #include "regionmodel.h"
 #include "citymodel.h"
+#include <bb/cascades/QmlDocument>
 
-
+using namespace bb::cascades;
 
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
@@ -47,9 +48,9 @@ class Controller : public QObject
     Q_OBJECT
 
 public:
-    Controller();
+    Controller(const std::string& qml_filename ="asset:///qml/main.qml");
     ConfigQml* config();
-    QDeclarativeView *qview();
+    QmlDocument *qview();
     virtual ~Controller();
 
 public Q_SLOTS:
@@ -59,7 +60,7 @@ public Q_SLOTS:
 
 private:
     ConfigQml *_config;
-    QDeclarativeView *_qview;
+    QmlDocument *_qview;
     Core::DataParser *_dp;
     DataModel *_model; 
     DataModel *_hours_model; 

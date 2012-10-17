@@ -43,19 +43,23 @@
     <configuration id="com.qnx.qcc.toolChain.398719213" name="Default">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset entry="true" path="arm/o.le-v7-g/omweather-qml" type="Qnx/Elf">omweather-qml</asset>
+       <asset path="arm/foreca/o.le-v7-g/forecacom" type="Qnx/Elf">forecacom</asset>
        <asset path="meecast/qt-qml/qml">qml</asset>
     </configuration>
     <configuration id="com.qnx.qcc.toolChain.530812073" name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset entry="true" path="arm/o.le-v7-g/omweather-qml" type="Qnx/Elf">omweather-qml</asset>
+       <asset path="arm/foreca/o.le-v7-g/forecacom" type="Qnx/Elf">forecacom</asset>
     </configuration>
     <configuration id="com.qnx.qcc.toolChain.585662339" name="Device-Release">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset type="Qnx/Elf" entry="true" path="arm/o.le-v7/omweather-qml">omweather-qml</asset>
+       <asset path="arm/foreca/o.le-v7/forecacom" type="Qnx/Elf">forecacom</asset>
     </configuration>
     <configuration id="com.qnx.qcc.toolChain.1526872727" name="Simulator-Debug">
        <platformArchitecture>x86</platformArchitecture>
        <asset public="true" path="x86/o-g/omweather-qml" entry="true" type="Qnx/Elf">omweather-qml</asset>
+       <asset path="x86/foreca/o-g/forecacom" type="Qnx/Elf">forecacom</asset>
     </configuration>
     
     <!--  The icon for the application, which should be 150x150. -->

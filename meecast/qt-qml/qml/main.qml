@@ -9,29 +9,55 @@ NavigationPane {
         property int screen_height : 768
         
         content: Container {
-            background: Color.Black
-            layout: StackLayout {}
+            background: Color.White
+//            layout: StackLayout {}
+            layout: AbsoluteLayout {}
             //horizontalAlignment: HorizontalAlignment.Center
             //verticalAlignment: VerticalAlignment.Center
             preferredWidth: screen_width
             preferredHeight: screen_height
-            opacity: 1.0
-            Container {
-                id: absoluteLayoutContainer
-                
-                background: Color.create ("#000000")
-                layout: AbsoluteLayout {}
-                preferredWidth: screen_width
-                preferredHeight: screen_height
-                ImageView {
-                    layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
+			Container{
+                layoutProperties: AbsoluteLayoutProperties {
+                	positionX: 0
                     positionY: 0
-                    }
-                 imageSource: "asset:///images/mask_background.png"
-                 
                 }
-            }
+                background: Color.Black
+                preferredWidth: 768
+                preferredHeight: 90
+        	}                       
+       		ImageView {
+                layoutProperties: AbsoluteLayoutProperties {
+                    positionX: 0
+                    positionY: 90
+                }
+                imageSource: "asset:///images/mask_background.png"
+                preferredWidth: 768  
+        	}
+        	Container{
+                layoutProperties: AbsoluteLayoutProperties {
+                	positionX: 0
+                    positionY: 350
+                }
+                background: Color.Black
+                preferredWidth: 768
+                preferredHeight: 1000
+        	}
+			Label {                 
+				  text: Config.stationname
+				  preferredWidth: 768 - 80
+				  preferredHeight: screen_height
+				  horizontalAlignment:  HorizontalAlignment.Center
+				  verticalAlignment: VerticalAlignment.Center
+                  textStyle {
+					  base: SystemDefaults.TextStyles.BigText
+					  color: Color.White
+				  }
+				  layoutProperties: AbsoluteLayoutProperties {
+                      positionX: 0
+                      positionY: 40
+                  }
+			}
+
         }
          
         actions: [

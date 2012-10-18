@@ -27,8 +27,8 @@ Page {
        layout: AbsoluteLayout {}
        Container{
                 layoutProperties: AbsoluteLayoutProperties {
-                                positionX: 0
-                                positionY: 0
+                	positionX: 0
+                    positionY: 0
                 }
                 background: Color.Black
                 preferredWidth: 768

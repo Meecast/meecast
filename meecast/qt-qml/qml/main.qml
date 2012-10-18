@@ -61,8 +61,7 @@ NavigationPane {
                 title: "Refresh"
                 ActionBar.placement: ActionBarPlacement.OnBar
                 onTriggered: {
-                      var newPage = pageDefinition.createObject();
-                      navigationPane.push(newPage);
+					rootWindow.update()
                 }
             }
         ]

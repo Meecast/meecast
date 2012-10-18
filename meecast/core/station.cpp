@@ -349,7 +349,8 @@ Station::Station(const std::string& source_name, const std::string& id,
         std::string command;
         /* To do */
         /* Check connection and if force true update connection */
-        force = false;
+
+       force = false;
         /* Weather Forecast */
         if (Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie())) {
             result = true;

@@ -88,7 +88,7 @@ Controller::load_data()
   Core::Data *temp_data = NULL;
   int i = 0;
   
- /*  std::cerr<<" Controller::load_data()"<<std::endl; */
+  /* std::cerr<<" Controller::load_data()"<<std::endl; */
 
   std::string mapfilename(Core::AbstractConfig::getCachePath());
   _dp->DeleteInstance(); 
@@ -197,7 +197,6 @@ Controller::load_data()
   i = 0;
   /* fill other days */
   while  (_dp != NULL && ((temp_data = _dp->data().GetDataForTime( current_day + 14 * 3600  + i)) || (i < 7*3600*24))) {
-      // fprintf(stderr,"Controller1 %i\n", current_day + 14 * 3600 + i);
       if (temp_data){
           forecast_data = new DataItem(temp_data);
 

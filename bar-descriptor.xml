@@ -79,6 +79,7 @@
     <asset path="meecast/qt-qml/qml">assets/qml</asset>
     <asset path="meecast/core/data/images">assets/images</asset>
     <asset path="meecast/core/data/button_icons">assets/button_icons</asset>
+    <asset path="meecast/core/data/data.xsd">share/xsd/data.xsd</asset>
     
     <!-- Request permission to execute native code.  Required for native applications. -->
     <permission system="true">run_native</permission>

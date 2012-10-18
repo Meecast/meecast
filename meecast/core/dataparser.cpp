@@ -44,8 +44,8 @@ namespace Core {
         _timezone = 0;
         _list = new DataList;
         Data *forecast_data;
-        forecast_data = new Data();
-        _list->push_back(forecast_data);
+        //forecast_data = new Data();
+       // _list->push_back(forecast_data);
         _last_update = 0;
     }
 ////////////////////////////////////////////////////////////////////////////////
@@ -60,8 +60,6 @@ namespace Core {
         struct stat statv;
         _list = new DataList;
         
-        
-        /* std::cerr<<"Filename   "<<filename<<std::endl; */
         
         this->_filename = filename;
         this->Reloadfile();
@@ -174,6 +172,8 @@ namespace Core {
     DataParser* 
     DataParser::Instance(const std::string& filename, const std::string& schema_filename){
         Data* forecast_data;
+        
+
         if (!_self)
             _self = new DataParser(filename, schema_filename);
         else{

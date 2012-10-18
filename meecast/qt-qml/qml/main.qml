@@ -61,7 +61,7 @@ NavigationPane {
                 title: "Refresh"
                 ActionBar.placement: ActionBarPlacement.OnBar
                 onTriggered: {
-					rootWindow.update()
+                    Config.updatestations()	
                 }
             }
         ]

@@ -100,8 +100,7 @@ Page {
 								   text: ">"
 								   horizontalAlignment: HorizontalAlignment.Right
 								   verticalAlignment: VerticalAlignment.Center
-								   // Apply a text style to create large, light gray text
-									textStyle {
+								   textStyle {
 									   base: SystemDefaults.TextStyles.BigText
 									   color: Color.White
 									 }

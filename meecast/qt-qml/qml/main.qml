@@ -11,6 +11,7 @@ NavigationPane {
         content: Container {
             background: Color.White
 //            layout: StackLayout {}
+
             layout: AbsoluteLayout {}
             //horizontalAlignment: HorizontalAlignment.Center
             //verticalAlignment: VerticalAlignment.Center
@@ -23,12 +24,12 @@ NavigationPane {
                 }
                 background: Color.Black
                 preferredWidth: 768
-                preferredHeight: 90
+                preferredHeight: 100
         	}                       
        		ImageView {
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
-                    positionY: 90
+                    positionY: 100
                 }
                 imageSource: "asset:///images/mask_background.png"
                 preferredWidth: 768  
@@ -36,28 +37,51 @@ NavigationPane {
         	Container{
                 layoutProperties: AbsoluteLayoutProperties {
                 	positionX: 0
-                    positionY: 350
+                    positionY: 360
                 }
                 background: Color.Black
                 preferredWidth: 768
                 preferredHeight: 1000
         	}
-			Label {                 
-				  text: Config.stationname
-				  preferredWidth: 768 - 80
-				  preferredHeight: screen_height
-				  horizontalAlignment:  HorizontalAlignment.Center
-				  verticalAlignment: VerticalAlignment.Center
-                  textStyle {
-					  base: SystemDefaults.TextStyles.BigText
-					  color: Color.White
-				  }
-				  layoutProperties: AbsoluteLayoutProperties {
-                      positionX: 0
-                      positionY: 40
-                  }
-			}
-
+			Container{
+                preferredWidth: 768
+		        layout: DockLayout {}
+            
+                layoutProperties: AbsoluteLayoutProperties {
+                	positionX: 0
+                    positionY: 0
+                }
+                background: Color.Black
+				Label {                 
+				   text: "<"
+				   horizontalAlignment: HorizontalAlignment.Left
+					textStyle {
+					   base: SystemDefaults.TextStyles.BigText
+					   color: Color.White
+					 }
+			    }
+			    Container{
+			        layout: DockLayout {}
+			        preferredWidth: 600 
+			        horizontalAlignment: HorizontalAlignment.Center 
+				    Label {                 
+				        text: Config.stationname
+				        horizontalAlignment: HorizontalAlignment.Center
+                        textStyle {
+					        base: SystemDefaults.TextStyles.BigText
+					        color: Color.White
+				        }
+				    }
+                }
+				Label {                 
+				   text: ">"
+				   horizontalAlignment: HorizontalAlignment.Right
+	               textStyle {
+					   base: SystemDefaults.TextStyles.BigText
+					   color: Color.White
+				   }
+			    }
+        	}
         }
          
         actions: [

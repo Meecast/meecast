@@ -1,31 +1,69 @@
 import bb.cascades 1.0
 
 NavigationPane {
+    
+
     id: rootWindow
 
  // Create the initial screen
     Page {
         property int screen_width : 1280
         property int screen_height : 768
-        
+
+        id: main
+        function updatestationname(){
+			main.updatemodels();
+			stationname.text = Config.stationname;
+			left_arrow.visible = Config.prevstationname == "" ? false : true;
+			right_arrow.visible = Config.nextstationname == "" ? false : true;
+			sourceicon.visible = false;
+			sourceicon.source = Config.imagespath + "/" + Config.source + ".png";
+			sourceicon.visible = true;
+        }
+
+
+        function onConfigChanged() {
+            console.log("end update station name = "+Config.stationname);
+//            startview.visible = Config.stationname == "Unknown" ? true : false;
+//            mainview.visible = Config.stationname == "Unknown" ? false : true;
+            main.updatestationname();
+            isUpdate = false;
+        }
+
+        function updatemodels()
+        {
+			Current.reload_data(Config.filename);
+			Current.update_model(0);
+			Current_night.update_model(1);
+			Forecast_model.update_model(2);
+			Forecast_night_model.update_model(3);
+			Forecast_hours_model.update_model(4);
+			//list.height = 80 * Forecast_model.rowCount();
+			console.debug ("Forecast_model.rowCount()", Forecast_model.rowCount(), Current.rowCount());
+			dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
+			current_rect.visible = Current.rowCount() == 0 ? false : true;
+			//list.visible = (Forecast_model.rowCount() == 0) ? false : true;
+        }
+   
         content: Container {
             background: Color.White
-//            layout: StackLayout {}
 
+            onCreationCompleted: {
+                 Config.configChanged.connect (main.onConfigChanged);
+                 Current.update_model(0);
+            }
             layout: AbsoluteLayout {}
-            //horizontalAlignment: HorizontalAlignment.Center
-            //verticalAlignment: VerticalAlignment.Center
-            preferredWidth: screen_width
-            preferredHeight: screen_height
-			Container{
+            Container{
+                id: current_rect
+            	visible: Current.rowCount() == 0 ? false : true
+            	background: Color.Red
+            	preferredWidth: 768
+            	preferredHeight: 1000
                 layoutProperties: AbsoluteLayoutProperties {
-                	positionX: 0
-                    positionY: 0
+                                positionX: 0
+                                positionY: 95
                 }
-                background: Color.Black
-                preferredWidth: 768
-                preferredHeight: 100
-        	}                       
+            }                          
        		ImageView {
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
@@ -82,6 +120,7 @@ NavigationPane {
 				   }
 			    }
         	}
+		
         }
          
         actions: [

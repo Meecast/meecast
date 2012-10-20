@@ -72,8 +72,10 @@ namespace Core {
     #else //LIBXML
 
         QFile file(QString::fromStdString(filename));
+
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
-                std::cerr<<"error file open"<<std::endl;
+                std::cerr << "Error opening " << file.error();
+                std::cerr << "Error description: " << file.errorString().toStdString();
                 throw("Invalid source file");
                 return;
         }

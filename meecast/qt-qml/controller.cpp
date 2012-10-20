@@ -195,6 +195,7 @@ Controller::load_data()
   /* set next day */
   //i = 3600*24;
   i = 0;
+
   /* fill other days */
   while  (_dp != NULL && ((temp_data = _dp->data().GetDataForTime( current_day + 14 * 3600  + i)) || (i < 7*3600*24))) {
       if (temp_data){

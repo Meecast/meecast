@@ -143,7 +143,7 @@ DataModel::update_model(int period)
     struct tm   *tm = NULL;
     int year, current_month;
 
-    /* std::cerr<<"Update model"<<std::endl; */
+    std::cerr<<"Update model!!!!!!!!!!!!!!!!!!!!!!!!!1"<<std::endl; 
 
     dp = Core::DataParser::Instance();
     /* set current day */ 

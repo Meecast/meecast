@@ -87,6 +87,10 @@ update_weather_forecast(Core::Config *config){
     return true;
 }
 //////////////////////////////////////////////////////////////////////////////
+void myMessageOutput(QtMsgType type, const char* msg){
+    fprintf(stdout, "%s\n", msg);
+    fflush(stdout);
+}
 
 Q_DECL_EXPORT
 int main(int argc, char* argv[])
@@ -94,7 +98,9 @@ int main(int argc, char* argv[])
 	std::cerr<<"Begin"<<std::endl;
 
 	//QApplication app(argc, argv);
-	 Application app(argc, argv);
+	Application app(argc, argv);
+
+    qInstallMsgHandler(myMessageOutput);
 
     std::cerr<<"Begin"<<std::endl;
     QString str = QDir::currentPath();

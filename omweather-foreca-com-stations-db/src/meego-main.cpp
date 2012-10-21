@@ -32,31 +32,20 @@
 #include <QHash>
 /*******************************************************************************/
 #define buff_size 2048
-static QHash<QString, QString> hash_for_icons;
+static QHash<QString, QString> *hash_for_icons;
+QHash<QString, QString> *hash_icons_forecacom_table_create(void);
 /*******************************************************************************/
 QString
 choose_hour_weather_icon(char *image)
 {
-    char *result;
-    QString source;
-    char *tmp_result = NULL;
+    QString result;
 
-    if(!image)
+    if (hash_for_icons->contains(QString(image)))
+        return hash_for_icons->value(QString(image));
+    else{
+        fprintf(stderr,"Unknown strings %s\n", image);
         return QString("49");
-    source = QString(image);
-    return QString("49");
-    /* 
-    tmp_result = hash_forecacom_table_find(hash_for_icons, source, FALSE);
-    if (tmp_result && (strlen(tmp_result) == 2 || strlen(tmp_result) == 1)){
-       result = g_strdup(tmp_result);
-       g_free(source);
-       return result;
-    }else{
-       fprintf(stderr,"Unknown strings %s\n", image);
-       g_free(source);
-       return g_strdup("49");
     }
-    */
 }
 /*******************************************************************************/
 int
@@ -115,7 +104,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     if (!file_out)
         return -1;
     /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-    //hash_for_icons = hash_icons_forecacom_table_create();
+    hash_for_icons = hash_icons_forecacom_table_create();
     /* Create xpath evaluation context */
     xpathCtx = xmlXPathNewContext(doc);
     if(xpathCtx == NULL) {
@@ -455,7 +444,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
     /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-    //hash_for_icons = hash_icons_forecacom_table_create();
+    hash_for_icons = hash_icons_forecacom_table_create();
     /* Create xpath evaluation context */
     xpathCtx = xmlXPathNewContext(doc);
     if(xpathCtx == NULL) {

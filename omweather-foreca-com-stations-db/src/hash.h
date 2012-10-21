@@ -28,8 +28,8 @@
 #ifndef _hash_h
 #define _hash_h 1
 /*******************************************************************************/
+#include <QHash>
 /*******************************************************************************/
-//GHashTable* hash_icons_forecacom_table_create(void);
-//gpointer hash_forecacom_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
+QHash<QString, QString> *hash_icons_forecacom_table_create(void);
 /*******************************************************************************/
 #endif

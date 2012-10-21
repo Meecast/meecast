@@ -30,6 +30,17 @@
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
+QHash<QString, QString> *
+hash_icons_forecacom_table_create(void) {
+
+    QHash<QString, QString> *hash = new QHash <QString, QString>;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+#include "hash_icons.data"
+    return hash;
+}
+
 #if 0
 /*******************************************************************************/
 GHashTable *hash_icons_forecacom_table_create(void) {

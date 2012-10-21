@@ -381,6 +381,46 @@ NavigationPane {
                 imageSource: Config.iconspath + "/" + Config.iconset + "/" + Current.getdata(0, "pict")
                 horizontalAlignment: HorizontalAlignment.Center                
             } 
+            Container{
+                ListView {
+                    dataModel: GroupDataModel {
+                    //    objectName: "forecast_model"    
+            
+                    }
+                    listItemComponents: [
+                         ListItemComponent {
+                                                type: "header"
+                                                Label {
+                                                    text: ""
+                                                    textStyle {
+                                                        base: SystemDefaults.TextStyles.BigText
+                                                        color: Color.White
+                                                    }
+                                                }
+                        },
+                        
+                        ListItemComponent {
+                            type: "item" 
+                            StandardListItem {
+                                title: ListItemData.firstName + ' ' + ListItemData.lastName
+                            }
+                        }
+                    ]
+                     onCreationCompleted: {
+                                for (var a = 0; a < 20; a++) {
+                                    dataModel.insert(
+                                        {"firstName" : a,
+                                         "lastName" : a+1
+                                        }
+                                    )
+                                }
+                    }
+                    //onCreationCompleted: {
+                                    // After the ListView is created, add an initial set of names
+                    //                arrayModel.append(["Westlee", "Michael", "Patricia"]);
+                    //}
+                }
+            }
         }
          
         actions: [

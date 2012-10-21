@@ -39,7 +39,7 @@
 #include "configqml.h"
 
 
-class DataModel : public QAbstractListModel
+class DataModelQt : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -52,8 +52,8 @@ class DataModel : public QAbstractListModel
     };
 
 public:
-    explicit DataModel(DataItem* prototype, QObject* parent = 0);
-    ~DataModel();
+    explicit DataModelQt(DataItem* prototype, QObject* parent = 0);
+    ~DataModelQt();
     Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const;
     Q_INVOKABLE QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
     void appendRow(DataItem* item);

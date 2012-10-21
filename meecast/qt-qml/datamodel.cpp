@@ -30,7 +30,7 @@
 
 #include "datamodel.h"
 
-DataModel::DataModel(DataItem* prototype, QObject *parent) :
+DataModelQt::DataModelQt(DataItem* prototype, QObject *parent) :
     QAbstractListModel(parent),_prototype(prototype)
 {
     setRoleNames(_prototype->roleNames());
@@ -52,21 +52,21 @@ DataModel::DataModel(DataItem* prototype, QObject *parent) :
 }
 
 int
-DataModel::rowCount(const QModelIndex &parent) const
+DataModelQt::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return _list.size();
 }
 
 QVariant
-DataModel::data(const QModelIndex &index, int role) const
+DataModelQt::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= _list.size())
         return QVariant();
     return _list.at(index.row())->data(role);
 }
 QVariant
-DataModel::getdata(const int index, QString role)
+DataModelQt::getdata(const int index, QString role)
 {
    // std::cerr<<"SIZE of LIST "<< _list.size()<<std::endl;
     if (index < 0 || index >= _list.size())
@@ -75,19 +75,19 @@ DataModel::getdata(const int index, QString role)
     return item->data(item->getRole(role));
 }
 DataItem*
-DataModel::find(const int row)
+DataModelQt::find(const int row)
 {
     qDebug() << "222 " << row << _list.at(row)->description();
     return _list.at(row);
 }
 
-DataModel::~DataModel()
+DataModelQt::~DataModelQt()
 {
     delete _prototype;
 }
 
 void
-DataModel::clear()
+DataModelQt::clear()
 {
     //qDeleteAll(this->_list);
     this->_list.clear();
@@ -96,13 +96,13 @@ DataModel::clear()
 }
 
 void
-DataModel::remove(const int row)
+DataModelQt::remove(const int row)
 {
     this->_list.removeAt(row);
 }
 
 void
-DataModel::appendRow(DataItem *item)
+DataModelQt::appendRow(DataItem *item)
 {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     _list.append(item);
@@ -111,7 +111,7 @@ DataModel::appendRow(DataItem *item)
 } 
 
 void 
-DataModel::reload_data(QString filename)
+DataModelQt::reload_data(QString filename)
 {
    Core::DataParser* dp = NULL;
    if (!filename.isEmpty()){
@@ -131,7 +131,7 @@ DataModel::reload_data(QString filename)
 
 }
 void
-DataModel::update_model(int period)
+DataModelQt::update_model(int period)
 {
     this->clear();
     DataItem *forecast_data = NULL;

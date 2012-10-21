@@ -38,6 +38,7 @@
 #include "dataitem.h"
 #include "configqml.h"
 
+
 class DataModel : public QAbstractListModel
 {
     Q_OBJECT

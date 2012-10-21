@@ -70,7 +70,6 @@
 using ::bb::cascades::Application;
 using namespace bb::cascades;
 
-
 //////////////////////////////////////////////////////////////////////////////
 bool
 update_weather_forecast(Core::Config *config){
@@ -196,11 +195,11 @@ int main(int argc, char* argv[])
        if (!qml->hasErrors()) {
 
            // Create the application Page from QMLDocument.
-    	   AbstractPane  *appPage = qml->createRootObject<AbstractPane>();
+    	   config->appPage = qml->createRootObject<AbstractPane>();
     	  // Page  *appPage = qml->createRootObject<Page>();
-           if (appPage) {
+           if (config->appPage) {
                // Set the main scene for the application to the Page.
-               Application::instance()->setScene(appPage);
+               Application::instance()->setScene(config->appPage);
            }
        }
      QList<QDeclarativeError> errorList = qml->errors();

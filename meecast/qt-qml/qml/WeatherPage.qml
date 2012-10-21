@@ -535,7 +535,8 @@ Page {
                             width: 160
                             height: 84
                             anchors.top: parent.top
-                            anchors.left: parent.left
+                    
+							anchors.left: parent.left
                             anchors.leftMargin: margin
                             color: "white"
                             text: model.current == true ? Config.tr("Now") : Config.tr("Today")

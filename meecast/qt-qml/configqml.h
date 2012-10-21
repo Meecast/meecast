@@ -45,9 +45,11 @@
 #include <libintl.h>
 #include <locale.h>
 
+#include <bb/cascades/AbstractPane>
 
 #define _(String) gettext(String)
 
+using namespace bb::cascades;
 class ConfigQml : public QObject, public Core::Config
 
 {
@@ -170,6 +172,7 @@ public:
     Q_INVOKABLE QString tr(QString str);
     Q_INVOKABLE void enableGps();
     void refreshconfig();
+    AbstractPane  *appPage;
 signals:
     void iconsetChanged();
     void iconspathChanged();

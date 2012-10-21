@@ -31,7 +31,7 @@
 #include "datamodel.h"
 
 DataModel::DataModel(DataItem* prototype, QObject *parent) :
-    QAbstractListModel(parent), _prototype(prototype)
+    QAbstractListModel(parent),_prototype(prototype)
 {
     setRoleNames(_prototype->roleNames());
     try{

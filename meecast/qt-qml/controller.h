@@ -39,8 +39,6 @@
 #include "citymodel.h"
 #include <bb/cascades/QmlDocument>
 
-using namespace bb::cascades;
-
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 class Controller : public QObject

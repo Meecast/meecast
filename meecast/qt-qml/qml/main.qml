@@ -63,15 +63,11 @@ NavigationPane {
                                 positionX: 0
                                 positionY: 95
                 }
-            }                          
-       		ImageView {
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 100
+                ImageView {
+                      imageSource: "asset:///images/mask_background.png"
+                      preferredWidth: 768  
                 }
-                imageSource: "asset:///images/mask_background.png"
-                preferredWidth: 768  
-        	}
+            }                          
         	Container{
                 layoutProperties: AbsoluteLayoutProperties {
                 	positionX: 0

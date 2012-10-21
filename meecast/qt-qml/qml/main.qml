@@ -44,6 +44,7 @@ NavigationPane {
 			current_rect.visible = Current.rowCount() == 0 ? false : true;
 			//list.visible = (Forecast_model.rowCount() == 0) ? false : true;
         }
+
    
         content: Container {
             background: Color.White
@@ -112,8 +113,39 @@ NavigationPane {
                             base: SystemDefaults.TextStyles.BigText
                 			color: Color.White
                 		}
+						function getColor(t)
+                    	{
+                            var c1, c2, c3;
+                            if (Config.temperatureunit == "F"){
+                                t = (t - 32) * 5 / 9;
+                            }
+                            if (t >= 30){
+                                c2 = (t - 50)*(246/255-60/255)/(30-50) + 60/255;
+                                return Qt.rgba(1, c2, 0, 1);
+                            }else if (t < 30 && t >= 15){
+                                c1 = (t - 30)*(114/255-1)/(15-30) + 1;
+                                c2 = (t - 30)*(1-246/255)/(15-30) + 246/255;
+                                return Qt.rgba(c1, c2, 0, 1);
+                            }else if (t < 15 && t >= 0){
+                                c1 = (t - 15)*(1-114/255)/(0-15) + 144/255;
+                                c3 = (t - 15)*(1-0)/(0-15) + 0;
+                                return Qt.rgba(c1, 1, c3, 1);
+                            }else if (t < 0 && t >= -15){
+                                c1 = (t - 0)*(0-1)/(-15-0) + 1;
+                                c2 = (t - 0)*(216/255-1)/(-15-0) + 1;
+                                return Qt.rgba(c1, c2, 1, 1);
+                            }else if (t < -15 && t >= -30){
+                                c2 = (t - (-15))*(66/255-216/255)/(-30+15) + 216/255;
+                                //console.log(t+ " "+c2);
+                                return Qt.rgba(0, c2, 1, 1);
+                            }else if (t < -30){
+                                c1 = (t - (-30))*(132/255-0)/(-30+15) + 0;
+                                c2 = (t - (-30))*(0-66/255)/(-30+15) + 66/255;
+                                return Qt.rgba(c1, c2, 1, 1);
+                            }
+                    	}
+
                 		onCreationCompleted: {
-                		    console.debug ("Temp", Current.temp, Current.getdata(0, "temp"),Current.getdata(0, "temp_high") );
                            if (Current.getdata(0, "temp") == "N/A"){
 				                temp_text.text = ""
 				                if (Current.getdata(0, "temp_high") != "N/A")
@@ -121,13 +153,12 @@ NavigationPane {
 				                if ((Current.getdata(0, "temp_low") != "N/A") && (Current.getdata(0, "temp_high") != "N/A"))
 				                if (Current.getdata(0, "temp_low") != "N/A")
                                    temp_text.text = temp_text.text + Current.getdata(0, "temp_low") + '°'
-//                                current_rect.color = getColor(model.temp_high);
+                                current_rect.background = Color.create(getColor(Current.getdata(0, "temp_high")));
                             }else{
                                temp_text.text = Current.getdata(0, "temp") + '°'
-//                               current_rect.color = getColor(model.temp);
+                               current_rect.background = Color.create(getColor(Current.getdata(0, "temp")));
 				            }
                         }
-
                 	}                	
                 }
                 Container{

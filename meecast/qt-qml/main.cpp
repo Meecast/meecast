@@ -152,7 +152,7 @@ int main(int argc, char* argv[])
 
     config = controller->config();
     //std::cerr<<"iconpath = "<<config->imagespath().toStdString() << std::endl;
-    update_weather_forecast(config);
+ //   update_weather_forecast(config);
     
     QmlDocument *qml; 
     qml = controller->qview();

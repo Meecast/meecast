@@ -47,7 +47,7 @@ NavigationPane {
 
    
         content: Container {
-            background: Color.White
+            background: Color.Black
 
             onCreationCompleted: {
                  Config.configChanged.connect (main.onConfigChanged);
@@ -69,7 +69,7 @@ NavigationPane {
                 Container{
                     id: current_rect
                     preferredWidth: 768
-                    preferredHeight: 390
+                    preferredHeight: 438
                     layoutProperties: AbsoluteLayoutProperties {
                         positionY: 30
                     }
@@ -78,6 +78,7 @@ NavigationPane {
                 ImageView {
                 	imageSource: "asset:///images/mask_background_main.png"
                     preferredWidth: 768
+                    preferredHeight: 438
                     layoutProperties: AbsoluteLayoutProperties {
                            positionY: 30
                     }
@@ -86,7 +87,7 @@ NavigationPane {
                     preferredWidth: 768
                     layout: DockLayout {}
                     layoutProperties: AbsoluteLayoutProperties {
-                        positionY: 0.0
+                        positionY: 50.0
                     }
                     Label {                 
                         text: Current == true ? Config.tr("Now") : Config.tr("Today")
@@ -96,12 +97,6 @@ NavigationPane {
                             base: SystemDefaults.TextStyles.BigText
                 			color: Color.White
                 		}
-                	}
-                	ImageView {
-                	    imageSource: Config.iconspath + "/" + Config.iconset + "/" + Current.getdata(0, "pict")
-                	    horizontalAlignment: HorizontalAlignment.Center                
-                	    layoutProperties: AbsoluteLayoutProperties {
-                	    }
                 	}
                 	
                 	Label {                 
@@ -144,7 +139,6 @@ NavigationPane {
                                 return Qt.rgba(c1, c2, 1, 1);
                             }
                     	}
-
                 		onCreationCompleted: {
                            if (Current.getdata(0, "temp") == "N/A"){
 				                temp_text.text = ""
@@ -152,7 +146,7 @@ NavigationPane {
                                    temp_text.text = Current.getdata(0, "temp_high") + '°'
 				                if ((Current.getdata(0, "temp_low") != "N/A") && (Current.getdata(0, "temp_high") != "N/A"))
 				                if (Current.getdata(0, "temp_low") != "N/A")
-                                   temp_text.text = temp_text.text + Current.getdata(0, "temp_low") + '°'
+                                   temp_text.text = temp_text.text + ' / '+ Current.getdata(0, "temp_low") + '°'
                                 current_rect.background = Color.create(getColor(Current.getdata(0, "temp_high")));
                             }else{
                                temp_text.text = Current.getdata(0, "temp") + '°'
@@ -162,10 +156,11 @@ NavigationPane {
                 	}                	
                 }
                 Container{
+                    id: title
                     preferredWidth: 768
                 	layout: DockLayout {}
                 	layoutProperties: AbsoluteLayoutProperties {
-                	    positionY: 105.0
+                	    positionY: 165.0
                 	}
                 	Label {                 
                 	    text: Current.getdata(0, "description");
@@ -176,12 +171,163 @@ NavigationPane {
 					    }
 			        }
 			    }
+			    Container{
+			        id: humidity_and_wind_direction
+			        preferredWidth: 768
+                	layout: StackLayout {
+                        orientation: LayoutOrientation.LeftToRight
+                    }
+                    layoutProperties: AbsoluteLayoutProperties {
+                	    positionY: 290.0
+                	}
+                	Container{
+                	    id: humidity
+                	    horizontalAlignment: HorizontalAlignment.Left
+                	    preferredWidth: 768/2
+                	    layout: StackLayout {
+                	        orientation: LayoutOrientation.LeftToRight
+                	    }
+                        ImageView {
+                            imageSource: "asset:///images/humidity.png"
+                            preferredWidth: 30*1.6
+                            preferredHeight: 30*1.6
+                	    }
+                	    Label {
+                	        text: Current.getdata(0, "humidity") + " %";
+                	        //horizontalAlignment: HorizontalAlignment.Left
+                	        textStyle {
+                	            base: SystemDefaults.TextStyles.BodyText
+                	            color: Color.White
+					        }
+			            }
+			        }
+			        Container{
+			            id: wind_direction
+			            function getAngle(s)
+						{
+							var a;
+							switch (s){
+							case 'S':
+								return 0;
+							case 'SSW':
+								return 22.5;
+							case 'SW':
+								return 45;
+							case 'WSW':
+								return (45+22.5);
+							case 'W':
+								return 90;
+							case 'WNW':
+								return (90+22.5);
+							case 'NW':
+								return (90+45);
+							case 'NNW':
+								return (180-22.5);
+							case 'N':
+								return 180;
+							case 'NNE':
+								return (180+22.5);
+							case 'NE':
+								return (180+45);
+							case 'ENE':
+								return (270-22.5);
+							case 'E':
+								return 270;
+							case 'ESE':
+								return (270+22.5);
+							case 'SE':
+								return (270+45);
+							case 'SSE':
+								return (360-22.5);
 
-            }                          
+							}
+
+						}
+
+                	    horizontalAlignment: HorizontalAlignment.Left
+                	    layout: StackLayout {
+                	        orientation: LayoutOrientation.LeftToRight
+                	    }
+                        Container{
+                            layout: AbsoluteLayout {
+                            }
+                            ImageView {
+                                imageSource: "asset:///images/wind_direction_background.png"
+                                preferredWidth: 30*1.6
+                                preferredHeight: 30*1.6
+                            }
+                            ImageView {
+                                imageSource: "asset:///images//wind_direction_arrow.png"
+                                preferredWidth: 30*1.6
+                                preferredHeight: 30*1.6
+                                rotationZ: wind_direction.getAngle(Current.getdata(0, "wind_direction"))
+                            }
+                	    }
+                	    Label {
+                	        text: Current.getdata(0, "wind_direction");
+                	        textStyle {
+                	            base: SystemDefaults.TextStyles.BodyText
+                	            color: Color.White
+					        }
+			            }
+			        }        
+			    }
+			    Container{
+			        id: pressure_and_wind_speed
+			        preferredWidth: 768
+                	layout: StackLayout {
+                        orientation: LayoutOrientation.LeftToRight
+                    }
+                    layoutProperties: AbsoluteLayoutProperties {
+                	    positionY: 390.0
+                	}
+                	Container{
+                	    id: pressure
+                	    horizontalAlignment: HorizontalAlignment.Left
+                	    preferredWidth: 768/2
+                	    layout: StackLayout {
+                	        orientation: LayoutOrientation.LeftToRight
+                	    }
+                        ImageView {
+                            imageSource: "asset:///images/pressure.png"
+                            preferredWidth: 30*1.6
+                            preferredHeight: 30*1.6
+                	    }
+                	    Label {
+                	        text: Current.getdata(0, "pressure");
+                	        //horizontalAlignment: HorizontalAlignment.Left
+                	        textStyle {
+                	            base: SystemDefaults.TextStyles.BodyText
+                	            color: Color.White
+					        }
+			            }
+			        }
+			        Container{
+			            id: wind_speed
+                	    horizontalAlignment: HorizontalAlignment.Left
+                	    layout: StackLayout {
+                	        orientation: LayoutOrientation.LeftToRight
+                	    }
+                        ImageView {
+                	        //horizontalAlignment: HorizontalAlignment.Left
+                            imageSource: "asset:///images/wind_speed.png"
+                            preferredWidth: 30*1.6
+                            preferredHeight: 30*1.6                        }
+                	    Label {
+                	        text: Current.getdata(0, "wind_speed");
+                	        //horizontalAlignment: HorizontalAlignment.Left
+                	        textStyle {
+                	            base: SystemDefaults.TextStyles.BodyText
+                	            color: Color.White
+					        }
+			            }
+			        }        
+			    }			        
+            } 
         	Container{
                 layoutProperties: AbsoluteLayoutProperties {
                 	positionX: 0
-                    positionY: 360
+                    positionY: 560
                 }
                 background: Color.Black
                 preferredWidth: 768
@@ -190,7 +336,6 @@ NavigationPane {
 			Container{
                 preferredWidth: 768
 		        layout: DockLayout {}
-            
                 layoutProperties: AbsoluteLayoutProperties {
                 	positionX: 0
                     positionY: 0
@@ -226,7 +371,16 @@ NavigationPane {
 				   }
 			    }
         	}
-		
+            ImageView {
+                layoutProperties: AbsoluteLayoutProperties {
+                    positionX: 768/2 - 64 *1.6
+                    positionY: 60
+                }
+                preferredWidth: 128*1.6
+                preferredHeight: 128*1.6
+                imageSource: Config.iconspath + "/" + Config.iconset + "/" + Current.getdata(0, "pict")
+                horizontalAlignment: HorizontalAlignment.Center                
+            } 
         }
          
         actions: [

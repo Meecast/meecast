@@ -58,7 +58,7 @@ NavigationPane {
 //            	visible: Current.rowCount() == 0 ? false : true
             	background: Color.Red
             	preferredWidth: 768
-            	preferredHeight: 290
+            	//preferredHeight: 290
                 layoutProperties: AbsoluteLayoutProperties {
                                 positionX: 0
                                 positionY: 95
@@ -70,6 +70,53 @@ NavigationPane {
                     preferredWidth: 768
                     layoutProperties: AbsoluteLayoutProperties {
                     }
+                }
+                Container{
+                    preferredWidth: 768
+                    layout: DockLayout {}
+                    layoutProperties: AbsoluteLayoutProperties {
+                        positionY: -15.0
+                    }
+                    Label {                 
+                        text: Current == true ? Config.tr("Now") : Config.tr("Today")
+                        horizontalAlignment: HorizontalAlignment.Left
+                        textStyle {
+                            base: SystemDefaults.TextStyles.BigText
+                			color: Color.White
+                		}
+                	}
+                	ImageView {
+                	    imageSource: Config.iconspath + "/" + Config.iconset + "/" + Current.getdata(0, "pict")
+                	    horizontalAlignment: HorizontalAlignment.Center                
+                	    layoutProperties: AbsoluteLayoutProperties {
+                	    }
+                	}
+                	
+                	Label {                 
+                	    id: temp_text
+                        text: Current.getdata(0, "temp") + '°';
+                        horizontalAlignment: HorizontalAlignment.Right
+                        textStyle {
+                            base: SystemDefaults.TextStyles.BigText
+                			color: Color.White
+                		}
+                		onCreationCompleted: {
+                		    console.debug ("Temp", Current.temp, Current.getdata(0, "temp"),Current.getdata(0, "temp_high") );
+                           if (Current.getdata(0, "temp") == "N/A"){
+				                temp_text.text = ""
+				                if (Current.getdata(0, "temp_high") != "N/A")
+                                   temp_text.text = Current.getdata(0, "temp_high") + '°'
+				                if ((Current.getdata(0, "temp_low") != "N/A") && (Current.getdata(0, "temp_high") != "N/A"))
+				                if (Current.getdata(0, "temp_low") != "N/A")
+                                   temp_text.text = temp_text.text + Current.getdata(0, "temp_low") + '°'
+//                                current_rect.color = getColor(model.temp_high);
+                            }else{
+                               temp_text.text = Current.getdata(0, "temp") + '°'
+//                               current_rect.color = getColor(model.temp);
+				            }
+                        }
+
+                	}                	
                 }
                 Container{
                     preferredWidth: 768

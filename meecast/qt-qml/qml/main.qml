@@ -55,18 +55,38 @@ NavigationPane {
             layout: AbsoluteLayout {}
             Container{
                 id: current_rect
-            	visible: Current.rowCount() == 0 ? false : true
+//            	visible: Current.rowCount() == 0 ? false : true
             	background: Color.Red
             	preferredWidth: 768
-            	preferredHeight: 1000
+            	preferredHeight: 290
                 layoutProperties: AbsoluteLayoutProperties {
                                 positionX: 0
                                 positionY: 95
                 }
-                ImageView {
-                      imageSource: "asset:///images/mask_background.png"
-                      preferredWidth: 768  
+                layout: AbsoluteLayout {
                 }
+                ImageView {
+                	imageSource: "asset:///images/mask_background_main.png"
+                    preferredWidth: 768
+                    layoutProperties: AbsoluteLayoutProperties {
+                    }
+                }
+                Container{
+                    preferredWidth: 768
+                	layout: DockLayout {}
+                	layoutProperties: AbsoluteLayoutProperties {
+                	    positionY: 75.0
+                	}
+                	Label {                 
+                	    text: Current.getdata(0, "description");
+                        horizontalAlignment: HorizontalAlignment.Center
+                        textStyle {
+					       base: SystemDefaults.TextStyles.BodyText
+					       color: Color.White
+					    }
+			        }
+			    }
+
             }                          
         	Container{
                 layoutProperties: AbsoluteLayoutProperties {

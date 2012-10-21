@@ -68,6 +68,7 @@ DataModel::data(const QModelIndex &index, int role) const
 QVariant
 DataModel::getdata(const int index, QString role)
 {
+   // std::cerr<<"SIZE of LIST "<< _list.size()<<std::endl;
     if (index < 0 || index >= _list.size())
         return QVariant();
     DataItem *item = _list.at(index);
@@ -143,7 +144,7 @@ DataModel::update_model(int period)
     struct tm   *tm = NULL;
     int year, current_month;
 
-    std::cerr<<"Update model!!!!!!!!!!!!!!!!!!!!!!!!!1"<<std::endl; 
+    std::cerr<<"Update model!!!!!!!!!!!!!!!!!!!!!!!!! "<<period<<std::endl; 
 
     dp = Core::DataParser::Instance();
     /* set current day */ 
@@ -179,6 +180,7 @@ DataModel::update_model(int period)
                 /* Prepare */
                 if (forecast_data->Text() != "")
                     forecast_data->Text(_(forecast_data->Text().c_str()));
+               //std::cerr<<"forecast_data->Text(_(forecast_data->Text().c_str())) "<<forecast_data->Text().c_str()<<std::endl; 
                 forecast_data->SunRiseTime(dp->data().GetSunRiseForTime(time(NULL)  + i));
                 forecast_data->SunSetTime(dp->data().GetSunSetForTime(time(NULL)  + i));
                 forecast_data->LastUpdate(dp->LastUpdate());

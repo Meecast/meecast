@@ -54,32 +54,43 @@ NavigationPane {
             }
             layout: AbsoluteLayout {}
             Container{
-                id: current_rect
+                
 //            	visible: Current.rowCount() == 0 ? false : true
-            	background: Color.Red
+            	background: Color.Black
             	preferredWidth: 768
             	//preferredHeight: 290
                 layoutProperties: AbsoluteLayoutProperties {
-                                positionX: 0
-                                positionY: 95
+                    positionX: 0
+                    positionY: 95
                 }
                 layout: AbsoluteLayout {
+                }
+                Container{
+                    id: current_rect
+                    preferredWidth: 768
+                    preferredHeight: 390
+                    layoutProperties: AbsoluteLayoutProperties {
+                        positionY: 30
+                    }
+                    background: Color.Red
                 }
                 ImageView {
                 	imageSource: "asset:///images/mask_background_main.png"
                     preferredWidth: 768
                     layoutProperties: AbsoluteLayoutProperties {
+                           positionY: 30
                     }
                 }
                 Container{
                     preferredWidth: 768
                     layout: DockLayout {}
                     layoutProperties: AbsoluteLayoutProperties {
-                        positionY: -15.0
+                        positionY: 0.0
                     }
                     Label {                 
                         text: Current == true ? Config.tr("Now") : Config.tr("Today")
                         horizontalAlignment: HorizontalAlignment.Left
+                        verticalAlignment: VerticalAlignment.Center
                         textStyle {
                             base: SystemDefaults.TextStyles.BigText
                 			color: Color.White
@@ -96,6 +107,7 @@ NavigationPane {
                 	    id: temp_text
                         text: Current.getdata(0, "temp") + '°';
                         horizontalAlignment: HorizontalAlignment.Right
+                        verticalAlignment: VerticalAlignment.Center
                         textStyle {
                             base: SystemDefaults.TextStyles.BigText
                 			color: Color.White
@@ -122,7 +134,7 @@ NavigationPane {
                     preferredWidth: 768
                 	layout: DockLayout {}
                 	layoutProperties: AbsoluteLayoutProperties {
-                	    positionY: 75.0
+                	    positionY: 105.0
                 	}
                 	Label {                 
                 	    text: Current.getdata(0, "description");

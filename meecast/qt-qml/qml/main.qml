@@ -389,31 +389,34 @@ NavigationPane {
                     }
                     listItemComponents: [
                          ListItemComponent {
-                                                type: "header"
-                                                Label {
-                                                    text: ""
-                                                    textStyle {
-                                                        base: SystemDefaults.TextStyles.BigText
-                                                        color: Color.White
-                                                    }
-                                                }
+                             type: "header"
+                             Label {
+                                 text: ""
+                                 textStyle {
+                                     base: SystemDefaults.TextStyles.BigText
+                                     color: Color.White
+                                 }
+                             }
                         },
                         
                         ListItemComponent {
                             type: "item" 
                             StandardListItem {
-                                title: ListItemData.firstName + ' ' + ListItemData.lastName
+                                title: ListItemData.fulldate + '. ' + ListItemData.shortdate
                             }
                         }
                     ]
-                     onCreationCompleted: {
-                                for (var a = 0; a < 20; a++) {
-                                    dataModel.insert(
-                                        {"firstName" : a,
-                                         "lastName" : a+1
+                    onCreationCompleted: {
+                        for (var a = 0; a < Forecast_model.rowCount(); a++) {
+                            dataModel.insert(
+                                        {"fulldate" : Forecast_model.getdata(a, "fulldate"),
+                                         "shortdate" : Forecast_model.getdata(a, "shortdate"),
+                                         "fulldate" : Forecast_model.getdata(a, "pict"),
+                                         "temp_high" : Forecast_model.getdata(a, "temp_high"),
+                                         "temp_low" : Forecast_model.getdata(a, "temp_low")
                                         }
-                                    )
-                                }
+                            )
+                        }
                     }
                     //onCreationCompleted: {
                                     // After the ListView is created, add an initial set of names

@@ -60,11 +60,11 @@ private:
     ConfigQml *_config;
     QmlDocument *_qview;
     Core::DataParser *_dp;
-    DataModel *_model; 
-    DataModel *_hours_model; 
-    DataModel *_current;
-    DataModel *_night_model;
-    DataModel *_current_night;
+    DataModelQt *_model; 
+    DataModelQt *_hours_model; 
+    DataModelQt *_current;
+    DataModelQt *_night_model;
+    DataModelQt *_current_night;
 };
 
 #endif // CONTROLLER_H

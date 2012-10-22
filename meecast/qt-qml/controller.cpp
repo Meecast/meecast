@@ -117,11 +117,11 @@ Controller::load_data()
 
  
     
-  _model = new DataModel(new DataItem, qApp);
-  _current = new DataModel(new DataItem, qApp);
-  _night_model = new DataModel(new DataItem, qApp);
-  _current_night = new DataModel(new DataItem, qApp);
-  _hours_model = new DataModel(new DataItem, qApp);
+  _model = new DataModelQt(new DataItem, qApp);
+  _current = new DataModelQt(new DataItem, qApp);
+  _night_model = new DataModelQt(new DataItem, qApp);
+  _current_night = new DataModelQt(new DataItem, qApp);
+  _hours_model = new DataModelQt(new DataItem, qApp);
 
   /* set current day */ 
   current_day = time(NULL);

@@ -1,5 +1,6 @@
 import bb.cascades 1.0
 
+
 NavigationPane {
     
 
@@ -59,7 +60,6 @@ NavigationPane {
 //            	visible: Current.rowCount() == 0 ? false : true
             	background: Color.Black
             	preferredWidth: 768
-            	//preferredHeight: 290
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
                     positionY: 95
@@ -382,13 +382,18 @@ NavigationPane {
                 horizontalAlignment: HorizontalAlignment.Center                
             } 
             Container{
+                layoutProperties: AbsoluteLayoutProperties {
+                    positionX: 0
+                    positionY: 600
+                }
+                preferredWidth: 768
                 ListView {
                     dataModel: GroupDataModel {
                     //    objectName: "forecast_model"    
             
                     }
                     listItemComponents: [
-                         ListItemComponent {
+                        ListItemComponent {
                              type: "header"
                              Label {
                                  text: ""
@@ -400,28 +405,79 @@ NavigationPane {
                         },
                         
                         ListItemComponent {
-                            type: "item" 
-                            StandardListItem {
-                                title: ListItemData.fulldate + '. ' + ListItemData.shortdate
-                            }
+                            type: "item"
+                            Container{
+                                //layout: StackLayout {
+                                    layout: DockLayout {
+                                  //  orientation: LayoutOrientation.LeftToRight
+                                }
+                                background: Color.create(ListItemData.bg_color)
+                                preferredWidth: 768
+                                Container{
+                                    layout: StackLayout {
+                                        orientation: LayoutOrientation.LeftToRight
+                                    }
+                                    preferredWidth: 768/2
+                                    verticalAlignment: VerticalAlignment.Center
+                                    horizontalAlignment: HorizontalAlignment.Left
+                                    Label {
+                                        verticalAlignment: VerticalAlignment.Center
+                                        text: ListItemData.fulldate
+                                        textStyle {    
+                                            base: SystemDefaults.TextStyles.BodyText
+                                            color: Color.Gray
+                                        }
+                                    }
+                                    Label {
+                                        text: ListItemData.shortdate
+                                        textStyle {
+                                            base: SystemDefaults.TextStyles.BodyText
+                                            color: Color.White
+                                        }
+                                    }
+                                }
+                                ImageView {
+                                     imageSource: ListItemData.pict
+                                     horizontalAlignment: HorizontalAlignment.Center                
+                                }
+                                Container{
+                                    layout: StackLayout {
+                                        orientation: LayoutOrientation.LeftToRight
+                                    }
+                                    horizontalAlignment: HorizontalAlignment.Right
+                                    Label {
+                                        text: ListItemData.temp_high
+                                        horizontalAlignment: HorizontalAlignment.Right
+                                        textStyle {
+                                            base: SystemDefaults.TextStyles.BigText
+                                            color: Color.create("#889397")
+                                        }
+                                    }
+                                    Label {
+                                        text: ListItemData.temp_low
+                                        horizontalAlignment: HorizontalAlignment.Right
+                                        textStyle {
+                                            base: SystemDefaults.TextStyles.BigText
+                                            color: Color.create("#889397")
+                                        }
+                                    }
+                                }                                                                                                   
+                            } 
                         }
                     ]
                     onCreationCompleted: {
                         for (var a = 0; a < Forecast_model.rowCount(); a++) {
                             dataModel.insert(
-                                        {"fulldate" : Forecast_model.getdata(a, "fulldate"),
-                                         "shortdate" : Forecast_model.getdata(a, "shortdate"),
-                                         "fulldate" : Forecast_model.getdata(a, "pict"),
-                                         "temp_high" : Forecast_model.getdata(a, "temp_high"),
-                                         "temp_low" : Forecast_model.getdata(a, "temp_low")
-                                        }
+                                {"fulldate" : Forecast_model.getdata(a, "fulldate") + '.',
+                                 "shortdate" : Forecast_model.getdata(a, "shortdate"),
+                                 "pict" : Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(a, "pict"),
+                                 "temp_high" : Forecast_model.getdata(a, "temp_high") + '°',
+                                 "temp_low" : Forecast_model.getdata(a, "temp_low") + '°',
+                                 "bg_color" :  (a % 2 != 0) ? "#000000" : "#0f0f0f"
+                                }
                             )
                         }
                     }
-                    //onCreationCompleted: {
-                                    // After the ListView is created, add an initial set of names
-                    //                arrayModel.append(["Westlee", "Michael", "Patricia"]);
-                    //}
                 }
             }
         }

@@ -45,7 +45,7 @@ HEADERS  += \
     gpsposition.h
 
 FORMS    +=
-RESOURCES += weatherlayoutitem.qrc
+#RESOURCES += weatherlayoutitem.qrc
 
 OTHER_FILES += \
     qml/layoutitem.qml \

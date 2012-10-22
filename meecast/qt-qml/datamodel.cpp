@@ -158,12 +158,15 @@ DataModel::update_model(int period)
     current_day = mktime(tm);
 
     std::string mapfilename(Core::AbstractConfig::getCachePath());
-    mapfilename += _config->stationsList().at(_config->current_station_id())->sourceName().c_str();
-    mapfilename += "_";
-    mapfilename += _config->stationsList().at(_config->current_station_id())->id().c_str();
-    mapfilename += "_map_";
-    mapfilename += "%s.png";
+    if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0 &&
+        _config->stationsList().at(_config->current_station_id())){
 
+        mapfilename += _config->stationsList().at(_config->current_station_id())->sourceName().c_str();
+        mapfilename += "_";
+        mapfilename += _config->stationsList().at(_config->current_station_id())->id().c_str();
+        mapfilename += "_map_";
+        mapfilename += "%s.png";
+    }
     if (dp)
         temp_data = dp->data().GetDataForTime(time(NULL));
 //    if (temp_data)

@@ -119,40 +119,50 @@ NavigationPane {
                     layoutProperties: AbsoluteLayoutProperties {
                         positionY: 50.0
                     }
-                    Label {                 
-                        text: Current == true ? Config.tr("Now") : Config.tr("Today")
+                    Container{
                         horizontalAlignment: HorizontalAlignment.Left
-                        verticalAlignment: VerticalAlignment.Center
-                        textStyle {
-                            base: SystemDefaults.TextStyles.BigText
-                			color: Color.White
-                		}
-                	}
-                	
-                	Label {                 
-                	    id: temp_text
-                        text: Current.getdata(0, "temp") + '°';
-                        horizontalAlignment: HorizontalAlignment.Right
-                        verticalAlignment: VerticalAlignment.Center
-                        textStyle {
-                            base: SystemDefaults.TextStyles.BigText
-                			color: Color.White
-                		}
-               		onCreationCompleted: {
-                           if (Current.getdata(0, "temp") == "N/A"){
-				                temp_text.text = ""
-				                if (Current.getdata(0, "temp_high") != "N/A")
-                                   temp_text.text = Current.getdata(0, "temp_high") + '°'
-				                if ((Current.getdata(0, "temp_low") != "N/A") && (Current.getdata(0, "temp_high") != "N/A"))
-				                if (Current.getdata(0, "temp_low") != "N/A")
-                                   temp_text.text = temp_text.text + ' / '+ Current.getdata(0, "temp_low") + '°'
-                                current_rect.background = Color.create(main.getColor(Current.getdata(0, "temp_high")));
-                            }else{
-                               temp_text.text = Current.getdata(0, "temp") + '°'
-                               current_rect.background = Color.create(main.getColor(Current.getdata(0, "temp")));
-				            }
+                        preferredWidth: 768/2 - 128*1.6/2 
+                        Label {
+                            text: Current.getdata(0, "current") == true ? Config.tr("Now") : Config.tr("Today")
+                            horizontalAlignment: HorizontalAlignment.Center
+                            verticalAlignment: VerticalAlignment.Center
+                            textStyle.textAlign: TextAlign.Center
+                            textStyle {
+                                base: SystemDefaults.TextStyles.BigText
+                                color: Color.White
+                            }
                         }
-                	}                	
+                	}
+                    Container{
+						id: current_temperature
+                        horizontalAlignment: HorizontalAlignment.Right
+                        preferredWidth: 768/2 - 128*1.6/2                	
+						Label {                 
+							id: temp_text
+							text: Current.getdata(0, "temp") + '°';
+							horizontalAlignment: HorizontalAlignment.Center
+							verticalAlignment: VerticalAlignment.Center
+							textStyle.textAlign: TextAlign.Center
+							textStyle {
+								base: SystemDefaults.TextStyles.BigText
+								color: Color.White
+							}
+						    onCreationCompleted: {
+							   if (Current.getdata(0, "temp") == "N/A"){
+									temp_text.text = ""
+									if (Current.getdata(0, "temp_high") != "N/A")
+									   temp_text.text = Current.getdata(0, "temp_high") + '°'
+									if ((Current.getdata(0, "temp_low") != "N/A") && (Current.getdata(0, "temp_high") != "N/A"))
+									if (Current.getdata(0, "temp_low") != "N/A")
+									   temp_text.text = temp_text.text + ' / '+ Current.getdata(0, "temp_low") + '°'
+									current_rect.background = Color.create(main.getColor(Current.getdata(0, "temp_high")));
+								}else{
+								   temp_text.text = Current.getdata(0, "temp") + '°'
+								   current_rect.background = Color.create(main.getColor(Current.getdata(0, "temp")));
+								}
+							}
+						}    
+                	}            	
                 }
                 Container{
                     id: title
@@ -193,6 +203,7 @@ NavigationPane {
                 	    }
                 	    Label {
                 	        text: Current.getdata(0, "humidity") + " %";
+                	        verticalAlignment: VerticalAlignment.Center
                 	        //horizontalAlignment: HorizontalAlignment.Left
                 	        textStyle {
                 	            base: SystemDefaults.TextStyles.BodyText
@@ -289,11 +300,11 @@ NavigationPane {
                 	    }
                         ImageView {
                             imageSource: "asset:///images/pressure.png"
-                            preferredWidth: 30*1.6
+                            preferredWidth: 30*1.6 
                             preferredHeight: 30*1.6
                 	    }
                 	    Label {
-                	        text: Current.getdata(0, "pressure");
+                	        text: Current.getdata(0, "pressure") + ' ' + Config.tr(Config.pressureunit) ;
                 	        //horizontalAlignment: HorizontalAlignment.Left
                 	        textStyle {
                 	            base: SystemDefaults.TextStyles.BodyText
@@ -310,10 +321,10 @@ NavigationPane {
                         ImageView {
                             imageSource: "asset:///images/wind_speed.png"
                             preferredWidth: 30*1.6
-                            preferredHeight: 30*1.6                        }
+                            preferredHeight: 30*1.6
+                        }
                 	    Label {
-                	        text: Current.getdata(0, "wind_speed");
-                	        //horizontalAlignment: HorizontalAlignment.Left
+                	        text: Current.getdata(0, "wind_speed") + ' ' + Config.tr(Config.windspeedunit);
                 	        textStyle {
                 	            base: SystemDefaults.TextStyles.BodyText
                 	            color: Color.White
@@ -386,6 +397,7 @@ NavigationPane {
                 }
                 preferredWidth: 768
                 ListView {
+                    id: forrecasts_list
                     dataModel: GroupDataModel {
                     }
                     listItemComponents: [
@@ -393,13 +405,8 @@ NavigationPane {
                              type: "header"
                              Label {
                                  text: ""
-                                 textStyle {
-                                     base: SystemDefaults.TextStyles.BigText
-                                     color: Color.White
-                                 }
                              }
                         },
-                        
                         ListItemComponent {
                             type: "item"
                             Container{

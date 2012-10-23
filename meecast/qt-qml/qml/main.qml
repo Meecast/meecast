@@ -14,7 +14,8 @@ NavigationPane {
 		function update_list(){
     		for (var a = 0; a < Forecast_model.rowCount(); a++) {
 				forrecasts_list.dataModel.insert(
-					{"fulldate" : Forecast_model.getdata(a, "fulldate") + '.',
+					{
+					 "fulldate" : Forecast_model.getdata(a, "fulldate") + '.',
 					 "shortdate" : Forecast_model.getdata(a, "shortdate"),
 					 "pict" : Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(a, "pict"),
 					 "temp_high" : Forecast_model.getdata(a, "temp_high"),
@@ -24,6 +25,22 @@ NavigationPane {
 					}
 				)
 			}
+		}
+		function update_current_data(){
+			if (Current.getdata(0, "temp") == "N/A"){
+				current_temp_text.text = ""
+				if (Current.getdata(0, "temp_high") != "N/A")
+				   current_temp_text.text = Current.getdata(0, "temp_high") + '°'
+				if ((Current.getdata(0, "temp_low") != "N/A") && (Current.getdata(0, "temp_high") != "N/A"))
+				if (Current.getdata(0, "temp_low") != "N/A")
+				   current_temp_text.text = current_temp_text.text + ' / '+ Current.getdata(0, "temp_low") + '°'
+				current_rect.background = Color.create(main.getColor(Current.getdata(0, "temp_high")));
+			}else{
+			   current_temp_text.text = Current.getdata(0, "temp") + '°'
+			   current_rect.background = Color.create(main.getColor(Current.getdata(0, "temp")));
+			}
+
+
 		}
 
 		function getColor(t) {
@@ -85,6 +102,7 @@ NavigationPane {
 			Forecast_night_model.update_model(3);
 			Forecast_hours_model.update_model(4);
 			main.update_list();
+			main.update_current_data();
 			//list.height = 80 * Forecast_model.rowCount();
 			console.debug ("Forecast_model.rowCount()", Forecast_model.rowCount(), Current.rowCount());
 			dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
@@ -98,7 +116,6 @@ NavigationPane {
 
             onCreationCompleted: {
                  Config.configChanged.connect (main.onConfigChanged);
-                 Current.update_model(0);
             }
             layout: AbsoluteLayout {}
             Container{
@@ -154,8 +171,8 @@ NavigationPane {
                         horizontalAlignment: HorizontalAlignment.Right
                         preferredWidth: 768/2 - 128*1.6/2                	
 						Label {                 
-							id: temp_text
-							text: Current.getdata(0, "temp") + '°';
+							id: current_temp_text
+					//		text: Current.getdata(0, "temp") + '°';
 							horizontalAlignment: HorizontalAlignment.Center
 							verticalAlignment: VerticalAlignment.Center
 							textStyle.textAlign: TextAlign.Center
@@ -164,18 +181,7 @@ NavigationPane {
 								color: Color.White
 							}
 						    onCreationCompleted: {
-							   if (Current.getdata(0, "temp") == "N/A"){
-									temp_text.text = ""
-									if (Current.getdata(0, "temp_high") != "N/A")
-									   temp_text.text = Current.getdata(0, "temp_high") + '°'
-									if ((Current.getdata(0, "temp_low") != "N/A") && (Current.getdata(0, "temp_high") != "N/A"))
-									if (Current.getdata(0, "temp_low") != "N/A")
-									   temp_text.text = temp_text.text + ' / '+ Current.getdata(0, "temp_low") + '°'
-									current_rect.background = Color.create(main.getColor(Current.getdata(0, "temp_high")));
-								}else{
-								   temp_text.text = Current.getdata(0, "temp") + '°'
-								   current_rect.background = Color.create(main.getColor(Current.getdata(0, "temp")));
-								}
+								main.update_current_data();
 							}
 						}    
                 	}            	
@@ -424,9 +430,7 @@ NavigationPane {
                         ListItemComponent {
                             type: "item"
                             Container{
-                                //layout: StackLayout {
-                                    layout: DockLayout {
-                                  //  orientation: LayoutOrientation.LeftToRight
+                                layout: DockLayout {
                                 }
                                 background: Color.create(ListItemData.bg_color)
                                 preferredWidth: 768
@@ -470,7 +474,6 @@ NavigationPane {
                                     verticalAlignment: VerticalAlignment.Center
                                     Label {
                                         text: ListItemData.temp_high + '°'
-                                        //verticalAlignment: VerticalAlignment.Center
                                         horizontalAlignment: HorizontalAlignment.Right
                                         preferredWidth: 100
                                         textStyle.textAlign: TextAlign.Right
@@ -481,7 +484,6 @@ NavigationPane {
                                     }
                                     Label {
                                         text: ListItemData.temp_low + '°'
-                                        //verticalAlignment: VerticalAlignment.Center
                                         horizontalAlignment: HorizontalAlignment.Right
                                         preferredWidth: 100
                                         textStyle.textAlign: TextAlign.Right
@@ -499,8 +501,8 @@ NavigationPane {
                         }
                     ]
                     onCreationCompleted: {
-					main.update_list();
-                                        }
+                        main.update_list();
+                    }
                 }
             }
         }
@@ -520,7 +522,7 @@ NavigationPane {
                     rootWindow.push(newPage);
                 }
             },
-	    ActionItem {
+	        ActionItem {
                 title: "About"
                 ActionBar.placement: ActionBarPlacement.InOverflow
                 onTriggered: {

@@ -3,14 +3,29 @@ import bb.cascades 1.0
 
 NavigationPane {
     
-
     id: rootWindow
-		 // Create the initial screen
+    // Create the initial screen
     Page {
-        property int screen_width : 1280
+    	property int screen_width : 1280
         property int screen_height : 768
 
         id: main
+
+		function update_list(){
+    		for (var a = 0; a < Forecast_model.rowCount(); a++) {
+				forrecasts_list.dataModel.insert(
+					{"fulldate" : Forecast_model.getdata(a, "fulldate") + '.',
+					 "shortdate" : Forecast_model.getdata(a, "shortdate"),
+					 "pict" : Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(a, "pict"),
+					 "temp_high" : Forecast_model.getdata(a, "temp_high"),
+					 "temp_low" : Forecast_model.getdata(a, "temp_low"),
+					 "bg_color" :  (a % 2 != 0) ?  "#0f0f0f" : "#000000",
+					 "hi_temp_color" :  main.getColor(Forecast_model.getdata(a, "temp_high"))
+					}
+				)
+			}
+		}
+
 		function getColor(t) {
 			var c1, c2, c3;
 			if (Config.temperatureunit == "F"){
@@ -69,6 +84,7 @@ NavigationPane {
 			Forecast_model.update_model(2);
 			Forecast_night_model.update_model(3);
 			Forecast_hours_model.update_model(4);
+			main.update_list();
 			//list.height = 80 * Forecast_model.rowCount();
 			console.debug ("Forecast_model.rowCount()", Forecast_model.rowCount(), Current.rowCount());
 			dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
@@ -403,9 +419,7 @@ NavigationPane {
                     listItemComponents: [
                         ListItemComponent {
                              type: "header"
-                             Label {
-                                 text: ""
-                             }
+                             Label { text: "" }
                         },
                         ListItemComponent {
                             type: "item"
@@ -485,19 +499,8 @@ NavigationPane {
                         }
                     ]
                     onCreationCompleted: {
-                        for (var a = 0; a < Forecast_model.rowCount(); a++) {
-                            dataModel.insert(
-                                {"fulldate" : Forecast_model.getdata(a, "fulldate") + '.',
-                                 "shortdate" : Forecast_model.getdata(a, "shortdate"),
-                                 "pict" : Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(a, "pict"),
-                                 "temp_high" : Forecast_model.getdata(a, "temp_high"),
-                                 "temp_low" : Forecast_model.getdata(a, "temp_low"),
-                                 "bg_color" :  (a % 2 != 0) ?  "#0f0f0f" : "#000000",
-                                 "hi_temp_color" :  main.getColor(Forecast_model.getdata(a, "temp_high"))
-                                }
-                            )
-                        }
-                    }
+					main.update_list();
+                                        }
                 }
             }
         }

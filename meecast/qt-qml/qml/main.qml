@@ -416,6 +416,10 @@ NavigationPane {
                                     preferredWidth: 768/2
                                     verticalAlignment: VerticalAlignment.Center
                                     horizontalAlignment: HorizontalAlignment.Left
+                                    Container{
+                                        preferredWidth: 20
+                                        maxWidth: 20
+                                    }
                                     Label {
                                         verticalAlignment: VerticalAlignment.Center
                                         text: ListItemData.fulldate
@@ -440,22 +444,34 @@ NavigationPane {
                                     layout: StackLayout {
                                         orientation: LayoutOrientation.LeftToRight
                                     }
+                                    
                                     horizontalAlignment: HorizontalAlignment.Right
+                                    verticalAlignment: VerticalAlignment.Center
                                     Label {
                                         text: ListItemData.temp_high + '°'
+                                        //verticalAlignment: VerticalAlignment.Center
                                         horizontalAlignment: HorizontalAlignment.Right
+                                        preferredWidth: 100
+                                        textStyle.textAlign: TextAlign.Right
                                         textStyle {
-                                            base: SystemDefaults.TextStyles.BigText
+                                            base: SystemDefaults.TextStyles.BodyText
                                             color: Color.create(ListItemData.hi_temp_color)
                                         }
                                     }
                                     Label {
                                         text: ListItemData.temp_low + '°'
+                                        //verticalAlignment: VerticalAlignment.Center
                                         horizontalAlignment: HorizontalAlignment.Right
+                                        preferredWidth: 100
+                                        textStyle.textAlign: TextAlign.Right
                                         textStyle {
-                                            base: SystemDefaults.TextStyles.BigText
+                                            base: SystemDefaults.TextStyles.BodyText
                                             color: Color.create("#889397")
                                         }
+                                    }
+                                    Container{
+                                        preferredWidth: 20
+                                        maxWidth: 20
                                     }
                                 }                                                                                                   
                             } 

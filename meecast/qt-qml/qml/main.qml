@@ -504,19 +504,23 @@ NavigationPane {
                         main.update_list();
                     }
                 }
-            }
+			}
+			Container{
+				layoutProperties: AbsoluteLayoutProperties {
+                    positionX: 0 
+                    positionY: 1200
+                }
+                preferredWidth: 768 
+                preferredHeight: 120 
+                background: Color.Red
+			}
+
         }
-         
+				
         actions: [
-            // Create the "Push" action
             ActionItem {
                 title: "Setting"
-                //ActionBar.placement: ActionBarPlacement.OnBar
                 ActionBar.placement: ActionBarPlacement.InOverflow
-                 
-                // When this action is selected, create an object that's based
-                // on the ComponentDefinition below, and then push it on to
-                // the stack to display it
                 onTriggered: {
                     var newPage = settingspageDefinition.createObject();
                     rootWindow.push(newPage);

@@ -518,6 +518,14 @@ NavigationPane {
                         orientation: LayoutOrientation.LeftToRight
                     }
                     ImageView {
+                        id: refreshicon
+                        imageSource: "assets/button_icons/button_refresh.png" 
+                        horizontalAlignment: HorizontalAlignment.Left
+                        preferredWidth: 140*1.6
+                        preferredHeight: 31*1.6
+                    }
+
+                    ImageView {
                         id: sourceicon
                         imageSource: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png" 
                         horizontalAlignment: HorizontalAlignment.Center                

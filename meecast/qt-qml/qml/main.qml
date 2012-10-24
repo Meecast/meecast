@@ -139,7 +139,7 @@ NavigationPane {
                     background: Color.Red
                 }
                 ImageView {
-                	imageSource: "asset:///images/mask_background_main.png"
+                	imageSource: "asset:///share/images/mask_background_main.png"
                     preferredWidth: 768
                     preferredHeight: 438
                     layoutProperties: AbsoluteLayoutProperties {
@@ -219,7 +219,7 @@ NavigationPane {
                 	        orientation: LayoutOrientation.LeftToRight
                 	    }
                         ImageView {
-                            imageSource: "asset:///images/humidity.png"
+                            imageSource: "asset:///share/images/humidity.png"
                             preferredWidth: 30*1.6
                             preferredHeight: 30*1.6
                 	    }
@@ -284,12 +284,12 @@ NavigationPane {
                             layout: AbsoluteLayout {
                             }
                             ImageView {
-                                imageSource: "asset:///images/wind_direction_background.png"
+                                imageSource: "asset:///share/images/wind_direction_background.png"
                                 preferredWidth: 30*1.6
                                 preferredHeight: 30*1.6
                             }
                             ImageView {
-                                imageSource: "asset:///images//wind_direction_arrow.png"
+                                imageSource: "asset:///share/images//wind_direction_arrow.png"
                                 preferredWidth: 30*1.6
                                 preferredHeight: 30*1.6
                                 rotationZ: wind_direction.getAngle(Current.getdata(0, "wind_direction"))
@@ -321,7 +321,7 @@ NavigationPane {
                 	        orientation: LayoutOrientation.LeftToRight
                 	    }
                         ImageView {
-                            imageSource: "asset:///images/pressure.png"
+                            imageSource: "asset:///share/images/pressure.png"
                             preferredWidth: 30*1.6 
                             preferredHeight: 30*1.6
                 	    }
@@ -341,7 +341,7 @@ NavigationPane {
                 	        orientation: LayoutOrientation.LeftToRight
                 	    }
                         ImageView {
-                            imageSource: "asset:///images/wind_speed.png"
+                            imageSource: "asset:///share/images/wind_speed.png"
                             preferredWidth: 30*1.6
                             preferredHeight: 30*1.6
                         }
@@ -512,37 +512,49 @@ NavigationPane {
                 }
                 preferredWidth: 768 
                 preferredHeight: 120 
-                background: Color.Red
-			}
+                background: Color.Black
+                Container{
+                    layout: StackLayout {
+                        orientation: LayoutOrientation.LeftToRight
+                    }
+                    ImageView {
+                        id: sourceicon
+                        imageSource: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png" 
+                        horizontalAlignment: HorizontalAlignment.Center                
+                        preferredWidth: 140*1.6
+                        preferredHeight: 31*1.6
 
+                    }
+                }
+			}
         }
 				
-        actions: [
-            ActionItem {
-                title: "Setting"
-                ActionBar.placement: ActionBarPlacement.InOverflow
-                onTriggered: {
-                    var newPage = settingspageDefinition.createObject();
-                    rootWindow.push(newPage);
-                }
-            },
-	        ActionItem {
-                title: "About"
-                ActionBar.placement: ActionBarPlacement.InOverflow
-                onTriggered: {
-                    var newPage = aboutpageDefinition.createObject();
-                    navigationPane.push(newPage);
-                }
-            },
-            ActionItem {
-                title: "Refresh"
-                ActionBar.placement: ActionBarPlacement.OnBar
-                onTriggered: {
-                    Config.updatestations()	
-                }
-            }
-        ]
-         
+//        actions: [
+//            ActionItem {
+//                title: "Setting"
+//                ActionBar.placement: ActionBarPlacement.InOverflow
+//                onTriggered: {
+//                    var newPage = settingspageDefinition.createObject();
+//                    rootWindow.push(newPage);
+//                }
+//            },
+//	        ActionItem {
+//                title: "About"
+//                ActionBar.placement: ActionBarPlacement.InOverflow
+//                onTriggered: {
+//                    var newPage = aboutpageDefinition.createObject();
+//                    navigationPane.push(newPage);
+//                }
+//            },
+//            ActionItem {
+//                title: "Refresh"
+//                ActionBar.placement: ActionBarPlacement.OnBar
+//                onTriggered: {
+//                    Config.updatestations()	
+//                }
+//            }
+//        ]
+//         
         attachedObjects: [
             ComponentDefinition {
                 id: settingspageDefinition

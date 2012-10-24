@@ -77,7 +77,7 @@
     <asset path="icon.png">icon.png</asset>
     <asset path="assets">assets</asset>
     <asset path="meecast/qt-qml/qml">assets/qml</asset>
-    <asset path="meecast/core/data/images">assets/images</asset>
+    <asset path="meecast/core/data/images">assets/share/images</asset>
     <asset path="meecast/core/data/button_icons">assets/button_icons</asset>
     <asset path="meecast/core/data/data.xsd">share/xsd/data.xsd</asset>
     <asset path="meecast/core/data/icons">assets/share/icons</asset>

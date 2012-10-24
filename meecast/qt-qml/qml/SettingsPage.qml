@@ -23,7 +23,7 @@ Page {
     content:  Container{
         
        id: absoluteLayoutContainer
-       background: Color.White
+       background: Color.Black
        layout: AbsoluteLayout {}
        Container{
                 layoutProperties: AbsoluteLayoutProperties {
@@ -86,7 +86,7 @@ Page {
 							  Label {                 
 								  text: ListItemData.name
 								  preferredWidth: 768
-								  preferredHeight: screen_height
+								  preferredHeight: settings.screen_height
 								  horizontalAlignment:  HorizontalAlignment.Fill
 								  verticalAlignment: VerticalAlignment.Center
 								  // Apply a text style to create large, light gray text

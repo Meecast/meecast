@@ -506,63 +506,66 @@ NavigationPane {
                 }
 			}
 			Container{
+			    layoutProperties: AbsoluteLayoutProperties {
+			        positionX: 0 
+			        positionY: 1140
+			    }
+			    preferredHeight: 2
+			    preferredWidth: 768
+			    background: Color.Gray    
+			}
+			Container{
 				layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0 
-                    positionY: 1200
+                    positionY: 1142
                 }
                 preferredWidth: 768 
-                preferredHeight: 120 
+                preferredHeight: 138 
                 background: Color.Black
-                Container{
+                Container{    
                     layout: StackLayout {
                         orientation: LayoutOrientation.LeftToRight
                     }
-                    ImageView {
-                        id: refreshicon
-                        imageSource: "assets/button_icons/button_refresh.png" 
-                        horizontalAlignment: HorizontalAlignment.Left
-                        preferredWidth: 140*1.6
-                        preferredHeight: 31*1.6
+                    Container{
+                        preferredWidth: 20
                     }
-
+                    ImageButton {
+                        id: refreshicon
+                        verticalAlignment: VerticalAlignment.Center
+                        defaultImageSource: "asset:///button_icons/icon_refresh.png"
+                        onClicked: {
+                            Config.updatestations()
+                        }
+                    }
                     ImageView {
                         id: sourceicon
-                        imageSource: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png" 
-                        horizontalAlignment: HorizontalAlignment.Center                
+                        verticalAlignment: VerticalAlignment.Center
+                        imageSource: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"                 
                         preferredWidth: 140*1.6
                         preferredHeight: 31*1.6
-
+                        leftMargin: 220.0
+                    }
+                    
+                    ImageButton {
+                        id: settingsicon
+                        verticalAlignment: VerticalAlignment.Center     
+                        //imageSource: "asset:///button_icons/icon_settings.png"
+                        defaultImageSource: "asset:///button_icons/icon_settings.png"
+                        leftMargin: 220.0
+                        horizontalAlignment: HorizontalAlignment.Right
+                        onClicked: {
+                            var newPage = settingspageDefinition.createObject();
+                            rootWindow.push(newPage);
+                        }
+                    }
+                    Container{
+                        preferredWidth: 20
+                        preferredHeight: 138 
                     }
                 }
 			}
         }
-				
-//        actions: [
-//            ActionItem {
-//                title: "Setting"
-//                ActionBar.placement: ActionBarPlacement.InOverflow
-//                onTriggered: {
-//                    var newPage = settingspageDefinition.createObject();
-//                    rootWindow.push(newPage);
-//                }
-//            },
-//	        ActionItem {
-//                title: "About"
-//                ActionBar.placement: ActionBarPlacement.InOverflow
-//                onTriggered: {
-//                    var newPage = aboutpageDefinition.createObject();
-//                    navigationPane.push(newPage);
-//                }
-//            },
-//            ActionItem {
-//                title: "Refresh"
-//                ActionBar.placement: ActionBarPlacement.OnBar
-//                onTriggered: {
-//                    Config.updatestations()	
-//                }
-//            }
-//        ]
-//         
+         
         attachedObjects: [
             ComponentDefinition {
                 id: settingspageDefinition

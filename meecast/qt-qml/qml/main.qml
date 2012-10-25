@@ -76,7 +76,8 @@ NavigationPane {
  
         function updatestationname(){
 			main.updatemodels();
-			stationname.text = Config.stationname;
+            stationname.text = Config.stationname == "Unknown" ? Config.stationname : "MeeCast"
+//			stationname.text = Config.stationname;
 			left_arrow.visible = Config.prevstationname == "" ? false : true;
 			right_arrow.visible = Config.nextstationname == "" ? false : true;
 			sourceicon.visible = false;
@@ -385,14 +386,17 @@ NavigationPane {
 			    Container{
 			        layout: DockLayout {}
 			        preferredWidth: 600 
+					id: stationname
 			        horizontalAlignment: HorizontalAlignment.Center 
 				    Label {                 
-				        text: Config.stationname
 				        horizontalAlignment: HorizontalAlignment.Center
                         textStyle {
 					        base: SystemDefaults.TextStyles.BigText
 					        color: Color.White
 				        }
+                    	onCreationCompleted: {
+				        	text = Config.stationname == "Unknown" ? "MeeCast" : Config.stationname 
+						}
 				    }
                 }
 				Label {                 
@@ -551,7 +555,6 @@ NavigationPane {
                     ImageButton {
                         id: settingsicon
                         verticalAlignment: VerticalAlignment.Center     
-                        //imageSource: "asset:///button_icons/icon_settings.png"
                         defaultImageSource: "asset:///button_icons/icon_settings.png"
                         leftMargin: 220.0
                         horizontalAlignment: HorizontalAlignment.Right

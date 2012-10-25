@@ -75,14 +75,13 @@ NavigationPane {
 		}
  
         function updatestationname(){
-            console.log("updatestationname()");
+            console.log("updatestationname() ", Config.stationname );
 			main.updatemodels();
-            stationname.text = Config.stationname == "Unknown" ? Config.stationname : "MeeCast"
-//			stationname.text = Config.stationname;
+			stationname.text = Config.stationname == "Unknown" ? "MeeCast" : Config.stationname
 			left_arrow.visible = Config.prevstationname == "" ? false : true;
 			right_arrow.visible = Config.nextstationname == "" ? false : true;
 			sourceicon.visible = false;
-			sourceicon.source = Config.imagespath + "/" + Config.source + ".png";
+			sourceicon.imageSource = Config.imagespath + "/" + Config.source + ".png";
 			sourceicon.visible = true;
         }
 
@@ -386,9 +385,9 @@ NavigationPane {
 			    Container{
 			        layout: DockLayout {}
 			        preferredWidth: 600 
-					id: stationname
 			        horizontalAlignment: HorizontalAlignment.Center 
 				    Label {                 
+						id: stationname
 				        horizontalAlignment: HorizontalAlignment.Center
                         textStyle {
 					        base: SystemDefaults.TextStyles.BigText

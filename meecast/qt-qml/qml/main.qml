@@ -6,10 +6,10 @@ NavigationPane {
     id: rootWindow
     // Create the initial screen
     Page {
+        id: main
     	property int screen_width : 1280
         property int screen_height : 768
 
-        id: main
 
 		function update_list(){
     		for (var a = 0; a < Forecast_model.rowCount(); a++) {
@@ -119,8 +119,6 @@ NavigationPane {
             }
             layout: AbsoluteLayout {}
             Container{
-                
-//            	visible: Current.rowCount() == 0 ? false : true
             	background: Color.Black
             	preferredWidth: 768
                 layoutProperties: AbsoluteLayoutProperties {
@@ -129,232 +127,236 @@ NavigationPane {
                 }
                 layout: AbsoluteLayout {
                 }
-                Container{
-                    id: current_rect
-                    preferredWidth: 768
-                    preferredHeight: 438
-                    layoutProperties: AbsoluteLayoutProperties {
-                        positionY: 30
-                    }
-                    background: Color.Red
-                }
-                ImageView {
-                	imageSource: "asset:///share/images/mask_background_main.png"
-                    preferredWidth: 768
-                    preferredHeight: 438
-                    layoutProperties: AbsoluteLayoutProperties {
-                           positionY: 30
-                    }
-                }
-                Container{
-                    preferredWidth: 768
-                    layout: DockLayout {}
-                    layoutProperties: AbsoluteLayoutProperties {
-                        positionY: 50.0
-                    }
-                    Container{
-                        horizontalAlignment: HorizontalAlignment.Left
-                        preferredWidth: 768/2 - 128*1.6/2 
-                        Label {
-                            text: Current.getdata(0, "current") == true ? Config.tr("Now") : Config.tr("Today")
-                            horizontalAlignment: HorizontalAlignment.Center
-                            verticalAlignment: VerticalAlignment.Center
-                            textStyle.textAlign: TextAlign.Center
-                            textStyle {
-                                base: SystemDefaults.TextStyles.BigText
-                                color: Color.White
-                            }
-                        }
-                	}
-                    Container{
-						id: current_temperature
-                        horizontalAlignment: HorizontalAlignment.Right
-                        preferredWidth: 768/2 - 128*1.6/2                	
-						Label {                 
-							id: current_temp_text
-					//		text: Current.getdata(0, "temp") + '°';
-							horizontalAlignment: HorizontalAlignment.Center
-							verticalAlignment: VerticalAlignment.Center
-							textStyle.textAlign: TextAlign.Center
-							textStyle {
-								base: SystemDefaults.TextStyles.BigText
-								color: Color.White
-							}
-						    onCreationCompleted: {
-								main.update_current_data();
-							}
-						}    
-                	}            	
-                }
-                Container{
-                    id: title
-                    preferredWidth: 768
-                	layout: DockLayout {}
-                	layoutProperties: AbsoluteLayoutProperties {
-                	    positionY: 165.0
-                	}
-                	Label {                 
-                	    text: Current.getdata(0, "description");
-                        horizontalAlignment: HorizontalAlignment.Center
-                        textStyle {
-					       base: SystemDefaults.TextStyles.BodyText
-					       color: Color.White
-					    }
-			        }
-			    }
-			    Container{
-			        id: humidity_and_wind_direction
-			        preferredWidth: 768
-                	layout: StackLayout {
-                        orientation: LayoutOrientation.LeftToRight
-                    }
-                    layoutProperties: AbsoluteLayoutProperties {
-                	    positionY: 290.0
-                	}
-                	Container{
-                	    id: humidity
-                	    horizontalAlignment: HorizontalAlignment.Left
-                	    preferredWidth: 768/2
-                	    layout: StackLayout {
-                	        orientation: LayoutOrientation.LeftToRight
-                	    }
-                        ImageView {
-                            imageSource: "asset:///share/images/humidity.png"
-                            preferredWidth: 30*1.6
-                            preferredHeight: 30*1.6
-                	    }
-                	    Label {
-                	        text: Current.getdata(0, "humidity") + " %";
-                	        verticalAlignment: VerticalAlignment.Center
-                	        //horizontalAlignment: HorizontalAlignment.Left
-                	        textStyle {
-                	            base: SystemDefaults.TextStyles.BodyText
-                	            color: Color.White
-					        }
-			            }
-			        }
-			        Container{
-			            id: wind_direction
-			            function getAngle(s)
-						{
-							var a;
-							switch (s){
-							case 'S':
-								return 0;
-							case 'SSW':
-								return 22.5;
-							case 'SW':
-								return 45;
-							case 'WSW':
-								return (45+22.5);
-							case 'W':
-								return 90;
-							case 'WNW':
-								return (90+22.5);
-							case 'NW':
-								return (90+45);
-							case 'NNW':
-								return (180-22.5);
-							case 'N':
-								return 180;
-							case 'NNE':
-								return (180+22.5);
-							case 'NE':
-								return (180+45);
-							case 'ENE':
-								return (270-22.5);
-							case 'E':
-								return 270;
-							case 'ESE':
-								return (270+22.5);
-							case 'SE':
-								return (270+45);
-							case 'SSE':
-								return (360-22.5);
-
-							}
-
+				Container {
+					id: current_rect
+  				    visible: Current.rowCount() == 0 ? false : true
+				  	preferredWidth: 768
+					Container{
+				    	preferredWidth: 768
+						preferredHeight: 438
+						layoutProperties: AbsoluteLayoutProperties {
+							positionY: 30
 						}
+						background: Color.Red
+					}
+					ImageView {
+						imageSource: "asset:///share/images/mask_background_main.png"
+						preferredWidth: 768
+						preferredHeight: 438
+						layoutProperties: AbsoluteLayoutProperties {
+							   positionY: 30
+						}
+					}
+					Container{
+						preferredWidth: 768
+						layout: DockLayout {}
+						layoutProperties: AbsoluteLayoutProperties {
+							positionY: 50.0
+						}
+						Container{
+							horizontalAlignment: HorizontalAlignment.Left
+							preferredWidth: 768/2 - 128*1.6/2 
+							Label {
+								text: Current.getdata(0, "current") == true ? Config.tr("Now") : Config.tr("Today")
+								horizontalAlignment: HorizontalAlignment.Center
+								verticalAlignment: VerticalAlignment.Center
+								textStyle.textAlign: TextAlign.Center
+								textStyle {
+									base: SystemDefaults.TextStyles.BigText
+									color: Color.White
+								}
+							}
+						}
+						Container{
+							id: current_temperature
+							horizontalAlignment: HorizontalAlignment.Right
+							preferredWidth: 768/2 - 128*1.6/2                	
+							Label {                 
+								id: current_temp_text
+						//		text: Current.getdata(0, "temp") + '°';
+								horizontalAlignment: HorizontalAlignment.Center
+								verticalAlignment: VerticalAlignment.Center
+								textStyle.textAlign: TextAlign.Center
+								textStyle {
+									base: SystemDefaults.TextStyles.BigText
+									color: Color.White
+								}
+								onCreationCompleted: {
+									main.update_current_data();
+								}
+							}    
+						}            	
+					}
+					Container{
+						id: title
+						preferredWidth: 768
+						layout: DockLayout {}
+						layoutProperties: AbsoluteLayoutProperties {
+							positionY: 165.0
+						}
+						Label {                 
+							text: Current.getdata(0, "description");
+							horizontalAlignment: HorizontalAlignment.Center
+							textStyle {
+							   base: SystemDefaults.TextStyles.BodyText
+							   color: Color.White
+							}
+						}
+					}
+					Container{
+						id: humidity_and_wind_direction
+						preferredWidth: 768
+						layout: StackLayout {
+							orientation: LayoutOrientation.LeftToRight
+						}
+						layoutProperties: AbsoluteLayoutProperties {
+							positionY: 290.0
+						}
+						Container{
+							id: humidity
+							horizontalAlignment: HorizontalAlignment.Left
+							preferredWidth: 768/2
+							layout: StackLayout {
+								orientation: LayoutOrientation.LeftToRight
+							}
+							ImageView {
+								imageSource: "asset:///share/images/humidity.png"
+								preferredWidth: 30*1.6
+								preferredHeight: 30*1.6
+							}
+							Label {
+								text: Current.getdata(0, "humidity") + " %";
+								verticalAlignment: VerticalAlignment.Center
+								//horizontalAlignment: HorizontalAlignment.Left
+								textStyle {
+									base: SystemDefaults.TextStyles.BodyText
+									color: Color.White
+								}
+							}
+						}
+						Container{
+							id: wind_direction
+							function getAngle(s)
+							{
+								var a;
+								switch (s){
+								case 'S':
+									return 0;
+								case 'SSW':
+									return 22.5;
+								case 'SW':
+									return 45;
+								case 'WSW':
+									return (45+22.5);
+								case 'W':
+									return 90;
+								case 'WNW':
+									return (90+22.5);
+								case 'NW':
+									return (90+45);
+								case 'NNW':
+									return (180-22.5);
+								case 'N':
+									return 180;
+								case 'NNE':
+									return (180+22.5);
+								case 'NE':
+									return (180+45);
+								case 'ENE':
+									return (270-22.5);
+								case 'E':
+									return 270;
+								case 'ESE':
+									return (270+22.5);
+								case 'SE':
+									return (270+45);
+								case 'SSE':
+									return (360-22.5);
 
-                	    horizontalAlignment: HorizontalAlignment.Left
-                	    layout: StackLayout {
-                	        orientation: LayoutOrientation.LeftToRight
-                	    }
-                        Container{
-                            layout: AbsoluteLayout {
-                            }
-                            ImageView {
-                                imageSource: "asset:///share/images/wind_direction_background.png"
-                                preferredWidth: 30*1.6
-                                preferredHeight: 30*1.6
-                            }
-                            ImageView {
-                                imageSource: "asset:///share/images//wind_direction_arrow.png"
-                                preferredWidth: 30*1.6
-                                preferredHeight: 30*1.6
-                                rotationZ: wind_direction.getAngle(Current.getdata(0, "wind_direction"))
-                            }
-                	    }
-                	    Label {
-                	        text: Current.getdata(0, "wind_direction");
-                	        textStyle {
-                	            base: SystemDefaults.TextStyles.BodyText
-                	            color: Color.White
-					        }
-			            }
-			        }        
-			    }
-			    Container{
-			        id: pressure_and_wind_speed
-			        preferredWidth: 768
-                	layout: StackLayout {
-                        orientation: LayoutOrientation.LeftToRight
-                    }
-                    layoutProperties: AbsoluteLayoutProperties {
-                	    positionY: 390.0
-                	}
-                	Container{
-                	    id: pressure
-                	    horizontalAlignment: HorizontalAlignment.Left
-                	    preferredWidth: 768/2
-                	    layout: StackLayout {
-                	        orientation: LayoutOrientation.LeftToRight
-                	    }
-                        ImageView {
-                            imageSource: "asset:///share/images/pressure.png"
-                            preferredWidth: 30*1.6 
-                            preferredHeight: 30*1.6
-                	    }
-                	    Label {
-                	        text: Current.getdata(0, "pressure") + ' ' + Config.tr(Config.pressureunit) ;
-                	        //horizontalAlignment: HorizontalAlignment.Left
-                	        textStyle {
-                	            base: SystemDefaults.TextStyles.BodyText
-                	            color: Color.White
-					        }
-			            }
-			        }
-			        Container{
-			            id: wind_speed
-                	    horizontalAlignment: HorizontalAlignment.Left
-                	    layout: StackLayout {
-                	        orientation: LayoutOrientation.LeftToRight
-                	    }
-                        ImageView {
-                            imageSource: "asset:///share/images/wind_speed.png"
-                            preferredWidth: 30*1.6
-                            preferredHeight: 30*1.6
-                        }
-                	    Label {
-                	        text: Current.getdata(0, "wind_speed") + ' ' + Config.tr(Config.windspeedunit);
-                	        textStyle {
-                	            base: SystemDefaults.TextStyles.BodyText
-                	            color: Color.White
-					        }
-			            }
-			        }        
-			    }			        
-            } 
+								}
+
+							}
+
+							horizontalAlignment: HorizontalAlignment.Left
+							layout: StackLayout {
+								orientation: LayoutOrientation.LeftToRight
+							}
+							Container{
+								layout: AbsoluteLayout {
+								}
+								ImageView {
+									imageSource: "asset:///share/images/wind_direction_background.png"
+									preferredWidth: 30*1.6
+									preferredHeight: 30*1.6
+								}
+								ImageView {
+									imageSource: "asset:///share/images//wind_direction_arrow.png"
+									preferredWidth: 30*1.6
+									preferredHeight: 30*1.6
+									rotationZ: wind_direction.getAngle(Current.getdata(0, "wind_direction"))
+								}
+							}
+							Label {
+								text: Current.getdata(0, "wind_direction");
+								textStyle {
+									base: SystemDefaults.TextStyles.BodyText
+									color: Color.White
+								}
+							}
+						}        
+					}
+					Container{
+						id: pressure_and_wind_speed
+						preferredWidth: 768
+						layout: StackLayout {
+							orientation: LayoutOrientation.LeftToRight
+						}
+						layoutProperties: AbsoluteLayoutProperties {
+							positionY: 390.0
+						}
+						Container{
+							id: pressure
+							horizontalAlignment: HorizontalAlignment.Left
+							preferredWidth: 768/2
+							layout: StackLayout {
+								orientation: LayoutOrientation.LeftToRight
+							}
+							ImageView {
+								imageSource: "asset:///share/images/pressure.png"
+								preferredWidth: 30*1.6 
+								preferredHeight: 30*1.6
+							}
+							Label {
+								text: Current.getdata(0, "pressure") + ' ' + Config.tr(Config.pressureunit) ;
+								//horizontalAlignment: HorizontalAlignment.Left
+								textStyle {
+									base: SystemDefaults.TextStyles.BodyText
+									color: Color.White
+								}
+							}
+						}
+						Container{
+							id: wind_speed
+							horizontalAlignment: HorizontalAlignment.Left
+							layout: StackLayout {
+								orientation: LayoutOrientation.LeftToRight
+							}
+							ImageView {
+								imageSource: "asset:///share/images/wind_speed.png"
+								preferredWidth: 30*1.6
+								preferredHeight: 30*1.6
+							}
+							Label {
+								text: Current.getdata(0, "wind_speed") + ' ' + Config.tr(Config.windspeedunit);
+								textStyle {
+									base: SystemDefaults.TextStyles.BodyText
+									color: Color.White
+								}
+							}
+						}        
+					}			        
+				} 
+		    }
         	Container{
                 layoutProperties: AbsoluteLayoutProperties {
                 	positionX: 0

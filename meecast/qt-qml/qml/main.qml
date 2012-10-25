@@ -75,6 +75,7 @@ NavigationPane {
 		}
  
         function updatestationname(){
+            console.log("updatestationname()");
 			main.updatemodels();
             stationname.text = Config.stationname == "Unknown" ? Config.stationname : "MeeCast"
 //			stationname.text = Config.stationname;
@@ -106,7 +107,7 @@ NavigationPane {
 			main.update_current_data();
 			//list.height = 80 * Forecast_model.rowCount();
 			console.debug ("Forecast_model.rowCount()", Forecast_model.rowCount(), Current.rowCount());
-			dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
+			//dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
 			current_rect.visible = Current.rowCount() == 0 ? false : true;
 			//list.visible = (Forecast_model.rowCount() == 0) ? false : true;
         }
@@ -371,16 +372,16 @@ NavigationPane {
                 	positionX: 0
                     positionY: 0
                 }
-                background: Color.Black
-				Label {                 
+				background: Color.Black
+				ImageButton {                 
 				   id: left_arrow
-				   text: "<"
 				   visible: Config.prevstationname == "" ? false : true;
 				   horizontalAlignment: HorizontalAlignment.Left
-					textStyle {
-					   base: SystemDefaults.TextStyles.BigText
-					   color: Color.White
-					 }
+				   defaultImageSource: "asset:///share/images/arrow_left.png"
+                   onClicked: {
+						Config.prevstation();
+						main.updatestationname();
+                   }
 			    }
 			    Container{
 			        layout: DockLayout {}
@@ -398,15 +399,15 @@ NavigationPane {
 						}
 				    }
                 }
-				Label {                 
+				ImageButton {                 
 				   id: right_arrow
-				   text: ">"
 				   visible: Config.nextstationname == "" ? false : true;
 				   horizontalAlignment: HorizontalAlignment.Right
-	               textStyle {
-					   base: SystemDefaults.TextStyles.BigText
-					   color: Color.White
-				   }
+				   defaultImageSource: "asset:///share/images/arrow_right.png"
+                   onClicked: {
+					    	Config.nextstation();
+							main.updatestationname();
+                   }
 			    }
         	}
             ImageView {

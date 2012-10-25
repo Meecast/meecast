@@ -376,7 +376,10 @@ NavigationPane {
 				   id: left_arrow
 				   visible: Config.prevstationname == "" ? false : true;
 				   horizontalAlignment: HorizontalAlignment.Left
-				   defaultImageSource: "asset:///share/images/arrow_left.png"
+                   verticalAlignment: VerticalAlignment.Center
+				   preferredWidth: 62*1.6
+				   preferredHeight: 62*1.6
+			       defaultImageSource: "asset:///share/images/arrow_left.png"
                    onClicked: {
 						Config.prevstation();
 						main.updatestationname();
@@ -401,8 +404,11 @@ NavigationPane {
 				ImageButton {                 
 				   id: right_arrow
 				   visible: Config.nextstationname == "" ? false : true;
+                   verticalAlignment: VerticalAlignment.Center
 				   horizontalAlignment: HorizontalAlignment.Right
 				   defaultImageSource: "asset:///share/images/arrow_right.png"
+				   preferredWidth: 62*1.6
+				   preferredHeight: 62*1.6
                    onClicked: {
 					    	Config.nextstation();
 							main.updatestationname();

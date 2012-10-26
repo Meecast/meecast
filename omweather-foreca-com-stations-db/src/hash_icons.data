@@ -18,6 +18,7 @@
     hash->insert("d211.png","5");
     hash->insert("d212.png","28");
     hash->insert("d240.png","37");
+    hash->insert("n240.png","47");
     hash->insert("n432.png","16");
     hash->insert("d432.png","16");
     hash->insert("d300.png","26");
@@ -44,17 +45,4 @@
     hash->insert("d431.png","5");
     hash->insert("n431.png","5");
     hash->insert("d440.png","17");
-
-
-
-
-
-
-
-
-
-
-
-
-
 

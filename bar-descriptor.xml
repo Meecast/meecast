@@ -75,7 +75,6 @@
     <!-- Application assets -->
     <asset path="splashscreen.jpg">splashscreen.jpg</asset>
     <asset path="icon.png">icon.png</asset>
-    <asset path="assets">assets</asset>
     <asset path="meecast/qt-qml/qml">assets/qml</asset>
     <asset path="meecast/core/data/images">assets/share/images</asset>
     <asset path="meecast/core/data/button_icons">assets/button_icons</asset>

@@ -2,6 +2,8 @@ meecast (0.6.7) unstable; urgency=low
 
   * Added icon to hko.gov.hk
   * Fixed segmentation fault after adding GPS-station in nil station list
+  * Added Malaysia to foreca.com database
+  * Added icon and description string to foreca
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 09 Oct 2012 11:41:23 +0200
 

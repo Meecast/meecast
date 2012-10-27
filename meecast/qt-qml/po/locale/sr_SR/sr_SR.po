@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-26 22:05+0300\n"
+"POT-Creation-Date: 2012-10-27 14:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2032,6 +2032,10 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:3824
 msgid "Show arrows"
+msgstr ""
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:595
+msgid "Show on Map"
 msgstr ""
 
 #: omweather/src/weather-settings.c:3754

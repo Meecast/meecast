@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-26 22:05+0300\n"
+"POT-Creation-Date: 2012-10-27 14:31+0300\n"
 "PO-Revision-Date: 2012-09-27 16:08+0000\n"
 "Last-Translator: agustí clara <agusti.clara@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/meecast/language/"
@@ -2149,6 +2149,11 @@ msgstr "Curt"
 #: omweather/src/weather-settings.c:3824
 msgid "Show arrows"
 msgstr "Mostra fletxes"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:595
+#, fuzzy
+msgid "Show on Map"
+msgstr "Mostra el nom de l'estació"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-26 22:05+0300\n"
+"POT-Creation-Date: 2012-10-27 14:31+0300\n"
 "PO-Revision-Date: 2012-10-05 08:15+0000\n"
 "Last-Translator: quytrong287 <quytrong287@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/meecast/"
@@ -2123,6 +2123,11 @@ msgstr "Ngắn"
 #: omweather/src/weather-settings.c:3824
 msgid "Show arrows"
 msgstr "Xem kiểu mũi tên"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:595
+#, fuzzy
+msgid "Show on Map"
+msgstr "Hiển thị tên trạm"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"

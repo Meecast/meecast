@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-26 22:05+0300\n"
+"POT-Creation-Date: 2012-10-27 14:31+0300\n"
 "PO-Revision-Date: 2012-07-30 18:34+0000\n"
 "Last-Translator: Cristian Măgherușan-Stanciu <cristi.magherusan@gmail.com>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/meecast/"
@@ -2146,6 +2146,11 @@ msgstr "Kurz"
 #: omweather/src/weather-settings.c:3824
 msgid "Show arrows"
 msgstr "Pfeile anzeigen"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:595
+#, fuzzy
+msgid "Show on Map"
+msgstr "Stationsname anzeigen"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"

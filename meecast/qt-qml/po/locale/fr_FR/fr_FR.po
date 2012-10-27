@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-26 22:05+0300\n"
+"POT-Creation-Date: 2012-10-27 14:31+0300\n"
 "PO-Revision-Date: 2012-04-19 10:36+0000\n"
 "Last-Translator: ludmilalisovskaya <ludmila.lisovskaya@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2131,6 +2131,11 @@ msgstr "Courte"
 #: omweather/src/weather-settings.c:3824
 msgid "Show arrows"
 msgstr "Afficher les flèches"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:595
+#, fuzzy
+msgid "Show on Map"
+msgstr "Afficher le nom de la station"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"

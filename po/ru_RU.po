@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-26 22:05+0300\n"
+"POT-Creation-Date: 2012-10-27 14:31+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -2110,6 +2110,11 @@ msgstr "Короткий"
 #: omweather/src/weather-settings.c:3824
 msgid "Show arrows"
 msgstr "Показать стрелки"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:595
+#, fuzzy
+msgid "Show on Map"
+msgstr "Показать название станции"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"

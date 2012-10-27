@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-26 22:05+0300\n"
+"POT-Creation-Date: 2012-10-27 14:31+0300\n"
 "PO-Revision-Date: 2012-05-11 15:23+0000\n"
 "Last-Translator: Ilir Gjika <ilir.gjika@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/meecast/language/"
@@ -2139,6 +2139,11 @@ msgstr "Breve"
 #: omweather/src/weather-settings.c:3824
 msgid "Show arrows"
 msgstr "Mostra frecce"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:595
+#, fuzzy
+msgid "Show on Map"
+msgstr " Mostra nome stazione"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"

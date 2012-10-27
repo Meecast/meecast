@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-26 22:05+0300\n"
+"POT-Creation-Date: 2012-10-27 14:31+0300\n"
 "PO-Revision-Date: 2012-09-09 18:40+0000\n"
 "Last-Translator: Burak Kaan Kose <bkaankose@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/meecast/language/"
@@ -2137,6 +2137,11 @@ msgstr "Kisa"
 #: omweather/src/weather-settings.c:3824
 msgid "Show arrows"
 msgstr "Oklari goster"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:595
+#, fuzzy
+msgid "Show on Map"
+msgstr "Istasyon adini goster"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"

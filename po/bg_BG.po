@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-26 22:05+0300\n"
+"POT-Creation-Date: 2012-10-27 14:31+0300\n"
 "PO-Revision-Date: 2012-08-21 09:31+0000\n"
 "Last-Translator: zlatko <zlatko23@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/"
@@ -2147,6 +2147,11 @@ msgstr "Късо"
 #: omweather/src/weather-settings.c:3824
 msgid "Show arrows"
 msgstr "Покажи стрелки"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:595
+#, fuzzy
+msgid "Show on Map"
+msgstr "Показвай името на метео станцията"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"

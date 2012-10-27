@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-26 22:05+0300\n"
+"POT-Creation-Date: 2012-10-27 14:31+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -121,9 +121,8 @@ msgid "10 seconds"
 msgstr "10 секунд"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:175
-#, fuzzy
 msgid "12 hours"
-msgstr "2 часа"
+msgstr "12 часов"
 
 #: omweather/src/weather-sensor.c:151 meecast/qt-qml/qml/UpdatePage.qml:140
 msgid "15 minutes"
@@ -564,9 +563,8 @@ msgid "Cloudy, Snow"
 msgstr "Облачно, Cнег"
 
 #: omweather/src/hash.data:57
-#, fuzzy
 msgid "Cloudy, thunderstorms with rain"
-msgstr "Облачно и небольшой дождь"
+msgstr "Облачно, гроза с дождем"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:413
 msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
@@ -1593,9 +1591,8 @@ msgid "Overcast and light wet snow"
 msgstr "Облачно и небольшой мокрый снег"
 
 #: omweather/src/hash.data:170
-#, fuzzy
 msgid "Overcast and rain"
-msgstr "Облачно и небольшой дождь"
+msgstr "Облачно и дождь"
 
 #: omweather/src/hash.data:171
 msgid "Overcast and showers"
@@ -1618,9 +1615,8 @@ msgid "Overcast and wet snow showers"
 msgstr "Облачно и cнегопады с мокрым снегом"
 
 #: omweather/src/hash.data:176
-#, fuzzy
 msgid "Overcast, thunderstorms with rain"
-msgstr "Облачно и небольшой дождь"
+msgstr "Облачно, гроза с дождем"
 
 #: omweather/src/hash.data:178
 msgid "PM Fog"
@@ -1707,9 +1703,8 @@ msgid "Partly Cloudy T-Storm"
 msgstr "Малооблачно Гроза"
 
 #: omweather/src/hash.data:198
-#, fuzzy
 msgid "Partly Cloudy and Windly"
-msgstr "Небольшая облачность и ветер"
+msgstr "Малооблачно и ветренно"
 
 #: omweather/src/hash.data:199
 msgid "Partly Cloudy and Windy"
@@ -1792,9 +1787,8 @@ msgid "Partly cloudy and wet snow showers"
 msgstr "Переменная облачность и кратковременный мокрый снег"
 
 #: omweather/src/hash.data:193 omweather/src/hash.data:219
-#, fuzzy
 msgid "Partly cloudy, possible thunderstorms with rain"
-msgstr "Переменная облачность и небольшой дождь"
+msgstr "Переменная облачность, возможна гроза с дождем"
 
 #: omweather/src/weather-simple-settings.c:1676
 msgid "Period"
@@ -1844,9 +1838,8 @@ msgid "Project administrator"
 msgstr "Администратор проекта"
 
 #: meecast/qt-qml/qml/AboutPage.qml:186
-#, fuzzy
 msgid "Project manager"
-msgstr "Администратор проекта"
+msgstr "Менеджер проекта"
 
 #: meecast/qt-qml/qml/AboutPage.qml:86
 msgid "Project website"
@@ -2103,9 +2096,8 @@ msgid "Settings"
 msgstr "Настройки"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:514
-#, fuzzy
 msgid "Settings of StandbyScreen"
-msgstr "Виджет на StandbyScreen экране"
+msgstr "Настройки для StandbyScreen экрана"
 
 #: omweather/src/hash.data:258
 msgid "Shallow Fog"
@@ -2118,6 +2110,11 @@ msgstr "Короткий"
 #: omweather/src/weather-settings.c:3824
 msgid "Show arrows"
 msgstr "Показать стрелки"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:595
+#, fuzzy
+msgid "Show on Map"
+msgstr "Показать название станции"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
@@ -2368,9 +2365,8 @@ msgid "Thunder"
 msgstr "Гром"
 
 #: omweather/src/hash.data:291
-#, fuzzy
 msgid "Thunder in the Vicinity"
-msgstr "Местами ливни"
+msgstr "Местами грозы"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424

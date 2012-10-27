@@ -592,7 +592,7 @@ Page {
                Text {
                     id: map_text
                     anchors.fill: parent
-                    text: "Show on Map"
+                    text:  Config.tr("Show on Map")
                     color: "white"
                     visible: false
                     font.pointSize: 24 

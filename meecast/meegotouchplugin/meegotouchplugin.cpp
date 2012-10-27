@@ -139,11 +139,19 @@ void drawwallpaper(QImage image, QHash <QString, QString> hash){
     QString lastupdate = hash["lastupdate"]; 
     QString stationname = hash["stationname"];
     QString iconpath = hash["iconpath"];
-
+    
     /* Left corner */
     int x = 275;
     int y = 240;
 
+    QSettings *lockscreen_settings;
+    lockscreen_settings = new QSettings("/home/user/.config/com.meecast.omweather/lockscreen.conf",QSettings::NativeFormat); 
+    QVariant v = lockscreen_settings->value("x_position", int(275));
+    x = v.value<int>();
+    v = lockscreen_settings->value("y_position", int(240));
+    y = v.value<int>();
+
+    
     QPainter paint;
     paint.begin(&image);
     QPen pen;

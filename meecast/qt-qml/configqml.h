@@ -91,6 +91,9 @@ private:
     QColor _standby_color_font_stationname;
     QColor _standby_color_font_temperature;
     QColor _standby_color_font_current_temperature;
+    QSettings *lockscreen_settings;
+    int _lockscreen_x_position;
+    int _lockscreen_y_position;
 protected:
     static ConfigQml* _self;
     static int _refcount;

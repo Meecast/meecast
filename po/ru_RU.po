@@ -2112,9 +2112,8 @@ msgid "Show arrows"
 msgstr "Показать стрелки"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:595
-#, fuzzy
 msgid "Show on Map"
-msgstr "Показать название станции"
+msgstr "Показать на карте"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"

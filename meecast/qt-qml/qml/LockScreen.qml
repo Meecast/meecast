@@ -10,8 +10,8 @@ Page {
         ToolIcon {
             iconId: "toolbar-back"
             onClicked: {
-                Config.set_lock_screen_x_position(x_position)
-                Config.set_lock_screen_y_position(y_position)
+                Config.set_lock_screen_x_position(xSlider.value)
+                Config.set_lock_screen_y_position(ySlider.value)
                 pageStack.pop();
             }
         }
@@ -139,7 +139,7 @@ Page {
         anchors.rightMargin: margin
         color: "transparent"
         Slider {
-             id:ySlider
+             id: ySlider
              anchors.fill: parent
              stepSize:1
              valueIndicatorVisible: true

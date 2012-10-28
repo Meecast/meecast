@@ -138,7 +138,6 @@ void ConfigQml::init()
 void
 ConfigQml::saveConfig()
 {
-    Core::Config::saveConfig();
     standby_settings->setValue("color_font_stationname", _standby_color_font_stationname);
     standby_settings->setValue("color_font_temperature", _standby_color_font_temperature);
     standby_settings->setValue("color_font_current_temperature", _standby_color_font_current_temperature);
@@ -146,6 +145,7 @@ ConfigQml::saveConfig()
     lockscreen_settings->setValue("x_position", _lockscreen_x_position);
     lockscreen_settings->setValue("y_position", _lockscreen_y_position);
     lockscreen_settings->sync();
+    Core::Config::saveConfig();
     qDebug()<<"SaveConfig";
 }
 
@@ -498,6 +498,7 @@ ConfigQml::set_lock_screen_y_position(int y)
 {   
     _lockscreen_y_position = y;
     saveConfig();
+    refreshconfig();
 }
 
 QStringList
@@ -814,6 +815,8 @@ ConfigQml::refreshconfig(){
     emit ConfigQml::fontcolorChanged();
     emit ConfigQml::stationnameChanged();
     emit ConfigQml::configChanged();
+    emit ConfigQml::lock_screen_x_positionChanged();
+    emit ConfigQml::lock_screen_y_positionChanged();
 }
 
 void

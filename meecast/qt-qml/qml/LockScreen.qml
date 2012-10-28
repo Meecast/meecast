@@ -1,13 +1,11 @@
 import Qt 4.7
-//import QtQuick 1.1
-//import Qt.labs.components 1.0
 import com.nokia.meego 1.0
 
 Page {
     id: standbysettingspage
     property int margin: 16
-    propert int x_position: Config.lock_screen_x_position
-    propert int y_position: Config.lock_screen_y_position
+    property int x_position: Config.lock_screen_x_position
+    property int y_position: Config.lock_screen_y_position
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"
@@ -17,38 +15,6 @@ Page {
                 pageStack.pop();
             }
         }
-
-    }
-
-    function resetGird(){
-        red_cell.unselected();
-        green_cell.unselected();
-        magenta_cell.unselected();
-        cyan_cell.unselected();
-        blue_cell.unselected();
-        black_cell.unselected();
-        white_cell.unselected();
-        yellow_cell.unselected();
-    }
-    function resetTempGird(){
-        red_cellt.unselected();
-        green_cellt.unselected();
-        magenta_cellt.unselected();
-        cyan_cellt.unselected();
-        blue_cellt.unselected();
-        black_cellt.unselected();
-        white_cellt.unselected();
-        yellow_cellt.unselected();
-    }
-    function resetTempCurrentGird(){
-        red_celltc.unselected();
-        green_celltc.unselected();
-        magenta_celltc.unselected();
-        cyan_celltc.unselected();
-        blue_celltc.unselected();
-        black_celltc.unselected();
-        white_celltc.unselected();
-        yellow_celltc.unselected();
     }
 
     orientationLock: PageOrientation.LockPortrait
@@ -96,9 +62,7 @@ Page {
             id: title
             anchors.fill: parent
             color: "white"
-//            text: Config.tr("Select the color of font for station name")
             text: Config.tr("Settings for Lockscreen widget")
-            //font.family: "Nokia Pure Light"
             font.pixelSize: 30
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter
@@ -106,20 +70,19 @@ Page {
     }
 
     Rectangle {
-        id: title_station_color_font
+        id: title_of_x_position
         anchors.top: title_rect.bottom
         anchors.left: parent.left
         anchors.leftMargin: margin
         anchors.rightMargin: margin
         width: parent.width - 2*margin
         height: 40
-        color: "black"
+        color: "transparent"
         Label {
-            id: title_station_name
+            id: label_of_x
             anchors.fill: parent
             color: "white"
             text: Config.tr("Select the X-position for left corner of widget")
-            //font.family: "Nokia Pure Light"
             font.pixelSize: 20
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter
@@ -127,201 +90,65 @@ Page {
     }
     Rectangle {
         id: box_x_position
-        //width: 500;
         height: 60
-     
-        anchors.top: title_station_color_font.bottom
+        width: parent.width 
+        anchors.top: title_of_x_position.bottom
         anchors.left: parent.left
         anchors.topMargin: margin 
         anchors.leftMargin: margin
         anchors.rightMargin: margin
-        color: "black"
-
-        Grid {
-            id: colorPicker
-            x: 4; anchors.bottom: page.bottom; anchors.bottomMargin: 4
-            rows: 1; columns: 8; spacing: 5
-
-            ColorCell { cellColor: "red"; 
-                        id: red_cell;
-                        selected : color_font_stationname == "#ff0000" ? true : false;   
-                        onClicked: { resetGird(); color_font_stationname = "#ff0000"; }}
-            ColorCell { cellColor: "white"; 
-                        id: white_cell;
-                        selected : color_font_stationname == "#ffffff" ? true : false; 
-                        onClicked:{ resetGird(); color_font_stationname = "#ffffff";  }}
-            ColorCell { cellColor: "cyan";
-                        id: cyan_cell;
-                        selected : color_font_stationname == "#00ffff" ? true : false; 
-                        onClicked:{ resetGird(); color_font_stationname = "#00ffff"; }}
-        
-            ColorCell { cellColor: "magenta";
-                        id: magenta_cell;
-                        selected : color_font_stationname == "#ff00ff" ? true : false; 
-                        onClicked:{ resetGird(); color_font_stationname = "#ff00ff"; }}
-            ColorCell { cellColor: "green";
-                        id: green_cell;
-                        selected : color_font_stationname == "#00ff00" ? true : false; 
-                        onClicked:{ resetGird(); color_font_stationname = "#00ff00"; }}
-            ColorCell { cellColor: "blue";
-                        id: blue_cell;
-                        selected : color_font_stationname == "#0000ff" ? true : false; 
-                        onClicked:{ resetGird(); color_font_stationname = "#0000ff"; }}
-            ColorCell { cellColor: "yellow"; 
-                        id: yellow_cell;
-                        selected : color_font_stationname == "#ffff00" ? true : false; 
-                        onClicked:{ resetGird(); color_font_stationname = "#ffff00"; }}
-            ColorCell { cellColor: "black";
-                        id: black_cell;
-                        selected : color_font_stationname == "#000000" ? true : false; 
-                        onClicked:{ resetGird(); color_font_stationname = "#000000"; }}
-        }
- }
+        color: "transparent"
+        Slider {
+             id:xSlider
+             anchors.fill: parent
+             stepSize:1
+             valueIndicatorVisible: true
+             minimumValue: 0
+             maximumValue: 480
+             width: parent.width 
+             value: x_position
+         }
+   }
     Rectangle {
-        id: title_temperature_color_font
-        anchors.top: box_station_color.bottom
+        id: title_y_position
+        anchors.top: box_x_position.bottom
         anchors.left: parent.left
         anchors.leftMargin: margin
         anchors.rightMargin: margin
         width: parent.width - 2*margin
         height: 30
-        color: "black"
+        color: "transparent"
         Label {
             id: title_temperature_color
             anchors.fill: parent
             color: "white"
             text: Config.tr("Select the Y-position for left corner of widget")
-            //font.family: "Nokia Pure Light"
             font.pixelSize: 20
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter
         }
     }
     Rectangle {
-        id: box_temperature_color_font 
-        //width: 500;
+        id: box_y_position
         height: 60
-     
-        anchors.top: title_temperature_color_font.bottom
+        width: parent.width 
+        anchors.top: title_y_position.bottom
         anchors.left: parent.left
         anchors.topMargin: margin 
         anchors.leftMargin: margin
         anchors.rightMargin: margin
-        color: "black"
-
-        Grid {
-            id: colorPickert
-            x: 4; anchors.bottom: page.bottom; anchors.bottomMargin: 4
-            rows: 1; columns: 8; spacing: 5
-
-            ColorCell { cellColor: "red"; 
-                        id: red_cellt;
-                        selected : color_font_temperature == "#ff0000" ? true : false;   
-                        onClicked: { resetTempGird(); color_font_temperature = "#ff0000"; }}
-            ColorCell { cellColor: "white"; 
-                        id: white_cellt;
-                        selected : color_font_temperature == "#ffffff" ? true : false; 
-                        onClicked:{ resetTempGird(); color_font_temperature = "#ffffff";  }}
-            ColorCell { cellColor: "cyan";
-                        id: cyan_cellt;
-                        selected : color_font_temperature == "#00ffff" ? true : false; 
-                        onClicked:{ resetTempGird(); color_font_temperature = "#00ffff"; }}
-        
-            ColorCell { cellColor: "magenta";
-                        id: magenta_cellt;
-                        selected : color_font_temperature == "#ff00ff" ? true : false; 
-                        onClicked:{ resetTempGird(); color_font_temperature = "#ff00ff"; }}
-            ColorCell { cellColor: "green";
-                        id: green_cellt;
-                        selected : color_font_temperature == "#00ff00" ? true : false; 
-                        onClicked:{ resetTempGird(); color_font_temperature = "#00ff00"; }}
-            ColorCell { cellColor: "blue";
-                        id: blue_cellt;
-                        selected : color_font_temperature == "#0000ff" ? true : false; 
-                        onClicked:{ resetTempGird(); color_font_temperature = "#0000ff"; }}
-            ColorCell { cellColor: "yellow"; 
-                        id: yellow_cellt;
-                        selected : color_font_temperature == "#ffff00" ? true : false; 
-                        onClicked:{ resetTempGird(); color_font_temperature = "#ffff00"; }}
-            ColorCell { cellColor: "black";
-                        id: black_cellt;
-                        selected : color_font_temperature == "#000000" ? true : false; 
-                        onClicked:{ resetTempGird(); color_font_temperature = "#000000"; }}
-        }
- }
-    Rectangle {
-        id: title_current_temperature_color_font
-        anchors.top: box_temperature_color_font.bottom
-        anchors.left: parent.left
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-        width: parent.width - 2*margin
-        height: 30
-        color: "black"
-        Label {
-            id: title_current_temperature_color
-            anchors.fill: parent
-            color: "white"
-            text: Config.tr("Select the color of font for current temperature")
-            //font.family: "Nokia Pure Light"
-            font.pixelSize: 20
-            horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
-        }
-    }
-    Rectangle {
-        id: page
-        //width: 500;
-        height: 60
-     
-        anchors.top: title_current_temperature_color_font.bottom
-        anchors.left: parent.left
-        anchors.topMargin: margin 
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-        color: "black"
-
-        Grid {
-            id: colorPickertc
-            x: 4; anchors.bottom: page.bottom; anchors.bottomMargin: 4
-            rows: 1; columns: 8; spacing: 5
-
-            ColorCell { cellColor: "red"; 
-                        id: red_celltc;
-                        selected : color_font_current_temperature == "#ff0000" ? true : false;   
-                        onClicked: { resetTempCurrentGird(); color_font_current_temperature = "#ff0000"; }}
-            ColorCell { cellColor: "white"; 
-                        id: white_celltc;
-                        selected : color_font_current_temperature == "#ffffff" ? true : false; 
-                        onClicked:{ resetTempCurrentGird(); color_font_current_temperature = "#ffffff";  }}
-            ColorCell { cellColor: "cyan";
-                        id: cyan_celltc;
-                        selected : color_font_current_temperature == "#00ffff" ? true : false; 
-                        onClicked:{ resetTempCurrentGird(); color_font_current_temperature = "#00ffff"; }}
-        
-            ColorCell { cellColor: "magenta";
-                        id: magenta_celltc;
-                        selected : color_font_current_temperature == "#ff00ff" ? true : false; 
-                        onClicked:{ resetTempCurrentGird(); color_font_current_temperature = "#ff00ff"; }}
-            ColorCell { cellColor: "green";
-                        id: green_celltc;
-                        selected : color_font_current_temperature == "#00ff00" ? true : false; 
-                        onClicked:{ resetTempCurrentGird(); color_font_current_temperature = "#00ff00"; }}
-            ColorCell { cellColor: "blue";
-                        id: blue_celltc;
-                        selected : color_font_current_temperature == "#0000ff" ? true : false; 
-                        onClicked:{ resetTempCurrentGird(); color_font_current_temperature = "#0000ff"; }}
-            ColorCell { cellColor: "yellow"; 
-                        id: yellow_celltc;
-                        selected : color_font_current_temperature == "#ffff00" ? true : false; 
-                        onClicked:{ resetTempCurrentGird(); color_font_current_temperature = "#ffff00"; }}
-            ColorCell { cellColor: "black";
-                        id: black_celltc;
-                        selected : color_font_current_temperature == "#000000" ? true : false; 
-                        onClicked:{ resetTempCurrentGird(); color_font_current_temperature = "#000000"; }}
-        }
- }
-
+        color: "transparent"
+        Slider {
+             id:ySlider
+             anchors.fill: parent
+             stepSize:1
+             valueIndicatorVisible: true
+             minimumValue: 0
+             maximumValue: 854 
+             width: parent.width 
+             value: y_position
+         }
+   }
 
 
 }

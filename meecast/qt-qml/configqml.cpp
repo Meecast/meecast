@@ -448,6 +448,16 @@ ConfigQml::standby_color_font_stationname(){
     return _standby_color_font_stationname;
 }
 
+int
+ConfigQml::lock_screen_x_position(){
+    return _lockscreen_x_position;
+}
+
+int
+ConfigQml::lock_screen_y_position(){
+    return _lockscreen_y_position;
+}
+
 void
 ConfigQml::set_standby_color_font_stationname(QColor c)
 {   
@@ -474,6 +484,19 @@ void
 ConfigQml::set_standby_color_font_current_temperature(QColor c)
 {   
     _standby_color_font_current_temperature = c;
+    saveConfig();
+}
+
+void
+ConfigQml::set_lock_screen_x_position(int x)
+{   
+    _lockscreen_x_position = x;
+    saveConfig();
+}
+void
+ConfigQml::set_lock_screen_y_position(int y)
+{   
+    _lockscreen_y_position = y;
     saveConfig();
 }
 

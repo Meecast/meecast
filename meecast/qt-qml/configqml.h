@@ -76,6 +76,8 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString source READ source NOTIFY sourceChanged)
     Q_PROPERTY(QString version READ version NOTIFY versionChanged)
     Q_PROPERTY(int updateinterval READ updateinterval NOTIFY updateintervalChanged)
+    Q_PROPERTY(int lock_screen_x_position READ lock_screen_x_position NOTIFY lock_screen_x_positionChanged)
+    Q_PROPERTY(int lock_screen_y_position READ lock_screen_y_position NOTIFY lock_screen_y_positionChanged)
 private:
     Core::DatabaseSqlite *db;
     UpdateThread *thread;
@@ -123,6 +125,8 @@ public:
     QColor standby_color_font_stationname();
     QColor standby_color_font_temperature();
     QColor standby_color_font_current_temperature();
+    int lock_screen_x_position();
+    int lock_screen_y_position();
     QString stationname();
     QString prevstationname();
     QString nextstationname();
@@ -170,6 +174,8 @@ public:
     Q_INVOKABLE void set_standby_color_font_stationname(QColor c);
     Q_INVOKABLE void set_standby_color_font_temperature(QColor c);
     Q_INVOKABLE void set_standby_color_font_current_temperature(QColor c);
+    Q_INVOKABLE void set_lock_screen_x_position(int x);
+    Q_INVOKABLE void set_lock_screen_y_position(int y);
     Q_INVOKABLE QString tr(QString str);
     Q_INVOKABLE void enableGps();
     void refreshconfig();
@@ -199,6 +205,8 @@ signals:
     void updateintervalChanged();
     void configChanged();
     void splashChanged();
+    void lock_screen_x_positionChanged();
+    void lock_screen_y_positionChanged();
 public Q_SLOTS:
     void reload_config();
     void addGpsStation(double latitude, double longitude);

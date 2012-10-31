@@ -76,6 +76,7 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[Temp_loRole] = "temp_low";
     names[Temp_Role] = "temp";
     names[IconRole] = "pict";
+    names[UVindexRole] = "uv_index";
     names[Wind_directionRole] = "wind_direction";
     names[Wind_speedRole] = "wind_speed";
     names[Wind_gustRole] = "wind_gust";
@@ -137,6 +138,8 @@ QVariant DataItem::data(int role)
         return current();
     case DescriptionRole:
         return description();
+    case UVindexRole:
+        return uv_index();
     case DateRole:
         return date();
     case ShortDateRole:
@@ -449,6 +452,16 @@ DataItem::ppcp() {
         return c;
     }
     return c.number((DataItem::Data::Ppcp()), 'f', 0);
+}
+
+QString
+DataItem::uv_index() {
+    QString c;
+    if (DataItem::Data::UVindex() == INT_MAX){
+        c = "N/A";
+        return c;
+    }
+    return c.number((DataItem::Data::UVindex()), 'i', 0);
 }
 
 void

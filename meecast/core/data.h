@@ -69,6 +69,7 @@ namespace Core{
         bool _current;
         bool _hour;
         float _ppcp;
+        int _uv_index;
         public:
             Data();
             Data(const Data& data);
@@ -96,6 +97,8 @@ namespace Core{
             int   Humidity(void) const;
             void  Icon(int icon);
             int   Icon(void) const;
+            void  UVindex(int index);
+            int   UVindex(void) const;
             void  Current(bool current);
             bool  Current(void) const;
             void  Hour(bool hour);

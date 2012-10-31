@@ -105,11 +105,10 @@ Page {
         var i = 0;
         var result = 0;
         var fulldate = model_day.getdata(day, "fulldate");
-        while (i<model_hours.rowCount())
-        {   
+        while (i<model_hours.rowCount()){   
             if (model_hours.getdata(i, "fulldate") == fulldate)
-		result = 1;
-	    i++;
+		        result = 1;
+	        i++;
         }
         return result;
     }
@@ -118,11 +117,11 @@ Page {
     {
         condition.clear()
         condition2.clear()
-	if (day_period == "current"){
-	    toolbarnow.checked = true
-	    toolbarday.checked = false 
-	    toolbarnight.checked = false
-	    toolbarclock.checked = false
+	    if (day_period == "current"){
+	        toolbarnow.checked = true
+	        toolbarday.checked = false 
+	        toolbarnight.checked = false
+	        toolbarclock.checked = false
             day_rect.visible = true;
             current_rect.visible = true;
             hours_list.visible = false;
@@ -167,6 +166,10 @@ Page {
                 if ((model_current.getdata(day, "temp_high")) != "N/A")
                	    temperature.text =  model_current.getdata(day, "temp_high") + '°'
             }
+            if ((model_current.getdata(day, "uv_index")) != "")
+                condition.append({cond_name: Config.tr("UV index:"),
+                         value: model_current.getdata(day, "uv_index")});
+
 	}
 
         if (day_period == "day"){

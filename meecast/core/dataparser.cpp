@@ -120,6 +120,8 @@ namespace Core {
                     forecast_data->Icon(el.text().toInt());
                 }else if (tag == "description"){
                     forecast_data->Text(el.text().toStdString());
+                }else if (tag == "uv_index"){
+                    forecast_data->UVindex(el.text().toInt());
                 }else if (tag == "humidity"){
                     forecast_data->Humidity(el.text().toInt());
                 }else if (tag == "wind_speed"){

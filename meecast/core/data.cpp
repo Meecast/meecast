@@ -62,6 +62,7 @@ namespace Core {
         _sunrise = 0;
         _sunset = 0;
         _ppcp = INT_MAX;
+        _uv_index = INT_MAX;
     }
     ////////////////////////////////////////////////////////////////////////////////
     Data::Data(const Data& data){
@@ -87,6 +88,7 @@ namespace Core {
         _end_time = data->_end_time;
         _flike = data->_flike;
         _ppcp = data->_ppcp;
+        _uv_index = data->_uv_index;
         _short_day_name = data->_short_day_name;
         _full_day_name = data->_full_day_name;
         _full_month_name = data->_full_month_name; 
@@ -248,6 +250,15 @@ namespace Core {
      Data::Icon() const{
          /* need to check range (0 - 49) */
          return _icon;
+     }
+////////////////////////////////////////////////////////////////////////////////
+     void
+     Data::UVindex(int index){
+         _uv_index = index;
+     }
+     int
+     Data::UVindex() const{
+         return _uv_index;
      }
 ////////////////////////////////////////////////////////////////////////////////
      void

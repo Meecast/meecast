@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-weather-com-stations-db
  *
- * Copyright (C) 2006-2009 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2009 Pavel Fialko
  * 	for the code
  *
@@ -807,8 +807,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                 wind_gust[256],
                 wind_direction_day[256],
                 wind_direction_night[256],
-		        timezone_string[128];
-
+		        timezone_string[128],
+                uv_index[128];
 
     struct tm   tmp_tm = {0};
     struct tm   tm_l = {0};
@@ -898,6 +898,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                 memset(wind_speed_day, 0, sizeof(wind_speed_day));
                 memset(wind_gust, 0, sizeof(wind_gust));
                 memset(visible, 0, sizeof(visible));
+                memset(uv_index, 0, sizeof(uv_index));
 
                 for(child_node = cur_node->children; child_node != NULL; child_node = child_node->next){
                     /* last update */
@@ -1012,6 +1013,22 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         }
                         continue;
                     }
+                    if(!xmlStrcmp(child_node->name, (const xmlChar *)"uv") ){
+                        for(child_node2 = child_node->children; child_node2 != NULL; child_node2 = child_node2->next){
+                            if( child_node2->type == XML_ELEMENT_NODE ){
+                                /* UV index */
+                                if(!xmlStrcmp(child_node2->name, (const xmlChar *)"i") ){
+				                    if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A"))
+                                        temp_xml_string = xmlNodeGetContent(child_node2);
+                                        snprintf(uv_index, sizeof(uv_index) - 1, 
+                                            "%s", (char*)temp_xml_string);
+                                    xmlFree(temp_xml_string);
+                                }
+                            }
+                        }
+                            continue;
+                    }
+
 #if 0
                     /* Moon data */
                     if(!xmlStrcmp(child_node->name, (const xmlChar *)"moon") ){
@@ -1058,14 +1075,16 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
 			    fprintf(file_out,"     <pressure>%s</pressure>\n", pressure);
 			if (pressure_direction[0] != 0)
 			    fprintf(file_out,"     <pressure_direction>%s</pressure_direction>\n", pressure_direction);
-                        if (description_day[0] != 0)
+            if (description_day[0] != 0)
 			    fprintf(file_out,"     <description>%s</description>\n", description_day);
-                        if (temp_flike[0] != 0) 
+            if (temp_flike[0] != 0) 
 			    fprintf(file_out,"     <flike>%s</flike>\n", temp_hi); 
-                        if (icon_day[0] != 0)
+            if (icon_day[0] != 0)
 			    fprintf(file_out,"     <icon>%s</icon>\n", icon_day);
-                        if (visible[0] != 0)
+            if (visible[0] != 0)
 			    fprintf(file_out,"     <visible>%s</visible>\n", visible);
+            if (uv_index[0] != 0)
+			    fprintf(file_out,"     <uv_index>%s</uv_index>\n", uv_index);
 
 			fprintf(file_out,"    </period>\n");
 		}

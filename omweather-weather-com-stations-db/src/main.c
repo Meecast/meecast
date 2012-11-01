@@ -818,6 +818,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                 t_sunrise = 0, t_sunset = 0,
                 current_time = 0;
     FILE        *file_out;
+    float       visible_float;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -977,7 +978,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                     /* visible */
                     if(!xmlStrcmp(child_node->name, (const xmlChar *)"vis") ){
                         temp_xml_string = xmlNodeGetContent(child_node);
-                        snprintf(visible, sizeof(visible) - 1, "%s", (char*)temp_xml_string);
+                        visible_float = atof((char*)temp_xml_string) * 1000;
+                        snprintf(visible, sizeof(visible) - 1, "%f", visible_float);
                         xmlFree(temp_xml_string);
                         continue;
                     }

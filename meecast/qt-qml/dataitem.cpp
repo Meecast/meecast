@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasiliyeu
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -81,6 +81,7 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[Wind_speedRole] = "wind_speed";
     names[Wind_gustRole] = "wind_gust";
     names[HumidityRole] = "humidity";
+    names[VisibleRole] = "visible";
     names[DescriptionRole] = "description";
     names[CurrentRole] = "current";
     names[DateRole] = "date";
@@ -140,6 +141,8 @@ QVariant DataItem::data(int role)
         return description();
     case UVindexRole:
         return uv_index();
+    case VisibleRole:
+        return visible();
     case DateRole:
         return date();
     case ShortDateRole:
@@ -461,7 +464,25 @@ DataItem::uv_index() {
         c = "N/A";
         return c;
     }
-    return c.number((DataItem::Data::UVindex()), 'i', 0);
+    c = c.number((DataItem::Data::UVindex()), 'i', 0);
+    switch (DataItem::Data::ViSible().value()){
+        case 0: c = c + " " + QString::fromUtf8(_("(Low)")); break;
+        case 1: c = c + " " + QString::fromUtf8(_("(Low)")); break;
+        case 4: c = c + " " + QString::fromUtf8(_("(Moderate)")); break;
+        case 5: c = c + " " + QString::fromUtf8(_("(Moderate)")); break;
+    }
+    return c;
+}
+
+QString
+DataItem::visible() {
+    QString c;
+    if (DataItem::Data::ViSible().value() == INT_MAX){
+        c = "N/A";
+        return c;
+    }
+    c = c.number(((DataItem::Data::ViSible().value())));
+    return c;
 }
 
 void

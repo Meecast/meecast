@@ -979,7 +979,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                     if(!xmlStrcmp(child_node->name, (const xmlChar *)"vis") ){
                         temp_xml_string = xmlNodeGetContent(child_node);
                         visible_float = atof((char*)temp_xml_string) * 1000;
-                        snprintf(visible, sizeof(visible) - 1, "%f", visible_float);
+                        snprintf(visible, sizeof(visible) - 1, "%.0f", visible_float);
                         xmlFree(temp_xml_string);
                         continue;
                     }

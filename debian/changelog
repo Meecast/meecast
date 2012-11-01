@@ -1,6 +1,6 @@
 meecast (0.6.8) unstable; urgency=low
 
-  * Nothing 
+  * Added icon and description string to gismeteo.ru 
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 29 Oct 2012 08:31:23 +0200
 

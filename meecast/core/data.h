@@ -51,6 +51,7 @@ namespace Core{
         //float _windSpeed;
         Windspeed *_windSpeed;
         Pressure *_pressure;
+        Visible *_visible;
         std::string *_windDirection;
         float _windGust;
         int _humidity;
@@ -99,6 +100,8 @@ namespace Core{
             int   Icon(void) const;
             void  UVindex(int index);
             int   UVindex(void) const;
+            void  Visible(int v);
+            int   Visible(void) const;
             void  Current(bool current);
             bool  Current(void) const;
             void  Hour(bool hour);

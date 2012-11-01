@@ -39,6 +39,7 @@ namespace Core {
         _flike = new Temperature;
         //_windSpeed = INT_MAX;
         _windSpeed = new Windspeed(INT_MAX, "m/s");
+        _visible = new Visible(INT_MAX, "m");
         _windGust = INT_MAX;
         _humidity = INT_MAX;
         //_pressure = INT_MAX;
@@ -72,6 +73,7 @@ namespace Core {
     Data::Data(const Data *data){
         _flike = data->_flike;
         _windSpeed = data->_windSpeed;
+        _visible = data->_visible;
         _windGust = INT_MAX;
         _humidity = data->_humidity;
         //_pressure = INT_MAX;
@@ -181,8 +183,14 @@ namespace Core {
          // need to check type ( )
          return _windSpeed;
      }*/
-     Windspeed& Data::WindSpeed(){
+     Windspeed& 
+     Data::WindSpeed(){
          return *_windSpeed;
+     }
+////////////////////////////////////////////////////////////////////////////////
+     Visible& 
+     Data::ViSible(){
+         return *_visible;
      }
 ////////////////////////////////////////////////////////////////////////////////
      void
@@ -308,6 +316,7 @@ namespace Core {
     Data::~Data(){
        delete _windDirection;
        delete _windSpeed;
+       delete _visible;
        delete _text;
        delete _temperature_hi;
        delete _temperature_low;

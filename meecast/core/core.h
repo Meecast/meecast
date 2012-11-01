@@ -41,6 +41,7 @@
 #include "sourcelist.h"
 #include "datalist.h"
 #include "dataparser.h"
+#include "visible.h"
 #include "temperature.h"
 #include "pressure.h"
 #include "windspeed.h"
@@ -67,6 +68,7 @@ namespace Core{
     class DatabaseSqlite;
     class DatabaseAbstract;
     class Downloader;
+    class Visible;
 };
 ////////////////////////////////////////////////////////////////////////////////
 #endif // CORE_H

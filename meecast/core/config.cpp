@@ -1,6 +1,6 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
  * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
@@ -46,6 +46,7 @@ Config::Config()
     _temperature_unit = new std::string("C");
     _wind_speed_unit = new std::string("m/s");
     _pressure_unit = new std::string("mbar");
+    _visible_unit = new std::string("m");
     _update_connect = false;
     _fullscreen = false;
     _lockscreen = false;
@@ -96,6 +97,11 @@ Config::saveConfig()
 
     el = doc.createElement("pressure_unit");
     t = doc.createTextNode(QString::fromStdString(*_pressure_unit));
+    el.appendChild(t);
+    root.appendChild(el);
+
+    el = doc.createElement("visible_unit");
+    t = doc.createTextNode(QString::fromStdString(*_visible_unit));
     el.appendChild(t);
     root.appendChild(el);
 
@@ -313,6 +319,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _temperature_unit = new std::string("C");
     _wind_speed_unit = new std::string("m/s");
     _pressure_unit = new std::string("mbar");
+    _visible_unit = new std::string("m");
     _update_connect = false;
     _fullscreen = false;
     _lockscreen = false;
@@ -373,6 +380,9 @@ Config::LoadConfig(){
         el = root.firstChildElement("pressure_unit");
         if (!el.isNull())
             _pressure_unit->assign(el.text().toStdString());
+        el = root.firstChildElement("visible_unit");
+        if (!el.isNull())
+            _visible_unit->assign(el.text().toStdString());
         el = root.firstChildElement("update_connect");
         if (!el.isNull())
             _update_connect = (el.text() == "true") ? true : false;
@@ -549,6 +559,16 @@ Config::PressureUnit(const std::string& text){
 std::string&
 Config::PressureUnit(){
     return *_pressure_unit;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::VisibleUnit(const std::string& text){
+    _visible_unit->assign(text);
+}
+////////////////////////////////////////////////////////////////////////////////
+std::string&
+Config::VisibleUnit(){
+    return *_visible_unit;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

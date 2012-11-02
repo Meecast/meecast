@@ -167,7 +167,7 @@ Page {
             }
             if ((model_current.getdata(day, "visible")) != "N/A")
                 condition.append({cond_name: Config.tr("Visible:"),
-                         value: model_current.getdata(day, "visible")});
+                         value: model_current.getdata(day, "visible") + ' ' + Config.tr(Config.visisbleunit)});
             if ((model_current.getdata(day, "uv_index")) != "")
                 condition.append({cond_name: Config.tr("UV index:"),
                          value: model_current.getdata(day, "uv_index")});

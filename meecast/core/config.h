@@ -48,6 +48,7 @@ namespace Core{
             std::string *_temperature_unit;
             std::string *_wind_speed_unit;
             std::string *_pressure_unit;
+            std::string *_visible_unit;
             bool         _update_connect;
             bool         _fullscreen;
             bool         _lockscreen;
@@ -83,6 +84,8 @@ namespace Core{
             std::string& WindSpeedUnit(void);
             void PressureUnit(const std::string& text);
             std::string& PressureUnit(void);
+            void VisibleUnit(const std::string& text);
+            std::string& VisibleUnit(void);
             void UpdateConnect(const bool uc);
             bool UpdateConnect(void);
             void Fullscreen(const bool uc);

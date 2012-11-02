@@ -2,6 +2,7 @@ meecast (0.6.8) unstable; urgency=low
 
   * Added icon and description string to gismeteo.ru 
   * Added data UV-index and Visible for weather.com source
+  * Decreased cycle count to 1 for Map
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 29 Oct 2012 08:31:23 +0200
 

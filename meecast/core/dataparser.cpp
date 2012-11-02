@@ -130,7 +130,7 @@ namespace Core {
                     else
                         forecast_data->WindSpeed().value(el.text().toFloat());
                 }else if (tag == "visible"){
-                    forecast_data->ViSible().value(el.text().toInt());
+                    forecast_data->ViSible().value(el.text().toFloat());
                 }else if (tag == "wind_direction"){
                     forecast_data->WindDirection(el.text().toStdString());
                 }else if (tag == "flike"){

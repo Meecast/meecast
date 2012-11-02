@@ -465,7 +465,7 @@ DataItem::uv_index() {
         return c;
     }
     c = c.number((DataItem::Data::UVindex()), 'i', 0);
-    switch (DataItem::Data::ViSible().value()){
+    switch (DataItem::Data::UVindex()){
         case 0: c = c + " " + QString::fromUtf8(_("(Low)")); break;
         case 1: c = c + " " + QString::fromUtf8(_("(Low)")); break;
         case 4: c = c + " " + QString::fromUtf8(_("(Moderate)")); break;
@@ -481,7 +481,7 @@ DataItem::visible() {
         c = "N/A";
         return c;
     }
-    c = c.number(((DataItem::Data::ViSible().value())));
+    c = c.number(DataItem::Data::ViSible().value(), 'f', 0);
     return c;
 }
 

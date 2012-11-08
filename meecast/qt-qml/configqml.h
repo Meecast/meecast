@@ -59,6 +59,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString temperatureunit READ temperatureunit NOTIFY temperatureunitChanged)
     Q_PROPERTY(QString windspeedunit READ windspeedunit NOTIFY windspeedunitChanged)
     Q_PROPERTY(QString pressureunit READ pressureunit NOTIFY pressureunitChanged)
+    Q_PROPERTY(QString visibleunit READ visibleunit NOTIFY visibleunitChanged)
     Q_PROPERTY(bool fullscreen READ fullscreen NOTIFY fullscreenChanged)
     Q_PROPERTY(bool lockscreen READ lockscreen NOTIFY lockscreenChanged)
     Q_PROPERTY(bool standbyscreen READ standbyscreen NOTIFY standbyscreenChanged)
@@ -89,6 +90,7 @@ private:
     void init();
     QStringList wind_list;
     QStringList press_list;
+    QStringList vis_list;
     QSettings *standby_settings;
     QColor _standby_color_font_stationname;
     QColor _standby_color_font_temperature;
@@ -115,6 +117,7 @@ public:
     QString temperatureunit();
     QString windspeedunit();
     QString pressureunit();
+    QString visibleunit();
     bool fullscreen();
     bool lockscreen();
     bool standbyscreen();
@@ -163,6 +166,8 @@ public:
     Q_INVOKABLE void update_interval(int interval);
     Q_INVOKABLE QStringList pressure_list();
     Q_INVOKABLE void pressure_unit(int index);
+    Q_INVOKABLE QStringList visible_list();
+    Q_INVOKABLE void visible_unit(int index);
     Q_INVOKABLE void setfullscreen(bool c);
     Q_INVOKABLE void setlockscreen(bool c);
     Q_INVOKABLE void setstandbyscreen(bool c);
@@ -187,6 +192,7 @@ signals:
     void temperatureunitChanged();
     void windspeedunitChanged();
     void pressureunitChanged();
+    void visibleunitChanged();
     void fullscreenChanged();
     void lockscreenChanged();
     void standbyscreenChanged();

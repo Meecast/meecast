@@ -104,6 +104,7 @@ void ConfigQml::init()
 
     wind_list << "m/s" << "km/h" << "mi/h";
     press_list << "mbar" << "Pa" << "mmHg";
+    vis_list << "m" << "km" << "mi";
 
     if (gps()){
         _gps = new GpsPosition();
@@ -266,6 +267,14 @@ ConfigQml::pressureunit(){
     return c;
 }
 
+QString
+ConfigQml::visibleunit(){
+    QString c;
+    //c = QString(QString::fromUtf8(_(ConfigQml::Config::WindSpeedUnit().c_str())));
+    c = ConfigQml::Config::VisibleUnit().c_str();
+    return c;
+}
+
 QStringList
 ConfigQml::pressure_list()
 {
@@ -276,10 +285,28 @@ ConfigQml::pressure_list()
     return l;
 }
 
+QStringList
+ConfigQml::visible_list()
+{
+    QStringList l;
+    for (int i=0; i < vis_list.size(); i++){
+        l.append(QString(QString::fromUtf8(_(vis_list.at(i).toStdString().c_str()))));
+    }
+    return l;
+}
+
 void
 ConfigQml::pressure_unit(int index)
 {
     ConfigQml::Config::PressureUnit(press_list.at(index).toStdString());
+    saveConfig();
+    refreshconfig();
+}
+
+void
+ConfigQml::visible_unit(int index)
+{
+    ConfigQml::Config::VisibleUnit(vis_list.at(index).toStdString());
     saveConfig();
     refreshconfig();
 }
@@ -812,6 +839,7 @@ ConfigQml::refreshconfig(){
     emit ConfigQml::imagespathChanged();
     emit ConfigQml::temperatureunitChanged();
     emit ConfigQml::windspeedunitChanged();
+    emit ConfigQml::visibleunitChanged();
     emit ConfigQml::fontcolorChanged();
     emit ConfigQml::stationnameChanged();
     emit ConfigQml::configChanged();

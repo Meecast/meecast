@@ -73,7 +73,7 @@ Page {
                      filename = map_pattern.replace("%s", parent.currentImage);
                      if (parent.currentImage == 0)
                          parent.round_robin_count = parent.round_robin_count + 1
-                     if (parent.round_robin_count == 5){
+                     if (parent.round_robin_count == 1){
                          repeat = false;
                          running = false;
                      }

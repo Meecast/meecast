@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-08 10:40+0300\n"
+"POT-Creation-Date: 2012-11-08 10:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -389,7 +389,7 @@ msgstr ""
 msgid "Celcius"
 msgstr ""
 
-#: meecast/qt-qml/qml/UnitsPage.qml:102
+#: meecast/qt-qml/qml/UnitsPage.qml:114
 msgid "Celsius"
 msgstr ""
 
@@ -757,7 +757,7 @@ msgstr ""
 msgid "FL: "
 msgstr ""
 
-#: omweather/src/weather-settings.c:3876 meecast/qt-qml/qml/UnitsPage.qml:110
+#: omweather/src/weather-settings.c:3876 meecast/qt-qml/qml/UnitsPage.qml:122
 msgid "Fahrenheit"
 msgstr ""
 
@@ -1197,7 +1197,7 @@ msgstr ""
 msgid "Manual"
 msgstr ""
 
-#: meecast/qt-qml/qml/UnitsPage.qml:224
+#: meecast/qt-qml/qml/UnitsPage.qml:270
 msgid "Measurement units"
 msgstr ""
 
@@ -1609,7 +1609,7 @@ msgstr ""
 msgid "PM T-Storms"
 msgstr ""
 
-#: meecast/qt-qml/qml/UnitsPage.qml:182
+#: meecast/qt-qml/qml/UnitsPage.qml:194
 msgid "Pa"
 msgstr ""
 
@@ -1744,7 +1744,7 @@ msgstr ""
 msgid "Pressure"
 msgstr ""
 
-#: meecast/qt-qml/qml/UnitsPage.qml:51 meecast/qt-qml/qml/UnitsPage.qml:164
+#: meecast/qt-qml/qml/UnitsPage.qml:49 meecast/qt-qml/qml/UnitsPage.qml:176
 msgid "Pressure units"
 msgstr ""
 
@@ -2280,7 +2280,7 @@ msgid "Temperature"
 msgstr ""
 
 #: omweather/src/hash.data:289 meecast/qt-qml/qml/UnitsPage.qml:31
-#: meecast/qt-qml/qml/UnitsPage.qml:91
+#: meecast/qt-qml/qml/UnitsPage.qml:103
 msgid "Temperature units"
 msgstr ""
 
@@ -2447,6 +2447,10 @@ msgstr ""
 msgid "Visible items:"
 msgstr ""
 
+#: meecast/qt-qml/qml/UnitsPage.qml:58 meecast/qt-qml/qml/UnitsPage.qml:209
+msgid "Visible units"
+msgstr ""
+
 #: omweather/src/weather-popup.c:1288
 #: meecast/qt-qml/qml/FullWeatherPage.qml:169
 msgid "Visible:"
@@ -2562,8 +2566,8 @@ msgstr ""
 msgid "Wind speed"
 msgstr ""
 
-#: omweather/src/hash.data:308 meecast/qt-qml/qml/UnitsPage.qml:41
-#: meecast/qt-qml/qml/UnitsPage.qml:130
+#: omweather/src/hash.data:308 meecast/qt-qml/qml/UnitsPage.qml:40
+#: meecast/qt-qml/qml/UnitsPage.qml:142
 msgid "Wind speed units"
 msgstr ""
 
@@ -2725,13 +2729,14 @@ msgstr ""
 #: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
 #: omweather/src/weather-simple-settings.c:1336
 #: omweather/src/weather-simple-settings.c:2670
+#: meecast/qt-qml/qml/UnitsPage.qml:227
 msgid "km"
 msgstr ""
 
 #: omweather/src/weather-settings.c:3994 omweather/src/hash.data:316
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
-#: meecast/qt-qml/qml/UnitsPage.qml:148
+#: meecast/qt-qml/qml/UnitsPage.qml:160
 msgid "km/h"
 msgstr ""
 
@@ -2742,6 +2747,7 @@ msgstr ""
 #: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1296
 #: omweather/src/weather-simple-settings.c:1328
 #: omweather/src/weather-simple-settings.c:2664
+#: meecast/qt-qml/qml/UnitsPage.qml:220
 msgid "m"
 msgstr ""
 
@@ -2752,7 +2758,7 @@ msgstr ""
 #: omweather/src/weather-settings.c:3980 omweather/src/hash.data:319
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
-#: meecast/qt-qml/qml/UnitsPage.qml:141
+#: meecast/qt-qml/qml/UnitsPage.qml:153
 msgid "m/s"
 msgstr ""
 
@@ -2765,7 +2771,7 @@ msgstr ""
 msgid "mb"
 msgstr ""
 
-#: meecast/qt-qml/qml/UnitsPage.qml:175
+#: meecast/qt-qml/qml/UnitsPage.qml:187
 msgid "mbar"
 msgstr ""
 
@@ -2773,13 +2779,14 @@ msgstr ""
 #: omweather/src/weather-popup.c:1298 omweather/src/weather-popup.c:1299
 #: omweather/src/weather-simple-settings.c:1345
 #: omweather/src/weather-simple-settings.c:2676
+#: meecast/qt-qml/qml/UnitsPage.qml:234
 msgid "mi"
 msgstr ""
 
 #: omweather/src/weather-settings.c:4008 omweather/src/hash.data:320
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
-#: meecast/qt-qml/qml/UnitsPage.qml:155
+#: meecast/qt-qml/qml/UnitsPage.qml:167
 msgid "mi/h"
 msgstr ""
 
@@ -2805,7 +2812,7 @@ msgstr ""
 #: omweather/src/weather-popup.c:986 omweather/src/weather-popup.c:1118
 #: omweather/src/weather-popup.c:1314
 #: omweather/src/weather-simple-settings.c:1488
-#: meecast/qt-qml/qml/UnitsPage.qml:189
+#: meecast/qt-qml/qml/UnitsPage.qml:201
 msgid "mmHg"
 msgstr ""
 

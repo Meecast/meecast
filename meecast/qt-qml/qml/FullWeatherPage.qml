@@ -167,7 +167,7 @@ Page {
             }
             if ((model_current.getdata(day, "visible")) != "N/A")
                 condition.append({cond_name: Config.tr("Visible:"),
-                         value: model_current.getdata(day, "visible") + ' ' + Config.tr(Config.visisbleunit)});
+                         value: model_current.getdata(day, "visible") + ' ' + Config.tr(Config.visibleunit)});
             if ((model_current.getdata(day, "uv_index")) != "")
                 condition.append({cond_name: Config.tr("UV index:"),
                          value: model_current.getdata(day, "uv_index")});
@@ -605,13 +605,13 @@ Page {
                     horizontalAlignment: Text.AlignHCenter
                }
 	           MouseArea {
-                     anchors.fill: parent
-                     onClicked: {
-                            console.log("Map onclicked");
-                            pageStack.push(Qt.resolvedUrl("MapPage.qml"),
-                                           {map_pattern: map_pattern, count_of_maps: count_of_maps }
-                                          )
-                      }
+                    anchors.fill: parent
+                    onClicked: {
+                           console.log("Map onclicked");
+                           pageStack.push(Qt.resolvedUrl("MapPage.qml"),
+                                          {map_pattern: map_pattern, count_of_maps: count_of_maps }
+                                         )
+                    }
                }
 	        }
         }

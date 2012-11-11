@@ -142,6 +142,7 @@ public:
     QString temperatureunit;
     QString windunit;
     QString pressureunit;
+    QString visibleunit;
 };
 
 #endif // DATAITEM_H

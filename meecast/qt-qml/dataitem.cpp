@@ -39,6 +39,7 @@ DataItem::DataItem(const Core::Data* data):QObject(),Core::Data(data){
     temperatureunit = "C";
     windunit = "m/c";
     pressureunit = "mbar";
+    visibleunit = "m";
 }
 void
 DataItem::update(QString filename)
@@ -481,6 +482,7 @@ DataItem::visible() {
         c = "N/A";
         return c;
     }
+    DataItem::Data::ViSible().units(visibleunit.toStdString());
     c = c.number(DataItem::Data::ViSible().value(), 'f', 0);
     return c;
 }

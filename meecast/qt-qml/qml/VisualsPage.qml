@@ -129,11 +129,11 @@ Page {
 	    width: parent.width
 
 	    Label {
-		id: titleLabel2
-		anchors.verticalCenter: titleField2.verticalCenter
-		font.capitalization: Font.MixedCase
-		color: "white"
-		text: Config.tr("Information")
+            id: titleLabel2
+            anchors.verticalCenter: titleField2.verticalCenter
+            font.capitalization: Font.MixedCase
+            color: "white"
+            text: Config.tr("Information")
 	    }
 
 	    Image {

@@ -220,7 +220,7 @@ Page {
 						text: Config.tr("m")
 						checked: (Config.visibleunit == "m")
 						onClicked: {
-							Config.pressure_unit("0");
+							Config.visible_unit("0");
 						}
 					}
 					Button {
@@ -234,7 +234,7 @@ Page {
 						text: Config.tr("mi")
 						checked: (Config.visibleeunit == "mi")
 						onClicked: {
-							Config.pressure_unit("2");
+							Config.visible_unit("2");
 						}
 					}
 

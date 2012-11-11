@@ -80,7 +80,7 @@ namespace Core {
         if(*_units == "km")
              return(_value / 1000);
         else if (*_units == "mi")
-                 return round(_value / 1.609344f);
+                 return round(_value / 1609.344f);
              else
                  return (_value);
     }

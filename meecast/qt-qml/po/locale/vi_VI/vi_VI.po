@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-26 22:05+0300\n"
+"POT-Creation-Date: 2012-11-08 10:44+0300\n"
 "PO-Revision-Date: 2012-10-05 08:15+0000\n"
 "Last-Translator: quytrong287 <quytrong287@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/meecast/"
@@ -116,6 +116,14 @@ msgid ""
 msgstr ""
 "\n"
 "W:"
+
+#: meecast/qt-qml/dataitem.cpp:469 meecast/qt-qml/dataitem.cpp:470
+msgid "(Low)"
+msgstr ""
+
+#: meecast/qt-qml/dataitem.cpp:471 meecast/qt-qml/dataitem.cpp:472
+msgid "(Moderate)"
+msgstr ""
 
 #: omweather/src/weather-simple-settings.c:1714
 #: omweather/src/weather-simple-settings.c:2811
@@ -338,7 +346,7 @@ msgstr "Lỗi không xác định"
 msgid "Animation"
 msgstr "Hoạt ảnh"
 
-#: meecast/qt-qml/qml/VisualsPage.qml:546
+#: meecast/qt-qml/qml/VisualsPage.qml:566
 msgid "Appearance"
 msgstr "Giao diện"
 
@@ -430,7 +438,7 @@ msgstr "Không thể lấy đường dẫn tới thư mục Home. Đang đóng �
 msgid "Celcius"
 msgstr "Độ C"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:102
+#: meecast/qt-qml/qml/UnitsPage.qml:114
 msgid "Celsius"
 msgstr ""
 
@@ -625,7 +633,7 @@ msgid "Daily"
 msgstr "Hàng ngày"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
-#: meecast/qt-qml/qml/FullWeatherPage.qml:182
+#: meecast/qt-qml/qml/FullWeatherPage.qml:186
 msgid "Day"
 msgstr "Ngày"
 
@@ -633,7 +641,7 @@ msgstr "Ngày"
 msgid "Day length"
 msgstr "Độ dài của ngày"
 
-#: omweather/src/hash.data:59 meecast/qt-qml/qml/FullWeatherPage.qml:290
+#: omweather/src/hash.data:59 meecast/qt-qml/qml/FullWeatherPage.qml:294
 msgid "Day length:"
 msgstr "Độ dài của ngày:"
 
@@ -815,7 +823,7 @@ msgstr "F\n"
 msgid "FL: "
 msgstr "FL:"
 
-#: omweather/src/weather-settings.c:3876 meecast/qt-qml/qml/UnitsPage.qml:110
+#: omweather/src/weather-settings.c:3876 meecast/qt-qml/qml/UnitsPage.qml:122
 msgid "Fahrenheit"
 msgstr "Độ F"
 
@@ -877,9 +885,9 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Quý một"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:155
-#: meecast/qt-qml/qml/FullWeatherPage.qml:206
-#: meecast/qt-qml/qml/FullWeatherPage.qml:255
+#: meecast/qt-qml/qml/FullWeatherPage.qml:153
+#: meecast/qt-qml/qml/FullWeatherPage.qml:210
+#: meecast/qt-qml/qml/FullWeatherPage.qml:259
 msgid "Flike:"
 msgstr "Có cảm giác như:"
 
@@ -1063,15 +1071,15 @@ msgstr "Tuyết dày"
 msgid "High"
 msgstr "Cao"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:272
+#: meecast/qt-qml/qml/FullWeatherPage.qml:276
 msgid "Hours"
 msgstr "Giờ"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:173 meecast/qt-qml/qml/FullWeatherPage.qml:137
-#: meecast/qt-qml/qml/FullWeatherPage.qml:188
-#: meecast/qt-qml/qml/FullWeatherPage.qml:237
+#: meecast/qt-qml/dataitem.cpp:179 meecast/qt-qml/qml/FullWeatherPage.qml:135
+#: meecast/qt-qml/qml/FullWeatherPage.qml:192
+#: meecast/qt-qml/qml/FullWeatherPage.qml:241
 msgid "Humidity:"
 msgstr "Độ ẩm:"
 
@@ -1134,7 +1142,7 @@ msgstr "Cập nhật cuối tại máy chủ:"
 msgid "Last update from server: "
 msgstr "Cập nhật cuối từ máy chủ:"
 
-#: omweather/src/hash.data:99 meecast/qt-qml/qml/FullWeatherPage.qml:293
+#: omweather/src/hash.data:99 meecast/qt-qml/qml/FullWeatherPage.qml:297
 msgid "Last update:"
 msgstr "Cập nhật cuối:"
 
@@ -1277,7 +1285,7 @@ msgstr "Quản lý địa điểm"
 msgid "Manual"
 msgstr "Bằng tay"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:224
+#: meecast/qt-qml/qml/UnitsPage.qml:270
 msgid "Measurement units"
 msgstr "Đơn vị đo"
 
@@ -1499,7 +1507,7 @@ msgid "Next update:"
 msgstr "Cập nhật tiếp theo:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:588
-#: meecast/qt-qml/qml/FullWeatherPage.qml:223
+#: meecast/qt-qml/qml/FullWeatherPage.qml:227
 msgid "Night"
 msgstr "Đêm"
 
@@ -1533,7 +1541,7 @@ msgstr "Không có dữ liệu thời tiết ở trạm này."
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:181 meecast/qt-qml/qml/FullWeatherPage.qml:131
+#: meecast/qt-qml/dataitem.cpp:187 meecast/qt-qml/qml/FullWeatherPage.qml:129
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Now"
 msgstr "Bây giờ"
@@ -1691,7 +1699,7 @@ msgstr "PM Giông bão"
 msgid "PM T-Storms"
 msgstr "PM Sấm sét"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:182
+#: meecast/qt-qml/qml/UnitsPage.qml:194
 msgid "Pa"
 msgstr "Pa"
 
@@ -1811,9 +1819,9 @@ msgstr "Thời gian"
 msgid "Position:"
 msgstr "Vị trí:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:149
-#: meecast/qt-qml/qml/FullWeatherPage.qml:200
-#: meecast/qt-qml/qml/FullWeatherPage.qml:249
+#: meecast/qt-qml/qml/FullWeatherPage.qml:147
+#: meecast/qt-qml/qml/FullWeatherPage.qml:204
+#: meecast/qt-qml/qml/FullWeatherPage.qml:253
 msgid "Ppcp:"
 msgstr "Mây phủ:"
 
@@ -1826,7 +1834,7 @@ msgstr "Sở thích|Cập nhật"
 msgid "Pressure"
 msgstr "Áp suất"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:51 meecast/qt-qml/qml/UnitsPage.qml:164
+#: meecast/qt-qml/qml/UnitsPage.qml:49 meecast/qt-qml/qml/UnitsPage.qml:176
 msgid "Pressure units"
 msgstr "Đơn vị đo áp suất"
 
@@ -1836,9 +1844,9 @@ msgstr "Đơn vị đo áp suất:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:179 meecast/qt-qml/qml/FullWeatherPage.qml:143
-#: meecast/qt-qml/qml/FullWeatherPage.qml:194
-#: meecast/qt-qml/qml/FullWeatherPage.qml:243
+#: meecast/qt-qml/dataitem.cpp:185 meecast/qt-qml/qml/FullWeatherPage.qml:141
+#: meecast/qt-qml/qml/FullWeatherPage.qml:198
+#: meecast/qt-qml/qml/FullWeatherPage.qml:247
 msgid "Pressure:"
 msgstr "Áp suất:"
 
@@ -2061,6 +2069,26 @@ msgstr "Chọn vùng"
 msgid "Select source"
 msgstr "Chọn nguồn"
 
+#: meecast/qt-qml/qml/LockScreen.qml:85
+msgid "Select the X-position for left corner of widget"
+msgstr ""
+
+#: meecast/qt-qml/qml/LockScreen.qml:125
+msgid "Select the Y-position for left corner of widget"
+msgstr ""
+
+#: meecast/qt-qml/qml/StandbyScreen.qml:267
+msgid "Select the color of font for current temperature"
+msgstr ""
+
+#: meecast/qt-qml/qml/StandbyScreen.qml:123
+msgid "Select the color of font for station name"
+msgstr ""
+
+#: meecast/qt-qml/qml/StandbyScreen.qml:195
+msgid "Select the color of font for temperature"
+msgstr ""
+
 #: meecast/qt-qml/qml/IconsetPage.qml:97
 msgid "Select the iconset"
 msgstr "Chọn bộ biểu tượng"
@@ -2108,6 +2136,20 @@ msgstr "Đặt vị trí"
 msgid "Settings"
 msgstr "Cài đặt"
 
+#: meecast/qt-qml/qml/LockScreen.qml:65
+msgid "Settings for Lockscreen widget"
+msgstr ""
+
+#: meecast/qt-qml/qml/StandbyScreen.qml:102
+#, fuzzy
+msgid "Settings for standby widget"
+msgstr "Tùy chỉnh Màn hình chờ"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:534
+#, fuzzy
+msgid "Settings of LockScreen"
+msgstr "Tùy chỉnh Màn hình chờ"
+
 #: meecast/qt-qml/qml/VisualsPage.qml:514
 msgid "Settings of StandbyScreen"
 msgstr "Tùy chỉnh Màn hình chờ"
@@ -2123,6 +2165,11 @@ msgstr "Ngắn"
 #: omweather/src/weather-settings.c:3824
 msgid "Show arrows"
 msgstr "Xem kiểu mũi tên"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:600
+#, fuzzy
+msgid "Show on Map"
+msgstr "Hiển thị tên trạm"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
@@ -2233,7 +2280,7 @@ msgstr "Tốc độ"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
-#: meecast/qt-qml/dataitem.cpp:177
+#: meecast/qt-qml/dataitem.cpp:183
 msgid "Speed:"
 msgstr "Tốc độ:"
 
@@ -2271,7 +2318,7 @@ msgstr "Trời nắng"
 msgid "Sunny / Wind"
 msgstr "Trời nắng, có gió"
 
-#: omweather/src/hash.data:281 meecast/qt-qml/qml/FullWeatherPage.qml:284
+#: omweather/src/hash.data:281 meecast/qt-qml/qml/FullWeatherPage.qml:288
 msgid "Sunrise:"
 msgstr "Lúc bình minh:"
 
@@ -2279,7 +2326,7 @@ msgstr "Lúc bình minh:"
 msgid "Sunrise: "
 msgstr "Lúc bình minh:"
 
-#: omweather/src/hash.data:282 meecast/qt-qml/qml/FullWeatherPage.qml:287
+#: omweather/src/hash.data:282 meecast/qt-qml/qml/FullWeatherPage.qml:291
 msgid "Sunset:"
 msgstr "Lúc xế chiều:"
 
@@ -2326,7 +2373,7 @@ msgid "Temperature"
 msgstr "Nhiệt độ"
 
 #: omweather/src/hash.data:289 meecast/qt-qml/qml/UnitsPage.qml:31
-#: meecast/qt-qml/qml/UnitsPage.qml:91
+#: meecast/qt-qml/qml/UnitsPage.qml:103
 msgid "Temperature units"
 msgstr "Đơn vị đo nhiệt độ"
 
@@ -2335,7 +2382,7 @@ msgid "Temperature units:"
 msgstr "Đơn vị đo nhiệt độ:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
-#: meecast/qt-qml/dataitem.cpp:171
+#: meecast/qt-qml/dataitem.cpp:177
 msgid "Temperature:"
 msgstr "Nhiệt độ:"
 
@@ -2384,7 +2431,7 @@ msgstr "Sấm sét vùng lân cận"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
-#: meecast/qt-qml/qml/FullWeatherPage.qml:419
+#: meecast/qt-qml/qml/FullWeatherPage.qml:423
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Today"
 msgstr "Hôm nay"
@@ -2413,6 +2460,10 @@ msgstr "Thử cập nhật"
 #: omweather/src/weather-settings.c:3452
 msgid "Type of click:"
 msgstr "Kiểu click:"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:172
+msgid "UV index:"
+msgstr ""
 
 #: omweather/src/weather-settings.c:1135 omweather/src/weather-settings.c:1334
 #: omweather/src/weather-settings.c:1338
@@ -2499,7 +2550,13 @@ msgstr "Rất cao"
 msgid "Visible items:"
 msgstr "Hiện các mục:"
 
+#: meecast/qt-qml/qml/UnitsPage.qml:58 meecast/qt-qml/qml/UnitsPage.qml:209
+#, fuzzy
+msgid "Visible units"
+msgstr "Hiện các mục:"
+
 #: omweather/src/weather-popup.c:1288
+#: meecast/qt-qml/qml/FullWeatherPage.qml:169
 msgid "Visible:"
 msgstr "Hiện"
 
@@ -2595,26 +2652,26 @@ msgstr "Dạng widget và biểu tượng"
 msgid "Wind"
 msgstr "Gió"
 
-#: omweather/src/hash.data:307 meecast/qt-qml/qml/FullWeatherPage.qml:140
-#: meecast/qt-qml/qml/FullWeatherPage.qml:191
-#: meecast/qt-qml/qml/FullWeatherPage.qml:240
+#: omweather/src/hash.data:307 meecast/qt-qml/qml/FullWeatherPage.qml:138
+#: meecast/qt-qml/qml/FullWeatherPage.qml:195
+#: meecast/qt-qml/qml/FullWeatherPage.qml:244
 msgid "Wind direction:"
 msgstr "Hướng gió:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:152
-#: meecast/qt-qml/qml/FullWeatherPage.qml:203
-#: meecast/qt-qml/qml/FullWeatherPage.qml:252
+#: meecast/qt-qml/qml/FullWeatherPage.qml:150
+#: meecast/qt-qml/qml/FullWeatherPage.qml:207
+#: meecast/qt-qml/qml/FullWeatherPage.qml:256
 msgid "Wind gust:"
 msgstr "Cơn gió mạnh:"
 
-#: omweather/src/hash.data:309 meecast/qt-qml/qml/FullWeatherPage.qml:146
-#: meecast/qt-qml/qml/FullWeatherPage.qml:197
-#: meecast/qt-qml/qml/FullWeatherPage.qml:246
+#: omweather/src/hash.data:309 meecast/qt-qml/qml/FullWeatherPage.qml:144
+#: meecast/qt-qml/qml/FullWeatherPage.qml:201
+#: meecast/qt-qml/qml/FullWeatherPage.qml:250
 msgid "Wind speed"
 msgstr "Tốc độ gió"
 
-#: omweather/src/hash.data:308 meecast/qt-qml/qml/UnitsPage.qml:41
-#: meecast/qt-qml/qml/UnitsPage.qml:130
+#: omweather/src/hash.data:308 meecast/qt-qml/qml/UnitsPage.qml:40
+#: meecast/qt-qml/qml/UnitsPage.qml:142
 msgid "Wind speed units"
 msgstr "Đơn vị vận tốc gió"
 
@@ -2624,7 +2681,7 @@ msgstr "Đơn vị vận tốc gió:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
-#: meecast/qt-qml/dataitem.cpp:175
+#: meecast/qt-qml/dataitem.cpp:181
 msgid "Wind:"
 msgstr "Gió:"
 
@@ -2712,11 +2769,11 @@ msgstr "Thời gian vị trí địa phương hiện tại"
 msgid "d:"
 msgstr "d:"
 
-#: meecast/qt-qml/dataitem.cpp:439
+#: meecast/qt-qml/dataitem.cpp:445
 msgid "day ago"
 msgstr "ngày trước"
 
-#: meecast/qt-qml/dataitem.cpp:441
+#: meecast/qt-qml/dataitem.cpp:447
 msgid "days ago"
 msgstr "Ngày trước"
 
@@ -2760,11 +2817,11 @@ msgstr "giảm"
 msgid "feels like"
 msgstr "cảm giác như"
 
-#: meecast/qt-qml/dataitem.cpp:433
+#: meecast/qt-qml/dataitem.cpp:439
 msgid "hour ago"
 msgstr "Giờ trước"
 
-#: meecast/qt-qml/dataitem.cpp:436
+#: meecast/qt-qml/dataitem.cpp:442
 msgid "hours ago"
 msgstr "Giờ trước"
 
@@ -2783,13 +2840,14 @@ msgstr "inch"
 #: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
 #: omweather/src/weather-simple-settings.c:1336
 #: omweather/src/weather-simple-settings.c:2670
+#: meecast/qt-qml/qml/UnitsPage.qml:227
 msgid "km"
 msgstr "km"
 
 #: omweather/src/weather-settings.c:3994 omweather/src/hash.data:316
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
-#: meecast/qt-qml/qml/UnitsPage.qml:148
+#: meecast/qt-qml/qml/UnitsPage.qml:160
 msgid "km/h"
 msgstr "m"
 
@@ -2800,6 +2858,7 @@ msgstr "km/s"
 #: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1296
 #: omweather/src/weather-simple-settings.c:1328
 #: omweather/src/weather-simple-settings.c:2664
+#: meecast/qt-qml/qml/UnitsPage.qml:220
 msgid "m"
 msgstr "m"
 
@@ -2810,7 +2869,7 @@ msgstr "m/h"
 #: omweather/src/weather-settings.c:3980 omweather/src/hash.data:319
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
-#: meecast/qt-qml/qml/UnitsPage.qml:141
+#: meecast/qt-qml/qml/UnitsPage.qml:153
 msgid "m/s"
 msgstr "m/s"
 
@@ -2823,7 +2882,7 @@ msgstr "m/s"
 msgid "mb"
 msgstr "mb"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:175
+#: meecast/qt-qml/qml/UnitsPage.qml:187
 msgid "mbar"
 msgstr "mbar"
 
@@ -2831,13 +2890,14 @@ msgstr "mbar"
 #: omweather/src/weather-popup.c:1298 omweather/src/weather-popup.c:1299
 #: omweather/src/weather-simple-settings.c:1345
 #: omweather/src/weather-simple-settings.c:2676
+#: meecast/qt-qml/qml/UnitsPage.qml:234
 msgid "mi"
 msgstr "mi"
 
 #: omweather/src/weather-settings.c:4008 omweather/src/hash.data:320
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
-#: meecast/qt-qml/qml/UnitsPage.qml:155
+#: meecast/qt-qml/qml/UnitsPage.qml:167
 msgid "mi/h"
 msgstr "mi/h"
 
@@ -2845,11 +2905,11 @@ msgstr "mi/h"
 msgid "mi/s"
 msgstr "mi/s"
 
-#: meecast/qt-qml/dataitem.cpp:427
+#: meecast/qt-qml/dataitem.cpp:433
 msgid "minute ago"
 msgstr "Phút trước"
 
-#: meecast/qt-qml/dataitem.cpp:430
+#: meecast/qt-qml/dataitem.cpp:436
 msgid "minutes ago"
 msgstr "Phút trước"
 
@@ -2863,7 +2923,7 @@ msgstr "mm"
 #: omweather/src/weather-popup.c:986 omweather/src/weather-popup.c:1118
 #: omweather/src/weather-popup.c:1314
 #: omweather/src/weather-simple-settings.c:1488
-#: meecast/qt-qml/qml/UnitsPage.qml:189
+#: meecast/qt-qml/qml/UnitsPage.qml:201
 msgid "mmHg"
 msgstr "mmHg"
 
@@ -2893,7 +2953,7 @@ msgstr "nmi"
 msgid "rising"
 msgstr "tăng lên"
 
-#: meecast/qt-qml/dataitem.cpp:424
+#: meecast/qt-qml/dataitem.cpp:430
 msgid "seconds ago"
 msgstr "giây trước"
 

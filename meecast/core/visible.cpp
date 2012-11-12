@@ -3,8 +3,6 @@
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
  * Copyright (C) 2006-2012 Vlad Vasilyeu
- * Copyright (C) 2006-2011 Pavel Fialko
- * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
  * Copyright (C) 2008 Andrew Zhilin
@@ -29,60 +27,60 @@
 /*******************************************************************************/
 
 
-#include "windspeed.h"
+#include "visible.h"
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    Windspeed::~Windspeed(){
+    Visible::~Visible(){
         delete _units;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    Windspeed::Windspeed(const float value, const std::string& units){
+    Visible::Visible(const float value, const std::string& units){
         _units = new std::string;
         _units->assign(units);
-        if(*_units == "km/h")
-             _value = value / 3.6f;
-        else if (*_units == "mi/h")
-                 _value = _value / 3.6f * 1.609344f;
+        if(*_units == "km")
+             _value = value * 1000;
+        else if (*_units == "mi")
+                 _value = _value * 1609.344f;
              else
                  _value = value;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    Windspeed::Windspeed(const Windspeed& windspeed){
+    Visible::Visible(const Visible& visible){
         _units = new std::string;
-        _units->assign(*(windspeed._units));
-        _value = windspeed._value;
+        _units->assign(*(visible._units));
+        _value = visible._value;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    Windspeed& Windspeed::operator=(const Windspeed& windspeed){
-        if(this != &windspeed){
+    Visible& Visible::operator=(const Visible& visible){
+        if(this != &visible){
             delete _units;
             _units = new std::string;
-            _units->assign(*(windspeed._units));
-            _value = windspeed._value;
+            _units->assign(*(visible._units));
+            _value = visible._value;
         }
         return *this;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    void Windspeed::units(const std::string& units){
+    void Visible::units(const std::string& units){
         _units->assign(units);
     }
 ////////////////////////////////////////////////////////////////////////////////
-    std::string& Windspeed::units() const{
+    std::string& Visible::units() const{
         return *_units;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    void Windspeed::value(const float value){
+    void Visible::value(const float value){
         _value = value;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    float Windspeed::value(const bool absolute){
+    float Visible::value(const bool absolute){
         if (absolute)
             return _value;
-        if(*_units == "km/h")
-             return(_value * 3.6f);
-        else if (*_units == "mi/h")
-                 return round(_value * 3.6f / 1.609344f);
+        if(*_units == "km")
+             return(_value / 1000);
+        else if (*_units == "mi")
+                 return round(_value / 1609.344f);
              else
                  return (_value);
     }

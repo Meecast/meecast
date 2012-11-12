@@ -3,12 +3,10 @@
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
  * Copyright (C) 2006-2012 Vlad Vasilyeu
- * Copyright (C) 2006-2011 Pavel Fialko
- * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
  * Copyright (C) 2008 Andrew Zhilin
- *		      az@pocketpcrussia.com 
+ *		      az@pocketpcrussia.com
  *	for default icon set (Glance)
  *
  * This software is free software; you can redistribute it and/or
@@ -28,47 +26,30 @@
 */
 /*******************************************************************************/
 
-#ifndef CORE_H
-#define CORE_H
-////////////////////////////////////////////////////////////////////////////////
-#include "connection.h"
-#include "config.h"
-#include "station.h"
-#include "source.h"
-#include "data.h"
-#include "parser.h"
-#include "source.h"
-#include "sourcelist.h"
-#include "datalist.h"
-#include "dataparser.h"
-#include "visible.h"
-#include "temperature.h"
-#include "pressure.h"
-#include "windspeed.h"
-#include "stationlist.h"
-#include "abstractconfig.h"
-#include "databasesqlite.h"
-#include "databaseabstract.h"
-#include "downloader.h"
 
-#define MEECAST_VERSION "0.6.8"
-namespace Core{
-    class Connection;
-    class AbstractConfig;
-    class Config;
-    class Data;
-    class Source;
-    class SourceList;
-    class Station;
-    class StationList;
-    class DataParser;
-    class Temperature;
-    class Pressure;
-    class Windspeed;
-    class DatabaseSqlite;
-    class DatabaseAbstract;
-    class Downloader;
-    class Visible;
-};
+#ifndef VISIBLE_H
+#define VISIBLE_H
 ////////////////////////////////////////////////////////////////////////////////
-#endif // CORE_H
+#include <string>
+#include <math.h>
+#include <limits.h>
+#include <iostream>
+////////////////////////////////////////////////////////////////////////////////
+namespace Core{
+    class Visible{
+        std::string *_units;
+        float _value;
+        public:
+            Visible(const float value = INT_MAX, const std::string& units = "m");
+            Visible(const Visible& visible);
+            Visible& operator=(const Visible& visible);
+            virtual ~Visible();
+            void units(const std::string& name);
+            std::string& units() const;
+            float value(const bool absolute = false);
+            void value(const float value);
+    };
+} // namespace Core
+////////////////////////////////////////////////////////////////////////////////
+#endif // VISIBLE_H
+

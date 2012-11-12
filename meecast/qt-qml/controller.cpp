@@ -144,6 +144,7 @@ Controller::load_data()
       forecast_data->temperatureunit = _config->temperatureunit();
       forecast_data->windunit = _config->windspeedunit();
       forecast_data->pressureunit = _config->pressureunit();
+      forecast_data->visibleunit = _config->visibleunit();
 
       /* Add map */
       forecast_data->MapPattern(mapfilename);
@@ -181,6 +182,7 @@ Controller::load_data()
       forecast_data->temperatureunit = _config->temperatureunit();
       forecast_data->windunit = _config->windspeedunit();
       forecast_data->pressureunit = _config->pressureunit();
+      forecast_data->visibleunit = _config->visibleunit();
       /* Add map */
       forecast_data->MapPattern(mapfilename);
 
@@ -210,6 +212,7 @@ Controller::load_data()
           forecast_data->temperatureunit = _config->temperatureunit();
           forecast_data->windunit = _config->windspeedunit();
           forecast_data->pressureunit = _config->pressureunit();
+          forecast_data->visibleunit = _config->visibleunit();
           if (i == 0)
             forecast_data->MapPattern(mapfilename);
           else
@@ -235,6 +238,7 @@ Controller::load_data()
           forecast_data->temperatureunit = _config->temperatureunit();
           forecast_data->windunit = _config->windspeedunit();
           forecast_data->pressureunit = _config->pressureunit();
+          forecast_data->visibleunit = _config->visibleunit();
           if (i == 0)
             forecast_data->MapPattern(mapfilename);
           else

@@ -61,6 +61,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString temperatureunit READ temperatureunit NOTIFY temperatureunitChanged)
     Q_PROPERTY(QString windspeedunit READ windspeedunit NOTIFY windspeedunitChanged)
     Q_PROPERTY(QString pressureunit READ pressureunit NOTIFY pressureunitChanged)
+    Q_PROPERTY(QString visibleunit READ visibleunit NOTIFY visibleunitChanged)
     Q_PROPERTY(bool fullscreen READ fullscreen NOTIFY fullscreenChanged)
     Q_PROPERTY(bool lockscreen READ lockscreen NOTIFY lockscreenChanged)
     Q_PROPERTY(bool standbyscreen READ standbyscreen NOTIFY standbyscreenChanged)
@@ -78,6 +79,8 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString source READ source NOTIFY sourceChanged)
     Q_PROPERTY(QString version READ version NOTIFY versionChanged)
     Q_PROPERTY(int updateinterval READ updateinterval NOTIFY updateintervalChanged)
+    Q_PROPERTY(int lock_screen_x_position READ lock_screen_x_position NOTIFY lock_screen_x_positionChanged)
+    Q_PROPERTY(int lock_screen_y_position READ lock_screen_y_position NOTIFY lock_screen_y_positionChanged)
 private:
     Core::DatabaseSqlite *db;
     UpdateThread *thread;
@@ -89,10 +92,14 @@ private:
     void init();
     QStringList wind_list;
     QStringList press_list;
+    QStringList vis_list;
     QSettings *standby_settings;
     QColor _standby_color_font_stationname;
     QColor _standby_color_font_temperature;
     QColor _standby_color_font_current_temperature;
+    QSettings *lockscreen_settings;
+    int _lockscreen_x_position;
+    int _lockscreen_y_position;
 protected:
     static ConfigQml* _self;
     static int _refcount;
@@ -112,6 +119,7 @@ public:
     QString temperatureunit();
     QString windspeedunit();
     QString pressureunit();
+    QString visibleunit();
     bool fullscreen();
     bool lockscreen();
     bool standbyscreen();
@@ -122,6 +130,8 @@ public:
     QColor standby_color_font_stationname();
     QColor standby_color_font_temperature();
     QColor standby_color_font_current_temperature();
+    int lock_screen_x_position();
+    int lock_screen_y_position();
     QString stationname();
     QString prevstationname();
     QString nextstationname();
@@ -158,6 +168,8 @@ public:
     Q_INVOKABLE void update_interval(int interval);
     Q_INVOKABLE QStringList pressure_list();
     Q_INVOKABLE void pressure_unit(int index);
+    Q_INVOKABLE QStringList visible_list();
+    Q_INVOKABLE void visible_unit(int index);
     Q_INVOKABLE void setfullscreen(bool c);
     Q_INVOKABLE void setlockscreen(bool c);
     Q_INVOKABLE void setstandbyscreen(bool c);
@@ -169,6 +181,8 @@ public:
     Q_INVOKABLE void set_standby_color_font_stationname(QColor c);
     Q_INVOKABLE void set_standby_color_font_temperature(QColor c);
     Q_INVOKABLE void set_standby_color_font_current_temperature(QColor c);
+    Q_INVOKABLE void set_lock_screen_x_position(int x);
+    Q_INVOKABLE void set_lock_screen_y_position(int y);
     Q_INVOKABLE QString tr(QString str);
     Q_INVOKABLE void enableGps();
     void refreshconfig();
@@ -181,6 +195,7 @@ signals:
     void temperatureunitChanged();
     void windspeedunitChanged();
     void pressureunitChanged();
+    void visibleunitChanged();
     void fullscreenChanged();
     void lockscreenChanged();
     void standbyscreenChanged();
@@ -199,6 +214,8 @@ signals:
     void updateintervalChanged();
     void configChanged();
     void splashChanged();
+    void lock_screen_x_positionChanged();
+    void lock_screen_y_positionChanged();
 public Q_SLOTS:
     void reload_config();
     void addGpsStation(double latitude, double longitude);

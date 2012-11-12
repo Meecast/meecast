@@ -33,7 +33,6 @@ Page {
         onAccepted: {
             Config.temperature_unit(selectedText);
         }
-
     }
     MySelectionDialog {
         id: wind_dlg
@@ -43,7 +42,6 @@ Page {
         onAccepted: {
             Config.windspeed_unit(selectedIndex);
         }
-
     }
     MySelectionDialog {
         id: pressure_dlg
@@ -53,8 +51,17 @@ Page {
         onAccepted: {
             Config.pressure_unit(selectedIndex);
         }
-
+	}
+	MySelectionDialog {
+        id: visible_dlg
+        model: Config.visible_list()
+        titleText: Config.tr("Visible units")
+        selectedIndex: -1
+        onAccepted: {
+            Config.visible_unit(selectedIndex);
+        }
     }
+
     Rectangle{
         anchors.fill: parent
         anchors.top: title_rect.bottom
@@ -83,130 +90,169 @@ Page {
             height: parent.height - 274
             color: "black"
         }
-        Column {
-            anchors.fill: parent
-            //spacing: 20
+		Flickable {
+			anchors.fill: parent
+		    flickableDirection: Flickable.VerticalFlick
+		    contentHeight: 850 
 
-            Label {
-                text: Config.tr("Temperature units")
-                height: 80
-                horizontalAlignment: Text.AlignLeft
-                verticalAlignment: Text.AlignVCenter
-            }
-            ButtonColumn {
-                width: parent.width
-                platformStyle: ButtonStyle {
-                    horizontalAlignment: Text.AlignLeft
-                }
-                Button {
-                    text: Config.tr("Celsius")
-                    checked: (Config.temperatureunit == 'C')
+			Column {
+				anchors.fill: parent
+				//spacing: 20
 
-                    onClicked: {
-                        Config.temperature_unit('C');
-                    }
-                }
-                Button {
-                    text: Config.tr("Fahrenheit")
-                    checked: (Config.temperatureunit == 'F')
-                    onClicked: {
-                        Config.temperature_unit('F');
-                    }
-                }
-            }
-            /*
-        Button {
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: Config.tr("Temperature")+": "+Config.temperatureunit
-            onClicked: {
-                temperature_dlg.open();
-            }
-            Component.onCompleted: {
-                temperature_dlg.selectedIndex = units.getIndex(temperature_dlg.model, Config.temperatureunit)
-            }
-        }
-        */
-            Label {
-                text: Config.tr("Wind speed units")
-                height: 80
-                horizontalAlignment: Text.AlignLeft
-                verticalAlignment: Text.AlignVCenter
-            }
-            ButtonColumn {
-                width: parent.width
-                platformStyle: ButtonStyle {
-                    horizontalAlignment: Text.AlignLeft
-                }
-                Button {
-                    text: Config.tr("m/s")
-                    checked: (Config.windspeedunit == "m/s")
-                    onClicked: {
-                        Config.windspeed_unit("0");
-                    }
-                }
-                Button {
-                    text: Config.tr("km/h")
-                    checked: (Config.windspeedunit == "km/h")
-                    onClicked: {
-                        Config.windspeed_unit("1");
-                    }
-                }
-                Button {
-                    text: Config.tr("mi/h")
-                    checked: (Config.windspeedunit == "mi/h")
-                    onClicked: {
-                        Config.windspeed_unit("2");
-                    }
-                }
+				Label {
+					text: Config.tr("Temperature units")
+					height: 60
+					horizontalAlignment: Text.AlignLeft
+					verticalAlignment: Text.AlignVCenter
+				}
+				ButtonColumn {
+					width: parent.width
+					platformStyle: ButtonStyle {
+						horizontalAlignment: Text.AlignLeft
+					}
+					Button {
+						text: Config.tr("Celsius")
+						checked: (Config.temperatureunit == 'C')
 
-            }
-            Label {
-                text: Config.tr("Pressure units")
-                height: 80
-                horizontalAlignment: Text.AlignLeft
-                verticalAlignment: Text.AlignVCenter
-            }
-            ButtonColumn {
-                width: parent.width
-                platformStyle: ButtonStyle {
-                    horizontalAlignment: Text.AlignLeft
-                }
-                Button {
-                    text: Config.tr("mbar")
-                    checked: (Config.pressureunit == "mbar")
-                    onClicked: {
-                        Config.pressure_unit("0");
-                    }
-                }
-                Button {
-                    text: Config.tr("Pa")
-                    checked: (Config.pressureunit == "Pa")
-                    onClicked: {
-                        Config.pressure_unit("1");
-                    }
-                }
-                Button {
-                    text: Config.tr("mmHg")
-                    checked: (Config.pressureunit == "mmHg")
-                    onClicked: {
-                        Config.pressure_unit("2");
-                    }
-                }
+						onClicked: {
+							Config.temperature_unit('C');
+						}
+					}
+					Button {
+						text: Config.tr("Fahrenheit")
+						checked: (Config.temperatureunit == 'F')
+						onClicked: {
+							Config.temperature_unit('F');
+						}
+					}
+				}
+				/*
+			Button {
+				anchors.horizontalCenter: parent.horizontalCenter
+				text: Config.tr("Temperature")+": "+Config.temperatureunit
+				onClicked: {
+					temperature_dlg.open();
+				}
+				Component.onCompleted: {
+					temperature_dlg.selectedIndex = units.getIndex(temperature_dlg.model, Config.temperatureunit)
+				}
+			}
+			*/
+				Label {
+					text: Config.tr("Wind speed units")
+					height: 60
+					horizontalAlignment: Text.AlignLeft
+					verticalAlignment: Text.AlignVCenter
+				}
+				ButtonColumn {
+					width: parent.width
+					platformStyle: ButtonStyle {
+						horizontalAlignment: Text.AlignLeft
+					}
+					Button {
+						text: Config.tr("m/s")
+						checked: (Config.windspeedunit == "m/s")
+						onClicked: {
+							Config.windspeed_unit("0");
+						}
+					}
+					Button {
+						text: Config.tr("km/h")
+						checked: (Config.windspeedunit == "km/h")
+						onClicked: {
+							Config.windspeed_unit("1");
+						}
+					}
+					Button {
+						text: Config.tr("mi/h")
+						checked: (Config.windspeedunit == "mi/h")
+						onClicked: {
+							Config.windspeed_unit("2");
+						}
+					}
 
-            }
+				}
+				Label {
+					text: Config.tr("Pressure units")
+					height: 60
+					horizontalAlignment: Text.AlignLeft
+					verticalAlignment: Text.AlignVCenter
+				}
+				ButtonColumn {
+					width: parent.width
+					platformStyle: ButtonStyle {
+						horizontalAlignment: Text.AlignLeft
+					}
+					Button {
+						text: Config.tr("mbar")
+						checked: (Config.pressureunit == "mbar")
+						onClicked: {
+							Config.pressure_unit("0");
+						}
+					}
+					Button {
+						text: Config.tr("Pa")
+						checked: (Config.pressureunit == "Pa")
+						onClicked: {
+							Config.pressure_unit("1");
+						}
+					}
+					Button {
+						text: Config.tr("mmHg")
+						checked: (Config.pressureunit == "mmHg")
+						onClicked: {
+							Config.pressure_unit("2");
+						}
+					}
+				}
+				Label {
+					text: Config.tr("Visible units")
+					height: 60
+					horizontalAlignment: Text.AlignLeft
+					verticalAlignment: Text.AlignVCenter
+				}
+				ButtonColumn {
+					width: parent.width
+					platformStyle: ButtonStyle {
+						horizontalAlignment: Text.AlignLeft
+					}
+					Button {
+						text: Config.tr("m")
+						checked: (Config.visibleunit == "m")
+						onClicked: {
+							Config.visible_unit("0");
+						}
+					}
+					Button {
+						text: Config.tr("km")
+						checked: (Config.visibleunit == "km")
+						onClicked: {
+							Config.visible_unit("1");
+						}
+					}
+					Button {
+						text: Config.tr("mi")
+						checked: (Config.visibleeunit == "mi")
+						onClicked: {
+							Config.visible_unit("2");
+						}
+					}
 
-            /*
-        Button {
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: Config.tr("Wind speed")+": "+Config.windspeedunit
-            onClicked: {
-                wind_dlg.open();
-            }
-            Component.onCompleted: {
-                wind_dlg.selectedIndex = units.getIndex(wind_dlg.model, Config.windspeedunit)
-            }
-        }*/
-        }
+				}
+
+				/*
+			Button {
+				anchors.horizontalCenter: parent.horizontalCenter
+				text: Config.tr("Wind speed")+": "+Config.windspeedunit
+				onClicked: {
+					wind_dlg.open();
+				}
+				Component.onCompleted: {
+					wind_dlg.selectedIndex = units.getIndex(wind_dlg.model, Config.windspeedunit)
+				}
+			}*/
+			}
+		}
     }
     Rectangle {
         id: title_rect
@@ -215,7 +261,7 @@ Page {
         anchors.leftMargin: margin
         anchors.rightMargin: margin
         width: parent.width - 2*margin
-        height: 80
+        height: 60
         color: "black"
         Label {
             id: title

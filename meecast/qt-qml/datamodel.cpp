@@ -190,6 +190,7 @@ DataModelQt::update_model(int period)
                 forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
                 forecast_data->windunit = _config->WindSpeedUnit().c_str();
                 forecast_data->pressureunit = _config->PressureUnit().c_str();
+                forecast_data->visibleunit = _config->VisibleUnit().c_str();
                 /* Add Map */
                 forecast_data->MapPattern(mapfilename);
 
@@ -230,6 +231,7 @@ DataModelQt::update_model(int period)
                 forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
                 forecast_data->windunit = _config->WindSpeedUnit().c_str();
                 forecast_data->pressureunit = _config->PressureUnit().c_str();
+                forecast_data->visibleunit = _config->VisibleUnit().c_str();
                 /* Add Map */
                 forecast_data->MapPattern(mapfilename);
 
@@ -251,6 +253,7 @@ DataModelQt::update_model(int period)
                     forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
                     forecast_data->windunit = _config->WindSpeedUnit().c_str();
                     forecast_data->pressureunit = _config->PressureUnit().c_str();
+                    forecast_data->visibleunit = _config->VisibleUnit().c_str();
                     /* Add Map */
                     if (i == 0)
                         forecast_data->MapPattern(mapfilename);
@@ -275,6 +278,7 @@ DataModelQt::update_model(int period)
                     forecast_data->temperatureunit = _config->TemperatureUnit().c_str();
                     forecast_data->windunit = _config->WindSpeedUnit().c_str();
                     forecast_data->pressureunit = _config->PressureUnit().c_str();
+                    forecast_data->visibleunit = _config->VisibleUnit().c_str();
                     /* Add Map */
                     if (i == 0)
                         forecast_data->MapPattern(mapfilename);

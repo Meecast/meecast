@@ -33,4 +33,6 @@ meecast/qt-qml/qml/WeatherPage.qml
 meecast/qt-qml/qml/IconsetPage.qml
 meecast/qt-qml/qml/SearchField.qml
 meecast/qt-qml/qml/UpdatePage.qml
+meecast/qt-qml/qml/LockScreen.qml
+meecast/qt-qml/qml/StandbyScreen.qml
 

@@ -29,66 +29,65 @@ Page {
             }
         }
         ButtonRow{
-	ToolButton {
-            id: "toolbarnow"
-            platformStyle: TabButtonStyle{}
-            visible: (current && day == 0) ? true : false
-            onClicked: {
-                day_period = "current";
-                updateperiod();
+            ToolButton {
+                id: "toolbarnow"
+                platformStyle: TabButtonStyle{}
+                visible: (current && day == 0) ? true : false
+                onClicked: {
+                    day_period = "current";
+                    updateperiod();
+                }
+                iconSource:  Config.imagespath + "/now.png"
+                flat: true
+                checkable: true
+                checked: flase 
             }
-            iconSource:  Config.imagespath + "/now.png"
-	    flat: true
-	    checkable: true
-	    checked: flase 
-        }
 
-        ToolButton {
-            id: "toolbarday"
-            platformStyle: TabButtonStyle{}
-            onClicked: {
-                day_period = "day";
-                updateperiod();
+            ToolButton {
+                id: "toolbarday"
+                platformStyle: TabButtonStyle{}
+                onClicked: {
+                    day_period = "day";
+                    updateperiod();
+                }
+                iconSource:  Config.imagespath + "/day.png"
+                flat: true 
+                checkable: true
+                checked: true 
             }
-            iconSource:  Config.imagespath + "/day.png"
-	    flat: true 
-	    checkable: true
-	    checked: true 
-        }
-        ToolButton {
-            id: "toolbarnight"
-            platformStyle: TabButtonStyle{}
-            onClicked: {
-                day_period = "night";
-                updateperiod();
+            ToolButton {
+                id: "toolbarnight"
+                platformStyle: TabButtonStyle{}
+                onClicked: {
+                    day_period = "night";
+                    updateperiod();
+                }
+                iconSource:  Config.imagespath + "/night.png"
+                flat: true
+                checkable: true
+                checked: flase 
             }
-            iconSource:  Config.imagespath + "/night.png"
-	    flat: true
-	    checkable: true
-	    checked: flase 
-        }
-        ToolButton {
-            id: "toolbarclock"
-            platformStyle: TabButtonStyle{}
-            visible: (check_hours()) ? true : false
-            onClicked: {
-                day_period = "hours";
-                updateperiod();
+            ToolButton {
+                id: "toolbarclock"
+                platformStyle: TabButtonStyle{}
+                visible: (check_hours()) ? true : false
+                onClicked: {
+                    day_period = "hours";
+                    updateperiod();
+                }
+                iconSource:  Config.imagespath + "/clock.png"
+                flat: true
+                checkable: true
+                checked: flase 
             }
-            iconSource:  Config.imagespath + "/clock.png"
-	    flat: true
-	    checkable: true
-	    checked: flase 
         }
-
-}
         ToolIcon {
             iconId: "toolbar-view-menu"
             onClicked: {(myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()}
             anchors.right: parent == undefined ? undefined : parent.right
         }
 
-   }
+    }
     orientationLock: PageOrientation.LockPortrait
     function openFile(file)
     {
@@ -105,11 +104,10 @@ Page {
         var i = 0;
         var result = 0;
         var fulldate = model_day.getdata(day, "fulldate");
-        while (i<model_hours.rowCount())
-        {   
+        while (i<model_hours.rowCount()){   
             if (model_hours.getdata(i, "fulldate") == fulldate)
-		result = 1;
-	    i++;
+		        result = 1;
+	        i++;
         }
         return result;
     }
@@ -118,11 +116,11 @@ Page {
     {
         condition.clear()
         condition2.clear()
-	if (day_period == "current"){
-	    toolbarnow.checked = true
-	    toolbarday.checked = false 
-	    toolbarnight.checked = false
-	    toolbarclock.checked = false
+	    if (day_period == "current"){
+	        toolbarnow.checked = true
+	        toolbarday.checked = false 
+	        toolbarnight.checked = false
+	        toolbarclock.checked = false
             day_rect.visible = true;
             current_rect.visible = true;
             hours_list.visible = false;
@@ -167,6 +165,12 @@ Page {
                 if ((model_current.getdata(day, "temp_high")) != "N/A")
                	    temperature.text =  model_current.getdata(day, "temp_high") + '°'
             }
+            if ((model_current.getdata(day, "visible")) != "N/A")
+                condition.append({cond_name: Config.tr("Visible:"),
+                         value: model_current.getdata(day, "visible") + ' ' + Config.tr(Config.visibleunit)});
+            if ((model_current.getdata(day, "uv_index")) != "")
+                condition.append({cond_name: Config.tr("UV index:"),
+                         value: model_current.getdata(day, "uv_index")});
 	}
 
         if (day_period == "day"){
@@ -270,7 +274,7 @@ Page {
 	}
 	if (day_period == "hours"){
             day_period_name = Config.tr("Hours");
-	    toolbarnow.checked = false;
+	        toolbarnow.checked = false;
             toolbarnight.checked = false;
             toolbarday.checked = false;
             toolbarclock.checked = true;
@@ -524,6 +528,7 @@ Page {
                 width: parent.width - 2*margin
                 height: 260
                 cellWidth: (parent.width - 2*margin) / 2
+                cellHeight: (condition.count > 6) ? 64 : 94
                 model: condition
                 interactive: false
                 clip: true
@@ -581,7 +586,7 @@ Page {
                     }
                 }
             }
-	    Rectangle {
+	        Rectangle {
                id: map_rect  
                height: 44
                color: "transparent"
@@ -592,37 +597,34 @@ Page {
                Text {
                     id: map_text
                     anchors.fill: parent
-                    text: "Show on Map"
+                    text:  Config.tr("Show on Map")
                     color: "white"
                     visible: false
                     font.pointSize: 24 
                     width: parent.width 
                     horizontalAlignment: Text.AlignHCenter
                }
-	       MouseArea {
-                     anchors.fill: parent
-                     onClicked: {
-                            console.log("Map onclicked");
-                            pageStack.push(Qt.resolvedUrl("MapPage.qml"),
-                                           {map_pattern: map_pattern, count_of_maps: count_of_maps }
-                                           )
-                      }
+	           MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                           console.log("Map onclicked");
+                           pageStack.push(Qt.resolvedUrl("MapPage.qml"),
+                                          {map_pattern: map_pattern, count_of_maps: count_of_maps }
+                                         )
+                    }
                }
-	    }
+	        }
         }
         ListView {
                 id: hours_list
                 visible: false 
-               // anchors.top: parent.top
                 anchors.top: day_rect.bottom
                 model: Forecast_hours_model 
                 delegate: itemDelegate
                 width: parent.width
                 height: 80 * Forecast_hours_model.rowCount()
-                //height: 800
                 interactive: false
                 clip: true
-
         }
         Component {
                 id: itemDelegate

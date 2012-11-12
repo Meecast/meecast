@@ -1,12 +1,23 @@
+meecast (0.6.8) unstable; urgency=low
+
+  * Added icon and description string to gismeteo.ru 
+  * Added data UV-index and Visible for weather.com source
+  * Added visible units
+  * Decreased cycle count to 1 for Map
+
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 29 Oct 2012 08:31:23 +0200
+
 meecast (0.6.7) unstable; urgency=low
 
   * Added icon to hko.gov.hk
   * Fixed segmentation fault after adding GPS-station in nil station list
   * Added Malaysia to foreca.com database
   * Added icon and description string to foreca
-  * Changed color for rain from Blue to Cyan in standby screen icons
+  * Changed color for raindrops in standby screen icons from blue to cyan
+  * Added parameters for LockScreeni Widget
+  * Updated Russian translation
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 09 Oct 2012 11:41:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 29 Oct 2012 08:31:23 +0200
 
 meecast (0.6.6) unstable; urgency=low
 

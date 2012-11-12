@@ -74,6 +74,7 @@ SOURCES = \
     databasesqlite.cpp \
     downloader.cpp \
     windspeed.cpp \
+    visible.cpp \
     pressure.cpp
 
 
@@ -95,6 +96,7 @@ HEADERS = \
     databaseabstract.h \
     downloader.h \
     windspeed.h \
+    visible.h \
     pressure.h
 
 

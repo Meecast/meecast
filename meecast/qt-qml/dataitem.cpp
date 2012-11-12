@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasiliyeu
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -39,6 +39,7 @@ DataItem::DataItem(const Core::Data* data):QObject(),Core::Data(data){
     temperatureunit = "C";
     windunit = "m/c";
     pressureunit = "mbar";
+    visibleunit = "m";
 }
 void
 DataItem::update(QString filename)
@@ -76,10 +77,12 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[Temp_loRole] = "temp_low";
     names[Temp_Role] = "temp";
     names[IconRole] = "pict";
+    names[UVindexRole] = "uv_index";
     names[Wind_directionRole] = "wind_direction";
     names[Wind_speedRole] = "wind_speed";
     names[Wind_gustRole] = "wind_gust";
     names[HumidityRole] = "humidity";
+    names[VisibleRole] = "visible";
     names[DescriptionRole] = "description";
     names[CurrentRole] = "current";
     names[DateRole] = "date";
@@ -137,6 +140,10 @@ QVariant DataItem::data(int role)
         return current();
     case DescriptionRole:
         return description();
+    case UVindexRole:
+        return uv_index();
+    case VisibleRole:
+        return visible();
     case DateRole:
         return date();
     case ShortDateRole:
@@ -449,6 +456,35 @@ DataItem::ppcp() {
         return c;
     }
     return c.number((DataItem::Data::Ppcp()), 'f', 0);
+}
+
+QString
+DataItem::uv_index() {
+    QString c;
+    if (DataItem::Data::UVindex() == INT_MAX){
+        c = "N/A";
+        return c;
+    }
+    c = c.number((DataItem::Data::UVindex()), 'i', 0);
+    switch (DataItem::Data::UVindex()){
+        case 0: c = c + " " + QString::fromUtf8(_("(Low)")); break;
+        case 1: c = c + " " + QString::fromUtf8(_("(Low)")); break;
+        case 4: c = c + " " + QString::fromUtf8(_("(Moderate)")); break;
+        case 5: c = c + " " + QString::fromUtf8(_("(Moderate)")); break;
+    }
+    return c;
+}
+
+QString
+DataItem::visible() {
+    QString c;
+    if (DataItem::Data::ViSible().value() == INT_MAX){
+        c = "N/A";
+        return c;
+    }
+    DataItem::Data::ViSible().units(visibleunit.toStdString());
+    c = c.number(DataItem::Data::ViSible().value(), 'f', 0);
+    return c;
 }
 
 void

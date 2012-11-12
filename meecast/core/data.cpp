@@ -39,6 +39,7 @@ namespace Core {
         _flike = new Temperature;
         //_windSpeed = INT_MAX;
         _windSpeed = new Windspeed(INT_MAX, "m/s");
+        _visible = new Visible(INT_MAX, "m");
         _windGust = INT_MAX;
         _humidity = INT_MAX;
         //_pressure = INT_MAX;
@@ -62,6 +63,7 @@ namespace Core {
         _sunrise = 0;
         _sunset = 0;
         _ppcp = INT_MAX;
+        _uv_index = INT_MAX;
     }
     ////////////////////////////////////////////////////////////////////////////////
     Data::Data(const Data& data){
@@ -71,6 +73,7 @@ namespace Core {
     Data::Data(const Data *data){
         _flike = data->_flike;
         _windSpeed = data->_windSpeed;
+        _visible = data->_visible;
         _windGust = INT_MAX;
         _humidity = data->_humidity;
         //_pressure = INT_MAX;
@@ -87,6 +90,7 @@ namespace Core {
         _end_time = data->_end_time;
         _flike = data->_flike;
         _ppcp = data->_ppcp;
+        _uv_index = data->_uv_index;
         _short_day_name = data->_short_day_name;
         _full_day_name = data->_full_day_name;
         _full_month_name = data->_full_month_name; 
@@ -179,8 +183,14 @@ namespace Core {
          // need to check type ( )
          return _windSpeed;
      }*/
-     Windspeed& Data::WindSpeed(){
+     Windspeed& 
+     Data::WindSpeed(){
          return *_windSpeed;
+     }
+////////////////////////////////////////////////////////////////////////////////
+     Visible& 
+     Data::ViSible(){
+         return *_visible;
      }
 ////////////////////////////////////////////////////////////////////////////////
      void
@@ -251,6 +261,15 @@ namespace Core {
      }
 ////////////////////////////////////////////////////////////////////////////////
      void
+     Data::UVindex(int index){
+         _uv_index = index;
+     }
+     int
+     Data::UVindex() const{
+         return _uv_index;
+     }
+////////////////////////////////////////////////////////////////////////////////
+     void
      Data::Text(const std::string& text){
          /* Check possible direction (N,NW,NNW,NE,NEE,S,SW,SWW,SE,SEE, E, W) */
          _text->assign(text);
@@ -297,6 +316,7 @@ namespace Core {
     Data::~Data(){
        delete _windDirection;
        delete _windSpeed;
+       delete _visible;
        delete _text;
        delete _temperature_hi;
        delete _temperature_low;

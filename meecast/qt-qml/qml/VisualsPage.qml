@@ -129,11 +129,11 @@ Page {
 	    width: parent.width
 
 	    Label {
-		id: titleLabel2
-		anchors.verticalCenter: titleField2.verticalCenter
-		font.capitalization: Font.MixedCase
-		color: "white"
-		text: Config.tr("Information")
+            id: titleLabel2
+            anchors.verticalCenter: titleField2.verticalCenter
+            font.capitalization: Font.MixedCase
+            color: "white"
+            text: Config.tr("Information")
 	    }
 
 	    Image {
@@ -524,6 +524,26 @@ Page {
                 anchors.fill: parent
                 onClicked: {
                     visuals.openFile("StandbyScreen.qml");
+                }
+            }
+        }
+        Item {
+            width: parent.width
+            height: 80
+            Label {
+                text: Config.tr("Settings of LockScreen")
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            Image {
+                source: "image://theme/icon-m-common-drilldown-arrow-inverse"
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    visuals.openFile("LockScreen.qml");
                 }
             }
         }

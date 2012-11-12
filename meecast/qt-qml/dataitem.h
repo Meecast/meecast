@@ -51,10 +51,12 @@ class DataItem : public QObject, public Core::Data
         Temp_loRole,
         Temp_Role,
         IconRole,
+        UVindexRole,
         Wind_directionRole,
         Wind_speedRole,
         Wind_gustRole,
         HumidityRole,
+        VisibleRole,
         DescriptionRole,
         CurrentRole,
         DateRole,
@@ -89,6 +91,8 @@ public:
     Q_PROPERTY(QString wind_speed READ wind_speed)
     Q_PROPERTY(QString humidity READ humidity)
     Q_PROPERTY(QString pressure READ pressure)
+    Q_PROPERTY(QString uv_index READ uv_index)
+    Q_PROPERTY(QString visible READ visible)
     Q_PROPERTY(QString icon READ icon)
     Q_PROPERTY(QString shortdate READ shortdate)
     Q_PROPERTY(QString sunrise READ sunrise)
@@ -108,6 +112,8 @@ public:
     QString temperature_low();
     QString temperature();
     QString wind_direction();
+    QString uv_index();
+    QString visible();
     QString wind_speed();
     inline QString wind_gust();
     QString humidity();
@@ -136,6 +142,7 @@ public:
     QString temperatureunit;
     QString windunit;
     QString pressureunit;
+    QString visibleunit;
 };
 
 #endif // DATAITEM_H

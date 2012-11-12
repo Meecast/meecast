@@ -38,6 +38,7 @@
 #include "temperature.h"
 #include "windspeed.h"
 #include "pressure.h"
+#include "visible.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
@@ -51,6 +52,7 @@ namespace Core{
         //float _windSpeed;
         Windspeed *_windSpeed;
         Pressure *_pressure;
+        Visible *_visible;
         std::string *_windDirection;
         float _windGust;
         int _humidity;
@@ -69,6 +71,7 @@ namespace Core{
         bool _current;
         bool _hour;
         float _ppcp;
+        int _uv_index;
         public:
             Data();
             Data(const Data& data);
@@ -86,6 +89,7 @@ namespace Core{
             //void  WindSpeed(float windspeed);
             //float WindSpeed(void) const;
             Windspeed& WindSpeed();
+            Visible&   ViSible();
             void  WindDirection(const std::string& text);
             std::string& WindDirection(void);
             void  MapPattern(const std::string& text);
@@ -96,6 +100,8 @@ namespace Core{
             int   Humidity(void) const;
             void  Icon(int icon);
             int   Icon(void) const;
+            void  UVindex(int index);
+            int   UVindex(void) const;
             void  Current(bool current);
             bool  Current(void) const;
             void  Hour(bool hour);

@@ -51,6 +51,9 @@ ConfigQml::~ConfigQml()
 {
     if (standby_settings)
         delete standby_settings;
+    if (lockscreen_settings)
+        delete lockscreen_settings;
+
 }
 
 
@@ -87,6 +90,12 @@ void ConfigQml::init()
     _standby_color_font_temperature = v.value<QColor>();
      v = standby_settings->value("color_font_current_temperature", QColor(Qt::green));
     _standby_color_font_current_temperature = v.value<QColor>();
+    /* setting for lockscreen */
+   lockscreen_settings = new QSettings("/home/user/.config/com.meecast.omweather/lockscreen.conf",QSettings::NativeFormat); 
+    v = lockscreen_settings->value("x_position", int(275));
+    _lockscreen_x_position = v.value<int>();
+    v = lockscreen_settings->value("y_position", int(240));
+    _lockscreen_y_position = v.value<int>();
 
     thread = new UpdateThread();
     connect(thread, SIGNAL(finished()), this, SLOT(downloadFinishedSlot()));
@@ -95,6 +104,7 @@ void ConfigQml::init()
 
     wind_list << "m/s" << "km/h" << "mi/h";
     press_list << "mbar" << "Pa" << "mmHg";
+    vis_list << "m" << "km" << "mi";
 
     if (gps()){
         _gps = new GpsPosition();
@@ -129,11 +139,14 @@ void ConfigQml::init()
 void
 ConfigQml::saveConfig()
 {
-    Core::Config::saveConfig();
     standby_settings->setValue("color_font_stationname", _standby_color_font_stationname);
     standby_settings->setValue("color_font_temperature", _standby_color_font_temperature);
     standby_settings->setValue("color_font_current_temperature", _standby_color_font_current_temperature);
     standby_settings->sync();
+    lockscreen_settings->setValue("x_position", _lockscreen_x_position);
+    lockscreen_settings->setValue("y_position", _lockscreen_y_position);
+    lockscreen_settings->sync();
+    Core::Config::saveConfig();
     qDebug()<<"SaveConfig";
 }
 
@@ -254,6 +267,14 @@ ConfigQml::pressureunit(){
     return c;
 }
 
+QString
+ConfigQml::visibleunit(){
+    QString c;
+    //c = QString(QString::fromUtf8(_(ConfigQml::Config::WindSpeedUnit().c_str())));
+    c = ConfigQml::Config::VisibleUnit().c_str();
+    return c;
+}
+
 QStringList
 ConfigQml::pressure_list()
 {
@@ -264,10 +285,28 @@ ConfigQml::pressure_list()
     return l;
 }
 
+QStringList
+ConfigQml::visible_list()
+{
+    QStringList l;
+    for (int i=0; i < vis_list.size(); i++){
+        l.append(QString(QString::fromUtf8(_(vis_list.at(i).toStdString().c_str()))));
+    }
+    return l;
+}
+
 void
 ConfigQml::pressure_unit(int index)
 {
     ConfigQml::Config::PressureUnit(press_list.at(index).toStdString());
+    saveConfig();
+    refreshconfig();
+}
+
+void
+ConfigQml::visible_unit(int index)
+{
+    ConfigQml::Config::VisibleUnit(vis_list.at(index).toStdString());
     saveConfig();
     refreshconfig();
 }
@@ -430,6 +469,16 @@ ConfigQml::standby_color_font_stationname(){
     return _standby_color_font_stationname;
 }
 
+int
+ConfigQml::lock_screen_x_position(){
+    return _lockscreen_x_position;
+}
+
+int
+ConfigQml::lock_screen_y_position(){
+    return _lockscreen_y_position;
+}
+
 void
 ConfigQml::set_standby_color_font_stationname(QColor c)
 {   
@@ -457,6 +506,20 @@ ConfigQml::set_standby_color_font_current_temperature(QColor c)
 {   
     _standby_color_font_current_temperature = c;
     saveConfig();
+}
+
+void
+ConfigQml::set_lock_screen_x_position(int x)
+{   
+    _lockscreen_x_position = x;
+    saveConfig();
+}
+void
+ConfigQml::set_lock_screen_y_position(int y)
+{   
+    _lockscreen_y_position = y;
+    saveConfig();
+    refreshconfig();
 }
 
 QStringList
@@ -770,9 +833,12 @@ ConfigQml::refreshconfig(){
     emit ConfigQml::imagespathChanged();
     emit ConfigQml::temperatureunitChanged();
     emit ConfigQml::windspeedunitChanged();
+    emit ConfigQml::visibleunitChanged();
     emit ConfigQml::fontcolorChanged();
     emit ConfigQml::stationnameChanged();
     emit ConfigQml::configChanged();
+    emit ConfigQml::lock_screen_x_positionChanged();
+    emit ConfigQml::lock_screen_y_positionChanged();
 }
 
 void

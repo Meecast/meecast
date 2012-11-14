@@ -39,8 +39,6 @@ NavigationPane {
 			   current_temp_text.text = Current.getdata(0, "temp") + '°'
 			   current_rect_back.background = Color.create(main.getColor(Current.getdata(0, "temp")));
 			}
-
-
 		}
 
 		function getColor(t) {
@@ -88,7 +86,7 @@ NavigationPane {
 
         function onConfigChanged() {
             console.log("end update station name = "+Config.stationname);
-//            startview.visible = Config.stationname == "Unknown" ? true : false;
+            startview.visible = Config.stationname == "Unknown" ? true : false;
 //            mainview.visible = Config.stationname == "Unknown" ? false : true;
             main.updatestationname();
             isUpdate = false;
@@ -112,13 +110,36 @@ NavigationPane {
         }
 
    
-        content: Container {
+		content: Container {
             background: Color.Black
 
             onCreationCompleted: {
                  Config.configChanged.connect (main.onConfigChanged);
             }
             layout: AbsoluteLayout {}
+            Container{
+				id: startview
+				preferredWidth: 768
+				background: Color.Black
+				layout: AbsoluteLayout {
+                }
+				Container{
+			    	preferredWidth: 768
+					preferredHeight: 438
+					layoutProperties: AbsoluteLayoutProperties {
+						positionY: 30
+					}
+					background: Color.White
+				}
+				ImageView {
+					imageSource: "asset:///share/images/mask_background.png"
+					preferredWidth: 768
+					preferredHeight: 438
+					layoutProperties: AbsoluteLayoutProperties {
+						positionY: 30
+					}
+				}
+			}
             Container{
             	background: Color.Black
             	preferredWidth: 768

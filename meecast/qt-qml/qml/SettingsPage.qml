@@ -55,16 +55,19 @@ Page {
 			attachedObjects: [
 				GroupDataModel {
 					id: groupDataModel
+				},
+				ComponentDefinition {
+					id: nextpage
 				}
 			]
 			ListView {
 				id: listview
 				dataModel: groupDataModel
 				onCreationCompleted: {
-					groupDataModel.insert( {"name" : "Manage locations", "qml" : "StationsPage.qml"});
+					groupDataModel.insert( {"name" : "Update", "qml" : "Update.qml"});
 					groupDataModel.insert( {"name" : "Measurement units", "qml" : "UnitsPage.qml"});
 					groupDataModel.insert( {"name" : "Appearance", "qml" : "VisualsPage.qml"});
-					groupDataModel.insert( {"name" : "Update", "qml" : "Update.qml"});
+					groupDataModel.insert( {"name" : "Manage locations", "qml" : "StationsPage.qml"});
 				}           
 				listItemComponents: [
 					 ListItemComponent {
@@ -89,27 +92,27 @@ Page {
 								  preferredHeight: settings.screen_height
 								  horizontalAlignment:  HorizontalAlignment.Fill
 								  verticalAlignment: VerticalAlignment.Center
-								  // Apply a text style to create large, light gray text
-                                opacity: 1.0
-                                textStyle {
+                                  textStyle {
 									  base: SystemDefaults.TextStyles.TitleText
 									  color: Color.White
 								  }
 							  }
 							  Label {                 
-								   text: ">"
-								   horizontalAlignment: HorizontalAlignment.Right
-								   verticalAlignment: VerticalAlignment.Center
-								   textStyle {
-									   base: SystemDefaults.TextStyles.BigText
-									   color: Color.White
-									 }
+								text: ">"
+								horizontalAlignment: HorizontalAlignment.Right
+								verticalAlignment: VerticalAlignment.Center
+								textStyle {
+									base: SystemDefaults.TextStyles.BigText
+									color: Color.White
+								}
 							  }
 						 }
 					}
 				]
 				onTriggered: {             
-					settings.openFile(model.page);
+					console.log("Index ", groupDataModel.data(indexPath).qml);
+					nextpage.source = groupDataModel.data(indexPath).qml;
+					navigationPane.push(nextpage.createObject())
 				}
 			}
 		}       

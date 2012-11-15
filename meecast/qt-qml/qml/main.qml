@@ -117,6 +117,17 @@ NavigationPane {
                  Config.configChanged.connect (main.onConfigChanged);
             }
             layout: AbsoluteLayout {}
+
+			Container{
+                layoutProperties: AbsoluteLayoutProperties {
+                	positionX: 0
+                    positionY: 560
+                }
+                background: Color.Black
+                preferredWidth: 768
+                preferredHeight: 1000
+        	}
+
             Container{
 				id: startview
 				preferredWidth: 768
@@ -139,7 +150,34 @@ NavigationPane {
 						positionY: 30
 					}
 				}
-			}
+				Label {
+                    text: Config.tr("No locations are set up yet.") 
+                    horizontalAlignment: HorizontalAlignment.Center
+                    preferredWidth: 768 
+					multiline: true
+                    textStyle.textAlign: TextAlign.Center
+                    textStyle {
+							base: SystemDefaults.TextStyles.BigText
+                            color: Color.create("#999999")
+                    }
+					layoutProperties: AbsoluteLayoutProperties {
+						positionY: 400 
+					}
+                }
+                Button {
+                    horizontalAlignment: HorizontalAlignment.Center
+                    preferredWidth: 768 
+                	text: Config.tr("Set locations")
+                    
+                	onClicked: {
+                    	main.openFile("SourcePage.qml")
+                	}
+					layoutProperties: AbsoluteLayoutProperties {
+						positionY: 800 
+					}
+                    
+                }
+            }
             Container{
             	background: Color.Black
             	preferredWidth: 768
@@ -375,36 +413,27 @@ NavigationPane {
 							}
 						}        
 					}			        
-		    }
-        	Container{
-                layoutProperties: AbsoluteLayoutProperties {
-                	positionX: 0
-                    positionY: 560
-                }
-                background: Color.Black
-                preferredWidth: 768
-                preferredHeight: 1000
-        	}
-			Container{
-                preferredWidth: 768
-		        layout: DockLayout {}
-                layoutProperties: AbsoluteLayoutProperties {
-                	positionX: 0
-                    positionY: 0
-                }
-				background: Color.Black
-				ImageButton {                 
-				   id: left_arrow
-				   visible: Config.prevstationname == "" ? false : true;
-				   horizontalAlignment: HorizontalAlignment.Left
-                   verticalAlignment: VerticalAlignment.Center
-				   preferredWidth: 62*1.6
-				   preferredHeight: 62*1.6
-			       defaultImageSource: "asset:///share/images/arrow_left.png"
-                   onClicked: {
-						Config.prevstation();
-						main.updatestationname();
-                   }
+		    	}
+        		Container{
+					preferredWidth: 768
+					layout: DockLayout {}
+					layoutProperties: AbsoluteLayoutProperties {
+						positionX: 0
+						positionY: 0
+					}
+					background: Color.Black
+					ImageButton {                 
+					   id: left_arrow
+					   visible: Config.prevstationname == "" ? false : true;
+					   horizontalAlignment: HorizontalAlignment.Left
+					   verticalAlignment: VerticalAlignment.Center
+					   preferredWidth: 62*1.6
+					   preferredHeight: 62*1.6
+					   defaultImageSource: "asset:///share/images/arrow_left.png"
+					   onClicked: {
+							Config.prevstation();
+							main.updatestationname();
+					   }
 			    }
 			    Container{
 			        layout: DockLayout {}

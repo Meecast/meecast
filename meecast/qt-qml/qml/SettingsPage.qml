@@ -9,21 +9,12 @@ Page {
     property int screen_width  :  768
     property int screen_height : 1280    
 
-    function openFile(file)
-    {
-        var component = Qt.createComponent(file);
-        if (component.status == Component.Ready){
-            pageStack.push(component);
-        }else {
-            console.log("error open file "+file);
-        }
-    }
-    
+   
 
     content:  Container{
         
        id: absoluteLayoutContainer
-       background: Color.Black
+       background: Color.White
        layout: AbsoluteLayout {}
        Container{
                 layoutProperties: AbsoluteLayoutProperties {
@@ -39,7 +30,7 @@ Page {
                     positionX: 0
                     positionY: 90
                  }
-                imageSource: "asset:///images/mask_background_grid.png"
+                imageSource: "asset:///share/images/mask_background_grid.png"
                 preferredWidth: 768  
         }
         Container{
@@ -112,7 +103,8 @@ Page {
 				onTriggered: {             
 					console.log("Index ", groupDataModel.data(indexPath).qml);
 					nextpage.source = groupDataModel.data(indexPath).qml;
-					navigationPane.push(nextpage.createObject())
+					var newPage = nextpage.createObject();
+                    rootWindow.push(newPage);
 				}
 			}
 		}       

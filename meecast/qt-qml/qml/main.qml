@@ -130,6 +130,7 @@ NavigationPane {
 
             Container{
 				id: startview
+            	visible : Config.stationname == "Unknown" ? true : false;
 				preferredWidth: 768
 				background: Color.Black
 				layout: AbsoluteLayout {

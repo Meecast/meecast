@@ -156,6 +156,7 @@ ConfigQml::iconset(){
     c = ConfigQml::Config::iconSet().c_str();
     return c;
 }
+
 QStringList
 ConfigQml::icon_list()
 {
@@ -531,6 +532,7 @@ ConfigQml::stations()
     }
     return l;
 }
+
 void
 ConfigQml::removeStation(int index)
 {

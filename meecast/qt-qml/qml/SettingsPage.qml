@@ -24,7 +24,7 @@ Page {
                 background: Color.Black
                 preferredWidth: 768
                 preferredHeight: 90
-        }                       
+       }                       
        ImageView {
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
@@ -42,7 +42,11 @@ Page {
                 preferredWidth: 768
                 preferredHeight: 1000
         }
-        Container{
+		Container{
+			layoutProperties: AbsoluteLayoutProperties {
+                                positionX: 0
+                                positionY: 0
+            }
 			attachedObjects: [
 				GroupDataModel {
 					id: groupDataModel
@@ -55,32 +59,25 @@ Page {
 				id: listview
 				dataModel: groupDataModel
 				onCreationCompleted: {
-					groupDataModel.insert( {"name" : "Update", "qml" : "Update.qml"});
-					groupDataModel.insert( {"name" : "Measurement units", "qml" : "UnitsPage.qml"});
-					groupDataModel.insert( {"name" : "Appearance", "qml" : "VisualsPage.qml"});
-					groupDataModel.insert( {"name" : "Manage locations", "qml" : "StationsPage.qml"});
+					groupDataModel.insert( {"name" :  Config.tr("Update"), "qml" : "Update.qml"});
+					groupDataModel.insert( {"name" :  Config.tr("Measurement units"), "qml" : "UnitsPage.qml"});
+					groupDataModel.insert( {"name" :  Config.tr("Appearance"), "qml" : "VisualsPage.qml"});
+					groupDataModel.insert( {"name" :  Config.tr("Manage locations"), "qml" : "StationsPage.qml"});
 				}           
 				listItemComponents: [
 					 ListItemComponent {
 					 	type: "header"
 						Label {
-							text: "Settings"
-							textStyle {
-								base: SystemDefaults.TextStyles.BigText
-								color: Color.White
-							}
-						}
+		                }
 					 },   
 					 ListItemComponent {
 						 type: "item"
 						 id: listitemcomp
 						 Container {
 							  layout: DockLayout {}
-						 
 							  Label {                 
 								  text: ListItemData.name
 								  preferredWidth: 768
-								  preferredHeight: settings.screen_height
 								  horizontalAlignment:  HorizontalAlignment.Fill
 								  verticalAlignment: VerticalAlignment.Center
                                   textStyle {
@@ -107,7 +104,19 @@ Page {
                     rootWindow.push(newPage);
 				}
 			}
-		}       
+		} 
+		Label {
+			layoutProperties: AbsoluteLayoutProperties {
+            	positionX: 0
+                positionY: 0
+            }
+		    preferredWidth: 768
+		    text:  Config.tr("Settings") 
+			textStyle {
+				base: SystemDefaults.TextStyles.TitleText
+				color: Color.White
+			}
+		}
     }
 }
 

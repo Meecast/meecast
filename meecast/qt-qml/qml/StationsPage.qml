@@ -9,11 +9,28 @@ Page {
     property string removedStationName: ""
     //Config {id: config1}
 
+	actions: [
+		ActionItem {
+			title:  Config.tr("Add")
+			onTriggered: { 	
+				var newPage = nextpage.createObject();
+				rootWindow.push(newPage);
+			}
+			ActionBar.placement: ActionBarPlacement.OnBar
+	    }
+	]
+
     content:  Container{
 		id: absoluteLayoutContainer
 		background: Color.White
 		layout: AbsoluteLayout {}
-        Container{
+		attachedObjects: [
+			ComponentDefinition {
+				id: nextpage
+				source: "SourcePage.qml" 
+			}
+		]
+		Container{
                 layoutProperties: AbsoluteLayoutProperties {
                 	positionX: 0
                     positionY: 0
@@ -22,8 +39,7 @@ Page {
                 preferredWidth: 768
                 preferredHeight: 90
         } 
-
-       ImageView {
+        ImageView {
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
                     positionY: 90
@@ -33,8 +49,8 @@ Page {
         }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
-                                positionX: 0
-                                positionY: 350
+                	positionX: 0
+                    positionY: 350
                 }
                 background: Color.Black
                 preferredWidth: 768
@@ -44,32 +60,22 @@ Page {
 			attachedObjects: [
 				GroupDataModel {
 					id: groupDataModel
-				},
-				ComponentDefinition {
-					id: nextpage
+					sortingKeys: ["number"]
 				}
 			]
 			ListView {
 				id: listview
-				dataModel: groupDataModel
+				dataModel: groupDataModel 
 				onCreationCompleted: {
-					console.log("Stationq11111 ", Config.stations());
-					console.log("Stationq11111 ", Config.stations()[1]);
-
 					for (var a in  Config.stations() ){
 						console.log("Stationq11111 ", Config.stations()[a]);
-						groupDataModel.insert( {"name" : Config.stations()[a]});
+						groupDataModel.insert( {"name" : Config.stations()[a], "number" : a});
 					}
 				}           
 				listItemComponents: [
 					 ListItemComponent {
 					 	type: "header"
 						Label {
-							text: "Stations"
-							textStyle {
-								base: SystemDefaults.TextStyles.BigText
-								color: Color.White
-							}
 						}
 					 },   
 					 ListItemComponent {
@@ -108,6 +114,19 @@ Page {
 				}
 			}
 		}       
+		Label {
+			layoutProperties: AbsoluteLayoutProperties {
+            	positionX: 0
+                positionY: 0
+            }
+		    preferredWidth: 768
+		    text:  Config.tr("Stations") 
+			textStyle {
+				base: SystemDefaults.TextStyles.TitleText
+				color: Color.White
+			}
+		}
+
 
 	}
 }

@@ -5,12 +5,8 @@ Page {
     id: countries 
     objectName: "countriespage"
     property int margin: 16
-    property int removedStation: -1
-    property string removedStationName: ""
-    //Config {id: config1}
     property string country: ""
-	property int source_id: -1
-
+    property string key: ""
 
     content:  Container{
 		id: absoluteLayoutContainer
@@ -102,7 +98,8 @@ Page {
 					console.log("Index in Country ", groupDataModel.data(indexPath).name);
 					console.log("Source ", source);
 					nextpage2.source = "RegionPage.qml" 
-					countries.country =  groupDataModel.data(indexPath).key;
+					countries.country =  groupDataModel.data(indexPath).name;
+					countries.key =  groupDataModel.data(indexPath).key;
 					region_model.populate(sourcespage.source, groupDataModel.data(indexPath).key);
 					var newPage = nextpage2.createObject();
                     rootWindow.push(newPage);

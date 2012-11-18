@@ -67,6 +67,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         _sourceName = new std::string(source_name);
         _id = new std::string(id);
         _name = new std::string(name);
+        std::cerr<<"Country "<<country.c_str()<<std::endl;
         _country = new std::string(country);
         _region = new std::string(region);
         _timezone = 0;
@@ -74,10 +75,10 @@ Station::Station(const std::string& source_name, const std::string& id,
         _gps = gps;
         _latitude = latitude;
         _longitude = longitude;
-        std::string path(Core::AbstractConfig::prefix);
-        path += Core::AbstractConfig::sourcesPath;
+        std::string path = Core::AbstractConfig::sourcesPath;
         Core::SourceList *sourcelist = new Core::SourceList(path);
         int source_id = sourcelist->source_id_by_name(source_name);
+
         std::string url_template = sourcelist->at(source_id)->url_template();
         std::string url_detail_template = sourcelist->at(source_id)->url_detail_template();
         std::string url_for_view = sourcelist->at(source_id)->url_for_view();

@@ -2,7 +2,7 @@ import QtQuick 1.0
 import bb.cascades 1.0
 
 Page {
-    id: countries 
+    id: cities 
     objectName: "citiesrpage"
     property int margin: 16
     property int removedStation: -1
@@ -98,8 +98,7 @@ Page {
 				]
 				onTriggered: {             
 					console.log("Index in Station ", groupDataModel.data(indexPath).name);
-					Config.saveStation1(model.key, model.name, region_name, country_name,
-                                            source, source_id);
+					Config.saveStation1(groupDataModel.data(indexPath).key, groupDataModel.data(indexPath).name, regionspage.region, countries.country, sourcespage.source, sourcespage.key);
                     rootWindow.pop();
 				}
 			}

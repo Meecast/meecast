@@ -668,6 +668,7 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
 
     (void)source_id;
 
+    std::cerr<<"ConfigQml::saveStation1"<<std::endl;
     if (latitude == 0 && longitude == 0 && source == "weather.com"){
         Core::DatabaseSqlite *db_w = new Core::DatabaseSqlite("");
         std::string path(Core::AbstractConfig::prefix);
@@ -693,6 +694,7 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
 
     stationsList().push_back(station);
     //ConfigQml::Config::stationsList(*stationlist);
+    std::cerr<<"ConfigQml::saveStation4"<<std::endl;
     saveConfig();
     refreshconfig();
 

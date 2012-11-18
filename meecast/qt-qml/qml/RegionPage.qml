@@ -2,15 +2,13 @@ import QtQuick 1.0
 import bb.cascades 1.0
 
 Page {
-    id: countries 
+    id: regionspage 
     objectName: "regionspage"
     property int margin: 16
     property int removedStation: -1
     property string removedStationName: ""
     //Config {id: config1}
-    property string source: ""
-	property int source_id: -1
-    property string country_name: ""
+	property string region: ""
 
     content:  Container{
 		id: absoluteLayoutContainer
@@ -101,7 +99,7 @@ Page {
 				]
 				onTriggered: {             
 					console.log("Index in Region ", groupDataModel.data(indexPath).name);
-
+                    regionspage.region = groupDataModel.data(indexPath).name;
                     city_model.populate(sourcespage.source, groupDataModel.data(indexPath).key);
 					var newPage = nextpage3.createObject();
                     rootWindow.push(newPage);

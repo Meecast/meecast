@@ -90,7 +90,7 @@ NavigationPane {
             startview.visible = Config.stationname == "Unknown" ? true : false;
 //            mainview.visible = Config.stationname == "Unknown" ? false : true;
             main.updatestationname();
-            isUpdate = false;
+            //isUpdate = false;
         }
 
         function updatemodels()

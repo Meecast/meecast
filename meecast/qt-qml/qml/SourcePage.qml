@@ -9,6 +9,7 @@ Page {
     property string removedStationName: ""
     //Config {id: config1}
     property string source : ""
+    property string key : ""
 
     content:  Container{
 		id: absoluteLayoutContainer
@@ -64,7 +65,7 @@ Page {
 				onCreationCompleted: {
     				for (var a = 0; a < source_model.rowCount(); a++) {
 						console.log("SOURCE ", source_model.get(a).name);
-						groupDataModel.insert( {"name" : source_model.get(a).name, "number" : a});
+						groupDataModel.insert( {"name" : source_model.get(a).name, "number" : a, "key" : source_model.get(a).key});
 					}
 				}           
 				listItemComponents: [
@@ -102,6 +103,7 @@ Page {
 					country_model.populate(groupDataModel.data(indexPath).name);
 					var newPage = nextpage.createObject();
 					sourcespage.source = groupDataModel.data(indexPath).name;
+					sourcespage.key = groupDataModel.data(indexPath).key;
                     rootWindow.push(newPage, {source: groupDataModel.data(indexPath).name, source_id: groupDataModel.data(indexPath).number});
 				}
 			}

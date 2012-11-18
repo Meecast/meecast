@@ -95,6 +95,7 @@ namespace Core {
     }
 ////////////////////////////////////////////////////////////////////////////////
     int SourceList::source_id_by_name(const std::string& source_name){
+        std::cerr<<"Size  "<< this->size()<<std::endl;
         for(unsigned i = 0; i < this->size(); i++){
             if(this->at(i)->name() == source_name)
                 return i;

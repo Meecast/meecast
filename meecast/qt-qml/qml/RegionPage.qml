@@ -101,8 +101,10 @@ Page {
 				]
 				onTriggered: {             
 					console.log("Index in Region ", groupDataModel.data(indexPath).name);
+
+                    city_model.populate(sourcespage.source, groupDataModel.data(indexPath).key);
 					var newPage = nextpage3.createObject();
-                    rootWindow.push(newPage, {source: source, source_id: source_id, country_name: groupDataModel.data(indexPath).name});
+                    rootWindow.push(newPage);
 				}
 			}
 		}       

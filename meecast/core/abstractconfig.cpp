@@ -53,6 +53,7 @@ namespace Core {
     */
     std::string AbstractConfig::prefix = "asset://";
     std::string AbstractConfig::sharePath = "app/native/share/";
+    std::string AbstractConfig::sharePathimage = "share/share";
     std::string AbstractConfig::schemaPath = "/share/xsd/";
     std::string AbstractConfig::iconsPath = "/share/icons/";
     std::string AbstractConfig::libPath = "/lib/";

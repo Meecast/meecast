@@ -8,7 +8,7 @@ Page {
     property int removedStation: -1
     property string removedStationName: ""
     //Config {id: config1}
-    property string source: ""
+    property string country: ""
 	property int source_id: -1
 
 
@@ -19,7 +19,6 @@ Page {
 		attachedObjects: [
 			ComponentDefinition {
 				id: nextpage2
-				source: "RegionPage.qml" 
 			}
 		]
 		Container{
@@ -67,7 +66,7 @@ Page {
 					console.log ("Country Size ", country_model.rowCount());
     				for (var a = 0; a < country_model.rowCount(); a++) {
 						console.log("Country ", country_model.get(a).name);
-						groupDataModel.insert( {"name" : country_model.get(a).name, "number" : a});
+						groupDataModel.insert( {"name" : country_model.get(a).name, "number" : a, "key" : country_model.get(a).key });
 					}
 				}           
 				listItemComponents: [
@@ -101,8 +100,12 @@ Page {
 				]
 				onTriggered: {             
 					console.log("Index in Country ", groupDataModel.data(indexPath).name);
-					var newPage = nextpage.createObject();
-                    rootWindow.push(newPage, {source: source, source_id: source_id, country_name: groupDataModel.data(indexPath).name});
+					console.log("Source ", source);
+					nextpage2.source = "RegionPage.qml" 
+					countries.country =  groupDataModel.data(indexPath).key;
+					region_model.populate(sourcespage.source, groupDataModel.data(indexPath).key);
+					var newPage = nextpage2.createObject();
+                    rootWindow.push(newPage);
 				}
 			}
 		}       

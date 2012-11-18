@@ -74,6 +74,7 @@ NavigationPane {
  
         function updatestationname(){
             console.log("updatestationname() ", Config.stationname );
+			console.log(" pATH !!!! ", Config.imagespath);
 			main.updatemodels();
 			stationname.text = Config.stationname == "Unknown" ? "MeeCast" : Config.stationname
 			left_arrow.visible = Config.prevstationname == "" ? false : true;

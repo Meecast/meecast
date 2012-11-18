@@ -45,6 +45,7 @@ namespace Core {
             static std::string schemaPath;
             static std::string iconsPath;
             static std::string sharePath;
+            static std::string sharePathimage;
             static std::string libPath;
             static std::string sourcesPath;
             static std::string layoutqml;

@@ -2,13 +2,13 @@ import QtQuick 1.0
 import bb.cascades 1.0
 
 Page {
-    id: stations
-    objectName: "stationspage"
+    id: sourcespage
+    objectName: "sourcespage"
     property int margin: 16
     property int removedStation: -1
     property string removedStationName: ""
     //Config {id: config1}
-
+    property string source : ""
 
     content:  Container{
 		id: absoluteLayoutContainer
@@ -101,6 +101,7 @@ Page {
 					console.log("Index ", groupDataModel.data(indexPath).name);
 					country_model.populate(groupDataModel.data(indexPath).name);
 					var newPage = nextpage.createObject();
+					sourcespage.source = groupDataModel.data(indexPath).name;
                     rootWindow.push(newPage, {source: groupDataModel.data(indexPath).name, source_id: groupDataModel.data(indexPath).number});
 				}
 			}

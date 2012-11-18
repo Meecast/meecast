@@ -8,6 +8,8 @@ Page {
     property int removedStation: -1
     property string removedStationName: ""
     //Config {id: config1}
+    property string source: ""
+	property int source_id: -1
 
 
     content:  Container{
@@ -17,7 +19,7 @@ Page {
 		attachedObjects: [
 			ComponentDefinition {
 				id: nextpage2
-				source: "RegionPage1.qml" 
+				source: "RegionPage.qml" 
 			}
 		]
 		Container{
@@ -99,8 +101,8 @@ Page {
 				]
 				onTriggered: {             
 					console.log("Index in Country ", groupDataModel.data(indexPath).name);
-				//	var newPage = nextpage.createObject();
-                //    rootWindow.push(newPage, {source: source_model.name, source_id: index});
+					var newPage = nextpage.createObject();
+                    rootWindow.push(newPage, {source: source, source_id: source_id, country_name: groupDataModel.data(indexPath).name});
 				}
 			}
 		}       

@@ -106,6 +106,7 @@ void ConfigQml::init()
     press_list << "mbar" << "Pa" << "mmHg";
     vis_list << "m" << "km" << "mi";
 
+
     if (gps()){
         _gps = new GpsPosition();
         _gps->startTimer();
@@ -548,8 +549,8 @@ ConfigQml::removeStation(int index)
 QStringList
 ConfigQml::Sources()
 {
-    std::string path(Core::AbstractConfig::prefix);
-    path += Core::AbstractConfig::sourcesPath;
+   // std::string path(Core::AbstractConfig::prefix);
+    std::string path = Core::AbstractConfig::sourcesPath;
     Core::SourceList *sourcelist = new Core::SourceList(path);
     QStringList l;
     for (unsigned int i=0; i<sourcelist->size(); i++){

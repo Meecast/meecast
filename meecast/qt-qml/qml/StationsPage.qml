@@ -110,7 +110,6 @@ Page {
 				onTriggered: {             
 					console.log("Index ", groupDataModel.data(indexPath).qml);
 					nextpage.source = groupDataModel.data(indexPath).qml;
-				//	navigationPane.push(nextpage.createObject())
 				}
 			}
 		}       

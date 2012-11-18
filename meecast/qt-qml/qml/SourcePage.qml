@@ -57,11 +57,9 @@ Page {
 				id: listview
 				dataModel: groupDataModel 
 				onCreationCompleted: {
-
-    				for (var a = 0; a < source_list.rowCount(); a++) {
-						
-						console.log("SOURCE ", source_list[a]);
-					//	groupDataModel.insert( {"name" : Config.stations()[a], "number" : a});
+    				for (var a = 0; a < source_model.rowCount(); a++) {
+						console.log("SOURCE ", source_model.get(a).name);
+						groupDataModel.insert( {"name" : source_model.get(a).name, "number" : a});
 					}
 				}           
 				listItemComponents: [

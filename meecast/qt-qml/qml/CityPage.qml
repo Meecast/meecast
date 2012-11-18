@@ -99,7 +99,7 @@ Page {
 				onTriggered: {             
 					console.log("Index in Station ", groupDataModel.data(indexPath).name);
 					Config.saveStation1(groupDataModel.data(indexPath).key, groupDataModel.data(indexPath).name, regionspage.region, countries.country, sourcespage.source, sourcespage.key);
-                    rootWindow.pop();
+                    rootWindow.navigateTo(main);
 				}
 			}
 		}       

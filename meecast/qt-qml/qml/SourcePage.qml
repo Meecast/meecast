@@ -17,7 +17,7 @@ Page {
 		attachedObjects: [
 			ComponentDefinition {
 				id: nextpage
-				source: "SourcePage.qml" 
+				source: "CountryPage.qml" 
 			}
 		]
 		Container{
@@ -47,10 +47,15 @@ Page {
                 preferredHeight: 1000
         }
         Container{
+			layoutProperties: AbsoluteLayoutProperties {
+                	positionX: 0
+                    positionY: 90
+            }
 			attachedObjects: [
 				GroupDataModel {
 					id: groupDataModel
 					sortingKeys: ["number"]
+                    grouping: ItemGrouping.None
 				}
 			]
 			ListView {
@@ -63,11 +68,6 @@ Page {
 					}
 				}           
 				listItemComponents: [
-					 ListItemComponent {
-					 	type: "header"
-						Label {
-						}
-					 },   
 					 ListItemComponent {
 						 type: "item"
 						 id: listitemcomp
@@ -98,9 +98,10 @@ Page {
 					}
 				]
 				onTriggered: {             
-					console.log("Index ", groupDataModel.data(indexPath).qml);
-					nextpage.source = groupDataModel.data(indexPath).qml;
-				//	navigationPane.push(nextpage.createObject())
+					console.log("Index ", groupDataModel.data(indexPath).name);
+					country_model.populate(groupDataModel.data(indexPath).name);
+					var newPage = nextpage.createObject();
+                    rootWindow.push(newPage, {source: groupDataModel.data(indexPath).name, source_id: groupDataModel.data(indexPath).number});
 				}
 			}
 		}       

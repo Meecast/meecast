@@ -37,8 +37,8 @@ CountryModel::populate(QString source)
 {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     _list.clear();
-    std::string path(Core::AbstractConfig::prefix);
-    path += Core::AbstractConfig::sharePath;
+//    std::string path(Core::AbstractConfig::prefix);
+   std::string  path = Core::AbstractConfig::sharePath;
     path += "db/";
     if (source == "") return ;
     QString filename(source);

@@ -56,12 +56,17 @@ Page {
                 preferredWidth: 768
                 preferredHeight: 1000
         }
-        Container{
+		Container{
+			layoutProperties: AbsoluteLayoutProperties {
+                	positionX: 0
+                    positionY: 90
+            }
 			attachedObjects: [
 				GroupDataModel {
 					id: groupDataModel
 					sortingKeys: ["number"]
-				}
+                    grouping: ItemGrouping.None
+                }
 			]
 			ListView {
 				id: listview
@@ -69,15 +74,10 @@ Page {
 				onCreationCompleted: {
 					for (var a in  Config.stations() ){
 						console.log("Stationq11111 ", Config.stations()[a]);
-						groupDataModel.insert( {"name" : Config.stations()[a], "number" : a});
+						groupDataModel.insert( {"name" : Config.stations()[a], "title" : "A", "number" : a});
 					}
 				}           
 				listItemComponents: [
-					 ListItemComponent {
-					 	type: "header"
-						Label {
-						}
-					 },   
 					 ListItemComponent {
 						 type: "item"
 						 id: listitemcomp
@@ -87,7 +87,6 @@ Page {
 							  Label {                 
 								  text: ListItemData.name
 								  preferredWidth: 768
-								  //preferredHeight: settings.screen_height
 								  horizontalAlignment:  HorizontalAlignment.Fill
 								  verticalAlignment: VerticalAlignment.Center
                                   textStyle {
@@ -111,7 +110,7 @@ Page {
 					console.log("Index ", groupDataModel.data(indexPath).qml);
 					nextpage.source = groupDataModel.data(indexPath).qml;
 				}
-			}
+            }
 		}       
 		Label {
 			layoutProperties: AbsoluteLayoutProperties {

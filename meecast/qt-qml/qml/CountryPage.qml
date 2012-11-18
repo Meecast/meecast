@@ -1,162 +1,122 @@
-import Qt 4.7
-//import QtQuick 1.1
-//import Qt.labs.components 1.0
-import com.nokia.meego 1.0
+import QtQuick 1.0
+import bb.cascades 1.0
 
 Page {
-    id: countrypage
+    id: countries 
+    objectName: "countriespage"
     property int margin: 16
-    property string source: ""
-    property int source_id: -1
-    tools: ToolBarLayout {
-        ToolIcon {
-            iconId: "toolbar-back"
-            onClicked: {
-                pageStack.pop();
-            }
-        }
+    property int removedStation: -1
+    property string removedStationName: ""
+    //Config {id: config1}
 
-    }
-    orientationLock: PageOrientation.LockPortrait
-    Rectangle{
-        anchors.fill: parent
-        anchors.top: title_rect.bottom
-        anchors.topMargin: 80
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
 
-        Rectangle {
-            anchors.top: parent.top
-            anchors.left: parent.left
-            width: parent.width
-            height: 274
-            color: "#999999"
-        }
-        Loader {
-            id: background
-            anchors.top: parent.top
-            anchors.left: parent.left
-            width: parent.width
-            height: 274
-            sourceComponent: Image {source: Config.imagespath + "/mask_background_grid.png"}
-        }
-        Rectangle {
-            anchors.top: background.bottom
-            width: parent.width
-            height: parent.height - 274
-            color: "black"
-        }
-
-        ListView {
-            id: countrylist
-            //anchors.fill: parent
-            anchors.top: search.bottom
-            anchors.bottom: parent.bottom
-            width: parent.width
-            model: country_model
-
-            delegate: Item {
-                height: 80
-                width: parent.width
-
-                Label {
-                    anchors.left: parent.left
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: model.name
-                }
-
-                Image {
-                    source: "image://theme/icon-m-common-drilldown-arrow-inverse"
-                    anchors.right: parent.right
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        //console.log("key = "+model.key+" name="+model.name);
-                        region_model.populate(source, model.key);
-                        if (region_model.count == 1){ // if one region found push to city page
-                            city_model.populate(source, region_model.get(0).key);
-                            pageStack.push(Qt.resolvedUrl("CityPage.qml"),
-                                           {source: source, source_id: source_id,
-                                            country_name: model.name, region_name: region_model.get(0).name}
-                            );
-                        }else {
-                            pageStack.push(Qt.resolvedUrl("RegionPage.qml"),
-                                       {source: source, source_id: source_id, country_name: model.name}
-                                       );
-                        }
-                    }
-                }
-            }
-
-            /*
-            section {
-		    property: "category"
-		    criteria: ViewSection.FullString
-		    delegate: Rectangle {
-			color: "black"
-			width: countrypage.width
-			height: childrenRect.height + 4
-			Text {
-			    anchors.horizontalCenter: parent.horizontalCenter
-			    font.pointSize: 24
-			    text: section
-			    color: "white"
+    content:  Container{
+		id: absoluteLayoutContainer
+		background: Color.White
+		layout: AbsoluteLayout {}
+		attachedObjects: [
+			ComponentDefinition {
+				id: nextpage2
+				source: "RegionPage1.qml" 
 			}
-		    }
-
+		]
+		Container{
+                layoutProperties: AbsoluteLayoutProperties {
+                	positionX: 0
+                    positionY: 0
                 }
-		
-		ScrollDecorator {
-		    flickableItem: countrylist
-                }*/
-        /*
-            AdaptiveSearch {
-                id: adaptive
-                anchors.fill: parent
-                model: parent.model
-
-                onFilterUpdated: {
-                    countrylist.model = adaptive.filtermodel
+                background: Color.Black
+                preferredWidth: 768
+                preferredHeight: 90
+        } 
+        ImageView {
+                layoutProperties: AbsoluteLayoutProperties {
+                    positionX: 0
+                    positionY: 90
+                 }
+                imageSource: "asset:///share/images/mask_background_grid.png"
+                preferredWidth: 768  
+        }
+        Container{
+                layoutProperties: AbsoluteLayoutProperties {
+                	positionX: 0
+                    positionY: 350
                 }
-            }*/
-        }/*
-        SectionScroller {
-		listView: countrylist
-            }*/
-        SearchField {
-            id: search
-            model: countrylist.model
-            anchors.top: parent.top
-            width: parent.width
-            height: 80
-            onFiltered: {
-                countrylist.model = search.filtermodel;
+                background: Color.Black
+                preferredWidth: 768
+                preferredHeight: 1000
+        }
+        Container{
+			layoutProperties: AbsoluteLayoutProperties {
+                	positionX: 0
+                    positionY: 90
             }
-        }
+			attachedObjects: [
+				GroupDataModel {
+					id: groupDataModel
+					sortingKeys: ["number"]
+                    grouping: ItemGrouping.None
+				}
+			]
+			ListView {
+				id: listview
+				dataModel: groupDataModel 
+				onCreationCompleted: {
+					console.log ("Country Size ", country_model.rowCount());
+    				for (var a = 0; a < country_model.rowCount(); a++) {
+						console.log("Country ", country_model.get(a).name);
+						groupDataModel.insert( {"name" : country_model.get(a).name, "number" : a});
+					}
+				}           
+				listItemComponents: [
+					 ListItemComponent {
+						 type: "item"
+						 id: listitemcomp
+						 Container {
+							  layout: DockLayout {}
+							  Label {                 
+								  text: ListItemData.name
+								  preferredWidth: 768
+								  preferredHeight: 40 
+								  horizontalAlignment:  HorizontalAlignment.Fill
+								  verticalAlignment: VerticalAlignment.Center
+                                  textStyle {
+									  base: SystemDefaults.TextStyles.TitleText
+									  color: Color.White
+								  }
+							  }
+							  Label {                 
+								text: ">"
+								horizontalAlignment: HorizontalAlignment.Right
+								verticalAlignment: VerticalAlignment.Center
+								textStyle {
+									base: SystemDefaults.TextStyles.BigText
+									color: Color.White
+								}
+							  }
+						 }
+					}
+				]
+				onTriggered: {             
+					console.log("Index in Country ", groupDataModel.data(indexPath).name);
+				//	var newPage = nextpage.createObject();
+                //    rootWindow.push(newPage, {source: source_model.name, source_id: index});
+				}
+			}
+		}       
+		Label {
+			layoutProperties: AbsoluteLayoutProperties {
+            	positionX: 0
+                positionY: 0
+            }
+		    preferredWidth: 768
+		    text:  Config.tr("Select country") 
+			textStyle {
+				base: SystemDefaults.TextStyles.TitleText
+				color: Color.White
+			}
+		}
 
-    }
-    Rectangle {
-        id: title_rect
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-        width: parent.width - 2*margin
-        height: 80
-        color: "black"
-        Label {
-            id: title
-            anchors.fill: parent
-            color: "white"
-            text: Config.tr("Select country")
-            //font.family: "Nokia Pure Light"
-            font.pixelSize: 30
-            horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
-        }
-    }
 
+	}
 }
-

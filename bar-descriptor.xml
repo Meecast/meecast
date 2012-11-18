@@ -81,6 +81,7 @@
     <asset path="meecast/core/data/data.xsd">share/xsd/data.xsd</asset>
     <asset path="meecast/core/data/icons">assets/share/icons</asset>
     <asset path="omweather-foreca-com-stations-db/data/foreca.com.xml">share/sources/foreca.com.xml</asset>
+    <asset path="omweather-foreca-com-stations-db/data/foreca.com.db">share/db/foreca.com.db</asset>
     
     <!-- Request permission to execute native code.  Required for native applications. -->
     <permission system="true">run_native</permission>

@@ -17,7 +17,7 @@ Page {
     Flickable {
         anchors.fill: parent
         flickableDirection: Flickable.VerticalFlick
-        contentHeight: 2000 
+        contentHeight: 2100 
         Label {
             id: titletext
             text: Config.tr("MeeCast for Harmattan")
@@ -230,7 +230,8 @@ Turkish - Burak Kaan Kose,\n \
 Catalan - Agustí Clara,\n \
 Arabic - Tarad Alfandi,\n \
 Norwegian - Peer-Atle Motland,\n \
-Vietnamese - Hieu Nguyen, Anh Dương and truongnx, \n \
+Vietnamese - Hieu Nguyen\n \
+\tAnh Dương and truongnx, \n \
 Swedish - Angela Nennebrandt,\n \
 \tNiklas Åkerström, \n \
 \tTomislav Veleckovik")

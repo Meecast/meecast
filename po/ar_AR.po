@@ -1,28 +1,32 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Tarad Alfandi <ttt0600@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-08 10:44+0300\n"
+"POT-Creation-Date: 2012-11-19 18:22+0300\n"
 "PO-Revision-Date: 2012-11-16 08:37+0000\n"
 "Last-Translator: Tarad Alfandi <ttt0600@gmail.com>\n"
-"Language-Team: Arabic (http://www.transifex.com/projects/p/meecast/language/ar/)\n"
+"Language-Team: Arabic (http://www.transifex.com/projects/p/meecast/language/"
+"ar/)\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
 "\n"
 "H: "
-msgstr "\nH: "
+msgstr ""
+"\n"
+"H: "
 
 #: omweather/src/weather-help.c:80
 #, c-format
@@ -49,44 +53,56 @@ msgstr ""
 msgid ""
 "\n"
 "Humidity: "
-msgstr "\nالرطوبة: "
+msgstr ""
+"\n"
+"الرطوبة: "
 
 #: omweather/src/weather-home.c:1608
 msgid ""
 "\n"
 "P: "
-msgstr "\nP: "
+msgstr ""
+"\n"
+"P: "
 
 #: omweather/src/weather-popup.c:954 omweather/src/weather-popup.c:959
 #: omweather/src/weather-popup.c:1087 omweather/src/weather-popup.c:1092
 msgid ""
 "\n"
 "Precipitation: "
-msgstr "\nالترسيب: "
+msgstr ""
+"\n"
+"الترسيب: "
 
 #: omweather/src/weather-popup.c:976 omweather/src/weather-popup.c:1108
 msgid ""
 "\n"
 "Pressure: "
-msgstr "\nالضغط: "
+msgstr ""
+"\n"
+"الضغط: "
 
 #: omweather/src/weather-home.c:1577
 msgid ""
 "\n"
 "V: "
-msgstr "\nV: "
+msgstr ""
+"\n"
+"V: "
 
 #: omweather/src/weather-home.c:1614
 msgid ""
 "\n"
 "W: "
-msgstr "\nW: "
+msgstr ""
+"\n"
+"W: "
 
-#: meecast/qt-qml/dataitem.cpp:469 meecast/qt-qml/dataitem.cpp:470
+#: meecast/qt-qml/dataitem.cpp:470 meecast/qt-qml/dataitem.cpp:471
 msgid "(Low)"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:471 meecast/qt-qml/dataitem.cpp:472
+#: meecast/qt-qml/dataitem.cpp:472 meecast/qt-qml/dataitem.cpp:473
 msgid "(Moderate)"
 msgstr ""
 
@@ -549,7 +565,9 @@ msgstr "Copyright(c) 2010-2011 by Tanya Makova\n"
 msgid ""
 "Could not connecting to Internet.\n"
 "Connection timeout is expired."
-msgstr "لايمكن الإتصال بالإنترنت.\nتم إنتهاء مدة الإتصال."
+msgstr ""
+"لايمكن الإتصال بالإنترنت.\n"
+"تم إنتهاء مدة الإتصال."
 
 #: omweather/src/weather-config.c:401
 #, c-format
@@ -604,8 +622,8 @@ msgstr "حذف المكان؟"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
-"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, "
-"<andrew.zhilin@ovi.com>\n"
+"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
+"zhilin@ovi.com>\n"
 msgstr ""
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
@@ -898,6 +916,8 @@ msgid ""
 " Portuguese - Jose Narciso,\n"
 " Turkish - Burak Kaan Kose,\n"
 " Catalan - Agustí Clara,\n"
+" Arabic - Tarad Alfandi,\n"
+" Norwegian - Peer-Atle Motland,\n"
 " Vietnamese - Hieu Nguyen, Anh Dương and truongnx, \n"
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
@@ -994,7 +1014,7 @@ msgstr "ساعات"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:179 meecast/qt-qml/qml/FullWeatherPage.qml:135
+#: meecast/qt-qml/dataitem.cpp:180 meecast/qt-qml/qml/FullWeatherPage.qml:135
 #: meecast/qt-qml/qml/FullWeatherPage.qml:192
 #: meecast/qt-qml/qml/FullWeatherPage.qml:241
 msgid "Humidity:"
@@ -1084,7 +1104,7 @@ msgstr "قائد التصميم"
 msgid "Lead programmers"
 msgstr "قادة البرمجة"
 
-#: meecast/qt-qml/qml/AboutPage.qml:241
+#: meecast/qt-qml/qml/AboutPage.qml:243
 msgid "License"
 msgstr "الرخصة"
 
@@ -1186,9 +1206,10 @@ msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
-"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
-"<tanyshk@gmail.com>\n"
-msgstr "صيانة: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail.com>\n"
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
+"com>\n"
+msgstr ""
+"صيانة: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail.com>\n"
 
 #: omweather/src/hash.data:123 meecast/qt-qml/qml/StationsPage.qml:153
 msgid "Manage locations"
@@ -1210,7 +1231,9 @@ msgstr "MeeCast"
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2011"
-msgstr "MeeCast - هو تطبيق يعرض حاله الطقس ويعتر مفتوح المصدر وقابل للتعديل إستنادا الى كود OMWeather. الحقوق 2006-2011"
+msgstr ""
+"MeeCast - هو تطبيق يعرض حاله الطقس ويعتر مفتوح المصدر وقابل للتعديل إستنادا "
+"الى كود OMWeather. الحقوق 2006-2011"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -1452,7 +1475,7 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:187 meecast/qt-qml/qml/FullWeatherPage.qml:129
+#: meecast/qt-qml/dataitem.cpp:188 meecast/qt-qml/qml/FullWeatherPage.qml:129
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Now"
 msgstr "الأن"
@@ -1755,7 +1778,7 @@ msgstr "وحدات الضغط:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:185 meecast/qt-qml/qml/FullWeatherPage.qml:141
+#: meecast/qt-qml/dataitem.cpp:186 meecast/qt-qml/qml/FullWeatherPage.qml:141
 #: meecast/qt-qml/qml/FullWeatherPage.qml:198
 #: meecast/qt-qml/qml/FullWeatherPage.qml:247
 msgid "Pressure:"
@@ -2188,7 +2211,7 @@ msgstr "السرعة"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
-#: meecast/qt-qml/dataitem.cpp:183
+#: meecast/qt-qml/dataitem.cpp:184
 msgid "Speed:"
 msgstr "السرعة:"
 
@@ -2290,7 +2313,7 @@ msgid "Temperature units:"
 msgstr "وحدات درجة الحرارة:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
-#: meecast/qt-qml/dataitem.cpp:177
+#: meecast/qt-qml/dataitem.cpp:178
 msgid "Temperature:"
 msgstr "الحرارة:"
 
@@ -2306,7 +2329,7 @@ msgstr "شكرا"
 msgid "The weather has been updated."
 msgstr "تم تحديث الطقس"
 
-#: meecast/qt-qml/qml/AboutPage.qml:250
+#: meecast/qt-qml/qml/AboutPage.qml:252
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2578,7 +2601,7 @@ msgstr ""
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
-#: meecast/qt-qml/dataitem.cpp:181
+#: meecast/qt-qml/dataitem.cpp:182
 msgid "Wind:"
 msgstr "رياح:"
 
@@ -2633,8 +2656,8 @@ msgstr ""
 
 #: meecast/qt-qml/qml/UpdatePage.qml:73
 msgid ""
-"You should activate 'Widget in the events view' option in MeeCast appearance"
-" settings for auto update."
+"You should activate 'Widget in the events view' option in MeeCast appearance "
+"settings for auto update."
 msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2758
@@ -2659,11 +2682,11 @@ msgstr ""
 msgid "d:"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:445
+#: meecast/qt-qml/dataitem.cpp:446
 msgid "day ago"
 msgstr "قبل يوم"
 
-#: meecast/qt-qml/dataitem.cpp:447
+#: meecast/qt-qml/dataitem.cpp:448
 msgid "days ago"
 msgstr "قبل أيام"
 
@@ -2707,11 +2730,11 @@ msgstr ""
 msgid "feels like"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:439
+#: meecast/qt-qml/dataitem.cpp:440
 msgid "hour ago"
 msgstr "قبل ساعة"
 
-#: meecast/qt-qml/dataitem.cpp:442
+#: meecast/qt-qml/dataitem.cpp:443
 msgid "hours ago"
 msgstr "قبل ساعات"
 
@@ -2795,11 +2818,11 @@ msgstr "ميل/س"
 msgid "mi/s"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:433
+#: meecast/qt-qml/dataitem.cpp:434
 msgid "minute ago"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:436
+#: meecast/qt-qml/dataitem.cpp:437
 msgid "minutes ago"
 msgstr ""
 
@@ -2843,7 +2866,7 @@ msgstr ""
 msgid "rising"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:430
+#: meecast/qt-qml/dataitem.cpp:431
 msgid "seconds ago"
 msgstr ""
 

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-08 10:44+0300\n"
-"PO-Revision-Date: 2012-09-17 10:24+0000\n"
+"POT-Creation-Date: 2012-11-19 18:22+0300\n"
+"PO-Revision-Date: 2012-11-09 10:42+0000\n"
 "Last-Translator: Ilir Gjika <ilir.gjika@gmail.com>\n"
 "Language-Team: Albanian (http://www.transifex.com/projects/p/meecast/"
 "language/sq/)\n"
@@ -111,13 +111,13 @@ msgstr ""
 "\n"
 "W: "
 
-#: meecast/qt-qml/dataitem.cpp:469 meecast/qt-qml/dataitem.cpp:470
+#: meecast/qt-qml/dataitem.cpp:470 meecast/qt-qml/dataitem.cpp:471
 msgid "(Low)"
-msgstr ""
+msgstr "(I ulët)"
 
-#: meecast/qt-qml/dataitem.cpp:471 meecast/qt-qml/dataitem.cpp:472
+#: meecast/qt-qml/dataitem.cpp:472 meecast/qt-qml/dataitem.cpp:473
 msgid "(Moderate)"
-msgstr ""
+msgstr "(Mesatar)"
 
 #: omweather/src/weather-simple-settings.c:1714
 #: omweather/src/weather-simple-settings.c:2811
@@ -439,7 +439,7 @@ msgstr "Celcius"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:114
 msgid "Celsius"
-msgstr ""
+msgstr "Celcius"
 
 #: omweather/src/weather-simple-settings.c:677
 #: omweather/src/weather-simple-settings.c:710
@@ -581,9 +581,8 @@ msgid "Cloudy, Snow"
 msgstr "Me re, Dëborë"
 
 #: omweather/src/hash.data:57
-#, fuzzy
 msgid "Cloudy, thunderstorms with rain"
-msgstr "Me re, ka mundësi të ketë rrebeshe"
+msgstr "Me re, Stuhi e shoqëruar me shira"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:413
 msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
@@ -969,6 +968,8 @@ msgid ""
 " Portuguese - Jose Narciso,\n"
 " Turkish - Burak Kaan Kose,\n"
 " Catalan - Agustí Clara,\n"
+" Arabic - Tarad Alfandi,\n"
+" Norwegian - Peer-Atle Motland,\n"
 " Vietnamese - Hieu Nguyen, Anh Dương and truongnx, \n"
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
@@ -992,6 +993,7 @@ msgstr ""
 " Kinezçe - Wong Man Kong, Michael\n"
 " Portugalisht - Jose Narciso,\n"
 " Turqisht - Burak Kaan Kose,\n"
+" Katalanisht - Agustí Clara,\n"
 " Vietnamisht - Hieu Nguyen, Anh Dương and truongnx, \n"
 " Suedisht - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
@@ -1097,7 +1099,7 @@ msgstr "Orë"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:179 meecast/qt-qml/qml/FullWeatherPage.qml:135
+#: meecast/qt-qml/dataitem.cpp:180 meecast/qt-qml/qml/FullWeatherPage.qml:135
 #: meecast/qt-qml/qml/FullWeatherPage.qml:192
 #: meecast/qt-qml/qml/FullWeatherPage.qml:241
 msgid "Humidity:"
@@ -1189,7 +1191,7 @@ msgstr "Krye designer"
 msgid "Lead programmers"
 msgstr "Krye programuesi"
 
-#: meecast/qt-qml/qml/AboutPage.qml:241
+#: meecast/qt-qml/qml/AboutPage.qml:243
 msgid "License"
 msgstr "Liçencat"
 
@@ -1561,7 +1563,7 @@ msgstr "S'ka të dhëna nga ky stacion"
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:187 meecast/qt-qml/qml/FullWeatherPage.qml:129
+#: meecast/qt-qml/dataitem.cpp:188 meecast/qt-qml/qml/FullWeatherPage.qml:129
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Now"
 msgstr "Tani"
@@ -1864,7 +1866,7 @@ msgstr "Njesitë e presionit:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:185 meecast/qt-qml/qml/FullWeatherPage.qml:141
+#: meecast/qt-qml/dataitem.cpp:186 meecast/qt-qml/qml/FullWeatherPage.qml:141
 #: meecast/qt-qml/qml/FullWeatherPage.qml:198
 #: meecast/qt-qml/qml/FullWeatherPage.qml:247
 msgid "Pressure:"
@@ -2091,23 +2093,23 @@ msgstr "Zgjidh burimin"
 
 #: meecast/qt-qml/qml/LockScreen.qml:85
 msgid "Select the X-position for left corner of widget"
-msgstr ""
+msgstr "Zgjidh pozicionin X për këndin e majtë të widget-it"
 
 #: meecast/qt-qml/qml/LockScreen.qml:125
 msgid "Select the Y-position for left corner of widget"
-msgstr ""
+msgstr "Zgjidh pozicionin Y për këndin e majtë të widget-it"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:267
 msgid "Select the color of font for current temperature"
-msgstr ""
+msgstr "Zgjidh ngjyrën e gërmave për temperaturën e tashme"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:123
 msgid "Select the color of font for station name"
-msgstr ""
+msgstr "Zgjidh ngjyrën e gërmave për emrin e stacionit meteo"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:195
 msgid "Select the color of font for temperature"
-msgstr ""
+msgstr "Zgjidh ngjyrën e gërmave"
 
 #: meecast/qt-qml/qml/IconsetPage.qml:97
 msgid "Select the iconset"
@@ -2158,17 +2160,15 @@ msgstr "Rregullimet"
 
 #: meecast/qt-qml/qml/LockScreen.qml:65
 msgid "Settings for Lockscreen widget"
-msgstr ""
+msgstr "Rregullimet për widget-in kur ekrani është i bllokuar"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:102
-#, fuzzy
 msgid "Settings for standby widget"
-msgstr "Rregullimet e StandbyScreen"
+msgstr "Rregullimet për widget.in kur telefoni është në pritje"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:534
-#, fuzzy
 msgid "Settings of LockScreen"
-msgstr "Rregullimet e StandbyScreen"
+msgstr "Rregullimet kur ekrani është i bllokuar"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:514
 msgid "Settings of StandbyScreen"
@@ -2187,9 +2187,8 @@ msgid "Show arrows"
 msgstr "Trego shigjetat"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:600
-#, fuzzy
 msgid "Show on Map"
-msgstr "Shfaq emrin e stacionit"
+msgstr "Trego në hartë"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
@@ -2300,7 +2299,7 @@ msgstr "Shpejtësia"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
-#: meecast/qt-qml/dataitem.cpp:183
+#: meecast/qt-qml/dataitem.cpp:184
 msgid "Speed:"
 msgstr "Shpejtësia:"
 
@@ -2402,7 +2401,7 @@ msgid "Temperature units:"
 msgstr "Njësia për matjen e temperaturës:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
-#: meecast/qt-qml/dataitem.cpp:177
+#: meecast/qt-qml/dataitem.cpp:178
 msgid "Temperature:"
 msgstr "Temperatura:"
 
@@ -2418,7 +2417,7 @@ msgstr "Faleminderit"
 msgid "The weather has been updated."
 msgstr "Të dhënat e motit u përditësuan."
 
-#: meecast/qt-qml/qml/AboutPage.qml:250
+#: meecast/qt-qml/qml/AboutPage.qml:252
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2485,7 +2484,7 @@ msgstr "Lloji i click-ut:"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:172
 msgid "UV index:"
-msgstr ""
+msgstr "Indeksi i UV-ve"
 
 #: omweather/src/weather-settings.c:1135 omweather/src/weather-settings.c:1334
 #: omweather/src/weather-settings.c:1338
@@ -2573,9 +2572,8 @@ msgid "Visible items:"
 msgstr "Artikuj në dukje"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:58 meecast/qt-qml/qml/UnitsPage.qml:209
-#, fuzzy
 msgid "Visible units"
-msgstr "Artikuj në dukje"
+msgstr "Njësitë e dukshme"
 
 #: omweather/src/weather-popup.c:1288
 #: meecast/qt-qml/qml/FullWeatherPage.qml:169
@@ -2703,7 +2701,7 @@ msgstr "Njesia matëse për shpejtësinë e erës:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
-#: meecast/qt-qml/dataitem.cpp:181
+#: meecast/qt-qml/dataitem.cpp:182
 msgid "Wind:"
 msgstr "Era:"
 
@@ -2797,11 +2795,11 @@ msgstr "Ora lokale e vëndit"
 msgid "d:"
 msgstr "d:"
 
-#: meecast/qt-qml/dataitem.cpp:445
+#: meecast/qt-qml/dataitem.cpp:446
 msgid "day ago"
 msgstr "ditë më parë"
 
-#: meecast/qt-qml/dataitem.cpp:447
+#: meecast/qt-qml/dataitem.cpp:448
 msgid "days ago"
 msgstr "ditë më parë"
 
@@ -2845,11 +2843,11 @@ msgstr "në rënie"
 msgid "feels like"
 msgstr "ndjehet si"
 
-#: meecast/qt-qml/dataitem.cpp:439
+#: meecast/qt-qml/dataitem.cpp:440
 msgid "hour ago"
 msgstr "orë më parë"
 
-#: meecast/qt-qml/dataitem.cpp:442
+#: meecast/qt-qml/dataitem.cpp:443
 msgid "hours ago"
 msgstr "orë më parë"
 
@@ -2933,11 +2931,11 @@ msgstr "mi/h"
 msgid "mi/s"
 msgstr "mi/s"
 
-#: meecast/qt-qml/dataitem.cpp:433
+#: meecast/qt-qml/dataitem.cpp:434
 msgid "minute ago"
 msgstr "minutë më parë"
 
-#: meecast/qt-qml/dataitem.cpp:436
+#: meecast/qt-qml/dataitem.cpp:437
 msgid "minutes ago"
 msgstr "minuta më parë"
 
@@ -2981,7 +2979,7 @@ msgstr "nmi"
 msgid "rising"
 msgstr "në rritje"
 
-#: meecast/qt-qml/dataitem.cpp:430
+#: meecast/qt-qml/dataitem.cpp:431
 msgid "seconds ago"
 msgstr "sekonda më parë"
 

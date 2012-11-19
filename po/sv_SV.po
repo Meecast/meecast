@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 #  Angela Nennebrandt <EMAIL@ADDRESS>, 2012.
 # Niklas Åkerström <nille.kungen@gmail.com>, 2012.
@@ -9,14 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-08 10:44+0300\n"
+"POT-Creation-Date: 2012-11-19 18:22+0300\n"
 "PO-Revision-Date: 2012-11-08 15:02+0000\n"
 "Last-Translator: Niklas Åkerström <nille.kungen@gmail.com>\n"
-"Language-Team: Swedish (http://www.transifex.com/projects/p/meecast/language/sv/)\n"
+"Language-Team: Swedish (http://www.transifex.com/projects/p/meecast/language/"
+"sv/)\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: omweather/src/weather-home.c:1567
@@ -83,11 +84,11 @@ msgid ""
 "W: "
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:469 meecast/qt-qml/dataitem.cpp:470
+#: meecast/qt-qml/dataitem.cpp:470 meecast/qt-qml/dataitem.cpp:471
 msgid "(Low)"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:471 meecast/qt-qml/dataitem.cpp:472
+#: meecast/qt-qml/dataitem.cpp:472 meecast/qt-qml/dataitem.cpp:473
 msgid "(Moderate)"
 msgstr ""
 
@@ -314,7 +315,11 @@ msgid ""
 "for installing package 'MeeCast applet'.\n"
 "You should uninstall AccuWeather \n"
 "before installing this package"
-msgstr "Applikationmanager startar nu\nför installation av 'Meecast applet'.\nDu bör avinstallera AccuWeather\ninnan installation av detta paket"
+msgstr ""
+"Applikationmanager startar nu\n"
+"för installation av 'Meecast applet'.\n"
+"Du bör avinstallera AccuWeather\n"
+"innan installation av detta paket"
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -605,8 +610,8 @@ msgstr "Radera område?"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
-"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, "
-"<andrew.zhilin@ovi.com>\n"
+"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
+"zhilin@ovi.com>\n"
 msgstr ""
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
@@ -859,7 +864,11 @@ msgid ""
 "you should uninstall package\n"
 "'Activating MeeCast Applet'\n"
 "using Application manager"
-msgstr "För att avaktivera MeeCast widget\nska du avinstallera paketet\n'Activating MeeCast Applet' genom \nHantera program."
+msgstr ""
+"För att avaktivera MeeCast widget\n"
+"ska du avinstallera paketet\n"
+"'Activating MeeCast Applet' genom \n"
+"Hantera program."
 
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
@@ -899,6 +908,8 @@ msgid ""
 " Portuguese - Jose Narciso,\n"
 " Turkish - Burak Kaan Kose,\n"
 " Catalan - Agustí Clara,\n"
+" Arabic - Tarad Alfandi,\n"
+" Norwegian - Peer-Atle Motland,\n"
 " Vietnamese - Hieu Nguyen, Anh Dương and truongnx, \n"
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
@@ -995,7 +1006,7 @@ msgstr ""
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:179 meecast/qt-qml/qml/FullWeatherPage.qml:135
+#: meecast/qt-qml/dataitem.cpp:180 meecast/qt-qml/qml/FullWeatherPage.qml:135
 #: meecast/qt-qml/qml/FullWeatherPage.qml:192
 #: meecast/qt-qml/qml/FullWeatherPage.qml:241
 msgid "Humidity:"
@@ -1085,7 +1096,7 @@ msgstr "Chefsdesigner"
 msgid "Lead programmers"
 msgstr "Huvudprogrammerare"
 
-#: meecast/qt-qml/qml/AboutPage.qml:241
+#: meecast/qt-qml/qml/AboutPage.qml:243
 msgid "License"
 msgstr "Licens"
 
@@ -1187,8 +1198,8 @@ msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
-"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
-"<tanyshk@gmail.com>\n"
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
+"com>\n"
 msgstr ""
 
 #: omweather/src/hash.data:123 meecast/qt-qml/qml/StationsPage.qml:153
@@ -1453,7 +1464,7 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:187 meecast/qt-qml/qml/FullWeatherPage.qml:129
+#: meecast/qt-qml/dataitem.cpp:188 meecast/qt-qml/qml/FullWeatherPage.qml:129
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Now"
 msgstr "Nu"
@@ -1756,7 +1767,7 @@ msgstr "Tryckenhet:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:185 meecast/qt-qml/qml/FullWeatherPage.qml:141
+#: meecast/qt-qml/dataitem.cpp:186 meecast/qt-qml/qml/FullWeatherPage.qml:141
 #: meecast/qt-qml/qml/FullWeatherPage.qml:198
 #: meecast/qt-qml/qml/FullWeatherPage.qml:247
 msgid "Pressure:"
@@ -2189,7 +2200,7 @@ msgstr "Hastighet"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
-#: meecast/qt-qml/dataitem.cpp:183
+#: meecast/qt-qml/dataitem.cpp:184
 msgid "Speed:"
 msgstr "Hastighet:"
 
@@ -2291,7 +2302,7 @@ msgid "Temperature units:"
 msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
-#: meecast/qt-qml/dataitem.cpp:177
+#: meecast/qt-qml/dataitem.cpp:178
 msgid "Temperature:"
 msgstr "Temperatur:"
 
@@ -2307,7 +2318,7 @@ msgstr ""
 msgid "The weather has been updated."
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:250
+#: meecast/qt-qml/qml/AboutPage.qml:252
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2579,7 +2590,7 @@ msgstr ""
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
-#: meecast/qt-qml/dataitem.cpp:181
+#: meecast/qt-qml/dataitem.cpp:182
 msgid "Wind:"
 msgstr ""
 
@@ -2623,20 +2634,30 @@ msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using LockScreen widget"
-msgstr "Du måste först aktivera\n'Widget i vyn Händelser'\nför att kunna aktivera widget på\nlåsskärm."
+msgstr ""
+"Du måste först aktivera\n"
+"'Widget i vyn Händelser'\n"
+"för att kunna aktivera widget på\n"
+"låsskärm."
 
 #: meecast/qt-qml/qml/VisualsPage.qml:256
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using StandbyScreen widget"
-msgstr "Du måste först aktivera\n'Widget i vyn Händelser'\nför att kunna aktivera widget på\nväntelägeskärm."
+msgstr ""
+"Du måste först aktivera\n"
+"'Widget i vyn Händelser'\n"
+"för att kunna aktivera widget på\n"
+"väntelägeskärm."
 
 #: meecast/qt-qml/qml/UpdatePage.qml:73
 msgid ""
-"You should activate 'Widget in the events view' option in MeeCast appearance"
-" settings for auto update."
-msgstr "Du måste aktivera 'Widget i vyn Händelser' under 'Utseende' för automatisk väderuppdatering."
+"You should activate 'Widget in the events view' option in MeeCast appearance "
+"settings for auto update."
+msgstr ""
+"Du måste aktivera 'Widget i vyn Händelser' under 'Utseende' för automatisk "
+"väderuppdatering."
 
 #: omweather/src/weather-simple-settings.c:2758
 msgid "Zoom in popup window "
@@ -2660,11 +2681,11 @@ msgstr ""
 msgid "d:"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:445
+#: meecast/qt-qml/dataitem.cpp:446
 msgid "day ago"
 msgstr "dag sedan"
 
-#: meecast/qt-qml/dataitem.cpp:447
+#: meecast/qt-qml/dataitem.cpp:448
 msgid "days ago"
 msgstr "dagar sedan"
 
@@ -2708,11 +2729,11 @@ msgstr ""
 msgid "feels like"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:439
+#: meecast/qt-qml/dataitem.cpp:440
 msgid "hour ago"
 msgstr "timme sedan"
 
-#: meecast/qt-qml/dataitem.cpp:442
+#: meecast/qt-qml/dataitem.cpp:443
 msgid "hours ago"
 msgstr "timmar sedan"
 
@@ -2796,11 +2817,11 @@ msgstr ""
 msgid "mi/s"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:433
+#: meecast/qt-qml/dataitem.cpp:434
 msgid "minute ago"
 msgstr "minut sedan"
 
-#: meecast/qt-qml/dataitem.cpp:436
+#: meecast/qt-qml/dataitem.cpp:437
 msgid "minutes ago"
 msgstr "minuter sedan"
 
@@ -2844,7 +2865,7 @@ msgstr ""
 msgid "rising"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:430
+#: meecast/qt-qml/dataitem.cpp:431
 msgid "seconds ago"
 msgstr "sekunder sedan"
 

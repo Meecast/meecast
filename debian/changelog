@@ -4,6 +4,7 @@ meecast (0.6.8) unstable; urgency=low
   * Added data UV-index and Visible for weather.com source
   * Added visible units
   * Decreased cycle count to 1 for Map
+  * Added Arabic translation. Thanks Tarad Alfandi aka ttt0600
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 29 Oct 2012 08:31:23 +0200
 

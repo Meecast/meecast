@@ -74,7 +74,7 @@ Page {
 				onCreationCompleted: {
 					for (var a in  Config.stations() ){
 						console.log("Stationq11111 ", Config.stations()[a]);
-						groupDataModel.insert( {"name" : Config.stations()[a], "title" : "A", "number" : a});
+						groupDataModel.insert( {"name" : Config.stations()[a], "number" : a});
 					}
 				}           
 				listItemComponents: [
@@ -84,7 +84,7 @@ Page {
 						 Container {
 							  layout: DockLayout {}
 						 
-							  Label {                 
+						 	Label {                 
 								  text: ListItemData.name
 								  preferredWidth: 768
 								  horizontalAlignment:  HorizontalAlignment.Fill
@@ -93,16 +93,19 @@ Page {
 									  base: SystemDefaults.TextStyles.TitleText
 									  color: Color.White
 								  }
-							  }
-							  Label {                 
-								text: ">"
-								horizontalAlignment: HorizontalAlignment.Right
-								verticalAlignment: VerticalAlignment.Center
-								textStyle {
-									base: SystemDefaults.TextStyles.BigText
-									color: Color.White
-								}
-							  }
+						 	}
+
+							Button {
+									text: "X"
+								    preferredWidth: 60 
+								    preferredHeight: 60 
+									horizontalAlignment: HorizontalAlignment.Right
+									verticalAlignment: VerticalAlignment.Center
+									onClicked: {
+										main.openFile("SourcePage.qml")
+									}
+							}
+
 						 }
 					}
 				]

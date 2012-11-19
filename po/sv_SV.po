@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 #  Angela Nennebrandt <EMAIL@ADDRESS>, 2012.
 # Niklas Åkerström <nille.kungen@gmail.com>, 2012.
@@ -10,15 +10,14 @@ msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-11-08 10:44+0300\n"
-"PO-Revision-Date: 2012-07-08 18:28+0000\n"
+"PO-Revision-Date: 2012-11-08 15:02+0000\n"
 "Last-Translator: Niklas Åkerström <nille.kungen@gmail.com>\n"
-"Language-Team: Swedish (http://www.transifex.com/projects/p/meecast/language/"
-"sv/)\n"
-"Language: sv\n"
+"Language-Team: Swedish (http://www.transifex.com/projects/p/meecast/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
@@ -117,9 +116,8 @@ msgid "10 seconds"
 msgstr "10 sekunder"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:175
-#, fuzzy
 msgid "12 hours"
-msgstr "2 timmar"
+msgstr "12 timmar"
 
 #: omweather/src/weather-sensor.c:151 meecast/qt-qml/qml/UpdatePage.qml:140
 msgid "15 minutes"
@@ -316,11 +314,7 @@ msgid ""
 "for installing package 'MeeCast applet'.\n"
 "You should uninstall AccuWeather \n"
 "before installing this package"
-msgstr ""
-"Applikationmanager startar nu\n"
-"för installation av 'Meecast applet'.\n"
-"Du bör avinstallera AccuWeather\n"
-"innan installation av detta paket"
+msgstr "Applikationmanager startar nu\nför installation av 'Meecast applet'.\nDu bör avinstallera AccuWeather\ninnan installation av detta paket"
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -586,7 +580,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/UpdatePage.qml:183
 msgid "Daily"
-msgstr ""
+msgstr "Dagligen"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
 #: meecast/qt-qml/qml/FullWeatherPage.qml:186
@@ -611,8 +605,8 @@ msgstr "Radera område?"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
-"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
-"zhilin@ovi.com>\n"
+"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, "
+"<andrew.zhilin@ovi.com>\n"
 msgstr ""
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
@@ -865,11 +859,7 @@ msgid ""
 "you should uninstall package\n"
 "'Activating MeeCast Applet'\n"
 "using Application manager"
-msgstr ""
-"För att avaktivera MeeCast widget\n"
-"ska du avinstallera paketet\n"
-"'Activating MeeCast Applet' genom \n"
-"Hantera program."
+msgstr "För att avaktivera MeeCast widget\nska du avinstallera paketet\n'Activating MeeCast Applet' genom \nHantera program."
 
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
@@ -1197,13 +1187,13 @@ msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
-"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
-"com>\n"
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
+"<tanyshk@gmail.com>\n"
 msgstr ""
 
 #: omweather/src/hash.data:123 meecast/qt-qml/qml/StationsPage.qml:153
 msgid "Manage locations"
-msgstr "Hantera platser"
+msgstr "Hantera områden"
 
 #: omweather/src/weather-simple-settings.c:2240
 msgid "Manual"
@@ -1781,9 +1771,8 @@ msgid "Project administrator"
 msgstr "Projektadministratör"
 
 #: meecast/qt-qml/qml/AboutPage.qml:186
-#, fuzzy
 msgid "Project manager"
-msgstr "Projektadministratör"
+msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:86
 msgid "Project website"
@@ -2002,15 +1991,15 @@ msgstr ""
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:267
 msgid "Select the color of font for current temperature"
-msgstr ""
+msgstr "Välj typsnittsfärg på nuvarande temperatur"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:123
 msgid "Select the color of font for station name"
-msgstr ""
+msgstr "Välj typsnittsfärg för områdesnamn"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:195
 msgid "Select the color of font for temperature"
-msgstr ""
+msgstr "Välj typsnittsfärg på temperatur"
 
 #: meecast/qt-qml/qml/IconsetPage.qml:97
 msgid "Select the iconset"
@@ -2038,7 +2027,7 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:1047
 #, c-format
 msgid "Selecting station"
-msgstr ""
+msgstr "Välj väderstation"
 
 #: omweather/src/weather-settings.c:1150 omweather/src/weather-settings.c:1362
 #: omweather/src/weather-settings.c:1366 omweather/src/weather-sensor.c:263
@@ -2064,19 +2053,16 @@ msgid "Settings for Lockscreen widget"
 msgstr ""
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:102
-#, fuzzy
 msgid "Settings for standby widget"
-msgstr "Widget på väntelägeskärm"
+msgstr "Anpassa widget på väntelägeskärm"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:534
-#, fuzzy
 msgid "Settings of LockScreen"
-msgstr "Widget på väntelägeskärm"
+msgstr ""
 
 #: meecast/qt-qml/qml/VisualsPage.qml:514
-#, fuzzy
 msgid "Settings of StandbyScreen"
-msgstr "Widget på väntelägeskärm"
+msgstr "Anpassa väntelägeskärm"
 
 #: omweather/src/hash.data:258
 msgid "Shallow Fog"
@@ -2464,9 +2450,8 @@ msgid "Visible items:"
 msgstr ""
 
 #: meecast/qt-qml/qml/UnitsPage.qml:58 meecast/qt-qml/qml/UnitsPage.qml:209
-#, fuzzy
 msgid "Visible units"
-msgstr "Vindhastighetsenhet"
+msgstr ""
 
 #: omweather/src/weather-popup.c:1288
 #: meecast/qt-qml/qml/FullWeatherPage.qml:169
@@ -2638,30 +2623,20 @@ msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using LockScreen widget"
-msgstr ""
-"Du måste först aktivera\n"
-"'Widget i vyn Händelser'\n"
-"för att kunna aktivera widget på\n"
-"låsskärm."
+msgstr "Du måste först aktivera\n'Widget i vyn Händelser'\nför att kunna aktivera widget på\nlåsskärm."
 
 #: meecast/qt-qml/qml/VisualsPage.qml:256
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using StandbyScreen widget"
-msgstr ""
-"Du måste först aktivera\n"
-"'Widget i vyn Händelser'\n"
-"för att kunna aktivera widget på\n"
-"väntelägeskärm."
+msgstr "Du måste först aktivera\n'Widget i vyn Händelser'\nför att kunna aktivera widget på\nväntelägeskärm."
 
 #: meecast/qt-qml/qml/UpdatePage.qml:73
 msgid ""
-"You should activate 'Widget in the events view' option in MeeCast appearance "
-"settings for auto update."
-msgstr ""
-"Du måste aktivera 'Widget i vyn Händelser' under 'Utseende' för automatisk "
-"väderuppdatering."
+"You should activate 'Widget in the events view' option in MeeCast appearance"
+" settings for auto update."
+msgstr "Du måste aktivera 'Widget i vyn Händelser' under 'Utseende' för automatisk väderuppdatering."
 
 #: omweather/src/weather-simple-settings.c:2758
 msgid "Zoom in popup window "

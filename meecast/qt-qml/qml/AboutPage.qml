@@ -229,6 +229,7 @@ Portuguese - Jose Narciso,\n \
 Turkish - Burak Kaan Kose,\n \
 Catalan - Agustí Clara,\n \
 Arabic - Tarad Alfandi,\n \
+Norwegian - Peer-Atle Motland,\n \
 Vietnamese - Hieu Nguyen, Anh Dương and truongnx, \n \
 Swedish - Angela Nennebrandt,\n \
 \tNiklas Åkerström, \n \

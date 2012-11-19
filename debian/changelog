@@ -6,6 +6,7 @@ meecast (0.6.8) unstable; urgency=low
   * Decreased cycle count to 1 for Map
   * Added Arabic translation. Thanks Tarad Alfandi aka ttt0600
   * Adeed Norwegian translation. Thanks Peer-Atle Motland aka Pam
+  * Updated Albanian, Catalan, Swedish, Portuguese translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 29 Oct 2012 08:31:23 +0200
 

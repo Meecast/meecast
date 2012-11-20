@@ -3,26 +3,30 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Tarad Alfandi <ttt0600@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-11-19 18:22+0300\n"
-"PO-Revision-Date: 2012-04-19 10:38+0000\n"
-"Last-Translator: ludmilalisovskaya <ludmila.lisovskaya@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: lv_LV\n"
+"PO-Revision-Date: 2012-11-16 08:37+0000\n"
+"Last-Translator: Tarad Alfandi <ttt0600@gmail.com>\n"
+"Language-Team: Arabic (http://www.transifex.com/projects/p/meecast/language/"
+"ar/)\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
-"2)\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
 "\n"
 "H: "
 msgstr ""
+"\n"
+"H: "
 
 #: omweather/src/weather-help.c:80
 #, c-format
@@ -50,12 +54,16 @@ msgid ""
 "\n"
 "Humidity: "
 msgstr ""
+"\n"
+"الرطوبة: "
 
 #: omweather/src/weather-home.c:1608
 msgid ""
 "\n"
 "P: "
 msgstr ""
+"\n"
+"P: "
 
 #: omweather/src/weather-popup.c:954 omweather/src/weather-popup.c:959
 #: omweather/src/weather-popup.c:1087 omweather/src/weather-popup.c:1092
@@ -63,24 +71,32 @@ msgid ""
 "\n"
 "Precipitation: "
 msgstr ""
+"\n"
+"الترسيب: "
 
 #: omweather/src/weather-popup.c:976 omweather/src/weather-popup.c:1108
 msgid ""
 "\n"
 "Pressure: "
 msgstr ""
+"\n"
+"الضغط: "
 
 #: omweather/src/weather-home.c:1577
 msgid ""
 "\n"
 "V: "
 msgstr ""
+"\n"
+"V: "
 
 #: omweather/src/weather-home.c:1614
 msgid ""
 "\n"
 "W: "
 msgstr ""
+"\n"
+"W: "
 
 #: meecast/qt-qml/dataitem.cpp:470 meecast/qt-qml/dataitem.cpp:471
 msgid "(Low)"
@@ -93,165 +109,165 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:1714
 #: omweather/src/weather-simple-settings.c:2811
 msgid "1 day"
-msgstr ""
+msgstr "يوم  1"
 
 #: omweather/src/weather-settings.c:4240
 #: omweather/src/weather-simple-settings.c:1696
 #: omweather/src/weather-simple-settings.c:2805
 #: meecast/qt-qml/qml/UpdatePage.qml:154
 msgid "1 hour"
-msgstr ""
+msgstr "ساعة 1"
 
 #: omweather/src/weather-sensor.c:143
 msgid "1 minute"
-msgstr ""
+msgstr "1 ديقية"
 
 #: omweather/src/weather-sensor.c:149
 msgid "10 minutes"
-msgstr ""
+msgstr "10 دقائق"
 
 #: omweather/src/weather-settings.c:4192
 msgid "10 seconds"
-msgstr ""
+msgstr "10 ثواني"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:175
 msgid "12 hours"
-msgstr ""
+msgstr "12 ساعة"
 
 #: omweather/src/weather-sensor.c:151 meecast/qt-qml/qml/UpdatePage.qml:140
 msgid "15 minutes"
-msgstr ""
+msgstr "15 دقيقة"
 
 #: omweather/src/weather-settings.c:4242 meecast/qt-qml/qml/UpdatePage.qml:161
 msgid "2 hours"
-msgstr ""
+msgstr "2 ساعة"
 
 #: omweather/src/weather-settings.c:4194
 msgid "20 seconds"
-msgstr ""
+msgstr "20 ثانية"
 
 #: omweather/src/weather-sensor.c:145
 msgid "3 minutes"
-msgstr ""
+msgstr "3 دقائق"
 
 #: omweather/src/weather-sensor.c:153 meecast/qt-qml/qml/UpdatePage.qml:147
 msgid "30 minutes"
-msgstr ""
+msgstr "30 دقيقة"
 
 #: omweather/src/weather-settings.c:4196
 msgid "30 seconds"
-msgstr ""
+msgstr "30 ثانية"
 
 #: omweather/src/weather-settings.c:4244
 #: omweather/src/weather-simple-settings.c:1705
 #: omweather/src/weather-simple-settings.c:2808
 #: meecast/qt-qml/qml/UpdatePage.qml:168
 msgid "4 hours"
-msgstr ""
+msgstr "4 ساعات"
 
 #: omweather/src/weather-settings.c:4198
 msgid "40 seconds"
-msgstr ""
+msgstr "40 ثانية"
 
 #: omweather/src/weather-sensor.c:147
 msgid "5 minutes"
-msgstr ""
+msgstr "5 دقائق"
 
 #: omweather/src/weather-settings.c:4200
 msgid "50 seconds"
-msgstr ""
+msgstr "50 ثانية"
 
 #: omweather/src/weather-settings.c:4202
 msgid "60 seconds"
-msgstr ""
+msgstr "60 ثانية"
 
 #: omweather/src/weather-settings.c:4246
 msgid "8 hours"
-msgstr ""
+msgstr "8 ساعات"
 
 #: omweather/src/hash.data:4
 msgid "AM Clouds / PM Sun"
-msgstr ""
+msgstr "غيوم صباحا / شمس مساء"
 
 #: omweather/src/hash.data:6
 msgid "AM Drizzle"
-msgstr ""
+msgstr "رذاذ صباحا"
 
 #: omweather/src/hash.data:5
 msgid "AM Drizzle / Wind"
-msgstr ""
+msgstr "رذاذ / رياح صباحا"
 
 #: omweather/src/hash.data:7
 msgid "AM Fog / PM Clouds"
-msgstr ""
+msgstr "ضباب صباحا / غيوم مساء"
 
 #: omweather/src/hash.data:8
 msgid "AM Fog / PM Sun"
-msgstr ""
+msgstr "ضباب صباحا / شمس مساء"
 
 #: omweather/src/hash.data:10
 msgid "AM Light Rain"
-msgstr ""
+msgstr "مطر خفيف صباحا"
 
 #: omweather/src/hash.data:9
 msgid "AM Light Rain / Wind"
-msgstr ""
+msgstr "مطر خفيف / رياح صباحا"
 
 #: omweather/src/hash.data:12
 msgid "AM Light Snow"
-msgstr ""
+msgstr "ثلج خفيف صباحا"
 
 #: omweather/src/hash.data:11
 msgid "AM Light Snow / Wind"
-msgstr ""
+msgstr "ثلج خفيف / رياح صباحا"
 
 #: omweather/src/hash.data:13
 msgid "AM Light Wintry Mix"
-msgstr ""
+msgstr "مزيج شتوي خفيف صباحا"
 
 #: omweather/src/hash.data:18
 msgid "AM Rain"
-msgstr ""
+msgstr "مطر صباحا"
 
 #: omweather/src/hash.data:16
 msgid "AM Rain / Snow"
-msgstr ""
+msgstr "مطر صباحا / ثلج"
 
 #: omweather/src/hash.data:15
 msgid "AM Rain / Snow Showers"
-msgstr ""
+msgstr "مطر صباحا / زخات ثلج"
 
 #: omweather/src/hash.data:14
 msgid "AM Rain / Snow Showers / Wind"
-msgstr ""
+msgstr "مطر صباحا / زخات ثلج / رياح"
 
 #: omweather/src/hash.data:17
 msgid "AM Rain / Wind"
-msgstr ""
+msgstr "مطر صباحا / ثلج"
 
 #: omweather/src/hash.data:20
 msgid "AM Showers"
-msgstr ""
+msgstr "زخات صباحا"
 
 #: omweather/src/hash.data:19
 msgid "AM Showers / Wind"
-msgstr ""
+msgstr "زخات صباحا / رياح"
 
 #: omweather/src/hash.data:24
 msgid "AM Snow"
-msgstr ""
+msgstr "ثلج صباحا"
 
 #: omweather/src/hash.data:23
 msgid "AM Snow Showers"
-msgstr ""
+msgstr "زخات ثلج صباحا"
 
 #: omweather/src/hash.data:22
 msgid "AM Snow Showers / Wind"
-msgstr ""
+msgstr "زخات ثلج صباحا / رياح"
 
 #: omweather/src/hash.data:21
 msgid "AM Snow Showers / Wind Late"
-msgstr ""
+msgstr "زخات ثلج صباحا / رياح متأخره"
 
 #: omweather/src/weather-home.c:1286 omweather/src/weather-help.c:100
 #: omweather/src/weather-simple-popup.c:1164
@@ -259,28 +275,28 @@ msgstr ""
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
 #: meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
-msgstr ""
+msgstr "عن"
 
 #: omweather/src/weather-download.c:417
 msgid "Access denied to the given URL."
-msgstr ""
+msgstr "رفض الوصول الى الـURL المعطى"
 
 #: omweather/src/weather-simple-popup.c:283
 msgid "Action|Update"
-msgstr ""
+msgstr "الفعل|تحديث"
 
 #: omweather/src/weather-settings.c:480
 msgid "Add"
-msgstr ""
+msgstr "إضافة"
 
 #: omweather/src/weather-settings.c:467
 msgid "Add Station"
-msgstr ""
+msgstr "إضافة محطة"
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
 #: omweather/src/weather-settings.c:1381
 msgid "Alerts"
-msgstr ""
+msgstr "تحذيرات"
 
 #: omweather/src/weather-help.c:125
 msgid ""
@@ -297,15 +313,15 @@ msgstr ""
 
 #: omweather/src/weather-download.c:397
 msgid "An unknown error has occurred."
-msgstr ""
+msgstr "حدث خطأ غير معروف"
 
 #: omweather/src/weather-simple-settings.c:413
 msgid "Animation"
-msgstr ""
+msgstr "الحركة"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:566
 msgid "Appearance"
-msgstr ""
+msgstr "المظهر"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:94
 msgid ""
@@ -317,11 +333,11 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
-msgstr ""
+msgstr "هل انت متأكد من مسح هذه المحطة؟"
 
 #: omweather/src/weather-simple-settings.c:848
 msgid "Are you sure?"
-msgstr ""
+msgstr "هل أنت متأكد؟"
 
 #: omweather/src/weather-help.c:103
 msgid ""
@@ -338,57 +354,57 @@ msgstr ""
 
 #: omweather/src/weather-help.c:111
 msgid "Authors"
-msgstr ""
+msgstr "الكتاب"
 
 #: omweather/src/weather-settings.c:4156
 msgid "Automatically update data when connecting to the Internet"
-msgstr ""
+msgstr "تحديث البيانات تلقائيا عند الاتصال بالإنترنت"
 
 #: omweather/src/weather-settings.c:3378 omweather/src/weather-settings.c:3382
 msgid "Background color:"
-msgstr ""
+msgstr "لو الخلفية"
 
 #: omweather/src/weather-simple-settings.c:1426
 msgid "Beauf."
-msgstr ""
+msgstr "بيفورت"
 
 #: omweather/src/weather-settings.c:4021
 #: omweather/src/weather-simple-settings.c:2707
 msgid "Beaufort scale"
-msgstr ""
+msgstr "مقياس بوفورت"
 
 #: omweather/src/hash.data:25
 msgid "Blowing Snow"
-msgstr ""
+msgstr "ثلوج هابة"
 
 #: omweather/src/weather-home.c:1536 omweather/src/weather-home.c:1562
 #: omweather/src/weather-simple-popup.c:1042
 #: omweather/src/weather-simple-popup.c:1052
 #: omweather/src/weather-simple-settings.c:1281
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #: omweather/src/weather-popup.c:1265 omweather/src/weather-popup.c:1275
 #: omweather/src/weather-popup.c:1446 omweather/src/weather-popup.c:1454
 msgid "C\n"
-msgstr ""
+msgstr "C\n"
 
 #: omweather/src/hash.data:26
 msgid "CALM"
-msgstr ""
+msgstr "هادئ"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:108
 msgid "Cancel"
-msgstr ""
+msgstr "إلغاء"
 
 #: omweather/src/weather-config.c:383
 #, c-format
 msgid "Cannot get path to the HOME directory. Quitting.\n"
-msgstr ""
+msgstr "لايمكن الوصول الى مسار الرئيسية. إنهاء.\n"
 
 #: omweather/src/weather-settings.c:3864
 msgid "Celcius"
-msgstr ""
+msgstr "مئوية"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:114
 msgid "Celsius"
@@ -399,39 +415,39 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:807
 #: omweather/src/weather-simple-settings.c:2341
 msgid "City"
-msgstr ""
+msgstr "المدنية"
 
 #: omweather/src/weather-settings.c:533
 msgid "City:"
-msgstr ""
+msgstr "المدنية:"
 
 #: omweather/src/hash.data:29
 msgid "Clear"
-msgstr ""
+msgstr "صافي"
 
 #: omweather/src/hash.data:27
 msgid "Clear / Wind"
-msgstr ""
+msgstr "رياح / صافية"
 
 #: omweather/src/hash.data:28
 msgid "Clear Sky"
-msgstr ""
+msgstr "سماء صافية"
 
 #: omweather/src/hash.data:30
 msgid "Clear, Drifting Snow"
-msgstr ""
+msgstr "صافي, ثلج منجرف"
 
 #: omweather/src/hash.data:31
 msgid "Clear, Fog"
-msgstr ""
+msgstr "صافي, ضباب"
 
 #: omweather/src/hash.data:32
 msgid "Clear, Fog, Drizzle"
-msgstr ""
+msgstr "صافي, ضباب, رذاذ"
 
 #: omweather/src/hash.data:33
 msgid "Clear, Haze"
-msgstr ""
+msgstr "صافي, ضباب"
 
 #: omweather/src/hash.data:34
 msgid "Clear, Smoke"
@@ -439,7 +455,7 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:485
 msgid "Close"
-msgstr ""
+msgstr "إغلاق"
 
 #: omweather/src/hash.data:35
 msgid "Clouds Early / Clearing Late"
@@ -447,11 +463,11 @@ msgstr ""
 
 #: omweather/src/hash.data:46
 msgid "Cloudy"
-msgstr ""
+msgstr "غائم"
 
 #: omweather/src/hash.data:36
 msgid "Cloudy / Wind"
-msgstr ""
+msgstr "غائم / رياخ"
 
 #: omweather/src/hash.data:37
 msgid "Cloudy Few Snow"
@@ -459,47 +475,47 @@ msgstr ""
 
 #: omweather/src/hash.data:38
 msgid "Cloudy Light Rain"
-msgstr ""
+msgstr "مطر خفيف غائم"
 
 #: omweather/src/hash.data:39
 msgid "Cloudy T-Storm"
-msgstr ""
+msgstr "عواصف رعدية غائمة"
 
 #: omweather/src/hash.data:40
 msgid "Cloudy and Windy"
-msgstr ""
+msgstr "غائم ورياح"
 
 #: omweather/src/hash.data:41
 msgid "Cloudy and light rain"
-msgstr ""
+msgstr "غائم ومطر خفيف"
 
 #: omweather/src/hash.data:42
 msgid "Cloudy and light snow"
-msgstr ""
+msgstr "غائم وثلج خفيف"
 
 #: omweather/src/hash.data:43
 msgid "Cloudy and light wet snow"
-msgstr ""
+msgstr "غائم وثلج رطب خفيف"
 
 #: omweather/src/hash.data:44
 msgid "Cloudy and showers"
-msgstr ""
+msgstr "غائم وزخات"
 
 #: omweather/src/hash.data:45
 msgid "Cloudy and snow showers"
-msgstr ""
+msgstr "غائم وزخات ثلج"
 
 #: omweather/src/hash.data:47
 msgid "Cloudy, Drifting Snow"
-msgstr ""
+msgstr "غائم, ثلوج متحركة"
 
 #: omweather/src/hash.data:48
 msgid "Cloudy, Few Snow"
-msgstr ""
+msgstr "غائم, ثلج قليل"
 
 #: omweather/src/hash.data:49
 msgid "Cloudy, Heavy Rain"
-msgstr ""
+msgstr "غائم, مطر كثيف"
 
 #: omweather/src/hash.data:50
 msgid "Cloudy, Heavy Rain, T-Storm"
@@ -507,11 +523,11 @@ msgstr ""
 
 #: omweather/src/hash.data:51
 msgid "Cloudy, Heavy Snow"
-msgstr ""
+msgstr "غائم, ثلج كثيف"
 
 #: omweather/src/hash.data:52
 msgid "Cloudy, Light Rain"
-msgstr ""
+msgstr "غائم, مطر خفيف"
 
 #: omweather/src/hash.data:53
 msgid "Cloudy, Light Rain, T-Storm"
@@ -519,7 +535,7 @@ msgstr ""
 
 #: omweather/src/hash.data:54
 msgid "Cloudy, Rain"
-msgstr ""
+msgstr "غائم, مطر"
 
 #: omweather/src/hash.data:55
 msgid "Cloudy, Rain, T-Storm"
@@ -527,11 +543,11 @@ msgstr ""
 
 #: omweather/src/hash.data:56
 msgid "Cloudy, Smoke"
-msgstr ""
+msgstr "غائم, ضباب"
 
 #: omweather/src/hash.data:58
 msgid "Cloudy, Snow"
-msgstr ""
+msgstr "غائم, ثلج"
 
 #: omweather/src/hash.data:57
 msgid "Cloudy, thunderstorms with rain"
@@ -539,17 +555,19 @@ msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:413
 msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
-msgstr ""
+msgstr "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:414
 msgid "Copyright(c) 2010-2011 by Tanya Makova\n"
-msgstr ""
+msgstr "Copyright(c) 2010-2011 by Tanya Makova\n"
 
 #: omweather/src/weather-download.c:226
 msgid ""
 "Could not connecting to Internet.\n"
 "Connection timeout is expired."
 msgstr ""
+"لايمكن الإتصال بالإنترنت.\n"
+"تم إنتهاء مدة الإتصال."
 
 #: omweather/src/weather-config.c:401
 #, c-format
@@ -558,49 +576,49 @@ msgstr ""
 
 #: omweather/src/weather-download.c:409
 msgid "Couldn't resolve host."
-msgstr ""
+msgstr "تعذر حل الخادم."
 
 #: omweather/src/weather-download.c:405
 msgid "Couldn't resolve proxy."
-msgstr ""
+msgstr "تعذر حل البروكسي."
 
 #: omweather/src/weather-simple-settings.c:764
 #: omweather/src/weather-simple-settings.c:2313
 msgid "Country"
-msgstr ""
+msgstr "الدولة"
 
 #: omweather/src/weather-settings.c:510
 msgid "Country:"
-msgstr ""
+msgstr "الدولة:"
 
 #: omweather/src/weather-simple-settings.c:2896
 msgid "Custom"
-msgstr ""
+msgstr "مخصص"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:183
 msgid "Daily"
-msgstr ""
+msgstr "يومي"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
 #: meecast/qt-qml/qml/FullWeatherPage.qml:186
 msgid "Day"
-msgstr ""
+msgstr "يوم"
 
 #: omweather/src/weather-popup.c:1182
 msgid "Day length"
-msgstr ""
+msgstr "طول اليوم"
 
 #: omweather/src/hash.data:59 meecast/qt-qml/qml/FullWeatherPage.qml:294
 msgid "Day length:"
-msgstr ""
+msgstr "طول اليوم:"
 
 #: omweather/src/weather-popup.c:913
 msgid "Day:"
-msgstr ""
+msgstr "يوم:"
 
 #: meecast/qt-qml/qml/StationsPage.qml:75
 msgid "Delete location?"
-msgstr ""
+msgstr "حذف المكان؟"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
@@ -610,20 +628,20 @@ msgstr ""
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
 msgid "Detailed"
-msgstr ""
+msgstr "مفصل"
 
 #: omweather/src/weather-settings.c:1128 omweather/src/weather-settings.c:1321
 #: omweather/src/weather-settings.c:1325
 msgid "Display"
-msgstr ""
+msgstr "عرض"
 
 #: omweather/src/weather-simple-settings.c:1315
 msgid "Distance"
-msgstr ""
+msgstr "المسافة"
 
 #: omweather/src/weather-settings.c:3894
 msgid "Distance units:"
-msgstr ""
+msgstr "وحدات المسافة:"
 
 #: omweather/src/weather-settings.c:595
 msgid ""
@@ -635,11 +653,11 @@ msgstr ""
 #: omweather/src/weather-simple-popup.c:1220
 #: omweather/src/weather-simple-popup.c:1226
 msgid "Donation"
-msgstr ""
+msgstr "هبة"
 
 #: omweather/src/weather-settings.c:4164
 msgid "Download and show detailed weather"
-msgstr ""
+msgstr "تنزيل وإظهار الطقس بالتفصيل"
 
 #: omweather/src/weather-download.c:429
 msgid "Download timed out."
@@ -671,7 +689,7 @@ msgstr ""
 
 #: omweather/src/hash.data:66
 msgid "E"
-msgstr ""
+msgstr "E"
 
 #: omweather/src/hash.data:67
 msgid "ENE"
@@ -679,7 +697,7 @@ msgstr ""
 
 #: omweather/src/hash.data:68
 msgid "ENE_short"
-msgstr "ENE"
+msgstr ""
 
 #: omweather/src/hash.data:69
 msgid "ESE"
@@ -687,11 +705,11 @@ msgstr ""
 
 #: omweather/src/hash.data:70
 msgid "ESE_short"
-msgstr "ESE"
+msgstr ""
 
 #: omweather/src/hash.data:71
 msgid "E_short"
-msgstr "E"
+msgstr ""
 
 #: omweather/src/weather-help.c:114
 msgid ""
@@ -710,20 +728,20 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:330
 #: omweather/src/weather-simple-settings.c:421
 msgid "Edit custom layout"
-msgstr ""
+msgstr "تحرير المظهر المتخصص"
 
 #: omweather/src/weather-settings.c:2865
 msgid "Enable GPS"
-msgstr ""
+msgstr "تفعيل نظام تحديد المواقع"
 
 #: meecast/qt-qml/qml/SearchField.qml:50
 msgid "Enter search"
-msgstr ""
+msgstr "بحث"
 
 #: omweather/src/weather-home.c:841
 #, c-format
 msgid "Error in xml file\n"
-msgstr ""
+msgstr "خطأ في ملف xml\n"
 
 #: omweather/src/weather-home.c:914
 msgid "Error initializing the OMWeather applet"
@@ -731,12 +749,12 @@ msgstr ""
 
 #: omweather/src/hash.data:72
 msgid "Exit"
-msgstr ""
+msgstr "خروج"
 
 #: omweather/src/weather-simple-settings.c:1892
 #: omweather/src/weather-simple-settings.c:2771
 msgid "Extended Settings"
-msgstr ""
+msgstr "إعدادات متقدمة"
 
 #: omweather/src/hash.data:73
 msgid "Extreme"
@@ -747,20 +765,20 @@ msgstr ""
 #: omweather/src/weather-simple-popup.c:1053
 #: omweather/src/weather-simple-settings.c:1289
 msgid "F"
-msgstr ""
+msgstr "F"
 
 #: omweather/src/weather-popup.c:1266 omweather/src/weather-popup.c:1276
 #: omweather/src/weather-popup.c:1447 omweather/src/weather-popup.c:1455
 msgid "F\n"
-msgstr ""
+msgstr "F\n"
 
 #: omweather/src/weather-home.c:1558
 msgid "FL: "
-msgstr ""
+msgstr "FL: "
 
 #: omweather/src/weather-settings.c:3876 meecast/qt-qml/qml/UnitsPage.qml:122
 msgid "Fahrenheit"
-msgstr ""
+msgstr "فهرنهايت"
 
 #: omweather/src/weather-download.c:413
 msgid "Failed to connect to host or proxy."
@@ -806,7 +824,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/StationsPage.qml:92
 msgid "Find location via GPS"
-msgstr ""
+msgstr "إيجاد الموقع عبر نظام تحديد المواقع"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:428
 msgid ""
@@ -816,7 +834,7 @@ msgstr ""
 
 #: omweather/src/hash.data:80
 msgid "First Quarter"
-msgstr ""
+msgstr "الربع الأول"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:153
 #: meecast/qt-qml/qml/FullWeatherPage.qml:210
@@ -826,7 +844,7 @@ msgstr ""
 
 #: omweather/src/hash.data:84
 msgid "Fog"
-msgstr ""
+msgstr "ضباب"
 
 #: omweather/src/hash.data:81
 msgid "Fog Early / Clouds Late"
@@ -842,15 +860,15 @@ msgstr ""
 
 #: omweather/src/hash.data:85
 msgid "Foggy"
-msgstr ""
+msgstr "ضباب"
 
 #: omweather/src/weather-settings.c:3257
 msgid "Font color:"
-msgstr ""
+msgstr "لون الخط:"
 
 #: omweather/src/weather-settings.c:3227 omweather/src/weather-settings.c:3231
 msgid "Font:"
-msgstr ""
+msgstr "الخط:"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:292
 msgid ""
@@ -862,7 +880,7 @@ msgstr ""
 
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
-msgstr ""
+msgstr "توقعات"
 
 #: omweather/src/weather-popup.c:1433
 #: omweather/src/weather-simple-popup.c:1028
@@ -871,7 +889,7 @@ msgstr ""
 
 #: omweather/src/weather-home.c:1355
 msgid "Forecast: \n"
-msgstr ""
+msgstr "توقعات: \n"
 
 #: omweather/src/hash.data:86
 msgid "Freezing Drizzle"
@@ -921,33 +939,33 @@ msgstr ""
 
 #: omweather/src/hash.data:87
 msgid "Full"
-msgstr ""
+msgstr "كامل"
 
 #: omweather/src/weather-home.c:1296
 msgid "Full forecast"
-msgstr ""
+msgstr "التنبؤات بالكامل"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:369
 msgid "Fullscreen mode"
-msgstr ""
+msgstr "وضعية شاشة كامله"
 
 #: omweather/src/weather-home.c:1641
 msgid "G: "
-msgstr ""
+msgstr "G: "
 
 #: omweather/src/weather-simple-settings.c:2249
 msgid "GPS"
-msgstr ""
+msgstr "نظام تحديد المواقع"
 
 #: omweather/src/weather-simple-settings.c:1752
 #: omweather/src/weather-simple-settings.c:1758
 #: omweather/src/weather-simple-settings.c:2824
 msgid "GSM"
-msgstr ""
+msgstr "جي إس إم"
 
 #: omweather/src/weather-simple-settings.c:2818
 msgid "GSM+WLAN"
-msgstr ""
+msgstr "جي إس إم+شبكة WLAN"
 
 #: omweather/src/weather-simple-settings.c:2395
 msgid "GUI|Clear"
@@ -960,11 +978,11 @@ msgstr ""
 
 #: omweather/src/weather-popup.c:1354 omweather/src/weather-popup.c:1493
 msgid "Gust:"
-msgstr ""
+msgstr "ضيف:"
 
 #: omweather/src/weather-download.c:421
 msgid "HTTP error."
-msgstr ""
+msgstr "خطأ HTTP."
 
 #: omweather/src/hash.data:88
 msgid "Haze"
@@ -972,11 +990,11 @@ msgstr ""
 
 #: omweather/src/hash.data:91
 msgid "Heavy Rain"
-msgstr ""
+msgstr "مطر كثيف"
 
 #: omweather/src/hash.data:89
 msgid "Heavy Rain / Wind"
-msgstr ""
+msgstr "مطر كثيف /رياح"
 
 #: omweather/src/hash.data:90
 msgid "Heavy Rain Shower"
@@ -984,7 +1002,7 @@ msgstr ""
 
 #: omweather/src/hash.data:92
 msgid "Heavy Snow"
-msgstr ""
+msgstr "ثلج كثيف"
 
 #: omweather/src/hash.data:93
 msgid "High"
@@ -992,7 +1010,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:276
 msgid "Hours"
-msgstr ""
+msgstr "ساعات"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
@@ -1000,34 +1018,34 @@ msgstr ""
 #: meecast/qt-qml/qml/FullWeatherPage.qml:192
 #: meecast/qt-qml/qml/FullWeatherPage.qml:241
 msgid "Humidity:"
-msgstr ""
+msgstr "الرطوبة:"
 
 #: omweather/src/weather-settings.c:3326
 msgid "Icon set:"
-msgstr ""
+msgstr "مجموعة الأيقونات:"
 
 #: omweather/src/weather-settings.c:3558 omweather/src/weather-settings.c:3563
 msgid "Icon size:"
-msgstr ""
+msgstr "حجم الأيقونة:"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:44 meecast/qt-qml/qml/UpdatePage.qml:42
 msgid "Icons"
-msgstr ""
+msgstr "أيقونات"
 
 #: omweather/src/hash.data:94 meecast/qt-qml/qml/VisualsPage.qml:391
 msgid "Iconset"
-msgstr ""
+msgstr "مجموعة الأيقونات"
 
 #: omweather/src/hash.data:95
 msgid "Iconsets"
-msgstr ""
+msgstr "مجموعة الأيقونات"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:64
 #: meecast/qt-qml/qml/VisualsPage.qml:136
 #: meecast/qt-qml/qml/VisualsPage.qml:163
 #: meecast/qt-qml/qml/VisualsPage.qml:226
 msgid "Information"
-msgstr ""
+msgstr "معلومات"
 
 #: omweather/src/hash.data:97
 msgid "Isolated T-Storms"
@@ -1045,30 +1063,30 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
-msgstr ""
+msgstr "كيلومترات"
 
 #: omweather/src/hash.data:98
 msgid "Last Quarter"
-msgstr ""
+msgstr "الربع الأخير"
 
 #: omweather/src/weather-popup.c:264
 msgid "Last update at server: "
-msgstr ""
+msgstr "أخر تحديث في الخادم:"
 
 #: omweather/src/weather-popup.c:278 omweather/src/weather-popup.c:282
 msgid "Last update from server: "
-msgstr ""
+msgstr "أخر تحديث من الخادم:"
 
 #: omweather/src/hash.data:99 meecast/qt-qml/qml/FullWeatherPage.qml:297
 msgid "Last update:"
-msgstr ""
+msgstr "أخر تحديث:"
 
 #: omweather/src/weather-simple-popup.c:271
 #: omweather/src/weather-simple-popup.c:273
 #: omweather/src/weather-simple-popup.c:280
 #, c-format
 msgid "Last update: "
-msgstr ""
+msgstr "أخر تحديث:"
 
 #: omweather/src/hash.data:100
 msgid "Lawn and Garden Weather"
@@ -1076,19 +1094,19 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:2924 omweather/src/weather-settings.c:2931
 msgid "Layout:"
-msgstr ""
+msgstr "التصميم:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:170
 msgid "Lead designer"
-msgstr ""
+msgstr "قائد التصميم"
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
 msgid "Lead programmers"
-msgstr ""
+msgstr "قادة البرمجة"
 
 #: meecast/qt-qml/qml/AboutPage.qml:243
 msgid "License"
-msgstr ""
+msgstr "الرخصة"
 
 #: omweather/src/hash.data:101
 msgid "Light Drizzle"
@@ -1168,11 +1186,11 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
-msgstr ""
+msgstr "تحميل قائمة المحطات"
 
 #: omweather/src/hash.data:120
 msgid "Local Pollen Reports"
-msgstr ""
+msgstr "تقارير اللقاح المحليه"
 
 #: omweather/src/weather-settings.c:3454
 msgid "Long"
@@ -1180,7 +1198,7 @@ msgstr ""
 
 #: omweather/src/hash.data:121 meecast/qt-qml/qml/WeatherPage.qml:487
 msgid "Looks like there's no info for this location."
-msgstr ""
+msgstr "على مايبدو انه لايوجد أي معلومات عن الموقع."
 
 #: omweather/src/hash.data:122
 msgid "Low"
@@ -1191,40 +1209,43 @@ msgid ""
 "Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
 "com>\n"
 msgstr ""
+"صيانة: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail.com>\n"
 
 #: omweather/src/hash.data:123 meecast/qt-qml/qml/StationsPage.qml:153
 msgid "Manage locations"
-msgstr ""
+msgstr "إدارة المواقع"
 
 #: omweather/src/weather-simple-settings.c:2240
 msgid "Manual"
-msgstr ""
+msgstr "يدوي"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:270
 msgid "Measurement units"
-msgstr ""
+msgstr "وحدات القياس"
 
 #: meecast/qt-qml/qml/WeatherPage.qml:292
 msgid "MeeCast"
-msgstr ""
+msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2011"
 msgstr ""
+"MeeCast - هو تطبيق يعرض حاله الطقس ويعتر مفتوح المصدر وقابل للتعديل إستنادا "
+"الى كود OMWeather. الحقوق 2006-2011"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
-msgstr ""
+msgstr "MeeCast لهارمتان"
 
 #: omweather/src/weather-settings.c:3901
 msgid "Meters"
-msgstr ""
+msgstr "أمتار"
 
 #: omweather/src/weather-settings.c:3930
 msgid "Miles"
-msgstr ""
+msgstr "أميال"
 
 #: omweather/src/hash.data:124
 msgid "Mist"
@@ -1344,7 +1365,7 @@ msgstr ""
 
 #: omweather/src/hash.data:153
 msgid "N"
-msgstr ""
+msgstr "N"
 
 #: omweather/src/weather-home.c:658 omweather/src/weather-home.c:664
 #: omweather/src/weather-home.c:665 omweather/src/weather-home.c:671
@@ -1358,11 +1379,11 @@ msgstr ""
 
 #: omweather/src/hash.data:155
 msgid "NE"
-msgstr ""
+msgstr "NE"
 
 #: omweather/src/hash.data:156
 msgid "NE_short"
-msgstr "NE"
+msgstr ""
 
 #: omweather/src/hash.data:157
 msgid "NNE"
@@ -1370,7 +1391,7 @@ msgstr ""
 
 #: omweather/src/hash.data:158
 msgid "NNE_short"
-msgstr "NNE"
+msgstr ""
 
 #: omweather/src/hash.data:159
 msgid "NNW"
@@ -1378,7 +1399,7 @@ msgstr ""
 
 #: omweather/src/hash.data:160
 msgid "NNW_short"
-msgstr "NNW"
+msgstr ""
 
 #: omweather/src/hash.data:161
 msgid "NO STATION"
@@ -1386,19 +1407,19 @@ msgstr ""
 
 #: omweather/src/hash.data:162
 msgid "NW"
-msgstr ""
+msgstr "شمالي غربي"
 
 #: omweather/src/hash.data:163
 msgid "NW_short"
-msgstr "NW"
+msgstr ""
 
 #: omweather/src/hash.data:164
 msgid "N_short"
-msgstr "N"
+msgstr ""
 
 #: omweather/src/weather-settings.c:545
 msgid "Name:"
-msgstr ""
+msgstr "الإسم:"
 
 #: omweather/src/weather-settings.c:920 omweather/src/weather-settings.c:4190
 #: omweather/src/weather-config.c:324 omweather/src/weather-sensor.c:141
@@ -1409,15 +1430,15 @@ msgstr ""
 
 #: omweather/src/hash.data:165
 msgid "New"
-msgstr ""
+msgstr "جديد"
 
 #: meecast/qt-qml/qml/NewStationPage.qml:38
 msgid "New location"
-msgstr ""
+msgstr "مكان جديد"
 
 #: omweather/src/weather-settings.c:4275
 msgid "Next update:"
-msgstr ""
+msgstr "التحديث التالي:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:588
 #: meecast/qt-qml/qml/FullWeatherPage.qml:227
@@ -1430,7 +1451,7 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:825 meecast/qt-qml/qml/StationsPage.qml:78
 msgid "No"
-msgstr ""
+msgstr "لا"
 
 #: omweather/src/weather-popup.c:669
 msgid "No current weather data."
@@ -1457,7 +1478,7 @@ msgstr ""
 #: meecast/qt-qml/dataitem.cpp:188 meecast/qt-qml/qml/FullWeatherPage.qml:129
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Now"
-msgstr ""
+msgstr "الأن"
 
 #: omweather/src/weather-simple-settings.c:2880
 msgid "Now + 2 days vert."
@@ -1478,7 +1499,7 @@ msgstr ""
 #: omweather/src/weather-home.c:1531
 #, c-format
 msgid "Now: "
-msgstr ""
+msgstr "الأن:"
 
 #: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1223
 #: meecast/qt-qml/qml/VisualsPage.qml:115
@@ -1726,11 +1747,11 @@ msgstr ""
 
 #: omweather/src/weather-simple-settings.c:1676
 msgid "Period"
-msgstr ""
+msgstr "المدة"
 
 #: omweather/src/weather-settings.c:3649
 msgid "Position:"
-msgstr ""
+msgstr "المكان:"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:147
 #: meecast/qt-qml/qml/FullWeatherPage.qml:204
@@ -1745,15 +1766,15 @@ msgstr ""
 
 #: omweather/src/weather-simple-settings.c:1460
 msgid "Pressure"
-msgstr ""
+msgstr "الضغط"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:49 meecast/qt-qml/qml/UnitsPage.qml:176
 msgid "Pressure units"
-msgstr ""
+msgstr "وحدات الضغط"
 
 #: omweather/src/weather-settings.c:4049
 msgid "Pressure units:"
-msgstr ""
+msgstr "وحدات الضغط:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
@@ -1761,31 +1782,31 @@ msgstr ""
 #: meecast/qt-qml/qml/FullWeatherPage.qml:198
 #: meecast/qt-qml/qml/FullWeatherPage.qml:247
 msgid "Pressure:"
-msgstr ""
+msgstr "الضغط:"
 
 #: omweather/src/weather-home.c:1393 omweather/src/weather-home.c:1448
 msgid "Pressure: "
-msgstr ""
+msgstr "الضغط:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
 msgid "Project administrator"
-msgstr ""
+msgstr "مدير المشروع"
 
 #: meecast/qt-qml/qml/AboutPage.qml:186
 msgid "Project manager"
-msgstr ""
+msgstr "مدير المشروع"
 
 #: meecast/qt-qml/qml/AboutPage.qml:86
 msgid "Project website"
-msgstr ""
+msgstr "موقع المشروع"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:922
 msgid "Provided by"
-msgstr ""
+msgstr "مقدمة من"
 
 #: omweather/src/hash.data:241
 msgid "Rain"
-msgstr ""
+msgstr "مطر"
 
 #: omweather/src/hash.data:221
 msgid "Rain / Freezing Rain"
@@ -1875,7 +1896,7 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:786
 #: omweather/src/weather-simple-settings.c:2327
 msgid "Region"
-msgstr ""
+msgstr "المنطقة"
 
 #: omweather/src/hash.data:242
 msgid "Rush Hour Traffic"
@@ -1891,7 +1912,7 @@ msgstr ""
 
 #: omweather/src/hash.data:245
 msgid "SE_short"
-msgstr "SE"
+msgstr ""
 
 #: omweather/src/hash.data:246
 msgid "SSE"
@@ -1899,7 +1920,7 @@ msgstr ""
 
 #: omweather/src/hash.data:247
 msgid "SSE_short"
-msgstr "SSE"
+msgstr ""
 
 #: omweather/src/hash.data:248
 msgid "SSW"
@@ -1907,7 +1928,7 @@ msgstr ""
 
 #: omweather/src/hash.data:249
 msgid "SSW_short"
-msgstr "SSW"
+msgstr ""
 
 #: omweather/src/hash.data:250
 msgid "SW"
@@ -1915,11 +1936,11 @@ msgstr ""
 
 #: omweather/src/hash.data:251
 msgid "SW_short"
-msgstr "SW"
+msgstr ""
 
 #: omweather/src/hash.data:252
 msgid "S_short"
-msgstr "S"
+msgstr ""
 
 #: omweather/src/weather-simple-settings.c:359
 #: omweather/src/weather-simple-settings.c:457
@@ -1929,7 +1950,7 @@ msgstr "S"
 #: omweather/src/weather-simple-settings.c:2396
 #: omweather/src/weather-simple-settings.c:3125
 msgid "Save"
-msgstr ""
+msgstr "حفظ"
 
 #: omweather/src/hash.data:253
 msgid "Scattered Showers"
@@ -1953,34 +1974,34 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:474
 msgid "Search"
-msgstr ""
+msgstr "بحث"
 
 #: meecast/qt-qml/qml/NewStationPage.qml:73
 #: meecast/qt-qml/qml/NewStationPage.qml:120
 msgid "Select city"
-msgstr ""
+msgstr "اختر المدينة"
 
 #: meecast/qt-qml/qml/CountryPage.qml:153
 #: meecast/qt-qml/qml/NewStationPage.qml:55
 #: meecast/qt-qml/qml/NewStationPage.qml:102
 msgid "Select country"
-msgstr ""
+msgstr "اختر الدولة"
 
 #: omweather/src/weather-simple-settings.c:2168
 #: meecast/qt-qml/qml/CityPage.qml:142
 msgid "Select location"
-msgstr ""
+msgstr "اختر المكان"
 
 #: meecast/qt-qml/qml/NewStationPage.qml:64
 #: meecast/qt-qml/qml/NewStationPage.qml:111
 #: meecast/qt-qml/qml/RegionPage.qml:144
 msgid "Select region"
-msgstr ""
+msgstr "اختر المنطقة"
 
 #: meecast/qt-qml/qml/NewStationPage.qml:46
 #: meecast/qt-qml/qml/NewStationPage.qml:93
 msgid "Select source"
-msgstr ""
+msgstr "اختر المصدر"
 
 #: meecast/qt-qml/qml/LockScreen.qml:85
 msgid "Select the X-position for left corner of widget"
@@ -2004,11 +2025,11 @@ msgstr ""
 
 #: meecast/qt-qml/qml/IconsetPage.qml:97
 msgid "Select the iconset"
-msgstr ""
+msgstr "اختر الأيقونات"
 
 #: meecast/qt-qml/qml/SourcePage.qml:108
 msgid "Select the weather source"
-msgstr ""
+msgstr "اختر مصدر الطقس"
 
 #: omweather/src/weather-simple-settings.c:1035
 #, c-format
@@ -2037,17 +2058,17 @@ msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2228
 msgid "Set"
-msgstr ""
+msgstr "ضبط"
 
 #: omweather/src/hash.data:257 meecast/qt-qml/qml/WeatherPage.qml:327
 msgid "Set locations"
-msgstr ""
+msgstr "ضبط الأماكن"
 
 #: omweather/src/weather-home.c:1291 omweather/src/weather-simple-popup.c:1157
 #: omweather/src/weather-simple-status.c:158
 #: meecast/qt-qml/qml/SettingsPage.qml:139
 msgid "Settings"
-msgstr ""
+msgstr "الإعدادات"
 
 #: meecast/qt-qml/qml/LockScreen.qml:65
 msgid "Settings for Lockscreen widget"
@@ -2131,7 +2152,7 @@ msgstr ""
 
 #: omweather/src/hash.data:277
 msgid "Snow"
-msgstr ""
+msgstr "ثلج"
 
 #: omweather/src/hash.data:267
 msgid "Snow / Wind"
@@ -2175,24 +2196,24 @@ msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2295
 msgid "Source"
-msgstr ""
+msgstr "المصدر"
 
 #: omweather/src/weather-settings.c:498
 msgid "Source:"
-msgstr ""
+msgstr "المصدر:"
 
 #: omweather/src/weather-popup.c:998 omweather/src/weather-popup.c:1004
 #: omweather/src/weather-popup.c:1011 omweather/src/weather-popup.c:1129
 #: omweather/src/weather-popup.c:1135 omweather/src/weather-popup.c:1142
 #: omweather/src/weather-simple-settings.c:1389
 msgid "Speed"
-msgstr ""
+msgstr "السرعة"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
 #: meecast/qt-qml/dataitem.cpp:184
 msgid "Speed:"
-msgstr ""
+msgstr "السرعة:"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:491
 msgid "Splash screen"
@@ -2222,7 +2243,7 @@ msgstr ""
 
 #: omweather/src/hash.data:280
 msgid "Sunny"
-msgstr ""
+msgstr "مشمس"
 
 #: omweather/src/hash.data:279
 msgid "Sunny / Wind"
@@ -2230,19 +2251,19 @@ msgstr ""
 
 #: omweather/src/hash.data:281 meecast/qt-qml/qml/FullWeatherPage.qml:288
 msgid "Sunrise:"
-msgstr ""
+msgstr "الشروق:"
 
 #: omweather/src/weather-popup.c:125 omweather/src/weather-popup.c:1019
 msgid "Sunrise: "
-msgstr ""
+msgstr "الشروق:"
 
 #: omweather/src/hash.data:282 meecast/qt-qml/qml/FullWeatherPage.qml:291
 msgid "Sunset:"
-msgstr ""
+msgstr "الغروب:"
 
 #: omweather/src/weather-popup.c:139 omweather/src/weather-popup.c:1150
 msgid "Sunset: "
-msgstr ""
+msgstr "الغروب:"
 
 #: omweather/src/weather-settings.c:3773
 msgid "Swap hi/low temperature"
@@ -2280,33 +2301,33 @@ msgstr ""
 #: omweather/src/weather-popup.c:1080 omweather/src/weather-popup.c:1083
 #: omweather/src/weather-simple-settings.c:1267
 msgid "Temperature"
-msgstr ""
+msgstr "درجة الحرارة"
 
 #: omweather/src/hash.data:289 meecast/qt-qml/qml/UnitsPage.qml:31
 #: meecast/qt-qml/qml/UnitsPage.qml:103
 msgid "Temperature units"
-msgstr ""
+msgstr "وحدات درجة الحرارة"
 
 #: omweather/src/weather-settings.c:3858
 msgid "Temperature units:"
-msgstr ""
+msgstr "وحدات درجة الحرارة:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
 #: meecast/qt-qml/dataitem.cpp:178
 msgid "Temperature:"
-msgstr ""
+msgstr "الحرارة:"
 
 #: omweather/src/weather-popup.c:1259 omweather/src/weather-popup.c:1441
 msgid "Temperature: "
-msgstr ""
+msgstr "الحرارة:"
 
 #: omweather/src/weather-help.c:138
 msgid "Thanks"
-msgstr ""
+msgstr "شكرا"
 
 #: omweather/src/weather-download.c:401
 msgid "The weather has been updated."
-msgstr ""
+msgstr "تم تحديث الطقس"
 
 #: meecast/qt-qml/qml/AboutPage.qml:252
 msgid ""
@@ -2338,11 +2359,11 @@ msgstr ""
 #: meecast/qt-qml/qml/FullWeatherPage.qml:423
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Today"
-msgstr ""
+msgstr "اليوم"
 
 #: omweather/src/weather-help.c:154 meecast/qt-qml/qml/AboutPage.qml:202
 msgid "Translators"
-msgstr ""
+msgstr "المترجمين"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:427
 msgid ""
@@ -2357,7 +2378,7 @@ msgstr ""
 
 #: omweather/src/hash.data:292 meecast/qt-qml/qml/WeatherPage.qml:501
 msgid "Try to update"
-msgstr ""
+msgstr "حاول التحديث"
 
 #: omweather/src/weather-settings.c:3452
 msgid "Type of click:"
@@ -2387,20 +2408,20 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:2631
 #: omweather/src/weather-simple-settings.c:2633
 msgid "Unknown"
-msgstr ""
+msgstr "غير معروف"
 
 #: omweather/src/hash.data:293
 msgid "Unlimited"
-msgstr ""
+msgstr "غير محدود"
 
 #: omweather/src/weather-settings.c:1142 omweather/src/weather-settings.c:1348
 #: omweather/src/weather-settings.c:1352
 msgid "Update"
-msgstr ""
+msgstr "تحديث"
 
 #: omweather/src/weather-download.c:425
 msgid "Update already running."
-msgstr ""
+msgstr "التحديث مازال جاري."
 
 #: meecast/qt-qml/qml/UpdatePage.qml:122
 msgid "Update interval"
@@ -2416,7 +2437,7 @@ msgstr ""
 
 #: omweather/src/weather-download.c:174
 msgid "Updating weather"
-msgstr ""
+msgstr "تحديث الطقس"
 
 #: omweather/src/weather-settings.c:1944
 msgid ""
@@ -2480,7 +2501,7 @@ msgstr ""
 
 #: omweather/src/hash.data:299
 msgid "WNW_short"
-msgstr "WNW"
+msgstr ""
 
 #: omweather/src/hash.data:300
 msgid "WSW"
@@ -2488,11 +2509,11 @@ msgstr ""
 
 #: omweather/src/hash.data:301
 msgid "WSW_short"
-msgstr "WSW"
+msgstr ""
 
 #: omweather/src/hash.data:302
 msgid "W_short"
-msgstr "W"
+msgstr ""
 
 #: omweather/src/hash.data:303
 msgid "Waning Crescent"
@@ -2555,7 +2576,7 @@ msgstr ""
 #: meecast/qt-qml/qml/FullWeatherPage.qml:195
 #: meecast/qt-qml/qml/FullWeatherPage.qml:244
 msgid "Wind direction:"
-msgstr ""
+msgstr "إتجاه الرياح:"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:150
 #: meecast/qt-qml/qml/FullWeatherPage.qml:207
@@ -2567,7 +2588,7 @@ msgstr ""
 #: meecast/qt-qml/qml/FullWeatherPage.qml:201
 #: meecast/qt-qml/qml/FullWeatherPage.qml:250
 msgid "Wind speed"
-msgstr ""
+msgstr "سرعة الرياح:"
 
 #: omweather/src/hash.data:308 meecast/qt-qml/qml/UnitsPage.qml:40
 #: meecast/qt-qml/qml/UnitsPage.qml:142
@@ -2582,12 +2603,12 @@ msgstr ""
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
 #: meecast/qt-qml/dataitem.cpp:182
 msgid "Wind:"
-msgstr ""
+msgstr "رياح:"
 
 #: omweather/src/weather-home.c:1409 omweather/src/weather-home.c:1464
 #: omweather/src/weather-popup.c:992 omweather/src/weather-popup.c:1123
 msgid "Wind: "
-msgstr ""
+msgstr "رياح:"
 
 #: omweather/src/hash.data:314
 msgid "Wintry Mix"
@@ -2613,7 +2634,7 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:824 meecast/qt-qml/qml/StationsPage.qml:77
 msgid "Yes"
-msgstr ""
+msgstr "نعم"
 
 #: omweather/src/weather-simple-popup.c:1233
 msgid "You can make donation here: "
@@ -2663,43 +2684,43 @@ msgstr ""
 
 #: meecast/qt-qml/dataitem.cpp:446
 msgid "day ago"
-msgstr ""
+msgstr "قبل يوم"
 
 #: meecast/qt-qml/dataitem.cpp:448
 msgid "days ago"
-msgstr ""
+msgstr "قبل أيام"
 
 #: omweather/src/weather-config.c:332
 msgid "every 2 hours"
-msgstr ""
+msgstr "كل 2 ساعه"
 
 #: omweather/src/weather-config.c:338
 msgid "every 24 hours"
-msgstr ""
+msgstr "كل 24 ساعة"
 
 #: omweather/src/weather-config.c:328
 msgid "every 30 minutes"
-msgstr ""
+msgstr "كل 30 دقيقة"
 
 #: omweather/src/weather-config.c:334
 msgid "every 4 hours"
-msgstr ""
+msgstr "كل 4 ساعات"
 
 #: omweather/src/weather-config.c:326
 msgid "every 5 minutes"
-msgstr ""
+msgstr "كل 5 دقائق"
 
 #: omweather/src/weather-config.c:336
 msgid "every 8 hours"
-msgstr ""
+msgstr "كل 8 ساعات"
 
 #: omweather/src/weather-config.c:330
 msgid "every hour"
-msgstr ""
+msgstr "كل ساعة"
 
 #: omweather/src/weather-config.c:340
 msgid "every minute (Debug)"
-msgstr ""
+msgstr "كل دقيقة (تصحيح)"
 
 #: omweather/src/hash.data:315
 msgid "falling"
@@ -2711,11 +2732,11 @@ msgstr ""
 
 #: meecast/qt-qml/dataitem.cpp:440
 msgid "hour ago"
-msgstr ""
+msgstr "قبل ساعة"
 
 #: meecast/qt-qml/dataitem.cpp:443
 msgid "hours ago"
-msgstr ""
+msgstr "قبل ساعات"
 
 #: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
 #: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
@@ -2727,43 +2748,43 @@ msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2722
 msgid "inch"
-msgstr ""
+msgstr "انش"
 
 #: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
 #: omweather/src/weather-simple-settings.c:1336
 #: omweather/src/weather-simple-settings.c:2670
 #: meecast/qt-qml/qml/UnitsPage.qml:227
 msgid "km"
-msgstr ""
+msgstr "كم "
 
 #: omweather/src/weather-settings.c:3994 omweather/src/hash.data:316
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
 #: meecast/qt-qml/qml/UnitsPage.qml:160
 msgid "km/h"
-msgstr ""
+msgstr "كم/س"
 
 #: omweather/src/hash.data:317
 msgid "km/s"
-msgstr ""
+msgstr "كم/ث"
 
 #: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1296
 #: omweather/src/weather-simple-settings.c:1328
 #: omweather/src/weather-simple-settings.c:2664
 #: meecast/qt-qml/qml/UnitsPage.qml:220
 msgid "m"
-msgstr ""
+msgstr "م"
 
 #: omweather/src/hash.data:318
 msgid "m/h"
-msgstr ""
+msgstr "م/س"
 
 #: omweather/src/weather-settings.c:3980 omweather/src/hash.data:319
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
 #: meecast/qt-qml/qml/UnitsPage.qml:153
 msgid "m/s"
-msgstr ""
+msgstr "م/ث"
 
 #: omweather/src/weather-home.c:1397 omweather/src/weather-home.c:1452
 #: omweather/src/weather-home.c:1604 omweather/src/weather-settings.c:4055
@@ -2784,14 +2805,14 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:2676
 #: meecast/qt-qml/qml/UnitsPage.qml:234
 msgid "mi"
-msgstr ""
+msgstr "ميل"
 
 #: omweather/src/weather-settings.c:4008 omweather/src/hash.data:320
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
 #: meecast/qt-qml/qml/UnitsPage.qml:167
 msgid "mi/h"
-msgstr ""
+msgstr "ميل/س"
 
 #: omweather/src/hash.data:321
 msgid "mi/s"
@@ -2829,12 +2850,12 @@ msgstr ""
 
 #: omweather/src/weather-sensor.c:108
 msgid "new icon"
-msgstr ""
+msgstr "أيقونة جديدة"
 
 #: omweather/src/weather-simple-popup.c:257
 #: omweather/src/weather-simple-popup.c:260
 msgid "next"
-msgstr ""
+msgstr "التالي"
 
 #: omweather/src/weather-simple-settings.c:1354
 #: omweather/src/weather-simple-settings.c:2681
@@ -2859,7 +2880,7 @@ msgstr ""
 
 #: omweather/src/hash.data:323
 msgid "steady"
-msgstr ""
+msgstr "ثابت"
 
 #: omweather/src/hash.data:324
 msgid "В"

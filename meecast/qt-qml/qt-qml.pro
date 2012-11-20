@@ -146,7 +146,9 @@ INSTALLS += desktop qml searchicon
 
 DATADIR=/opt/com.meecast.omweather/share
 
-TRANSLIST = bg_BG \
+TRANSLIST = ar_AR \
+            al_AL \
+            bg_BG \
             ca_CA \
             de_DE \
             en_GB \
@@ -157,6 +159,7 @@ TRANSLIST = bg_BG \
             fr_FR \
             it_IT \
             lv_LV \
+            no_NO \
             nl_NL \
             pl_PL \
             pt_PT \
@@ -189,6 +192,15 @@ for(language, TRANSLIST):TRANSLATIONS += po/locale/$${language}/$${language}.po
 else:message(No translation files in project)
 
 #install
+transinstallal.extra = cp po/locale/al_AL/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/al/LC_MESSAGES
+transinstallbg.path = /opt/com.meecast.omweather/share/locale/al/LC_MESSAGES
+transinstallbg.files = po/locale/al_AL/omweather.mo
+INSTALLS += transinstallal
+
+transinstallar.extra = cp po/locale/ar_AR/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/ar/LC_MESSAGES
+transinstallar.path = /opt/com.meecast.omweather/share/locale/ar/LC_MESSAGES
+transinstallar.files = po/locale/ar_AR/omweather.mo
+INSTALLS += transinstallar
 
 transinstallbg.extra = cp po/locale/bg_BG/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/bg/LC_MESSAGES
 transinstallbg.path = /opt/com.meecast.omweather/share/locale/bg/LC_MESSAGES
@@ -244,6 +256,11 @@ transinstalllv.extra = cp po/locale/lv_LV/omweather.mo $(INSTALL_ROOT)$$DATADIR/
 transinstalllv.path = /opt/com.meecast.omweather/share/locale/lv/LC_MESSAGES
 transinstalllv.files = po/locale/lv_LV/omweather.mo
 INSTALLS += transinstalllv
+
+transinstallno.extra = cp po/locale/no_NO/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/no/LC_MESSAGES
+transinstallno.path = /opt/com.meecast.omweather/share/locale/no/LC_MESSAGES
+transinstallno.files = po/locale/no_NO/omweather.mo
+INSTALLS += transinstallno
 
 transinstallnl.extra = cp po/locale/nl_NL/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/nl/LC_MESSAGES
 transinstallnl.path = /opt/com.meecast.omweather/share/locale/nl/LC_MESSAGES

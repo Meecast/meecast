@@ -68,8 +68,6 @@ Page {
 					sortingKeys: ["number"]
                     grouping: ItemGrouping.None
                 }
-
-
 			]
 			ListView {
 				id: listview

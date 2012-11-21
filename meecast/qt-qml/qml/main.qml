@@ -166,19 +166,6 @@ NavigationPane {
 						positionY: 400 
 					}
                 }
-                Button {
-                    horizontalAlignment: HorizontalAlignment.Center
-                    preferredWidth: 768 
-                	text: Config.tr("Set locations")
-                    
-                	onClicked: {
-                    	main.openFile("SourcePage.qml")
-                	}
-					layoutProperties: AbsoluteLayoutProperties {
-						positionY: 800 
-					}
-                    
-                }
             }
             Container{
             	background: Color.Black
@@ -579,6 +566,20 @@ NavigationPane {
 			    preferredWidth: 768
 			    background: Color.Gray    
 			}
+			Button {
+				horizontalAlignment: HorizontalAlignment.Center
+				preferredWidth: 768 
+				visible : Config.stationname == "Unknown" ? true : false;
+				text: Config.tr("Set locations")
+				onClicked: {
+					var newPage = sourcepageDefinition.createObject();
+					rootWindow.push(newPage);
+				}
+				layoutProperties: AbsoluteLayoutProperties {
+					positionY: 800 
+				}
+            }
+
 			Container{
 				layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0 
@@ -634,7 +635,12 @@ NavigationPane {
             ComponentDefinition {
                 id: settingspageDefinition
                 source: "SettingsPage.qml"
+			},
+			ComponentDefinition {
+                id: sourcepageDefinition
+                source: "SourcePage.qml"
             },
+
 	        ComponentDefinition {
                 id: sboutpageDefinition
                 source: "AboutPage.qml"

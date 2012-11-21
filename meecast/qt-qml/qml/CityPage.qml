@@ -4,10 +4,6 @@ import bb.cascades 1.0
 Page {
     id: cities 
     objectName: "citiesrpage"
-    property int margin: 16
-    property int removedStation: -1
-    property string removedStationName: ""
-    //Config {id: config1}
 
     content:  Container{
 		id: absoluteLayoutContainer
@@ -83,15 +79,6 @@ Page {
 									  base: SystemDefaults.TextStyles.TitleText
 									  color: Color.White
 								  }
-							  }
-							  Label {                 
-								text: ">"
-								horizontalAlignment: HorizontalAlignment.Right
-								verticalAlignment: VerticalAlignment.Center
-								textStyle {
-									base: SystemDefaults.TextStyles.BigText
-									color: Color.White
-								}
 							  }
 						 }
 					}

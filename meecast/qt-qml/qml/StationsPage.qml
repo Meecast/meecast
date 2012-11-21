@@ -93,6 +93,11 @@ Page {
                         onFinished: {
                             if (dialog.result == SystemUiResult.ConfirmButtonSelection ){
                                 Qt.removeStation(Qt.removedstation);
+                                groupDataModel.clear();
+                                for (var a in  Config.stations() ){
+						            groupDataModel.insert( {"name" : Config.stations()[a], "number" : a});
+					            }
+
                             }
                         }
                     }
@@ -133,7 +138,7 @@ Page {
                     Config.removeStation(index);
                 }
 				onTriggered: {             
-					console.log("Index ", groupDataModel.data(indexPath).qml);
+//					console.log("Index ", groupDataModel.data(indexPath).qml);
 //					nextpage.source = groupDataModel.data(indexPath).qml;
 				}
             }

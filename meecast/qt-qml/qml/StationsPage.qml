@@ -17,7 +17,22 @@ Page {
 				rootWindow.push(newPage);
 			}
 			ActionBar.placement: ActionBarPlacement.OnBar
-	    }
+		}	
+	]
+
+	attachedObjects: [
+		Dialog {
+			id: yesnoDialog
+			Container {
+				horizontalAlignment: HorizontalAlignment.Fill
+				verticalAlignment: VerticalAlignment.Fill
+				Button {
+					horizontalAlignment: HorizontalAlignment.Center
+					text: Config.tr("No")
+					onClicked: myDialog.close()
+				}
+		   }
+		}
 	]
 
     content:  Container{
@@ -102,7 +117,7 @@ Page {
 									horizontalAlignment: HorizontalAlignment.Right
 									verticalAlignment: VerticalAlignment.Center
 									onClicked: {
-										main.openFile("SourcePage.qml")
+										yesnoDialog.open();
 									}
 							}
 

@@ -1,14 +1,14 @@
 import QtQuick 1.0
 import bb.cascades 1.0
+import bb.system 1.0
 
 Page {
     id: stations
     objectName: "stationspage"
     property int margin: 16
     property int removedStation: -1
-    property string removedStationName: ""
     //Config {id: config1}
-
+    
 	actions: [
 		ActionItem {
 			title:  Config.tr("Add")
@@ -20,20 +20,6 @@ Page {
 		}	
 	]
 
-	attachedObjects: [
-		Dialog {
-			id: yesnoDialog
-			Container {
-				horizontalAlignment: HorizontalAlignment.Fill
-				verticalAlignment: VerticalAlignment.Fill
-				Button {
-					horizontalAlignment: HorizontalAlignment.Center
-					text: Config.tr("No")
-					onClicked: myDialog.close()
-				}
-		   }
-		}
-	]
 
     content:  Container{
 		id: absoluteLayoutContainer
@@ -82,23 +68,42 @@ Page {
 					sortingKeys: ["number"]
                     grouping: ItemGrouping.None
                 }
+
+
 			]
 			ListView {
 				id: listview
 				dataModel: groupDataModel 
 				onCreationCompleted: {
 					for (var a in  Config.stations() ){
-						console.log("Stationq11111 ", Config.stations()[a]);
 						groupDataModel.insert( {"name" : Config.stations()[a], "number" : a});
 					}
-				}           
+                    Qt.removeStation = removeStation; 
+                    Qt.removedStation = removedStation;
+                    Qt.dialog = dialog;
+                }     
+                attachedObjects: [
+                    SystemDialog {
+                        id: dialog
+                        body: Config.tr("Delete location?") 
+                        confirmButton.enabled: true
+                        confirmButton.label: Config.tr("Yes")
+                        cancelButton.enabled: true
+                        cancelButton.label: Config.tr("No")
+                        onFinished: {
+                            if (dialog.result == SystemUiResult.ConfirmButtonSelection ){
+                                Qt.removeStation(Qt.removedstation);
+                            }
+                        }
+                    }
+                ]
+      
 				listItemComponents: [
 					 ListItemComponent {
 						 type: "item"
 						 id: listitemcomp
 						 Container {
-							  layout: DockLayout {}
-						 
+                            layout: DockLayout {}
 						 	Label {                 
 								  text: ListItemData.name
 								  preferredWidth: 768
@@ -109,24 +114,27 @@ Page {
 									  color: Color.White
 								  }
 						 	}
-
 							Button {
-									text: "X"
-								    preferredWidth: 60 
-								    preferredHeight: 60 
-									horizontalAlignment: HorizontalAlignment.Right
-									verticalAlignment: VerticalAlignment.Center
-									onClicked: {
-										yesnoDialog.open();
-									}
+                                text: "X"
+                                preferredWidth: 60 
+                                preferredHeight: 60 
+                                horizontalAlignment: HorizontalAlignment.Right
+                                verticalAlignment: VerticalAlignment.Center
+                                onClicked: {
+                                    Qt.dialog.title = ListItemData.name 
+                                    Qt.removedstation = ListItemData.number
+                                    Qt.dialog.show();
+                                }
 							}
-
 						 }
 					}
 				]
+                function removeStation(index) {
+                    Config.removeStation(index);
+                }
 				onTriggered: {             
 					console.log("Index ", groupDataModel.data(indexPath).qml);
-					nextpage.source = groupDataModel.data(indexPath).qml;
+//					nextpage.source = groupDataModel.data(indexPath).qml;
 				}
             }
 		}       

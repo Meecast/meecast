@@ -231,7 +231,6 @@ QStringList ConfigQml::temperature_list()
 }
 void ConfigQml::temperature_unit(QString c)
 {
-    std::cerr<<" wsdsadasdasdsada "<< c.toStdString().c_str()<<std::endl;
     ConfigQml::Config::TemperatureUnit(c.toStdString());
     saveConfig();
     refreshconfig();

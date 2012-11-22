@@ -46,11 +46,6 @@ Page {
                 positionX: 0
                 positionY: 90
             }
-			attachedObjects: [
-				ComponentDefinition {
-					id: nextpage
-				}
-			]
 	
             layout: StackLayout {}
             Label {
@@ -63,6 +58,7 @@ Page {
 		    }
   			RadioGroup {
 		        id: temperatureOption
+                dividersVisible: false 
 		        Option {
                     text: Config.tr("Celsius")
 					selected: (Config.temperatureunit == 'C') 
@@ -84,7 +80,64 @@ Page {
                     }
 				 }
 			} 
+            Divider {
+                horizontalAlignment: HorizontalAlignment.Fill
+            }
 		}
+		Container{
+			layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 480
+            }
+	
+            layout: StackLayout {}
+            Label {
+                text: Config.tr("Wind speed units") 
+		        bottomMargin: 9
+				textStyle {
+				    base: SystemDefaults.TextStyles.TitleText
+                    color: Color.create("#999999") 
+			    }
+		    }
+  			RadioGroup {
+		        id: windspeedOption
+		        Option {
+                    text: Config.tr("m/s")
+					selected: (Config.windspeedunit == 'm/s') 
+                    value: "m/s"
+                    onSelectedChanged: {
+                        if (selected == true) {
+                            Config.windspeed_unit("0");
+                        }
+                    }
+                }
+                Option {
+		            text: Config.tr("km/h")
+					selected: (Config.windspeedunit == 'km/h') 
+                    value: "km/h"
+                    onSelectedChanged: {
+                        if (selected == true) {
+                            Config.windspeed_unit("1");
+                        }
+                    }
+				 }
+
+		         Option {
+		            text: Config.tr("mi/h")
+					selected: (Config.windspeedunit == 'mi/h') 
+                    value: "mi/h"
+                    onSelectedChanged: {
+                        if (selected == true) {
+                            Config.windspeed_unit("2");
+                        }
+                    }
+				 }
+			} 
+            Divider {
+                horizontalAlignment: HorizontalAlignment.Fill
+            }
+		}
+
 		Label {
 			layoutProperties: AbsoluteLayoutProperties {
             	positionX: 0

@@ -11,44 +11,45 @@ Page {
    
 
     content: 
-    ScrollView {
-        Container{
-           preferredHeight: 1800
-           id: absoluteLayoutContainer
-           background: Color.Black
-           layout: AbsoluteLayout {}
-           Container{
-                    layoutProperties: AbsoluteLayoutProperties {
-                        positionX: 0
-                        positionY: 0
-                    }
-                    background: Color.Black
-                    preferredWidth: 768
-                    preferredHeight: 90
-           }                       
-           ImageView {
-                    layoutProperties: AbsoluteLayoutProperties {
-                        positionX: 0
-                        positionY: 90
-                     }
-                    imageSource: "asset:///share/images/mask_background_grid.png"
-                    preferredWidth: 768  
+    Container{
+       preferredHeight: 3800
+       id: absoluteLayoutContainer
+       background: Color.Black
+       layout: AbsoluteLayout {}
+       Container{
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 0
             }
-            Container{
-                    layoutProperties: AbsoluteLayoutProperties {
-                                    positionX: 0
-                                    positionY: 350
-                    }
-                    background: Color.Black
-                    preferredWidth: 768
-                    preferredHeight: 1000
-            }
-            Container{
+            background: Color.Black
+            preferredWidth: 768
+            preferredHeight: 90
+       }                       
+       ImageView {
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
                     positionY: 90
+                 }
+                imageSource: "asset:///share/images/mask_background_grid.png"
+                preferredWidth: 768  
+        }
+        Container{
+                layoutProperties: AbsoluteLayoutProperties {
+                                positionX: 0
+                                positionY: 350
                 }
-        
+                background: Color.Black
+                preferredWidth: 768
+                preferredHeight: 1000
+        }
+        ScrollView {
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 90
+            }
+ 
+            Container{
+                preferredHeight: 2800
                 layout: StackLayout {}
                 Label {
                     text: Config.tr("Temperature units") 
@@ -85,14 +86,6 @@ Page {
                 Divider {
                     horizontalAlignment: HorizontalAlignment.Fill
                 }
-            }
-            Container{
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 480
-                }
-        
-                layout: StackLayout {}
                 Label {
                     text: Config.tr("Wind speed units") 
                     bottomMargin: 9
@@ -138,14 +131,6 @@ Page {
                 Divider {
                     horizontalAlignment: HorizontalAlignment.Fill
                 }
-            }
-            Container{
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 1020
-                }
-        
-                layout: StackLayout {}
                 Label {
                     text: Config.tr("Pressure units") 
                     bottomMargin: 9
@@ -191,14 +176,6 @@ Page {
                 Divider {
                     horizontalAlignment: HorizontalAlignment.Fill
                 }
-            }
-            Container{
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 1420
-                }
-        
-                layout: StackLayout {}
                 Label {
                     text: Config.tr("Visible units") 
                     bottomMargin: 9
@@ -244,22 +221,23 @@ Page {
                     horizontalAlignment: HorizontalAlignment.Fill
                 }
             }
-
-            Label {
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 0
-                }
-                preferredWidth: 768
-                text: Config.tr("Measurement units") 
-                textStyle {
-                    base: SystemDefaults.TextStyles.BigText
-                    color: Color.White
-                }
+            scrollViewProperties {
+                scrollMode: ScrollMode.Vertical
             }
+
         }
-        scrollViewProperties {
-            scrollMode: ScrollMode.Vertical
+
+        Label {
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 0
+            }
+            preferredWidth: 768
+            text: Config.tr("Measurement units") 
+            textStyle {
+                base: SystemDefaults.TextStyles.BigText
+                color: Color.White
+            }
         }
     }
 }

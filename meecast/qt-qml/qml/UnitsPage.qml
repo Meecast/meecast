@@ -10,13 +10,15 @@ Page {
 
    
 
-    content: 
-    Container{
-       preferredHeight: 3800
-       id: absoluteLayoutContainer
+	content: 
+	Container{
+		id: absoluteLayoutContainer
        background: Color.Black
+
+      // minHeight: 4000
        layout: AbsoluteLayout {}
-       Container{
+       
+        Container{
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
                 positionY: 0
@@ -35,23 +37,25 @@ Page {
         }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
-                                positionX: 0
-                                positionY: 350
+	                positionX: 0
+                    positionY: 350
                 }
                 background: Color.Black
                 preferredWidth: 768
                 preferredHeight: 1000
         }
+              
         ScrollView {
-            layoutProperties: AbsoluteLayoutProperties {
-                positionX: 0
-                positionY: 90
+			layoutProperties: 
+            AbsoluteLayoutProperties {
+            	positionY: 90
             }
- 
-            Container{
-                preferredHeight: 2800
-                layout: StackLayout {}
-                Label {
+            preferredHeight: 1050.0
+            scrollViewProperties {
+                scrollMode: ScrollMode.Vertical
+            }
+		   	Container{
+			    Label {
                     text: Config.tr("Temperature units") 
                     bottomMargin: 9
                     textStyle {
@@ -221,12 +225,7 @@ Page {
                     horizontalAlignment: HorizontalAlignment.Fill
                 }
             }
-            scrollViewProperties {
-                scrollMode: ScrollMode.Vertical
-            }
-
         }
-
         Label {
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0

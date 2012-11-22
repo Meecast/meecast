@@ -62,14 +62,26 @@ Page {
 			    }
 		    }
   			RadioGroup {
-		        id: naOption
+		        id: temperatureOption
 		        Option {
                     text: Config.tr("Celsius")
 					selected: (Config.temperatureunit == 'C') 
+                    value: "C"
+                    onSelectedChanged: {
+                        if (selected == true) {
+                            Config.temperature_unit('C');
+                        }
+                    }
 		         }
 		         Option {
 		            text: Config.tr("Fahrenheit")
 					selected: (Config.temperatureunit == 'F') 
+                    value: "F"
+                    onSelectedChanged: {
+                        if (selected == true) {
+                            Config.temperature_unit('F');
+                        }
+                    }
 				 }
 			} 
 		}

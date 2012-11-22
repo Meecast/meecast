@@ -149,7 +149,7 @@ Page {
 		    preferredWidth: 768
 		    text:  Config.tr("Stations") 
 			textStyle {
-				base: SystemDefaults.TextStyles.TitleText
+				base: SystemDefaults.TextStyles.BigText
 				color: Color.White
 			}
 		}

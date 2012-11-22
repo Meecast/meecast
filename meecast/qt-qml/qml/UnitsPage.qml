@@ -43,8 +43,8 @@ Page {
         }
 		Container{
 			layoutProperties: AbsoluteLayoutProperties {
-                                positionX: 0
-                                positionY: 0
+                positionX: 0
+                positionY: 90
             }
 			attachedObjects: [
 				ComponentDefinition {
@@ -52,28 +52,25 @@ Page {
 				}
 			]
 	
-    layout: StackLayout {
-		                
-		                }
-           Label {
-			                    text: "Filling"
-		                    bottomMargin: 9
-							textStyle {
-								base: SystemDefaults.TextStyles.SmallText
-								color: Color.White
-							}
-
-		  }
-																					                   			RadioGroup {
-		        id: lasagnaOption
-		            Option {
-	                    text: Config.tr("Celsius")
-						selected: (Config.temperatureunit == 'C') 
-		            }
-		            Option {
-		                text: Config.tr("Fahrenheit")
-						selected: (Config.temperatureunit == 'F') 
-					}
+            layout: StackLayout {}
+            Label {
+                text: Config.tr("Temperature units") 
+		        bottomMargin: 9
+				textStyle {
+				    base: SystemDefaults.TextStyles.TitleText
+                    color: Color.create("#999999") 
+			    }
+		    }
+  			RadioGroup {
+		        id: naOption
+		        Option {
+                    text: Config.tr("Celsius")
+					selected: (Config.temperatureunit == 'C') 
+		         }
+		         Option {
+		            text: Config.tr("Fahrenheit")
+					selected: (Config.temperatureunit == 'F') 
+				 }
 			} 
 		}
 		Label {
@@ -84,19 +81,10 @@ Page {
 		    preferredWidth: 768
 		    text: Config.tr("Measurement units") 
 			textStyle {
-				base: SystemDefaults.TextStyles.TitleText
+				base: SystemDefaults.TextStyles.BigText
 				color: Color.White
 			}
 		}
 	}
-	attachedObjects: [
-        TextStyleDefinition {
-            id: textStyleLasangaPlate
-            base: SystemDefaults.TextStyles.TitleText
-            color: Color.create ("#88000000")
-            lineHeight: 0.85
-        }
-    ]
-
 }
 

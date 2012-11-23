@@ -10,16 +10,16 @@ Page {
 
    
 
-	content: 
-	Container{
-	    id: absoluteLayoutContainer
+    content: 
+    Container{
+        id: absoluteLayoutContainer
         background: Color.White
 
         layout: AbsoluteLayout {}
         attachedObjects: [
-       	    ComponentDefinition {
-       		   id: nextpage5
-       		}
+            ComponentDefinition {
+               id: nextpage5
+            }
         ]
         Container{
             layoutProperties: AbsoluteLayoutProperties {
@@ -40,7 +40,7 @@ Page {
         }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
-	                positionX: 0
+                    positionX: 0
                     positionY: 350
                 }
                 background: Color.Black
@@ -49,39 +49,39 @@ Page {
         }
               
         Container {
-			layoutProperties: 
+            layoutProperties: 
             AbsoluteLayoutProperties {
-            	positionY: 90
+                positionY: 90
             }
             preferredHeight: 1050
-			attachedObjects: [
-				GroupDataModel {
-					id: groupDataModel
-					sortingKeys: ["number"]
+            attachedObjects: [
+                GroupDataModel {
+                    id: groupDataModel
+                    sortingKeys: ["number"]
                     grouping: ItemGrouping.None
                 }
-			]
-			ListView {
-				id: listview
-    			property string first_selection: "-1"
-				dataModel: groupDataModel 
-				onCreationCompleted: {
-					for (var a in  Config.icon_list() ){
+            ]
+            ListView {
+                id: listview
+                property string first_selection: "-1"
+                dataModel: groupDataModel 
+                onCreationCompleted: {
+                    for (var a in  Config.icon_list() ){
                         groupDataModel.insert( {"name" : Config.icon_list()[a], "number" : a,
                         "pict" : Config.iconspath + "/" + Config.icon_list()[a] + "/" + "28.png",
                         "active": Config.icon_list()[a] == Config.iconset  ? true : false });
                         if (Config.icon_list()[a] == Config.iconset ){
                             select(a);
-							first_selection = a
+                            first_selection = a
                         }
-					}
+                    }
                 }     
          
                 listItemComponents: [
-					 ListItemComponent {
-						 type: "item"
-						 id: listitemcomp
-						 Container {
+                     ListItemComponent {
+                         type: "item"
+                         id: listitemcomp
+                         Container {
                             layout: DockLayout {}
                             Container {
                                 id: item_container
@@ -91,14 +91,14 @@ Page {
                                 verticalAlignment: VerticalAlignment.Fill
                              }
                              Label {                 
-								  text: ListItemData.name
-								  preferredWidth: 768
-								  horizontalAlignment:  HorizontalAlignment.Fill
-								  verticalAlignment: VerticalAlignment.Center
+                                  text: ListItemData.name
+                                  preferredWidth: 768
+                                  horizontalAlignment:  HorizontalAlignment.Fill
+                                  verticalAlignment: VerticalAlignment.Center
                                   textStyle {
-									  base: SystemDefaults.TextStyles.TitleText
-									  color: Color.White
-							      }
+                                      base: SystemDefaults.TextStyles.TitleText
+                                      color: Color.White
+                                  }
                              }
                              ImageView {
                                     imageSource: ListItemData.pict
@@ -112,22 +112,22 @@ Page {
                                 }
                             }      
                             ListItem.onActivationChanged: {
-								console.log("wwwwwwwwwww  ", ListItemData.active);
+                                console.log("wwwwwwwwwww  ", ListItemData.active);
                                 setHighlight (ListItem.active);
                             }
                              ListItem.onSelectionChanged: {
-								console.log("1111111111wwwwwwwwwww  ", ListItemData.active);
+                                console.log("1111111111wwwwwwwwwww  ", ListItemData.active);
                                 setHighlight (ListItem.selected);
                              }
-						 }
-					}
+                         }
+                    }
                 ]
 
-				onTriggered: {             
-					if (first_selection != "-1"){
-						select([first_selection]);
-						first_selection = "-1";
-					}
+                onTriggered: {             
+                    if (first_selection != "-1"){
+                        select([first_selection]);
+                        first_selection = "-1";
+                    }
                     clearSelection();
                     select(indexPath);
                     Config.set_iconset(groupDataModel.data(indexPath).name)

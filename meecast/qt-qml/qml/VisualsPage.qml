@@ -12,10 +12,10 @@ Page {
 
 	content: 
 	Container{
-		id: absoluteLayoutContainer
-       background: Color.Black
+	    id: absoluteLayoutContainer
+        background: Color.White
 
-       layout: AbsoluteLayout {}
+        layout: AbsoluteLayout {}
        
         Container{
             layoutProperties: AbsoluteLayoutProperties {
@@ -55,27 +55,27 @@ Page {
             }
 			Container{
 				Container {
-							  layout: DockLayout {}
-							  Label {                 
-								  text: Config.tr("Iconset")+": "+Config.iconset 
-								  preferredWidth: 768
-								  horizontalAlignment:  HorizontalAlignment.Fill
-								  verticalAlignment: VerticalAlignment.Center
-                                  textStyle {
-									  base: SystemDefaults.TextStyles.TitleText
-									  color: Color.White
-								  }
-							  }
-							  Label {                 
-								text: ">"
-								horizontalAlignment: HorizontalAlignment.Right
-								verticalAlignment: VerticalAlignment.Center
-								textStyle {
-									base: SystemDefaults.TextStyles.BigText
-									color: Color.White
-								}
-							  }
-						 }
+                      layout: DockLayout {}
+                      Label {                 
+                          text: Config.tr("Iconset")+": "+Config.iconset 
+                          preferredWidth: 768
+                          horizontalAlignment:  HorizontalAlignment.Fill
+                          verticalAlignment: VerticalAlignment.Center
+                          textStyle {
+                              base: SystemDefaults.TextStyles.TitleText
+                              color: Color.White
+                          }
+                      }
+                      Label {                 
+                        text: ">"
+                        horizontalAlignment: HorizontalAlignment.Right
+                        verticalAlignment: VerticalAlignment.Center
+                        textStyle {
+                            base: SystemDefaults.TextStyles.BigText
+                            color: Color.White
+                        }
+                      }
+				}
 
 			}
         }

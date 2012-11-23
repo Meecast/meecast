@@ -13,7 +13,7 @@ Page {
 	content: 
 	Container{
 		id: absoluteLayoutContainer
-       background: Color.Black
+       background: Color.White
 
       // minHeight: 4000
        layout: AbsoluteLayout {}

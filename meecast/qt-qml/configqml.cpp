@@ -163,9 +163,10 @@ ConfigQml::icon_list()
 {
     QStringList icon_list;
     Dirent *dp = 0;
-    DIR *dir_fd = opendir((Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath).c_str());
+    DIR *dir_fd = opendir((Core::AbstractConfig::nonqmlprefix + Core::AbstractConfig::iconsPath).c_str());
     if(dir_fd){
         while((dp = readdir(dir_fd))){
+            std::cerr<<" file "<<dp->d_name;
             std::string name = dp->d_name;
             if(name == "." || name == "..")
                 continue;

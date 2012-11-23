@@ -42,6 +42,7 @@ namespace Core {
     class AbstractConfig{
         public:
             static std::string prefix;
+            static std::string nonqmlprefix;
             static std::string schemaPath;
             static std::string iconsPath;
             static std::string sharePath;

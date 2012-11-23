@@ -16,7 +16,11 @@ Page {
         background: Color.White
 
         layout: AbsoluteLayout {}
-       
+        attachedObjects: [
+       	    ComponentDefinition {
+       		   id: nextpage
+       		}
+        ]
         Container{
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
@@ -27,12 +31,12 @@ Page {
             preferredHeight: 90
        }                       
        ImageView {
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 90
-                 }
-                imageSource: "asset:///share/images/mask_background_grid.png"
-                preferredWidth: 768  
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 90
+            }
+            imageSource: "asset:///share/images/mask_background_grid.png"
+            preferredWidth: 768  
         }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
@@ -55,8 +59,8 @@ Page {
             }
 			Container{
 				Container {
-                      layout: DockLayout {}
-                      Label {                 
+                    layout: DockLayout {}
+                    Label {                 
                           text: Config.tr("Iconset")+": "+Config.iconset 
                           preferredWidth: 768
                           horizontalAlignment:  HorizontalAlignment.Fill
@@ -76,7 +80,12 @@ Page {
                         }
                       }
 				}
-
+				onTouch: {
+				                background = Color.Green;
+				    nextpage.source = "IconsetPage.qml"
+				    var newPage = nextpage.createObject();
+				    rootWindow.push(newPage);
+				}
 			}
         }
         Label {

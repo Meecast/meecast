@@ -1,108 +1,124 @@
-import Qt 4.7
-//import QtQuick 1.1
-//import Qt.labs.components 1.0
-import com.nokia.meego 1.0
+import QtQuick 1.0
+import bb.cascades 1.0
+
 
 Page {
-    id: iconsetpage
-    property int margin: 16
-    tools: ToolBarLayout {
-        ToolIcon {
-            iconId: "toolbar-back"
-            onClicked: {
-                pageStack.pop();
+    
+    id: iconset 
+    property int screen_width  :  768
+    property int screen_height : 1280    
+
+   
+
+	content: 
+	Container{
+	    id: absoluteLayoutContainer
+        background: Color.White
+
+        layout: AbsoluteLayout {}
+        attachedObjects: [
+       	    ComponentDefinition {
+       		   id: nextpage
+       		}
+        ]
+        Container{
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 0
             }
-        }
-
-    }
-    orientationLock: PageOrientation.LockPortrait
-
-    Rectangle{
-        anchors.fill: parent
-        anchors.top: title_rect.bottom
-        anchors.topMargin: 80
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-
-        Rectangle {
-            anchors.top: parent.top
-            anchors.left: parent.left
-            width: parent.width
-            height: 274
-            color: "#999999"
-        }
-        Loader {
-            id: background
-            anchors.top: parent.top
-            anchors.left: parent.left
-            width: parent.width
-            height: 274
-            sourceComponent: Image {source: Config.imagespath + "/mask_background_grid.png"}
-        }
-        Rectangle {
-            anchors.top: background.bottom
-            width: parent.width
-            height: parent.height - 274
-            color: "black"
-        }
-
-        ListView {
-            id: sourcelist
-            anchors.fill: parent
-            model: Config.icon_list()
-
-            delegate: Item {
-                height: 80
-                width: parent.width
-
-                Label {
-                    anchors.left: iconset_icon.right
-                    anchors.leftMargin: 10
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: modelData
-                }
-
-                Image {
-                    id: iconset_icon
-                    width: 64
-                    height: 64
-                    source: Config.iconspath + "/" + modelData + "/" + "28.png"
-                    anchors.left: parent.left
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        Config.set_iconset(modelData);
-                        pageStack.pop();
-                    }
-                }
+            background: Color.Black
+            preferredWidth: 768
+            preferredHeight: 90
+       }                       
+       ImageView {
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 90
             }
+            imageSource: "asset:///share/images/mask_background_grid.png"
+            preferredWidth: 768  
         }
-    }
+        Container{
+                layoutProperties: AbsoluteLayoutProperties {
+	                positionX: 0
+                    positionY: 350
+                }
+                background: Color.Black
+                preferredWidth: 768
+                preferredHeight: 1000
+        }
+              
+        Container {
+			layoutProperties: 
+            AbsoluteLayoutProperties {
+            	positionY: 90
+            }
+			attachedObjects: [
+				GroupDataModel {
+					id: groupDataModel
+					sortingKeys: ["number"]
+                    grouping: ItemGrouping.None
+                }
+			]
+			ListView {
+				id: listview
+				dataModel: groupDataModel 
+				onCreationCompleted: {
+					for (var a in  Config.icon_list() ){
+						groupDataModel.insert( {"name" : Config.icon_list()[a], "number" : a});
+					}
+                }     
+         
+				listItemComponents: [
+					 ListItemComponent {
+						 type: "item"
+						 id: listitemcomp
+						 Container {
+                            layout: DockLayout {}
+						 	Label {                 
+								  text: ListItemData.name
+								  preferredWidth: 768
+								  horizontalAlignment:  HorizontalAlignment.Fill
+								  verticalAlignment: VerticalAlignment.Center
+                                  textStyle {
+									  base: SystemDefaults.TextStyles.TitleText
+									  color: Color.White
+								  }
+						 	}
+							Button {
+                                text: "X"
+                                preferredWidth: 60 
+                                preferredHeight: 60 
+                                horizontalAlignment: HorizontalAlignment.Right
+                                verticalAlignment: VerticalAlignment.Center
+                                onClicked: {
+                                    Qt.dialog.title = ListItemData.name 
+                                    Qt.removedstation = ListItemData.number
+                                    Qt.dialog.show();
+                                }
+							}
+						 }
+					}
+				]
+				onTriggered: {             
+					console.log("Index ", groupDataModel.data(indexPath).qml);
+//					nextpage.source = groupDataModel.data(indexPath).qml;
+				}
+            }
 
-    Rectangle {
-        id: title_rect
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-        width: parent.width - 2*margin
-        height: 80
-        color: "black"
+        }
         Label {
-            id: title
-            anchors.fill: parent
-            color: "white"
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 0
+            }
+            preferredWidth: 768
             text: Config.tr("Select the iconset")
-            //font.family: "Nokia Pure Light"
-            font.pixelSize: 30
-            horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
+            textStyle {
+                base: SystemDefaults.TextStyles.BigText
+                color: Color.White
+            }
         }
     }
-
-
 }
-
 

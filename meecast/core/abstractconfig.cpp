@@ -52,6 +52,7 @@ namespace Core {
     //std::string AbstractConfig::configPath = "~/.config/omweather/";
     */
     std::string AbstractConfig::prefix = "asset://";
+    std::string AbstractConfig::nonqmlprefix = "app/native/assets/";
     std::string AbstractConfig::sharePath = "app/native/share/";
     std::string AbstractConfig::sharePathimage = "share/share";
     std::string AbstractConfig::schemaPath = "/share/xsd/";

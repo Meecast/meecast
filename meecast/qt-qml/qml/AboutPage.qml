@@ -151,7 +151,7 @@ Page {
 	}
         Label {
             id: leadprogrammertext 
-            text: Config.tr ("Lead programmers") + ":"
+            text: Config.tr ("Programmers") + ":"
 	    anchors.top: prohectadministatorfulltext.bottom 
 	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20
@@ -160,7 +160,7 @@ Page {
         }
 	Label {
             id: leadprogrammerfulltext 
-	    text: "Tanya Makava, Vlad Vasilyeu"
+	    text: "Vlad Vasilyeu, Tanya Makava"
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    anchors.top: leadprogrammertext.bottom

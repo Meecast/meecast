@@ -166,7 +166,6 @@ ConfigQml::icon_list()
     DIR *dir_fd = opendir((Core::AbstractConfig::nonqmlprefix + Core::AbstractConfig::iconsPath).c_str());
     if(dir_fd){
         while((dp = readdir(dir_fd))){
-            std::cerr<<" file "<<dp->d_name;
             std::string name = dp->d_name;
             if(name == "." || name == "..")
                 continue;

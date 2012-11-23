@@ -8,7 +8,6 @@ Page {
     property int screen_width  :  768
     property int screen_height : 1280    
 
-   
 
 	content: 
 	Container{
@@ -18,7 +17,7 @@ Page {
         layout: AbsoluteLayout {}
         attachedObjects: [
        	    ComponentDefinition {
-       		   id: nextpage
+       		   id: nextpage6
        		}
         ]
         Container{
@@ -81,10 +80,11 @@ Page {
                       }
 				}
 				onTouch: {
-				                background = Color.Green;
-				    nextpage.source = "IconsetPage.qml"
-				    var newPage = nextpage.createObject();
-				    rootWindow.push(newPage);
+                    if (event.isDown()) {
+                        nextpage6.source = "IconsetPage.qml"
+                        var newPage = nextpage6.createObject();
+                        rootWindow.push(newPage);
+                    }
 				}
 			}
         }

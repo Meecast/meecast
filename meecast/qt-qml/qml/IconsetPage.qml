@@ -18,7 +18,7 @@ Page {
         layout: AbsoluteLayout {}
         attachedObjects: [
        	    ComponentDefinition {
-       		   id: nextpage
+       		   id: nextpage5
        		}
         ]
         Container{
@@ -53,6 +53,7 @@ Page {
             AbsoluteLayoutProperties {
             	positionY: 90
             }
+            preferredHeight: 1050
 			attachedObjects: [
 				GroupDataModel {
 					id: groupDataModel
@@ -65,17 +66,31 @@ Page {
 				dataModel: groupDataModel 
 				onCreationCompleted: {
 					for (var a in  Config.icon_list() ){
-						groupDataModel.insert( {"name" : Config.icon_list()[a], "number" : a});
+                        groupDataModel.insert( {"name" : Config.icon_list()[a], "number" : a,
+                        "pict" : Config.iconspath + "/" + Config.icon_list()[a] + "/" + "28.png",
+                        "active": Config.icon_list()[a] == Config.iconset  ? true : false });
+                        if (Config.icon_list()[a] == Config.iconset ){
+                            select(a);
+                        }
 					}
+                     toggleSelection(1);
                 }     
          
-				listItemComponents: [
+                listItemComponents: [
 					 ListItemComponent {
 						 type: "item"
 						 id: listitemcomp
 						 Container {
                             layout: DockLayout {}
-						 	Label {                 
+                            Container {
+                                id: item_container
+                                background: Color.White
+                               // opacity: ListItemData.active ? 0.2 : 0.0
+                                opacity: 0.0
+                                horizontalAlignment: HorizontalAlignment.Fill
+                                verticalAlignment: VerticalAlignment.Fill
+                             }
+                             Label {                 
 								  text: ListItemData.name
 								  preferredWidth: 768
 								  horizontalAlignment:  HorizontalAlignment.Fill
@@ -83,27 +98,37 @@ Page {
                                   textStyle {
 									  base: SystemDefaults.TextStyles.TitleText
 									  color: Color.White
-								  }
-						 	}
-							Button {
-                                text: "X"
-                                preferredWidth: 60 
-                                preferredHeight: 60 
-                                horizontalAlignment: HorizontalAlignment.Right
-                                verticalAlignment: VerticalAlignment.Center
-                                onClicked: {
-                                    Qt.dialog.title = ListItemData.name 
-                                    Qt.removedstation = ListItemData.number
-                                    Qt.dialog.show();
+							      }
+                             }
+                             ImageView {
+                                    imageSource: ListItemData.pict
+                                    horizontalAlignment: HorizontalAlignment.Right                
+                             }
+                            function setHighlight (highlighted) {
+                                if (highlighted) {
+                                    item_container.opacity = 0.2;
+                                } else {
+                                     item_container.opacity = 0.0;
                                 }
-							}
+                            }      
+                            ListItem.onActivationChanged: {
+                                setHighlight (ListItem.active);
+                            }
+                             ListItem.onSelectionChanged: {
+                                setHighlight (ListItem.selected);
+                             }
 						 }
 					}
-				]
+                ]
+
 				onTriggered: {             
-					console.log("Index ", groupDataModel.data(indexPath).qml);
+					console.log("Index ", indexPath, " ", groupDataModel.data(indexPath).name);
+                    clearSelection();
+                    select(indexPath);
+                    Config.set_iconset(groupDataModel.data(indexPath).name)
 //					nextpage.source = groupDataModel.data(indexPath).qml;
-				}
+                }
+
             }
 
         }

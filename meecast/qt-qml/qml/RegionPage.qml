@@ -8,21 +8,21 @@ Page {
     property int removedStation: -1
     property string removedStationName: ""
     //Config {id: config1}
-	property string region: ""
+    property string region: ""
 
     content:  Container{
-		id: absoluteLayoutContainer
-		background: Color.White
-		layout: AbsoluteLayout {}
-		attachedObjects: [
-			ComponentDefinition {
-				id: nextpage3
-				source: "CityPage.qml" 
-			}
-		]
-		Container{
+        id: absoluteLayoutContainer
+        background: Color.White
+        layout: AbsoluteLayout {}
+        attachedObjects: [
+            ComponentDefinition {
+                id: nextpage3
+                source: "CityPage.qml" 
+            }
+        ]
+        Container{
                 layoutProperties: AbsoluteLayoutProperties {
-                	positionX: 0
+                    positionX: 0
                     positionY: 0
                 }
                 background: Color.Black
@@ -39,7 +39,7 @@ Page {
         }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
-                	positionX: 0
+                    positionX: 0
                     positionY: 350
                 }
                 background: Color.Black
@@ -47,76 +47,76 @@ Page {
                 preferredHeight: 1000
         }
         Container{
-			layoutProperties: AbsoluteLayoutProperties {
-                	positionX: 0
+            layoutProperties: AbsoluteLayoutProperties {
+                    positionX: 0
                     positionY: 90
             }
-			attachedObjects: [
-				GroupDataModel {
-					id: groupDataModel
-					sortingKeys: ["number"]
+            attachedObjects: [
+                GroupDataModel {
+                    id: groupDataModel
+                    sortingKeys: ["number"]
                     grouping: ItemGrouping.None
-				}
-			]
-			ListView {
-				id: listview
-				dataModel: groupDataModel 
-				onCreationCompleted: {
-					console.log ("Regions Size ", region_model.rowCount());
-    				for (var a = 0; a < region_model.rowCount(); a++) {
-						console.log("Regions ", region_model.get(a).name);
-						groupDataModel.insert( {"name" : region_model.get(a).name, "number" : a, "key" : region_model.get(a).key});
-					}
-				}           
-				listItemComponents: [
-					 ListItemComponent {
-						 type: "item"
-						 id: listitemcomp
-						 Container {
-							  layout: DockLayout {}
-							  Label {                 
-								  text: ListItemData.name
-								  preferredWidth: 768
-								  preferredHeight: 40 
-								  horizontalAlignment:  HorizontalAlignment.Fill
-								  verticalAlignment: VerticalAlignment.Center
+                }
+            ]
+            ListView {
+                id: listview
+                dataModel: groupDataModel 
+                onCreationCompleted: {
+                    console.log ("Regions Size ", region_model.rowCount());
+                    for (var a = 0; a < region_model.rowCount(); a++) {
+                        console.log("Regions ", region_model.get(a).name);
+                        groupDataModel.insert( {"name" : region_model.get(a).name, "number" : a, "key" : region_model.get(a).key});
+                    }
+                }           
+                listItemComponents: [
+                     ListItemComponent {
+                         type: "item"
+                         id: listitemcomp
+                         Container {
+                              layout: DockLayout {}
+                              Label {                 
+                                  text: ListItemData.name
+                                  preferredWidth: 768
+                                  preferredHeight: 40 
+                                  horizontalAlignment:  HorizontalAlignment.Fill
+                                  verticalAlignment: VerticalAlignment.Center
                                   textStyle {
-									  base: SystemDefaults.TextStyles.TitleText
-									  color: Color.White
-								  }
-							  }
-							  Label {                 
-								text: ">"
-								horizontalAlignment: HorizontalAlignment.Right
-								verticalAlignment: VerticalAlignment.Center
-								textStyle {
-									base: SystemDefaults.TextStyles.BigText
-									color: Color.White
-								}
-							  }
-						 }
-					}
-				]
-				onTriggered: {             
-					console.log("Index in Region ", groupDataModel.data(indexPath).name);
+                                      base: SystemDefaults.TextStyles.TitleText
+                                      color: Color.White
+                                  }
+                              }
+                              Label {                 
+                                text: ">"
+                                horizontalAlignment: HorizontalAlignment.Right
+                                verticalAlignment: VerticalAlignment.Center
+                                textStyle {
+                                    base: SystemDefaults.TextStyles.BigText
+                                    color: Color.White
+                                }
+                              }
+                         }
+                    }
+                ]
+                onTriggered: {             
+                    console.log("Index in Region ", groupDataModel.data(indexPath).name);
                     regionspage.region = groupDataModel.data(indexPath).name;
                     city_model.populate(sourcespage.source, groupDataModel.data(indexPath).key);
-					var newPage = nextpage3.createObject();
+                    var newPage = nextpage3.createObject();
                     rootWindow.push(newPage);
-				}
-			}
-		}       
-		Label {
-			layoutProperties: AbsoluteLayoutProperties {
-            	positionX: 0
+                }
+            }
+        }       
+        Label {
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
                 positionY: 0
             }
-		    preferredWidth: 768
-		    text:  Config.tr("Select region") 
-			textStyle {
-				base: SystemDefaults.TextStyles.TitleText
-				color: Color.White
-			}
-		}
-	}
+            preferredWidth: 768
+            text:  Config.tr("Select region") 
+            textStyle {
+                base: SystemDefaults.TextStyles.TitleText
+                color: Color.White
+            }
+        }
+    }
 }

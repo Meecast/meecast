@@ -9,31 +9,31 @@ Page {
     property int removedStation: -1
     //Config {id: config1}
     
-	actions: [
-		ActionItem {
-			title:  Config.tr("Add")
-			onTriggered: { 	
-				var newPage = nextpage.createObject();
-				rootWindow.push(newPage);
-			}
-			ActionBar.placement: ActionBarPlacement.OnBar
-		}	
-	]
+    actions: [
+        ActionItem {
+            title:  Config.tr("Add")
+            onTriggered: {  
+                var newPage = nextpage.createObject();
+                rootWindow.push(newPage);
+            }
+            ActionBar.placement: ActionBarPlacement.OnBar
+        }   
+    ]
 
 
     content:  Container{
-		id: absoluteLayoutContainer
-		background: Color.White
-		layout: AbsoluteLayout {}
-		attachedObjects: [
-			ComponentDefinition {
-				id: nextpage
-				source: "SourcePage.qml" 
-			}
-		]
-		Container{
+        id: absoluteLayoutContainer
+        background: Color.White
+        layout: AbsoluteLayout {}
+        attachedObjects: [
+            ComponentDefinition {
+                id: nextpage
+                source: "SourcePage.qml" 
+            }
+        ]
+        Container{
                 layoutProperties: AbsoluteLayoutProperties {
-                	positionX: 0
+                    positionX: 0
                     positionY: 0
                 }
                 background: Color.Black
@@ -50,32 +50,32 @@ Page {
         }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
-                	positionX: 0
+                    positionX: 0
                     positionY: 350
                 }
                 background: Color.Black
                 preferredWidth: 768
                 preferredHeight: 1000
         }
-		Container{
-			layoutProperties: AbsoluteLayoutProperties {
-                	positionX: 0
+        Container{
+            layoutProperties: AbsoluteLayoutProperties {
+                    positionX: 0
                     positionY: 90
             }
-			attachedObjects: [
-				GroupDataModel {
-					id: groupDataModel
-					sortingKeys: ["number"]
+            attachedObjects: [
+                GroupDataModel {
+                    id: groupDataModel
+                    sortingKeys: ["number"]
                     grouping: ItemGrouping.None
                 }
-			]
-			ListView {
-				id: listview
-				dataModel: groupDataModel 
-				onCreationCompleted: {
-					for (var a in  Config.stations() ){
-						groupDataModel.insert( {"name" : Config.stations()[a], "number" : a});
-					}
+            ]
+            ListView {
+                id: listview
+                dataModel: groupDataModel 
+                onCreationCompleted: {
+                    for (var a in  Config.stations() ){
+                        groupDataModel.insert( {"name" : Config.stations()[a], "number" : a});
+                    }
                     Qt.removeStation = removeStation; 
                     Qt.removedStation = removedStation;
                     Qt.dialog = dialog;
@@ -93,31 +93,31 @@ Page {
                                 Qt.removeStation(Qt.removedstation);
                                 groupDataModel.clear();
                                 for (var a in  Config.stations() ){
-						            groupDataModel.insert( {"name" : Config.stations()[a], "number" : a});
-					            }
+                                    groupDataModel.insert( {"name" : Config.stations()[a], "number" : a});
+                                }
 
                             }
                         }
                     }
                 ]
       
-				listItemComponents: [
-					 ListItemComponent {
-						 type: "item"
-						 id: listitemcomp
-						 Container {
+                listItemComponents: [
+                     ListItemComponent {
+                         type: "item"
+                         id: listitemcomp
+                         Container {
                             layout: DockLayout {}
-						 	Label {                 
-								  text: ListItemData.name
-								  preferredWidth: 768
-								  horizontalAlignment:  HorizontalAlignment.Fill
-								  verticalAlignment: VerticalAlignment.Center
+                            Label {                 
+                                  text: ListItemData.name
+                                  preferredWidth: 768
+                                  horizontalAlignment:  HorizontalAlignment.Fill
+                                  verticalAlignment: VerticalAlignment.Center
                                   textStyle {
-									  base: SystemDefaults.TextStyles.TitleText
-									  color: Color.White
-								  }
-						 	}
-							Button {
+                                      base: SystemDefaults.TextStyles.TitleText
+                                      color: Color.White
+                                  }
+                            }
+                            Button {
                                 text: "X"
                                 preferredWidth: 60 
                                 preferredHeight: 60 
@@ -128,32 +128,32 @@ Page {
                                     Qt.removedstation = ListItemData.number
                                     Qt.dialog.show();
                                 }
-							}
-						 }
-					}
-				]
+                            }
+                         }
+                    }
+                ]
                 function removeStation(index) {
                     Config.removeStation(index);
                 }
-				onTriggered: {             
-//					console.log("Index ", groupDataModel.data(indexPath).qml);
-//					nextpage.source = groupDataModel.data(indexPath).qml;
-				}
+                onTriggered: {             
+//                  console.log("Index ", groupDataModel.data(indexPath).qml);
+//                  nextpage.source = groupDataModel.data(indexPath).qml;
+                }
             }
-		}       
-		Label {
-			layoutProperties: AbsoluteLayoutProperties {
-            	positionX: 0
+        }       
+        Label {
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
                 positionY: 0
             }
-		    preferredWidth: 768
-		    text:  Config.tr("Stations") 
-			textStyle {
-				base: SystemDefaults.TextStyles.BigText
-				color: Color.White
-			}
-		}
+            preferredWidth: 768
+            text:  Config.tr("Stations") 
+            textStyle {
+                base: SystemDefaults.TextStyles.BigText
+                color: Color.White
+            }
+        }
 
 
-	}
+    }
 }

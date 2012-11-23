@@ -10,9 +10,9 @@ Page {
 
    
 
-	content: 
-	Container{
-		id: absoluteLayoutContainer
+    content: 
+    Container{
+        id: absoluteLayoutContainer
        background: Color.White
 
       // minHeight: 4000
@@ -37,7 +37,7 @@ Page {
         }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
-	                positionX: 0
+                    positionX: 0
                     positionY: 350
                 }
                 background: Color.Black
@@ -46,16 +46,16 @@ Page {
         }
               
         ScrollView {
-			layoutProperties: 
+            layoutProperties: 
             AbsoluteLayoutProperties {
-            	positionY: 90
+                positionY: 90
             }
             preferredHeight: 1050.0
             scrollViewProperties {
                 scrollMode: ScrollMode.Vertical
             }
-		   	Container{
-			    Label {
+            Container{
+                Label {
                     text: Config.tr("Temperature units") 
                     bottomMargin: 9
                     textStyle {

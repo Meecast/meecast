@@ -9,16 +9,16 @@ Page {
     property int screen_height : 1280    
 
 
-	content: 
-	Container{
-	    id: absoluteLayoutContainer
+    content: 
+    Container{
+        id: absoluteLayoutContainer
         background: Color.White
 
         layout: AbsoluteLayout {}
         attachedObjects: [
-       	    ComponentDefinition {
-       		   id: nextpage6
-       		}
+            ComponentDefinition {
+               id: nextpage6
+            }
         ]
         Container{
             layoutProperties: AbsoluteLayoutProperties {
@@ -39,7 +39,7 @@ Page {
         }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
-	                positionX: 0
+                    positionX: 0
                     positionY: 350
                 }
                 background: Color.Black
@@ -48,16 +48,16 @@ Page {
         }
               
         ScrollView {
-			layoutProperties: 
+            layoutProperties: 
             AbsoluteLayoutProperties {
-            	positionY: 90
+                positionY: 90
             }
             preferredHeight: 1050.0
             scrollViewProperties {
                 scrollMode: ScrollMode.Vertical
             }
-			Container{
-				Container {
+            Container{
+                Container {
                     layout: DockLayout {}
                     Label {                 
                           text: Config.tr("Iconset")+": "+Config.iconset 
@@ -78,15 +78,15 @@ Page {
                             color: Color.White
                         }
                       }
-				}
-				onTouch: {
+                }
+                onTouch: {
                     if (event.isDown()) {
                         nextpage6.source = "IconsetPage.qml"
                         var newPage = nextpage6.createObject();
                         rootWindow.push(newPage);
                     }
-				}
-			}
+                }
+            }
         }
         Label {
             layoutProperties: AbsoluteLayoutProperties {

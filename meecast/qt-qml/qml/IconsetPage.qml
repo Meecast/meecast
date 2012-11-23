@@ -63,6 +63,7 @@ Page {
 			]
 			ListView {
 				id: listview
+    			property string first_selection: "-1"
 				dataModel: groupDataModel 
 				onCreationCompleted: {
 					for (var a in  Config.icon_list() ){
@@ -71,9 +72,9 @@ Page {
                         "active": Config.icon_list()[a] == Config.iconset  ? true : false });
                         if (Config.icon_list()[a] == Config.iconset ){
                             select(a);
+							first_selection = a
                         }
 					}
-                     toggleSelection(1);
                 }     
          
                 listItemComponents: [
@@ -85,8 +86,7 @@ Page {
                             Container {
                                 id: item_container
                                 background: Color.White
-                               // opacity: ListItemData.active ? 0.2 : 0.0
-                                opacity: 0.0
+                                opacity: ListItemData.active ? 0.2 : 0.0
                                 horizontalAlignment: HorizontalAlignment.Fill
                                 verticalAlignment: VerticalAlignment.Fill
                              }
@@ -112,9 +112,11 @@ Page {
                                 }
                             }      
                             ListItem.onActivationChanged: {
+								console.log("wwwwwwwwwww  ", ListItemData.active);
                                 setHighlight (ListItem.active);
                             }
                              ListItem.onSelectionChanged: {
+								console.log("1111111111wwwwwwwwwww  ", ListItemData.active);
                                 setHighlight (ListItem.selected);
                              }
 						 }
@@ -122,15 +124,16 @@ Page {
                 ]
 
 				onTriggered: {             
-					console.log("Index ", indexPath, " ", groupDataModel.data(indexPath).name);
+					if (first_selection != "-1"){
+						select([first_selection]);
+						first_selection = "-1";
+					}
                     clearSelection();
                     select(indexPath);
                     Config.set_iconset(groupDataModel.data(indexPath).name)
-//					nextpage.source = groupDataModel.data(indexPath).qml;
                 }
 
             }
-
         }
         Label {
             layoutProperties: AbsoluteLayoutProperties {

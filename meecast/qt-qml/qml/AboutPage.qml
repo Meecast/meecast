@@ -152,6 +152,125 @@ Page {
                             color: Color.White
                         }
                     }
+                    Label {
+                        id: leadprogrammertext 
+                        text: Config.tr ("Programmers") + ":"
+                        textStyle {
+                            base: SystemDefaults.TextStyles.TitleText 
+                            color: Color.create("#999999")
+                         }
+                     }
+                     Label {
+                        id: leadprogrammerfulltext 
+	                    text: "Vlad Vasilyeu, Tanya Makava"
+                        textStyle {
+                            base: SystemDefaults.TextStyles.BodyText 
+                            color: Color.White
+                        }
+                    }
+                    Label {
+                        id: leaddesignertext 
+                        text: Config.tr("Lead designer") + ":"
+                        textStyle {
+                            base: SystemDefaults.TextStyles.TitleText 
+                            color: Color.create("#999999")
+                         }
+                     }
+                     Label {
+                        id: leaddesignerfulltext 
+	                    text: "Andrew Zhilin"
+                        textStyle {
+                            base: SystemDefaults.TextStyles.BodyText 
+                            color: Color.White
+                        }
+                    }
+                    Label {
+                        id: projectmanagertext 
+                        text: Config.tr("Project manager") + ":"
+                        textStyle {
+                            base: SystemDefaults.TextStyles.TitleText 
+                            color: Color.create("#999999")
+                         }
+                     }
+                     Label {
+                        id: projectmanagerfulltext 
+	                    text: "Ludmila Lisovskaya"
+                        textStyle {
+                            base: SystemDefaults.TextStyles.BodyText 
+                            color: Color.White
+                        }
+                    }
+                    Label {
+                        id: translatorstext
+                        text: Config.tr("Translators") + ":"
+                        textStyle {
+                            base: SystemDefaults.TextStyles.TitleText 
+                            color: Color.create("#999999")
+                         }
+                     }
+                     Label {
+                        id: translatorsfulltext 
+	    text: Config.tr ("\
+French -  Nicolas Granziano, \n \
+\tPhilippe, Benot Knecht \n \
+Russian - Pavel Fialko, Vlad Vasiliev, \n \
+\tEd Bartosh\n \
+Finnish - Marko Vertainen\n \
+German -  Claudius Henrichs\n \
+Italian - Pavel Fialko, Alessandro Pasotti,\n \
+\tSalvatore Fiorenzo, Ilir Gjika,\n \
+\tLuca Onnis\n \
+Spanish - Alejandro Lopez\n \
+Polish - Tomasz Dominikowski\n \
+Slovak - Roman Moravčík\n \
+Dutch - Tom Leenders, Michiel Pater\n \
+Bulgarian - Zlatko Enikov\n \
+Albanian - Ilir Gjika\n \
+Chinese - Wong Man Kong, Michael\n \
+Portuguese - Jose Narciso,\n \
+Turkish - Burak Kaan Kose,\n \
+Catalan - Agustí Clara,\n \
+Arabic - Tarad Alfandi,\n \
+Norwegian - Peer-Atle Motland,\n \
+Vietnamese - Hieu Nguyen\n \
+\tAnh Dương and truongnx, \n \
+Swedish - Angela Nennebrandt,\n \
+\tNiklas Åkerström, \n \
+\tTomislav Veleckovik")
+
+                        multiline: true
+                        textStyle {
+                            base: SystemDefaults.TextStyles.BodyText 
+                            color: Color.White
+                        }
+                    }
+                    Label {
+                        id: licensetext  
+                        text: Config.tr("License") + ":"
+                        textStyle {
+                            base: SystemDefaults.TextStyles.TitleText 
+                            color: Color.create("#999999")
+                         }
+                     }
+                     Label {
+                         id: licensefulltext 
+	    text: Config.tr ("This software is free software; you can\n \
+redistribute it and/or modify it under \n \
+the terms of the GNU General Public\n \
+License as published by the Free Software \n \
+Foundation; either version 2.1 of the \n \
+License, or (at your option) any \n \
+later version.");
+                        multiline: true
+                        textStyle {
+                            base: SystemDefaults.TextStyles.BodyText 
+                            color: Color.White
+                        }
+                    }
+
+
+
+
 
                 }
 

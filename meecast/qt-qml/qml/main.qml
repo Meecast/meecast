@@ -20,8 +20,9 @@ NavigationPane {
                      "pict" : Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(a, "pict"),
                      "temp_high" : Forecast_model.getdata(a, "temp_high"),
                      "temp_low" : Forecast_model.getdata(a, "temp_low"),
-                     "bg_color" :  (a % 2 != 0) ?  "#0f0f0f" : "#000000",
-                     "hi_temp_color" :  main.getColor(Forecast_model.getdata(a, "temp_high"))
+                     "bg_color" :  (a % 2 != 0) ? "#000000" : "#0f0f0f",
+                     "hi_temp_color" :  main.getColor(Forecast_model.getdata(a, "temp_high")),
+                     "number" : a
                     }
                 )
             }
@@ -467,12 +468,15 @@ NavigationPane {
             Container{
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
-                    positionY: 500
+                    positionY: 560
                 }
                 preferredWidth: 768
                 ListView {
                     id: forrecasts_list
                     dataModel: GroupDataModel {
+                        id: groupDataModel
+                        sortingKeys: ["number"]
+                        grouping: ItemGrouping.None
                     }
                     listItemComponents: [
                         ListItemComponent {

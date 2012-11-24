@@ -92,32 +92,67 @@ Page {
                         color: Color.White
                     }
                 }   
-                Label {
-                    id: abouttext 
+                Container {
+                //    layout: DockLayout {}
                     layoutProperties: AbsoluteLayoutProperties {
-                        positionX: 0
-                        positionY: 370
-                    }
-
-                    text: Config.tr("About") + ":"
-                    textStyle {
-                        base: SystemDefaults.TextStyles.TitleText 
-                        color: "#999999"
-                     }
-                }
-                Label {
-                    id: aboutfulltext 
-                    layoutProperties: AbsoluteLayoutProperties {
-                        positionX: 0
-                        positionY: 380
-                    }
-                    multiline: true
-                    text: Config.tr("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2011")
-                    textStyle {
-                        base: SystemDefaults.TextStyles.TitleText 
-                        color: Color.White
+                            positionX: 0
+                            positionY: 360
                     }
  
+                    Label {
+                        id: abouttext 
+                        text: Config.tr("About") + ":"
+                        textStyle {
+                            base: SystemDefaults.TextStyles.TitleText 
+                            color: Color.create("#999999")
+                         }
+                    }
+                    Label {
+                        multiline: true
+                        id: aboutfulltext 
+                        text: Config.tr("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2011")
+                        textStyle {
+                            base: SystemDefaults.TextStyles.BodyText 
+                            color: Color.White
+                        }
+                    }
+                    Label {
+                        id: projectsitetext 
+                        text: Config.tr("Project website") + ":"
+                        textStyle {
+                            base: SystemDefaults.TextStyles.TitleText 
+                            color: Color.create("#999999")
+                         }
+                     }
+                     Label {
+                        multiline: true
+                        id: projectfulltext 
+	                    text: "http://meecast.com"
+                        textStyle {
+                            base: SystemDefaults.TextStyles.BodyText 
+                            color: Color.White
+                        }
+                    }
+                    Divider {
+                        horizontalAlignment: HorizontalAlignment.Fill
+                    }
+                    Label {
+                        id: projectadministratortext 
+                        text: Config.tr("Project administrator") + ":"
+                        textStyle {
+                            base: SystemDefaults.TextStyles.TitleText 
+                            color: Color.create("#999999")
+                         }
+                     }
+                     Label {
+                        id: prohectadministatorfulltext 
+	                    text: "Vlad Vasilyeu"
+                        textStyle {
+                            base: SystemDefaults.TextStyles.BodyText 
+                            color: Color.White
+                        }
+                    }
+
                 }
 
             }

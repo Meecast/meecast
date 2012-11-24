@@ -4,6 +4,8 @@ import bb.cascades 1.0
 Page {
     id: cities 
     objectName: "citiesrpage"
+    property string first_string: ""
+    property string second_string: ""
 
     content:  Container{
         id: absoluteLayoutContainer
@@ -41,10 +43,33 @@ Page {
                 preferredWidth: 768
                 preferredHeight: 1000
         }
+        TextField {
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 90
+            }
+            hintText: Config.tr ("Filter by...")
+            onTextChanging: { 
+                groupDataModel.clear();
+                if (text != ""){
+                    for (var a = 0; a < city_model.rowCount(); a++) {
+                        first_string = text.toLocaleUpperCase()
+                        second_string =  city_model.get(a).name.toLocaleUpperCase();
+                        if (second_string.indexOf(first_string) >= 0){
+                            groupDataModel.insert( {"name" : city_model.get(a).name, "number" : a, "key" : city_model.get(a).key });
+                        }
+                    }
+                }else{
+                    for (var a = 0; a < city_model.rowCount(); a++) {
+                        groupDataModel.insert( {"name" : city_model.get(a).name, "number" : a, "key" : city_model.get(a).key });
+                    }
+                }
+            }
+        }
         Container{
             layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 90
+                positionX: 0
+                positionY: 160
             }
             attachedObjects: [
                 GroupDataModel {

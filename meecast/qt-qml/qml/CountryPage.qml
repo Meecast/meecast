@@ -6,6 +6,8 @@ Page {
     objectName: "countriespage"
     property int margin: 16
     property string country: ""
+    property string first_string: ""
+    property string second_string: ""
     property string key: ""
 
     content:  Container{
@@ -43,10 +45,33 @@ Page {
                 preferredWidth: 768
                 preferredHeight: 1000
         }
+        TextField {
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 90
+            }
+            hintText: Config.tr ("Filter by...")
+            onTextChanging: { 
+                groupDataModel.clear();
+                if (text != ""){
+                    for (var a = 0; a < country_model.rowCount(); a++) {
+                        first_string = text.toLocaleUpperCase()
+                        second_string =  country_model.get(a).name.toLocaleUpperCase();
+                        if (second_string.indexOf(first_string) >= 0){
+                            groupDataModel.insert( {"name" : country_model.get(a).name, "number" : a, "key" : country_model.get(a).key });
+                        }
+                    }
+                }else{
+                    for (var a = 0; a < country_model.rowCount(); a++) {
+                        groupDataModel.insert( {"name" : country_model.get(a).name, "number" : a, "key" : country_model.get(a).key });
+                    }
+                }
+            }
+        }
         Container{
             layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 90
+                positionX: 0
+                positionY: 160
             }
             attachedObjects: [
                 GroupDataModel {
@@ -61,7 +86,6 @@ Page {
                 onCreationCompleted: {
                     console.log ("Country Size ", country_model.rowCount());
                     for (var a = 0; a < country_model.rowCount(); a++) {
-                        console.log("Country ", country_model.get(a).name);
                         groupDataModel.insert( {"name" : country_model.get(a).name, "number" : a, "key" : country_model.get(a).key });
                     }
                 }           

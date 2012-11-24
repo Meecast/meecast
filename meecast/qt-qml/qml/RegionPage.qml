@@ -7,7 +7,8 @@ Page {
     property int margin: 16
     property int removedStation: -1
     property string removedStationName: ""
-    //Config {id: config1}
+    property string first_string: ""
+    property string second_string: ""
     property string region: ""
 
     content:  Container{
@@ -21,35 +22,59 @@ Page {
             }
         ]
         Container{
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 0
-                }
-                background: Color.Black
-                preferredWidth: 768
-                preferredHeight: 90
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 0
+            }
+            background: Color.Black
+            preferredWidth: 768
+            preferredHeight: 90
         } 
         ImageView {
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 90
-                 }
-                imageSource: "asset:///share/images/mask_background_grid.png"
-                preferredWidth: 768  
-        }
-        Container{
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 350
-                }
-                background: Color.Black
-                preferredWidth: 768
-                preferredHeight: 1000
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 90
+             }
+            imageSource: "asset:///share/images/mask_background_grid.png"
+            preferredWidth: 768  
         }
         Container{
             layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 90
+                positionX: 0
+                positionY: 350
+            }
+            background: Color.Black
+            preferredWidth: 768
+            preferredHeight: 1000
+        }
+        TextField {
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 90
+            }
+            hintText: Config.tr ("Filter by...")
+            onTextChanging: { 
+                groupDataModel.clear();
+                if (text != ""){
+                    for (var a = 0; a < region_model.rowCount(); a++) {
+                        first_string = text.toLocaleUpperCase()
+                        second_string =  region_model.get(a).name.toLocaleUpperCase();
+                        if (second_string.indexOf(first_string) >= 0){
+                            groupDataModel.insert( {"name" : region_model.get(a).name, "number" : a, "key" : region_model.get(a).key });
+                        }
+                    }
+                }else{
+                    for (var a = 0; a < region_model.rowCount(); a++) {
+                        groupDataModel.insert( {"name" : region_model.get(a).name, "number" : a, "key" : region_model.get(a).key });
+                    }
+                }
+            }
+        }
+
+        Container{
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 160
             }
             attachedObjects: [
                 GroupDataModel {
@@ -62,9 +87,7 @@ Page {
                 id: listview
                 dataModel: groupDataModel 
                 onCreationCompleted: {
-                    console.log ("Regions Size ", region_model.rowCount());
                     for (var a = 0; a < region_model.rowCount(); a++) {
-                        console.log("Regions ", region_model.get(a).name);
                         groupDataModel.insert( {"name" : region_model.get(a).name, "number" : a, "key" : region_model.get(a).key});
                     }
                 }           

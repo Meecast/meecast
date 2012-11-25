@@ -132,19 +132,6 @@ NavigationPane {
                 background: Color.Black
                 preferredWidth: 768
                 preferredHeight: 1000
-//                       onTouch: {
-//                                        background = Color.Green;
-//                                        console.log("dfffffffffffffffffffff");
-//                                        if (event.isDown()) {
-//                                            main.day = 5;
-//                                            console.log("!!!!!!!!!!!!!!!!!!!main day ",  main.day);
-//                                            main.day_period = "day";
-//                                            fullweather.current = true;
-//                                            var newPage = fullpageDefinition.createObject();
-//                                            rootWindow.push(newPage);
-//                                        }
-//                                    }
-//                
             }
 
             Container{
@@ -194,7 +181,7 @@ NavigationPane {
                     positionY: 95
                 }
                 onTouch: {
-                    background = Color.Green;
+//                    background = Color.Green;
                     if (event.isDown()) {
                         main.day = 0;
                         main.day_period = "day";
@@ -380,7 +367,7 @@ NavigationPane {
                                 base: SystemDefaults.TextStyles.BodyText
                                 color: Color.White
                             }
-                            }
+                        }
                         }        
                     }
                     Container{
@@ -494,7 +481,9 @@ NavigationPane {
                 preferredWidth: 128*1.6
                 preferredHeight: 128*1.6
                 imageSource: Config.iconspath + "/" + Config.iconset + "/" + Current.getdata(0, "pict")
-                horizontalAlignment: HorizontalAlignment.Center                
+                horizontalAlignment: HorizontalAlignment.Center
+                overlapTouchPolicy: OverlapTouchPolicy.Allow
+                touchPropagationMode: TouchPropagationMode.PassThrough
             } 
             Container{
                 layoutProperties: AbsoluteLayoutProperties {
@@ -588,6 +577,15 @@ NavigationPane {
                             } 
                         }
                     ]
+                	onTriggered: {             
+                        console.log("Index ", groupDataModel.data(indexPath).number);
+                        main.day = groupDataModel.data(indexPath).number;
+                        main.day_period = "day";
+                        main.current = false;
+                        var newPage = fullpageDefinition.createObject();
+                        rootWindow.push(newPage);
+				    }
+
                     onCreationCompleted: {
                         main.update_list();
                     }

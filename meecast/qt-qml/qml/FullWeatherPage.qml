@@ -318,14 +318,6 @@ Page {
                 positionX: 0
                 positionY: 95
             }
-            onTouch: {
-                background = Color.Green;
-                console.log("dfffffff11111111ffffffffffffff");
-                if (event.isDown()) {
-                    var newPage = fullpageDefinition.createObject();
-                    rootWindow.push(newPage);
-                }
-            }
             
             id: current_rect
             visible: Current.rowCount() == 0 ? false : true
@@ -359,7 +351,7 @@ Page {
                     horizontalAlignment: HorizontalAlignment.Left
                     preferredWidth: 768/2 - 128*1.6/2 
                     Label {
-                        text: Current.getdata(0, "current") == true ? Config.tr("Now") : Config.tr("Today")
+                        text: day_period_name 
                         horizontalAlignment: HorizontalAlignment.Center
                         verticalAlignment: VerticalAlignment.Center
                         textStyle.textAlign: TextAlign.Center
@@ -396,7 +388,7 @@ Page {
                     positionY: 165.0
                 }
                 Label {                 
-                    text: Current.getdata(0, "description");
+                    text: description_text 
                     horizontalAlignment: HorizontalAlignment.Center
                     textStyle {
                        base: SystemDefaults.TextStyles.BodyText
@@ -416,52 +408,58 @@ Page {
                 background: Color.Black
                 ImageButton {                 
                    id: left_arrow
-                   visible: Config.prevstationname == "" ? false : true;
+                   visible: day > 0 ? true : false;
                    horizontalAlignment: HorizontalAlignment.Left
                    verticalAlignment: VerticalAlignment.Center
                    preferredWidth: 62*1.6
                    preferredHeight: 62*1.6
                    defaultImageSource: "asset:///share/images/arrow_left.png"
                    onClicked: {
-                        Config.prevstation();
-                        main.updatestationname();
+                        if (day > 0){
+                            console.log("prev day");
+                            day--;
+                            fullweather.updateperiod();
+                            dayname.text = (fullweather.current && fullweather.day == 0) ? Config.tr("Today") : model_day.getdata(day, "date");
+                        }
+
                    }
-            }
-            Container{
-                layout: DockLayout {}
-                preferredWidth: 600 
-                horizontalAlignment: HorizontalAlignment.Center 
-                Label {                 
-                    id: dayname
-                    horizontalAlignment: HorizontalAlignment.Center
-                    textStyle {
-                        base: SystemDefaults.TextStyles.BigText
-                        color: Color.White
-                    }
-                    onCreationCompleted: {
-
-                        fullweather.current = main.current
-                        fullweather.day = main.day
-                        fullweather.day_period = main.day_period
-                        console.log("sssssssssss ", fullweather.current,  main.current, fullweather.day, main.day);
-                        fullweather.updateperiod();
-
-                        console.log("sssssssssss ", fullweather.current,  fullweather.day);
-                        text = (fullweather.current && fullweather.day == 0) ? Config.tr("Today") : model_day.getdata(day, "date");
-                    }
                 }
+                Container{
+                    layout: DockLayout {}
+                    preferredWidth: 600 
+                    horizontalAlignment: HorizontalAlignment.Center 
+                    Label {                 
+                        id: dayname
+                        horizontalAlignment: HorizontalAlignment.Center
+                        textStyle {
+                            base: SystemDefaults.TextStyles.BigText
+                            color: Color.White
+                        }
+                        onCreationCompleted: {
+                            fullweather.current = main.current
+                            fullweather.day = main.day
+                            fullweather.day_period = main.day_period
+                            fullweather.updateperiod();
+                            text = (fullweather.current && fullweather.day == 0) ? Config.tr("Today") : model_day.getdata(day, "date");
+                        }
+                    }
             }
             ImageButton {                 
                id: right_arrow
-               visible: Config.nextstationname == "" ? false : true;
+               visible: day < (model_day.rowCount()-1) ? true : false;
                verticalAlignment: VerticalAlignment.Center
                horizontalAlignment: HorizontalAlignment.Right
                defaultImageSource: "asset:///share/images/arrow_right.png"
                preferredWidth: 62*1.6
                preferredHeight: 62*1.6
                onClicked: {
-                        Config.nextstation();
-                        main.updatestationname();
+                    if (day < model_day.rowCount()-1){ 
+                        console.log("next day");
+                        day_period="day";
+                        day++;
+                        fullweather.updateperiod();
+                        dayname.text = (fullweather.current && fullweather.day == 0) ? Config.tr("Today") : model_day.getdata(day, "date");
+                    }
                }
             }
         }
@@ -472,13 +470,13 @@ Page {
             }
             preferredWidth: 128*1.6
             preferredHeight: 128*1.6
-            imageSource: Config.iconspath + "/" + Config.iconset + "/" + Current.getdata(0, "pict")
+            imageSource: image_source 
             horizontalAlignment: HorizontalAlignment.Center                
         } 
         Container{
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
-                positionY: 400
+                positionY: 370
             }
             preferredWidth: 768
             preferredHeight: 800.0
@@ -554,9 +552,6 @@ Page {
                     }
                 ]
             }
-
-
-
         }
         Container{
             layoutProperties: AbsoluteLayoutProperties {

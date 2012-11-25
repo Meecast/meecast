@@ -18,6 +18,7 @@ Page {
     property variant model_night:  (current) ? Current_night : Forecast_night_model
     property variant model_hours:  Forecast_hours_model
     //property variant description_text_alignment: Text.AlignHLeft;
+   
 
     function updateperiod()
     {
@@ -436,6 +437,8 @@ Page {
                             color: Color.White
                         }
                         onCreationCompleted: {
+                            rootWindow.backButtonsVisible = false;
+                            Application.menuEnabled = false;
                             fullweather.current = main.current
                             fullweather.day = main.day
                             fullweather.day_period = main.day_period
@@ -578,12 +581,21 @@ Page {
                 Container{
                     preferredWidth: 20
                 }
-                ImageButton {
-                    id: refreshicon
-                    verticalAlignment: VerticalAlignment.Center
-                    defaultImageSource: "asset:///button_icons/icon_refresh.png"
-                    onClicked: {
-                        Config.updatestations()
+                Container{
+                    verticalAlignment: VerticalAlignment.Center     
+                    Label {
+                        verticalAlignment: VerticalAlignment.Center     
+                        id: back 
+                        text: "<"
+                        textStyle {
+                            base: SystemDefaults.TextStyles.BigText
+                            color: Color.White
+                        }
+                    }
+                    onTouch: {
+                        if (event.isDown()) {
+                            rootWindow.pop()
+                        }
                     }
                 }
                 ImageView {

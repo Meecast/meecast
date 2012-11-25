@@ -181,7 +181,6 @@ NavigationPane {
                     positionY: 95
                 }
                 onTouch: {
-//                    background = Color.Green;
                     if (event.isDown()) {
                         main.day = 0;
                         main.day_period = "day";

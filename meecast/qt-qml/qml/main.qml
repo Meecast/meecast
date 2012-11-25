@@ -12,6 +12,7 @@ NavigationPane {
 
 
         function update_list(){
+            forrecasts_list.dataModel.clear();
             for (var a = 0; a < Forecast_model.rowCount(); a++) {
                 forrecasts_list.dataModel.insert(
                     {
@@ -128,6 +129,15 @@ NavigationPane {
                 background: Color.Black
                 preferredWidth: 768
                 preferredHeight: 1000
+                       onTouch: {
+                                        background = Color.Green;
+                                        console.log("dfffffffffffffffffffff");
+                                        if (event.isDown()) {
+                                            var newPage = fullpageDefinition.createObject();
+                                            rootWindow.push(newPage);
+                                        }
+                                    }
+                
             }
 
             Container{
@@ -144,6 +154,7 @@ NavigationPane {
                         positionY: 30
                     }
                     background: Color.White
+
                 }
                 ImageView {
                     imageSource: "asset:///share/images/mask_background.png"
@@ -175,6 +186,15 @@ NavigationPane {
                     positionX: 0
                     positionY: 95
                 }
+                onTouch: {
+                    background = Color.Green;
+                    console.log("dfffffff11111111ffffffffffffff");
+                    if (event.isDown()) {
+                        var newPage = fullpageDefinition.createObject();
+                        rootWindow.push(newPage);
+                    }
+                }
+                
                 id: current_rect
                 visible: Current.rowCount() == 0 ? false : true
                 layout: AbsoluteLayout {
@@ -195,6 +215,7 @@ NavigationPane {
                     layoutProperties: AbsoluteLayoutProperties {
                         positionY: 30
                     }
+                    visible: true
                 }
                 Container{
                     preferredWidth: 768
@@ -486,6 +507,15 @@ NavigationPane {
                         ListItemComponent {
                             type: "item"
                             Container{
+                                onTouch: {
+                                                        background = Color.Green;
+                                                        console.log("dfffffffffffffffffffff");
+                                                        if (event.isDown()) {
+                                                            var newPage = fullpageDefinition.createObject();
+                                                            rootWindow.push(newPage);
+                                                        }
+                                                    }
+                                
                                 layout: DockLayout {
                                 }
                                 background: Color.create(ListItemData.bg_color)
@@ -644,7 +674,10 @@ NavigationPane {
                 id: sourcepageDefinition
                 source: "SourcePage.qml"
             },
-
+            ComponentDefinition {
+                id: fullpageDefinition
+                source: "FullWeatherPage.qml"
+            },
             ComponentDefinition {
                 id: sboutpageDefinition
                 source: "AboutPage.qml"

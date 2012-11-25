@@ -2,7 +2,217 @@ import bb.cascades 1.0
 
 
 Page {
-    id: fullweatherforecast 
+    id: fullweather 
+    property int day: 10
+    property bool current: false
+    property string day_period: "day"
+    property string day_period_name: ""
+    property string image_source: ""
+    property string description_text: ""
+
+    property string map_pattern: "";  
+    property string count_of_maps: "0";  
+
+    property variant model_current: Current 
+    property variant model_day:  Forecast_model
+    property variant model_night:  (current) ? Current_night : Forecast_night_model
+    property variant model_hours:  Forecast_hours_model
+    //property variant description_text_alignment: Text.AlignHLeft;
+
+    function updateperiod()
+    {
+        condition.clear()
+        condition2.clear()
+        console.log("Day period ", day_period);
+	    if (day_period == "current"){
+	     //   toolbarnow.checked = true
+	     //   toolbarday.checked = false 
+	     //   toolbarnight.checked = false
+	     //   toolbarclock.checked = false
+            day_rect.visible = true;
+            current_rect.visible = true;
+            hours_list.visible = false;
+            flickable.contentHeight = day_rect.height + current_rect.height;
+
+            day_period_name = Config.tr("Now")
+            image_source = Config.iconspath + "/" + Config.iconset + "/" + model_current.getdata(day, "pict")
+            current_rect.color = getColor(model_current.getdata(day, "temp_high"));
+            description_text = model_current.getdata(day, "description") ? model_current.getdata(day, "description") : ""
+	   
+            if ((model_current.getdata(day, "humidity")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Humidity:"),
+                         "value": model_current.getdata(day, "humidity")+'%'});
+            if ((model_current.getdata(day, "wind_direction")) != "")
+                condition.insert({"cond_name": Config.tr("Wind direction:"),
+                         "value": Config.tr(model_current.getdata(day, "wind_direction"))});
+            if ((model_current.getdata(day, "pressure")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Pressure:"),
+                         "value": model_current.getdata(day, "pressure") + ' ' + Config.tr(Config.pressureunit)});
+            if ((model_current.getdata(day, "wind_speed")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Wind speed") + ":",
+                         "value": model_current.getdata(day, "wind_speed") + ' ' + Config.tr(Config.windspeedunit)});
+            if ((model_current.getdata(day, "ppcp")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Ppcp:"),
+                         "value": model_current.getdata(day, "ppcp") + '%'});
+            if ((model_current.getdata(day, "wind_gust")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Wind gust:"),
+                         "value": model_current.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
+            if ((model_current.getdata(day, "flike")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Flike:"),
+                         "value": model_current.getdata(day, "flike") + '°' + Config.temperatureunit});
+            if ((model_current.getdata(day, "map_pattern")) != ""){
+                map_pattern = model_current.getdata(day, "map_pattern")
+                map_text.visible = true;
+                count_of_maps = model_current.getdata(day, "count_of_maps")
+            }else
+                map_text.visible = false;
+
+            if ((model_current.getdata(day, "temp")) != "N/A")
+                temperature.text =  model_current.getdata(day, "temp") + '°'
+     	    else{
+                if ((model_current.getdata(day, "temp_high")) != "N/A")
+               	    temperature.text =  model_current.getdata(day, "temp_high") + '°'
+            }
+            if ((model_current.getdata(day, "visible")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Visible:"),
+                         "value": model_current.getdata(day, "visible") + ' ' + Config.tr(Config.visibleunit)});
+            if ((model_current.getdata(day, "uv_index")) != "")
+                condition.insert({"cond_name": Config.tr("UV index:"),
+                         "value": model_current.getdata(day, "uv_index")});
+	}
+
+        if (day_period == "day"){
+//	    toolbarnow.checked = false 
+//	    toolbarday.checked = true
+//	    toolbarnight.checked = false
+//	    toolbarclock.checked = false
+        //    day_rect.visible = true;
+        //    current_rect.visible = true;
+        //    hours_list.visible = false;
+        //    flickable.contentHeight = day_rect.height + current_rect.height;
+
+            day_period_name = Config.tr("Day")
+            image_source = Config.iconspath + "/" + Config.iconset + "/" + model_day.getdata(day, "pict")
+            current_rect_back.background = Color.create(main.getColor(model_day.getdata(0, "temp_high")));
+            description_text = model_day.getdata(day, "description") ? model_day.getdata(day, "description") : ""
+	   
+            if ((model_day.getdata(day, "humidity")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Humidity:"),
+                         "value": model_day.getdata(day, "humidity")+'%'});
+            if ((model_day.getdata(day, "wind_direction")) != "")
+                condition.insert({"cond_name": Config.tr("Wind direction:"),
+                         "value": Config.tr(model_day.getdata(day, "wind_direction"))});
+            if ((model_day.getdata(day, "pressure")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Pressure:"),
+                         "value": model_day.getdata(day, "pressure") + ' ' + Config.tr(Config.pressureunit)});
+            if ((model_day.getdata(day, "wind_speed")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Wind speed") + ":",
+                         "value": model_day.getdata(day, "wind_speed") + ' ' + Config.tr(Config.windspeedunit)});
+            if ((model_day.getdata(day, "ppcp")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Ppcp:"),
+                         "value": model_day.getdata(day, "ppcp") + '%'});
+            if ((model_day.getdata(day, "wind_gust")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Wind gust:"),
+                         "value": model_day.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
+            if ((model_day.getdata(day, "flike")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Flike:"),
+                         "value": model_day.getdata(day, "flike") + '°' + Config.temperatureunit});
+
+            if ((model_day.getdata(day, "temp")) != "N/A")
+                temperature.text =  model_day.getdata(day, "temp") + '°'
+	        else{
+                if ((model_day.getdata(day, "temp_high")) != "N/A")
+               	    temperature.text =  model_day.getdata(day, "temp_high") + '°'
+            }
+            if ((model_day.getdata(day, "map_pattern")) != ""){
+                map_pattern = model_day.getdata(day, "map_pattern")
+                //map_text.visible = true;
+                count_of_maps = model_day.getdata(day, "count_of_maps")
+            }else{
+            //    map_text.visible = false;
+            }
+	}
+	if (day_period == "night"){
+            day_period_name = Config.tr("Night");
+            toolbarnow.checked = false;
+            toolbarnight.checked = true;
+            toolbarday.checked = false;
+            toolbarclock.checked = false;
+            day_rect.visible = true;
+            current_rect.visible = true;
+            hours_list.visible = false;
+            flickable.contentHeight = day_rect.height + current_rect.height;
+
+            image_source = Config.iconspath + "/" + Config.iconset + "/" + model_night.getdata(day, "pict");
+            current_rect.color = getColor(model_day.getdata(day, "temp_low"));
+            description_text = model_night.getdata(day, "description") ? model_night.getdata(day, "description") : ""
+            if ((model_night.getdata(day, "humidity")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Humidity:"),
+                         "value": model_night.getdata(day, "humidity")+'%'});
+            if ((model_night.getdata(day, "wind_direction")) != "")
+                condition.insert({"cond_name": Config.tr("Wind direction:"),
+                         "value": Config.tr(model_night.getdata(day, "wind_direction"))});
+            if ((model_night.getdata(day, "pressure")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Pressure:"),
+                         "value": model_night.getdata(day, "pressure") + ' ' + Config.tr(Config.pressureunit)});
+            if ((model_night.getdata(day, "wind_speed")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Wind speed") + ":",
+                         "value": model_night.getdata(day, "wind_speed") + ' ' + Config.tr(Config.windspeedunit)});
+            if ((model_night.getdata(day, "ppcp")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Ppcp:"),
+                         "value": model_night.getdata(day, "ppcp") + '%'});
+            if ((model_night.getdata(day, "wind_gust")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Wind gust:"),
+                         "value": model_night.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
+            if ((model_night.getdata(day, "flike")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Flike:"),
+                         "value": model_night.getdata(day, "flike") + '°' + Config.temperatureunit});
+            if ((model_night.getdata(day, "temp")) != "N/A")
+                temperature.text =  model_night.getdata(day, "temp") + '°'
+	        else{
+                if ((model_night.getdata(day, "temp_low")) != "N/A")
+                    temperature.text =  model_night.getdata(day, "temp_low") + '°'
+            }
+            if ((model_night.getdata(day, "map_pattern")) != ""){
+                map_pattern = model_night.getdata(day, "map_pattern")
+                map_text.visible = true;
+                count_of_maps = model_night.getdata(day, "count_of_maps")
+            }else
+                map_text.visible = false;
+
+	}
+	if (day_period == "hours"){
+            day_period_name = Config.tr("Hours");
+	        toolbarnow.checked = false;
+            toolbarnight.checked = false;
+            toolbarday.checked = false;
+            toolbarclock.checked = true;
+            day_rect.visible = true;
+            current_rect.visible = false;
+            hours_list.visible = true;
+            flickable.contentHeight = hours_list.height + day_rect.height;
+
+	}
+        if ((model_day.getdata(day, "sunrise")) != "N/A")
+            condition2.insert({"cond_name": Config.tr("Sunrise:"),
+                         "value": model_day.getdata(day, "sunrise")});
+        if ((model_day.getdata(day, "sunset")) != "N/A")
+            condition2.insert({"cond_name": Config.tr("Sunset:"),
+                         "value": model_day.getdata(day, "sunset")});
+        if ((model_day.getdata(day, "daylength")) != "N/A")
+            condition2.insert({"cond_name": Config.tr("Day length:"),
+                         "value": model_day.getdata(day, "daylength")});
+        if ((model_day.getdata(day, "lastupdate")) != "N/A")
+            condition2.insert({"cond_name": Config.tr("Last update:"),
+                         "value": model_day.getdata(day, "lastupdate")});
+	
+//	if (description_text.length > 35){
+//	    description_text_alignment = Text.AlignHLeft
+//	}else{
+//	    description_text_alignment = Text.AlignHCenter
+//	}
+
+    }
 
     function getColor(t) {
         var c1, c2, c3;
@@ -76,6 +286,19 @@ Page {
 
     content: Container {
         background: Color.Black
+
+        ListView {
+            dataModel: GroupDataModel {
+                id: condition
+                grouping: ItemGrouping.None
+            }
+        }
+        ListView {
+            dataModel: GroupDataModel {
+                id: condition2
+                grouping: ItemGrouping.None
+            }
+        }
 
         onCreationCompleted: {
              Config.configChanged.connect (main.onConfigChanged);
@@ -164,7 +387,7 @@ Page {
                     horizontalAlignment: HorizontalAlignment.Right
                     preferredWidth: 768/2 - 128*1.6/2                   
                     Label {                 
-                        id: current_temp_text
+                        id: temperature 
                 //      text: Current.getdata(0, "temp") + '°';
                         horizontalAlignment: HorizontalAlignment.Center
                         verticalAlignment: VerticalAlignment.Center
@@ -174,7 +397,6 @@ Page {
                             color: Color.White
                         }
                         onCreationCompleted: {
-                            main.update_current_data();
                         }
                     }    
                 }               
@@ -373,14 +595,22 @@ Page {
                 preferredWidth: 600 
                 horizontalAlignment: HorizontalAlignment.Center 
                 Label {                 
-                    id: stationname
+                    id: dayname
                     horizontalAlignment: HorizontalAlignment.Center
                     textStyle {
                         base: SystemDefaults.TextStyles.BigText
                         color: Color.White
                     }
                     onCreationCompleted: {
-                        text = Config.stationname == "Unknown" ? "MeeCast" : Config.stationname 
+
+                        fullweather.current = main.current
+                        fullweather.day = main.day
+                        fullweather.day_period = main.day_period
+                        console.log("sssssssssss ", fullweather.current,  main.current, fullweather.day, main.day);
+                        fullweather.updateperiod();
+
+                        console.log("sssssssssss ", fullweather.current,  fullweather.day);
+                        text = (fullweather.current && fullweather.day == 0) ? Config.tr("Today") : model_day.getdata(day, "date");
                     }
                 }
             }
@@ -401,7 +631,7 @@ Page {
         ImageView {
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 768/2 - 64 *1.6
-                positionY: 60
+                positionY: 80
             }
             preferredWidth: 128*1.6
             preferredHeight: 128*1.6

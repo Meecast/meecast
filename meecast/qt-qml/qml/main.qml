@@ -9,6 +9,9 @@ NavigationPane {
         id: main
         property int screen_width : 1280
         property int screen_height : 768
+        property int day: 0
+        property bool current: false
+        property string day_period: "day"
 
 
         function update_list(){
@@ -129,15 +132,19 @@ NavigationPane {
                 background: Color.Black
                 preferredWidth: 768
                 preferredHeight: 1000
-                       onTouch: {
-                                        background = Color.Green;
-                                        console.log("dfffffffffffffffffffff");
-                                        if (event.isDown()) {
-                                            var newPage = fullpageDefinition.createObject();
-                                            rootWindow.push(newPage);
-                                        }
-                                    }
-                
+//                       onTouch: {
+//                                        background = Color.Green;
+//                                        console.log("dfffffffffffffffffffff");
+//                                        if (event.isDown()) {
+//                                            main.day = 5;
+//                                            console.log("!!!!!!!!!!!!!!!!!!!main day ",  main.day);
+//                                            main.day_period = "day";
+//                                            fullweather.current = true;
+//                                            var newPage = fullpageDefinition.createObject();
+//                                            rootWindow.push(newPage);
+//                                        }
+//                                    }
+//                
             }
 
             Container{
@@ -188,8 +195,10 @@ NavigationPane {
                 }
                 onTouch: {
                     background = Color.Green;
-                    console.log("dfffffff11111111ffffffffffffff");
                     if (event.isDown()) {
+                        main.day = 0;
+                        main.day_period = "day";
+                        main.current = true;
                         var newPage = fullpageDefinition.createObject();
                         rootWindow.push(newPage);
                     }
@@ -479,7 +488,7 @@ NavigationPane {
             ImageView {
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 768/2 - 64 *1.6
-                    positionY: 60
+                    positionY: 80
                 }
                 preferredWidth: 128*1.6
                 preferredHeight: 128*1.6
@@ -492,6 +501,7 @@ NavigationPane {
                     positionY: 560
                 }
                 preferredWidth: 768
+                preferredHeight: 600
                 ListView {
                     id: forrecasts_list
                     dataModel: GroupDataModel {
@@ -507,15 +517,6 @@ NavigationPane {
                         ListItemComponent {
                             type: "item"
                             Container{
-                                onTouch: {
-                                                        background = Color.Green;
-                                                        console.log("dfffffffffffffffffffff");
-                                                        if (event.isDown()) {
-                                                            var newPage = fullpageDefinition.createObject();
-                                                            rootWindow.push(newPage);
-                                                        }
-                                                    }
-                                
                                 layout: DockLayout {
                                 }
                                 background: Color.create(ListItemData.bg_color)

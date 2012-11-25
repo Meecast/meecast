@@ -287,19 +287,6 @@ Page {
     content: Container {
         background: Color.Black
 
-        ListView {
-            dataModel: GroupDataModel {
-                id: condition
-                grouping: ItemGrouping.None
-            }
-        }
-        ListView {
-            dataModel: GroupDataModel {
-                id: condition2
-                grouping: ItemGrouping.None
-            }
-        }
-
         onCreationCompleted: {
              Config.configChanged.connect (main.onConfigChanged);
         }
@@ -417,157 +404,7 @@ Page {
                     }
                 }
             }
-            Container{
-                id: humidity_and_wind_direction
-                preferredWidth: 768
-                layout: StackLayout {
-                    orientation: LayoutOrientation.LeftToRight
-                }
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionY: 290.0
-                }
-                Container{
-                    id: humidity
-                    horizontalAlignment: HorizontalAlignment.Left
-                    preferredWidth: 768/2
-                    layout: StackLayout {
-                        orientation: LayoutOrientation.LeftToRight
-                    }
-                    ImageView {
-                        imageSource: "asset:///share/images/humidity.png"
-                        preferredWidth: 30*1.6
-                        preferredHeight: 30*1.6
-                    }
-                    Label {
-                        text: Current.getdata(0, "humidity") + " %";
-                        verticalAlignment: VerticalAlignment.Center
-                        //horizontalAlignment: HorizontalAlignment.Left
-                        textStyle {
-                            base: SystemDefaults.TextStyles.BodyText
-                            color: Color.White
-                        }
-                    }
-                }
-                Container{
-                    id: wind_direction
-                    function getAngle(s)
-                    {
-                        var a;
-                        switch (s){
-                        case 'S':
-                            return 0;
-                        case 'SSW':
-                            return 22.5;
-                        case 'SW':
-                            return 45;
-                        case 'WSW':
-                            return (45+22.5);
-                        case 'W':
-                            return 90;
-                        case 'WNW':
-                            return (90+22.5);
-                        case 'NW':
-                            return (90+45);
-                        case 'NNW':
-                            return (180-22.5);
-                        case 'N':
-                            return 180;
-                        case 'NNE':
-                            return (180+22.5);
-                        case 'NE':
-                            return (180+45);
-                        case 'ENE':
-                            return (270-22.5);
-                        case 'E':
-                            return 270;
-                        case 'ESE':
-                            return (270+22.5);
-                        case 'SE':
-                            return (270+45);
-                        case 'SSE':
-                            return (360-22.5);
-
-                        }
-                    }
-
-                    horizontalAlignment: HorizontalAlignment.Left
-                    layout: StackLayout {
-                        orientation: LayoutOrientation.LeftToRight
-                    }
-                    Container{
-                        layout: AbsoluteLayout {
-                        }
-                        ImageView {
-                            imageSource: "asset:///share/images/wind_direction_background.png"
-                            preferredWidth: 30*1.6
-                            preferredHeight: 30*1.6
-                        }
-                        ImageView {
-                            imageSource: "asset:///share/images//wind_direction_arrow.png"
-                            preferredWidth: 30*1.6
-                            preferredHeight: 30*1.6
-                            rotationZ: wind_direction.getAngle(Current.getdata(0, "wind_direction"))
-                        }
-                    }
-                    Label {
-                        text: Current.getdata(0, "wind_direction");
-                        textStyle {
-                            base: SystemDefaults.TextStyles.BodyText
-                            color: Color.White
-                        }
-                        }
-                    }        
-                }
-                Container{
-                    id: pressure_and_wind_speed
-                    preferredWidth: 768
-                    layout: StackLayout {
-                        orientation: LayoutOrientation.LeftToRight
-                    }
-                    layoutProperties: AbsoluteLayoutProperties {
-                        positionY: 390.0
-                    }
-                    Container{
-                        id: pressure
-                        horizontalAlignment: HorizontalAlignment.Left
-                        preferredWidth: 768/2
-                        layout: StackLayout {
-                            orientation: LayoutOrientation.LeftToRight
-                        }
-                        ImageView {
-                            imageSource: "asset:///share/images/pressure.png"
-                            preferredWidth: 30*1.6 
-                            preferredHeight: 30*1.6
-                        }
-                        Label {
-                            text: Current.getdata(0, "pressure") + ' ' + Config.tr(Config.pressureunit) ;
-                            //horizontalAlignment: HorizontalAlignment.Left
-                            textStyle {
-                                base: SystemDefaults.TextStyles.BodyText
-                                color: Color.White
-                            }
-                        }
-                    }
-                    Container{
-                        id: wind_speed
-                        horizontalAlignment: HorizontalAlignment.Left
-                        layout: StackLayout {
-                            orientation: LayoutOrientation.LeftToRight
-                        }
-                        ImageView {
-                            imageSource: "asset:///share/images/wind_speed.png"
-                            preferredWidth: 30*1.6
-                            preferredHeight: 30*1.6
-                        }
-                        Label {
-                            text: Current.getdata(0, "wind_speed") + ' ' + Config.tr(Config.windspeedunit);
-                            textStyle {
-                                base: SystemDefaults.TextStyles.BodyText
-                                color: Color.White
-                            }
-                        }
-                    }        
-                }                   
+                  
             }
             Container{
                 preferredWidth: 768
@@ -641,9 +478,83 @@ Page {
         Container{
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
-                positionY: 560
+                positionY: 400
             }
             preferredWidth: 768
+            preferredHeight: 800.0
+            ListView {
+                id: forrecasts_grid_list
+                layout: GridListLayout {
+                    columnCount : 2
+                    cellAspectRatio: 2.5
+                }
+                dataModel: GroupDataModel {
+                    id: condition
+                    grouping: ItemGrouping.None
+                    sortedAscending: false
+                }
+                listItemComponents: [
+                    ListItemComponent {
+                        type: "item"
+                        Container{
+                            layout: StackLayout {
+                            }
+                            Label {
+                                text: ListItemData.cond_name
+                                textStyle {    
+                                    base: SystemDefaults.TextStyles.BodyText
+                                    color: Color.Gray
+                                }
+                            }
+                            Label {
+                                text: ListItemData.value
+                                textStyle {
+                                    base: SystemDefaults.TextStyles.BodyText
+                                    color: Color.White
+                                }
+                            }
+                        } 
+                    }
+                ]
+            }
+            Divider {
+                horizontalAlignment: HorizontalAlignment.Fill
+            }
+            ListView {
+                id: forrecasts_grid_list_additional
+                layout: GridListLayout {
+                    columnCount : 2
+                    cellAspectRatio: 2.5
+                }
+                dataModel: GroupDataModel {
+                    id: condition2
+                    grouping: ItemGrouping.None
+                }
+                listItemComponents: [
+                    ListItemComponent {
+                        type: "item"
+                        Container{
+                            layout: StackLayout {
+                            }
+                            Label {
+                                text: ListItemData.cond_name
+                                textStyle {    
+                                    base: SystemDefaults.TextStyles.BodyText
+                                    color: Color.Gray
+                                }
+                            }
+                            Label {
+                                text: ListItemData.value
+                                textStyle {
+                                    base: SystemDefaults.TextStyles.BodyText
+                                    color: Color.White
+                                }
+                            }
+                        } 
+                    }
+                ]
+            }
+
 
 
         }

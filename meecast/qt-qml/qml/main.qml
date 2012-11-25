@@ -486,6 +486,7 @@ NavigationPane {
                 }
             }
             ImageView {
+                id: main_icon
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 768/2 - 64 *1.6
                     positionY: 80

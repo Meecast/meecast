@@ -29,6 +29,22 @@ Page {
 		        result = 1;
 	        i++;
         }
+        forrecasts_hours_list.dataModel.clear();
+        for (var a = 0; a < Forecast_hours_model.rowCount(); a++) {
+            forrecasts_hours_list.dataModel.insert(
+                {
+                 "fulldate" : Forecast_hours_model.getdata(a, "fulldate") + '.',
+                 "shortdate" : Forecast_hours_model.getdata(a, "shortdate"),
+                 "hourdate" : Forecast_hours_model.getdata(a, "hourdate"),
+                 "pict" : Config.iconspath + "/" + Config.iconset + "/" + Forecast_hours_model.getdata(a, "pict"),
+                 "temp" : Forecast_hours_model.getdata(a, "temp"),
+                 "bg_color" :  (a % 2 != 0) ? "#000000" : "#0f0f0f",
+                 "hi_temp_color" :  main.getColor(Forecast_hours_model.getdata(a, "temp")),
+                 "number" : a
+                }
+            )
+        }
+
         return result;
     }
 
@@ -42,11 +58,12 @@ Page {
             toolbarday.background = Color.create("#1f1f1f")
 	        toolbarnight.background = Color.create("#1f1f1f")
 	        toolbarclock.background = Color.create("#1f1f1f")
+            day_rect.visible = true;
+            current_rect.visible = true;
+            main_icon.visible = true;
+            hours_list.visible = false;
 
-            //day_rect.visible = true;
-            //current_rect.visible = true;
-           // hours_list.visible = false;
-            //flickable.contentHeight = day_rect.height + current_rect.height;
+
 
             day_period_name = Config.tr("Now")
             image_source = Config.iconspath + "/" + Config.iconset + "/" + model_current.getdata(day, "pict")
@@ -103,10 +120,10 @@ Page {
             toolbarnight.background = Color.create("#1f1f1f")
 	        toolbarclock.background = Color.create("#1f1f1f")
 
-        //    day_rect.visible = true;
-        //    current_rect.visible = true;
-        //    hours_list.visible = false;
-        //    flickable.contentHeight = day_rect.height + current_rect.height;
+            day_rect.visible = true;
+            current_rect.visible = true;
+            main_icon.visible = true;
+            hours_list.visible = false;
 
             day_period_name = Config.tr("Day")
             image_source = Config.iconspath + "/" + Config.iconset + "/" + model_day.getdata(day, "pict")
@@ -156,10 +173,10 @@ Page {
             toolbarnight.background = Color.create("#0f0f0f")
 	        toolbarclock.background = Color.create("#1f1f1f")
 
-            //day_rect.visible = true;
-            //current_rect.visible = true;
-            //hours_list.visible = false;
-            //flickable.contentHeight = day_rect.height + current_rect.height;
+            day_rect.visible = true;
+            current_rect.visible = true;
+            main_icon.visible = true;
+            hours_list.visible = false;
 
             image_source = Config.iconspath + "/" + Config.iconset + "/" + model_night.getdata(day, "pict");
             current_rect_back.background = Color.create(main.getColor(model_day.getdata(day, "temp_high")));
@@ -201,15 +218,15 @@ Page {
 	}
 	if (day_period == "hours"){
             day_period_name = Config.tr("Hours");
-	        toolbarnow.checked = false;
-            toolbarnight.checked = false;
-            toolbarday.checked = false;
-            toolbarclock.checked = true;
-            day_rect.visible = true;
-            current_rect.visible = false;
-            hours_list.visible = true;
-            flickable.contentHeight = hours_list.height + day_rect.height;
+            toolbarnow.background = Color.create("#1f1f1f")
+            toolbarday.background = Color.create("#1f1f1f")
+            toolbarnight.background = Color.create("#1f1f1f")
+	        toolbarclock.background = Color.create("#0f0f0f")
 
+            day_rect.visible = false;
+            current_rect.visible = false;
+            main_icon.visible = false;
+            hours_list.visible = true;
 	}
         if ((model_day.getdata(day, "sunrise")) != "N/A")
             condition2.insert({"cond_name": Config.tr("Sunrise:"),
@@ -474,6 +491,7 @@ Page {
             }
         }
         ImageView {
+            id: main_icon
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 768/2 - 64 *1.6
                 positionY: 80
@@ -483,7 +501,9 @@ Page {
             imageSource: image_source 
             horizontalAlignment: HorizontalAlignment.Center                
         } 
+
         Container{
+            id: day_rect
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
                 positionY: 370
@@ -491,7 +511,7 @@ Page {
             preferredWidth: 768
             preferredHeight: 800.0
             ListView {
-                id: forrecasts_grid_list
+                id: forrecasts_grid_list 
                 layout: GridListLayout {
                     columnCount : 2
                     cellAspectRatio: 2.5
@@ -564,6 +584,89 @@ Page {
             }
         }
         Container{
+            id: hours_list 
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 90
+            }
+            preferredWidth: 768
+            preferredHeight: 1050.0
+
+            ListView {
+                id: forrecasts_hours_list
+                dataModel: GroupDataModel {
+                    id: groupDataModel
+                    sortingKeys: ["number"]
+                    grouping: ItemGrouping.None
+                }
+                listItemComponents: [
+                    ListItemComponent {
+                        type: "item"
+                        Container{
+                            layout: DockLayout {
+                            }
+                            background: Color.create(ListItemData.bg_color)
+                            preferredWidth: 768
+                            Container{
+                                layout: StackLayout {
+                                    orientation: LayoutOrientation.LeftToRight
+                                }
+                                preferredWidth: 768/2
+                                verticalAlignment: VerticalAlignment.Center
+                                horizontalAlignment: HorizontalAlignment.Left
+                                Container{
+                                    preferredWidth: 20
+                                    maxWidth: 20
+                                }
+                                Label {
+                                    verticalAlignment: VerticalAlignment.Center
+                                    text: ListItemData.fulldate
+                                    textStyle {    
+                                        base: SystemDefaults.TextStyles.BodyText
+                                        color: Color.Gray
+                                    }
+                                }
+                                Label {
+                                    text: ListItemData.hourdate
+                                    textStyle {
+                                        base: SystemDefaults.TextStyles.BodyText
+                                        color: Color.White
+                                    }
+                                }
+                            }
+                            ImageView {
+                                 imageSource: ListItemData.pict
+                                 horizontalAlignment: HorizontalAlignment.Center                
+                            }
+                            Container{
+                                layout: StackLayout {
+                                    orientation: LayoutOrientation.LeftToRight
+                                }
+                                
+                                horizontalAlignment: HorizontalAlignment.Right
+                                verticalAlignment: VerticalAlignment.Center
+                                Label {
+                                    text: ListItemData.temp + '°'
+                                    horizontalAlignment: HorizontalAlignment.Right
+                                    preferredWidth: 100
+                                    textStyle.textAlign: TextAlign.Right
+                                    textStyle {
+                                        base: SystemDefaults.TextStyles.BodyText
+                                        color: Color.create(ListItemData.hi_temp_color)
+                                    }
+                                }
+                                Container{
+                                    preferredWidth: 20
+                                    maxWidth: 20
+                                }
+                            }                                                                                                   
+                        } 
+                    }
+                ]
+            }
+        }
+
+        Container{
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0 
                 positionY: 1140
@@ -574,6 +677,7 @@ Page {
         }
 
         Container{
+            id: tollbar
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0 
                 positionY: 1142
@@ -581,9 +685,6 @@ Page {
             preferredWidth: 768 
             preferredHeight: 138 
             background: Color.create("#1f1f1f")
-            
-            
-            
             Container{    
                 layout: StackLayout {
                     orientation: LayoutOrientation.LeftToRight
@@ -733,7 +834,6 @@ Page {
                         id: settingsicon
                         verticalAlignment: VerticalAlignment.Center     
                         defaultImageSource: "asset:///button_icons/icon_settings.png"
-                        //leftMargin: 220.0
                         horizontalAlignment: HorizontalAlignment.Right
                         onClicked: {
                             var newPage = settingspageDefinition.createObject();

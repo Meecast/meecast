@@ -318,18 +318,10 @@ Page {
             background: Color.Black
             preferredWidth: 768
             preferredHeight: 1000
-                   onTouch: {
-                                    background = Color.Green;
-                                    console.log("dfffffffffffffffffffff");
-                                    if (event.isDown()) {
-                                        var newPage = fullpageDefinition.createObject();
-                                        rootWindow.push(newPage);
-                                    }
-                                }
-            
         }
 
         Container{
+            id: current_rect
             background: Color.Black
             preferredWidth: 768
             layoutProperties: AbsoluteLayoutProperties {
@@ -337,7 +329,6 @@ Page {
                 positionY: 95
             }
             
-            id: current_rect
             visible: Current.rowCount() == 0 ? false : true
             layout: AbsoluteLayout {
             }
@@ -414,55 +405,54 @@ Page {
                     }
                 }
             }
-                  
+        }
+        Container{
+            preferredWidth: 768
+            layout: DockLayout {}
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 0
+            }
+            background: Color.Black
+            ImageButton {                 
+               id: left_arrow
+               visible: day > 0 ? true : false;
+               horizontalAlignment: HorizontalAlignment.Left
+               verticalAlignment: VerticalAlignment.Center
+               preferredWidth: 62*1.6
+               preferredHeight: 62*1.6
+               defaultImageSource: "asset:///share/images/arrow_left.png"
+               onClicked: {
+                    if (day > 0){
+                        console.log("prev day");
+                        day--;
+                        fullweather.updateperiod();
+                        dayname.text = (fullweather.current && fullweather.day == 0) ? Config.tr("Today") : model_day.getdata(day, "date");
+                    }
+
+               }
             }
             Container{
-                preferredWidth: 768
                 layout: DockLayout {}
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 0
-                }
-                background: Color.Black
-                ImageButton {                 
-                   id: left_arrow
-                   visible: day > 0 ? true : false;
-                   horizontalAlignment: HorizontalAlignment.Left
-                   verticalAlignment: VerticalAlignment.Center
-                   preferredWidth: 62*1.6
-                   preferredHeight: 62*1.6
-                   defaultImageSource: "asset:///share/images/arrow_left.png"
-                   onClicked: {
-                        if (day > 0){
-                            console.log("prev day");
-                            day--;
-                            fullweather.updateperiod();
-                            dayname.text = (fullweather.current && fullweather.day == 0) ? Config.tr("Today") : model_day.getdata(day, "date");
-                        }
-
-                   }
-                }
-                Container{
-                    layout: DockLayout {}
-                    preferredWidth: 600 
-                    horizontalAlignment: HorizontalAlignment.Center 
-                    Label {                 
-                        id: dayname
-                        horizontalAlignment: HorizontalAlignment.Center
-                        textStyle {
-                            base: SystemDefaults.TextStyles.BigText
-                            color: Color.White
-                        }
-                        onCreationCompleted: {
-                            rootWindow.backButtonsVisible = false;
-                            Application.menuEnabled = false;
-                            fullweather.current = main.current
-                            fullweather.day = main.day
-                            fullweather.day_period = main.day_period
-                            fullweather.updateperiod();
-                            text = (fullweather.current && fullweather.day == 0) ? Config.tr("Today") : model_day.getdata(day, "date");
-                        }
+                preferredWidth: 600 
+                horizontalAlignment: HorizontalAlignment.Center 
+                Label {                 
+                    id: dayname
+                    horizontalAlignment: HorizontalAlignment.Center
+                    textStyle {
+                        base: SystemDefaults.TextStyles.BigText
+                        color: Color.White
                     }
+                    onCreationCompleted: {
+                        rootWindow.backButtonsVisible = false;
+                        Application.menuEnabled = false;
+                        fullweather.current = main.current
+                        fullweather.day = main.day
+                        fullweather.day_period = main.day_period
+                        fullweather.updateperiod();
+                        text = (fullweather.current && fullweather.day == 0) ? Config.tr("Today") : model_day.getdata(day, "date");
+                    }
+                }
             }
             ImageButton {                 
                id: right_arrow

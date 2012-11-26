@@ -620,7 +620,7 @@ NavigationPane {
                 }
                 preferredWidth: 768 
                 preferredHeight: 138 
-                background: Color.Black
+                background: Color.create("#1f1f1f")
                 Container{    
                     layout: StackLayout {
                         orientation: LayoutOrientation.LeftToRight

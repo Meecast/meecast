@@ -19,25 +19,39 @@ Page {
     property variant model_hours:  Forecast_hours_model
     //property variant description_text_alignment: Text.AlignHLeft;
    
+    function check_hours ()
+    {
+        var i = 0;
+        var result = 0;
+        var fulldate = model_day.getdata(day, "fulldate");
+        while (i<model_hours.rowCount()){   
+            if (model_hours.getdata(i, "fulldate") == fulldate)
+		        result = 1;
+	        i++;
+        }
+        return result;
+    }
 
     function updateperiod()
     {
         condition.clear()
         condition2.clear()
         console.log("Day period ", day_period);
-	    if (day_period == "current"){
-	     //   toolbarnow.checked = true
-	     //   toolbarday.checked = false 
-	     //   toolbarnight.checked = false
-	     //   toolbarclock.checked = false
-            day_rect.visible = true;
-            current_rect.visible = true;
-            hours_list.visible = false;
-            flickable.contentHeight = day_rect.height + current_rect.height;
+        if (day_period == "current"){
+            toolbarnow.background = Color.create("#0f0f0f")
+            toolbarday.background = Color.create("#1f1f1f")
+	        toolbarnight.background = Color.create("#1f1f1f")
+	        toolbarclock.background = Color.create("#1f1f1f")
+
+            //day_rect.visible = true;
+            //current_rect.visible = true;
+           // hours_list.visible = false;
+            //flickable.contentHeight = day_rect.height + current_rect.height;
 
             day_period_name = Config.tr("Now")
             image_source = Config.iconspath + "/" + Config.iconset + "/" + model_current.getdata(day, "pict")
-            current_rect.color = getColor(model_current.getdata(day, "temp_high"));
+//            current_rect.color = getColor(model_current.getdata(day, "temp_high"));
+            current_rect_back.background = Color.create(main.getColor(model_current.getdata(0, "temp_high")));
             description_text = model_current.getdata(day, "description") ? model_current.getdata(day, "description") : ""
 	   
             if ((model_current.getdata(day, "humidity")) != "N/A")
@@ -63,10 +77,11 @@ Page {
                          "value": model_current.getdata(day, "flike") + '°' + Config.temperatureunit});
             if ((model_current.getdata(day, "map_pattern")) != ""){
                 map_pattern = model_current.getdata(day, "map_pattern")
-                map_text.visible = true;
+                //map_text.visible = true;
                 count_of_maps = model_current.getdata(day, "count_of_maps")
-            }else
-                map_text.visible = false;
+            }else{
+                //map_text.visible = false;
+            }
 
             if ((model_current.getdata(day, "temp")) != "N/A")
                 temperature.text =  model_current.getdata(day, "temp") + '°'
@@ -80,13 +95,14 @@ Page {
             if ((model_current.getdata(day, "uv_index")) != "")
                 condition.insert({"cond_name": Config.tr("UV index:"),
                          "value": model_current.getdata(day, "uv_index")});
-	}
+	    }
 
         if (day_period == "day"){
-//	    toolbarnow.checked = false 
-//	    toolbarday.checked = true
-//	    toolbarnight.checked = false
-//	    toolbarclock.checked = false
+            toolbarnow.background = Color.create("#1f1f1f")
+            toolbarday.background = Color.create("#0f0f0f")
+            toolbarnight.background = Color.create("#1f1f1f")
+	        toolbarclock.background = Color.create("#1f1f1f")
+
         //    day_rect.visible = true;
         //    current_rect.visible = true;
         //    hours_list.visible = false;
@@ -94,7 +110,7 @@ Page {
 
             day_period_name = Config.tr("Day")
             image_source = Config.iconspath + "/" + Config.iconset + "/" + model_day.getdata(day, "pict")
-            current_rect_back.background = Color.create(main.getColor(model_day.getdata(0, "temp_high")));
+            current_rect_back.background = Color.create(main.getColor(model_day.getdata(day, "temp_high")));
             description_text = model_day.getdata(day, "description") ? model_day.getdata(day, "description") : ""
 	   
             if ((model_day.getdata(day, "humidity")) != "N/A")
@@ -132,20 +148,21 @@ Page {
             }else{
             //    map_text.visible = false;
             }
-	}
-	if (day_period == "night"){
+	    }
+	    if (day_period == "night"){
             day_period_name = Config.tr("Night");
-            toolbarnow.checked = false;
-            toolbarnight.checked = true;
-            toolbarday.checked = false;
-            toolbarclock.checked = false;
-            day_rect.visible = true;
-            current_rect.visible = true;
-            hours_list.visible = false;
-            flickable.contentHeight = day_rect.height + current_rect.height;
+            toolbarnow.background = Color.create("#1f1f1f")
+            toolbarday.background = Color.create("#1f1f1f")
+            toolbarnight.background = Color.create("#0f0f0f")
+	        toolbarclock.background = Color.create("#1f1f1f")
+
+            //day_rect.visible = true;
+            //current_rect.visible = true;
+            //hours_list.visible = false;
+            //flickable.contentHeight = day_rect.height + current_rect.height;
 
             image_source = Config.iconspath + "/" + Config.iconset + "/" + model_night.getdata(day, "pict");
-            current_rect.color = getColor(model_day.getdata(day, "temp_low"));
+            current_rect_back.background = Color.create(main.getColor(model_day.getdata(day, "temp_high")));
             description_text = model_night.getdata(day, "description") ? model_night.getdata(day, "description") : ""
             if ((model_night.getdata(day, "humidity")) != "N/A")
                 condition.insert({"cond_name": Config.tr("Humidity:"),
@@ -176,11 +193,11 @@ Page {
             }
             if ((model_night.getdata(day, "map_pattern")) != ""){
                 map_pattern = model_night.getdata(day, "map_pattern")
-                map_text.visible = true;
+                //map_text.visible = true;
                 count_of_maps = model_night.getdata(day, "count_of_maps")
-            }else
-                map_text.visible = false;
-
+            }else{
+                //map_text.visible = false;
+            }
 	}
 	if (day_period == "hours"){
             day_period_name = Config.tr("Hours");
@@ -573,7 +590,10 @@ Page {
             }
             preferredWidth: 768 
             preferredHeight: 138 
-            background: Color.Black
+            background: Color.create("#1f1f1f")
+            
+            
+            
             Container{    
                 layout: StackLayout {
                     orientation: LayoutOrientation.LeftToRight
@@ -598,52 +618,137 @@ Page {
                         }
                     }
                 }
-                ImageButton {
-                    id: "toolbarnow"
-                    verticalAlignment: VerticalAlignment.Center     
-                    visible: (current && day == 0) ? true : false
-                    preferredWidth: 40*1.6
-                    preferredHeight: 40*1.6
-                    onClicked: {
-                        day_period = "current";
-                        updateperiod();
-                    }
-                    defaultImageSource: Config.imagespath +  "/now.png"
-                }
-                ImageButton {
-                    id: "toolbarday"
-                    verticalAlignment: VerticalAlignment.Center     
-                    visible: (current && day == 0) ? true : false
-                    preferredWidth: 40*1.6
-                    preferredHeight: 40*1.6
-                    onClicked: {
-                        day_period = "day";
-                        updateperiod();
-                    }
-                    defaultImageSource: Config.imagespath +  "/day.png"
-                }
-                ImageButton {
-                    id: "toolbarnight"
-                    verticalAlignment: VerticalAlignment.Center     
-                    visible: (current && day == 0) ? true : false
-                    preferredWidth: 40*1.6
-                    preferredHeight: 40*1.6
-                    onClicked: {
-                        day_period = "night";
-                        updateperiod();
-                    }
-                    defaultImageSource: Config.imagespath +  "/night.png"
+                Container{
+                    preferredWidth: 20
+                    preferredHeight: 138 
                 }
 
-                ImageButton {
-                    id: settingsicon
+                Container{
+                    id: "toolbarnow"
+                    background: Color.create("#1f1f1f") 
                     verticalAlignment: VerticalAlignment.Center     
-                    defaultImageSource: "asset:///button_icons/icon_settings.png"
-                    leftMargin: 220.0
+                    maxWidth: 250.0
+                    preferredHeight: 100 
+                    
+                    layoutProperties: StackLayoutProperties {
+                        spaceQuota: 20.0
+                    }
+                    horizontalAlignment: HorizontalAlignment.Center
+                    layout: DockLayout {}
+
+                    ImageButton {
+                        verticalAlignment: VerticalAlignment.Center
+                        horizontalAlignment: HorizontalAlignment.Center
+                        visible: (current && day == 0) ? true : false
+                        preferredWidth: 40*1.6
+                        preferredHeight: 40*1.6
+                        onClicked: {
+                            day_period = "current";
+                            updateperiod();
+                        }
+                        defaultImageSource: Config.imagespath +  "/now.png"
+                    }
+                    onCreationCompleted: {
+                        if (day_period == "current"){
+                            background = Color.create("#0f0f0f")
+                        }else
+                            background = Color.create("#1f1f1f")
+                    }
+                }
+                Container{
+                    id: "toolbarday"
+                    background: Color.create("#1f1f1f")
+                    verticalAlignment: VerticalAlignment.Center     
+                    maxWidth: 250.0
+                    preferredHeight: 100 
+                    layoutProperties: StackLayoutProperties {
+                        spaceQuota: 20.0
+                    }
+                    layout: DockLayout {}
+                    horizontalAlignment: HorizontalAlignment.Center
+                    ImageButton {
+                        horizontalAlignment: HorizontalAlignment.Center
+                        verticalAlignment: VerticalAlignment.Center     
+                        preferredWidth: 40*1.6
+                        preferredHeight: 40*1.6
+                        onClicked: {
+                            day_period = "day";
+                            updateperiod();
+                        }
+                        defaultImageSource: Config.imagespath +  "/day.png"
+                    }
+                    onCreationCompleted: {
+                        if (day_period == "day"){
+                            background = Color.create("#0f0f0f")
+                        }else
+                            background = Color.create("#1f1f1f")
+                    }
+
+                }
+                Container{
+                    id: "toolbarnight"
+                    background: Color.create("#1f1f1f")
+                    verticalAlignment: VerticalAlignment.Center     
+                    maxWidth: 250.0
+                    preferredHeight: 100 
+                    layoutProperties: StackLayoutProperties {
+                        spaceQuota: 20.0
+                    }
+                    layout: DockLayout {}
+                    horizontalAlignment: HorizontalAlignment.Center
+                    ImageButton {
+                        horizontalAlignment: HorizontalAlignment.Center
+                        verticalAlignment: VerticalAlignment.Center     
+                        preferredWidth: 40*1.6
+                        preferredHeight: 40*1.6
+                        onClicked: {
+                            day_period = "night";
+                            updateperiod();
+                        }
+                        defaultImageSource: Config.imagespath +  "/night.png"
+                    }
+                }
+                Container{
+                    id: "toolbarclock"
+                    background: Color.create("#1f1f1f")
+                    verticalAlignment: VerticalAlignment.Center     
+                    maxWidth: 250.0
+                    preferredHeight: 100 
+                    layoutProperties: StackLayoutProperties {
+                        spaceQuota: 20.0
+                    }
+                    layout: DockLayout {}
+                    horizontalAlignment: HorizontalAlignment.Center
+                    ImageButton {
+                        horizontalAlignment: HorizontalAlignment.Center
+                        verticalAlignment: VerticalAlignment.Center     
+                        visible: (check_hours()) ? true : false
+                        preferredWidth: 40*1.6
+                        preferredHeight: 40*1.6
+                        onClicked: {
+                            day_period = "hours";
+                            updateperiod();
+                        }
+                        defaultImageSource: Config.imagespath +  "/clock.png"
+                    }
+                }
+
+                Container{
                     horizontalAlignment: HorizontalAlignment.Right
-                    onClicked: {
-                        var newPage = settingspageDefinition.createObject();
-                        rootWindow.push(newPage);
+                    verticalAlignment: VerticalAlignment.Center
+                    layoutProperties: StackLayoutProperties {
+                        spaceQuota: 5.0
+                    }
+                    ImageButton {
+                        id: settingsicon
+                        verticalAlignment: VerticalAlignment.Center     
+                        defaultImageSource: "asset:///button_icons/icon_settings.png"
+                        //leftMargin: 220.0
+                        horizontalAlignment: HorizontalAlignment.Right
+                        onClicked: {
+                            var newPage = settingspageDefinition.createObject();
+                            rootWindow.push(newPage);
+                        }
                     }
                 }
                 Container{

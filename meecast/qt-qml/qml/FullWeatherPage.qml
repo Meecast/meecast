@@ -585,7 +585,7 @@ Page {
                     verticalAlignment: VerticalAlignment.Center     
                     Label {
                         verticalAlignment: VerticalAlignment.Center     
-                        id: back 
+                        id: toolbarback 
                         text: "<"
                         textStyle {
                             base: SystemDefaults.TextStyles.BigText
@@ -598,15 +598,43 @@ Page {
                         }
                     }
                 }
-                ImageView {
-                    id: sourceicon
-                    verticalAlignment: VerticalAlignment.Center
-                    imageSource: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"                 
-                    preferredWidth: 140*1.6
-                    preferredHeight: 31*1.6
-                    leftMargin: 220.0
+                ImageButton {
+                    id: "toolbarnow"
+                    verticalAlignment: VerticalAlignment.Center     
+                    visible: (current && day == 0) ? true : false
+                    preferredWidth: 40*1.6
+                    preferredHeight: 40*1.6
+                    onClicked: {
+                        day_period = "current";
+                        updateperiod();
+                    }
+                    defaultImageSource: Config.imagespath +  "/now.png"
                 }
-                
+                ImageButton {
+                    id: "toolbarday"
+                    verticalAlignment: VerticalAlignment.Center     
+                    visible: (current && day == 0) ? true : false
+                    preferredWidth: 40*1.6
+                    preferredHeight: 40*1.6
+                    onClicked: {
+                        day_period = "day";
+                        updateperiod();
+                    }
+                    defaultImageSource: Config.imagespath +  "/day.png"
+                }
+                ImageButton {
+                    id: "toolbarnight"
+                    verticalAlignment: VerticalAlignment.Center     
+                    visible: (current && day == 0) ? true : false
+                    preferredWidth: 40*1.6
+                    preferredHeight: 40*1.6
+                    onClicked: {
+                        day_period = "night";
+                        updateperiod();
+                    }
+                    defaultImageSource: Config.imagespath +  "/night.png"
+                }
+
                 ImageButton {
                     id: settingsicon
                     verticalAlignment: VerticalAlignment.Center     

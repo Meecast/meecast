@@ -238,7 +238,6 @@ NavigationPane {
                         preferredWidth: 768/2 - 128*1.6/2                   
                         Label {                 
                             id: current_temp_text
-                    //      text: Current.getdata(0, "temp") + '°';
                             horizontalAlignment: HorizontalAlignment.Center
                             verticalAlignment: VerticalAlignment.Center
                             textStyle.textAlign: TextAlign.Center
@@ -643,6 +642,12 @@ NavigationPane {
                         preferredWidth: 140*1.6
                         preferredHeight: 31*1.6
                         leftMargin: 220.0
+                        onTouch: {
+                            if (event.isDown()) {
+                                Config.showweb();
+                            }
+                        }
+
                     }
                     
                     ImageButton {

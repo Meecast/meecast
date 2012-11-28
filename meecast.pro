@@ -1,5 +1,5 @@
 TEMPLATE = app
-TARGET = omweather-qml 
+TARGET = omweather-qml
 
 CONFIG += qt warn_on debug_and_release cascades
 
@@ -36,4 +36,7 @@ suredelete.depends = distclean
 
 QMAKE_EXTRA_TARGETS += suredelete
 
+
+TRANSLATIONS = \
+    $${TARGET}_ru.ts 
 

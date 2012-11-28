@@ -40,7 +40,7 @@
 #include <fstream>
 #include <iostream>
 
-#define _(String) gettext(String)
+#define _(String)  QObject::trUtf8(String).toStdString().c_str()
 
 class DataItem : public QObject, public Core::Data
 {

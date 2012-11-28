@@ -64,12 +64,10 @@ Page {
             hours_list.visible = false;
 
 
-
             day_period_name = Config.tr("Now")
             image_source = Config.iconspath + "/" + Config.iconset + "/" + model_current.getdata(day, "pict")
-//            current_rect.color = getColor(model_current.getdata(day, "temp_high"));
             current_rect_back.background = Color.create(main.getColor(model_current.getdata(0, "temp_high")));
-            description_text = model_current.getdata(day, "description") ? model_current.getdata(day, "description") : ""
+            description_text = Config.tr(model_current.getdata(day, "description")) ? Config.tr(model_current.getdata(day, "description")) : ""
 	   
             if ((model_current.getdata(day, "humidity")) != "N/A")
                 condition.insert({"cond_name": Config.tr("Humidity:"),
@@ -128,7 +126,7 @@ Page {
             day_period_name = Config.tr("Day")
             image_source = Config.iconspath + "/" + Config.iconset + "/" + model_day.getdata(day, "pict")
             current_rect_back.background = Color.create(main.getColor(model_day.getdata(day, "temp_high")));
-            description_text = model_day.getdata(day, "description") ? model_day.getdata(day, "description") : ""
+            description_text = Config.tr(model_day.getdata(day, "description")) ? Config.tr(model_day.getdata(day, "description")) : ""
 	   
             if ((model_day.getdata(day, "humidity")) != "N/A")
                 condition.insert({"cond_name": Config.tr("Humidity:"),
@@ -180,7 +178,7 @@ Page {
 
             image_source = Config.iconspath + "/" + Config.iconset + "/" + model_night.getdata(day, "pict");
             current_rect_back.background = Color.create(main.getColor(model_day.getdata(day, "temp_high")));
-            description_text = model_night.getdata(day, "description") ? model_night.getdata(day, "description") : ""
+            description_text = Config.tr(model_night.getdata(day, "description")) ? Config.tr(model_night.getdata(day, "description")) : ""
             if ((model_night.getdata(day, "humidity")) != "N/A")
                 condition.insert({"cond_name": Config.tr("Humidity:"),
                          "value": model_night.getdata(day, "humidity")+'%'});
@@ -530,7 +528,7 @@ Page {
                             Label {
                                 text: ListItemData.cond_name
                                 textStyle {    
-                                    base: SystemDefaults.TextStyles.BodyText
+                                    base: SystemDefaults.TextStyles.SmallText
                                     color: Color.Gray
                                 }
                             }
@@ -567,7 +565,7 @@ Page {
                             Label {
                                 text: ListItemData.cond_name
                                 textStyle {    
-                                    base: SystemDefaults.TextStyles.BodyText
+                                    base: SystemDefaults.TextStyles.SmallText
                                     color: Color.Gray
                                 }
                             }

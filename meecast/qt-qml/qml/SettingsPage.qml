@@ -82,7 +82,7 @@ Page {
 								  horizontalAlignment:  HorizontalAlignment.Fill
 								  verticalAlignment: VerticalAlignment.Center
                                   textStyle {
-									  base: SystemDefaults.TextStyles.TitleText
+									  base: SystemDefaults.TextStyles.SubtitleText
 									  color: Color.White
 								  }
 							  }

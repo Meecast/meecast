@@ -47,8 +47,6 @@
 
 #include <bb/cascades/AbstractPane>
 
-//#define _(String) gettext(String)
-
 #define _(String)  QObject::trUtf8(String).toStdString().c_str()
 using namespace bb::cascades;
 class ConfigQml : public QObject, public Core::Config

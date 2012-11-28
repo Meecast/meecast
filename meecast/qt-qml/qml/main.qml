@@ -19,7 +19,7 @@ NavigationPane {
             for (var a = 0; a < Forecast_model.rowCount(); a++) {
                 forrecasts_list.dataModel.insert(
                     {
-                     "fulldate" : Forecast_model.getdata(a, "fulldate") + '.',
+                     "fulldate" : Forecast_model.getdata(a, "fulldate"),
                      "shortdate" : Forecast_model.getdata(a, "shortdate"),
                      "pict" : Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(a, "pict"),
                      "temp_high" : Forecast_model.getdata(a, "temp_high"),
@@ -259,7 +259,7 @@ NavigationPane {
                         positionY: 165.0
                     }
                     Label {                 
-                        text: Current.getdata(0, "description");
+                        text: Config.tr(Current.getdata(0, "description"));
                         horizontalAlignment: HorizontalAlignment.Center
                         textStyle {
                            base: SystemDefaults.TextStyles.BodyText
@@ -360,7 +360,7 @@ NavigationPane {
                             }
                         }
                         Label {
-                            text: Current.getdata(0, "wind_direction");
+                            text: Config.tr(Current.getdata(0, "wind_direction"));
                             textStyle {
                                 base: SystemDefaults.TextStyles.BodyText
                                 color: Color.White
@@ -499,10 +499,6 @@ NavigationPane {
                     }
                     listItemComponents: [
                         ListItemComponent {
-                             type: "header"
-                             Label { text: "" }
-                        },
-                        ListItemComponent {
                             type: "item"
                             Container{
                                 layout: DockLayout {
@@ -523,6 +519,7 @@ NavigationPane {
                                     Label {
                                         verticalAlignment: VerticalAlignment.Center
                                         text: ListItemData.fulldate
+                                        preferredWidth: 768/4.5
                                         textStyle {    
                                             base: SystemDefaults.TextStyles.BodyText
                                             color: Color.Gray
@@ -530,6 +527,7 @@ NavigationPane {
                                     }
                                     Label {
                                         text: ListItemData.shortdate
+                                        textStyle.textAlign: TextAlign.Right
                                         textStyle {
                                             base: SystemDefaults.TextStyles.BodyText
                                             color: Color.White

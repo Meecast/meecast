@@ -1,4 +1,4 @@
-QMAKE_TARGET  = omweather 
+QMAKE_TARGET  = omweather-qml 
 LUPDATE       = $(QNX_HOST)/usr/bin/lupdate
 LRELEASE      = $(QNX_HOST)/usr/bin/lrelease
 

@@ -38,6 +38,8 @@
 #include <QDeclarativeEngine>
 #include <QDeclarativeView>
 #include <QTranslator>
+#include <QLocale>
+
 #include <QHash>
 #include <QGraphicsGridLayout>
 #include <exception>
@@ -61,7 +63,13 @@
 
 #include "selectmodel.h"
 
-#define _(String) gettext(String)
+
+
+#include <locale.h>
+
+//#define _(String) gettext(String)
+
+#define _(String)  QObject::trUtf8(String).toStdString().c_str()
 
 #include <bb/cascades/QmlDocument>
 #include <bb/cascades/Page>
@@ -106,6 +114,18 @@ int main(int argc, char* argv[])
     std::cerr<<str.toStdString().c_str()<<std::endl;
     QDir::setCurrent(app.applicationDirPath());
 
+    // Set up the translator.
+    QTranslator translator;
+    QString locale_string = QLocale().name();
+    QString filename = QString("omweather_%1").arg(locale_string);
+    if (translator.load(filename, "app/native/qm")) {
+        std::cerr<<"Success TR"<<std::endl;
+        app.installTranslator(&translator);
+    }
+
+    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+
+    
     std::cerr<<"begin ssss "<<std::endl;
     Dirent *dp = 0;
     DIR *dir_fd = opendir(("./"));
@@ -116,8 +136,6 @@ int main(int argc, char* argv[])
             std::cerr<<name.c_str()<<std::endl;
         }
   }
-    textdomain("omweather");
-    bindtextdomain("omweather", "/opt/com.meecast.omweather/share/locale");
 /*
     //Set up a graphics scene with a QGraphicsWidget and Layout
     QGraphicsView view;
@@ -132,17 +150,11 @@ int main(int argc, char* argv[])
 
     //Add the QML snippet into the layout
 
-    //QString locale = QLocale::system().name();
-    //std::cerr<<"locale: "<<locale.toStdString()<<std::endl;
-    
+  
     ConfigQml *config;
     Controller *controller;
 
     std::cerr<<"Before controller "<<std::endl;
-    std::cerr<<"Before controller2 "<<std::endl;
-    QTranslator translator;
-    translator.load("ru.qml", "i18n");
-    app.installTranslator(&translator);
 
     controller = new Controller("asset:///qml/main.qml");
 

@@ -26,7 +26,10 @@
 #define _main_h 1
 /*******************************************************************************/
 //#include <gtk/gtk.h>
-#include <glib.h>
+#include "config.h"
+#ifdef LIBGLIB
+    #include <glib.h>
+#endif
 #include <libxml/parser.h>
 #include <stdlib.h>
 /*******************************************************************************/

@@ -1,0 +1,3023 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Burak Kaan Kose <bkaankose@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: MeeCast\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-19 18:22+0300\n"
+"PO-Revision-Date: 2012-09-09 18:40+0000\n"
+"Last-Translator: Burak Kaan Kose <bkaankose@gmail.com>\n"
+"Language-Team: Turkish (http://www.transifex.com/projects/p/meecast/language/"
+"tr/)\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: omweather/src/weather-home.c:1567
+msgid ""
+"\n"
+"H: "
+msgstr ""
+"\n"
+"H:"
+
+#: omweather/src/weather-help.c:80
+#, c-format
+msgid ""
+"\n"
+"Hildon desktop applet\n"
+"for the Nokia N800/N810/N900\n"
+"to show weather forecasts.\n"
+"Version %s Build: %s\n"
+"Copyright(c) 2006-2011\n"
+"Vlad Vasiliev, Pavel Fialko\n"
+"Copyright(c) 2008\n"
+"for default icon set (Glance)\n"
+"and design of interface\n"
+"Andrew Zhilin\n"
+"Copyright(c) 2008\n"
+"Andrew Olmsted\n"
+"for Semi-transparency\n"
+"and coloured backgrounds\n"
+msgstr ""
+"\n"
+"Havadurumunu gostermek icin \n"
+"Nokia N800/N810/N900' masaustu Hildon eklentisi.\n"
+"Version %s , Build %s\n"
+"Copyright(c) 2006-2011\n"
+"Vlad Vasiliev,Pavel Fialko\n"
+"Copyright(c) 2008\n"
+"Varsayilan ikoseti ve arayuz dizayni icin \n"
+"Andrew Zhilin\n"
+"Copyright(c) 2008\n"
+"Yari-transparanlik icin (Glance) ve\n"
+"renkli arkaplanlar icin\n"
+"Andrew Olmsted\n"
+
+#: omweather/src/weather-home.c:1383 omweather/src/weather-home.c:1439
+#: omweather/src/weather-popup.c:965 omweather/src/weather-popup.c:1098
+msgid ""
+"\n"
+"Humidity: "
+msgstr ""
+"\n"
+"Humidity:"
+
+#: omweather/src/weather-home.c:1608
+msgid ""
+"\n"
+"P: "
+msgstr ""
+"\n"
+"P:"
+
+#: omweather/src/weather-popup.c:954 omweather/src/weather-popup.c:959
+#: omweather/src/weather-popup.c:1087 omweather/src/weather-popup.c:1092
+msgid ""
+"\n"
+"Precipitation: "
+msgstr ""
+"\n"
+"Yagis:"
+
+#: omweather/src/weather-popup.c:976 omweather/src/weather-popup.c:1108
+msgid ""
+"\n"
+"Pressure: "
+msgstr ""
+"\n"
+"Basinc:"
+
+#: omweather/src/weather-home.c:1577
+msgid ""
+"\n"
+"V: "
+msgstr ""
+"\n"
+"V:"
+
+#: omweather/src/weather-home.c:1614
+msgid ""
+"\n"
+"W: "
+msgstr ""
+"\n"
+"W:"
+
+#: meecast/qt-qml/dataitem.cpp:470 meecast/qt-qml/dataitem.cpp:471
+msgid "(Low)"
+msgstr ""
+
+#: meecast/qt-qml/dataitem.cpp:472 meecast/qt-qml/dataitem.cpp:473
+msgid "(Moderate)"
+msgstr ""
+
+#: omweather/src/weather-simple-settings.c:1714
+#: omweather/src/weather-simple-settings.c:2811
+msgid "1 day"
+msgstr "1 gun"
+
+#: omweather/src/weather-settings.c:4240
+#: omweather/src/weather-simple-settings.c:1696
+#: omweather/src/weather-simple-settings.c:2805
+#: meecast/qt-qml/qml/UpdatePage.qml:154
+msgid "1 hour"
+msgstr "1 saat"
+
+#: omweather/src/weather-sensor.c:143
+msgid "1 minute"
+msgstr "1 dakika"
+
+#: omweather/src/weather-sensor.c:149
+msgid "10 minutes"
+msgstr "10 dakika"
+
+#: omweather/src/weather-settings.c:4192
+msgid "10 seconds"
+msgstr "10 saniye"
+
+#: meecast/qt-qml/qml/UpdatePage.qml:175
+msgid "12 hours"
+msgstr "12 saat"
+
+#: omweather/src/weather-sensor.c:151 meecast/qt-qml/qml/UpdatePage.qml:140
+msgid "15 minutes"
+msgstr "15 dakika"
+
+#: omweather/src/weather-settings.c:4242 meecast/qt-qml/qml/UpdatePage.qml:161
+msgid "2 hours"
+msgstr "2 saat"
+
+#: omweather/src/weather-settings.c:4194
+msgid "20 seconds"
+msgstr "20 saniye"
+
+#: omweather/src/weather-sensor.c:145
+msgid "3 minutes"
+msgstr "3 dakika"
+
+#: omweather/src/weather-sensor.c:153 meecast/qt-qml/qml/UpdatePage.qml:147
+msgid "30 minutes"
+msgstr "30 dakika"
+
+#: omweather/src/weather-settings.c:4196
+msgid "30 seconds"
+msgstr "30 saniye"
+
+#: omweather/src/weather-settings.c:4244
+#: omweather/src/weather-simple-settings.c:1705
+#: omweather/src/weather-simple-settings.c:2808
+#: meecast/qt-qml/qml/UpdatePage.qml:168
+msgid "4 hours"
+msgstr "4 saat"
+
+#: omweather/src/weather-settings.c:4198
+msgid "40 seconds"
+msgstr "40 saniye"
+
+#: omweather/src/weather-sensor.c:147
+msgid "5 minutes"
+msgstr "5 dakika"
+
+#: omweather/src/weather-settings.c:4200
+msgid "50 seconds"
+msgstr "50 saniye"
+
+#: omweather/src/weather-settings.c:4202
+msgid "60 seconds"
+msgstr "60 saniye"
+
+#: omweather/src/weather-settings.c:4246
+msgid "8 hours"
+msgstr "8 saat"
+
+#: omweather/src/hash.data:4
+msgid "AM Clouds / PM Sun"
+msgstr "AM Bulutlu / PM Gunesli"
+
+#: omweather/src/hash.data:6
+msgid "AM Drizzle"
+msgstr "AM Ciseleyen Yagmur"
+
+#: omweather/src/hash.data:5
+msgid "AM Drizzle / Wind"
+msgstr "AM Ciseleyen Yagmur / Ruzgar"
+
+#: omweather/src/hash.data:7
+msgid "AM Fog / PM Clouds"
+msgstr "AM Sis / PM Bulut"
+
+#: omweather/src/hash.data:8
+msgid "AM Fog / PM Sun"
+msgstr "AM Sis / PM Gunes"
+
+#: omweather/src/hash.data:10
+msgid "AM Light Rain"
+msgstr "AM Hafif Yagmur"
+
+#: omweather/src/hash.data:9
+msgid "AM Light Rain / Wind"
+msgstr "AM Hafif Yagmur / Ruzgar"
+
+#: omweather/src/hash.data:12
+msgid "AM Light Snow"
+msgstr "AM Hafif Kar"
+
+#: omweather/src/hash.data:11
+msgid "AM Light Snow / Wind"
+msgstr "AM Hafif Kar / Ruzgar"
+
+#: omweather/src/hash.data:13
+msgid "AM Light Wintry Mix"
+msgstr "AM Hafif Soguk Karisik"
+
+#: omweather/src/hash.data:18
+msgid "AM Rain"
+msgstr "AM Yagmur"
+
+#: omweather/src/hash.data:16
+msgid "AM Rain / Snow"
+msgstr "AM Yagmur / Kar"
+
+#: omweather/src/hash.data:15
+msgid "AM Rain / Snow Showers"
+msgstr "AM Yagmur / Sagnak Kar"
+
+#: omweather/src/hash.data:14
+msgid "AM Rain / Snow Showers / Wind"
+msgstr "AM Yagmur / Sagnak Kar / Ruzgar"
+
+#: omweather/src/hash.data:17
+msgid "AM Rain / Wind"
+msgstr "AM Yagmur / Ruzgar"
+
+#: omweather/src/hash.data:20
+msgid "AM Showers"
+msgstr "AM Sagnak Yagis"
+
+#: omweather/src/hash.data:19
+msgid "AM Showers / Wind"
+msgstr "AM Sagnak Yagis / Ruzgar"
+
+#: omweather/src/hash.data:24
+msgid "AM Snow"
+msgstr "AM Kar"
+
+#: omweather/src/hash.data:23
+msgid "AM Snow Showers"
+msgstr "AM Sagnak Kar"
+
+#: omweather/src/hash.data:22
+msgid "AM Snow Showers / Wind"
+msgstr "AM Sagnak Kar / Ruzgar"
+
+#: omweather/src/hash.data:21
+msgid "AM Snow Showers / Wind Late"
+msgstr "AM Sagnak Kar / Aksama Dogru Ruzgar"
+
+#: omweather/src/weather-home.c:1286 omweather/src/weather-help.c:100
+#: omweather/src/weather-simple-popup.c:1164
+#: omweather/src/weather-simple-status.c:179
+#: meecast/netbook-UX/meego-panel-omweather.cpp:373
+#: meecast/qt-qml/qml/AboutPage.qml:68
+msgid "About"
+msgstr "Hakkinda"
+
+#: omweather/src/weather-download.c:417
+msgid "Access denied to the given URL."
+msgstr "Verilen URL icin erisim izni reddedildi."
+
+#: omweather/src/weather-simple-popup.c:283
+msgid "Action|Update"
+msgstr "Hareket|Guncelle"
+
+#: omweather/src/weather-settings.c:480
+msgid "Add"
+msgstr "Ekle"
+
+#: omweather/src/weather-settings.c:467
+msgid "Add Station"
+msgstr "Istasyon Ekle"
+
+#: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
+#: omweather/src/weather-settings.c:1381
+msgid "Alerts"
+msgstr "Uyarilar"
+
+#: omweather/src/weather-help.c:125
+msgid ""
+"Alexis Iglauer - for testing\n"
+"Eugene Roytenberg - for testing\n"
+"Jarek Szczepanski aka Imrahil - for testing\n"
+"Vladimir Shakhov aka Mendoza - for testing \n"
+"Marc Dillon - for spell/stylecheck text of English\n"
+"Arkady Glazov aka Globster - for testing\n"
+"Alexander Savchenko aka dizel - for testing\n"
+"Timeless - for patches \n"
+"Eric Link - for feature request and donation\n"
+msgstr ""
+"Test icin Alexis Igluer,Eugene Roytenberg,Jarek Szczepanski aka Imrahil,"
+"Vladimir Shakov aka Mendoza,Arkady Glazov aka Globster,Alexander Savchenko "
+"aka dizel'e ,\n"
+"Ingilizcedeki duzeltme yardimlarinidan dolayı Marc Dillon'a ,\n"
+"Guncellemeler icin Timeless'a ve yeni ozellik istegi ve\n"
+"bagislari icin Eric Link'e\n"
+
+#: omweather/src/weather-download.c:397
+msgid "An unknown error has occurred."
+msgstr "Bilinmeyen bir hata olustu."
+
+#: omweather/src/weather-simple-settings.c:413
+msgid "Animation"
+msgstr "Animasyon"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:566
+msgid "Appearance"
+msgstr "Gorunum"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:94
+msgid ""
+"Application manager will now start\n"
+"for installing package 'MeeCast applet'.\n"
+"You should uninstall AccuWeather \n"
+"before installing this package"
+msgstr ""
+"'MeeCast applet' paketini yuklemek icin Uygulama yoneticisi baslatilacak."
+"Paketi yuklemeden once AccuWeather'i kaldirmalisiniz."
+
+#: omweather/src/weather-settings.c:823
+msgid "Are you sure to want delete this station ?"
+msgstr "Bu istasyonu silmek istediginizden emin misiniz ?"
+
+#: omweather/src/weather-simple-settings.c:848
+msgid "Are you sure?"
+msgstr "Emin misiniz?"
+
+#: omweather/src/weather-help.c:103
+msgid ""
+"Author and maintenance: Vlad Vasiliev, <vlad@gas.by>\n"
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>\n"
+"Documentation: Marko Vertainen\n"
+"Design UI and default iconset: Andrew Zhilin\n"
+"Design UI for Fremantle: Krebber Jan Niemelä Ulla\n"
+msgstr ""
+"Yapimci ve bakim : Vlad Vasiliev, <vlad@gas.by>\n"
+"Bakım: Pavel Fialko, <pavelnf@gmail.com>\n"
+"Dokumantasyon : Marko Vertainen \n"
+"Dizayn ve varsayilan ikonset : Andrew Zhilin \n"
+"Frementle icin Dizayn : Krebber Jan Niemelä Ulla\n"
+
+#: meecast/netbook-UX/meego-panel-omweather.cpp:415
+msgid "Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n"
+msgstr "Yapimci ve bakim: Vlad Vasilyeu, <vlad@gas.by> \n"
+
+#: omweather/src/weather-help.c:111
+msgid "Authors"
+msgstr "Yapimcilar"
+
+#: omweather/src/weather-settings.c:4156
+msgid "Automatically update data when connecting to the Internet"
+msgstr "Internete baglanildiginda otomatik olarak guncelle"
+
+#: omweather/src/weather-settings.c:3378 omweather/src/weather-settings.c:3382
+msgid "Background color:"
+msgstr "Arkaplan rengi:"
+
+#: omweather/src/weather-simple-settings.c:1426
+msgid "Beauf."
+msgstr "Beauf."
+
+#: omweather/src/weather-settings.c:4021
+#: omweather/src/weather-simple-settings.c:2707
+msgid "Beaufort scale"
+msgstr "Beaufort cizelgesi"
+
+#: omweather/src/hash.data:25
+msgid "Blowing Snow"
+msgstr "Ufleyen Kar"
+
+#: omweather/src/weather-home.c:1536 omweather/src/weather-home.c:1562
+#: omweather/src/weather-simple-popup.c:1042
+#: omweather/src/weather-simple-popup.c:1052
+#: omweather/src/weather-simple-settings.c:1281
+msgid "C"
+msgstr "C"
+
+#: omweather/src/weather-popup.c:1265 omweather/src/weather-popup.c:1275
+#: omweather/src/weather-popup.c:1446 omweather/src/weather-popup.c:1454
+msgid "C\n"
+msgstr "C\n"
+
+#: omweather/src/hash.data:26
+msgid "CALM"
+msgstr "DURGUN"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:108
+msgid "Cancel"
+msgstr "Iptal"
+
+#: omweather/src/weather-config.c:383
+#, c-format
+msgid "Cannot get path to the HOME directory. Quitting.\n"
+msgstr ""
+"HOME dizinine erisilemiyor.Cikis yapiliyor.\n"
+"\n"
+
+#: omweather/src/weather-settings.c:3864
+msgid "Celcius"
+msgstr "Celsius"
+
+#: meecast/qt-qml/qml/UnitsPage.qml:114
+msgid "Celsius"
+msgstr ""
+
+#: omweather/src/weather-simple-settings.c:677
+#: omweather/src/weather-simple-settings.c:710
+#: omweather/src/weather-simple-settings.c:807
+#: omweather/src/weather-simple-settings.c:2341
+msgid "City"
+msgstr "Sehir"
+
+#: omweather/src/weather-settings.c:533
+msgid "City:"
+msgstr "Sehir:"
+
+#: omweather/src/hash.data:29
+msgid "Clear"
+msgstr "Acik"
+
+#: omweather/src/hash.data:27
+msgid "Clear / Wind"
+msgstr "Acik / Ruzgarli"
+
+#: omweather/src/hash.data:28
+msgid "Clear Sky"
+msgstr "Acik Gokyuzu"
+
+#: omweather/src/hash.data:30
+msgid "Clear, Drifting Snow"
+msgstr "Acik , Kaygan Kar"
+
+#: omweather/src/hash.data:31
+msgid "Clear, Fog"
+msgstr "Acik , Sisli"
+
+#: omweather/src/hash.data:32
+msgid "Clear, Fog, Drizzle"
+msgstr "Acik , Sisli , Ciseleyen Yagmur"
+
+#: omweather/src/hash.data:33
+msgid "Clear, Haze"
+msgstr "Acik , Puslu"
+
+#: omweather/src/hash.data:34
+msgid "Clear, Smoke"
+msgstr "Acik , Dumanli"
+
+#: omweather/src/weather-settings.c:485
+msgid "Close"
+msgstr "Kapat"
+
+#: omweather/src/hash.data:35
+msgid "Clouds Early / Clearing Late"
+msgstr "Sabahtan Bulutlu / Aksamlari Acik"
+
+#: omweather/src/hash.data:46
+msgid "Cloudy"
+msgstr "Bulutlu"
+
+#: omweather/src/hash.data:36
+msgid "Cloudy / Wind"
+msgstr "Bulutlu / Ruzgar"
+
+#: omweather/src/hash.data:37
+msgid "Cloudy Few Snow"
+msgstr "Bulutlu / Hafif Kar"
+
+#: omweather/src/hash.data:38
+msgid "Cloudy Light Rain"
+msgstr "Bulutlu Hafif Yagmur"
+
+#: omweather/src/hash.data:39
+msgid "Cloudy T-Storm"
+msgstr "Bulutlu Firtina"
+
+#: omweather/src/hash.data:40
+msgid "Cloudy and Windy"
+msgstr "Bulutlu ve Ruzgarli"
+
+#: omweather/src/hash.data:41
+msgid "Cloudy and light rain"
+msgstr "Bulutlu ve hafif yagmur"
+
+#: omweather/src/hash.data:42
+msgid "Cloudy and light snow"
+msgstr "Bulutlu ve hafif kar"
+
+#: omweather/src/hash.data:43
+msgid "Cloudy and light wet snow"
+msgstr "Bulutlu ve hafif islak kar"
+
+#: omweather/src/hash.data:44
+msgid "Cloudy and showers"
+msgstr "Bulutlu ve yagmurlu"
+
+#: omweather/src/hash.data:45
+msgid "Cloudy and snow showers"
+msgstr "Bulutlu ve kar yagisli"
+
+#: omweather/src/hash.data:47
+msgid "Cloudy, Drifting Snow"
+msgstr "Bulutlu , Kaygan Kar"
+
+#: omweather/src/hash.data:48
+msgid "Cloudy, Few Snow"
+msgstr "Bulutlu , Hafif Kar"
+
+#: omweather/src/hash.data:49
+msgid "Cloudy, Heavy Rain"
+msgstr "Bulutlu , Sagnak Yagmur"
+
+#: omweather/src/hash.data:50
+msgid "Cloudy, Heavy Rain, T-Storm"
+msgstr "Bulutlu , Sagnak Yagmur , Firtina"
+
+#: omweather/src/hash.data:51
+msgid "Cloudy, Heavy Snow"
+msgstr "Bulutlu , Yogun Kar"
+
+#: omweather/src/hash.data:52
+msgid "Cloudy, Light Rain"
+msgstr "Bulutlu , Hafif Yagmur"
+
+#: omweather/src/hash.data:53
+msgid "Cloudy, Light Rain, T-Storm"
+msgstr "Bulutlu , Hafif Yagmur , Firtina"
+
+#: omweather/src/hash.data:54
+msgid "Cloudy, Rain"
+msgstr "Bulutlu , Yagmur"
+
+#: omweather/src/hash.data:55
+msgid "Cloudy, Rain, T-Storm"
+msgstr "Bulutlu , Yagmur , Firtina"
+
+#: omweather/src/hash.data:56
+msgid "Cloudy, Smoke"
+msgstr "Bulutlu , Puslu"
+
+#: omweather/src/hash.data:58
+msgid "Cloudy, Snow"
+msgstr "Bulutlu , Kar"
+
+#: omweather/src/hash.data:57
+#, fuzzy
+msgid "Cloudy, thunderstorms with rain"
+msgstr "Kapali , yagmurlu ve firtinali"
+
+#: meecast/netbook-UX/meego-panel-omweather.cpp:413
+msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
+msgstr "Copyright(c) 2006-2011 , Vlad Vasilyeu and Pavel Fialko,"
+
+#: meecast/netbook-UX/meego-panel-omweather.cpp:414
+msgid "Copyright(c) 2010-2011 by Tanya Makova\n"
+msgstr "Copyright(c) 2010-2011 , Tanya Makova\n"
+
+#: omweather/src/weather-download.c:226
+msgid ""
+"Could not connecting to Internet.\n"
+"Connection timeout is expired."
+msgstr ""
+"Internete baglanilamiyor.\n"
+"Baglanti suresi doldu."
+
+#: omweather/src/weather-config.c:401
+#, c-format
+msgid "Could not create weather cache directory.\n"
+msgstr "Hava durumu icin onbellek dizini olusturulamiyor.\n"
+
+#: omweather/src/weather-download.c:409
+msgid "Couldn't resolve host."
+msgstr "Sunucu adresi cozulemedi."
+
+#: omweather/src/weather-download.c:405
+msgid "Couldn't resolve proxy."
+msgstr "Proxy cozulemedi."
+
+#: omweather/src/weather-simple-settings.c:764
+#: omweather/src/weather-simple-settings.c:2313
+msgid "Country"
+msgstr "Ulke"
+
+#: omweather/src/weather-settings.c:510
+msgid "Country:"
+msgstr "Ulke:"
+
+#: omweather/src/weather-simple-settings.c:2896
+msgid "Custom"
+msgstr "Ozel"
+
+#: meecast/qt-qml/qml/UpdatePage.qml:183
+msgid "Daily"
+msgstr "Gunluk"
+
+#: meecast/netbook-UX/meego-panel-omweather.cpp:584
+#: meecast/qt-qml/qml/FullWeatherPage.qml:186
+msgid "Day"
+msgstr "Gun"
+
+#: omweather/src/weather-popup.c:1182
+msgid "Day length"
+msgstr "Gun uzunlugu"
+
+#: omweather/src/hash.data:59 meecast/qt-qml/qml/FullWeatherPage.qml:294
+msgid "Day length:"
+msgstr "Gun uzunlugu:"
+
+#: omweather/src/weather-popup.c:913
+msgid "Day:"
+msgstr "Gun:"
+
+#: meecast/qt-qml/qml/StationsPage.qml:75
+msgid "Delete location?"
+msgstr "Konum silinsin mi?"
+
+#: meecast/netbook-UX/meego-panel-omweather.cpp:417
+msgid ""
+"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
+"zhilin@ovi.com>\n"
+msgstr ""
+"UI Dizaynı ve varsayilan ikonseti : Copyright 2006-2011 Andrew Zhilin,"
+"<andrew.zhilin@ovi.com> \n"
+
+#: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
+msgid "Detailed"
+msgstr "Detayli"
+
+#: omweather/src/weather-settings.c:1128 omweather/src/weather-settings.c:1321
+#: omweather/src/weather-settings.c:1325
+msgid "Display"
+msgstr "Gorunum"
+
+#: omweather/src/weather-simple-settings.c:1315
+msgid "Distance"
+msgstr "Mesafe"
+
+#: omweather/src/weather-settings.c:3894
+msgid "Distance units:"
+msgstr "Mesafe uniteleri:"
+
+#: omweather/src/weather-settings.c:595
+msgid ""
+"Does not to add station, because no one\n"
+"of 'omweather-*-stations-db' packages was installed."
+msgstr ""
+"Istasyon eklemeyin , cunku hic\n"
+"'omweather-*-stations-db' paketi yuklenmedi."
+
+#: omweather/src/weather-simple-popup.c:1171
+#: omweather/src/weather-simple-popup.c:1220
+#: omweather/src/weather-simple-popup.c:1226
+msgid "Donation"
+msgstr "Bagis"
+
+#: omweather/src/weather-settings.c:4164
+msgid "Download and show detailed weather"
+msgstr "Detayli hava tahmini indir ve goster."
+
+#: omweather/src/weather-download.c:429
+msgid "Download timed out."
+msgstr "Indirme zamani asildi."
+
+#: omweather/src/hash.data:60
+msgid "Drifting Snow"
+msgstr "Kaygan Kar"
+
+#: omweather/src/hash.data:65
+msgid "Drizzle"
+msgstr "Ciseleyen Yagmur"
+
+#: omweather/src/hash.data:61
+msgid "Drizzle / Fog"
+msgstr "Ciseleyen Yagmur / Sis"
+
+#: omweather/src/hash.data:62
+msgid "Drizzle / Wind"
+msgstr "Ciseleyen Yagmur / Ruzgar"
+
+#: omweather/src/hash.data:63
+msgid "Drizzle Early"
+msgstr "Sabahtan Ciseleyen Yagmur"
+
+#: omweather/src/hash.data:64
+msgid "Drizzle Late"
+msgstr "Aksama Dogru Ciseleyen Yagmur"
+
+#: omweather/src/hash.data:66
+msgid "E"
+msgstr "E"
+
+#: omweather/src/hash.data:67
+msgid "ENE"
+msgstr "ENE"
+
+#: omweather/src/hash.data:68
+msgid "ENE_short"
+msgstr "ENE_short"
+
+#: omweather/src/hash.data:69
+msgid "ESE"
+msgstr "ESE"
+
+#: omweather/src/hash.data:70
+msgid "ESE_short"
+msgstr "ESE_short"
+
+#: omweather/src/hash.data:71
+msgid "E_short"
+msgstr "E_short"
+
+#: omweather/src/weather-help.c:114
+msgid ""
+"Ed Bartosh - for more feature requests, support and criticism\n"
+"Daniel Wilms - for feature requests and testing\n"
+"Eugen Kaluta aka tren - for feature requests and support\n"
+"Maxim Kalinkevish aka spark for testing\n"
+"Yuri Komyakov - for Nokia 770 device \n"
+"Greg Thompson for support stations.txt file\n"
+"Frank Persian - for idea of new layout\n"
+"Brian Knight - for idea of iconset, criticism and donation ;-)\n"
+"Andrew aka Tabster - for testing and ideas\n"
+"Brad Jones aka kazrak - for testing\n"
+msgstr ""
+"Daha cok yenilik istegi ve kritigi icin Ed Bartosh'a \\n daha cok yenilik "
+"istegi ve test icin Daniel Wilms'e \n"
+"Destek ve daha cok yenilik istegi icin Eugen Kaluta aka tren'e \n"
+"Nokia 770 cihazi icin Yuri Komyakov'a \n"
+"Stations.txt dosyasindaki destegi icin Greg Thompson'a \n"
+"Yeni duzen fikri icin Frank Persin'a \n"
+"Bagis , kritik degerlendirme ve yeni konset icin Brian Knight'a ;-) \n"
+"fikir ve testleri icin Andrew aka Tabster'a ve testleri icin Brad Jones'a\n"
+
+#: omweather/src/weather-simple-settings.c:330
+#: omweather/src/weather-simple-settings.c:421
+msgid "Edit custom layout"
+msgstr "Ozel duzeni degistir"
+
+#: omweather/src/weather-settings.c:2865
+msgid "Enable GPS"
+msgstr "GPS'i Aktiflestir"
+
+#: meecast/qt-qml/qml/SearchField.qml:50
+msgid "Enter search"
+msgstr "Arama girisi"
+
+#: omweather/src/weather-home.c:841
+#, c-format
+msgid "Error in xml file\n"
+msgstr "XML dosyasinda hata \n"
+
+#: omweather/src/weather-home.c:914
+msgid "Error initializing the OMWeather applet"
+msgstr "OMWeather yuklenirken hata"
+
+#: omweather/src/hash.data:72
+msgid "Exit"
+msgstr "Cikis"
+
+#: omweather/src/weather-simple-settings.c:1892
+#: omweather/src/weather-simple-settings.c:2771
+msgid "Extended Settings"
+msgstr "Genisletilmis Ayarlar"
+
+#: omweather/src/hash.data:73
+msgid "Extreme"
+msgstr "Ekstrem"
+
+#: omweather/src/weather-home.c:1537 omweather/src/weather-home.c:1563
+#: omweather/src/weather-simple-popup.c:1043
+#: omweather/src/weather-simple-popup.c:1053
+#: omweather/src/weather-simple-settings.c:1289
+msgid "F"
+msgstr "F"
+
+#: omweather/src/weather-popup.c:1266 omweather/src/weather-popup.c:1276
+#: omweather/src/weather-popup.c:1447 omweather/src/weather-popup.c:1455
+msgid "F\n"
+msgstr "F \n"
+
+#: omweather/src/weather-home.c:1558
+msgid "FL: "
+msgstr "FL:"
+
+#: omweather/src/weather-settings.c:3876 meecast/qt-qml/qml/UnitsPage.qml:122
+msgid "Fahrenheit"
+msgstr "Fahrenayt"
+
+#: omweather/src/weather-download.c:413
+msgid "Failed to connect to host or proxy."
+msgstr "Host veya proxy baglantisi basarisiz"
+
+#: omweather/src/weather-config.c:360
+#, c-format
+msgid "Failed to initialize GConf. Quitting.\n"
+msgstr "GConf yuklenemedi.Cikiliyor.\n"
+
+#: omweather/src/weather-config.c:948
+#, c-format
+msgid "Failed to initialize GConf. Settings were not saved.\n"
+msgstr "GConf yuklenemedi.Ayarlar kaydedilmedi. \n"
+
+#: omweather/src/hash.data:74
+msgid "Fair"
+msgstr "Acik"
+
+#: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
+msgid "Feels like:"
+msgstr "Hissedilis Benzerlikleri:"
+
+#: omweather/src/hash.data:76
+msgid "Few Showers"
+msgstr "Hafif Yagmur"
+
+#: omweather/src/hash.data:75
+msgid "Few Showers / Wind"
+msgstr "Hafif Yagmur / Ruzgar"
+
+#: omweather/src/hash.data:79
+msgid "Few Snow"
+msgstr "Hafif Kar"
+
+#: omweather/src/hash.data:78
+msgid "Few Snow Showers"
+msgstr "Karla Karisik Yagmur"
+
+#: omweather/src/hash.data:77
+msgid "Few Snow Showers / Wind"
+msgstr "Karla Karisik Yagmur / Ruzgar"
+
+#: meecast/qt-qml/qml/StationsPage.qml:92
+msgid "Find location via GPS"
+msgstr "GPS ile konum bul"
+
+#: meecast/netbook-UX/meego-panel-omweather.cpp:428
+msgid ""
+"Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
+"Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
+msgstr ""
+"Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
+"Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík;Turkish - Burak Kaan "
+"Kose\n"
+
+#: omweather/src/hash.data:80
+msgid "First Quarter"
+msgstr "Ilk Ceyrek"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:153
+#: meecast/qt-qml/qml/FullWeatherPage.qml:210
+#: meecast/qt-qml/qml/FullWeatherPage.qml:259
+msgid "Flike:"
+msgstr "Flike:"
+
+#: omweather/src/hash.data:84
+msgid "Fog"
+msgstr "Sis"
+
+#: omweather/src/hash.data:81
+msgid "Fog Early / Clouds Late"
+msgstr "Sabahtan Sisli / Sonra Bulutlu"
+
+#: omweather/src/hash.data:82
+msgid "Fog Late"
+msgstr "Gec Vakitlerde Sisli"
+
+#: omweather/src/hash.data:83
+msgid "Fog early / Clearing late"
+msgstr "Sabahtan sisli / Sonra acik"
+
+#: omweather/src/hash.data:85
+msgid "Foggy"
+msgstr "Sisli"
+
+#: omweather/src/weather-settings.c:3257
+msgid "Font color:"
+msgstr "Font rengi:"
+
+#: omweather/src/weather-settings.c:3227 omweather/src/weather-settings.c:3231
+msgid "Font:"
+msgstr "Font:"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:292
+msgid ""
+"For disabling MeeCast widget,\n"
+"you should uninstall package\n"
+"'Activating MeeCast Applet'\n"
+"using Application manager"
+msgstr ""
+"MeeCast widget'ini kapatmak icin oncelikle \n"
+"Uygulama Yoneticisi'nden 'Activating MeeCast Applet' \n"
+"paketini kaldirin."
+
+#: omweather/src/weather-simple-popup.c:97
+msgid "Forecast"
+msgstr "Hava Tahmini"
+
+#: omweather/src/weather-popup.c:1433
+#: omweather/src/weather-simple-popup.c:1028
+msgid "Forecast at: "
+msgstr "Buradaki Havatahmini:"
+
+#: omweather/src/weather-home.c:1355
+msgid "Forecast: \n"
+msgstr "Hava Tahmini: \n"
+
+#: omweather/src/hash.data:86
+msgid "Freezing Drizzle"
+msgstr "Dondurucu Ciseleyen Yagmur"
+
+#: meecast/qt-qml/qml/AboutPage.qml:211
+#, fuzzy
+msgid ""
+"French -  Nicolas Granziano, \n"
+" \tPhilippe, Benot Knecht \n"
+" Russian - Pavel Fialko, Vlad Vasiliev, \n"
+" \tEd Bartosh\n"
+" Finnish - Marko Vertainen\n"
+" German -  Claudius Henrichs\n"
+" Italian - Pavel Fialko, Alessandro Pasotti,\n"
+" \tSalvatore Fiorenzo, Ilir Gjika,\n"
+" \tLuca Onnis\n"
+" Spanish - Alejandro Lopez\n"
+" Polish - Tomasz Dominikowski\n"
+" Slovak - Roman Moravčík\n"
+" Dutch - Tom Leenders, Michiel Pater\n"
+" Bulgarian - Zlatko Enikov\n"
+" Albanian - Ilir Gjika\n"
+" Chinese - Wong Man Kong, Michael\n"
+" Portuguese - Jose Narciso,\n"
+" Turkish - Burak Kaan Kose,\n"
+" Catalan - Agustí Clara,\n"
+" Arabic - Tarad Alfandi,\n"
+" Norwegian - Peer-Atle Motland,\n"
+" Vietnamese - Hieu Nguyen, Anh Dương and truongnx, \n"
+" Swedish - Angela Nennebrandt,\n"
+" \tNiklas Åkerström, \n"
+" \tTomislav Veleckovik"
+msgstr ""
+"French - Nicolas Granziano, \n"
+"»Philippe, Benot Knecht \n"
+"Russian - Pavel Fialko, Vlad Vasiliev, \n"
+" »Ed Bartosh\n"
+" Finnish - Marko Vertainen\n"
+" German - Claudius Henrichs\n"
+" Italian - Pavel Fialko, Alessandro Pasotti,\n"
+" »Salvatore Fiorenzo, Ilir Gjika,\n"
+" »Luca Onnis\n"
+" Spanish - Alejandro Lopez\n"
+" Polish - Tomasz Dominikowski\n"
+" Slovak - Roman Moravčík\n"
+" Dutch - Tom Leenders, Michiel Pater\n"
+" Bulgarian - Zlatko Enikov\n"
+" Albanian - Ilir Gjika\n"
+" Chinese - Wong Man Kong, Michael\n"
+" Portugal - Jose Narciso,\n"
+" Turkish - Burak Kaan Kose\n"
+" Swedish - Angela Nennebrandt,\n"
+" »Niklas Åkerström, \n"
+" »Tomislav Veleckovik"
+
+#: omweather/src/weather-help.c:141
+msgid ""
+"French - Nicolas Granziano, Philippe, Benot Knecht\n"
+"Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
+"Finnish - Marko Vertainen\n"
+"German - Claudius Henrichs\n"
+"Italian - Pavel Fialko, Alessandro Pasotti,\n"
+"\tSalvatore Fiorenzo, Luca Onnis\n"
+"Spanish - Alejandro Lopez\n"
+"Polish - Tomasz Dominikowski\n"
+"Slovak - Roman Moravčík"
+msgstr ""
+"French - Nicolas Granziano, Philippe, Benot Knecht\n"
+"Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
+"Finnish - Marko Vertainen\n"
+"German - Claudius Henrichs\n"
+"Italian - Pavel Fialko, Alessandro Pasotti,Salvatore Fiorenzo, Luca Onnis\n"
+"Spanish - Alejandro Lopez\n"
+"Polish - Tomasz Dominikowski\n"
+"Slovak - Roman Moravčík\n"
+"Turkish - Burak Kaan Kose"
+
+#: omweather/src/hash.data:87
+msgid "Full"
+msgstr "Tam"
+
+#: omweather/src/weather-home.c:1296
+msgid "Full forecast"
+msgstr "Tam Hava Tahmini"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:369
+msgid "Fullscreen mode"
+msgstr "Tamekran Modu"
+
+#: omweather/src/weather-home.c:1641
+msgid "G: "
+msgstr "G:"
+
+#: omweather/src/weather-simple-settings.c:2249
+msgid "GPS"
+msgstr "GPS"
+
+#: omweather/src/weather-simple-settings.c:1752
+#: omweather/src/weather-simple-settings.c:1758
+#: omweather/src/weather-simple-settings.c:2824
+msgid "GSM"
+msgstr "GSM"
+
+#: omweather/src/weather-simple-settings.c:2818
+msgid "GSM+WLAN"
+msgstr "GSM+WLAN"
+
+#: omweather/src/weather-simple-settings.c:2395
+msgid "GUI|Clear"
+msgstr "GUI|Temiz"
+
+#: meecast/netbook-UX/meego-panel-omweather.cpp:418
+msgid ""
+"Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>"
+msgstr ""
+"Grzanka's Ikonseti: Copyright 2005 , Wojciech Grzanka, <wojciech@grzanka.pl>"
+
+#: omweather/src/weather-popup.c:1354 omweather/src/weather-popup.c:1493
+msgid "Gust:"
+msgstr "Ani Yagmur:"
+
+#: omweather/src/weather-download.c:421
+msgid "HTTP error."
+msgstr "HTTP hatasi."
+
+#: omweather/src/hash.data:88
+msgid "Haze"
+msgstr "Sis"
+
+#: omweather/src/hash.data:91
+msgid "Heavy Rain"
+msgstr "Sagnak Yagmur"
+
+#: omweather/src/hash.data:89
+msgid "Heavy Rain / Wind"
+msgstr "Sagnak Yagmur / Ruzgar"
+
+#: omweather/src/hash.data:90
+msgid "Heavy Rain Shower"
+msgstr "Siddetli Sagnak Yagmur"
+
+#: omweather/src/hash.data:92
+msgid "Heavy Snow"
+msgstr "Tipi Kar"
+
+#: omweather/src/hash.data:93
+msgid "High"
+msgstr "Yuksek"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:276
+msgid "Hours"
+msgstr "Saat"
+
+#: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
+#: meecast/netbook-UX/meego-panel-omweather.cpp:722
+#: meecast/qt-qml/dataitem.cpp:180 meecast/qt-qml/qml/FullWeatherPage.qml:135
+#: meecast/qt-qml/qml/FullWeatherPage.qml:192
+#: meecast/qt-qml/qml/FullWeatherPage.qml:241
+msgid "Humidity:"
+msgstr "Nem:"
+
+#: omweather/src/weather-settings.c:3326
+msgid "Icon set:"
+msgstr "Ikon seti:"
+
+#: omweather/src/weather-settings.c:3558 omweather/src/weather-settings.c:3563
+msgid "Icon size:"
+msgstr "Ikon boyutu:"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:44 meecast/qt-qml/qml/UpdatePage.qml:42
+msgid "Icons"
+msgstr "Ikonlar"
+
+#: omweather/src/hash.data:94 meecast/qt-qml/qml/VisualsPage.qml:391
+msgid "Iconset"
+msgstr "Ikonseti"
+
+#: omweather/src/hash.data:95
+msgid "Iconsets"
+msgstr "Ikonsetleri"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:64
+#: meecast/qt-qml/qml/VisualsPage.qml:136
+#: meecast/qt-qml/qml/VisualsPage.qml:163
+#: meecast/qt-qml/qml/VisualsPage.qml:226
+msgid "Information"
+msgstr "Bilgilendirme"
+
+#: omweather/src/hash.data:97
+msgid "Isolated T-Storms"
+msgstr "Yalitilmis Firtina"
+
+#: omweather/src/hash.data:96
+msgid "Isolated T-Storms / Wind"
+msgstr "Yalitilmis Firtinalar / Ruzgar"
+
+#: meecast/netbook-UX/meego-panel-omweather.cpp:429
+msgid ""
+"Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
+"Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov"
+msgstr ""
+"Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
+"Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov;Turkish - Burak Kaan "
+"Kose"
+
+#: omweather/src/weather-settings.c:3915
+msgid "Kilometers"
+msgstr "Kilometre"
+
+#: omweather/src/hash.data:98
+msgid "Last Quarter"
+msgstr "Son Ceyrek"
+
+#: omweather/src/weather-popup.c:264
+msgid "Last update at server: "
+msgstr "Sunucudaki son guncelleme :"
+
+#: omweather/src/weather-popup.c:278 omweather/src/weather-popup.c:282
+msgid "Last update from server: "
+msgstr "Sunucudan son guncelleme :"
+
+#: omweather/src/hash.data:99 meecast/qt-qml/qml/FullWeatherPage.qml:297
+msgid "Last update:"
+msgstr "Son guncelleme:"
+
+#: omweather/src/weather-simple-popup.c:271
+#: omweather/src/weather-simple-popup.c:273
+#: omweather/src/weather-simple-popup.c:280
+#, c-format
+msgid "Last update: "
+msgstr "Son guncelleme:"
+
+#: omweather/src/hash.data:100
+msgid "Lawn and Garden Weather"
+msgstr "Lawn and Garden Weather"
+
+#: omweather/src/weather-settings.c:2924 omweather/src/weather-settings.c:2931
+msgid "Layout:"
+msgstr "Duzen"
+
+#: meecast/qt-qml/qml/AboutPage.qml:170
+msgid "Lead designer"
+msgstr "Bas stilist"
+
+#: meecast/qt-qml/qml/AboutPage.qml:154
+msgid "Lead programmers"
+msgstr "Bas programcilar"
+
+#: meecast/qt-qml/qml/AboutPage.qml:243
+msgid "License"
+msgstr "Lisans"
+
+#: omweather/src/hash.data:101
+msgid "Light Drizzle"
+msgstr "Hafif Ciseleyen Yagmur"
+
+#: omweather/src/hash.data:102
+msgid "Light Freezing Rain"
+msgstr "Hafif Dondurucu Yagmur"
+
+#: omweather/src/hash.data:113
+msgid "Light Rain"
+msgstr "Hafif Yagmur"
+
+#: omweather/src/hash.data:103
+msgid "Light Rain / Fog"
+msgstr "Hafif Yagmur / Sis"
+
+#: omweather/src/hash.data:105
+msgid "Light Rain / Wind"
+msgstr "Hafif Yagmur / Ruzgar"
+
+#: omweather/src/hash.data:104
+msgid "Light Rain / Wind Late"
+msgstr "Hafif Yagmur / Aksama Dogru Yagmur"
+
+#: omweather/src/hash.data:106
+msgid "Light Rain Early"
+msgstr "Sabahtan Hafif Yagmur"
+
+#: omweather/src/hash.data:107
+msgid "Light Rain Late"
+msgstr "Aksama Dogru Hafif Yagmur"
+
+#: omweather/src/hash.data:108
+msgid "Light Rain Shower"
+msgstr "Hafif Sagnak Yagmur"
+
+#: omweather/src/hash.data:109
+msgid "Light Rain and Freezing Rain"
+msgstr "Hafif ve Dondurucu Yagmur"
+
+#: omweather/src/hash.data:110
+msgid "Light Rain and Shower"
+msgstr "Hafif Yagmur ve Sagnak"
+
+#: omweather/src/hash.data:111
+msgid "Light Rain and Windy"
+msgstr "Hafif Yagmur ve Ruzgar"
+
+#: omweather/src/hash.data:112
+msgid "Light Rain with Thunder"
+msgstr "Firtinayla Karisik Hafif Yagmur"
+
+#: omweather/src/hash.data:119
+msgid "Light Snow"
+msgstr "Hafif Kar"
+
+#: omweather/src/hash.data:114
+msgid "Light Snow / Fog"
+msgstr "Hafif Kar / Sis"
+
+#: omweather/src/hash.data:115
+msgid "Light Snow / Wind"
+msgstr "Hafif Kar / Ruzgar"
+
+#: omweather/src/hash.data:116
+msgid "Light Snow Early"
+msgstr "Sabahtan Hafif Kar"
+
+#: omweather/src/hash.data:117
+msgid "Light Snow Late"
+msgstr "Aksama Dogru Hafif Kar"
+
+#: omweather/src/hash.data:118
+msgid "Light Snow Shower"
+msgstr "Hafif Sagnak Kar"
+
+#: omweather/src/weather-settings.c:463
+msgid "Loading station list"
+msgstr "Istasyon listesi yukleniyor"
+
+#: omweather/src/hash.data:120
+msgid "Local Pollen Reports"
+msgstr "Yerel Pollen Raporlari"
+
+#: omweather/src/weather-settings.c:3454
+msgid "Long"
+msgstr "Uzun"
+
+#: omweather/src/hash.data:121 meecast/qt-qml/qml/WeatherPage.qml:487
+msgid "Looks like there's no info for this location."
+msgstr "Gorunuse gore bu konum icin tahmin bilgisi yok."
+
+#: omweather/src/hash.data:122
+msgid "Low"
+msgstr "Dusuk"
+
+#: meecast/netbook-UX/meego-panel-omweather.cpp:416
+msgid ""
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
+"com>\n"
+msgstr ""
+"Bakım : Pavel Fialko, <pavelnf@gmail.com> , Tanya Makova, <tanyshk@gmail."
+"com> \n"
+
+#: omweather/src/hash.data:123 meecast/qt-qml/qml/StationsPage.qml:153
+msgid "Manage locations"
+msgstr "Konumlari ayarla"
+
+#: omweather/src/weather-simple-settings.c:2240
+msgid "Manual"
+msgstr "El ile"
+
+#: meecast/qt-qml/qml/UnitsPage.qml:270
+msgid "Measurement units"
+msgstr "Olcum uniteleri"
+
+#: meecast/qt-qml/qml/WeatherPage.qml:292
+msgid "MeeCast"
+msgstr "MeeCast"
+
+#: meecast/qt-qml/qml/AboutPage.qml:77
+msgid ""
+"MeeCast - multiplatform highly customizable open source weather forecast "
+"client based on OMWeather code. Copyright (C) 2006-2011"
+msgstr ""
+"MeeCast - OMWeather kodu uzerine yazilmis ve yuksek duzenlenebilme "
+"ozelligine sahip bir havadurumu tahmin uygulamasi.Copyright (C) 2006-2011"
+
+#: meecast/qt-qml/qml/AboutPage.qml:23
+msgid "MeeCast for Harmattan"
+msgstr "Harmattan icin MeeCast"
+
+#: omweather/src/weather-settings.c:3901
+msgid "Meters"
+msgstr "Metre"
+
+#: omweather/src/weather-settings.c:3930
+msgid "Miles"
+msgstr "Mil"
+
+#: omweather/src/hash.data:124
+msgid "Mist"
+msgstr "Pus"
+
+#: omweather/src/weather-simple-settings.c:434
+msgid "Modification"
+msgstr "Modifikasyon"
+
+#: omweather/src/hash.data:125
+msgid "Mostly Clear"
+msgstr "Cogunlukla Acik"
+
+#: omweather/src/hash.data:134
+msgid "Mostly Cloudy"
+msgstr "Cogunlukla Bulutlu"
+
+#: omweather/src/hash.data:127
+msgid "Mostly Cloudy / Wind"
+msgstr "Cogunlukla Bulutlu / Ruzgar"
+
+#: omweather/src/hash.data:128
+msgid "Mostly Cloudy Few Snow"
+msgstr "Cogunlukla Bulutlu , Hafif Kar"
+
+#: omweather/src/hash.data:129
+msgid "Mostly Cloudy Light Rain"
+msgstr "Cogunlukla Bulutlu , Hafif Yagmur"
+
+#: omweather/src/hash.data:130
+msgid "Mostly Cloudy Rain"
+msgstr "Cogunlukla Bulutlu Yagmur"
+
+#: omweather/src/hash.data:131
+msgid "Mostly Cloudy Snow"
+msgstr "Cogunlukla Bulutlu Kar"
+
+#: omweather/src/hash.data:132
+msgid "Mostly Cloudy T-Storm"
+msgstr "Cogunlukla Bulutlu Firtina"
+
+#: omweather/src/hash.data:126 omweather/src/hash.data:133
+msgid "Mostly Cloudy and Windy"
+msgstr "Cogunlukla Bulutlu ve Ruzgarli"
+
+#: omweather/src/hash.data:135
+msgid "Mostly Cloudy, Drifting Snow"
+msgstr "Cogunlukla Bulutlu , Kaygan Kar"
+
+#: omweather/src/hash.data:136
+msgid "Mostly Cloudy, Few Snow"
+msgstr "Cogunlukla Bulutlu , Hafif Kar"
+
+#: omweather/src/hash.data:137
+msgid "Mostly Cloudy, Fog"
+msgstr "Cogunlukla Bulutlu"
+
+#: omweather/src/hash.data:138
+msgid "Mostly Cloudy, Fog, Drizzle"
+msgstr "Cogunlukla Bulutlu , Sis , Ciseleyen Yagmur"
+
+#: omweather/src/hash.data:139
+msgid "Mostly Cloudy, Heavy Rain"
+msgstr "Cogunlukla Bulutlu / Siddetli Yagmur"
+
+#: omweather/src/hash.data:140
+msgid "Mostly Cloudy, Heavy Rain, T-Storm"
+msgstr "Cogunlukla Bulutlu , Siddetli Yagmur , Firtina"
+
+#: omweather/src/hash.data:141
+msgid "Mostly Cloudy, Heavy Snow"
+msgstr "Cogunlukla Bulutlu , Siddetli Kar"
+
+#: omweather/src/hash.data:142
+msgid "Mostly Cloudy, Heavy Snow, Freezing Rain"
+msgstr "Cogunlukla Bulutlu , Siddetli Kar , Dondurucu Yagmur"
+
+#: omweather/src/hash.data:143
+msgid "Mostly Cloudy, Light Rain"
+msgstr "Cogunlukla Bulutlu , Hafif Yagmur"
+
+#: omweather/src/hash.data:144
+msgid "Mostly Cloudy, Light Rain, Drizzle"
+msgstr "Cogunlukla Bulutlu , Hafif Yagmur , Ciseleme"
+
+#: omweather/src/hash.data:145
+msgid "Mostly Cloudy, Light Rain, T-Storm"
+msgstr "Cogunlukla Bulutlu , Hafif Yagmur , Firtina"
+
+#: omweather/src/hash.data:146
+msgid "Mostly Cloudy, Rain"
+msgstr "Cogunlukla Bulutlu , Yagmur"
+
+#: omweather/src/hash.data:147
+msgid "Mostly Cloudy, Rain, T-Storm"
+msgstr "Cogunlukla Bulutlu , Yagmur , Firtina"
+
+#: omweather/src/hash.data:148
+msgid "Mostly Cloudy, Smoke"
+msgstr "Cogunlukla Bulutlu , Sisli"
+
+#: omweather/src/hash.data:149
+msgid "Mostly Cloudy, Snow"
+msgstr "Cogunlukla Bulutlu , Kar"
+
+#: omweather/src/hash.data:150
+msgid "Mostly Cloudy, T-Storm"
+msgstr "Cogunlukla Bulutlu , Firtina"
+
+#: omweather/src/hash.data:151
+msgid "Mostly Sunny"
+msgstr "Cogunlukla Gunesli"
+
+#: omweather/src/hash.data:152
+msgid "Mostly clear"
+msgstr "Cogunlukla acik"
+
+#: omweather/src/hash.data:153
+msgid "N"
+msgstr "N"
+
+#: omweather/src/weather-home.c:658 omweather/src/weather-home.c:664
+#: omweather/src/weather-home.c:665 omweather/src/weather-home.c:671
+#: omweather/src/weather-home.c:677 omweather/src/weather-home.c:2643
+#: omweather/src/weather-home.c:2727 omweather/src/weather-home.c:2735
+#: omweather/src/weather-home.c:2818 omweather/src/weather-home.c:2822
+#: omweather/src/weather-home.c:2835 omweather/src/weather-home.c:2839
+#: omweather/src/hash.data:154
+msgid "N/A"
+msgstr "N/A"
+
+#: omweather/src/hash.data:155
+msgid "NE"
+msgstr "NE"
+
+#: omweather/src/hash.data:156
+msgid "NE_short"
+msgstr "NE_short"
+
+#: omweather/src/hash.data:157
+msgid "NNE"
+msgstr "NNE"
+
+#: omweather/src/hash.data:158
+msgid "NNE_short"
+msgstr "NNE_short"
+
+#: omweather/src/hash.data:159
+msgid "NNW"
+msgstr "NNW"
+
+#: omweather/src/hash.data:160
+msgid "NNW_short"
+msgstr "NNW_short"
+
+#: omweather/src/hash.data:161
+msgid "NO STATION"
+msgstr "ISTASYON YOK"
+
+#: omweather/src/hash.data:162
+msgid "NW"
+msgstr "NW"
+
+#: omweather/src/hash.data:163
+msgid "NW_short"
+msgstr "NW_short"
+
+#: omweather/src/hash.data:164
+msgid "N_short"
+msgstr "N_short"
+
+#: omweather/src/weather-settings.c:545
+msgid "Name:"
+msgstr "Isim:"
+
+#: omweather/src/weather-settings.c:920 omweather/src/weather-settings.c:4190
+#: omweather/src/weather-config.c:324 omweather/src/weather-sensor.c:141
+#: omweather/src/weather-simple-settings.c:2802
+#: meecast/qt-qml/qml/UpdatePage.qml:133
+msgid "Never"
+msgstr "Asla"
+
+#: omweather/src/hash.data:165
+msgid "New"
+msgstr "Yeni"
+
+#: meecast/qt-qml/qml/NewStationPage.qml:38
+msgid "New location"
+msgstr "Yeni konum"
+
+#: omweather/src/weather-settings.c:4275
+msgid "Next update:"
+msgstr "Gelecek guncelleme:"
+
+#: meecast/netbook-UX/meego-panel-omweather.cpp:588
+#: meecast/qt-qml/qml/FullWeatherPage.qml:227
+msgid "Night"
+msgstr "Aksam"
+
+#: omweather/src/weather-popup.c:1046
+msgid "Night:"
+msgstr "Aksam:"
+
+#: omweather/src/weather-settings.c:825 meecast/qt-qml/qml/StationsPage.qml:78
+msgid "No"
+msgstr "Hayir"
+
+#: omweather/src/weather-popup.c:669
+msgid "No current weather data."
+msgstr "Simdilik tahmin bilgisi yok."
+
+#: omweather/src/hash.data:166 meecast/qt-qml/qml/WeatherPage.qml:313
+msgid "No locations are set up yet."
+msgstr "Henuz ayarli konum yok."
+
+#: omweather/src/weather-popup.c:657
+msgid "No weather data for this day."
+msgstr "Bugun icin hava durumu bilgisi yok."
+
+#: omweather/src/weather-popup.c:681 omweather/src/weather-simple-popup.c:608
+msgid "No weather data for this station."
+msgstr "Bu istasyon icin hava durumu bilgisi yok."
+
+#: omweather/src/weather-home.c:2734 omweather/src/weather-home.c:2746
+#: omweather/src/weather-popup.c:459 omweather/src/weather-popup.c:570
+#: omweather/src/weather-popup.c:576
+#: omweather/src/weather-simple-settings.c:2886
+#: meecast/netbook-UX/meego-panel-omweather.cpp:592
+#: meecast/netbook-UX/meego-panel-omweather.cpp:847
+#: meecast/qt-qml/dataitem.cpp:188 meecast/qt-qml/qml/FullWeatherPage.qml:129
+#: meecast/qt-qml/qml/WeatherPage.qml:541
+msgid "Now"
+msgstr "Simdi"
+
+#: omweather/src/weather-simple-settings.c:2880
+msgid "Now + 2 days vert."
+msgstr "Simdi +2 gun vert."
+
+#: omweather/src/weather-simple-settings.c:2889
+msgid "Now + 3 days hor."
+msgstr "Simdi +3 gun hor."
+
+#: omweather/src/weather-simple-settings.c:2883
+msgid "Now + 3 days vert."
+msgstr "Simdi +3 gun vert."
+
+#: omweather/src/weather-simple-settings.c:2877
+msgid "Now + 7 days vert."
+msgstr "Simdi +7 gun vert."
+
+#: omweather/src/weather-home.c:1531
+#, c-format
+msgid "Now: "
+msgstr "Simdi:"
+
+#: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1223
+#: meecast/qt-qml/qml/VisualsPage.qml:115
+msgid "OK"
+msgstr "TAMAM"
+
+#: omweather/src/weather-popup.c:532
+msgid "OMWeather Forecast"
+msgstr "OMWeather Hava Tahmini"
+
+#: omweather/src/weather-settings.c:1220
+#: omweather/src/weather-simple-settings.c:2998
+msgid "OMWeather Settings"
+msgstr "OMWeather Ayarlari"
+
+#: omweather/src/weather-home.c:1268 omweather/src/weather-home.c:2856
+msgid "OMWeather settings"
+msgstr "OMWeather ayarlari"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:206
+#: meecast/qt-qml/qml/VisualsPage.qml:269
+#: meecast/qt-qml/qml/VisualsPage.qml:305
+msgid "Ok"
+msgstr "Tamam"
+
+#: omweather/src/weather-help.c:64 omweather/src/weather-help.c:70
+msgid "Other Maemo Weather Info"
+msgstr "Diger Maemo Havadurumu Bilgisi"
+
+#: omweather/src/hash.data:177
+msgid "Overcast"
+msgstr "Kapali"
+
+#: omweather/src/hash.data:167
+msgid "Overcast and light rain"
+msgstr "Kapali ve hafif yagmur"
+
+#: omweather/src/hash.data:168
+msgid "Overcast and light snow"
+msgstr "Kapali ve hafif kar"
+
+#: omweather/src/hash.data:169
+msgid "Overcast and light wet snow"
+msgstr "Kapali ve hafif sulu kar"
+
+#: omweather/src/hash.data:170
+msgid "Overcast and rain"
+msgstr "Kapali ve yagmur"
+
+#: omweather/src/hash.data:171
+msgid "Overcast and showers"
+msgstr "Kapali ve sagnak"
+
+#: omweather/src/hash.data:173
+msgid "Overcast and snow"
+msgstr "Kapali ve kar"
+
+#: omweather/src/hash.data:172
+msgid "Overcast and snow showers"
+msgstr "Kapali ve sagnak kar"
+
+#: omweather/src/hash.data:175
+msgid "Overcast and wet snow"
+msgstr "Kapali ve sulu kar"
+
+#: omweather/src/hash.data:174
+msgid "Overcast and wet snow showers"
+msgstr "Kapali ve sulu sagnak kar"
+
+#: omweather/src/hash.data:176
+msgid "Overcast, thunderstorms with rain"
+msgstr "Kapali , yagmurlu ve firtinali"
+
+#: omweather/src/hash.data:178
+msgid "PM Fog"
+msgstr "PM Sis"
+
+#: omweather/src/hash.data:180
+msgid "PM Light Rain"
+msgstr "PM Hafif Yagmur"
+
+#: omweather/src/hash.data:179
+msgid "PM Light Rain / Wind"
+msgstr "PM Hafif Yagmur / Ruzgar"
+
+#: omweather/src/hash.data:182
+msgid "PM Light Snow"
+msgstr "PM Hafif Kar"
+
+#: omweather/src/hash.data:181
+msgid "PM Light Snow / Wind"
+msgstr "PM Hafif Kar / Ruzgar"
+
+#: omweather/src/hash.data:185
+msgid "PM Rain"
+msgstr "PM Yagmur"
+
+#: omweather/src/hash.data:183
+msgid "PM Rain / Snow"
+msgstr "PM Yagmur /  Kar"
+
+#: omweather/src/hash.data:184
+msgid "PM Rain / Wind"
+msgstr "PM Yagmur / Ruzgar"
+
+#: omweather/src/hash.data:187
+msgid "PM Showers"
+msgstr "PM Sagnak"
+
+#: omweather/src/hash.data:186
+msgid "PM Showers / Wind"
+msgstr "PM Sagnak / Ruzgar"
+
+#: omweather/src/hash.data:190
+msgid "PM Snow"
+msgstr "PM Kar"
+
+#: omweather/src/hash.data:189
+msgid "PM Snow Showers"
+msgstr "PM Sagnak Kar"
+
+#: omweather/src/hash.data:188
+msgid "PM Snow Showers / Wind"
+msgstr "PM Sagnak Kar / Ruzgar"
+
+#: omweather/src/hash.data:191
+msgid "PM T-Showers"
+msgstr "PM Siddetli Sagnak"
+
+#: omweather/src/hash.data:192
+msgid "PM T-Storms"
+msgstr "PM Siddetli Firtina"
+
+#: meecast/qt-qml/qml/UnitsPage.qml:194
+msgid "Pa"
+msgstr "Pa"
+
+#: omweather/src/hash.data:200
+msgid "Partly Cloudy"
+msgstr "Parcali Bulutlu"
+
+#: omweather/src/hash.data:194
+msgid "Partly Cloudy / Wind"
+msgstr "Parcali Bulutlu / Ruzgar"
+
+#: omweather/src/hash.data:195
+msgid "Partly Cloudy Few Snow"
+msgstr "Parcali Bulutlu / Hafif Kar"
+
+#: omweather/src/hash.data:196
+msgid "Partly Cloudy Light Rain"
+msgstr "Parcali Bulutlu , Hafif Yagmur"
+
+#: omweather/src/hash.data:197
+msgid "Partly Cloudy T-Storm"
+msgstr "Parcali Bulutlu ve Firtina"
+
+#: omweather/src/hash.data:198
+msgid "Partly Cloudy and Windly"
+msgstr "Parcali Bulutlu ve Ruzgarli"
+
+#: omweather/src/hash.data:199
+msgid "Partly Cloudy and Windy"
+msgstr "Parcali Bulutlu ve Ruzgarli"
+
+#: omweather/src/hash.data:201
+msgid "Partly Cloudy, Few Snow"
+msgstr "Parcali Bulutlu , Hafif Kar"
+
+#: omweather/src/hash.data:202
+msgid "Partly Cloudy, Haze"
+msgstr "Parcali Bulutlu , Sis"
+
+#: omweather/src/hash.data:203
+msgid "Partly Cloudy, Heavy Rain"
+msgstr "Parcali Bulutlu , Siddetli Yagmur"
+
+#: omweather/src/hash.data:204
+msgid "Partly Cloudy, Heavy Rain, T-Storm"
+msgstr "Parcali Bulutlu , Siddetli Yagmur , Firtina"
+
+#: omweather/src/hash.data:205
+msgid "Partly Cloudy, Heavy Snow"
+msgstr "Parcali Bulutlu , Siddetli Kar"
+
+#: omweather/src/hash.data:206
+msgid "Partly Cloudy, Light Rain"
+msgstr "Parcali Bulutlu , Hafif Yagmur"
+
+#: omweather/src/hash.data:207
+msgid "Partly Cloudy, Light Rain, T-Storm"
+msgstr "Parcali Bulutlu , Hafif Yagmur , Siddetli Firtina"
+
+#: omweather/src/hash.data:208
+msgid "Partly Cloudy, Rain"
+msgstr "Parcali Bulutlu , Yagmur"
+
+#: omweather/src/hash.data:209
+msgid "Partly Cloudy, Rain, T-Storm"
+msgstr "Parcali Bulutlu , Yagmur , Firtina"
+
+#: omweather/src/hash.data:210
+msgid "Partly Cloudy, Smoke"
+msgstr "Parcali Bulutlu , Duman"
+
+#: omweather/src/hash.data:211
+msgid "Partly Cloudy, Snow"
+msgstr "Parcali Bulutlu , Kar"
+
+#: omweather/src/hash.data:212
+msgid "Partly Cloudy, T-Storm"
+msgstr "Parcali Bulutlu , Firtina"
+
+#: omweather/src/hash.data:220
+msgid "Partly cloudy"
+msgstr "Parcali bulutlu "
+
+#: omweather/src/hash.data:213
+msgid "Partly cloudy and light rain"
+msgstr "Parcali bulutlu ve hafif yagmur"
+
+#: omweather/src/hash.data:214
+msgid "Partly cloudy and light snow"
+msgstr "Parcali bulutlu ve hafif kar"
+
+#: omweather/src/hash.data:215
+msgid "Partly cloudy and light wet snow"
+msgstr "Parcali bulutlu ve hafif sulu kar"
+
+#: omweather/src/hash.data:216
+msgid "Partly cloudy and showers"
+msgstr "Parcali bulutlu ve saganak"
+
+#: omweather/src/hash.data:217
+msgid "Partly cloudy and snow showers"
+msgstr "Parcali bulutlu ve sagnak kar"
+
+#: omweather/src/hash.data:218
+msgid "Partly cloudy and wet snow showers"
+msgstr "Parcali bulutlu ve islak sagnak kar"
+
+#: omweather/src/hash.data:193 omweather/src/hash.data:219
+msgid "Partly cloudy, possible thunderstorms with rain"
+msgstr "Parcali bulutlu , yagmurla beraber firtina ihtimali var."
+
+#: omweather/src/weather-simple-settings.c:1676
+msgid "Period"
+msgstr "Periyot"
+
+#: omweather/src/weather-settings.c:3649
+msgid "Position:"
+msgstr "Pozisyon:"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:147
+#: meecast/qt-qml/qml/FullWeatherPage.qml:204
+#: meecast/qt-qml/qml/FullWeatherPage.qml:253
+msgid "Ppcp:"
+msgstr "Ppcp:"
+
+#: omweather/src/weather-simple-settings.c:1653
+#: omweather/src/weather-simple-settings.c:2836
+msgid "Preference|Update"
+msgstr "Tercihler|Guncelleme"
+
+#: omweather/src/weather-simple-settings.c:1460
+msgid "Pressure"
+msgstr "Basinc"
+
+#: meecast/qt-qml/qml/UnitsPage.qml:49 meecast/qt-qml/qml/UnitsPage.qml:176
+msgid "Pressure units"
+msgstr "Basic uniteleri"
+
+#: omweather/src/weather-settings.c:4049
+msgid "Pressure units:"
+msgstr "Basic uniteleri:"
+
+#: omweather/src/weather-popup.c:1308
+#: meecast/netbook-UX/meego-panel-omweather.cpp:697
+#: meecast/qt-qml/dataitem.cpp:186 meecast/qt-qml/qml/FullWeatherPage.qml:141
+#: meecast/qt-qml/qml/FullWeatherPage.qml:198
+#: meecast/qt-qml/qml/FullWeatherPage.qml:247
+msgid "Pressure:"
+msgstr "Basinc:"
+
+#: omweather/src/weather-home.c:1393 omweather/src/weather-home.c:1448
+msgid "Pressure: "
+msgstr "Basinc:"
+
+#: meecast/qt-qml/qml/AboutPage.qml:138
+msgid "Project administrator"
+msgstr "Proje yoneticisi"
+
+#: meecast/qt-qml/qml/AboutPage.qml:186
+msgid "Project manager"
+msgstr "Proje yoneticisi"
+
+#: meecast/qt-qml/qml/AboutPage.qml:86
+msgid "Project website"
+msgstr "Proje websitesi"
+
+#: meecast/netbook-UX/meego-panel-omweather.cpp:922
+msgid "Provided by"
+msgstr "Saglayici :"
+
+#: omweather/src/hash.data:241
+msgid "Rain"
+msgstr "Yagmur"
+
+#: omweather/src/hash.data:221
+msgid "Rain / Freezing Rain"
+msgstr "Yagmur / Dondurucu Yagmur"
+
+#: omweather/src/hash.data:228
+msgid "Rain / Snow"
+msgstr "Yagmur / Kar"
+
+#: omweather/src/hash.data:222
+msgid "Rain / Snow / Wind"
+msgstr "Yagmur / Kar / Ruzgar"
+
+#: omweather/src/hash.data:223
+msgid "Rain / Snow Early"
+msgstr "Yagmur / Sabahtan Kar"
+
+#: omweather/src/hash.data:224
+msgid "Rain / Snow Late"
+msgstr "Yagmur / Aksama Dogru Kar"
+
+#: omweather/src/hash.data:227
+msgid "Rain / Snow Showers"
+msgstr "Yagmur / Sagnak Kar"
+
+#: omweather/src/hash.data:225
+msgid "Rain / Snow Showers / Wind"
+msgstr "Yagmur / Sagnak Kar / Ruzgar"
+
+#: omweather/src/hash.data:226
+msgid "Rain / Snow Showers Late"
+msgstr "Yagmur / Aksama Dogru Karla Karisik Yagmur"
+
+#: omweather/src/hash.data:229
+msgid "Rain / Thunder"
+msgstr "Yagmur / Firtina"
+
+#: omweather/src/hash.data:231
+msgid "Rain / Wind"
+msgstr "Yagmur / Ruzgar"
+
+#: omweather/src/hash.data:230
+msgid "Rain / Wind Early"
+msgstr "Yagmur / Sabahtam Ruzgar"
+
+#: omweather/src/hash.data:232
+msgid "Rain Early"
+msgstr "Sabahtan Yagmur"
+
+#: omweather/src/hash.data:233
+msgid "Rain Late"
+msgstr "Aksama Dogru Yagmur"
+
+#: omweather/src/hash.data:235
+msgid "Rain Shower"
+msgstr "Sagnak Yagmur"
+
+#: omweather/src/hash.data:234
+msgid "Rain Shower and Windy"
+msgstr "Sagnak Yagmur ve Ruzgar"
+
+#: omweather/src/hash.data:236
+msgid "Rain Showers"
+msgstr "Sagnak Yagmur"
+
+#: omweather/src/hash.data:237
+msgid "Rain and Snow"
+msgstr "Yagmur ve Kar"
+
+#: omweather/src/hash.data:238
+msgid "Rain to Snow / Wind"
+msgstr "Karla "
+
+#: omweather/src/hash.data:240
+msgid "Rain to Wintry Mix"
+msgstr "Yagmurdan Karisik Soguga"
+
+#: omweather/src/hash.data:239
+msgid "Rain to Wintry Mix / Wind"
+msgstr "Yagmurdan Karisik Soguga / Ruzgarli"
+
+#: omweather/src/weather-sensor.c:127
+msgid "Read sensor every:"
+msgstr "Sensoru oku her:"
+
+#: omweather/src/weather-simple-settings.c:733
+#: omweather/src/weather-simple-settings.c:786
+#: omweather/src/weather-simple-settings.c:2327
+msgid "Region"
+msgstr "Bolge"
+
+#: omweather/src/hash.data:242
+msgid "Rush Hour Traffic"
+msgstr "Trafik Yogunlugu"
+
+#: omweather/src/hash.data:243
+msgid "S"
+msgstr "S"
+
+#: omweather/src/hash.data:244
+msgid "SE"
+msgstr "SE"
+
+#: omweather/src/hash.data:245
+msgid "SE_short"
+msgstr "SE_short"
+
+#: omweather/src/hash.data:246
+msgid "SSE"
+msgstr "SSE"
+
+#: omweather/src/hash.data:247
+msgid "SSE_short"
+msgstr "SSE_short"
+
+#: omweather/src/hash.data:248
+msgid "SSW"
+msgstr "SSW"
+
+#: omweather/src/hash.data:249
+msgid "SSW_short"
+msgstr "SSW_short"
+
+#: omweather/src/hash.data:250
+msgid "SW"
+msgstr "SW"
+
+#: omweather/src/hash.data:251
+msgid "SW_short"
+msgstr "SW_short"
+
+#: omweather/src/hash.data:252
+msgid "S_short"
+msgstr "S_short"
+
+#: omweather/src/weather-simple-settings.c:359
+#: omweather/src/weather-simple-settings.c:457
+#: omweather/src/weather-simple-settings.c:1509
+#: omweather/src/weather-simple-settings.c:1850
+#: omweather/src/weather-simple-settings.c:2019
+#: omweather/src/weather-simple-settings.c:2396
+#: omweather/src/weather-simple-settings.c:3125
+msgid "Save"
+msgstr "Kaydet"
+
+#: omweather/src/hash.data:253
+msgid "Scattered Showers"
+msgstr "Seyrek Yagmur"
+
+#: omweather/src/hash.data:255
+msgid "Scattered Snow"
+msgstr "Seyrek Kar"
+
+#: omweather/src/hash.data:254
+msgid "Scattered Snow Showers"
+msgstr "Seyrek Sagnak Yagmur"
+
+#: omweather/src/hash.data:256
+msgid "Scattered T-Storms"
+msgstr "Daginik Firtinalar"
+
+#: omweather/src/weather-settings.c:3943
+msgid "Sea miles"
+msgstr "Deniz mili"
+
+#: omweather/src/weather-settings.c:474
+msgid "Search"
+msgstr "Ara"
+
+#: meecast/qt-qml/qml/NewStationPage.qml:73
+#: meecast/qt-qml/qml/NewStationPage.qml:120
+msgid "Select city"
+msgstr "Sehir sec"
+
+#: meecast/qt-qml/qml/CountryPage.qml:153
+#: meecast/qt-qml/qml/NewStationPage.qml:55
+#: meecast/qt-qml/qml/NewStationPage.qml:102
+msgid "Select country"
+msgstr "Ulke sec"
+
+#: omweather/src/weather-simple-settings.c:2168
+#: meecast/qt-qml/qml/CityPage.qml:142
+msgid "Select location"
+msgstr "Konum sec"
+
+#: meecast/qt-qml/qml/NewStationPage.qml:64
+#: meecast/qt-qml/qml/NewStationPage.qml:111
+#: meecast/qt-qml/qml/RegionPage.qml:144
+msgid "Select region"
+msgstr "Bolge sec"
+
+#: meecast/qt-qml/qml/NewStationPage.qml:46
+#: meecast/qt-qml/qml/NewStationPage.qml:93
+msgid "Select source"
+msgstr "Kaynak sec"
+
+#: meecast/qt-qml/qml/LockScreen.qml:85
+msgid "Select the X-position for left corner of widget"
+msgstr ""
+
+#: meecast/qt-qml/qml/LockScreen.qml:125
+msgid "Select the Y-position for left corner of widget"
+msgstr ""
+
+#: meecast/qt-qml/qml/StandbyScreen.qml:267
+msgid "Select the color of font for current temperature"
+msgstr ""
+
+#: meecast/qt-qml/qml/StandbyScreen.qml:123
+msgid "Select the color of font for station name"
+msgstr ""
+
+#: meecast/qt-qml/qml/StandbyScreen.qml:195
+msgid "Select the color of font for temperature"
+msgstr ""
+
+#: meecast/qt-qml/qml/IconsetPage.qml:97
+msgid "Select the iconset"
+msgstr "Ikonset sec"
+
+#: meecast/qt-qml/qml/SourcePage.qml:108
+msgid "Select the weather source"
+msgstr "Havadurumu kaynagini sec"
+
+#: omweather/src/weather-simple-settings.c:1035
+#, c-format
+msgid "Selecting country"
+msgstr "Ulke seciliyor"
+
+#: omweather/src/weather-simple-settings.c:1043
+#, c-format
+msgid "Selecting region"
+msgstr "Bolge seciliyor"
+
+#: omweather/src/weather-simple-settings.c:1039
+#, c-format
+msgid "Selecting source"
+msgstr "Kaynak seciliyor"
+
+#: omweather/src/weather-simple-settings.c:1047
+#, c-format
+msgid "Selecting station"
+msgstr "Istasyon seciliyor"
+
+#: omweather/src/weather-settings.c:1150 omweather/src/weather-settings.c:1362
+#: omweather/src/weather-settings.c:1366 omweather/src/weather-sensor.c:263
+msgid "Sensor"
+msgstr "Sensor"
+
+#: omweather/src/weather-simple-settings.c:2228
+msgid "Set"
+msgstr "Ayarla"
+
+#: omweather/src/hash.data:257 meecast/qt-qml/qml/WeatherPage.qml:327
+msgid "Set locations"
+msgstr "Konumlari ayarla"
+
+#: omweather/src/weather-home.c:1291 omweather/src/weather-simple-popup.c:1157
+#: omweather/src/weather-simple-status.c:158
+#: meecast/qt-qml/qml/SettingsPage.qml:139
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: meecast/qt-qml/qml/LockScreen.qml:65
+msgid "Settings for Lockscreen widget"
+msgstr ""
+
+#: meecast/qt-qml/qml/StandbyScreen.qml:102
+#, fuzzy
+msgid "Settings for standby widget"
+msgstr "Bekleme Ekrani Ayarlari"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:534
+#, fuzzy
+msgid "Settings of LockScreen"
+msgstr "Bekleme Ekrani Ayarlari"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:514
+msgid "Settings of StandbyScreen"
+msgstr "Bekleme Ekrani Ayarlari"
+
+#: omweather/src/hash.data:258
+msgid "Shallow Fog"
+msgstr "Hafif Duman"
+
+#: omweather/src/weather-settings.c:3465
+msgid "Short"
+msgstr "Kisa"
+
+#: omweather/src/weather-settings.c:3824
+msgid "Show arrows"
+msgstr "Oklari goster"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:600
+#, fuzzy
+msgid "Show on Map"
+msgstr "Istasyon adini goster"
+
+#: omweather/src/weather-settings.c:3754
+msgid "Show only current weather on first icon"
+msgstr "Ilk ikonda sadece simdiki havadurumunu goster"
+
+#: omweather/src/weather-settings.c:3801
+msgid "Show station name"
+msgstr "Istasyon adini goster"
+
+#: omweather/src/weather-sensor.c:86
+msgid "Show temperature at:"
+msgstr "Burada sicakligi goster"
+
+#: omweather/src/weather-settings.c:3795
+msgid "Show wind"
+msgstr "Ruzgari goster"
+
+#: omweather/src/hash.data:264
+msgid "Showers"
+msgstr "Saganak"
+
+#: omweather/src/hash.data:260
+msgid "Showers / Wind"
+msgstr "Saganak / Ruzgar"
+
+#: omweather/src/hash.data:259
+msgid "Showers / Wind Early"
+msgstr "Saganak / Sabahtan Ruzgar"
+
+#: omweather/src/hash.data:261
+msgid "Showers Early"
+msgstr "Sabahtan Saganak"
+
+#: omweather/src/hash.data:262
+msgid "Showers Late"
+msgstr "Aksama Dogru Saganak"
+
+#: omweather/src/hash.data:263
+msgid "Showers in the Vicinity"
+msgstr "Cevredeki Saganaklar"
+
+#: omweather/src/hash.data:265
+msgid "Sleet"
+msgstr "Sulu Kar"
+
+#: omweather/src/hash.data:266
+msgid "Smoke"
+msgstr "Duman"
+
+#: omweather/src/hash.data:277
+msgid "Snow"
+msgstr "Kar"
+
+#: omweather/src/hash.data:267
+msgid "Snow / Wind"
+msgstr "Kar / Ruzgar"
+
+#: omweather/src/hash.data:269
+msgid "Snow Shower"
+msgstr "Sagnak Kar"
+
+#: omweather/src/hash.data:268
+msgid "Snow Shower / Wind"
+msgstr "Sagnak Kar / Ruzgar"
+
+#: omweather/src/hash.data:270
+msgid "Snow Showers / Wind Early"
+msgstr "Saganak Kar / Sabahtan Ruzgar"
+
+#: omweather/src/hash.data:271
+msgid "Snow Showers Early"
+msgstr "Sabahtan Saganak Kar"
+
+#: omweather/src/hash.data:272
+msgid "Snow Showers Late"
+msgstr "Aksama Dogru Saganak Kar"
+
+#: omweather/src/hash.data:273
+msgid "Snow and Freezing Rain"
+msgstr "Kar ve Dondurucu Yagmur"
+
+#: omweather/src/hash.data:274
+msgid "Snow to Rain"
+msgstr "Kardan Yagmura"
+
+#: omweather/src/hash.data:276
+msgid "Snow to Wintry Mix"
+msgstr "Kardan Karisik Soguk Havaya"
+
+#: omweather/src/hash.data:275
+msgid "Snow to Wintry Mix / Wind"
+msgstr "Kardan Karisik Soguk Havaya / Ruzgar"
+
+#: omweather/src/weather-simple-settings.c:2295
+msgid "Source"
+msgstr "Kaynak"
+
+#: omweather/src/weather-settings.c:498
+msgid "Source:"
+msgstr "Kaynak:"
+
+#: omweather/src/weather-popup.c:998 omweather/src/weather-popup.c:1004
+#: omweather/src/weather-popup.c:1011 omweather/src/weather-popup.c:1129
+#: omweather/src/weather-popup.c:1135 omweather/src/weather-popup.c:1142
+#: omweather/src/weather-simple-settings.c:1389
+msgid "Speed"
+msgstr "Hiz"
+
+#: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
+#: meecast/netbook-UX/meego-panel-omweather.cpp:772
+#: meecast/qt-qml/dataitem.cpp:184
+msgid "Speed:"
+msgstr "Hiz:"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:491
+msgid "Splash screen"
+msgstr "Yukleme ekrani"
+
+#: omweather/src/weather-settings.c:522
+msgid "State:"
+msgstr "Durum:"
+
+#: omweather/src/weather-simple-settings.c:2512
+#, c-format
+msgid "Station %i"
+msgstr "Istasyon %i"
+
+#: omweather/src/weather-settings.c:1114 omweather/src/weather-settings.c:1292
+#: omweather/src/weather-settings.c:1297
+msgid "Stations"
+msgstr "Istasyonlar"
+
+#: omweather/src/hash.data:278 omweather/src/weather-alerts.c:154
+msgid "Storm"
+msgstr "Firtina"
+
+#: omweather/src/weather-download.c:392
+msgid "Successfully loaded"
+msgstr "Basariyla yuklendi"
+
+#: omweather/src/hash.data:280
+msgid "Sunny"
+msgstr "Gunesli"
+
+#: omweather/src/hash.data:279
+msgid "Sunny / Wind"
+msgstr "Gunesli / Ruzgarli"
+
+#: omweather/src/hash.data:281 meecast/qt-qml/qml/FullWeatherPage.qml:288
+msgid "Sunrise:"
+msgstr "Gundogumu:"
+
+#: omweather/src/weather-popup.c:125 omweather/src/weather-popup.c:1019
+msgid "Sunrise: "
+msgstr "Gundogumu:"
+
+#: omweather/src/hash.data:282 meecast/qt-qml/qml/FullWeatherPage.qml:291
+msgid "Sunset:"
+msgstr "Gunbatimi:"
+
+#: omweather/src/weather-popup.c:139 omweather/src/weather-popup.c:1150
+msgid "Sunset: "
+msgstr "Gunbatimi:"
+
+#: omweather/src/weather-settings.c:3773
+msgid "Swap hi/low temperature"
+msgstr "Yuksek/dusuk sicakligi donustur"
+
+#: omweather/src/weather-settings.c:4180
+msgid "Switch to the next station after:"
+msgstr "Bundan sonra ileriki istasyona degistir:"
+
+#: omweather/src/hash.data:284
+msgid "T-Showers"
+msgstr "Siddetli Sagnak"
+
+#: omweather/src/hash.data:283
+msgid "T-Showers Early"
+msgstr "Sabahtan Siddetli Sagnak"
+
+#: omweather/src/hash.data:285
+msgid "T-Storm"
+msgstr "Firtina"
+
+#: omweather/src/hash.data:288
+msgid "T-Storms"
+msgstr "Firtinalar"
+
+#: omweather/src/hash.data:286
+msgid "T-Storms Early"
+msgstr "Sabahtan Firtina"
+
+#: omweather/src/hash.data:287
+msgid "T-Storms Late"
+msgstr "Aksama Dogru Firtina"
+
+#: omweather/src/weather-popup.c:947 omweather/src/weather-popup.c:950
+#: omweather/src/weather-popup.c:1080 omweather/src/weather-popup.c:1083
+#: omweather/src/weather-simple-settings.c:1267
+msgid "Temperature"
+msgstr "Sicaklik"
+
+#: omweather/src/hash.data:289 meecast/qt-qml/qml/UnitsPage.qml:31
+#: meecast/qt-qml/qml/UnitsPage.qml:103
+msgid "Temperature units"
+msgstr "Sicaklik uniteleri"
+
+#: omweather/src/weather-settings.c:3858
+msgid "Temperature units:"
+msgstr "Sicaklik uniteleri:"
+
+#: meecast/netbook-UX/meego-panel-omweather.cpp:660
+#: meecast/qt-qml/dataitem.cpp:178
+msgid "Temperature:"
+msgstr "Sicaklik:"
+
+#: omweather/src/weather-popup.c:1259 omweather/src/weather-popup.c:1441
+msgid "Temperature: "
+msgstr "Sicaklik:"
+
+#: omweather/src/weather-help.c:138
+msgid "Thanks"
+msgstr "Tesekkurler"
+
+#: omweather/src/weather-download.c:401
+msgid "The weather has been updated."
+msgstr "Havadurumu guncellendi."
+
+#: meecast/qt-qml/qml/AboutPage.qml:252
+msgid ""
+"This software is free software; you can\n"
+" redistribute it and/or modify it under \n"
+" the terms of the GNU General Public\n"
+" License as published by the Free Software \n"
+" Foundation; either version 2.1 of the \n"
+" License, or (at your option) any \n"
+" later version."
+msgstr ""
+"Bu yazilim ucretsiz bir yazilimdir ; \n"
+"GNU General Public lisansi altindaki haklara gore tekrar yayinlayabilir veya "
+"modifiye edebilirsiniz.\n"
+"Lisans , Free Software Foundation tarafindan paylasildigi gibi ,\n"
+"hem 2.1 versiyonu vehem de (isteginize gore) farkli bir ileriki version "
+"olabilir."
+
+#: meecast/netbook-UX/meego-panel-omweather.cpp:438
+msgid ""
+"This software is free software; you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License\n"
+msgstr ""
+"Bu yazilim ucretsiz bir yazilimdir ; GNU General Public lisansi altindaki "
+"haklara gore tekrar yayinlayabilir veya modifiye edebilirsiniz. \n"
+
+#: omweather/src/hash.data:290
+msgid "Thunder"
+msgstr "Gok gurultusu"
+
+#: omweather/src/hash.data:291
+msgid "Thunder in the Vicinity"
+msgstr "Cevredeki Firtina"
+
+#: omweather/src/weather-simple-popup.c:421
+#: omweather/src/weather-simple-popup.c:424
+#: meecast/qt-qml/qml/FullWeatherPage.qml:423
+#: meecast/qt-qml/qml/WeatherPage.qml:541
+msgid "Today"
+msgstr "Bugun"
+
+#: omweather/src/weather-help.c:154 meecast/qt-qml/qml/AboutPage.qml:202
+msgid "Translators"
+msgstr "Ceviriler"
+
+#: meecast/netbook-UX/meego-panel-omweather.cpp:427
+msgid ""
+"Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - "
+"Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
+msgstr ""
+"Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - "
+"Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose \n"
+
+#: omweather/src/weather-settings.c:3272 omweather/src/weather-settings.c:3277
+#: omweather/src/weather-settings.c:3295
+msgid "Transparency:"
+msgstr "Transparanlik:"
+
+#: omweather/src/hash.data:292 meecast/qt-qml/qml/WeatherPage.qml:501
+msgid "Try to update"
+msgstr "Guncelle"
+
+#: omweather/src/weather-settings.c:3452
+msgid "Type of click:"
+msgstr "Tiklama turu:"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:172
+msgid "UV index:"
+msgstr ""
+
+#: omweather/src/weather-settings.c:1135 omweather/src/weather-settings.c:1334
+#: omweather/src/weather-settings.c:1338
+#: omweather/src/weather-simple-settings.c:1251
+#: omweather/src/weather-simple-settings.c:2732
+msgid "Units"
+msgstr "Uniteler"
+
+#: omweather/src/weather-home.c:240 omweather/src/weather-settings.c:78
+#: omweather/src/weather-popup.c:266 omweather/src/weather-popup.c:278
+#: omweather/src/weather-download.c:468
+#: omweather/src/weather-simple-popup.c:163
+#: omweather/src/weather-simple-popup.c:271
+#: omweather/src/weather-simple-popup.c:280
+#: omweather/src/weather-simple-settings.c:880
+#: omweather/src/weather-simple-settings.c:2278
+#: omweather/src/weather-simple-settings.c:2601
+#: omweather/src/weather-simple-settings.c:2605
+#: omweather/src/weather-simple-settings.c:2631
+#: omweather/src/weather-simple-settings.c:2633
+msgid "Unknown"
+msgstr "Bilinmeyen"
+
+#: omweather/src/hash.data:293
+msgid "Unlimited"
+msgstr "Limitsiz"
+
+#: omweather/src/weather-settings.c:1142 omweather/src/weather-settings.c:1348
+#: omweather/src/weather-settings.c:1352
+msgid "Update"
+msgstr "Guncelle"
+
+#: omweather/src/weather-download.c:425
+msgid "Update already running."
+msgstr "Guncelleme zaten calisiyor."
+
+#: meecast/qt-qml/qml/UpdatePage.qml:122
+msgid "Update interval"
+msgstr "Guncelleme araligi"
+
+#: omweather/src/hash.data:294 meecast/qt-qml/qml/WeatherPage.qml:360
+msgid "Updating forecast"
+msgstr "Havatahmini guncelleniyor"
+
+#: omweather/src/weather-settings.c:4264
+msgid "Updating of weather data:"
+msgstr "Hava durumunun guncellenmesi :"
+
+#: omweather/src/weather-download.c:174
+msgid "Updating weather"
+msgstr "Hava Durumu Guncelleniyor"
+
+#: omweather/src/weather-settings.c:1944
+msgid ""
+"Use Edit layout \n"
+"for tuning images of applet"
+msgstr "Eklentinin imajlarini ayarlamak icin 'Duzeni Degistir'i kullanin."
+
+#: omweather/src/weather-simple-settings.c:1835
+msgid ""
+"Use GSM and/or WLAN for periodic updating\n"
+" the weather information.\n"
+msgstr ""
+"Hava durumu bilgisini periyodik guncellemek icin\n"
+"GSM ve/veya WLAN kullan.\n"
+
+#: omweather/src/weather-sensor.c:65
+msgid "Use device temperature sensor"
+msgstr "Cihazin sicaklik sensorunu kullan"
+
+#: omweather/src/hash.data:295
+msgid "VAR"
+msgstr "VAR"
+
+#: omweather/src/weather-settings.c:4231
+msgid "Valid time for current weather:"
+msgstr "Simdiki hava durumu icin uygun zaman:"
+
+#: omweather/src/hash.data:296
+msgid "Very High"
+msgstr "Cok Yuksek"
+
+#: omweather/src/weather-settings.c:3517 omweather/src/weather-settings.c:3522
+msgid "Visible items:"
+msgstr "Gorunebilir esyalar:"
+
+#: meecast/qt-qml/qml/UnitsPage.qml:58 meecast/qt-qml/qml/UnitsPage.qml:209
+#, fuzzy
+msgid "Visible units"
+msgstr "Gorunebilir esyalar:"
+
+#: omweather/src/weather-popup.c:1288
+#: meecast/qt-qml/qml/FullWeatherPage.qml:169
+msgid "Visible:"
+msgstr "Gorunebilme:"
+
+#: omweather/src/weather-settings.c:1121 omweather/src/weather-settings.c:1307
+#: omweather/src/weather-settings.c:1312
+msgid "Visuals"
+msgstr "Goruntuler"
+
+#: omweather/src/hash.data:297
+msgid "W"
+msgstr "W"
+
+#: omweather/src/weather-simple-settings.c:1789
+#: omweather/src/weather-simple-settings.c:1796
+#: omweather/src/weather-simple-settings.c:2830
+msgid "WLAN"
+msgstr "WLAN"
+
+#: omweather/src/hash.data:298
+msgid "WNW"
+msgstr "WNW"
+
+#: omweather/src/hash.data:299
+msgid "WNW_short"
+msgstr "WNW_short"
+
+#: omweather/src/hash.data:300
+msgid "WSW"
+msgstr "WSW"
+
+#: omweather/src/hash.data:301
+msgid "WSW_short"
+msgstr "WSW_short"
+
+#: omweather/src/hash.data:302
+msgid "W_short"
+msgstr "W_short"
+
+#: omweather/src/hash.data:303
+msgid "Waning Crescent"
+msgstr "Hilal Ay"
+
+#: omweather/src/hash.data:304
+msgid "Waning Gibbous"
+msgstr "Dolunay"
+
+#: omweather/src/weather-simple-settings.c:846
+msgid "Warning"
+msgstr "Dikkat"
+
+#: omweather/src/hash.data:305
+msgid "Waxing Crescent"
+msgstr "Hilal Ay"
+
+#: omweather/src/hash.data:306
+msgid "Waxing Gibbous"
+msgstr "Dolunay"
+
+#: omweather/src/weather-popup.c:1553
+msgid "Weather data provided by: "
+msgstr "Havadurumunu saglayan:"
+
+#: meecast/netbook-UX/meego-panel-omweather.cpp:410
+msgid "Weather forecast for the Meego. Version "
+msgstr "MeeGo icin Havadurumu. Version"
+
+#: omweather/src/weather-utils.c:797
+msgid "Widget OMWeather is reloading"
+msgstr "Widget OMWeather tekrar yukleniyor"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:437
+msgid "Widget in LockScreen"
+msgstr "Kilit Ekraninda Eklenti"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:464
+msgid "Widget in StandbyScreen"
+msgstr "Bekleme Ekraninda Eklenti"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:411
+msgid "Widget in events view"
+msgstr "Etkinlikler Gorunumunde Eklenti"
+
+#: omweather/src/weather-simple-settings.c:2914
+#: omweather/src/weather-simple-settings.c:2922
+msgid "Widget style"
+msgstr "Eklenti stili"
+
+#: omweather/src/weather-simple-settings.c:393
+msgid "Widget style and Iconset"
+msgstr "Eklenti stili ve Ikonseti"
+
+#: omweather/src/hash.data:310
+msgid "Wind"
+msgstr "Ruzgar"
+
+#: omweather/src/hash.data:307 meecast/qt-qml/qml/FullWeatherPage.qml:138
+#: meecast/qt-qml/qml/FullWeatherPage.qml:195
+#: meecast/qt-qml/qml/FullWeatherPage.qml:244
+msgid "Wind direction:"
+msgstr "Ruzgar yonu:"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:150
+#: meecast/qt-qml/qml/FullWeatherPage.qml:207
+#: meecast/qt-qml/qml/FullWeatherPage.qml:256
+msgid "Wind gust:"
+msgstr "Ani Ruzgar:"
+
+#: omweather/src/hash.data:309 meecast/qt-qml/qml/FullWeatherPage.qml:144
+#: meecast/qt-qml/qml/FullWeatherPage.qml:201
+#: meecast/qt-qml/qml/FullWeatherPage.qml:250
+msgid "Wind speed"
+msgstr "Ruzgar hizi"
+
+#: omweather/src/hash.data:308 meecast/qt-qml/qml/UnitsPage.qml:40
+#: meecast/qt-qml/qml/UnitsPage.qml:142
+msgid "Wind speed units"
+msgstr "Ruzgar hizİ uniteleri"
+
+#: omweather/src/weather-settings.c:3974
+msgid "Wind speed units:"
+msgstr "Ruzgar hizİ uniteleri:"
+
+#: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
+#: meecast/netbook-UX/meego-panel-omweather.cpp:747
+#: meecast/qt-qml/dataitem.cpp:182
+msgid "Wind:"
+msgstr "Ruzgar:"
+
+#: omweather/src/weather-home.c:1409 omweather/src/weather-home.c:1464
+#: omweather/src/weather-popup.c:992 omweather/src/weather-popup.c:1123
+msgid "Wind: "
+msgstr "Ruzgar:"
+
+#: omweather/src/hash.data:314
+msgid "Wintry Mix"
+msgstr "Karisik Soguk"
+
+#: omweather/src/hash.data:312
+msgid "Wintry Mix / Wind"
+msgstr "Karisik Soguk / Ruzgar"
+
+#: omweather/src/hash.data:311
+msgid "Wintry Mix / Wind Early"
+msgstr "Karisik Soguk / Sabahtan Ruzgarli"
+
+#: omweather/src/hash.data:313
+msgid "Wintry Mix to Snow"
+msgstr "Karisik Soguktan Kar Yagisina"
+
+#: omweather/src/weather-home.c:844
+msgid ""
+"Wrong station code \n"
+"or ZIP code!!!"
+msgstr ""
+"Yanlis istasyon\n"
+"veya ZIP kodu !!"
+
+#: omweather/src/weather-settings.c:824 meecast/qt-qml/qml/StationsPage.qml:77
+msgid "Yes"
+msgstr "Evet"
+
+#: omweather/src/weather-simple-popup.c:1233
+msgid "You can make donation here: "
+msgstr "Buradan bagis yapabilirsiniz :"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:193
+msgid ""
+"You should activate \n"
+"'Widget in events view'\n"
+" for using LockScreen widget"
+msgstr ""
+"Kilit ekranı eklentisini kullanabilmeniz icin \n"
+"oncelikle 'Etkinlik ekranindaki eklenti' yi\n"
+"aktiflestirmeniz gerekir."
+
+#: meecast/qt-qml/qml/VisualsPage.qml:256
+msgid ""
+"You should activate \n"
+"'Widget in events view'\n"
+" for using StandbyScreen widget"
+msgstr ""
+"Bekleme ekranı eklentisini kullanabilmeniz icin \n"
+"oncelikle 'Etkinlik ekranindaki eklenti' yi\n"
+"aktiflestirmeniz gerekir."
+
+#: meecast/qt-qml/qml/UpdatePage.qml:73
+msgid ""
+"You should activate 'Widget in the events view' option in MeeCast appearance "
+"settings for auto update."
+msgstr "Otomatik guncelleme icin ayarlardaki 'Etkinlikler gorunumunde"
+
+#: omweather/src/weather-simple-settings.c:2758
+msgid "Zoom in popup window "
+msgstr "Popup penceresine yakinlas"
+
+#: omweather/src/weather-simple-settings.c:1915
+msgid "Zooming in popup window"
+msgstr "Popup penceresine yakinlas"
+
+#: meecast/netbook-UX/meego-panel-omweather.cpp:439
+msgid ""
+"as published by the Free Software Foundation; either version 2.1 of the "
+"License, or (at your option) any later version."
+msgstr ""
+"Free Software Foundation tarafindan yayinlanmistir , lisansin 2.1 surumu "
+"veya (istege bagli) farkli bir surumu."
+
+#: omweather/src/weather-popup.c:286
+msgid "current location local time"
+msgstr "simdiki yerel konum saati"
+
+#: omweather/src/weather-simple-popup.c:432
+msgid "d:"
+msgstr "d:"
+
+#: meecast/qt-qml/dataitem.cpp:446
+msgid "day ago"
+msgstr "gun once"
+
+#: meecast/qt-qml/dataitem.cpp:448
+msgid "days ago"
+msgstr "gun once"
+
+#: omweather/src/weather-config.c:332
+msgid "every 2 hours"
+msgstr "her 2 saatte bir"
+
+#: omweather/src/weather-config.c:338
+msgid "every 24 hours"
+msgstr "her 24 saatte bir"
+
+#: omweather/src/weather-config.c:328
+msgid "every 30 minutes"
+msgstr "her 30 dakikada bir"
+
+#: omweather/src/weather-config.c:334
+msgid "every 4 hours"
+msgstr "her 4 saatte bir"
+
+#: omweather/src/weather-config.c:326
+msgid "every 5 minutes"
+msgstr "her 5 dakikada bir"
+
+#: omweather/src/weather-config.c:336
+msgid "every 8 hours"
+msgstr "her 8 saatte bir"
+
+#: omweather/src/weather-config.c:330
+msgid "every hour"
+msgstr "her saatte bir"
+
+#: omweather/src/weather-config.c:340
+msgid "every minute (Debug)"
+msgstr "her dakika (Debug)"
+
+#: omweather/src/hash.data:315
+msgid "falling"
+msgstr "dokulme"
+
+#: omweather/src/weather-simple-popup.c:1048
+msgid "feels like"
+msgstr "hissedilen benzerlikler"
+
+#: meecast/qt-qml/dataitem.cpp:440
+msgid "hour ago"
+msgstr "saat once"
+
+#: meecast/qt-qml/dataitem.cpp:443
+msgid "hours ago"
+msgstr "saat once"
+
+#: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
+#: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
+#: omweather/src/weather-popup.c:983 omweather/src/weather-popup.c:1115
+#: omweather/src/weather-popup.c:1313
+#: omweather/src/weather-simple-settings.c:1479
+msgid "inHg"
+msgstr "inHg"
+
+#: omweather/src/weather-simple-settings.c:2722
+msgid "inch"
+msgstr "inc"
+
+#: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
+#: omweather/src/weather-simple-settings.c:1336
+#: omweather/src/weather-simple-settings.c:2670
+#: meecast/qt-qml/qml/UnitsPage.qml:227
+msgid "km"
+msgstr "km"
+
+#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:316
+#: omweather/src/weather-simple-settings.c:1408
+#: omweather/src/weather-simple-settings.c:2696
+#: meecast/qt-qml/qml/UnitsPage.qml:160
+msgid "km/h"
+msgstr "km/saat"
+
+#: omweather/src/hash.data:317
+msgid "km/s"
+msgstr "km/saniye"
+
+#: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1296
+#: omweather/src/weather-simple-settings.c:1328
+#: omweather/src/weather-simple-settings.c:2664
+#: meecast/qt-qml/qml/UnitsPage.qml:220
+msgid "m"
+msgstr "m"
+
+#: omweather/src/hash.data:318
+msgid "m/h"
+msgstr "m/saat"
+
+#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:319
+#: omweather/src/weather-simple-settings.c:1400
+#: omweather/src/weather-simple-settings.c:2690
+#: meecast/qt-qml/qml/UnitsPage.qml:153
+msgid "m/s"
+msgstr "m/saniye"
+
+#: omweather/src/weather-home.c:1397 omweather/src/weather-home.c:1452
+#: omweather/src/weather-home.c:1604 omweather/src/weather-settings.c:4055
+#: omweather/src/weather-popup.c:980 omweather/src/weather-popup.c:1112
+#: omweather/src/weather-popup.c:1312
+#: omweather/src/weather-simple-settings.c:1471
+#: omweather/src/weather-simple-settings.c:2716
+msgid "mb"
+msgstr "mb"
+
+#: meecast/qt-qml/qml/UnitsPage.qml:187
+msgid "mbar"
+msgstr "mbar"
+
+#: omweather/src/weather-home.c:1589 omweather/src/weather-home.c:1590
+#: omweather/src/weather-popup.c:1298 omweather/src/weather-popup.c:1299
+#: omweather/src/weather-simple-settings.c:1345
+#: omweather/src/weather-simple-settings.c:2676
+#: meecast/qt-qml/qml/UnitsPage.qml:234
+msgid "mi"
+msgstr "mi"
+
+#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:320
+#: omweather/src/weather-simple-settings.c:1417
+#: omweather/src/weather-simple-settings.c:2702
+#: meecast/qt-qml/qml/UnitsPage.qml:167
+msgid "mi/h"
+msgstr "mi/saat"
+
+#: omweather/src/hash.data:321
+msgid "mi/s"
+msgstr "mi/saniye"
+
+#: meecast/qt-qml/dataitem.cpp:434
+msgid "minute ago"
+msgstr "dakika once"
+
+#: meecast/qt-qml/dataitem.cpp:437
+msgid "minutes ago"
+msgstr "dakika once"
+
+#: omweather/src/weather-popup.c:961 omweather/src/weather-popup.c:1094
+#: omweather/src/weather-simple-settings.c:2727
+msgid "mm"
+msgstr "mm"
+
+#: omweather/src/weather-home.c:1403 omweather/src/weather-home.c:1458
+#: omweather/src/weather-home.c:1606 omweather/src/weather-settings.c:4078
+#: omweather/src/weather-popup.c:986 omweather/src/weather-popup.c:1118
+#: omweather/src/weather-popup.c:1314
+#: omweather/src/weather-simple-settings.c:1488
+#: meecast/qt-qml/qml/UnitsPage.qml:201
+msgid "mmHg"
+msgstr "mmHg"
+
+#: omweather/src/weather-simple-popup.c:489
+msgid "n:"
+msgstr "n:"
+
+#: omweather/src/weather-simple-settings.c:1688
+msgid "never"
+msgstr "asla"
+
+#: omweather/src/weather-sensor.c:108
+msgid "new icon"
+msgstr "yeni ikon"
+
+#: omweather/src/weather-simple-popup.c:257
+#: omweather/src/weather-simple-popup.c:260
+msgid "next"
+msgstr "ileri"
+
+#: omweather/src/weather-simple-settings.c:1354
+#: omweather/src/weather-simple-settings.c:2681
+msgid "nmi"
+msgstr "nmi"
+
+#: omweather/src/hash.data:322
+msgid "rising"
+msgstr "yukselen"
+
+#: meecast/qt-qml/dataitem.cpp:431
+msgid "seconds ago"
+msgstr "saniye once"
+
+#: omweather/src/weather-popup.c:271
+msgid "station local time"
+msgstr "istasyon yerel saati"
+
+#: omweather/src/weather-sensor.c:92
+msgid "station name"
+msgstr "istasyon adi"
+
+#: omweather/src/hash.data:323
+msgid "steady"
+msgstr "saglam"
+
+#: omweather/src/hash.data:324
+msgid "В"
+msgstr "B"
+
+#: omweather/src/hash.data:325
+msgid "З"
+msgstr "3"
+
+#: omweather/src/hash.data:326
+msgid "С"
+msgstr "C"
+
+#: omweather/src/hash.data:327
+msgid "С-В"
+msgstr "C-B"
+
+#: omweather/src/hash.data:328
+msgid "С-З"
+msgstr "C-3"
+
+#: omweather/src/hash.data:329
+msgid "Ю"
+msgstr "Ю"
+
+#: omweather/src/hash.data:330
+msgid "Ю-В"
+msgstr "Ю-B"
+
+#: omweather/src/hash.data:331
+msgid "Ю-З"
+msgstr "Ю-3"

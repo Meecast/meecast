@@ -14,10 +14,15 @@ cd ..
 for language in $ALL_LANGUAGES; do
     cp po/$language.po meecast/qt-qml/po/locale/$language
 #   cp po/$language.po meecast/qt-qml/po/$language.po
+    po2ts -c QObject po/$language.po translations/omweather_$language.ts
 done
 
 
 cp -r po/*.po omweather/po
 cp -r po/*.pot omweather/po
+
+cd translations/
+lrelease omweather_*.ts
+cd -
 
 exit 0

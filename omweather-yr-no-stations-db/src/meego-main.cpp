@@ -51,34 +51,35 @@
 #ifdef GLIB
     void
     source_destroy(void){
-        GHashTable  *hashtable = NULL;
-        GSList  *tmp = NULL;
+        GHashTable  *hashtable1 = NULL;
+        void *hashtable = NULL;
+        void *tmp = NULL;
         /* free station location data */
         hashtable = g_hash_table_lookup(data, "location");
         if(hashtable){
-            g_hash_table_foreach(hashtable, free_fields, NULL);
-            g_hash_table_remove_all(hashtable);
-            g_hash_table_unref(hashtable);
+            g_hash_table_foreach((GHashTable *)hashtable, free_fields, NULL);
+            g_hash_table_remove_all((GHashTable *)hashtable);
+            g_hash_table_unref((GHashTable *)hashtable);
         }
         /* free station current data */
         hashtable = g_hash_table_lookup(data, "current");
         if(hashtable){
-            g_hash_table_foreach(hashtable, free_fields, NULL);
-            g_hash_table_remove_all(hashtable);
-            g_hash_table_unref(hashtable);
+            g_hash_table_foreach((GHashTable *)hashtable, free_fields, NULL);
+            g_hash_table_remove_all((GHashTable *)hashtable);
+            g_hash_table_unref((GHashTable *)hashtable);
         }
         /* free station days data */
         tmp = g_hash_table_lookup(data, "forecast");
-        while(tmp){
-            hashtable = (GHashTable*)tmp->data;
-            g_hash_table_foreach(hashtable, free_fields, NULL);
-            g_hash_table_remove_all(hashtable);
-            g_hash_table_unref(hashtable);
+        while((GSList *)tmp){
+            hashtable1 = (GHashTable *)(((GSList *)tmp)->data);
+            g_hash_table_foreach((GHashTable *)hashtable1, free_fields, NULL);
+            g_hash_table_remove_all((GHashTable *)hashtable1);
+            g_hash_table_unref((GHashTable *)hashtable1);
             tmp = g_slist_next(tmp);
         }
         tmp = g_hash_table_lookup(data, "forecast");
         if(tmp)
-            g_slist_free(tmp);
+            g_slist_free((GSList *)tmp);
         if(data){
             g_hash_table_remove_all(data);
             g_hash_table_destroy(data);
@@ -335,25 +336,25 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                                         if (period == 0){
                                             snprintf(buff, sizeof(buff)-1, "night%s",(char*)temp_xml_string);
                                             #ifdef GLIB
-			                                    fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
+			                                    fprintf(file_out,"     <icon>%s</icon>\n", (char *)hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
                                             #endif
                                         }
                                         if (period == 1){
                                             snprintf(buff, sizeof(buff)-1, "night%s",(char*)temp_xml_string);
                                             #ifdef GLIB
-			                                    fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
+			                                    fprintf(file_out,"     <icon>%s</icon>\n", (char*)hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
                                             #endif
                                         }
                                         if (period == 2){
                                             snprintf(buff, sizeof(buff)-1, "day%s",(char*)temp_xml_string);
                                             #ifdef GLIB
-			                                    fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
+			                                    fprintf(file_out,"     <icon>%s</icon>\n", (char*)hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
                                             #endif
                                         }
                                         if (period == 3){
                                             snprintf(buff, sizeof(buff)-1, "day%s",(char*)temp_xml_string);
                                             #ifdef GLIB
-			                                    fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
+			                                    fprintf(file_out,"     <icon>%s</icon>\n", (char*)hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
                                             #endif
                                         }
                                         xmlFree(temp_xml_string);
@@ -406,7 +407,7 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                                         temp_xml_string = xmlNodeGetContent(child_node2);
 
                                         #ifdef GLIB
-                                            g_hash_table_insert(day, "day_sunrise", g_strdup((char*)temp_xml_string));
+                                            g_hash_table_insert(day, (gpointer)"day_sunrise", (gpointer)g_strdup((char *)temp_xml_string));
                                         #endif
                                         xmlFree(temp_xml_string);
                                         continue;
@@ -415,7 +416,7 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                                     if(!xmlStrcmp(child_node2->name, (const xmlChar *)"suns")){
                                         temp_xml_string = xmlNodeGetContent(child_node2);
                                         #ifdef GLIB
-                                            g_hash_table_insert(day, "day_sunset", g_strdup((char*)temp_xml_string));
+                                            g_hash_table_insert(day, (gpointer)"day_sunset", (void *)g_strdup((char*)temp_xml_string));
                                         #endif
                                         xmlFree(temp_xml_string);
                                         continue;

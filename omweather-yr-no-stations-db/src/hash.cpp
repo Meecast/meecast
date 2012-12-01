@@ -1,5 +1,5 @@
 /* vim: set sw=4 ts=4 et: */
-/* This file is part of Other Maemo Weather(omweather)
+/* This file is part of Other Maemo Weather(omweather) - MeeCast
  *
  * Copyright (C) 2011-2012 Vlad Vasilyeu
  * 	for the code
@@ -31,6 +31,17 @@
 #include "hash.h"
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
+#endif
+
+/*******************************************************************************/
+#ifdef QT
+QHash<QString, QString> *
+hash_icons_yrno_table_create(void) {
+
+    QHash<QString, QString> *hash = new QHash <QString, QString>;
+#include "hash_icons.data"
+    return hash;
+}
 #endif
 /*******************************************************************************/
 

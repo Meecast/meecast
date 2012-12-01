@@ -1,34 +1,38 @@
+#ifdef GLIB
+    #define hash_insert(hash, s2, s3) g_hash_table_insert(hash, (gpointer)s2, (gpointer)s3); 
+#endif
 
-    g_hash_table_insert(hash, "day1", "32");
-    g_hash_table_insert(hash, "night1", "31");
-    g_hash_table_insert(hash, "day2", "30");
-    g_hash_table_insert(hash, "night2", "29");
-    g_hash_table_insert(hash, "day3", "28");
-    g_hash_table_insert(hash, "night3", "27");
-    g_hash_table_insert(hash, "day4", "26");
-    g_hash_table_insert(hash, "night4", "26");
-    g_hash_table_insert(hash, "day5", "39");
-    g_hash_table_insert(hash, "night5", "45");
-    g_hash_table_insert(hash, "day6", "37");
-    g_hash_table_insert(hash, "night6", "47");
-    g_hash_table_insert(hash, "day7", "5");
-    g_hash_table_insert(hash, "night7", "5");
-    g_hash_table_insert(hash, "day8", "41");
-    g_hash_table_insert(hash, "night8", "46");
-    g_hash_table_insert(hash, "day9", "11");
-    g_hash_table_insert(hash, "night9", "11");
-    g_hash_table_insert(hash, "day10", "12");
-    g_hash_table_insert(hash, "night10", "12");
-    g_hash_table_insert(hash, "day11", "0");
-    g_hash_table_insert(hash, "night11", "0");
-    g_hash_table_insert(hash, "day12", "7");
-    g_hash_table_insert(hash, "night12", "7");
-    g_hash_table_insert(hash, "day13", "14");
-    g_hash_table_insert(hash, "night13", "14");
-    g_hash_table_insert(hash, "day14", "14");
-    g_hash_table_insert(hash, "night14", "14");
-    g_hash_table_insert(hash, "day15", "20");
-    g_hash_table_insert(hash, "night15", "20");
+
+    hash_insert(hash, "day1", "32");
+    hash_insert(hash, "night1", "31");
+    hash_insert(hash, "day2", "30");
+    hash_insert(hash, "night2", "29");
+    hash_insert(hash, "day3", "28");
+    hash_insert(hash, "night3", "27");
+    hash_insert(hash, "day4", "26");
+    hash_insert(hash, "night4", "26");
+    hash_insert(hash, "day5", "39");
+    hash_insert(hash, "night5", "45");
+    hash_insert(hash, "day6", "37");
+    hash_insert(hash, "night6", "47");
+    hash_insert(hash, "day7", "5");
+    hash_insert(hash, "night7", "5");
+    hash_insert(hash, "day8", "41");
+    hash_insert(hash, "night8", "46");
+    hash_insert(hash, "day9", "11");
+    hash_insert(hash, "night9", "11");
+    hash_insert(hash, "day10", "12");
+    hash_insert(hash, "night10", "12");
+    hash_insert(hash, "day11", "0");
+    hash_insert(hash, "night11", "0");
+    hash_insert(hash, "day12", "7");
+    hash_insert(hash, "night12", "7");
+    hash_insert(hash, "day13", "14");
+    hash_insert(hash, "night13", "14");
+    hash_insert(hash, "day14", "14");
+    hash_insert(hash, "night14", "14");
+    hash_insert(hash, "day15", "20");
+    hash_insert(hash, "night15", "20");
 
 
 

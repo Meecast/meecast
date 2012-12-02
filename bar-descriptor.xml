@@ -60,6 +60,7 @@
        <platformArchitecture>x86</platformArchitecture>
        <asset public="true" path="x86/o-g/omweather-qml" entry="true" type="Qnx/Elf">omweather-qml</asset>
        <asset path="x86/foreca/o-g/forecacom" type="Qnx/Elf">forecacom</asset>
+       <asset path="x86/yrno/yrno" type="Qnx/Elf">yrno</asset>
     </configuration>
     
     <!--  The icon for the application, which should be 150x150. -->
@@ -86,8 +87,12 @@
 
      <!-- Locale support -->
     <asset path="translations" dest="qm">
+                                                                                  <asset path="omweather-yr-no-stations-db/data/yr.no.db">share/db/yr.no.db</asset>
+                                                                                  <asset path="omweather-yr-no-stations-db/data/yr.no.xml">share/sources/yr.no.xml</asset>
         <include name="*.qm"/>
     </asset>
+    <asset path="omweather-yr-no-stations-db/data/yr.no.xml">share/sources/yr.no.xml</asset>
+    <asset path="omweather-yr-no-stations-db/data/yr.no.db">share/db/yr.no.db</asset>
    
     <!-- Request permission to execute native code.  Required for native applications. -->
     <permission system="true">run_native</permission>

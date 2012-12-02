@@ -22,17 +22,36 @@ OTHER_FILES += \
 
 
 CONFIG = link_pkgconfig 
+CONFIG += warn_on debug_and_release
 PKGCONFIG += libxml-2.0 
-system(pkg-config --exists glib-2.0){
-    PKGCONFIG += glib-2.0
-    message(GLIB-2.0 is exist)
-    CONFIG += -qt
-    DEFINES += GLIB 
-}else{
-    message(GLIB-2.0 is not exist)
+#system(pkg-config --exists glib-2.0){
+#    PKGCONFIG += glib-2.0
+#    message(GLIB-2.0 is exist)
+#    CONFIG += -qt
+#    DEFINES += GLIB 
+#}else{
+#    message(GLIB-2.0 is not exist)
     CONFIG += qt
     QT += core
     DEFINES += QT
+#}
+
+device {
+	CONFIG(release, debug|release) {
+		DESTDIR = o.le-v7
+	}
+	CONFIG(debug, debug|release) {
+		DESTDIR = o.le-v7-g
+	}
+}
+
+simulator {
+	CONFIG(release, debug|release) {
+		DESTDIR = o
+	}
+	CONFIG(debug, debug|release) {
+		DESTDIR = o-g
+	}
 }
 
 db.files = data/yr.no.db

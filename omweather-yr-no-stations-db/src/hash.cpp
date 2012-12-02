@@ -1,7 +1,7 @@
 /* vim: set sw=4 ts=4 et: */
-/* This file is part of Other Maemo Weather(omweather)
+/* This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2011 Vlad Vasiliev
+ * Copyright (C) 2011-2012 Vlad Vasilyeu
  * 	for the code
  *        
  * Copyright (C) 2008 Andrew Zhilin
@@ -24,13 +24,28 @@
  * 02110-1301 USA
  *
 */
-#include <glib.h>
+#ifdef GLIB
+    #include <glib.h>
+#endif
 #include <stdio.h>
 #include "hash.h"
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
+
 /*******************************************************************************/
+#ifdef QT
+QHash<QString, QString> *
+hash_icons_yrno_table_create(void) {
+
+    QHash<QString, QString> *hash = new QHash <QString, QString>;
+#include "hash_icons.data"
+    return hash;
+}
+#endif
+/*******************************************************************************/
+
+#ifdef GLIB
 GHashTable *hash_description_yrno_table_create(void) {
     GHashTable *hash = NULL;
 #ifdef DEBUGFUNCTIONCALL
@@ -79,5 +94,5 @@ hash_yrno_table_find(GHashTable *hash, gpointer key, gboolean search_short_name)
 #endif
     return result;
 }
-
+#endif
 /*******************************************************************************/

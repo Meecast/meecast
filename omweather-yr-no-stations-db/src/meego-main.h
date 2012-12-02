@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-weather-com-source
  *
- * Copyright (C) 2006-2009 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2009 Pavel Fialko
  * 	for the code
  *
@@ -25,17 +25,28 @@
 #ifndef _main_h
 #define _main_h 1
 /*******************************************************************************/
-//#include <gtk/gtk.h>
-#include <glib.h>
+#ifdef GLIB
+    #include <glib.h>
+#endif
+#ifdef QT
+    #include <QHash>
+#endif
+
 #include <libxml/parser.h>
 #include <stdlib.h>
 /*******************************************************************************/
-gboolean source_init(void);
+int source_init(void);
 void source_destroy(void);
-void free_fields(gpointer key, gpointer val, gpointer user_data);
-gint get_station_weather_data(const gchar *station_id_with_path, GHashTable *data, gboolean get_detail_data);
-//gint parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *data);
-gint parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node,  const gchar *result_file);
+void free_fields( void* key, void* val, void* user_data);
+#ifdef GLIB
+    int get_station_weather_data(const char *station_id_with_path, GHashTable *data, int get_detail_data);
+#endif
+int parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file);
+#ifdef GLIB
+    GHashTable* hash_description_yrno_table_create(void);
+    GHashTable* hash_icons_yrno_table_create(void);
+    gpointer hash_yrno_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
+#endif
 
 /*******************************************************************************/
 #endif

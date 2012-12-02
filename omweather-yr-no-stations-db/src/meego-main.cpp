@@ -384,7 +384,7 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                                                          (char*)temp_xml_string, FALSE));
                                         #endif
                                         #ifdef QT
-			                                    fprintf(file_out,"     <description>%s</description>\n", hash_yrno_description_table_find(hash_for_translate, buff).toStdString().c_str()); 
+			                                fprintf(file_out,"     <description>%s</description>\n", hash_yrno_description_table_find(hash_for_translate,  (char*)temp_xml_string).toStdString().c_str()); 
                                         #endif
  
                                         xmlFree(temp_xml_string);

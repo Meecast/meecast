@@ -203,18 +203,16 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
 
-
     for(cur_node = root_node->children; cur_node; cur_node = cur_node->next){
         if( cur_node->type == XML_ELEMENT_NODE ){
             /* get weather station data */
             if(!xmlStrcmp(cur_node->name, (const xmlChar *) "location" ) ){
                 temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"id");
-                snprintf(id_station, sizeof(id_station) - 1,
-                            "%s", temp_xml_string);
-                xmlFree(temp_xml_string);
-                /* If station in xml not station in config file exit */
-                //if( strcmp(id_station, station_id) )
-                //    return -1;
+                if (temp_xml_string){
+                    snprintf(id_station, sizeof(id_station) - 1,
+                                "%s", temp_xml_string);
+                    xmlFree(temp_xml_string);
+                }
                 for(child_node = cur_node->children; child_node; child_node = child_node->next){
                     if( child_node->type == XML_ELEMENT_NODE ){
                         if(!xmlStrcmp(child_node->name, (const xmlChar *) "location" ) ){

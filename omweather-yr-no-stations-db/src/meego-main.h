@@ -47,6 +47,10 @@ int parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_
     GHashTable* hash_icons_yrno_table_create(void);
     gpointer hash_yrno_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
 #endif
-
+#ifdef QT
+    QHash<QString, QString> *hash_description_yrno_table_create(void);
+    QString hash_yrno_icon_table_find(QHash<QString, QString> *hash_for_icons, char *key);
+    QString hash_yrno_description_table_find(QHash<QString, QString> *hash_for_description, char *key);
+#endif
 /*******************************************************************************/
 #endif

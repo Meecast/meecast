@@ -38,6 +38,9 @@
 #include <QHash>
 /*******************************************************************************/
     QHash<QString, QString> *hash_icons_yrno_table_create(void);
+    QHash<QString, QString> *hash_description_yrno_table_create(void);
+    QString hash_yrno_icon_table_find(QHash<QString, QString> *hash_for_icons, char *key);
+    QString hash_yrno_description_table_find(QHash<QString, QString> *hash_for_description, char *key);
 /*******************************************************************************/
 #endif
 

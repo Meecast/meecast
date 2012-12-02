@@ -37,11 +37,41 @@
 #ifdef QT
 QHash<QString, QString> *
 hash_icons_yrno_table_create(void) {
-
     QHash<QString, QString> *hash = new QHash <QString, QString>;
 #include "hash_icons.data"
     return hash;
 }
+
+QHash<QString, QString> *
+hash_description_yrno_table_create(void) {
+    QHash<QString, QString> *hash = new QHash <QString, QString>;
+#include "hash_description.data"
+    return hash;
+}
+
+QString
+hash_yrno_icon_table_find(QHash<QString, QString> *hash_for_icons, char* key) {
+    QString result;
+    if (hash_for_icons->contains(QString(key)))
+        return hash_for_icons->value(QString(key));
+    else{
+        fprintf(stderr,"Unknown strings %s\n", key);
+                return QString("49");
+   }
+}
+
+/*******************************************************************************/
+QString
+hash_yrno_description_table_find(QHash<QString, QString> *hash_for_description, char* key) {
+    QString result;
+    if (hash_for_description->contains(QString(key)))
+        return hash_for_description->value(QString(key));
+    else{
+        fprintf(stderr,"Unknown strings %s\n", key);
+        return QString(key);
+   }
+}
+
 #endif
 /*******************************************************************************/
 

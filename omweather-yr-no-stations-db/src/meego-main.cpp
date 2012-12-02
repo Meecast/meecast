@@ -36,6 +36,8 @@
 /*******************************************************************************/
 #ifdef QT
     static QHash<QString, QString> *hash_for_icons;
+    static QHash<QString, QString> *hash_for_translate;
+    QHash<QString, QString> *hash_icons_yrno_table_create(void);
 #endif
 /*******************************************************************************/
 #ifdef GLIB
@@ -190,6 +192,10 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
     hash_for_translate = hash_description_yrno_table_create();
     hash_for_icons = hash_icons_yrno_table_create();
 #endif
+#ifdef QT
+    hash_for_translate = hash_description_yrno_table_create();
+    hash_for_icons = hash_icons_yrno_table_create();
+#endif
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
@@ -338,24 +344,39 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                                             #ifdef GLIB
 			                                    fprintf(file_out,"     <icon>%s</icon>\n", (char *)hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
                                             #endif
+                                            #ifdef QT
+			                                    fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_icon_table_find(hash_for_icons, buff).toStdString().c_str()); 
+                                            #endif
                                         }
                                         if (period == 1){
                                             snprintf(buff, sizeof(buff)-1, "night%s",(char*)temp_xml_string);
                                             #ifdef GLIB
 			                                    fprintf(file_out,"     <icon>%s</icon>\n", (char*)hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
                                             #endif
+                                            #ifdef QT
+			                                    fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_icon_table_find(hash_for_icons, buff).toStdString().c_str()); 
+                                            #endif
+ 
                                         }
                                         if (period == 2){
                                             snprintf(buff, sizeof(buff)-1, "day%s",(char*)temp_xml_string);
                                             #ifdef GLIB
 			                                    fprintf(file_out,"     <icon>%s</icon>\n", (char*)hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
                                             #endif
+                                            #ifdef QT
+			                                    fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_icon_table_find(hash_for_icons, buff).toStdString().c_str()); 
+                                            #endif
+ 
                                         }
                                         if (period == 3){
                                             snprintf(buff, sizeof(buff)-1, "day%s",(char*)temp_xml_string);
                                             #ifdef GLIB
 			                                    fprintf(file_out,"     <icon>%s</icon>\n", (char*)hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
                                             #endif
+                                            #ifdef QT
+			                                    fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_icon_table_find(hash_for_icons, buff).toStdString().c_str()); 
+                                            #endif
+ 
                                         }
                                         xmlFree(temp_xml_string);
                                         temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"name");
@@ -364,6 +385,10 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                                                          hash_yrno_table_find(hash_for_translate, 
                                                          (char*)temp_xml_string, FALSE));
                                         #endif
+                                        #ifdef QT
+			                                    fprintf(file_out,"     <description>%s</description>\n", hash_yrno_description_table_find(hash_for_icons, buff).toStdString().c_str()); 
+                                        #endif
+ 
                                         xmlFree(temp_xml_string);
                                         continue;
                                     }

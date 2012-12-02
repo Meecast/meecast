@@ -2,6 +2,11 @@
     #define hash_insert(hash, s2, s3) g_hash_table_insert(hash, (gpointer)s2, (gpointer)s3); 
 #endif
 
+#ifdef QT
+    #define hash_insert(hash, s2, s3)  hash->insert(s2, s3);
+#endif
+
+
     hash_insert(hash, "Klarvær", "Clear Sky");
     hash_insert(hash, "Regnbyger", "Rain Showers");
     hash_insert(hash, "Skyet", "Cloudy");

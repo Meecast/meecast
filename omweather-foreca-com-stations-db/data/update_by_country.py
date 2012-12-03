@@ -13,8 +13,8 @@ import string
 #SELECT regions.name  FROM regions WHERE regions.id NOT IN (SELECT stations.region_id FROM stations)
 
 #Country name and code
-country = "Asia/Malaysia"
-id_region = "115"
+country = "South America/Argentine"
+id_region = "10"
 first_letter = "A"
 
 def normalizing (source):
@@ -60,8 +60,8 @@ def stations_parser():
     anchors2 = ctxt.xpathEval("/html/body/div/div/div[4]/div/div[2]/div[@class='col3']//a/text()")
     i = 0
     for anchor in anchors:
-       # print anchor.content
-       # print anchors2[i]
+        print anchor.content
+        print anchors2[i]
         name = normalizing(re.split("/", anchor.content)[-1])
         cityurl = "http://foreca.com/%s" %(anchor.content)
         urllib.urlretrieve (cityurl, "./station%s.html" %(name))

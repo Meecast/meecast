@@ -50,7 +50,7 @@
     int parse_xml_data(const char *station_id, htmlDocPtr doc, GHashTable *data);
     int parse_xml_detail_data(const char *station_id, htmlDocPtr doc, GHashTable *data);
     GHashTable* hash_icons_gismeteo_table_create(void);
-    gpointer hash_gismeteo_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
+    gchar* hash_gismeteo_table_find(GHashTable *hash, char* key, gboolean search_short_name);
 #endif
 /*******************************************************************************/
 #endif

@@ -87,12 +87,12 @@ get_data_from_russia_data(char *temp_string){
     {
         gchar *result = NULL;
         gchar *tmp_result = NULL;
-        gchar *source = NULL;
+        char *source = NULL;
 
         if (!image1 || !image2)
             return g_strdup("49");
         source = g_strdup_printf("%s %s", image1, image2);
-        tmp_result = hash_gismeteo_table_find(hash_for_icons, (gpointer)source, FALSE);
+        tmp_result = (gchar *)hash_gismeteo_table_find(hash_for_icons, source, FALSE);
         if (tmp_result && (strlen(tmp_result) == 2 || strlen(tmp_result) == 1)){
            result = g_strdup(tmp_result);
            g_free(source);
@@ -108,13 +108,13 @@ get_data_from_russia_data(char *temp_string){
     choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
     {
         gchar *result;
-        gchar *source;
+        char *source;
         gchar *tmp_result = NULL;
 
         if(!image)
             return g_strdup("49");
         source = g_strdup_printf("%s", image);
-        tmp_result = hash_gismeteo_table_find(hash_for_icons, source, FALSE);
+        tmp_result = (gchar *)hash_gismeteo_table_find(hash_for_icons, source, FALSE);
         if (tmp_result && (strlen(tmp_result) == 2 || strlen(tmp_result) == 1)){
            result = g_strdup(tmp_result);
            g_free(source);
@@ -344,7 +344,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div//dd/table/tr/td/text()", xpathCtx);
   if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
 #ifdef GLIB
-    snprintf(current_title, sizeof(current_title)-1,"%s", hash_gismeteo_table_find(hash_for_translate, xpathObj->nodesetval->nodeTab[0]->content, FALSE));
+    snprintf(current_title, sizeof(current_title)-1,"%s", hash_gismeteo_table_find(hash_for_translate, (char *)xpathObj->nodesetval->nodeTab[0]->content, FALSE));
 #endif
   }
   if (xpathObj)
@@ -535,7 +535,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
              xpathObj5->nodesetval->nodeTab[i] && xpathObj5->nodesetval->nodeTab[i]->content){
              /* fprintf (stderr, "description %s\n", xpathObj5->nodesetval->nodeTab[i]->content); */
 #ifdef GLIB
-             fprintf(file_out,"     <description>%s</description>\n", hash_gismeteo_table_find(hash_for_translate, xpathObj5->nodesetval->nodeTab[i]->content, FALSE));
+             fprintf(file_out,"     <description>%s</description>\n", hash_gismeteo_table_find(hash_for_translate, (char *)xpathObj5->nodesetval->nodeTab[i]->content, FALSE));
 #endif
          }
          /* added pressure */
@@ -955,7 +955,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
    /* added text */
    if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) && xpathObj3->nodesetval->nodeTab[i]->content){
 #ifdef GLIB
-      fprintf(file_out,"     <description>%s</description>\n", (char*)hash_gismeteo_table_find(hash_for_translate, xpathObj3->nodesetval->nodeTab[i]->content, FALSE)); 
+      fprintf(file_out,"     <description>%s</description>\n", (char*)hash_gismeteo_table_find(hash_for_translate, (char *)xpathObj3->nodesetval->nodeTab[i]->content, FALSE)); 
 #endif
    }
    /* added temperature */

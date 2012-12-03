@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of omweather-weather-com-source
+ * This file is part of omweather-weather-com-source - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2009 Pavel Fialko
  * 	for the code
  *
@@ -30,7 +30,14 @@
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>
 #include <stdlib.h>
-#include <glib.h>
+#ifdef GLIB
+    #include <glib.h>
+#endif
+#ifdef QT
+    #include <QHash>
+#endif
+
+
 #include <locale.h>
 #include <sys/stat.h>
 /*******************************************************************************/

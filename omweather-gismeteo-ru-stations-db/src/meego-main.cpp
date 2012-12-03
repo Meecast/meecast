@@ -81,7 +81,7 @@ get_data_from_russia_data(char *temp_string){
     return tmp_tm;
 }
 /*******************************************************************************/
-#ifdef GLIb
+#ifdef GLIB
     char*
     choose_icon(GHashTable *hash_for_icons, gchar *image1, char *image2)
     {

@@ -92,7 +92,7 @@ get_data_from_russia_data(char *temp_string){
         if (!image1 || !image2)
             return g_strdup("49");
         source = g_strdup_printf("%s %s", image1, image2);
-        tmp_result = hash_gismeteo_table_find(hash_for_icons, source, FALSE);
+        tmp_result = hash_gismeteo_table_find(hash_for_icons, (char *)source, FALSE);
         if (tmp_result && (strlen(tmp_result) == 2 || strlen(tmp_result) == 1)){
            result = g_strdup(tmp_result);
            g_free(source);

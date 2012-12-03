@@ -30,8 +30,10 @@
 #define _hash_h 1
 /*******************************************************************************/
 /*******************************************************************************/
-GHashTable* hash_description_gismeteo_table_create(void);
-GHashTable* hash_icons_gismeteo_table_create(void);
-gpointer hash_gismeteo_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
+#ifdef GLIB
+    GHashTable* hash_description_gismeteo_table_create(void);
+    GHashTable* hash_icons_gismeteo_table_create(void);
+    gpointer hash_gismeteo_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
+#endif
 /*******************************************************************************/
 #endif

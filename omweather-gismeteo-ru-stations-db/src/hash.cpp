@@ -25,12 +25,16 @@
  * 02110-1301 USA
  *
 */
-#include <glib.h>
+#ifdef GLIB
+    #include <glib.h>
+#endif
 #include <stdio.h>
 #include "hash.h"
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
+
+#ifdef GLIB
 /*******************************************************************************/
 GHashTable *hash_description_gismeteo_table_create(void) {
     GHashTable *hash = NULL;
@@ -81,4 +85,5 @@ hash_gismeteo_table_find(GHashTable *hash, gpointer key, gboolean search_short_n
     return result;
 }
 
+#endif
 /*******************************************************************************/

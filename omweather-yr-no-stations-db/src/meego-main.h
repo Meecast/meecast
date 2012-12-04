@@ -24,13 +24,6 @@
 #ifndef _main_h
 #define _main_h 1
 /*******************************************************************************/
-<<<<<<< HEAD
-//#include <gtk/gtk.h>
-#include "config.h"
-#ifdef LIBGLIB
-    #include <glib.h>
-#endif
-=======
 #ifdef GLIB
     #include <glib.h>
 #endif
@@ -38,7 +31,6 @@
     #include <QHash>
 #endif
 
->>>>>>> a1e0c4e3c7059a24b03c7eb5dc5814f2bef6bf98
 #include <libxml/parser.h>
 #include <stdlib.h>
 /*******************************************************************************/

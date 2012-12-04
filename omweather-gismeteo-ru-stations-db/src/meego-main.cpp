@@ -289,6 +289,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     hash_for_icons = hash_icons_gismeteo_table_create();
 #endif
 
+    fprintf(stderr,"oooooooooooooooooo\n");
    /* Create xpath evaluation context */
    xpathCtx = xmlXPathNewContext(doc);
    if(xpathCtx == NULL) {

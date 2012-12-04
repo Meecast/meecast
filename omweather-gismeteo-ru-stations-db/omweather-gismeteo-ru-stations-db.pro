@@ -21,6 +21,7 @@ FORMS    +=
 OTHER_FILES += \
 
 CONFIG = link_pkgconfig 
+CONFIG += warn_on debug_and_release
 PKGCONFIG += libxml-2.0 
 system(pkg-config --exists glib-2.0){
     PKGCONFIG += glib-2.0
@@ -32,6 +33,24 @@ system(pkg-config --exists glib-2.0){
     CONFIG += qt
     QT += core
     DEFINES += QT
+}
+
+device {
+	CONFIG(release, debug|release) {
+		DESTDIR = o.le-v7
+	}
+	CONFIG(debug, debug|release) {
+		DESTDIR = o.le-v7-g
+	}
+}
+
+simulator {
+	CONFIG(release, debug|release) {
+		DESTDIR = o
+	}
+	CONFIG(debug, debug|release) {
+		DESTDIR = o-g
+	}
 }
 
 

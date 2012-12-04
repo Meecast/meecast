@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-gismeteo-ru-stations-db
  *
- * Copyright (C) 2009-2012 Vlad Vasilyru
+ * Copyright (C) 2009-2012 Vlad Vasilyeu
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or
@@ -131,16 +131,36 @@ struct tm
 get_date_for_current_weather(char *temp_string){
     char buffer[512];
     char temp_buffer[256];
+    char temp_buffer2[buff_size];
     struct tm   tmp_tm = {0};
     char *temp_point;
     char *temp_char;
+    int j;
+    int flag = 0;
+    int step = 0;
 
     memset(buffer, 0, sizeof(buffer));
     memset(temp_buffer, 0, sizeof(temp_buffer));
-    temp_point = strchr(temp_string,' ');
+    memset(temp_buffer2, 0, sizeof(temp_buffer2));
+
+    snprintf(temp_buffer2,  sizeof(temp_buffer2)-1, "%s", temp_string);
+    for (j = 0 ; (j<(strlen(temp_buffer2)) && j < buff_size); j++ ){
+        if ((flag == 0) && ((temp_buffer2[j] == 9)  ||
+                            (temp_buffer2[j] == ' ')  ||
+                            (temp_buffer2[j] == '\n') || 
+                            (temp_buffer2[j] == '\r'))){
+            step++;
+            continue;
+        }else{
+            flag = 1;
+            temp_buffer2[j-step] = temp_buffer2[j] ;
+        }
+    }
+
+    temp_point = strchr(temp_buffer2,' ');
     if (!temp_point)
         return tmp_tm;
-    snprintf(buffer, strlen(temp_string) - strlen(temp_point+1),"%s", temp_string);
+    snprintf(buffer, strlen(temp_buffer2) - strlen(temp_point+1),"%s", temp_buffer2);
     snprintf(temp_buffer, strlen(temp_point) - strlen(strchr(temp_point + 1,' ')),"%s", temp_point+1);
     if (!strcoll(temp_buffer, "января"))
         strcat(buffer," Jan");

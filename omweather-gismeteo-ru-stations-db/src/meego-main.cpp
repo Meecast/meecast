@@ -34,6 +34,12 @@
 #define MORNING 3
 #define EVENING 4
 #define buff_size 2048
+#ifdef QT
+    static QHash<QString, QString> *hash_for_icons;
+    static QHash<QString, QString> *hash_for_translate;
+    QHash<QString, QString> *hash_icons_gismeteo_table_create(void);
+#endif
+
 /*******************************************************************************/
 struct tm
 get_data_from_russia_data(char *temp_string){
@@ -83,33 +89,10 @@ get_data_from_russia_data(char *temp_string){
 /*******************************************************************************/
 #ifdef GLIB
     char*
-    choose_icon(GHashTable *hash_for_icons, gchar *image1, char *image2)
-    {
-        gchar *result = NULL;
-        gchar *tmp_result = NULL;
-        char *source = NULL;
-
-        if (!image1 || !image2)
-            return g_strdup("49");
-        source = g_strdup_printf("%s %s", image1, image2);
-        tmp_result = (gchar *)hash_gismeteo_table_find(hash_for_icons, source, FALSE);
-        if (tmp_result && (strlen(tmp_result) == 2 || strlen(tmp_result) == 1)){
-           result = g_strdup(tmp_result);
-           g_free(source);
-           return result;
-        }else{
-           fprintf(stderr,"Unknown strings %s %s\n", image1, image2);
-           g_free(source);
-           return g_strdup("49");
-        }
-    }
-    /*******************************************************************************/
-    gchar*
-    choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
-    {
-        gchar *result;
+    choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image) {
+        char *result;
         char *source;
-        gchar *tmp_result = NULL;
+        char *tmp_result = NULL;
 
         if(!image)
             return g_strdup("49");
@@ -125,8 +108,15 @@ get_data_from_russia_data(char *temp_string){
            return g_strdup("49");
         }
     }
+
 #endif
-/*******************************************************************************/
+#ifdef QT 
+    const char *
+    choose_hour_weather_icon(QHash<QString, QString> *hash_for_icons, char *image){
+        return hash_gismeteo_icon_table_find(hash_for_icons, image).toStdString().c_str();
+    }
+#endif
+   /*******************************************************************************/
 struct tm
 get_date_for_current_weather(char *temp_string){
     char buffer[512];
@@ -294,6 +284,11 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
    hash_for_translate = hash_description_gismeteo_table_create();
    hash_for_icons = hash_icons_gismeteo_table_create();
 #endif
+#ifdef QT
+    hash_for_translate = hash_description_gismeteo_table_create();
+    hash_for_icons = hash_icons_gismeteo_table_create();
+#endif
+
    /* Create xpath evaluation context */
    xpathCtx = xmlXPathNewContext(doc);
    if(xpathCtx == NULL) {
@@ -353,9 +348,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
         if (image)
             g_free(image);
 #endif
-#ifdef GLIB
         snprintf(current_icon, sizeof(current_icon)-1,"%s", choose_hour_weather_icon(hash_for_icons, temp_buffer));
-#endif
   }
   if (xpathObj)
     xmlXPathFreeObject(xpathObj);
@@ -546,9 +539,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
             temp_char = strrchr((char*)xpathObj4->nodesetval->nodeTab[i]->children->content, '/');
             temp_char ++;
             /* fprintf (stderr, "icon %s %s \n", xpathObj4->nodesetval->nodeTab[i]->children->content, choose_hour_weather_icon(hash_for_icons, temp_char)); */
-#ifdef GLIB
             fprintf(file_out,"     <icon>%s</icon>\n",  choose_hour_weather_icon(hash_for_icons, temp_char));
-#endif
          }
          /* added text */
          if (xpathObj5 && !xmlXPathNodeSetIsEmpty(xpathObj5->nodesetval) &&
@@ -968,9 +959,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
       /* fprintf (stderr, "Icon %s\n", xpathObj2->nodesetval->nodeTab[i]->children->content); */
       temp_char = strrchr((char*)xpathObj2->nodesetval->nodeTab[i]->children->content, '/');
       temp_char ++;
-#ifdef GLIB
       fprintf(file_out,"     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_char));
-#endif
    }
    /* added text */
    if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) && xpathObj3->nodesetval->nodeTab[i]->content){

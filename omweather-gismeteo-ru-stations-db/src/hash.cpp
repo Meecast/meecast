@@ -1,7 +1,7 @@
 /* vim: set sw=4 ts=4 et: */
-/* This file is part of Other Maemo Weather(omweather)
+/* This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2009 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2009 Pavel Fialko
  * 	for the code
  *        
@@ -84,6 +84,47 @@ hash_gismeteo_table_find(GHashTable *hash, char *key, gboolean search_short_name
 #endif
     return (gchar *)result;
 }
+
+#endif
+
+#ifdef QT
+QHash<QString, QString> *
+hash_icons_gismeteo_table_create(void) {
+    QHash<QString, QString> *hash = new QHash <QString, QString>;
+#include "hash_icons.data"
+    return hash;
+}
+
+QHash<QString, QString> *
+hash_description_gismeteo_table_create(void) {
+    QHash<QString, QString> *hash = new QHash <QString, QString>;
+#include "hash_description.data"
+    return hash;
+}
+
+
+QString 
+hash_gismeteo_icon_table_find(QHash<QString, QString> *hash, char *key){
+    QString result;
+    if (hash->contains(QString(key)))
+        return hash->value(QString(key));
+    else{
+        fprintf(stderr,"Unknown strings %s\n", key);
+                return QString("49");
+   }
+}
+
+QString
+hash_gismeteo_description_table_find(QHash<QString, QString> *hash_for_description, char* key) {
+    QString result;
+    if (hash_for_description->contains(QString(key)))
+        return hash_for_description->value(QString(key));
+    else{
+        fprintf(stderr,"Unknown strings %s\n", key);
+        return QString(key);
+   }
+}
+
 
 #endif
 /*******************************************************************************/

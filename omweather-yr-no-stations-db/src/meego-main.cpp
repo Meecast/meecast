@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-weather-com-stations-db
  *
- * Copyright (C) 2006-2009 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or

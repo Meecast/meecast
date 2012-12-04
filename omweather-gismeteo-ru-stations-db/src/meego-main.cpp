@@ -254,7 +254,12 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     int        pressure; 
     int        speed;
 
+#ifdef GLIB
     char       *image = NULL;
+#endif
+#ifdef QT
+    char        image[buff_size];
+#endif
     double      time_diff = 0;
     time_t      loc_time;
     time_t      utc_time;
@@ -289,7 +294,6 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     hash_for_icons = hash_icons_gismeteo_table_create();
 #endif
 
-    fprintf(stderr,"oooooooooooooooooo\n");
    /* Create xpath evaluation context */
    xpathCtx = xmlXPathNewContext(doc);
    if(xpathCtx == NULL) {
@@ -330,13 +334,14 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
   memset(current_icon, 0, sizeof(current_icon));
   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div//dt[@class='png']/@style", xpathCtx);
   if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->children->content){
+
         if (xpathObj->nodesetval->nodeTab[0]->children->content){
            temp_char = strrchr((char *)xpathObj->nodesetval->nodeTab[0]->children->content, '/');
            temp_char ++;
 #ifdef GLIB
            image = g_strdup(temp_char);
 #else
-           snprintf(image, sizeof(image)-1,"%s", temp_char);
+           snprintf(image, sizeof(buff_size)-1,"%s", temp_char);
 #endif
            i = 0;
            memset(temp_buffer, 0, sizeof(temp_buffer));

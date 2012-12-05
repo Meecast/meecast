@@ -77,7 +77,6 @@ hash_gismeteo_table_find(GHashTable *hash, char *key, gboolean search_short_name
         result = value;
     else{
         result = key;
-        fprintf(stderr,"Not found %s\n",(gchar *)key);
     }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -106,8 +105,9 @@ hash_description_gismeteo_table_create(void) {
 QString 
 hash_gismeteo_icon_table_find(QHash<QString, QString> *hash, char *key){
     QString result;
-    if (hash->contains(QString(key)))
+    if (hash->contains(QString(key))){
         return hash->value(QString(key));
+    }
     else{
         fprintf(stderr,"Unknown strings %s\n", key);
                 return QString("49");

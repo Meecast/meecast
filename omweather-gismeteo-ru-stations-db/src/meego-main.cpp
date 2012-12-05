@@ -111,9 +111,9 @@ get_data_from_russia_data(char *temp_string){
 
 #endif
 #ifdef QT 
-    const char *
+    QString
     choose_hour_weather_icon(QHash<QString, QString> *hash_for_icons, char *image){
-        return hash_gismeteo_icon_table_find(hash_for_icons, image).toStdString().c_str();
+        return hash_gismeteo_icon_table_find(hash_for_icons, image);
     }
 #endif
    /*******************************************************************************/
@@ -354,7 +354,13 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
         if (image)
             g_free(image);
 #endif
-        snprintf(current_icon, sizeof(current_icon)-1,"%s", choose_hour_weather_icon(hash_for_icons, temp_buffer));
+       
+#ifdef GLIB
+       snprintf(current_icon, sizeof(current_icon)-1,"%s", choose_hour_weather_icon(hash_for_icons, temp_buffer));
+#endif
+#ifdef QT 
+        snprintf(current_icon, sizeof(current_icon)-1,"%s", choose_hour_weather_icon(hash_for_icons, temp_buffer).toStdString().c_str());
+#endif
   }
   if (xpathObj)
     xmlXPathFreeObject(xpathObj);
@@ -364,6 +370,9 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
   if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
 #ifdef GLIB
     snprintf(current_title, sizeof(current_title)-1,"%s", hash_gismeteo_table_find(hash_for_translate, (char *)xpathObj->nodesetval->nodeTab[0]->content, FALSE));
+#endif
+#ifdef QT
+   snprintf(current_title, sizeof(current_title)-1,"%s", (char*)hash_gismeteo_description_table_find(hash_for_translate, (char *)xpathObj->nodesetval->nodeTab[0]->content).toStdString().c_str()); 
 #endif
   }
   if (xpathObj)
@@ -545,7 +554,14 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
             temp_char = strrchr((char*)xpathObj4->nodesetval->nodeTab[i]->children->content, '/');
             temp_char ++;
             /* fprintf (stderr, "icon %s %s \n", xpathObj4->nodesetval->nodeTab[i]->children->content, choose_hour_weather_icon(hash_for_icons, temp_char)); */
+#ifdef GLIB
             fprintf(file_out,"     <icon>%s</icon>\n",  choose_hour_weather_icon(hash_for_icons, temp_char));
+#endif
+#ifdef QT 
+        fprintf(file_out,"     <icon>%s</icon>\n",  choose_hour_weather_icon(hash_for_icons, temp_char).toStdString().c_str());
+#endif
+
+
          }
          /* added text */
          if (xpathObj5 && !xmlXPathNodeSetIsEmpty(xpathObj5->nodesetval) &&
@@ -553,6 +569,9 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
              /* fprintf (stderr, "description %s\n", xpathObj5->nodesetval->nodeTab[i]->content); */
 #ifdef GLIB
              fprintf(file_out,"     <description>%s</description>\n", hash_gismeteo_table_find(hash_for_translate, (char *)xpathObj5->nodesetval->nodeTab[i]->content, FALSE));
+#endif
+#ifdef QT
+            fprintf(file_out,"     <description>%s</description>\n", (char*)hash_gismeteo_description_table_find(hash_for_translate, (char *)xpathObj5->nodesetval->nodeTab[i]->content).toStdString().c_str()); 
 #endif
          }
          /* added pressure */
@@ -965,12 +984,22 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
       /* fprintf (stderr, "Icon %s\n", xpathObj2->nodesetval->nodeTab[i]->children->content); */
       temp_char = strrchr((char*)xpathObj2->nodesetval->nodeTab[i]->children->content, '/');
       temp_char ++;
+#ifdef GLIB
       fprintf(file_out,"     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_char));
+#endif
+#ifdef QT 
+      fprintf(file_out,"     <icon>%s</icon>\n",  choose_hour_weather_icon(hash_for_icons, temp_char).toStdString().c_str());
+#endif
+
+     
    }
    /* added text */
    if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) && xpathObj3->nodesetval->nodeTab[i]->content){
 #ifdef GLIB
       fprintf(file_out,"     <description>%s</description>\n", (char*)hash_gismeteo_table_find(hash_for_translate, (char *)xpathObj3->nodesetval->nodeTab[i]->content, FALSE)); 
+#endif
+#ifdef QT
+      fprintf(file_out,"     <description>%s</description>\n", (char*)hash_gismeteo_description_table_find(hash_for_translate, (char *)xpathObj3->nodesetval->nodeTab[i]->content).toStdString().c_str()); 
 #endif
    }
    /* added temperature */

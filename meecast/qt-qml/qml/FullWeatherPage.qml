@@ -33,7 +33,7 @@ Page {
         for (var a = 0; a < Forecast_hours_model.rowCount(); a++) {
             forrecasts_hours_list.dataModel.insert(
                 {
-                 "fulldate" : Forecast_hours_model.getdata(a, "fulldate") + '.',
+                 "fulldate" : Forecast_hours_model.getdata(a, "fulldate"),
                  "shortdate" : Forecast_hours_model.getdata(a, "shortdate"),
                  "hourdate" : Forecast_hours_model.getdata(a, "hourdate"),
                  "pict" : Config.iconspath + "/" + Config.iconset + "/" + Forecast_hours_model.getdata(a, "pict"),
@@ -69,6 +69,17 @@ Page {
             current_rect_back.background = Color.create(main.getColor(model_current.getdata(0, "temp_high")));
             description_text = Config.tr(model_current.getdata(day, "description")) ? Config.tr(model_current.getdata(day, "description")) : ""
 	   
+            if ((model_current.getdata(day, "map_pattern")) != ""){
+                map_pattern = model_current.getdata(day, "map_pattern")
+                //map_text.visible = true;
+                count_of_maps = model_current.getdata(day, "count_of_maps")
+            }else{
+                //map_text.visible = false;
+            }
+
+            if ((model_current.getdata(day, "uv_index")) != "N/A")
+                condition.insert({"cond_name": Config.tr("UV index:"),
+                "value": model_current.getdata(day, "uv_index")});
             if ((model_current.getdata(day, "humidity")) != "N/A")
                 condition.insert({"cond_name": Config.tr("Humidity:"),
                          "value": model_current.getdata(day, "humidity")+'%'});
@@ -90,14 +101,6 @@ Page {
             if ((model_current.getdata(day, "flike")) != "N/A")
                 condition.insert({"cond_name": Config.tr("Flike:"),
                          "value": model_current.getdata(day, "flike") + '°' + Config.temperatureunit});
-            if ((model_current.getdata(day, "map_pattern")) != ""){
-                map_pattern = model_current.getdata(day, "map_pattern")
-                //map_text.visible = true;
-                count_of_maps = model_current.getdata(day, "count_of_maps")
-            }else{
-                //map_text.visible = false;
-            }
-
             if ((model_current.getdata(day, "temp")) != "N/A")
                 temperature.text =  model_current.getdata(day, "temp") + '°'
      	    else{
@@ -107,9 +110,7 @@ Page {
             if ((model_current.getdata(day, "visible")) != "N/A")
                 condition.insert({"cond_name": Config.tr("Visible:"),
                          "value": model_current.getdata(day, "visible") + ' ' + Config.tr(Config.visibleunit)});
-            if ((model_current.getdata(day, "uv_index")) != "")
-                condition.insert({"cond_name": Config.tr("UV index:"),
-                         "value": model_current.getdata(day, "uv_index")});
+
 	    }
 
         if (day_period == "day"){
@@ -128,6 +129,19 @@ Page {
             current_rect_back.background = Color.create(main.getColor(model_day.getdata(day, "temp_high")));
             description_text = Config.tr(model_day.getdata(day, "description")) ? Config.tr(model_day.getdata(day, "description")) : ""
 	   
+            if ((model_day.getdata(day, "temp")) != "N/A")
+                temperature.text =  model_day.getdata(day, "temp") + '°'
+	        else{
+                if ((model_day.getdata(day, "temp_high")) != "N/A")
+               	    temperature.text =  model_day.getdata(day, "temp_high") + '°'
+            }
+            if ((model_day.getdata(day, "map_pattern")) != ""){
+                map_pattern = model_day.getdata(day, "map_pattern")
+                //map_text.visible = true;
+                count_of_maps = model_day.getdata(day, "count_of_maps")
+            }else{
+            //    map_text.visible = false;
+            }
             if ((model_day.getdata(day, "humidity")) != "N/A")
                 condition.insert({"cond_name": Config.tr("Humidity:"),
                          "value": model_day.getdata(day, "humidity")+'%'});
@@ -149,20 +163,6 @@ Page {
             if ((model_day.getdata(day, "flike")) != "N/A")
                 condition.insert({"cond_name": Config.tr("Flike:"),
                          "value": model_day.getdata(day, "flike") + '°' + Config.temperatureunit});
-
-            if ((model_day.getdata(day, "temp")) != "N/A")
-                temperature.text =  model_day.getdata(day, "temp") + '°'
-	        else{
-                if ((model_day.getdata(day, "temp_high")) != "N/A")
-               	    temperature.text =  model_day.getdata(day, "temp_high") + '°'
-            }
-            if ((model_day.getdata(day, "map_pattern")) != ""){
-                map_pattern = model_day.getdata(day, "map_pattern")
-                //map_text.visible = true;
-                count_of_maps = model_day.getdata(day, "count_of_maps")
-            }else{
-            //    map_text.visible = false;
-            }
 	    }
 	    if (day_period == "night"){
             day_period_name = Config.tr("Night");
@@ -179,6 +179,13 @@ Page {
             image_source = Config.iconspath + "/" + Config.iconset + "/" + model_night.getdata(day, "pict");
             current_rect_back.background = Color.create(main.getColor(model_day.getdata(day, "temp_high")));
             description_text = Config.tr(model_night.getdata(day, "description")) ? Config.tr(model_night.getdata(day, "description")) : ""
+            if ((model_night.getdata(day, "map_pattern")) != ""){
+                map_pattern = model_night.getdata(day, "map_pattern")
+                //map_text.visible = true;
+                count_of_maps = model_night.getdata(day, "count_of_maps")
+            }else{
+                //map_text.visible = false;
+            }
             if ((model_night.getdata(day, "humidity")) != "N/A")
                 condition.insert({"cond_name": Config.tr("Humidity:"),
                          "value": model_night.getdata(day, "humidity")+'%'});
@@ -206,13 +213,6 @@ Page {
                 if ((model_night.getdata(day, "temp_low")) != "N/A")
                     temperature.text =  model_night.getdata(day, "temp_low") + '°'
             }
-            if ((model_night.getdata(day, "map_pattern")) != ""){
-                map_pattern = model_night.getdata(day, "map_pattern")
-                //map_text.visible = true;
-                count_of_maps = model_night.getdata(day, "count_of_maps")
-            }else{
-                //map_text.visible = false;
-            }
 	}
 	if (day_period == "hours"){
             day_period_name = Config.tr("Hours");
@@ -226,19 +226,19 @@ Page {
             main_icon.visible = false;
             hours_list.visible = true;
 	}
-        if ((model_day.getdata(day, "sunrise")) != "N/A")
-            condition2.insert({"cond_name": Config.tr("Sunrise:"),
-                         "value": model_day.getdata(day, "sunrise")});
+    if ((model_day.getdata(day, "lastupdate")) != "N/A")
+        condition2.insert({"cond_name": Config.tr("Last update:"),
+                     "value": model_day.getdata(day, "lastupdate")});
+    if ((model_day.getdata(day, "daylength")) != "N/A")
+        condition2.insert({"cond_name": Config.tr("Day length:"),
+                     "value": model_day.getdata(day, "daylength")});
         if ((model_day.getdata(day, "sunset")) != "N/A")
-            condition2.insert({"cond_name": Config.tr("Sunset:"),
-                         "value": model_day.getdata(day, "sunset")});
-        if ((model_day.getdata(day, "daylength")) != "N/A")
-            condition2.insert({"cond_name": Config.tr("Day length:"),
-                         "value": model_day.getdata(day, "daylength")});
-        if ((model_day.getdata(day, "lastupdate")) != "N/A")
-            condition2.insert({"cond_name": Config.tr("Last update:"),
-                         "value": model_day.getdata(day, "lastupdate")});
-	
+        condition2.insert({"cond_name": Config.tr("Sunset:"),
+                     "value": model_day.getdata(day, "sunset")});
+    if ((model_day.getdata(day, "sunrise")) != "N/A")
+        condition2.insert({"cond_name": Config.tr("Sunrise:"),
+                     "value": model_day.getdata(day, "sunrise")});
+
 //	if (description_text.length > 35){
 //	    description_text_alignment = Text.AlignHLeft
 //	}else{

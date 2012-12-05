@@ -645,7 +645,6 @@ NavigationPane {
                                 Config.showweb();
                             }
                         }
-
                     }
                     
                     ImageButton {

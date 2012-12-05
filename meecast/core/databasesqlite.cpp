@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -65,10 +65,10 @@ DatabaseSqlite::open_database()
         return false;
     }
     if (databasename->rfind(key) != std::string::npos && (databasename->length() - databasename->rfind(key)) == key.length()) {
-    if (getenv("LANG") != NULL)
-        lang.assign(getenv("LANG"));
-        std::cerr<<"Lang "<<getenv("LANG")<<std::endl;
-        if (!lang.empty() && !lang.compare("ru"))
+        QString locale_string = QLocale().name();
+        lang.assign(locale_string.toStdString().c_str());
+
+        if (!lang.empty() && !lang.compare("ru_RU"))
             rc = sqlite3_exec(db, "CREATE TEMP VIEW nstations AS SELECT russian_name as name, id, region_id, longititude, latitude, code, id_gismeteo_new, id_gismeteo_old  FROM stations",
                   NULL, NULL, &msg);
         else

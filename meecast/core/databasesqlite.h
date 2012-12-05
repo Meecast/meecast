@@ -43,6 +43,7 @@
 
 #include "databaseabstract.h"
 
+#include <QLocale>
 namespace Core{
 
 //typedef std::vector< std::pair<std::string, std::string> > listdata;

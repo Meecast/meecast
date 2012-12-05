@@ -69,7 +69,7 @@ Page {
         Container{
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
-                positionY: 160
+                positionY: 180
             }
             attachedObjects: [
                 GroupDataModel {

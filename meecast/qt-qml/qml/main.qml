@@ -625,6 +625,7 @@ NavigationPane {
                     Container{
                         preferredWidth: 20
                     }
+                    
                     ImageButton {
                         id: refreshicon
                         verticalAlignment: VerticalAlignment.Center
@@ -633,6 +634,7 @@ NavigationPane {
                             Config.updatestations()
                         }
                     }
+                    
                     ImageView {
                         id: sourceicon
                         verticalAlignment: VerticalAlignment.Center

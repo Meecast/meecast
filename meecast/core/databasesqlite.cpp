@@ -67,6 +67,7 @@ DatabaseSqlite::open_database()
     if (databasename->rfind(key) != std::string::npos && (databasename->length() - databasename->rfind(key)) == key.length()) {
     if (getenv("LANG") != NULL)
         lang.assign(getenv("LANG"));
+        std::cerr<<"Lang "<<getenv("LANG")<<std::endl;
         if (!lang.empty() && !lang.compare("ru"))
             rc = sqlite3_exec(db, "CREATE TEMP VIEW nstations AS SELECT russian_name as name, id, region_id, longititude, latitude, code, id_gismeteo_new, id_gismeteo_old  FROM stations",
                   NULL, NULL, &msg);

@@ -727,7 +727,6 @@ ConfigQml::saveStation(int city_id, QString city,
     //ConfigQml::Config::stationsList(*stationlist);
     saveConfig();
     refreshconfig();
-
 }
 
 QString
@@ -850,7 +849,6 @@ void
 ConfigQml::updatestations()
 {
     thread->start();
-
 }
 
 void

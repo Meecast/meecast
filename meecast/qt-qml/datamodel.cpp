@@ -179,7 +179,6 @@ DataModelQt::update_model(int period)
             i = 0;
             if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
                 forecast_data = new DataItem(temp_data);
-
                 /* Prepare */
                 if (forecast_data->Text() != "")
                     forecast_data->Text(_(forecast_data->Text().c_str()));

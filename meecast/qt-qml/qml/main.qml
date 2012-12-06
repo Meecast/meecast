@@ -26,6 +26,7 @@ NavigationPane {
                      "temp_low" : Forecast_model.getdata(a, "temp_low"),
                      "bg_color" :  (a % 2 != 0) ? "#000000" : "#0f0f0f",
                      "hi_temp_color" :  main.getColor(Forecast_model.getdata(a, "temp_high")),
+                     "wind_speed" : Forecast_model.getdata(a, "wind_speed"), 
                      "number" : a
                     }
                 )
@@ -44,6 +45,15 @@ NavigationPane {
                current_temp_text.text = Current.getdata(0, "temp") + '°'
                current_rect_back.background = Color.create(main.getColor(Current.getdata(0, "temp")));
             }
+            main_icon.imageSource = Config.iconspath + "/" + Config.iconset + "/" + Current.getdata(0, "pict")
+            title_text.text = Config.tr(Current.getdata(0, "description"));
+            humidity_text.text = Current.getdata(0, "humidity") + " %";
+            pressure_text.text = Current.getdata(0, "pressure") + ' ' + Config.tr(Config.pressureunit) ;
+
+            wind_speed_text.text = Current.getdata(0, "wind_speed") + ' ' + Config.tr(Config.windspeedunit);
+            wind_direction_arrow.rotationZ =  wind_direction.getAngle(Current.getdata(0, "wind_direction"));
+            wind_direction_text.text = Config.tr(Current.getdata(0, "wind_direction"));
+
         }
 
         function getColor(t) {
@@ -109,7 +119,6 @@ NavigationPane {
             main.update_list();
             main.update_current_data();
             //list.height = 80 * Forecast_model.rowCount();
-            console.debug ("Forecast_model.rowCount()", Forecast_model.rowCount(), Current.rowCount());
             //dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
             current_rect.visible = Current.rowCount() == 0 ? false : true;
             //list.visible = (Forecast_model.rowCount() == 0) ? false : true;
@@ -259,6 +268,7 @@ NavigationPane {
                         positionY: 165.0
                     }
                     Label {                 
+                        id: title_text
                         text: Config.tr(Current.getdata(0, "description"));
                         horizontalAlignment: HorizontalAlignment.Center
                         textStyle {
@@ -289,6 +299,7 @@ NavigationPane {
                             preferredHeight: 30*1.6
                         }
                         Label {
+                            id: humidity_text
                             text: Current.getdata(0, "humidity") + " %";
                             verticalAlignment: VerticalAlignment.Center
                             //horizontalAlignment: HorizontalAlignment.Left
@@ -353,6 +364,7 @@ NavigationPane {
                                 preferredHeight: 30*1.6
                             }
                             ImageView {
+                                id: wind_direction_arrow
                                 imageSource: "asset:///share/images//wind_direction_arrow.png"
                                 preferredWidth: 30*1.6
                                 preferredHeight: 30*1.6
@@ -360,6 +372,7 @@ NavigationPane {
                             }
                         }
                         Label {
+                            id: wind_direction_text
                             text: Config.tr(Current.getdata(0, "wind_direction"));
                             textStyle {
                                 base: SystemDefaults.TextStyles.BodyText
@@ -390,6 +403,7 @@ NavigationPane {
                                 preferredHeight: 30*1.6
                             }
                             Label {
+                                id: pressure_text
                                 text: Current.getdata(0, "pressure") + ' ' + Config.tr(Config.pressureunit) ;
                                 //horizontalAlignment: HorizontalAlignment.Left
                                 textStyle {
@@ -410,6 +424,7 @@ NavigationPane {
                                 preferredHeight: 30*1.6
                             }
                             Label {
+                                id: wind_speed_text
                                 text: Current.getdata(0, "wind_speed") + ' ' + Config.tr(Config.windspeedunit);
                                 textStyle {
                                     base: SystemDefaults.TextStyles.BodyText

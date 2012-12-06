@@ -62,7 +62,7 @@
 #include <locale.h>
 
 #include "selectmodel.h"
-
+#include <fcntl.h>
 
 
 #include <locale.h>
@@ -104,9 +104,18 @@ int main(int argc, char* argv[])
 {
 	std::cerr<<"Begin"<<std::endl;
 
+   
 	//QApplication app(argc, argv);
 	Application app(argc, argv);
 
+    /* Fo DEBUG on emulator or device */
+    /*
+    int fd;
+    fflush( stderr );
+    fd = open( "shared/documents/meego.tx", O_WRONLY|O_CREAT|O_TRUNC, 0666 );
+    dup2( fd, STDERR_FILENO );
+    close( fd );
+    */
     qInstallMsgHandler(myMessageOutput);
 
     std::cerr<<"Begin"<<std::endl;

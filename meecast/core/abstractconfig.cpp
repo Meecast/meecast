@@ -29,6 +29,7 @@
 /*******************************************************************************/
 
 #include "abstractconfig.h"
+
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 #ifdef LOCALDEBUG
@@ -68,8 +69,7 @@ namespace Core {
 #ifdef LOCALDEBUG
         return "../test/";
 #else
-        struct passwd *pw = getpwuid(getuid());
-        std::string path(pw->pw_dir);
+        std::string path("data");
         path += "/.config";
         /* TODO check directory exist */
         mkdir(path.c_str(), 0755);
@@ -83,8 +83,7 @@ namespace Core {
 #ifdef LOCALDEBUG
         return "../test/";
 #else
-        struct passwd *pw = getpwuid(getuid());
-        std::string path(pw->pw_dir);
+        std::string path("data");
         path += "/.cache";
         /* TODO check directory exist */
         mkdir(path.c_str(), 0755);

@@ -640,12 +640,22 @@ NavigationPane {
                     Container{
                         preferredWidth: 20
                     }
-                    
+                    ActivityIndicator {
+                        id: refresh_showing
+                        verticalAlignment: VerticalAlignment.Center
+                        running: false
+                        visible: false
+                        enabled: false                        
+                    }
                     ImageButton {
                         id: refreshicon
                         verticalAlignment: VerticalAlignment.Center
                         defaultImageSource: "asset:///button_icons/icon_refresh.png"
                         onClicked: {
+                            refreshicon.visible = false;
+                            refresh_showing.enabled = true;
+                            refresh_showing.visible = true;
+                            refresh_showing.running = true;
                             Config.updatestations()
                         }
                     }
@@ -664,6 +674,7 @@ NavigationPane {
                         }
                     }
                     
+                    
                     ImageButton {
                         id: settingsicon
                         verticalAlignment: VerticalAlignment.Center     
@@ -675,6 +686,7 @@ NavigationPane {
                             rootWindow.push(newPage);
                         }
                     }
+                    
                     Container{
                         preferredWidth: 20
                         preferredHeight: 138 

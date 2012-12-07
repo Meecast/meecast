@@ -994,11 +994,9 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
 #ifdef QT 
       fprintf(file_out,"     <icon>%s</icon>\n",  choose_hour_weather_icon(hash_for_icons, temp_char).toStdString().c_str());
 #endif
-
-     
    }
    /* added text */
-   if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) && xpathObj3->nodesetval->nodeTab[i]->content){
+   if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) && i <= xpathObj3->nodesetval->nodeNr && xpathObj3->nodesetval->nodeTab[i]->content){
 #ifdef GLIB
       fprintf(file_out,"     <description>%s</description>\n", (char*)hash_gismeteo_table_find(hash_for_translate, (char *)xpathObj3->nodesetval->nodeTab[i]->content, FALSE)); 
 #endif

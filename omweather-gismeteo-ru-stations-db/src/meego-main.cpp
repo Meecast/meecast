@@ -341,7 +341,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
 #ifdef GLIB
            image = g_strdup(temp_char);
 #else
-           snprintf(image, sizeof(buff_size)-1,"%s", temp_char);
+           snprintf(image, buff_size-1,"%s", temp_char);
 #endif
            i = 0;
            memset(temp_buffer, 0, sizeof(temp_buffer));
@@ -688,6 +688,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
   if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
              xpathObj->nodesetval->nodeTab[0] && xpathObj->nodesetval->nodeTab[0]->content){
         strptime((char *)xpathObj->nodesetval->nodeTab[0]->content, "%d.%m.%Y", &current_tm);
+        snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj->nodesetval->nodeTab[0]->content);
         current_tm.tm_min = 0;
         current_tm.tm_hour = 0;
         utc_time = mktime(&current_tm);
@@ -701,7 +702,9 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/*//div[@id='astronomy']//ul[@class='sun']/li[1]/text()", xpathCtx);
   if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
       setlocale(LC_TIME, "POSIX");
-      strptime((char *)xpathObj->nodesetval->nodeTab[0]->content, "%H:%M", &current_tm);
+      snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s %s", xpathObj->nodesetval->nodeTab[0]->content, buffer);
+      utc_time = mktime(&current_tm);
+      strptime(temp_buffer, " %H:%M %d.%m.Y", &current_tm);
       setlocale(LC_TIME, "");
       utc_time = mktime(&current_tm);
       fprintf(file_out,"    <sunrise>%li</sunrise>\n", utc_time);
@@ -712,7 +715,8 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/*//div[@id='astronomy']//ul[@class='sun']/li[2]/text()", xpathCtx);
   if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
         setlocale(LC_TIME, "POSIX");
-        strptime((char *)xpathObj->nodesetval->nodeTab[0]->content, "%H:%M", &current_tm);
+        snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s %s", xpathObj->nodesetval->nodeTab[0]->content, buffer);
+        strptime(temp_buffer, " %H:%M %d.%m.Y", &current_tm);
         setlocale(LC_TIME, "");
         utc_time = mktime(&current_tm);
         fprintf(file_out,"    <sunset>%li</sunset>\n", utc_time);
@@ -990,11 +994,9 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
 #ifdef QT 
       fprintf(file_out,"     <icon>%s</icon>\n",  choose_hour_weather_icon(hash_for_icons, temp_char).toStdString().c_str());
 #endif
-
-     
    }
    /* added text */
-   if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) && xpathObj3->nodesetval->nodeTab[i]->content){
+   if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) && i <= xpathObj3->nodesetval->nodeNr && xpathObj3->nodesetval->nodeTab[i]->content){
 #ifdef GLIB
       fprintf(file_out,"     <description>%s</description>\n", (char*)hash_gismeteo_table_find(hash_for_translate, (char *)xpathObj3->nodesetval->nodeTab[i]->content, FALSE)); 
 #endif

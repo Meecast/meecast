@@ -12,6 +12,7 @@ NavigationPane {
         property int day: 0
         property bool current: false
         property string day_period: "day"
+        property bool isUpdate: false
 
 
         function update_list(){
@@ -105,7 +106,7 @@ NavigationPane {
             startview.visible = Config.stationname == "Unknown" ? true : false;
 //            mainview.visible = Config.stationname == "Unknown" ? false : true;
             main.updatestationname();
-            //isUpdate = false;
+            main.isUpdate = false;
         }
 
         function updatemodels()
@@ -643,19 +644,17 @@ NavigationPane {
                     ActivityIndicator {
                         id: refresh_showing
                         verticalAlignment: VerticalAlignment.Center
-                        running: false
-                        visible: false
-                        enabled: false                        
+                        visible: main.isUpdate ? true : false
+                        running: main.isUpdate ? true : false
+                        enabled: main.isUpdate ? true : false
                     }
                     ImageButton {
                         id: refreshicon
                         verticalAlignment: VerticalAlignment.Center
                         defaultImageSource: "asset:///button_icons/icon_refresh.png"
+                        visible: main.isUpdate ? false : true
                         onClicked: {
-                            refreshicon.visible = false;
-                            refresh_showing.enabled = true;
-                            refresh_showing.visible = true;
-                            refresh_showing.running = true;
+                            main.isUpdate = true;
                             Config.updatestations()
                         }
                     }

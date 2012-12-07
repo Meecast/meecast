@@ -71,6 +71,7 @@ Page {
                 positionX: 0
                 positionY: 180
             }
+            preferredHeight: 970 
             attachedObjects: [
                 GroupDataModel {
                     id: groupDataModel

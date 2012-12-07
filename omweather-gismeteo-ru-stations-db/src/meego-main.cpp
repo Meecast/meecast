@@ -341,7 +341,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
 #ifdef GLIB
            image = g_strdup(temp_char);
 #else
-           snprintf(image, sizeof(buff_size)-1,"%s", temp_char);
+           snprintf(image, buff_size-1,"%s", temp_char);
 #endif
            i = 0;
            memset(temp_buffer, 0, sizeof(temp_buffer));

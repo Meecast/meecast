@@ -134,6 +134,22 @@ void ConfigQml::init()
             delete db_w;
         }
     }
+
+    if (QFile::exists("/home/user/.cache/com.meecast.omweather/splash.png")){
+        /* Check file size */
+        QFile f1("/home/user/.cache/com.meecast.omweather/splash.png");
+        qint64 size1 = f1.size();
+        QFile f2("/opt/com.meecast.omweather/share/images/splash.png");
+        qint64 size2 = f2.size();
+
+        if (f1.size() != f2.size()){
+            QFile::remove("/home/user/.cache/com.meecast.omweather/splash.png"); 
+            /* Copy splash to cache directory */
+            QFile::copy("/opt/com.meecast.omweather/share/images/splash.png",
+                    "/home/user/.cache/com.meecast.omweather/splash.png");
+        }
+    }
+
 }
 
 void

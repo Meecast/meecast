@@ -588,6 +588,7 @@ Page {
             }
 	        Rectangle {
                id: map_rect  
+               visible: (count_of_maps > 0) ? true : false
                height: 44
                color: "transparent"
                width: parent.width 
@@ -597,7 +598,7 @@ Page {
                Text {
                     id: map_text
                     anchors.fill: parent
-                    text:  Config.tr("Show on Map")
+                    text:  Config.tr("Show on Map") 
                     color: "white"
                     visible: false
                     font.pointSize: 24 

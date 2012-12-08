@@ -31,8 +31,17 @@
 #include <locale.h>
 /*******************************************************************************/
 #define buff_size 2048
-static GHashTable *data = NULL;
+#if GLIB
+    static GHashTable *data = NULL;
+#endif
+#ifdef QT
+    static QHash<QString, QString> *hash_for_icons;
+    static QHash<QString, QString> *hash_for_translate;
+    QHash<QString, QString> *hash_icons_hkogovhk_table_create(void);
+#endif
+
 /*******************************************************************************/
+#ifdef GLIB
 gchar*
 choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
 {
@@ -48,18 +57,18 @@ choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
     g_free(source);
     return result;
 }
-
+#endif
 void
-parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
+parse_forecast_weather(const char *detail_path_data, const char *result_file){
 
     FILE    *file_out;
     FILE    *file_in;
     FILE    *file_in2;
-    gchar buffer [4096];
-    gchar buffer2 [4096];
-    gchar temp_buffer [1024];
-    gchar *comma = NULL;
-    gchar *comma2 = NULL;
+    char buffer [4096];
+    char buffer2 [4096];
+    char temp_buffer [1024];
+    char *comma = NULL;
+    char *comma2 = NULL;
     struct tm   tmp_tm = {0};
     time_t      t_start = 0, t_end = 0;
     int   temperature, humidity1, humidity2, icon;
@@ -67,8 +76,9 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
     int   year=0;
     int   number_of_day = 0;
     fpos_t pos;
+#ifdef GLIB
     GHashTable *hash_for_icons;
-
+#endif
     file_out = fopen(result_file, "a");
     if (!file_out)
         return;
@@ -82,6 +92,7 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
             break;
     }
     hash_for_icons = hash_icons_hkogovhk_table_create();
+ 
     while(fgets(buffer, sizeof(buffer), file_in)){
         if (strstr(buffer,"Bulletin updated"))
             if (comma = strstr(buffer, "at ")){
@@ -183,18 +194,19 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
 
 /*******************************************************************************/
 void
-parse_current_weather(const gchar *detail_path_data, const gchar *result_file){
+parse_current_weather(const char *detail_path_data, const char *result_file){
 
     FILE    *file_out;
     FILE    *file_in;
-    gchar buffer [4096];
-    gchar temp_buffer [1024];
-    gchar *comma = NULL;
+    char buffer [4096];
+    char temp_buffer [1024];
+    char *comma = NULL;
     struct tm   tmp_tm = {0};
     time_t      t_start = 0, t_end = 0;
     int   temperature, humidity, icon;
+#ifdef GLIB
     GHashTable *hash_for_icons;
-
+#endif
     file_out = fopen(result_file, "a");
     if (!file_out)
         return;
@@ -265,13 +277,13 @@ parse_current_weather(const gchar *detail_path_data, const gchar *result_file){
     fclose(file_in);
 }
 /*******************************************************************************/
-
-convert_station_hkogovhk_data(const gchar *station_id_with_path, const gchar *result_file, const gchar *detail_path_data ){
+int
+convert_station_hkogovhk_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data ){
  
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;
-    gint    days_number = -1;
-    gchar   buffer[1024],
+    int    days_number = -1;
+    char   buffer[1024],
             *delimiter = NULL;
     FILE    *file_out;
 

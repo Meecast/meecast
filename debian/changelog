@@ -4,6 +4,10 @@ meecast (0.6.9) unstable; urgency=low
   * Fixed problem with current weather in gismeteo.ru source
   * Added icon and description string to gismeteo.ru 
   * Fixed problem with weather forecast in gismeteo.ru for Australia
+  * Added icon for hko.gov.hk
+  * Added UV-index to hko.gov.hk source
+  * Fixed problem with N/A UV-index
+  * Disabled label "Show on map" if case map isn't available
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 19 Nov 2012 19:31:23 +0200
 

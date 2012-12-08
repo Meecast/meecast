@@ -110,8 +110,10 @@ Page {
             if ((model_current.getdata(day, "visible")) != "N/A")
                 condition.insert({"cond_name": Config.tr("Visible:"),
                          "value": model_current.getdata(day, "visible") + ' ' + Config.tr(Config.visibleunit)});
-
-	    }
+            if ((model_current.getdata(day, "uv_index")) != "N/A")
+                condition.insert({"cond_name": Config.tr("UV index:"),
+                         "value": model_current.getdata(day, "uv_index")});
+	}
 
         if (day_period == "day"){
             toolbarnow.background = Color.create("#1f1f1f")

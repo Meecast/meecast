@@ -16,6 +16,7 @@
     g_hash_table_insert(hash, "77", "29");
     g_hash_table_insert(hash, "50", "32");
     g_hash_table_insert(hash, "81", "32");
+    g_hash_table_insert(hash, "84", "20");
     g_hash_table_insert(hash, "90", "36");
     g_hash_table_insert(hash, "South", "S");
     g_hash_table_insert(hash, "East", "E");

@@ -252,6 +252,13 @@ parse_current_weather(const gchar *detail_path_data, const gchar *result_file){
                     fprintf(file_out,"     <description>%s</description>\n", temp_buffer);				                       
                 }
         }
+        if (strstr(buffer,"UV Index"))
+            if (comma = strstr(buffer, ": ")){
+                comma = comma + 2;
+                humidity = atoi (comma);
+                fprintf(file_out,"     <uv_index>%i</uv_index>\n", humidity);
+            }
+
     }
     fprintf(file_out,"    </period>\n");
     fclose(file_out);

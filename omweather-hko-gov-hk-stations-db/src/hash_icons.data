@@ -24,6 +24,7 @@
     hash_insert(hash, "77", "29");
     hash_insert(hash, "50", "32");
     hash_insert(hash, "81", "32");
+    hash_insert(hash, "83", "20");
     hash_insert(hash, "84", "20");
     hash_insert(hash, "90", "36");
     hash_insert(hash, "South", "S");

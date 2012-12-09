@@ -3051,6 +3051,11 @@ ya sea la versión 2.1 de la licencia, o (a sudiscreción) cualquier versión po
             </translation>
         </message>
         <message>
+            <source>UV index:</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Units</source>
             <translation>Unidades</translation>
         </message>

@@ -3045,6 +3045,10 @@ të GNU General Public License
             <translation>Indeksi i UV-ve</translation>
         </message>
         <message>
+            <source>UV index:</source>
+            <translation>Indeksi i UV-ve</translation>
+        </message>
+        <message>
             <source>Units</source>
             <translation>Njesitë</translation>
         </message>

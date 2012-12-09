@@ -3066,6 +3066,11 @@ Fundację wolnego oprogramowania.</translation>
             </translation>
         </message>
         <message>
+            <source>UV index:</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Units</source>
             <translation>Jednostki</translation>
         </message>

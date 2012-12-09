@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-28 14:44+0300\n"
+"POT-Creation-Date: 2012-12-09 17:11+0300\n"
 "PO-Revision-Date: 2012-09-09 18:40+0000\n"
 "Last-Translator: Burak Kaan Kose <bkaankose@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/meecast/language/"
@@ -615,7 +615,7 @@ msgid "Daily"
 msgstr "Gunluk"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
-#: meecast/qt-qml/qml/FullWeatherPage.qml:128
+#: meecast/qt-qml/qml/FullWeatherPage.qml:129
 msgid "Day"
 msgstr "Gun"
 
@@ -623,7 +623,7 @@ msgstr "Gun"
 msgid "Day length"
 msgstr "Gun uzunlugu"
 
-#: omweather/src/hash.data:59 meecast/qt-qml/qml/FullWeatherPage.qml:238
+#: omweather/src/hash.data:59 meecast/qt-qml/qml/FullWeatherPage.qml:235
 msgid "Day length:"
 msgstr "Gun uzunlugu:"
 
@@ -867,9 +867,9 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Ilk Ceyrek"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:93
-#: meecast/qt-qml/qml/FullWeatherPage.qml:152
-#: meecast/qt-qml/qml/FullWeatherPage.qml:203
+#: meecast/qt-qml/qml/FullWeatherPage.qml:102
+#: meecast/qt-qml/qml/FullWeatherPage.qml:166
+#: meecast/qt-qml/qml/FullWeatherPage.qml:210
 msgid "Flike:"
 msgstr "Flike:"
 
@@ -1066,9 +1066,9 @@ msgstr "Saat"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:180 meecast/qt-qml/qml/FullWeatherPage.qml:75
-#: meecast/qt-qml/qml/FullWeatherPage.qml:134
-#: meecast/qt-qml/qml/FullWeatherPage.qml:185
+#: meecast/qt-qml/dataitem.cpp:180 meecast/qt-qml/qml/FullWeatherPage.qml:84
+#: meecast/qt-qml/qml/FullWeatherPage.qml:148
+#: meecast/qt-qml/qml/FullWeatherPage.qml:192
 msgid "Humidity:"
 msgstr "Nem:"
 
@@ -1125,7 +1125,7 @@ msgstr "Sunucudaki son guncelleme :"
 msgid "Last update from server: "
 msgstr "Sunucudan son guncelleme :"
 
-#: omweather/src/hash.data:99 meecast/qt-qml/qml/FullWeatherPage.qml:241
+#: omweather/src/hash.data:99 meecast/qt-qml/qml/FullWeatherPage.qml:232
 msgid "Last update:"
 msgstr "Son guncelleme:"
 
@@ -1521,7 +1521,7 @@ msgstr "Bu istasyon icin hava durumu bilgisi yok."
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:188 meecast/qt-qml/qml/FullWeatherPage.qml:68
+#: meecast/qt-qml/dataitem.cpp:188 meecast/qt-qml/qml/FullWeatherPage.qml:67
 #: meecast/qt-qml/qml/WeatherPage.qml:542
 msgid "Now"
 msgstr "Simdi"
@@ -1792,9 +1792,9 @@ msgstr "Periyot"
 msgid "Position:"
 msgstr "Pozisyon:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:87
-#: meecast/qt-qml/qml/FullWeatherPage.qml:146
-#: meecast/qt-qml/qml/FullWeatherPage.qml:197
+#: meecast/qt-qml/qml/FullWeatherPage.qml:96
+#: meecast/qt-qml/qml/FullWeatherPage.qml:160
+#: meecast/qt-qml/qml/FullWeatherPage.qml:204
 msgid "Ppcp:"
 msgstr "Ppcp:"
 
@@ -1817,9 +1817,9 @@ msgstr "Basic uniteleri:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:186 meecast/qt-qml/qml/FullWeatherPage.qml:81
-#: meecast/qt-qml/qml/FullWeatherPage.qml:140
-#: meecast/qt-qml/qml/FullWeatherPage.qml:191
+#: meecast/qt-qml/dataitem.cpp:186 meecast/qt-qml/qml/FullWeatherPage.qml:90
+#: meecast/qt-qml/qml/FullWeatherPage.qml:154
+#: meecast/qt-qml/qml/FullWeatherPage.qml:198
 msgid "Pressure:"
 msgstr "Basinc:"
 
@@ -2025,20 +2025,20 @@ msgstr "Ara"
 msgid "Select city"
 msgstr "Sehir sec"
 
-#: meecast/qt-qml/qml/CountryPage.qml:139
+#: meecast/qt-qml/qml/CountryPage.qml:140
 #: meecast/qt-qml/qml/NewStationPage.qml:55
 #: meecast/qt-qml/qml/NewStationPage.qml:102
 msgid "Select country"
 msgstr "Ulke sec"
 
 #: omweather/src/weather-simple-settings.c:2168
-#: meecast/qt-qml/qml/CityPage.qml:124
+#: meecast/qt-qml/qml/CityPage.qml:125
 msgid "Select location"
 msgstr "Konum sec"
 
 #: meecast/qt-qml/qml/NewStationPage.qml:64
 #: meecast/qt-qml/qml/NewStationPage.qml:111
-#: meecast/qt-qml/qml/RegionPage.qml:138
+#: meecast/qt-qml/qml/RegionPage.qml:139
 msgid "Select region"
 msgstr "Bolge sec"
 
@@ -2279,7 +2279,7 @@ msgstr "Gunesli"
 msgid "Sunny / Wind"
 msgstr "Gunesli / Ruzgarli"
 
-#: omweather/src/hash.data:281 meecast/qt-qml/qml/FullWeatherPage.qml:232
+#: omweather/src/hash.data:281 meecast/qt-qml/qml/FullWeatherPage.qml:241
 msgid "Sunrise:"
 msgstr "Gundogumu:"
 
@@ -2287,7 +2287,7 @@ msgstr "Gundogumu:"
 msgid "Sunrise: "
 msgstr "Gundogumu:"
 
-#: omweather/src/hash.data:282 meecast/qt-qml/qml/FullWeatherPage.qml:235
+#: omweather/src/hash.data:282 meecast/qt-qml/qml/FullWeatherPage.qml:238
 msgid "Sunset:"
 msgstr "Gunbatimi:"
 
@@ -2425,7 +2425,8 @@ msgstr "Guncelle"
 msgid "Type of click:"
 msgstr "Tiklama turu:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:113
+#: meecast/qt-qml/qml/FullWeatherPage.qml:81
+#: meecast/qt-qml/qml/FullWeatherPage.qml:114
 msgid "UV index:"
 msgstr ""
 
@@ -2520,7 +2521,7 @@ msgid "Visible units"
 msgstr "Gorunebilir esyalar:"
 
 #: omweather/src/weather-popup.c:1288
-#: meecast/qt-qml/qml/FullWeatherPage.qml:110
+#: meecast/qt-qml/qml/FullWeatherPage.qml:111
 msgid "Visible:"
 msgstr "Gorunebilme:"
 
@@ -2604,21 +2605,21 @@ msgstr "Eklenti stili ve Ikonseti"
 msgid "Wind"
 msgstr "Ruzgar"
 
-#: omweather/src/hash.data:307 meecast/qt-qml/qml/FullWeatherPage.qml:78
-#: meecast/qt-qml/qml/FullWeatherPage.qml:137
-#: meecast/qt-qml/qml/FullWeatherPage.qml:188
+#: omweather/src/hash.data:307 meecast/qt-qml/qml/FullWeatherPage.qml:87
+#: meecast/qt-qml/qml/FullWeatherPage.qml:151
+#: meecast/qt-qml/qml/FullWeatherPage.qml:195
 msgid "Wind direction:"
 msgstr "Ruzgar yonu:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:90
-#: meecast/qt-qml/qml/FullWeatherPage.qml:149
-#: meecast/qt-qml/qml/FullWeatherPage.qml:200
+#: meecast/qt-qml/qml/FullWeatherPage.qml:99
+#: meecast/qt-qml/qml/FullWeatherPage.qml:163
+#: meecast/qt-qml/qml/FullWeatherPage.qml:207
 msgid "Wind gust:"
 msgstr "Ani Ruzgar:"
 
-#: omweather/src/hash.data:309 meecast/qt-qml/qml/FullWeatherPage.qml:84
-#: meecast/qt-qml/qml/FullWeatherPage.qml:143
-#: meecast/qt-qml/qml/FullWeatherPage.qml:194
+#: omweather/src/hash.data:309 meecast/qt-qml/qml/FullWeatherPage.qml:93
+#: meecast/qt-qml/qml/FullWeatherPage.qml:157
+#: meecast/qt-qml/qml/FullWeatherPage.qml:201
 msgid "Wind speed"
 msgstr "Ruzgar hizi"
 

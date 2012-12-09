@@ -3046,6 +3046,10 @@ qualsevol versió posterior.</translation>
             <translation>Índex UV:</translation>
         </message>
         <message>
+            <source>UV index:</source>
+            <translation>Índex UV:</translation>
+        </message>
+        <message>
             <source>Units</source>
             <translation>Unitats</translation>
         </message>

@@ -3045,6 +3045,10 @@ para qualquer versão posterior.</translation>
             <translation>Indíce UV:</translation>
         </message>
         <message>
+            <source>UV index:</source>
+            <translation>Indíce UV:</translation>
+        </message>
+        <message>
             <source>Units</source>
             <translation>Unidades</translation>
         </message>

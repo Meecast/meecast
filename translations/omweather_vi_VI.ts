@@ -3035,6 +3035,11 @@ Việt Nam- Quý Trọng</translation>
             </translation>
         </message>
         <message>
+            <source>UV index:</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Units</source>
             <translation>Đơn vị</translation>
         </message>

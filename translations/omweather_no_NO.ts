@@ -3048,6 +3048,10 @@ Slovak - Roman Moravčík</translation>
             <translation>UV indeks:</translation>
         </message>
         <message>
+            <source>UV index:</source>
+            <translation>UV indeks:</translation>
+        </message>
+        <message>
             <source>Units</source>
             <translation>Enheter</translation>
         </message>

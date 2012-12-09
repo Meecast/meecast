@@ -3125,6 +3125,11 @@ Slovacco - Roman Moravčík</translation>
             </translation>
         </message>
         <message>
+            <source>UV index:</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Units</source>
             <translation>Unità</translation>
         </message>

@@ -3086,6 +3086,11 @@ Slovaque - Roman Moravčík</translation>
             </translation>
         </message>
         <message>
+            <source>UV index:</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Units</source>
             <translation>Unités</translation>
         </message>

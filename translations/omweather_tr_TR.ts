@@ -3043,6 +3043,11 @@ hem 2.1 versiyonu vehem de (isteginize gore) farkli bir ileriki version olabilir
             </translation>
         </message>
         <message>
+            <source>UV index:</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Units</source>
             <translation>Uniteler</translation>
         </message>

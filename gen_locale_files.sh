@@ -22,7 +22,7 @@ cp -r po/*.po omweather/po
 cp -r po/*.pot omweather/po
 
 cd translations/
-lrelease omweather_*.ts
+lrelease -nounfinished omweather_*.ts
 cd -
 
 exit 0

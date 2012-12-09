@@ -3035,6 +3035,11 @@ Foundation; versie 2.1 of latere versies.</translation>
             </translation>
         </message>
         <message>
+            <source>UV index:</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Units</source>
             <translation>Eenheden</translation>
         </message>

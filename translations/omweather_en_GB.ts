@@ -3607,6 +3607,11 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>UV index:</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Units</source>
             <translation type="unfinished">
             </translation>

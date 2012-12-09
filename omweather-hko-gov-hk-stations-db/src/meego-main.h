@@ -47,9 +47,11 @@ void source_destroy(void);
 #ifdef GLIB
     void free_fields(gpointer key, gpointer val, gpointer user_data);
     gint get_station_weather_data(const gchar *station_id_with_path, GHashTable *data, gboolean get_detail_data);
+    gpointer hash_hko_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
+    GHashTable* hash_hko_table_create(void);
 #endif
 #ifdef  QT
-    QString hash_hko_icon_table_find(QHash<QString, QString> *hash, char *key);
+    QString hash_hko_table_find(QHash<QString, QString> *hash, char *key);
 #endif
 //gint parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *data);
 int parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *result_file);

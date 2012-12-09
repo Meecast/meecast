@@ -37,22 +37,22 @@
 #ifdef QT
     static QHash<QString, QString> *hash_for_icons;
     static QHash<QString, QString> *hash_for_translate;
-    QHash<QString, QString> *hash_icons_hko_table_create(void);
+    QHash<QString, QString> *hash_hko_table_create(void);
 #endif
 
 /*******************************************************************************/
 #ifdef GLIB
 gchar*
-choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
+choose_hour_weather_icon(GHashTable *hash_for_icons, char *image)
 {
-    gchar *result;
-    gchar *source;
-    gchar *tmp_result = NULL;
+    char *result;
+    char *source;
+    char *tmp_result = NULL;
 
     if(!image)
         return g_strdup("49");
     source = g_strdup_printf("%s", image);
-    tmp_result = hash_hko_table_find(hash_for_icons, source, FALSE);
+    tmp_result = (char *)hash_hko_table_find(hash_for_icons, source, FALSE);
     result = g_strdup(tmp_result);
     g_free(source);
     return result;
@@ -61,7 +61,7 @@ choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
 #ifdef QT 
     QString
     choose_hour_weather_icon(QHash<QString, QString> *hash_for_icons, char *image){
-        return hash_hko_icon_table_find(hash_for_icons, image);
+        return hash_hko_table_find(hash_for_icons, image);
     }
 #endif
 
@@ -98,7 +98,7 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
         if (strstr(buffer,"Weather Cartoons for 7-day weather forecast"))
             break;
     }
-    hash_for_icons = hash_icons_hko_table_create();
+    hash_for_icons = hash_hko_table_create();
  
     while(fgets(buffer, sizeof(buffer), file_in)){
         if (strstr(buffer,"Bulletin updated"))
@@ -232,7 +232,7 @@ parse_current_weather(const char *detail_path_data, const char *result_file){
     if (!file_in)
         return;
 
-    hash_for_icons = hash_icons_hko_table_create();
+    hash_for_icons = hash_hko_table_create();
     while(fgets(buffer, sizeof(buffer), file_in)){
         if (strstr(buffer,"Bulletin updated"))
             if (comma = strstr(buffer, "at ")){

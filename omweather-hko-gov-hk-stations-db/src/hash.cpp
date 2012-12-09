@@ -35,7 +35,7 @@
 
 #ifdef GLIB
 /*******************************************************************************/
-GHashTable *hash_icons_hkogovhk_table_create(void) {
+GHashTable *hash_hko_table_create(void) {
     GHashTable *hash = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -47,7 +47,7 @@ GHashTable *hash_icons_hkogovhk_table_create(void) {
 
 /*******************************************************************************/
 gpointer 
-hash_hkogovhk_table_find(GHashTable *hash, gpointer key, gboolean search_short_name) {
+hash_hko_table_find(GHashTable *hash, gpointer key, gboolean search_short_name) {
     gpointer orig_key, search_text, 
              value = NULL, 
              result = NULL;
@@ -78,14 +78,14 @@ hash_hkogovhk_table_find(GHashTable *hash, gpointer key, gboolean search_short_n
 
 #ifdef QT
 QHash<QString, QString> *
-hash_icons_hko_table_create(void) {
+hash_hko_table_create(void) {
     QHash<QString, QString> *hash = new QHash <QString, QString>;
 #include "hash_icons.data"
     return hash;
 }
 
 QString 
-hash_hko_icon_table_find(QHash<QString, QString> *hash, char *key){
+hash_hko_table_find(QHash<QString, QString> *hash, char *key){
     QString result;
     if (hash->contains(QString(key))){
         return hash->value(QString(key));

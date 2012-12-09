@@ -29,13 +29,13 @@
 #define _hash_h 1
 /*******************************************************************************/
 #ifdef GLIB
-    GHashTable* hash_icons_hkogovhk_table_create(void);
-    gpointer hash_hkogovhk_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
+    GHashTable* hash_hko_table_create(void);
+    gpointer hash_hko_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
 #endif
 #ifdef QT
     #include <QHash>
-    QHash<QString, QString> *hash_icons_hkogovhk_table_create(void);
-    QString hash_hko_icon_table_find(QHash<QString, QString> *hash, char *key);
+    QHash<QString, QString> *hash_icons_hko_table_create(void);
+    QString hash_hko_find(QHash<QString, QString> *hash, char *key);
 #endif
 /*******************************************************************************/
 #endif

@@ -35,7 +35,7 @@
     GHashTable* hash_icons_gismeteo_table_create(void);
     gchar * hash_gismeteo_table_find(GHashTable *hash, char *key, gboolean search_short_name);
 #endif
-#if QT    
+#ifdef QT    
 #include <QHash>
    QHash<QString, QString> *hash_icons_gismeteo_table_create(void);
    QHash<QString, QString> *hash_description_gismeteo_table_create(void);

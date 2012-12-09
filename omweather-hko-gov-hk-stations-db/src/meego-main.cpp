@@ -37,7 +37,7 @@
 #ifdef QT
     static QHash<QString, QString> *hash_for_icons;
     static QHash<QString, QString> *hash_for_translate;
-    QHash<QString, QString> *hash_icons_hkogovhk_table_create(void);
+    QHash<QString, QString> *hash_icons_hko_table_create(void);
 #endif
 
 /*******************************************************************************/
@@ -52,7 +52,7 @@ choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
     if(!image)
         return g_strdup("49");
     source = g_strdup_printf("%s", image);
-    tmp_result = hash_hkogovhk_table_find(hash_for_icons, source, FALSE);
+    tmp_result = hash_hko_table_find(hash_for_icons, source, FALSE);
     result = g_strdup(tmp_result);
     g_free(source);
     return result;
@@ -98,7 +98,7 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
         if (strstr(buffer,"Weather Cartoons for 7-day weather forecast"))
             break;
     }
-    hash_for_icons = hash_icons_hkogovhk_table_create();
+    hash_for_icons = hash_icons_hko_table_create();
  
     while(fgets(buffer, sizeof(buffer), file_in)){
         if (strstr(buffer,"Bulletin updated"))
@@ -232,7 +232,7 @@ parse_current_weather(const char *detail_path_data, const char *result_file){
     if (!file_in)
         return;
 
-    hash_for_icons = hash_icons_hkogovhk_table_create();
+    hash_for_icons = hash_icons_hko_table_create();
     while(fgets(buffer, sizeof(buffer), file_in)){
         if (strstr(buffer,"Bulletin updated"))
             if (comma = strstr(buffer, "at ")){

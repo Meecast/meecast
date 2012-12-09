@@ -24,7 +24,7 @@ OTHER_FILES += \
 CONFIG = link_pkgconfig -qt
 PKGCONFIG += libxml-2.0 
 
-system(pkg-config --exists glib-2.01){
+system(pkg-config --exists glib-2.0){
     PKGCONFIG += glib-2.0
     message(GLIB-2.0 is exist)
     CONFIG += -qt

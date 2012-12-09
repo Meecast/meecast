@@ -1,6 +1,6 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
  * Copyright (C) 2012 Vlad Vasilyeu
  * 	for the code
@@ -28,8 +28,14 @@
 #ifndef _hash_h
 #define _hash_h 1
 /*******************************************************************************/
-/*******************************************************************************/
-GHashTable* hash_icons_hkogovhk_table_create(void);
-gpointer hash_hkogovhk_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
+#ifdef GLIB
+    GHashTable* hash_icons_hkogovhk_table_create(void);
+    gpointer hash_hkogovhk_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
+#endif
+#ifdef QT
+    #include <QHash>
+    QHash<QString, QString> *hash_icons_hkogovhk_table_create(void);
+    QString hash_hko_icon_table_find(QHash<QString, QString> *hash, char *key);
+#endif
 /*******************************************************************************/
 #endif

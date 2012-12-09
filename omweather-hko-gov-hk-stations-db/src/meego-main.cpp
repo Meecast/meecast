@@ -1,6 +1,6 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of omweather-foreca-com-stations-db
+ * This file is part of omweather-hko-gov-hk-stations-db - MeeCast
  *
  * Copyright (C) 2012 Vlad Vasilyeu
  * 	for the code
@@ -58,6 +58,13 @@ choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
     return result;
 }
 #endif
+#ifdef QT 
+    QString
+    choose_hour_weather_icon(QHash<QString, QString> *hash_for_icons, char *image){
+        return hash_hko_icon_table_find(hash_for_icons, image);
+    }
+#endif
+
 void
 parse_forecast_weather(const char *detail_path_data, const char *result_file){
 
@@ -121,7 +128,12 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
                     comma = comma + 3;
                     icon = atoi (comma);
                     snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%i", icon);
-                    fprintf(file_out,"     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer));				                
+#ifdef GLIB
+                    fprintf(file_out,"     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer));
+#endif
+#ifdef QT 
+                    fprintf(file_out, "     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer).toStdString().c_str());
+#endif
                 }
             }
         if (strstr(buffer,"Wind"))
@@ -129,7 +141,13 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
                 comma = comma + 2;
                 comma2 = strstr(comma, "force");               
                 snprintf(temp_buffer, comma2 - comma, "%s", comma);
+#ifdef GLIB
                 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer)); 
+#endif
+#ifdef QT 
+                    fprintf(file_out, "     <wind_direction>%s</wind_direction>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer).toStdString().c_str());
+#endif
+
                 comma = strstr(comma2, " ");               
                 comma++;
                 switch (atoi(comma)){
@@ -247,7 +265,12 @@ parse_current_weather(const char *detail_path_data, const char *result_file){
                 comma = comma + 3;
                 icon = atoi (comma);
                 snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%i", icon);
-                fprintf(file_out,"     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer));				                
+#ifdef GLIB
+                    fprintf(file_out,"     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer));
+#endif
+#ifdef QT 
+                    fprintf(file_out, "     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer).toStdString().c_str());
+#endif
             }
             if (comma = strstr(buffer, " - ")){
                 comma = comma + 3;
@@ -278,7 +301,7 @@ parse_current_weather(const char *detail_path_data, const char *result_file){
 }
 /*******************************************************************************/
 int
-convert_station_hkogovhk_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data ){
+convert_station_hkogovhk_data(char *station_id_with_path, const char *result_file, const char *detail_path_data ){
  
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;
@@ -364,7 +387,7 @@ convert_station_hkogovhk_data(const char *station_id_with_path, const char *resu
                             xmlCleanupParser();
                         }
                         else{
-                            parse_and_write_detail_data(buffer, doc, result_file);
+                            //parse_and_write_detail_data(buffer, doc, result_file);
                             xmlFreeDoc(doc);
                             xmlCleanupParser();
                         }

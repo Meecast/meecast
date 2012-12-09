@@ -23,7 +23,7 @@ OTHER_FILES += \
 CONFIG = link_pkgconfig 
 CONFIG += warn_on debug_and_release
 PKGCONFIG += libxml-2.0 
-system(pkg-config --exists glib-2.0){
+system(pkg-config --exists glib-2.0________){
     PKGCONFIG += glib-2.0
     message(GLIB-2.0 is exist)
     CONFIG += -qt

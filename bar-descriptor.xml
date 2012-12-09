@@ -62,6 +62,7 @@
        <asset path="x86/foreca/o-g/forecacom" type="Qnx/Elf">forecacom</asset>
        <asset path="x86/yrno/yrno" type="Qnx/Elf">yrno</asset>
        <asset path="x86/gismeteo/gismeteoru" type="Qnx/Elf">gismeteoru</asset>
+       <asset path="x86/hko/hkogovhk" type="Qnx/Elf">hkogovhk</asset>
     </configuration>
     
     <!--  The icon for the application, which should be 150x150. -->
@@ -96,6 +97,8 @@
     <asset path="omweather-yr-no-stations-db/data/yr.no.db">share/db/yr.no.db</asset>
     <asset path="omweather-gismeteo-ru-stations-db/data/gismeteo.ru.db">share/db/gismeteo.ru.db</asset>
     <asset path="omweather-gismeteo-ru-stations-db/data/gismeteom.ru.xml">share/sources/gismeteom.ru.xml</asset>
+    <asset path="omweather-hko-gov-hk-stations-db/data/hko.gov.hk.db">share/db/hko.gov.hk.db</asset>
+    <asset path="omweather-hko-gov-hk-stations-db/data/hko.gov.hk.xml">share/sources/hko.gov.hk.xml</asset>
    
     <!-- Request permission to execute native code.  Required for native applications. -->
     <permission system="true">run_native</permission>

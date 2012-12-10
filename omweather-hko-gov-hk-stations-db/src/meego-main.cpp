@@ -1,6 +1,6 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of omweather-foreca-com-stations-db
+ * This file is part of omweather-hko-gov-hk-stations-db - MeeCast
  *
  * Copyright (C) 2012 Vlad Vasilyeu
  * 	for the code
@@ -31,35 +31,51 @@
 #include <locale.h>
 /*******************************************************************************/
 #define buff_size 2048
-static GHashTable *data = NULL;
+#if GLIB
+    static GHashTable *data = NULL;
+#endif
+#ifdef QT
+    static QHash<QString, QString> *hash_for_icons;
+    static QHash<QString, QString> *hash_for_translate;
+    QHash<QString, QString> *hash_hko_table_create(void);
+#endif
+
 /*******************************************************************************/
+#ifdef GLIB
 gchar*
-choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
+choose_hour_weather_icon(GHashTable *hash_for_icons, char *image)
 {
-    gchar *result;
-    gchar *source;
-    gchar *tmp_result = NULL;
+    char *result;
+    char *source;
+    char *tmp_result = NULL;
 
     if(!image)
         return g_strdup("49");
     source = g_strdup_printf("%s", image);
-    tmp_result = hash_hkogovhk_table_find(hash_for_icons, source, FALSE);
+    tmp_result = (char *)hash_hko_table_find(hash_for_icons, source, FALSE);
     result = g_strdup(tmp_result);
     g_free(source);
     return result;
 }
+#endif
+#ifdef QT 
+    QString
+    choose_hour_weather_icon(QHash<QString, QString> *hash_for_icons, char *image){
+        return hash_hko_table_find(hash_for_icons, image);
+    }
+#endif
 
 void
-parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
+parse_forecast_weather(const char *detail_path_data, const char *result_file){
 
     FILE    *file_out;
     FILE    *file_in;
     FILE    *file_in2;
-    gchar buffer [4096];
-    gchar buffer2 [4096];
-    gchar temp_buffer [1024];
-    gchar *comma = NULL;
-    gchar *comma2 = NULL;
+    char buffer [4096];
+    char buffer2 [4096];
+    char temp_buffer [1024];
+    char *comma = NULL;
+    char *comma2 = NULL;
     struct tm   tmp_tm = {0};
     time_t      t_start = 0, t_end = 0;
     int   temperature, humidity1, humidity2, icon;
@@ -67,8 +83,9 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
     int   year=0;
     int   number_of_day = 0;
     fpos_t pos;
+#ifdef GLIB
     GHashTable *hash_for_icons;
-
+#endif
     file_out = fopen(result_file, "a");
     if (!file_out)
         return;
@@ -81,7 +98,8 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
         if (strstr(buffer,"Weather Cartoons for 7-day weather forecast"))
             break;
     }
-    hash_for_icons = hash_icons_hkogovhk_table_create();
+    hash_for_icons = hash_hko_table_create();
+ 
     while(fgets(buffer, sizeof(buffer), file_in)){
         if (strstr(buffer,"Bulletin updated"))
             if (comma = strstr(buffer, "at ")){
@@ -110,7 +128,12 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
                     comma = comma + 3;
                     icon = atoi (comma);
                     snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%i", icon);
-                    fprintf(file_out,"     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer));				                
+#ifdef GLIB
+                    fprintf(file_out,"     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer));
+#endif
+#ifdef QT 
+                    fprintf(file_out, "     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer).toStdString().c_str());
+#endif
                 }
             }
         if (strstr(buffer,"Wind"))
@@ -118,7 +141,13 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
                 comma = comma + 2;
                 comma2 = strstr(comma, "force");               
                 snprintf(temp_buffer, comma2 - comma, "%s", comma);
+#ifdef GLIB
                 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer)); 
+#endif
+#ifdef QT 
+                    fprintf(file_out, "     <wind_direction>%s</wind_direction>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer).toStdString().c_str());
+#endif
+
                 comma = strstr(comma2, " ");               
                 comma++;
                 switch (atoi(comma)){
@@ -183,18 +212,19 @@ parse_forecast_weather(const gchar *detail_path_data, const gchar *result_file){
 
 /*******************************************************************************/
 void
-parse_current_weather(const gchar *detail_path_data, const gchar *result_file){
+parse_current_weather(const char *detail_path_data, const char *result_file){
 
     FILE    *file_out;
     FILE    *file_in;
-    gchar buffer [4096];
-    gchar temp_buffer [1024];
-    gchar *comma = NULL;
+    char buffer [4096];
+    char temp_buffer [1024];
+    char *comma = NULL;
     struct tm   tmp_tm = {0};
     time_t      t_start = 0, t_end = 0;
     int   temperature, humidity, icon;
+#ifdef GLIB
     GHashTable *hash_for_icons;
-
+#endif
     file_out = fopen(result_file, "a");
     if (!file_out)
         return;
@@ -202,7 +232,7 @@ parse_current_weather(const gchar *detail_path_data, const gchar *result_file){
     if (!file_in)
         return;
 
-    hash_for_icons = hash_icons_hkogovhk_table_create();
+    hash_for_icons = hash_hko_table_create();
     while(fgets(buffer, sizeof(buffer), file_in)){
         if (strstr(buffer,"Bulletin updated"))
             if (comma = strstr(buffer, "at ")){
@@ -235,7 +265,12 @@ parse_current_weather(const gchar *detail_path_data, const gchar *result_file){
                 comma = comma + 3;
                 icon = atoi (comma);
                 snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%i", icon);
-                fprintf(file_out,"     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer));				                
+#ifdef GLIB
+                    fprintf(file_out,"     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer));
+#endif
+#ifdef QT 
+                    fprintf(file_out, "     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer).toStdString().c_str());
+#endif
             }
             if (comma = strstr(buffer, " - ")){
                 comma = comma + 3;
@@ -252,19 +287,26 @@ parse_current_weather(const gchar *detail_path_data, const gchar *result_file){
                     fprintf(file_out,"     <description>%s</description>\n", temp_buffer);				                       
                 }
         }
+        if (strstr(buffer,"UV Index"))
+            if (comma = strstr(buffer, ": ")){
+                comma = comma + 2;
+                humidity = atoi (comma);
+                fprintf(file_out,"     <uv_index>%i</uv_index>\n", humidity);
+            }
+
     }
     fprintf(file_out,"    </period>\n");
     fclose(file_out);
     fclose(file_in);
 }
 /*******************************************************************************/
-
-convert_station_hkogovhk_data(const gchar *station_id_with_path, const gchar *result_file, const gchar *detail_path_data ){
+int
+convert_station_hkogovhk_data(char *station_id_with_path, const char *result_file, const char *detail_path_data ){
  
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;
-    gint    days_number = -1;
-    gchar   buffer[1024],
+    int    days_number = -1;
+    char   buffer[1024],
             *delimiter = NULL;
     FILE    *file_out;
 
@@ -345,7 +387,7 @@ convert_station_hkogovhk_data(const gchar *station_id_with_path, const gchar *re
                             xmlCleanupParser();
                         }
                         else{
-                            parse_and_write_detail_data(buffer, doc, result_file);
+                            //parse_and_write_detail_data(buffer, doc, result_file);
                             xmlFreeDoc(doc);
                             xmlCleanupParser();
                         }

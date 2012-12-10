@@ -4,6 +4,7 @@ meecast (0.6.9) unstable; urgency=low
   * Fixed problem with current weather in gismeteo.ru source
   * Added icon and description string to gismeteo.ru 
   * Fixed problem with weather forecast in gismeteo.ru for Australia
+  * Changed splash. Thanks Andrew Zhilin (wazd)
   * Added icon for hko.gov.hk
   * Added icons for foreca.com
   * Added UV-index to hko.gov.hk source

@@ -21,9 +21,21 @@ FORMS    +=
 OTHER_FILES += \
 
 
-CONFIG = link_pkgconfig -qt
-PKGCONFIG += libxml-2.0 \
-             glib-2.0
+CONFIG = link_pkgconfig 
+PKGCONFIG += libxml-2.0 
+
+system(pkg-config --exists glib-2.0){
+    PKGCONFIG += glib-2.0
+    message(GLIB-2.0 is exist)
+    CONFIG += -qt
+    DEFINES += GLIB 
+}else{
+    message(GLIB-2.0 is not exist)
+    CONFIG += qt
+    QT += core
+    DEFINES += QT
+}
+
 
 db.files = data/foreca.com.db
 db.path = /opt/com.meecast.omweather/share/db/

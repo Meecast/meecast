@@ -261,6 +261,32 @@ later version.");
 	    anchors.left: parent.left
 	    anchors.top: licensetext.bottom
 	}
+    Label {
+            id: iconsetext  
+            text: Config.tr("Iconsets") + ":"
+            anchors.top: licensefulltext.bottom
+            anchors.topMargin: 30
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            color: "#999999"
+        }
+	Label {
+            id: iconsetfulltext 
+	        text: "Beginning - Beginning beginning_somehow(at)yahoo.com \n \
+Contour   - Andrew Zhilin  http://tabletui.wordpress.com \n \
+Epona     - Gianni Polito aka Epona http://crystalxp.net \n \
+Glance    - Andrew Zhilin  http://tabletui.wordpress.com \n \
+Grzankas  - Wojciech Grzanka http://http://grzanka.pl/ \n \ 
+MeeCast   - Andrew Zhilin  http://tabletui.wordpress.com \n \
+SimpelMee - Kim Venetvirta (C) 2012 tardolus(at)ovi.com \n \
+Noun      - designed by Adam Whitcroft from The Noun Project.n \ 
+\t http://thenounproject.com"
+Shiny     - JyriK http://jyrik.deviantart.com jyrik(at)koti.luukku.com \n \
+";
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    anchors.top: iconsetext.bottom
+	}
 
 	                                                                                                    
     }

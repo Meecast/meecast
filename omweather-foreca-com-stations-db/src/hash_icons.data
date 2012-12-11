@@ -1,3 +1,10 @@
+#ifdef GLIB
+    #define hash_insert(hash, s2, s3)  g_hash_table_insert(hash, (gpointer)s2, (gpointer)s3); 
+#endif
+
+#ifdef QT
+    #define hash_insert(hash, s2, s3)  hash->insert(s2, s3);
+#endif
 
     hash->insert("d000.png","32");
     hash->insert("n000.png","31");

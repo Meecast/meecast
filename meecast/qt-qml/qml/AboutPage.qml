@@ -8,8 +8,6 @@ Page {
     property int screen_width  :  768
     property int screen_height : 1280    
 
-   
-
     content: 
     Container{
        id: absoluteLayoutContainer
@@ -244,6 +242,42 @@ Swedish - Angela Nennebrandt,\n \
                             color: Color.White
                         }
                     }
+
+                    Label {
+                            id: iconsetext  
+                            text: Config.tr("Iconsets") + ":"
+                            textStyle {
+                                base: SystemDefaults.TextStyles.TitleText 
+                                color: Color.create("#999999")
+                            }
+                        }
+                	Label {
+                            id: iconsetfulltext 
+text: "Beginning - \n \
+Beginning beginning_somehow(at)yahoo.com \n\n\
+Contour - \n\
+Glance  - \n\
+MeeCast - \n\
+Andrew Zhilin  http://tabletui.wordpress.com \n\n\
+Epona   - \n\
+Gianni Polito aka Epona http://crystalxp.net \n\n\
+Grzankas  -\n\
+Wojciech Grzanka http://http://grzanka.pl/ \n\n\
+SimpelMee - \n\
+Kim Venetvirta  tardolus(at)ovi.com \n\n\
+Noun   - \n\
+designed by Adam Whitcroft \n\
+from The Noun Project. http://thenounproject.com\n\n\
+Shiny - \n\
+JyriK http://jyrik.deviantart.com \n\
+jyrik(at)koti.luukku.com";
+                            multiline: true
+                            textStyle {
+                                base: SystemDefaults.TextStyles.BodyText 
+                                color: Color.White
+                            }
+	                }
+
                     Label {
                         id: licensetext  
                         text: Config.tr("License") + ":"
@@ -291,4 +325,8 @@ later version.");
         }
     }
 }
+
+
+
+
 

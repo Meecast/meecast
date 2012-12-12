@@ -10,6 +10,8 @@ meecast (0.6.9) unstable; urgency=low
   * Added UV-index to hko.gov.hk source
   * Fixed problem with N/A UV-index
   * Disabled label "Show on map" if case map isn't available
+  * Added new iconset Noun  - The Noun Project icons are designed by Adam
+    Whitcroft from The Noun Project. http://thenounproject.com"
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 19 Nov 2012 19:31:23 +0200
 

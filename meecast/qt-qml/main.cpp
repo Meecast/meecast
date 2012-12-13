@@ -42,7 +42,6 @@
 #include <QGraphicsGridLayout>
 #include <exception>
 #include <iostream>
-#include <QNetworkConfigurationManager>
 
 #include "core.h"
 #include "dataqml.h"
@@ -114,11 +113,6 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     
     //ConfigQml *config;
     //
-    if  QNetworkConfigurationManager::isOnline (){
-        fprintf(stderr," Connection!!!!!!!!!!!!!!!\n");
-    }else {
-        fprintf(stderr," Not Connection!!!!!!!!!!!!!!!\n");
-    }
     Controller *controller;
 
     QTranslator translator;

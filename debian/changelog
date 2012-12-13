@@ -14,6 +14,7 @@ meecast (0.6.9) unstable; urgency=low
     Whitcroft from The Noun Project. http://thenounproject.com"
   * Moved station Townsville from Victoria to QLD and station Canberra 
     from NSW  to ACT in bom.gov.au source
+  * Added checking internet connection before updating in Widget mode
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 19 Nov 2012 19:31:23 +0200
 

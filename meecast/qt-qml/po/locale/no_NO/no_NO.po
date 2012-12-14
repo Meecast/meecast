@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-14 15:07+0300\n"
+"POT-Creation-Date: 2012-12-14 15:09+0300\n"
 "PO-Revision-Date: 2012-11-13 22:05+0000\n"
 "Last-Translator: Peer-Atle Motland <PeerAtle@online.no>\n"
 "Language-Team: Norwegian (Norway) (http://www.transifex.com/projects/p/"
@@ -887,13 +887,10 @@ msgid "First Quarter"
 msgstr "Første Kvarter"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:153
-#, fuzzy
-msgid "Flike"
-msgstr "Flike:"
-
 #: meecast/qt-qml/qml/FullWeatherPage.qml:210
 #: meecast/qt-qml/qml/FullWeatherPage.qml:259
-msgid "Flike:"
+#, fuzzy
+msgid "Flike"
 msgstr "Flike:"
 
 #: omweather/src/hash.data:84
@@ -3038,3 +3035,6 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:331
 msgid "Ю-З"
 msgstr "Ю-З"
+
+#~ msgid "Flike:"
+#~ msgstr "Flike:"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-14 15:07+0300\n"
+"POT-Creation-Date: 2012-12-14 15:09+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -872,14 +872,10 @@ msgid "First Quarter"
 msgstr "Первая четверть"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:153
-#, fuzzy
-msgid "Flike"
-msgstr "По ощущениям:"
-
 #: meecast/qt-qml/qml/FullWeatherPage.qml:210
 #: meecast/qt-qml/qml/FullWeatherPage.qml:259
-msgid "Flike:"
-msgstr "По ощущениям:"
+msgid "Flike"
+msgstr "По ощущениям"
 
 #: omweather/src/hash.data:84
 msgid "Fog"
@@ -2997,6 +2993,9 @@ msgstr ""
 #: omweather/src/hash.data:331
 msgid "Ю-З"
 msgstr ""
+
+#~ msgid "Flike:"
+#~ msgstr "По ощущениям:"
 
 #, fuzzy
 #~ msgid ""

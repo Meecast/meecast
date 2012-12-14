@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-14 15:07+0300\n"
+"POT-Creation-Date: 2012-12-14 15:09+0300\n"
 "PO-Revision-Date: 2012-07-30 18:34+0000\n"
 "Last-Translator: Cristian Măgherușan-Stanciu <cristi.magherusan@gmail.com>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/meecast/"
@@ -891,13 +891,10 @@ msgid "First Quarter"
 msgstr "Erstes Viertel"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:153
-#, fuzzy
-msgid "Flike"
-msgstr "Feuchtigkeit:"
-
 #: meecast/qt-qml/qml/FullWeatherPage.qml:210
 #: meecast/qt-qml/qml/FullWeatherPage.qml:259
-msgid "Flike:"
+#, fuzzy
+msgid "Flike"
 msgstr "Feuchtigkeit:"
 
 #: omweather/src/hash.data:84
@@ -3045,3 +3042,6 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:331
 msgid "Ю-З"
 msgstr "Ю-З"
+
+#~ msgid "Flike:"
+#~ msgstr "Feuchtigkeit:"

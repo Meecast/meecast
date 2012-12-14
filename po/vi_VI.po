@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-14 15:07+0300\n"
+"POT-Creation-Date: 2012-12-14 15:09+0300\n"
 "PO-Revision-Date: 2012-10-05 08:15+0000\n"
 "Last-Translator: quytrong287 <quytrong287@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/meecast/"
@@ -886,13 +886,10 @@ msgid "First Quarter"
 msgstr "Quý một"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:153
-#, fuzzy
-msgid "Flike"
-msgstr "Có cảm giác như:"
-
 #: meecast/qt-qml/qml/FullWeatherPage.qml:210
 #: meecast/qt-qml/qml/FullWeatherPage.qml:259
-msgid "Flike:"
+#, fuzzy
+msgid "Flike"
 msgstr "Có cảm giác như:"
 
 #: omweather/src/hash.data:84
@@ -3009,3 +3006,6 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:331
 msgid "Ю-З"
 msgstr "Ю-З"
+
+#~ msgid "Flike:"
+#~ msgstr "Có cảm giác như:"

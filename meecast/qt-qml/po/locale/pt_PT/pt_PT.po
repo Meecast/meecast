@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-14 15:07+0300\n"
+"POT-Creation-Date: 2012-12-14 15:09+0300\n"
 "PO-Revision-Date: 2012-11-08 11:43+0000\n"
 "Last-Translator: Jose Narciso <jose.manuel.narciso@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/"
@@ -886,13 +886,10 @@ msgid "First Quarter"
 msgstr "Primeiro Trimestre"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:153
-#, fuzzy
-msgid "Flike"
-msgstr "Parece Estar:"
-
 #: meecast/qt-qml/qml/FullWeatherPage.qml:210
 #: meecast/qt-qml/qml/FullWeatherPage.qml:259
-msgid "Flike:"
+#, fuzzy
+msgid "Flike"
 msgstr "Parece Estar:"
 
 #: omweather/src/hash.data:84
@@ -3038,3 +3035,6 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:331
 msgid "Ю-З"
 msgstr "Ю-З"
+
+#~ msgid "Flike:"
+#~ msgstr "Parece Estar:"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-14 15:09+0300\n"
+"POT-Creation-Date: 2012-12-14 15:49+0300\n"
 "PO-Revision-Date: 2012-11-08 15:02+0000\n"
 "Last-Translator: Niklas Åkerström <nille.kungen@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/meecast/language/"
@@ -784,6 +784,10 @@ msgstr ""
 
 #: omweather/src/hash.data:74
 msgid "Fair"
+msgstr ""
+
+#: omweather/src/hash.data:324
+msgid "Feels like"
 msgstr ""
 
 #: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
@@ -2883,34 +2887,34 @@ msgstr ""
 msgid "steady"
 msgstr ""
 
-#: omweather/src/hash.data:324
+#: omweather/src/hash.data:325
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:325
+#: omweather/src/hash.data:326
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:326
+#: omweather/src/hash.data:327
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:327
+#: omweather/src/hash.data:328
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:328
+#: omweather/src/hash.data:329
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:332
 msgid "Ю-З"
 msgstr ""

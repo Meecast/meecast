@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-14 15:09+0300\n"
+"POT-Creation-Date: 2012-12-14 15:49+0300\n"
 "PO-Revision-Date: 2012-04-19 10:31+0000\n"
 "Last-Translator: ludmilalisovskaya <ludmila.lisovskaya@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -843,6 +843,11 @@ msgstr "No pude inicializar GConf. Configuración no grabada.\n"
 #: omweather/src/hash.data:74
 msgid "Fair"
 msgstr "Despejado"
+
+#: omweather/src/hash.data:324
+#, fuzzy
+msgid "Feels like"
+msgstr "Sensación térmica:"
 
 #: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
 msgid "Feels like:"
@@ -3005,35 +3010,35 @@ msgstr "nombre de la estación"
 msgid "steady"
 msgstr "estable"
 
-#: omweather/src/hash.data:324
+#: omweather/src/hash.data:325
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:325
+#: omweather/src/hash.data:326
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:326
+#: omweather/src/hash.data:327
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:327
+#: omweather/src/hash.data:328
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:328
+#: omweather/src/hash.data:329
 msgid "С-З"
 msgstr "C-3"
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:332
 msgid "Ю-З"
 msgstr "Ю-З"
 

@@ -360,20 +360,12 @@ W:</translation>
             <translation>Om</translation>
         </message>
         <message>
-            <source>About</source>
-            <translation>Om</translation>
-        </message>
-        <message>
             <source>Access denied to the given URL.</source>
             <translation>Tilgang nektet til den gitte URL.</translation>
         </message>
         <message>
             <source>Action|Update</source>
             <translation>Handling|Oppdater</translation>
-        </message>
-        <message>
-            <source>Add</source>
-            <translation>Legg til</translation>
         </message>
         <message>
             <source>Add</source>
@@ -430,8 +422,14 @@ Eric Link - for funksjonsforespørsel og donasjon
             <translation>Utseende</translation>
         </message>
         <message>
-            <source>Appearance</source>
-            <translation>Utseende</translation>
+            <source>Application manager will now start
+for installing package 'MeeCast applet'.
+You should uninstall AccuWeather 
+before installing this package</source>
+            <translation>Programbehandling vil nå starte
+ for å installere pakken &quot;MeeCast applet&quot;.
+Du bør avinstallere AccuWeather
+før du installerer denne pakken</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -540,6 +538,10 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>CALM</source>
             <translation>ROLIG</translation>
+        </message>
+        <message>
+            <source>Cancel</source>
+            <translation>Avbryt</translation>
         </message>
         <message>
             <source>Cannot get path to the HOME directory. Quitting.
@@ -1068,19 +1070,8 @@ Brad Jones aka kazrak - for testing
             <translation>Noen Snøbyger / Vind</translation>
         </message>
         <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
+            <source>Find location via GPS</source>
+            <translation>Find lokasjon vha. GPS</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
@@ -1101,8 +1092,8 @@ Brad Jones aka kazrak - for testing
             <translation type="unfinished">Flike:</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Flike:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Flike:</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1135,6 +1126,16 @@ Brad Jones aka kazrak - for testing
         <message>
             <source>Font:</source>
             <translation>Font:</translation>
+        </message>
+        <message>
+            <source>For disabling MeeCast widget,
+you should uninstall package
+'Activating MeeCast Applet'
+using Application manager</source>
+            <translation>For å deaktivere MeeCast widget,
+bør du avinstallere pakken
+'Aktivere MeeCast Applet'
+ ved hjelp av Programbehandlingen</translation>
         </message>
         <message>
             <source>Forecast</source>
@@ -1238,6 +1239,10 @@ Slovak - Roman Moravčík</translation>
             <translation>Fullt varsel</translation>
         </message>
         <message>
+            <source>Fullscreen mode</source>
+            <translation>Fullskjerm modus</translation>
+        </message>
+        <message>
             <source>G: </source>
             <translation>G:</translation>
         </message>
@@ -1310,16 +1315,16 @@ Slovak - Roman Moravčík</translation>
             <translation>Timer</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Fuktighet:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Fuktighet:</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Fuktighet:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Fuktighet:</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Fuktighet:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Fuktighet:</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1354,6 +1359,10 @@ Slovak - Roman Moravčík</translation>
             <translation>Ikoner</translation>
         </message>
         <message>
+            <source>Icons</source>
+            <translation>Ikoner</translation>
+        </message>
+        <message>
             <source>Iconset</source>
             <translation>Ikonsett</translation>
         </message>
@@ -1368,6 +1377,22 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Iconsets</source>
             <translation>Ikonsett</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Informasjon</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Informasjon</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Informasjon</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Informasjon</translation>
         </message>
         <message>
             <source>Isolated T-Storms</source>
@@ -1558,10 +1583,6 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Manual</source>
             <translation>Manual</translation>
-        </message>
-        <message>
-            <source>Measurement units</source>
-            <translation>Måleenheter</translation>
         </message>
         <message>
             <source>Measurement units</source>
@@ -1960,6 +1981,10 @@ Slovak - Roman Moravčík</translation>
             <translation>OK</translation>
         </message>
         <message>
+            <source>OK</source>
+            <translation>OK</translation>
+        </message>
+        <message>
             <source>OMWeather Forecast</source>
             <translation>OMWeather Forecast</translation>
         </message>
@@ -1978,6 +2003,18 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>OMWeather settings</source>
             <translation>OMWeather innstillinger</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ok</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ok</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ok</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
@@ -2238,6 +2275,10 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Pressure</source>
             <translation>Trykk</translation>
+        </message>
+        <message>
+            <source>Pressure units</source>
+            <translation>Trykkenhet</translation>
         </message>
         <message>
             <source>Pressure units</source>
@@ -2640,6 +2681,14 @@ Slovak - Roman Moravčík</translation>
             <translation>Innstillingene for Dvalemodus widget</translation>
         </message>
         <message>
+            <source>Settings of LockScreen</source>
+            <translation>Innstillingene for Låseskjerm</translation>
+        </message>
+        <message>
+            <source>Settings of StandbyScreen</source>
+            <translation>Innstillinger for DvaleSkjerm</translation>
+        </message>
+        <message>
             <source>Shallow Fog</source>
             <translation>Lav Tåke</translation>
         </message>
@@ -2650,6 +2699,10 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Show arrows</source>
             <translation>Vis piler</translation>
+        </message>
+        <message>
+            <source>Show on Map</source>
+            <translation>Vis på Kart</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
@@ -2796,16 +2849,16 @@ Slovak - Roman Moravčík</translation>
             <translation>Hastighet:</translation>
         </message>
         <message>
+            <source>Splash screen</source>
+            <translation>Oppstartsskjerm</translation>
+        </message>
+        <message>
             <source>State:</source>
             <translation>Land:</translation>
         </message>
         <message>
             <source>Station %i</source>
             <translation>STasjon %i</translation>
-        </message>
-        <message>
-            <source>Stations</source>
-            <translation>Stasjoner</translation>
         </message>
         <message>
             <source>Stations</source>
@@ -2932,6 +2985,10 @@ Slovak - Roman Moravčík</translation>
             <translation>Temperaturenheter</translation>
         </message>
         <message>
+            <source>Temperature units</source>
+            <translation>Temperaturenheter</translation>
+        </message>
+        <message>
             <source>Temperature units:</source>
             <translation>Temperaturenheter:</translation>
         </message>
@@ -2988,14 +3045,6 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Torden i nærliggende områder</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Idag</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Idag</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3214,6 +3263,10 @@ av værinformasjonen.
             <translation>Synlige enheter</translation>
         </message>
         <message>
+            <source>Visible units</source>
+            <translation>Synlige enheter</translation>
+        </message>
+        <message>
             <source>Visible:</source>
             <translation>Synlig</translation>
         </message>
@@ -3302,6 +3355,18 @@ av værinformasjonen.
             <translation>Widget OMWeather laster på nytt</translation>
         </message>
         <message>
+            <source>Widget in LockScreen</source>
+            <translation>Widget på LåseSkjerm</translation>
+        </message>
+        <message>
+            <source>Widget in StandbyScreen</source>
+            <translation>Widget på DvaleSkjerm</translation>
+        </message>
+        <message>
+            <source>Widget in events view</source>
+            <translation>Widget på hendelsesskjerm</translation>
+        </message>
+        <message>
             <source>Widget style</source>
             <translation>Widget type</translation>
         </message>
@@ -3360,6 +3425,10 @@ av værinformasjonen.
         <message>
             <source>Wind speed</source>
             <translation>Vindhastighet</translation>
+        </message>
+        <message>
+            <source>Wind speed units</source>
+            <translation>Vindhastighet enheter</translation>
         </message>
         <message>
             <source>Wind speed units</source>
@@ -3438,6 +3507,22 @@ eller postkode!!!</translation>
         <message>
             <source>You can make donation here: </source>
             <translation>Du kan donere here: </translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using LockScreen widget</source>
+            <translation>Du må aktivere
+'Widget i hendelses visningen'
+ for å bruke LåseSkjerm widget</translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using StandbyScreen widget</source>
+            <translation>Du må aktivere
+'Widget i hendelses visningen'
+ for å bruke DvaleSkjerm widget</translation>
         </message>
         <message>
             <source>You should activate 'Widget in the events view' option in MeeCast appearance settings for auto update.</source>

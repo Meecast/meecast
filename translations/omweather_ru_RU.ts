@@ -346,20 +346,12 @@ W: </source>
             <translation>О программе</translation>
         </message>
         <message>
-            <source>About</source>
-            <translation>О программе</translation>
-        </message>
-        <message>
             <source>Access denied to the given URL.</source>
             <translation>К заданному URL доступ запрещен.</translation>
         </message>
         <message>
             <source>Action|Update</source>
             <translation>Обновить</translation>
-        </message>
-        <message>
-            <source>Add</source>
-            <translation>Добавить</translation>
         </message>
         <message>
             <source>Add</source>
@@ -417,8 +409,17 @@ Eric Link - за предложения и финансовую поддержк
             <translation>Внешний вид</translation>
         </message>
         <message>
-            <source>Appearance</source>
-            <translation>Внешний вид</translation>
+            <source>Application manager will now start
+for installing package 'MeeCast applet'.
+You should uninstall AccuWeather 
+before installing this package</source>
+            <translation>Сейчас будет запущена программа
+'Управление Приложениями' для
+того чтобы установить пакет
+'MeeCast applet'.
+Вы должны деинсталировать
+пакет AccuWeather до
+установки этой программы</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -527,6 +528,10 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>CALM</source>
             <translation>Штиль</translation>
+        </message>
+        <message>
+            <source>Cancel</source>
+            <translation>Отменить</translation>
         </message>
         <message>
             <source>Cannot get path to the HOME directory. Quitting.
@@ -1057,17 +1062,7 @@ Brad Jones aka kazrak - за тестирование
             <translation>Слабые снегопады / Ветер</translation>
         </message>
         <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
+            <source>Find location via GPS</source>
             <translation type="unfinished">
             </translation>
         </message>
@@ -1090,8 +1085,8 @@ Brad Jones aka kazrak - за тестирование
             <translation>По ощущениям</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>По ощущениям:</translation>
+            <source>Flike</source>
+            <translation>По ощущениям</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1124,6 +1119,17 @@ Brad Jones aka kazrak - за тестирование
         <message>
             <source>Font:</source>
             <translation>Шрифт:</translation>
+        </message>
+        <message>
+            <source>For disabling MeeCast widget,
+you should uninstall package
+'Activating MeeCast Applet'
+using Application manager</source>
+            <translation>Для отключения виджета MeeCast
+Вы должны деинсталировать пакет
+'Activating MeeCast Applet'
+используя прогамму
+'Управление Приложениями'</translation>
         </message>
         <message>
             <source>Forecast</source>
@@ -1213,6 +1219,10 @@ Slovak - Roman Moravčík</source>
             <translation>Полный прогноз</translation>
         </message>
         <message>
+            <source>Fullscreen mode</source>
+            <translation>Полноэкранный режим</translation>
+        </message>
+        <message>
             <source>G: </source>
             <translation>Пор.: </translation>
         </message>
@@ -1286,16 +1296,16 @@ Slovak - Roman Moravčík</source>
             <translation>Часы</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Влажность:</translation>
+            <source>Humidity</source>
+            <translation>Влажность</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Влажность:</translation>
+            <source>Humidity</source>
+            <translation>Влажность</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Влажность:</translation>
+            <source>Humidity</source>
+            <translation>Влажность</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1330,6 +1340,10 @@ Slovak - Roman Moravčík</source>
             <translation>Наборы иконок</translation>
         </message>
         <message>
+            <source>Icons</source>
+            <translation>Наборы иконок</translation>
+        </message>
+        <message>
             <source>Iconset</source>
             <translation>Набор иконок</translation>
         </message>
@@ -1344,6 +1358,22 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Iconsets</source>
             <translation>Наборы иконок:</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Информация</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Информация</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Информация</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Информация</translation>
         </message>
         <message>
             <source>Isolated T-Storms</source>
@@ -1538,10 +1568,6 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Manual</source>
             <translation>Ручной</translation>
-        </message>
-        <message>
-            <source>Measurement units</source>
-            <translation>Единицы измерений</translation>
         </message>
         <message>
             <source>Measurement units</source>
@@ -1943,6 +1969,10 @@ Slovak - Roman Moravčík</source>
             <translation>ОК</translation>
         </message>
         <message>
+            <source>OK</source>
+            <translation>ОК</translation>
+        </message>
+        <message>
             <source>OMWeather Forecast</source>
             <translation>OMWeather прогноз погоды</translation>
         </message>
@@ -1961,6 +1991,21 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>OMWeather settings</source>
             <translation>Настройки OMWeather</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
@@ -2224,6 +2269,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Pressure</source>
             <translation>Давление</translation>
+        </message>
+        <message>
+            <source>Pressure units</source>
+            <translation>Единицы давления</translation>
         </message>
         <message>
             <source>Pressure units</source>
@@ -2634,6 +2683,14 @@ Slovak - Roman Moravčík</source>
             <translation type="unfinished">Настройки для StandbyScreen экрана</translation>
         </message>
         <message>
+            <source>Settings of LockScreen</source>
+            <translation type="unfinished">Настройки для StandbyScreen экрана</translation>
+        </message>
+        <message>
+            <source>Settings of StandbyScreen</source>
+            <translation>Настройки для StandbyScreen экрана</translation>
+        </message>
+        <message>
             <source>Shallow Fog</source>
             <translation type="unfinished">
             </translation>
@@ -2645,6 +2702,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Show arrows</source>
             <translation>Показать стрелки</translation>
+        </message>
+        <message>
+            <source>Show on Map</source>
+            <translation>Показать на карте</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
@@ -2791,16 +2852,17 @@ Slovak - Roman Moravčík</source>
             <translation>Скорость:</translation>
         </message>
         <message>
+            <source>Splash screen</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>State:</source>
             <translation>Область:</translation>
         </message>
         <message>
             <source>Station %i</source>
             <translation>Станция %i</translation>
-        </message>
-        <message>
-            <source>Stations</source>
-            <translation>Станции</translation>
         </message>
         <message>
             <source>Stations</source>
@@ -2927,6 +2989,10 @@ Slovak - Roman Moravčík</source>
             <translation>Единицы температуры</translation>
         </message>
         <message>
+            <source>Temperature units</source>
+            <translation>Единицы температуры</translation>
+        </message>
+        <message>
             <source>Temperature units:</source>
             <translation>Единицы температуры:</translation>
         </message>
@@ -2978,14 +3044,6 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Местами грозы</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Сегодня</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Сегодня</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3206,6 +3264,10 @@ for tuning images of applet</source>
             <translation type="unfinished">Количество элементов:</translation>
         </message>
         <message>
+            <source>Visible units</source>
+            <translation type="unfinished">Количество элементов:</translation>
+        </message>
+        <message>
             <source>Visible:</source>
             <translation>Видимость:</translation>
         </message>
@@ -3294,6 +3356,18 @@ for tuning images of applet</source>
             <translation>Виджет OMWeather перегружается</translation>
         </message>
         <message>
+            <source>Widget in LockScreen</source>
+            <translation>Виджет на LockScreen экране</translation>
+        </message>
+        <message>
+            <source>Widget in StandbyScreen</source>
+            <translation>Виджет на StandbyScreen экране</translation>
+        </message>
+        <message>
+            <source>Widget in events view</source>
+            <translation>Виджет на экране событий</translation>
+        </message>
+        <message>
             <source>Widget style</source>
             <translation>Стиль виджета</translation>
         </message>
@@ -3352,6 +3426,10 @@ for tuning images of applet</source>
         <message>
             <source>Wind speed</source>
             <translation>Скорость ветра</translation>
+        </message>
+        <message>
+            <source>Wind speed units</source>
+            <translation>Единицы скорости ветра</translation>
         </message>
         <message>
             <source>Wind speed units</source>
@@ -3430,6 +3508,26 @@ or ZIP code!!!</source>
         <message>
             <source>You can make donation here: </source>
             <translation>Вы можете сделать пожертвования здесь: </translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using LockScreen widget</source>
+            <translation>Для использования 
+LockScreen виджета
+Вы должны активировать 
+опцию 'Виджет на экране 
+событий'  </translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using StandbyScreen widget</source>
+            <translation>Для использования 
+StandbyScreen виджета
+Вы должны активировать 
+опцию 'Виджет на экране 
+событий'  </translation>
         </message>
         <message>
             <source>You should activate 'Widget in the events view' option in MeeCast appearance settings for auto update.</source>

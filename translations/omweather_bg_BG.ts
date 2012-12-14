@@ -363,20 +363,12 @@ W:</translation>
             <translation>Относно</translation>
         </message>
         <message>
-            <source>About</source>
-            <translation>Относно</translation>
-        </message>
-        <message>
             <source>Access denied to the given URL.</source>
             <translation>Отказан достъп до този URL</translation>
         </message>
         <message>
             <source>Action|Update</source>
             <translation>Действие|Опресни</translation>
-        </message>
-        <message>
-            <source>Add</source>
-            <translation>Добави</translation>
         </message>
         <message>
             <source>Add</source>
@@ -433,8 +425,14 @@ Eric Link - for feature request and donation
             <translation>Изглед</translation>
         </message>
         <message>
-            <source>Appearance</source>
-            <translation>Изглед</translation>
+            <source>Application manager will now start
+for installing package 'MeeCast applet'.
+You should uninstall AccuWeather 
+before installing this package</source>
+            <translation>Мениджърът на приложения е стартиран
+за за инсталиране на 'MeeCast applet'.
+Деинсталирайте AccuWeather
+преди това.</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -543,6 +541,10 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>CALM</source>
             <translation>ТИХО</translation>
+        </message>
+        <message>
+            <source>Cancel</source>
+            <translation>Прекрати</translation>
         </message>
         <message>
             <source>Cannot get path to the HOME directory. Quitting.
@@ -1071,19 +1073,8 @@ Brad Jones aka kazrak - for testing
             <translation>Превалявания от Сняг/Вятър</translation>
         </message>
         <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
+            <source>Find location via GPS</source>
+            <translation>Използвай GPS</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
@@ -1104,8 +1095,8 @@ Brad Jones aka kazrak - for testing
             <translation type="unfinished">Като:</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Като:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Като:</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1138,6 +1129,16 @@ Brad Jones aka kazrak - for testing
         <message>
             <source>Font:</source>
             <translation>Шрифт:</translation>
+        </message>
+        <message>
+            <source>For disabling MeeCast widget,
+you should uninstall package
+'Activating MeeCast Applet'
+using Application manager</source>
+            <translation>За да изключите MeeCast уиджет,
+трябва да деинсталирате пакет
+'Activating MeeCast Applet'
+използвайки Мениджърът на приложения</translation>
         </message>
         <message>
             <source>Forecast</source>
@@ -1218,6 +1219,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Пълна прогноза</translation>
         </message>
         <message>
+            <source>Fullscreen mode</source>
+            <translation>Цял екран</translation>
+        </message>
+        <message>
             <source>G: </source>
             <translation>G: </translation>
         </message>
@@ -1290,16 +1295,16 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Часове</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Влажност:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Влажност:</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Влажност:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Влажност:</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Влажност:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Влажност:</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1334,6 +1339,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Икони</translation>
         </message>
         <message>
+            <source>Icons</source>
+            <translation>Икони</translation>
+        </message>
+        <message>
             <source>Iconset</source>
             <translation>Набор икони</translation>
         </message>
@@ -1348,6 +1357,22 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>Iconsets</source>
             <translation>Набор икони</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Информация</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Информация</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Информация</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Информация</translation>
         </message>
         <message>
             <source>Isolated T-Storms</source>
@@ -1538,10 +1563,6 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>Manual</source>
             <translation>Ръчно</translation>
-        </message>
-        <message>
-            <source>Measurement units</source>
-            <translation>Измервателни единици</translation>
         </message>
         <message>
             <source>Measurement units</source>
@@ -1940,6 +1961,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>ОК</translation>
         </message>
         <message>
+            <source>OK</source>
+            <translation>ОК</translation>
+        </message>
+        <message>
             <source>OMWeather Forecast</source>
             <translation>OMWeather Прогноза</translation>
         </message>
@@ -1958,6 +1983,18 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>OMWeather settings</source>
             <translation>OMWeather настройки</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ок</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ок</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ок</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
@@ -2218,6 +2255,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>Pressure</source>
             <translation>Налягане</translation>
+        </message>
+        <message>
+            <source>Pressure units</source>
+            <translation>Единици за налягане</translation>
         </message>
         <message>
             <source>Pressure units</source>
@@ -2626,6 +2667,14 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation type="unfinished">Настройки на StandbyScreen</translation>
         </message>
         <message>
+            <source>Settings of LockScreen</source>
+            <translation type="unfinished">Настройки на StandbyScreen</translation>
+        </message>
+        <message>
+            <source>Settings of StandbyScreen</source>
+            <translation>Настройки на StandbyScreen</translation>
+        </message>
+        <message>
             <source>Shallow Fog</source>
             <translation>Лека Мъгла</translation>
         </message>
@@ -2636,6 +2685,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>Show arrows</source>
             <translation>Покажи стрелки</translation>
+        </message>
+        <message>
+            <source>Show on Map</source>
+            <translation type="unfinished">Показвай името на метео станцията</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
@@ -2782,16 +2835,16 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Скорост:</translation>
         </message>
         <message>
+            <source>Splash screen</source>
+            <translation>Splash screen</translation>
+        </message>
+        <message>
             <source>State:</source>
             <translation>Състояние:</translation>
         </message>
         <message>
             <source>Station %i</source>
             <translation>Метео станция %i</translation>
-        </message>
-        <message>
-            <source>Stations</source>
-            <translation>Метео станции</translation>
         </message>
         <message>
             <source>Stations</source>
@@ -2918,6 +2971,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Температурни единици</translation>
         </message>
         <message>
+            <source>Temperature units</source>
+            <translation>Температурни единици</translation>
+        </message>
+        <message>
             <source>Temperature units:</source>
             <translation>Температурни единици:</translation>
         </message>
@@ -2974,14 +3031,6 @@ later version.</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Гръмотевици наблизо</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Днес</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Днес</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3200,6 +3249,10 @@ for tuning images of applet</source>
             <translation type="unfinished">Видими елементи:</translation>
         </message>
         <message>
+            <source>Visible units</source>
+            <translation type="unfinished">Видими елементи:</translation>
+        </message>
+        <message>
             <source>Visible:</source>
             <translation>Видими:</translation>
         </message>
@@ -3288,6 +3341,18 @@ for tuning images of applet</source>
             <translation>Уиджет OMWeather се опреснява</translation>
         </message>
         <message>
+            <source>Widget in LockScreen</source>
+            <translation>Уиджет на екран за Отключване</translation>
+        </message>
+        <message>
+            <source>Widget in StandbyScreen</source>
+            <translation>Уиджет на Стендбай екран</translation>
+        </message>
+        <message>
+            <source>Widget in events view</source>
+            <translation>Уиджет в екран Събития</translation>
+        </message>
+        <message>
             <source>Widget style</source>
             <translation>Уиджет стил</translation>
         </message>
@@ -3346,6 +3411,10 @@ for tuning images of applet</source>
         <message>
             <source>Wind speed</source>
             <translation>Скорост на вятъра:</translation>
+        </message>
+        <message>
+            <source>Wind speed units</source>
+            <translation>Скорост ан вятъра единици</translation>
         </message>
         <message>
             <source>Wind speed units</source>
@@ -3424,6 +3493,22 @@ or ZIP code!!!</source>
         <message>
             <source>You can make donation here: </source>
             <translation>Можете да дарите тук:</translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using LockScreen widget</source>
+            <translation>Активирайте
+'Уиджет в екран Събития'
+за да ползвате уиджет на екран Отключане</translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using StandbyScreen widget</source>
+            <translation>Активирайте 'Уиджет в екран Събития'
+за да използвате
+уиджет на Стендбай екран</translation>
         </message>
         <message>
             <source>You should activate 'Widget in the events view' option in MeeCast appearance settings for auto update.</source>

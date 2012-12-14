@@ -348,20 +348,12 @@ W: </translation>
             <translation>عن</translation>
         </message>
         <message>
-            <source>About</source>
-            <translation>عن</translation>
-        </message>
-        <message>
             <source>Access denied to the given URL.</source>
             <translation>رفض الوصول الى الـURL المعطى</translation>
         </message>
         <message>
             <source>Action|Update</source>
             <translation>الفعل|تحديث</translation>
-        </message>
-        <message>
-            <source>Add</source>
-            <translation>إضافة</translation>
         </message>
         <message>
             <source>Add</source>
@@ -410,8 +402,12 @@ Eric Link - for feature request and donation
             <translation>المظهر</translation>
         </message>
         <message>
-            <source>Appearance</source>
-            <translation>المظهر</translation>
+            <source>Application manager will now start
+for installing package 'MeeCast applet'.
+You should uninstall AccuWeather 
+before installing this package</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -516,6 +512,10 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>CALM</source>
             <translation>هادئ</translation>
+        </message>
+        <message>
+            <source>Cancel</source>
+            <translation>إلغاء</translation>
         </message>
         <message>
             <source>Cannot get path to the HOME directory. Quitting.
@@ -1067,19 +1067,8 @@ Brad Jones aka kazrak - for testing
             </translation>
         </message>
         <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
+            <source>Find location via GPS</source>
+            <translation>إيجاد الموقع عبر نظام تحديد المواقع</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
@@ -1102,7 +1091,7 @@ Brad Jones aka kazrak - for testing
             </translation>
         </message>
         <message>
-            <source>Flike:</source>
+            <source>Flike</source>
             <translation type="unfinished">
             </translation>
         </message>
@@ -1140,6 +1129,14 @@ Brad Jones aka kazrak - for testing
         <message>
             <source>Font:</source>
             <translation>الخط:</translation>
+        </message>
+        <message>
+            <source>For disabling MeeCast widget,
+you should uninstall package
+'Activating MeeCast Applet'
+using Application manager</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Forecast</source>
@@ -1216,6 +1213,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Full forecast</source>
             <translation>التنبؤات بالكامل</translation>
+        </message>
+        <message>
+            <source>Fullscreen mode</source>
+            <translation>وضعية شاشة كامله</translation>
         </message>
         <message>
             <source>G: </source>
@@ -1295,16 +1296,16 @@ Slovak - Roman Moravčík</source>
             <translation>ساعات</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>الرطوبة:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">الرطوبة:</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>الرطوبة:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">الرطوبة:</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>الرطوبة:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">الرطوبة:</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1339,6 +1340,10 @@ Slovak - Roman Moravčík</source>
             <translation>أيقونات</translation>
         </message>
         <message>
+            <source>Icons</source>
+            <translation>أيقونات</translation>
+        </message>
+        <message>
             <source>Iconset</source>
             <translation>مجموعة الأيقونات</translation>
         </message>
@@ -1353,6 +1358,22 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Iconsets</source>
             <translation>مجموعة الأيقونات</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>معلومات</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>معلومات</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>معلومات</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>معلومات</translation>
         </message>
         <message>
             <source>Isolated T-Storms</source>
@@ -1568,10 +1589,6 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Manual</source>
             <translation>يدوي</translation>
-        </message>
-        <message>
-            <source>Measurement units</source>
-            <translation>وحدات القياس</translation>
         </message>
         <message>
             <source>Measurement units</source>
@@ -2042,6 +2059,11 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>OK</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>OMWeather Forecast</source>
             <translation type="unfinished">
             </translation>
@@ -2063,6 +2085,21 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>OMWeather settings</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Ok</source>
             <translation type="unfinished">
             </translation>
         </message>
@@ -2387,6 +2424,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Pressure</source>
             <translation>الضغط</translation>
+        </message>
+        <message>
+            <source>Pressure units</source>
+            <translation>وحدات الضغط</translation>
         </message>
         <message>
             <source>Pressure units</source>
@@ -2841,6 +2882,16 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>Settings of LockScreen</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Settings of StandbyScreen</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Shallow Fog</source>
             <translation type="unfinished">
             </translation>
@@ -2852,6 +2903,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Show arrows</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Show on Map</source>
             <translation type="unfinished">
             </translation>
         </message>
@@ -3022,17 +3078,17 @@ Slovak - Roman Moravčík</source>
             <translation>السرعة:</translation>
         </message>
         <message>
+            <source>Splash screen</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>State:</source>
             <translation type="unfinished">
             </translation>
         </message>
         <message>
             <source>Station %i</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Stations</source>
             <translation type="unfinished">
             </translation>
         </message>
@@ -3176,6 +3232,10 @@ Slovak - Roman Moravčík</source>
             <translation>وحدات درجة الحرارة</translation>
         </message>
         <message>
+            <source>Temperature units</source>
+            <translation>وحدات درجة الحرارة</translation>
+        </message>
+        <message>
             <source>Temperature units:</source>
             <translation>وحدات درجة الحرارة:</translation>
         </message>
@@ -3229,14 +3289,6 @@ Slovak - Roman Moravčík</source>
             <source>Thunder in the Vicinity</source>
             <translation type="unfinished">
             </translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>اليوم</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>اليوم</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3475,6 +3527,11 @@ for tuning images of applet</source>
             </translation>
         </message>
         <message>
+            <source>Visible units</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Visible:</source>
             <translation type="unfinished">
             </translation>
@@ -3585,6 +3642,21 @@ for tuning images of applet</source>
             </translation>
         </message>
         <message>
+            <source>Widget in LockScreen</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Widget in StandbyScreen</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Widget in events view</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Widget style</source>
             <translation type="unfinished">
             </translation>
@@ -3650,6 +3722,11 @@ for tuning images of applet</source>
         <message>
             <source>Wind speed</source>
             <translation>سرعة الرياح:</translation>
+        </message>
+        <message>
+            <source>Wind speed units</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Wind speed units</source>
@@ -3734,6 +3811,20 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>You can make donation here: </source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using LockScreen widget</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using StandbyScreen widget</source>
             <translation type="unfinished">
             </translation>
         </message>

@@ -362,20 +362,12 @@ T: </translation>
             <translation>Tietoja</translation>
         </message>
         <message>
-            <source>About</source>
-            <translation>Tietoja</translation>
-        </message>
-        <message>
             <source>Access denied to the given URL.</source>
             <translation>Yhteys estetty annettuun URL:iin.</translation>
         </message>
         <message>
             <source>Action|Update</source>
             <translation>Päivitä</translation>
-        </message>
-        <message>
-            <source>Add</source>
-            <translation>Lisää</translation>
         </message>
         <message>
             <source>Add</source>
@@ -432,8 +424,14 @@ Eric Link - kehitysideasta ja lahjoituksesta
             <translation>Ulkoasu</translation>
         </message>
         <message>
-            <source>Appearance</source>
-            <translation>Ulkoasu</translation>
+            <source>Application manager will now start
+for installing package 'MeeCast applet'.
+You should uninstall AccuWeather 
+before installing this package</source>
+            <translation>Sovellusten hallinta käynnistyy
+MeeCast-sovelluksen asentamiseksi
+tapahtumat-näkymään. Sinun tulee
+poistaa AccuWeather ennen asennusta.</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -542,6 +540,10 @@ Fremantle käyttöliittymä: Krebber Jan ja Niemelä Ulla
         <message>
             <source>CALM</source>
             <translation>Tyyntä</translation>
+        </message>
+        <message>
+            <source>Cancel</source>
+            <translation>Peruuta</translation>
         </message>
         <message>
             <source>Cannot get path to the HOME directory. Quitting.
@@ -1071,19 +1073,8 @@ Brad Jones aka kazrak - testauksesta
             <translation>Ajoittaisia lumikuuroja / Tuulista</translation>
         </message>
         <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
+            <source>Find location via GPS</source>
+            <translation>Etsi sijainti automaattisesti</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
@@ -1104,8 +1095,8 @@ Brad Jones aka kazrak - testauksesta
             <translation type="unfinished">Tuntuu:</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Tuntuu:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Tuntuu:</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1138,6 +1129,17 @@ Brad Jones aka kazrak - testauksesta
         <message>
             <source>Font:</source>
             <translation>Fontti:</translation>
+        </message>
+        <message>
+            <source>For disabling MeeCast widget,
+you should uninstall package
+'Activating MeeCast Applet'
+using Application manager</source>
+            <translation>Poistaaksesi MeeCastin
+tapahtumat-näkymästä,
+sinun tulee poistaa
+'Activating MeeCast Applet'
+paketti sovellusten hallinnalla</translation>
         </message>
         <message>
             <source>Forecast</source>
@@ -1239,6 +1241,10 @@ Slovakia - Roman Moravčík</translation>
             <translation>Täysi ennuste</translation>
         </message>
         <message>
+            <source>Fullscreen mode</source>
+            <translation>Koko näytön tila</translation>
+        </message>
+        <message>
             <source>G: </source>
             <translation> G: </translation>
         </message>
@@ -1311,16 +1317,16 @@ Slovakia - Roman Moravčík</translation>
             <translation>Tunteja</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Ilmankosteus: </translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Ilmankosteus: </translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Ilmankosteus: </translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Ilmankosteus: </translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Ilmankosteus: </translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Ilmankosteus: </translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1355,6 +1361,10 @@ Slovakia - Roman Moravčík</translation>
             <translation>Kuvakkeet</translation>
         </message>
         <message>
+            <source>Icons</source>
+            <translation>Kuvakkeet</translation>
+        </message>
+        <message>
             <source>Iconset</source>
             <translation>Kuvakkeet</translation>
         </message>
@@ -1369,6 +1379,22 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Iconsets</source>
             <translation>Kuvakkeet</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Tiedot</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Tiedot</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Tiedot</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Tiedot</translation>
         </message>
         <message>
             <source>Isolated T-Storms</source>
@@ -1559,10 +1585,6 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Manual</source>
             <translation>Manuaalinen</translation>
-        </message>
-        <message>
-            <source>Measurement units</source>
-            <translation>Mittayksiköt</translation>
         </message>
         <message>
             <source>Measurement units</source>
@@ -1961,6 +1983,10 @@ Slovakia - Roman Moravčík</translation>
             <translation>OK</translation>
         </message>
         <message>
+            <source>OK</source>
+            <translation>OK</translation>
+        </message>
+        <message>
             <source>OMWeather Forecast</source>
             <translation>OMWeather ennuste</translation>
         </message>
@@ -1979,6 +2005,18 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>OMWeather settings</source>
             <translation>OMWeather asetukset</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ok</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ok</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ok</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
@@ -2239,6 +2277,10 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Pressure</source>
             <translation>Ilmanpaine</translation>
+        </message>
+        <message>
+            <source>Pressure units</source>
+            <translation>Paineen yksiköt</translation>
         </message>
         <message>
             <source>Pressure units</source>
@@ -2647,6 +2689,14 @@ Slovakia - Roman Moravčík</translation>
             <translation type="unfinished">Valmiusnäytön asetukset</translation>
         </message>
         <message>
+            <source>Settings of LockScreen</source>
+            <translation type="unfinished">Valmiusnäytön asetukset</translation>
+        </message>
+        <message>
+            <source>Settings of StandbyScreen</source>
+            <translation>Valmiusnäytön asetukset</translation>
+        </message>
+        <message>
             <source>Shallow Fog</source>
             <translation>Matalaa sumua</translation>
         </message>
@@ -2657,6 +2707,10 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Show arrows</source>
             <translation>Näytä nuolet</translation>
+        </message>
+        <message>
+            <source>Show on Map</source>
+            <translation type="unfinished">Näytä aseman nimi</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
@@ -2803,16 +2857,16 @@ Slovakia - Roman Moravčík</translation>
             <translation>Nopeus:</translation>
         </message>
         <message>
+            <source>Splash screen</source>
+            <translation>Käynnistyskuva</translation>
+        </message>
+        <message>
             <source>State:</source>
             <translation>Osavaltio:</translation>
         </message>
         <message>
             <source>Station %i</source>
             <translation>Asema %i</translation>
-        </message>
-        <message>
-            <source>Stations</source>
-            <translation>Asemat</translation>
         </message>
         <message>
             <source>Stations</source>
@@ -2939,6 +2993,10 @@ Slovakia - Roman Moravčík</translation>
             <translation>Lämpötilan yksiköt</translation>
         </message>
         <message>
+            <source>Temperature units</source>
+            <translation>Lämpötilan yksiköt</translation>
+        </message>
+        <message>
             <source>Temperature units:</source>
             <translation>Lämpötilan yksikkö:</translation>
         </message>
@@ -2996,14 +3054,6 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Ukkosta lähialueella</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Tänään</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Tänään</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3224,6 +3274,10 @@ ajoitettuun päivitykseen.
             <translation type="unfinished">Näkyvät elementit:</translation>
         </message>
         <message>
+            <source>Visible units</source>
+            <translation type="unfinished">Näkyvät elementit:</translation>
+        </message>
+        <message>
             <source>Visible:</source>
             <translation>Näkyvyys:</translation>
         </message>
@@ -3312,6 +3366,18 @@ ajoitettuun päivitykseen.
             <translation>Uudelleen ladataan OMWeather sovelma</translation>
         </message>
         <message>
+            <source>Widget in LockScreen</source>
+            <translation>Sovellus lukitusnäytössä</translation>
+        </message>
+        <message>
+            <source>Widget in StandbyScreen</source>
+            <translation>Sovellus valmiusnäytössä</translation>
+        </message>
+        <message>
+            <source>Widget in events view</source>
+            <translation>Sovellus tapahtumat-näkymässä</translation>
+        </message>
+        <message>
             <source>Widget style</source>
             <translation>Sovelman tyyli</translation>
         </message>
@@ -3370,6 +3436,10 @@ ajoitettuun päivitykseen.
         <message>
             <source>Wind speed</source>
             <translation>Tuulen nopeus</translation>
+        </message>
+        <message>
+            <source>Wind speed units</source>
+            <translation>Tuulen nopeuden yksiköt</translation>
         </message>
         <message>
             <source>Wind speed units</source>
@@ -3448,6 +3518,24 @@ tai postinumero!</translation>
         <message>
             <source>You can make donation here: </source>
             <translation>Voit tehdä lahjoituksen täällä:</translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using LockScreen widget</source>
+            <translation>Sää lukitusnäytössä 
+voidaan ottaa käyttöön
+aktivoimalla ensin 'Sovellus
+tapahtumat-näkymässä' valinta</translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using StandbyScreen widget</source>
+            <translation>Sää valmiusnäytössä 
+voidaan ottaa käyttöön
+aktivoimalla ensin 'Sovellus
+tapahtumat-näkymässä' valinta</translation>
         </message>
         <message>
             <source>You should activate 'Widget in the events view' option in MeeCast appearance settings for auto update.</source>

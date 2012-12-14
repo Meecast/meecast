@@ -360,20 +360,12 @@ W:</translation>
             <translation>Hakkinda</translation>
         </message>
         <message>
-            <source>About</source>
-            <translation>Hakkinda</translation>
-        </message>
-        <message>
             <source>Access denied to the given URL.</source>
             <translation>Verilen URL icin erisim izni reddedildi.</translation>
         </message>
         <message>
             <source>Action|Update</source>
             <translation>Hareket|Guncelle</translation>
-        </message>
-        <message>
-            <source>Add</source>
-            <translation>Ekle</translation>
         </message>
         <message>
             <source>Add</source>
@@ -425,8 +417,11 @@ bagislari icin Eric Link'e
             <translation>Gorunum</translation>
         </message>
         <message>
-            <source>Appearance</source>
-            <translation>Gorunum</translation>
+            <source>Application manager will now start
+for installing package 'MeeCast applet'.
+You should uninstall AccuWeather 
+before installing this package</source>
+            <translation>'MeeCast applet' paketini yuklemek icin Uygulama yoneticisi baslatilacak.Paketi yuklemeden once AccuWeather'i kaldirmalisiniz.</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -535,6 +530,10 @@ Frementle icin Dizayn : Krebber Jan Niemelä Ulla
         <message>
             <source>CALM</source>
             <translation>DURGUN</translation>
+        </message>
+        <message>
+            <source>Cancel</source>
+            <translation>Iptal</translation>
         </message>
         <message>
             <source>Cannot get path to the HOME directory. Quitting.
@@ -1061,19 +1060,8 @@ fikir ve testleri icin Andrew aka Tabster'a ve testleri icin Brad Jones'a
             <translation>Karla Karisik Yagmur / Ruzgar</translation>
         </message>
         <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
+            <source>Find location via GPS</source>
+            <translation>GPS ile konum bul</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
@@ -1094,8 +1082,8 @@ fikir ve testleri icin Andrew aka Tabster'a ve testleri icin Brad Jones'a
             <translation type="unfinished">Flike:</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Flike:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Flike:</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1128,6 +1116,15 @@ fikir ve testleri icin Andrew aka Tabster'a ve testleri icin Brad Jones'a
         <message>
             <source>Font:</source>
             <translation>Font:</translation>
+        </message>
+        <message>
+            <source>For disabling MeeCast widget,
+you should uninstall package
+'Activating MeeCast Applet'
+using Application manager</source>
+            <translation>MeeCast widget'ini kapatmak icin oncelikle 
+Uygulama Yoneticisi'nden 'Activating MeeCast Applet' 
+paketini kaldirin.</translation>
         </message>
         <message>
             <source>Forecast</source>
@@ -1229,6 +1226,10 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Tam Hava Tahmini</translation>
         </message>
         <message>
+            <source>Fullscreen mode</source>
+            <translation>Tamekran Modu</translation>
+        </message>
+        <message>
             <source>G: </source>
             <translation>G:</translation>
         </message>
@@ -1301,16 +1302,16 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Saat</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Nem:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Nem:</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Nem:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Nem:</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Nem:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Nem:</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1345,6 +1346,10 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Ikonlar</translation>
         </message>
         <message>
+            <source>Icons</source>
+            <translation>Ikonlar</translation>
+        </message>
+        <message>
             <source>Iconset</source>
             <translation>Ikonseti</translation>
         </message>
@@ -1359,6 +1364,22 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Iconsets</source>
             <translation>Ikonsetleri</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Bilgilendirme</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Bilgilendirme</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Bilgilendirme</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Bilgilendirme</translation>
         </message>
         <message>
             <source>Isolated T-Storms</source>
@@ -1549,10 +1570,6 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Manual</source>
             <translation>El ile</translation>
-        </message>
-        <message>
-            <source>Measurement units</source>
-            <translation>Olcum uniteleri</translation>
         </message>
         <message>
             <source>Measurement units</source>
@@ -1951,6 +1968,10 @@ Turkish - Burak Kaan Kose</translation>
             <translation>TAMAM</translation>
         </message>
         <message>
+            <source>OK</source>
+            <translation>TAMAM</translation>
+        </message>
+        <message>
             <source>OMWeather Forecast</source>
             <translation>OMWeather Hava Tahmini</translation>
         </message>
@@ -1969,6 +1990,18 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>OMWeather settings</source>
             <translation>OMWeather ayarlari</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Tamam</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Tamam</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Tamam</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
@@ -2229,6 +2262,10 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Pressure</source>
             <translation>Basinc</translation>
+        </message>
+        <message>
+            <source>Pressure units</source>
+            <translation>Basic uniteleri</translation>
         </message>
         <message>
             <source>Pressure units</source>
@@ -2637,6 +2674,14 @@ Turkish - Burak Kaan Kose</translation>
             <translation type="unfinished">Bekleme Ekrani Ayarlari</translation>
         </message>
         <message>
+            <source>Settings of LockScreen</source>
+            <translation type="unfinished">Bekleme Ekrani Ayarlari</translation>
+        </message>
+        <message>
+            <source>Settings of StandbyScreen</source>
+            <translation>Bekleme Ekrani Ayarlari</translation>
+        </message>
+        <message>
             <source>Shallow Fog</source>
             <translation>Hafif Duman</translation>
         </message>
@@ -2647,6 +2692,10 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Show arrows</source>
             <translation>Oklari goster</translation>
+        </message>
+        <message>
+            <source>Show on Map</source>
+            <translation type="unfinished">Istasyon adini goster</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
@@ -2793,16 +2842,16 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Hiz:</translation>
         </message>
         <message>
+            <source>Splash screen</source>
+            <translation>Yukleme ekrani</translation>
+        </message>
+        <message>
             <source>State:</source>
             <translation>Durum:</translation>
         </message>
         <message>
             <source>Station %i</source>
             <translation>Istasyon %i</translation>
-        </message>
-        <message>
-            <source>Stations</source>
-            <translation>Istasyonlar</translation>
         </message>
         <message>
             <source>Stations</source>
@@ -2929,6 +2978,10 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Sicaklik uniteleri</translation>
         </message>
         <message>
+            <source>Temperature units</source>
+            <translation>Sicaklik uniteleri</translation>
+        </message>
+        <message>
             <source>Temperature units:</source>
             <translation>Sicaklik uniteleri:</translation>
         </message>
@@ -2982,14 +3035,6 @@ hem 2.1 versiyonu vehem de (isteginize gore) farkli bir ileriki version olabilir
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Cevredeki Firtina</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Bugun</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Bugun</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3208,6 +3253,10 @@ GSM ve/veya WLAN kullan.
             <translation type="unfinished">Gorunebilir esyalar:</translation>
         </message>
         <message>
+            <source>Visible units</source>
+            <translation type="unfinished">Gorunebilir esyalar:</translation>
+        </message>
+        <message>
             <source>Visible:</source>
             <translation>Gorunebilme:</translation>
         </message>
@@ -3296,6 +3345,18 @@ GSM ve/veya WLAN kullan.
             <translation>Widget OMWeather tekrar yukleniyor</translation>
         </message>
         <message>
+            <source>Widget in LockScreen</source>
+            <translation>Kilit Ekraninda Eklenti</translation>
+        </message>
+        <message>
+            <source>Widget in StandbyScreen</source>
+            <translation>Bekleme Ekraninda Eklenti</translation>
+        </message>
+        <message>
+            <source>Widget in events view</source>
+            <translation>Etkinlikler Gorunumunde Eklenti</translation>
+        </message>
+        <message>
             <source>Widget style</source>
             <translation>Eklenti stili</translation>
         </message>
@@ -3354,6 +3415,10 @@ GSM ve/veya WLAN kullan.
         <message>
             <source>Wind speed</source>
             <translation>Ruzgar hizi</translation>
+        </message>
+        <message>
+            <source>Wind speed units</source>
+            <translation>Ruzgar hizİ uniteleri</translation>
         </message>
         <message>
             <source>Wind speed units</source>
@@ -3432,6 +3497,22 @@ veya ZIP kodu !!</translation>
         <message>
             <source>You can make donation here: </source>
             <translation>Buradan bagis yapabilirsiniz :</translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using LockScreen widget</source>
+            <translation>Kilit ekranı eklentisini kullanabilmeniz icin 
+oncelikle 'Etkinlik ekranindaki eklenti' yi
+aktiflestirmeniz gerekir.</translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using StandbyScreen widget</source>
+            <translation>Bekleme ekranı eklentisini kullanabilmeniz icin 
+oncelikle 'Etkinlik ekranindaki eklenti' yi
+aktiflestirmeniz gerekir.</translation>
         </message>
         <message>
             <source>You should activate 'Widget in the events view' option in MeeCast appearance settings for auto update.</source>

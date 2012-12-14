@@ -362,20 +362,12 @@ W:</translation>
             <translation>Over</translation>
         </message>
         <message>
-            <source>About</source>
-            <translation>Over</translation>
-        </message>
-        <message>
             <source>Access denied to the given URL.</source>
             <translation>Geen toegang tot URL</translation>
         </message>
         <message>
             <source>Action|Update</source>
             <translation>Actie | Update</translation>
-        </message>
-        <message>
-            <source>Add</source>
-            <translation>Voeg toe</translation>
         </message>
         <message>
             <source>Add</source>
@@ -432,8 +424,14 @@ Eric Link - Voor het aanvragen van applicatie opties en donatie
             <translation>Uiterlijk</translation>
         </message>
         <message>
-            <source>Appearance</source>
-            <translation>Uiterlijk</translation>
+            <source>Application manager will now start
+for installing package 'MeeCast applet'.
+You should uninstall AccuWeather 
+before installing this package</source>
+            <translation>Applicatiebeheer start nu met
+installeren 'MeeCast Applet'.
+Verwijder AccuWeather
+alvorens te installeren.</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -542,6 +540,10 @@ Ontwerp UI voor Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>CALM</source>
             <translation>RUSTIG</translation>
+        </message>
+        <message>
+            <source>Cancel</source>
+            <translation>Annuleer</translation>
         </message>
         <message>
             <source>Cannot get path to the HOME directory. Quitting.
@@ -1071,19 +1073,8 @@ Brad Jones aka kazrak - voor het testen
             <translation>Enkele Sneeuwbuien / Wind</translation>
         </message>
         <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
+            <source>Find location via GPS</source>
+            <translation>Vind locatie via GPS</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
@@ -1104,8 +1095,8 @@ Brad Jones aka kazrak - voor het testen
             <translation type="unfinished">Gevoel:</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Gevoel:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Gevoel:</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1138,6 +1129,16 @@ Brad Jones aka kazrak - voor het testen
         <message>
             <source>Font:</source>
             <translation>Font:</translation>
+        </message>
+        <message>
+            <source>For disabling MeeCast widget,
+you should uninstall package
+'Activating MeeCast Applet'
+using Application manager</source>
+            <translation>Om de MeeCast widget uit te
+schakelen moet het pakket
+'MeeCast Applet' gedeïnstalleerd
+worden.</translation>
         </message>
         <message>
             <source>Forecast</source>
@@ -1219,6 +1220,10 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Volledig weerbericht</translation>
         </message>
         <message>
+            <source>Fullscreen mode</source>
+            <translation>Volledig scherm</translation>
+        </message>
+        <message>
             <source>G: </source>
             <translation>G:</translation>
         </message>
@@ -1291,16 +1296,16 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Uren</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Luchtvochtigheid:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Luchtvochtigheid:</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Luchtvochtigheid:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Luchtvochtigheid:</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Luchtvochtigheid:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Luchtvochtigheid:</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1335,6 +1340,10 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Iconen</translation>
         </message>
         <message>
+            <source>Icons</source>
+            <translation>Iconen</translation>
+        </message>
+        <message>
             <source>Iconset</source>
             <translation>Icoonset</translation>
         </message>
@@ -1349,6 +1358,22 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Iconsets</source>
             <translation>Icoonsets</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Informatie</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Informatie</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Informatie</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Informatie</translation>
         </message>
         <message>
             <source>Isolated T-Storms</source>
@@ -1539,10 +1564,6 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Manual</source>
             <translation>Handleiding</translation>
-        </message>
-        <message>
-            <source>Measurement units</source>
-            <translation>Meet-eenheden</translation>
         </message>
         <message>
             <source>Measurement units</source>
@@ -1941,6 +1962,10 @@ Slowaaks - Roman Moravčík</translation>
             <translation>OK</translation>
         </message>
         <message>
+            <source>OK</source>
+            <translation>OK</translation>
+        </message>
+        <message>
             <source>OMWeather Forecast</source>
             <translation>OMWeather Voorspelling</translation>
         </message>
@@ -1959,6 +1984,18 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>OMWeather settings</source>
             <translation>OMWeather instellingen</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ok</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ok</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ok</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
@@ -2219,6 +2256,10 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Pressure</source>
             <translation>Luchtdruk</translation>
+        </message>
+        <message>
+            <source>Pressure units</source>
+            <translation>Luchtdruk eenh.</translation>
         </message>
         <message>
             <source>Pressure units</source>
@@ -2627,6 +2668,14 @@ Slowaaks - Roman Moravčík</translation>
             <translation type="unfinished">StandbyScreen Instellingen</translation>
         </message>
         <message>
+            <source>Settings of LockScreen</source>
+            <translation type="unfinished">StandbyScreen Instellingen</translation>
+        </message>
+        <message>
+            <source>Settings of StandbyScreen</source>
+            <translation>StandbyScreen Instellingen</translation>
+        </message>
+        <message>
             <source>Shallow Fog</source>
             <translation>Oppervlakkige Mist</translation>
         </message>
@@ -2637,6 +2686,10 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Show arrows</source>
             <translation>Toon pijlen</translation>
+        </message>
+        <message>
+            <source>Show on Map</source>
+            <translation type="unfinished">Toon stationsnaam</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
@@ -2783,16 +2836,16 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Snelheid:</translation>
         </message>
         <message>
+            <source>Splash screen</source>
+            <translation>Intro scherm</translation>
+        </message>
+        <message>
             <source>State:</source>
             <translation>Staat:</translation>
         </message>
         <message>
             <source>Station %i</source>
             <translation>Station %i</translation>
-        </message>
-        <message>
-            <source>Stations</source>
-            <translation>Stations</translation>
         </message>
         <message>
             <source>Stations</source>
@@ -2919,6 +2972,10 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Temperatuureenheden</translation>
         </message>
         <message>
+            <source>Temperature units</source>
+            <translation>Temperatuureenheden</translation>
+        </message>
+        <message>
             <source>Temperature units:</source>
             <translation>Temperatuureenheden:</translation>
         </message>
@@ -2974,14 +3031,6 @@ Foundation; versie 2.1 of latere versies.</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Onweer in de buurt</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Vandaag</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Vandaag</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3201,6 +3250,10 @@ van weerinformatie.
             <translation type="unfinished">Zichtbare items:</translation>
         </message>
         <message>
+            <source>Visible units</source>
+            <translation type="unfinished">Zichtbare items:</translation>
+        </message>
+        <message>
             <source>Visible:</source>
             <translation>Zichtbaar:</translation>
         </message>
@@ -3289,6 +3342,18 @@ van weerinformatie.
             <translation>Herladen van OMWeather Widget</translation>
         </message>
         <message>
+            <source>Widget in LockScreen</source>
+            <translation>Widget in Lockscherm</translation>
+        </message>
+        <message>
+            <source>Widget in StandbyScreen</source>
+            <translation>Widget in Standbyscherm</translation>
+        </message>
+        <message>
+            <source>Widget in events view</source>
+            <translation>Widget in Notificaties</translation>
+        </message>
+        <message>
             <source>Widget style</source>
             <translation>Widget-stijl</translation>
         </message>
@@ -3347,6 +3412,10 @@ van weerinformatie.
         <message>
             <source>Wind speed</source>
             <translation>Windsnelheid</translation>
+        </message>
+        <message>
+            <source>Wind speed units</source>
+            <translation>Wind eenheden</translation>
         </message>
         <message>
             <source>Wind speed units</source>
@@ -3425,6 +3494,22 @@ of postcode!!!</translation>
         <message>
             <source>You can make donation here: </source>
             <translation>U kunt hier doneren: </translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using LockScreen widget</source>
+            <translation>Activeer
+'Widget in Notificaties'
+voor Lock-scherm widget</translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using StandbyScreen widget</source>
+            <translation>Activeer
+'Widget in Notificaties'
+voor Standby-scherm widget</translation>
         </message>
         <message>
             <source>You should activate 'Widget in the events view' option in MeeCast appearance settings for auto update.</source>

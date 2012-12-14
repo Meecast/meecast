@@ -362,20 +362,12 @@ W:</translation>
             <translation>Giới thiệu</translation>
         </message>
         <message>
-            <source>About</source>
-            <translation>Giới thiệu</translation>
-        </message>
-        <message>
             <source>Access denied to the given URL.</source>
             <translation>Truy cập URL bị từ chối</translation>
         </message>
         <message>
             <source>Action|Update</source>
             <translation>Hoạt động|Cập nhật</translation>
-        </message>
-        <message>
-            <source>Add</source>
-            <translation>Thêm</translation>
         </message>
         <message>
             <source>Add</source>
@@ -431,8 +423,12 @@ Eric Link - for feature request and donation
             <translation>Giao diện</translation>
         </message>
         <message>
-            <source>Appearance</source>
-            <translation>Giao diện</translation>
+            <source>Application manager will now start
+for installing package 'MeeCast applet'.
+You should uninstall AccuWeather 
+before installing this package</source>
+            <translation>Quản lý ứng dụng sẽ bắt đầu⏎ cài đặt 'MeeCast'.⏎
+Bạn nên gỡ bỏ AccuWeather ⏎ trước khi cài ứng dụng này</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -537,6 +533,10 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>CALM</source>
             <translation>Yên bình</translation>
+        </message>
+        <message>
+            <source>Cancel</source>
+            <translation>Thoát</translation>
         </message>
         <message>
             <source>Cannot get path to the HOME directory. Quitting.
@@ -1065,19 +1065,8 @@ Brad Jones aka kazrak - for testing
             <translation>Có tuyết và mưa rào rải rác/ gió nhẹ</translation>
         </message>
         <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
+            <source>Find location via GPS</source>
+            <translation>Tìm địa điểm qua GPS</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
@@ -1098,8 +1087,8 @@ Brad Jones aka kazrak - for testing
             <translation type="unfinished">Có cảm giác như:</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Có cảm giác như:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Có cảm giác như:</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1132,6 +1121,16 @@ Brad Jones aka kazrak - for testing
         <message>
             <source>Font:</source>
             <translation>Font chữ:</translation>
+        </message>
+        <message>
+            <source>For disabling MeeCast widget,
+you should uninstall package
+'Activating MeeCast Applet'
+using Application manager</source>
+            <translation>Để tắt widget Meecast 
+Bạn cần gỡ bỏ gói cài đặt 
+' Activating MeeCast Applet' 
+bằng trình quản lý ứng dụng</translation>
         </message>
         <message>
             <source>Forecast</source>
@@ -1215,6 +1214,10 @@ Việt Nam- Quý Trọng</translation>
             <translation>Dự báo đầy đủ</translation>
         </message>
         <message>
+            <source>Fullscreen mode</source>
+            <translation>Toàn màn hình</translation>
+        </message>
+        <message>
             <source>G: </source>
             <translation>G:</translation>
         </message>
@@ -1288,16 +1291,16 @@ Việt Nam- Quý Trọng</translation>
             <translation>Giờ</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Độ ẩm:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Độ ẩm:</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Độ ẩm:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Độ ẩm:</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Độ ẩm:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Độ ẩm:</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1332,6 +1335,10 @@ Việt Nam- Quý Trọng</translation>
             <translation>Biểu tượng</translation>
         </message>
         <message>
+            <source>Icons</source>
+            <translation>Biểu tượng</translation>
+        </message>
+        <message>
             <source>Iconset</source>
             <translation>Bộ biểu tượng</translation>
         </message>
@@ -1346,6 +1353,22 @@ Việt Nam- Quý Trọng</translation>
         <message>
             <source>Iconsets</source>
             <translation>Các bộ biểu tượng</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Thông tin</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Thông tin</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Thông tin</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Thông tin</translation>
         </message>
         <message>
             <source>Isolated T-Storms</source>
@@ -1536,10 +1559,6 @@ Việt Nam- Quý Trọng</translation>
         <message>
             <source>Manual</source>
             <translation>Bằng tay</translation>
-        </message>
-        <message>
-            <source>Measurement units</source>
-            <translation>Đơn vị đo</translation>
         </message>
         <message>
             <source>Measurement units</source>
@@ -1946,6 +1965,10 @@ Việt Nam- Quý Trọng</translation>
             <translation>Đồng ý</translation>
         </message>
         <message>
+            <source>OK</source>
+            <translation>Đồng ý</translation>
+        </message>
+        <message>
             <source>OMWeather Forecast</source>
             <translation>Dự báo OMWeather</translation>
         </message>
@@ -1964,6 +1987,18 @@ Việt Nam- Quý Trọng</translation>
         <message>
             <source>OMWeather settings</source>
             <translation>Thiết lập OMWeather</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Đồng ý</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Đồng ý</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Đồng ý</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
@@ -2224,6 +2259,10 @@ Việt Nam- Quý Trọng</translation>
         <message>
             <source>Pressure</source>
             <translation>Áp suất</translation>
+        </message>
+        <message>
+            <source>Pressure units</source>
+            <translation>Đơn vị đo áp suất</translation>
         </message>
         <message>
             <source>Pressure units</source>
@@ -2632,6 +2671,14 @@ Việt Nam- Quý Trọng</translation>
             <translation type="unfinished">Tùy chỉnh Màn hình chờ</translation>
         </message>
         <message>
+            <source>Settings of LockScreen</source>
+            <translation type="unfinished">Tùy chỉnh Màn hình chờ</translation>
+        </message>
+        <message>
+            <source>Settings of StandbyScreen</source>
+            <translation>Tùy chỉnh Màn hình chờ</translation>
+        </message>
+        <message>
             <source>Shallow Fog</source>
             <translation>Sương mù thấp</translation>
         </message>
@@ -2642,6 +2689,10 @@ Việt Nam- Quý Trọng</translation>
         <message>
             <source>Show arrows</source>
             <translation>Xem kiểu mũi tên</translation>
+        </message>
+        <message>
+            <source>Show on Map</source>
+            <translation type="unfinished">Hiển thị tên trạm</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
@@ -2788,16 +2839,16 @@ Việt Nam- Quý Trọng</translation>
             <translation>Tốc độ:</translation>
         </message>
         <message>
+            <source>Splash screen</source>
+            <translation>Hình khởi động</translation>
+        </message>
+        <message>
             <source>State:</source>
             <translation>Nước</translation>
         </message>
         <message>
             <source>Station %i</source>
             <translation>Địa điểm %i</translation>
-        </message>
-        <message>
-            <source>Stations</source>
-            <translation>Địa điểm</translation>
         </message>
         <message>
             <source>Stations</source>
@@ -2924,6 +2975,10 @@ Việt Nam- Quý Trọng</translation>
             <translation>Đơn vị đo nhiệt độ</translation>
         </message>
         <message>
+            <source>Temperature units</source>
+            <translation>Đơn vị đo nhiệt độ</translation>
+        </message>
+        <message>
             <source>Temperature units:</source>
             <translation>Đơn vị đo nhiệt độ:</translation>
         </message>
@@ -2974,14 +3029,6 @@ Việt Nam- Quý Trọng</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Sấm sét vùng lân cận</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Hôm nay</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Hôm nay</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3200,6 +3247,10 @@ for tuning images of applet</source>
             <translation type="unfinished">Hiện các mục:</translation>
         </message>
         <message>
+            <source>Visible units</source>
+            <translation type="unfinished">Hiện các mục:</translation>
+        </message>
+        <message>
             <source>Visible:</source>
             <translation>Hiện</translation>
         </message>
@@ -3290,6 +3341,18 @@ for tuning images of applet</source>
             <translation>Đang tải Widget OMWeather</translation>
         </message>
         <message>
+            <source>Widget in LockScreen</source>
+            <translation>Widget ở màn hình khóa</translation>
+        </message>
+        <message>
+            <source>Widget in StandbyScreen</source>
+            <translation>Widget ở màn hình nghỉ</translation>
+        </message>
+        <message>
+            <source>Widget in events view</source>
+            <translation>Xem widget ở mục sự kiện</translation>
+        </message>
+        <message>
             <source>Widget style</source>
             <translation>Dạng widget</translation>
         </message>
@@ -3348,6 +3411,10 @@ for tuning images of applet</source>
         <message>
             <source>Wind speed</source>
             <translation>Tốc độ gió</translation>
+        </message>
+        <message>
+            <source>Wind speed units</source>
+            <translation>Đơn vị vận tốc gió</translation>
         </message>
         <message>
             <source>Wind speed units</source>
@@ -3425,6 +3492,18 @@ or ZIP code!!!</source>
         <message>
             <source>You can make donation here: </source>
             <translation>Bạn có thể ủng hộ ở đây:</translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using LockScreen widget</source>
+            <translation>Bạn cần kích hoạt \n 'Xem widget ở sự kiện' \n để sử dụng widget ở màn hình khóa</translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using StandbyScreen widget</source>
+            <translation>Bạn cần kích hoạt \n 'Xem widget ở sự kiện' \n để sử dụng widget ở màn hình  chờ</translation>
         </message>
         <message>
             <source>You should activate 'Widget in the events view' option in MeeCast appearance settings for auto update.</source>

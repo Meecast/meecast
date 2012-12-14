@@ -362,20 +362,12 @@ W: </translation>
             <translation>Info</translation>
         </message>
         <message>
-            <source>About</source>
-            <translation>Info</translation>
-        </message>
-        <message>
             <source>Access denied to the given URL.</source>
             <translation>Zugriff auf URL verweigert.</translation>
         </message>
         <message>
             <source>Action|Update</source>
             <translation>Aktualisieren</translation>
-        </message>
-        <message>
-            <source>Add</source>
-            <translation>Hinzufügen</translation>
         </message>
         <message>
             <source>Add</source>
@@ -432,8 +424,15 @@ Eric Link - für Feature Request und die Spende
             <translation>Erscheinungsbild</translation>
         </message>
         <message>
-            <source>Appearance</source>
-            <translation>Erscheinungsbild</translation>
+            <source>Application manager will now start
+for installing package 'MeeCast applet'.
+You should uninstall AccuWeather 
+before installing this package</source>
+            <translation>Programm-Manager wird jetzt zur
+Installation des Pakets &quot;MeeCast 
+Applet&quot; gestartet. Bitte AccuWeather
+vor der Installation dieses Pakets
+deinstallieren.</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -542,6 +541,10 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
         <message>
             <source>CALM</source>
             <translation>STILL</translation>
+        </message>
+        <message>
+            <source>Cancel</source>
+            <translation>Abbrechen</translation>
         </message>
         <message>
             <source>Cannot get path to the HOME directory. Quitting.
@@ -1072,19 +1075,8 @@ Brad Jones aka kazrak - fürs Testen
             <translation>Leichte Schneeschauer / Wind</translation>
         </message>
         <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
+            <source>Find location via GPS</source>
+            <translation>Standort per GPS ermitteln</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
@@ -1105,8 +1097,8 @@ Brad Jones aka kazrak - fürs Testen
             <translation type="unfinished">Feuchtigkeit:</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Feuchtigkeit:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Feuchtigkeit:</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1139,6 +1131,16 @@ Brad Jones aka kazrak - fürs Testen
         <message>
             <source>Font:</source>
             <translation>Schriftart:</translation>
+        </message>
+        <message>
+            <source>For disabling MeeCast widget,
+you should uninstall package
+'Activating MeeCast Applet'
+using Application manager</source>
+            <translation>Zum Deaktivieren des MeeCast-
+Widgets, bitte das Paket
+'Activating MeeCast Applet' im
+Programm-Manager deinstallieren.</translation>
         </message>
         <message>
             <source>Forecast</source>
@@ -1231,6 +1233,10 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Vorhersage</translation>
         </message>
         <message>
+            <source>Fullscreen mode</source>
+            <translation>Vollbildmodus</translation>
+        </message>
+        <message>
             <source>G: </source>
             <translation>G: </translation>
         </message>
@@ -1303,16 +1309,16 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Stunden</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Luftfeuchtigkeit: </translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Luftfeuchtigkeit: </translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Luftfeuchtigkeit: </translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Luftfeuchtigkeit: </translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Luftfeuchtigkeit: </translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Luftfeuchtigkeit: </translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1347,6 +1353,10 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Symbole</translation>
         </message>
         <message>
+            <source>Icons</source>
+            <translation>Symbole</translation>
+        </message>
+        <message>
             <source>Iconset</source>
             <translation>Symbolsatz</translation>
         </message>
@@ -1361,6 +1371,22 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Iconsets</source>
             <translation>Symbolsätze</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Information</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Information</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Information</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Information</translation>
         </message>
         <message>
             <source>Isolated T-Storms</source>
@@ -1551,10 +1577,6 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Manual</source>
             <translation>Manuell</translation>
-        </message>
-        <message>
-            <source>Measurement units</source>
-            <translation>Maßeinheiten</translation>
         </message>
         <message>
             <source>Measurement units</source>
@@ -1953,6 +1975,10 @@ Spanisch - Alejandro Lopez</translation>
             <translation>OK</translation>
         </message>
         <message>
+            <source>OK</source>
+            <translation>OK</translation>
+        </message>
+        <message>
             <source>OMWeather Forecast</source>
             <translation>OMWeather Vorhersage</translation>
         </message>
@@ -1971,6 +1997,18 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>OMWeather settings</source>
             <translation>OMWeather Einstellungen</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ok</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ok</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ok</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
@@ -2231,6 +2269,10 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Pressure</source>
             <translation>Luftdruck</translation>
+        </message>
+        <message>
+            <source>Pressure units</source>
+            <translation>Einheit für Luftdruck</translation>
         </message>
         <message>
             <source>Pressure units</source>
@@ -2639,6 +2681,14 @@ Spanisch - Alejandro Lopez</translation>
             <translation type="unfinished">Widget in Standbyansicht</translation>
         </message>
         <message>
+            <source>Settings of LockScreen</source>
+            <translation type="unfinished">Widget in Standbyansicht</translation>
+        </message>
+        <message>
+            <source>Settings of StandbyScreen</source>
+            <translation type="unfinished">Widget in Standbyansicht</translation>
+        </message>
+        <message>
             <source>Shallow Fog</source>
             <translation>seichten Nebel</translation>
         </message>
@@ -2649,6 +2699,10 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Show arrows</source>
             <translation>Pfeile anzeigen</translation>
+        </message>
+        <message>
+            <source>Show on Map</source>
+            <translation type="unfinished">Stationsname anzeigen</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
@@ -2795,16 +2849,17 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Geschwindigkeit:</translation>
         </message>
         <message>
+            <source>Splash screen</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>State:</source>
             <translation>Staat:</translation>
         </message>
         <message>
             <source>Station %i</source>
             <translation>Station %i</translation>
-        </message>
-        <message>
-            <source>Stations</source>
-            <translation>Stationen</translation>
         </message>
         <message>
             <source>Stations</source>
@@ -2931,6 +2986,10 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Temperatureinheit</translation>
         </message>
         <message>
+            <source>Temperature units</source>
+            <translation>Temperatureinheit</translation>
+        </message>
+        <message>
             <source>Temperature units:</source>
             <translation>Temperatur:</translation>
         </message>
@@ -2988,14 +3047,6 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation type="unfinished">Schauer in der Nähe</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Heute</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Heute</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3215,6 +3266,10 @@ um die Darstellung des Applets anzupassen</translation>
             <translation type="unfinished">Angezeigte Elemente:</translation>
         </message>
         <message>
+            <source>Visible units</source>
+            <translation type="unfinished">Angezeigte Elemente:</translation>
+        </message>
+        <message>
             <source>Visible:</source>
             <translation>Sichtweite: </translation>
         </message>
@@ -3303,6 +3358,18 @@ um die Darstellung des Applets anzupassen</translation>
             <translation>OMWeather Widget wird neu geladen</translation>
         </message>
         <message>
+            <source>Widget in LockScreen</source>
+            <translation>Widget im Sperrbildschirm</translation>
+        </message>
+        <message>
+            <source>Widget in StandbyScreen</source>
+            <translation>Widget in Standbyansicht</translation>
+        </message>
+        <message>
+            <source>Widget in events view</source>
+            <translation>Widget in der Ereignisansicht</translation>
+        </message>
+        <message>
             <source>Widget style</source>
             <translation>Darstellung</translation>
         </message>
@@ -3361,6 +3428,10 @@ um die Darstellung des Applets anzupassen</translation>
         <message>
             <source>Wind speed</source>
             <translation>Windgeschwindigkeit</translation>
+        </message>
+        <message>
+            <source>Wind speed units</source>
+            <translation>Einheit für Windgeschwindigkeit</translation>
         </message>
         <message>
             <source>Wind speed units</source>
@@ -3439,6 +3510,22 @@ oder ZIP-Code!</translation>
         <message>
             <source>You can make donation here: </source>
             <translation>Hier können Sie spenden: </translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using LockScreen widget</source>
+            <translation>Aktivieren Sie die Option 
+&quot;Widget in der Ereignisansicht&quot; 
+für das Widget im Sperrbildschirm.</translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using StandbyScreen widget</source>
+            <translation>Aktivieren Sie die Option 
+&quot;Widget in der Ereignisansicht&quot; 
+für das Widget im Standby.</translation>
         </message>
         <message>
             <source>You should activate 'Widget in the events view' option in MeeCast appearance settings for auto update.</source>

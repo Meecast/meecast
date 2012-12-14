@@ -358,20 +358,12 @@ W: </translation>
             <translation>Quant a</translation>
         </message>
         <message>
-            <source>About</source>
-            <translation>Quant a</translation>
-        </message>
-        <message>
             <source>Access denied to the given URL.</source>
             <translation>S'ha denegat l'accés a l'URL facilitat</translation>
         </message>
         <message>
             <source>Action|Update</source>
             <translation>Actualitza</translation>
-        </message>
-        <message>
-            <source>Add</source>
-            <translation>Afegeix</translation>
         </message>
         <message>
             <source>Add</source>
@@ -428,8 +420,14 @@ Eric Link - pels requeriments de funcions i donacions
             <translation>Aparença</translation>
         </message>
         <message>
-            <source>Appearance</source>
-            <translation>Aparença</translation>
+            <source>Application manager will now start
+for installing package 'MeeCast applet'.
+You should uninstall AccuWeather 
+before installing this package</source>
+            <translation>S'iniciarà el gestor d'aplicacions
+per instal·lar el paquet 'MeeCast applet'.
+Heu de desinstal·lar AccuWeather 
+abans d'instal·lar aquest paquet</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -538,6 +536,10 @@ Disseny IU per a Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>CALM</source>
             <translation>Calma</translation>
+        </message>
+        <message>
+            <source>Cancel</source>
+            <translation>Cancel·la</translation>
         </message>
         <message>
             <source>Cannot get path to the HOME directory. Quitting.
@@ -1066,19 +1068,8 @@ Brad Jones aka kazrak - per les proves
             <translation>Alguns ruixats de neu / Vent</translation>
         </message>
         <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
+            <source>Find location via GPS</source>
+            <translation>Troba la ubicació via GPS</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
@@ -1099,8 +1090,8 @@ Brad Jones aka kazrak - per les proves
             <translation type="unfinished">Lluminositat</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Lluminositat</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Lluminositat</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1133,6 +1124,16 @@ Brad Jones aka kazrak - per les proves
         <message>
             <source>Font:</source>
             <translation>Lletra:</translation>
+        </message>
+        <message>
+            <source>For disabling MeeCast widget,
+you should uninstall package
+'Activating MeeCast Applet'
+using Application manager</source>
+            <translation>Per deshabilitar el panell MeeCast,
+heu de desinstal·lar el paquet
+'Activating MeeCast Applet'
+utilitzant el Gestor d'aplicacions</translation>
         </message>
         <message>
             <source>Forecast</source>
@@ -1237,6 +1238,10 @@ Català - Agustí Clara</translation>
             <translation>Previsió completa</translation>
         </message>
         <message>
+            <source>Fullscreen mode</source>
+            <translation>Pantalla completa</translation>
+        </message>
+        <message>
             <source>G: </source>
             <translation>G:</translation>
         </message>
@@ -1309,16 +1314,16 @@ Català - Agustí Clara</translation>
             <translation>Hores</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Humitat:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Humitat:</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Humitat:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Humitat:</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Humitat:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Humitat:</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1353,6 +1358,10 @@ Català - Agustí Clara</translation>
             <translation>Icones</translation>
         </message>
         <message>
+            <source>Icons</source>
+            <translation>Icones</translation>
+        </message>
+        <message>
             <source>Iconset</source>
             <translation>Joc d'icones</translation>
         </message>
@@ -1367,6 +1376,22 @@ Català - Agustí Clara</translation>
         <message>
             <source>Iconsets</source>
             <translation>Jocs d'icones</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Informació</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Informació</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Informació</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Informació</translation>
         </message>
         <message>
             <source>Isolated T-Storms</source>
@@ -1557,10 +1582,6 @@ Català - Agustí Clara</translation>
         <message>
             <source>Manual</source>
             <translation>Manual</translation>
-        </message>
-        <message>
-            <source>Measurement units</source>
-            <translation>Unitats de mesurament</translation>
         </message>
         <message>
             <source>Measurement units</source>
@@ -1959,6 +1980,10 @@ Català - Agustí Clara</translation>
             <translation>D'acord</translation>
         </message>
         <message>
+            <source>OK</source>
+            <translation>D'acord</translation>
+        </message>
+        <message>
             <source>OMWeather Forecast</source>
             <translation>Previsió de l'OMWeather</translation>
         </message>
@@ -1977,6 +2002,18 @@ Català - Agustí Clara</translation>
         <message>
             <source>OMWeather settings</source>
             <translation>Configuració de l'OMWeather</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>D'acord</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>D'acord</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>D'acord</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
@@ -2237,6 +2274,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>Pressure</source>
             <translation>Pressió</translation>
+        </message>
+        <message>
+            <source>Pressure units</source>
+            <translation>Unitats de pressió</translation>
         </message>
         <message>
             <source>Pressure units</source>
@@ -2639,6 +2680,14 @@ Català - Agustí Clara</translation>
             <translation>Configuració del giny de la pantalla d'espera</translation>
         </message>
         <message>
+            <source>Settings of LockScreen</source>
+            <translation>Configuració de la pantalla de bloqueig</translation>
+        </message>
+        <message>
+            <source>Settings of StandbyScreen</source>
+            <translation>Configuració de la pantalla d'espera</translation>
+        </message>
+        <message>
             <source>Shallow Fog</source>
             <translation>Boira baixa</translation>
         </message>
@@ -2649,6 +2698,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>Show arrows</source>
             <translation>Mostra fletxes</translation>
+        </message>
+        <message>
+            <source>Show on Map</source>
+            <translation>Mostra al mapa</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
@@ -2795,16 +2848,16 @@ Català - Agustí Clara</translation>
             <translation>Velocitat:</translation>
         </message>
         <message>
+            <source>Splash screen</source>
+            <translation>Imatge d'entrada</translation>
+        </message>
+        <message>
             <source>State:</source>
             <translation>Estat:</translation>
         </message>
         <message>
             <source>Station %i</source>
             <translation>Estació %i</translation>
-        </message>
-        <message>
-            <source>Stations</source>
-            <translation>Estacions</translation>
         </message>
         <message>
             <source>Stations</source>
@@ -2931,6 +2984,10 @@ Català - Agustí Clara</translation>
             <translation>Unitats de temperatura</translation>
         </message>
         <message>
+            <source>Temperature units</source>
+            <translation>Unitats de temperatura</translation>
+        </message>
+        <message>
             <source>Temperature units:</source>
             <translation>Unitats de temperatura:</translation>
         </message>
@@ -2986,14 +3043,6 @@ qualsevol versió posterior.</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Tempestes localitzades</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Avui</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Avui</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3212,6 +3261,10 @@ de la informació del temps.
             <translation>Unitats visibles</translation>
         </message>
         <message>
+            <source>Visible units</source>
+            <translation>Unitats visibles</translation>
+        </message>
+        <message>
             <source>Visible:</source>
             <translation>Visible:</translation>
         </message>
@@ -3300,6 +3353,18 @@ de la informació del temps.
             <translation>S'està recarregant el panell OMWeather</translation>
         </message>
         <message>
+            <source>Widget in LockScreen</source>
+            <translation>Panell a la Pantalla de bloqueig</translation>
+        </message>
+        <message>
+            <source>Widget in StandbyScreen</source>
+            <translation>Panell a la Pantalla d'espera</translation>
+        </message>
+        <message>
+            <source>Widget in events view</source>
+            <translation>Panell a la vista d'esdeveniments</translation>
+        </message>
+        <message>
             <source>Widget style</source>
             <translation>Estil del panell</translation>
         </message>
@@ -3358,6 +3423,10 @@ de la informació del temps.
         <message>
             <source>Wind speed</source>
             <translation>Velocitat del vent</translation>
+        </message>
+        <message>
+            <source>Wind speed units</source>
+            <translation>Unitats de velocitat del vent</translation>
         </message>
         <message>
             <source>Wind speed units</source>
@@ -3435,6 +3504,22 @@ or ZIP code!!!</source>
         <message>
             <source>You can make donation here: </source>
             <translation>Podeu fer una donació aquí:</translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using LockScreen widget</source>
+            <translation>Heu d'activar l'opció
+'Panell a la vista d'esdeveniments' ('Widget in events view')
+per utilitzar el panell per a la pantalla de bloqueig</translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using StandbyScreen widget</source>
+            <translation>Heu d'activar l'opció
+'Panell a la vista d'esdeveniments' ('Widget in events view')
+per utilitzar el panell per a la pantalla d'espera</translation>
         </message>
         <message>
             <source>You should activate 'Widget in the events view' option in MeeCast appearance settings for auto update.</source>

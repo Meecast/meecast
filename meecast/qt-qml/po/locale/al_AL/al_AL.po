@@ -286,7 +286,7 @@ msgstr "Në mëngjes Rreshje të dëndura dëbore/Më vonë erë"
 #: omweather/src/weather-simple-popup.c:1164
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/qml/AboutPage.qml:102 meecast/qt-qml/qml/SettingsPage.qml:62
+#: meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
 msgstr "Rreth"
 
@@ -298,7 +298,7 @@ msgstr "Hyrja u ndalua te kjo lidhje"
 msgid "Action|Update"
 msgstr "Po përditësoj"
 
-#: omweather/src/weather-settings.c:480 meecast/qt-qml/qml/StationsPage.qml:14
+#: omweather/src/weather-settings.c:480
 msgid "Add"
 msgstr "Shto"
 
@@ -341,10 +341,21 @@ msgstr "Ndohi një gabim i panjohur"
 msgid "Animation"
 msgstr "Animation"
 
-#: meecast/qt-qml/qml/SettingsPage.qml:65
-#: meecast/qt-qml/qml/VisualsPage.qml:97
+#: meecast/qt-qml/qml/VisualsPage.qml:566
 msgid "Appearance"
 msgstr "Paraqitja"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:94
+msgid ""
+"Application manager will now start\n"
+"for installing package 'MeeCast applet'.\n"
+"You should uninstall AccuWeather \n"
+"before installing this package"
+msgstr ""
+"Programi për instalimin e\n"
+"'MeeCast applet' do të fillojë tani.\n"
+"Ju duhet te fshini AccuWeather \n"
+"përpara se të vazhdoni"
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -413,6 +424,10 @@ msgstr "C\n"
 msgid "CALM"
 msgstr "I/e qetë"
 
+#: meecast/qt-qml/qml/VisualsPage.qml:108
+msgid "Cancel"
+msgstr "Fshije"
+
 #: omweather/src/weather-config.c:383
 #, c-format
 msgid "Cannot get path to the HOME directory. Quitting.\n"
@@ -422,7 +437,7 @@ msgstr "Nuk gjeta dot rrugën për te dosja HOME. Po dal.\n"
 msgid "Celcius"
 msgstr "Celcius"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:70
+#: meecast/qt-qml/qml/UnitsPage.qml:114
 msgid "Celsius"
 msgstr "Celcius"
 
@@ -616,7 +631,7 @@ msgid "Daily"
 msgstr "Ditore"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
-#: meecast/qt-qml/qml/FullWeatherPage.qml:126
+#: meecast/qt-qml/qml/FullWeatherPage.qml:186
 msgid "Day"
 msgstr "Ditë"
 
@@ -624,7 +639,7 @@ msgstr "Ditë"
 msgid "Day length"
 msgstr "Kohëzgjatja e ditës"
 
-#: omweather/src/hash.data:59 meecast/qt-qml/qml/FullWeatherPage.qml:232
+#: omweather/src/hash.data:59 meecast/qt-qml/qml/FullWeatherPage.qml:294
 msgid "Day length:"
 msgstr "Kohëzgjatja e ditës:"
 
@@ -632,7 +647,7 @@ msgstr "Kohëzgjatja e ditës:"
 msgid "Day:"
 msgstr "Dita:"
 
-#: meecast/qt-qml/qml/StationsPage.qml:86
+#: meecast/qt-qml/qml/StationsPage.qml:75
 msgid "Delete location?"
 msgstr "T'a fshij këtë vënd?"
 
@@ -806,7 +821,7 @@ msgstr "F\n"
 msgid "FL: "
 msgstr "FL: "
 
-#: omweather/src/weather-settings.c:3876 meecast/qt-qml/qml/UnitsPage.qml:80
+#: omweather/src/weather-settings.c:3876 meecast/qt-qml/qml/UnitsPage.qml:122
 msgid "Fahrenheit"
 msgstr "Fahrenheit"
 
@@ -857,10 +872,9 @@ msgstr "Disa stuhira dëbore"
 msgid "Few Snow Showers / Wind"
 msgstr "Disa stuhira dëbore / Erë"
 
-#: meecast/qt-qml/qml/CityPage.qml:51 meecast/qt-qml/qml/CountryPage.qml:53
-#: meecast/qt-qml/qml/RegionPage.qml:55
-msgid "Filter by..."
-msgstr ""
+#: meecast/qt-qml/qml/StationsPage.qml:92
+msgid "Find location via GPS"
+msgstr "Gjej vëndin me GPS-në"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:428
 msgid ""
@@ -874,14 +888,11 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Tremujori i parë"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:102
-#: meecast/qt-qml/qml/FullWeatherPage.qml:207
+#: meecast/qt-qml/qml/FullWeatherPage.qml:153
+#: meecast/qt-qml/qml/FullWeatherPage.qml:210
+#: meecast/qt-qml/qml/FullWeatherPage.qml:259
 #, fuzzy
 msgid "Flike"
-msgstr "Flike:"
-
-#: meecast/qt-qml/qml/FullWeatherPage.qml:163
-msgid "Flike:"
 msgstr "Flike:"
 
 #: omweather/src/hash.data:84
@@ -911,6 +922,18 @@ msgstr "Ngjyra e gërmave:"
 #: omweather/src/weather-settings.c:3227 omweather/src/weather-settings.c:3231
 msgid "Font:"
 msgstr "Lloji i gërmave"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:292
+msgid ""
+"For disabling MeeCast widget,\n"
+"you should uninstall package\n"
+"'Activating MeeCast Applet'\n"
+"using Application manager"
+msgstr ""
+"Për të deaktivizuar MeeCast widget,\n"
+"duhet dizinstaluar\n"
+"'Activating MeeCast Applet'\n"
+"duke përdorur Application manager"
 
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
@@ -1013,6 +1036,10 @@ msgstr "E plotë"
 msgid "Full forecast"
 msgstr "Parashikimet e plota"
 
+#: meecast/qt-qml/qml/VisualsPage.qml:369
+msgid "Fullscreen mode"
+msgstr "Në gjithe ekranin"
+
 #: omweather/src/weather-home.c:1641
 msgid "G: "
 msgstr "G: "
@@ -1073,17 +1100,10 @@ msgstr "Rreshje të dëndura dëbore"
 msgid "High"
 msgstr "E lartë"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:217
+#: meecast/qt-qml/qml/FullWeatherPage.qml:276
 msgid "Hours"
 msgstr "Orë"
 
-<<<<<<< HEAD
-#: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
-#: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:180 meecast/qt-qml/qml/FullWeatherPage.qml:84
-#: meecast/qt-qml/qml/FullWeatherPage.qml:145
-#: meecast/qt-qml/qml/FullWeatherPage.qml:189
-=======
 #: meecast/qt-qml/qml/FullWeatherPage.qml:135
 #: meecast/qt-qml/qml/FullWeatherPage.qml:192
 #: meecast/qt-qml/qml/FullWeatherPage.qml:241
@@ -1094,7 +1114,6 @@ msgstr "Lagështira:"
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
 #: meecast/qt-qml/dataitem.cpp:180
->>>>>>> master
 msgid "Humidity:"
 msgstr "Lagështira:"
 
@@ -1106,17 +1125,24 @@ msgstr "Ikonat:"
 msgid "Icon size:"
 msgstr "Dimensioni i ikonave:"
 
-#: meecast/qt-qml/qml/UpdatePage.qml:42
+#: meecast/qt-qml/qml/VisualsPage.qml:44 meecast/qt-qml/qml/UpdatePage.qml:42
 msgid "Icons"
 msgstr "Iconat"
 
-#: omweather/src/hash.data:94 meecast/qt-qml/qml/VisualsPage.qml:63
+#: omweather/src/hash.data:94 meecast/qt-qml/qml/VisualsPage.qml:391
 msgid "Iconset"
 msgstr "Seti i ikonave"
 
-#: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:248
+#: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:244
 msgid "Iconsets"
 msgstr "Setet e ikonave"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:64
+#: meecast/qt-qml/qml/VisualsPage.qml:136
+#: meecast/qt-qml/qml/VisualsPage.qml:163
+#: meecast/qt-qml/qml/VisualsPage.qml:226
+msgid "Information"
+msgstr "Informacion"
 
 #: omweather/src/hash.data:97
 msgid "Isolated T-Storms"
@@ -1150,7 +1176,7 @@ msgstr "Përditësimi i fundit tek serveri: "
 msgid "Last update from server: "
 msgstr "Përditësimi i fundit nga serveri: "
 
-#: omweather/src/hash.data:99 meecast/qt-qml/qml/FullWeatherPage.qml:229
+#: omweather/src/hash.data:99 meecast/qt-qml/qml/FullWeatherPage.qml:297
 msgid "Last update:"
 msgstr "Përditësimi i fundit"
 
@@ -1169,11 +1195,11 @@ msgstr "Moti për lëndinat dhe kopshtet"
 msgid "Layout:"
 msgstr "Paraqitja:"
 
-#: meecast/qt-qml/qml/AboutPage.qml:171
+#: meecast/qt-qml/qml/AboutPage.qml:170
 msgid "Lead designer"
 msgstr "Krye designer"
 
-#: meecast/qt-qml/qml/AboutPage.qml:283
+#: meecast/qt-qml/qml/AboutPage.qml:280
 msgid "License"
 msgstr "Liçencat"
 
@@ -1281,7 +1307,7 @@ msgstr ""
 "Mirëmbajtja: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
 "com>\n"
 
-#: omweather/src/hash.data:123 meecast/qt-qml/qml/SettingsPage.qml:66
+#: omweather/src/hash.data:123 meecast/qt-qml/qml/StationsPage.qml:153
 msgid "Manage locations"
 msgstr "Rregullo lokalitetet"
 
@@ -1289,7 +1315,7 @@ msgstr "Rregullo lokalitetet"
 msgid "Manual"
 msgstr "Me dorë"
 
-#: meecast/qt-qml/qml/SettingsPage.qml:64 meecast/qt-qml/qml/UnitsPage.qml:235
+#: meecast/qt-qml/qml/UnitsPage.qml:270
 msgid "Measurement units"
 msgstr "Njësitë matëse"
 
@@ -1297,7 +1323,7 @@ msgstr "Njësitë matëse"
 msgid "MeeCast"
 msgstr "MeeCast"
 
-#: meecast/qt-qml/qml/AboutPage.qml:111
+#: meecast/qt-qml/qml/AboutPage.qml:77
 #, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
@@ -1306,7 +1332,7 @@ msgstr ""
 "MeeCast - program multiplataformë me kod të hapur i mbështetur tek kodi i "
 "OMWeather-it. Copyright (C) 2006-2011"
 
-#: meecast/qt-qml/qml/AboutPage.qml:319
+#: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
 msgstr "MeeCast për Harmattan-in"
 
@@ -1512,7 +1538,7 @@ msgid "Next update:"
 msgstr "Përditësimi që vjen:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:588
-#: meecast/qt-qml/qml/FullWeatherPage.qml:167
+#: meecast/qt-qml/qml/FullWeatherPage.qml:227
 msgid "Night"
 msgstr "Natën"
 
@@ -1520,7 +1546,7 @@ msgstr "Natën"
 msgid "Night:"
 msgstr "Natën:"
 
-#: omweather/src/weather-settings.c:825 meecast/qt-qml/qml/StationsPage.qml:90
+#: omweather/src/weather-settings.c:825 meecast/qt-qml/qml/StationsPage.qml:78
 msgid "No"
 msgstr "Jo"
 
@@ -1546,8 +1572,8 @@ msgstr "S'ka të dhëna nga ky stacion"
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:188 meecast/qt-qml/qml/FullWeatherPage.qml:67
-#: meecast/qt-qml/qml/WeatherPage.qml:542
+#: meecast/qt-qml/dataitem.cpp:188 meecast/qt-qml/qml/FullWeatherPage.qml:129
+#: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Now"
 msgstr "Tani"
 
@@ -1573,6 +1599,7 @@ msgid "Now: "
 msgstr "Tani:"
 
 #: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1223
+#: meecast/qt-qml/qml/VisualsPage.qml:115
 msgid "OK"
 msgstr "OK"
 
@@ -1588,6 +1615,12 @@ msgstr "Rregullimet për OMWeather"
 #: omweather/src/weather-home.c:1268 omweather/src/weather-home.c:2856
 msgid "OMWeather settings"
 msgstr "Rregullimet për OMWeather"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:206
+#: meecast/qt-qml/qml/VisualsPage.qml:269
+#: meecast/qt-qml/qml/VisualsPage.qml:305
+msgid "Ok"
+msgstr "Ok"
 
 #: omweather/src/weather-help.c:64 omweather/src/weather-help.c:70
 msgid "Other Maemo Weather Info"
@@ -1697,7 +1730,7 @@ msgstr "Pasdite Rrebeshe të shkurtëra"
 msgid "PM T-Storms"
 msgstr "Pasdite Stuhira"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:159
+#: meecast/qt-qml/qml/UnitsPage.qml:194
 msgid "Pa"
 msgstr "Pa"
 
@@ -1817,9 +1850,9 @@ msgstr "Periudha"
 msgid "Position:"
 msgstr "Posicioni:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:96
-#: meecast/qt-qml/qml/FullWeatherPage.qml:157
-#: meecast/qt-qml/qml/FullWeatherPage.qml:201
+#: meecast/qt-qml/qml/FullWeatherPage.qml:147
+#: meecast/qt-qml/qml/FullWeatherPage.qml:204
+#: meecast/qt-qml/qml/FullWeatherPage.qml:253
 msgid "Ppcp:"
 msgstr "Ppcp:"
 
@@ -1832,7 +1865,7 @@ msgstr "Preferencat|Përditësimet"
 msgid "Pressure"
 msgstr "Presioni"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:139
+#: meecast/qt-qml/qml/UnitsPage.qml:49 meecast/qt-qml/qml/UnitsPage.qml:176
 msgid "Pressure units"
 msgstr "Njësia e presionit"
 
@@ -1842,9 +1875,9 @@ msgstr "Njesitë e presionit:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:186 meecast/qt-qml/qml/FullWeatherPage.qml:90
-#: meecast/qt-qml/qml/FullWeatherPage.qml:151
-#: meecast/qt-qml/qml/FullWeatherPage.qml:195
+#: meecast/qt-qml/dataitem.cpp:186 meecast/qt-qml/qml/FullWeatherPage.qml:141
+#: meecast/qt-qml/qml/FullWeatherPage.qml:198
+#: meecast/qt-qml/qml/FullWeatherPage.qml:247
 msgid "Pressure:"
 msgstr "Presioni:"
 
@@ -1852,20 +1885,20 @@ msgstr "Presioni:"
 msgid "Pressure: "
 msgstr "Presioni: "
 
-#: meecast/qt-qml/qml/AboutPage.qml:155
+#: meecast/qt-qml/qml/AboutPage.qml:154
 #, fuzzy
 msgid "Programmers"
 msgstr "Krye programuesi"
 
-#: meecast/qt-qml/qml/AboutPage.qml:139
+#: meecast/qt-qml/qml/AboutPage.qml:138
 msgid "Project administrator"
 msgstr "Shefi i projektit"
 
-#: meecast/qt-qml/qml/AboutPage.qml:187
+#: meecast/qt-qml/qml/AboutPage.qml:186
 msgid "Project manager"
 msgstr "Shefi i projektit"
 
-#: meecast/qt-qml/qml/AboutPage.qml:119
+#: meecast/qt-qml/qml/AboutPage.qml:86
 msgid "Project website"
 msgstr "Faqja web e projektit"
 
@@ -2050,20 +2083,20 @@ msgstr "Kërko"
 msgid "Select city"
 msgstr "Zgjidh qytetin"
 
-#: meecast/qt-qml/qml/CountryPage.qml:140
+#: meecast/qt-qml/qml/CountryPage.qml:153
 #: meecast/qt-qml/qml/NewStationPage.qml:55
 #: meecast/qt-qml/qml/NewStationPage.qml:102
 msgid "Select country"
 msgstr "Zgjidh Shtetin"
 
 #: omweather/src/weather-simple-settings.c:2168
-#: meecast/qt-qml/qml/CityPage.qml:125
+#: meecast/qt-qml/qml/CityPage.qml:142
 msgid "Select location"
 msgstr "Zgjidh vëndin"
 
 #: meecast/qt-qml/qml/NewStationPage.qml:64
 #: meecast/qt-qml/qml/NewStationPage.qml:111
-#: meecast/qt-qml/qml/RegionPage.qml:139
+#: meecast/qt-qml/qml/RegionPage.qml:144
 msgid "Select region"
 msgstr "Zgjidh Rrethin"
 
@@ -2092,11 +2125,11 @@ msgstr "Zgjidh ngjyrën e gërmave për emrin e stacionit meteo"
 msgid "Select the color of font for temperature"
 msgstr "Zgjidh ngjyrën e gërmave"
 
-#: meecast/qt-qml/qml/IconsetPage.qml:144
+#: meecast/qt-qml/qml/IconsetPage.qml:97
 msgid "Select the iconset"
 msgstr "Zgjith paketën e ikonave"
 
-#: meecast/qt-qml/qml/SourcePage.qml:117
+#: meecast/qt-qml/qml/SourcePage.qml:108
 msgid "Select the weather source"
 msgstr "Zgjidh burimin e të dhënave të parashikimeve"
 
@@ -2135,7 +2168,7 @@ msgstr "Vendos vëndin"
 
 #: omweather/src/weather-home.c:1291 omweather/src/weather-simple-popup.c:1157
 #: omweather/src/weather-simple-status.c:158
-#: meecast/qt-qml/qml/SettingsPage.qml:115
+#: meecast/qt-qml/qml/SettingsPage.qml:139
 msgid "Settings"
 msgstr "Rregullimet"
 
@@ -2146,6 +2179,14 @@ msgstr "Rregullimet për widget-in kur ekrani është i bllokuar"
 #: meecast/qt-qml/qml/StandbyScreen.qml:102
 msgid "Settings for standby widget"
 msgstr "Rregullimet për widget.in kur telefoni është në pritje"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:534
+msgid "Settings of LockScreen"
+msgstr "Rregullimet kur ekrani është i bllokuar"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:514
+msgid "Settings of StandbyScreen"
+msgstr "Rregullimet e StandbyScreen"
 
 #: omweather/src/hash.data:258
 msgid "Shallow Fog"
@@ -2158,6 +2199,10 @@ msgstr "I shkurtër"
 #: omweather/src/weather-settings.c:3824
 msgid "Show arrows"
 msgstr "Trego shigjetat"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:601
+msgid "Show on Map"
+msgstr "Trego në hartë"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
@@ -2272,6 +2317,10 @@ msgstr "Shpejtësia"
 msgid "Speed:"
 msgstr "Shpejtësia:"
 
+#: meecast/qt-qml/qml/VisualsPage.qml:491
+msgid "Splash screen"
+msgstr "Splash screen"
+
 #: omweather/src/weather-settings.c:522
 msgid "State:"
 msgstr "Shteti:"
@@ -2283,7 +2332,6 @@ msgstr "Stacioni %i"
 
 #: omweather/src/weather-settings.c:1114 omweather/src/weather-settings.c:1292
 #: omweather/src/weather-settings.c:1297
-#: meecast/qt-qml/qml/StationsPage.qml:150
 msgid "Stations"
 msgstr "Stacionet"
 
@@ -2303,7 +2351,7 @@ msgstr "Me diell"
 msgid "Sunny / Wind"
 msgstr "Me diell / Erë"
 
-#: omweather/src/hash.data:281 meecast/qt-qml/qml/FullWeatherPage.qml:238
+#: omweather/src/hash.data:281 meecast/qt-qml/qml/FullWeatherPage.qml:288
 msgid "Sunrise:"
 msgstr "Dielli lind në orën:"
 
@@ -2311,7 +2359,7 @@ msgstr "Dielli lind në orën:"
 msgid "Sunrise: "
 msgstr "Dielli lind në orën: "
 
-#: omweather/src/hash.data:282 meecast/qt-qml/qml/FullWeatherPage.qml:235
+#: omweather/src/hash.data:282 meecast/qt-qml/qml/FullWeatherPage.qml:291
 msgid "Sunset:"
 msgstr "Perëndon:"
 
@@ -2357,7 +2405,8 @@ msgstr "Stuhi me rrife vonë"
 msgid "Temperature"
 msgstr "Temperatura"
 
-#: omweather/src/hash.data:289 meecast/qt-qml/qml/UnitsPage.qml:59
+#: omweather/src/hash.data:289 meecast/qt-qml/qml/UnitsPage.qml:31
+#: meecast/qt-qml/qml/UnitsPage.qml:103
 msgid "Temperature units"
 msgstr "Njësia për matjen e temperaturës"
 
@@ -2382,7 +2431,7 @@ msgstr "Faleminderit"
 msgid "The weather has been updated."
 msgstr "Të dhënat e motit u përditësuan."
 
-#: meecast/qt-qml/qml/AboutPage.qml:291
+#: meecast/qt-qml/qml/AboutPage.qml:289
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2417,14 +2466,12 @@ msgstr "Rrebeshe në rrethinat"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
-#: meecast/qt-qml/qml/FullWeatherPage.qml:444
-#: meecast/qt-qml/qml/FullWeatherPage.qml:467
-#: meecast/qt-qml/qml/FullWeatherPage.qml:485
-#: meecast/qt-qml/qml/WeatherPage.qml:542
+#: meecast/qt-qml/qml/FullWeatherPage.qml:423
+#: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Today"
 msgstr "Sot"
 
-#: omweather/src/weather-help.c:154 meecast/qt-qml/qml/AboutPage.qml:203
+#: omweather/src/weather-help.c:154 meecast/qt-qml/qml/AboutPage.qml:202
 msgid "Translators"
 msgstr "Përkthyes"
 
@@ -2449,7 +2496,7 @@ msgstr "Provo të perditësosh"
 msgid "Type of click:"
 msgstr "Lloji i click-ut:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:81
+#: meecast/qt-qml/qml/FullWeatherPage.qml:172
 msgid "UV index:"
 msgstr "Indeksi i UV-ve"
 
@@ -2538,12 +2585,12 @@ msgstr "Shumë e rëndë"
 msgid "Visible items:"
 msgstr "Artikuj në dukje"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:184
+#: meecast/qt-qml/qml/UnitsPage.qml:58 meecast/qt-qml/qml/UnitsPage.qml:209
 msgid "Visible units"
 msgstr "Njësitë e dukshme"
 
 #: omweather/src/weather-popup.c:1288
-#: meecast/qt-qml/qml/FullWeatherPage.qml:111
+#: meecast/qt-qml/qml/FullWeatherPage.qml:169
 msgid "Visible:"
 msgstr "Në dukje"
 
@@ -2614,6 +2661,18 @@ msgstr "Parashikime moti për MeeGo-në. Versioni "
 msgid "Widget OMWeather is reloading"
 msgstr "Widget OMWeather po riniset"
 
+#: meecast/qt-qml/qml/VisualsPage.qml:437
+msgid "Widget in LockScreen"
+msgstr "Widget në Ekranin e bllokuar"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:464
+msgid "Widget in StandbyScreen"
+msgstr "Widget në Ekranin në Standby"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:411
+msgid "Widget in events view"
+msgstr "Widget në faqen e lajmeve"
+
 #: omweather/src/weather-simple-settings.c:2914
 #: omweather/src/weather-simple-settings.c:2922
 msgid "Widget style"
@@ -2627,25 +2686,26 @@ msgstr "Stili i Widget-it dhe Ikonat"
 msgid "Wind"
 msgstr "Era"
 
-#: omweather/src/hash.data:307 meecast/qt-qml/qml/FullWeatherPage.qml:87
-#: meecast/qt-qml/qml/FullWeatherPage.qml:148
-#: meecast/qt-qml/qml/FullWeatherPage.qml:192
+#: omweather/src/hash.data:307 meecast/qt-qml/qml/FullWeatherPage.qml:138
+#: meecast/qt-qml/qml/FullWeatherPage.qml:195
+#: meecast/qt-qml/qml/FullWeatherPage.qml:244
 msgid "Wind direction:"
 msgstr "Era fryn nga:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:99
-#: meecast/qt-qml/qml/FullWeatherPage.qml:160
-#: meecast/qt-qml/qml/FullWeatherPage.qml:204
+#: meecast/qt-qml/qml/FullWeatherPage.qml:150
+#: meecast/qt-qml/qml/FullWeatherPage.qml:207
+#: meecast/qt-qml/qml/FullWeatherPage.qml:256
 msgid "Wind gust:"
 msgstr "Shkulme ere nga:"
 
-#: omweather/src/hash.data:309 meecast/qt-qml/qml/FullWeatherPage.qml:93
-#: meecast/qt-qml/qml/FullWeatherPage.qml:154
-#: meecast/qt-qml/qml/FullWeatherPage.qml:198
+#: omweather/src/hash.data:309 meecast/qt-qml/qml/FullWeatherPage.qml:144
+#: meecast/qt-qml/qml/FullWeatherPage.qml:201
+#: meecast/qt-qml/qml/FullWeatherPage.qml:250
 msgid "Wind speed"
 msgstr "Shpejtësia e erës"
 
-#: omweather/src/hash.data:308 meecast/qt-qml/qml/UnitsPage.qml:94
+#: omweather/src/hash.data:308 meecast/qt-qml/qml/UnitsPage.qml:40
+#: meecast/qt-qml/qml/UnitsPage.qml:142
 msgid "Wind speed units"
 msgstr "Njesia matëse për shpejtësinë e erës"
 
@@ -2688,13 +2748,33 @@ msgstr ""
 "Është i gabuar ose kodi i stacioni\n"
 "ose kodi postar!!!"
 
-#: omweather/src/weather-settings.c:824 meecast/qt-qml/qml/StationsPage.qml:88
+#: omweather/src/weather-settings.c:824 meecast/qt-qml/qml/StationsPage.qml:77
 msgid "Yes"
 msgstr "Po"
 
 #: omweather/src/weather-simple-popup.c:1233
 msgid "You can make donation here: "
 msgstr "Mund të bëni ofertën tuaj këtu: "
+
+#: meecast/qt-qml/qml/VisualsPage.qml:193
+msgid ""
+"You should activate \n"
+"'Widget in events view'\n"
+" for using LockScreen widget"
+msgstr ""
+"Duhet të aktivizioni\n"
+"\"Widget in events view\" (widget-i në faqen e lajmeve)\n"
+"për të përdorur widget-in në faqen e Ekranit të bllokuar"
+
+#: meecast/qt-qml/qml/VisualsPage.qml:256
+msgid ""
+"You should activate \n"
+"'Widget in events view'\n"
+" for using StandbyScreen widget"
+msgstr ""
+"Duhet të aktivizioni\n"
+"\"Widget in events view\" (widget-i në faqen e lajmeve)\n"
+"për të parë widget-in në ekranin e fikur"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:73
 msgid ""
@@ -2800,14 +2880,14 @@ msgstr "inç"
 #: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
 #: omweather/src/weather-simple-settings.c:1336
 #: omweather/src/weather-simple-settings.c:2670
-#: meecast/qt-qml/qml/UnitsPage.qml:204
+#: meecast/qt-qml/qml/UnitsPage.qml:227
 msgid "km"
 msgstr "km"
 
 #: omweather/src/weather-settings.c:3994 omweather/src/hash.data:316
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
-#: meecast/qt-qml/qml/UnitsPage.qml:114
+#: meecast/qt-qml/qml/UnitsPage.qml:160
 msgid "km/h"
 msgstr "km/h"
 
@@ -2818,7 +2898,7 @@ msgstr "km/s"
 #: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1296
 #: omweather/src/weather-simple-settings.c:1328
 #: omweather/src/weather-simple-settings.c:2664
-#: meecast/qt-qml/qml/UnitsPage.qml:194
+#: meecast/qt-qml/qml/UnitsPage.qml:220
 msgid "m"
 msgstr "m"
 
@@ -2829,7 +2909,7 @@ msgstr "m/h"
 #: omweather/src/weather-settings.c:3980 omweather/src/hash.data:319
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
-#: meecast/qt-qml/qml/UnitsPage.qml:104
+#: meecast/qt-qml/qml/UnitsPage.qml:153
 msgid "m/s"
 msgstr "m/s"
 
@@ -2842,7 +2922,7 @@ msgstr "m/s"
 msgid "mb"
 msgstr "mb"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:149
+#: meecast/qt-qml/qml/UnitsPage.qml:187
 msgid "mbar"
 msgstr "mbar"
 
@@ -2850,14 +2930,14 @@ msgstr "mbar"
 #: omweather/src/weather-popup.c:1298 omweather/src/weather-popup.c:1299
 #: omweather/src/weather-simple-settings.c:1345
 #: omweather/src/weather-simple-settings.c:2676
-#: meecast/qt-qml/qml/UnitsPage.qml:214
+#: meecast/qt-qml/qml/UnitsPage.qml:234
 msgid "mi"
 msgstr "mi"
 
 #: omweather/src/weather-settings.c:4008 omweather/src/hash.data:320
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
-#: meecast/qt-qml/qml/UnitsPage.qml:125
+#: meecast/qt-qml/qml/UnitsPage.qml:167
 msgid "mi/h"
 msgstr "mi/h"
 
@@ -2883,7 +2963,7 @@ msgstr "mm"
 #: omweather/src/weather-popup.c:986 omweather/src/weather-popup.c:1118
 #: omweather/src/weather-popup.c:1314
 #: omweather/src/weather-simple-settings.c:1488
-#: meecast/qt-qml/qml/UnitsPage.qml:170
+#: meecast/qt-qml/qml/UnitsPage.qml:201
 msgid "mmHg"
 msgstr "mmHg"
 
@@ -2961,78 +3041,5 @@ msgstr "Ю-В"
 msgid "Ю-З"
 msgstr "Ю-З"
 
-#~ msgid ""
-#~ "Application manager will now start\n"
-#~ "for installing package 'MeeCast applet'.\n"
-#~ "You should uninstall AccuWeather \n"
-#~ "before installing this package"
-#~ msgstr ""
-#~ "Programi për instalimin e\n"
-#~ "'MeeCast applet' do të fillojë tani.\n"
-#~ "Ju duhet te fshini AccuWeather \n"
-#~ "përpara se të vazhdoni"
-
-#~ msgid "Cancel"
-#~ msgstr "Fshije"
-
-#~ msgid "Find location via GPS"
-#~ msgstr "Gjej vëndin me GPS-në"
-
-#~ msgid ""
-#~ "For disabling MeeCast widget,\n"
-#~ "you should uninstall package\n"
-#~ "'Activating MeeCast Applet'\n"
-#~ "using Application manager"
-#~ msgstr ""
-#~ "Për të deaktivizuar MeeCast widget,\n"
-#~ "duhet dizinstaluar\n"
-#~ "'Activating MeeCast Applet'\n"
-#~ "duke përdorur Application manager"
-
-#~ msgid "Fullscreen mode"
-#~ msgstr "Në gjithe ekranin"
-
-#~ msgid "Information"
-#~ msgstr "Informacion"
-
-#~ msgid "Ok"
-#~ msgstr "Ok"
-
-#~ msgid "Settings of LockScreen"
-#~ msgstr "Rregullimet kur ekrani është i bllokuar"
-
-#~ msgid "Settings of StandbyScreen"
-#~ msgstr "Rregullimet e StandbyScreen"
-
-#~ msgid "Show on Map"
-#~ msgstr "Trego në hartë"
-
-#~ msgid "Splash screen"
-#~ msgstr "Splash screen"
-
-#~ msgid "Widget in LockScreen"
-#~ msgstr "Widget në Ekranin e bllokuar"
-
-#~ msgid "Widget in StandbyScreen"
-#~ msgstr "Widget në Ekranin në Standby"
-
-#~ msgid "Widget in events view"
-#~ msgstr "Widget në faqen e lajmeve"
-
-#~ msgid ""
-#~ "You should activate \n"
-#~ "'Widget in events view'\n"
-#~ " for using LockScreen widget"
-#~ msgstr ""
-#~ "Duhet të aktivizioni\n"
-#~ "\"Widget in events view\" (widget-i në faqen e lajmeve)\n"
-#~ "për të përdorur widget-in në faqen e Ekranit të bllokuar"
-
-#~ msgid ""
-#~ "You should activate \n"
-#~ "'Widget in events view'\n"
-#~ " for using StandbyScreen widget"
-#~ msgstr ""
-#~ "Duhet të aktivizioni\n"
-#~ "\"Widget in events view\" (widget-i në faqen e lajmeve)\n"
-#~ "për të parë widget-in në ekranin e fikur"
+#~ msgid "Flike:"
+#~ msgstr "Flike:"

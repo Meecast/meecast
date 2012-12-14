@@ -357,20 +357,12 @@ W: </translation>
             <translation>Rreth</translation>
         </message>
         <message>
-            <source>About</source>
-            <translation>Rreth</translation>
-        </message>
-        <message>
             <source>Access denied to the given URL.</source>
             <translation>Hyrja u ndalua te kjo lidhje</translation>
         </message>
         <message>
             <source>Action|Update</source>
             <translation>Po përditësoj</translation>
-        </message>
-        <message>
-            <source>Add</source>
-            <translation>Shto</translation>
         </message>
         <message>
             <source>Add</source>
@@ -427,8 +419,14 @@ Eric Link - për kërkesat dhe ofertat
             <translation>Paraqitja</translation>
         </message>
         <message>
-            <source>Appearance</source>
-            <translation>Paraqitja</translation>
+            <source>Application manager will now start
+for installing package 'MeeCast applet'.
+You should uninstall AccuWeather 
+before installing this package</source>
+            <translation>Programi për instalimin e
+'MeeCast applet' do të fillojë tani.
+Ju duhet te fshini AccuWeather 
+përpara se të vazhdoni</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -537,6 +535,10 @@ Krijimi i ndërfaqes për Fremantle-in: Krebber Jan Niemelä Ulla
         <message>
             <source>CALM</source>
             <translation>I/e qetë</translation>
+        </message>
+        <message>
+            <source>Cancel</source>
+            <translation>Fshije</translation>
         </message>
         <message>
             <source>Cannot get path to the HOME directory. Quitting.
@@ -1065,19 +1067,8 @@ Brad Jones aka kazrak - for testing
             <translation>Disa stuhira dëbore / Erë</translation>
         </message>
         <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Filter by...</source>
-            <translation type="unfinished">
-            </translation>
+            <source>Find location via GPS</source>
+            <translation>Gjej vëndin me GPS-në</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
@@ -1098,8 +1089,8 @@ Brad Jones aka kazrak - for testing
             <translation type="unfinished">Flike:</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Flike:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Flike:</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1132,6 +1123,16 @@ Brad Jones aka kazrak - for testing
         <message>
             <source>Font:</source>
             <translation>Lloji i gërmave</translation>
+        </message>
+        <message>
+            <source>For disabling MeeCast widget,
+you should uninstall package
+'Activating MeeCast Applet'
+using Application manager</source>
+            <translation>Për të deaktivizuar MeeCast widget,
+duhet dizinstaluar
+'Activating MeeCast Applet'
+duke përdorur Application manager</translation>
         </message>
         <message>
             <source>Forecast</source>
@@ -1235,6 +1236,10 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>Parashikimet e plota</translation>
         </message>
         <message>
+            <source>Fullscreen mode</source>
+            <translation>Në gjithe ekranin</translation>
+        </message>
+        <message>
             <source>G: </source>
             <translation>G: </translation>
         </message>
@@ -1307,16 +1312,16 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>Orë</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Lagështira:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Lagështira:</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Lagështira:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Lagështira:</translation>
         </message>
         <message>
-            <source>Humidity:</source>
-            <translation>Lagështira:</translation>
+            <source>Humidity</source>
+            <translation type="unfinished">Lagështira:</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1351,6 +1356,10 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>Iconat</translation>
         </message>
         <message>
+            <source>Icons</source>
+            <translation>Iconat</translation>
+        </message>
+        <message>
             <source>Iconset</source>
             <translation>Seti i ikonave</translation>
         </message>
@@ -1365,6 +1374,22 @@ Sllovakisht - Roman Moravčík</translation>
         <message>
             <source>Iconsets</source>
             <translation>Setet e ikonave</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Informacion</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Informacion</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Informacion</translation>
+        </message>
+        <message>
+            <source>Information</source>
+            <translation>Informacion</translation>
         </message>
         <message>
             <source>Isolated T-Storms</source>
@@ -1555,10 +1580,6 @@ Sllovakisht - Roman Moravčík</translation>
         <message>
             <source>Manual</source>
             <translation>Me dorë</translation>
-        </message>
-        <message>
-            <source>Measurement units</source>
-            <translation>Njësitë matëse</translation>
         </message>
         <message>
             <source>Measurement units</source>
@@ -1957,6 +1978,10 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>OK</translation>
         </message>
         <message>
+            <source>OK</source>
+            <translation>OK</translation>
+        </message>
+        <message>
             <source>OMWeather Forecast</source>
             <translation>Parashikimet OMWeather</translation>
         </message>
@@ -1975,6 +2000,18 @@ Sllovakisht - Roman Moravčík</translation>
         <message>
             <source>OMWeather settings</source>
             <translation>Rregullimet për OMWeather</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ok</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ok</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ok</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
@@ -2235,6 +2272,10 @@ Sllovakisht - Roman Moravčík</translation>
         <message>
             <source>Pressure</source>
             <translation>Presioni</translation>
+        </message>
+        <message>
+            <source>Pressure units</source>
+            <translation>Njësia e presionit</translation>
         </message>
         <message>
             <source>Pressure units</source>
@@ -2637,6 +2678,14 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>Rregullimet për widget.in kur telefoni është në pritje</translation>
         </message>
         <message>
+            <source>Settings of LockScreen</source>
+            <translation>Rregullimet kur ekrani është i bllokuar</translation>
+        </message>
+        <message>
+            <source>Settings of StandbyScreen</source>
+            <translation>Rregullimet e StandbyScreen</translation>
+        </message>
+        <message>
             <source>Shallow Fog</source>
             <translation>Mjegull në sipërfaqe</translation>
         </message>
@@ -2647,6 +2696,10 @@ Sllovakisht - Roman Moravčík</translation>
         <message>
             <source>Show arrows</source>
             <translation>Trego shigjetat</translation>
+        </message>
+        <message>
+            <source>Show on Map</source>
+            <translation>Trego në hartë</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
@@ -2793,16 +2846,16 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>Shpejtësia:</translation>
         </message>
         <message>
+            <source>Splash screen</source>
+            <translation>Splash screen</translation>
+        </message>
+        <message>
             <source>State:</source>
             <translation>Shteti:</translation>
         </message>
         <message>
             <source>Station %i</source>
             <translation>Stacioni %i</translation>
-        </message>
-        <message>
-            <source>Stations</source>
-            <translation>Stacionet</translation>
         </message>
         <message>
             <source>Stations</source>
@@ -2929,6 +2982,10 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>Njësia për matjen e temperaturës</translation>
         </message>
         <message>
+            <source>Temperature units</source>
+            <translation>Njësia për matjen e temperaturës</translation>
+        </message>
+        <message>
             <source>Temperature units:</source>
             <translation>Njësia për matjen e temperaturës:</translation>
         </message>
@@ -2985,14 +3042,6 @@ të GNU General Public License
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Rrebeshe në rrethinat</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Sot</translation>
-        </message>
-        <message>
-            <source>Today</source>
-            <translation>Sot</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3210,6 +3259,10 @@ për të ndryshuar fotografinë applet</translation>
             <translation>Njësitë e dukshme</translation>
         </message>
         <message>
+            <source>Visible units</source>
+            <translation>Njësitë e dukshme</translation>
+        </message>
+        <message>
             <source>Visible:</source>
             <translation>Në dukje</translation>
         </message>
@@ -3298,6 +3351,18 @@ për të ndryshuar fotografinë applet</translation>
             <translation>Widget OMWeather po riniset</translation>
         </message>
         <message>
+            <source>Widget in LockScreen</source>
+            <translation>Widget në Ekranin e bllokuar</translation>
+        </message>
+        <message>
+            <source>Widget in StandbyScreen</source>
+            <translation>Widget në Ekranin në Standby</translation>
+        </message>
+        <message>
+            <source>Widget in events view</source>
+            <translation>Widget në faqen e lajmeve</translation>
+        </message>
+        <message>
             <source>Widget style</source>
             <translation>Stili i Widget-it</translation>
         </message>
@@ -3356,6 +3421,10 @@ për të ndryshuar fotografinë applet</translation>
         <message>
             <source>Wind speed</source>
             <translation>Shpejtësia e erës</translation>
+        </message>
+        <message>
+            <source>Wind speed units</source>
+            <translation>Njesia matëse për shpejtësinë e erës</translation>
         </message>
         <message>
             <source>Wind speed units</source>
@@ -3434,6 +3503,22 @@ ose kodi postar!!!</translation>
         <message>
             <source>You can make donation here: </source>
             <translation>Mund të bëni ofertën tuaj këtu: </translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using LockScreen widget</source>
+            <translation>Duhet të aktivizioni
+&quot;Widget in events view&quot; (widget-i në faqen e lajmeve)
+për të përdorur widget-in në faqen e Ekranit të bllokuar</translation>
+        </message>
+        <message>
+            <source>You should activate 
+'Widget in events view'
+ for using StandbyScreen widget</source>
+            <translation>Duhet të aktivizioni
+&quot;Widget in events view&quot; (widget-i në faqen e lajmeve)
+për të parë widget-in në ekranin e fikur</translation>
         </message>
         <message>
             <source>You should activate 'Widget in the events view' option in MeeCast appearance settings for auto update.</source>

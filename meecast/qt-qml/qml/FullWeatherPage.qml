@@ -674,7 +674,7 @@ Page {
         }
 
         Container{
-            id: tollbar
+            id: toolbar
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0 
                 positionY: 1142

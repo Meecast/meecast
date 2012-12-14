@@ -150,7 +150,7 @@ Page {
                 condition.append({cond_name: Config.tr("Wind gust:"),
                          value: model_current.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
             if ((model_current.getdata(day, "flike")) != "N/A")
-                condition.append({cond_name: Config.tr("Flike:"),
+                condition.append({cond_name: Config.tr("Flike") + ":",
                          value: model_current.getdata(day, "flike") + '°' + Config.temperatureunit});
             if ((model_current.getdata(day, "map_pattern")) != ""){
                 map_pattern = model_current.getdata(day, "map_pattern")

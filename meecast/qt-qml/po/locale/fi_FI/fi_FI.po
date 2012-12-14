@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 18:22+0300\n"
+"POT-Creation-Date: 2012-12-14 15:07+0300\n"
 "PO-Revision-Date: 2012-09-08 06:09+0000\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
@@ -889,6 +889,10 @@ msgid "First Quarter"
 msgstr "Ensimmäinen neljännes"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:153
+#, fuzzy
+msgid "Flike"
+msgstr "Tuntuu:"
+
 #: meecast/qt-qml/qml/FullWeatherPage.qml:210
 #: meecast/qt-qml/qml/FullWeatherPage.qml:259
 msgid "Flike:"
@@ -976,7 +980,8 @@ msgid ""
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
 " Norwegian - Peer-Atle Motland,\n"
-" Vietnamese - Hieu Nguyen, Anh Dương and truongnx, \n"
+" Vietnamese - Hieu Nguyen\n"
+" \tAnh Dương and truongnx, \n"
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
@@ -1125,7 +1130,7 @@ msgstr "Kuvakkeet"
 msgid "Iconset"
 msgstr "Kuvakkeet"
 
-#: omweather/src/hash.data:95
+#: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:244
 msgid "Iconsets"
 msgstr "Kuvakkeet"
 
@@ -1191,11 +1196,7 @@ msgstr "Asettelu:"
 msgid "Lead designer"
 msgstr "Pääsuunnittelija"
 
-#: meecast/qt-qml/qml/AboutPage.qml:154
-msgid "Lead programmers"
-msgstr "Pääohjelmoijat"
-
-#: meecast/qt-qml/qml/AboutPage.qml:243
+#: meecast/qt-qml/qml/AboutPage.qml:280
 msgid "License"
 msgstr "Lisenssi"
 
@@ -1320,9 +1321,10 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
+#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2011"
+"client based on OMWeather code. Copyright (C) 2006-2012"
 msgstr ""
 "MeeCast - useilla alustoilla toimiva avoimen lähdekoodin sääohjelma. "
 "Perustuu OMWeatherin koodiin. Copyright (C) 2006-2011"
@@ -1880,6 +1882,11 @@ msgstr "Ilmanpaine:"
 msgid "Pressure: "
 msgstr "Ilmanpaine: "
 
+#: meecast/qt-qml/qml/AboutPage.qml:154
+#, fuzzy
+msgid "Programmers"
+msgstr "Pääohjelmoijat"
+
 #: meecast/qt-qml/qml/AboutPage.qml:138
 msgid "Project administrator"
 msgstr "Projektin hallinta"
@@ -2192,7 +2199,7 @@ msgstr "Lyhyt"
 msgid "Show arrows"
 msgstr "Näytä nuolet"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:600
+#: meecast/qt-qml/qml/FullWeatherPage.qml:601
 #, fuzzy
 msgid "Show on Map"
 msgstr "Näytä aseman nimi"
@@ -2424,7 +2431,7 @@ msgstr "Kiitokset"
 msgid "The weather has been updated."
 msgstr "Säätiedot päivitetty."
 
-#: meecast/qt-qml/qml/AboutPage.qml:252
+#: meecast/qt-qml/qml/AboutPage.qml:289
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"

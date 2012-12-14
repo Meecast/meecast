@@ -1079,9 +1079,8 @@ msgstr "Часы"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:135
 #: meecast/qt-qml/qml/FullWeatherPage.qml:192
 #: meecast/qt-qml/qml/FullWeatherPage.qml:241
-#, fuzzy
 msgid "Humidity"
-msgstr "Влажность:"
+msgstr "Влажность"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722

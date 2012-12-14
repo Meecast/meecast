@@ -350,22 +350,38 @@ NavigationPane {
                         id: humidity
                         horizontalAlignment: HorizontalAlignment.Left
                         preferredWidth: 768/2
-                        layout: StackLayout {
-                            orientation: LayoutOrientation.LeftToRight
-                        }
-                        ImageView {
-                            imageSource: "asset:///share/images/humidity.png"
-                            preferredWidth: 30*1.6
-                            preferredHeight: 30*1.6
-                        }
-                        Label {
-                            id: humidity_text
-                            text: Current.getdata(0, "humidity") + " %";
-                            verticalAlignment: VerticalAlignment.Center
-                            //horizontalAlignment: HorizontalAlignment.Left
-                            textStyle {
-                                base: SystemDefaults.TextStyles.BodyText
-                                color: Color.White
+                        Container{
+                            layout: AbsoluteLayout {
+                            }
+                            Label { 
+                                layoutProperties: AbsoluteLayoutProperties {
+                                    positionY: 0.0
+                                }
+                                id: humidity_description
+                                preferredWidth: 768/2 - 128/2 
+                                text: Config.tr("Humidity")
+                                horizontalAlignment: HorizontalAlignment.Center
+                                verticalAlignment: VerticalAlignment.Center
+                                textStyle.textAlign: TextAlign.Center
+                                textStyle {
+                                    base: SystemDefaults.TextStyles.SmallText
+                                    color: Color.Gray
+                                }
+                            }
+                            Label {
+                                id: humidity_text
+                                preferredWidth: 768/2 - 128/2 
+                                layoutProperties: AbsoluteLayoutProperties {
+                                    positionY: 30.0
+                                }
+                                text: Current.getdata(0, "humidity") + " %";
+                                verticalAlignment: VerticalAlignment.Center
+                                //horizontalAlignment: HorizontalAlignment.Left
+                                textStyle.textAlign: TextAlign.Center
+                                textStyle {
+                                    base: SystemDefaults.TextStyles.BodyText
+                                    color: Color.White
+                                }
                             }
                         }
                     }

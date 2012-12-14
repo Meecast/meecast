@@ -1342,6 +1342,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Набор икони</translation>
         </message>
         <message>
+            <source>Iconsets</source>
+            <translation>Набор икони</translation>
+        </message>
+        <message>
             <source>Isolated T-Storms</source>
             <translation>Изолирани Гръмотевични бури</translation>
         </message>
@@ -3028,11 +3032,6 @@ later version.</translation>
         <message>
             <source>Type of click:</source>
             <translation>Тип на клик:</translation>
-        </message>
-        <message>
-            <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
         </message>
         <message>
             <source>UV index:</source>

@@ -1340,6 +1340,10 @@ Việt Nam- Quý Trọng</translation>
             <translation>Các bộ biểu tượng</translation>
         </message>
         <message>
+            <source>Iconsets</source>
+            <translation>Các bộ biểu tượng</translation>
+        </message>
+        <message>
             <source>Isolated T-Storms</source>
             <translation>Mưa giông có sấm sét</translation>
         </message>
@@ -3028,11 +3032,6 @@ Việt Nam- Quý Trọng</translation>
         <message>
             <source>Type of click:</source>
             <translation>Kiểu click:</translation>
-        </message>
-        <message>
-            <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
         </message>
         <message>
             <source>UV index:</source>

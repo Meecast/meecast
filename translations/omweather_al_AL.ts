@@ -1359,6 +1359,10 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>Setet e ikonave</translation>
         </message>
         <message>
+            <source>Iconsets</source>
+            <translation>Setet e ikonave</translation>
+        </message>
+        <message>
             <source>Isolated T-Storms</source>
             <translation>Rrebesha të izoluar</translation>
         </message>
@@ -3039,10 +3043,6 @@ të GNU General Public License
         <message>
             <source>Type of click:</source>
             <translation>Lloji i click-ut:</translation>
-        </message>
-        <message>
-            <source>UV index:</source>
-            <translation>Indeksi i UV-ve</translation>
         </message>
         <message>
             <source>UV index:</source>

@@ -1354,6 +1354,10 @@ słowacki - Roman Moravčík</translation>
             <translation>Zestawy ikon</translation>
         </message>
         <message>
+            <source>Iconsets</source>
+            <translation>Zestawy ikon</translation>
+        </message>
+        <message>
             <source>Isolated T-Storms</source>
             <translation>Miejscowe burze</translation>
         </message>
@@ -3059,11 +3063,6 @@ Fundację wolnego oprogramowania.</translation>
         <message>
             <source>Type of click:</source>
             <translation>Rodzaj kliknięcia:</translation>
-        </message>
-        <message>
-            <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
         </message>
         <message>
             <source>UV index:</source>

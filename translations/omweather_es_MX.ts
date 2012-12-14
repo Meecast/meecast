@@ -1356,6 +1356,10 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Juegos de íconos:</translation>
         </message>
         <message>
+            <source>Iconsets</source>
+            <translation>Juegos de íconos:</translation>
+        </message>
+        <message>
             <source>Isolated T-Storms</source>
             <translation>Tormentas eléctricas aisladas</translation>
         </message>
@@ -3044,11 +3048,6 @@ ya sea la versión 2.1 de la licencia, o (a sudiscreción) cualquier versión po
         <message>
             <source>Type of click:</source>
             <translation>Tipo de click:</translation>
-        </message>
-        <message>
-            <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
         </message>
         <message>
             <source>UV index:</source>

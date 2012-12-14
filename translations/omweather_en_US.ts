@@ -1355,6 +1355,10 @@ Slovak - Roman Moravčík</translation>
             <translation>Iconsets</translation>
         </message>
         <message>
+            <source>Iconsets</source>
+            <translation>Iconsets</translation>
+        </message>
+        <message>
             <source>Isolated T-Storms</source>
             <translation>Isolated T-Storms</translation>
         </message>
@@ -3041,11 +3045,6 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Type of click:</source>
             <translation>Type of click:</translation>
-        </message>
-        <message>
-            <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
         </message>
         <message>
             <source>UV index:</source>

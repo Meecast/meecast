@@ -1353,6 +1353,10 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Ikonsetleri</translation>
         </message>
         <message>
+            <source>Iconsets</source>
+            <translation>Ikonsetleri</translation>
+        </message>
+        <message>
             <source>Isolated T-Storms</source>
             <translation>Yalitilmis Firtina</translation>
         </message>
@@ -3036,11 +3040,6 @@ hem 2.1 versiyonu vehem de (isteginize gore) farkli bir ileriki version olabilir
         <message>
             <source>Type of click:</source>
             <translation>Tiklama turu:</translation>
-        </message>
-        <message>
-            <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
         </message>
         <message>
             <source>UV index:</source>

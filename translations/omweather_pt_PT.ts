@@ -1359,6 +1359,10 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Estilo de icons</translation>
         </message>
         <message>
+            <source>Iconsets</source>
+            <translation>Estilo de icons</translation>
+        </message>
+        <message>
             <source>Isolated T-Storms</source>
             <translation>Trovoadas Isoladas</translation>
         </message>
@@ -3039,10 +3043,6 @@ para qualquer versão posterior.</translation>
         <message>
             <source>Type of click:</source>
             <translation>Tipo de click:</translation>
-        </message>
-        <message>
-            <source>UV index:</source>
-            <translation>Indíce UV:</translation>
         </message>
         <message>
             <source>UV index:</source>

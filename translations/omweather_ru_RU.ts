@@ -1338,6 +1338,10 @@ Slovak - Roman Moravčík</source>
             <translation>Наборы иконок:</translation>
         </message>
         <message>
+            <source>Iconsets</source>
+            <translation>Наборы иконок:</translation>
+        </message>
+        <message>
             <source>Isolated T-Storms</source>
             <translation>Местами грозы</translation>
         </message>
@@ -3032,11 +3036,6 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Type of click:</source>
             <translation>Тип нажатия</translation>
-        </message>
-        <message>
-            <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
         </message>
         <message>
             <source>UV index:</source>

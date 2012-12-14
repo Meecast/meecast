@@ -1363,6 +1363,10 @@ Slovakia - Roman Moravčík</translation>
             <translation>Kuvakkeet</translation>
         </message>
         <message>
+            <source>Iconsets</source>
+            <translation>Kuvakkeet</translation>
+        </message>
+        <message>
             <source>Isolated T-Storms</source>
             <translation>Ukkoskuuroja</translation>
         </message>
@@ -3050,11 +3054,6 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Type of click:</source>
             <translation>Näpäytystapa:</translation>
-        </message>
-        <message>
-            <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
         </message>
         <message>
             <source>UV index:</source>

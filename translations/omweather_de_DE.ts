@@ -1355,6 +1355,10 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Symbolsätze</translation>
         </message>
         <message>
+            <source>Iconsets</source>
+            <translation>Symbolsätze</translation>
+        </message>
+        <message>
             <source>Isolated T-Storms</source>
             <translation>Vereinzelt Gewitter</translation>
         </message>
@@ -3042,11 +3046,6 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Type of click:</source>
             <translation>Klicktyp:</translation>
-        </message>
-        <message>
-            <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
         </message>
         <message>
             <source>UV index:</source>

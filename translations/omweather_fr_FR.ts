@@ -1366,6 +1366,10 @@ Slovaque - Roman Moravčík</translation>
             <translation>Icônes</translation>
         </message>
         <message>
+            <source>Iconsets</source>
+            <translation>Icônes</translation>
+        </message>
+        <message>
             <source>Isolated T-Storms</source>
             <translation>Orages localisés</translation>
         </message>
@@ -3079,11 +3083,6 @@ Slovaque - Roman Moravčík</translation>
         <message>
             <source>Type of click:</source>
             <translation>Type de clic :</translation>
-        </message>
-        <message>
-            <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
         </message>
         <message>
             <source>UV index:</source>

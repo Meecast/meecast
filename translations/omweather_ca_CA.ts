@@ -1361,6 +1361,10 @@ Català - Agustí Clara</translation>
             <translation>Jocs d'icones</translation>
         </message>
         <message>
+            <source>Iconsets</source>
+            <translation>Jocs d'icones</translation>
+        </message>
+        <message>
             <source>Isolated T-Storms</source>
             <translation>Tempestes aïllades</translation>
         </message>
@@ -3040,10 +3044,6 @@ qualsevol versió posterior.</translation>
         <message>
             <source>Type of click:</source>
             <translation>Tipus de clic:</translation>
-        </message>
-        <message>
-            <source>UV index:</source>
-            <translation>Índex UV:</translation>
         </message>
         <message>
             <source>UV index:</source>

@@ -1362,6 +1362,10 @@ Slovak - Roman Moravčík</translation>
             <translation>Ikonsett</translation>
         </message>
         <message>
+            <source>Iconsets</source>
+            <translation>Ikonsett</translation>
+        </message>
+        <message>
             <source>Isolated T-Storms</source>
             <translation>Isolert Torden</translation>
         </message>
@@ -3042,10 +3046,6 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Type of click:</source>
             <translation>Type klikk:</translation>
-        </message>
-        <message>
-            <source>UV index:</source>
-            <translation>UV indeks:</translation>
         </message>
         <message>
             <source>UV index:</source>

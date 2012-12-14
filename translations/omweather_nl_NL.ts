@@ -1343,6 +1343,10 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Icoonsets</translation>
         </message>
         <message>
+            <source>Iconsets</source>
+            <translation>Icoonsets</translation>
+        </message>
+        <message>
             <source>Isolated T-Storms</source>
             <translation>Lokaal Onweer</translation>
         </message>
@@ -3028,11 +3032,6 @@ Foundation; versie 2.1 of latere versies.</translation>
         <message>
             <source>Type of click:</source>
             <translation>Soort klik:</translation>
-        </message>
-        <message>
-            <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
         </message>
         <message>
             <source>UV index:</source>

@@ -41,6 +41,7 @@
 #include <QGraphicsAnchorLayout>
 #include <QDate>
 #include <QTimer>
+#include <QNetworkConfigurationManager>
 
 // Debug
 /*

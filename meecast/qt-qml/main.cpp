@@ -159,8 +159,11 @@ int main(int argc, char* argv[])
 
     //Add the QML snippet into the layout
 
-  
-    ConfigQml *config;
+    //QString locale = QLocale::system().name();
+    //std::cerr<<"locale: "<<locale.toStdString()<<std::endl;
+    
+    //ConfigQml *config;
+    //
     Controller *controller;
 
     std::cerr<<"Before controller "<<std::endl;

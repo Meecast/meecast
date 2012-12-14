@@ -8,7 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2012-12-14 15:11+0300\n"
+=======
+"POT-Creation-Date: 2012-12-14 15:09+0300\n"
+>>>>>>> master
 "PO-Revision-Date: 2012-04-19 10:35+0000\n"
 "Last-Translator: ludmilalisovskaya <ludmila.lisovskaya@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -871,10 +875,18 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Cuarto creciente"
 
+<<<<<<< HEAD
 #: meecast/qt-qml/qml/FullWeatherPage.qml:102
 #: meecast/qt-qml/qml/FullWeatherPage.qml:163
 #: meecast/qt-qml/qml/FullWeatherPage.qml:207
 msgid "Flike:"
+=======
+#: meecast/qt-qml/qml/FullWeatherPage.qml:153
+#: meecast/qt-qml/qml/FullWeatherPage.qml:210
+#: meecast/qt-qml/qml/FullWeatherPage.qml:259
+#, fuzzy
+msgid "Flike"
+>>>>>>> master
 msgstr "Luminosidad:"
 
 #: omweather/src/hash.data:84
@@ -1083,7 +1095,11 @@ msgstr "Íconos"
 msgid "Iconset"
 msgstr "Juego de íconos"
 
+<<<<<<< HEAD
 #: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:248
+=======
+#: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:244
+>>>>>>> master
 msgid "Iconsets"
 msgstr "Juegos de íconos:"
 
@@ -1143,7 +1159,11 @@ msgstr "Distribución: "
 msgid "Lead designer"
 msgstr "Diseñador líder"
 
+<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:283
+=======
+#: meecast/qt-qml/qml/AboutPage.qml:280
+>>>>>>> master
 msgid "License"
 msgstr "Licencia"
 
@@ -1267,7 +1287,11 @@ msgstr "Unidades de medida"
 msgid "MeeCast"
 msgstr "MeeCast"
 
+<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:111
+=======
+#: meecast/qt-qml/qml/AboutPage.qml:77
+>>>>>>> master
 #, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
@@ -1826,12 +1850,20 @@ msgstr "Presión:"
 msgid "Pressure: "
 msgstr "Presión: "
 
+<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:155
+=======
+#: meecast/qt-qml/qml/AboutPage.qml:154
+>>>>>>> master
 #, fuzzy
 msgid "Programmers"
 msgstr "Programadores líderes"
 
+<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:139
+=======
+#: meecast/qt-qml/qml/AboutPage.qml:138
+>>>>>>> master
 msgid "Project administrator"
 msgstr "Administrador del proyecto"
 
@@ -2135,6 +2167,14 @@ msgstr "Corto"
 msgid "Show arrows"
 msgstr "Mostrar flechas"
 
+<<<<<<< HEAD
+=======
+#: meecast/qt-qml/qml/FullWeatherPage.qml:601
+#, fuzzy
+msgid "Show on Map"
+msgstr "Mostrar nombre de la estación"
+
+>>>>>>> master
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
 msgstr "Clima actual en el primer ícono"
@@ -2358,7 +2398,11 @@ msgstr "Gracias"
 msgid "The weather has been updated."
 msgstr "El pronóstico fue actualizado."
 
+<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:291
+=======
+#: meecast/qt-qml/qml/AboutPage.qml:289
+>>>>>>> master
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2942,6 +2986,7 @@ msgstr "Ю-В"
 msgid "Ю-З"
 msgstr "Ю-З"
 
+<<<<<<< HEAD
 #~ msgid ""
 #~ "Application manager will now start\n"
 #~ "for installing package 'MeeCast applet'.\n"
@@ -3017,3 +3062,7 @@ msgstr "Ю-З"
 #~ "Debería activar \n"
 #~ "\"Panel en vista de eventos\"\n"
 #~ " para usar el panel StandbyScreen"
+=======
+#~ msgid "Flike:"
+#~ msgstr "Luminosidad:"
+>>>>>>> master

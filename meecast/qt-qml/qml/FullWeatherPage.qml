@@ -99,7 +99,7 @@ Page {
                 condition.insert({"cond_name": Config.tr("Wind gust:"),
                          "value": model_current.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
             if ((model_current.getdata(day, "flike")) != "N/A")
-                condition.insert({"cond_name": Config.tr("Flike:"),
+                condition.insert({"cond_name": Config.tr("Flike") + ":",
                          "value": model_current.getdata(day, "flike") + '°' + Config.temperatureunit});
             if ((model_current.getdata(day, "temp")) != "N/A")
                 temperature.text =  model_current.getdata(day, "temp") + '°'
@@ -204,7 +204,7 @@ Page {
                 condition.insert({"cond_name": Config.tr("Wind gust:"),
                          "value": model_night.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
             if ((model_night.getdata(day, "flike")) != "N/A")
-                condition.insert({"cond_name": Config.tr("Flike:"),
+                condition.insert({"cond_name": Config.tr("Flike") + ":",
                          "value": model_night.getdata(day, "flike") + '°' + Config.temperatureunit});
             if ((model_night.getdata(day, "temp")) != "N/A")
                 temperature.text =  model_night.getdata(day, "temp") + '°'

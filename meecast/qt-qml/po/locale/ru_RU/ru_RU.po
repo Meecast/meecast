@@ -7,7 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2012-12-14 15:11+0300\n"
+=======
+"POT-Creation-Date: 2012-12-14 15:09+0300\n"
+>>>>>>> master
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -854,11 +858,19 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Первая четверть"
 
+<<<<<<< HEAD
 #: meecast/qt-qml/qml/FullWeatherPage.qml:102
 #: meecast/qt-qml/qml/FullWeatherPage.qml:163
 #: meecast/qt-qml/qml/FullWeatherPage.qml:207
 msgid "Flike:"
 msgstr "По ощущениям:"
+=======
+#: meecast/qt-qml/qml/FullWeatherPage.qml:153
+#: meecast/qt-qml/qml/FullWeatherPage.qml:210
+#: meecast/qt-qml/qml/FullWeatherPage.qml:259
+msgid "Flike"
+msgstr "По ощущениям"
+>>>>>>> master
 
 #: omweather/src/hash.data:84
 msgid "Fog"
@@ -1062,7 +1074,11 @@ msgstr "Наборы иконок"
 msgid "Iconset"
 msgstr "Набор иконок"
 
+<<<<<<< HEAD
 #: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:248
+=======
+#: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:244
+>>>>>>> master
 msgid "Iconsets"
 msgstr "Наборы иконок:"
 
@@ -1119,7 +1135,11 @@ msgstr "Расположение:"
 msgid "Lead designer"
 msgstr "Ведущий дизайнер"
 
+<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:283
+=======
+#: meecast/qt-qml/qml/AboutPage.qml:280
+>>>>>>> master
 msgid "License"
 msgstr ""
 
@@ -1793,12 +1813,20 @@ msgstr "Давление:"
 msgid "Pressure: "
 msgstr "Давление: "
 
+<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:155
+=======
+#: meecast/qt-qml/qml/AboutPage.qml:154
+>>>>>>> master
 #, fuzzy
 msgid "Programmers"
 msgstr "Ведущие программисты"
 
+<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:139
+=======
+#: meecast/qt-qml/qml/AboutPage.qml:138
+>>>>>>> master
 msgid "Project administrator"
 msgstr "Администратор проекта"
 
@@ -2101,6 +2129,13 @@ msgstr "Короткий"
 msgid "Show arrows"
 msgstr "Показать стрелки"
 
+<<<<<<< HEAD
+=======
+#: meecast/qt-qml/qml/FullWeatherPage.qml:601
+msgid "Show on Map"
+msgstr "Показать на карте"
+
+>>>>>>> master
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
 msgstr "Только текущая погода в первой иконке"
@@ -2324,7 +2359,11 @@ msgstr "Благодарности"
 msgid "The weather has been updated."
 msgstr "Данные о погоде обновлены."
 
+<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:291
+=======
+#: meecast/qt-qml/qml/AboutPage.qml:289
+>>>>>>> master
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2894,6 +2933,7 @@ msgstr ""
 msgid "Ю-З"
 msgstr ""
 
+<<<<<<< HEAD
 #~ msgid ""
 #~ "Application manager will now start\n"
 #~ "for installing package 'MeeCast applet'.\n"
@@ -2969,6 +3009,10 @@ msgstr ""
 #~ "Вы должны активировать \n"
 #~ "опцию 'Виджет на экране \n"
 #~ "событий'  "
+=======
+#~ msgid "Flike:"
+#~ msgstr "По ощущениям:"
+>>>>>>> master
 
 #, fuzzy
 #~ msgid ""

@@ -8,7 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2012-12-14 15:11+0300\n"
+=======
+"POT-Creation-Date: 2012-12-14 15:09+0300\n"
+>>>>>>> master
 "PO-Revision-Date: 2012-09-09 18:40+0000\n"
 "Last-Translator: Burak Kaan Kose <bkaankose@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/meecast/language/"
@@ -867,10 +871,18 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Ilk Ceyrek"
 
+<<<<<<< HEAD
 #: meecast/qt-qml/qml/FullWeatherPage.qml:102
 #: meecast/qt-qml/qml/FullWeatherPage.qml:163
 #: meecast/qt-qml/qml/FullWeatherPage.qml:207
 msgid "Flike:"
+=======
+#: meecast/qt-qml/qml/FullWeatherPage.qml:153
+#: meecast/qt-qml/qml/FullWeatherPage.qml:210
+#: meecast/qt-qml/qml/FullWeatherPage.qml:259
+#, fuzzy
+msgid "Flike"
+>>>>>>> master
 msgstr "Flike:"
 
 #: omweather/src/hash.data:84
@@ -1088,7 +1100,11 @@ msgstr "Ikonlar"
 msgid "Iconset"
 msgstr "Ikonseti"
 
+<<<<<<< HEAD
 #: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:248
+=======
+#: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:244
+>>>>>>> master
 msgid "Iconsets"
 msgstr "Ikonsetleri"
 
@@ -1148,7 +1164,11 @@ msgstr "Duzen"
 msgid "Lead designer"
 msgstr "Bas stilist"
 
+<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:283
+=======
+#: meecast/qt-qml/qml/AboutPage.qml:280
+>>>>>>> master
 msgid "License"
 msgstr "Lisans"
 
@@ -1272,7 +1292,11 @@ msgstr "Olcum uniteleri"
 msgid "MeeCast"
 msgstr "MeeCast"
 
+<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:111
+=======
+#: meecast/qt-qml/qml/AboutPage.qml:77
+>>>>>>> master
 #, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
@@ -1827,12 +1851,20 @@ msgstr "Basinc:"
 msgid "Pressure: "
 msgstr "Basinc:"
 
+<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:155
+=======
+#: meecast/qt-qml/qml/AboutPage.qml:154
+>>>>>>> master
 #, fuzzy
 msgid "Programmers"
 msgstr "Bas programcilar"
 
+<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:139
+=======
+#: meecast/qt-qml/qml/AboutPage.qml:138
+>>>>>>> master
 msgid "Project administrator"
 msgstr "Proje yoneticisi"
 
@@ -2135,6 +2167,14 @@ msgstr "Kisa"
 msgid "Show arrows"
 msgstr "Oklari goster"
 
+<<<<<<< HEAD
+=======
+#: meecast/qt-qml/qml/FullWeatherPage.qml:601
+#, fuzzy
+msgid "Show on Map"
+msgstr "Istasyon adini goster"
+
+>>>>>>> master
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
 msgstr "Ilk ikonda sadece simdiki havadurumunu goster"
@@ -2358,7 +2398,11 @@ msgstr "Tesekkurler"
 msgid "The weather has been updated."
 msgstr "Havadurumu guncellendi."
 
+<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:291
+=======
+#: meecast/qt-qml/qml/AboutPage.qml:289
+>>>>>>> master
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2935,6 +2979,7 @@ msgstr "Ю-B"
 msgid "Ю-З"
 msgstr "Ю-3"
 
+<<<<<<< HEAD
 #~ msgid ""
 #~ "Application manager will now start\n"
 #~ "for installing package 'MeeCast applet'.\n"
@@ -3009,3 +3054,7 @@ msgstr "Ю-3"
 #~ "Bekleme ekranı eklentisini kullanabilmeniz icin \n"
 #~ "oncelikle 'Etkinlik ekranindaki eklenti' yi\n"
 #~ "aktiflestirmeniz gerekir."
+=======
+#~ msgid "Flike:"
+#~ msgstr "Flike:"
+>>>>>>> master

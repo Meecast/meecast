@@ -1089,12 +1089,12 @@ Brad Jones aka kazrak - for testing
             <translation>Første Kvarter</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Flike:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Flike:</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Flike:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Flike:</translation>
         </message>
         <message>
             <source>Flike:</source>

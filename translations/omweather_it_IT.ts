@@ -1112,19 +1112,16 @@ Brad Jones alias kazrak - per il testing
             <translation>Primo quarto</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation type="unfinished">
-            </translation>
+            <source>Flike</source>
+            <translation type="unfinished">Percepita come:</translation>
+        </message>
+        <message>
+            <source>Flike</source>
+            <translation type="unfinished">Percepita come:</translation>
         </message>
         <message>
             <source>Flike:</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Flike:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">Percepita come:</translation>
         </message>
         <message>
             <source>Fog</source>

@@ -1092,12 +1092,12 @@ Brad Jones aka kazrak - voor het testen
             <translation>Eerste Kwartier</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Gevoel:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Gevoel:</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Gevoel:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Gevoel:</translation>
         </message>
         <message>
             <source>Flike:</source>

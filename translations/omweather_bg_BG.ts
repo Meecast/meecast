@@ -1092,12 +1092,12 @@ Brad Jones aka kazrak - for testing
             <translation>Първа четвърт</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Като:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Като:</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Като:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Като:</translation>
         </message>
         <message>
             <source>Flike:</source>

@@ -1082,12 +1082,12 @@ fikir ve testleri icin Andrew aka Tabster'a ve testleri icin Brad Jones'a
             <translation>Ilk Ceyrek</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Flike:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Flike:</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Flike:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Flike:</translation>
         </message>
         <message>
             <source>Flike:</source>

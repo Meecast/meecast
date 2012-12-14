@@ -1086,12 +1086,12 @@ Brad Jones aka kazrak - para testes
             <translation>Primeiro Trimestre</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Parece Estar:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Parece Estar:</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Parece Estar:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Parece Estar:</translation>
         </message>
         <message>
             <source>Flike:</source>

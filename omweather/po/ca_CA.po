@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-14 15:11+0300\n"
+"POT-Creation-Date: 2012-12-14 15:29+0300\n"
 "PO-Revision-Date: 2012-11-08 16:34+0000\n"
 "Last-Translator: agustí clara <agusti.clara@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/meecast/language/"
@@ -872,8 +872,12 @@ msgid "First Quarter"
 msgstr "Quart creixent"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:102
-#: meecast/qt-qml/qml/FullWeatherPage.qml:163
 #: meecast/qt-qml/qml/FullWeatherPage.qml:207
+#, fuzzy
+msgid "Flike"
+msgstr "Lluminositat"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:163
 msgid "Flike:"
 msgstr "Lluminositat"
 

@@ -1092,12 +1092,12 @@ Brad Jones aka kazrak - testauksesta
             <translation>Ensimmäinen neljännes</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Tuntuu:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Tuntuu:</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Tuntuu:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Tuntuu:</translation>
         </message>
         <message>
             <source>Flike:</source>

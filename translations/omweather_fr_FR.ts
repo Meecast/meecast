@@ -1103,19 +1103,16 @@ Brad Jones dit kazrak - pour les tests
             <translation>Premier quartier</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation type="unfinished">
-            </translation>
+            <source>Flike</source>
+            <translation type="unfinished">Température ressentie :</translation>
+        </message>
+        <message>
+            <source>Flike</source>
+            <translation type="unfinished">Température ressentie :</translation>
         </message>
         <message>
             <source>Flike:</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Flike:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">Température ressentie :</translation>
         </message>
         <message>
             <source>Fog</source>

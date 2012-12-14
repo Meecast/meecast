@@ -1086,12 +1086,12 @@ Brad Jones aka kazrak - for testing
             <translation>Quý một</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Có cảm giác như:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Có cảm giác như:</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Có cảm giác như:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Có cảm giác như:</translation>
         </message>
         <message>
             <source>Flike:</source>

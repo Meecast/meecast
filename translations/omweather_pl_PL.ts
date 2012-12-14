@@ -1082,19 +1082,16 @@ Brad Jones aka kazrak - za testowanie
             <translation>Pierwsza kwadra</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation type="unfinished">
-            </translation>
+            <source>Flike</source>
+            <translation type="unfinished">Odczuwalna:</translation>
+        </message>
+        <message>
+            <source>Flike</source>
+            <translation type="unfinished">Odczuwalna:</translation>
         </message>
         <message>
             <source>Flike:</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Flike:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">Odczuwalna:</translation>
         </message>
         <message>
             <source>Fog</source>

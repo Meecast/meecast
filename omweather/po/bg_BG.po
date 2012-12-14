@@ -8,11 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2012-12-14 15:11+0300\n"
-=======
-"POT-Creation-Date: 2012-12-14 15:09+0300\n"
->>>>>>> master
+"POT-Creation-Date: 2012-12-14 15:29+0300\n"
 "PO-Revision-Date: 2012-08-21 09:31+0000\n"
 "Last-Translator: zlatko <zlatko23@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/"
@@ -890,18 +886,14 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Първа четвърт"
 
-<<<<<<< HEAD
 #: meecast/qt-qml/qml/FullWeatherPage.qml:102
-#: meecast/qt-qml/qml/FullWeatherPage.qml:163
 #: meecast/qt-qml/qml/FullWeatherPage.qml:207
-msgid "Flike:"
-=======
-#: meecast/qt-qml/qml/FullWeatherPage.qml:153
-#: meecast/qt-qml/qml/FullWeatherPage.qml:210
-#: meecast/qt-qml/qml/FullWeatherPage.qml:259
 #, fuzzy
 msgid "Flike"
->>>>>>> master
+msgstr "Като:"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:163
+msgid "Flike:"
 msgstr "Като:"
 
 #: omweather/src/hash.data:84
@@ -1107,11 +1099,7 @@ msgstr "Икони"
 msgid "Iconset"
 msgstr "Набор икони"
 
-<<<<<<< HEAD
 #: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:248
-=======
-#: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:244
->>>>>>> master
 msgid "Iconsets"
 msgstr "Набор икони"
 
@@ -1170,11 +1158,7 @@ msgstr "Изглед:"
 msgid "Lead designer"
 msgstr "Главен дизайнер"
 
-<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:283
-=======
-#: meecast/qt-qml/qml/AboutPage.qml:280
->>>>>>> master
 msgid "License"
 msgstr "Лиценз"
 
@@ -1299,11 +1283,7 @@ msgstr "Измервателни единици"
 msgid "MeeCast"
 msgstr "MeeCast"
 
-<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:111
-=======
-#: meecast/qt-qml/qml/AboutPage.qml:77
->>>>>>> master
 #, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
@@ -1858,20 +1838,12 @@ msgstr "Налягане:"
 msgid "Pressure: "
 msgstr "Налягане: "
 
-<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:155
-=======
-#: meecast/qt-qml/qml/AboutPage.qml:154
->>>>>>> master
 #, fuzzy
 msgid "Programmers"
 msgstr "Главни програмисти"
 
-<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:139
-=======
-#: meecast/qt-qml/qml/AboutPage.qml:138
->>>>>>> master
 msgid "Project administrator"
 msgstr "Администратор на проекта"
 
@@ -2174,14 +2146,6 @@ msgstr "Късо"
 msgid "Show arrows"
 msgstr "Покажи стрелки"
 
-<<<<<<< HEAD
-=======
-#: meecast/qt-qml/qml/FullWeatherPage.qml:601
-#, fuzzy
-msgid "Show on Map"
-msgstr "Показвай името на метео станцията"
-
->>>>>>> master
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
 msgstr "Показвай само текущите метео условия на първата иконка"
@@ -2405,11 +2369,7 @@ msgstr "Благодаря"
 msgid "The weather has been updated."
 msgstr "Прогнозата е опреснена."
 
-<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:291
-=======
-#: meecast/qt-qml/qml/AboutPage.qml:289
->>>>>>> master
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2993,7 +2953,6 @@ msgstr "Ю-В"
 msgid "Ю-З"
 msgstr "Ю-3"
 
-<<<<<<< HEAD
 #~ msgid ""
 #~ "Application manager will now start\n"
 #~ "for installing package 'MeeCast applet'.\n"
@@ -3071,7 +3030,3 @@ msgstr "Ю-3"
 #~ "Активирайте 'Уиджет в екран Събития'\n"
 #~ "за да използвате\n"
 #~ "уиджет на Стендбай екран"
-=======
-#~ msgid "Flike:"
-#~ msgstr "Като:"
->>>>>>> master

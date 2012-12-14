@@ -1078,12 +1078,12 @@ Brad Jones aka kazrak - за тестирование
             <translation>Первая четверть</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>По ощущениям:</translation>
+            <source>Flike</source>
+            <translation>По ощущениям</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>По ощущениям:</translation>
+            <source>Flike</source>
+            <translation>По ощущениям</translation>
         </message>
         <message>
             <source>Flike:</source>

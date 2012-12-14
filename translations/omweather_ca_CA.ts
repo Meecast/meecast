@@ -1087,12 +1087,12 @@ Brad Jones aka kazrak - per les proves
             <translation>Quart creixent</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Lluminositat</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Lluminositat</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Lluminositat</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Lluminositat</translation>
         </message>
         <message>
             <source>Flike:</source>

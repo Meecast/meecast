@@ -11,11 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2012-12-14 15:11+0300\n"
-=======
-"POT-Creation-Date: 2012-12-14 15:09+0300\n"
->>>>>>> master
+"POT-Creation-Date: 2012-12-14 15:29+0300\n"
 "PO-Revision-Date: 2012-04-19 10:36+0000\n"
 "Last-Translator: ludmilalisovskaya <ludmila.lisovskaya@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -881,20 +877,16 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Premier quartier"
 
-<<<<<<< HEAD
 #: meecast/qt-qml/qml/FullWeatherPage.qml:102
-#: meecast/qt-qml/qml/FullWeatherPage.qml:163
 #: meecast/qt-qml/qml/FullWeatherPage.qml:207
-msgid "Flike:"
-msgstr ""
-=======
-#: meecast/qt-qml/qml/FullWeatherPage.qml:153
-#: meecast/qt-qml/qml/FullWeatherPage.qml:210
-#: meecast/qt-qml/qml/FullWeatherPage.qml:259
 #, fuzzy
 msgid "Flike"
 msgstr "Température ressentie :"
->>>>>>> master
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:163
+#, fuzzy
+msgid "Flike:"
+msgstr "Température ressentie :"
 
 #: omweather/src/hash.data:84
 msgid "Fog"
@@ -1100,11 +1092,7 @@ msgstr "Icônes"
 msgid "Iconset"
 msgstr "Icônes"
 
-<<<<<<< HEAD
 #: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:248
-=======
-#: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:244
->>>>>>> master
 msgid "Iconsets"
 msgstr "Icônes"
 
@@ -1164,11 +1152,7 @@ msgstr "Disposition :"
 msgid "Lead designer"
 msgstr "Designer principal"
 
-<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:283
-=======
-#: meecast/qt-qml/qml/AboutPage.qml:280
->>>>>>> master
 msgid "License"
 msgstr "Licence"
 
@@ -1845,20 +1829,12 @@ msgstr "Pression :"
 msgid "Pressure: "
 msgstr "Pression : "
 
-<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:155
-=======
-#: meecast/qt-qml/qml/AboutPage.qml:154
->>>>>>> master
 #, fuzzy
 msgid "Programmers"
 msgstr "Programmeur principal"
 
-<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:139
-=======
-#: meecast/qt-qml/qml/AboutPage.qml:138
->>>>>>> master
 msgid "Project administrator"
 msgstr "Administrateur du projet"
 
@@ -2161,14 +2137,6 @@ msgstr "Courte"
 msgid "Show arrows"
 msgstr "Afficher les flèches"
 
-<<<<<<< HEAD
-=======
-#: meecast/qt-qml/qml/FullWeatherPage.qml:601
-#, fuzzy
-msgid "Show on Map"
-msgstr "Afficher le nom de la station"
-
->>>>>>> master
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
 msgstr "Afficher uniquement la météo actuelle sur le premier icône"
@@ -2392,11 +2360,7 @@ msgstr "Remerciements"
 msgid "The weather has been updated."
 msgstr "La météo a été mise à jour."
 
-<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:291
-=======
-#: meecast/qt-qml/qml/AboutPage.qml:289
->>>>>>> master
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"

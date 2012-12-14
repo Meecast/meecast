@@ -1093,12 +1093,12 @@ Brad Jones aka kazrak - fürs Testen
             <translation>Erstes Viertel</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Feuchtigkeit:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Feuchtigkeit:</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Feuchtigkeit:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Feuchtigkeit:</translation>
         </message>
         <message>
             <source>Flike:</source>

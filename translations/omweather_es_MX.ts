@@ -1094,12 +1094,12 @@ Brad &quot;kazrak&quot; Jones - por testear
             <translation>Cuarto creciente</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Luminosidad:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Luminosidad:</translation>
         </message>
         <message>
-            <source>Flike:</source>
-            <translation>Luminosidad:</translation>
+            <source>Flike</source>
+            <translation type="unfinished">Luminosidad:</translation>
         </message>
         <message>
             <source>Flike:</source>

@@ -8,11 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2012-12-14 15:11+0300\n"
-=======
-"POT-Creation-Date: 2012-12-14 15:09+0300\n"
->>>>>>> master
+"POT-Creation-Date: 2012-12-14 15:29+0300\n"
 "PO-Revision-Date: 2012-11-13 22:05+0000\n"
 "Last-Translator: Peer-Atle Motland <PeerAtle@online.no>\n"
 "Language-Team: Norwegian (Norway) (http://www.transifex.com/projects/p/"
@@ -876,18 +872,14 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Første Kvarter"
 
-<<<<<<< HEAD
 #: meecast/qt-qml/qml/FullWeatherPage.qml:102
-#: meecast/qt-qml/qml/FullWeatherPage.qml:163
 #: meecast/qt-qml/qml/FullWeatherPage.qml:207
-msgid "Flike:"
-=======
-#: meecast/qt-qml/qml/FullWeatherPage.qml:153
-#: meecast/qt-qml/qml/FullWeatherPage.qml:210
-#: meecast/qt-qml/qml/FullWeatherPage.qml:259
 #, fuzzy
 msgid "Flike"
->>>>>>> master
+msgstr "Flike:"
+
+#: meecast/qt-qml/qml/FullWeatherPage.qml:163
+msgid "Flike:"
 msgstr "Flike:"
 
 #: omweather/src/hash.data:84
@@ -1107,11 +1099,7 @@ msgstr "Ikoner"
 msgid "Iconset"
 msgstr "Ikonsett"
 
-<<<<<<< HEAD
 #: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:248
-=======
-#: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:244
->>>>>>> master
 msgid "Iconsets"
 msgstr "Ikonsett"
 
@@ -1170,11 +1158,7 @@ msgstr "Layout:"
 msgid "Lead designer"
 msgstr "Sjef designer"
 
-<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:283
-=======
-#: meecast/qt-qml/qml/AboutPage.qml:280
->>>>>>> master
 msgid "License"
 msgstr "Lisens"
 
@@ -1298,11 +1282,7 @@ msgstr "Måleenheter"
 msgid "MeeCast"
 msgstr "MeeCast"
 
-<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:111
-=======
-#: meecast/qt-qml/qml/AboutPage.qml:77
->>>>>>> master
 #, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
@@ -1857,20 +1837,12 @@ msgstr "Trykk:"
 msgid "Pressure: "
 msgstr "Trykk: "
 
-<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:155
-=======
-#: meecast/qt-qml/qml/AboutPage.qml:154
->>>>>>> master
 #, fuzzy
 msgid "Programmers"
 msgstr "Sjef programmerere"
 
-<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:139
-=======
-#: meecast/qt-qml/qml/AboutPage.qml:138
->>>>>>> master
 msgid "Project administrator"
 msgstr "Prosjekt administrator"
 
@@ -2172,13 +2144,6 @@ msgstr "Kort"
 msgid "Show arrows"
 msgstr "Vis piler"
 
-<<<<<<< HEAD
-=======
-#: meecast/qt-qml/qml/FullWeatherPage.qml:601
-msgid "Show on Map"
-msgstr "Vis på Kart"
-
->>>>>>> master
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
 msgstr "Vis bare været på første ikon"
@@ -2402,11 +2367,7 @@ msgstr "Takk"
 msgid "The weather has been updated."
 msgstr "Været har blitt oppdatert."
 
-<<<<<<< HEAD
 #: meecast/qt-qml/qml/AboutPage.qml:291
-=======
-#: meecast/qt-qml/qml/AboutPage.qml:289
->>>>>>> master
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2987,7 +2948,6 @@ msgstr "Ю-В"
 msgid "Ю-З"
 msgstr "Ю-З"
 
-<<<<<<< HEAD
 #~ msgid ""
 #~ "Application manager will now start\n"
 #~ "for installing package 'MeeCast applet'.\n"
@@ -3063,7 +3023,3 @@ msgstr "Ю-З"
 #~ "Du må aktivere\n"
 #~ "'Widget i hendelses visningen'\n"
 #~ " for å bruke DvaleSkjerm widget"
-=======
-#~ msgid "Flike:"
-#~ msgstr "Flike:"
->>>>>>> master

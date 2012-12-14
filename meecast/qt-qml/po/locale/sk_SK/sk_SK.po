@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-14 15:49+0300\n"
+"POT-Creation-Date: 2012-12-14 16:51+0300\n"
 "PO-Revision-Date: 2012-07-08 18:28+0000\n"
 "Last-Translator: Niklas Åkerström <nille.kungen@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/meecast/language/"
@@ -1010,11 +1010,16 @@ msgstr ""
 msgid "Hours"
 msgstr ""
 
-#: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
-#: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:180 meecast/qt-qml/qml/FullWeatherPage.qml:135
+#: meecast/qt-qml/qml/FullWeatherPage.qml:135
 #: meecast/qt-qml/qml/FullWeatherPage.qml:192
 #: meecast/qt-qml/qml/FullWeatherPage.qml:241
+#, fuzzy
+msgid "Humidity"
+msgstr "Fuktighet:"
+
+#: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
+#: meecast/netbook-UX/meego-panel-omweather.cpp:722
+#: meecast/qt-qml/dataitem.cpp:180
 msgid "Humidity:"
 msgstr "Fuktighet:"
 

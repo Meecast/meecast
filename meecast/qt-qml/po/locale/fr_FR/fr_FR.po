@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-14 15:49+0300\n"
+"POT-Creation-Date: 2012-12-14 16:51+0300\n"
 "PO-Revision-Date: 2012-04-19 10:36+0000\n"
 "Last-Translator: ludmilalisovskaya <ludmila.lisovskaya@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1091,11 +1091,16 @@ msgstr "Haut"
 msgid "Hours"
 msgstr ""
 
-#: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
-#: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:180 meecast/qt-qml/qml/FullWeatherPage.qml:135
+#: meecast/qt-qml/qml/FullWeatherPage.qml:135
 #: meecast/qt-qml/qml/FullWeatherPage.qml:192
 #: meecast/qt-qml/qml/FullWeatherPage.qml:241
+#, fuzzy
+msgid "Humidity"
+msgstr "Humidité :"
+
+#: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
+#: meecast/netbook-UX/meego-panel-omweather.cpp:722
+#: meecast/qt-qml/dataitem.cpp:180
 msgid "Humidity:"
 msgstr "Humidité :"
 

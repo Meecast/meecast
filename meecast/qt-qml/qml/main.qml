@@ -46,6 +46,12 @@ NavigationPane {
                current_temp_text.text = Current.getdata(0, "temp") + '°'
                current_rect_back.background = Color.create(main.getColor(Current.getdata(0, "temp")));
             }
+            if (Current.getdata(0, "flike") == "N/A"){
+                feel_like_temperature.visible = false;
+            }else{
+                feel_like_temperature.visible = true;
+                feels_like_temp_text.text = Current.getdata(0, "flike") + '°'
+            }
             main_icon.imageSource = Config.iconspath + "/" + Config.iconset + "/" + Current.getdata(0, "pict")
             title_text.text = Config.tr(Current.getdata(0, "description"));
             humidity_text.text = Current.getdata(0, "humidity") + " %";
@@ -222,6 +228,7 @@ NavigationPane {
                     }
                     visible: true
                 }
+ 
                 Container{
                     preferredWidth: 768
                     layout: DockLayout {}
@@ -229,37 +236,89 @@ NavigationPane {
                         positionY: 50.0
                     }
                     Container{
+                        id: feel_like_temperature
+                        horizontalAlignment: HorizontalAlignment.Right
+                        preferredWidth: 768/2 - 128/2                   
+
+                        Container{
+                            layout: AbsoluteLayout {} 
+                            Label { 
+                                layoutProperties: AbsoluteLayoutProperties {
+                                    positionY: 0.0
+                                }
+                                id: feels_like_temp_description
+                                preferredWidth: 768/2 - 128/2 
+                                text: Config.tr("Feels like")
+                                horizontalAlignment: HorizontalAlignment.Center
+                                verticalAlignment: VerticalAlignment.Center
+                                textStyle.textAlign: TextAlign.Center
+                                textStyle {
+                                    base: SystemDefaults.TextStyles.SmallText
+                                    color: Color.Gray
+                                }
+                            }
+
+
+                            Label {
+                                layoutProperties: AbsoluteLayoutProperties {
+                                    positionY: 20.0
+                                }
+                 
+                                preferredWidth: 768/2 - 128/2 
+                                id: feels_like_temp_text
+                                horizontalAlignment: HorizontalAlignment.Center
+                                verticalAlignment: VerticalAlignment.Center
+                                textStyle.textAlign: TextAlign.Center
+                                textStyle {
+                                    base: SystemDefaults.TextStyles.BigText
+                                    color: Color.White
+                                }
+                            }    
+                        }
+                    }               
+                    Container{
+                        id: current_temperature
                         horizontalAlignment: HorizontalAlignment.Left
-                        preferredWidth: 768/2 - 128*1.6/2 
-                        Label {
-                            text: Current.getdata(0, "current") == true ? Config.tr("Now") : Config.tr("Today")
-                            horizontalAlignment: HorizontalAlignment.Center
-                            verticalAlignment: VerticalAlignment.Center
-                            textStyle.textAlign: TextAlign.Center
-                            textStyle {
-                                base: SystemDefaults.TextStyles.BigText
-                                color: Color.White
+                        preferredWidth: 768/2 - 128/2 
+                        Container{
+                            layout: AbsoluteLayout {}
+                            Label { 
+                                layoutProperties: AbsoluteLayoutProperties {
+                                    positionY: 0.0
+                                }
+                                id: current_temp_description
+                                preferredWidth: 768/2 - 128/2 
+                                text: Config.tr("Temperature")
+                                horizontalAlignment: HorizontalAlignment.Center
+                                verticalAlignment: VerticalAlignment.Center
+                                textStyle.textAlign: TextAlign.Center
+                                textStyle {
+                                    base: SystemDefaults.TextStyles.SmallText
+                                    color: Color.Gray
+                                }
+                            }
+
+                            Label {
+                                layoutProperties: AbsoluteLayoutProperties {
+                                    positionY: 20.0
+                                }
+
+                                id: current_temp_text
+                                preferredWidth: 768/2 - 128/2 
+                                horizontalAlignment: HorizontalAlignment.Center
+                                verticalAlignment: VerticalAlignment.Center
+                                textStyle.textAlign: TextAlign.Center
+                                textStyle {
+                                    base: SystemDefaults.TextStyles.BigText
+                                    color: Color.White
+                                }
+                                onCreationCompleted: {
+                                    main.update_current_data();
+                                }
                             }
                         }
                     }
-                    Container{
-                        id: current_temperature
-                        horizontalAlignment: HorizontalAlignment.Right
-                        preferredWidth: 768/2 - 128*1.6/2                   
-                        Label {                 
-                            id: current_temp_text
-                            horizontalAlignment: HorizontalAlignment.Center
-                            verticalAlignment: VerticalAlignment.Center
-                            textStyle.textAlign: TextAlign.Center
-                            textStyle {
-                                base: SystemDefaults.TextStyles.BigText
-                                color: Color.White
-                            }
-                            onCreationCompleted: {
-                                main.update_current_data();
-                            }
-                        }    
-                    }               
+
                 }
                 Container{
                     id: title
@@ -489,16 +548,34 @@ NavigationPane {
             ImageView {
                 id: main_icon
                 layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 768/2 - 64 *1.6
-                    positionY: 80
+                    positionX: 768/2 - 64 
+                    positionY: 150
                 }
-                preferredWidth: 128*1.6
-                preferredHeight: 128*1.6
+                preferredWidth: 128
+                preferredHeight: 128
                 imageSource: Config.iconspath + "/" + Config.iconset + "/" + Current.getdata(0, "pict")
                 horizontalAlignment: HorizontalAlignment.Center
                 overlapTouchPolicy: OverlapTouchPolicy.Allow
                 touchPropagationMode: TouchPropagationMode.PassThrough
             } 
+            Container{
+                    horizontalAlignment: HorizontalAlignment.Left
+                    preferredWidth: 768 
+                    layoutProperties: AbsoluteLayoutProperties {
+                        positionY: 110.0
+                    }
+                    Label {
+                        text: Current.getdata(0, "current") == true ? Config.tr("Now") : Config.tr("Today")
+                        horizontalAlignment: HorizontalAlignment.Center
+                        verticalAlignment: VerticalAlignment.Center
+                        textStyle.textAlign: TextAlign.Center
+                        textStyle {
+                            base: SystemDefaults.TextStyles.SmallText
+                            color: Color.White
+                        }
+                    }
+             }
+
             Container{
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
@@ -672,7 +749,6 @@ NavigationPane {
                             }
                         }
                     }
-                    
                     
                     ImageButton {
                         id: settingsicon

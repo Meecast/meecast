@@ -1039,6 +1039,10 @@ Brad Jones aka kazrak - testauksesta
             <translation>Melko selkeää</translation>
         </message>
         <message>
+            <source>Feels like</source>
+            <translation type="unfinished">Tuntuu iholla:</translation>
+        </message>
+        <message>
             <source>Feels like:</source>
             <translation>Tuntuu iholla:</translation>
         </message>

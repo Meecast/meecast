@@ -1034,6 +1034,10 @@ Brad Jones aka kazrak - per les proves
             <translation>Bo</translation>
         </message>
         <message>
+            <source>Feels like</source>
+            <translation type="unfinished">Sensació tèrmica:</translation>
+        </message>
+        <message>
             <source>Feels like:</source>
             <translation>Sensació tèrmica:</translation>
         </message>

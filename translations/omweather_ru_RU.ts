@@ -1025,6 +1025,10 @@ Brad Jones aka kazrak - за тестирование
             <translation>Ясная погода</translation>
         </message>
         <message>
+            <source>Feels like</source>
+            <translation>По ощущениям</translation>
+        </message>
+        <message>
             <source>Feels like:</source>
             <translation>По ощущениям:</translation>
         </message>

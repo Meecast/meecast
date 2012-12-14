@@ -1059,6 +1059,10 @@ Brad Jones alias kazrak - per il testing
             <translation>Bello</translation>
         </message>
         <message>
+            <source>Feels like</source>
+            <translation type="unfinished">Percepita come:</translation>
+        </message>
+        <message>
             <source>Feels like:</source>
             <translation>Percepita come:</translation>
         </message>

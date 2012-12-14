@@ -1036,6 +1036,10 @@ Brad Jones aka kazrak - for testing
             <translation>Riktig</translation>
         </message>
         <message>
+            <source>Feels like</source>
+            <translation type="unfinished">Føles som:</translation>
+        </message>
+        <message>
             <source>Feels like:</source>
             <translation>Føles som:</translation>
         </message>

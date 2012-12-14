@@ -1050,6 +1050,10 @@ Brad Jones dit kazrak - pour les tests
             <translation>Beau temps</translation>
         </message>
         <message>
+            <source>Feels like</source>
+            <translation type="unfinished">Température ressentie :</translation>
+        </message>
+        <message>
             <source>Feels like:</source>
             <translation>Température ressentie :</translation>
         </message>

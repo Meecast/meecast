@@ -1033,6 +1033,10 @@ Brad Jones aka kazrak - for testing
             <translation>Trời đẹp</translation>
         </message>
         <message>
+            <source>Feels like</source>
+            <translation type="unfinished">Có cảm giác như:</translation>
+        </message>
+        <message>
             <source>Feels like:</source>
             <translation>Có cảm giác như:</translation>
         </message>

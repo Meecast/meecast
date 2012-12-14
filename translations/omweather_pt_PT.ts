@@ -1033,6 +1033,10 @@ Brad Jones aka kazrak - para testes
             <translation>Bom Tempo</translation>
         </message>
         <message>
+            <source>Feels like</source>
+            <translation type="unfinished">Parece estar:</translation>
+        </message>
+        <message>
             <source>Feels like:</source>
             <translation>Parece estar:</translation>
         </message>

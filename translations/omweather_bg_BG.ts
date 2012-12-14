@@ -1039,6 +1039,10 @@ Brad Jones aka kazrak - for testing
             <translation>Хубаво</translation>
         </message>
         <message>
+            <source>Feels like</source>
+            <translation type="unfinished">Усеща се като:</translation>
+        </message>
+        <message>
             <source>Feels like:</source>
             <translation>Усеща се като:</translation>
         </message>

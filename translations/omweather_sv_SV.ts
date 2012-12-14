@@ -1114,6 +1114,11 @@ Brad Jones aka kazrak - for testing
             </translation>
         </message>
         <message>
+            <source>Feels like</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Feels like:</source>
             <translation type="unfinished">
             </translation>

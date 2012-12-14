@@ -1040,6 +1040,10 @@ Brad Jones aka kazrak - fürs Testen
             <translation>Heiter</translation>
         </message>
         <message>
+            <source>Feels like</source>
+            <translation type="unfinished">Gefühlt: </translation>
+        </message>
+        <message>
             <source>Feels like:</source>
             <translation>Gefühlt: </translation>
         </message>

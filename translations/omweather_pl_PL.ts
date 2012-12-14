@@ -1029,6 +1029,10 @@ Brad Jones aka kazrak - za testowanie
             <translation>Dobra</translation>
         </message>
         <message>
+            <source>Feels like</source>
+            <translation type="unfinished">Odczuwalna:</translation>
+        </message>
+        <message>
             <source>Feels like:</source>
             <translation>Odczuwalna:</translation>
         </message>

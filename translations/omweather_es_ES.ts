@@ -1041,6 +1041,10 @@ Brad &quot;kazrak&quot; Jones - por testear
             <translation>Despejado</translation>
         </message>
         <message>
+            <source>Feels like</source>
+            <translation type="unfinished">Sensación térmica:</translation>
+        </message>
+        <message>
             <source>Feels like:</source>
             <translation>Sensación térmica:</translation>
         </message>

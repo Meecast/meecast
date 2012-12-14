@@ -1039,6 +1039,10 @@ Brad Jones aka kazrak - voor het testen
             <translation>Mooi</translation>
         </message>
         <message>
+            <source>Feels like</source>
+            <translation type="unfinished">Voelt als:</translation>
+        </message>
+        <message>
             <source>Feels like:</source>
             <translation>Voelt als:</translation>
         </message>

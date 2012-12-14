@@ -1029,6 +1029,10 @@ fikir ve testleri icin Andrew aka Tabster'a ve testleri icin Brad Jones'a
             <translation>Acik</translation>
         </message>
         <message>
+            <source>Feels like</source>
+            <translation type="unfinished">Hissedilis Benzerlikleri:</translation>
+        </message>
+        <message>
             <source>Feels like:</source>
             <translation>Hissedilis Benzerlikleri:</translation>
         </message>

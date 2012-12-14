@@ -1033,6 +1033,10 @@ Brad Jones aka kazrak - for testing
             <translation>Fair</translation>
         </message>
         <message>
+            <source>Feels like</source>
+            <translation type="unfinished">Ndjehet si:</translation>
+        </message>
+        <message>
             <source>Feels like:</source>
             <translation>Ndjehet si:</translation>
         </message>

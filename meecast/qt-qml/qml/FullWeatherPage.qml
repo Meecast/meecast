@@ -189,13 +189,8 @@ Page {
                 condition.insert({"cond_name": Config.tr("Humidity") + ":",
                          "value": model_night.getdata(day, "humidity")+'%'});
             if ((model_night.getdata(day, "wind_direction")) != "")
-<<<<<<< HEAD
-                condition.insert({"cond_name": Config.tr("Wind direction:"),
+                condition.insert({"cond_name": Config.tr("Wind direction") + ":",
                          "value": Config.tr(model_night.getdata(day, "wind_direction"))});
-=======
-                condition.append({cond_name: Config.tr("Wind direction") + ":",
-                         value: Config.tr(model_night.getdata(day, "wind_direction"))});
->>>>>>> master
             if ((model_night.getdata(day, "pressure")) != "N/A")
                 condition.insert({"cond_name": Config.tr("Pressure:"),
                          "value": model_night.getdata(day, "pressure") + ' ' + Config.tr(Config.pressureunit)});

@@ -382,7 +382,7 @@ NavigationPane {
                         orientation: LayoutOrientation.LeftToRight
                     }
                     layoutProperties: AbsoluteLayoutProperties {
-                        positionY: 290.0
+                        positionY: 260.0
                     }
                     Container{
                         id: humidity
@@ -463,140 +463,156 @@ NavigationPane {
                         }
                     }
                 }
+                Container{
+                    id: pressure_and_wind_speed
+                    preferredWidth: 768
+                    layout: StackLayout {
+                        orientation: LayoutOrientation.LeftToRight
+                    }
+                    layoutProperties: AbsoluteLayoutProperties {
+                        positionY: 360.0
+                    }
                     Container{
-                        id: pressure_and_wind_speed
-                        preferredWidth: 768
+                        layout: AbsoluteLayout {
+                        }
+
+                        id: pressure
+                        horizontalAlignment: HorizontalAlignment.Left
+                        preferredWidth: 768/2
+                        Label { 
+                            layoutProperties: AbsoluteLayoutProperties {
+                                positionY: 0.0
+                            }
+                            id: pressure_description
+                            preferredWidth: 768/2 - 128/2 
+                            text: Config.tr("Pressure")
+                            horizontalAlignment: HorizontalAlignment.Center
+                            verticalAlignment: VerticalAlignment.Center
+                            textStyle.textAlign: TextAlign.Center
+                            textStyle {
+                                base: SystemDefaults.TextStyles.SmallText
+                                color: Color.Gray
+                            }
+                        }
+                        Label {
+                            id: pressure_text
+                            text: Current.getdata(0, "pressure") + ' ' + Config.tr(Config.pressureunit) ;
+                            preferredWidth: 768/2 - 128/2 
+                            layoutProperties: AbsoluteLayoutProperties {
+                                    positionY: 30.0
+                            }
+
+                            //horizontalAlignment: HorizontalAlignment.Left
+                            textStyle.textAlign: TextAlign.Center
+                            textStyle {
+                                base: SystemDefaults.TextStyles.BodyText
+                                color: Color.White
+                            }
+                        }
+                    }
+                    Container{
+                        id: wind_speed
+                        horizontalAlignment: HorizontalAlignment.Left
                         layout: StackLayout {
                             orientation: LayoutOrientation.LeftToRight
                         }
-                        layoutProperties: AbsoluteLayoutProperties {
-                            positionY: 390.0
+                        ImageView {
+                            imageSource: "asset:///share/images/wind_speed.png"
+                            preferredWidth: 30*1.6
+                            preferredHeight: 30*1.6
                         }
-                        Container{
-                            id: pressure
-                            horizontalAlignment: HorizontalAlignment.Left
-                            preferredWidth: 768/2
-                            layout: StackLayout {
-                                orientation: LayoutOrientation.LeftToRight
-                            }
-                            ImageView {
-                                imageSource: "asset:///share/images/pressure.png"
-                                preferredWidth: 30*1.6 
-                                preferredHeight: 30*1.6
-                            }
-                            Label {
-                                id: pressure_text
-                                text: Current.getdata(0, "pressure") + ' ' + Config.tr(Config.pressureunit) ;
-                                //horizontalAlignment: HorizontalAlignment.Left
-                                textStyle {
-                                    base: SystemDefaults.TextStyles.BodyText
-                                    color: Color.White
-                                }
+                        Label {
+                            id: wind_speed_text
+                            text: Current.getdata(0, "wind_speed") + ' ' + Config.tr(Config.windspeedunit);
+                            textStyle {
+                                base: SystemDefaults.TextStyles.BodyText
+                                color: Color.White
                             }
                         }
-                        Container{
-                            id: wind_speed
-                            horizontalAlignment: HorizontalAlignment.Left
-                            layout: StackLayout {
-                                orientation: LayoutOrientation.LeftToRight
-                            }
-                            ImageView {
-                                imageSource: "asset:///share/images/wind_speed.png"
-                                preferredWidth: 30*1.6
-                                preferredHeight: 30*1.6
-                            }
-                            Label {
-                                id: wind_speed_text
-                                text: Current.getdata(0, "wind_speed") + ' ' + Config.tr(Config.windspeedunit);
-                                textStyle {
-                                    base: SystemDefaults.TextStyles.BodyText
-                                    color: Color.White
-                                }
-                            }
-                        }        
-                    }                   
+                    }        
+                }                   
+            }
+            Container{
+                preferredWidth: 768
+                layout: DockLayout {}
+                layoutProperties: AbsoluteLayoutProperties {
+                    positionX: 0
+                    positionY: 0
                 }
-                Container{
-                    preferredWidth: 768
-                    layout: DockLayout {}
-                    layoutProperties: AbsoluteLayoutProperties {
-                        positionX: 0
-                        positionY: 0
-                    }
-                    background: Color.Black
-                    ImageButton {                 
-                       id: left_arrow
-                       visible: Config.prevstationname == "" ? false : true;
-                       horizontalAlignment: HorizontalAlignment.Left
-                       verticalAlignment: VerticalAlignment.Center
-                       preferredWidth: 62*1.6
-                       preferredHeight: 62*1.6
-                       defaultImageSource: "asset:///share/images/arrow_left.png"
-                       onClicked: {
-                            Config.prevstation();
-                            main.updatestationname();
-                       }
-                }
-                Container{
-                    layout: DockLayout {}
-                    preferredWidth: 600 
-                    horizontalAlignment: HorizontalAlignment.Center 
-                    Label {                 
-                        id: stationname
-                        horizontalAlignment: HorizontalAlignment.Center
-                        textStyle {
-                            base: SystemDefaults.TextStyles.BigText
-                            color: Color.White
-                        }
-                        onCreationCompleted: {
-                            text = Config.stationname == "Unknown" ? "MeeCast" : Config.stationname 
-                        }
-                    }
-                }
+                background: Color.Black
                 ImageButton {                 
-                   id: right_arrow
-                   visible: Config.nextstationname == "" ? false : true;
+                   id: left_arrow
+                   visible: Config.prevstationname == "" ? false : true;
+                   horizontalAlignment: HorizontalAlignment.Left
                    verticalAlignment: VerticalAlignment.Center
-                   horizontalAlignment: HorizontalAlignment.Right
-                   defaultImageSource: "asset:///share/images/arrow_right.png"
                    preferredWidth: 62*1.6
                    preferredHeight: 62*1.6
+                   defaultImageSource: "asset:///share/images/arrow_left.png"
                    onClicked: {
-                            Config.nextstation();
-                            main.updatestationname();
+                        Config.prevstation();
+                        main.updatestationname();
                    }
+            }
+            Container{
+                layout: DockLayout {}
+                preferredWidth: 600 
+                horizontalAlignment: HorizontalAlignment.Center 
+                Label {                 
+                    id: stationname
+                    horizontalAlignment: HorizontalAlignment.Center
+                    textStyle {
+                        base: SystemDefaults.TextStyles.BigText
+                        color: Color.White
+                    }
+                    onCreationCompleted: {
+                        text = Config.stationname == "Unknown" ? "MeeCast" : Config.stationname 
+                    }
                 }
             }
-            ImageView {
-                id: main_icon
+            ImageButton {                 
+               id: right_arrow
+               visible: Config.nextstationname == "" ? false : true;
+               verticalAlignment: VerticalAlignment.Center
+               horizontalAlignment: HorizontalAlignment.Right
+               defaultImageSource: "asset:///share/images/arrow_right.png"
+               preferredWidth: 62*1.6
+               preferredHeight: 62*1.6
+               onClicked: {
+                        Config.nextstation();
+                        main.updatestationname();
+               }
+            }
+        }
+        ImageView {
+            id: main_icon
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 768/2 - 64 
+                positionY: 150
+            }
+            preferredWidth: 128
+            preferredHeight: 128
+            imageSource: Config.iconspath + "/" + Config.iconset + "/" + Current.getdata(0, "pict")
+            horizontalAlignment: HorizontalAlignment.Center
+            overlapTouchPolicy: OverlapTouchPolicy.Allow
+            touchPropagationMode: TouchPropagationMode.PassThrough
+        } 
+        Container{
+                horizontalAlignment: HorizontalAlignment.Left
+                preferredWidth: 768 
                 layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 768/2 - 64 
-                    positionY: 150
+                    positionY: 110.0
                 }
-                preferredWidth: 128
-                preferredHeight: 128
-                imageSource: Config.iconspath + "/" + Config.iconset + "/" + Current.getdata(0, "pict")
-                horizontalAlignment: HorizontalAlignment.Center
-                overlapTouchPolicy: OverlapTouchPolicy.Allow
-                touchPropagationMode: TouchPropagationMode.PassThrough
-            } 
-            Container{
-                    horizontalAlignment: HorizontalAlignment.Left
-                    preferredWidth: 768 
-                    layoutProperties: AbsoluteLayoutProperties {
-                        positionY: 110.0
+                Label {
+                    text: Current.getdata(0, "current") == true ? Config.tr("Now") : Config.tr("Today")
+                    horizontalAlignment: HorizontalAlignment.Center
+                    verticalAlignment: VerticalAlignment.Center
+                    textStyle.textAlign: TextAlign.Center
+                    textStyle {
+                        base: SystemDefaults.TextStyles.SmallText
+                        color: Color.White
                     }
-                    Label {
-                        text: Current.getdata(0, "current") == true ? Config.tr("Now") : Config.tr("Today")
-                        horizontalAlignment: HorizontalAlignment.Center
-                        verticalAlignment: VerticalAlignment.Center
-                        textStyle.textAlign: TextAlign.Center
-                        textStyle {
-                            base: SystemDefaults.TextStyles.SmallText
-                            color: Color.White
-                        }
-                    }
-             }
+                }
+         }
 
             Container{
                 layoutProperties: AbsoluteLayoutProperties {

@@ -17,7 +17,7 @@ Page {
     Flickable {
         anchors.fill: parent
         flickableDirection: Flickable.VerticalFlick
-        contentHeight: 2100 
+        contentHeight: 3000 
         Label {
             id: titletext
             text: Config.tr("MeeCast for Harmattan")
@@ -239,10 +239,46 @@ Swedish - Angela Nennebrandt,\n \
 	    anchors.left: parent.left
 	    anchors.top: translatorstext.bottom
 	}
+    Label {
+            id: iconsetext  
+            text: Config.tr("Iconsets") + ":"
+            anchors.top: translatorsfulltext.bottom
+            anchors.topMargin: 30
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            color: "#999999"
+        }
+	Label {
+            id: iconsetfulltext 
+	        text: "Beginning - \n \
+Beginning beginning_somehow(at)yahoo.com \n\n\
+Contour - \n\
+Glance  - \n\
+MeeCast - \n\
+Andrew Zhilin  http://tabletui.wordpress.com \n\n\
+Epona   - \n\
+Gianni Polito aka Epona http://crystalxp.net \n\n\
+Grzankas  -\n\
+Wojciech Grzanka http://http://grzanka.pl/ \n\n\
+SimpelMee - \n\
+Kim Venetvirta  tardolus(at)ovi.com \n\n\
+Noun   - \n\
+designed by Adam Whitcroft \n\
+from The Noun Project. http://thenounproject.com\n\n\
+Shiny - \n\
+JyriK http://jyrik.deviantart.com \n\
+jyrik(at)koti.luukku.com";
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    anchors.top: iconsetext.bottom
+	    font.pixelSize: 20 
+	}
+
+
         Label {
             id: licensetext  
             text: Config.tr("License") + ":"
-            anchors.top: translatorsfulltext.bottom
+            anchors.top: iconsetfulltext.bottom
             anchors.topMargin: 30
             anchors.leftMargin: 20
             anchors.left: parent.left
@@ -261,7 +297,6 @@ later version.");
 	    anchors.left: parent.left
 	    anchors.top: licensetext.bottom
 	}
-
 	                                                                                                    
     }
 }

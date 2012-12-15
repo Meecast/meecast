@@ -132,7 +132,7 @@ Page {
             description_text = model_current.getdata(day, "description") ? model_current.getdata(day, "description") : ""
 	   
             if ((model_current.getdata(day, "humidity")) != "N/A")
-                condition.append({cond_name: Config.tr("Humidity:"),
+                condition.append({cond_name: Config.tr("Humidity") + ":",
                          value: model_current.getdata(day, "humidity")+'%'});
             if ((model_current.getdata(day, "wind_direction")) != "")
                 condition.append({cond_name: Config.tr("Wind direction") + ":",
@@ -150,7 +150,7 @@ Page {
                 condition.append({cond_name: Config.tr("Wind gust:"),
                          value: model_current.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
             if ((model_current.getdata(day, "flike")) != "N/A")
-                condition.append({cond_name: Config.tr("Flike:"),
+                condition.append({cond_name: Config.tr("Flike") + ":",
                          value: model_current.getdata(day, "flike") + '°' + Config.temperatureunit});
             if ((model_current.getdata(day, "map_pattern")) != ""){
                 map_pattern = model_current.getdata(day, "map_pattern")
@@ -189,7 +189,7 @@ Page {
             description_text = model_day.getdata(day, "description") ? model_day.getdata(day, "description") : ""
 	   
             if ((model_day.getdata(day, "humidity")) != "N/A")
-                condition.append({cond_name: Config.tr("Humidity:"),
+                condition.append({cond_name: Config.tr("Humidity") + ":",
                          value: model_day.getdata(day, "humidity")+'%'});
             if ((model_day.getdata(day, "wind_direction")) != "")
                 condition.append({cond_name: Config.tr("Wind direction") + ":",
@@ -207,7 +207,7 @@ Page {
                 condition.append({cond_name: Config.tr("Wind gust:"),
                          value: model_day.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
             if ((model_day.getdata(day, "flike")) != "N/A")
-                condition.append({cond_name: Config.tr("Flike:"),
+                condition.append({cond_name: Config.tr("Flike") + ":",
                          value: model_day.getdata(day, "flike") + '°' + Config.temperatureunit});
 
             if ((model_day.getdata(day, "temp")) != "N/A")
@@ -238,7 +238,7 @@ Page {
             current_rect.color = getColor(model_day.getdata(day, "temp_low"));
             description_text = model_night.getdata(day, "description") ? model_night.getdata(day, "description") : ""
             if ((model_night.getdata(day, "humidity")) != "N/A")
-                condition.append({cond_name: Config.tr("Humidity:"),
+                condition.append({cond_name: Config.tr("Humidity") + ":",
                          value: model_night.getdata(day, "humidity")+'%'});
             if ((model_night.getdata(day, "wind_direction")) != "")
                 condition.append({cond_name: Config.tr("Wind direction") + ":",
@@ -256,7 +256,7 @@ Page {
                 condition.append({cond_name: Config.tr("Wind gust:"),
                          value: model_night.getdata(day, "wind_gust") + ' ' + Config.tr(Config.windspeedunit)});
             if ((model_night.getdata(day, "flike")) != "N/A")
-                condition.append({cond_name: Config.tr("Flike:"),
+                condition.append({cond_name: Config.tr("Flike") + ":",
                          value: model_night.getdata(day, "flike") + '°' + Config.temperatureunit});
             if ((model_night.getdata(day, "temp")) != "N/A")
                 temperature.text =  model_night.getdata(day, "temp") + '°'

@@ -482,7 +482,11 @@ void MyMWidget::update_data(){
 	}
 	// Debug end 
 #endif
-    this->startpredeamon();
+    QNetworkConfigurationManager m_network;
+    if  (m_network.isOnline()){
+        fprintf(stderr," Connection!!!!!!!!!!!!!!!\n");
+        this->startpredeamon();
+    }
 }
 void MyMWidget::updateStandbyPath(){
 /* To Do make changed to path for MeeCast */

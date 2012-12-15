@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 18:22+0300\n"
+"POT-Creation-Date: 2012-12-14 16:51+0300\n"
 "PO-Revision-Date: 2012-10-03 17:45+0000\n"
 "Last-Translator: Michiel Pater <michiel@wateennaam.nl>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/meecast/language/"
@@ -850,6 +850,11 @@ msgstr "Initialiseren GConf mislukt. Instellingen zijn niet opgeslagen.\n"
 msgid "Fair"
 msgstr "Mooi"
 
+#: omweather/src/hash.data:324
+#, fuzzy
+msgid "Feels like"
+msgstr "Voelt als:"
+
 #: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
 msgid "Feels like:"
 msgstr "Voelt als:"
@@ -893,7 +898,8 @@ msgstr "Eerste Kwartier"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:153
 #: meecast/qt-qml/qml/FullWeatherPage.qml:210
 #: meecast/qt-qml/qml/FullWeatherPage.qml:259
-msgid "Flike:"
+#, fuzzy
+msgid "Flike"
 msgstr "Gevoel:"
 
 #: omweather/src/hash.data:84
@@ -977,7 +983,8 @@ msgid ""
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
 " Norwegian - Peer-Atle Motland,\n"
-" Vietnamese - Hieu Nguyen, Anh Dương and truongnx, \n"
+" Vietnamese - Hieu Nguyen\n"
+" \tAnh Dương and truongnx, \n"
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
@@ -1090,11 +1097,16 @@ msgstr "Hoog"
 msgid "Hours"
 msgstr "Uren"
 
-#: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
-#: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:180 meecast/qt-qml/qml/FullWeatherPage.qml:135
+#: meecast/qt-qml/qml/FullWeatherPage.qml:135
 #: meecast/qt-qml/qml/FullWeatherPage.qml:192
 #: meecast/qt-qml/qml/FullWeatherPage.qml:241
+#, fuzzy
+msgid "Humidity"
+msgstr "Luchtvochtigheid:"
+
+#: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
+#: meecast/netbook-UX/meego-panel-omweather.cpp:722
+#: meecast/qt-qml/dataitem.cpp:180
 msgid "Humidity:"
 msgstr "Luchtvochtigheid:"
 
@@ -1114,7 +1126,7 @@ msgstr "Iconen"
 msgid "Iconset"
 msgstr "Icoonset"
 
-#: omweather/src/hash.data:95
+#: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:244
 msgid "Iconsets"
 msgstr "Icoonsets"
 
@@ -1180,11 +1192,7 @@ msgstr "Layout:"
 msgid "Lead designer"
 msgstr "Hoofdontwerper"
 
-#: meecast/qt-qml/qml/AboutPage.qml:154
-msgid "Lead programmers"
-msgstr "Hoofdprogrammeurs"
-
-#: meecast/qt-qml/qml/AboutPage.qml:243
+#: meecast/qt-qml/qml/AboutPage.qml:280
 msgid "License"
 msgstr "Licentie"
 
@@ -1309,9 +1317,10 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
+#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2011"
+"client based on OMWeather code. Copyright (C) 2006-2012"
 msgstr ""
 "MeeCast - Een zeer aanpasbare open source multiplatform weerbericht client "
 "op basis van OMWeather code. Copyright (C) 2006-2011"
@@ -1869,6 +1878,11 @@ msgstr "Luchtdruk:"
 msgid "Pressure: "
 msgstr "Luchtdruk: "
 
+#: meecast/qt-qml/qml/AboutPage.qml:154
+#, fuzzy
+msgid "Programmers"
+msgstr "Hoofdprogrammeurs"
+
 #: meecast/qt-qml/qml/AboutPage.qml:138
 msgid "Project administrator"
 msgstr "Project administrator"
@@ -2181,7 +2195,7 @@ msgstr "Kort"
 msgid "Show arrows"
 msgstr "Toon pijlen"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:600
+#: meecast/qt-qml/qml/FullWeatherPage.qml:601
 #, fuzzy
 msgid "Show on Map"
 msgstr "Toon stationsnaam"
@@ -2413,7 +2427,7 @@ msgstr "Bedankt"
 msgid "The weather has been updated."
 msgstr "Het weerbericht is ge-update."
 
-#: meecast/qt-qml/qml/AboutPage.qml:252
+#: meecast/qt-qml/qml/AboutPage.qml:289
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2993,34 +3007,37 @@ msgstr "stationsnaam"
 msgid "steady"
 msgstr "bestendig"
 
-#: omweather/src/hash.data:324
+#: omweather/src/hash.data:325
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:325
+#: omweather/src/hash.data:326
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:326
+#: omweather/src/hash.data:327
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:327
+#: omweather/src/hash.data:328
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:328
+#: omweather/src/hash.data:329
 msgid "С-З"
 msgstr "C-3"
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:332
 msgid "Ю-З"
 msgstr "Ю-3"
+
+#~ msgid "Flike:"
+#~ msgstr "Gevoel:"

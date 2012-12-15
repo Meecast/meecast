@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 18:22+0300\n"
+"POT-Creation-Date: 2012-12-14 16:51+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -833,6 +833,10 @@ msgstr "Не возможно инициализировать GConf. Настр
 msgid "Fair"
 msgstr "Ясная погода"
 
+#: omweather/src/hash.data:324
+msgid "Feels like"
+msgstr "По ощущениям"
+
 #: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
 msgid "Feels like:"
 msgstr "По ощущениям:"
@@ -874,8 +878,8 @@ msgstr "Первая четверть"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:153
 #: meecast/qt-qml/qml/FullWeatherPage.qml:210
 #: meecast/qt-qml/qml/FullWeatherPage.qml:259
-msgid "Flike:"
-msgstr "По ощущениям:"
+msgid "Flike"
+msgstr "По ощущениям"
 
 #: omweather/src/hash.data:84
 msgid "Fog"
@@ -959,7 +963,8 @@ msgid ""
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
 " Norwegian - Peer-Atle Motland,\n"
-" Vietnamese - Hieu Nguyen, Anh Dương and truongnx, \n"
+" Vietnamese - Hieu Nguyen\n"
+" \tAnh Dương and truongnx, \n"
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
@@ -1071,11 +1076,16 @@ msgstr "Высокий"
 msgid "Hours"
 msgstr "Часы"
 
-#: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
-#: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:180 meecast/qt-qml/qml/FullWeatherPage.qml:135
+#: meecast/qt-qml/qml/FullWeatherPage.qml:135
 #: meecast/qt-qml/qml/FullWeatherPage.qml:192
 #: meecast/qt-qml/qml/FullWeatherPage.qml:241
+#, fuzzy
+msgid "Humidity"
+msgstr "Влажность:"
+
+#: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
+#: meecast/netbook-UX/meego-panel-omweather.cpp:722
+#: meecast/qt-qml/dataitem.cpp:180
 msgid "Humidity:"
 msgstr "Влажность:"
 
@@ -1095,7 +1105,7 @@ msgstr "Наборы иконок"
 msgid "Iconset"
 msgstr "Набор иконок"
 
-#: omweather/src/hash.data:95
+#: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:244
 msgid "Iconsets"
 msgstr "Наборы иконок:"
 
@@ -1159,11 +1169,7 @@ msgstr "Расположение:"
 msgid "Lead designer"
 msgstr "Ведущий дизайнер"
 
-#: meecast/qt-qml/qml/AboutPage.qml:154
-msgid "Lead programmers"
-msgstr "Ведущие программисты"
-
-#: meecast/qt-qml/qml/AboutPage.qml:243
+#: meecast/qt-qml/qml/AboutPage.qml:280
 msgid "License"
 msgstr ""
 
@@ -1288,7 +1294,7 @@ msgstr ""
 #: meecast/qt-qml/qml/AboutPage.qml:77
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2011"
+"client based on OMWeather code. Copyright (C) 2006-2012"
 msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
@@ -1844,6 +1850,11 @@ msgstr "Давление:"
 msgid "Pressure: "
 msgstr "Давление: "
 
+#: meecast/qt-qml/qml/AboutPage.qml:154
+#, fuzzy
+msgid "Programmers"
+msgstr "Ведущие программисты"
+
 #: meecast/qt-qml/qml/AboutPage.qml:138
 msgid "Project administrator"
 msgstr "Администратор проекта"
@@ -2156,7 +2167,7 @@ msgstr "Короткий"
 msgid "Show arrows"
 msgstr "Показать стрелки"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:600
+#: meecast/qt-qml/qml/FullWeatherPage.qml:601
 msgid "Show on Map"
 msgstr "Показать на карте"
 
@@ -2387,7 +2398,7 @@ msgstr "Благодарности"
 msgid "The weather has been updated."
 msgstr "Данные о погоде обновлены."
 
-#: meecast/qt-qml/qml/AboutPage.qml:252
+#: meecast/qt-qml/qml/AboutPage.qml:289
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2960,37 +2971,40 @@ msgstr "в названии станции"
 msgid "steady"
 msgstr "устойчивое"
 
-#: omweather/src/hash.data:324
+#: omweather/src/hash.data:325
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:325
+#: omweather/src/hash.data:326
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:326
+#: omweather/src/hash.data:327
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:327
+#: omweather/src/hash.data:328
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:328
+#: omweather/src/hash.data:329
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:332
 msgid "Ю-З"
 msgstr ""
+
+#~ msgid "Flike:"
+#~ msgstr "По ощущениям:"
 
 #, fuzzy
 #~ msgid ""

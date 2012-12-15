@@ -1,5 +1,5 @@
 
-QT += declarative 
+QT += declarative network
 
 TEMPLATE = lib
 #TEMPLATE = app

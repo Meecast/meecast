@@ -112,6 +112,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     //std::cerr<<"locale: "<<locale.toStdString()<<std::endl;
     
     //ConfigQml *config;
+    //
     Controller *controller;
 
     QTranslator translator;

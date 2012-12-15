@@ -660,21 +660,30 @@ NavigationPane {
                                         preferredWidth: 20
                                         maxWidth: 20
                                     }
-                                    Label {
-                                        verticalAlignment: VerticalAlignment.Center
-                                        text: ListItemData.fulldate
-                                        preferredWidth: 768/4.5
-                                        textStyle {    
-                                            base: SystemDefaults.TextStyles.BodyText
-                                            color: Color.Gray
+                                    Container{
+                                        layout: AbsoluteLayout {
                                         }
-                                    }
-                                    Label {
-                                        text: ListItemData.shortdate
-                                        textStyle.textAlign: TextAlign.Right
-                                        textStyle {
-                                            base: SystemDefaults.TextStyles.BodyText
-                                            color: Color.White
+
+                                        Label {
+                                            text: ListItemData.fulldate
+                                            textStyle.textAlign: TextAlign.Left
+                                            preferredWidth: 768/2 - 128/2 - 20
+                                            textStyle {    
+                                                base: SystemDefaults.TextStyles.SmallText
+                                                color: Color.Gray
+                                            }
+                                        }
+                                        Label {
+                                            text: ListItemData.shortdate
+                                            preferredWidth: 768/2 - 128/2 - 20
+                                            layoutProperties: AbsoluteLayoutProperties {
+                                                positionY: 30.0
+                                            }
+                                            textStyle.textAlign: TextAlign.Left
+                                            textStyle {
+                                                base: SystemDefaults.TextStyles.BodyText
+                                                color: Color.White
+                                            }
                                         }
                                     }
                                 }

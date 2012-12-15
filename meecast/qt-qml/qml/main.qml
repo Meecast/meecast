@@ -388,38 +388,38 @@ NavigationPane {
                         id: humidity
                         horizontalAlignment: HorizontalAlignment.Left
                         preferredWidth: 768/2
-                        Container{
-                            layout: AbsoluteLayout {
+                        layout: AbsoluteLayout {
+                        }
+                        Label { 
+                            layoutProperties: AbsoluteLayoutProperties {
+                                positionY: 0.0
+                                positionX: 20.0
                             }
-                            Label { 
-                                layoutProperties: AbsoluteLayoutProperties {
-                                    positionY: 0.0
-                                }
-                                id: humidity_description
-                                preferredWidth: 768/2 - 128/2 
-                                text: Config.tr("Humidity")
-                                horizontalAlignment: HorizontalAlignment.Center
-                                verticalAlignment: VerticalAlignment.Center
-                                textStyle.textAlign: TextAlign.Center
-                                textStyle {
-                                    base: SystemDefaults.TextStyles.SmallText
-                                    color: Color.Gray
-                                }
+                            id: humidity_description
+                            preferredWidth: 768/2 - 128/2 - 20
+                            text: Config.tr("Humidity")
+                            horizontalAlignment: HorizontalAlignment.Center
+                            verticalAlignment: VerticalAlignment.Center
+                            textStyle.textAlign: TextAlign.Left
+                            textStyle {
+                                base: SystemDefaults.TextStyles.SmallText
+                                color: Color.Gray
                             }
-                            Label {
-                                id: humidity_text
-                                preferredWidth: 768/2 - 128/2 
-                                layoutProperties: AbsoluteLayoutProperties {
-                                    positionY: 30.0
-                                }
-                                text: Current.getdata(0, "humidity") + " %";
-                                verticalAlignment: VerticalAlignment.Center
-                                //horizontalAlignment: HorizontalAlignment.Left
-                                textStyle.textAlign: TextAlign.Center
-                                textStyle {
-                                    base: SystemDefaults.TextStyles.BodyText
-                                    color: Color.White
-                                }
+                        }
+                        Label {
+                            id: humidity_text
+                            preferredWidth: 768/2 - 128/2 - 20
+                            layoutProperties: AbsoluteLayoutProperties {
+                                positionY: 30.0
+                                positionX: 20.0
+                            }
+                            text: Current.getdata(0, "humidity") + " %";
+                            verticalAlignment: VerticalAlignment.Center
+                            //horizontalAlignment: HorizontalAlignment.Left
+                            textStyle.textAlign: TextAlign.Left
+                            textStyle {
+                                base: SystemDefaults.TextStyles.BodyText
+                                color: Color.White
                             }
                         }
                     }
@@ -441,7 +441,7 @@ NavigationPane {
                                 text: Config.tr("Wind direction")
                                 horizontalAlignment: HorizontalAlignment.Center
                                 verticalAlignment: VerticalAlignment.Center
-                                textStyle.textAlign: TextAlign.Center
+                                textStyle.textAlign: TextAlign.Left
                                 textStyle {
                                     base: SystemDefaults.TextStyles.SmallText
                                     color: Color.Gray
@@ -454,7 +454,7 @@ NavigationPane {
                                     positionY: 30.0
                                 }
                                 text: Config.tr(Current.getdata(0, "wind_direction"));
-                                textStyle.textAlign: TextAlign.Center
+                                textStyle.textAlign: TextAlign.Left
                                 textStyle {
                                     base: SystemDefaults.TextStyles.BodyText
                                     color: Color.White
@@ -475,20 +475,20 @@ NavigationPane {
                     Container{
                         layout: AbsoluteLayout {
                         }
-
                         id: pressure
                         horizontalAlignment: HorizontalAlignment.Left
                         preferredWidth: 768/2
                         Label { 
                             layoutProperties: AbsoluteLayoutProperties {
                                 positionY: 0.0
+                                positionX: 20.0
                             }
                             id: pressure_description
-                            preferredWidth: 768/2 - 128/2 
+                            preferredWidth: 768/2 - 128/2 - 20
                             text: Config.tr("Pressure")
                             horizontalAlignment: HorizontalAlignment.Center
                             verticalAlignment: VerticalAlignment.Center
-                            textStyle.textAlign: TextAlign.Center
+                            textStyle.textAlign: TextAlign.Left
                             textStyle {
                                 base: SystemDefaults.TextStyles.SmallText
                                 color: Color.Gray
@@ -497,13 +497,12 @@ NavigationPane {
                         Label {
                             id: pressure_text
                             text: Current.getdata(0, "pressure") + ' ' + Config.tr(Config.pressureunit) ;
-                            preferredWidth: 768/2 - 128/2 
+                            preferredWidth: 768/2 - 128/2 - 20
                             layoutProperties: AbsoluteLayoutProperties {
-                                    positionY: 30.0
+                                positionY: 30.0
+                                positionX: 20.0
                             }
-
-                            //horizontalAlignment: HorizontalAlignment.Left
-                            textStyle.textAlign: TextAlign.Center
+                            textStyle.textAlign: TextAlign.Left
                             textStyle {
                                 base: SystemDefaults.TextStyles.BodyText
                                 color: Color.White
@@ -513,17 +512,31 @@ NavigationPane {
                     Container{
                         id: wind_speed
                         horizontalAlignment: HorizontalAlignment.Left
-                        layout: StackLayout {
-                            orientation: LayoutOrientation.LeftToRight
+                        layout: AbsoluteLayout {
                         }
-                        ImageView {
-                            imageSource: "asset:///share/images/wind_speed.png"
-                            preferredWidth: 30*1.6
-                            preferredHeight: 30*1.6
+                        Label { 
+                            layoutProperties: AbsoluteLayoutProperties {
+                                positionY: 0.0
+                            }
+                            id: wind_speed_description
+                            preferredWidth: 768/2 - 128/2 
+                            text: Config.tr("Wind speed")
+                            horizontalAlignment: HorizontalAlignment.Center
+                            verticalAlignment: VerticalAlignment.Center
+                            textStyle.textAlign: TextAlign.Left
+                            textStyle {
+                                base: SystemDefaults.TextStyles.SmallText
+                                color: Color.Gray
+                            }
                         }
                         Label {
                             id: wind_speed_text
                             text: Current.getdata(0, "wind_speed") + ' ' + Config.tr(Config.windspeedunit);
+                            preferredWidth: 768/2 - 128/2 
+                            layoutProperties: AbsoluteLayoutProperties {
+                                    positionY: 30.0
+                            }
+                            textStyle.textAlign: TextAlign.Left
                             textStyle {
                                 base: SystemDefaults.TextStyles.BodyText
                                 color: Color.White

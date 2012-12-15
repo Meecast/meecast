@@ -58,7 +58,7 @@ NavigationPane {
             pressure_text.text = Current.getdata(0, "pressure") + ' ' + Config.tr(Config.pressureunit) ;
 
             wind_speed_text.text = Current.getdata(0, "wind_speed") + ' ' + Config.tr(Config.windspeedunit);
-            wind_direction_arrow.rotationZ =  wind_direction.getAngle(Current.getdata(0, "wind_direction"));
+            //wind_direction_arrow.rotationZ =  wind_direction.getAngle(Current.getdata(0, "wind_direction"));
             wind_direction_text.text = Config.tr(Current.getdata(0, "wind_direction"));
 
         }
@@ -93,7 +93,45 @@ NavigationPane {
                 return Qt.rgba(c1, c2, 1, 1);
             }
         }
- 
+        function getAngle(s){
+            var a;
+            switch (s){
+            case 'S':
+                return 0;
+            case 'SSW':
+                return 22.5;
+            case 'SW':
+                return 45;
+            case 'WSW':
+                return (45+22.5);
+            case 'W':
+                return 90;
+            case 'WNW':
+                return (90+22.5);
+            case 'NW':
+                return (90+45);
+            case 'NNW':
+                return (180-22.5);
+            case 'N':
+                return 180;
+            case 'NNE':
+                return (180+22.5);
+            case 'NE':
+                return (180+45);
+            case 'ENE':
+                return (270-22.5);
+            case 'E':
+                return 270;
+            case 'ESE':
+                return (270+22.5);
+            case 'SE':
+                return (270+45);
+            case 'SSE':
+                return (360-22.5);
+
+            }
+        }
+
         function updatestationname(){
             console.log("updatestationname() ", Config.stationname );
             console.log(" pATH !!!! ", Config.imagespath);
@@ -387,46 +425,6 @@ NavigationPane {
                     }
                     Container{
                         id: wind_direction
-                        function getAngle(s)
-                        {
-                            var a;
-                            switch (s){
-                            case 'S':
-                                return 0;
-                            case 'SSW':
-                                return 22.5;
-                            case 'SW':
-                                return 45;
-                            case 'WSW':
-                                return (45+22.5);
-                            case 'W':
-                                return 90;
-                            case 'WNW':
-                                return (90+22.5);
-                            case 'NW':
-                                return (90+45);
-                            case 'NNW':
-                                return (180-22.5);
-                            case 'N':
-                                return 180;
-                            case 'NNE':
-                                return (180+22.5);
-                            case 'NE':
-                                return (180+45);
-                            case 'ENE':
-                                return (270-22.5);
-                            case 'E':
-                                return 270;
-                            case 'ESE':
-                                return (270+22.5);
-                            case 'SE':
-                                return (270+45);
-                            case 'SSE':
-                                return (360-22.5);
-
-                            }
-                        }
-
                         horizontalAlignment: HorizontalAlignment.Left
                         layout: StackLayout {
                             orientation: LayoutOrientation.LeftToRight
@@ -434,29 +432,37 @@ NavigationPane {
                         Container{
                             layout: AbsoluteLayout {
                             }
-                            ImageView {
-                                imageSource: "asset:///share/images/wind_direction_background.png"
-                                preferredWidth: 30*1.6
-                                preferredHeight: 30*1.6
+                            Label { 
+                                layoutProperties: AbsoluteLayoutProperties {
+                                    positionY: 0.0
+                                }
+                                id: wind_directory_description
+                                preferredWidth: 768/2 - 128/2 
+                                text: Config.tr("Wind direction")
+                                horizontalAlignment: HorizontalAlignment.Center
+                                verticalAlignment: VerticalAlignment.Center
+                                textStyle.textAlign: TextAlign.Center
+                                textStyle {
+                                    base: SystemDefaults.TextStyles.SmallText
+                                    color: Color.Gray
+                                }
                             }
-                            ImageView {
-                                id: wind_direction_arrow
-                                imageSource: "asset:///share/images//wind_direction_arrow.png"
-                                preferredWidth: 30*1.6
-                                preferredHeight: 30*1.6
-                                rotationZ: wind_direction.getAngle(Current.getdata(0, "wind_direction"))
+                            Label {
+                                id: wind_direction_text
+                                preferredWidth: 768/2 - 128/2 
+                                layoutProperties: AbsoluteLayoutProperties {
+                                    positionY: 30.0
+                                }
+                                text: Config.tr(Current.getdata(0, "wind_direction"));
+                                textStyle.textAlign: TextAlign.Center
+                                textStyle {
+                                    base: SystemDefaults.TextStyles.BodyText
+                                    color: Color.White
+                                }
                             }
                         }
-                        Label {
-                            id: wind_direction_text
-                            text: Config.tr(Current.getdata(0, "wind_direction"));
-                            textStyle {
-                                base: SystemDefaults.TextStyles.BodyText
-                                color: Color.White
-                            }
-                        }
-                        }        
                     }
+                }
                     Container{
                         id: pressure_and_wind_speed
                         preferredWidth: 768

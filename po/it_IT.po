@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-14 16:51+0300\n"
+"POT-Creation-Date: 2012-12-15 15:17+0300\n"
 "PO-Revision-Date: 2012-05-11 15:23+0000\n"
 "Last-Translator: Ilir Gjika <ilir.gjika@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/meecast/language/"
@@ -2680,9 +2680,14 @@ msgstr "Stile Widget e set icone"
 msgid "Wind"
 msgstr "Vento"
 
-#: omweather/src/hash.data:307 meecast/qt-qml/qml/FullWeatherPage.qml:138
+#: meecast/qt-qml/qml/FullWeatherPage.qml:138
 #: meecast/qt-qml/qml/FullWeatherPage.qml:195
 #: meecast/qt-qml/qml/FullWeatherPage.qml:244
+#, fuzzy
+msgid "Wind direction"
+msgstr "Direzione del vento:"
+
+#: omweather/src/hash.data:307
 msgid "Wind direction:"
 msgstr "Direzione del vento:"
 

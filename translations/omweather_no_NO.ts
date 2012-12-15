@@ -3383,16 +3383,16 @@ av værinformasjonen.
             <translation>Vind</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Vindretning:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Vindretning:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Vindretning:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Vindretning:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Vindretning:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Vindretning:</translation>
         </message>
         <message>
             <source>Wind direction:</source>

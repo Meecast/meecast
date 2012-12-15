@@ -3386,16 +3386,16 @@ um die Darstellung des Applets anzupassen</translation>
             <translation>Wind</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Windrichtung:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Windrichtung:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Windrichtung:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Windrichtung:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Windrichtung:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Windrichtung:</translation>
         </message>
         <message>
             <source>Wind direction:</source>

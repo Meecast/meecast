@@ -3380,16 +3380,16 @@ de informações do tempo.
             <translation>Vento</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Direção Vento:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Direção Vento:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Direção Vento:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Direção Vento:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Direção Vento:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Direção Vento:</translation>
         </message>
         <message>
             <source>Wind direction:</source>

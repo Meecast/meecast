@@ -4043,17 +4043,17 @@ for tuning images of applet</source>
             </translation>
         </message>
         <message>
-            <source>Wind direction:</source>
+            <source>Wind direction</source>
             <translation type="unfinished">
             </translation>
         </message>
         <message>
-            <source>Wind direction:</source>
+            <source>Wind direction</source>
             <translation type="unfinished">
             </translation>
         </message>
         <message>
-            <source>Wind direction:</source>
+            <source>Wind direction</source>
             <translation type="unfinished">
             </translation>
         </message>

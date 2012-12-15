@@ -2649,9 +2649,8 @@ msgstr "Ветер"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:138
 #: meecast/qt-qml/qml/FullWeatherPage.qml:195
 #: meecast/qt-qml/qml/FullWeatherPage.qml:244
-#, fuzzy
 msgid "Wind direction"
-msgstr "Направление ветра:"
+msgstr "Направление ветра"
 
 #: omweather/src/hash.data:307
 msgid "Wind direction:"

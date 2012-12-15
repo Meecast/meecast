@@ -3394,16 +3394,16 @@ ajoitettuun päivitykseen.
             <translation>Tuulista</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Tuulen suunta:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Tuulen suunta:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Tuulen suunta:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Tuulen suunta:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Tuulen suunta:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Tuulen suunta:</translation>
         </message>
         <message>
             <source>Wind direction:</source>

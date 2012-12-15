@@ -3373,16 +3373,16 @@ GSM ve/veya WLAN kullan.
             <translation>Ruzgar</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Ruzgar yonu:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Ruzgar yonu:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Ruzgar yonu:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Ruzgar yonu:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Ruzgar yonu:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Ruzgar yonu:</translation>
         </message>
         <message>
             <source>Wind direction:</source>

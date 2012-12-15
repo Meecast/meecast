@@ -3467,16 +3467,16 @@ meteo periodicamente.
             <translation>Vento</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Direzione del vento:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Direzione del vento:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Direzione del vento:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Direzione del vento:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Direzione del vento:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Direzione del vento:</translation>
         </message>
         <message>
             <source>Wind direction:</source>

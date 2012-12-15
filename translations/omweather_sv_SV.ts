@@ -3733,16 +3733,16 @@ for tuning images of applet</source>
             <translation>Vind</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Vindriktning:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Vindriktning:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Vindriktning:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Vindriktning:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Vindriktning:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Vindriktning:</translation>
         </message>
         <message>
             <source>Wind direction:</source>

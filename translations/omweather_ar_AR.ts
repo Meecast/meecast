@@ -3677,16 +3677,16 @@ for tuning images of applet</source>
             </translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>إتجاه الرياح:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">إتجاه الرياح:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>إتجاه الرياح:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">إتجاه الرياح:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>إتجاه الرياح:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">إتجاه الرياح:</translation>
         </message>
         <message>
             <source>Wind direction:</source>

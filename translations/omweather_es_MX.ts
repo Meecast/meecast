@@ -3387,16 +3387,16 @@ la información del clima.
             <translation>Viento</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Dirección del viento:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Dirección del viento:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Dirección del viento:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Dirección del viento:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Dirección del viento:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Dirección del viento:</translation>
         </message>
         <message>
             <source>Wind direction:</source>

@@ -3429,16 +3429,16 @@ pour la météo actuelle :</translation>
             <translation>Vent</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Direction du vent</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Direction du vent</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Direction du vent</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Direction du vent</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Direction du vent</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Direction du vent</translation>
         </message>
         <message>
             <source>Wind direction:</source>

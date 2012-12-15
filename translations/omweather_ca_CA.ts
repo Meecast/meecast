@@ -3381,16 +3381,16 @@ de la informació del temps.
             <translation>Vent</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Direcció del vent</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Direcció del vent</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Direcció del vent</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Direcció del vent</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Direcció del vent</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Direcció del vent</translation>
         </message>
         <message>
             <source>Wind direction:</source>

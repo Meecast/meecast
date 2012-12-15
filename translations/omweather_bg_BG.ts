@@ -3369,16 +3369,16 @@ for tuning images of applet</source>
             <translation>Вятър</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Посока на вятъра:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Посока на вятъра:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Посока на вятъра:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Посока на вятъра:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Посока на вятъра:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Посока на вятъра:</translation>
         </message>
         <message>
             <source>Wind direction:</source>

@@ -3407,16 +3407,16 @@ aktualizowania prognoz.
             <translation>Wiatr</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Kierunek wiatru:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Kierunek wiatru:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Kierunek wiatru:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Kierunek wiatru:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Kierunek wiatru:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Kierunek wiatru:</translation>
         </message>
         <message>
             <source>Wind direction:</source>

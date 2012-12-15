@@ -3369,16 +3369,16 @@ for tuning images of applet</source>
             <translation>Gió</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Hướng gió:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Hướng gió:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Hướng gió:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Hướng gió:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Hướng gió:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Hướng gió:</translation>
         </message>
         <message>
             <source>Wind direction:</source>

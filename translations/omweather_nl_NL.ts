@@ -3370,16 +3370,16 @@ van weerinformatie.
             <translation>Wind</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Windrichting:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Windrichting:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Windrichting:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Windrichting:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Windrichting:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Windrichting:</translation>
         </message>
         <message>
             <source>Wind direction:</source>

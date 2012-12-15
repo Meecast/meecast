@@ -3379,16 +3379,16 @@ për të ndryshuar fotografinë applet</translation>
             <translation>Era</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Era fryn nga:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Era fryn nga:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Era fryn nga:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Era fryn nga:</translation>
         </message>
         <message>
-            <source>Wind direction:</source>
-            <translation>Era fryn nga:</translation>
+            <source>Wind direction</source>
+            <translation type="unfinished">Era fryn nga:</translation>
         </message>
         <message>
             <source>Wind direction:</source>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-14 16:51+0300\n"
+"POT-Creation-Date: 2012-12-15 15:17+0300\n"
 "PO-Revision-Date: 2012-04-19 10:31+0000\n"
 "Last-Translator: ludmilalisovskaya <ludmila.lisovskaya@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2693,9 +2693,14 @@ msgstr "Estilo de interfaz e íconos"
 msgid "Wind"
 msgstr "Viento"
 
-#: omweather/src/hash.data:307 meecast/qt-qml/qml/FullWeatherPage.qml:138
+#: meecast/qt-qml/qml/FullWeatherPage.qml:138
 #: meecast/qt-qml/qml/FullWeatherPage.qml:195
 #: meecast/qt-qml/qml/FullWeatherPage.qml:244
+#, fuzzy
+msgid "Wind direction"
+msgstr "Dirección del viento:"
+
+#: omweather/src/hash.data:307
 msgid "Wind direction:"
 msgstr "Dirección del viento:"
 

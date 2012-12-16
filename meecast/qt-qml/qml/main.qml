@@ -8,7 +8,7 @@ NavigationPane {
     property bool feel_like_temperature_visible : false
     property string feels_like_temp_text : ""
     property string main_icon_imageSource : "" 
-    property string title_text_text : "1111"
+    property string title_text_text : ""
     property string current_temp_text: ""
     property string humidity_text: "" 
     property string pressure_text: ""
@@ -337,16 +337,6 @@ NavigationPane {
                                             positionX: 0
                                             positionY: 95
                                         }
-                                      //  onTouch: {
-                                      //      if (event.isDown()) {
-                                      //          main.day = 0;
-                                      //          main.day_period = "day";
-                                      //          main.current = true;
-                                      //          var newPage = fullpageDefinition.createObject();
-                                      //          rootWindow.push(newPage);
-                                      //     }
-                                      //  }
-                                        
                                         id: current_rect
                                         //visible: Current.rowCount() == 0 ? false : true
                                         layout: AbsoluteLayout {
@@ -467,14 +457,16 @@ NavigationPane {
                                             preferredWidth: 768
                                             layout: DockLayout {}
                                             layoutProperties: AbsoluteLayoutProperties {
-                                                positionY: 165.0
+                                                positionY: 175.0
                                             }
                                             Label {                 
                                                 id: title_text
                                                 text: ListItemData.description_text 
                                                 horizontalAlignment: HorizontalAlignment.Center
                                                 textStyle {
-                                                   base: SystemDefaults.TextStyles.BodyText
+                                                   base: SystemDefaults.TextStyles.SmallText
+                                                   //fontWeight: FontWeight.Bold
+                                                   //fontSize: FontSize.Small
                                                    color: Color.White
                                                 }
                                             }
@@ -705,7 +697,6 @@ NavigationPane {
                                             }
                                             preferredWidth: 128
                                             preferredHeight: 128
-                                           // imageSource: Config.iconspath + "/" + Config.iconset + "/" + Current.getdata(0, "pict")
                                             imageSource: ListItemData.pict 
                                             horizontalAlignment: HorizontalAlignment.Center
                                             overlapTouchPolicy: OverlapTouchPolicy.Allow
@@ -814,10 +805,16 @@ NavigationPane {
                             }
                         ]
                         onTriggered: {             
-                            console.log("Index ", groupDataModel.data(indexPath).number);
-                            main.day = groupDataModel.data(indexPath).number;
+                            if ( groupDataModel.data(indexPath).number == 0 ){
+                                console.log("Index ", groupDataModel.data(indexPath).number);
+                                main.day = groupDataModel.data(indexPath).number;
+                                main.current = true;
+                            }else{
+                                console.log("Index ", (groupDataModel.data(indexPath).numberi - 1));
+                                main.day = groupDataModel.data(indexPath).number - 1;
+                                main.current = false;
+                            }
                             main.day_period = "day";
-                            main.current = false;
                             var newPage = fullpageDefinition.createObject();
                             rootWindow.push(newPage);
                         }

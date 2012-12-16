@@ -8,7 +8,7 @@ NavigationPane {
     property bool feel_like_temperature_visible : false
     property string feels_like_temp_text : ""
     property string main_icon_imageSource : "" 
-    property string title_text_text : ""
+    property string title_text_text : "1111"
     property string current_temp_text: ""
     property string humidity_text: "" 
     property string pressure_text: ""
@@ -35,7 +35,6 @@ NavigationPane {
                         {
                          "fulldate" : Forecast_model.getdata(a, "fulldate"),
                          "shortdate" : Forecast_model.getdata(a, "shortdate"),
-                         "pict" : Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(a, "pict"),
                          "temp_high" : Forecast_model.getdata(a, "temp_high"),
                          "temp_low" : Forecast_model.getdata(a, "temp_low"),
                          "bg_color" :  (a % 2 != 0) ? "#000000" : "#0f0f0f",
@@ -45,7 +44,16 @@ NavigationPane {
                          "bg_color" : current_rect_back_background,
                          "stationname" : Config.stationname == "Unknown" ? "MeeCast" : Config.stationname,
                          "feel_like_temperature_visible" : feel_like_temperature_visible,
-                         "feels_like_temp_text" : feels_like_temp_text  
+                         "feels_like_temp_text" : feels_like_temp_text, 
+                         "pict" : main_icon_imageSource,
+                         "description_text" : title_text_text,
+                         "current_temp_text" : current_temp_text,
+                         "wind_direction" : wind_direction_text, 
+                         "wind_speed" : wind_speed_text, 
+                         "humidity" : humidity_text, 
+                         "pressure" : pressure_text, 
+                         "left_arrow" : left_arrow,
+                         "right_arrow" : right_arrow,
                         }
                     )
                 }else{
@@ -60,15 +68,20 @@ NavigationPane {
                          "hi_temp_color" :  main.getColor(Forecast_model.getdata(a-1, "temp_high")),
                          "wind_speed" : Forecast_model.getdata(a-1, "wind_speed"), 
                          "number" : a,
-                         "feel_like_temperature_visible" : feel_like_temperature_visible  
+                         "feel_like_temperature_visible" : feel_like_temperature_visible,  
+                         "description_text" : Forecast_model.getdata(a-1, "description"),
+                         "wind_direction" : Forecast_model.getdata(a-1, "wind_direction"), 
+                         "current_temp_text" : current_temp_text,
+                         "humidity" : Forecast_model.getdata(a-1, "humidity"), 
+                         "pressure" : Forecast_model.getdata(a-1, "pressure"), 
+                         "left_arrow" : left_arrow,
+                         "right_arrow" : right_arrow,
                         }
                     )
                 }
             }
         }
-        function get_stationname_text(){
-            return "eeeeeeee";
-        }
+
         function update_current_data(){
             console.log("update_current_data!!!!!!!!!!!!!");
             left_arrow = Config.prevstationname == "" ? false : true;
@@ -202,9 +215,9 @@ NavigationPane {
         function updatemodels()
         {
             Current.reload_data(Config.filename);
-            main.update_current_data();
             Current.update_model(0);
             Current_night.update_model(1);
+            main.update_current_data();
             Forecast_model.update_model(2);
             Forecast_night_model.update_model(3);
             Forecast_hours_model.update_model(4);
@@ -304,15 +317,7 @@ NavigationPane {
                         onCreationCompleted: {
                             main.update_current_data();
                             Qt.Config = Config
-                            Qt.current_temp_text = current_temp_text
-                            Qt.wind_direction_text = wind_direction_text
-                            Qt.wind_speed_text = wind_speed_text 
-                            Qt.humidity_text = humidity_text 
-                            Qt.pressure_text = pressure_text
-                            Qt.title_text_text = title_text_text
                             Qt.Current = Current
-                            Qt.wind_speed_text = wind_speed_text
-                            Qt.main_icon_imageSource = main_icon_imageSource 
                             Qt.main = main
                             Qt.left_arrow = left_arrow
                             Qt.right_arrow = right_arrow
@@ -443,7 +448,7 @@ NavigationPane {
                                         }
 
                                         id: current_temp_text_id
-                                        text: Qt.current_temp_text
+                                        text: ListItemData.current_temp_text
                                         preferredWidth: 768/2 - 128/2 
                                         horizontalAlignment: HorizontalAlignment.Center
                                         verticalAlignment: VerticalAlignment.Center
@@ -469,7 +474,7 @@ NavigationPane {
                             }
                             Label {                 
                                 id: title_text
-                                text: Qt.title_text_text 
+                                text: ListItemData.description_text 
                                 horizontalAlignment: HorizontalAlignment.Center
                                 textStyle {
                                    base: SystemDefaults.TextStyles.BodyText
@@ -515,7 +520,7 @@ NavigationPane {
                                         positionY: 30.0
                                         positionX: 20.0
                                     }
-                                    text: Qt.humidity_text + " %";
+                                    text: ListItemData.humidity;
                                     verticalAlignment: VerticalAlignment.Center
                                     textStyle.textAlign: TextAlign.Left
                                     textStyle {
@@ -554,7 +559,7 @@ NavigationPane {
                                         layoutProperties: AbsoluteLayoutProperties {
                                             positionY: 30.0
                                         }
-                                        text: Qt.wind_direction_text
+                                        text:  ListItemData.wind_direction
                                         textStyle.textAlign: TextAlign.Left
                                         textStyle {
                                             base: SystemDefaults.TextStyles.BodyText
@@ -597,7 +602,7 @@ NavigationPane {
                                 }
                                 Label {
                                     id: pressure_text_id
-                                    text: Qt.pressure_text + ' ' + Qt.Config.tr(Qt.Config.pressureunit) ;
+                                    text: ListItemData.pressure
                                     preferredWidth: 768/2 - 128/2 - 20
                                     layoutProperties: AbsoluteLayoutProperties {
                                         positionY: 30.0
@@ -632,7 +637,7 @@ NavigationPane {
                                 }
                                 Label {
                                     id: wind_speed_text_id
-                                    text: Qt.wind_speed_text
+                                    text: ListItemData.wind_speed
                                     preferredWidth: 768/2 - 128/2 
                                     layoutProperties: AbsoluteLayoutProperties {
                                             positionY: 30.0
@@ -656,7 +661,7 @@ NavigationPane {
                         background: Color.Black
                         ImageButton {                 
                            id: left_arrow_id
-                           visible: Qt.left_arrow;
+                           visible: ListItemData.left_arrow;
                            horizontalAlignment: HorizontalAlignment.Left
                            verticalAlignment: VerticalAlignment.Center
                            preferredWidth: 62*1.6
@@ -683,7 +688,7 @@ NavigationPane {
                     }
                     ImageButton {                 
                        id: right_arrow_id
-                       visible: Qt.right_arrow;
+                       visible: ListItemData.right_arrow;
                        verticalAlignment: VerticalAlignment.Center
                        horizontalAlignment: HorizontalAlignment.Right
                        defaultImageSource: "asset:///share/images/arrow_right.png"
@@ -692,10 +697,6 @@ NavigationPane {
                        onClicked: {
                             Qt.Config.nextstation();
                             Qt.main.updatestationname();
-
-
-
-
                        }
                     }
                 }
@@ -708,7 +709,7 @@ NavigationPane {
                     preferredWidth: 128
                     preferredHeight: 128
                    // imageSource: Config.iconspath + "/" + Config.iconset + "/" + Current.getdata(0, "pict")
-                    imageSource: Qt.main_icon_imageSource 
+                    imageSource: ListItemData.pict 
                     horizontalAlignment: HorizontalAlignment.Center
                     overlapTouchPolicy: OverlapTouchPolicy.Allow
                     touchPropagationMode: TouchPropagationMode.PassThrough

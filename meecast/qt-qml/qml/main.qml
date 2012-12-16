@@ -319,9 +319,6 @@ NavigationPane {
                             Qt.Config = Config
                             Qt.Current = Current
                             Qt.main = main
-                            Qt.left_arrow = left_arrow
-                            Qt.right_arrow = right_arrow
-
                             main.update_list();
                         }
 
@@ -333,495 +330,487 @@ NavigationPane {
                                     layout: AbsoluteLayout {}
                                     visible: ListItemData.number == 0 ? true : false;
 
-                       Container{
-                        background: Color.Black
-                        preferredWidth: 768
-                        layoutProperties: AbsoluteLayoutProperties {
-                            positionX: 0
-                            positionY: 95
-                        }
-                      //  onTouch: {
-                      //      if (event.isDown()) {
-                      //          main.day = 0;
-                      //          main.day_period = "day";
-                      //          main.current = true;
-                      //          var newPage = fullpageDefinition.createObject();
-                      //          rootWindow.push(newPage);
-                      //     }
-                      //  }
-                        
-                        id: current_rect
-                        //visible: Current.rowCount() == 0 ? false : true
-                        layout: AbsoluteLayout {
-                        }
-                        Container{
-                            id: current_rect_back
-                            preferredWidth: 768
-                            preferredHeight: 438
-                            layoutProperties: AbsoluteLayoutProperties {
-                                positionY: 30
-                            }
-                            background: Color.create(ListItemData.bg_color)
-                        }
-                        ImageView {
-                            imageSource: "asset:///share/images/mask_background_main.png"
-                            preferredWidth: 768
-                            preferredHeight: 438
-                            layoutProperties: AbsoluteLayoutProperties {
-                                positionY: 30
-                            }
-                            visible: true
-                        }
-         
-                        Container{
-                            preferredWidth: 768
-                            layout: DockLayout {}
-                            layoutProperties: AbsoluteLayoutProperties {
-                                positionY: 50.0
-                            }
-                            Container{
-                                id: feel_like_temperature
-                                visible: ListItemData.feel_like_temperature_visible 
-                                horizontalAlignment: HorizontalAlignment.Right
-                                preferredWidth: 768/2 - 128/2                   
-
-                                Container{
-                                    layout: AbsoluteLayout {} 
-                                    Label { 
+                                    Container{
+                                        background: Color.Black
+                                        preferredWidth: 768
                                         layoutProperties: AbsoluteLayoutProperties {
-                                            positionY: 0.0
+                                            positionX: 0
+                                            positionY: 95
                                         }
-                                        id: feels_like_temp_description
-                                        preferredWidth: 768/2 - 128/2 
-                                        text: Qt.Config.tr("Feels like")
-                                        horizontalAlignment: HorizontalAlignment.Center
-                                        verticalAlignment: VerticalAlignment.Center
-                                        textStyle.textAlign: TextAlign.Center
-                                        textStyle {
-                                            base: SystemDefaults.TextStyles.SmallText
-                                            color: Color.Gray
+                                      //  onTouch: {
+                                      //      if (event.isDown()) {
+                                      //          main.day = 0;
+                                      //          main.day_period = "day";
+                                      //          main.current = true;
+                                      //          var newPage = fullpageDefinition.createObject();
+                                      //          rootWindow.push(newPage);
+                                      //     }
+                                      //  }
+                                        
+                                        id: current_rect
+                                        //visible: Current.rowCount() == 0 ? false : true
+                                        layout: AbsoluteLayout {
                                         }
-                                    }
-                                    Label {
-                                        layoutProperties: AbsoluteLayoutProperties {
-                                            positionY: 20.0
+                                        Container{
+                                            id: current_rect_back
+                                            preferredWidth: 768
+                                            preferredHeight: 438
+                                            layoutProperties: AbsoluteLayoutProperties {
+                                                positionY: 30
+                                            }
+                                            background: Color.create(ListItemData.bg_color)
+                                        }
+                                        ImageView {
+                                            imageSource: "asset:///share/images/mask_background_main.png"
+                                            preferredWidth: 768
+                                            preferredHeight: 438
+                                            layoutProperties: AbsoluteLayoutProperties {
+                                                positionY: 30
+                                            }
+                                            visible: true
                                         }
                          
-                                        preferredWidth: 768/2 - 128/2 
-                                        id: feels_like_temp_text_id
-                                        horizontalAlignment: HorizontalAlignment.Center
-                                        verticalAlignment: VerticalAlignment.Center
-                                        textStyle.textAlign: TextAlign.Center
-                                        text: ListItemData.feels_like_temp_text 
-                                        textStyle {
-                                            base: SystemDefaults.TextStyles.BigText
-                                            color: Color.White
-                                        }
-                                    }    
-                                }
-                            }               
-                            Container{
-                                id: current_temperature
-                                horizontalAlignment: HorizontalAlignment.Left
-                                preferredWidth: 768/2 - 128/2 
-                                Container{
-                                    layout: AbsoluteLayout {}
-                                    Label { 
-                                        layoutProperties: AbsoluteLayoutProperties {
-                                            positionY: 0.0
-                                        }
-                                        id: current_temp_description
-                                        preferredWidth: 768/2 - 128/2 
-                                        text: Qt.Config.tr("Temperature")
-                                        horizontalAlignment: HorizontalAlignment.Center
-                                        verticalAlignment: VerticalAlignment.Center
-                                        textStyle.textAlign: TextAlign.Center
-                                        textStyle {
-                                            base: SystemDefaults.TextStyles.SmallText
-                                            color: Color.Gray
-                                        }
-                                    }
-
-                                    Label {
-                                        layoutProperties: AbsoluteLayoutProperties {
-                                            positionY: 20.0
-                                        }
-
-                                        id: current_temp_text_id
-                                        text: ListItemData.current_temp_text
-                                        preferredWidth: 768/2 - 128/2 
-                                        horizontalAlignment: HorizontalAlignment.Center
-                                        verticalAlignment: VerticalAlignment.Center
-                                        textStyle.textAlign: TextAlign.Center
-                                        textStyle {
-                                            base: SystemDefaults.TextStyles.BigText
-                                            color: Color.White
-                                        }
-                                        onCreationCompleted: {
-                                          //  main.update_current_data();
-                                        }
-                                    }
-                                }
-                            }
-
-                        }
-                        Container{
-                            id: title
-                            preferredWidth: 768
-                            layout: DockLayout {}
-                            layoutProperties: AbsoluteLayoutProperties {
-                                positionY: 165.0
-                            }
-                            Label {                 
-                                id: title_text
-                                text: ListItemData.description_text 
-                                horizontalAlignment: HorizontalAlignment.Center
-                                textStyle {
-                                   base: SystemDefaults.TextStyles.BodyText
-                                   color: Color.White
-                                }
-                            }
-                        }
-                        Container{
-                            id: humidity_and_wind_direction
-                            preferredWidth: 768
-                            layout: StackLayout {
-                                orientation: LayoutOrientation.LeftToRight
-                            }
-                            layoutProperties: AbsoluteLayoutProperties {
-                                positionY: 260.0
-                            }
-                            Container{
-                                id: humidity
-                                horizontalAlignment: HorizontalAlignment.Left
-                                preferredWidth: 768/2
-                                layout: AbsoluteLayout {
-                                }
-                                Label { 
-                                    layoutProperties: AbsoluteLayoutProperties {
-                                        positionY: 0.0
-                                        positionX: 20.0
-                                    }
-                                    id: humidity_description
-                                    preferredWidth: 768/2 - 128/2 - 20
-                                    text: Qt.Config.tr("Humidity")
-                                    horizontalAlignment: HorizontalAlignment.Center
-                                    verticalAlignment: VerticalAlignment.Center
-                                    textStyle.textAlign: TextAlign.Left
-                                    textStyle {
-                                        base: SystemDefaults.TextStyles.SmallText
-                                        color: Color.Gray
-                                    }
-                                }
-                                Label {
-                                    id: humidity_text_id
-                                    preferredWidth: 768/2 - 128/2 - 20
-                                    layoutProperties: AbsoluteLayoutProperties {
-                                        positionY: 30.0
-                                        positionX: 20.0
-                                    }
-                                    text: ListItemData.humidity;
-                                    verticalAlignment: VerticalAlignment.Center
-                                    textStyle.textAlign: TextAlign.Left
-                                    textStyle {
-                                        base: SystemDefaults.TextStyles.BodyText
-                                        color: Color.White
-                                    }
-                                }
-                            }
-                            Container{
-                                id: wind_direction
-                                horizontalAlignment: HorizontalAlignment.Left
-                                layout: StackLayout {
-                                    orientation: LayoutOrientation.LeftToRight
-                                }
-                                Container{
-                                    layout: AbsoluteLayout {
-                                    }
-                                    Label { 
-                                        layoutProperties: AbsoluteLayoutProperties {
-                                            positionY: 0.0
-                                        }
-                                        id: wind_directory_description
-                                        preferredWidth: 768/2 - 128/2 
-                                        text: Qt.Config.tr("Wind direction")
-                                        horizontalAlignment: HorizontalAlignment.Center
-                                        verticalAlignment: VerticalAlignment.Center
-                                        textStyle.textAlign: TextAlign.Left
-                                        textStyle {
-                                            base: SystemDefaults.TextStyles.SmallText
-                                            color: Color.Gray
-                                        }
-                                    }
-                                    Label {
-                                        id: wind_direction_text_id
-                                        preferredWidth: 768/2 - 128/2 
-                                        layoutProperties: AbsoluteLayoutProperties {
-                                            positionY: 30.0
-                                        }
-                                        text:  ListItemData.wind_direction
-                                        textStyle.textAlign: TextAlign.Left
-                                        textStyle {
-                                            base: SystemDefaults.TextStyles.BodyText
-                                            color: Color.White
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        Container{
-                            id: pressure_and_wind_speed
-                            preferredWidth: 768
-                            layout: StackLayout {
-                                orientation: LayoutOrientation.LeftToRight
-                            }
-                            layoutProperties: AbsoluteLayoutProperties {
-                                positionY: 360.0
-                            }
-                            Container{
-                                layout: AbsoluteLayout {
-                                }
-                                id: pressure
-                                horizontalAlignment: HorizontalAlignment.Left
-                                preferredWidth: 768/2
-                                Label { 
-                                    layoutProperties: AbsoluteLayoutProperties {
-                                        positionY: 0.0
-                                        positionX: 20.0
-                                    }
-                                    id: pressure_description
-                                    preferredWidth: 768/2 - 128/2 - 20
-                                    text: Qt.Config.tr("Pressure")
-                                    horizontalAlignment: HorizontalAlignment.Center
-                                    verticalAlignment: VerticalAlignment.Center
-                                    textStyle.textAlign: TextAlign.Left
-                                    textStyle {
-                                        base: SystemDefaults.TextStyles.SmallText
-                                        color: Color.Gray
-                                    }
-                                }
-                                Label {
-                                    id: pressure_text_id
-                                    text: ListItemData.pressure
-                                    preferredWidth: 768/2 - 128/2 - 20
-                                    layoutProperties: AbsoluteLayoutProperties {
-                                        positionY: 30.0
-                                        positionX: 20.0
-                                    }
-                                    textStyle.textAlign: TextAlign.Left
-                                    textStyle {
-                                        base: SystemDefaults.TextStyles.BodyText
-                                        color: Color.White
-                                    }
-                                }
-                            }
-                            Container{
-                                id: wind_speed
-                                horizontalAlignment: HorizontalAlignment.Left
-                                layout: AbsoluteLayout {
-                                }
-                                Label { 
-                                    layoutProperties: AbsoluteLayoutProperties {
-                                        positionY: 0.0
-                                    }
-                                    id: wind_speed_description
-                                    preferredWidth: 768/2 - 128/2 
-                                    text: Qt.Config.tr("Wind speed")
-                                    horizontalAlignment: HorizontalAlignment.Center
-                                    verticalAlignment: VerticalAlignment.Center
-                                    textStyle.textAlign: TextAlign.Left
-                                    textStyle {
-                                        base: SystemDefaults.TextStyles.SmallText
-                                        color: Color.Gray
-                                    }
-                                }
-                                Label {
-                                    id: wind_speed_text_id
-                                    text: ListItemData.wind_speed
-                                    preferredWidth: 768/2 - 128/2 
-                                    layoutProperties: AbsoluteLayoutProperties {
-                                            positionY: 30.0
-                                    }
-                                    textStyle.textAlign: TextAlign.Left
-                                    textStyle {
-                                        base: SystemDefaults.TextStyles.BodyText
-                                        color: Color.White
-                                    }
-                                }
-                            }        
-                        }                   
-                    }
-                    Container{
-                        preferredWidth: 768
-                        layout: DockLayout {}
-                        layoutProperties: AbsoluteLayoutProperties {
-                            positionX: 0
-                            positionY: 0
-                        }
-                        background: Color.Black
-                        ImageButton {                 
-                           id: left_arrow_id
-                           visible: ListItemData.left_arrow;
-                           horizontalAlignment: HorizontalAlignment.Left
-                           verticalAlignment: VerticalAlignment.Center
-                           preferredWidth: 62*1.6
-                           preferredHeight: 62*1.6
-                           defaultImageSource: "asset:///share/images/arrow_left.png"
-                           onClicked: {
-                                Qt.Config.prevstation();
-                                Qt.main.updatestationname();
-                           }
-                    }
-                    Container{
-                        layout: DockLayout {}
-                        preferredWidth: 600 
-                        horizontalAlignment: HorizontalAlignment.Center 
-                        Label {                 
-                            id: stationname
-                            horizontalAlignment: HorizontalAlignment.Center
-                            textStyle {
-                                base: SystemDefaults.TextStyles.BigText
-                                color: Color.White
-                            }
-                            text: ListItemData.stationname
-                        }
-                    }
-                    ImageButton {                 
-                       id: right_arrow_id
-                       visible: ListItemData.right_arrow;
-                       verticalAlignment: VerticalAlignment.Center
-                       horizontalAlignment: HorizontalAlignment.Right
-                       defaultImageSource: "asset:///share/images/arrow_right.png"
-                       preferredWidth: 62*1.6
-                       preferredHeight: 62*1.6
-                       onClicked: {
-                            Qt.Config.nextstation();
-                            Qt.main.updatestationname();
-                       }
-                    }
-                }
-                ImageView {
-                    id: main_icon
-                    layoutProperties: AbsoluteLayoutProperties {
-                        positionX: 768/2 - 64 
-                        positionY: 150
-                    }
-                    preferredWidth: 128
-                    preferredHeight: 128
-                   // imageSource: Config.iconspath + "/" + Config.iconset + "/" + Current.getdata(0, "pict")
-                    imageSource: ListItemData.pict 
-                    horizontalAlignment: HorizontalAlignment.Center
-                    overlapTouchPolicy: OverlapTouchPolicy.Allow
-                    touchPropagationMode: TouchPropagationMode.PassThrough
-                } 
-                Container{
-                        horizontalAlignment: HorizontalAlignment.Left
-                        preferredWidth: 768 
-                        layoutProperties: AbsoluteLayoutProperties {
-                            positionY: 110.0
-                        }
-                        Label {
-                            text: Qt.Current.getdata(0, "current") == true ? Qt.Config.tr("Now") : Qt.Config.tr("Today")
-                            horizontalAlignment: HorizontalAlignment.Center
-                            verticalAlignment: VerticalAlignment.Center
-                            textStyle.textAlign: TextAlign.Center
-                            textStyle {
-                                base: SystemDefaults.TextStyles.SmallText
-                                color: Color.White
-                            }
-                        }
-                }
-
-
-
-
-
-                                    }
-                                    Container{
-                                    layout: DockLayout {
-                                    }
-                                    visible: ListItemData.number == 0 ? false : true;
-                                    background: Color.create(ListItemData.bg_color)
-                                    preferredWidth: 768
-                                    Container{
-                                        layout: StackLayout {
-                                            orientation: LayoutOrientation.LeftToRight
-                                        }
-                                        preferredWidth: 768/2
-                                        verticalAlignment: VerticalAlignment.Center
-                                        horizontalAlignment: HorizontalAlignment.Left
                                         Container{
-                                            preferredWidth: 20
-                                            maxWidth: 20
-                                        }
-                                        Container{
-                                            layout: AbsoluteLayout {
+                                            preferredWidth: 768
+                                            layout: DockLayout {}
+                                            layoutProperties: AbsoluteLayoutProperties {
+                                                positionY: 50.0
                                             }
+                                            Container{
+                                                id: feel_like_temperature
+                                                visible: ListItemData.feel_like_temperature_visible 
+                                                horizontalAlignment: HorizontalAlignment.Right
+                                                preferredWidth: 768/2 - 128/2                   
 
-                                            Label {
-                                                text: ListItemData.fulldate
-                                                textStyle.textAlign: TextAlign.Left
-                                                preferredWidth: 768/2 - 128/2 - 20
-                                                textStyle {    
-                                                    base: SystemDefaults.TextStyles.SmallText
-                                                    color: Color.Gray
+                                                Container{
+                                                    layout: AbsoluteLayout {} 
+                                                    Label { 
+                                                        layoutProperties: AbsoluteLayoutProperties {
+                                                            positionY: 0.0
+                                                        }
+                                                        id: feels_like_temp_description
+                                                        preferredWidth: 768/2 - 128/2 
+                                                        text: Qt.Config.tr("Feels like")
+                                                        horizontalAlignment: HorizontalAlignment.Center
+                                                        verticalAlignment: VerticalAlignment.Center
+                                                        textStyle.textAlign: TextAlign.Center
+                                                        textStyle {
+                                                            base: SystemDefaults.TextStyles.SmallText
+                                                            color: Color.Gray
+                                                        }
+                                                    }
+                                                    Label {
+                                                        layoutProperties: AbsoluteLayoutProperties {
+                                                            positionY: 20.0
+                                                        }
+                                         
+                                                        preferredWidth: 768/2 - 128/2 
+                                                        id: feels_like_temp_text_id
+                                                        horizontalAlignment: HorizontalAlignment.Center
+                                                        verticalAlignment: VerticalAlignment.Center
+                                                        textStyle.textAlign: TextAlign.Center
+                                                        text: ListItemData.feels_like_temp_text 
+                                                        textStyle {
+                                                            base: SystemDefaults.TextStyles.BigText
+                                                            color: Color.White
+                                                        }
+                                                    }    
+                                                }
+                                            }               
+                                            Container{
+                                                id: current_temperature
+                                                horizontalAlignment: HorizontalAlignment.Left
+                                                preferredWidth: 768/2 - 128/2 
+                                                Container{
+                                                    layout: AbsoluteLayout {}
+                                                    Label { 
+                                                        layoutProperties: AbsoluteLayoutProperties {
+                                                            positionY: 0.0
+                                                        }
+                                                        id: current_temp_description
+                                                        preferredWidth: 768/2 - 128/2 
+                                                        text: Qt.Config.tr("Temperature")
+                                                        horizontalAlignment: HorizontalAlignment.Center
+                                                        verticalAlignment: VerticalAlignment.Center
+                                                        textStyle.textAlign: TextAlign.Center
+                                                        textStyle {
+                                                            base: SystemDefaults.TextStyles.SmallText
+                                                            color: Color.Gray
+                                                        }
+                                                    }
+
+                                                    Label {
+                                                        layoutProperties: AbsoluteLayoutProperties {
+                                                            positionY: 20.0
+                                                        }
+
+                                                        id: current_temp_text_id
+                                                        text: ListItemData.current_temp_text
+                                                        preferredWidth: 768/2 - 128/2 
+                                                        horizontalAlignment: HorizontalAlignment.Center
+                                                        verticalAlignment: VerticalAlignment.Center
+                                                        textStyle.textAlign: TextAlign.Center
+                                                        textStyle {
+                                                            base: SystemDefaults.TextStyles.BigText
+                                                            color: Color.White
+                                                        }
+                                                        onCreationCompleted: {
+                                                          //  main.update_current_data();
+                                                        }
+                                                    }
                                                 }
                                             }
-                                            Label {
-                                                text: ListItemData.shortdate
-                                                preferredWidth: 768/2 - 128/2 - 20
-                                                layoutProperties: AbsoluteLayoutProperties {
-                                                    positionY: 30.0
-                                                }
-                                                textStyle.textAlign: TextAlign.Left
+
+                                        }
+                                        Container{
+                                            id: title
+                                            preferredWidth: 768
+                                            layout: DockLayout {}
+                                            layoutProperties: AbsoluteLayoutProperties {
+                                                positionY: 165.0
+                                            }
+                                            Label {                 
+                                                id: title_text
+                                                text: ListItemData.description_text 
+                                                horizontalAlignment: HorizontalAlignment.Center
                                                 textStyle {
-                                                    base: SystemDefaults.TextStyles.BodyText
+                                                   base: SystemDefaults.TextStyles.BodyText
+                                                   color: Color.White
+                                                }
+                                            }
+                                        }
+                                        Container{
+                                            id: humidity_and_wind_direction
+                                            preferredWidth: 768
+                                            layout: StackLayout {
+                                                orientation: LayoutOrientation.LeftToRight
+                                            }
+                                            layoutProperties: AbsoluteLayoutProperties {
+                                                positionY: 260.0
+                                            }
+                                            Container{
+                                                id: humidity
+                                                horizontalAlignment: HorizontalAlignment.Left
+                                                preferredWidth: 768/2
+                                                layout: AbsoluteLayout {
+                                                }
+                                                Label { 
+                                                    layoutProperties: AbsoluteLayoutProperties {
+                                                        positionY: 0.0
+                                                        positionX: 20.0
+                                                    }
+                                                    id: humidity_description
+                                                    preferredWidth: 768/2 - 128/2 - 20
+                                                    text: Qt.Config.tr("Humidity")
+                                                    horizontalAlignment: HorizontalAlignment.Center
+                                                    verticalAlignment: VerticalAlignment.Center
+                                                    textStyle.textAlign: TextAlign.Left
+                                                    textStyle {
+                                                        base: SystemDefaults.TextStyles.SmallText
+                                                        color: Color.Gray
+                                                    }
+                                                }
+                                                Label {
+                                                    id: humidity_text_id
+                                                    preferredWidth: 768/2 - 128/2 - 20
+                                                    layoutProperties: AbsoluteLayoutProperties {
+                                                        positionY: 30.0
+                                                        positionX: 20.0
+                                                    }
+                                                    text: ListItemData.humidity;
+                                                    verticalAlignment: VerticalAlignment.Center
+                                                    textStyle.textAlign: TextAlign.Left
+                                                    textStyle {
+                                                        base: SystemDefaults.TextStyles.BodyText
+                                                        color: Color.White
+                                                    }
+                                                }
+                                            }
+                                            Container{
+                                                id: wind_direction
+                                                horizontalAlignment: HorizontalAlignment.Left
+                                                layout: StackLayout {
+                                                    orientation: LayoutOrientation.LeftToRight
+                                                }
+                                                Container{
+                                                    layout: AbsoluteLayout {
+                                                    }
+                                                    Label { 
+                                                        layoutProperties: AbsoluteLayoutProperties {
+                                                            positionY: 0.0
+                                                        }
+                                                        id: wind_directory_description
+                                                        preferredWidth: 768/2 - 128/2 
+                                                        text: Qt.Config.tr("Wind direction")
+                                                        horizontalAlignment: HorizontalAlignment.Center
+                                                        verticalAlignment: VerticalAlignment.Center
+                                                        textStyle.textAlign: TextAlign.Left
+                                                        textStyle {
+                                                            base: SystemDefaults.TextStyles.SmallText
+                                                            color: Color.Gray
+                                                        }
+                                                    }
+                                                    Label {
+                                                        id: wind_direction_text_id
+                                                        preferredWidth: 768/2 - 128/2 
+                                                        layoutProperties: AbsoluteLayoutProperties {
+                                                            positionY: 30.0
+                                                        }
+                                                        text:  ListItemData.wind_direction
+                                                        textStyle.textAlign: TextAlign.Left
+                                                        textStyle {
+                                                            base: SystemDefaults.TextStyles.BodyText
+                                                            color: Color.White
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        Container{
+                                            id: pressure_and_wind_speed
+                                            preferredWidth: 768
+                                            layout: StackLayout {
+                                                orientation: LayoutOrientation.LeftToRight
+                                            }
+                                            layoutProperties: AbsoluteLayoutProperties {
+                                                positionY: 360.0
+                                            }
+                                            Container{
+                                                layout: AbsoluteLayout {
+                                                }
+                                                id: pressure
+                                                horizontalAlignment: HorizontalAlignment.Left
+                                                preferredWidth: 768/2
+                                                Label { 
+                                                    layoutProperties: AbsoluteLayoutProperties {
+                                                        positionY: 0.0
+                                                        positionX: 20.0
+                                                    }
+                                                    id: pressure_description
+                                                    preferredWidth: 768/2 - 128/2 - 20
+                                                    text: Qt.Config.tr("Pressure")
+                                                    horizontalAlignment: HorizontalAlignment.Center
+                                                    verticalAlignment: VerticalAlignment.Center
+                                                    textStyle.textAlign: TextAlign.Left
+                                                    textStyle {
+                                                        base: SystemDefaults.TextStyles.SmallText
+                                                        color: Color.Gray
+                                                    }
+                                                }
+                                                Label {
+                                                    id: pressure_text_id
+                                                    text: ListItemData.pressure
+                                                    preferredWidth: 768/2 - 128/2 - 20
+                                                    layoutProperties: AbsoluteLayoutProperties {
+                                                        positionY: 30.0
+                                                        positionX: 20.0
+                                                    }
+                                                    textStyle.textAlign: TextAlign.Left
+                                                    textStyle {
+                                                        base: SystemDefaults.TextStyles.BodyText
+                                                        color: Color.White
+                                                    }
+                                                }
+                                            }
+                                            Container{
+                                                id: wind_speed
+                                                horizontalAlignment: HorizontalAlignment.Left
+                                                layout: AbsoluteLayout {
+                                                }
+                                                Label { 
+                                                    layoutProperties: AbsoluteLayoutProperties {
+                                                        positionY: 0.0
+                                                    }
+                                                    id: wind_speed_description
+                                                    preferredWidth: 768/2 - 128/2 
+                                                    text: Qt.Config.tr("Wind speed")
+                                                    horizontalAlignment: HorizontalAlignment.Center
+                                                    verticalAlignment: VerticalAlignment.Center
+                                                    textStyle.textAlign: TextAlign.Left
+                                                    textStyle {
+                                                        base: SystemDefaults.TextStyles.SmallText
+                                                        color: Color.Gray
+                                                    }
+                                                }
+                                                Label {
+                                                    id: wind_speed_text_id
+                                                    text: ListItemData.wind_speed
+                                                    preferredWidth: 768/2 - 128/2 
+                                                    layoutProperties: AbsoluteLayoutProperties {
+                                                            positionY: 30.0
+                                                    }
+                                                    textStyle.textAlign: TextAlign.Left
+                                                    textStyle {
+                                                        base: SystemDefaults.TextStyles.BodyText
+                                                        color: Color.White
+                                                    }
+                                                }
+                                            }        
+                                        }                   
+                                    }
+                                    Container{
+                                        preferredWidth: 768
+                                        layout: DockLayout {}
+                                        layoutProperties: AbsoluteLayoutProperties {
+                                            positionX: 0
+                                            positionY: 0
+                                        }
+                                        background: Color.Black
+                                        ImageButton {                 
+                                           id: left_arrow_id
+                                           visible: ListItemData.left_arrow;
+                                           horizontalAlignment: HorizontalAlignment.Left
+                                           verticalAlignment: VerticalAlignment.Center
+                                           preferredWidth: 62*1.6
+                                           preferredHeight: 62*1.6
+                                           defaultImageSource: "asset:///share/images/arrow_left.png"
+                                           onClicked: {
+                                                Qt.Config.prevstation();
+                                                Qt.main.updatestationname();
+                                           }
+                                        }
+                                        Container{
+                                            layout: DockLayout {}
+                                            preferredWidth: 600 
+                                            horizontalAlignment: HorizontalAlignment.Center 
+                                            Label {                 
+                                                id: stationname
+                                                horizontalAlignment: HorizontalAlignment.Center
+                                                textStyle {
+                                                    base: SystemDefaults.TextStyles.BigText
+                                                    color: Color.White
+                                                }
+                                                text: ListItemData.stationname
+                                            }
+                                        }
+                                        ImageButton {                 
+                                           id: right_arrow_id
+                                           visible: ListItemData.right_arrow;
+                                           verticalAlignment: VerticalAlignment.Center
+                                           horizontalAlignment: HorizontalAlignment.Right
+                                           defaultImageSource: "asset:///share/images/arrow_right.png"
+                                           preferredWidth: 62*1.6
+                                           preferredHeight: 62*1.6
+                                           onClicked: {
+                                                Qt.Config.nextstation();
+                                                Qt.main.updatestationname();
+                                           }
+                                        }
+                                    }
+                                        ImageView {
+                                            id: main_icon
+                                            layoutProperties: AbsoluteLayoutProperties {
+                                                positionX: 768/2 - 64 
+                                                positionY: 150
+                                            }
+                                            preferredWidth: 128
+                                            preferredHeight: 128
+                                           // imageSource: Config.iconspath + "/" + Config.iconset + "/" + Current.getdata(0, "pict")
+                                            imageSource: ListItemData.pict 
+                                            horizontalAlignment: HorizontalAlignment.Center
+                                            overlapTouchPolicy: OverlapTouchPolicy.Allow
+                                            touchPropagationMode: TouchPropagationMode.PassThrough
+                                        } 
+                                        Container{
+                                            horizontalAlignment: HorizontalAlignment.Left
+                                            preferredWidth: 768 
+                                            layoutProperties: AbsoluteLayoutProperties {
+                                                positionY: 110.0
+                                            }
+                                            Label {
+                                                text: Qt.Current.getdata(0, "current") == true ? Qt.Config.tr("Now") : Qt.Config.tr("Today")
+                                                horizontalAlignment: HorizontalAlignment.Center
+                                                verticalAlignment: VerticalAlignment.Center
+                                                textStyle.textAlign: TextAlign.Center
+                                                textStyle {
+                                                    base: SystemDefaults.TextStyles.SmallText
                                                     color: Color.White
                                                 }
                                             }
                                         }
                                     }
-                                    ImageView {
-                                         imageSource: ListItemData.pict
-                                         horizontalAlignment: HorizontalAlignment.Center                
-                                    }
                                     Container{
-                                        layout: StackLayout {
-                                            orientation: LayoutOrientation.LeftToRight
+                                        layout: DockLayout {
                                         }
-                                        
-                                        horizontalAlignment: HorizontalAlignment.Right
-                                        verticalAlignment: VerticalAlignment.Center
-                                        Label {
-                                            text: ListItemData.temp_high + '°'
-                                            horizontalAlignment: HorizontalAlignment.Right
-                                            preferredWidth: 100
-                                            textStyle.textAlign: TextAlign.Right
-                                            textStyle {
-                                                base: SystemDefaults.TextStyles.BodyText
-                                                color: Color.create(ListItemData.hi_temp_color)
+                                        visible: ListItemData.number == 0 ? false : true;
+                                        background: Color.create(ListItemData.bg_color)
+                                        preferredWidth: 768
+                                        Container{
+                                            layout: StackLayout {
+                                                orientation: LayoutOrientation.LeftToRight
+                                            }
+                                            preferredWidth: 768/2
+                                            verticalAlignment: VerticalAlignment.Center
+                                            horizontalAlignment: HorizontalAlignment.Left
+                                            Container{
+                                                preferredWidth: 20
+                                                maxWidth: 20
+                                            }
+                                            Container{
+                                                layout: AbsoluteLayout {
+                                                }
+
+                                                Label {
+                                                    text: ListItemData.fulldate
+                                                    textStyle.textAlign: TextAlign.Left
+                                                    preferredWidth: 768/2 - 128/2 - 20
+                                                    textStyle {    
+                                                        base: SystemDefaults.TextStyles.SmallText
+                                                        color: Color.Gray
+                                                    }
+                                                }
+                                                Label {
+                                                    text: ListItemData.shortdate
+                                                    preferredWidth: 768/2 - 128/2 - 20
+                                                    layoutProperties: AbsoluteLayoutProperties {
+                                                        positionY: 30.0
+                                                    }
+                                                    textStyle.textAlign: TextAlign.Left
+                                                    textStyle {
+                                                        base: SystemDefaults.TextStyles.BodyText
+                                                        color: Color.White
+                                                    }
+                                                }
                                             }
                                         }
-                                        Label {
-                                            text: ListItemData.temp_low + '°'
-                                            horizontalAlignment: HorizontalAlignment.Right
-                                            preferredWidth: 100
-                                            textStyle.textAlign: TextAlign.Right
-                                            textStyle {
-                                                base: SystemDefaults.TextStyles.BodyText
-                                                color: Color.create("#889397")
-                                            }
-                                            onCreationCompleted: {
-                                                console.log("ppppppppppppppppppppppppppp\n");
-                                            }
+                                        ImageView {
+                                             imageSource: ListItemData.pict
+                                             horizontalAlignment: HorizontalAlignment.Center                
                                         }
                                         Container{
-                                            preferredWidth: 20
-                                            maxWidth: 20
-                                        }
-                                    }                                                                                                   
-                                } 
-                            }
+                                            layout: StackLayout {
+                                                orientation: LayoutOrientation.LeftToRight
+                                            }
+                                            
+                                            horizontalAlignment: HorizontalAlignment.Right
+                                            verticalAlignment: VerticalAlignment.Center
+                                            Label {
+                                                text: ListItemData.temp_high + '°'
+                                                horizontalAlignment: HorizontalAlignment.Right
+                                                preferredWidth: 100
+                                                textStyle.textAlign: TextAlign.Right
+                                                textStyle {
+                                                    base: SystemDefaults.TextStyles.BodyText
+                                                    color: Color.create(ListItemData.hi_temp_color)
+                                                }
+                                            }
+                                            Label {
+                                                text: ListItemData.temp_low + '°'
+                                                horizontalAlignment: HorizontalAlignment.Right
+                                                preferredWidth: 100
+                                                textStyle.textAlign: TextAlign.Right
+                                                textStyle {
+                                                    base: SystemDefaults.TextStyles.BodyText
+                                                    color: Color.create("#889397")
+                                                }
+                                            }
+                                            Container{
+                                                preferredWidth: 20
+                                                maxWidth: 20
+                                            }
+                                        }                                                                                                   
+                                    } 
+                                }
                             }
                         ]
                         onTriggered: {             
@@ -832,8 +821,7 @@ NavigationPane {
                             var newPage = fullpageDefinition.createObject();
                             rootWindow.push(newPage);
                         }
-
-                                                }
+                    }
                 }
                 Button {
                     horizontalAlignment: HorizontalAlignment.Center

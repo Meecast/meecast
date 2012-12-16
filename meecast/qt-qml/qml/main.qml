@@ -6,14 +6,16 @@ NavigationPane {
     id: rootWindow
     property color current_rect_back_background :  "Red" 
     property bool feel_like_temperature_visible : false
-    property string feels_like_temp_text_text : ""
+    property string feels_like_temp_text : ""
     property string main_icon_imageSource : "" 
     property string title_text_text : ""
-    property string current_temp_text: "day"
+    property string current_temp_text: ""
     property string humidity_text: "" 
     property string pressure_text: ""
     property string wind_speed_text: ""
     property string wind_direction_text: ""    
+    property bool  left_arrow : false
+    property bool  right_arrow : false
 
     // Create the initial screen
     Page {
@@ -27,23 +29,51 @@ NavigationPane {
 
         function update_list(){
             forrecasts_list.dataModel.clear();
-            for (var a = 0; a < Forecast_model.rowCount(); a++) {
-                forrecasts_list.dataModel.insert(
-                    {
-                     "fulldate" : Forecast_model.getdata(a, "fulldate"),
-                     "shortdate" : Forecast_model.getdata(a, "shortdate"),
-                     "pict" : Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(a, "pict"),
-                     "temp_high" : Forecast_model.getdata(a, "temp_high"),
-                     "temp_low" : Forecast_model.getdata(a, "temp_low"),
-                     "bg_color" :  (a % 2 != 0) ? "#000000" : "#0f0f0f",
-                     "hi_temp_color" :  main.getColor(Forecast_model.getdata(a, "temp_high")),
-                     "wind_speed" : Forecast_model.getdata(a, "wind_speed"), 
-                     "number" : a
-                    }
-                )
+            for (var a = 0; a < Forecast_model.rowCount() + 1; a++) {
+                if (a == 0){
+                    forrecasts_list.dataModel.insert(
+                        {
+                         "fulldate" : Forecast_model.getdata(a, "fulldate"),
+                         "shortdate" : Forecast_model.getdata(a, "shortdate"),
+                         "pict" : Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(a, "pict"),
+                         "temp_high" : Forecast_model.getdata(a, "temp_high"),
+                         "temp_low" : Forecast_model.getdata(a, "temp_low"),
+                         "bg_color" :  (a % 2 != 0) ? "#000000" : "#0f0f0f",
+                         "hi_temp_color" :  main.getColor(Forecast_model.getdata(a, "temp_high")),
+                         "wind_speed" : Forecast_model.getdata(a, "wind_speed"), 
+                         "number" : a,
+                         "bg_color" : current_rect_back_background,
+                         "stationname" : Config.stationname == "Unknown" ? "MeeCast" : Config.stationname,
+                         "feel_like_temperature_visible" : feel_like_temperature_visible,
+                         "feels_like_temp_text" : feels_like_temp_text  
+                        }
+                    )
+                }else{
+                    forrecasts_list.dataModel.insert(
+                        {
+                         "fulldate" : Forecast_model.getdata(a-1, "fulldate"),
+                         "shortdate" : Forecast_model.getdata(a-1 , "shortdate"),
+                         "pict" : Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(a-1, "pict"),
+                         "temp_high" : Forecast_model.getdata(a-1, "temp_high"),
+                         "temp_low" : Forecast_model.getdata(a-1, "temp_low"),
+                         "bg_color" :  ((a-1) % 2 != 0) ? "#000000" : "#0f0f0f",
+                         "hi_temp_color" :  main.getColor(Forecast_model.getdata(a-1, "temp_high")),
+                         "wind_speed" : Forecast_model.getdata(a-1, "wind_speed"), 
+                         "number" : a,
+                         "feel_like_temperature_visible" : feel_like_temperature_visible  
+                        }
+                    )
+                }
             }
         }
+        function get_stationname_text(){
+            return "eeeeeeee";
+        }
         function update_current_data(){
+            console.log("update_current_data!!!!!!!!!!!!!");
+            left_arrow = Config.prevstationname == "" ? false : true;
+            right_arrow = Config.nextstationname == "" ? false : true;
+
             if (Current.getdata(0, "temp") == "N/A"){
                 current_temp_text = ""
                 if (Current.getdata(0, "temp_high") != "N/A")
@@ -54,13 +84,17 @@ NavigationPane {
                 current_rect_back_background = main.getColor(Current.getdata(0, "temp_high"));
             }else{
                current_temp_text = Current.getdata(0, "temp") + '°'
-               current_rect_back_background = main.getColor(Current.getdata(0, "temp"));
+               console.log(Current.getdata(0, "temp"));
+               if (Current.getdata(0, "temp") > -273){
+                   current_rect_back_background = main.getColor(Current.getdata(0, "temp"));
+               }
+               
             }
             if (Current.getdata(0, "flike") == "N/A"){
                 feel_like_temperature_visible = false;
             }else{
                 feel_like_temperature_visible = true;
-                feels_like_temp_text_text = Current.getdata(0, "flike") + '°'
+                feels_like_temp_text = Current.getdata(0, "flike") + '°'
             }
             main_icon_imageSource = Config.iconspath + "/" + Config.iconset + "/" + Current.getdata(0, "pict")
             title_text_text = Config.tr(Current.getdata(0, "description"));
@@ -70,6 +104,7 @@ NavigationPane {
             wind_speed_text = Current.getdata(0, "wind_speed") + ' ' + Config.tr(Config.windspeedunit);
             //wind_direction_arrow.rotationZ =  wind_direction.getAngle(Current.getdata(0, "wind_direction"));
             wind_direction_text = Config.tr(Current.getdata(0, "wind_direction"));
+
 
         }
 
@@ -146,9 +181,10 @@ NavigationPane {
             console.log("updatestationname() ", Config.stationname );
             console.log(" pATH !!!! ", Config.imagespath);
             main.updatemodels();
-            stationname.text = Config.stationname == "Unknown" ? "MeeCast" : Config.stationname
-            left_arrow.visible = Config.prevstationname == "" ? false : true;
-            right_arrow.visible = Config.nextstationname == "" ? false : true;
+            //stationname_text = Config.stationname == "Unknown" ? "MeeCast" : Config.stationname
+
+            //left_arrow = Config.prevstationname == "" ? false : true;
+            //right_arrow = Config.nextstationname == "" ? false : true;
             sourceicon.visible = false;
             sourceicon.imageSource = Config.imagespath + "/" + Config.source + ".png";
             sourceicon.visible = true;
@@ -166,16 +202,16 @@ NavigationPane {
         function updatemodels()
         {
             Current.reload_data(Config.filename);
+            main.update_current_data();
             Current.update_model(0);
             Current_night.update_model(1);
             Forecast_model.update_model(2);
             Forecast_night_model.update_model(3);
             Forecast_hours_model.update_model(4);
             main.update_list();
-            main.update_current_data();
             //list.height = 80 * Forecast_model.rowCount();
             //dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
-            current_rect.visible = Current.rowCount() == 0 ? false : true;
+            //current_rect.visible = Current.rowCount() == 0 ? false : true;
             //list.visible = (Forecast_model.rowCount() == 0) ? false : true;
         }
 
@@ -268,8 +304,7 @@ NavigationPane {
                         onCreationCompleted: {
                             main.update_current_data();
                             Qt.Config = Config
-                            Qt.current_rect_back_background = current_rect_back_background 
-                            Qt.feel_like_temperature_visible = feel_like_temperature_visible 
+                            Qt.current_temp_text = current_temp_text
                             Qt.wind_direction_text = wind_direction_text
                             Qt.wind_speed_text = wind_speed_text 
                             Qt.humidity_text = humidity_text 
@@ -278,6 +313,9 @@ NavigationPane {
                             Qt.Current = Current
                             Qt.wind_speed_text = wind_speed_text
                             Qt.main_icon_imageSource = main_icon_imageSource 
+                            Qt.main = main
+                            Qt.left_arrow = left_arrow
+                            Qt.right_arrow = right_arrow
 
                             main.update_list();
                         }
@@ -297,15 +335,15 @@ NavigationPane {
                             positionX: 0
                             positionY: 95
                         }
-                        onTouch: {
-                            if (event.isDown()) {
-                                main.day = 0;
-                                main.day_period = "day";
-                                main.current = true;
-                                var newPage = fullpageDefinition.createObject();
-                                rootWindow.push(newPage);
-                            }
-                        }
+                      //  onTouch: {
+                      //      if (event.isDown()) {
+                      //          main.day = 0;
+                      //          main.day_period = "day";
+                      //          main.current = true;
+                      //          var newPage = fullpageDefinition.createObject();
+                      //          rootWindow.push(newPage);
+                      //     }
+                      //  }
                         
                         id: current_rect
                         //visible: Current.rowCount() == 0 ? false : true
@@ -318,7 +356,7 @@ NavigationPane {
                             layoutProperties: AbsoluteLayoutProperties {
                                 positionY: 30
                             }
-                            background: Color.create(Qt.current_rect_back_background)
+                            background: Color.create(ListItemData.bg_color)
                         }
                         ImageView {
                             imageSource: "asset:///share/images/mask_background_main.png"
@@ -338,7 +376,7 @@ NavigationPane {
                             }
                             Container{
                                 id: feel_like_temperature
-                                visible: Qt.feel_like_temperature_visible 
+                                visible: ListItemData.feel_like_temperature_visible 
                                 horizontalAlignment: HorizontalAlignment.Right
                                 preferredWidth: 768/2 - 128/2                   
 
@@ -359,19 +397,17 @@ NavigationPane {
                                             color: Color.Gray
                                         }
                                     }
-
-
                                     Label {
                                         layoutProperties: AbsoluteLayoutProperties {
                                             positionY: 20.0
                                         }
                          
                                         preferredWidth: 768/2 - 128/2 
-                                        id: feels_like_temp_text
+                                        id: feels_like_temp_text_id
                                         horizontalAlignment: HorizontalAlignment.Center
                                         verticalAlignment: VerticalAlignment.Center
                                         textStyle.textAlign: TextAlign.Center
-                                        text: Qt.feels_like_temp_text_text 
+                                        text: ListItemData.feels_like_temp_text 
                                         textStyle {
                                             base: SystemDefaults.TextStyles.BigText
                                             color: Color.White
@@ -619,8 +655,8 @@ NavigationPane {
                         }
                         background: Color.Black
                         ImageButton {                 
-                           id: left_arrow
-                           visible: Qt.Config.prevstationname == "" ? false : true;
+                           id: left_arrow_id
+                           visible: Qt.left_arrow;
                            horizontalAlignment: HorizontalAlignment.Left
                            verticalAlignment: VerticalAlignment.Center
                            preferredWidth: 62*1.6
@@ -628,7 +664,7 @@ NavigationPane {
                            defaultImageSource: "asset:///share/images/arrow_left.png"
                            onClicked: {
                                 Qt.Config.prevstation();
-                                main.updatestationname();
+                                Qt.main.updatestationname();
                            }
                     }
                     Container{
@@ -642,22 +678,24 @@ NavigationPane {
                                 base: SystemDefaults.TextStyles.BigText
                                 color: Color.White
                             }
-                            onCreationCompleted: {
-                                text = Qt.Config.stationname == "Unknown" ? "MeeCast" : Qt.Config.stationname 
-                            }
+                            text: ListItemData.stationname
                         }
                     }
                     ImageButton {                 
-                       id: right_arrow
-                       visible: Qt.Config.nextstationname == "" ? false : true;
+                       id: right_arrow_id
+                       visible: Qt.right_arrow;
                        verticalAlignment: VerticalAlignment.Center
                        horizontalAlignment: HorizontalAlignment.Right
                        defaultImageSource: "asset:///share/images/arrow_right.png"
                        preferredWidth: 62*1.6
                        preferredHeight: 62*1.6
                        onClicked: {
-                                Qt.Config.nextstation();
-                                main.updatestationname();
+                            Qt.Config.nextstation();
+                            Qt.main.updatestationname();
+
+
+
+
                        }
                     }
                 }
@@ -701,6 +739,7 @@ NavigationPane {
                                     Container{
                                     layout: DockLayout {
                                     }
+                                    visible: ListItemData.number == 0 ? false : true;
                                     background: Color.create(ListItemData.bg_color)
                                     preferredWidth: 768
                                     Container{
@@ -770,6 +809,9 @@ NavigationPane {
                                             textStyle {
                                                 base: SystemDefaults.TextStyles.BodyText
                                                 color: Color.create("#889397")
+                                            }
+                                            onCreationCompleted: {
+                                                console.log("ppppppppppppppppppppppppppp\n");
                                             }
                                         }
                                         Container{

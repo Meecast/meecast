@@ -110,7 +110,10 @@ NavigationPane {
             pressure_text = Current.getdata(0, "pressure") + ' ' + Config.tr(Config.pressureunit) ;
 
             wind_speed_text = Current.getdata(0, "wind_speed") + ' ' + Config.tr(Config.windspeedunit);
-            wind_direction_angle =  main.getAngle(Current.getdata(0, "wind_direction"));
+            if (Current.getdata(0, "wind_direction")){
+                wind_direction_angle =  main.getAngle(Current.getdata(0, "wind_direction"));
+            }else
+                wind_direction_angle = 0;
             wind_direction_text = Config.tr(Current.getdata(0, "wind_direction"));
 
 

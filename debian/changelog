@@ -15,7 +15,7 @@ meecast (0.6.9) unstable; urgency=low
   * Moved station Townsville from Victoria to QLD and station Canberra 
     from NSW  to ACT in bom.gov.au source
   * Added checking internet connection before updating in Widget mode
-  * Updated Finish, Norwegian translations
+  * Updated Finish, Norwegian, Albanian,  translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 19 Nov 2012 19:31:23 +0200
 

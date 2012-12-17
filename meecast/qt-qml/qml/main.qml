@@ -106,11 +106,17 @@ NavigationPane {
             }
             main_icon_imageSource = Config.iconspath + "/" + Config.iconset + "/" + Current.getdata(0, "pict")
             title_text_text = Config.tr(Current.getdata(0, "description"));
-            humidity_text = Current.getdata(0, "humidity") + " %";
+            if (Current.getdata(0, "humidity") != "N/A"){
+                humidity_text = Current.getdata(0, "humidity") + " %";
+            }else
+                humidity_text = "N/A";
             pressure_text = Current.getdata(0, "pressure") + ' ' + Config.tr(Config.pressureunit) ;
 
-            wind_speed_text = Current.getdata(0, "wind_speed") + ' ' + Config.tr(Config.windspeedunit);
-            if (Current.getdata(0, "wind_direction")){
+            if (Current.getdata(0, "wind_speed") != "N/A"){ 
+                wind_speed_text = Current.getdata(0, "wind_speed") + ' ' + Config.tr(Config.windspeedunit);
+            }else
+                wind_speed_text = "N/A";
+            if (Current.getdata(0, "wind_direction") != "N/A"){
                 wind_direction_angle =  main.getAngle(Current.getdata(0, "wind_direction"));
             }else
                 wind_direction_angle = 0;
@@ -398,7 +404,7 @@ NavigationPane {
                                                     Container{
                                                         id: humidity
                                                         horizontalAlignment: HorizontalAlignment.Left
-//                                                        preferredWidth: 768/2
+                                                        visible: ListItemData.humidity == "N/A" ? false : true; 
                                                         layoutProperties: AbsoluteLayoutProperties {
                                                             positionY: 5.0
                                                         }
@@ -431,6 +437,7 @@ NavigationPane {
                                                             positionY: 50.0
                                                         }
 
+                                                        visible: ListItemData.wind_direction == Qt.Config.tr("N/A") ? false : true; 
                                                         layout: AbsoluteLayout {} 
                                                         horizontalAlignment: HorizontalAlignment.Left
                                                         Container{
@@ -464,8 +471,8 @@ NavigationPane {
                                                     }        
                                                     Container{
                                                         id: wind_speed 
+                                                        visible: ListItemData.wind_speed == "N/A" ? false : true; 
                                                         horizontalAlignment: HorizontalAlignment.Left
- //                                                       preferredWidth: 768/2
                                                         layoutProperties: AbsoluteLayoutProperties {
                                                             positionY: 100.0
                                                         }

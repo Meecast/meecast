@@ -571,10 +571,9 @@ NavigationPane {
                                                 text: ListItemData.description_text 
                                                 horizontalAlignment: HorizontalAlignment.Center
                                                 textStyle {
-                                                   base: SystemDefaults.TextStyles.BodyText
-                                                   //fontWeight: FontWeight.Bold
-                                                   //fontSize: FontSize.Small
-                                                   color: Color.White
+                                                    fontSize: FontSize.PointValue
+                                                    fontSizeValue: 6.0
+                                                    color: Color.White
                                                 }
                                             }
                                         }
@@ -586,13 +585,16 @@ NavigationPane {
                                             positionX: 0
                                             positionY: 0
                                         }
+                                        Container{
+                                            preferredWidth: 20 
+                                        }
                                         ImageButton {                 
                                            id: left_arrow_id
                                            visible: ListItemData.left_arrow;
                                            horizontalAlignment: HorizontalAlignment.Left
                                            verticalAlignment: VerticalAlignment.Center
-                                           preferredWidth: 62*1.6
-                                           preferredHeight: 62*1.6
+                                           preferredWidth: 60
+                                           preferredHeight: 60
                                            defaultImageSource: "asset:///share/images/arrow_left.png"
                                            onClicked: {
                                                 Qt.Config.prevstation();
@@ -603,12 +605,13 @@ NavigationPane {
                                             layout: DockLayout {}
                                             preferredWidth: 600 
                                             horizontalAlignment: HorizontalAlignment.Center 
+                                            verticalAlignment: VerticalAlignment.Center 
                                             Label {                 
                                                 id: stationname
                                                 horizontalAlignment: HorizontalAlignment.Center
                                                 textStyle {
-                                                    base: SystemDefaults.TextStyles.BigText
-                                                   // fontSize: FontSize.XLarge
+                                                    fontSize: FontSize.PointValue
+                                                    fontSizeValue: 10.0
                                                     color: Color.White
                                                 }
                                                 text: ListItemData.stationname
@@ -620,19 +623,23 @@ NavigationPane {
                                            verticalAlignment: VerticalAlignment.Center
                                            horizontalAlignment: HorizontalAlignment.Right
                                            defaultImageSource: "asset:///share/images/arrow_right.png"
-                                           preferredWidth: 62*1.6
-                                           preferredHeight: 62*1.6
+                                           preferredWidth: 60
+                                           preferredHeight: 60
                                            onClicked: {
                                                 Qt.Config.nextstation();
                                                 Qt.main.updatestationname();
                                            }
+                                       }
+                                       Container{
+                                            preferredWidth: 20 
                                         }
+ 
                                     }
                                         ImageView {
                                             id: main_icon
                                             layoutProperties: AbsoluteLayoutProperties {
                                                 positionX: 768/2 - Qt.main_icon_size/2 
-                                                positionY: 150
+                                                positionY: 145
                                             }
                                             preferredWidth: Qt.main_icon_size 
                                             preferredHeight: Qt.main_icon_size 

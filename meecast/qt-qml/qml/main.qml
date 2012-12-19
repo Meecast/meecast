@@ -4,7 +4,7 @@ import bb.cascades 1.0
 NavigationPane {
     
     id: rootWindow
-    property int main_icon_size : 200
+    property int main_icon_size : 240
     property int row_icon_size : 90
     property color current_rect_back_background :  "Red" 
     property string feels_like_temp_text : ""
@@ -398,6 +398,7 @@ NavigationPane {
                          
                                         Container{
                                             preferredWidth: 768
+                                            id: current_temp_and_other_paremeters
                                             layout: DockLayout {}
                                             layoutProperties: AbsoluteLayoutProperties {
                                                 positionY: 200.0
@@ -417,8 +418,8 @@ NavigationPane {
                                                         verticalAlignment: VerticalAlignment.Center
                                                         textStyle.textAlign: TextAlign.Center
                                                         textStyle {
-                                                            base: SystemDefaults.TextStyles.BigText
-//                                                            fontWeight: FontWeight.Bold
+                                                            fontSize: FontSize.PointValue
+                                                            fontSizeValue: 18.0
                                                             color: Color.White
                                                         }
                                                     }
@@ -437,12 +438,15 @@ NavigationPane {
                                                         horizontalAlignment: HorizontalAlignment.Left
                                                         visible: ListItemData.humidity == "N/A" ? false : true; 
                                                         layoutProperties: AbsoluteLayoutProperties {
-                                                            positionY: 5.0
+                                                            positionY: 0.0
                                                         }
 
                                                         layout: AbsoluteLayout {
                                                         }
                                                         ImageView {
+                                                            layoutProperties: AbsoluteLayoutProperties {
+                                                                positionY: 8.0
+                                                            }
                                                             imageSource: "asset:///share/images/humidity.png"
                                                             preferredWidth: 30
                                                             preferredHeight: 30
@@ -457,9 +461,11 @@ NavigationPane {
                                                             text: ListItemData.humidity;
                                                             verticalAlignment: VerticalAlignment.Center
                                                             textStyle {
-                                                                base: SystemDefaults.TextStyles.SmallText
+                                                                fontSize: FontSize.PointValue
+                                                                fontSizeValue: 6.0
                                                                 color: Color.White
                                                             }
+
                                                         }
                                                     }
                                                     Container{
@@ -475,12 +481,22 @@ NavigationPane {
                                                             layout: AbsoluteLayout {
                                                             }
                                                             ImageView {
+                                                                layoutProperties: AbsoluteLayoutProperties {
+                                                                    positionX: 0.0
+                                                                    positionY: 8.0
+                                                                }
+  
                                                                 imageSource: "asset:///share/images/wind_direction_background.png"
                                                                 preferredWidth: 30
                                                                 preferredHeight: 30
                                                             }
                                                             ImageView {
                                                                 id: wind_direction_arrow
+                                                                layoutProperties: AbsoluteLayoutProperties {
+                                                                    positionX: 0.0
+                                                                    positionY: 8.0
+                                                                }
+ 
                                                                 visible: ListItemData.wind_direction_angle == -1 ? false : true;
                                                                 imageSource: "asset:///share/images//wind_direction_arrow.png"
                                                                 preferredWidth: 30
@@ -496,7 +512,9 @@ NavigationPane {
                                                             }
                                                             text: ListItemData.wind_direction
                                                             textStyle {
-                                                                base: SystemDefaults.TextStyles.SmallText
+                                                            //    base: SystemDefaults.TextStyles.SmallText
+                                                                fontSize: FontSize.PointValue
+                                                                fontSizeValue: 6.0
                                                                 color: Color.White
                                                             }
                                                         }
@@ -504,6 +522,7 @@ NavigationPane {
                                                     Container{
                                                         id: wind_speed 
                                                         visible: ListItemData.wind_speed == "N/A" ? false : true; 
+                                                        verticalAlignment: VerticalAlignment.Center
                                                         horizontalAlignment: HorizontalAlignment.Left
                                                         layoutProperties: AbsoluteLayoutProperties {
                                                             positionY: 100.0
@@ -513,6 +532,10 @@ NavigationPane {
                                                         }
                                                         ImageView {
                                                             imageSource: "asset:///share/images/wind_speed.png"
+                                                            layoutProperties: AbsoluteLayoutProperties {
+                                                                positionY: 8.0
+                                                            }
+                                                            verticalAlignment: VerticalAlignment.Center
                                                             preferredWidth: 30
                                                             preferredHeight: 30
                                                         }
@@ -526,7 +549,8 @@ NavigationPane {
                                                             text: ListItemData.wind_speed;
                                                             verticalAlignment: VerticalAlignment.Center
                                                             textStyle {
-                                                                base: SystemDefaults.TextStyles.SmallText
+                                                                fontSize: FontSize.PointValue
+                                                                fontSizeValue: 6.0
                                                                 color: Color.White
                                                             }
                                                         }
@@ -540,7 +564,7 @@ NavigationPane {
                                             preferredWidth: 768
                                             layout: DockLayout {}
                                             layoutProperties: AbsoluteLayoutProperties {
-                                                positionY: 360.0
+                                                positionY: 350.0
                                             }
                                             Label {                 
                                                 id: title_text
@@ -584,6 +608,7 @@ NavigationPane {
                                                 horizontalAlignment: HorizontalAlignment.Center
                                                 textStyle {
                                                     base: SystemDefaults.TextStyles.BigText
+                                                   // fontSize: FontSize.XLarge
                                                     color: Color.White
                                                 }
                                                 text: ListItemData.stationname
@@ -607,7 +632,7 @@ NavigationPane {
                                             id: main_icon
                                             layoutProperties: AbsoluteLayoutProperties {
                                                 positionX: 768/2 - Qt.main_icon_size/2 
-                                                positionY: 180
+                                                positionY: 150
                                             }
                                             preferredWidth: Qt.main_icon_size 
                                             preferredHeight: Qt.main_icon_size 
@@ -628,7 +653,8 @@ NavigationPane {
                                                 verticalAlignment: VerticalAlignment.Center
                                                 textStyle.textAlign: TextAlign.Center
                                                 textStyle {
-                                                    base: SystemDefaults.TextStyles.BodyText
+                                                    fontSize: FontSize.PointValue
+                                                    fontSizeValue: 5.0
                                                     color: Color.Gray
                                                 }
                                             }
@@ -652,6 +678,7 @@ NavigationPane {
                                             layout: DockLayout {
                                             }
                                             preferredWidth: 768
+                                            preferredHeight: 120 
                                             Container{
                                                 layout: StackLayout {
                                                     orientation: LayoutOrientation.LeftToRight
@@ -695,6 +722,7 @@ NavigationPane {
                                                  preferredWidth: Qt.row_icon_size
                                                  preferredHeight: Qt.row_icon_size
                                                  horizontalAlignment: HorizontalAlignment.Center                
+                                                 verticalAlignment: VerticalAlignment.Center                
                                             }
                                             Container{
                                                 layout: StackLayout {

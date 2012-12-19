@@ -69,7 +69,7 @@ NavigationPane {
                     temp_low  = Forecast_model.getdata(a-1, "temp_low");
                     hi_temp_color =  main.getColor(Forecast_model.getdata(a-1, "temp_high"));
                     pict = Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(a-1, "pict");
-                    bg_color = ((a-1) % 2 != 0) ? "#000000" : "#0f0f0f";
+                    bg_color = ((a-1) % 2 != 0) ? "#0f0f0f" : "#000000";
                     title_text = Forecast_model.getdata(a-1, "description");
                     wind_direction = Forecast_model.getdata(a-1, "wind_direction");
                     wind_speed = Forecast_model.getdata(a-1, "wind_speed");

@@ -25,61 +25,81 @@ NavigationPane {
         property int screen_height : 768
         property int day: 0
         property bool current: false
+        property bool current_value: false
         property string day_period: "day"
         property bool isUpdate: false
 
+        property string fulldate: ""
+        property string shortdate: ""
+        property string temp_high: ""
+        property string temp_low: ""
+        property string hi_temp_color: ""
+        property string pict: ""
+        property string bg_color: ""
+        property string title_text: ""
+        property string wind_direction: ""
+        property string wind_speed: ""
+        property string humidity: ""
+        property string pressure: ""
+
         function update_list(){
             forrecasts_list.dataModel.clear();
+            current_value = Current.getdata(0, "current");
             for (var a = 0; a < Forecast_model.rowCount() + 1; a++) {
                 if (a == 0){
-                    forrecasts_list.dataModel.insert(
-                        {
-                         "fulldate" : Forecast_model.getdata(a, "fulldate"),
-                         "shortdate" : Forecast_model.getdata(a, "shortdate"),
-                         "temp_high" : Forecast_model.getdata(a, "temp_high"),
-                         "temp_low" : Forecast_model.getdata(a, "temp_low"),
-                         "bg_color" :  (a % 2 != 0) ? "#0f0f0f" : "#000000" ,
-                         "hi_temp_color" :  main.getColor(Forecast_model.getdata(a, "temp_high")),
-                         "wind_speed" : Forecast_model.getdata(a, "wind_speed"), 
-                         "number" : a,
-                         "bg_color" : current_rect_back_background,
-                         "stationname" : Config.stationname == "Unknown" ? "MeeCast" : Config.stationname,
-                         "feels_like_temp_text" : feels_like_temp_text, 
-                         "pict" : main_icon_imageSource,
-                         "description_text" : title_text_text,
-                         "current_temp_text" : current_temp_text,
-                         "wind_direction" : wind_direction_text, 
-                         "wind_speed" : wind_speed_text, 
-                         "humidity" : humidity_text, 
-                         "wind_direction_angle" : wind_direction_angle,
-                         "00pressure" : pressure_text, 
-                         "left_arrow" : left_arrow,
-                         "right_arrow" : right_arrow,
-                        }
-                    )
+                    fulldate = Forecast_model.getdata(a, "fulldate");
+                    shortdate = Forecast_model.getdata(a, "shortdate");
+                    temp_high = Forecast_model.getdata(a, "temp_high");
+                    temp_low  = Forecast_model.getdata(a, "temp_low");
+                    hi_temp_color =  main.getColor(Forecast_model.getdata(a, "temp_high"));
+                    pict = main_icon_imageSource;
+                    bg_color = current_rect_back_background;
+                    title_text = title_text_text;
+                    wind_direction = wind_direction_text;
+                    wind_speed = wind_speed_text;
+                    humidity = humidity_text;
+                    pressure = pressure_text;
+
                 }else{
-                    forrecasts_list.dataModel.insert(
+                    fulldate = Forecast_model.getdata(a-1, "fulldate");
+                    shortdate = Forecast_model.getdata(a-1 , "shortdate");
+                    temp_high = Forecast_model.getdata(a-1, "temp_high");
+                    temp_low  = Forecast_model.getdata(a-1, "temp_low");
+                    hi_temp_color =  main.getColor(Forecast_model.getdata(a-1, "temp_high"));
+                    pict = Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(a-1, "pict");
+                    bg_color = ((a-1) % 2 != 0) ? "#000000" : "#0f0f0f";
+                    title_text = Forecast_model.getdata(a-1, "description");
+                    wind_direction = Forecast_model.getdata(a-1, "wind_direction");
+                    wind_speed = Forecast_model.getdata(a-1, "wind_speed");
+                    humidity = Forecast_model.getdata(a-1, "humidity");
+                    pressure = Forecast_model.getdata(a-1, "pressure");
+
+                }
+                forrecasts_list.dataModel.insert(
                         {
-                         "fulldate" : Forecast_model.getdata(a-1, "fulldate"),
-                         "shortdate" : Forecast_model.getdata(a-1 , "shortdate"),
-                         "pict" : Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(a-1, "pict"),
-                         "temp_high" : Forecast_model.getdata(a-1, "temp_high"),
-                         "temp_low" : Forecast_model.getdata(a-1, "temp_low"),
-                         "bg_color" :  ((a-1) % 2 != 0) ? "#000000" : "#0f0f0f",
-                         "hi_temp_color" :  main.getColor(Forecast_model.getdata(a-1, "temp_high")),
-                         "wind_speed" : Forecast_model.getdata(a-1, "wind_speed"), 
+                         "fulldate" : fulldate,
+                         "shortdate" : shortdate, 
+                         "pict" : pict,
+                         "temp_high" : temp_high,
+                         "temp_low" : temp_low,
+                         "bg_color" : bg_color ,
+                         "hi_temp_color" :  hi_temp_color,
+                         "wind_speed" : wind_speed, 
                          "number" : a,
-                         "description_text" : Forecast_model.getdata(a-1, "description"),
-                         "wind_direction" : Forecast_model.getdata(a-1, "wind_direction"), 
+                         "description_text" : title_text,
+                         "wind_direction" : wind_direction, 
+                         "stationname" : Config.stationname == "Unknown" ? "MeeCast" : Config.stationname,
                          "current_temp_text" : current_temp_text,
-                         "humidity" : Forecast_model.getdata(a-1, "humidity"), 
-                         "pressure" : Forecast_model.getdata(a-1, "pressure"), 
+                         "humidity" : humidity, 
+                         "pressure" : pressure, 
                          "wind_direction_angle" : wind_direction_angle,
                          "left_arrow" : left_arrow,
                          "right_arrow" : right_arrow,
+                         "stationname" : Config.stationname == "Unknown" ? "MeeCast" : Config.stationname,
+                         "current": current_value,
                         }
                     )
-                }
+
             }
         }
 
@@ -116,7 +136,7 @@ NavigationPane {
                 wind_speed_text = Current.getdata(0, "wind_speed") + ' ' + Config.tr(Config.windspeedunit);
             }else
                 wind_speed_text = "N/A";
-            if (Current.getdata(0, "wind_direction") != "N/A"){
+            if (Current.getdata(0, "wind_direction") != "N/A" && Current.getdata(0, "wind_direction") != undefined){
                 wind_direction_angle =  main.getAngle(Current.getdata(0, "wind_direction"));
             }else
                 wind_direction_angle = 0;
@@ -157,6 +177,8 @@ NavigationPane {
         }
         function getAngle(s){
             var a;
+            if (s == "CALM")
+               return -1; 
             switch (s){
             case 'S':
                 return 0;
@@ -450,6 +472,7 @@ NavigationPane {
                                                             }
                                                             ImageView {
                                                                 id: wind_direction_arrow
+                                                                visible: ListItemData.wind_direction_angle == -1 ? false : true;
                                                                 imageSource: "asset:///share/images//wind_direction_arrow.png"
                                                                 preferredWidth: 30
                                                                 preferredHeight: 30
@@ -591,7 +614,7 @@ NavigationPane {
                                                 positionY: 120.0
                                             }
                                             Label {
-                                                text: Qt.Current.getdata(0, "current") == true ? Qt.Config.tr("Now") : Qt.Config.tr("Today")
+                                                text: ListItemData.current == true ? Qt.Config.tr("Now") : Qt.Config.tr("Today")
                                                 horizontalAlignment: HorizontalAlignment.Center
                                                 verticalAlignment: VerticalAlignment.Center
                                                 textStyle.textAlign: TextAlign.Center

@@ -5,6 +5,7 @@ NavigationPane {
     
     id: rootWindow
     property int main_icon_size : 200
+    property int row_icon_size : 90
     property color current_rect_back_background :  "Red" 
     property string feels_like_temp_text : ""
     property string main_icon_imageSource : "" 
@@ -353,6 +354,7 @@ NavigationPane {
                             Qt.Current = Current
                             Qt.main = main
                             Qt.main_icon_size = main_icon_size
+                            Qt.row_icon_size = row_icon_size
                             main.update_list();
                         }
 
@@ -668,7 +670,7 @@ NavigationPane {
                                                     Label {
                                                         text: ListItemData.fulldate
                                                         textStyle.textAlign: TextAlign.Left
-                                                        preferredWidth: 768/2 - 128/2 - 20
+                                                        preferredWidth: 768/2 - Qt.row_icon_size/2 - 20
                                                         textStyle {    
                                                             base: SystemDefaults.TextStyles.SmallText
                                                             color: Color.Gray
@@ -676,7 +678,7 @@ NavigationPane {
                                                     }
                                                     Label {
                                                         text: ListItemData.shortdate
-                                                        preferredWidth: 768/2 - 128/2 - 20
+                                                        preferredWidth: 768/2 - Qt.row_icon_size/2 - 20
                                                         layoutProperties: AbsoluteLayoutProperties {
                                                             positionY: 30.0
                                                         }
@@ -690,6 +692,8 @@ NavigationPane {
                                             }
                                             ImageView {
                                                  imageSource: ListItemData.pict
+                                                 preferredWidth: Qt.row_icon_size
+                                                 preferredHeight: Qt.row_icon_size
                                                  horizontalAlignment: HorizontalAlignment.Center                
                                             }
                                             Container{

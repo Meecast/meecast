@@ -41,6 +41,7 @@ NavigationPane {
         property string wind_speed: ""
         property string humidity: ""
         property string pressure: ""
+        property string background_image: ""
 
         function update_list(){
             forrecasts_list.dataModel.clear();
@@ -59,6 +60,7 @@ NavigationPane {
                     wind_speed = wind_speed_text;
                     humidity = humidity_text;
                     pressure = pressure_text;
+                    background_image = "asset:///share/images/mask_background_main.png"
 
                 }else{
                     fulldate = Forecast_model.getdata(a-1, "fulldate");
@@ -73,7 +75,11 @@ NavigationPane {
                     wind_speed = Forecast_model.getdata(a-1, "wind_speed");
                     humidity = Forecast_model.getdata(a-1, "humidity");
                     pressure = Forecast_model.getdata(a-1, "pressure");
-
+                    background_image = "";
+                }
+                if (a == 1){
+                    bg_color = current_rect_back_background;
+                    background_image = "asset:///share/images/row_background.png"
                 }
                 forrecasts_list.dataModel.insert(
                         {
@@ -97,6 +103,7 @@ NavigationPane {
                          "right_arrow" : right_arrow,
                          "stationname" : Config.stationname == "Unknown" ? "MeeCast" : Config.stationname,
                          "current": current_value,
+                         "background_image": background_image,
                         }
                     )
 
@@ -371,16 +378,16 @@ NavigationPane {
                                         Container{
                                             id: current_rect_back
                                             preferredWidth: 768
-                                            preferredHeight: 419 
+                                            preferredHeight: 420 
                                             layoutProperties: AbsoluteLayoutProperties {
                                                 positionY: 0
                                             }
                                             background: Color.create(ListItemData.bg_color)
                                         }
                                         ImageView {
-                                            imageSource: "asset:///share/images/mask_background_main.png"
+                                            imageSource: ListItemData.background_image
                                             preferredWidth: 768
-                                            preferredHeight: 419 
+                                            preferredHeight: 420 
                                             layoutProperties: AbsoluteLayoutProperties {
                                                 positionY: 0
                                             }
@@ -626,85 +633,98 @@ NavigationPane {
                                         }
                                     }
                                     Container{
-                                        layout: DockLayout {
-                                        }
                                         visible: ListItemData.number == 0 ? false : true;
                                         background: Color.create(ListItemData.bg_color)
                                         preferredWidth: 768
+                                        preferredHeight: 120 
                                         Container{
-                                            layout: StackLayout {
-                                                orientation: LayoutOrientation.LeftToRight
+                                            visible: ListItemData.background_image != "" ? true : false;
+                                            ImageView {
+                                                 imageSource: ListItemData.background_image
+                                                 horizontalAlignment: HorizontalAlignment.Center  
                                             }
-                                            preferredWidth: 768/2
-                                            verticalAlignment: VerticalAlignment.Center
-                                            horizontalAlignment: HorizontalAlignment.Left
-                                            Container{
-                                                preferredWidth: 20
-                                                maxWidth: 20
+                                        }
+                                        layout: AbsoluteLayout {
+                                        }
+                                        Container{
+                                            layout: DockLayout {
                                             }
+                                            preferredWidth: 768
                                             Container{
-                                                layout: AbsoluteLayout {
+                                                layout: StackLayout {
+                                                    orientation: LayoutOrientation.LeftToRight
                                                 }
+                                                preferredWidth: 768/2
+                                                verticalAlignment: VerticalAlignment.Center
+                                                horizontalAlignment: HorizontalAlignment.Left
+                                                Container{
+                                                    preferredWidth: 20
+                                                    maxWidth: 20
+                                                }
+                                                Container{
+                                                    layout: AbsoluteLayout {
+                                                    }
 
-                                                Label {
-                                                    text: ListItemData.fulldate
-                                                    textStyle.textAlign: TextAlign.Left
-                                                    preferredWidth: 768/2 - 128/2 - 20
-                                                    textStyle {    
-                                                        base: SystemDefaults.TextStyles.SmallText
-                                                        color: Color.Gray
+                                                    Label {
+                                                        text: ListItemData.fulldate
+                                                        textStyle.textAlign: TextAlign.Left
+                                                        preferredWidth: 768/2 - 128/2 - 20
+                                                        textStyle {    
+                                                            base: SystemDefaults.TextStyles.SmallText
+                                                            color: Color.Gray
+                                                        }
+                                                    }
+                                                    Label {
+                                                        text: ListItemData.shortdate
+                                                        preferredWidth: 768/2 - 128/2 - 20
+                                                        layoutProperties: AbsoluteLayoutProperties {
+                                                            positionY: 30.0
+                                                        }
+                                                        textStyle.textAlign: TextAlign.Left
+                                                        textStyle {
+                                                            base: SystemDefaults.TextStyles.BodyText
+                                                            color: Color.White
+                                                        }
                                                     }
                                                 }
+                                            }
+                                            ImageView {
+                                                 imageSource: ListItemData.pict
+                                                 horizontalAlignment: HorizontalAlignment.Center                
+                                            }
+                                            Container{
+                                                layout: StackLayout {
+                                                    orientation: LayoutOrientation.LeftToRight
+                                                }
+                                                
+                                                horizontalAlignment: HorizontalAlignment.Right
+                                                verticalAlignment: VerticalAlignment.Center
                                                 Label {
-                                                    text: ListItemData.shortdate
-                                                    preferredWidth: 768/2 - 128/2 - 20
-                                                    layoutProperties: AbsoluteLayoutProperties {
-                                                        positionY: 30.0
-                                                    }
-                                                    textStyle.textAlign: TextAlign.Left
+                                                    text: ListItemData.temp_high + '°'
+                                                    horizontalAlignment: HorizontalAlignment.Right
+                                                    preferredWidth: 100
+                                                    textStyle.textAlign: TextAlign.Right
                                                     textStyle {
                                                         base: SystemDefaults.TextStyles.BodyText
-                                                        color: Color.White
+                                                        color: Color.create(ListItemData.hi_temp_color)
                                                     }
                                                 }
-                                            }
-                                        }
-                                        ImageView {
-                                             imageSource: ListItemData.pict
-                                             horizontalAlignment: HorizontalAlignment.Center                
-                                        }
-                                        Container{
-                                            layout: StackLayout {
-                                                orientation: LayoutOrientation.LeftToRight
-                                            }
-                                            
-                                            horizontalAlignment: HorizontalAlignment.Right
-                                            verticalAlignment: VerticalAlignment.Center
-                                            Label {
-                                                text: ListItemData.temp_high + '°'
-                                                horizontalAlignment: HorizontalAlignment.Right
-                                                preferredWidth: 100
-                                                textStyle.textAlign: TextAlign.Right
-                                                textStyle {
-                                                    base: SystemDefaults.TextStyles.BodyText
-                                                    color: Color.create(ListItemData.hi_temp_color)
+                                                Label {
+                                                    text: ListItemData.temp_low + '°'
+                                                    horizontalAlignment: HorizontalAlignment.Right
+                                                    preferredWidth: 100
+                                                    textStyle.textAlign: TextAlign.Right
+                                                    textStyle {
+                                                        base: SystemDefaults.TextStyles.BodyText
+                                                        color: Color.create("#889397")
+                                                    }
                                                 }
-                                            }
-                                            Label {
-                                                text: ListItemData.temp_low + '°'
-                                                horizontalAlignment: HorizontalAlignment.Right
-                                                preferredWidth: 100
-                                                textStyle.textAlign: TextAlign.Right
-                                                textStyle {
-                                                    base: SystemDefaults.TextStyles.BodyText
-                                                    color: Color.create("#889397")
+                                                Container{
+                                                    preferredWidth: 20
+                                                    maxWidth: 20
                                                 }
-                                            }
-                                            Container{
-                                                preferredWidth: 20
-                                                maxWidth: 20
-                                            }
-                                        }                                                                                                   
+                                            }                                                                                                   
+                                        }
                                     } 
                                 }
                             }

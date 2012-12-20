@@ -419,6 +419,7 @@ NavigationPane {
                                                         textStyle.textAlign: TextAlign.Center
                                                         textStyle {
                                                             fontSize: FontSize.PointValue
+                                                            fontWeight: FontWeight.W100
                                                             fontSizeValue: 18.0
                                                             color: Color.White
                                                         }
@@ -462,6 +463,7 @@ NavigationPane {
                                                             verticalAlignment: VerticalAlignment.Center
                                                             textStyle {
                                                                 fontSize: FontSize.PointValue
+                                                                fontWeight: FontWeight.W100
                                                                 fontSizeValue: 6.0
                                                                 color: Color.White
                                                             }
@@ -512,7 +514,7 @@ NavigationPane {
                                                             }
                                                             text: ListItemData.wind_direction
                                                             textStyle {
-                                                            //    base: SystemDefaults.TextStyles.SmallText
+                                                                fontWeight: FontWeight.W100
                                                                 fontSize: FontSize.PointValue
                                                                 fontSizeValue: 6.0
                                                                 color: Color.White
@@ -550,6 +552,7 @@ NavigationPane {
                                                             verticalAlignment: VerticalAlignment.Center
                                                             textStyle {
                                                                 fontSize: FontSize.PointValue
+                                                                fontWeight: FontWeight.W100
                                                                 fontSizeValue: 6.0
                                                                 color: Color.White
                                                             }
@@ -573,6 +576,7 @@ NavigationPane {
                                                 textStyle {
                                                     fontSize: FontSize.PointValue
                                                     fontSizeValue: 6.0
+                                                    fontWeight: FontWeight.W100
                                                     color: Color.White
                                                 }
                                             }
@@ -661,6 +665,7 @@ NavigationPane {
                                                 textStyle.textAlign: TextAlign.Center
                                                 textStyle {
                                                     fontSize: FontSize.PointValue
+                                                    fontWeight: FontWeight.W100
                                                     fontSizeValue: 5.0
                                                     color: Color.Gray
                                                 }

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-15 15:17+0300\n"
-"PO-Revision-Date: 2012-11-13 22:05+0000\n"
+"POT-Creation-Date: 2012-12-17 09:23+0300\n"
+"PO-Revision-Date: 2012-12-16 13:50+0000\n"
 "Last-Translator: Peer-Atle Motland <PeerAtle@online.no>\n"
 "Language-Team: Norwegian (Norway) (http://www.transifex.com/projects/p/"
 "meecast/language/no_NO/)\n"
@@ -847,9 +847,8 @@ msgid "Fair"
 msgstr "Riktig"
 
 #: omweather/src/hash.data:324
-#, fuzzy
 msgid "Feels like"
-msgstr "Føles som:"
+msgstr "Føles som"
 
 #: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
 msgid "Feels like:"
@@ -894,9 +893,8 @@ msgstr "Første Kvarter"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:153
 #: meecast/qt-qml/qml/FullWeatherPage.qml:210
 #: meecast/qt-qml/qml/FullWeatherPage.qml:259
-#, fuzzy
 msgid "Flike"
-msgstr "Flike:"
+msgstr "Føles som"
 
 #: omweather/src/hash.data:84
 msgid "Fog"
@@ -956,7 +954,6 @@ msgid "Freezing Drizzle"
 msgstr "Underkjølt Yr"
 
 #: meecast/qt-qml/qml/AboutPage.qml:211
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -985,7 +982,7 @@ msgid ""
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
-"Fransk -  Nicolas Granziano, \n"
+" Fransk -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
 " Russisk - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
@@ -1004,7 +1001,10 @@ msgstr ""
 " Portugisisk - Jose Narciso,\n"
 " Tyrkisk - Burak Kaan Kose,\n"
 " Katalansk - Agustí Clara,\n"
-" Vietnamesisk - Hieu Nguyen, Anh Dương and truongnx, \n"
+" Arabisk - Tarad Alfandi,\n"
+" Norsk - Peer-Atle Motland,\n"
+" Vietnamesisk - Hieu Nguyen\n"
+" \tAnh Dương and truongnx, \n"
 " Svensk - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
@@ -1110,9 +1110,8 @@ msgstr "Timer"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:135
 #: meecast/qt-qml/qml/FullWeatherPage.qml:192
 #: meecast/qt-qml/qml/FullWeatherPage.qml:241
-#, fuzzy
 msgid "Humidity"
-msgstr "Fuktighet:"
+msgstr "Fuktighet"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
@@ -1327,13 +1326,12 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2012"
 msgstr ""
-"MeeCast - multiplattform meget konfigurerbart åpen kildekode værmeldings "
-"klient basert på OMWeather kode. Copyright (C) 2006-2011"
+"MeeCast - multiplattform lett tilpasselig åpen kildekode værmeldings klient "
+"basert på OMWeather kode. Copyright (C) 2006-2012"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -1889,9 +1887,8 @@ msgid "Pressure: "
 msgstr "Trykk: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
-#, fuzzy
 msgid "Programmers"
-msgstr "Sjef programmerere"
+msgstr "Programmerere"
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
 msgid "Project administrator"
@@ -2177,11 +2174,11 @@ msgstr "Innstillinger"
 
 #: meecast/qt-qml/qml/LockScreen.qml:65
 msgid "Settings for Lockscreen widget"
-msgstr "Innstillingene for Låseskjerm widget"
+msgstr "Innstillingene for Låseskjerm"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:102
 msgid "Settings for standby widget"
-msgstr "Innstillingene for Dvalemodus widget"
+msgstr "Innstillingene for Dvalemodus"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:534
 msgid "Settings of LockScreen"
@@ -2598,7 +2595,7 @@ msgstr "Synlige enheter"
 #: omweather/src/weather-popup.c:1288
 #: meecast/qt-qml/qml/FullWeatherPage.qml:169
 msgid "Visible:"
-msgstr "Synlig"
+msgstr "Sikt:"
 
 #: omweather/src/weather-settings.c:1121 omweather/src/weather-settings.c:1307
 #: omweather/src/weather-settings.c:1312
@@ -2677,7 +2674,7 @@ msgstr "Widget på DvaleSkjerm"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:411
 msgid "Widget in events view"
-msgstr "Widget på hendelsesskjerm"
+msgstr "Widget på Hendelsesskjerm"
 
 #: omweather/src/weather-simple-settings.c:2914
 #: omweather/src/weather-simple-settings.c:2922
@@ -2695,9 +2692,8 @@ msgstr "Vind"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:138
 #: meecast/qt-qml/qml/FullWeatherPage.qml:195
 #: meecast/qt-qml/qml/FullWeatherPage.qml:244
-#, fuzzy
 msgid "Wind direction"
-msgstr "Vindretning:"
+msgstr "Vindretning"
 
 #: omweather/src/hash.data:307
 msgid "Wind direction:"
@@ -2718,11 +2714,11 @@ msgstr "Vindhastighet"
 #: omweather/src/hash.data:308 meecast/qt-qml/qml/UnitsPage.qml:40
 #: meecast/qt-qml/qml/UnitsPage.qml:142
 msgid "Wind speed units"
-msgstr "Vindhastighet enheter"
+msgstr "Vindhastighetsenheter"
 
 #: omweather/src/weather-settings.c:3974
 msgid "Wind speed units:"
-msgstr "Vindhastighet enheter:"
+msgstr "Vindhastighetsenheter:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
@@ -3050,6 +3046,3 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:332
 msgid "Ю-З"
 msgstr "Ю-З"
-
-#~ msgid "Flike:"
-#~ msgstr "Flike:"

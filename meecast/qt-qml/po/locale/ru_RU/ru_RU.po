@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-12-15 15:17+0300\n"
-"PO-Revision-Date: 2008-03-19 10:33+0200\n"
-"Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
+"PO-Revision-Date: 2012-12-18 10:33+0200\n"
+"Last-Translator: Vlad Vasilyeu <vasvlad@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -98,12 +98,11 @@ msgstr ""
 
 #: meecast/qt-qml/dataitem.cpp:470 meecast/qt-qml/dataitem.cpp:471
 msgid "(Low)"
-msgstr ""
+msgstr "(Низкий)"
 
 #: meecast/qt-qml/dataitem.cpp:472 meecast/qt-qml/dataitem.cpp:473
-#, fuzzy
 msgid "(Moderate)"
-msgstr "Умеренный"
+msgstr "(Умеренный)"
 
 #: omweather/src/weather-simple-settings.c:1714
 #: omweather/src/weather-simple-settings.c:2811
@@ -619,7 +618,7 @@ msgstr "Настраиваемый"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:183
 msgid "Daily"
-msgstr ""
+msgstr "Ежедневно"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
 #: meecast/qt-qml/qml/FullWeatherPage.qml:186
@@ -1850,9 +1849,8 @@ msgid "Pressure: "
 msgstr "Давление: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
-#, fuzzy
 msgid "Programmers"
-msgstr "Ведущие программисты"
+msgstr "Программисты"
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
 msgid "Project administrator"
@@ -2146,9 +2144,8 @@ msgid "Settings for standby widget"
 msgstr "Настройки для StandbyScreen экрана"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:534
-#, fuzzy
 msgid "Settings of LockScreen"
-msgstr "Настройки для StandbyScreen экрана"
+msgstr "Настройки для LockScreen экрана"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:514
 msgid "Settings of StandbyScreen"
@@ -2545,9 +2542,8 @@ msgid "Visible items:"
 msgstr "Количество элементов:"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:58 meecast/qt-qml/qml/UnitsPage.qml:209
-#, fuzzy
 msgid "Visible units"
-msgstr "Количество элементов:"
+msgstr "Единицы измерения видимости"
 
 #: omweather/src/weather-popup.c:1288
 #: meecast/qt-qml/qml/FullWeatherPage.qml:169

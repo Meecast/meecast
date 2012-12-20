@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-15 15:17+0300\n"
-"PO-Revision-Date: 2012-09-08 06:09+0000\n"
+"POT-Creation-Date: 2012-12-17 09:23+0300\n"
+"PO-Revision-Date: 2012-12-16 15:40+0000\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
 "meecast/language/fi_FI/)\n"
@@ -117,11 +117,11 @@ msgstr ""
 
 #: meecast/qt-qml/dataitem.cpp:470 meecast/qt-qml/dataitem.cpp:471
 msgid "(Low)"
-msgstr ""
+msgstr "(Matala)"
 
 #: meecast/qt-qml/dataitem.cpp:472 meecast/qt-qml/dataitem.cpp:473
 msgid "(Moderate)"
-msgstr ""
+msgstr "(Kohtalainen)"
 
 #: omweather/src/weather-simple-settings.c:1714
 #: omweather/src/weather-simple-settings.c:2811
@@ -380,7 +380,7 @@ msgstr ""
 "Tekijä ja ylläpito: Vlad Vasiliev, vlad@gas.by\n"
 "Ylläpito: Pavel Fialko, pavelnf@gmail.com\n"
 "Ohje: Marko Vertainen\n"
-"Käyttöliittymä ja oletuskuvakkeet: Andrew Zhilin\n"
+"Käyttöliittymä ja oletus sääsymbolit: Andrew Zhilin\n"
 "Fremantle käyttöliittymä: Krebber Jan ja Niemelä Ulla\n"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:415
@@ -443,7 +443,7 @@ msgstr "Celsius"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:114
 msgid "Celsius"
-msgstr ""
+msgstr "Celsius"
 
 #: omweather/src/weather-simple-settings.c:677
 #: omweather/src/weather-simple-settings.c:710
@@ -585,9 +585,8 @@ msgid "Cloudy, Snow"
 msgstr "Pilvistä, lumisadetta"
 
 #: omweather/src/hash.data:57
-#, fuzzy
 msgid "Cloudy, thunderstorms with rain"
-msgstr "Pilvistä, ukkosta ja vesisadetta"
+msgstr "Pilvistä, ukkosta ja sadetta"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:413
 msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
@@ -661,7 +660,7 @@ msgid ""
 "Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
 "zhilin@ovi.com>\n"
 msgstr ""
-"Käyttöliittymä ja oletuskuvakkeet: Copyright 2006-2011 Andrew Zhilin, "
+"Käyttöliittymä ja oletus sääsymbolit: Copyright 2006-2011 Andrew Zhilin, "
 "<andrew.zhilin@ovi.com>\n"
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
@@ -771,7 +770,7 @@ msgstr ""
 "Yuri Komyakov - Nokia 770:sta \n"
 "Greg Thompson - stations.txt tiedoston tuesta\n"
 "Frank Persian - uuden ulkoasun ideasta\n"
-"Brian Knight - kuvakkeiden ideasta, kritiikistä ja lahjoituksesta ;-)\n"
+"Brian Knight - sääsymboleiden ideasta, kritiikistä ja lahjoituksesta ;-)\n"
 "Andrew aka Tabster - testauksesta ja ideoista\n"
 "Brad Jones aka kazrak - testauksesta\n"
 
@@ -849,9 +848,8 @@ msgid "Fair"
 msgstr "Melko selkeää"
 
 #: omweather/src/hash.data:324
-#, fuzzy
 msgid "Feels like"
-msgstr "Tuntuu iholla:"
+msgstr "Tuntuu iholla"
 
 #: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
 msgid "Feels like:"
@@ -896,9 +894,8 @@ msgstr "Ensimmäinen neljännes"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:153
 #: meecast/qt-qml/qml/FullWeatherPage.qml:210
 #: meecast/qt-qml/qml/FullWeatherPage.qml:259
-#, fuzzy
 msgid "Flike"
-msgstr "Tuntuu:"
+msgstr "Tuntuu"
 
 #: omweather/src/hash.data:84
 msgid "Fog"
@@ -959,7 +956,6 @@ msgid "Freezing Drizzle"
 msgstr "Jäätävää tihkusadetta"
 
 #: meecast/qt-qml/qml/AboutPage.qml:211
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1006,6 +1002,11 @@ msgstr ""
 " Kiina - Wong Man Kong, Michael\n"
 " Portugali - Jose Narciso,\n"
 " Turkki - Burak Kaan Kose,\n"
+" Katalaani - Agustí Clara,\n"
+" Arabia - Tarad Alfandi,\n"
+" Norja - Peer-Atle Motland,\n"
+" Vietnami - Hieu Nguyen\n"
+" \tAnh Dương and truongnx, \n"
 " Ruotsi - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
@@ -1070,7 +1071,8 @@ msgstr "Tyhjennä"
 msgid ""
 "Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>"
 msgstr ""
-"Grzanka kuvakkeet: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>"
+"Grzanka sääsymbolit: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka."
+"pl>"
 
 #: omweather/src/weather-popup.c:1354 omweather/src/weather-popup.c:1493
 msgid "Gust:"
@@ -1111,9 +1113,8 @@ msgstr "Tunteja"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:135
 #: meecast/qt-qml/qml/FullWeatherPage.qml:192
 #: meecast/qt-qml/qml/FullWeatherPage.qml:241
-#, fuzzy
 msgid "Humidity"
-msgstr "Ilmankosteus: "
+msgstr "Ilmankosteus"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
@@ -1131,15 +1132,15 @@ msgstr "Kuvakkeen koko:"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:44 meecast/qt-qml/qml/UpdatePage.qml:42
 msgid "Icons"
-msgstr "Kuvakkeet"
+msgstr "Sääsymbolit"
 
 #: omweather/src/hash.data:94 meecast/qt-qml/qml/VisualsPage.qml:391
 msgid "Iconset"
-msgstr "Kuvakkeet"
+msgstr "Sääsymbolit"
 
 #: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:244
 msgid "Iconsets"
-msgstr "Kuvakkeet"
+msgstr "Sääsymbolit"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:64
 #: meecast/qt-qml/qml/VisualsPage.qml:136
@@ -1328,13 +1329,12 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2012"
 msgstr ""
-"MeeCast - useilla alustoilla toimiva avoimen lähdekoodin sääohjelma. "
-"Perustuu OMWeatherin koodiin. Copyright (C) 2006-2011"
+"MeeCast - usealla alustalla toimiva monipuolisesti muokattavissa oleva sää-"
+"ohjelma, joka pohjautuu OMWeatherin koodiin. Copyright (C) 2006-2012"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -1871,7 +1871,7 @@ msgstr "Ilmanpaine"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:49 meecast/qt-qml/qml/UnitsPage.qml:176
 msgid "Pressure units"
-msgstr "Paineen yksiköt"
+msgstr "Paineen yksikkö"
 
 #: omweather/src/weather-settings.c:4049
 msgid "Pressure units:"
@@ -1890,9 +1890,8 @@ msgid "Pressure: "
 msgstr "Ilmanpaine: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
-#, fuzzy
 msgid "Programmers"
-msgstr "Pääohjelmoijat"
+msgstr "Ohjelmoijat"
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
 msgid "Project administrator"
@@ -2111,27 +2110,27 @@ msgstr "Valitse lähde"
 
 #: meecast/qt-qml/qml/LockScreen.qml:85
 msgid "Select the X-position for left corner of widget"
-msgstr ""
+msgstr "Valitse sovelluksen X-akselin vasen kulma"
 
 #: meecast/qt-qml/qml/LockScreen.qml:125
 msgid "Select the Y-position for left corner of widget"
-msgstr ""
+msgstr "Valitse sovelluksen Y-akselin vasen kulma"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:267
 msgid "Select the color of font for current temperature"
-msgstr ""
+msgstr "Valitse nykyisen lämpötilan kirjasimen väri"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:123
 msgid "Select the color of font for station name"
-msgstr ""
+msgstr "Valitse sääaseman nimen kirjasimen väri"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:195
 msgid "Select the color of font for temperature"
-msgstr ""
+msgstr "Valitse lämpötilan kirjasimen väri"
 
 #: meecast/qt-qml/qml/IconsetPage.qml:97
 msgid "Select the iconset"
-msgstr "Valitse kuvakkeet"
+msgstr "Valitse sääsymbolit"
 
 #: meecast/qt-qml/qml/SourcePage.qml:108
 msgid "Select the weather source"
@@ -2178,17 +2177,15 @@ msgstr "Asetukset"
 
 #: meecast/qt-qml/qml/LockScreen.qml:65
 msgid "Settings for Lockscreen widget"
-msgstr ""
+msgstr "Lukitusnäytön sovelluksen asetukset"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:102
-#, fuzzy
 msgid "Settings for standby widget"
-msgstr "Valmiusnäytön asetukset"
+msgstr "Valmiusnäytön sovelluksen asetukset"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:534
-#, fuzzy
 msgid "Settings of LockScreen"
-msgstr "Valmiusnäytön asetukset"
+msgstr "Lukitusnäytön asetukset"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:514
 msgid "Settings of StandbyScreen"
@@ -2207,9 +2204,8 @@ msgid "Show arrows"
 msgstr "Näytä nuolet"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:601
-#, fuzzy
 msgid "Show on Map"
-msgstr "Näytä aseman nimi"
+msgstr "Näytä kartalla"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
@@ -2415,7 +2411,7 @@ msgstr "Lämpötila"
 #: omweather/src/hash.data:289 meecast/qt-qml/qml/UnitsPage.qml:31
 #: meecast/qt-qml/qml/UnitsPage.qml:103
 msgid "Temperature units"
-msgstr "Lämpötilan yksiköt"
+msgstr "Lämpötilan yksikkö"
 
 #: omweather/src/weather-settings.c:3858
 msgid "Temperature units:"
@@ -2507,7 +2503,7 @@ msgstr "Näpäytystapa:"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:172
 msgid "UV index:"
-msgstr ""
+msgstr "UV indeksi:"
 
 #: omweather/src/weather-settings.c:1135 omweather/src/weather-settings.c:1334
 #: omweather/src/weather-settings.c:1338
@@ -2598,9 +2594,8 @@ msgid "Visible items:"
 msgstr "Näkyvät elementit:"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:58 meecast/qt-qml/qml/UnitsPage.qml:209
-#, fuzzy
 msgid "Visible units"
-msgstr "Näkyvät elementit:"
+msgstr "Näkyvyyden yksikkö"
 
 #: omweather/src/weather-popup.c:1288
 #: meecast/qt-qml/qml/FullWeatherPage.qml:169
@@ -2702,9 +2697,8 @@ msgstr "Tuulista"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:138
 #: meecast/qt-qml/qml/FullWeatherPage.qml:195
 #: meecast/qt-qml/qml/FullWeatherPage.qml:244
-#, fuzzy
 msgid "Wind direction"
-msgstr "Tuulen suunta:"
+msgstr "Tuulen suunta"
 
 #: omweather/src/hash.data:307
 msgid "Wind direction:"
@@ -2725,7 +2719,7 @@ msgstr "Tuulen nopeus"
 #: omweather/src/hash.data:308 meecast/qt-qml/qml/UnitsPage.qml:40
 #: meecast/qt-qml/qml/UnitsPage.qml:142
 msgid "Wind speed units"
-msgstr "Tuulen nopeuden yksiköt"
+msgstr "Tuulen nopeuden yksikkö"
 
 #: omweather/src/weather-settings.c:3974
 msgid "Wind speed units:"
@@ -3059,6 +3053,3 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:332
 msgid "Ю-З"
 msgstr "Ю-З"
-
-#~ msgid "Flike:"
-#~ msgstr "Tuntuu:"

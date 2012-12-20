@@ -165,7 +165,7 @@ main (int argc, char *argv[])
         MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
         /* Preparing time for updateing */
         uint result_time = 0;
-        if (config->UpdatePeriod() != INT_MAX){
+        if (config->UpdatePeriod() != INT_MAX || config->UpdatePeriod() != 0){
             if ((time(NULL) - dp->LastUpdate()) > config->UpdatePeriod())
                 result_time = time(NULL) + 10;
             else

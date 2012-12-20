@@ -5,13 +5,14 @@
 # Translators:
 #   <jose.manuel.narciso@gmail.com>, 2012.
 # Jose Narciso <jose.manuel.narciso@gmail.com>, 2012.
+# Vlad Vas <vasvlad@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-15 15:17+0300\n"
-"PO-Revision-Date: 2012-11-08 11:43+0000\n"
-"Last-Translator: Jose Narciso <jose.manuel.narciso@gmail.com>\n"
+"POT-Creation-Date: 2012-12-17 09:23+0300\n"
+"PO-Revision-Date: 2012-12-17 06:20+0000\n"
+"Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/"
 "meecast/language/pt_PT/)\n"
 "Language: pt_PT\n"
@@ -846,9 +847,8 @@ msgid "Fair"
 msgstr "Bom Tempo"
 
 #: omweather/src/hash.data:324
-#, fuzzy
 msgid "Feels like"
-msgstr "Parece estar:"
+msgstr "Parece estar"
 
 #: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
 msgid "Feels like:"
@@ -893,9 +893,8 @@ msgstr "Primeiro Trimestre"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:153
 #: meecast/qt-qml/qml/FullWeatherPage.qml:210
 #: meecast/qt-qml/qml/FullWeatherPage.qml:259
-#, fuzzy
 msgid "Flike"
-msgstr "Parece Estar:"
+msgstr ""
 
 #: omweather/src/hash.data:84
 msgid "Fog"
@@ -955,7 +954,6 @@ msgid "Freezing Drizzle"
 msgstr "Gelo"
 
 #: meecast/qt-qml/qml/AboutPage.qml:211
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -984,29 +982,6 @@ msgid ""
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
-"Francês -  Nicolas Granziano, \n"
-" \t            Philippe, Benot Knecht \n"
-" Russo - Pavel Fialko, Vlad Vasiliev, \n"
-" \t        Ed Bartosh\n"
-" Finlandês - Marko Vertainen\n"
-" Alemão -  Claudius Henrichs\n"
-" Italiano - Pavel Fialko, Alessandro Pasotti,\n"
-" \t          Salvatore Fiorenzo, Ilir Gjika,\n"
-" \t          Luca Onnis\n"
-" Espanhol - Alejandro Lopez\n"
-" Polaco - Tomasz Dominikowski\n"
-" Eslovaco - Roman Moravčík\n"
-" Holandês - Tom Leenders, Michiel Pater\n"
-" Bulgaro - Zlatko Enikov\n"
-" Albanês - Ilir Gjika\n"
-" Chinês - Wong Man Kong, Michael\n"
-" Português - José Narciso,\n"
-" Turco - Burak Kaan Kose,\n"
-" Catalão - Agustí Clara,\n"
-" Vietnamita - Hieu Nguyen, Anh Dương and truongnx, \n"
-" Sueco - Angela Nennebrandt,\n"
-" \t        Niklas Åkerström, \n"
-" \t        Tomislav Veleckovik"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1110,9 +1085,8 @@ msgstr "Horas"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:135
 #: meecast/qt-qml/qml/FullWeatherPage.qml:192
 #: meecast/qt-qml/qml/FullWeatherPage.qml:241
-#, fuzzy
 msgid "Humidity"
-msgstr "Humidade:"
+msgstr "Humidade"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
@@ -1327,13 +1301,10 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2012"
 msgstr ""
-"MeeCast - multiplataforma de open source personalisável para cliente de "
-"previsão meteorológica baseada no código OMWeather Copyright (C) 2006-2011"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -1889,9 +1860,8 @@ msgid "Pressure: "
 msgstr "Pressão:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
-#, fuzzy
 msgid "Programmers"
-msgstr "Responsável de programação"
+msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
 msgid "Project administrator"
@@ -2695,9 +2665,8 @@ msgstr "Vento"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:138
 #: meecast/qt-qml/qml/FullWeatherPage.qml:195
 #: meecast/qt-qml/qml/FullWeatherPage.qml:244
-#, fuzzy
 msgid "Wind direction"
-msgstr "Direção Vento:"
+msgstr "Direção Vento"
 
 #: omweather/src/hash.data:307
 msgid "Wind direction:"
@@ -3050,6 +3019,3 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:332
 msgid "Ю-З"
 msgstr "Ю-З"
-
-#~ msgid "Flike:"
-#~ msgstr "Parece Estar:"

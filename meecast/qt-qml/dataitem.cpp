@@ -366,7 +366,7 @@ DataItem::shortdate()
 {
     QDateTime t;
     t.setTime_t(DataItem::Data::StartTime());
-    return t.toString("dddd");
+    return t.toString("ddd");
     //return QString::fromUtf8(DataItem::ShortDayName().c_str());
 
 }
@@ -385,7 +385,7 @@ DataItem::fulldate()
 {
     QDateTime t;
     t.setTime_t(DataItem::Data::StartTime());
-    return QString(t.toString("dd") + " " + t.toString("MMMM")); 
+    return QString(t.toString("dd")); 
 
     //return QString::fromUtf8((DataItem::FullDayName()+" "+DataItem::DayOfMonthName()+", "+DataItem::FullMonthName()).c_str());
     //return QString::fromUtf8((DataItem::DayOfMonthName()+"."+DataItem::MonthName()).c_str());

@@ -81,6 +81,7 @@ NavigationPane {
                 if (a == 1){
                     bg_color = current_rect_back_background;
                     background_image = "asset:///share/images/row_background.png"
+                    shortdate = Config.tr("Today");
                 }
                 forrecasts_list.dataModel.insert(
                         {
@@ -401,7 +402,7 @@ NavigationPane {
                                             id: current_temp_and_other_paremeters
                                             layout: DockLayout {}
                                             layoutProperties: AbsoluteLayoutProperties {
-                                                positionY: 200.0
+                                                positionY: 190.0
                                             }
               
                                             Container{
@@ -711,7 +712,8 @@ NavigationPane {
                                                         textStyle.textAlign: TextAlign.Left
                                                         preferredWidth: 768/2 - Qt.row_icon_size/2 - 20
                                                         textStyle {    
-                                                            base: SystemDefaults.TextStyles.SmallText
+                                                            base: SystemDefaults.TextStyles.BodyText 
+                                                            fontWeight: FontWeight.W100
                                                             color: Color.Gray
                                                         }
                                                     }
@@ -719,11 +721,12 @@ NavigationPane {
                                                         text: ListItemData.shortdate
                                                         preferredWidth: 768/2 - Qt.row_icon_size/2 - 20
                                                         layoutProperties: AbsoluteLayoutProperties {
-                                                            positionY: 30.0
+                                                            positionX: 70.0
                                                         }
                                                         textStyle.textAlign: TextAlign.Left
                                                         textStyle {
                                                             base: SystemDefaults.TextStyles.BodyText
+                                                            fontWeight: FontWeight.W100
                                                             color: Color.White
                                                         }
                                                     }
@@ -746,7 +749,7 @@ NavigationPane {
                                                 Label {
                                                     text: ListItemData.temp_high + '°'
                                                     horizontalAlignment: HorizontalAlignment.Right
-                                                    preferredWidth: 100
+                                                    preferredWidth: 80 
                                                     textStyle.textAlign: TextAlign.Right
                                                     textStyle {
                                                         base: SystemDefaults.TextStyles.BodyText
@@ -756,7 +759,7 @@ NavigationPane {
                                                 Label {
                                                     text: ListItemData.temp_low + '°'
                                                     horizontalAlignment: HorizontalAlignment.Right
-                                                    preferredWidth: 100
+                                                    preferredWidth: 80
                                                     textStyle.textAlign: TextAlign.Right
                                                     textStyle {
                                                         base: SystemDefaults.TextStyles.BodyText

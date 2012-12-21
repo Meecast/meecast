@@ -51,9 +51,10 @@ NavigationPane {
             else
                 current_value = false;
             console.log("Forecast_model.rowCount() ",  Forecast_model.rowCount());
+            console.log("Cuurent.rowCount() ",  Current.rowCount());
             for (var a = 0; a < Forecast_model.rowCount() + 1; a++) {
                 if (a == 0){
-                    if (current_value){
+                    if (Current.rowCount() > 0){
                         fulldate = Current.getdata(a, "fulldate");
                         shortdate = Current.getdata(a, "shortdate");
                         temp_high = Current.getdata(a, "temp_high");
@@ -377,7 +378,8 @@ NavigationPane {
                                 Container{
                                     Container{
                                     layout: AbsoluteLayout {}
-                                    visible: ListItemData.number == 0 && ListItemData.fulldate != "" ? true : false;
+//                                    visible: ListItemData.number == 0 && ListItemData.current_value == true ? true : false;
+                                    visible: ListItemData.number == 0 ? true : false;
 
                                     Container{
                                         background: Color.Black
@@ -392,6 +394,7 @@ NavigationPane {
                                         }
                                         Container{
                                             id: current_rect_back
+                                            visible: ListItemData.fulldate != "" ? true :false
                                             preferredWidth: 768
                                             preferredHeight: 420 
                                             layoutProperties: AbsoluteLayoutProperties {
@@ -401,16 +404,17 @@ NavigationPane {
                                         }
                                         ImageView {
                                             imageSource: ListItemData.background_image
+                                            visible: ListItemData.fulldate != "" ? true :false
                                             preferredWidth: 768
                                             preferredHeight: 420 
                                             layoutProperties: AbsoluteLayoutProperties {
                                                 positionY: 0
                                             }
-                                            visible: true
                                         }
                          
                                         Container{
                                             preferredWidth: 768
+                                            visible: ListItemData.fulldate != "" ? true :false
                                             id: current_temp_and_other_paremeters
                                             layout: DockLayout {}
                                             layoutProperties: AbsoluteLayoutProperties {
@@ -672,6 +676,7 @@ NavigationPane {
                                                 positionY: 120.0
                                             }
                                             Label {
+                                                visible: ListItemData.fulldate != "" ? true :false
                                                 text: ListItemData.current == true ? Qt.Config.tr("Now") : Qt.Config.tr("Today")
                                                 horizontalAlignment: HorizontalAlignment.Center
                                                 verticalAlignment: VerticalAlignment.Center

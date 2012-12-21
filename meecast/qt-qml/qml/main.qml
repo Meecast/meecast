@@ -46,14 +46,26 @@ NavigationPane {
 
         function update_list(){
             forrecasts_list.dataModel.clear();
-            current_value = Current.getdata(0, "current");
+            if (Current.getdata(0, "current"))
+                current_value = Current.getdata(0, "current");
+            else
+                current_value = false;
+            console.log("Forecast_model.rowCount() ",  Forecast_model.rowCount());
             for (var a = 0; a < Forecast_model.rowCount() + 1; a++) {
                 if (a == 0){
-                    fulldate = Forecast_model.getdata(a, "fulldate");
-                    shortdate = Forecast_model.getdata(a, "shortdate");
-                    temp_high = Forecast_model.getdata(a, "temp_high");
-                    temp_low  = Forecast_model.getdata(a, "temp_low");
-                    hi_temp_color =  main.getColor(Forecast_model.getdata(a, "temp_high"));
+                    if (current_value){
+                        fulldate = Current.getdata(a, "fulldate");
+                        shortdate = Current.getdata(a, "shortdate");
+                        temp_high = Current.getdata(a, "temp_high");
+                        temp_low  = Current.getdata(a, "temp_low");
+                        hi_temp_color =  main.getColor(Current.getdata(a, "temp_high"));
+                    }else{
+                        fulldate = "";
+                        shortdate = "";
+                        temp_high = "";
+                        temp_low  = "";
+                        hi_temp_color = ""; 
+                    }
                     pict = main_icon_imageSource;
                     bg_color = current_rect_back_background;
                     title_text = title_text_text;
@@ -365,7 +377,7 @@ NavigationPane {
                                 Container{
                                     Container{
                                     layout: AbsoluteLayout {}
-                                    visible: ListItemData.number == 0 ? true : false;
+                                    visible: ListItemData.number == 0 && ListItemData.fulldate != "" ? true : false;
 
                                     Container{
                                         background: Color.Black

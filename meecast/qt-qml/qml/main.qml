@@ -424,20 +424,20 @@ NavigationPane {
                                             Container{
                                                 id: current_temperature
                                                 horizontalAlignment: HorizontalAlignment.Left
-                                                preferredWidth: ListItemData.current_temp_text.length < 4 ? 768/2 - Qt.main_icon_size/2 : 768/2 - Qt.main_icon_size/2 + 50
+                                                preferredWidth: ListItemData.current_temp_text.length < 5 ? 768/2 - Qt.main_icon_size/2 : 768/2 - Qt.main_icon_size/2 + 50
                                                 verticalAlignment: VerticalAlignment.Center
                                                 Container{
                                                    Label {
                                                         id: current_temp_text_id
                                                         text: ListItemData.current_temp_text
-                                                        preferredWidth: ListItemData.current_temp_text.length < 4 ? 768/2 - Qt.main_icon_size/2 : 768/2 - Qt.main_icon_size/2 + 50
+                                                        preferredWidth: ListItemData.current_temp_text.length < 5 ? 768/2 - Qt.main_icon_size/2 : 768/2 - Qt.main_icon_size/2 + 50
                                                         horizontalAlignment: HorizontalAlignment.Center
                                                         verticalAlignment: VerticalAlignment.Center
                                                         textStyle.textAlign: TextAlign.Center
                                                         textStyle {
                                                             fontSize: FontSize.PointValue
                                                             fontWeight: FontWeight.W100
-                                                            fontSizeValue: ListItemData.current_temp_text.length < 4 ? 18.0 : 14 
+                                                            fontSizeValue: ListItemData.current_temp_text.length < 5 ? 18.0 : 14 
                                                             color: Color.White
                                                         }
                                                     }

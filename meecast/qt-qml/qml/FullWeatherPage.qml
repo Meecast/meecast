@@ -433,8 +433,8 @@ Page {
                visible: day > 0 ? true : false;
                horizontalAlignment: HorizontalAlignment.Left
                verticalAlignment: VerticalAlignment.Center
-               preferredWidth: 62*1.6
-               preferredHeight: 62*1.6
+               preferredWidth: 60
+               preferredHeight: 60
                defaultImageSource: "asset:///share/images/arrow_left.png"
                onClicked: {
                     if (day > 0){
@@ -474,8 +474,8 @@ Page {
                verticalAlignment: VerticalAlignment.Center
                horizontalAlignment: HorizontalAlignment.Right
                defaultImageSource: "asset:///share/images/arrow_right.png"
-               preferredWidth: 62*1.6
-               preferredHeight: 62*1.6
+               preferredWidth: 60
+               preferredHeight: 60
                onClicked: {
                     if (day < model_day.rowCount()-1){ 
                         console.log("next day");

@@ -109,21 +109,19 @@ W: </source>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Низкий)</translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Низкий)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">Умеренный</translation>
+            <translation>(Умеренный)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">Умеренный</translation>
+            <translation>(Умеренный)</translation>
         </message>
         <message>
             <source>1 day</source>
@@ -748,8 +746,7 @@ Connection timeout is expired.</source>
         </message>
         <message>
             <source>Daily</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ежедневно</translation>
         </message>
         <message>
             <source>Day</source>
@@ -2316,7 +2313,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Programmers</source>
-            <translation type="unfinished">Ведущие программисты</translation>
+            <translation>Программисты</translation>
         </message>
         <message>
             <source>Project administrator</source>
@@ -2684,7 +2681,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Settings of LockScreen</source>
-            <translation type="unfinished">Настройки для StandbyScreen экрана</translation>
+            <translation>Настройки для LockScreen экрана</translation>
         </message>
         <message>
             <source>Settings of StandbyScreen</source>
@@ -3261,11 +3258,11 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">Количество элементов:</translation>
+            <translation>Единицы измерения видимости</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">Количество элементов:</translation>
+            <translation>Единицы измерения видимости</translation>
         </message>
         <message>
             <source>Visible:</source>

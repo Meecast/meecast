@@ -1036,7 +1036,7 @@ Brad Jones aka kazrak - para testes
         </message>
         <message>
             <source>Feels like</source>
-            <translation type="unfinished">Parece estar:</translation>
+            <translation>Parece estar</translation>
         </message>
         <message>
             <source>Feels like:</source>
@@ -1082,15 +1082,18 @@ Brad Jones aka kazrak - para testes
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Parece Estar:</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Parece Estar:</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Parece Estar:</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1183,29 +1186,8 @@ usando o Gestor de Aplicações</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Francês -  Nicolas Granziano, 
- 	            Philippe, Benot Knecht 
- Russo - Pavel Fialko, Vlad Vasiliev, 
- 	        Ed Bartosh
- Finlandês - Marko Vertainen
- Alemão -  Claudius Henrichs
- Italiano - Pavel Fialko, Alessandro Pasotti,
- 	          Salvatore Fiorenzo, Ilir Gjika,
- 	          Luca Onnis
- Espanhol - Alejandro Lopez
- Polaco - Tomasz Dominikowski
- Eslovaco - Roman Moravčík
- Holandês - Tom Leenders, Michiel Pater
- Bulgaro - Zlatko Enikov
- Albanês - Ilir Gjika
- Chinês - Wong Man Kong, Michael
- Português - José Narciso,
- Turco - Burak Kaan Kose,
- Catalão - Agustí Clara,
- Vietnamita - Hieu Nguyen, Anh Dương and truongnx, 
- Sueco - Angela Nennebrandt,
- 	        Niklas Åkerström, 
- 	        Tomislav Veleckovik</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1313,15 +1295,15 @@ Eslovaco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Humidade:</translation>
+            <translation>Humidade</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Humidade:</translation>
+            <translation>Humidade</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Humidade:</translation>
+            <translation>Humidade</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1591,7 +1573,8 @@ Eslovaco - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2012</source>
-            <translation type="unfinished">MeeCast - multiplataforma de open source personalisável para cliente de previsão meteorológica baseada no código OMWeather Copyright (C) 2006-2011</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2319,7 +2302,8 @@ Eslovaco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Programmers</source>
-            <translation type="unfinished">Responsável de programação</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Project administrator</source>
@@ -3381,15 +3365,15 @@ de informações do tempo.
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Direção Vento:</translation>
+            <translation>Direção Vento</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Direção Vento:</translation>
+            <translation>Direção Vento</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Direção Vento:</translation>
+            <translation>Direção Vento</translation>
         </message>
         <message>
             <source>Wind direction:</source>

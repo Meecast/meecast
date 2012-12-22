@@ -123,23 +123,19 @@ T: </translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Matala)</translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Matala)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Kohtalainen)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Kohtalainen)</translation>
         </message>
         <message>
             <source>1 day</source>
@@ -451,7 +447,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
             <translation>Tekijä ja ylläpito: Vlad Vasiliev, vlad@gas.by
 Ylläpito: Pavel Fialko, pavelnf@gmail.com
 Ohje: Marko Vertainen
-Käyttöliittymä ja oletuskuvakkeet: Andrew Zhilin
+Käyttöliittymä ja oletus sääsymbolit: Andrew Zhilin
 Fremantle käyttöliittymä: Krebber Jan ja Niemelä Ulla
 </translation>
         </message>
@@ -557,8 +553,7 @@ Fremantle käyttöliittymä: Krebber Jan ja Niemelä Ulla
         </message>
         <message>
             <source>Celsius</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Celsius</translation>
         </message>
         <message>
             <source>City</source>
@@ -710,7 +705,7 @@ Fremantle käyttöliittymä: Krebber Jan ja Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
-            <translation type="unfinished">Pilvistä, ukkosta ja vesisadetta</translation>
+            <translation>Pilvistä, ukkosta ja sadetta</translation>
         </message>
         <message>
             <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
@@ -793,7 +788,7 @@ Yhteys on vanhentunut.</translation>
         <message>
             <source>Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
 </source>
-            <translation>Käyttöliittymä ja oletuskuvakkeet: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
+            <translation>Käyttöliittymä ja oletus sääsymbolit: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
 </translation>
         </message>
         <message>
@@ -917,7 +912,7 @@ Maxim Kalinkevish aka spark - testauksesta
 Yuri Komyakov - Nokia 770:sta 
 Greg Thompson - stations.txt tiedoston tuesta
 Frank Persian - uuden ulkoasun ideasta
-Brian Knight - kuvakkeiden ideasta, kritiikistä ja lahjoituksesta ;-)
+Brian Knight - sääsymboleiden ideasta, kritiikistä ja lahjoituksesta ;-)
 Andrew aka Tabster - testauksesta ja ideoista
 Brad Jones aka kazrak - testauksesta
 </translation>
@@ -1042,7 +1037,7 @@ Brad Jones aka kazrak - testauksesta
         </message>
         <message>
             <source>Feels like</source>
-            <translation type="unfinished">Tuntuu iholla:</translation>
+            <translation>Tuntuu iholla</translation>
         </message>
         <message>
             <source>Feels like:</source>
@@ -1088,15 +1083,15 @@ Brad Jones aka kazrak - testauksesta
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Tuntuu:</translation>
+            <translation>Tuntuu</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Tuntuu:</translation>
+            <translation>Tuntuu</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Tuntuu:</translation>
+            <translation>Tuntuu</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1190,7 +1185,7 @@ paketti sovellusten hallinnalla</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Ranska -  Nicolas Granziano, 
+            <translation>Ranska -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  Venäjä - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
@@ -1208,6 +1203,11 @@ paketti sovellusten hallinnalla</translation>
  Kiina - Wong Man Kong, Michael
  Portugali - Jose Narciso,
  Turkki - Burak Kaan Kose,
+ Katalaani - Agustí Clara,
+ Arabia - Tarad Alfandi,
+ Norja - Peer-Atle Motland,
+ Vietnami - Hieu Nguyen
+ 	Anh Dương and truongnx, 
  Ruotsi - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</translation>
@@ -1274,7 +1274,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
-            <translation>Grzanka kuvakkeet: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</translation>
+            <translation>Grzanka sääsymbolit: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</translation>
         </message>
         <message>
             <source>Gust:</source>
@@ -1318,15 +1318,15 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Ilmankosteus: </translation>
+            <translation>Ilmankosteus</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Ilmankosteus: </translation>
+            <translation>Ilmankosteus</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Ilmankosteus: </translation>
+            <translation>Ilmankosteus</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1358,27 +1358,27 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Icons</source>
-            <translation>Kuvakkeet</translation>
+            <translation>Sääsymbolit</translation>
         </message>
         <message>
             <source>Icons</source>
-            <translation>Kuvakkeet</translation>
+            <translation>Sääsymbolit</translation>
         </message>
         <message>
             <source>Iconset</source>
-            <translation>Kuvakkeet</translation>
+            <translation>Sääsymbolit</translation>
         </message>
         <message>
             <source>Iconset</source>
-            <translation>Kuvakkeet</translation>
+            <translation>Sääsymbolit</translation>
         </message>
         <message>
             <source>Iconsets</source>
-            <translation>Kuvakkeet</translation>
+            <translation>Sääsymbolit</translation>
         </message>
         <message>
             <source>Iconsets</source>
-            <translation>Kuvakkeet</translation>
+            <translation>Sääsymbolit</translation>
         </message>
         <message>
             <source>Information</source>
@@ -1596,7 +1596,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2012</source>
-            <translation type="unfinished">MeeCast - useilla alustoilla toimiva avoimen lähdekoodin sääohjelma. Perustuu OMWeatherin koodiin. Copyright (C) 2006-2011</translation>
+            <translation>MeeCast - usealla alustalla toimiva monipuolisesti muokattavissa oleva sää-ohjelma, joka pohjautuu OMWeatherin koodiin. Copyright (C) 2006-2012</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2280,11 +2280,11 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Pressure units</source>
-            <translation>Paineen yksiköt</translation>
+            <translation>Paineen yksikkö</translation>
         </message>
         <message>
             <source>Pressure units</source>
-            <translation>Paineen yksiköt</translation>
+            <translation>Paineen yksikkö</translation>
         </message>
         <message>
             <source>Pressure units:</source>
@@ -2324,7 +2324,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Programmers</source>
-            <translation type="unfinished">Pääohjelmoijat</translation>
+            <translation>Ohjelmoijat</translation>
         </message>
         <message>
             <source>Project administrator</source>
@@ -2588,32 +2588,27 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Select the X-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Valitse sovelluksen X-akselin vasen kulma</translation>
         </message>
         <message>
             <source>Select the Y-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Valitse sovelluksen Y-akselin vasen kulma</translation>
         </message>
         <message>
             <source>Select the color of font for current temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Valitse nykyisen lämpötilan kirjasimen väri</translation>
         </message>
         <message>
             <source>Select the color of font for station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Valitse sääaseman nimen kirjasimen väri</translation>
         </message>
         <message>
             <source>Select the color of font for temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Valitse lämpötilan kirjasimen väri</translation>
         </message>
         <message>
             <source>Select the iconset</source>
-            <translation>Valitse kuvakkeet</translation>
+            <translation>Valitse sääsymbolit</translation>
         </message>
         <message>
             <source>Select the weather source</source>
@@ -2681,16 +2676,15 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Settings for Lockscreen widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lukitusnäytön sovelluksen asetukset</translation>
         </message>
         <message>
             <source>Settings for standby widget</source>
-            <translation type="unfinished">Valmiusnäytön asetukset</translation>
+            <translation>Valmiusnäytön sovelluksen asetukset</translation>
         </message>
         <message>
             <source>Settings of LockScreen</source>
-            <translation type="unfinished">Valmiusnäytön asetukset</translation>
+            <translation>Lukitusnäytön asetukset</translation>
         </message>
         <message>
             <source>Settings of StandbyScreen</source>
@@ -2710,7 +2704,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Show on Map</source>
-            <translation type="unfinished">Näytä aseman nimi</translation>
+            <translation>Näytä kartalla</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
@@ -2986,15 +2980,15 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Temperature units</source>
-            <translation>Lämpötilan yksiköt</translation>
+            <translation>Lämpötilan yksikkö</translation>
         </message>
         <message>
             <source>Temperature units</source>
-            <translation>Lämpötilan yksiköt</translation>
+            <translation>Lämpötilan yksikkö</translation>
         </message>
         <message>
             <source>Temperature units</source>
-            <translation>Lämpötilan yksiköt</translation>
+            <translation>Lämpötilan yksikkö</translation>
         </message>
         <message>
             <source>Temperature units:</source>
@@ -3111,8 +3105,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>UV indeksi:</translation>
         </message>
         <message>
             <source>Units</source>
@@ -3271,11 +3264,11 @@ ajoitettuun päivitykseen.
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">Näkyvät elementit:</translation>
+            <translation>Näkyvyyden yksikkö</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">Näkyvät elementit:</translation>
+            <translation>Näkyvyyden yksikkö</translation>
         </message>
         <message>
             <source>Visible:</source>
@@ -3395,15 +3388,15 @@ ajoitettuun päivitykseen.
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Tuulen suunta:</translation>
+            <translation>Tuulen suunta</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Tuulen suunta:</translation>
+            <translation>Tuulen suunta</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Tuulen suunta:</translation>
+            <translation>Tuulen suunta</translation>
         </message>
         <message>
             <source>Wind direction:</source>
@@ -3439,15 +3432,15 @@ ajoitettuun päivitykseen.
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation>Tuulen nopeuden yksiköt</translation>
+            <translation>Tuulen nopeuden yksikkö</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation>Tuulen nopeuden yksiköt</translation>
+            <translation>Tuulen nopeuden yksikkö</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation>Tuulen nopeuden yksiköt</translation>
+            <translation>Tuulen nopeuden yksikkö</translation>
         </message>
         <message>
             <source>Wind speed units:</source>

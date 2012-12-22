@@ -1037,7 +1037,7 @@ Brad Jones aka kazrak - per les proves
         </message>
         <message>
             <source>Feels like</source>
-            <translation type="unfinished">Sensació tèrmica:</translation>
+            <translation>Sensació tèrmica</translation>
         </message>
         <message>
             <source>Feels like:</source>
@@ -1083,15 +1083,18 @@ Brad Jones aka kazrak - per les proves
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Lluminositat</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Lluminositat</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Lluminositat</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1184,29 +1187,8 @@ utilitzant el Gestor d'aplicacions</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Francès -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
- Rus - Pavel Fialko, Vlad Vasiliev, 
- 	Ed Bartosh
- Finlandès - Marko Vertainen
- Alemany -  Claudius Henrichs
- Italià - Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
- Castellà - Alejandro Lopez
- Polonès - Tomasz Dominikowski
- Eslovac - Roman Moravčík
- Neerlandès - Tom Leenders, Michiel Pater
- Búlgar - Zlatko Enikov
- Albanès - Ilir Gjika
- Xinès - Wong Man Kong, Michael
- Portuguès - Jose Narciso,
- Turc - Burak Kaan Kose,
- Català - Agustí Clara,
- Vietnamita - Hieu Nguyen, Anh Dương and truongnx, 
- Suec - Angela Nennebrandt,
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1315,15 +1297,15 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Humitat:</translation>
+            <translation>Humitat</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Humitat:</translation>
+            <translation>Humitat</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Humitat:</translation>
+            <translation>Humitat</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1593,7 +1575,8 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2012</source>
-            <translation type="unfinished">MeeCast - client de pronòstics del temps de codi obert, de fàcil personalització i multiplataforma, basat en el codi d'OMWeather. Copyright (C) 2006-2011</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2321,7 +2304,8 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>Programmers</source>
-            <translation type="unfinished">Programadors principals</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Project administrator</source>
@@ -3382,19 +3366,19 @@ de la informació del temps.
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Direcció del vent</translation>
+            <translation>Direcció del vent</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Direcció del vent</translation>
+            <translation>Direcció del vent</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Direcció del vent</translation>
+            <translation>Direcció del vent</translation>
         </message>
         <message>
             <source>Wind direction:</source>
-            <translation>Direcció del vent</translation>
+            <translation>Direcció del vent:</translation>
         </message>
         <message>
             <source>Wind gust:</source>

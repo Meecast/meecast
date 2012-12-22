@@ -1039,7 +1039,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Feels like</source>
-            <translation type="unfinished">Føles som:</translation>
+            <translation>Føles som</translation>
         </message>
         <message>
             <source>Feels like:</source>
@@ -1085,15 +1085,15 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Flike:</translation>
+            <translation>Føles som</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Flike:</translation>
+            <translation>Føles som</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Flike:</translation>
+            <translation>Føles som</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1186,7 +1186,7 @@ bør du avinstallere pakken
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Fransk -  Nicolas Granziano, 
+            <translation> Fransk -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  Russisk - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
@@ -1205,7 +1205,10 @@ bør du avinstallere pakken
  Portugisisk - Jose Narciso,
  Tyrkisk - Burak Kaan Kose,
  Katalansk - Agustí Clara,
- Vietnamesisk - Hieu Nguyen, Anh Dương and truongnx, 
+ Arabisk - Tarad Alfandi,
+ Norsk - Peer-Atle Motland,
+ Vietnamesisk - Hieu Nguyen
+ 	Anh Dương and truongnx, 
  Svensk - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</translation>
@@ -1316,15 +1319,15 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Fuktighet:</translation>
+            <translation>Fuktighet</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Fuktighet:</translation>
+            <translation>Fuktighet</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Fuktighet:</translation>
+            <translation>Fuktighet</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1594,7 +1597,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2012</source>
-            <translation type="unfinished">MeeCast - multiplattform meget konfigurerbart åpen kildekode værmeldings klient basert på OMWeather kode. Copyright (C) 2006-2011</translation>
+            <translation>MeeCast - multiplattform lett tilpasselig åpen kildekode værmeldings klient basert på OMWeather kode. Copyright (C) 2006-2012</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2322,7 +2325,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Programmers</source>
-            <translation type="unfinished">Sjef programmerere</translation>
+            <translation>Programmerere</translation>
         </message>
         <message>
             <source>Project administrator</source>
@@ -2674,11 +2677,11 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Settings for Lockscreen widget</source>
-            <translation>Innstillingene for Låseskjerm widget</translation>
+            <translation>Innstillingene for Låseskjerm</translation>
         </message>
         <message>
             <source>Settings for standby widget</source>
-            <translation>Innstillingene for Dvalemodus widget</translation>
+            <translation>Innstillingene for Dvalemodus</translation>
         </message>
         <message>
             <source>Settings of LockScreen</source>
@@ -3268,11 +3271,11 @@ av værinformasjonen.
         </message>
         <message>
             <source>Visible:</source>
-            <translation>Synlig</translation>
+            <translation>Sikt:</translation>
         </message>
         <message>
             <source>Visible:</source>
-            <translation>Synlig</translation>
+            <translation>Sikt:</translation>
         </message>
         <message>
             <source>Visuals</source>
@@ -3364,7 +3367,7 @@ av værinformasjonen.
         </message>
         <message>
             <source>Widget in events view</source>
-            <translation>Widget på hendelsesskjerm</translation>
+            <translation>Widget på Hendelsesskjerm</translation>
         </message>
         <message>
             <source>Widget style</source>
@@ -3384,15 +3387,15 @@ av værinformasjonen.
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Vindretning:</translation>
+            <translation>Vindretning</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Vindretning:</translation>
+            <translation>Vindretning</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Vindretning:</translation>
+            <translation>Vindretning</translation>
         </message>
         <message>
             <source>Wind direction:</source>
@@ -3428,19 +3431,19 @@ av værinformasjonen.
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation>Vindhastighet enheter</translation>
+            <translation>Vindhastighetsenheter</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation>Vindhastighet enheter</translation>
+            <translation>Vindhastighetsenheter</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation>Vindhastighet enheter</translation>
+            <translation>Vindhastighetsenheter</translation>
         </message>
         <message>
             <source>Wind speed units:</source>
-            <translation>Vindhastighet enheter:</translation>
+            <translation>Vindhastighetsenheter:</translation>
         </message>
         <message>
             <source>Wind:</source>

@@ -6,8 +6,8 @@
         <message>
             <source>
 H: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+H: </translation>
         </message>
         <message>
             <source>
@@ -27,119 +27,115 @@ for Semi-transparency
 and coloured backgrounds
 </source>
             <translation>
-Hildon desktop applet
-for the Nokia N800/N810/N900
-to show weather forecasts.
-Version %s Build: %s
-Copyright(c) 2006-2011
+桌面小程序
+供Nokia N800/N810/N900使用
+从forecasts获取天气信息
+版本%s Build: %s
+版权所有(c) 2006-2011
 Vlad Vasiliev, Pavel Fialko
-Copyright(c) 2008
-for default icon set (Glance)
-and design of interface
+版权所有(c) 2008
+默认图标 (Glance)
+界面设计
 Andrew Zhilin
-Copyright(c) 2008
+版权所有(c) 2008
 Andrew Olmsted
-for Semi-transparency
-and coloured backgrounds
+半透明度
+和多彩背景
 </translation>
         </message>
         <message>
             <source>
 Humidity: </source>
             <translation>
-濕度:</translation>
+湿度: </translation>
         </message>
         <message>
             <source>
 Humidity: </source>
             <translation>
-濕度:</translation>
+湿度: </translation>
         </message>
         <message>
             <source>
 Humidity: </source>
             <translation>
-濕度:</translation>
+湿度: </translation>
         </message>
         <message>
             <source>
 Humidity: </source>
             <translation>
-濕度:</translation>
+湿度: </translation>
         </message>
         <message>
             <source>
 P: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+P: </translation>
         </message>
         <message>
             <source>
 Precipitation: </source>
             <translation>
-降雨/降雪量: </translation>
+降水: </translation>
         </message>
         <message>
             <source>
 Precipitation: </source>
             <translation>
-降雨/降雪量: </translation>
+降水: </translation>
         </message>
         <message>
             <source>
 Precipitation: </source>
             <translation>
-降雨/降雪量: </translation>
+降水: </translation>
         </message>
         <message>
             <source>
 Precipitation: </source>
             <translation>
-降雨/降雪量: </translation>
+降水: </translation>
         </message>
         <message>
             <source>
 Pressure: </source>
             <translation>
-氣壓: </translation>
+气压: </translation>
         </message>
         <message>
             <source>
 Pressure: </source>
             <translation>
-氣壓: </translation>
+气压: </translation>
         </message>
         <message>
             <source>
 V: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+V: </translation>
         </message>
         <message>
             <source>
 W: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+W: </translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(最低)</translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(最低)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(中度)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(中度)</translation>
         </message>
         <message>
             <source>1 day</source>
@@ -151,27 +147,27 @@ W: </source>
         </message>
         <message>
             <source>1 hour</source>
-            <translation>1 小時</translation>
+            <translation>1 小时</translation>
         </message>
         <message>
             <source>1 hour</source>
-            <translation>1 小時</translation>
+            <translation>1 小时</translation>
         </message>
         <message>
             <source>1 hour</source>
-            <translation>1 小時</translation>
+            <translation>1 小时</translation>
         </message>
         <message>
             <source>1 hour</source>
-            <translation>1 小時</translation>
+            <translation>1 小时</translation>
         </message>
         <message>
             <source>1 minute</source>
-            <translation>1 分鐘</translation>
+            <translation>1 分钟</translation>
         </message>
         <message>
             <source>10 minutes</source>
-            <translation>10 分鐘</translation>
+            <translation>10 分钟</translation>
         </message>
         <message>
             <source>10 seconds</source>
@@ -179,24 +175,23 @@ W: </source>
         </message>
         <message>
             <source>12 hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>12 小时</translation>
         </message>
         <message>
             <source>15 minutes</source>
-            <translation>15 分鐘</translation>
+            <translation>15 分钟</translation>
         </message>
         <message>
             <source>15 minutes</source>
-            <translation>15 分鐘</translation>
+            <translation>15 分钟</translation>
         </message>
         <message>
             <source>2 hours</source>
-            <translation>2 小時</translation>
+            <translation>2 小时</translation>
         </message>
         <message>
             <source>2 hours</source>
-            <translation>2 小時</translation>
+            <translation>2 小时</translation>
         </message>
         <message>
             <source>20 seconds</source>
@@ -204,15 +199,15 @@ W: </source>
         </message>
         <message>
             <source>3 minutes</source>
-            <translation>3 分鐘</translation>
+            <translation>3 分钟</translation>
         </message>
         <message>
             <source>30 minutes</source>
-            <translation>30 分鐘</translation>
+            <translation>30 分钟</translation>
         </message>
         <message>
             <source>30 minutes</source>
-            <translation>30 分鐘</translation>
+            <translation>30 分钟</translation>
         </message>
         <message>
             <source>30 seconds</source>
@@ -220,19 +215,19 @@ W: </source>
         </message>
         <message>
             <source>4 hours</source>
-            <translation>4 小時</translation>
+            <translation>4 小时</translation>
         </message>
         <message>
             <source>4 hours</source>
-            <translation>4 小時</translation>
+            <translation>4 小时</translation>
         </message>
         <message>
             <source>4 hours</source>
-            <translation>4 小時</translation>
+            <translation>4 小时</translation>
         </message>
         <message>
             <source>4 hours</source>
-            <translation>4 小時</translation>
+            <translation>4 小时</translation>
         </message>
         <message>
             <source>40 seconds</source>
@@ -240,7 +235,7 @@ W: </source>
         </message>
         <message>
             <source>5 minutes</source>
-            <translation>5 分鐘</translation>
+            <translation>5 分钟</translation>
         </message>
         <message>
             <source>50 seconds</source>
@@ -252,7 +247,7 @@ W: </source>
         </message>
         <message>
             <source>8 hours</source>
-            <translation>8 小時</translation>
+            <translation>8 小时</translation>
         </message>
         <message>
             <source>AM Clouds / PM Sun</source>
@@ -261,8 +256,7 @@ W: </source>
         </message>
         <message>
             <source>AM Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午 微雨</translation>
         </message>
         <message>
             <source>AM Drizzle / Wind</source>
@@ -281,8 +275,7 @@ W: </source>
         </message>
         <message>
             <source>AM Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午 小雨</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
@@ -291,8 +284,7 @@ W: </source>
         </message>
         <message>
             <source>AM Light Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午 小雪</translation>
         </message>
         <message>
             <source>AM Light Snow / Wind</source>
@@ -301,13 +293,11 @@ W: </source>
         </message>
         <message>
             <source>AM Light Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午 小雨夹雪</translation>
         </message>
         <message>
             <source>AM Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午 雨</translation>
         </message>
         <message>
             <source>AM Rain / Snow</source>
@@ -331,8 +321,7 @@ W: </source>
         </message>
         <message>
             <source>AM Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午 阵雨</translation>
         </message>
         <message>
             <source>AM Showers / Wind</source>
@@ -341,13 +330,11 @@ W: </source>
         </message>
         <message>
             <source>AM Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午 雪</translation>
         </message>
         <message>
             <source>AM Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上午 阵雪</translation>
         </message>
         <message>
             <source>AM Snow Showers / Wind</source>
@@ -361,62 +348,55 @@ W: </source>
         </message>
         <message>
             <source>About</source>
-            <translation>關於</translation>
+            <translation>关于</translation>
         </message>
         <message>
             <source>About</source>
-            <translation>關於</translation>
+            <translation>关于</translation>
         </message>
         <message>
             <source>About</source>
-            <translation>關於</translation>
+            <translation>关于</translation>
         </message>
         <message>
             <source>About</source>
-            <translation>關於</translation>
+            <translation>关于</translation>
         </message>
         <message>
             <source>About</source>
-            <translation>關於</translation>
+            <translation>关于</translation>
         </message>
         <message>
             <source>About</source>
-            <translation>關於</translation>
+            <translation>关于</translation>
         </message>
         <message>
             <source>Access denied to the given URL.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>拒绝访问到指定网址.</translation>
         </message>
         <message>
             <source>Action|Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>更新</translation>
         </message>
         <message>
             <source>Add</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>增加</translation>
         </message>
         <message>
             <source>Add Station</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>增加地区</translation>
         </message>
         <message>
             <source>Alerts</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>警告</translation>
         </message>
         <message>
             <source>Alerts</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>警告</translation>
         </message>
         <message>
             <source>Alerts</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>警告</translation>
         </message>
         <message>
             <source>Alexis Iglauer - for testing
@@ -429,39 +409,46 @@ Alexander Savchenko aka dizel - for testing
 Timeless - for patches 
 Eric Link - for feature request and donation
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alexis Iglauer - for testing
+Eugene Roytenberg - for testing
+Jarek Szczepanski aka Imrahil - for testing
+Vladimir Shakhov aka Mendoza - for testing 
+Marc Dillon - for spell/stylecheck text of English
+Arkady Glazov aka Globster - for testing
+Alexander Savchenko aka dizel - for testing
+Timeless - for patches 
+Eric Link - for feature request and donation
+</translation>
         </message>
         <message>
             <source>An unknown error has occurred.</source>
-            <translation>發生一個未知的錯誤</translation>
+            <translation>发生未知的错误.</translation>
         </message>
         <message>
             <source>Animation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>开启动画效果</translation>
         </message>
         <message>
             <source>Appearance</source>
-            <translation>外觀</translation>
+            <translation>界面</translation>
         </message>
         <message>
             <source>Application manager will now start
 for installing package 'MeeCast applet'.
 You should uninstall AccuWeather 
 before installing this package</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>应用程序管理器即将
+安装“MeeCast applet”
+安装前请确认”AccuWeather“ 
+这个程序已经卸载</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>您确定要删除这个地区?</translation>
         </message>
         <message>
             <source>Are you sure?</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>您确定?</translation>
         </message>
         <message>
             <source>Author and maintenance: Vlad Vasiliev, &lt;vlad@gas.by&gt;
@@ -470,106 +457,98 @@ Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
 Design UI for Fremantle: Krebber Jan Niemelä Ulla
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Author and maintenance: Vlad Vasiliev, &lt;vlad@gas.by&gt;
+Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
+Documentation: Marko Vertainen
+Design UI and default iconset: Andrew Zhilin
+Design UI for Fremantle: Krebber Jan Niemelä Ulla
+</translation>
         </message>
         <message>
             <source>Author and maintenance: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>作者/维护:Vlad Vasilyeu, &lt;vlad@gas.by&gt;
+</translation>
         </message>
         <message>
             <source>Authors</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>作者</translation>
         </message>
         <message>
             <source>Automatically update data when connecting to the Internet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>更新数据时自动连接到互联网</translation>
         </message>
         <message>
             <source>Background color:</source>
-            <translation>背景顏色:</translation>
+            <translation>背景颜色:</translation>
         </message>
         <message>
             <source>Background color:</source>
-            <translation>背景顏色:</translation>
+            <translation>背景颜色:</translation>
         </message>
         <message>
             <source>Beauf.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beauf.</translation>
         </message>
         <message>
             <source>Beaufort scale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>蒲福风力等级</translation>
         </message>
         <message>
             <source>Beaufort scale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>蒲福风力等级</translation>
         </message>
         <message>
             <source>Blowing Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>飞雪</translation>
         </message>
         <message>
             <source>C</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C</translation>
         </message>
         <message>
             <source>C</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C</translation>
         </message>
         <message>
             <source>C</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C</translation>
         </message>
         <message>
             <source>C</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C</translation>
         </message>
         <message>
             <source>C</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C</translation>
         </message>
         <message>
             <source>C
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C
+</translation>
         </message>
         <message>
             <source>C
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C
+</translation>
         </message>
         <message>
             <source>C
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C
+</translation>
         </message>
         <message>
             <source>C
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C
+</translation>
         </message>
         <message>
             <source>CALM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>平静</translation>
         </message>
         <message>
             <source>Cancel</source>
@@ -578,17 +557,16 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Cannot get path to the HOME directory. Quitting.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无法获取主目录路径。退出。
+</translation>
         </message>
         <message>
             <source>Celcius</source>
-            <translation>攝氏</translation>
+            <translation>摄氏</translation>
         </message>
         <message>
             <source>Celsius</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>摄氏</translation>
         </message>
         <message>
             <source>City</source>
@@ -608,12 +586,11 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>City:</source>
-            <translation>城市:</translation>
+            <translation>城市: </translation>
         </message>
         <message>
             <source>Clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴朗</translation>
         </message>
         <message>
             <source>Clear / Wind</source>
@@ -622,38 +599,31 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clear Sky</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴天</translation>
         </message>
         <message>
             <source>Clear, Drifting Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴朗, 飘雪</translation>
         </message>
         <message>
             <source>Clear, Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴，雾</translation>
         </message>
         <message>
             <source>Clear, Fog, Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴天，雾，细雨</translation>
         </message>
         <message>
             <source>Clear, Haze</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴，阴霾</translation>
         </message>
         <message>
             <source>Clear, Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴朗, 烟雾</translation>
         </message>
         <message>
             <source>Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>关闭</translation>
         </message>
         <message>
             <source>Clouds Early / Clearing Late</source>
@@ -662,8 +632,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云</translation>
         </message>
         <message>
             <source>Cloudy / Wind</source>
@@ -672,282 +641,233 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云有雪</translation>
         </message>
         <message>
             <source>Cloudy Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云小雨</translation>
         </message>
         <message>
             <source>Cloudy T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云雷雨</translation>
         </message>
         <message>
             <source>Cloudy and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云多风</translation>
         </message>
         <message>
             <source>Cloudy and light rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云时小雨</translation>
         </message>
         <message>
             <source>Cloudy and light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云时小雪</translation>
         </message>
         <message>
             <source>Cloudy and light wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云时小湿雪</translation>
         </message>
         <message>
             <source>Cloudy and showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云时阵雨</translation>
         </message>
         <message>
             <source>Cloudy and snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云时阵雪</translation>
         </message>
         <message>
             <source>Cloudy, Drifting Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云, 飘雪</translation>
         </message>
         <message>
             <source>Cloudy, Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云, 短暂有雪</translation>
         </message>
         <message>
             <source>Cloudy, Heavy Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云，大雨</translation>
         </message>
         <message>
             <source>Cloudy, Heavy Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云，大雨，雷雨</translation>
         </message>
         <message>
             <source>Cloudy, Heavy Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云，大雪</translation>
         </message>
         <message>
             <source>Cloudy, Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云, 小雨</translation>
         </message>
         <message>
             <source>Cloudy, Light Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云, 小雨, 雷雨</translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云，雨</translation>
         </message>
         <message>
             <source>Cloudy, Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云，雨，雷雨</translation>
         </message>
         <message>
             <source>Cloudy, Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云, 烟雾</translation>
         </message>
         <message>
             <source>Cloudy, Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多云, 有雪</translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>小雨有雷声</translation>
         </message>
         <message>
             <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>版权所有(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </translation>
         </message>
         <message>
             <source>Copyright(c) 2010-2011 by Tanya Makova
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>版权所有(c) 2010-2011 by Tanya Makova
+</translation>
         </message>
         <message>
             <source>Could not connecting to Internet.
 Connection timeout is expired.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无法连接到互联网.
+连接超时.</translation>
         </message>
         <message>
             <source>Could not create weather cache directory.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无法创建天气缓存目录.
+</translation>
         </message>
         <message>
             <source>Couldn't resolve host.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无法解析主机.</translation>
         </message>
         <message>
             <source>Couldn't resolve proxy.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无法解析代理.</translation>
         </message>
         <message>
             <source>Country</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>国家</translation>
         </message>
         <message>
             <source>Country</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>国家</translation>
         </message>
         <message>
             <source>Country:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>国家: </translation>
         </message>
         <message>
             <source>Custom</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>自定义</translation>
         </message>
         <message>
             <source>Daily</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>每天</translation>
         </message>
         <message>
             <source>Day</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>白天</translation>
         </message>
         <message>
             <source>Day</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>白天</translation>
         </message>
         <message>
             <source>Day length</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>日长</translation>
         </message>
         <message>
             <source>Day length:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>日长:</translation>
         </message>
         <message>
             <source>Day length:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>日长:</translation>
         </message>
         <message>
             <source>Day:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>日间:</translation>
         </message>
         <message>
             <source>Delete location?</source>
-            <translation>刪除地點?</translation>
+            <translation>删除地点</translation>
         </message>
         <message>
             <source>Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>UI设计与默认图标: 版权所有 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
+</translation>
         </message>
         <message>
             <source>Detailed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>详细</translation>
         </message>
         <message>
             <source>Detailed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>详细</translation>
         </message>
         <message>
             <source>Display</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>显示</translation>
         </message>
         <message>
             <source>Display</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>显示</translation>
         </message>
         <message>
             <source>Display</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>显示</translation>
         </message>
         <message>
             <source>Distance</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>距离</translation>
         </message>
         <message>
             <source>Distance units:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>距离单位:</translation>
         </message>
         <message>
             <source>Does not to add station, because no one
 of 'omweather-*-stations-db' packages was installed.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无法添加地区,因为没有
+已安装的 'omweather-*-station-db' 包.</translation>
         </message>
         <message>
             <source>Donation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>捐款</translation>
         </message>
         <message>
             <source>Donation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>捐款</translation>
         </message>
         <message>
             <source>Donation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>捐款</translation>
         </message>
         <message>
             <source>Download and show detailed weather</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下载并显示详细的天气</translation>
         </message>
         <message>
             <source>Download timed out.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下载超时.</translation>
         </message>
         <message>
             <source>Drifting Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>飘雪</translation>
         </message>
         <message>
             <source>Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>毛毛雨</translation>
         </message>
         <message>
             <source>Drizzle / Fog</source>
@@ -961,43 +881,35 @@ of 'omweather-*-stations-db' packages was installed.</source>
         </message>
         <message>
             <source>Drizzle Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>早时细雨</translation>
         </message>
         <message>
             <source>Drizzle Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晚间毛毛雨</translation>
         </message>
         <message>
             <source>E</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>东</translation>
         </message>
         <message>
             <source>ENE</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>东北偏东</translation>
         </message>
         <message>
             <source>ENE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ENE_short</translation>
         </message>
         <message>
             <source>ESE</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>东南偏东</translation>
         </message>
         <message>
             <source>ESE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ESE_short</translation>
         </message>
         <message>
             <source>E_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>E_short</translation>
         </message>
         <message>
             <source>Ed Bartosh - for more feature requests, support and criticism
@@ -1011,163 +923,151 @@ Brian Knight - for idea of iconset, criticism and donation ;-)
 Andrew aka Tabster - for testing and ideas
 Brad Jones aka kazrak - for testing
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ed Bartosh - for more feature requests, support and criticism
+Daniel Wilms - for feature requests and testing
+Eugen Kaluta aka tren - for feature requests and support
+Maxim Kalinkevish aka spark for testing
+Yuri Komyakov - for Nokia 770 device 
+Greg Thompson for support stations.txt file
+Frank Persian - for idea of new layout
+Brian Knight - for idea of iconset, criticism and donation ;-)
+Andrew aka Tabster - for testing and ideas
+Brad Jones aka kazrak - for testing
+</translation>
         </message>
         <message>
             <source>Edit custom layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>编辑自定义布局</translation>
         </message>
         <message>
             <source>Edit custom layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>编辑自定义布局</translation>
         </message>
         <message>
             <source>Enable GPS</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>启用GPS</translation>
         </message>
         <message>
             <source>Enter search</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>输入搜索</translation>
         </message>
         <message>
             <source>Error in xml file
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>错误在XML文件
+</translation>
         </message>
         <message>
             <source>Error initializing the OMWeather applet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>初始化OMWeather小程序错误</translation>
         </message>
         <message>
             <source>Exit</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>退出</translation>
         </message>
         <message>
             <source>Extended Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>扩展设置</translation>
         </message>
         <message>
             <source>Extended Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>扩展设置</translation>
         </message>
         <message>
             <source>Extreme</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>究极</translation>
         </message>
         <message>
             <source>F</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F</translation>
         </message>
         <message>
             <source>F</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F</translation>
         </message>
         <message>
             <source>F</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F</translation>
         </message>
         <message>
             <source>F</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F</translation>
         </message>
         <message>
             <source>F</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F</translation>
         </message>
         <message>
             <source>F
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F
+</translation>
         </message>
         <message>
             <source>F
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F
+</translation>
         </message>
         <message>
             <source>F
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F
+</translation>
         </message>
         <message>
             <source>F
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F
+</translation>
         </message>
         <message>
             <source>FL: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FL: </translation>
         </message>
         <message>
             <source>Fahrenheit</source>
-            <translation>華氏</translation>
+            <translation>华氏</translation>
         </message>
         <message>
             <source>Fahrenheit</source>
-            <translation>華氏</translation>
+            <translation>华氏</translation>
         </message>
         <message>
             <source>Failed to connect to host or proxy.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无法连接到主机或代理.</translation>
         </message>
         <message>
             <source>Failed to initialize GConf. Quitting.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GConf的初始化失败. 退出.
+</translation>
         </message>
         <message>
             <source>Failed to initialize GConf. Settings were not saved.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GConf的初始化失败. 设置不保存.
+</translation>
         </message>
         <message>
             <source>Fair</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴</translation>
         </message>
         <message>
             <source>Feels like</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>体感温度</translation>
         </message>
         <message>
             <source>Feels like:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>室内温度:</translation>
         </message>
         <message>
             <source>Feels like:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>室内温度:</translation>
         </message>
         <message>
             <source>Few Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>短暂阵雨</translation>
         </message>
         <message>
             <source>Few Showers / Wind</source>
@@ -1176,13 +1076,11 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>短暂有雪</translation>
         </message>
         <message>
             <source>Few Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>短暂阵雪</translation>
         </message>
         <message>
             <source>Few Snow Showers / Wind</source>
@@ -1191,38 +1089,33 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Find location via GPS</source>
-            <translation>由定位尋找地點</translation>
+            <translation>通过GPS定位</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
+</translation>
         </message>
         <message>
             <source>First Quarter</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>第一季</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>体感温度</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>体感温度</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>体感温度</translation>
         </message>
         <message>
             <source>Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>雾</translation>
         </message>
         <message>
             <source>Fog Early / Clouds Late</source>
@@ -1231,8 +1124,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Fog Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晚间有雾</translation>
         </message>
         <message>
             <source>Fog early / Clearing late</source>
@@ -1241,57 +1133,51 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Foggy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>多雾</translation>
         </message>
         <message>
             <source>Font color:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>字体颜色:</translation>
         </message>
         <message>
             <source>Font:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>字体:</translation>
         </message>
         <message>
             <source>Font:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>字体:</translation>
         </message>
         <message>
             <source>For disabling MeeCast widget,
 you should uninstall package
 'Activating MeeCast Applet'
 using Application manager</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>如果要禁用MeeCast widget,
+你可能得先卸载
+'Activating MeeCast Applet'
+在程序管理面</translation>
         </message>
         <message>
             <source>Forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>预报</translation>
         </message>
         <message>
             <source>Forecast at: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>预报: </translation>
         </message>
         <message>
             <source>Forecast at: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>预报: </translation>
         </message>
         <message>
             <source>Forecast: 
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>预测: 
+</translation>
         </message>
         <message>
             <source>Freezing Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>冻毛毛雨</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
@@ -1320,8 +1206,32 @@ using Application manager</source>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>中文 - mdbxh, Wong Man Kong, Michael
+French -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht 
+ Russian - Pavel Fialko, Vlad Vasiliev, 
+ 	Ed Bartosh
+ Finnish - Marko Vertainen
+ German -  Claudius Henrichs
+ Italian - Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+ Spanish - Alejandro Lopez
+ Polish - Tomasz Dominikowski
+ Slovak - Roman Moravčík
+ Dutch - Tom Leenders, Michiel Pater
+ Bulgarian - Zlatko Enikov
+ Albanian - Ilir Gjika
+ Portuguese - Jose Narciso,
+ Turkish - Burak Kaan Kose,
+ Catalan - Agustí Clara,
+ Arabic - Tarad Alfandi,
+ Norwegian - Peer-Atle Motland,
+ Vietnamese - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+ Swedish - Angela Nennebrandt,
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1333,87 +1243,79 @@ Italian - Pavel Fialko, Alessandro Pasotti,
 Spanish - Alejandro Lopez
 Polish - Tomasz Dominikowski
 Slovak - Roman Moravčík</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>French - Nicolas Granziano, Philippe, Benot Knecht
+Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh
+Finnish - Marko Vertainen
+German - Claudius Henrichs
+Italian - Pavel Fialko, Alessandro Pasotti,
+	Salvatore Fiorenzo, Luca Onnis
+Spanish - Alejandro Lopez
+Polish - Tomasz Dominikowski
+Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Full</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>全部</translation>
         </message>
         <message>
             <source>Full forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>全部预测</translation>
         </message>
         <message>
             <source>Fullscreen mode</source>
-            <translation>全螢幕模式</translation>
+            <translation>全屏模式</translation>
         </message>
         <message>
             <source>G: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>G: </translation>
         </message>
         <message>
             <source>GPS</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GPS</translation>
         </message>
         <message>
             <source>GSM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GSM</translation>
         </message>
         <message>
             <source>GSM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GSM</translation>
         </message>
         <message>
             <source>GSM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GSM</translation>
         </message>
         <message>
             <source>GSM+WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GSM+WLAN</translation>
         </message>
         <message>
             <source>GUI|Clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>清除</translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</translation>
         </message>
         <message>
             <source>Gust:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阵风: </translation>
         </message>
         <message>
             <source>Gust:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阵风: </translation>
         </message>
         <message>
             <source>HTTP error.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>HTTP错误.</translation>
         </message>
         <message>
             <source>Haze</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>薄雾</translation>
         </message>
         <message>
             <source>Heavy Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大雨</translation>
         </message>
         <message>
             <source>Heavy Rain / Wind</source>
@@ -1422,117 +1324,103 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Heavy Rain Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大阵雨</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大雪</translation>
         </message>
         <message>
             <source>High</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>高</translation>
         </message>
         <message>
             <source>Hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>小时</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">濕度:</translation>
+            <translation>湿度: </translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">濕度:</translation>
+            <translation>湿度: </translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">濕度:</translation>
+            <translation>湿度: </translation>
         </message>
         <message>
             <source>Humidity:</source>
-            <translation>濕度:</translation>
+            <translation>湿度: </translation>
         </message>
         <message>
             <source>Humidity:</source>
-            <translation>濕度:</translation>
+            <translation>湿度: </translation>
         </message>
         <message>
             <source>Humidity:</source>
-            <translation>濕度:</translation>
+            <translation>湿度: </translation>
         </message>
         <message>
             <source>Humidity:</source>
-            <translation>濕度:</translation>
+            <translation>湿度: </translation>
         </message>
         <message>
             <source>Icon set:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>设置图标:</translation>
         </message>
         <message>
             <source>Icon size:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>图标大小:</translation>
         </message>
         <message>
             <source>Icon size:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>图标大小:</translation>
         </message>
         <message>
             <source>Icons</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>图标</translation>
         </message>
         <message>
             <source>Icons</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>图标</translation>
         </message>
         <message>
             <source>Iconset</source>
-            <translation>圖示集</translation>
+            <translation>图标设置</translation>
         </message>
         <message>
             <source>Iconset</source>
-            <translation>圖示集</translation>
+            <translation>图标设置</translation>
         </message>
         <message>
             <source>Iconsets</source>
-            <translation>圖示集</translation>
+            <translation>图标集</translation>
         </message>
         <message>
             <source>Iconsets</source>
-            <translation>圖示集</translation>
+            <translation>图标集</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>信息</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>信息</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>信息</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>信息</translation>
         </message>
         <message>
             <source>Isolated T-Storms</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部雷雨</translation>
         </message>
         <message>
             <source>Isolated T-Storms / Wind</source>
@@ -1541,98 +1429,79 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</translation>
         </message>
         <message>
             <source>Kilometers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>公里</translation>
         </message>
         <message>
             <source>Last Quarter</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上季度</translation>
         </message>
         <message>
             <source>Last update at server: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>服务器最后更新: </translation>
         </message>
         <message>
             <source>Last update from server: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>最后从服务器更新: </translation>
         </message>
         <message>
             <source>Last update from server: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>最后从服务器更新: </translation>
         </message>
         <message>
             <source>Last update:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>最后更新: </translation>
         </message>
         <message>
             <source>Last update:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>最后更新: </translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>最后更新: </translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>最后更新: </translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>最后更新: </translation>
         </message>
         <message>
             <source>Lawn and Garden Weather</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>草坪和花园的天气</translation>
         </message>
         <message>
             <source>Layout:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>设计: </translation>
         </message>
         <message>
             <source>Layout:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>设计: </translation>
         </message>
         <message>
             <source>Lead designer</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>首席设计师</translation>
         </message>
         <message>
             <source>License</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>许可</translation>
         </message>
         <message>
             <source>Light Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>微雨</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>小冻雨</translation>
         </message>
         <message>
             <source>Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>小雨</translation>
         </message>
         <message>
             <source>Light Rain / Fog</source>
@@ -1651,43 +1520,35 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Light Rain Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>早有小雨</translation>
         </message>
         <message>
             <source>Light Rain Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晚有小雨</translation>
         </message>
         <message>
             <source>Light Rain Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>小阵雨</translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>小雨转冻雨</translation>
         </message>
         <message>
             <source>Light Rain and Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>小雨转阵雨</translation>
         </message>
         <message>
             <source>Light Rain and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>小雨带风</translation>
         </message>
         <message>
             <source>Light Rain with Thunder</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>小雨有雷声</translation>
         </message>
         <message>
             <source>Light Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>小雪</translation>
         </message>
         <message>
             <source>Light Snow / Fog</source>
@@ -1701,116 +1562,97 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Light Snow Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>早间小雪</translation>
         </message>
         <message>
             <source>Light Snow Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晚间小雪</translation>
         </message>
         <message>
             <source>Light Snow Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>小阵雪</translation>
         </message>
         <message>
             <source>Loading station list</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>载入地区列表</translation>
         </message>
         <message>
             <source>Local Pollen Reports</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>当地花粉报告</translation>
         </message>
         <message>
             <source>Long</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>长</translation>
         </message>
         <message>
             <source>Looks like there's no info for this location.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>看起来好像还没有这个地区的天气信息啊</translation>
         </message>
         <message>
             <source>Looks like there's no info for this location.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>看起来好像还没有这个地区的天气信息啊</translation>
         </message>
         <message>
             <source>Low</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>最低</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
+</translation>
         </message>
         <message>
             <source>Manage locations</source>
-            <translation>管理地點</translation>
+            <translation>管理地点</translation>
         </message>
         <message>
             <source>Manage locations</source>
-            <translation>管理地點</translation>
+            <translation>管理地点</translation>
         </message>
         <message>
             <source>Manual</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>手选</translation>
         </message>
         <message>
             <source>Measurement units</source>
-            <translation>測量單位</translation>
+            <translation>计量单位</translation>
         </message>
         <message>
             <source>MeeCast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>MeeCast</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2012</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>MeeCast - 一个多平台高定制性的开源天气预报软件。基于OMWeather的源码. Copyright (C) 2006-2011</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>MeeCast  Harmattan版</translation>
         </message>
         <message>
             <source>Meters</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>米</translation>
         </message>
         <message>
             <source>Miles</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>英里</translation>
         </message>
         <message>
             <source>Mist</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>薄雾</translation>
         </message>
         <message>
             <source>Modification</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>修改</translation>
         </message>
         <message>
             <source>Mostly Clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部晴朗</translation>
         </message>
         <message>
             <source>Mostly Cloudy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部多云</translation>
         </message>
         <message>
             <source>Mostly Cloudy / Wind</source>
@@ -1819,541 +1661,451 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Mostly Cloudy Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部多云短暂有雪</translation>
         </message>
         <message>
             <source>Mostly Cloudy Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部多云有小雨</translation>
         </message>
         <message>
             <source>Mostly Cloudy Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部多云有雨</translation>
         </message>
         <message>
             <source>Mostly Cloudy Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部多云有雪</translation>
         </message>
         <message>
             <source>Mostly Cloudy T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部多云雷雨</translation>
         </message>
         <message>
             <source>Mostly Cloudy and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部多云有风</translation>
         </message>
         <message>
             <source>Mostly Cloudy and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部多云有风</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Drifting Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部多云, 飘雪</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部多云, 短暂有雪</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部多云, 有雾</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Fog, Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部多云, 有雾, 毛毛雨</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部多云, 暴雨</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部多云，暴雨，雷雨</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部多云, 大雪</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Snow, Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部多云, 大雪, 冻雨</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部多云, 小雨</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴时多云, 小雨, 毛毛雨</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴时多云, 小雨, 雷雨</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴时多云, 有雨</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴时多云, 有雨, 雷雨</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴时多云, 烟雾</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴时多云, 有雪</translation>
         </message>
         <message>
             <source>Mostly Cloudy, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴时多云, 雷雨</translation>
         </message>
         <message>
             <source>Mostly Sunny</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴时多云</translation>
         </message>
         <message>
             <source>Mostly clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>大部晴朗</translation>
         </message>
         <message>
             <source>N</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>北</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无</translation>
         </message>
         <message>
             <source>NE</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>东北</translation>
         </message>
         <message>
             <source>NE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NE_short</translation>
         </message>
         <message>
             <source>NNE</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>东北偏北</translation>
         </message>
         <message>
             <source>NNE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NNE_short</translation>
         </message>
         <message>
             <source>NNW</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>西北偏北</translation>
         </message>
         <message>
             <source>NNW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NNW_short</translation>
         </message>
         <message>
             <source>NO STATION</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>没有地区</translation>
         </message>
         <message>
             <source>NW</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>西北</translation>
         </message>
         <message>
             <source>NW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NW_short</translation>
         </message>
         <message>
             <source>N_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>N_short</translation>
         </message>
         <message>
             <source>Name:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>名称:</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation>永不</translation>
+            <translation>从不</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation>永不</translation>
+            <translation>从不</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation>永不</translation>
+            <translation>从不</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation>永不</translation>
+            <translation>从不</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation>永不</translation>
+            <translation>从不</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation>永不</translation>
+            <translation>从不</translation>
         </message>
         <message>
             <source>New</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>新建</translation>
         </message>
         <message>
             <source>New location</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>新地区</translation>
         </message>
         <message>
             <source>Next update:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下次更新:</translation>
         </message>
         <message>
             <source>Night</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>夜间</translation>
         </message>
         <message>
             <source>Night</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>夜间</translation>
         </message>
         <message>
             <source>Night:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>夜间:</translation>
         </message>
         <message>
             <source>No</source>
-            <translation>否</translation>
+            <translation>没有</translation>
         </message>
         <message>
             <source>No</source>
-            <translation>否</translation>
+            <translation>没有</translation>
         </message>
         <message>
             <source>No current weather data.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>没有当前天气数据.</translation>
         </message>
         <message>
             <source>No locations are set up yet.</source>
-            <translation>還沒有設定地點。</translation>
+            <translation>还没设置一个地点啊。</translation>
         </message>
         <message>
             <source>No locations are set up yet.</source>
-            <translation>還沒有設定地點。</translation>
+            <translation>还没设置一个地点啊。</translation>
         </message>
         <message>
             <source>No weather data for this day.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>没有这天的天气数据.</translation>
         </message>
         <message>
             <source>No weather data for this station.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>此地区没有天气数据.</translation>
         </message>
         <message>
             <source>No weather data for this station.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>此地区没有天气数据.</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>現在</translation>
+            <translation>现在</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>現在</translation>
+            <translation>现在</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>現在</translation>
+            <translation>现在</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>現在</translation>
+            <translation>现在</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>現在</translation>
+            <translation>现在</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>現在</translation>
+            <translation>现在</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>現在</translation>
+            <translation>现在</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>現在</translation>
+            <translation>现在</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>現在</translation>
+            <translation>现在</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>現在</translation>
+            <translation>现在</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>現在</translation>
+            <translation>现在</translation>
         </message>
         <message>
             <source>Now + 2 days vert.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>现在+ 2 天 vert.</translation>
         </message>
         <message>
             <source>Now + 3 days hor.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>现在 + 3 天 hor.</translation>
         </message>
         <message>
             <source>Now + 3 days vert.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>现在 + 3 天 vert.</translation>
         </message>
         <message>
             <source>Now + 7 days vert.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>现在 + 7 天 vert.</translation>
         </message>
         <message>
             <source>Now: </source>
-            <translation>現在: </translation>
+            <translation>现在: </translation>
         </message>
         <message>
             <source>OK</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>确定</translation>
         </message>
         <message>
             <source>OK</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>确定</translation>
         </message>
         <message>
             <source>OK</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>确定</translation>
         </message>
         <message>
             <source>OMWeather Forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather预报</translation>
         </message>
         <message>
             <source>OMWeather Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather 设置</translation>
         </message>
         <message>
             <source>OMWeather Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather 设置</translation>
         </message>
         <message>
             <source>OMWeather settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather 设置</translation>
         </message>
         <message>
             <source>OMWeather settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather 设置</translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>确定</translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>确定</translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>确定</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather 其他信息</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather 其他信息</translation>
         </message>
         <message>
             <source>Overcast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>密云</translation>
         </message>
         <message>
             <source>Overcast and light rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阴有小雨</translation>
         </message>
         <message>
             <source>Overcast and light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阴有小雪</translation>
         </message>
         <message>
             <source>Overcast and light wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阴有小湿雪</translation>
         </message>
         <message>
             <source>Overcast and rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阴天有雨</translation>
         </message>
         <message>
             <source>Overcast and showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阴有阵雨</translation>
         </message>
         <message>
             <source>Overcast and snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阴天有雪</translation>
         </message>
         <message>
             <source>Overcast and snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阴有阵雪</translation>
         </message>
         <message>
             <source>Overcast and wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阴天有湿雪</translation>
         </message>
         <message>
             <source>Overcast and wet snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阴有湿阵雪</translation>
         </message>
         <message>
             <source>Overcast, thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阴有雷暴大雨</translation>
         </message>
         <message>
             <source>PM Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下午 有雾</translation>
         </message>
         <message>
             <source>PM Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下午 小雨</translation>
         </message>
         <message>
             <source>PM Light Rain / Wind</source>
@@ -2362,8 +2114,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>PM Light Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下午 小雪</translation>
         </message>
         <message>
             <source>PM Light Snow / Wind</source>
@@ -2372,8 +2123,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>PM Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下午 下雨</translation>
         </message>
         <message>
             <source>PM Rain / Snow</source>
@@ -2387,8 +2137,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>PM Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下午 阵雨</translation>
         </message>
         <message>
             <source>PM Showers / Wind</source>
@@ -2397,13 +2146,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>PM Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下午 有雪</translation>
         </message>
         <message>
             <source>PM Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下午 阵雪</translation>
         </message>
         <message>
             <source>PM Snow Showers / Wind</source>
@@ -2412,23 +2159,19 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>PM T-Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下午 雷阵雨</translation>
         </message>
         <message>
             <source>PM T-Storms</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下午 雷雨</translation>
         </message>
         <message>
             <source>Pa</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Pa</translation>
         </message>
         <message>
             <source>Partly Cloudy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云</translation>
         </message>
         <message>
             <source>Partly Cloudy / Wind</source>
@@ -2437,246 +2180,207 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云短暂下雪</translation>
         </message>
         <message>
             <source>Partly Cloudy Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云有小雨</translation>
         </message>
         <message>
             <source>Partly Cloudy T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云雷雨</translation>
         </message>
         <message>
             <source>Partly Cloudy and Windly</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云有风</translation>
         </message>
         <message>
             <source>Partly Cloudy and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云有风</translation>
         </message>
         <message>
             <source>Partly Cloudy, Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云, 短暂下雪</translation>
         </message>
         <message>
             <source>Partly Cloudy, Haze</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云, 薄雾</translation>
         </message>
         <message>
             <source>Partly Cloudy, Heavy Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云, 暴雨</translation>
         </message>
         <message>
             <source>Partly Cloudy, Heavy Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云, 暴雨, 雷雨</translation>
         </message>
         <message>
             <source>Partly Cloudy, Heavy Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云, 暴雪</translation>
         </message>
         <message>
             <source>Partly Cloudy, Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云, 小雨</translation>
         </message>
         <message>
             <source>Partly Cloudy, Light Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云, 小雨, 雷雨</translation>
         </message>
         <message>
             <source>Partly Cloudy, Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云, 雨</translation>
         </message>
         <message>
             <source>Partly Cloudy, Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云, 雨, 雷雨</translation>
         </message>
         <message>
             <source>Partly Cloudy, Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云, 烟雾</translation>
         </message>
         <message>
             <source>Partly Cloudy, Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云, 雪</translation>
         </message>
         <message>
             <source>Partly Cloudy, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云, 雷雨</translation>
         </message>
         <message>
             <source>Partly cloudy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云</translation>
         </message>
         <message>
             <source>Partly cloudy and light rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云有小雨</translation>
         </message>
         <message>
             <source>Partly cloudy and light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云有小雪</translation>
         </message>
         <message>
             <source>Partly cloudy and light wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云有小湿雪</translation>
         </message>
         <message>
             <source>Partly cloudy and showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云有阵雨</translation>
         </message>
         <message>
             <source>Partly cloudy and snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云有阵雪</translation>
         </message>
         <message>
             <source>Partly cloudy and wet snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>局部多云有湿阵雪</translation>
         </message>
         <message>
             <source>Partly cloudy, possible thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴间多云，可能有雨雷暴</translation>
         </message>
         <message>
             <source>Partly cloudy, possible thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴间多云，可能有雨雷暴</translation>
         </message>
         <message>
             <source>Period</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>间隔</translation>
         </message>
         <message>
             <source>Position:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>位置:</translation>
         </message>
         <message>
             <source>Ppcp:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ppcp:</translation>
         </message>
         <message>
             <source>Ppcp:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ppcp:</translation>
         </message>
         <message>
             <source>Ppcp:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ppcp:</translation>
         </message>
         <message>
             <source>Preference|Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>更新</translation>
         </message>
         <message>
             <source>Preference|Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>更新</translation>
         </message>
         <message>
             <source>Pressure</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>气压</translation>
         </message>
         <message>
             <source>Pressure units</source>
-            <translation>氣壓單位</translation>
+            <translation>气压单位</translation>
         </message>
         <message>
             <source>Pressure units</source>
-            <translation>氣壓單位</translation>
+            <translation>气压单位</translation>
         </message>
         <message>
             <source>Pressure units:</source>
-            <translation>氣壓單位:</translation>
+            <translation>气压单位: </translation>
         </message>
         <message>
             <source>Pressure:</source>
-            <translation>氣壓:</translation>
+            <translation>气压:</translation>
         </message>
         <message>
             <source>Pressure:</source>
-            <translation>氣壓:</translation>
+            <translation>气压:</translation>
         </message>
         <message>
             <source>Pressure:</source>
-            <translation>氣壓:</translation>
+            <translation>气压:</translation>
         </message>
         <message>
             <source>Pressure:</source>
-            <translation>氣壓:</translation>
+            <translation>气压:</translation>
         </message>
         <message>
             <source>Pressure:</source>
-            <translation>氣壓:</translation>
+            <translation>气压:</translation>
         </message>
         <message>
             <source>Pressure:</source>
-            <translation>氣壓:</translation>
+            <translation>气压:</translation>
         </message>
         <message>
             <source>Pressure: </source>
-            <translation>氣壓: </translation>
+            <translation>气压: </translation>
         </message>
         <message>
             <source>Pressure: </source>
-            <translation>氣壓: </translation>
+            <translation>气压: </translation>
         </message>
         <message>
             <source>Programmers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>程序员</translation>
         </message>
         <message>
             <source>Project administrator</source>
-            <translation>Project administrator</translation>
+            <translation>项目负责人</translation>
         </message>
         <message>
             <source>Project manager</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>项目管理</translation>
         </message>
         <message>
             <source>Project website</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>项目网址</translation>
         </message>
         <message>
             <source>Provided by</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>提供</translation>
         </message>
         <message>
             <source>Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下雨</translation>
         </message>
         <message>
             <source>Rain / Freezing Rain</source>
@@ -2685,8 +2389,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain / Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下雨/下雪</translation>
         </message>
         <message>
             <source>Rain / Snow / Wind</source>
@@ -2735,33 +2438,27 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>早间有雨</translation>
         </message>
         <message>
             <source>Rain Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晚间有雨</translation>
         </message>
         <message>
             <source>Rain Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阵雨</translation>
         </message>
         <message>
             <source>Rain Shower and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阵雨有风</translation>
         </message>
         <message>
             <source>Rain Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阵雨</translation>
         </message>
         <message>
             <source>Rain and Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>雨夹雪</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
@@ -2770,8 +2467,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain to Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>雨雪混合</translation>
         </message>
         <message>
             <source>Rain to Wintry Mix / Wind</source>
@@ -2780,367 +2476,303 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Read sensor every:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>传感器读取间隔:</translation>
         </message>
         <message>
             <source>Region</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>区域</translation>
         </message>
         <message>
             <source>Region</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>区域</translation>
         </message>
         <message>
             <source>Region</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>区域</translation>
         </message>
         <message>
             <source>Rush Hour Traffic</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>繁忙时段的交通</translation>
         </message>
         <message>
             <source>S</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>南</translation>
         </message>
         <message>
             <source>SE</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>东南</translation>
         </message>
         <message>
             <source>SE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>SE_short</translation>
         </message>
         <message>
             <source>SSE</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>东南偏南</translation>
         </message>
         <message>
             <source>SSE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>SSE_short</translation>
         </message>
         <message>
             <source>SSW</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>西南偏南</translation>
         </message>
         <message>
             <source>SSW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>SSW_short</translation>
         </message>
         <message>
             <source>SW</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>西南</translation>
         </message>
         <message>
             <source>SW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>SW_short</translation>
         </message>
         <message>
             <source>S_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>S_short</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>保存</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>保存</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>保存</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>保存</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>保存</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>保存</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>保存</translation>
         </message>
         <message>
             <source>Scattered Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>零星阵雨</translation>
         </message>
         <message>
             <source>Scattered Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>零星雪</translation>
         </message>
         <message>
             <source>Scattered Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>零星阵雪</translation>
         </message>
         <message>
             <source>Scattered T-Storms</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>零星雷雨</translation>
         </message>
         <message>
             <source>Sea miles</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>海里</translation>
         </message>
         <message>
             <source>Search</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>搜索</translation>
         </message>
         <message>
             <source>Select city</source>
-            <translation>選擇城市</translation>
+            <translation>选择城市</translation>
         </message>
         <message>
             <source>Select city</source>
-            <translation>選擇城市</translation>
+            <translation>选择城市</translation>
         </message>
         <message>
             <source>Select country</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>选择国家</translation>
         </message>
         <message>
             <source>Select country</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>选择国家</translation>
         </message>
         <message>
             <source>Select country</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>选择国家</translation>
         </message>
         <message>
             <source>Select location</source>
-            <translation>選擇地點</translation>
+            <translation>选择地区</translation>
         </message>
         <message>
             <source>Select location</source>
-            <translation>選擇地點</translation>
+            <translation>选择地区</translation>
         </message>
         <message>
             <source>Select region</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>选择区域</translation>
         </message>
         <message>
             <source>Select region</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>选择区域</translation>
         </message>
         <message>
             <source>Select region</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>选择区域</translation>
         </message>
         <message>
             <source>Select source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>设置源</translation>
         </message>
         <message>
             <source>Select source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>设置源</translation>
         </message>
         <message>
             <source>Select the X-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>设置锁屏插件的左上角的屏幕内的X坐标</translation>
         </message>
         <message>
             <source>Select the Y-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>设置锁屏插件的左上角的屏幕内的Y坐标</translation>
         </message>
         <message>
             <source>Select the color of font for current temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>设置实时温度的字体颜色</translation>
         </message>
         <message>
             <source>Select the color of font for station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>设置地区的字体颜色</translation>
         </message>
         <message>
             <source>Select the color of font for temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>设置温度的字体颜色</translation>
         </message>
         <message>
             <source>Select the iconset</source>
-            <translation>選擇圖示集</translation>
+            <translation>设置图标集</translation>
         </message>
         <message>
             <source>Select the weather source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>设置天气源</translation>
         </message>
         <message>
             <source>Selecting country</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>选择国家</translation>
         </message>
         <message>
             <source>Selecting region</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>选择区域</translation>
         </message>
         <message>
             <source>Selecting source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>选择服务器</translation>
         </message>
         <message>
             <source>Selecting station</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>选择地区</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>传感器</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>传感器</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>传感器</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>传感器</translation>
         </message>
         <message>
             <source>Set</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>设定</translation>
         </message>
         <message>
             <source>Set locations</source>
-            <translation>設定地點</translation>
+            <translation>选择地区</translation>
         </message>
         <message>
             <source>Set locations</source>
-            <translation>設定地點</translation>
+            <translation>选择地区</translation>
         </message>
         <message>
             <source>Settings</source>
-            <translation>設定</translation>
+            <translation>设置</translation>
         </message>
         <message>
             <source>Settings</source>
-            <translation>設定</translation>
+            <translation>设置</translation>
         </message>
         <message>
             <source>Settings</source>
-            <translation>設定</translation>
+            <translation>设置</translation>
         </message>
         <message>
             <source>Settings</source>
-            <translation>設定</translation>
+            <translation>设置</translation>
         </message>
         <message>
             <source>Settings for Lockscreen widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>锁屏插件的设置</translation>
         </message>
         <message>
             <source>Settings for standby widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>待机屏幕的设置</translation>
         </message>
         <message>
             <source>Settings of LockScreen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>锁屏插件设置</translation>
         </message>
         <message>
             <source>Settings of StandbyScreen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>待机插件设置</translation>
         </message>
         <message>
             <source>Shallow Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>薄雾</translation>
         </message>
         <message>
             <source>Short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>短</translation>
         </message>
         <message>
             <source>Show arrows</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>显示箭头</translation>
         </message>
         <message>
             <source>Show on Map</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>在地图里显示</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>目前的天气状况的第一个图标</translation>
         </message>
         <message>
             <source>Show station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>显示地区名称</translation>
         </message>
         <message>
             <source>Show temperature at:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>显示温度:</translation>
         </message>
         <message>
             <source>Show wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>显示风向</translation>
         </message>
         <message>
             <source>Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阵雨</translation>
         </message>
         <message>
             <source>Showers / Wind</source>
@@ -3154,33 +2786,27 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Showers Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>早间阵雨</translation>
         </message>
         <message>
             <source>Showers Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晚间阵雨</translation>
         </message>
         <message>
             <source>Showers in the Vicinity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>周围有阵雨</translation>
         </message>
         <message>
             <source>Sleet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>雨雪</translation>
         </message>
         <message>
             <source>Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>烟雾</translation>
         </message>
         <message>
             <source>Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>雪</translation>
         </message>
         <message>
             <source>Snow / Wind</source>
@@ -3189,8 +2815,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Snow Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>阵雪</translation>
         </message>
         <message>
             <source>Snow Shower / Wind</source>
@@ -3204,28 +2829,23 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Snow Showers Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>早间阵雪</translation>
         </message>
         <message>
             <source>Snow Showers Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晚间阵雪</translation>
         </message>
         <message>
             <source>Snow and Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>雪夹冻雨</translation>
         </message>
         <message>
             <source>Snow to Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>雪转有雨</translation>
         </message>
         <message>
             <source>Snow to Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>雪转雪雨</translation>
         </message>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
@@ -3234,107 +2854,95 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>服务器</translation>
         </message>
         <message>
             <source>Source:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>服务器:</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation>速度</translation>
+            <translation>风速</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation>速度</translation>
+            <translation>风速</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation>速度</translation>
+            <translation>风速</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation>速度</translation>
+            <translation>风速</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation>速度</translation>
+            <translation>风速</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation>速度</translation>
+            <translation>风速</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation>速度</translation>
+            <translation>风速</translation>
         </message>
         <message>
             <source>Speed:</source>
-            <translation>速度:</translation>
+            <translation>风速:</translation>
         </message>
         <message>
             <source>Speed:</source>
-            <translation>速度:</translation>
+            <translation>风速:</translation>
         </message>
         <message>
             <source>Speed:</source>
-            <translation>速度:</translation>
+            <translation>风速:</translation>
         </message>
         <message>
             <source>Speed:</source>
-            <translation>速度:</translation>
+            <translation>风速:</translation>
         </message>
         <message>
             <source>Splash screen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>启动闪屏</translation>
         </message>
         <message>
             <source>State:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>国家:</translation>
         </message>
         <message>
             <source>Station %i</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>地区 %i</translation>
         </message>
         <message>
             <source>Stations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>监测站</translation>
         </message>
         <message>
             <source>Stations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>监测站</translation>
         </message>
         <message>
             <source>Stations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>监测站</translation>
         </message>
         <message>
             <source>Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>暴风</translation>
         </message>
         <message>
             <source>Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>暴风</translation>
         </message>
         <message>
             <source>Successfully loaded</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>成功加载</translation>
         </message>
         <message>
             <source>Sunny</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晴朗</translation>
         </message>
         <message>
             <source>Sunny / Wind</source>
@@ -3343,154 +2951,127 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Sunrise:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>日出:</translation>
         </message>
         <message>
             <source>Sunrise:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>日出:</translation>
         </message>
         <message>
             <source>Sunrise: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>日出: </translation>
         </message>
         <message>
             <source>Sunrise: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>日出: </translation>
         </message>
         <message>
             <source>Sunset:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>日落:</translation>
         </message>
         <message>
             <source>Sunset:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>日落:</translation>
         </message>
         <message>
             <source>Sunset: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>日落: </translation>
         </message>
         <message>
             <source>Sunset: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>日落: </translation>
         </message>
         <message>
             <source>Swap hi/low temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>互换高/低温.</translation>
         </message>
         <message>
             <source>Switch to the next station after:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>切换到下一个地区后: </translation>
         </message>
         <message>
             <source>T-Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>雷阵雨</translation>
         </message>
         <message>
             <source>T-Showers Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>早间持续雷阵雨</translation>
         </message>
         <message>
             <source>T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>雷雨</translation>
         </message>
         <message>
             <source>T-Storms</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>持续雷雨</translation>
         </message>
         <message>
             <source>T-Storms Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>早有持续雷雨</translation>
         </message>
         <message>
             <source>T-Storms Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>晚有持续雷雨</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>温度</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>温度</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>温度</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>温度</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>温度</translation>
         </message>
         <message>
             <source>Temperature units</source>
-            <translation>溫度單位</translation>
+            <translation>温度单位</translation>
         </message>
         <message>
             <source>Temperature units</source>
-            <translation>溫度單位</translation>
+            <translation>温度单位</translation>
         </message>
         <message>
             <source>Temperature units</source>
-            <translation>溫度單位</translation>
+            <translation>温度单位</translation>
         </message>
         <message>
             <source>Temperature units:</source>
-            <translation>溫度單位:</translation>
+            <translation>温度单位:</translation>
         </message>
         <message>
             <source>Temperature:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>温度:</translation>
         </message>
         <message>
             <source>Temperature:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>温度:</translation>
         </message>
         <message>
             <source>Temperature: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>温度: </translation>
         </message>
         <message>
             <source>Temperature: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>温度: </translation>
         </message>
         <message>
             <source>Thanks</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>致谢</translation>
         </message>
         <message>
             <source>The weather has been updated.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>天气已经更新了.</translation>
         </message>
         <message>
             <source>This software is free software; you can
@@ -3500,195 +3081,165 @@ Slovak - Roman Moravčík</source>
  Foundation; either version 2.1 of the 
  License, or (at your option) any 
  later version.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>This software is free software; you can
+ redistribute it and/or modify it under 
+ the terms of the GNU General Public
+ License as published by the Free Software 
+ Foundation; either version 2.1 of the 
+ License, or (at your option) any 
+ later version.</translation>
         </message>
         <message>
             <source>This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
+</translation>
         </message>
         <message>
             <source>Thunder</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>雷雨</translation>
         </message>
         <message>
             <source>Thunder in the Vicinity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>周围有阵雨</translation>
         </message>
         <message>
             <source>Today</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>今天</translation>
         </message>
         <message>
             <source>Today</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>今天</translation>
         </message>
         <message>
             <source>Today</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>今天</translation>
         </message>
         <message>
             <source>Today</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>今天</translation>
         </message>
         <message>
             <source>Translators</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>翻译名单</translation>
         </message>
         <message>
             <source>Translators</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>翻译名单</translation>
         </message>
         <message>
             <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
+</translation>
         </message>
         <message>
             <source>Transparency:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>透明度:</translation>
         </message>
         <message>
             <source>Transparency:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>透明度:</translation>
         </message>
         <message>
             <source>Transparency:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>透明度:</translation>
         </message>
         <message>
             <source>Try to update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>更新试试</translation>
         </message>
         <message>
             <source>Try to update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>更新试试</translation>
         </message>
         <message>
             <source>Type of click:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>点击率:</translation>
         </message>
         <message>
             <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>紫外线指数</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>单位</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>单位</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>单位</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>单位</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>单位</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>未知</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>未知</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>未知</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>未知</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>未知</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>未知</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>未知</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>未知</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>未知</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>未知</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>未知</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>未知</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>未知</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>未知</translation>
         </message>
         <message>
             <source>Unlimited</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无限</translation>
         </message>
         <message>
             <source>Update</source>
@@ -3704,340 +3255,285 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Update already running.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>正在更新中.</translation>
         </message>
         <message>
             <source>Update interval</source>
-            <translation>更新間隔</translation>
+            <translation>自动更新</translation>
         </message>
         <message>
             <source>Updating forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>更新预报中</translation>
         </message>
         <message>
             <source>Updating forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>更新预报中</translation>
         </message>
         <message>
             <source>Updating of weather data:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>最新天气资料:</translation>
         </message>
         <message>
             <source>Updating weather</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>天气预报信息正在更新</translation>
         </message>
         <message>
             <source>Use Edit layout 
 for tuning images of applet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>使用编辑布局 
+调整图像的小程序</translation>
         </message>
         <message>
             <source>Use GSM and/or WLAN for periodic updating
  the weather information.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>使用GSM或WLAN定期更新
+天气信息.
+</translation>
         </message>
         <message>
             <source>Use device temperature sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>使用设备的温度传感器</translation>
         </message>
         <message>
             <source>VAR</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>VAR</translation>
         </message>
         <message>
             <source>Valid time for current weather:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>当前气候的有效性:</translation>
         </message>
         <message>
             <source>Very High</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>非常高</translation>
         </message>
         <message>
             <source>Visible items:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>可见项目:</translation>
         </message>
         <message>
             <source>Visible items:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>可见项目:</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">風速單位</translation>
+            <translation>距离单位</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">風速單位</translation>
+            <translation>距离单位</translation>
         </message>
         <message>
             <source>Visible:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>可见度:</translation>
         </message>
         <message>
             <source>Visible:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>可见度:</translation>
         </message>
         <message>
             <source>Visuals</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>视觉效果</translation>
         </message>
         <message>
             <source>Visuals</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>视觉效果</translation>
         </message>
         <message>
             <source>Visuals</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>视觉效果</translation>
         </message>
         <message>
             <source>W</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>西</translation>
         </message>
         <message>
             <source>WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WLAN</translation>
         </message>
         <message>
             <source>WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WLAN</translation>
         </message>
         <message>
             <source>WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WLAN</translation>
         </message>
         <message>
             <source>WNW</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>西北偏西</translation>
         </message>
         <message>
             <source>WNW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WNW_short</translation>
         </message>
         <message>
             <source>WSW</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>西南偏西</translation>
         </message>
         <message>
             <source>WSW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WSW_short</translation>
         </message>
         <message>
             <source>W_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>W_short</translation>
         </message>
         <message>
             <source>Waning Crescent</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>残月</translation>
         </message>
         <message>
             <source>Waning Gibbous</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>亏凸月</translation>
         </message>
         <message>
             <source>Warning</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>警告</translation>
         </message>
         <message>
             <source>Waxing Crescent</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>娥眉月</translation>
         </message>
         <message>
             <source>Waxing Gibbous</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>盈凸月</translation>
         </message>
         <message>
             <source>Weather data provided by: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>所提供的天气数据: </translation>
         </message>
         <message>
             <source>Weather forecast for the Meego. Version </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>天气预报Meego版本</translation>
         </message>
         <message>
             <source>Widget OMWeather is reloading</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather 控件重新载入</translation>
         </message>
         <message>
             <source>Widget in LockScreen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>锁屏插件</translation>
         </message>
         <message>
             <source>Widget in StandbyScreen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>待机屏幕插件</translation>
         </message>
         <message>
             <source>Widget in events view</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>事件主屏插件</translation>
         </message>
         <message>
             <source>Widget style</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>界面风格</translation>
         </message>
         <message>
             <source>Widget style</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>界面风格</translation>
         </message>
         <message>
             <source>Widget style and Iconset</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>界面风格和图标</translation>
         </message>
         <message>
             <source>Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>风</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>风向</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>风向</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>风向</translation>
         </message>
         <message>
             <source>Wind direction:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>风向:</translation>
         </message>
         <message>
             <source>Wind gust:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>风力:</translation>
         </message>
         <message>
             <source>Wind gust:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>风力:</translation>
         </message>
         <message>
             <source>Wind gust:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>风力:</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation>風速</translation>
+            <translation>风速</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation>風速</translation>
+            <translation>风速</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation>風速</translation>
+            <translation>风速</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation>風速</translation>
+            <translation>风速</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation>風速單位</translation>
+            <translation>风速单位</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation>風速單位</translation>
+            <translation>风速单位</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation>風速單位</translation>
+            <translation>风速单位</translation>
         </message>
         <message>
             <source>Wind speed units:</source>
-            <translation>風速單位:</translation>
+            <translation>风速单位:</translation>
         </message>
         <message>
             <source>Wind:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>风向:</translation>
         </message>
         <message>
             <source>Wind:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>风向:</translation>
         </message>
         <message>
             <source>Wind:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>风向:</translation>
         </message>
         <message>
             <source>Wind:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>风向:</translation>
         </message>
         <message>
             <source>Wind: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>风向: </translation>
         </message>
         <message>
             <source>Wind: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>风向: </translation>
         </message>
         <message>
             <source>Wind: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>风向: </translation>
         </message>
         <message>
             <source>Wind: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>风向: </translation>
         </message>
         <message>
             <source>Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>雨雪混合</translation>
         </message>
         <message>
             <source>Wintry Mix / Wind</source>
@@ -4051,200 +3547,177 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>雪雨夹雪</translation>
         </message>
         <message>
             <source>Wrong station code 
 or ZIP code!!!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>错误地区代码
+或邮政编码!!!</translation>
         </message>
         <message>
             <source>Yes</source>
-            <translation>是</translation>
+            <translation>确认</translation>
         </message>
         <message>
             <source>Yes</source>
-            <translation>是</translation>
+            <translation>确认</translation>
         </message>
         <message>
             <source>You can make donation here: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>点这里您可以进行捐赠: </translation>
         </message>
         <message>
             <source>You should activate 
 'Widget in events view'
  for using LockScreen widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>你得激活
+“事件主屏插件”后
+才能使用锁屏插件</translation>
         </message>
         <message>
             <source>You should activate 
 'Widget in events view'
  for using StandbyScreen widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>你得激活
+“事件主屏插件”后
+才能使用待机屏幕插件</translation>
         </message>
         <message>
             <source>You should activate 'Widget in the events view' option in MeeCast appearance settings for auto update.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>只有在“界面”设置里激活“事件作品插件”后才能使用自动更新功能。</translation>
         </message>
         <message>
             <source>Zoom in popup window </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>在弹出窗口的缩放</translation>
         </message>
         <message>
             <source>Zooming in popup window</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>在弹出窗口的缩放</translation>
         </message>
         <message>
             <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>软件基于 FSF2.1版本的开源协议，或者更晚的版本</translation>
         </message>
         <message>
             <source>current location local time</source>
-            <translation>當地時間</translation>
+            <translation>当前位置时间</translation>
         </message>
         <message>
             <source>d:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>d:</translation>
         </message>
         <message>
             <source>day ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>天前</translation>
         </message>
         <message>
             <source>days ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>天前</translation>
         </message>
         <message>
             <source>every 2 hours</source>
-            <translation>每2小時</translation>
+            <translation>每 2 小时</translation>
         </message>
         <message>
             <source>every 24 hours</source>
-            <translation>每24小時</translation>
+            <translation>每 24 小时</translation>
         </message>
         <message>
             <source>every 30 minutes</source>
-            <translation>每30分鐘</translation>
+            <translation>每 30 分钟</translation>
         </message>
         <message>
             <source>every 4 hours</source>
-            <translation>每4小時</translation>
+            <translation>每 4 小时</translation>
         </message>
         <message>
             <source>every 5 minutes</source>
-            <translation>每5分鐘</translation>
+            <translation>每 5 分钟</translation>
         </message>
         <message>
             <source>every 8 hours</source>
-            <translation>每8小時</translation>
+            <translation>每 8 小时</translation>
         </message>
         <message>
             <source>every hour</source>
-            <translation>每小時</translation>
+            <translation>每 1 小时</translation>
         </message>
         <message>
             <source>every minute (Debug)</source>
-            <translation>每分鐘(除錯)</translation>
+            <translation>每 1 分钟 (Debug)</translation>
         </message>
         <message>
             <source>falling</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下降</translation>
         </message>
         <message>
             <source>feels like</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>体感温度</translation>
         </message>
         <message>
             <source>hour ago</source>
-            <translation>小時前</translation>
+            <translation>小时前</translation>
         </message>
         <message>
             <source>hours ago</source>
-            <translation>小時前</translation>
+            <translation>小时前</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inch</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>寸</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km/h</source>
@@ -4316,48 +3789,39 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mbar</source>
@@ -4417,11 +3881,11 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>minute ago</source>
-            <translation>分鐘前</translation>
+            <translation>分钟前</translation>
         </message>
         <message>
             <source>minutes ago</source>
-            <translation>分鐘前</translation>
+            <translation>分钟前</translation>
         </message>
         <message>
             <source>mm</source>
@@ -4473,27 +3937,23 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>n:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>n:</translation>
         </message>
         <message>
             <source>never</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>从不</translation>
         </message>
         <message>
             <source>new icon</source>
-            <translation>新圖示</translation>
+            <translation>新图标</translation>
         </message>
         <message>
             <source>next</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下一个地区</translation>
         </message>
         <message>
             <source>next</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>下一个地区</translation>
         </message>
         <message>
             <source>nmi</source>
@@ -4505,8 +3965,7 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>rising</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>上升</translation>
         </message>
         <message>
             <source>seconds ago</source>
@@ -4514,41 +3973,35 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>station local time</source>
-            <translation>當地天氣站時間</translation>
+            <translation>当前地区时间</translation>
         </message>
         <message>
             <source>station name</source>
-            <translation>天氣站名稱</translation>
+            <translation>地区名称</translation>
         </message>
         <message>
             <source>steady</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>稳定</translation>
         </message>
         <message>
             <source>В</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>B</translation>
         </message>
         <message>
             <source>З</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>З</translation>
         </message>
         <message>
             <source>С</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C</translation>
         </message>
         <message>
             <source>С-В</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C-B</translation>
         </message>
         <message>
             <source>С-З</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>С-З</translation>
         </message>
         <message>
             <source>Ю</source>

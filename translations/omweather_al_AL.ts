@@ -1036,7 +1036,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Feels like</source>
-            <translation type="unfinished">Ndjehet si:</translation>
+            <translation>Ndjehet si</translation>
         </message>
         <message>
             <source>Feels like:</source>
@@ -1082,15 +1082,18 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Flike:</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Flike:</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Flike:</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1183,29 +1186,8 @@ duke përdorur Application manager</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Frëngjisht -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
- Rusisht - Pavel Fialko, Vlad Vasiliev, 
- 	Ed Bartosh
- Finlandisht - Marko Vertainen
- Gjermanisht -  Claudius Henrichs
- Italisht - Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
- Spanjisht - Alejandro Lopez
- Polonisht - Tomasz Dominikowski
- Sllovakisht - Roman Moravčík
- Hollandisht - Tom Leenders, Michiel Pater
- Bullgarisht - Zlatko Enikov
- Shqip - Ilir Gjika
- Kinezçe - Wong Man Kong, Michael
- Portugalisht - Jose Narciso,
- Turqisht - Burak Kaan Kose,
- Katalanisht - Agustí Clara,
- Vietnamisht - Hieu Nguyen, Anh Dương and truongnx, 
- Suedisht - Angela Nennebrandt,
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1313,15 +1295,15 @@ Sllovakisht - Roman Moravčík</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Lagështira:</translation>
+            <translation>Lagështira</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Lagështira:</translation>
+            <translation>Lagështira</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Lagështira:</translation>
+            <translation>Lagështira</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1591,7 +1573,8 @@ Sllovakisht - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2012</source>
-            <translation type="unfinished">MeeCast - program multiplataformë me kod të hapur i mbështetur tek kodi i OMWeather-it. Copyright (C) 2006-2011</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2319,7 +2302,8 @@ Sllovakisht - Roman Moravčík</translation>
         </message>
         <message>
             <source>Programmers</source>
-            <translation type="unfinished">Krye programuesi</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Project administrator</source>
@@ -3380,15 +3364,15 @@ për të ndryshuar fotografinë applet</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Era fryn nga:</translation>
+            <translation>Era fryn nga</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Era fryn nga:</translation>
+            <translation>Era fryn nga</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Era fryn nga:</translation>
+            <translation>Era fryn nga</translation>
         </message>
         <message>
             <source>Wind direction:</source>

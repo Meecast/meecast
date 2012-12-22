@@ -136,7 +136,7 @@ NavigationPane {
                    current_temp_text = Current.getdata(0, "temp_high") + '°'
                 if ((Current.getdata(0, "temp_low") != "N/A") && (Current.getdata(0, "temp_high") != "N/A"))
                 if (Current.getdata(0, "temp_low") != "N/A")
-                   current_temp_text = current_temp_text + ' / '+ Current.getdata(0, "temp_low") + '°'
+                   current_temp_text = current_temp_text + '/'+ Current.getdata(0, "temp_low") + '°'
                 current_rect_back_background = main.getColor(Current.getdata(0, "temp_high"));
             }else{
                current_temp_text = Current.getdata(0, "temp") + '°'
@@ -424,20 +424,20 @@ NavigationPane {
                                             Container{
                                                 id: current_temperature
                                                 horizontalAlignment: HorizontalAlignment.Left
-                                                preferredWidth: 768/2 - Qt.main_icon_size/2 
+                                                preferredWidth: ListItemData.current_temp_text.length < 4 ? 768/2 - Qt.main_icon_size/2 : 768/2 - Qt.main_icon_size/2 + 50
                                                 verticalAlignment: VerticalAlignment.Center
                                                 Container{
                                                    Label {
                                                         id: current_temp_text_id
                                                         text: ListItemData.current_temp_text
-                                                        preferredWidth: 768/2 - 128/2 
+                                                        preferredWidth: ListItemData.current_temp_text.length < 4 ? 768/2 - Qt.main_icon_size/2 : 768/2 - Qt.main_icon_size/2 + 50
                                                         horizontalAlignment: HorizontalAlignment.Center
                                                         verticalAlignment: VerticalAlignment.Center
                                                         textStyle.textAlign: TextAlign.Center
                                                         textStyle {
                                                             fontSize: FontSize.PointValue
                                                             fontWeight: FontWeight.W100
-                                                            fontSizeValue: 18.0
+                                                            fontSizeValue: ListItemData.current_temp_text.length < 4 ? 18.0 : 14 
                                                             color: Color.White
                                                         }
                                                     }

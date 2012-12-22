@@ -356,7 +356,7 @@ Page {
                 background: Color.Red
             }
             ImageView {
-                imageSource: "asset:///share/images/mask_background_main.png"
+                imageSource: "asset:///share/images/mask_background_main_old.png"
                 preferredWidth: 768
                 preferredHeight: 438
                 layoutProperties: AbsoluteLayoutProperties {

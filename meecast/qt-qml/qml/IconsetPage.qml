@@ -102,6 +102,8 @@ Page {
                              }
                              ImageView {
                                     imageSource: ListItemData.pict
+                                    preferredWidth: 128
+                                    preferredHeight: 128
                                     horizontalAlignment: HorizontalAlignment.Right                
                              }
                             function setHighlight (highlighted) {
@@ -112,11 +114,9 @@ Page {
                                 }
                             }      
                             ListItem.onActivationChanged: {
-                                console.log("wwwwwwwwwww  ", ListItemData.active);
                                 setHighlight (ListItem.active);
                             }
                              ListItem.onSelectionChanged: {
-                                console.log("1111111111wwwwwwwwwww  ", ListItemData.active);
                                 setHighlight (ListItem.selected);
                              }
                          }

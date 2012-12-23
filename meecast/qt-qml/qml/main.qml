@@ -240,12 +240,9 @@ NavigationPane {
 
         function updatestationname(){
             console.log("updatestationname() ", Config.stationname );
-            console.log(" pATH !!!! ", Config.imagespath);
             main.updatemodels();
             //stationname_text = Config.stationname == "Unknown" ? "MeeCast" : Config.stationname
 
-            //left_arrow = Config.prevstationname == "" ? false : true;
-            //right_arrow = Config.nextstationname == "" ? false : true;
             sourceicon.visible = false;
             sourceicon.imageSource = Config.imagespath + "/" + Config.source + ".png";
             sourceicon.visible = true;
@@ -258,6 +255,11 @@ NavigationPane {
 //            mainview.visible = Config.stationname == "Unknown" ? false : true;
             main.updatestationname();
             main.isUpdate = false;
+
+            if ( Config.stationname != "Unknown" && Forecast_model.rowCount() != 0 || Current.rowCount() != 0)
+            { 
+                refresh_button.visible = false;
+            }
         }
 
         function updatemodels()
@@ -345,6 +347,45 @@ NavigationPane {
                             }
                         }
                     }
+                    Container{
+                        id: notrefreshview
+                        visible : (  Config.stationname != "Unknown" && Forecast_model.rowCount() == 0 && Current.rowCount() == 0) ? true : false
+                        preferredWidth: 768
+                        layout: AbsoluteLayout {
+                        }
+                        Container{
+                            preferredWidth: 768
+                            preferredHeight: 438
+                            layoutProperties: AbsoluteLayoutProperties {
+                                positionY: 30
+                            }
+                            background: Color.White
+
+                        }
+                        ImageView {
+                            imageSource: "asset:///share/images/mask_background.png"
+                            preferredWidth: 768
+                            preferredHeight: 438
+                            layoutProperties: AbsoluteLayoutProperties {
+                                positionY: 30
+                            }
+                        }
+                        Label {
+                            text: Config.tr("Looks like there's no info for this location.")
+                            horizontalAlignment: HorizontalAlignment.Center
+                            preferredWidth: 768 
+                            multiline: true
+                            textStyle.textAlign: TextAlign.Center
+                            textStyle {
+                                    base: SystemDefaults.TextStyles.BigText
+                                    color: Color.create("#999999")
+                            }
+                            layoutProperties: AbsoluteLayoutProperties {
+                                positionY: 400 
+                            }
+                        }
+                    }
+
                     
                 Container{
                     layoutProperties: AbsoluteLayoutProperties {
@@ -814,6 +855,20 @@ NavigationPane {
                     onClicked: {
                         var newPage = sourcepageDefinition.createObject();
                         rootWindow.push(newPage);
+                    }
+                    layoutProperties: AbsoluteLayoutProperties {
+                        positionY: 800 
+                    }
+                }
+                Button {
+                    id: refresh_button
+                    horizontalAlignment: HorizontalAlignment.Center
+                    preferredWidth: 768 
+                    visible : (  Config.stationname != "Unknown" && Forecast_model.rowCount() == 0 && Current.rowCount() == 0) ? true : false
+                    text: Config.tr("Try to update")
+                    onClicked: {
+                        main.isUpdate = true;
+                        Config.updatestations()
                     }
                     layoutProperties: AbsoluteLayoutProperties {
                         positionY: 800 

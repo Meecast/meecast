@@ -1,7 +1,7 @@
 meecast (0.6.10) unstable; urgency=low
 
   * Added icons for hko.gov.hk
-  * Updated Chinese, Bulgarian, Catalan, Turkish translations
+  * Updated Chinese, Bulgarian, Catalan, Turkish, Germany translations
   * Added new iconset Atoms. Thanks Andrew Zhilin
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 19 Nov 2012 19:31:23 +0200

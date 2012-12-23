@@ -303,7 +303,6 @@ NavigationPane {
                             positionX: 0
                             positionY: 560
                         }
-                        background: Color.Black
                         preferredWidth: 768
                         preferredHeight: 1000
                     }
@@ -312,7 +311,6 @@ NavigationPane {
                         id: startview
                         visible : Config.stationname == "Unknown" ? true : false;
                         preferredWidth: 768
-                        background: Color.Black
                         layout: AbsoluteLayout {
                         }
                         Container{
@@ -382,7 +380,6 @@ NavigationPane {
                                     visible: ListItemData.number == 0 ? true : false;
 
                                     Container{
-                                        background: Color.Black
                                         preferredWidth: 768
                                         layoutProperties: AbsoluteLayoutProperties {
                                             positionX: 0

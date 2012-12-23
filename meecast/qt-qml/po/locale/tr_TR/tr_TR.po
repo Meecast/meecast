@@ -4,13 +4,14 @@
 #
 # Translators:
 # Burak Kaan Kose <bkaankose@gmail.com>, 2012.
+# Vlad Vas <vasvlad@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-15 15:17+0300\n"
-"PO-Revision-Date: 2012-09-09 18:40+0000\n"
-"Last-Translator: Burak Kaan Kose <bkaankose@gmail.com>\n"
+"POT-Creation-Date: 2012-12-23 17:17+0300\n"
+"PO-Revision-Date: 2012-12-23 14:16+0000\n"
+"Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/meecast/language/"
 "tr/)\n"
 "Language: tr\n"
@@ -112,11 +113,11 @@ msgstr ""
 
 #: meecast/qt-qml/dataitem.cpp:470 meecast/qt-qml/dataitem.cpp:471
 msgid "(Low)"
-msgstr ""
+msgstr "(Dusuk)"
 
 #: meecast/qt-qml/dataitem.cpp:472 meecast/qt-qml/dataitem.cpp:473
 msgid "(Moderate)"
-msgstr ""
+msgstr "(Orta)"
 
 #: omweather/src/weather-simple-settings.c:1714
 #: omweather/src/weather-simple-settings.c:2811
@@ -435,7 +436,7 @@ msgstr "Celsius"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:114
 msgid "Celsius"
-msgstr ""
+msgstr "Selsius"
 
 #: omweather/src/weather-simple-settings.c:677
 #: omweather/src/weather-simple-settings.c:710
@@ -577,9 +578,8 @@ msgid "Cloudy, Snow"
 msgstr "Bulutlu , Kar"
 
 #: omweather/src/hash.data:57
-#, fuzzy
 msgid "Cloudy, thunderstorms with rain"
-msgstr "Kapali , yagmurlu ve firtinali"
+msgstr "Bulutlu,firtinali yagmur"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:413
 msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
@@ -839,9 +839,8 @@ msgid "Fair"
 msgstr "Acik"
 
 #: omweather/src/hash.data:324
-#, fuzzy
 msgid "Feels like"
-msgstr "Hissedilis Benzerlikleri:"
+msgstr "Hissedilis Benzerlikleri"
 
 #: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
 msgid "Feels like:"
@@ -887,9 +886,8 @@ msgstr "Ilk Ceyrek"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:153
 #: meecast/qt-qml/qml/FullWeatherPage.qml:210
 #: meecast/qt-qml/qml/FullWeatherPage.qml:259
-#, fuzzy
 msgid "Flike"
-msgstr "Flike:"
+msgstr ""
 
 #: omweather/src/hash.data:84
 msgid "Fog"
@@ -948,7 +946,6 @@ msgid "Freezing Drizzle"
 msgstr "Dondurucu Ciseleyen Yagmur"
 
 #: meecast/qt-qml/qml/AboutPage.qml:211
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -977,27 +974,6 @@ msgid ""
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
-"French - Nicolas Granziano, \n"
-"»Philippe, Benot Knecht \n"
-"Russian - Pavel Fialko, Vlad Vasiliev, \n"
-" »Ed Bartosh\n"
-" Finnish - Marko Vertainen\n"
-" German - Claudius Henrichs\n"
-" Italian - Pavel Fialko, Alessandro Pasotti,\n"
-" »Salvatore Fiorenzo, Ilir Gjika,\n"
-" »Luca Onnis\n"
-" Spanish - Alejandro Lopez\n"
-" Polish - Tomasz Dominikowski\n"
-" Slovak - Roman Moravčík\n"
-" Dutch - Tom Leenders, Michiel Pater\n"
-" Bulgarian - Zlatko Enikov\n"
-" Albanian - Ilir Gjika\n"
-" Chinese - Wong Man Kong, Michael\n"
-" Portugal - Jose Narciso,\n"
-" Turkish - Burak Kaan Kose\n"
-" Swedish - Angela Nennebrandt,\n"
-" »Niklas Åkerström, \n"
-" »Tomislav Veleckovik"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1100,9 +1076,8 @@ msgstr "Saat"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:135
 #: meecast/qt-qml/qml/FullWeatherPage.qml:192
 #: meecast/qt-qml/qml/FullWeatherPage.qml:241
-#, fuzzy
 msgid "Humidity"
-msgstr "Nem:"
+msgstr "Nem"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
@@ -1318,13 +1293,10 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2012"
 msgstr ""
-"MeeCast - OMWeather kodu uzerine yazilmis ve yuksek duzenlenebilme "
-"ozelligine sahip bir havadurumu tahmin uygulamasi.Copyright (C) 2006-2011"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -1880,9 +1852,8 @@ msgid "Pressure: "
 msgstr "Basinc:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
-#, fuzzy
 msgid "Programmers"
-msgstr "Bas programcilar"
+msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
 msgid "Project administrator"
@@ -2101,23 +2072,23 @@ msgstr "Kaynak sec"
 
 #: meecast/qt-qml/qml/LockScreen.qml:85
 msgid "Select the X-position for left corner of widget"
-msgstr ""
+msgstr "X Pozisyonunu eklentinin sol kosesine sec"
 
 #: meecast/qt-qml/qml/LockScreen.qml:125
 msgid "Select the Y-position for left corner of widget"
-msgstr ""
+msgstr "Y Pozisyonunu eklentinin sol kosesine sec"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:267
 msgid "Select the color of font for current temperature"
-msgstr ""
+msgstr "Anlik sicaklik için bir font rengi sec"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:123
 msgid "Select the color of font for station name"
-msgstr ""
+msgstr "Istasyon adı için bir font rengi sec"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:195
 msgid "Select the color of font for temperature"
-msgstr ""
+msgstr "Sicaklik için bir font rengi sec"
 
 #: meecast/qt-qml/qml/IconsetPage.qml:97
 msgid "Select the iconset"
@@ -2168,17 +2139,15 @@ msgstr "Ayarlar"
 
 #: meecast/qt-qml/qml/LockScreen.qml:65
 msgid "Settings for Lockscreen widget"
-msgstr ""
+msgstr "Kilit Ekranı Eklentisi Ayarları"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:102
-#, fuzzy
 msgid "Settings for standby widget"
-msgstr "Bekleme Ekrani Ayarlari"
+msgstr "Bekleme Ekranı Ayarları"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:534
-#, fuzzy
 msgid "Settings of LockScreen"
-msgstr "Bekleme Ekrani Ayarlari"
+msgstr "Kilit Ekranı Ayarları"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:514
 msgid "Settings of StandbyScreen"
@@ -2197,9 +2166,8 @@ msgid "Show arrows"
 msgstr "Oklari goster"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:601
-#, fuzzy
 msgid "Show on Map"
-msgstr "Istasyon adini goster"
+msgstr "Haritada Goster"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
@@ -2478,7 +2446,7 @@ msgid ""
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 msgstr ""
 "Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - "
-"Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose \n"
+"Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose \\n"
 
 #: omweather/src/weather-settings.c:3272 omweather/src/weather-settings.c:3277
 #: omweather/src/weather-settings.c:3295
@@ -2495,7 +2463,7 @@ msgstr "Tiklama turu:"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:172
 msgid "UV index:"
-msgstr ""
+msgstr "UV Indisi:"
 
 #: omweather/src/weather-settings.c:1135 omweather/src/weather-settings.c:1334
 #: omweather/src/weather-settings.c:1338
@@ -2583,9 +2551,8 @@ msgid "Visible items:"
 msgstr "Gorunebilir esyalar:"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:58 meecast/qt-qml/qml/UnitsPage.qml:209
-#, fuzzy
 msgid "Visible units"
-msgstr "Gorunebilir esyalar:"
+msgstr "Gorunebilir uniteler"
 
 #: omweather/src/weather-popup.c:1288
 #: meecast/qt-qml/qml/FullWeatherPage.qml:169
@@ -2687,9 +2654,8 @@ msgstr "Ruzgar"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:138
 #: meecast/qt-qml/qml/FullWeatherPage.qml:195
 #: meecast/qt-qml/qml/FullWeatherPage.qml:244
-#, fuzzy
 msgid "Wind direction"
-msgstr "Ruzgar yonu:"
+msgstr "Ruzgar yonu"
 
 #: omweather/src/hash.data:307
 msgid "Wind direction:"
@@ -3040,6 +3006,3 @@ msgstr "Ю-B"
 #: omweather/src/hash.data:332
 msgid "Ю-З"
 msgstr "Ю-3"
-
-#~ msgid "Flike:"
-#~ msgstr "Flike:"

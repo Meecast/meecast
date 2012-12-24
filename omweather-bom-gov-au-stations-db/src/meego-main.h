@@ -25,7 +25,13 @@
 #define _main_h 1
 /*******************************************************************************/
 //#include <gtk/gtk.h>
-#include <glib.h>
+#ifdef GLIB
+    #include <glib.h>
+#endif
+#ifdef QT
+    #include <QHash>
+#endif
+
 #include <libxml/parser.h>
 #include <stdlib.h>
 #include <libxml/parser.h>

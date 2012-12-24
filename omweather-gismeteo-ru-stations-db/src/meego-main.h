@@ -1,6 +1,6 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of omweather-weather-com-source - MeeCast
+ * This file is part of omweather-gismeteo-ru-source - MeeCast
  *
  * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2009 Pavel Fialko

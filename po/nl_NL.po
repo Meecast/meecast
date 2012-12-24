@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-15 15:17+0300\n"
-"PO-Revision-Date: 2012-10-03 17:45+0000\n"
+"POT-Creation-Date: 2012-12-24 16:34+0300\n"
+"PO-Revision-Date: 2012-12-23 20:25+0000\n"
 "Last-Translator: Michiel Pater <michiel@wateennaam.nl>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/meecast/language/"
 "nl/)\n"
@@ -115,11 +115,11 @@ msgstr ""
 
 #: meecast/qt-qml/dataitem.cpp:470 meecast/qt-qml/dataitem.cpp:471
 msgid "(Low)"
-msgstr ""
+msgstr "(Laag)"
 
 #: meecast/qt-qml/dataitem.cpp:472 meecast/qt-qml/dataitem.cpp:473
 msgid "(Moderate)"
-msgstr ""
+msgstr "(Gemiddeld)"
 
 #: omweather/src/weather-simple-settings.c:1714
 #: omweather/src/weather-simple-settings.c:2811
@@ -444,7 +444,7 @@ msgstr "Celsius"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:114
 msgid "Celsius"
-msgstr ""
+msgstr "Celsius"
 
 #: omweather/src/weather-simple-settings.c:677
 #: omweather/src/weather-simple-settings.c:710
@@ -586,9 +586,8 @@ msgid "Cloudy, Snow"
 msgstr "Bewolkt, Sneeuw"
 
 #: omweather/src/hash.data:57
-#, fuzzy
 msgid "Cloudy, thunderstorms with rain"
-msgstr "Bewolking, onweer met regen"
+msgstr "Bewolkt, onweer met regen"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:413
 msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
@@ -851,9 +850,8 @@ msgid "Fair"
 msgstr "Mooi"
 
 #: omweather/src/hash.data:324
-#, fuzzy
 msgid "Feels like"
-msgstr "Voelt als:"
+msgstr "Voelt als"
 
 #: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
 msgid "Feels like:"
@@ -898,9 +896,8 @@ msgstr "Eerste Kwartier"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:153
 #: meecast/qt-qml/qml/FullWeatherPage.qml:210
 #: meecast/qt-qml/qml/FullWeatherPage.qml:259
-#, fuzzy
 msgid "Flike"
-msgstr "Gevoel:"
+msgstr "Flike"
 
 #: omweather/src/hash.data:84
 msgid "Fog"
@@ -960,7 +957,6 @@ msgid "Freezing Drizzle"
 msgstr "Lichte IJzel"
 
 #: meecast/qt-qml/qml/AboutPage.qml:211
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -992,12 +988,13 @@ msgstr ""
 "Frans - Nicolas Granziano, ⏎ »Philippe, Benot Knecht ⏎ Russisch - Pavel "
 "Fialko, Vlad Vasiliev, ⏎ »Ed Bartosh⏎ Fins - Marko Vertainen⏎ Duits - "
 "Claudius Henrichs⏎ Italiaans - Pavel Fialko, Alessandro Pasotti,⏎ »Salvatore "
-"Fiorenzo, Ilir Gjika,⏎ »Luca Onnis⏎ Spaans - Alejandro Lopez⏎ Polish - "
-"Tomasz Dominikowski⏎ Slowaaks - Roman Moravčík⏎ Nederlands - Tom Leenders, "
-"Michiel Pater⏎ Bulgaars - Zlatko Enikov⏎ Albanees - Ilir Gjika⏎ Chinees - "
-"Wong Man Kong, Michael⏎ Portugees - Jose Narciso,⏎ Turks - Burak Kaan Kose,⏎ "
-"Vietnamees - Hieu Nguyen, Anh Dương and truongnx, ⏎ Zweeds - Angela "
-"Nennebrandt,⏎ »Niklas Åkerström, ⏎ »Tomislav Veleckovik"
+"Fiorenzo, Ilir Gjika,⏎ »Luca Onnis⏎ Spaans - Alejandro Lopez⏎ Pools - Tomasz "
+"Dominikowski⏎ Slowaaks - Roman Moravčík⏎ Nederlands - Tom Leenders, Michiel "
+"Pater⏎ Bulgaars - Zlatko Enikov⏎ Albanian - Ilir Gjika⏎ Chinees - Wong Man "
+"Kong, Michael⏎ Portugees - Jose Narciso,⏎ Turks - Burak Kaan Kose,⏎ "
+"Catalaans - Agustí Clara,⏎ Arabisch - Tarad Alfandi,⏎ Noors - Peer-Atle "
+"Motland,⏎ Vietnamees - Hieu Nguyen⏎ »Anh Dương and truongnx, ⏎ Zweeds - "
+"Angela Nennebrandt,⏎ »Niklas Åkerström, ⏎ »Tomislav Veleckovik"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1100,9 +1097,8 @@ msgstr "Uren"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:135
 #: meecast/qt-qml/qml/FullWeatherPage.qml:192
 #: meecast/qt-qml/qml/FullWeatherPage.qml:241
-#, fuzzy
 msgid "Humidity"
-msgstr "Luchtvochtigheid:"
+msgstr "Luchtvochtigheid"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
@@ -1317,13 +1313,12 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2012"
 msgstr ""
-"MeeCast - Een zeer aanpasbare open source multiplatform weerbericht client "
-"op basis van OMWeather code. Copyright (C) 2006-2011"
+"MeeCast - multiplatform, zeer aanpasbare open source weerbericht client op "
+"basis van OMWeather code. Copyright (C) 2006-2012"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -1879,9 +1874,8 @@ msgid "Pressure: "
 msgstr "Luchtdruk: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
-#, fuzzy
 msgid "Programmers"
-msgstr "Hoofdprogrammeurs"
+msgstr "Programmeurs"
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
 msgid "Project administrator"
@@ -2100,23 +2094,23 @@ msgstr "Kies bron"
 
 #: meecast/qt-qml/qml/LockScreen.qml:85
 msgid "Select the X-position for left corner of widget"
-msgstr ""
+msgstr "Selecteer de X-positie van de linkerhoek van de widget"
 
 #: meecast/qt-qml/qml/LockScreen.qml:125
 msgid "Select the Y-position for left corner of widget"
-msgstr ""
+msgstr "Selecteer de Y-positie van de linkerhoek van de widget"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:267
 msgid "Select the color of font for current temperature"
-msgstr ""
+msgstr "Selecteer lettertype kleur voor huidige temperatuur"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:123
 msgid "Select the color of font for station name"
-msgstr ""
+msgstr "Selecteer lettertype kleur voor station naam"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:195
 msgid "Select the color of font for temperature"
-msgstr ""
+msgstr "Selecteer lettertype kleur voor temperatuur"
 
 #: meecast/qt-qml/qml/IconsetPage.qml:97
 msgid "Select the iconset"
@@ -2167,17 +2161,15 @@ msgstr "Instellingen"
 
 #: meecast/qt-qml/qml/LockScreen.qml:65
 msgid "Settings for Lockscreen widget"
-msgstr ""
+msgstr "Lockscreen widget instellingen"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:102
-#, fuzzy
 msgid "Settings for standby widget"
-msgstr "StandbyScreen Instellingen"
+msgstr "Standby widget instellingen"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:534
-#, fuzzy
 msgid "Settings of LockScreen"
-msgstr "StandbyScreen Instellingen"
+msgstr "LockScreen instellingen"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:514
 msgid "Settings of StandbyScreen"
@@ -2196,9 +2188,8 @@ msgid "Show arrows"
 msgstr "Toon pijlen"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:601
-#, fuzzy
 msgid "Show on Map"
-msgstr "Toon stationsnaam"
+msgstr "Weergeef op kaart"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
@@ -2494,7 +2485,7 @@ msgstr "Soort klik:"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:172
 msgid "UV index:"
-msgstr ""
+msgstr "UV index:"
 
 #: omweather/src/weather-settings.c:1135 omweather/src/weather-settings.c:1334
 #: omweather/src/weather-settings.c:1338
@@ -2584,9 +2575,8 @@ msgid "Visible items:"
 msgstr "Zichtbare items:"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:58 meecast/qt-qml/qml/UnitsPage.qml:209
-#, fuzzy
 msgid "Visible units"
-msgstr "Zichtbare items:"
+msgstr "Zichtbare eenheden"
 
 #: omweather/src/weather-popup.c:1288
 #: meecast/qt-qml/qml/FullWeatherPage.qml:169
@@ -2688,9 +2678,8 @@ msgstr "Wind"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:138
 #: meecast/qt-qml/qml/FullWeatherPage.qml:195
 #: meecast/qt-qml/qml/FullWeatherPage.qml:244
-#, fuzzy
 msgid "Wind direction"
-msgstr "Windrichting:"
+msgstr "Windrichting"
 
 #: omweather/src/hash.data:307
 msgid "Wind direction:"
@@ -3043,6 +3032,3 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:332
 msgid "Ю-З"
 msgstr "Ю-3"
-
-#~ msgid "Flike:"
-#~ msgstr "Gevoel:"

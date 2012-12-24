@@ -48,6 +48,8 @@ void source_destroy(void);
 void free_fields(gpointer key, gpointer val, gpointer user_data);
 gint get_station_weather_data(const gchar *station_id_with_path, GHashTable *data, gboolean get_detail_data);
 gpointer hash_bomgovau_table_find(GHashTable *hash, gpointer key, int search_short_name);
+GHashTable *hash_icons_bomgovau_table_create(void);
+GHashTable *hash_stations_table_create(void);
 #endif
 #ifdef QT
     QString hash_bomgovau_table_find(QHash<QString, QString> *hash, const char* key, int search_short_name);

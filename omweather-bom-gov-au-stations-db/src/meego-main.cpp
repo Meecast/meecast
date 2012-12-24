@@ -58,7 +58,7 @@ choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
     char *tmp_result = NULL;
 
     source = g_strdup_printf("%s", image);
-    tmp_result = hash_bomgovau_table_find(hash_for_icons, source, FALSE);
+    tmp_result = (char *)hash_bomgovau_table_find(hash_for_icons, source, FALSE);
     if (tmp_result && (strlen(tmp_result) == 2 || strlen(tmp_result) == 1)){
        result = g_strdup(tmp_result);
        g_free(source);
@@ -160,7 +160,8 @@ parse_and_write_detail_data(const char *station_name, htmlDocPtr doc, const char
     
     for(i = 1; i < (size-1) ; ++i) {
        #ifdef GLIB
-       if (!strcmp((char*)xpathObj->nodesetval->nodeTab[i]->content, hash_bomgovau_table_find(hash_for_stations, station_name, FALSE))){
+       if (!strcmp((char*)xpathObj->nodesetval->nodeTab[i]->content, 
+                   (char *)hash_bomgovau_table_find(hash_for_stations, (void *)station_name, FALSE))){
        #endif
        #ifdef QT
        if (!strcmp((char*)xpathObj->nodesetval->nodeTab[i]->content, 
@@ -335,7 +336,7 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
                                                             temp_hi = atoi((char *)xmlNodeGetContent(child_node2));
                                                         if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "forecast_icon_code" ))
 #ifdef GLIB                                                         
-                                                            snprintf(icon, sizeof(icon) - 1, "%s", choose_hour_weather_icon(hash_for_icons, xmlNodeGetContent(child_node2))); 
+                                                            snprintf(icon, sizeof(icon) - 1, "%s", choose_hour_weather_icon(hash_for_icons, (char *)xmlNodeGetContent(child_node2))); 
 #endif
 #ifdef QT
                                                             snprintf(icon, sizeof(icon) - 1, "%s", (char*)choose_hour_weather_icon(hash_for_icons, (char *)xmlNodeGetContent(child_node2)).toStdString().c_str()); 

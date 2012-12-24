@@ -36,7 +36,6 @@
 #endif
 #ifdef QT
     static QHash<QString, QString> *hash_for_icons;
-    static QHash<QString, QString> *hash_for_translate;
     QHash<QString, QString> *hash_hko_table_create(void);
 #endif
 

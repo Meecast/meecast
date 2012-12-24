@@ -87,6 +87,23 @@ hash_bomgovau_table_find(GHashTable *hash, gpointer key, gboolean search_short_n
 #endif
 
 #ifdef QT
+QHash<QString, QString> *
+
+hash_icons_bomgovau_table_create(void){
+    QHash<QString, QString> *hash = new QHash <QString, QString>;
+#include "hash_icons.data"
+    return hash;
+}
+
+QHash<QString, QString> *
+hash_stations_table_create(void) {
+    QHash<QString, QString> *hash = new QHash <QString, QString>;
+#include "hash_stations.data"
+    return hash;
+}
+
+
+
 QString
 hash_bomgovau_table_find(QHash<QString, QString> *hash_for_icons, const char* key, int  search_short_name ) {
     QString result;

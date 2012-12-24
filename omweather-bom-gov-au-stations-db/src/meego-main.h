@@ -50,7 +50,9 @@ gint get_station_weather_data(const gchar *station_id_with_path, GHashTable *dat
 gpointer hash_bomgovau_table_find(GHashTable *hash, gpointer key, int search_short_name);
 #endif
 #ifdef QT
- QString hash_bomgovau_table_find(QHash<QString, QString> *hash, const char* key, int search_short_name);
+    QString hash_bomgovau_table_find(QHash<QString, QString> *hash, const char* key, int search_short_name);
+    QHash<QString, QString> *hash_icons_bomgovau_table_create(void);
+    QHash<QString, QString> *hash_stations_table_create(void);
 #endif
 //gint parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *data);
 int parse_and_write_xml_data(const char *station_id, const char *station_name, htmlDocPtr doc, const char *result_file);

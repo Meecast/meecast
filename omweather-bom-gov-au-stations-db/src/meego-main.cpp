@@ -45,7 +45,7 @@ char current_title[1024];
 #ifdef QT
 QString
 choose_hour_weather_icon( QHash<QString, QString> *hash_for_icons, char *image){
-    return QString ("");
+    return  hash_bomgovau_table_find(hash_for_icons, image, FALSE);
 }
 
 #endif
@@ -132,10 +132,10 @@ parse_and_write_detail_data(const char *station_name, htmlDocPtr doc, const char
     if (!file_out)
         return -1;
 
-#ifdef GLIB
+//#ifdef GLIB
     hash_for_icons = hash_icons_bomgovau_table_create();
     hash_for_stations = hash_stations_table_create();
-#endif
+//#endif
     /* Create xpath evaluation context */
     xpathCtx = xmlXPathNewContext(doc);
     if(xpathCtx == NULL) {

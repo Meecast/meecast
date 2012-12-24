@@ -36,6 +36,8 @@ gpointer hash_bomgovau_table_find(GHashTable *hash, gpointer key, gboolean searc
 #ifdef QT
     #include <QHash>
     QString hash_bomgovau_table_find(QHash<QString, QString> *hash, const char* key, int search_short_name);
+    QHash<QString, QString> *hash_icons_bomgovau_table_create(void);
+    QHash<QString, QString> *hash_stations_table_create(void);
 #endif
 /*******************************************************************************/
 #endif

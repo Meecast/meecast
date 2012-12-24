@@ -12,12 +12,14 @@ clean:
 	$(MAKE) -C ./arm/yrno -f Makefile sureclean
 	$(MAKE) -C ./arm/gismeteo -f Makefile sureclean
 	$(MAKE) -C ./arm/hko -f Makefile sureclean
+	$(MAKE) -C ./arm/bomgovau -f Makefile sureclean
 	$(MAKE) -C ./x86/lib -f Makefile sureclean	
 	$(MAKE) -C ./x86 -f Makefile sureclean	
 	$(MAKE) -C ./x86/foreca -f Makefile sureclean	
 	$(MAKE) -C ./x86/yrno -f Makefile sureclean	
 	$(MAKE) -C ./x86/gismeteo -f Makefile sureclean	
 	$(MAKE) -C ./x86/hko -f Makefile sureclean	
+	$(MAKE) -C ./x86/bomgovau -f Makefile sureclean	
 
 
 Makefile: FORCE	
@@ -27,12 +29,14 @@ Makefile: FORCE
 	$(QMAKE) -spec unsupported/blackberry-armv7le-qcc -o arm/yrno/Makefile omweather-yr-no-stations-db/omweather-yr-no-stations-db.pro CONFIG+=device
 	$(QMAKE) -spec unsupported/blackberry-armv7le-qcc -o arm/gismeteo/Makefile omweather-gismeteo-ru-stations-db/omweather-gismeteo-ru-stations-db.pro CONFIG+=device
 	$(QMAKE) -spec unsupported/blackberry-armv7le-qcc -o arm/hko/Makefile omweather-hko-gov-hk-stations-db/omweather-hko-gov-hk-stations-db.pro CONFIG+=device
+	$(QMAKE) -spec unsupported/blackberry-armv7le-qcc -o arm/bomgovau/Makefile omweather-bom-gov-au-stations-db/omweather-bom-gov-au-stations-db.pro CONFIG+=device
 	$(QMAKE) -spec unsupported/blackberry-x86-qcc -o x86/lib/Makefile meecast/core/core.pro CONFIG+=simulator
 	$(QMAKE) -spec unsupported/blackberry-x86-qcc -o x86/Makefile meecast/qt-qml/qt-qml.pro CONFIG+=simulator
 	$(QMAKE) -spec unsupported/blackberry-x86-qcc -o x86/foreca/Makefile omweather-foreca-com-stations-db/omweather-foreca-com-stations-db.pro CONFIG+=simulator
 	$(QMAKE) -spec unsupported/blackberry-x86-qcc -o x86/yrno/Makefile omweather-yr-no-stations-db/omweather-yr-no-stations-db.pro CONFIG+=simulator
 	$(QMAKE) -spec unsupported/blackberry-x86-qcc -o x86/gismeteo/Makefile omweather-gismeteo-ru-stations-db/omweather-gismeteo-ru-stations-db.pro CONFIG+=simulator
 	$(QMAKE) -spec unsupported/blackberry-x86-qcc -o x86/hko/Makefile omweather-hko-gov-hk-stations-db/omweather-hko-gov-hk-stations-db.pro CONFIG+=simulator
+	$(QMAKE) -spec unsupported/blackberry-x86-qcc -o x86/bomgovau/Makefile omweather-bom-gov-au-stations-db/omweather-bom-gov-au-stations-db.pro CONFIG+=simulator
 #	$(QMAKE) -spec unsupported/blackberry-armv7le-qcc -o arm/Makefile $(QMAKE_TARGET).pro CONFIG+=device
 #	$(QMAKE) -spec unsupported/blackberry-x86-qcc -o x86/Makefile $(QMAKE_TARGET).pro CONFIG+=simulator
 #	$(MAKE) -C ./translations -f Makefile update release
@@ -48,6 +52,7 @@ device:
 	$(MAKE) -C ./arm/yrno -f Makefile all
 	$(MAKE) -C ./arm/gismeteo -f Makefile all
 	$(MAKE) -C ./arm/hko -f Makefile all
+	$(MAKE) -C ./arm/bomgovau -f Makefile all
 
 Device-Debug: Makefile
 	$(MAKE) -C ./arm/lib -f Makefile debug
@@ -56,6 +61,7 @@ Device-Debug: Makefile
 	$(MAKE) -C ./arm/yrno -f Makefile debug
 	$(MAKE) -C ./arm/gismeteo -f Makefile debug
 	$(MAKE) -C ./arm/hko -f Makefile debug
+	$(MAKE) -C ./arm/bomgovau -f Makefile debug
 	
 Device-Release: Makefile
 	$(MAKE) -C ./arm/lib -f Makefile release
@@ -64,6 +70,7 @@ Device-Release: Makefile
 	$(MAKE) -C ./arm/yrno -f Makefile release
 	$(MAKE) -C ./arm/gismeteo -f Makefile release
 	$(MAKE) -C ./arm/hko -f Makefile release
+	$(MAKE) -C ./arm/bomgovau -f Makefile release
 
 simulator:
 	$(MAKE) -C ./x86/lib -f Makefile all
@@ -72,6 +79,7 @@ simulator:
 	$(MAKE) -C ./x86/yrno -f Makefile all
 	$(MAKE) -C ./x86/gismeteo -f Makefile all
 	$(MAKE) -C ./x86/hko -f Makefile all
+	$(MAKE) -C ./x86/bomgovau -f Makefile all
 
 Simulator-Debug: Makefile
 	$(MAKE) -C ./x86/lib -f Makefile debug
@@ -80,5 +88,6 @@ Simulator-Debug: Makefile
 	$(MAKE) -C ./x86/yrno -f Makefile debug
 	$(MAKE) -C ./x86/gismeteo -f Makefile debug
 	$(MAKE) -C ./x86/hko -f Makefile debug
+	$(MAKE) -C ./x86/bomgovau -f Makefile debug
 
 

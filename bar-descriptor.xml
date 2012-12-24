@@ -63,6 +63,7 @@
        <asset path="x86/yrno/yrno" type="Qnx/Elf">yrno</asset>
        <asset path="x86/gismeteo/gismeteoru" type="Qnx/Elf">gismeteoru</asset>
        <asset path="x86/hko/hkogovhk" type="Qnx/Elf">hkogovhk</asset>
+       <asset path="x86/bomgovau/bomgovau" type="Qnx/Elf">bomgovau</asset>
     </configuration>
     
     <!--  The icon for the application, which should be 150x150. -->
@@ -85,7 +86,6 @@
     <asset path="meecast/core/data/icons">assets/share/icons</asset>
     <asset path="omweather-foreca-com-stations-db/data/foreca.com.xml">share/sources/foreca.com.xml</asset>
     <asset path="omweather-foreca-com-stations-db/data/foreca.com.db">share/db/foreca.com.db</asset>
-    <asset path="meecast/qt-qml/po/locale/ru_RU/omweather.mo">share/locale/C/LC_MESSAGES/omweather.mo</asset>
 
      <!-- Locale support -->
     <asset path="translations" dest="qm">
@@ -99,6 +99,8 @@
     <asset path="omweather-gismeteo-ru-stations-db/data/gismeteom.ru.xml">share/sources/gismeteom.ru.xml</asset>
     <asset path="omweather-hko-gov-hk-stations-db/data/hko.gov.hk.db">share/db/hko.gov.hk.db</asset>
     <asset path="omweather-hko-gov-hk-stations-db/data/hko.gov.hk.xml">share/sources/hko.gov.hk.xml</asset>
+    <asset path="omweather-bom-gov-au-stations-db/data/bom.gov.au.db">share/db/bom.gov.au.db</asset>
+    <asset path="omweather-bom-gov-au-stations-db/data/bom.gov.au.xml">share/sources/bom.gov.au.xml</asset>
    
     <!-- Request permission to execute native code.  Required for native applications. -->
     <permission system="true">run_native</permission>

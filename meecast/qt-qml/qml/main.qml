@@ -59,7 +59,11 @@ NavigationPane {
                         shortdate = Current.getdata(a, "shortdate");
                         temp_high = Current.getdata(a, "temp_high");
                         temp_low  = Current.getdata(a, "temp_low");
-                        hi_temp_color =  main.getColor(Current.getdata(a, "temp_high"));
+                        if (Current.getdata(a, "temp_high") != "N/A"){
+                            hi_temp_color =  main.getColor(Current.getdata(a, "temp_high"));
+                        }else{
+                            hi_temp_color = "#000000";
+                        }    
                     }else{
                         fulldate = "";
                         shortdate = "";
@@ -81,7 +85,13 @@ NavigationPane {
                     shortdate = Forecast_model.getdata(a-1 , "shortdate");
                     temp_high = Forecast_model.getdata(a-1, "temp_high");
                     temp_low  = Forecast_model.getdata(a-1, "temp_low");
-                    hi_temp_color =  main.getColor(Forecast_model.getdata(a-1, "temp_high"));
+                    if (Forecast_model.getdata(a-1, "temp_high") != "N/A"){
+                        hi_temp_color =  main.getColor(Forecast_model.getdata(a-1, "temp_high"));
+                    }else{
+                        if (Forecast_model.getdata(a-1, "temp") != "N/A"){
+                            hi_temp_color =  main.getColor(Forecast_model.getdata(a-1, "temp"));
+                        }
+                    }
                     pict = Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(a-1, "pict");
                     bg_color = ((a-1) % 2 != 0) ? "#0f0f0f" : "#000000";
                     title_text = Forecast_model.getdata(a-1, "description");
@@ -137,7 +147,17 @@ NavigationPane {
                 if ((Current.getdata(0, "temp_low") != "N/A") && (Current.getdata(0, "temp_high") != "N/A"))
                 if (Current.getdata(0, "temp_low") != "N/A")
                    current_temp_text = current_temp_text + '/'+ Current.getdata(0, "temp_low") + '°'
-                current_rect_back_background = main.getColor(Current.getdata(0, "temp_high"));
+                   console.log("Color!!!! ", Current.getdata(0, "temp_high"));
+                if (Current.getdata(0, "temp_high") != "N/A"){
+                    current_rect_back_background = main.getColor(Current.getdata(0, "temp_high"));
+                }else{
+                   console.log("Color!!!! ", Current.getdata(0, "temp_low"));
+                    if (Current.getdata(0, "temp_low") != "N/A"){
+                        current_rect_back_background = main.getColor(Current.getdata(0, "temp_high"));
+                    }else{
+                        current_rect_back_background = "#000000";
+                    }
+                }
             }else{
                current_temp_text = Current.getdata(0, "temp") + '°'
                console.log(Current.getdata(0, "temp"));

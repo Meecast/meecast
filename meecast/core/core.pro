@@ -118,6 +118,10 @@ datasimpelmee.files += data/icons/SimpelMee/*.png
 datasimpelmee.path = /opt/com.meecast.omweather/share/icons/SimpelMee
 datanoun.files += data/icons/Noun/*.png
 datanoun.path = /opt/com.meecast.omweather/share/icons/Noun
+dataatmos.files += data/icons/Atmos/*.png
+dataatmos.path = /opt/com.meecast.omweather/share/icons/Atmos
+
+
 
 
 #data.path = /opt/com.meecast.omweather/share
@@ -132,7 +136,7 @@ images.files += data/images/*.png
 alib.files = libomweather-core.a
 alib.path = /opt/com.meecast.omweather/lib
 
-INSTALLS += target databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun xsd buttonicons images alib icon icon50 icon255 icon16 icon32 icon64 icon128 iconpanel
+INSTALLS += target databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images alib icon icon50 icon255 icon16 icon32 icon64 icon128 iconpanel
 QMAKE_CLEAN += lib$$TARGET* \
     *.pro.user
 

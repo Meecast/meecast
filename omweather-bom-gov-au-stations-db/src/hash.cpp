@@ -1,7 +1,7 @@
 /* vim: set sw=4 ts=4 et: */
-/* This file is part of Other Maemo Weather(omweather)
+/* This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2011 Vlad Vasiliev
+ * Copyright (C) 2011-2012 Vlad Vasilyeu
  * 	for the code
  *        
  * Copyright (C) 2008 Andrew Zhilin
@@ -24,13 +24,17 @@
  * 02110-1301 USA
  *
 */
-#include <glib.h>
+#ifdef GLIB
+    #include <glib.h>
+#endif
+
 #include <stdio.h>
 #include "hash.h"
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
+#ifdef GLIB
 GHashTable *hash_stations_table_create(void) {
     GHashTable *hash = NULL;
 #ifdef DEBUGFUNCTIONCALL
@@ -51,7 +55,6 @@ GHashTable *hash_icons_bomgovau_table_create(void) {
 #include "hash_icons.data"
     return hash;
 }
-
 /*******************************************************************************/
 gpointer 
 hash_bomgovau_table_find(GHashTable *hash, gpointer key, gboolean search_short_name) {
@@ -81,4 +84,18 @@ hash_bomgovau_table_find(GHashTable *hash, gpointer key, gboolean search_short_n
     return result;
 }
 
+#endif
+
+#ifdef QT
+QString
+hash_bomgovau_table_find(QHash<QString, QString> *hash_for_icons, const char* key, int  search_short_name ) {
+    QString result;
+    if (hash_for_icons->contains(QString(key)))
+        return hash_for_icons->value(QString(key));
+    else{
+        fprintf(stderr,"Unknown strings %s\n", key);
+                return QString("49");
+   }
+}
+#endif
 /*******************************************************************************/

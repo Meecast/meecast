@@ -12,8 +12,8 @@ TEMPLATE = app
 HEADERS += src/meego-main.h \
            src/hash.h
 
-SOURCES += src/meego-main.c \
-           src/hash.c
+SOURCES += src/meego-main.cpp \
+           src/hash.cpp
 
 FORMS    +=
 
@@ -22,7 +22,7 @@ OTHER_FILES += \
 
 CONFIG = link_pkgconfig 
 PKGCONFIG += libxml-2.0 
-system(pkg-config --exists glib-2.0.1){
+system(pkg-config --exists glib-2.0){
     PKGCONFIG += glib-2.0
     message(GLIB-2.0 is exist)
     CONFIG += -qt

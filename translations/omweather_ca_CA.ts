@@ -1083,18 +1083,15 @@ Brad Jones aka kazrak - per les proves
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sembla</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sembla</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sembla</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1187,8 +1184,32 @@ utilitzant el Gestor d'aplicacions</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Francès -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht 
+ Rus - Pavel Fialko, Vlad Vasiliev, 
+ 	Ed Bartosh
+ Finlandès - Marko Vertainen
+Alemany -  Claudius Henrichs
+ Italià - Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+ Castellà - Alejandro Lopez
+ Polonès - Tomasz Dominikowski
+ Eslovac - Roman Moravčík
+ Neerlandès - Tom Leenders, Michiel Pater
+ Búlgar - Zlatko Enikov
+ Albanès - Ilir Gjika
+ Xinès - Wong Man Kong, Michael
+ Portuguès - Jose Narciso,
+ Turc - Burak Kaan Kose,
+ Català - Agustí Clara,
+ Àrab - Tarad Alfandi,
+ Noruec - Peer-Atle Motland,
+ Vietnamita - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+ Suec - Angela Nennebrandt,
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1575,8 +1596,7 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2012</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>MeeCast - Client multiplataforma de previsió meteorològica molt personalitzable i de codi obert basat en el codi d'OMWeather. Copyright (C) 2006-2012</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2304,8 +2324,7 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>Programmers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Programadors</translation>
         </message>
         <message>
             <source>Project administrator</source>

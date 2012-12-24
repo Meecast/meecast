@@ -22,7 +22,8 @@ OTHER_FILES += \
 
 CONFIG = link_pkgconfig 
 CONFIG += warn_on debug_and_release
-PKGCONFIG += libxml-2.0 
+
+#PKGCONFIG += libxml-2.0 
 
 system(pkg-config --exists glib-2.0_____){
     PKGCONFIG += glib-2.0
@@ -36,6 +37,7 @@ system(pkg-config --exists glib-2.0_____){
     DEFINES += QT
 }
 
+LIBS += -lxml2
 
 db.files = data/hko.gov.hk.db
 db.path = /opt/com.meecast.omweather/share/db/

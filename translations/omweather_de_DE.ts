@@ -179,7 +179,8 @@ W: </translation>
         </message>
         <message>
             <source>12 hours</source>
-            <translation type="unfinished">2 Stunden</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>15 minutes</source>
@@ -711,7 +712,8 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
-            <translation type="unfinished">Bedeckt und leichter Regen</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
@@ -1044,7 +1046,7 @@ Brad Jones aka kazrak - fürs Testen
         </message>
         <message>
             <source>Feels like</source>
-            <translation type="unfinished">Gefühlt: </translation>
+            <translation>Gefühlt</translation>
         </message>
         <message>
             <source>Feels like:</source>
@@ -1081,8 +1083,8 @@ Brad Jones aka kazrak - fürs Testen
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
 </source>
-            <translation type="unfinished">Finnisch - Marko Vertainen; Deutsch - Claudius Henrichs; Spanisch - Alejandro Lopez; Slowakisch - Roman Moravčík
-</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>First Quarter</source>
@@ -1090,15 +1092,18 @@ Brad Jones aka kazrak - fürs Testen
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Feuchtigkeit:</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Feuchtigkeit:</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Feuchtigkeit:</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1191,18 +1196,8 @@ Programm-Manager deinstallieren.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Deutsch - Claudius Henrichs
-Finnisch - Marko Vertainen
-Französisch - Nicolas Granziano, 
- 	Philippe, Benot Knech
-Italienisch - Pavel Fialko, Alessandro
-	Pasotti, Salvatore Fiorenzo, Luca Onnis
-Polnisch - Tomasz Dominikowski
-Russisch - Pavel Fialko, Vlad Vasiliev, 
- 	Ed Bartosh
-Schwedisch - Angela Nennebrandt, Tomislav Veleckovik
-Slowakisch - Roman Moravčík
-Spanisch - Alejandro Lopez</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1310,15 +1305,15 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Luftfeuchtigkeit: </translation>
+            <translation>Luftfeuchtigkeit</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Luftfeuchtigkeit: </translation>
+            <translation>Luftfeuchtigkeit</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Luftfeuchtigkeit: </translation>
+            <translation>Luftfeuchtigkeit</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1398,7 +1393,8 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
-            <translation type="unfinished">Italienisch - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polnisch - Tomasz Dominikowski;</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Kilometers</source>
@@ -1588,7 +1584,8 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2012</source>
-            <translation type="unfinished">MeeCast - Plattformübergreifende, anpassbare Open Source-Anwendung zur Wettervorhersage basierend auf dem Code von OMWeather. Copyright (C) 2006-2011</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2036,7 +2033,8 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Overcast and rain</source>
-            <translation type="unfinished">Bedeckt und leichter Regen</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Overcast and showers</source>
@@ -2060,7 +2058,8 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Overcast, thunderstorms with rain</source>
-            <translation type="unfinished">Bedeckt und leichter Regen</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>PM Fog</source>
@@ -2232,11 +2231,13 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Partly cloudy, possible thunderstorms with rain</source>
-            <translation type="unfinished">Teilweise bewölkt und leichter Regen</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Partly cloudy, possible thunderstorms with rain</source>
-            <translation type="unfinished">Teilweise bewölkt und leichter Regen</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Period</source>
@@ -2316,7 +2317,8 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Programmers</source>
-            <translation type="unfinished">Chefentwickler</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Project administrator</source>
@@ -2324,7 +2326,8 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Project manager</source>
-            <translation type="unfinished">Projektadministrator</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Project website</source>
@@ -2678,15 +2681,18 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Settings for standby widget</source>
-            <translation type="unfinished">Widget in Standbyansicht</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Settings of LockScreen</source>
-            <translation type="unfinished">Widget in Standbyansicht</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Settings of StandbyScreen</source>
-            <translation type="unfinished">Widget in Standbyansicht</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Shallow Fog</source>
@@ -2702,7 +2708,8 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Show on Map</source>
-            <translation type="unfinished">Stationsname anzeigen</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
@@ -3046,7 +3053,8 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Thunder in the Vicinity</source>
-            <translation type="unfinished">Schauer in der Nähe</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Today</source>
@@ -3263,11 +3271,13 @@ um die Darstellung des Applets anzupassen</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">Angezeigte Elemente:</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">Angezeigte Elemente:</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Visible:</source>
@@ -3387,15 +3397,15 @@ um die Darstellung des Applets anzupassen</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Windrichtung:</translation>
+            <translation>Windrichtung</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Windrichtung:</translation>
+            <translation>Windrichtung</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Windrichtung:</translation>
+            <translation>Windrichtung</translation>
         </message>
         <message>
             <source>Wind direction:</source>

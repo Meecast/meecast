@@ -121,23 +121,19 @@ W:</translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Dusuk)</translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Dusuk)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Orta)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Orta)</translation>
         </message>
         <message>
             <source>1 day</source>
@@ -547,8 +543,7 @@ Frementle icin Dizayn : Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Celsius</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Selsius</translation>
         </message>
         <message>
             <source>City</source>
@@ -700,7 +695,7 @@ Frementle icin Dizayn : Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
-            <translation type="unfinished">Kapali , yagmurlu ve firtinali</translation>
+            <translation>Bulutlu,firtinali yagmur</translation>
         </message>
         <message>
             <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
@@ -1029,7 +1024,7 @@ fikir ve testleri icin Andrew aka Tabster'a ve testleri icin Brad Jones'a
         </message>
         <message>
             <source>Feels like</source>
-            <translation type="unfinished">Hissedilis Benzerlikleri:</translation>
+            <translation>Hissedilis Benzerlikleri</translation>
         </message>
         <message>
             <source>Feels like:</source>
@@ -1075,15 +1070,18 @@ fikir ve testleri icin Andrew aka Tabster'a ve testleri icin Brad Jones'a
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Flike:</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Flike:</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Flike:</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1175,27 +1173,8 @@ paketini kaldirin.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">French - Nicolas Granziano, 
-»Philippe, Benot Knecht 
-Russian - Pavel Fialko, Vlad Vasiliev, 
- »Ed Bartosh
- Finnish - Marko Vertainen
- German - Claudius Henrichs
- Italian - Pavel Fialko, Alessandro Pasotti,
- »Salvatore Fiorenzo, Ilir Gjika,
- »Luca Onnis
- Spanish - Alejandro Lopez
- Polish - Tomasz Dominikowski
- Slovak - Roman Moravčík
- Dutch - Tom Leenders, Michiel Pater
- Bulgarian - Zlatko Enikov
- Albanian - Ilir Gjika
- Chinese - Wong Man Kong, Michael
- Portugal - Jose Narciso,
- Turkish - Burak Kaan Kose
- Swedish - Angela Nennebrandt,
- »Niklas Åkerström, 
- »Tomislav Veleckovik</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1303,15 +1282,15 @@ Turkish - Burak Kaan Kose</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Nem:</translation>
+            <translation>Nem</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Nem:</translation>
+            <translation>Nem</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Nem:</translation>
+            <translation>Nem</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1581,7 +1560,8 @@ Turkish - Burak Kaan Kose</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2012</source>
-            <translation type="unfinished">MeeCast - OMWeather kodu uzerine yazilmis ve yuksek duzenlenebilme ozelligine sahip bir havadurumu tahmin uygulamasi.Copyright (C) 2006-2011</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2309,7 +2289,8 @@ Turkish - Burak Kaan Kose</translation>
         </message>
         <message>
             <source>Programmers</source>
-            <translation type="unfinished">Bas programcilar</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Project administrator</source>
@@ -2573,28 +2554,23 @@ Turkish - Burak Kaan Kose</translation>
         </message>
         <message>
             <source>Select the X-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>X Pozisyonunu eklentinin sol kosesine sec</translation>
         </message>
         <message>
             <source>Select the Y-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Y Pozisyonunu eklentinin sol kosesine sec</translation>
         </message>
         <message>
             <source>Select the color of font for current temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Anlik sicaklik için bir font rengi sec</translation>
         </message>
         <message>
             <source>Select the color of font for station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Istasyon adı için bir font rengi sec</translation>
         </message>
         <message>
             <source>Select the color of font for temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sicaklik için bir font rengi sec</translation>
         </message>
         <message>
             <source>Select the iconset</source>
@@ -2666,16 +2642,15 @@ Turkish - Burak Kaan Kose</translation>
         </message>
         <message>
             <source>Settings for Lockscreen widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kilit Ekranı Eklentisi Ayarları</translation>
         </message>
         <message>
             <source>Settings for standby widget</source>
-            <translation type="unfinished">Bekleme Ekrani Ayarlari</translation>
+            <translation>Bekleme Ekranı Ayarları</translation>
         </message>
         <message>
             <source>Settings of LockScreen</source>
-            <translation type="unfinished">Bekleme Ekrani Ayarlari</translation>
+            <translation>Kilit Ekranı Ayarları</translation>
         </message>
         <message>
             <source>Settings of StandbyScreen</source>
@@ -2695,7 +2670,7 @@ Turkish - Burak Kaan Kose</translation>
         </message>
         <message>
             <source>Show on Map</source>
-            <translation type="unfinished">Istasyon adini goster</translation>
+            <translation>Haritada Goster</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
@@ -3063,8 +3038,7 @@ hem 2.1 versiyonu vehem de (isteginize gore) farkli bir ileriki version olabilir
         <message>
             <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
 </source>
-            <translation>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose 
-</translation>
+            <translation>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose \n</translation>
         </message>
         <message>
             <source>Transparency:</source>
@@ -3092,8 +3066,7 @@ hem 2.1 versiyonu vehem de (isteginize gore) farkli bir ileriki version olabilir
         </message>
         <message>
             <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>UV Indisi:</translation>
         </message>
         <message>
             <source>Units</source>
@@ -3250,11 +3223,11 @@ GSM ve/veya WLAN kullan.
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">Gorunebilir esyalar:</translation>
+            <translation>Gorunebilir uniteler</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">Gorunebilir esyalar:</translation>
+            <translation>Gorunebilir uniteler</translation>
         </message>
         <message>
             <source>Visible:</source>
@@ -3374,15 +3347,15 @@ GSM ve/veya WLAN kullan.
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Ruzgar yonu:</translation>
+            <translation>Ruzgar yonu</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Ruzgar yonu:</translation>
+            <translation>Ruzgar yonu</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Ruzgar yonu:</translation>
+            <translation>Ruzgar yonu</translation>
         </message>
         <message>
             <source>Wind direction:</source>

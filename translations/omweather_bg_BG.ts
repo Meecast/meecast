@@ -124,23 +124,19 @@ W:</translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Ниско)</translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Ниско)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Умерено)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Умерено)</translation>
         </message>
         <message>
             <source>1 day</source>
@@ -180,7 +176,7 @@ W:</translation>
         </message>
         <message>
             <source>12 hours</source>
-            <translation type="unfinished">2 часа</translation>
+            <translation>12 часа</translation>
         </message>
         <message>
             <source>15 minutes</source>
@@ -558,8 +554,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Celsius</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Целзий</translation>
         </message>
         <message>
             <source>City</source>
@@ -711,7 +706,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
-            <translation type="unfinished">Облачно, бури и дъжд</translation>
+            <translation>Облачно, дъжд и гръмотевици</translation>
         </message>
         <message>
             <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
@@ -1042,7 +1037,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Feels like</source>
-            <translation type="unfinished">Усеща се като:</translation>
+            <translation>Усеща се като:</translation>
         </message>
         <message>
             <source>Feels like:</source>
@@ -1088,15 +1083,15 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Като:</translation>
+            <translation>Усеща</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Като:</translation>
+            <translation>Усеща</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Като:</translation>
+            <translation>Усеща</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1189,7 +1184,7 @@ using Application manager</source>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">French -  Nicolas Granziano, ⏎ »Philippe, Benot Knecht ⏎ Russian - Pavel Fialko, Vlad Vasiliev, ⏎ »Ed Bartosh⏎ Finnish - Marko Vertainen⏎ German - Claudius Henrichs⏎ Italian - Pavel Fialko, Alessandro Pasotti,⏎ »Salvatore Fiorenzo, Ilir Gjika,⏎ »Luca Onnis⏎ Spanish - Alejandro Lopez⏎ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík⏎ Dutch - Tom Leenders, Michiel Pater⏎ Bulgarian - Zlatko Enikov⏎ Albanian - Ilir Gjika⏎ Chinese - Wong Man Kong, Michael⏎ Swedish - Angela Nennebrandt,⏎ »Niklas Åkerström, ⏎ »Tomislav Veleckovik</translation>
+            <translation>French - Nicolas Granziano, ⏎ »Philippe, Benot Knecht ⏎ Russian - Pavel Fialko, Vlad Vasiliev, ⏎ »Ed Bartosh⏎ Finnish - Marko Vertainen⏎ German - Claudius Henrichs⏎ Italian - Pavel Fialko, Alessandro Pasotti,⏎ »Salvatore Fiorenzo, Ilir Gjika,⏎ »Luca Onnis⏎ Spanish - Alejandro Lopez⏎ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík⏎ Dutch - Tom Leenders, Michiel Pater⏎ Bulgarian - Zlatko Enikov⏎ Albanian - Ilir Gjika⏎ Chinese - Wong Man Kong, Michael⏎ Portuguese - Jose Narciso,⏎ Turkish - Burak Kaan Kose,⏎ Catalan - Agustí Clara,⏎ Arabic - Tarad Alfandi,⏎ Norwegian - Peer-Atle Motland,⏎ Vietnamese - Hieu Nguyen⏎ »Anh Dương and truongnx, ⏎ Swedish - Angela Nennebrandt,⏎ »Niklas Åkerström, ⏎ »Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1296,15 +1291,15 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Влажност:</translation>
+            <translation>Влажност</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Влажност:</translation>
+            <translation>Влажност</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Влажност:</translation>
+            <translation>Влажност</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1574,7 +1569,7 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2012</source>
-            <translation type="unfinished">MeeCast - мултиплатоформена персонализируема open source прогноза за времето базирана на OMWeather кода.  Copyright (C) 2006-2011</translation>
+            <translation>MeeCast - мултиплатформен лесно персонализируем open source клиент за прогноза на времето базиран на OMWeather код. Copyright (C) 2006-2012</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2302,7 +2297,7 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Programmers</source>
-            <translation type="unfinished">Главни програмисти</translation>
+            <translation>Разработили</translation>
         </message>
         <message>
             <source>Project administrator</source>
@@ -2566,28 +2561,23 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Select the X-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Избери Х–позиция за левия ъгъл на уиджета</translation>
         </message>
         <message>
             <source>Select the Y-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Избери Y–позиция за левия ъгъл на уиджета</translation>
         </message>
         <message>
             <source>Select the color of font for current temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Избери цвета за настоящата темепература</translation>
         </message>
         <message>
             <source>Select the color of font for station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Избери цвета за името на метео станцията</translation>
         </message>
         <message>
             <source>Select the color of font for temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Избери цвета за темепература</translation>
         </message>
         <message>
             <source>Select the iconset</source>
@@ -2659,16 +2649,15 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Settings for Lockscreen widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Настройки за уиджет на екран отключване</translation>
         </message>
         <message>
             <source>Settings for standby widget</source>
-            <translation type="unfinished">Настройки на StandbyScreen</translation>
+            <translation>Настройки за екран стенд-бай</translation>
         </message>
         <message>
             <source>Settings of LockScreen</source>
-            <translation type="unfinished">Настройки на StandbyScreen</translation>
+            <translation>Настройки за екран отключване</translation>
         </message>
         <message>
             <source>Settings of StandbyScreen</source>
@@ -2688,7 +2677,7 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Show on Map</source>
-            <translation type="unfinished">Показвай името на метео станцията</translation>
+            <translation>Покажи карта</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
@@ -3088,8 +3077,7 @@ later version.</translation>
         </message>
         <message>
             <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>UV индекс:</translation>
         </message>
         <message>
             <source>Units</source>
@@ -3246,11 +3234,11 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">Видими елементи:</translation>
+            <translation>Видимост</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">Видими елементи:</translation>
+            <translation>Видимост</translation>
         </message>
         <message>
             <source>Visible:</source>
@@ -3370,15 +3358,15 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Посока на вятъра:</translation>
+            <translation>Посока на вятъра</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Посока на вятъра:</translation>
+            <translation>Посока на вятъра</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Посока на вятъра:</translation>
+            <translation>Посока на вятъра</translation>
         </message>
         <message>
             <source>Wind direction:</source>

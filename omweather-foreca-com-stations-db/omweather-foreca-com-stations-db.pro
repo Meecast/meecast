@@ -40,9 +40,10 @@ FORMS    +=
 
 OTHER_FILES += \
 
+LIBS += -lxml2
 
-CONFIG = link_pkgconfig 
-PKGCONFIG += libxml-2.0 
+#CONFIG = link_pkgconfig 
+#PKGCONFIG += libxml-2.0 
 
 system(pkg-config --exists glib-2.0){
     PKGCONFIG += glib-2.0
@@ -55,6 +56,7 @@ system(pkg-config --exists glib-2.0){
     QT += core
     DEFINES += QT
 }
+
 
 
 db.files = data/foreca.com.db

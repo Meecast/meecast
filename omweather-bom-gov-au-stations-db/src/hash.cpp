@@ -107,8 +107,10 @@ hash_stations_table_create(void) {
 QString
 hash_bomgovau_table_find(QHash<QString, QString> *hash_for_icons, const char* key, int  search_short_name ) {
     QString result;
-    if (hash_for_icons->contains(QString(key)))
+    
+    if (hash_for_icons->contains(QString(key))){
         return hash_for_icons->value(QString(key));
+    }    
     else{
         fprintf(stderr,"Unknown strings %s\n", key);
                 return QString("49");

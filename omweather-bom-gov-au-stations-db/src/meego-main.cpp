@@ -45,7 +45,8 @@ char current_title[1024];
 #ifdef QT
 QString
 choose_hour_weather_icon( QHash<QString, QString> *hash_for_icons, char *image){
-    return  hash_bomgovau_table_find(hash_for_icons, image, FALSE);
+    QString temp_string = hash_bomgovau_table_find(hash_for_icons, image, FALSE);
+    return  temp_string;
 }
 
 #endif
@@ -250,16 +251,15 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
 #endif
     int index = INT_MAX;
 
-    fprintf(stderr,"qqqqqqqqqqqq\n");
     if(!doc)
         return -1;
 
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
-#ifdef GLIB
+//#ifdef GLIB
     hash_for_icons = hash_icons_bomgovau_table_create();
-#endif
+//#endif
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", station_id);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
@@ -269,7 +269,6 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
     memset(current_title, 0, sizeof(icon));
     root_node = xmlDocGetRootElement(doc);
 
-    fprintf(stderr,"qqqqqqqqqqqq\n");
     for(cur_node0 = root_node->children; cur_node0; cur_node0 = cur_node0->next){
         if( cur_node0->type == XML_ELEMENT_NODE ){
             if (!xmlStrcmp(cur_node0->name, (const xmlChar *) "forecast" ) ){
@@ -308,6 +307,7 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
                                                 au_timezone = atoi(buffer);
                                                 check_timezone = TRUE;
                                             }
+
                                             /* get start time for period */
                                             if (xmlGetProp(child_node, (const xmlChar*)"start-time-utc") != NULL){
                                                 snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
@@ -340,8 +340,9 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
 #ifdef GLIB                                                         
                                                             snprintf(icon, sizeof(icon) - 1, "%s", choose_hour_weather_icon(hash_for_icons, (char *)xmlNodeGetContent(child_node2))); 
 #endif
+
 #ifdef QT
-                                                            snprintf(icon, sizeof(icon) - 1, "%s", (char*)choose_hour_weather_icon(hash_for_icons, (char *)xmlNodeGetContent(child_node2)).toStdString().c_str()); 
+                                                            snprintf(icon, sizeof(icon) - 1, "%s", (char*)(choose_hour_weather_icon(hash_for_icons, (char *)xmlNodeGetContent(child_node2))).toStdString().c_str()); 
 #endif
                                                     }
                                                     if(!xmlStrcmp(child_node2->name, (const xmlChar *) "text")){                           
@@ -393,6 +394,7 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
             }          
         }
     }
+
 #ifdef GLIB
     g_hash_table_destroy(hash_for_icons);
 #endif

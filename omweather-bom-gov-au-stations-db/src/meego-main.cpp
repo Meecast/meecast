@@ -250,6 +250,7 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
 #endif
     int index = INT_MAX;
 
+    fprintf(stderr,"qqqqqqqqqqqq\n");
     if(!doc)
         return -1;
 
@@ -268,6 +269,7 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
     memset(current_title, 0, sizeof(icon));
     root_node = xmlDocGetRootElement(doc);
 
+    fprintf(stderr,"qqqqqqqqqqqq\n");
     for(cur_node0 = root_node->children; cur_node0; cur_node0 = cur_node0->next){
         if( cur_node0->type == XML_ELEMENT_NODE ){
             if (!xmlStrcmp(cur_node0->name, (const xmlChar *) "forecast" ) ){

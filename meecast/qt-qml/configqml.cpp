@@ -82,20 +82,6 @@ void ConfigQml::init()
     int index;
     db = new Core::DatabaseSqlite("");
 
-    /* setting for stndbyscreen */
-    standby_settings = new QSettings("/home/user/.config/com.meecast.omweather/standby.conf",QSettings::NativeFormat); 
-    QVariant v = standby_settings->value("color_font_stationname", QColor(Qt::white));
-    _standby_color_font_stationname = v.value<QColor>();
-     v = standby_settings->value("color_font_temperature", QColor(Qt::white));
-    _standby_color_font_temperature = v.value<QColor>();
-     v = standby_settings->value("color_font_current_temperature", QColor(Qt::green));
-    _standby_color_font_current_temperature = v.value<QColor>();
-    /* setting for lockscreen */
-   lockscreen_settings = new QSettings("/home/user/.config/com.meecast.omweather/lockscreen.conf",QSettings::NativeFormat); 
-    v = lockscreen_settings->value("x_position", int(275));
-    _lockscreen_x_position = v.value<int>();
-    v = lockscreen_settings->value("y_position", int(240));
-    _lockscreen_y_position = v.value<int>();
 
     thread = new UpdateThread();
     connect(thread, SIGNAL(finished()), this, SLOT(downloadFinishedSlot()));
@@ -156,13 +142,6 @@ void ConfigQml::init()
 void
 ConfigQml::saveConfig()
 {
-    standby_settings->setValue("color_font_stationname", _standby_color_font_stationname);
-    standby_settings->setValue("color_font_temperature", _standby_color_font_temperature);
-    standby_settings->setValue("color_font_current_temperature", _standby_color_font_current_temperature);
-    standby_settings->sync();
-    lockscreen_settings->setValue("x_position", _lockscreen_x_position);
-    lockscreen_settings->setValue("y_position", _lockscreen_y_position);
-    lockscreen_settings->sync();
     Core::Config::saveConfig();
     qDebug()<<"SaveConfig";
 }

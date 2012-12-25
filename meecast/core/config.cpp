@@ -275,8 +275,9 @@ Config::saveConfig()
     }
 
     QFile file(QString::fromStdString(*_filename));
+
     if (!file.open(QIODevice::WriteOnly)){
-        std::cerr<<"error file open "<<_filename<<std::endl;
+        std::cerr<<"error Config file open "<<_filename->c_str()<<std::endl;
         throw("Invalid destination file");
         return;
     }

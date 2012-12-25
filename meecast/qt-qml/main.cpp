@@ -121,7 +121,7 @@ int main(int argc, char* argv[])
     std::cerr<<"Begin"<<std::endl;
     QString str = QDir::currentPath();
     std::cerr<<str.toStdString().c_str()<<std::endl;
-    QDir::setCurrent(app.applicationDirPath());
+    QDir::setCurrent(QDir::currentPath());
 
     // Set up the translator.
     QTranslator translator;

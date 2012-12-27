@@ -48,7 +48,9 @@ Downloader::Downloader()
 size_t
 Downloader::writedata(void *ptr, size_t size, size_t nmemb, FILE *stream)
 {
+#ifdef TIZEN
     ecore_main_loop_iterate();
+#endif
     return fwrite(ptr, size, nmemb, stream);
 }
 

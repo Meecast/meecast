@@ -31,20 +31,34 @@
 #include <locale.h>
 /*******************************************************************************/
 #define buff_size 2048
-static GHashTable *data = NULL;
+#ifdef GLIB
+    static GHashTable *data = NULL;
+#endif
+#ifdef QT
+    static QHash<QString, QString> *hash_for_icons;
+    static QHash<QString, QString> *hash_for_stations;
+#endif
 int au_timezone = 0;
-gchar current_icon[256];
-gchar current_title[1024];
+char current_icon[256];
+char current_title[1024];
 /*******************************************************************************/
-gchar*
+#ifdef QT
+QString
+choose_hour_weather_icon( QHash<QString, QString> *hash_for_icons, char *image){
+    return  hash_bomgovau_table_find(hash_for_icons, image, FALSE);
+}
+
+#endif
+#ifdef GLIB
+char*
 choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
 {
-    gchar *result;
-    gchar *source;
-    gchar *tmp_result = NULL;
+    char *result;
+    char *source;
+    char *tmp_result = NULL;
 
     source = g_strdup_printf("%s", image);
-    tmp_result = hash_bomgovau_table_find(hash_for_icons, source, FALSE);
+    tmp_result = (char *)hash_bomgovau_table_find(hash_for_icons, source, FALSE);
     if (tmp_result && (strlen(tmp_result) == 2 || strlen(tmp_result) == 1)){
        result = g_strdup(tmp_result);
        g_free(source);
@@ -55,26 +69,29 @@ choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
        return g_strdup("49");
     }
 }
+#endif
 /*******************************************************************************/
-gint
-parse_and_write_detail_data(const gchar *station_name, htmlDocPtr doc, const gchar *result_file){
-    gchar       buff[256],
-                buffer[buff_size],
-                current_temperature[20],
-                current_pressure[15],
-                current_humidity[15],
-                current_wind_direction[15],
-                current_wind_speed[15];
-    gchar       temp_buffer[buff_size];
+int
+parse_and_write_detail_data(const char *station_name, htmlDocPtr doc, const char *result_file){
+    char       buff[256],
+               buffer[buff_size],
+               current_temperature[20],
+               current_pressure[15],
+               current_humidity[15],
+               current_wind_direction[15],
+               current_wind_speed[15];
+    char       temp_buffer[buff_size];
+#ifdef GLIB
     GSList      *forecast = NULL;
     GSList      *tmp = NULL;
     GHashTable  *day = NULL;
-    gboolean    flag;
-    gboolean    night_flag;
-    gint        size;
-    gint        i, j;
     GHashTable *hash_for_stations;
     GHashTable *hash_for_icons;
+#endif
+    int    flag;
+    int    night_flag;
+    int        size;
+    int        i, j;
     xmlXPathContextPtr xpathCtx; 
     xmlXPathObjectPtr xpathObj = NULL; 
     xmlXPathObjectPtr xpathObj2 = NULL; 
@@ -86,19 +103,19 @@ parse_and_write_detail_data(const gchar *station_name, htmlDocPtr doc, const gch
     xmlXPathObjectPtr xpathObj8 = NULL; 
     xmlXPathObjectPtr xpathObj9 = NULL; 
     xmlNodeSetPtr nodes;
-    gchar       *temp_char;
-    gchar       *temp_char2;
-    gint        pressure; 
-    gint        speed;
-    gint        ppcp;
+    char       *temp_char;
+    char       *temp_char2;
+    int        pressure; 
+    int        speed;
+    int        ppcp;
 
-    gchar       *image = NULL;
+    char       *image = NULL;
     double      time_diff = 0;
     time_t      loc_time;
     time_t      utc_time;
-    gint        location_timezone = 0;
-    gboolean timezone_flag = FALSE;
-    gboolean sunrise_flag = FALSE;
+    int        location_timezone = 0;
+    int timezone_flag = FALSE;
+    int sunrise_flag = FALSE;
     struct tm   tmp_tm_loc = {0};
     struct tm   tmp_tm = {0};
     struct tm   current_tm = {0};
@@ -115,8 +132,10 @@ parse_and_write_detail_data(const gchar *station_name, htmlDocPtr doc, const gch
     if (!file_out)
         return -1;
 
+//#ifdef GLIB
     hash_for_icons = hash_icons_bomgovau_table_create();
     hash_for_stations = hash_stations_table_create();
+//#endif
     /* Create xpath evaluation context */
     xpathCtx = xmlXPathNewContext(doc);
     if(xpathCtx == NULL) {
@@ -140,7 +159,14 @@ parse_and_write_detail_data(const gchar *station_name, htmlDocPtr doc, const gch
     size = (nodes) ? nodes->nodeNr : 0; 
     
     for(i = 1; i < (size-1) ; ++i) {
-       if (!strcmp((const char*)xpathObj->nodesetval->nodeTab[i]->content, hash_bomgovau_table_find(hash_for_stations, station_name, FALSE))){
+       #ifdef GLIB
+       if (!strcmp((char*)xpathObj->nodesetval->nodeTab[i]->content, 
+                   (char *)hash_bomgovau_table_find(hash_for_stations, (void *)station_name, FALSE))){
+       #endif
+       #ifdef QT
+       if (!strcmp((char*)xpathObj->nodesetval->nodeTab[i]->content, 
+                   (char*)hash_bomgovau_table_find(hash_for_stations, station_name, FALSE).toStdString().c_str())){
+       #endif
             xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-datetime')]/text()", xpathCtx);
             current_time = time(NULL);
             tm = localtime(&current_time);
@@ -168,7 +194,7 @@ parse_and_write_detail_data(const gchar *station_name, htmlDocPtr doc, const gch
             fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", ((atoi((const char*)xpathObj2->nodesetval->nodeTab[i]->content) * 1000)/3600));
             xmlFree(xpathObj2);
             xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-wind-gust-kmh')]/text()", xpathCtx);
-            fprintf(file_out,"     <wind_gust>%i</wind_gust>\n", ((atoi(xpathObj2->nodesetval->nodeTab[i]->content)*1000)/3600));
+            fprintf(file_out,"     <wind_gust>%i</wind_gust>\n", ((atoi((const char*)xpathObj2->nodesetval->nodeTab[i]->content)*1000)/3600));
             xmlFree(xpathObj2);
             xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-pressure')]/text()", xpathCtx);
             fprintf(file_out,"     <pressure>%s</pressure>\n", xpathObj2->nodesetval->nodeTab[i]->content);
@@ -178,8 +204,6 @@ parse_and_write_detail_data(const gchar *station_name, htmlDocPtr doc, const gch
             xmlFree(xpathObj2);
             break;
        }
-
-       
     }
 
     fclose(file_out);
@@ -188,8 +212,8 @@ parse_and_write_detail_data(const gchar *station_name, htmlDocPtr doc, const gch
 
 
 /*******************************************************************************/
-gint
-parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htmlDocPtr doc, const gchar *result_file){
+int
+parse_and_write_xml_data(const char *station_id, const char *station_name, htmlDocPtr doc, const char *result_file){
     xmlNode     *cur_node = NULL,
                 *cur_node0 = NULL,
                 *child_node = NULL,
@@ -198,28 +222,32 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
                 *child_node4 = NULL;
     xmlChar     *temp_xml_string = NULL;
     xmlChar     *part_of_day = NULL;
-    gint        store2day = 0,
+    int        store2day = 0,
                 count_day = 0;
-    gchar       id_station[1024],
+    char       id_station[1024],
                 short_text[1024],
                 ppcp[128],
                 buffer[1024],
                 buff[256];
     int         i;
     int         temp_hi, temp_low;
-    gchar       icon[256];
+    char       icon[256];
     int         check_timezone = FALSE;
-    gchar       temp_buffer[buff_size];
+    char       temp_buffer[buff_size];
     struct tm   tmp_tm = {0};
+#ifdef GLIB
     GSList      *forecast = NULL;
     GHashTable  *location = NULL,
                 *current = NULL,
                 *day = NULL;
+#endif
     xmlNode *root_node = NULL;
     FILE        *file_out;
     time_t      utc_time_start;
     time_t      utc_time_end;
+#ifdef GLIB
     GHashTable *hash_for_icons;
+#endif
     int index = INT_MAX;
 
     if(!doc)
@@ -228,8 +256,9 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
-
+#ifdef GLIB
     hash_for_icons = hash_icons_bomgovau_table_create();
+#endif
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", station_id);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
@@ -293,7 +322,7 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
                                             }
                                             /* get index */
                                             if (xmlGetProp(child_node, (const xmlChar*)"index") != NULL){
-                                                index = atoi(xmlGetProp(child_node, (const xmlChar*)"index"));
+                                                index = atoi((char *)xmlGetProp(child_node, (const xmlChar*)"index"));
                                                 fprintf(stderr,"Index %i\n", index);
                                             }
 
@@ -302,11 +331,16 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
                                                 if (child_node2->type == XML_ELEMENT_NODE ){
                                                     if(!xmlStrcmp(child_node2->name, (const xmlChar *) "element")){                                               
                                                         if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "air_temperature_minimum" ))
-                                                            temp_low = atoi(xmlNodeGetContent(child_node2));
+                                                            temp_low = atoi((char *)xmlNodeGetContent(child_node2));
                                                         if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "air_temperature_maximum" ))
-                                                            temp_hi = atoi(xmlNodeGetContent(child_node2));
+                                                            temp_hi = atoi((char *)xmlNodeGetContent(child_node2));
                                                         if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "forecast_icon_code" ))
-                                                            snprintf(icon, sizeof(icon) - 1, "%s", choose_hour_weather_icon(hash_for_icons, xmlNodeGetContent(child_node2))); 
+#ifdef GLIB                                                         
+                                                            snprintf(icon, sizeof(icon) - 1, "%s", choose_hour_weather_icon(hash_for_icons, (char *)xmlNodeGetContent(child_node2))); 
+#endif
+#ifdef QT
+                                                            snprintf(icon, sizeof(icon) - 1, "%s", (char*)choose_hour_weather_icon(hash_for_icons, (char *)xmlNodeGetContent(child_node2)).toStdString().c_str()); 
+#endif
                                                     }
                                                     if(!xmlStrcmp(child_node2->name, (const xmlChar *) "text")){                           
                                                         if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "precis" )){
@@ -357,21 +391,22 @@ parse_and_write_xml_data(const gchar *station_id, const gchar *station_name, htm
             }          
         }
     }
-
+#ifdef GLIB
     g_hash_table_destroy(hash_for_icons);
+#endif
     fclose(file_out);
     return count_day;
  
 }
 
 /*******************************************************************************/
-
-convert_station_bomgovau_data(const gchar *station_id_with_path, const gchar *result_file, const gchar *detail_path_data ){
+int
+convert_station_bomgovau_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data ){
  
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;
-    gint    days_number = -1;
-    gchar   buffer[1024],
+    int    days_number = -1;
+    char   buffer[1024],
             buffer2[1024],
             *delimiter = NULL;
     FILE    *file_out;
@@ -399,7 +434,7 @@ convert_station_bomgovau_data(const gchar *station_id_with_path, const gchar *re
         else{
             /* prepare station id */
             *buffer = 0;
-            delimiter = strrchr(station_id_with_path, '/');
+            delimiter = (char*)strrchr(station_id_with_path, '/');
             if(delimiter){
                 delimiter++; /* delete '/' */
                 snprintf(buffer, sizeof(buffer) - 1, "%s", delimiter);

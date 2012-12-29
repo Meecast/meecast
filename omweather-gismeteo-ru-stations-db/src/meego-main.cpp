@@ -40,6 +40,7 @@
     QHash<QString, QString> *hash_icons_gismeteo_table_create(void);
 #endif
 
+int        location_timezone = 0;
 /*******************************************************************************/
 struct tm
 get_data_from_russia_data(char *temp_string){
@@ -263,7 +264,6 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     double      time_diff = 0;
     time_t      loc_time;
     time_t      utc_time;
-    int         location_timezone = 0;
     int         timezone_flag = FALSE;
     int         sunrise_flag = FALSE;
     struct tm   tmp_tm_loc = {0};
@@ -504,8 +504,8 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
            fprintf(file_out,"  <timezone>%i</timezone>\n", location_timezone);
       }
 
-      fprintf(file_out,"    <period start=\"%li\"", utc_time);
-      fprintf(file_out," end=\"%li\">\n", utc_time + 6*3600); 
+      fprintf(file_out,"    <period start=\"%li\"", utc_time + location_timezone*3600);
+      fprintf(file_out," end=\"%li\">\n", utc_time + 6*3600 + location_timezone*3600); 
 
 #if 0
       /* Check Day and Night */
@@ -668,8 +668,8 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
   /* fill current data */
   utc_time = mktime(&current_tm);
   if (utc_time != -1){
-      fprintf(file_out,"    <period start=\"%li\"", utc_time);
-      fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 4*3600); 
+      fprintf(file_out,"    <period start=\"%li\"", utc_time + location_timezone*3600);
+      fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 4*3600 + location_timezone*3600); 
 
       fprintf(file_out,"     <temperature>%s</temperature>\n", current_temperature); 
       fprintf(file_out,"     <icon>%s</icon>\n",  current_icon);
@@ -692,8 +692,8 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
         current_tm.tm_min = 0;
         current_tm.tm_hour = 0;
         utc_time = mktime(&current_tm);
-        fprintf(file_out,"    <period start=\"%li\"", utc_time);
-        fprintf(file_out," end=\"%li\">\n", utc_time + 24*3600); 
+        fprintf(file_out,"    <period start=\"%li\"", utc_time + location_timezone*3600);
+        fprintf(file_out," end=\"%li\">\n", utc_time + 24*3600 + location_timezone*3600); 
         sunrise_flag = TRUE;
   }
   if (xpathObj)
@@ -707,7 +707,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
       strptime(temp_buffer, " %H:%M %d.%m.Y", &current_tm);
       setlocale(LC_TIME, "");
       utc_time = mktime(&current_tm);
-      fprintf(file_out,"    <sunrise>%li</sunrise>\n", utc_time);
+      fprintf(file_out,"    <sunrise>%li</sunrise>\n", utc_time + location_timezone*3600);
   }
   if (xpathObj)
     xmlXPathFreeObject(xpathObj);
@@ -719,7 +719,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
         strptime(temp_buffer, " %H:%M %d.%m.Y", &current_tm);
         setlocale(LC_TIME, "");
         utc_time = mktime(&current_tm);
-        fprintf(file_out,"    <sunset>%li</sunset>\n", utc_time);
+        fprintf(file_out,"    <sunset>%li</sunset>\n", utc_time + location_timezone*3600);
   }
   if (xpathObj)
       xmlXPathFreeObject(xpathObj);
@@ -774,7 +774,6 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     int        pressure; 
     int        temperature; 
     int        count_of_hours = 0;
-    int        location_timezone = 0;
     struct tm   tmp_tm = {0};
     struct tm   tmp_tm_utc = {0};
     struct tm   tmp_tm_loc = {0};
@@ -956,9 +955,9 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
 
       tmp_tm = get_date_for_hour_weather(temp_char);
       t_start = timegm(&tmp_tm);
-      fprintf(file_out,"    <period start=\"%li\"", t_start);
+      fprintf(file_out,"    <period start=\"%li\"", t_start + location_timezone*3600);
       /* 1 hour for weather.com */
-      fprintf(file_out," end=\"%li\" hour=\"true\">\n", t_start + 4*3600); 
+      fprintf(file_out," end=\"%li\" hour=\"true\">\n", t_start + 4*3600 + location_timezone*3600); 
 
       memset(buff, 0, sizeof(buff));
       setlocale(LC_TIME, "POSIX");
@@ -1174,7 +1173,7 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
         if(!doc)
             return -1;
         root_node = xmlDocGetRootElement(doc);
-        if(root_node->type == XML_ELEMENT_NODE &&
+        if(root_node && root_node->type == XML_ELEMENT_NODE &&
                 strstr((char*)root_node->name, "err")){
             xmlFreeDoc(doc);
             xmlCleanupParser();

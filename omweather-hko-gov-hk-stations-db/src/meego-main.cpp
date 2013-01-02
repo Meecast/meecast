@@ -322,6 +322,7 @@ convert_station_hkogovhk_data(char *station_id_with_path, const char *result_fil
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", buffer);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
+    fprintf(file_out," <timezone>8</timezone>\n");
     fclose(file_out);
    
     parse_current_weather(detail_path_data, result_file);

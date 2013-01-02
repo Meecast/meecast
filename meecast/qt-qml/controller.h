@@ -38,6 +38,8 @@
 #include "regionmodel.h"
 #include "citymodel.h"
 #include <bb/cascades/QmlDocument>
+#include <time.h>
+
 
 #ifndef CONTROLLER_H
 #define CONTROLLER_H

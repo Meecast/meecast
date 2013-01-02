@@ -83,10 +83,15 @@ Controller::load_data()
 {
   time_t current_day;
   time_t current_hour;
-  struct tm   *tm = NULL;
+  struct tm *tm = NULL;
+  struct tm time_tm1;
+  struct tm time_tm2;
+
   DataItem *forecast_data = NULL;
   Core::Data *temp_data = NULL;
   int i = 0;
+  int timezone = 0;
+  int localtimezone = 0;
   
   /* std::cerr<<" Controller::load_data()"<<std::endl; */
 
@@ -123,23 +128,40 @@ Controller::load_data()
   _current_night = new DataModelQt(new DataItem, qApp);
   _hours_model = new DataModelQt(new DataItem, qApp);
 
+  if (_dp){
+    fprintf (stderr, "timezone!!!!! %i\n",_dp->timezone());
+    timezone = _dp->timezone();
+  }
+
+  /* Set localtimezone */
+
+  current_day = time(NULL);
+  gmtime_r(&current_day, &time_tm1);
+  localtime_r(&current_day, &time_tm2);
+  localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
   /* set current day */ 
   current_day = time(NULL);
+  fprintf(stderr,"Current time %i\n", current_day);
 
+  //tm = localtime(&current_day);
   tm = gmtime(&current_day);
+  current_day = mktime(tm)  ; /* today 00:00:00 */
   tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
-  tm->tm_isdst = 1;
-  current_day = mktime(tm); /* today 00:00:00 */
-
+//  tm->tm_isdst = 1;
+  tm->tm_isdst = 0;
+//  current_day = mktime(tm) - 3600*timezone ; /* today 00:00:00 */
+  current_day = mktime(tm) - 3600*timezone + 3600*localtimezone ; /* today 00:00:00 */
+      fprintf(stderr,"Current day %li\n", current_day);
   /* fill current day */
   if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))) {
       forecast_data = new DataItem(temp_data);
 
       if (forecast_data->Text() != "")
         forecast_data->Text(_(forecast_data->Text().c_str()));
-
-      forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 14 * 3600));
-      forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 14 * 3600));
+      if (_dp->data().GetSunRiseForTime(current_day + 15 * 3600) > 0)
+        forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 15 * 3600) + 3600*timezone -3600*localtimezone);
+      if (_dp->data().GetSunSetForTime(current_day + 15 * 3600) >0)
+        forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 15 * 3600) + 3600*timezone - 3600*localtimezone);
       forecast_data->LastUpdate(_dp->LastUpdate());
       forecast_data->temperatureunit = _config->temperatureunit();
       forecast_data->windunit = _config->windspeedunit();
@@ -170,14 +192,16 @@ Controller::load_data()
   }
 
   /* fill current night */
-  if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(current_day + 3 * 3600))) {
+  if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(current_day + 3*3600))) {
       forecast_data = new DataItem(temp_data);
 
       if (forecast_data->Text() != "")
         forecast_data->Text(_(forecast_data->Text().c_str()));
 
-      forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 3 * 3600));
-      forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 3 * 3600));
+      if (_dp->data().GetSunRiseForTime(current_day + 3 * 3600) >0)
+        forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 3 * 3600) + 3600*timezone - 3600*localtimezone);
+      if (_dp->data().GetSunSetForTime(current_day + 3 * 3600) >0)
+        forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 3 * 3600) + 3600*timezone - 3600*localtimezone);
       forecast_data->LastUpdate(_dp->LastUpdate());
       forecast_data->temperatureunit = _config->temperatureunit();
       forecast_data->windunit = _config->windspeedunit();
@@ -196,18 +220,19 @@ Controller::load_data()
 
   /* set next day */
   //i = 3600*24;
-  i = 0;
-
+  i = 1; /* plus 1 second  */ 
   /* fill other days */
-  while  (_dp != NULL && ((temp_data = _dp->data().GetDataForTime( current_day + 14 * 3600  + i)) || (i < 7*3600*24))) {
+  while  (_dp != NULL && ((temp_data = _dp->data().GetDataForTime(current_day + 15 * 3600  + i )) || (i < 7*3600*24))) {
       if (temp_data){
           forecast_data = new DataItem(temp_data);
 
           if (forecast_data->Text() != "")
             forecast_data->Text(_(forecast_data->Text().c_str()));
 
-          forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 14 * 3600  + i));
-          forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 14 * 3600  + i));
+          if (_dp->data().GetSunRiseForTime(current_day + 15 * 3600 + i) > 0)
+            forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 15 * 3600  + i) + 3600*timezone - 3600*localtimezone);
+          if (_dp->data().GetSunSetForTime(current_day + 15 * 3600 + i) > 0)
+            forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 15 * 3600  + i) + 3600*timezone - 3600*localtimezone);
           forecast_data->LastUpdate(_dp->LastUpdate());
           forecast_data->temperatureunit = _config->temperatureunit();
           forecast_data->windunit = _config->windspeedunit();
@@ -223,7 +248,7 @@ Controller::load_data()
   }
   /* set next night */
 //  i = 3600*24;
-  i = 0;
+  i = 1;
   /* fill other nights */
   while  (_dp != NULL && ((temp_data = _dp->data().GetDataForTime( current_day + 3 * 3600  + i)) || (i < 7*3600*24))) {
       if (temp_data){
@@ -232,8 +257,10 @@ Controller::load_data()
           if (forecast_data->Text() != "")
             forecast_data->Text(_(forecast_data->Text().c_str()));
 
-          forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 3 * 3600  + i));
-          forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 3 * 3600  + i));
+          if (_dp->data().GetSunRiseForTime(current_day + 3 * 3600 + i) > 0)
+            forecast_data->SunRiseTime(_dp->data().GetSunRiseForTime(current_day + 3 * 3600  + i) + 3600*timezone - 3600*localtimezone);
+          if (_dp->data().GetSunSetForTime(current_day + 3 * 3600 + i) > 0)
+            forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 3 * 3600  + i) + 3600*timezone - 3600*localtimezone);
           forecast_data->LastUpdate(_dp->LastUpdate());
           forecast_data->temperatureunit = _config->temperatureunit();
           forecast_data->windunit = _config->windspeedunit();

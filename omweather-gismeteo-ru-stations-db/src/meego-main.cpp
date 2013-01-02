@@ -210,9 +210,9 @@ get_date_for_hour_weather(char *temp_string){
     strcat(buff, " ");
     temp_point = strchr(temp_string,' ');
     strcat(buff, temp_point+1);
-    /* fprintf(stderr, "Buffer %s\n", buff); */
+    fprintf(stderr, "Buffer %s\n", buff); 
     strptime(buff, "%m-%d %Y %H:%M", &tmp_tm);
-    /* fprintf(stderr, "\ntmp_tm hour %d\n", (&tmp_tm)->tm_hour); */
+    fprintf(stderr, "\ntmp_tm hour %d\n", (&tmp_tm)->tm_hour); 
     return tmp_tm;
 }
 /*******************************************************************************/
@@ -276,11 +276,22 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
                 t_sunrise = 0, t_sunset = 0,
                 current_time = 0;
     FILE        *file_out;
+    int         localtimezone;
+    struct tm time_tm1;
+    struct tm time_tm2;
 
 
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
+
+    /* Set localtimezone */
+    current_time = time(NULL);
+    gmtime_r(&current_time, &time_tm1);
+    localtime_r(&current_time, &time_tm2);
+    localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
+    fprintf(stderr,"Local Time Zone %i\n", localtimezone);
+
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", station_id);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
@@ -308,6 +319,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div//span[@class='icon date']/text()", xpathCtx);
 
    if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
+      fprintf(stderr, "Current date and time %s\n", (char*)xpathObj->nodesetval->nodeTab[0]->content);
       current_tm = get_date_for_current_weather((char*)xpathObj->nodesetval->nodeTab[0]->content);
    }
    if (xpathObj)
@@ -486,10 +498,11 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
               temp_char = temp_char +5;
 
       tmp_tm = get_date_for_hour_weather(temp_char);
-      utc_time = mktime(&tmp_tm);
-      /* fprintf(stderr," UTC Temp char %s %li\n", temp_char, utc_time); */
+      utc_time = mktime(&tmp_tm) + localtimezone*3600;
+      //utc_time = mktime(&tmp_tm);
+      fprintf(stderr," UTC Temp char %s %li %li\n", temp_char, utc_time, mktime(&tmp_tm)); 
       if(!timezone_flag){
-          utc_time = mktime(&tmp_tm);
+          utc_time = mktime(&tmp_tm) + localtimezone*3600;
           temp_char = strstr((char *)nodes->nodeTab[i]->children->content, "Local: ");
           if (temp_char && strlen(temp_char) > 8)
               temp_char = temp_char + 7;
@@ -669,6 +682,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
   /* fill current data */
   utc_time = mktime(&current_tm);
   if (utc_time != -1){
+      utc_time = utc_time - location_timezone*3600;
       fprintf(file_out,"    <period start=\"%li\"", utc_time);
       fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 4*3600); 
 
@@ -692,7 +706,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
         snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj->nodesetval->nodeTab[0]->content);
         current_tm.tm_min = 0;
         current_tm.tm_hour = 0;
-        utc_time = mktime(&current_tm);
+        utc_time = mktime(&current_tm) + localtimezone*3600;
         fprintf(file_out,"    <period start=\"%li\"", utc_time);
         fprintf(file_out," end=\"%li\">\n", utc_time + 24*3600); 
 
@@ -705,10 +719,10 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
   if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
       setlocale(LC_TIME, "POSIX");
       snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s %s", xpathObj->nodesetval->nodeTab[0]->content, buffer);
-      utc_time = mktime(&current_tm);
+      utc_time = mktime(&current_tm) + localtimezone*3600;
       strptime(temp_buffer, " %H:%M %d.%m.Y", &current_tm);
       setlocale(LC_TIME, "");
-      utc_time = mktime(&current_tm);
+      utc_time = mktime(&current_tm) + localtimezone*3600;
       fprintf(file_out,"    <sunrise>%li</sunrise>\n", utc_time );
   }
   if (xpathObj)
@@ -720,7 +734,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
         snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s %s", xpathObj->nodesetval->nodeTab[0]->content, buffer);
         strptime(temp_buffer, " %H:%M %d.%m.Y", &current_tm);
         setlocale(LC_TIME, "");
-        utc_time = mktime(&current_tm);
+        utc_time = mktime(&current_tm) + localtimezone*3600;
         fprintf(file_out,"    <sunset>%li</sunset>\n", utc_time);
   }
   if (xpathObj)
@@ -801,6 +815,9 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     int size;
     time_t      t_start = 0, t_end = 0;
     FILE        *file_out;
+    struct tm time_tm1;
+    struct tm time_tm2;
+    int localtimezone;
 
 
 
@@ -970,7 +987,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
       setlocale(LC_TIME, "");
 
       if(!timezone_flag){
-          utc_time = mktime(&tmp_tm);
+          utc_time = mktime(&tmp_tm) + localtimezone*3600;
           temp_char = strstr((char *)nodes->nodeTab[i]->children->content, "Local: ");
           if (temp_char && strlen(temp_char) > 8)
               temp_char = temp_char + 7;

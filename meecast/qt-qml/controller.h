@@ -38,7 +38,7 @@
 #include "regionmodel.h"
 #include "citymodel.h"
 #include "dbusadaptor_applet.h"
-
+#include <time.h>
 
 
 #ifndef CONTROLLER_H

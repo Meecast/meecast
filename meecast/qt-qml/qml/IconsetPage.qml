@@ -131,6 +131,8 @@ Page {
                     clearSelection();
                     select(indexPath);
                     Config.set_iconset(groupDataModel.data(indexPath).name)
+                    settings2_absoluteLayoutContainer.update_list()
+                    rootWindow.navigateTo(settings2);
                 }
 
             }

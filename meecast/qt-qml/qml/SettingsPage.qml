@@ -61,8 +61,9 @@ Page {
 				onCreationCompleted: {
 					groupDataModel.insert( {"name" :  Config.tr("About"), "qml" : "AboutPage.qml"});
 //					groupDataModel.insert( {"name" :  Config.tr("Update"), "qml" : "Update.qml"});
-					groupDataModel.insert( {"name" :  Config.tr("Measurement units"), "qml" : "UnitsPage.qml"});
-					groupDataModel.insert( {"name" :  Config.tr("Appearance"), "qml" : "VisualsPage.qml"});
+			//		groupDataModel.insert( {"name" :  Config.tr("Measurement units"), "qml" : "UnitsPage.qml"});
+			//		groupDataModel.insert( {"name" :  Config.tr("Appearance"), "qml" : "VisualsPage.qml"});
+					groupDataModel.insert( {"name" :  Config.tr("Settings"), "qml" : "SettingsPage2.qml"});
 					groupDataModel.insert( {"name" :  Config.tr("Manage locations"), "qml" : "StationsPage.qml"});
                     rootWindow.backButtonsVisible = true;
 				}           
@@ -70,6 +71,7 @@ Page {
 					 ListItemComponent {
 					 	type: "header"
 						Label {
+						  text: "" 
 		                }
 					 },   
 					 ListItemComponent {

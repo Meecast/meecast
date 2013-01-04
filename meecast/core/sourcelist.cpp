@@ -41,7 +41,7 @@ namespace Core {
                 std::string name = dp->d_name;
                 if(name == "." || name == "..")
                     continue;
-                if(dp->d_type == DT_REG || dp->d_type == DT_LNK){
+//                if(dp->d_type == DT_REG || dp->d_type == DT_LNK){
                     try{
                         std::string file = path + dp->d_name;
                         std::string schemafile = AbstractConfig::prefix;
@@ -58,7 +58,7 @@ namespace Core {
                         std::cerr << "error " << err << std::endl;
                         continue;
                     }
-                }
+//                }
             }
             closedir(dir_fd);
         }
@@ -95,6 +95,7 @@ namespace Core {
     }
 ////////////////////////////////////////////////////////////////////////////////
     int SourceList::source_id_by_name(const std::string& source_name){
+        std::cerr<<"Size  "<< this->size()<<std::endl;
         for(unsigned i = 0; i < this->size(); i++){
             if(this->at(i)->name() == source_name)
                 return i;

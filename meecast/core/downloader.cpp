@@ -143,6 +143,7 @@ bool
 Downloader::downloadData(const std::string &filename, const std::string &url, 
                          const std::string &cookie, const std::string &converter_command)
 {
+#if 0
 
     CURL *curl;
     CURLcode res;
@@ -165,6 +166,8 @@ Downloader::downloadData(const std::string &filename, const std::string &url,
         fclose(fp);
         return true;
     }else return false;
+#endif
+    return false;
 #endif
 }
 ////////////////////////////////////////////////////////////////////////////////

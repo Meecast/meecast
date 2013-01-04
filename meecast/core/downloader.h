@@ -32,7 +32,7 @@
 #ifndef DOWNLOADER_H
 #define DOWNLOADER_H
 
-#include "curl/curl.h"
+//#include "curl/curl.h"
 #include <stdio.h>
 #include <string>
 #include <iostream>

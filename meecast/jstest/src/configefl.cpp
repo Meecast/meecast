@@ -55,6 +55,7 @@ ConfigEfl::Instance()
 ConfigEfl* 
 ConfigEfl::Instance(const std::string& filename, const std::string& schema_filename)
 {
+    std::cerr<<"rrrrrrrrrrrrrrrr"<<std::endl;
     if (!_self)
         _self = new ConfigEfl(filename, schema_filename);
     _refcount++;

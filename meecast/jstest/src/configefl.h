@@ -27,7 +27,7 @@
 #define CONFIGEFL_H
 
 #include "core.h"
-
+#include <iostream>
 class ConfigEfl : public Core::Config
 
 {

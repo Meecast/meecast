@@ -70,14 +70,17 @@ namespace Core {
 #ifdef LOCALDEBUG
         return "../test/";
 #else
-        struct passwd *pw = getpwuid(getuid());
-        std::string path(pw->pw_dir);
-        path += "/.config";
+
+        std::cerr<<"AbstractConfig::getConfigPath"<<std::endl;
+        std::string path("");
+       // path += "";
         /* TODO check directory exist */
-        mkdir(path.c_str(), 0755);
-        path += "/com.meecast.omweather/";
-        mkdir(path.c_str(), 0755);
+       // mkdir(path.c_str(), 0755);
+      //  path += "/com.meecast.omweather/";
+      //  mkdir(path.c_str(), 0755);
         return path;
+
+
 #endif
     }
 } // namespace Core

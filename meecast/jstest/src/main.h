@@ -29,5 +29,6 @@
 #include <stdio.h>
 #include <unistd.h>
 //void create_main_window(void *data);
+#include "core.h"
 #include "configefl.h"
 /*******************************************************************************/

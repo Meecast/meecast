@@ -2,7 +2,9 @@
 #include <config.h>
 #endif
 #include "main.h"
-
+extern "C" {
+    extern void my_js();
+}
 ConfigEfl *
 create_and_fill_config(){
     ConfigEfl *config;
@@ -32,8 +34,10 @@ int
 main(int argc, char *argv[])
 {
     ConfigEfl *config;
+    my_js();
     fprintf(stderr, "11111111\n");
     config = create_and_fill_config();
     fprintf(stderr, "22222222\n");
+    //my_js();
 	return 0;
 }

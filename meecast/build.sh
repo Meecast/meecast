@@ -102,7 +102,7 @@ cd jstest
                                         ../core/zlib/trees.o \
                                         ../core/zlib/uncompr.o \
                                         ../core/zlib/zutil.o \
-                                       src/meecasttizen-configefl.o  -o meecast.html \
+                                       src/meecasttizen-configefl.o  -o meecast.js \
                                        --js-library library.js --js-pre pre.js
 #/home/additional_disk/emc/emscripten/emcc  --minify 1 -O0  src/meecasttizen-main.o -o meecast.js 
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/test23" version="1.0" viewmodes="fullscreen">
+    <icon src="icon.png"/>
+    <content src="index.html"/>
+<name>test23</name>
+<tizen:application id="QaPoUP8F2j" required_version="1.0"/>
+<feature name="http://tizen.org/api/filesystem" required="true"/>
+    <feature name="http://tizen.org/api/tizen" required="true"/>
+    <feature name="http://tizen.org/api/application" required="true"/>
+    <feature name="http://tizen.org/api/filesystem.write" required="true"/>
+    <feature name="http://tizen.org/api/filesystem.read" required="true"/>
+</widget>

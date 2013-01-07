@@ -1,0 +1,120 @@
+* {
+    font-family: Lucida Sans, Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0px auto;
+}
+
+header h1 {
+    font-size: 36px;
+    margin: 0px;
+}
+
+header h2 {
+    font-size: 18px;
+    margin: 0px;
+    color: #888;
+    font-style: italic;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0px;
+    display: block;
+    clear: right;
+    background-color: #666;
+    padding-left: 4px;
+    height: 24px;
+}
+
+nav ul li {
+    display: inline;
+    padding: 0px 20px 5px 10px;
+    height: 24px;
+    border-right: 1px solid #ccc;
+}
+
+nav ul li a {
+    color: #EFD3D3;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #fff;
+}
+
+article > header h1 {
+    font-size: 20px;
+    margin-left: 14px;
+}
+
+article > header h1 a {
+    color: #993333;
+}
+
+article > header h1 img {
+    vertical-align:middle;
+}
+
+article > section header h1 {
+    font-size: 16px;
+}
+
+article p {
+    clear: both;
+}
+
+article > section video {
+    width: 480px;
+    height: 200px;
+}
+
+article > section div.no-html5-video,
+article > section div#no-canvas {
+    width: 480px;
+    height: 40px;
+    border: 1px solid #993333;
+    text-align: center;
+    color: #993333;
+    font-size: 13px;
+    font-style: italic;
+    background-color: #F7E9E9;
+}
+
+article > section div#no-canvas {
+    display: none;
+}
+
+article > section form {
+    border: 1px solid #888;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;    
+    -moz-box-shadow: 10px 10px 5px #888;
+    -webkit-box-shadow: 10px 10px 5px #888;
+    box-shadow: 10px 10px 5px #888;
+    background-color: #eee;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+article > section label {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+article > section input {
+    margin-bottom: 3px;
+    font-size: 13px;
+}
+
+footer p {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    margin-top: 24px;
+}
+

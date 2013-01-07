@@ -2,9 +2,23 @@
 #include <config.h>
 #endif
 #include "main.h"
+
+// Optimizations might wipe out our functions without this
+#define KEEPALIVE __attribute__((used))
+
+/* Common */
+ConfigEfl *config;
+int config_is_ready = 0;
+
+
 extern "C" {
-    extern void my_js();
+    extern void prepare_config_js();
+
+    void EMSCRIPTEN_KEEPALIVE prepareconfig() {
+        config_is_ready = 1;
+    }
 }
+
 ConfigEfl *
 create_and_fill_config(){
     ConfigEfl *config;
@@ -30,13 +44,21 @@ create_and_fill_config(){
     return config;
 }
 
+void mainLoop(void)
+{
+//        printf("%d\n", config_is_ready);
+        if (config_is_ready){
+            config_is_ready = 0;
+            config = create_and_fill_config();
+        }
+}
+
 int 
 main(int argc, char *argv[])
 {
-    ConfigEfl *config;
-    my_js();
+    prepare_config_js();
     fprintf(stderr, "11111111\n");
-    config = create_and_fill_config();
+    emscripten_set_main_loop(mainLoop, 0, 1);
     fprintf(stderr, "22222222\n");
     //my_js();
 	return 0;

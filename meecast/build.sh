@@ -16,13 +16,13 @@ CC=/home/additional_disk/emc/clang+llvm-3.0-i386-linux-Ubuntu-11_10/bin/clang
 cd core
 #/home/additional_disk/emc/emscripten/emconfigure ./autogen.sh
 #/home/additional_disk/emc/emscripten/emconfigure ./configure
-#/home/additional_disk/emc/emscripten/emmake make
+/home/additional_disk/emc/emscripten/emmake make
 cd -
 cd jstest
 #/home/additional_disk/emc/emscripten/emconfigure ./autogen.sh
 #/home/additional_disk/emc/emscripten/emconfigure ./configure
 /home/additional_disk/emc/emscripten/emmake make
-/home/additional_disk/emc/emscripten/emcc  --minify 1 -O0 ../core/libxml2/.libs/libxml2.a \
+/home/additional_disk/emc/emscripten/emcc  -s EXPORTED_FUNCTIONS="['_main', '_prepareconfig']" --minify 1 -O0 ../core/libxml2/.libs/libxml2.a \
                                        ../core/libxml2/.libs/libxml2.a \
                                        ../core/.libs/libmeecast-core.a \
                                        src/meecasttizen-main.o \
@@ -102,8 +102,8 @@ cd jstest
                                         ../core/zlib/trees.o \
                                         ../core/zlib/uncompr.o \
                                         ../core/zlib/zutil.o \
-                                       src/meecasttizen-configefl.o  -o meecast.js \
-                                       --js-library library.js
+                                       src/meecasttizen-configefl.o  -o meecast.html \
+                                       --js-library library.js --js-pre pre.js
 #/home/additional_disk/emc/emscripten/emcc  --minify 1 -O0  src/meecasttizen-main.o -o meecast.js 
 
 

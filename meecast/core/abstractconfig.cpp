@@ -1,6 +1,6 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) and MeeCast
  *
  * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
@@ -51,11 +51,7 @@ namespace Core {
     std::string AbstractConfig::layoutqml = "/usr/share/omweather/qml/weatherlayoutitem.qml";
     //std::string AbstractConfig::configPath = "~/.config/omweather/";
     */
-#ifdef TIZEN
-    std::string AbstractConfig::prefix = "/opt/apps/com.meecast.omweather";
-#else
     std::string AbstractConfig::prefix = "/opt/com.meecast.omweather";
-#endif
     std::string AbstractConfig::sharePath = "/share/";
     std::string AbstractConfig::schemaPath = "/share/xsd/";
     std::string AbstractConfig::iconsPath = "/share/icons/";
@@ -69,18 +65,15 @@ namespace Core {
     {
 #ifdef LOCALDEBUG
         return "../test/";
-#else
-
-        std::cerr<<"AbstractConfig::getConfigPath"<<std::endl;
+#else 
         std::string path("");
-       // path += "";
+        path += "/";
         /* TODO check directory exist */
-       // mkdir(path.c_str(), 0755);
-      //  path += "/com.meecast.omweather/";
-      //  mkdir(path.c_str(), 0755);
+        //mkdir_js(path.c_str());
+//        my_js();
+//        path += "/com.meecast.omweather/";
+ //       mkdir(path.c_str(), 0755);
         return path;
-
-
 #endif
     }
 } // namespace Core

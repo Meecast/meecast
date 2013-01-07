@@ -25,6 +25,7 @@
 #define _main_h 1
 #endif
 /*******************************************************************************/
+#include <emscripten.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>

@@ -38,6 +38,10 @@
 #endif
 #include "parser.h"
 #include "stationlist.h"
+extern "C" {
+    extern void save_config_js();
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
     class Config : public Parser{

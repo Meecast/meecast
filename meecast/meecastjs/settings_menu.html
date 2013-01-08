@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Tizen Web IDE - Template - Tizen - Tizen Web UI Framework - Navigation</title>
+    <!--NOTE:
+        jquery.js and web-ui-fw.js must be included.
+        DO NOT REMOVE below code!
+    -->
+    <script src="tizen-web-ui-fw/latest/js/jquery.js"></script>
+    <script src="tizen-web-ui-fw/latest/js/tizen-web-ui-fw-libs.js"></script>
+    <script src="tizen-web-ui-fw/latest/js/tizen-web-ui-fw.js"
+        data-framework-theme="tizen-black" data-framework-viewport-scale="false"></script>
+
+    <!--NOTE:
+        Additional scripts and css files are to be placed here.
+        You can use jQuery namespace($) and all functionalities in jQuery
+        in your script.  For example:
+
+            <script src="main.js"></script>
+            <link rel="stylesheet" href="my.css">
+
+        When you want to manipulate elements in your code, you have to
+        use domReady for your code to work properly, like this;
+
+            domReady(function(){ ... });
+    -->
+    <script type="text/javascript" src="./js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+</head>
+
+<body>
+    <div data-role="page">
+        <div data-role="header" data-position="fixed" data-id="foo">
+            <h1>Navigation Application</h1>
+        </div><!-- /header -->
+
+        <div data-role="content">
+            <ul data-role="listview">
+                <li><a href="manage_location.html">Manage location</a></li>
+                <li><a href="index.html">Appereance</a></li>
+                <li><a href="index.html">About</a></li>
+            </ul>
+        </div><!-- /content -->
+
+        <div data-role="footer" data-position="fixed" data-id="foo1">
+            <div data-role="controlbar" data-style="tabbar">
+                <ul>
+                    <li><a href="index.html" data-icon="ctrlbar-back">Back</a></li>
+                </ul>
+            </div><!-- /navbar -->
+        </div><!-- /footer -->
+    </div><!-- /page -->
+</body>
+</html>

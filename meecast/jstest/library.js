@@ -16,7 +16,7 @@ mergeInto(LibraryManager.library, {
                                 ConfigFile = dir.resolve('config.xml');
                                 Module.print('Resolve file config.xml ');
                                 try {
-                                    Module.print(String.fromCharCode.apply(String, FS.analyzePath('config.xml').object.contents));
+                                    // Module.print(String.fromCharCode.apply(String, FS.analyzePath('config.xml').object.contents));
                                     ConfigFile.openStream(
                                         'w', function(filetostream){
                                              filetostream.write(String.fromCharCode.apply(String, FS.analyzePath('config.xml').object.contents));

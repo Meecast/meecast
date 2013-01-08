@@ -27,6 +27,17 @@ extern "C" {
 
 }
 
+void
+create_sources_list(void){
+    std::string path(Core::AbstractConfig::sourcesPath);
+    fprintf(stderr, "Sources path %s\n", path.c_str());
+    Core::SourceList *sourcelist = new Core::SourceList(path);
+    fprintf(stderr, "Source list\n");
+    for (short i=0; i < sourcelist->size();i++){
+      fprintf(stderr, "Source %s\n",  (char *)sourcelist->at(i)->name().c_str());
+   }
+   delete sourcelist;
+}
 ConfigEfl *
 create_and_fill_config(){
     ConfigEfl *config;
@@ -58,6 +69,8 @@ void mainLoop(void)
         if (config_is_ready){
             config_is_ready = 0;
             config = create_and_fill_config();
+            fprintf(stderr, "Current station %s\n",currentstationname_js());
+            create_sources_list();
         }
 }
 
@@ -66,7 +79,6 @@ main(int argc, char *argv[])
 {
     prepare_config_js();
 
-    fprintf(stderr, "Current station %s\n",currentstationname_js());
 
     fprintf(stderr, "11111111\n");
     emscripten_set_main_loop(mainLoop, 0, 1);

@@ -37,7 +37,7 @@ cd jstest
                                        ../core/.libs/libmeecast_core_la-parser.o \
                                        ../core/.libs/libmeecast_core_la-pressure.o \
                                        ../core/.libs/libmeecast_core_la-source.o \
-                                       ../core/.libs/libmeecast_core_la-source.o \
+                                       ../core/.libs/libmeecast_core_la-sourcelist.o \
                                        ../core/.libs/libmeecast_core_la-stationlist.o \
                                        ../core/.libs/libmeecast_core_la-station.o \
                                        ../core/.libs/libmeecast_core_la-temperature.o \
@@ -103,7 +103,8 @@ cd jstest
                                         ../core/zlib/uncompr.o \
                                         ../core/zlib/zutil.o \
                                        src/meecasttizen-configefl.o  -o meecast.js \
-                                       --js-library library.js --js-pre pre.js
+                                       --js-library library.js --js-pre pre.js \
+                                       --embed-file dbsources/yr.no.xml
 #/home/additional_disk/emc/emscripten/emcc  --minify 1 -O0  src/meecasttizen-main.o -o meecast.js 
 cp meecast.js ../meecastjs/js
 

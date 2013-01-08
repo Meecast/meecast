@@ -3085,23 +3085,31 @@
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>ShcfPbUDVbEf+I/LWu8X+8sGsx0nGT8J0m4fwYutxok=</DigestValue>
+<DigestValue>y/p6Qow4lCNf5BtEnk3yBPe25M3iLd57PHWP458lqX4=</DigestValue>
 </Reference>
 <Reference URI="js/main.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>gJORpAB1ok2tUJx0JeQkk9ByvXOQLMG4BMddjCQxYBs=</DigestValue>
+<DigestValue>Tza1o8y1jkL8ajARXdBlsbDpqmmFgaaNvOWhWAVQEck=</DigestValue>
 </Reference>
 <Reference URI="js/meecast.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>gpQhcYgfyqK6dPU3oKmdU6YPhNCSR7VApBL20iM0nKM=</DigestValue>
+<DigestValue>+k/gTazxW6UgclYIHgRGtslI+9yuhUI8hrqUxAmAHBE=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>jLU/ZyfA/pNrHZrkWXVMzeHORQqswvL3a3ne+VVGAHo=</DigestValue>
 </Reference>
+<Reference URI="manage_location.html">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>8uBxoiRjSPj5wxXwo4Mo4nVohVtvxgqPSnI2EzZ2RQ4=</DigestValue>
+</Reference>
 <Reference URI="images/tizen_32.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>6aHQzwO2cEPe8Niw6XKuVsZ5BMZLrrHJyTbIjxCSryg=</DigestValue>
+</Reference>
+<Reference URI="settings_menu.html">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>R09LGF9p3Pl1acohcLU89gwehi6ETYU6sfDh8HwnTFo=</DigestValue>
 </Reference>
 <Reference URI="#prop">
 <Transforms>
@@ -3112,9 +3120,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-bl+APPUUTgC/fouxx1NEiw0+O7TBH4/dIuOGz4kSmsTpUZ8YpSwR+2E0PB4P+ew+teBgIRwAxFKY
-GLUVCCw2j379LYRFGEo7pXWbZRW5+alMVHX5i/3bx1XgrD9XAz9ZUeFKXOsy2auZK/iUDApsBzBY
-ryPoEcGRNNtEUvnQoaA=
+UdttqJ3xZiY7/oRb2O28pLDyQAIT+i85rcziLtPTSakQ09lsWgrGeKpGcRzPO+CKFOXaXE5GhJRw
+cjeOE4+nr3W5I3m6+QGw7eby2HVEE+KCF8QPSRKvSpEk6Jjx+TGBRXQzdl3nrVVkXxkN5iG3B3/E
+H6eDVJOuzdE9hR9F6KU=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

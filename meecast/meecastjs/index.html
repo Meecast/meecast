@@ -15,28 +15,31 @@
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
     <script type="text/javascript">
-        function main_init() {
-            _currentstationname_js();
-        }
+        $(document).delegate(
+                "#main","pageinit", 
+                 function() {
+                    _currentstationname_js();
+                 });
+        $(document).delegate(
+                "#manage_locations","pageinit", 
+                 function() {
+                    _create_sources_list_js();
+                 });
     </script>
+
+
+
 </head>
 
-<body onload="main_init()">
-     <div data-role="page">
+<body>
+     <div data-role="page" id="main">
         <div data-role="header" data-position="fixed" data-id="foo">
             <h1><div id="main_station_name" style="font-family: courier new,courier,monospace;"></div>
             </h1>
         </div><!-- /header -->
 
         <div data-role="content">
-            <ul data-role="listview">
-                <li><a class="ui-li-text-main">current_station_name();</a></li>
-                <li><a class="ui-li-text-main">2012 Hit song</a></li>
-                <li><a class="ui-li-text-main">In the gym</a></li>
-                <li><a class="ui-li-text-main">For baby</a></li>
-                <li><a class="ui-li-text-main">My favorite</a></li>
-            </ul>
-
+         <button onclick="_currentstationname_js()" > Test</button>
         </div><!-- /content -->
 
         <div data-role="footer" data-position="fixed" data-id="foo1">

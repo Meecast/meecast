@@ -45,6 +45,19 @@ mergeInto(LibraryManager.library, {
         var current_station_name = Module.cwrap('current_station_name', 'string', []);
         document.getElementById('main_station_name').innerHTML = current_station_name();
     },
+    create_sources_list_js: function(){
+        var create_sources_list = Module.cwrap('create_sources_list', 'string', []);
+        Module.print("Data!!!!! :" + create_sources_list());
+        var data = JSON.parse(create_sources_list());
+        var text = "";
+        for (var i in data) {
+               text = text + " <li><a href=\"index.html\">"+ data[i] + "</a></li>";
+        }
+
+        Module.print("Text!!!!! :" + text);
+        document.getElementById('locations_listview').innerHTML = text;
+
+    },
     prepare_config_js: function(){
 
         var documentsDir;

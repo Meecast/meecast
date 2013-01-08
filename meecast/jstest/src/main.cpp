@@ -13,10 +13,18 @@ int config_is_ready = 0;
 
 extern "C" {
     extern void prepare_config_js();
+    extern char* currentstationname_js();
 
     void EMSCRIPTEN_KEEPALIVE prepareconfig() {
         config_is_ready = 1;
     }
+    char* EMSCRIPTEN_KEEPALIVE current_station_name() {
+        if (config->stationname().c_str())
+            return (char*)config->stationname().c_str();
+        else
+            return "Test"; 
+    }
+
 }
 
 ConfigEfl *
@@ -57,9 +65,13 @@ int
 main(int argc, char *argv[])
 {
     prepare_config_js();
+
+    fprintf(stderr, "Current station %s\n",currentstationname_js());
+
     fprintf(stderr, "11111111\n");
     emscripten_set_main_loop(mainLoop, 0, 1);
     fprintf(stderr, "22222222\n");
     //my_js();
 	return 0;
 }
+

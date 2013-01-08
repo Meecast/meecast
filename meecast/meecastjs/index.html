@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html> <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -7,49 +6,51 @@
 
     <title>Tizen Web IDE - Tizen - Tizen basic Application</title>
 
+    <script src="tizen-web-ui-fw/latest/js/jquery.js"></script>
+    <script src="tizen-web-ui-fw/latest/js/tizen-web-ui-fw-libs.js"></script>
+    <script src="tizen-web-ui-fw/latest/js/tizen-web-ui-fw.js"
+        data-framework-theme="tizen-black" data-framework-viewport-scale="false"></script>
+
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <script src="js/meecast.js"></script>
+
+    <script type="text/javascript">
+        function main_init() {
+            _currentstationname_js();
+        }
+    </script>
 </head>
 
-<body>
-  <header>
-    <hgroup>
-      <h1>Tizen App</h1>
-      <h2>An empty template of Tizen</h2>
-    </hgroup>
-  </header>
+<body onload="main_init()">
+     <div data-role="page">
+        <div data-role="header" data-position="fixed" data-id="foo">
+            <h1><div id="main_station_name" style="font-family: courier new,courier,monospace;"></div>
+            </h1>
+        </div><!-- /header -->
 
-  <nav>
-    <ul>
-       <li><a href="#">Home</a></li>
-       <li><a href="#">About Us</a></li>
-       <li><a href="#">Contact Us</a></li>
-    </ul>
-  </nav>
+        <div data-role="content">
+            <ul data-role="listview">
+                <li><a class="ui-li-text-main">current_station_name();</a></li>
+                <li><a class="ui-li-text-main">2012 Hit song</a></li>
+                <li><a class="ui-li-text-main">In the gym</a></li>
+                <li><a class="ui-li-text-main">For baby</a></li>
+                <li><a class="ui-li-text-main">My favorite</a></li>
+            </ul>
+            <button onclick="station_name();">Clock</button> 
 
-  <article>
-    <header>
-      <h1>
-        <img src="images/tizen_32.png" /> Application Name
-      </h1>
-    </header>
-    <p>This is an empty template of Tizen Web Application. Tizen will support multiple device categories:
-      <ul>
-        <li>smartphones, tablets and smart TVs
-        <li>netbooks, in-vehicle infotainment devices
-      </ul>
-    </p>
-    <section>
-      <p>This is a basic section of a document.</p>
-      <p>The following button displays a time using JavaScript.</p>
-      <div id="divbutton1">
-        <button onclick="startTime();">Clock</button>
-      </div>
-    </section>
-  </article>
+        </div><!-- /content -->
 
-  <footer>
-    <p>&copy; 2012 Company Name. All rights reserved.</p>
-  </footer>    
+        <div data-role="footer" data-position="fixed" data-id="foo1">
+            <div data-role="controlbar" data-style="tabbar">
+                <ul>
+                    <li><a href="index.html" data-icon="ctrlbar-playlists" class="ui-btn-active ui-state-persist">Play List</a></li>
+                    <li><a href="section1.html" data-icon="ctrlbar-music_albums">Music</a></li>
+                    <li><a href="section2.html" data-icon="ctrlbar-artist">Artist</a></li>
+                </ul>
+            </div><!-- /navbar -->
+        </div><!-- /footer -->
+    </div><!-- /page -->
+
+
 </body>
 </html>

@@ -16,15 +16,16 @@ mergeInto(LibraryManager.library, {
                                 ConfigFile = dir.resolve('config.xml');
                                 Module.print('Resolve file config.xml ');
                                 try {
-
+                                    Module.print(String.fromCharCode.apply(String, FS.analyzePath('config.xml').object.contents));
                                     ConfigFile.openStream(
                                         'w', function(filetostream){
-                                              filetostream.write(String.fromCharCode.apply(String, FS.analyzePath('config.xml').object.contents));
+                                             filetostream.write(String.fromCharCode.apply(String, FS.analyzePath('config.xml').object.contents));
                                             filetostream.close();
                                          }, function(e){
                                             Module.print("Error" + e.message);
                                          }
                                       );
+                                    Module.print('Save is done');
                                 } catch (exc){
                                     Module.print('Write() exception:' + exc.message);
                                 }
@@ -40,12 +41,16 @@ mergeInto(LibraryManager.library, {
               Module.print("Error" + exc.message);
         }
     },
+    currentstationname_js: function(){
+        var current_station_name = Module.cwrap('current_station_name', 'string', []);
+        document.getElementById('main_station_name').innerHTML = current_station_name();
+    },
     prepare_config_js: function(){
 
         var documentsDir;
         var ConfigFile;
         var ConfigFileFS;
-
+        
         //dirname = Pointer_stringify(directory);
 
         var prepareconfig = Module.cwrap('prepareconfig', null, []);
@@ -65,7 +70,7 @@ mergeInto(LibraryManager.library, {
                                         function(contents) {
                                            ConfigFileFS = FS.createDataFile('/', 'config.xml', contents, true, true);
                                             Module.print('Config file config.xml is done');
-                                            prepareconfig(1);
+                                            prepareconfig();
                                         },
                                         function(e){
                                             Module.print("Error" + e.message);
@@ -80,7 +85,7 @@ mergeInto(LibraryManager.library, {
                                     ConfigFile = dir.createFile('config.xml');
                                     Module.print('Create file config.xml ');
                                     ConfigFileFS = FS.createDataFile('/', 'config.xml', '', true, true);
-                                    prepareconfig(1);
+                                    prepareconfig();
                                 } catch (exc){
                                     Module.print('Not create file config.xml ' + exc.message + '<br/>');
                                 }

@@ -55,8 +55,7 @@ mergeInto(LibraryManager.library, {
         }
 
         Module.print("Text!!!!! :" + text);
-        document.getElementById('locations_listview').innerHTML = text;
-
+        return text;
     },
     prepare_config_js: function(){
 

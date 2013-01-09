@@ -15,15 +15,19 @@
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
     <script type="text/javascript">
+        var gList = "";
         $(document).delegate(
                 "#main","pageinit", 
                  function() {
                     _currentstationname_js();
                  });
         $(document).delegate(
-                "#manage_locations","pageinit", 
-                 function() {
-                    _create_sources_list_js();
+                "#manage_locations","pageinit", function() {
+	                $("#manage_locations").bind("pagebeforeshow", function() {
+                    gList = _create_sources_list_js();
+                    //$("#location_manager_listview").listview("refresh");
+                    $("#location_manager_listview").html(gList).trigger("create").listview("refresh");
+                 });
                  });
     </script>
 

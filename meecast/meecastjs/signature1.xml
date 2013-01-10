@@ -3089,7 +3089,7 @@
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>bjJUmV4w9ZINrak261+LlMUs3Fc/cclojA3YLuSmzes=</DigestValue>
+<DigestValue>MSMYw7qJlQ1karB80xAkLP7ODIbTrG1JsFY/ddxVmro=</DigestValue>
 </Reference>
 <Reference URI="js/main.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -3097,7 +3097,7 @@
 </Reference>
 <Reference URI="js/meecast.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>GrCSc6IlUGoMlVXHjTVTYq77wEAoKsX1Ny9V90suXFA=</DigestValue>
+<DigestValue>9OonK3n2FVntU8c/9+uLQE5V4gFCC19evPNxGdwcCr8=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -3105,7 +3105,11 @@
 </Reference>
 <Reference URI="manage_location.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>LlY77z0dHswGi1iPTTQBoSVJsvU6p6GHQ2G3ppZES+E=</DigestValue>
+<DigestValue>9r+T4/URLPigh7qyKmcry9/DnBbzKfnzCKDUf7qL0kI=</DigestValue>
+</Reference>
+<Reference URI="manage_country.html">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>OS8iGBcGdb0S9VNkz2wWTdF7tD47eSnqVqE6CUOEPj8=</DigestValue>
 </Reference>
 <Reference URI="images/tizen_32.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -3124,9 +3128,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-HBRO0ruyKl8sTmJbZqQBFklSDh+X/yypEZJWNUaEnbIbTT6EcyCtJppSdtT1ofI/i9xG04NST14z
-h9xAeIQr9tonXglsYm6246eE6ej8S/OvMOt8nlHV2CMnVBzJluLpT0OdZ0LVYEAqTzysbgdbX08H
-9N4W6kCSgvlC8f/9pw0=
+GYsBnhIUQh+imyl5kL2COH1eYTes6KvgqS0io022snXFq2R7JqkpaffH8A+P5LNPdbuj7kE/moct
+n4yg9aOhpUB8qf94t6spsq819Aa4P2vX3U5v2sG4+AhiskUe8QioxlotF6hEIjA9A7d+qHG4WSHc
+/AaB9AcekzqXOEuGI3w=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

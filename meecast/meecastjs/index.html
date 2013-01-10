@@ -16,6 +16,7 @@
 
     <script type="text/javascript">
         var gList = "";
+        var current_database = "";
         $(document).delegate(
                 "#main","pageinit", 
                  function() {
@@ -29,9 +30,27 @@
                     $("#location_manager_listview").html(gList).trigger("create").listview("refresh");
                  });
                  });
+        $(document).delegate(
+                "#manage_countries","pageinit", function() {
+	                $("#manage_countries").bind("pagebeforeshow", function() {
+                    gList = _create_sources_list_js();
+                    //$("#location_manager_listview").listview("refresh");
+                    $("#countries_manager_listview").html(gList).trigger("create").listview("refresh");
+                 });
+                 });
+
     </script>
 
+    <script type="text/javascript">
+        function countries_page(sel_database){
+            current_database = sel_database + ".db";
+            console.log('ssssssssssssssssssssss', sel_database);
 
+            _prepare_database_js(current_database); 
+            console.log('ssssssssssssssssssssss');
+            //$.mobile.changePage('manage_country.html'); //Change page view
+        }
+    </script>
 
 </head>
 
@@ -50,7 +69,7 @@
             <div data-role="controlbar" data-style="tabbar">
                 <ul>
                     <li><a href="index.html" data-icon="ctrlbar-playlists" class="ui-btn-active ui-state-persist">Play List</a></li>
-                    <li><a href="section1.html" data-icon="ctrlbar-music_albums">Music</a></li>
+                    <li><a href="javascript:countries_page();" data-icon="ctrlbar-music_albums">Music</a></li>
                     <li><a href="settings_menu.html" data-icon="ctrlbar-artist">Menu</a></li>
                 </ul>
             </div><!-- /navbar -->

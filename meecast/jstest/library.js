@@ -41,22 +41,27 @@ mergeInto(LibraryManager.library, {
               Module.print("Error" + exc.message);
         }
     },
+
     currentstationname_js: function(){
         var current_station_name = Module.cwrap('current_station_name', 'string', []);
         document.getElementById('main_station_name').innerHTML = current_station_name();
     },
+
     create_sources_list_js: function(){
         var create_sources_list = Module.cwrap('create_sources_list', 'string', []);
         Module.print("Data!!!!! :" + create_sources_list());
         var data = JSON.parse(create_sources_list());
         var text = "";
         for (var i in data) {
-               text = text + " <li><a href=\"file://index.html\">"+ data[i] + "</a></li>";
+            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:countries_page('"+ data[i] + "');\">" + data[i] + "</a></li>";
+            //text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:countries_page(\"" + data[i] + "\");\">" + data[i] + "</a></li>";
+//            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"manage_country.html\">" + data[i] + "</a></li>";
         }
+              Module.print("List" + text);
         return text;
     },
 
-    prepare_database_js: function(){
+    prepare_database_js: function(database_name){
 
         var WidgetDir;
         var ConfigFile;
@@ -96,8 +101,8 @@ mergeInto(LibraryManager.library, {
 //                               Module.print('Not create file config.xml ' + exc.message + '<br/>');
 //                            }
                             try {
-                                Module.print("Dir path " + dir.path);
-                                DBFile = dir.resolve('WebContent/weather.com.db');
+                                Module.print("Dir path " + dir.path + " Database name " + database_name);
+                                DBFile = dir.resolve('WebContent/' + database_name);
                                 Module.print('Resolve file database - Size: ' + DBFile.fileSize);
 
                                 try {
@@ -105,10 +110,11 @@ mergeInto(LibraryManager.library, {
                                         'r',
                                         function(fileStream) {
                                             var contents = fileStream.readBytes(fileStream.bytesAvailable);
-                                            DBFileFS = FS.createDataFile('/', 'weather.com.db', contents, true, true);
+                                            DBFileFS = FS.createDataFile('/', database_name, contents, true, true);
                                             fileStream.close();
                                             Module.print('Database file is done');
                                             preparedatabase();
+                                            $.mobile.changePage('manage_country.html'); //Change page view
                                         },
                                         function(e){
                                             Module.print("Error" + e.message);
@@ -119,10 +125,6 @@ mergeInto(LibraryManager.library, {
                                 }
                             } catch (exc){
                                 Module.print('Not resolve database file  ' + exc.message + '<br/>');
-                                try {
-                                } catch (exc){
-                                    Module.print('Not create file config.xml ' + exc.message + '<br/>');
-                                }
                             }
                         },
                          function(e){

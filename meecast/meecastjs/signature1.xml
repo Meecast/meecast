@@ -3,6 +3,10 @@
 <SignedInfo>
 <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"></CanonicalizationMethod>
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
+<Reference URI="WebContent/weather.com.db">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>juF+QwzaXzVQn8fQrtbvacAAr+EOJag4R0Kan1re4Ew=</DigestValue>
+</Reference>
 <Reference URI="css/style.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>+gAi2sVTE90mHdvVHJCCGFyKAIciFlWC3T7bgnBktRA=</DigestValue>
@@ -3085,7 +3089,7 @@
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>y/p6Qow4lCNf5BtEnk3yBPe25M3iLd57PHWP458lqX4=</DigestValue>
+<DigestValue>bjJUmV4w9ZINrak261+LlMUs3Fc/cclojA3YLuSmzes=</DigestValue>
 </Reference>
 <Reference URI="js/main.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -3093,15 +3097,15 @@
 </Reference>
 <Reference URI="js/meecast.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>+k/gTazxW6UgclYIHgRGtslI+9yuhUI8hrqUxAmAHBE=</DigestValue>
+<DigestValue>GrCSc6IlUGoMlVXHjTVTYq77wEAoKsX1Ny9V90suXFA=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>jLU/ZyfA/pNrHZrkWXVMzeHORQqswvL3a3ne+VVGAHo=</DigestValue>
+<DigestValue>LzTo7u50soAKfHPHRmEhPuS0pLEUP38hMW4pZ/7eUDY=</DigestValue>
 </Reference>
 <Reference URI="manage_location.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>8uBxoiRjSPj5wxXwo4Mo4nVohVtvxgqPSnI2EzZ2RQ4=</DigestValue>
+<DigestValue>LlY77z0dHswGi1iPTTQBoSVJsvU6p6GHQ2G3ppZES+E=</DigestValue>
 </Reference>
 <Reference URI="images/tizen_32.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -3109,7 +3113,7 @@
 </Reference>
 <Reference URI="settings_menu.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>R09LGF9p3Pl1acohcLU89gwehi6ETYU6sfDh8HwnTFo=</DigestValue>
+<DigestValue>34xkGBhaM8aNSzIhfoMo6PWzGCivbUqNxSlJmomRNt4=</DigestValue>
 </Reference>
 <Reference URI="#prop">
 <Transforms>
@@ -3120,9 +3124,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-UdttqJ3xZiY7/oRb2O28pLDyQAIT+i85rcziLtPTSakQ09lsWgrGeKpGcRzPO+CKFOXaXE5GhJRw
-cjeOE4+nr3W5I3m6+QGw7eby2HVEE+KCF8QPSRKvSpEk6Jjx+TGBRXQzdl3nrVVkXxkN5iG3B3/E
-H6eDVJOuzdE9hR9F6KU=
+HBRO0ruyKl8sTmJbZqQBFklSDh+X/yypEZJWNUaEnbIbTT6EcyCtJppSdtT1ofI/i9xG04NST14z
+h9xAeIQr9tonXglsYm6246eE6ej8S/OvMOt8nlHV2CMnVBzJluLpT0OdZ0LVYEAqTzysbgdbX08H
+9N4W6kCSgvlC8f/9pw0=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

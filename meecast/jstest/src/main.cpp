@@ -15,6 +15,7 @@ char  global_temp_buffer[1024];
 
 extern "C" {
     extern void prepare_config_js();
+    extern void prepare_database_js();
     extern char* currentstationname_js();
     extern char* create_sources_list_js();
 
@@ -22,6 +23,18 @@ extern "C" {
     prepareconfig() {
         config_is_ready = 1;
     }
+    void EMSCRIPTEN_KEEPALIVE 
+    preparedatabase(){
+        fprintf(stderr,"prepare_databases is done\n");
+         Core::DatabaseSqlite *db;
+         db = new Core::DatabaseSqlite("weather.com.db");
+         if (db->open_database()){
+             fprintf(stderr,"Success DB!!!!\n");
+         }
+         else
+             fprintf(stderr," NOT Success DB!!!!\n");
+    }
+
     char* EMSCRIPTEN_KEEPALIVE 
     current_station_name() {
         if (config->stationname().c_str())
@@ -93,6 +106,7 @@ main(int argc, char *argv[])
 {
     prepare_config_js();
 
+    prepare_database_js();
     if (stub >1){
          fprintf(stderr, "Current station %s\n",currentstationname_js());
          create_sources_list_js();

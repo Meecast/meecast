@@ -4,9 +4,9 @@
     <content src="index.html"/>
 <name>test23</name>
 <tizen:application id="QaPoUP8F2j" required_version="1.0"/>
-<feature name="http://tizen.org/api/filesystem" required="true"/>
-    <feature name="http://tizen.org/api/tizen" required="true"/>
-    <feature name="http://tizen.org/api/application" required="true"/>
-    <feature name="http://tizen.org/api/filesystem.write" required="true"/>
-    <feature name="http://tizen.org/api/filesystem.read" required="true"/>
+<feature name="http://tizen.org/api/filesystem" required="false"/>
+    <feature name="http://tizen.org/api/tizen" required="false"/>
+    <feature name="http://tizen.org/api/application" required="false"/>
+    <feature name="http://tizen.org/api/filesystem.write" required="false"/>
+    <feature name="http://tizen.org/api/filesystem.read" required="false"/>
 </widget>

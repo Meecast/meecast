@@ -70,69 +70,52 @@ mergeInto(LibraryManager.library, {
         var preparedatabase = Module.cwrap('preparedatabase', null, []);
         try {
             tizen.filesystem.resolve('wgt-package',
-                         function(dir){
-                            WidgetDir = dir;
-                            Module.print('\'wgt-package\' resolved ' + WidgetDir);
+             function(dir){
+                WidgetDir = dir;
+                Module.print('\'wgt-package\' resolved ' + WidgetDir);
 
-//                            try {
-//                                WidgetDir.listFiles(
-//                                    function(files){
-//                                  
-//                                        var list = "";
-//                                        for (i = 0 ; i < files.length ; i++) {
-//                                            if (files[i].isDirectory == false)
-//                                                    list += '<tr>' +
-//                                                              '<td>' + files[i].fullPath + '</td>' + 
-//                                                              '<td><button onclick="showDetailsClicked(\'' + files[i].name + '\');">Show</button></td>' +
-//                                                              '<td><button onclick="deleteFileClicked(\'' + files[i].fullPath + '\');">Delete</button></td>' +
-//                                                              '</tr>'; 
-//                                        }
-//
-//
-//
-//                                            Module.print("File" + list);
-//                                    },
-//                                    function(e){
-//                                            Module.print("Error" + e.message);
-//                                    }
-//                                );
-//                            }catch(exc){
-//
-//                               Module.print('Not create file config.xml ' + exc.message + '<br/>');
-//                            }
-                            try {
-                                Module.print("Dir path " + dir.path + " Database name " + database_name);
-                                DBFile = dir.resolve('WebContent/' + database_name);
-                                Module.print('Resolve file database - Size: ' + DBFile.fileSize);
+                    // Check file in original path 
+                    ret = FS.analyzePath(database_name);
+                    if (ret.exists) {
+                        Module.print('Original database file is done');
+                        preparedatabase();
+                        $.mobile.changePage('manage_country.html'); //Change page view
 
-                                try {
-                                    DBFile.openStream(
-                                        'r',
-                                        function(fileStream) {
-                                            var contents = fileStream.readBytes(fileStream.bytesAvailable);
-                                            DBFileFS = FS.createDataFile('/', database_name, contents, true, true);
-                                            fileStream.close();
-                                            Module.print('Database file is done');
-                                            preparedatabase();
-                                            $.mobile.changePage('manage_country.html'); //Change page view
-                                        },
-                                        function(e){
-                                            Module.print("Error" + e.message);
-                                        }
-                                    );
-                                } catch (exc){
-                                    Module.print('read() exception:' + exc.message);
+                        return;
+                    }
+
+                    try {
+                        Module.print("Dir path " + dir.path + " Database name " + database_name);
+                        DBFile = dir.resolve('WebContent/' + database_name);
+
+                        try {
+                            DBFile.openStream(
+                                'r',
+                                function(fileStream) {
+                                    var contents = fileStream.readBytes(fileStream.bytesAvailable);
+                                    DBFileFS = FS.createDataFile('/', database_name, contents, true, true);
+                                    fileStream.close();
+                                    Module.print('Database file is done');
+                                    preparedatabase();
+                                    $.mobile.changePage('manage_country.html'); //Change page view
+                                },
+                                function(e){
+                                    Module.print("Error" + e.message);
                                 }
-                            } catch (exc){
-                                Module.print('Not resolve database file  ' + exc.message + '<br/>');
-                            }
-                        },
-                         function(e){
-                            Module.print("Error" + e.message);
-                            prepareconfig();
-                         } ,
-                         'r');
-         } catch (exc) {
+                            );
+                        } catch (exc){
+                            Module.print('read() exception:' + exc.message);
+                        }
+                    } catch (exc){
+                        Module.print('Not resolve database file  ' + exc.message + '<br/>');
+                    }
+            },
+             function(e){
+                Module.print("Error" + e.message);
+                prepareconfig();
+             } ,
+             'r');
+        } catch (exc) {
             Module.print('tizen.filesystem.resolve() exception: ' + exc.message + '<br/>');
          } 
     },

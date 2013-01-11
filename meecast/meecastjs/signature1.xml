@@ -3,6 +3,26 @@
 <SignedInfo>
 <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"></CanonicalizationMethod>
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
+<Reference URI="WebContent/gismeteo.ru.db">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>gWJmNF3koAd83f2Gl4ik8JKkeTdWHaKJyVvllBPjHjk=</DigestValue>
+</Reference>
+<Reference URI="WebContent/hko.gov.hk.db">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>i+uRoeEYDxysJZOpT3/VM0lerOFXMBJbq5edzQPmSzk=</DigestValue>
+</Reference>
+<Reference URI="WebContent/bom.gov.au.db">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>eAOURRDU6ZZAVV8YQI3VMC1hjjEboBo2fIFXXKfDcxA=</DigestValue>
+</Reference>
+<Reference URI="WebContent/foreca.com.db">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>7qCuVVCU6k4LidrAHI2HPcT6jDc/364sAJwQRQlaIAM=</DigestValue>
+</Reference>
+<Reference URI="WebContent/yr.no.db">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>JqqKYRwlT2xtmkHNQ37Pojg+7tDzeulf8P2/QdZGroM=</DigestValue>
+</Reference>
 <Reference URI="WebContent/weather.com.db">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>juF+QwzaXzVQn8fQrtbvacAAr+EOJag4R0Kan1re4Ew=</DigestValue>
@@ -3097,7 +3117,7 @@
 </Reference>
 <Reference URI="js/meecast.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>AfFxqcM/RHI/wyMUee+N3Npxz+dVp2jaeLDl6d2sH4s=</DigestValue>
+<DigestValue>As97IdP+MS82eSOe6Q+CZ1eRMeRkmQfuIbItO9UE4iA=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -3128,9 +3148,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-T45oLaqx1g/rkA3QJOgb0ncYR2orgnEU5kiBromi33w4ZMfpLL4WR9L6AobNIpWReuefU1rWe4ug
-6UKEJIYsqSSX+cvymXdZPdYx2WcMX12B5zT/1XVzaXfMVzxhKjj3wGOFsK4McKuKLfUfHIibw+/1
-d5FxcOLvc0tDFjL72V4=
+odi3dVC9/JaEgEJvcwWQXR2ubqZIGw0ZkTog78JDlz62qqtyVbxkZdGgivsi4GXsLCVIyfGsJhH5
+GJKPzgXa04B3fynFZa2oueXT3qwFp8YPx3u64L7ky+lxOOmoD1grUSXeh1Via/bOrAHwjzyT8xPr
+pGfZIbILtaE9S+al6KQ=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

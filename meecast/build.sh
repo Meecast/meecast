@@ -114,8 +114,14 @@ cd jstest
                                        --embed-file dbsources/yr.no.xml 
 #/home/additional_disk/emc/emscripten/emcc  --minify 1 -O0  src/meecasttizen-main.o -o meecast.js 
 cp meecast.js ../meecastjs/js
-
-
 cd -
+
+cp ../omweather-bom-gov-au-stations-db/data/bom.gov.au.db meecastjs/WebContent
+cp ../omweather-foreca-com-stations-db/data/foreca.com.db meecastjs/WebContent
+cp ../omweather-gismeteo-ru-stations-db/data/gismeteo.ru.db meecastjs/WebContent
+cp ../omweather-hko-gov-hk-stations-db/data/hko.gov.hk.db meecastjs/WebContent
+cp ../omweather-weather-com-stations-db/data/weather.com.db meecastjs/WebContent
+cp ../omweather-yr-no-stations-db/data/yr.no.db meecastjs/WebContent
+
 
 

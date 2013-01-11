@@ -3103,6 +3103,10 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>wfwuPIJiNBXrBw5Nl4NE8B7X1QpT3UVtFoiOoAiJsnU=</DigestValue>
 </Reference>
+<Reference URI="library.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>Tv6HIM3NWflt+e670zSmLDsjsRWDUYPi/hUv65J0s6c=</DigestValue>
+</Reference>
 <Reference URI="index.html.old">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>aoPnOKtyHZ++3OjSuHr1gOPjwQJ4UmwwdY43DhFXWbE=</DigestValue>
@@ -3148,9 +3152,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-odi3dVC9/JaEgEJvcwWQXR2ubqZIGw0ZkTog78JDlz62qqtyVbxkZdGgivsi4GXsLCVIyfGsJhH5
-GJKPzgXa04B3fynFZa2oueXT3qwFp8YPx3u64L7ky+lxOOmoD1grUSXeh1Via/bOrAHwjzyT8xPr
-pGfZIbILtaE9S+al6KQ=
+VXGs07su8hB9Lbz5z8GWmlBtqEUKWm35NCvkHKHqLKwW+YypeGt4u8ADHEclaQWQcs1DfnlqOkPo
+P841Aez5JhpxmWARu71dmRQr0bStiEGvKtJkPESDMxTlXljTvBIfUgjTJa4Ix4TlEiVv88jHV0UE
+3HnHM51NuQ2yn2OO1HE=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

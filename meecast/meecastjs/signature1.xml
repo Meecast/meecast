@@ -3113,7 +3113,11 @@
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>MSMYw7qJlQ1karB80xAkLP7ODIbTrG1JsFY/ddxVmro=</DigestValue>
+<DigestValue>PNRG1AY6D0BU6lv9m4QkCMTzwvlTNeUGxbR/86j6dVY=</DigestValue>
+</Reference>
+<Reference URI="js/library.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>Osv/+81y0d4TMtomPR58CgUs1VhdAD6qwG0nnOC/DhI=</DigestValue>
 </Reference>
 <Reference URI="js/main.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -3121,7 +3125,7 @@
 </Reference>
 <Reference URI="js/meecast.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>As97IdP+MS82eSOe6Q+CZ1eRMeRkmQfuIbItO9UE4iA=</DigestValue>
+<DigestValue>5mIhi6Q4/qSF8KKGMzpCbNOLE+WSJVqYYzlzZ3pcYS4=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -3129,7 +3133,7 @@
 </Reference>
 <Reference URI="manage_location.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>9r+T4/URLPigh7qyKmcry9/DnBbzKfnzCKDUf7qL0kI=</DigestValue>
+<DigestValue>DFLmFcfuHgsqkw9gU398M0FuoeJTPUk4IA9cY7E0M9c=</DigestValue>
 </Reference>
 <Reference URI="manage_country.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -3152,9 +3156,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-VXGs07su8hB9Lbz5z8GWmlBtqEUKWm35NCvkHKHqLKwW+YypeGt4u8ADHEclaQWQcs1DfnlqOkPo
-P841Aez5JhpxmWARu71dmRQr0bStiEGvKtJkPESDMxTlXljTvBIfUgjTJa4Ix4TlEiVv88jHV0UE
-3HnHM51NuQ2yn2OO1HE=
+LLozYRPwjkDEVGkcULlBTLlfTpSztACiP/GTpIHzQUQ88paX/NboIlUP29bVAMQLL0fNbbMMCzzW
+bB5DErBNDYii4/NgP4CYQt0EzcEQkLsCEfRRcp0/R4+x5OYJBFiOu4/4bb0w66Nffe8zAu/NG2GP
+B0Gbdo5BK22oZpTVW8I=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

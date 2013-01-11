@@ -22,8 +22,8 @@ cd jstest
 #/home/additional_disk/emc/emscripten/emconfigure ./autogen.sh
 #/home/additional_disk/emc/emscripten/emconfigure ./configure
 /home/additional_disk/emc/emscripten/emmake make
-///home/additional_disk/emc/emscripten/emcc  -s EXPORTED_FUNCTIONS="['_main', '_prepareconfig', '_preparedatabase', '_prepare_database_js', '_current_station_name', '_create_sources_list', '_currentstationname_js']" --minify 1 -O0 ../core/libxml2/.libs/libxml2.a \
-/home/additional_disk/emc/emscripten/emcc  -s EXPORTED_FUNCTIONS="['_main', '_prepareconfig', '_preparedatabase', '_prepare_database_js', '_current_station_name', '_create_sources_list', '_currentstationname_js']"  ../core/libxml2/.libs/libxml2.a \
+#/home/additional_disk/emc/emscripten/emcc  -s EXPORTED_FUNCTIONS="['_main', '_prepareconfig', '_prepare_database_js', '_current_station_name', '_create_sources_list', '_currentstationname_js']" --minify 1 -O0 ../core/libxml2/.libs/libxml2.a \
+/home/additional_disk/emc/emscripten/emcc  -s EXPORTED_FUNCTIONS="['_main', '_prepareconfig', '_prepare_database_js', '_current_station_name', '_create_sources_list', '_currentstationname_js']" --minify 1 -O0 ../core/libxml2/.libs/libxml2.a \
                                        ../core/libxml2/.libs/libxml2.a \
                                        ../core/.libs/libmeecast-core.a \
                                        src/meecasttizen-main.o \
@@ -105,7 +105,7 @@ cd jstest
                                         ../core/zlib/zutil.o \
                                         ../core/sqlite/sqlite3.o \
                                        src/meecasttizen-configefl.o  -o meecast.js \
-                                       --js-library library.js --js-pre pre.js \
+                                       -js-library library.js --js-pre pre.js \
                                        --embed-file dbsources/yr.no.xml \
                                        --embed-file dbsources/bom.gov.au.xml \
                                        --embed-file dbsources/foreca.com.xml \
@@ -113,6 +113,8 @@ cd jstest
                                        --embed-file dbsources/gismeteo.ru.xml \
                                        --embed-file dbsources/hko.gov.hk.xml \
                                        --embed-file dbsources/yr.no.xml 
+
+                                       #--js-library library.js --js-pre pre.js \
 #/home/additional_disk/emc/emscripten/emcc  --minify 1 -O0  src/meecasttizen-main.o -o meecast.js 
 cp meecast.js ../meecastjs/js
 cd -

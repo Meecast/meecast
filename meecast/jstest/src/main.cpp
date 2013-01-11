@@ -10,29 +10,44 @@
 ConfigEfl *config;
 int config_is_ready = 0;
 int stub = 1;
+Core::DatabaseSqlite *db;
 
-char  global_temp_buffer[1024];
+char  global_temp_buffer[16384];
 
 extern "C" {
     extern void prepare_config_js();
     extern void prepare_database_js();
     extern char* currentstationname_js();
     extern char* create_sources_list_js();
+    extern char* create_countries_list_js();
 
     void EMSCRIPTEN_KEEPALIVE 
     prepareconfig() {
         config_is_ready = 1;
     }
-    void EMSCRIPTEN_KEEPALIVE 
-    preparedatabase(){
+    char* EMSCRIPTEN_KEEPALIVE 
+    create_countries_list(){
         fprintf(stderr,"prepare_databases is done\n");
-         Core::DatabaseSqlite *db;
-         db = new Core::DatabaseSqlite("weather.com.db");
-         if (db->open_database()){
-             fprintf(stderr,"Success DB!!!!\n");
-         }
-         else
+        std::string buf;
+        memset(global_temp_buffer, 0, sizeof(global_temp_buffer));
+        db = new Core::DatabaseSqlite("weather.com.db");
+        if (db->open_database()){
+            Core::listdata * countrylist = db->create_countries_list();
+            fprintf(stderr,"prepare_databases is donei2\n");
+            buf = "[";
+            for (short i=0; i < countrylist->size();i++){
+                if (i !=0)
+                    buf = buf + ",";
+                buf = buf + "\""+ (char *)(countrylist->at(i).second.c_str()) +"\"";
+            } 
+            buf = buf + "]";
+            snprintf(global_temp_buffer, sizeof(global_temp_buffer) -1, "%s", buf.c_str());
+            fprintf(stderr,"Success DB!!!!\n");
+            return global_temp_buffer;
+        }else{
              fprintf(stderr," NOT Success DB!!!!\n");
+             return NULL;
+        }
     }
 
     char* EMSCRIPTEN_KEEPALIVE 
@@ -48,15 +63,12 @@ extern "C" {
         memset(global_temp_buffer, 0, sizeof(global_temp_buffer));
         std::string path(Core::AbstractConfig::sourcesPath);
         Core::SourceList *sourcelist = new Core::SourceList(path);
-        //buf = "{\"sourcelist\":[";
         buf = "[";
         for (short i=0; i < sourcelist->size();i++){
           if (i !=0)
               buf = buf + ",";
-        //  fprintf(stderr, "Source %s\n",  (char *)sourcelist->at(i)->name().c_str());
           buf = buf + "\""+ (char *)sourcelist->at(i)->name().c_str() +"\"";
         }
-        //buf = buf + "]}";
         buf = buf + "]";
         delete sourcelist;
         snprintf(global_temp_buffer, sizeof(global_temp_buffer) -1, "%s", buf.c_str());
@@ -86,15 +98,14 @@ create_and_fill_config(){
         config =  ConfigEfl::Instance();
     }
     config->saveConfig();
-    fprintf(stderr,"Enf of creating Config class");
+    fprintf(stderr,"End of creating Config class");
     return config;
-
     
 }
 
 void mainLoop(void)
 {
-//        printf("%d\n", config_is_ready);
+        printf("%d\n", config_is_ready);
         if (config_is_ready){
             config_is_ready = 0;
             config = create_and_fill_config();
@@ -106,10 +117,11 @@ main(int argc, char *argv[])
 {
     prepare_config_js();
 
-    prepare_database_js();
     if (stub >1){
          fprintf(stderr, "Current station %s\n",currentstationname_js());
          create_sources_list_js();
+         create_countries_list_js();
+         prepare_database_js();
     }
     fprintf(stderr, "11111111\n");
     emscripten_set_main_loop(mainLoop, 0, 1);

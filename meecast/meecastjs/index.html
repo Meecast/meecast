@@ -15,6 +15,84 @@
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
     <script type="text/javascript">
+
+
+     function _currentstationname_js(){
+        var current_station_name = Module.cwrap('current_station_name', 'string', []);
+        document.getElementById('main_station_name').innerHTML = current_station_name();
+     };
+
+
+     function _create_sources_list_js(){
+        var create_sources_list = Module.cwrap('create_sources_list', 'string', []);
+        Module.print("Data!!!!! :" + create_sources_list());
+        var data = JSON.parse(create_sources_list());
+        var text = "";
+        for (var i in data) {
+            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:countries_page('"+ data[i] + "');\">" + data[i] + "</a></li>";
+            //text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:countries_page(\"" + data[i] + "\");\">" + data[i] + "</a></li>";
+//            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"manage_country.html\">" + data[i] + "</a></li>";
+        }
+              Module.print("List" + text);
+        return text;
+    }
+
+
+     function  _prepare_database_js(database_name){
+
+        var WidgetDir;
+        var ConfigFile;
+        var DBFileFS;
+        
+        try {
+            tizen.filesystem.resolve('wgt-package',
+             function(dir){
+                WidgetDir = dir;
+                Module.print('\'wgt-package\' resolved ' + WidgetDir);
+
+                    // Check file in original path 
+                    ret = FS.analyzePath(database_name);
+                    if (ret.exists) {
+                        Module.print('Original database file is done');
+                        $.mobile.changePage('manage_country.html'); //Change page view
+                        return;
+                    }
+
+                    try {
+                        Module.print("Dir path " + dir.path + " Database name " + database_name);
+                        DBFile = dir.resolve('WebContent/' + database_name);
+
+                        try {
+                            DBFile.openStream(
+                                'r',
+                                function(fileStream) {
+                                    var contents = fileStream.readBytes(fileStream.bytesAvailable);
+                                    DBFileFS = FS.createDataFile('/', database_name, contents, true, true);
+                                    fileStream.close();
+                                    Module.print('Database file is done');
+                                    $.mobile.changePage('manage_country.html'); //Change page view
+                                },
+                                function(e){
+                                    Module.print("Error" + e.message);
+                                }
+                            );
+                        } catch (exc){
+                            Module.print('read() exception:' + exc.message);
+                        }
+                    } catch (exc){
+                        Module.print('Not resolve database file  ' + exc.message + '<br/>');
+                    }
+            },
+             function(e){
+                Module.print("Error" + e.message);
+             } ,
+             'r');
+        } catch (exc) {
+            Module.print('tizen.filesystem.resolve() exception: ' + exc.message + '<br/>');
+         } 
+    }
+
+
         var gList = "";
         var current_database = "";
         $(document).delegate(
@@ -33,7 +111,7 @@
         $(document).delegate(
                 "#manage_countries","pageinit", function() {
 	                $("#manage_countries").bind("pagebeforeshow", function() {
-                    gList = _create_sources_list_js();
+                    gList = _create_countries_list_js();
                     //$("#location_manager_listview").listview("refresh");
                     $("#countries_manager_listview").html(gList).trigger("create").listview("refresh");
                  });
@@ -44,10 +122,7 @@
     <script type="text/javascript">
         function countries_page(sel_database){
             current_database = sel_database + ".db";
-            console.log('ssssssssssssssssssssss', sel_database);
-
             _prepare_database_js(current_database); 
-            console.log('ssssssssssssssssssssss');
             //$.mobile.changePage('manage_country.html'); //Change page view
         }
     </script>

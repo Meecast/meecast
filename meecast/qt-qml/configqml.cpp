@@ -714,7 +714,6 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
     //ConfigQml::Config::stationsList(*stationlist);
     saveConfig();
     refreshconfig();
-
 }
 void
 ConfigQml::saveStation(int city_id, QString city,
@@ -744,7 +743,6 @@ ConfigQml::saveStation(int city_id, QString city,
     //ConfigQml::Config::stationsList(*stationlist);
     saveConfig();
     refreshconfig();
-
 }
 
 QString

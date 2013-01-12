@@ -914,6 +914,8 @@ NavigationPane {
                 }
                 ActivityIndicator {
                     id: refresh_showing
+                    preferredWidth:  81
+                    preferredHeight: 81 
                     verticalAlignment: VerticalAlignment.Center
                     visible: main.isUpdate ? true : false
                     running: main.isUpdate ? true : false
@@ -921,8 +923,10 @@ NavigationPane {
                 }
                 ImageButton {
                     id: refreshicon
+                    preferredWidth:  81
+                    preferredHeight: 81 
                     verticalAlignment: VerticalAlignment.Center
-                    defaultImageSource: "asset:///button_icons/icon_refresh.png"
+                    defaultImageSource: "asset:///button_icons/refresh_def.png"
                     visible: main.isUpdate ? false : true
                     onClicked: {
                         main.isUpdate = true;

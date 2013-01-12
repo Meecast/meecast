@@ -58,6 +58,11 @@ Page {
             toolbarday.background = Color.create("#1f1f1f")
 	        toolbarnight.background = Color.create("#1f1f1f")
 	        toolbarclock.background = Color.create("#1f1f1f")
+
+            button_night.defaultImageSource = Config.imagespath +  "/night_def.png"
+            button_day.defaultImageSource = Config.imagespath +  "/day_def.png"
+            button_clock.defaultImageSource = Config.imagespath +  "/hourly_def.png"
+            
             day_rect.visible = true;
             current_rect.visible = true;
             main_icon.visible = true;
@@ -118,6 +123,10 @@ Page {
             toolbarnight.background = Color.create("#1f1f1f")
 	        toolbarclock.background = Color.create("#1f1f1f")
 
+            button_day.defaultImageSource = Config.imagespath +  "/day_sel.png"
+            button_night.defaultImageSource = Config.imagespath +  "/night_def.png"
+            button_clock.defaultImageSource = Config.imagespath +  "/hourly_def.png"
+
             day_rect.visible = true;
             current_rect.visible = true;
             main_icon.visible = true;
@@ -170,6 +179,10 @@ Page {
             toolbarnight.background = Color.create("#0f0f0f")
 	        toolbarclock.background = Color.create("#1f1f1f")
 
+            button_day.defaultImageSource = Config.imagespath +  "/day_def.png"
+            button_night.defaultImageSource = Config.imagespath +  "/night_sel.png"
+            button_clock.defaultImageSource = Config.imagespath +  "/hourly_def.png"
+
             day_rect.visible = true;
             current_rect.visible = true;
             main_icon.visible = true;
@@ -219,6 +232,11 @@ Page {
             toolbarday.background = Color.create("#1f1f1f")
             toolbarnight.background = Color.create("#1f1f1f")
 	        toolbarclock.background = Color.create("#0f0f0f")
+
+            button_day.defaultImageSource = Config.imagespath +  "/day_def.png"
+            button_night.defaultImageSource = Config.imagespath +  "/night_def.png"
+            button_clock.defaultImageSource = Config.imagespath +  "/hourly_sel.png"
+
 
             day_rect.visible = false;
             current_rect.visible = false;
@@ -755,6 +773,7 @@ Page {
                     layout: DockLayout {}
                     horizontalAlignment: HorizontalAlignment.Center
                     ImageButton {
+                        id: "button_day"
                         horizontalAlignment: HorizontalAlignment.Center
                         verticalAlignment: VerticalAlignment.Center     
                         preferredWidth: 40*1.6
@@ -763,15 +782,17 @@ Page {
                             day_period = "day";
                             updateperiod();
                         }
-                        defaultImageSource: Config.imagespath +  "/day.png"
+                        defaultImageSource: Config.imagespath +  "/day_def.png"
+
                     }
                     onCreationCompleted: {
                         if (day_period == "day"){
                             background = Color.create("#0f0f0f")
+                            defaultImageSource = Config.imagespath +  "/day_sel.png"
                         }else
                             background = Color.create("#1f1f1f")
+                            defaultImageSource = Config.imagespath +  "/day_def.png"
                     }
-
                 }
                 Container{
                     id: "toolbarnight"
@@ -785,6 +806,7 @@ Page {
                     layout: DockLayout {}
                     horizontalAlignment: HorizontalAlignment.Center
                     ImageButton {
+                        id: "button_night"
                         horizontalAlignment: HorizontalAlignment.Center
                         verticalAlignment: VerticalAlignment.Center     
                         preferredWidth: 40*1.6
@@ -808,6 +830,7 @@ Page {
                     layout: DockLayout {}
                     horizontalAlignment: HorizontalAlignment.Center
                     ImageButton {
+                        id: "button_clock"
                         horizontalAlignment: HorizontalAlignment.Center
                         verticalAlignment: VerticalAlignment.Center     
                         visible: (check_hours()) ? true : false

@@ -22,7 +22,7 @@
 
     <!-- Fourth digit segment of the package version. First three segments are taken from the
          <versionNumber> element.  Must be an integer from 0 to 2^16-1 -->
-   <buildId>3</buildId>>
+   <buildId>4</buildId>>
 
     <!-- Description, displayed in the BlackBerry 10 application installer.
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
@@ -55,6 +55,10 @@
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset type="Qnx/Elf" entry="true" path="arm/o.le-v7/omweather-qml">omweather-qml</asset>
        <asset path="arm/foreca/o.le-v7/forecacom" type="Qnx/Elf">forecacom</asset>
+       <asset path="arm/yrno/yrno" type="Qnx/Elf">yrno</asset>
+       <asset path="arm/gismeteo/gismeteoru" type="Qnx/Elf">gismeteoru</asset>
+       <asset path="arm/hko/hkogovhk" type="Qnx/Elf">hkogovhk</asset>
+       <asset path="arm/bomgovau/bomgovau" type="Qnx/Elf">bomgovau</asset>
     </configuration>
     <configuration id="com.qnx.qcc.toolChain.1526872727" name="Simulator-Debug">
        <platformArchitecture>x86</platformArchitecture>
@@ -89,8 +93,8 @@
 
      <!-- Locale support -->
     <asset path="translations" dest="qm">
-                                                                                  <asset path="omweather-yr-no-stations-db/data/yr.no.db">share/db/yr.no.db</asset>
-                                                                                  <asset path="omweather-yr-no-stations-db/data/yr.no.xml">share/sources/yr.no.xml</asset>
+    <asset path="omweather-yr-no-stations-db/data/yr.no.db">share/db/yr.no.db</asset>
+    <asset path="omweather-yr-no-stations-db/data/yr.no.xml">share/sources/yr.no.xml</asset>
         <include name="*.qm"/>
     </asset>
     <asset path="omweather-yr-no-stations-db/data/yr.no.xml">share/sources/yr.no.xml</asset>

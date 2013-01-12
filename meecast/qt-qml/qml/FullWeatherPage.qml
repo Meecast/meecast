@@ -654,6 +654,8 @@ Page {
                                 }
                             }
                             ImageView {
+                                 preferredWidth: 128
+                                 preferredHeight: 128
                                  imageSource: ListItemData.pict
                                  horizontalAlignment: HorizontalAlignment.Center                
                             }

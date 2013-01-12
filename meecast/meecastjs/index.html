@@ -38,7 +38,7 @@
         $(document).delegate(
                 "#manage_countries","pageinit", function() {
 	                $("#manage_countries").bind("pagebeforeshow", function() {
-                    gList = create_countries_list_js();
+                    gList = create_countries_list_js(current_database);
                     //$("#location_manager_listview").listview("refresh");
                     $("#countries_manager_listview").html(gList).trigger("create").listview("refresh");
                  });

@@ -26,11 +26,11 @@ extern "C" {
         config_is_ready = 1;
     }
     char* EMSCRIPTEN_KEEPALIVE 
-    create_countries_list(){
+    create_countries_list(char *dbase){
         fprintf(stderr,"prepare_databases is done\n");
         std::string buf;
         memset(global_temp_buffer, 0, sizeof(global_temp_buffer));
-        db = new Core::DatabaseSqlite("weather.com.db");
+        db = new Core::DatabaseSqlite(dbase);
         if (db->open_database()){
             Core::listdata * countrylist = db->create_countries_list();
             fprintf(stderr,"prepare_databases is donei2\n");

@@ -105,7 +105,7 @@ create_and_fill_config(){
 
 void mainLoop(void)
 {
-        printf("%d\n", config_is_ready);
+        //printf("%d\n", config_is_ready);
         if (config_is_ready){
             config_is_ready = 0;
             config = create_and_fill_config();
@@ -115,10 +115,12 @@ void mainLoop(void)
 int 
 main(int argc, char *argv[])
 {
-    prepare_config_js();
+   // prepare_config_js();
 
     if (stub >1){
          fprintf(stderr, "Current station %s\n",currentstationname_js());
+         prepare_config_js();
+         prepareconfig();
          create_sources_list_js();
          create_countries_list_js();
          prepare_database_js();

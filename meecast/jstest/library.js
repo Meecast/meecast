@@ -60,6 +60,19 @@ mergeInto(LibraryManager.library, {
               Module.print("List" + text);
         return text;
     },
+    create_countries_list_js: function(){
+
+        var create_countries_list = Module.cwrap('create_countries_list', 'string', []);
+        var data = JSON.parse(create_countries_list());
+        var text = "";
+        for (var i in data) {
+            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:regions_page('"+ data[i] + "');\">" + data[i] + "</a></li>";
+            //text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:countries_page(\"" + data[i] + "\");\">" + data[i] + "</a></li>";
+//            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"manage_country.html\">" + data[i] + "</a></li>";
+        }
+             Module.print("List" + text);
+        return text;
+    },
 
     prepare_database_js: function(database_name){
 
@@ -67,7 +80,6 @@ mergeInto(LibraryManager.library, {
         var ConfigFile;
         var DBFileFS;
         
-        var preparedatabase = Module.cwrap('preparedatabase', null, []);
         try {
             tizen.filesystem.resolve('wgt-package',
              function(dir){
@@ -78,7 +90,6 @@ mergeInto(LibraryManager.library, {
                     ret = FS.analyzePath(database_name);
                     if (ret.exists) {
                         Module.print('Original database file is done');
-                        preparedatabase();
                         $.mobile.changePage('manage_country.html'); //Change page view
 
                         return;
@@ -96,7 +107,6 @@ mergeInto(LibraryManager.library, {
                                     DBFileFS = FS.createDataFile('/', database_name, contents, true, true);
                                     fileStream.close();
                                     Module.print('Database file is done');
-                                    preparedatabase();
                                     $.mobile.changePage('manage_country.html'); //Change page view
                                 },
                                 function(e){
@@ -159,6 +169,7 @@ mergeInto(LibraryManager.library, {
                                 try {
                                     ConfigFile = dir.createFile('config.xml');
                                     Module.print('Create file config.xml ');
+                                   // Module["FS_createDataFile"]
                                     ConfigFileFS = FS.createDataFile('/', 'config.xml', '', true, true);
                                     prepareconfig();
                                 } catch (exc){

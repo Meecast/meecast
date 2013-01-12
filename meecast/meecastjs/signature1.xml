@@ -3113,11 +3113,7 @@
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>PNRG1AY6D0BU6lv9m4QkCMTzwvlTNeUGxbR/86j6dVY=</DigestValue>
-</Reference>
-<Reference URI="js/library.js">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>Osv/+81y0d4TMtomPR58CgUs1VhdAD6qwG0nnOC/DhI=</DigestValue>
+<DigestValue>zznjGvr3zod7eb4gv0coykwjNISDT3wzyUUdId/JE8c=</DigestValue>
 </Reference>
 <Reference URI="js/main.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -3125,7 +3121,11 @@
 </Reference>
 <Reference URI="js/meecast.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>5mIhi6Q4/qSF8KKGMzpCbNOLE+WSJVqYYzlzZ3pcYS4=</DigestValue>
+<DigestValue>pWXPxwhW6H6rLFiFjzHIxYlasBtoyOTmpa/vQfuQZzU=</DigestValue>
+</Reference>
+<Reference URI="js/library1.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>GDGCbIKj7O38jTrrLMEogcizxmuyXyBiRampCDIQwfY=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -3156,9 +3156,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-LLozYRPwjkDEVGkcULlBTLlfTpSztACiP/GTpIHzQUQ88paX/NboIlUP29bVAMQLL0fNbbMMCzzW
-bB5DErBNDYii4/NgP4CYQt0EzcEQkLsCEfRRcp0/R4+x5OYJBFiOu4/4bb0w66Nffe8zAu/NG2GP
-B0Gbdo5BK22oZpTVW8I=
+LNWO7IFLSDdTmtc9Ms2kOapZh7onDi+rFVjKS5Rk3aLL58ILKPcZ2K3ns7QulCUjur7HD8Ga52p3
+9gWtSxGTQwZQSPY85v2saA/v/b1f3fADidJ0Y4gvN+7lro/ALRkI/H8w72RKnmuhHu9IpWo1xHQW
+3QAmqv2Iw4OnsgRvlPw=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

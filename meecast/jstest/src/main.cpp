@@ -10,7 +10,7 @@
 ConfigEfl *config;
 int config_is_ready = 0;
 int stub = 1;
-Core::DatabaseSqlite *db;
+Core::DatabaseSqlite *db = NULL;
 
 char  global_temp_buffer[16384];
 
@@ -30,6 +30,10 @@ extern "C" {
         fprintf(stderr,"prepare_databases is done\n");
         std::string buf;
         memset(global_temp_buffer, 0, sizeof(global_temp_buffer));
+        if (db){
+            delete db;
+            db = NULL;
+        }
         db = new Core::DatabaseSqlite(dbase);
         if (db->open_database()){
             Core::listdata * countrylist = db->create_countries_list();

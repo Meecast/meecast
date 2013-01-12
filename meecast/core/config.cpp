@@ -42,7 +42,7 @@ Config::Config()
 {
     std::cerr<<"CONFIG CREATE111111!!!!!!!!!!!!!!"<<std::endl;
     _pathPrefix = new std::string(AbstractConfig::prefix + AbstractConfig::sharePathimage);
-    _iconset = new std::string("Meecast");
+    _iconset = new std::string("Atmos");
     _temperature_unit = new std::string("C");
     _wind_speed_unit = new std::string("m/s");
     _pressure_unit = new std::string("mbar");
@@ -316,7 +316,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _filename = new std::string;
     _filename->assign(filename);
     _pathPrefix = new std::string(AbstractConfig::prefix + AbstractConfig::sharePathimage);
-    _iconset = new std::string("Meecast");
+    _iconset = new std::string("Atmos");
     _temperature_unit = new std::string("C");
     _wind_speed_unit = new std::string("m/s");
     _pressure_unit = new std::string("mbar");

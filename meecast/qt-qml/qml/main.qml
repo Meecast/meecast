@@ -927,6 +927,7 @@ NavigationPane {
                     preferredHeight: 81 
                     verticalAlignment: VerticalAlignment.Center
                     defaultImageSource: "asset:///button_icons/refresh_def.png"
+                    pressedImageSource: "asset:///button_icons/refresh_sel.png"
                     visible: main.isUpdate ? false : true
                     onClicked: {
                         main.isUpdate = true;
@@ -951,7 +952,9 @@ NavigationPane {
                 ImageButton {
                     id: settingsicon
                     verticalAlignment: VerticalAlignment.Center     
-                    defaultImageSource: "asset:///button_icons/icon_settings.png"
+                    defaultImageSource: "asset:///button_icons/menu_def.png"
+                    pressedImageSource: "asset:///button_icons/menu_sel.png"
+
                     leftMargin: 220.0
                     horizontalAlignment: HorizontalAlignment.Right
                     onClicked: {

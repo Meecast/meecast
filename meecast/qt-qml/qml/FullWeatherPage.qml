@@ -62,6 +62,7 @@ Page {
             button_night.defaultImageSource = Config.imagespath +  "/night_def.png"
             button_day.defaultImageSource = Config.imagespath +  "/day_def.png"
             button_clock.defaultImageSource = Config.imagespath +  "/hourly_def.png"
+            button_current.defaultImageSource = Config.imagespath +  "/now_sel.png"
             
             day_rect.visible = true;
             current_rect.visible = true;
@@ -126,6 +127,7 @@ Page {
             button_day.defaultImageSource = Config.imagespath +  "/day_sel.png"
             button_night.defaultImageSource = Config.imagespath +  "/night_def.png"
             button_clock.defaultImageSource = Config.imagespath +  "/hourly_def.png"
+            button_current.defaultImageSource = Config.imagespath +  "/now_def.png"
 
             day_rect.visible = true;
             current_rect.visible = true;
@@ -182,6 +184,7 @@ Page {
             button_day.defaultImageSource = Config.imagespath +  "/day_def.png"
             button_night.defaultImageSource = Config.imagespath +  "/night_sel.png"
             button_clock.defaultImageSource = Config.imagespath +  "/hourly_def.png"
+            button_current.defaultImageSource = Config.imagespath +  "/now_def.png"
 
             day_rect.visible = true;
             current_rect.visible = true;
@@ -236,6 +239,7 @@ Page {
             button_day.defaultImageSource = Config.imagespath +  "/day_def.png"
             button_night.defaultImageSource = Config.imagespath +  "/night_def.png"
             button_clock.defaultImageSource = Config.imagespath +  "/hourly_sel.png"
+            button_current.defaultImageSource = Config.imagespath +  "/now_def.png"
 
 
             day_rect.visible = false;
@@ -743,6 +747,7 @@ Page {
                     layout: DockLayout {}
 
                     ImageButton {
+                        id: "button_current"
                         verticalAlignment: VerticalAlignment.Center
                         horizontalAlignment: HorizontalAlignment.Center
                         visible: (current && day == 0) ? true : false
@@ -752,7 +757,7 @@ Page {
                             day_period = "current";
                             updateperiod();
                         }
-                        defaultImageSource: Config.imagespath +  "/now.png"
+                        defaultImageSource: Config.imagespath +  "/now_def.png"
                     }
                     onCreationCompleted: {
                         if (day_period == "current"){
@@ -853,7 +858,8 @@ Page {
                     ImageButton {
                         id: settingsicon
                         verticalAlignment: VerticalAlignment.Center     
-                        defaultImageSource: "asset:///button_icons/icon_settings.png"
+                        defaultImageSource: "asset:///button_icons/menu_def.png"
+                        pressedImageSource: "asset:///button_icons/menu_sel.png"
                         horizontalAlignment: HorizontalAlignment.Right
                         onClicked: {
                             var newPage = settingspageDefinition.createObject();

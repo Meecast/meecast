@@ -644,8 +644,8 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj10->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
-                 if ((char)buffer[j] == -30 ||  buffer[j] == '-' || buffer[j] == '&' || (buffer[j]>='0' && buffer[j]<='9')){
-                     if ((char)buffer[j] == -30 || buffer[j] == '&'){
+                 if ((char)buffer[j] == -30 || (uint)buffer[j] == 226 ||  buffer[j] == '-' || buffer[j] == '&' || (buffer[j]>='0' && buffer[j]<='9')){
+                     if ((char)buffer[j] == -30 || buffer[j] == '&' || (uint)buffer[j] == 226){
                         sprintf(temp_buffer,"%s-",temp_buffer);
                      }
                      else
@@ -1093,7 +1093,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
              memset(temp_buffer, 0, sizeof(temp_buffer));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
                  if ((char)buffer[j] == -30 || (uint)buffer[j] == 226 ||  buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9')){
-                     if ((char)buffer[j] == -30 || (uint)buffer[j] == 226)
+                     if ((char)buffer[j] == -30 || buffer[j] == '&' || (uint)buffer[j] == 226)
                         sprintf(temp_buffer,"%s-",temp_buffer);
                      else
                         sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);

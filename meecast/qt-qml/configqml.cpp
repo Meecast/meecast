@@ -692,7 +692,6 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
     std::cerr<<"ConfigQml::saveStation4"<<std::endl;
     saveConfig();
     refreshconfig();
-
 }
 void
 ConfigQml::saveStation(int city_id, QString city,

@@ -3121,7 +3121,7 @@
 </Reference>
 <Reference URI="js/meecast.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>pWXPxwhW6H6rLFiFjzHIxYlasBtoyOTmpa/vQfuQZzU=</DigestValue>
+<DigestValue>mWXLSLwaR1BNTeQ8MZYuvmyp7Cs1cOwOoDpo7D5wb0A=</DigestValue>
 </Reference>
 <Reference URI="js/library1.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -3156,9 +3156,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-LNWO7IFLSDdTmtc9Ms2kOapZh7onDi+rFVjKS5Rk3aLL58ILKPcZ2K3ns7QulCUjur7HD8Ga52p3
-9gWtSxGTQwZQSPY85v2saA/v/b1f3fADidJ0Y4gvN+7lro/ALRkI/H8w72RKnmuhHu9IpWo1xHQW
-3QAmqv2Iw4OnsgRvlPw=
+dtnF8Ogt4Ay6Ebf7X+03YyehDq5HFBsdn4ChSfKWbsiecV1xOETrvbtwQb/EHEII9cXD7TWO+5Nx
+dEYac/wKUYMAVZ3j1jgctZseXZDnLzB+nl2OVD1hWwMHPWpk1cty9tKljNyaVreemsXejdZ6+TUt
+a0wBrGPgpGUWI0jCxBI=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

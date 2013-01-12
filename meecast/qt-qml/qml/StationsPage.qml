@@ -12,6 +12,7 @@ Page {
     actions: [
         ActionItem {
             title:  Config.tr("Add")
+            imageSource: "asset:///button_icons/add_def.png"
             onTriggered: {  
                 var newPage = nextpage.createObject();
                 rootWindow.push(newPage);

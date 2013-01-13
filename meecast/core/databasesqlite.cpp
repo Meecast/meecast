@@ -45,11 +45,17 @@ DatabaseSqlite::~DatabaseSqlite()
     delete databasename;
     if (!db) sqlite3_close(db);
 }
+
 void
 DatabaseSqlite::set_databasename(const std::string& filename)
 {
     databasename->assign(filename);
+}
 
+std::string&
+DatabaseSqlite::get_databasename()
+{
+    return *filename;
 }
 
 bool

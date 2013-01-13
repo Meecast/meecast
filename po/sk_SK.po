@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-03 18:58+0100\n"
+"POT-Creation-Date: 2013-01-13 21:34+0300\n"
 "PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -654,11 +654,11 @@ msgstr "Odstrániť miesto?"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
-"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, "
-"<andrew.zhilin@ovi.com>\n"
+"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
+"zhilin@ovi.com>\n"
 msgstr ""
-"Návrh UI a predvolenej témy ikon: Copyright 2006-2011 Andrew Zhilin, "
-"<andrew.zhilin@ovi.com>\n"
+"Návrh UI a predvolenej témy ikon: Copyright 2006-2011 Andrew Zhilin, <andrew."
+"zhilin@ovi.com>\n"
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
 msgid "Detailed"
@@ -844,6 +844,11 @@ msgstr "Nepodarilo sa inicializovať GConf. Konfigurácia nebola uložená.\n"
 msgid "Fair"
 msgstr "Pekne"
 
+#: omweather/src/hash.data:324
+#, fuzzy
+msgid "Feels like"
+msgstr "Na pocit:"
+
 #: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
 msgid "Feels like:"
 msgstr "Na pocit:"
@@ -887,7 +892,8 @@ msgstr "Prvá štvrť"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:153
 #: meecast/qt-qml/qml/FullWeatherPage.qml:210
 #: meecast/qt-qml/qml/FullWeatherPage.qml:259
-msgid "Flike:"
+#, fuzzy
+msgid "Flike"
 msgstr "Na pocit:"
 
 #: omweather/src/hash.data:84
@@ -934,7 +940,8 @@ msgstr ""
 msgid "Forecast"
 msgstr "Predpoveď"
 
-#: omweather/src/weather-popup.c:1433 omweather/src/weather-simple-popup.c:1028
+#: omweather/src/weather-popup.c:1433
+#: omweather/src/weather-simple-popup.c:1028
 msgid "Forecast at: "
 msgstr "Predpoveď na: "
 
@@ -1098,11 +1105,16 @@ msgstr "Vysoké"
 msgid "Hours"
 msgstr "Hodiny"
 
-#: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
-#: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:180 meecast/qt-qml/qml/FullWeatherPage.qml:135
+#: meecast/qt-qml/qml/FullWeatherPage.qml:135
 #: meecast/qt-qml/qml/FullWeatherPage.qml:192
 #: meecast/qt-qml/qml/FullWeatherPage.qml:241
+#, fuzzy
+msgid "Humidity"
+msgstr "Vlhkosť:"
+
+#: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
+#: meecast/netbook-UX/meego-panel-omweather.cpp:722
+#: meecast/qt-qml/dataitem.cpp:180
 msgid "Humidity:"
 msgstr "Vlhkosť:"
 
@@ -1122,12 +1134,14 @@ msgstr "Ikony"
 msgid "Iconset"
 msgstr "Téma ikon"
 
-#: omweather/src/hash.data:95
+#: omweather/src/hash.data:95 meecast/qt-qml/qml/AboutPage.qml:244
 msgid "Iconsets"
 msgstr "Témy ikon"
 
-#: meecast/qt-qml/qml/VisualsPage.qml:64 meecast/qt-qml/qml/VisualsPage.qml:136
-#: meecast/qt-qml/qml/VisualsPage.qml:163 meecast/qt-qml/qml/VisualsPage.qml:226
+#: meecast/qt-qml/qml/VisualsPage.qml:64
+#: meecast/qt-qml/qml/VisualsPage.qml:136
+#: meecast/qt-qml/qml/VisualsPage.qml:163
+#: meecast/qt-qml/qml/VisualsPage.qml:226
 msgid "Information"
 msgstr "Informácie"
 
@@ -1186,7 +1200,7 @@ msgstr "Rozloženie:"
 msgid "Lead designer"
 msgstr "Vedúci návrhár"
 
-#: meecast/qt-qml/qml/AboutPage.qml:244
+#: meecast/qt-qml/qml/AboutPage.qml:280
 msgid "License"
 msgstr "Licencia"
 
@@ -1288,11 +1302,11 @@ msgstr "Nízké"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
-"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
-"<tanyshk@gmail.com>\n"
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
+"com>\n"
 msgstr ""
-"Správca: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
-"<tanyshk@gmail.com>\n"
+"Správca: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
+"com>\n"
 
 #: omweather/src/hash.data:123 meecast/qt-qml/qml/StationsPage.qml:153
 msgid "Manage locations"
@@ -1604,7 +1618,8 @@ msgid "OMWeather settings"
 msgstr "Nastavenie OMWeather"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:206
-#: meecast/qt-qml/qml/VisualsPage.qml:269 meecast/qt-qml/qml/VisualsPage.qml:305
+#: meecast/qt-qml/qml/VisualsPage.qml:269
+#: meecast/qt-qml/qml/VisualsPage.qml:305
 msgid "Ok"
 msgstr "Ok"
 
@@ -2188,7 +2203,7 @@ msgstr "Krátky"
 msgid "Show arrows"
 msgstr "Zobraziť šípky"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:600
+#: meecast/qt-qml/qml/FullWeatherPage.qml:601
 msgid "Show on Map"
 msgstr "Zobraziť na mape"
 
@@ -2419,7 +2434,7 @@ msgstr "Poďakovanie"
 msgid "The weather has been updated."
 msgstr "Údaje o počasí boli aktualizované."
 
-#: meecast/qt-qml/qml/AboutPage.qml:253
+#: meecast/qt-qml/qml/AboutPage.qml:289
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2580,7 +2595,8 @@ msgstr "Viditeľné položky:"
 msgid "Visible units"
 msgstr "Viditeľné jednotky"
 
-#: omweather/src/weather-popup.c:1288 meecast/qt-qml/qml/FullWeatherPage.qml:169
+#: omweather/src/weather-popup.c:1288
+#: meecast/qt-qml/qml/FullWeatherPage.qml:169
 msgid "Visible:"
 msgstr "Viditeľnosť:"
 
@@ -2676,9 +2692,14 @@ msgstr "Štýl widgetu a téma ikon"
 msgid "Wind"
 msgstr "Vietor"
 
-#: omweather/src/hash.data:307 meecast/qt-qml/qml/FullWeatherPage.qml:138
+#: meecast/qt-qml/qml/FullWeatherPage.qml:138
 #: meecast/qt-qml/qml/FullWeatherPage.qml:195
 #: meecast/qt-qml/qml/FullWeatherPage.qml:244
+#, fuzzy
+msgid "Wind direction"
+msgstr "Smer vetra:"
+
+#: omweather/src/hash.data:307
 msgid "Wind direction:"
 msgstr "Smer vetra:"
 
@@ -2996,35 +3017,35 @@ msgstr "názov stanice"
 msgid "steady"
 msgstr "ustálený"
 
-#: omweather/src/hash.data:324
+#: omweather/src/hash.data:325
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:325
+#: omweather/src/hash.data:326
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:326
+#: omweather/src/hash.data:327
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:327
+#: omweather/src/hash.data:328
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:328
+#: omweather/src/hash.data:329
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:332
 msgid "Ю-З"
 msgstr "Ю-З"
 

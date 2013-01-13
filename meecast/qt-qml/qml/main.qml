@@ -548,7 +548,7 @@ NavigationPane {
                                                     Container{
                                                         id: wind_direction
                                                         layoutProperties: AbsoluteLayoutProperties {
-                                                            positionY: 50.0
+                                                            positionY: 0.0 + ListItemData.humidity == "N/A" ? 0.0 : 50.0; 
                                                         }
 
                                                         visible: ListItemData.wind_direction == Qt.Config.tr("N/A") ? false : true; 
@@ -602,7 +602,7 @@ NavigationPane {
                                                         verticalAlignment: VerticalAlignment.Center
                                                         horizontalAlignment: HorizontalAlignment.Left
                                                         layoutProperties: AbsoluteLayoutProperties {
-                                                            positionY: 100.0
+                                                            positionY: 0.0 + (ListItemData.humidity == "N/A" ? 0.0 : 50.0) + (ListItemData.wind_direction == Qt.Config.tr("N/A") ? 0.0 : 50.0); 
                                                         }
 
                                                         layout: AbsoluteLayout {
@@ -690,7 +690,7 @@ NavigationPane {
                                                 horizontalAlignment: HorizontalAlignment.Center
                                                 textStyle {
                                                     fontSize: FontSize.PointValue
-                                                    fontSizeValue: 10.0
+                                                    fontSizeValue: 8.0
                                                     color: Color.White
                                                 }
                                                 text: ListItemData.stationname
@@ -731,7 +731,7 @@ NavigationPane {
                                             horizontalAlignment: HorizontalAlignment.Left
                                             preferredWidth: 768 
                                             layoutProperties: AbsoluteLayoutProperties {
-                                                positionY: 120.0
+                                                positionY: 80.0
                                             }
                                             Label {
                                                 visible: ListItemData.fulldate != "" ? true :false
@@ -828,6 +828,7 @@ NavigationPane {
                                                     textStyle.textAlign: TextAlign.Right
                                                     textStyle {
                                                         base: SystemDefaults.TextStyles.BodyText
+                                                        fontWeight: FontWeight.W100
                                                         color: Color.create(ListItemData.hi_temp_color)
                                                     }
                                                 }
@@ -838,6 +839,7 @@ NavigationPane {
                                                     textStyle.textAlign: TextAlign.Right
                                                     textStyle {
                                                         base: SystemDefaults.TextStyles.BodyText
+                                                        fontWeight: FontWeight.W100
                                                         color: Color.create("#889397")
                                                     }
                                                 }

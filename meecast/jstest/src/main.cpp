@@ -82,6 +82,23 @@ extern "C" {
         snprintf(global_temp_buffer, sizeof(global_temp_buffer) -1, "%s", buf.c_str());
         return global_temp_buffer;
     }
+    char* EMSCRIPTEN_KEEPALIVE
+    create_regions_list(void){
+        std::string buf;
+        memset(global_temp_buffer, 0, sizeof(global_temp_buffer));
+        //app->country_id = atoi((char *)(countrylist->at(app->index_list-1).first.c_str()));
+        //app->country = new std::string (countrylist->at(app->index_list - 1).second.c_str());
+        Core::listdata * regionlist = db->create_region_list(1);
+        buf = "[";
+        for (short i=0; i < regionlist->size();i++){
+          if (i !=0)
+              buf = buf + ",";
+          buf = buf + "\""+ (char *)regionlist->at(i).second.c_str() +"\"";
+        }
+        buf = buf + "]";
+        snprintf(global_temp_buffer, sizeof(global_temp_buffer) -1, "%s", buf.c_str());
+        return global_temp_buffer;
+    }
 
 }
 

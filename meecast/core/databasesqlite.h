@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -58,6 +58,7 @@ public:
     DatabaseSqlite(const std::string& filename);
     ~DatabaseSqlite();
     void set_databasename(const std::string& filename);
+    std::string& get_databasename();
     bool open_database();
     listdata* create_countries_list();
     listdata* create_region_list(int country_id);

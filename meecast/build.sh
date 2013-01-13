@@ -14,13 +14,13 @@ CC=/home/additional_disk/emc/clang+llvm-3.0-i386-linux-Ubuntu-11_10/bin/clang
 #/home/additional_disk/emc/emscripten/emmake make
 #cd -
 cd core
-#/home/additional_disk/emc/emscripten/emconfigure ./autogen.sh
-#/home/additional_disk/emc/emscripten/emconfigure ./configure
+/home/additional_disk/emc/emscripten/emconfigure ./autogen.sh
+/home/additional_disk/emc/emscripten/emconfigure ./configure
 /home/additional_disk/emc/emscripten/emmake make
 cd -
 cd jstest
-#/home/additional_disk/emc/emscripten/emconfigure ./autogen.sh
-#/home/additional_disk/emc/emscripten/emconfigure ./configure
+/home/additional_disk/emc/emscripten/emconfigure ./autogen.sh
+/home/additional_disk/emc/emscripten/emconfigure ./configure
 /home/additional_disk/emc/emscripten/emmake make
 #/home/additional_disk/emc/emscripten/emcc  -s EXPORTED_FUNCTIONS="['_main', '_prepareconfig', '_prepare_database_js', '_current_station_name', '_create_sources_list', '_currentstationname_js']" --minify 1 -O0 ../core/libxml2/.libs/libxml2.a \
 /home/additional_disk/emc/emscripten/emcc  -s EXPORTED_FUNCTIONS="['_main', '_prepareconfig',  '_prepare_config_js', '_prepare_database_js', '_current_station_name', '_create_sources_list', '_currentstationname_js']"  --minify 1  -O2 --closure 0  ../core/libxml2/.libs/libxml2.a \

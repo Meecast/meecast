@@ -349,7 +349,6 @@ Station::Station(const std::string& source_name, const std::string& id,
         /* To do */
         /* Check connection and if force true update connection */
         force = false;
-<<<<<<< HEAD
         if  (this->detailURL() != ""){
             Downloader::downloadData(this->fileName()+".detail.orig", this->detailURL(), this->cookie(), std::string(""));
             command =  std::string(std::string(this->converter().c_str()) + " " + " " +  std::string(this->fileName().c_str()) + ".orig " + std::string(this->fileName().c_str()) +" " + std::string(this->fileName().c_str()) + ".detail.orig");

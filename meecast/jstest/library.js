@@ -70,6 +70,18 @@ mergeInto(LibraryManager.library, {
             //text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:countries_page(\"" + data[i] + "\");\">" + data[i] + "</a></li>";
 //            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"manage_country.html\">" + data[i] + "</a></li>";
         }
+        return text;
+    },
+    create_regions_list_js: function(){
+
+        var create_regions_list = Module.cwrap('create_regions_list', 'string', []);
+        var data = JSON.parse(create_regions_list());
+        var text = "";
+        for (var i in data) {
+            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:regions_page('"+ data[i] + "');\">" + data[i] + "</a></li>";
+            //text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:countries_page(\"" + data[i] + "\");\">" + data[i] + "</a></li>";
+//            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"manage_country.html\">" + data[i] + "</a></li>";
+        }
              Module.print("List" + text);
         return text;
     },

@@ -27,10 +27,14 @@ extern "C" {
     }
     char* EMSCRIPTEN_KEEPALIVE 
     create_countries_list(char *dbase){
-        fprintf(stderr,"prepare_databases is done\n");
+        fprintf(stderr,"prepare_databases is done %p\n", db);
         std::string buf;
         memset(global_temp_buffer, 0, sizeof(global_temp_buffer));
         if (db){
+            if (dbase && db->get_databasename().c_str() && strcmp(dbase,db->get_databasename().c_str())){
+                fprintf(stderr, "file :%s\n", db->get_databasename().c_str()); 
+                remove (db->get_databasename().c_str());
+            }
             delete db;
             db = NULL;
         }

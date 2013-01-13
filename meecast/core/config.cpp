@@ -561,7 +561,8 @@ Config::LoadConfig(){
        xmlNodePtr root = xmlDocGetRootElement(_doc);
        if (!root)
            return;
-       std::string   source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, cookie;
+        std::string source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, mapURL, cookie ;
+        double latitude, longitude;
        for(xmlNodePtr p = root->children; p; p = p->next) {
             if (p->type != XML_ELEMENT_NODE)
                 continue;
@@ -601,12 +602,19 @@ Config::LoadConfig(){
                         forecastURL = std::string((char *)xmlNodeGetContent(p1)); 
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"cookie"))
                         cookie = std::string((char *)xmlNodeGetContent(p1)); 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"map_url"))
+                        mapURL = std::string((char *)xmlNodeGetContent(p1)); 
+
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"detail_url"))
                         detailURL = std::string((char *)xmlNodeGetContent(p1)); 
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"view_url"))
                         viewURL = std::string((char *)xmlNodeGetContent(p1)); 
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"converter"))
                         converter = std::string((char *)xmlNodeGetContent(p1)); 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"latitude"))
+                        latitude  = atof((char *)xmlNodeGetContent(p1)); 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"longitude"))
+                        latitude  = atof((char *)xmlNodeGetContent(p1)); 
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"gps")){
                         if(!xmlStrcmp(xmlNodeGetContent(p1),(const xmlChar*)"true"))
                             gps = true;
@@ -620,6 +628,9 @@ Config::LoadConfig(){
                   //      viewURL.replace("#","/");
 
                 }
+
+
+
                 Station *st = new Station(source_name,
                                       station_id,
                                       station_name,
@@ -628,8 +639,12 @@ Config::LoadConfig(){
                                       forecastURL,
 				                      detailURL,
                                       viewURL,
+                                      mapURL,
                                       cookie,
-                                      gps);
+                                      gps,
+                                      latitude,
+                                      longitude);
+
                      st->fileName(fileName);
                      st->converter(converter);
                      _stations->push_back(st);

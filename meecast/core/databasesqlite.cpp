@@ -55,7 +55,7 @@ DatabaseSqlite::set_databasename(const std::string& filename)
 std::string&
 DatabaseSqlite::get_databasename()
 {
-    return *filename;
+    return *databasename;
 }
 
 bool

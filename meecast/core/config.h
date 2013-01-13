@@ -38,6 +38,7 @@
 #endif
 #include "parser.h"
 #include "stationlist.h"
+#include "station.h"
 extern "C" {
     extern void save_config_js();
 }

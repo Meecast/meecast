@@ -71,7 +71,6 @@ namespace Core {
                 QDomElement el = n.toElement();
                 QString tag = el.tagName();
 
-<<<<<<< HEAD
                 if (tag == "name"){
                     _name->assign(el.text().toStdString());
                 }else if (tag == "logo"){
@@ -85,52 +84,14 @@ namespace Core {
                 }else if (tag == "forecast"){
                     if (el.hasAttribute("url"))
                         _url_template->assign(el.attribute("url").toStdString());
+                }else if (tag == "mapurl"){
+                    if (el.hasAttribute("url"))
+                        _url_for_map->assign(el.attribute("url").toStdString());
                 }else if (tag == "detail"){
                     if (el.hasAttribute("url")){
                         _hasDetail = (el.text() == "true") ? true : false;
                         _url_detail_template->assign(el.attribute("url").toStdString());
-=======
-            if(1){
-                #ifdef LIBXML
-                //Walk the tree:
-                const xmlpp::Node* pNode = parser->get_document()->get_root_node(); //deleted by DomParser.
-                processNode(pNode);
-                #else //LIBXML
-
-                QDomElement root = _doc.documentElement();
-                QDomNode n = root.firstChild();
-                while (!n.isNull()){
-                    QDomElement el = n.toElement();
-                    QString tag = el.tagName();
-
-                    if (tag == "name"){
-                        _name->assign(el.text().toStdString());
-                    }else if (tag == "logo"){
-                        _logo->assign(el.text().toStdString());
-                    }else if (tag == "search"){
-                        _hasSearch = (el.text() == "true") ? true : false;
-                    }else if (tag == "library"){
-                        _library->assign(el.text().toStdString());
-                    }else if (tag == "binary"){
-                        _binary->assign(el.text().toStdString());
-                    }else if (tag == "forecast"){
-                        if (el.hasAttribute("url"))
-                            _url_template->assign(el.attribute("url").toStdString());
-                    }else if (tag == "detail"){
-                        if (el.hasAttribute("url")){
-                            _hasDetail = (el.text() == "true") ? true : false;
-                            _url_detail_template->assign(el.attribute("url").toStdString());
-                        }
-                    }else if (tag =="showurl"){
-                        if (el.hasAttribute("url"))
-                            _url_for_view->assign(el.attribute("url").toStdString());
-                    }else if (tag =="mapurl"){
-                        if (el.hasAttribute("url"))
-                            _url_for_map->assign(el.attribute("url").toStdString());
-                    }else if (tag =="cookie"){
-                        _cookie->assign(el.text().toStdString());
->>>>>>> master
-                    }
+                   }
                 }else if (tag =="showurl"){
                     if (el.hasAttribute("url"))
                         _url_for_view->assign(el.attribute("url").toStdString());
@@ -251,14 +212,9 @@ namespace Core {
         delete _url_template;
         delete _url_detail_template;
         delete _url_for_view;
-<<<<<<< HEAD
+        delete _url_for_map;
 //        if(_libraryHandler)
 //            dlclose(_libraryHandler);
-=======
-        delete _url_for_map;
-        if(_libraryHandler)
-            dlclose(_libraryHandler);
->>>>>>> master
     }
 ////////////////////////////////////////////////////////////////////////////////
     Source& Source::operator=(const Source& source){

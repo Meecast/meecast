@@ -43,6 +43,15 @@
                     $("#countries_manager_listview").html(gList).trigger("create").listview("refresh");
                  });
                  });
+        $(document).delegate(
+                "#manage_regions","pageinit", function() {
+	                $("#manage_regions").bind("pagebeforeshow", function() {
+                    gList = create_regions_list_js(current_database);
+                    //$("#location_manager_listview").listview("refresh");
+                    $("#regions_manager_listview").html(gList).trigger("create").listview("refresh");
+                 });
+                 });
+
 
     </script>
 

@@ -1,5 +1,5 @@
 
-QT += declarative 
+QT += declarative network
 
 TEMPLATE = lib
 #TEMPLATE = app
@@ -7,10 +7,13 @@ CONFIG += plugin \
     qdbus \
     gui \
     link_pkgconfig \
+    mobility \
     meegotouch
 
-HEADERS = meegotouchplugin.h dbusadaptor.h eventfeedif.h
-SOURCES = meegotouchplugin.cpp dbusadaptor.cpp eventfeedif.cpp
+MOBILITY = publishsubscribe
+
+HEADERS = meegotouchplugin.h dbusadaptor.h eventfeedif.h  weatherdataif.h
+SOURCES = meegotouchplugin.cpp dbusadaptor.cpp eventfeedif.cpp  weatherdataif.cpp
 
 
 TARGET = $$qtLibraryTarget(events-meecast)
@@ -32,3 +35,7 @@ package.files = *.deb
 
 datasmallcontour.files += data/smallcontour/*.png
 datasmallcontour.path = /opt/com.meecast.omweather/share/images/smallcontour
+
+contextreg.files = data/meecast.context
+contextreg.path = /usr/share/contextkit/providers
+INSTALLS += contextreg

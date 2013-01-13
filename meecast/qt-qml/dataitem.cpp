@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -39,6 +39,7 @@ DataItem::DataItem(const Core::Data* data):QObject(),Core::Data(data){
     temperatureunit = "C";
     windunit = "m/c";
     pressureunit = "mbar";
+    visibleunit = "m";
 }
 void
 DataItem::update(QString filename)
@@ -76,10 +77,12 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[Temp_loRole] = "temp_low";
     names[Temp_Role] = "temp";
     names[IconRole] = "pict";
+    names[UVindexRole] = "uv_index";
     names[Wind_directionRole] = "wind_direction";
     names[Wind_speedRole] = "wind_speed";
     names[Wind_gustRole] = "wind_gust";
     names[HumidityRole] = "humidity";
+    names[VisibleRole] = "visible";
     names[DescriptionRole] = "description";
     names[CurrentRole] = "current";
     names[DateRole] = "date";
@@ -101,6 +104,8 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[WindSpeedLabelRole] = "wind_speed_label";
     names[PressureLabelRole] = "pressure_label";
     names[NowLabelRole] = "now_label";
+    names[MapPatternRole] = "map_pattern";
+    names[CountOfMapsRole] = "count_of_maps";
     return names;
 }
 int
@@ -135,6 +140,10 @@ QVariant DataItem::data(int role)
         return current();
     case DescriptionRole:
         return description();
+    case UVindexRole:
+        return uv_index();
+    case VisibleRole:
+        return visible();
     case DateRole:
         return date();
     case ShortDateRole:
@@ -159,6 +168,10 @@ QVariant DataItem::data(int role)
         return flike();
     case PpcpRole:
         return ppcp();
+    case MapPatternRole:
+        return map_pattern();
+    case CountOfMapsRole:
+        return count_of_maps();
     case LastUpdateRole:
         return lastupdate();
     case TemperatureLabelRole:
@@ -245,6 +258,33 @@ DataItem::wind_direction() {
 }
 
 QString
+DataItem::map_pattern() {
+    QString c;
+    c = QString(DataItem::Data::MapPattern().c_str());
+    return c;
+}
+
+QString
+DataItem::count_of_maps() {
+    char map_url[4096];
+    char number[5];
+    int i;
+    QString c;
+    std::cerr<<"Count of Maps"<<std::endl;
+    for (i=4; i>=0; i--){
+        std::cerr<<MapPattern().c_str()<<std::endl;
+        snprintf(number, sizeof(number) -1, "%i", i);
+        snprintf(map_url, sizeof(map_url)-1, MapPattern().c_str(), number);
+        
+        std::cerr<<map_url<<std::endl;
+        std::ifstream test(map_url);
+        if (test.good())
+            break;
+    }
+    return c.number(i);
+}
+
+QString
 DataItem::wind_speed() {
     QString c;
     DataItem::Data::WindSpeed().units(windunit.toStdString());
@@ -309,6 +349,8 @@ DataItem::current()
 QString
 DataItem::description()
 {
+    if (DataItem::Data::Text() == "")
+        return QString(""); 
     return QString(QString::fromUtf8(_(DataItem::Data::Text().c_str())));
 }
 QString
@@ -414,6 +456,35 @@ DataItem::ppcp() {
         return c;
     }
     return c.number((DataItem::Data::Ppcp()), 'f', 0);
+}
+
+QString
+DataItem::uv_index() {
+    QString c;
+    if (DataItem::Data::UVindex() == INT_MAX){
+        c = "N/A";
+        return c;
+    }
+    c = c.number((DataItem::Data::UVindex()), 'i', 0);
+    switch (DataItem::Data::UVindex()){
+        case 0: c = c + " " + QString::fromUtf8(_("(Low)")); break;
+        case 1: c = c + " " + QString::fromUtf8(_("(Low)")); break;
+        case 4: c = c + " " + QString::fromUtf8(_("(Moderate)")); break;
+        case 5: c = c + " " + QString::fromUtf8(_("(Moderate)")); break;
+    }
+    return c;
+}
+
+QString
+DataItem::visible() {
+    QString c;
+    if (DataItem::Data::ViSible().value() == INT_MAX){
+        c = "N/A";
+        return c;
+    }
+    DataItem::Data::ViSible().units(visibleunit.toStdString());
+    c = c.number(DataItem::Data::ViSible().value(), 'f', 0);
+    return c;
 }
 
 void

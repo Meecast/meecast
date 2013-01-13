@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -28,6 +28,7 @@
 /*******************************************************************************/
 
 #include "updatethread.h"
+#include "configqml.h"
 
 UpdateThread::UpdateThread(QObject *parent) :
     QThread(parent)
@@ -37,9 +38,9 @@ UpdateThread::UpdateThread(QObject *parent) :
 void
 UpdateThread::run()
 {
-    Core::Config *config = NULL;
+    ConfigQml *config = NULL;
     try{
-        config = Core::Config::Instance(Core::AbstractConfig::getConfigPath()+
+        config = ConfigQml::Instance(Core::AbstractConfig::getConfigPath()+
                                    "config.xml",
                                    Core::AbstractConfig::prefix+
                                    Core::AbstractConfig::schemaPath+
@@ -47,14 +48,15 @@ UpdateThread::run()
     }
     catch(const std::string &str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
-        config =  Core::Config::Instance();
+        config =  ConfigQml::Instance();
         config->saveConfig();
     }
     catch(const char *str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
-        config =  Core::Config::Instance();
+        config =  ConfigQml::Instance();
         config->saveConfig();
     }
+    /* std::cerr<<"Size of StationList "<< config->stationsList().size()<<std::endl; */
     for (short i=0; i < config->stationsList().size();i++){
         config->stationsList().at(i)->updateData(true);
     }

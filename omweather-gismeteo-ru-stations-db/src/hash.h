@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2009 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2009 Pavel Fialko
  * 	for the code
  *        
@@ -30,8 +30,17 @@
 #define _hash_h 1
 /*******************************************************************************/
 /*******************************************************************************/
-GHashTable* hash_description_gismeteo_table_create(void);
-GHashTable* hash_icons_gismeteo_table_create(void);
-gpointer hash_gismeteo_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
+#ifdef GLIB
+    GHashTable* hash_description_gismeteo_table_create(void);
+    GHashTable* hash_icons_gismeteo_table_create(void);
+    gchar * hash_gismeteo_table_find(GHashTable *hash, char *key, gboolean search_short_name);
+#endif
+#ifdef QT    
+#include <QHash>
+   QHash<QString, QString> *hash_icons_gismeteo_table_create(void);
+   QHash<QString, QString> *hash_description_gismeteo_table_create(void);
+   QString hash_gismeteo_icon_table_find(QHash<QString, QString> *hash, char *key);
+   QString hash_gismeteo_description_table_find(QHash<QString, QString> *hash, char *key);
+#endif
 /*******************************************************************************/
 #endif

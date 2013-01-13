@@ -5,6 +5,7 @@ CONFIG += ordered
 #SUBDIRS += core qt-qml meego-mpl
 SUBDIRS += core qt-qml xml-qml meegotouchplugin predeamon
 
+
 CONFIG(meegopanel):SUBDIRS += netbook-UX
 CONFIG(UXpanel):SUBDIRS += meego-UX-panel 
 #system(pkg-config --exists meego-panel) {

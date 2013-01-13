@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -122,15 +122,17 @@ namespace Core {
                     forecast_data->Icon(el.text().toInt());
                 }else if (tag == "description"){
                     forecast_data->Text(el.text().toStdString());
+                }else if (tag == "uv_index"){
+                    forecast_data->UVindex(el.text().toInt());
                 }else if (tag == "humidity"){
                     forecast_data->Humidity(el.text().toInt());
                 }else if (tag == "wind_speed"){
                     if (el.text() == "calm")
-                        //forecast_data->WindSpeed(0);
                         forecast_data->WindSpeed().value((float)0);
                     else
-                        //forecast_data->WindSpeed(el.text().toFloat());
                         forecast_data->WindSpeed().value(el.text().toFloat());
+                }else if (tag == "visible"){
+                    forecast_data->ViSible().value(el.text().toFloat());
                 }else if (tag == "wind_direction"){
                     forecast_data->WindDirection(el.text().toStdString());
                 }else if (tag == "flike"){

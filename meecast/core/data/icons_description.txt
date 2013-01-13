@@ -47,4 +47,3 @@ na - Not Available
 45 - Scattered Showers Night
 46 - Snowy Night
 47 - Scattered Thunderstorms Night
-

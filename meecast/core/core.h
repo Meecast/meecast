@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -41,6 +41,7 @@
 #include "sourcelist.h"
 #include "datalist.h"
 #include "dataparser.h"
+#include "visible.h"
 #include "temperature.h"
 #include "pressure.h"
 #include "windspeed.h"
@@ -50,7 +51,7 @@
 #include "databaseabstract.h"
 #include "downloader.h"
 
-#define MEECAST_VERSION "0.6.1"
+#define MEECAST_VERSION "0.6.10"
 namespace Core{
     class Connection;
     class AbstractConfig;
@@ -67,6 +68,7 @@ namespace Core{
     class DatabaseSqlite;
     class DatabaseAbstract;
     class Downloader;
+    class Visible;
 };
 ////////////////////////////////////////////////////////////////////////////////
 #endif // CORE_H

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<provider bus="session" service="com.omweather.meecast.MeeCast">
+	<key name="/Weather/Station" />
+    <key name="/Weather/Temperature" />
+    <key name="/Weather/LowTemperature" />
+    <key name="/Weather/HighTemperature" />
+    <key name="/Weather/CurrentWeather" />
+    <key name="/Weather/TimeUpdatingForecast" />
+    <key name="/Weather/IconPath" />
+    <key name="/Weather/Description" />
+</provider>
+

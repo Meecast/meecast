@@ -909,6 +909,7 @@ fill_detail_data(htmlDocPtr doc, GHashTable *hash_for_icons, GHashTable *hash_fo
     GHashTable *current_weather = NULL;
     gint size;
 
+    fprintf(stderr, "parse_and_write_detail_data\n");
    /* Create xpath evaluation context */
    xpathCtx = xmlXPathNewContext(doc);
    if(xpathCtx == NULL) {

@@ -1,6 +1,6 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
  * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
@@ -34,6 +34,7 @@
 #include <iostream>
 #include <string.h>
 #include <fstream>
+#include "databasesqlite.h"
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{  
     Config* Config::_self;
@@ -48,6 +49,7 @@ Config::Config()
     _temperature_unit = new std::string("C");
     _wind_speed_unit = new std::string("m/s");
     _pressure_unit = new std::string("mbar");
+    _visible_unit = new std::string("m");
     _update_connect = false;
     _fullscreen = false;
     _lockscreen = false;
@@ -98,6 +100,11 @@ Config::saveConfig()
 
     el = doc.createElement("pressure_unit");
     t = doc.createTextNode(QString::fromStdString(*_pressure_unit));
+    el.appendChild(t);
+    root.appendChild(el);
+
+    el = doc.createElement("visible_unit");
+    t = doc.createTextNode(QString::fromStdString(*_visible_unit));
     el.appendChild(t);
     root.appendChild(el);
 
@@ -201,32 +208,50 @@ Config::saveConfig()
         t = doc.createTextNode(QString::fromStdString((*i)->cookie()));
         el.appendChild(t);
         st.appendChild(el);
+        
+        el = doc.createElement("latitude");
+        t = doc.createTextNode(QString::number((*i)->latitude()));
+        el.appendChild(t);
+        st.appendChild(el);
 
-        el = doc.createElement("detail_url");
-        /* Temporary hack for weather.com and gismeteo.ru. This must be delete after version 0.5.0 */
-        if (QString::fromStdString((*i)->detailURL()) == "" && QString::fromStdString((*i)->sourceName()) == "weather.com"){
-            char forecast_detail_url[4096];
-            snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, "http://xml.weather.com/weather/local/%s?cm_ven=1CW&site=wx.com-bar&cm_ite=wx-cc&par=1CWFFv1.1.9&cm_pla=wx.com-bar&cm_cat=FFv1.1.9&unit=m&hbhf=12", (*i)->id().c_str());
-            t = doc.createTextNode(QString::fromStdString(forecast_detail_url));
+        el = doc.createElement("longitude");
+        t = doc.createTextNode(QString::number((*i)->longitude()));
+        el.appendChild(t);
+        st.appendChild(el);
+
+        el = doc.createElement("map_url");
+        /* Temporary hack for weather.com . This must be delete after version 0.7.0 */
+        if ( QString::fromStdString((*i)->mapURL()) == "" 
+            && QString::fromStdString((*i)->sourceName()) == "weather.com"){
+
+            Core::DatabaseSqlite *db;
+            std::string path(Core::AbstractConfig::prefix);
+            path += Core::AbstractConfig::sharePath;
+            path += "db/weather.com.db";
+            db = new Core::DatabaseSqlite("");
+            db->set_databasename(path);
+            db->open_database();
+            double latitude = (*i)->latitude();
+            double longitude = (*i)->longitude();
+            db->get_station_coordinate((*i)->id(), latitude, longitude); 
+            char map_url[4096];
+            snprintf(map_url, sizeof(map_url)-1, "http://mapserver.weather.com/MapServer/map?layers=sat&lat=%f&lng=%f&bpp=8&fmt=png&w=854&h=480&zoom=5&base=msve-hyb&g=1.5&tx=0.7", latitude, longitude);
+            delete db;
+            t = doc.createTextNode(QString::fromStdString(map_url));
             el.appendChild(t);
             st.appendChild(el);
         }else{
-            if (QString::fromStdString((*i)->sourceName()) == "gismeteo.ru"){
-                char forecast_detail_url[4096];
-                snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, "http://www.gismeteo.by/city/hourly/%s/", (*i)->id().c_str());
-                t = doc.createTextNode(QString::fromStdString(forecast_detail_url));
-                el.appendChild(t);
-                st.appendChild(el);
-            }
-            else{
-                t = doc.createTextNode(QString::fromStdString((*i)->detailURL()));
+            if (QString::fromStdString((*i)->mapURL()) != ""){
+                t = doc.createTextNode(QString::fromStdString((*i)->mapURL()));
                 el.appendChild(t);
                 st.appendChild(el);
             }
         }
-//        t = doc.createTextNode(QString::fromStdString((*i)->detailURL()));
-//        el.appendChild(t);
-//        st.appendChild(el);
+
+        el = doc.createElement("detail_url");
+        t = doc.createTextNode(QString::fromStdString((*i)->detailURL()));
+        el.appendChild(t);
+        st.appendChild(el);
 
         el = doc.createElement("view_url");
         t = doc.createTextNode(QString::fromStdString((*i)->viewURL()));
@@ -238,6 +263,7 @@ Config::saveConfig()
         el.appendChild(t);
         st.appendChild(el);
 
+        
         el = doc.createElement("gps");
         if ((*i)->gps() == false)
             t = doc.createTextNode("false");
@@ -369,6 +395,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _temperature_unit = new std::string("C");
     _wind_speed_unit = new std::string("m/s");
     _pressure_unit = new std::string("mbar");
+    _visible_unit = new std::string("m");
     _update_connect = false;
     _fullscreen = false;
     _lockscreen = false;
@@ -430,6 +457,9 @@ Config::LoadConfig(){
         el = root.firstChildElement("pressure_unit");
         if (!el.isNull())
             _pressure_unit->assign(el.text().toStdString());
+        el = root.firstChildElement("visible_unit");
+        if (!el.isNull())
+            _visible_unit->assign(el.text().toStdString());
         el = root.firstChildElement("update_connect");
         if (!el.isNull())
             _update_connect = (el.text() == "true") ? true : false;
@@ -454,7 +484,7 @@ Config::LoadConfig(){
 
         nodelist = root.elementsByTagName("station");
         for (int i=0; i<nodelist.count(); i++){
-            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, cookie;
+            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, mapURL, cookie, latitude, longitude;
             bool gps = false;
             bool splash = true;
             QDomElement e = nodelist.at(i).toElement();
@@ -483,6 +513,12 @@ Config::LoadConfig(){
                     detailURL = el.text();
                 else if (tag == "view_url")
                     viewURL = el.text();
+                else if (tag == "map_url")
+                    mapURL = el.text();
+                else if (tag == "longitude")
+                    longitude = el.text();
+                else if (tag == "latitude")
+                    latitude = el.text();
                 else if (tag == "converter")
                     converter = el.text();
                 else if (tag == "gps")
@@ -506,8 +542,11 @@ Config::LoadConfig(){
                                       forecastURL.toStdString(),
 				                      detailURL.toStdString(),
                                       viewURL.toStdString(),
+                                      mapURL.toStdString(),
                                       cookie.toStdString(),
-                                      gps);
+                                      gps, 
+                                      latitude.toDouble(),
+                                      longitude.toDouble());
             st->fileName(fileName.toStdString());
             st->converter(converter.toStdString());
             _stations->push_back(st);
@@ -677,6 +716,16 @@ Config::PressureUnit(const std::string& text){
 std::string&
 Config::PressureUnit(){
     return *_pressure_unit;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::VisibleUnit(const std::string& text){
+    _visible_unit->assign(text);
+}
+////////////////////////////////////////////////////////////////////////////////
+std::string&
+Config::VisibleUnit(){
+    return *_visible_unit;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

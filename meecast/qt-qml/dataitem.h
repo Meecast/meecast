@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -37,6 +37,8 @@
 
 #include <libintl.h>
 #include <locale.h>
+#include <fstream>
+#include <iostream>
 
 #define _(String) gettext(String)
 
@@ -49,10 +51,12 @@ class DataItem : public QObject, public Core::Data
         Temp_loRole,
         Temp_Role,
         IconRole,
+        UVindexRole,
         Wind_directionRole,
         Wind_speedRole,
         Wind_gustRole,
         HumidityRole,
+        VisibleRole,
         DescriptionRole,
         CurrentRole,
         DateRole,
@@ -73,7 +77,9 @@ class DataItem : public QObject, public Core::Data
         SunRiseRole,
         DayLengthRole,
         LastUpdateRole,
-        NowLabelRole
+        NowLabelRole,
+        MapPatternRole,
+        CountOfMapsRole
     };
     QDateTime _lastupdate;
 
@@ -85,12 +91,16 @@ public:
     Q_PROPERTY(QString wind_speed READ wind_speed)
     Q_PROPERTY(QString humidity READ humidity)
     Q_PROPERTY(QString pressure READ pressure)
+    Q_PROPERTY(QString uv_index READ uv_index)
+    Q_PROPERTY(QString visible READ visible)
     Q_PROPERTY(QString icon READ icon)
     Q_PROPERTY(QString shortdate READ shortdate)
     Q_PROPERTY(QString sunrise READ sunrise)
     Q_PROPERTY(QString sunset READ sunset)
     Q_PROPERTY(QString daylength READ daylength)
     Q_PROPERTY(QString lastupdate READ lastupdate)
+    Q_PROPERTY(QString map_pattern READ map_pattern)
+    Q_PROPERTY(QString count_of_maps READ count_of_maps)
 
     DataItem();
     DataItem(const Core::Data *data);
@@ -102,6 +112,8 @@ public:
     QString temperature_low();
     QString temperature();
     QString wind_direction();
+    QString uv_index();
+    QString visible();
     QString wind_speed();
     inline QString wind_gust();
     QString humidity();
@@ -117,6 +129,8 @@ public:
     inline QString flike();
     QString pressure();
     inline QString ppcp();
+    QString map_pattern();
+    QString count_of_maps();
     QString sunrise();
     QString sunset();
     QString daylength();
@@ -128,6 +142,7 @@ public:
     QString temperatureunit;
     QString windunit;
     QString pressureunit;
+    QString visibleunit;
 };
 
 #endif // DATAITEM_H

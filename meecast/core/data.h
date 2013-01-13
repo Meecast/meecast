@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -38,6 +38,7 @@
 #include "temperature.h"
 #include "windspeed.h"
 #include "pressure.h"
+#include "visible.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
@@ -51,6 +52,7 @@ namespace Core{
         //float _windSpeed;
         Windspeed *_windSpeed;
         Pressure *_pressure;
+        Visible *_visible;
         std::string *_windDirection;
         float _windGust;
         int _humidity;
@@ -61,6 +63,7 @@ namespace Core{
         std::string *_full_month_name;
         std::string *_day_of_month_name;
         std::string *_month_name;
+        std::string *_map_pattern;
         int _icon;
         Temperature *_temperature_hi;
         Temperature *_temperature_low;
@@ -68,6 +71,7 @@ namespace Core{
         bool _current;
         bool _hour;
         float _ppcp;
+        int _uv_index;
         public:
             Data();
             Data(const Data& data);
@@ -85,14 +89,19 @@ namespace Core{
             //void  WindSpeed(float windspeed);
             //float WindSpeed(void) const;
             Windspeed& WindSpeed();
+            Visible&   ViSible();
             void  WindDirection(const std::string& text);
             std::string& WindDirection(void);
+            void  MapPattern(const std::string& text);
+            std::string& MapPattern(void);
             void  WindGust(float windgust);
             float WindGust(void) const;
             void  Humidity(int humidity);
             int   Humidity(void) const;
             void  Icon(int icon);
             int   Icon(void) const;
+            void  UVindex(int index);
+            int   UVindex(void) const;
             void  Current(bool current);
             bool  Current(void) const;
             void  Hour(bool hour);

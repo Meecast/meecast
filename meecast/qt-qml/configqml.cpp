@@ -1,6 +1,6 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
  * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
@@ -51,6 +51,9 @@ ConfigQml::~ConfigQml()
 {
     if (standby_settings)
         delete standby_settings;
+    if (lockscreen_settings)
+        delete lockscreen_settings;
+
 }
 
 
@@ -83,7 +86,17 @@ void ConfigQml::init()
     standby_settings = new QSettings("/home/user/.config/com.meecast.omweather/standby.conf",QSettings::NativeFormat); 
     QVariant v = standby_settings->value("color_font_stationname", QColor(Qt::white));
     _standby_color_font_stationname = v.value<QColor>();
- 
+     v = standby_settings->value("color_font_temperature", QColor(Qt::white));
+    _standby_color_font_temperature = v.value<QColor>();
+     v = standby_settings->value("color_font_current_temperature", QColor(Qt::green));
+    _standby_color_font_current_temperature = v.value<QColor>();
+    /* setting for lockscreen */
+   lockscreen_settings = new QSettings("/home/user/.config/com.meecast.omweather/lockscreen.conf",QSettings::NativeFormat); 
+    v = lockscreen_settings->value("x_position", int(275));
+    _lockscreen_x_position = v.value<int>();
+    v = lockscreen_settings->value("y_position", int(240));
+    _lockscreen_y_position = v.value<int>();
+
     thread = new UpdateThread();
     connect(thread, SIGNAL(finished()), this, SLOT(downloadFinishedSlot()));
 
@@ -91,6 +104,7 @@ void ConfigQml::init()
 
     wind_list << "m/s" << "km/h" << "mi/h";
     press_list << "mbar" << "Pa" << "mmHg";
+    vis_list << "m" << "km" << "mi";
 
     if (gps()){
         _gps = new GpsPosition();
@@ -120,14 +134,35 @@ void ConfigQml::init()
             delete db_w;
         }
     }
+
+    if (QFile::exists("/home/user/.cache/com.meecast.omweather/splash.png")){
+        /* Check file size */
+        QFile f1("/home/user/.cache/com.meecast.omweather/splash.png");
+        qint64 size1 = f1.size();
+        QFile f2("/opt/com.meecast.omweather/share/images/splash.png");
+        qint64 size2 = f2.size();
+
+        if (f1.size() != f2.size()){
+            QFile::remove("/home/user/.cache/com.meecast.omweather/splash.png"); 
+            /* Copy splash to cache directory */
+            QFile::copy("/opt/com.meecast.omweather/share/images/splash.png",
+                    "/home/user/.cache/com.meecast.omweather/splash.png");
+        }
+    }
+
 }
 
 void
 ConfigQml::saveConfig()
 {
-    Core::Config::saveConfig();
     standby_settings->setValue("color_font_stationname", _standby_color_font_stationname);
+    standby_settings->setValue("color_font_temperature", _standby_color_font_temperature);
+    standby_settings->setValue("color_font_current_temperature", _standby_color_font_current_temperature);
     standby_settings->sync();
+    lockscreen_settings->setValue("x_position", _lockscreen_x_position);
+    lockscreen_settings->setValue("y_position", _lockscreen_y_position);
+    lockscreen_settings->sync();
+    Core::Config::saveConfig();
     qDebug()<<"SaveConfig";
 }
 
@@ -248,6 +283,14 @@ ConfigQml::pressureunit(){
     return c;
 }
 
+QString
+ConfigQml::visibleunit(){
+    QString c;
+    //c = QString(QString::fromUtf8(_(ConfigQml::Config::WindSpeedUnit().c_str())));
+    c = ConfigQml::Config::VisibleUnit().c_str();
+    return c;
+}
+
 QStringList
 ConfigQml::pressure_list()
 {
@@ -258,10 +301,28 @@ ConfigQml::pressure_list()
     return l;
 }
 
+QStringList
+ConfigQml::visible_list()
+{
+    QStringList l;
+    for (int i=0; i < vis_list.size(); i++){
+        l.append(QString(QString::fromUtf8(_(vis_list.at(i).toStdString().c_str()))));
+    }
+    return l;
+}
+
 void
 ConfigQml::pressure_unit(int index)
 {
     ConfigQml::Config::PressureUnit(press_list.at(index).toStdString());
+    saveConfig();
+    refreshconfig();
+}
+
+void
+ConfigQml::visible_unit(int index)
+{
+    ConfigQml::Config::VisibleUnit(vis_list.at(index).toStdString());
     saveConfig();
     refreshconfig();
 }
@@ -367,12 +428,17 @@ ConfigQml::setsplash(bool c)
     saveConfig();
     refreshconfig();
     if (!c && (QFile::exists("/home/user/.cache/com.meecast.omweather/splash.png")))
-       QFile::remove("/home/user/.cache/com.meecast.omweather/splash.png"); 
+        QFile::remove("/home/user/.cache/com.meecast.omweather/splash.png"); 
 
-    if (c)
+    if (c){
+       /* Check directory */
+        QDir dir("/home/user/.cache/com.meecast.omweather");
+        if (!dir.exists())
+            dir.mkpath("/home/user/.cache/com.meecast.omweather");
         /* Copy splash to cache directory */
         QFile::copy("/opt/com.meecast.omweather/share/images/splash.png",
                     "/home/user/.cache/com.meecast.omweather/splash.png");
+    }
 }
 
 bool
@@ -425,11 +491,57 @@ ConfigQml::standby_color_font_stationname(){
     return _standby_color_font_stationname;
 }
 
+int
+ConfigQml::lock_screen_x_position(){
+    return _lockscreen_x_position;
+}
+
+int
+ConfigQml::lock_screen_y_position(){
+    return _lockscreen_y_position;
+}
+
 void
 ConfigQml::set_standby_color_font_stationname(QColor c)
 {   
     _standby_color_font_stationname = c;
-//    saveConfig();
+    saveConfig();
+}
+QColor
+ConfigQml::standby_color_font_temperature(){
+    return _standby_color_font_temperature;
+}
+
+void
+ConfigQml::set_standby_color_font_temperature(QColor c)
+{   
+    _standby_color_font_temperature = c;
+    saveConfig();
+}
+QColor
+ConfigQml::standby_color_font_current_temperature(){
+    return _standby_color_font_current_temperature;
+}
+
+void
+ConfigQml::set_standby_color_font_current_temperature(QColor c)
+{   
+    _standby_color_font_current_temperature = c;
+    saveConfig();
+}
+
+void
+ConfigQml::set_lock_screen_x_position(int x)
+{   
+    _lockscreen_x_position = x;
+    saveConfig();
+}
+void
+ConfigQml::set_lock_screen_y_position(int y)
+{   
+    _lockscreen_y_position = y;
+    saveConfig();
+    refreshconfig();
 }
 
 QStringList
@@ -538,7 +650,6 @@ ConfigQml::getCityId(int region_id, int index)
     cur = list->begin()+index;
     return QString::fromStdString((*cur).first);
 }
-
 QStringList
 ConfigQml::Regions(int index)
 {
@@ -568,24 +679,41 @@ ConfigQml::Cities(int country_index, int index)
 }
 void
 ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QString country,
-                        QString source, int source_id, bool gps)
+                        QString source, int source_id, bool gps, 
+                        double latitude, double longitude)
 {
     Core::Station *station;
+    
 
     (void)source_id;
+
+    if (latitude == 0 && longitude == 0 && source == "weather.com"){
+        Core::DatabaseSqlite *db_w = new Core::DatabaseSqlite("");
+        std::string path(Core::AbstractConfig::prefix);
+        path += Core::AbstractConfig::sharePath;
+        path += "db/";
+        QString filename = "weather.com";
+        filename.append(".db");
+        filename.prepend(path.c_str());
+        db_w->set_databasename(filename.toStdString());
+        if (!db_w->open_database()){
+            qDebug() << "error open database";
+            return;
+        }
+        db_w->get_station_coordinate(city_id.toStdString(), latitude, longitude);
+    }
     station = new Core::Station(
                 source.toStdString(),
                 city_id.toStdString(), 
                 city_name.toUtf8().data(),
                 country.toStdString(),
                 region.toStdString(),
-                gps);
+                gps, latitude, longitude);
 
     stationsList().push_back(station);
     //ConfigQml::Config::stationsList(*stationlist);
     saveConfig();
     refreshconfig();
-
 }
 void
 ConfigQml::saveStation(int city_id, QString city,
@@ -594,25 +722,27 @@ ConfigQml::saveStation(int city_id, QString city,
                        int source_id, QString source)
 {
     Core::Station *station;
+    double latitude; 
+    double longitude;
+ 
     (void)source_id;
+
     region_id = getRegionId(country_id, region_id);
     country_id = getCountryId(country_id);
     std::string code = getCityId(region_id, city_id).toStdString();
-
-
+    db->get_station_coordinate(code, latitude, longitude); 
     station = new Core::Station(
                 source.toStdString(),
                 code,
                 city.toUtf8().data(),
                 country.toStdString(),
                 region.toStdString(),
-                false);
+                false, latitude, longitude);
 
     stationsList().push_back(station);
     //ConfigQml::Config::stationsList(*stationlist);
     saveConfig();
     refreshconfig();
-
 }
 
 QString
@@ -723,9 +853,12 @@ ConfigQml::refreshconfig(){
     emit ConfigQml::imagespathChanged();
     emit ConfigQml::temperatureunitChanged();
     emit ConfigQml::windspeedunitChanged();
+    emit ConfigQml::visibleunitChanged();
     emit ConfigQml::fontcolorChanged();
     emit ConfigQml::stationnameChanged();
     emit ConfigQml::configChanged();
+    emit ConfigQml::lock_screen_x_positionChanged();
+    emit ConfigQml::lock_screen_y_positionChanged();
 }
 
 void
@@ -840,7 +973,7 @@ ConfigQml::addGpsStation(double latitude, double longitude)
     }
 
     saveStation1(QString::fromStdString(code), QString::fromStdString(name)+" (GPS)", QString::fromStdString(region),
-                 QString::fromStdString(country), "weather.com", source_id, true);
+                 QString::fromStdString(country), "weather.com", source_id, true, latitude, longitude);
     qDebug() << "SAVE GPS STATION";
 
     /* save gps station's coordinates */

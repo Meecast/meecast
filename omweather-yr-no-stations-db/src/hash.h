@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2011 Vlad Vasiliev
+ * Copyright (C) 2011-2012 Vlad Vasilyeu
  * 	for the code
  *        
  * Copyright (C) 2008 Andrew Zhilin
@@ -29,8 +29,21 @@
 #define _hash_h 1
 /*******************************************************************************/
 /*******************************************************************************/
-GHashTable* hash_description_yrno_table_create(void);
-GHashTable* hash_icons_yrno_table_create(void);
-gpointer hash_yrno_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
+#ifdef GLIB
+    GHashTable* hash_description_yrno_table_create(void);
+    GHashTable* hash_icons_yrno_table_create(void);
+    gpointer hash_yrno_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
+#endif
+#ifdef QT
+#include <QHash>
+/*******************************************************************************/
+    QHash<QString, QString> *hash_icons_yrno_table_create(void);
+    QHash<QString, QString> *hash_description_yrno_table_create(void);
+    QString hash_yrno_icon_table_find(QHash<QString, QString> *hash_for_icons, char *key);
+    QString hash_yrno_description_table_find(QHash<QString, QString> *hash_for_description, char *key);
+/*******************************************************************************/
+#endif
+
+
 /*******************************************************************************/
 #endif

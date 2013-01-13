@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-weather-com-stations-db
  *
- * Copyright (C) 2006-2009 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2009 Pavel Fialko
  * 	for the code
  *
@@ -807,8 +807,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                 wind_gust[256],
                 wind_direction_day[256],
                 wind_direction_night[256],
-		        timezone_string[128];
-
+		        timezone_string[128],
+                uv_index[128];
 
     struct tm   tmp_tm = {0};
     struct tm   tm_l = {0};
@@ -818,6 +818,12 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                 t_sunrise = 0, t_sunset = 0,
                 current_time = 0;
     FILE        *file_out;
+    float       visible_float;
+    struct tm time_tm1;
+    struct tm time_tm2;
+    int    localtimezone = 0;
+
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -825,6 +831,16 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
+/* Set localtimezone */
+
+    current_time = time(NULL);
+    gmtime_r(&current_time, &time_tm1);
+    localtime_r(&current_time, &time_tm2);
+    localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
+    fprintf(stderr,"Local Time Zone %i\n", localtimezone);
+
+  
+
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", station_id);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
@@ -898,6 +914,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                 memset(wind_speed_day, 0, sizeof(wind_speed_day));
                 memset(wind_gust, 0, sizeof(wind_gust));
                 memset(visible, 0, sizeof(visible));
+                memset(uv_index, 0, sizeof(uv_index));
 
                 for(child_node = cur_node->children; child_node != NULL; child_node = child_node->next){
                     /* last update */
@@ -976,7 +993,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                     /* visible */
                     if(!xmlStrcmp(child_node->name, (const xmlChar *)"vis") ){
                         temp_xml_string = xmlNodeGetContent(child_node);
-                        snprintf(visible, sizeof(visible) - 1, "%s", (char*)temp_xml_string);
+                        visible_float = atof((char*)temp_xml_string) * 1000;
+                        snprintf(visible, sizeof(visible) - 1, "%.0f", visible_float);
                         xmlFree(temp_xml_string);
                         continue;
                     }
@@ -1012,6 +1030,22 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         }
                         continue;
                     }
+                    if(!xmlStrcmp(child_node->name, (const xmlChar *)"uv") ){
+                        for(child_node2 = child_node->children; child_node2 != NULL; child_node2 = child_node2->next){
+                            if( child_node2->type == XML_ELEMENT_NODE ){
+                                /* UV index */
+                                if(!xmlStrcmp(child_node2->name, (const xmlChar *)"i") ){
+				                    if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A"))
+                                        temp_xml_string = xmlNodeGetContent(child_node2);
+                                        snprintf(uv_index, sizeof(uv_index) - 1, 
+                                            "%s", (char*)temp_xml_string);
+                                    xmlFree(temp_xml_string);
+                                }
+                            }
+                        }
+                            continue;
+                    }
+
 #if 0
                     /* Moon data */
                     if(!xmlStrcmp(child_node->name, (const xmlChar *)"moon") ){
@@ -1058,14 +1092,16 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
 			    fprintf(file_out,"     <pressure>%s</pressure>\n", pressure);
 			if (pressure_direction[0] != 0)
 			    fprintf(file_out,"     <pressure_direction>%s</pressure_direction>\n", pressure_direction);
-                        if (description_day[0] != 0)
+            if (description_day[0] != 0)
 			    fprintf(file_out,"     <description>%s</description>\n", description_day);
-                        if (temp_flike[0] != 0) 
+            if (temp_flike[0] != 0) 
 			    fprintf(file_out,"     <flike>%s</flike>\n", temp_hi); 
-                        if (icon_day[0] != 0)
+            if (icon_day[0] != 0)
 			    fprintf(file_out,"     <icon>%s</icon>\n", icon_day);
-                        if (visible[0] != 0)
+            if (visible[0] != 0)
 			    fprintf(file_out,"     <visible>%s</visible>\n", visible);
+            if (uv_index[0] != 0)
+			    fprintf(file_out,"     <uv_index>%s</uv_index>\n", uv_index);
 
 			fprintf(file_out,"    </period>\n");
 		}
@@ -1088,7 +1124,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         tmp_tm.tm_year = tm->tm_year;
                         tmp_tm.tm_hour = 0; tmp_tm.tm_min = 0; tmp_tm.tm_sec = 0;
 
-                        t_start = mktime(&tmp_tm);
+                        t_start = mktime(&tmp_tm) + localtimezone*3600 -  timezone_my*3600;
 
                         /* for sunrise and sunset valid date */ 
             			current_time = t_start + 12*3600;
@@ -1137,7 +1173,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     /* set begin of day in localtime */
                                     tmp_tm2.tm_year = tm->tm_year;
                                     tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
-                                    t_sunrise = mktime(&tmp_tm2);
+                                    t_sunrise = mktime(&tmp_tm2) + localtimezone*3600 -  timezone_my*3600;
                                     xmlFree(temp_xml_string);
                                     continue;
                                 }
@@ -1150,7 +1186,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     /* set begin of day in localtime */
                                     tmp_tm2.tm_year = tm->tm_year;
                                     tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
-                                    t_sunset = mktime(&tmp_tm2);
+                                    t_sunset = mktime(&tmp_tm2) + localtimezone*3600 -  timezone_my*3600;
                                     xmlFree(temp_xml_string);
                                     continue;
                                 }

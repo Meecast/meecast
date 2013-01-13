@@ -54,6 +54,7 @@
     g_hash_table_insert(hash, (void*)"Cloudy, Rain", _("Cloudy, Rain"));
     g_hash_table_insert(hash, (void*)"Cloudy, Rain, T-Storm", _("Cloudy, Rain, T-Storm"));
     g_hash_table_insert(hash, (void*)"Cloudy, Smoke", _("Cloudy, Smoke"));
+    g_hash_table_insert(hash, (void*)"Cloudy, thunderstorms with rain", _("Cloudy, thunderstorms with rain"));
     g_hash_table_insert(hash, (void*)"Cloudy, Snow", _("Cloudy, Snow"));
     g_hash_table_insert(hash, (void*)"Day length:", _("Day length:"));
     g_hash_table_insert(hash, (void*)"Drifting Snow", _("Drifting Snow"));
@@ -320,6 +321,7 @@
     g_hash_table_insert(hash, (void*)"mi/s", _("mi/s"));
     g_hash_table_insert(hash, (void*)"rising", _("rising"));
     g_hash_table_insert(hash, (void*)"steady", _("steady"));
+    g_hash_table_insert(hash, (void*)"Feels like", _("Feels like"));
     g_hash_table_insert(hash, (void*)"В", _("В"));
     g_hash_table_insert(hash, (void*)"З", _("З"));
     g_hash_table_insert(hash, (void*)"С", _("С"));

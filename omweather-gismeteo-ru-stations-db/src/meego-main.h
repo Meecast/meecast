@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of omweather-weather-com-source
+ * This file is part of omweather-gismeteo-ru-source - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2009 Pavel Fialko
  * 	for the code
  *
@@ -30,18 +30,34 @@
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>
 #include <stdlib.h>
-#include <glib.h>
+#ifdef GLIB
+    #include <glib.h>
+#endif
+#ifdef QT
+    #include <QHash>
+#endif
+
+
 #include <locale.h>
 #include <sys/stat.h>
 /*******************************************************************************/
-gint get_station_weather_data(const gchar *station_id_with_path, GHashTable *data, gboolean get_detail_data);
 //gint parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data);
-gint parse_xml_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data);
-gint parse_xml_detail_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data);
 //void fill_detail_data(xmlNode *root_node, GHashTable *day, gint part_of_day, GHashTable *hash_for_translate, GHashTable *hash_for_icons)
 //void  fill_day (xmlNode *root_node, GHashTable *day, gint part_of_day, GHashTable *hash_for_translate, GHashTable *hash_for_icons)
-GHashTable* hash_description_gismeteo_table_create(void);
-GHashTable* hash_icons_gismeteo_table_create(void);
-gpointer hash_gismeteo_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
+#ifdef GLIB
+    GHashTable* hash_description_gismeteo_table_create(void);
+    int get_station_weather_data(const char *station_id_with_path, GHashTable *data, gboolean get_detail_data);
+    int parse_xml_data(const char *station_id, htmlDocPtr doc, GHashTable *data);
+    int parse_xml_detail_data(const char *station_id, htmlDocPtr doc, GHashTable *data);
+    GHashTable* hash_icons_gismeteo_table_create(void);
+    gchar* hash_gismeteo_table_find(GHashTable *hash, char* key, gboolean search_short_name);
+#endif
+
+#ifdef QT
+    QHash<QString, QString> *hash_description_gismeteo_table_create(void);
+    QString hash_gismeteo_icon_table_find(QHash<QString, QString> *hash, char *key);
+    QString hash_gismeteo_description_table_find(QHash<QString, QString> *hash, char *key);
+#endif
+
 /*******************************************************************************/
 #endif

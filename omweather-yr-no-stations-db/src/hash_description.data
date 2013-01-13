@@ -1,13 +1,21 @@
+#ifdef GLIB
+    #define hash_insert(hash, s2, s3) g_hash_table_insert(hash, (gpointer)s2, (gpointer)s3); 
+#endif
 
-    g_hash_table_insert(hash, "Klarvær", "Clear Sky");
-    g_hash_table_insert(hash, "Regnbyger", "Rain Showers");
-    g_hash_table_insert(hash, "Skyet", "Cloudy");
-    g_hash_table_insert(hash, "Lettskyet", "Fair");
-    g_hash_table_insert(hash, "Delvis skyet", "Partly Cloudy");
-    g_hash_table_insert(hash, "Regn", "Rain");
-    g_hash_table_insert(hash, "Sludd", "Sleet");
-    g_hash_table_insert(hash, "Snø", "Snow");
-    g_hash_table_insert(hash, "Snøbyger", "Light Snow");
-    g_hash_table_insert(hash, "Kraftig regn", "Heavy Rain");
+#ifdef QT
+    #define hash_insert(hash, s2, s3)  hash->insert(s2, s3);
+#endif
+
+
+    hash_insert(hash, "Klarvær", "Clear Sky");
+    hash_insert(hash, "Regnbyger", "Rain Showers");
+    hash_insert(hash, "Skyet", "Cloudy");
+    hash_insert(hash, "Lettskyet", "Fair");
+    hash_insert(hash, "Delvis skyet", "Partly Cloudy");
+    hash_insert(hash, "Regn", "Rain");
+    hash_insert(hash, "Sludd", "Sleet");
+    hash_insert(hash, "Snø", "Snow");
+    hash_insert(hash, "Snøbyger", "Light Snow");
+    hash_insert(hash, "Kraftig regn", "Heavy Rain");
 
 /* http://www.yr.no/om_yrno/1.1940495 */ 

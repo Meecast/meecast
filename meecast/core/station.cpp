@@ -1,6 +1,6 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
  * Copyright (C) 2006-2012 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
@@ -35,10 +35,13 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-Station::Station(const std::string& source_name, const std::string& id, const std::string& name,
-                     const std::string& country, const std::string& region, 
-                     const std::string& forecastURL, const std::string& detailURL,
-                     const std::string& viewURL, const std::string&  cookie, const bool gps){
+Station::Station(const std::string& source_name, const std::string& id, 
+                 const std::string& name,
+                 const std::string& country, const std::string& region, 
+                 const std::string& forecastURL, const std::string& detailURL,
+                 const std::string& viewURL, const std::string& mapURL, 
+                 const std::string&  cookie, const bool gps, 
+                 double latitude, double longitude ){
         _sourceName = new std::string(source_name);
         _id = new std::string(id);
         _name = new std::string(name);
@@ -48,15 +51,18 @@ Station::Station(const std::string& source_name, const std::string& id, const st
         _detailURL = new std::string(detailURL);
         _cookie = new std::string(cookie);
         _viewURL = new std::string(viewURL);
+        _mapURL = new std::string(mapURL);
         _timezone = 0;
         _fileName = new std::string();
         _source = this->getSourceByName();
         _converter = new std::string();
         _gps = gps;
+        _latitude = latitude;
+        _longitude = longitude;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const std::string& source_name, const std::string& id, const std::string& name,
-                     const std::string& country, const std::string& region, const bool gps){
+                     const std::string& country, const std::string& region, const bool gps, double latitude, double longitude){
         _sourceName = new std::string(source_name);
         _id = new std::string(id);
         _name = new std::string(name);
@@ -65,6 +71,8 @@ Station::Station(const std::string& source_name, const std::string& id, const st
         _timezone = 0;
         _source = this->getSourceByName();
         _gps = gps;
+        _latitude = latitude;
+        _longitude = longitude;
         std::string path(Core::AbstractConfig::prefix);
         path += Core::AbstractConfig::sourcesPath;
         Core::SourceList *sourcelist = new Core::SourceList(path);
@@ -72,6 +80,7 @@ Station::Station(const std::string& source_name, const std::string& id, const st
         std::string url_template = sourcelist->at(source_id)->url_template();
         std::string url_detail_template = sourcelist->at(source_id)->url_detail_template();
         std::string url_for_view = sourcelist->at(source_id)->url_for_view();
+        std::string url_for_map = sourcelist->at(source_id)->url_for_map();
         std::string cookie = sourcelist->at(source_id)->cookie();
 
         char forecast_url[4096];
@@ -80,6 +89,12 @@ Station::Station(const std::string& source_name, const std::string& id, const st
         snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, url_detail_template.c_str(), id.c_str());
         char view_url[4096];
         snprintf(view_url, sizeof(view_url)-1, url_for_view.c_str(), id.c_str());
+        char map_url[4096];
+        memset(map_url, 0, sizeof(map_url));
+        if (url_for_map.length() > 0) {
+            snprintf(map_url, sizeof(map_url)-1, url_for_map.c_str(), _latitude, _longitude);
+            fprintf(stderr,"map_url: %s\n", map_url);
+        }
 
         std::string filename(Core::AbstractConfig::getConfigPath());
         filename += source_name;
@@ -87,6 +102,7 @@ Station::Station(const std::string& source_name, const std::string& id, const st
         filename += id;
         _forecastURL = new std::string(forecast_url);
         _detailURL = new std::string(forecast_detail_url);
+        _mapURL = new std::string(map_url);
         if (source_name == "bom.gov.au"){
            if (_id->find("IDV") == 0)
                _detailURL = new std::string("http://www.bom.gov.au/vic/observations/vicall.shtml");
@@ -103,6 +119,8 @@ Station::Station(const std::string& source_name, const std::string& id, const st
            if (_name->find("Brisbane") == 0)
                _detailURL = new std::string("http://www.bom.gov.au/qld/observations/qldall.shtml");     
            if (_name->find("Perth") == 0)
+               _detailURL = new std::string("http://www.bom.gov.au/wa/observations/waall.shtml");     
+           if (_name->find("Broome") == 0)
                _detailURL = new std::string("http://www.bom.gov.au/wa/observations/waall.shtml");     
 
 
@@ -132,6 +150,7 @@ Station::Station(const std::string& source_name, const std::string& id, const st
         delete _detailURL;
         delete _cookie;
         delete _viewURL;
+        delete _mapURL;
         if(_data)
             delete _data;
         if(_fileName)
@@ -152,9 +171,12 @@ Station::Station(const std::string& source_name, const std::string& id, const st
         _detailURL = new std::string(*(station._detailURL));
         _cookie = new std::string(*(station._cookie));
         _viewURL = new std::string(*(station._viewURL));
+        _mapURL = new std::string(*(station._mapURL));
         _fileName = new std::string(*(station._fileName));
         _converter = new std::string(*(station._converter));
         _gps = station._gps;
+        _latitude = station._latitude;
+        _longitude = station._longitude;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station& Station::operator=(const Station& station){
@@ -181,6 +203,9 @@ Station::Station(const std::string& source_name, const std::string& id, const st
             _fileName = new std::string(*(station._fileName));
             delete _converter;
             _converter = new std::string(*(station._converter));
+            delete _mapURL;
+            _mapURL = new std::string(*(station._mapURL));
+
         }
         return *this;
     }
@@ -200,11 +225,11 @@ Station::Station(const std::string& source_name, const std::string& id, const st
     std::string& Station::id() const{
         return *_id;
     }
-////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////
     void Station::timezone(const int timezone){
         _timezone = timezone;
     }
-////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////
     int Station::station_timezone() const{
         return _timezone;
     }
@@ -218,7 +243,11 @@ Station::Station(const std::string& source_name, const std::string& id, const st
     }
     ////////////////////////////////////////////////////////////////////////////////
     void Station::forecastURL(const std::string& forecastURL){
-        _sourceName->assign(forecastURL);
+        _forecastURL->assign(forecastURL);
+    }
+    ////////////////////////////////////////////////////////////////////////////////
+    void Station::mapURL(const std::string& mapURL){
+        _mapURL->assign(mapURL);
     }
     ////////////////////////////////////////////////////////////////////////////////
     void Station::detailURL(const std::string& detailURL){
@@ -240,7 +269,10 @@ Station::Station(const std::string& source_name, const std::string& id, const st
     std::string& Station::viewURL() const{
         return *_viewURL;
     }
-
+    ////////////////////////////////////////////////////////////////////////////////
+    std::string& Station::mapURL() const{
+        return *_mapURL;
+    }
     ////////////////////////////////////////////////////////////////////////////////
     void Station::country(const std::string& country){
         _country->assign(country);
@@ -283,6 +315,24 @@ Station::Station(const std::string& source_name, const std::string& id, const st
     bool Station::gps() const{
         return _gps;
     }
+//////////////////////////////////////////////////////////////////////////////
+    void Station::latitude(const double latitude)
+    {
+        _latitude = latitude;
+    }
+////////////////////////////////////////////////////////////////////////////////
+    double Station::latitude() const{
+        return _latitude;
+    }
+//////////////////////////////////////////////////////////////////////////////
+    void Station::longitude(const double longitude)
+    {
+        _longitude = longitude;
+    }
+////////////////////////////////////////////////////////////////////////////////
+    double Station::longitude() const{
+        return _longitude;
+    }
 ////////////////////////////////////////////////////////////////////////////////
     bool Station::dataValid(){
         return true;
@@ -299,6 +349,7 @@ Station::Station(const std::string& source_name, const std::string& id, const st
         /* To do */
         /* Check connection and if force true update connection */
         force = false;
+<<<<<<< HEAD
         if  (this->detailURL() != ""){
             Downloader::downloadData(this->fileName()+".detail.orig", this->detailURL(), this->cookie(), std::string(""));
             command =  std::string(std::string(this->converter().c_str()) + " " + " " +  std::string(this->fileName().c_str()) + ".orig " + std::string(this->fileName().c_str()) +" " + std::string(this->fileName().c_str()) + ".detail.orig");
@@ -309,6 +360,10 @@ Station::Station(const std::string& source_name, const std::string& id, const st
         return result;
 #if 0
         if (Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie(), command)) {
+=======
+        /* Weather Forecast */
+        if (Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie())) {
+>>>>>>> master
             result = true;
         }else{
             std::cerr<<"ERROR downloading  "<<this->forecastURL()<<std::endl;
@@ -329,6 +384,47 @@ Station::Station(const std::string& source_name, const std::string& id, const st
             else
                result = false;
         }
+        /* Map */
+        if (this->mapURL() != ""){
+            std::string mapfilename(Core::AbstractConfig::getCachePath());
+            char map_url[4096];
+            char map_url_additional[4096];
+            struct stat attrib;
+            mapfilename += this->sourceName().c_str();
+            mapfilename += "_";
+            mapfilename += _id->c_str();
+            mapfilename += "_map_";
+            mapfilename += "%i.png";
+            snprintf(map_url, sizeof(map_url)-1, mapfilename.c_str(), 0);
+            std::cerr<<map_url<<std::endl;
+            /* Check modification time of the last file and download map if it more than 3 hours */
+            if ((stat(map_url, &attrib) == 0) &&
+                (time(NULL) - attrib.st_mtime > 3600*2.5)&&
+                (attrib.st_size > 0)){
+                for (int i=4; i>=0; i--){
+                    snprintf(map_url, sizeof(map_url)-1, mapfilename.c_str(), i);
+                    std::cerr<<map_url<<std::endl;
+                    if (stat(map_url, &attrib) == 0){
+                        snprintf(map_url_additional, sizeof(map_url_additional)-1,
+                                 mapfilename.c_str(), i+1);
+                        rename(map_url, map_url_additional);
+                    }
+                }
+            }
+
+            /* snprintf(map_url, sizeof(map_url)-1, mapfilename.c_str(), 0); */
+            std::cerr<<map_url<<std::endl;
+            if ((stat(map_url, &attrib) != 0)||
+                (attrib.st_size == 0) ||
+                (stat(map_url, &attrib) == 0) &&
+                (time(NULL) - attrib.st_mtime > 3600*2.5)){
+                std::cerr<<map_url<<" "<<attrib.st_mtime<< " "<<time(NULL)<< std::endl;
+                Downloader::downloadData(map_url, this->mapURL(), "");
+            }
+            
+            
+        }
+
         return result;
 #endif
     }

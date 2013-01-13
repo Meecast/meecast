@@ -48,6 +48,7 @@ CC	qtsetting/Makefile	/^CC            = gcc$/;"	m
 CC	tizen/Makefile	/^CC = gcc$/;"	m
 CC	tizen/src/Makefile	/^CC = gcc$/;"	m
 CC	xml-qml/Makefile	/^CC            = gcc$/;"	m
+<<<<<<< HEAD
 CCDEPMODE	core/Makefile	/^CCDEPMODE = depmode=gcc3$/;"	m
 CCDEPMODE	tizen/Makefile	/^CCDEPMODE = depmode=gcc3$/;"	m
 CCDEPMODE	tizen/src/Makefile	/^CCDEPMODE = depmode=gcc3$/;"	m
@@ -60,6 +61,13 @@ CFLAGS	qt-qml/Makefile	/^CFLAGS        = -pipe -O2 -g -Wno-psabi -I\/usr\/includ
 CFLAGS	qtsetting/Makefile	/^CFLAGS        = -pipe -g -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
 CFLAGS	tizen/Makefile	/^CFLAGS = -Wall -pedantic -DTIZEN -O2$/;"	m
 CFLAGS	tizen/src/Makefile	/^CFLAGS = -Wall -pedantic -DTIZEN -O2$/;"	m
+=======
+CFLAGS	core/Makefile	/^CFLAGS        = -pipe -g -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -fPIC -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+CFLAGS	meegotouchplugin/Makefile	/^CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)$/;"	m
+CFLAGS	predeamon/Makefile	/^CFLAGS        = -pipe -g -DQT_SHARED -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtCore -DQT_SHARED -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtXml -I\/usr\/include\/qt4\/QtCore -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+CFLAGS	qt-qml/Makefile	/^CFLAGS        = -pipe -g -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+CFLAGS	qtsetting/Makefile	/^CFLAGS        = -pipe -O2 -g -Wno-psabi -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+>>>>>>> master
 CFLAGS	xml-qml/Makefile	/^CFLAGS        = -pipe -O2 -g -Wno-psabi -pthread -I\/usr\/include\/dbus-1.0 -I\/usr\/lib\/dbus-1.0\/include -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -DQT_SHARED -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtCore -DQT_SHARED -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtXml -I\/usr\/include\/qt4\/QtCore $(DEFINES)$/;"	m
 CHK_DIR_EXISTS	Makefile	/^CHK_DIR_EXISTS= test -d$/;"	m
 CHK_DIR_EXISTS	meegotouchplugin/Makefile	/^CHK_DIR_EXISTS= test -d$/;"	m
@@ -105,7 +113,7 @@ CONFIG_XSD_PATH	netbook-UX/meego-netbookUX-omweather.cpp	41;"	d	file:
 CONFIG_XSD_PATH	xml-qml/xml-qml.cpp	36;"	d	file:
 CONFIG_XSD_PATH	xml-qml/xml-qml.cpp	40;"	d	file:
 CONNECTION_H	core/connection.h	33;"	d
-CONTROLLER_H	qt-qml/controller.h	43;"	d
+CONTROLLER_H	qt-qml/controller.h	45;"	d
 COPY	Makefile	/^COPY          = cp -f$/;"	m
 COPY	meegotouchplugin/Makefile	/^COPY          = cp -f$/;"	m
 COPY	predeamon/Makefile	/^COPY          = cp -f$/;"	m
@@ -145,6 +153,7 @@ CXX	qtsetting/Makefile	/^CXX           = g++$/;"	m
 CXX	tizen/Makefile	/^CXX = g++$/;"	m
 CXX	tizen/src/Makefile	/^CXX = g++$/;"	m
 CXX	xml-qml/Makefile	/^CXX           = g++$/;"	m
+<<<<<<< HEAD
 CXXCOMPILE	core/Makefile	/^CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \\$/;"	m
 CXXCOMPILE	tizen/src/Makefile	/^CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \\$/;"	m
 CXXCPP	core/Makefile	/^CXXCPP = g++ -E$/;"	m
@@ -160,6 +169,13 @@ CXXFLAGS	qt-qml/Makefile	/^CXXFLAGS      = -pipe -fPIC -fvisibility=hidden -fvis
 CXXFLAGS	qtsetting/Makefile	/^CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
 CXXFLAGS	tizen/Makefile	/^CXXFLAGS = -g -O2$/;"	m
 CXXFLAGS	tizen/src/Makefile	/^CXXFLAGS = -g -O2$/;"	m
+=======
+CXXFLAGS	core/Makefile	/^CXXFLAGS      = -pipe -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -g -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -fPIC -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+CXXFLAGS	meegotouchplugin/Makefile	/^CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)$/;"	m
+CXXFLAGS	predeamon/Makefile	/^CXXFLAGS      = -pipe -g -DQT_SHARED -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtCore -DQT_SHARED -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtXml -I\/usr\/include\/qt4\/QtCore -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+CXXFLAGS	qt-qml/Makefile	/^CXXFLAGS      = -pipe -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -g -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+CXXFLAGS	qtsetting/Makefile	/^CXXFLAGS      = -pipe -O2 -g -Wno-psabi -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+>>>>>>> master
 CXXFLAGS	xml-qml/Makefile	/^CXXFLAGS      = -pipe -O2 -g -Wno-psabi -pthread -I\/usr\/include\/dbus-1.0 -I\/usr\/lib\/dbus-1.0\/include -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -DQT_SHARED -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtCore -DQT_SHARED -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtXml -I\/usr\/include\/qt4\/QtCore $(DEFINES)$/;"	m
 CXXLD	core/Makefile	/^CXXLD = $(CXX)$/;"	m
 CXXLD	tizen/src/Makefile	/^CXXLD = $(CXX)$/;"	m
@@ -244,13 +260,18 @@ DATA_H	core/data.h	33;"	d
 DATA_XSD_PATH	meego-UX-panel/configqml.cpp	36;"	d	file:
 DATA_XSD_PATH	meego-UX-panel/updateqml.cpp	34;"	d	file:
 DATA_XSD_PATH	netbook-UX/meego-netbookUX-omweather.cpp	42;"	d	file:
+<<<<<<< HEAD
 DATA_XSD_PATH	predeamon/predeamon.cpp	33;"	d	file:
 DATA_XSD_PATH	tizen/src/main.cpp	37;"	d	file:
+=======
+DATA_XSD_PATH	predeamon/predeamon.cpp	35;"	d	file:
+>>>>>>> master
 DATA_XSD_PATH	xml-qml/xml-qml.cpp	41;"	d	file:
 DAY	netbook-UX/meego-netbookUX-common.h	/^enum {DAY=1, NIGHT=2, CURRENT=3};$/;"	e	enum:__anon1
-DBUSADAPTOR_APPLET_H_1329657139	qt-qml/dbusadaptor_applet.h	12;"	d
-DBUSADAPTOR_APPLET_H_1329657217	predeamon/dbusadaptor_applet.h	12;"	d
+DBUSADAPTOR_APPLET_H_1346525033	qt-qml/dbusadaptor_applet.h	12;"	d
+DBUSADAPTOR_APPLET_H_1346526502	predeamon/dbusadaptor_applet.h	12;"	d
 DBUSADAPTOR_H_1328120702	qt-qml/dbusadaptor.h	13;"	d
+<<<<<<< HEAD
 DBUSADAPTOR_H_1329657033	meegotouchplugin/dbusadaptor.h	13;"	d
 DEFAULT_INCLUDES	core/Makefile	/^DEFAULT_INCLUDES = -I.$/;"	m
 DEFAULT_INCLUDES	tizen/src/Makefile	/^DEFAULT_INCLUDES = -I.$/;"	m
@@ -259,6 +280,15 @@ DEFINES	meegotouchplugin/Makefile	/^DEFINES       = -DM_LIBRARY_NAME=\\"lib${QMA
 DEFINES	predeamon/Makefile	/^DEFINES       = -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
 DEFINES	qt-qml/Makefile	/^DEFINES       = -DM_APPLICATION_NAME=\\"${QMAKE_TARGET}\\" -DQT_NO_DEBUG -DQT_DECLARATIVE_LIB -DQT_DBUS_LIB -DQT_SQL_LIB -DQT_XMLPATTERNS_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
 DEFINES	qtsetting/Makefile	/^DEFINES       = -DQT_DBUS_LIB -DQT_SQL_LIB -DQT_XMLPATTERNS_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
+=======
+DBUSADAPTOR_H_1346530687	meegotouchplugin/dbusadaptor.h	13;"	d
+DEFAULT_MARGIN	qt-qml/UIConstants.js	/^var DEFAULT_MARGIN = 16;$/;"	v
+DEFINES	core/Makefile	/^DEFINES       = -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
+DEFINES	meegotouchplugin/Makefile	/^DEFINES       = -DM_LIBRARY_NAME=\\"lib${QMAKE_TARGET}\\" -DQT_PLUGIN -DQT_DECLARATIVE_LIB -DQT_DBUS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
+DEFINES	predeamon/Makefile	/^DEFINES       = -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
+DEFINES	qt-qml/Makefile	/^DEFINES       = -DM_APPLICATION_NAME=\\"${QMAKE_TARGET}\\" -DQT_DECLARATIVE_LIB -DQT_DBUS_LIB -DQT_SQL_LIB -DQT_XMLPATTERNS_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
+DEFINES	qtsetting/Makefile	/^DEFINES       = -DQT_NO_DEBUG -DQT_DBUS_LIB -DQT_SQL_LIB -DQT_XMLPATTERNS_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
+>>>>>>> master
 DEFINES	xml-qml/Makefile	/^DEFINES       = $/;"	m
 DEFS	core/Makefile	/^DEFS = -DHAVE_CONFIG_H$/;"	m
 DEFS	tizen/Makefile	/^DEFS = -DHAVE_CONFIG_H$/;"	m
@@ -283,6 +313,7 @@ DESTDIR	predeamon/Makefile	/^DESTDIR       = $/;"	m
 DESTDIR	qt-qml/Makefile	/^DESTDIR       = $/;"	m
 DESTDIR	qtsetting/Makefile	/^DESTDIR       = $/;"	m
 DESTDIR	xml-qml/Makefile	/^DESTDIR       = $/;"	m
+<<<<<<< HEAD
 DIST	meegotouchplugin/Makefile	/^DIST          = \/targets\/HARMATTAN_ARMEL\/usr\/share\/qt4\/mkspecs\/common\/g++.conf \\$/;"	m
 DIST	predeamon/Makefile	/^DIST          = \/targets\/HARMATTAN_ARMEL\/usr\/share\/qt4\/mkspecs\/common\/g++.conf \\$/;"	m
 DIST	qt-qml/Makefile	/^DIST          = \/targets\/HARMATTAN_ARMEL\/usr\/share\/qt4\/mkspecs\/common\/g++.conf \\$/;"	m
@@ -300,6 +331,14 @@ DIST_SOURCES	core/Makefile	/^DIST_SOURCES = $(libmeecast_core_la_SOURCES)$/;"	m
 DIST_SOURCES	tizen/Makefile	/^DIST_SOURCES =$/;"	m
 DIST_SOURCES	tizen/src/Makefile	/^DIST_SOURCES = $(meecasttizen_SOURCES)$/;"	m
 DIST_SUBDIRS	tizen/Makefile	/^DIST_SUBDIRS = $(SUBDIRS)$/;"	m
+=======
+DIST	core/Makefile	/^DIST          = \/targets\/HARMATTAN_X86\/usr\/share\/qt4\/mkspecs\/common\/g++.conf \\$/;"	m
+DIST	meegotouchplugin/Makefile	/^DIST          = \/targets\/HARMATTAN_X86\/usr\/share\/qt4\/mkspecs\/common\/g++.conf \\$/;"	m
+DIST	predeamon/Makefile	/^DIST          = \/targets\/HARMATTAN_X86\/usr\/share\/qt4\/mkspecs\/common\/g++.conf \\$/;"	m
+DIST	qt-qml/Makefile	/^DIST          = \/targets\/HARMATTAN_X86\/usr\/share\/qt4\/mkspecs\/common\/g++.conf \\$/;"	m
+DIST	qtsetting/Makefile	/^DIST          = \/targets\/HARMATTAN_ARMEL\/usr\/share\/qt4\/mkspecs\/common\/g++.conf \\$/;"	m
+DIST	xml-qml/Makefile	/^DIST          = \/targets\/HARMATTAN_X86\/usr\/share\/qt4\/mkspecs\/common\/g++.conf \\$/;"	m
+>>>>>>> master
 DOWNLOADER_H	core/downloader.h	33;"	d
 DSYMUTIL	core/Makefile	/^DSYMUTIL = $/;"	m
 DSYMUTIL	tizen/Makefile	/^DSYMUTIL = $/;"	m
@@ -407,6 +446,7 @@ GETTEXT_PACKAGE	netbook-UX/meego-netbookUX-common.h	37;"	d
 GETTEXT_PACKAGE	netbook-UX/meego-panel-omweather.cpp	45;"	d	file:
 GETTEXT_PACKAGE	xml-qml/xml-qml.cpp	46;"	d	file:
 GPSPOSITION_H	qt-qml/gpsposition.h	2;"	d
+<<<<<<< HEAD
 GREP	core/Makefile	/^GREP = \/bin\/grep$/;"	m
 GREP	tizen/Makefile	/^GREP = \/bin\/grep$/;"	m
 GREP	tizen/src/Makefile	/^GREP = \/bin\/grep$/;"	m
@@ -418,6 +458,10 @@ GTK_LIBS	tizen/Makefile	/^GTK_LIBS = -lglib-2.0  $/;"	m
 GTK_LIBS	tizen/src/Makefile	/^GTK_LIBS = -lglib-2.0  $/;"	m
 GZIP_ENV	core/Makefile	/^GZIP_ENV = --best$/;"	m
 GZIP_ENV	tizen/Makefile	/^GZIP_ENV = --best$/;"	m
+=======
+GetCurrentWeather	meegotouchplugin/meegotouchplugin.cpp	/^MyMWidget::GetCurrentWeather(QString &temperature, QString &temperature_hi, QString &temperature_low, QString &icon, QString &description, bool &current, QString &last_update)$/;"	f	class:MyMWidget
+GetCurrentWeather	meegotouchplugin/weatherdataif.cpp	/^QString WeatherDataIf::GetCurrentWeather(QString &temperature, QString &temperature_hi, QString &temperature_low, QString &icon, QString &description, bool &current, QString &last_update)$/;"	f	class:WeatherDataIf
+>>>>>>> master
 GetDataForTime	core/datalist.cpp	/^     DataList::GetDataForTime(time_t _time, bool is_hour){  $/;"	f	class:Core::DataList
 GetSunRiseForTime	core/datalist.cpp	/^       DataList::GetSunRiseForTime(time_t _time){$/;"	f	class:Core::DataList
 GetSunSetForTime	core/datalist.cpp	/^       DataList::GetSunSetForTime(time_t _time){$/;"	f	class:Core::DataList
@@ -470,6 +514,7 @@ Humidity	core/data.cpp	/^     Data::Humidity() const{$/;"	f	class:Core::Data
 Humidity	core/data.cpp	/^     Data::Humidity(int humidity){$/;"	f	class:Core::Data
 HumidityLabelRole	qt-qml/dataitem.h	/^        HumidityLabelRole,$/;"	e	enum:DataItem::Roles
 HumidityRole	qt-qml/dataitem.h	/^        HumidityRole,$/;"	e	enum:DataItem::Roles
+<<<<<<< HEAD
 INCPATH	meegotouchplugin/Makefile	/^INCPATH       = -I\/targets\/HARMATTAN_ARMEL\/usr\/share\/qt4\/mkspecs\/linux-g++-maemo -I. -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtCore -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtGui -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtDBus -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtDeclarative -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4 -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/meegotouch -I.$/;"	m
 INCPATH	predeamon/Makefile	/^INCPATH       = -I\/targets\/HARMATTAN_ARMEL\/usr\/share\/qt4\/mkspecs\/linux-g++-maemo -I. -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtCore -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtGui -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4 -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtDBus -I..\/core -I.$/;"	m
 INCPATH	qt-qml/Makefile	/^INCPATH       = -I\/targets\/HARMATTAN_ARMEL\/usr\/share\/qt4\/mkspecs\/linux-g++-maemo -I. -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtCore -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtNetwork -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtGui -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtXml -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtXmlPatterns -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtSql -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtDBus -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtDeclarative -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4 -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtLocation -I..\/core -I. -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/meegotouch -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4 -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtMobility$/;"	m
@@ -481,6 +526,14 @@ INSTALL	tizen/src/Makefile	/^INSTALL = \/usr\/bin\/install -c$/;"	m
 INSTALL_DATA	core/Makefile	/^INSTALL_DATA = ${INSTALL} -m 644$/;"	m
 INSTALL_DATA	tizen/Makefile	/^INSTALL_DATA = ${INSTALL} -m 644$/;"	m
 INSTALL_DATA	tizen/src/Makefile	/^INSTALL_DATA = ${INSTALL} -m 644$/;"	m
+=======
+INCPATH	core/Makefile	/^INCPATH       = -I\/targets\/HARMATTAN_X86\/usr\/share\/qt4\/mkspecs\/linux-g++-maemo -I. -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtCore -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtGui -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtXml -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4 -I.$/;"	m
+INCPATH	meegotouchplugin/Makefile	/^INCPATH       = -I\/targets\/HARMATTAN_X86\/usr\/share\/qt4\/mkspecs\/linux-g++-maemo -I. -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtCore -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtGui -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtDBus -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtDeclarative -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4 -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtPublishSubscribe -I\/targets\/HARMATTAN_X86\/usr\/include\/meegotouch -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4 -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtMobility -I.$/;"	m
+INCPATH	predeamon/Makefile	/^INCPATH       = -I\/targets\/HARMATTAN_X86\/usr\/share\/qt4\/mkspecs\/linux-g++-maemo -I. -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtCore -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtGui -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4 -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtDBus -I..\/core -I.$/;"	m
+INCPATH	qt-qml/Makefile	/^INCPATH       = -I\/targets\/HARMATTAN_X86\/usr\/share\/qt4\/mkspecs\/linux-g++-maemo -I. -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtCore -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtNetwork -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtGui -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtXml -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtXmlPatterns -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtSql -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtDBus -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtDeclarative -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4 -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtLocation -I..\/core -I. -I\/targets\/HARMATTAN_X86\/usr\/include\/meegotouch -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4 -I\/targets\/HARMATTAN_X86\/usr\/include\/qt4\/QtMobility$/;"	m
+INCPATH	qtsetting/Makefile	/^INCPATH       = -I\/targets\/HARMATTAN_ARMEL\/usr\/share\/qt4\/mkspecs\/linux-g++-maemo -I. -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtCore -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtGui -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtXml -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtXmlPatterns -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtSql -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4\/QtDBus -I\/targets\/HARMATTAN_ARMEL\/usr\/include\/qt4 -I..\/core -I. -I.$/;"	m
+INCPATH	xml-qml/Makefile	/^INCPATH       = -I\/targets\/HARMATTAN_X86\/usr\/share\/qt4\/mkspecs\/linux-g++-maemo -I. -I..\/core$/;"	m
+>>>>>>> master
 INSTALL_DIR	Makefile	/^INSTALL_DIR   = $(COPY_DIR)$/;"	m
 INSTALL_DIR	meegotouchplugin/Makefile	/^INSTALL_DIR   = $(COPY_DIR)$/;"	m
 INSTALL_DIR	predeamon/Makefile	/^INSTALL_DIR   = $(COPY_DIR)$/;"	m
@@ -521,6 +574,7 @@ Instance	core/dataparser.cpp	/^    DataParser::Instance(const std::string& filen
 Instance	qt-qml/configqml.cpp	/^ConfigQml::Instance()$/;"	f	class:ConfigQml
 Instance	qt-qml/configqml.cpp	/^ConfigQml::Instance(const std::string& filename, const std::string& schema_filename)$/;"	f	class:ConfigQml
 KeyRole	qt-qml/selectmodel.h	/^        KeyRole = Qt::UserRole + 2,$/;"	e	enum:SelectModel::SelectModelRoles
+<<<<<<< HEAD
 LD	core/Makefile	/^LD = \/usr\/bin\/ld$/;"	m
 LD	tizen/Makefile	/^LD = \/usr\/bin\/ld$/;"	m
 LD	tizen/src/Makefile	/^LD = \/usr\/bin\/ld$/;"	m
@@ -541,6 +595,14 @@ LIBOBJS	tizen/Makefile	/^LIBOBJS = $/;"	m
 LIBOBJS	tizen/src/Makefile	/^LIBOBJS = $/;"	m
 LIBS	core/Makefile	/^LIBS = $/;"	m
 LIBS	meegotouchplugin/Makefile	/^LIBS          = $(SUBLIBS)  -L\/usr\/lib -L\/usr\/lib -lmeegotouchcore -lmeegotouchsettings -lmeegotouchextensions -lQtDeclarative -lQtDBus -lQtGui -lQtCore -lpthread $/;"	m
+=======
+LFLAGS	meegotouchplugin/Makefile	/^LFLAGS        = -Wl,-rpath,\/usr\/lib -shared$/;"	m
+LFLAGS	predeamon/Makefile	/^LFLAGS        = $/;"	m
+LFLAGS	qt-qml/Makefile	/^LFLAGS        = -pie -rdynamic -Wl,-rpath,\/usr\/lib$/;"	m
+LFLAGS	qtsetting/Makefile	/^LFLAGS        = -Wl,-O1$/;"	m
+LFLAGS	xml-qml/Makefile	/^LFLAGS        = -Wl,-O1$/;"	m
+LIBS	meegotouchplugin/Makefile	/^LIBS          = $(SUBLIBS)  -L\/usr\/lib -L\/usr\/lib -lmeegotouchcore -lmeegotouchsettings -lmeegotouchextensions -lQtPublishSubscribe -lQtDeclarative -lQtDBus -lQtGui -lQtCore -lpthread $/;"	m
+>>>>>>> master
 LIBS	predeamon/Makefile	/^LIBS          = $(SUBLIBS)  -L\/usr\/lib -L ..\/core ..\/core\/libomweather-core.a -lQtDBus -lcurl -lQtXml -lQtGui -lQtCore -lpthread $/;"	m
 LIBS	qt-qml/Makefile	/^LIBS          = $(SUBLIBS)  -L\/usr\/lib -L ..\/core ..\/core\/libomweather-core.a -lglib-2.0 -lsqlite3 -lcurl -L\/usr\/lib -lmeegotouchcore -lmeegotouchsettings -lmeegotouchextensions -lQtLocation -lQtDeclarative -lQtDBus -lQtSql -lQtXmlPatterns -lQtXml -lQtGui -lQtNetwork -lQtCore -lpthread $/;"	m
 LIBS	qtsetting/Makefile	/^LIBS          = $(SUBLIBS)  -L\/usr\/lib -L ..\/core ..\/core\/libomweather-core.a -lsqlite3 -lcurl -lQtDBus -lQtSql -lQtXmlPatterns -lQtXml -lQtGui -lQtCore -lpthread $/;"	m
@@ -596,6 +658,7 @@ MAKEINFO	tizen/src/Makefile	/^MAKEINFO = ${SHELL} \/home\/vlad\/workspace\/omwea
 MARGIN_DEFAULT	qt-qml/UIConstants.js	/^var MARGIN_DEFAULT = 0;$/;"	v
 MARGIN_XLARGE	qt-qml/UIConstants.js	/^var MARGIN_XLARGE = 16;$/;"	v
 MEECAST_VERSION	core/core.h	53;"	d
+MEEGOTOUCHPLUGIN_H	meegotouchplugin/meegotouchplugin.h	30;"	d
 MKDIR	Makefile	/^MKDIR         = mkdir -p$/;"	m
 MKDIR	meegotouchplugin/Makefile	/^MKDIR         = mkdir -p$/;"	m
 MKDIR	predeamon/Makefile	/^MKDIR         = mkdir -p$/;"	m
@@ -614,14 +677,14 @@ MOVE	xml-qml/Makefile	/^MOVE          = mv -f$/;"	m
 MainPage	qtsetting-touch/mainpage.cpp	/^MainPage::MainPage() :$/;"	f	class:MainPage
 MainPage	qtsetting-touch/mainpage.h	/^class MainPage : public MApplicationPage$/;"	c
 MainWindow	qt-qml/mainwindow.h	/^class MainWindow : public QMainWindow$/;"	c
-MeecastIf	meegotouchplugin/dbusadaptor.cpp	/^MeecastIf::MeecastIf(QObject *parent)$/;"	f	class:MeecastIf
+MeecastIf	meegotouchplugin/dbusadaptor.cpp	/^MeecastIf::MeecastIf(MyMWidget *parent)$/;"	f	class:MeecastIf
 MeecastIf	meegotouchplugin/dbusadaptor.h	/^class MeecastIf: public QDBusAbstractAdaptor$/;"	c
 MeecastIf	predeamon/dbusadaptor_applet.cpp	/^MeecastIf::MeecastIf(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent)$/;"	f	class:MeecastIf
 MeecastIf	predeamon/dbusadaptor_applet.h	/^class MeecastIf: public QDBusAbstractInterface$/;"	c
 MeecastIf	qt-qml/dbusadaptor_applet.cpp	/^MeecastIf::MeecastIf(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent)$/;"	f	class:MeecastIf
 MeecastIf	qt-qml/dbusadaptor_applet.h	/^class MeecastIf: public QDBusAbstractInterface$/;"	c
 MonthName	core/data.cpp	/^    Data::MonthName(){$/;"	f	class:Core::Data
-MyMWidget	meegotouchplugin/meegotouchplugin.h	/^    MyMWidget(){$/;"	f	class:MyMWidget
+MyMWidget	meegotouchplugin/meegotouchplugin.cpp	/^MyMWidget::MyMWidget(){$/;"	f	class:MyMWidget
 MyMWidget	meegotouchplugin/meegotouchplugin.h	/^class MyMWidget : public MWidget$/;"	c
 NETWORKINGCONTROL_H	qt-qml/networkingcontrol.h	32;"	d
 NIGHT	netbook-UX/meego-netbookUX-common.h	/^enum {DAY=1, NIGHT=2, CURRENT=3};$/;"	e	enum:__anon1
@@ -860,10 +923,10 @@ SelectData	qt-qml/selectmodel.h	/^class SelectData: public QObject$/;"	c
 SelectModel	qt-qml/selectmodel.cpp	/^SelectModel::SelectModel(QObject *parent)$/;"	f	class:SelectModel
 SelectModel	qt-qml/selectmodel.h	/^class SelectModel : public QAbstractListModel$/;"	c
 SelectModelRoles	qt-qml/selectmodel.h	/^    enum SelectModelRoles {$/;"	g	class:SelectModel
-SetCurrentData	meegotouchplugin/dbusadaptor.cpp	/^void MeecastIf::SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, uint until_valid_time, bool current, bool lockscreen, bool standbyscreen, const QString &last_update)$/;"	f	class:MeecastIf
-SetCurrentData	meegotouchplugin/meegotouchplugin.cpp	/^MyMWidget::SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_high, const QString &temperature_low,  $/;"	f	class:MyMWidget
-SetCurrentData	predeamon/dbusadaptor_applet.h	/^    inline QDBusPendingReply<> SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, uint until_valid_time, bool current, bool lockscreen, bool standbyscreen, const QString &last_update)$/;"	f	class:MeecastIf
-SetCurrentData	qt-qml/dbusadaptor_applet.h	/^    inline QDBusPendingReply<> SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, uint until_valid_time, bool current, bool lockscreen, bool standbyscreen, const QString &last_update)$/;"	f	class:MeecastIf
+SetCurrentData	meegotouchplugin/dbusadaptor.cpp	/^void MeecastIf::SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, const QString &description, uint until_valid_time, bool current, bool lockscreen, bool standbyscreen, const QString &last_update)$/;"	f	class:MeecastIf
+SetCurrentData	meegotouchplugin/meegotouchplugin.cpp	/^MyMWidget::SetCurrentData(const QString &station, const QString &temperature,$/;"	f	class:MyMWidget
+SetCurrentData	predeamon/dbusadaptor_applet.h	/^    inline QDBusPendingReply<> SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, const QString &description, uint until_valid_time, bool current, bool lockscreen, bool standbyscreen, const QString &last_update)$/;"	f	class:MeecastIf
+SetCurrentData	qt-qml/dbusadaptor_applet.h	/^    inline QDBusPendingReply<> SetCurrentData(const QString &station, const QString &temperature, const QString &temperature_hi, const QString &temperature_low, const QString &icon, const QString &description, uint until_valid_time, bool current, bool lockscreen, bool standbyscreen, const QString &last_update)$/;"	f	class:MeecastIf
 Setting	qtsetting/setting.cpp	/^Setting::Setting(QWidget *parent) :$/;"	f	class:Setting
 Setting	qtsetting/setting.h	/^class Setting : public QDialog$/;"	c
 Setting	qtsetting/ui_setting.h	/^    class Setting: public Ui_Setting {};$/;"	c	namespace:Ui
@@ -887,7 +950,7 @@ StartTime	core/data.cpp	/^    Data::StartTime() const{$/;"	f	class:Core::Data
 StartTime	core/data.cpp	/^    Data::StartTime(time_t start_time){$/;"	f	class:Core::Data
 Station	core/station.cpp	/^    Station::Station(const Station& station){$/;"	f	class:Core::Station
 Station	core/station.cpp	/^    Station::Station(const std::string& source_name, const std::string& id, const std::string& name,$/;"	f	class:Core::Station
-Station	core/station.cpp	/^Station::Station(const std::string& source_name, const std::string& id, const std::string& name,$/;"	f	class:Core::Station
+Station	core/station.cpp	/^Station::Station(const std::string& source_name, const std::string& id, $/;"	f	class:Core::Station
 Station	core/station.h	/^    class Station{$/;"	c	namespace:Core
 StationModel	meego-UX-panel/stationmodel.cpp	/^StationModel::StationModel(QObject *parent): QObject(parent)$/;"	f	class:StationModel
 StationModel	meego-UX-panel/stationmodel.cpp	/^StationModel::StationModel(const QString &name, const int id, QObject *parent)$/;"	f	class:StationModel
@@ -960,6 +1023,7 @@ UpdateThread	meego-UX-panel/updatethread.cpp	/^UpdateThread::UpdateThread(QObjec
 UpdateThread	meego-UX-panel/updatethread.h	/^class UpdateThread : public QThread$/;"	c
 UpdateThread	qt-qml/updatethread.cpp	/^UpdateThread::UpdateThread(QObject *parent) :$/;"	f	class:UpdateThread
 UpdateThread	qt-qml/updatethread.h	/^class UpdateThread : public QThread$/;"	c
+<<<<<<< HEAD
 VERSION	core/Makefile	/^VERSION = 0.1$/;"	m
 VERSION	core/config_package.h	100;"	d
 VERSION	tizen/Makefile	/^VERSION = 0.1$/;"	m
@@ -968,9 +1032,14 @@ VERSION	tizen/src/config.h	100;"	d
 WIDTH	tizen/src/main.cpp	32;"	d	file:
 WIDTH	tizen/src/main_window.cpp	28;"	d	file:
 WIDTH	tizen/src/setting_window.cpp	28;"	d	file:
+=======
+WEATHERDATAIF_H_1347645684	meegotouchplugin/weatherdataif.h	13;"	d
+>>>>>>> master
 WINDSPEED_H	core/windspeed.h	33;"	d
 WeatherApplicationExtension	meegotouchplugin/meegotouchplugin.cpp	/^WeatherApplicationExtension::WeatherApplicationExtension() : box(0){$/;"	f	class:WeatherApplicationExtension
 WeatherApplicationExtension	meegotouchplugin/meegotouchplugin.h	/^class WeatherApplicationExtension : public QObject, public WeatherExtensionInterface$/;"	c
+WeatherDataIf	meegotouchplugin/weatherdataif.cpp	/^WeatherDataIf::WeatherDataIf(MyMWidget *parent)$/;"	f	class:WeatherDataIf
+WeatherDataIf	meegotouchplugin/weatherdataif.h	/^class WeatherDataIf: public QDBusAbstractAdaptor$/;"	c
 WeatherExtensionInterface	meegotouchplugin/meegotouchplugin.h	/^class WeatherExtensionInterface : public MApplicationExtensionInterface$/;"	c
 WindDirection	core/data.cpp	/^     Data::WindDirection(){$/;"	f	class:Core::Data
 WindDirection	core/data.cpp	/^     Data::WindDirection(const std::string& text){$/;"	f	class:Core::Data
@@ -990,7 +1059,12 @@ Wind_speedRole	qt-qml/dataitem.h	/^        Wind_speedRole,$/;"	e	enum:DataItem::
 Windspeed	core/windspeed.cpp	/^    Windspeed::Windspeed(const Windspeed& windspeed){$/;"	f	class:Core::Windspeed
 Windspeed	core/windspeed.cpp	/^    Windspeed::Windspeed(const float value, const std::string& units){$/;"	f	class:Core::Windspeed
 Windspeed	core/windspeed.h	/^    class Windspeed{$/;"	c	namespace:Core
+<<<<<<< HEAD
 _	qt-qml/configqml.h	48;"	d
+=======
+_	predeamon/predeamon.cpp	34;"	d	file:
+_	qt-qml/configqml.h	49;"	d
+>>>>>>> master
 _	qt-qml/dataitem.h	41;"	d
 _	qt-qml/main.cpp	65;"	d	file:
 _ALL_SOURCE	core/config_package.h	79;"	d
@@ -1028,7 +1102,11 @@ _current_station_id	core/config.h	/^            int          _current_station_id
 _data	core/station.h	/^        Data *_data; \/* Is it really needed ? Vlad *\/$/;"	m	class:Core::Station
 _day_of_month_name	core/data.h	/^        std::string *_day_of_month_name;$/;"	m	class:Core::Data
 _declarative_component	qt-qml/qmllayoutitem.h	/^    QDeclarativeComponent *_declarative_component;$/;"	m	class:QmlLayoutItem
+<<<<<<< HEAD
 _delete_station_cb	tizen/src/setting_window.cpp	/^_delete_station_cb(void *data, Evas_Object *obj, void *event_info)$/;"	f	file:
+=======
+_description	meegotouchplugin/meegotouchplugin.h	/^    QString  _description;$/;"	m	class:MyMWidget
+>>>>>>> master
 _detailURL	core/station.h	/^        std::string *_detailURL;$/;"	m	class:Core::Station
 _doc	core/parserqt.h	/^            QDomDocument _doc;$/;"	m	class:Core::ParserQt
 _down	meegotouchplugin/meegotouchplugin.h	/^    bool _down;$/;"	m	class:MyMWidget
@@ -1071,6 +1149,7 @@ _key	qt-qml/selectmodel.h	/^    QString _key;$/;"	m	class:SelectData
 _last_update	core/dataparser.h	/^            time_t _last_update;$/;"	m	class:Core::DataParser
 _lastupdate	meegotouchplugin/meegotouchplugin.h	/^    QString  _lastupdate;$/;"	m	class:MyMWidget
 _lastupdate	qt-qml/dataitem.h	/^    QDateTime _lastupdate;$/;"	m	class:DataItem
+_latitude	core/station.h	/^        double _latitude;$/;"	m	class:Core::Station
 _latitude	qt-qml/gpsposition.h	/^    double _latitude;$/;"	m	class:GpsPosition
 _library	core/source.h	/^        std::string *_library;$/;"	m	class:Core::Source
 _libraryHandler	core/source.h	/^        void *_libraryHandler;$/;"	m	class:Core::Source
@@ -1083,11 +1162,16 @@ _location	qt-qml/gpsposition.h	/^    QGeoPositionInfoSource * _location;$/;"	m	c
 _lockscreen	core/config.h	/^            bool         _lockscreen;$/;"	m	class:Core::Config
 _lockscreen	meegotouchplugin/meegotouchplugin.h	/^    bool    _lockscreen;$/;"	m	class:MyMWidget
 _logo	core/source.h	/^        std::string *_logo;$/;"	m	class:Core::Source
+_longitude	core/station.h	/^        double _longitude;$/;"	m	class:Core::Station
 _longitude	qt-qml/gpsposition.h	/^    double _longitude;$/;"	m	class:GpsPosition
+<<<<<<< HEAD
 _main_h	tizen/src/common.h	25;"	d
 _main_h	tizen/src/main.h	25;"	d
 _main_h	tizen/src/main_window.h	25;"	d
 _main_h	tizen/src/setting_window.h	25;"	d
+=======
+_mapURL	core/station.h	/^        std::string *_mapURL;$/;"	m	class:Core::Station
+>>>>>>> master
 _model	qt-qml/controller.h	/^    DataModel *_model; $/;"	m	class:Controller
 _month_name	core/data.h	/^        std::string *_month_name;$/;"	m	class:Core::Data
 _name	core/source.h	/^        std::string *_name;$/;"	m	class:Core::Source
@@ -1133,7 +1217,13 @@ _sourceName	core/station.h	/^        std::string *_sourceName;$/;"	m	class:Core:
 _sourceSearch	core/source.h	/^        StationsList& (*_sourceSearch)(const std::string& station);$/;"	m	class:Core::Source
 _splash	core/config.h	/^            bool         _splash;$/;"	m	class:Core::Config
 _standbyItem	meegotouchplugin/meegotouchplugin.h	/^    MGConfItem *_standbyItem;$/;"	m	class:MyMWidget
+<<<<<<< HEAD
 _standby_color_font_stationname	qt-qml/configqml.h	/^    QColor _standby_color_font_stationname;$/;"	m	class:ConfigQml
+=======
+_standby_color_font_current_temperature	qt-qml/configqml.h	/^    QColor _standby_color_font_current_temperature;$/;"	m	class:ConfigQml
+_standby_color_font_stationname	qt-qml/configqml.h	/^    QColor _standby_color_font_stationname;$/;"	m	class:ConfigQml
+_standby_color_font_temperature	qt-qml/configqml.h	/^    QColor _standby_color_font_temperature;$/;"	m	class:ConfigQml
+>>>>>>> master
 _standbyscreen	core/config.h	/^            bool         _standbyscreen;$/;"	m	class:Core::Config
 _standbyscreen	meegotouchplugin/meegotouchplugin.h	/^    bool    _standbyscreen;$/;"	m	class:MyMWidget
 _start_time	core/data.h	/^        time_t _start_time;$/;"	m	class:Core::Data
@@ -1164,6 +1254,7 @@ _units	core/windspeed.h	/^        std::string *_units;$/;"	m	class:Core::Windspe
 _update_connect	core/config.h	/^            bool         _update_connect;$/;"	m	class:Core::Config
 _update_period	core/config.h	/^            int          _update_period;$/;"	m	class:Core::Config
 _url_detail_template	core/source.h	/^        std::string *_url_detail_template;$/;"	m	class:Core::Source
+_url_for_map	core/source.h	/^        std::string *_url_for_map;$/;"	m	class:Core::Source
 _url_for_view	core/source.h	/^        std::string *_url_for_view;$/;"	m	class:Core::Source
 _url_template	core/source.h	/^        std::string *_url_template;$/;"	m	class:Core::Source
 _value	core/pressure.h	/^        float _value;$/;"	m	class:Core::Pressure
@@ -1459,9 +1550,14 @@ dbus_init	netbook-UX/meego-panel-omweather.cpp	/^dbus_init(void){$/;"	f
 deg2rad	core/databasesqlite.cpp	229;"	d	file:
 delClicked	qtsetting-touch/mainpage.cpp	/^void MainPage::delClicked()$/;"	f	class:MainPage
 delbutton	qtsetting-touch/mainpage.h	/^    MButton *addbutton, *delbutton;$/;"	m	class:MainPage
+<<<<<<< HEAD
 delete_station_cb	tizen/src/setting_window.cpp	/^delete_station_cb(void *data, Evas *e, Evas_Object *o, void *event_info){$/;"	f	file:
 depcomp	core/Makefile	/^depcomp = $(SHELL) $(top_srcdir)\/depcomp$/;"	m
 depcomp	tizen/src/Makefile	/^depcomp = $(SHELL) $(top_srcdir)\/depcomp$/;"	m
+=======
+description	meegotouchplugin/meegotouchplugin.h	/^    QString description(){$/;"	f	class:MyMWidget
+description	meegotouchplugin/meegotouchplugin.h	/^    void description(const QString &description){$/;"	f	class:MyMWidget
+>>>>>>> master
 description	qt-qml/dataitem.cpp	/^DataItem::description()$/;"	f	class:DataItem
 desktop_DATA	tizen/src/Makefile	/^desktop_DATA = $(desktop_files)$/;"	m
 desktop_files	tizen/src/Makefile	/^desktop_files = com.meecast.omweather.desktop$/;"	m
@@ -1796,6 +1892,7 @@ getStaticMetaObject	meegotouchplugin/moc_dbusadaptor.cpp	/^const QMetaObject &Me
 getStaticMetaObject	meegotouchplugin/moc_eventfeedif.cpp	/^const QMetaObject &EventFeedIf::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:EventFeedIf
 getStaticMetaObject	meegotouchplugin/moc_meegotouchplugin.cpp	/^const QMetaObject &MyMWidget::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:MyMWidget
 getStaticMetaObject	meegotouchplugin/moc_meegotouchplugin.cpp	/^const QMetaObject &WeatherApplicationExtension::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:WeatherApplicationExtension
+getStaticMetaObject	meegotouchplugin/moc_weatherdataif.cpp	/^const QMetaObject &WeatherDataIf::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:WeatherDataIf
 getStaticMetaObject	predeamon/moc_dbusadaptor_applet.cpp	/^const QMetaObject &MeecastIf::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:MeecastIf
 getStaticMetaObject	qt-qml/moc_citymodel.cpp	/^const QMetaObject &CityModel::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:CityModel
 getStaticMetaObject	qt-qml/moc_configqml.cpp	/^const QMetaObject &ConfigQml::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:ConfigQml
@@ -1932,6 +2029,8 @@ label_6	qtsetting/ui_settingstations.h	/^    QLabel *label_6;$/;"	m	class:Ui_Set
 lastupdate	meegotouchplugin/meegotouchplugin.h	/^    QString lastupdate(){$/;"	f	class:MyMWidget
 lastupdate	meegotouchplugin/meegotouchplugin.h	/^    void lastupdate(const QString &lastupdate){$/;"	f	class:MyMWidget
 lastupdate	qt-qml/dataitem.cpp	/^DataItem::lastupdate() {$/;"	f	class:DataItem
+latitude	core/station.cpp	/^    double Station::latitude() const{$/;"	f	class:Core::Station
+latitude	core/station.cpp	/^    void Station::latitude(const double latitude)$/;"	f	class:Core::Station
 layoutqml	core/abstractconfig.cpp	/^    std::string AbstractConfig::layoutqml = "main.qml";$/;"	m	class:Core::AbstractConfig	file:
 layoutqml	core/abstractconfig.h	/^            static std::string layoutqml;$/;"	m	class:Core::AbstractConfig
 left_arrow_down	tizen/src/main_window.cpp	/^left_arrow_down(void *data, Evas *e, Evas_Object *o, void *event_info){$/;"	f	file:
@@ -1970,12 +2069,17 @@ lockscreen	meegotouchplugin/meegotouchplugin.h	/^    void lockscreen(bool cur){$
 lockscreen	qt-qml/configqml.cpp	/^ConfigQml::lockscreen()$/;"	f	class:ConfigQml
 lockscreenChanged	qt-qml/moc_configqml.cpp	/^void ConfigQml::lockscreenChanged()$/;"	f	class:ConfigQml
 logo	core/source.cpp	/^    std::string& Source::logo() const{$/;"	f	class:Core::Source
+<<<<<<< HEAD
 lt_ECHO	core/Makefile	/^lt_ECHO = echo$/;"	m
 lt_ECHO	tizen/Makefile	/^lt_ECHO = echo$/;"	m
 lt_ECHO	tizen/src/Makefile	/^lt_ECHO = echo$/;"	m
 main	core/config.guess	/^		main()$/;"	f
 main	core/config.guess	/^	main ()$/;"	f
 main	core/config.guess	/^main ()$/;"	f
+=======
+longitude	core/station.cpp	/^    double Station::longitude() const{$/;"	f	class:Core::Station
+longitude	core/station.cpp	/^    void Station::longitude(const double longitude)$/;"	f	class:Core::Station
+>>>>>>> master
 main	meego-UX-panel/main.c	/^main(void){$/;"	f
 main	netbook-UX/meego-panel-omweather.cpp	/^main (int argc, char *argv[])$/;"	f
 main	predeamon/predeamon.cpp	/^main (int argc, char *argv[])$/;"	f
@@ -1996,10 +2100,15 @@ make_forecast_detail_box	netbook-UX/meego-panel-omweather.cpp	/^make_forecast_de
 make_item	meego-UX-panel/updateqml.cpp	/^UpdateQml::make_item(QDomDocument doc, Core::Data *data, int num, bool current)$/;"	f	class:UpdateQml
 make_item	xml-qml/xml-qml.cpp	/^make_item(QDomDocument doc, Core::Data *data, int num, bool current)$/;"	f
 make_window_content	netbook-UX/meego-panel-omweather.cpp	/^make_window_content (MplPanelClutter *panel)$/;"	f	file:
+<<<<<<< HEAD
 manage_location_window	tizen/src/setting_window.cpp	/^manage_location_window(void *data, Evas *e, Evas_Object *o, void *event_info){$/;"	f	file:
 mandir	core/Makefile	/^mandir = ${datarootdir}\/man$/;"	m
 mandir	tizen/Makefile	/^mandir = ${datarootdir}\/man$/;"	m
 mandir	tizen/src/Makefile	/^mandir = ${datarootdir}\/man$/;"	m
+=======
+mapURL	core/station.cpp	/^    std::string& Station::mapURL() const{$/;"	f	class:Core::Station
+mapURL	core/station.cpp	/^    void Station::mapURL(const std::string& mapURL){$/;"	f	class:Core::Station
+>>>>>>> master
 meecast	meego-UX-panel/omweatherintf.h	/^  namespace meecast {$/;"	n	namespace:com
 meecast	predeamon/dbusadaptor_applet.h	/^  namespace meecast {$/;"	n	namespace:com
 meecast	qt-qml/dbusadaptor_applet.h	/^  namespace meecast {$/;"	n	namespace:com
@@ -2017,6 +2126,7 @@ metaObject	meegotouchplugin/moc_dbusadaptor.cpp	/^const QMetaObject *MeecastIf::
 metaObject	meegotouchplugin/moc_eventfeedif.cpp	/^const QMetaObject *EventFeedIf::metaObject() const$/;"	f	class:EventFeedIf
 metaObject	meegotouchplugin/moc_meegotouchplugin.cpp	/^const QMetaObject *MyMWidget::metaObject() const$/;"	f	class:MyMWidget
 metaObject	meegotouchplugin/moc_meegotouchplugin.cpp	/^const QMetaObject *WeatherApplicationExtension::metaObject() const$/;"	f	class:WeatherApplicationExtension
+metaObject	meegotouchplugin/moc_weatherdataif.cpp	/^const QMetaObject *WeatherDataIf::metaObject() const$/;"	f	class:WeatherDataIf
 metaObject	predeamon/moc_dbusadaptor_applet.cpp	/^const QMetaObject *MeecastIf::metaObject() const$/;"	f	class:MeecastIf
 metaObject	qt-qml/moc_citymodel.cpp	/^const QMetaObject *CityModel::metaObject() const$/;"	f	class:CityModel
 metaObject	qt-qml/moc_configqml.cpp	/^const QMetaObject *ConfigQml::metaObject() const$/;"	f	class:ConfigQml
@@ -2123,9 +2233,14 @@ prototypes	core/configure	/^   function prototypes and stuff, but not '\\xHH' he
 prototypes	tizen/configure	/^   function prototypes and stuff, but not '\\xHH' hex character constants.$/;"	f
 proxyHost	core/connection.cpp	/^    std::string& Connection::proxyHost() const{$/;"	f	class:Core::Connection
 proxyPort	core/connection.cpp	/^    int Connection::proxyPort() const{$/;"	f	class:Core::Connection
+<<<<<<< HEAD
 psdir	core/Makefile	/^psdir = ${docdir}$/;"	m
 psdir	tizen/Makefile	/^psdir = ${docdir}$/;"	m
 psdir	tizen/src/Makefile	/^psdir = ${docdir}$/;"	m
+=======
+publisher	meegotouchplugin/meegotouchplugin.h	/^    QValueSpacePublisher *publisher;$/;"	m	class:MyMWidget
+qCleanupResources_omweather_settings	qtsetting/qrc_omweather-settings.cpp	/^int QT_MANGLE_NAMESPACE(qCleanupResources_omweather_settings)()$/;"	f
+>>>>>>> master
 qCleanupResources_weatherlayoutitem	qt-qml/qrc_weatherlayoutitem.cpp	/^int QT_MANGLE_NAMESPACE(qCleanupResources_weatherlayoutitem)()$/;"	f
 qInitResources_weatherlayoutitem	qt-qml/qrc_weatherlayoutitem.cpp	/^int QT_MANGLE_NAMESPACE(qInitResources_weatherlayoutitem)()$/;"	f
 qt_meta_data_CityModel	qt-qml/moc_citymodel.cpp	/^static const uint qt_meta_data_CityModel[] = {$/;"	v	file:
@@ -2147,6 +2262,7 @@ qt_meta_data_SelectData	qt-qml/moc_selectmodel.cpp	/^static const uint qt_meta_d
 qt_meta_data_SelectModel	qt-qml/moc_selectmodel.cpp	/^static const uint qt_meta_data_SelectModel[] = {$/;"	v	file:
 qt_meta_data_UpdateThread	qt-qml/moc_updatethread.cpp	/^static const uint qt_meta_data_UpdateThread[] = {$/;"	v	file:
 qt_meta_data_WeatherApplicationExtension	meegotouchplugin/moc_meegotouchplugin.cpp	/^static const uint qt_meta_data_WeatherApplicationExtension[] = {$/;"	v	file:
+qt_meta_data_WeatherDataIf	meegotouchplugin/moc_weatherdataif.cpp	/^static const uint qt_meta_data_WeatherDataIf[] = {$/;"	v	file:
 qt_meta_stringdata_CityModel	qt-qml/moc_citymodel.cpp	/^static const char qt_meta_stringdata_CityModel[] = {$/;"	v	file:
 qt_meta_stringdata_ConfigQml	qt-qml/moc_configqml.cpp	/^static const char qt_meta_stringdata_ConfigQml[] = {$/;"	v	file:
 qt_meta_stringdata_Controller	qt-qml/moc_controller.cpp	/^static const char qt_meta_stringdata_Controller[] = {$/;"	v	file:
@@ -2166,10 +2282,12 @@ qt_meta_stringdata_SelectData	qt-qml/moc_selectmodel.cpp	/^static const char qt_
 qt_meta_stringdata_SelectModel	qt-qml/moc_selectmodel.cpp	/^static const char qt_meta_stringdata_SelectModel[] = {$/;"	v	file:
 qt_meta_stringdata_UpdateThread	qt-qml/moc_updatethread.cpp	/^static const char qt_meta_stringdata_UpdateThread[] = {$/;"	v	file:
 qt_meta_stringdata_WeatherApplicationExtension	meegotouchplugin/moc_meegotouchplugin.cpp	/^static const char qt_meta_stringdata_WeatherApplicationExtension[] = {$/;"	v	file:
+qt_meta_stringdata_WeatherDataIf	meegotouchplugin/moc_weatherdataif.cpp	/^static const char qt_meta_stringdata_WeatherDataIf[] = {$/;"	v	file:
 qt_metacall	meegotouchplugin/moc_dbusadaptor.cpp	/^int MeecastIf::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:MeecastIf
 qt_metacall	meegotouchplugin/moc_eventfeedif.cpp	/^int EventFeedIf::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:EventFeedIf
 qt_metacall	meegotouchplugin/moc_meegotouchplugin.cpp	/^int MyMWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:MyMWidget
 qt_metacall	meegotouchplugin/moc_meegotouchplugin.cpp	/^int WeatherApplicationExtension::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:WeatherApplicationExtension
+qt_metacall	meegotouchplugin/moc_weatherdataif.cpp	/^int WeatherDataIf::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:WeatherDataIf
 qt_metacall	predeamon/moc_dbusadaptor_applet.cpp	/^int MeecastIf::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:MeecastIf
 qt_metacall	qt-qml/moc_citymodel.cpp	/^int CityModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:CityModel
 qt_metacall	qt-qml/moc_configqml.cpp	/^int ConfigQml::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:ConfigQml
@@ -2189,6 +2307,7 @@ qt_metacast	meegotouchplugin/moc_dbusadaptor.cpp	/^void *MeecastIf::qt_metacast(
 qt_metacast	meegotouchplugin/moc_eventfeedif.cpp	/^void *EventFeedIf::qt_metacast(const char *_clname)$/;"	f	class:EventFeedIf
 qt_metacast	meegotouchplugin/moc_meegotouchplugin.cpp	/^void *MyMWidget::qt_metacast(const char *_clname)$/;"	f	class:MyMWidget
 qt_metacast	meegotouchplugin/moc_meegotouchplugin.cpp	/^void *WeatherApplicationExtension::qt_metacast(const char *_clname)$/;"	f	class:WeatherApplicationExtension
+qt_metacast	meegotouchplugin/moc_weatherdataif.cpp	/^void *WeatherDataIf::qt_metacast(const char *_clname)$/;"	f	class:WeatherDataIf
 qt_metacast	predeamon/moc_dbusadaptor_applet.cpp	/^void *MeecastIf::qt_metacast(const char *_clname)$/;"	f	class:MeecastIf
 qt_metacast	qt-qml/moc_citymodel.cpp	/^void *CityModel::qt_metacast(const char *_clname)$/;"	f	class:CityModel
 qt_metacast	qt-qml/moc_configqml.cpp	/^void *ConfigQml::qt_metacast(const char *_clname)$/;"	f	class:ConfigQml
@@ -2268,7 +2387,13 @@ setRemove	qtsetting/settingstations.cpp	/^SettingStations::setRemove(QListWidget
 set_color_by_temp	tizen/src/main_window.cpp	/^set_color_by_temp(Evas_Object *obj, int t)$/;"	f	file:
 set_databasename	core/databasesqlite.cpp	/^DatabaseSqlite::set_databasename(const std::string& filename)$/;"	f	class:Core::DatabaseSqlite
 set_iconset	qt-qml/configqml.cpp	/^ConfigQml::set_iconset(QString c)$/;"	f	class:ConfigQml
+<<<<<<< HEAD
 set_standby_color_font_stationname	qt-qml/configqml.cpp	/^ConfigQml::set_standby_color_font_stationname(QColor c)$/;"	f	class:ConfigQml
+=======
+set_standby_color_font_current_temperature	qt-qml/configqml.cpp	/^ConfigQml::set_standby_color_font_current_temperature(QColor c)$/;"	f	class:ConfigQml
+set_standby_color_font_stationname	qt-qml/configqml.cpp	/^ConfigQml::set_standby_color_font_stationname(QColor c)$/;"	f	class:ConfigQml
+set_standby_color_font_temperature	qt-qml/configqml.cpp	/^ConfigQml::set_standby_color_font_temperature(QColor c)$/;"	f	class:ConfigQml
+>>>>>>> master
 seteventwidget	qt-qml/configqml.cpp	/^ConfigQml::seteventwidget(bool c)$/;"	f	class:ConfigQml
 setfullscreen	qt-qml/configqml.cpp	/^ConfigQml::setfullscreen(bool c)$/;"	f	class:ConfigQml
 setgps	qt-qml/configqml.cpp	/^ConfigQml::setgps(bool c)$/;"	f	class:ConfigQml
@@ -2308,10 +2433,20 @@ sourcelist	qtsetting/setting.h	/^    Core::SourceList *sourcelist;$/;"	m	class:S
 sourcesPath	core/abstractconfig.cpp	/^    std::string AbstractConfig::sourcesPath = "..\/test\/sources\/";$/;"	m	class:Core::AbstractConfig	file:
 sourcesPath	core/abstractconfig.h	/^            static std::string sourcesPath;$/;"	m	class:Core::AbstractConfig
 splash	qt-qml/configqml.cpp	/^ConfigQml::splash()$/;"	f	class:ConfigQml
+<<<<<<< HEAD
 srcdir	core/Makefile	/^srcdir = .$/;"	m
 srcdir	tizen/Makefile	/^srcdir = .$/;"	m
 srcdir	tizen/src/Makefile	/^srcdir = .$/;"	m
 standby_color_font_stationname	qt-qml/configqml.cpp	/^ConfigQml::standby_color_font_stationname(){$/;"	f	class:ConfigQml
+=======
+splashChanged	qt-qml/moc_configqml.cpp	/^void ConfigQml::splashChanged()$/;"	f	class:ConfigQml
+standby_color_font_current_temperature	qt-qml/configqml.cpp	/^ConfigQml::standby_color_font_current_temperature(){$/;"	f	class:ConfigQml
+standby_color_font_current_temperatureChanged	qt-qml/moc_configqml.cpp	/^void ConfigQml::standby_color_font_current_temperatureChanged()$/;"	f	class:ConfigQml
+standby_color_font_stationname	qt-qml/configqml.cpp	/^ConfigQml::standby_color_font_stationname(){$/;"	f	class:ConfigQml
+standby_color_font_stationnameChanged	qt-qml/moc_configqml.cpp	/^void ConfigQml::standby_color_font_stationnameChanged()$/;"	f	class:ConfigQml
+standby_color_font_temperature	qt-qml/configqml.cpp	/^ConfigQml::standby_color_font_temperature(){$/;"	f	class:ConfigQml
+standby_color_font_temperatureChanged	qt-qml/moc_configqml.cpp	/^void ConfigQml::standby_color_font_temperatureChanged()$/;"	f	class:ConfigQml
+>>>>>>> master
 standby_settings	qt-qml/configqml.h	/^    QSettings *standby_settings;$/;"	m	class:ConfigQml
 standbyscreen	meegotouchplugin/meegotouchplugin.h	/^    void standbyscreen(bool cur){$/;"	f	class:MyMWidget
 standbyscreen	qt-qml/configqml.cpp	/^ConfigQml::standbyscreen()$/;"	f	class:ConfigQml
@@ -2329,6 +2464,7 @@ staticMetaObject	meegotouchplugin/moc_dbusadaptor.cpp	/^const QMetaObject Meecas
 staticMetaObject	meegotouchplugin/moc_eventfeedif.cpp	/^const QMetaObject EventFeedIf::staticMetaObject = {$/;"	m	class:EventFeedIf	file:
 staticMetaObject	meegotouchplugin/moc_meegotouchplugin.cpp	/^const QMetaObject MyMWidget::staticMetaObject = {$/;"	m	class:MyMWidget	file:
 staticMetaObject	meegotouchplugin/moc_meegotouchplugin.cpp	/^const QMetaObject WeatherApplicationExtension::staticMetaObject = {$/;"	m	class:WeatherApplicationExtension	file:
+staticMetaObject	meegotouchplugin/moc_weatherdataif.cpp	/^const QMetaObject WeatherDataIf::staticMetaObject = {$/;"	m	class:WeatherDataIf	file:
 staticMetaObject	predeamon/moc_dbusadaptor_applet.cpp	/^const QMetaObject MeecastIf::staticMetaObject = {$/;"	m	class:MeecastIf	file:
 staticMetaObject	qt-qml/moc_citymodel.cpp	/^const QMetaObject CityModel::staticMetaObject = {$/;"	m	class:CityModel	file:
 staticMetaObject	qt-qml/moc_configqml.cpp	/^const QMetaObject ConfigQml::staticMetaObject = {$/;"	m	class:ConfigQml	file:
@@ -2485,6 +2621,7 @@ updateintervalChanged	qt-qml/moc_configqml.cpp	/^void ConfigQml::updateintervalC
 updatestations	qt-qml/configqml.cpp	/^ConfigQml::updatestations()$/;"	f	class:ConfigQml
 updating	netbook-UX/meego-panel-omweather.cpp	/^bool updating = false;$/;"	v
 url_detail_template	core/source.cpp	/^    std::string& Source::url_detail_template() const{$/;"	f	class:Core::Source
+url_for_map	core/source.cpp	/^    std::string& Source::url_for_map() const{$/;"	f	class:Core::Source
 url_for_view	core/source.cpp	/^    std::string& Source::url_for_view() const{$/;"	f	class:Core::Source
 url_template	core/source.cpp	/^    std::string& Source::url_template() const{$/;"	f	class:Core::Source
 validator	core/parser.h	/^                xmlpp::SchemaValidator *validator;$/;"	m	class:Core::Parser
@@ -2536,7 +2673,7 @@ writedata	core/downloader.cpp	/^Downloader::writedata(void *ptr, size_t size, si
 ~MeecastIf	meegotouchplugin/dbusadaptor.cpp	/^MeecastIf::~MeecastIf()$/;"	f	class:MeecastIf
 ~MeecastIf	predeamon/dbusadaptor_applet.cpp	/^MeecastIf::~MeecastIf()$/;"	f	class:MeecastIf
 ~MeecastIf	qt-qml/dbusadaptor_applet.cpp	/^MeecastIf::~MeecastIf()$/;"	f	class:MeecastIf
-~MyMWidget	meegotouchplugin/meegotouchplugin.h	/^     ~MyMWidget(){$/;"	f	class:MyMWidget
+~MyMWidget	meegotouchplugin/meegotouchplugin.cpp	/^MyMWidget::~MyMWidget(){$/;"	f	class:MyMWidget
 ~NetworkingControl	qt-qml/networkingcontrol.h	/^    virtual ~NetworkingControl(){};$/;"	f	class:NetworkingControl
 ~OmweatherAdaptor	meego-UX-panel/omweatheradaptor.cpp	/^OmweatherAdaptor::~OmweatherAdaptor()$/;"	f	class:OmweatherAdaptor
 ~OmweatherIntf	meego-UX-panel/omweatherintf.cpp	/^OmweatherIntf::~OmweatherIntf()$/;"	f	class:OmweatherIntf
@@ -2553,4 +2690,5 @@ writedata	core/downloader.cpp	/^Downloader::writedata(void *ptr, size_t size, si
 ~Temperature	core/temperature.cpp	/^    Temperature::~Temperature(){$/;"	f	class:Core::Temperature
 ~UpdateQml	meego-UX-panel/updateqml.cpp	/^UpdateQml::~UpdateQml()$/;"	f	class:UpdateQml
 ~WeatherApplicationExtension	meegotouchplugin/meegotouchplugin.cpp	/^WeatherApplicationExtension::~WeatherApplicationExtension(){$/;"	f	class:WeatherApplicationExtension
+~WeatherDataIf	meegotouchplugin/weatherdataif.cpp	/^WeatherDataIf::~WeatherDataIf()$/;"	f	class:WeatherDataIf
 ~Windspeed	core/windspeed.cpp	/^    Windspeed::~Windspeed(){$/;"	f	class:Core::Windspeed

@@ -32,7 +32,7 @@
 /*******************************************************************************/
 static GHashTable *data = NULL;
 /*******************************************************************************/
-gboolean
+int
 source_init(void){
     data = g_hash_table_new(g_str_hash, g_str_equal);
     if(!data)

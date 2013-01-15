@@ -210,9 +210,9 @@ get_date_for_hour_weather(char *temp_string){
     strcat(buff, " ");
     temp_point = strchr(temp_string,' ');
     strcat(buff, temp_point+1);
-    fprintf(stderr, "Buffer %s\n", buff); 
+    /* fprintf(stderr, "Buffer %s\n", buff); */
     strptime(buff, "%m-%d %Y %H:%M", &tmp_tm);
-    fprintf(stderr, "\ntmp_tm hour %d\n", (&tmp_tm)->tm_hour); 
+    /* fprintf(stderr, "\ntmp_tm hour %d\n", (&tmp_tm)->tm_hour); */
     return tmp_tm;
 }
 /*******************************************************************************/

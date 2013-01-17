@@ -44,6 +44,7 @@ NavigationPane {
         property string pressure: ""
         property string background_image: ""
 
+
         function update_list(){
             forrecasts_list.dataModel.clear();
             if (Current.getdata(0, "current"))
@@ -963,8 +964,7 @@ NavigationPane {
                         var newPage = settingspageDefinition.createObject();
                         rootWindow.push(newPage);
                     }
-                }
-                
+                } 
                 Container{
                     preferredWidth: 20
                     preferredHeight: 138 

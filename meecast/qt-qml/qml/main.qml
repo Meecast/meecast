@@ -918,7 +918,11 @@ NavigationPane {
                 ActivityIndicator {
                     id: refresh_showing
                     preferredWidth:  81
+                    maxWidth:        81
+                    minWidth:        81
                     preferredHeight: 81 
+                    maxHeight:       81 
+                    minHeight:       81 
                     verticalAlignment: VerticalAlignment.Center
                     visible: main.isUpdate ? true : false
                     running: main.isUpdate ? true : false
@@ -927,7 +931,11 @@ NavigationPane {
                 ImageButton {
                     id: refreshicon
                     preferredWidth:  81
+                    maxWidth:        81
+                    minWidth:        81
                     preferredHeight: 81 
+                    maxHeight:       81 
+                    minHeight:       81 
                     verticalAlignment: VerticalAlignment.Center
                     defaultImageSource: "asset:///button_icons/refresh_def.png"
                     pressedImageSource: "asset:///button_icons/refresh_sel.png"
@@ -941,10 +949,13 @@ NavigationPane {
                 ImageView {
                     id: sourceicon
                     verticalAlignment: VerticalAlignment.Center
+                    horizontalAlignment: HorizontalAlignment.Center
                     imageSource: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"                 
-                    preferredWidth: 140*1.6
-                    preferredHeight: 31*1.6
-                    leftMargin: 220.0
+                    preferredWidth: 440
+                    maxWidth:       440 
+                    minWidth:       440 
+                    preferredHeight: 120 
+                    leftMargin: 80.0
                     onTouch: {
                         if (event.isDown()) {
                             Config.showweb();
@@ -955,11 +966,17 @@ NavigationPane {
                 ImageButton {
                     id: settingsicon
                     verticalAlignment: VerticalAlignment.Center     
+                    horizontalAlignment: HorizontalAlignment.Right
                     defaultImageSource: "asset:///button_icons/menu_def.png"
                     pressedImageSource: "asset:///button_icons/menu_sel.png"
+                    preferredWidth:  81
+                    maxWidth:        81
+                    minWidth:        81
+                    preferredHeight: 81 
+                    maxHeight:       81 
+                    minHeight:       81 
 
-                    leftMargin: 220.0
-                    horizontalAlignment: HorizontalAlignment.Right
+                    leftMargin: 80.0
                     onClicked: {
                         var newPage = settingspageDefinition.createObject();
                         rootWindow.push(newPage);

@@ -16,6 +16,7 @@
     hash_insert(hash, "60", "26");
     hash_insert(hash, "64", "12");
     hash_insert(hash, "65", "17");
+    hash_insert(hash, "71", "31");
     hash_insert(hash, "72", "31");
     hash_insert(hash, "73", "31");
     hash_insert(hash, "74", "31");

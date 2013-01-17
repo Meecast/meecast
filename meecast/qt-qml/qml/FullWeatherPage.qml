@@ -859,6 +859,12 @@ Page {
                     }
                     ImageButton {
                         id: settingsicon
+                        preferredWidth:  81
+                        maxWidth:        81
+                        minWidth:        81
+                        preferredHeight: 81 
+                        maxHeight:       81 
+                        minHeight:       81 
                         verticalAlignment: VerticalAlignment.Center     
                         defaultImageSource: "asset:///button_icons/menu_def.png"
                         pressedImageSource: "asset:///button_icons/menu_sel.png"

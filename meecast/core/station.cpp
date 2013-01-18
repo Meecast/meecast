@@ -33,6 +33,7 @@
 #include <iostream> 
 #include <cstdlib>
 #include <stdlib.h>
+#include <algorithm>
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
@@ -132,6 +133,14 @@ Station::Station(const std::string& source_name, const std::string& id,
          }
          _cookie = new std::string(cookie);
          _viewURL = new std::string(view_url);
+
+         /* Hack for yr.no */
+         if  (source_name=="yr.no")
+             std::replace(_forecastURL->begin(), _forecastURL->end(),'#', '/');
+            //_forecastURL->replace("#","/");
+         if  (source_name=="yr.no")
+             std::replace(_viewURL->begin(), _viewURL->end(),'#', '/');
+           // _viewURL->replace("#","/");
 
 
         _fileName = new std::string(filename);

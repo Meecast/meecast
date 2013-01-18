@@ -246,7 +246,8 @@ DatabaseSqlite::create_stations_list_by_name(const std::string& country_name, co
     START_FUNCTION;
 #endif
     list = new listdata;
-    if(!db || region_id == 0 || region_id == -1)
+
+    if(!db || country_name =="" || region_name == "")
         return list;    /* database doesn't open */
 
 

@@ -150,9 +150,9 @@ DatabaseSqlite::create_region_list_by_name(const std::string&  country_name)
 
     snprintf(sql,
                 sizeof(sql) - 1,
-                "SELECT id, name FROM regions WHERE country_id = %s ORDER BY name",
+                "select name from regions where country_id = (select id from countries where name='%s') order by name",
                 country_name.c_str());
-*    std::cerr <<"Select region: "<< sql << std::endl; 
+    std::cerr <<"Select region: "<< sql << std::endl; 
     rc = sqlite3_get_table(db,
                            sql,
                            &result,

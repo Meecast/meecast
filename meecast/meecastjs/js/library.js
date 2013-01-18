@@ -90,7 +90,7 @@
 
     function create_stations_list_js(country, region){
 
-        var create_stations_list = Module.cwrap('create_statons_list', 'string', ['string', 'string']);
+        var create_stations_list = Module.cwrap('create_stations_list', 'string', ['string', 'string']);
         var data = JSON.parse(create_stations_list(country, region));
         var text = "";
         for (var i in data) {

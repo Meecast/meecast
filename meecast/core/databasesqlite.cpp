@@ -129,6 +129,55 @@ DatabaseSqlite::create_countries_list()
 }
 
 listdata*
+DatabaseSqlite::create_region_list_by_name(const std::string&  country_name)
+{
+    listdata *list = NULL;
+    int rc;
+    char *errMsg = NULL;
+    char **result;
+    int nrow, ncol;
+    //std::string sql;
+    char sql[256];
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    list = new listdata;
+    if(!db){
+        return NULL;
+    }
+
+    if (country_name =="") return list;
+
+    snprintf(sql,
+                sizeof(sql) - 1,
+                "select name from regions where country_id = (select id from countries where name='%s') order by name",
+                country_name.c_str());
+    std::cerr <<"Select region: "<< sql << std::endl; 
+    rc = sqlite3_get_table(db,
+                           sql,
+                           &result,
+                           &nrow,
+                           &ncol,
+                           &errMsg);
+    if(rc != SQLITE_OK){
+#ifndef RELEASE
+        std::cerr << errMsg << std::endl;
+#endif
+        sqlite3_free(errMsg);
+        return NULL;
+    }
+    for (int i=0; i<ncol*nrow; i=i+2)
+        list->push_back(std::make_pair(result[ncol+i], result[ncol+i+1]));
+
+    sqlite3_free_table(result);
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+    return list;
+}
+
+listdata*
 DatabaseSqlite::create_region_list(int country_id)
 {
     listdata *list = NULL;

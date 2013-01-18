@@ -2,12 +2,13 @@ meecast (0.6.10) unstable; urgency=low
 
   * Added icons for hko.gov.hk
   * Added icons for foreca.com
-  * Updated Chinese, Bulgarian, Catalan, Turkish, Germany, Dutch translations
+  * Updated Chinese, Bulgarian, Catalan, Turkish, Germany, Dutch, Slovak translations
   * Added new iconset Atmos. Thanks Andrew Zhilin
   * Fixed problem with feels like in source gismeteo.ru
   * Fixed problem with timezone in source gismeto.ru
   * Fixed problem with updating weather forecast data for new station 
   * Added description string to gismeteo.ru 
+  * Fixed problem with first updating weather forecast in source yr.no
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 19 Nov 2012 19:31:23 +0200
 

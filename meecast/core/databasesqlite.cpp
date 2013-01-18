@@ -129,7 +129,7 @@ DatabaseSqlite::create_countries_list()
 }
 
 listdata*
-DatabaseSqlite::create_region_list_by_name(const std::string&  country_name)
+DatabaseSqlite::create_region_list_by_name(const std::string& country_name)
 {
     listdata *list = NULL;
     int rc;
@@ -150,7 +150,7 @@ DatabaseSqlite::create_region_list_by_name(const std::string&  country_name)
 
     snprintf(sql,
                 sizeof(sql) - 1,
-                "select name from regions where country_id = (select id from countries where name='%s') order by name",
+                "select id, name from regions where country_id = (select id from countries where name='%s') order by name",
                 country_name.c_str());
     std::cerr <<"Select region: "<< sql << std::endl; 
     rc = sqlite3_get_table(db,
@@ -224,6 +224,55 @@ DatabaseSqlite::create_region_list(int country_id)
     for (int i=0; i<ncol*nrow; i=i+2)
         list->push_back(std::make_pair(result[ncol+i], result[ncol+i+1]));
 
+    sqlite3_free_table(result);
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+    return list;
+}
+
+listdata*
+DatabaseSqlite::create_stations_list_by_name(const std::string& country_name, const std::string& region_name)
+{
+    listdata *list = NULL;
+    int rc;
+    char *errMsg = NULL;
+    char **result;
+    int nrow, ncol;
+    //std::string sql;
+    char sql[256];
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    list = new listdata;
+    if(!db || region_id == 0 || region_id == -1)
+        return list;    /* database doesn't open */
+
+
+    snprintf(sql, sizeof(sql) - 1,
+            "select code, name from stations where region_id = \
+            (select id from regions where name = '%s' and country_id = \
+            (select id from countries where name= '%s')) order by name",
+            country_name.c_str(), region_name.c_str());
+    //std::cerr << sql << std::endl;
+    rc = sqlite3_get_table(db,
+                           sql,
+                           &result,
+                           &nrow,
+                           &ncol,
+                           &errMsg);
+    if(rc != SQLITE_OK){
+#ifndef RELEASE
+        std::cerr << errMsg << std::endl;
+#endif
+        sqlite3_free(errMsg);
+        return NULL;
+    }
+    for (int i=0; i<ncol*nrow; i=i+2){
+        list->push_back(std::make_pair(result[ncol+i], result[ncol+i+1]));
+        /* std::cerr << result[ncol+i] << " - " << result[ncol+i+1] << std::endl;*/
+    }
     sqlite3_free_table(result);
 
 #ifdef DEBUGFUNCTIONCALL

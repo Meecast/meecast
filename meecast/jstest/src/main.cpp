@@ -82,6 +82,7 @@ extern "C" {
         snprintf(global_temp_buffer, sizeof(global_temp_buffer) -1, "%s", buf.c_str());
         return global_temp_buffer;
     }
+
     char* EMSCRIPTEN_KEEPALIVE
     create_regions_list(char *country_name){
         std::string buf;
@@ -94,6 +95,24 @@ extern "C" {
           if (i !=0)
               buf = buf + ",";
           buf = buf + "\""+ (char *)regionlist->at(i).second.c_str() +"\"";
+        }
+        buf = buf + "]";
+        snprintf(global_temp_buffer, sizeof(global_temp_buffer) -1, "%s", buf.c_str());
+        return global_temp_buffer;
+    }
+
+    char* EMSCRIPTEN_KEEPALIVE
+    create_stations_list(char* country_name, char *region_name){
+        std::string buf;
+        memset(global_temp_buffer, 0, sizeof(global_temp_buffer));
+        //app->country_id = atoi((char *)(countrylist->at(app->index_list-1).first.c_str()));
+        //app->country = new std::string (countrylist->at(app->index_list - 1).second.c_str());
+        Core::listdata * stationlist = db->create_station_list_by_name(std::string(region_name), std::string(region_name));
+        buf = "[";
+        for (short i=0; i < stationlist->size();i++){
+          if (i !=0)
+              buf = buf + ",";
+          buf = buf + "\""+ (char *)stationlist->at(i).second.c_str() +"\"";
         }
         buf = buf + "]";
         snprintf(global_temp_buffer, sizeof(global_temp_buffer) -1, "%s", buf.c_str());

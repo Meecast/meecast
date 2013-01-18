@@ -52,6 +52,15 @@
                     $("#regions_manager_listview").html(gList).trigger("create").listview("refresh");
                  });
                  });
+        $(document).delegate(
+                "#manage_stations","pageinit", function() {
+	                $("#manage_stations").bind("pagebeforeshow", function() {
+                    gList = create_stations_list_js(current_region);
+                    //$("#location_manager_listview").listview("refresh");
+                    $("#stations_manager_listview").html(gList).trigger("create").listview("refresh");
+                 });
+                 });
+
 
 
     </script>
@@ -66,6 +75,11 @@
             current_country = sel_country;
             $.mobile.changePage('manage_region.html'); //Change page view
         }
+        function stations_page(sel_region){
+            current_region = sel_region;
+            $.mobile.changePage('manage_station.html'); //Change page view
+        }
+
 
     </script>
 

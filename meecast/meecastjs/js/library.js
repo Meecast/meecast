@@ -80,11 +80,25 @@
         var data = JSON.parse(create_regions_list(country));
         var text = "";
         for (var i in data) {
-            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:regions_page('"+ data[i] + "');\">" + data[i] + "</a></li>";
+            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:stations_page('"+ data[i] + "');\">" + data[i] + "</a></li>";
             //text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:countries_page(\"" + data[i] + "\");\">" + data[i] + "</a></li>";
 //            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"manage_country.html\">" + data[i] + "</a></li>";
         }
              Module.print("List3" + text);
+        return text;
+    };
+
+    function create_stations_list_js(country, region){
+
+        var create_stations_list = Module.cwrap('create_statons_list', 'string', ['string', 'string']);
+        var data = JSON.parse(create_stations_list(country, region));
+        var text = "";
+        for (var i in data) {
+            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:stations_page('"+ data[i] + "');\">" + data[i] + "</a></li>";
+            //text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:countries_page(\"" + data[i] + "\");\">" + data[i] + "</a></li>";
+//            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"manage_country.html\">" + data[i] + "</a></li>";
+        }
+             Module.print("List4" + text);
         return text;
     };
 

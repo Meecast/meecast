@@ -61,6 +61,7 @@ public:
     bool open_database();
     listdata* create_countries_list();
     listdata* create_region_list(int country_id);
+    listdata* create_region_list_by_name(const std::string& country_name);
     listdata* create_stations_list(int region_id);
     void get_nearest_station(double lat, double lon,
                              std::string& country, std::string& region,

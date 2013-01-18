@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -256,7 +256,7 @@ DatabaseSqlite::create_stations_list_by_name(const std::string& country_name, co
             (select id from regions where name = '%s' and country_id = \
             (select id from countries where name= '%s')) order by name",
             country_name.c_str(), region_name.c_str());
-    //std::cerr << sql << std::endl;
+    std::cerr << sql << std::endl;
     rc = sqlite3_get_table(db,
                            sql,
                            &result,

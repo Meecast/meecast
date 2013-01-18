@@ -21,6 +21,7 @@
     
         var gList = "";
         var current_database = "";
+        var current_country = "";
         $(document).delegate(
                 "#main","pageinit", 
                  function() {
@@ -46,7 +47,7 @@
         $(document).delegate(
                 "#manage_regions","pageinit", function() {
 	                $("#manage_regions").bind("pagebeforeshow", function() {
-                    gList = create_regions_list_js(current_database);
+                    gList = create_regions_list_js(current_country);
                     //$("#location_manager_listview").listview("refresh");
                     $("#regions_manager_listview").html(gList).trigger("create").listview("refresh");
                  });
@@ -61,7 +62,8 @@
             prepare_database_js(current_database); 
             //$.mobile.changePage('manage_country.html'); //Change page view
         }
-        function regions_page(sel_database){
+        function regions_page(sel_country){
+            current_country = sel_country;
             $.mobile.changePage('manage_region.html'); //Change page view
         }
 

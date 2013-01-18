@@ -83,12 +83,12 @@ extern "C" {
         return global_temp_buffer;
     }
     char* EMSCRIPTEN_KEEPALIVE
-    create_regions_list(void){
+    create_regions_list(char *country_name){
         std::string buf;
         memset(global_temp_buffer, 0, sizeof(global_temp_buffer));
         //app->country_id = atoi((char *)(countrylist->at(app->index_list-1).first.c_str()));
         //app->country = new std::string (countrylist->at(app->index_list - 1).second.c_str());
-        Core::listdata * regionlist = db->create_region_list(1);
+        Core::listdata * regionlist = db->create_region_list_by_name(std::string(country_name));
         buf = "[";
         for (short i=0; i < regionlist->size();i++){
           if (i !=0)

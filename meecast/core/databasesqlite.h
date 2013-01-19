@@ -64,6 +64,7 @@ public:
     listdata* create_region_list_by_name(const std::string& country_name);
     listdata* create_stations_list(int region_id);
     listdata* create_stations_list_by_name(const std::string& country_name, const std::string& region_name);
+    std::string& get_station_code_by_name(const std::string& country_name, const std::string& region_name, const std::string& station_name);
     void get_nearest_station(double lat, double lon,
                              std::string& country, std::string& region,
                              std::string& code, std::string& name,

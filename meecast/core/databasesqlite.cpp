@@ -241,7 +241,7 @@ DatabaseSqlite::create_stations_list_by_name(const std::string& country_name, co
     char **result;
     int nrow, ncol;
     //std::string sql;
-    char sql[256];
+    char sql[1024];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -281,6 +281,62 @@ DatabaseSqlite::create_stations_list_by_name(const std::string& country_name, co
 #endif
     return list;
 }
+
+std::string&
+DatabaseSqlite::get_station_code_by_name(const std::string& country_name, 
+                                         const std::string& region_name,
+                                         const std::string& station_name)
+{
+    listdata *list = NULL;
+    int rc;
+    char *errMsg = NULL;
+    char **result;
+    int nrow, ncol;
+    //std::string sql;
+    char sql[1024];
+    std::string *stationname;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    list = new listdata;
+
+    if(!db || country_name =="" || region_name == "")
+        return list;    /* database doesn't open */
+
+
+    snprintf(sql, sizeof(sql) - 1,
+            "select code from stations where name='%s' and region_id = \
+            (select id from regions where name = '%s' and country_id = \
+            (select id from countries where name= '%s')) order by name",
+            station_name.c_str(), region_name.c_str(), country_name.c_str());
+    std::cerr << sql << std::endl;
+    rc = sqlite3_get_table(db,
+                           sql,
+                           &result,
+                           &nrow,
+                           &ncol,
+                           &errMsg);
+    if(rc != SQLITE_OK){
+#ifndef RELEASE
+        std::cerr << errMsg << std::endl;
+#endif
+        sqlite3_free(errMsg);
+        return NULL;
+    }
+    for (int i=0; i<ncol*nrow; i=i+1){
+
+        stationname = new std::string(result[ncol+i]);
+//        list->push_back(std::make_pair(result[ncol+i], result[ncol+i+1]));
+        /* std::cerr << result[ncol+i] << " - " << result[ncol+i+1] << std::endl;*/
+    }
+    sqlite3_free_table(result);
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+    return *stationname;
+}
+
 
 listdata*
 DatabaseSqlite::create_stations_list(int region_id)

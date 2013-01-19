@@ -55,7 +55,9 @@
         $(document).delegate(
                 "#manage_stations","pageinit", function() {
 	                $("#manage_stations").bind("pagebeforeshow", function() {
-                    gList = create_stations_list_js(current_region);
+                    Module.print('Test ' + current_country);
+                    Module.print('Test ' + current_region);
+                    gList = create_stations_list_js(current_country, current_region);
                     //$("#location_manager_listview").listview("refresh");
                     $("#stations_manager_listview").html(gList).trigger("create").listview("refresh");
                  });

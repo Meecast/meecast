@@ -107,7 +107,8 @@ extern "C" {
         memset(global_temp_buffer, 0, sizeof(global_temp_buffer));
         //app->country_id = atoi((char *)(countrylist->at(app->index_list-1).first.c_str()));
         //app->country = new std::string (countrylist->at(app->index_list - 1).second.c_str());
-        Core::listdata * stationlist = db->create_stations_list_by_name(std::string(region_name), std::string(region_name));
+        fprintf(stderr,"Country name %s Region name %s\n",country_name, region_name);
+        Core::listdata * stationlist = db->create_stations_list_by_name(std::string(country_name), std::string(region_name));
         buf = "[";
         for (short i=0; i < stationlist->size();i++){
           if (i !=0)

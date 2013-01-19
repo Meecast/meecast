@@ -301,8 +301,7 @@ DatabaseSqlite::get_station_code_by_name(const std::string& country_name,
     list = new listdata;
 
     if(!db || country_name =="" || region_name == "" || station_name == "")
-        return NULL;    /* database doesn't open */
-
+        return *stationname; /* database doesn't open */
 
     snprintf(sql, sizeof(sql) - 1,
             "select code from stations where name='%s' and region_id = \
@@ -321,7 +320,7 @@ DatabaseSqlite::get_station_code_by_name(const std::string& country_name,
         std::cerr << errMsg << std::endl;
 #endif
         sqlite3_free(errMsg);
-        return NULL;
+        return *stationname;
     }
     for (int i=0; i<ncol*nrow; i=i+1){
 

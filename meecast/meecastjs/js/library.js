@@ -88,19 +88,29 @@
         return text;
     };
 
+//get_station_code_by_name
     function create_stations_list_js(country, region){
 
         var create_stations_list = Module.cwrap('create_stations_list', 'string', ['string', 'string']);
         var data = JSON.parse(create_stations_list(country, region));
         var text = "";
         for (var i in data) {
-            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:stations_page('"+ data[i] + "');\">" + data[i] + "</a></li>";
+            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:select_station('"+ data[i] + "');\">" + data[i] + "</a></li>";
             //text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:countries_page(\"" + data[i] + "\");\">" + data[i] + "</a></li>";
 //            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"manage_country.html\">" + data[i] + "</a></li>";
         }
              Module.print("List4" + text);
         return text;
     };
+
+    function station_code_js(country, region, station){
+
+        var station_code = Module.cwrap('station_code', 'string', ['string', 'string', 'string' ]);
+        var data = station_code(country, region, station);
+        Module.print("Code of station" + data);
+        return data;
+    };
+
 
     function  prepare_database_js(database_name){
 

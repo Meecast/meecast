@@ -22,6 +22,8 @@
         var gList = "";
         var current_database = "";
         var current_country = "";
+        var current_region = "";
+        var current_station = "";
         $(document).delegate(
                 "#main","pageinit", 
                  function() {
@@ -81,6 +83,12 @@
             current_region = sel_region;
             $.mobile.changePage('manage_station.html'); //Change page view
         }
+        function select_station(sel_station){
+            current_station = sel_station;
+            Module.print('Station code: ' + station_code_js(current_country, current_region, current_station));
+         //   $.mobile.changePage('manage_station.html'); //Change page view
+        }
+
 
 
     </script>

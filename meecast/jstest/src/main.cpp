@@ -120,6 +120,19 @@ extern "C" {
         return global_temp_buffer;
     }
 
+    char* EMSCRIPTEN_KEEPALIVE
+    station_code(char* country_name, char *region_name, char *station_name){
+        std::string buf;
+        memset(global_temp_buffer, 0, sizeof(global_temp_buffer));
+        //app->country_id = atoi((char *)(countrylist->at(app->index_list-1).first.c_str()));
+        //app->country = new std::string (countrylist->at(app->index_list - 1).second.c_str());
+        fprintf(stderr,"Country name %s Region name %s Station name %s\n",country_name, region_name, station_name);
+         ;
+        snprintf(global_temp_buffer, sizeof(global_temp_buffer) -1, "%s", db->get_station_code_by_name(std::string(country_name), std::string(region_name), std::string(station_name)).c_str());
+        fprintf(stderr, "Code: %s\n", global_temp_buffer);
+        return global_temp_buffer;
+    }
+
 }
 
 ConfigEfl *

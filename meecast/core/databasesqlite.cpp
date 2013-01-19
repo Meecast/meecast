@@ -255,7 +255,7 @@ DatabaseSqlite::create_stations_list_by_name(const std::string& country_name, co
             "select code, name from stations where region_id = \
             (select id from regions where name = '%s' and country_id = \
             (select id from countries where name= '%s')) order by name",
-            country_name.c_str(), region_name.c_str());
+            region_name.c_str(), country_name.c_str());
     std::cerr << sql << std::endl;
     rc = sqlite3_get_table(db,
                            sql,

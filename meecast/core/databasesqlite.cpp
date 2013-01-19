@@ -300,8 +300,8 @@ DatabaseSqlite::get_station_code_by_name(const std::string& country_name,
 #endif
     list = new listdata;
 
-    if(!db || country_name =="" || region_name == "")
-        return list;    /* database doesn't open */
+    if(!db || country_name =="" || region_name == "" || station_name == "")
+        return NULL;    /* database doesn't open */
 
 
     snprintf(sql, sizeof(sql) - 1,

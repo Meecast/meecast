@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -130,6 +130,55 @@ DatabaseSqlite::create_countries_list()
 }
 
 listdata*
+DatabaseSqlite::create_region_list_by_name(const std::string& country_name)
+{
+    listdata *list = NULL;
+    int rc;
+    char *errMsg = NULL;
+    char **result;
+    int nrow, ncol;
+    //std::string sql;
+    char sql[256];
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    list = new listdata;
+    if(!db){
+        return NULL;
+    }
+
+    if (country_name =="") return list;
+
+    snprintf(sql,
+                sizeof(sql) - 1,
+                "select id, name from regions where country_id = (select id from countries where name='%s') order by name",
+                country_name.c_str());
+    std::cerr <<"Select region: "<< sql << std::endl; 
+    rc = sqlite3_get_table(db,
+                           sql,
+                           &result,
+                           &nrow,
+                           &ncol,
+                           &errMsg);
+    if(rc != SQLITE_OK){
+#ifndef RELEASE
+        std::cerr << errMsg << std::endl;
+#endif
+        sqlite3_free(errMsg);
+        return NULL;
+    }
+    for (int i=0; i<ncol*nrow; i=i+2)
+        list->push_back(std::make_pair(result[ncol+i], result[ncol+i+1]));
+
+    sqlite3_free_table(result);
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+    return list;
+}
+
+listdata*
 DatabaseSqlite::create_region_list(int country_id)
 {
     listdata *list = NULL;
@@ -183,6 +232,111 @@ DatabaseSqlite::create_region_list(int country_id)
 #endif
     return list;
 }
+
+listdata*
+DatabaseSqlite::create_stations_list_by_name(const std::string& country_name, const std::string& region_name)
+{
+    listdata *list = NULL;
+    int rc;
+    char *errMsg = NULL;
+    char **result;
+    int nrow, ncol;
+    //std::string sql;
+    char sql[1024];
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    list = new listdata;
+
+    if(!db || country_name =="" || region_name == "")
+        return list;    /* database doesn't open */
+
+
+    snprintf(sql, sizeof(sql) - 1,
+            "select code, name from stations where region_id = \
+            (select id from regions where name = '%s' and country_id = \
+            (select id from countries where name= '%s')) order by name",
+            region_name.c_str(), country_name.c_str());
+    std::cerr << sql << std::endl;
+    rc = sqlite3_get_table(db,
+                           sql,
+                           &result,
+                           &nrow,
+                           &ncol,
+                           &errMsg);
+    if(rc != SQLITE_OK){
+#ifndef RELEASE
+        std::cerr << errMsg << std::endl;
+#endif
+        sqlite3_free(errMsg);
+        return NULL;
+    }
+    for (int i=0; i<ncol*nrow; i=i+2){
+        list->push_back(std::make_pair(result[ncol+i], result[ncol+i+1]));
+        /* std::cerr << result[ncol+i] << " - " << result[ncol+i+1] << std::endl;*/
+    }
+    sqlite3_free_table(result);
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+    return list;
+}
+
+std::string&
+DatabaseSqlite::get_station_code_by_name(const std::string& country_name, 
+                                         const std::string& region_name,
+                                         const std::string& station_name)
+{
+    listdata *list = NULL;
+    int rc;
+    char *errMsg = NULL;
+    char **result;
+    int nrow, ncol;
+    //std::string sql;
+    char sql[1024];
+    std::string *stationname;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    list = new listdata;
+
+    if(!db || country_name =="" || region_name == "" || station_name == "")
+        return *stationname; /* database doesn't open */
+
+    snprintf(sql, sizeof(sql) - 1,
+            "select code from stations where name='%s' and region_id = \
+            (select id from regions where name = '%s' and country_id = \
+            (select id from countries where name= '%s')) order by name",
+            station_name.c_str(), region_name.c_str(), country_name.c_str());
+    std::cerr << sql << std::endl;
+    rc = sqlite3_get_table(db,
+                           sql,
+                           &result,
+                           &nrow,
+                           &ncol,
+                           &errMsg);
+    if(rc != SQLITE_OK){
+#ifndef RELEASE
+        std::cerr << errMsg << std::endl;
+#endif
+        sqlite3_free(errMsg);
+        return *stationname;
+    }
+    for (int i=0; i<ncol*nrow; i=i+1){
+
+        stationname = new std::string(result[ncol+i]);
+//        list->push_back(std::make_pair(result[ncol+i], result[ncol+i+1]));
+        /* std::cerr << result[ncol+i] << " - " << result[ncol+i+1] << std::endl;*/
+    }
+    sqlite3_free_table(result);
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+    return *stationname;
+}
+
 
 listdata*
 DatabaseSqlite::create_stations_list(int region_id)

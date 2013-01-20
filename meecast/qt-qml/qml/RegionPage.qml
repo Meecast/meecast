@@ -27,8 +27,18 @@ Page {
                 positionY: 0
             }
             background: Color.Black
+            layout: DockLayout {}
             preferredWidth: 768
-            preferredHeight: 90
+            preferredHeight: 120
+            Label {
+                verticalAlignment: VerticalAlignment.Center
+                preferredWidth: 768
+                text:  Config.tr("Select region") 
+                textStyle {
+                    base: SystemDefaults.TextStyles.BodyText
+                    color: Color.White
+                }
+            }
         } 
 //        ImageView {
 //            layoutProperties: AbsoluteLayoutProperties {
@@ -50,7 +60,7 @@ Page {
         TextField {
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
-                positionY: 90
+                positionY: 120
             }
             hintText: Config.tr ("Filter by...")
             onTextChanging: { 
@@ -74,7 +84,7 @@ Page {
         Container{
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
-                positionY: 160
+                positionY: 200
             }
             preferredHeight: 970 
             attachedObjects: [
@@ -133,17 +143,5 @@ Page {
                 }
             }
         }       
-        Label {
-            layoutProperties: AbsoluteLayoutProperties {
-                positionX: 0
-                positionY: 25 
-            }
-            preferredWidth: 768
-            text:  Config.tr("Select region") 
-            textStyle {
-                base: SystemDefaults.TextStyles.BodyText
-                color: Color.White
-            }
-        }
     }
 }

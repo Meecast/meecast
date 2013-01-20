@@ -22,13 +22,23 @@ Page {
             }
         ]
         Container{
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 0
-                }
-                background: Color.Black
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 0
+            }
+            background: Color.Black
+            layout: DockLayout {}
+            preferredWidth: 768
+            preferredHeight: 90
+            Label {
                 preferredWidth: 768
-                preferredHeight: 90
+                verticalAlignment: VerticalAlignment.Center
+                text:  Config.tr("Select the weather source") 
+                textStyle {
+                    base: SystemDefaults.TextStyles.BodyText
+                    color: Color.White
+                }
+            }
         } 
 //        ImageView {
 //                layoutProperties: AbsoluteLayoutProperties {
@@ -110,19 +120,5 @@ Page {
                 }
             }
         }       
-        Label {
-            layoutProperties: AbsoluteLayoutProperties {
-                positionX: 0
-                positionY: 25
-            }
-            preferredWidth: 768
-            text:  Config.tr("Select the weather source") 
-            textStyle {
-                base: SystemDefaults.TextStyles.BodyText
-                color: Color.White
-            }
-        }
-
-
     }
 }

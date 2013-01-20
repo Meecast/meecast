@@ -33,13 +33,24 @@ Page {
             }
         ]
         Container{
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 0
-                }
-                background: Color.Black
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 0
+            }
+            layout: DockLayout {}
+            background: Color.Black
+            preferredWidth: 768
+            preferredHeight: 120 
+            Label {
                 preferredWidth: 768
-                preferredHeight: 90
+                verticalAlignment: VerticalAlignment.Center
+                preferredHeight: 120 
+                text:  Config.tr("Manage locations") 
+                textStyle {
+                    base: SystemDefaults.TextStyles.BodyText
+                    color: Color.White
+                }
+            }
         } 
 //        ImageView {
 //                layoutProperties: AbsoluteLayoutProperties {
@@ -61,7 +72,7 @@ Page {
         Container{
             layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
-                    positionY: 90
+                    positionY: 120 
             }
             attachedObjects: [
                 GroupDataModel {
@@ -146,18 +157,6 @@ Page {
                 }
             }
         }       
-        Label {
-            layoutProperties: AbsoluteLayoutProperties {
-                positionX: 0
-                positionY: 25
-            }
-            preferredWidth: 768
-            text:  Config.tr("Manage locations") 
-            textStyle {
-                base: SystemDefaults.TextStyles.BodyText
-                color: Color.White
-            }
-        }
 
 
     }

@@ -18,13 +18,23 @@ Page {
             }
         ]
         Container{
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 0
-                }
-                background: Color.Black
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 0
+            }
+            background: Color.Black
+            preferredWidth: 768
+            preferredHeight: 120 
+            layout: DockLayout {}
+            Label {
+                verticalAlignment: VerticalAlignment.Center
                 preferredWidth: 768
-                preferredHeight: 90
+                text:  Config.tr("Select location") 
+                textStyle {
+                    base: SystemDefaults.TextStyles.BodyText
+                    color: Color.White
+                }
+            }
         } 
 //        ImageView {
 //                layoutProperties: AbsoluteLayoutProperties {
@@ -46,7 +56,7 @@ Page {
         TextField {
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
-                positionY: 90
+                positionY: 120 
             }
             hintText: Config.tr ("Filter by...")
             onTextChanging: { 
@@ -69,7 +79,7 @@ Page {
         Container{
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
-                positionY: 180
+                positionY: 200
             }
             preferredHeight: 970 
             attachedObjects: [
@@ -119,17 +129,5 @@ Page {
                 }
             }
         }       
-        Label {
-            layoutProperties: AbsoluteLayoutProperties {
-                positionX: 0
-                positionY: 25 
-            }
-            preferredWidth: 768
-            text:  Config.tr("Select location") 
-            textStyle {
-                base: SystemDefaults.TextStyles.BodyText
-                color: Color.White
-            }
-        }
     }
 }

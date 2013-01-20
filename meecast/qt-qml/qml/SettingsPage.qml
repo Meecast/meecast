@@ -17,13 +17,24 @@ Page {
 //       background: Color.White
        layout: AbsoluteLayout {}
        Container{
-                layoutProperties: AbsoluteLayoutProperties {
-                	positionX: 0
-                    positionY: 0
-                }
-                background: Color.Black
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 0
+            }
+            layout: DockLayout {}
+            background: Color.Black
+            preferredWidth: 768
+            preferredHeight: 120 
+            Label {
+                verticalAlignment: VerticalAlignment.Center
                 preferredWidth: 768
-                preferredHeight: 90
+                preferredHeight: 120 
+                text:  Config.tr("Settings") 
+                textStyle {
+                    base: SystemDefaults.TextStyles.TitleText
+                    color: Color.White
+                }
+            }
        }                       
 //       ImageView {
 //                layoutProperties: AbsoluteLayoutProperties {
@@ -45,11 +56,12 @@ Page {
 		Container{
 			layoutProperties: AbsoluteLayoutProperties {
                                 positionX: 0
-                                positionY: 0
+                                positionY: 120 
             }
 			attachedObjects: [
 				GroupDataModel {
 					id: groupDataModel
+                    grouping: ItemGrouping.None
 				},
 				ComponentDefinition {
 					id: nextpage
@@ -112,18 +124,6 @@ Page {
 				}
 			}
 		} 
-		Label {
-			layoutProperties: AbsoluteLayoutProperties {
-            	positionX: 0
-                positionY: 0
-            }
-		    preferredWidth: 768
-		    text:  Config.tr("Settings") 
-			textStyle {
-				base: SystemDefaults.TextStyles.TitleText
-				color: Color.White
-			}
-		}
     }
 }
 

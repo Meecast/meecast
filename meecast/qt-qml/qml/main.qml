@@ -559,10 +559,11 @@ NavigationPane {
                                                     Container{
                                                         id: wind_direction
                                                         layoutProperties: AbsoluteLayoutProperties {
-                                                            positionY: 0.0 + ListItemData.humidity == "N/A" ? 0.0 : 50.0; 
+                                                            positionY: 0.0 + (ListItemData.humidity == Qt.Config.tr("N/A") || ListItemData.humidity == "N/A") ? 0.0 : 50.0; 
                                                         }
 
                                                         visible: ListItemData.wind_direction == Qt.Config.tr("N/A") ? false : true; 
+                                                        //visible: false
                                                         layout: AbsoluteLayout {} 
                                                         horizontalAlignment: HorizontalAlignment.Left
                                                         Container{
@@ -613,7 +614,7 @@ NavigationPane {
                                                         verticalAlignment: VerticalAlignment.Center
                                                         horizontalAlignment: HorizontalAlignment.Left
                                                         layoutProperties: AbsoluteLayoutProperties {
-                                                            positionY: 0.0 + (ListItemData.humidity == Qt.Config.tr("N/A") ? 0.0 : 50.0) + (ListItemData.wind_direction == Qt.Config.tr("N/A") ? 0.0 : 50.0); 
+                                                        positionY: 0.0 + ((ListItemData.humidity == Qt.Config.tr("N/A") || ListItemData.humidity == "N/A") ? 0.0 : 50.0) + ((ListItemData.wind_direction == Qt.Config.tr("N/A") || ListItemData.wind_direction == "N/A")  ? 0.0 : 50.0); 
                                                         }
 
                                                         layout: AbsoluteLayout {

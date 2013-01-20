@@ -30,14 +30,14 @@ Page {
                 preferredWidth: 768
                 preferredHeight: 90
         } 
-        ImageView {
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 90
-                 }
-                imageSource: "asset:///share/images/mask_background_grid.png"
-                preferredWidth: 768  
-        }
+//        ImageView {
+//                layoutProperties: AbsoluteLayoutProperties {
+//                    positionX: 0
+//                    positionY: 90
+//                 }
+//                imageSource: "asset:///share/images/mask_background_grid.png"
+//                preferredWidth: 768  
+//        }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
@@ -74,7 +74,8 @@ Page {
                          id: listitemcomp
                          Container {
                               layout: DockLayout {}
-                         
+                              preferredHeight: 120
+                              background:  Color.create("#262626") 
                               Label {                 
                                   text: ListItemData.name
                                   preferredWidth: 768
@@ -84,6 +85,7 @@ Page {
                                   textStyle {
                                       base: SystemDefaults.TextStyles.TitleText
                                       color: Color.White
+                                      fontWeight: FontWeight.W100
                                   }
                               }
                               Label {                 
@@ -111,12 +113,12 @@ Page {
         Label {
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
-                positionY: 0
+                positionY: 25
             }
             preferredWidth: 768
             text:  Config.tr("Select the weather source") 
             textStyle {
-                base: SystemDefaults.TextStyles.TitleText
+                base: SystemDefaults.TextStyles.BodyText
                 color: Color.White
             }
         }

@@ -9,7 +9,7 @@ Page {
 
     content:  Container{
         id: absoluteLayoutContainer
-        background: Color.White
+//        background: Color.White
         layout: AbsoluteLayout {}
         attachedObjects: [
             ComponentDefinition {
@@ -26,14 +26,14 @@ Page {
                 preferredWidth: 768
                 preferredHeight: 90
         } 
-        ImageView {
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 90
-                 }
-                imageSource: "asset:///share/images/mask_background_grid.png"
-                preferredWidth: 768  
-        }
+//        ImageView {
+//                layoutProperties: AbsoluteLayoutProperties {
+//                    positionX: 0
+//                    positionY: 90
+//                 }
+//                imageSource: "asset:///share/images/mask_background_grid.png"
+//                preferredWidth: 768  
+//        }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
@@ -95,6 +95,8 @@ Page {
                          id: listitemcomp
                          Container {
                               layout: DockLayout {}
+                              background:  Color.create("#262626") 
+                              preferredHeight: 120
                               Label {                 
                                   text: ListItemData.name
                                   preferredWidth: 768
@@ -104,6 +106,7 @@ Page {
                                   textStyle {
                                       base: SystemDefaults.TextStyles.TitleText
                                       color: Color.White
+                                      fontWeight: FontWeight.W100
                                   }
                               }
                          }
@@ -119,12 +122,12 @@ Page {
         Label {
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
-                positionY: 0
+                positionY: 25 
             }
             preferredWidth: 768
             text:  Config.tr("Select location") 
             textStyle {
-                base: SystemDefaults.TextStyles.TitleText
+                base: SystemDefaults.TextStyles.BodyText
                 color: Color.White
             }
         }

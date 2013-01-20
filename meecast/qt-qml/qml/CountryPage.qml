@@ -12,7 +12,7 @@ Page {
 
     content:  Container{
         id: absoluteLayoutContainer
-        background: Color.White
+  //      background: Color.White
         layout: AbsoluteLayout {}
         attachedObjects: [
             ComponentDefinition {
@@ -28,14 +28,14 @@ Page {
                 preferredWidth: 768
                 preferredHeight: 90
         } 
-        ImageView {
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 90
-                 }
-                imageSource: "asset:///share/images/mask_background_grid.png"
-                preferredWidth: 768  
-        }
+//        ImageView {
+//                layoutProperties: AbsoluteLayoutProperties {
+//                    positionX: 0
+//                    positionY: 90
+//                 }
+//                imageSource: "asset:///share/images/mask_background_grid.png"
+//                preferredWidth: 768  
+//        }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
@@ -95,8 +95,10 @@ Page {
                          type: "item"
                          id: listitemcomp
                          Container {
-                              layout: DockLayout {}
-                              Label {                 
+                             layout: DockLayout {}
+                             preferredHeight: 120
+                             background:  Color.create("#262626") 
+                             Label {                 
                                   text: ListItemData.name
                                   preferredWidth: 768
                                   preferredHeight: 40 
@@ -104,6 +106,7 @@ Page {
                                   verticalAlignment: VerticalAlignment.Center
                                   textStyle {
                                       base: SystemDefaults.TextStyles.TitleText
+                                      fontWeight: FontWeight.W100
                                       color: Color.White
                                   }
                               }
@@ -139,7 +142,7 @@ Page {
             preferredWidth: 768
             text:  Config.tr("Select country") 
             textStyle {
-                base: SystemDefaults.TextStyles.TitleText
+                base: SystemDefaults.TextStyles.BodyText
                 color: Color.White
             }
         }

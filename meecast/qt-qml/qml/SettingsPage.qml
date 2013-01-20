@@ -14,7 +14,7 @@ Page {
     content:  Container{
         
        id: absoluteLayoutContainer
-       background: Color.White
+//       background: Color.White
        layout: AbsoluteLayout {}
        Container{
                 layoutProperties: AbsoluteLayoutProperties {
@@ -25,14 +25,14 @@ Page {
                 preferredWidth: 768
                 preferredHeight: 90
        }                       
-       ImageView {
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 90
-                 }
-                imageSource: "asset:///share/images/mask_background_grid.png"
-                preferredWidth: 768  
-        }
+//       ImageView {
+//                layoutProperties: AbsoluteLayoutProperties {
+//                    positionX: 0
+//                    positionY: 90
+//                 }
+//                imageSource: "asset:///share/images/mask_background_grid.png"
+//                preferredWidth: 768  
+//        }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
                                 positionX: 0
@@ -79,6 +79,8 @@ Page {
 						 id: listitemcomp
 						 Container {
 							  layout: DockLayout {}
+                              preferredHeight: 120
+                              background:  Color.create("#262626") 
 							  Label {                 
 								  text: ListItemData.name
 								  preferredWidth: 768

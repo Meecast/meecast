@@ -24,7 +24,7 @@ Page {
 
     content:  Container{
         id: absoluteLayoutContainer
-        background: Color.White
+        background: Color.Black
         layout: AbsoluteLayout {}
         attachedObjects: [
             ComponentDefinition {
@@ -41,14 +41,14 @@ Page {
                 preferredWidth: 768
                 preferredHeight: 90
         } 
-        ImageView {
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 90
-                 }
-                imageSource: "asset:///share/images/mask_background_grid.png"
-                preferredWidth: 768  
-        }
+//        ImageView {
+//                layoutProperties: AbsoluteLayoutProperties {
+//                    positionX: 0
+//                    positionY: 90
+//                 }
+//                imageSource: "asset:///share/images/mask_background_grid.png"
+//                preferredWidth: 768  
+//        }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
@@ -107,7 +107,9 @@ Page {
                          type: "item"
                          id: listitemcomp
                          Container {
+                            background:  Color.create("#262626") 
                             layout: DockLayout {}
+                            preferredHeight: 120
                             Label {                 
                                   text: ListItemData.name
                                   preferredWidth: 768
@@ -116,21 +118,23 @@ Page {
                                   textStyle {
                                       base: SystemDefaults.TextStyles.TitleText
                                       color: Color.White
+                                      fontWeight: FontWeight.W100
                                   }
                             }
-                            Button {
-                                text: "X"
-                                preferredWidth: 60 
-                                preferredHeight: 60 
+                            ImageButton {
+                                id: delete_button_id
                                 horizontalAlignment: HorizontalAlignment.Right
                                 verticalAlignment: VerticalAlignment.Center
+                                preferredWidth: 60
+                                preferredHeight: 60
+                                defaultImageSource: "asset:///button_icons/delete.png"
                                 onClicked: {
                                     Qt.dialog.title = ListItemData.name 
                                     Qt.removedstation = ListItemData.number
                                     Qt.dialog.show();
                                 }
                             }
-                         }
+                        }
                     }
                 ]
                 function removeStation(index) {
@@ -145,12 +149,12 @@ Page {
         Label {
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
-                positionY: 0
+                positionY: 25
             }
             preferredWidth: 768
-            text:  Config.tr("Stations") 
+            text:  Config.tr("Manage locations") 
             textStyle {
-                base: SystemDefaults.TextStyles.BigText
+                base: SystemDefaults.TextStyles.BodyText
                 color: Color.White
             }
         }

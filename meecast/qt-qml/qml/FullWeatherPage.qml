@@ -379,6 +379,7 @@ Page {
             }
             ImageView {
                 imageSource: "asset:///share/images/mask_background_main_old.png"
+//                imageSource: "asset:///share/images/mask_background_main.png"
                 preferredWidth: 768
                 preferredHeight: 438
                 layoutProperties: AbsoluteLayoutProperties {
@@ -404,7 +405,8 @@ Page {
                             base: SystemDefaults.TextStyles.BigText
                             color: Color.White
                         }
-                    }
+
+                                           }
                 }
                 Container{
                     id: current_temperature
@@ -465,7 +467,6 @@ Page {
                         fullweather.updateperiod();
                         dayname.text = (fullweather.current && fullweather.day == 0) ? Config.tr("Today") : model_day.getdata(day, "date");
                     }
-
                }
             }
             Container{
@@ -476,8 +477,9 @@ Page {
                     id: dayname
                     horizontalAlignment: HorizontalAlignment.Center
                     textStyle {
-                        base: SystemDefaults.TextStyles.BigText
-                        color: Color.White
+                            fontSize: FontSize.PointValue
+                            fontSizeValue: 8.0
+                            color: Color.White
                     }
                     onCreationCompleted: {
                         rootWindow.backButtonsVisible = false;
@@ -715,16 +717,12 @@ Page {
                 }
                 Container{
                     verticalAlignment: VerticalAlignment.Center     
-                    Label {
-                        verticalAlignment: VerticalAlignment.Center     
+                    ImageView {
+                        imageSource: "asset:///share/images/arrow_left.png"
+	        		    verticalAlignment: VerticalAlignment.Center
                         id: toolbarback 
-                        text: "<"
-                        textStyle {
-                            base: SystemDefaults.TextStyles.BigText
-                            color: Color.White
-                        }
                     }
-                    onTouch: {
+                   onTouch: {
                         if (event.isDown()) {
                             rootWindow.pop()
                         }

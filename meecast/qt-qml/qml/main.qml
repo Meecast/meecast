@@ -150,7 +150,6 @@ NavigationPane {
             console.log("update_current_data!!!!!!!!!!!!!");
             left_arrow = Config.prevstationname == "" ? false : true;
             right_arrow = Config.nextstationname == "" ? false : true;
-
             if (Current.getdata(0, "temp") == "N/A"){
                 current_temp_text = ""
                 if (Current.getdata(0, "temp_high") != "N/A")

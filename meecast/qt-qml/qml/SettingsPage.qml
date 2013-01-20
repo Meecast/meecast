@@ -105,16 +105,12 @@ Page {
                                       fontWeight: FontWeight.W100
 								  }
 							  }
-							  Label {                 
-								text: ">"
-								horizontalAlignment: HorizontalAlignment.Right
-								verticalAlignment: VerticalAlignment.Center
-								textStyle {
-									base: SystemDefaults.TextStyles.BigText
-									color: Color.White
-								}
-							  }
-						 }
+                              ImageView {
+                                  imageSource: "asset:///share/images/arrow_right.png"
+                                  horizontalAlignment: HorizontalAlignment.Right
+								  verticalAlignment: VerticalAlignment.Center
+                              }
+					     }
 					}
 				]
 				onTriggered: {             

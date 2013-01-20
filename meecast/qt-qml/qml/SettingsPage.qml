@@ -87,8 +87,9 @@ Page {
 								  horizontalAlignment:  HorizontalAlignment.Fill
 								  verticalAlignment: VerticalAlignment.Center
                                   textStyle {
-									  base: SystemDefaults.TextStyles.SubtitleText
+									  base: SystemDefaults.TextStyles.TitleText
 									  color: Color.White
+                                      fontWeight: FontWeight.W100
 								  }
 							  }
 							  Label {                 

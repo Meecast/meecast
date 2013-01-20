@@ -12,7 +12,7 @@ Page {
     Container{
        id: absoluteLayoutContainer
 //       background: Color.create("#f618df") 
-       background: Color.create("#a61096") 
+       background: Color.create("#262626") 
 
       // minHeight: 4000
        layout: AbsoluteLayout {}
@@ -26,14 +26,14 @@ Page {
             preferredWidth: 768
             preferredHeight: 120
        }                       
-       ImageView {
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 120
-                 }
-                imageSource: "asset:///share/images/mask_background.png"
-                preferredWidth: 768  
-        }
+//       ImageView {
+//                layoutProperties: AbsoluteLayoutProperties {
+//                    positionX: 0
+//                    positionY: 120
+//                 }
+//                imageSource: "asset:///share/images/mask_background.png"
+//                preferredWidth: 768  
+//        }
         ImageView {
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
@@ -316,10 +316,10 @@ later version.");
                 positionY: 0
             }
             preferredWidth: 768
-            text: Config.tr("MeeCast for Harmattan")
+            text: Config.tr("MeeCast for Blackberry 10")
             textStyle.textAlign: TextAlign.Center
             textStyle {
-                base: SystemDefaults.TextStyles.BigText
+                base: SystemDefaults.TextStyles.TitleText
                 color: Color.White
             }
         }

@@ -51,7 +51,7 @@ Page {
                     positionX: 0
                     positionY: 350
                 }
-                background: Color.Black
+                background: Color.create("#262626")
                 preferredWidth: 768
                 preferredHeight: 1000
         }

@@ -14,6 +14,7 @@ Page {
     content:  Container{
         
        id: absoluteLayoutContainer
+       background: Color.create("#262626")
 //       background: Color.White
        layout: AbsoluteLayout {}
        Container{
@@ -49,7 +50,7 @@ Page {
                                 positionX: 0
                                 positionY: 350
                 }
-                background: Color.Black
+                background: Color.create("#262626")
                 preferredWidth: 768
                 preferredHeight: 1000
         }

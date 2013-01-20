@@ -10,8 +10,9 @@ meecast (0.6.10) unstable; urgency=low
   * Added description string to gismeteo.ru 
   * Fixed problem with first updating weather forecast in source yr.no
   * Changed icon 'fog' for LockScreen. Thanks Red Verge
+  * Fixed menu bar position and behaviour
 
- -- Vlad Vasiliev <vlad@gas.by>  Mon, 19 Nov 2012 19:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 20 Jun 2012 19:31:23 +0200
 
 meecast (0.6.9) unstable; urgency=low
 

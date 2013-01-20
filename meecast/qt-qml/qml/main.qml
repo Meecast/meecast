@@ -18,8 +18,18 @@ NavigationPane {
     property bool  left_arrow : false
     property bool  right_arrow : false
     property int wind_direction_angle : 0
-
+    backButtonsVisible: false
     // Create the initial screen
+    property variant newPage;
+    onPopTransitionEnded: {
+        if (newPage == page) {
+            console.log("onPopTransitionEnded1111");
+            rootWindow.backButtonsVisible = false;
+            page.destroy();
+        }
+    }
+
+
     Page {
         id: main
         property int screen_width : 1280
@@ -978,7 +988,7 @@ NavigationPane {
 
                     leftMargin: 80.0
                     onClicked: {
-                        var newPage = settingspageDefinition.createObject();
+                        newPage = settingspageDefinition.createObject();
                         rootWindow.push(newPage);
                     }
                 } 

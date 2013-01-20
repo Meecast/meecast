@@ -870,7 +870,7 @@ Page {
                         pressedImageSource: "asset:///button_icons/menu_sel.png"
                         horizontalAlignment: HorizontalAlignment.Right
                         onClicked: {
-                            var newPage = settingspageDefinition.createObject();
+                            newPage = settingspageDefinition.createObject();
                             rootWindow.push(newPage);
                         }
                     }

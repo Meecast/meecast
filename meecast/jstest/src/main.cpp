@@ -120,7 +120,7 @@ extern "C" {
         return global_temp_buffer;
     }
 
-    char* EMSCRIPTEN_KEEPALIVE
+    void EMSCRIPTEN_KEEPALIVE
     station_code(char* country_name, char *region_name, char *station_name){
         std::string buf;
         memset(global_temp_buffer, 0, sizeof(global_temp_buffer));
@@ -132,10 +132,11 @@ extern "C" {
         fprintf(stderr, "Code: %s\n", global_temp_buffer);
         return global_temp_buffer;
     }
-    char* EMSCRIPTEN_KEEPALIVE
+    void EMSCRIPTEN_KEEPALIVE
     save_station( char* source_name, char* country_name, char *region_name, char *station_name, char *station_code){
         Core::Station *station;
         fprintf(stderr," Source database %s\n", source_name);
+        fprintf(stderr," Station code %s\n", station_code);
         Core::Source *s = new Core::Source(std::string(source_name), "source.xsd");
         std::string url_template = s->url_template();
         std::string url_detail_template = s->url_detail_template();
@@ -183,6 +184,14 @@ extern "C" {
         config->saveConfig();
 
     }
+
+    void EMSCRIPTEN_KEEPALIVE
+    download_forecasts(){
+        for (short i=0; i < config->stationsList().size(); i++){
+            config->stationsList().at(i)->updateData(true);
+        }
+    }
+
 }
 
 ConfigEfl *

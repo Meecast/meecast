@@ -89,9 +89,11 @@
         function select_station(sel_station){
             current_station = sel_station;
             current_station_code = station_code_js(current_country, current_region, current_station);
-            Module.print('Station code: ' + current_station_code);
-            save_station_js(current_source, current_country, current_region, current_station);
-         //   $.mobile.changePage('manage_station.html'); //Change page view
+            save_station_js(current_source, current_country, current_region, current_station, current_station_code);
+            $.mobile.changePage('index.html'); //Change page view
+        }
+        function stations_update(){
+
         }
 
 
@@ -114,7 +116,7 @@
         <div data-role="footer" data-position="fixed" data-id="foo1">
             <div data-role="controlbar" data-style="tabbar">
                 <ul>
-                    <li><a href="index.html" data-icon="ctrlbar-playlists" class="ui-btn-active ui-state-persist">Play List</a></li>
+                    <li><a href="javascript:stations_update();" data-icon="ctrlbar-playlists" class="ui-btn-active ui-state-persist">Update</a></li>
                     <li><a href="javascript:countries_page();" data-icon="ctrlbar-music_albums">Music</a></li>
                     <li><a href="settings_menu.html" data-icon="ctrlbar-artist">Menu</a></li>
                 </ul>

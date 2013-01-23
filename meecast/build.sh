@@ -23,7 +23,7 @@ cd jstest
 /home/additional_disk/emc/emscripten/emconfigure ./configure
 /home/additional_disk/emc/emscripten/emmake make
 #/home/additional_disk/emc/emscripten/emcc  -s EXPORTED_FUNCTIONS="['_main', '_prepareconfig', '_prepare_database_js', '_current_station_name', '_create_sources_list', '_currentstationname_js']" --minify 1 -O0 ../core/libxml2/.libs/libxml2.a \
-/home/additional_disk/emc/emscripten/emcc  -s EXPORTED_FUNCTIONS="['_main', '_prepareconfig',  '_prepare_config_js', '_prepare_database_js', '_current_station_name', '_create_sources_list', '_create_regions_list', '_create_stations_list', '_station_code', '_currentstationname_js']"  --minify 0  -O2 --closure 0  ../core/libxml2/.libs/libxml2.a \
+/home/additional_disk/emc/emscripten/emcc  -s EXPORTED_FUNCTIONS="['_main', '_prepareconfig',  '_prepare_config_js', '_prepare_database_js', '_current_station_name', '_create_sources_list', '_create_regions_list', '_create_stations_list', '_station_code', '_save_station', '_currentstationname_js']"  --minify 0  -O2 --closure 0  ../core/libxml2/.libs/libxml2.a \
                                        ../core/libxml2/.libs/libxml2.a \
                                        ../core/.libs/libmeecast-core.a \
                                        src/meecasttizen-main.o \
@@ -125,6 +125,13 @@ cp ../omweather-gismeteo-ru-stations-db/data/gismeteo.ru.db meecastjs/WebContent
 cp ../omweather-hko-gov-hk-stations-db/data/hko.gov.hk.db meecastjs/WebContent
 cp ../omweather-weather-com-stations-db/data/weather.com.db meecastjs/WebContent
 cp ../omweather-yr-no-stations-db/data/yr.no.db meecastjs/WebContent
+
+cp ../omweather-bom-gov-au-stations-db/data/bom.gov.au.xml meecastjs/WebContent
+cp ../omweather-foreca-com-stations-db/data/foreca.com.xml meecastjs/WebContent
+cp ../omweather-gismeteo-ru-stations-db/data/gismeteo.ru.xml meecastjs/WebContent
+cp ../omweather-hko-gov-hk-stations-db/data/hko.gov.hk.xml meecastjs/WebContent
+cp ../omweather-weather-com-stations-db/data/weather.com.xml meecastjs/WebContent
+cp ../omweather-yr-no-stations-db/data/yr.no.xml meecastjs/WebContent
 
 
 

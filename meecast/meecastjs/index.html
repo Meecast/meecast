@@ -21,9 +21,11 @@
     
         var gList = "";
         var current_database = "";
+        var current_source = "";
         var current_country = "";
         var current_region = "";
         var current_station = "";
+        var current_station_code = "";
         $(document).delegate(
                 "#main","pageinit", 
                  function() {
@@ -72,7 +74,8 @@
     <script type="text/javascript">
         function countries_page(sel_database){
             current_database = sel_database + ".db";
-            prepare_database_js(current_database); 
+            current_source = sel_database + ".xml";
+            prepare_database_js(sel_database); 
             //$.mobile.changePage('manage_country.html'); //Change page view
         }
         function regions_page(sel_country){
@@ -85,7 +88,9 @@
         }
         function select_station(sel_station){
             current_station = sel_station;
-            Module.print('Station code: ' + station_code_js(current_country, current_region, current_station));
+            current_station_code = station_code_js(current_country, current_region, current_station);
+            Module.print('Station code: ' + current_station_code);
+            save_station_js(current_source, current_country, current_region, current_station);
          //   $.mobile.changePage('manage_station.html'); //Change page view
         }
 

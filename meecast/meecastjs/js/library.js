@@ -111,6 +111,12 @@
         return data;
     };
 
+    function save_station_js(source, country, region, station, code){
+
+        var save_station = Module.cwrap('save_station', null, ['string', 'string', 'string', 'string', 'string']);
+        save_station(source, country, region, station, code);
+        return;
+    };
 
     function  prepare_database_js(database_name){
 
@@ -125,7 +131,7 @@
                 Module.print('\'wgt-package\' resolved ' + WidgetDir);
 
                     // Check file in original path 
-                    ret = FS.analyzePath(database_name);
+                    ret = FS.analyzePath(database_name + ".db");
                     if (ret.exists) {
                         Module.print('Original database file is done');
                         $.mobile.changePage('manage_country.html'); //Change page view
@@ -134,17 +140,30 @@
 
                     try {
                         Module.print("Dir path " + dir.path + " Database name " + database_name);
-                        DBFile = dir.resolve('WebContent/' + database_name);
+                        DBFile = dir.resolve('WebContent/' + database_name + ".db");
+                        XMLFile = dir.resolve('WebContent/' + database_name + ".xml");
 
                         try {
                             DBFile.openStream(
                                 'r',
                                 function(fileStream) {
                                     var contents = fileStream.readBytes(fileStream.bytesAvailable);
-                                    DBFileFS = FS.createDataFile('/', database_name, contents, true, true);
+                                    DBFileFS = FS.createDataFile('/', database_name + ".db", contents, true, true);
                                     fileStream.close();
                                     Module.print('Database file is done');
                                     $.mobile.changePage('manage_country.html'); //Change page view
+                                },
+                                function(e){
+                                    Module.print("Error" + e.message);
+                                }
+                            );
+                            XMLFile.openStream(
+                                'r',
+                                function(fileStream) {
+                                    var contents = fileStream.readBytes(fileStream.bytesAvailable);
+                                    XMLFileFS = FS.createDataFile('/', database_name + ".xml", contents, true, true);
+                                    fileStream.close();
+                                    Module.print('Xml file is done');
                                 },
                                 function(e){
                                     Module.print("Error" + e.message);

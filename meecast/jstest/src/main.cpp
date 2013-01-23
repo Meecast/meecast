@@ -132,7 +132,57 @@ extern "C" {
         fprintf(stderr, "Code: %s\n", global_temp_buffer);
         return global_temp_buffer;
     }
+    char* EMSCRIPTEN_KEEPALIVE
+    save_station( char* source_name, char* country_name, char *region_name, char *station_name, char *station_code){
+        Core::Station *station;
+        fprintf(stderr," Source database %s\n", source_name);
+        Core::Source *s = new Core::Source(std::string(source_name), "source.xsd");
+        std::string url_template = s->url_template();
+        std::string url_detail_template = s->url_detail_template();
+        std::string url_for_view = s->url_for_view();
+        std::string url_for_map = s->url_for_map();
+        std::string cookie = s->cookie();
 
+        char forecast_url[4096];
+        snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), station_code);
+        std::string s_forecast_url = forecast_url;
+        char forecast_detail_url[4096];
+        snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, url_detail_template.c_str(), station_code);
+        std::string s_forecast_detail_url = forecast_detail_url;
+        char view_url[4096];
+        snprintf(view_url, sizeof(view_url)-1, url_for_view.c_str(), station_code);
+        std::string s_view_url = view_url;
+        char map_url[4096];
+        snprintf(map_url, sizeof(map_url)-1, url_for_map.c_str(), station_code);
+        std::string s_map_url = map_url;
+
+
+
+        station = new Core::Station(
+                    std::string(source_name),
+                    std::string (station_code),
+                    std::string (station_name),
+                    std::string (country_name),
+                    std::string (region_name),
+                    s_forecast_url,
+                    s_forecast_detail_url,
+                    s_view_url,
+                    s_map_url,
+                    cookie,
+                    false, 0.0, 0.0);
+        std::string filename(Core::AbstractConfig::getConfigPath());
+        filename += source_name;
+        filename += "_";
+        filename += station_code;
+        station->fileName(filename);
+        station->converter(s->binary());
+
+        config->stationsList().push_back(station);
+        if (config->stationsList().size() > 0)
+            config->current_station_id(0);
+        config->saveConfig();
+
+    }
 }
 
 ConfigEfl *

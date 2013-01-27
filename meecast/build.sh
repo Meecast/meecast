@@ -26,7 +26,7 @@ cd jstest
 /home/additional_disk/emc/emscripten/emcc  -s EXPORTED_FUNCTIONS="['_main', '_prepareconfig', \
 '_prepare_config_js', '_prepare_database_js', '_current_station_name', '_create_sources_list', \
 '_create_regions_list', '_create_stations_list', '_station_code', '_save_station', \
-'_save_station_js', '_currentstationname_js', '_download_forecasts']"  --minify 0  -O2 --closure 0  ../core/libxml2/.libs/libxml2.a \
+'_save_station_js', '_currentstationname_js', '_download_forecasts', '_convert_forecasts']"  --minify 0  -O2 --closure 0  ../core/libxml2/.libs/libxml2.a \
                                        ../core/libxml2/.libs/libxml2.a \
                                        ../core/.libs/libmeecast-core.a \
                                        src/meecasttizen-main.o \

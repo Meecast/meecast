@@ -96,11 +96,14 @@
         function stations_update(){
             console.log("Count ");
             console.log(count_of_downloading);
-            station_update_js();
+            stations_update_js();
         }
         function check_downloading(){
             console.log ("Check downloading");
             console.log (count_of_downloading);
+            if (count_of_downloading < 1){
+                stations_convert_js();
+            }
         }
 
 

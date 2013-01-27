@@ -195,8 +195,17 @@ extern "C" {
 
     void EMSCRIPTEN_KEEPALIVE
     download_forecasts(){
+        std::cerr<<"download_forecasts()"<<std::endl;
         for (short i=0; i < config->stationsList().size(); i++){
-                    config->stationsList().at(i)->updateData(true);
+            config->stationsList().at(i)->updateData(true);
+        }
+    }
+    void EMSCRIPTEN_KEEPALIVE
+    convert_forecasts(){
+        std::cerr<<"convert_forecasts()"<<std::endl;
+        for (short i=0; i < config->stationsList().size(); i++){
+            std::cerr<<"Convert "<<i<<std::endl;
+            config->stationsList().at(i)->convertData(true);
         }
     }
 

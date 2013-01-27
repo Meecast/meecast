@@ -121,9 +121,16 @@
 
    
 
-    function station_update_js(){
+    function stations_update_js(){
         var download_forecasts = Module.cwrap('download_forecasts', null, []);
         download_forecasts();
+        return;
+    };
+
+   function stations_convert_js(){
+        Module.print ('stations_convert_js');
+        var convert_forecasts = Module.cwrap('convert_forecasts', null, []);
+        convert_forecasts();
         return;
     };
 

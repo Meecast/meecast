@@ -353,6 +353,8 @@ Station::Station(const std::string& source_name, const std::string& id,
 
 ///////////////////////////////////////////////////////////////////////////////
     bool Station::convertData(bool force){
+     std::cerr<<"Convert Data in core"<<std::endl;
+     /*
         std::string command;
         bool result = false;
          if (this->detailURL() != "") {
@@ -371,6 +373,7 @@ Station::Station(const std::string& source_name, const std::string& id,
                result = false;
         }
         return result;
+       */
    }
 ///////////////////////////////////////////////////////////////////////////////
     bool Station::updateData(bool force){

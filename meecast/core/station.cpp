@@ -355,8 +355,14 @@ Station::Station(const std::string& source_name, const std::string& id,
     bool Station::updateData(bool force){
         bool result = false;
         std::string command;
+
+        char buffer_file[2048];
         /* To do */
         /* Check connection and if force true update connection */
+        snprintf(buffer_file, sizeof(buffer_file) -1, "%s.original", this->fileName().c_str());
+        fprintf(stderr, "Download file %s\n", this->forecastURL().c_str());
+        download_file_js((char* )buffer_file, (char*)this->forecastURL().c_str());
+        return true;
         force = false;
         if  (this->detailURL() != ""){
             Downloader::downloadData(this->fileName()+".detail.orig", this->detailURL(), this->cookie(), std::string(""));

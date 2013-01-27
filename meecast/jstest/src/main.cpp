@@ -12,7 +12,7 @@ int config_is_ready = 0;
 int stub = 1;
 Core::DatabaseSqlite *db = NULL;
 
-char  global_temp_buffer[16384];
+char global_temp_buffer[16384];
 
 extern "C" {
     extern void prepare_config_js();
@@ -20,6 +20,8 @@ extern "C" {
     extern char* currentstationname_js();
     extern char* create_sources_list_js();
     extern char* create_countries_list_js();
+//    extern void download_file_js(char* s1, char* s2);
+    extern void save_station_js( char* s1, char* s2, char* s3, char* s4, char* s5);
 
     void EMSCRIPTEN_KEEPALIVE 
     prepareconfig() {
@@ -120,7 +122,7 @@ extern "C" {
         return global_temp_buffer;
     }
 
-    void EMSCRIPTEN_KEEPALIVE
+    char* EMSCRIPTEN_KEEPALIVE
     station_code(char* country_name, char *region_name, char *station_name){
         std::string buf;
         memset(global_temp_buffer, 0, sizeof(global_temp_buffer));
@@ -132,10 +134,14 @@ extern "C" {
         fprintf(stderr, "Code: %s\n", global_temp_buffer);
         return global_temp_buffer;
     }
+
     void EMSCRIPTEN_KEEPALIVE
     save_station( char* source_name, char* country_name, char *region_name, char *station_name, char *station_code){
-        Core::Station *station;
+        Core::Station *station  = NULL;
         fprintf(stderr," Source database %s\n", source_name);
+        fprintf(stderr," Country name %s\n", country_name);
+        fprintf(stderr," Region name %s\n", region_name);
+        fprintf(stderr," Station name %s\n", station_name);
         fprintf(stderr," Station code %s\n", station_code);
         Core::Source *s = new Core::Source(std::string(source_name), "source.xsd");
         std::string url_template = s->url_template();
@@ -171,7 +177,8 @@ extern "C" {
                     s_map_url,
                     cookie,
                     false, 0.0, 0.0);
-        std::string filename(Core::AbstractConfig::getConfigPath());
+     //   std::string filename(Core::AbstractConfig::getConfigPath());
+        std::string filename("");   
         filename += source_name;
         filename += "_";
         filename += station_code;
@@ -181,6 +188,7 @@ extern "C" {
         config->stationsList().push_back(station);
         if (config->stationsList().size() > 0)
             config->current_station_id(0);
+
         config->saveConfig();
 
     }
@@ -188,7 +196,7 @@ extern "C" {
     void EMSCRIPTEN_KEEPALIVE
     download_forecasts(){
         for (short i=0; i < config->stationsList().size(); i++){
-            config->stationsList().at(i)->updateData(true);
+                    config->stationsList().at(i)->updateData(true);
         }
     }
 
@@ -196,7 +204,7 @@ extern "C" {
 
 ConfigEfl *
 create_and_fill_config(){
-    ConfigEfl *config;
+  //  ConfigEfl *config;
 
     std::cerr<<"Create Config class: " << std::endl;
     try{
@@ -215,6 +223,7 @@ create_and_fill_config(){
         config =  ConfigEfl::Instance();
     }
     config->saveConfig();
+    save_station((char*)"gismeteo.ru.xml",(char*)"Afghanistan",(char*)"Afghanistan", (char*)"Herat",(char*) "5511");
     fprintf(stderr,"End of creating Config class");
     return config;
     
@@ -241,6 +250,8 @@ main(int argc, char *argv[])
          create_sources_list_js();
          create_countries_list_js();
          prepare_database_js();
+         //download_file_js((char*)"", (char*)"");
+         save_station_js((char*)"dbsources/gismeteo.ru.xml",(char*)"Afghanistan",(char*)"Afghanistan", (char*)"Herat",(char*) "5511");
     }
     fprintf(stderr, "11111111\n");
     emscripten_set_main_loop(mainLoop, 0, 1);

@@ -39,6 +39,10 @@ class Source;
 #include "sourcelist.h"
 #include "downloader.h"
 #include <sys/stat.h>
+extern "C" {
+    extern void download_file_js(char* s1, char* s2);
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{

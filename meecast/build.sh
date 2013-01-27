@@ -23,7 +23,10 @@ cd jstest
 /home/additional_disk/emc/emscripten/emconfigure ./configure
 /home/additional_disk/emc/emscripten/emmake make
 #/home/additional_disk/emc/emscripten/emcc  -s EXPORTED_FUNCTIONS="['_main', '_prepareconfig', '_prepare_database_js', '_current_station_name', '_create_sources_list', '_currentstationname_js']" --minify 1 -O0 ../core/libxml2/.libs/libxml2.a \
-/home/additional_disk/emc/emscripten/emcc  -s EXPORTED_FUNCTIONS="['_main', '_prepareconfig',  '_prepare_config_js', '_prepare_database_js', '_current_station_name', '_create_sources_list', '_create_regions_list', '_create_stations_list', '_station_code', '_save_station', '_currentstationname_js']"  --minify 0  -O2 --closure 0  ../core/libxml2/.libs/libxml2.a \
+/home/additional_disk/emc/emscripten/emcc  -s EXPORTED_FUNCTIONS="['_main', '_prepareconfig', \
+'_prepare_config_js', '_prepare_database_js', '_current_station_name', '_create_sources_list', \
+'_create_regions_list', '_create_stations_list', '_station_code', '_save_station', \
+'_save_station_js', '_currentstationname_js', '_download_forecasts']"  --minify 0  -O2 --closure 0  ../core/libxml2/.libs/libxml2.a \
                                        ../core/libxml2/.libs/libxml2.a \
                                        ../core/.libs/libmeecast-core.a \
                                        src/meecasttizen-main.o \
@@ -112,6 +115,7 @@ cd jstest
                                        --embed-file dbsources/weather.com.xml \
                                        --embed-file dbsources/gismeteo.ru.xml \
                                        --embed-file dbsources/hko.gov.hk.xml \
+                                       --embed-file gismeteo.ru.xml \
                                        --embed-file dbsources/yr.no.xml 
 
                                        #--js-library library.js --js-pre pre.js \

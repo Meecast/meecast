@@ -1,14 +1,14 @@
     function save_config_js(){
-        var documentsDir;
+        var wgt_private_directory;
         var ConfigFile;
-        Module.print(' Save Config JS ');
+        Module.print(' Save Config JS111 ');
 
       //  Module.print(String.fromCharCode.apply(String, FS.analyzePath('config.xml').object.contents));
         try {
             tizen.filesystem.resolve('wgt-private',
                          function(dir){
-                            documentsDir = dir;
-                            Module.print('\'wgt-private\' resolved ' + documentsDir);
+                            wgt_private_directory = dir;
+                            Module.print('\'wgt-private\' resolved ' + wgt_private_directory);
 
                             try {
                                 Module.print("Dir path " + dir.path);
@@ -118,8 +118,16 @@
         return;
     };
 
-    function  prepare_database_js(database_name){
 
+   
+
+    function station_update_js(){
+        var download_forecasts = Module.cwrap('download_forecasts', null, []);
+        download_forecasts();
+        return;
+    };
+
+    function  prepare_database_js(database_name){
         var WidgetDir;
         var ConfigFile;
         var DBFileFS;
@@ -188,7 +196,7 @@
 
     function _prepare_config_js(){
 
-        var documentsDir;
+        var wgt_private_directory;
         var ConfigFile;
         var ConfigFileFS;
         
@@ -197,12 +205,12 @@
         Module.print(' Function prepareconfig11 ');
         var prepareconfig = Module.cwrap('prepareconfig', null, []);
         Module.print(' Function prepareconfig ' + prepareconfig);
-        Module.print(' Try to resolve  directory ' + documentsDir);
+        Module.print(' Try to resolve  directory ' + wgt_private_directory);
         try {
             tizen.filesystem.resolve('wgt-private',
                          function(dir){
-                            documentsDir = dir;
-                            Module.print('\'wgt-private\' resolved ' + documentsDir);
+                            wgt_private_directory = dir;
+                            Module.print('\'wgt-private\' resolved ' + wgt_private_directory);
 
                             try {
                                 Module.print("Dir path " + dir.path);

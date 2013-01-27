@@ -6,6 +6,16 @@
 
     <title>Tizen Web IDE - Tizen - Tizen basic Application</title>
 
+    <script type="text/javascript">
+        var gList = "";
+        var current_database = "";
+        var current_source = "";
+        var current_country = "";
+        var current_region = "";
+        var current_station = "";
+        var current_station_code = "";
+    </script>
+
     <script src="tizen-web-ui-fw/latest/js/jquery.js"></script>
     <script src="tizen-web-ui-fw/latest/js/tizen-web-ui-fw-libs.js"></script>
     <script src="tizen-web-ui-fw/latest/js/tizen-web-ui-fw.js"
@@ -16,16 +26,6 @@
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
     <script type="text/javascript">
-
-
-    
-        var gList = "";
-        var current_database = "";
-        var current_source = "";
-        var current_country = "";
-        var current_region = "";
-        var current_station = "";
-        var current_station_code = "";
         $(document).delegate(
                 "#main","pageinit", 
                  function() {
@@ -93,7 +93,7 @@
             $.mobile.changePage('index.html'); //Change page view
         }
         function stations_update(){
-
+            station_update_js();
         }
 
 

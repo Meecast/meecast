@@ -10,4 +10,5 @@
     <feature name="http://tizen.org/api/filesystem.write" required="false"/>
     <feature name="http://tizen.org/api/filesystem.read" required="false"/>
 <author href="http://meecast.com" email="vasvlad@gmail.com">Vlad Vasilyeu</author>
+<feature name="http://tizen.org/api/download" required="true"/>
 </widget>

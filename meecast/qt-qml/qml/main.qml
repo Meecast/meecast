@@ -35,7 +35,7 @@ PageStackWindow {
 
     Menu {
         id: myMenu
-        visualParent: pageStack
+        // visualParent: pageStack
         MenuLayout {
             MenuItem {
                 id: item1

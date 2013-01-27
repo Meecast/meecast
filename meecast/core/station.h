@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -108,6 +108,7 @@ namespace Core{
             void timezone(const int timezone = 0);
             int station_timezone() const;
             bool updateData(bool force);
+            bool convertData(bool force);
             void updateSource(const Source* source);
             void fileName(const std::string& fileName);
             std::string& fileName() const;

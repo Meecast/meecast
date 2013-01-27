@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -351,7 +351,28 @@ Station::Station(const std::string& source_name, const std::string& id,
         return true;
     }
 
-////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+    bool Station::convertData(bool force){
+        std::string command;
+        bool result = false;
+         if (this->detailURL() != "") {
+            command = this->converter()+ " " +  this->fileName() + ".orig " + this->fileName()+" " + this->fileName()+".detail.orig";
+            std::cerr<<" EXEC "<<command<<std::endl;
+            if (system(command.c_str()) == 0)
+                result = true;
+            else
+               result = false;
+         }else{
+            command = this->converter()+ " " +  this->fileName() + ".orig " + this->fileName();
+            std::cerr<<" EXEC "<<command<<std::endl;
+            if (system(command.c_str()) == 0)
+                result = true;
+            else
+               result = false;
+        }
+        return result;
+   }
+///////////////////////////////////////////////////////////////////////////////
     bool Station::updateData(bool force){
         bool result = false;
         std::string command;

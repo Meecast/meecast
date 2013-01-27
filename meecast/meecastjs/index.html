@@ -14,6 +14,7 @@
         var current_region = "";
         var current_station = "";
         var current_station_code = "";
+        var count_of_downloading = 0;
     </script>
 
     <script src="tizen-web-ui-fw/latest/js/jquery.js"></script>
@@ -93,9 +94,14 @@
             $.mobile.changePage('index.html'); //Change page view
         }
         function stations_update(){
+            console.log("Count ");
+            console.log(count_of_downloading);
             station_update_js();
         }
-
+        function check_downloading(){
+            console.log ("Check downloading");
+            console.log (count_of_downloading);
+        }
 
 
     </script>

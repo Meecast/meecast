@@ -78,18 +78,26 @@ mergeInto(LibraryManager.library, {
             },
             onaborted: function(id) {
                 console.log('Aborted with id: ' + id);
+                count_of_downloading = count_of_downloading - 1;
+                check_downloading();
             },
             oncompleted: function(id, fileName) {
                 console.log('Completed with id: ' + id + ', file name: ' + fileName);
+                count_of_downloading = count_of_downloading - 1;
+                check_downloading();
             },
             onfailed: function(id, error) {
                 console.log('Failed with id: ' + id + ', error name: ' + error.name);
+                count_of_downloading = count_of_downloading - 1;
+                check_downloading();
             }
         };
 
         var urlDownload = new tizen.URLDownload(Pointer_stringify(url), "wgt-private", Pointer_stringify(file));
         downloadId = tizen.download.start(urlDownload, listener);
+        count_of_downloading = count_of_downloading + 1;
         console.log ("Download id", downloadId);
+
 
         return;
     },

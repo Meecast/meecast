@@ -22,6 +22,7 @@ extern "C" {
     extern char* create_countries_list_js();
 //    extern void download_file_js(char* s1, char* s2);
     extern void save_station_js( char* s1, char* s2, char* s3, char* s4, char* s5);
+    extern void convert_station_gismeteo_data( char* s1, char* s2, char* s3);
 
     void EMSCRIPTEN_KEEPALIVE 
     prepareconfig() {
@@ -134,7 +135,14 @@ extern "C" {
         fprintf(stderr, "Code: %s\n", global_temp_buffer);
         return global_temp_buffer;
     }
+    void EMSCRIPTEN_KEEPALIVE
+    start_convert_function( char* function_name, char* original_file, char* destination_file, char *detail_original_file){
 
+        fprintf(stderr," start_convert_function %s\n", function_name);
+        if (!strcmp(function_name,"convert_station_gismeteo_data")){
+            convert_station_gismeteo_data(original_file, destination_file, detail_original_file);
+        }
+    }
     void EMSCRIPTEN_KEEPALIVE
     save_station( char* source_name, char* country_name, char *region_name, char *station_name, char *station_code){
         Core::Station *station  = NULL;

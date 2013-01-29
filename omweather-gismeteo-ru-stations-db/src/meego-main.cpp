@@ -42,6 +42,9 @@
     QHash<QString, QString> *hash_icons_gismeteo_table_create(void);
 #endif
 
+#define KEEPALIVE __attribute__((used))
+#define EMSCRIPTEN_KEEPALIVE __attribute__((used))
+
 int        location_timezone = 0;
 /*******************************************************************************/
 struct tm
@@ -1131,6 +1134,9 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
   fclose(file_out);
 }
 /**************************************************************************/
+
+extern "C" {
+EMSCRIPTEN_KEEPALIVE
 int
 convert_station_gismeteo_data(const char *station_id_with_path, const char *result_file,  const char *detail_path_data){
     xmlDoc  *doc = NULL;
@@ -1142,6 +1148,7 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
     struct stat file_info;
     FILE   *file_out;
 
+    fprintf(stderr,"station_id_with_path %s result_file %s detail_path_data %s\n", station_id_with_path, result_file, detail_path_data);
     if(!station_id_with_path)
         return -1;
     *buffer = 0;
@@ -1254,6 +1261,7 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
     }
     else
         return -1;/* file isn't accessability */
+}
 }
 
 int

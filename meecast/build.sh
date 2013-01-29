@@ -18,6 +18,11 @@ cd core
 /home/additional_disk/emc/emscripten/emconfigure ./configure
 /home/additional_disk/emc/emscripten/emmake make
 cd -
+#cd ../omweather-gismeteo-ru-stations-db
+#/home/additional_disk/emc/emscripten/emconfigure ./autogen.sh
+#/home/additional_disk/emc/emscripten/emconfigure ./configure
+#/home/additional_disk/emc/emscripten/emmake make
+#cd -
 cd jstest
 /home/additional_disk/emc/emscripten/emconfigure ./autogen.sh
 /home/additional_disk/emc/emscripten/emconfigure ./configure
@@ -107,6 +112,8 @@ cd jstest
                                         ../core/zlib/uncompr.o \
                                         ../core/zlib/zutil.o \
                                         ../core/sqlite/sqlite3.o \
+                                        ../../omweather-gismeteo-ru-stations-db/src/meego-main.o \
+                                        ../../omweather-gismeteo-ru-stations-db/src/hash.o \
                                        src/meecasttizen-configefl.o  -o meecast.js \
                                        --js-library library.js --js-pre pre.js \
                                        --embed-file dbsources/yr.no.xml \

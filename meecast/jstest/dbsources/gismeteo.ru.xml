@@ -4,7 +4,9 @@
 <logo>gismeteo.ru.png</logo>
 <base>gismeteo.ru.db</base>
 <forecast url="http://www.gismeteo.by/city/weekly/%s/" />
-<detail url="http://gismeteo.ru/city/hourly/%s/" />
+<detail url="http://www.gismeteo.by/city/hourly/%s/" />
 <search url="http://xoap.weather.com/search/search?where=%s" />
-<library>libomweather-gismeteo-ru-source.so</library>
+<binary>convert_station_gismeteo_data</binary>
+<showurl url="http://www.gismeteo.by/city/daily/%s/" />
 </source>
+

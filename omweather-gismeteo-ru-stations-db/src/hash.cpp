@@ -33,7 +33,10 @@
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
-
+void
+hash_description_gismeteo_table_create(void) {
+    fprintf(stderr,"Hash");
+}
 #ifdef GLIB
 /*******************************************************************************/
 GHashTable *hash_description_gismeteo_table_create(void) {

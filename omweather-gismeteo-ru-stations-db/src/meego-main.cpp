@@ -34,6 +34,8 @@
 #define MORNING 3
 #define EVENING 4
 #define buff_size 2048
+#define FALSE 0
+#define TRUE 1
 #ifdef QT
     static QHash<QString, QString> *hash_for_icons;
     static QHash<QString, QString> *hash_for_translate;
@@ -353,14 +355,14 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
 #ifdef GLIB
            image = g_strdup(temp_char);
 #else
-           snprintf(image, buff_size-1,"%s", temp_char);
+ //          snprintf(image, buff_size-1,"%s", temp_char);
 #endif
            i = 0;
            memset(temp_buffer, 0, sizeof(temp_buffer));
-           while((image[i] != ')') && (i < strlen(image))){
-             sprintf(temp_buffer,"%s%c",temp_buffer, image[i]);
-             i++;
-            }
+//           while((image[i] != ')') && (i < strlen(image))){
+//             sprintf(temp_buffer,"%s%c",temp_buffer, image[i]);
+ //            i++;
+//            }
         }
 #ifdef GLIB
         if (image)
@@ -869,7 +871,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
 #ifdef GLIB
            image = g_strdup(temp_char);
 #else
-           snprintf(image, sizeof(image)-1,"%s", temp_char);
+       //    snprintf(image, sizeof(image)-1,"%s", temp_char);
 #endif
            i = 0;
            memset(temp_buffer, 0, sizeof(temp_buffer));
@@ -1255,7 +1257,7 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
 }
 
 int
-main(int argc, char *argv[]){
+main_gismeteo_ru(int argc, char *argv[]){
     int result; 
     if (argc < 3) {
         fprintf(stderr, "gismeteoru <input_file> <output_file> <input_detail_data>\n");

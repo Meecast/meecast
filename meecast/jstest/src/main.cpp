@@ -171,11 +171,11 @@ extern "C" {
                     std::string (station_name),
                     std::string (country_name),
                     std::string (region_name),
-                    s_forecast_url,
-                    s_forecast_detail_url,
-                    s_view_url,
-                    s_map_url,
-                    cookie,
+//                    s_forecast_url,
+//                    s_forecast_detail_url,
+//                    s_view_url,
+//                    s_map_url,
+//                    cookie,
                     false, 0.0, 0.0);
      //   std::string filename(Core::AbstractConfig::getConfigPath());
         std::string filename("");   
@@ -183,7 +183,7 @@ extern "C" {
         filename += "_";
         filename += station_code;
         station->fileName(filename);
-        station->converter(s->binary());
+       // station->converter(s->binary());
 
         config->stationsList().push_back(station);
         if (config->stationsList().size() > 0)
@@ -232,7 +232,8 @@ create_and_fill_config(){
         config =  ConfigEfl::Instance();
     }
     config->saveConfig();
-    save_station((char*)"gismeteo.ru.xml",(char*)"Afghanistan",(char*)"Afghanistan", (char*)"Herat",(char*) "5511");
+//    save_station((char*)"gismeteo.ru.xml",(char*)"Afghanistan",(char*)"Afghanistan", (char*)"Herat",(char*) "5511");
+    save_station((char*)"gismeteo.ru",(char*)"Afghanistan",(char*)"Afghanistan", (char*)"Herat",(char*) "5511");
     fprintf(stderr,"End of creating Config class");
     return config;
     

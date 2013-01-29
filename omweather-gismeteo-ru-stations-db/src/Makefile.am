@@ -20,12 +20,13 @@
 # License along with this software; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
 # 02110-1301 USA
-
+DEFAULT_INCLUDES = -I../../meecast/core/libxml2/include -I.
 bin_PROGRAMS = gismeteoru 
-gismeteoru_SOURCES  =  hash.c hash.h hash_description.data \
-                                             hash_icons.data meego-main.c meego-main.h
-gismeteoru_CFLAGS = $(GLIB_CFLAGS) $(LIBXML2_CFLAGS) \
+gismeteoru_CFLAGS = $(GLIB_CFLAGS) $(LIBXML2_CFLAGS)  -I../../meecast/core/libxml2/include \
 					    -Wall -pedantic
+
+gismeteoru_SOURCES  =  hash.cpp hash.h hash_description.data \
+                                             hash_icons.data meego-main.cpp meego-main.h
 gismeteoru_LDFLAGS = -module -avoid-version 
 gismeteoru_LDADD = $(GLIB_LIBS) $(LIBXML2_LIBS) 
 

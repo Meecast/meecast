@@ -43,6 +43,7 @@ Station::Station(const std::string& source_name, const std::string& id,
                  const std::string& viewURL, const std::string& mapURL, 
                  const std::string&  cookie, const bool gps, 
                  double latitude, double longitude ){
+
         _sourceName = new std::string(source_name);
         _id = new std::string(id);
         _name = new std::string(name);
@@ -74,7 +75,9 @@ Station::Station(const std::string& source_name, const std::string& id,
         _gps = gps;
         _latitude = latitude;
         _longitude = longitude;
-        std::string path(Core::AbstractConfig::prefix);
+
+        //std::string path(Core::AbstractConfig::prefix);
+        std::string path("");
         path += Core::AbstractConfig::sourcesPath;
         Core::SourceList *sourcelist = new Core::SourceList(path);
         int source_id = sourcelist->source_id_by_name(source_name);
@@ -145,7 +148,6 @@ Station::Station(const std::string& source_name, const std::string& id,
         _converter = new std::string(sourcelist->at(source_id)->binary());
 
         delete sourcelist;
-
 
     }
 ////////////////////////////////////////////////////////////////////////////////
@@ -307,7 +309,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         return *_fileName;
     }
     ////////////////////////////////////////////////////////////////////////////////
-    void Station::converter(const std::string &converter)
+    void Station::converter(const std::string& converter)
     {
         _converter->assign(converter);
     }
@@ -353,7 +355,17 @@ Station::Station(const std::string& source_name, const std::string& id,
 
 ///////////////////////////////////////////////////////////////////////////////
     bool Station::convertData(bool force){
+     char buffer_file[2048];
+     char buffer_detail_file[2048];
+     snprintf(buffer_detail_file, sizeof(buffer_detail_file) -1, "%s.detail.orig", this->fileName().c_str());
+     snprintf(buffer_file, sizeof(buffer_file) -1, "%s.orig", this->fileName().c_str());
+
      std::cerr<<"Convert Data in core"<<std::endl;
+     std::cerr<<"ddd "<<this->fileName().c_str() <<std::endl;
+     std::cerr<<"oooo "<<this->converter().c_str()<<std::endl;
+     run_convert_js((char*)this->converter().c_str(), buffer_file, (char*)this->fileName().c_str(), buffer_detail_file);
+     return true;
+
      /*
         std::string command;
         bool result = false;

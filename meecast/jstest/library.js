@@ -68,6 +68,14 @@ mergeInto(LibraryManager.library, {
         return;
     },
 
+    run_convert_js: function(run_function, original_file, destination_file, original_detail_file){
+        console.log("Function run_convert_js");
+        console.log(Pointer_stringify(run_function));
+        var fn = window[Pointer_stringify(run_function)];
+        fn(Pointer_stringify(original_file), Pointer_stringify(destination_file), Pointer_stringify(original_detail_file));
+        console.log("after function");
+    },
+
     download_file_js: function(file, url){
         var listener = {
             onprogress: function(id, receivedSize, totalSize) {

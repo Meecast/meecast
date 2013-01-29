@@ -41,6 +41,7 @@ class Source;
 #include <sys/stat.h>
 extern "C" {
     extern void download_file_js(char* s1, char* s2);
+    extern void run_convert_js(char* s1, char* s2, char* s3, char* s4);
 }
 
 

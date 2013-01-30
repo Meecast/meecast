@@ -1,6 +1,5 @@
 mergeInto(LibraryManager.library, {
     save_config_js: function(){
-        var documentsDir;
         var ConfigFile;
         Module.print(' Save Config JS222 ');
 
@@ -8,8 +7,8 @@ mergeInto(LibraryManager.library, {
         try {
             tizen.filesystem.resolve('wgt-private',
                          function(dir){
-                            documentsDir = dir;
-                            Module.print('\'wgt-private\' resolved ' + documentsDir);
+                            wgt_private_directory = dir;
+                            Module.print('\'wgt-private\' resolved ' + wgt_private_directory);
 
                             try {
                                 Module.print("Dir path " + dir.path);
@@ -183,60 +182,60 @@ mergeInto(LibraryManager.library, {
          } 
     },
 
-    prepare_config_js: function(){
-
-        var documentsDir;
-        var ConfigFile;
-        var ConfigFileFS;
-        
-        //dirname = Pointer_stringify(directory);
-
-        var prepareconfig = Module.cwrap('prepareconfig', null, []);
-        Module.print(' Try to resolve  directory ' + documentsDir);
-        try {
-            tizen.filesystem.resolve('wgt-private',
-                         function(dir){
-                            documentsDir = dir;
-                            Module.print('\'wgt-private\' resolved ' + documentsDir);
-
-                            try {
-                                Module.print("Dir path " + dir.path);
-                                ConfigFile = dir.resolve('config.xml');
-                                Module.print('Resolve file config.xml ');
-                                try {
-                                    ConfigFile.readAsText(
-                                        function(contents) {
-                                           ConfigFileFS = FS.createDataFile('/', 'config.xml', contents, true, true);
-                                            Module.print('Config file config.xml is done');
-                                            prepareconfig();
-                                        },
-                                        function(e){
-                                            Module.print("Error" + e.message);
-                                        }
-                                    );
-                                } catch (exc){
-                                    Module.print('readAsText() exception:' + exc.message);
-                                }
-                            } catch (exc){
-                                Module.print('Not resolve file config.xml ' + exc.message + '<br/>');
-                                try {
-                                    ConfigFile = dir.createFile('config.xml');
-                                    Module.print('Create file config.xml ');
-                                    ConfigFileFS = FS.createDataFile('/', 'config.xml', '', true, true);
-                                    prepareconfig();
-                                } catch (exc){
-                                    Module.print('Not create file config.xml ' + exc.message + '<br/>');
-                                }
-                            }
-                        },
-                         function(e){
-                            Module.print("Error" + e.message);
-                            prepareconfig();
-                         } ,
-                         'rw');
-         } catch (exc) {
-            Module.print('tizen.filesystem.resolve() exception: ' + exc.message + '<br/>');
-         } 
-    }
-});
+//    prepare_config_js: function(){
+//
+//        var ConfigFile;
+//        var ConfigFileFS;
+//        
+//        //dirname = Pointer_stringify(directory);
+//
+//        var prepareconfig = Module.cwrap('prepareconfig', null, []);
+//        Module.print(' Try to resolve  directory1111 ' + wgt_private_directory);
+//        try {
+//            tizen.filesystem.resolve('wgt-private',
+//                         function(dir){
+//                            wgt_private_directory = dir;
+//                            Module.print('\'wgt-private\' resolved ' + wgt_private_directory);
+//
+//                            try {
+//                                Module.print("Dir path " + dir.path);
+//                                ConfigFile = dir.resolve('config.xml');
+//                                Module.print('Resolve file config.xml ');
+//                                try {
+//                                    ConfigFile.readAsText(
+//                                        function(contents) {
+//                                           ConfigFileFS = FS.createDataFile('/', 'config.xml', contents, true, true);
+//                                            Module.print('Config file config.xml is done');
+//                                            prepareconfig();
+//                                        },
+//                                        function(e){
+//                                            Module.print("Error" + e.message);
+//                                        }
+//                                    );
+//                                } catch (exc){
+//                                    Module.print('readAsText() exception:' + exc.message);
+//                                }
+//                            } catch (exc){
+//                                Module.print('Not resolve file config.xml ' + exc.message + '<br/>');
+//                                try {
+//                                    ConfigFile = dir.createFile('config.xml');
+//                                    Module.print('Create file config.xml ');
+//                                    ConfigFileFS = FS.createDataFile('/', 'config.xml', '', true, true);
+//                                    prepareconfig();
+//                                } catch (exc){
+//                                    Module.print('Not create file config.xml ' + exc.message + '<br/>');
+//                                }
+//                            }
+//                        },
+//                         function(e){
+//                            Module.print("Error" + e.message);
+//                            prepareconfig();
+//                         } ,
+//                         'rw');
+//         } catch (exc) {
+//            Module.print('tizen.filesystem.resolve() exception: ' + exc.message + '<br/>');
+//         } 
+//    }
+}
+);
 

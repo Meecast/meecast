@@ -1,46 +1,3 @@
-    function save_config_js(){
-        var wgt_private_directory;
-        var ConfigFile;
-        Module.print(' Save Config JS111 ');
-
-      //  Module.print(String.fromCharCode.apply(String, FS.analyzePath('config.xml').object.contents));
-        try {
-            tizen.filesystem.resolve('wgt-private',
-                         function(dir){
-                            wgt_private_directory = dir;
-                            Module.print('\'wgt-private\' resolved ' + wgt_private_directory);
-
-                            try {
-                                Module.print("Dir path " + dir.path);
-                                ConfigFile = dir.resolve('config.xml');
-                                Module.print('Resolve file config.xml ');
-                                try {
-                                    // Module.print(String.fromCharCode.apply(String, FS.analyzePath('config.xml').object.contents));
-                                    ConfigFile.openStream(
-                                        'w', function(filetostream){
-                                             filetostream.write(String.fromCharCode.apply(String, FS.analyzePath('config.xml').object.contents));
-                                            filetostream.close();
-                                         }, function(e){
-                                            Module.print("Error" + e.message);
-                                         }
-                                      );
-                                    Module.print('Save is done');
-                                } catch (exc){
-                                    Module.print('Write() exception:' + exc.message);
-                                }
-                            } catch (exc){
-                                Module.print('Not resolve file config.xml ' + exc.message + '<br/>');
-                            }
-                         },
-                         function(e){
-                            Module.print("Error" + e.message);
-                         } ,
-                         'rw');
-        } catch (exc){
-              Module.print("Error" + exc.message);
-        }
-    };
-
     function  _currentstationname_js(){
         var current_station_name = Module.cwrap('current_station_name', 'string', []);
         document.getElementById('main_station_name').innerHTML = current_station_name();
@@ -203,7 +160,6 @@
 
     function _prepare_config_js(){
 
-        var wgt_private_directory;
         var ConfigFile;
         var ConfigFileFS;
         

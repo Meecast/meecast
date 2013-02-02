@@ -17,6 +17,7 @@
         var count_of_downloading = 0;
         var wgt_private_directory;
 
+        var listCreated = false;
     </script>
 
     <script src="tizen-web-ui-fw/latest/js/jquery.js"></script>
@@ -114,7 +115,19 @@
             console.log(file);
         }
         function update_view(){
-             _currentstationname_js();
+            _currentstationname_js();
+            //gList = create_forecasts_list_js();
+            //document.getElementById('forecasts_listview').innerHTML = gList;
+            create_forecasts_list_js();
+            console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww");
+         //   if(!listCreated){
+         //      $("#content").append("<ul id='list' data-role='listview' data-inset='true'></ul>");
+         //      listCreated = true;
+         //      $("#content").trigger("create");
+         //   }
+            $("#list").append("<li>Item</li>");
+            $("#list").listview("refresh");
+            console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww");
         }
 
     </script>
@@ -128,8 +141,11 @@
             </h1>
         </div><!-- /header -->
 
-        <div data-role="content">
+        <div data-role="content" id="content">
          <button onclick="_currentstationname_js()" > Test</button>
+         <ul data-role='listview' id='list'  data-inset='true'>
+         </ul>
+
         </div><!-- /content -->
 
         <div data-role="footer" data-position="fixed" data-id="foo1">

@@ -253,3 +253,22 @@
          } 
     };
 
+function create_forecasts_list_js(){
+        var create_forecasts_list = Module.cwrap('create_forecasts_list', 'string', []);
+
+        var data = JSON.parse(create_forecasts_list());
+        var text = "";
+        for (var i in data) {
+            $("#list").append(data[i]);
+        //    text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:countries_page('"+ data[i] + "');\">" + data[i] + "</a></li>";
+        
+//            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:countries_page('"+ data[i] + "');\">" + data[i] + "</a></li>";
+        }
+//            text = text + " <li id=\"" + 1 + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:countries_page('"+ data[i] + "');\">" + "October" + "</a></li>";
+//            text = text + " <li id=\"" + 1 + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:countries_page('"+ data[i] + "');\">" + "November" + "</a></li>";
+              Module.print("List1" + text);
+              
+        $("#list").append("<li>Item111</li>");
+        $("#list").append("<li>Item2222</li>");
+ };
+

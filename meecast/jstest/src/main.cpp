@@ -87,6 +87,24 @@ extern "C" {
     }
 
     char* EMSCRIPTEN_KEEPALIVE
+    create_forecasts_list(void){
+        std::string buf;
+        memset(global_temp_buffer, 0, sizeof(global_temp_buffer));
+        std::string path(Core::AbstractConfig::sourcesPath);
+        Core::SourceList *sourcelist = new Core::SourceList(path);
+        buf = "[";
+        for (short i=0; i < sourcelist->size();i++){
+          if (i !=0)
+              buf = buf + ",";
+          buf = buf + "\""+ (char *)sourcelist->at(i)->name().c_str() +"\"";
+        }
+        buf = buf + "]";
+        delete sourcelist;
+        snprintf(global_temp_buffer, sizeof(global_temp_buffer) -1, "%s", buf.c_str());
+        return global_temp_buffer;
+    }
+
+    char* EMSCRIPTEN_KEEPALIVE
     create_regions_list(char *country_name){
         std::string buf;
         memset(global_temp_buffer, 0, sizeof(global_temp_buffer));

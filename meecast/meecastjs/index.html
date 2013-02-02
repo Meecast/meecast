@@ -105,12 +105,16 @@
             console.log (count_of_downloading);
             if (count_of_downloading < 1){
                 stations_convert_js();
+                update_view();
             }
         }
         function save_file_to_int(file){
             console.log ("Save to int");
             save_file_to_int_js(file);
             console.log(file);
+        }
+        function update_view(){
+             _currentstationname_js();
         }
 
     </script>

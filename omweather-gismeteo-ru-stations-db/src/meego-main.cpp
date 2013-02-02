@@ -216,9 +216,9 @@ get_date_for_hour_weather(char *temp_string){
     strcat(buff, " ");
     temp_point = strchr(temp_string,' ');
     strcat(buff, temp_point+1);
-    fprintf(stderr, "Buffer %s\n", buff); 
+    /* fprintf(stderr, "Buffer %s\n", buff); */
     strptime(buff, "%m-%d %Y %H:%M", &tmp_tm);
-    fprintf(stderr, "\ntmp_tm hour %d\n", (&tmp_tm)->tm_hour); 
+    /* fprintf(stderr, "\ntmp_tm hour %d\n", (&tmp_tm)->tm_hour); */
     return tmp_tm;
 }
 /*******************************************************************************/
@@ -296,7 +296,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     gmtime_r(&current_time, &time_tm1);
     localtime_r(&current_time, &time_tm2);
     localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
-    fprintf(stderr,"Local Time Zone %i\n", localtimezone);
+    /* fprintf(stderr,"Local Time Zone %i\n", localtimezone); */
 
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", station_id);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
@@ -506,7 +506,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
       tmp_tm = get_date_for_hour_weather(temp_char);
       utc_time = mktime(&tmp_tm) + localtimezone*3600;
       //utc_time = mktime(&tmp_tm);
-      fprintf(stderr," UTC Temp char %s %li %li\n", temp_char, utc_time, mktime(&tmp_tm)); 
+      /* fprintf(stderr," UTC Temp char %s %li %li\n", temp_char, utc_time, mktime(&tmp_tm)); */
       if(!timezone_flag){
           utc_time = mktime(&tmp_tm) + localtimezone*3600;
           temp_char = strstr((char *)nodes->nodeTab[i]->children->content, "Local: ");
@@ -1003,7 +1003,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
            if(time_diff)
                timezone_flag = TRUE;
            location_timezone = (int)time_diff/3600;
-           fprintf(stderr, "\nTimezone %i\n", location_timezone); 
+           /* fprintf(stderr, "\nTimezone %i\n", location_timezone); */
            snprintf(temp_buffer, sizeof(temp_buffer)-1, "%i",location_timezone);
       }
  

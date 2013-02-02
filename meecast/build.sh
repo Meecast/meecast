@@ -18,11 +18,11 @@ CC=/home/additional_disk/emc/clang+llvm-3.0-i386-linux-Ubuntu-11_10/bin/clang
 #/home/additional_disk/emc/emscripten/emconfigure ./configure
 #/home/additional_disk/emc/emscripten/emmake make
 #cd -
-#cd ../omweather-gismeteo-ru-stations-db
-#/home/additional_disk/emc/emscripten/emconfigure ./autogen.sh
-#/home/additional_disk/emc/emscripten/emconfigure ./configure
-#/home/additional_disk/emc/emscripten/emmake make
-#cd -
+cd ../omweather-gismeteo-ru-stations-db
+/home/additional_disk/emc/emscripten/emconfigure ./autogen.sh
+/home/additional_disk/emc/emscripten/emconfigure ./configure
+/home/additional_disk/emc/emscripten/emmake make
+cd -
 cd jstest
 #/home/additional_disk/emc/emscripten/emconfigure ./autogen.sh
 #/home/additional_disk/emc/emscripten/emconfigure ./configure

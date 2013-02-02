@@ -5,37 +5,27 @@ mergeInto(LibraryManager.library, {
 
       //  Module.print(String.fromCharCode.apply(String, FS.analyzePath('config.xml').object.contents));
         try {
-            tizen.filesystem.resolve('wgt-private',
-                         function(dir){
-                            wgt_private_directory = dir;
-                            Module.print('\'wgt-private\' resolved ' + wgt_private_directory);
-
-                            try {
-                                Module.print("Dir path " + dir.path);
-                                ConfigFile = dir.resolve('config.xml');
-                                Module.print('Resolve file config.xml ');
-                                try {
-                                    // Module.print(String.fromCharCode.apply(String, FS.analyzePath('config.xml').object.contents));
-                                    ConfigFile.openStream(
-                                        'w', function(filetostream){
-                                             filetostream.write(String.fromCharCode.apply(String, FS.analyzePath('config.xml').object.contents));
-                                            filetostream.close();
-                                         }, function(e){
-                                            Module.print("Error" + e.message);
-                                         }
-                                      );
-                                    Module.print('Save is done');
-                                } catch (exc){
-                                    Module.print('Write() exception:' + exc.message);
-                                }
-                            } catch (exc){
-                                Module.print('Not resolve file config.xml ' + exc.message + '<br/>');
-                            }
-                         },
-                         function(e){
+            try {
+                Module.print("Dir path " + wgt_private_directory.path);
+                ConfigFile = wgt_private_directory.resolve('config.xml');
+                Module.print('Resolve file config.xml ');
+                try {
+                    // Module.print(String.fromCharCode.apply(String, FS.analyzePath('config.xml').object.contents));
+                    ConfigFile.openStream(
+                        'w', function(filetostream){
+                             filetostream.write(String.fromCharCode.apply(String, FS.analyzePath('config.xml').object.contents));
+                            filetostream.close();
+                         }, function(e){
                             Module.print("Error" + e.message);
-                         } ,
-                         'rw');
+                         }
+                      );
+                    Module.print('Save is done');
+                } catch (exc){
+                    Module.print('Write() exception:' + exc.message);
+                }
+            } catch (exc){
+                Module.print('Not resolve file config.xml ' + exc.message + '<br/>');
+            }
         } catch (exc){
               Module.print("Error" + exc.message);
         }
@@ -45,6 +35,7 @@ mergeInto(LibraryManager.library, {
         var current_station_name = Module.cwrap('current_station_name', 'string', []);
         document.getElementById('main_station_name').innerHTML = current_station_name();
     },
+
 
     create_stations_list_js: function(country, region){
 
@@ -73,7 +64,10 @@ mergeInto(LibraryManager.library, {
         
         console.log("before function0");
         var start_convert_function = Module.cwrap('start_convert_function', null, ['string', 'string', 'string', 'string', 'string']);
-        start_convert_function(Pointer_stringify(run_function), Pointer_stringify(original_file), Pointer_stringify(destination_file), Pointer_stringify(original_detail_file));
+        orig_file = '/' + Pointer_stringify(original_file);
+        dest_file = '/' + Pointer_stringify(destination_file);
+        orig_detail_file =  '/' +  Pointer_stringify(original_detail_file);
+        start_convert_function(Pointer_stringify(run_function), orig_file, dest_file, orig_detail_file);
     },
 
     download_file_js: function(file, url){
@@ -92,7 +86,8 @@ mergeInto(LibraryManager.library, {
             oncompleted: function(id, fileName) {
                 console.log('Completed with id: ' + id + ', file name: ' + fileName);
                 count_of_downloading = count_of_downloading - 1;
-                check_downloading();
+                save_file_to_int(fileName);
+             //   check_downloading();
             },
             onfailed: function(id, error) {
                 console.log('Failed with id: ' + id + ', error name: ' + error.name);

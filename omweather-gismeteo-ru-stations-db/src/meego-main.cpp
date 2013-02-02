@@ -29,6 +29,7 @@
 #include <string.h>
 #include <time.h>
 #include <wchar.h>
+
 #define DAY 1
 #define NIGHT 2
 #define MORNING 3
@@ -1148,13 +1149,14 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
     struct stat file_info;
     FILE   *file_out;
 
-    fprintf(stderr,"station_id_with_path %s result_file %s detail_path_data %s\n", station_id_with_path, result_file, detail_path_data);
+    
+   fprintf(stderr,"station_id_with_path %s result_file %s detail_path_data %s\n", station_id_with_path, result_file, detail_path_data);
     if(!station_id_with_path)
         return -1;
     *buffer = 0;
     snprintf(buffer, sizeof(buffer) - 1, "%s.new", station_id_with_path);
     /* check file accessability */
-    if(!access(buffer, R_OK))
+    if(!access(buffer, R_OK)){
         if ((lstat(buffer, &file_info) == 0) && (file_info.st_size > 0)){ 
             /* check that the file containe valid data */
             doc =  htmlReadFile(station_id_with_path, "UTF-8", HTML_PARSE_NOWARNING);
@@ -1194,10 +1196,12 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
             }else
                 doc = NULL;
         }
+}
+    fprintf(stderr,"qqqqqqqqqqqqq\n");
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
         /* check that the file containe valid data */
-        doc =  htmlReadFile(station_id_with_path, "UTF-8", HTML_PARSE_NOWARNING);
+        doc =  htmlReadFile(station_id_with_path, "UTF-8", HTML_PARSE_NOERROR | HTML_PARSE_NOWARNING);
         if(!doc)
             return -1;
         root_node = xmlDocGetRootElement(doc);
@@ -1229,7 +1233,7 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
                  xmlFreeDoc(doc);
                  xmlCleanupParser();
                  if(!access(detail_path_data, R_OK)){
-                     doc =  htmlReadFile(detail_path_data, "UTF-8", HTML_PARSE_NOWARNING);
+                     doc =  htmlReadFile(detail_path_data, "UTF-8", HTML_PARSE_NOERROR | HTML_PARSE_NOWARNING);
                     if(doc){
                         root_node = NULL;
                         root_node = xmlDocGetRootElement(doc);

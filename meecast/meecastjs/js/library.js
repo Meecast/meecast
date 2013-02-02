@@ -75,6 +75,39 @@
         return;
     };
 
+    function save_file_to_int_js(file_name){
+        var DataFile;
+        var DataFileFS;
+
+        try {
+            try {
+                DataFile = wgt_private_directory.resolve(file_name);
+                Module.print('Resolve file ', file_name);
+                try {
+                    // Module.print(String.fromCharCode.apply(String, FS.analyzePath('config.xml').object.contents));
+                    DataFile.openStream(
+                        'r', function(fileStream){
+                             var contents = fileStream.readBytes(fileStream.bytesAvailable);
+                             DataFileFS = FS.createDataFile('/', file_name, contents, true, true);
+                             fileStream.close();
+                             Module.print('Open file4 ' + file_name);
+                             check_downloading();
+                         }, function(e){
+                            Module.print("Error" + e.message);
+                         },
+                         "UTF-8"
+                      );
+                    Module.print('Open is done');
+                } catch (exc){
+                    Module.print('Write() exception:' + exc.message);
+                }
+            } catch (exc){
+                Module.print('Not resolve file  ' + exc.message + '<br/>');
+            }
+        } catch (exc){
+              Module.print("Error" + exc.message);
+        }
+    };
 
    
 

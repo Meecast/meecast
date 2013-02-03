@@ -104,7 +104,7 @@ NavigationPane {
                         }
                     }
                     pict = Config.iconspath + "/" + Config.iconset + "/" + Forecast_model.getdata(a-1, "pict");
-                    bg_color = ((a-1) % 2 != 0) ? "#0f0f0f" : "#000000";
+                    bg_color = ((a-1) % 2 != 0) ? "#1f1f1f" : "#000000";
                     title_text = Forecast_model.getdata(a-1, "description");
                     wind_direction = Forecast_model.getdata(a-1, "wind_direction");
                     wind_speed = Forecast_model.getdata(a-1, "wind_speed");

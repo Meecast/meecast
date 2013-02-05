@@ -29,6 +29,7 @@
 #include <string.h>
 #include <time.h>
 #include <wchar.h>
+#include <stdlib.h>
 
 #define DAY 1
 #define NIGHT 2
@@ -43,6 +44,7 @@
     QHash<QString, QString> *hash_icons_gismeteo_table_create(void);
 #endif
 
+FILE        *file_out;
 #define KEEPALIVE __attribute__((used))
 #define EMSCRIPTEN_KEEPALIVE __attribute__((used))
 
@@ -216,9 +218,18 @@ get_date_for_hour_weather(char *temp_string){
     strcat(buff, " ");
     temp_point = strchr(temp_string,' ');
     strcat(buff, temp_point+1);
-    /* fprintf(stderr, "Buffer %s\n", buff); */
-    strptime(buff, "%m-%d %Y %H:%M", &tmp_tm);
-    /* fprintf(stderr, "\ntmp_tm hour %d\n", (&tmp_tm)->tm_hour); */
+//    fprintf(stderr, "Buffer %s\n", buff); 
+    tmp_tm.tm_mon = atoi((char *)buff) - 1;
+//    fprintf(stderr, "Buffer2 %s\n", buff + 3); 
+    tmp_tm.tm_mday = atoi((char *)(buff + 3));
+    tmp_tm.tm_year = atoi((char *)(buff + 6)) - 1900;
+    tmp_tm.tm_hour = atoi((char *)buff + 11);
+   // strptime(buff, "%m-%d %Y %H:%M", &tmp_tm);
+   // strptime("02-14 2013 21:00", "%m-%d %Y %H:%M", &tmp_tm);
+//    fprintf(stderr, "tmp_tm hour %d\n", tmp_tm.tm_hour); 
+//    fprintf(stderr, "tmp_tm year %d\n", tmp_tm.tm_year); 
+//    fprintf(stderr, "tmp_tm mday %d\n", tmp_tm.tm_mday); 
+//    fprintf(stderr, "tmp_tm mon %d\n", tmp_tm.tm_mon); 
     return tmp_tm;
 }
 /*******************************************************************************/
@@ -281,7 +292,6 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     time_t      t_start = 0, t_end = 0,
                 t_sunrise = 0, t_sunset = 0,
                 current_time = 0;
-    FILE        *file_out;
     int         localtimezone;
     struct tm time_tm1;
     struct tm time_tm2;
@@ -514,7 +524,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
               temp_char = temp_char + 7;
            tmp_tm_loc = get_date_for_hour_weather(temp_char);
            loc_time = mktime(&tmp_tm_loc);
-           /* fprintf(stderr," Local Temp char %s %li\n", temp_char, loc_time); */
+           fprintf(stderr," Local Temp char %s %li\n", temp_char, loc_time); 
            time_diff = difftime(loc_time, utc_time);
 //           if(time_diff)
            timezone_flag = TRUE;
@@ -757,7 +767,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
   if (xpathCtx)
     xmlXPathFreeContext(xpathCtx); 
 
-  fclose(file_out);
+  //fclose(file_out);
 
   return size/4;
 }
@@ -820,7 +830,6 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     xmlNodeSetPtr nodes;
     int size;
     time_t      t_start = 0, t_end = 0;
-    FILE        *file_out;
     struct tm time_tm1;
     struct tm time_tm2;
     int localtimezone;
@@ -833,9 +842,9 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         fprintf(stderr,"Error: unable to create new XPath context\n");
          return;
    }
-   file_out = fopen(result_file, "a");
-    if (!file_out)
-        return ;
+ //  file_out = fopen(result_file, "a");
+ //   if (!file_out)
+ //       return ;
 
    /* Register namespaces from list (if any) */
    xmlXPathRegisterNs(xpathCtx, (const xmlChar*)"html",
@@ -1132,7 +1141,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
   if (xpathCtx)
     xmlXPathFreeContext(xpathCtx); 
 
-  fclose(file_out);
+  //fclose(file_out);
 }
 /**************************************************************************/
 
@@ -1147,7 +1156,6 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
            buffer2[1024],
            *delimiter = NULL;
     struct stat file_info;
-    FILE   *file_out;
 
     
    fprintf(stderr,"station_id_with_path %s result_file %s detail_path_data %s\n", station_id_with_path, result_file, detail_path_data);
@@ -1197,7 +1205,6 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
                 doc = NULL;
         }
 }
-    fprintf(stderr,"qqqqqqqqqqqqq\n");
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
         /* check that the file containe valid data */
@@ -1250,7 +1257,6 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
                     }
                  }
                  if (days_number > 0){
-                    file_out = fopen(result_file, "a");
     			    if (file_out){
                         fprintf(file_out,"</station>");
                         fclose(file_out);
@@ -1270,6 +1276,7 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
 
 int
 main_gismeteo_ru(int argc, char *argv[]){
+//main(int argc, char *argv[]){
     int result; 
     if (argc < 3) {
         fprintf(stderr, "gismeteoru <input_file> <output_file> <input_detail_data>\n");

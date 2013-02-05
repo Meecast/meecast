@@ -5,7 +5,8 @@
 
 // Optimizations might wipe out our functions without this
 #define KEEPALIVE __attribute__((used))
-
+#define DATA_XSD_PATH "/opt/apps/com.meecast.omweather/share/xsd/data.xsd"
+#define EMSCRIPTEN_KEEPALIVE __attribute__((used))
 /* Common */
 ConfigEfl *config;
 int config_is_ready = 0;
@@ -13,6 +14,23 @@ int stub = 1;
 Core::DatabaseSqlite *db = NULL;
 
 char global_temp_buffer[16384];
+
+Core::DataParser*
+current_data(std::string& str){
+  Core::DataParser* dp;
+  try{
+        dp = Core::DataParser::Instance(str, DATA_XSD_PATH);
+    }
+    catch(const std::string &str){
+        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+        return NULL;
+    }
+    catch(const char *str){
+        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+        return NULL;
+    }
+    return dp;
+}
 
 extern "C" {
     extern void prepare_config_js();
@@ -90,8 +108,45 @@ extern "C" {
     create_forecasts_list(void){
         std::string buf;
         memset(global_temp_buffer, 0, sizeof(global_temp_buffer));
+        Core::DataParser* dp;
+        Core::Data *temp_data = NULL;
+
+//        char str_file[1000];
+//        FILE* fp = fopen("gismeteo.ru_5511", "r");
+//        if(fp != NULL)
+//        {
+//            int i=0;
+//            char ch;
+//            while((ch = getc(fp)) != EOF)
+//                str_file[i++]=ch;
+//            str_file[i] = 0;
+//            fprintf(stderr, "%s",str_file);
+//        }
+//        else printf("Невозможно открыть файл на чтение.\n");
+//        fclose(fp); 
+
+        fprintf(stderr,"Size %i, ID %i\n", config->stationsList().size(), config->current_station_id());
+        if ((config->stationsList().size() > 0) && (config->current_station_id() < config->stationsList().size())){
+           dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
+         }else
+           dp = NULL;
+
+        temp_data = dp->data().GetDataForTime(time(NULL));
+
+        
+        if (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL)))){    
+
+            temp_data->temperature().units(config->TemperatureUnit());
+            fprintf(stderr,"ssssssssssss %f\n ", temp_data->temperature().value(true));
+            if (temp_data->temperature().value(true) == INT_MAX){
+                fprintf(stderr,"ssssssssssss %f\n ", temp_data->temperature().value(true));
+            }
+        }
+
         std::string path(Core::AbstractConfig::sourcesPath);
         Core::SourceList *sourcelist = new Core::SourceList(path);
+
+
         buf = "[";
         for (short i=0; i < sourcelist->size();i++){
           if (i !=0)
@@ -110,6 +165,8 @@ extern "C" {
         memset(global_temp_buffer, 0, sizeof(global_temp_buffer));
         //app->country_id = atoi((char *)(countrylist->at(app->index_list-1).first.c_str()));
         //app->country = new std::string (countrylist->at(app->index_list - 1).second.c_str());
+
+        
         Core::listdata * regionlist = db->create_region_list_by_name(std::string(country_name));
         buf = "[";
         for (short i=0; i < regionlist->size();i++){

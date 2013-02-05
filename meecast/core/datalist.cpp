@@ -44,7 +44,7 @@ namespace Core {
          Data* temp_data_result = NULL;
          float hi_day_temp = INT_MAX, low_day_temp = INT_MAX;
 
-         /* std::cerr<<"SIZE of Vector"<<this->size()<<std::endl; */
+         /* std::cerr<<"SIZE of Vector "<<this->size()<<std::endl; */
          begin_day = localtime(&_time); begin_day->tm_hour = 0; begin_day->tm_min = 0; begin_day->tm_sec = 0;
          begin_day_time = mktime(begin_day); 
          end_day = localtime(&_time); begin_day->tm_hour = 23; begin_day->tm_min = 59; begin_day->tm_sec = 59;
@@ -57,8 +57,8 @@ namespace Core {
             if (is_hour && !temp_data->Hour())
                 continue;
 	 //   else
-	 //	if (is_hour)
-         //   		std::cerr<<"yyyyyyyyyyyyyyyy "<<temp_data->StartTime() <<" "<<temp_data->EndTime() <<std::endl;
+//	 	if (is_hour)
+ //           		std::cerr<<"yyyyyyyyyyyyyyyy "<<temp_data->StartTime() <<" "<<temp_data->EndTime() <<std::endl;
             if (temp_data->StartTime() >= begin_day_time && temp_data->StartTime() < end_day_time){  
                 if (temp_data->temperature_hi().value(true) != INT_MAX){
                     if (hi_day_temp != INT_MAX){

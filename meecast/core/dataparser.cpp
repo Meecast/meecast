@@ -237,6 +237,7 @@ namespace Core {
     DataParser* 
     DataParser::Instance(const std::string& filename, const std::string& schema_filename){
         Data* forecast_data;
+        /* std::cerr<<"Refcount for DataParser1: "<<_refcount<<std::endl; */
         if (!_self)
             _self = new DataParser(filename, schema_filename);
         else{

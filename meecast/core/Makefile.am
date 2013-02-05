@@ -55,7 +55,9 @@ stationlist.h \
 temperature.cpp \
 temperature.h \
 windspeed.cpp \
-windspeed.h 
+windspeed.h \
+visible.cpp \
+visible.h
                              
 libmeecast_core_la_CPPFLAGS = $(GTK_CFLAGS) $(LIBXML2_CFLAGS)  -Ilibxml2/include -Isqlite \
 					    -Wall -pedantic

@@ -107,6 +107,10 @@ extern "C" {
     char* EMSCRIPTEN_KEEPALIVE
     create_forecasts_list(void){
         std::string buf;
+        time_t current_day;
+        struct tm   *tm = NULL;
+        int i, j;
+        char  buffer[4096];
         memset(global_temp_buffer, 0, sizeof(global_temp_buffer));
         Core::DataParser* dp;
         Core::Data *temp_data = NULL;
@@ -143,18 +147,40 @@ extern "C" {
             }
         }
 
-        std::string path(Core::AbstractConfig::sourcesPath);
-        Core::SourceList *sourcelist = new Core::SourceList(path);
+        /* Fill list of days with weather forecast */
+        /* set current day */ 
+        current_day = time(NULL);
+        tm = gmtime(&current_day);
+        tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+        tm->tm_isdst = 1;
+        current_day = mktime(tm); /* today 00:00:00 */
 
+        /* fill other days */
+        i = 3600*24;
+        j = 0;
 
         buf = "[";
-        for (short i=0; i < sourcelist->size();i++){
-          if (i !=0)
-              buf = buf + ",";
-          buf = buf + "\""+ (char *)sourcelist->at(i)->name().c_str() +"\"";
+        while  (dp != NULL && (temp_data = dp->data().GetDataForTime( current_day + 14 * 3600  + i))) {
+           temp_data->temperature_low().units(config->TemperatureUnit());
+           temp_data->temperature_hi().units(config->TemperatureUnit());
+           temp_data->temperature().units(config->TemperatureUnit());
+           if (j != 0)
+               buf = buf + ",";
+           buf = buf + "{";
+            if (temp_data->temperature_low().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
+                buf = buf + "\"low_temp\":\"" + buffer + "\",";
+            }
+            if (temp_data->temperature_hi().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
+                buf = buf + "\"max_temp\":\"" + buffer + "\"";
+            }
+           buf = buf + "}";
+           i = i + 3600*24;
+           j++;
         }
         buf = buf + "]";
-        delete sourcelist;
+        
         snprintf(global_temp_buffer, sizeof(global_temp_buffer) -1, "%s", buf.c_str());
         return global_temp_buffer;
     }

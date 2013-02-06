@@ -993,7 +993,7 @@ NavigationPane {
                     }
                 } 
                 Container{
-                    preferredWidth: 20
+                    preferredWidth: 60
                     preferredHeight: 138 
                 }
             }

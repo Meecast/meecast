@@ -260,7 +260,7 @@ function create_forecasts_list_js(){
         var text = "";
         //data = JSON.parse("[{\"start\":\"111\",\"end\":\"222\"}]");
         for (var i in data) {
-            $("#list").append("<li>"+ data[i].max_temp + "</li>");
+            $("#list").append("<li>" + data[i].full_day_name + "   " + data[i].min_temp + "    " + data[i].max_temp + "</li>");
 //            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:countries_page('"+ data[i] + "');\">" + data[i] + "</a></li>";
         
 //            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:countries_page('"+ data[i] + "');\">" + data[i] + "</a></li>";

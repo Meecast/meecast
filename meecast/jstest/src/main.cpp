@@ -167,14 +167,16 @@ extern "C" {
            if (j != 0)
                buf = buf + ",";
            buf = buf + "{";
-            if (temp_data->temperature_low().value(true) != INT_MAX){
+           if (temp_data->temperature_low().value(true) != INT_MAX){
                 snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
                 buf = buf + "\"low_temp\":\"" + buffer + "\",";
-            }
-            if (temp_data->temperature_hi().value(true) != INT_MAX){
+           }
+           if (temp_data->temperature_hi().value(true) != INT_MAX){
                 snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
-                buf = buf + "\"max_temp\":\"" + buffer + "\"";
-            }
+                buf = buf + "\"max_temp\":\"" + buffer + "\",";
+           }
+           snprintf(buffer, sizeof(buffer) - 1, "\"full_day_name\":\"%s\"", temp_data->FullDayName().c_str());
+           buf = buf + buffer;
            buf = buf + "}";
            i = i + 3600*24;
            j++;

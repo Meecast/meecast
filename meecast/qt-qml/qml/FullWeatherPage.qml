@@ -38,7 +38,7 @@ Page {
                  "hourdate" : Forecast_hours_model.getdata(a, "hourdate"),
                  "pict" : Config.iconspath + "/" + Config.iconset + "/" + Forecast_hours_model.getdata(a, "pict"),
                  "temp" : Forecast_hours_model.getdata(a, "temp"),
-                 "bg_color" :  (a % 2 != 0) ? "#000000" : "#0f0f0f",
+                 "bg_color" :  (a % 2 != 0) ? "#000000" : "#1f1f1f",
                  "hi_temp_color" :  main.getColor(Forecast_hours_model.getdata(a, "temp")),
                  "number" : a
                 }

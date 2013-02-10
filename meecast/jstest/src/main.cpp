@@ -175,8 +175,8 @@ extern "C" {
                 snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
                 buf = buf + "\"hi_temp\":\"" + buffer + "\",";
            }
-           snprintf(buffer, sizeof(buffer) - 1, "\"full_day_name\":\"%s\"", temp_data->FullDayName().c_str());
-           fprintf(stderr,"Full day %s\n",  temp_data->FullDayName().c_str());
+           snprintf(buffer, sizeof(buffer) - 1, "\"full_day_name\":\"%li\"", temp_data->StartTime());
+           fprintf(stderr,"Full day %li\n",  temp_data->StartTime());
          // snprintf(buffer, sizeof(buffer) - 1, "\"full_day_name\":\"trrrrrr\"");
            buf = buf + buffer;
            buf = buf + "}";

@@ -260,7 +260,10 @@ function create_forecasts_list_js(){
         var text = "";
         //data = JSON.parse("[{\"start\":\"111\",\"end\":\"222\"}]");
         for (var i in data) {
-            $("#list").append("<li>" + data[i].full_day_name + "   " + data[i].low_temp + "    " + data[i].hi_temp + "</li>");
+             var d = new Date(data[i].full_day_name * 1000);
+             var day = d.strftime('%m');
+             var dayname = d.strftime('%a');
+            $("#list").append("<li><table width=\"100%\"><tr>" + "<td width=\"15%\">" + day + "</td>" + "<td width=\"15%\">"+ dayname + "</td>" + "<td width=\"30%\">"+"icon" + "</td>" + "<td width=\"15%\">" + data[i].low_temp + "</td>"  + "<td align=\"right\" width=\"15%\">" + data[i].hi_temp  + "</td>" + "</tr></table></li>");
 //            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:countries_page('"+ data[i] + "');\">" + data[i] + "</a></li>";
         
 //            text = text + " <li id=\"" + data[i] + "\"  data-icon=\"arrow-r\" data-iconpos=\"right\" ><a  href=\"javascript:countries_page('"+ data[i] + "');\">" + data[i] + "</a></li>";

@@ -965,7 +965,8 @@ NavigationPane {
                     maxWidth:       440 
                     minWidth:       440 
                     preferredHeight: 120 
-                    leftMargin: 80.0
+                    leftMargin: 30.0
+                    rightMargin: 30.0
                     onTouch: {
                         if (event.isDown()) {
                             Config.showweb();
@@ -980,22 +981,23 @@ NavigationPane {
                     defaultImageSource: "asset:///button_icons/menu_def.png"
                     pressedImageSource: "asset:///button_icons/menu_sel.png"
                     preferredWidth:  81
-                    maxWidth:        81
+                    maxWidth:        110
                     minWidth:        81
                     preferredHeight: 81 
                     maxHeight:       81 
                     minHeight:       81 
 
-                    leftMargin: 80.0
+                    leftMargin: 60.0
+                    rightMargin: 20.0
                     onClicked: {
                         newPage = settingspageDefinition.createObject();
                         rootWindow.push(newPage);
                     }
                 } 
-                Container{
-                    preferredWidth: 60
-                    preferredHeight: 138 
-                }
+               // Container{
+               //     minWidth: 160
+               //     preferredHeight: 138 
+              //  }
             }
         }
         }

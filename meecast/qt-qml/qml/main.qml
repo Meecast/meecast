@@ -313,15 +313,11 @@ NavigationPane {
             Container {
             layout: AbsoluteLayout {}
             Container {
-               // preferredHeight: 1142.0
-                //preferredHeight: 1442.0
-                //scrollViewProperties.scrollMode: ScrollMode.Vertical
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0 
                     positionY: 0
                 }  
                 
-            
                 Container {
                     background: Color.Black
 
@@ -478,8 +474,7 @@ NavigationPane {
                                             layoutProperties: AbsoluteLayoutProperties {
                                                 positionY: 0
                                             }
-                                        }
-                         
+                                        }         
                                         Container{
                                             preferredWidth: 768
                                             visible: ListItemData.fulldate != "" ? true :false
@@ -661,7 +656,7 @@ NavigationPane {
                                                 horizontalAlignment: HorizontalAlignment.Center
                                                 textStyle {
                                                     fontSize: FontSize.PointValue
-                                                    fontSizeValue: 6.0
+                                                    fontSizeValue: 8.0
                                                     fontWeight: FontWeight.W100
                                                     color: Color.White
                                                 }
@@ -753,7 +748,7 @@ NavigationPane {
                                                 textStyle {
                                                     fontSize: FontSize.PointValue
                                                     fontWeight: FontWeight.W100
-                                                    fontSizeValue: 5.0
+                                                    fontSizeValue: 7.0
                                                     color: Color.Gray
                                                 }
                                             }

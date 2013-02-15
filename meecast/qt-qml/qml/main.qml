@@ -1,9 +1,11 @@
 import bb.cascades 1.0
 
 
-NavigationPane {
+//NavigationPane {
+TabbedPane {
     
-    id: rootWindow
+    showTabsOnActionBar: true 
+    id: tabbedWindow
     property int main_icon_size : 240
     property int row_icon_size : 90
     property color current_rect_back_background :  "Red" 
@@ -18,18 +20,20 @@ NavigationPane {
     property bool  left_arrow : false
     property bool  right_arrow : false
     property int wind_direction_angle : 0
-    backButtonsVisible: false
+    //backButtonsVisible: false
     // Create the initial screen
     property variant newPage;
-    onPopTransitionEnded: {
-        if (newPage == page) {
-            console.log("onPopTransitionEnded1111");
-            rootWindow.backButtonsVisible = false;
-            page.destroy();
+Tab {
+    title: "Home"
+      NavigationPane {
+        id: rootWindow 
+        onPopTransitionEnded: {
+            if (newPage == page) {
+                console.log("onPopTransitionEnded1111");
+                rootWindow.backButtonsVisible = false;
+                page.destroy();
+            }
         }
-    }
-
-
     Page {
         id: main
         property int screen_width : 1280
@@ -1016,4 +1020,11 @@ NavigationPane {
         ]
 
     } // end of Page
+    }
+    }
+    Tab {
+        title: "cccc"
+        enable: false
+    }
+
 }

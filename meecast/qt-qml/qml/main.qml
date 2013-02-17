@@ -18,7 +18,7 @@ NavigationPane {
     property bool  right_arrow : false
     property int wind_direction_angle : 0
     property bool current_value: false
-    //backButtonsVisible: false
+    backButtonsVisible: false
     // Create the initial screen
     property variant newPage;
         id: rootWindow 
@@ -329,7 +329,7 @@ NavigationPane {
                 }  
                 
                 Container {
-                    background: Color.Black
+                    background: Color.Red
 
                     onCreationCompleted: {
                          Config.configChanged.connect (main.onConfigChanged);
@@ -429,7 +429,7 @@ NavigationPane {
                         positionY: 0
                     }
                     preferredWidth: 768
-                    preferredHeight: 1140 
+                    preferredHeight: 1142 
                     ListView {
                         id: forrecasts_list
                         dataModel: GroupDataModel {
@@ -901,7 +901,6 @@ NavigationPane {
                             }
 
                             if (main.current == true &&  current_value == true){
-                                console.log ("XCCCCCCCCCCCCCCCCCURENT ",  Current.rowCount());
                                 tabFullWeather.insert(1, current_tab);
                                 main.day_period = "current";
                                 var newPage3 = fullpageDefinition.createObject();
@@ -957,8 +956,14 @@ NavigationPane {
                     orientation: LayoutOrientation.LeftToRight
                 }
                 Container{
-                    preferredWidth: 20
+                    preferredWidth: 1
+                    minWidth:       1 
+                    preferredHeight: 138
+                    maxHeight:       138 
+                    minHeight:       138
                 }
+
+
                 ActivityIndicator {
                     id: refresh_showing
                     preferredWidth:  81
@@ -967,11 +972,14 @@ NavigationPane {
                     preferredHeight: 81 
                     maxHeight:       81 
                     minHeight:       81 
+                    leftMargin: 25.0
+                    rightMargin: 25.0
                     verticalAlignment: VerticalAlignment.Center
                     visible: main.isUpdate ? true : false
                     running: main.isUpdate ? true : false
                     enabled: main.isUpdate ? true : false
                 }
+
                 ImageButton {
                     id: refreshicon
                     preferredWidth:  81
@@ -980,6 +988,8 @@ NavigationPane {
                     preferredHeight: 81 
                     maxHeight:       81 
                     minHeight:       81 
+                    leftMargin: 25.0
+                    rightMargin: 25.0
                     verticalAlignment: VerticalAlignment.Center
                     defaultImageSource: "asset:///button_icons/refresh_def.png"
                     pressedImageSource: "asset:///button_icons/refresh_sel.png"
@@ -989,7 +999,16 @@ NavigationPane {
                     Config.updatestations()
                     }
                 }
-                
+                Container{
+                    preferredWidth: 1
+                    minWidth:       1 
+                    preferredHeight: 138
+                    maxHeight:       138 
+                    minHeight:       138
+                    background: Color.create("#000000")
+                }
+
+              
                 ImageView {
                     id: sourceicon
                     verticalAlignment: VerticalAlignment.Center
@@ -1007,27 +1026,60 @@ NavigationPane {
                         }
                     }
                 }
-                
-                ImageButton {
-                    id: settingsicon
+                Container{
+                    preferredWidth: 1 
+                    minWidth:       1 
+                    preferredHeight: 138
+                    maxHeight:       138 
+                    minHeight:       138
+                    background: Color.create("#000000")
+                }
+               
+                Container{
+                    layout: AbsoluteLayout {}
                     verticalAlignment: VerticalAlignment.Center     
                     horizontalAlignment: HorizontalAlignment.Right
-                    defaultImageSource: "asset:///button_icons/menu_def.png"
-                    pressedImageSource: "asset:///button_icons/menu_sel.png"
-                    preferredWidth:  81
-                    maxWidth:        110
-                    minWidth:        81
-                    preferredHeight: 81 
-                    maxHeight:       81 
-                    minHeight:       81 
-
-                    leftMargin: 60.0
-                    rightMargin: 20.0
-                    onClicked: {
-                        newPage = settingspageDefinition.createObject();
-                        rootWindow.push(newPage);
+                    leftMargin: 30.0
+                    rightMargin: 30.0
+                    ImageButton {
+                        id: settingsicon
+                        horizontalAlignment: HorizontalAlignment.Center
+                        verticalAlignment: VerticalAlignment.Top    
+                        layoutProperties: AbsoluteLayoutProperties {
+                            positionX: 0 
+                            positionY: 0
+                        }
+                        defaultImageSource: "asset:///button_icons/menu_def.png"
+                        pressedImageSource: "asset:///button_icons/menu_sel.png"
+                        preferredWidth:  81
+                        maxWidth:        110
+                        minWidth:        81
+                        preferredHeight: 81 
+                        maxHeight:       81 
+                        minHeight:       81 
+                        onClicked: {
+                            newPage = settingspageDefinition.createObject();
+                            rootWindow.push(newPage);
+                        }
+                    } 
+                    Label {
+                        layoutProperties: AbsoluteLayoutProperties {
+                            positionX: 0 
+                            positionY: 80
+                        }
+                        text: Config.tr("Settings") 
+                        horizontalAlignment: HorizontalAlignment.Center
+                        verticalAlignment: VerticalAlignment.Top     
+                        textStyle.textAlign: TextAlign.Center
+                        textStyle {
+                            fontSize: FontSize.PointValue
+                            fontSizeValue: 4.0
+                            fontWeight: FontWeight.W100
+                            color: Color.create("#ffffff")
+                        }
                     }
-                } 
+ 
+                }
             }
         }
         }

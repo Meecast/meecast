@@ -329,7 +329,7 @@ NavigationPane {
                 }  
                 
                 Container {
-                    background: Color.Red
+                    background: Color.Black
 
                     onCreationCompleted: {
                          Config.configChanged.connect (main.onConfigChanged);

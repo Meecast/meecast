@@ -1,9 +1,9 @@
 meecast (0.7) unstable; urgency=low
 
-  * Nothing 
   * BB Fixed problem with background in main and hours form
   * BB Changed position of button menu in main form 
   * BB Increased font for weather description and day name
+  * Disabled debug for gismeteo.ru source 
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 20 Jun 2012 19:31:23 +0200
 

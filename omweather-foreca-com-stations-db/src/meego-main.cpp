@@ -306,7 +306,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                             tm = localtime(&current_time);
 
                             snprintf(buffer, sizeof(buffer)-1,"%s %s", xpathObj->nodesetval->nodeTab[i]->content, xpathObj2->nodesetval->nodeTab[j]->content);
-                            fprintf(stderr," Buffer %s\n", buffer);
+                            /* fprintf(stderr," Buffer %s\n", buffer); */
                             setlocale(LC_TIME, "POSIX");
                             strptime((const char*)buffer, "%A %b %d %H:%M", &tmp_tm);
                             setlocale(LC_TIME, "");

@@ -656,7 +656,7 @@ convert_station_forecacom_data(char *station_id_with_path, char *result_file, ch
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
         /* check that the file containe valid data */
-        doc =  htmlReadFile(station_id_with_path, "UTF-8", 0);
+        doc =  htmlReadFile(station_id_with_path, "UTF-8",  HTML_PARSE_NOERROR | HTML_PARSE_NOWARNING);
         if(!doc)
             return -1;
         root_node = xmlDocGetRootElement(doc);
@@ -687,7 +687,7 @@ convert_station_forecacom_data(char *station_id_with_path, char *result_file, ch
                 xmlFreeDoc(doc);
                 xmlCleanupParser();
                 if(!access(detail_path_data, R_OK)){
-                     doc =  htmlReadFile(detail_path_data, "UTF-8", 0);
+                     doc =  htmlReadFile(detail_path_data, "UTF-8",  HTML_PARSE_NOERROR | HTML_PARSE_NOWARNING);
                     if(doc){
                         root_node = NULL;
                         root_node = xmlDocGetRootElement(doc);

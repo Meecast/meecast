@@ -1287,6 +1287,10 @@ Việt Nam- Quý Trọng</translation>
             <translation>Cao</translation>
         </message>
         <message>
+            <source>Hourly</source>
+            <translation type="unfinished">Giờ</translation>
+        </message>
+        <message>
             <source>Hours</source>
             <translation>Giờ</translation>
         </message>

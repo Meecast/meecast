@@ -1467,6 +1467,11 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>Hourly</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Hours</source>
             <translation type="unfinished">
             </translation>

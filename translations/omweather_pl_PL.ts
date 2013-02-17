@@ -1301,6 +1301,10 @@ słowacki - Roman Moravčík</translation>
             <translation>Wysokie</translation>
         </message>
         <message>
+            <source>Hourly</source>
+            <translation type="unfinished">Godziny</translation>
+        </message>
+        <message>
             <source>Hours</source>
             <translation>Godziny</translation>
         </message>

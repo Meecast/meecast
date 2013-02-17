@@ -1326,6 +1326,10 @@ Slovacco - Roman Moravčík</translation>
             <translation>Alta</translation>
         </message>
         <message>
+            <source>Hourly</source>
+            <translation type="unfinished">Ore</translation>
+        </message>
+        <message>
             <source>Hours</source>
             <translation>Ore</translation>
         </message>

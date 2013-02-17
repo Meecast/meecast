@@ -1313,6 +1313,10 @@ Slovakia - Roman Moravčík</translation>
             <translation>Korkea</translation>
         </message>
         <message>
+            <source>Hourly</source>
+            <translation type="unfinished">Tunteja</translation>
+        </message>
+        <message>
             <source>Hours</source>
             <translation>Tunteja</translation>
         </message>

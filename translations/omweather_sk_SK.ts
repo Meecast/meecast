@@ -1309,6 +1309,10 @@ Slovenčina - Roman Moravčík</translation>
             <translation>Vysoké</translation>
         </message>
         <message>
+            <source>Hourly</source>
+            <translation type="unfinished">Hodiny</translation>
+        </message>
+        <message>
             <source>Hours</source>
             <translation>Hodiny</translation>
         </message>

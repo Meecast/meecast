@@ -1290,6 +1290,10 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>E lartë</translation>
         </message>
         <message>
+            <source>Hourly</source>
+            <translation type="unfinished">Orë</translation>
+        </message>
+        <message>
             <source>Hours</source>
             <translation>Orë</translation>
         </message>

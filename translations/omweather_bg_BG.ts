@@ -1286,6 +1286,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Висок</translation>
         </message>
         <message>
+            <source>Hourly</source>
+            <translation type="unfinished">Часове</translation>
+        </message>
+        <message>
             <source>Hours</source>
             <translation>Часове</translation>
         </message>

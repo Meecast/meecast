@@ -1313,6 +1313,10 @@ Català - Agustí Clara</translation>
             <translation>Màxima</translation>
         </message>
         <message>
+            <source>Hourly</source>
+            <translation type="unfinished">Hores</translation>
+        </message>
+        <message>
             <source>Hours</source>
             <translation>Hores</translation>
         </message>

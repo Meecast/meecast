@@ -1300,6 +1300,10 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Hoch</translation>
         </message>
         <message>
+            <source>Hourly</source>
+            <translation type="unfinished">Stunden</translation>
+        </message>
+        <message>
             <source>Hours</source>
             <translation>Stunden</translation>
         </message>

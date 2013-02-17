@@ -1292,6 +1292,10 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>Hourly</source>
+            <translation type="unfinished">ساعات</translation>
+        </message>
+        <message>
             <source>Hours</source>
             <translation>ساعات</translation>
         </message>

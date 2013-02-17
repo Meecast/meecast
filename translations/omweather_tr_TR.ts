@@ -1277,6 +1277,10 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Yuksek</translation>
         </message>
         <message>
+            <source>Hourly</source>
+            <translation type="unfinished">Saat</translation>
+        </message>
+        <message>
             <source>Hours</source>
             <translation>Saat</translation>
         </message>

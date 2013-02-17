@@ -1304,6 +1304,10 @@ Slovak - Roman Moravčík</translation>
             <translation>High</translation>
         </message>
         <message>
+            <source>Hourly</source>
+            <translation type="unfinished">Hours</translation>
+        </message>
+        <message>
             <source>Hours</source>
             <translation>Hours</translation>
         </message>

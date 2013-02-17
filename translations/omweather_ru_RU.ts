@@ -1289,6 +1289,10 @@ Slovak - Roman Moravčík</source>
             <translation>Высокий</translation>
         </message>
         <message>
+            <source>Hourly</source>
+            <translation>Почасовой</translation>
+        </message>
+        <message>
             <source>Hours</source>
             <translation>Часы</translation>
         </message>

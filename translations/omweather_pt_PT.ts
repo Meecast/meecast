@@ -1290,6 +1290,10 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Alta</translation>
         </message>
         <message>
+            <source>Hourly</source>
+            <translation type="unfinished">Horas</translation>
+        </message>
+        <message>
             <source>Hours</source>
             <translation>Horas</translation>
         </message>

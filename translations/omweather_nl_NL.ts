@@ -1287,6 +1287,10 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Hoog</translation>
         </message>
         <message>
+            <source>Hourly</source>
+            <translation type="unfinished">Uren</translation>
+        </message>
+        <message>
             <source>Hours</source>
             <translation>Uren</translation>
         </message>

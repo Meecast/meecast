@@ -1072,9 +1072,8 @@ msgid "High"
 msgstr "Высокий"
 
 #: omweather/src/hash.data:325
-#, fuzzy
 msgid "Hourly"
-msgstr "Часы"
+msgstr "Почасовой"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:276
 msgid "Hours"

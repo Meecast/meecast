@@ -1305,6 +1305,10 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Máxima</translation>
         </message>
         <message>
+            <source>Hourly</source>
+            <translation type="unfinished">Horas</translation>
+        </message>
+        <message>
             <source>Hours</source>
             <translation>Horas</translation>
         </message>

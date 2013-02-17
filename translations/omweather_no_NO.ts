@@ -1314,6 +1314,10 @@ Slovak - Roman Moravčík</translation>
             <translation>Høy</translation>
         </message>
         <message>
+            <source>Hourly</source>
+            <translation type="unfinished">Timer</translation>
+        </message>
+        <message>
             <source>Hours</source>
             <translation>Timer</translation>
         </message>

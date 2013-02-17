@@ -500,7 +500,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
       tmp_tm = get_date_for_hour_weather(temp_char);
       utc_time = mktime(&tmp_tm) + localtimezone*3600;
       //utc_time = mktime(&tmp_tm);
-      fprintf(stderr," UTC Temp char %s %li %li\n", temp_char, utc_time, mktime(&tmp_tm)); 
+      /* fprintf(stderr," UTC Temp char %s %li %li\n", temp_char, utc_time, mktime(&tmp_tm)); */
       if(!timezone_flag){
           utc_time = mktime(&tmp_tm) + localtimezone*3600;
           temp_char = strstr((char *)nodes->nodeTab[i]->children->content, "Local: ");

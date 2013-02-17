@@ -963,41 +963,73 @@ NavigationPane {
                     minHeight:       138
                 }
 
-
-                ActivityIndicator {
-                    id: refresh_showing
-                    preferredWidth:  81
-                    maxWidth:        81
-                    minWidth:        81
-                    preferredHeight: 81 
-                    maxHeight:       81 
-                    minHeight:       81 
-                    leftMargin: 25.0
-                    rightMargin: 25.0
-                    verticalAlignment: VerticalAlignment.Center
-                    visible: main.isUpdate ? true : false
-                    running: main.isUpdate ? true : false
-                    enabled: main.isUpdate ? true : false
-                }
-
-                ImageButton {
-                    id: refreshicon
-                    preferredWidth:  81
-                    maxWidth:        81
-                    minWidth:        81
-                    preferredHeight: 81 
-                    maxHeight:       81 
-                    minHeight:       81 
-                    leftMargin: 25.0
-                    rightMargin: 25.0
-                    verticalAlignment: VerticalAlignment.Center
-                    defaultImageSource: "asset:///button_icons/refresh_def.png"
-                    pressedImageSource: "asset:///button_icons/refresh_sel.png"
-                    visible: main.isUpdate ? false : true
-                    onClicked: {
-                    main.isUpdate = true;
-                    Config.updatestations()
+                Container{
+                    layout: AbsoluteLayout {}
+                    verticalAlignment: VerticalAlignment.Center     
+                    horizontalAlignment: HorizontalAlignment.Right
+                    leftMargin: 30.0
+                    rightMargin: 30.0
+ 
+                    ActivityIndicator {
+                        id: refresh_showing
+                        layoutProperties: AbsoluteLayoutProperties {
+                            positionX: 0 
+                            positionY: 0
+                        }
+                        preferredWidth:  81
+                        maxWidth:        81
+                        minWidth:        81
+                        preferredHeight: 81 
+                        maxHeight:       81 
+                        minHeight:       81 
+                        leftMargin: 25.0
+                        rightMargin: 25.0
+                        verticalAlignment: VerticalAlignment.Center
+                        visible: main.isUpdate ? true : false
+                        running: main.isUpdate ? true : false
+                        enabled: main.isUpdate ? true : false
                     }
+
+                    ImageButton {
+                        id: refreshicon
+                        layoutProperties: AbsoluteLayoutProperties {
+                            positionX: 0 
+                            positionY: 0
+                        }
+                        preferredWidth:  81
+                        maxWidth:        81
+                        minWidth:        81
+                        preferredHeight: 81 
+                        maxHeight:       81 
+                        minHeight:       81 
+                        leftMargin: 25.0
+                        rightMargin: 25.0
+                        verticalAlignment: VerticalAlignment.Center
+                        defaultImageSource: "asset:///button_icons/refresh_def.png"
+                        pressedImageSource: "asset:///button_icons/refresh_sel.png"
+                        visible: main.isUpdate ? false : true
+                        onClicked: {
+                        main.isUpdate = true;
+                        Config.updatestations()
+                        }
+                    }
+                    Label {
+                        layoutProperties: AbsoluteLayoutProperties {
+                            positionX: 0 
+                            positionY: 80
+                        }
+                        text: Config.tr("Update") 
+                        horizontalAlignment: HorizontalAlignment.Center
+                        verticalAlignment: VerticalAlignment.Top     
+                        textStyle.textAlign: TextAlign.Center
+                        textStyle {
+                            fontSize: FontSize.PointValue
+                            fontSizeValue: 4.0
+                            fontWeight: FontWeight.W100
+                            color: Color.create("#ffffff")
+                        }
+                    }
+
                 }
                 Container{
                     preferredWidth: 1

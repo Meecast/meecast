@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-15 15:17+0300\n"
+"POT-Creation-Date: 2013-02-17 20:37+0300\n"
 "PO-Revision-Date: 2012-08-26 20:31+0000\n"
 "Last-Translator: kubixmedrek <kubix.medrek@gmail.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/meecast/"
@@ -1086,6 +1086,11 @@ msgstr "Silny śnieg"
 #: omweather/src/hash.data:93
 msgid "High"
 msgstr "Wysokie"
+
+#: omweather/src/hash.data:325
+#, fuzzy
+msgid "Hourly"
+msgstr "Godziny"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:276
 msgid "Hours"
@@ -3003,34 +3008,34 @@ msgstr "nazwa stacji"
 msgid "steady"
 msgstr "stałe"
 
-#: omweather/src/hash.data:325
+#: omweather/src/hash.data:326
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:326
+#: omweather/src/hash.data:327
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:327
+#: omweather/src/hash.data:328
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:328
+#: omweather/src/hash.data:329
 msgid "С-В"
 msgstr "c"
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:332
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:332
+#: omweather/src/hash.data:333
 msgid "Ю-З"
 msgstr "Ю-З"

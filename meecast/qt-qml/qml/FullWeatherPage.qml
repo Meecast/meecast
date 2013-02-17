@@ -793,10 +793,10 @@ Page {
                     onCreationCompleted: {
                         if (day_period == "day"){
                             background = Color.create("#0f0f0f")
-                            defaultImageSource = Config.imagespath +  "/day_sel.png"
+                            button_day.defaultImageSource = Config.imagespath +  "/day_sel.png"
                         }else
                             background = Color.create("#1f1f1f")
-                            defaultImageSource = Config.imagespath +  "/day_def.png"
+                            button_day.defaultImageSource = Config.imagespath +  "/day_def.png"
                     }
                 }
                 Container{

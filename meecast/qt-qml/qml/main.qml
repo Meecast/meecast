@@ -20,6 +20,7 @@ TabbedPane {
     property bool  left_arrow : false
     property bool  right_arrow : false
     property int wind_direction_angle : 0
+    property bool current_value: false
     //backButtonsVisible: false
     // Create the initial screen
     property variant newPage;
@@ -40,7 +41,6 @@ Tab {
         property int screen_height : 768
         property int day: 0
         property bool current: false
-        property bool current_value: false
         property string day_period: "day"
         property bool isUpdate: false
 
@@ -57,6 +57,20 @@ Tab {
         property string humidity: ""
         property string pressure: ""
         property string background_image: ""
+
+        function check_hours ()
+        {
+            var i = 0;
+            var result = 0;
+            console.debug ("Forecast_model.rowCount()", Forecast_model.rowCount(), Current.rowCount());
+            var fulldate = Forecast_model.getdata(day, "fulldate");
+            while (i<Forecast_hours_model.rowCount()){   
+                if (Forecast_hours_model.getdata(i, "fulldate") == fulldate)
+                    result = 1;
+                i++;
+            }
+            return result;
+        }
 
 
         function update_list(){
@@ -151,7 +165,7 @@ Tab {
         }
 
         function update_current_data(){
-            console.log("update_current_data!!!!!!!!!!!!!");
+            //console.log("update_current_data!!!!!!!!!!!!!");
             left_arrow = Config.prevstationname == "" ? false : true;
             right_arrow = Config.nextstationname == "" ? false : true;
             if (Current.getdata(0, "temp") == "N/A"){
@@ -161,11 +175,11 @@ Tab {
                 if ((Current.getdata(0, "temp_low") != "N/A") && (Current.getdata(0, "temp_high") != "N/A"))
                 if (Current.getdata(0, "temp_low") != "N/A")
                    current_temp_text = current_temp_text + '/'+ Current.getdata(0, "temp_low") + '°'
-                   console.log("Color!!!! ", Current.getdata(0, "temp_high"));
+              //     console.log("Color!!!! ", Current.getdata(0, "temp_high"));
                 if (Current.getdata(0, "temp_high") != "N/A"){
                     current_rect_back_background = main.getColor(Current.getdata(0, "temp_high"));
                 }else{
-                   console.log("Color!!!! ", Current.getdata(0, "temp_low"));
+                //   console.log("Color!!!! ", Current.getdata(0, "temp_low"));
                     if (Current.getdata(0, "temp_low") != "N/A"){
                         current_rect_back_background = main.getColor(Current.getdata(0, "temp_high"));
                     }else{
@@ -197,8 +211,6 @@ Tab {
             }else
                 wind_direction_angle = 0;
             wind_direction_text = Config.tr(Current.getdata(0, "wind_direction"));
-
-
         }
 
         function getColor(t) {
@@ -273,7 +285,7 @@ Tab {
         }
 
         function updatestationname(){
-            console.log("updatestationname() ", Config.stationname );
+        //    console.log("updatestationname() ", Config.stationname );
             main.updatemodels();
             //stationname_text = Config.stationname == "Unknown" ? "MeeCast" : Config.stationname
 
@@ -715,8 +727,8 @@ Tab {
                                            preferredWidth: 60
                                            preferredHeight: 60
                                            onClicked: {
-                                                Qt.Config.nextstation();
-                                                Qt.main.updatestationname();
+                                               Qt.Config.nextstation();
+                                               Qt.main.updatestationname();
                                            }
                                        }
                                        Container{
@@ -869,13 +881,42 @@ Tab {
                                 main.day = groupDataModel.data(indexPath).number;
                                 main.current = true;
                             }else{
-                                console.log("Index ", (groupDataModel.data(indexPath).numberi - 1));
+                                console.log("Index ", (groupDataModel.data(indexPath).number - 1));
                                 main.day = groupDataModel.data(indexPath).number - 1;
                                 main.current = false;
                             }
+
+                            mySheet.open();
+                            console.log("DAY    ", main.day);
+
                             main.day_period = "day";
-                            var newPage = fullpageDefinition.createObject();
-                            rootWindow.push(newPage);
+                            var newPage1 = fullpageDefinition.createObject();
+                            day_tab.setContent(newPage1);
+
+                            main.day_period = "night";
+                            var newPage2 = fullpageDefinition.createObject();
+                            night_tab.setContent(newPage2);
+
+                            if (main.check_hours() > 0){
+                                tabFullWeather.add(hourly_tab);
+                                main.day_period = "hours";
+                                var newPage4 = fullpageDefinition.createObject();
+                                hourly_tab.setContent(newPage4);
+                            }else{
+                                tabFullWeather.remove(hourly_tab);
+                            }
+
+                            if (main.current == true &&  current_value == true){
+                                console.log ("XCCCCCCCCCCCCCCCCCURENT ",  Current.rowCount());
+                                tabFullWeather.insert(1, current_tab);
+                                main.day_period = "current";
+                                var newPage3 = fullpageDefinition.createObject();
+                                current_tab.setContent(newPage3);
+                                tabFullWeather.activeTab = current_tab;
+                            }else{
+                                tabFullWeather.activeTab = day_tab;
+                                tabFullWeather.remove(current_tab);
+                            }
                         }
                     }
                 }
@@ -950,8 +991,8 @@ Tab {
                     pressedImageSource: "asset:///button_icons/refresh_sel.png"
                     visible: main.isUpdate ? false : true
                     onClicked: {
-                        main.isUpdate = true;
-                        Config.updatestations()
+                    main.isUpdate = true;
+                    Config.updatestations()
                     }
                 }
                 
@@ -993,14 +1034,46 @@ Tab {
                         rootWindow.push(newPage);
                     }
                 } 
-               // Container{
-               //     minWidth: 160
-               //     preferredHeight: 138 
-              //  }
             }
         }
         }
         attachedObjects: [
+            Tab {
+                id: current_tab
+                title: Config.tr("Now")
+                imageSource: Config.imagespath +  "/now_def.png" 
+            },
+            Tab {
+                id: hourly_tab
+                title: Config.tr("Hourly")
+                imageSource: Config.imagespath +  "/hourly_def.png" 
+            },
+
+            Sheet {
+               id: mySheet
+               content: TabbedPane {
+                   id: tabFullWeather
+                   showTabsOnActionBar: true 
+                   Tab {
+                       id: close_page
+                       title: Config.tr("Back")
+                       imageSource: "asset:///share/images/arrow_left.png"  
+                       onTriggered: {
+                            mySheet.close();
+                        }
+                   }
+                   Tab {
+                       id: day_tab
+                       title: Config.tr("Day")
+                       imageSource: Config.imagespath +  "/day_def.png" 
+                   }
+                   Tab {
+                       id: night_tab 
+                       title: Config.tr("Night")
+                       imageSource: Config.imagespath +  "/night_def.png" 
+                   }
+               }
+            },
             ComponentDefinition {
                 id: settingspageDefinition
                 source: "SettingsPage.qml"
@@ -1022,9 +1095,4 @@ Tab {
     } // end of Page
     }
     }
-    Tab {
-        title: "cccc"
-        enable: false
-    }
-
 }

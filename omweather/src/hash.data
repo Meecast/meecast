@@ -322,6 +322,7 @@
     g_hash_table_insert(hash, (void*)"rising", _("rising"));
     g_hash_table_insert(hash, (void*)"steady", _("steady"));
     g_hash_table_insert(hash, (void*)"Feels like", _("Feels like"));
+    g_hash_table_insert(hash, (void*)"Hourly", _("Hourly"));
     g_hash_table_insert(hash, (void*)"В", _("В"));
     g_hash_table_insert(hash, (void*)"З", _("З"));
     g_hash_table_insert(hash, (void*)"С", _("С"));

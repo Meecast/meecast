@@ -3038,7 +3038,8 @@ hem 2.1 versiyonu vehem de (isteginize gore) farkli bir ileriki version olabilir
         <message>
             <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
 </source>
-            <translation>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose \n</translation>
+            <translation>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose 
+</translation>
         </message>
         <message>
             <source>Transparency:</source>

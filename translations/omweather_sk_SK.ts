@@ -6,8 +6,8 @@
         <message>
             <source>
 H: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Vlhkosť: </translation>
         </message>
         <message>
             <source>
@@ -26,382 +26,364 @@ Andrew Olmsted
 for Semi-transparency
 and coloured backgrounds
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Widget pracovnej plochy
+pre Nokie N800/N810/N900
+zobrazujúci predpoveď počasia.
+Verzia %s Zostavenie: %s
+Copyright(c) 2006-2011
+Vlad Vasiliev, Pavel Fialko
+Copyright(c) 2008
+za predvolenú tému ikon (Glance)
+a dizajn rozhrania
+Andrew Zhilin
+Copyright(c) 2008
+Andrew Olmsted
+za priehľadnosť
+a farebné pozadia
+</translation>
         </message>
         <message>
             <source>
 Humidity: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Vlhkosť: </translation>
         </message>
         <message>
             <source>
 Humidity: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Vlhkosť: </translation>
         </message>
         <message>
             <source>
 Humidity: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Vlhkosť: </translation>
         </message>
         <message>
             <source>
 Humidity: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Vlhkosť: </translation>
         </message>
         <message>
             <source>
 P: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Tlak: </translation>
         </message>
         <message>
             <source>
 Precipitation: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Zrážky: </translation>
         </message>
         <message>
             <source>
 Precipitation: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Zrážky: </translation>
         </message>
         <message>
             <source>
 Precipitation: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Zrážky: </translation>
         </message>
         <message>
             <source>
 Precipitation: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Zrážky: </translation>
         </message>
         <message>
             <source>
 Pressure: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Tlak: </translation>
         </message>
         <message>
             <source>
 Pressure: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Tlak: </translation>
         </message>
         <message>
             <source>
 V: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Viditeľnosť: </translation>
         </message>
         <message>
             <source>
 W: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Vietor: </translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Nízká)</translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Nízká)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Stredná)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Stredná)</translation>
         </message>
         <message>
             <source>1 day</source>
-            <translation>1 dag</translation>
+            <translation>1 deň</translation>
         </message>
         <message>
             <source>1 day</source>
-            <translation>1 dag</translation>
+            <translation>1 deň</translation>
         </message>
         <message>
             <source>1 hour</source>
-            <translation>1 timme</translation>
+            <translation>1 hodinu</translation>
         </message>
         <message>
             <source>1 hour</source>
-            <translation>1 timme</translation>
+            <translation>1 hodinu</translation>
         </message>
         <message>
             <source>1 hour</source>
-            <translation>1 timme</translation>
+            <translation>1 hodinu</translation>
         </message>
         <message>
             <source>1 hour</source>
-            <translation>1 timme</translation>
+            <translation>1 hodinu</translation>
         </message>
         <message>
             <source>1 minute</source>
-            <translation>1 minut</translation>
+            <translation>1 minúta</translation>
         </message>
         <message>
             <source>10 minutes</source>
-            <translation>10 minuter</translation>
+            <translation>10 minút</translation>
         </message>
         <message>
             <source>10 seconds</source>
-            <translation>10 sekunder</translation>
+            <translation>10 sekúnd</translation>
         </message>
         <message>
             <source>12 hours</source>
-            <translation type="unfinished">2 timmar</translation>
+            <translation>12 hodín</translation>
         </message>
         <message>
             <source>15 minutes</source>
-            <translation>15 minuter</translation>
+            <translation>15 minút</translation>
         </message>
         <message>
             <source>15 minutes</source>
-            <translation>15 minuter</translation>
+            <translation>15 minút</translation>
         </message>
         <message>
             <source>2 hours</source>
-            <translation>2 timmar</translation>
+            <translation>2 hodiny</translation>
         </message>
         <message>
             <source>2 hours</source>
-            <translation>2 timmar</translation>
+            <translation>2 hodiny</translation>
         </message>
         <message>
             <source>20 seconds</source>
-            <translation>20 sekunder</translation>
+            <translation>20 sekúnd</translation>
         </message>
         <message>
             <source>3 minutes</source>
-            <translation>3 minuter</translation>
+            <translation>3 minúty</translation>
         </message>
         <message>
             <source>30 minutes</source>
-            <translation>30 minuter</translation>
+            <translation>30 minút</translation>
         </message>
         <message>
             <source>30 minutes</source>
-            <translation>30 minuter</translation>
+            <translation>30 minút</translation>
         </message>
         <message>
             <source>30 seconds</source>
-            <translation>30 sekunder</translation>
+            <translation>30 sekúnd</translation>
         </message>
         <message>
             <source>4 hours</source>
-            <translation>4 timmar</translation>
+            <translation>4 hodiny</translation>
         </message>
         <message>
             <source>4 hours</source>
-            <translation>4 timmar</translation>
+            <translation>4 hodiny</translation>
         </message>
         <message>
             <source>4 hours</source>
-            <translation>4 timmar</translation>
+            <translation>4 hodiny</translation>
         </message>
         <message>
             <source>4 hours</source>
-            <translation>4 timmar</translation>
+            <translation>4 hodiny</translation>
         </message>
         <message>
             <source>40 seconds</source>
-            <translation>40 sekunder</translation>
+            <translation>40 sekúnd</translation>
         </message>
         <message>
             <source>5 minutes</source>
-            <translation>5 minuter</translation>
+            <translation>5 minút</translation>
         </message>
         <message>
             <source>50 seconds</source>
-            <translation>50 sekunder</translation>
+            <translation>50 sekúnd</translation>
         </message>
         <message>
             <source>60 seconds</source>
-            <translation>60 sekunder</translation>
+            <translation>60 sekúnd</translation>
         </message>
         <message>
             <source>8 hours</source>
-            <translation>8 timmar</translation>
+            <translation>8 hodín</translation>
         </message>
         <message>
             <source>AM Clouds / PM Sun</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia zamračené / Popoludní slnečno</translation>
         </message>
         <message>
             <source>AM Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia mrholenie</translation>
         </message>
         <message>
             <source>AM Drizzle / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia mrholenie / Vietor</translation>
         </message>
         <message>
             <source>AM Fog / PM Clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia hmla / Popoludní zamračené</translation>
         </message>
         <message>
             <source>AM Fog / PM Sun</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia hmla / Popoludní slnečno</translation>
         </message>
         <message>
             <source>AM Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia slabý dážď</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia slabý dážď / Vietor</translation>
         </message>
         <message>
             <source>AM Light Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia slabé sneženie</translation>
         </message>
         <message>
             <source>AM Light Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia slabé sneženie / Vietor</translation>
         </message>
         <message>
             <source>AM Light Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia sychravo</translation>
         </message>
         <message>
             <source>AM Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia dážď</translation>
         </message>
         <message>
             <source>AM Rain / Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia dážď / Sneženie</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia dážď / Snehové prehánky</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia dážď / Snehové prehánky / Vietor</translation>
         </message>
         <message>
             <source>AM Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia dážď / Vietor</translation>
         </message>
         <message>
             <source>AM Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia prehánky</translation>
         </message>
         <message>
             <source>AM Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia prehánky / Vietor</translation>
         </message>
         <message>
             <source>AM Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia sneženie</translation>
         </message>
         <message>
             <source>AM Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia snehové prehánky</translation>
         </message>
         <message>
             <source>AM Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia snehové prehánky / Vietor</translation>
         </message>
         <message>
             <source>AM Snow Showers / Wind Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dopoludnia snehové prehánky / Neskôr vietor</translation>
         </message>
         <message>
             <source>About</source>
-            <translation>Om</translation>
+            <translation>O aplikácií</translation>
         </message>
         <message>
             <source>About</source>
-            <translation>Om</translation>
+            <translation>O aplikácií</translation>
         </message>
         <message>
             <source>About</source>
-            <translation>Om</translation>
+            <translation>O aplikácií</translation>
         </message>
         <message>
             <source>About</source>
-            <translation>Om</translation>
+            <translation>O aplikácií</translation>
         </message>
         <message>
             <source>About</source>
-            <translation>Om</translation>
+            <translation>O aplikácií</translation>
         </message>
         <message>
             <source>About</source>
-            <translation>Om</translation>
+            <translation>O aplikácií</translation>
         </message>
         <message>
             <source>Access denied to the given URL.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Prístup zamietnutý na zvolenú URL.</translation>
         </message>
         <message>
             <source>Action|Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Aktualizácia</translation>
         </message>
         <message>
             <source>Add</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Pridať</translation>
         </message>
         <message>
             <source>Add Station</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Pridať stanicu</translation>
         </message>
         <message>
             <source>Alerts</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Výstrahy</translation>
         </message>
         <message>
             <source>Alerts</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Výstrahy</translation>
         </message>
         <message>
             <source>Alerts</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Výstrahy</translation>
         </message>
         <message>
             <source>Alexis Iglauer - for testing
@@ -414,42 +396,46 @@ Alexander Savchenko aka dizel - for testing
 Timeless - for patches 
 Eric Link - for feature request and donation
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alexis Iglauer - za testovanie
+Eugene Roytenberg - za testovanie
+Jarek Szczepanski aka Imrahil - za testovanie
+Vladimir Shakhov aka Mendoza - za testovanie
+Marc Dilon - za kontrolu gramatiky/štýlu textov v Angličtine
+Arkady Glazov aka Globster - za testovanie
+Alexander Savchenko aka dizel - za testovanie
+Timeless - za záplaty
+Eric Link - za žiadanie nových funkcií a dary
+</translation>
         </message>
         <message>
             <source>An unknown error has occurred.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nastala neznáma chyba.</translation>
         </message>
         <message>
             <source>Animation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Animácie</translation>
         </message>
         <message>
             <source>Appearance</source>
-            <translation>Utseende</translation>
+            <translation>Vzhľad</translation>
         </message>
         <message>
             <source>Application manager will now start
 for installing package 'MeeCast applet'.
 You should uninstall AccuWeather 
 before installing this package</source>
-            <translation>Applikationmanager startar nu
-för installation av 'Meecast applet'.
-Du bör avinstallera AccuWeather
-innan installation av detta paket</translation>
+            <translation>Správca aplikácii teraz začne inštaláciu
+balíka 'MeeCast applet'.
+Mali by ste odinštalovať AccuWeather 
+pred inštaláciou tohoto balíka</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ste si istý že chcete odstrániť túto stanicu?</translation>
         </message>
         <message>
             <source>Are you sure?</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ste si istý?</translation>
         </message>
         <message>
             <source>Author and maintenance: Vlad Vasiliev, &lt;vlad@gas.by&gt;
@@ -458,511 +444,454 @@ Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
 Design UI for Fremantle: Krebber Jan Niemelä Ulla
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Autor a správca: Vlad Vasiliev, &lt;vlad@gas.by&gt;
+Správca: Pavel Fialko, &lt;pavelnf@gmail.com&gt;
+Dokumentácia: Marko Vertainen
+Návrh UI a predvolenej témy ikon: Andrew Zhilin
+Návrh UI pre Fremantle: Krebber Jan Niemelä Ulla
+</translation>
         </message>
         <message>
             <source>Author and maintenance: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Autor a správca: Vlad Vasiliev, &lt;vlad@gas.by&gt;
+</translation>
         </message>
         <message>
             <source>Authors</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Autori</translation>
         </message>
         <message>
             <source>Automatically update data when connecting to the Internet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Automatická aktualizácia dát po pripojení na Internet</translation>
         </message>
         <message>
             <source>Background color:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Farba pozadia:</translation>
         </message>
         <message>
             <source>Background color:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Farba pozadia:</translation>
         </message>
         <message>
             <source>Beauf.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beauf.</translation>
         </message>
         <message>
             <source>Beaufort scale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beaufortova mierka</translation>
         </message>
         <message>
             <source>Beaufort scale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beaufortova mierka</translation>
         </message>
         <message>
             <source>Blowing Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zvírený sneh</translation>
         </message>
         <message>
             <source>C</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C</translation>
         </message>
         <message>
             <source>C</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C</translation>
         </message>
         <message>
             <source>C</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C</translation>
         </message>
         <message>
             <source>C</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C</translation>
         </message>
         <message>
             <source>C</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C</translation>
         </message>
         <message>
             <source>C
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C
+</translation>
         </message>
         <message>
             <source>C
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C
+</translation>
         </message>
         <message>
             <source>C
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C
+</translation>
         </message>
         <message>
             <source>C
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>C
+</translation>
         </message>
         <message>
             <source>CALM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bezvetrie</translation>
         </message>
         <message>
             <source>Cancel</source>
-            <translation>Avbryt</translation>
+            <translation>Zrusiť</translation>
         </message>
         <message>
             <source>Cannot get path to the HOME directory. Quitting.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nemôžem získať cestu k domácemu priečinku. Ukončujem sa.
+</translation>
         </message>
         <message>
             <source>Celcius</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Celzius</translation>
         </message>
         <message>
             <source>Celsius</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Celzius</translation>
         </message>
         <message>
             <source>City</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mesto</translation>
         </message>
         <message>
             <source>City</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mesto</translation>
         </message>
         <message>
             <source>City</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mesto</translation>
         </message>
         <message>
             <source>City</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mesto</translation>
         </message>
         <message>
             <source>City:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mesto:</translation>
         </message>
         <message>
             <source>Clear</source>
-            <translation>Klart</translation>
+            <translation>Jasno</translation>
         </message>
         <message>
             <source>Clear / Wind</source>
-            <translation>Klart / Vind</translation>
+            <translation>Jasno / Vietor</translation>
         </message>
         <message>
             <source>Clear Sky</source>
-            <translation>Klar himmel</translation>
+            <translation>Jasná obloha</translation>
         </message>
         <message>
             <source>Clear, Drifting Snow</source>
-            <translation>Klart, Snödrev</translation>
+            <translation>Jasno, padajúci sneh</translation>
         </message>
         <message>
             <source>Clear, Fog</source>
-            <translation>Klart, Dimma</translation>
+            <translation>Jasno, hmla</translation>
         </message>
         <message>
             <source>Clear, Fog, Drizzle</source>
-            <translation>Klart, Dimma, Duggregn</translation>
+            <translation>Jasno, hmla, mrholenie</translation>
         </message>
         <message>
             <source>Clear, Haze</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Jasno, opar</translation>
         </message>
         <message>
             <source>Clear, Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Jasno, dymová clona</translation>
         </message>
         <message>
             <source>Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zavrieť</translation>
         </message>
         <message>
             <source>Clouds Early / Clearing Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spočiatku oblačno / Neskôr jasno</translation>
         </message>
         <message>
             <source>Cloudy</source>
-            <translation>Molnigt</translation>
+            <translation>Zamračené</translation>
         </message>
         <message>
             <source>Cloudy / Wind</source>
-            <translation>Molnigt / Vind</translation>
+            <translation>Zamračené / Vietor</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zamračené s ojedinelým snežením</translation>
         </message>
         <message>
             <source>Cloudy Light Rain</source>
-            <translation>Molnigt Lätt Regn</translation>
+            <translation>Zamračené so slabým dažďom</translation>
         </message>
         <message>
             <source>Cloudy T-Storm</source>
-            <translation>Molnig Åskväder</translation>
+            <translation>Zamračené s búrkami</translation>
         </message>
         <message>
             <source>Cloudy and Windy</source>
-            <translation>Målnigt och blåsigt</translation>
+            <translation>Zamračené a veterno</translation>
         </message>
         <message>
             <source>Cloudy and light rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Oblačno a slabý dážď</translation>
         </message>
         <message>
             <source>Cloudy and light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Oblačno a slabé sneženie</translation>
         </message>
         <message>
             <source>Cloudy and light wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Oblačno a slabé mokré sneženie</translation>
         </message>
         <message>
             <source>Cloudy and showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Oblačno a prehánky</translation>
         </message>
         <message>
             <source>Cloudy and snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Oblačno a snehové prehánky</translation>
         </message>
         <message>
             <source>Cloudy, Drifting Snow</source>
-            <translation>Molningt, Snödrev</translation>
+            <translation>Zamračené, padajúci sneh</translation>
         </message>
         <message>
             <source>Cloudy, Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zamračené, ojedinelé sneženie</translation>
         </message>
         <message>
             <source>Cloudy, Heavy Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zamračené, silný dážď</translation>
         </message>
         <message>
             <source>Cloudy, Heavy Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zamračené, silný dážď, búrka</translation>
         </message>
         <message>
             <source>Cloudy, Heavy Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zamračené, silné sneženie</translation>
         </message>
         <message>
             <source>Cloudy, Light Rain</source>
-            <translation>Molnigt, Lätt Regn</translation>
+            <translation>Zamračené, slabý dážď</translation>
         </message>
         <message>
             <source>Cloudy, Light Rain, T-Storm</source>
-            <translation>Molnigt, Lätt Regn, Åskväder</translation>
+            <translation>Zamračené, slabý dážď, búrka</translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
-            <translation>Molnigt, Regn</translation>
+            <translation>Zamračené, dážď</translation>
         </message>
         <message>
             <source>Cloudy, Rain, T-Storm</source>
-            <translation>Molnigt, Regn, Åskväder</translation>
+            <translation>Zamračené, dážď, búrka</translation>
         </message>
         <message>
             <source>Cloudy, Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zamračené, dymová clona</translation>
         </message>
         <message>
             <source>Cloudy, Snow</source>
-            <translation>Molnigt, Snö</translation>
+            <translation>Zamračené, sneženie</translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zamračené, hrmenie s dažďom</translation>
         </message>
         <message>
             <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Copyright(c) 2006-2011 Vlad Vasilyeu a Pavel Fialko, </translation>
         </message>
         <message>
             <source>Copyright(c) 2010-2011 by Tanya Makova
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Copyright(c) 2010-2011 Tanya Makova
+</translation>
         </message>
         <message>
             <source>Could not connecting to Internet.
 Connection timeout is expired.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nemožno sa pripojiť na internet.
+Spojenie vypršalo.</translation>
         </message>
         <message>
             <source>Could not create weather cache directory.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nemožno vytvoriť priečinok medzipamäte pre informácie o počasí.
+</translation>
         </message>
         <message>
             <source>Couldn't resolve host.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nemožno nájsť hostiteľa.</translation>
         </message>
         <message>
             <source>Couldn't resolve proxy.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nemožno nájsť proxy.</translation>
         </message>
         <message>
             <source>Country</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Krajina</translation>
         </message>
         <message>
             <source>Country</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Krajina</translation>
         </message>
         <message>
             <source>Country:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Krajina:</translation>
         </message>
         <message>
             <source>Custom</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vlastné</translation>
         </message>
         <message>
             <source>Daily</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Denne</translation>
         </message>
         <message>
             <source>Day</source>
-            <translation>Dag</translation>
+            <translation>Deň</translation>
         </message>
         <message>
             <source>Day</source>
-            <translation>Dag</translation>
+            <translation>Deň</translation>
         </message>
         <message>
             <source>Day length</source>
-            <translation>Daglängd</translation>
+            <translation>Dĺžka dňa</translation>
         </message>
         <message>
             <source>Day length:</source>
-            <translation>Daglängd:</translation>
+            <translation>Dĺžka dňa:</translation>
         </message>
         <message>
             <source>Day length:</source>
-            <translation>Daglängd:</translation>
+            <translation>Dĺžka dňa:</translation>
         </message>
         <message>
             <source>Day:</source>
-            <translation>Dag:</translation>
+            <translation>Deň:</translation>
         </message>
         <message>
             <source>Delete location?</source>
-            <translation>Radera område?</translation>
+            <translation>Odstrániť miesto?</translation>
         </message>
         <message>
             <source>Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Návrh UI a predvolenej témy ikon: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
+</translation>
         </message>
         <message>
             <source>Detailed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Podrobné</translation>
         </message>
         <message>
             <source>Detailed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Podrobné</translation>
         </message>
         <message>
             <source>Display</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zobrazenie</translation>
         </message>
         <message>
             <source>Display</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zobrazenie</translation>
         </message>
         <message>
             <source>Display</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zobrazenie</translation>
         </message>
         <message>
             <source>Distance</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vzdialenosť</translation>
         </message>
         <message>
             <source>Distance units:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Jednotky vzdialenosti:</translation>
         </message>
         <message>
             <source>Does not to add station, because no one
 of 'omweather-*-stations-db' packages was installed.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Stanica nebola pridaná, pretože žiadny
+s balíčkov 'omweather-*-stations-db' nebol nainštalovaný.</translation>
         </message>
         <message>
             <source>Donation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Darovať</translation>
         </message>
         <message>
             <source>Donation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Darovať</translation>
         </message>
         <message>
             <source>Donation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Darovať</translation>
         </message>
         <message>
             <source>Download and show detailed weather</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Stiahnuť a zobraziť podrobné informácie o počasí</translation>
         </message>
         <message>
             <source>Download timed out.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sťahovanie vypršalo.</translation>
         </message>
         <message>
             <source>Drifting Snow</source>
-            <translation>Snödrev</translation>
+            <translation>Padajúci sneh</translation>
         </message>
         <message>
             <source>Drizzle</source>
-            <translation>Duggregn</translation>
+            <translation>Mrholenie</translation>
         </message>
         <message>
             <source>Drizzle / Fog</source>
-            <translation>Duggregn / Dimma</translation>
+            <translation>Mrholenie / Hmla</translation>
         </message>
         <message>
             <source>Drizzle / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mrholenie / Vietor</translation>
         </message>
         <message>
             <source>Drizzle Early</source>
-            <translation>Duggregn tidigt</translation>
+            <translation>Spočiatku mrholenie</translation>
         </message>
         <message>
             <source>Drizzle Late</source>
-            <translation>Duggregn sent</translation>
+            <translation>Neskôr mrholenie</translation>
         </message>
         <message>
             <source>E</source>
-            <translation>Ö</translation>
+            <translation>V</translation>
         </message>
         <message>
             <source>ENE</source>
-            <translation>ONO</translation>
+            <translation>VSV</translation>
         </message>
         <message>
             <source>ENE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>VSV</translation>
         </message>
         <message>
             <source>ESE</source>
-            <translation>OSO</translation>
+            <translation>VJV</translation>
         </message>
         <message>
             <source>ESE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>VJV</translation>
         </message>
         <message>
             <source>E_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>V</translation>
         </message>
         <message>
             <source>Ed Bartosh - for more feature requests, support and criticism
@@ -976,280 +905,257 @@ Brian Knight - for idea of iconset, criticism and donation ;-)
 Andrew aka Tabster - for testing and ideas
 Brad Jones aka kazrak - for testing
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ed Bartosh - za žiadanie nových funkcií, podporu a kritiku
+Daniel Wilms - za žiadanie nových funkcií a testovanie
+Eugen Kaluta aka tren - za žiadanie nových funkcií a podporu
+Maxim Kalinkevish aka spark za testovanie
+Yuri Komyakov - za zariadenie Nokia 770
+Greg Thompson za podporu súboru stations.txt
+Frank Persian - za nápady nového rozloženia
+Brian Knight - za nápady tém ikon, kritiku a dary ;-)
+Andrew aka Tabster - za testovanie a nápady
+Brad Jones aka kazrak - za testovanie
+</translation>
         </message>
         <message>
             <source>Edit custom layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Upraviť vlastné rozloženie</translation>
         </message>
         <message>
             <source>Edit custom layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Upraviť vlastné rozloženie</translation>
         </message>
         <message>
             <source>Enable GPS</source>
-            <translation>Aktivera GPS</translation>
+            <translation>Povoliť GPS</translation>
         </message>
         <message>
             <source>Enter search</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hľadať</translation>
         </message>
         <message>
             <source>Error in xml file
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chyba v súbore XML
+</translation>
         </message>
         <message>
             <source>Error initializing the OMWeather applet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nemôžem inicializovať applet OMWeather</translation>
         </message>
         <message>
             <source>Exit</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Koniec</translation>
         </message>
         <message>
             <source>Extended Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rozšírené nastavenia</translation>
         </message>
         <message>
             <source>Extended Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rozšírené nastavenia</translation>
         </message>
         <message>
             <source>Extreme</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Extrémne</translation>
         </message>
         <message>
             <source>F</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F</translation>
         </message>
         <message>
             <source>F</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F</translation>
         </message>
         <message>
             <source>F</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F</translation>
         </message>
         <message>
             <source>F</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F</translation>
         </message>
         <message>
             <source>F</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F</translation>
         </message>
         <message>
             <source>F
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F
+</translation>
         </message>
         <message>
             <source>F
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F
+</translation>
         </message>
         <message>
             <source>F
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F
+</translation>
         </message>
         <message>
             <source>F
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>F
+</translation>
         </message>
         <message>
             <source>FL: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Na pocit: </translation>
         </message>
         <message>
             <source>Fahrenheit</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fahrenheit</translation>
         </message>
         <message>
             <source>Fahrenheit</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fahrenheit</translation>
         </message>
         <message>
             <source>Failed to connect to host or proxy.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nepodarilo sa pripojiť k hostiteľovi alebo proxy.</translation>
         </message>
         <message>
             <source>Failed to initialize GConf. Quitting.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nepodarilo sa inicializovať GConf. Ukončujem sa.
+</translation>
         </message>
         <message>
             <source>Failed to initialize GConf. Settings were not saved.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nepodarilo sa inicializovať GConf. Konfigurácia nebola uložená.
+</translation>
         </message>
         <message>
             <source>Fair</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Pekne</translation>
         </message>
         <message>
             <source>Feels like</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">Na pocit:</translation>
         </message>
         <message>
             <source>Feels like:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Na pocit:</translation>
         </message>
         <message>
             <source>Feels like:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Na pocit:</translation>
         </message>
         <message>
             <source>Few Showers</source>
-            <translation>Fåtal skurar</translation>
+            <translation>Ojedinelé prehánky</translation>
         </message>
         <message>
             <source>Few Showers / Wind</source>
-            <translation>Fåtal skurar/ Vind</translation>
+            <translation>Ojedinelé prehánky / Vietor</translation>
         </message>
         <message>
             <source>Few Snow</source>
-            <translation>Lite snö</translation>
+            <translation>Ojedinelé sneženie</translation>
         </message>
         <message>
             <source>Few Snow Showers</source>
-            <translation>Mindre snöfall</translation>
+            <translation>Ojedinelé snehové prehánky</translation>
         </message>
         <message>
             <source>Few Snow Showers / Wind</source>
-            <translation>Mindre snöfall/ Vind</translation>
+            <translation>Ojedinelé snehové prehánky / Vietor</translation>
         </message>
         <message>
             <source>Find location via GPS</source>
-            <translation>Hitta område via GPS</translation>
+            <translation>Nájsť miesto pomocou GPS</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fínština - Marko Vertainen; Nemčina - Claudius Henrichs; Španielčina - Alejandro Lopez; Holandčina - Tom Leenders; Slovenčina - Roman Moravčík
+</translation>
         </message>
         <message>
             <source>First Quarter</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Prvá štvrť</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">Na pocit:</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">Na pocit:</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">Na pocit:</translation>
         </message>
         <message>
             <source>Fog</source>
-            <translation>Dimma</translation>
+            <translation>Hmla</translation>
         </message>
         <message>
             <source>Fog Early / Clouds Late</source>
-            <translation>Dimma Tidigt / Moln Sent</translation>
+            <translation>Spočiatku hmla / Neskôr oblačno</translation>
         </message>
         <message>
             <source>Fog Late</source>
-            <translation>Dimma sent</translation>
+            <translation>Neskôr hmla</translation>
         </message>
         <message>
             <source>Fog early / Clearing late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spočiatku hmla / Neskôr jasno</translation>
         </message>
         <message>
             <source>Foggy</source>
-            <translation>Dimmigt</translation>
+            <translation>Hmlisto</translation>
         </message>
         <message>
             <source>Font color:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Farba písma:</translation>
         </message>
         <message>
             <source>Font:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Písmo:</translation>
         </message>
         <message>
             <source>Font:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Písmo:</translation>
         </message>
         <message>
             <source>For disabling MeeCast widget,
 you should uninstall package
 'Activating MeeCast Applet'
 using Application manager</source>
-            <translation>För att avaktivera MeeCast widget
-ska du avinstallera paketet
-'Activating MeeCast Applet' genom 
-Hantera program.</translation>
+            <translation>Pre vypnutie widgetu MeeCast
+by ste mali odinštalovať balík
+'Activating MeeCast Applet'
+pomocou Správcu aplikácií</translation>
         </message>
         <message>
             <source>Forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Predpoveď</translation>
         </message>
         <message>
             <source>Forecast at: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Predpoveď na: </translation>
         </message>
         <message>
             <source>Forecast at: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Predpoveď na: </translation>
         </message>
         <message>
             <source>Forecast: 
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Predpoveď: 
+</translation>
         </message>
         <message>
             <source>Freezing Drizzle</source>
-            <translation>Underkylt Duggregn</translation>
+            <translation>Mrznúce mrholenie</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
@@ -1278,8 +1184,29 @@ Hantera program.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">Francúzština -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht 
+ Ruština - Pavel Fialko, Vlad Vasiliev, 
+ 	Ed Bartosh
+ Fínština - Marko Vertainen
+ Nemčina -  Claudius Henrichs
+ Taliančina - Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+ Španielčtina - Alejandro Lopez
+ Poľština - Tomasz Dominikowski
+ Slovenčina - Roman Moravčík
+ Holandčina - Tom Leenders, Michiel Pater
+ Bulharčina - Zlatko Enikov
+ Albánčina - Ilir Gjika
+ Čínština - Wong Man Kong, Michael
+ Portugalčina - Jose Narciso,
+ Turečtina - Burak Kaan Kose,
+ Katalánčina - Agustí Clara,
+ Vietnamčina - Hieu Nguyen, Anh Dương and truongnx, 
+ Švédčina - Angela Nennebrandt,
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1291,1539 +1218,1369 @@ Italian - Pavel Fialko, Alessandro Pasotti,
 Spanish - Alejandro Lopez
 Polish - Tomasz Dominikowski
 Slovak - Roman Moravčík</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Francúzština - Nicolas Granziano, Philippe, Benot Knecht
+Ruština - Pavel Fialko, Vlad Vasiliev, Ed Bartosh
+Fínština - Marko Vertainen
+Nemčina - Claudius Henrichs
+Taliančina - Pavel Fialko, Alessandro Pasotti,
+	Salvatore Fiorenzo, Luca Onnis
+Španielčina - Alejandro Lopez
+Polština - Tomasz Dominikowski
+Slovenčina - Roman Moravčík</translation>
         </message>
         <message>
             <source>Full</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spln</translation>
         </message>
         <message>
             <source>Full forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Úplná predpoveď</translation>
         </message>
         <message>
             <source>Fullscreen mode</source>
-            <translation>Fullskärms läge</translation>
+            <translation>Celý displej</translation>
         </message>
         <message>
             <source>G: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nar.: </translation>
         </message>
         <message>
             <source>GPS</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GPS</translation>
         </message>
         <message>
             <source>GSM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GSM</translation>
         </message>
         <message>
             <source>GSM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GSM</translation>
         </message>
         <message>
             <source>GSM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GSM</translation>
         </message>
         <message>
             <source>GSM+WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GSM+WLAN</translation>
         </message>
         <message>
             <source>GUI|Clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vymazať</translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Grzankova téma ikon: Copyright 2005 Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</translation>
         </message>
         <message>
             <source>Gust:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nárazovo:</translation>
         </message>
         <message>
             <source>Gust:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nárazovo:</translation>
         </message>
         <message>
             <source>HTTP error.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chyba HTTP.</translation>
         </message>
         <message>
             <source>Haze</source>
-            <translation>Ljusdiffusion</translation>
+            <translation>Opar</translation>
         </message>
         <message>
             <source>Heavy Rain</source>
-            <translation>Kraftigt regn</translation>
+            <translation>Silný dážď</translation>
         </message>
         <message>
             <source>Heavy Rain / Wind</source>
-            <translation>Kraftigt regn / Vind</translation>
+            <translation>Silný dážď / Vietor</translation>
         </message>
         <message>
             <source>Heavy Rain Shower</source>
-            <translation>Kraftiga regnskurar</translation>
+            <translation>Silné dažďové prehánky</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
-            <translation>Kraftigt snöfall</translation>
+            <translation>Silné sneženie</translation>
         </message>
         <message>
             <source>High</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vysoké</translation>
         </message>
         <message>
             <source>Hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hodiny</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Fuktighet:</translation>
+            <translation type="unfinished">Vlhkosť:</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Fuktighet:</translation>
+            <translation type="unfinished">Vlhkosť:</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Fuktighet:</translation>
+            <translation type="unfinished">Vlhkosť:</translation>
         </message>
         <message>
             <source>Humidity:</source>
-            <translation>Fuktighet:</translation>
+            <translation>Vlhkosť:</translation>
         </message>
         <message>
             <source>Humidity:</source>
-            <translation>Fuktighet:</translation>
+            <translation>Vlhkosť:</translation>
         </message>
         <message>
             <source>Humidity:</source>
-            <translation>Fuktighet:</translation>
+            <translation>Vlhkosť:</translation>
         </message>
         <message>
             <source>Humidity:</source>
-            <translation>Fuktighet:</translation>
+            <translation>Vlhkosť:</translation>
         </message>
         <message>
             <source>Icon set:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Téma ikon:</translation>
         </message>
         <message>
             <source>Icon size:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Veľkosť ikon:</translation>
         </message>
         <message>
             <source>Icon size:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Veľkosť ikon:</translation>
         </message>
         <message>
             <source>Icons</source>
-            <translation>Ikoner</translation>
+            <translation>Ikony</translation>
         </message>
         <message>
             <source>Icons</source>
-            <translation>Ikoner</translation>
+            <translation>Ikony</translation>
         </message>
         <message>
             <source>Iconset</source>
-            <translation>Ikoninställningar</translation>
+            <translation>Téma ikon</translation>
         </message>
         <message>
             <source>Iconset</source>
-            <translation>Ikoninställningar</translation>
+            <translation>Téma ikon</translation>
         </message>
         <message>
             <source>Iconsets</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Témy ikon</translation>
         </message>
         <message>
             <source>Iconsets</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Témy ikon</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Informácie</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Informácie</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Informácie</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Informácie</translation>
         </message>
         <message>
             <source>Isolated T-Storms</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Občasné búrky</translation>
         </message>
         <message>
             <source>Isolated T-Storms / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Občasné búrky / Vietor</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Taliančina - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Poľština - Tomasz Dominikowski; Bulharčina - Zlatko Enikov</translation>
         </message>
         <message>
             <source>Kilometers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kilometre</translation>
         </message>
         <message>
             <source>Last Quarter</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Posledná štvrť</translation>
         </message>
         <message>
             <source>Last update at server: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Posledná aktualizácia na serveri: </translation>
         </message>
         <message>
             <source>Last update from server: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Posledná aktualizácia zo servera: </translation>
         </message>
         <message>
             <source>Last update from server: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Posledná aktualizácia zo servera: </translation>
         </message>
         <message>
             <source>Last update:</source>
-            <translation>Senast uppdaterad:</translation>
+            <translation>Posled. aktualizácia:</translation>
         </message>
         <message>
             <source>Last update:</source>
-            <translation>Senast uppdaterad:</translation>
+            <translation>Posled. aktualizácia:</translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation>Senast uppdaterad: </translation>
+            <translation>Posledná aktualizácia: </translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation>Senast uppdaterad: </translation>
+            <translation>Posledná aktualizácia: </translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation>Senast uppdaterad: </translation>
+            <translation>Posledná aktualizácia: </translation>
         </message>
         <message>
             <source>Lawn and Garden Weather</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Počasie pre trávnik a záhradu</translation>
         </message>
         <message>
             <source>Layout:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rozloženie:</translation>
         </message>
         <message>
             <source>Layout:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rozloženie:</translation>
         </message>
         <message>
             <source>Lead designer</source>
-            <translation>Chefsdesigner</translation>
+            <translation>Vedúci návrhár</translation>
         </message>
         <message>
             <source>License</source>
-            <translation>Licens</translation>
+            <translation>Licencia</translation>
         </message>
         <message>
             <source>Light Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Slabé mrholenie</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Slabý mrznúci dážď</translation>
         </message>
         <message>
             <source>Light Rain</source>
-            <translation>Lätt Regn</translation>
+            <translation>Slabý dážď</translation>
         </message>
         <message>
             <source>Light Rain / Fog</source>
-            <translation>Lätt Regn / Dimma</translation>
+            <translation>Slabý dážď / Hmla</translation>
         </message>
         <message>
             <source>Light Rain / Wind</source>
-            <translation>Lätt Regn / Dimma</translation>
+            <translation>Slabý dážď / Vietor</translation>
         </message>
         <message>
             <source>Light Rain / Wind Late</source>
-            <translation>Lätt Regn / Vind Sent</translation>
+            <translation>Slabý dážď / Neskôr vietor</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
-            <translation>Lätt Regn Tidigt</translation>
+            <translation>Spočiatku slabý dážď</translation>
         </message>
         <message>
             <source>Light Rain Late</source>
-            <translation>Lätt Regn Sent</translation>
+            <translation>Neskôr slabý dážď</translation>
         </message>
         <message>
             <source>Light Rain Shower</source>
-            <translation>Lätta regnskurar</translation>
+            <translation>Slabé dažďové prehánky</translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
-            <translation>Lätta regnskurar och underkylt regn</translation>
+            <translation>Slabý a mrznúci dážď</translation>
         </message>
         <message>
             <source>Light Rain and Shower</source>
-            <translation>Lätta regnskurar</translation>
+            <translation>Slabý dážď a prehánky</translation>
         </message>
         <message>
             <source>Light Rain and Windy</source>
-            <translation>Lätt Regn och Blåsigt</translation>
+            <translation>Slabý dážď a veterno</translation>
         </message>
         <message>
             <source>Light Rain with Thunder</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Slabý dážď s hrmením</translation>
         </message>
         <message>
             <source>Light Snow</source>
-            <translation>Lätt Snöfall</translation>
+            <translation>Slabé sneženie</translation>
         </message>
         <message>
             <source>Light Snow / Fog</source>
-            <translation>Lätt Snöfall / Dimma</translation>
+            <translation>Slabé sneženie / Hmla</translation>
         </message>
         <message>
             <source>Light Snow / Wind</source>
-            <translation>Lätt Snöfall / Vind</translation>
+            <translation>Slabé sneženie / Vietor</translation>
         </message>
         <message>
             <source>Light Snow Early</source>
-            <translation>Lätt Snö Tidigt</translation>
+            <translation>Spočiatku slabé sneženie</translation>
         </message>
         <message>
             <source>Light Snow Late</source>
-            <translation>Lätt Snö Sent</translation>
+            <translation>Neskôr slabé sneženie</translation>
         </message>
         <message>
             <source>Light Snow Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Slabé snehové prehánky</translation>
         </message>
         <message>
             <source>Loading station list</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Načítavam zoznam staníc</translation>
         </message>
         <message>
             <source>Local Pollen Reports</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Miestne peľové správy</translation>
         </message>
         <message>
             <source>Long</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dlhý</translation>
         </message>
         <message>
             <source>Looks like there's no info for this location.</source>
-            <translation>Ingen info finns för området</translation>
+            <translation>Žiadne údaje o počasí pre toto miesto.</translation>
         </message>
         <message>
             <source>Looks like there's no info for this location.</source>
-            <translation>Ingen info finns för området</translation>
+            <translation>Žiadne údaje o počasí pre toto miesto.</translation>
         </message>
         <message>
             <source>Low</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nízké</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Správca: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
+</translation>
         </message>
         <message>
             <source>Manage locations</source>
-            <translation>Hantera platser</translation>
+            <translation>Spravovať miesta</translation>
         </message>
         <message>
             <source>Manage locations</source>
-            <translation>Hantera platser</translation>
+            <translation>Spravovať miesta</translation>
         </message>
         <message>
             <source>Manual</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ručné</translation>
         </message>
         <message>
             <source>Measurement units</source>
-            <translation>Måttenheter</translation>
+            <translation>Jednotky</translation>
         </message>
         <message>
             <source>MeeCast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>MeeCast</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2012</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">MeeCast - multiplatformový veľmi prispôsobiteľný open source klient predpoveďe počasia založený na kóde OMWeather. Copyright (C) 2006-2011</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
-            <translation>MeeCast för Harmattan</translation>
+            <translation>MeeCast pre Harmattan</translation>
         </message>
         <message>
             <source>Meters</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Metre</translation>
         </message>
         <message>
             <source>Miles</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Míle</translation>
         </message>
         <message>
             <source>Mist</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Opar</translation>
         </message>
         <message>
             <source>Modification</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Úprava</translation>
         </message>
         <message>
             <source>Mostly Clear</source>
-            <translation>Mestadels Klart</translation>
+            <translation>Prevažne jasno</translation>
         </message>
         <message>
             <source>Mostly Cloudy</source>
-            <translation>Mestadels Molnigt</translation>
+            <translation>Prevažne zamračené</translation>
         </message>
         <message>
             <source>Mostly Cloudy / Wind</source>
-            <translation>Mestadels Molnigt / Vind</translation>
+            <translation>Prevažne zamračené / Vietor</translation>
         </message>
         <message>
             <source>Mostly Cloudy Few Snow</source>
-            <translation>Mestadels Molnigt Lite Snö</translation>
+            <translation>Prevažne zamračené s ojedinelým snežením</translation>
         </message>
         <message>
             <source>Mostly Cloudy Light Rain</source>
-            <translation>Mestadels Molnigt Lätt Regn</translation>
+            <translation>Prevažne zamračené so slabým dažďom</translation>
         </message>
         <message>
             <source>Mostly Cloudy Rain</source>
-            <translation>Mestadels Molnigt Regn</translation>
+            <translation>Prevažne zamračené s dažďom</translation>
         </message>
         <message>
             <source>Mostly Cloudy Snow</source>
-            <translation>Mestadels Molnigt Snö</translation>
+            <translation>Prevažne zamračené so snežením</translation>
         </message>
         <message>
             <source>Mostly Cloudy T-Storm</source>
-            <translation>Mestadels Molnigt Åskväder</translation>
+            <translation>Prevažne zamračené s búrkou</translation>
         </message>
         <message>
             <source>Mostly Cloudy and Windy</source>
-            <translation>Mestadels Molnigt och Blåsigt</translation>
+            <translation>Prevažne zamračené a veterno</translation>
         </message>
         <message>
             <source>Mostly Cloudy and Windy</source>
-            <translation>Mestadels Molnigt och Blåsigt</translation>
+            <translation>Prevažne zamračené a veterno</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Drifting Snow</source>
-            <translation>Mestadels Molnigt, Snödrev</translation>
+            <translation>Prevažne zamračené, padajúci sneh</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Few Snow</source>
-            <translation>Mestadels Molnigt, Lite Snö</translation>
+            <translation>Prevažne zamračené, ojedinelé sneženie</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Fog</source>
-            <translation>Mestadels Molnigt, Dimma</translation>
+            <translation>Prevažne zamračené, hmla</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Fog, Drizzle</source>
-            <translation>Mestadels Molnigt, Dimma, Duggregn</translation>
+            <translation>Prevažne zamračené, hmla, mrholenie</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Rain</source>
-            <translation>Mestadels Molnigt, Mycket Regn</translation>
+            <translation>Prevažne zamračené, silný dážď</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Rain, T-Storm</source>
-            <translation>Mestadels Molnigt, Mycket Regn, Åskväder</translation>
+            <translation>Prevažne zamračené, silný dážď, búrka</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Snow</source>
-            <translation>Mestadels Molnigt, Mycket Snö</translation>
+            <translation>Prevažne zamračené, silné sneženie</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Snow, Freezing Rain</source>
-            <translation>Mestadels Molnigt, Mycket Snö, Underkylld Regn</translation>
+            <translation>Prevažne zamračené, silné sneženie, mrznúci dážď</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain</source>
-            <translation>Mestadels Molnigt, Lätt Regn</translation>
+            <translation>Prevažne zamračené, slabý dážď</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Drizzle</source>
-            <translation>Mestadels Molnigt, Lätt Regn, Duggregn</translation>
+            <translation>Prevažne zamračené, slabý dážď, mrholenie</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, T-Storm</source>
-            <translation>Mestadels Molnigt, Lätt Regn, Åskväder</translation>
+            <translation>Prevažne zamračené, slabý dážď, búrka</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
-            <translation>Mestadels Molngit, Regn</translation>
+            <translation>Prevažne zamračené, dážď</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain, T-Storm</source>
-            <translation>Mestadels Molnigt, Regn, Åskväder</translation>
+            <translation>Prevažne zamračené, dážď, búrka</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Prevažne zamračené, dymová clona</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Snow</source>
-            <translation>Mestadels Molnigt, Snö</translation>
+            <translation>Prevažne zamračené, sneženie</translation>
         </message>
         <message>
             <source>Mostly Cloudy, T-Storm</source>
-            <translation>Mestadels Molnigt, Åskväder</translation>
+            <translation>Prevažne zamračené, búrka</translation>
         </message>
         <message>
             <source>Mostly Sunny</source>
-            <translation>Mestadels Soligt</translation>
+            <translation>Prevažne slnečno</translation>
         </message>
         <message>
             <source>Mostly clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Prevažne jasno</translation>
         </message>
         <message>
             <source>N</source>
-            <translation>N</translation>
-        </message>
-        <message>
-            <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>NE</source>
-            <translation>NO</translation>
-        </message>
-        <message>
-            <source>NE_short</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>NNE</source>
-            <translation>NNO</translation>
-        </message>
-        <message>
-            <source>NNE_short</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>NNW</source>
-            <translation>NNV</translation>
-        </message>
-        <message>
-            <source>NNW_short</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>NO STATION</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>NW</source>
-            <translation>NV</translation>
-        </message>
-        <message>
-            <source>NW_short</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>N_short</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Name:</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Never</source>
-            <translation>Aldrig</translation>
-        </message>
-        <message>
-            <source>Never</source>
-            <translation>Aldrig</translation>
-        </message>
-        <message>
-            <source>Never</source>
-            <translation>Aldrig</translation>
-        </message>
-        <message>
-            <source>Never</source>
-            <translation>Aldrig</translation>
-        </message>
-        <message>
-            <source>Never</source>
-            <translation>Aldrig</translation>
-        </message>
-        <message>
-            <source>Never</source>
-            <translation>Aldrig</translation>
-        </message>
-        <message>
-            <source>New</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>New location</source>
-            <translation>Nytt område</translation>
-        </message>
-        <message>
-            <source>Next update:</source>
-            <translation>Nästa uppdatering</translation>
-        </message>
-        <message>
-            <source>Night</source>
-            <translation>Natt</translation>
-        </message>
-        <message>
-            <source>Night</source>
-            <translation>Natt</translation>
-        </message>
-        <message>
-            <source>Night:</source>
-            <translation>Natt:</translation>
-        </message>
-        <message>
-            <source>No</source>
-            <translation>Nej</translation>
-        </message>
-        <message>
-            <source>No</source>
-            <translation>Nej</translation>
-        </message>
-        <message>
-            <source>No current weather data.</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>No locations are set up yet.</source>
-            <translation>Inget område är valt</translation>
-        </message>
-        <message>
-            <source>No locations are set up yet.</source>
-            <translation>Inget område är valt</translation>
-        </message>
-        <message>
-            <source>No weather data for this day.</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>No weather data for this station.</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>No weather data for this station.</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Now</source>
-            <translation>Nu</translation>
-        </message>
-        <message>
-            <source>Now</source>
-            <translation>Nu</translation>
-        </message>
-        <message>
-            <source>Now</source>
-            <translation>Nu</translation>
-        </message>
-        <message>
-            <source>Now</source>
-            <translation>Nu</translation>
-        </message>
-        <message>
-            <source>Now</source>
-            <translation>Nu</translation>
-        </message>
-        <message>
-            <source>Now</source>
-            <translation>Nu</translation>
-        </message>
-        <message>
-            <source>Now</source>
-            <translation>Nu</translation>
-        </message>
-        <message>
-            <source>Now</source>
-            <translation>Nu</translation>
-        </message>
-        <message>
-            <source>Now</source>
-            <translation>Nu</translation>
-        </message>
-        <message>
-            <source>Now</source>
-            <translation>Nu</translation>
-        </message>
-        <message>
-            <source>Now</source>
-            <translation>Nu</translation>
-        </message>
-        <message>
-            <source>Now + 2 days vert.</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Now + 3 days hor.</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Now + 3 days vert.</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Now + 7 days vert.</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Now: </source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>OK</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>OK</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>OK</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>OMWeather Forecast</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>OMWeather Settings</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>OMWeather Settings</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>OMWeather settings</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>OMWeather settings</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Other Maemo Weather Info</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Other Maemo Weather Info</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Overcast</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Overcast and light rain</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Overcast and light snow</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Overcast and light wet snow</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Overcast and rain</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Overcast and showers</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Overcast and snow</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Overcast and snow showers</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Overcast and wet snow</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Overcast and wet snow showers</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Overcast, thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>PM Fog</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>PM Light Rain</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>PM Light Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>PM Light Snow</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>PM Light Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>PM Rain</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>PM Rain / Snow</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>PM Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>PM Showers</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>PM Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>PM Snow</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>PM Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>PM Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>PM T-Showers</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>PM T-Storms</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Pa</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Partly Cloudy</source>
-            <translation>Delvis Molnigt</translation>
-        </message>
-        <message>
-            <source>Partly Cloudy / Wind</source>
-            <translation>Delvis Molnigt / Vind</translation>
-        </message>
-        <message>
-            <source>Partly Cloudy Few Snow</source>
-            <translation>Delvis Molnigt Lite Snö</translation>
-        </message>
-        <message>
-            <source>Partly Cloudy Light Rain</source>
-            <translation>Delvis Molnigt Lätt Regn</translation>
-        </message>
-        <message>
-            <source>Partly Cloudy T-Storm</source>
-            <translation>Delvis Molnigt Åskväder</translation>
-        </message>
-        <message>
-            <source>Partly Cloudy and Windly</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Partly Cloudy and Windy</source>
-            <translation>Delvis Molnigt och Blåsigt</translation>
-        </message>
-        <message>
-            <source>Partly Cloudy, Few Snow</source>
-            <translation>Delvis Molnigt, Lite Snö</translation>
-        </message>
-        <message>
-            <source>Partly Cloudy, Haze</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Partly Cloudy, Heavy Rain</source>
-            <translation>Delvis Molnigt, Mycket Regn</translation>
-        </message>
-        <message>
-            <source>Partly Cloudy, Heavy Rain, T-Storm</source>
-            <translation>Delvis Molnigt, Mycket Regn, Åskväder</translation>
-        </message>
-        <message>
-            <source>Partly Cloudy, Heavy Snow</source>
-            <translation>Delvis Molnigt, Mycket Snö</translation>
-        </message>
-        <message>
-            <source>Partly Cloudy, Light Rain</source>
-            <translation>Delvis Molnigt, Lätt Regn</translation>
-        </message>
-        <message>
-            <source>Partly Cloudy, Light Rain, T-Storm</source>
-            <translation>Delvis Molnigt, Lätt Regn, Åskväder</translation>
-        </message>
-        <message>
-            <source>Partly Cloudy, Rain</source>
-            <translation>Delvis Molnigt, Regn</translation>
-        </message>
-        <message>
-            <source>Partly Cloudy, Rain, T-Storm</source>
-            <translation>Delvis Molnigt, Regn, Åskväder</translation>
-        </message>
-        <message>
-            <source>Partly Cloudy, Smoke</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Partly Cloudy, Snow</source>
-            <translation>Delvis Molnigt, Snö</translation>
-        </message>
-        <message>
-            <source>Partly Cloudy, T-Storm</source>
-            <translation>Delvis Molnigt, Åskväder</translation>
-        </message>
-        <message>
-            <source>Partly cloudy</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Partly cloudy and light rain</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Partly cloudy and light snow</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Partly cloudy and light wet snow</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Partly cloudy and showers</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Partly cloudy and snow showers</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Partly cloudy and wet snow showers</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Partly cloudy, possible thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Partly cloudy, possible thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Period</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Position:</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Ppcp:</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Ppcp:</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Ppcp:</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Preference|Update</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Preference|Update</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Pressure</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Pressure units</source>
-            <translation>Tryckenhet</translation>
-        </message>
-        <message>
-            <source>Pressure units</source>
-            <translation>Tryckenhet</translation>
-        </message>
-        <message>
-            <source>Pressure units:</source>
-            <translation>Tryckenhet:</translation>
-        </message>
-        <message>
-            <source>Pressure:</source>
-            <translation>Tryck:</translation>
-        </message>
-        <message>
-            <source>Pressure:</source>
-            <translation>Tryck:</translation>
-        </message>
-        <message>
-            <source>Pressure:</source>
-            <translation>Tryck:</translation>
-        </message>
-        <message>
-            <source>Pressure:</source>
-            <translation>Tryck:</translation>
-        </message>
-        <message>
-            <source>Pressure:</source>
-            <translation>Tryck:</translation>
-        </message>
-        <message>
-            <source>Pressure:</source>
-            <translation>Tryck:</translation>
-        </message>
-        <message>
-            <source>Pressure: </source>
-            <translation>Tryck: </translation>
-        </message>
-        <message>
-            <source>Pressure: </source>
-            <translation>Tryck: </translation>
-        </message>
-        <message>
-            <source>Programmers</source>
-            <translation type="unfinished">Huvudprogrammerare</translation>
-        </message>
-        <message>
-            <source>Project administrator</source>
-            <translation>Projektadministratör</translation>
-        </message>
-        <message>
-            <source>Project manager</source>
-            <translation type="unfinished">Projektadministratör</translation>
-        </message>
-        <message>
-            <source>Project website</source>
-            <translation>Projektets hemsida</translation>
-        </message>
-        <message>
-            <source>Provided by</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Rain</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Rain / Freezing Rain</source>
-            <translation>Regn / Underkyld Regn</translation>
-        </message>
-        <message>
-            <source>Rain / Snow</source>
-            <translation>Regn / Snö</translation>
-        </message>
-        <message>
-            <source>Rain / Snow / Wind</source>
-            <translation>Regn / Snö / Vind</translation>
-        </message>
-        <message>
-            <source>Rain / Snow Early</source>
-            <translation>Regn / Snö Tidigt</translation>
-        </message>
-        <message>
-            <source>Rain / Snow Late</source>
-            <translation>Regn / Snö Sent</translation>
-        </message>
-        <message>
-            <source>Rain / Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Rain / Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Rain / Snow Showers Late</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Rain / Thunder</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Rain / Wind</source>
-            <translation>Regn / Vind</translation>
-        </message>
-        <message>
-            <source>Rain / Wind Early</source>
-            <translation>Regn / Vind Tidigt</translation>
-        </message>
-        <message>
-            <source>Rain Early</source>
-            <translation>Regn Tidigt</translation>
-        </message>
-        <message>
-            <source>Rain Late</source>
-            <translation>Regn Sent</translation>
-        </message>
-        <message>
-            <source>Rain Shower</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Rain Shower and Windy</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Rain Showers</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Rain and Snow</source>
-            <translation>Regn och Snö</translation>
-        </message>
-        <message>
-            <source>Rain to Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Rain to Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Rain to Wintry Mix / Wind</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Read sensor every:</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Region</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Region</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Region</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>Rush Hour Traffic</source>
-            <translation type="unfinished">
-            </translation>
-        </message>
-        <message>
-            <source>S</source>
             <translation>S</translation>
         </message>
         <message>
-            <source>SE</source>
-            <translation>SO</translation>
+            <source>N/A</source>
+            <translation>N/A</translation>
         </message>
         <message>
-            <source>SE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <source>N/A</source>
+            <translation>N/A</translation>
         </message>
         <message>
-            <source>SSE</source>
-            <translation>SSO</translation>
+            <source>N/A</source>
+            <translation>N/A</translation>
         </message>
         <message>
-            <source>SSE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <source>N/A</source>
+            <translation>N/A</translation>
         </message>
         <message>
-            <source>SSW</source>
-            <translation>SSV</translation>
+            <source>N/A</source>
+            <translation>N/A</translation>
         </message>
         <message>
-            <source>SSW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <source>N/A</source>
+            <translation>N/A</translation>
         </message>
         <message>
-            <source>SW</source>
+            <source>N/A</source>
+            <translation>N/A</translation>
+        </message>
+        <message>
+            <source>N/A</source>
+            <translation>N/A</translation>
+        </message>
+        <message>
+            <source>N/A</source>
+            <translation>N/A</translation>
+        </message>
+        <message>
+            <source>N/A</source>
+            <translation>N/A</translation>
+        </message>
+        <message>
+            <source>N/A</source>
+            <translation>N/A</translation>
+        </message>
+        <message>
+            <source>N/A</source>
+            <translation>N/A</translation>
+        </message>
+        <message>
+            <source>N/A</source>
+            <translation>N/A</translation>
+        </message>
+        <message>
+            <source>NE</source>
             <translation>SV</translation>
         </message>
         <message>
+            <source>NE_short</source>
+            <translation>SV</translation>
+        </message>
+        <message>
+            <source>NNE</source>
+            <translation>SSV</translation>
+        </message>
+        <message>
+            <source>NNE_short</source>
+            <translation>SSV</translation>
+        </message>
+        <message>
+            <source>NNW</source>
+            <translation>SSZ</translation>
+        </message>
+        <message>
+            <source>NNW_short</source>
+            <translation>SSZ</translation>
+        </message>
+        <message>
+            <source>NO STATION</source>
+            <translation>ŽIADNA STANICA</translation>
+        </message>
+        <message>
+            <source>NW</source>
+            <translation>SZ</translation>
+        </message>
+        <message>
+            <source>NW_short</source>
+            <translation>SZ</translation>
+        </message>
+        <message>
+            <source>N_short</source>
+            <translation>N</translation>
+        </message>
+        <message>
+            <source>Name:</source>
+            <translation>Názov:</translation>
+        </message>
+        <message>
+            <source>Never</source>
+            <translation>Nikdy</translation>
+        </message>
+        <message>
+            <source>Never</source>
+            <translation>Nikdy</translation>
+        </message>
+        <message>
+            <source>Never</source>
+            <translation>Nikdy</translation>
+        </message>
+        <message>
+            <source>Never</source>
+            <translation>Nikdy</translation>
+        </message>
+        <message>
+            <source>Never</source>
+            <translation>Nikdy</translation>
+        </message>
+        <message>
+            <source>Never</source>
+            <translation>Nikdy</translation>
+        </message>
+        <message>
+            <source>New</source>
+            <translation>Nov</translation>
+        </message>
+        <message>
+            <source>New location</source>
+            <translation>Nové miesto</translation>
+        </message>
+        <message>
+            <source>Next update:</source>
+            <translation>Ďalšia aktualizácia:</translation>
+        </message>
+        <message>
+            <source>Night</source>
+            <translation>Noc</translation>
+        </message>
+        <message>
+            <source>Night</source>
+            <translation>Noc</translation>
+        </message>
+        <message>
+            <source>Night:</source>
+            <translation>Noc:</translation>
+        </message>
+        <message>
+            <source>No</source>
+            <translation>Nie</translation>
+        </message>
+        <message>
+            <source>No</source>
+            <translation>Nie</translation>
+        </message>
+        <message>
+            <source>No current weather data.</source>
+            <translation>Žiadne aktuálne údaje o počasí.</translation>
+        </message>
+        <message>
+            <source>No locations are set up yet.</source>
+            <translation>Žiadne nastavené miesta.</translation>
+        </message>
+        <message>
+            <source>No locations are set up yet.</source>
+            <translation>Žiadne nastavené miesta.</translation>
+        </message>
+        <message>
+            <source>No weather data for this day.</source>
+            <translation>Žiadne údaje o počasí pre tento deň.</translation>
+        </message>
+        <message>
+            <source>No weather data for this station.</source>
+            <translation>Žiadne údaje o počasí pre túto stanicu.</translation>
+        </message>
+        <message>
+            <source>No weather data for this station.</source>
+            <translation>Žiadne údaje o počasí pre túto stanicu.</translation>
+        </message>
+        <message>
+            <source>Now</source>
+            <translation>Teraz</translation>
+        </message>
+        <message>
+            <source>Now</source>
+            <translation>Teraz</translation>
+        </message>
+        <message>
+            <source>Now</source>
+            <translation>Teraz</translation>
+        </message>
+        <message>
+            <source>Now</source>
+            <translation>Teraz</translation>
+        </message>
+        <message>
+            <source>Now</source>
+            <translation>Teraz</translation>
+        </message>
+        <message>
+            <source>Now</source>
+            <translation>Teraz</translation>
+        </message>
+        <message>
+            <source>Now</source>
+            <translation>Teraz</translation>
+        </message>
+        <message>
+            <source>Now</source>
+            <translation>Teraz</translation>
+        </message>
+        <message>
+            <source>Now</source>
+            <translation>Teraz</translation>
+        </message>
+        <message>
+            <source>Now</source>
+            <translation>Teraz</translation>
+        </message>
+        <message>
+            <source>Now</source>
+            <translation>Teraz</translation>
+        </message>
+        <message>
+            <source>Now + 2 days vert.</source>
+            <translation>Teraz + 2 dni vert.</translation>
+        </message>
+        <message>
+            <source>Now + 3 days hor.</source>
+            <translation>Teraz + 3 dni hor.</translation>
+        </message>
+        <message>
+            <source>Now + 3 days vert.</source>
+            <translation>Teraz + 3 dni vert.</translation>
+        </message>
+        <message>
+            <source>Now + 7 days vert.</source>
+            <translation>Teraz + 7 dní vert.</translation>
+        </message>
+        <message>
+            <source>Now: </source>
+            <translation>Teraz: </translation>
+        </message>
+        <message>
+            <source>OK</source>
+            <translation>OK</translation>
+        </message>
+        <message>
+            <source>OK</source>
+            <translation>OK</translation>
+        </message>
+        <message>
+            <source>OK</source>
+            <translation>OK</translation>
+        </message>
+        <message>
+            <source>OMWeather Forecast</source>
+            <translation>Predpoveď OMWeather</translation>
+        </message>
+        <message>
+            <source>OMWeather Settings</source>
+            <translation>Nastavenie OMWeather</translation>
+        </message>
+        <message>
+            <source>OMWeather Settings</source>
+            <translation>Nastavenie OMWeather</translation>
+        </message>
+        <message>
+            <source>OMWeather settings</source>
+            <translation>Nastavenie OMWeather</translation>
+        </message>
+        <message>
+            <source>OMWeather settings</source>
+            <translation>Nastavenie OMWeather</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ok</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ok</translation>
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation>Ok</translation>
+        </message>
+        <message>
+            <source>Other Maemo Weather Info</source>
+            <translation>Informácie o Other Maemo Weather</translation>
+        </message>
+        <message>
+            <source>Other Maemo Weather Info</source>
+            <translation>Informácie o Other Maemo Weather</translation>
+        </message>
+        <message>
+            <source>Overcast</source>
+            <translation>Zamračené</translation>
+        </message>
+        <message>
+            <source>Overcast and light rain</source>
+            <translation>Zamračené a slabý dážď</translation>
+        </message>
+        <message>
+            <source>Overcast and light snow</source>
+            <translation>Zamračené a slabé sneženie</translation>
+        </message>
+        <message>
+            <source>Overcast and light wet snow</source>
+            <translation>Zamračené a slabé mokré sneženie</translation>
+        </message>
+        <message>
+            <source>Overcast and rain</source>
+            <translation>Zamračené a dážď</translation>
+        </message>
+        <message>
+            <source>Overcast and showers</source>
+            <translation>Zamračené a prehánky</translation>
+        </message>
+        <message>
+            <source>Overcast and snow</source>
+            <translation>Zamračené a sneženie</translation>
+        </message>
+        <message>
+            <source>Overcast and snow showers</source>
+            <translation>Zamračené a snehové prehánky</translation>
+        </message>
+        <message>
+            <source>Overcast and wet snow</source>
+            <translation>Zamračené a mokrý sneh</translation>
+        </message>
+        <message>
+            <source>Overcast and wet snow showers</source>
+            <translation>Zamračené a mokré snehové prehánky</translation>
+        </message>
+        <message>
+            <source>Overcast, thunderstorms with rain</source>
+            <translation>Zamračené, hrmenie s dažďom</translation>
+        </message>
+        <message>
+            <source>PM Fog</source>
+            <translation>Popoludní hmla</translation>
+        </message>
+        <message>
+            <source>PM Light Rain</source>
+            <translation>Popoludní slabý dážď</translation>
+        </message>
+        <message>
+            <source>PM Light Rain / Wind</source>
+            <translation>Popoludní slabý dážď / Vietor</translation>
+        </message>
+        <message>
+            <source>PM Light Snow</source>
+            <translation>Popoludní slabé sneženie</translation>
+        </message>
+        <message>
+            <source>PM Light Snow / Wind</source>
+            <translation>Popoludní slabé sneženie / Vietor</translation>
+        </message>
+        <message>
+            <source>PM Rain</source>
+            <translation>Popoludní dážď</translation>
+        </message>
+        <message>
+            <source>PM Rain / Snow</source>
+            <translation>Popoludní dážď / Sneženie</translation>
+        </message>
+        <message>
+            <source>PM Rain / Wind</source>
+            <translation>Popoludní dážď / Vietor</translation>
+        </message>
+        <message>
+            <source>PM Showers</source>
+            <translation>Popoludní prehánky</translation>
+        </message>
+        <message>
+            <source>PM Showers / Wind</source>
+            <translation>Popoludní prehánky / Vietor</translation>
+        </message>
+        <message>
+            <source>PM Snow</source>
+            <translation>Popoludní sneženie</translation>
+        </message>
+        <message>
+            <source>PM Snow Showers</source>
+            <translation>Popoludní snehové prehánky</translation>
+        </message>
+        <message>
+            <source>PM Snow Showers / Wind</source>
+            <translation>Popoludní snehové prehánky / Vietor</translation>
+        </message>
+        <message>
+            <source>PM T-Showers</source>
+            <translation>Popoludní prehánky</translation>
+        </message>
+        <message>
+            <source>PM T-Storms</source>
+            <translation>Popoludní búrky</translation>
+        </message>
+        <message>
+            <source>Pa</source>
+            <translation>Pa</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy</source>
+            <translation>Polooblačno</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy / Wind</source>
+            <translation>Polooblačno / Vietor</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy Few Snow</source>
+            <translation>Polooblačno s ojedinelým snežením</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy Light Rain</source>
+            <translation>Polooblačno so slabým dažďom</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy T-Storm</source>
+            <translation>Polooblačno s búrkou</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy and Windly</source>
+            <translation>Polooblačno a veterno</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy and Windy</source>
+            <translation>Polooblačno a veterno</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy, Few Snow</source>
+            <translation>Polooblačno, ojedinelé sneženie</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy, Haze</source>
+            <translation>Polooblačno, opar</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy, Heavy Rain</source>
+            <translation>Polooblačno, silný dážď</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy, Heavy Rain, T-Storm</source>
+            <translation>Polooblačno, silný dážď, búrka</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy, Heavy Snow</source>
+            <translation>Polooblačno, silné sneženie</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy, Light Rain</source>
+            <translation>Polooblačno, slabý dážď</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy, Light Rain, T-Storm</source>
+            <translation>Polooblačno, slabý dážď, búrka</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy, Rain</source>
+            <translation>Polooblačno, dážď</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy, Rain, T-Storm</source>
+            <translation>Polooblačno, dážď, búrka</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy, Smoke</source>
+            <translation>Polooblačno, dymová clona</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy, Snow</source>
+            <translation>Polooblačno, sneženie</translation>
+        </message>
+        <message>
+            <source>Partly Cloudy, T-Storm</source>
+            <translation>Polooblačno, búrka</translation>
+        </message>
+        <message>
+            <source>Partly cloudy</source>
+            <translation>Polooblačno</translation>
+        </message>
+        <message>
+            <source>Partly cloudy and light rain</source>
+            <translation>Polooblačno a slabý dážď</translation>
+        </message>
+        <message>
+            <source>Partly cloudy and light snow</source>
+            <translation>Polooblačno a slabé sneženie</translation>
+        </message>
+        <message>
+            <source>Partly cloudy and light wet snow</source>
+            <translation>Polooblačno a slabé mokré sneženie</translation>
+        </message>
+        <message>
+            <source>Partly cloudy and showers</source>
+            <translation>Polooblačno a prehánky</translation>
+        </message>
+        <message>
+            <source>Partly cloudy and snow showers</source>
+            <translation>Polooblačno a snehové prehánky</translation>
+        </message>
+        <message>
+            <source>Partly cloudy and wet snow showers</source>
+            <translation>Polooblačno a mokré snehové prehánky</translation>
+        </message>
+        <message>
+            <source>Partly cloudy, possible thunderstorms with rain</source>
+            <translation>Polooblačno, pravdepodobnosť hrmenia s dažďom</translation>
+        </message>
+        <message>
+            <source>Partly cloudy, possible thunderstorms with rain</source>
+            <translation>Polooblačno, pravdepodobnosť hrmenia s dažďom</translation>
+        </message>
+        <message>
+            <source>Period</source>
+            <translation>Perióda</translation>
+        </message>
+        <message>
+            <source>Position:</source>
+            <translation>Poloha:</translation>
+        </message>
+        <message>
+            <source>Ppcp:</source>
+            <translation>Zrážky:</translation>
+        </message>
+        <message>
+            <source>Ppcp:</source>
+            <translation>Zrážky:</translation>
+        </message>
+        <message>
+            <source>Ppcp:</source>
+            <translation>Zrážky:</translation>
+        </message>
+        <message>
+            <source>Preference|Update</source>
+            <translation>Aktualizácia</translation>
+        </message>
+        <message>
+            <source>Preference|Update</source>
+            <translation>Aktualizácia</translation>
+        </message>
+        <message>
+            <source>Pressure</source>
+            <translation>Tlak</translation>
+        </message>
+        <message>
+            <source>Pressure units</source>
+            <translation>Tlak</translation>
+        </message>
+        <message>
+            <source>Pressure units</source>
+            <translation>Tlak</translation>
+        </message>
+        <message>
+            <source>Pressure units:</source>
+            <translation>Jednotky tlaku:</translation>
+        </message>
+        <message>
+            <source>Pressure:</source>
+            <translation>Tlak:</translation>
+        </message>
+        <message>
+            <source>Pressure:</source>
+            <translation>Tlak:</translation>
+        </message>
+        <message>
+            <source>Pressure:</source>
+            <translation>Tlak:</translation>
+        </message>
+        <message>
+            <source>Pressure:</source>
+            <translation>Tlak:</translation>
+        </message>
+        <message>
+            <source>Pressure:</source>
+            <translation>Tlak:</translation>
+        </message>
+        <message>
+            <source>Pressure:</source>
+            <translation>Tlak:</translation>
+        </message>
+        <message>
+            <source>Pressure: </source>
+            <translation>Tlak:</translation>
+        </message>
+        <message>
+            <source>Pressure: </source>
+            <translation>Tlak:</translation>
+        </message>
+        <message>
+            <source>Programmers</source>
+            <translation type="unfinished">Vedúci programátory</translation>
+        </message>
+        <message>
+            <source>Project administrator</source>
+            <translation>Správca projektu</translation>
+        </message>
+        <message>
+            <source>Project manager</source>
+            <translation>Vedúci projektu</translation>
+        </message>
+        <message>
+            <source>Project website</source>
+            <translation>Stránka projektu</translation>
+        </message>
+        <message>
+            <source>Provided by</source>
+            <translation>Poskytuje</translation>
+        </message>
+        <message>
+            <source>Rain</source>
+            <translation>Dážď</translation>
+        </message>
+        <message>
+            <source>Rain / Freezing Rain</source>
+            <translation>Dážď / Mrznúci dážď</translation>
+        </message>
+        <message>
+            <source>Rain / Snow</source>
+            <translation>Dážď / Sneženie</translation>
+        </message>
+        <message>
+            <source>Rain / Snow / Wind</source>
+            <translation>Dážď / Sneženie / Vietor</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Early</source>
+            <translation>Dážď / Spočiatku sneženie</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Late</source>
+            <translation>Dážď / Neskôr sneženie</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers</source>
+            <translation>Dážď / Snehové prehánky</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers / Wind</source>
+            <translation>Dážď / Snehové prehánky / Vietor</translation>
+        </message>
+        <message>
+            <source>Rain / Snow Showers Late</source>
+            <translation>Dážď / Neskôr snehové prehánky</translation>
+        </message>
+        <message>
+            <source>Rain / Thunder</source>
+            <translation>Dážď / Hrmenie</translation>
+        </message>
+        <message>
+            <source>Rain / Wind</source>
+            <translation>Dážď / Vietor</translation>
+        </message>
+        <message>
+            <source>Rain / Wind Early</source>
+            <translation>Dážď / Spočiatku vietor</translation>
+        </message>
+        <message>
+            <source>Rain Early</source>
+            <translation>Spočiatku dážď</translation>
+        </message>
+        <message>
+            <source>Rain Late</source>
+            <translation>Neskôr dážď</translation>
+        </message>
+        <message>
+            <source>Rain Shower</source>
+            <translation>Dažďové prehánky</translation>
+        </message>
+        <message>
+            <source>Rain Shower and Windy</source>
+            <translation>Dažďové prehánky a veterno</translation>
+        </message>
+        <message>
+            <source>Rain Showers</source>
+            <translation>Dažďové prehánky</translation>
+        </message>
+        <message>
+            <source>Rain and Snow</source>
+            <translation>Dážď a sneženie</translation>
+        </message>
+        <message>
+            <source>Rain to Snow / Wind</source>
+            <translation>Dážď a sneženie / Vietor</translation>
+        </message>
+        <message>
+            <source>Rain to Wintry Mix</source>
+            <translation>Chladno a sychravo s dažďom</translation>
+        </message>
+        <message>
+            <source>Rain to Wintry Mix / Wind</source>
+            <translation>Chladno a sychravo s dažďom / Vietor</translation>
+        </message>
+        <message>
+            <source>Read sensor every:</source>
+            <translation>Čítať senzor každých:</translation>
+        </message>
+        <message>
+            <source>Region</source>
+            <translation>Región</translation>
+        </message>
+        <message>
+            <source>Region</source>
+            <translation>Región</translation>
+        </message>
+        <message>
+            <source>Region</source>
+            <translation>Región</translation>
+        </message>
+        <message>
+            <source>Rush Hour Traffic</source>
+            <translation>Dopravná špička</translation>
+        </message>
+        <message>
+            <source>S</source>
+            <translation>J</translation>
+        </message>
+        <message>
+            <source>SE</source>
+            <translation>JV</translation>
+        </message>
+        <message>
+            <source>SE_short</source>
+            <translation>JV</translation>
+        </message>
+        <message>
+            <source>SSE</source>
+            <translation>JJV</translation>
+        </message>
+        <message>
+            <source>SSE_short</source>
+            <translation>JJV</translation>
+        </message>
+        <message>
+            <source>SSW</source>
+            <translation>JJZ</translation>
+        </message>
+        <message>
+            <source>SSW_short</source>
+            <translation>JJZ</translation>
+        </message>
+        <message>
+            <source>SW</source>
+            <translation>JZ</translation>
+        </message>
+        <message>
             <source>SW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>JZ</translation>
         </message>
         <message>
             <source>S_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>J</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Uložiť</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Uložiť</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Uložiť</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Uložiť</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Uložiť</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Uložiť</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Uložiť</translation>
         </message>
         <message>
             <source>Scattered Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ojedinelé prehánky</translation>
         </message>
         <message>
             <source>Scattered Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ojedinelé sneženie</translation>
         </message>
         <message>
             <source>Scattered Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ojedinelé snehové prehánky</translation>
         </message>
         <message>
             <source>Scattered T-Storms</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ojedinelé búrky</translation>
         </message>
         <message>
             <source>Sea miles</source>
-            <translation>Sjömil</translation>
+            <translation>Námorné míle</translation>
         </message>
         <message>
             <source>Search</source>
-            <translation>Sök</translation>
+            <translation>Hľadať</translation>
         </message>
         <message>
             <source>Select city</source>
-            <translation>Välj stad</translation>
+            <translation>Zvoľte mesto</translation>
         </message>
         <message>
             <source>Select city</source>
-            <translation>Välj stad</translation>
+            <translation>Zvoľte mesto</translation>
         </message>
         <message>
             <source>Select country</source>
-            <translation>Välj land</translation>
+            <translation>Zvoľte krajinu</translation>
         </message>
         <message>
             <source>Select country</source>
-            <translation>Välj land</translation>
+            <translation>Zvoľte krajinu</translation>
         </message>
         <message>
             <source>Select country</source>
-            <translation>Välj land</translation>
+            <translation>Zvoľte krajinu</translation>
         </message>
         <message>
             <source>Select location</source>
-            <translation>Välj område</translation>
+            <translation>Zvoľte miesto</translation>
         </message>
         <message>
             <source>Select location</source>
-            <translation>Välj område</translation>
+            <translation>Zvoľte miesto</translation>
         </message>
         <message>
             <source>Select region</source>
-            <translation>Välj län</translation>
+            <translation>Zvoľte región</translation>
         </message>
         <message>
             <source>Select region</source>
-            <translation>Välj län</translation>
+            <translation>Zvoľte región</translation>
         </message>
         <message>
             <source>Select region</source>
-            <translation>Välj län</translation>
+            <translation>Zvoľte región</translation>
         </message>
         <message>
             <source>Select source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zvoľte zdroj</translation>
         </message>
         <message>
             <source>Select source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zvoľte zdroj</translation>
         </message>
         <message>
             <source>Select the X-position for left corner of widget</source>
@@ -2852,78 +2609,71 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Select the iconset</source>
-            <translation>Välj ikonuppsättning</translation>
+            <translation>Zvoľte tému ikon</translation>
         </message>
         <message>
             <source>Select the weather source</source>
-            <translation>Välj väderkälla</translation>
+            <translation>Zvoľte zdroj počasia</translation>
         </message>
         <message>
             <source>Selecting country</source>
-            <translation>Välj land</translation>
+            <translation>Vyberám krajinu</translation>
         </message>
         <message>
             <source>Selecting region</source>
-            <translation>Välj län</translation>
+            <translation>Vyberám región</translation>
         </message>
         <message>
             <source>Selecting source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vyberám zdroj</translation>
         </message>
         <message>
             <source>Selecting station</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vyberám stanicu</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Senzor</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Senzor</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Senzor</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Senzor</translation>
         </message>
         <message>
             <source>Set</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nast.</translation>
         </message>
         <message>
             <source>Set locations</source>
-            <translation>Inget område är valt</translation>
+            <translation>Nastaviť miesta</translation>
         </message>
         <message>
             <source>Set locations</source>
-            <translation>Inget område är valt</translation>
+            <translation>Nastaviť miesta</translation>
         </message>
         <message>
             <source>Settings</source>
-            <translation>Inställningar</translation>
+            <translation>Nastavenie</translation>
         </message>
         <message>
             <source>Settings</source>
-            <translation>Inställningar</translation>
+            <translation>Nastavenie</translation>
         </message>
         <message>
             <source>Settings</source>
-            <translation>Inställningar</translation>
+            <translation>Nastavenie</translation>
         </message>
         <message>
             <source>Settings</source>
-            <translation>Inställningar</translation>
+            <translation>Nastavenie</translation>
         </message>
         <message>
             <source>Settings for Lockscreen widget</source>
@@ -2932,389 +2682,343 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Settings for standby widget</source>
-            <translation type="unfinished">Widget på väntelägeskärm</translation>
+            <translation type="unfinished">Nastavenie pohotovostnej obazovky</translation>
         </message>
         <message>
             <source>Settings of LockScreen</source>
-            <translation type="unfinished">Widget på väntelägeskärm</translation>
+            <translation type="unfinished">Nastavenie pohotovostnej obazovky</translation>
         </message>
         <message>
             <source>Settings of StandbyScreen</source>
-            <translation type="unfinished">Widget på väntelägeskärm</translation>
+            <translation>Nastavenie pohotovostnej obazovky</translation>
         </message>
         <message>
             <source>Shallow Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Riedka hmla</translation>
         </message>
         <message>
             <source>Short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Krátky</translation>
         </message>
         <message>
             <source>Show arrows</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zobraziť šípky</translation>
         </message>
         <message>
             <source>Show on Map</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zobraziť na mape</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zobraziť aktuálne počasie iba na prvej ikone</translation>
         </message>
         <message>
             <source>Show station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zobraziť názov stanice</translation>
         </message>
         <message>
             <source>Show temperature at:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zobraziť teplotu v:</translation>
         </message>
         <message>
             <source>Show wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zobraziť vietor</translation>
         </message>
         <message>
             <source>Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Prehánky</translation>
         </message>
         <message>
             <source>Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Prehánky / Vietor</translation>
         </message>
         <message>
             <source>Showers / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Prehánky / Spočiatku vietor</translation>
         </message>
         <message>
             <source>Showers Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spočiatku prehánky</translation>
         </message>
         <message>
             <source>Showers Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neskôr prehánky</translation>
         </message>
         <message>
             <source>Showers in the Vicinity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Prehánky v okolí</translation>
         </message>
         <message>
             <source>Sleet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dážď so snehom</translation>
         </message>
         <message>
             <source>Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dymová clona</translation>
         </message>
         <message>
             <source>Snow</source>
-            <translation>Snö</translation>
+            <translation>Sneženie</translation>
         </message>
         <message>
             <source>Snow / Wind</source>
-            <translation>Snö / Vind</translation>
+            <translation>Sneženie / Vietor</translation>
         </message>
         <message>
             <source>Snow Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Snehové prehánky</translation>
         </message>
         <message>
             <source>Snow Shower / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Snehové prehánky / Vietor</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Snehové prehánky / Spočiatku vietor</translation>
         </message>
         <message>
             <source>Snow Showers Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spočiatku snehové prehánky</translation>
         </message>
         <message>
             <source>Snow Showers Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neskôr snehové prehánky</translation>
         </message>
         <message>
             <source>Snow and Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sneženie a mrznúci dážď</translation>
         </message>
         <message>
             <source>Snow to Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sneženie meniace sa na dážď</translation>
         </message>
         <message>
             <source>Snow to Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chladno a sychravo so snežením</translation>
         </message>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chladno a sychravo so snežením / Vietor</translation>
         </message>
         <message>
             <source>Source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zdroj</translation>
         </message>
         <message>
             <source>Source:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zdroj:</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation>Hastighet</translation>
+            <translation>Rychlosť</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation>Hastighet</translation>
+            <translation>Rychlosť</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation>Hastighet</translation>
+            <translation>Rychlosť</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation>Hastighet</translation>
+            <translation>Rychlosť</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation>Hastighet</translation>
+            <translation>Rychlosť</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation>Hastighet</translation>
+            <translation>Rychlosť</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation>Hastighet</translation>
+            <translation>Rychlosť</translation>
         </message>
         <message>
             <source>Speed:</source>
-            <translation>Hastighet:</translation>
+            <translation>Rýchlosť:</translation>
         </message>
         <message>
             <source>Speed:</source>
-            <translation>Hastighet:</translation>
+            <translation>Rýchlosť:</translation>
         </message>
         <message>
             <source>Speed:</source>
-            <translation>Hastighet:</translation>
+            <translation>Rýchlosť:</translation>
         </message>
         <message>
             <source>Speed:</source>
-            <translation>Hastighet:</translation>
+            <translation>Rýchlosť:</translation>
         </message>
         <message>
             <source>Splash screen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Úvodná obrazovka</translation>
         </message>
         <message>
             <source>State:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Štát:</translation>
         </message>
         <message>
             <source>Station %i</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Stanica %i</translation>
         </message>
         <message>
             <source>Stations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Stanice</translation>
         </message>
         <message>
             <source>Stations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Stanice</translation>
         </message>
         <message>
             <source>Stations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Stanice</translation>
         </message>
         <message>
             <source>Storm</source>
-            <translation>Storm</translation>
+            <translation>Búrka</translation>
         </message>
         <message>
             <source>Storm</source>
-            <translation>Storm</translation>
+            <translation>Búrka</translation>
         </message>
         <message>
             <source>Successfully loaded</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Úspešne načítané</translation>
         </message>
         <message>
             <source>Sunny</source>
-            <translation>Soligt</translation>
+            <translation>Slnečno</translation>
         </message>
         <message>
             <source>Sunny / Wind</source>
-            <translation>Soligt / Vind</translation>
+            <translation>Slnečno / Vietor</translation>
         </message>
         <message>
             <source>Sunrise:</source>
-            <translation>Soluppgång:</translation>
+            <translation>Východ:</translation>
         </message>
         <message>
             <source>Sunrise:</source>
-            <translation>Soluppgång:</translation>
+            <translation>Východ:</translation>
         </message>
         <message>
             <source>Sunrise: </source>
-            <translation>Soluppgång: </translation>
+            <translation>Východ: </translation>
         </message>
         <message>
             <source>Sunrise: </source>
-            <translation>Soluppgång: </translation>
+            <translation>Východ: </translation>
         </message>
         <message>
             <source>Sunset:</source>
-            <translation>Solnedgång:</translation>
+            <translation>Západ:</translation>
         </message>
         <message>
             <source>Sunset:</source>
-            <translation>Solnedgång:</translation>
+            <translation>Západ:</translation>
         </message>
         <message>
             <source>Sunset: </source>
-            <translation>Solnedgång: </translation>
+            <translation>Západ: </translation>
         </message>
         <message>
             <source>Sunset: </source>
-            <translation>Solnedgång: </translation>
+            <translation>Západ: </translation>
         </message>
         <message>
             <source>Swap hi/low temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zameniť vysokú/nízku teplotu</translation>
         </message>
         <message>
             <source>Switch to the next station after:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Prepnúť na ďalšiu stanicu po:</translation>
         </message>
         <message>
             <source>T-Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Prehánky</translation>
         </message>
         <message>
             <source>T-Showers Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Spočiatku prehánky</translation>
         </message>
         <message>
             <source>T-Storm</source>
-            <translation>Åskväder</translation>
+            <translation>Búrka</translation>
         </message>
         <message>
             <source>T-Storms</source>
-            <translation>Åskväder</translation>
+            <translation>Búrky</translation>
         </message>
         <message>
             <source>T-Storms Early</source>
-            <translation>Åskväder Tidigt</translation>
+            <translation>Spočiatku búrky</translation>
         </message>
         <message>
             <source>T-Storms Late</source>
-            <translation>Åskväder Sent</translation>
+            <translation>Neskôr búrky</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Teplota</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Teplota</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Teplota</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Teplota</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Teplota</translation>
         </message>
         <message>
             <source>Temperature units</source>
-            <translation>Temperaturskala</translation>
+            <translation>Teplota</translation>
         </message>
         <message>
             <source>Temperature units</source>
-            <translation>Temperaturskala</translation>
+            <translation>Teplota</translation>
         </message>
         <message>
             <source>Temperature units</source>
-            <translation>Temperaturskala</translation>
+            <translation>Teplota</translation>
         </message>
         <message>
             <source>Temperature units:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Jednotky teploty:</translation>
         </message>
         <message>
             <source>Temperature:</source>
-            <translation>Temperatur:</translation>
+            <translation>Teplota:</translation>
         </message>
         <message>
             <source>Temperature:</source>
-            <translation>Temperatur:</translation>
+            <translation>Teplota:</translation>
         </message>
         <message>
             <source>Temperature: </source>
-            <translation>Temperatur: </translation>
+            <translation>Teplota: </translation>
         </message>
         <message>
             <source>Temperature: </source>
-            <translation>Temperatur: </translation>
+            <translation>Teplota: </translation>
         </message>
         <message>
             <source>Thanks</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Poďakovanie</translation>
         </message>
         <message>
             <source>The weather has been updated.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Údaje o počasí boli aktualizované.</translation>
         </message>
         <message>
             <source>This software is free software; you can
@@ -3324,1100 +3028,938 @@ Slovak - Roman Moravčík</source>
  Foundation; either version 2.1 of the 
  License, or (at your option) any 
  later version.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tento softvér je slobodný softvér; môžete
+ ho ďalej šíriť a/alebo upravovať podľa
+ ustanovení Všeobecnej verejnej licencie
+ GNU tak, ako bola vydaná organizáciou
+ Free Software Foundation, a to buď verzie 2
+ tejto licencie, alebo (podľa vášho uváženia)
+ ktorejkoľvek neskoršej verzie.</translation>
         </message>
         <message>
             <source>This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tento softvér je slobodný softvér; môžete ho ďalej šíriť a/alebo upravovať podľa ustanovení Všeobecnej verejnej licencie GNU
+</translation>
         </message>
         <message>
             <source>Thunder</source>
-            <translation>Åska</translation>
+            <translation>Hrmenie</translation>
         </message>
         <message>
             <source>Thunder in the Vicinity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hrmenie v okolí</translation>
         </message>
         <message>
             <source>Today</source>
-            <translation>Idag</translation>
+            <translation>Dnes</translation>
         </message>
         <message>
             <source>Today</source>
-            <translation>Idag</translation>
+            <translation>Dnes</translation>
         </message>
         <message>
             <source>Today</source>
-            <translation>Idag</translation>
+            <translation>Dnes</translation>
         </message>
         <message>
             <source>Today</source>
-            <translation>Idag</translation>
+            <translation>Dnes</translation>
         </message>
         <message>
             <source>Translators</source>
-            <translation>Översättare</translation>
+            <translation>Predkladatelia</translation>
         </message>
         <message>
             <source>Translators</source>
-            <translation>Översättare</translation>
+            <translation>Predkladatelia</translation>
         </message>
         <message>
             <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Prekladatelia: Francúzština - Nicolas Granziano, Philippe, Benot Knecht; Ruština - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
+</translation>
         </message>
         <message>
             <source>Transparency:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Priehľadnosť:</translation>
         </message>
         <message>
             <source>Transparency:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Priehľadnosť:</translation>
         </message>
         <message>
             <source>Transparency:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Priehľadnosť:</translation>
         </message>
         <message>
             <source>Try to update</source>
-            <translation>Försök uppdatera</translation>
+            <translation>Skúste aktualizovať</translation>
         </message>
         <message>
             <source>Try to update</source>
-            <translation>Försök uppdatera</translation>
+            <translation>Skúste aktualizovať</translation>
         </message>
         <message>
             <source>Type of click:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Druh kliknutia:</translation>
         </message>
         <message>
             <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>UV index:</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Jednotky</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Jednotky</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Jednotky</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Jednotky</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Jednotky</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neznáma</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neznáma</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neznáma</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neznáma</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neznáma</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neznáma</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neznáma</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neznáma</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neznáma</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neznáma</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neznáma</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neznáma</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neznáma</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neznáma</translation>
         </message>
         <message>
             <source>Unlimited</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neobmedzené</translation>
         </message>
         <message>
             <source>Update</source>
-            <translation>Uppdatering</translation>
+            <translation>Aktualizácia</translation>
         </message>
         <message>
             <source>Update</source>
-            <translation>Uppdatering</translation>
+            <translation>Aktualizácia</translation>
         </message>
         <message>
             <source>Update</source>
-            <translation>Uppdatering</translation>
+            <translation>Aktualizácia</translation>
         </message>
         <message>
             <source>Update already running.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Aktualizácia práve prebieha.</translation>
         </message>
         <message>
             <source>Update interval</source>
-            <translation>Uppdateringsintervall</translation>
+            <translation>Interval aktualizácie</translation>
         </message>
         <message>
             <source>Updating forecast</source>
-            <translation>Uppdaterar prognos</translation>
+            <translation>Aktualizujem údaje o počasí</translation>
         </message>
         <message>
             <source>Updating forecast</source>
-            <translation>Uppdaterar prognos</translation>
+            <translation>Aktualizujem údaje o počasí</translation>
         </message>
         <message>
             <source>Updating of weather data:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Aktualizujem údaje o počasí:</translation>
         </message>
         <message>
             <source>Updating weather</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Aktualizujem údaje o počasí</translation>
         </message>
         <message>
             <source>Use Edit layout 
 for tuning images of applet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Použite Upraviť rozloženie
+pre úpravu obrázkov apletu</translation>
         </message>
         <message>
             <source>Use GSM and/or WLAN for periodic updating
  the weather information.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Použite GSM a/alebo WLAN pre periodické aktuali-
+zovanie informácií o počasí.
+</translation>
         </message>
         <message>
             <source>Use device temperature sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Použiť teplotný senzor zariadenia</translation>
         </message>
         <message>
             <source>VAR</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Premenlivo</translation>
         </message>
         <message>
             <source>Valid time for current weather:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Platný čas pre aktuálne počasie:</translation>
         </message>
         <message>
             <source>Very High</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Veľmi vysoké</translation>
         </message>
         <message>
             <source>Visible items:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Viditeľné položky:</translation>
         </message>
         <message>
             <source>Visible items:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Viditeľné položky:</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">Vindhastighetsenhet</translation>
+            <translation>Viditeľné jednotky</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">Vindhastighetsenhet</translation>
+            <translation>Viditeľné jednotky</translation>
         </message>
         <message>
             <source>Visible:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Viditeľnosť:</translation>
         </message>
         <message>
             <source>Visible:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Viditeľnosť:</translation>
         </message>
         <message>
             <source>Visuals</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vzhľad</translation>
         </message>
         <message>
             <source>Visuals</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vzhľad</translation>
         </message>
         <message>
             <source>Visuals</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vzhľad</translation>
         </message>
         <message>
             <source>W</source>
-            <translation>V</translation>
+            <translation>Z</translation>
         </message>
         <message>
             <source>WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WLAN</translation>
         </message>
         <message>
             <source>WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WLAN</translation>
         </message>
         <message>
             <source>WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WLAN</translation>
         </message>
         <message>
             <source>WNW</source>
-            <translation>VNV</translation>
+            <translation>ZSZ</translation>
         </message>
         <message>
             <source>WNW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ZSZ</translation>
         </message>
         <message>
             <source>WSW</source>
-            <translation>VSV</translation>
+            <translation>ZJZ</translation>
         </message>
         <message>
             <source>WSW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ZJZ</translation>
         </message>
         <message>
             <source>W_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Z</translation>
         </message>
         <message>
             <source>Waning Crescent</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ubúdajúci kosák</translation>
         </message>
         <message>
             <source>Waning Gibbous</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cúvajúci Mesiac</translation>
         </message>
         <message>
             <source>Warning</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Upozornienie</translation>
         </message>
         <message>
             <source>Waxing Crescent</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dorastajúci kosák</translation>
         </message>
         <message>
             <source>Waxing Gibbous</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dorastajúci Mesiac</translation>
         </message>
         <message>
             <source>Weather data provided by: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Údaje o počasí poskytol: </translation>
         </message>
         <message>
             <source>Weather forecast for the Meego. Version </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Predpoveď počasia pre Meego. Verzia </translation>
         </message>
         <message>
             <source>Widget OMWeather is reloading</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Widget OMWeather sa znovu načítava</translation>
         </message>
         <message>
             <source>Widget in LockScreen</source>
-            <translation>Widget på låsskärm</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Widget in StandbyScreen</source>
-            <translation>Widget på väntelägeskärm</translation>
+            <translation>Widget na pohotovostnom displeji</translation>
         </message>
         <message>
             <source>Widget in events view</source>
-            <translation>Widget i vyn händelser</translation>
+            <translation>Widget na úvodnom displeji</translation>
         </message>
         <message>
             <source>Widget style</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Štýl widgetu</translation>
         </message>
         <message>
             <source>Widget style</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Štýl widgetu</translation>
         </message>
         <message>
             <source>Widget style and Iconset</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Štýl widgetu a téma ikon</translation>
         </message>
         <message>
             <source>Wind</source>
-            <translation>Vind</translation>
+            <translation>Vietor</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Vindriktning:</translation>
+            <translation type="unfinished">Smer vetra:</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Vindriktning:</translation>
+            <translation type="unfinished">Smer vetra:</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Vindriktning:</translation>
+            <translation type="unfinished">Smer vetra:</translation>
         </message>
         <message>
             <source>Wind direction:</source>
-            <translation>Vindriktning:</translation>
+            <translation>Smer vetra:</translation>
         </message>
         <message>
             <source>Wind gust:</source>
-            <translation>Vindstöt:</translation>
+            <translation>Náraz vetra:</translation>
         </message>
         <message>
             <source>Wind gust:</source>
-            <translation>Vindstöt:</translation>
+            <translation>Náraz vetra:</translation>
         </message>
         <message>
             <source>Wind gust:</source>
-            <translation>Vindstöt:</translation>
+            <translation>Náraz vetra:</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation>Vindhastighet</translation>
+            <translation>Rýchlosť vetra</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation>Vindhastighet</translation>
+            <translation>Rýchlosť vetra</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation>Vindhastighet</translation>
+            <translation>Rýchlosť vetra</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation>Vindhastighet</translation>
+            <translation>Rýchlosť vetra</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation>Vindhastighetsenhet</translation>
+            <translation>Rýchlosti vetra</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation>Vindhastighetsenhet</translation>
+            <translation>Rýchlosti vetra</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation>Vindhastighetsenhet</translation>
+            <translation>Rýchlosti vetra</translation>
         </message>
         <message>
             <source>Wind speed units:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Jednotky rýchlosti vetra:</translation>
         </message>
         <message>
             <source>Wind:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vietor:</translation>
         </message>
         <message>
             <source>Wind:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vietor:</translation>
         </message>
         <message>
             <source>Wind:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vietor:</translation>
         </message>
         <message>
             <source>Wind:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vietor:</translation>
         </message>
         <message>
             <source>Wind: </source>
-            <translation>Vind</translation>
+            <translation>Vietor: </translation>
         </message>
         <message>
             <source>Wind: </source>
-            <translation>Vind</translation>
+            <translation>Vietor: </translation>
         </message>
         <message>
             <source>Wind: </source>
-            <translation>Vind</translation>
+            <translation>Vietor: </translation>
         </message>
         <message>
             <source>Wind: </source>
-            <translation>Vind</translation>
+            <translation>Vietor: </translation>
         </message>
         <message>
             <source>Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chladno a sychravo</translation>
         </message>
         <message>
             <source>Wintry Mix / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chladno a sychravo / Vietor</translation>
         </message>
         <message>
             <source>Wintry Mix / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chladno a sychravo / Spočiatku vietor</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chladno a sychravo so snežením</translation>
         </message>
         <message>
             <source>Wrong station code 
 or ZIP code!!!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nesprávny kód stanice
+ale ZIP kód!!!</translation>
         </message>
         <message>
             <source>Yes</source>
-            <translation>Ja</translation>
+            <translation>Áno</translation>
         </message>
         <message>
             <source>Yes</source>
-            <translation>Ja</translation>
+            <translation>Áno</translation>
         </message>
         <message>
             <source>You can make donation here: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Darovanie môžete uskutočniť tu:</translation>
         </message>
         <message>
             <source>You should activate 
 'Widget in events view'
  for using LockScreen widget</source>
-            <translation>Du måste först aktivera
-'Widget i vyn Händelser'
-för att kunna aktivera widget på
-låsskärm.</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>You should activate 
 'Widget in events view'
  for using StandbyScreen widget</source>
-            <translation>Du måste först aktivera
-'Widget i vyn Händelser'
-för att kunna aktivera widget på
-väntelägeskärm.</translation>
+            <translation>Mali by ste povoliť 
+'Widget na úvodnom displeji'
+ pre použitie widgetu 
+na pohotovostnom displeji</translation>
         </message>
         <message>
             <source>You should activate 'Widget in the events view' option in MeeCast appearance settings for auto update.</source>
-            <translation>Du måste aktivera 'Widget i vyn Händelser' under 'Utseende' för automatisk väderuppdatering.</translation>
+            <translation>Mali by ste povoliť voľbu 'Widget na úvodnom displeji' v nastavení vzhľadu pre automatické aktualizovanie.</translation>
         </message>
         <message>
             <source>Zoom in popup window </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Priblíženie v pop-ovom okne</translation>
         </message>
         <message>
             <source>Zooming in popup window</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Približovanie v pop-ovom okne</translation>
         </message>
         <message>
             <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>tak, ako bola vydaná organizáciou Free Software Foundation, a to buď verzie 2 tejto licencie, alebo (podľa vášho uváženia) ktorejkoľvek neskoršej verzie.</translation>
         </message>
         <message>
             <source>current location local time</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>miestneho času aktuálnej polohy</translation>
         </message>
         <message>
             <source>d:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>d:</translation>
         </message>
         <message>
             <source>day ago</source>
-            <translation>dag sedan</translation>
+            <translation>deň dozadu</translation>
         </message>
         <message>
             <source>days ago</source>
-            <translation>dagar sedan</translation>
+            <translation>dní dozadu</translation>
         </message>
         <message>
             <source>every 2 hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>každé 2 hodiny</translation>
         </message>
         <message>
             <source>every 24 hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>každých 24 hodín</translation>
         </message>
         <message>
             <source>every 30 minutes</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>každých 30 minút</translation>
         </message>
         <message>
             <source>every 4 hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>každé 4 hodiny</translation>
         </message>
         <message>
             <source>every 5 minutes</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>každých 5 minút</translation>
         </message>
         <message>
             <source>every 8 hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>každých 8 hodín</translation>
         </message>
         <message>
             <source>every hour</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>každú hodinu</translation>
         </message>
         <message>
             <source>every minute (Debug)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>každú minútu (Ladenie)</translation>
         </message>
         <message>
             <source>falling</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>klesá</translation>
         </message>
         <message>
             <source>feels like</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>na pocit</translation>
         </message>
         <message>
             <source>hour ago</source>
-            <translation>timme sedan</translation>
+            <translation>hodinu dozadu</translation>
         </message>
         <message>
             <source>hours ago</source>
-            <translation>timmar sedan</translation>
+            <translation>hodín dozadu</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>inHg</translation>
         </message>
         <message>
             <source>inch</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>palec</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km/h</translation>
         </message>
         <message>
             <source>km/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km/h</translation>
         </message>
         <message>
             <source>km/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km/h</translation>
         </message>
         <message>
             <source>km/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km/h</translation>
         </message>
         <message>
             <source>km/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km/h</translation>
         </message>
         <message>
             <source>km/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km/s</translation>
         </message>
         <message>
             <source>m</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m</translation>
         </message>
         <message>
             <source>m</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m</translation>
         </message>
         <message>
             <source>m</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m</translation>
         </message>
         <message>
             <source>m</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m</translation>
         </message>
         <message>
             <source>m</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m</translation>
         </message>
         <message>
             <source>m/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m/h</translation>
         </message>
         <message>
             <source>m/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m/s</translation>
         </message>
         <message>
             <source>m/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m/s</translation>
         </message>
         <message>
             <source>m/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m/s</translation>
         </message>
         <message>
             <source>m/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m/s</translation>
         </message>
         <message>
             <source>m/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m/s</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mb</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mb</translation>
         </message>
         <message>
             <source>mbar</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mbar</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi</translation>
         </message>
         <message>
             <source>mi/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi/h</translation>
         </message>
         <message>
             <source>mi/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi/h</translation>
         </message>
         <message>
             <source>mi/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi/h</translation>
         </message>
         <message>
             <source>mi/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi/h</translation>
         </message>
         <message>
             <source>mi/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi/h</translation>
         </message>
         <message>
             <source>mi/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mi/s</translation>
         </message>
         <message>
             <source>minute ago</source>
-            <translation>minut sedan</translation>
+            <translation>minutu dozadu</translation>
         </message>
         <message>
             <source>minutes ago</source>
-            <translation>minuter sedan</translation>
+            <translation>minút dozadu</translation>
         </message>
         <message>
             <source>mm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mmHg</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mmHg</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mmHg</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mmHg</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mmHg</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mmHg</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mmHg</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mmHg</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mmHg</translation>
         </message>
         <message>
             <source>n:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>n:</translation>
         </message>
         <message>
             <source>never</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nikdy</translation>
         </message>
         <message>
             <source>new icon</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>nová ikona</translation>
         </message>
         <message>
             <source>next</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ďalšia</translation>
         </message>
         <message>
             <source>next</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ďalšia</translation>
         </message>
         <message>
             <source>nmi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>nmi</translation>
         </message>
         <message>
             <source>nmi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>nmi</translation>
         </message>
         <message>
             <source>rising</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>rastie</translation>
         </message>
         <message>
             <source>seconds ago</source>
-            <translation>sekunder sedan</translation>
+            <translation>sekúnd dozadu</translation>
         </message>
         <message>
             <source>station local time</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>miestneho času stanice</translation>
         </message>
         <message>
             <source>station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>názov stanice</translation>
         </message>
         <message>
             <source>steady</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ustálený</translation>
         </message>
         <message>
             <source>В</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>В</translation>
         </message>
         <message>
             <source>З</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>З</translation>
         </message>
         <message>
             <source>С</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>С</translation>
         </message>
         <message>
             <source>С-В</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>С-В</translation>
         </message>
         <message>
             <source>С-З</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>С-З</translation>
         </message>
         <message>
             <source>Ю</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ю</translation>
         </message>
         <message>
             <source>Ю-В</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ю-В</translation>
         </message>
         <message>
             <source>Ю-З</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ю-З</translation>
         </message>
     </context>
 </TS>

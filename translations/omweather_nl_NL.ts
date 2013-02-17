@@ -123,23 +123,19 @@ W:</translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Laag)</translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Laag)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Gemiddeld)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Gemiddeld)</translation>
         </message>
         <message>
             <source>1 day</source>
@@ -557,8 +553,7 @@ Ontwerp UI voor Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Celsius</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Celsius</translation>
         </message>
         <message>
             <source>City</source>
@@ -710,7 +705,7 @@ Ontwerp UI voor Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
-            <translation type="unfinished">Bewolking, onweer met regen</translation>
+            <translation>Bewolkt, onweer met regen</translation>
         </message>
         <message>
             <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
@@ -1042,7 +1037,7 @@ Brad Jones aka kazrak - voor het testen
         </message>
         <message>
             <source>Feels like</source>
-            <translation type="unfinished">Voelt als:</translation>
+            <translation>Voelt als</translation>
         </message>
         <message>
             <source>Feels like:</source>
@@ -1088,15 +1083,15 @@ Brad Jones aka kazrak - voor het testen
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Gevoel:</translation>
+            <translation>Flike</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Gevoel:</translation>
+            <translation>Flike</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">Gevoel:</translation>
+            <translation>Flike</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1189,7 +1184,7 @@ worden.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Frans - Nicolas Granziano, ⏎ »Philippe, Benot Knecht ⏎ Russisch - Pavel Fialko, Vlad Vasiliev, ⏎ »Ed Bartosh⏎ Fins - Marko Vertainen⏎ Duits - Claudius Henrichs⏎ Italiaans - Pavel Fialko, Alessandro Pasotti,⏎ »Salvatore Fiorenzo, Ilir Gjika,⏎ »Luca Onnis⏎ Spaans - Alejandro Lopez⏎ Polish - Tomasz Dominikowski⏎ Slowaaks - Roman Moravčík⏎ Nederlands - Tom Leenders, Michiel Pater⏎ Bulgaars - Zlatko Enikov⏎ Albanees - Ilir Gjika⏎ Chinees - Wong Man Kong, Michael⏎ Portugees - Jose Narciso,⏎ Turks - Burak Kaan Kose,⏎ Vietnamees - Hieu Nguyen, Anh Dương and truongnx, ⏎ Zweeds - Angela Nennebrandt,⏎ »Niklas Åkerström, ⏎ »Tomislav Veleckovik</translation>
+            <translation>Frans - Nicolas Granziano, ⏎ »Philippe, Benot Knecht ⏎ Russisch - Pavel Fialko, Vlad Vasiliev, ⏎ »Ed Bartosh⏎ Fins - Marko Vertainen⏎ Duits - Claudius Henrichs⏎ Italiaans - Pavel Fialko, Alessandro Pasotti,⏎ »Salvatore Fiorenzo, Ilir Gjika,⏎ »Luca Onnis⏎ Spaans - Alejandro Lopez⏎ Pools - Tomasz Dominikowski⏎ Slowaaks - Roman Moravčík⏎ Nederlands - Tom Leenders, Michiel Pater⏎ Bulgaars - Zlatko Enikov⏎ Albanian - Ilir Gjika⏎ Chinees - Wong Man Kong, Michael⏎ Portugees - Jose Narciso,⏎ Turks - Burak Kaan Kose,⏎ Catalaans - Agustí Clara,⏎ Arabisch - Tarad Alfandi,⏎ Noors - Peer-Atle Motland,⏎ Vietnamees - Hieu Nguyen⏎ »Anh Dương and truongnx, ⏎ Zweeds - Angela Nennebrandt,⏎ »Niklas Åkerström, ⏎ »Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1297,15 +1292,15 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Luchtvochtigheid:</translation>
+            <translation>Luchtvochtigheid</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Luchtvochtigheid:</translation>
+            <translation>Luchtvochtigheid</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">Luchtvochtigheid:</translation>
+            <translation>Luchtvochtigheid</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1575,7 +1570,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2012</source>
-            <translation type="unfinished">MeeCast - Een zeer aanpasbare open source multiplatform weerbericht client op basis van OMWeather code. Copyright (C) 2006-2011</translation>
+            <translation>MeeCast - multiplatform, zeer aanpasbare open source weerbericht client op basis van OMWeather code. Copyright (C) 2006-2012</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2303,7 +2298,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Programmers</source>
-            <translation type="unfinished">Hoofdprogrammeurs</translation>
+            <translation>Programmeurs</translation>
         </message>
         <message>
             <source>Project administrator</source>
@@ -2567,28 +2562,23 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Select the X-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Selecteer de X-positie van de linkerhoek van de widget</translation>
         </message>
         <message>
             <source>Select the Y-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Selecteer de Y-positie van de linkerhoek van de widget</translation>
         </message>
         <message>
             <source>Select the color of font for current temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Selecteer lettertype kleur voor huidige temperatuur</translation>
         </message>
         <message>
             <source>Select the color of font for station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Selecteer lettertype kleur voor station naam</translation>
         </message>
         <message>
             <source>Select the color of font for temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Selecteer lettertype kleur voor temperatuur</translation>
         </message>
         <message>
             <source>Select the iconset</source>
@@ -2660,16 +2650,15 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Settings for Lockscreen widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lockscreen widget instellingen</translation>
         </message>
         <message>
             <source>Settings for standby widget</source>
-            <translation type="unfinished">StandbyScreen Instellingen</translation>
+            <translation>Standby widget instellingen</translation>
         </message>
         <message>
             <source>Settings of LockScreen</source>
-            <translation type="unfinished">StandbyScreen Instellingen</translation>
+            <translation>LockScreen instellingen</translation>
         </message>
         <message>
             <source>Settings of StandbyScreen</source>
@@ -2689,7 +2678,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Show on Map</source>
-            <translation type="unfinished">Toon stationsnaam</translation>
+            <translation>Weergeef op kaart</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
@@ -3088,8 +3077,7 @@ Foundation; versie 2.1 of latere versies.</translation>
         </message>
         <message>
             <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>UV index:</translation>
         </message>
         <message>
             <source>Units</source>
@@ -3247,11 +3235,11 @@ van weerinformatie.
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">Zichtbare items:</translation>
+            <translation>Zichtbare eenheden</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">Zichtbare items:</translation>
+            <translation>Zichtbare eenheden</translation>
         </message>
         <message>
             <source>Visible:</source>
@@ -3371,15 +3359,15 @@ van weerinformatie.
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Windrichting:</translation>
+            <translation>Windrichting</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Windrichting:</translation>
+            <translation>Windrichting</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">Windrichting:</translation>
+            <translation>Windrichting</translation>
         </message>
         <message>
             <source>Wind direction:</source>

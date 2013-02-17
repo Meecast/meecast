@@ -967,50 +967,46 @@ NavigationPane {
                     layout: AbsoluteLayout {}
                     verticalAlignment: VerticalAlignment.Center     
                     horizontalAlignment: HorizontalAlignment.Right
-                    leftMargin: 30.0
-                    rightMargin: 30.0
- 
-                    ActivityIndicator {
-                        id: refresh_showing
+                    leftMargin: 10.0
+                    rightMargin: 10.0
+                    Container{
                         layoutProperties: AbsoluteLayoutProperties {
                             positionX: 0 
                             positionY: 0
                         }
-                        preferredWidth:  81
-                        maxWidth:        81
-                        minWidth:        81
-                        preferredHeight: 81 
-                        maxHeight:       81 
-                        minHeight:       81 
-                        leftMargin: 25.0
-                        rightMargin: 25.0
-                        verticalAlignment: VerticalAlignment.Center
-                        visible: main.isUpdate ? true : false
-                        running: main.isUpdate ? true : false
-                        enabled: main.isUpdate ? true : false
-                    }
-
-                    ImageButton {
-                        id: refreshicon
-                        layoutProperties: AbsoluteLayoutProperties {
-                            positionX: 0 
-                            positionY: 0
+                        maxWidth:        110
+                        minWidth:        110
+                        ActivityIndicator {
+                            id: refresh_showing
+                            preferredWidth:  81
+                            maxWidth:        81
+                            minWidth:        81
+                            preferredHeight: 81 
+                            maxHeight:       81 
+                            minHeight:       81
+                            horizontalAlignment: HorizontalAlignment.Center 
+                            verticalAlignment: VerticalAlignment.Center
+                            visible: main.isUpdate ? true : false
+                            running: main.isUpdate ? true : false
+                            enabled: main.isUpdate ? true : false
                         }
-                        preferredWidth:  81
-                        maxWidth:        81
-                        minWidth:        81
-                        preferredHeight: 81 
-                        maxHeight:       81 
-                        minHeight:       81 
-                        leftMargin: 25.0
-                        rightMargin: 25.0
-                        verticalAlignment: VerticalAlignment.Center
-                        defaultImageSource: "asset:///button_icons/refresh_def.png"
-                        pressedImageSource: "asset:///button_icons/refresh_sel.png"
-                        visible: main.isUpdate ? false : true
-                        onClicked: {
-                        main.isUpdate = true;
-                        Config.updatestations()
+                        ImageButton {
+                            id: refreshicon
+                            preferredWidth:  81
+                            maxWidth:        81
+                            minWidth:        81
+                            preferredHeight: 81 
+                            maxHeight:       81 
+                            minHeight:       81 
+                            verticalAlignment: VerticalAlignment.Center
+                            horizontalAlignment: HorizontalAlignment.Center
+                            defaultImageSource: "asset:///button_icons/refresh_def.png"
+                            pressedImageSource: "asset:///button_icons/refresh_sel.png"
+                            visible: main.isUpdate ? false : true
+                            onClicked: {
+                                main.isUpdate = true;
+                                Config.updatestations()
+                            }
                         }
                     }
                     Label {
@@ -1022,6 +1018,8 @@ NavigationPane {
                         horizontalAlignment: HorizontalAlignment.Center
                         verticalAlignment: VerticalAlignment.Top     
                         textStyle.textAlign: TextAlign.Center
+                        maxWidth:        110
+                        minWidth:        110
                         textStyle {
                             fontSize: FontSize.PointValue
                             fontSizeValue: 4.0
@@ -1040,7 +1038,7 @@ NavigationPane {
                     background: Color.create("#000000")
                 }
 
-              
+               
                 ImageView {
                     id: sourceicon
                     verticalAlignment: VerticalAlignment.Center
@@ -1071,27 +1069,31 @@ NavigationPane {
                     layout: AbsoluteLayout {}
                     verticalAlignment: VerticalAlignment.Center     
                     horizontalAlignment: HorizontalAlignment.Right
-                    leftMargin: 30.0
-                    rightMargin: 30.0
-                    ImageButton {
-                        id: settingsicon
-                        horizontalAlignment: HorizontalAlignment.Center
-                        verticalAlignment: VerticalAlignment.Top    
+                    leftMargin: 10.0
+                    rightMargin: 10.0
+                    Container{
                         layoutProperties: AbsoluteLayoutProperties {
                             positionX: 0 
                             positionY: 0
                         }
-                        defaultImageSource: "asset:///button_icons/menu_def.png"
-                        pressedImageSource: "asset:///button_icons/menu_sel.png"
-                        preferredWidth:  81
-                        maxWidth:        110
-                        minWidth:        81
-                        preferredHeight: 81 
-                        maxHeight:       81 
-                        minHeight:       81 
-                        onClicked: {
-                            newPage = settingspageDefinition.createObject();
-                            rootWindow.push(newPage);
+                        maxWidth: 110
+                        minWidth: 110
+                        ImageButton {
+                            id: settingsicon
+                            horizontalAlignment: HorizontalAlignment.Center
+                            verticalAlignment: VerticalAlignment.Top    
+                            defaultImageSource: "asset:///button_icons/menu_def.png"
+                            pressedImageSource: "asset:///button_icons/menu_sel.png"
+                            preferredWidth:  81
+                            maxWidth:        110
+                            minWidth:        81
+                            preferredHeight: 81 
+                            maxHeight:       81 
+                            minHeight:       81 
+                            onClicked: {
+                                newPage = settingspageDefinition.createObject();
+                                rootWindow.push(newPage);
+                            }
                         }
                     } 
                     Label {
@@ -1103,6 +1105,8 @@ NavigationPane {
                         horizontalAlignment: HorizontalAlignment.Center
                         verticalAlignment: VerticalAlignment.Top     
                         textStyle.textAlign: TextAlign.Center
+                        maxWidth:        110
+                        minWidth:        110
                         textStyle {
                             fontSize: FontSize.PointValue
                             fontSizeValue: 4.0

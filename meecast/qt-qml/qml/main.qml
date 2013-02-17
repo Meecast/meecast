@@ -1,11 +1,8 @@
 import bb.cascades 1.0
 
 
-//NavigationPane {
-TabbedPane {
+NavigationPane {
     
-    showTabsOnActionBar: true 
-    id: tabbedWindow
     property int main_icon_size : 240
     property int row_icon_size : 90
     property color current_rect_back_background :  "Red" 
@@ -24,9 +21,6 @@ TabbedPane {
     //backButtonsVisible: false
     // Create the initial screen
     property variant newPage;
-Tab {
-    title: "Home"
-      NavigationPane {
         id: rootWindow 
         onPopTransitionEnded: {
             if (newPage == page) {
@@ -1093,6 +1087,4 @@ Tab {
         ]
 
     } // end of Page
-    }
-    }
 }

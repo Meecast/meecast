@@ -11,60 +11,72 @@ Page {
     content: 
     Container{
        id: absoluteLayoutContainer
-//       background: Color.create("#f618df") 
        background: Color.create("#262626") 
-
-      // minHeight: 4000
        layout: AbsoluteLayout {}
-       
-        Container{
-            layoutProperties: AbsoluteLayoutProperties {
-                positionX: 0
-                positionY: 0
-            }
-            background: Color.Black
-            preferredWidth: 768
-            preferredHeight: 120
-       }                       
-//       ImageView {
-//                layoutProperties: AbsoluteLayoutProperties {
-//                    positionX: 0
-//                    positionY: 120
-//                 }
-//                imageSource: "asset:///share/images/mask_background.png"
-//                preferredWidth: 768  
-//        }
-        ImageView {
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 350
-                 }
-                imageSource: "asset:///share/images/mask_title.png"
-                preferredWidth: 768 
-                preferredHeight: 72*1.6
-        }
-
-        Container{
-                layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 460
-                }
-                background: Color.Black
-                preferredWidth: 768
-                preferredHeight: 1000
-        }
               
         ScrollView {
             layoutProperties: 
             AbsoluteLayoutProperties {
-                positionY: 90
+                positionY: 0
             }
-            preferredHeight: 1050.0
+            preferredHeight: 1150.0
             scrollViewProperties {
                 scrollMode: ScrollMode.Vertical
             }
+
             Container{
                 layout: AbsoluteLayout {}
+                Container{
+                    layoutProperties: AbsoluteLayoutProperties {
+                        positionX: 0
+                        positionY: 0
+                    }
+                    background: Color.Black
+                    preferredWidth: 768
+                    preferredHeight: 120
+               }                       
+        //       ImageView {
+        //                layoutProperties: AbsoluteLayoutProperties {
+        //                    positionX: 0
+        //                    positionY: 120
+        //                 }
+        //                imageSource: "asset:///share/images/mask_background.png"
+        //                preferredWidth: 768  
+        //        }
+                ImageView {
+                        layoutProperties: AbsoluteLayoutProperties {
+                            positionX: 0
+                            positionY: 260
+                         }
+                        imageSource: "asset:///share/images/mask_title.png"
+                        preferredWidth: 768 
+                        preferredHeight: 72*1.6
+                }
+
+                Container{
+                        layoutProperties: AbsoluteLayoutProperties {
+                            positionX: 0
+                            positionY: 460
+                        }
+                        background: Color.create("#262626") 
+                        //background: Color.Black
+                        preferredWidth: 768
+                        preferredHeight: 1200
+                }
+                Label {
+                    layoutProperties: AbsoluteLayoutProperties {
+                        positionX: 0
+                        positionY: 0
+                    }
+                    preferredWidth: 768
+                    text: Config.tr("MeeCast for Blackberry 10")
+                    textStyle.textAlign: TextAlign.Center
+                    textStyle {
+                        base: SystemDefaults.TextStyles.TitleText
+                        color: Color.White
+                    }
+                }
+
                 ImageView {
                    layoutProperties: AbsoluteLayoutProperties {
                        positionX: 768/2 - 64*1.6
@@ -78,7 +90,7 @@ Page {
                Label {
                     layoutProperties: AbsoluteLayoutProperties {
                         positionX: 0
-                        positionY: 290
+                        positionY: 260
                     }
                     preferredWidth: 768
                     horizontalAlignment: HorizontalAlignment.Center                
@@ -94,7 +106,7 @@ Page {
                 //    layout: DockLayout {}
                     layoutProperties: AbsoluteLayoutProperties {
                             positionX: 0
-                            positionY: 360
+                            positionY: 380
                     }
  
                     Label {
@@ -301,26 +313,7 @@ later version.");
                             color: Color.White
                         }
                     }
-
-
-
-
-
                 }
-
-            }
-        }
-        Label {
-            layoutProperties: AbsoluteLayoutProperties {
-                positionX: 0
-                positionY: 0
-            }
-            preferredWidth: 768
-            text: Config.tr("MeeCast for Blackberry 10")
-            textStyle.textAlign: TextAlign.Center
-            textStyle {
-                base: SystemDefaults.TextStyles.TitleText
-                color: Color.White
             }
         }
     }

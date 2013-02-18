@@ -171,7 +171,7 @@ void drawwallpaper(QImage image, QHash <QString, QString> hash){
     QPoint point(x + 70, y + 21);
     QImage icon;
     icon.load(iconpath);
-    paint.drawImage(point, icon); 
+    paint.drawImage(point, icon.scaledToHeight(128, Qt::SmoothTransformation)); 
         
     /* Station */
     paint.setFont(QFont("Nokia Pure Light", 18));

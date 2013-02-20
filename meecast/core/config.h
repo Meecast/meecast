@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -49,6 +49,7 @@ namespace Core{
             std::string *_wind_speed_unit;
             std::string *_pressure_unit;
             std::string *_visible_unit;
+            std::string *_language;
             bool         _update_connect;
             bool         _fullscreen;
             bool         _lockscreen;
@@ -86,6 +87,8 @@ namespace Core{
             std::string& PressureUnit(void);
             void VisibleUnit(const std::string& text);
             std::string& VisibleUnit(void);
+            std::string& Language(void);
+            void Language(const std::string& lang);
             void UpdateConnect(const bool uc);
             bool UpdateConnect(void);
             void Fullscreen(const bool uc);
@@ -110,8 +113,6 @@ namespace Core{
             //void stationsList(std::vector<Core::Station*> list);
             void stationsList(StationsList list);
             void saveConfig();
-
-
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

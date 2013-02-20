@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -54,6 +54,7 @@ Config::Config()
     _gps = false;
     _splash = true;
     _font_color = new std::string("#00ff00");
+    _language = new std::string("System");
     _stations = new StationsList;
     _current_station_id = INT_MAX;
     _update_period = INT_MAX;
@@ -102,6 +103,11 @@ Config::saveConfig()
 
     el = doc.createElement("visible_unit");
     t = doc.createTextNode(QString::fromStdString(*_visible_unit));
+    el.appendChild(t);
+    root.appendChild(el);
+
+    el = doc.createElement("language");
+    t = doc.createTextNode(QString::fromStdString(*_language));
     el.appendChild(t);
     root.appendChild(el);
 
@@ -320,6 +326,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _wind_speed_unit = new std::string("m/s");
     _pressure_unit = new std::string("mbar");
     _visible_unit = new std::string("m");
+    _language = new std::string("System");
     _update_connect = false;
     _fullscreen = false;
     _lockscreen = false;
@@ -383,6 +390,9 @@ Config::LoadConfig(){
         el = root.firstChildElement("visible_unit");
         if (!el.isNull())
             _visible_unit->assign(el.text().toStdString());
+        el = root.firstChildElement("language");
+        if (!el.isNull())
+            _language->assign(el.text().toStdString());
         el = root.firstChildElement("update_connect");
         if (!el.isNull())
             _update_connect = (el.text() == "true") ? true : false;
@@ -569,6 +579,16 @@ Config::VisibleUnit(const std::string& text){
 std::string&
 Config::VisibleUnit(){
     return *_visible_unit;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::Language(const std::string& lang){
+    _language->assign(lang);
+}
+////////////////////////////////////////////////////////////////////////////////
+std::string&
+Config::Language(){
+    return *_language;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

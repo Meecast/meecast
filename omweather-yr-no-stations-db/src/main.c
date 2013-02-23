@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-weather-com-stations-db
  *
- * Copyright (C) 2006-2009 Vlad Vasiliev
+ * Copyright (C) 2006-2013 Vlad Vasiliev
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or
@@ -543,6 +543,7 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
             }
         }
     }
+
     g_hash_table_insert(hours_data, "hours_data", (gpointer)hour_weather);
     g_hash_table_insert(data, "detail", (gpointer)hours_data);
     return count_hour;

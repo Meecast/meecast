@@ -20,7 +20,7 @@
          Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
          An updated version of application must have a versionNumber value higher than the previous version. Required. -->
     <versionNumber>0.7</versionNumber>
-   <buildId>3</buildId>
+   <buildId>4</buildId>
 
     <!-- Fourth digit segment of the package version. First three segments are taken from the
          <versionNumber> element.  Must be an integer from 0 to 2^16-1 -->
@@ -49,12 +49,20 @@
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset entry="true" path="arm/o.le-v7-g/omweather-qml" type="Qnx/Elf">omweather-qml</asset>
        <asset path="arm/foreca/o.le-v7-g/forecacom" type="Qnx/Elf">forecacom</asset>
+       <asset path="arm/yrno/yrno" type="Qnx/Elf">yrno</asset>
+       <asset path="arm/hko/hkogovhk" type="Qnx/Elf">hkogovhk</asset>
+       <asset path="arm/gismeteo/gismeteoru" type="Qnx/Elf">gismeteoru</asset>
+       <asset path="arm/bomgovau/bomgovau" type="Qnx/Elf">bomgovau</asset>
        <asset path="meecast/qt-qml/qml">qml</asset>
     </configuration>
     <configuration id="com.qnx.qcc.toolChain.530812073" name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset entry="true" path="arm/o.le-v7-g/omweather-qml" type="Qnx/Elf">omweather-qml</asset>
        <asset path="arm/foreca/o.le-v7-g/forecacom" type="Qnx/Elf">forecacom</asset>
+       <asset path="arm/yrno/o.le-v7-g/yrno" type="Qnx/Elf">yrno</asset>
+       <asset path="arm/hko/o.le-v7-g/hkogovhk" type="Qnx/Elf">hkogovhk</asset>
+       <asset path="arm/gismeteo/o.le-v7-g/gismeteoru" type="Qnx/Elf">gismeteoru</asset>
+       <asset path="arm/bomgovau/o.le-v7-g/bomgovau" type="Qnx/Elf">bomgovau</asset>
     </configuration>
     <configuration id="com.qnx.qcc.toolChain.585662339" name="Device-Release">
        <platformArchitecture>armle-v7</platformArchitecture>

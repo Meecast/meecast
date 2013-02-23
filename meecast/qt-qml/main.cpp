@@ -137,7 +137,7 @@ int main(int argc, char* argv[])
     
     std::cerr<<"begin ssss "<<std::endl;
     Dirent *dp = 0;
-    DIR *dir_fd = opendir(("./"));
+    DIR *dir_fd = opendir(("./app/native"));
     if(dir_fd){
         while((dp = readdir(dir_fd))){
             std::string name = dp->d_name;

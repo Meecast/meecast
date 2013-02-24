@@ -501,7 +501,7 @@ NavigationPane {
                                                 layout: AbsoluteLayout {} 
                                                 Label {
                                                     layoutProperties: AbsoluteLayoutProperties {
-                                                        positionX: 10.0
+                                                        positionX: 40.0
                                                         positionY: 0.0
                                                     }
                                                     visible: ListItemData.fulldate != "" ? true :false
@@ -533,7 +533,7 @@ NavigationPane {
                                                         textStyle {
                                                             fontSize: FontSize.PointValue
                                                             fontWeight: FontWeight.W100
-                                                            fontSizeValue: ListItemData.current_temp_text.length < 5 ? 18.0 : 14 
+                                                            fontSizeValue: ListItemData.current_temp_text.length < 5 ? 20.0 : 16 
                                                             color: Color.White
                                                         }
                                                     }
@@ -578,7 +578,7 @@ NavigationPane {
                                                             textStyle {
                                                                 fontSize: FontSize.PointValue
                                                                 fontWeight: FontWeight.W100
-                                                                fontSizeValue: 6.0
+                                                                fontSizeValue: 8.0
                                                                 color: Color.White
                                                             }
 
@@ -587,7 +587,7 @@ NavigationPane {
                                                     Container{
                                                         id: wind_direction
                                                         layoutProperties: AbsoluteLayoutProperties {
-                                                            positionY: 0.0 + (ListItemData.humidity == Qt.Config.tr("N/A") || ListItemData.humidity == "N/A") ? 0.0 : 50.0; 
+                                                            positionY: 0.0 + (ListItemData.humidity == Qt.Config.tr("N/A") || ListItemData.humidity == "N/A") ? 0.0 : 60.0; 
                                                         }
 
                                                         visible: ListItemData.wind_direction == Qt.Config.tr("N/A") ? false : true; 
@@ -631,7 +631,7 @@ NavigationPane {
                                                             textStyle {
                                                                 fontWeight: FontWeight.W100
                                                                 fontSize: FontSize.PointValue
-                                                                fontSizeValue: 6.0
+                                                                fontSizeValue: 8.0
                                                                 color: Color.White
                                                             }
                                                         }
@@ -642,7 +642,7 @@ NavigationPane {
                                                         verticalAlignment: VerticalAlignment.Center
                                                         horizontalAlignment: HorizontalAlignment.Left
                                                         layoutProperties: AbsoluteLayoutProperties {
-                                                        positionY: 0.0 + ((ListItemData.humidity == Qt.Config.tr("N/A") || ListItemData.humidity == "N/A") ? 0.0 : 50.0) + ((ListItemData.wind_direction == Qt.Config.tr("N/A") || ListItemData.wind_direction == "N/A")  ? 0.0 : 50.0); 
+                                                        positionY: 0.0 + ((ListItemData.humidity == Qt.Config.tr("N/A") || ListItemData.humidity == "N/A") ? 0.0 : 60.0) + ((ListItemData.wind_direction == Qt.Config.tr("N/A") || ListItemData.wind_direction == "N/A")  ? 0.0 : 60.0); 
                                                         }
 
                                                         layout: AbsoluteLayout {
@@ -668,7 +668,7 @@ NavigationPane {
                                                             textStyle {
                                                                 fontSize: FontSize.PointValue
                                                                 fontWeight: FontWeight.W100
-                                                                fontSizeValue: 6.0
+                                                                fontSizeValue: 8.0
                                                                 color: Color.White
                                                             }
                                                         }

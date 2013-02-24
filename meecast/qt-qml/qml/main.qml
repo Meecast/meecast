@@ -3,7 +3,7 @@ import bb.cascades 1.0
 
 NavigationPane {
     
-    property int main_icon_size : 240
+    property int main_icon_size : 420 
     property int row_icon_size : 90
     property color current_rect_back_background :  "Red" 
     property string feels_like_temp_text : ""
@@ -18,6 +18,7 @@ NavigationPane {
     property bool  right_arrow : false
     property int wind_direction_angle : 0
     property bool current_value: false
+    property int main_information_position : 130 
     backButtonsVisible: false
     // Create the initial screen
     property variant newPage;
@@ -354,7 +355,7 @@ NavigationPane {
                             preferredWidth: 768
                             preferredHeight: 438
                             layoutProperties: AbsoluteLayoutProperties {
-                                positionY: 30
+                                positionY: 0
                             }
                             background: Color.White
 
@@ -364,7 +365,7 @@ NavigationPane {
                             preferredWidth: 768
                             preferredHeight: 438
                             layoutProperties: AbsoluteLayoutProperties {
-                                positionY: 30
+                                positionY: 0
                             }
                         }
                         Label {
@@ -392,7 +393,7 @@ NavigationPane {
                             preferredWidth: 768
                             preferredHeight: 438
                             layoutProperties: AbsoluteLayoutProperties {
-                                positionY: 30
+                                positionY: 0
                             }
                             background: Color.White
 
@@ -402,7 +403,7 @@ NavigationPane {
                             preferredWidth: 768
                             preferredHeight: 438
                             layoutProperties: AbsoluteLayoutProperties {
-                                positionY: 30
+                                positionY: 0
                             }
                         }
                         Label {
@@ -442,6 +443,7 @@ NavigationPane {
                             Qt.Current = Current
                             Qt.main = main
                             Qt.main_icon_size = main_icon_size
+                            Qt.main_information_position = main_information_position
                             Qt.row_icon_size = row_icon_size
                             main.update_list();
                         }
@@ -469,7 +471,7 @@ NavigationPane {
                                             id: current_rect_back
                                             visible: ListItemData.fulldate != "" ? true :false
                                             preferredWidth: 768
-                                            preferredHeight: 420 
+                                            preferredHeight: 564 
                                             layoutProperties: AbsoluteLayoutProperties {
                                                 positionY: 0
                                             }
@@ -479,7 +481,7 @@ NavigationPane {
                                             imageSource: ListItemData.background_image
                                             visible: ListItemData.fulldate != "" ? true :false
                                             preferredWidth: 768
-                                            preferredHeight: 420 
+                                            preferredHeight: 564 
                                             layoutProperties: AbsoluteLayoutProperties {
                                                 positionY: 0
                                             }
@@ -487,24 +489,46 @@ NavigationPane {
                                         Container{
                                             preferredWidth: 768
                                             visible: ListItemData.fulldate != "" ? true :false
-                                            id: current_temp_and_other_paremeters
+                                            id: title_day_and_other_paremeters
+                                            preferredHeight: Qt.main_icon_size - Qt.main_information_position
                                             layout: DockLayout {}
                                             layoutProperties: AbsoluteLayoutProperties {
-                                                positionY: 190.0
+                                                positionY: Qt.main_information_position 
                                             }
-              
                                             Container{
-                                                id: current_temperature
                                                 horizontalAlignment: HorizontalAlignment.Left
                                                 preferredWidth: ListItemData.current_temp_text.length < 5 ? 768/2 - Qt.main_icon_size/2 : 768/2 - Qt.main_icon_size/2 + 50
-                                                verticalAlignment: VerticalAlignment.Center
+                                                layout: AbsoluteLayout {} 
+                                                Label {
+                                                    layoutProperties: AbsoluteLayoutProperties {
+                                                        positionX: 10.0
+                                                        positionY: 0.0
+                                                    }
+                                                    visible: ListItemData.fulldate != "" ? true :false
+                                                    text: ListItemData.current == true ? Qt.Config.tr("Now") : Qt.Config.tr("Today")
+                                                    horizontalAlignment: HorizontalAlignment.Left
+                                                    verticalAlignment: VerticalAlignment.Center
+                                                    textStyle.textAlign: TextAlign.Left
+                                                    textStyle {
+                                                        fontSize: FontSize.PointValue
+                                                        fontWeight: FontWeight.W100
+                                                        fontSizeValue: 7.0
+                                                        color: Color.Gray
+                                                    }
+                                                }
+                                            }
+                                            Container{
+                                                id: current_temperature
+                                                horizontalAlignment: HorizontalAlignment.Right
+                                                preferredWidth: ListItemData.current_temp_text.length < 5 ? 768/2 - Qt.main_icon_size/2 : 768/2 - Qt.main_icon_size/2 + 50
+                                                verticalAlignment: VerticalAlignment.Bottom
                                                 Container{
                                                    Label {
                                                         id: current_temp_text_id
                                                         text: ListItemData.current_temp_text
                                                         preferredWidth: ListItemData.current_temp_text.length < 5 ? 768/2 - Qt.main_icon_size/2 : 768/2 - Qt.main_icon_size/2 + 50
                                                         horizontalAlignment: HorizontalAlignment.Center
-                                                        verticalAlignment: VerticalAlignment.Center
+                                                        verticalAlignment: VerticalAlignment.Bottom
                                                         textStyle.textAlign: TextAlign.Center
                                                         textStyle {
                                                             fontSize: FontSize.PointValue
@@ -517,9 +541,10 @@ NavigationPane {
                                             }
                                             Container{
                                                 id: humidity_wind_id 
-                                                horizontalAlignment: HorizontalAlignment.Right
+                                                horizontalAlignment: HorizontalAlignment.Left
                                                 preferredWidth: 768/2 - Qt.main_icon_size/2                   
                                                 verticalAlignment: VerticalAlignment.Center
+
                                                 Container{
                                                     layout: AbsoluteLayout {} 
                                                     horizontalAlignment: HorizontalAlignment.Center
@@ -657,7 +682,7 @@ NavigationPane {
                                             preferredWidth: 768
                                             layout: DockLayout {}
                                             layoutProperties: AbsoluteLayoutProperties {
-                                                positionY: 350.0
+                                                positionY: 470.0
                                             }
                                             Label {                 
                                                 id: title_text
@@ -733,7 +758,7 @@ NavigationPane {
                                             id: main_icon
                                             layoutProperties: AbsoluteLayoutProperties {
                                                 positionX: 768/2 - Qt.main_icon_size/2 
-                                                positionY: 145
+                                                positionY: 45
                                             }
                                             preferredWidth: Qt.main_icon_size 
                                             preferredHeight: Qt.main_icon_size 
@@ -742,26 +767,7 @@ NavigationPane {
                                             overlapTouchPolicy: OverlapTouchPolicy.Allow
                                             touchPropagationMode: TouchPropagationMode.PassThrough
                                         } 
-                                        Container{
-                                            horizontalAlignment: HorizontalAlignment.Left
-                                            preferredWidth: 768 
-                                            layoutProperties: AbsoluteLayoutProperties {
-                                                positionY: 80.0
-                                            }
-                                            Label {
-                                                visible: ListItemData.fulldate != "" ? true :false
-                                                text: ListItemData.current == true ? Qt.Config.tr("Now") : Qt.Config.tr("Today")
-                                                horizontalAlignment: HorizontalAlignment.Center
-                                                verticalAlignment: VerticalAlignment.Center
-                                                textStyle.textAlign: TextAlign.Center
-                                                textStyle {
-                                                    fontSize: FontSize.PointValue
-                                                    fontWeight: FontWeight.W100
-                                                    fontSizeValue: 7.0
-                                                    color: Color.Gray
-                                                }
-                                            }
-                                        }
+
                                     }
                                     Container{
                                         visible: ListItemData.number == 0 ? false : true;

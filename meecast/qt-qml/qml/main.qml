@@ -1035,8 +1035,8 @@ NavigationPane {
 
                 }
                 Container{
-                    preferredWidth: 1
-                    minWidth:       1 
+                    preferredWidth: 2
+                    minWidth:       2 
                     preferredHeight: 138
                     maxHeight:       138 
                     minHeight:       138
@@ -1062,8 +1062,8 @@ NavigationPane {
                     }
                 }
                 Container{
-                    preferredWidth: 1 
-                    minWidth:       1 
+                    preferredWidth: 2 
+                    minWidth:       2 
                     preferredHeight: 138
                     maxHeight:       138 
                     minHeight:       138

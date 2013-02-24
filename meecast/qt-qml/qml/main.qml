@@ -130,31 +130,30 @@ NavigationPane {
                     shortdate = Config.tr("Today");
                 }
                 forrecasts_list.dataModel.insert(
-                        {
-                         "fulldate" : fulldate,
-                         "shortdate" : shortdate, 
-                         "pict" : pict,
-                         "temp_high" : temp_high,
-                         "temp_low" : temp_low,
-                         "bg_color" : bg_color ,
-                         "hi_temp_color" :  hi_temp_color,
-                         "wind_speed" : wind_speed, 
-                         "number" : a,
-                         "description_text" : title_text,
-                         "wind_direction" : wind_direction, 
-                         "stationname" : Config.stationname == "Unknown" ? "MeeCast" : Config.stationname,
-                         "current_temp_text" : current_temp_text,
-                         "humidity" : humidity, 
-                         "pressure" : pressure, 
-                         "wind_direction_angle" : wind_direction_angle,
-                         "left_arrow" : left_arrow,
-                         "right_arrow" : right_arrow,
-                         "stationname" : Config.stationname == "Unknown" ? "MeeCast" : Config.stationname,
-                         "current": current_value,
-                         "background_image": background_image,
-                        }
-                    )
-
+                    {
+                     "fulldate" : fulldate,
+                     "shortdate" : shortdate, 
+                     "pict" : pict,
+                     "temp_high" : temp_high,
+                     "temp_low" : temp_low,
+                     "bg_color" : bg_color ,
+                     "hi_temp_color" :  hi_temp_color,
+                     "wind_speed" : wind_speed, 
+                     "number" : a,
+                     "description_text" : title_text,
+                     "wind_direction" : wind_direction, 
+                     "stationname" : Config.stationname == "Unknown" ? "MeeCast" : Config.stationname,
+                     "current_temp_text" : current_temp_text,
+                     "humidity" : humidity, 
+                     "pressure" : pressure, 
+                     "wind_direction_angle" : wind_direction_angle,
+                     "left_arrow" : left_arrow,
+                     "right_arrow" : right_arrow,
+                     "stationname" : Config.stationname == "Unknown" ? "MeeCast" : Config.stationname,
+                     "current": current_value,
+                     "background_image": background_image,
+                    }
+                )
             }
         }
 

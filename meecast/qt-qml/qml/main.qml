@@ -21,14 +21,14 @@ NavigationPane {
     backButtonsVisible: false
     // Create the initial screen
     property variant newPage;
-        id: rootWindow 
-        onPopTransitionEnded: {
-            if (newPage == page) {
-                console.log("onPopTransitionEnded1111");
-                rootWindow.backButtonsVisible = false;
-                page.destroy();
-            }
+    id: rootWindow 
+    onPopTransitionEnded: {
+        if (newPage == page) {
+            console.log("onPopTransitionEnded1111");
+            rootWindow.backButtonsVisible = false;
+            page.destroy();
         }
+    }
     Page {
         id: main
         property int screen_width : 1280

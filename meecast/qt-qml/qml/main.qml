@@ -126,8 +126,8 @@ NavigationPane {
                     background_image = "";
                 }
                 if (a == 1){
-                    bg_color = current_rect_back_background;
-                    background_image = "asset:///share/images/row_background.png"
+            //        bg_color = current_rect_back_background;
+            //        background_image = "asset:///share/images/row_background.png"
                     shortdate = Config.tr("Today");
                 }
                 forrecasts_list.dataModel.insert(

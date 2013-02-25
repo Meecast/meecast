@@ -3,7 +3,7 @@ import bb.cascades 1.0
 
 NavigationPane {
     
-    property int main_icon_size : 420 
+    property int main_icon_size : 440 
     property int row_icon_size : 90
     property color current_rect_back_background :  "Red" 
     property string feels_like_temp_text : ""
@@ -18,7 +18,7 @@ NavigationPane {
     property bool  right_arrow : false
     property int wind_direction_angle : 0
     property bool current_value: false
-    property int main_information_position : 130 
+    property int main_information_position : 150 
     backButtonsVisible: false
     // Create the initial screen
     property variant newPage;
@@ -428,6 +428,7 @@ NavigationPane {
                         positionX: 0
                         positionY: 0
                     }
+                    layout: AbsoluteLayout {}
                     preferredWidth: 768
                     preferredHeight: 1142 
                     ListView {
@@ -497,23 +498,26 @@ NavigationPane {
                                             }
                                             Container{
                                                 horizontalAlignment: HorizontalAlignment.Left
-                                                preferredWidth: ListItemData.current_temp_text.length < 5 ? 768/2 - Qt.main_icon_size/2 : 768/2 - Qt.main_icon_size/2 + 50
-                                                layout: AbsoluteLayout {} 
-                                                Label {
-                                                    layoutProperties: AbsoluteLayoutProperties {
-                                                        positionX: 40.0
-                                                        positionY: 0.0
-                                                    }
-                                                    visible: ListItemData.fulldate != "" ? true :false
-                                                    text: ListItemData.current == true ? Qt.Config.tr("Now") : Qt.Config.tr("Today")
-                                                    horizontalAlignment: HorizontalAlignment.Left
-                                                    verticalAlignment: VerticalAlignment.Center
-                                                    textStyle.textAlign: TextAlign.Left
-                                                    textStyle {
-                                                        fontSize: FontSize.PointValue
-                                                        fontWeight: FontWeight.W100
-                                                        fontSizeValue: 7.0
-                                                        color: Color.Gray
+                                                preferredWidth: 768/2 - Qt.main_icon_size/2 + 30       
+                                                Container{
+                                                    horizontalAlignment: HorizontalAlignment.Center
+                                                    layout: AbsoluteLayout {} 
+                                                    Label {
+                                                        layoutProperties: AbsoluteLayoutProperties {
+                                                    //        positionX: 20.0
+                                                            positionY: 0.0
+                                                        }
+                                                        visible: ListItemData.fulldate != "" ? true :false
+                                                        text: ListItemData.current == true ? Qt.Config.tr("Now") : Qt.Config.tr("Today")
+                                                        horizontalAlignment: HorizontalAlignment.Left
+                                                        verticalAlignment: VerticalAlignment.Center
+                                                        textStyle.textAlign: TextAlign.Left
+                                                        textStyle {
+                                                            fontSize: FontSize.PointValue
+                                                            fontWeight: FontWeight.W100
+                                                            fontSizeValue: 7.0
+                                                            color: Color.Gray
+                                                        }
                                                     }
                                                 }
                                             }
@@ -542,7 +546,7 @@ NavigationPane {
                                             Container{
                                                 id: humidity_wind_id 
                                                 horizontalAlignment: HorizontalAlignment.Left
-                                                preferredWidth: 768/2 - Qt.main_icon_size/2                   
+                                                preferredWidth: 768/2 - Qt.main_icon_size/2 + 30
                                                 verticalAlignment: VerticalAlignment.Center
 
                                                 Container{
@@ -578,10 +582,9 @@ NavigationPane {
                                                             textStyle {
                                                                 fontSize: FontSize.PointValue
                                                                 fontWeight: FontWeight.W100
-                                                                fontSizeValue: 8.0
+                                                                fontSizeValue: 7.0
                                                                 color: Color.White
                                                             }
-
                                                         }
                                                     }
                                                     Container{
@@ -631,7 +634,7 @@ NavigationPane {
                                                             textStyle {
                                                                 fontWeight: FontWeight.W100
                                                                 fontSize: FontSize.PointValue
-                                                                fontSizeValue: 8.0
+                                                                fontSizeValue: 7.0
                                                                 color: Color.White
                                                             }
                                                         }
@@ -668,7 +671,7 @@ NavigationPane {
                                                             textStyle {
                                                                 fontSize: FontSize.PointValue
                                                                 fontWeight: FontWeight.W100
-                                                                fontSizeValue: 8.0
+                                                                fontSizeValue: 7.0
                                                                 color: Color.White
                                                             }
                                                         }
@@ -682,7 +685,7 @@ NavigationPane {
                                             preferredWidth: 768
                                             layout: DockLayout {}
                                             layoutProperties: AbsoluteLayoutProperties {
-                                                positionY: 470.0
+                                                positionY: 480.0
                                             }
                                             Label {                 
                                                 id: title_text
@@ -698,6 +701,7 @@ NavigationPane {
                                         }
                                     }
                                     Container{
+                                        id: topStringWithStationName
                                         preferredWidth: 768
                                         layout: DockLayout {}
                                         layoutProperties: AbsoluteLayoutProperties {
@@ -750,23 +754,22 @@ NavigationPane {
                                            }
                                        }
                                        Container{
-                                            preferredWidth: 20 
-                                        }
- 
+                                           preferredWidth: 20 
+                                       }
                                     }
-                                        ImageView {
-                                            id: main_icon
-                                            layoutProperties: AbsoluteLayoutProperties {
-                                                positionX: 768/2 - Qt.main_icon_size/2 
-                                                positionY: 45
-                                            }
-                                            preferredWidth: Qt.main_icon_size 
-                                            preferredHeight: Qt.main_icon_size 
-                                            imageSource: ListItemData.pict 
-                                            horizontalAlignment: HorizontalAlignment.Center
-                                            overlapTouchPolicy: OverlapTouchPolicy.Allow
-                                            touchPropagationMode: TouchPropagationMode.PassThrough
-                                        } 
+                                    ImageView {
+                                        id: main_icon
+                                        layoutProperties: AbsoluteLayoutProperties {
+                                            positionX: 768/2 - Qt.main_icon_size/2 
+                                            positionY: 40 
+                                        }
+                                        preferredWidth: Qt.main_icon_size 
+                                        preferredHeight: Qt.main_icon_size 
+                                        imageSource: ListItemData.pict 
+                                        horizontalAlignment: HorizontalAlignment.Center
+                                        overlapTouchPolicy: OverlapTouchPolicy.Allow
+                                        touchPropagationMode: TouchPropagationMode.PassThrough
+                                    } 
 
                                     }
                                     Container{

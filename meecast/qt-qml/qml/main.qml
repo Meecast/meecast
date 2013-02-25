@@ -482,7 +482,7 @@ NavigationPane {
                                                     preferredWidth: 768
                                                     visible: ListItemData.fulldate != "" ? true :false
                                                     id: title_day_and_other_paremeters
-                                                    preferredHeight: Qt.main_icon_size - Qt.main_information_position
+                                                    preferredHeight: Qt.main_icon_size - Qt.main_information_position + 50
                                                     layout: DockLayout {}
                                                     layoutProperties: AbsoluteLayoutProperties {
                                                         positionY: Qt.main_information_position 
@@ -491,11 +491,11 @@ NavigationPane {
                                                         horizontalAlignment: HorizontalAlignment.Left
                                                         preferredWidth: 768/2 - Qt.main_icon_size/2 + 30       
                                                         Container{
-                                                            horizontalAlignment: HorizontalAlignment.Center
+                                                            horizontalAlignment: HorizontalAlignment.Left
                                                             layout: AbsoluteLayout {} 
                                                             Label {
                                                                 layoutProperties: AbsoluteLayoutProperties {
-                                                            //        positionX: 20.0
+                                                                    positionX: 10.0
                                                                     positionY: 0.0
                                                                 }
                                                                 visible: ListItemData.fulldate != "" ? true :false
@@ -528,26 +528,27 @@ NavigationPane {
                                                                 textStyle {
                                                                     fontSize: FontSize.PointValue
                                                                     fontWeight: FontWeight.W100
-                                                                    fontSizeValue: ListItemData.current_temp_text.length < 5 ? 20.0 : 16 
+                                                                    fontSizeValue: ListItemData.current_temp_text.length < 5 ? 21.0 : 17 
                                                                     color: Color.White
                                                                 }
                                                             }
                                                         }
                                                     }
                                                     Container{
-                                                        id: humidity_wind_id 
+                                                        id: humidity_wind_pressure_id 
                                                         horizontalAlignment: HorizontalAlignment.Left
-                                                        preferredWidth: 768/2 - Qt.main_icon_size/2 + 30
+                                                        preferredWidth: 768/2 - Qt.main_icon_size/2 + 60
                                                         verticalAlignment: VerticalAlignment.Center
 
                                                         Container{
                                                             layout: AbsoluteLayout {} 
-                                                            horizontalAlignment: HorizontalAlignment.Center
+                                                            horizontalAlignment: HorizontalAlignment.Left
                                                             Container{
                                                                 id: humidity
                                                                 horizontalAlignment: HorizontalAlignment.Left
                                                                 visible: ListItemData.humidity == "N/A" ? false : true; 
                                                                 layoutProperties: AbsoluteLayoutProperties {
+                                                                    positionX: 10.0
                                                                     positionY: 0.0
                                                                 }
 
@@ -581,6 +582,7 @@ NavigationPane {
                                                             Container{
                                                                 id: wind_direction
                                                                 layoutProperties: AbsoluteLayoutProperties {
+                                                                    positionX: 10.0
                                                                     positionY: 0.0 + (ListItemData.humidity == Qt.Config.tr("N/A") || ListItemData.humidity == "N/A") ? 0.0 : 60.0; 
                                                                 }
                                                                 visible: ListItemData.wind_direction == Qt.Config.tr("N/A") ? false : true; 
@@ -633,7 +635,8 @@ NavigationPane {
                                                                 verticalAlignment: VerticalAlignment.Center
                                                                 horizontalAlignment: HorizontalAlignment.Left
                                                                 layoutProperties: AbsoluteLayoutProperties {
-                                                                positionY: 0.0 + ((ListItemData.humidity == Qt.Config.tr("N/A") || ListItemData.humidity == "N/A") ? 0.0 : 60.0) + ((ListItemData.wind_direction == Qt.Config.tr("N/A") || ListItemData.wind_direction == "N/A")  ? 0.0 : 60.0); 
+                                                                    positionX: 10.0
+                                                                    positionY: 0.0 + ((ListItemData.humidity == Qt.Config.tr("N/A") || ListItemData.humidity == "N/A") ? 0.0 : 60.0) + ((ListItemData.wind_direction == Qt.Config.tr("N/A") || ListItemData.wind_direction == "N/A")  ? 0.0 : 60.0); 
                                                                 }
 
                                                                 layout: AbsoluteLayout {}
@@ -653,6 +656,42 @@ NavigationPane {
                                                                     }
                                                                     id: wind_speed_text
                                                                     text: ListItemData.wind_speed;
+                                                                    verticalAlignment: VerticalAlignment.Center
+                                                                    textStyle {
+                                                                        fontSize: FontSize.PointValue
+                                                                        fontWeight: FontWeight.W100
+                                                                        fontSizeValue: 7.0
+                                                                        color: Color.White
+                                                                    }
+                                                                }
+                                                            }
+                                                            Container{
+                                                                id: pressure 
+                                                                visible: ListItemData.pressure.search("N/A") != -1  ? false : true; 
+                                                                verticalAlignment: VerticalAlignment.Center
+                                                                horizontalAlignment: HorizontalAlignment.Left
+                                                                layoutProperties: AbsoluteLayoutProperties {
+                                                                    positionX: 10.0
+                                                                    positionY: 0.0 + ((ListItemData.wind_speed == Qt.Config.tr("N/A") || ListItemData.wind_speed == "N/A") ? 0.0 : 60.0) + ((ListItemData.humidity == Qt.Config.tr("N/A") || ListItemData.humidity == "N/A") ? 0.0 : 60.0) + ((ListItemData.wind_direction == Qt.Config.tr("N/A") || ListItemData.wind_direction == "N/A")  ? 0.0 : 60.0); 
+                                                                }
+
+                                                                layout: AbsoluteLayout {}
+                                                                ImageView {
+                                                                    imageSource: "asset:///share/images/pressure.png"
+                                                                    layoutProperties: AbsoluteLayoutProperties {
+                                                                        positionY: 8.0
+                                                                    }
+                                                                    verticalAlignment: VerticalAlignment.Center
+                                                                    preferredWidth: 30
+                                                                    preferredHeight: 30
+                                                                }
+                                                                Label {
+                                                                    layoutProperties: AbsoluteLayoutProperties {
+                                                                        positionX: 40.0
+                                                                        positionY: 0.0
+                                                                    }
+                                                                    id: pressure_text
+                                                                    text: ListItemData.pressure;
                                                                     verticalAlignment: VerticalAlignment.Center
                                                                     textStyle {
                                                                         fontSize: FontSize.PointValue

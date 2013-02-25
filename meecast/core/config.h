@@ -36,6 +36,7 @@
 #include <QTextStream>
 #include "parser.h"
 #include "stationlist.h"
+typedef std::vector< std::pair<std::string, std::string> > languages;
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
     class Config : public Parser{
@@ -60,6 +61,7 @@ namespace Core{
             std::string *_font_color;
             int          _current_station_id;
             StationsList *_stations;
+            languages    *_languages_list;
         protected:
             static Config* _self;
             static int _refcount;
@@ -74,6 +76,7 @@ namespace Core{
             static Config* Instance(const std::string& filename, const std::string& schema_filename);
             void LoadConfig();
             void ReLoadConfig();
+            void InitLanguagesList();
             std::string& prefix_path(void);
             void iconSet(const std::string& text);
             std::string& iconSet(void);

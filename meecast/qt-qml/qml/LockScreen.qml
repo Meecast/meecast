@@ -22,7 +22,7 @@ Page {
     Rectangle{
         anchors.fill: parent
         anchors.top: title_rect.bottom
-        anchors.topMargin: 80
+        anchors.topMargin: 120
         anchors.leftMargin: margin
         anchors.rightMargin: margin
 
@@ -56,7 +56,7 @@ Page {
         anchors.leftMargin: margin
         anchors.rightMargin: margin
         width: parent.width - 2*margin
-        height: 30
+        height: 70
         color: "black"
         Label {
             id: title

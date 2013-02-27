@@ -5,8 +5,10 @@ meecast (0.7) unstable; urgency=low
   * BB Increased font for weather description and day name
   * BB Redisegned tabs in main and fullweather forms
   * Disabled debug for gismeteo.ru and foreca.com sources
+  * Fixed problem with big size of icon in lockscreen applet
+  * Fixed problem with Settings pages - Lockscreen and StandbyScreen
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 20 Jun 2012 19:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 22 Feb 2012 19:31:23 +0200
 
 meecast (0.6.10) unstable; urgency=low
 
@@ -22,7 +24,7 @@ meecast (0.6.10) unstable; urgency=low
   * Changed icon 'fog' for LockScreen. Thanks Red Verge
   * Fixed menu bar position and behaviour. Thanks Nakram.
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 20 Jun 2012 19:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 20 Jan 2012 19:31:23 +0200
 
 meecast (0.6.9) unstable; urgency=low
 

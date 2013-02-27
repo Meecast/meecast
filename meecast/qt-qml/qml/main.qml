@@ -152,7 +152,7 @@ NavigationPane {
                      "right_arrow" : right_arrow,
                      "stationname" : Config.stationname == "Unknown" ? "MeeCast" : Config.stationname,
                      "current": current_value,
-                     "background_image": background_image,
+                     "background_image": background_image
                     }
                 )
             }
@@ -517,7 +517,7 @@ NavigationPane {
                                                         horizontalAlignment: HorizontalAlignment.Right
                                                        // preferredWidth: ListItemData.current_temp_text.length < 5 ? 768/2 - Qt.main_icon_size/2 : 768/2 - Qt.main_icon_size/2
                                                         verticalAlignment: VerticalAlignment.Bottom
-                                                        Container{
+                                                        
                                                            Label {
                                                                 id: current_temp_text_id
                                                                 text: ListItemData.current_temp_text
@@ -532,7 +532,7 @@ NavigationPane {
                                                                     color: Color.White
                                                                 }
                                                             }
-                                                        }
+                                                        
                                                     }
                                                     Container{
                                                         id: humidity_wind_pressure_id 

@@ -265,7 +265,8 @@ Page {
 //	}else{
 //	    description_text_alignment = Text.AlignHCenter
 //	}
-
+     
+     
     }
 
     function getColor(t) {
@@ -359,67 +360,67 @@ Page {
         Container{
             id: current_rect
             background: Color.Black
-            preferredWidth: 768
-            layoutProperties: AbsoluteLayoutProperties {
-                positionX: 0
-                positionY: 95
-            }
-            
+            preferredWidth: 768         
             visible: Current.rowCount() == 0 ? false : true
             layout: AbsoluteLayout {
             }
             Container{
                 id: current_rect_back
                 preferredWidth: 768
-                preferredHeight: 438
+                preferredHeight: 564
                 layoutProperties: AbsoluteLayoutProperties {
-                    positionY: 30
+                    positionY: 0
                 }
                 background: Color.Red
             }
             ImageView {
-                imageSource: "asset:///share/images/mask_background_main_old.png"
-//                imageSource: "asset:///share/images/mask_background_main.png"
+                imageSource: "asset:///share/images/mask_background_main.png"
                 preferredWidth: 768
-                preferredHeight: 438
+                preferredHeight: 564
                 layoutProperties: AbsoluteLayoutProperties {
-                    positionY: 30
+                    positionY: 0
                 }
                 visible: true
             }
             Container{
                 preferredWidth: 768
                 layout: DockLayout {}
+                preferredHeight: Qt.main_icon_size - Qt.main_information_position + 50
                 layoutProperties: AbsoluteLayoutProperties {
-                    positionY: 50.0
+                    positionY: Qt.main_information_position
                 }
                 Container{
+                    id: dayperiodname
                     horizontalAlignment: HorizontalAlignment.Left
-                    preferredWidth: 768/2 - 128*1.6/2 
+                    preferredWidth: 768/2 - Qt.main_icon_size/2 + 30 
                     Label {
                         text: day_period_name 
-                        horizontalAlignment: HorizontalAlignment.Center
+                        horizontalAlignment: HorizontalAlignment.Left
                         verticalAlignment: VerticalAlignment.Center
-                        textStyle.textAlign: TextAlign.Center
+                        textStyle.textAlign: TextAlign.Left
                         textStyle {
-                            base: SystemDefaults.TextStyles.BigText
-                            color: Color.White
+                            fontSize: FontSize.PointValue
+                            fontWeight: FontWeight.W100
+                            fontSizeValue: 7.0
+                            color: Color.Gray
                         }
-
-                                           }
+                    }
                 }
                 Container{
                     id: current_temperature
                     horizontalAlignment: HorizontalAlignment.Right
-                    preferredWidth: 768/2 - 128*1.6/2                   
+                    verticalAlignment: VerticalAlignment.Bottom
+                    preferredWidth: 768/2 - Qt.main_icon_size/2 + 30 
                     Label {                 
                         id: temperature 
-                //      text: Current.getdata(0, "temp") + '°';
+                  //      text: Current.getdata(0, "temp") + '°';
                         horizontalAlignment: HorizontalAlignment.Center
-                        verticalAlignment: VerticalAlignment.Center
+                        verticalAlignment: VerticalAlignment.Bottom
                         textStyle.textAlign: TextAlign.Center
                         textStyle {
-                            base: SystemDefaults.TextStyles.BigText
+                            fontSize: FontSize.PointValue
+                            fontWeight: FontWeight.W100
+                            fontSizeValue: 18
                             color: Color.White
                         }
                         onCreationCompleted: {
@@ -432,26 +433,29 @@ Page {
                 preferredWidth: 768
                 layout: DockLayout {}
                 layoutProperties: AbsoluteLayoutProperties {
-                    positionY: 165.0
+                    positionY: 480.0
                 }
                 Label {                 
                     text: description_text 
                     horizontalAlignment: HorizontalAlignment.Center
                     textStyle {
-                       base: SystemDefaults.TextStyles.BodyText
-                       color: Color.White
+                        fontSize: FontSize.PointValue
+                        fontSizeValue: 8.0
+                        fontWeight: FontWeight.W100
+                        color: Color.White
                     }
                 }
             }
         }
         Container{
             preferredWidth: 768
+            id: left_right_title
             layout: DockLayout {}
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
                 positionY: 0
             }
-            background: Color.Black
+            //background: Color.Black
             ImageButton {                 
                id: left_arrow
                visible: day > 0 ? true : false;
@@ -514,20 +518,21 @@ Page {
         ImageView {
             id: main_icon
             layoutProperties: AbsoluteLayoutProperties {
-                positionX: 768/2 - 64 *1.6
-                positionY: 80
+                positionX: 768/2 - Qt.main_icon_size/2 
+                positionY: 40 
             }
-            preferredWidth: 128*1.6
-            preferredHeight: 128*1.6
+            preferredWidth: Qt.main_icon_size 
+            preferredHeight: Qt.main_icon_size
             imageSource: image_source 
             horizontalAlignment: HorizontalAlignment.Center                
         } 
 
         Container{
+            
             id: day_rect
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
-                positionY: 370
+                positionY: Qt.main_icon_size + 40
             }
             preferredWidth: 768
             preferredHeight: 800.0

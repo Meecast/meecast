@@ -311,7 +311,20 @@ NavigationPane {
             Forecast_model.update_model(2);
             Forecast_night_model.update_model(3);
             Forecast_hours_model.update_model(4);
+            if (Config.stationname == "Unknown" || (Forecast_model.rowCount() == 0 &&  Current.rowCount() == 0)){
+                console.log("ssss FALSE");
+                forrecasts_list.visible = false;
+                if ((Config.stationname != "Unknown" && Forecast_model.rowCount() == 0 && Current.rowCount() == 0)){
+                    refresh_button.visible = true;
+                    forrecasts_list.visible = true;
+                }         
+            }else{
+                console.log("ssss TRUE");
+                forrecasts_list.visible = true;
+            }
             main.update_list();
+            
+            
             //list.height = 80 * Forecast_model.rowCount();
             //dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
             //current_rect.visible = Current.rowCount() == 0 ? false : true;
@@ -448,7 +461,7 @@ NavigationPane {
                                         Container{
                                             layout: AbsoluteLayout {}
         //                                    visible: ListItemData.number == 0 && ListItemData.current_value == true ? true : false;
-                                            visible: ListItemData.number == 0 ? true : false;
+                                            visible: ListItemData.number == 0  ? true : false;
                                             Container{
                                                 preferredWidth: 768
                                                 layoutProperties: AbsoluteLayoutProperties {
@@ -783,6 +796,7 @@ NavigationPane {
                                             }
                                             ImageView {
                                                 id: main_icon
+                                                visible: ListItemData.fulldate != "" ? true : false
                                                 layoutProperties: AbsoluteLayoutProperties {
                                                     positionX: 768/2 - Qt.main_icon_size/2 
                                                     positionY: 40 
@@ -959,7 +973,7 @@ NavigationPane {
                         id: refresh_button
                         horizontalAlignment: HorizontalAlignment.Center
                         preferredWidth: 768 
-                        visible : (  Config.stationname != "Unknown" && Forecast_model.rowCount() == 0 && Current.rowCount() == 0) ? true : false
+                        visible : (Config.stationname != "Unknown" && Forecast_model.rowCount() == 0 && Current.rowCount() == 0) ? true : false
                         text: Config.tr("Try to update")
                         onClicked: {
                             main.isUpdate = true;

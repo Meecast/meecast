@@ -335,7 +335,6 @@ Page {
         //list.visible = (Forecast_model.rowCount() == 0) ? false : true;
     }
 
-
     content: Container {
         background: Color.Black
 

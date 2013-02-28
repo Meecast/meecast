@@ -63,7 +63,7 @@ Page {
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
-                    positionY: 350
+                    positionY: 120
                 }
                 background: Color.create("#262626")
                 preferredWidth: 768

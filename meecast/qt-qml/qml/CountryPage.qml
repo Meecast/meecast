@@ -12,7 +12,7 @@ Page {
 
     content:  Container{
         id: absoluteLayoutContainer
-  //      background: Color.White
+        background: Color.create("#262626")
         layout: AbsoluteLayout {}
         attachedObjects: [
             ComponentDefinition {

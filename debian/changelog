@@ -6,6 +6,7 @@ meecast (0.7) unstable; urgency=low
   * BB Redisegned tabs in main and fullweather forms
   * BB Redisigned Main and Fullweather forms
   * BB Fixed problem with Main page after removing all stations
+  * BB Fixed background color in settings menus
   * Disabled debug for gismeteo.ru and foreca.com sources
   * Fixed problem with big size of icon in lockscreen applet
   * Fixed problem with Settings pages - Lockscreen and StandbyScreen

@@ -312,16 +312,13 @@ NavigationPane {
             Forecast_night_model.update_model(3);
             Forecast_hours_model.update_model(4);
             if (Config.stationname == "Unknown" || (Forecast_model.rowCount() == 0 &&  Current.rowCount() == 0)){
-                console.log("ssss FALSE");
                 forrecasts_list.visible = false;
                 if ((Config.stationname != "Unknown" && Forecast_model.rowCount() == 0 && Current.rowCount() == 0)){
                     refresh_button.visible = true;
-                    forrecasts_list.visible = true;
-                    console.log("ssss FALSE2");
+                    forrecasts_list.visible = false;
                     notrefreshview.visible = true;
                 }         
             }else{
-                console.log("ssss TRUE");
                 forrecasts_list.visible = true;
                 notrefreshview.visible = false;
             }

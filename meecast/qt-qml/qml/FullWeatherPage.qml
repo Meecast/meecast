@@ -51,7 +51,18 @@ Page {
     function updateperiod()
     {
         condition.clear()
-        condition2.clear()
+        if ((model_day.getdata(day, "lastupdate")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Last update:"),
+                             "value": model_day.getdata(day, "lastupdate")});
+            if ((model_day.getdata(day, "daylength")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Day length:"),
+                             "value": model_day.getdata(day, "daylength")});
+                if ((model_day.getdata(day, "sunset")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Sunset:"),
+                             "value": model_day.getdata(day, "sunset")});
+            if ((model_day.getdata(day, "sunrise")) != "N/A")
+                condition.insert({"cond_name": Config.tr("Sunrise:"),
+                             "value": model_day.getdata(day, "sunrise")});
         console.log("Day period ", day_period);
         if (day_period == "current"){
             toolbarnow.background = Color.create("#0f0f0f")
@@ -235,30 +246,16 @@ Page {
             toolbarday.background = Color.create("#1f1f1f")
             toolbarnight.background = Color.create("#1f1f1f")
 	        toolbarclock.background = Color.create("#0f0f0f")
-
             button_day.defaultImageSource = Config.imagespath +  "/day_def.png"
             button_night.defaultImageSource = Config.imagespath +  "/night_def.png"
             button_clock.defaultImageSource = Config.imagespath +  "/hourly_sel.png"
             button_current.defaultImageSource = Config.imagespath +  "/now_def.png"
-
-
             day_rect.visible = false;
             current_rect.visible = false;
             main_icon.visible = false;
             hours_list.visible = true;
 	}
-    if ((model_day.getdata(day, "lastupdate")) != "N/A")
-        condition2.insert({"cond_name": Config.tr("Last update:"),
-                     "value": model_day.getdata(day, "lastupdate")});
-    if ((model_day.getdata(day, "daylength")) != "N/A")
-        condition2.insert({"cond_name": Config.tr("Day length:"),
-                     "value": model_day.getdata(day, "daylength")});
-        if ((model_day.getdata(day, "sunset")) != "N/A")
-        condition2.insert({"cond_name": Config.tr("Sunset:"),
-                     "value": model_day.getdata(day, "sunset")});
-    if ((model_day.getdata(day, "sunrise")) != "N/A")
-        condition2.insert({"cond_name": Config.tr("Sunrise:"),
-                     "value": model_day.getdata(day, "sunrise")});
+    
 
 //	if (description_text.length > 35){
 //	    description_text_alignment = Text.AlignHLeft
@@ -393,16 +390,24 @@ Page {
                     id: dayperiodname
                     horizontalAlignment: HorizontalAlignment.Left
                     preferredWidth: 768/2 - Qt.main_icon_size/2 + 30 
-                    Label {
-                        text: day_period_name 
+                    Container{
                         horizontalAlignment: HorizontalAlignment.Left
-                        verticalAlignment: VerticalAlignment.Center
-                        textStyle.textAlign: TextAlign.Left
-                        textStyle {
-                            fontSize: FontSize.PointValue
-                            fontWeight: FontWeight.W100
-                            fontSizeValue: 7.0
-                            color: Color.Gray
+                        layout: AbsoluteLayout {} 
+                        Label {
+                            layoutProperties: AbsoluteLayoutProperties {
+                                positionX: 10.0
+                                positionY: 0.0
+                            }
+                            text: day_period_name 
+                            horizontalAlignment: HorizontalAlignment.Left
+                            verticalAlignment: VerticalAlignment.Center
+                            textStyle.textAlign: TextAlign.Left
+                            textStyle {
+                                fontSize: FontSize.PointValue
+                                fontWeight: FontWeight.W100
+                                fontSizeValue: 7.0
+                                color: Color.Gray
+                            }
                         }
                     }
                 }
@@ -420,10 +425,8 @@ Page {
                         textStyle {
                             fontSize: FontSize.PointValue
                             fontWeight: FontWeight.W100
-                            fontSizeValue: 18
+                            fontSizeValue: 22
                             color: Color.White
-                        }
-                        onCreationCompleted: {
                         }
                     }    
                 }               
@@ -528,14 +531,13 @@ Page {
         } 
 
         Container{
-            
             id: day_rect
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
-                positionY: Qt.main_icon_size + 40
+                positionY: 564
             }
             preferredWidth: 768
-            preferredHeight: 800.0
+            preferredHeight: 1280-564-100
             ListView {
                 id: forrecasts_grid_list 
                 layout: GridListLayout {
@@ -546,43 +548,6 @@ Page {
                     id: condition
                     grouping: ItemGrouping.None
                     sortedAscending: false
-                }
-                listItemComponents: [
-                    ListItemComponent {
-                        type: "item"
-                        Container{
-                            layout: StackLayout {
-                            }
-                            Label {
-                                text: ListItemData.cond_name
-                                textStyle {    
-                                    base: SystemDefaults.TextStyles.SmallText
-                                    color: Color.Gray
-                                }
-                            }
-                            Label {
-                                text: ListItemData.value
-                                textStyle {
-                                    base: SystemDefaults.TextStyles.BodyText
-                                    color: Color.White
-                                }
-                            }
-                        } 
-                    }
-                ]
-            }
-            Divider {
-                horizontalAlignment: HorizontalAlignment.Fill
-            }
-            ListView {
-                id: forrecasts_grid_list_additional
-                layout: GridListLayout {
-                    columnCount : 2
-                    cellAspectRatio: 2.5
-                }
-                dataModel: GroupDataModel {
-                    id: condition2
-                    grouping: ItemGrouping.None
                 }
                 listItemComponents: [
                     ListItemComponent {

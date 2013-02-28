@@ -317,12 +317,16 @@ NavigationPane {
                 if ((Config.stationname != "Unknown" && Forecast_model.rowCount() == 0 && Current.rowCount() == 0)){
                     refresh_button.visible = true;
                     forrecasts_list.visible = true;
+                    console.log("ssss FALSE2");
+                    notrefreshview.visible = true;
                 }         
             }else{
                 console.log("ssss TRUE");
                 forrecasts_list.visible = true;
+                notrefreshview.visible = false;
             }
             main.update_list();
+            main.update_current_data();
             
             
             //list.height = 80 * Forecast_model.rowCount();

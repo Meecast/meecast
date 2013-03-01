@@ -170,11 +170,12 @@ Config::saveConfig()
         t = doc.createTextNode("false");
     el.appendChild(t);
     root.appendChild(el);
-
+    std::cerr<<"22222"<<std::endl;
     std::vector<Station*>::iterator i = _stations->begin();
     while (i != _stations->end()){
         QDomElement st = doc.createElement("station");
         el = doc.createElement("source_name");
+        std::cerr<<"1111111111111"<<std::endl;
         t = doc.createTextNode(QString::fromStdString((*i)->sourceName()));
         el.appendChild(t);
         st.appendChild(el);

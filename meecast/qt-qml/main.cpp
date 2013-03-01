@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -75,6 +75,9 @@
 #include <bb/cascades/Page>
 #include <bb/cascades/AbstractPane>
 #include <bb/cascades/Application>
+//#include <bb/cascades/SceneCover>
+//#include "active.h"
+
 using ::bb::cascades::Application;
 using namespace bb::cascades;
 
@@ -98,6 +101,8 @@ void myMessageOutput(QtMsgType type, const char* msg){
     fprintf(stdout, "%s\n", msg);
     fflush(stdout);
 }
+
+
 
 Q_DECL_EXPORT
 int main(int argc, char* argv[])
@@ -234,8 +239,17 @@ int main(int argc, char* argv[])
                  std::cerr << "Before show11111111 "<<error.toString().toStdString()<<	 std::endl;
              }
 
+     // The SceneCover is registered so that it can be used in QML
+     //qmlRegisterType<SceneCover>("bb.cascades", 1, 0, "SceneCover");
+     // Since it is not possible to create an instance of the AbstractCover
+     // it is registered as an uncreatable type (necessary for accessing
+     // Application.cover).
+     //qmlRegisterUncreatableType<AbstractCover>("bb.cascades", 1, 0, "AbstractCover",
+      //       "An AbstractCover cannot be created.");
 
     std::cerr << "After show"<< std::endl;
+   // app.setCover(new ActiveFrame());
+
     /*This code provides Segmantation fault
     delete dadapt;
     delete controller;

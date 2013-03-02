@@ -60,9 +60,11 @@ Controller::Controller(const std::string& qml_filename ) : QObject()
 //  _qview = new QDeclarativeView();
   _qview  = QmlDocument::create(qml_filename.c_str());
   _dp = NULL;
+  this->active_frame = new ActiveFrame();
+  _active_frame_view = this->active_frame->qml();
   this->load_config();
   this->load_data();
-
+  active_frame->StartFrame();
 }
 
 Controller::~Controller()
@@ -76,6 +78,17 @@ QmlDocument*
 Controller::qview()
 {
     return _qview;
+}
+
+QmlDocument*
+Controller::active_frame_qview()
+{
+    return _active_frame_view;
+}
+
+void
+Controller::active_frame_qview(QmlDocument *active_frame_view){
+	_active_frame_view = active_frame_view;
 }
 
 void
@@ -304,6 +317,7 @@ Controller::load_data()
   _qview->setContextProperty("Forecast_night_model", _night_model);
   _qview->setContextProperty("Forecast_hours_model", _hours_model);
 
+  _active_frame_view->setContextProperty("Current", _current);
 
   /* models for station selection */
   SelectModel* source_model = new SelectModel(qApp);
@@ -330,6 +344,8 @@ Controller::load_config()
    std::cout<<"Load"<<std::endl;
   _config = create_and_fill_config();   
   _qview->setContextProperty("Config", _config);
+  _active_frame_view->setContextProperty("Config", _config);
+
 }
 void
 Controller::reload_config()

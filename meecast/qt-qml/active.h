@@ -34,7 +34,6 @@
 #include <bb/cascades/Application>
 #include <bb/cascades/QmlDocument>
 #include <bb/cascades/Label>
-
 using namespace ::bb::cascades;
 
 class ActiveFrame: public SceneCover {
@@ -42,15 +41,17 @@ class ActiveFrame: public SceneCover {
 
 public:
         ActiveFrame();
+        void StartFrame();
         virtual ~ActiveFrame();
+        QmlDocument *qml();
+
 
 public slots:
         void update();
 
 private:
         Container *mMainContainer;
-        QmlDocument *qml;
-
+        QmlDocument *_qml;
 };
 
 #endif /* ACTIVEFRAME_H_ */

@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -39,6 +39,7 @@
 #include "citymodel.h"
 #include <bb/cascades/QmlDocument>
 #include <time.h>
+#include "active.h"
 
 
 #ifndef CONTROLLER_H
@@ -51,6 +52,9 @@ public:
     Controller(const std::string& qml_filename ="asset:///qml/main.qml");
     ConfigQml* config();
     QmlDocument *qview();
+    QmlDocument *active_frame_qview();
+    ActiveFrame *active_frame;
+    void active_frame_qview(QmlDocument *active_frame_view);
     virtual ~Controller();
 
 public Q_SLOTS:
@@ -61,6 +65,7 @@ public Q_SLOTS:
 private:
     ConfigQml *_config;
     QmlDocument *_qview;
+    QmlDocument *_active_frame_view;
     Core::DataParser *_dp;
     DataModelQt *_model; 
     DataModelQt *_hours_model; 

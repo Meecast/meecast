@@ -27,8 +27,8 @@ SOURCES += main.cpp \
     countrymodel.cpp \
     regionmodel.cpp \
     citymodel.cpp \
-    gpsposition.cpp 
-#    active.cpp
+    gpsposition.cpp \
+    active.cpp
 
 HEADERS  += \
     dataqml.h \
@@ -43,14 +43,14 @@ HEADERS  += \
     countrymodel.h \
     regionmodel.h \
     citymodel.h \
-    gpsposition.h 
-
-#    active.h
+    gpsposition.h \
+    active.h
 
 #RESOURCES += weatherlayoutitem.qrc
 
 OTHER_FILES += \
     qml/layoutitem.qml \
+    qml/active_frame.qml \
     qml/weatherlayoutitem.qml \
     qml/Details.qml \
     qml/ImageButton.qml \

@@ -7,6 +7,9 @@ Container {
     property string title_text_text : ""
     property string humidity_text: ""
     property string pressure_text: ""
+    property string wind_speed_text: ""
+    property string fulldate: ""
+    property bool current_value: false
     function onConfigChanged() {
         console.log("OnConfigChanged!!!!!");
     }
@@ -113,6 +116,7 @@ Container {
                 }
                 main_icon_imageSource = Config.iconspath + "/" + Config.iconset + "/" + Current.getdata(0, "pict")
                 title_text_text = Config.tr(Current.getdata(0, "description"));
+                fulldate = Current.getdata(0, "fulldate");
                 if (Current.getdata(0, "humidity") != "N/A"){
                     humidity_text = Current.getdata(0, "humidity") + " %";
                 }else
@@ -128,6 +132,7 @@ Container {
                 }else
                     wind_direction_angle = 0;
                 wind_direction_text = Config.tr(Current.getdata(0, "wind_direction"));
+                current_value = Current.getdata(0, "current");
             }
     
     
@@ -146,36 +151,65 @@ Container {
             scalingMethod: ScalingMethod.AspectFill
             preferredHeight: 396
             preferredWidth: 334
+    }
+    Container{
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 0
+            }
+            preferredWidth: 340
+        Label {
+            text: current_value == true ? Config.tr("Now") : Config.tr("Today")
+            horizontalAlignment: HorizontalAlignment.Center
+            verticalAlignment: VerticalAlignment.Bottom
+            textStyle.fontSize: FontSize.Small
+            preferredWidth: 340
         }
+    }
     ImageView {
         imageSource: main_icon_imageSource
         layoutProperties: AbsoluteLayoutProperties {
-            positionX: 100
-            positionY: 100
+            positionX: 80
+            positionY: 80
         }
         //verticalAlignment: VerticalAlignment.Center
         //horizontalAlignment: HorizontalAlignment.Center
         preferredHeight: 256
         preferredWidth: 256
     }
-    Label {
-        objectName: "temperature"
-        text: current_temp_text
-        multiline: true
-        verticalAlignment: VerticalAlignment.Top
-        horizontalAlignment: HorizontalAlignment.Left
-        textStyle.fontSize: FontSize.XSmall
+    Container{
+        preferredWidth: 340
+        Label {
+            objectName: "temperature"
+            text: current_temp_text
+            multiline: true
+            verticalAlignment: VerticalAlignment.Top
+            horizontalAlignment: HorizontalAlignment.Right
+            //textStyle.fontSize: FontSize.XXLarge
+            textStyle.textAlign: TextAlign.Right
+            textStyle {
+                fontSize: FontSize.PointValue
+                //fontWeight: FontWeight.W100
+                fontSizeValue: 30 
+                color: Color.White
+            }
+        }
     }
-    Label {
-        text: title_text_text
+    Container{
         layoutProperties: AbsoluteLayoutProperties {
             positionX: 0
-            positionY: 300
-        }  
+            positionY: 320
+        }
+        preferredWidth: 340
+    Label {
+        text: title_text_text  
         multiline: true
         horizontalAlignment: HorizontalAlignment.Center
         verticalAlignment: VerticalAlignment.Bottom
         textStyle.fontSize: FontSize.Small
+        textStyle.textAlign: TextAlign.Center
+        preferredWidth: 340
+    }
     }
 }
 }

@@ -319,6 +319,7 @@ Controller::load_data()
 
   _active_frame_view->setContextProperty("Current", _current);
 
+
   /* models for station selection */
   SelectModel* source_model = new SelectModel(qApp);
   CountryModel* country_model = new CountryModel(qApp);
@@ -345,6 +346,7 @@ Controller::load_config()
   _config = create_and_fill_config();   
   _qview->setContextProperty("Config", _config);
   _active_frame_view->setContextProperty("Config", _config);
+  _active_frame_view->setContextProperty("ActiveFrame", active_frame);
 
 }
 void

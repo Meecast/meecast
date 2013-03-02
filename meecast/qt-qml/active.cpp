@@ -45,6 +45,8 @@ ActiveFrame::StartFrame(){
 	mMainContainer = _qml->createRootObject<Container>();
     // Set the content of ActiveFrame
     setContent(mMainContainer);
+    QObject::connect(Application::instance(), SIGNAL(thumbnail()),
+            this, SLOT(update()));
     update();
 }
 
@@ -68,12 +70,12 @@ ActiveFrame::update() {
        // QTimer::singleShot(3600 * 1000, this, SLOT(update()));
 
 	// QTimer::singleShot(1000, this, SLOT(update()));
-        Label* label2 = mMainContainer->findChild<Label*>("label2");
+        //Label* label2 = mMainContainer->findChild<Label*>("temperature");
 
-        if (label2) {
-                int c = label2->text().toInt() + 1;
-                label2->setText(QString::number(c));
-        }
+        //if (label2) {
+        //        int c = label2->text().toInt() + 1;
+        //        label2->setText("ddddddddd");
+        //}
         //Label* label1 = mMainContainer->findChild<Label*>("temperature");
         //if (label1){
         	//std::cerr<<"qqqqqqq"<<std::endl;
@@ -81,5 +83,6 @@ ActiveFrame::update() {
        // }
         //else
         	//std::cerr<<"1111111"<<std::endl;
+        emit ActiveFrame::CurrentChanged();
 }
 

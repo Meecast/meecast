@@ -45,6 +45,8 @@ public:
         virtual ~ActiveFrame();
         QmlDocument *qml();
 
+signals:
+		void CurrentChanged();
 
 public slots:
         void update();

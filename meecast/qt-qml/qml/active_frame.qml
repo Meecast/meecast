@@ -10,6 +10,10 @@ Container {
     property string wind_speed_text: ""
     property string fulldate: ""
     property bool current_value: false
+    property int wind_direction_angle : 0
+    property string wind_direction_text: ""
+    property string stationname_text: ""
+    
     function onConfigChanged() {
         console.log("OnConfigChanged!!!!!");
     }
@@ -85,6 +89,7 @@ Container {
             }
     
      function update_current_data(){
+                stationname_text = Config.stationname == "Unknown" ? "MeeCast" : Config.stationname
                 console.log("update_current_data!!!!!!!!!!!!!");
                 //left_arrow = Config.prevstationname == "" ? false : true;
                 //right_arrow = Config.nextstationname == "" ? false : true;
@@ -128,7 +133,7 @@ Container {
                 }else
                     wind_speed_text = "N/A";
                 if (Current.getdata(0, "wind_direction") != "N/A" && Current.getdata(0, "wind_direction") != undefined){
-                    wind_direction_angle =  main.getAngle(Current.getdata(0, "wind_direction"));
+                    wind_direction_angle =  active_main.getAngle(Current.getdata(0, "wind_direction"));
                 }else
                     wind_direction_angle = 0;
                 wind_direction_text = Config.tr(Current.getdata(0, "wind_direction"));
@@ -141,6 +146,7 @@ Container {
     background:  Color.create(current_rect_back_background)
     onCreationCompleted: {
         Config.configChanged.connect (active_main.onConfigChanged);
+        ActiveFrame.CurrentChanged.connect(active_main.update_current_data);
         active_main.update_current_data();
         console.log("Active created");
     }
@@ -158,6 +164,27 @@ Container {
                 positionY: 0
             }
             preferredWidth: 340
+            Label {
+                text: stationname_text  
+                multiline: true
+                horizontalAlignment: HorizontalAlignment.Center
+                verticalAlignment: VerticalAlignment.Bottom
+                textStyle.textAlign: TextAlign.Center
+                textStyle {
+                    fontSize: FontSize.PointValue
+                    //fontWeight: FontWeight.W100
+                    fontSizeValue: 7 
+                    color: Color.White
+                }   
+                preferredWidth: 340
+            }
+    }
+    Container{
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 70
+            }
+            preferredWidth: 340
         Label {
             text: current_value == true ? Config.tr("Now") : Config.tr("Today")
             horizontalAlignment: HorizontalAlignment.Center
@@ -169,11 +196,9 @@ Container {
     ImageView {
         imageSource: main_icon_imageSource
         layoutProperties: AbsoluteLayoutProperties {
-            positionX: 80
-            positionY: 80
+            //positionX: 40
+            positionY: 110
         }
-        //verticalAlignment: VerticalAlignment.Center
-        //horizontalAlignment: HorizontalAlignment.Center
         preferredHeight: 256
         preferredWidth: 256
     }
@@ -185,12 +210,11 @@ Container {
             multiline: true
             verticalAlignment: VerticalAlignment.Top
             horizontalAlignment: HorizontalAlignment.Right
-            //textStyle.fontSize: FontSize.XXLarge
             textStyle.textAlign: TextAlign.Right
             textStyle {
                 fontSize: FontSize.PointValue
-                //fontWeight: FontWeight.W100
-                fontSizeValue: 30 
+                fontWeight: FontWeight.W100
+                fontSizeValue: 27 
                 color: Color.White
             }
         }
@@ -198,17 +222,25 @@ Container {
     Container{
         layoutProperties: AbsoluteLayoutProperties {
             positionX: 0
-            positionY: 320
+            positionY: 310
         }
+        layout: DockLayout {
+                                
+                            }
         preferredWidth: 340
-    Label {
-        text: title_text_text  
-        multiline: true
-        horizontalAlignment: HorizontalAlignment.Center
-        verticalAlignment: VerticalAlignment.Bottom
-        textStyle.fontSize: FontSize.Small
-        textStyle.textAlign: TextAlign.Center
-        preferredWidth: 340
+        preferredHeight: 85
+        Container{
+            
+            verticalAlignment: VerticalAlignment.Center
+        Label {
+            text: title_text_text  
+            multiline: true
+            horizontalAlignment: HorizontalAlignment.Center
+            verticalAlignment: VerticalAlignment.Bottom
+            textStyle.fontSize: FontSize.Small
+            textStyle.textAlign: TextAlign.Center
+            preferredWidth: 340
+        }
     }
     }
 }

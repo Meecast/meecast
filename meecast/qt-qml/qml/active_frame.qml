@@ -2,7 +2,7 @@ import bb.cascades 1.0
 
 Container {
     property string current_temp_text: ""
-    property color current_rect_back_background :  "Red"
+    property color current_rect_back_background :  "White"
     property string main_icon_imageSource : ""
     property string title_text_text : ""
     property string humidity_text: ""
@@ -89,7 +89,11 @@ Container {
             }
     
      function update_current_data(){
+                current_weatherview.visible = Config.stationname == "Unknown" ? false : true;
+                startview.visible = Config.stationname == "Unknown" ? true : false;
+                
                 stationname_text = Config.stationname == "Unknown" ? "MeeCast" : Config.stationname
+                                
                 console.log("update_current_data!!!!!!!!!!!!!");
                 //left_arrow = Config.prevstationname == "" ? false : true;
                 //right_arrow = Config.nextstationname == "" ? false : true;
@@ -150,7 +154,56 @@ Container {
         active_main.update_current_data();
         console.log("Active created");
     }
-Container {  
+Container {
+    id: startview
+    layout: AbsoluteLayout {}
+    visible : Config.stationname == "Unknown" ? true : false;
+    ImageView {
+        imageSource: "asset:///share/images/mask_background.png"
+        scalingMethod: ScalingMethod.AspectFill
+        preferredHeight: 396
+        preferredWidth: 334
+    }
+    Container{
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 0
+            }
+            preferredWidth: 340
+            Label {
+                text: stationname_text  
+                multiline: true
+                horizontalAlignment: HorizontalAlignment.Center
+                verticalAlignment: VerticalAlignment.Bottom
+                textStyle.textAlign: TextAlign.Center
+                textStyle {
+                    fontSize: FontSize.PointValue
+                    //fontWeight: FontWeight.W100
+                    fontSizeValue: 7 
+                    color: Color.White
+                }   
+                preferredWidth: 340
+            }
+    }
+    Label {
+        text: Config.tr("No locations are set up yet.") 
+        horizontalAlignment: HorizontalAlignment.Center
+        multiline: true
+        textStyle.textAlign: TextAlign.Center
+        textStyle {
+            fontSize: FontSize.PointValue
+            //fontWeight: FontWeight.W100
+            fontSizeValue: 8
+            color: Color.create("#999999")
+        }
+        layoutProperties: AbsoluteLayoutProperties {
+            positionY: 150 
+        }
+    }
+    
+}
+Container {
+    id: current_weatherview  
     layout: AbsoluteLayout {}  
     ImageView {
         imageSource: "asset:///share/images/mask_background.png"
@@ -224,24 +277,21 @@ Container {
             positionX: 0
             positionY: 310
         }
-        layout: DockLayout {
-                                
-                            }
+        layout: DockLayout {}
         preferredWidth: 340
         preferredHeight: 85
         Container{
-            
             verticalAlignment: VerticalAlignment.Center
-        Label {
-            text: title_text_text  
-            multiline: true
-            horizontalAlignment: HorizontalAlignment.Center
-            verticalAlignment: VerticalAlignment.Bottom
-            textStyle.fontSize: FontSize.Small
-            textStyle.textAlign: TextAlign.Center
-            preferredWidth: 340
+            Label {
+                text: title_text_text  
+                multiline: true
+                horizontalAlignment: HorizontalAlignment.Center
+                verticalAlignment: VerticalAlignment.Bottom
+                textStyle.fontSize: FontSize.Small
+                textStyle.textAlign: TextAlign.Center
+                preferredWidth: 340
+            }
         }
-    }
     }
 }
 }

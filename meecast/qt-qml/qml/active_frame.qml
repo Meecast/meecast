@@ -89,14 +89,12 @@ Container {
             }
     
      function update_current_data(){
-                current_weatherview.visible = Config.stationname == "Unknown" ? false : true;
+                current_weatherview.visible = (Config.stationname != "Unknown" && Current.rowCount() != 0)  ? true : false;
                 startview.visible = Config.stationname == "Unknown" ? true : false;
-                
+                notrefreshview.visible = (Config.stationname != "Unknown" &&  Current.rowCount() == 0) ? true : false            
                 stationname_text = Config.stationname == "Unknown" ? "MeeCast" : Config.stationname
                                 
                 console.log("update_current_data!!!!!!!!!!!!!");
-                //left_arrow = Config.prevstationname == "" ? false : true;
-                //right_arrow = Config.nextstationname == "" ? false : true;
                 if (Current.getdata(0, "temp") == "N/A"){
                     current_temp_text = ""
                     if (Current.getdata(0, "temp_high") != "N/A")
@@ -203,6 +201,54 @@ Container {
     
 }
 Container {
+    id: notrefreshview
+    layout: AbsoluteLayout {}
+    visible : (  Config.stationname != "Unknown" &&  Current.rowCount() == 0) ? true : false
+    ImageView {
+        imageSource: "asset:///share/images/mask_background.png"
+        scalingMethod: ScalingMethod.AspectFill
+        preferredHeight: 396
+        preferredWidth: 334
+    }
+    Container{
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 0
+            }
+            preferredWidth: 340
+            Label {
+                text: stationname_text  
+                multiline: true
+                horizontalAlignment: HorizontalAlignment.Center
+                verticalAlignment: VerticalAlignment.Bottom
+                textStyle.textAlign: TextAlign.Center
+                textStyle {
+                    fontSize: FontSize.PointValue
+                    //fontWeight: FontWeight.W100
+                    fontSizeValue: 7 
+                    color: Color.White
+                }   
+                preferredWidth: 340
+            }
+    }
+    Label {
+        text: Config.tr("Looks like there's no info for this location.")
+        horizontalAlignment: HorizontalAlignment.Center
+        multiline: true
+        textStyle.textAlign: TextAlign.Center
+        textStyle {
+            fontSize: FontSize.PointValue
+            //fontWeight: FontWeight.W100
+            fontSizeValue: 8
+            color: Color.create("#999999")
+        }
+        layoutProperties: AbsoluteLayoutProperties {
+            positionY: 150 
+        }
+    }
+    
+}
+Container {
     id: current_weatherview  
     layout: AbsoluteLayout {}  
     ImageView {
@@ -257,6 +303,10 @@ Container {
     }
     Container{
         preferredWidth: 340
+        layoutProperties: AbsoluteLayoutProperties {
+            //positionX: 40
+            positionY: 20
+        }        
         Label {
             objectName: "temperature"
             text: current_temp_text

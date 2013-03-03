@@ -10,6 +10,7 @@ meecast (0.7) unstable; urgency=low
   * Disabled debug for gismeteo.ru and foreca.com sources
   * Fixed problem with big size of icon in lockscreen applet
   * Fixed problem with Settings pages - Lockscreen and StandbyScreen
+  * Added icons for gismeteo.ru 
 
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 22 Feb 2012 19:31:23 +0200
 

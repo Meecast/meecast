@@ -290,10 +290,11 @@ NavigationPane {
 
 
         function onConfigChanged() {
-            console.log("end update station name = "+Config.stationname);
+            console.log("end update station name = " + Config.stationname);
             startview.visible = Config.stationname == "Unknown" ? true : false;
 //            mainview.visible = Config.stationname == "Unknown" ? false : true;
             main.updatestationname();
+            main.updatemodels();
             main.isUpdate = false;
 
             if ( Config.stationname != "Unknown" && Forecast_model.rowCount() != 0 || Current.rowCount() != 0)

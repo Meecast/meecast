@@ -139,7 +139,7 @@ int main(int argc, char* argv[])
 
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
-    
+ /*
     std::cerr<<"begin ssss "<<std::endl;
     Dirent *dp = 0;
     DIR *dir_fd = opendir(("./app/native"));
@@ -149,7 +149,8 @@ int main(int argc, char* argv[])
             std::cerr<<"ssss "<<std::endl;
             std::cerr<<name.c_str()<<std::endl;
         }
-  }
+    }
+*/
 /*
     //Set up a graphics scene with a QGraphicsWidget and Layout
     QGraphicsView view;

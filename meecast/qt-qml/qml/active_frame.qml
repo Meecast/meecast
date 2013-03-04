@@ -15,6 +15,7 @@ Container {
     property string stationname_text: ""
     
     function onConfigChanged() {
+        update_current_data()
         console.log("OnConfigChanged!!!!!");
     }
         function getColor(t) {

@@ -65,6 +65,8 @@ Controller::Controller(const std::string& qml_filename ) : QObject()
   this->load_config();
   this->load_data();
   active_frame->StartFrame();
+  this->update();
+
 }
 
 Controller::~Controller()
@@ -364,3 +366,8 @@ Controller::config()
    return _config;
 }
 
+void
+Controller::update() {
+    QTimer::singleShot(3600*1000, this, SLOT(update()));
+ 	_config->refreshconfig();
+}

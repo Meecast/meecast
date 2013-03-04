@@ -62,27 +62,6 @@ ActiveFrame::~ActiveFrame() {
 void
 ActiveFrame::update() {
 
-        /**
-         *  You can update the cover here.
-         */
 
-        //You can update AF every 3600 sec but BB10 platform will update UI every 30sec :)
-       // QTimer::singleShot(3600 * 1000, this, SLOT(update()));
-
-	// QTimer::singleShot(1000, this, SLOT(update()));
-        //Label* label2 = mMainContainer->findChild<Label*>("temperature");
-
-        //if (label2) {
-        //        int c = label2->text().toInt() + 1;
-        //        label2->setText("ddddddddd");
-        //}
-        //Label* label1 = mMainContainer->findChild<Label*>("temperature");
-        //if (label1){
-        	//std::cerr<<"qqqqqqq"<<std::endl;
-       // 	label1->setText("ssss");
-       // }
-        //else
-        	//std::cerr<<"1111111"<<std::endl;
-        emit ActiveFrame::CurrentChanged();
 }
 

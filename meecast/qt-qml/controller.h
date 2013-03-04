@@ -61,6 +61,7 @@ public Q_SLOTS:
     void reload_config();
     void load_config();
     void load_data();
+    void update();
 
 private:
     ConfigQml *_config;

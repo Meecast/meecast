@@ -55,13 +55,12 @@ ActiveFrame::qml(){
 	return _qml;
 }
 ActiveFrame::~ActiveFrame() {
-        // TODO Auto-generated destructor stub
+
 }
 
 
 void
 ActiveFrame::update() {
-
-
+	emit ActiveFrame::CurrentChanged();
 }
 

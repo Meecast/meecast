@@ -530,10 +530,16 @@ NavigationPane {
                                                     Container{
                                                         id: current_temperature
                                                         horizontalAlignment: HorizontalAlignment.Right
-                                                       // preferredWidth: ListItemData.current_temp_text.length < 5 ? 768/2 - Qt.main_icon_size/2 : 768/2 - Qt.main_icon_size/2
+                                                        preferredWidth:  768
                                                         verticalAlignment: VerticalAlignment.Bottom
-                                                        
+                                                        layout: AbsoluteLayout {}
+                                                           Container {
+                                                               preferredWidth:  768/2
+                                                               layoutProperties: AbsoluteLayoutProperties {
+                                                                                                                                          positionX: 768/2
+                                                            }
                                                            Label {
+                                                               
                                                                 id: current_temp_text_id
                                                                 text: ListItemData.current_temp_text
                                                                 //preferredWidth: ListItemData.current_temp_text.length < 5 ? 768/2 - Qt.main_icon_size/2 : 768/2 - Qt.main_icon_size/2
@@ -543,10 +549,11 @@ NavigationPane {
                                                                 textStyle {
                                                                     fontSize: FontSize.PointValue
                                                                     fontWeight: FontWeight.W100
-                                                                    fontSizeValue: ListItemData.current_temp_text.length < 5 ? 22.0 : 18 
+                                                                    fontSizeValue: ListItemData.current_temp_text.length < 5 ? 23.0 : 18 
                                                                     color: Color.White
                                                                 }
                                                             }
+                                                           }
                                                         
                                                     }
                                                     Container{

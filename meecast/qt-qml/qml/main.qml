@@ -932,36 +932,38 @@ NavigationPane {
                                     main.current = false;
                                 }
 
-                                mySheet.open();
+                                //mySheet.open();
                                 console.log("DAY    ", main.day);
 
                                 main.day_period = "day";
-                                var newPage1 = fullpageDefinition.createObject();
-                                day_tab.setContent(newPage1);
+                                var newPage = fullpageDefinition.createObject();
+                                rootWindow.push(newPage);
+                                
+                               // day_tab.setContent(newPage1);
 
-                                main.day_period = "night";
-                                var newPage2 = fullpageDefinition.createObject();
-                                night_tab.setContent(newPage2);
+                               // main.day_period = "night";
+                               // var newPage2 = fullpageDefinition.createObject();
+                               // night_tab.setContent(newPage2);
 
-                                if (main.check_hours() > 0){
-                                    tabFullWeather.add(hourly_tab);
-                                    main.day_period = "hours";
-                                    var newPage4 = fullpageDefinition.createObject();
-                                    hourly_tab.setContent(newPage4);
-                                }else{
-                                    tabFullWeather.remove(hourly_tab);
-                                }
+                               // if (main.check_hours() > 0){
+                               //     tabFullWeather.add(hourly_tab);
+                               //     main.day_period = "hours";
+                               //     var newPage4 = fullpageDefinition.createObject();
+                               //     hourly_tab.setContent(newPage4);
+                               // }else{
+                               //     tabFullWeather.remove(hourly_tab);
+                               // }
 
-                                if (main.current == true &&  current_value == true){
-                                    tabFullWeather.insert(1, current_tab);
-                                    main.day_period = "current";
-                                    var newPage3 = fullpageDefinition.createObject();
-                                    current_tab.setContent(newPage3);
-                                    tabFullWeather.activeTab = current_tab;
-                                }else{
-                                    tabFullWeather.activeTab = day_tab;
-                                    tabFullWeather.remove(current_tab);
-                                }
+                               // if (main.current == true &&  current_value == true){
+                               //     tabFullWeather.insert(1, current_tab);
+                               //     main.day_period = "current";
+                               //     var newPage3 = fullpageDefinition.createObject();
+                               //     current_tab.setContent(newPage3);
+                               //     tabFullWeather.activeTab = current_tab;
+                               // }else{
+                               //     tabFullWeather.activeTab = day_tab;
+                               //     tabFullWeather.remove(current_tab);
+                               // }
                             }
                         }
                     }

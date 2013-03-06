@@ -1013,6 +1013,7 @@ Page {
                     maxWidth: toolbar_button_width
                     preferredWidth: toolbar_button_width
                     preferredHeight: 138
+                    visible:  (check_hours()) ? true : false
                     Container{
                         id: "button_clock_top"
                         maxWidth: toolbar_button_width

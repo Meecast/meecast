@@ -781,6 +781,7 @@ Page {
                     maxWidth: toolbar_button_width
                     preferredWidth: toolbar_button_width
                     preferredHeight: 138
+                    visible: (main.current == true && model_current.getdata(day, "current")) ? true : false;
                     Container{
                         id: "button_now_top"
                         maxWidth: toolbar_button_width

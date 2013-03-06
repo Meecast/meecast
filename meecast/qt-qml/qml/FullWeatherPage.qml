@@ -17,6 +17,7 @@ Page {
     property variant model_day:  Forecast_model
     property variant model_night:  (current) ? Current_night : Forecast_night_model
     property variant model_hours:  Forecast_hours_model
+    property int toolbar_button_width: 160
     //property variant description_text_alignment: Text.AlignHLeft;
    
     function check_hours ()
@@ -65,10 +66,14 @@ Page {
                              "value": model_day.getdata(day, "sunrise")});
         console.log("Day period ", day_period);
         if (day_period == "current"){
-            toolbarnow.background = Color.create("#0f0f0f")
-            toolbarday.background = Color.create("#1f1f1f")
-	        toolbarnight.background = Color.create("#1f1f1f")
-	        toolbarclock.background = Color.create("#1f1f1f")
+            toolbarnow.background = Color.create("#5f5f5f")
+            button_now_top.background = Color.create("#00bfff")
+            toolbarday.background = Color.create("#2f2f2f")
+            button_day_top.background = Color.create("#5f5f5f")
+	        toolbarnight.background = Color.create("#2f2f2f")
+	        button_night_top.background = Color.create("#5f5f5f")
+	        toolbarclock.background = Color.create("#2f2f2f")
+	        button_clock_top.background = Color.create("#5f5f5f")
 
             button_night.defaultImageSource = Config.imagespath +  "/night_def.png"
             button_day.defaultImageSource = Config.imagespath +  "/day_def.png"
@@ -130,10 +135,14 @@ Page {
 	}
 
         if (day_period == "day"){
-            toolbarnow.background = Color.create("#1f1f1f")
-            toolbarday.background = Color.create("#0f0f0f")
-            toolbarnight.background = Color.create("#1f1f1f")
-	        toolbarclock.background = Color.create("#1f1f1f")
+            toolbarnow.background = Color.create("#2f2f2f")
+            button_now_top.background = Color.create("#5f5f5f")
+            toolbarday.background = Color.create("#5f5f5f")
+            button_day_top.background = Color.create("#00bfff")
+            toolbarnight.background = Color.create("#2f2f2f")
+            button_night_top.background = Color.create("#5f5f5f")
+	        toolbarclock.background = Color.create("#2f2f2f")
+	        button_clock_top.background = Color.create("#5f5f5f")
 
             button_day.defaultImageSource = Config.imagespath +  "/day_sel.png"
             button_night.defaultImageSource = Config.imagespath +  "/night_def.png"
@@ -187,10 +196,14 @@ Page {
 	    }
 	    if (day_period == "night"){
             day_period_name = Config.tr("Night");
-            toolbarnow.background = Color.create("#1f1f1f")
-            toolbarday.background = Color.create("#1f1f1f")
-            toolbarnight.background = Color.create("#0f0f0f")
+            toolbarnow.background = Color.create("#2f2f2f")
+            button_now_top.background = Color.create("#5f5f5f")
+            toolbarday.background = Color.create("#2f2f2f")
+            button_day_top.background = Color.create("#5f5f5f")            
+            toolbarnight.background = Color.create("#5f5f5f")
+            button_night_top.background = Color.create("#00bfff")
 	        toolbarclock.background = Color.create("#1f1f1f")
+	        button_clock_top.background = Color.create("#5f5f5f")
 
             button_day.defaultImageSource = Config.imagespath +  "/day_def.png"
             button_night.defaultImageSource = Config.imagespath +  "/night_sel.png"
@@ -242,10 +255,23 @@ Page {
 	}
 	if (day_period == "hours"){
             day_period_name = Config.tr("Hours");
-            toolbarnow.background = Color.create("#1f1f1f")
-            toolbarday.background = Color.create("#1f1f1f")
-            toolbarnight.background = Color.create("#1f1f1f")
-	        toolbarclock.background = Color.create("#0f0f0f")
+            
+            
+	        
+            toolbarnow.background = Color.create("#2f2f2f")
+            button_now_top.background = Color.create("#5f5f5f")
+            
+            toolbarday.background = Color.create("#2f2f2f")
+            button_day_top.background = Color.create("#5f5f5f")
+                        
+            toolbarnight.background = Color.create("#2f2f2f")
+            button_night_top.background = Color.create("#5f5f5f")
+            
+	        toolbarclock.background = Color.create("#5f5f5f")
+	        button_clock_top.background = Color.create("#00bfff")
+	        
+	        
+
             button_day.defaultImageSource = Config.imagespath +  "/day_def.png"
             button_night.defaultImageSource = Config.imagespath +  "/night_def.png"
             button_clock.defaultImageSource = Config.imagespath +  "/hourly_sel.png"
@@ -676,89 +702,200 @@ Page {
             }
             preferredWidth: 768 
             preferredHeight: 138 
-            background: Color.create("#1f1f1f")
+            background: Color.create("#3f3f3f")
             Container{    
                 layout: StackLayout {
                     orientation: LayoutOrientation.LeftToRight
                 }
+                
                 Container{
-                    preferredWidth: 20
-                }
-                Container{
+                    id: "toolbarback"
+                    background: Color.create("#1f1f1f")
                     verticalAlignment: VerticalAlignment.Center     
-                    ImageView {
-                        imageSource: "asset:///share/images/arrow_left.png"
-	        		    verticalAlignment: VerticalAlignment.Center
-                        id: toolbarback 
-                    }
-                   onTouch: {
-                        if (event.isDown()) {
-                            rootWindow.pop()
+                    maxWidth: toolbar_button_width
+                    preferredWidth: toolbar_button_width
+                    preferredHeight: 138
+                    Container{
+                        id: "button_back_top"
+                        maxWidth: toolbar_button_width
+                        preferredWidth: toolbar_button_width
+                        preferredHeight: 10
+                        maxHeight: 10
+                        minHeight: 10
+                        background: Color.create("#5f5f5f")
+                    }            
+                    Container {
+                        layout: AbsoluteLayout {}
+                        maxWidth: toolbar_button_width
+                        preferredWidth: toolbar_button_width
+                        horizontalAlignment: HorizontalAlignment.Center
+                        verticalAlignment: VerticalAlignment.Center
+                        onTouch: {
+                            if (event.isDown()) {
+                                rootWindow.pop()                
+                            }
+                        }
+                        
+                        Container {
+                            preferredWidth: toolbar_button_width
+                            ImageButton {
+                                id: "button_back"
+                                horizontalAlignment: HorizontalAlignment.Center
+                                defaultImageSource: "asset:///share/images/arrow_left.png"                                
+                            }
+                        }
+                        Container{
+                            layoutProperties: AbsoluteLayoutProperties {
+                                positionX: 0 
+                                positionY: 80
+                            }               
+                            preferredWidth: toolbar_button_width
+                            Label {
+                                text: Config.tr("Back") 
+                                horizontalAlignment: HorizontalAlignment.Center
+                                verticalAlignment: VerticalAlignment.Center 
+                                textStyle.textAlign: TextAlign.Center
+                                textStyle {
+                                    fontSize: FontSize.PointValue
+                                    fontSizeValue: 5.0
+                                    fontWeight: FontWeight.W100
+                                    color: Color.create("#ffffff")
+                                }
+                            }
                         }
                     }
+                    
                 }
+                
                 Container{
                     preferredWidth: 20
                     preferredHeight: 138 
                 }
-
+                
                 Container{
                     id: "toolbarnow"
-                    background: Color.create("#1f1f1f") 
+                    background: Color.create("#1f1f1f")
                     verticalAlignment: VerticalAlignment.Center     
-                    maxWidth: 250.0
-                    preferredHeight: 100 
-                    
-                    layoutProperties: StackLayoutProperties {
-                        spaceQuota: 20.0
-                    }
-                    horizontalAlignment: HorizontalAlignment.Center
-                    layout: DockLayout {}
-
-                    ImageButton {
-                        id: "button_current"
-                        verticalAlignment: VerticalAlignment.Center
+                    maxWidth: toolbar_button_width
+                    preferredWidth: toolbar_button_width
+                    preferredHeight: 138
+                    Container{
+                        id: "button_now_top"
+                        maxWidth: toolbar_button_width
+                        preferredWidth: toolbar_button_width
+                        preferredHeight: 10
+                        maxHeight: 10
+                        minHeight: 10
+                        background: Color.create("#5f5f5f")
+                    }            
+                    Container {
+                        layout: AbsoluteLayout {}
+                        maxWidth: toolbar_button_width
+                        preferredWidth: toolbar_button_width
                         horizontalAlignment: HorizontalAlignment.Center
-                        visible: (current && day == 0) ? true : false
-                        preferredWidth: 40*1.6
-                        preferredHeight: 40*1.6
-                        onClicked: {
-                            day_period = "current";
-                            updateperiod();
+                        verticalAlignment: VerticalAlignment.Center
+                        onTouch: {
+                            if (event.isDown()) {
+                                day_period = "current";
+                                updateperiod();
+                            }
                         }
-                        defaultImageSource: Config.imagespath +  "/now_def.png"
+                        
+                        Container {
+                            preferredWidth: toolbar_button_width
+                            ImageButton {
+                                id: "button_current"
+                                horizontalAlignment: HorizontalAlignment.Center
+                                defaultImageSource: Config.imagespath +  "/now_def.png"                                
+                            }
+                        }
+                        Container{
+                            layoutProperties: AbsoluteLayoutProperties {
+                                positionX: 0 
+                                positionY: 80
+                            }               
+                            preferredWidth: toolbar_button_width
+                            Label {
+                                text: Config.tr("Now") 
+                                horizontalAlignment: HorizontalAlignment.Center
+                                verticalAlignment: VerticalAlignment.Center 
+                                textStyle.textAlign: TextAlign.Center
+                                textStyle {
+                                    fontSize: FontSize.PointValue
+                                    fontSizeValue: 5.0
+                                    fontWeight: FontWeight.W100
+                                    color: Color.create("#ffffff")
+                                }
+                            }
+                        }
                     }
                     onCreationCompleted: {
                         if (day_period == "current"){
-                            background = Color.create("#0f0f0f")
+                             background = Color.create("#0f0f0f")
                         }else
-                            background = Color.create("#1f1f1f")
+                             background = Color.create("#1f1f1f")
                     }
+                    
                 }
+
                 Container{
                     id: "toolbarday"
                     background: Color.create("#1f1f1f")
                     verticalAlignment: VerticalAlignment.Center     
-                    maxWidth: 250.0
-                    preferredHeight: 100 
-                    layoutProperties: StackLayoutProperties {
-                        spaceQuota: 20.0
-                    }
-                    layout: DockLayout {}
-                    horizontalAlignment: HorizontalAlignment.Center
-                    ImageButton {
-                        id: "button_day"
+                    maxWidth: toolbar_button_width
+                    preferredWidth: toolbar_button_width
+                    preferredHeight: 138
+                    Container{
+                        id: "button_day_top"
+                        maxWidth: toolbar_button_width
+                        preferredWidth: toolbar_button_width
+                        preferredHeight: 10
+                        maxHeight: 10
+                        minHeight: 10
+                        background: Color.create("#5f5f5f")
+                    }            
+                    Container {
+                        layout: AbsoluteLayout {}
+                        maxWidth: toolbar_button_width
+                        preferredWidth: toolbar_button_width
                         horizontalAlignment: HorizontalAlignment.Center
-                        verticalAlignment: VerticalAlignment.Center     
-                        preferredWidth: 40*1.6
-                        preferredHeight: 40*1.6
-                        onClicked: {
-                            day_period = "day";
-                            updateperiod();
+                        verticalAlignment: VerticalAlignment.Center
+                        onTouch: {
+                            if (event.isDown()) {
+                                day_period = "day";
+                                updateperiod();
+                            }
                         }
-                        defaultImageSource: Config.imagespath +  "/day_def.png"
-
+                        
+                        Container {
+                            preferredWidth: toolbar_button_width
+                            ImageButton {
+                                id: "button_day"
+                                horizontalAlignment: HorizontalAlignment.Center
+                                defaultImageSource: Config.imagespath +  "/day_def.png"
+                            }
+                        }
+                        Container{
+                            layoutProperties: AbsoluteLayoutProperties {
+                                positionX: 0 
+                                positionY: 80
+                            }               
+                            preferredWidth: toolbar_button_width
+                            Label {
+                                text: Config.tr("Day") 
+                                horizontalAlignment: HorizontalAlignment.Center
+                                verticalAlignment: VerticalAlignment.Center 
+                                textStyle.textAlign: TextAlign.Center
+                                textStyle {
+                                    fontSize: FontSize.PointValue
+                                    fontSizeValue: 5.0
+                                    fontWeight: FontWeight.W100
+                                    color: Color.create("#ffffff")
+                                }
+                            }
+                        }
                     }
+                    
                     onCreationCompleted: {
                         if (day_period == "day"){
                             background = Color.create("#0f0f0f")
@@ -768,80 +905,138 @@ Page {
                             button_day.defaultImageSource = Config.imagespath +  "/day_def.png"
                     }
                 }
+                
+                
+
                 Container{
                     id: "toolbarnight"
                     background: Color.create("#1f1f1f")
                     verticalAlignment: VerticalAlignment.Center     
-                    maxWidth: 250.0
-                    preferredHeight: 100 
-                    layoutProperties: StackLayoutProperties {
-                        spaceQuota: 20.0
-                    }
-                    layout: DockLayout {}
-                    horizontalAlignment: HorizontalAlignment.Center
-                    ImageButton {
-                        id: "button_night"
+                    maxWidth: toolbar_button_width
+                    preferredWidth: toolbar_button_width
+                    preferredHeight: 138
+                    Container{
+                        id: "button_night_top"
+                        maxWidth: toolbar_button_width
+                        preferredWidth: toolbar_button_width
+                        preferredHeight: 10
+                        maxHeight: 10
+                        minHeight: 10
+                        background: Color.create("#5f5f5f")
+                    }            
+                    Container {
+                        layout: AbsoluteLayout {}
+                        maxWidth: toolbar_button_width
+                        preferredWidth: toolbar_button_width
                         horizontalAlignment: HorizontalAlignment.Center
-                        verticalAlignment: VerticalAlignment.Center     
-                        preferredWidth: 40*1.6
-                        preferredHeight: 40*1.6
-                        onClicked: {
-                            day_period = "night";
-                            updateperiod();
+                        verticalAlignment: VerticalAlignment.Center
+                        onTouch: {
+                            if (event.isDown()) {
+                                day_period = "night";
+                                updateperiod();
+                            }
                         }
-                        defaultImageSource: Config.imagespath +  "/night.png"
+                        
+                        Container {
+                            preferredWidth: toolbar_button_width
+                            ImageButton {
+                                id: "button_night"
+                                horizontalAlignment: HorizontalAlignment.Center
+                                defaultImageSource: Config.imagespath +  "/night_def.png"
+                            }
+                        }
+                        Container{
+                            layoutProperties: AbsoluteLayoutProperties {
+                                positionX: 0 
+                                positionY: 80
+                            }               
+                            preferredWidth: toolbar_button_width
+                            Label {
+                                text: Config.tr("Night") 
+                                horizontalAlignment: HorizontalAlignment.Center
+                                verticalAlignment: VerticalAlignment.Center 
+                                textStyle.textAlign: TextAlign.Center
+                                textStyle {
+                                    fontSize: FontSize.PointValue
+                                    fontSizeValue: 5.0
+                                    fontWeight: FontWeight.W100
+                                    color: Color.create("#ffffff")
+                                }
+                            }
+                        }
+                    }
+                    
+                    onCreationCompleted: {
+                        if (day_period == "day"){
+                            background = Color.create("#0f0f0f")
+                            button_day.defaultImageSource = Config.imagespath +  "/day_sel.png"
+                        }else
+                            background = Color.create("#1f1f1f")
+                            button_day.defaultImageSource = Config.imagespath +  "/day_def.png"
                     }
                 }
+                
                 Container{
                     id: "toolbarclock"
                     background: Color.create("#1f1f1f")
                     verticalAlignment: VerticalAlignment.Center     
-                    maxWidth: 250.0
-                    preferredHeight: 100 
-                    layoutProperties: StackLayoutProperties {
-                        spaceQuota: 20.0
-                    }
-                    layout: DockLayout {}
-                    horizontalAlignment: HorizontalAlignment.Center
-                    ImageButton {
-                        id: "button_clock"
+                    maxWidth: toolbar_button_width
+                    preferredWidth: toolbar_button_width
+                    preferredHeight: 138
+                    Container{
+                        id: "button_clock_top"
+                        maxWidth: toolbar_button_width
+                        preferredWidth: toolbar_button_width
+                        preferredHeight: 10
+                        maxHeight: 10
+                        minHeight: 10
+                        background: Color.create("#5f5f5f")
+                    }            
+                    Container {
+                        layout: AbsoluteLayout {}
+                        maxWidth: toolbar_button_width
+                        preferredWidth: toolbar_button_width
                         horizontalAlignment: HorizontalAlignment.Center
-                        verticalAlignment: VerticalAlignment.Center     
-                        visible: (check_hours()) ? true : false
-                        preferredWidth: 40*1.6
-                        preferredHeight: 40*1.6
-                        onClicked: {
-                            day_period = "hours";
-                            updateperiod();
+                        verticalAlignment: VerticalAlignment.Center
+                        onTouch: {
+                            if (event.isDown()) {
+                                day_period = "hours";
+                                updateperiod();
+                            }
                         }
-                        defaultImageSource: Config.imagespath +  "/clock.png"
+                        
+                        Container {
+                            preferredWidth: toolbar_button_width
+                            ImageButton {
+                                id: "button_clock"
+                                horizontalAlignment: HorizontalAlignment.Center
+                                defaultImageSource: Config.imagespath +  "/clock.png"
+                            }
+                        }
+                        Container{
+                            layoutProperties: AbsoluteLayoutProperties {
+                                positionX: 0 
+                                positionY: 80
+                            }               
+                            preferredWidth: toolbar_button_width
+                            Label {
+                                text: Config.tr("Hourly") 
+                                horizontalAlignment: HorizontalAlignment.Center
+                                verticalAlignment: VerticalAlignment.Center 
+                                textStyle.textAlign: TextAlign.Center
+                                textStyle {
+                                    fontSize: FontSize.PointValue
+                                    fontSizeValue: 5.0
+                                    fontWeight: FontWeight.W100
+                                    color: Color.create("#ffffff")
+                                }
+                            }
+                        }
                     }
+                    
                 }
+                
 
-                Container{
-                    horizontalAlignment: HorizontalAlignment.Right
-                    verticalAlignment: VerticalAlignment.Center
-                    layoutProperties: StackLayoutProperties {
-                        spaceQuota: 5.0
-                    }
-                    ImageButton {
-                        id: settingsicon
-                        preferredWidth:  81
-                        maxWidth:        81
-                        minWidth:        81
-                        preferredHeight: 81 
-                        maxHeight:       81 
-                        minHeight:       81 
-                        verticalAlignment: VerticalAlignment.Center     
-                        defaultImageSource: "asset:///button_icons/menu_def.png"
-                        pressedImageSource: "asset:///button_icons/menu_sel.png"
-                        horizontalAlignment: HorizontalAlignment.Right
-                        onClicked: {
-                            newPage = settingspageDefinition.createObject();
-                            rootWindow.push(newPage);
-                        }
-                    }
-                }
                 Container{
                     preferredWidth: 20
                     preferredHeight: 138 

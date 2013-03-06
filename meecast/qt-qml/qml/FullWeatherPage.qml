@@ -256,7 +256,6 @@ Page {
 	if (day_period == "hours"){
             day_period_name = Config.tr("Hours");
             
-            
 	        
             toolbarnow.background = Color.create("#2f2f2f")
             button_now_top.background = Color.create("#5f5f5f")

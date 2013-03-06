@@ -278,7 +278,7 @@ Page {
             day_rect.visible = false;
             current_rect.visible = false;
             main_icon.visible = false;
-            hours_list.visible = true;
+            hours_list.visible = true;            
 	}
     
 

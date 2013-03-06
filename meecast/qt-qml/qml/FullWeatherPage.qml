@@ -684,15 +684,15 @@ Page {
             }
         }
 
-        Container{
-            layoutProperties: AbsoluteLayoutProperties {
-                positionX: 0 
-                positionY: 1140
-            }
-            preferredHeight: 2
-            preferredWidth: 768
-            background: Color.Gray    
-        }
+//        Container{
+//            layoutProperties: AbsoluteLayoutProperties {
+//                positionX: 0 
+//                positionY: 1140
+//            }
+//            preferredHeight: 2
+//            preferredWidth: 768
+//            background: Color.Gray    
+//        }
 
         Container{
             id: toolbar
@@ -710,7 +710,7 @@ Page {
                 
                 Container{
                     id: "toolbarback"
-                    background: Color.create("#1f1f1f")
+                    background: Color.create("#2f2f2f")
                     verticalAlignment: VerticalAlignment.Center     
                     maxWidth: toolbar_button_width
                     preferredWidth: toolbar_button_width
@@ -766,12 +766,15 @@ Page {
                     }
                     
                 }
-                
                 Container{
-                    preferredWidth: 20
-                    preferredHeight: 138 
+                        preferredWidth: 2
+                        minWidth:       2 
+                        preferredHeight: 138
+                        maxHeight:       138 
+                        minHeight:       138
+                        background: Color.create("#000000")
                 }
-                
+                                
                 Container{
                     id: "toolbarnow"
                     background: Color.create("#1f1f1f")
@@ -836,6 +839,15 @@ Page {
                              background = Color.create("#1f1f1f")
                     }
                     
+                }
+
+                Container{
+                        preferredWidth: 2
+                        minWidth:       2 
+                        preferredHeight: 138
+                        maxHeight:       138 
+                        minHeight:       138
+                        background: Color.create("#000000")
                 }
 
                 Container{
@@ -909,6 +921,15 @@ Page {
                 
 
                 Container{
+                        preferredWidth: 2
+                        minWidth:       2 
+                        preferredHeight: 138
+                        maxHeight:       138 
+                        minHeight:       138
+                        background: Color.create("#000000")
+                }
+
+                Container{
                     id: "toolbarnight"
                     background: Color.create("#1f1f1f")
                     verticalAlignment: VerticalAlignment.Center     
@@ -975,6 +996,15 @@ Page {
                             button_day.defaultImageSource = Config.imagespath +  "/day_def.png"
                     }
                 }
+
+                Container{
+                        preferredWidth: 2
+                        minWidth:       2 
+                        preferredHeight: 138
+                        maxHeight:       138 
+                        minHeight:       138
+                        background: Color.create("#000000")
+                }
                 
                 Container{
                     id: "toolbarclock"
@@ -1034,13 +1064,7 @@ Page {
                         }
                     }
                     
-                }
-                
-
-                Container{
-                    preferredWidth: 20
-                    preferredHeight: 138 
-                }
+                }                
             }
         }
     }

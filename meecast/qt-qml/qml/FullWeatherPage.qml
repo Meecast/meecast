@@ -438,22 +438,29 @@ Page {
                 Container{
                     id: current_temperature
                     horizontalAlignment: HorizontalAlignment.Right
+                    preferredWidth:  768
                     verticalAlignment: VerticalAlignment.Bottom
-                    preferredWidth: 768/2 - Qt.main_icon_size/2 + 30 
-                    Label {                 
-                        id: temperature 
-                  //      text: Current.getdata(0, "temp") + '°';
-                        horizontalAlignment: HorizontalAlignment.Center
-                        verticalAlignment: VerticalAlignment.Bottom
-                        textStyle.textAlign: TextAlign.Center
-                        textStyle {
-                            fontSize: FontSize.PointValue
-                            fontWeight: FontWeight.W100
-                            fontSizeValue: 22
-                            color: Color.White
+                    layout: AbsoluteLayout {}
+                    Container {
+                        preferredWidth:  768/2
+                        layoutProperties: AbsoluteLayoutProperties {
+                            positionX: 768/2
                         }
-                    }    
-                }               
+                        Label {                                                               
+                           id: temperature
+                           //text: ListItemData.current_temp_text                                                                
+                           horizontalAlignment: HorizontalAlignment.Center
+                           verticalAlignment: VerticalAlignment.Bottom
+                           textStyle.textAlign: TextAlign.Center
+                           textStyle {
+                               fontSize: FontSize.PointValue
+                               fontWeight: FontWeight.W100
+                               fontSizeValue: 23 
+                               color: Color.White
+                           }
+                       }
+                    }
+                }                               
             }
             Container{
                 id: title

@@ -17,7 +17,7 @@ Page {
     property variant model_day:  Forecast_model
     property variant model_night:  (current) ? Current_night : Forecast_night_model
     property variant model_hours:  Forecast_hours_model
-    property int toolbar_button_width: 160
+    property int toolbar_button_width: 152
     //property variant description_text_alignment: Text.AlignHLeft;
    
     function check_hours ()
@@ -701,7 +701,7 @@ Page {
             }
             preferredWidth: 768 
             preferredHeight: 138 
-            background: Color.create("#3f3f3f")
+            background: Color.create("#2f2f2f")
             Container{    
                 layout: StackLayout {
                     orientation: LayoutOrientation.LeftToRight
@@ -711,7 +711,7 @@ Page {
                     id: "toolbarback"
                     background: Color.create("#2f2f2f")
                     verticalAlignment: VerticalAlignment.Center     
-                    maxWidth: toolbar_button_width
+                    //maxWidth: toolbar_button_width
                     preferredWidth: toolbar_button_width
                     preferredHeight: 138
                     Container{
@@ -725,7 +725,7 @@ Page {
                     }            
                     Container {
                         layout: AbsoluteLayout {}
-                        maxWidth: toolbar_button_width
+                      //  maxWidth: toolbar_button_width
                         preferredWidth: toolbar_button_width
                         horizontalAlignment: HorizontalAlignment.Center
                         verticalAlignment: VerticalAlignment.Center
@@ -778,7 +778,7 @@ Page {
                     id: "toolbarnow"
                     background: Color.create("#1f1f1f")
                     verticalAlignment: VerticalAlignment.Center     
-                    maxWidth: toolbar_button_width
+                    //maxWidth: toolbar_button_width
                     preferredWidth: toolbar_button_width
                     preferredHeight: 138
                     visible: (main.current == true && model_current.getdata(day, "current")) ? true : false;
@@ -793,7 +793,7 @@ Page {
                     }            
                     Container {
                         layout: AbsoluteLayout {}
-                        maxWidth: toolbar_button_width
+                      //  maxWidth: toolbar_button_width
                         preferredWidth: toolbar_button_width
                         horizontalAlignment: HorizontalAlignment.Center
                         verticalAlignment: VerticalAlignment.Center
@@ -854,7 +854,7 @@ Page {
                     id: "toolbarday"
                     background: Color.create("#1f1f1f")
                     verticalAlignment: VerticalAlignment.Center     
-                    maxWidth: toolbar_button_width
+                    //maxWidth: toolbar_button_width
                     preferredWidth: toolbar_button_width
                     preferredHeight: 138
                     Container{
@@ -868,7 +868,7 @@ Page {
                     }            
                     Container {
                         layout: AbsoluteLayout {}
-                        maxWidth: toolbar_button_width
+                        //maxWidth: toolbar_button_width
                         preferredWidth: toolbar_button_width
                         horizontalAlignment: HorizontalAlignment.Center
                         verticalAlignment: VerticalAlignment.Center
@@ -933,12 +933,12 @@ Page {
                     id: "toolbarnight"
                     background: Color.create("#1f1f1f")
                     verticalAlignment: VerticalAlignment.Center     
-                    maxWidth: toolbar_button_width
+                    //maxWidth: toolbar_button_width
                     preferredWidth: toolbar_button_width
                     preferredHeight: 138
                     Container{
                         id: "button_night_top"
-                        maxWidth: toolbar_button_width
+                       // maxWidth: toolbar_button_width
                         preferredWidth: toolbar_button_width
                         preferredHeight: 10
                         maxHeight: 10
@@ -947,7 +947,7 @@ Page {
                     }            
                     Container {
                         layout: AbsoluteLayout {}
-                        maxWidth: toolbar_button_width
+                      //  maxWidth: toolbar_button_width
                         preferredWidth: toolbar_button_width
                         horizontalAlignment: HorizontalAlignment.Center
                         verticalAlignment: VerticalAlignment.Center
@@ -1010,13 +1010,13 @@ Page {
                     id: "toolbarclock"
                     background: Color.create("#1f1f1f")
                     verticalAlignment: VerticalAlignment.Center     
-                    maxWidth: toolbar_button_width
+                    //maxWidth: toolbar_button_width
                     preferredWidth: toolbar_button_width
                     preferredHeight: 138
                     visible:  (check_hours()) ? true : false
                     Container{
                         id: "button_clock_top"
-                        maxWidth: toolbar_button_width
+             //           maxWidth: toolbar_button_width
                         preferredWidth: toolbar_button_width
                         preferredHeight: 10
                         maxHeight: 10
@@ -1025,7 +1025,7 @@ Page {
                     }            
                     Container {
                         layout: AbsoluteLayout {}
-                        maxWidth: toolbar_button_width
+               //         maxWidth: toolbar_button_width
                         preferredWidth: toolbar_button_width
                         horizontalAlignment: HorizontalAlignment.Center
                         verticalAlignment: VerticalAlignment.Center
@@ -1066,6 +1066,15 @@ Page {
                     }
                     
                 }                
+                Container{
+                        preferredWidth: 2
+                        minWidth:       2 
+                        preferredHeight: 138
+                        maxHeight:       138 
+                        minHeight:       138
+                        background: Color.create("#000000")
+                }
+            
             }
         }
     }

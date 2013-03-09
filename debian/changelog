@@ -3,10 +3,10 @@ meecast (0.7) unstable; urgency=low
   * BB Fixed problem with background in main and hours form
   * BB Changed position of button menu in main form 
   * BB Increased font for weather description and day name
-  * BB Redisegned tabs in Main and Fullweather forms
-  * BB Redisigned Main and Fullweather forms
+  * BB Redesigned tabs in Main and Fullweather forms
+  * BB Redesigned Main and Fullweather forms
   * BB Fixed problem with Main page after removing all stations
-  * BB Fixed background color in settings menus
+  * BB Fixed background colour in settings menus
   * Disabled debug for gismeteo.ru and foreca.com sources
   * Fixed problem with big size of icon in lockscreen applet
   * Fixed problem with Settings pages - Lockscreen and StandbyScreen

@@ -52,12 +52,13 @@ Page {
 
     function updateperiod()
     {
-        console.log ("Day number   ", day);
+/*        console.log ("Day number   ", day); */
         condition.clear()
         if (day == 0){
             model_night = Current_night;
         }else
             model_night = Forecast_night_model;
+
         if ((model_day.getdata(day, "lastupdate")) != "N/A")
                 condition.insert({"cond_name": Config.tr("Last update:"),
                              "value": model_day.getdata(day, "lastupdate")});

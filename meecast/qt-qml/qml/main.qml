@@ -25,7 +25,7 @@ NavigationPane {
     id: rootWindow 
     onPopTransitionEnded: {
         if (newPage == page) {
-            console.log("onPopTransitionEnded1111");
+           /* console.log("onPopTransitionEnded"); */
             rootWindow.backButtonsVisible = false;
             page.destroy();
         }
@@ -74,8 +74,8 @@ NavigationPane {
                 current_value = Current.getdata(0, "current");
             else
                 current_value = false;
-            console.log("Forecast_model.rowCount() ",  Forecast_model.rowCount());
-            console.log("Cuurent.rowCount() ",  Current.rowCount());
+     /*       console.log("Forecast_model.rowCount() ",  Forecast_model.rowCount()); */
+     /*       console.log("Cuurent.rowCount() ",  Current.rowCount()); */
             for (var a = 0; a < Forecast_model.rowCount() + 1; a++) {
                 if (a == 0){
                     if (Current.rowCount() > 0){

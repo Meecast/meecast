@@ -11,8 +11,9 @@ meecast (0.7) unstable; urgency=low
   * Fixed problem with big size of icon in lockscreen applet
   * Fixed problem with Settings pages - Lockscreen and StandbyScreen
   * Added icons for gismeteo.ru 
+  * Updated Catalan, Finish, Norway, Arabic, Russian translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 22 Feb 2012 19:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 09 Mar 2013 16:31:23 +0200
 
 meecast (0.6.10) unstable; urgency=low
 
@@ -28,7 +29,7 @@ meecast (0.6.10) unstable; urgency=low
   * Changed icon 'fog' for LockScreen. Thanks Red Verge
   * Fixed menu bar position and behaviour. Thanks Nakram.
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 20 Jan 2012 19:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 20 Jan 2013 19:31:23 +0200
 
 meecast (0.6.9) unstable; urgency=low
 

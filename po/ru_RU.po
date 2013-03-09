@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-17 20:37+0300\n"
+"POT-Creation-Date: 2013-03-09 07:46+0300\n"
 "PO-Revision-Date: 2012-12-18 10:33+0200\n"
 "Last-Translator: Vlad Vasilyeu <vasvlad@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -381,6 +381,10 @@ msgstr "Авторы"
 msgid "Automatically update data when connecting to the Internet"
 msgstr "Автоматически обновлять данные после соединения с Интернетом"
 
+#: omweather/src/hash.data:326
+msgid "Back"
+msgstr "Назад"
+
 #: omweather/src/weather-settings.c:3378 omweather/src/weather-settings.c:3382
 msgid "Background color:"
 msgstr "Цвет фона:"
@@ -429,7 +433,7 @@ msgstr "Цельсий"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:114
 msgid "Celsius"
-msgstr ""
+msgstr "Цельсий"
 
 #: omweather/src/weather-simple-settings.c:677
 #: omweather/src/weather-simple-settings.c:710
@@ -2974,35 +2978,35 @@ msgstr "в названии станции"
 msgid "steady"
 msgstr "устойчивое"
 
-#: omweather/src/hash.data:326
+#: omweather/src/hash.data:327
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:327
+#: omweather/src/hash.data:328
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:328
+#: omweather/src/hash.data:329
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:332
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:332
+#: omweather/src/hash.data:333
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:333
+#: omweather/src/hash.data:334
 msgid "Ю-З"
 msgstr ""
 

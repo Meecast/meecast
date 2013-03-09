@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-17 20:37+0300\n"
+"POT-Creation-Date: 2013-03-09 07:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -341,6 +341,10 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:4156
 msgid "Automatically update data when connecting to the Internet"
+msgstr ""
+
+#: omweather/src/hash.data:326
+msgid "Back"
 msgstr ""
 
 #: omweather/src/weather-settings.c:3378 omweather/src/weather-settings.c:3382
@@ -2877,34 +2881,34 @@ msgstr ""
 msgid "steady"
 msgstr ""
 
-#: omweather/src/hash.data:326
+#: omweather/src/hash.data:327
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:327
+#: omweather/src/hash.data:328
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:328
+#: omweather/src/hash.data:329
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:332
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:332
+#: omweather/src/hash.data:333
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:333
+#: omweather/src/hash.data:334
 msgid "Ю-З"
 msgstr ""

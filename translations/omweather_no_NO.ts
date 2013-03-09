@@ -468,6 +468,11 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
             <translation> Oppdatere data automatisk ved tilkobling til Internett</translation>
         </message>
         <message>
+            <source>Back</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Background color:</source>
             <translation>Bakgrunnsfarge:</translation>
         </message>
@@ -1315,7 +1320,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Hourly</source>
-            <translation type="unfinished">Timer</translation>
+            <translation>Time for time</translation>
         </message>
         <message>
             <source>Hours</source>

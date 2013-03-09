@@ -465,6 +465,11 @@ Krijimi i ndërfaqes për Fremantle-in: Krebber Jan Niemelä Ulla
             <translation>Përditëso të dhënat sa po të lidhesh në internet</translation>
         </message>
         <message>
+            <source>Back</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Background color:</source>
             <translation>Ngjyra e fushës</translation>
         </message>

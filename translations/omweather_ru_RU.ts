@@ -456,6 +456,10 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
             <translation>Автоматически обновлять данные после соединения с Интернетом</translation>
         </message>
         <message>
+            <source>Back</source>
+            <translation>Назад</translation>
+        </message>
+        <message>
             <source>Background color:</source>
             <translation>Цвет фона:</translation>
         </message>
@@ -543,8 +547,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Celsius</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Цельсий</translation>
         </message>
         <message>
             <source>City</source>

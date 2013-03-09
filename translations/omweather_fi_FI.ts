@@ -7,7 +7,7 @@
             <source>
 H: </source>
             <translation>
- H: </translation>
+H: </translation>
         </message>
         <message>
             <source>
@@ -464,6 +464,11 @@ Fremantle käyttöliittymä: Krebber Jan ja Niemelä Ulla
         <message>
             <source>Automatically update data when connecting to the Internet</source>
             <translation>Päivitä säätiedot automaattisesti yhdistettäessä Internettiin</translation>
+        </message>
+        <message>
+            <source>Back</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Background color:</source>
@@ -1314,7 +1319,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Hourly</source>
-            <translation type="unfinished">Tunteja</translation>
+            <translation>Tunneittain</translation>
         </message>
         <message>
             <source>Hours</source>

@@ -469,6 +469,11 @@ Diseño de la IU para Fremantle: Krebber Jan Niemelä Ulla
             <translation>Actualizar automáticamente los datos al conectarse a internet</translation>
         </message>
         <message>
+            <source>Back</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Background color:</source>
             <translation>Color de fondo:</translation>
         </message>

@@ -383,7 +383,7 @@ msgstr "Автоматически обновлять данные после с
 
 #: omweather/src/hash.data:326
 msgid "Back"
-msgstr ""
+msgstr "Назад"
 
 #: omweather/src/weather-settings.c:3378 omweather/src/weather-settings.c:3382
 msgid "Background color:"
@@ -433,7 +433,7 @@ msgstr "Цельсий"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:114
 msgid "Celsius"
-msgstr ""
+msgstr "Цельсий"
 
 #: omweather/src/weather-simple-settings.c:677
 #: omweather/src/weather-simple-settings.c:710

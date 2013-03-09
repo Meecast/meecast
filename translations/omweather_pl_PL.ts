@@ -456,6 +456,11 @@ Interfejs dla Fremantle: Krebber Jan Niemelä Ulla
             <translation>Automatyczne aktualizowanie danych podczas połączenia z Internetem</translation>
         </message>
         <message>
+            <source>Back</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Background color:</source>
             <translation>Kolor tła:</translation>
         </message>

@@ -472,6 +472,11 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
             <translation>Wetterdaten bei Internetverbindung aktualisieren</translation>
         </message>
         <message>
+            <source>Back</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Background color:</source>
             <translation>Hintergrundfarbe:</translation>
         </message>

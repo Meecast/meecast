@@ -468,6 +468,11 @@ Design de l'interface pour Fremantle : Krebber Jan Niemelä Ulla
             <translation>Automatiquement mettre les données à jour lors de la connexion à Internet</translation>
         </message>
         <message>
+            <source>Back</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Background color:</source>
             <translation>Couleur du fond :</translation>
         </message>

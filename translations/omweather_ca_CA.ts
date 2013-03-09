@@ -466,6 +466,11 @@ Disseny IU per a Fremantle: Krebber Jan Niemelä Ulla
             <translation>Actualitza automàticament les dades quan s'estigui connectat a internet</translation>
         </message>
         <message>
+            <source>Back</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Background color:</source>
             <translation>Color del fons:</translation>
         </message>
@@ -1314,7 +1319,7 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>Hourly</source>
-            <translation type="unfinished">Hores</translation>
+            <translation>Cada hora</translation>
         </message>
         <message>
             <source>Hours</source>

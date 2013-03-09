@@ -3,7 +3,7 @@ meecast (0.7) unstable; urgency=low
   * BB Fixed problem with background in main and hours form
   * BB Changed position of button menu in main form 
   * BB Increased font for weather description and day name
-  * BB Redisegned tabs in main and fullweather forms
+  * BB Redisegned tabs in Main and Fullweather forms
   * BB Redisigned Main and Fullweather forms
   * BB Fixed problem with Main page after removing all stations
   * BB Fixed background color in settings menus

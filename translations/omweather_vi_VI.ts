@@ -463,6 +463,11 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
             <translation>Tự động cập nhật dữ liệu khi kết nối mạng</translation>
         </message>
         <message>
+            <source>Back</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Background color:</source>
             <translation>Màu nền</translation>
         </message>

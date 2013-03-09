@@ -26,8 +26,22 @@ Andrew Olmsted
 for Semi-transparency
 and coloured backgrounds
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+تطبيق Hildon المكتبي
+لأجهزة نوكيا N800/N810/N900
+لعرض حاله الطقس.
+النسخه %s الرقم: %s
+2006-2011 الحقوق(c) 
+Vlad Vasiliev, Pavel Fialko
+2008 الحقوق(c)
+لمجموعة الأيقونات الإفتراضية (Glance)
+وتصميم واجهة التطبيق
+Andrew Zhilin
+2008 الحقوق(c)
+Andrew Olmsted
+للخلفيات الملونة
+والشفافة
+</translation>
         </message>
         <message>
             <source>
@@ -109,51 +123,47 @@ W: </translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(صغرى)</translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(صغرى)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(معتدل)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(معتدل)</translation>
         </message>
         <message>
             <source>1 day</source>
-            <translation>يوم  1</translation>
+            <translation>يومياً</translation>
         </message>
         <message>
             <source>1 day</source>
-            <translation>يوم  1</translation>
+            <translation>يومياً</translation>
         </message>
         <message>
             <source>1 hour</source>
-            <translation>ساعة 1</translation>
+            <translation>ساعة واحده</translation>
         </message>
         <message>
             <source>1 hour</source>
-            <translation>ساعة 1</translation>
+            <translation>ساعة واحده</translation>
         </message>
         <message>
             <source>1 hour</source>
-            <translation>ساعة 1</translation>
+            <translation>ساعة واحده</translation>
         </message>
         <message>
             <source>1 hour</source>
-            <translation>ساعة 1</translation>
+            <translation>ساعة واحده</translation>
         </message>
         <message>
             <source>1 minute</source>
-            <translation>1 ديقية</translation>
+            <translation>دقيقة واحده</translation>
         </message>
         <message>
             <source>10 minutes</source>
@@ -177,11 +187,11 @@ W: </translation>
         </message>
         <message>
             <source>2 hours</source>
-            <translation>2 ساعة</translation>
+            <translation>ساعتين</translation>
         </message>
         <message>
             <source>2 hours</source>
-            <translation>2 ساعة</translation>
+            <translation>ساعتين</translation>
         </message>
         <message>
             <source>20 seconds</source>
@@ -241,87 +251,87 @@ W: </translation>
         </message>
         <message>
             <source>AM Clouds / PM Sun</source>
-            <translation>غيوم صباحا / شمس مساء</translation>
+            <translation>غائم صباحاً / مشمس مساءً</translation>
         </message>
         <message>
             <source>AM Drizzle</source>
-            <translation>رذاذ صباحا</translation>
+            <translation>رذاذ صباحاً</translation>
         </message>
         <message>
             <source>AM Drizzle / Wind</source>
-            <translation>رذاذ / رياح صباحا</translation>
+            <translation>رياح صباحاً / رذاذ</translation>
         </message>
         <message>
             <source>AM Fog / PM Clouds</source>
-            <translation>ضباب صباحا / غيوم مساء</translation>
+            <translation>ضباب صباحاً / غائم مساءً</translation>
         </message>
         <message>
             <source>AM Fog / PM Sun</source>
-            <translation>ضباب صباحا / شمس مساء</translation>
+            <translation>ضباب صباحاً / مشمس مساءً</translation>
         </message>
         <message>
             <source>AM Light Rain</source>
-            <translation>مطر خفيف صباحا</translation>
+            <translation>أمطار جزئية صباحاً</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
-            <translation>مطر خفيف / رياح صباحا</translation>
+            <translation>رياح / أمطار جزئية صباحاً</translation>
         </message>
         <message>
             <source>AM Light Snow</source>
-            <translation>ثلج خفيف صباحا</translation>
+            <translation>ثلج خفيف صباحاً</translation>
         </message>
         <message>
             <source>AM Light Snow / Wind</source>
-            <translation>ثلج خفيف / رياح صباحا</translation>
+            <translation>رياح / ثلج خفيف صباحاً</translation>
         </message>
         <message>
             <source>AM Light Wintry Mix</source>
-            <translation>مزيج شتوي خفيف صباحا</translation>
+            <translation>مزيج شتوي خفيف صباحاً</translation>
         </message>
         <message>
             <source>AM Rain</source>
-            <translation>مطر صباحا</translation>
+            <translation>مطر صباحاً</translation>
         </message>
         <message>
             <source>AM Rain / Snow</source>
-            <translation>مطر صباحا / ثلج</translation>
+            <translation>مطر صباحاً / ثلج</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
-            <translation>مطر صباحا / زخات ثلج</translation>
+            <translation>مطر صباحاً / زخات ثلج</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers / Wind</source>
-            <translation>مطر صباحا / زخات ثلج / رياح</translation>
+            <translation>مطر صباحاً / زخات ثلج / رياح</translation>
         </message>
         <message>
             <source>AM Rain / Wind</source>
-            <translation>مطر صباحا / ثلج</translation>
+            <translation>مطر صباحاً / ثلج</translation>
         </message>
         <message>
             <source>AM Showers</source>
-            <translation>زخات صباحا</translation>
+            <translation>زخات مطر صباحاً</translation>
         </message>
         <message>
             <source>AM Showers / Wind</source>
-            <translation>زخات صباحا / رياح</translation>
+            <translation>زخات مطر صباحاً / رياح</translation>
         </message>
         <message>
             <source>AM Snow</source>
-            <translation>ثلج صباحا</translation>
+            <translation>ثلج صباحاً</translation>
         </message>
         <message>
             <source>AM Snow Showers</source>
-            <translation>زخات ثلج صباحا</translation>
+            <translation>زخات ثلج صباحاً</translation>
         </message>
         <message>
             <source>AM Snow Showers / Wind</source>
-            <translation>زخات ثلج صباحا / رياح</translation>
+            <translation>زخات ثلج صباحاً / رياح</translation>
         </message>
         <message>
             <source>AM Snow Showers / Wind Late</source>
-            <translation>زخات ثلج صباحا / رياح متأخره</translation>
+            <translation>زخات ثلج صباحاً / رياح متأخره</translation>
         </message>
         <message>
             <source>About</source>
@@ -386,12 +396,20 @@ Alexander Savchenko aka dizel - for testing
 Timeless - for patches 
 Eric Link - for feature request and donation
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alexis Iglauer - للتجربة
+Eugene Roytenberg - للتجربة
+Jarek Szczepanski aka Imrahil - للتجربة
+Vladimir Shakhov aka Mendoza - للتجربة 
+Marc Dillon - لتصحيح وتعديل الأخطاء الإملائية الإنجليزية
+Arkady Glazov aka Globster - للتجربة
+Alexander Savchenko aka dizel - للتجربة
+Timeless - للأوامر البرمجية 
+Eric Link - لطلب الإضافات والمزايا والتبرعات
+</translation>
         </message>
         <message>
             <source>An unknown error has occurred.</source>
-            <translation>حدث خطأ غير معروف</translation>
+            <translation>حدث خطأ غير معروف.</translation>
         </message>
         <message>
             <source>Animation</source>
@@ -406,8 +424,10 @@ Eric Link - for feature request and donation
 for installing package 'MeeCast applet'.
 You should uninstall AccuWeather 
 before installing this package</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>سيبدأ مدير التطبيق الآن
+بثبيت حزمة 'MeeCast applet'.
+يجب حذف تطبيق AccuWeather 
+قبل تثبيت هذه الحزمة</translation>
         </message>
         <message>
             <source>Are you sure to want delete this station ?</source>
@@ -424,14 +444,18 @@ Documentation: Marko Vertainen
 Design UI and default iconset: Andrew Zhilin
 Design UI for Fremantle: Krebber Jan Niemelä Ulla
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>كتابة وتطوير: &lt;Vlad Vasiliev, &lt;vlad@gas.by
+تطوير: &lt;Pavel Fialko, &lt;pavelnf@gmail.com
+توثيق: Marko Vertainen
+تصميم الواجهة والأيقونات الإفتراضية: Andrew Zhilin
+تصميم الواجهة لنظام فريمانتل: Krebber Jan Niemelä Ulla
+</translation>
         </message>
         <message>
             <source>Author and maintenance: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>كتابة وتطوير: &lt;Vlad Vasiliev, &lt;vlad@gas.by
+</translation>
         </message>
         <message>
             <source>Authors</source>
@@ -442,12 +466,17 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
             <translation>تحديث البيانات تلقائيا عند الاتصال بالإنترنت</translation>
         </message>
         <message>
-            <source>Background color:</source>
-            <translation>لو الخلفية</translation>
+            <source>Back</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Background color:</source>
-            <translation>لو الخلفية</translation>
+            <translation>لون الخلفية</translation>
+        </message>
+        <message>
+            <source>Background color:</source>
+            <translation>لون الخلفية</translation>
         </message>
         <message>
             <source>Beauf.</source>
@@ -525,12 +554,11 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Celcius</source>
-            <translation>مئوية</translation>
+            <translation>مِئوية</translation>
         </message>
         <message>
             <source>Celsius</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>درجة مئوية</translation>
         </message>
         <message>
             <source>City</source>
@@ -554,36 +582,35 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clear</source>
-            <translation>صافي</translation>
+            <translation>صحو</translation>
         </message>
         <message>
             <source>Clear / Wind</source>
-            <translation>رياح / صافية</translation>
+            <translation>صحو / رياح</translation>
         </message>
         <message>
             <source>Clear Sky</source>
-            <translation>سماء صافية</translation>
+            <translation>سماء صافيه</translation>
         </message>
         <message>
             <source>Clear, Drifting Snow</source>
-            <translation>صافي, ثلج منجرف</translation>
+            <translation>صحو, ثلوج منجرفه</translation>
         </message>
         <message>
             <source>Clear, Fog</source>
-            <translation>صافي, ضباب</translation>
+            <translation>صحو, ضباب</translation>
         </message>
         <message>
             <source>Clear, Fog, Drizzle</source>
-            <translation>صافي, ضباب, رذاذ</translation>
+            <translation>صحو, ضباب, رذاذ</translation>
         </message>
         <message>
             <source>Clear, Haze</source>
-            <translation>صافي, ضباب</translation>
+            <translation>صحو, ضباب</translation>
         </message>
         <message>
             <source>Clear, Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>صحو, ضباب</translation>
         </message>
         <message>
             <source>Close</source>
@@ -591,8 +618,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clouds Early / Clearing Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غيوم مبكره / صحو في وقت متأخر</translation>
         </message>
         <message>
             <source>Cloudy</source>
@@ -600,44 +626,43 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy / Wind</source>
-            <translation>غائم / رياخ</translation>
+            <translation>غائم / رياح</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم مع ثلوج خفيفة</translation>
         </message>
         <message>
             <source>Cloudy Light Rain</source>
-            <translation>مطر خفيف غائم</translation>
+            <translation>غائم مع أمطار خفيفة</translation>
         </message>
         <message>
             <source>Cloudy T-Storm</source>
-            <translation>عواصف رعدية غائمة</translation>
+            <translation>غائم مع عواصف رعديه</translation>
         </message>
         <message>
             <source>Cloudy and Windy</source>
-            <translation>غائم ورياح</translation>
+            <translation>غائم مع رياح</translation>
         </message>
         <message>
             <source>Cloudy and light rain</source>
-            <translation>غائم ومطر خفيف</translation>
+            <translation>غائم مع أمطار خفيفة</translation>
         </message>
         <message>
             <source>Cloudy and light snow</source>
-            <translation>غائم وثلج خفيف</translation>
+            <translation>غائم مع ثلوج خفيفة</translation>
         </message>
         <message>
             <source>Cloudy and light wet snow</source>
-            <translation>غائم وثلج رطب خفيف</translation>
+            <translation>غائم مع ثلوج رطبة خفيفة</translation>
         </message>
         <message>
             <source>Cloudy and showers</source>
-            <translation>غائم وزخات</translation>
+            <translation>غائم مع زخات</translation>
         </message>
         <message>
             <source>Cloudy and snow showers</source>
-            <translation>غائم وزخات ثلج</translation>
+            <translation>غائم مع زخات ثلج</translation>
         </message>
         <message>
             <source>Cloudy, Drifting Snow</source>
@@ -645,38 +670,35 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Few Snow</source>
-            <translation>غائم, ثلج قليل</translation>
+            <translation>غائم, ثلوج قليله</translation>
         </message>
         <message>
             <source>Cloudy, Heavy Rain</source>
-            <translation>غائم, مطر كثيف</translation>
+            <translation>غائم, أمطار كثيفه</translation>
         </message>
         <message>
             <source>Cloudy, Heavy Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم, أمطار كثيفة, عواصف رعديه</translation>
         </message>
         <message>
             <source>Cloudy, Heavy Snow</source>
-            <translation>غائم, ثلج كثيف</translation>
+            <translation>غائم, ثلوج كثيفه</translation>
         </message>
         <message>
             <source>Cloudy, Light Rain</source>
-            <translation>غائم, مطر خفيف</translation>
+            <translation>غائم, أمطار خفيفه</translation>
         </message>
         <message>
             <source>Cloudy, Light Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم, أمطار خفيفه, عواصف رعديه</translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
-            <translation>غائم, مطر</translation>
+            <translation>غائم, أمطار</translation>
         </message>
         <message>
             <source>Cloudy, Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم, أمطار, عواصف رعديه</translation>
         </message>
         <message>
             <source>Cloudy, Smoke</source>
@@ -688,30 +710,29 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم, عواصف رعدية مع أمطار</translation>
         </message>
         <message>
             <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
-            <translation>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </translation>
+            <translation>الحقوق(c) ٢٠٠٦-٢٠١١ بواسطة Vlad Vasilyeu و Pavel Fialko,</translation>
         </message>
         <message>
             <source>Copyright(c) 2010-2011 by Tanya Makova
 </source>
-            <translation>Copyright(c) 2010-2011 by Tanya Makova
+            <translation>الحقوق(c) ٢٠١٠-٢٠١١ بواسطة Tanya Makova
 </translation>
         </message>
         <message>
             <source>Could not connecting to Internet.
 Connection timeout is expired.</source>
-            <translation>لايمكن الإتصال بالإنترنت.
+            <translation>تعذر الإتصال بالإنترنت.
 تم إنتهاء مدة الإتصال.</translation>
         </message>
         <message>
             <source>Could not create weather cache directory.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>تعذر إنشاء دليل تخزين مؤقت للطقس.
+</translation>
         </message>
         <message>
             <source>Couldn't resolve host.</source>
@@ -751,15 +772,15 @@ Connection timeout is expired.</source>
         </message>
         <message>
             <source>Day length</source>
-            <translation>طول اليوم</translation>
+            <translation>مدة النهار</translation>
         </message>
         <message>
             <source>Day length:</source>
-            <translation>طول اليوم:</translation>
+            <translation>مدة النهار:</translation>
         </message>
         <message>
             <source>Day length:</source>
-            <translation>طول اليوم:</translation>
+            <translation>مدة النهار:</translation>
         </message>
         <message>
             <source>Day:</source>
@@ -772,16 +793,16 @@ Connection timeout is expired.</source>
         <message>
             <source>Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, &lt;andrew.zhilin@ovi.com&gt;
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>تصميم الواجهة والأيقونات الإفتراضية: الحقوق ٢٠٠٦-٢٠١١ &lt;Andrew Zhilin, &lt;andrew.zhilin@ovi.com
+</translation>
         </message>
         <message>
             <source>Detailed</source>
-            <translation>مفصل</translation>
+            <translation>مُفصل</translation>
         </message>
         <message>
             <source>Detailed</source>
-            <translation>مفصل</translation>
+            <translation>مُفصل</translation>
         </message>
         <message>
             <source>Display</source>
@@ -806,88 +827,76 @@ Connection timeout is expired.</source>
         <message>
             <source>Does not to add station, because no one
 of 'omweather-*-stations-db' packages was installed.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>لم يتم إضافة المحطة, بسبب عدم قيام أحد
+من 'omweather-*-stations-db' بتثبيت الحزم اللازمة</translation>
         </message>
         <message>
             <source>Donation</source>
-            <translation>هبة</translation>
+            <translation>تبرع</translation>
         </message>
         <message>
             <source>Donation</source>
-            <translation>هبة</translation>
+            <translation>تبرع</translation>
         </message>
         <message>
             <source>Donation</source>
-            <translation>هبة</translation>
+            <translation>تبرع</translation>
         </message>
         <message>
             <source>Download and show detailed weather</source>
-            <translation>تنزيل وإظهار الطقس بالتفصيل</translation>
+            <translation>تنزيل وعرض الطقس بالتفصيل</translation>
         </message>
         <message>
             <source>Download timed out.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>تم إلغاء مدة التحميل.</translation>
         </message>
         <message>
             <source>Drifting Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلوج منجرفه</translation>
         </message>
         <message>
             <source>Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>رذار</translation>
         </message>
         <message>
             <source>Drizzle / Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>رذار / ضباب</translation>
         </message>
         <message>
             <source>Drizzle / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>رذاذ / رياح</translation>
         </message>
         <message>
             <source>Drizzle Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>رذار مُبكر</translation>
         </message>
         <message>
             <source>Drizzle Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>رذار مُتأخر</translation>
         </message>
         <message>
             <source>E</source>
-            <translation>E</translation>
+            <translation>شرق</translation>
         </message>
         <message>
             <source>ENE</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>شرقي الى شمالي شرقي</translation>
         </message>
         <message>
             <source>ENE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ENE_short</translation>
         </message>
         <message>
             <source>ESE</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>جنوب شرق الى شرق</translation>
         </message>
         <message>
             <source>ESE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ESE_short</translation>
         </message>
         <message>
             <source>E_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>E_short</translation>
         </message>
         <message>
             <source>Ed Bartosh - for more feature requests, support and criticism
@@ -901,8 +910,17 @@ Brian Knight - for idea of iconset, criticism and donation ;-)
 Andrew aka Tabster - for testing and ideas
 Brad Jones aka kazrak - for testing
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ed Bartosh - لطلب مزيد من المزايا, أو الدعم والإقتراحات 
+Daniel Wilms - لمزيد من المزايا والتجربة
+Eugen Kaluta aka tren - لمزيد من المزايا والدعم
+Maxim Kalinkevish والمعروف بـspark for testing
+Yuri Komyakov - لجهاز نوكيا 770
+Greg Thompson لدعم المخصص لملف stations.txt 
+Frank Persian - لمزيد من الأفكار والإقتراحات المخصص للشكل والتصميم
+Brian Knight - لمزيد من الأفكار والإقتراحات المخصصة للأيقوانات والتبرعات ;-)
+Andrew والمعروف بـTabster - للأفكار والإقتراحات والتجربة
+Brad Jones aka kazrak - للتجربة
+</translation>
         </message>
         <message>
             <source>Edit custom layout</source>
@@ -918,7 +936,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Enter search</source>
-            <translation>بحث</translation>
+            <translation>إدخال كلمة البحث</translation>
         </message>
         <message>
             <source>Error in xml file
@@ -928,8 +946,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Error initializing the OMWeather applet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>خطأ في تهئية برنامج OMWeather</translation>
         </message>
         <message>
             <source>Exit</source>
@@ -937,16 +954,15 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Extended Settings</source>
-            <translation>إعدادات متقدمة</translation>
+            <translation>الإعدادات متقدمة</translation>
         </message>
         <message>
             <source>Extended Settings</source>
-            <translation>إعدادات متقدمة</translation>
+            <translation>الإعدادات متقدمة</translation>
         </message>
         <message>
             <source>Extreme</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>صارم</translation>
         </message>
         <message>
             <source>F</source>
@@ -1006,25 +1022,23 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Failed to connect to host or proxy.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>فشل في الإتصال بالخادم أو البروكسي.</translation>
         </message>
         <message>
             <source>Failed to initialize GConf. Quitting.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>فشل في تهيئة GConf. إنهاء.
+</translation>
         </message>
         <message>
             <source>Failed to initialize GConf. Settings were not saved.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>فشل في تهيئة GConf. لم يتم حفظ الإعدادات.
+</translation>
         </message>
         <message>
             <source>Fair</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>معتدل</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -1033,48 +1047,41 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Feels like:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الشعور الحقيقي:</translation>
         </message>
         <message>
             <source>Feels like:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الشعور الحقيقي:</translation>
         </message>
         <message>
             <source>Few Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات مطر قليله</translation>
         </message>
         <message>
             <source>Few Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات مطر قليله / رياح</translation>
         </message>
         <message>
             <source>Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلوج قليله</translation>
         </message>
         <message>
             <source>Few Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات ثلج قليله</translation>
         </message>
         <message>
             <source>Few Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات ثلج قليله / رياح</translation>
         </message>
         <message>
             <source>Find location via GPS</source>
-            <translation>إيجاد الموقع عبر نظام تحديد المواقع</translation>
+            <translation>إيجاد المكان عبر نظام تحديد المواقع</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الفنلندية - Marko Vertainen; الألمانية - Claudius Henrichs; الأسبانية - Alejandro Lopez; الهولندية - Tom Leenders; السولفاكية - Roman Moravčík
+</translation>
         </message>
         <message>
             <source>First Quarter</source>
@@ -1101,18 +1108,15 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Fog Early / Clouds Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ضباب مُبكر / غيوم في وقت متأخر</translation>
         </message>
         <message>
             <source>Fog Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ضباب متأخر</translation>
         </message>
         <message>
             <source>Fog early / Clearing late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ضباب مُبكر / صحو في وقت متأخر</translation>
         </message>
         <message>
             <source>Foggy</source>
@@ -1135,33 +1139,32 @@ Brad Jones aka kazrak - for testing
 you should uninstall package
 'Activating MeeCast Applet'
 using Application manager</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>لتعطيل أداة MeeCast,
+يجب إزالة حزمة
+'Activating MeeCast Applet'
+بإستخدام مدير التطبيقات</translation>
         </message>
         <message>
             <source>Forecast</source>
-            <translation>توقعات</translation>
+            <translation>التوقعات</translation>
         </message>
         <message>
             <source>Forecast at: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>توقات في:</translation>
         </message>
         <message>
             <source>Forecast at: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>توقات في:</translation>
         </message>
         <message>
             <source>Forecast: 
 </source>
-            <translation>توقعات: 
+            <translation>التوقعات: 
 </translation>
         </message>
         <message>
             <source>Freezing Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>رذار متجمد</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
@@ -1190,8 +1193,31 @@ using Application manager</source>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الفرنسية -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht 
+ الروسية - Pavel Fialko, Vlad Vasiliev, 
+ 	Ed Bartosh
+ الفنلندية - Marko Vertainen
+ الألمانية -  Claudius Henrichs
+ الإيطالية - Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+ الإسبانية - Alejandro Lopez
+ البولندية - Tomasz Dominikowski
+ السلوفاكية - Roman Moravčík
+ الهولندية - Tom Leenders, Michiel Pater
+ البلغارية - Zlatko Enikov
+ الألبانية - Ilir Gjika
+ الصينية - Wong Man Kong, Michael
+ البرتغالية - Jose Narciso,
+ التركية - Burak Kaan Kose,
+ الكتالانية - Agustí Clara,
+ العربية - Tarad Alfandi,
+ النَرْوِيجية - Peer-Atle Motland,
+ الفيتنامية - Hieu Nguyen, Anh Dương and truongnx, 
+ السويدية - Angela Nennebrandt,
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1203,8 +1229,15 @@ Italian - Pavel Fialko, Alessandro Pasotti,
 Spanish - Alejandro Lopez
 Polish - Tomasz Dominikowski
 Slovak - Roman Moravčík</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الفرنسية - Nicolas Granziano, Philippe, Benot Knecht
+الروسية - Pavel Fialko, Vlad Vasiliev, Ed Bartosh
+الفنلندية - Marko Vertainen
+الألمانية - Claudius Henrichs
+الإيطالية - Pavel Fialko, Alessandro Pasotti,
+	Salvatore Fiorenzo, Luca Onnis
+الأسبانية - Alejandro Lopez
+البولندية - Tomasz Dominikowski
+السولفاكية - Roman Moravčík</translation>
         </message>
         <message>
             <source>Full</source>
@@ -1212,11 +1245,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Full forecast</source>
-            <translation>التنبؤات بالكامل</translation>
+            <translation>كامل التنبؤات</translation>
         </message>
         <message>
             <source>Fullscreen mode</source>
-            <translation>وضعية شاشة كامله</translation>
+            <translation>وضعية الشاشة الكامله</translation>
         </message>
         <message>
             <source>G: </source>
@@ -1244,21 +1277,19 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>GUI|Clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>واجهة المستخدم | مسح</translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مجموعة أيقونات Grzanka's: حقوق 2005 بواسطة &lt;Wojciech Grzanka, &lt;wojciech@grzanka.pl</translation>
         </message>
         <message>
             <source>Gust:</source>
-            <translation>ضيف:</translation>
+            <translation>زوبعة:</translation>
         </message>
         <message>
             <source>Gust:</source>
-            <translation>ضيف:</translation>
+            <translation>زوبعة:</translation>
         </message>
         <message>
             <source>HTTP error.</source>
@@ -1266,34 +1297,31 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Haze</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>عجاج</translation>
         </message>
         <message>
             <source>Heavy Rain</source>
-            <translation>مطر كثيف</translation>
+            <translation>أمطار كثيفه</translation>
         </message>
         <message>
             <source>Heavy Rain / Wind</source>
-            <translation>مطر كثيف /رياح</translation>
+            <translation>أمطار كثيفه / رياح</translation>
         </message>
         <message>
             <source>Heavy Rain Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات مطر كثيفه</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
-            <translation>ثلج كثيف</translation>
+            <translation>ثلوج كثيفه</translation>
         </message>
         <message>
             <source>High</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>العظمى</translation>
         </message>
         <message>
             <source>Hourly</source>
-            <translation type="unfinished">ساعات</translation>
+            <translation>كل ساعه</translation>
         </message>
         <message>
             <source>Hours</source>
@@ -1301,15 +1329,15 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">الرطوبة:</translation>
+            <translation>الرطوبة</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">الرطوبة:</translation>
+            <translation>الرطوبة</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">الرطوبة:</translation>
+            <translation>الرطوبة</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1381,18 +1409,15 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Isolated T-Storms</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>عواصف رعدية معزولة</translation>
         </message>
         <message>
             <source>Isolated T-Storms / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>عواصف رعدية معزولة / رياح</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الإيطالية - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; البولندية - Tomasz Dominikowski; البلغارية - Zlatko Enikov</translation>
         </message>
         <message>
             <source>Kilometers</source>
@@ -1436,8 +1461,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Lawn and Garden Weather</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مناخ الحديقة</translation>
         </message>
         <message>
             <source>Layout:</source>
@@ -1457,98 +1481,79 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Light Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>رذار خفيف</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار خفيفة متجمدة</translation>
         </message>
         <message>
             <source>Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار خفيفة</translation>
         </message>
         <message>
             <source>Light Rain / Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مطر خفيف / ضباب</translation>
         </message>
         <message>
             <source>Light Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مطر خفيف / رياح</translation>
         </message>
         <message>
             <source>Light Rain / Wind Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مطر خفيف / رياح متأخرة</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار خفيفة مُبكرة</translation>
         </message>
         <message>
             <source>Light Rain Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار خفيفة مُتأخرة</translation>
         </message>
         <message>
             <source>Light Rain Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار خفيفة متفرقة</translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار خفيفة ومتجمدة</translation>
         </message>
         <message>
             <source>Light Rain and Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار خفيفة ومتفرقة</translation>
         </message>
         <message>
             <source>Light Rain and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار خفيفة ورياح</translation>
         </message>
         <message>
             <source>Light Rain with Thunder</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار خفيفة مع رعود</translation>
         </message>
         <message>
             <source>Light Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلوج خفيفة</translation>
         </message>
         <message>
             <source>Light Snow / Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلوج خفيفة / ضباب</translation>
         </message>
         <message>
             <source>Light Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلوج خفيفة / رياح</translation>
         </message>
         <message>
             <source>Light Snow Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلوج خفيفة مُبكرة</translation>
         </message>
         <message>
             <source>Light Snow Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلوج خفيفة مُتأخرة</translation>
         </message>
         <message>
             <source>Light Snow Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلوج خفيفة متفرقة</translation>
         </message>
         <message>
             <source>Loading station list</source>
@@ -1560,21 +1565,19 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Long</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>طويل</translation>
         </message>
         <message>
             <source>Looks like there's no info for this location.</source>
-            <translation>على مايبدو انه لايوجد أي معلومات عن الموقع.</translation>
+            <translation>يبدو انه لايوجد أي معلومات عن المكان.</translation>
         </message>
         <message>
             <source>Looks like there's no info for this location.</source>
-            <translation>على مايبدو انه لايوجد أي معلومات عن الموقع.</translation>
+            <translation>يبدو انه لايوجد أي معلومات عن المكان.</translation>
         </message>
         <message>
             <source>Low</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الصغرى</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -1584,11 +1587,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Manage locations</source>
-            <translation>إدارة المواقع</translation>
+            <translation>إدارة الأماكن</translation>
         </message>
         <message>
             <source>Manage locations</source>
-            <translation>إدارة المواقع</translation>
+            <translation>إدارة الأماكن</translation>
         </message>
         <message>
             <source>Manual</source>
@@ -1604,11 +1607,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2012</source>
-            <translation type="unfinished">MeeCast - هو تطبيق يعرض حاله الطقس ويعتر مفتوح المصدر وقابل للتعديل إستنادا الى كود OMWeather. الحقوق 2006-2011</translation>
+            <translation>MeeCast - هو تطبيق يعرض حاله الطقس ويعتر مفتوح المصدر وقابل للتعديل إستنادا الى كود OMWeather. الحقوق(C) 2006-2012</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
-            <translation>MeeCast لهارمتان</translation>
+            <translation>MeeCast الخاص بـHarmattan</translation>
         </message>
         <message>
             <source>Meters</source>
@@ -1620,256 +1623,207 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Mist</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>سحب</translation>
         </message>
         <message>
             <source>Modification</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>تعديل</translation>
         </message>
         <message>
             <source>Mostly Clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>صحو كلياً</translation>
         </message>
         <message>
             <source>Mostly Cloudy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً</translation>
         </message>
         <message>
             <source>Mostly Cloudy / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً / رياح</translation>
         </message>
         <message>
             <source>Mostly Cloudy Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلوج قليلة غائمة كلياً</translation>
         </message>
         <message>
             <source>Mostly Cloudy Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار خفيفة غائمه كلياً</translation>
         </message>
         <message>
             <source>Mostly Cloudy Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار غائمه كلياً</translation>
         </message>
         <message>
             <source>Mostly Cloudy Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلوج غائمه كلياً</translation>
         </message>
         <message>
             <source>Mostly Cloudy T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>عواصف رعديه غائمه كلياً</translation>
         </message>
         <message>
             <source>Mostly Cloudy and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً مصحوب برياح</translation>
         </message>
         <message>
             <source>Mostly Cloudy and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً مصحوب برياح</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Drifting Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً, ثلوج منجرفه</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً, ثلوج قليله</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً, ضباب</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Fog, Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً, ضباب, رذاذ</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً, أمطار كثيفه</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً, أمطار كثيفه, عواصف رعديه</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً, ثلوج كثيفه</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Snow, Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً, ثلوج كثيفه, أمطار متجمده</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً, أمطار خفيفه</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً, أمطال خفيفه, رذاذ</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً, أمطار خفيفه, عواصف رعديه</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً,  أمطار</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً, أمطار, عواصف رعديه</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً, ضباب</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كلياً, ثلوج</translation>
         </message>
         <message>
             <source>Mostly Cloudy, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم كليأ, عواصف رعديه</translation>
         </message>
         <message>
             <source>Mostly Sunny</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مشمس كليأ</translation>
         </message>
         <message>
             <source>Mostly clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>صحو كلياً</translation>
         </message>
         <message>
             <source>N</source>
-            <translation>N</translation>
+            <translation>شمال</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غير متاح</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غير متاح</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غير متاح</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غير متاح</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غير متاح</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غير متاح</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غير متاح</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غير متاح</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غير متاح</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غير متاح</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غير متاح</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غير متاح</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غير متاح</translation>
         </message>
         <message>
             <source>NE</source>
-            <translation>NE</translation>
+            <translation>شمالي شرقي</translation>
         </message>
         <message>
             <source>NE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NE_short</translation>
         </message>
         <message>
             <source>NNE</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>شمالية شرقية الى الشرق</translation>
         </message>
         <message>
             <source>NNE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NNE_short</translation>
         </message>
         <message>
             <source>NNW</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>شمالي الى شمالي غربي</translation>
         </message>
         <message>
             <source>NNW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NNW_short</translation>
         </message>
         <message>
             <source>NO STATION</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>لايوجد محطة</translation>
         </message>
         <message>
             <source>NW</source>
@@ -1877,13 +1831,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>NW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NW_short</translation>
         </message>
         <message>
             <source>N_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>N_short</translation>
         </message>
         <message>
             <source>Name:</source>
@@ -1891,33 +1843,27 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Never</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أبداً</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أبداً</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أبداً</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أبداً</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أبداً</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أبداً</translation>
         </message>
         <message>
             <source>New</source>
@@ -1933,18 +1879,15 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Night</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مساءً</translation>
         </message>
         <message>
             <source>Night</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مساءً</translation>
         </message>
         <message>
             <source>Night:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مساءً:</translation>
         </message>
         <message>
             <source>No</source>
@@ -1956,97 +1899,87 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>No current weather data.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>لايوجد أي معلومات حاليه عن الطقس.</translation>
         </message>
         <message>
             <source>No locations are set up yet.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>لم يتم تحديد المكان.</translation>
         </message>
         <message>
             <source>No locations are set up yet.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>لم يتم تحديد المكان.</translation>
         </message>
         <message>
             <source>No weather data for this day.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>لايوجد أي معلومات عن الطقس لهذا اليوم.</translation>
         </message>
         <message>
             <source>No weather data for this station.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>لايوجد أي معلومات عن الطقس لهذه المحطة.</translation>
         </message>
         <message>
             <source>No weather data for this station.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>لايوجد أي معلومات عن الطقس لهذه المحطة.</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>الأن</translation>
+            <translation>الآن</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>الأن</translation>
+            <translation>الآن</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>الأن</translation>
+            <translation>الآن</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>الأن</translation>
+            <translation>الآن</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>الأن</translation>
+            <translation>الآن</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>الأن</translation>
+            <translation>الآن</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>الأن</translation>
+            <translation>الآن</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>الأن</translation>
+            <translation>الآن</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>الأن</translation>
+            <translation>الآن</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>الأن</translation>
+            <translation>الآن</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation>الأن</translation>
+            <translation>الآن</translation>
         </message>
         <message>
             <source>Now + 2 days vert.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الآن + يومين عمودي</translation>
         </message>
         <message>
             <source>Now + 3 days hor.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الآن + 3 أيام افقي</translation>
         </message>
         <message>
             <source>Now + 3 days vert.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الآن + 3 أيام عمودي</translation>
         </message>
         <message>
             <source>Now + 7 days vert.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الآن + 7 أيام عمودي</translation>
         </message>
         <message>
             <source>Now: </source>
@@ -2054,88 +1987,71 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>OK</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>موافق</translation>
         </message>
         <message>
             <source>OK</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>موافق</translation>
         </message>
         <message>
             <source>OK</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>موافق</translation>
         </message>
         <message>
             <source>OMWeather Forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>توقعات OMWeather</translation>
         </message>
         <message>
             <source>OMWeather Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إعدادات OMWeather</translation>
         </message>
         <message>
             <source>OMWeather Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إعدادات OMWeather</translation>
         </message>
         <message>
             <source>OMWeather settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إعدادات OMWeather</translation>
         </message>
         <message>
             <source>OMWeather settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إعدادات OMWeather</translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>موافق</translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>موافق</translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>موافق</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>معلومات Meamo Weather أُخرى</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>معلومات Meamo Weather أُخرى</translation>
         </message>
         <message>
             <source>Overcast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>معتم</translation>
         </message>
         <message>
             <source>Overcast and light rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>معتم مع أمطار خفيفه</translation>
         </message>
         <message>
             <source>Overcast and light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>معتم مع ثلوج خفيفه</translation>
         </message>
         <message>
             <source>Overcast and light wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>معتم مع ثلوج رطبة خفيفة</translation>
         </message>
         <message>
             <source>Overcast and rain</source>
@@ -2144,28 +2060,23 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Overcast and showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>معتم مع زخات مطر</translation>
         </message>
         <message>
             <source>Overcast and snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>معتم مع ثلوج</translation>
         </message>
         <message>
             <source>Overcast and snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>معتم مع زخات ثلج</translation>
         </message>
         <message>
             <source>Overcast and wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation> معتم مع ثلوج رطبه</translation>
         </message>
         <message>
             <source>Overcast and wet snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>معتم مع زخات ثلج رطبه</translation>
         </message>
         <message>
             <source>Overcast, thunderstorms with rain</source>
@@ -2174,223 +2085,179 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>PM Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ضباب مساءً</translation>
         </message>
         <message>
             <source>PM Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار خفيفه مساءً</translation>
         </message>
         <message>
             <source>PM Light Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار خفيفه مساءً / رياح</translation>
         </message>
         <message>
             <source>PM Light Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلوج خفيفه مساءً</translation>
         </message>
         <message>
             <source>PM Light Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلوج خفيفه مساءً / رياح</translation>
         </message>
         <message>
             <source>PM Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار مساءً</translation>
         </message>
         <message>
             <source>PM Rain / Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار مساءً / ثلوج</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار مساءً / رياح</translation>
         </message>
         <message>
             <source>PM Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات مطر مساءً</translation>
         </message>
         <message>
             <source>PM Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات مطر مساءً / رياح</translation>
         </message>
         <message>
             <source>PM Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلوج مساءً</translation>
         </message>
         <message>
             <source>PM Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات ثلج مساءً</translation>
         </message>
         <message>
             <source>PM Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات ثلج مساءً / رياح</translation>
         </message>
         <message>
             <source>PM T-Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>عواصف ثلجيه مساءً</translation>
         </message>
         <message>
             <source>PM T-Storms</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>عواصف رعديه مساءً</translation>
         </message>
         <message>
             <source>Pa</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>باسكال</translation>
         </message>
         <message>
             <source>Partly Cloudy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئياً</translation>
         </message>
         <message>
             <source>Partly Cloudy / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئياً / رياح</translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئيأ مع ثلوج خفيفه</translation>
         </message>
         <message>
             <source>Partly Cloudy Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئيأ مع أمطار خفيفه</translation>
         </message>
         <message>
             <source>Partly Cloudy T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئيأ مع عواصف رعديه</translation>
         </message>
         <message>
             <source>Partly Cloudy and Windly</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئيأ مع رياح</translation>
         </message>
         <message>
             <source>Partly Cloudy and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئيأ مصحوب رياح</translation>
         </message>
         <message>
             <source>Partly Cloudy, Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئيأ, ثلوج خفيفه</translation>
         </message>
         <message>
             <source>Partly Cloudy, Haze</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئيأ, عجاج</translation>
         </message>
         <message>
             <source>Partly Cloudy, Heavy Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئياً, أمطار غزيرة</translation>
         </message>
         <message>
             <source>Partly Cloudy, Heavy Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئياً, أمطار غزيرة, عواصف رعديه</translation>
         </message>
         <message>
             <source>Partly Cloudy, Heavy Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئياً, ثلوج غزيرة</translation>
         </message>
         <message>
             <source>Partly Cloudy, Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئياً, أمطار خفيفه</translation>
         </message>
         <message>
             <source>Partly Cloudy, Light Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئياً, أمطار خفيفه, عواصف رعدية</translation>
         </message>
         <message>
             <source>Partly Cloudy, Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئياً, أمطار</translation>
         </message>
         <message>
             <source>Partly Cloudy, Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئياً, أمطار, عواصف رعديه</translation>
         </message>
         <message>
             <source>Partly Cloudy, Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئياً, ضباب</translation>
         </message>
         <message>
             <source>Partly Cloudy, Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئياً, ثلوج</translation>
         </message>
         <message>
             <source>Partly Cloudy, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئياً, عواصف رعديه</translation>
         </message>
         <message>
             <source>Partly cloudy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئياً</translation>
         </message>
         <message>
             <source>Partly cloudy and light rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئيأ مع أمطار خفيفه</translation>
         </message>
         <message>
             <source>Partly cloudy and light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئيأ مع ثلوج خفيفه</translation>
         </message>
         <message>
             <source>Partly cloudy and light wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئياً مع ثلوج خفيفه رطبه</translation>
         </message>
         <message>
             <source>Partly cloudy and showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئيأ مع زخات مطر</translation>
         </message>
         <message>
             <source>Partly cloudy and snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئيأ مع زخات ثلج</translation>
         </message>
         <message>
             <source>Partly cloudy and wet snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئيأ مع زخات ثلج رطبه</translation>
         </message>
         <message>
             <source>Partly cloudy, possible thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئياً, أمطار مع عواصف رعدية مُحتَمله</translation>
         </message>
         <message>
             <source>Partly cloudy, possible thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غائم جزئياً, أمطار مع عواصف رعدية مُحتَمله</translation>
         </message>
         <message>
             <source>Period</source>
@@ -2402,28 +2269,23 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Ppcp:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ppcp:</translation>
         </message>
         <message>
             <source>Ppcp:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ppcp:</translation>
         </message>
         <message>
             <source>Ppcp:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ppcp:</translation>
         </message>
         <message>
             <source>Preference|Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>التفضيلات|تحديث</translation>
         </message>
         <message>
             <source>Preference|Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>التفضيلات|تحديث</translation>
         </message>
         <message>
             <source>Pressure</source>
@@ -2475,7 +2337,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Programmers</source>
-            <translation type="unfinished">قادة البرمجة</translation>
+            <translation>المبرمجين</translation>
         </message>
         <message>
             <source>Project administrator</source>
@@ -2499,108 +2361,87 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain / Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار / أمطار متجمدة</translation>
         </message>
         <message>
             <source>Rain / Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار / ثلج</translation>
         </message>
         <message>
             <source>Rain / Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار / ثلج / رياح</translation>
         </message>
         <message>
             <source>Rain / Snow Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار / ثلوج مُبكره</translation>
         </message>
         <message>
             <source>Rain / Snow Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مطر / ثلوج في وقت متأخر</translation>
         </message>
         <message>
             <source>Rain / Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مطر / زخات ثلج</translation>
         </message>
         <message>
             <source>Rain / Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مطر / زخات ثلج / رياح</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مطر / زخات ثلج في وقت متأخر</translation>
         </message>
         <message>
             <source>Rain / Thunder</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار / رعد</translation>
         </message>
         <message>
             <source>Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار / رياح</translation>
         </message>
         <message>
             <source>Rain / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار / رياح مُبكره</translation>
         </message>
         <message>
             <source>Rain Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار  مُبكرة</translation>
         </message>
         <message>
             <source>Rain Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مطر في وقت متأخر</translation>
         </message>
         <message>
             <source>Rain Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات مطر </translation>
         </message>
         <message>
             <source>Rain Shower and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>رياح وزخات مطر</translation>
         </message>
         <message>
             <source>Rain Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات مطر</translation>
         </message>
         <message>
             <source>Rain and Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار وثلوج</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار مصحوبه بثلوج /رياح</translation>
         </message>
         <message>
             <source>Rain to Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار مصحوبه بمزيج شتوي خفيف</translation>
         </message>
         <message>
             <source>Rain to Wintry Mix / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار مصحوبه بمزيج شتوي / رياح</translation>
         </message>
         <message>
             <source>Read sensor every:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>قراءة الحساس كل:</translation>
         </message>
         <message>
             <source>Region</source>
@@ -2616,58 +2457,47 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rush Hour Traffic</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>وقت الذروة</translation>
         </message>
         <message>
             <source>S</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>جنوب</translation>
         </message>
         <message>
             <source>SE</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>جنوب شرقی</translation>
         </message>
         <message>
             <source>SE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>SE_short</translation>
         </message>
         <message>
             <source>SSE</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>جنوب شرقی الى الجنوب</translation>
         </message>
         <message>
             <source>SSE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>SSE_short</translation>
         </message>
         <message>
             <source>SSW</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>جنوب غربي الى الجنوب</translation>
         </message>
         <message>
             <source>SSW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>SSW_short</translation>
         </message>
         <message>
             <source>SW</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>جنوبي غربي</translation>
         </message>
         <message>
             <source>SW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>SW_short</translation>
         </message>
         <message>
             <source>S_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>S_short</translation>
         </message>
         <message>
             <source>Save</source>
@@ -2699,28 +2529,23 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Scattered Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أمطار مُتفرقة</translation>
         </message>
         <message>
             <source>Scattered Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلوج مُتفرقة</translation>
         </message>
         <message>
             <source>Scattered Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلوج مُتساقطة مُتفرقة</translation>
         </message>
         <message>
             <source>Scattered T-Storms</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>عواصف رعديه مُتفرقة</translation>
         </message>
         <message>
             <source>Sea miles</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أميار بحرية</translation>
         </message>
         <message>
             <source>Search</source>
@@ -2776,28 +2601,23 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Select the X-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إختر المكان الافقي للزاويه اليسرى من الويدجت</translation>
         </message>
         <message>
             <source>Select the Y-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إختر المكان العمودي للزاويه اليسرى من الويدجت</translation>
         </message>
         <message>
             <source>Select the color of font for current temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إختيار لون الخط لدرجة الحرارة الحالية</translation>
         </message>
         <message>
             <source>Select the color of font for station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إختيار لون الخط لإسم الموقع</translation>
         </message>
         <message>
             <source>Select the color of font for temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إختيار لون الخط لدرجة الحرارة </translation>
         </message>
         <message>
             <source>Select the iconset</source>
@@ -2809,43 +2629,35 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Selecting country</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إختيار الدولة</translation>
         </message>
         <message>
             <source>Selecting region</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إختيار المنطقة</translation>
         </message>
         <message>
             <source>Selecting source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إختيار المصدر</translation>
         </message>
         <message>
             <source>Selecting station</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إختيار المحطة</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الحساس</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الحساس</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الحساس</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الحساس</translation>
         </message>
         <message>
             <source>Set</source>
@@ -2877,88 +2689,71 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Settings for Lockscreen widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إعدادت شاشة القفل</translation>
         </message>
         <message>
             <source>Settings for standby widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إعدادات شاشة الإتنظار</translation>
         </message>
         <message>
             <source>Settings of LockScreen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إعدادت شاشة القفل</translation>
         </message>
         <message>
             <source>Settings of StandbyScreen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إعدادات شاشة الإنتظار</translation>
         </message>
         <message>
             <source>Shallow Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ضباب سطحي</translation>
         </message>
         <message>
             <source>Short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>قصير</translation>
         </message>
         <message>
             <source>Show arrows</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إظهار الأسهم</translation>
         </message>
         <message>
             <source>Show on Map</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إظهار على الخريطة</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>عرض الطقس الحالي فقط في الأيقونة الاولى</translation>
         </message>
         <message>
             <source>Show station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إظهار إسم المحطة</translation>
         </message>
         <message>
             <source>Show temperature at:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>عرض الحرارة في:</translation>
         </message>
         <message>
             <source>Show wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>عرض الرياح</translation>
         </message>
         <message>
             <source>Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات</translation>
         </message>
         <message>
             <source>Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات/رياح</translation>
         </message>
         <message>
             <source>Showers / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات/رياح مُبكرة</translation>
         </message>
         <message>
             <source>Showers Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات مُبكرة</translation>
         </message>
         <message>
             <source>Showers Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات متأخره</translation>
         </message>
         <message>
             <source>Showers in the Vicinity</source>
@@ -2967,13 +2762,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Sleet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>صقيع</translation>
         </message>
         <message>
             <source>Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>دخان</translation>
         </message>
         <message>
             <source>Snow</source>
@@ -2981,48 +2774,39 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلج / رياح</translation>
         </message>
         <message>
             <source>Snow Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات ثلج</translation>
         </message>
         <message>
             <source>Snow Shower / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات ثلج / رياح</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات ثلج / رياح مُبكرة</translation>
         </message>
         <message>
             <source>Snow Showers Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات ثلج مُبكرة</translation>
         </message>
         <message>
             <source>Snow Showers Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>زخات ثلج متأخره</translation>
         </message>
         <message>
             <source>Snow and Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلوج وأمطار متجمدة</translation>
         </message>
         <message>
             <source>Snow to Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلوج الى أمطار</translation>
         </message>
         <message>
             <source>Snow to Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ثلوج مصحوبه بمزيج شتوي خفيف</translation>
         </message>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
@@ -3083,48 +2867,39 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Splash screen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>شاشة البدايه</translation>
         </message>
         <message>
             <source>State:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الولاية:</translation>
         </message>
         <message>
             <source>Station %i</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>محطة %i</translation>
         </message>
         <message>
             <source>Stations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>محطات</translation>
         </message>
         <message>
             <source>Stations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>محطات</translation>
         </message>
         <message>
             <source>Stations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>محطات</translation>
         </message>
         <message>
             <source>Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>عاصفة</translation>
         </message>
         <message>
             <source>Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>عاصفة</translation>
         </message>
         <message>
             <source>Successfully loaded</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>تم التحميل بنجاح</translation>
         </message>
         <message>
             <source>Sunny</source>
@@ -3132,8 +2907,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Sunny / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مُشمس / رياح</translation>
         </message>
         <message>
             <source>Sunrise:</source>
@@ -3174,38 +2948,31 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Switch to the next station after:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إنتقل الى المحطه التاليه بعد:</translation>
         </message>
         <message>
             <source>T-Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>عواصف ثلجيه</translation>
         </message>
         <message>
             <source>T-Showers Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>عواصف ثلجية مُبكره</translation>
         </message>
         <message>
             <source>T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>عاصفة رعديه</translation>
         </message>
         <message>
             <source>T-Storms</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>عواصف رعديه</translation>
         </message>
         <message>
             <source>T-Storms Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>عواصف رعديه مبكره</translation>
         </message>
         <message>
             <source>T-Storms Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>عواصف رعديه متأخره</translation>
         </message>
         <message>
             <source>Temperature</source>
@@ -3275,19 +3042,22 @@ Slovak - Roman Moravčík</source>
  Foundation; either version 2.1 of the 
  License, or (at your option) any 
  later version.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>هذا التطبيق مجاني, يمكنك
+إعادة نشره أو تعديله تحت
+شروط رخصة GNU العمومية
+ المنشوره بواسطة مؤسسة البرامج
+المجانيه; إما الإصدار 2.1 أو (لديك الخيار)
+أي إصدار أحدث</translation>
         </message>
         <message>
             <source>This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>هذا التطبيق مجاني, يمكنك إعادة نشره أو تعديله تحت شروط رخصة GNU العمومية
+</translation>
         </message>
         <message>
             <source>Thunder</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>رعد</translation>
         </message>
         <message>
             <source>Thunder in the Vicinity</source>
@@ -3321,23 +3091,20 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>المترجمين: الفرنسية - Nicolas Granziano, Philippe, Benot Knecht; الروسية - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
+</translation>
         </message>
         <message>
             <source>Transparency:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الشفافية:</translation>
         </message>
         <message>
             <source>Transparency:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الشفافية:</translation>
         </message>
         <message>
             <source>Transparency:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الشفافية:</translation>
         </message>
         <message>
             <source>Try to update</source>
@@ -3349,38 +3116,31 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Type of click:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>نوع النقر:</translation>
         </message>
         <message>
             <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مؤشر الأشعة فوق البنفسجية:</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الوحدات</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الوحدات</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الوحدات</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الوحدات</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>الوحدات</translation>
         </message>
         <message>
             <source>Unknown</source>
@@ -3460,23 +3220,19 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Update interval</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>فترة التحيدث</translation>
         </message>
         <message>
             <source>Updating forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>تحديث التوقعات</translation>
         </message>
         <message>
             <source>Updating forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>تحديث التوقعات</translation>
         </message>
         <message>
             <source>Updating of weather data:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>تحديث بيانات الطقس:</translation>
         </message>
         <message>
             <source>Updating weather</source>
@@ -3497,8 +3253,7 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Use device temperature sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إستخدام حساس الحرارة الخاص بالجهاز</translation>
         </message>
         <message>
             <source>VAR</source>
@@ -3512,8 +3267,7 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Very High</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مرتفع جدا</translation>
         </message>
         <message>
             <source>Visible items:</source>
@@ -3527,23 +3281,19 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>وحدة الرؤيا</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>وحدة الرؤيا</translation>
         </message>
         <message>
             <source>Visible:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مرئي:</translation>
         </message>
         <message>
             <source>Visible:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مرئي:</translation>
         </message>
         <message>
             <source>Visuals</source>
@@ -3562,48 +3312,39 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>W</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غرب</translation>
         </message>
         <message>
             <source>WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WLAN</translation>
         </message>
         <message>
             <source>WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WLAN</translation>
         </message>
         <message>
             <source>WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WLAN</translation>
         </message>
         <message>
             <source>WNW</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>غربي الى شمالي غربي</translation>
         </message>
         <message>
             <source>WNW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WNW_short</translation>
         </message>
         <message>
             <source>WSW</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>جنوب غربي الى غرب</translation>
         </message>
         <message>
             <source>WSW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WSW_short</translation>
         </message>
         <message>
             <source>W_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>W_short</translation>
         </message>
         <message>
             <source>Waning Crescent</source>
@@ -3617,8 +3358,7 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Warning</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>تحذير</translation>
         </message>
         <message>
             <source>Waxing Crescent</source>
@@ -3632,13 +3372,11 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Weather data provided by: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>بيانات الطقس مُقدمة من:</translation>
         </message>
         <message>
             <source>Weather forecast for the Meego. Version </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>تنبؤات الطقس لميجو. الإصدار</translation>
         </message>
         <message>
             <source>Widget OMWeather is reloading</source>
@@ -3677,20 +3415,19 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>رياح</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">إتجاه الرياح:</translation>
+            <translation>إتجاه الرياح</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">إتجاه الرياح:</translation>
+            <translation>إتجاه الرياح</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">إتجاه الرياح:</translation>
+            <translation>إتجاه الرياح</translation>
         </message>
         <message>
             <source>Wind direction:</source>
@@ -3729,23 +3466,19 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>وحدات سرعة الرياح</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>وحدات سرعة الرياح</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>وحدات سرعة الرياح</translation>
         </message>
         <message>
             <source>Wind speed units:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>وحدات سرعة الرياح:</translation>
         </message>
         <message>
             <source>Wind:</source>
@@ -3781,8 +3514,7 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مزيج شتوي</translation>
         </message>
         <message>
             <source>Wintry Mix / Wind</source>
@@ -3791,13 +3523,11 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Wintry Mix / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>بمزيج شتوي/ رياح مُبكره</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مزيج شتوي مع ثلوج</translation>
         </message>
         <message>
             <source>Wrong station code 
@@ -3815,8 +3545,7 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>You can make donation here: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>يمكن التبرع هنا:</translation>
         </message>
         <message>
             <source>You should activate 
@@ -3839,13 +3568,11 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>Zoom in popup window </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>تكبير في النافذة المنبثقة</translation>
         </message>
         <message>
             <source>Zooming in popup window</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>التكبير في النافذة المنبثقة</translation>
         </message>
         <message>
             <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
@@ -3854,13 +3581,11 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>current location local time</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>التوقيت المحلي للموقع الحالي</translation>
         </message>
         <message>
             <source>d:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>d:</translation>
         </message>
         <message>
             <source>day ago</source>
@@ -3904,8 +3629,7 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>falling</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>سقوط</translation>
         </message>
         <message>
             <source>feels like</source>
@@ -4152,18 +3876,15 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>mi/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ميل/ثانيه</translation>
         </message>
         <message>
             <source>minute ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>قبل دقيقة</translation>
         </message>
         <message>
             <source>minutes ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>قبل دقائق</translation>
         </message>
         <message>
             <source>mm</source>
@@ -4227,13 +3948,11 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>n:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>n:</translation>
         </message>
         <message>
             <source>never</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>أبداً</translation>
         </message>
         <message>
             <source>new icon</source>
@@ -4259,23 +3978,19 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>rising</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>مُتزايد</translation>
         </message>
         <message>
             <source>seconds ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>قبل ثواني</translation>
         </message>
         <message>
             <source>station local time</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>وقت الموقع المحلي</translation>
         </message>
         <message>
             <source>station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>إسم الوقع</translation>
         </message>
         <message>
             <source>steady</source>
@@ -4283,13 +3998,11 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>В</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>В</translation>
         </message>
         <message>
             <source>З</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>З</translation>
         </message>
         <message>
             <source>С</source>
@@ -4298,28 +4011,23 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>С-В</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>С-В</translation>
         </message>
         <message>
             <source>С-З</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>С-З</translation>
         </message>
         <message>
             <source>Ю</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ю</translation>
         </message>
         <message>
             <source>Ю-В</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ю-В</translation>
         </message>
         <message>
             <source>Ю-З</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ю-З</translation>
         </message>
     </context>
 </TS>

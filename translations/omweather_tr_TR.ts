@@ -456,6 +456,11 @@ Frementle icin Dizayn : Krebber Jan Niemelä Ulla
             <translation>Internete baglanildiginda otomatik olarak guncelle</translation>
         </message>
         <message>
+            <source>Back</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Background color:</source>
             <translation>Arkaplan rengi:</translation>
         </message>

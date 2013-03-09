@@ -466,6 +466,11 @@ Návrh UI pre Fremantle: Krebber Jan Niemelä Ulla
             <translation>Automatická aktualizácia dát po pripojení na Internet</translation>
         </message>
         <message>
+            <source>Back</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Background color:</source>
             <translation>Farba pozadia:</translation>
         </message>

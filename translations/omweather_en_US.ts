@@ -470,6 +470,11 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
             <translation>Automatically update data when connecting to the Internet</translation>
         </message>
         <message>
+            <source>Back</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Background color:</source>
             <translation>Background color:</translation>
         </message>

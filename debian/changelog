@@ -4,7 +4,7 @@ meecast (0.7) unstable; urgency=low
   * Fixed problem with big size of icon in lockscreen applet
   * Fixed problem with Settings pages - Lockscreen and StandbyScreen
   * Added icons for gismeteo.ru 
-  * Updated Catalan, Finish translations
+  * Updated Catalan, Finish, Norway translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Sat, 09 Mar 2013 16:31:23 +0200
 

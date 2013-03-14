@@ -90,6 +90,7 @@
     g_hash_table_insert(hash, (void*)"Heavy Rain Shower", _("Heavy Rain Shower"));
     g_hash_table_insert(hash, (void*)"Heavy Rain", _("Heavy Rain"));
     g_hash_table_insert(hash, (void*)"Heavy Snow", _("Heavy Snow"));
+    g_hash_table_insert(hash, (void*)"Heavy Snow / Wind", _("Heavy Snow / Wind"));
     g_hash_table_insert(hash, (void*)"High", _("High"));
     g_hash_table_insert(hash, (void*)"Iconset", _("Iconset"));
     g_hash_table_insert(hash, (void*)"Iconsets", _("Iconsets"));

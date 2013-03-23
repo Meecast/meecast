@@ -5,6 +5,7 @@ meecast (0.7.1) unstable; urgency=low
   * Added description string to gismeteo.ru 
   * Added city 'Hangu' - Pakistan to weather.com
   * Updated Pakistan in yr.no and foreca.com databases
+  * Added Serbia to foreca.com database
 
  -- Vlad Vasiliev <vlad@gas.by>  Sat, 09 Mar 2013 16:31:23 +0200
 

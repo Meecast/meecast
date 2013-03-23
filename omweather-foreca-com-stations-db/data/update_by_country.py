@@ -13,8 +13,8 @@ import string
 #SELECT regions.name  FROM regions WHERE regions.id NOT IN (SELECT stations.region_id FROM stations)
 
 #Country name and code
-country = "Asia/Pakistan"
-id_region = "144"
+country = "Europe/Serbia"
+id_region = "267"
 first_letter = "A"
 
 def normalizing (source):

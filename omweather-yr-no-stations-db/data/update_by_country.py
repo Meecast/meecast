@@ -109,10 +109,9 @@ import zipfile
 #country = "Hong Kong"
 #country_code = "HK"
 #replacing_dict = {}
-country = "Pakistan"
-country_code = "PK"
-replacing_dict = {"Khyber_Pakhtunkhwa_Province":"Khyber Pakhtunkhwa", "Federally_Administered_Tribal_Areas":"Federally Administered Tribal Areas", "Azad_Kashmir": "Azad Kashmir",
-"Punjab": "Punjab"}
+country = "Serbia"
+country_code = "RS"
+replacing_dict = {"Central_Serbia": "Central Serbia"}
                 
 
 replacing_dict_after_region_filling = { } 

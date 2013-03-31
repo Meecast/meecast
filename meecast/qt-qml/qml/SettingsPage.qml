@@ -51,10 +51,15 @@ Page {
             page: "VisualsPage.qml"
             title: "Appearance"
         }
-	ListElement {
+	    ListElement {
             page: "UpdatePage.qml"
             title: "Update"
         }
+    	ListElement {
+            page: "Languages.qml"
+            title: "Language"
+        }
+
 
     }
 

@@ -19,8 +19,10 @@ NavigationPane {
     property int wind_direction_angle : 0
     property bool current_value: false
     property int main_information_position : 150 
-    property int screen_height : 768
-    property int screen_width : 1280
+//    property int screen_height : 1280
+//    property int screen_width : 768 
+    property int screen_height : 720
+    property int screen_width : 720 
     backButtonsVisible: false
     // Create the initial screen
     property variant newPage;
@@ -354,17 +356,17 @@ NavigationPane {
                             positionX: 0
                             positionY: 560
                         }
-                        preferredWidth: 768
-                        preferredHeight: 1000
+                        preferredWidth: screen_width
+                        preferredHeight: screen_height - 280
                     }
 
                     Container{
                         id: startview
                         visible : Config.stationname == "Unknown" ? true : false;
-                        preferredWidth: 768
+                        preferredWidth: screen_width
                         layout: AbsoluteLayout {}
                         Container{
-                            preferredWidth: 768
+                            preferredWidth: screen_width
                             preferredHeight: 438
                             layoutProperties: AbsoluteLayoutProperties {
                                 positionY: 0
@@ -374,13 +376,13 @@ NavigationPane {
                         }
                         ImageView {
                             imageSource: "asset:///share/images/mask_background.png"
-                            preferredWidth: 768
+                            preferredWidth: screen_width
                             preferredHeight: 438
                         }
                         Label {
                             text: Config.tr("No locations are set up yet.") 
                             horizontalAlignment: HorizontalAlignment.Center
-                            preferredWidth: 768 
+                            preferredWidth: screen_width 
                             multiline: true
                             textStyle.textAlign: TextAlign.Center
                             textStyle {
@@ -388,18 +390,19 @@ NavigationPane {
                                     color: Color.create("#999999")
                             }
                             layoutProperties: AbsoluteLayoutProperties {
-                                positionY: 400 
+//                                positionY: 400 
+                                positionY: screen_height / 3 
                             }
                         }
                     }
                     Container{
                         id: notrefreshview
                         visible : (  Config.stationname != "Unknown" && Forecast_model.rowCount() == 0 && Current.rowCount() == 0) ? true : false
-                        preferredWidth: 768
+                        preferredWidth: screen_width
                         layout: AbsoluteLayout {
                         }
                         Container{
-                            preferredWidth: 768
+                            preferredWidth: screen_width
                             preferredHeight: 438
                             layoutProperties: AbsoluteLayoutProperties {
                                 positionY: 0
@@ -409,7 +412,7 @@ NavigationPane {
                         }
                         ImageView {
                             imageSource: "asset:///share/images/mask_background.png"
-                            preferredWidth: 768
+                            preferredWidth: screen_width
                             preferredHeight: 438
                             layoutProperties: AbsoluteLayoutProperties {
                                 positionY: 0
@@ -418,7 +421,7 @@ NavigationPane {
                         Label {
                             text: Config.tr("Looks like there's no info for this location.")
                             horizontalAlignment: HorizontalAlignment.Center
-                            preferredWidth: 768 
+                            preferredWidth: screen_width 
                             multiline: true
                             textStyle.textAlign: TextAlign.Center
                             textStyle {
@@ -426,7 +429,8 @@ NavigationPane {
                                     color: Color.create("#999999")
                             }
                             layoutProperties: AbsoluteLayoutProperties {
-                                positionY: 400 
+//                                positionY: 400 
+                                positionY: screen_height / 3 
                             }
                         }
                     }
@@ -436,8 +440,8 @@ NavigationPane {
                             positionY: 0
                         }
                         layout: AbsoluteLayout {}
-                        preferredWidth: 768
-                        preferredHeight: 1142 
+                        preferredWidth: screen_width
+                        preferredHeight: screen_height - 138 
                         ListView {
                             id: forrecasts_list
                             dataModel: GroupDataModel {
@@ -453,6 +457,7 @@ NavigationPane {
                                 Qt.main_icon_size = main_icon_size
                                 Qt.main_information_position = main_information_position
                                 Qt.row_icon_size = row_icon_size
+                                Qt.screen_width = screen_width  
                                 main.update_list();
                             }
 
@@ -465,7 +470,7 @@ NavigationPane {
         //                                    visible: ListItemData.number == 0 && ListItemData.current_value == true ? true : false;
                                             visible: ListItemData.number == 0  ? true : false;
                                             Container{
-                                                preferredWidth: 768
+                                                preferredWidth: Qt.screen_width
                                                 layoutProperties: AbsoluteLayoutProperties {
                                                     positionX: 0
                                                     positionY: 0 
@@ -477,7 +482,7 @@ NavigationPane {
                                                 Container{
                                                     id: current_rect_back
                                                     visible: ListItemData.fulldate != "" ? true :false
-                                                    preferredWidth: 768
+                                                    preferredWidth: Qt.screen_width
                                                     preferredHeight: 564 
                                                     layoutProperties: AbsoluteLayoutProperties {
                                                         positionY: 0
@@ -487,14 +492,14 @@ NavigationPane {
                                                 ImageView {
                                                     imageSource: ListItemData.background_image
                                                     visible: ListItemData.fulldate != "" ? true :false
-                                                    preferredWidth: 768
+                                                    preferredWidth: Qt.screen_width
                                                     preferredHeight: 564 
                                                     layoutProperties: AbsoluteLayoutProperties {
                                                         positionY: 0
                                                     }
                                                 }         
                                                 Container{
-                                                    preferredWidth: 768
+                                                    preferredWidth: Qt.screen_width
                                                     visible: ListItemData.fulldate != "" ? true :false
                                                     id: title_day_and_other_paremeters
                                                     preferredHeight: Qt.main_icon_size - Qt.main_information_position + 50
@@ -504,7 +509,7 @@ NavigationPane {
                                                     }
                                                     Container{
                                                         horizontalAlignment: HorizontalAlignment.Left
-                                                        preferredWidth: 768/2 - Qt.main_icon_size/2 + 30       
+                                                        preferredWidth: Qt.screen_width/2 - Qt.main_icon_size/2 + 30       
                                                         Container{
                                                             horizontalAlignment: HorizontalAlignment.Left
                                                             layout: AbsoluteLayout {} 
@@ -530,13 +535,13 @@ NavigationPane {
                                                     Container{
                                                         id: current_temperature
                                                         horizontalAlignment: HorizontalAlignment.Right
-                                                        preferredWidth:  768
+                                                        preferredWidth: Qt.screen_width
                                                         verticalAlignment: VerticalAlignment.Bottom
                                                         layout: AbsoluteLayout {}
                                                            Container {
-                                                               preferredWidth:  768/2
+                                                               preferredWidth: Qt.screen_width/2
                                                                layoutProperties: AbsoluteLayoutProperties {
-                                                                   positionX: 768/2
+                                                                   positionX: Qt.screen_width/2
                                                                }
                                                                Label {                                                               
                                                                    id: current_temp_text_id
@@ -556,7 +561,7 @@ NavigationPane {
                                                     Container{
                                                         id: humidity_wind_pressure_id 
                                                         horizontalAlignment: HorizontalAlignment.Left
-                                                        preferredWidth: 768/2 - Qt.main_icon_size/2 + 60
+                                                        preferredWidth: Qt.screen_width/2 - Qt.main_icon_size/2 + 60
                                                         verticalAlignment: VerticalAlignment.Center
 
                                                         Container{
@@ -725,7 +730,7 @@ NavigationPane {
                                                 }
                                                 Container{
                                                     id: title
-                                                    preferredWidth: 768
+                                                    preferredWidth: Qt.screen_width
                                                     layout: DockLayout {}
                                                     layoutProperties: AbsoluteLayoutProperties {
                                                         positionY: 480.0
@@ -745,7 +750,7 @@ NavigationPane {
                                             }
                                             Container{
                                                 id: topStringWithStationName
-                                                preferredWidth: 768
+                                                preferredWidth: Qt.screen_width
                                                 layout: DockLayout {}
                                                 layoutProperties: AbsoluteLayoutProperties {
                                                     positionX: 0
@@ -804,7 +809,7 @@ NavigationPane {
                                                 id: main_icon
                                                 visible: ListItemData.fulldate != "" ? true : false
                                                 layoutProperties: AbsoluteLayoutProperties {
-                                                    positionX: 768/2 - Qt.main_icon_size/2 
+                                                    positionX: Qt.screen_width/2 - Qt.main_icon_size/2 
                                                     positionY: 40 
                                                 }
                                                 preferredWidth: Qt.main_icon_size 
@@ -818,7 +823,7 @@ NavigationPane {
                                         Container{
                                             visible: ListItemData.number == 0 ? false : true;
                                             background: Color.create(ListItemData.bg_color)
-                                            preferredWidth: 768
+                                            preferredWidth: Qt.screen_width
                                             preferredHeight: 120 
                                             Container{
                                                 visible: ListItemData.background_image != "" ? true : false;
@@ -830,13 +835,13 @@ NavigationPane {
                                             layout: AbsoluteLayout {}
                                             Container{
                                                 layout: DockLayout {}
-                                                preferredWidth: 768
+                                                preferredWidth: Qt.screen_width
                                                 preferredHeight: 120 
                                                 Container{
                                                     layout: StackLayout {
                                                         orientation: LayoutOrientation.LeftToRight
                                                     }
-                                                    preferredWidth: 768/2
+                                                    preferredWidth: Qt.screen_width/2
                                                     verticalAlignment: VerticalAlignment.Center
                                                     horizontalAlignment: HorizontalAlignment.Left
                                                     Container{
@@ -850,7 +855,7 @@ NavigationPane {
                                                         Label {
                                                             text: ListItemData.fulldate
                                                             textStyle.textAlign: TextAlign.Left
-                                                            preferredWidth: 768/2 - Qt.row_icon_size/2 - 20
+                                                            preferredWidth: Qt.screen_width/2 - Qt.row_icon_size/2 - 20
                                                             textStyle {    
                                                                 base: SystemDefaults.TextStyles.BodyText 
                                                                 fontWeight: FontWeight.W100
@@ -859,7 +864,7 @@ NavigationPane {
                                                         }
                                                         Label {
                                                             text: ListItemData.shortdate
-                                                            preferredWidth: 768/2 - Qt.row_icon_size/2 - 20
+                                                            preferredWidth: Qt.screen_width/2 - Qt.row_icon_size/2 - 20
                                                             layoutProperties: AbsoluteLayoutProperties {
                                                                 positionX: 70.0
                                                             }
@@ -966,7 +971,7 @@ NavigationPane {
                     }
                     Button {
                         horizontalAlignment: HorizontalAlignment.Center
-                        preferredWidth: 768 
+                        preferredWidth: screen_width 
                         visible : Config.stationname == "Unknown" ? true : false;
                         text: Config.tr("Set locations")
                         onClicked: {
@@ -980,7 +985,7 @@ NavigationPane {
                     Button {
                         id: refresh_button
                         horizontalAlignment: HorizontalAlignment.Center
-                        preferredWidth: 768 
+                        preferredWidth: screen_width 
                         visible : (Config.stationname != "Unknown" && Forecast_model.rowCount() == 0 && Current.rowCount() == 0) ? true : false
                         text: Config.tr("Try to update")
                         onClicked: {
@@ -996,9 +1001,9 @@ NavigationPane {
             Container{
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0 
-                    positionY: 1142
+                    positionY: screen_height - 138 
                 }
-                preferredWidth: 768 
+                preferredWidth: screen_width 
                 preferredHeight: 138 
                 background: Color.create("#1f1f1f")
                 Container{    
@@ -1091,9 +1096,9 @@ NavigationPane {
                         verticalAlignment: VerticalAlignment.Center
                         horizontalAlignment: HorizontalAlignment.Center
                         imageSource: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"                 
-                        preferredWidth: 440
-                        maxWidth:       440 
-                        minWidth:       440 
+                        preferredWidth: screen_width - 328
+                        maxWidth:       screen_width - 328
+                        minWidth:       screen_width - 328
                         preferredHeight: 120 
                         leftMargin: 30.0
                         rightMargin: 30.0

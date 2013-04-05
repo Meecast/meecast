@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -175,6 +175,7 @@ public:
     Q_INVOKABLE void setgps(bool c);
     Q_INVOKABLE void setsplash(bool c);
     Q_INVOKABLE QStringList icon_list();
+    Q_INVOKABLE QStringList languages_list();
     Q_INVOKABLE void set_iconset(QString c);
     Q_INVOKABLE void set_standby_color_font_stationname(QColor c);
     Q_INVOKABLE void set_standby_color_font_temperature(QColor c);

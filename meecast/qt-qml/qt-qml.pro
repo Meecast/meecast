@@ -72,6 +72,7 @@ OTHER_FILES += \
     qml/IconsetPage.qml \
     qml/StandbyScreen.qml \
     qml/ColorCell.qml \
+    qml/LanguagesPage.qml \
     qml/SearchField.qml
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG

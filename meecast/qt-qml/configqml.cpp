@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -263,6 +263,16 @@ ConfigQml::windspeed_list()
     QStringList l;
     for (int i=0; i < wind_list.size(); i++){
         l.append(QString(QString::fromUtf8(_(wind_list.at(i).toStdString().c_str()))));
+    }
+    return l;
+}
+
+QStringList 
+ConfigQml::languages_list()
+{
+    QStringList l;
+    for (unsigned int i=0; i<languagesList().size(); i++){
+        l << QString::fromUtf8(languagesList().at(i).first.c_str());
     }
     return l;
 }

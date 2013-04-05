@@ -535,6 +535,12 @@ Config::InitLanguagesList(){
     }
 */
 }
+
+languages&
+Config::languagesList(){
+    return *_languages_list;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 Config::~Config(){
     delete _pathPrefix;

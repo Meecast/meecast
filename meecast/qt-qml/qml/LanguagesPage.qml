@@ -1,67 +1,19 @@
 import Qt 4.7
-//import QtQuick 1.1
-//import Qt.labs.components 1.0
 import com.nokia.meego 1.0
 
 Page {
-    id: settings
+    id: languagespage
     property int margin: 16
     tools: ToolBarLayout {
         ToolIcon {
             iconId: "toolbar-back"
             onClicked: {
-                //menu.close();
                 pageStack.pop();
             }
-        }/*
-        ToolIcon {
-            platformStyle: ToolItemStyle {inverted: true}
-            iconId: "toolbar-view-menu"
-            onClicked: menu.open();
-            anchors.right: parent == undefined ? undefined : parent.right
-        }*/
+        }
+
     }
-    //FontLoader {id: localFont; source: "fonts/nokia/Nokia Pure/NokiaPureMbLight.ttf"}
     orientationLock: PageOrientation.LockPortrait
-    function openFile(file)
-    {
-        var component = Qt.createComponent(file);
-        if (component.status == Component.Ready){
-            pageStack.push(component);
-        }else {
-            console.log("error open file "+file);
-        }
-    }
-    ListModel {
-        id: settingsModel
-        ListElement {
-            page: "StationsPage.qml"
-            title: "Manage locations"
-        }
-        ListElement {
-            page: "UnitsPage.qml"
-            title: "Measurement units"
-        }
-	/* 
-        ListElement {
-            page: "SourcePage.qml"
-            title: "Source"
-        }*/
-        ListElement {
-            page: "VisualsPage.qml"
-            title: "Appearance"
-        }
-	    ListElement {
-            page: "UpdatePage.qml"
-            title: "Update"
-        }
-    	ListElement {
-            page: "LanguagesPage.qml"
-            title: "Language"
-        }
-
-
-    }
 
     Rectangle{
         anchors.fill: parent
@@ -93,41 +45,36 @@ Page {
         }
 
         ListView {
-            id: listview
-            model: settingsModel
+            id: languageslist
             anchors.fill: parent
-            //anchors.top: title_rect.bottom
-            //anchors.topMargin: 80
-            //anchors.leftMargin: margin
-            //anchors.rightMargin: margin
+            model: Config.languages_list()
 
             delegate: Item {
                 height: 80
                 width: parent.width
 
                 Label {
-                    anchors.left: parent.left
+                    anchors.left: parent.left 
                     anchors.verticalCenter: parent.verticalCenter
-                    text: Config.tr(model.title)
+                    text: modelData
                 }
-
                 Image {
                     source: "image://theme/icon-m-common-drilldown-arrow-inverse"
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                 }
-                MouseArea {
+
+                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        settings.openFile(model.page);
+ //                       Config.set_iconset(modelData);
+                        pageStack.pop();
                     }
                 }
             }
         }
-        ScrollDecorator {
-            flickableItem: listview
-        }
     }
+
     Rectangle {
         id: title_rect
         anchors.top: parent.top
@@ -141,11 +88,15 @@ Page {
             id: title
             anchors.fill: parent
             color: "white"
-            text: Config.tr("Settings")
-            font.family: "Nokia Pure Text Light"
+            text: Config.tr("Select the language")
+            //font.family: "Nokia Pure Light"
             font.pixelSize: 30
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter
         }
     }
+
+
 }
+
+

@@ -19,6 +19,8 @@ NavigationPane {
     property int wind_direction_angle : 0
     property bool current_value: false
     property int main_information_position : 150 
+    property int screen_height : 768
+    property int screen_width : 1280
     backButtonsVisible: false
     // Create the initial screen
     property variant newPage;
@@ -32,8 +34,6 @@ NavigationPane {
     }
     Page {
         id: main
-        property int screen_width : 1280
-        property int screen_height : 768
         property int day: 0
         property bool current: false
         property string day_period: "day"

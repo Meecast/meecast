@@ -208,6 +208,13 @@ ConfigQml::set_iconset(QString c)
     saveConfig();
     refreshconfig();
 }
+void
+ConfigQml::set_language(QString c)
+{
+    ConfigQml::Config::Language(c.toStdString());
+    saveConfig();
+    refreshconfig();
+}
 
 QString
 ConfigQml::iconspath(){

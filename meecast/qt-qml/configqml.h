@@ -178,6 +178,7 @@ public:
     Q_INVOKABLE QStringList languages_list();
     Q_INVOKABLE int index_of_current_language();
     Q_INVOKABLE void set_iconset(QString c);
+    Q_INVOKABLE void set_language(QString c);
     Q_INVOKABLE void set_standby_color_font_stationname(QColor c);
     Q_INVOKABLE void set_standby_color_font_temperature(QColor c);
     Q_INVOKABLE void set_standby_color_font_current_temperature(QColor c);

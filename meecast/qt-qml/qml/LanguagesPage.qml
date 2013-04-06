@@ -73,7 +73,7 @@ Page {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
- //                       Config.set_iconset(modelData);
+                        Config.set_language(modelData);
                         pageStack.pop();
                     }
                 }

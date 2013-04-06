@@ -19,10 +19,8 @@ Page {
     property variant model_hours:  Forecast_hours_model
     property int toolbar_button_width: 152
     //property variant description_text_alignment: Text.AlignHLeft;
-//    property int screen_height : 1280 
-//    property int screen_width : 768 
-    property int screen_height : 720
-    property int screen_width : 720 
+    property int screen_height : Config.get_height_resolution() 
+    property int screen_width : Config.get_width_resolution() 
     property int toolbar_button_max_width: screen_width/2
 
     function check_hours ()

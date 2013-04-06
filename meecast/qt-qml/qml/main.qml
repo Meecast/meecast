@@ -19,10 +19,9 @@ NavigationPane {
     property int wind_direction_angle : 0
     property bool current_value: false
     property int main_information_position : 150 
-//    property int screen_height : 1280
-//    property int screen_width : 768 
-    property int screen_height : 720
-    property int screen_width : 720 
+    property int screen_height : Config.get_height_resolution() 
+    property int screen_width : Config.get_width_resolution() 
+    property int menu_height : Config.get_height_resolution() == 1280 ? 138 : 110;
     backButtonsVisible: false
     // Create the initial screen
     property variant newPage;
@@ -441,7 +440,7 @@ NavigationPane {
                         }
                         layout: AbsoluteLayout {}
                         preferredWidth: screen_width
-                        preferredHeight: screen_height - 138 
+                        preferredHeight: screen_height - menu_height 
                         ListView {
                             id: forrecasts_list
                             dataModel: GroupDataModel {
@@ -458,6 +457,7 @@ NavigationPane {
                                 Qt.main_information_position = main_information_position
                                 Qt.row_icon_size = row_icon_size
                                 Qt.screen_width = screen_width  
+                                Qt.screen_height = screen_height
                                 main.update_list();
                             }
 
@@ -1003,10 +1003,10 @@ NavigationPane {
                 id: toolbar
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0 
-                    positionY: screen_height - 138 
+                    positionY: screen_height - menu_height 
                 }
                 preferredWidth: screen_width 
-                preferredHeight: 138 
+                preferredHeight:  menu_height 
                 background: Color.create("#1f1f1f")
                 Container{    
                     layout: StackLayout {
@@ -1015,9 +1015,9 @@ NavigationPane {
                     Container{
                         preferredWidth: 1
                         minWidth:       1 
-                        preferredHeight: 138
-                        maxHeight:       138 
-                        minHeight:       138
+                        preferredHeight: menu_height 
+                        maxHeight:       menu_height 
+                        minHeight:       menu_height 
                     }
                     Container{
                         layout: AbsoluteLayout {}
@@ -1088,9 +1088,9 @@ NavigationPane {
                     Container{
                         preferredWidth: 2
                         minWidth:       2 
-                        preferredHeight: 138
-                        maxHeight:       138 
-                        minHeight:       138
+                        preferredHeight: menu_height
+                        maxHeight:       menu_height 
+                        minHeight:       menu_height
                         background: Color.create("#000000")
                     }
                     ImageView {
@@ -1113,9 +1113,9 @@ NavigationPane {
                     Container{
                         preferredWidth: 2 
                         minWidth:       2 
-                        preferredHeight: 138
-                        maxHeight:       138 
-                        minHeight:       138
+                        preferredHeight: menu_height
+                        maxHeight:       menu_height 
+                        minHeight:       menu_height
                         background: Color.create("#000000")
                     }
                    

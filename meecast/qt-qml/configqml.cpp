@@ -190,6 +190,16 @@ ConfigQml::set_iconset(QString c)
     refreshconfig();
 }
 
+int
+ConfigQml::get_width_resolution(){
+    return atoi(getenv("WIDTH"));
+}
+
+int
+ConfigQml::get_height_resolution(){
+    return atoi(getenv("HEIGHT"));
+}
+
 QString
 ConfigQml::iconspath(){
     return ConfigQml::Config::iconspath().c_str(); 

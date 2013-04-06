@@ -6,9 +6,8 @@ Page {
     
     id: settings
     property int margin: 16
-    property int screen_width  :  768
-    property int screen_height : 1280    
-
+    property int screen_height : Config.get_height_resolution() 
+    property int screen_width : Config.get_width_resolution() 
    
 
     content:  Container{
@@ -24,11 +23,11 @@ Page {
             }
             layout: DockLayout {}
             background: Color.Black
-            preferredWidth: 768
+            preferredWidth: screen_width
             preferredHeight: 120 
             Label {
                 verticalAlignment: VerticalAlignment.Center
-                preferredWidth: 768
+                preferredWidth: screen_width
                 preferredHeight: 120 
                 text:  Config.tr("Settings") 
                 textStyle {
@@ -43,21 +42,21 @@ Page {
 //                    positionY: 90
 //                 }
 //                imageSource: "asset:///share/images/mask_background_grid.png"
-//                preferredWidth: 768  
+//                preferredWidth: screen_width  
 //        }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
-                                positionX: 0
-                                positionY: 350
+                    positionX: 0
+                    positionY: 350
                 }
                 background: Color.create("#262626")
-                preferredWidth: 768
-                preferredHeight: 1000
+                preferredWidth: screen_width
+                preferredHeight: screen_height - 280
         }
 		Container{
 			layoutProperties: AbsoluteLayoutProperties {
-                                positionX: 0
-                                positionY: 120 
+                positionX: 0
+                positionY: 120 
             }
 			attachedObjects: [
 				GroupDataModel {
@@ -71,6 +70,7 @@ Page {
 			ListView {
 				id: listview
 				dataModel: groupDataModel
+                
 				onCreationCompleted: {
 					groupDataModel.insert( {"name" :  Config.tr("About"), "qml" : "AboutPage.qml"});
 //					groupDataModel.insert( {"name" :  Config.tr("Update"), "qml" : "Update.qml"});
@@ -79,6 +79,8 @@ Page {
 					groupDataModel.insert( {"name" :  Config.tr("Settings"), "qml" : "SettingsPage2.qml"});
 					groupDataModel.insert( {"name" :  Config.tr("Manage locations"), "qml" : "StationsPage.qml"});
                     rootWindow.backButtonsVisible = true;
+                    Qt.screen_width = screen_width  
+                    Qt.screen_height = screen_height
 				}           
 				listItemComponents: [
 					 ListItemComponent {
@@ -96,7 +98,7 @@ Page {
                               background:  Color.create("#262626") 
 							  Label {                 
 								  text: ListItemData.name
-								  preferredWidth: 768
+								  preferredWidth: Qt.screen_width
 								  horizontalAlignment:  HorizontalAlignment.Fill
 								  verticalAlignment: VerticalAlignment.Center
                                   textStyle {

@@ -8,7 +8,10 @@ Page {
     property int margin: 16
     property int removedStation: -1
     //Config {id: config1}
-    
+    property int screen_height : Config.get_height_resolution() 
+    property int screen_width : Config.get_width_resolution() 
+    property int menu_height : Config.get_height_resolution() == 1280 ? 138 : 110;
+ 
     actions: [
         ActionItem {
             title:  Config.tr("Add")
@@ -39,10 +42,10 @@ Page {
             }
             layout: DockLayout {}
             background: Color.Black
-            preferredWidth: 768
+            preferredWidth: screen_width
             preferredHeight: 120 
             Label {
-                preferredWidth: 768
+                preferredWidth: screen_width
                 verticalAlignment: VerticalAlignment.Center
                 preferredHeight: 120 
                 text:  Config.tr("Manage locations") 
@@ -58,7 +61,7 @@ Page {
 //                    positionY: 90
 //                 }
 //                imageSource: "asset:///share/images/mask_background_grid.png"
-//                preferredWidth: 768  
+//                preferredWidth: screen_width  
 //        }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
@@ -66,8 +69,8 @@ Page {
                     positionY: 120
                 }
                 background: Color.create("#262626")
-                preferredWidth: 768
-                preferredHeight: 1000
+                preferredWidth: screen_width
+                preferredHeight: screen_height - 2*menu_height 
         }
         Container{
             layoutProperties: AbsoluteLayoutProperties {
@@ -91,6 +94,8 @@ Page {
                     Qt.removeStation = removeStation; 
                     Qt.removedStation = removedStation;
                     Qt.dialog = dialog;
+                    Qt.screen_width = screen_width  
+                    Qt.screen_height = screen_height
                 }     
                 attachedObjects: [
                     SystemDialog {
@@ -123,7 +128,7 @@ Page {
                             preferredHeight: 120
                             Label {                 
                                   text: ListItemData.name
-                                  preferredWidth: 768
+                                  preferredWidth: Qt.screen_width
                                   horizontalAlignment:  HorizontalAlignment.Fill
                                   verticalAlignment: VerticalAlignment.Center
                                   textStyle {
@@ -157,7 +162,5 @@ Page {
                 }
             }
         }       
-
-
     }
 }

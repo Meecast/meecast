@@ -184,6 +184,8 @@ public:
     Q_INVOKABLE void set_lock_screen_y_position(int y);
     Q_INVOKABLE QString tr(QString str);
     Q_INVOKABLE void enableGps();
+    Q_INVOKABLE int get_width_resolution();
+    Q_INVOKABLE int get_height_resolution();
     void refreshconfig();
     AbstractPane  *appPage;
 signals:

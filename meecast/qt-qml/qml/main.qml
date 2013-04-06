@@ -999,6 +999,8 @@ NavigationPane {
                 }
             }
             Container{
+
+                id: toolbar
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0 
                     positionY: screen_height - 138 

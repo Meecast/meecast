@@ -18,9 +18,13 @@ Page {
     property variant model_night:  (current) ? Current_night : Forecast_night_model
     property variant model_hours:  Forecast_hours_model
     property int toolbar_button_width: 152
-    property int toolbar_button_max_width: 768/2
     //property variant description_text_alignment: Text.AlignHLeft;
-   
+//    property int screen_height : 1280 
+//    property int screen_width : 768 
+    property int screen_height : 720
+    property int screen_width : 720 
+    property int toolbar_button_max_width: screen_width/2
+
     function check_hours ()
     {
         var i = 0;
@@ -381,20 +385,20 @@ Page {
                 positionY: 560
             }
             background: Color.Black
-            preferredWidth: 768
+            preferredWidth: screen_width
             preferredHeight: 1000
         }
 
         Container{
             id: current_rect
             background: Color.Black
-            preferredWidth: 768         
+            preferredWidth: screen_width         
             visible: Current.rowCount() == 0 ? false : true
             layout: AbsoluteLayout {
             }
             Container{
                 id: current_rect_back
-                preferredWidth: 768
+                preferredWidth: screen_width
                 preferredHeight: 564
                 layoutProperties: AbsoluteLayoutProperties {
                     positionY: 0
@@ -403,7 +407,7 @@ Page {
             }
             ImageView {
                 imageSource: "asset:///share/images/mask_background_main.png"
-                preferredWidth: 768
+                preferredWidth: screen_width
                 preferredHeight: 564
                 layoutProperties: AbsoluteLayoutProperties {
                     positionY: 0
@@ -411,7 +415,7 @@ Page {
                 visible: true
             }
             Container{
-                preferredWidth: 768
+                preferredWidth: screen_width
                 layout: DockLayout {}
                 preferredHeight: Qt.main_icon_size - Qt.main_information_position + 50
                 layoutProperties: AbsoluteLayoutProperties {
@@ -420,7 +424,7 @@ Page {
                 Container{
                     id: dayperiodname
                     horizontalAlignment: HorizontalAlignment.Left
-                    preferredWidth: 768/2 - Qt.main_icon_size/2 + 30 
+                    preferredWidth: screen_width/2 - Qt.main_icon_size/2 + 30 
                     Container{
                         horizontalAlignment: HorizontalAlignment.Left
                         layout: AbsoluteLayout {} 
@@ -445,13 +449,13 @@ Page {
                 Container{
                     id: current_temperature
                     horizontalAlignment: HorizontalAlignment.Right
-                    preferredWidth:  768
+                    preferredWidth:  screen_width
                     verticalAlignment: VerticalAlignment.Bottom
                     layout: AbsoluteLayout {}
                     Container {
-                        preferredWidth:  768/2
+                        preferredWidth:  screen_width/2
                         layoutProperties: AbsoluteLayoutProperties {
-                            positionX: 768/2
+                            positionX: screen_width/2
                         }
                         Label {                                                               
                            id: temperature
@@ -471,7 +475,7 @@ Page {
             }
             Container{
                 id: title
-                preferredWidth: 768
+                preferredWidth: screen_width
                 layout: DockLayout {}
                 layoutProperties: AbsoluteLayoutProperties {
                     positionY: 480.0
@@ -489,7 +493,7 @@ Page {
             }
         }
         Container{
-            preferredWidth: 768
+            preferredWidth: screen_width
             id: left_right_title
             layout: DockLayout {}
             layoutProperties: AbsoluteLayoutProperties {
@@ -559,7 +563,7 @@ Page {
         ImageView {
             id: main_icon
             layoutProperties: AbsoluteLayoutProperties {
-                positionX: 768/2 - Qt.main_icon_size/2 
+                positionX: screen_width/2 - Qt.main_icon_size/2 
                 positionY: 40 
             }
             preferredWidth: Qt.main_icon_size 
@@ -574,8 +578,8 @@ Page {
                 positionX: 0
                 positionY: 564
             }
-            preferredWidth: 768
-            preferredHeight: 1280-564-100
+            preferredWidth: screen_width
+            preferredHeight: screen_height-564-100
             ListView {
                 id: forrecasts_grid_list 
                 layout: GridListLayout {
@@ -618,7 +622,7 @@ Page {
                 positionX: 0
                 positionY: 90
             }
-            preferredWidth: 768
+            preferredWidth: screen_width
             preferredHeight: 1050.0
 
             ListView {
@@ -635,12 +639,12 @@ Page {
                             layout: DockLayout {
                             }
                             background: Color.create(ListItemData.bg_color)
-                            preferredWidth: 768
+                            preferredWidth: screen_width
                             Container{
                                 layout: StackLayout {
                                     orientation: LayoutOrientation.LeftToRight
                                 }
-                                preferredWidth: 768/2
+                                preferredWidth: screen_width/2
                                 verticalAlignment: VerticalAlignment.Center
                                 horizontalAlignment: HorizontalAlignment.Left
                                 Container{
@@ -703,7 +707,7 @@ Page {
 //                positionY: 1140
 //            }
 //            preferredHeight: 2
-//            preferredWidth: 768
+//            preferredWidth: screen_width
 //            background: Color.Gray    
 //        }
 
@@ -711,9 +715,9 @@ Page {
             id: toolbar
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0 
-                positionY: 1142
+                positionY: screen_height - 138 
             }
-            preferredWidth: 768 
+            preferredWidth: screen_width 
             preferredHeight: 138 
             background: Color.create("#2f2f2f")
             Container{    

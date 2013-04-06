@@ -277,6 +277,19 @@ ConfigQml::languages_list()
     return l;
 }
 
+int 
+ConfigQml::index_of_current_language()
+{
+    unsigned int i;
+    unsigned result = 0;
+    for (i=0; i<languagesList().size(); i++){
+        if (languagesList().at(i).first.c_str() == Language() ){
+            result = i;    
+            break;
+        }
+    }
+    return result;
+}
 void 
 ConfigQml::windspeed_unit(int index)
 {

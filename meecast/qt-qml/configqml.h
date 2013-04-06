@@ -176,6 +176,7 @@ public:
     Q_INVOKABLE void setsplash(bool c);
     Q_INVOKABLE QStringList icon_list();
     Q_INVOKABLE QStringList languages_list();
+    Q_INVOKABLE int index_of_current_language();
     Q_INVOKABLE void set_iconset(QString c);
     Q_INVOKABLE void set_standby_color_font_stationname(QColor c);
     Q_INVOKABLE void set_standby_color_font_temperature(QColor c);

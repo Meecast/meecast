@@ -1,4 +1,4 @@
- import QtQuick 1.0
+// import QtQuick 1.0
 // import "content"
 
 import Qt 4.7
@@ -110,7 +110,8 @@ Page {
          delegate: langDelegate
          focus: true
          highlight: highlightBar
-         highlightFollowsCurrentItem: false
+         highlightFollowsCurrentItem: true
+         Component.onCompleted: { positionViewAtIndex(Config.index_of_current_language(), ListView.End);}
      }
  }
  Rectangle {

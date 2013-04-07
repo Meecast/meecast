@@ -92,9 +92,9 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 
     QDir::setCurrent(app.applicationDirPath());
 
-    textdomain("omweather");
-    bindtextdomain("omweather", "/opt/com.meecast.omweather/share/locale");
-/*
+    
+
+    /*
     //Set up a graphics scene with a QGraphicsWidget and Layout
     QGraphicsView view;
     QGraphicsScene scene;
@@ -108,18 +108,31 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 
     //Add the QML snippet into the layout
 
-    //QString locale = QLocale::system().name();
-    //std::cerr<<"locale: "<<locale.toStdString()<<std::endl;
+  //  QString locale = QLocale::system().name();
+
+   // std::cerr<<"locale: "<<locale.toStdString()<<std::endl;
     
     //ConfigQml *config;
     //
     Controller *controller;
-
+/*
     QTranslator translator;
     translator.load("ru.qml", "i18n");
     app.installTranslator(&translator);
-
+*/
     controller = new Controller(); 
+    
+    /* Locale */
+    for (unsigned int i=0; i<controller->config()->languagesList().size(); i++){
+        if (controller->config()->languagesList().at(i).first == controller->config()->Language()){
+            setlocale (LC_ALL, controller->config()->languagesList().at(i).second.c_str());
+            setlocale (LC_MESSAGES, controller->config()->languagesList().at(i).second.c_str());
+            QLocale::setDefault(QLocale(controller->config()->languagesList().at(i).second.c_str()));
+        }
+    }
+    textdomain("omweather");
+    bindtextdomain("omweather", "/opt/com.meecast.omweather/share/locale");
+
     /* D-BUS */
     DbusAdaptor* dadapt = new DbusAdaptor(controller);
 

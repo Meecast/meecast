@@ -44,6 +44,7 @@
     <category>core.media</category>
     <splashScreens>
        <image>splash.png</image>
+       <image>splash720x720.png</image>
     </splashScreens>
     <configuration id="com.qnx.qcc.toolChain.398719213" name="Default">
        <platformArchitecture>armle-v7</platformArchitecture>
@@ -116,6 +117,7 @@
     <asset path="omweather-bom-gov-au-stations-db/data/bom.gov.au.db">share/db/bom.gov.au.db</asset>
     <asset path="omweather-bom-gov-au-stations-db/data/bom.gov.au.xml">share/sources/bom.gov.au.xml</asset>
     <asset path="meecast/core/data/images/splash.png">splash.png</asset>
+    <asset path="meecast/core/data/images/splash720x720.png">splash720x720.png</asset>
    
     <!-- Request permission to execute native code.  Required for native applications. -->
     <permission system="true">run_native</permission>

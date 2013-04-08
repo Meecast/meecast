@@ -22,6 +22,7 @@ Page {
     property int screen_height : Config.get_height_resolution() 
     property int screen_width : Config.get_width_resolution() 
     property int toolbar_button_max_width: screen_width/2
+    property int menu_height : Config.get_height_resolution() == 1280 ? 138 : 110;
 
     function check_hours ()
     {
@@ -362,7 +363,7 @@ Page {
         Forecast_hours_model.update_model(4);
         main.update_list();
         main.update_current_data();
-        //list.height = 80 * Forecast_model.rowCount();
+        //list.height = 90 * Forecast_model.rowCount();
         console.debug ("Forecast_model.rowCount()", Forecast_model.rowCount(), Current.rowCount());
         //dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
         current_rect.visible = Current.rowCount() == 0 ? false : true;
@@ -577,7 +578,8 @@ Page {
                 positionY: 564
             }
             preferredWidth: screen_width
-            preferredHeight: screen_height-564-100
+            //preferredHeight: screen_height-564-100
+            preferredHeight: screen_height - menu_height 
             ListView {
                 id: forrecasts_grid_list 
                 layout: GridListLayout {
@@ -621,8 +623,9 @@ Page {
                 positionY: 90
             }
             preferredWidth: screen_width
-            preferredHeight: 1050.0
+//            preferredHeight: 1050.0
 
+            preferredHeight: screen_height - menu_height 
             ListView {
                 id: forrecasts_hours_list
                 dataModel: GroupDataModel {
@@ -713,10 +716,10 @@ Page {
             id: toolbar
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0 
-                positionY: screen_height - 138 
+                positionY: screen_height - menu_height 
             }
             preferredWidth: screen_width 
-            preferredHeight: 138 
+            preferredHeight: menu_height 
             background: Color.create("#2f2f2f")
             Container{    
                 layout: StackLayout {
@@ -728,7 +731,7 @@ Page {
                     background: Color.create("#2f2f2f")
                     verticalAlignment: VerticalAlignment.Center     
                     preferredWidth: toolbar_button_max_width
-                    preferredHeight: 138
+                    preferredHeight: menu_height
                     Container{
                         id: "button_back_top"
                         preferredWidth: toolbar_button_max_width
@@ -760,7 +763,7 @@ Page {
                             horizontalAlignment: HorizontalAlignment.Center
                             layoutProperties: AbsoluteLayoutProperties {
                                 positionX: 0 
-                                positionY: 80
+                                positionY: menu_height * 0.6
                             }               
                             preferredWidth: toolbar_button_width
                             Label {
@@ -781,9 +784,9 @@ Page {
                 Container{
                         preferredWidth: 2
                         minWidth:       2 
-                        preferredHeight: 138
-                        maxHeight:       138 
-                        minHeight:       138
+                        preferredHeight: menu_height
+                        maxHeight:       menu_height 
+                        minHeight:       menu_height
                         background: Color.create("#000000")
                 }
                                 
@@ -792,7 +795,7 @@ Page {
                     background: Color.create("#1f1f1f")
                     verticalAlignment: VerticalAlignment.Center
                     preferredWidth: toolbar_button_max_width     
-                    preferredHeight: 138
+                    preferredHeight: menu_height
                     visible: (main.current == true && model_current.getdata(day, "current")) ? true : false;
                     onTouch: {
                         if (event.isDown()) {
@@ -826,7 +829,7 @@ Page {
                             preferredWidth: toolbar_button_width
                             layoutProperties: AbsoluteLayoutProperties {
                                 positionX: 0 
-                                positionY: 80
+                                positionY: menu_height * 0.6
                             }               
                             Label {
                                 text: Config.tr("Now") 
@@ -853,9 +856,9 @@ Page {
                 Container{
                         preferredWidth: 2
                         minWidth:       2 
-                        preferredHeight: 138
-                        maxHeight:       138 
-                        minHeight:       138
+                        preferredHeight: menu_height
+                        maxHeight:       menu_height 
+                        minHeight:       menu_height
                         background: Color.create("#000000")
                 }
 
@@ -864,7 +867,7 @@ Page {
                     background: Color.create("#1f1f1f")
                     verticalAlignment: VerticalAlignment.Center
                     preferredWidth: toolbar_button_max_width  
-                    preferredHeight: 138
+                    preferredHeight: menu_height
                     onTouch: {
                         if (event.isDown()) {
                             day_period = "day";
@@ -895,7 +898,7 @@ Page {
                         Container{
                             layoutProperties: AbsoluteLayoutProperties {
                                 positionX: 0 
-                                positionY: 80
+                                positionY: menu_height * 0.6
                             }
                             preferredWidth: toolbar_button_width
                             Label {
@@ -927,9 +930,9 @@ Page {
                 Container{
                         preferredWidth: 2
                         minWidth:       2 
-                        preferredHeight: 138
-                        maxHeight:       138 
-                        minHeight:       138
+                        preferredHeight: menu_height
+                        maxHeight:       menu_height 
+                        minHeight:       menu_height
                         background: Color.create("#000000")
                 }
 
@@ -938,7 +941,7 @@ Page {
                     background: Color.create("#1f1f1f")
                     verticalAlignment: VerticalAlignment.Center     
                     preferredWidth: toolbar_button_max_width                    
-                    preferredHeight: 138
+                    preferredHeight: menu_height
                     onTouch: {
                         if (event.isDown()) {
                                 day_period = "night";
@@ -971,7 +974,7 @@ Page {
                             preferredWidth: toolbar_button_width
                             layoutProperties: AbsoluteLayoutProperties {
                                 positionX: 0 
-                                positionY: 80
+                                positionY: menu_height * 0.6
                             }               
                             Label {
                                 text: Config.tr("Night") 
@@ -1001,9 +1004,9 @@ Page {
                 Container{
                         preferredWidth: 2
                         minWidth:       2 
-                        preferredHeight: 138
-                        maxHeight:       138 
-                        minHeight:       138
+                        preferredHeight: menu_height
+                        maxHeight:       menu_height 
+                        minHeight:       menu_height
                         background: Color.create("#000000")
                 }
                 
@@ -1012,7 +1015,7 @@ Page {
                     background: Color.create("#1f1f1f")
                     verticalAlignment: VerticalAlignment.Center     
                     preferredWidth: toolbar_button_max_width
-                    preferredHeight: 138
+                    preferredHeight: menu_height
                     visible:  (check_hours()) ? true : false
                     onTouch: {
                         if (event.isDown()) {
@@ -1043,7 +1046,7 @@ Page {
                         Container{
                             layoutProperties: AbsoluteLayoutProperties {
                                 positionX: 0 
-                                positionY: 80
+                                positionY: menu_height * 0.6
                             }               
                             preferredWidth: toolbar_button_width
                             Label {
@@ -1064,9 +1067,9 @@ Page {
                 Container{
                         preferredWidth: 2
                         minWidth:       2 
-                        preferredHeight: 138
-                        maxHeight:       138 
-                        minHeight:       138
+                        preferredHeight: menu_height
+                        maxHeight:       menu_height 
+                        minHeight:       menu_height
                         background: Color.create("#000000")
                 }
             

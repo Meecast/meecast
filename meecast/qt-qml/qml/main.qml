@@ -533,32 +533,6 @@ NavigationPane {
                                                         }
                                                     }
                                                     Container{
-                                                        id: current_temperature
-                                                        horizontalAlignment: HorizontalAlignment.Right
-                                                        preferredWidth: Qt.screen_width
-                                                        verticalAlignment: VerticalAlignment.Bottom
-                                                        layout: AbsoluteLayout {}
-                                                           Container {
-                                                               preferredWidth: Qt.screen_width/2
-                                                               layoutProperties: AbsoluteLayoutProperties {
-                                                                   positionX: Qt.screen_width/2
-                                                               }
-                                                               Label {                                                               
-                                                                   id: current_temp_text_id
-                                                                   text: ListItemData.current_temp_text                                                                
-                                                                   horizontalAlignment: HorizontalAlignment.Center
-                                                                   verticalAlignment: VerticalAlignment.Bottom
-                                                                   textStyle.textAlign: TextAlign.Center
-                                                                   textStyle {
-                                                                       fontSize: FontSize.PointValue
-                                                                       fontWeight: FontWeight.W100
-                                                                       fontSizeValue: ListItemData.current_temp_text.length < 5 ? 26.0 : 20 
-                                                                       color: Color.White
-                                                                   }
-                                                               }
-                                                           }
-                                                    }
-                                                    Container{
                                                         id: humidity_wind_pressure_id 
                                                         horizontalAlignment: HorizontalAlignment.Left
                                                         preferredWidth: Qt.screen_width/2 - Qt.main_icon_size/2 + 60
@@ -819,6 +793,33 @@ NavigationPane {
                                                 overlapTouchPolicy: OverlapTouchPolicy.Allow
                                                 touchPropagationMode: TouchPropagationMode.PassThrough
                                             } 
+                                            Container{
+                                                id: current_temperature
+                                                horizontalAlignment: HorizontalAlignment.Right
+                                                preferredWidth: Qt.screen_width
+                                                verticalAlignment: VerticalAlignment.Bottom
+                                                layout: AbsoluteLayout {}
+                                                Container {
+                                                   preferredWidth: Qt.screen_width/2
+                                                   layoutProperties: AbsoluteLayoutProperties {
+                                                       positionX: Qt.screen_width/2
+                                                       positionY: 360
+                                                   }
+                                                   Label {                                                               
+                                                       id: current_temp_text_id
+                                                       text: ListItemData.current_temp_text                                                                
+                                                       horizontalAlignment: HorizontalAlignment.Center
+                                                       verticalAlignment: VerticalAlignment.Bottom
+                                                       textStyle.textAlign: TextAlign.Center
+                                                       textStyle {
+                                                           fontSize: FontSize.PointValue
+                                                           fontWeight: FontWeight.W100
+                                                           fontSizeValue: ListItemData.current_temp_text.length < 5 ? 26.0 : 20 
+                                                           color: Color.White
+                                                       }
+                                                   }
+                                                }
+                                            }
                                         }
                                         Container{
                                             visible: ListItemData.number == 0 ? false : true;
@@ -979,7 +980,7 @@ NavigationPane {
                             rootWindow.push(newPage);
                         }
                         layoutProperties: AbsoluteLayoutProperties {
-                            positionY: 800 
+                            positionY: screen_height/3 + 200 
                         }
                     }
                     Button {
@@ -993,7 +994,7 @@ NavigationPane {
                             Config.updatestations()
                         }
                         layoutProperties: AbsoluteLayoutProperties {
-                            positionY: 800 
+                            positionY: screen_height/3 + 200 
                         }
                     }
                 }

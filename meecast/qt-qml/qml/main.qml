@@ -798,6 +798,7 @@ NavigationPane {
                                                 horizontalAlignment: HorizontalAlignment.Right
                                                 preferredWidth: Qt.screen_width
                                                 verticalAlignment: VerticalAlignment.Bottom
+                                                visible: ListItemData.fulldate != "" ? true :false
                                                 layout: AbsoluteLayout {}
                                                 Container {
                                                    preferredWidth: Qt.screen_width/2

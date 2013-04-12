@@ -722,6 +722,49 @@ NavigationPane {
                                                     }
                                                 }
                                             }
+                                            ImageView {
+                                                id: main_icon
+                                                visible: ListItemData.fulldate != "" ? true : false
+                                                layoutProperties: AbsoluteLayoutProperties {
+                                                    positionX: Qt.screen_width/2 - Qt.main_icon_size/2 
+                                                    positionY: 40 
+                                                }
+                                                preferredWidth: Qt.main_icon_size 
+                                                preferredHeight: Qt.main_icon_size 
+                                                imageSource: ListItemData.pict 
+                                                horizontalAlignment: HorizontalAlignment.Center
+                                                overlapTouchPolicy: OverlapTouchPolicy.Allow
+                                                touchPropagationMode: TouchPropagationMode.PassThrough
+                                            } 
+                                            Container{
+                                                id: current_temperature
+                                                horizontalAlignment: HorizontalAlignment.Right
+                                                preferredWidth: Qt.screen_width
+                                                verticalAlignment: VerticalAlignment.Bottom
+                                                visible: ListItemData.fulldate != "" ? true :false
+                                                layout: AbsoluteLayout {}
+                                                Container {
+                                                   preferredWidth: Qt.screen_width/2
+                                                   layoutProperties: AbsoluteLayoutProperties {
+                                                       positionX: Qt.screen_width/2
+                                                       positionY: 360
+                                                   }
+                                                   Label {                                                               
+                                                       id: current_temp_text_id
+                                                       text: ListItemData.current_temp_text                                                                
+                                                       horizontalAlignment: HorizontalAlignment.Center
+                                                       verticalAlignment: VerticalAlignment.Bottom
+                                                       textStyle.textAlign: TextAlign.Center
+                                                       textStyle {
+                                                           fontSize: FontSize.PointValue
+                                                           fontWeight: FontWeight.W100
+                                                           fontSizeValue: ListItemData.current_temp_text.length < 5 ? 26.0 : 20 
+                                                           color: Color.White
+                                                       }
+                                                   }
+                                                }
+                                            }
+
                                             Container{
                                                 id: topStringWithStationName
                                                 preferredWidth: Qt.screen_width
@@ -778,48 +821,6 @@ NavigationPane {
                                                Container{
                                                    preferredWidth: 20 
                                                }
-                                            }
-                                            ImageView {
-                                                id: main_icon
-                                                visible: ListItemData.fulldate != "" ? true : false
-                                                layoutProperties: AbsoluteLayoutProperties {
-                                                    positionX: Qt.screen_width/2 - Qt.main_icon_size/2 
-                                                    positionY: 40 
-                                                }
-                                                preferredWidth: Qt.main_icon_size 
-                                                preferredHeight: Qt.main_icon_size 
-                                                imageSource: ListItemData.pict 
-                                                horizontalAlignment: HorizontalAlignment.Center
-                                                overlapTouchPolicy: OverlapTouchPolicy.Allow
-                                                touchPropagationMode: TouchPropagationMode.PassThrough
-                                            } 
-                                            Container{
-                                                id: current_temperature
-                                                horizontalAlignment: HorizontalAlignment.Right
-                                                preferredWidth: Qt.screen_width
-                                                verticalAlignment: VerticalAlignment.Bottom
-                                                visible: ListItemData.fulldate != "" ? true :false
-                                                layout: AbsoluteLayout {}
-                                                Container {
-                                                   preferredWidth: Qt.screen_width/2
-                                                   layoutProperties: AbsoluteLayoutProperties {
-                                                       positionX: Qt.screen_width/2
-                                                       positionY: 360
-                                                   }
-                                                   Label {                                                               
-                                                       id: current_temp_text_id
-                                                       text: ListItemData.current_temp_text                                                                
-                                                       horizontalAlignment: HorizontalAlignment.Center
-                                                       verticalAlignment: VerticalAlignment.Bottom
-                                                       textStyle.textAlign: TextAlign.Center
-                                                       textStyle {
-                                                           fontSize: FontSize.PointValue
-                                                           fontWeight: FontWeight.W100
-                                                           fontSizeValue: ListItemData.current_temp_text.length < 5 ? 26.0 : 20 
-                                                           color: Color.White
-                                                       }
-                                                   }
-                                                }
                                             }
                                         }
                                         Container{

@@ -2,6 +2,7 @@ meecast (0.7.1) unstable; urgency=low
 
   * Added option Language to Settings menu
   * Updated Italian translation. Thanks Lorenzo Facca
+  * Updated Serbian translation. Thanks Saleki 
   * Added Hungarian translation. Thanks Salmi
   * Updated Arabic, Catalan, Dutch, Finish, Norway, Portuguese translations
   * Added description string to gismeteo.ru 

@@ -230,6 +230,7 @@ Portuguese - Jose Narciso,\n \
 Turkish - Burak Kaan Kose,\n \
 Catalan - Agustí Clara,\n \
 Arabic - Tarad Alfandi,\n \
+Serbian - Saleki,\n \
 Norwegian - Peer-Atle Motland,\n \
 Hungarian - Salmi,\n \
 Vietnamese - Hieu Nguyen\n \

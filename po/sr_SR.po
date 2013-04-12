@@ -1,27 +1,27 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-15 21:22+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2013-03-16 14:50+0000\n"
+"Last-Translator: saleki <alexandarzaric@gmail.com>\n"
+"Language-Team: Serbian (http://www.transifex.com/projects/p/meecast/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sr\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
 "\n"
 "H: "
-msgstr ""
+msgstr "\nH: "
 
 #: omweather/src/weather-help.c:80
 #, c-format
@@ -41,140 +41,140 @@ msgid ""
 "Andrew Olmsted\n"
 "for Semi-transparency\n"
 "and coloured backgrounds\n"
-msgstr ""
+msgstr "\nHildon desktop aplet\nza Nokiu N800/N810/N900\nza prikaz vremenske prognoze.\nVezija %s Nadogradnja: %s\nCopyright(c) 2006-2011\nVlad Vasiliev, Pavel Fialko\nCopyright(c) 2008\nza standardni set ikona (izgled)\ni dizajn prikaza\nAndrew Zhilin\nCopyright(c) 2008\nAndrew Olmsted\nza polu-providnost\ni obojene pozadine\n"
 
 #: omweather/src/weather-home.c:1383 omweather/src/weather-home.c:1439
 #: omweather/src/weather-popup.c:965 omweather/src/weather-popup.c:1098
 msgid ""
 "\n"
 "Humidity: "
-msgstr ""
+msgstr "\nVlažnost vazduha: "
 
 #: omweather/src/weather-home.c:1608
 msgid ""
 "\n"
 "P: "
-msgstr ""
+msgstr "\nP: "
 
 #: omweather/src/weather-popup.c:954 omweather/src/weather-popup.c:959
 #: omweather/src/weather-popup.c:1087 omweather/src/weather-popup.c:1092
 msgid ""
 "\n"
 "Precipitation: "
-msgstr ""
+msgstr "\nPadavine: "
 
 #: omweather/src/weather-popup.c:976 omweather/src/weather-popup.c:1108
 msgid ""
 "\n"
 "Pressure: "
-msgstr ""
+msgstr "\nPritisak: "
 
 #: omweather/src/weather-home.c:1577
 msgid ""
 "\n"
 "V: "
-msgstr ""
+msgstr "\nV: "
 
 #: omweather/src/weather-home.c:1614
 msgid ""
 "\n"
 "W: "
-msgstr ""
+msgstr "\nW: "
 
 #: meecast/qt-qml/dataitem.cpp:470 meecast/qt-qml/dataitem.cpp:471
 msgid "(Low)"
-msgstr ""
+msgstr "(Nisko)"
 
 #: meecast/qt-qml/dataitem.cpp:472 meecast/qt-qml/dataitem.cpp:473
 msgid "(Moderate)"
-msgstr ""
+msgstr "(Umereno)"
 
 #: omweather/src/weather-simple-settings.c:1714
 #: omweather/src/weather-simple-settings.c:2811
 msgid "1 day"
-msgstr ""
+msgstr "1 dan"
 
 #: omweather/src/weather-settings.c:4240
 #: omweather/src/weather-simple-settings.c:1696
 #: omweather/src/weather-simple-settings.c:2805
 #: meecast/qt-qml/qml/UpdatePage.qml:154
 msgid "1 hour"
-msgstr ""
+msgstr "1 sat"
 
 #: omweather/src/weather-sensor.c:143
 msgid "1 minute"
-msgstr ""
+msgstr "1 minut"
 
 #: omweather/src/weather-sensor.c:149
 msgid "10 minutes"
-msgstr ""
+msgstr "10 minuta"
 
 #: omweather/src/weather-settings.c:4192
 msgid "10 seconds"
-msgstr ""
+msgstr "10 sekundi"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:175
 msgid "12 hours"
-msgstr ""
+msgstr "12 sati"
 
 #: omweather/src/weather-sensor.c:151 meecast/qt-qml/qml/UpdatePage.qml:140
 msgid "15 minutes"
-msgstr ""
+msgstr "15 minuta"
 
 #: omweather/src/weather-settings.c:4242 meecast/qt-qml/qml/UpdatePage.qml:161
 msgid "2 hours"
-msgstr ""
+msgstr "2 sata"
 
 #: omweather/src/weather-settings.c:4194
 msgid "20 seconds"
-msgstr ""
+msgstr "20 sekundi"
 
 #: omweather/src/weather-sensor.c:145
 msgid "3 minutes"
-msgstr ""
+msgstr "3 minuta"
 
 #: omweather/src/weather-sensor.c:153 meecast/qt-qml/qml/UpdatePage.qml:147
 msgid "30 minutes"
-msgstr ""
+msgstr "30 minuta"
 
 #: omweather/src/weather-settings.c:4196
 msgid "30 seconds"
-msgstr ""
+msgstr "30 sekundi"
 
 #: omweather/src/weather-settings.c:4244
 #: omweather/src/weather-simple-settings.c:1705
 #: omweather/src/weather-simple-settings.c:2808
 #: meecast/qt-qml/qml/UpdatePage.qml:168
 msgid "4 hours"
-msgstr ""
+msgstr "4 sata"
 
 #: omweather/src/weather-settings.c:4198
 msgid "40 seconds"
-msgstr ""
+msgstr "40 sekundi"
 
 #: omweather/src/weather-sensor.c:147
 msgid "5 minutes"
-msgstr ""
+msgstr "5 minuta"
 
 #: omweather/src/weather-settings.c:4200
 msgid "50 seconds"
-msgstr ""
+msgstr "50 sekundi"
 
 #: omweather/src/weather-settings.c:4202
 msgid "60 seconds"
-msgstr ""
+msgstr "60 sekundi"
 
 #: omweather/src/weather-settings.c:4246
 msgid "8 hours"
-msgstr ""
+msgstr "8 sati"
 
 #: omweather/src/hash.data:4
 msgid "AM Clouds / PM Sun"
-msgstr ""
+msgstr "Prepodne Oblaci / Popodne Sunce"
 
 #: omweather/src/hash.data:6
 msgid "AM Drizzle"
-msgstr ""
+msgstr "Prepodne Rominjanje kiše"
 
 #: omweather/src/hash.data:5
 msgid "AM Drizzle / Wind"
@@ -182,27 +182,27 @@ msgstr ""
 
 #: omweather/src/hash.data:7
 msgid "AM Fog / PM Clouds"
-msgstr ""
+msgstr "Prepodne Magla / Popodne Oblaci"
 
 #: omweather/src/hash.data:8
 msgid "AM Fog / PM Sun"
-msgstr ""
+msgstr "Prepodne Magla / Popodne Sunce"
 
 #: omweather/src/hash.data:10
 msgid "AM Light Rain"
-msgstr ""
+msgstr "Prepodne Sitna kiša"
 
 #: omweather/src/hash.data:9
 msgid "AM Light Rain / Wind"
-msgstr ""
+msgstr "Prepodne Sitna kiša / Vetar"
 
 #: omweather/src/hash.data:12
 msgid "AM Light Snow"
-msgstr ""
+msgstr "Prepodne Sitan sneg"
 
 #: omweather/src/hash.data:11
 msgid "AM Light Snow / Wind"
-msgstr ""
+msgstr "Prepodne Sitan sneg / Vetar"
 
 #: omweather/src/hash.data:13
 msgid "AM Light Wintry Mix"
@@ -607,8 +607,8 @@ msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
-"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
-"zhilin@ovi.com>\n"
+"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, "
+"<andrew.zhilin@ovi.com>\n"
 msgstr ""
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
@@ -1204,8 +1204,8 @@ msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
-"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
-"com>\n"
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
+"<tanyshk@gmail.com>\n"
 msgstr ""
 
 #: omweather/src/hash.data:124 meecast/qt-qml/qml/StationsPage.qml:153
@@ -2659,8 +2659,8 @@ msgstr ""
 
 #: meecast/qt-qml/qml/UpdatePage.qml:73
 msgid ""
-"You should activate 'Widget in the events view' option in MeeCast appearance "
-"settings for auto update."
+"You should activate 'Widget in the events view' option in MeeCast appearance"
+" settings for auto update."
 msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2758

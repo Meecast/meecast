@@ -2,7 +2,7 @@ meecast (0.7.1) unstable; urgency=low
 
   * Added option Language to Settings menu
   * Updated Italian translation. Thanks Lorenzo Facca
-  * Updated Arabic, Catalan, Dutch, Finish translations
+  * Updated Arabic, Catalan, Dutch, Finish, Norway, Portuguese translations
   * Added description string to gismeteo.ru 
   * Added city 'Hangu' - Pakistan to weather.com
   * Updated Pakistan in yr.no and foreca.com databases

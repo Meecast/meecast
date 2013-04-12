@@ -2,6 +2,7 @@ meecast (0.7.1) unstable; urgency=low
 
   * Nothing 
   * BB Fixed problem with showing current temperature
+  * BB Fixed problem with showing forecast temperature in ActiveFrame mode
 
  -- Vlad Vasiliev <vlad@gas.by>  Sat, 09 Mar 2013 16:31:23 +0200
 

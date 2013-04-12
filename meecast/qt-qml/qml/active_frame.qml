@@ -18,76 +18,75 @@ Container {
         update_current_data()
         console.log("OnConfigChanged!!!!!");
     }
-        function getColor(t) {
-                var c1, c2, c3;
-                if (Config.temperatureunit == "F"){
-                    t = (t - 32) * 5 / 9;
-                }
-                if (t >= 30){
-                    c2 = (t - 50)*(246/255-60/255)/(30-50) + 60/255;
-                    return Qt.rgba(1, c2, 0, 1);
-                }else if (t < 30 && t >= 15){
-                    c1 = (t - 30)*(114/255-1)/(15-30) + 1;
-                    c2 = (t - 30)*(1-246/255)/(15-30) + 246/255;
-                    return Qt.rgba(c1, c2, 0, 1);
-                }else if (t < 15 && t >= 0){
-                    c1 = (t - 15)*(1-114/255)/(0-15) + 144/255;
-                    c3 = (t - 15)*(1-0)/(0-15) + 0;
-                    return Qt.rgba(c1, 1, c3, 1);
-                }else if (t < 0 && t >= -15){
-                    c1 = (t - 0)*(0-1)/(-15-0) + 1;
-                    c2 = (t - 0)*(216/255-1)/(-15-0) + 1;
-                    return Qt.rgba(c1, c2, 1, 1);
-                }else if (t < -15 && t >= -30){
-                    c2 = (t - (-15))*(66/255-216/255)/(-30+15) + 216/255;
-                    //console.log(t+ " "+c2);
-                    return Qt.rgba(0, c2, 1, 1);
-                }else if (t < -30){
-                    c1 = (t - (-30))*(132/255-0)/(-30+15) + 0;
-                    c2 = (t - (-30))*(0-66/255)/(-30+15) + 66/255;
-                    return Qt.rgba(c1, c2, 1, 1);
-                }
+    function getColor(t) {
+            var c1, c2, c3;
+            if (Config.temperatureunit == "F"){
+                t = (t - 32) * 5 / 9;
             }
-            function getAngle(s){
-                var a;
-                if (s == "CALM")
-                   return -1; 
-                switch (s){
-                case 'S':
-                    return 0;
-                case 'SSW':
-                    return 22.5;
-                case 'SW':
-                    return 45;
-                case 'WSW':
-                    return (45+22.5);
-                case 'W':
-                    return 90;
-                case 'WNW':
-                    return (90+22.5);
-                case 'NW':
-                    return (90+45);
-                case 'NNW':
-                    return (180-22.5);
-                case 'N':
-                    return 180;
-                case 'NNE':
-                    return (180+22.5);
-                case 'NE':
-                    return (180+45);
-                case 'ENE':
-                    return (270-22.5);
-                case 'E':
-                    return 270;
-                case 'ESE':
-                    return (270+22.5);
-                case 'SE':
-                    return (270+45);
-                case 'SSE':
-                    return (360-22.5);
-    
-                }
+            if (t >= 30){
+                c2 = (t - 50)*(246/255-60/255)/(30-50) + 60/255;
+                return Qt.rgba(1, c2, 0, 1);
+            }else if (t < 30 && t >= 15){
+                c1 = (t - 30)*(114/255-1)/(15-30) + 1;
+                c2 = (t - 30)*(1-246/255)/(15-30) + 246/255;
+                return Qt.rgba(c1, c2, 0, 1);
+            }else if (t < 15 && t >= 0){
+                c1 = (t - 15)*(1-114/255)/(0-15) + 144/255;
+                c3 = (t - 15)*(1-0)/(0-15) + 0;
+                return Qt.rgba(c1, 1, c3, 1);
+            }else if (t < 0 && t >= -15){
+                c1 = (t - 0)*(0-1)/(-15-0) + 1;
+                c2 = (t - 0)*(216/255-1)/(-15-0) + 1;
+                return Qt.rgba(c1, c2, 1, 1);
+            }else if (t < -15 && t >= -30){
+                c2 = (t - (-15))*(66/255-216/255)/(-30+15) + 216/255;
+                //console.log(t+ " "+c2);
+                return Qt.rgba(0, c2, 1, 1);
+            }else if (t < -30){
+                c1 = (t - (-30))*(132/255-0)/(-30+15) + 0;
+                c2 = (t - (-30))*(0-66/255)/(-30+15) + 66/255;
+                return Qt.rgba(c1, c2, 1, 1);
             }
+        }
+      function getAngle(s){
+        var a;
+        if (s == "CALM")
+           return -1; 
+        switch (s){
+        case 'S':
+            return 0;
+        case 'SSW':
+            return 22.5;
+        case 'SW':
+            return 45;
+        case 'WSW':
+            return (45+22.5);
+        case 'W':
+            return 90;
+        case 'WNW':
+            return (90+22.5);
+        case 'NW':
+            return (90+45);
+        case 'NNW':
+            return (180-22.5);
+        case 'N':
+            return 180;
+        case 'NNE':
+            return (180+22.5);
+        case 'NE':
+            return (180+45);
+        case 'ENE':
+            return (270-22.5);
+        case 'E':
+            return 270;
+        case 'ESE':
+            return (270+22.5);
+        case 'SE':
+            return (270+45);
+        case 'SSE':
+            return (360-22.5);
+        }
+     }
     
      function update_current_data(){
                 current_weatherview.visible = (Config.stationname != "Unknown" && Current.rowCount() != 0)  ? true : false;
@@ -153,196 +152,195 @@ Container {
         active_main.update_current_data();
         console.log("Active created");
     }
-Container {
-    id: startview
-    layout: AbsoluteLayout {}
-    visible : Config.stationname == "Unknown" ? true : false;
-    ImageView {
-        imageSource: "asset:///share/images/mask_background.png"
-        scalingMethod: ScalingMethod.AspectFill
-        preferredHeight: 396
-        preferredWidth: 334
-    }
-    Container{
-            layoutProperties: AbsoluteLayoutProperties {
-                positionX: 0
-                positionY: 0
-            }
-            preferredWidth: 340
-            Label {
-                text: stationname_text  
-                multiline: true
-                horizontalAlignment: HorizontalAlignment.Center
-                verticalAlignment: VerticalAlignment.Bottom
-                textStyle.textAlign: TextAlign.Center
-                textStyle {
-                    fontSize: FontSize.PointValue
-                    //fontWeight: FontWeight.W100
-                    fontSizeValue: 7 
-                    color: Color.White
-                }   
-                preferredWidth: 340
-            }
-    }
-    Label {
-        text: Config.tr("No locations are set up yet.") 
-        horizontalAlignment: HorizontalAlignment.Center
-        multiline: true
-        textStyle.textAlign: TextAlign.Center
-        textStyle {
-            fontSize: FontSize.PointValue
-            //fontWeight: FontWeight.W100
-            fontSizeValue: 8
-            color: Color.create("#999999")
-        }
-        layoutProperties: AbsoluteLayoutProperties {
-            positionY: 150 
-        }
-    }
-    
-}
-Container {
-    id: notrefreshview
-    layout: AbsoluteLayout {}
-    visible : (  Config.stationname != "Unknown" &&  Current.rowCount() == 0) ? true : false
-    ImageView {
-        imageSource: "asset:///share/images/mask_background.png"
-        scalingMethod: ScalingMethod.AspectFill
-        preferredHeight: 396
-        preferredWidth: 334
-    }
-    Container{
-            layoutProperties: AbsoluteLayoutProperties {
-                positionX: 0
-                positionY: 0
-            }
-            preferredWidth: 340
-            Label {
-                text: stationname_text  
-                multiline: true
-                horizontalAlignment: HorizontalAlignment.Center
-                verticalAlignment: VerticalAlignment.Bottom
-                textStyle.textAlign: TextAlign.Center
-                textStyle {
-                    fontSize: FontSize.PointValue
-                    //fontWeight: FontWeight.W100
-                    fontSizeValue: 7 
-                    color: Color.White
-                }   
-                preferredWidth: 340
-            }
-    }
-    Label {
-        text: Config.tr("Looks like there's no info for this location.")
-        horizontalAlignment: HorizontalAlignment.Center
-        multiline: true
-        textStyle.textAlign: TextAlign.Center
-        textStyle {
-            fontSize: FontSize.PointValue
-            //fontWeight: FontWeight.W100
-            fontSizeValue: 8
-            color: Color.create("#999999")
-        }
-        layoutProperties: AbsoluteLayoutProperties {
-            positionY: 150 
-        }
-    }
-    
-}
-Container {
-    id: current_weatherview  
-    layout: AbsoluteLayout {}  
-    ImageView {
-        imageSource: "asset:///share/images/mask_background.png"
+    Container {
+        id: startview
+        layout: AbsoluteLayout {}
+        visible : Config.stationname == "Unknown" ? true : false;
+        ImageView {
+            imageSource: "asset:///share/images/mask_background.png"
             scalingMethod: ScalingMethod.AspectFill
             preferredHeight: 396
             preferredWidth: 334
-    }
-    Container{
-            layoutProperties: AbsoluteLayoutProperties {
-                positionX: 0
-                positionY: 0
-            }
-            preferredWidth: 340
-            Label {
-                text: stationname_text  
-                multiline: true
-                horizontalAlignment: HorizontalAlignment.Center
-                verticalAlignment: VerticalAlignment.Bottom
-                textStyle.textAlign: TextAlign.Center
-                textStyle {
-                    fontSize: FontSize.PointValue
-                    //fontWeight: FontWeight.W100
-                    fontSizeValue: 7 
-                    color: Color.White
-                }   
+        }
+        Container{
+                layoutProperties: AbsoluteLayoutProperties {
+                    positionX: 0
+                    positionY: 0
+                }
                 preferredWidth: 340
-            }
-    }
-    Container{
-            layoutProperties: AbsoluteLayoutProperties {
-                positionX: 0
-                positionY: 70
-            }
-            preferredWidth: 340
+                Label {
+                    text: stationname_text  
+                    multiline: true
+                    horizontalAlignment: HorizontalAlignment.Center
+                    verticalAlignment: VerticalAlignment.Bottom
+                    textStyle.textAlign: TextAlign.Center
+                    textStyle {
+                        fontSize: FontSize.PointValue
+                        //fontWeight: FontWeight.W100
+                        fontSizeValue: 7 
+                        color: Color.White
+                    }   
+                    preferredWidth: 340
+                }
+        }
         Label {
-            text: current_value == true ? Config.tr("Now") : Config.tr("Today")
+            text: Config.tr("No locations are set up yet.") 
             horizontalAlignment: HorizontalAlignment.Center
-            verticalAlignment: VerticalAlignment.Bottom
-            textStyle.fontSize: FontSize.Small
-            preferredWidth: 340
-        }
-    }
-    ImageView {
-        imageSource: main_icon_imageSource
-        layoutProperties: AbsoluteLayoutProperties {
-            //positionX: 40
-            positionY: 110
-        }
-        preferredHeight: 256
-        preferredWidth: 256
-    }
-    Container{
-        preferredWidth: 340
-        layoutProperties: AbsoluteLayoutProperties {
-            //positionX: 40
-            positionY: 20
-        }        
-        Label {
-            objectName: "temperature"
-            text: current_temp_text
             multiline: true
-            verticalAlignment: VerticalAlignment.Top
-            horizontalAlignment: HorizontalAlignment.Right
-            textStyle.textAlign: TextAlign.Right
+            textStyle.textAlign: TextAlign.Center
             textStyle {
                 fontSize: FontSize.PointValue
-                fontWeight: FontWeight.W100
-                fontSizeValue: 27 
-                color: Color.White
+                //fontWeight: FontWeight.W100
+                fontSizeValue: 8
+                color: Color.create("#999999")
+            }
+            layoutProperties: AbsoluteLayoutProperties {
+                positionY: 150 
+            }
+        }
+        
+    }
+    Container {
+        id: notrefreshview
+        layout: AbsoluteLayout {}
+        visible : (  Config.stationname != "Unknown" &&  Current.rowCount() == 0) ? true : false
+        ImageView {
+            imageSource: "asset:///share/images/mask_background.png"
+            scalingMethod: ScalingMethod.AspectFill
+            preferredHeight: 396
+            preferredWidth: 334
+        }
+        Container{
+                layoutProperties: AbsoluteLayoutProperties {
+                    positionX: 0
+                    positionY: 0
+                }
+                preferredWidth: 340
+                Label {
+                    text: stationname_text  
+                    multiline: true
+                    horizontalAlignment: HorizontalAlignment.Center
+                    verticalAlignment: VerticalAlignment.Bottom
+                    textStyle.textAlign: TextAlign.Center
+                    textStyle {
+                        fontSize: FontSize.PointValue
+                        //fontWeight: FontWeight.W100
+                        fontSizeValue: 7 
+                        color: Color.White
+                    }   
+                    preferredWidth: 340
+                }
+        }
+        Label {
+            text: Config.tr("Looks like there's no info for this location.")
+            horizontalAlignment: HorizontalAlignment.Center
+            multiline: true
+            textStyle.textAlign: TextAlign.Center
+            textStyle {
+                fontSize: FontSize.PointValue
+                //fontWeight: FontWeight.W100
+                fontSizeValue: 8
+                color: Color.create("#999999")
+            }
+            layoutProperties: AbsoluteLayoutProperties {
+                positionY: 150 
             }
         }
     }
-    Container{
-        layoutProperties: AbsoluteLayoutProperties {
-            positionX: 0
-            positionY: 310
+    Container {
+        id: current_weatherview  
+        layout: AbsoluteLayout {}  
+        ImageView {
+            imageSource: "asset:///share/images/mask_background.png"
+                scalingMethod: ScalingMethod.AspectFill
+                preferredHeight: 396
+                preferredWidth: 334
         }
-        layout: DockLayout {}
-        preferredWidth: 340
-        preferredHeight: 85
         Container{
-            verticalAlignment: VerticalAlignment.Center
+                layoutProperties: AbsoluteLayoutProperties {
+                    positionX: 0
+                    positionY: 0
+                }
+                preferredWidth: 340
+                Label {
+                    text: stationname_text  
+                    multiline: true
+                    horizontalAlignment: HorizontalAlignment.Center
+                    verticalAlignment: VerticalAlignment.Bottom
+                    textStyle.textAlign: TextAlign.Center
+                    textStyle {
+                        fontSize: FontSize.PointValue
+                        //fontWeight: FontWeight.W100
+                        fontSizeValue: 7 
+                        color: Color.White
+                    }   
+                    preferredWidth: 340
+                }
+        }
+        Container{
+                layoutProperties: AbsoluteLayoutProperties {
+                    positionX: 0
+                    positionY: 70
+                }
+                preferredWidth: 340
             Label {
-                text: title_text_text  
-                multiline: true
+                text: current_value == true ? Config.tr("Now") : Config.tr("Today")
                 horizontalAlignment: HorizontalAlignment.Center
                 verticalAlignment: VerticalAlignment.Bottom
                 textStyle.fontSize: FontSize.Small
-                textStyle.textAlign: TextAlign.Center
                 preferredWidth: 340
             }
         }
+        ImageView {
+            imageSource: main_icon_imageSource
+            layoutProperties: AbsoluteLayoutProperties {
+                //positionX: 40
+                positionY: 110
+            }
+            preferredHeight: 256
+            preferredWidth: 256
+        }
+        Container{
+            preferredWidth: 340
+            layoutProperties: AbsoluteLayoutProperties {
+                //positionX: 40
+                positionY: 20
+            }        
+            Label {
+                objectName: "temperature"
+                text: current_temp_text.length < 5 ? current_temp_text : current_temp_text.replace("/","\n") 
+                multiline: true
+                verticalAlignment: VerticalAlignment.Top
+                horizontalAlignment: HorizontalAlignment.Right
+                textStyle.textAlign: TextAlign.Right
+                textStyle {
+                    fontSize: FontSize.PointValue
+                    fontWeight: FontWeight.W100
+                    fontSizeValue: current_temp_text.length < 5 ? 27.0 : 20
+                    color: Color.White
+                }
+            }
+        }
+        Container{
+            layoutProperties: AbsoluteLayoutProperties {
+                positionX: 0
+                positionY: 310
+            }
+            layout: DockLayout {}
+            preferredWidth: 340
+            preferredHeight: 85
+            Container{
+                verticalAlignment: VerticalAlignment.Center
+                Label {
+                    text: title_text_text  
+                    multiline: true
+                    horizontalAlignment: HorizontalAlignment.Center
+                    verticalAlignment: VerticalAlignment.Bottom
+                    textStyle.fontSize: FontSize.Small
+                    textStyle.textAlign: TextAlign.Center
+                    preferredWidth: 340
+                }
+            }
+        }
     }
-}
 }

@@ -12,7 +12,7 @@ meecast (0.7.1) unstable; urgency=low
   * Added Serbia to yr.no database
   * Added Kula(Serbia) to gismeteo.ru database
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 09 Mar 2013 16:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 12 Apr 2013 23:31:23 +0200
 
 meecast (0.7) unstable; urgency=low
 

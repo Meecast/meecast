@@ -517,6 +517,7 @@ Config::InitLanguagesList(){
     _languages_list->push_back(std::make_pair("English", "en_GB"));
     _languages_list->push_back(std::make_pair("Finish", "fi_FI"));
     _languages_list->push_back(std::make_pair("French", "fr_FR"));
+    _languages_list->push_back(std::make_pair("Hungarian", "hu_HU"));
     _languages_list->push_back(std::make_pair("Italian", "it_IT"));
     _languages_list->push_back(std::make_pair("Norwegian", "no_NO"));
     _languages_list->push_back(std::make_pair("Polish", "pl_PL"));

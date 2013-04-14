@@ -10,6 +10,7 @@
     hash_insert(hash, "Полная", "Full");
     hash_insert(hash, "ясно без осадков", "Clear");
     hash_insert(hash, "туман", "Fog");
+    hash_insert(hash, "Туман", "Fog");
     hash_insert(hash, "облачно без осадков", "Cloudy");
     hash_insert(hash, "пасмурно без осадков", "Mostly Cloudy");
     hash_insert(hash, "малооблачно без осадков", "Partly Cloudy");

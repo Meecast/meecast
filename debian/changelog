@@ -1,6 +1,6 @@
 meecast (0.7.2) unstable; urgency=low
 
-  * Nothing 
+  * Added description string to gismeteo.ru 
 
  -- Vlad Vasiliev <vlad@gas.by>  Sat, 12 Apr 2013 23:31:23 +0200
 

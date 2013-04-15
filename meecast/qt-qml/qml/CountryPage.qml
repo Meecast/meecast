@@ -9,6 +9,9 @@ Page {
     property string first_string: ""
     property string second_string: ""
     property string key: ""
+    property int screen_height : Config.get_height_resolution() 
+    property int screen_width : Config.get_width_resolution() 
+    property int menu_height : Config.get_height_resolution() == 1280 ? 138 : 110;
 
     content:  Container{
         id: absoluteLayoutContainer
@@ -83,7 +86,7 @@ Page {
                 positionX: 0
                 positionY: 200
             }
-            preferredHeight: 970 
+            preferredHeight: screen_height - 200 - menu_height 
             attachedObjects: [
                 GroupDataModel {
                     id: groupDataModel

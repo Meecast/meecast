@@ -61,7 +61,6 @@ Page {
                 preferredHeight: 80 
         }
         Container{
-//            preferredHeight: 280 
             preferredHeight: screen_height - 90 - menu_height 
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0

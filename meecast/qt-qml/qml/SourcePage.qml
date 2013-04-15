@@ -10,6 +10,9 @@ Page {
     //Config {id: config1}
     property string source : ""
     property string key : ""
+    property int screen_height : Config.get_height_resolution() 
+    property int screen_width : Config.get_width_resolution() 
+    property int menu_height : Config.get_height_resolution() == 1280 ? 138 : 110;
 
     content:  Container{
         id: absoluteLayoutContainer
@@ -28,10 +31,10 @@ Page {
             }
             background: Color.Black
             layout: DockLayout {}
-            preferredWidth: 768
+            preferredWidth: screen_width 
             preferredHeight: 90
             Label {
-                preferredWidth: 768
+                preferredWidth: screen_width 
                 verticalAlignment: VerticalAlignment.Center
                 text:  Config.tr("Select the weather source") 
                 textStyle {
@@ -46,7 +49,7 @@ Page {
 //                    positionY: 90
 //                 }
 //                imageSource: "asset:///share/images/mask_background_grid.png"
-//                preferredWidth: 768  
+//                preferredWidth: screen_width   
 //        }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
@@ -54,13 +57,15 @@ Page {
                     positionY: 350
                 }
                 background: Color.create("#262626")
-                preferredWidth: 768
-                preferredHeight: 1000
+                preferredWidth: screen_width 
+                preferredHeight: 80 
         }
         Container{
+//            preferredHeight: 280 
+            preferredHeight: screen_height - 90 - menu_height 
             layoutProperties: AbsoluteLayoutProperties {
-                    positionX: 0
-                    positionY: 90
+                positionX: 0
+                positionY: 90
             }
             attachedObjects: [
                 GroupDataModel {
@@ -77,6 +82,8 @@ Page {
                         console.log("SOURCE ", source_model.get(a).name);
                         groupDataModel.insert( {"name" : source_model.get(a).name, "number" : a, "key" : source_model.get(a).key});
                     }
+                    Qt.screen_width = screen_width  
+                    Qt.screen_height = screen_height
                 }           
                 listItemComponents: [
                      ListItemComponent {
@@ -88,7 +95,7 @@ Page {
                               background:  Color.create("#262626") 
                               Label {                 
                                   text: ListItemData.name
-                                  preferredWidth: 768
+                                  preferredWidth: Qt.screen_width 
                                   //preferredHeight: settings.screen_height
                                   horizontalAlignment:  HorizontalAlignment.Fill
                                   verticalAlignment: VerticalAlignment.Center

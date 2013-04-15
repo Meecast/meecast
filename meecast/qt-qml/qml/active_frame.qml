@@ -13,7 +13,12 @@ Container {
     property int wind_direction_angle : 0
     property string wind_direction_text: ""
     property string stationname_text: ""
-    
+
+    property int screen_height : Config.get_height_resolution() >= 1280 ? 396 : 211   
+    property int screen_width : Config.get_width_resolution() >= 768 ? 334 : 310
+//    property int menu_height : Config.get_height_resolution() == 1280 ? 138 : 110;
+
+   
     function onConfigChanged() {
         update_current_data()
         console.log("OnConfigChanged!!!!!");
@@ -159,15 +164,15 @@ Container {
         ImageView {
             imageSource: "asset:///share/images/mask_background.png"
             scalingMethod: ScalingMethod.AspectFill
-            preferredHeight: 396
-            preferredWidth: 334
+            preferredHeight: screen_height
+            preferredWidth: screen_width
         }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
                     positionY: 0
                 }
-                preferredWidth: 340
+                preferredWidth: screen_width
                 Label {
                     text: stationname_text  
                     multiline: true
@@ -180,7 +185,7 @@ Container {
                         fontSizeValue: 7 
                         color: Color.White
                     }   
-                    preferredWidth: 340
+                    preferredWidth: screen_width
                 }
         }
         Label {
@@ -195,7 +200,7 @@ Container {
                 color: Color.create("#999999")
             }
             layoutProperties: AbsoluteLayoutProperties {
-                positionY: 150 
+                positionY: screen_height/2 - 40 
             }
         }
         
@@ -207,15 +212,15 @@ Container {
         ImageView {
             imageSource: "asset:///share/images/mask_background.png"
             scalingMethod: ScalingMethod.AspectFill
-            preferredHeight: 396
-            preferredWidth: 334
+            preferredHeight: screen_height
+            preferredWidth: screen_width
         }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
                     positionY: 0
                 }
-                preferredWidth: 340
+                preferredWidth: screen_width 
                 Label {
                     text: stationname_text  
                     multiline: true
@@ -228,7 +233,7 @@ Container {
                         fontSizeValue: 7 
                         color: Color.White
                     }   
-                    preferredWidth: 340
+                    preferredWidth: screen_width 
                 }
         }
         Label {
@@ -243,7 +248,7 @@ Container {
                 color: Color.create("#999999")
             }
             layoutProperties: AbsoluteLayoutProperties {
-                positionY: 150 
+                positionY: screen_height/2 - 40  
             }
         }
     }
@@ -253,15 +258,15 @@ Container {
         ImageView {
             imageSource: "asset:///share/images/mask_background.png"
                 scalingMethod: ScalingMethod.AspectFill
-                preferredHeight: 396
-                preferredWidth: 334
+                preferredHeight: screen_height
+                preferredWidth: screen_width
         }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
                     positionY: 0
                 }
-                preferredWidth: 340
+                preferredWidth: screen_width
                 Label {
                     text: stationname_text  
                     multiline: true
@@ -274,34 +279,33 @@ Container {
                         fontSizeValue: 7 
                         color: Color.White
                     }   
-                    preferredWidth: 340
+                    preferredWidth: screen_width  
                 }
         }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
-                    positionY: 70
+                    positionY: 0.176 * screen_height 
                 }
-                preferredWidth: 340
+                preferredWidth: screen_width 
             Label {
                 text: current_value == true ? Config.tr("Now") : Config.tr("Today")
                 horizontalAlignment: HorizontalAlignment.Center
                 verticalAlignment: VerticalAlignment.Bottom
                 textStyle.fontSize: FontSize.Small
-                preferredWidth: 340
+                preferredWidth: screen_width 
             }
         }
         ImageView {
             imageSource: main_icon_imageSource
             layoutProperties: AbsoluteLayoutProperties {
-                //positionX: 40
-                positionY: 110
+                positionY: Config.get_height_resolution() >= 1280 ?  0.3 * screen_height : 0.1 * screen_height
             }
             preferredHeight: 256
             preferredWidth: 256
         }
         Container{
-            preferredWidth: 340
+            preferredWidth: screen_width 
             layoutProperties: AbsoluteLayoutProperties {
                 //positionX: 40
                 positionY: 20
@@ -324,10 +328,10 @@ Container {
         Container{
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
-                positionY: 310
+                positionY: screen_height * 0.8
             }
             layout: DockLayout {}
-            preferredWidth: 340
+            preferredWidth: screen_width 
             preferredHeight: 85
             Container{
                 verticalAlignment: VerticalAlignment.Center
@@ -338,7 +342,7 @@ Container {
                     verticalAlignment: VerticalAlignment.Bottom
                     textStyle.fontSize: FontSize.Small
                     textStyle.textAlign: TextAlign.Center
-                    preferredWidth: 340
+                    preferredWidth: screen_width 
                 }
             }
         }

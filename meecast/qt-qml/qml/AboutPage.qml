@@ -5,8 +5,10 @@ import bb.cascades 1.0
 Page {
     
     id: about
-    property int screen_width  :  768
-    property int screen_height : 1280    
+    property int screen_height : Config.get_height_resolution() 
+    property int screen_width : Config.get_width_resolution() 
+    property int menu_height : Config.get_height_resolution() == 1280 ? 138 : 110;
+
 
     content: 
     Container{
@@ -19,7 +21,7 @@ Page {
             AbsoluteLayoutProperties {
                 positionY: 0
             }
-            preferredHeight: 1150.0
+            preferredHeight: screen_height - menu_height 
             scrollViewProperties {
                 scrollMode: ScrollMode.Vertical
             }
@@ -32,7 +34,7 @@ Page {
                         positionY: 0
                     }
                     background: Color.Black
-                    preferredWidth: 768
+                    preferredWidth: screen_width
                     preferredHeight: 120
                }                       
         //       ImageView {
@@ -49,7 +51,7 @@ Page {
                             positionY: 260
                          }
                         imageSource: "asset:///share/images/mask_title.png"
-                        preferredWidth: 768 
+                        preferredWidth: screen_width 
                         preferredHeight: 72*1.6
                 }
 
@@ -60,15 +62,15 @@ Page {
                         }
                         background: Color.create("#262626") 
                         //background: Color.Black
-                        preferredWidth: 768
-                        preferredHeight: 1200
+                        preferredWidth: screen_width
+                        preferredHeight: screen_height - 80 
                 }
                 Label {
                     layoutProperties: AbsoluteLayoutProperties {
                         positionX: 0
                         positionY: 0
                     }
-                    preferredWidth: 768
+                    preferredWidth: screen_width
                     text: Config.tr("MeeCast for Blackberry 10")
                     textStyle.textAlign: TextAlign.Center
                     textStyle {
@@ -79,7 +81,7 @@ Page {
 
                 ImageView {
                    layoutProperties: AbsoluteLayoutProperties {
-                       positionX: 768/2 - 64*1.6
+                       positionX: screen_width/2 - 64*1.6
                        positionY: 60
                    }
                    preferredWidth: 128*1.6
@@ -92,7 +94,7 @@ Page {
                         positionX: 0
                         positionY: 260
                     }
-                    preferredWidth: 768
+                    preferredWidth: screen_width 
                     horizontalAlignment: HorizontalAlignment.Center                
                     id: versiontext
                     text: "Version" + " " + Config.version 

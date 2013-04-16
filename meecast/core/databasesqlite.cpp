@@ -35,7 +35,7 @@ namespace Core {
 
 DatabaseSqlite::DatabaseSqlite(const std::string& filename)
 {
-    db = NULL;
+    //db = NULL;
     databasename = new std::string;
     databasename->assign(filename);
 }
@@ -43,7 +43,7 @@ DatabaseSqlite::DatabaseSqlite(const std::string& filename)
 DatabaseSqlite::~DatabaseSqlite()
 {
     delete databasename;
-    if (!db) sqlite3_close(db);
+//    if (!db) sqlite3_close(db);
 }
 
 void
@@ -66,6 +66,7 @@ DatabaseSqlite::open_database()
     char * msg;
     std::string key ("gismeteo.ru.db");
 //    std::cerr << (databasename->length() - databasename->rfind(key)) << " " << key.length() << std::endl;
+/*
     if (sqlite3_open(databasename->c_str(), &db)){
         std::cerr << "error open " << *databasename << std::endl;
         return false;
@@ -87,6 +88,7 @@ DatabaseSqlite::open_database()
         std::cerr << "Problem in sqlite3_exec " << rc << " - " << msg << std::endl;
         return false;
     }
+*/
     return true;
 }
 
@@ -101,8 +103,9 @@ DatabaseSqlite::create_countries_list()
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(!db)
-        return NULL;    /* database doesn't open */
+    /*
+//    if(!db)
+//        return NULL;    
     list = new listdata;
     rc = sqlite3_get_table(db,
                            "SELECT id, name FROM countries where (select count(name) from nstations where nstations.region_id = (select distinct regions.id from regions where regions.country_id=countries.id )) >0 ORDER BY name",
@@ -125,6 +128,7 @@ DatabaseSqlite::create_countries_list()
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
+    */
     return list;
 }
 
@@ -142,12 +146,13 @@ DatabaseSqlite::create_region_list_by_name(const std::string& country_name)
     START_FUNCTION;
 #endif
     list = new listdata;
+    /*
     if(!db){
         return NULL;
     }
-
+*/
     if (country_name =="") return list;
-
+/*
     snprintf(sql,
                 sizeof(sql) - 1,
                 "select id, name from regions where country_id = (select id from countries where name='%s') order by name",
@@ -170,7 +175,7 @@ DatabaseSqlite::create_region_list_by_name(const std::string& country_name)
         list->push_back(std::make_pair(result[ncol+i], result[ncol+i+1]));
 
     sqlite3_free_table(result);
-
+*/
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -191,10 +196,11 @@ DatabaseSqlite::create_region_list(int country_id)
     START_FUNCTION;
 #endif
     list = new listdata;
+    /*
     if(!db){
         return NULL;
     }
-
+*/
     if (country_id == 0 || country_id == -1) return list;
 
     if(country_id == 0) /* for GPS */
@@ -208,6 +214,7 @@ DatabaseSqlite::create_region_list(int country_id)
                  country_id);
     }
 /*    std::cerr <<"Select region: "<< sql << std::endl; */
+/*
     rc = sqlite3_get_table(db,
                            sql,
                            &result,
@@ -229,6 +236,7 @@ DatabaseSqlite::create_region_list(int country_id)
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
+*/
     return list;
 }
 
@@ -246,10 +254,10 @@ DatabaseSqlite::create_stations_list_by_name(const std::string& country_name, co
     START_FUNCTION;
 #endif
     list = new listdata;
-
+/*
     if(!db || country_name =="" || region_name == "")
-        return list;    /* database doesn't open */
-
+        return list;    // database doesn't open 
+*/
 
     snprintf(sql, sizeof(sql) - 1,
             "select code, name from stations where region_id = \
@@ -257,6 +265,7 @@ DatabaseSqlite::create_stations_list_by_name(const std::string& country_name, co
             (select id from countries where name= '%s')) order by name",
             region_name.c_str(), country_name.c_str());
     std::cerr << sql << std::endl;
+    /*
     rc = sqlite3_get_table(db,
                            sql,
                            &result,
@@ -272,10 +281,10 @@ DatabaseSqlite::create_stations_list_by_name(const std::string& country_name, co
     }
     for (int i=0; i<ncol*nrow; i=i+2){
         list->push_back(std::make_pair(result[ncol+i], result[ncol+i+1]));
-        /* std::cerr << result[ncol+i] << " - " << result[ncol+i+1] << std::endl;*/
+        // std::cerr << result[ncol+i] << " - " << result[ncol+i+1] << std::endl;
     }
     sqlite3_free_table(result);
-
+*/
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -299,16 +308,17 @@ DatabaseSqlite::get_station_code_by_name(const std::string& country_name,
     START_FUNCTION;
 #endif
     list = new listdata;
-
+/*
     if(!db || country_name =="" || region_name == "" || station_name == "")
-        return *stationname; /* database doesn't open */
-
+        return *stationname; // database doesn't open 
+*/
     snprintf(sql, sizeof(sql) - 1,
             "select code from stations where name='%s' and region_id = \
             (select id from regions where name = '%s' and country_id = \
             (select id from countries where name= '%s')) order by name",
             station_name.c_str(), region_name.c_str(), country_name.c_str());
     std::cerr << sql << std::endl;
+    /*
     rc = sqlite3_get_table(db,
                            sql,
                            &result,
@@ -326,10 +336,10 @@ DatabaseSqlite::get_station_code_by_name(const std::string& country_name,
 
         stationname = new std::string(result[ncol+i]);
 //        list->push_back(std::make_pair(result[ncol+i], result[ncol+i+1]));
-        /* std::cerr << result[ncol+i] << " - " << result[ncol+i+1] << std::endl;*/
+        // std::cerr << result[ncol+i] << " - " << result[ncol+i+1] << std::endl;
     }
     sqlite3_free_table(result);
-
+*/
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -351,14 +361,16 @@ DatabaseSqlite::create_stations_list(int region_id)
     START_FUNCTION;
 #endif
     list = new listdata;
+/*    
     if(!db || region_id == 0 || region_id == -1)
-        return list;    /* database doesn't open */
-
+        return list;    // database doesn't open 
+*/
 
     snprintf(sql, sizeof(sql) - 1,
         "SELECT code, name FROM nstations WHERE \
         region_id = %d ORDER BY name", region_id);
     //std::cerr << sql << std::endl;
+ /*
     rc = sqlite3_get_table(db,
                            sql,
                            &result,
@@ -374,10 +386,10 @@ DatabaseSqlite::create_stations_list(int region_id)
     }
     for (int i=0; i<ncol*nrow; i=i+2){
         list->push_back(std::make_pair(result[ncol+i], result[ncol+i+1]));
-        /* std::cerr << result[ncol+i] << " - " << result[ncol+i+1] << std::endl;*/
+        // std::cerr << result[ncol+i] << " - " << result[ncol+i+1] << std::endl;
     }
     sqlite3_free_table(result);
-
+*/
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -428,8 +440,10 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+/*
     if (!db)
-        return; /* database doesn't open */
+        return; // database doesn't open 
+*/
     snprintf(sql,
              sizeof(sql) - 1,
              "select regions.name, stations.code, stations.name, stations.latitude, stations.longititude, countries.name \
@@ -438,7 +452,7 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
              where regions.latitudemax>%f and regions.latitudemin<%f and regions.longititudemax>%f and regions.longititudemin<%f",
              lat, lat, lon, lon);
     std::cerr << "sql = " << sql << std::endl;
-
+/*
     rc = sqlite3_get_table(db,
                            sql,
                            &result,
@@ -469,7 +483,7 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
         }
     }
     sqlite3_free_table(result);
-
+*/
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -487,15 +501,16 @@ void DatabaseSqlite::get_station_coordinate(std::string code, double &latitude, 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+/*
     if (!db)
-        return; /* database doesn't open */
-
+        return; // database doesn't open 
+*/
     snprintf(sql,
              sizeof(sql) - 1,
              "select latitude, longititude from stations where code='%s'",
              code.c_str());
     /* std::cerr << "sql = " << sql << std::endl; */
-
+/*
     rc = sqlite3_get_table(db,
                            sql,
                            &result,
@@ -522,9 +537,9 @@ void DatabaseSqlite::get_station_coordinate(std::string code, double &latitude, 
     latitude = atof(result[ncol+0]);
     longitude = atof(result[ncol+1]);
 
-/*    std::cerr<<"Latitude "<< latitude << " longitude"<<longitude<<std::endl; */
+//    std::cerr<<"Latitude "<< latitude << " longitude"<<longitude<<std::endl; 
     sqlite3_free_table(result);
-
+*/
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

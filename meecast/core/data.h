@@ -35,6 +35,7 @@
 #include <time.h>
 #include <vector>
 #include <string>
+#include <string.h>
 #include "temperature.h"
 #include "windspeed.h"
 #include "pressure.h"

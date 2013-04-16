@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>test1</name>
+	<name>blabla</name>
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
-		<buildCommand>
-			<name>org.eclipse.wst.jsdt.core.javascriptValidator</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
-			<name>org.eclipse.wst.common.project.facet.core.builder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
 		<buildCommand>
 			<name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
 			<triggers>clean,full,incremental,</triggers>
@@ -29,7 +19,7 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.autoBuildTarget</key>
-					<value>build</value>
+					<value>all</value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.buildArguments</key>
@@ -41,7 +31,7 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.buildLocation</key>
-					<value>${workspace_loc:/omweather.git/Tizen-Emulator}</value>
+					<value>${workspace_loc:/omweather.git}</value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.cleanBuildTarget</key>
@@ -65,7 +55,7 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.fullBuildTarget</key>
-					<value>build</value>
+					<value>all</value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.stopOnError</key>
@@ -73,7 +63,7 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.useDefaultBuildCmd</key>
-					<value>true</value>
+					<value>false</value>
 				</dictionary>
 			</arguments>
 		</buildCommand>
@@ -84,22 +74,7 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>json.validation.builder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
-			<name>org.tizen.web.jslint.nature.JSLintBuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
-			<name>org.tizen.web.css.nature.CSSBuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
-			<name>com.qnx.tools.bbt.xml.core.bbtXMLValidationBuilder</name>
+			<name>org.tizen.nativecpp.apichecker.core.builder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
@@ -109,10 +84,6 @@
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
-		<nature>json.validation.nature</nature>
-		<nature>org.tizen.web.jslint.nature.JSLintNature</nature>
-		<nature>org.tizen.web.css.nature.CSSNature</nature>
-		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
-		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
+		<nature>org.tizen.nativecpp.apichecker.core.tizenCppNature</nature>
 	</natures>
 </projectDescription>

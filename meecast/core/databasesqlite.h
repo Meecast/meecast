@@ -33,7 +33,7 @@
 #define DATABASESQLITE_H
 
 #include <iostream>
-#include <sqlite3.h>
+//#include <sqlite3.h>
 #include <string>
 #include <errno.h>
 #include <stdlib.h>
@@ -50,7 +50,7 @@ namespace Core{
 class DatabaseSqlite : public DatabaseAbstract
 {
 private:
-    sqlite3 *db;
+//    sqlite3 *db;
     std::string *databasename;
 
 public:

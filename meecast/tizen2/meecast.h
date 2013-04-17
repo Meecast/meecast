@@ -5,6 +5,7 @@
 #include <FBase.h>
 #include <FSystem.h>
 #include <FUi.h>
+#include "configtizen.h"
 
 /**
  * [meecast] UiApp must inherit from UiApp class
@@ -23,6 +24,7 @@ public:
 public:
 	meecastApp(void);
 	virtual ~meecastApp(void);
+    ConfigTizen *config;
 
 public:
 	// Called when the UiApp is initializing.

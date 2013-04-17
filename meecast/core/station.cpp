@@ -363,7 +363,7 @@ Station::Station(const std::string& source_name, const std::string& id,
      std::cerr<<"Convert Data in core"<<std::endl;
      std::cerr<<"ddd "<<this->fileName().c_str() <<std::endl;
      std::cerr<<"oooo "<<this->converter().c_str()<<std::endl;
-     run_convert_js((char*)this->converter().c_str(), buffer_file, (char*)this->fileName().c_str(), buffer_detail_file);
+   /*  run_convert_js((char*)this->converter().c_str(), buffer_file, (char*)this->fileName().c_str(), buffer_detail_file); */
      return true;
 
      /*
@@ -397,10 +397,10 @@ Station::Station(const std::string& source_name, const std::string& id,
         /* Check connection and if force true update connection */
         snprintf(buffer_file, sizeof(buffer_file) -1, "%s.orig", this->fileName().c_str());
         fprintf(stderr, "Download file %s\n", this->forecastURL().c_str());
-        download_file_js((char* )buffer_file, (char*)this->forecastURL().c_str());
+        /* download_file_js((char* )buffer_file, (char*)this->forecastURL().c_str()); */
         if  (this->detailURL() != ""){
             snprintf(buffer_file, sizeof(buffer_file) -1, "%s.detail.orig", this->fileName().c_str());
-            download_file_js((char* )buffer_file, (char*)this->detailURL().c_str());
+           /* download_file_js((char* )buffer_file, (char*)this->detailURL().c_str()); */
         }
         return true;
         force = false;

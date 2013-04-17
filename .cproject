@@ -426,7 +426,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactExtension="exe" artifactName="${ProjName}" buildArtefactType="org.tizen.nativecpp.buildArtefactType.app" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.tizen.nativecpp.buildArtefactType.app" description="" id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.da.1778775740" name="DA-Tizen-Emulator" parent="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.da">
+				<configuration artifactExtension="exe" artifactName="omweather.git" buildArtefactType="org.tizen.nativecpp.buildArtefactType.app" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.tizen.nativecpp.buildArtefactType.app" description="" id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.da.1778775740" name="DA-Tizen-Emulator" parent="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.da">
 					<folderInfo id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.da.1778775740." name="/" resourcePath="">
 						<toolChain id="org.tizen.nativecpp.toolchain.sbi.gcc45.app.debug.emulator.da.1813194224" name="Tizen Native Toolchain" superClass="org.tizen.nativecpp.toolchain.sbi.gcc45.app.debug.emulator.da">
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="org.tizen.nativeide.target.sbi.gnu.platform.base.120008377" osList="linux,win32" superClass="org.tizen.nativeide.target.sbi.gnu.platform.base"/>
@@ -565,7 +565,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactExtension="exe" artifactName="${ProjName}" buildArtefactType="org.tizen.nativecpp.buildArtefactType.app" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.tizen.nativecpp.buildArtefactType.app" description="" id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.da.1129331544" name="DA-Tizen-Device" parent="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.da">
+				<configuration artifactExtension="exe" artifactName="${ProjName}" buildArtefactType="org.tizen.nativecpp.buildArtefactType.app" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.tizen.nativecpp.buildArtefactType.app" description="" id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.da.1129331544" name="DA-Tizen-Device" parent="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.da" prebuildStep="../prebuild.sh">
 					<folderInfo id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.da.1129331544." name="/" resourcePath="">
 						<toolChain id="org.tizen.nativecpp.toolchain.sbi.gcc45.app.debug.device.da.1534434587" name="Tizen Native Toolchain" superClass="org.tizen.nativecpp.toolchain.sbi.gcc45.app.debug.device.da">
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="org.tizen.nativeide.target.sbi.gnu.platform.base.103012369" osList="linux,win32" superClass="org.tizen.nativeide.target.sbi.gnu.platform.base"/>

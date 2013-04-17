@@ -362,7 +362,7 @@ Config::saveConfig()
     file_out<<"</config>"<<endl;
     file_out.close();
     #endif
-    save_config_js();
+    /* save_config_js(); */
 }
 ////////////////////////////////////////////////////////////////////////////////
 Config* 

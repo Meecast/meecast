@@ -282,10 +282,18 @@ Container {
                     preferredWidth: screen_width  
                 }
         }
+        ImageView {
+            imageSource: main_icon_imageSource
+            layoutProperties: AbsoluteLayoutProperties {
+                positionY: Config.get_height_resolution() >= 1280 ?  0.3 * screen_height : 0.1 * screen_height
+            }
+            preferredHeight: Config.get_height_resolution() >= 1280 ? 256 : 200
+            preferredWidth: Config.get_height_resolution() >= 1280 ? 256 : 200
+        }
         Container{
                 layoutProperties: AbsoluteLayoutProperties {
                     positionX: 0
-                    positionY: 0.176 * screen_height 
+                    positionY: Config.get_height_resolution() >= 1280 ?  0.176 * screen_height : 0.08 * screen_height
                 }
                 preferredWidth: screen_width 
             Label {
@@ -296,19 +304,10 @@ Container {
                 preferredWidth: screen_width 
             }
         }
-        ImageView {
-            imageSource: main_icon_imageSource
-            layoutProperties: AbsoluteLayoutProperties {
-                positionY: Config.get_height_resolution() >= 1280 ?  0.3 * screen_height : 0.1 * screen_height
-            }
-            preferredHeight: 256
-            preferredWidth: 256
-        }
         Container{
             preferredWidth: screen_width 
             layoutProperties: AbsoluteLayoutProperties {
-                //positionX: 40
-                positionY: 20
+                positionY: Config.get_height_resolution() >= 1280 ?  20 : 20
             }        
             Label {
                 objectName: "temperature"
@@ -320,7 +319,8 @@ Container {
                 textStyle {
                     fontSize: FontSize.PointValue
                     fontWeight: FontWeight.W100
-                    fontSizeValue: current_temp_text.length < 5 ? 27.0 : 20
+                    fontSizeValue: Config.get_height_resolution() >= 1280 ? (current_temp_text.length < 5 ? 27.0 : 20)  : (current_temp_text.length < 5 ? 20.0 : 13) 
+                    //fontSizeValue: current_temp_text.length < 5 ? 27.0 : 20
                     color: Color.White
                 }
             }
@@ -328,7 +328,7 @@ Container {
         Container{
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
-                positionY: screen_height * 0.8
+                positionY: Config.get_height_resolution() >= 1280 ?  0.8 * screen_height : 0.7 * screen_height
             }
             layout: DockLayout {}
             preferredWidth: screen_width 
@@ -339,10 +339,13 @@ Container {
                     text: title_text_text  
                     multiline: true
                     horizontalAlignment: HorizontalAlignment.Center
-                    verticalAlignment: VerticalAlignment.Bottom
-                    textStyle.fontSize: FontSize.Small
                     textStyle.textAlign: TextAlign.Center
                     preferredWidth: screen_width 
+                    textStyle {
+                        fontSize: FontSize.PointValue
+                        fontSizeValue: Config.get_height_resolution() >= 1280 ?  7 : 6
+                        color: Color.White 
+                    }
                 }
             }
         }

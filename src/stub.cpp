@@ -1,0 +1,4 @@
+void
+stub_stub()
+{}
+

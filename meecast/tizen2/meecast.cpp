@@ -15,6 +15,9 @@ using namespace Tizen::System;
 using namespace Tizen::Ui;
 using namespace Tizen::Ui::Controls;
 
+
+
+
 meecastApp::meecastApp(void)
 {
 }
@@ -40,6 +43,30 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
 	// If this method is successful, return true; otherwise, return false.
 	// If this method returns false, the App will be terminated.
 
+    AppLogDebug("Create Config class: ");
+
+    try{
+        config = ConfigTizen::Instance(Core::AbstractConfig::getConfigPath()+
+                                       "config.xml",
+                                       Core::AbstractConfig::prefix+
+                                       Core::AbstractConfig::schemaPath+
+                                       "config.xsd");
+    }
+    catch(const std::string &str){
+        AppLogDebug("Create Config class:  ");
+        config =  ConfigTizen::Instance();
+    }
+    catch(const char *str){
+        AppLogDebug("Create Config class:  ");
+        config =  ConfigTizen::Instance();
+    }
+    config->saveConfig();
+//    save_station((char*)"gismeteo.ru.xml",(char*)"Afghanistan",(char*)"Afghanistan", (char*)"Herat",(char*) "5511");
+ //   save_station((char*)"gismeteo.ru",(char*)"Afghanistan",(char*)"Afghanistan", (char*)"Herat",(char*) "5511");
+ 
+
+
+
 	// Uncomment the following statement to listen to the screen on/off events.
 	//PowerManager::SetScreenEventListener(*this);
 
@@ -58,6 +85,8 @@ meecastApp::OnAppInitialized(void)
 {
 	// TODO:
 	// Comment.
+    //
+   // AppLogDebug("Create Config class1: ");
 	return true;
 }
 

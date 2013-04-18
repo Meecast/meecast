@@ -47,6 +47,7 @@ using namespace Tizen::Io;
 using namespace Tizen::App;
 
 
+#include <FApp.h>
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{  
     Config* Config::_self;
@@ -81,6 +82,8 @@ Config::Config()
 void
 Config::saveConfig()
 {
+
+    AppLogDebug("SaveConfig");
     #ifdef QT 
     std::cerr<<"SaveConfig"<<std::endl;
     QDomDocument doc;
@@ -434,7 +437,7 @@ Config::ReLoadConfig(){
 ////////////////////////////////////////////////////////////////////////////////
 void
 Config::LoadConfig(){
-    std::cerr<<"LoadConfig"<<std::endl;
+    AppLogDebug("LoadConfig");
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
     try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED

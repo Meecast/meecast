@@ -35,6 +35,18 @@
 #include <string.h>
 #include <fstream>
 #include "databasesqlite.h"
+#include <sstream>
+
+
+#include <FBase.h>
+#include <FIo.h>
+#include <FApp.h>
+
+using namespace Tizen::Base;
+using namespace Tizen::Io;
+using namespace Tizen::App;
+
+
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{  
     Config* Config::_self;

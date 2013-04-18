@@ -307,8 +307,14 @@ Config::saveConfig()
     #else
     char buffer[4096];
     using namespace std;
-    ofstream file_out;
-    file_out.open(_filename->c_str());
+    std::stringstream file_out;
+    File config_file;
+    
+    String filePath(App::GetInstance()->GetAppDataPath() + L"sample.txt");
+    result r = E_SUCCESS;
+    r = config_file.Construct(filePath, "w+");
+//    ofstream file_out;
+ //   file_out.open(_filename->c_str());
     file_out<<"<?xml version=\"1.0\" encoding=\"utf-8\"?>"<<endl;
     file_out<<"<config xmlns=\"http://omweather.garage.maemo.org/schemas\">"<<endl;
     file_out<<" <base>"<< *_pathPrefix<<"</base>"<<endl;
@@ -375,7 +381,10 @@ Config::saveConfig()
         ++i;
     }
     file_out<<"</config>"<<endl;
-    file_out.close();
+
+    config_file.Write(file_out.str().c_str());
+    config_file.Flush();
+   // file_out.close();
     #endif
     /* save_config_js(); */
 }

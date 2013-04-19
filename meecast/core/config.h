@@ -115,6 +115,8 @@ namespace Core{
             std::string& iconspath();
             //void stationsList(std::vector<Core::Station*> list);
             void stationsList(StationsList list);
+            languages& languagesList();
+
             void saveConfig();
     };
 } // namespace Core

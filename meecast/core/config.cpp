@@ -513,23 +513,25 @@ Config::InitLanguagesList(){
     _languages_list->push_back(std::make_pair("Arabic", "ar_AR"));
     _languages_list->push_back(std::make_pair("Bulgarian", "bg_BG"));
     _languages_list->push_back(std::make_pair("Catalan", "ca_CA"));
+    _languages_list->push_back(std::make_pair("Chinese", "zh_ZH"));
     _languages_list->push_back(std::make_pair("Dutch", "nl_NL"));
     _languages_list->push_back(std::make_pair("German", "de_DE"));
     _languages_list->push_back(std::make_pair("English", "en_GB"));
     _languages_list->push_back(std::make_pair("Finish", "fi_FI"));
     _languages_list->push_back(std::make_pair("French", "fr_FR"));
+    _languages_list->push_back(std::make_pair("Hungarian", "hu_HU"));
     _languages_list->push_back(std::make_pair("Italian", "it_IT"));
     _languages_list->push_back(std::make_pair("Norwegian", "no_NO"));
     _languages_list->push_back(std::make_pair("Polish", "pl_PL"));
     _languages_list->push_back(std::make_pair("Portuguese", "pt_PT"));
     _languages_list->push_back(std::make_pair("Russian", "ru_RU"));
+    _languages_list->push_back(std::make_pair("Serbian", "sr_SR"));
     _languages_list->push_back(std::make_pair("Slovak", "sk_SK"));
     _languages_list->push_back(std::make_pair("Spanish", "es_ES"));
     _languages_list->push_back(std::make_pair("Spanish(Mexico)", "es_MX"));
     _languages_list->push_back(std::make_pair("Swedish", "sv_SV"));
     _languages_list->push_back(std::make_pair("Turkish", "tr_TR"));
     _languages_list->push_back(std::make_pair("Vietnamese", "vi_VI"));
-    _languages_list->push_back(std::make_pair("Chinese", "zh_ZH"));
 /*
     languages::iterator cur;
     for (cur=_languages_list->begin(); cur<_languages_list->end(); cur++){
@@ -537,6 +539,12 @@ Config::InitLanguagesList(){
     }
 */
 }
+
+languages&
+Config::languagesList(){
+    return *_languages_list;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 Config::~Config(){
     delete _pathPrefix;

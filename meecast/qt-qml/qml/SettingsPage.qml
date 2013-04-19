@@ -9,7 +9,6 @@ Page {
     property int screen_height : Config.get_height_resolution() 
     property int screen_width : Config.get_width_resolution() 
    
-
     content:  Container{
         
        id: absoluteLayoutContainer

@@ -1,10 +1,27 @@
+meecast (0.7.2) unstable; urgency=low
+
+  * Added description string to gismeteo.ru 
+  * Added icon for hko.gov.hk
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 12 Apr 2013 23:31:23 +0200
+
 meecast (0.7.1) unstable; urgency=low
 
-  * Nothing 
   * BB Fixed problem with showing current temperature
   * BB Fixed problem with showing forecast temperature in ActiveFrame mode
+  * Added option Language to Settings menu
+  * Updated Italian translation. Thanks Lorenzo Facca
+  * Updated Serbian translation. Thanks Aleksandar Zaric aka Saleki 
+  * Added Hungarian translation. Thanks Salmi
+  * Updated Arabic, Catalan, Dutch, Finish, Norway, Portuguese translations
+  * Added description string to gismeteo.ru 
+  * Added city 'Hangu' - Pakistan to weather.com
+  * Updated Pakistan in yr.no and foreca.com databases
+  * Added Serbia to foreca.com database
+  * Added Serbia to yr.no database
+  * Added Kula(Serbia) to gismeteo.ru database
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 09 Mar 2013 16:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 12 Apr 2013 23:31:23 +0200
 
 meecast (0.7) unstable; urgency=low
 

@@ -128,6 +128,7 @@ int main(int argc, char* argv[])
     std::cerr<<str.toStdString().c_str()<<std::endl;
     QDir::setCurrent(QDir::currentPath());
 
+<<<<<<< HEAD
     // Set up the translator.
     QTranslator translator;
     QString locale_string = QLocale().name();
@@ -152,6 +153,11 @@ int main(int argc, char* argv[])
     }
 */
 /*
+=======
+    
+
+    /*
+>>>>>>> master
     //Set up a graphics scene with a QGraphicsWidget and Layout
     QGraphicsView view;
     QGraphicsScene scene;
@@ -165,14 +171,21 @@ int main(int argc, char* argv[])
 
     //Add the QML snippet into the layout
 
+<<<<<<< HEAD
 
     ConfigQml *config;
     //QString locale = QLocale::system().name();
     //std::cerr<<"locale: "<<locale.toStdString()<<std::endl;
+=======
+  //  QString locale = QLocale::system().name();
+
+   // std::cerr<<"locale: "<<locale.toStdString()<<std::endl;
+>>>>>>> master
     
     //ConfigQml *config;
     //
     Controller *controller;
+<<<<<<< HEAD
 
     std::cerr<<"Before controller "<<std::endl;
 
@@ -180,6 +193,28 @@ int main(int argc, char* argv[])
 
     std::cerr<<"After controller "<<std::endl;
     controller->load_data();
+=======
+/*
+    QTranslator translator;
+    translator.load("ru.qml", "i18n");
+    app.installTranslator(&translator);
+*/
+    controller = new Controller(); 
+    
+    /* Locale */
+    for (unsigned int i=0; i<controller->config()->languagesList().size(); i++){
+        if (controller->config()->languagesList().at(i).first == controller->config()->Language()){
+            setlocale (LC_ALL, controller->config()->languagesList().at(i).second.c_str());
+            setlocale (LC_MESSAGES, controller->config()->languagesList().at(i).second.c_str());
+            QLocale::setDefault(QLocale(controller->config()->languagesList().at(i).second.c_str()));
+        }
+    }
+    textdomain("omweather");
+    bindtextdomain("omweather", "/opt/com.meecast.omweather/share/locale");
+
+    /* D-BUS */
+    DbusAdaptor* dadapt = new DbusAdaptor(controller);
+>>>>>>> master
 
 
     config = controller->config();

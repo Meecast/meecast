@@ -10,6 +10,7 @@
     hash_insert(hash, "Полная", "Full");
     hash_insert(hash, "ясно без осадков", "Clear");
     hash_insert(hash, "туман", "Fog");
+    hash_insert(hash, "Туман", "Fog");
     hash_insert(hash, "облачно без осадков", "Cloudy");
     hash_insert(hash, "пасмурно без осадков", "Mostly Cloudy");
     hash_insert(hash, "малооблачно без осадков", "Partly Cloudy");
@@ -51,6 +52,7 @@
     hash_insert(hash, "Пасмурно, небольшой дождь, гроза", "Mostly Cloudy, Light Rain, T-Storm");
     hash_insert(hash, "Пасмурно, небольшой дождь, морось", "Mostly Cloudy, Light Rain, Drizzle");
     hash_insert(hash, "Пасмурно, небольшой снег", "Mostly Cloudy, Few Snow");
+    hash_insert(hash, "Пасмурно, небольшой снег, снег с дождем", "Mostly Cloudy, Few Snow, Sleet");
     hash_insert(hash, "Пасмурно, поземок", "Mostly Cloudy, Drifting Snow");
     hash_insert(hash, "Пасмурно,  снег", "Mostly Cloudy, Snow");
     hash_insert(hash, "Пасмурно, снег", "Mostly Cloudy, Snow");

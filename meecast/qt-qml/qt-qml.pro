@@ -74,6 +74,7 @@ OTHER_FILES += \
     qml/IconsetPage.qml \
     qml/StandbyScreen.qml \
     qml/ColorCell.qml \
+    qml/LanguagesPage.qml \
     qml/SearchField.qml
 
 
@@ -148,3 +149,4 @@ searchicon.path += /opt/com.meecast.omweather/share/omweather/qml/gfx
 INSTALLS += desktop qml searchicon
 
 DATADIR=/opt/com.meecast.omweather/share
+

@@ -109,15 +109,9 @@ import zipfile
 #country = "Hong Kong"
 #country_code = "HK"
 #replacing_dict = {}
-country = "Chile"
-country_code = "CL"
-replacing_dict = {"Region_Metropolitana_de_Santiago":"Santiago",
-                  "Region_de_Los_Lagos":"Los Lagos",
-                  "Region_de_Los_Rios":"Región de Los Ríos",
-                  "Region_de_Arica_y_Parinacota":"Región de Arica y Parinacota",
-                  "Region_del_Libertador_General_Bernardo_OHiggins":"O’Higgins",
-                  "Region_Aisen_del_General_Carlos_Ibanez_del_Campo":"Aisén",
-                  "Region_de_Magallanes_y_de_la_Antartica_Chilena":"Magallanes y Antártica"}
+country = "Serbia"
+country_code = "RS"
+replacing_dict = {"Central_Serbia": "Central Serbia"}
                 
 
 replacing_dict_after_region_filling = { } 
@@ -259,9 +253,9 @@ for line in fh.readlines():
             region_id = None
             for row in cur:
                 region_id = row[0]
-# 	        print country_id
+# 	        print "Country id %i" %(country_id)
 #            print pattern[20]
-#            print regions_name[pattern[20]] 
+#            print "Regions name %s" %(regions_name[pattern[20]])
 #            print region_id 
 #            print  normalizing(pattern[4])
 #            print "select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing(pattern[4]));

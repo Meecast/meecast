@@ -64,6 +64,7 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
 //    save_station((char*)"gismeteo.ru.xml",(char*)"Afghanistan",(char*)"Afghanistan", (char*)"Herat",(char*) "5511");
  //   save_station((char*)"gismeteo.ru",(char*)"Afghanistan",(char*)"Afghanistan", (char*)"Herat",(char*) "5511");
  
+    config->ReLoadConfig();
 
 
 

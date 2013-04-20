@@ -584,6 +584,7 @@ Config::LoadConfig(){
        xmlNodePtr root = xmlDocGetRootElement(_doc);
        if (!root)
            return;
+        AppLogDebug("Load for config ");
         std::string source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, mapURL, cookie ;
         double latitude, longitude;
        for(xmlNodePtr p = root->children; p; p = p->next) {

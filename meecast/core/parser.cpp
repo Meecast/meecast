@@ -42,6 +42,8 @@ namespace Core {
                         : AbstractConfig(){
         _filename = filename;
         /* std::cerr<<"Parse file "<<filename<<std::endl; */
+
+    AppLogDebug("Parser");
     #ifdef LIBXML
         if(filename.empty())
             throw("Invalid source file.");
@@ -105,8 +107,15 @@ namespace Core {
         }
         file.close();
     #else
-        _doc = xmlReadFile(filename.c_str(), "UTF-8", XML_PARSE_SAX1);
+        ByteBuffer* pBuf = null;
+        //String filepath = App::GetInstance()->GetAppDataPath() + filename.c_str();
+        String  filepath = "/opt/apps/ctLjIIgCCj/data/config.xml";
+        pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(filepath);
 
+        AppLogDebug("Parser for libxml %s", pBuf->GetPointer());
+        _doc = xmlReadFile((const char*)pBuf->GetPointer(), "UTF-8", XML_PARSE_SAX1);
+
+        AppLogDebug("Parser for libxml %p ", _doc);
     #endif
     #endif //LIBXML
     }
@@ -129,7 +138,12 @@ namespace Core {
         }
         file.close();
     #else
-        _doc = xmlReadFile(_filename.c_str(), "UTF-8", XML_PARSE_SAX1);
+        ByteBuffer* pBuf = null;
+        String filepath = App::GetInstance()->GetAppDataPath() + _filename.c_str();
+        pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(filepath);
+        AppLogDebug("Reload file Parser for libxml %s", pBuf->GetPointer());
+        _doc = xmlReadFile((const char*)pBuf->GetPointer(), "UTF-8", XML_PARSE_SAX1);
+        AppLogDebug("Reload file Parser for libxml %p ", _doc);
     #endif
     }
 ////////////////////////////////////////////////////////////////////////////////

@@ -48,6 +48,15 @@
 #include <string>
 #include <iostream>
 #include "abstractconfig.h"
+
+
+#include <FBase.h>
+#include <FIo.h>
+#include <FApp.h>
+
+using namespace Tizen::Base;
+using namespace Tizen::Io;
+using namespace Tizen::App;
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
     class Parser : public AbstractConfig{

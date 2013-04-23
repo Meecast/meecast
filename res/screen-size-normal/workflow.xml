@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Workflow>
+    <Scene Form="IDF_FORM" Id="MainScene"/>
+    <SceneTransition AnimationType="none" DestroyOption="keep" DirectionType="forward" HistoryOption="add" Id="ID_SCNT_MAINSCENE" Method="" SourceId="" SourceResourceType="" TargetId="MainScene"/>
+</Workflow>

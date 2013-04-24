@@ -24,7 +24,7 @@
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
-*/
+ */
 /*******************************************************************************/
 
 #include <QtCore/QtGlobal>
@@ -107,20 +107,20 @@ void myMessageOutput(QtMsgType type, const char* msg){
 Q_DECL_EXPORT
 int main(int argc, char* argv[])
 {
-	std::cerr<<"Begin"<<std::endl;
+    std::cerr<<"Begin"<<std::endl;
 
-   
-	//QApplication app(argc, argv);
-	Application app(argc, argv);
+
+    //QApplication app(argc, argv);
+    Application app(argc, argv);
 
     /* Fo DEBUG on emulator or device */
     /*
-    int fd;
-    fflush( stderr );
-    fd = open( "shared/documents/meego.tx", O_WRONLY|O_CREAT|O_TRUNC, 0666 );
-    dup2( fd, STDERR_FILENO );
-    close( fd );
-    */
+       int fd;
+       fflush( stderr );
+       fd = open( "shared/documents/meego.tx", O_WRONLY|O_CREAT|O_TRUNC, 0666 );
+       dup2( fd, STDERR_FILENO );
+       close( fd );
+       */
     qInstallMsgHandler(myMessageOutput);
 
     std::cerr<<"Begin"<<std::endl;
@@ -128,9 +128,8 @@ int main(int argc, char* argv[])
     std::cerr<<str.toStdString().c_str()<<std::endl;
     QDir::setCurrent(QDir::currentPath());
 
-<<<<<<< HEAD
-    // Set up the translator.
-    QTranslator translator;
+        // Set up the translator.
+        QTranslator translator;
     QString locale_string = QLocale().name();
     QString filename = QString("omweather_%1").arg(locale_string);
     if (translator.load(filename, "app/native/qm")) {
@@ -140,24 +139,19 @@ int main(int argc, char* argv[])
 
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
- /*
-    std::cerr<<"begin ssss "<<std::endl;
-    Dirent *dp = 0;
-    DIR *dir_fd = opendir(("./app/native"));
-    if(dir_fd){
-        while((dp = readdir(dir_fd))){
-            std::string name = dp->d_name;
-            std::cerr<<"ssss "<<std::endl;
-            std::cerr<<name.c_str()<<std::endl;
-        }
-    }
-*/
-/*
-=======
-    
-
     /*
->>>>>>> master
+       std::cerr<<"begin ssss "<<std::endl;
+       Dirent *dp = 0;
+       DIR *dir_fd = opendir(("./app/native"));
+       if(dir_fd){
+       while((dp = readdir(dir_fd))){
+       std::string name = dp->d_name;
+       std::cerr<<"ssss "<<std::endl;
+       std::cerr<<name.c_str()<<std::endl;
+       }
+       }
+       */
+    /*
     //Set up a graphics scene with a QGraphicsWidget and Layout
     QGraphicsView view;
     QGraphicsScene scene;
@@ -171,21 +165,17 @@ int main(int argc, char* argv[])
 
     //Add the QML snippet into the layout
 
-<<<<<<< HEAD
 
     ConfigQml *config;
     //QString locale = QLocale::system().name();
     //std::cerr<<"locale: "<<locale.toStdString()<<std::endl;
-=======
   //  QString locale = QLocale::system().name();
 
    // std::cerr<<"locale: "<<locale.toStdString()<<std::endl;
->>>>>>> master
     
     //ConfigQml *config;
     //
     Controller *controller;
-<<<<<<< HEAD
 
     std::cerr<<"Before controller "<<std::endl;
 
@@ -193,7 +183,6 @@ int main(int argc, char* argv[])
 
     std::cerr<<"After controller "<<std::endl;
     controller->load_data();
-=======
 /*
     QTranslator translator;
     translator.load("ru.qml", "i18n");
@@ -202,6 +191,7 @@ int main(int argc, char* argv[])
     controller = new Controller(); 
     
     /* Locale */
+    /*
     for (unsigned int i=0; i<controller->config()->languagesList().size(); i++){
         if (controller->config()->languagesList().at(i).first == controller->config()->Language()){
             setlocale (LC_ALL, controller->config()->languagesList().at(i).second.c_str());
@@ -211,11 +201,7 @@ int main(int argc, char* argv[])
     }
     textdomain("omweather");
     bindtextdomain("omweather", "/opt/com.meecast.omweather/share/locale");
-
-    /* D-BUS */
-    DbusAdaptor* dadapt = new DbusAdaptor(controller);
->>>>>>> master
-
+    */
 
     config = controller->config();
     //std::cerr<<"iconpath = "<<config->imagespath().toStdString() << std::endl;

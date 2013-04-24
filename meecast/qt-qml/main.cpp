@@ -123,7 +123,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     controller = new Controller(); 
     
     /* Locale */
-    for (unsigned int i=0; i<controller->config()->languagesList().size(); i++){
+    for (unsigned int i=1; i<controller->config()->languagesList().size(); i++){
         if (controller->config()->languagesList().at(i).first == controller->config()->Language()){
             setlocale (LC_ALL, controller->config()->languagesList().at(i).second.c_str());
             setlocale (LC_MESSAGES, controller->config()->languagesList().at(i).second.c_str());

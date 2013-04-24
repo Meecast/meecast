@@ -213,7 +213,7 @@ ConfigQml::set_language(QString c)
 {
     ConfigQml::Config::Language(c.toStdString());
     /* Set new locale for application */
-    for (unsigned int i=0; i<languagesList().size(); i++){
+    for (unsigned int i=1; i<languagesList().size(); i++){
         if (languagesList().at(i).first == Language()){
             setlocale (LC_ALL, languagesList().at(i).second.c_str());
             setlocale (LC_MESSAGES, languagesList().at(i).second.c_str());

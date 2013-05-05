@@ -15,7 +15,7 @@ public:
 	meecastMainForm(void);
 	virtual ~meecastMainForm(void);
 	bool Initialize(void);
-
+    void CreateContextMenuList(void);
 public:
 	virtual result OnInitializing(void);
 	virtual result OnTerminating(void);
@@ -27,7 +27,12 @@ public:
 									const Tizen::Ui::Scenes::SceneId& nextSceneId);
 
 protected:
-	static const int ID_BUTTON_OK = 101;
+    static const int ID_BUTTON_OK = 101;
+    static const int ID_BUTTON_MENU = 905;
+    static const int ID_MENU_SETTINGS = 906;
+    static const int ID_MENU_ABOUT = 907;
+private:
+    Tizen::Ui::Controls::ContextMenu* __pContextMenuText;
 };
 
 #endif	//_MEECAST_MAIN_FORM_H_

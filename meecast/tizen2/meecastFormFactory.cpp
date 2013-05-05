@@ -1,5 +1,6 @@
 #include "meecastFormFactory.h"
 #include "meecastMainForm.h"
+#include "meecastSettingsForm.h"
 
 using namespace Tizen::Ui::Scenes;
 
@@ -26,6 +27,14 @@ meecastFormFactory::CreateFormN(const Tizen::Base::String& formId, const Tizen::
 		pSceneManager->AddSceneEventListener(sceneId, *pForm);
 		pNewForm = pForm;
 	}
+    else if (formId == L"SETTINGS_FORM")
+	{
+		meecastSettingsForm* pForm = new (std::nothrow) meecastSettingsForm();
+		pForm->Initialize();
+		pSceneManager->AddSceneEventListener(sceneId, *pForm);
+		pNewForm = pForm;
+	}
+
 	// TODO:
 	// Add your form creation code here
 

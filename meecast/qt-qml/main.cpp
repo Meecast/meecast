@@ -128,7 +128,6 @@ int main(int argc, char* argv[])
     std::cerr<<str.toStdString().c_str()<<std::endl;
     QDir::setCurrent(QDir::currentPath());
 
-<<<<<<< HEAD
     // Set up the translator.
     QTranslator translator;
     QString locale_string = QLocale().name();
@@ -152,40 +151,18 @@ int main(int argc, char* argv[])
         }
     }
 */
-/*
-=======
     
-
-    /*
->>>>>>> master
-    //Set up a graphics scene with a QGraphicsWidget and Layout
-    QGraphicsView view;
-    QGraphicsScene scene;
-    QGraphicsWidget *widget = new QGraphicsWidget();
-    QGraphicsGridLayout *layout = new QGraphicsGridLayout;
-    layout->setSpacing(0);
-    widget->setLayout(layout);
-    scene.addItem(widget);
-    view.setScene(&scene);
-*/
 
     //Add the QML snippet into the layout
 
-<<<<<<< HEAD
 
     ConfigQml *config;
     //QString locale = QLocale::system().name();
     //std::cerr<<"locale: "<<locale.toStdString()<<std::endl;
-=======
   //  QString locale = QLocale::system().name();
 
    // std::cerr<<"locale: "<<locale.toStdString()<<std::endl;
->>>>>>> master
-    
-    //ConfigQml *config;
-    //
     Controller *controller;
-<<<<<<< HEAD
 
     std::cerr<<"Before controller "<<std::endl;
 
@@ -193,7 +170,6 @@ int main(int argc, char* argv[])
 
     std::cerr<<"After controller "<<std::endl;
     controller->load_data();
-=======
 /*
     QTranslator translator;
     translator.load("ru.qml", "i18n");
@@ -212,11 +188,7 @@ int main(int argc, char* argv[])
     textdomain("omweather");
     bindtextdomain("omweather", "/opt/com.meecast.omweather/share/locale");
 
-    /* D-BUS */
-    DbusAdaptor* dadapt = new DbusAdaptor(controller);
->>>>>>> master
-
-
+    
     config = controller->config();
     //std::cerr<<"iconpath = "<<config->imagespath().toStdString() << std::endl;
  //   update_weather_forecast(config);

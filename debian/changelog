@@ -1,6 +1,6 @@
 meecast (0.7.2) unstable; urgency=low
 
-  * Added description string to gismeteo.ru 
+  * Added description string and icon to gismeteo.ru 
   * Added icon for hko.gov.hk
   * Fixed problem with locale for date if language is System
 

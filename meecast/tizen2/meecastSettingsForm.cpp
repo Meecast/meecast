@@ -30,8 +30,11 @@ using namespace Tizen::Ui;
 using namespace Tizen::Ui::Controls;
 using namespace Tizen::Ui::Scenes;
 
+static const int LIST_HEIGHT = 112;
+static const int BUTTON_HEIGHT = 74;
 
 meecastSettingsForm::meecastSettingsForm(void)
+                    : __pListView(null)
 {
 }
 
@@ -57,6 +60,17 @@ meecastSettingsForm::OnInitializing(void)
     //CreateContextMenuList();
     // Setup back event listener
     SetFormBackEventListener(this);
+
+
+
+    // Creates an instance of ListView
+    __pListView = new ListView();
+    __pListView->Construct(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, GetClientAreaBounds().height), true, false);
+    __pListView->SetItemProvider(*this);
+    __pListView->AddListViewItemEventListener(*this);
+
+    // Adds the list view to the form
+    AddControl(*__pListView);
 
     // Get a button via resource ID
 //    Tizen::Ui::Controls::Button *pButtonOk = static_cast<Button*>(GetControl(L"IDC_BUTTON_OK"));
@@ -128,6 +142,81 @@ meecastSettingsForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& curren
     // TODO:
     // Add your scene deactivate code here
     AppLog("OnSceneDeactivated");
+}
+
+int
+meecastSettingsForm::GetItemCount(void)
+{
+    return 1;
+}
+
+bool
+meecastSettingsForm::DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth)
+{
+	delete pItem;
+	return true;
+}
+
+
+Tizen::Ui::Controls::ListItemBase*
+meecastSettingsForm::CreateItem (int index, int itemWidth)
+{
+	SimpleItem* pItem = new SimpleItem();
+	AppAssert(pItem);
+
+
+//	CalTodo* pTodo = null;
+
+	pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_NORMAL);
+//	pTodo = static_cast<CalTodo*>(__pTodosList->GetAt(index));
+
+	String listItemString;
+	String subject = "dddddd";
+
+	if (subject.IsEmpty())
+	{
+		subject = L"(No subject)";
+	}
+
+	listItemString.Append(subject);
+	pItem->SetElement(listItemString);
+
+	return pItem;
+}
+
+void
+meecastSettingsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
+{
+	if (status == LIST_ITEM_STATUS_SELECTED)
+	{
+        /*
+		SceneManager* pSceneManager = SceneManager::GetInstance();
+		AppAssert(pSceneManager);
+
+		CalTodo* pTodo = static_cast<CalTodo*>(__pTodosList->GetAt(index));
+		AppAssert(pTodo);
+
+		ArrayList* pList = new (std::nothrow) ArrayList();
+		pList->Construct();
+		pList->Add(*new (std::nothrow) Integer(pTodo->GetRecordId()));
+
+		pSceneManager->GoForward(ForwardSceneTransition(SCENE_DETAIL), pList);
+        */
+	}
+}
+void
+meecastSettingsForm::OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction)
+{
+}
+
+void
+meecastSettingsForm::OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state)
+{
+}
+
+void
+meecastSettingsForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex)
+{
 }
 
 

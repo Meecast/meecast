@@ -188,7 +188,6 @@ int main(int argc, char* argv[])
     translator.load("ru.qml", "i18n");
     app.installTranslator(&translator);
 */
-    controller = new Controller(); 
     
     /* Locale */
     /*

@@ -918,6 +918,7 @@ ConfigQml::showwebsupport()
 void
 ConfigQml::downloadFinishedSlot()
 {
+    std::cerr<<"ConfigQml::downloadFinishedSlot"<<std::endl;
     emit configChanged();
 }
 

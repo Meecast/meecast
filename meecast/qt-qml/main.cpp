@@ -24,7 +24,7 @@
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
-*/
+ */
 /*******************************************************************************/
 
 #include <QtCore/QtGlobal>
@@ -107,20 +107,20 @@ void myMessageOutput(QtMsgType type, const char* msg){
 Q_DECL_EXPORT
 int main(int argc, char* argv[])
 {
-	std::cerr<<"Begin"<<std::endl;
+    std::cerr<<"Begin"<<std::endl;
 
-   
-	//QApplication app(argc, argv);
-	Application app(argc, argv);
+
+    //QApplication app(argc, argv);
+    Application app(argc, argv);
 
     /* Fo DEBUG on emulator or device */
     /*
-    int fd;
-    fflush( stderr );
-    fd = open( "shared/documents/meego.tx", O_WRONLY|O_CREAT|O_TRUNC, 0666 );
-    dup2( fd, STDERR_FILENO );
-    close( fd );
-    */
+       int fd;
+       fflush( stderr );
+       fd = open( "shared/documents/meego.tx", O_WRONLY|O_CREAT|O_TRUNC, 0666 );
+       dup2( fd, STDERR_FILENO );
+       close( fd );
+       */
     qInstallMsgHandler(myMessageOutput);
 
     std::cerr<<"Begin"<<std::endl;
@@ -152,7 +152,6 @@ int main(int argc, char* argv[])
     }
 */
     
-
     //Add the QML snippet into the layout
 
 
@@ -175,10 +174,11 @@ int main(int argc, char* argv[])
     translator.load("ru.qml", "i18n");
     app.installTranslator(&translator);
 */
-    controller = new Controller(); 
     
     /* Locale */
-    for (unsigned int i=1; i<controller->config()->languagesList().size(); i++){
+    /*
+    for (unsigned int i=0; i<controller->config()->languagesList().size(); i++){
+>>>>>>> 6787589fc1cb0d776a92c5fe8293cbc98f2dc76d
         if (controller->config()->languagesList().at(i).first == controller->config()->Language()){
             setlocale (LC_ALL, controller->config()->languagesList().at(i).second.c_str());
             setlocale (LC_MESSAGES, controller->config()->languagesList().at(i).second.c_str());
@@ -187,8 +187,11 @@ int main(int argc, char* argv[])
     }
     textdomain("omweather");
     bindtextdomain("omweather", "/opt/com.meecast.omweather/share/locale");
+<<<<<<< HEAD
 
     
+    */
+
     config = controller->config();
     //std::cerr<<"iconpath = "<<config->imagespath().toStdString() << std::endl;
  //   update_weather_forecast(config);

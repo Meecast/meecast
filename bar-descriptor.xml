@@ -60,10 +60,10 @@
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset entry="true" path="arm/o.le-v7-g/omweather-qml" type="Qnx/Elf">omweather-qml</asset>
        <asset path="arm/foreca/o.le-v7-g/forecacom" type="Qnx/Elf">forecacom</asset>
-       <asset path="arm/yrno/o.le-v7-g/yrno" type="Qnx/Elf">yrno</asset>
-       <asset path="arm/hko/o.le-v7-g/hkogovhk" type="Qnx/Elf">hkogovhk</asset>
-       <asset path="arm/gismeteo/o.le-v7-g/gismeteoru" type="Qnx/Elf">gismeteoru</asset>
-       <asset path="arm/bomgovau/o.le-v7-g/bomgovau" type="Qnx/Elf">bomgovau</asset>
+       <asset path="arm/yrno/yrno" type="Qnx/Elf">yrno</asset>
+       <asset path="arm/hko/hkogovhk" type="Qnx/Elf">hkogovhk</asset>
+       <asset path="arm/gismeteo/gismeteoru" type="Qnx/Elf">gismeteoru</asset>
+       <asset path="arm/bomgovau/bomgovau" type="Qnx/Elf">bomgovau</asset>
     </configuration>
     <configuration id="com.qnx.qcc.toolChain.585662339" name="Device-Release">
        <platformArchitecture>armle-v7</platformArchitecture>
@@ -121,6 +121,7 @@
    
     <!-- Request permission to execute native code.  Required for native applications. -->
     <permission system="true">run_native</permission>
+    <permission>run_when_backgrounded</permission>
     <env var="LD_LIBRARY_PATH" value="app/native/lib:/usr/lib/qt4/lib"/>
     <cascadesTheme>dark</cascadesTheme>
 </qnx>

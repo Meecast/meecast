@@ -1,13 +1,13 @@
 meecast (0.7.2) unstable; urgency=low
 
-  * Added description string and icon to gismeteo.ru 
+  * Added description strings and icon to gismeteo.ru 
   * Added icon for hko.gov.hk
   * Fixed problem with locale for date if language is System
   * Added station Busteni, Eforie, Mangalia (Romania) to gismeteo.ru
-  * Updated Albanian, Catalan, Finish, Italian, Norwegian, Portuguese translations
+  * Updated Albanian, Catalan, Finish, Italian, Norwegian, Portuguese, Serbian translations
   * Fixed problem with Serbian translation
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 12 Apr 2013 23:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 09 May 2013 19:31:23 +0200
 
 meecast (0.7.1) unstable; urgency=low
 

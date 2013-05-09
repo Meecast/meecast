@@ -507,7 +507,7 @@ void
 Config::InitLanguagesList(){
 
     _languages_list->push_back(std::make_pair("System", ""));
-    _languages_list->push_back(std::make_pair("Albanian", "sq_SQ"));
+    _languages_list->push_back(std::make_pair("Albanian", "sq"));
     _languages_list->push_back(std::make_pair("Arabic", "ar_AR"));
     _languages_list->push_back(std::make_pair("Bulgarian", "bg_BG"));
     _languages_list->push_back(std::make_pair("Catalan", "ca_CA"));
@@ -523,7 +523,7 @@ Config::InitLanguagesList(){
     _languages_list->push_back(std::make_pair("Polish", "pl_PL"));
     _languages_list->push_back(std::make_pair("Portuguese", "pt_PT"));
     _languages_list->push_back(std::make_pair("Russian", "ru_RU"));
-    _languages_list->push_back(std::make_pair("Serbian", "sr_SR"));
+    _languages_list->push_back(std::make_pair("Serbian", "sr"));
     _languages_list->push_back(std::make_pair("Slovak", "sk_SK"));
     _languages_list->push_back(std::make_pair("Spanish", "es_ES"));
     _languages_list->push_back(std::make_pair("Spanish(Mexico)", "es_MX"));

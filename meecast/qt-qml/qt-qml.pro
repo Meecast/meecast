@@ -263,6 +263,12 @@ transinstallsv.path = /opt/com.meecast.omweather/share/locale/sv/LC_MESSAGES
 transinstallsv.files = po/locale/sk_SV/omweather.mo
 INSTALLS += transinstallsv
 
+transinstallsr.extra = cp po/locale/sr_SR/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/sr/LC_MESSAGES
+transinstallsr.path = /opt/com.meecast.omweather/share/locale/sr/LC_MESSAGES
+transinstallsr.files = po/locale/sr_SR/omweather.mo
+INSTALLS += transinstallsr
+
+
 transinstalltr.extra = cp po/locale/tr_TR/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/tr/LC_MESSAGES
 transinstalltr.path = /opt/com.meecast.omweather/share/locale/tr/LC_MESSAGES
 transinstalltr.files = po/locale/tr_TR/omweather.mo

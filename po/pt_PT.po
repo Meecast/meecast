@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-#   <jose.manuel.narciso@gmail.com>, 2012.
-# Jose Narciso <jose.manuel.narciso@gmail.com>, 2012-2013.
-# Vlad Vas <vasvlad@gmail.com>, 2012.
+# Jose Narciso <jose.manuel.narciso@gmail.com>, 2012
+# Jose Narciso <jose.manuel.narciso@gmail.com>, 2012-2013
+# Vlad Vas <vasvlad@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-12 20:17+0300\n"
-"PO-Revision-Date: 2013-03-19 17:27+0000\n"
-"Last-Translator: Jose Narciso <jose.manuel.narciso@gmail.com>\n"
+"POT-Creation-Date: 2013-05-09 17:37+0300\n"
+"PO-Revision-Date: 2013-04-29 08:33+0000\n"
+"Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/"
 "meecast/language/pt_PT/)\n"
 "Language: pt_PT\n"
@@ -544,9 +544,8 @@ msgid "Cloudy and snow showers"
 msgstr "Nublado e queda neve"
 
 #: omweather/src/hash.data:46
-#, fuzzy
 msgid "Cloudy and wet snow showers"
-msgstr "Nublado e queda neve"
+msgstr "Nublado e chuveiros com neve"
 
 #: omweather/src/hash.data:48
 msgid "Cloudy, Drifting Snow"
@@ -986,7 +985,7 @@ msgid ""
 " Turkish - Burak Kaan Kose,\n"
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
-" Serbian - Saleki,\n"
+" Serbian - Aleksandar Zaric,\n"
 " Norwegian - Peer-Atle Motland,\n"
 " Hungarian - Salmi,\n"
 " Vietnamese - Hieu Nguyen\n"
@@ -1184,6 +1183,10 @@ msgstr ""
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
 msgstr "Kilometros"
+
+#: omweather/src/hash.data:329
+msgid "Language"
+msgstr ""
 
 #: omweather/src/hash.data:100
 msgid "Last Quarter"
@@ -2148,6 +2151,11 @@ msgstr "Selecione a cor de letra para a temperatura"
 msgid "Select the iconset"
 msgstr "Selecionar o estilo de icons"
 
+#: meecast/qt-qml/qml/LanguagesPage.qml:130
+#, fuzzy
+msgid "Select the language"
+msgstr "Selecionar o estilo de icons"
+
 #: meecast/qt-qml/qml/SourcePage.qml:108
 msgid "Select the weather source"
 msgstr "Selecionar a fonte de dados do tempo"
@@ -3034,34 +3042,34 @@ msgstr "nome estação"
 msgid "steady"
 msgstr "estável"
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:332
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:332
+#: omweather/src/hash.data:333
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:333
+#: omweather/src/hash.data:334
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:334
+#: omweather/src/hash.data:335
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:336
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:337
 msgid "Ю-З"
 msgstr "Ю-З"

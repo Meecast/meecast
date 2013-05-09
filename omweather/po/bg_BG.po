@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-12 20:17+0300\n"
+"POT-Creation-Date: 2013-05-09 17:37+0300\n"
 "PO-Revision-Date: 2012-12-21 07:15+0000\n"
 "Last-Translator: zlatko <zlatko23@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/"
@@ -1000,7 +1000,7 @@ msgid ""
 " Turkish - Burak Kaan Kose,\n"
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
-" Serbian - Saleki,\n"
+" Serbian - Aleksandar Zaric,\n"
 " Norwegian - Peer-Atle Motland,\n"
 " Hungarian - Salmi,\n"
 " Vietnamese - Hieu Nguyen\n"
@@ -1185,6 +1185,10 @@ msgstr ""
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
 msgstr "Километри"
+
+#: omweather/src/hash.data:329
+msgid "Language"
+msgstr ""
 
 #: omweather/src/hash.data:100
 msgid "Last Quarter"
@@ -2150,6 +2154,11 @@ msgstr "Избери цвета за темепература"
 msgid "Select the iconset"
 msgstr "Изберте набор икони"
 
+#: meecast/qt-qml/qml/LanguagesPage.qml:130
+#, fuzzy
+msgid "Select the language"
+msgstr "Изберте набор икони"
+
 #: meecast/qt-qml/qml/SourcePage.qml:108
 msgid "Select the weather source"
 msgstr "Изберете източник на метео данни"
@@ -3038,34 +3047,34 @@ msgstr "име на метео станцията"
 msgid "steady"
 msgstr "стабилно"
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:332
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:332
+#: omweather/src/hash.data:333
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:333
+#: omweather/src/hash.data:334
 msgid "С-З"
 msgstr "С-3"
 
-#: omweather/src/hash.data:334
+#: omweather/src/hash.data:335
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:336
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:337
 msgid "Ю-З"
 msgstr "Ю-3"

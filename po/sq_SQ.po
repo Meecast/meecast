@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Ilir Gjika <ilir.gjika@gmail.com>, 2012.
-# Vlad Vas <vasvlad@gmail.com>, 2012.
+# Ilir Gjika <ilir.gjika@gmail.com>, 2012-2013
+# Vlad Vas <vasvlad@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-12 20:17+0300\n"
-"PO-Revision-Date: 2012-12-17 06:10+0000\n"
-"Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
+"POT-Creation-Date: 2013-05-09 17:37+0300\n"
+"PO-Revision-Date: 2013-04-29 10:02+0000\n"
+"Last-Translator: Ilir Gjika <ilir.gjika@gmail.com>\n"
 "Language-Team: Albanian (http://www.transifex.com/projects/p/meecast/"
 "language/sq/)\n"
 "Language: sq\n"
@@ -110,7 +110,7 @@ msgid ""
 "W: "
 msgstr ""
 "\n"
-"W: "
+"P: "
 
 #: meecast/qt-qml/dataitem.cpp:470 meecast/qt-qml/dataitem.cpp:471
 msgid "(Low)"
@@ -205,7 +205,7 @@ msgstr "Në mëngjes Vranësira / Pasdite Diell"
 
 #: omweather/src/hash.data:6
 msgid "AM Drizzle"
-msgstr "Në mëngjes Shi i imët"
+msgstr "Në mëngjes shi i imët"
 
 #: omweather/src/hash.data:5
 msgid "AM Drizzle / Wind"
@@ -340,7 +340,7 @@ msgstr "Ndohi një gabim i panjohur"
 
 #: omweather/src/weather-simple-settings.c:413
 msgid "Animation"
-msgstr "Animation"
+msgstr "Animimet"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:566
 msgid "Appearance"
@@ -355,12 +355,12 @@ msgid ""
 msgstr ""
 "Programi për instalimin e\n"
 "'MeeCast applet' do të fillojë tani.\n"
-"Ju duhet te fshini AccuWeather \n"
+"Ju duhet të fshini AccuWeather \n"
 "përpara se të vazhdoni"
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
-msgstr "Je i sigurt qe do ta fshish këtë stacion?"
+msgstr "Je i sigurt që do t'a fshish këtë stacion?"
 
 #: omweather/src/weather-simple-settings.c:848
 msgid "Are you sure?"
@@ -394,7 +394,7 @@ msgstr "Përditëso të dhënat sa po të lidhesh në internet"
 
 #: omweather/src/hash.data:328
 msgid "Back"
-msgstr ""
+msgstr "Mbrapa"
 
 #: omweather/src/weather-settings.c:3378 omweather/src/weather-settings.c:3382
 msgid "Background color:"
@@ -471,7 +471,7 @@ msgstr "Qiell i kthjellët"
 
 #: omweather/src/hash.data:30
 msgid "Clear, Drifting Snow"
-msgstr "I kthjellët, Drifting Snow"
+msgstr "I kthjellët, Dëborë e sjellë nga era"
 
 #: omweather/src/hash.data:31
 msgid "Clear, Fog"
@@ -542,9 +542,8 @@ msgid "Cloudy and snow showers"
 msgstr "Me re dhe stuhira bore"
 
 #: omweather/src/hash.data:46
-#, fuzzy
 msgid "Cloudy and wet snow showers"
-msgstr "Me re dhe stuhira bore"
+msgstr "Me re dhe borë të lagur"
 
 #: omweather/src/hash.data:48
 msgid "Cloudy, Drifting Snow"
@@ -556,7 +555,7 @@ msgstr "Me re, pak dëborë"
 
 #: omweather/src/hash.data:50
 msgid "Cloudy, Heavy Rain"
-msgstr "Me re, Shira të fort"
+msgstr "Me re, rreshje të forta"
 
 #: omweather/src/hash.data:51
 msgid "Cloudy, Heavy Rain, T-Storm"
@@ -564,7 +563,7 @@ msgstr "Me re, Shira të fortë, Stuhi"
 
 #: omweather/src/hash.data:52
 msgid "Cloudy, Heavy Snow"
-msgstr "Me re, Rreshje të dëndura dëndura dëbore"
+msgstr "Me re, Rreshje të dëndura dëbore"
 
 #: omweather/src/hash.data:53
 msgid "Cloudy, Light Rain"
@@ -630,7 +629,7 @@ msgstr "Shteti"
 
 #: omweather/src/weather-settings.c:510
 msgid "Country:"
-msgstr "Shteti"
+msgstr "Shteti:"
 
 #: omweather/src/weather-simple-settings.c:2896
 msgid "Custom"
@@ -901,7 +900,7 @@ msgstr "Tremujori i parë"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:210
 #: meecast/qt-qml/qml/FullWeatherPage.qml:259
 msgid "Flike"
-msgstr ""
+msgstr "Ndjehet"
 
 #: omweather/src/hash.data:85
 msgid "Fog"
@@ -938,8 +937,8 @@ msgid ""
 "'Activating MeeCast Applet'\n"
 "using Application manager"
 msgstr ""
-"Për të deaktivizuar MeeCast widget,\n"
-"duhet dizinstaluar\n"
+"Për të çaktivizuar MeeCast widget,\n"
+"duhet hequr\n"
 "'Activating MeeCast Applet'\n"
 "duke përdorur Application manager"
 
@@ -961,6 +960,7 @@ msgid "Freezing Drizzle"
 msgstr "Shi i ngrirë"
 
 #: meecast/qt-qml/qml/AboutPage.qml:211
+#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -983,7 +983,7 @@ msgid ""
 " Turkish - Burak Kaan Kose,\n"
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
-" Serbian - Saleki,\n"
+" Serbian - Aleksandar Zaric,\n"
 " Norwegian - Peer-Atle Motland,\n"
 " Hungarian - Salmi,\n"
 " Vietnamese - Hieu Nguyen\n"
@@ -992,6 +992,35 @@ msgid ""
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
+"Frëngjisht -  Nicolas Granziano, \n"
+" \tPhilippe, Benot Knecht \n"
+" Rusisht - Pavel Fialko, Vlad Vasiliev, \n"
+" \tEd Bartosh\n"
+" Finlandisht - Marko Vertainen\n"
+" Gjermanisht -  Claudius Henrichs\n"
+" Italisht - Lorenzo Facca,\n"
+" \tPavel Fialko, Alessandro Pasotti,\n"
+" \tSalvatore Fiorenzo, Ilir Gjika,\n"
+" \tLuca Onnis\n"
+" Spanjisht - Alejandro Lopez\n"
+" Polonisht - Tomasz Dominikowski\n"
+" Sllovakisht - Roman Moravčík\n"
+" Hollandisht - Tom Leenders, Michiel Pater\n"
+" Bullgarisht - Zlatko Enikov\n"
+" Shqip - Ilir Gjika\n"
+" Kinezçe - Wong Man Kong, Michael\n"
+" Portugalisht - Jose Narciso,\n"
+" Turqisht - Burak Kaan Kose,\n"
+" Catalanisht - Agustí Clara,\n"
+" Arabisht - Tarad Alfandi,\n"
+" Sërbisht - Saleki,\n"
+" Norvegjisht - Peer-Atle Motland,\n"
+" Hungarisht - Salmi,\n"
+" Vietnamisht - Hieu Nguyen\n"
+" \tAnh Dương and truongnx, \n"
+" Suedisht - Angela Nennebrandt,\n"
+" \tNiklas Åkerström, \n"
+" \tTomislav Veleckovik"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1084,18 +1113,16 @@ msgid "Heavy Snow"
 msgstr "Rreshje të dëndura dëbore"
 
 #: omweather/src/hash.data:94
-#, fuzzy
 msgid "Heavy Snow / Wind"
-msgstr "Shira të fortë / Erë"
+msgstr "Stuhi bore / Erë"
 
 #: omweather/src/hash.data:95
 msgid "High"
 msgstr "E lartë"
 
 #: omweather/src/hash.data:327
-#, fuzzy
 msgid "Hourly"
-msgstr "Orë"
+msgstr "çdo orë"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:276
 msgid "Hours"
@@ -1119,7 +1146,7 @@ msgstr "Ikonat:"
 
 #: omweather/src/weather-settings.c:3558 omweather/src/weather-settings.c:3563
 msgid "Icon size:"
-msgstr "Dimensioni i ikonave:"
+msgstr "Madhësia e ikonave:"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:44 meecast/qt-qml/qml/UpdatePage.qml:42
 msgid "Icons"
@@ -1160,6 +1187,10 @@ msgstr ""
 msgid "Kilometers"
 msgstr "Kilometra"
 
+#: omweather/src/hash.data:329
+msgid "Language"
+msgstr ""
+
 #: omweather/src/hash.data:100
 msgid "Last Quarter"
 msgstr "Tremujori i fundit"
@@ -1174,7 +1205,7 @@ msgstr "Përditësimi i fundit nga serveri: "
 
 #: omweather/src/hash.data:101 meecast/qt-qml/qml/FullWeatherPage.qml:297
 msgid "Last update:"
-msgstr "Përditësimi i fundit"
+msgstr "Përditësimi i fundit:"
 
 #: omweather/src/weather-simple-popup.c:271
 #: omweather/src/weather-simple-popup.c:273
@@ -1324,6 +1355,9 @@ msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2012"
 msgstr ""
+"MeeCast është një program multiplataformë dhe i personalizueshëm, me kod të "
+"hapur, për paraqitjen e parashikimeve te motit i bazuar në kodin e "
+"OMWeather. Të gjitha të drejtat janë të rezervuara 2006-2012"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -1367,7 +1401,7 @@ msgstr "Kryesisht me re me rreshje te pakta shiu të imët"
 
 #: omweather/src/hash.data:132
 msgid "Mostly Cloudy Rain"
-msgstr "Kryesisht mot i vranët me rreshje shiu"
+msgstr "Kryesisht mot i vranët me rreshje"
 
 #: omweather/src/hash.data:133
 msgid "Mostly Cloudy Snow"
@@ -1391,7 +1425,7 @@ msgstr "Kryesisht mot i vranët me pak rreshje dëbore"
 
 #: omweather/src/hash.data:139
 msgid "Mostly Cloudy, Fog"
-msgstr "Kruesisht me re, Mjegull"
+msgstr "Kryesisht me re, Mjegull"
 
 #: omweather/src/hash.data:140
 msgid "Mostly Cloudy, Fog, Drizzle"
@@ -1451,7 +1485,7 @@ msgstr "Kryesisht me diell"
 
 #: omweather/src/hash.data:154
 msgid "Mostly clear"
-msgstr "Kruesisht mot i kthjellët"
+msgstr "Kryesisht mot i kthjellët"
 
 #: omweather/src/hash.data:155
 msgid "N"
@@ -1465,7 +1499,7 @@ msgstr "V"
 #: omweather/src/weather-home.c:2835 omweather/src/weather-home.c:2839
 #: omweather/src/hash.data:156
 msgid "N/A"
-msgstr "N/A"
+msgstr "Pa Info"
 
 #: omweather/src/hash.data:157
 msgid "NE"
@@ -1880,7 +1914,7 @@ msgstr "Presioni: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
 msgid "Programmers"
-msgstr ""
+msgstr "Programuesit"
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
 msgid "Project administrator"
@@ -2111,7 +2145,7 @@ msgstr "Zgjidh ngjyrën e gërmave për temperaturën e tashme"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:123
 msgid "Select the color of font for station name"
-msgstr "Zgjidh ngjyrën e gërmave për emrin e stacionit meteo"
+msgstr "Zgjidh ngjyrën e gërmave për emrin e stacionit metereollogjik"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:195
 msgid "Select the color of font for temperature"
@@ -2119,6 +2153,11 @@ msgstr "Zgjidh ngjyrën e gërmave"
 
 #: meecast/qt-qml/qml/IconsetPage.qml:97
 msgid "Select the iconset"
+msgstr "Zgjith paketën e ikonave"
+
+#: meecast/qt-qml/qml/LanguagesPage.qml:130
+#, fuzzy
+msgid "Select the language"
 msgstr "Zgjith paketën e ikonave"
 
 #: meecast/qt-qml/qml/SourcePage.qml:108
@@ -2178,7 +2217,7 @@ msgstr "Rregullimet kur ekrani është i bllokuar"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:514
 msgid "Settings of StandbyScreen"
-msgstr "Rregullimet e StandbyScreen"
+msgstr "Rregullimet e Ekranit në Pritje"
 
 #: omweather/src/hash.data:260
 msgid "Shallow Fog"
@@ -2311,7 +2350,7 @@ msgstr "Shpejtësia:"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:491
 msgid "Splash screen"
-msgstr "Splash screen"
+msgstr "Dritarja e hapjes"
 
 #: omweather/src/weather-settings.c:522
 msgid "State:"
@@ -2365,15 +2404,15 @@ msgstr "Ndërro temperaturën e lartë/ e ulët"
 
 #: omweather/src/weather-settings.c:4180
 msgid "Switch to the next station after:"
-msgstr "Kalo tek stacioni tjeteër pas:"
+msgstr "Kalo tek stacioni tjetër pas:"
 
 #: omweather/src/hash.data:286
 msgid "T-Showers"
-msgstr "Rreshje të shoqëruara me rrufe"
+msgstr "Rrebeshe"
 
 #: omweather/src/hash.data:285
 msgid "T-Showers Early"
-msgstr "Rreshje të shoqëruara me rrufe herët"
+msgstr "Rrebeshe me rrufe herët"
 
 #: omweather/src/hash.data:287
 msgid "T-Storm"
@@ -2404,7 +2443,7 @@ msgstr "Njësia për matjen e temperaturës"
 
 #: omweather/src/weather-settings.c:3858
 msgid "Temperature units:"
-msgstr "Njësia për matjen e temperaturës:"
+msgstr "Njësitë për matjen e temperaturës:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
 #: meecast/qt-qml/dataitem.cpp:178
@@ -2435,7 +2474,7 @@ msgid ""
 msgstr ""
 "Ky program është falas; ju mund ta shpërndani\n"
 "apo ndryshoni në bazë të GNU General Public\n"
-" License siçjanë publikuar nga Free Software \n"
+" License siç janë publikuar nga Free Software \n"
 " Foundation; duke filluar nga versioni 2.1 i \n"
 " Liçencës, ose (si ta vendosni ju) ndonjë\n"
 "version më të ri."
@@ -2465,7 +2504,7 @@ msgstr "Sot"
 
 #: omweather/src/weather-help.c:154 meecast/qt-qml/qml/AboutPage.qml:202
 msgid "Translators"
-msgstr "Përkthyes"
+msgstr "Përkthyesit"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:427
 msgid ""
@@ -2482,7 +2521,7 @@ msgstr "Tejduekshmëria:"
 
 #: omweather/src/hash.data:294 meecast/qt-qml/qml/WeatherPage.qml:501
 msgid "Try to update"
-msgstr "Provo të perditësosh"
+msgstr "Provo të përditësosh"
 
 #: omweather/src/weather-settings.c:3452
 msgid "Type of click:"
@@ -2567,11 +2606,11 @@ msgstr "VAR"
 
 #: omweather/src/weather-settings.c:4231
 msgid "Valid time for current weather:"
-msgstr "Valid time for current weather:"
+msgstr "Vlefshmëria e parashikimeve të tashme:"
 
 #: omweather/src/hash.data:298
 msgid "Very High"
-msgstr "Shumë e rëndë"
+msgstr "Shumë e lartë"
 
 #: omweather/src/weather-settings.c:3517 omweather/src/weather-settings.c:3522
 msgid "Visible items:"
@@ -2659,7 +2698,7 @@ msgstr "Widget në Ekranin e bllokuar"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:464
 msgid "Widget in StandbyScreen"
-msgstr "Widget në Ekranin në Standby"
+msgstr "Widget në Ekranin në Pritje"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:411
 msgid "Widget in events view"
@@ -2815,7 +2854,7 @@ msgstr "ditë më parë"
 
 #: omweather/src/weather-config.c:332
 msgid "every 2 hours"
-msgstr "çdo 2 ditë"
+msgstr "çdo 2 orë"
 
 #: omweather/src/weather-config.c:338
 msgid "every 24 hours"
@@ -3005,34 +3044,34 @@ msgstr "emri i stacionit"
 msgid "steady"
 msgstr "e qëndrueshme"
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:332
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:332
+#: omweather/src/hash.data:333
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:333
+#: omweather/src/hash.data:334
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:334
+#: omweather/src/hash.data:335
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:336
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:337
 msgid "Ю-З"
 msgstr "Ю-З"

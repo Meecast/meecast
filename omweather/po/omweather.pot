@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-12 20:17+0300\n"
+"POT-Creation-Date: 2013-05-09 19:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -911,7 +911,7 @@ msgid ""
 " Turkish - Burak Kaan Kose,\n"
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
-" Serbian - Saleki,\n"
+" Serbian - Aleksandar Zaric,\n"
 " Norwegian - Peer-Atle Motland,\n"
 " Hungarian - Salmi,\n"
 " Vietnamese - Hieu Nguyen\n"
@@ -1072,6 +1072,10 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
+msgstr ""
+
+#: omweather/src/hash.data:329
+msgid "Language"
 msgstr ""
 
 #: omweather/src/hash.data:100
@@ -2033,6 +2037,10 @@ msgstr ""
 msgid "Select the iconset"
 msgstr ""
 
+#: meecast/qt-qml/qml/LanguagesPage.qml:130
+msgid "Select the language"
+msgstr ""
+
 #: meecast/qt-qml/qml/SourcePage.qml:108
 msgid "Select the weather source"
 msgstr ""
@@ -2892,34 +2900,34 @@ msgstr ""
 msgid "steady"
 msgstr ""
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:332
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:332
+#: omweather/src/hash.data:333
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:333
+#: omweather/src/hash.data:334
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:334
+#: omweather/src/hash.data:335
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:336
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:337
 msgid "Ю-З"
 msgstr ""

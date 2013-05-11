@@ -18,14 +18,4 @@
         <property backgroundBitmapPath="" color="" colorOpacity="100" descriptionText="" descriptionTextColor="" disabledButtonColor="" disabledButtonColorOpacity="100" disabledButtonTextColor="" disabledItemColor="" disabledItemColorOpacity="100" disabledItemTextColor="" headerStyle="HEADER_STYLE_TITLE" highlightedButtonColor="" highlightedButtonColorOpacity="100" highlightedButtonTextColor="" highlightedItemColor="" highlightedItemColorOpacity="100" highlightedItemTextColor="" normalButtonColor="" normalButtonColorOpacity="100" normalButtonTextColor="" normalItemColor="" normalItemColorOpacity="100" normalItemTextColor="" pressedButtonColor="" pressedButtonColorOpacity="100" pressedButtonTextColor="" pressedItemColor="" pressedItemColorOpacity="100" pressedItemTextColor="" selectedItemColor="" selectedItemColorOpacity="100" selectedItemTextColor="" titleIconPath="" titleText="" titleTextColor=""/>
         <itemSet/>
     </Header>
-    <Label id="IDC_LABEL1" parent="SETTINGS_FORM">
-        <property backgroundBitmapPath="" backgroundColor="" backgroundColorOpacity="0" horizontalAlign="ALIGN_LEFT" text="Label1" textColor="" textSize="33" textStyle="LABEL_TEXT_STYLE_NORMAL" verticalAlign="ALIGN_TOP"/>
-        <layout height="93" mode="Portrait" width="300" x="93" y="802"/>
-        <layout height="52" mode="Landscape" width="533" x="165" y="396"/>
-    </Label>
-    <Label id="IDC_LABEL2" parent="SETTINGS_FORM">
-        <property backgroundBitmapPath="" backgroundColor="" backgroundColorOpacity="0" horizontalAlign="ALIGN_LEFT" text="Manage locations" textColor="" textSize="50" textStyle="LABEL_TEXT_STYLE_BOLD" verticalAlign="ALIGN_TOP"/>
-        <layout height="62" mode="Portrait" width="691" x="9" y="5"/>
-        <layout height="52" mode="Landscape" width="533" x="432" y="20"/>
-    </Label>
 </Scene>

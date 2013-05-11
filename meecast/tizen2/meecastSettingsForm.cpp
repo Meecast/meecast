@@ -171,12 +171,7 @@ meecastSettingsForm::CreateItem (int index, int itemWidth)
 //	pTodo = static_cast<CalTodo*>(__pTodosList->GetAt(index));
 
 	String listItemString;
-	String subject = "dddddd";
-
-	if (subject.IsEmpty())
-	{
-		subject = L"(No subject)";
-	}
+	String subject = "Manage location";
 
 	listItemString.Append(subject);
 	pItem->SetElement(listItemString);
@@ -189,6 +184,7 @@ meecastSettingsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& l
 {
 	if (status == LIST_ITEM_STATUS_SELECTED)
 	{
+	    AppLog("LIST_ITEM_STATUS_SELECTED ");
         /*
 		SceneManager* pSceneManager = SceneManager::GetInstance();
 		AppAssert(pSceneManager);

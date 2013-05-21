@@ -27,7 +27,161 @@
 #include "meego-main.h"
 
 /*******************************************************************************/
+int
+parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
 
+    FILE        *file_out;
+    xmlNode     *cur_node = NULL,
+                *cur_node0 = NULL,
+                *child_node = NULL,
+                *child_node2 = NULL,
+                *child_node3 = NULL,
+                *child_node4 = NULL;
+    xmlNode *root_node = NULL;
+    char   buffer[1024],
+           buffer2[1024];
+ 
+    if(!doc)
+        return -1;
+
+    file_out = fopen(result_file, "w");
+    if (!file_out)
+        return -1;
+
+    root_node = xmlDocGetRootElement(doc);
+
+    fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"Unknown\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n");
+    fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
+    fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
+    for(cur_node0 = root_node->children; cur_node0; cur_node0 = cur_node0->next){
+        if( cur_node0->type == XML_ELEMENT_NODE ){
+            if (!xmlStrcmp(cur_node0->name, (const xmlChar *) "forecast" ) ){
+                for(cur_node = cur_node0->children; cur_node; cur_node = cur_node->next){
+                    if( cur_node->type == XML_ELEMENT_NODE ){
+                        /* get weather data */
+                        fprintf(stderr, "Element %s\n", cur_node->name);
+#if 0
+                        if(!xmlStrcmp(cur_node->name, (const xmlChar *) "area")){
+                            if(xmlGetProp(cur_node, (const xmlChar*)"type") &&
+                               !xmlStrcmp(xmlGetProp(cur_node, (const xmlChar*)"type"), 
+                                                               (const xmlChar *) "location" )){
+                                temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"description");
+                                snprintf(id_station, sizeof(id_station) - 1,
+                                            "%s", temp_xml_string);
+                                xmlFree(temp_xml_string);
+                                /* If station in xml not station in config file exit */
+                                if(strcmp(id_station, station_name))
+                                    continue;
+                                for (child_node = cur_node->children; child_node; child_node = child_node->next){
+                                    if (child_node->type == XML_ELEMENT_NODE ){
+                                        /* clear variables */
+                                        temp_hi = INT_MAX; temp_low = INT_MAX; 
+                                        memset(short_text, 0, sizeof(short_text));
+                                        memset(icon, 0, sizeof(icon));
+                                        memset(ppcp, 0, sizeof(ppcp));
+                                        /* station name */
+                                        if (!xmlStrcmp(child_node->name, (const xmlChar *)"forecast-period") ){
+                                            /* get timezone */
+                                            if (!check_timezone  && xmlGetProp(child_node, (const xmlChar*)"start-time-local") != NULL){
+                                                memset(buffer, 0, sizeof(buffer));
+                                                snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
+                                                                      xmlGetProp(child_node, (const xmlChar*)"start-time-local"));
+                                                for (i=strlen(temp_buffer) - 6; i < strlen(temp_buffer) -3; i++){
+                                                    sprintf(buffer,"%s%c", buffer, temp_buffer[i]);
+                                                }
+                                                fprintf(file_out,"  <timezone>%s</timezone>\n", buffer);
+                                                au_timezone = atoi(buffer);
+                                                check_timezone = TRUE;
+                                            }
+                                            /* get start time for period */
+                                            if (xmlGetProp(child_node, (const xmlChar*)"start-time-utc") != NULL){
+                                                snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
+                                                                      xmlGetProp(child_node, (const xmlChar*)"start-time-utc"));
+                                                strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
+                                                utc_time_start = mktime(&tmp_tm) + au_timezone*3600;
+                                            }
+                                            /* get end time for period */
+                                            if (xmlGetProp(child_node, (const xmlChar*)"end-time-utc") != NULL){
+                                                snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
+                                                                      xmlGetProp(child_node, (const xmlChar*)"end-time-utc"));
+                                                strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
+                                                utc_time_end = mktime(&tmp_tm) + au_timezone*3600;
+                                            }
+                                            /* get index */
+                                            if (xmlGetProp(child_node, (const xmlChar*)"index") != NULL){
+                                                index = atoi((char *)xmlGetProp(child_node, (const xmlChar*)"index"));
+                                                fprintf(stderr,"Index %i\n", index);
+                                            }
+
+                                            for (child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
+
+                                                if (child_node2->type == XML_ELEMENT_NODE ){
+                                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *) "element")){                                               
+                                                        if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "air_temperature_minimum" ))
+                                                            temp_low = atoi((char *)xmlNodeGetContent(child_node2));
+                                                        if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "air_temperature_maximum" ))
+                                                            temp_hi = atoi((char *)xmlNodeGetContent(child_node2));
+                                                        if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "forecast_icon_code" ))
+#ifdef GLIB                                                         
+                                                            snprintf(icon, sizeof(icon) - 1, "%s", choose_hour_weather_icon(hash_for_icons, (char *)xmlNodeGetContent(child_node2))); 
+#endif
+#ifdef QT
+                                                            snprintf(icon, sizeof(icon) - 1, "%s", (char*)choose_hour_weather_icon(hash_for_icons, (char *)xmlNodeGetContent(child_node2)).toStdString().c_str()); 
+#endif
+                                                    }
+                                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *) "text")){                           
+                                                        if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "precis" )){
+                                                            snprintf(short_text, sizeof(short_text)-1,"%s",
+                                                                     xmlNodeGetContent(child_node2));
+                                                            if (strlen (short_text) >1)
+                                                                short_text[strlen(short_text) - 1] = 0;
+                                                        }
+                                                        if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "probability_of_precipitation")){
+                                                            snprintf(ppcp, sizeof(ppcp)-1,"%s",
+                                                                     xmlNodeGetContent(child_node2));
+                                                            if (strlen (ppcp) >1)
+                                                                ppcp[strlen(ppcp) - 1] = 0;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            temp_xml_string = xmlNodeGetContent(child_node);
+                                            xmlFree(temp_xml_string);
+                                        }
+                                        fprintf(file_out,"    <period start=\"%li\"", utc_time_start);
+                                        fprintf(file_out," end=\"%li\">\n", utc_time_end); 
+                                        if (temp_hi != INT_MAX)
+                                            fprintf(file_out,"     <temperature_hi>%i</temperature_hi>\n", temp_hi);				                
+                                        if (temp_low != INT_MAX)
+                                            fprintf(file_out,"     <temperature_low>%i</temperature_low>\n", temp_low);
+                                        if (strlen(icon)>0){
+                                            fprintf(file_out, "     <icon>%s</icon>\n", icon);
+                                            if (index==0)
+                                                snprintf(current_icon, sizeof(current_icon)-1,"%s", icon);
+                                        }
+                                        if (strlen (short_text)>0){
+                                            fprintf(file_out, "     <description>%s</description>\n", short_text);
+                                            if (index==0)
+                                                snprintf(current_title, sizeof(current_title)-1,"%s", short_text);
+                                        }
+                                        if (strlen (ppcp)>0)
+                                            fprintf(file_out, "     <ppcp>%s</ppcp>\n", ppcp);
+
+                                        fprintf(file_out,"    </period>\n");
+                                        count_day++;
+                                    }
+                                }
+                            }
+                        }
+#endif
+                    }
+                }
+            }          
+        }
+    }
+
+
+}
 int
 convert_station_openweathermaporg_data(const char *days_data_path, const char *result_file, const char *hours_data_path, const char *current_data_path ){
  
@@ -53,7 +207,7 @@ convert_station_openweathermaporg_data(const char *days_data_path, const char *r
             xmlCleanupParser();
             return -2;
         }else{
-//                days_number = parse_and_write_xml_data(buffer, buffer2, doc, result_file);
+            days_number = parse_and_write_days_xml_data(doc, result_file);
             fprintf(stderr, "First success\n");
             xmlFreeDoc(doc);
             xmlCleanupParser();

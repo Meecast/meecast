@@ -36,10 +36,58 @@ convert_station_openweathermaporg_data(const char *days_data_path, const char *r
     int     days_number = -1;
     char    buffer[1024],
             *delimiter = NULL;
+    FILE    *file_out;
     
     if(!days_data_path)
         return -1;
+    /* check file accessability */
+    if(!access(days_data_path, R_OK)){
+        /* check that the file containe valid data */
+        doc =  xmlReadFile(days_data_path, "UTF-8", 0);
+        if(!doc)
+            return -1;
+        root_node = xmlDocGetRootElement(doc);
+        if(root_node->type == XML_ELEMENT_NODE &&
+                strstr((char*)root_node->name, "err")){
+            xmlFreeDoc(doc);
+            xmlCleanupParser();
+            return -2;
+        }else{
+//                days_number = parse_and_write_xml_data(buffer, buffer2, doc, result_file);
+            fprintf(stderr, "First success\n");
+            xmlFreeDoc(doc);
+            xmlCleanupParser();
+            /*
+            if(!access(detail_path_data, R_OK)){
+                 doc =  htmlReadFile(detail_path_data, "UTF-8", 0);
+                if(doc){
+                    root_node = NULL;
+                    root_node = xmlDocGetRootElement(doc);
+                    if(!root_node || ( root_node->type == XML_ELEMENT_NODE &&
+                            strstr((char*)root_node->name, "err"))){
+                        xmlFreeDoc(doc);
+                        xmlCleanupParser();
+                    }
+                    else{
+                        parse_and_write_detail_data(buffer2, doc, result_file);
+                        xmlFreeDoc(doc);
+                        xmlCleanupParser();
+                    }
+                }
+             }
+           */
+            if (days_number > 0){
+                file_out = fopen(result_file, "a");
+                if (file_out){
+                    fprintf(file_out,"</station>");
+                    fclose(file_out);
+                }
+            }
+        }
+    }else
+        return -1;/* file isn't accessability */
 
+    return days_number;
 }
 
 /*******************************************************************************/

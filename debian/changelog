@@ -2,6 +2,7 @@ meecast (0.7.3) unstable; urgency=low
 
   * Added description string for weather.com
   * Fixed problem with Catalan language
+  * Added Llagostera, Spain to weather.com source
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 09 May 2013 19:31:23 +0200
 

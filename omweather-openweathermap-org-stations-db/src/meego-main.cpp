@@ -26,6 +26,7 @@
 #endif
 #include "meego-main.h"
 
+#define buff_size 2048
 /*******************************************************************************/
 int
 parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
@@ -38,9 +39,20 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                 *child_node3 = NULL,
                 *child_node4 = NULL;
     xmlNode *root_node = NULL;
-    char   buffer[1024],
-           buffer2[1024];
- 
+    char   buffer[buff_size],
+           buffer2[buff_size];
+    char   temp_buffer[buff_size];
+    time_t      utc_time;
+    struct tm   tmp_tm = {0};
+    time_t      utc_time_start;
+    time_t      utc_time_end;
+    int         count_day = 0;
+    int         temp_hi, temp_low;
+    char        id_station[1024],
+                short_text[1024];
+    char       icon[256],
+               ppcp[128];
+
     if(!doc)
         return -1;
 
@@ -59,7 +71,47 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                 for(cur_node = cur_node0->children; cur_node; cur_node = cur_node->next){
                     if( cur_node->type == XML_ELEMENT_NODE ){
                         /* get weather data */
-                        fprintf(stderr, "Element %s\n", cur_node->name);
+                        if(!xmlStrcmp(cur_node->name, (const xmlChar *) "time")){
+
+                         //       fprintf(stderr, "Element time\n" );
+                            if(xmlGetProp(cur_node, (const xmlChar*)"day")) {
+                                memset(temp_buffer, 0, sizeof(buffer));
+                                snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
+                                                    xmlGetProp(cur_node, (const xmlChar*)"day"));
+                                strptime(temp_buffer, "%Y-%m-%d", &tmp_tm);
+                                fprintf(stderr, "Element %s\n", xmlGetProp(cur_node, (const xmlChar*)"day"));
+                                utc_time_start = mktime(&tmp_tm);
+                                utc_time_end = mktime(&tmp_tm) + 24*3600;
+                                /* clear variables */
+                                temp_hi = INT_MAX; temp_low = INT_MAX; 
+                                memset(short_text, 0, sizeof(short_text));
+                                memset(icon, 0, sizeof(icon));
+                                memset(ppcp, 0, sizeof(ppcp));
+
+
+                                for (child_node = cur_node->children; child_node; child_node = child_node->next){
+                                    if (child_node->type == XML_ELEMENT_NODE ){
+                                        if(!xmlStrcmp(child_node->name, (const xmlChar *) "temperature")){
+                                            temp_low = atoi((char *)xmlGetProp(child_node, (const xmlChar*)"min"));
+                                            temp_hi = atoi((char *)xmlGetProp(child_node, (const xmlChar*)"max"));
+                                        }
+                                    }
+                                }
+                                fprintf(file_out,"    <period start=\"%li\"", utc_time_start);
+                                fprintf(file_out," end=\"%li\">\n", utc_time_end); 
+
+                                if (temp_hi != INT_MAX)
+                                            fprintf(file_out,"     <temperature_hi>%i</temperature_hi>\n", temp_hi);				                
+                                if (temp_low != INT_MAX)
+                                            fprintf(file_out,"     <temperature_low>%i</temperature_low>\n", temp_low);
+ 
+                                fprintf(file_out,"    </period>\n");
+                                count_day++;
+
+
+                            }
+
+                        }
 #if 0
                         if(!xmlStrcmp(cur_node->name, (const xmlChar *) "area")){
                             if(xmlGetProp(cur_node, (const xmlChar*)"type") &&

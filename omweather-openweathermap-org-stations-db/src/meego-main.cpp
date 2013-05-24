@@ -54,7 +54,8 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                ppcp[128],
                wind_direction[10],
                wind_speed[10],
-               pressure[10];
+               pressure[10],
+               humidity[10];
 
     if(!doc)
         return -1;
@@ -93,6 +94,7 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                                 memset(wind_speed, 0, sizeof(wind_speed));
                                 memset(ppcp, 0, sizeof(ppcp));
                                 memset(pressure, 0, sizeof(pressure));
+                                memset(humidity, 0, sizeof(humidity));
 
 
                                 for (child_node = cur_node->children; child_node; child_node = child_node->next){
@@ -126,6 +128,12 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                                             snprintf(pressure, sizeof(pressure)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"value"));
                                         }
                                     }
+                                    if (child_node->type == XML_ELEMENT_NODE ){
+                                        if(!xmlStrcmp(child_node->name, (const xmlChar *) "humidity")){
+                                            snprintf(humidity, sizeof(humidity)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"value"));
+                                        }
+                                    }
+ 
                                 }
                                 fprintf(file_out,"    <period start=\"%li\"", utc_time_start);
                                 fprintf(file_out," end=\"%li\">\n", utc_time_end); 
@@ -144,6 +152,10 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                                 
                                 if (strlen (pressure)>0)
                                     fprintf(file_out,"     <pressure>%s</pressure>\n", pressure);
+
+                                if (strlen (humidity)>0)
+                                    fprintf(file_out,"     <humidity>%s</humidity>\n", humidity);
+
                                 fprintf(file_out,"    </period>\n");
                                 count_day++;
 

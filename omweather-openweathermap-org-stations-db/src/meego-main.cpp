@@ -96,15 +96,21 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                                             temp_hi = atoi((char *)xmlGetProp(child_node, (const xmlChar*)"max"));
                                         }
                                     }
+                                    if (child_node->type == XML_ELEMENT_NODE ){
+                                        if(!xmlStrcmp(child_node->name, (const xmlChar *) "precipitation")){
+                                            snprintf(ppcp, sizeof(ppcp)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"value"));
+                                        }
+                                    }
                                 }
                                 fprintf(file_out,"    <period start=\"%li\"", utc_time_start);
                                 fprintf(file_out," end=\"%li\">\n", utc_time_end); 
 
                                 if (temp_hi != INT_MAX)
-                                            fprintf(file_out,"     <temperature_hi>%i</temperature_hi>\n", temp_hi);				                
+                                    fprintf(file_out,"     <temperature_hi>%i</temperature_hi>\n", temp_hi);				                
                                 if (temp_low != INT_MAX)
-                                            fprintf(file_out,"     <temperature_low>%i</temperature_low>\n", temp_low);
- 
+                                    fprintf(file_out,"     <temperature_low>%i</temperature_low>\n", temp_low);
+                                if (strlen (ppcp)>0)
+                                    fprintf(file_out, "     <ppcp>%s</ppcp>\n", ppcp);
                                 fprintf(file_out,"    </period>\n");
                                 count_day++;
 

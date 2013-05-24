@@ -51,7 +51,10 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
     char        id_station[1024],
                 short_text[1024];
     char       icon[256],
-               ppcp[128];
+               ppcp[128],
+               wind_direction[10],
+               wind_speed[10],
+               pressure[10];
 
     if(!doc)
         return -1;
@@ -86,7 +89,10 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                                 temp_hi = INT_MAX; temp_low = INT_MAX; 
                                 memset(short_text, 0, sizeof(short_text));
                                 memset(icon, 0, sizeof(icon));
+                                memset(wind_direction, 0, sizeof(wind_direction));
+                                memset(wind_speed, 0, sizeof(wind_speed));
                                 memset(ppcp, 0, sizeof(ppcp));
+                                memset(pressure, 0, sizeof(pressure));
 
 
                                 for (child_node = cur_node->children; child_node; child_node = child_node->next){
@@ -96,9 +102,28 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                                             temp_hi = atoi((char *)xmlGetProp(child_node, (const xmlChar*)"max"));
                                         }
                                     }
+
                                     if (child_node->type == XML_ELEMENT_NODE ){
                                         if(!xmlStrcmp(child_node->name, (const xmlChar *) "precipitation")){
                                             snprintf(ppcp, sizeof(ppcp)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"value"));
+                                        }
+                                    }
+
+                                    if (child_node->type == XML_ELEMENT_NODE ){
+                                        if(!xmlStrcmp(child_node->name, (const xmlChar *) "windDirection")){
+                                            snprintf(wind_direction, sizeof(wind_direction)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"code"));
+                                        }
+                                    }
+
+                                    if (child_node->type == XML_ELEMENT_NODE ){
+                                        if(!xmlStrcmp(child_node->name, (const xmlChar *) "windSpeed")){
+                                            snprintf(wind_speed, sizeof(wind_speed)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"mps"));
+                                        }
+                                    }
+
+                                    if (child_node->type == XML_ELEMENT_NODE ){
+                                        if(!xmlStrcmp(child_node->name, (const xmlChar *) "pressure")){
+                                            snprintf(pressure, sizeof(pressure)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"value"));
                                         }
                                     }
                                 }
@@ -110,7 +135,15 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                                 if (temp_low != INT_MAX)
                                     fprintf(file_out,"     <temperature_low>%i</temperature_low>\n", temp_low);
                                 if (strlen (ppcp)>0)
-                                    fprintf(file_out, "     <ppcp>%s</ppcp>\n", ppcp);
+                                    fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp);
+
+                                if (strlen (wind_direction)>0)
+                                    fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction);
+                                if (strlen (wind_speed)>0)
+                                    fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed);
+                                
+                                if (strlen (pressure)>0)
+                                    fprintf(file_out,"     <pressure>%s</pressure>\n", pressure);
                                 fprintf(file_out,"    </period>\n");
                                 count_day++;
 

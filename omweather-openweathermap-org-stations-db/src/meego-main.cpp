@@ -133,6 +133,12 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                                             snprintf(humidity, sizeof(humidity)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"value"));
                                         }
                                     }
+                                    /* symbol number="801" name="few clouds" var="02d" */
+                                    if (child_node->type == XML_ELEMENT_NODE ){
+                                        if(!xmlStrcmp(child_node->name, (const xmlChar *) "symbol")){
+                                            snprintf(icon, sizeof(icon)-1,"49");
+                                        }
+                                    }
  
                                 }
                                 fprintf(file_out,"    <period start=\"%li\"", utc_time_start);

@@ -24,4 +24,6 @@
 #ifndef _hash_h
 #define _hash_h 1
 /*******************************************************************************/
+#include <libxml/hash.h> 
+xmlHashTablePtr hash_icons_openweathermaporg_table_create(); 
 #endif

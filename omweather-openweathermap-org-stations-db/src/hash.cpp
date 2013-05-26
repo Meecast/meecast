@@ -22,3 +22,11 @@
  *
 */
 /*******************************************************************************/
+#include "hash.h"
+
+xmlHashTablePtr 
+hash_icons_openweathermaporg_table_create(){
+    xmlHashTablePtr icons;
+    icons = xmlHashCreate(5);
+    return icons;
+}

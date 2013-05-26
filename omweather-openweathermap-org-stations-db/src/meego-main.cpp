@@ -26,6 +26,7 @@
 #endif
 #include "meego-main.h"
 
+static xmlHashTablePtr hash_for_icons;
 #define buff_size 2048
 /*******************************************************************************/
 int
@@ -303,6 +304,8 @@ convert_station_openweathermaporg_data(const char *days_data_path, const char *r
     
     if(!days_data_path)
         return -1;
+
+    hash_for_icons = hash_icons_openweathermaporg_table_create();
     /* check file accessability */
     if(!access(days_data_path, R_OK)){
         /* check that the file containe valid data */

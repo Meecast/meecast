@@ -107,7 +107,8 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
 
                                     if (child_node->type == XML_ELEMENT_NODE ){
                                         if(!xmlStrcmp(child_node->name, (const xmlChar *) "precipitation")){
-                                            snprintf(ppcp, sizeof(ppcp)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"value"));
+                                            if (xmlGetProp(child_node, (const xmlChar*)"value"))
+                                                snprintf(ppcp, sizeof(ppcp)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"value"));
                                         }
                                     }
 
@@ -145,12 +146,18 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                                             if (xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer))
                                                 snprintf(icon, sizeof(icon)-1, "%s",
                                                       (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));
+                                            if (xmlGetProp(child_node, (const xmlChar*)"name"))
+                                                snprintf(short_text, sizeof(short_text)-1, "%s",
+                                                    xmlGetProp(child_node, (const xmlChar*)"name"));
+ 
                                         }
                                     }
                                 }
                                 fprintf(file_out,"    <period start=\"%li\"", utc_time_start);
                                 fprintf(file_out," end=\"%li\">\n", utc_time_end); 
 
+                                if (strlen (short_text)>0)
+                                   fprintf(file_out, "     <description>%s</description>\n", short_text);
                                 if (strlen(icon)>0)
                                     fprintf(file_out,"     <icon>%s</icon>\n", icon);
                                 if (temp_hi != INT_MAX)

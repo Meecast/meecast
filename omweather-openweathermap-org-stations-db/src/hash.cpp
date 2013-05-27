@@ -22,12 +22,13 @@
  *
 */
 /*******************************************************************************/
+
 #include "hash.h"
 
 xmlHashTablePtr 
 hash_icons_openweathermaporg_table_create(){
     xmlHashTablePtr hash;
-    hash = xmlHashCreate(5);
+    hash = xmlHashCreate(6);
 #include "hash_icons.data"
     return hash;
 }

@@ -8,5 +8,11 @@
 
     #define hash_insert(hash, s2, s3) xmlHashAddEntry(hash, (const xmlChar *)s2, (void *)strdup(s3)); 
 
-    hash_insert(hash, "80102d", "49");
+    hash_insert(hash, "50110d", "39");
+    hash_insert(hash, "50210d", "39");
+    hash_insert(hash, "50010d", "39");
+
+    hash_insert(hash, "80001n", "32");
+    hash_insert(hash, "80001d", "31");
+    hash_insert(hash, "80102d", "34");
 

@@ -26,7 +26,8 @@
 
 xmlHashTablePtr 
 hash_icons_openweathermaporg_table_create(){
-    xmlHashTablePtr icons;
-    icons = xmlHashCreate(5);
-    return icons;
+    xmlHashTablePtr hash;
+    hash = xmlHashCreate(5);
+#include "hash_icons.data"
+    return hash;
 }

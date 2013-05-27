@@ -97,7 +97,6 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                                 memset(pressure, 0, sizeof(pressure));
                                 memset(humidity, 0, sizeof(humidity));
 
-
                                 for (child_node = cur_node->children; child_node; child_node = child_node->next){
                                     if (child_node->type == XML_ELEMENT_NODE ){
                                         if(!xmlStrcmp(child_node->name, (const xmlChar *) "temperature")){
@@ -137,14 +136,23 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                                     /* symbol number="801" name="few clouds" var="02d" */
                                     if (child_node->type == XML_ELEMENT_NODE ){
                                         if(!xmlStrcmp(child_node->name, (const xmlChar *) "symbol")){
-                                            snprintf(icon, sizeof(icon)-1,"49");
+                                            memset(temp_buffer, 0, sizeof(buffer));
+                                            if (xmlGetProp(child_node, (const xmlChar*)"number"))
+                                                snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
+                                                    xmlGetProp(child_node, (const xmlChar*)"number"));
+                                            if (xmlGetProp(child_node, (const xmlChar*)"var"))
+                                                strcat(temp_buffer, (char *)xmlGetProp(child_node, (const xmlChar*)"var"));
+                                            if (xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer))
+                                                snprintf(icon, sizeof(icon)-1, "%s",
+                                                      (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));
                                         }
                                     }
- 
                                 }
                                 fprintf(file_out,"    <period start=\"%li\"", utc_time_start);
                                 fprintf(file_out," end=\"%li\">\n", utc_time_end); 
 
+                                if (strlen(icon)>0)
+                                    fprintf(file_out,"     <icon>%s</icon>\n", icon);
                                 if (temp_hi != INT_MAX)
                                     fprintf(file_out,"     <temperature_hi>%i</temperature_hi>\n", temp_hi);				                
                                 if (temp_low != INT_MAX)
@@ -165,10 +173,7 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
 
                                 fprintf(file_out,"    </period>\n");
                                 count_day++;
-
-
                             }
-
                         }
 #if 0
                         if(!xmlStrcmp(cur_node->name, (const xmlChar *) "area")){
@@ -289,8 +294,8 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
             }          
         }
     }
-
-
+    fclose(file_out);
+    return count_day;
 }
 int
 convert_station_openweathermaporg_data(const char *days_data_path, const char *result_file, const char *hours_data_path, const char *current_data_path ){

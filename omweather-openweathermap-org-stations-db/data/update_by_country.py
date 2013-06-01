@@ -34,6 +34,7 @@ def normalizing3 (source):
 
 
 baseurl = "http://download.geonames.org/export/dump/"
+openweathrmapurl = "http://api.openweathermap.org/data/2.5/weather?id=" 
 
 #connect to database
 c = db.connect(database=r"./openweathermap.org.db")
@@ -74,19 +75,23 @@ for line in fh.readlines():
     if (pattern[14] == "ADM1"):
         regions_name[pattern[20]] = normalizing(pattern[4])
         regions_name_second[pattern[20]] = normalizing(pattern[6])
+#        print normalizing(pattern[4])
+#        print normalizing(pattern[6])
+
 #        regions_name[pattern[20]] = pattern[4]
 #        regions_name_second[pattern[20]] = pattern[6]
 fh.close
 
 
 regions_name["00"] = "Other/" + country
+regions_name_second["00"] = "Other/" + country
 print country_id
 #checking regions name
 for key in regions_name.keys():
     cur = cu.execute("select name, id from regions where country_id='%i' and name = '%s'" %(country_id,normalizing3(regions_name[key])))
     if (cur.fetchone() == None ):
-        print "regions_name_second[key]"
-        print regions_name_second[key]
+#        print "regions_name_second[key]"
+#        print regions_name_second[key]
         pattern = re.split ('(,)',regions_name_second[key])
         flag = 0 
         for variant in pattern:
@@ -106,9 +111,10 @@ for key in regions_name.keys():
 fh = open(country_code + ".txt")
 for line in fh.readlines():
     pattern = re.split('(\t)', line)
-    print "Station %s" %(line)
-    if (pattern[14] == "PPLA" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
-        if (pattern[20] != "" and int(pattern[28]) >= 5000):
+#    print "Station %s" %(line)
+#    if (pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
+    if (pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLC"):
+        if (pattern[20] != "" and int(pattern[28]) >= 0):
             if (regions_name.get(pattern[20]) == None):
                 continue
             fixed_regions_name = urllib.quote(regions_name[pattern[20]])
@@ -125,11 +131,24 @@ for line in fh.readlines():
                 for row in cur:
                     region_id = row[0]
 
- 	        print "Country id %i" %(country_id)
-            print pattern[20]
-            print "Regions name %s" %(regions_name[pattern[20]])
-            print region_id 
-            print "Station %s" %(normalizing(pattern[4]))
+# 	        print "Country id %i" %(country_id)
+#            print pattern[20]
+#            print "Regions name %s" %(regions_name[pattern[20]])
+#            print region_id 
+#            print "Station %s" %(normalizing(pattern[4]))
+
+            url = openweathrmapurl  +  pattern[0]
+            print url
+
+            req = urllib2.Request(url, None, {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'})
+            page = urllib2.urlopen(req)
+            error_flag = False
+            for line2 in page.readlines():
+                if (line2.find("Error") != -1):
+                    error_flag = True
+
+            if (error_flag):
+                continue
             print "select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing(pattern[4]));
             cur = cu.execute("select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing4(pattern[4])))
             station_id= None

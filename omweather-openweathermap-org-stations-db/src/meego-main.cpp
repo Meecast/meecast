@@ -84,7 +84,7 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                                 snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
                                                     xmlGetProp(cur_node, (const xmlChar*)"day"));
                                 strptime(temp_buffer, "%Y-%m-%d", &tmp_tm);
-                                fprintf(stderr, "Element %s\n", xmlGetProp(cur_node, (const xmlChar*)"day"));
+                                /* fprintf(stderr, "Element %s\n", xmlGetProp(cur_node, (const xmlChar*)"day")); */
                                 utc_time_start = mktime(&tmp_tm);
                                 utc_time_end = mktime(&tmp_tm) + 24*3600;
                                 /* clear variables */

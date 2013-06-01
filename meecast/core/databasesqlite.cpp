@@ -65,7 +65,7 @@ DatabaseSqlite::open_database()
     int rc;
     char * msg;
     std::string key ("gismeteo.ru.db");
-    std::cerr << (databasename->length() - databasename->rfind(key)) << " " << key.length() << std::endl;
+//    std::cerr << (databasename->length() - databasename->rfind(key)) << " " << key.length() << std::endl;
     if (sqlite3_open(databasename->c_str(), &db)){
         std::cerr << "error open " << *databasename << std::endl;
         return false;
@@ -101,10 +101,8 @@ DatabaseSqlite::create_countries_list()
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    std::cerr<<"create_countries_list"<<std::endl;
     if(!db)
         return NULL;    /* database doesn't open */
-    std::cerr<<"create_countries_list2"<<std::endl;
     list = new listdata;
     rc = sqlite3_get_table(db,
                            "SELECT id, name FROM countries where (select count(name) from nstations where nstations.region_id = (select distinct regions.id from regions where regions.country_id=countries.id )) >0 ORDER BY name",

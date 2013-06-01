@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <source xmlns="https://garage.maemo.org/projects/omweather/">
-<name>yr.no</name>
+<name>openweathermap.org</name>
 <logo>yr.no.png</logo>
-<base>yr.no.db</base>
+<base>openweathermap.org.db</base>
 <forecast url="http://api.openweathermap.org/data/2.5/forecast/daily?id=%s&mode=xml&units=metric&cnt=10" />
 <detail url="http://api.openweathermap.org/data/2.5/forecast/daily?id=%s&mode=xml&units=metric" />
 <search url="http://openweathermap.org/find?q=%s" />

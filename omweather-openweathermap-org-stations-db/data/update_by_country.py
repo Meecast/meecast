@@ -10,8 +10,8 @@ import os
 import re
 import string
 import zipfile
-country = "Italy"
-country_code = "IT"
+country = "Iraq"
+country_code = "IQ"
                 
 
 def normalizing4 (source):

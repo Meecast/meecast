@@ -85,6 +85,7 @@ print country_id
 for key in regions_name.keys():
     cur = cu.execute("select name, id from regions where country_id='%i' and name = '%s'" %(country_id,normalizing3(regions_name[key])))
     if (cur.fetchone() == None ):
+        print "regions_name_second[key]"
         print regions_name_second[key]
         pattern = re.split ('(,)',regions_name_second[key])
         flag = 0 
@@ -102,11 +103,12 @@ for key in regions_name.keys():
     print regions_name[key]  + ' '  + key
 
 #filling stations
-Fh = open(country_code + ".txt")
+fh = open(country_code + ".txt")
 for line in fh.readlines():
     pattern = re.split('(\t)', line)
+    print "Station %s" %(line)
     if (pattern[14] == "PPLA" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
-        if (pattern[20] != "" and int(pattern[28]) >= 10000):
+        if (pattern[20] != "" and int(pattern[28]) >= 5000):
             if (regions_name.get(pattern[20]) == None):
                 continue
             fixed_regions_name = urllib.quote(regions_name[pattern[20]])
@@ -117,14 +119,17 @@ for line in fh.readlines():
             for row in cur:
                 region_id = row[0]
             if (region_id == None):
-                cur = cu.execute('insert into regions (name, country_id) values  ("%s", "%s")' % (regions_name[pattern[20]]), country_id )
+                cur = cu.execute('insert into regions (name, country_id) values  ("%s", "%s")' % (regions_name[pattern[20]], country_id) )
                 c.commit()
- 
+                cur = cu.execute("select id from regions where country_id='%i' and name = '%s'" %(country_id, regions_name[pattern[20]]))
+                for row in cur:
+                    region_id = row[0]
+
  	        print "Country id %i" %(country_id)
             print pattern[20]
             print "Regions name %s" %(regions_name[pattern[20]])
             print region_id 
-            print  normalizing(pattern[4])
+            print "Station %s" %(normalizing(pattern[4]))
             print "select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing(pattern[4]));
             cur = cu.execute("select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing4(pattern[4])))
             station_id= None

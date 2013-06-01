@@ -19,3 +19,9 @@
     hash_insert(hash, "80203d", "30");
     hash_insert(hash, "80203n", "29");
 
+    hash_insert(hash, "80304d", "28");
+    hash_insert(hash, "80304n", "27");
+
+    hash_insert(hash, "80404d", "26");
+    hash_insert(hash, "80404n", "26");
+

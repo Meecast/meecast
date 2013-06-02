@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -70,6 +70,7 @@ Config::Config()
     _gps = false;
     _splash = true;
     _font_color = new std::string("#00ff00");
+    _language = new std::string("System");
     _stations = new StationsList;
     _current_station_id = INT_MAX;
     _update_period = INT_MAX;
@@ -77,6 +78,8 @@ Config::Config()
     std::string path(AbstractConfig::getConfigPath());
     path += "config.xml";
     _filename = new std::string(path);
+    _languages_list = new languages;
+    this->InitLanguagesList();
 }
 ////////////////////////////////////////////////////////////////////////////////
 void
@@ -120,6 +123,11 @@ Config::saveConfig()
 
     el = doc.createElement("visible_unit");
     t = doc.createTextNode(QString::fromStdString(*_visible_unit));
+    el.appendChild(t);
+    root.appendChild(el);
+
+    el = doc.createElement("language");
+    t = doc.createTextNode(QString::fromStdString(*_language));
     el.appendChild(t);
     root.appendChild(el);
 
@@ -419,6 +427,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _wind_speed_unit = new std::string("m/s");
     _pressure_unit = new std::string("mbar");
     _visible_unit = new std::string("m");
+    _language = new std::string("System");
     _update_connect = false;
     _fullscreen = false;
     _lockscreen = false;
@@ -430,7 +439,9 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
    /* std::cerr<<"new StationList"<<std::endl; */
     _stations = new StationsList;
     _current_station_id = INT_MAX;
+    _languages_list = new languages;
    /* std::cerr<<"Load Config"<<std::endl; */
+    this->InitLanguagesList();
     this->LoadConfig();
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -483,6 +494,9 @@ Config::LoadConfig(){
         el = root.firstChildElement("visible_unit");
         if (!el.isNull())
             _visible_unit->assign(el.text().toStdString());
+        el = root.firstChildElement("language");
+        if (!el.isNull())
+            _language->assign(el.text().toStdString());
         el = root.firstChildElement("update_connect");
         if (!el.isNull())
             _update_connect = (el.text() == "true") ? true : false;
@@ -685,10 +699,53 @@ Config::LoadConfig(){
 
 }
 ////////////////////////////////////////////////////////////////////////////////
+void 
+Config::InitLanguagesList(){
+
+    _languages_list->push_back(std::make_pair("System", ""));
+    _languages_list->push_back(std::make_pair("Albanian", "sq"));
+    _languages_list->push_back(std::make_pair("Arabic", "ar_AR"));
+    _languages_list->push_back(std::make_pair("Bulgarian", "bg_BG"));
+    _languages_list->push_back(std::make_pair("Catalan", "ca"));
+    _languages_list->push_back(std::make_pair("Chinese", "zh_ZH"));
+    _languages_list->push_back(std::make_pair("Dutch", "nl_NL"));
+    _languages_list->push_back(std::make_pair("German", "de_DE"));
+    _languages_list->push_back(std::make_pair("English", "en_GB"));
+    _languages_list->push_back(std::make_pair("Finish", "fi_FI"));
+    _languages_list->push_back(std::make_pair("French", "fr_FR"));
+    _languages_list->push_back(std::make_pair("Hungarian", "hu_HU"));
+    _languages_list->push_back(std::make_pair("Italian", "it_IT"));
+    _languages_list->push_back(std::make_pair("Norwegian", "no_NO"));
+    _languages_list->push_back(std::make_pair("Polish", "pl_PL"));
+    _languages_list->push_back(std::make_pair("Portuguese", "pt_PT"));
+    _languages_list->push_back(std::make_pair("Russian", "ru_RU"));
+    _languages_list->push_back(std::make_pair("Serbian", "sr"));
+    _languages_list->push_back(std::make_pair("Slovak", "sk_SK"));
+    _languages_list->push_back(std::make_pair("Spanish", "es_ES"));
+    _languages_list->push_back(std::make_pair("Spanish(Mexico)", "es_MX"));
+    _languages_list->push_back(std::make_pair("Swedish", "sv_SV"));
+    _languages_list->push_back(std::make_pair("Turkish", "tr_TR"));
+    _languages_list->push_back(std::make_pair("Vietnamese", "vi_VI"));
+/*
+    languages::iterator cur;
+    for (cur=_languages_list->begin(); cur<_languages_list->end(); cur++){
+        std::cerr<<"Locale "<< (*cur).second<<std::endl;
+    }
+*/
+}
+
+languages&
+Config::languagesList(){
+    return *_languages_list;
+}
+
+////////////////////////////////////////////////////////////////////////////////
 Config::~Config(){
     delete _pathPrefix;
     delete _iconset;
     delete _temperature_unit;
+    _languages_list->clear();
+    delete _languages_list;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void
@@ -707,7 +764,7 @@ Config::current_station_id(int id_station){
 }
 int   
 Config::current_station_id(){
-    if (_current_station_id >= this->stationsList().size())
+    if (_current_station_id >= (int)this->stationsList().size())
         _current_station_id = 0;
     if (this->stationsList().size() == 0)
         _current_station_id = INT_MAX;
@@ -765,6 +822,16 @@ Config::VisibleUnit(const std::string& text){
 std::string&
 Config::VisibleUnit(){
     return *_visible_unit;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::Language(const std::string& lang){
+    _language->assign(lang);
+}
+////////////////////////////////////////////////////////////////////////////////
+std::string&
+Config::Language(){
+    return *_language;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

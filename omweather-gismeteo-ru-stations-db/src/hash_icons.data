@@ -42,6 +42,7 @@
     hash_insert(hash, "d_003.png", "26");
     hash_insert(hash, "6.gif", "32");
     hash_insert(hash, "d.mist.png", "20");
+    hash_insert(hash, "d.mist.s3.png", "42");
     hash_insert(hash, "d.sun.png", "32");
     hash_insert(hash, "d.sun.c2.png", "30");
     hash_insert(hash, "d.sun.c2.r1.png", "39");
@@ -51,6 +52,7 @@
     hash_insert(hash, "d.sun.c2.s1.png", "13");
     hash_insert(hash, "d.sun.c2.s2.png", "14");
     hash_insert(hash, "d.sun.c2.s3.png", "39");
+    hash_insert(hash, "d.sun.c2.st.png", "37");
     hash_insert(hash, "d.sun.c2.r1.st.png", "37");
     hash_insert(hash, "d.sun.c2.r2.st.png", "37");
     hash_insert(hash, "d.sun.c3.png", "28");

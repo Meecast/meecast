@@ -1,0 +1,28 @@
+//#ifdef GLIB
+//    #define hash_insert(hash, s2, s3)  g_hash_table_insert(hash, (gpointer)s2, (gpointer)s3); 
+//#endif
+
+//#ifdef QT
+//    #define hash_insert(hash, s2, s3)  hash->insert(s2, s3);
+//#endif
+
+    #define hash_insert(hash, s2, s3) xmlHashAddEntry(hash, (const xmlChar *)s2, (void *)strdup(s3)); 
+
+    hash_insert(hash, "50110d", "39");
+    hash_insert(hash, "50210d", "39");
+    hash_insert(hash, "50010d", "39");
+
+    hash_insert(hash, "80001n", "31");
+    hash_insert(hash, "80001d", "32");
+    hash_insert(hash, "80002d", "34");
+    hash_insert(hash, "80102d", "34");
+
+    hash_insert(hash, "80203d", "30");
+    hash_insert(hash, "80203n", "29");
+
+    hash_insert(hash, "80304d", "28");
+    hash_insert(hash, "80304n", "27");
+
+    hash_insert(hash, "80404d", "26");
+    hash_insert(hash, "80404n", "26");
+

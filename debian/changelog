@@ -1,8 +1,47 @@
+meecast (0.7.3) unstable; urgency=low
+
+  * Added description string for weather.com
+  * Fixed problem with Catalan language
+  * Added Llagostera, Spain to weather.com source
+
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 09 May 2013 19:31:23 +0200
+
+meecast (0.7.2) unstable; urgency=low
+
+  * Added description strings and icon to gismeteo.ru 
+  * Added icon for hko.gov.hk
+  * Fixed problem with locale for date if language is System
+  * Added station Busteni, Eforie, Mangalia (Romania) to gismeteo.ru
+  * Updated Albanian, Catalan, Finish, Italian, Norwegian, Portuguese, Serbian translations
+  * Fixed problem with Serbian translation
+
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 09 May 2013 19:31:23 +0200
+
+meecast (0.7.1) unstable; urgency=low
+
+  * Added option Language to Settings menu
+  * Updated Italian translation. Thanks Lorenzo Facca
+  * Updated Serbian translation. Thanks Aleksandar Zaric aka Saleki 
+  * Added Hungarian translation. Thanks Salmi
+  * Updated Arabic, Catalan, Dutch, Finish, Norway, Portuguese translations
+  * Added description string to gismeteo.ru 
+  * Added city 'Hangu' - Pakistan to weather.com
+  * Updated Pakistan in yr.no and foreca.com databases
+  * Added Serbia to foreca.com database
+  * Added Serbia to yr.no database
+  * Added Kula(Serbia) to gismeteo.ru database
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 12 Apr 2013 23:31:23 +0200
+
 meecast (0.7) unstable; urgency=low
 
-  * Nothing 
+  * Disabled debug for gismeteo.ru and foreca.com sources
+  * Fixed problem with big size of icon in lockscreen applet
+  * Fixed problem with Settings pages - Lockscreen and StandbyScreen
+  * Added icons for gismeteo.ru 
+  * Updated Catalan, Finish, Norway, Arabic, Russian translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 20 Jun 2012 19:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 09 Mar 2013 16:31:23 +0200
 
 meecast (0.6.10) unstable; urgency=low
 
@@ -18,7 +57,7 @@ meecast (0.6.10) unstable; urgency=low
   * Changed icon 'fog' for LockScreen. Thanks Red Verge
   * Fixed menu bar position and behaviour. Thanks Nakram.
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 20 Jun 2012 19:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 20 Jan 2013 19:31:23 +0200
 
 meecast (0.6.9) unstable; urgency=low
 

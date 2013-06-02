@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<weatherdata>
+  <location>
+    <name>Vitsyebsk</name>
+    <type/>
+    <country>BY</country>
+    <timezone/>
+    <location altitude="0" latitude="55.190479" longitude="30.2033" geobase="geonames" geobaseid="620127"/>
+  </location>
+  <credit/>
+  <meta>
+    <lastupdate>2013-05-27T22:30:49</lastupdate>
+    <calctime>0.0278</calctime>
+    <nextupdate>2013-05-28T01:30:49</nextupdate>
+  </meta>
+  <sun rise="2013-05-27T01:31:03" set="2013-05-27T18:21:46"/>
+  <forecast>
+    <time day="2013-05-27">
+      <symbol number="800" name="sky is clear" var="01n"/>
+      <precipitation/>
+      <windDirection deg="93" code="E" name="East"/>
+      <windSpeed mps="6.8" name="Moderate breeze"/>
+      <temperature day="16.64" min="16.64" max="16.64" night="16.64" eve="16.64" morn="16.64"/>
+      <pressure unit="hPa" value="1004.03"/>
+      <humidity value="66" unit="%"/>
+      <clouds value="Sky is Clear" all="0" unit="%"/>
+    </time>
+    <time day="2013-05-28">
+      <symbol number="502" name="heavy intensity rain" var="10d"/>
+      <precipitation value="17" type="rain"/>
+      <windDirection deg="167" code="SSE" name="South-southeast"/>
+      <windSpeed mps="3.07" name="Light breeze"/>
+      <temperature day="15.98" min="12.32" max="16.35" night="12.32" eve="14.98" morn="15.43"/>
+      <pressure unit="hPa" value="1004.43"/>
+      <humidity value="100" unit="%"/>
+      <clouds value="overcast clouds" all="92" unit="%"/>
+    </time>
+    <time day="2013-05-29">
+      <symbol number="801" name="few clouds" var="02d"/>
+      <precipitation/>
+      <windDirection deg="191" code="S" name="South"/>
+      <windSpeed mps="3.82" name="Gentle Breeze"/>
+      <temperature day="18.26" min="11.69" max="18.53" night="12.97" eve="18.53" morn="11.69"/>
+      <pressure unit="hPa" value="1006.61"/>
+      <humidity value="85" unit="%"/>
+      <clouds value="few clouds" all="20" unit="%"/>
+    </time>
+    <time day="2013-05-30">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="138" code="SE" name="SouthEast"/>
+      <windSpeed mps="4.32" name="Gentle Breeze"/>
+      <temperature day="22.54" min="13.02" max="23.51" night="16.75" eve="23.17" morn="13.02"/>
+      <pressure unit="hPa" value="1010.44"/>
+      <humidity value="79" unit="%"/>
+      <clouds value="Sky is Clear" all="0" unit="%"/>
+    </time>
+    <time day="2013-05-31">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="127" code="SE" name="SouthEast"/>
+      <windSpeed mps="5.97" name="Moderate breeze"/>
+      <temperature day="24.78" min="14.95" max="25.31" night="18.17" eve="24.55" morn="14.95"/>
+      <pressure unit="hPa" value="1010.05"/>
+      <humidity value="66" unit="%"/>
+      <clouds value="Sky is Clear" all="0" unit="%"/>
+    </time>
+    <time day="2013-06-01">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="95" code="E" name="East"/>
+      <windSpeed mps="5.16" name="Gentle Breeze"/>
+      <temperature day="23.88" min="16.55" max="23.88" night="19.06" eve="23.6" morn="16.55"/>
+      <pressure unit="hPa" value="1008.35"/>
+      <humidity value="71" unit="%"/>
+      <clouds value="Sky is Clear" all="0" unit="%"/>
+    </time>
+    <time day="2013-06-02">
+      <symbol number="500" name="light rain" var="10d"/>
+      <precipitation value="1.64" type="rain"/>
+      <windDirection deg="110" code="ESE" name="East-southeast"/>
+      <windSpeed mps="6.52" name="Moderate breeze"/>
+      <temperature day="28.03" min="20.48" max="28.03" night="20.48" eve="24.85" morn="22.11"/>
+      <pressure unit="hPa" value="1002.53"/>
+      <humidity value="0" unit="%"/>
+      <clouds value="scattered clouds" all="38" unit="%"/>
+    </time>
+    <time day="2013-06-03">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="97" code="E" name="East"/>
+      <windSpeed mps="7.05" name="Moderate breeze"/>
+      <temperature day="29.2" min="19.93" max="29.2" night="19.93" eve="25.24" morn="24.37"/>
+      <pressure unit="hPa" value="1004.12"/>
+      <humidity value="0" unit="%"/>
+      <clouds value="Sky is Clear" all="0" unit="%"/>
+    </time>
+    <time day="2013-06-04">
+      <symbol number="500" name="light rain" var="10d"/>
+      <precipitation value="0.82" type="rain"/>
+      <windDirection deg="83" code="E" name="East"/>
+      <windSpeed mps="7.71" name="Moderate breeze"/>
+      <temperature day="23.76" min="17.61" max="23.76" night="17.61" eve="20.84" morn="21.69"/>
+      <pressure unit="hPa" value="1003.95"/>
+      <humidity value="0" unit="%"/>
+      <clouds value="Sky is Clear" all="0" unit="%"/>
+    </time>
+    <time day="2013-06-05">
+      <symbol number="501" name="moderate rain" var="10d"/>
+      <precipitation value="4.7" type="rain"/>
+      <windDirection deg="93" code="E" name="East"/>
+      <windSpeed mps="5.84" name="Moderate breeze"/>
+      <temperature day="21.98" min="16.9" max="21.98" night="16.9" eve="19.71" morn="19.93"/>
+      <pressure unit="hPa" value="1005.2"/>
+      <humidity value="0" unit="%"/>
+      <clouds value="few clouds" all="17" unit="%"/>
+    </time>
+  </forecast>
+</weatherdata>

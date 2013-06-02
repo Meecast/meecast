@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -39,10 +39,7 @@
 #include "parser.h"
 #include "stationlist.h"
 #include "station.h"
-extern "C" {
-    extern void save_config_js();
-}
-
+typedef std::vector< std::pair<std::string, std::string> > languages;
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
     class Config : public Parser{
@@ -56,6 +53,7 @@ namespace Core{
             std::string *_wind_speed_unit;
             std::string *_pressure_unit;
             std::string *_visible_unit;
+            std::string *_language;
             bool         _update_connect;
             bool         _fullscreen;
             bool         _lockscreen;
@@ -66,6 +64,7 @@ namespace Core{
             std::string *_font_color;
             int          _current_station_id;
             StationsList *_stations;
+            languages    *_languages_list;
         protected:
             static Config* _self;
             static int _refcount;
@@ -80,6 +79,7 @@ namespace Core{
             static Config* Instance(const std::string& filename, const std::string& schema_filename);
             void LoadConfig();
             void ReLoadConfig();
+            void InitLanguagesList();
             std::string& prefix_path(void);
             void iconSet(const std::string& text);
             std::string& iconSet(void);
@@ -93,6 +93,8 @@ namespace Core{
             std::string& PressureUnit(void);
             void VisibleUnit(const std::string& text);
             std::string& VisibleUnit(void);
+            std::string& Language(void);
+            void Language(const std::string& lang);
             void UpdateConnect(const bool uc);
             bool UpdateConnect(void);
             void Fullscreen(const bool uc);
@@ -116,9 +118,9 @@ namespace Core{
             std::string& iconspath();
             //void stationsList(std::vector<Core::Station*> list);
             void stationsList(StationsList list);
+            languages& languagesList();
+
             void saveConfig();
-
-
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

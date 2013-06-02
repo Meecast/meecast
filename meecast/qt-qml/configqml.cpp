@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -208,6 +208,22 @@ ConfigQml::set_iconset(QString c)
     saveConfig();
     refreshconfig();
 }
+void
+ConfigQml::set_language(QString c)
+{
+    ConfigQml::Config::Language(c.toStdString());
+    /* Set new locale for application */
+    for (unsigned int i=1; i<languagesList().size(); i++){
+        if (languagesList().at(i).first == Language()){
+            setlocale (LC_ALL, languagesList().at(i).second.c_str());
+            setlocale (LC_MESSAGES, languagesList().at(i).second.c_str());
+            QLocale::setDefault(QLocale(languagesList().at(i).second.c_str()));
+        }
+    }
+
+    saveConfig();
+    refreshconfig();
+}
 
 QString
 ConfigQml::iconspath(){
@@ -267,6 +283,29 @@ ConfigQml::windspeed_list()
     return l;
 }
 
+QStringList 
+ConfigQml::languages_list()
+{
+    QStringList l;
+    for (unsigned int i=0; i<languagesList().size(); i++){
+        l << QString::fromUtf8(languagesList().at(i).first.c_str());
+    }
+    return l;
+}
+
+int 
+ConfigQml::index_of_current_language()
+{
+    unsigned int i;
+    unsigned result = 0;
+    for (i=0; i<languagesList().size(); i++){
+        if (languagesList().at(i).first.c_str() == Language() ){
+            result = i;    
+            break;
+        }
+    }
+    return result;
+}
 void 
 ConfigQml::windspeed_unit(int index)
 {

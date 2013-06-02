@@ -109,7 +109,6 @@ meecastMainForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionI
     case ID_MENU_SETTINGS:
         AppLog("Settings Button is clicked!");
         pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_SETTINGSSCENE"));
-//        pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_MAINSCENE"));
         break;
     default:
         break;

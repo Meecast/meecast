@@ -1,6 +1,7 @@
 #include "meecastFormFactory.h"
 #include "meecastMainForm.h"
 #include "meecastSettingsForm.h"
+#include "meecastManageLocationsForm.h"
 
 using namespace Tizen::Ui::Scenes;
 
@@ -20,16 +21,18 @@ meecastFormFactory::CreateFormN(const Tizen::Base::String& formId, const Tizen::
 	AppAssert(pSceneManager);
 	Tizen::Ui::Controls::Form* pNewForm = null;
 
-	if (formId == L"IDF_FORM")
-	{
+	if (formId == L"IDF_FORM"){
 		meecastMainForm* pForm = new meecastMainForm();
 		pForm->Initialize();
 		pSceneManager->AddSceneEventListener(sceneId, *pForm);
 		pNewForm = pForm;
-	}
-    else if (formId == L"SETTINGS_FORM")
-	{
+	}else if (formId == L"SETTINGS_FORM"){
 		meecastSettingsForm* pForm = new (std::nothrow) meecastSettingsForm();
+		pForm->Initialize();
+		pSceneManager->AddSceneEventListener(sceneId, *pForm);
+		pNewForm = pForm;
+	}else if (formId == L"MANAGE_LOCATIONS_FORM"){
+		meecastManageLocationsForm* pForm = new (std::nothrow) meecastManageLocationsForm();
 		pForm->Initialize();
 		pSceneManager->AddSceneEventListener(sceneId, *pForm);
 		pNewForm = pForm;

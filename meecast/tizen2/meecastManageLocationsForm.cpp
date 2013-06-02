@@ -22,7 +22,7 @@
 */
 /*******************************************************************************/
 #include <FApp.h>
-#include "meecastSettingsForm.h"
+#include "meecastManageLocationsForm.h"
 
 using namespace Tizen::Base;
 using namespace Tizen::App;
@@ -33,24 +33,24 @@ using namespace Tizen::Ui::Scenes;
 static const int LIST_HEIGHT = 112;
 static const int BUTTON_HEIGHT = 74;
 
-meecastSettingsForm::meecastSettingsForm(void)
+meecastManageLocationsForm::meecastManageLocationsForm(void)
                     : __pListView(null)
 {
 }
 
-meecastSettingsForm::~meecastSettingsForm(void)
+meecastManageLocationsForm::~meecastManageLocationsForm(void)
 {
 }
 
 bool
-meecastSettingsForm::Initialize(void)
+meecastManageLocationsForm::Initialize(void)
 {
-    Construct(L"SETTINGS_FORM");
+    Construct(L"MANAGE_LOCATIONS_FORM");
     return true;
 }
 
 result
-meecastSettingsForm::OnInitializing(void)
+meecastManageLocationsForm::OnInitializing(void)
 {
     result r = E_SUCCESS;
 
@@ -93,7 +93,7 @@ meecastSettingsForm::OnInitializing(void)
 }
 
 result
-meecastSettingsForm::OnTerminating(void)
+meecastManageLocationsForm::OnTerminating(void)
 {
     result r = E_SUCCESS;
 
@@ -103,7 +103,7 @@ meecastSettingsForm::OnTerminating(void)
 }
 
 void
-meecastSettingsForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionId)
+meecastManageLocationsForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionId)
 {
     SceneManager* pSceneManager = SceneManager::GetInstance();
     AppAssert(pSceneManager);
@@ -117,7 +117,7 @@ meecastSettingsForm::OnActionPerformed(const Tizen::Ui::Control& source, int act
 }
 
 void
-meecastSettingsForm::OnFormBackRequested(Tizen::Ui::Controls::Form& source)
+meecastManageLocationsForm::OnFormBackRequested(Tizen::Ui::Controls::Form& source)
 {
 	SceneManager* pSceneManager = SceneManager::GetInstance();
 	AppAssert(pSceneManager);
@@ -127,16 +127,16 @@ meecastSettingsForm::OnFormBackRequested(Tizen::Ui::Controls::Form& source)
 }
 
 void
-meecastSettingsForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
+meecastManageLocationsForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
                                           const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs)
 {
     // TODO:
     // Add your scene activate code here
-    AppLog("OnSceneActivatedN Settings");
+    AppLog("OnSceneActivatedN ManageLocations");
 }
 
 void
-meecastSettingsForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSceneId,
+meecastManageLocationsForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSceneId,
                                            const Tizen::Ui::Scenes::SceneId& nextSceneId)
 {
     // TODO:
@@ -145,13 +145,13 @@ meecastSettingsForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& curren
 }
 
 int
-meecastSettingsForm::GetItemCount(void)
+meecastManageLocationsForm::GetItemCount(void)
 {
     return 1;
 }
 
 bool
-meecastSettingsForm::DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth)
+meecastManageLocationsForm::DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth)
 {
 	delete pItem;
 	return true;
@@ -159,7 +159,7 @@ meecastSettingsForm::DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pI
 
 
 Tizen::Ui::Controls::ListItemBase*
-meecastSettingsForm::CreateItem (int index, int itemWidth)
+meecastManageLocationsForm::CreateItem (int index, int itemWidth)
 {
 	SimpleItem* pItem = new SimpleItem();
 	AppAssert(pItem);
@@ -171,7 +171,7 @@ meecastSettingsForm::CreateItem (int index, int itemWidth)
 //	pTodo = static_cast<CalTodo*>(__pTodosList->GetAt(index));
 
 	String listItemString;
-	String subject = "Manage location";
+	String subject = "String";
 
 	listItemString.Append(subject);
 	pItem->SetElement(listItemString);
@@ -180,19 +180,15 @@ meecastSettingsForm::CreateItem (int index, int itemWidth)
 }
 
 void
-meecastSettingsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
+meecastManageLocationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
 {
 	if (status == LIST_ITEM_STATUS_SELECTED)
 	{
-        SceneManager* pSceneManager = SceneManager::GetInstance();
-        AppAssert(pSceneManager);
 	    AppLog("LIST_ITEM_STATUS_SELECTED ");
         /* Select 'Manage location' */
-        if (index == 0){
+        if (index == 0)
 	        AppLog("i111LIST_ITEM_STATUS_SELECTED ");
-            pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_MANAGELOCATIONSSCENE"));
-//            pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_MAINSCENE"));
-         }
+
         /*
 		SceneManager* pSceneManager = SceneManager::GetInstance();
 		AppAssert(pSceneManager);
@@ -209,17 +205,17 @@ meecastSettingsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& l
 	}
 }
 void
-meecastSettingsForm::OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction)
+meecastManageLocationsForm::OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction)
 {
 }
 
 void
-meecastSettingsForm::OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state)
+meecastManageLocationsForm::OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state)
 {
 }
 
 void
-meecastSettingsForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex)
+meecastManageLocationsForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex)
 {
 }
 

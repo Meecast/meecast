@@ -41,6 +41,7 @@ namespace Core {
                 std::string name = dp->d_name;
                 if(name == "." || name == "..")
                     continue;
+                std::cerr<<"Source "<< name<<std::endl;
                 if(dp->d_type == DT_REG || dp->d_type == DT_LNK){
                     try{
                         std::string file = path + dp->d_name;

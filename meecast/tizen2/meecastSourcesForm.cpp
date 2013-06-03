@@ -22,7 +22,7 @@
 */
 /*******************************************************************************/
 #include <FApp.h>
-#include "meecastManageLocationsForm.h"
+#include "meecastSourcesForm.h"
 
 using namespace Tizen::Base;
 using namespace Tizen::App;
@@ -33,24 +33,24 @@ using namespace Tizen::Ui::Scenes;
 static const int LIST_HEIGHT = 112;
 static const int BUTTON_HEIGHT = 74;
 
-meecastManageLocationsForm::meecastManageLocationsForm(void)
+meecastSourcesForm::meecastSourcesForm(void)
                     : __pListView(null)
 {
 }
 
-meecastManageLocationsForm::~meecastManageLocationsForm(void)
+meecastSourcesForm::~meecastSourcesForm(void)
 {
 }
 
 bool
-meecastManageLocationsForm::Initialize(void)
+meecastSourcesForm::Initialize(void)
 {
-    Construct(L"MANAGE_LOCATIONS_FORM");
+    Construct(L"SOURCES_FORM");
     return true;
 }
 
 result
-meecastManageLocationsForm::OnInitializing(void)
+meecastSourcesForm::OnInitializing(void)
 {
     result r = E_SUCCESS;
 
@@ -80,15 +80,20 @@ meecastManageLocationsForm::OnInitializing(void)
 //        pButtonOk->AddActionEventListener(*this);
 //    }
     /* Footer */
-    Footer* pFooter = GetFooter();
+  //  Footer* pFooter = GetFooter();
+  //  pFooter->SetStyle(FOOTER_STYLE_BUTTON_ICON_TEXT);
 
-    pFooter->AddActionEventListener(*this);
+  //  FooterItem menuButton;
+   // menuButton.Construct(ID_BUTTON_MENU);
+  //  menuButton.SetText("Menu");
+  //  pFooter->AddItem(menuButton);
+  //  pFooter->AddActionEventListener(*this);
 
     return r;
 }
 
 result
-meecastManageLocationsForm::OnTerminating(void)
+meecastSourcesForm::OnTerminating(void)
 {
     result r = E_SUCCESS;
 
@@ -98,25 +103,21 @@ meecastManageLocationsForm::OnTerminating(void)
 }
 
 void
-meecastManageLocationsForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionId)
+meecastSourcesForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionId)
 {
     SceneManager* pSceneManager = SceneManager::GetInstance();
     AppAssert(pSceneManager);
 
     AppLog("Check Action");
-            
     switch(actionId)
     {
-    case 0:  AppLog("Press add");
-        pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_SOURCESSCENE"));
-        break;
     default:
         break;
     }
 }
 
 void
-meecastManageLocationsForm::OnFormBackRequested(Tizen::Ui::Controls::Form& source)
+meecastSourcesForm::OnFormBackRequested(Tizen::Ui::Controls::Form& source)
 {
 	SceneManager* pSceneManager = SceneManager::GetInstance();
 	AppAssert(pSceneManager);
@@ -126,7 +127,7 @@ meecastManageLocationsForm::OnFormBackRequested(Tizen::Ui::Controls::Form& sourc
 }
 
 void
-meecastManageLocationsForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
+meecastSourcesForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
                                           const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs)
 {
     // TODO:
@@ -135,7 +136,7 @@ meecastManageLocationsForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& 
 }
 
 void
-meecastManageLocationsForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSceneId,
+meecastSourcesForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSceneId,
                                            const Tizen::Ui::Scenes::SceneId& nextSceneId)
 {
     // TODO:
@@ -144,13 +145,13 @@ meecastManageLocationsForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId&
 }
 
 int
-meecastManageLocationsForm::GetItemCount(void)
+meecastSourcesForm::GetItemCount(void)
 {
     return 1;
 }
 
 bool
-meecastManageLocationsForm::DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth)
+meecastSourcesForm::DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth)
 {
 	delete pItem;
 	return true;
@@ -158,7 +159,7 @@ meecastManageLocationsForm::DeleteItem(int index, Tizen::Ui::Controls::ListItemB
 
 
 Tizen::Ui::Controls::ListItemBase*
-meecastManageLocationsForm::CreateItem (int index, int itemWidth)
+meecastSourcesForm::CreateItem (int index, int itemWidth)
 {
 	SimpleItem* pItem = new SimpleItem();
 	AppAssert(pItem);
@@ -170,7 +171,7 @@ meecastManageLocationsForm::CreateItem (int index, int itemWidth)
 //	pTodo = static_cast<CalTodo*>(__pTodosList->GetAt(index));
 
 	String listItemString;
-	String subject = "String";
+	String subject = "OpenWetherMap.org";
 
 	listItemString.Append(subject);
 	pItem->SetElement(listItemString);
@@ -179,7 +180,7 @@ meecastManageLocationsForm::CreateItem (int index, int itemWidth)
 }
 
 void
-meecastManageLocationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
+meecastSourcesForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
 {
 	if (status == LIST_ITEM_STATUS_SELECTED)
 	{
@@ -204,17 +205,17 @@ meecastManageLocationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::List
 	}
 }
 void
-meecastManageLocationsForm::OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction)
+meecastSourcesForm::OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction)
 {
 }
 
 void
-meecastManageLocationsForm::OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state)
+meecastSourcesForm::OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state)
 {
 }
 
 void
-meecastManageLocationsForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex)
+meecastSourcesForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex)
 {
 }
 

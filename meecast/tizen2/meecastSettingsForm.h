@@ -1,4 +1,4 @@
-#ifndef _MEECAT_SETTINGS_FORM_H_
+#ifndef _MEECAST_SETTINGS_FORM_H_
 #define _MEECAST_SETTINGS_FORM_H_
 
 #include <FBase.h>

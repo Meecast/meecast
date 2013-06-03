@@ -41,6 +41,7 @@ Station::Station(const std::string& source_name, const std::string& id,
                  const std::string& country, const std::string& region, 
                  const std::string& forecastURL, const std::string& detailURL,
                  const std::string& viewURL, const std::string& mapURL, 
+                 const std::string& basemapURL, 
                  const std::string&  cookie, const bool gps, 
                  double latitude, double longitude ){
         _sourceName = new std::string(source_name);
@@ -53,6 +54,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         _cookie = new std::string(cookie);
         _viewURL = new std::string(viewURL);
         _mapURL = new std::string(mapURL);
+        _basemapURL = new std::string(basemapURL);
         _timezone = 0;
         _fileName = new std::string();
         _source = this->getSourceByName();
@@ -82,6 +84,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         std::string url_detail_template = sourcelist->at(source_id)->url_detail_template();
         std::string url_for_view = sourcelist->at(source_id)->url_for_view();
         std::string url_for_map = sourcelist->at(source_id)->url_for_map();
+        std::string base_map_url = sourcelist->at(source_id)->url_for_basemap();
         std::string cookie = sourcelist->at(source_id)->cookie();
 
         char forecast_url[4096];
@@ -91,10 +94,21 @@ Station::Station(const std::string& source_name, const std::string& id,
         char view_url[4096];
         snprintf(view_url, sizeof(view_url)-1, url_for_view.c_str(), id.c_str());
         char map_url[4096];
+        char basemap_url[4096];
         memset(map_url, 0, sizeof(map_url));
         if (url_for_map.length() > 0) {
-            snprintf(map_url, sizeof(map_url)-1, url_for_map.c_str(), _latitude, _longitude);
+            if (sourcelist->at(source_id)->map_type() == 1) 
+                snprintf(map_url, sizeof(map_url)-1, url_for_map.c_str(), _latitude, _longitude);
+            if (sourcelist->at(source_id)->map_type() == 2) 
+                snprintf(map_url, sizeof(map_url)-1, url_for_map.c_str(), _longitude - 1, _latitude - 1, _longitude + 1, _latitude + 1);
             fprintf(stderr,"map_url: %s\n", map_url);
+        }
+        if (base_map_url.length() > 0) {
+            if (sourcelist->at(source_id)->map_type() == 1) 
+                snprintf(basemap_url, sizeof(basemap_url)-1, base_map_url.c_str(), _latitude, _longitude);
+            if (sourcelist->at(source_id)->map_type() == 2) 
+                snprintf(basemap_url, sizeof(basemap_url)-1, base_map_url.c_str(), _longitude  - 1, _latitude - 1, _longitude  + 1, _latitude + 1);
+            fprintf(stderr,"map_url: %s\n", basemap_url);
         }
 
         std::string filename(Core::AbstractConfig::getConfigPath());
@@ -104,6 +118,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         _forecastURL = new std::string(forecast_url);
         _detailURL = new std::string(forecast_detail_url);
         _mapURL = new std::string(map_url);
+        _basemapURL = new std::string(basemap_url);
         if (source_name == "bom.gov.au"){
            if (_id->find("IDV") == 0)
                _detailURL = new std::string("http://www.bom.gov.au/vic/observations/vicall.shtml");
@@ -160,6 +175,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         delete _cookie;
         delete _viewURL;
         delete _mapURL;
+        delete _basemapURL;
         if(_data)
             delete _data;
         if(_fileName)
@@ -181,6 +197,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         _cookie = new std::string(*(station._cookie));
         _viewURL = new std::string(*(station._viewURL));
         _mapURL = new std::string(*(station._mapURL));
+        _basemapURL = new std::string(*(station._basemapURL));
         _fileName = new std::string(*(station._fileName));
         _converter = new std::string(*(station._converter));
         _gps = station._gps;
@@ -214,6 +231,8 @@ Station::Station(const std::string& source_name, const std::string& id,
             _converter = new std::string(*(station._converter));
             delete _mapURL;
             _mapURL = new std::string(*(station._mapURL));
+            delete _basemapURL;
+            _basemapURL = new std::string(*(station._basemapURL));
 
         }
         return *this;
@@ -259,6 +278,11 @@ Station::Station(const std::string& source_name, const std::string& id,
         _mapURL->assign(mapURL);
     }
     ////////////////////////////////////////////////////////////////////////////////
+    void Station::basemapURL(const std::string& basemapURL){
+        _basemapURL->assign(basemapURL);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
     void Station::detailURL(const std::string& detailURL){
         _sourceName->assign(detailURL);
     }
@@ -281,6 +305,10 @@ Station::Station(const std::string& source_name, const std::string& id,
     ////////////////////////////////////////////////////////////////////////////////
     std::string& Station::mapURL() const{
         return *_mapURL;
+    }
+    ////////////////////////////////////////////////////////////////////////////////
+    std::string& Station::basemapURL() const{
+        return *_basemapURL;
     }
     ////////////////////////////////////////////////////////////////////////////////
     void Station::country(const std::string& country){
@@ -401,6 +429,45 @@ Station::Station(const std::string& source_name, const std::string& id,
             else
                result = false;
         }
+        /* BAseMap */
+        if (this->basemapURL() != ""){
+            std::string mapfilename(Core::AbstractConfig::getCachePath());
+            char map_url[4096];
+            char map_url_additional[4096];
+            struct stat attrib;
+            mapfilename += this->sourceName().c_str();
+            mapfilename += "_";
+            mapfilename += _id->c_str();
+            mapfilename += "_basemap_";
+            mapfilename += "%i.png";
+            snprintf(map_url, sizeof(map_url)-1, mapfilename.c_str(), 0);
+            std::cerr<<map_url<<std::endl;
+            /* Check modification time of the last file and download map if it more than 3 hours */
+            if ((stat(map_url, &attrib) == 0) &&
+                (time(NULL) - attrib.st_mtime > 3600*2.5)&&
+                (attrib.st_size > 0)){
+                for (int i=4; i>=0; i--){
+                    snprintf(map_url, sizeof(map_url)-1, mapfilename.c_str(), i);
+                    std::cerr<<map_url<<std::endl;
+                    if (stat(map_url, &attrib) == 0){
+                        snprintf(map_url_additional, sizeof(map_url_additional)-1,
+                                 mapfilename.c_str(), i+1);
+                        rename(map_url, map_url_additional);
+                    }
+                }
+            }
+
+            /* snprintf(map_url, sizeof(map_url)-1, mapfilename.c_str(), 0); */
+            std::cerr<<map_url<<std::endl;
+            if ((stat(map_url, &attrib) != 0)||
+                (attrib.st_size == 0) ||
+                (stat(map_url, &attrib) == 0) &&
+                (time(NULL) - attrib.st_mtime > 3600*2.5)){
+                std::cerr<<map_url<<" "<<attrib.st_mtime<< " "<<time(NULL)<< std::endl;
+                Downloader::downloadData(map_url, this->basemapURL(), "");
+            }
+        }
+
         /* Map */
         if (this->mapURL() != ""){
             std::string mapfilename(Core::AbstractConfig::getCachePath());

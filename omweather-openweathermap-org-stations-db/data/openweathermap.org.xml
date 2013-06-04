@@ -4,7 +4,7 @@
 <logo>yr.no.png</logo>
 <base>openweathermap.org.db</base>
 <forecast url="http://api.openweathermap.org/data/2.5/forecast/daily?id=%s&amp;mode=xml&amp;units=metric&amp;cnt=10" />
-<detail url="http://api.openweathermap.org/data/2.5/forecast/daily?id=%s&amp;mode=xml&amp;units=metric" />
+<detail url="http://api.openweathermap.org/data/2.5/weather?id=%s&amp;mode=xml&amp;units=metric" />
 <search url="http://openweathermap.org/find?q=%s" />
 <library>libomweather-yr-no-source.so</library>
 <binary>/opt/com.meecast.omweather/lib/openweathermaporg</binary>

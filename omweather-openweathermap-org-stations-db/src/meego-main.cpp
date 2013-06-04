@@ -240,114 +240,105 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
 
 
     for(child_node = root_node->children; child_node; child_node = child_node->next){
-        fprintf(stderr, "element111 %s\n", child_node->name);
-        if (child_node->type == XML_ELEMENT_NODE ){
-            if(!xmlStrcmp(child_node->name, (const xmlChar *) "lastupdate")){
-                fprintf(stderr, "Element time\n" );
-                if(xmlGetProp(child_node, (const xmlChar*)"value")) {
-                    memset(temp_buffer, 0, sizeof(buffer));
-                    snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
-                                        xmlGetProp(child_node, (const xmlChar*)"value"));
-                    strptime(temp_buffer, "%Y-%m-%dTT%H:%M:%S", &tmp_tm);
-                    fprintf(stderr, "Element %s\n", xmlGetProp(child_node, (const xmlChar*)"value")); 
-                    utc_time_start = mktime(&tmp_tm);
-                    utc_time_end = mktime(&tmp_tm) + 4*3600;
-                }
-            }
-        }
-        if (child_node->type == XML_ELEMENT_NODE ){
-            if(!xmlStrcmp(child_node->name, (const xmlChar *) "temperature")){
-                temp = atoi((char *)xmlGetProp(child_node, (const xmlChar*)"value"));
-            }
-        }
+       if (child_node->type == XML_ELEMENT_NODE ){
+           if(!xmlStrcmp(child_node->name, (const xmlChar *) "lastupdate")){
+               if(xmlGetProp(child_node, (const xmlChar*)"value")) {
+                   memset(temp_buffer, 0, sizeof(buffer));
+                   snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
+                                       xmlGetProp(child_node, (const xmlChar*)"value"));
+                   strptime(temp_buffer, "%Y-%m-%dTT%H:%M:%S", &tmp_tm);
+                   fprintf(stderr, "Element %s\n", xmlGetProp(child_node, (const xmlChar*)"value")); 
+                   utc_time_start = mktime(&tmp_tm);
+                   utc_time_end = mktime(&tmp_tm) + 4*3600;
+               }
+           }
+       }
+       if (child_node->type == XML_ELEMENT_NODE ){
+           if(!xmlStrcmp(child_node->name, (const xmlChar *) "temperature")){
+               temp = atoi((char *)xmlGetProp(child_node, (const xmlChar*)"value"));
+           }
+       }
 
-        if (child_node->type == XML_ELEMENT_NODE ){
-            if(!xmlStrcmp(child_node->name, (const xmlChar *) "precipitation")){
-                if (xmlGetProp(child_node, (const xmlChar*)"value"))
-                    snprintf(ppcp, sizeof(ppcp)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"value"));
-            }
-        }
+       if (child_node->type == XML_ELEMENT_NODE ){
+           if(!xmlStrcmp(child_node->name, (const xmlChar *) "precipitation")){
+               if (xmlGetProp(child_node, (const xmlChar*)"value"))
+                   snprintf(ppcp, sizeof(ppcp)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"value"));
+           }
+       }
 
-        if (child_node->type == XML_ELEMENT_NODE ){
-            if(!xmlStrcmp(child_node->name, (const xmlChar *) "wind")){
-                for (child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
-                    if (child_node2->type == XML_ELEMENT_NODE ){
-                        if(!xmlStrcmp(child_node2->name, (const xmlChar *) "speed")){
-                            snprintf(wind_speed, sizeof(wind_speed)-1,"%s",(char *)xmlGetProp(child_node2, (const xmlChar*)"value"));
-                        }
-                        if(!xmlStrcmp(child_node2->name, (const xmlChar *) "direction")){
-                            snprintf(wind_direction, sizeof(wind_direction)-1,"%s",(char *)xmlGetProp(child_node2, (const xmlChar*)"code"));
-                        }
+       if (child_node->type == XML_ELEMENT_NODE ){
+           if(!xmlStrcmp(child_node->name, (const xmlChar *) "wind")){
+               for (child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
+                   if (child_node2->type == XML_ELEMENT_NODE ){
+                       if(!xmlStrcmp(child_node2->name, (const xmlChar *) "speed")){
+                           snprintf(wind_speed, sizeof(wind_speed)-1,"%s",(char *)xmlGetProp(child_node2, (const xmlChar*)"value"));
+                       }
+                       if(!xmlStrcmp(child_node2->name, (const xmlChar *) "direction")){
+                           snprintf(wind_direction, sizeof(wind_direction)-1,"%s",
+                                      (char *)xmlGetProp(child_node2, (const xmlChar*)"code"));
+                       }
+                   }
+               }   
+           }
+       }
 
-                    }
-                }   
-            }
-        }
+       if (child_node->type == XML_ELEMENT_NODE ){
+           if(!xmlStrcmp(child_node->name, (const xmlChar *) "pressure")){
+               snprintf(pressure, sizeof(pressure)-1,"%s",
+                                  (char *)xmlGetProp(child_node, (const xmlChar*)"value"));
+           }
+       }
 
-        if (child_node->type == XML_ELEMENT_NODE ){
-            if(!xmlStrcmp(child_node->name, (const xmlChar *) "pressure")){
-                snprintf(pressure, sizeof(pressure)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"value"));
-            }
-        }
+       if (child_node->type == XML_ELEMENT_NODE ){
+           if(!xmlStrcmp(child_node->name, (const xmlChar *) "humidity")){
+               snprintf(humidity, sizeof(humidity)-1,"%s",
+                                  (char *)xmlGetProp(child_node, (const xmlChar*)"value"));
+           }
+       }
+       /* symbol number="801" name="few clouds" var="02d" */
+       if (child_node->type == XML_ELEMENT_NODE ){
+           if(!xmlStrcmp(child_node->name, (const xmlChar *) "weather")){
+               memset(temp_buffer, 0, sizeof(buffer));
+               if (xmlGetProp(child_node, (const xmlChar*)"number"))
+                   snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
+                       xmlGetProp(child_node, (const xmlChar*)"number"));
+               if (xmlGetProp(child_node, (const xmlChar*)"icon"))
+                   strcat(temp_buffer, (char *)xmlGetProp(child_node, (const xmlChar*)"icon"));
+               if (xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer))
+                   snprintf(icon, sizeof(icon)-1, "%s",
+                         (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));
+               if (xmlGetProp(child_node, (const xmlChar*)"name"))
+                   snprintf(short_text, sizeof(short_text)-1, "%s",
+                       xmlGetProp(child_node, (const xmlChar*)"name"));
+           }
+       }
+    }
+    fprintf(file_out,"    <period current=\"true\" start=\"%li\"", utc_time_start);
+    fprintf(file_out," end=\"%li\">\n", utc_time_end); 
 
-        if (child_node->type == XML_ELEMENT_NODE ){
-            if(!xmlStrcmp(child_node->name, (const xmlChar *) "humidity")){
-                snprintf(humidity, sizeof(humidity)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"value"));
-            }
-        }
-        /* symbol number="801" name="few clouds" var="02d" */
-        if (child_node->type == XML_ELEMENT_NODE ){
-            if(!xmlStrcmp(child_node->name, (const xmlChar *) "weather")){
-                fprintf(stderr,"dddddddddddd\n");
-                memset(temp_buffer, 0, sizeof(buffer));
-                if (xmlGetProp(child_node, (const xmlChar*)"number"))
-                    snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
-                        xmlGetProp(child_node, (const xmlChar*)"number"));
+    if (strlen (short_text)>0)
+        fprintf(file_out, "     <description>%s</description>\n", short_text);
+    if (strlen(icon)>0)
+        fprintf(file_out, "     <icon>%s</icon>\n", icon);
+    if (temp != INT_MAX)
+        fprintf(file_out, "     <temperature>%i</temperature>\n", temp);				                
+    if (strlen (ppcp)>0)
+        fprintf(file_out, "     <ppcp>%s</ppcp>\n", ppcp);
 
-                fprintf(stderr,"dddddddddddd %s", temp_buffer);
-                if (xmlGetProp(child_node, (const xmlChar*)"icon"))
-                    strcat(temp_buffer, (char *)xmlGetProp(child_node, (const xmlChar*)"icon"));
-                if (xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer))
-                    snprintf(icon, sizeof(icon)-1, "%s",
-                          (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));
-                if (xmlGetProp(child_node, (const xmlChar*)"name"))
-                    snprintf(short_text, sizeof(short_text)-1, "%s",
-                        xmlGetProp(child_node, (const xmlChar*)"name"));
+    if (strlen (wind_direction)>0)
+        fprintf(file_out, "     <wind_direction>%s</wind_direction>\n", wind_direction);
 
-            }
-        }
-     }
-     fprintf(file_out,"    <period current=\"true\" start=\"%li\"", utc_time_start);
-     fprintf(file_out," end=\"%li\">\n", utc_time_end); 
+    if (strlen (wind_speed)>0)
+        fprintf(file_out, "     <wind_speed>%s</wind_speed>\n", wind_speed);
+    
+    if (strlen (pressure)>0)
+        fprintf(file_out, "     <pressure>%s</pressure>\n", pressure);
 
-                                if (strlen (short_text)>0)
-                                   fprintf(file_out, "     <description>%s</description>\n", short_text);
-                                if (strlen(icon)>0)
-                                    fprintf(file_out,"     <icon>%s</icon>\n", icon);
-                                if (temp != INT_MAX)
-                                    fprintf(file_out,"     <temperature>%i</temperature>\n", temp);				                
-                                if (strlen (ppcp)>0)
-                                    fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp);
+    if (strlen (humidity)>0)
+        fprintf(file_out, "     <humidity>%s</humidity>\n", humidity);
 
-                                if (strlen (wind_direction)>0)
-                                    fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction);
-                                if (strlen (wind_speed)>0)
-                                    fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed);
-                                
-                                if (strlen (pressure)>0)
-                                    fprintf(file_out,"     <pressure>%s</pressure>\n", pressure);
-
-                                if (strlen (humidity)>0)
-                                    fprintf(file_out,"     <humidity>%s</humidity>\n", humidity);
-
-                                fprintf(file_out,"    </period>\n");
-                                count_day++;
-                            //}
-                        //}
-                  //  }
-                //}
-           // }          
-    //}
+    fprintf(file_out, "    </period>\n");
+    count_day++;
     fclose(file_out);
     return count_day;
 }

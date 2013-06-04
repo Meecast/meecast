@@ -285,12 +285,6 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
         }
 
         if (child_node->type == XML_ELEMENT_NODE ){
-            if(!xmlStrcmp(child_node->name, (const xmlChar *) "windSpeed")){
-                snprintf(wind_speed, sizeof(wind_speed)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"mps"));
-            }
-        }
-
-        if (child_node->type == XML_ELEMENT_NODE ){
             if(!xmlStrcmp(child_node->name, (const xmlChar *) "pressure")){
                 snprintf(pressure, sizeof(pressure)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"value"));
             }
@@ -303,13 +297,16 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
         }
         /* symbol number="801" name="few clouds" var="02d" */
         if (child_node->type == XML_ELEMENT_NODE ){
-            if(!xmlStrcmp(child_node->name, (const xmlChar *) "symbol")){
+            if(!xmlStrcmp(child_node->name, (const xmlChar *) "weather")){
+                fprintf(stderr,"dddddddddddd\n");
                 memset(temp_buffer, 0, sizeof(buffer));
                 if (xmlGetProp(child_node, (const xmlChar*)"number"))
                     snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
                         xmlGetProp(child_node, (const xmlChar*)"number"));
-                if (xmlGetProp(child_node, (const xmlChar*)"var"))
-                    strcat(temp_buffer, (char *)xmlGetProp(child_node, (const xmlChar*)"var"));
+
+                fprintf(stderr,"dddddddddddd %s", temp_buffer);
+                if (xmlGetProp(child_node, (const xmlChar*)"icon"))
+                    strcat(temp_buffer, (char *)xmlGetProp(child_node, (const xmlChar*)"icon"));
                 if (xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer))
                     snprintf(icon, sizeof(icon)-1, "%s",
                           (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));

@@ -341,6 +341,7 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
     return count_day;
 }
 
+/*******************************************************************************/
 int
 convert_station_openweathermaporg_data(const char *days_data_path, const char *result_file, const char *current_data_path, const char *hours_data_path ){
  

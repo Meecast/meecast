@@ -205,6 +205,8 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
     struct tm   tmp_tm = {0};
     time_t      utc_time_start;
     time_t      utc_time_end;
+    time_t      utc_time_sunrise = -1;
+    time_t      utc_time_sunset = -1;
     int         count_day = 0;
     int         temp;
     char        id_station[1024],
@@ -224,6 +226,7 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
         return -1;
 
     root_node = xmlDocGetRootElement(doc);
+
     /* clear variables */
     temp = INT_MAX;  
     memset(short_text, 0, sizeof(short_text));
@@ -236,6 +239,26 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
 
     for(child_node = root_node->children; child_node; child_node = child_node->next){
        if (child_node->type == XML_ELEMENT_NODE ){
+
+           if(!xmlStrcmp(child_node->name, (const xmlChar *) "city")){
+               for (child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
+                   if (child_node2->type == XML_ELEMENT_NODE ){
+                       if(!xmlStrcmp(child_node2->name, (const xmlChar *) "sun")){
+                            memset(temp_buffer, 0, sizeof(buffer));
+                            snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
+                                       xmlGetProp(child_node2, (const xmlChar*)"rise"));
+                            strptime(temp_buffer, "%Y-%m-%dTT%H:%M:%S", &tmp_tm);
+                            utc_time_sunrise = mktime(&tmp_tm);
+                            memset(temp_buffer, 0, sizeof(buffer));
+                            snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
+                                       xmlGetProp(child_node2, (const xmlChar*)"set"));
+                            strptime(temp_buffer, "%Y-%m-%dTT%H:%M:%S", &tmp_tm);
+                            utc_time_sunset = mktime(&tmp_tm);
+                       }
+                   }
+               }   
+           }
+
            if(!xmlStrcmp(child_node->name, (const xmlChar *) "lastupdate")){
                if(xmlGetProp(child_node, (const xmlChar*)"value")) {
                    memset(temp_buffer, 0, sizeof(buffer));
@@ -246,23 +269,17 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
                    utc_time_end = mktime(&tmp_tm) + 4*3600;
                }
            }
-       }
 
-       if (child_node->type == XML_ELEMENT_NODE ){
            if(!xmlStrcmp(child_node->name, (const xmlChar *) "temperature")){
                temp = atoi((char *)xmlGetProp(child_node, (const xmlChar*)"value"));
            }
-       }
 
-       if (child_node->type == XML_ELEMENT_NODE ){
            if(!xmlStrcmp(child_node->name, (const xmlChar *) "precipitation")){
                if (xmlGetProp(child_node, (const xmlChar*)"value"))
                    snprintf(ppcp, sizeof(ppcp)-1,"%s",(
                                     char *)xmlGetProp(child_node, (const xmlChar*)"value"));
            }
-       }
 
-       if (child_node->type == XML_ELEMENT_NODE ){
            if(!xmlStrcmp(child_node->name, (const xmlChar *) "wind")){
                for (child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
                    if (child_node2->type == XML_ELEMENT_NODE ){
@@ -277,24 +294,18 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
                    }
                }   
            }
-       }
 
-       if (child_node->type == XML_ELEMENT_NODE ){
            if(!xmlStrcmp(child_node->name, (const xmlChar *) "pressure")){
                snprintf(pressure, sizeof(pressure)-1,"%s",
                                   (char *)xmlGetProp(child_node, (const xmlChar*)"value"));
            }
-       }
 
-       if (child_node->type == XML_ELEMENT_NODE ){
            if(!xmlStrcmp(child_node->name, (const xmlChar *) "humidity")){
                snprintf(humidity, sizeof(humidity)-1,"%s",
                                   (char *)xmlGetProp(child_node, (const xmlChar*)"value"));
            }
-       }
 
        /* symbol number="801" name="few clouds" var="02d" */
-       if (child_node->type == XML_ELEMENT_NODE ){
            if(!xmlStrcmp(child_node->name, (const xmlChar *) "weather")){
                memset(temp_buffer, 0, sizeof(buffer));
                if (xmlGetProp(child_node, (const xmlChar*)"number"))
@@ -335,6 +346,10 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
     if (strlen (humidity)>0)
         fprintf(file_out, "     <humidity>%s</humidity>\n", humidity);
 
+    if (utc_time_sunset != -1)
+        fprintf(file_out,"     <sunset>%li</sunset>\n", utc_time_sunset);
+    if (utc_time_sunrise != -1)
+        fprintf(file_out,"     <sunrise>%li</sunrise>\n", utc_time_sunrise);
     fprintf(file_out, "    </period>\n");
     count_day++;
     fclose(file_out);

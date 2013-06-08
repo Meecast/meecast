@@ -35,6 +35,8 @@
 #include <vector>
 #include <string>
 
+#include <FIo.h>
+
 namespace Core{
 
 typedef std::vector< std::pair<std::string, std::string> > listdata;
@@ -43,9 +45,9 @@ class DatabaseAbstract
 {
 
 public:
-    virtual void set_databasename(const std::string& filename) = 0;
+    virtual void set_databasename(Tizen::Base::String& filename) = 0;
     virtual bool open_database() = 0;
-    virtual listdata* create_countries_list() = 0;
+    virtual Tizen::Base::Collection::HashMap* create_countries_list() = 0;
     virtual listdata* create_region_list(int country_id) = 0;
     virtual listdata* create_stations_list(int region_id) = 0;
 };

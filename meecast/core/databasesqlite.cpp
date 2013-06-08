@@ -30,14 +30,22 @@
 
 
 #include "databasesqlite.h"
+#include <FApp.h>
+#include <FIo.h>
+
+using namespace Tizen::Base; 
+using namespace Tizen::Base::Collection; 
+using namespace Tizen::Io; 
+using namespace Tizen::App;
+
 
 namespace Core {
 
-DatabaseSqlite::DatabaseSqlite(const std::string& filename)
+DatabaseSqlite::DatabaseSqlite(Tizen::Base::String& filename)
 {
     //db = NULL;
-    databasename = new std::string;
-    databasename->assign(filename);
+    databasename = new Tizen::Base::String;
+    databasename->Append(filename);
 }
 
 DatabaseSqlite::~DatabaseSqlite()
@@ -47,12 +55,12 @@ DatabaseSqlite::~DatabaseSqlite()
 }
 
 void
-DatabaseSqlite::set_databasename(const std::string& filename)
+DatabaseSqlite::set_databasename(Tizen::Base::String& filename)
 {
-    databasename->assign(filename);
+    databasename->Append(filename);
 }
 
-std::string&
+Tizen::Base::String&
 DatabaseSqlite::get_databasename()
 {
     return *databasename;
@@ -65,6 +73,14 @@ DatabaseSqlite::open_database()
     int rc;
     char * msg;
     std::string key ("gismeteo.ru.db");
+
+    result r = E_SUCCESS;
+    r = db.Construct(databasename->GetPointer(), "r");
+    TryReturn(!IsFailed(r), false, "Database::Construct failed with: %s", GetErrorMessage(r));
+    if (IsFailed(r))
+        return false;
+    else
+        return true;
 //    std::cerr << (databasename->length() - databasename->rfind(key)) << " " << key.length() << std::endl;
 /*
     if (sqlite3_open(databasename->c_str(), &db)){
@@ -92,20 +108,50 @@ DatabaseSqlite::open_database()
     return true;
 }
 
-listdata*
+Tizen::Base::Collection::HashMap* 
 DatabaseSqlite::create_countries_list()
 {
     listdata *list = NULL;
     int rc;
     char *errMsg = NULL;
-    char **result;
     int nrow, ncol;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    /*
-//    if(!db)
-//        return NULL;    
+    Tizen::Base::Collection::HashMap *map; 
+    String sql;
+    DbEnumerator* pEnum;
+    result r = E_SUCCESS;
+
+    map = new Tizen::Base::Collection::HashMap;
+
+        AppLog("Country1");
+
+    map->Construct();
+    sql.Append(L"CREATE TEMP VIEW nstations AS SELECT * FROM stations");
+
+    r = db.ExecuteSql(sql, true);
+    if (IsFailed(r)){
+        AppLog("Problem with creation of TEMP VIEW");
+        return map;
+    }
+    sql.Clear();
+    sql.Append(L"SELECT id, name FROM countries where (select count(name) from nstations where nstations.region_id = (select distinct regions.id from regions where regions.country_id=countries.id )) >0 ORDER BY name");
+    pEnum = db.QueryN(sql);
+
+    String strWord;
+    int nIndx = 0;
+    while (pEnum->MoveNext() == E_SUCCESS){
+        if (pEnum->GetStringAt(1, strWord) != E_SUCCESS){
+            break;
+        }
+        map->Add(*(new (std::nothrow) Integer(nIndx++)), *(new (std::nothrow) String(strWord)));
+    }
+    if (pEnum != null){
+        delete pEnum;
+    }
+
+    return map;
+/*
+    if(!db)
+        return NULL;    
     list = new listdata;
     rc = sqlite3_get_table(db,
                            "SELECT id, name FROM countries where (select count(name) from nstations where nstations.region_id = (select distinct regions.id from regions where regions.country_id=countries.id )) >0 ORDER BY name",
@@ -129,7 +175,6 @@ DatabaseSqlite::create_countries_list()
     END_FUNCTION;
 #endif
     */
-    return list;
 }
 
 listdata*

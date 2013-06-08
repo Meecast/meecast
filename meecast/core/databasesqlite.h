@@ -42,6 +42,7 @@
 #include <math.h>
 
 #include "databaseabstract.h"
+#include <FIo.h>
 
 namespace Core{
 
@@ -51,15 +52,16 @@ class DatabaseSqlite : public DatabaseAbstract
 {
 private:
 //    sqlite3 *db;
-    std::string *databasename;
+    Tizen::Base::String *databasename;
+    Tizen::Io::Database::Database db;
 
 public:
-    DatabaseSqlite(const std::string& filename);
+    DatabaseSqlite(Tizen::Base::String& filename);
     ~DatabaseSqlite();
-    void set_databasename(const std::string& filename);
-    std::string& get_databasename();
+    void set_databasename(Tizen::Base::String& filename);
+    Tizen::Base::String& get_databasename();
     bool open_database();
-    listdata* create_countries_list();
+    Tizen::Base::Collection::HashMap* create_countries_list();
     listdata* create_region_list(int country_id);
     listdata* create_region_list_by_name(const std::string& country_name);
     listdata* create_stations_list(int region_id);

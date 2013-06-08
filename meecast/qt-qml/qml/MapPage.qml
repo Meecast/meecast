@@ -41,8 +41,8 @@ Page {
         property int round_robin_count: 0
 
         Image {
-            id: mapimage
-            source: /opt/com.meecast.omweather/share/images/background.png 
+            id: basemapimage
+            source: "/opt/com.meecast.omweather/share/images/background.png"
             opacity: 1
             // For Full Screen
             transform: Rotation { origin.x: 240; origin.y: 240; angle: 90}

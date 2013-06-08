@@ -10,8 +10,8 @@ import os
 import re
 import string
 import zipfile
-country = "Afghanistan"
-country_code = "AF"
+country = "South Korea"
+country_code = "KR"
                 
 
 def normalizing4 (source):
@@ -31,7 +31,7 @@ def normalizing3 (source):
 
 
 
-
+#timezoneurl=" http://api.geonames.org/timezone?lat=47.01&lng=10.2&username=demo"
 
 baseurl = "http://download.geonames.org/export/dump/"
 openweathrmapurl = "http://api.openweathermap.org/data/2.5/weather?id=" 

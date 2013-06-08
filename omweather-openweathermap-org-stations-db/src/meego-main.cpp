@@ -58,6 +58,12 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                 pressure[10],
                 humidity[10];
 
+    time_t      current_time;
+    int         localtimezone;
+    struct      tm time_tm1;
+    struct      tm time_tm2;
+
+
     if(!doc)
         return -1;
 
@@ -82,8 +88,8 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                                 snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
                                                     xmlGetProp(cur_node, (const xmlChar*)"day"));
                                 strptime(temp_buffer, "%Y-%m-%d", &tmp_tm);
-                                utc_time_start = mktime(&tmp_tm);
-                                utc_time_end = mktime(&tmp_tm) + 24*3600;
+                                utc_time_start = mktime(&tmp_tm)  + localtimezone*3600;
+                                utc_time_end = mktime(&tmp_tm) + 24*3600  + localtimezone*3600;
                                 /* clear variables */
                                 temp_hi = INT_MAX; temp_low = INT_MAX; 
                                 memset(short_text, 0, sizeof(short_text));
@@ -218,6 +224,12 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
                 pressure[10],
                 humidity[10];
 
+    time_t      current_time;
+    int         localtimezone;
+    struct      tm time_tm1;
+    struct      tm time_tm2;
+
+
     if(!doc)
         return -1;
 
@@ -237,6 +249,12 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
     memset(pressure, 0, sizeof(pressure));
     memset(humidity, 0, sizeof(humidity));
 
+    /* Set localtimezone */
+    current_time = time(NULL);
+    gmtime_r(&current_time, &time_tm1);
+    localtime_r(&current_time, &time_tm2);
+    localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
+   
     for(child_node = root_node->children; child_node; child_node = child_node->next){
        if (child_node->type == XML_ELEMENT_NODE ){
 
@@ -248,12 +266,12 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
                             snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
                                        xmlGetProp(child_node2, (const xmlChar*)"rise"));
                             strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
-                            utc_time_sunrise = mktime(&tmp_tm);
+                            utc_time_sunrise = mktime(&tmp_tm) + localtimezone*3600;
                             memset(temp_buffer, 0, sizeof(buffer));
                             snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
                                        xmlGetProp(child_node2, (const xmlChar*)"set"));
                             strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
-                            utc_time_sunset = mktime(&tmp_tm);
+                            utc_time_sunset = mktime(&tmp_tm) + localtimezone*3600;
                        }
                    }
                }   
@@ -266,8 +284,8 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
                                        xmlGetProp(child_node, (const xmlChar*)"value"));
                    strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
                    fprintf(stderr, "Current time buffer %s\n", temp_buffer);
-                   utc_time_start = mktime(&tmp_tm);
-                   utc_time_end = mktime(&tmp_tm) + 4*3600;
+                   utc_time_start = mktime(&tmp_tm) + localtimezone*3600;
+                   utc_time_end = mktime(&tmp_tm) + localtimezone*3600 + 4*3600;
                }
            }
 
@@ -317,9 +335,9 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
                if (xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer))
                    snprintf(icon, sizeof(icon)-1, "%s",
                          (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));
-               if (xmlGetProp(child_node, (const xmlChar*)"name"))
+               if (xmlGetProp(child_node, (const xmlChar*)"value"))
                    snprintf(short_text, sizeof(short_text)-1, "%s",
-                       xmlGetProp(child_node, (const xmlChar*)"name"));
+                       xmlGetProp(child_node, (const xmlChar*)"value"));
            }
        }
     }

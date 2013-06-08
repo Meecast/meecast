@@ -247,12 +247,12 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
                             memset(temp_buffer, 0, sizeof(buffer));
                             snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
                                        xmlGetProp(child_node2, (const xmlChar*)"rise"));
-                            strptime(temp_buffer, "%Y-%m-%dTT%H:%M:%S", &tmp_tm);
+                            strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
                             utc_time_sunrise = mktime(&tmp_tm);
                             memset(temp_buffer, 0, sizeof(buffer));
                             snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
                                        xmlGetProp(child_node2, (const xmlChar*)"set"));
-                            strptime(temp_buffer, "%Y-%m-%dTT%H:%M:%S", &tmp_tm);
+                            strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
                             utc_time_sunset = mktime(&tmp_tm);
                        }
                    }
@@ -264,7 +264,8 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
                    memset(temp_buffer, 0, sizeof(buffer));
                    snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
                                        xmlGetProp(child_node, (const xmlChar*)"value"));
-                   strptime(temp_buffer, "%Y-%m-%dTT%H:%M:%S", &tmp_tm);
+                   strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
+                   fprintf(stderr, "Current time buffer %s\n", temp_buffer);
                    utc_time_start = mktime(&tmp_tm);
                    utc_time_end = mktime(&tmp_tm) + 4*3600;
                }

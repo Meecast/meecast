@@ -29,6 +29,8 @@ using namespace Tizen::App;
 using namespace Tizen::Ui;
 using namespace Tizen::Ui::Controls;
 using namespace Tizen::Ui::Scenes;
+using namespace Tizen::System;
+using namespace Tizen::Io;
 
 static const int LIST_HEIGHT = 112;
 static const int BUTTON_HEIGHT = 74;
@@ -40,6 +42,9 @@ meecastSourcesForm::meecastSourcesForm(void)
 
 meecastSourcesForm::~meecastSourcesForm(void)
 {
+	if (__fileList.GetCount() > 0){
+		__fileList.RemoveAll(true);
+	}
 }
 
 bool
@@ -71,6 +76,8 @@ meecastSourcesForm::OnInitializing(void)
 
     // Adds the list view to the form
     AddControl(*__pListView);
+	r = GetFilesList();
+	TryReturn(r == E_SUCCESS, r, "Could not get sources files present in socrces directory");
 
     // Get a button via resource ID
 //    Tizen::Ui::Controls::Button *pButtonOk = static_cast<Button*>(GetControl(L"IDC_BUTTON_OK"));
@@ -148,7 +155,7 @@ meecastSourcesForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& current
 int
 meecastSourcesForm::GetItemCount(void)
 {
-    return 1;
+    return __fileList.GetCount();
 }
 
 bool
@@ -162,22 +169,15 @@ meecastSourcesForm::DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pIt
 Tizen::Ui::Controls::ListItemBase*
 meecastSourcesForm::CreateItem (int index, int itemWidth)
 {
-	SimpleItem* pItem = new SimpleItem();
-	AppAssert(pItem);
+    CustomItem* pItem = new (std::nothrow) CustomItem();
+    TryReturn(pItem != null, null, "Out of memory");
 
+    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_NORMAL);
 
-//	CalTodo* pTodo = null;
+    String* pStr = dynamic_cast< String* >(__fileList.GetAt(index));
+    pItem->AddElement(Tizen::Graphics::Rectangle(26, 32, 600, 50), 0, *pStr, false);
+    return pItem;
 
-	pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_NORMAL);
-//	pTodo = static_cast<CalTodo*>(__pTodosList->GetAt(index));
-
-	String listItemString;
-	String subject = "OpenWetherMap.org";
-
-	listItemString.Append(subject);
-	pItem->SetElement(listItemString);
-
-	return pItem;
 }
 
 void
@@ -192,7 +192,8 @@ meecastSourcesForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& li
         Tizen::Base::Collection::ArrayList* pList = new Tizen::Base::Collection::ArrayList();
         AppAssert(pList);
         pList->Construct();
-        pList->Add(*(new String("ttttt")));
+        String* pStr = dynamic_cast< String* >(__fileList.GetAt(index));
+        pList->Add(*(new String(*pStr)));
 
         /* Select 'Source location' */
         if (index == 0){
@@ -231,4 +232,57 @@ meecastSourcesForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int old
 {
 }
 
+result
+meecastSourcesForm::GetFilesList(void)
+{
+	Directory* pDir = null;
+	DirEnumerator* pDirEnum = null;
+	StringComparer strComparer;
+	result r = E_SUCCESS;
+
+	__fileList.Construct();
+
+	pDir = new (std::nothrow) Directory();
+
+	r = pDir->Construct(App::GetInstance()->GetAppDataPath() + "/sources");
+
+	TryCatch(r == E_SUCCESS, delete pDir ,"[%s] Failed to construct directory %S", GetErrorMessage(r), ((App::GetInstance()->GetAppDataPath() + "/sources").GetPointer()));
+
+	pDirEnum = pDir->ReadN();
+
+	TryCatch(pDirEnum != null, delete pDir ,"[%s] Failed to read entries from directory %S", GetErrorMessage(GetLastResult()), (App::GetInstance()->GetAppDataPath() + "/sources").GetPointer());
+
+	while (pDirEnum->MoveNext() == E_SUCCESS)
+	{
+		DirEntry dirEntry = pDirEnum->GetCurrentDirEntry();
+		if ((dirEntry.IsDirectory() == false) && (dirEntry.IsHidden() == false))
+		{
+			String* fullFileName = new (std::nothrow) String;
+			//fullFileName->Append(__appRootPath + __dirName);
+			//fullFileName->Append('/');
+			String fileName(dirEntry.GetName());
+            fileName.Remove(fileName.GetLength()-4, 4);
+			fullFileName->Append(fileName);
+            /* TODO load data from xml */
+			__fileList.Add(fullFileName);
+		}
+	}
+
+//	__fileList.Sort(strComparer);
+
+	delete pDir;
+	delete pDirEnum;
+
+	if (__fileList.GetCount() >= 0)
+	{
+		return E_SUCCESS;
+	}
+	else
+	{
+		return E_FAILURE;
+	}
+CATCH:
+	return r;
+
+}
 

@@ -67,7 +67,6 @@ meecastCountriesForm::OnInitializing(void)
     SetFormBackEventListener(this);
 
 
-
     // Creates an instance of ListView
     __pListView = new ListView();
     __pListView->Construct(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, GetClientAreaBounds().height), true, false);
@@ -140,12 +139,12 @@ meecastCountriesForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previo
     AppLog("OnSceneActivatedN ManageLocations");
     if (pArgs != null) {
         __SourceId = *(dynamic_cast<String*> (pArgs->GetAt(0)));
-        AppLog("SourceID");
         pArgs->RemoveAll(true);
         delete pArgs;
         __dbPath.Append(App::GetInstance()->GetAppDataPath());
-        __dbPath.Append("db/openweathermap.org.db");
-
+        __dbPath.Append("db/");
+        __dbPath.Append(__SourceId);
+        __dbPath.Append(".db");
         LoadList();
     }
 
@@ -169,10 +168,7 @@ meecastCountriesForm::GetItemCount(void)
 
     IList* pList = __map->GetKeysN();
     AppAssert(pList);
-
     itemCount = pList->GetCount();
-
-    AppLog("meecastCountriesForm::GetItemCount %d", itemCount);
     delete pList;
     return itemCount;
 }

@@ -182,6 +182,17 @@ DataModel::update_model(int period)
         mapfilename += "_map_";
         mapfilename += "%s.png";
     }
+    std::string basemapfilename(Core::AbstractConfig::getCachePath());
+    if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0 &&
+        _config->stationsList().at(_config->current_station_id())){
+
+        basemapfilename += _config->stationsList().at(_config->current_station_id())->sourceName().c_str();
+        basemapfilename += "_";
+        basemapfilename += _config->stationsList().at(_config->current_station_id())->id().c_str();
+        basemapfilename += "_basemap_";
+        basemapfilename += "%s.png";
+    }
+
     if (dp)
         temp_data = dp->data().GetDataForTime(time(NULL));
 //    if (temp_data)
@@ -209,6 +220,7 @@ DataModel::update_model(int period)
                 forecast_data->visibleunit = _config->VisibleUnit().c_str();
                 /* Add Map */
                 forecast_data->MapPattern(mapfilename);
+                forecast_data->MapBackgroundPattern(basemapfilename);
 
                 /* Add to list */
                 this->appendRow(forecast_data);
@@ -261,6 +273,7 @@ DataModel::update_model(int period)
                 forecast_data->visibleunit = _config->VisibleUnit().c_str();
                 /* Add Map */
                 forecast_data->MapPattern(mapfilename);
+                forecast_data->MapBackgroundPattern(basemapfilename);
 
                 this->appendRow(forecast_data);
             }
@@ -284,8 +297,10 @@ DataModel::update_model(int period)
                     forecast_data->pressureunit = _config->PressureUnit().c_str();
                     forecast_data->visibleunit = _config->VisibleUnit().c_str();
                     /* Add Map */
-                    if (i == 0)
+                    if (i == 0){
                         forecast_data->MapPattern(mapfilename);
+                        forecast_data->MapBackgroundPattern(basemapfilename);
+                    }
 
                     this->appendRow(forecast_data);
                 }
@@ -311,8 +326,10 @@ DataModel::update_model(int period)
                     forecast_data->pressureunit = _config->PressureUnit().c_str();
                     forecast_data->visibleunit = _config->VisibleUnit().c_str();
                     /* Add Map */
-                    if (i == 0)
+                    if (i == 0){
                         forecast_data->MapPattern(mapfilename);
+                        forecast_data->MapBackgroundPattern(basemapfilename);
+                    }
 
                     this->appendRow(forecast_data);
                 }

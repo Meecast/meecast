@@ -315,32 +315,56 @@ DatabaseSqlite::create_region_list(int country_id)
     return list;
 }
 
-listdata*
-DatabaseSqlite::create_stations_list_by_name(const std::string& country_name, const std::string& region_name)
+Tizen::Base::Collection::HashMap* 
+DatabaseSqlite::create_stations_list_by_name(Tizen::Base::String& country_name, Tizen::Base::String&  region_name)
 {
-    listdata *list = NULL;
     int rc;
     char *errMsg = NULL;
-    char **result;
     int nrow, ncol;
-    //std::string sql;
-    char sql[1024];
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    list = new listdata;
 /*
     if(!db || country_name =="" || region_name == "")
         return list;    // database doesn't open 
 */
 
+    Tizen::Base::Collection::HashMap *map; 
+    String sql;
+    DbEnumerator* pEnum;
+    result r = E_SUCCESS;
+
+
+    map = new Tizen::Base::Collection::HashMap;
+
+    map->Construct();
+
+    sql.Append(L"select code, name from nstations where region_id = (select id from regions where name = '");
+    sql.Append(region_name);
+    sql.Append("' and country_id = (select id from countries where name= '");
+    sql.Append(country_name);
+    sql.Append("')) order by name");
+
+    pEnum = db.QueryN(sql);
+
+    String strWord;
+    int nIndx = 0;
+    while (pEnum->MoveNext() == E_SUCCESS){
+        if (pEnum->GetStringAt(1, strWord) != E_SUCCESS){
+            break;
+        }
+        map->Add(*(new (std::nothrow) Integer(nIndx++)), *(new (std::nothrow) String(strWord)));
+    }
+    if (pEnum != null){
+        delete pEnum;
+    }
+
+
+    return map;
+    /*
     snprintf(sql, sizeof(sql) - 1,
             "select code, name from stations where region_id = \
             (select id from regions where name = '%s' and country_id = \
             (select id from countries where name= '%s')) order by name",
             region_name.c_str(), country_name.c_str());
     std::cerr << sql << std::endl;
-    /*
     rc = sqlite3_get_table(db,
                            sql,
                            &result,
@@ -363,7 +387,6 @@ DatabaseSqlite::create_stations_list_by_name(const std::string& country_name, co
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
-    return list;
 }
 
 std::string&

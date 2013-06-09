@@ -44,6 +44,8 @@ namespace Core {
 DatabaseSqlite::DatabaseSqlite(Tizen::Base::String& filename)
 {
     //db = NULL;
+
+    AppLog(" Create database");
     databasename = new Tizen::Base::String;
     databasename->Append(filename);
 }
@@ -63,6 +65,7 @@ DatabaseSqlite::set_databasename(Tizen::Base::String& filename)
 Tizen::Base::String&
 DatabaseSqlite::get_databasename()
 {
+    AppLog("get_databasename %S", databasename->GetPointer() );
     return *databasename;
 }
 
@@ -177,26 +180,57 @@ DatabaseSqlite::create_countries_list()
     */
 }
 
-listdata*
-DatabaseSqlite::create_region_list_by_name(const std::string& country_name)
+Tizen::Base::Collection::HashMap* 
+DatabaseSqlite::create_region_list_by_name(Tizen::Base::String& country_name)
 {
     listdata *list = NULL;
     int rc;
     char *errMsg = NULL;
-    char **result;
     int nrow, ncol;
     //std::string sql;
-    char sql[256];
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    list = new listdata;
+
+    Tizen::Base::Collection::HashMap *map; 
+    String sql;
+    DbEnumerator* pEnum;
+    result r = E_SUCCESS;
+
+
+
+    AppLog("Country name %S", country_name.GetPointer() );
+
+    map = new Tizen::Base::Collection::HashMap;
+
+    map->Construct();
+
+
+    sql.Append(L"select id, name from regions where country_id = (select id from countries where name='");
+    sql.Append(country_name);
+    sql.Append("') order by name");
+    pEnum = db.QueryN(sql);
+
+    String strWord;
+    int nIndx = 0;
+    while (pEnum->MoveNext() == E_SUCCESS){
+        if (pEnum->GetStringAt(1, strWord) != E_SUCCESS){
+            break;
+        }
+        map->Add(*(new (std::nothrow) Integer(nIndx++)), *(new (std::nothrow) String(strWord)));
+    }
+    if (pEnum != null){
+        delete pEnum;
+    }
+
+
+    return map;
+
+//    list = new listdata;
     /*
     if(!db){
         return NULL;
     }
 */
-    if (country_name =="") return list;
+//    if (country_name =="") return list;
+
 /*
     snprintf(sql,
                 sizeof(sql) - 1,
@@ -221,10 +255,6 @@ DatabaseSqlite::create_region_list_by_name(const std::string& country_name)
 
     sqlite3_free_table(result);
 */
-#ifdef DEBUGFUNCTIONCALL
-    END_FUNCTION;
-#endif
-    return list;
 }
 
 listdata*

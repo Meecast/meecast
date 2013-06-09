@@ -79,23 +79,6 @@ meecastSourcesForm::OnInitializing(void)
 	r = GetFilesList();
 	TryReturn(r == E_SUCCESS, r, "Could not get sources files present in socrces directory");
 
-    // Get a button via resource ID
-//    Tizen::Ui::Controls::Button *pButtonOk = static_cast<Button*>(GetControl(L"IDC_BUTTON_OK"));
-//    if (pButtonOk != null)
-//    {
-//        pButtonOk->SetActionId(ID_BUTTON_OK);
-//        pButtonOk->AddActionEventListener(*this);
-//    }
-    /* Footer */
-  //  Footer* pFooter = GetFooter();
-  //  pFooter->SetStyle(FOOTER_STYLE_BUTTON_ICON_TEXT);
-
-  //  FooterItem menuButton;
-   // menuButton.Construct(ID_BUTTON_MENU);
-  //  menuButton.SetText("Menu");
-  //  pFooter->AddItem(menuButton);
-  //  pFooter->AddActionEventListener(*this);
-
     return r;
 }
 

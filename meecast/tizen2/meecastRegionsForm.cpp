@@ -23,7 +23,7 @@
 /*******************************************************************************/
 #include <FApp.h>
 #include <FIo.h>
-#include "meecastCountriesForm.h"
+#include "meecastRegionsForm.h"
 
 using namespace Tizen::Base;
 using namespace Tizen::App;
@@ -37,26 +37,25 @@ using namespace Tizen::Io;
 static const int LIST_HEIGHT = 112;
 static const int BUTTON_HEIGHT = 74;
 
-meecastCountriesForm::meecastCountriesForm(void)
+meecastRegionsForm::meecastRegionsForm(void)
                     : __pListView(null)
 {
 }
 
-meecastCountriesForm::~meecastCountriesForm(void)
+meecastRegionsForm::~meecastRegionsForm(void)
 {
-    AppLog(" delete meecastCountriesForm");
     __map->RemoveAll(true);
 }
 
 bool
-meecastCountriesForm::Initialize(void)
+meecastRegionsForm::Initialize(void)
 {
     Construct(L"COUNTRIES_FORM");
     return true;
 }
 
 result
-meecastCountriesForm::OnInitializing(void)
+meecastRegionsForm::OnInitializing(void)
 {
     result r = E_SUCCESS;
 
@@ -77,11 +76,28 @@ meecastCountriesForm::OnInitializing(void)
     // Adds the list view to the form
     AddControl(*__pListView);
 
+    // Get a button via resource ID
+//    Tizen::Ui::Controls::Button *pButtonOk = static_cast<Button*>(GetControl(L"IDC_BUTTON_OK"));
+//    if (pButtonOk != null)
+//    {
+//        pButtonOk->SetActionId(ID_BUTTON_OK);
+//        pButtonOk->AddActionEventListener(*this);
+//    }
+    /* Footer */
+  //  Footer* pFooter = GetFooter();
+  //  pFooter->SetStyle(FOOTER_STYLE_BUTTON_ICON_TEXT);
+
+  //  FooterItem menuButton;
+   // menuButton.Construct(ID_BUTTON_MENU);
+  //  menuButton.SetText("Menu");
+  //  pFooter->AddItem(menuButton);
+  //  pFooter->AddActionEventListener(*this);
+
     return r;
 }
 
 result
-meecastCountriesForm::OnTerminating(void)
+meecastRegionsForm::OnTerminating(void)
 {
     result r = E_SUCCESS;
 
@@ -91,7 +107,7 @@ meecastCountriesForm::OnTerminating(void)
 }
 
 void
-meecastCountriesForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionId)
+meecastRegionsForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionId)
 {
     SceneManager* pSceneManager = SceneManager::GetInstance();
     AppAssert(pSceneManager);
@@ -105,7 +121,7 @@ meecastCountriesForm::OnActionPerformed(const Tizen::Ui::Control& source, int ac
 }
 
 void
-meecastCountriesForm::OnFormBackRequested(Tizen::Ui::Controls::Form& source)
+meecastRegionsForm::OnFormBackRequested(Tizen::Ui::Controls::Form& source)
 {
 	SceneManager* pSceneManager = SceneManager::GetInstance();
 	AppAssert(pSceneManager);
@@ -115,29 +131,24 @@ meecastCountriesForm::OnFormBackRequested(Tizen::Ui::Controls::Form& source)
 }
 
 void
-meecastCountriesForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
+meecastRegionsForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
                                           const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs)
 {
-    // TODO:
-    // Add your scene activate code here
-    AppLog("OnSceneActivatedN ManageLocations");
+    AppLog("OnSceneActivatedN Regions");
     if (pArgs != null) {
-        __SourceId = *(dynamic_cast<String*> (pArgs->GetAt(0)));
-        pArgs->RemoveAll(true);
+        __db = static_cast < Core::DatabaseSqlite* > (pArgs->GetAt(0));
+        __SourceId = *(dynamic_cast<String*> (pArgs->GetAt(1)));
+        __CountryName = *(dynamic_cast<String*> (pArgs->GetAt(2)));
+        pArgs->RemoveAt(2);
+        pArgs->RemoveAt(1);
+        AppLog("SOurceID %S", __SourceId.GetPointer());
         delete pArgs;
-        __dbPath.Append(App::GetInstance()->GetAppDataPath());
-        __dbPath.Append("db/");
-        __dbPath.Append(__SourceId);
-        __dbPath.Append(".db");
         LoadList();
     }
-
-
-
 }
 
 void
-meecastCountriesForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSceneId,
+meecastRegionsForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSceneId,
                                            const Tizen::Ui::Scenes::SceneId& nextSceneId)
 {
     // TODO:
@@ -146,7 +157,7 @@ meecastCountriesForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& curre
 }
 
 int
-meecastCountriesForm::GetItemCount(void)
+meecastRegionsForm::GetItemCount(void)
 {
     int itemCount = 0;
 
@@ -158,7 +169,7 @@ meecastCountriesForm::GetItemCount(void)
 }
 
 bool
-meecastCountriesForm::DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth)
+meecastRegionsForm::DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth)
 {
 	delete pItem;
 	return true;
@@ -166,7 +177,7 @@ meecastCountriesForm::DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* p
 
 
 Tizen::Ui::Controls::ListItemBase*
-meecastCountriesForm::CreateItem (int index, int itemWidth)
+meecastRegionsForm::CreateItem (int index, int itemWidth)
 {
     CustomItem* pItem = new (std::nothrow) CustomItem();
     TryReturn(pItem != null, null, "Out of memory");
@@ -179,74 +190,36 @@ meecastCountriesForm::CreateItem (int index, int itemWidth)
 }
 
 void
-meecastCountriesForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
+meecastRegionsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
 {
 	if (status == LIST_ITEM_STATUS_SELECTED)
 	{
-        SceneManager* pSceneManager = SceneManager::GetInstance();
-        AppAssert(pSceneManager);
-
-        Tizen::Base::Collection::ArrayList* pList = new Tizen::Base::Collection::ArrayList();
-        AppAssert(pList);
-        pList->Construct();
-        pList->Add(*__db);
-
-        String* tempS = new String("");
-        tempS->Append(__SourceId);
-        String* pStr0 = dynamic_cast< String* >(tempS);
-        pList->Add(*(new String(*pStr0)));
-        delete tempS;
-
-        String* pStr = dynamic_cast< String* >(__map->GetValue(Integer(index)));
-        pList->Add(*(new String(*pStr)));
-        
-        pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_REGIONSSCENE"), pList);
 	    AppLog("LIST_ITEM_STATUS_SELECTED ");
-	}
+        if (index == 0)
+	        AppLog("i111LIST_ITEM_STATUS_SELECTED ");
+
+   	}
 }
 void
-meecastCountriesForm::OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction)
+meecastRegionsForm::OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction)
 {
 }
 
 void
-meecastCountriesForm::OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state)
+meecastRegionsForm::OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state)
 {
 }
 
 void
-meecastCountriesForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex)
+meecastRegionsForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex)
 {
 }
 
 bool
-meecastCountriesForm::LoadList(void){
-
-    Database database;
-    DbEnumerator* pEnum;
-
-    String sql;
-    String statement;
-    String stringItem;
-
-    AppLog("meecastCountriesForm::LoadList");
-
-    if (Database::Exists(__dbPath) == true){
-        AppLog("LoadList DB success");
-    }else{
-        AppLog("LoadList DB not success");
-        return false;
-    }
-
-    __db = new Core::DatabaseSqlite(__dbPath);
-    if (__db->open_database() == true){
-        AppLog("Open DB success");
-        __map = __db->create_countries_list();
-        return true;
-    }else{
-        AppLog("Open DB not success");
-        return false;
-    }
+meecastRegionsForm::LoadList(void){
+    AppLog("Open DB success");
+     __map = __db->create_region_list_by_name(__CountryName);
+    return true;
 }
 
 

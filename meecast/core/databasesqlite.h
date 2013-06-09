@@ -48,7 +48,7 @@ namespace Core{
 
 //typedef std::vector< std::pair<std::string, std::string> > listdata;
 
-class DatabaseSqlite : public DatabaseAbstract
+class DatabaseSqlite : public DatabaseAbstract, public Tizen::Base::Object
 {
 private:
 //    sqlite3 *db;
@@ -63,7 +63,7 @@ public:
     bool open_database();
     Tizen::Base::Collection::HashMap* create_countries_list();
     listdata* create_region_list(int country_id);
-    listdata* create_region_list_by_name(const std::string& country_name);
+    Tizen::Base::Collection::HashMap*  create_region_list_by_name(Tizen::Base::String& country_name);
     listdata* create_stations_list(int region_id);
     listdata* create_stations_list_by_name(const std::string& country_name, const std::string& region_name);
     std::string& get_station_code_by_name(const std::string& country_name, const std::string& region_name, const std::string& station_name);

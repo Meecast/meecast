@@ -4,6 +4,7 @@
 #include "meecastManageLocationsForm.h"
 #include "meecastSourcesForm.h"
 #include "meecastCountriesForm.h"
+#include "meecastRegionsForm.h"
 
 using namespace Tizen::Ui::Scenes;
 
@@ -48,7 +49,13 @@ meecastFormFactory::CreateFormN(const Tizen::Base::String& formId, const Tizen::
 		pForm->Initialize();
 		pSceneManager->AddSceneEventListener(sceneId, *pForm);
 		pNewForm = pForm;
+	}else if (formId == L"REGIONS_FORM"){
+		meecastRegionsForm* pForm = new (std::nothrow) meecastRegionsForm();
+		pForm->Initialize();
+		pSceneManager->AddSceneEventListener(sceneId, *pForm);
+		pNewForm = pForm;
 	}
+
 
 	// TODO:
 	// Add your form creation code here

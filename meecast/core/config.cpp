@@ -613,7 +613,7 @@ Config::LoadConfig(){
        if (!root)
            return;
         AppLogDebug("Load for config ");
-        std::string source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, mapURL, cookie ;
+        std::string source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, mapURL, basemapURL, cookie ;
         double latitude, longitude;
        for(xmlNodePtr p = root->children; p; p = p->next) {
             if (p->type != XML_ELEMENT_NODE)
@@ -656,7 +656,8 @@ Config::LoadConfig(){
                         cookie = std::string((char *)xmlNodeGetContent(p1)); 
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"map_url"))
                         mapURL = std::string((char *)xmlNodeGetContent(p1)); 
-
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"basemap_url"))
+                        basemapURL = std::string((char *)xmlNodeGetContent(p1)); 
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"detail_url"))
                         detailURL = std::string((char *)xmlNodeGetContent(p1)); 
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"view_url"))
@@ -692,6 +693,7 @@ Config::LoadConfig(){
 				                      detailURL,
                                       viewURL,
                                       mapURL,
+                                      basemapURL,
                                       cookie,
                                       gps,
                                       latitude,

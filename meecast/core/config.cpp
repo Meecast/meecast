@@ -244,6 +244,7 @@ Config::saveConfig()
 
         el = doc.createElement("map_url");
         /* Temporary hack for weather.com . This must be delete after version 0.7.0 */
+        /*
         if ( QString::fromStdString((*i)->mapURL()) == "" 
             && QString::fromStdString((*i)->sourceName()) == "weather.com"){
 
@@ -263,12 +264,22 @@ Config::saveConfig()
             t = doc.createTextNode(QString::fromStdString(map_url));
             el.appendChild(t);
             st.appendChild(el);
-        }else{
+        }else
+        */
+        {
             if (QString::fromStdString((*i)->mapURL()) != ""){
                 t = doc.createTextNode(QString::fromStdString((*i)->mapURL()));
                 el.appendChild(t);
                 st.appendChild(el);
             }
+        
+        }
+
+        el = doc.createElement("basemap_url");
+        if (QString::fromStdString((*i)->basemapURL()) != ""){
+            t = doc.createTextNode(QString::fromStdString((*i)->basemapURL()));
+            el.appendChild(t);
+            st.appendChild(el);
         }
 
         el = doc.createElement("detail_url");
@@ -521,7 +532,7 @@ Config::LoadConfig(){
 
         nodelist = root.elementsByTagName("station");
         for (int i=0; i<nodelist.count(); i++){
-            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, mapURL, cookie, latitude, longitude;
+            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, basemapURL,  mapURL, cookie, latitude, longitude;
             bool gps = false;
             bool splash = true;
             QDomElement e = nodelist.at(i).toElement();
@@ -552,6 +563,8 @@ Config::LoadConfig(){
                     viewURL = el.text();
                 else if (tag == "map_url")
                     mapURL = el.text();
+                else if (tag == "basemap_url")
+                    basemapURL = el.text();
                 else if (tag == "longitude")
                     longitude = el.text();
                 else if (tag == "latitude")
@@ -580,6 +593,7 @@ Config::LoadConfig(){
 				                      detailURL.toStdString(),
                                       viewURL.toStdString(),
                                       mapURL.toStdString(),
+                                      basemapURL.toStdString(),
                                       cookie.toStdString(),
                                       gps, 
                                       latitude.toDouble(),

@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -40,7 +40,14 @@ class StationsList;
 #include "parser.h"
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
-    class Source : public Parser {
+
+     class Source : public Parser {
+        enum Type_Of_Maps{
+            GPS1_TYPE = 1,
+            GPS2_TYPE = 2
+        };
+
+
         #ifdef LIBXML
         void processNode(const xmlpp::Node* node);
         #endif
@@ -52,7 +59,9 @@ namespace Core {
         std::string *_url_detail_template;
         std::string *_url_for_view;
         std::string *_url_for_map;
+        std::string *_url_for_basemap;
         std::string *_cookie;
+        int  _map_type; 
         void *_libraryHandler;
         bool _hasForecast;
         bool _hasDetail;
@@ -78,6 +87,8 @@ namespace Core {
             std::string& url_detail_template() const;
             std::string& url_for_view() const;
             std::string& url_for_map() const;
+            std::string& url_for_basemap() const;
+            int map_type() const;
             std::string& binary() const;
             virtual ~Source();
             StationsList& search(const std::string& station);

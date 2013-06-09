@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -42,12 +42,14 @@ namespace Core {
         _url_detail_template = new std::string;
         _url_for_view = new std::string;
         _url_for_map = new std::string;
+        _url_for_basemap = new std::string;
         _cookie = new std::string;
         _hasForecast = false;
         _hasDetail = false;
         _hasSearch = false;
 
         _libraryHandler = 0;
+        _map_type = 0;
         _sourceInit = 0;
         _sourceDestroy = 0;
         _sourceSearch = 0;
@@ -112,6 +114,56 @@ namespace Core {
                 if (!xmlStrcmp(p->name, (const xmlChar*)"name")){
                     _name->assign((char *)xmlNodeGetContent(p));
                     continue;
+            if(1){
+                #ifdef LIBXML
+                //Walk the tree:
+                const xmlpp::Node* pNode = parser->get_document()->get_root_node(); //deleted by DomParser.
+                processNode(pNode);
+                #else //LIBXML
+
+                QDomElement root = _doc.documentElement();
+                QDomNode n = root.firstChild();
+                while (!n.isNull()){
+                    QDomElement el = n.toElement();
+                    QString tag = el.tagName();
+
+                    if (tag == "name"){
+                        _name->assign(el.text().toStdString());
+                    }else if (tag == "logo"){
+                        _logo->assign(el.text().toStdString());
+                    }else if (tag == "search"){
+                        _hasSearch = (el.text() == "true") ? true : false;
+                    }else if (tag == "library"){
+                        _library->assign(el.text().toStdString());
+                    }else if (tag == "binary"){
+                        _binary->assign(el.text().toStdString());
+                    }else if (tag == "forecast"){
+                        if (el.hasAttribute("url"))
+                            _url_template->assign(el.attribute("url").toStdString());
+                    }else if (tag == "detail"){
+                        if (el.hasAttribute("url")){
+                            _hasDetail = (el.text() == "true") ? true : false;
+                            _url_detail_template->assign(el.attribute("url").toStdString());
+                        }
+                    }else if (tag =="showurl"){
+                        if (el.hasAttribute("url"))
+                            _url_for_view->assign(el.attribute("url").toStdString());
+                    }else if (tag =="mapurl"){
+                        if (el.hasAttribute("url"))
+                            _url_for_map->assign(el.attribute("url").toStdString());
+                        if (el.hasAttribute("baseurl"))
+                            _url_for_basemap->assign(el.attribute("baseurl").toStdString());
+                        if (el.hasAttribute("type")){
+                            if (el.attribute("type").toStdString() == "GPSBOX")
+                                _map_type = GPS2_TYPE;
+                            if (el.attribute("type").toStdString() == "GPS")
+                                _map_type = GPS1_TYPE;
+                        }
+
+                    }else if (tag =="cookie"){
+                        _cookie->assign(el.text().toStdString());
+                    }
+                    n = n.nextSibling();
                 }
                 if (!xmlStrcmp(p->name, (const xmlChar*)"logo")){
                     _logo->assign((char *)xmlNodeGetContent(p));
@@ -213,8 +265,9 @@ namespace Core {
         delete _url_detail_template;
         delete _url_for_view;
         delete _url_for_map;
-//        if(_libraryHandler)
-//            dlclose(_libraryHandler);
+        delete _url_for_basemap;
+        if(_libraryHandler)
+            dlclose(_libraryHandler);
     }
 ////////////////////////////////////////////////////////////////////////////////
     Source& Source::operator=(const Source& source){
@@ -235,6 +288,8 @@ namespace Core {
             _url_for_view = new std::string(*(source._url_for_view));
             delete _url_for_map;
             _url_for_map = new std::string(*(source._url_for_map));
+            delete _url_for_basemap;
+            _url_for_basemap = new std::string(*(source._url_for_basemap));
             delete _cookie;
             _cookie = new std::string(*(source._cookie));
 
@@ -334,6 +389,9 @@ namespace Core {
             const xmlpp::Attribute* attribute = nodeElement->get_attribute("url");
             if (attribute)
                 _url_for_map->assign(attribute->get_value().c_str());
+            const xmlpp::Attribute* attribute = nodeElement->get_attribute("baseurl");
+            if (attribute)
+                _url_for_basemap->assign(attribute->get_value().c_str());
             return;
         }
         // cookie tag
@@ -342,7 +400,6 @@ namespace Core {
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
             _cookie->assign(nodeText->get_content());
-
             return;
         }
 
@@ -376,6 +433,14 @@ namespace Core {
 /////////////////////////////////////////////////////////////////////////////////
     std::string& Source::url_for_map() const{
         return *_url_for_map;
+    }
+/////////////////////////////////////////////////////////////////////////////////
+    std::string& Source::url_for_basemap() const{
+        return *_url_for_basemap;
+    }
+/////////////////////////////////////////////////////////////////////////////////
+    int Source::map_type() const{
+        return _map_type;
     }
 /////////////////////////////////////////////////////////////////////////////////
     std::string& Source::cookie() const{

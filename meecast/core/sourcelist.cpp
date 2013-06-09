@@ -42,6 +42,7 @@ namespace Core {
                 if(name == "." || name == "..")
                     continue;
 //                if(dp->d_type == DT_REG || dp->d_type == DT_LNK){
+/*                std::cerr<<"Source "<< name<<std::endl; */
                     try{
                         std::string file = path + dp->d_name;
                         std::string schemafile = AbstractConfig::prefix;

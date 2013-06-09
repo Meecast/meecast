@@ -726,12 +726,16 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
 
     (void)source_id;
 
-    if (latitude == 0 && longitude == 0 && source == "weather.com"){
+    if (latitude == 0 && longitude == 0 && (source == "weather.com" || source == "openweathermap.org")){
         Core::DatabaseSqlite *db_w = new Core::DatabaseSqlite("");
         std::string path(Core::AbstractConfig::prefix);
         path += Core::AbstractConfig::sharePath;
         path += "db/";
-        QString filename = "weather.com";
+            QString filename;
+        if (source == "weather.com")
+            filename = "weather.com";
+        if (source == "openweathermap.org")
+            filename = "openweathermap.org";
         filename.append(".db");
         filename.prepend(path.c_str());
         db_w->set_databasename(filename.toStdString());

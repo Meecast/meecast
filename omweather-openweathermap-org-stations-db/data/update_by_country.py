@@ -10,8 +10,8 @@ import os
 import re
 import string
 import zipfile
-country = "China"
-country_code = "CN"
+country = "North Korea"
+country_code = "KP"
                 
 
 def normalizing4 (source):
@@ -21,7 +21,7 @@ def normalizing4 (source):
 
 def normalizing (source):
     result = source.replace("'","")
-    result = result.replace(" ","_")
+#    result = result.replace(" ","_")
     result = result.replace("%20","_")
     return result
 
@@ -31,7 +31,7 @@ def normalizing3 (source):
 
 
 
-
+#timezoneurl=" http://api.geonames.org/timezone?lat=47.01&lng=10.2&username=demo"
 
 baseurl = "http://download.geonames.org/export/dump/"
 openweathrmapurl = "http://api.openweathermap.org/data/2.5/weather?id=" 

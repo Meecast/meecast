@@ -41,6 +41,28 @@ Page {
         property int round_robin_count: 0
 
         Image {
+            id: basemapimage
+            source: "/opt/com.meecast.omweather/share/images/background.png"
+            opacity: 1
+            // For Full Screen
+            transform: Rotation { origin.x: 240; origin.y: 240; angle: 90}
+//            MouseArea {
+//                anchors.fill: parent
+//                onClicked: {
+//		             if (!map_timer.running){
+//                         map_timer.running = true;
+//                         map_timer.repeat = true;
+//			         }else{
+//                        map_timer.running = false;
+//                     }
+//                     console.log("Map onclicked");
+//                }
+//            }
+
+         }
+
+
+        Image {
             id: mapimage
             source: filename 
             opacity: 1

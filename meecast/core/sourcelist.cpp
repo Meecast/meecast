@@ -30,14 +30,18 @@
 
 
 #include "sourcelist.h"
+#include <FApp.h>
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     SourceList::SourceList(const std::string path){
         Dirent *dp = 0;
         DIR *dir_fd = opendir(path.c_str());
+        AppLog("Path %s", path.c_str());
         if(dir_fd){
+            AppLog("Sources List");
             while((dp = readdir(dir_fd))){
+            AppLog("Sources111 List");
                 std::string name = dp->d_name;
                 if(name == "." || name == "..")
                     continue;
@@ -45,6 +49,7 @@ namespace Core {
 /*                std::cerr<<"Source "<< name<<std::endl; */
                     try{
                         std::string file = path + dp->d_name;
+                        AppLog("Sources111 Listi %s", file.c_str());
                         std::string schemafile = AbstractConfig::prefix;
                         schemafile += AbstractConfig::schemaPath;
                         schemafile += "source.xsd";
@@ -62,7 +67,8 @@ namespace Core {
 //                }
             }
             closedir(dir_fd);
-        }
+        }else
+            AppLog("Not Sources List");
         _stations = new StationsList;
     }
 ////////////////////////////////////////////////////////////////////////////////

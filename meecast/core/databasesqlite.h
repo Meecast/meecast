@@ -66,13 +66,13 @@ public:
     Tizen::Base::Collection::HashMap*  create_region_list_by_name(Tizen::Base::String& country_name);
     listdata* create_stations_list(int region_id);
     Tizen::Base::Collection::HashMap* create_stations_list_by_name(Tizen::Base::String& country_name, Tizen::Base::String&  region_name);
-    std::string& get_station_code_by_name(const std::string& country_name, const std::string& region_name, const std::string& station_name);
+    Tizen::Base::String& get_station_code_by_name(Tizen::Base::String& country_name, Tizen::Base::String& region_name, Tizen::Base::String& station_name);
     void get_nearest_station(double lat, double lon,
                              std::string& country, std::string& region,
                              std::string& code, std::string& name,
                              double& latitude, double& longitude);
     static double calculate_distance(double lat1, double lon1, double lat2, double lon2);
-    void get_station_coordinate(std::string code, double& latitude, double& longitude);
+    void get_station_coordinate( Tizen::Base::String& code, double& latitude, double& longitude);
 };
 } // namespace Core
 

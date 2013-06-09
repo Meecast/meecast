@@ -125,7 +125,7 @@ meecastCountriesForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previo
         __SourceId = *(dynamic_cast<String*> (pArgs->GetAt(0)));
         pArgs->RemoveAll(true);
         delete pArgs;
-        __dbPath.Append(App::GetInstance()->GetAppDataPath());
+        __dbPath.Append(App::GetInstance()->GetAppResourcePath());
         __dbPath.Append("db/");
         __dbPath.Append(__SourceId);
         __dbPath.Append(".db");

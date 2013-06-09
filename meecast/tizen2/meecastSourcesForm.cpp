@@ -227,13 +227,13 @@ meecastSourcesForm::GetFilesList(void)
 
 	pDir = new (std::nothrow) Directory();
 
-	r = pDir->Construct(App::GetInstance()->GetAppDataPath() + "/sources");
+	r = pDir->Construct(App::GetInstance()->GetAppResourcePath() + "/sources");
 
-	TryCatch(r == E_SUCCESS, delete pDir ,"[%s] Failed to construct directory %S", GetErrorMessage(r), ((App::GetInstance()->GetAppDataPath() + "/sources").GetPointer()));
+	TryCatch(r == E_SUCCESS, delete pDir ,"[%s] Failed to construct directory %S", GetErrorMessage(r), ((App::GetInstance()->GetAppResourcePath() + "/sources").GetPointer()));
 
 	pDirEnum = pDir->ReadN();
 
-	TryCatch(pDirEnum != null, delete pDir ,"[%s] Failed to read entries from directory %S", GetErrorMessage(GetLastResult()), (App::GetInstance()->GetAppDataPath() + "/sources").GetPointer());
+	TryCatch(pDirEnum != null, delete pDir ,"[%s] Failed to read entries from directory %S", GetErrorMessage(GetLastResult()), (App::GetInstance()->GetAppResourcePath() + "/sources").GetPointer());
 
 	while (pDirEnum->MoveNext() == E_SUCCESS)
 	{

@@ -76,23 +76,6 @@ meecastStationsForm::OnInitializing(void)
     // Adds the list view to the form
     AddControl(*__pListView);
 
-    // Get a button via resource ID
-//    Tizen::Ui::Controls::Button *pButtonOk = static_cast<Button*>(GetControl(L"IDC_BUTTON_OK"));
-//    if (pButtonOk != null)
-//    {
-//        pButtonOk->SetActionId(ID_BUTTON_OK);
-//        pButtonOk->AddActionEventListener(*this);
-//    }
-    /* Footer */
-  //  Footer* pFooter = GetFooter();
-  //  pFooter->SetStyle(FOOTER_STYLE_BUTTON_ICON_TEXT);
-
-  //  FooterItem menuButton;
-   // menuButton.Construct(ID_BUTTON_MENU);
-  //  menuButton.SetText("Menu");
-  //  pFooter->AddItem(menuButton);
-  //  pFooter->AddActionEventListener(*this);
-
     return r;
 }
 
@@ -134,7 +117,7 @@ void
 meecastStationsForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
                                           const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs)
 {
-    AppLog("OnSceneActivatedN Regions");
+    AppLog("OnSceneActivatedN STations");
     if (pArgs != null) {
         __db = static_cast < Core::DatabaseSqlite* > (pArgs->GetAt(0));
         __SourceId = *(dynamic_cast<String*> (pArgs->GetAt(1)));
@@ -195,11 +178,40 @@ meecastStationsForm::CreateItem (int index, int itemWidth)
 void
 meecastStationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
 {
-	if (status == LIST_ITEM_STATUS_SELECTED)
-	{
-	    AppLog("LIST_ITEM_STATUS_SELECTED ");
-        if (index == 0)
-	        AppLog("i111LIST_ITEM_STATUS_SELECTED ");
+    Core::Station *station;
+	if (status == LIST_ITEM_STATUS_SELECTED){
+         __StationName = *(dynamic_cast<String*> (__map->GetValue(Integer(index))));
+        AppLog("SELECTED %s ", __StationName.GetPointer());
+
+        __StationCode = __db->get_station_code_by_name(__CountryName, __RegionName, __StationName);
+        AppLog("S %s ", __StationCode.GetPointer());
+        double lat = 0;
+        double lon = 0;
+        __db->get_station_coordinate(__StationCode, lat, lon);
+        std::string source = "";
+        source =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(__SourceId)->GetPointer());
+        std::string code = "";
+        code =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(__StationCode)->GetPointer());
+        std::string name = "";
+        name =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(__StationName)->GetPointer());
+        std::string country = "";
+        country =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(__CountryName)->GetPointer());
+        std::string region = "";
+        region =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(__RegionName)->GetPointer());
+        AppLog("SELECTED %d ", lat);
+        AppLog("SELECTED %d ", lon);
+        station = new Core::Station(
+                source,
+                code,
+                name,
+                country,
+                region,
+                false, lat, lon);
+
+       // stationsList().push_back(station);
+    ////ConfigQml::Config::stationsList(*stationlist);
+    //saveConfig();
+    //refreshconfig();
 
    	}
 }

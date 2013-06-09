@@ -33,6 +33,10 @@
 #include <iostream> 
 #include <cstdlib>
 #include <algorithm>
+
+#include <FApp.h>
+#include <FIo.h>
+using namespace Tizen::Base;
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
@@ -67,6 +71,7 @@ Station::Station(const std::string& source_name, const std::string& id,
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const std::string& source_name, const std::string& id, const std::string& name,
                      const std::string& country, const std::string& region, const bool gps, double latitude, double longitude){
+        AppLog("STation ");
         _sourceName = new std::string(source_name);
         _id = new std::string(id);
         _name = new std::string(name);
@@ -78,8 +83,16 @@ Station::Station(const std::string& source_name, const std::string& id,
         _latitude = latitude;
         _longitude = longitude;
 
-        //std::string path(Core::AbstractConfig::prefix);
-        std::string path("");
+        std::string path;
+
+        path =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(App::GetInstance()->GetAppResourcePath())->GetPointer());
+
+        AppLog("STation888p %s", path.c_str());
+        AppLog("Region %s", _region->c_str());
+        AppLog("Country %s", _country->c_str());
+        AppLog("Source %s", source_name.c_str());
+        AppLog("Station %s", _name->c_str());
+        AppLog("Code %s", _id->c_str());
         path += Core::AbstractConfig::sourcesPath;
         Core::SourceList *sourcelist = new Core::SourceList(path);
         int source_id = sourcelist->source_id_by_name(source_name);
@@ -90,6 +103,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         std::string base_map_url = sourcelist->at(source_id)->url_for_basemap();
         std::string cookie = sourcelist->at(source_id)->cookie();
 
+        AppLog("STation!!! ");
         char forecast_url[4096];
         snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), id.c_str());
         char forecast_detail_url[4096];
@@ -158,6 +172,7 @@ Station::Station(const std::string& source_name, const std::string& id,
              std::replace(_viewURL->begin(), _viewURL->end(),'#', '/');
            // _viewURL->replace("#","/");
 
+        AppLog("STation11 ");
 
         _fileName = new std::string(filename);
         _converter = new std::string(sourcelist->at(source_id)->binary());
@@ -556,7 +571,8 @@ Station::Station(const std::string& source_name, const std::string& id,
 ////////////////////////////////////////////////////////////////////////////////
     Source* Station::getSourceByName()
     {
-        std::string path(Core::AbstractConfig::prefix);
+
+        std::string path =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(App::GetInstance()->GetAppResourcePath())->GetPointer());
         path += Core::AbstractConfig::sourcesPath;
         SourceList *sourcelist = new Core::SourceList(path);
         for (int i=0; i<(int)sourcelist->size(); i++){

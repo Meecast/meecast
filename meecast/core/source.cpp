@@ -30,6 +30,7 @@
 
 
 #include "source.h"
+#include <FApp.h>
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
@@ -56,6 +57,8 @@ namespace Core {
         _sourceGetForecast = 0;
         _sourceGetDetail = 0;
 
+
+        AppLog("New Source");
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
     try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
@@ -103,15 +106,19 @@ namespace Core {
                 n = n.nextSibling();
             }
             #else
+            AppLog("Before checkong doc");
           if (!_doc)
                return;
+            AppLog("After checkong doc");
            xmlNodePtr root = xmlDocGetRootElement(_doc);
            if (!root)
                return;
            for(xmlNodePtr p = root->children; p; p = p->next) {
                 if (p->type != XML_ELEMENT_NODE)
                     continue;
+                AppLog("Name of node %s", (char *)p->name);
                 if (!xmlStrcmp(p->name, (const xmlChar*)"name")){
+                     AppLog("Name %s", (char *)xmlNodeGetContent(p));
                     _name->assign((char *)xmlNodeGetContent(p));
                     continue;
                 }
@@ -147,6 +154,7 @@ namespace Core {
 
            }
      
+            AppLog("Done filling source");
             #endif
             #endif //LIBXML
             // TODO check binaryName for empty

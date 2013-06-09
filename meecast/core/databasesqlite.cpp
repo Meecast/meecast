@@ -389,34 +389,41 @@ DatabaseSqlite::create_stations_list_by_name(Tizen::Base::String& country_name, 
 #endif
 }
 
-std::string&
-DatabaseSqlite::get_station_code_by_name(const std::string& country_name, 
-                                         const std::string& region_name,
-                                         const std::string& station_name)
+Tizen::Base::String& 
+DatabaseSqlite::get_station_code_by_name(Tizen::Base::String& country_name, 
+                                         Tizen::Base::String& region_name,
+                                         Tizen::Base::String& station_name)
 {
-    listdata *list = NULL;
-    int rc;
-    char *errMsg = NULL;
-    char **result;
-    int nrow, ncol;
-    //std::string sql;
-    char sql[1024];
-    std::string *stationname;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    list = new listdata;
-/*
-    if(!db || country_name =="" || region_name == "" || station_name == "")
-        return *stationname; // database doesn't open 
-*/
+    Tizen::Base::String *stationcode; 
+    String sql;
+    DbEnumerator* pEnum;
+    result r = E_SUCCESS;
+
+    sql.Append(L"select code from nstations where name='");
+    sql.Append(station_name);
+    sql.Append("' and region_id = (select id from regions where name = '");
+    sql.Append(region_name);
+    sql.Append("' and country_id = (select id from countries where name= '");
+    sql.Append(country_name);
+    sql.Append("')) order by name");
+
+    pEnum = db.QueryN(sql);
+
+    String strWord;
+    if (pEnum->MoveNext() == E_SUCCESS){
+        pEnum->GetStringAt(0, strWord);
+        stationcode = new String(strWord);
+    }
+
+    return *stationcode;
+
+    /*
     snprintf(sql, sizeof(sql) - 1,
             "select code from stations where name='%s' and region_id = \
             (select id from regions where name = '%s' and country_id = \
             (select id from countries where name= '%s')) order by name",
             station_name.c_str(), region_name.c_str(), country_name.c_str());
     std::cerr << sql << std::endl;
-    /*
     rc = sqlite3_get_table(db,
                            sql,
                            &result,
@@ -438,10 +445,6 @@ DatabaseSqlite::get_station_code_by_name(const std::string& country_name,
     }
     sqlite3_free_table(result);
 */
-#ifdef DEBUGFUNCTIONCALL
-    END_FUNCTION;
-#endif
-    return *stationname;
 }
 
 
@@ -588,27 +591,36 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
 
 }
 
-void DatabaseSqlite::get_station_coordinate(std::string code, double &latitude, double &longitude)
+void DatabaseSqlite::get_station_coordinate(Tizen::Base::String& code, double &latitude, double &longitude)
 {
-    char sql[256];
-    int rc;
-    char *errMsg = NULL;
-    char **result;
-    int nrow, ncol;
+    Tizen::Base::String *stationcode; 
+    String sql;
+    DbEnumerator* pEnum;
+    result r = E_SUCCESS;
 
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
+    sql.Append(L"select latitude, longititude from nstations where code='");
+    sql.Append(code);
+    sql.Append("'");
+
+    pEnum = db.QueryN(sql);
+    latitude = -1;
+    longitude = -1;
+ 
+    String strWord;
+    if (pEnum->MoveNext() == E_SUCCESS){
+        pEnum->GetDoubleAt(0, latitude);
+        pEnum->GetDoubleAt(1, longitude);
+    }
+
+
+
 /*
     if (!db)
         return; // database doesn't open 
-*/
     snprintf(sql,
              sizeof(sql) - 1,
              "select latitude, longititude from stations where code='%s'",
              code.c_str());
-    /* std::cerr << "sql = " << sql << std::endl; */
-/*
     rc = sqlite3_get_table(db,
                            sql,
                            &result,
@@ -638,9 +650,6 @@ void DatabaseSqlite::get_station_coordinate(std::string code, double &latitude, 
 //    std::cerr<<"Latitude "<< latitude << " longitude"<<longitude<<std::endl; 
     sqlite3_free_table(result);
 */
-#ifdef DEBUGFUNCTIONCALL
-    END_FUNCTION;
-#endif
 }
 
 }// namespace Core

@@ -42,6 +42,8 @@ private:
     Tizen::Base::String __SourceId;
     Tizen::Base::String __CountryName;
     Tizen::Base::String __RegionName;
+    Tizen::Base::String __StationName;
+    Tizen::Base::String __StationCode;
     Tizen::Base::Collection::HashMap *__map;
     Tizen::Base::String __dbPath;
     Core::DatabaseSqlite *__db;

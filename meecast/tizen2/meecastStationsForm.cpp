@@ -208,10 +208,10 @@ meecastStationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& l
                 region,
                 false, lat, lon);
 
-       // stationsList().push_back(station);
+    //    stationsList().push_back(station);
     ////ConfigQml::Config::stationsList(*stationlist);
-    //saveConfig();
-    //refreshconfig();
+   // saveConfig();
+   // refreshconfig();
 
    	}
 }

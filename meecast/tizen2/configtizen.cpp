@@ -81,3 +81,10 @@ ConfigTizen::get_screen_height(){
     return _screen_height;
 }
 
+
+void 
+saveStation1(String city_id, String city_name, String region,
+                      String country, String source, int source_id, bool gps, double latitude, double longitude)
+{
+}
+

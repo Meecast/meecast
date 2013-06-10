@@ -56,8 +56,11 @@ namespace Core{
 ////////////////////////////////////////////////////////////////////////////////
 Config::Config()
 {
-    std::cerr<<"CONFIG CREATE111111!!!!!!!!!!!!!!"<<std::endl;
-    _pathPrefix = new std::string(AbstractConfig::prefix + AbstractConfig::sharePath);
+    AppLog("CONFIG CREATE");
+    ByteBuffer* pBuf = null;
+    String filepath = App::GetInstance()->GetAppResourcePath();
+    pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(filepath);
+    _pathPrefix = new std::string((const char*)pBuf->GetPointer());
     _iconset = new std::string("Meecast");
     _temperature_unit = new std::string("C");
     _wind_speed_unit = new std::string("m/s");

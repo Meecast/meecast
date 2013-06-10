@@ -108,8 +108,9 @@ namespace Core {
         file.close();
     #else
         ByteBuffer* pBuf = null;
-        //String filepath = App::GetInstance()->GetAppDataPath() + filename.c_str();
-        String  filepath = "/opt/apps/ctLjIIgCCj/data/config.xml";
+//        String filepath = App::GetInstance()->GetAppDataPath() + filename.c_str();
+        String filepath =  filename.c_str();
+        //String  filepath = "/opt/apps/ctLjIIgCCj/data/config.xml";
         pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(filepath);
 
         AppLogDebug("Parser for libxml %s", pBuf->GetPointer());

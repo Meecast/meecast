@@ -3,7 +3,7 @@
 
 #include <FBase.h>
 #include <FUi.h>
-
+#include "configtizen.h"
 
 class meecastMainForm
 	: public Tizen::Ui::Controls::Form
@@ -31,8 +31,10 @@ protected:
     static const int ID_BUTTON_MENU = 905;
     static const int ID_MENU_SETTINGS = 906;
     static const int ID_MENU_ABOUT = 907;
+    static const int ID_BUTTON_UPDATE = 908;
 private:
     Tizen::Ui::Controls::ContextMenu* __pContextMenuText;
+    ConfigTizen *_config;
 };
 
 #endif	//_MEECAST_MAIN_FORM_H_

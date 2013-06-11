@@ -73,9 +73,20 @@ meecastMainForm::OnInitializing(void)
     FooterItem menuButton;
     menuButton.Construct(ID_BUTTON_MENU);
     menuButton.SetText("Menu");
+
+    FooterItem updateButton;
+    updateButton.Construct(ID_BUTTON_UPDATE);
+    updateButton.SetText("Update");
+
     pFooter->AddItem(menuButton);
+    pFooter->AddItem(updateButton);
+
     pFooter->AddActionEventListener(*this);
 
+    _config = ConfigTizen::Instance( std::string("config.xml"),
+                                       Core::AbstractConfig::prefix+
+                                       Core::AbstractConfig::schemaPath+
+                                       "config.xsd");
     return r;
 }
 
@@ -109,6 +120,9 @@ meecastMainForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionI
     case ID_MENU_SETTINGS:
         AppLog("Settings Button is clicked!");
         pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_SETTINGSSCENE"));
+        break;
+    case ID_BUTTON_UPDATE:
+        AppLog("Settings Update is clicked!");
         break;
     default:
         break;

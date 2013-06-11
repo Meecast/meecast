@@ -50,6 +50,7 @@ public:
     int  get_screen_height();
     void saveStation1(String source, String city_id, String city_name, String country,
                       String region, bool gps = false, double latitude = 0, double longitude = 0);
+    void updatestations();
 };
 
 #endif // CONFIGTIZEN_H

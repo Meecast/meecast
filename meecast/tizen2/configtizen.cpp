@@ -83,8 +83,8 @@ ConfigTizen::get_screen_height(){
 
 
 void 
-ConfigTizen::saveStation1(String city_id, String city_name, String region,
-                      String country, String source, String source_id, bool gps, double latitude, double longitude)
+ConfigTizen::saveStation1(String source, String city_id, String city_name, String country,
+                      String region, bool gps, double latitude, double longitude)
 {
     AppLog ("ConfigTizen::saveStation1");
     std::string _source = "";
@@ -106,11 +106,14 @@ ConfigTizen::saveStation1(String city_id, String city_name, String region,
                 _country,
                 _region,
                 false, latitude, longitude);
-    //    stationsList().push_back(station);
-    ////ConfigQml::Config::stationsList(*stationlist);
-   // saveConfig();
-   // refreshconfig();
 
+    AppLog ("ConfigTizen::saveStation preend");
+    stationsList().push_back(station);
+    ////ConfigQml::Config::stationsList(*stationlist);
+    saveConfig();
+    //refreshconfig();
+
+    AppLog ("ConfigTizen::saveStation end");
  
 }
 

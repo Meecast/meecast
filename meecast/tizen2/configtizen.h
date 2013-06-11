@@ -48,9 +48,8 @@ public:
     int  get_screen_width();
     void set_screen_height(int height);
     int  get_screen_height();
-    void saveStation1(String city_id, String city_name, String region,
-                      String country, String source, String source_id, bool gps=false, double latitude = 0.0, double longitude = 0.0);
-
+    void saveStation1(String source, String city_id, String city_name, String country,
+                      String region, bool gps = false, double latitude = 0, double longitude = 0);
 };
 
 #endif // CONFIGTIZEN_H

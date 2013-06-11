@@ -4,6 +4,7 @@
 #include <FBase.h>
 #include <FUi.h>
 
+#include "configtizen.h"
 
 class meecastManageLocationsForm
 	: public Tizen::Ui::Controls::Form
@@ -34,9 +35,12 @@ public:
 	virtual Tizen::Ui::Controls::ListItemBase* CreateItem(int index, int itemWidth);
 	virtual bool DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth);
 	virtual int GetItemCount(void);
+    void GetStationsList(void);
 protected:
 private:
     Tizen::Ui::Controls::ListView* __pListView;
+    Tizen::Base::Collection::ArrayList __stationsList;
+    ConfigTizen *_config;
 };
 
 #endif	//_MEECAST_MANAGELOCATIONS_FORM_H_

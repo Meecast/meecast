@@ -54,6 +54,11 @@ meecastManageLocationsForm::OnInitializing(void)
 {
     result r = E_SUCCESS;
 
+    _config = ConfigTizen::Instance( std::string("config.xml"),
+                                       Core::AbstractConfig::prefix+
+                                       Core::AbstractConfig::schemaPath+
+                                       "config.xsd");
+
     // TODO:
     // Add your initialization code here
 
@@ -72,13 +77,7 @@ meecastManageLocationsForm::OnInitializing(void)
     // Adds the list view to the form
     AddControl(*__pListView);
 
-    // Get a button via resource ID
-//    Tizen::Ui::Controls::Button *pButtonOk = static_cast<Button*>(GetControl(L"IDC_BUTTON_OK"));
-//    if (pButtonOk != null)
-//    {
-//        pButtonOk->SetActionId(ID_BUTTON_OK);
-//        pButtonOk->AddActionEventListener(*this);
-//    }
+	GetStationsList();
     /* Footer */
     Footer* pFooter = GetFooter();
 
@@ -146,7 +145,7 @@ meecastManageLocationsForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId&
 int
 meecastManageLocationsForm::GetItemCount(void)
 {
-    return 1;
+    return _config->stationsList().size();
 }
 
 bool
@@ -160,20 +159,12 @@ meecastManageLocationsForm::DeleteItem(int index, Tizen::Ui::Controls::ListItemB
 Tizen::Ui::Controls::ListItemBase*
 meecastManageLocationsForm::CreateItem (int index, int itemWidth)
 {
-	SimpleItem* pItem = new SimpleItem();
-	AppAssert(pItem);
+    CustomItem* pItem = new (std::nothrow) CustomItem();
+    TryReturn(pItem != null, null, "Out of memory");
 
-
-//	CalTodo* pTodo = null;
-
-	pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_NORMAL);
-//	pTodo = static_cast<CalTodo*>(__pTodosList->GetAt(index));
-
-	String listItemString;
-	String subject = "String";
-
-	listItemString.Append(subject);
-	pItem->SetElement(listItemString);
+    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_NORMAL);
+    String* pStr = new String (_config->stationsList().at(index)->name().c_str()); 
+    pItem->AddElement(Tizen::Graphics::Rectangle(26, 32, 600, 50), 0, *pStr, false);
 
 	return pItem;
 }
@@ -184,24 +175,7 @@ meecastManageLocationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::List
 	if (status == LIST_ITEM_STATUS_SELECTED)
 	{
 	    AppLog("LIST_ITEM_STATUS_SELECTED ");
-        /* Select 'Manage location' */
-        if (index == 0)
-	        AppLog("i111LIST_ITEM_STATUS_SELECTED ");
-
-        /*
-		SceneManager* pSceneManager = SceneManager::GetInstance();
-		AppAssert(pSceneManager);
-
-		CalTodo* pTodo = static_cast<CalTodo*>(__pTodosList->GetAt(index));
-		AppAssert(pTodo);
-
-		ArrayList* pList = new (std::nothrow) ArrayList();
-		pList->Construct();
-		pList->Add(*new (std::nothrow) Integer(pTodo->GetRecordId()));
-
-		pSceneManager->GoForward(ForwardSceneTransition(SCENE_DETAIL), pList);
-        */
-	}
+   	}
 }
 void
 meecastManageLocationsForm::OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction)
@@ -217,5 +191,11 @@ void
 meecastManageLocationsForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex)
 {
 }
+
+void
+meecastManageLocationsForm::GetStationsList(void)
+{
+}
+
 
 

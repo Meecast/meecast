@@ -83,8 +83,34 @@ ConfigTizen::get_screen_height(){
 
 
 void 
-saveStation1(String city_id, String city_name, String region,
-                      String country, String source, int source_id, bool gps, double latitude, double longitude)
+ConfigTizen::saveStation1(String city_id, String city_name, String region,
+                      String country, String source, String source_id, bool gps, double latitude, double longitude)
 {
+    AppLog ("ConfigTizen::saveStation1");
+    std::string _source = "";
+    _source =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(source)->GetPointer());
+    std::string _code = "";
+    _code =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(city_id)->GetPointer());
+    std::string _name = "";
+    _name =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(city_name)->GetPointer());
+    std::string _country = "";
+    _country =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(country)->GetPointer());
+    std::string _region = "";
+    _region =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(region)->GetPointer());
+
+    Core::Station *station;
+    station = new Core::Station(
+                _source,
+                _code,
+                _name,
+                _country,
+                _region,
+                false, latitude, longitude);
+    //    stationsList().push_back(station);
+    ////ConfigQml::Config::stationsList(*stationlist);
+   // saveConfig();
+   // refreshconfig();
+
+ 
 }
 

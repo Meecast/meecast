@@ -334,6 +334,7 @@ Config::saveConfig()
     
    // String filePath(App::GetInstance()->GetAppDataPath() + L"sample.txt");
     String filePath(App::GetInstance()->GetAppDataPath() + (_filename->c_str()));
+   // String filePath((_filename->c_str()));
     result r = E_SUCCESS;
     r = config_file.Construct(filePath, "w+");
  //   file_out.open(_filename->c_str());

@@ -46,12 +46,13 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
     AppLogDebug("Create Config class: ");
 
     try{
-        ByteBuffer* pBuf = null;
-        String filepath = App::GetInstance()->GetAppDataPath();
-        filepath.Append("config.xml");
-        pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(filepath);
+//        ByteBuffer* pBuf = null;
+//        String filepath = App::GetInstance()->GetAppDataPath();
+//        filepath.Append("config.xml");
+ //       pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(filepath);
 
-        config = ConfigTizen::Instance( std::string((const char*)pBuf->GetPointer()),
+    //    config = ConfigTizen::Instance( std::string((const char*)pBuf->GetPointer()),
+        config = ConfigTizen::Instance( std::string("config.xml"),
                                        Core::AbstractConfig::prefix+
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");

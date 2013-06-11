@@ -24,6 +24,7 @@
 #include <FApp.h>
 #include <FIo.h>
 #include "meecastStationsForm.h"
+#include "configtizen.h"
 
 using namespace Tizen::Base;
 using namespace Tizen::App;
@@ -178,7 +179,8 @@ meecastStationsForm::CreateItem (int index, int itemWidth)
 void
 meecastStationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
 {
-    Core::Station *station;
+    ConfigTizen *config;
+
 	if (status == LIST_ITEM_STATUS_SELECTED){
          __StationName = *(dynamic_cast<String*> (__map->GetValue(Integer(index))));
         AppLog("SELECTED %s ", __StationName.GetPointer());
@@ -188,30 +190,19 @@ meecastStationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& l
         double lat = 0;
         double lon = 0;
         __db->get_station_coordinate(__StationCode, lat, lon);
-        std::string source = "";
-        source =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(__SourceId)->GetPointer());
-        std::string code = "";
-        code =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(__StationCode)->GetPointer());
-        std::string name = "";
-        name =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(__StationName)->GetPointer());
-        std::string country = "";
-        country =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(__CountryName)->GetPointer());
-        std::string region = "";
-        region =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(__RegionName)->GetPointer());
-        AppLog("SELECTED %d ", lat);
-        AppLog("SELECTED %d ", lon);
-        station = new Core::Station(
-                source,
-                code,
-                name,
-                country,
-                region,
+        AppLog ("Before Config");
+        config = ConfigTizen::Instance( std::string("config.xml"),
+                                       Core::AbstractConfig::prefix+
+                                       Core::AbstractConfig::schemaPath+
+                                       "config.xsd");
+        AppLog ("After Config");
+        config->saveStation1(
+                __SourceId,
+                __StationCode,
+                __StationName,
+                __CountryName,
+                __RegionName,
                 false, lat, lon);
-
-    //    stationsList().push_back(station);
-    ////ConfigQml::Config::stationsList(*stationlist);
-   // saveConfig();
-   // refreshconfig();
 
    	}
 }

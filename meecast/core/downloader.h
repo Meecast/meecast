@@ -38,6 +38,7 @@
 #include <iostream>
 
 #include <FBase.h>
+#include <FApp.h>
 #include <FContent.h>
 
 using namespace Tizen::Base;

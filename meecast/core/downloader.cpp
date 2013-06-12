@@ -32,7 +32,7 @@
 #include "downloader.h"
 
 int downloading_count = 0;
-
+using namespace Tizen::App;
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
@@ -60,7 +60,10 @@ Downloader::downloadData(const std::string &filename, const std::string &url,
     result r = E_SUCCESS;
     RequestId reqId = 0;
 
-    DownloadRequest request(url.c_str());
+    Tizen::Base::String dirPath;
+    dirPath = App::GetInstance()->GetAppDataPath();
+    DownloadRequest request(url.c_str(), App::GetInstance()->GetAppDataPath());
+    request.SetFileName(filename.c_str());
     DownloadManager* pManager = DownloadManager::GetInstance();
 
     pManager->SetDownloadListener(this);
@@ -79,7 +82,7 @@ Downloader::downloadData(const std::string &filename, const std::string &url,
         if (!fp){
             std::cerr << "error open file " << filename << std::endl;
             return false;
-        }
+        
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, Downloader::writedata);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
@@ -95,12 +98,12 @@ Downloader::downloadData(const std::string &filename, const std::string &url,
 }
 void
 Downloader::OnDownloadCompleted(RequestId reqId, const Tizen::Base::String& path){
-    AppLog("Download is completed.");
+    AppLog("Download is completed. %S", path.GetPointer());
 }
 
 void
 Downloader::OnDownloadFailed(RequestId reqId, result r, const Tizen::Base::String& errorCode){
-    AppLog("Download failed.");
+    AppLog("Download failed. %S", errorCode.GetPointer());
 }
 
 

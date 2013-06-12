@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>blabla</name>
+	<name>openweathermap-org</name>
 	<comment></comment>
 	<projects>
-		<project>openweathermap-org</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -31,7 +30,7 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.buildLocation</key>
-					<value>${workspace_loc:/omweather.git/Debug-Tizen-Emulator}</value>
+					<value>${workspace_loc:/blabla/Debug-Tizen-Emulator}</value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.cleanBuildTarget</key>

@@ -15,11 +15,11 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactExtension="exe" artifactName="meecast" buildArtefactType="org.tizen.nativecpp.buildArtefactType.app" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.tizen.nativecpp.buildArtefactType.app" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;" id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.905958591" name="Debug-Tizen-Emulator" parent="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator" prebuildStep="../prebuild.sh">
+				<configuration artifactExtension="exe" artifactName="openweathermap.org" buildArtefactType="org.tizen.nativecpp.buildArtefactType.app" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.tizen.nativecpp.buildArtefactType.app" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;" id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.905958591" name="Debug-Tizen-Emulator" parent="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator">
 					<folderInfo id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.905958591." name="/" resourcePath="">
-						<toolChain id="org.tizen.nativecpp.toolchain.sbi.gcc45.app.debug.emulator.1637170027" name="Tizen Native Toolchain" nonInternalBuilderId="org.tizen.nativecpp.target.sbi.gnu.builder" superClass="org.tizen.nativecpp.toolchain.sbi.gcc45.app.debug.emulator">
+						<toolChain id="org.tizen.nativecpp.toolchain.sbi.gcc45.app.debug.emulator.1637170027" name="Tizen Native Toolchain" superClass="org.tizen.nativecpp.toolchain.sbi.gcc45.app.debug.emulator">
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="org.tizen.nativeide.target.sbi.gnu.platform.base.771100885" osList="linux,win32" superClass="org.tizen.nativeide.target.sbi.gnu.platform.base"/>
-							<builder buildPath="${workspace_loc:/omweather.git/Debug-Tizen-Emulator}" enableAutoBuild="true" id="org.tizen.nativecpp.target.sbi.gnu.builder.1316113538" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Tizen Application Builder" superClass="org.tizen.nativecpp.target.sbi.gnu.builder"/>
+							<builder autoBuildTarget="all" buildPath="${workspace_loc:/blabla/Debug-Tizen-Emulator}" enableAutoBuild="true" id="org.tizen.nativecpp.target.sbi.gnu.builder.1673976780" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Tizen Application Builder" superClass="org.tizen.nativecpp.target.sbi.gnu.builder"/>
 							<tool id="org.tizen.nativecpp.tool.sbi.gnu.archiver.1194564992" name="Archiver" superClass="org.tizen.nativecpp.tool.sbi.gnu.archiver"/>
 							<tool command="clang++" id="org.tizen.nativecpp.tool.sbi.gnu.cpp.compiler.1949458252" name="C++ Compiler" superClass="org.tizen.nativecpp.tool.sbi.gnu.cpp.compiler">
 								<option id="gnu.cpp.compiler.option.optimization.level.787208976" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
@@ -87,7 +87,7 @@
 								<option id="sbi.gnu.cpp.linker.option.frameworks_lflags.cpp.231803493" name="Tizen-Frameworks-Other-Lflags" superClass="sbi.gnu.cpp.linker.option.frameworks_lflags.cpp" valueType="stringList">
 									<listOptionValue builtIn="false" value="-target i386-tizen-linux-gnueabi -gcc-toolchain /home/vlad/tizen-sdk/tools/smart-build-interface/../i386-linux-gnueabi-gcc-4.5/ -ccc-gcc-name i386-linux-gnueabi-g++ -march=i386 -Xlinker --as-needed"/>
 									<listOptionValue builtIn="false" value="-pie -lpthread "/>
-									<listOptionValue builtIn="false" value="-Xlinker -rpath=&quot;/opt/usr/apps/ctLjIIgCCj/lib&quot;"/>
+									<listOptionValue builtIn="false" value="-Xlinker -rpath=&quot;/opt/usr/apps/7eBcLRuQBS/lib&quot;"/>
 									<listOptionValue builtIn="false" value="-Xlinker -rpath=&quot;/home/developer/sdk_tools/lib&quot;"/>
 									<listOptionValue builtIn="false" value="--sysroot=&quot;${SBI_SYSROOT}&quot;"/>
 									<listOptionValue builtIn="false" value="-L&quot;${SBI_SYSROOT}/usr/lib&quot;"/>
@@ -136,9 +136,7 @@
 					</sourceEntries>
 				</configuration>
 			</storageModule>
-			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
-				<externalSettings containerId="openweathermap-org;" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
-			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
 		<cconfiguration id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.1055543585">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.1055543585" moduleId="org.eclipse.cdt.core.settings" name="Debug-Tizen-Device">
@@ -226,7 +224,7 @@
 								<option id="sbi.gnu.cpp.linker.option.frameworks_lflags.cpp.1760346522" name="Tizen-Frameworks-Other-Lflags" superClass="sbi.gnu.cpp.linker.option.frameworks_lflags.cpp" valueType="stringList">
 									<listOptionValue builtIn="false" value="-target arm-tizen-linux-gnueabi -gcc-toolchain /home/vlad/tizen-sdk/tools/smart-build-interface/../arm-linux-gnueabi-gcc-4.5/ -ccc-gcc-name arm-linux-gnueabi-g++ -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16 -mtune=cortex-a8 -Xlinker --as-needed"/>
 									<listOptionValue builtIn="false" value="-pie -lpthread "/>
-									<listOptionValue builtIn="false" value="-Xlinker -rpath=&quot;/opt/usr/apps/ctLjIIgCCj/lib&quot;"/>
+									<listOptionValue builtIn="false" value="-Xlinker -rpath=&quot;/opt/usr/apps/7eBcLRuQBS/lib&quot;"/>
 									<listOptionValue builtIn="false" value="-Xlinker -rpath=&quot;/home/developer/sdk_tools/lib&quot;"/>
 									<listOptionValue builtIn="false" value="--sysroot=&quot;${SBI_SYSROOT}&quot;"/>
 									<listOptionValue builtIn="false" value="-L&quot;${SBI_SYSROOT}/usr/lib&quot;"/>
@@ -357,7 +355,7 @@
 								<option id="sbi.gnu.cpp.linker.option.frameworks_lflags.cpp.907741295" name="Tizen-Frameworks-Other-Lflags" superClass="sbi.gnu.cpp.linker.option.frameworks_lflags.cpp" valueType="stringList">
 									<listOptionValue builtIn="false" value="-target arm-tizen-linux-gnueabi -gcc-toolchain /home/vlad/tizen-sdk/tools/smart-build-interface/../arm-linux-gnueabi-gcc-4.5/ -ccc-gcc-name arm-linux-gnueabi-g++ -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16 -mtune=cortex-a8 -Xlinker --as-needed"/>
 									<listOptionValue builtIn="false" value="-pie -lpthread "/>
-									<listOptionValue builtIn="false" value="-Xlinker -rpath=&quot;/opt/usr/apps/ctLjIIgCCj/lib&quot;"/>
+									<listOptionValue builtIn="false" value="-Xlinker -rpath=&quot;/opt/usr/apps/7eBcLRuQBS/lib&quot;"/>
 									<listOptionValue builtIn="false" value="-Xlinker -rpath=&quot;/home/developer/sdk_tools/lib&quot;"/>
 									<listOptionValue builtIn="false" value="--sysroot=&quot;${SBI_SYSROOT}&quot;"/>
 									<listOptionValue builtIn="false" value="-L&quot;${SBI_SYSROOT}/usr/lib&quot;"/>
@@ -422,7 +420,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactExtension="exe" artifactName="meecast" buildArtefactType="org.tizen.nativecpp.buildArtefactType.app" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.tizen.nativecpp.buildArtefactType.app" description="" id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.da.1778775740" name="DA-Tizen-Emulator" parent="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.da" prebuildStep="../prebuild.sh">
+				<configuration artifactExtension="exe" artifactName="${ProjName}" buildArtefactType="org.tizen.nativecpp.buildArtefactType.app" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.tizen.nativecpp.buildArtefactType.app" description="" id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.da.1778775740" name="DA-Tizen-Emulator" parent="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.da">
 					<folderInfo id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.da.1778775740." name="/" resourcePath="">
 						<toolChain id="org.tizen.nativecpp.toolchain.sbi.gcc45.app.debug.emulator.da.1813194224" name="Tizen Native Toolchain" superClass="org.tizen.nativecpp.toolchain.sbi.gcc45.app.debug.emulator.da">
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="org.tizen.nativeide.target.sbi.gnu.platform.base.120008377" osList="linux,win32" superClass="org.tizen.nativeide.target.sbi.gnu.platform.base"/>
@@ -494,7 +492,7 @@
 								<option id="sbi.gnu.cpp.linker.option.frameworks_lflags.cpp.423319544" name="Tizen-Frameworks-Other-Lflags" superClass="sbi.gnu.cpp.linker.option.frameworks_lflags.cpp" valueType="stringList">
 									<listOptionValue builtIn="false" value="-target i386-tizen-linux-gnueabi -gcc-toolchain /home/vlad/tizen-sdk/tools/smart-build-interface/../i386-linux-gnueabi-gcc-4.5/ -ccc-gcc-name i386-linux-gnueabi-g++ -march=i386 -Xlinker --as-needed"/>
 									<listOptionValue builtIn="false" value="-pie -lpthread "/>
-									<listOptionValue builtIn="false" value="-Xlinker -rpath=&quot;/opt/usr/apps/ctLjIIgCCj/lib&quot;"/>
+									<listOptionValue builtIn="false" value="-Xlinker -rpath=&quot;/opt/usr/apps/7eBcLRuQBS/lib&quot;"/>
 									<listOptionValue builtIn="false" value="-Xlinker -rpath=&quot;/home/developer/sdk_tools/lib&quot;"/>
 									<listOptionValue builtIn="false" value="--sysroot=&quot;${SBI_SYSROOT}&quot;"/>
 									<listOptionValue builtIn="false" value="-L&quot;${SBI_SYSROOT}/usr/lib&quot;"/>
@@ -559,11 +557,11 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactExtension="exe" artifactName="${ProjName}" buildArtefactType="org.tizen.nativecpp.buildArtefactType.app" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.tizen.nativecpp.buildArtefactType.app" description="" id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.da.1129331544" name="DA-Tizen-Device" parent="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.da" prebuildStep="../prebuild.sh">
+				<configuration artifactExtension="exe" artifactName="${ProjName}" buildArtefactType="org.tizen.nativecpp.buildArtefactType.app" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.tizen.nativecpp.buildArtefactType.app" description="" id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.da.1129331544" name="DA-Tizen-Device" parent="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.da">
 					<folderInfo id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.da.1129331544." name="/" resourcePath="">
 						<toolChain id="org.tizen.nativecpp.toolchain.sbi.gcc45.app.debug.device.da.1534434587" name="Tizen Native Toolchain" superClass="org.tizen.nativecpp.toolchain.sbi.gcc45.app.debug.device.da">
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="org.tizen.nativeide.target.sbi.gnu.platform.base.103012369" osList="linux,win32" superClass="org.tizen.nativeide.target.sbi.gnu.platform.base"/>
-							<builder buildPath="${workspace_loc:/omweather.git}" id="org.tizen.nativecpp.target.sbi.gnu.builder.362084938" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Tizen Application Builder" superClass="org.tizen.nativecpp.target.sbi.gnu.builder"/>
+							<builder buildPath="${workspace_loc:/blabla/DA-Tizen-Device}" id="org.tizen.nativecpp.target.sbi.gnu.builder.362084938" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Tizen Application Builder" superClass="org.tizen.nativecpp.target.sbi.gnu.builder"/>
 							<tool id="org.tizen.nativecpp.tool.sbi.gnu.archiver.1324539664" name="Archiver" superClass="org.tizen.nativecpp.tool.sbi.gnu.archiver"/>
 							<tool command="clang++" id="org.tizen.nativecpp.tool.sbi.gnu.cpp.compiler.da.2125202208" name="C++ Compiler" superClass="org.tizen.nativecpp.tool.sbi.gnu.cpp.compiler.da">
 								<option id="gnu.cpp.compiler.option.include.paths.489541949" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
@@ -631,7 +629,7 @@
 								<option id="sbi.gnu.cpp.linker.option.frameworks_lflags.cpp.1399940831" name="Tizen-Frameworks-Other-Lflags" superClass="sbi.gnu.cpp.linker.option.frameworks_lflags.cpp" valueType="stringList">
 									<listOptionValue builtIn="false" value="-target arm-tizen-linux-gnueabi -gcc-toolchain /home/vlad/tizen-sdk/tools/smart-build-interface/../arm-linux-gnueabi-gcc-4.5/ -ccc-gcc-name arm-linux-gnueabi-g++ -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16 -mtune=cortex-a8 -Xlinker --as-needed"/>
 									<listOptionValue builtIn="false" value="-pie -lpthread "/>
-									<listOptionValue builtIn="false" value="-Xlinker -rpath=&quot;/opt/usr/apps/ctLjIIgCCj/lib&quot;"/>
+									<listOptionValue builtIn="false" value="-Xlinker -rpath=&quot;/opt/usr/apps/7eBcLRuQBS/lib&quot;"/>
 									<listOptionValue builtIn="false" value="-Xlinker -rpath=&quot;/home/developer/sdk_tools/lib&quot;"/>
 									<listOptionValue builtIn="false" value="--sysroot=&quot;${SBI_SYSROOT}&quot;"/>
 									<listOptionValue builtIn="false" value="-L&quot;${SBI_SYSROOT}/usr/lib&quot;"/>
@@ -688,27 +686,27 @@
 	</storageModule>
 	<storageModule moduleId="com.samsung.tizen.nativeapp.projectInfo" version="1.0.0"/>
 	<storageModule moduleId="refreshScope" versionNumber="1">
-		<resource resourceType="PROJECT" workspacePath="/omweather.git"/>
+		<resource resourceType="PROJECT" workspacePath="/blabla"/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		<scannerConfigBuildInfo instanceId="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.da.173822686">
+		<scannerConfigBuildInfo instanceId="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.da.1778775740">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.tizen.nativecommon.TizenGCCManagedMakePerProjectProfileCPP"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.905958591">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.tizen.nativecommon.TizenGCCManagedMakePerProjectProfileCPP"/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.da.836493868">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.tizen.nativecommon.TizenGCCManagedMakePerProjectProfileCPP"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="org.tizen.nativecpp.config.sbi.gcc45.app.release.783254993">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.tizen.nativecommon.TizenGCCManagedMakePerProjectProfileCPP"/>
-		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.1055543585">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.tizen.nativecommon.TizenGCCManagedMakePerProjectProfileCPP"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.da.1778775740">
+		<scannerConfigBuildInfo instanceId="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.da.173822686">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.tizen.nativecommon.TizenGCCManagedMakePerProjectProfileCPP"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.905958591">
+		<scannerConfigBuildInfo instanceId="org.tizen.nativecpp.config.sbi.gcc45.app.release.783254993">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.tizen.nativecommon.TizenGCCManagedMakePerProjectProfileCPP"/>
 		</scannerConfigBuildInfo>
 	</storageModule>

@@ -31,6 +31,7 @@
     #include <QHash>
 #endif
 #include <limits.h>
+#include <time.h>
 #include <libxml/parser.h>
 #include <stdlib.h>
 #include <libxml/parser.h>

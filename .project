@@ -3,7 +3,6 @@
 	<name>blabla</name>
 	<comment></comment>
 	<projects>
-		<project>openweathermap-org</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

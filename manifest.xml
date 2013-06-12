@@ -3,18 +3,16 @@
     <Id>ctLjIIgCCj</Id>
     <Version>1.0.0</Version>
     <Type>C++App</Type>
-    <Author/>
-    <Descriptions>
-        <Description Locale="eng-GB"/>
-    </Descriptions>
     <Requirements>
         <Feature Name="http://tizen.org/feature/platform.core.cpu.arch.x86">true</Feature>
         <Feature Name="http://tizen.org/feature/platform.core.fpu.arch.vfpv3">true</Feature>
     </Requirements>
     <Apps>
         <ApiVersion>2.0</ApiVersion>
-        <Privileges/>
-        <UiApp Main="True" MenuIconVisible="True" Name="meecast">
+        <Privileges>
+            <Privilege>http://tizen.org/privilege/download</Privilege>
+        </Privileges>
+        <UiApp LaunchingHistoryVisible="True" Main="True" MenuIconVisible="True" Name="meecast">
             <UiScalability BaseScreenSize="Normal" CoordinateSystem="Logical" LogicalCoordinate="720"/>
             <UiTheme SystemTheme="Black"/>
             <DisplayNames>
@@ -24,7 +22,6 @@
                 <Icon Section="MainMenu" Type="Xhigh">mainmenu.png</Icon>
             </Icons>
             <LaunchConditions/>
-            <Notifications/>
         </UiApp>
     </Apps>
 </Manifest>

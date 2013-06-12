@@ -37,45 +37,28 @@
 #include <string>
 #include <iostream>
 
-#ifdef TIZEN
-#include <Ecore.h>
-#include <Ecore_Con.h>
-#include <fcntl.h>
-#include "config.h"
+#include <FBase.h>
+#include <FContent.h>
 
-typedef unsigned int              Ecore_Magic;
-struct _Ecore_Con_Url
-{
-   Ecore_Magic  __magic;
-   CURL *curl_easy;
-   struct curl_slist *headers;
-   Eina_List *additional_headers;
-   Eina_List *response_headers;
-   char *url;
-
-   Ecore_Con_Url_Time time_condition;
-   double timestamp;
-   void *data;
-
-   Ecore_Fd_Handler *fd_handler;
-   int fd;
-   int flags;
-
-   int received;
-   int write_fd;
-
-   Eina_Bool active : 1;
-};
-#endif
+using namespace Tizen::Base;
+using namespace Tizen::Content;
+using namespace Tizen::App;
 
 namespace Core{
-class Downloader
+class Downloader : public Tizen::Content::IDownloadListener
 {
 public:
     Downloader();
-    static size_t writedata(void *ptr, size_t size, size_t nmemb, FILE *stream);
-    static bool downloadData(const std::string &filename, const std::string &url, 
-    const std::string &cookie, const std::string &converter_command);
+    size_t writedata(void *ptr, size_t size, size_t nmemb, FILE *stream);
+    result downloadData(const std::string &filename, const std::string &url, 
+                const std::string &cookie, const std::string &converter_command);
+//    result Download(const String& url);
+    virtual void OnDownloadCanceled(RequestId reqId) {}
+    virtual void OnDownloadCompleted(RequestId reqId, const Tizen::Base::String& path);
+    virtual void OnDownloadFailed(RequestId reqId, result r, const Tizen::Base::String& errorCode);
+    virtual void OnDownloadPaused(RequestId reqId) {}
+    virtual void OnDownloadInProgress(RequestId reqId, unsigned long long receivedSize, unsigned long long totalSize) {}
+
 };
 }
 #endif // DOWNLOADER_H

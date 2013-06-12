@@ -123,6 +123,7 @@ meecastMainForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionI
         break;
     case ID_BUTTON_UPDATE:
         AppLog("Settings Update is clicked!");
+        _config->updatestations();
         break;
     default:
         break;

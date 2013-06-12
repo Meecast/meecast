@@ -445,14 +445,19 @@ Station::Station(const std::string& source_name, const std::string& id,
             snprintf(buffer_file, sizeof(buffer_file) -1, "%s.detail.orig", this->fileName().c_str());
            /* download_file_js((char* )buffer_file, (char*)this->detailURL().c_str()); */
         }
-        return true;
         force = false;
         if  (this->detailURL() != ""){
-            Downloader::downloadData(this->fileName()+".detail.orig", this->detailURL(), this->cookie(), std::string(""));
+            snprintf(buffer_file, sizeof(buffer_file) -1, "%s.detail.orig", this->fileName().c_str());
             command =  std::string(std::string(this->converter().c_str()) + " " + " " +  std::string(this->fileName().c_str()) + ".orig " + std::string(this->fileName().c_str()) +" " + std::string(this->fileName().c_str()) + ".detail.orig");
-        }else
+        }else{
             command =  std::string(std::string(this->converter()) + " " +  std::string(this->fileName()) + ".orig " + std::string(this->fileName()));
-        result = Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie(), command);
+            snprintf(buffer_file, sizeof(buffer_file) -1, "%s.orig", this->fileName().c_str());
+        // Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie(), command);
+        }
+        Downloader* downloader;
+
+        downloader = new Core::Downloader(); 
+        downloader->downloadData(buffer_file, this->detailURL(), this->cookie(), command);
 
         return result;
 #if 0

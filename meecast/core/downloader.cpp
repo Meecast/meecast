@@ -30,11 +30,9 @@
 
 
 #include "downloader.h"
+
 int downloading_count = 0;
 
-#ifdef TIZEN
-EAPI Ecore_Event_Handler *complete_handler = NULL; 
-#endif
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
@@ -48,101 +46,27 @@ Downloader::Downloader()
 size_t
 Downloader::writedata(void *ptr, size_t size, size_t nmemb, FILE *stream)
 {
-#ifdef TIZEN
-    ecore_main_loop_iterate();
-#endif
     return fwrite(ptr, size, nmemb, stream);
 }
 
 
-#ifdef TIZEN
-static void
-exe_complete(void *data, const Ecore_Exe *exe){
 
-    downloading_count--;
-    if (downloading_count <= 0){
-        ecore_event_handler_del (complete_handler);
-        ecore_con_url_shutdown();
-        ecore_con_shutdown();
-    }
-}
-
-static Eina_Bool
-_url_complete_cb(void *data, int type, void *event_info)
-{  
-    Ecore_Exe *exe; 
-    Ecore_Con_Event_Url_Complete *url_complete = (Ecore_Con_Event_Url_Complete* )event_info;
-    std::string *command = (std::string *)ecore_con_url_data_get(url_complete->url_con);
-/* Debug
-    int nbytes = ecore_con_url_received_bytes_get(url_complete->url_con);
-
-    printf("\n");
-    printf("download completed with status code: %d\n", url_complete->status);
-    printf("Total size of downloaded file: %ld bytes "
-                                      "(from received_bytes_get)\n", nbytes);
-
-    printf("Command %s\n", command->c_str());
-*/
-    if (strcmp(command->c_str(),"")){
-        exe =  ecore_exe_run(command->c_str(), NULL);
-        ecore_exe_callback_pre_free_set(exe, exe_complete);   
-    }else{
-        downloading_count--;
-        if (downloading_count <= 0){
-            ecore_event_handler_del (complete_handler);
-            ecore_con_url_shutdown();
-            ecore_con_shutdown();
-        }
-    }
-
-    delete command;
-
-    return EINA_TRUE;
-}
-bool
+result
 Downloader::downloadData(const std::string &filename, const std::string &url, 
                          const std::string &cookie, const std::string &converter_command)
 {
-    Ecore_Con_Url *ec_url = NULL;
-    int fd;
-
-    fd = open(filename.c_str(), O_CREAT | O_WRONLY | O_TRUNC, 0644);
-    if (fd == -1){
-        std::cerr << "error open file " << filename << std::endl;
-        return false;
-    }
-    if (downloading_count == 0){
-        ecore_con_init();
-        ecore_con_url_init();
-        complete_handler = ecore_event_handler_add(ECORE_CON_EVENT_URL_COMPLETE, _url_complete_cb, NULL);
-    }
-
-    ec_url = ecore_con_url_new(url.c_str());
-
-    if (!ec_url)
-        return false; 
-
-    ecore_con_url_fd_set(ec_url, fd);
-
-    curl_easy_setopt(ec_url->curl_easy, CURLOPT_COOKIE, cookie.c_str()); 
-    std::string *command_string = new std::string();
-    command_string->assign(converter_command);
-    ecore_con_url_data_set(ec_url, command_string);
 
 
-    if (!ecore_con_url_get(ec_url)){
-        printf("could not realize request.\n");
-        return false;
-    }
-    downloading_count ++;
-    return true;
-#endif
+    result r = E_SUCCESS;
+    RequestId reqId = 0;
 
-#ifndef TIZEN
-bool
-Downloader::downloadData(const std::string &filename, const std::string &url, 
-                         const std::string &cookie, const std::string &converter_command)
-{
+    DownloadRequest request(url.c_str());
+    DownloadManager* pManager = DownloadManager::GetInstance();
+
+    pManager->SetDownloadListener(this);
+    pManager->Start(request, reqId);
+
+    return r;
 #if 0
 
     CURL *curl;
@@ -166,9 +90,19 @@ Downloader::downloadData(const std::string &filename, const std::string &url,
         fclose(fp);
         return true;
     }else return false;
-#endif
     return false;
 #endif
 }
+void
+Downloader::OnDownloadCompleted(RequestId reqId, const Tizen::Base::String& path){
+    AppLog("Download is completed.");
+}
+
+void
+Downloader::OnDownloadFailed(RequestId reqId, result r, const Tizen::Base::String& errorCode){
+    AppLog("Download failed.");
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

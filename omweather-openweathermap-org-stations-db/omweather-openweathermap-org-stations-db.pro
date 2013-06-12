@@ -35,13 +35,13 @@ system(pkg-config --exists glib-2.0){
     DEFINES += QT
 }
 
-db.files = data.source/openweathermap.org.db
+db.files = data/openweathermap.org.db
 db.path = /opt/com.meecast.omweather/share/db/
 
-#icon.files = data.source/yr.no.png
+#icon.files = data/yr.no.png
 #icon.path = /opt/com.meecast.omweather/share/copyright_icons/
 
-source.files = data.source/openweathermap.org.xml
+source.files = data/openweathermap.org.xml
 source.path = /opt/com.meecast.omweather/share/sources/
 
 #install

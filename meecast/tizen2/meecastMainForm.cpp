@@ -144,7 +144,8 @@ meecastMainForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSce
 {
     // TODO:
     // Add your scene activate code here
-    AppLog("OnSceneActivatedN");
+    AppLog("OnSceneActivatedNi %i", _config->current_station_id());
+    AppLog("OnSceneActivatedNi %s", _config->stationname().c_str());
 }
 
 void

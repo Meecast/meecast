@@ -49,6 +49,7 @@ protected:
     ConfigTizen(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
 
 public:
+    Core::DataParser* dp;
     static ConfigTizen* Instance();
     static ConfigTizen* Instance(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
     void set_screen_width(int width);

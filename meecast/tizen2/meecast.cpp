@@ -17,6 +17,25 @@ using namespace Tizen::Ui::Controls;
 
 
 
+Core::DataParser*
+current_data(std::string& str){
+  Core::DataParser* dp;
+  try{
+        //dp = Core::DataParser::Instance(str, DATA_XSD_PATH);
+        dp = Core::DataParser::Instance(str, "");
+    }
+    catch(const std::string &str){
+        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+        return NULL;
+    }
+    catch(const char *str){
+        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+        return NULL;
+    }
+    return dp;
+}
+
+
 
 meecastApp::meecastApp(void)
 {
@@ -70,6 +89,11 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
  //   save_station((char*)"gismeteo.ru",(char*)"Afghanistan",(char*)"Afghanistan", (char*)"Herat",(char*) "5511");
  
     config->ReLoadConfig();
+    if ((config->stationsList().size() > 0) && config->current_station_id() > config->stationsList().size()) 
+       config->dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
+    else 
+        config->dp = NULL;
+
 
 
 

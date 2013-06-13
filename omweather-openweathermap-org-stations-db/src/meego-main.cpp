@@ -28,6 +28,14 @@
 
 static xmlHashTablePtr hash_for_icons;
 #define buff_size 2048
+
+
+
+#include <FApp.h>
+
+using namespace Tizen::App;
+
+
 /*******************************************************************************/
 int
 parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
@@ -386,6 +394,7 @@ convert_station_openweathermaporg_data(const char *days_data_path, const char *r
             *delimiter = NULL;
     FILE    *file_out;
     
+    AppLog("convert_station_openweathermaporg_data %S", days_data_path);
     if(!days_data_path)
         return -1;
 

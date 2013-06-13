@@ -36,6 +36,8 @@
 
 #include <FApp.h>
 #include <FIo.h>
+int convert_station_openweathermaporg_data(const char *days_data_path, const char *result_file, const char *current_data_path, const char *hours_data_path );
+ 
 using namespace Tizen::Base;
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
@@ -128,7 +130,7 @@ Station::Station(const std::string& source_name, const std::string& id,
             fprintf(stderr,"map_url: %s\n", basemap_url);
         }
 
-        std::string filename(Core::AbstractConfig::getConfigPath());
+        std::string filename("");
         filename += source_name;
         filename += "_";
         filename += id;
@@ -457,7 +459,7 @@ Station::Station(const std::string& source_name, const std::string& id,
             DownloadRequest request(this->detailURL().c_str(), App::GetInstance()->GetAppDataPath());
             request.SetFileName(buffer_file);
             pManager->Start(request, reqId);
-
+            _downloading_count++;
         }
 
             command =  std::string(std::string(this->converter()) + " " +  std::string(this->fileName()) + ".orig " + std::string(this->fileName()));
@@ -469,7 +471,7 @@ Station::Station(const std::string& source_name, const std::string& id,
             DownloadRequest request(this->forecastURL().c_str(), App::GetInstance()->GetAppDataPath());
             request.SetFileName(buffer_file);
             pManager->Start(request, reqId);
-
+            _downloading_count++;
 
         // Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie(), command);
         return true;
@@ -594,12 +596,52 @@ Station::Station(const std::string& source_name, const std::string& id,
 void
 Station::OnDownloadCompleted(RequestId reqId, const Tizen::Base::String& path){
     AppLog("Download is completed. %S", path.GetPointer());
+    _downloading_count--;
+    if (_downloading_count <=0){
+        this->run_converter();
+    }
 }
 
 void
 Station::OnDownloadFailed(RequestId reqId, result r, const Tizen::Base::String& errorCode){
+
     AppLog("Download failed. %S", errorCode.GetPointer());
+    _downloading_count--;
+    if (_downloading_count <=0){
+        this->run_converter();
+    }
 }
+////////////////////////////////////////////////////////////////////////////////
+void
+Station::run_converter(){
+
+    AppLog("RUN CONVERTER ");
+    /* TO DO fixed for all sources */
+    Tizen::Base::String dirPath;
+    dirPath = App::GetInstance()->GetAppDataPath();
+    Tizen::Base::String forecast_file;
+    forecast_file.Append(dirPath);
+    forecast_file.Append(this->fileName().c_str());
+    forecast_file.Append(".orig");
+    Tizen::Base::String result_file;
+    result_file.Append(dirPath);
+    result_file.Append(this->fileName().c_str());
+    Tizen::Base::String detail_file;
+    detail_file.Append(dirPath);
+    detail_file.Append(this->fileName().c_str());
+    detail_file.Append(".detail.orig");
+    Tizen::Base::String hours_file;
+    hours_file.Append(dirPath);
+    hours_file.Append(this->fileName().c_str());
+    hours_file.Append(".hours.orig");
+
+    convert_station_openweathermaporg_data(
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(forecast_file)->GetPointer(), 
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(result_file)->GetPointer(), 
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(detail_file)->GetPointer(), 
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(hours_file)->GetPointer());
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
     void Station::updateSource(const Source* source){

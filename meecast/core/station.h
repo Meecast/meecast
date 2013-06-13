@@ -73,6 +73,7 @@ namespace Core{
         bool dataValid();
         bool prepareFile();
         Source *getSourceByName();
+        int _downloading_count;
         public:
             Station(const std::string& source_name, const std::string& id, 
                     const std::string& name,
@@ -130,11 +131,12 @@ namespace Core{
             void longitude(const double longtitude);
             double longitude() const;
 
-    virtual void OnDownloadCanceled(RequestId reqId) {}
-    virtual void OnDownloadCompleted(RequestId reqId, const Tizen::Base::String& path);
-    virtual void OnDownloadFailed(RequestId reqId, result r, const Tizen::Base::String& errorCode);
-    virtual void OnDownloadPaused(RequestId reqId) {}
-    virtual void OnDownloadInProgress(RequestId reqId, unsigned long long receivedSize, unsigned long long totalSize) {}
+            void run_converter();
+            virtual void OnDownloadCanceled(RequestId reqId) {}
+            virtual void OnDownloadCompleted(RequestId reqId, const Tizen::Base::String& path);
+            virtual void OnDownloadFailed(RequestId reqId, result r, const Tizen::Base::String& errorCode);
+            virtual void OnDownloadPaused(RequestId reqId) {}
+            virtual void OnDownloadInProgress(RequestId reqId, unsigned long long receivedSize, unsigned long long totalSize) {}
 
 
 

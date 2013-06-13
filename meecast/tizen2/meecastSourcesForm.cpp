@@ -243,7 +243,7 @@ meecastSourcesForm::GetFilesList(void)
 			String* fullFileName = new (std::nothrow) String;
 			//fullFileName->Append(__appRootPath + __dirName);
 			//fullFileName->Append('/');
-			String fileName(dirEntry.GetName());
+            String fileName(dirEntry.GetName());
             fileName.Remove(fileName.GetLength()-4, 4);
 			fullFileName->Append(fileName);
             /* TODO load data from xml */

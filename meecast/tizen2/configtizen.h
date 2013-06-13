@@ -27,6 +27,13 @@
 #define CONFIGTIZEN_H
 
 #include "../core/core.h"
+#include <FApp.h>
+#include <FContent.h>
+
+using namespace Tizen::Base;
+using namespace Tizen::Content;
+using namespace Tizen::App;
+
 
 class ConfigTizen : public Core::Config
 

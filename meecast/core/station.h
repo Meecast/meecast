@@ -39,15 +39,19 @@ class Source;
 #include "sourcelist.h"
 #include "downloader.h"
 #include <sys/stat.h>
-extern "C" {
-    extern void download_file_js(char* s1, char* s2);
-    extern void run_convert_js(char* s1, char* s2, char* s3, char* s4);
-}
+
+#include <FApp.h>
+#include <FContent.h>
+
+using namespace Tizen::Base;
+using namespace Tizen::Content;
+using namespace Tizen::App;
+
 
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
-    class Station{
+    class Station : public Tizen::Content::IDownloadListener{
         std::string *_sourceName;
         std::string *_id;
         std::string *_name;
@@ -125,6 +129,13 @@ namespace Core{
             double latitude() const;
             void longitude(const double longtitude);
             double longitude() const;
+
+    virtual void OnDownloadCanceled(RequestId reqId) {}
+    virtual void OnDownloadCompleted(RequestId reqId, const Tizen::Base::String& path);
+    virtual void OnDownloadFailed(RequestId reqId, result r, const Tizen::Base::String& errorCode);
+    virtual void OnDownloadPaused(RequestId reqId) {}
+    virtual void OnDownloadInProgress(RequestId reqId, unsigned long long receivedSize, unsigned long long totalSize) {}
+
 
 
     };

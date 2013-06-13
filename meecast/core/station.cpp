@@ -432,29 +432,53 @@ Station::Station(const std::string& source_name, const std::string& id,
    }
 ///////////////////////////////////////////////////////////////////////////////
     bool Station::updateData(bool force){
-        bool result = false;
         std::string command;
 
         char buffer_file[2048];
-
+        RequestId reqId = 0;
         force = false;
+        result res = E_SUCCESS;
         Downloader* downloader;
+
+        Tizen::Base::String dirPath;
+        dirPath = App::GetInstance()->GetAppDataPath();
+
+        DownloadManager* pManager = DownloadManager::GetInstance();
+        pManager->SetDownloadListener(this);
+
+
         if  (this->detailURL() != ""){
             snprintf(buffer_file, sizeof(buffer_file) -1, "%s.detail.orig", this->fileName().c_str());
             command =  std::string(std::string(this->converter().c_str()) + " " + " " +  std::string(this->fileName().c_str()) + ".orig " + std::string(this->fileName().c_str()) +" " + std::string(this->fileName().c_str()) + ".detail.orig");
-            /* TODO MEMORY LEAK!!! */
-            downloader = new Core::Downloader(); 
-            downloader->downloadData(buffer_file, this->detailURL(), this->cookie(), command);
+//            /* TODO MEMORY LEAK!!! */
+//            downloader = new Core::Downloader(); 
+//            downloader->downloadData(buffer_file, this->detailURL(), this->cookie(), command);
+
+            DownloadRequest request(this->detailURL().c_str(), App::GetInstance()->GetAppDataPath());
+            request.SetFileName(buffer_file);
+            pManager->Start(request, reqId);
+
         }
 
             command =  std::string(std::string(this->converter()) + " " +  std::string(this->fileName()) + ".orig " + std::string(this->fileName()));
             snprintf(buffer_file, sizeof(buffer_file) -1, "%s.orig", this->fileName().c_str());
             /* TODO MEMORY LEAK!!! */
-            downloader = new Core::Downloader(); 
-            downloader->downloadData(buffer_file, this->forecastURL(), this->cookie(), command);
+//            downloader = new Core::Downloader(); 
+//            req = downloader->downloadData(buffer_file, this->forecastURL(), this->cookie(), command);
+//            if (req!=0)
+            DownloadRequest request(this->forecastURL().c_str(), App::GetInstance()->GetAppDataPath());
+            request.SetFileName(buffer_file);
+            pManager->Start(request, reqId);
+
 
         // Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie(), command);
-        return result;
+        return true;
+
+
+
+#
+
+
 #if 0
         if (Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie(), command)) {
 =======
@@ -564,6 +588,19 @@ Station::Station(const std::string& source_name, const std::string& id,
         return result;
 #endif
     }
+
+
+////////////////////////////////////////////////////////////////////////////////
+void
+Station::OnDownloadCompleted(RequestId reqId, const Tizen::Base::String& path){
+    AppLog("Download is completed. %S", path.GetPointer());
+}
+
+void
+Station::OnDownloadFailed(RequestId reqId, result r, const Tizen::Base::String& errorCode){
+    AppLog("Download failed. %S", errorCode.GetPointer());
+}
+
 ////////////////////////////////////////////////////////////////////////////////
     void Station::updateSource(const Source* source){
         _source = const_cast<Source*>(source);

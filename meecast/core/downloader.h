@@ -51,7 +51,7 @@ class Downloader : public Tizen::Content::IDownloadListener
 public:
     Downloader();
     size_t writedata(void *ptr, size_t size, size_t nmemb, FILE *stream);
-    result downloadData(const std::string &filename, const std::string &url, 
+    RequestId downloadData(const std::string &filename, const std::string &url, 
                 const std::string &cookie, const std::string &converter_command);
 //    result Download(const String& url);
     virtual void OnDownloadCanceled(RequestId reqId) {}

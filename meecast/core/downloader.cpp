@@ -51,7 +51,7 @@ Downloader::writedata(void *ptr, size_t size, size_t nmemb, FILE *stream)
 
 
 
-result
+RequestId
 Downloader::downloadData(const std::string &filename, const std::string &url, 
                          const std::string &cookie, const std::string &converter_command)
 {
@@ -67,9 +67,11 @@ Downloader::downloadData(const std::string &filename, const std::string &url,
     DownloadManager* pManager = DownloadManager::GetInstance();
 
     pManager->SetDownloadListener(this);
-    pManager->Start(request, reqId);
+    if (pManager->Start(request, reqId) == E_SUCCESS)
+        return reqId;
+    else
+        return 0;
 
-    return r;
 #if 0
 
     CURL *curl;
@@ -98,12 +100,12 @@ Downloader::downloadData(const std::string &filename, const std::string &url,
 }
 void
 Downloader::OnDownloadCompleted(RequestId reqId, const Tizen::Base::String& path){
-    AppLog("Download is completed. %S", path.GetPointer());
+//    AppLog("Download is completed. %S", path.GetPointer());
 }
 
 void
 Downloader::OnDownloadFailed(RequestId reqId, result r, const Tizen::Base::String& errorCode){
-    AppLog("Download failed. %S", errorCode.GetPointer());
+//    AppLog("Download failed. %S", errorCode.GetPointer());
 }
 
 

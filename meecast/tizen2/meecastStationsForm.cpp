@@ -190,12 +190,10 @@ meecastStationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& l
         double lat = 0;
         double lon = 0;
         __db->get_station_coordinate(__StationCode, lat, lon);
-        AppLog ("Before Config");
         config = ConfigTizen::Instance( std::string("config.xml"),
                                        Core::AbstractConfig::prefix+
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");
-        AppLog ("After Config");
         config->saveStation1(
                 __SourceId,
                 __StationCode,
@@ -203,6 +201,10 @@ meecastStationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& l
                 __CountryName,
                 __RegionName,
                 false, lat, lon);
+        SceneManager* pSceneManager = SceneManager::GetInstance();
+        AppAssert(pSceneManager);
+        pSceneManager->GoBackward(BackwardSceneTransition(L"MainScene",
+                                               SCENE_TRANSITION_ANIMATION_TYPE_RIGHT));
 
    	}
 }

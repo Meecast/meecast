@@ -156,6 +156,19 @@ meecastMainForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSce
     // Add your scene activate code here
     AppLog("OnSceneActivatedNi %i", _config->current_station_id());
     AppLog("OnSceneActivatedNi %s", _config->stationname().c_str());
+    Tizen::Ui::Controls::Label  *station_label = static_cast<Label*>(GetControl(L"IDC_LABEL_STATION_NAME"));
+    Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
+    Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
+    station_label->SetText(_config->stationname().c_str());
+    if (_config->nextstationname().length() < 1)
+        right_label->SetShowState(false);
+    else
+        right_label->SetShowState(true);
+    if (_config->prevstationname().length() < 1)
+        left_label->SetShowState(false);
+    else
+        left_label->SetShowState(true);
+
 }
 
 void

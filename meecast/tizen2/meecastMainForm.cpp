@@ -29,6 +29,7 @@ using namespace Tizen::App;
 using namespace Tizen::Ui;
 using namespace Tizen::Ui::Controls;
 using namespace Tizen::Ui::Scenes;
+using namespace Tizen::Graphics;
 
 
 meecastMainForm::meecastMainForm(void):
@@ -88,8 +89,13 @@ meecastMainForm::OnInitializing(void)
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");
     // Get a button via resource ID
-    Tizen::Ui::Controls::Panel  *headerPanel = static_cast<Panel*>(GetControl(L"HEADER_PANEL"));
-    headerPanel->SetBackgroundColor(Tizen::Graphics::Color(0x50, 0xFF, 0x38));
+    Tizen::Ui::Controls::Panel  *backgroundPanel = static_cast<Panel*>(GetControl(L"IDC_PANEL_BACKGROUND"));
+    backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(0x50, 0xFF, 0x38));
+
+  //  Tizen::Media::Image image;
+//	image.Construct();
+ //   __pImage = image.DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-size-normal/images/mask_background_main.png", BITMAP_PIXEL_FORMAT_ARGB8888);
+  //  backgroundPanel->SetBackgroundBitmap(*__pImage);
 
     return r;
 }

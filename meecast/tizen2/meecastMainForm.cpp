@@ -87,6 +87,10 @@ meecastMainForm::OnInitializing(void)
                                        Core::AbstractConfig::prefix+
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");
+    // Get a button via resource ID
+    Tizen::Ui::Controls::Panel  *headerPanel = static_cast<Panel*>(GetControl(L"HEADER_PANEL"));
+    headerPanel->SetBackgroundColor(Tizen::Graphics::Color(0x50, 0xFF, 0x38));
+
     return r;
 }
 

@@ -1,4 +1,0 @@
-void
-stub_stub()
-{}
-

@@ -67,6 +67,14 @@ meecastMainForm::OnInitializing(void)
         pButtonOk->SetActionId(ID_BUTTON_OK);
         pButtonOk->AddActionEventListener(*this);
     }
+
+    Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
+    if (right_label != null)
+		right_label->AddTouchEventListener(*this);
+    Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
+    if (left_label != null)
+		left_label->AddTouchEventListener(*this);
+
     /* Footer */
     Footer* pFooter = GetFooter();
     pFooter->SetStyle(FOOTER_STYLE_BUTTON_ICON_TEXT);
@@ -111,6 +119,39 @@ meecastMainForm::OnTerminating(void)
 }
 
 void
+meecastMainForm::OnTouchPressed(const Tizen::Ui::Control& source, 
+                                const Tizen::Graphics::Point& currentPosition,
+		                        const Tizen::Ui::TouchEventInfo& touchInfo) {
+
+    Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
+    Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
+	if (source.Equals(*left_label))
+	{
+        if ((uint)(_config->current_station_id() - 1) >= 0)
+            _config->current_station_id(_config->current_station_id() - 1);
+        else
+            _config->current_station_id(_config->stationsList().size());
+        _config->saveConfig();
+
+        ReInitElements(); 
+        AppLog("Left Touch Screen");
+	}
+    if (source.Equals(*right_label))
+	{
+        if ((uint)(_config->current_station_id() + 1) < _config->stationsList().size())
+            _config->current_station_id(_config->current_station_id() + 1);
+        else
+            _config->current_station_id(0);
+        _config->saveConfig();
+
+        ReInitElements(); 
+
+        AppLog("Right Touch Screen");
+	}
+}
+
+
+void
 meecastMainForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionId)
 {
     SceneManager* pSceneManager = SceneManager::GetInstance();
@@ -148,6 +189,27 @@ meecastMainForm::OnFormBackRequested(Tizen::Ui::Controls::Form& source)
     pApp->Terminate();
 }
 
+
+void 
+meecastMainForm::ReInitElements(void){
+
+    AppLog("REINIT ELEMENTS");
+    Tizen::Ui::Controls::Label  *station_label = static_cast<Label*>(GetControl(L"IDC_LABEL_STATION_NAME"));
+    Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
+    Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
+    station_label->SetText(_config->stationname().c_str());
+    station_label->RequestRedraw();
+    if (_config->nextstationname().length() < 1)
+        right_label->SetShowState(false);
+    else{
+        right_label->SetShowState(true);
+    }
+    if (_config->prevstationname().length() < 1)
+        left_label->SetShowState(false);
+    else
+        left_label->SetShowState(true);
+}
+
 void
 meecastMainForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
                                           const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs)
@@ -156,19 +218,7 @@ meecastMainForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSce
     // Add your scene activate code here
     AppLog("OnSceneActivatedNi %i", _config->current_station_id());
     AppLog("OnSceneActivatedNi %s", _config->stationname().c_str());
-    Tizen::Ui::Controls::Label  *station_label = static_cast<Label*>(GetControl(L"IDC_LABEL_STATION_NAME"));
-    Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
-    Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
-    station_label->SetText(_config->stationname().c_str());
-    if (_config->nextstationname().length() < 1)
-        right_label->SetShowState(false);
-    else
-        right_label->SetShowState(true);
-    if (_config->prevstationname().length() < 1)
-        left_label->SetShowState(false);
-    else
-        left_label->SetShowState(true);
-
+    ReInitElements(); 
 }
 
 void

@@ -6,6 +6,8 @@
 #include <FUi.h>
 #include "configtizen.h"
 
+#define SAFE_DELETE(x)  if (x) { delete x; x = null; }
+
 class meecastMainForm
 	: public Tizen::Ui::Controls::Form
 	, public Tizen::Ui::IActionEventListener

@@ -197,6 +197,7 @@ meecastMainForm::ReInitElements(void){
     Tizen::Ui::Controls::Label  *station_label = static_cast<Label*>(GetControl(L"IDC_LABEL_STATION_NAME"));
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
+    Tizen::Ui::Controls::Label  *main_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_MAIN_ICON"));
     station_label->SetText(_config->stationname().c_str());
     station_label->RequestRedraw();
     if (_config->nextstationname().length() < 1)
@@ -208,6 +209,17 @@ meecastMainForm::ReInitElements(void){
         left_label->SetShowState(false);
     else
         left_label->SetShowState(true);
+   /* Main Icon */ 
+   Tizen::Media::Image *image = null;
+   Tizen::Graphics::Bitmap* mainIconBitmap = null;
+   image = new (std::nothrow) Tizen::Media::Image();
+   image->Construct();
+   mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-size-normal/icons/Atmos/0.png", BITMAP_PIXEL_FORMAT_ARGB8888);
+   main_icon->SetBackgroundBitmap(*mainIconBitmap);
+   main_icon->RequestRedraw();
+   SAFE_DELETE(image);
+   SAFE_DELETE(mainIconBitmap);
+
 }
 
 void

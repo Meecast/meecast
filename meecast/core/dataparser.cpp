@@ -43,6 +43,7 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     DataParser::DataParser()
     {
+        AppLogDebug("DataParser");
         _timezone = 0;
         _list = new DataList;
         Data *forecast_data;
@@ -70,6 +71,7 @@ namespace Core {
 
         /* std::cerr<<"Filename   "<<filename<<std::endl; */
         
+        AppLogDebug("DataParser load data");
         this->_filename = filename;
         this->Reloadfile();
 #ifdef LIBXML
@@ -152,11 +154,14 @@ namespace Core {
             _list->push_back(forecast_data);
         }
 #else
+        AppLogDebug("DataParser load data1");
       if (!_doc)
            return;
+        AppLogDebug("DataParser load data2");
        xmlNodePtr root = xmlDocGetRootElement(_doc);
        if (!root)
            return;
+        AppLogDebug("DataParser load data3");
        for(xmlNodePtr p = root->children; p; p = p->next) {
             if (p->type != XML_ELEMENT_NODE)
                 continue;
@@ -165,6 +170,7 @@ namespace Core {
                 std::cerr<<"TIMEZONE in entering   "<<_timezone<<std::endl;
             }
             if (!xmlStrcmp(p->name, (const xmlChar*)"period")){
+                AppLogDebug("DataParser load data3 period");
                 forecast_data = new Data();
                 if (xmlGetProp(p, (const xmlChar*)"start"))
                     forecast_data->StartTime(atoi((const char *)xmlGetProp(p, (const xmlChar*)"start")));

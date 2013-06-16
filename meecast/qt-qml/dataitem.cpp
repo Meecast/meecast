@@ -279,7 +279,6 @@ DataItem::count_of_maps() {
     char number[5];
     int i;
     QString c;
-    std::cerr<<"Count of Maps"<<std::endl;
     for (i=4; i>=0; i--){
         std::cerr<<MapPattern().c_str()<<std::endl;
         snprintf(number, sizeof(number) -1, "%i", i);
@@ -290,7 +289,8 @@ DataItem::count_of_maps() {
         if (test.good())
             break;
     }
-    return c.number(i);
+    std::cerr<<"Count of Maps "<<i+1<<std::endl;
+    return c.number(i+1);
 }
 
 QString

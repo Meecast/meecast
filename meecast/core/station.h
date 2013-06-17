@@ -74,6 +74,7 @@ namespace Core{
         bool prepareFile();
         Source *getSourceByName();
         int _downloading_count;
+        std::vector<RequestId> _reqIdList;
         public:
             Station(const std::string& source_name, const std::string& id, 
                     const std::string& name,

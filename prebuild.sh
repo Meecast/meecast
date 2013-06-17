@@ -10,7 +10,7 @@ cp ../omweather-gismeteo-ru-stations-db/data/gismeteo.ru.xml ../res/sources
 cp ../meecast/core/data/source.xsd ../res/data/
 mkdir  ../res/screen-size-normal/images
 cp ../meecast/core/data/images/mask_background_main.png ../res/screen-size-normal/images
-cp -r ../meecast/core/data/icons/Atmos ../res/screen-size-normal/icons
+cp -r ../meecast/core/data/icons/Atmos ../res/screen-size-normal/icons/Atmos
 cp ../meecast/core/data/images/arrow_left.png ../res/screen-size-normal/images
 cp ../meecast/core/data/images/arrow_right.png ../res/screen-size-normal/images
 rm -rf ../src/core

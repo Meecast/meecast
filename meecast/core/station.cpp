@@ -186,6 +186,7 @@ Station::Station(const std::string& source_name, const std::string& id,
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::~Station(){
+        AppLog("Delete Station!!!!");
         delete _sourceName;
         delete _id;
         delete _name;
@@ -205,6 +206,7 @@ Station::Station(const std::string& source_name, const std::string& id,
             delete _converter;
         if (_source)
             delete _source;
+        _reqIdList.clear();
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const Station& station){
@@ -225,6 +227,8 @@ Station::Station(const std::string& source_name, const std::string& id,
         _latitude = station._latitude;
         _longitude = station._longitude;
         _downloading_count = station._downloading_count;
+        _reqIdList = station._reqIdList; 
+       AppLog("New Station!!!!");
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station& Station::operator=(const Station& station){
@@ -463,9 +467,10 @@ Station::Station(const std::string& source_name, const std::string& id,
             DownloadRequest request(this->detailURL().c_str(), App::GetInstance()->GetAppDataPath());
             request.SetFileName(buffer_file);
             pManager->Start(request, reqId);
+            _reqIdList.push_back(reqId);
             _downloading_count++;
 
-            AppLog("Download is begined. count %i", _downloading_count);
+            AppLog("Download is begined. count %i reqId %d", _downloading_count, reqId);
         }
 
             command =  std::string(std::string(this->converter()) + " " +  std::string(this->fileName()) + ".orig " + std::string(this->fileName()));
@@ -475,10 +480,16 @@ Station::Station(const std::string& source_name, const std::string& id,
 //            req = downloader->downloadData(buffer_file, this->forecastURL(), this->cookie(), command);
 //            if (req!=0)
             DownloadRequest request(this->forecastURL().c_str(), App::GetInstance()->GetAppDataPath());
+            reqId = 0;
+
             request.SetFileName(buffer_file);
             pManager->Start(request, reqId);
+            _reqIdList.push_back(reqId);
             _downloading_count++;
-            AppLog("Download is begined. count %i", _downloading_count);
+            AppLog("Download is begined. count %i reqId %d", _downloading_count, reqId);
+            for(int i=0; i<_reqIdList.size(); i++){
+                AppLog("Downloading list %i", _reqIdList[i]);
+            }
 
         // Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie(), command);
         return true;
@@ -602,23 +613,40 @@ Station::Station(const std::string& source_name, const std::string& id,
 ////////////////////////////////////////////////////////////////////////////////
 void
 Station::OnDownloadCompleted(RequestId reqId, const Tizen::Base::String& path){
-    AppLog("Download is completed. %S", path.GetPointer());
-    _downloading_count--;
-
-    AppLog("Download is completed. count %i", _downloading_count);
-    if (_downloading_count <=0){
-        this->run_converter();
+    if (_reqIdList.size() == 0)
+        return;
+    int i;
+    AppLog("Download is completed. first stage %i", _reqIdList.size());
+    for(i=0; i<_reqIdList.size(); i++){
+    AppLog("Download is completed. Second stage %i", _reqIdList[i]);
+        if (_reqIdList[i] == reqId){
+            AppLog("Download is completed. %S", path.GetPointer());
+            _downloading_count--;
+            AppLog("Download is completed. count %i", _downloading_count);
+            if (_downloading_count <= 0){
+            //    this->run_converter();
+            }
+            _reqIdList.erase(_reqIdList.begin() + i);
+        }
     }
 }
 
 void
 Station::OnDownloadFailed(RequestId reqId, result r, const Tizen::Base::String& errorCode){
-
-    AppLog("Download failed. %S", errorCode.GetPointer());
-    _downloading_count--;
-    AppLog("Download is completed. count %i", _downloading_count);
-    if (_downloading_count <=0){
-        this->run_converter();
+    if (_reqIdList.size() == 0)
+        return;
+    int i;
+    AppLog("Download is failed. first stage");
+    for(i=0; i<_reqIdList.size(); i++){
+        if (_reqIdList[i] == reqId){
+            AppLog("Download failed. %S", errorCode.GetPointer());
+            _downloading_count--;
+            AppLog("Download is completed. count %i", _downloading_count);
+            if (_downloading_count <= 0){
+              //  this->run_converter();
+            }
+            _reqIdList.erase(_reqIdList.begin() + i);
+        }
     }
 }
 ////////////////////////////////////////////////////////////////////////////////

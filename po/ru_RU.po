@@ -1153,7 +1153,7 @@ msgstr "Километры"
 
 #: omweather/src/hash.data:331
 msgid "Language"
-msgstr ""
+msgstr "Язык"
 
 #: omweather/src/hash.data:100
 msgid "Last Quarter"

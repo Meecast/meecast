@@ -3,7 +3,7 @@ meecast (0.7.3) unstable; urgency=low
   * Added description string for weather.com
   * Fixed problem with Catalan language
   * Added Llagostera, Spain to weather.com source
-  * Updated Arabic, Catalan, Finish, Italian, Serbian translations
+  * Updated Arabic, Catalan, Finish, Italian, Serbian, Russian translations
   * Added station Vittskovle (Sweden) to weather.com
   * Fixed problem with Map  
 

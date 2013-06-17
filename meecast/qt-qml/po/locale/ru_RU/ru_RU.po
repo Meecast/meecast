@@ -531,9 +531,8 @@ msgid "Cloudy and snow showers"
 msgstr "Облачно и кратковременный снег"
 
 #: omweather/src/hash.data:46
-#, fuzzy
 msgid "Cloudy and wet snow showers"
-msgstr "Облачно и кратковременный снег"
+msgstr "Облачно и кратковременный мокрый снег"
 
 #: omweather/src/hash.data:48
 msgid "Cloudy, Drifting Snow"
@@ -1154,7 +1153,7 @@ msgstr "Километры"
 
 #: omweather/src/hash.data:331
 msgid "Language"
-msgstr ""
+msgstr "Язык"
 
 #: omweather/src/hash.data:100
 msgid "Last Quarter"
@@ -2117,9 +2116,8 @@ msgid "Select the iconset"
 msgstr "Выберите набор иконок"
 
 #: meecast/qt-qml/qml/LanguagesPage.qml:130
-#, fuzzy
 msgid "Select the language"
-msgstr "Выберите набор иконок"
+msgstr "Выберите язык"
 
 #: meecast/qt-qml/qml/SourcePage.qml:108
 msgid "Select the weather source"
@@ -2166,12 +2164,11 @@ msgstr "Настройки"
 
 #: meecast/qt-qml/qml/LockScreen.qml:65
 msgid "Settings for Lockscreen widget"
-msgstr ""
+msgstr "Настройки для Lockscreen виджета"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:102
-#, fuzzy
 msgid "Settings for standby widget"
-msgstr "Настройки для StandbyScreen экрана"
+msgstr "Настройки для StandbyScreen виджета"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:534
 msgid "Settings of LockScreen"

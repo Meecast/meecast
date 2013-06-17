@@ -37,7 +37,7 @@ class Source;
 #include "source.h"
 #include "data.h"
 #include "sourcelist.h"
-#include "downloader.h"
+//#include "downloader.h"
 #include <sys/stat.h>
 
 #include <FApp.h>
@@ -51,7 +51,7 @@ using namespace Tizen::App;
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
-    class Station : public Tizen::Content::IDownloadListener{
+    class Station {
         std::string *_sourceName;
         std::string *_id;
         std::string *_name;
@@ -73,8 +73,6 @@ namespace Core{
         bool dataValid();
         bool prepareFile();
         Source *getSourceByName();
-        int _downloading_count;
-        std::vector<RequestId> _reqIdList;
         public:
             Station(const std::string& source_name, const std::string& id, 
                     const std::string& name,
@@ -133,13 +131,7 @@ namespace Core{
             double longitude() const;
 
             void run_converter();
-            virtual void OnDownloadCanceled(RequestId reqId) {}
-            virtual void OnDownloadCompleted(RequestId reqId, const Tizen::Base::String& path);
-            virtual void OnDownloadFailed(RequestId reqId, result r, const Tizen::Base::String& errorCode);
-            virtual void OnDownloadPaused(RequestId reqId) {}
-            virtual void OnDownloadInProgress(RequestId reqId, unsigned long long receivedSize, unsigned long long totalSize) {}
-
-
+            
 
     };
 ////////////////////////////////////////////////////////////////////////////////

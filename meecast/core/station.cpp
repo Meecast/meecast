@@ -38,6 +38,8 @@
 #include <FIo.h>
 int convert_station_openweathermaporg_data(const char *days_data_path, const char *result_file, const char *current_data_path, const char *hours_data_path );
  
+
+std::vector<RequestId> _reqIdList;
 using namespace Tizen::Base;
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
@@ -69,7 +71,6 @@ Station::Station(const std::string& source_name, const std::string& id,
         _gps = gps;
         _latitude = latitude;
         _longitude = longitude;
-        _downloading_count = 0;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const std::string& source_name, const std::string& id, const std::string& name,
@@ -86,7 +87,6 @@ Station::Station(const std::string& source_name, const std::string& id,
         _latitude = latitude;
         _longitude = longitude;
 
-        _downloading_count = 0;
         std::string path;
 
         path =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(App::GetInstance()->GetAppResourcePath())->GetPointer());
@@ -206,7 +206,6 @@ Station::Station(const std::string& source_name, const std::string& id,
             delete _converter;
         if (_source)
             delete _source;
-        _reqIdList.clear();
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const Station& station){
@@ -226,8 +225,6 @@ Station::Station(const std::string& source_name, const std::string& id,
         _gps = station._gps;
         _latitude = station._latitude;
         _longitude = station._longitude;
-        _downloading_count = station._downloading_count;
-        _reqIdList = station._reqIdList; 
        AppLog("New Station!!!!");
     }
 ////////////////////////////////////////////////////////////////////////////////
@@ -447,14 +444,12 @@ Station::Station(const std::string& source_name, const std::string& id,
         RequestId reqId = 0;
         force = false;
         result res = E_SUCCESS;
-        Downloader* downloader;
-        _downloading_count = 0;
 
         Tizen::Base::String dirPath;
         dirPath = App::GetInstance()->GetAppDataPath();
 
         DownloadManager* pManager = DownloadManager::GetInstance();
-        pManager->SetDownloadListener(this);
+//        pManager->SetDownloadListener(this);
 
 
         if  (this->detailURL() != ""){
@@ -468,9 +463,8 @@ Station::Station(const std::string& source_name, const std::string& id,
             request.SetFileName(buffer_file);
             pManager->Start(request, reqId);
             _reqIdList.push_back(reqId);
-            _downloading_count++;
 
-            AppLog("Download is begined. count %i reqId %d", _downloading_count, reqId);
+            AppLog("Download is begined.  reqId %d",  reqId);
         }
 
             command =  std::string(std::string(this->converter()) + " " +  std::string(this->fileName()) + ".orig " + std::string(this->fileName()));
@@ -485,8 +479,7 @@ Station::Station(const std::string& source_name, const std::string& id,
             request.SetFileName(buffer_file);
             pManager->Start(request, reqId);
             _reqIdList.push_back(reqId);
-            _downloading_count++;
-            AppLog("Download is begined. count %i reqId %d", _downloading_count, reqId);
+            AppLog("Download is begined. count  reqId %d",  reqId);
             for(int i=0; i<_reqIdList.size(); i++){
                 AppLog("Downloading list %i", _reqIdList[i]);
             }
@@ -609,46 +602,6 @@ Station::Station(const std::string& source_name, const std::string& id,
 #endif
     }
 
-
-////////////////////////////////////////////////////////////////////////////////
-void
-Station::OnDownloadCompleted(RequestId reqId, const Tizen::Base::String& path){
-    if (_reqIdList.size() == 0)
-        return;
-    int i;
-    AppLog("Download is completed. first stage %i", _reqIdList.size());
-    for(i=0; i<_reqIdList.size(); i++){
-    AppLog("Download is completed. Second stage %i", _reqIdList[i]);
-        if (_reqIdList[i] == reqId){
-            AppLog("Download is completed. %S", path.GetPointer());
-            _downloading_count--;
-            AppLog("Download is completed. count %i", _downloading_count);
-            if (_downloading_count <= 0){
-            //    this->run_converter();
-            }
-            _reqIdList.erase(_reqIdList.begin() + i);
-        }
-    }
-}
-
-void
-Station::OnDownloadFailed(RequestId reqId, result r, const Tizen::Base::String& errorCode){
-    if (_reqIdList.size() == 0)
-        return;
-    int i;
-    AppLog("Download is failed. first stage");
-    for(i=0; i<_reqIdList.size(); i++){
-        if (_reqIdList[i] == reqId){
-            AppLog("Download failed. %S", errorCode.GetPointer());
-            _downloading_count--;
-            AppLog("Download is completed. count %i", _downloading_count);
-            if (_downloading_count <= 0){
-              //  this->run_converter();
-            }
-            _reqIdList.erase(_reqIdList.begin() + i);
-        }
-    }
-}
 ////////////////////////////////////////////////////////////////////////////////
 void
 Station::run_converter(){

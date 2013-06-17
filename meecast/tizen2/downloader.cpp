@@ -31,83 +31,62 @@
 
 #include "downloader.h"
 
-int downloading_count = 0;
+extern std::vector<RequestId> _reqIdList;
 using namespace Tizen::App;
-////////////////////////////////////////////////////////////////////////////////
-namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
 
 
 Downloader::Downloader()
 {
-
-}
-
-size_t
-Downloader::writedata(void *ptr, size_t size, size_t nmemb, FILE *stream)
-{
-    return fwrite(ptr, size, nmemb, stream);
-}
-
-
-
-RequestId
-Downloader::downloadData(const std::string &filename, const std::string &url, 
-                         const std::string &cookie, const std::string &converter_command)
-{
-
-
-    result r = E_SUCCESS;
-    RequestId reqId = 0;
-
-    Tizen::Base::String dirPath;
-    dirPath = App::GetInstance()->GetAppDataPath();
-    DownloadRequest request(url.c_str(), App::GetInstance()->GetAppDataPath());
-    request.SetFileName(filename.c_str());
     DownloadManager* pManager = DownloadManager::GetInstance();
-
     pManager->SetDownloadListener(this);
-    if (pManager->Start(request, reqId) == E_SUCCESS)
-        return reqId;
-    else
-        return 0;
-
-#if 0
-
-    CURL *curl;
-    CURLcode res;
-    FILE *fp;
-
-    curl = curl_easy_init();
-    if (curl){
-        fp = fopen(filename.c_str(), "w");
-        if (!fp){
-            std::cerr << "error open file " << filename << std::endl;
-            return false;
-        
-        curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, Downloader::writedata);
-        curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
-        curl_easy_setopt(curl, CURLOPT_COOKIE, cookie.c_str()); 
-        res = curl_easy_perform(curl);
-        std::cerr << "curl result = " << res << std::endl;
-        curl_easy_cleanup(curl);
-        fclose(fp);
-        return true;
-    }else return false;
-    return false;
-#endif
 }
+
 void
 Downloader::OnDownloadCompleted(RequestId reqId, const Tizen::Base::String& path){
-//    AppLog("Download is completed. %S", path.GetPointer());
+   AppLog("Download is completed. %S", path.GetPointer());
+    if (_reqIdList.size() == 0)
+        return;
+    int i;
+    AppLog("Download is completed. first stage %i", _reqIdList.size());
+    for(i=0; i<_reqIdList.size(); i++){
+    AppLog("Download is completed. Second stage %i", _reqIdList[i]);
+        if (_reqIdList[i] == reqId){
+            _reqIdList.erase(_reqIdList.begin() + i);
+            AppLog("Download is completed. %S", path.GetPointer());
+            if (_reqIdList.size() <= 0){
+                AppLog(" last stage %i", _reqIdList.size());
+                ConfigTizen *config;
+                config = ConfigTizen::Instance( std::string("config.xml"),
+                                       Core::AbstractConfig::prefix+
+                                       Core::AbstractConfig::schemaPath+
+                                       "config.xsd");
+
+                config->convertstations();
+            }
+        }
+    }
+
 }
 
 void
 Downloader::OnDownloadFailed(RequestId reqId, result r, const Tizen::Base::String& errorCode){
 //    AppLog("Download failed. %S", errorCode.GetPointer());
+    if (_reqIdList.size() == 0)
+        return;
+    int i;
+    AppLog("Download is failed. first stage");
+    for(i=0; i<_reqIdList.size(); i++){
+        if (_reqIdList[i] == reqId){
+            AppLog("Download failed. %S", errorCode.GetPointer());
+            if (_reqIdList.size() <= 0){
+                AppLog(" last stage %i",  _reqIdList.size());
+            }
+            _reqIdList.erase(_reqIdList.begin() + i);
+        }
+    }
+
 }
 
 
 ////////////////////////////////////////////////////////////////////////////////
-} // namespace Core

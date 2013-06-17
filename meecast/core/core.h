@@ -49,7 +49,7 @@
 #include "abstractconfig.h"
 #include "databasesqlite.h"
 #include "databaseabstract.h"
-#include "downloader.h"
+//#include "downloader.h"
 
 #define MEECAST_VERSION "0.7.3"
 namespace Core{

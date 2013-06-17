@@ -73,7 +73,7 @@ namespace Core{
             Config(const Config& config);
             Config& operator=(const Config& config);
             virtual ~Config();
-           
+
         public:
             static Config* Instance();
             static Config* Instance(const std::string& filename, const std::string& schema_filename);

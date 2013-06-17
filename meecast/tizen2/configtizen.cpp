@@ -82,11 +82,19 @@ ConfigTizen::get_screen_height(){
 }
 
 void
+ConfigTizen::convertstations(){
+    for (short i=0; i < stationsList().size();i++){
+        stationsList().at(i)->run_converter();
+    }
+}
+
+void
 ConfigTizen::updatestations(){
     for (short i=0; i < stationsList().size();i++){
         stationsList().at(i)->updateData(true);
     }
 }
+
 void 
 ConfigTizen::saveStation1(String source, String city_id, String city_name, String country,
                       String region, bool gps, double latitude, double longitude)

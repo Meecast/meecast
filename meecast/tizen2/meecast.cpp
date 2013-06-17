@@ -39,10 +39,12 @@ current_data(std::string& str){
 
 meecastApp::meecastApp(void)
 {
+    downloader = new Downloader();
 }
 
 meecastApp::~meecastApp(void)
 {
+    delete downloader;
 }
 
 UiApp*
@@ -93,7 +95,6 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
        config->dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
     else 
         config->dp = NULL;
-
 
 
 

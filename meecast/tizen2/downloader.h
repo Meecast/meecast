@@ -36,24 +36,21 @@
 #include <stdio.h>
 #include <string>
 #include <iostream>
+#include <vector>
 
 #include <FBase.h>
 #include <FApp.h>
 #include <FContent.h>
+#include "configtizen.h"
 
 using namespace Tizen::Base;
 using namespace Tizen::Content;
 using namespace Tizen::App;
 
-namespace Core{
 class Downloader : public Tizen::Content::IDownloadListener
 {
 public:
     Downloader();
-    size_t writedata(void *ptr, size_t size, size_t nmemb, FILE *stream);
-    RequestId downloadData(const std::string &filename, const std::string &url, 
-                const std::string &cookie, const std::string &converter_command);
-//    result Download(const String& url);
     virtual void OnDownloadCanceled(RequestId reqId) {}
     virtual void OnDownloadCompleted(RequestId reqId, const Tizen::Base::String& path);
     virtual void OnDownloadFailed(RequestId reqId, result r, const Tizen::Base::String& errorCode);
@@ -61,5 +58,4 @@ public:
     virtual void OnDownloadInProgress(RequestId reqId, unsigned long long receivedSize, unsigned long long totalSize) {}
 
 };
-}
 #endif // DOWNLOADER_H

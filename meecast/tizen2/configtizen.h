@@ -59,6 +59,7 @@ public:
     void saveStation1(String source, String city_id, String city_name, String country,
                       String region, bool gps = false, double latitude = 0, double longitude = 0);
     void updatestations();
+    void convertstations();
 };
 
 #endif // CONFIGTIZEN_H

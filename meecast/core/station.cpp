@@ -461,10 +461,14 @@ Station::Station(const std::string& source_name, const std::string& id,
 
             DownloadRequest request(this->detailURL().c_str(), App::GetInstance()->GetAppDataPath());
             request.SetFileName(buffer_file);
-            pManager->Start(request, reqId);
-            _reqIdList.push_back(reqId);
-
-            AppLog("Download is begined.  reqId %d",  reqId);
+            result res;
+            res = pManager->Start(request, reqId);
+            if (res == E_SUCCESS){ 
+                _reqIdList.push_back(reqId);
+                AppLog("Download is begined.  reqId %d",  reqId);
+            }else{
+                AppLog("Download doesn't begin.  reqId %d %i",  reqId, res);
+            }
         }
 
             command =  std::string(std::string(this->converter()) + " " +  std::string(this->fileName()) + ".orig " + std::string(this->fileName()));
@@ -477,9 +481,14 @@ Station::Station(const std::string& source_name, const std::string& id,
             reqId = 0;
 
             request.SetFileName(buffer_file);
-            pManager->Start(request, reqId);
-            _reqIdList.push_back(reqId);
-            AppLog("Download is begined. count  reqId %d",  reqId);
+            res =  pManager->Start(request, reqId);
+            if (res == E_SUCCESS){ 
+                AppLog("Download is begined. count  reqId %d",  reqId);
+                _reqIdList.push_back(reqId);
+            }else{
+                AppLog("Download doesn't begin.  reqId %d %i",  reqId, res);
+            }
+
             for(int i=0; i<_reqIdList.size(); i++){
                 AppLog("Downloading list %i", _reqIdList[i]);
             }

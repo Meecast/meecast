@@ -1,5 +1,6 @@
 meecast (0.7.3) unstable; urgency=low
 
+  * Added new source Openwethermap.org
   * Added description string for weather.com
   * Fixed problem with Catalan language
   * Added Llagostera, Spain to weather.com source

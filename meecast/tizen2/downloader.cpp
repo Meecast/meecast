@@ -37,6 +37,7 @@ using namespace Tizen::App;
 Downloader::Downloader()
 {
     DownloadManager* pManager = DownloadManager::GetInstance();
+    AppLog("Downloader Manager %p", pManager);
     pManager->SetDownloadListener(this);
 }
 

@@ -30,6 +30,12 @@ using namespace Tizen::Ui;
 using namespace Tizen::Ui::Controls;
 using namespace Tizen::Ui::Scenes;
 using namespace Tizen::Graphics;
+using namespace Tizen::Net::Http;
+
+const static wchar_t* HTTP_CLIENT_HOST_ADDRESS = L"https://www.tizen.org";
+const static wchar_t* HTTP_CLIENT_REQUEST_URI = L"www.tizen.org";
+
+
 meecastMainForm::meecastMainForm(void):
                  __pContextMenuText(null)
 {
@@ -475,3 +481,121 @@ meecastMainForm::CreateContextMenuList(void)
 }
 
 
+
+result
+meecastMainForm::RequestHttpGet(void)
+{
+	result r = E_SUCCESS;
+	HttpTransaction* pHttpTransaction = null;
+	HttpRequest* pHttpRequest = null;
+
+	if (__pHttpSession == null)
+	{
+		__pHttpSession = new (std::nothrow) HttpSession();
+
+		r = __pHttpSession->Construct(NET_HTTP_SESSION_MODE_NORMAL, null, HTTP_CLIENT_HOST_ADDRESS, null);
+		if (IsFailed(r))
+		{
+			delete __pHttpSession;
+			__pHttpSession = null;
+			AppLogException("Failed to create the HttpSession.");
+			goto CATCH;
+		}
+
+		r = __pHttpSession->SetAutoRedirectionEnabled(true);
+		TryCatch(r == E_SUCCESS, , "Failed to set the redirection automatically.");
+	}
+
+	pHttpTransaction = __pHttpSession->OpenTransactionN();
+	r = GetLastResult();
+	TryCatch(pHttpTransaction != null, , "Failed to open the HttpTransaction.");
+
+	r = pHttpTransaction->AddHttpTransactionListener(*this);
+	TryCatch(r == E_SUCCESS, , "Failed to add the HttpTransactionListener.");
+
+	pHttpRequest = const_cast< HttpRequest* >(pHttpTransaction->GetRequest());
+
+	r = pHttpRequest->SetUri(HTTP_CLIENT_REQUEST_URI);
+	TryCatch(r == E_SUCCESS, , "Failed to set the uri.");
+
+	r = pHttpRequest->SetMethod(NET_HTTP_METHOD_GET);
+	TryCatch(r == E_SUCCESS, , "Failed to set the method.");
+
+	r = pHttpTransaction->Submit();
+	TryCatch(r == E_SUCCESS, , "Failed to submit the HttpTransaction.");
+
+	return r;
+
+CATCH:
+
+	delete pHttpTransaction;
+	pHttpTransaction = null;
+
+	AppLog("RequestHttpGet() failed. (%s)", GetErrorMessage(r));
+	return r;
+}
+
+
+void
+meecastMainForm::OnTransactionReadyToRead(HttpSession& httpSession, HttpTransaction& httpTransaction, int availableBodyLen)
+{
+	AppLog("OnTransactionReadyToRead");
+
+	HttpResponse* pHttpResponse = httpTransaction.GetResponse();
+	if (pHttpResponse->GetHttpStatusCode() == HTTP_STATUS_OK)
+	{
+		HttpHeader* pHttpHeader = pHttpResponse->GetHeader();
+		if (pHttpHeader != null)
+		{
+			String* tempHeaderString = pHttpHeader->GetRawHeaderN();
+			ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
+
+			String text(L"Read Body Length: ");
+			text.Append(availableBodyLen);
+
+			//__pEditArea->SetText(text);
+			Draw();
+
+			delete tempHeaderString;
+			delete pBuffer;
+		}
+	}
+}
+
+void
+meecastMainForm::OnTransactionAborted(HttpSession& httpSession, HttpTransaction& httpTransaction, result r)
+{
+	AppLog("OnTransactionAborted(%s)", GetErrorMessage(r));
+
+	delete &httpTransaction;
+}
+
+void
+meecastMainForm::OnTransactionReadyToWrite(HttpSession& httpSession, HttpTransaction& httpTransaction, int recommendedChunkSize)
+{
+	AppLog("OnTransactionReadyToWrite");
+}
+
+void
+meecastMainForm::OnTransactionHeaderCompleted(HttpSession& httpSession, HttpTransaction& httpTransaction, int headerLen, bool authRequired)
+{
+	AppLog("OnTransactionHeaderCompleted");
+}
+
+void
+meecastMainForm::OnTransactionCompleted(HttpSession& httpSession, HttpTransaction& httpTransaction)
+{
+	AppLog("OnTransactionCompleted");
+
+	delete &httpTransaction;
+}
+
+void
+meecastMainForm::OnTransactionCertVerificationRequiredN(HttpSession& httpSession, HttpTransaction& httpTransaction, Tizen::Base::String* pCert)
+{
+	AppLog("OnTransactionCertVerificationRequiredN");
+
+	httpTransaction.Resume();
+
+	delete pCert;
+}

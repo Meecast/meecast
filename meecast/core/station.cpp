@@ -464,6 +464,7 @@ Station::Station(const std::string& source_name, const std::string& id,
 //            downloader->downloadData(buffer_file, this->detailURL(), this->cookie(), command);
 
             DownloadRequest request(this->detailURL().c_str(), App::GetInstance()->GetAppDataPath());
+            //DownloadRequest request("http://www.ru", App::GetInstance()->GetAppDataPath());
             request.SetFileName(buffer_file);
             result res;
             res = pManager->Start(request, reqId);

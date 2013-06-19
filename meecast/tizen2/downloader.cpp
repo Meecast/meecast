@@ -70,11 +70,22 @@ Downloader::OnDownloadCompleted(RequestId reqId, const Tizen::Base::String& path
 
 void
 Downloader::OnDownloadFailed(RequestId reqId, result r, const Tizen::Base::String& errorCode){
-//    AppLog("Download failed. %S", errorCode.GetPointer());
+    AppLog("Download failed. %S %d", errorCode.GetPointer(), r);
     if (_reqIdList.size() == 0)
         return;
+    switch (r){
+        case E_INVALID_URL: AppLog ("The specified URL is invalid. ");break;
+        case E_CONNECTION_FAILED: AppLog ("The server connection fails.");break;
+        case E_TIMEOUT: AppLog ("   The connection has timed out. ");break;
+        case E_MAX_EXCEEDED: AppLog ("  The request has exceeded the limit.  ");break;
+        case E_STORAGE_FULL: AppLog ("The storage is full. ");break;
+        case E_OUT_OF_MEMORY: AppLog ("The memory is insufficient");break;
+        case E_SYSTEM: AppLog ("The method cannot proceed due to a severe system error. ");break;
+
+
+    }
+
     int i;
-    AppLog("Download is failed. first stage");
     for(i=0; i<_reqIdList.size(); i++){
         if (_reqIdList[i] == reqId){
             AppLog("Download failed. %S", errorCode.GetPointer());

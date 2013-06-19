@@ -10,6 +10,7 @@
     <Apps>
         <ApiVersion>2.0</ApiVersion>
         <Privileges>
+            <Privilege>http://tizen.org/privilege/internet</Privilege>
             <Privilege>http://tizen.org/privilege/download</Privilege>
         </Privileges>
         <UiApp LaunchingHistoryVisible="True" Main="True" MenuIconVisible="True" Name="meecast">

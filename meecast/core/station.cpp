@@ -41,6 +41,7 @@ int convert_station_openweathermaporg_data(const char *days_data_path, const cha
 
 std::vector<RequestId> _reqIdList;
 using namespace Tizen::Base;
+using namespace Tizen::Io;
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
@@ -454,7 +455,10 @@ Station::Station(const std::string& source_name, const std::string& id,
 
         if  (this->detailURL() != ""){
             snprintf(buffer_file, sizeof(buffer_file) -1, "%s.detail.orig", this->fileName().c_str());
-            command =  std::string(std::string(this->converter().c_str()) + " " + " " +  std::string(this->fileName().c_str()) + ".orig " + std::string(this->fileName().c_str()) +" " + std::string(this->fileName().c_str()) + ".detail.orig");
+            if (Tizen::Io::File::IsFileExist(buffer_file))
+                Tizen::Io::File::Remove(buffer_file);
+
+//            command =  std::string(std::string(this->converter().c_str()) + " " + " " +  std::string(this->fileName().c_str()) + ".orig " + std::string(this->fileName().c_str()) +" " + std::string(this->fileName().c_str()) + ".detail.orig");
 //            /* TODO MEMORY LEAK!!! */
 //            downloader = new Core::Downloader(); 
 //            downloader->downloadData(buffer_file, this->detailURL(), this->cookie(), command);
@@ -471,29 +475,31 @@ Station::Station(const std::string& source_name, const std::string& id,
             }
         }
 
-            command =  std::string(std::string(this->converter()) + " " +  std::string(this->fileName()) + ".orig " + std::string(this->fileName()));
-            snprintf(buffer_file, sizeof(buffer_file) -1, "%s.orig", this->fileName().c_str());
-            /* TODO MEMORY LEAK!!! */
+        snprintf(buffer_file, sizeof(buffer_file) -1, "%s.orig", this->fileName().c_str());
+        if (Tizen::Io::File::IsFileExist(buffer_file))
+            Tizen::Io::File::Remove(buffer_file);
+//            command =  std::string(std::string(this->converter()) + " " +  std::string(this->fileName()) + ".orig " + std::string(this->fileName()));
+        /* TODO MEMORY LEAK!!! */
 //            downloader = new Core::Downloader(); 
 //            req = downloader->downloadData(buffer_file, this->forecastURL(), this->cookie(), command);
 //            if (req!=0)
-            DownloadRequest request(this->forecastURL().c_str(), App::GetInstance()->GetAppDataPath());
-            reqId = 0;
+        DownloadRequest request(this->forecastURL().c_str(), App::GetInstance()->GetAppDataPath());
+        reqId = 0;
 
-            request.SetFileName(buffer_file);
-            res =  pManager->Start(request, reqId);
-            if (res == E_SUCCESS){ 
-                AppLog("Download is begined. count  reqId %d",  reqId);
-                _reqIdList.push_back(reqId);
-            }else{
-                AppLog("Download doesn't begin.  reqId %d %i",  reqId, res);
-            }
+        request.SetFileName(buffer_file);
+        res =  pManager->Start(request, reqId);
+        if (res == E_SUCCESS){ 
+            AppLog("Download is begined. count  reqId %d",  reqId);
+            _reqIdList.push_back(reqId);
+        }else{
+            AppLog("Download doesn't begin.  reqId %d %i",  reqId, res);
+        }
 
-            for(int i=0; i<_reqIdList.size(); i++){
-                AppLog("Downloading list %i", _reqIdList[i]);
-            }
+        for(int i=0; i<_reqIdList.size(); i++){
+            AppLog("Downloading list %i", _reqIdList[i]);
+        }
 
-        // Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie(), command);
+    // Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie(), command);
         return true;
 
 

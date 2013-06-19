@@ -1,10 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
- * Copyright (C) 2006-2011 Pavel Fialko
- * Copyright (C) 2010-2011 Tanya Makova
+ * Copyright (C) 2013 Vlad Vasilyeu
  *     for the code
  *
  * Copyright (C) 2008 Andrew Zhilin

@@ -176,10 +176,39 @@ meecastMainForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionI
         AppLog("Settings Button is clicked!");
         pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_SETTINGSSCENE"));
         break;
-    case ID_BUTTON_UPDATE:
+    case ID_BUTTON_UPDATE: {
         AppLog("Settings Update is clicked!");
-        _config->updatestations();
+
+
+
+	result r = E_SUCCESS;
+
+	int modalResult;
+    Tizen::Ui::Controls::MessageBox msgBox;
+
+	r = RequestHttpGet();
+	if (r == E_INVALID_SESSION)
+	{
+		msgBox.Construct(L"RequestHttpGet", L"Network is unavailable", MSGBOX_STYLE_OK);
+		msgBox.ShowAndWait(modalResult);
+
+		delete __pHttpSession;
+		__pHttpSession = null;
+
+	}
+	else if (IsFailed(r))
+	{
+		msgBox.Construct(L"RequestHttpGet", L"Previous transaction is being processed.", MSGBOX_STYLE_OK);
+		msgBox.ShowAndWait(modalResult);
+	}
+
+
+
+
+
+   //     _config->updatestations();
         break;
+                           }
     default:
         break;
     }

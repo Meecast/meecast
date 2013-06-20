@@ -248,11 +248,14 @@ meecastMainForm::ReInitElements(void){
 
         String icon_number = temp_data->Icon();
         Tizen::Base::Integer icon_int =  temp_data->Icon();
-        mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-size-normal/icons/Atmos/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
-        main_icon->SetBackgroundBitmap(*mainIconBitmap);
-        main_icon->RequestRedraw();
-        SAFE_DELETE(image);
-        SAFE_DELETE(mainIconBitmap);
+
+        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-size-normal/icons/Atmos/" + icon_int.ToString() + ".png")){
+            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-size-normal/icons/Atmos/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+            main_icon->SetBackgroundBitmap(*mainIconBitmap);
+            main_icon->RequestRedraw();
+            SAFE_DELETE(image);
+            SAFE_DELETE(mainIconBitmap);
+        }
 
 #if 0 
         if (!edje_object_file_set(edje_obj, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "mainwindow")){
@@ -440,6 +443,21 @@ meecastMainForm::ReInitElements(void){
         elm_object_content_set(scroller, list_box);
         evas_object_show(scroller);
 #endif
+    }else{
+        /* Main Icon  N/A*/ 
+        Tizen::Media::Image *image = null;
+        Tizen::Graphics::Bitmap* mainIconBitmap = null;
+        image = new (std::nothrow) Tizen::Media::Image();
+        image->Construct();
+
+        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-size-normal/icons/Atmos/na.png")){
+            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-size-normal/icons/Atmos/na.png", BITMAP_PIXEL_FORMAT_ARGB8888);
+            main_icon->SetBackgroundBitmap(*mainIconBitmap);
+            main_icon->RequestRedraw();
+            SAFE_DELETE(image);
+            SAFE_DELETE(mainIconBitmap);
+        }
+
     }
 
 

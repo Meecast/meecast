@@ -42,6 +42,7 @@ class Source;
 
 #include <FApp.h>
 #include <FContent.h>
+#include <FNet.h>
 
 using namespace Tizen::Base;
 using namespace Tizen::Content;
@@ -51,7 +52,15 @@ using namespace Tizen::App;
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
-    class Station {
+    class Station: public Tizen::Net::Http::IHttpTransactionEventListener {
+        enum Type_Of_Downloading{
+            NONE = 0,
+            FORECAST = 1,
+            FORECAST_DONE = 2,
+            DETAIL_FORECAST = 3,
+            DETAIL_FORECAST_DONE = 4
+        };
+
         std::string *_sourceName;
         std::string *_id;
         std::string *_name;
@@ -73,6 +82,7 @@ namespace Core{
         bool dataValid();
         bool prepareFile();
         Source *getSourceByName();
+        int _downloading;
         public:
             Station(const std::string& source_name, const std::string& id, 
                     const std::string& name,
@@ -131,7 +141,22 @@ namespace Core{
             double longitude() const;
 
             void run_converter();
-            
+
+ // IHttpTransactionEventListener
+	virtual void OnTransactionReadyToRead(Tizen::Net::Http::HttpSession& httpSession, Tizen::Net::Http::HttpTransaction& httpTransaction, int availableBodyLen);
+	virtual void OnTransactionAborted(Tizen::Net::Http::HttpSession& httpSession, Tizen::Net::Http::HttpTransaction& httpTransaction, result r);
+	virtual void OnTransactionReadyToWrite(Tizen::Net::Http::HttpSession& httpSession, Tizen::Net::Http::HttpTransaction& httpTransaction, int recommendedChunkSize);
+	virtual void OnTransactionHeaderCompleted(Tizen::Net::Http::HttpSession& httpSession, Tizen::Net::Http::HttpTransaction& httpTransaction, int headerLen, bool authRequired);
+	virtual void OnTransactionCompleted(Tizen::Net::Http::HttpSession& httpSession, Tizen::Net::Http::HttpTransaction& httpTransaction);
+	virtual void OnTransactionCertVerificationRequiredN(Tizen::Net::Http::HttpSession& httpSession, Tizen::Net::Http::HttpTransaction& httpTransaction, Tizen::Base::String* pCert);
+
+           
+private:
+	result RequestHttpGet(void);
+
+private:
+	Tizen::Net::Http::HttpSession* __pHttpSession;
+
 
     };
 ////////////////////////////////////////////////////////////////////////////////

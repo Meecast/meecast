@@ -42,6 +42,15 @@ int convert_station_openweathermaporg_data(const char *days_data_path, const cha
 std::vector<RequestId> _reqIdList;
 using namespace Tizen::Base;
 using namespace Tizen::Io;
+using namespace Tizen::Ui;
+using namespace Tizen::Net::Http;
+using namespace Tizen::Ui::Controls;
+
+const static wchar_t* HTTP_CLIENT_HOST_ADDRESS = L"https://www.tizen.org";
+const static wchar_t* HTTP_CLIENT_REQUEST_URI = L"www.tizen.org";
+
+
+
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
@@ -52,7 +61,7 @@ Station::Station(const std::string& source_name, const std::string& id,
                  const std::string& viewURL, const std::string& mapURL, 
                  const std::string& basemapURL, 
                  const std::string&  cookie, const bool gps, 
-                 double latitude, double longitude ){
+                 double latitude, double longitude ): __pHttpSession(null){
 
         _sourceName = new std::string(source_name);
         _id = new std::string(id);
@@ -72,10 +81,11 @@ Station::Station(const std::string& source_name, const std::string& id,
         _gps = gps;
         _latitude = latitude;
         _longitude = longitude;
+        _downloading = NONE;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const std::string& source_name, const std::string& id, const std::string& name,
-                     const std::string& country, const std::string& region, const bool gps, double latitude, double longitude){
+                     const std::string& country, const std::string& region, const bool gps, double latitude, double longitude): __pHttpSession(null){
         AppLog("STation ");
         _sourceName = new std::string(source_name);
         _id = new std::string(id);
@@ -182,6 +192,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         _fileName = new std::string(filename);
         _converter = new std::string(sourcelist->at(source_id)->binary());
 
+        _downloading = NONE;
         delete sourcelist;
 
     }
@@ -225,7 +236,9 @@ Station::Station(const std::string& source_name, const std::string& id,
         _converter = new std::string(*(station._converter));
         _gps = station._gps;
         _latitude = station._latitude;
+        _downloading = station._downloading;
         _longitude = station._longitude;
+        __pHttpSession = station.__pHttpSession;
        AppLog("New Station!!!!");
     }
 ////////////////////////////////////////////////////////////////////////////////
@@ -445,67 +458,48 @@ Station::Station(const std::string& source_name, const std::string& id,
         RequestId reqId = 0;
         force = false;
         result res = E_SUCCESS;
+	    result r = E_SUCCESS;
 
-        Tizen::Base::String dirPath;
-        dirPath = App::GetInstance()->GetAppDataPath();
-
-        DownloadManager* pManager = DownloadManager::GetInstance();
-//        pManager->SetDownloadListener(this);
-
-
-        if  (this->detailURL() != ""){
+        if  (this->detailURL() != "" &&  _downloading == FORECAST_DONE){
             snprintf(buffer_file, sizeof(buffer_file) -1, "%s.detail.orig", this->fileName().c_str());
             if (Tizen::Io::File::IsFileExist(buffer_file))
                 Tizen::Io::File::Remove(buffer_file);
 
-//            command =  std::string(std::string(this->converter().c_str()) + " " + " " +  std::string(this->fileName().c_str()) + ".orig " + std::string(this->fileName().c_str()) +" " + std::string(this->fileName().c_str()) + ".detail.orig");
-//            /* TODO MEMORY LEAK!!! */
-//            downloader = new Core::Downloader(); 
-//            downloader->downloadData(buffer_file, this->detailURL(), this->cookie(), command);
+            _downloading = DETAIL_FORECAST;
 
-            DownloadRequest request(this->detailURL().c_str(), App::GetInstance()->GetAppDataPath());
-            //DownloadRequest request("http://www.ru", App::GetInstance()->GetAppDataPath());
-            request.SetFileName(buffer_file);
-            result res;
-            res = pManager->Start(request, reqId);
-            if (res == E_SUCCESS){ 
-                _reqIdList.push_back(reqId);
-                AppLog("Download is begined.  reqId %d",  reqId);
-            }else{
-                AppLog("Download doesn't begin.  reqId %d %i",  reqId, res);
+            r = RequestHttpGet();
+            if (r == E_INVALID_SESSION){
+                AppLog("Problem with downloading");
+                delete __pHttpSession;
+                __pHttpSession = null;
+            }
+            else if (IsFailed(r)){
+                AppLog("Problem with downloading");
             }
         }
+        r = E_SUCCESS;
+        if (_downloading == NONE){
+            snprintf(buffer_file, sizeof(buffer_file) -1, "%s.orig", this->fileName().c_str());
+            if (Tizen::Io::File::IsFileExist(buffer_file))
+                Tizen::Io::File::Remove(buffer_file);
 
-        snprintf(buffer_file, sizeof(buffer_file) -1, "%s.orig", this->fileName().c_str());
-        if (Tizen::Io::File::IsFileExist(buffer_file))
-            Tizen::Io::File::Remove(buffer_file);
-//            command =  std::string(std::string(this->converter()) + " " +  std::string(this->fileName()) + ".orig " + std::string(this->fileName()));
-        /* TODO MEMORY LEAK!!! */
-//            downloader = new Core::Downloader(); 
-//            req = downloader->downloadData(buffer_file, this->forecastURL(), this->cookie(), command);
-//            if (req!=0)
-        DownloadRequest request(this->forecastURL().c_str(), App::GetInstance()->GetAppDataPath());
-        reqId = 0;
+            _downloading = FORECAST;
+            r = RequestHttpGet();
+            if (r == E_INVALID_SESSION)
+            {
+                AppLog("Problem with downloading");
+                delete __pHttpSession;
+                __pHttpSession = null;
 
-        request.SetFileName(buffer_file);
-        res =  pManager->Start(request, reqId);
-        if (res == E_SUCCESS){ 
-            AppLog("Download is begined. count  reqId %d",  reqId);
-            _reqIdList.push_back(reqId);
-        }else{
-            AppLog("Download doesn't begin.  reqId %d %i",  reqId, res);
+            }
+            else if (IsFailed(r))
+            {
+                AppLog("Problem with downloading");
+            }
         }
-
-        for(int i=0; i<_reqIdList.size(); i++){
-            AppLog("Downloading list %i", _reqIdList[i]);
-        }
-
-    // Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie(), command);
         return true;
 
 
-
-#
 
 
 #if 0
@@ -657,7 +651,6 @@ Station::run_converter(){
 ////////////////////////////////////////////////////////////////////////////////
     Source* Station::getSourceByName()
     {
-
         std::string path =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(App::GetInstance()->GetAppResourcePath())->GetPointer());
         path += Core::AbstractConfig::sourcesPath;
         SourceList *sourcelist = new Core::SourceList(path);
@@ -671,4 +664,164 @@ Station::run_converter(){
         return 0;
     }
 ////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+result
+Station::RequestHttpGet(void)
+{
+	result r = E_SUCCESS;
+	HttpTransaction* pHttpTransaction = null;
+	HttpRequest* pHttpRequest = null;
+    String str;
+
+    AppLog("Station::RequestHttpGet");
+	if (__pHttpSession == null)
+	{
+		__pHttpSession = new (std::nothrow) HttpSession();
+        if (_downloading == FORECAST)
+            Tizen::Base::Utility::StringUtil::Utf8ToString(this->forecastURL().c_str(), str);
+        if (_downloading == DETAIL_FORECAST)
+            Tizen::Base::Utility::StringUtil::Utf8ToString(this->detailURL().c_str(), str);
+		r = __pHttpSession->Construct(NET_HTTP_SESSION_MODE_NORMAL, null, str, null);
+		if (IsFailed(r))
+		{
+			delete __pHttpSession;
+			__pHttpSession = null;
+			AppLogException("Failed to create the HttpSession.");
+			goto CATCH;
+		}
+
+		r = __pHttpSession->SetAutoRedirectionEnabled(true);
+		TryCatch(r == E_SUCCESS, , "Failed to set the redirection automatically.");
+	}
+
+	pHttpTransaction = __pHttpSession->OpenTransactionN();
+	r = GetLastResult();
+	TryCatch(pHttpTransaction != null, , "Failed to open the HttpTransaction.");
+
+	r = pHttpTransaction->AddHttpTransactionListener(*this);
+	TryCatch(r == E_SUCCESS, , "Failed to add the HttpTransactionListener.");
+
+	pHttpRequest = const_cast< HttpRequest* >(pHttpTransaction->GetRequest());
+
+    if (_downloading == FORECAST)
+        Tizen::Base::Utility::StringUtil::Utf8ToString(this->forecastURL().c_str(), str);
+    if (_downloading == DETAIL_FORECAST)
+        Tizen::Base::Utility::StringUtil::Utf8ToString(this->detailURL().c_str(), str);
+
+	r = pHttpRequest->SetUri(str);
+	TryCatch(r == E_SUCCESS, , "Failed to set the uri.");
+
+	r = pHttpRequest->SetMethod(NET_HTTP_METHOD_GET);
+	TryCatch(r == E_SUCCESS, , "Failed to set the method.");
+
+	r = pHttpTransaction->Submit();
+	TryCatch(r == E_SUCCESS, , "Failed to submit the HttpTransaction.");
+
+	return r;
+
+CATCH:
+
+	delete pHttpTransaction;
+	pHttpTransaction = null;
+
+	AppLog("RequestHttpGet() failed. (%s)", GetErrorMessage(r));
+	return r;
+}
+
+
+void
+Station::OnTransactionReadyToRead(HttpSession& httpSession, HttpTransaction& httpTransaction, int availableBodyLen)
+{
+	AppLog("OnTransactionReadyToRead");
+    char buffer_file[2048];
+    File file;
+
+	HttpResponse* pHttpResponse = httpTransaction.GetResponse();
+	if (pHttpResponse->GetHttpStatusCode() == HTTP_STATUS_OK)
+	{
+		HttpHeader* pHttpHeader = pHttpResponse->GetHeader();
+		if (pHttpHeader != null)
+		{
+			String* tempHeaderString = pHttpHeader->GetRawHeaderN();
+			ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
+            
+            if (_downloading == FORECAST){
+                AppLog("FORECAST");
+                snprintf(buffer_file, sizeof(buffer_file) -1, "%s.orig", this->fileName().c_str());
+            }
+            if (_downloading == DETAIL_FORECAST){
+                AppLog("DETAILFORECAST");
+                snprintf(buffer_file, sizeof(buffer_file) -1, "%s.detail.orig", this->fileName().c_str());
+            }
+            AppLog ("File name %S", (App::GetInstance()->GetAppDataPath() + buffer_file).GetPointer());
+            // Creates file
+            result r = E_SUCCESS;
+            String str;
+
+            // Decodes a UTF-8 string into a Unicode string
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer_file, str);
+            r = file.Construct(str, "w+");
+
+            r = file.Write(*pBuffer);
+            file.Flush();
+
+			delete tempHeaderString;
+			delete pBuffer;
+		}
+	}
+}
+
+void
+Station::OnTransactionAborted(HttpSession& httpSession, HttpTransaction& httpTransaction, result r)
+{
+	AppLog("OnTransactionAborted(%s)", GetErrorMessage(r));
+
+	delete &httpTransaction;
+}
+
+void
+Station::OnTransactionReadyToWrite(HttpSession& httpSession, HttpTransaction& httpTransaction, int recommendedChunkSize)
+{
+	AppLog("OnTransactionReadyToWrite");
+}
+
+void
+Station::OnTransactionHeaderCompleted(HttpSession& httpSession, HttpTransaction& httpTransaction, int headerLen, bool authRequired)
+{
+	AppLog("OnTransactionHeaderCompleted");
+}
+
+void
+Station::OnTransactionCompleted(HttpSession& httpSession, HttpTransaction& httpTransaction)
+{
+	AppLog("OnTransactionCompleted");
+	delete &httpTransaction;
+    if (_downloading == DETAIL_FORECAST){
+       // _downloading = DETAIL_FORECAST_DONE;
+        _downloading = NONE;
+        run_converter();
+        delete __pHttpSession;
+        __pHttpSession = null;
+    }
+    if (_downloading == FORECAST){
+        _downloading = FORECAST_DONE;
+        delete __pHttpSession;
+        __pHttpSession = null;
+        updateData(true);
+    }
+
+}
+
+void
+Station::OnTransactionCertVerificationRequiredN(HttpSession& httpSession, HttpTransaction& httpTransaction, Tizen::Base::String* pCert)
+{
+	AppLog("OnTransactionCertVerificationRequiredN");
+
+	httpTransaction.Resume();
+
+	delete pCert;
+}
 } // namespace Core

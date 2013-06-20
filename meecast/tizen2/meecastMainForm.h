@@ -9,7 +9,6 @@
 #define SAFE_DELETE(x)  if (x) { delete x; x = null; }
 
 
-#include <FNet.h>
 
 class meecastMainForm
 	: public Tizen::Ui::Controls::Form
@@ -17,8 +16,7 @@ class meecastMainForm
 	, public Tizen::Ui::Controls::IFormBackEventListener
  	, public Tizen::Ui::Scenes::ISceneEventListener
 	, public Tizen::Ui::ITouchEventListener
-    , public Tizen::Net::Http::IHttpTransactionEventListener
-{
+     {
 public:
 	meecastMainForm(void);
 	virtual ~meecastMainForm(void);
@@ -43,20 +41,6 @@ public:
 	virtual void OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
     void ReInitElements(void);
 
-
-// IHttpTransactionEventListener
-	virtual void OnTransactionReadyToRead(Tizen::Net::Http::HttpSession& httpSession, Tizen::Net::Http::HttpTransaction& httpTransaction, int availableBodyLen);
-	virtual void OnTransactionAborted(Tizen::Net::Http::HttpSession& httpSession, Tizen::Net::Http::HttpTransaction& httpTransaction, result r);
-	virtual void OnTransactionReadyToWrite(Tizen::Net::Http::HttpSession& httpSession, Tizen::Net::Http::HttpTransaction& httpTransaction, int recommendedChunkSize);
-	virtual void OnTransactionHeaderCompleted(Tizen::Net::Http::HttpSession& httpSession, Tizen::Net::Http::HttpTransaction& httpTransaction, int headerLen, bool authRequired);
-	virtual void OnTransactionCompleted(Tizen::Net::Http::HttpSession& httpSession, Tizen::Net::Http::HttpTransaction& httpTransaction);
-	virtual void OnTransactionCertVerificationRequiredN(Tizen::Net::Http::HttpSession& httpSession, Tizen::Net::Http::HttpTransaction& httpTransaction, Tizen::Base::String* pCert);
-
-private:
-	result RequestHttpGet(void);
-
-private:
-	Tizen::Net::Http::HttpSession* __pHttpSession;
 
 
 

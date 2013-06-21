@@ -197,6 +197,7 @@ meecastMainForm::ReInitElements(void){
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
     Tizen::Ui::Controls::Label  *main_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_MAIN_ICON"));
+    Tizen::Ui::Controls::Label  *main_description = static_cast<Label*>(GetControl(L"IDC_LABEL_MAIN_DESCRIPTION"));
     station_label->SetText(_config->stationname().c_str());
     station_label->RequestRedraw();
     if (_config->nextstationname().length() < 1)
@@ -256,7 +257,11 @@ meecastMainForm::ReInitElements(void){
             SAFE_DELETE(image);
             SAFE_DELETE(mainIconBitmap);
         }
-
+        /* Description for current weather forecast */
+        String str;
+        Tizen::Base::Utility::StringUtil::Utf8ToString(temp_data->Text().c_str(), str);
+        main_description->SetText(str);
+        main_description->RequestRedraw();
 #if 0 
         if (!edje_object_file_set(edje_obj, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "mainwindow")){
             Edje_Load_Error err = edje_object_load_error_get(edje_obj);

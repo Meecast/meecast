@@ -13,6 +13,7 @@ Page {
     property string description_text: ""
     property variant description_text_alignment: Text.AlignHLeft;
     property string map_pattern: "";  
+    property string mapbackground_pattern: "";  
     property string count_of_maps: "0";  
 
     property variant model_current: Current 
@@ -155,6 +156,7 @@ Page {
             if ((model_current.getdata(day, "map_pattern")) != ""){
                 map_pattern = model_current.getdata(day, "map_pattern")
                 map_text.visible = true;
+                mapbackground_pattern = model_current.getdata(day, "mapbackground_pattern")
                 count_of_maps = model_current.getdata(day, "count_of_maps")
             }else
                 map_text.visible = false;
@@ -218,6 +220,7 @@ Page {
             }
             if ((model_day.getdata(day, "map_pattern")) != ""){
                 map_pattern = model_day.getdata(day, "map_pattern")
+                mapbackground_pattern = model_day.getdata(day, "mapbackground_pattern")
                 map_text.visible = true;
                 count_of_maps = model_day.getdata(day, "count_of_maps")
             }else
@@ -266,6 +269,7 @@ Page {
             }
             if ((model_night.getdata(day, "map_pattern")) != ""){
                 map_pattern = model_night.getdata(day, "map_pattern")
+                mapbackground_pattern = model_night.getdata(day, "mapbackground_pattern")
                 map_text.visible = true;
                 count_of_maps = model_night.getdata(day, "count_of_maps")
             }else
@@ -610,7 +614,8 @@ Page {
                     onClicked: {
                            console.log("Map onclicked");
                            pageStack.push(Qt.resolvedUrl("MapPage.qml"),
-                                          {map_pattern: map_pattern, count_of_maps: count_of_maps }
+                                          {map_pattern: map_pattern, count_of_maps: count_of_maps,
+                                           mapbackground_pattern: mapbackground_pattern }
                                          )
                     }
                }

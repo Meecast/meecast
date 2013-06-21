@@ -82,6 +82,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         _latitude = latitude;
         _longitude = longitude;
         _downloading = NONE;
+
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const std::string& source_name, const std::string& id, const std::string& name,

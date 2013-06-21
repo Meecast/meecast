@@ -7,6 +7,7 @@ Page {
     property int margin: 16
     property string map_pattern: ""
     property string filename: ""
+    property string mapbackground_pattern: ""
     property string filenamebackground: ""
     property string count_of_maps: ""
     tools: ToolBarLayout {
@@ -42,7 +43,7 @@ Page {
 
         Image {
             id: basemapimage
-            source: "/opt/com.meecast.omweather/share/images/background.png"
+            source: filenamebackground 
             opacity: 1
             // For Full Screen
             transform: Rotation { origin.x: 240; origin.y: 240; angle: 90}
@@ -90,10 +91,11 @@ Page {
             id: map_timer
             onTriggered: {
                      parent.currentImage = parent.currentImage - 1;
-                     if (parent.currentImage < 0) 
+                     if (parent.currentImage < 1) 
                          parent.currentImage = count_of_maps;
-                     filename = map_pattern.replace("%s", parent.currentImage);
-                     if (parent.currentImage == 0)
+                     filename = map_pattern.replace("%s", parent.currentImage - 1);
+                     filenamebackground = mapbackground_pattern.replace("%s", parent.currentImage - 1);
+                     if (parent.currentImage == 1)
                          parent.round_robin_count = parent.round_robin_count + 1
                      if (parent.round_robin_count == 1){
                          repeat = false;
@@ -103,7 +105,9 @@ Page {
         }
     }
     Component.onCompleted: {
-        filename = map_pattern.replace("%s", (count_of_maps));
+        filename = map_pattern.replace("%s", (count_of_maps - 1));
+        filenamebackground = mapbackground_pattern.replace("%s", (count_of_maps - 1));
+        //console.log("Map " + filenamebackground );
     }
 
 }

@@ -105,6 +105,7 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[PressureLabelRole] = "pressure_label";
     names[NowLabelRole] = "now_label";
     names[MapPatternRole] = "map_pattern";
+    names[MapBackgroundPatternRole] = "mapbackground_pattern";
     names[CountOfMapsRole] = "count_of_maps";
     return names;
 }
@@ -170,6 +171,8 @@ QVariant DataItem::data(int role)
         return ppcp();
     case MapPatternRole:
         return map_pattern();
+    case MapBackgroundPatternRole:
+        return mapbackground_pattern();
     case CountOfMapsRole:
         return count_of_maps();
     case LastUpdateRole:
@@ -265,12 +268,17 @@ DataItem::map_pattern() {
 }
 
 QString
+DataItem::mapbackground_pattern() {
+    QString c;
+    c = QString(DataItem::Data::MapBackgroundPattern().c_str());
+    return c;
+}
+QString
 DataItem::count_of_maps() {
     char map_url[4096];
     char number[5];
     int i;
     QString c;
-    std::cerr<<"Count of Maps"<<std::endl;
     for (i=4; i>=0; i--){
         std::cerr<<MapPattern().c_str()<<std::endl;
         snprintf(number, sizeof(number) -1, "%i", i);
@@ -281,7 +289,8 @@ DataItem::count_of_maps() {
         if (test.good())
             break;
     }
-    return c.number(i);
+    std::cerr<<"Count of Maps "<<i+1<<std::endl;
+    return c.number(i+1);
 }
 
 QString

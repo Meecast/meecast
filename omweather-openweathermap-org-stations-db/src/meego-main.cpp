@@ -372,11 +372,12 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
 
     if (strlen (humidity)>0)
         fprintf(file_out, "     <humidity>%s</humidity>\n", humidity);
-
+/*
     if (utc_time_sunset != -1)
         fprintf(file_out,"     <sunset>%li</sunset>\n", utc_time_sunset);
     if (utc_time_sunrise != -1)
         fprintf(file_out,"     <sunrise>%li</sunrise>\n", utc_time_sunrise);
+*/
     fprintf(file_out, "    </period>\n");
     count_day++;
     fclose(file_out);

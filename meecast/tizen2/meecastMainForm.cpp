@@ -201,6 +201,8 @@ meecastMainForm::ReInitElements(void){
     Tizen::Ui::Controls::Label  *main_description = static_cast<Label*>(GetControl(L"IDC_LABEL_MAIN_DESCRIPTION"));
     Tizen::Ui::Controls::Label  *main_temperature = static_cast<Label*>(GetControl(L"IDC_LABEL_MAIN_TEMPERATURE"));
     Tizen::Ui::Controls::Label  *main_current_state = static_cast<Label*>(GetControl(L"IDC_LABEL_CURRENT_STATE"));
+    Tizen::Ui::Controls::Label  *main_humidity_text = static_cast<Label*>(GetControl(L"IDC_LABEL_HUMIDITY_TEXT"));
+    Tizen::Ui::Controls::Label  *main_humidity_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_HUMIDITY_ICON"));
     station_label->SetText(_config->stationname().c_str());
     station_label->RequestRedraw();
     if (_config->nextstationname().length() < 1)
@@ -213,6 +215,7 @@ meecastMainForm::ReInitElements(void){
     else
         left_label->SetShowState(true);
 
+    main_humidity_icon->SetShowState(false);
     AppLog("_config->current_station_id() %i", _config->current_station_id());
     AppLog("_config->stationsList().size() %i", _config->stationsList().size());
     //if ((_config->stationsList().size() > 0) && _config->current_station_id() > _config->stationsList().size()) {
@@ -298,6 +301,20 @@ meecastMainForm::ReInitElements(void){
             Tizen::Base::Utility::StringUtil::Utf8ToString("Today", str);
         main_current_state->SetText(str);
         main_current_state->RequestRedraw();
+
+        /* Main humidity */
+        if (temp_data->Humidity() != INT_MAX){
+            main_humidity_text->SetShowState(true);
+            main_humidity_icon->SetShowState(true);
+
+            snprintf (buffer, sizeof(buffer) -1, "%i%%", temp_data->Humidity());
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            main_humidity_text->SetText(str);
+            main_humidity_text->RequestRedraw();
+        }else{
+            main_humidity_text->SetShowState(false);
+            main_humidity_icon->SetShowState(false);
+        }
 
 
 #if 0 

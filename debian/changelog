@@ -7,8 +7,9 @@ meecast (0.7.3) unstable; urgency=low
   * Updated Arabic, Catalan, Finish, Italian, Serbian, Russian translations
   * Added station Vittskovle (Sweden) to weather.com
   * Fixed problem with Map  
+  * Fixed problem with Foreca.com source
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 09 May 2013 19:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 21 Jun 2013 15:31:23 +0200
 
 meecast (0.7.2) unstable; urgency=low
 

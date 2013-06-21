@@ -62,6 +62,12 @@ Station::Station(const std::string& source_name, const std::string& id,
         _gps = gps;
         _latitude = latitude;
         _longitude = longitude;
+
+
+           
+       
+
+
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const std::string& source_name, const std::string& id, const std::string& name,
@@ -154,7 +160,6 @@ Station::Station(const std::string& source_name, const std::string& id,
          if  (source_name=="yr.no")
              std::replace(_viewURL->begin(), _viewURL->end(),'#', '/');
            // _viewURL->replace("#","/");
-
 
         _fileName = new std::string(filename);
         _converter = new std::string(sourcelist->at(source_id)->binary());

@@ -200,6 +200,7 @@ meecastMainForm::ReInitElements(void){
     Tizen::Ui::Controls::Label  *main_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_MAIN_ICON"));
     Tizen::Ui::Controls::Label  *main_description = static_cast<Label*>(GetControl(L"IDC_LABEL_MAIN_DESCRIPTION"));
     Tizen::Ui::Controls::Label  *main_temperature = static_cast<Label*>(GetControl(L"IDC_LABEL_MAIN_TEMPERATURE"));
+    Tizen::Ui::Controls::Label  *main_current_state = static_cast<Label*>(GetControl(L"IDC_LABEL_CURRENT_STATE"));
     station_label->SetText(_config->stationname().c_str());
     station_label->RequestRedraw();
     if (_config->nextstationname().length() < 1)
@@ -290,6 +291,14 @@ meecastMainForm::ReInitElements(void){
         Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
         main_temperature->SetText(str);
         main_temperature->RequestRedraw();
+        /* Current or not current period */
+        if (temp_data->Current())
+            Tizen::Base::Utility::StringUtil::Utf8ToString("Now", str);
+        else
+            Tizen::Base::Utility::StringUtil::Utf8ToString("Today", str);
+        main_current_state->SetText(str);
+        main_current_state->RequestRedraw();
+
 
 #if 0 
         if (!edje_object_file_set(edje_obj, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "mainwindow")){

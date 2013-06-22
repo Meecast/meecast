@@ -255,16 +255,17 @@ meecastMainForm::ReInitElements(void){
 //                                       app->config->iconspath().c_str(), 
 //                                       app->config->iconSet().c_str(), 
 //                                       temp_data->Icon());
-        /* Main Icon */ 
-        Tizen::Media::Image *image = null;
-        Tizen::Graphics::Bitmap* mainIconBitmap = null;
-        image = new (std::nothrow) Tizen::Media::Image();
-        image->Construct();
 
-        String icon_number = temp_data->Icon();
         Tizen::Base::Integer icon_int =  temp_data->Icon();
-
         if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-size-normal/icons/Atmos/" + icon_int.ToString() + ".png")){
+            /* Main Icon */ 
+            Tizen::Media::Image *image = null;
+            Tizen::Graphics::Bitmap* mainIconBitmap = null;
+            image = new (std::nothrow) Tizen::Media::Image();
+            image->Construct();
+
+            String icon_number = temp_data->Icon();
+
             main_icon->SetShowState(true);
             mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-size-normal/icons/Atmos/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
             main_icon->SetBackgroundBitmap(*mainIconBitmap);
@@ -328,12 +329,27 @@ meecastMainForm::ReInitElements(void){
         /* Main wind direction */
         if (temp_data->WindDirection() != "N/A"){
             snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
-            main_background_wind_icon->SetShowState(true);
-            main_wind_icon->SetShowState(true);
-            main_wind_text->SetShowState(true);
             Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-            main_wind_text->SetText(str);
-            main_wind_text->RequestRedraw();
+
+            if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/wind_direction_arrow_" + str + ".png")){
+                main_background_wind_icon->SetShowState(true);
+                main_wind_icon->SetShowState(true);
+                main_wind_text->SetShowState(true);
+                main_wind_text->SetText(str);
+                main_wind_text->RequestRedraw();
+
+                /* Wind direction Icon */ 
+                Tizen::Media::Image *image = null;
+                Tizen::Graphics::Bitmap* windIconBitmap = null;
+                image = new (std::nothrow) Tizen::Media::Image();
+                image->Construct();
+
+                windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/wind_direction_arrow_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+                main_wind_icon->SetBackgroundBitmap(*windIconBitmap);
+                main_wind_icon->RequestRedraw();
+                SAFE_DELETE(image);
+                SAFE_DELETE(windIconBitmap);
+            }
         }
 
 

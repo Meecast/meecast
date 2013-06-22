@@ -31,6 +31,7 @@ using namespace Tizen::Ui::Controls;
 using namespace Tizen::Ui::Scenes;
 using namespace Tizen::Graphics;
 
+
 meecastMainForm::meecastMainForm(void):
                  __pContextMenuText(null)
 {
@@ -96,8 +97,8 @@ meecastMainForm::OnInitializing(void)
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");
     // Get a button via resource ID
-    Tizen::Ui::Controls::Panel  *backgroundPanel = static_cast<Panel*>(GetControl(L"IDC_PANEL_BACKGROUND"));
-    backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(0x50, 0xFF, 0x38));
+    //Tizen::Ui::Controls::Panel  *backgroundPanel = static_cast<Panel*>(GetControl(L"IDC_PANEL_BACKGROUND"));
+   // backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(0x50, 0xFF, 0x38));
 
   //  Tizen::Media::Image image;
 //	image.Construct();
@@ -208,6 +209,11 @@ meecastMainForm::ReInitElements(void){
     Tizen::Ui::Controls::Label  *main_wind_text = static_cast<Label*>(GetControl(L"IDC_LABEL_WINDDIRECTION_TEXT"));
     Tizen::Ui::Controls::Label  *main_wind_speed_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_WIND_SPEED_ICON"));
     Tizen::Ui::Controls::Label  *main_wind_speed_text = static_cast<Label*>(GetControl(L"IDC_LABEL_WINDSPEED_TEXT"));
+    Tizen::Ui::Controls::Label  *main_pressure_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_PRESSURE_ICON"));
+    Tizen::Ui::Controls::Label  *main_pressure_text = static_cast<Label*>(GetControl(L"IDC_LABEL_PRESSURE_TEXT"));
+    // Get a button via resource ID
+    Tizen::Ui::Controls::Panel  *backgroundPanel = static_cast<Panel*>(GetControl(L"IDC_PANEL_BACKGROUND"));
+
 
     station_label->SetText(_config->stationname().c_str());
     station_label->RequestRedraw();
@@ -232,6 +238,9 @@ meecastMainForm::ReInitElements(void){
     main_wind_text->SetShowState(false);
     main_wind_speed_icon->SetShowState(false);
     main_wind_speed_text->SetShowState(false);
+    main_pressure_icon->SetShowState(false);
+    main_pressure_text->SetShowState(false);
+
 
     AppLog("_config->current_station_id() %i", _config->current_station_id());
     AppLog("_config->stationsList().size() %i", _config->stationsList().size());
@@ -288,7 +297,9 @@ meecastMainForm::ReInitElements(void){
         Tizen::Base::Utility::StringUtil::Utf8ToString(temp_data->Text().c_str(), str);
         main_description->SetText(str);
         main_description->RequestRedraw();
-
+        main_description->SetShowState(true);
+        
+        int t = INT_MAX;
         /* Temperature */
         if (temp_data->temperature().value(true) == INT_MAX){
           if ((temp_data->temperature_hi().value(true) == INT_MAX) &&
@@ -299,17 +310,57 @@ meecastMainForm::ReInitElements(void){
               (temp_data->temperature_low().value(true) != INT_MAX)){ 
             snprintf(buffer, sizeof(buffer) - 1, "%0.f°/ %0.f°", temp_data->temperature_low().value(),
                                                                  temp_data->temperature_hi().value());
+            t = temp_data->temperature_hi().value();
           }  
           if (temp_data->temperature_hi().value(true) != INT_MAX){
             snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
+            t = temp_data->temperature_hi().value();
           }
           if (temp_data->temperature_low().value(true) != INT_MAX){
             snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
+            t = temp_data->temperature_low().value();
           }
         }else{
             snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature().value());
+            t = temp_data->temperature().value();
+        }
+        int c1, c2, c3;
+        if (_config->TemperatureUnit() == "F"){
+             t = (t - 32) * 5 / 9;
         }
 
+        AppLog("Temperature %i", t);
+        if (t >= 30){
+//            c2 = (t - 50)*(246-60)/(30-50) + 60;
+            c2 = ((t - 50.0)*(246.0/255.0-60.0/255.0)/(30.0-50.0) + 60.0/255.0)*255.0;
+            backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(255, c2, 0));
+        }else if (t < 30 && t >= 15){
+            c1 = (((t - 30.0)*(114.0/255.0-1.0)/(15.0-30.0) + 1.0))*255.0;
+            c2 = ((t - 30.0)*(1.0-246.0/255.0)/(15.0-30.0) + 246.0/255.0)*255.0;
+ 
+            AppLog("Temperature %i %i", (int)c1,(int)c2);
+            backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(c1, c2, 0));
+        }else if (t < 15 && t >= 0){
+            c1 = ((t - 15.0)*(1.0-114.0/255.0)/(0.0-15.0) + 144.0/255.0)*255.0;
+            c3 = ((t - 15.0)*(1.0-0.0)/(0.0-15.0) + 0.0)*255.0;
+            backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(c1, 255, c3));
+        }else if (t < 0 && t >= -15){
+            c1 = ((t - 0.0)*(0.0-1.0)/(-15.0-0.0) + 1.0)*255.0;
+            c2 = ((t - 0.0)*(216.0/255.0-1.0)/(-15.0-0.0) + 1.0)*255.0;
+            backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(c1, c2, 255));
+        }
+        else if (t < -15 && t >= -30){
+            c2 = ((t - (-15.0))*(66/255.0-216.0/255.0)/(-30.0+15.0) + 216.0/255.0)*255.0;
+            backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(0, c2, 255));
+        }else if (t < -30){
+            c1 = ((t - (-30.0))*(132.0/255.0-0.0)/(-30.0+15.0) + 0.0)*255.0;
+            c2 = ((t - (-30.0))*(0.0-66.0/255.0)/(-30.0+15.0) + 66.0/255.0)*255.0;
+ 
+            backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(c1, c2, 255));
+        }
+
+        backgroundPanel->RequestRedraw();
+        main_temperature->SetShowState(true);
         Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
         main_temperature->SetText(str);
         main_temperature->RequestRedraw();
@@ -373,6 +424,15 @@ meecastMainForm::ReInitElements(void){
             main_wind_speed_text->SetShowState(false);
             main_wind_speed_icon->SetShowState(false);
         }
+        /* Main presssure */
+        if (temp_data->pressure().value(true) != INT_MAX){
+            snprintf (buffer, sizeof(buffer) -1, "%i", (int)temp_data->pressure().value());
+            main_pressure_text->SetShowState(true);
+            main_pressure_icon->SetShowState(true);
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            main_pressure_text->SetText(str);
+            main_pressure_text->RequestRedraw();
+       }
 
 
 #if 0 

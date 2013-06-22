@@ -15,7 +15,9 @@ class meecastMainForm
 	, public Tizen::Ui::IActionEventListener
 	, public Tizen::Ui::Controls::IFormBackEventListener
  	, public Tizen::Ui::Scenes::ISceneEventListener
-	, public Tizen::Ui::ITouchEventListener
+	, public Tizen::Ui::Controls::IListViewItemEventListener
+	, public Tizen::Ui::Controls::IListViewItemProvider
+    , public Tizen::Ui::ITouchEventListener
      {
 public:
 	meecastMainForm(void);
@@ -42,6 +44,13 @@ public:
     void ReInitElements(void);
 
 
+	virtual void OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status);
+	virtual void OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction);
+	virtual void OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state);
+	virtual void OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex);
+	virtual Tizen::Ui::Controls::ListItemBase* CreateItem(int index, int itemWidth);
+	virtual bool DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth);
+	virtual int GetItemCount(void);
 
 
 protected:
@@ -53,6 +62,7 @@ protected:
 private:
     Tizen::Ui::Controls::ContextMenu* __pContextMenuText;
     ConfigTizen *_config;
+    int _dayCount;
 };
 
 #endif	//_MEECAST_MAIN_FORM_H_

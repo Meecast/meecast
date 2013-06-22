@@ -22,6 +22,7 @@
 */
 /*******************************************************************************/
 #include <FApp.h>
+#include <FUi.h>
 #include "meecastMainForm.h"
 
 using namespace Tizen::Base;
@@ -211,7 +212,6 @@ meecastMainForm::ReInitElements(void){
     Tizen::Ui::Controls::Label  *main_wind_speed_text = static_cast<Label*>(GetControl(L"IDC_LABEL_WINDSPEED_TEXT"));
     Tizen::Ui::Controls::Label  *main_pressure_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_PRESSURE_ICON"));
     Tizen::Ui::Controls::Label  *main_pressure_text = static_cast<Label*>(GetControl(L"IDC_LABEL_PRESSURE_TEXT"));
-    // Get a button via resource ID
     Tizen::Ui::Controls::Panel  *backgroundPanel = static_cast<Panel*>(GetControl(L"IDC_PANEL_BACKGROUND"));
 
 
@@ -329,16 +329,12 @@ meecastMainForm::ReInitElements(void){
              t = (t - 32) * 5 / 9;
         }
 
-        AppLog("Temperature %i", t);
         if (t >= 30){
-//            c2 = (t - 50)*(246-60)/(30-50) + 60;
             c2 = ((t - 50.0)*(246.0/255.0-60.0/255.0)/(30.0-50.0) + 60.0/255.0)*255.0;
             backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(255, c2, 0));
         }else if (t < 30 && t >= 15){
             c1 = (((t - 30.0)*(114.0/255.0-1.0)/(15.0-30.0) + 1.0))*255.0;
             c2 = ((t - 30.0)*(1.0-246.0/255.0)/(15.0-30.0) + 246.0/255.0)*255.0;
- 
-            AppLog("Temperature %i %i", (int)c1,(int)c2);
             backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(c1, c2, 0));
         }else if (t < 15 && t >= 0){
             c1 = ((t - 15.0)*(1.0-114.0/255.0)/(0.0-15.0) + 144.0/255.0)*255.0;
@@ -435,6 +431,62 @@ meecastMainForm::ReInitElements(void){
             main_pressure_text->RequestRedraw();
        }
 
+
+    Tizen::Ui::Controls::ListView  *main_listview_forecast = static_cast<ListView*>(GetControl(L"IDC_LISTVIEW_FORECASTS"));
+
+    main_listview_forecast->SetItemProvider(*this);
+    /* Fill list of days with weather forecast */
+    /* set current day */ 
+    time_t current_day;
+    struct tm   *tm = NULL;
+    current_day = time(NULL);
+    tm = gmtime(&current_day);
+    tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+    tm->tm_isdst = 1;
+    current_day = mktime(tm); /* today 00:00:00 */
+
+    /* fill other days */
+    int i = 3600*24;
+    int j = 0;
+
+    _dayCount = 0;
+    while  ( (temp_data = _config->dp->data().GetDataForTime( current_day + 14 * 3600  + i))) {
+            temp_data->temperature_low().units(_config->TemperatureUnit());
+            temp_data->temperature_hi().units(_config->TemperatureUnit());
+            temp_data->temperature().units(_config->TemperatureUnit());
+
+            //edje_object_part_text_set(edje_obj_block, "full_day_name", temp_data->FullDayName().c_str());
+            /* Icon */
+            snprintf(buffer, sizeof(buffer) - 1, "%s/%s/%i.png", _config->iconspath().c_str(), 
+                                                                 _config->iconSet().c_str(), temp_data->Icon());
+//            param.type = EDJE_EXTERNAL_PARAM_TYPE_STRING;
+//            param.name = "icon";
+//            param.s = buffer;
+           // edje_object_part_external_param_set (edje_obj_block, "icon", &param);
+
+
+            if (temp_data->temperature_low().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
+             //   edje_object_part_text_set(edje_obj_block, "min_temp", buffer);
+            }
+            if (temp_data->temperature_hi().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
+             //   edje_object_part_text_set(edje_obj_block, "max_temp", buffer);
+              //  temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_block, "max_temp");
+               // set_color_by_temp(temp_edje_obj, (int)temp_data->temperature_hi().value(true));
+               // temp_edje_obj = NULL;
+            }
+           // evas_object_box_append(list_box, edje_obj_block);
+           // evas_object_show(edje_obj_block);
+            if (j % 2 == 0 ){
+             //   temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_block, "bg_rect");
+              //  evas_object_color_set(temp_edje_obj, 16, 16, 16, 255);
+              //  temp_edje_obj = NULL;
+            }
+            i = i + 3600*24;
+            j++;
+            _dayCount ++;
+        }
 
 #if 0 
         if (!edje_object_file_set(edje_obj, "/opt/apps/com.meecast.omweather/share/edje/mainwindow.edj", "mainwindow")){
@@ -670,6 +722,111 @@ meecastMainForm::CreateContextMenuList(void)
     __pContextMenuText->AddItem("Settings", ID_MENU_SETTINGS);
     __pContextMenuText->AddItem("About", ID_MENU_ABOUT);
     __pContextMenuText->AddActionEventListener(*this);
+}
+
+
+int
+meecastMainForm::GetItemCount(void)
+{
+    return _dayCount;
+}
+
+
+
+bool
+meecastMainForm::DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth)
+{
+	delete pItem;
+	return true;
+}
+
+
+Tizen::Ui::Controls::ListItemBase*
+meecastMainForm::CreateItem (int index, int itemWidth)
+{
+    char  buffer[4096];
+    CustomItem* pItem = new (std::nothrow) CustomItem();
+    TryReturn(pItem != null, null, "Out of memory");
+
+    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, 100), LIST_ANNEX_STYLE_NORMAL);
+
+//    String* pStr = dynamic_cast< String* >(__map->GetValue(Integer(index)));
+    /* set current day */ 
+    time_t current_day;
+    struct tm   *tm = NULL;
+    current_day = time(NULL);
+    tm = gmtime(&current_day);
+    tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+    tm->tm_isdst = 1;
+    current_day = mktime(tm); /* today 00:00:00 */
+
+    /* fill other days */
+    int i = 3600*24;
+    String* pStr;
+    Core::Data *temp_data = NULL;
+    if ((temp_data = _config->dp->data().GetDataForTime( current_day + 14 * 3600  + index*3600*24))) {
+            temp_data->temperature_low().units(_config->TemperatureUnit());
+            temp_data->temperature_hi().units(_config->TemperatureUnit());
+            temp_data->temperature().units(_config->TemperatureUnit());
+
+            //edje_object_part_text_set(edje_obj_block, "full_day_name", temp_data->FullDayName().c_str());
+            pItem->AddElement(Tizen::Graphics::Rectangle(10, 32, 220, 50), 0, temp_data->FullDayName().c_str(), false);
+            /* Icon */
+            snprintf(buffer, sizeof(buffer) - 1, "%s/%s/%i.png", _config->iconspath().c_str(), 
+                                                                 _config->iconSet().c_str(), temp_data->Icon());
+//            param.type = EDJE_EXTERNAL_PARAM_TYPE_STRING;
+//            param.name = "icon";
+//            param.s = buffer;
+           // edje_object_part_external_param_set (edje_obj_block, "icon", &param);
+
+
+            if (temp_data->temperature_low().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
+             //   edje_object_part_text_set(edje_obj_block, "min_temp", buffer);
+            }
+            if (temp_data->temperature_hi().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
+             //   edje_object_part_text_set(edje_obj_block, "max_temp", buffer);
+              //  temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_block, "max_temp");
+               // set_color_by_temp(temp_edje_obj, (int)temp_data->temperature_hi().value(true));
+               // temp_edje_obj = NULL;
+            }
+            pStr = new String(buffer);
+           // evas_object_box_append(list_box, edje_obj_block);
+           // evas_object_show(edje_obj_block);
+        //    if (j % 2 == 0 ){
+             //   temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_block, "bg_rect");
+              //  evas_object_color_set(temp_edje_obj, 16, 16, 16, 255);
+              //  temp_edje_obj = NULL;
+        //    }
+        }
+
+    pItem->AddElement(Tizen::Graphics::Rectangle(360, 32, 720, 50), 0, *pStr, false);
+    return pItem;
+}
+
+void
+meecastMainForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
+{
+    ConfigTizen *config;
+
+	if (status == LIST_ITEM_STATUS_SELECTED){
+
+   	}
+}
+void
+meecastMainForm::OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction)
+{
+}
+
+void
+meecastMainForm::OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state)
+{
+}
+
+void
+meecastMainForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex)
+{
 }
 
 

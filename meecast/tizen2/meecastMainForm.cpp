@@ -369,6 +369,7 @@ meecastMainForm::ReInitElements(void){
             Tizen::Base::Utility::StringUtil::Utf8ToString("Now", str);
         else
             Tizen::Base::Utility::StringUtil::Utf8ToString("Today", str);
+        main_current_state->SetShowState(true);
         main_current_state->SetText(str);
         main_current_state->RequestRedraw();
 
@@ -426,7 +427,7 @@ meecastMainForm::ReInitElements(void){
         }
         /* Main presssure */
         if (temp_data->pressure().value(true) != INT_MAX){
-            snprintf (buffer, sizeof(buffer) -1, "%i", (int)temp_data->pressure().value());
+            snprintf (buffer, sizeof(buffer) -1, "%i %s", (int)temp_data->pressure().value(), _config->PressureUnit().c_str());
             main_pressure_text->SetShowState(true);
             main_pressure_icon->SetShowState(true);
             Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);

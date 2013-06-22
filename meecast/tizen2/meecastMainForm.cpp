@@ -206,6 +206,9 @@ meecastMainForm::ReInitElements(void){
     Tizen::Ui::Controls::Label  *main_background_wind_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_WIND_BACKGROUND"));
     Tizen::Ui::Controls::Label  *main_wind_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_WIND_DIRECTION"));
     Tizen::Ui::Controls::Label  *main_wind_text = static_cast<Label*>(GetControl(L"IDC_LABEL_WINDDIRECTION_TEXT"));
+    Tizen::Ui::Controls::Label  *main_wind_speed_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_WIND_SPEED_ICON"));
+    Tizen::Ui::Controls::Label  *main_wind_speed_text = static_cast<Label*>(GetControl(L"IDC_LABEL_WINDSPEED_TEXT"));
+
     station_label->SetText(_config->stationname().c_str());
     station_label->RequestRedraw();
     if (_config->nextstationname().length() < 1)
@@ -219,10 +222,16 @@ meecastMainForm::ReInitElements(void){
         left_label->SetShowState(true);
 
     main_humidity_icon->SetShowState(false);
+    main_humidity_text->SetShowState(false);
+    main_current_state->SetShowState(false);
     main_icon->SetShowState(false);
+    main_temperature->SetShowState(false);
+    main_description->SetShowState(false);
     main_background_wind_icon->SetShowState(false);
     main_wind_icon->SetShowState(false);
     main_wind_text->SetShowState(false);
+    main_wind_speed_icon->SetShowState(false);
+    main_wind_speed_text->SetShowState(false);
 
     AppLog("_config->current_station_id() %i", _config->current_station_id());
     AppLog("_config->stationsList().size() %i", _config->stationsList().size());
@@ -350,6 +359,19 @@ meecastMainForm::ReInitElements(void){
                 SAFE_DELETE(image);
                 SAFE_DELETE(windIconBitmap);
             }
+        }
+        /* Main wind speed */
+        if (temp_data->WindSpeed().value() != INT_MAX){
+            main_wind_speed_text->SetShowState(true);
+            main_wind_speed_icon->SetShowState(true);
+            snprintf (buffer, sizeof(buffer) -1, "%0.f %s", 
+                                             temp_data->WindSpeed().value(), _config->WindSpeedUnit().c_str());
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            main_wind_speed_text->SetText(str);
+            main_wind_speed_text->RequestRedraw();
+        }else{
+            main_wind_speed_text->SetShowState(false);
+            main_wind_speed_icon->SetShowState(false);
         }
 
 

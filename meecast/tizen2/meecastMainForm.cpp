@@ -214,6 +214,7 @@ meecastMainForm::ReInitElements(void){
     Tizen::Ui::Controls::Label  *main_pressure_text = static_cast<Label*>(GetControl(L"IDC_LABEL_PRESSURE_TEXT"));
     Tizen::Ui::Controls::Panel  *backgroundPanel = static_cast<Panel*>(GetControl(L"IDC_PANEL_BACKGROUND"));
 
+    Tizen::Ui::Controls::ListView  *main_listview_forecast = static_cast<ListView*>(GetControl(L"IDC_LISTVIEW_FORECASTS"));
 
     station_label->SetText(_config->stationname().c_str());
     station_label->RequestRedraw();
@@ -432,7 +433,6 @@ meecastMainForm::ReInitElements(void){
        }
 
 
-    Tizen::Ui::Controls::ListView  *main_listview_forecast = static_cast<ListView*>(GetControl(L"IDC_LISTVIEW_FORECASTS"));
 
     main_listview_forecast->SetItemProvider(*this);
     /* Fill list of days with weather forecast */
@@ -691,6 +691,7 @@ meecastMainForm::ReInitElements(void){
 
     }
 
+   main_listview_forecast->UpdateList();
 
 }
 
@@ -772,8 +773,8 @@ meecastMainForm::CreateItem (int index, int itemWidth)
             //edje_object_part_text_set(edje_obj_block, "full_day_name", temp_data->FullDayName().c_str());
             pItem->AddElement(Tizen::Graphics::Rectangle(10, 32, 220, 50), 0, temp_data->FullDayName().c_str(), false);
             /* Icon */
-            snprintf(buffer, sizeof(buffer) - 1, "%s/%s/%i.png", _config->iconspath().c_str(), 
-                                                                 _config->iconSet().c_str(), temp_data->Icon());
+            snprintf(buffer, sizeof(buffer) - 1, "screen-size-normal/icons/Atmos/%i.png", temp_data->Icon());
+            pItem->AddElement(Tizen::Graphics::Rectangle(320, 32, 400, 50), 1, *Application::GetInstance()->GetAppResource()->GetBitmapN(L"screen-size-normal/icons/Atmos/49.png" ), null, null);
 //            param.type = EDJE_EXTERNAL_PARAM_TYPE_STRING;
 //            param.name = "icon";
 //            param.s = buffer;
@@ -782,16 +783,17 @@ meecastMainForm::CreateItem (int index, int itemWidth)
 
             if (temp_data->temperature_low().value(true) != INT_MAX){
                 snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
+                pItem->AddElement(Tizen::Graphics::Rectangle(400, 32, 480, 50), 2, buffer, false);
              //   edje_object_part_text_set(edje_obj_block, "min_temp", buffer);
             }
             if (temp_data->temperature_hi().value(true) != INT_MAX){
                 snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
+                pItem->AddElement(Tizen::Graphics::Rectangle(500, 32, 580, 50), 3, buffer, false);
              //   edje_object_part_text_set(edje_obj_block, "max_temp", buffer);
               //  temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_block, "max_temp");
                // set_color_by_temp(temp_edje_obj, (int)temp_data->temperature_hi().value(true));
                // temp_edje_obj = NULL;
             }
-            pStr = new String(buffer);
            // evas_object_box_append(list_box, edje_obj_block);
            // evas_object_show(edje_obj_block);
         //    if (j % 2 == 0 ){
@@ -801,7 +803,6 @@ meecastMainForm::CreateItem (int index, int itemWidth)
         //    }
         }
 
-    pItem->AddElement(Tizen::Graphics::Rectangle(360, 32, 720, 50), 0, *pStr, false);
     return pItem;
 }
 

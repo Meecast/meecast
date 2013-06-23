@@ -359,6 +359,10 @@ meecastMainForm::ReInitElements(void){
             snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature().value());
             t = temp_data->temperature().value();
         }
+        Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(t);
+        backgroundPanel->SetBackgroundColor(*color_of_temp);
+        delete color_of_temp;
+        /*
         int c1, c2, c3;
         if (_config->TemperatureUnit() == "F"){
              t = (t - 32) * 5 / 9;
@@ -389,7 +393,7 @@ meecastMainForm::ReInitElements(void){
  
             backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(c1, c2, 255));
         }
-
+*/
         backgroundPanel->RequestRedraw();
         main_temperature->SetShowState(true);
         Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);

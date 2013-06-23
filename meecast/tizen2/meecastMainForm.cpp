@@ -473,6 +473,7 @@ meecastMainForm::ReInitElements(void){
 
 
     main_listview_forecast->SetItemProvider(*this);
+    main_listview_forecast->SetItemDividerColor(Tizen::Graphics::Color(0x1F, 0x1F, 0x1F)); 
     /* Fill list of days with weather forecast */
     /* set current day */ 
     time_t current_day;
@@ -788,7 +789,11 @@ meecastMainForm::CreateItem (int index, int itemWidth)
     TryReturn(pItem != null, null, "Out of memory");
 
     pItem->Construct(Tizen::Graphics::Dimension(itemWidth, 100), LIST_ANNEX_STYLE_NORMAL);
-
+    if ((index-1) %2 != 0 ){
+        pItem->SetBackgroundColor(LIST_ITEM_DRAWING_STATUS_NORMAL, Tizen::Graphics::Color(0x00, 0x00, 0x00));
+    }else{
+        pItem->SetBackgroundColor(LIST_ITEM_DRAWING_STATUS_NORMAL, Tizen::Graphics::Color(0x1F, 0x1F, 0x1F));
+    }
 //    String* pStr = dynamic_cast< String* >(__map->GetValue(Integer(index)));
     /* set current day */ 
     time_t current_day;
@@ -809,7 +814,7 @@ meecastMainForm::CreateItem (int index, int itemWidth)
             temp_data->temperature().units(_config->TemperatureUnit());
 
             //edje_object_part_text_set(edje_obj_block, "full_day_name", temp_data->FullDayName().c_str());
-            pItem->AddElement(Tizen::Graphics::Rectangle(10, 32, 220, 50), 0, temp_data->FullDayName().c_str(), false);
+            pItem->AddElement(Tizen::Graphics::Rectangle(10, 20, 220, 50), 0, temp_data->FullDayName().c_str(), false);
             /* Icon */
             snprintf(buffer, sizeof(buffer) - 1, "icons/Atmos/%i.png", temp_data->Icon());
             pItem->AddElement(Tizen::Graphics::Rectangle(320, 0, 100, 100), 1, *Application::GetInstance()->GetAppResource()->GetBitmapN(buffer), null, null);
@@ -817,13 +822,13 @@ meecastMainForm::CreateItem (int index, int itemWidth)
             if (temp_data->temperature_low().value(true) != INT_MAX){
                 snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
                 Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(10);
-                pItem->AddElement(Tizen::Graphics::Rectangle(500, 30, 100, 60), 2, buffer, false);
+                pItem->AddElement(Tizen::Graphics::Rectangle(620, 20, 100, 60), 2, buffer, false);
                 delete color_of_temp;
             }
             if (temp_data->temperature_hi().value(true) != INT_MAX){
                 snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
                 Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(temp_data->temperature_hi().value());
-                pItem->AddElement(Tizen::Graphics::Rectangle(620, 30, 100, 60), 3, buffer, 40, *color_of_temp, *color_of_temp, *color_of_temp);
+                pItem->AddElement(Tizen::Graphics::Rectangle(500, 20, 100, 60), 3, buffer, 40, *color_of_temp, *color_of_temp, *color_of_temp);
                 delete color_of_temp;
             }
            // evas_object_box_append(list_box, edje_obj_block);

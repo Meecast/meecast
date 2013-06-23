@@ -46,10 +46,6 @@ using namespace Tizen::Ui;
 using namespace Tizen::Net::Http;
 using namespace Tizen::Ui::Controls;
 
-const static wchar_t* HTTP_CLIENT_HOST_ADDRESS = L"https://www.tizen.org";
-const static wchar_t* HTTP_CLIENT_REQUEST_URI = L"www.tizen.org";
-
-
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {

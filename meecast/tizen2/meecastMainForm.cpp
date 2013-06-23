@@ -151,6 +151,40 @@ meecastMainForm::OnTouchPressed(const Tizen::Ui::Control& source,
 	}
 }
 
+Tizen::Graphics::Color*
+meecastMainForm::GetTemperatureColor(int t){
+        Tizen::Graphics::Color* color = new (std::nothrow)Tizen::Graphics::Color();
+        int c1, c2, c3;
+        if (_config->TemperatureUnit() == "F"){
+             t = (t - 32) * 5 / 9;
+        }
+
+        if (t >= 30){
+            c2 = ((t - 50.0)*(246.0/255.0-60.0/255.0)/(30.0-50.0) + 60.0/255.0)*255.0;
+            color->SetColorComponents(255, c2, 0);
+        }else if (t < 30 && t >= 15){
+            c1 = (((t - 30.0)*(114.0/255.0-1.0)/(15.0-30.0) + 1.0))*255.0;
+            c2 = ((t - 30.0)*(1.0-246.0/255.0)/(15.0-30.0) + 246.0/255.0)*255.0;
+            color->SetColorComponents(c1, c2, 0);
+        }else if (t < 15 && t >= 0){
+            c1 = ((t - 15.0)*(1.0-114.0/255.0)/(0.0-15.0) + 144.0/255.0)*255.0;
+            c3 = ((t - 15.0)*(1.0-0.0)/(0.0-15.0) + 0.0)*255.0;
+            color->SetColorComponents(c1, 255, c3);
+        }else if (t < 0 && t >= -15){
+            c1 = ((t - 0.0)*(0.0-1.0)/(-15.0-0.0) + 1.0)*255.0;
+            c2 = ((t - 0.0)*(216.0/255.0-1.0)/(-15.0-0.0) + 1.0)*255.0;
+            color->SetColorComponents(c1, c2, 255);
+        }
+        else if (t < -15 && t >= -30){
+            c2 = ((t - (-15.0))*(66/255.0-216.0/255.0)/(-30.0+15.0) + 216.0/255.0)*255.0;
+            color->SetColorComponents(0, c2, 255);
+        }else if (t < -30){
+            c1 = ((t - (-30.0))*(132.0/255.0-0.0)/(-30.0+15.0) + 0.0)*255.0;
+            c2 = ((t - (-30.0))*(0.0-66.0/255.0)/(-30.0+15.0) + 66.0/255.0)*255.0;
+            color->SetColorComponents(c1, c2, 255);
+        }
+   return(color);
+}
 
 void
 meecastMainForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionId)
@@ -276,7 +310,7 @@ meecastMainForm::ReInitElements(void){
 //                                       temp_data->Icon());
 
         Tizen::Base::Integer icon_int =  temp_data->Icon();
-        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-size-normal/icons/Atmos/" + icon_int.ToString() + ".png")){
+        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Atmos/" + icon_int.ToString() + ".png")){
             /* Main Icon */ 
             Tizen::Media::Image *image = null;
             Tizen::Graphics::Bitmap* mainIconBitmap = null;
@@ -286,7 +320,7 @@ meecastMainForm::ReInitElements(void){
             String icon_number = temp_data->Icon();
 
             main_icon->SetShowState(true);
-            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-size-normal/icons/Atmos/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Atmos/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
             main_icon->SetBackgroundBitmap(*mainIconBitmap);
             main_icon->RequestRedraw();
             SAFE_DELETE(image);
@@ -773,26 +807,20 @@ meecastMainForm::CreateItem (int index, int itemWidth)
             //edje_object_part_text_set(edje_obj_block, "full_day_name", temp_data->FullDayName().c_str());
             pItem->AddElement(Tizen::Graphics::Rectangle(10, 32, 220, 50), 0, temp_data->FullDayName().c_str(), false);
             /* Icon */
-            snprintf(buffer, sizeof(buffer) - 1, "screen-size-normal/icons/Atmos/%i.png", temp_data->Icon());
-            pItem->AddElement(Tizen::Graphics::Rectangle(320, 32, 400, 50), 1, *Application::GetInstance()->GetAppResource()->GetBitmapN(L"screen-size-normal/icons/Atmos/49.png" ), null, null);
-//            param.type = EDJE_EXTERNAL_PARAM_TYPE_STRING;
-//            param.name = "icon";
-//            param.s = buffer;
-           // edje_object_part_external_param_set (edje_obj_block, "icon", &param);
-
+            snprintf(buffer, sizeof(buffer) - 1, "icons/Atmos/%i.png", temp_data->Icon());
+            pItem->AddElement(Tizen::Graphics::Rectangle(320, 0, 100, 100), 1, *Application::GetInstance()->GetAppResource()->GetBitmapN(buffer), null, null);
 
             if (temp_data->temperature_low().value(true) != INT_MAX){
                 snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
-                pItem->AddElement(Tizen::Graphics::Rectangle(400, 32, 480, 50), 2, buffer, false);
-             //   edje_object_part_text_set(edje_obj_block, "min_temp", buffer);
+                Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(10);
+                pItem->AddElement(Tizen::Graphics::Rectangle(500, 30, 100, 60), 2, buffer, false);
+                delete color_of_temp;
             }
             if (temp_data->temperature_hi().value(true) != INT_MAX){
                 snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
-                pItem->AddElement(Tizen::Graphics::Rectangle(500, 32, 580, 50), 3, buffer, false);
-             //   edje_object_part_text_set(edje_obj_block, "max_temp", buffer);
-              //  temp_edje_obj = (Evas_Object*)edje_object_part_object_get(edje_obj_block, "max_temp");
-               // set_color_by_temp(temp_edje_obj, (int)temp_data->temperature_hi().value(true));
-               // temp_edje_obj = NULL;
+                Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(temp_data->temperature_hi().value());
+                pItem->AddElement(Tizen::Graphics::Rectangle(620, 30, 100, 60), 3, buffer, 40, *color_of_temp, *color_of_temp, *color_of_temp);
+                delete color_of_temp;
             }
            // evas_object_box_append(list_box, edje_obj_block);
            // evas_object_show(edje_obj_block);

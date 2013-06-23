@@ -51,7 +51,7 @@ public:
 	virtual Tizen::Ui::Controls::ListItemBase* CreateItem(int index, int itemWidth);
 	virtual bool DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth);
 	virtual int GetItemCount(void);
-
+    Tizen::Graphics::Color* GetTemperatureColor(int t);
 
 protected:
     static const int ID_BUTTON_OK = 101;

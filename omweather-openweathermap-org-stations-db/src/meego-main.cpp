@@ -67,7 +67,7 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                 humidity[10];
 
     time_t      current_time;
-    int         localtimezone;
+    int         localtimezone = 0;
     struct      tm time_tm1;
     struct      tm time_tm2;
 
@@ -95,6 +95,8 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                                 memset(temp_buffer, 0, sizeof(buffer));
                                 snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
                                                     xmlGetProp(cur_node, (const xmlChar*)"day"));
+
+                                AppLog(" time buffer %s ", temp_buffer);
                                 strptime(temp_buffer, "%Y-%m-%d", &tmp_tm);
                                 utc_time_start = mktime(&tmp_tm)  + localtimezone*3600;
                                 utc_time_end = mktime(&tmp_tm) + 24*3600  + localtimezone*3600;
@@ -291,7 +293,9 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
                    snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
                                        xmlGetProp(child_node, (const xmlChar*)"value"));
                    strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
-                   fprintf(stderr, "Current time buffer %s\n", temp_buffer);
+//                   fprintf(stderr, "Current time buffer %s\n", temp_buffer);
+
+                   AppLog("Current time buffer %s ", temp_buffer);
                    utc_time_start = mktime(&tmp_tm) + localtimezone*3600;
                    utc_time_end = mktime(&tmp_tm) + localtimezone*3600 + 4*3600;
                }
@@ -449,6 +453,7 @@ convert_station_openweathermaporg_data(const char *days_data_path, const char *r
 /*******************************************************************************/
 int
 main_openweathermap_org(int argc, char *argv[]){
+//main(int argc, char *argv[]){
     int result; 
     if (argc < 4) {
         fprintf(stderr, "openweathermaporg <input_days_file> <output_file> <input_hours_file> <input_current_file>\n");

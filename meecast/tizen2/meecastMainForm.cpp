@@ -69,19 +69,34 @@ meecastMainForm::OnInitializing(void)
 
     /* Footer */
     Footer* pFooter = GetFooter();
-    pFooter->SetStyle(FOOTER_STYLE_BUTTON_ICON_TEXT);
+    pFooter->SetStyle(FOOTER_STYLE_BUTTON_ICON);
+    pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("openweathermap.org.png"));
 
     FooterItem menuButton;
     menuButton.Construct(ID_BUTTON_MENU);
-    menuButton.SetText("Menu");
+    menuButton.SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("icon_more_ef.png"));
+
+    FooterItem fake1menuButton;
+    fake1menuButton.Construct(10000);
+    fake1menuButton.SetBackgroundBitmap(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("null.png"));
+    FooterItem fake2menuButton;
+    fake2menuButton.Construct(100011);
+    fake2menuButton.SetBackgroundBitmap(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("null.png"));
+    FooterItem fake3menuButton;
+    fake3menuButton.Construct(1000033);
+    fake3menuButton.SetBackgroundBitmap(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("null.png"));
+
 
 
     FooterItem updateButton;
     updateButton.Construct(ID_BUTTON_UPDATE);
-    updateButton.SetText("Update");
+    updateButton.SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("icon_refresh.png"));
 
-    pFooter->AddItem(menuButton);
     pFooter->AddItem(updateButton);
+    pFooter->AddItem(fake1menuButton);
+    pFooter->AddItem(fake2menuButton);
+    pFooter->AddItem(fake3menuButton);
+    pFooter->AddItem(menuButton);
 
     CreateContextMenuList(pFooter->GetPosition());
     pFooter->AddActionEventListener(*this);

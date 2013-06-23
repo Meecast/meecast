@@ -59,7 +59,7 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                 humidity[10];
 
     time_t      current_time;
-    int         localtimezone;
+    int         localtimezone = 0;
     struct      tm time_tm1;
     struct      tm time_tm2;
 

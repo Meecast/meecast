@@ -23,7 +23,7 @@ public:
 	meecastMainForm(void);
 	virtual ~meecastMainForm(void);
 	bool Initialize(void);
-    void CreateContextMenuList(void);
+    void CreateContextMenuList(Tizen::Graphics::Point Corner_Point);
 public:
 	virtual result OnInitializing(void);
 	virtual result OnTerminating(void);

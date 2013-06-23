@@ -57,17 +57,8 @@ meecastMainForm::OnInitializing(void)
     // TODO:
     // Add your initialization code here
 
-    CreateContextMenuList();
     // Setup back event listener
     SetFormBackEventListener(this);
-
-    // Get a button via resource ID
-    Tizen::Ui::Controls::Button *pButtonOk = static_cast<Button*>(GetControl(L"IDC_BUTTON_OK"));
-    if (pButtonOk != null)
-    {
-        pButtonOk->SetActionId(ID_BUTTON_OK);
-        pButtonOk->AddActionEventListener(*this);
-    }
 
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
     if (right_label != null)
@@ -84,6 +75,7 @@ meecastMainForm::OnInitializing(void)
     menuButton.Construct(ID_BUTTON_MENU);
     menuButton.SetText("Menu");
 
+
     FooterItem updateButton;
     updateButton.Construct(ID_BUTTON_UPDATE);
     updateButton.SetText("Update");
@@ -91,6 +83,7 @@ meecastMainForm::OnInitializing(void)
     pFooter->AddItem(menuButton);
     pFooter->AddItem(updateButton);
 
+    CreateContextMenuList(pFooter->GetPosition());
     pFooter->AddActionEventListener(*this);
 
     _config = ConfigTizen::Instance( std::string("config.xml"),
@@ -722,10 +715,10 @@ meecastMainForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSce
 }
 
 void
-meecastMainForm::CreateContextMenuList(void)
+meecastMainForm::CreateContextMenuList(Tizen::Graphics::Point Corner_Point)
 {
     __pContextMenuText = new (std::nothrow) ContextMenu();
-    __pContextMenuText->Construct(Tizen::Graphics::Point(140, 415), CONTEXT_MENU_STYLE_LIST, CONTEXT_MENU_ANCHOR_DIRECTION_UPWARD);
+    __pContextMenuText->Construct(Corner_Point, CONTEXT_MENU_STYLE_LIST, CONTEXT_MENU_ANCHOR_DIRECTION_UPWARD);
     __pContextMenuText->AddItem("Settings", ID_MENU_SETTINGS);
     __pContextMenuText->AddItem("About", ID_MENU_ABOUT);
     __pContextMenuText->AddActionEventListener(*this);

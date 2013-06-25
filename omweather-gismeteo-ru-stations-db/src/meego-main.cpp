@@ -219,7 +219,7 @@ get_date_for_hour_weather(char *temp_string){
 }
 /*******************************************************************************/
 int
-parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *result_file){
+gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *result_file){
     char       buff[256],
                 buffer[buff_size],
                 current_temperature[20],
@@ -767,7 +767,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
 }
 /*******************************************************************************/
 void
-parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *result_file){
+gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *result_file){
 #ifdef GLIB
     GHashTable  *hash_for_translate;
     GHashTable  *hash_for_icons;
@@ -1188,7 +1188,7 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
                             //if(get_detail_data)
                             //    days_number = parse_xml_detail_data(buffer2, root_node, data);
                             //else
-                            days_number = parse_and_write_xml_data(buffer2, doc, result_file);
+                            days_number = gismeteoru_parse_and_write_xml_data(buffer2, doc, result_file);
                             xmlFreeDoc(doc);
                             xmlCleanupParser();
                             rename(buffer, station_id_with_path);
@@ -1230,7 +1230,7 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
 //                if(get_detail_data)
 //                    days_number = parse_xml_detail_data(buffer, root_node, data);
 //                else
-                 days_number = parse_and_write_xml_data(buffer, doc, result_file);         
+                 days_number = gismeteoru_parse_and_write_xml_data(buffer, doc, result_file);         
                  xmlFreeDoc(doc);
                  xmlCleanupParser();
                  if(!access(detail_path_data, R_OK)){
@@ -1244,7 +1244,7 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
                             xmlCleanupParser();
                         }
                         else{
-                            parse_and_write_detail_data(buffer, doc, result_file);
+                            gismeteoru_parse_and_write_detail_data(buffer, doc, result_file);
                             xmlFreeDoc(doc);
                             xmlCleanupParser();
                         }

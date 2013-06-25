@@ -34,6 +34,24 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 
+
+#include "hash.h"
+
+xmlHashTablePtr 
+hash_icons_gismeteoru_table_create(){
+    xmlHashTablePtr hash;
+    hash = xmlHashCreate(6);
+#include "hash_icons.data"
+    return hash;
+}
+xmlHashTablePtr 
+hash_descriptions_gismeteoru_table_create(){
+    xmlHashTablePtr hash;
+    hash = xmlHashCreate(6);
+#include "hash_description.data"
+    return hash;
+}
+
 #ifdef GLIB
 /*******************************************************************************/
 GHashTable *hash_description_gismeteo_table_create(void) {

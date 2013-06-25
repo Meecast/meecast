@@ -40,6 +40,8 @@
     QHash<QString, QString> *hash_icons_gismeteo_table_create(void);
 #endif
 
+static xmlHashTablePtr hash_for_icons;
+static xmlHashTablePtr hash_for_descriptions;
 int        location_timezone = 0;
 /*******************************************************************************/
 struct tm
@@ -257,15 +259,14 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
 
 #ifdef GLIB
     char       *image = NULL;
-#endif
-#ifdef QT
+#else
     char        image[buff_size];
 #endif
     double      time_diff = 0;
     time_t      loc_time;
     time_t      utc_time;
-    int         timezone_flag = FALSE;
-    int         sunrise_flag = FALSE;
+    int         timezone_flag = false;
+    int         sunrise_flag = false;
     struct tm   tmp_tm_loc = {0};
     struct tm   tmp_tm = {0};
     struct tm   current_tm = {0};
@@ -369,6 +370,10 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
        
 #ifdef GLIB
        snprintf(current_icon, sizeof(current_icon)-1,"%s", choose_hour_weather_icon(hash_for_icons, temp_buffer));
+#else
+       snprintf(current_icon, sizeof(current_icon)-1,"%s",
+             (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));
+
 #endif
 #ifdef QT 
         snprintf(current_icon, sizeof(current_icon)-1,"%s", choose_hour_weather_icon(hash_for_icons, temp_buffer).toStdString().c_str());
@@ -386,6 +391,8 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
 #ifdef QT
    snprintf(current_title, sizeof(current_title)-1,"%s", (char*)hash_gismeteo_description_table_find(hash_for_translate, (char *)xpathObj->nodesetval->nodeTab[0]->content).toStdString().c_str()); 
 #endif
+    snprintf(current_title, sizeof(current_title)-1,"%s", (char*)xmlHashLookup(hash_for_descriptions, (const xmlChar*)xpathObj->nodesetval->nodeTab[0]->content));
+
   }
   if (xpathObj)
     xmlXPathFreeObject(xpathObj);
@@ -511,7 +518,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
            /* fprintf(stderr," Local Temp char %s %li\n", temp_char, loc_time); */
            time_diff = difftime(loc_time, utc_time);
 //           if(time_diff)
-           timezone_flag = TRUE;
+           timezone_flag = true;
            location_timezone = (int)time_diff/3600;
            /* fprintf(stderr, "\nTimezone %i\n", location_timezone); */
            fprintf(file_out,"  <timezone>%i</timezone>\n", location_timezone);
@@ -575,6 +582,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
         fprintf(file_out,"     <icon>%s</icon>\n",  choose_hour_weather_icon(hash_for_icons, temp_char).toStdString().c_str());
 #endif
 
+        fprintf(file_out,"     <icon>%s</icon>\n", (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char));
 
          }
          /* added text */
@@ -587,6 +595,8 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
 #ifdef QT
             fprintf(file_out,"     <description>%s</description>\n", (char*)hash_gismeteo_description_table_find(hash_for_translate, (char *)xpathObj5->nodesetval->nodeTab[i]->content).toStdString().c_str()); 
 #endif
+            fprintf(file_out,"     <description>%s</description>\n", (char*)xmlHashLookup(hash_for_descriptions, (const xmlChar*)xpathObj5->nodesetval->nodeTab[i]->content)
+);
          }
          /* added pressure */
          if (xpathObj6 && !xmlXPathNodeSetIsEmpty(xpathObj6->nodesetval) &&
@@ -710,7 +720,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
         fprintf(file_out,"    <period start=\"%li\"", utc_time);
         fprintf(file_out," end=\"%li\">\n", utc_time + 24*3600); 
 
-        sunrise_flag = TRUE;
+        sunrise_flag = true;
   }
   if (xpathObj)
     xmlXPathFreeObject(xpathObj);
@@ -796,9 +806,9 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     double      time_diff = 0;
     time_t      loc_time;
     time_t      utc_time;
-    int break_flag = FALSE; 
-    int timezone_flag = FALSE;
-    int feels_like_flag = FALSE;
+    int break_flag = false; 
+    int timezone_flag = false;
+    int feels_like_flag = false;
     char       *image = NULL;
 
     xmlXPathContextPtr xpathCtx; 
@@ -995,7 +1005,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
            loc_time = mktime(&tmp_tm_loc);
            time_diff = difftime(loc_time, utc_time);
            if(time_diff)
-               timezone_flag = TRUE;
+               timezone_flag = true;
            location_timezone = (int)time_diff/3600;
            fprintf(stderr, "\nTimezone %i\n", location_timezone); 
            snprintf(temp_buffer, sizeof(temp_buffer)-1, "%i",location_timezone);
@@ -1009,6 +1019,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
 #ifdef GLIB
       fprintf(file_out,"     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_char));
 #endif
+      fprintf(file_out,"     <icon>%s</icon>\n", (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char));
 #ifdef QT 
       fprintf(file_out,"     <icon>%s</icon>\n",  choose_hour_weather_icon(hash_for_icons, temp_char).toStdString().c_str());
 #endif
@@ -1021,6 +1032,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
 #ifdef QT
       fprintf(file_out,"     <description>%s</description>\n", (char*)hash_gismeteo_description_table_find(hash_for_translate, (char *)xpathObj3->nodesetval->nodeTab[i]->content).toStdString().c_str()); 
 #endif
+      fprintf(file_out,"     <description>%s</description>\n", (char*)xmlHashLookup(hash_for_descriptions, (const xmlChar*)xpathObj3->nodesetval->nodeTab[i]->content)); 
    }
    /* added temperature */
    if (xpathObj4 && !xmlXPathNodeSetIsEmpty(xpathObj4->nodesetval) && xpathObj4->nodesetval->nodeTab[i]->content){
@@ -1143,6 +1155,8 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
     if(!station_id_with_path)
         return -1;
     *buffer = 0;
+    hash_for_icons = hash_icons_gismeteoru_table_create();
+    hash_for_descriptions = hash_descriptions_gismeteoru_table_create();
     snprintf(buffer, sizeof(buffer) - 1, "%s.new", station_id_with_path);
     /* check file accessability */
     if(!access(buffer, R_OK))

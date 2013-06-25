@@ -17,7 +17,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactExtension="exe" artifactName="${ProjName}" buildArtefactType="org.tizen.nativecpp.buildArtefactType.app" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.tizen.nativecpp.buildArtefactType.app" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;" id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.542757660" name="Debug" parent="org.tizen.nativecpp.config.sbi.gcc45.app.debug" prebuildStep="../prebuild.sh">
+				<configuration artifactExtension="exe" artifactName="meecast" buildArtefactType="org.tizen.nativecpp.buildArtefactType.app" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.tizen.nativecpp.buildArtefactType.app" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;" id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.542757660" name="Debug" parent="org.tizen.nativecpp.config.sbi.gcc45.app.debug" prebuildStep="../prebuild.sh">
 					<folderInfo id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.542757660." name="/" resourcePath="">
 						<toolChain id="org.tizen.nativecpp.toolchain.sbi.gcc45.app.debug.1784086492" name="Tizen Native Toolchain" superClass="org.tizen.nativecpp.toolchain.sbi.gcc45.app.debug">
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="org.tizen.nativeide.target.sbi.gnu.platform.base.165304646" osList="linux,win32" superClass="org.tizen.nativeide.target.sbi.gnu.platform.base"/>
@@ -137,6 +137,7 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="meecast/core"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="meecast/tizen2"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="omweather-openweathermap-org-stations-db/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="omweather-gismeteo-ru-stations-db/src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

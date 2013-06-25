@@ -44,15 +44,9 @@
     QHash<QString, QString> *hash_icons_gismeteo_table_create(void);
 #endif
 
-<<<<<<< HEAD
 FILE        *file_out;
-#define KEEPALIVE __attribute__((used))
-#define EMSCRIPTEN_KEEPALIVE __attribute__((used))
-
-=======
 static xmlHashTablePtr hash_for_icons;
 static xmlHashTablePtr hash_for_descriptions;
->>>>>>> master
 int        location_timezone = 0;
 /*******************************************************************************/
 struct tm

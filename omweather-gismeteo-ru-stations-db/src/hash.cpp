@@ -33,14 +33,6 @@
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
-<<<<<<< HEAD
-void
-hash_description_gismeteo_table_create(void) {
-    fprintf(stderr,"Hash");
-}
-=======
-
-
 #include "hash.h"
 
 xmlHashTablePtr 
@@ -58,7 +50,6 @@ hash_descriptions_gismeteoru_table_create(){
     return hash;
 }
 
->>>>>>> master
 #ifdef GLIB
 /*******************************************************************************/
 GHashTable *hash_description_gismeteo_table_create(void) {

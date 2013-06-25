@@ -42,6 +42,7 @@ gint parse_xml_detail_data(const gchar *station_id, htmlDocPtr doc, GHashTable *
 //void  fill_day (xmlNode *root_node, GHashTable *day, gint part_of_day, GHashTable *hash_for_translate, GHashTable *hash_for_icons)
 GHashTable* hash_description_gismeteo_table_create(void);
 GHashTable* hash_icons_gismeteo_table_create(void);
+//xmlHashTablePtr hash_icons_gismeteoru_table_create(); 
 gpointer hash_gismeteo_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
 /*******************************************************************************/
 #endif

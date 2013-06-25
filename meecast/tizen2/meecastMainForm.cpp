@@ -90,7 +90,8 @@ meecastMainForm::OnInitializing(void)
 
     FooterItem updateButton;
     updateButton.Construct(ID_BUTTON_UPDATE);
-    updateButton.SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("icon_refresh.png"));
+    updateButton.SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_def.png"));
+    updateButton.SetIcon(FOOTER_ITEM_STATUS_PRESSED, Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_def.png"));
 
     pFooter->AddItem(updateButton);
     pFooter->AddItem(fake1menuButton);

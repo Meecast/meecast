@@ -1,0 +1,1237 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>GISMETEO.BY: Погода в Витебске на сегодня, завтра. Подробный прогноз погоды (метеопрогноз) на 1-3 дня по г. Витебск, Витебская область, Беларусь </title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="description" content="Погода в Витебске на 1-3 дня. Подробный прогноз погоды в Витебске на GISMETEO.BY. Погодные карты, геомагнитная обстановка по г. Витебск.">
+<meta name="keywords" content="прогноз, погода, карты, осадки, ветер, влажность, давление">
+<meta name="apple-itunes-app" content="app-id=419371996">
+
+<link rel="shortcut icon" type="image/ico" href="http://www.gismeteo.by/favicon2.ico" />
+<link rel="icon" type="image/ico" href="http://www.gismeteo.by/favicon2.ico" />
+<meta name="application-name" content="GISMETEO.BY"/>
+<meta name="msapplication-window" content="width=1044;height=660"/>
+<meta name="msapplication-tooltip" content="GISMETEO.BY" />
+<meta name="msapplication-starturl" content="/" />
+<meta name="msapplication-navbutton-color" content="#009dff" /> 
+<meta name="msapplication-task" content="name=Главная страница;action-uri=/;icon-uri=favicon2.ico"/>
+<meta name="msapplication-task" content="name=Карты;action-uri=/map/catalog/;icon-uri=static/images/pinnedsite/maps.ico"/>
+<meta name="msapplication-task" content="name=Авиа;action-uri=/avia/;icon-uri=static/images/pinnedsite/avia.ico"/>
+<meta name="msapplication-task" content="name=Новости;action-uri=http://news.gismeteo.ru/;icon-uri=static/images/pinnedsite/news.ico"/>
+<meta name="msapplication-task" content="name=Информеры;action-uri=http://www.gismeteo.ru/informers/;icon-uri=static/images/pinnedsite/informers.ico"/>
+<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js?3c348"></script>
+<script type="text/javascript" src="/static/js/classes/Gis.class.js?3c348"></script>
+<script type="text/javascript" src="/static/js/jquery-plugin/js/jquery.cookie.js?3c348"></script>
+<!--[if gte IE 9]>
+<script type="text/javascript" src="/static/js/jquery-plugin/js/jquery.json-2.2.min.js?3c348"></script>
+<script type="text/javascript" src="/static/js/classes/PinnedSite.class.js?3c348"></script>
+<![endif]-->
+
+
+<!--[if gte IE 9]>
+<script type="text/javascript">
+
+jQuery(function($){
+	gis.pinnedsite = new GISPinnedSite(gis);
+	gis.pinnedsite.last_cities_txt = 'Последние просмотренные города';
+	gis.pinnedsite.init();
+});
+
+</script>
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="/static/app/common.css?3c348" />
+<script type="text/javascript" src="/static/js/common.js?3c348"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/curr_w_restyle.css?3c348" />
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="/static/css/measures_ie_6.css?3c348" /><![endif]-->
+<!--[if gt IE 6]><link rel="stylesheet" type="text/css" href="/static/css/measures.css?3c348" /><![endif]-->
+<!--[if !IE]> --><link rel="stylesheet" type="text/css" href="/static/css/measures.css?3c348" /><!-- <![endif]-->
+
+<script type="text/javascript" src="/static/js/jquery.jHelperMod.js?3c348"></script>
+<script type="text/javascript">var currentLang='ru';</script>
+<script type="text/javascript">
+var defaultCitySearchStr = 'введите населённый пункт';
+var defaultCitySearchClose = 'закрыть';
+var defaultCitySearchLoadingText = 'Загрузка...';
+var weatherFactFrom = 'Фактические данные от';
+</script><script type="text/javascript" src="/static/js/jquery.jSuggest.1.0.js?3c348"></script>
+<script type="text/javascript" src="/static/js/main.js?3c348"></script>
+<link rel="stylesheet" type="text/css" href="/static/app/weather.css?3c348" />
+<script type="text/javascript" src="/static/js/weather.js?3c348"></script>
+<link rel="stylesheet" type="text/css" href="/static/app/wmaps.css?3c348" />
+<script type="text/javascript" src="/static/js/wmaps.js?3c348"></script>
+<!--[if IE]><link rel="stylesheet" type="text/css" href="/static/app/msie.css?3c348" /><![endif]-->
+<!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="/static/app/msie6.css?3c348" /><![endif]-->
+<!--[if gte IE 9]>
+<style type="text/css">
+.gradient {filter: none;}
+</style>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="/static/app/common_by.min.css?3c348" />
+<script type="text/javascript" src="/static/js/adriver.core.2.0.js?3c348"></script>
+<script type="text/javascript" src="/static/js/classes/CitySuggest.class.js?3c348"></script>
+<script type="text/javascript" src="/static/js/modernizer.min.js?3c348"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/CitySuggest/skins/www_ru/style.css?3c348" />
+<!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="/static/css/CitySuggest/skins/www_ru/style_ie_6.css?3c348" /><![endif]-->
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="/static/css/CitySuggest/skins/www_ru/style_ie_678.css?3c348" />
+<script type="text/javascript" src="/static/js/jquery-plugin/js/jquery.boxshadow.min.js?3c348"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="/static/css/mainmenu/new.css?3c348" />
+<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="/static/css/mainmenu/new_ie_678.css?3c348" /><![endif]-->
+<!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="/static/css/mainmenu/new_ie_67.css?3c348" /><![endif]-->
+<!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="/static/css/mainmenu/new_ie_6.css?3c348" /><![endif]-->
+
+
+</head>
+<body class="measure c ms torr">
+
+<script type=text/javascript>
+(function($){
+var m = $.cookie('measures');
+if(m && m!='' && m!==undefined)
+	gis.setMeasures(m);
+})(jQuery);
+</script>
+
+
+
+
+<!--LiveInternet counter-->
+<script type="text/javascript">
+<!--
+new Image().src = "http://counter.yadro.ru/hit?r"+escape(document.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";h"+escape(document.title.substring(0,80))+";"+Math.random();
+//-->
+</script>
+<!--/LiveInternet--><div id="page" class="narrow Weather">
+<div id="canvas" class="clearfix">
+<!-- canvas begin -->
+		<div id="rbc"><noindex>
+<div class="rframe"><div class="fcontent">
+											<h2><a href="http://top.rbc.ru/?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_headline" target="_blank" rel="nofollow">Новости РБК</a></h2>
+		<div class="section"><ul>
+				<li class="first"><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?rbc_from_gismeteo1~http://top.rbc.ru/society/24/06/2013/863133.shtml?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_top1" target="_blank"><img src="http://pics.top.rbc.ru/top_pics/uniora/65/1372081578_0465.60x48.jpeg" width="64">Ходорковский: Я застрелился бы, если бы знал о тюрьме</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?rbc_from_gismeteo2~http://top.rbc.ru/incidents/24/06/2013/863128.shtml?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_top2" target="_blank">В Москве подростки отрезали голову мужчине</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?rbc_from_gismeteo3~http://top.rbc.ru/society/24/06/2013/863031.shtml?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_top3" target="_blank">Подчиненные Сердюкова получали по полмиллиона в месяц</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?rbc_from_gismeteo4~http://top.rbc.ru/economics/20/06/2013/862725.shtml?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_top4" target="_blank">Власти обещают пенсию в 70 тыс. рублей</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?rbc_from_gismeteo5~http://top.rbc.ru/society/24/06/2013/863071.shtml?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_top5" target="_blank">Звезде 80-х поставили страшный диагноз</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?rbc_from_gismeteo6~http://top.rbc.ru/society/21/06/2013/862808.shtml?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_top6" target="_blank">Депардье лишили прав за пьяную езду</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?sport_from_gismeteo1~http://sport.rbc.ru/?news=tennis/newsline/23/06/2013/395651.shtml?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_sport1" target="_blank">С.Уильямс: Я сожалею, что втянула Шарапову в скандал с изнасилованием</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?sport_from_gismeteo2~http://sport.rbc.ru/?news=other/newsline/22/06/2013/395507.shtml?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_sport2" target="_blank">Российский олимпийский чемпион нокаутирован в титульном бою. Видео</a></li>
+				<li class="spacer"></li>	<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?lf_from_gismeteo1~http://lf.rbc.ru/?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_lf1" target="_blank">5 самых интересных банковских предложений лета</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?realty_from_gismeteo1~http://realty.rbc.ru/articles/07/06/2013/562949987279389.shtml?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_realty1" target="_blank">Где будет жить Людмила Путина после развода</a></li>
+								</ul></div>
+		</div></div>
+		<div class="rframe"><div class="fcontent">
+								<h2><a href="http://www.rbcdaily.ru/?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_headline" target="_blank" rel="nofollow">Газета РБК-daily</a></h2>
+		<div class="section"><ul>
+				<li class="first"><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?daily_from_gismeteo1~http://www.rbcdaily.ru/economy/562949987517122?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_daily1" target="_blank"><img src="http://pics.rbcdaily.ru/rbcdaily_pics/v4/20/80/f585fe7c2b585ebdb439be3353cfd747.jpg" width="64">Высший суд для Путина</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?daily_from_gismeteo2~http://rbcdaily.ru/society/562949987539382?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_daily2" target="_blank">Депардье попал в ДТП в центре Москвы</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?daily_from_gismeteo3~http://rbcdaily.ru/news/562949987523907?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_daily3" target="_blank">Выпускники избили и обезглавили мужчину в Москве</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?daily_from_gismeteo4~http://www.rbcdaily.ru/society/562949987429844?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_daily4" target="_blank">Ле Бурже показал, чем Шойгу отличается от Сердюкова</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?daily_from_gismeteo5~http://rbcdaily.ru/cnews/562949987374844?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_daily5" target="_blank">У человека обнаружен ранее неизвестный орган</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?daily_from_gismeteo6~http://rbcdaily.ru/news/562949987450863?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_daily6" target="_blank">Дизайнеры изобрели колготки против маньяков (ФОТО)</a></li>
+								</ul></div>
+		</div></div>
+		<div class="rframe"><div class="fcontent">
+								<h2><a href="http://www.autonews.ru/?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_headline" target="_blank" rel="nofollow">Autonews.Ru</a></h2>
+		<div class="section"><ul>
+				<li class="first"><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?autonews_from_gismeteo1~http://autonews.ru/" target="_blank"><img src="http://pics.autonews.ru/autonews_pics/onews/2013/06/24/095134.19487_64px.jpg" width="64">5 способов не платить штрафы с камер</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?autonews_from_gismeteo2~http://www.autonews.ru/automarket_news/index.shtml?2013/06/21/1760421" target="_blank">Жерар Депардье лишился прав за пьяное ДТП</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?autonews_from_gismeteo3~http://www.autonews.ru/automarket_news/index.shtml?2013/06/21/1760384" target="_blank">Первые фото предсерийного е-мобиля попали в сеть</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?autonews_from_gismeteo4~http://www.autonews.ru/automarket_news/index.shtml?2013/06/11/1759624" target="_blank">Телезвезда потеряла память после ДТП</a></li>
+								</ul></div>
+		</div></div>
+		<div class="rframe"><div class="fcontent">
+								<h2><a href="http://www.utro.ru/?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_headline" target="_blank" rel="nofollow">Yтро.ру</a></h2>
+		<div class="section"><ul>
+				<li class="first"><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?utro_from_gismeteo1~http://www.utro.ru/articles/2013/06/24/1127045.shtml?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_utro1" target="_blank"><img src="http://pics.utro.ru/utro_photos/2013/06/24/236small.gif" width="64">Девочку-старуху избивали одноклассники</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?utro_from_gismeteo2~http://www.utro.ru/articles/2013/06/24/1126976.shtml?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_utro2" target="_blank">Звезде 80-х поставили страшный диагноз</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?utro_from_gismeteo3~http://www.utro.ru/articles/2013/06/24/1126922.shtml?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_utro3" target="_blank">Уильямс извинилась перед Шараповой за неприличные намеки</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?utro_from_gismeteo4~http://www.utro.ru/articles/2013/06/21/1126559.shtml?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_utro4" target="_blank">Куры соображают быстрее людей</a></li>
+					<li><a rel="nofollow" href="http://redir.rbc.ru/cgi-bin/redirect.cgi?utro_from_gismeteo5~http://www.utro.ru/articles/2013/06/21/1126546.shtml?utm_source=gismeteo&utm_medium=news&utm_campaign=gism_utro5" target="_blank">Ученые готовы пересадить человеческую голову</a></li>
+	</ul></div>
+</div></div>
+</noindex>
+</div>
+	
+<div id="header" class="b728x90">
+<div class="rframe"><div class="fcontent">
+	<a href="/" id="logo" class="png"><div class="school-clouds"><div class="cloud1"></div><div class="cloud2"></div><div class="cloud3"></div><div class="school-logo"><i>прогноз погоды</i></div></div></a>
+	<div id="ad-top" class="nooverflow"><script type="text/javascript">
+$("#header").addClass('b728x90');
+new adriver("ad-top", {sid:129909,bt:52,pz:1,bn:0,keyword:encodeURIComponent("eastern_europe;belarus;r343;c4218")});
+</script></div>
+	<div id="menu" class="wrap">
+<ul>
+
+   <li class="last ifie ib sprite"><a onclick="return false;"><b class="flag"><span class="by"></span>&nbsp;</b></a><span class="png arrow"></span>
+   	<ul class="mainsubmenu langs">
+									<li>
+				<noindex>									<a class="flag" rel="nofollow" href="http://www.gismeteo.ru/"><span class="ru"></span>Россия (по-русски)</a>
+							</noindex>			</li>
+												<li>
+				<noindex>									<a class="flag" rel="nofollow" href="http://www.gismeteo.ua/"><span class="ua"></span>Украина (по-русски)</a>
+							</noindex>			</li>
+											<li>
+				<noindex>									<a class="flag" rel="nofollow" href="http://www.gismeteo.ua/ua/"><span class="ua"></span>Україна (українською)</a>
+							</noindex>			</li>
+												<li>
+				<noindex>									<a class="flag" rel="nofollow" href="http://www.gismeteo.lt/"><span class="lt"></span>Lietuva (lietuviškai)</a>
+							</noindex>			</li>
+											<li>
+				<noindex>									<a class="flag" rel="nofollow" href="http://www.gismeteo.lt/ru/"><span class="lt"></span>Литва (по-русски)</a>
+							</noindex>			</li>
+												<li class="active">
+													<b class="flag"><span class="sprite by"></span>Беларусь (по-русски)</b>
+										</li>
+												<li>
+				<noindex>									<a class="flag" rel="nofollow" href="http://www.gismeteo.com/"><span class="euro"></span>International (english)</a>
+							</noindex>			</li>
+																					<li>
+				<noindex>									<a class="flag" rel="nofollow" href="http://www.gismeteo.md/"><span class="md"></span>Молдова (по-русски)</a>
+							</noindex>			</li>
+											<li>
+				<noindex>									<a class="flag" rel="nofollow" href="http://www.gismeteo.md/ro/"><span class="md"></span>Moldova (română)</a>
+							</noindex>			</li>
+												<li>
+				<noindex>									<a class="flag" rel="nofollow" href="http://www.gismeteo.lv/"><span class="lv"></span>Latvija (latviski)</a>
+							</noindex>			</li>
+											<li>
+				<noindex>									<a class="flag" rel="nofollow" href="http://www.gismeteo.lv/ru/"><span class="lv"></span>Латвия (по-русски)</a>
+							</noindex>			</li>
+												<li>
+				<noindex>									<a class="flag" rel="nofollow" href="http://www.gismeteo.kz/"><span class="kz"></span>Казахстан (по-русски)</a>
+							</noindex>			</li>
+			   	</ul>
+   </li>
+   <li class="prev ifie ib"><a onclick="return false;">&deg;C</a><span class="png arrow"></span>
+   	<ul class="mainsubmenu measures">
+   		<li class="active"><input type=radio name=meas_chk meas="c ms torr" id=meas_chk_0 checked />&nbsp;&deg;C, м/с, мм рт. ст.</li>
+   		<li><input type=radio name=meas_chk meas="f mih inch" id=meas_chk_1 />&nbsp;&deg;F, миль/ч, д. рт. ст.</li>
+   	</ul>
+   </li>
+
+	    <li class="wide main"><a href="/">Главная</a></li>
+   <li class="wide"><a href="/map/catalog/">Карты</a></li>
+   <li class="wide"><a class="old" href="http://www.gismeteo.ru/news/">Новости</a></li>
+   <li><a href="http://month.gismeteo.ru">Месяц</a></li>
+   <li><a href="http://www.gismeteo.ru/informers/">Информеры</a></li>
+   <li><a href="http://tourism.gismeteo.ru/">Туризм</a></li>
+      	<li><a href="/projects.html">Проекты</a></li>
+   	<li class="services"><a href="/services.html">Сервисы</a></li>
+	     
+      <li class="search"><div class="main_search_cont"><input type=text placeholder="Поиск местоположения" title="Поиск местоположения" class="main_search" id="main_search" value="" /></div></li>
+   <li class="prev ifnoie"><a onclick="return false;">&deg;C</a><span class="png arrow"></span>
+   	<ul class="mainsubmenu measures">
+   		<li class="active"><input type=radio name=meas_chk meas="c ms torr" id=meas_chk_0 checked />&nbsp;&deg;C, м/с, мм рт. ст.</li>
+   		<li><input type=radio name=meas_chk meas="f mih inch" id=meas_chk_1 />&nbsp;&deg;F, миль/ч, д. рт. ст.</li>
+   	</ul>
+   </li>
+   <li class="last ifnoie sprite"><a onclick="return false;"><dd class="flag"><span class="by"></span></dd></a><span class="png arrow"></span>
+   	<ul class="mainsubmenu langs">
+									<li>
+				<noindex>									<a class="flag"  rel="nofollow" href="http://www.gismeteo.ru/"><span class="ru"></span>Россия (по-русски)</a>
+							</noindex>			</li>
+												<li>
+				<noindex>									<a class="flag"  rel="nofollow" href="http://www.gismeteo.ua/"><span class="ua"></span>Украина (по-русски)</a>
+							</noindex>			</li>
+											<li>
+				<noindex>									<a class="flag"  rel="nofollow" href="http://www.gismeteo.ua/ua/"><span class="ua"></span>Україна (українською)</a>
+							</noindex>			</li>
+												<li>
+				<noindex>									<a class="flag"  rel="nofollow" href="http://www.gismeteo.lt/"><span class="lt"></span>Lietuva (lietuviškai)</a>
+							</noindex>			</li>
+											<li>
+				<noindex>									<a class="flag"  rel="nofollow" href="http://www.gismeteo.lt/ru/"><span class="lt"></span>Литва (по-русски)</a>
+							</noindex>			</li>
+												<li class="active">
+													<b class="flag"><span class="sprite by"></span>Беларусь (по-русски)</b>
+										</li>
+												<li>
+				<noindex>									<a class="flag"  rel="nofollow" href="http://www.gismeteo.com/"><span class="euro"></span>International (english)</a>
+							</noindex>			</li>
+																					<li>
+				<noindex>									<a class="flag"  rel="nofollow" href="http://www.gismeteo.md/"><span class="md"></span>Молдова (по-русски)</a>
+							</noindex>			</li>
+											<li>
+				<noindex>									<a class="flag"  rel="nofollow" href="http://www.gismeteo.md/ro/"><span class="md"></span>Moldova (română)</a>
+							</noindex>			</li>
+												<li>
+				<noindex>									<a class="flag"  rel="nofollow" href="http://www.gismeteo.lv/"><span class="lv"></span>Latvija (latviski)</a>
+							</noindex>			</li>
+											<li>
+				<noindex>									<a class="flag"  rel="nofollow" href="http://www.gismeteo.lv/ru/"><span class="lv"></span>Латвия (по-русски)</a>
+							</noindex>			</li>
+												<li>
+				<noindex>									<a class="flag"  rel="nofollow" href="http://www.gismeteo.kz/"><span class="kz"></span>Казахстан (по-русски)</a>
+							</noindex>			</li>
+			   	</ul>
+   </li>
+
+</ul>
+</div>
+	<script type="text/javascript" src="/static/js/mainmenu/src/search_and_meas.js?3c348"></script>
+<script type=text/javascript>
+var current_city_id = 4218;
+(function($){
+	gis.suggest.url_prefix = '/';
+	gis.suggest.url = '/ajax/suggest/';
+	gis.suggest.dataType='json';
+	gis.suggest.cache=true;
+	gis.suggest.labels = {
+		no_results: 'Ничего не найдено. Проверьте &mdash; нет ли ошибки.',
+		search: 'Поиск местоположения',
+		all_results: 'Все результаты',
+		countries: 'Страны',
+		regions: 'Области',
+		cities: 'Пункты',
+		airports: 'Аэропорты'
+	};
+	gis.suggest.assign_labels();
+}(jQuery));
+jQuery(function($){
+	gis.suggest.init($('#main_search'), 'ru');
+});
+</script>
+</div></div>
+</div>
+<div id="top_wide"></div>
+
+<div id="content" class="wrap">
+<!-- content begin -->
+<div class="cright">
+	<div class="rframe nooverflow" id="ad-right"><div class="fcontent">
+		<div id="adriver_240x400"></div>
+<script type="text/javascript">
+new adriver("adriver_240x400", {sid:129909,bt:52,pz:2,bn:0,keyword:encodeURIComponent("eastern_europe;belarus;r343;c4218")});
+</script>	</div></div>
+	
+	<div class="rframe" id="ad-rian"><div class="fcontent">
+		<noindex>
+<div id="tut_by">
+<h2><a rel="nofollow" target="_blank" href="http://news.tut.by/?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf">Новости Беларуси и мира</a></h2>
+<div id="holder">
+	<table>
+		<tr><td>
+		<a rel="nofollow" target="_blank" href="http://lady.tut.by/news/loners/354396.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf"><img width="70" style="max-height:50px;" border="0" src="/images/news/b0ed1f252764da4a36fde2bd79b9305f.jpg" alt="Выбираем самого завидного холостяка страны!" title="Выбираем самого завидного холостяка страны!"></a>		<div><a title="Выбираем самого завидного холостяка страны!" rel="nofollow" target="_blank" href="http://lady.tut.by/news/loners/354396.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf">Выбираем самого завидного холостяка страны!</a></div>
+	</td></tr>
+		<tr><td>
+		<a rel="nofollow" target="_blank" href="http://auto.tut.by/news/accidents/354402.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf"><img width="70" style="max-height:50px;" border="0" src="/images/news/a2c56d5cb720358af3b5d30fccc6de8c.jpg" alt="В Минске пьяный водитель совершил два ДТП и с опоры высоково…" title="В Минске пьяный водитель совершил два ДТП и с опоры высоково…"></a>		<div><a title="В Минске пьяный водитель совершил два ДТП и с опоры высоково…" rel="nofollow" target="_blank" href="http://auto.tut.by/news/accidents/354402.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf">В Минске пьяный водитель совершил два ДТП и с опоры высоково…</a></div>
+	</td></tr>
+		<tr><td>
+		<a rel="nofollow" target="_blank" href="http://sport.tut.by/news/football/354354.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf"><img width="70" style="max-height:50px;" border="0" src="/images/news/111a816a3c9e745fe5a0e66f7bb84326.jpg" alt="&quot;Белшина&quot; проиграла БАТЭ, а &quot;Славия&quot; - &quot;Минску&quot;" title="&quot;Белшина&quot; проиграла БАТЭ, а &quot;Славия&quot; - &quot;Минску&quot;"></a>		<div><a title="&quot;Белшина&quot; проиграла БАТЭ, а &quot;Славия&quot; - &quot;Минску&quot;" rel="nofollow" target="_blank" href="http://sport.tut.by/news/football/354354.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf">&quot;Белшина&quot; проиграла БАТЭ, а &quot;Славия&quot; - &quot;Минску&quot;</a></div>
+	</td></tr>
+		<tr><td>
+		<a rel="nofollow" target="_blank" href="http://lady.tut.by/news/relationship/354378.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf"><img width="70" style="max-height:50px;" border="0" src="/images/news/8d196a9c835f553505f1002957b5f040.jpg" alt="Курортный роман: три истории о страсти, предательстве и любв…" title="Курортный роман: три истории о страсти, предательстве и любв…"></a>		<div><a title="Курортный роман: три истории о страсти, предательстве и любв…" rel="nofollow" target="_blank" href="http://lady.tut.by/news/relationship/354378.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf">Курортный роман: три истории о страсти, предательстве и любв…</a></div>
+	</td></tr>
+		<tr><td>
+		<a rel="nofollow" target="_blank" href="http://news.tut.by/accidents/354369.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf"><img width="70" style="max-height:50px;" border="0" src="/images/news/dd8bcc253b5160268080d8ccfd6c43fd.jpg" alt="Стрелки по людям в Минске задержаны" title="Стрелки по людям в Минске задержаны"></a>		<div><a title="Стрелки по людям в Минске задержаны" rel="nofollow" target="_blank" href="http://news.tut.by/accidents/354369.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf">Стрелки по людям в Минске задержаны</a></div>
+	</td></tr>
+		<tr><td>
+		<a rel="nofollow" target="_blank" href="http://sport.tut.by/news/football/354414.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf"><img width="70" style="max-height:50px;" border="0" src="/images/news/bfb122d8566d56104be864c84c89074c.jpg" alt="&quot;TUTэйшы футбол&quot;. БАТЭ рационально побеждает в жаркую погоду…" title="&quot;TUTэйшы футбол&quot;. БАТЭ рационально побеждает в жаркую погоду…"></a>		<div><a title="&quot;TUTэйшы футбол&quot;. БАТЭ рационально побеждает в жаркую погоду…" rel="nofollow" target="_blank" href="http://sport.tut.by/news/football/354414.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf">&quot;TUTэйшы футбол&quot;. БАТЭ рационально побеждает в жаркую погоду…</a></div>
+	</td></tr>
+		<tr><td>
+		<a rel="nofollow" target="_blank" href="http://lady.tut.by/news/our-overseas/354390.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf"><img width="70" style="max-height:50px;" border="0" src="/images/news/9c9904a8ee5342fda03437f9a3752a9b.jpg" alt="Наши в Калифорнии: Необычайной красоты люди - это первое, чт…" title="Наши в Калифорнии: Необычайной красоты люди - это первое, чт…"></a>		<div><a title="Наши в Калифорнии: Необычайной красоты люди - это первое, чт…" rel="nofollow" target="_blank" href="http://lady.tut.by/news/our-overseas/354390.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf">Наши в Калифорнии: Необычайной красоты люди - это первое, чт…</a></div>
+	</td></tr>
+		<tr><td>
+		<a rel="nofollow" target="_blank" href="http://news.tut.by/accidents/354369.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf"><img width="70" style="max-height:50px;" border="0" src="/images/news/dd8bcc253b5160268080d8ccfd6c43fd.jpg" alt="Стрелки по людям в Минске задержаны" title="Стрелки по людям в Минске задержаны"></a>		<div><a title="Стрелки по людям в Минске задержаны" rel="nofollow" target="_blank" href="http://news.tut.by/accidents/354369.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf">Стрелки по людям в Минске задержаны</a></div>
+	</td></tr>
+		<tr><td>
+		<a rel="nofollow" target="_blank" href="http://news.tut.by/economics/353928.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf"><img width="70" style="max-height:50px;" border="0" src="/images/news/6e35cd2950261acfedfdd87c71cedbe4.jpg" alt="&quot;Экономика на пальцах&quot;. Качество принимаемых решений резко с…" title="&quot;Экономика на пальцах&quot;. Качество принимаемых решений резко с…"></a>		<div><a title="&quot;Экономика на пальцах&quot;. Качество принимаемых решений резко с…" rel="nofollow" target="_blank" href="http://news.tut.by/economics/353928.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf">&quot;Экономика на пальцах&quot;. Качество принимаемых решений резко с…</a></div>
+	</td></tr>
+		<tr><td>
+		<a rel="nofollow" target="_blank" href="http://auto.tut.by/news/video/354382.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf"><img width="70" style="max-height:50px;" border="0" src="/images/news/2edacd3e713053b76dfd874e72f62a7a.jpg" alt="Видеофакт: байкер ускорился перед переходом, врезался в оста…" title="Видеофакт: байкер ускорился перед переходом, врезался в оста…"></a>		<div><a title="Видеофакт: байкер ускорился перед переходом, врезался в оста…" rel="nofollow" target="_blank" href="http://auto.tut.by/news/video/354382.html?utm_source=gismeteo&utm_medium=block-news&utm_campaign=out-traf">Видеофакт: байкер ускорился перед переходом, врезался в оста…</a></div>
+	</td></tr>
+		</table>
+</div>
+</div>
+</noindex>
+	</div></div>
+
+	<div class="rframe" id="information"><div class="fcontent">
+		<h2>Информация</h2>
+<ul class="section">
+	<li class="icon">
+		<a href="/forweb.html">Предоставление погодных данных</a></li>
+	<li class="icon">
+		<a href="/forsmi.html">Информация для СМИ</a></li>
+	<li class="icon">
+		<a href="/soglashenie.html">Пользовательское соглашение</a></li>
+	<li class="icon">
+		<a href="/adv.html">О рекламе на сайте</a></li>
+	<li class="icon">
+		<a href="/faq.html">Часто задаваемые вопросы (FAQ)</a></li>
+	<li class="icon">
+		<a href="/feedback/">Гостевая книга</a></li>
+	<li class="icon">
+		<a href="/sitemap/">Карта сайта</a></li>
+	<li class="icon">
+		<a href="/contacts.html">Контакты</a></li>
+</ul>
+	
+	</div></div>
+
+</div>	
+
+<div class="cleft">
+<!-- content left begin -->
+<div class="wrap">
+	
+
+	<div class="rframe" id="weather"><div class="fcontent">	
+	<h2>
+	<span>Погода</span>
+
+	<!-- like / dislike servant -->
+
+	<span class="rate" data-cityId="4218">
+		<span class="rate_description"></span>
+		<span class="rate_openers"><button data-rate="1" class="rate_button rate_button_like">Хорошая</button><button data-rate="0" class="rate_button rate_button_empty rate_button_dislike"></button></span>
+	</span>
+	</h2>
+
+<div class="rframe rate_popup">
+	<div class="rate_content">
+		<div class="rate_section">
+			<span class="rate_header">Какая сейчас погода?</span>
+		</div>
+		<div class="rate_section"><button data-rate="1" class="rate_button rate_button_like">Хорошая</button><button data-rate="0" class="rate_button rate_button_dislike"/>Плохая</button></div>
+		<div class="rate_section">
+			<input type="text" placeholder="точнее" class="rate_comment_input"/>
+		</div>
+		<div class="rate_section">
+			<button class="rate_button rate_button_submit">Отправить</button>
+			<span class="rate_cancel"/>Отмена</span>
+		</div>
+	</div>
+	<div class="rate_content_bg"></div>
+</div>
+<script type="text/javascript" src="/static/js/weather-rater.js?3c348"></script>
+
+<div class="section">
+	<h3 class="typeM">Витебск</h3>
+	<div class="scity" xmlns:v="http://rdf.data-vocabulary.org/#">
+		<span typeof="v:Breadcrumb"><a href="/catalog/belarus/343/" rel="v:url" property="v:title">Витебская область</a></span>,&nbsp;<span typeof="v:Breadcrumb"><a href="/catalog/belarus/" rel="v:url" property="v:title">Беларусь</a></span>
+	</div>
+		<dl class="cloudness">
+		<dt class="png" title="Ясно" style="background-image: url(/static/images/icons/new/n.moon.png)"><br /></dt>
+		<dd><table><tr><td>Ясно</td></tr></table></dd>
+	</dl>
+	<div class="temp">
+		<dd class='value m_temp c'>+16<span class="meas">&deg;C</span></dd>
+		<dd class='value m_temp f' style='display:none'>+61<span class="meas">&deg;F</span></dd>
+	</div>
+		<div class="wicon wind">
+		<dl title="Ветер штиль" class="wicon wind0">
+			<dd class='value m_wind ms' style='display:inline'>0<span class="unit">м/с</span></dd>
+			<dd class='value m_wind mih' style='display:none'>0<span class="unit">миль/ч</span></dd>
+			<dd class='value m_wind kmh' style='display:none'>0<span class="unit"></span></dd>
+			<dt>Ш</dt>
+		</dl>
+	</div>
+	<div class="wicon barp" title="Давление">
+		<dd class='value m_press torr'>746<span class="unit">мм рт. ст.</span></dd>
+		<dd class='value m_press hpa' style='display:none'>995<span class="unit">гПа</span></dd>
+		<dd class='value m_press inch' style='display:none'>29<span class="unit">д. рт. ст.</span></dd>
+	</div>
+	<div class="wicon hum" title="Влажность">89<span class="unit">%<span class="meas_hum_txt hidden">&nbsp;влажн.</span></span></div>
+		<div class="wrap f_link">
+		<span class="icon date" data-obs-time="2013-06-25 00:00:00" data-hr="">
+		25 июня 2013 3:00		</span>
+	  <a class="icon fcast hidden" href="/city/daily/4218/">Прогноз</a>
+	</div>
+</div><!--block expire GMT+0: 2013-06-25 3:54:07-->	</div></div>
+	
+				<div class="rframe" id="weather-hourly"><div class="fcontent">
+		<h2 class="wtitle"><span>Подробный прогноз:</span>
+	<span class="title sel">Вт,&nbsp;Ср,&nbsp;Чт</span>
+	<a href="/city/hourly/4218/2/">Чт,&nbsp;Пт,&nbsp;Сб</a>
+	<a href="/city/hourly/4218/4/">Сб,&nbsp;Вс,&nbsp;Пн</a>
+	</h2>
+<div class="section">
+	<ul class="wtools">
+		<li class="near_banner"></li>		<li><a title="Выбрать этот город, как Мой город" href="/ajax/mycity/?city=4218" class="jAjax semitransp" rel="nofollow" onclick="return false;">Мой город</a></li>
+						<li><a href="/ajax/print/4218/short/" class="icon wtprint" rel="nofollow">&nbsp;</a></li>
+	</ul>
+	<h1 class="wtitle">Погода в Витебске</h1>
+</div>
+<div class="wtabs wrap">
+<span class="prev"></span>
+
+<a href="/city/hourly/4218/2/" class="next"></a>
+ 
+		<div class="wtab swtab" id="tab_wdaily1">
+		<img class="cloudness png" src="/static/images/icons/new/d.sun.c4.png" alt="" width="55" height="55">
+		<dl class="date wrap"><dt>ВТ</dt><dd>25.06</dd></dl>
+		<div class="temp"><span class='value m_temp c'>+16</span><span class='value m_temp f' style='display:none'>+61</span>..<em><span class='value m_temp c'>+28</span><span class='value m_temp f' style='display:none'>+82</span></em></div>
+	</div>
+ 
+		<div class="wtab" id="tab_wdaily2">
+		<img class="cloudness png" src="/static/images/icons/new/d.sun.c2.r1.png" alt="" width="55" height="55">
+		<dl class="date wrap"><dt>СР</dt><dd>26.06</dd></dl>
+		<div class="temp"><span class='value m_temp c'>+19</span><span class='value m_temp f' style='display:none'>+66</span>..<em><span class='value m_temp c'>+27</span><span class='value m_temp f' style='display:none'>+81</span></em></div>
+	</div>
+ 
+		<div class="wtab" id="tab_wdaily3">
+		<img class="cloudness png" src="/static/images/icons/new/d.sun.c3.r1.png" alt="" width="55" height="55">
+		<dl class="date wrap"><dt>ЧТ</dt><dd>27.06</dd></dl>
+		<div class="temp"><span class='value m_temp c'>+20</span><span class='value m_temp f' style='display:none'>+68</span>..<em><span class='value m_temp c'>+27</span><span class='value m_temp f' style='display:none'>+81</span></em></div>
+	</div>
+</div>
+<div class="wsection wdata">
+<table>
+<thead>
+	<th></th>
+	<th colspan="2" class="wide">Характеристики&nbsp;погоды, атмосферные&nbsp;явления</th>
+	<th class="temp">Tемпература воздуха,&nbsp;&deg;<span class="units m_temp c">C</span><span class="units m_temp f" style='display:none'>F</span></th>
+	<th class="preassure">Атм.&nbsp;давл., <span class="units m_press torr">мм рт. ст.</span><span class="units m_press hpa" style='display:none'>гПа</span><span class="units m_press inch" style='display:none'>д. рт. ст.</span></th>
+	<th class="speed">Ветер, <span class="units m_wind ms">м/с</span><span class="units m_wind mih" style='display:none'>миль/ч</span><span class="units m_wind kmh" style='display:none'></span></td>
+	<th class="humm">Влажность  воздуха,&nbsp;%</th>
+	<th class="comfort">Ощущается, &deg;<span class="units m_temp c">C</span><span class="units m_temp f" style='display:none'>F</span></th>
+</thead>
+<tbody id="wdaily1">
+	 			
+							<tr class="wrow" id="wrow-2013-06-25-00">
+	<th title="Фактические данные от 2013-06-24 21:00, UTC: 2013-06-24 21:00, Local: 2013-06-25 0:00">
+		0:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/n.moon.png" alt="Ясно" title="Ясно" width="55" height="55"></td>
+	<td class="cltext">Ясно</td>
+	<td class="temp"><span class='value m_temp c'>+20</span><span class='value m_temp f' style='display:none'>+68</span></td>
+	<td><span class='value m_press torr'>746</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>995</span></td>
+	<td><dl class="wind"><dt class="wicon wind0" title="Штиль">Ш</dt><dd><span class='value m_wind ms'>0</span><span class='value m_wind mih' style='display:none'>0</span><span class='value m_wind kmh' style='display:none'>0</span></dd></dl></td>
+	<td>70</td>
+	<td><span class='value m_temp c'>+20</span><span class='value m_temp f' style='display:none'>+68</span></td>
+	</tr>	
+	 			
+							<tr class="wrow" id="wrow-2013-06-25-03">
+	<th title="Фактические данные от 2013-06-25 00:00, UTC: 2013-06-25 0:00, Local: 2013-06-25 3:00">
+		3:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/n.moon.png" alt="Ясно" title="Ясно" width="55" height="55"></td>
+	<td class="cltext">Ясно</td>
+	<td class="temp"><span class='value m_temp c'>+16</span><span class='value m_temp f' style='display:none'>+61</span></td>
+	<td><span class='value m_press torr'>746</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>995</span></td>
+	<td><dl class="wind"><dt class="wicon wind0" title="Штиль">Ш</dt><dd><span class='value m_wind ms'>0</span><span class='value m_wind mih' style='display:none'>0</span><span class='value m_wind kmh' style='display:none'>0</span></dd></dl></td>
+	<td>89</td>
+	<td><span class='value m_temp c'>+16</span><span class='value m_temp f' style='display:none'>+61</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-25-06">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-25 3:00, Local: 2013-06-25 6:00">
+		6:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/d.sun.png" alt="Ясно" title="Ясно" width="55" height="55"></td>
+	<td class="cltext">Ясно</td>
+	<td class="temp"><span class='value m_temp c'>+18</span><span class='value m_temp f' style='display:none'>+64</span></td>
+	<td><span class='value m_press torr'>747</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>996</span></td>
+	<td><dl class="wind"><dt class="wicon wind0" title="Штиль">Ш</dt><dd><span class='value m_wind ms'>0</span><span class='value m_wind mih' style='display:none'>0</span><span class='value m_wind kmh' style='display:none'>0</span></dd></dl></td>
+	<td>87</td>
+	<td><span class='value m_temp c'>+18</span><span class='value m_temp f' style='display:none'>+64</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-25-09">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-25 6:00, Local: 2013-06-25 9:00">
+		9:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/d.sun.png" alt="Ясно" title="Ясно" width="55" height="55"></td>
+	<td class="cltext">Ясно</td>
+	<td class="temp"><span class='value m_temp c'>+24</span><span class='value m_temp f' style='display:none'>+75</span></td>
+	<td><span class='value m_press torr'>747</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>996</span></td>
+	<td><dl class="wind"><dt class="wicon wind3" title="Восточный">В</dt><dd><span class='value m_wind ms'>1</span><span class='value m_wind mih' style='display:none'>2</span><span class='value m_wind kmh' style='display:none'>4</span></dd></dl></td>
+	<td>61</td>
+	<td><span class='value m_temp c'>+23</span><span class='value m_temp f' style='display:none'>+73</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-25-12">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-25 9:00, Local: 2013-06-25 12:00">
+		12:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/d.sun.c4.png" alt="Пасмурно" title="Пасмурно" width="55" height="55"></td>
+	<td class="cltext">Пасмурно</td>
+	<td class="temp"><span class='value m_temp c'>+27</span><span class='value m_temp f' style='display:none'>+81</span></td>
+	<td><span class='value m_press torr'>746</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>995</span></td>
+	<td><dl class="wind"><dt class="wicon wind4" title="Юго-восточный">ЮВ</dt><dd><span class='value m_wind ms'>2</span><span class='value m_wind mih' style='display:none'>4</span><span class='value m_wind kmh' style='display:none'>7</span></dd></dl></td>
+	<td>49</td>
+	<td><span class='value m_temp c'>+25</span><span class='value m_temp f' style='display:none'>+77</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-25-15">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-25 12:00, Local: 2013-06-25 15:00">
+		15:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/d.sun.c4.png" alt="Пасмурно" title="Пасмурно" width="55" height="55"></td>
+	<td class="cltext">Пасмурно</td>
+	<td class="temp"><span class='value m_temp c'>+28</span><span class='value m_temp f' style='display:none'>+82</span></td>
+	<td><span class='value m_press torr'>746</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>995</span></td>
+	<td><dl class="wind"><dt class="wicon wind4" title="Юго-восточный">ЮВ</dt><dd><span class='value m_wind ms'>2</span><span class='value m_wind mih' style='display:none'>4</span><span class='value m_wind kmh' style='display:none'>7</span></dd></dl></td>
+	<td>45</td>
+	<td><span class='value m_temp c'>+27</span><span class='value m_temp f' style='display:none'>+81</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-25-18">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-25 15:00, Local: 2013-06-25 18:00">
+		18:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/d.sun.c3.png" alt="Облачно" title="Облачно" width="55" height="55"></td>
+	<td class="cltext">Облачно</td>
+	<td class="temp"><span class='value m_temp c'>+28</span><span class='value m_temp f' style='display:none'>+82</span></td>
+	<td><span class='value m_press torr'>746</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>995</span></td>
+	<td><dl class="wind"><dt class="wicon wind3" title="Восточный">В</dt><dd><span class='value m_wind ms'>2</span><span class='value m_wind mih' style='display:none'>4</span><span class='value m_wind kmh' style='display:none'>7</span></dd></dl></td>
+	<td>52</td>
+	<td><span class='value m_temp c'>+26</span><span class='value m_temp f' style='display:none'>+79</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-25-21">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-25 18:00, Local: 2013-06-25 21:00">
+		21:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/d.sun.c2.png" alt="Малооблачно" title="Малооблачно" width="55" height="55"></td>
+	<td class="cltext">Малооблачно</td>
+	<td class="temp"><span class='value m_temp c'>+24</span><span class='value m_temp f' style='display:none'>+75</span></td>
+	<td><span class='value m_press torr'>746</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>995</span></td>
+	<td><dl class="wind"><dt class="wicon wind3" title="Восточный">В</dt><dd><span class='value m_wind ms'>2</span><span class='value m_wind mih' style='display:none'>4</span><span class='value m_wind kmh' style='display:none'>7</span></dd></dl></td>
+	<td>72</td>
+	<td><span class='value m_temp c'>+23</span><span class='value m_temp f' style='display:none'>+73</span></td>
+	</tr>	
+	</tbody>
+<tbody id="wdaily2" style="display: none;">
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-26-00">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-25 21:00, Local: 2013-06-26 0:00">
+		0:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/n.moon.c2.png" alt="Малооблачно" title="Малооблачно" width="55" height="55"></td>
+	<td class="cltext">Малооблачно</td>
+	<td class="temp"><span class='value m_temp c'>+20</span><span class='value m_temp f' style='display:none'>+68</span></td>
+	<td><span class='value m_press torr'>746</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>995</span></td>
+	<td><dl class="wind"><dt class="wicon wind3" title="Восточный">В</dt><dd><span class='value m_wind ms'>2</span><span class='value m_wind mih' style='display:none'>4</span><span class='value m_wind kmh' style='display:none'>7</span></dd></dl></td>
+	<td>86</td>
+	<td><span class='value m_temp c'>+19</span><span class='value m_temp f' style='display:none'>+66</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-26-03">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-26 0:00, Local: 2013-06-26 3:00">
+		3:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/n.moon.png" alt="Ясно" title="Ясно" width="55" height="55"></td>
+	<td class="cltext">Ясно</td>
+	<td class="temp"><span class='value m_temp c'>+19</span><span class='value m_temp f' style='display:none'>+66</span></td>
+	<td><span class='value m_press torr'>746</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>995</span></td>
+	<td><dl class="wind"><dt class="wicon wind4" title="Юго-восточный">ЮВ</dt><dd><span class='value m_wind ms'>2</span><span class='value m_wind mih' style='display:none'>4</span><span class='value m_wind kmh' style='display:none'>7</span></dd></dl></td>
+	<td>91</td>
+	<td><span class='value m_temp c'>+19</span><span class='value m_temp f' style='display:none'>+66</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-26-06">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-26 3:00, Local: 2013-06-26 6:00">
+		6:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/d.sun.png" alt="Ясно" title="Ясно" width="55" height="55"></td>
+	<td class="cltext">Ясно</td>
+	<td class="temp"><span class='value m_temp c'>+20</span><span class='value m_temp f' style='display:none'>+68</span></td>
+	<td><span class='value m_press torr'>746</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>995</span></td>
+	<td><dl class="wind"><dt class="wicon wind4" title="Юго-восточный">ЮВ</dt><dd><span class='value m_wind ms'>1</span><span class='value m_wind mih' style='display:none'>2</span><span class='value m_wind kmh' style='display:none'>4</span></dd></dl></td>
+	<td>89</td>
+	<td><span class='value m_temp c'>+20</span><span class='value m_temp f' style='display:none'>+68</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-26-09">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-26 6:00, Local: 2013-06-26 9:00">
+		9:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/d.sun.png" alt="Ясно" title="Ясно" width="55" height="55"></td>
+	<td class="cltext">Ясно</td>
+	<td class="temp"><span class='value m_temp c'>+25</span><span class='value m_temp f' style='display:none'>+77</span></td>
+	<td><span class='value m_press torr'>746</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>995</span></td>
+	<td><dl class="wind"><dt class="wicon wind4" title="Юго-восточный">ЮВ</dt><dd><span class='value m_wind ms'>1</span><span class='value m_wind mih' style='display:none'>2</span><span class='value m_wind kmh' style='display:none'>4</span></dd></dl></td>
+	<td>70</td>
+	<td><span class='value m_temp c'>+24</span><span class='value m_temp f' style='display:none'>+75</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-26-12">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-26 9:00, Local: 2013-06-26 12:00">
+		12:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/d.sun.c2.png" alt="Малооблачно" title="Малооблачно" width="55" height="55"></td>
+	<td class="cltext">Малооблачно</td>
+	<td class="temp"><span class='value m_temp c'>+27</span><span class='value m_temp f' style='display:none'>+81</span></td>
+	<td><span class='value m_press torr'>746</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>995</span></td>
+	<td><dl class="wind"><dt class="wicon wind4" title="Юго-восточный">ЮВ</dt><dd><span class='value m_wind ms'>2</span><span class='value m_wind mih' style='display:none'>4</span><span class='value m_wind kmh' style='display:none'>7</span></dd></dl></td>
+	<td>58</td>
+	<td><span class='value m_temp c'>+26</span><span class='value m_temp f' style='display:none'>+79</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-26-15">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-26 12:00, Local: 2013-06-26 15:00">
+		15:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/d.sun.c2.r1.png" alt="Малооблачно, небольшой дождь" title="Малооблачно, небольшой дождь" width="55" height="55"></td>
+	<td class="cltext">Малооблачно, небольшой дождь</td>
+	<td class="temp"><span class='value m_temp c'>+27</span><span class='value m_temp f' style='display:none'>+81</span></td>
+	<td><span class='value m_press torr'>746</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>995</span></td>
+	<td><dl class="wind"><dt class="wicon wind4" title="Юго-восточный">ЮВ</dt><dd><span class='value m_wind ms'>2</span><span class='value m_wind mih' style='display:none'>4</span><span class='value m_wind kmh' style='display:none'>7</span></dd></dl></td>
+	<td>59</td>
+	<td><span class='value m_temp c'>+26</span><span class='value m_temp f' style='display:none'>+79</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-26-18">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-26 15:00, Local: 2013-06-26 18:00">
+		18:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/d.sun.c2.png" alt="Малооблачно" title="Малооблачно" width="55" height="55"></td>
+	<td class="cltext">Малооблачно</td>
+	<td class="temp"><span class='value m_temp c'>+26</span><span class='value m_temp f' style='display:none'>+79</span></td>
+	<td><span class='value m_press torr'>746</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>995</span></td>
+	<td><dl class="wind"><dt class="wicon wind4" title="Юго-восточный">ЮВ</dt><dd><span class='value m_wind ms'>2</span><span class='value m_wind mih' style='display:none'>4</span><span class='value m_wind kmh' style='display:none'>7</span></dd></dl></td>
+	<td>63</td>
+	<td><span class='value m_temp c'>+25</span><span class='value m_temp f' style='display:none'>+77</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-26-21">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-26 18:00, Local: 2013-06-26 21:00">
+		21:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/d.sun.c2.png" alt="Малооблачно" title="Малооблачно" width="55" height="55"></td>
+	<td class="cltext">Малооблачно</td>
+	<td class="temp"><span class='value m_temp c'>+24</span><span class='value m_temp f' style='display:none'>+75</span></td>
+	<td><span class='value m_press torr'>746</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>995</span></td>
+	<td><dl class="wind"><dt class="wicon wind3" title="Восточный">В</dt><dd><span class='value m_wind ms'>2</span><span class='value m_wind mih' style='display:none'>4</span><span class='value m_wind kmh' style='display:none'>7</span></dd></dl></td>
+	<td>77</td>
+	<td><span class='value m_temp c'>+22</span><span class='value m_temp f' style='display:none'>+72</span></td>
+	</tr>	
+	</tbody>
+<tbody id="wdaily3" style="display: none;">
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-27-00">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-26 21:00, Local: 2013-06-27 0:00">
+		0:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/n.moon.png" alt="Ясно" title="Ясно" width="55" height="55"></td>
+	<td class="cltext">Ясно</td>
+	<td class="temp"><span class='value m_temp c'>+21</span><span class='value m_temp f' style='display:none'>+70</span></td>
+	<td><span class='value m_press torr'>746</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>995</span></td>
+	<td><dl class="wind"><dt class="wicon wind4" title="Юго-восточный">ЮВ</dt><dd><span class='value m_wind ms'>2</span><span class='value m_wind mih' style='display:none'>4</span><span class='value m_wind kmh' style='display:none'>7</span></dd></dl></td>
+	<td>84</td>
+	<td><span class='value m_temp c'>+20</span><span class='value m_temp f' style='display:none'>+68</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-27-03">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-27 0:00, Local: 2013-06-27 3:00">
+		3:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/n.moon.png" alt="Ясно" title="Ясно" width="55" height="55"></td>
+	<td class="cltext">Ясно</td>
+	<td class="temp"><span class='value m_temp c'>+20</span><span class='value m_temp f' style='display:none'>+68</span></td>
+	<td><span class='value m_press torr'>747</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>996</span></td>
+	<td><dl class="wind"><dt class="wicon wind4" title="Юго-восточный">ЮВ</dt><dd><span class='value m_wind ms'>2</span><span class='value m_wind mih' style='display:none'>4</span><span class='value m_wind kmh' style='display:none'>7</span></dd></dl></td>
+	<td>87</td>
+	<td><span class='value m_temp c'>+20</span><span class='value m_temp f' style='display:none'>+68</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-27-06">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-27 3:00, Local: 2013-06-27 6:00">
+		6:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/d.sun.png" alt="Ясно" title="Ясно" width="55" height="55"></td>
+	<td class="cltext">Ясно</td>
+	<td class="temp"><span class='value m_temp c'>+20</span><span class='value m_temp f' style='display:none'>+68</span></td>
+	<td><span class='value m_press torr'>747</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>996</span></td>
+	<td><dl class="wind"><dt class="wicon wind4" title="Юго-восточный">ЮВ</dt><dd><span class='value m_wind ms'>2</span><span class='value m_wind mih' style='display:none'>4</span><span class='value m_wind kmh' style='display:none'>7</span></dd></dl></td>
+	<td>86</td>
+	<td><span class='value m_temp c'>+19</span><span class='value m_temp f' style='display:none'>+66</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-27-09">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-27 6:00, Local: 2013-06-27 9:00">
+		9:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/d.sun.png" alt="Ясно" title="Ясно" width="55" height="55"></td>
+	<td class="cltext">Ясно</td>
+	<td class="temp"><span class='value m_temp c'>+24</span><span class='value m_temp f' style='display:none'>+75</span></td>
+	<td><span class='value m_press torr'>747</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>996</span></td>
+	<td><dl class="wind"><dt class="wicon wind5" title="Южный">Ю</dt><dd><span class='value m_wind ms'>1</span><span class='value m_wind mih' style='display:none'>2</span><span class='value m_wind kmh' style='display:none'>4</span></dd></dl></td>
+	<td>72</td>
+	<td><span class='value m_temp c'>+23</span><span class='value m_temp f' style='display:none'>+73</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-27-12">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-27 9:00, Local: 2013-06-27 12:00">
+		12:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/d.sun.c2.r1.png" alt="Малооблачно, небольшой дождь" title="Малооблачно, небольшой дождь" width="55" height="55"></td>
+	<td class="cltext">Малооблачно, небольшой дождь</td>
+	<td class="temp"><span class='value m_temp c'>+27</span><span class='value m_temp f' style='display:none'>+81</span></td>
+	<td><span class='value m_press torr'>747</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>996</span></td>
+	<td><dl class="wind"><dt class="wicon wind6" title="Юго-западный">ЮЗ</dt><dd><span class='value m_wind ms'>1</span><span class='value m_wind mih' style='display:none'>2</span><span class='value m_wind kmh' style='display:none'>4</span></dd></dl></td>
+	<td>60</td>
+	<td><span class='value m_temp c'>+26</span><span class='value m_temp f' style='display:none'>+79</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-27-15">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-27 12:00, Local: 2013-06-27 15:00">
+		15:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/d.sun.c3.r1.png" alt="Облачно, небольшой дождь" title="Облачно, небольшой дождь" width="55" height="55"></td>
+	<td class="cltext">Облачно, небольшой дождь</td>
+	<td class="temp"><span class='value m_temp c'>+26</span><span class='value m_temp f' style='display:none'>+79</span></td>
+	<td><span class='value m_press torr'>748</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>997</span></td>
+	<td><dl class="wind"><dt class="wicon wind6" title="Юго-западный">ЮЗ</dt><dd><span class='value m_wind ms'>1</span><span class='value m_wind mih' style='display:none'>2</span><span class='value m_wind kmh' style='display:none'>4</span></dd></dl></td>
+	<td>62</td>
+	<td><span class='value m_temp c'>+25</span><span class='value m_temp f' style='display:none'>+77</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-27-18">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-27 15:00, Local: 2013-06-27 18:00">
+		18:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/d.sun.c2.r1.png" alt="Малооблачно, небольшой дождь" title="Малооблачно, небольшой дождь" width="55" height="55"></td>
+	<td class="cltext">Малооблачно, небольшой дождь</td>
+	<td class="temp"><span class='value m_temp c'>+25</span><span class='value m_temp f' style='display:none'>+77</span></td>
+	<td><span class='value m_press torr'>748</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>997</span></td>
+	<td><dl class="wind"><dt class="wicon wind7" title="Западный">З</dt><dd><span class='value m_wind ms'>1</span><span class='value m_wind mih' style='display:none'>2</span><span class='value m_wind kmh' style='display:none'>4</span></dd></dl></td>
+	<td>69</td>
+	<td><span class='value m_temp c'>+24</span><span class='value m_temp f' style='display:none'>+75</span></td>
+	</tr>	
+	 			
+							<tr class="wrow forecast" id="wrow-2013-06-27-21">
+	<th title="Прогноз от 2013-06-24 12:00, UTC: 2013-06-27 18:00, Local: 2013-06-27 21:00">
+		21:00	</th>
+	<td class="clicon"><img class="png" src="/static/images/icons/new/d.sun.c2.png" alt="Малооблачно" title="Малооблачно" width="55" height="55"></td>
+	<td class="cltext">Малооблачно</td>
+	<td class="temp"><span class='value m_temp c'>+23</span><span class='value m_temp f' style='display:none'>+73</span></td>
+	<td><span class='value m_press torr'>748</span><span class='value m_press inch' style='display:none'>29</span><span class='value m_press hpa' style='display:none'>997</span></td>
+	<td><dl class="wind"><dt class="wicon wind8" title="Северо-западный">СЗ</dt><dd><span class='value m_wind ms'>1</span><span class='value m_wind mih' style='display:none'>2</span><span class='value m_wind kmh' style='display:none'>4</span></dd></dl></td>
+	<td>82</td>
+	<td><span class='value m_temp c'>+22</span><span class='value m_temp f' style='display:none'>+72</span></td>
+	</tr>	
+	</tbody>
+</table>
+</div>
+<div class="section bottom">
+	<div class="more"><a class="icon weather_more" href="/city/daily/4218/">Краткий прогноз</a></div>
+	</div>
+
+		</div></div>
+		<!-- MSIE8 Slice -->
+		<div class="hslice" id="26666">
+		<h2 class="entry-title">Gismeteo.BY: Витебск</h2>
+		<a rel="feedurl" href="http://informer.gismeteo.ru/slice/xml/26666.xml"></a>
+		</div>
+	<!-- MSIE8 Slice End -->
+		
+	<div class="rframe" id="intown"><div class="fcontent">
+	<h2>В Витебске</h2>
+<ul class="section">
+	<li class="icon"><a href="/city/daily/4218/">Краткий прогноз</a></li>
+	<li class="icon cur"><a href="/city/hourly/4218/">Подробный прогноз</a></li>
+	<li class="icon"><a href="/city/weekly/4218/">Прогноз на 2 недели</a></li>
+	<li class="icon"><a href="/city/gm/4218/">Геомагнитная обстановка</a></li>
+	<li class="icon"><a href="/city/legacy/4218/">Погода по-старому</a></li>
+	<li class="icon"><a href="/city/busy/4218/">Погода для занятых</a></li>
+	<li class="icon diary"><a href="http://www.gismeteo.ru/diary/4218/">Дневник погоды</a></li>
+	<li class="icon"><a href="http://month.gismeteo.ru">Погода на месяц</a></li>
+</ul>	</div></div>
+	
+		
+	<div class="rframe" id="water"><div class="fcontent">
+	<h2>Водоемы</h2>
+<div class="section">
+	<h6>Температура воды:	
+		<span class="temp value m_temp c">+21<span class="meas">&deg;C</span></span>
+		<span class="temp value m_temp f" style='display:none'>+70<span class="meas">&deg;F</span></span>
+	</h6>
+	<div class="wrap date">
+		<a href="/ajax/static_hint/?name=hint.water" class="jAjax icon help"></a>
+		<span class="icon date_bottom">25 июня 2013</span>
+	</div>
+</div>
+	</div></div>
+	
+		
+	<div class="rframe" id="astronomy"><div class="fcontent">
+	<h2>Астрономия</h2>
+<div class="section">
+<div class="wrap">
+	<h6 class="sun">Солнце</h6>
+	<h6 class="moon">Луна</h6>
+</div>
+<div class="wrap">
+	<ul class="sun" title="На 25.06.2013">
+		<li><strong>Восход</strong> 04:17</li>		<li><strong>Заход</strong> 21:46</li>				<li><strong>Долгота</strong> 17:29</li>	</ul>
+	<ul class="moon moon8" title="На 25.06.2013">
+		<li class="phaze"><strong>Фаза</strong> 96%</li>
+		<li><strong>Полнолуние</strong></li>
+	</ul>
+</div>
+<div class="wrap date"><span class="icon date_bottom">25 июня 2013</span></div>
+</div>
+	</div></div>
+
+
+	<div class="rframe" id="ad-left"><div class="fcontent">
+	<!-- AdRiver code START Type: extension Site: gismeteo.by PZ: 2 BN: 0-->
+<script language="javascript" type="text/javascript"><!--
+if(typeof(ar_cn)=="undefined") var ar_cn=1;
+var ar_Tail = document.referrer ? escape(document.referrer) : 'unknown';
+var ar_link="http://ad.adriver.ru/cgi-bin/erle.cgi?sid=129909&target=blank&bt=43&pz=2&tail256=" + ar_Tail + "&keyword=" + encodeURIComponent("eastern_europe;belarus;r343;c4218");
+document.write('<div style="visibility:hidden;height:0px;"><iframe id="ar_container_'+ar_cn+'" width=1 height=1 marginwidth=0 marginheight=0 scrolling=no frameborder=0><\/iframe><\/div><div id="ad_ph_'+ar_cn+'"><\/div>');
+
+function ar_getDoc(t,n,l){
+    var doc;
+    if(t<100){if(document.all && !window.opera){doc = window.frames['ar_container_'+n].document;}
+    else if(document.getElementById){doc=document.getElementById('ar_container_'+n).contentDocument;}
+    if(!doc){setTimeout('ar_getDoc('+(++t)+','+n+',"'+l+'")', 100);}
+    else {var RndNum4NoCash = Math.round(Math.random() * 1000000000);
+    doc.write ('<sc'+'ript language="JavaScript" type="text/javascript">var ar_bnum='+n+';<\/sc'+'ript>');
+    doc.write ('<sc'+'ript language="JavaScript" type="text/javascript" src="'+l+'&rnd='+RndNum4NoCash+'"><\/sc'+'ript>');}}
+}
+
+(function(num,link){
+    function addEvent(e,t,f){
+        if (e.addEventListener) e.addEventListener(t, f, false);
+        else if (e.attachEvent) e.attachEvent('on'+t, f)
+    }
+    function removeEvent(e,t,f){
+        if (e.removeEventListener) e.removeEventListener(t, f, false);
+        else if (e.detachEvent) e.detachEvent('on'+t, f)
+    }
+
+    var BannerLoader = {
+        top: 0,
+        cm: document.compatMode == "CSS1Compat",
+
+        scroll: function (){
+            var ch = self.innerHeight || this.cm && document.documentElement.clientHeight || document.body.clientHeight;
+            var st  = self.pageYOffset || this.cm && document.documentElement.scrollTop || document.body.scrollTop;
+            if (this.top >= st && st + ch >= this.top) {
+                removeEvent(window, 'scroll', this.sfunc);
+                ar_getDoc(0,num,link)
+            }
+        },
+
+        sfunc: function(){BannerLoader.scroll()},
+
+        init: function(){
+            var t = this;
+            var obj = document.getElementById('ad_ph_'+num);
+            if (obj){
+                while(obj.offsetParent){t.top += obj.offsetTop; obj = obj.offsetParent}
+                addEvent(window, 'scroll', this.sfunc);
+                t.scroll();
+            }
+        }
+    };
+
+    addEvent(window, 'load', function(){BannerLoader.init()});
+})(ar_cn++,ar_link);
+//--></script>
+<!-- AdRiver code END -->	</div></div>
+	<div class="rframe" id="ad-lb"><div class="fcontent">
+	<h2><a   href="/catalog/belarus/">Погода в Беларуси</a></h2>
+<div class="cross_links subregions">
+<div class="cross_links_grad">
+</div>
+<ul>
+		<li class="png catalog_item typeT">
+		<span><span class='value m_temp c'>+19</span>
+		<span class='value m_temp f'>+66</span>
+		<img class="png" align=absmiddle src=/static/images/icons/18/n.moon.c3.png height=18 />
+		</span>
+		<a href="/city/daily/4263/">Барановичи</a>
+	</li>
+		<li class="png catalog_item typeT">
+		<span><span class='value m_temp c'>+14</span>
+		<span class='value m_temp f'>+57</span>
+		<img class="png" align=absmiddle src=/static/images/icons/18/n.moon.png height=18 />
+		</span>
+		<a href="/city/daily/4064/">Бобруйск</a>
+	</li>
+		<li class="png catalog_item typeT">
+		<span><span class='value m_temp c'>+19</span>
+		<span class='value m_temp f'>+66</span>
+		<img class="png" align=absmiddle src=/static/images/icons/18/n.moon.png height=18 />
+		</span>
+		<a href="/city/daily/4235/">Борисов</a>
+	</li>
+		<li class="png catalog_item typeT">
+		<span><span class='value m_temp c'>+19</span>
+		<span class='value m_temp f'>+66</span>
+		<img class="png" align=absmiddle src=/static/images/icons/18/n.moon.c3.png height=18 />
+		</span>
+		<a href="/city/daily/4912/">Брест</a>
+	</li>
+		<li class="png catalog_item typeT">
+		<span><span class='value m_temp c'>+18</span>
+		<span class='value m_temp f'>+64</span>
+		<img class="png" align=absmiddle src=/static/images/icons/18/n.moon.png height=18 />
+		</span>
+		<a href="/city/daily/4918/">Гомель</a>
+	</li>
+		<li class="png catalog_item typeT">
+		<span><span class='value m_temp c'>+19</span>
+		<span class='value m_temp f'>+66</span>
+		<img class="png" align=absmiddle src=/static/images/icons/18/n.moon.c4.png height=18 />
+		</span>
+		<a href="/city/daily/4243/">Гродно</a>
+	</li>
+		<li class="png catalog_item typeT">
+		<span><span class='value m_temp c'>+20</span>
+		<span class='value m_temp f'>+68</span>
+		<img class="png" align=absmiddle src=/static/images/icons/18/n.moon.c4.png height=18 />
+		</span>
+		<a href="/city/daily/4244/">Лида</a>
+	</li>
+		<li class="png catalog_item typeT">
+		<span><span class='value m_temp c'>+19</span>
+		<span class='value m_temp f'>+66</span>
+		<img class="png" align=absmiddle src=/static/images/icons/18/n.moon.png height=18 />
+		</span>
+		<a href="/city/daily/4248/">Минск</a>
+	</li>
+		<li class="png catalog_item typeT">
+		<span><span class='value m_temp c'>+15</span>
+		<span class='value m_temp f'>+59</span>
+		<img class="png" align=absmiddle src=/static/images/icons/18/n.moon.png height=18 />
+		</span>
+		<a href="/city/daily/4251/">Могилев</a>
+	</li>
+		<li class="png catalog_item typeT">
+		<span><span class='value m_temp c'>+21</span>
+		<span class='value m_temp f'>+70</span>
+		<img class="png" align=absmiddle src=/static/images/icons/18/n.moon.png height=18 />
+		</span>
+		<a href="/city/daily/4916/">Мозырь</a>
+	</li>
+		<li class="png catalog_item typeT">
+		<span><span class='value m_temp c'>+18</span>
+		<span class='value m_temp f'>+64</span>
+		<img class="png" align=absmiddle src=/static/images/icons/18/d.sun.png height=18 />
+		</span>
+		<a href="/city/daily/11818/">Молодечно</a>
+	</li>
+		<li class="png catalog_item typeT">
+		<span><span class='value m_temp c'>+17</span>
+		<span class='value m_temp f'>+63</span>
+		<img class="png" align=absmiddle src=/static/images/icons/18/n.moon.c2.png height=18 />
+		</span>
+		<a href="/city/daily/11026/">Новополоцк</a>
+	</li>
+		<li class="png catalog_item typeT">
+		<span><span class='value m_temp c'>+14</span>
+		<span class='value m_temp f'>+57</span>
+		<img class="png" align=absmiddle src=/static/images/icons/18/n.moon.c2.png height=18 />
+		</span>
+		<a href="/city/daily/4236/">Орша</a>
+	</li>
+		<li class="png catalog_item typeT">
+		<span><span class='value m_temp c'>+19</span>
+		<span class='value m_temp f'>+66</span>
+		<img class="png" align=absmiddle src=/static/images/icons/18/n.moon.c4.png height=18 />
+		</span>
+		<a href="/city/daily/4914/">Пинск</a>
+	</li>
+		<li class="png catalog_item typeT">
+		<span><span class='value m_temp c'>+17</span>
+		<span class='value m_temp f'>+63</span>
+		<img class="png" align=absmiddle src=/static/images/icons/18/n.moon.c2.png height=18 />
+		</span>
+		<a href="/city/daily/11817/">Солигорск</a>
+	</li>
+	</ul>
+</div>
+<div class="section">
+<p class="more cross_links_grad_under_lik">
+<a class="icon"   href="/catalog/belarus/">Прогноз погоды в Беларуси</a>
+</p>
+</div>	</div></div>
+	<div class="rframe" id="weather-maps"><div class="fcontent">
+	<h2>Карты погоды</h2>
+<ul class="wrap">
+<li><a title="Осадки в Европе" href="/map/558/"><span class="map" style="background-image: url(http://www.gismeteo.by/images/maps/preview/preview.558.2.13.1.jpg)"><br></span>Осадки в Европе</a></li>
+<li><a title="Облачность и фронты в Прибалтике" href="/map/574/"><span class="map" style="background-image: url(http://www.gismeteo.by/images/maps/preview/preview.574.3.15.1.jpg)"><br></span>Облачность и фронты в Прибалтике</a></li>
+<li><a title="Температура воздуха в Прибалтике" href="/map/586/"><span class="map" style="background-image: url(http://www.gismeteo.by/images/maps/preview/preview.586.4.15.1.jpg)"><br></span>Температура воздуха в Прибалтике</a></li>
+<li><a title="Температура и явления погоды в Прибалтике" href="/map/623/"><span class="map" style="background-image: url(http://www.gismeteo.by/images/maps/preview/preview.623.5.15.1.jpg)"><br></span>Температура и явления погоды в Прибалтике</a></li>
+<li><a title="Приземный ветер в Прибалтике" href="/map/602/"><span class="map" style="background-image: url(http://www.gismeteo.by/images/maps/preview/preview.602.10.15.1.jpg)"><br></span>Приземный ветер в Прибалтике</a></li>
+<li><a title="Радар в Прибалтике" href="/map/658/"><span class="map" style="background-image: url(http://www.gismeteo.by/images/maps/preview/preview.658.12.15.1.jpg)"><br></span>Радар в Прибалтике</a></li>
+<li><a title="Осадки в Беларуси" href="/map/614/"><span class="map" style="background-image: url(http://www.gismeteo.by/images/maps/preview/preview.614.2.19.1.jpg)"><br></span>Осадки в Беларуси</a></li>
+<li><a title="Облачность и фронты в Беларуси" href="/map/613/"><span class="map" style="background-image: url(http://www.gismeteo.by/images/maps/preview/preview.613.3.19.1.jpg)"><br></span>Облачность и фронты в Беларуси</a></li>
+</ul>
+<div class="wrap">
+	<div class="tab"><a href="#maps-search">Найти карту</a></div>
+	<div class="more"><a href="/map/catalog/" class="icon">Каталог карт</a></div>
+</div>
+<div class="rframe" id="maps-search">
+<form action="/map/common/" method="GET">
+	<h3>Стандартные карты</h3>
+	<div class="wrap">
+	<select class="msday" name="day">
+		<option value="0">Сегодня</option>
+		<option value="1">Завтра</option>
+		<option value="-1">Вчера</option>
+	</select>
+  <select class="msregion" name="region">
+				<option value="1">Юго-Восточная Азия</option>
+				<option value="2">Южная Америка</option>
+				<option value="3">Австралия</option>
+				<option value="4">Африка</option>
+				<option value="5">Сибирь</option>
+				<option value="6">Юг Сибири</option>
+				<option value="9">Север Сибири</option>
+				<option value="10">Северная Америка</option>
+				<option value="11">Московская область</option>
+				<option value="12">Дальний Восток</option>
+				<option value="13">Европа</option>
+				<option value="14">Центральная Россия</option>
+				<option value="15">Прибалтика</option>
+				<option value="16">Урал</option>
+				<option value="17">Черноморское побережье</option>
+				<option value="18">Украина</option>
+				<option value="19">Беларусь</option>
+				<option value="20">Литва</option>
+				<option value="21">Антарктика</option>
+				<option value="22">Средиземноморье</option>
+				<option value="23">Молдавия</option>
+			</select>
+  <select class="mstopic" name="topic">
+				<option value="2">Осадки</option>
+				<option value="3">Облачность и фронты</option>
+				<option value="4">Температура воздуха</option>
+				<option value="5">Температура и явления погоды</option>
+				<option value="6">Температура воды, воздуха и явления погоды</option>
+				<option value="7">Спутниковый снимок</option>
+				<option value="8">Фактическая температура и явления погоды</option>
+				<option value="9">Фактические осадки</option>
+				<option value="10">Приземный ветер</option>
+				<option value="11">Тайфуны, ураганы</option>
+				<option value="12">Радар</option>
+			</select>
+	</div>
+	<div class="submit">
+		<input type="submit" value="найти">
+	</div>
+</form>
+</div>	</div></div>
+	<div class="rframe" id="informer"><div class="fcontent">
+	<h2>Информер</h2>
+<div class="section"><a href="http://www.gismeteo.ru/informers/" target="_blank">
+<img align="left" alt="Информер" border="0" bprder="0" width="125" height="55" src="http://st7.gisstatic.ru/images/files/images/inf.png" style="margin-right: 8px;" title="Получить код информера" />
+</a>Погода в Витебске для вашего сайта за пару минут. Точный прогноз погоды в Беларуси и по всему миру от Гисметео.
+<div class="more"><a class="icon" href="http://www.gismeteo.ru/informers/" target="_blank">Подробнее</a></div>
+</div>
+	</div></div>
+	<!-- content left end -->
+</div>
+</div>
+<!-- content end -->
+<div id="footer">
+	<div class="copyright">
+<span>Copyright © 1998-2013, Gismeteo.BY</span><br>
+<span>Наши проекты:
+	<a class="ru_ru" href="http://www.gismeteo.ru/city/hourly/4218/" target="_blank"><img alt="Погода в Витебске на сегодня, завтра" src="/static/images/blank.gif" border="0" height="10" width="36"></a>, 
+	<a class="ua_ru" href="http://www.gismeteo.ua/city/hourly/4218/" target="_blank"><img alt="Погода в Витебске на сегодня, завтра" src="/static/images/blank.gif" border="0" height="10" width="42"></a>, 	
+	<a class="lt_ru" href="http://www.gismeteo.lt/city/hourly/4218/" target="_blank"><img alt="Погода в Витебске на сегодня, завтра" src="/static/images/blank.gif" border="0" height="10" width="32"></a>, 
+	<a class="md_ru" href="http://www.gismeteo.md/city/hourly/4218/" target="_blank"><img alt="Погода в Витебске на сегодня, завтра" src="/static/images/blank.gif" border="0" height="10" width="45"></a>,
+	<a class="lv_ru" href="http://www.gismeteo.lv/city/hourly/4218/" target="_blank"><img alt="Погода в Витебске на сегодня, завтра" src="/static/images/blank.gif" border="0" height="10" width="38"></a>
+</span>
+</div>	<!-- Akavita counter code -->
+<script language="javascript" type="text/javascript"><!--
+d=document;w=window;n=navigator;d.cookie="cc=1";
+r=''+escape(d.referrer);js=10;c=(d.cookie)?1:0;j=0;
+x=Math.random();u=''+escape(w.location.href);lt=0;
+h=history.length;t=new Date;f=(self!=top)?1:0;cd=0;
+tz=t.getTimezoneOffset();cpu=n.cpuClass;ww=wh=ss=0;
+//--></script><script language="javascript1.1" type="text/javascript"><!--
+js=11;j=(n.javaEnabled()?1:0);
+//--></script><script language="javascript1.2" type="text/javascript"><!--
+js=12;lt=1;s=screen;ss=s.width;
+cd=(s.colorDepth?s.colorDepth:s.pixelDepth);
+//--></script><script language="javascript1.3" type="text/javascript"><!--
+js=13;wh=w.innerHeight;ww=w.innerWidth;
+wh=(wh?wh:d.documentElement.offsetHeight);
+ww=(ww?ww:d.documentElement.offsetWidth);
+//--></script><script language="javascript" type="text/javascript"><!--
+q='lik?id=34056&d='+u+'&r='+r+'&h='+h+'&f='+f;
+q+='&c='+c+'&tz='+tz+'&cpu='+cpu+'&js='+js+'&wh='+wh;
+q+='&ww='+ww+'&ss='+ss+'&cd='+cd+'&j='+j+'&x='+x;
+d.write('<a target="_top" href="http://www.akavita.by/">'+
+'<img src="http://adlik.akavita.com/bin/'+
+q+'" alt="Akavita" '+
+'border="0" width="88" height="31"/></a>');
+//--></script><noscript>
+<a target="_top" href="http://www.akavita.by/">
+<img src="http://adlik.akavita.com/bin/lik?id=34056" border="0" 
+height="31" width="88" 
+alt="Akavita" /></a></noscript>
+<!-- Akavita counter code -->
+<!-- BEGIN RATING ALL.BY CODE - ALTERNATING THIS CODE WILL CAUSE TERMINATION ACCOUNT--><A HREF="http://www.all.by"><IMG SRC="http://www.all.by/cgi-bin/rating.cgi?id=10061365&ni=2" BORDER="0" WIDTH="88" HEIGHT="31" ALT="RATING ALL.BY"></A><!-- END RATING ALL.BY CODE-->
+<a target=_top href="http://top.mail.ru/jump?from=80472"><img src="http://top.mail.ru/counter?id=80472;t=231" border=0 alt="Рейтинг@Mail.ru"></a>
+<!--LiveInternet logo--><a href="http://www.liveinternet.ru/click" target="_blank"><img src="http://counter.yadro.ru/logo?13.11" title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня" alt="" border="0" width="88" height="31"/></a><!--/LiveInternet-->
+<a href=http://top100.rambler.ru/top100/><img src=http://top100-images.rambler.ru/top100/banner-88x31-rambler-blue.gif alt="Rambler's Top100" width=88 height=31 border=0></a>
+
+</div>
+
+</div>
+<!-- canvas end -->
+</div>
+</div>
+<!-- Google Analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-12105830-4");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<!-- END Google Analytics -->
+<script language="JavaScript">
+var img = new Image();
+img.src = 'http://www.tns-counter.ru/V13a***R>' + document.referrer.replace(/\\*/g,'%2a') + '*gismeteo_ru/ru/CP1251/tmsec=gismeteo_total/';
+</script>
+<noscript>
+<img src="http://www.tns-counter.ru/V13a****gismeteo_ru/ru/CP1251/tmsec=gismeteo_total/" width="1" height="1" alt="" />
+</noscript>
+
+<img src="http://counter.rambler.ru/top100.cnt?203076" width="1" height="1" border="0" alt="" />
+<script type="text/javascript"><!--
+sup_service = 23;
+sup_slot_id = 'cnt_gismeteo_main';
+sup_ad_width = 1;
+sup_ad_height = 1;
+//--></script>
+<script type="text/javascript" src="http://cnt.sup.com/ad_show.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var pp_gemius_identifier = new String('bPCbu0eeLNG8PgcuoR9FBaQPzds6SVux6ODNAuvifUj.e7');
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://st7.gisstatic.ru/static/js/xgemiusby.js"></script>
+
+<script type="text/JavaScript">
+//<!--[CDATA[
+function onload_inits() {
+    if (_timer) {
+        clearInterval(_timer);
+        _timer = null;
+    }
+    try {
+        for (var i=0, l=onloads.length; i<l; i++) {
+            var onloads_item = onloads.shift();
+            onloads_item();
+        }
+    } catch(error) {}
+};
+
+if (document.addEventListener) {
+    document.addEventListener("DOMContentLoaded", onload_inits, false);
+}
+
+/*@cc_on @*/
+/*@if (@_win32)
+    document.write("<script id=__ie_onload defer src=javascript:void(0)><\/script>");
+    var script = document.getElementById("__ie_onload");
+    script.onreadystatechange = function() {
+        if (this.readyState == "complete") {
+            onload_inits();
+        }
+    };
+/*@end @*/
+
+if (/WebKit/i.test(navigator.userAgent)) {
+    var _timer = setInterval(function() {
+        if (/loaded|complete/.test(document.readyState)) {
+            onload_inits();
+        }
+    }, 10);
+}
+
+window.onload = onload_inits;
+//]]-->
+</script>
+
+
+</body>
+<!--GMT+0: 2013-06-25 3:10:56-->
+<!--GMT+0: 2013-06-25 4:10:30-->
+</html>
+ 

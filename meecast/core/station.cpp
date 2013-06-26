@@ -37,6 +37,7 @@
 #include <FApp.h>
 #include <FIo.h>
 int convert_station_openweathermaporg_data(const char *days_data_path, const char *result_file, const char *current_data_path, const char *hours_data_path );
+int convert_station_gismeteo_data(const char *days_data_path, const char *result_file, const char *current_data_path);
  
 
 std::vector<RequestId> _reqIdList;
@@ -632,12 +633,23 @@ Station::run_converter(){
     hours_file.Append(dirPath);
     hours_file.Append(this->fileName().c_str());
     hours_file.Append(".hours.orig");
-
-    convert_station_openweathermaporg_data(
+    AppLog("SOurce %s",_sourceName->c_str());
+    if (*_sourceName == "openweathermap.org"){
+    AppLog("openweathermap.org");
+        convert_station_openweathermaporg_data(
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(forecast_file)->GetPointer(), 
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(result_file)->GetPointer(), 
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(detail_file)->GetPointer(), 
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(hours_file)->GetPointer());
+    }
+    if (*_sourceName =="gismeteo.ru"){
+        convert_station_gismeteo_data(
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(forecast_file)->GetPointer(), 
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(result_file)->GetPointer(), 
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(detail_file)->GetPointer());
+        AppLog("gismeteo.ru");
+
+    }
 }
 
 

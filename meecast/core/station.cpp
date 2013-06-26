@@ -39,7 +39,6 @@
 int convert_station_openweathermaporg_data(const char *days_data_path, const char *result_file, const char *current_data_path, const char *hours_data_path );
  
 
-std::vector<RequestId> _reqIdList;
 using namespace Tizen::Base;
 using namespace Tizen::Io;
 using namespace Tizen::Ui;
@@ -469,29 +468,36 @@ Station::Station(const std::string& source_name, const std::string& id,
                 AppLog("Problem with downloading");
                 delete __pHttpSession;
                 __pHttpSession = null;
+                _downloading = NONE;
             }
             else if (IsFailed(r)){
                 AppLog("Problem with downloading");
+                _downloading = NONE;
             }
-        }
+        }else 
+            if  (_downloading == FORECAST_DONE){
+                _downloading = NONE;
+                return true;
+            }
         r = E_SUCCESS;
         if (_downloading == NONE){
+            _downloading = FORECAST;
             snprintf(buffer_file, sizeof(buffer_file) -1, "%s.orig", this->fileName().c_str());
             if (Tizen::Io::File::IsFileExist(buffer_file))
                 Tizen::Io::File::Remove(buffer_file);
 
-            _downloading = FORECAST;
             r = RequestHttpGet();
             if (r == E_INVALID_SESSION)
             {
                 AppLog("Problem with downloading");
                 delete __pHttpSession;
                 __pHttpSession = null;
-
+                _downloading = NONE;
             }
             else if (IsFailed(r))
             {
                 AppLog("Problem with downloading");
+                _downloading = NONE;
             }
         }
         return true;
@@ -661,8 +667,14 @@ Station::run_converter(){
         return 0;
     }
 ////////////////////////////////////////////////////////////////////////////////
-
-
+bool 
+Station::isupdating(){
+    if (_downloading == NONE)
+        return false;
+    else
+        return true;
+}
+////////////////////////////////////////////////////////////////////////////////
 
 
 result
@@ -723,7 +735,7 @@ CATCH:
 
 	delete pHttpTransaction;
 	pHttpTransaction = null;
-
+    _downloading = NONE;
 	AppLog("RequestHttpGet() failed. (%s)", GetErrorMessage(r));
 	return r;
 }

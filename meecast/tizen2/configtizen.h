@@ -60,6 +60,7 @@ public:
                       String region, bool gps = false, double latitude = 0, double longitude = 0);
     void updatestations();
     void convertstations();
+    bool isupdatingstations();
 };
 
 #endif // CONFIGTIZEN_H

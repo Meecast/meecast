@@ -39,12 +39,10 @@ current_data(std::string& str){
 
 meecastApp::meecastApp(void)
 {
-    downloader = new Downloader();
 }
 
 meecastApp::~meecastApp(void)
 {
-    delete downloader;
 }
 
 UiApp*

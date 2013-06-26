@@ -141,6 +141,7 @@ namespace Core{
             double longitude() const;
 
             void run_converter();
+            bool isupdating();
 
  // IHttpTransactionEventListener
 	virtual void OnTransactionReadyToRead(Tizen::Net::Http::HttpSession& httpSession, Tizen::Net::Http::HttpTransaction& httpTransaction, int availableBodyLen);

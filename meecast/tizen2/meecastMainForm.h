@@ -6,6 +6,7 @@
 #include <FUi.h>
 #include "configtizen.h"
 
+
 #define SAFE_DELETE(x)  if (x) { delete x; x = null; }
 
 
@@ -18,6 +19,7 @@ class meecastMainForm
 	, public Tizen::Ui::Controls::IListViewItemEventListener
 	, public Tizen::Ui::Controls::IListViewItemProvider
     , public Tizen::Ui::ITouchEventListener
+    , public Tizen::Base::Runtime::ITimerEventListener
      {
 public:
 	meecastMainForm(void);
@@ -53,16 +55,24 @@ public:
 	virtual int GetItemCount(void);
     Tizen::Graphics::Color* GetTemperatureColor(int t);
 
+
+    virtual void OnTimerExpired(Tizen::Base::Runtime::Timer& timer);
 protected:
     static const int ID_BUTTON_OK = 101;
     static const int ID_BUTTON_MENU = 905;
     static const int ID_MENU_SETTINGS = 906;
     static const int ID_MENU_ABOUT = 907;
     static const int ID_BUTTON_UPDATE = 908;
+    static const int DURATION = 500;
+    static const int PROGRESS_COUNT = 30;
 private:
     Tizen::Ui::Controls::ContextMenu* __pContextMenuText;
     ConfigTizen *_config;
     int _dayCount;
+    Tizen::Ui::Controls::Animation* __pAnimation;
+	Tizen::Base::Collection::ArrayList* __pAnimationFrameList;
+    Tizen::Ui::Controls::FooterItem* __updateButton;
+    Tizen::Base::Runtime::Timer* __updateTimer;
 };
 
 #endif	//_MEECAST_MAIN_FORM_H_

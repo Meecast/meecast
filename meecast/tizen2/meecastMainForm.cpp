@@ -34,12 +34,23 @@ using namespace Tizen::Graphics;
 
 
 meecastMainForm::meecastMainForm(void):
-                 __pContextMenuText(null)
+                 __pContextMenuText(null),
+                 __pAnimation(null),
+	             __pAnimationFrameList(null),
+                 __updateTimer(null)
 {
 }
 
 meecastMainForm::~meecastMainForm(void)
 {
+    if(__pAnimationFrameList != null){
+		__pAnimationFrameList->RemoveAll(true);
+		delete __pAnimationFrameList;
+		__pAnimationFrameList = null;
+	}
+    delete __updateButton;
+    __updateButton = null;
+    delete __updateTimer;
 }
 
 bool
@@ -88,12 +99,12 @@ meecastMainForm::OnInitializing(void)
 
 
 
-    FooterItem updateButton;
-    updateButton.Construct(ID_BUTTON_UPDATE);
-    updateButton.SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_def.png"));
-    updateButton.SetIcon(FOOTER_ITEM_STATUS_PRESSED, Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_def.png"));
+    __updateButton = new Tizen::Ui::Controls::FooterItem(); 
+    __updateButton->Construct(ID_BUTTON_UPDATE);
+    __updateButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_def.png"));
+    __updateButton->SetIcon(FOOTER_ITEM_STATUS_PRESSED, Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_def.png"));
 
-    pFooter->AddItem(updateButton);
+    pFooter->AddItem(*__updateButton);
     pFooter->AddItem(fake1menuButton);
     pFooter->AddItem(fake2menuButton);
     pFooter->AddItem(fake3menuButton);
@@ -107,6 +118,157 @@ meecastMainForm::OnInitializing(void)
                                        Core::AbstractConfig::prefix+
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");
+
+
+
+
+	AppResource *pAppResource = Application::GetInstance()->GetAppResource();
+	if (pAppResource != null)
+	{
+		Bitmap *pBitmap0 = pAppResource->GetBitmapN("animations/00_list_process_01.png");
+		Bitmap *pBitmap1 = pAppResource->GetBitmapN("animations/00_list_process_02.png");
+		Bitmap *pBitmap2 = pAppResource->GetBitmapN("animations/00_list_process_03.png");
+		Bitmap *pBitmap3 = pAppResource->GetBitmapN("animations/00_list_process_04.png");
+		Bitmap *pBitmap4 = pAppResource->GetBitmapN("animations/00_list_process_05.png");
+		Bitmap *pBitmap5 = pAppResource->GetBitmapN("animations/00_list_process_06.png");
+		Bitmap *pBitmap6 = pAppResource->GetBitmapN("animations/00_list_process_07.png");
+		Bitmap *pBitmap7 = pAppResource->GetBitmapN("animations/00_list_process_08.png");
+		Bitmap *pBitmap8 = pAppResource->GetBitmapN("animations/00_list_process_09.png");
+		Bitmap *pBitmap9 = pAppResource->GetBitmapN("animations/00_list_process_10.png");
+		Bitmap *pBitmap10 = pAppResource->GetBitmapN("animations/00_list_process_11.png");
+		Bitmap *pBitmap11 = pAppResource->GetBitmapN("animations/00_list_process_12.png");
+		Bitmap *pBitmap12 = pAppResource->GetBitmapN("animations/00_list_process_13.png");
+		Bitmap *pBitmap13 = pAppResource->GetBitmapN("animations/00_list_process_14.png");
+		Bitmap *pBitmap14 = pAppResource->GetBitmapN("animations/00_list_process_15.png");
+		Bitmap *pBitmap15 = pAppResource->GetBitmapN("animations/00_list_process_16.png");
+		Bitmap *pBitmap16 = pAppResource->GetBitmapN("animations/00_list_process_17.png");
+		Bitmap *pBitmap17 = pAppResource->GetBitmapN("animations/00_list_process_18.png");
+		Bitmap *pBitmap18 = pAppResource->GetBitmapN("animations/00_list_process_19.png");
+		Bitmap *pBitmap19 = pAppResource->GetBitmapN("animations/00_list_process_20.png");
+		Bitmap *pBitmap20 = pAppResource->GetBitmapN("animations/00_list_process_21.png");
+		Bitmap *pBitmap21 = pAppResource->GetBitmapN("animations/00_list_process_22.png");
+		Bitmap *pBitmap22 = pAppResource->GetBitmapN("animations/00_list_process_23.png");
+		Bitmap *pBitmap23 = pAppResource->GetBitmapN("animations/00_list_process_24.png");
+		Bitmap *pBitmap24 = pAppResource->GetBitmapN("animations/00_list_process_25.png");
+		Bitmap *pBitmap25 = pAppResource->GetBitmapN("animations/00_list_process_26.png");
+		Bitmap *pBitmap26 = pAppResource->GetBitmapN("animations/00_list_process_27.png");
+		Bitmap *pBitmap27 = pAppResource->GetBitmapN("animations/00_list_process_28.png");
+		Bitmap *pBitmap28 = pAppResource->GetBitmapN("animations/00_list_process_29.png");
+		Bitmap *pBitmap29 = pAppResource->GetBitmapN("animations/00_list_process_30.png");
+
+		// Create AnimationFrames
+		long duration = DURATION / PROGRESS_COUNT;
+		AnimationFrame *pAniFrame1 = new (std::nothrow) AnimationFrame(*pBitmap0, duration);
+		AnimationFrame *pAniFrame2 = new (std::nothrow) AnimationFrame(*pBitmap1, duration);
+		AnimationFrame *pAniFrame3 = new (std::nothrow) AnimationFrame(*pBitmap2, duration);
+		AnimationFrame *pAniFrame4 = new (std::nothrow) AnimationFrame(*pBitmap3, duration);
+		AnimationFrame *pAniFrame5 = new (std::nothrow) AnimationFrame(*pBitmap4, duration);
+		AnimationFrame *pAniFrame6 = new (std::nothrow) AnimationFrame(*pBitmap5, duration);
+		AnimationFrame *pAniFrame7 = new (std::nothrow) AnimationFrame(*pBitmap6, duration);
+		AnimationFrame *pAniFrame8 = new (std::nothrow) AnimationFrame(*pBitmap7, duration);
+		AnimationFrame *pAniFrame9 = new (std::nothrow) AnimationFrame(*pBitmap8, duration);
+		AnimationFrame *pAniFrame10 = new (std::nothrow) AnimationFrame(*pBitmap9, duration);
+		AnimationFrame *pAniFrame11 = new (std::nothrow) AnimationFrame(*pBitmap10, duration);
+		AnimationFrame *pAniFrame12 = new (std::nothrow) AnimationFrame(*pBitmap11, duration);
+		AnimationFrame *pAniFrame13 = new (std::nothrow) AnimationFrame(*pBitmap12, duration);
+		AnimationFrame *pAniFrame14 = new (std::nothrow) AnimationFrame(*pBitmap13, duration);
+		AnimationFrame *pAniFrame15 = new (std::nothrow) AnimationFrame(*pBitmap14, duration);
+		AnimationFrame *pAniFrame16 = new (std::nothrow) AnimationFrame(*pBitmap15, duration);
+		AnimationFrame *pAniFrame17 = new (std::nothrow) AnimationFrame(*pBitmap16, duration);
+		AnimationFrame *pAniFrame18 = new (std::nothrow) AnimationFrame(*pBitmap17, duration);
+		AnimationFrame *pAniFrame19 = new (std::nothrow) AnimationFrame(*pBitmap18, duration);
+		AnimationFrame *pAniFrame20 = new (std::nothrow) AnimationFrame(*pBitmap19, duration);
+		AnimationFrame *pAniFrame21 = new (std::nothrow) AnimationFrame(*pBitmap20, duration);
+		AnimationFrame *pAniFrame22 = new (std::nothrow) AnimationFrame(*pBitmap21, duration);
+		AnimationFrame *pAniFrame23 = new (std::nothrow) AnimationFrame(*pBitmap22, duration);
+		AnimationFrame *pAniFrame24 = new (std::nothrow) AnimationFrame(*pBitmap23, duration);
+		AnimationFrame *pAniFrame25 = new (std::nothrow) AnimationFrame(*pBitmap24, duration);
+		AnimationFrame *pAniFrame26 = new (std::nothrow) AnimationFrame(*pBitmap25, duration);
+		AnimationFrame *pAniFrame27 = new (std::nothrow) AnimationFrame(*pBitmap26, duration);
+		AnimationFrame *pAniFrame28 = new (std::nothrow) AnimationFrame(*pBitmap27, duration);
+		AnimationFrame *pAniFrame29 = new (std::nothrow) AnimationFrame(*pBitmap28, duration);
+		AnimationFrame *pAniFrame30 = new (std::nothrow) AnimationFrame(*pBitmap29, duration);
+
+		// Create AnimationList
+		__pAnimationFrameList = new (std::nothrow)Tizen::Base::Collection::ArrayList();
+		__pAnimationFrameList->Construct();
+		__pAnimationFrameList->Add(*pAniFrame1);
+		__pAnimationFrameList->Add(*pAniFrame2);
+		__pAnimationFrameList->Add(*pAniFrame3);
+		__pAnimationFrameList->Add(*pAniFrame4);
+		__pAnimationFrameList->Add(*pAniFrame5);
+		__pAnimationFrameList->Add(*pAniFrame6);
+		__pAnimationFrameList->Add(*pAniFrame7);
+		__pAnimationFrameList->Add(*pAniFrame8);
+		__pAnimationFrameList->Add(*pAniFrame9);
+		__pAnimationFrameList->Add(*pAniFrame10);
+		__pAnimationFrameList->Add(*pAniFrame11);
+		__pAnimationFrameList->Add(*pAniFrame12);
+		__pAnimationFrameList->Add(*pAniFrame13);
+		__pAnimationFrameList->Add(*pAniFrame14);
+		__pAnimationFrameList->Add(*pAniFrame15);
+		__pAnimationFrameList->Add(*pAniFrame16);
+		__pAnimationFrameList->Add(*pAniFrame17);
+		__pAnimationFrameList->Add(*pAniFrame18);
+		__pAnimationFrameList->Add(*pAniFrame19);
+		__pAnimationFrameList->Add(*pAniFrame20);
+		__pAnimationFrameList->Add(*pAniFrame21);
+		__pAnimationFrameList->Add(*pAniFrame22);
+		__pAnimationFrameList->Add(*pAniFrame23);
+		__pAnimationFrameList->Add(*pAniFrame24);
+		__pAnimationFrameList->Add(*pAniFrame25);
+		__pAnimationFrameList->Add(*pAniFrame26);
+		__pAnimationFrameList->Add(*pAniFrame27);
+		__pAnimationFrameList->Add(*pAniFrame28);
+		__pAnimationFrameList->Add(*pAniFrame29);
+		__pAnimationFrameList->Add(*pAniFrame30);
+
+		// Deallocate a Bitmap.
+		delete pBitmap0;
+		delete pBitmap1;
+		delete pBitmap2;
+		delete pBitmap3;
+		delete pBitmap4;
+		delete pBitmap5;
+		delete pBitmap6;
+		delete pBitmap7;
+		delete pBitmap8;
+		delete pBitmap9;
+		delete pBitmap10;
+		delete pBitmap11;
+		delete pBitmap12;
+		delete pBitmap13;
+		delete pBitmap14;
+		delete pBitmap15;
+		delete pBitmap16;
+		delete pBitmap17;
+		delete pBitmap18;
+		delete pBitmap19;
+		delete pBitmap20;
+		delete pBitmap21;
+		delete pBitmap22;
+		delete pBitmap23;
+		delete pBitmap24;
+		delete pBitmap25;
+		delete pBitmap26;
+		delete pBitmap27;
+		delete pBitmap28;
+		delete pBitmap29;
+
+		// Create Animation
+		__pAnimation = new (std::nothrow) Animation();
+		__pAnimation->Construct(Rectangle((50), (1140), 60, 60), *__pAnimationFrameList);
+		__pAnimation->SetRepeatCount(10000);
+		AddControl(*__pAnimation);
+       }
+    __updateTimer = new (std::nothrow) Tizen::Base::Runtime::Timer;
+    TryReturn(__updateTimer != null, E_FAILURE, "[E_FAILURE] Failed to create __updateTimer.");
+    AppLog("SampleServiceApp : updateTimer is created.");
+
+    r = __updateTimer->Construct(*this);
+    TryReturn(IsFailed(r) != true, r, "[%s] Failed to construct __pTimer", GetErrorMessage(r));
+    AppLog("SampleServiceApp : __updateTimer is constructed.");
+
     return r;
 }
 
@@ -194,6 +356,7 @@ meecastMainForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionI
     AppAssert(pSceneManager);
 
     AppLog("Check Action");
+    Footer* pFooter = GetFooter();
     switch(actionId)
     {
     case ID_BUTTON_OK:
@@ -210,12 +373,29 @@ meecastMainForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionI
         break;
     case ID_BUTTON_UPDATE: 
         AppLog("Settings Update is clicked!");
-        _config->updatestations();
+        if (_config->stationsList().size() > 0){
+            pFooter->RemoveItemAt(0);
+            __pAnimation->Play();
+	        __updateTimer->StartAsRepeatable(1000);
+            _config->updatestations();
+        }
+
         break;
     default:
         break;
     }
 }
+void
+meecastMainForm::OnTimerExpired(Tizen::Base::Runtime::Timer& timer)
+{
+    if (!_config->isupdatingstations()){
+        __updateTimer->Cancel();
+        __pAnimation->Stop();
+        Footer* pFooter = GetFooter();
+        pFooter->InsertItemAt(0, *__updateButton);
+    }
+}
+
 
 void
 meecastMainForm::OnFormBackRequested(Tizen::Ui::Controls::Form& source)

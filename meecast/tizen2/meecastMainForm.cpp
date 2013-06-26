@@ -81,7 +81,6 @@ meecastMainForm::OnInitializing(void)
     /* Footer */
     Footer* pFooter = GetFooter();
     pFooter->SetStyle(FOOTER_STYLE_BUTTON_ICON);
-    pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("openweathermap.org.png"));
 
     FooterItem menuButton;
     menuButton.Construct(ID_BUTTON_MENU);
@@ -102,7 +101,7 @@ meecastMainForm::OnInitializing(void)
     __updateButton = new Tizen::Ui::Controls::FooterItem(); 
     __updateButton->Construct(ID_BUTTON_UPDATE);
     __updateButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_def.png"));
-    __updateButton->SetIcon(FOOTER_ITEM_STATUS_PRESSED, Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_def.png"));
+    __updateButton->SetIcon(FOOTER_ITEM_STATUS_PRESSED, Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_sel.png"));
 
     pFooter->AddItem(*__updateButton);
     pFooter->AddItem(fake1menuButton);
@@ -431,6 +430,9 @@ meecastMainForm::ReInitElements(void){
 
     Tizen::Ui::Controls::ListView  *main_listview_forecast = static_cast<ListView*>(GetControl(L"IDC_LISTVIEW_FORECASTS"));
 
+
+
+
     station_label->SetText(_config->stationname().c_str());
     station_label->RequestRedraw();
     if (_config->nextstationname().length() < 1)
@@ -465,9 +467,18 @@ meecastMainForm::ReInitElements(void){
         String temp = (App::GetInstance()->GetAppDataPath());
         temp.Append(_config->stationsList().at(_config->current_station_id())->fileName().c_str());
         std::string temp_string = (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(temp)->GetPointer());
-       // AppLog("Filename %s", temp_string.c_str());
-       //_config->dp = Core::DataParser::Instance(temp_string, "");
-       _config->dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
+        // AppLog("Filename %s", temp_string.c_str());
+        //_config->dp = Core::DataParser::Instance(temp_string, "");
+        _config->dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
+
+        /* Footer */
+        Footer* pFooter = GetFooter();
+        if (_config->stationsList().at(_config->current_station_id())->sourceName() == "openweathermap.org")
+            pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("openweathermap.org.png"));
+        if (_config->stationsList().at(_config->current_station_id())->sourceName() == "gismeteo.ru")
+            pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("gismeteo.ru.png"));
+
+         pFooter->RequestRedraw();
     }
     else 
         _config->dp = NULL;
@@ -963,8 +974,8 @@ meecastMainForm::CreateItem (int index, int itemWidth)
             temp_data->temperature_hi().units(_config->TemperatureUnit());
             temp_data->temperature().units(_config->TemperatureUnit());
 
-            //edje_object_part_text_set(edje_obj_block, "full_day_name", temp_data->FullDayName().c_str());
-            pItem->AddElement(Tizen::Graphics::Rectangle(10, 20, 220, 50), 0, temp_data->FullDayName().c_str(), false);
+            pItem->AddElement(Tizen::Graphics::Rectangle(10, 20, 220, 50), 0, temp_data->DayOfMonthName().c_str(), false);
+            pItem->AddElement(Tizen::Graphics::Rectangle(100, 20, 220, 50), 4, temp_data->ShortDayName().c_str(), false);
             /* Icon */
             snprintf(buffer, sizeof(buffer) - 1, "icons/Atmos/%i.png", temp_data->Icon());
             pItem->AddElement(Tizen::Graphics::Rectangle(320, 0, 100, 100), 1, *Application::GetInstance()->GetAppResource()->GetBitmapN(buffer), null, null);

@@ -37,6 +37,7 @@
 #include <FApp.h>
 #include <FIo.h>
 int convert_station_openweathermaporg_data(const char *days_data_path, const char *result_file, const char *current_data_path, const char *hours_data_path );
+int convert_station_gismeteo_data(const char *days_data_path, const char *result_file, const char *current_data_path);
  
 
 using namespace Tizen::Base;
@@ -507,10 +508,8 @@ Station::Station(const std::string& source_name, const std::string& id,
 
 #if 0
         if (Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie(), command)) {
-=======
         /* Weather Forecast */
         if (Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie())) {
->>>>>>> master
             result = true;
         }else{
             std::cerr<<"ERROR downloading  "<<this->forecastURL()<<std::endl;
@@ -638,12 +637,23 @@ Station::run_converter(){
     hours_file.Append(dirPath);
     hours_file.Append(this->fileName().c_str());
     hours_file.Append(".hours.orig");
-
-    convert_station_openweathermaporg_data(
+    AppLog("SOurce %s",_sourceName->c_str());
+    if (*_sourceName == "openweathermap.org"){
+    AppLog("openweathermap.org");
+        convert_station_openweathermaporg_data(
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(forecast_file)->GetPointer(), 
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(result_file)->GetPointer(), 
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(detail_file)->GetPointer(), 
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(hours_file)->GetPointer());
+    }
+    if (*_sourceName =="gismeteo.ru"){
+        convert_station_gismeteo_data(
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(forecast_file)->GetPointer(), 
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(result_file)->GetPointer(), 
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(detail_file)->GetPointer());
+        AppLog("gismeteo.ru");
+
+    }
 }
 
 
@@ -766,19 +776,16 @@ Station::OnTransactionReadyToRead(HttpSession& httpSession, HttpTransaction& htt
                 snprintf(buffer_file, sizeof(buffer_file) -1, "%s.detail.orig", this->fileName().c_str());
             }
             AppLog ("File name %S", (App::GetInstance()->GetAppDataPath() + buffer_file).GetPointer());
-            // Creates file
             result r = E_SUCCESS;
-            String str;
-
             // Decodes a UTF-8 string into a Unicode string
+            String str;
             Tizen::Base::Utility::StringUtil::Utf8ToString(buffer_file, str);
-            r = file.Construct(str, "w+");
-            AppLog("HTTP %S", pBuffer->GetPointer());
+            // Creates file
+            r = file.Construct(str, "a+");
             r = file.Write(*pBuffer);
             file.Flush();
-
-			delete tempHeaderString;
-			delete pBuffer;
+            delete tempHeaderString;
+            delete pBuffer;
 		}
 	}
 }

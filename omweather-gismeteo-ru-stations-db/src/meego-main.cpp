@@ -40,6 +40,9 @@
     QHash<QString, QString> *hash_icons_gismeteo_table_create(void);
 #endif
 
+#include <FApp.h>
+using namespace Tizen::App;
+
 static xmlHashTablePtr hash_for_icons;
 static xmlHashTablePtr hash_for_descriptions;
 int        location_timezone = 0;
@@ -320,6 +323,8 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div//span[@class='icon date']/text()", xpathCtx);
 
    if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
+
+      AppLog("Current date and time %s\n", (char*)xpathObj->nodesetval->nodeTab[0]->content);
       fprintf(stderr, "Current date and time %s\n", (char*)xpathObj->nodesetval->nodeTab[0]->content);
       current_tm = get_date_for_current_weather((char*)xpathObj->nodesetval->nodeTab[0]->content);
    }
@@ -473,6 +478,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
 
   nodes   = xpathObj->nodesetval;
   size = (nodes) ? nodes->nodeNr : 0;
+  AppLog("SIZE!!!!!!!!!!!!!!: %i\n", size); 
   fprintf(stderr, "SIZE!!!!!!!!!!!!!!: %i\n", size); 
   xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody/tr/th[@title]/text()", xpathCtx);
   xpathObj3 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody//*/td[@class='temp']/span[@class='value m_temp c']/text()", xpathCtx);
@@ -1152,6 +1158,7 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
     struct stat file_info;
     FILE   *file_out;
 
+     AppLog("convert_station_gismeteo_data");
     if(!station_id_with_path)
         return -1;
     *buffer = 0;
@@ -1162,6 +1169,7 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
     if(!access(buffer, R_OK))
         if ((lstat(buffer, &file_info) == 0) && (file_info.st_size > 0)){ 
             /* check that the file containe valid data */
+
             doc =  htmlReadFile(station_id_with_path, "UTF-8", HTML_PARSE_NOWARNING);
             if(doc){
                 root_node = xmlDocGetRootElement(doc);
@@ -1199,10 +1207,14 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
             }else
                 doc = NULL;
         }
+     AppLog("convert_station_gismeteo_data1");
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
+     AppLog("convert_station_gismeteo_data2");
         /* check that the file containe valid data */
-        doc =  htmlReadFile(station_id_with_path, "UTF-8", HTML_PARSE_NOERROR | HTML_PARSE_NOWARNING);
+     AppLog("convert_station_gismeteo_data3");
+     doc =  htmlReadFile(station_id_with_path, "UTF-8", HTML_PARSE_NOERROR | HTML_PARSE_NOWARNING);
+     AppLog("convert_station_gismeteo_data4 %s", station_id_with_path);
         if(!doc)
             return -1;
         root_node = xmlDocGetRootElement(doc);
@@ -1230,6 +1242,7 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
 //                if(get_detail_data)
 //                    days_number = parse_xml_detail_data(buffer, root_node, data);
 //                else
+                 AppLog("DOC %p", doc);
                  days_number = gismeteoru_parse_and_write_xml_data(buffer, doc, result_file);         
                  xmlFreeDoc(doc);
                  xmlCleanupParser();
@@ -1269,7 +1282,9 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
 }
 
 int
-main(int argc, char *argv[]){
+main_gismeteo_ru(int argc, char *argv[]){
+
+//main(int argc, char *argv[]){
     int result; 
     if (argc < 3) {
         fprintf(stderr, "gismeteoru <input_file> <output_file> <input_detail_data>\n");

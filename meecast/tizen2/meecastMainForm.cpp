@@ -290,15 +290,15 @@ meecastMainForm::ReInitElements(void){
         // AppLog("Filename %s", temp_string.c_str());
         //_config->dp = Core::DataParser::Instance(temp_string, "");
         _config->dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
+
         /* Footer */
         Footer* pFooter = GetFooter();
         if (_config->stationsList().at(_config->current_station_id())->sourceName() == "openweathermap.org")
             pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("openweathermap.org.png"));
         if (_config->stationsList().at(_config->current_station_id())->sourceName() == "gismeteo.ru")
-            pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("gismeteoru.png"));
+            pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("gismeteo.ru.png"));
 
-
-
+         pFooter->RequestRedraw();
     }
     else 
         _config->dp = NULL;

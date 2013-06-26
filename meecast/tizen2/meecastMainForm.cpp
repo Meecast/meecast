@@ -98,23 +98,15 @@ meecastMainForm::OnInitializing(void)
     pFooter->AddItem(fake2menuButton);
     pFooter->AddItem(fake3menuButton);
     pFooter->AddItem(menuButton);
-
-    CreateContextMenuList(pFooter->GetPosition());
+    Tizen::Graphics::Point position = pFooter->GetPosition();
+    position.SetPosition(position.x + pFooter->GetWidth(), position.y);
+    CreateContextMenuList(position);
     pFooter->AddActionEventListener(*this);
 
     _config = ConfigTizen::Instance( std::string("config.xml"),
                                        Core::AbstractConfig::prefix+
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");
-    // Get a button via resource ID
-    //Tizen::Ui::Controls::Panel  *backgroundPanel = static_cast<Panel*>(GetControl(L"IDC_PANEL_BACKGROUND"));
-   // backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(0x50, 0xFF, 0x38));
-
-  //  Tizen::Media::Image image;
-//	image.Construct();
- //   __pImage = image.DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-size-normal/images/mask_background_main.png", BITMAP_PIXEL_FORMAT_ARGB8888);
-  //  backgroundPanel->SetBackgroundBitmap(*__pImage);
-
     return r;
 }
 

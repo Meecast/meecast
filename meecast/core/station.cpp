@@ -773,7 +773,7 @@ Station::OnTransactionReadyToRead(HttpSession& httpSession, HttpTransaction& htt
             // Decodes a UTF-8 string into a Unicode string
             Tizen::Base::Utility::StringUtil::Utf8ToString(buffer_file, str);
             r = file.Construct(str, "w+");
-
+            AppLog("HTTP %S", pBuffer->GetPointer());
             r = file.Write(*pBuffer);
             file.Flush();
 

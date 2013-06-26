@@ -794,8 +794,8 @@ meecastMainForm::CreateItem (int index, int itemWidth)
             temp_data->temperature_hi().units(_config->TemperatureUnit());
             temp_data->temperature().units(_config->TemperatureUnit());
 
-            //edje_object_part_text_set(edje_obj_block, "full_day_name", temp_data->FullDayName().c_str());
-            pItem->AddElement(Tizen::Graphics::Rectangle(10, 20, 220, 50), 0, temp_data->FullDayName().c_str(), false);
+            pItem->AddElement(Tizen::Graphics::Rectangle(10, 20, 220, 50), 0, temp_data->DayOfMonthName().c_str(), false);
+            pItem->AddElement(Tizen::Graphics::Rectangle(100, 20, 220, 50), 4, temp_data->ShortDayName().c_str(), false);
             /* Icon */
             snprintf(buffer, sizeof(buffer) - 1, "icons/Atmos/%i.png", temp_data->Icon());
             pItem->AddElement(Tizen::Graphics::Rectangle(320, 0, 100, 100), 1, *Application::GetInstance()->GetAppResource()->GetBitmapN(buffer), null, null);

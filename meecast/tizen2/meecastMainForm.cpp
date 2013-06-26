@@ -70,7 +70,6 @@ meecastMainForm::OnInitializing(void)
     /* Footer */
     Footer* pFooter = GetFooter();
     pFooter->SetStyle(FOOTER_STYLE_BUTTON_ICON);
-    pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("openweathermap.org.png"));
 
     FooterItem menuButton;
     menuButton.Construct(ID_BUTTON_MENU);
@@ -251,6 +250,9 @@ meecastMainForm::ReInitElements(void){
 
     Tizen::Ui::Controls::ListView  *main_listview_forecast = static_cast<ListView*>(GetControl(L"IDC_LISTVIEW_FORECASTS"));
 
+
+
+
     station_label->SetText(_config->stationname().c_str());
     station_label->RequestRedraw();
     if (_config->nextstationname().length() < 1)
@@ -285,9 +287,18 @@ meecastMainForm::ReInitElements(void){
         String temp = (App::GetInstance()->GetAppDataPath());
         temp.Append(_config->stationsList().at(_config->current_station_id())->fileName().c_str());
         std::string temp_string = (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(temp)->GetPointer());
-       // AppLog("Filename %s", temp_string.c_str());
-       //_config->dp = Core::DataParser::Instance(temp_string, "");
-       _config->dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
+        // AppLog("Filename %s", temp_string.c_str());
+        //_config->dp = Core::DataParser::Instance(temp_string, "");
+        _config->dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
+        /* Footer */
+        Footer* pFooter = GetFooter();
+        if (_config->stationsList().at(_config->current_station_id())->sourceName() == "openweathermap.org")
+            pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("openweathermap.org.png"));
+        if (_config->stationsList().at(_config->current_station_id())->sourceName() == "gismeteo.ru")
+            pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("gismeteoru.png"));
+
+
+
     }
     else 
         _config->dp = NULL;

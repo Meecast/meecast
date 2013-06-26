@@ -766,19 +766,16 @@ Station::OnTransactionReadyToRead(HttpSession& httpSession, HttpTransaction& htt
                 snprintf(buffer_file, sizeof(buffer_file) -1, "%s.detail.orig", this->fileName().c_str());
             }
             AppLog ("File name %S", (App::GetInstance()->GetAppDataPath() + buffer_file).GetPointer());
-            // Creates file
             result r = E_SUCCESS;
-            String str;
-
             // Decodes a UTF-8 string into a Unicode string
+            String str;
             Tizen::Base::Utility::StringUtil::Utf8ToString(buffer_file, str);
-            r = file.Construct(str, "w+");
-            AppLog("HTTP %S", pBuffer->GetPointer());
+            // Creates file
+            r = file.Construct(str, "a+");
             r = file.Write(*pBuffer);
             file.Flush();
-
-			delete tempHeaderString;
-			delete pBuffer;
+            delete tempHeaderString;
+            delete pBuffer;
 		}
 	}
 }

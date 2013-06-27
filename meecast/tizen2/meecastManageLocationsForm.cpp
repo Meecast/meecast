@@ -62,7 +62,6 @@ meecastManageLocationsForm::OnInitializing(void)
     // TODO:
     // Add your initialization code here
 
-    //CreateContextMenuList();
     // Setup back event listener
     SetFormBackEventListener(this);
 
@@ -162,19 +161,45 @@ meecastManageLocationsForm::CreateItem (int index, int itemWidth)
     CustomItem* pItem = new (std::nothrow) CustomItem();
     TryReturn(pItem != null, null, "Out of memory");
 
-    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_NORMAL);
+//    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_NORMAL);
+    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_DETAILED);
     String* pStr = new String (_config->stationsList().at(index)->name().c_str()); 
     pItem->AddElement(Tizen::Graphics::Rectangle(26, 32, 600, 50), 0, *pStr, false);
 
 	return pItem;
 }
 
+
+void
+meecastManageLocationsForm::DeleteMessageBox(void)
+{
+     MessageBox messageBox;
+      messageBox.Construct(L"MessageBox Title", L"MessageBox Sample Code.", MSGBOX_STYLE_OK, 3000);
+
+      int modalResult = 0;
+
+                 // Calls ShowAndWait() : Draws and Shows itself and processes events
+      messageBox.ShowAndWait(modalResult);
+      switch (modalResult) {
+            case MSGBOX_RESULT_OK:
+                                         {
+                                                     // ....
+                                                             }
+                                                                     break;
+                                                                         default:
+                                                                                 break;
+                                                                                     }
+                                                                                     }
+                                                                                     
+
+
 void
 meecastManageLocationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
 {
-	if (status == LIST_ITEM_STATUS_SELECTED)
+    if (status == LIST_ITEM_STATUS_MORE)
 	{
-	    AppLog("LIST_ITEM_STATUS_SELECTED ");
+	    AppLog("LIST_ITEM_STATUS_MORE ");
+        DeleteMessageBox();
    	}
 }
 void

@@ -36,6 +36,8 @@ public:
 	virtual bool DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth);
 	virtual int GetItemCount(void);
     void GetStationsList(void);
+
+    void DeleteMessageBox(void);
 protected:
 private:
     Tizen::Ui::Controls::ListView* __pListView;

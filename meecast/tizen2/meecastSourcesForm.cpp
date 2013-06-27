@@ -155,7 +155,7 @@ meecastSourcesForm::CreateItem (int index, int itemWidth)
     CustomItem* pItem = new (std::nothrow) CustomItem();
     TryReturn(pItem != null, null, "Out of memory");
 
-    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_NORMAL);
+    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_DETAILED);
 
     String* pStr = dynamic_cast< String* >(__fileList.GetAt(index));
     pItem->AddElement(Tizen::Graphics::Rectangle(26, 32, 600, 50), 0, *pStr, false);
@@ -166,8 +166,7 @@ meecastSourcesForm::CreateItem (int index, int itemWidth)
 void
 meecastSourcesForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
 {
-	if (status == LIST_ITEM_STATUS_SELECTED)
-	{
+	if (status == LIST_ITEM_STATUS_SELECTED || status == LIST_ITEM_STATUS_MORE){
         SceneManager* pSceneManager = SceneManager::GetInstance();
         AppAssert(pSceneManager);
 

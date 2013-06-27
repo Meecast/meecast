@@ -37,6 +37,8 @@ using namespace Tizen::Io;
 static const int LIST_HEIGHT = 112;
 static const int BUTTON_HEIGHT = 74;
 
+const int GROUP_MAX = 26;
+
 meecastRegionsForm::meecastRegionsForm(void)
                     : __pListView(null)
 {
@@ -50,7 +52,7 @@ meecastRegionsForm::~meecastRegionsForm(void)
 bool
 meecastRegionsForm::Initialize(void)
 {
-    Construct(L"COUNTRIES_FORM");
+    Construct(L"REGIONS_FORM");
     return true;
 }
 
@@ -59,19 +61,13 @@ meecastRegionsForm::OnInitializing(void)
 {
     result r = E_SUCCESS;
 
-    // TODO:
-    // Add your initialization code here
-
-    //CreateContextMenuList();
-    // Setup back event listener
     SetFormBackEventListener(this);
 
-
     // Creates an instance of ListView
-    __pListView = new ListView();
-    __pListView->Construct(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, GetClientAreaBounds().height), true, false);
+    __pListView = static_cast <ListView*> (GetControl(L"IDC_LISTVIEW"));
     __pListView->SetItemProvider(*this);
     __pListView->AddListViewItemEventListener(*this);
+    __pListView->AddFastScrollListener(*this);
 
     // Adds the list view to the form
     AddControl(*__pListView);
@@ -165,7 +161,7 @@ meecastRegionsForm::CreateItem (int index, int itemWidth)
     CustomItem* pItem = new (std::nothrow) CustomItem();
     TryReturn(pItem != null, null, "Out of memory");
 
-    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_NORMAL);
+    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_DETAILED);
 
     String* pStr = dynamic_cast< String* >(__map->GetValue(Integer(index)));
     pItem->AddElement(Tizen::Graphics::Rectangle(26, 32, 600, 50), 0, *pStr, false);
@@ -175,8 +171,7 @@ meecastRegionsForm::CreateItem (int index, int itemWidth)
 void
 meecastRegionsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
 {
-	if (status == LIST_ITEM_STATUS_SELECTED)
-	{
+	if (status == LIST_ITEM_STATUS_SELECTED || status == LIST_ITEM_STATUS_MORE){
         SceneManager* pSceneManager = SceneManager::GetInstance();
         AppAssert(pSceneManager);
 
@@ -200,8 +195,6 @@ meecastRegionsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& li
         
         pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_STATIONSSCENE"), pList);
 	    AppLog("LIST_ITEM_STATUS_SELECTED ");
-
-
    	}
 }
 void
@@ -221,9 +214,28 @@ meecastRegionsForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int old
 
 bool
 meecastRegionsForm::LoadList(void){
-    AppLog("Open DB success");
+    AppLog("Open DB of regions is success");
      __map = __db->create_region_list_by_name(__CountryName);
+     __indexString = L"ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	__pListView->SetFastScrollIndex(__indexString, false);
+//	__pListView->SetFastScrollIndex(L"ABCDEFGHIJKLMNOPQRSTUVWXYZ", false);
     return true;
 }
 
+void
+meecastRegionsForm::OnFastScrollIndexSelected(Control& source, Tizen::Base::String& index)
+{
+	String compare(L"");
+	for(int i = 0; i < GROUP_MAX; i ++)
+	{
+		compare.Format(5, L"%c", i + 65);
+        AppLog("Index %S compare %S", index.GetPointer(), compare.GetPointer());
+		if(compare.CompareTo(index) == 0)
+		{
+            AppLog("Index %S", index.GetPointer());
+			__pListView->ScrollToItem(i, LIST_SCROLL_ITEM_ALIGNMENT_TOP);
+		}
+	}
+    __pListView->Invalidate(false);
+}
 

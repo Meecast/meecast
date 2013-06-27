@@ -105,7 +105,7 @@ meecastManageLocationsForm::OnActionPerformed(const Tizen::Ui::Control& source, 
             
     switch(actionId)
     {
-    case 0:  AppLog("Press add");
+    case 0:  
         pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_SOURCESSCENE"));
         break;
     default:
@@ -118,7 +118,6 @@ meecastManageLocationsForm::OnFormBackRequested(Tizen::Ui::Controls::Form& sourc
 {
 	SceneManager* pSceneManager = SceneManager::GetInstance();
 	AppAssert(pSceneManager);
-
 	pSceneManager->GoBackward(BackwardSceneTransition(SCENE_TRANSITION_ANIMATION_TYPE_RIGHT));
 
 }
@@ -161,7 +160,6 @@ meecastManageLocationsForm::CreateItem (int index, int itemWidth)
     CustomItem* pItem = new (std::nothrow) CustomItem();
     TryReturn(pItem != null, null, "Out of memory");
 
-//    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_NORMAL);
     pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_DETAILED);
     String* pStr = new String (_config->stationsList().at(index)->name().c_str()); 
     pItem->AddElement(Tizen::Graphics::Rectangle(26, 32, 600, 50), 0, *pStr, false);
@@ -171,25 +169,24 @@ meecastManageLocationsForm::CreateItem (int index, int itemWidth)
 
 
 void
-meecastManageLocationsForm::DeleteMessageBox(void)
+meecastManageLocationsForm::DeleteMessageBox(const Tizen::Base::String& Station, int index)
 {
-     MessageBox messageBox;
-      messageBox.Construct(L"MessageBox Title", L"MessageBox Sample Code.", MSGBOX_STYLE_OK, 3000);
+    MessageBox messageBox;
+    messageBox.Construct(Station, L"Delete location?", MSGBOX_STYLE_YESNO, 30000);
 
-      int modalResult = 0;
+    int modalResult = 0;
 
-                 // Calls ShowAndWait() : Draws and Shows itself and processes events
-      messageBox.ShowAndWait(modalResult);
-      switch (modalResult) {
-            case MSGBOX_RESULT_OK:
-                                         {
-                                                     // ....
-                                                             }
-                                                                     break;
-                                                                         default:
-                                                                                 break;
-                                                                                     }
-                                                                                     }
+    // Calls ShowAndWait() : Draws and Shows itself and processes events
+    messageBox.ShowAndWait(modalResult);
+    switch (modalResult) {
+        case MSGBOX_RESULT_YES: {
+            _config->removeStation(index);
+        }
+        break;
+        default:
+            break;
+    }
+}
                                                                                      
 
 
@@ -198,8 +195,8 @@ meecastManageLocationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::List
 {
     if (status == LIST_ITEM_STATUS_MORE)
 	{
-	    AppLog("LIST_ITEM_STATUS_MORE ");
-        DeleteMessageBox();
+        DeleteMessageBox(_config->stationsList().at(index)->name().c_str(), index);
+        listView.UpdateList();
    	}
 }
 void

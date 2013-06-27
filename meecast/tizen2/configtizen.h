@@ -61,6 +61,7 @@ public:
     void updatestations();
     void convertstations();
     bool isupdatingstations();
+    void removeStation(int index);
 };
 
 #endif // CONFIGTIZEN_H

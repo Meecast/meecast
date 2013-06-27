@@ -37,7 +37,7 @@ public:
 	virtual int GetItemCount(void);
     void GetStationsList(void);
 
-    void DeleteMessageBox(void);
+    void DeleteMessageBox(const Tizen::Base::String& Station, int index);
 protected:
 private:
     Tizen::Ui::Controls::ListView* __pListView;

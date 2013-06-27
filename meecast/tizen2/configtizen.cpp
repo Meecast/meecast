@@ -106,6 +106,16 @@ ConfigTizen::isupdatingstations(){
     return false;
 }
 
+void
+ConfigTizen::removeStation(int index)
+{
+    stationsList().erase(stationsList().begin() + index);
+    if (this->stationsList().size() > 0){
+        this->current_station_id(0);
+    }
+    saveConfig();
+}
+
 void 
 ConfigTizen::saveStation1(String source, String city_id, String city_name, String country,
                       String region, bool gps, double latitude, double longitude)

@@ -392,6 +392,7 @@ meecastMainForm::OnTimerExpired(Tizen::Base::Runtime::Timer& timer)
         __pAnimation->Stop();
         Footer* pFooter = GetFooter();
         pFooter->InsertItemAt(0, *__updateButton);
+        ReInitElements();
     }
 }
 
@@ -554,38 +555,6 @@ meecastMainForm::ReInitElements(void){
         Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(t);
         backgroundPanel->SetBackgroundColor(*color_of_temp);
         delete color_of_temp;
-        /*
-        int c1, c2, c3;
-        if (_config->TemperatureUnit() == "F"){
-             t = (t - 32) * 5 / 9;
-        }
-
-        if (t >= 30){
-            c2 = ((t - 50.0)*(246.0/255.0-60.0/255.0)/(30.0-50.0) + 60.0/255.0)*255.0;
-            backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(255, c2, 0));
-        }else if (t < 30 && t >= 15){
-            c1 = (((t - 30.0)*(114.0/255.0-1.0)/(15.0-30.0) + 1.0))*255.0;
-            c2 = ((t - 30.0)*(1.0-246.0/255.0)/(15.0-30.0) + 246.0/255.0)*255.0;
-            backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(c1, c2, 0));
-        }else if (t < 15 && t >= 0){
-            c1 = ((t - 15.0)*(1.0-114.0/255.0)/(0.0-15.0) + 144.0/255.0)*255.0;
-            c3 = ((t - 15.0)*(1.0-0.0)/(0.0-15.0) + 0.0)*255.0;
-            backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(c1, 255, c3));
-        }else if (t < 0 && t >= -15){
-            c1 = ((t - 0.0)*(0.0-1.0)/(-15.0-0.0) + 1.0)*255.0;
-            c2 = ((t - 0.0)*(216.0/255.0-1.0)/(-15.0-0.0) + 1.0)*255.0;
-            backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(c1, c2, 255));
-        }
-        else if (t < -15 && t >= -30){
-            c2 = ((t - (-15.0))*(66/255.0-216.0/255.0)/(-30.0+15.0) + 216.0/255.0)*255.0;
-            backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(0, c2, 255));
-        }else if (t < -30){
-            c1 = ((t - (-30.0))*(132.0/255.0-0.0)/(-30.0+15.0) + 0.0)*255.0;
-            c2 = ((t - (-30.0))*(0.0-66.0/255.0)/(-30.0+15.0) + 66.0/255.0)*255.0;
- 
-            backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(c1, c2, 255));
-        }
-*/
         backgroundPanel->RequestRedraw();
         main_temperature->SetShowState(true);
         Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
@@ -970,32 +939,31 @@ meecastMainForm::CreateItem (int index, int itemWidth)
     String* pStr;
     Core::Data *temp_data = NULL;
     if ((temp_data = _config->dp->data().GetDataForTime( current_day + 14 * 3600  + index*3600*24))) {
-            temp_data->temperature_low().units(_config->TemperatureUnit());
-            temp_data->temperature_hi().units(_config->TemperatureUnit());
-            temp_data->temperature().units(_config->TemperatureUnit());
+        temp_data->temperature_low().units(_config->TemperatureUnit());
+        temp_data->temperature_hi().units(_config->TemperatureUnit());
+        temp_data->temperature().units(_config->TemperatureUnit());
 
-            pItem->AddElement(Tizen::Graphics::Rectangle(10, 20, 220, 50), 0, temp_data->DayOfMonthName().c_str(), false);
-            pItem->AddElement(Tizen::Graphics::Rectangle(100, 20, 220, 50), 4, temp_data->ShortDayName().c_str(), false);
-            /* Icon */
-            snprintf(buffer, sizeof(buffer) - 1, "icons/Atmos/%i.png", temp_data->Icon());
-            pItem->AddElement(Tizen::Graphics::Rectangle(320, 0, 100, 100), 1, *Application::GetInstance()->GetAppResource()->GetBitmapN(buffer), null, null);
+        pItem->AddElement(Tizen::Graphics::Rectangle(10, 20, 220, 50), 0, temp_data->DayOfMonthName().c_str(), false);
+        pItem->AddElement(Tizen::Graphics::Rectangle(90, 20, 220, 50), 4, temp_data->ShortDayName().c_str(), false);
+        /* Icon */
+        snprintf(buffer, sizeof(buffer) - 1, "icons/Atmos/%i.png", temp_data->Icon());
+        pItem->AddElement(Tizen::Graphics::Rectangle(320, 0, 100, 100), 1, *Application::GetInstance()->GetAppResource()->GetBitmapN(buffer), null, null);
 
-            if (temp_data->temperature_low().value(true) != INT_MAX){
-                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
-                Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(10);
-                pItem->AddElement(Tizen::Graphics::Rectangle(600, 20, 100, 60), 2, buffer, false);
-                delete color_of_temp;
-	            pItem->SetElementTextHorizontalAlignment(2, ALIGNMENT_RIGHT);
-            }
-            if (temp_data->temperature_hi().value(true) != INT_MAX){
-                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
-                Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(temp_data->temperature_hi().value());
-                pItem->AddElement(Tizen::Graphics::Rectangle(500, 20, 100, 60), 3, buffer, 40, *color_of_temp, *color_of_temp, *color_of_temp);
-	            pItem->SetElementTextHorizontalAlignment(3, ALIGNMENT_RIGHT);
-                delete color_of_temp;
-            }
+        if (temp_data->temperature_low().value(true) != INT_MAX){
+            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
+            Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(10);
+            pItem->AddElement(Tizen::Graphics::Rectangle(600, 20, 100, 60), 2, buffer, false);
+            delete color_of_temp;
+            pItem->SetElementTextHorizontalAlignment(2, ALIGNMENT_RIGHT);
         }
-
+        if (temp_data->temperature_hi().value(true) != INT_MAX){
+            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
+            Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(temp_data->temperature_hi().value());
+            pItem->AddElement(Tizen::Graphics::Rectangle(500, 20, 100, 60), 3, buffer, 40, *color_of_temp, *color_of_temp, *color_of_temp);
+            pItem->SetElementTextHorizontalAlignment(3, ALIGNMENT_RIGHT);
+            delete color_of_temp;
+        }
+    }
     return pItem;
 }
 

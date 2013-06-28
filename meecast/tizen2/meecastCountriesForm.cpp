@@ -72,7 +72,7 @@ meecastCountriesForm::OnInitializing(void)
     __pListView = static_cast <ListView*> (GetControl(L"IDC_LISTVIEW"));
     __pListView->SetItemProvider(*this);
     __pListView->AddListViewItemEventListener(*this);
-
+    __pListView->AddFastScrollListener(*this);
     // Adds the list view to the form
     AddControl(*__pListView);
 
@@ -130,9 +130,6 @@ meecastCountriesForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previo
         __dbPath.Append(".db");
         LoadList();
     }
-
-
-
 }
 
 void
@@ -220,13 +217,6 @@ meecastCountriesForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int o
 bool
 meecastCountriesForm::LoadList(void){
 
-    Database database;
-    DbEnumerator* pEnum;
-
-    String sql;
-    String statement;
-    String stringItem;
-
     AppLog("meecastCountriesForm::LoadList");
 
     if (Database::Exists(__dbPath) == true){
@@ -240,11 +230,36 @@ meecastCountriesForm::LoadList(void){
     if (__db->open_database() == true){
         AppLog("Open DB success");
         __map = __db->create_countries_list();
+        String* pValue = null;
+        String letter;
+        __indexString = "";
+	    for(int i = 0; i <  __map->GetCount(); i ++){
+            pValue = static_cast< String* > (__map->GetValue(Integer(i)));
+            pValue->SubString(0, 1, letter);
+            if (!__indexString.Contains(letter))
+                __indexString += letter;
+        }
+	    __pListView->SetFastScrollIndex(__indexString, false);
         return true;
     }else{
         AppLog("Open DB not success");
         return false;
     }
+}
+void
+meecastCountriesForm::OnFastScrollIndexSelected(Control& source, Tizen::Base::String& index)
+{
+	String compare(L"");
+    String* pValue = null;
+	for(int i = 0; i <  __map->GetCount(); i ++){
+        pValue = static_cast< String* > (__map->GetValue(Integer(i)));
+        pValue->SubString(0,1,compare);
+		if(compare.CompareTo(index) == 0){
+			__pListView->ScrollToItem(i, LIST_SCROLL_ITEM_ALIGNMENT_TOP);
+            break;
+		}
+	}
+    __pListView->Invalidate(false);
 }
 
 

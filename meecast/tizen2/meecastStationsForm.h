@@ -37,7 +37,7 @@ public:
 	virtual bool DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth);
 	// FastScroll
 	virtual void OnFastScrollIndexSelected(Tizen::Ui::Control& source, Tizen::Base::String& index);
-virtual int GetItemCount(void);
+    virtual int GetItemCount(void);
     bool LoadList(void);
 protected:
 private:

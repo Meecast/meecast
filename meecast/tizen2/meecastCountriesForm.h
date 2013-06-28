@@ -13,6 +13,7 @@ class meecastCountriesForm
 	, public Tizen::Ui::Controls::IListViewItemEventListener
 	, public Tizen::Ui::Controls::IListViewItemProvider
  	, public Tizen::Ui::Scenes::ISceneEventListener
+    , public Tizen::Ui::Controls::IFastScrollListener
 {
 public:
 	meecastCountriesForm(void);
@@ -36,6 +37,9 @@ public:
 	virtual bool DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth);
 	virtual int GetItemCount(void);
     bool LoadList(void);
+	// FastScroll
+	virtual void OnFastScrollIndexSelected(Tizen::Ui::Control& source, Tizen::Base::String& index);
+
 protected:
 private:
     Tizen::Ui::Controls::ListView* __pListView;
@@ -43,7 +47,7 @@ private:
     Tizen::Base::Collection::HashMap *__map;
     Tizen::Base::String __dbPath;
     Core::DatabaseSqlite *__db;
-
+    Tizen::Base::String __indexString;
 };
 
 #endif	//_MEECAST_COUNTRIES_FORM_H_

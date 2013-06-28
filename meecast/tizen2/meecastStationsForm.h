@@ -13,6 +13,7 @@ class meecastStationsForm
 	, public Tizen::Ui::Controls::IListViewItemEventListener
 	, public Tizen::Ui::Controls::IListViewItemProvider
  	, public Tizen::Ui::Scenes::ISceneEventListener
+    , public Tizen::Ui::Controls::IFastScrollListener
 {
 public:
 	meecastStationsForm(void);
@@ -34,7 +35,9 @@ public:
 	virtual void OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex);
 	virtual Tizen::Ui::Controls::ListItemBase* CreateItem(int index, int itemWidth);
 	virtual bool DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth);
-	virtual int GetItemCount(void);
+	// FastScroll
+	virtual void OnFastScrollIndexSelected(Tizen::Ui::Control& source, Tizen::Base::String& index);
+virtual int GetItemCount(void);
     bool LoadList(void);
 protected:
 private:
@@ -47,7 +50,7 @@ private:
     Tizen::Base::Collection::HashMap *__map;
     Tizen::Base::String __dbPath;
     Core::DatabaseSqlite *__db;
-
+    Tizen::Base::String __indexString;
 };
 
 #endif	//_MEECAST_STATIONS_FORM_H_

@@ -214,18 +214,16 @@ meecastRegionsForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int old
 
 bool
 meecastRegionsForm::LoadList(void){
-    AppLog("Open DB of regions is success");
+     AppLog("Open DB of regions is success");
      __map = __db->create_region_list_by_name(__CountryName);
-     IMapEnumerator* pMapEnum = __map->GetMapEnumeratorN();
      String* pValue = null;
      String letter;
      __indexString = "";
-     while (pMapEnum->MoveNext() == E_SUCCESS){
-        pValue = static_cast< String* > (pMapEnum->GetValue());
+	 for(int i = 0; i <  __map->GetCount(); i ++){
+        pValue = static_cast< String* > (__map->GetValue(Integer(i)));
         pValue->SubString(0, 1, letter);
         if (!__indexString.Contains(letter))
             __indexString += letter;
-        AppLog("Letter %S", letter.GetPointer());
      }
 	__pListView->SetFastScrollIndex(__indexString, false);
     return true;
@@ -235,10 +233,13 @@ void
 meecastRegionsForm::OnFastScrollIndexSelected(Control& source, Tizen::Base::String& index)
 {
 	String compare(L"");
-	for(int i = 0; i <  __indexString.GetLength(); i ++){
-		compare.Format(5, L"%c", __indexString[i]);
+    String* pValue = null;
+	for(int i = 0; i <  __map->GetCount(); i ++){
+        pValue = static_cast< String* > (__map->GetValue(Integer(i)));
+        pValue->SubString(0,1,compare);
 		if(compare.CompareTo(index) == 0){
 			__pListView->ScrollToItem(i, LIST_SCROLL_ITEM_ALIGNMENT_TOP);
+            break;
 		}
 	}
     __pListView->Invalidate(false);

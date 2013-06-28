@@ -72,6 +72,7 @@ meecastStationsForm::OnInitializing(void)
     __pListView = static_cast <ListView*> (GetControl(L"IDC_LISTVIEW"));
     __pListView->SetItemProvider(*this);
     __pListView->AddListViewItemEventListener(*this);
+    __pListView->AddFastScrollListener(*this);
 
     // Adds the list view to the form
     AddControl(*__pListView);
@@ -226,7 +227,33 @@ bool
 meecastStationsForm::LoadList(void){
     AppLog("Open DB success");
      __map = __db->create_stations_list_by_name(__CountryName, __RegionName );
+     String* pValue = null;
+     String letter;
+     __indexString = "";
+	 for(int i = 0; i <  __map->GetCount(); i ++){
+        pValue = static_cast< String* > (__map->GetValue(Integer(i)));
+        pValue->SubString(0, 1, letter);
+        if (!__indexString.Contains(letter))
+            __indexString += letter;
+     }
+	__pListView->SetFastScrollIndex(__indexString, false);
+
     return true;
 }
 
+void
+meecastStationsForm::OnFastScrollIndexSelected(Control& source, Tizen::Base::String& index)
+{
+	String compare(L"");
+    String* pValue = null;
+	for(int i = 0; i <  __map->GetCount(); i ++){
+        pValue = static_cast< String* > (__map->GetValue(Integer(i)));
+        pValue->SubString(0,1,compare);
+		if(compare.CompareTo(index) == 0){
+			__pListView->ScrollToItem(i, LIST_SCROLL_ITEM_ALIGNMENT_TOP);
+            break;
+		}
+	}
+    __pListView->Invalidate(false);
+}
 

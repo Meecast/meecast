@@ -182,8 +182,7 @@ meecastSettingsForm::CreateItem (int index, int itemWidth)
 void
 meecastSettingsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
 {
-	if (status == LIST_ITEM_STATUS_SELECTED)
-	{
+	if (status == LIST_ITEM_STATUS_SELECTED || status == LIST_ITEM_STATUS_MORE){
         SceneManager* pSceneManager = SceneManager::GetInstance();
         AppAssert(pSceneManager);
 	    AppLog("LIST_ITEM_STATUS_SELECTED ");

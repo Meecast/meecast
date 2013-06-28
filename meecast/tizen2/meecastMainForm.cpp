@@ -412,6 +412,9 @@ meecastMainForm::ReInitElements(void){
     AppLog("REINIT ELEMENTS");
     char  buffer[4096];
     Tizen::Ui::Controls::Label  *station_label = static_cast<Label*>(GetControl(L"IDC_LABEL_STATION_NAME"));
+    Tizen::Ui::Controls::Label  *main_background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
+    Tizen::Ui::Controls::Label  *main_no_locations_label = static_cast<Label*>(GetControl(L"IDC_LABEL_NO_LOCATIONS"));
+    Tizen::Ui::Controls::Button  *main_set_locations_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_SET_LOCATIONS"));
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
     Tizen::Ui::Controls::Label  *main_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_MAIN_ICON"));
@@ -433,8 +436,19 @@ meecastMainForm::ReInitElements(void){
 
 
 
-
-    station_label->SetText(_config->stationname().c_str());
+    if (_config->stationsList().size()!=0){
+        station_label->SetText(_config->stationname().c_str());
+        main_background_label->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background_main.png"));
+        main_no_locations_label->SetShowState(false);
+        main_set_locations_button->SetShowState(false);
+    }else{
+        main_background_label->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background.png"));
+        station_label->SetText("MeeCast");
+        main_no_locations_label->SetShowState(true);
+        main_set_locations_button->SetShowState(true);
+        backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(0xFF, 0xFF, 0xFF));
+    }
+    main_background_label->RequestRedraw();
     station_label->RequestRedraw();
     if (_config->nextstationname().length() < 1)
         right_label->SetShowState(false);
@@ -855,11 +869,11 @@ meecastMainForm::ReInitElements(void){
             SAFE_DELETE(image);
             SAFE_DELETE(mainIconBitmap);
         }
-
+        _dayCount = 0;
     }
 
    main_listview_forecast->UpdateList();
-
+   //main_listview_forecast->RequestRedraw();
 }
 
 void

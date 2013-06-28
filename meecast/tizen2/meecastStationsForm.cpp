@@ -51,7 +51,7 @@ meecastStationsForm::~meecastStationsForm(void)
 bool
 meecastStationsForm::Initialize(void)
 {
-    Construct(L"COUNTRIES_FORM");
+    Construct(L"STATIONS_FORM");
     return true;
 }
 
@@ -69,8 +69,7 @@ meecastStationsForm::OnInitializing(void)
 
 
     // Creates an instance of ListView
-    __pListView = new ListView();
-    __pListView->Construct(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, GetClientAreaBounds().height), true, false);
+    __pListView = static_cast <ListView*> (GetControl(L"IDC_LISTVIEW"));
     __pListView->SetItemProvider(*this);
     __pListView->AddListViewItemEventListener(*this);
 

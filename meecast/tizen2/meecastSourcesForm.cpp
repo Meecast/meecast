@@ -69,11 +69,10 @@ meecastSourcesForm::OnInitializing(void)
 
 
     // Creates an instance of ListView
-    __pListView = new ListView();
-    __pListView->Construct(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, GetClientAreaBounds().height), true, false);
+    __pListView = static_cast <ListView*> (GetControl(L"IDC_LISTVIEW"));
     __pListView->SetItemProvider(*this);
     __pListView->AddListViewItemEventListener(*this);
-
+    AppLog ("__pListView %p", __pListView);
     // Adds the list view to the form
     AddControl(*__pListView);
 	r = GetFilesList();
@@ -123,7 +122,7 @@ meecastSourcesForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previous
 {
     // TODO:
     // Add your scene activate code here
-    AppLog("OnSceneActivatedN ManageLocations");
+    AppLog("OnSceneActivatedN Sources");
 }
 
 void
@@ -138,6 +137,7 @@ meecastSourcesForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& current
 int
 meecastSourcesForm::GetItemCount(void)
 {
+    AppLog("Count %i",  __fileList.GetCount());
     return __fileList.GetCount();
 }
 
@@ -222,6 +222,7 @@ meecastSourcesForm::GetFilesList(void)
 	StringComparer strComparer;
 	result r = E_SUCCESS;
 
+    AppLog("meecastSourcesForm::GetFilesList");
 	__fileList.Construct();
 
 	pDir = new (std::nothrow) Directory();

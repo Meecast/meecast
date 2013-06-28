@@ -167,7 +167,7 @@ meecastSettingsForm::CreateItem (int index, int itemWidth)
 
 //	CalTodo* pTodo = null;
 
-	pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_NORMAL);
+    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_DETAILED);
 //	pTodo = static_cast<CalTodo*>(__pTodosList->GetAt(index));
 
 	String listItemString;

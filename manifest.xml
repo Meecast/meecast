@@ -4,14 +4,14 @@
     <Version>1.0.0</Version>
     <Type>C++App</Type>
     <Requirements>
-        <Feature Name="http://tizen.org/feature/platform.core.cpu.arch.x86">true</Feature>
+        <Feature Name="http://tizen.org/feature/platform.core.cpu.arch.armv7">true</Feature>
         <Feature Name="http://tizen.org/feature/platform.core.fpu.arch.vfpv3">true</Feature>
     </Requirements>
     <Apps>
         <ApiVersion>2.1</ApiVersion>
         <Privileges>
-            <Privilege>http://tizen.org/privilege/internet</Privilege>
             <Privilege>http://tizen.org/privilege/http</Privilege>
+            <Privilege>http://tizen.org/privilege/internet</Privilege>
             <Privilege>http://tizen.org/privilege/content.write</Privilege>
             <Privilege>http://tizen.org/privilege/download</Privilege>
         </Privileges>

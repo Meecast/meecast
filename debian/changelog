@@ -1,3 +1,22 @@
+meecast (0.7.4) unstable; urgency=low
+
+  * Added description strings and icon to gismeteo.ru 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 21 Jun 2013 15:31:23 +0200
+
+meecast (0.7.3) unstable; urgency=low
+
+  * Added new source Openwethermap.org
+  * Added description string for weather.com
+  * Fixed problem with Catalan language
+  * Added Llagostera, Spain to weather.com source
+  * Updated Arabic, Catalan, Finish, Italian, Serbian, Russian translations
+  * Added station Vittskovle (Sweden) to weather.com
+  * Fixed problem with Map  
+  * Fixed problem with Foreca.com source
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 21 Jun 2013 15:31:23 +0200
+
 meecast (0.7.2) unstable; urgency=low
 
   * Added description strings and icon to gismeteo.ru 

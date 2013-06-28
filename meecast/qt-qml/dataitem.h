@@ -79,6 +79,7 @@ class DataItem : public QObject, public Core::Data
         LastUpdateRole,
         NowLabelRole,
         MapPatternRole,
+        MapBackgroundPatternRole,
         CountOfMapsRole
     };
     QDateTime _lastupdate;
@@ -130,6 +131,7 @@ public:
     QString pressure();
     inline QString ppcp();
     QString map_pattern();
+    QString mapbackground_pattern();
     QString count_of_maps();
     QString sunrise();
     QString sunset();

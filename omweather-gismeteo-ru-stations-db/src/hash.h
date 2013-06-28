@@ -26,9 +26,19 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
+
+#include <libxml/parser.h>
+#include <libxml/parser.h>
+#include <libxml/HTMLparser.h>
+#include <libxml/xpath.h>
+#include <libxml/xpathInternals.h>
+#include <string.h>
 #ifndef _hash_h
 #define _hash_h 1
 /*******************************************************************************/
+
+xmlHashTablePtr hash_icons_gismeteoru_table_create(); 
+xmlHashTablePtr hash_descriptions_gismeteoru_table_create(); 
 /*******************************************************************************/
 #ifdef GLIB
     GHashTable* hash_description_gismeteo_table_create(void);

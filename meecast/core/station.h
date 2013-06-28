@@ -54,6 +54,7 @@ namespace Core{
         std::string *_cookie;
         std::string *_viewURL;
         std::string *_mapURL;
+        std::string *_basemapURL;
         std::string *_converter;
         double _latitude;
         double _longitude;
@@ -71,6 +72,7 @@ namespace Core{
 		            const std::string& detailURL = 0,
 		            const std::string& viewURL = 0, 
 		            const std::string& mapURL = 0, 
+		            const std::string& basemapURL = 0, 
                     const std::string& cookie = 0,
                     const bool gps = false, double latitude = 0.0, double longitude = 0.0);
             Station(const std::string& source_name, const std::string& id, 
@@ -98,6 +100,8 @@ namespace Core{
             void detailURL(const std::string& region);
             std::string& mapURL() const;
             void mapURL(const std::string& MapURL);
+            std::string& basemapURL() const;
+            void basemapURL(const std::string& MapURL);
             std::string& detailURL() const;
             void viewURL(const std::string& ViewURL);
             std::string& viewURL() const;

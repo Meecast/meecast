@@ -111,6 +111,7 @@ Controller::load_data()
   /* std::cerr<<" Controller::load_data()"<<std::endl; */
 
   std::string mapfilename(Core::AbstractConfig::getCachePath());
+  std::string basemapfilename(Core::AbstractConfig::getCachePath());
   _dp->DeleteInstance(); 
          
   if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0 &&
@@ -133,6 +134,12 @@ Controller::load_data()
             mapfilename += _config->stationsList().at(_config->current_station_id())->id().c_str();
             mapfilename += "_map_";
             mapfilename += "%s.png";
+
+            basemapfilename += _config->stationsList().at(_config->current_station_id())->sourceName().c_str();
+            basemapfilename += "_";
+            basemapfilename += _config->stationsList().at(_config->current_station_id())->id().c_str();
+            basemapfilename += "_basemap_";
+            basemapfilename += "%s.png";
   }
 
  
@@ -185,6 +192,7 @@ Controller::load_data()
 
       /* Add map */
       forecast_data->MapPattern(mapfilename);
+      forecast_data->MapBackgroundPattern(basemapfilename);
 
       _current->appendRow(forecast_data);
       /* Preparing time for updateing */
@@ -224,6 +232,7 @@ Controller::load_data()
       forecast_data->visibleunit = _config->visibleunit();
       /* Add map */
       forecast_data->MapPattern(mapfilename);
+      forecast_data->MapBackgroundPattern(basemapfilename);
 
       _current_night->appendRow(forecast_data);
       /*MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
@@ -253,10 +262,13 @@ Controller::load_data()
           forecast_data->windunit = _config->windspeedunit();
           forecast_data->pressureunit = _config->pressureunit();
           forecast_data->visibleunit = _config->visibleunit();
-          if (i == 0)
+          if (i == 0){
             forecast_data->MapPattern(mapfilename);
-          else
+            forecast_data->MapBackgroundPattern(basemapfilename);
+          }else{
             forecast_data->MapPattern(std::string(""));
+            forecast_data->MapBackgroundPattern(std::string(""));
+          }
           _model->appendRow(forecast_data);
       }
       i = i + 3600*24;
@@ -281,10 +293,13 @@ Controller::load_data()
           forecast_data->windunit = _config->windspeedunit();
           forecast_data->pressureunit = _config->pressureunit();
           forecast_data->visibleunit = _config->visibleunit();
-          if (i == 0)
+          if (i == 0){
             forecast_data->MapPattern(mapfilename);
-          else
+            forecast_data->MapBackgroundPattern(basemapfilename);
+          }else{
             forecast_data->MapPattern("");
+            forecast_data->MapBackgroundPattern(std::string(""));
+          }
           _night_model->appendRow(forecast_data);
       }
       i = i + 3600*24;

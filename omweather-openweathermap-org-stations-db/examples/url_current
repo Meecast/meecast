@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<current>
+  <city id="620127" name="Vitsyebsk">
+    <coord lon="30.2033" lat="55.190479"/>
+    <country>BY</country>
+    <sun rise="2013-05-24T01:34:55" set="2013-05-24T18:17:13"/>
+  </city>
+  <temperature value="13.129" min="13.129" max="13.129" unit="celsius"/>
+  <humidity value="93" unit="%"/>
+  <pressure value="998.28" unit="hPa"/>
+  <wind>
+    <speed value="4.37" name="Gentle Breeze"/>
+    <direction value="77.5015" code="ENE" name="East-northeast"/>
+  </wind>
+  <clouds value="36" name="scattered clouds"/>
+  <precipitation mode="no"/>
+  <weather number="800" value="sky is clear" icon="01n"/>
+  <lastupdate value="2013-05-24T00:49:52"/>
+</current>

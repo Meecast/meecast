@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-09 17:37+0300\n"
+"POT-Creation-Date: 2013-06-18 19:17+0300\n"
 "PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -112,11 +112,11 @@ msgstr ""
 "\n"
 "Vietor: "
 
-#: meecast/qt-qml/dataitem.cpp:470 meecast/qt-qml/dataitem.cpp:471
+#: meecast/qt-qml/dataitem.cpp:479 meecast/qt-qml/dataitem.cpp:480
 msgid "(Low)"
 msgstr "(Nízká)"
 
-#: meecast/qt-qml/dataitem.cpp:472 meecast/qt-qml/dataitem.cpp:473
+#: meecast/qt-qml/dataitem.cpp:481 meecast/qt-qml/dataitem.cpp:482
 msgid "(Moderate)"
 msgstr "(Stredná)"
 
@@ -392,7 +392,7 @@ msgstr "Autori"
 msgid "Automatically update data when connecting to the Internet"
 msgstr "Automatická aktualizácia dát po pripojení na Internet"
 
-#: omweather/src/hash.data:328
+#: omweather/src/hash.data:330
 msgid "Back"
 msgstr ""
 
@@ -641,7 +641,7 @@ msgid "Daily"
 msgstr "Denne"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
-#: meecast/qt-qml/qml/FullWeatherPage.qml:186
+#: meecast/qt-qml/qml/FullWeatherPage.qml:188
 msgid "Day"
 msgstr "Deň"
 
@@ -649,7 +649,7 @@ msgstr "Deň"
 msgid "Day length"
 msgstr "Dĺžka dňa"
 
-#: omweather/src/hash.data:60 meecast/qt-qml/qml/FullWeatherPage.qml:294
+#: omweather/src/hash.data:60 meecast/qt-qml/qml/FullWeatherPage.qml:298
 msgid "Day length:"
 msgstr "Dĺžka dňa:"
 
@@ -853,7 +853,7 @@ msgstr "Nepodarilo sa inicializovať GConf. Konfigurácia nebola uložená.\n"
 msgid "Fair"
 msgstr "Pekne"
 
-#: omweather/src/hash.data:326
+#: omweather/src/hash.data:328
 #, fuzzy
 msgid "Feels like"
 msgstr "Na pocit:"
@@ -898,9 +898,9 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Prvá štvrť"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:153
-#: meecast/qt-qml/qml/FullWeatherPage.qml:210
-#: meecast/qt-qml/qml/FullWeatherPage.qml:259
+#: meecast/qt-qml/qml/FullWeatherPage.qml:154
+#: meecast/qt-qml/qml/FullWeatherPage.qml:212
+#: meecast/qt-qml/qml/FullWeatherPage.qml:262
 #, fuzzy
 msgid "Flike"
 msgstr "Na pocit:"
@@ -1118,25 +1118,25 @@ msgstr "Silný dážď / Vietor"
 msgid "High"
 msgstr "Vysoké"
 
-#: omweather/src/hash.data:327
+#: omweather/src/hash.data:329
 #, fuzzy
 msgid "Hourly"
 msgstr "Hodiny"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:276
+#: meecast/qt-qml/qml/FullWeatherPage.qml:280
 msgid "Hours"
 msgstr "Hodiny"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:135
-#: meecast/qt-qml/qml/FullWeatherPage.qml:192
-#: meecast/qt-qml/qml/FullWeatherPage.qml:241
+#: meecast/qt-qml/qml/FullWeatherPage.qml:136
+#: meecast/qt-qml/qml/FullWeatherPage.qml:194
+#: meecast/qt-qml/qml/FullWeatherPage.qml:244
 #, fuzzy
 msgid "Humidity"
 msgstr "Vlhkosť:"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:180
+#: meecast/qt-qml/dataitem.cpp:183
 msgid "Humidity:"
 msgstr "Vlhkosť:"
 
@@ -1187,7 +1187,7 @@ msgstr ""
 msgid "Kilometers"
 msgstr "Kilometre"
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:331
 msgid "Language"
 msgstr ""
 
@@ -1203,7 +1203,7 @@ msgstr "Posledná aktualizácia na serveri: "
 msgid "Last update from server: "
 msgstr "Posledná aktualizácia zo servera: "
 
-#: omweather/src/hash.data:101 meecast/qt-qml/qml/FullWeatherPage.qml:297
+#: omweather/src/hash.data:101 meecast/qt-qml/qml/FullWeatherPage.qml:301
 msgid "Last update:"
 msgstr "Posled. aktualizácia:"
 
@@ -1383,7 +1383,7 @@ msgstr "Úprava"
 msgid "Mostly Clear"
 msgstr "Prevažne jasno"
 
-#: omweather/src/hash.data:136
+#: omweather/src/hash.data:137
 msgid "Mostly Cloudy"
 msgstr "Prevažne zamračené"
 
@@ -1412,82 +1412,83 @@ msgid "Mostly Cloudy T-Storm"
 msgstr "Prevažne zamračené s búrkou"
 
 #: omweather/src/hash.data:128 omweather/src/hash.data:135
+#: omweather/src/hash.data:136
 msgid "Mostly Cloudy and Windy"
 msgstr "Prevažne zamračené a veterno"
 
-#: omweather/src/hash.data:137
+#: omweather/src/hash.data:138
 msgid "Mostly Cloudy, Drifting Snow"
 msgstr "Prevažne zamračené, padajúci sneh"
 
-#: omweather/src/hash.data:138
+#: omweather/src/hash.data:139
 msgid "Mostly Cloudy, Few Snow"
 msgstr "Prevažne zamračené, ojedinelé sneženie"
 
-#: omweather/src/hash.data:139
+#: omweather/src/hash.data:140
 msgid "Mostly Cloudy, Fog"
 msgstr "Prevažne zamračené, hmla"
 
-#: omweather/src/hash.data:140
+#: omweather/src/hash.data:141
 msgid "Mostly Cloudy, Fog, Drizzle"
 msgstr "Prevažne zamračené, hmla, mrholenie"
 
-#: omweather/src/hash.data:141
+#: omweather/src/hash.data:142
 msgid "Mostly Cloudy, Heavy Rain"
 msgstr "Prevažne zamračené, silný dážď"
 
-#: omweather/src/hash.data:142
+#: omweather/src/hash.data:143
 msgid "Mostly Cloudy, Heavy Rain, T-Storm"
 msgstr "Prevažne zamračené, silný dážď, búrka"
 
-#: omweather/src/hash.data:143
+#: omweather/src/hash.data:144
 msgid "Mostly Cloudy, Heavy Snow"
 msgstr "Prevažne zamračené, silné sneženie"
 
-#: omweather/src/hash.data:144
+#: omweather/src/hash.data:145
 msgid "Mostly Cloudy, Heavy Snow, Freezing Rain"
 msgstr "Prevažne zamračené, silné sneženie, mrznúci dážď"
 
-#: omweather/src/hash.data:145
+#: omweather/src/hash.data:146
 msgid "Mostly Cloudy, Light Rain"
 msgstr "Prevažne zamračené, slabý dážď"
 
-#: omweather/src/hash.data:146
+#: omweather/src/hash.data:147
 msgid "Mostly Cloudy, Light Rain, Drizzle"
 msgstr "Prevažne zamračené, slabý dážď, mrholenie"
 
-#: omweather/src/hash.data:147
+#: omweather/src/hash.data:148
 msgid "Mostly Cloudy, Light Rain, T-Storm"
 msgstr "Prevažne zamračené, slabý dážď, búrka"
 
-#: omweather/src/hash.data:148
+#: omweather/src/hash.data:149
 msgid "Mostly Cloudy, Rain"
 msgstr "Prevažne zamračené, dážď"
 
-#: omweather/src/hash.data:149
+#: omweather/src/hash.data:150
 msgid "Mostly Cloudy, Rain, T-Storm"
 msgstr "Prevažne zamračené, dážď, búrka"
 
-#: omweather/src/hash.data:150
+#: omweather/src/hash.data:151
 msgid "Mostly Cloudy, Smoke"
 msgstr "Prevažne zamračené, dymová clona"
 
-#: omweather/src/hash.data:151
+#: omweather/src/hash.data:152
 msgid "Mostly Cloudy, Snow"
 msgstr "Prevažne zamračené, sneženie"
 
-#: omweather/src/hash.data:152
+#: omweather/src/hash.data:153
 msgid "Mostly Cloudy, T-Storm"
 msgstr "Prevažne zamračené, búrka"
 
-#: omweather/src/hash.data:153
+#: omweather/src/hash.data:154
 msgid "Mostly Sunny"
 msgstr "Prevažne slnečno"
 
-#: omweather/src/hash.data:154
+#: omweather/src/hash.data:155
 msgid "Mostly clear"
 msgstr "Prevažne jasno"
 
-#: omweather/src/hash.data:155
+#: omweather/src/hash.data:156
 msgid "N"
 msgstr "S"
 
@@ -1497,47 +1498,47 @@ msgstr "S"
 #: omweather/src/weather-home.c:2727 omweather/src/weather-home.c:2735
 #: omweather/src/weather-home.c:2818 omweather/src/weather-home.c:2822
 #: omweather/src/weather-home.c:2835 omweather/src/weather-home.c:2839
-#: omweather/src/hash.data:156
+#: omweather/src/hash.data:157
 msgid "N/A"
 msgstr "N/A"
 
-#: omweather/src/hash.data:157
+#: omweather/src/hash.data:158
 msgid "NE"
 msgstr "SV"
 
-#: omweather/src/hash.data:158
+#: omweather/src/hash.data:159
 msgid "NE_short"
 msgstr "SV"
 
-#: omweather/src/hash.data:159
+#: omweather/src/hash.data:160
 msgid "NNE"
 msgstr "SSV"
 
-#: omweather/src/hash.data:160
+#: omweather/src/hash.data:161
 msgid "NNE_short"
 msgstr "SSV"
 
-#: omweather/src/hash.data:161
+#: omweather/src/hash.data:162
 msgid "NNW"
 msgstr "SSZ"
 
-#: omweather/src/hash.data:162
+#: omweather/src/hash.data:163
 msgid "NNW_short"
 msgstr "SSZ"
 
-#: omweather/src/hash.data:163
+#: omweather/src/hash.data:164
 msgid "NO STATION"
 msgstr "ŽIADNA STANICA"
 
-#: omweather/src/hash.data:164
+#: omweather/src/hash.data:165
 msgid "NW"
 msgstr "SZ"
 
-#: omweather/src/hash.data:165
+#: omweather/src/hash.data:166
 msgid "NW_short"
 msgstr "SZ"
 
-#: omweather/src/hash.data:166
+#: omweather/src/hash.data:167
 msgid "N_short"
 msgstr "N"
 
@@ -1552,7 +1553,7 @@ msgstr "Názov:"
 msgid "Never"
 msgstr "Nikdy"
 
-#: omweather/src/hash.data:167
+#: omweather/src/hash.data:168
 msgid "New"
 msgstr "Nov"
 
@@ -1565,7 +1566,7 @@ msgid "Next update:"
 msgstr "Ďalšia aktualizácia:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:588
-#: meecast/qt-qml/qml/FullWeatherPage.qml:227
+#: meecast/qt-qml/qml/FullWeatherPage.qml:230
 msgid "Night"
 msgstr "Noc"
 
@@ -1581,7 +1582,7 @@ msgstr "Nie"
 msgid "No current weather data."
 msgstr "Žiadne aktuálne údaje o počasí."
 
-#: omweather/src/hash.data:168 meecast/qt-qml/qml/WeatherPage.qml:313
+#: omweather/src/hash.data:169 meecast/qt-qml/qml/WeatherPage.qml:313
 msgid "No locations are set up yet."
 msgstr "Žiadne nastavené miesta."
 
@@ -1599,7 +1600,7 @@ msgstr "Žiadne údaje o počasí pre túto stanicu."
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:188 meecast/qt-qml/qml/FullWeatherPage.qml:129
+#: meecast/qt-qml/dataitem.cpp:191 meecast/qt-qml/qml/FullWeatherPage.qml:130
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Now"
 msgstr "Teraz"
@@ -1653,107 +1654,107 @@ msgstr "Ok"
 msgid "Other Maemo Weather Info"
 msgstr "Informácie o Other Maemo Weather"
 
-#: omweather/src/hash.data:179
+#: omweather/src/hash.data:180
 msgid "Overcast"
 msgstr "Zamračené"
 
-#: omweather/src/hash.data:169
+#: omweather/src/hash.data:170
 msgid "Overcast and light rain"
 msgstr "Zamračené a slabý dážď"
 
-#: omweather/src/hash.data:170
+#: omweather/src/hash.data:171
 msgid "Overcast and light snow"
 msgstr "Zamračené a slabé sneženie"
 
-#: omweather/src/hash.data:171
+#: omweather/src/hash.data:172
 msgid "Overcast and light wet snow"
 msgstr "Zamračené a slabé mokré sneženie"
 
-#: omweather/src/hash.data:172
+#: omweather/src/hash.data:173
 msgid "Overcast and rain"
 msgstr "Zamračené a dážď"
 
-#: omweather/src/hash.data:173
+#: omweather/src/hash.data:174
 msgid "Overcast and showers"
 msgstr "Zamračené a prehánky"
 
-#: omweather/src/hash.data:175
+#: omweather/src/hash.data:176
 msgid "Overcast and snow"
 msgstr "Zamračené a sneženie"
 
-#: omweather/src/hash.data:174
+#: omweather/src/hash.data:175
 msgid "Overcast and snow showers"
 msgstr "Zamračené a snehové prehánky"
 
-#: omweather/src/hash.data:177
+#: omweather/src/hash.data:178
 msgid "Overcast and wet snow"
 msgstr "Zamračené a mokrý sneh"
 
-#: omweather/src/hash.data:176
+#: omweather/src/hash.data:177
 msgid "Overcast and wet snow showers"
 msgstr "Zamračené a mokré snehové prehánky"
 
-#: omweather/src/hash.data:178
+#: omweather/src/hash.data:179
 msgid "Overcast, thunderstorms with rain"
 msgstr "Zamračené, hrmenie s dažďom"
 
-#: omweather/src/hash.data:180
+#: omweather/src/hash.data:181
 msgid "PM Fog"
 msgstr "Popoludní hmla"
 
-#: omweather/src/hash.data:182
+#: omweather/src/hash.data:183
 msgid "PM Light Rain"
 msgstr "Popoludní slabý dážď"
 
-#: omweather/src/hash.data:181
+#: omweather/src/hash.data:182
 msgid "PM Light Rain / Wind"
 msgstr "Popoludní slabý dážď / Vietor"
 
-#: omweather/src/hash.data:184
+#: omweather/src/hash.data:185
 msgid "PM Light Snow"
 msgstr "Popoludní slabé sneženie"
 
-#: omweather/src/hash.data:183
+#: omweather/src/hash.data:184
 msgid "PM Light Snow / Wind"
 msgstr "Popoludní slabé sneženie / Vietor"
 
-#: omweather/src/hash.data:187
+#: omweather/src/hash.data:188
 msgid "PM Rain"
 msgstr "Popoludní dážď"
 
-#: omweather/src/hash.data:185
+#: omweather/src/hash.data:186
 msgid "PM Rain / Snow"
 msgstr "Popoludní dážď / Sneženie"
 
-#: omweather/src/hash.data:186
+#: omweather/src/hash.data:187
 msgid "PM Rain / Wind"
 msgstr "Popoludní dážď / Vietor"
 
-#: omweather/src/hash.data:189
+#: omweather/src/hash.data:190
 msgid "PM Showers"
 msgstr "Popoludní prehánky"
 
-#: omweather/src/hash.data:188
+#: omweather/src/hash.data:189
 msgid "PM Showers / Wind"
 msgstr "Popoludní prehánky / Vietor"
 
-#: omweather/src/hash.data:192
+#: omweather/src/hash.data:193
 msgid "PM Snow"
 msgstr "Popoludní sneženie"
 
-#: omweather/src/hash.data:191
+#: omweather/src/hash.data:192
 msgid "PM Snow Showers"
 msgstr "Popoludní snehové prehánky"
 
-#: omweather/src/hash.data:190
+#: omweather/src/hash.data:191
 msgid "PM Snow Showers / Wind"
 msgstr "Popoludní snehové prehánky / Vietor"
 
-#: omweather/src/hash.data:193
+#: omweather/src/hash.data:194
 msgid "PM T-Showers"
 msgstr "Popoludní prehánky"
 
-#: omweather/src/hash.data:194
+#: omweather/src/hash.data:195
 msgid "PM T-Storms"
 msgstr "Popoludní búrky"
 
@@ -1761,111 +1762,111 @@ msgstr "Popoludní búrky"
 msgid "Pa"
 msgstr "Pa"
 
-#: omweather/src/hash.data:202
+#: omweather/src/hash.data:204
 msgid "Partly Cloudy"
 msgstr "Polooblačno"
 
-#: omweather/src/hash.data:196
+#: omweather/src/hash.data:197
 msgid "Partly Cloudy / Wind"
 msgstr "Polooblačno / Vietor"
 
-#: omweather/src/hash.data:197
+#: omweather/src/hash.data:198
 msgid "Partly Cloudy Few Snow"
 msgstr "Polooblačno s ojedinelým snežením"
 
-#: omweather/src/hash.data:198
+#: omweather/src/hash.data:199
 msgid "Partly Cloudy Light Rain"
 msgstr "Polooblačno so slabým dažďom"
 
-#: omweather/src/hash.data:199
+#: omweather/src/hash.data:200
 msgid "Partly Cloudy T-Storm"
 msgstr "Polooblačno s búrkou"
 
-#: omweather/src/hash.data:200
+#: omweather/src/hash.data:201
 msgid "Partly Cloudy and Windly"
 msgstr "Polooblačno a veterno"
 
-#: omweather/src/hash.data:201
+#: omweather/src/hash.data:202 omweather/src/hash.data:203
 msgid "Partly Cloudy and Windy"
 msgstr "Polooblačno a veterno"
 
-#: omweather/src/hash.data:203
+#: omweather/src/hash.data:205
 msgid "Partly Cloudy, Few Snow"
 msgstr "Polooblačno, ojedinelé sneženie"
 
-#: omweather/src/hash.data:204
+#: omweather/src/hash.data:206
 msgid "Partly Cloudy, Haze"
 msgstr "Polooblačno, opar"
 
-#: omweather/src/hash.data:205
+#: omweather/src/hash.data:207
 msgid "Partly Cloudy, Heavy Rain"
 msgstr "Polooblačno, silný dážď"
 
-#: omweather/src/hash.data:206
+#: omweather/src/hash.data:208
 msgid "Partly Cloudy, Heavy Rain, T-Storm"
 msgstr "Polooblačno, silný dážď, búrka"
 
-#: omweather/src/hash.data:207
+#: omweather/src/hash.data:209
 msgid "Partly Cloudy, Heavy Snow"
 msgstr "Polooblačno, silné sneženie"
 
-#: omweather/src/hash.data:208
+#: omweather/src/hash.data:210
 msgid "Partly Cloudy, Light Rain"
 msgstr "Polooblačno, slabý dážď"
 
-#: omweather/src/hash.data:209
+#: omweather/src/hash.data:211
 msgid "Partly Cloudy, Light Rain, T-Storm"
 msgstr "Polooblačno, slabý dážď, búrka"
 
-#: omweather/src/hash.data:210
+#: omweather/src/hash.data:212
 msgid "Partly Cloudy, Rain"
 msgstr "Polooblačno, dážď"
 
-#: omweather/src/hash.data:211
+#: omweather/src/hash.data:213
 msgid "Partly Cloudy, Rain, T-Storm"
 msgstr "Polooblačno, dážď, búrka"
 
-#: omweather/src/hash.data:212
+#: omweather/src/hash.data:214
 msgid "Partly Cloudy, Smoke"
 msgstr "Polooblačno, dymová clona"
 
-#: omweather/src/hash.data:213
+#: omweather/src/hash.data:215
 msgid "Partly Cloudy, Snow"
 msgstr "Polooblačno, sneženie"
 
-#: omweather/src/hash.data:214
+#: omweather/src/hash.data:216
 msgid "Partly Cloudy, T-Storm"
 msgstr "Polooblačno, búrka"
 
-#: omweather/src/hash.data:222
+#: omweather/src/hash.data:224
 msgid "Partly cloudy"
 msgstr "Polooblačno"
 
-#: omweather/src/hash.data:215
+#: omweather/src/hash.data:217
 msgid "Partly cloudy and light rain"
 msgstr "Polooblačno a slabý dážď"
 
-#: omweather/src/hash.data:216
+#: omweather/src/hash.data:218
 msgid "Partly cloudy and light snow"
 msgstr "Polooblačno a slabé sneženie"
 
-#: omweather/src/hash.data:217
+#: omweather/src/hash.data:219
 msgid "Partly cloudy and light wet snow"
 msgstr "Polooblačno a slabé mokré sneženie"
 
-#: omweather/src/hash.data:218
+#: omweather/src/hash.data:220
 msgid "Partly cloudy and showers"
 msgstr "Polooblačno a prehánky"
 
-#: omweather/src/hash.data:219
+#: omweather/src/hash.data:221
 msgid "Partly cloudy and snow showers"
 msgstr "Polooblačno a snehové prehánky"
 
-#: omweather/src/hash.data:220
+#: omweather/src/hash.data:222
 msgid "Partly cloudy and wet snow showers"
 msgstr "Polooblačno a mokré snehové prehánky"
 
-#: omweather/src/hash.data:195 omweather/src/hash.data:221
+#: omweather/src/hash.data:196 omweather/src/hash.data:223
 msgid "Partly cloudy, possible thunderstorms with rain"
 msgstr "Polooblačno, pravdepodobnosť hrmenia s dažďom"
 
@@ -1877,9 +1878,9 @@ msgstr "Perióda"
 msgid "Position:"
 msgstr "Poloha:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:147
-#: meecast/qt-qml/qml/FullWeatherPage.qml:204
-#: meecast/qt-qml/qml/FullWeatherPage.qml:253
+#: meecast/qt-qml/qml/FullWeatherPage.qml:148
+#: meecast/qt-qml/qml/FullWeatherPage.qml:206
+#: meecast/qt-qml/qml/FullWeatherPage.qml:256
 msgid "Ppcp:"
 msgstr "Zrážky:"
 
@@ -1902,9 +1903,9 @@ msgstr "Jednotky tlaku:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:186 meecast/qt-qml/qml/FullWeatherPage.qml:141
-#: meecast/qt-qml/qml/FullWeatherPage.qml:198
-#: meecast/qt-qml/qml/FullWeatherPage.qml:247
+#: meecast/qt-qml/dataitem.cpp:189 meecast/qt-qml/qml/FullWeatherPage.qml:142
+#: meecast/qt-qml/qml/FullWeatherPage.qml:200
+#: meecast/qt-qml/qml/FullWeatherPage.qml:250
 msgid "Pressure:"
 msgstr "Tlak:"
 
@@ -1933,87 +1934,87 @@ msgstr "Stránka projektu"
 msgid "Provided by"
 msgstr "Poskytuje"
 
-#: omweather/src/hash.data:243
+#: omweather/src/hash.data:245
 msgid "Rain"
 msgstr "Dážď"
 
-#: omweather/src/hash.data:223
+#: omweather/src/hash.data:225
 msgid "Rain / Freezing Rain"
 msgstr "Dážď / Mrznúci dážď"
 
-#: omweather/src/hash.data:230
+#: omweather/src/hash.data:232
 msgid "Rain / Snow"
 msgstr "Dážď / Sneženie"
 
-#: omweather/src/hash.data:224
+#: omweather/src/hash.data:226
 msgid "Rain / Snow / Wind"
 msgstr "Dážď / Sneženie / Vietor"
 
-#: omweather/src/hash.data:225
+#: omweather/src/hash.data:227
 msgid "Rain / Snow Early"
 msgstr "Dážď / Spočiatku sneženie"
 
-#: omweather/src/hash.data:226
+#: omweather/src/hash.data:228
 msgid "Rain / Snow Late"
 msgstr "Dážď / Neskôr sneženie"
 
-#: omweather/src/hash.data:229
+#: omweather/src/hash.data:231
 msgid "Rain / Snow Showers"
 msgstr "Dážď / Snehové prehánky"
 
-#: omweather/src/hash.data:227
+#: omweather/src/hash.data:229
 msgid "Rain / Snow Showers / Wind"
 msgstr "Dážď / Snehové prehánky / Vietor"
 
-#: omweather/src/hash.data:228
+#: omweather/src/hash.data:230
 msgid "Rain / Snow Showers Late"
 msgstr "Dážď / Neskôr snehové prehánky"
 
-#: omweather/src/hash.data:231
+#: omweather/src/hash.data:233
 msgid "Rain / Thunder"
 msgstr "Dážď / Hrmenie"
 
-#: omweather/src/hash.data:233
+#: omweather/src/hash.data:235
 msgid "Rain / Wind"
 msgstr "Dážď / Vietor"
 
-#: omweather/src/hash.data:232
+#: omweather/src/hash.data:234
 msgid "Rain / Wind Early"
 msgstr "Dážď / Spočiatku vietor"
 
-#: omweather/src/hash.data:234
+#: omweather/src/hash.data:236
 msgid "Rain Early"
 msgstr "Spočiatku dážď"
 
-#: omweather/src/hash.data:235
+#: omweather/src/hash.data:237
 msgid "Rain Late"
 msgstr "Neskôr dážď"
 
-#: omweather/src/hash.data:237
+#: omweather/src/hash.data:239
 msgid "Rain Shower"
 msgstr "Dažďové prehánky"
 
-#: omweather/src/hash.data:236
+#: omweather/src/hash.data:238
 msgid "Rain Shower and Windy"
 msgstr "Dažďové prehánky a veterno"
 
-#: omweather/src/hash.data:238
+#: omweather/src/hash.data:240
 msgid "Rain Showers"
 msgstr "Dažďové prehánky"
 
-#: omweather/src/hash.data:239
+#: omweather/src/hash.data:241
 msgid "Rain and Snow"
 msgstr "Dážď a sneženie"
 
-#: omweather/src/hash.data:240
+#: omweather/src/hash.data:242
 msgid "Rain to Snow / Wind"
 msgstr "Dážď a sneženie / Vietor"
 
-#: omweather/src/hash.data:242
+#: omweather/src/hash.data:244
 msgid "Rain to Wintry Mix"
 msgstr "Chladno a sychravo s dažďom"
 
-#: omweather/src/hash.data:241
+#: omweather/src/hash.data:243
 msgid "Rain to Wintry Mix / Wind"
 msgstr "Chladno a sychravo s dažďom / Vietor"
 
@@ -2027,47 +2028,47 @@ msgstr "Čítať senzor každých:"
 msgid "Region"
 msgstr "Región"
 
-#: omweather/src/hash.data:244
+#: omweather/src/hash.data:246
 msgid "Rush Hour Traffic"
 msgstr "Dopravná špička"
 
-#: omweather/src/hash.data:245
+#: omweather/src/hash.data:247
 msgid "S"
 msgstr "J"
 
-#: omweather/src/hash.data:246
+#: omweather/src/hash.data:248
 msgid "SE"
 msgstr "JV"
 
-#: omweather/src/hash.data:247
+#: omweather/src/hash.data:249
 msgid "SE_short"
 msgstr "JV"
 
-#: omweather/src/hash.data:248
+#: omweather/src/hash.data:250
 msgid "SSE"
 msgstr "JJV"
 
-#: omweather/src/hash.data:249
+#: omweather/src/hash.data:251
 msgid "SSE_short"
 msgstr "JJV"
 
-#: omweather/src/hash.data:250
+#: omweather/src/hash.data:252
 msgid "SSW"
 msgstr "JJZ"
 
-#: omweather/src/hash.data:251
+#: omweather/src/hash.data:253
 msgid "SSW_short"
 msgstr "JJZ"
 
-#: omweather/src/hash.data:252
+#: omweather/src/hash.data:254
 msgid "SW"
 msgstr "JZ"
 
-#: omweather/src/hash.data:253
+#: omweather/src/hash.data:255
 msgid "SW_short"
 msgstr "JZ"
 
-#: omweather/src/hash.data:254
+#: omweather/src/hash.data:256
 msgid "S_short"
 msgstr "J"
 
@@ -2081,19 +2082,19 @@ msgstr "J"
 msgid "Save"
 msgstr "Uložiť"
 
-#: omweather/src/hash.data:255
+#: omweather/src/hash.data:257
 msgid "Scattered Showers"
 msgstr "Ojedinelé prehánky"
 
-#: omweather/src/hash.data:257
+#: omweather/src/hash.data:259
 msgid "Scattered Snow"
 msgstr "Ojedinelé sneženie"
 
-#: omweather/src/hash.data:256
+#: omweather/src/hash.data:258
 msgid "Scattered Snow Showers"
 msgstr "Ojedinelé snehové prehánky"
 
-#: omweather/src/hash.data:258
+#: omweather/src/hash.data:260
 msgid "Scattered T-Storms"
 msgstr "Ojedinelé búrky"
 
@@ -2194,7 +2195,7 @@ msgstr "Senzor"
 msgid "Set"
 msgstr "Nast."
 
-#: omweather/src/hash.data:259 meecast/qt-qml/qml/WeatherPage.qml:327
+#: omweather/src/hash.data:261 meecast/qt-qml/qml/WeatherPage.qml:327
 msgid "Set locations"
 msgstr "Nastaviť miesta"
 
@@ -2222,7 +2223,7 @@ msgstr "Nastavenie pohotovostnej obazovky"
 msgid "Settings of StandbyScreen"
 msgstr "Nastavenie pohotovostnej obazovky"
 
-#: omweather/src/hash.data:260
+#: omweather/src/hash.data:262
 msgid "Shallow Fog"
 msgstr "Riedka hmla"
 
@@ -2234,7 +2235,7 @@ msgstr "Krátky"
 msgid "Show arrows"
 msgstr "Zobraziť šípky"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:601
+#: meecast/qt-qml/qml/FullWeatherPage.qml:605
 msgid "Show on Map"
 msgstr "Zobraziť na mape"
 
@@ -2254,79 +2255,83 @@ msgstr "Zobraziť teplotu v:"
 msgid "Show wind"
 msgstr "Zobraziť vietor"
 
-#: omweather/src/hash.data:266
+#: omweather/src/hash.data:268
 msgid "Showers"
 msgstr "Prehánky"
 
-#: omweather/src/hash.data:262
+#: omweather/src/hash.data:264
 msgid "Showers / Wind"
 msgstr "Prehánky / Vietor"
 
-#: omweather/src/hash.data:261
+#: omweather/src/hash.data:263
 msgid "Showers / Wind Early"
 msgstr "Prehánky / Spočiatku vietor"
 
-#: omweather/src/hash.data:263
+#: omweather/src/hash.data:265
 msgid "Showers Early"
 msgstr "Spočiatku prehánky"
 
-#: omweather/src/hash.data:264
+#: omweather/src/hash.data:266
 msgid "Showers Late"
 msgstr "Neskôr prehánky"
 
-#: omweather/src/hash.data:265
+#: omweather/src/hash.data:267
 msgid "Showers in the Vicinity"
 msgstr "Prehánky v okolí"
 
-#: omweather/src/hash.data:267
+#: omweather/src/hash.data:336
+msgid "Sky is Clear"
+msgstr ""
+
+#: omweather/src/hash.data:269
 msgid "Sleet"
 msgstr "Dážď so snehom"
 
-#: omweather/src/hash.data:268
+#: omweather/src/hash.data:270
 msgid "Smoke"
 msgstr "Dymová clona"
 
-#: omweather/src/hash.data:279
+#: omweather/src/hash.data:281
 msgid "Snow"
 msgstr "Sneženie"
 
-#: omweather/src/hash.data:269
+#: omweather/src/hash.data:271
 msgid "Snow / Wind"
 msgstr "Sneženie / Vietor"
 
-#: omweather/src/hash.data:271
+#: omweather/src/hash.data:273
 msgid "Snow Shower"
 msgstr "Snehové prehánky"
 
-#: omweather/src/hash.data:270
+#: omweather/src/hash.data:272
 msgid "Snow Shower / Wind"
 msgstr "Snehové prehánky / Vietor"
 
-#: omweather/src/hash.data:272
+#: omweather/src/hash.data:274
 msgid "Snow Showers / Wind Early"
 msgstr "Snehové prehánky / Spočiatku vietor"
 
-#: omweather/src/hash.data:273
+#: omweather/src/hash.data:275
 msgid "Snow Showers Early"
 msgstr "Spočiatku snehové prehánky"
 
-#: omweather/src/hash.data:274
+#: omweather/src/hash.data:276
 msgid "Snow Showers Late"
 msgstr "Neskôr snehové prehánky"
 
-#: omweather/src/hash.data:275
+#: omweather/src/hash.data:277
 msgid "Snow and Freezing Rain"
 msgstr "Sneženie a mrznúci dážď"
 
-#: omweather/src/hash.data:276
+#: omweather/src/hash.data:278
 msgid "Snow to Rain"
 msgstr "Sneženie meniace sa na dážď"
 
-#: omweather/src/hash.data:278
+#: omweather/src/hash.data:280
 msgid "Snow to Wintry Mix"
 msgstr "Chladno a sychravo so snežením"
 
-#: omweather/src/hash.data:277
+#: omweather/src/hash.data:279
 msgid "Snow to Wintry Mix / Wind"
 msgstr "Chladno a sychravo so snežením / Vietor"
 
@@ -2347,7 +2352,7 @@ msgstr "Rychlosť"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
-#: meecast/qt-qml/dataitem.cpp:184
+#: meecast/qt-qml/dataitem.cpp:187
 msgid "Speed:"
 msgstr "Rýchlosť:"
 
@@ -2369,7 +2374,7 @@ msgstr "Stanica %i"
 msgid "Stations"
 msgstr "Stanice"
 
-#: omweather/src/hash.data:280 omweather/src/weather-alerts.c:154
+#: omweather/src/hash.data:282 omweather/src/weather-alerts.c:154
 msgid "Storm"
 msgstr "Búrka"
 
@@ -2377,15 +2382,15 @@ msgstr "Búrka"
 msgid "Successfully loaded"
 msgstr "Úspešne načítané"
 
-#: omweather/src/hash.data:282
+#: omweather/src/hash.data:284
 msgid "Sunny"
 msgstr "Slnečno"
 
-#: omweather/src/hash.data:281
+#: omweather/src/hash.data:283
 msgid "Sunny / Wind"
 msgstr "Slnečno / Vietor"
 
-#: omweather/src/hash.data:283 meecast/qt-qml/qml/FullWeatherPage.qml:288
+#: omweather/src/hash.data:285 meecast/qt-qml/qml/FullWeatherPage.qml:292
 msgid "Sunrise:"
 msgstr "Východ:"
 
@@ -2393,7 +2398,7 @@ msgstr "Východ:"
 msgid "Sunrise: "
 msgstr "Východ: "
 
-#: omweather/src/hash.data:284 meecast/qt-qml/qml/FullWeatherPage.qml:291
+#: omweather/src/hash.data:286 meecast/qt-qml/qml/FullWeatherPage.qml:295
 msgid "Sunset:"
 msgstr "Západ:"
 
@@ -2409,27 +2414,27 @@ msgstr "Zameniť vysokú/nízku teplotu"
 msgid "Switch to the next station after:"
 msgstr "Prepnúť na ďalšiu stanicu po:"
 
-#: omweather/src/hash.data:286
+#: omweather/src/hash.data:288
 msgid "T-Showers"
 msgstr "Prehánky"
 
-#: omweather/src/hash.data:285
+#: omweather/src/hash.data:287
 msgid "T-Showers Early"
 msgstr "Spočiatku prehánky"
 
-#: omweather/src/hash.data:287
+#: omweather/src/hash.data:289
 msgid "T-Storm"
 msgstr "Búrka"
 
-#: omweather/src/hash.data:290
+#: omweather/src/hash.data:292
 msgid "T-Storms"
 msgstr "Búrky"
 
-#: omweather/src/hash.data:288
+#: omweather/src/hash.data:290
 msgid "T-Storms Early"
 msgstr "Spočiatku búrky"
 
-#: omweather/src/hash.data:289
+#: omweather/src/hash.data:291
 msgid "T-Storms Late"
 msgstr "Neskôr búrky"
 
@@ -2439,7 +2444,7 @@ msgstr "Neskôr búrky"
 msgid "Temperature"
 msgstr "Teplota"
 
-#: omweather/src/hash.data:291 meecast/qt-qml/qml/UnitsPage.qml:31
+#: omweather/src/hash.data:293 meecast/qt-qml/qml/UnitsPage.qml:31
 #: meecast/qt-qml/qml/UnitsPage.qml:103
 msgid "Temperature units"
 msgstr "Teplota"
@@ -2449,7 +2454,7 @@ msgid "Temperature units:"
 msgstr "Jednotky teploty:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
-#: meecast/qt-qml/dataitem.cpp:178
+#: meecast/qt-qml/dataitem.cpp:181
 msgid "Temperature:"
 msgstr "Teplota:"
 
@@ -2491,17 +2496,17 @@ msgstr ""
 "Tento softvér je slobodný softvér; môžete ho ďalej šíriť a/alebo upravovať "
 "podľa ustanovení Všeobecnej verejnej licencie GNU\n"
 
-#: omweather/src/hash.data:292
+#: omweather/src/hash.data:294
 msgid "Thunder"
 msgstr "Hrmenie"
 
-#: omweather/src/hash.data:293
+#: omweather/src/hash.data:295
 msgid "Thunder in the Vicinity"
 msgstr "Hrmenie v okolí"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
-#: meecast/qt-qml/qml/FullWeatherPage.qml:423
+#: meecast/qt-qml/qml/FullWeatherPage.qml:427
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Today"
 msgstr "Dnes"
@@ -2523,7 +2528,7 @@ msgstr ""
 msgid "Transparency:"
 msgstr "Priehľadnosť:"
 
-#: omweather/src/hash.data:294 meecast/qt-qml/qml/WeatherPage.qml:501
+#: omweather/src/hash.data:296 meecast/qt-qml/qml/WeatherPage.qml:501
 msgid "Try to update"
 msgstr "Skúste aktualizovať"
 
@@ -2531,7 +2536,7 @@ msgstr "Skúste aktualizovať"
 msgid "Type of click:"
 msgstr "Druh kliknutia:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:172
+#: meecast/qt-qml/qml/FullWeatherPage.qml:174
 msgid "UV index:"
 msgstr "UV index:"
 
@@ -2557,7 +2562,7 @@ msgstr "Jednotky"
 msgid "Unknown"
 msgstr "Neznáma"
 
-#: omweather/src/hash.data:295
+#: omweather/src/hash.data:297
 msgid "Unlimited"
 msgstr "Neobmedzené"
 
@@ -2574,7 +2579,7 @@ msgstr "Aktualizácia práve prebieha."
 msgid "Update interval"
 msgstr "Interval aktualizácie"
 
-#: omweather/src/hash.data:296 meecast/qt-qml/qml/WeatherPage.qml:360
+#: omweather/src/hash.data:298 meecast/qt-qml/qml/WeatherPage.qml:360
 msgid "Updating forecast"
 msgstr "Aktualizujem údaje o počasí"
 
@@ -2606,7 +2611,7 @@ msgstr ""
 msgid "Use device temperature sensor"
 msgstr "Použiť teplotný senzor zariadenia"
 
-#: omweather/src/hash.data:297
+#: omweather/src/hash.data:299
 msgid "VAR"
 msgstr "Premenlivo"
 
@@ -2614,7 +2619,7 @@ msgstr "Premenlivo"
 msgid "Valid time for current weather:"
 msgstr "Platný čas pre aktuálne počasie:"
 
-#: omweather/src/hash.data:298
+#: omweather/src/hash.data:300
 msgid "Very High"
 msgstr "Veľmi vysoké"
 
@@ -2627,7 +2632,7 @@ msgid "Visible units"
 msgstr "Viditeľné jednotky"
 
 #: omweather/src/weather-popup.c:1288
-#: meecast/qt-qml/qml/FullWeatherPage.qml:169
+#: meecast/qt-qml/qml/FullWeatherPage.qml:171
 msgid "Visible:"
 msgstr "Viditeľnosť:"
 
@@ -2636,7 +2641,7 @@ msgstr "Viditeľnosť:"
 msgid "Visuals"
 msgstr "Vzhľad"
 
-#: omweather/src/hash.data:299
+#: omweather/src/hash.data:301
 msgid "W"
 msgstr "Z"
 
@@ -2646,31 +2651,31 @@ msgstr "Z"
 msgid "WLAN"
 msgstr "WLAN"
 
-#: omweather/src/hash.data:300
+#: omweather/src/hash.data:302
 msgid "WNW"
 msgstr "ZSZ"
 
-#: omweather/src/hash.data:301
+#: omweather/src/hash.data:303
 msgid "WNW_short"
 msgstr "ZSZ"
 
-#: omweather/src/hash.data:302
+#: omweather/src/hash.data:304
 msgid "WSW"
 msgstr "ZJZ"
 
-#: omweather/src/hash.data:303
+#: omweather/src/hash.data:305
 msgid "WSW_short"
 msgstr "ZJZ"
 
-#: omweather/src/hash.data:304
+#: omweather/src/hash.data:306
 msgid "W_short"
 msgstr "Z"
 
-#: omweather/src/hash.data:305
+#: omweather/src/hash.data:307
 msgid "Waning Crescent"
 msgstr "Ubúdajúci kosák"
 
-#: omweather/src/hash.data:306
+#: omweather/src/hash.data:308
 msgid "Waning Gibbous"
 msgstr "Cúvajúci Mesiac"
 
@@ -2678,11 +2683,11 @@ msgstr "Cúvajúci Mesiac"
 msgid "Warning"
 msgstr "Upozornienie"
 
-#: omweather/src/hash.data:307
+#: omweather/src/hash.data:309
 msgid "Waxing Crescent"
 msgstr "Dorastajúci kosák"
 
-#: omweather/src/hash.data:308
+#: omweather/src/hash.data:310
 msgid "Waxing Gibbous"
 msgstr "Dorastajúci Mesiac"
 
@@ -2719,34 +2724,34 @@ msgstr "Štýl widgetu"
 msgid "Widget style and Iconset"
 msgstr "Štýl widgetu a téma ikon"
 
-#: omweather/src/hash.data:312
+#: omweather/src/hash.data:314
 msgid "Wind"
 msgstr "Vietor"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:138
-#: meecast/qt-qml/qml/FullWeatherPage.qml:195
-#: meecast/qt-qml/qml/FullWeatherPage.qml:244
+#: meecast/qt-qml/qml/FullWeatherPage.qml:139
+#: meecast/qt-qml/qml/FullWeatherPage.qml:197
+#: meecast/qt-qml/qml/FullWeatherPage.qml:247
 #, fuzzy
 msgid "Wind direction"
 msgstr "Smer vetra:"
 
-#: omweather/src/hash.data:309
+#: omweather/src/hash.data:311
 msgid "Wind direction:"
 msgstr "Smer vetra:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:150
-#: meecast/qt-qml/qml/FullWeatherPage.qml:207
-#: meecast/qt-qml/qml/FullWeatherPage.qml:256
+#: meecast/qt-qml/qml/FullWeatherPage.qml:151
+#: meecast/qt-qml/qml/FullWeatherPage.qml:209
+#: meecast/qt-qml/qml/FullWeatherPage.qml:259
 msgid "Wind gust:"
 msgstr "Náraz vetra:"
 
-#: omweather/src/hash.data:311 meecast/qt-qml/qml/FullWeatherPage.qml:144
-#: meecast/qt-qml/qml/FullWeatherPage.qml:201
-#: meecast/qt-qml/qml/FullWeatherPage.qml:250
+#: omweather/src/hash.data:313 meecast/qt-qml/qml/FullWeatherPage.qml:145
+#: meecast/qt-qml/qml/FullWeatherPage.qml:203
+#: meecast/qt-qml/qml/FullWeatherPage.qml:253
 msgid "Wind speed"
 msgstr "Rýchlosť vetra"
 
-#: omweather/src/hash.data:310 meecast/qt-qml/qml/UnitsPage.qml:40
+#: omweather/src/hash.data:312 meecast/qt-qml/qml/UnitsPage.qml:40
 #: meecast/qt-qml/qml/UnitsPage.qml:142
 msgid "Wind speed units"
 msgstr "Rýchlosti vetra"
@@ -2757,7 +2762,7 @@ msgstr "Jednotky rýchlosti vetra:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
-#: meecast/qt-qml/dataitem.cpp:182
+#: meecast/qt-qml/dataitem.cpp:185
 msgid "Wind:"
 msgstr "Vietor:"
 
@@ -2766,19 +2771,19 @@ msgstr "Vietor:"
 msgid "Wind: "
 msgstr "Vietor: "
 
-#: omweather/src/hash.data:316
+#: omweather/src/hash.data:318
 msgid "Wintry Mix"
 msgstr "Chladno a sychravo"
 
-#: omweather/src/hash.data:314
+#: omweather/src/hash.data:316
 msgid "Wintry Mix / Wind"
 msgstr "Chladno a sychravo / Vietor"
 
-#: omweather/src/hash.data:313
+#: omweather/src/hash.data:315
 msgid "Wintry Mix / Wind Early"
 msgstr "Chladno a sychravo / Spočiatku vietor"
 
-#: omweather/src/hash.data:315
+#: omweather/src/hash.data:317
 msgid "Wintry Mix to Snow"
 msgstr "Chladno a sychravo so snežením"
 
@@ -2848,11 +2853,11 @@ msgstr "miestneho času aktuálnej polohy"
 msgid "d:"
 msgstr "d:"
 
-#: meecast/qt-qml/dataitem.cpp:446
+#: meecast/qt-qml/dataitem.cpp:455
 msgid "day ago"
 msgstr "deň dozadu"
 
-#: meecast/qt-qml/dataitem.cpp:448
+#: meecast/qt-qml/dataitem.cpp:457
 msgid "days ago"
 msgstr "dní dozadu"
 
@@ -2888,7 +2893,7 @@ msgstr "každú hodinu"
 msgid "every minute (Debug)"
 msgstr "každú minútu (Ladenie)"
 
-#: omweather/src/hash.data:317
+#: omweather/src/hash.data:319
 msgid "falling"
 msgstr "klesá"
 
@@ -2896,11 +2901,19 @@ msgstr "klesá"
 msgid "feels like"
 msgstr "na pocit"
 
-#: meecast/qt-qml/dataitem.cpp:440
+#: omweather/src/hash.data:332
+msgid "few clouds"
+msgstr ""
+
+#: omweather/src/hash.data:337
+msgid "heavy intensity rain"
+msgstr ""
+
+#: meecast/qt-qml/dataitem.cpp:449
 msgid "hour ago"
 msgstr "hodinu dozadu"
 
-#: meecast/qt-qml/dataitem.cpp:443
+#: meecast/qt-qml/dataitem.cpp:452
 msgid "hours ago"
 msgstr "hodín dozadu"
 
@@ -2923,16 +2936,21 @@ msgstr "palec"
 msgid "km"
 msgstr "km"
 
-#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:318
+#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:320
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
 #: meecast/qt-qml/qml/UnitsPage.qml:160
 msgid "km/h"
 msgstr "km/h"
 
-#: omweather/src/hash.data:319
+#: omweather/src/hash.data:321
 msgid "km/s"
 msgstr "km/s"
+
+#: omweather/src/hash.data:333
+#, fuzzy
+msgid "light rain"
+msgstr "Slabý dážď"
 
 #: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1296
 #: omweather/src/weather-simple-settings.c:1328
@@ -2941,11 +2959,11 @@ msgstr "km/s"
 msgid "m"
 msgstr "m"
 
-#: omweather/src/hash.data:320
+#: omweather/src/hash.data:322
 msgid "m/h"
 msgstr "m/h"
 
-#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:321
+#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:323
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
 #: meecast/qt-qml/qml/UnitsPage.qml:153
@@ -2973,22 +2991,22 @@ msgstr "mbar"
 msgid "mi"
 msgstr "mi"
 
-#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:322
+#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:324
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
 #: meecast/qt-qml/qml/UnitsPage.qml:167
 msgid "mi/h"
 msgstr "mi/h"
 
-#: omweather/src/hash.data:323
+#: omweather/src/hash.data:325
 msgid "mi/s"
 msgstr "mi/s"
 
-#: meecast/qt-qml/dataitem.cpp:434
+#: meecast/qt-qml/dataitem.cpp:443
 msgid "minute ago"
 msgstr "minutu dozadu"
 
-#: meecast/qt-qml/dataitem.cpp:437
+#: meecast/qt-qml/dataitem.cpp:446
 msgid "minutes ago"
 msgstr "minút dozadu"
 
@@ -3005,6 +3023,11 @@ msgstr "mm"
 #: meecast/qt-qml/qml/UnitsPage.qml:201
 msgid "mmHg"
 msgstr "mmHg"
+
+#: omweather/src/hash.data:334
+#, fuzzy
+msgid "moderate rain"
+msgstr "(Stredná)"
 
 #: omweather/src/weather-simple-popup.c:489
 msgid "n:"
@@ -3028,13 +3051,18 @@ msgstr "ďalšia"
 msgid "nmi"
 msgstr "nmi"
 
-#: omweather/src/hash.data:324
+#: omweather/src/hash.data:326
 msgid "rising"
 msgstr "rastie"
 
-#: meecast/qt-qml/dataitem.cpp:431
+#: meecast/qt-qml/dataitem.cpp:440
 msgid "seconds ago"
 msgstr "sekúnd dozadu"
+
+#: omweather/src/hash.data:335
+#, fuzzy
+msgid "sky is clear"
+msgstr "Prevažne jasno"
 
 #: omweather/src/weather-popup.c:271
 msgid "station local time"
@@ -3044,39 +3072,39 @@ msgstr "miestneho času stanice"
 msgid "station name"
 msgstr "názov stanice"
 
-#: omweather/src/hash.data:325
+#: omweather/src/hash.data:327
 msgid "steady"
 msgstr "ustálený"
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:338
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:339
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:332
+#: omweather/src/hash.data:340
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:333
+#: omweather/src/hash.data:341
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:334
+#: omweather/src/hash.data:342
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:343
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:344
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:337
+#: omweather/src/hash.data:345
 msgid "Ю-З"
 msgstr "Ю-З"
 

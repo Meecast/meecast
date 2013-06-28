@@ -53,6 +53,7 @@ namespace Core {
         _day_of_month_name = new std::string();
         _month_name = new std::string();
         _map_pattern = new std::string();
+        _map_background_pattern = new std::string();
         _temperature_hi = new Temperature(INT_MAX, "C");
         _temperature_low = new Temperature(INT_MAX, "C");
         _temperature = new Temperature(INT_MAX, "C");
@@ -97,6 +98,7 @@ namespace Core {
         _day_of_month_name = data->_day_of_month_name;
         _month_name = data->_month_name;
         _map_pattern = data->_map_pattern;
+        _map_background_pattern = data->_map_background_pattern;
         _sunrise = data->_sunrise;
         _sunset = data->_sunset;
     }
@@ -212,6 +214,15 @@ namespace Core {
      std::string&
      Data::MapPattern(){
          return *_map_pattern;
+     }
+////////////////////////////////////////////////////////////////////////////////
+     void
+     Data::MapBackgroundPattern(const std::string& text){
+         _map_background_pattern->assign(text);
+     }
+     std::string&
+     Data::MapBackgroundPattern(){
+         return *_map_background_pattern;
      }
 ////////////////////////////////////////////////////////////////////////////////
      void

@@ -65,7 +65,7 @@ DatabaseSqlite::open_database()
     int rc;
     char * msg;
     std::string key ("gismeteo.ru.db");
-   // std::cerr << (databasename->length() - databasename->rfind(key)) << " " << key.length() << std::endl;
+//    std::cerr << (databasename->length() - databasename->rfind(key)) << " " << key.length() << std::endl;
     if (sqlite3_open(databasename->c_str(), &db)){
         std::cerr << "error open " << *databasename << std::endl;
         return false;

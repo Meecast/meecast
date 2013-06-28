@@ -59,5 +59,7 @@
     QString hash_gismeteo_description_table_find(QHash<QString, QString> *hash, char *key);
 #endif
 
+xmlHashTablePtr hash_icons_gismeteoru_table_create(); 
+xmlHashTablePtr hash_descriptions_gismeteoru_table_create(); 
 /*******************************************************************************/
 #endif

@@ -64,6 +64,7 @@ namespace Core{
         std::string *_day_of_month_name;
         std::string *_month_name;
         std::string *_map_pattern;
+        std::string *_map_background_pattern;
         int _icon;
         Temperature *_temperature_hi;
         Temperature *_temperature_low;
@@ -94,6 +95,8 @@ namespace Core{
             std::string& WindDirection(void);
             void  MapPattern(const std::string& text);
             std::string& MapPattern(void);
+            void  MapBackgroundPattern(const std::string& text);
+            std::string& MapBackgroundPattern(void);
             void  WindGust(float windgust);
             float WindGust(void) const;
             void  Humidity(int humidity);

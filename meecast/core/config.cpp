@@ -227,6 +227,7 @@ Config::saveConfig()
 
         el = doc.createElement("map_url");
         /* Temporary hack for weather.com . This must be delete after version 0.7.0 */
+        /*
         if ( QString::fromStdString((*i)->mapURL()) == "" 
             && QString::fromStdString((*i)->sourceName()) == "weather.com"){
 
@@ -246,12 +247,22 @@ Config::saveConfig()
             t = doc.createTextNode(QString::fromStdString(map_url));
             el.appendChild(t);
             st.appendChild(el);
-        }else{
+        }else
+        */
+        {
             if (QString::fromStdString((*i)->mapURL()) != ""){
                 t = doc.createTextNode(QString::fromStdString((*i)->mapURL()));
                 el.appendChild(t);
                 st.appendChild(el);
             }
+        
+        }
+
+        el = doc.createElement("basemap_url");
+        if (QString::fromStdString((*i)->basemapURL()) != ""){
+            t = doc.createTextNode(QString::fromStdString((*i)->basemapURL()));
+            el.appendChild(t);
+            st.appendChild(el);
         }
 
         el = doc.createElement("detail_url");
@@ -423,7 +434,7 @@ Config::LoadConfig(){
 
         nodelist = root.elementsByTagName("station");
         for (int i=0; i<nodelist.count(); i++){
-            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, mapURL, cookie, latitude, longitude;
+            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, basemapURL,  mapURL, cookie, latitude, longitude;
             bool gps = false;
             bool splash = true;
             QDomElement e = nodelist.at(i).toElement();
@@ -454,6 +465,8 @@ Config::LoadConfig(){
                     viewURL = el.text();
                 else if (tag == "map_url")
                     mapURL = el.text();
+                else if (tag == "basemap_url")
+                    basemapURL = el.text();
                 else if (tag == "longitude")
                     longitude = el.text();
                 else if (tag == "latitude")
@@ -472,7 +485,17 @@ Config::LoadConfig(){
                 forecastURL.replace("#","/");
             if  (source_name=="yr.no")
                 viewURL.replace("#","/");
-
+            std::cerr<<"SOurce name "<<source_name.toStdString()<<std::endl;
+         /* Hack for foreca.com Remove it after version 0.8 */
+         if  (source_name=="foreca.com" and !( forecastURL.contains("old"))){
+             forecastURL.replace(QString(".mobi/"), QString(".mobi/old/"));
+             std::cerr<<"Forecast URL "<<forecastURL.toStdString()<<std::endl;
+         }
+         if  (source_name=="foreca.com" and !(detailURL.contains("old"))){
+             detailURL.replace(QString(".mobi/"), QString(".mobi/old/"));
+             std::cerr<<"Detail URL "<<detailURL.toStdString()<<std::endl;
+         }
+ 
             Station *st = new Station(source_name.toStdString(),
                                       station_id.toStdString(),
                                       station_name.toUtf8().data(),
@@ -482,6 +505,7 @@ Config::LoadConfig(){
 				                      detailURL.toStdString(),
                                       viewURL.toStdString(),
                                       mapURL.toStdString(),
+                                      basemapURL.toStdString(),
                                       cookie.toStdString(),
                                       gps, 
                                       latitude.toDouble(),
@@ -512,7 +536,7 @@ Config::InitLanguagesList(){
     _languages_list->push_back(std::make_pair("Albanian", "sq"));
     _languages_list->push_back(std::make_pair("Arabic", "ar_AR"));
     _languages_list->push_back(std::make_pair("Bulgarian", "bg_BG"));
-    _languages_list->push_back(std::make_pair("Catalan", "ca_CA"));
+    _languages_list->push_back(std::make_pair("Catalan", "ca"));
     _languages_list->push_back(std::make_pair("Chinese", "zh_ZH"));
     _languages_list->push_back(std::make_pair("Dutch", "nl_NL"));
     _languages_list->push_back(std::make_pair("German", "de_DE"));

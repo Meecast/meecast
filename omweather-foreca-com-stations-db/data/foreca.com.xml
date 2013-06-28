@@ -3,8 +3,8 @@
 <name>foreca.com</name>
 <logo>foreca.com.png</logo>
 <base>foreca.com.db</base>
-<forecast url="http://foreca.mobi/7d.php?l=%s" />
-<detail url="http://foreca.mobi/index.php?l=%s" />
+<forecast url="http://foreca.mobi/old/7d.php?l=%s" />
+<detail url="http://foreca.mobi/old/index.php?l=%s" />
 <search url="http://xoap.weather.com/search/search?where=%s" />
 <library>libomweather-yr-no-source.so</library>
 <binary>app/native/forecacom</binary>

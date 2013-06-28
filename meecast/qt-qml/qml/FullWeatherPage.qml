@@ -11,6 +11,7 @@ Page {
     property string description_text: ""
 
     property string map_pattern: "";  
+    property string mapbackground_pattern: "";  
     property string count_of_maps: "0";  
 
     property variant model_current: Current 
@@ -178,7 +179,7 @@ Page {
             if ((model_day.getdata(day, "map_pattern")) != ""){
                 map_pattern = model_day.getdata(day, "map_pattern")
                 //map_text.visible = true;
-                count_of_maps = model_day.getdata(day, "count_of_maps")
+               count_of_maps = model_day.getdata(day, "count_of_maps")
             }else{
             //    map_text.visible = false;
             }

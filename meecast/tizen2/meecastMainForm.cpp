@@ -77,6 +77,9 @@ meecastMainForm::OnInitializing(void)
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
     if (left_label != null)
 		left_label->AddTouchEventListener(*this);
+    Tizen::Ui::Controls::Label  *background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
+    if (background_label != null)
+        background_label->AddTouchEventListener(*this);
 
     /* Footer */
     Footer* pFooter = GetFooter();
@@ -270,8 +273,7 @@ meecastMainForm::OnInitializing(void)
 }
 
 result
-meecastMainForm::OnTerminating(void)
-{
+meecastMainForm::OnTerminating(void){
     result r = E_SUCCESS;
 
     // TODO:
@@ -283,11 +285,12 @@ void
 meecastMainForm::OnTouchPressed(const Tizen::Ui::Control& source, 
                                 const Tizen::Graphics::Point& currentPosition,
 		                        const Tizen::Ui::TouchEventInfo& touchInfo) {
-
+    SceneManager* pSceneManager = SceneManager::GetInstance();
+    AppAssert(pSceneManager);
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
-	if (source.Equals(*left_label))
-	{
+    Tizen::Ui::Controls::Label  *background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
+	if (source.Equals(*left_label)){
         if ((uint)(_config->current_station_id() - 1) >= 0)
             _config->current_station_id(_config->current_station_id() - 1);
         else
@@ -297,8 +300,7 @@ meecastMainForm::OnTouchPressed(const Tizen::Ui::Control& source,
         ReInitElements(); 
         AppLog("Left Touch Screen");
 	}
-    if (source.Equals(*right_label))
-	{
+    if (source.Equals(*right_label)){
         if ((uint)(_config->current_station_id() + 1) < _config->stationsList().size())
             _config->current_station_id(_config->current_station_id() + 1);
         else
@@ -308,6 +310,10 @@ meecastMainForm::OnTouchPressed(const Tizen::Ui::Control& source,
         ReInitElements(); 
 
         AppLog("Right Touch Screen");
+	}
+    if (source.Equals(*background_label)){
+        AppLog("BackGround Touch Screen");
+        pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_FULLWEATHERSCENE"));
 	}
 }
 

@@ -6,6 +6,7 @@
 #include "meecastCountriesForm.h"
 #include "meecastRegionsForm.h"
 #include "meecastStationsForm.h"
+#include "meecastFullWeatherForm.h"
 
 using namespace Tizen::Ui::Scenes;
 
@@ -60,7 +61,13 @@ meecastFormFactory::CreateFormN(const Tizen::Base::String& formId, const Tizen::
 		pForm->Initialize();
 		pSceneManager->AddSceneEventListener(sceneId, *pForm);
 		pNewForm = pForm;
+	}else if (formId == L"FULL_WEATHER_FORM"){
+		meecastFullWeatherForm* pForm = new (std::nothrow) meecastFullWeatherForm();
+		pForm->Initialize();
+		pSceneManager->AddSceneEventListener(sceneId, *pForm);
+		pNewForm = pForm;
 	}
+
 
 
 

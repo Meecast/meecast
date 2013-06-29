@@ -1,6 +1,7 @@
 meecast (0.7.4) unstable; urgency=low
 
   * Added description strings and icon to gismeteo.ru 
+  * Added icon fot forca.com
 
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 21 Jun 2013 15:31:23 +0200
 

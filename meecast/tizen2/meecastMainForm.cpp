@@ -119,8 +119,6 @@ meecastMainForm::OnInitializing(void)
                                        "config.xsd");
 
 
-
-
 	AppResource *pAppResource = Application::GetInstance()->GetAppResource();
 	if (pAppResource != null)
 	{
@@ -421,9 +419,9 @@ meecastMainForm::ReInitElements(void){
     Tizen::Ui::Controls::Label  *station_label = static_cast<Label*>(GetControl(L"IDC_LABEL_STATION_NAME"));
     Tizen::Ui::Controls::Label  *main_background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
     Tizen::Ui::Controls::Label  *main_no_locations_label = static_cast<Label*>(GetControl(L"IDC_LABEL_NO_LOCATIONS"));
-    Tizen::Ui::Controls::Button  *main_set_locations_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_SET_LOCATIONS"));
+    Tizen::Ui::Controls::Button *main_set_locations_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_SET_LOCATIONS"));
     Tizen::Ui::Controls::Label  *main_need_updating = static_cast<Label*>(GetControl(L"IDC_LABEL_NEED_UPDATING"));
-    Tizen::Ui::Controls::Button  *main_set_try_update_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_TRY_UPDATE"));
+    Tizen::Ui::Controls::Button *main_set_try_update_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_TRY_UPDATE"));
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
     Tizen::Ui::Controls::Label  *main_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_MAIN_ICON"));
@@ -685,8 +683,10 @@ meecastMainForm::ReInitElements(void){
         image = new (std::nothrow) Tizen::Media::Image();
         image->Construct();
 
-        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-size-normal/icons/Atmos/na.png")){
-            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-size-normal/icons/Atmos/na.png", BITMAP_PIXEL_FORMAT_ARGB8888);
+        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() +
+                                            L"screen-size-normal/icons/Atmos/na.png")){
+            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() +
+                                            L"screen-size-normal/icons/Atmos/na.png", BITMAP_PIXEL_FORMAT_ARGB8888);
             main_icon->SetBackgroundBitmap(*mainIconBitmap);
             main_icon->RequestRedraw();
             SAFE_DELETE(image);

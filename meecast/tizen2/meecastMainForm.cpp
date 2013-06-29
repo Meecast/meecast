@@ -582,7 +582,6 @@ meecastMainForm::ReInitElements(void){
         Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(t);
         backgroundPanel->SetBackgroundColor(*color_of_temp);
         delete color_of_temp;
-        backgroundPanel->RequestRedraw();
         main_temperature->SetShowState(true);
         Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
         main_temperature->SetText(str);
@@ -703,9 +702,11 @@ meecastMainForm::ReInitElements(void){
             main_need_updating->SetShowState(true);
             main_set_try_update_button->AddActionEventListener(*this);
             main_set_try_update_button->SetActionId(ID_BUTTON_UPDATE);
+            backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(0xFF, 0xFF, 0xFF));
         }
     }
     main_listview_forecast->UpdateList();
+    backgroundPanel->RequestRedraw();
 }
 
 void
@@ -790,7 +791,10 @@ meecastMainForm::CreateItem (int index, int itemWidth)
         temp_data->temperature().units(_config->TemperatureUnit());
 
         pItem->AddElement(Tizen::Graphics::Rectangle(10, 20, 220, 50), 0, temp_data->DayOfMonthName().c_str(), false);
-        pItem->AddElement(Tizen::Graphics::Rectangle(90, 20, 220, 50), 4, temp_data->ShortDayName().c_str(), false);
+        if (index != 0)
+            pItem->AddElement(Tizen::Graphics::Rectangle(90, 20, 220, 50), 4, temp_data->ShortDayName().c_str(), false);
+        else
+            pItem->AddElement(Tizen::Graphics::Rectangle(90, 20, 220, 50), 4, L"Today", false);
         /* Icon */
         snprintf(buffer, sizeof(buffer) - 1, "icons/Atmos/%i.png", temp_data->Icon());
         pItem->AddElement(Tizen::Graphics::Rectangle(320, 0, 100, 100), 1, *Application::GetInstance()->GetAppResource()->GetBitmapN(buffer), null, null);

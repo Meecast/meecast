@@ -236,7 +236,7 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
 
     time_t      current_time;
     int         localtimezone;
-    struct      tm time_tm1  = {0};
+    struct      tm time_tm1 = {0};
     struct      tm time_tm2 = {0};
 
 
@@ -290,14 +290,12 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
 
            if(!xmlStrcmp(child_node->name, (const xmlChar *) "lastupdate")){
                if(xmlGetProp(child_node, (const xmlChar*)"value")) {
-
                    struct tm tmp_tm1 = {0};
                    memset(temp_buffer, 0, sizeof(buffer));
                    snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
                                        xmlGetProp(child_node, (const xmlChar*)"value"));
                    strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm1);
 //                   fprintf(stderr, "Current time buffer %s\n", temp_buffer);
-
                    AppLog("Current time buffer %s ", temp_buffer);
                    utc_time_start = mktime(&tmp_tm1) + localtimezone*3600;
                    utc_time_end = mktime(&tmp_tm1) + localtimezone*3600 + 4*3600;

@@ -63,6 +63,7 @@ protected:
     static const int ID_MENU_SETTINGS = 906;
     static const int ID_MENU_ABOUT = 907;
     static const int ID_BUTTON_UPDATE = 908;
+    static const int ID_SET_LOCATIONS = 909;
     static const int DURATION = 500;
     static const int PROGRESS_COUNT = 30;
 private:

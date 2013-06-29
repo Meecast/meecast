@@ -378,7 +378,10 @@ meecastMainForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionI
 	        __updateTimer->StartAsRepeatable(1000);
             _config->updatestations();
         }
-
+        break;
+    case ID_SET_LOCATIONS:
+        AppLog("Locations is clicked!");
+        pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_SOURCESSCENE"));
         break;
     default:
         break;
@@ -446,6 +449,8 @@ meecastMainForm::ReInitElements(void){
         station_label->SetText("MeeCast");
         main_no_locations_label->SetShowState(true);
         main_set_locations_button->SetShowState(true);
+        main_set_locations_button->AddActionEventListener(*this);
+        main_set_locations_button->SetActionId(ID_SET_LOCATIONS);
         backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(0xFF, 0xFF, 0xFF));
     }
     main_background_label->RequestRedraw();

@@ -593,7 +593,6 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
 
 void DatabaseSqlite::get_station_coordinate(Tizen::Base::String& code, double &latitude, double &longitude)
 {
-    Tizen::Base::String *stationcode; 
     String sql;
     DbEnumerator* pEnum;
     result r = E_SUCCESS;

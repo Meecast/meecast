@@ -373,6 +373,10 @@ meecastMainForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionI
     case ID_BUTTON_UPDATE: 
         AppLog("Settings Update is clicked!");
         if (_config->stationsList().size() > 0){
+            Tizen::Ui::Controls::Label  *main_need_updating = static_cast<Label*>(GetControl(L"IDC_LABEL_NEED_UPDATING"));
+            Tizen::Ui::Controls::Button  *main_set_try_update_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_TRY_UPDATE"));
+            main_set_try_update_button->SetShowState(false);
+            main_need_updating->SetShowState(false);
             pFooter->RemoveItemAt(0);
             __pAnimation->Play();
 	        __updateTimer->StartAsRepeatable(1000);
@@ -418,6 +422,8 @@ meecastMainForm::ReInitElements(void){
     Tizen::Ui::Controls::Label  *main_background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
     Tizen::Ui::Controls::Label  *main_no_locations_label = static_cast<Label*>(GetControl(L"IDC_LABEL_NO_LOCATIONS"));
     Tizen::Ui::Controls::Button  *main_set_locations_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_SET_LOCATIONS"));
+    Tizen::Ui::Controls::Label  *main_need_updating = static_cast<Label*>(GetControl(L"IDC_LABEL_NEED_UPDATING"));
+    Tizen::Ui::Controls::Button  *main_set_try_update_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_TRY_UPDATE"));
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
     Tizen::Ui::Controls::Label  *main_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_MAIN_ICON"));
@@ -437,13 +443,13 @@ meecastMainForm::ReInitElements(void){
 
     Tizen::Ui::Controls::ListView  *main_listview_forecast = static_cast<ListView*>(GetControl(L"IDC_LISTVIEW_FORECASTS"));
 
-
-
     if (_config->stationsList().size()!=0){
         station_label->SetText(_config->stationname().c_str());
         main_background_label->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background_main.png"));
         main_no_locations_label->SetShowState(false);
         main_set_locations_button->SetShowState(false);
+        main_set_try_update_button->SetShowState(false);
+        main_need_updating->SetShowState(false);
     }else{
         main_background_label->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background.png"));
         station_label->SetText("MeeCast");
@@ -452,6 +458,8 @@ meecastMainForm::ReInitElements(void){
         main_set_locations_button->AddActionEventListener(*this);
         main_set_locations_button->SetActionId(ID_SET_LOCATIONS);
         backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(0xFF, 0xFF, 0xFF));
+        main_set_try_update_button->SetShowState(false);
+        main_need_updating->SetShowState(false);
     }
     main_background_label->RequestRedraw();
     station_label->RequestRedraw();
@@ -648,9 +656,7 @@ meecastMainForm::ReInitElements(void){
             Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
             main_pressure_text->SetText(str);
             main_pressure_text->RequestRedraw();
-       }
-
-
+        }
 
         main_listview_forecast->SetItemProvider(*this);
         main_listview_forecast->SetItemDividerColor(Tizen::Graphics::Color(0x1F, 0x1F, 0x1F)); 
@@ -692,10 +698,14 @@ meecastMainForm::ReInitElements(void){
     if (_dayCount == 0){
         main_background_label->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background.png"));
         main_background_label->RequestRedraw();
+        if (_config->stationsList().size()!=0){
+            main_set_try_update_button->SetShowState(true);
+            main_need_updating->SetShowState(true);
+            main_set_try_update_button->AddActionEventListener(*this);
+            main_set_try_update_button->SetActionId(ID_BUTTON_UPDATE);
+        }
     }
-
-   main_listview_forecast->UpdateList();
-   //main_listview_forecast->RequestRedraw();
+    main_listview_forecast->UpdateList();
 }
 
 void
@@ -704,8 +714,8 @@ meecastMainForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSce
 {
     // TODO:
     // Add your scene activate code here
-    AppLog("OnSceneActivatedNi %i", _config->current_station_id());
-    AppLog("OnSceneActivatedNi %s", _config->stationname().c_str());
+    //AppLog("OnSceneActivatedNi %i", _config->current_station_id());
+    //AppLog("OnSceneActivatedNi %s", _config->stationname().c_str());
     ReInitElements(); 
 }
 

@@ -270,13 +270,11 @@ meecastMainForm::OnInitializing(void)
     r = __updateTimer->Construct(*this);
     TryReturn(IsFailed(r) != true, r, "[%s] Failed to construct __pTimer", GetErrorMessage(r));
     AppLog("__updateTimer is constructed.");
-    Tizen::Ui::Controls::Panel *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
 
+    Tizen::Ui::Controls::Panel *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
 	if (pTouchArea != null){
 	    AddControl(*pTouchArea);
 		pTouchArea->AddTouchEventListener(*this);
-		Touch touch;
-		touch.SetMultipointEnabled(*pTouchArea, true);
 	}
 
 	__pFlickGesture = new (std::nothrow) TouchFlickGestureDetector;
@@ -284,8 +282,7 @@ meecastMainForm::OnInitializing(void)
 	{
 		__pFlickGesture->Construct();
         pTouchArea->AddGestureDetector(*__pFlickGesture);
-		__pFlickGesture->AddFlickGestureEventListener(*this);
-//		background_label->AddGestureDetector(*__pFlickGesture);
+    	__pFlickGesture->AddFlickGestureEventListener(*this);
 	}
     return r;
 }
@@ -888,8 +885,7 @@ meecastMainForm::OnFlickGestureDetected(TouchFlickGestureDetector& gestureDetect
 	Point point(0, 0);
 
     Tizen::Ui::Controls::Panel *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
-	if (pTouchArea != null)
-	{
+	if (pTouchArea != null) {
 		rc = pTouchArea->GetBounds();
 
 		Touch touch;
@@ -898,7 +894,8 @@ meecastMainForm::OnFlickGestureDetected(TouchFlickGestureDetector& gestureDetect
 
 	if (point.y < 0 || point.y > rc.height)
 	{
-		return;
+        AppLog("Problem with Flick");
+		    return;
 	}
 
 //	pTouchArea->Invalidate(false);

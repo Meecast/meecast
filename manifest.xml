@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Manifest xmlns="http://schemas.tizen.org/2012/12/manifest">
     <Id>ctLjIIgCCj</Id>
-    <Version>1.0.0</Version>
+    <Version>0.7.4</Version>
     <Type>C++App</Type>
     <Requirements>
         <Feature Name="http://tizen.org/feature/platform.core.cpu.arch.x86">true</Feature>
@@ -10,8 +10,8 @@
     <Apps>
         <ApiVersion>2.1</ApiVersion>
         <Privileges>
-            <Privilege>http://tizen.org/privilege/internet</Privilege>
             <Privilege>http://tizen.org/privilege/http</Privilege>
+            <Privilege>http://tizen.org/privilege/internet</Privilege>
             <Privilege>http://tizen.org/privilege/content.write</Privilege>
             <Privilege>http://tizen.org/privilege/download</Privilege>
         </Privileges>

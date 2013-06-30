@@ -5,7 +5,6 @@
 #include <FMedia.h>
 #include <FUi.h>
 #include "configtizen.h"
-#include "TouchAreaPanel.h"
 
 #define SAFE_DELETE(x)  if (x) { delete x; x = null; }
 

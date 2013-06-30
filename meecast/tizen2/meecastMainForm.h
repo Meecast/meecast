@@ -5,10 +5,9 @@
 #include <FMedia.h>
 #include <FUi.h>
 #include "configtizen.h"
-
+#include "TouchAreaPanel.h"
 
 #define SAFE_DELETE(x)  if (x) { delete x; x = null; }
-
 
 
 class meecastMainForm
@@ -20,6 +19,7 @@ class meecastMainForm
 	, public Tizen::Ui::Controls::IListViewItemProvider
     , public Tizen::Ui::ITouchEventListener
     , public Tizen::Base::Runtime::ITimerEventListener
+    , public Tizen::Ui::ITouchFlickGestureEventListener
      {
 public:
 	meecastMainForm(void);
@@ -43,7 +43,6 @@ public:
 	virtual void OnTouchLongPressed(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
 	virtual void OnTouchMoved(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
 	virtual void OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
-    void ReInitElements(void);
 
 
 	virtual void OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status);
@@ -53,10 +52,30 @@ public:
 	virtual Tizen::Ui::Controls::ListItemBase* CreateItem(int index, int itemWidth);
 	virtual bool DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth);
 	virtual int GetItemCount(void);
-    Tizen::Graphics::Color* GetTemperatureColor(int t);
+
+    //Gesture
+	virtual void OnFlickGestureDetected(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
+	virtual void OnFlickGestureCanceled(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
 
 
     virtual void OnTimerExpired(Tizen::Base::Runtime::Timer& timer);
+
+    void ReInitElements(void);
+    Tizen::Graphics::Color* GetTemperatureColor(int t);
+    void NextStation();
+    void PreviousStation();
+/*
+
+	static const int TOUCH_AREA_MARGIN = 5;
+	static const int TOUCH_AREA_WIDTH = 400;
+	static const int TOUCH_RESULT_WIDTH = 300;
+	static const int CANVAS_POS_Y = 225;
+	static const int CONDITION_WIDTH = 200;
+	static const int CONDITION_HEIGHT = 60;
+
+*/
+
+
 protected:
     static const int ID_BUTTON_OK = 101;
     static const int ID_BUTTON_MENU = 905;
@@ -74,6 +93,9 @@ private:
 	Tizen::Base::Collection::ArrayList* __pAnimationFrameList;
     Tizen::Ui::Controls::FooterItem* __updateButton;
     Tizen::Base::Runtime::Timer* __updateTimer;
+	Tizen::Ui::TouchFlickGestureDetector* __pFlickGesture;
+
+//	TouchAreaPanel* __pTouchArea;
 };
 
 #endif	//_MEECAST_MAIN_FORM_H_

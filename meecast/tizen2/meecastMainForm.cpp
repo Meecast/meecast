@@ -37,7 +37,8 @@ meecastMainForm::meecastMainForm(void):
                  __pContextMenuText(null),
                  __pAnimation(null),
 	             __pAnimationFrameList(null),
-                 __updateTimer(null)
+                 __updateTimer(null),
+	             __pFlickGesture(null)
 {
 }
 
@@ -78,8 +79,9 @@ meecastMainForm::OnInitializing(void)
     if (left_label != null)
 		left_label->AddTouchEventListener(*this);
     Tizen::Ui::Controls::Label  *background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
-    if (background_label != null)
+    if (background_label != null){
         background_label->AddTouchEventListener(*this);
+    }
 
     /* Footer */
     Footer* pFooter = GetFooter();
@@ -263,12 +265,28 @@ meecastMainForm::OnInitializing(void)
        }
     __updateTimer = new (std::nothrow) Tizen::Base::Runtime::Timer;
     TryReturn(__updateTimer != null, E_FAILURE, "[E_FAILURE] Failed to create __updateTimer.");
-    AppLog("SampleServiceApp : updateTimer is created.");
+    AppLog("updateTimer is created.");
 
     r = __updateTimer->Construct(*this);
     TryReturn(IsFailed(r) != true, r, "[%s] Failed to construct __pTimer", GetErrorMessage(r));
-    AppLog("SampleServiceApp : __updateTimer is constructed.");
+    AppLog("__updateTimer is constructed.");
+    Tizen::Ui::Controls::Panel *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
 
+	if (pTouchArea != null){
+	    AddControl(*pTouchArea);
+		pTouchArea->AddTouchEventListener(*this);
+		Touch touch;
+		touch.SetMultipointEnabled(*pTouchArea, true);
+	}
+
+	__pFlickGesture = new (std::nothrow) TouchFlickGestureDetector;
+	if (__pFlickGesture != null)
+	{
+		__pFlickGesture->Construct();
+        pTouchArea->AddGestureDetector(*__pFlickGesture);
+		__pFlickGesture->AddFlickGestureEventListener(*this);
+//		background_label->AddGestureDetector(*__pFlickGesture);
+	}
     return r;
 }
 
@@ -276,9 +294,35 @@ result
 meecastMainForm::OnTerminating(void){
     result r = E_SUCCESS;
 
+	if (__pFlickGesture != null)
+	{
+		__pFlickGesture->RemoveFlickGestureEventListener(*this);
+		delete __pFlickGesture;
+	}
+
     // TODO:
     // Add your termination code here
     return r;
+}
+
+void
+meecastMainForm::NextStation(){
+    if ((uint)(_config->current_station_id() + 1) < _config->stationsList().size())
+        _config->current_station_id(_config->current_station_id() + 1);
+    else
+       _config->current_station_id(0);
+    _config->saveConfig();
+    ReInitElements(); 
+}
+
+void
+meecastMainForm::PreviousStation(){
+    if ((uint)(_config->current_station_id() - 1) >= 0)
+        _config->current_station_id(_config->current_station_id() - 1);
+    else
+        _config->current_station_id(_config->stationsList().size());
+    _config->saveConfig();
+    ReInitElements(); 
 }
 
 void
@@ -291,24 +335,11 @@ meecastMainForm::OnTouchPressed(const Tizen::Ui::Control& source,
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
     Tizen::Ui::Controls::Label  *background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
 	if (source.Equals(*left_label)){
-        if ((uint)(_config->current_station_id() - 1) >= 0)
-            _config->current_station_id(_config->current_station_id() - 1);
-        else
-            _config->current_station_id(_config->stationsList().size());
-        _config->saveConfig();
-
-        ReInitElements(); 
+        PreviousStation();
         AppLog("Left Touch Screen");
 	}
     if (source.Equals(*right_label)){
-        if ((uint)(_config->current_station_id() + 1) < _config->stationsList().size())
-            _config->current_station_id(_config->current_station_id() + 1);
-        else
-            _config->current_station_id(0);
-        _config->saveConfig();
-
-        ReInitElements(); 
-
+        NextStation();
         AppLog("Right Touch Screen");
 	}
     if (source.Equals(*background_label)){
@@ -481,6 +512,7 @@ meecastMainForm::ReInitElements(void){
     main_humidity_text->SetShowState(false);
     main_current_state->SetShowState(false);
     main_icon->SetShowState(false);
+    main_icon->SetDropEnabled(false);
     main_temperature->SetShowState(false);
     main_description->SetShowState(false);
     main_background_wind_icon->SetShowState(false);
@@ -845,6 +877,61 @@ meecastMainForm::OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView
 void
 meecastMainForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex)
 {
+}
+
+
+void
+meecastMainForm::OnFlickGestureDetected(TouchFlickGestureDetector& gestureDetector)
+{
+    AppLog("Flick detected!");
+	Rectangle rc(0, 0, 0, 0);
+	Point point(0, 0);
+
+    Tizen::Ui::Controls::Panel *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
+	if (pTouchArea != null)
+	{
+		rc = pTouchArea->GetBounds();
+
+		Touch touch;
+		point = touch.GetPosition(*pTouchArea);
+	}
+
+	if (point.y < 0 || point.y > rc.height)
+	{
+		return;
+	}
+
+//	pTouchArea->Invalidate(false);
+
+	FlickDirection direction = gestureDetector.GetDirection();
+	switch(direction){
+        case FLICK_DIRECTION_RIGHT:
+            PreviousStation();
+            AppLog("Flick detected RIGHT");
+            break;
+        case FLICK_DIRECTION_LEFT:
+            NextStation();
+            AppLog("Flick detected LEFT");
+            break;
+        case FLICK_DIRECTION_UP:
+            AppLog("Flick detected UP");
+            break;
+        case FLICK_DIRECTION_DOWN:
+            AppLog("Flick detected DOWN");
+            break;
+        case FLICK_DIRECTION_NONE:
+        default:
+            AppLog("Flick detected NONE");
+            break;
+	}
+    AppLog("Flick detected");
+ //   Invalidate(false);
+}
+
+void
+meecastMainForm::OnFlickGestureCanceled(TouchFlickGestureDetector& gestureDetector)
+{
+    AppLog("Flick canceled!");
 }
 
 

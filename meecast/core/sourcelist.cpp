@@ -43,6 +43,7 @@ namespace Core {
             while((dp = readdir(dir_fd))){
             AppLog("Sources111 List");
                 std::string name = dp->d_name;
+                AppLog("name %s", name.c_str());
                 if(name == "." || name == "..")
                     continue;
 //                if(dp->d_type == DT_REG || dp->d_type == DT_LNK){
@@ -68,7 +69,7 @@ namespace Core {
             }
             closedir(dir_fd);
         }else
-            AppLog("Not Sources List");
+        AppLog("Not Sources List");
         _stations = new StationsList;
     }
 ////////////////////////////////////////////////////////////////////////////////

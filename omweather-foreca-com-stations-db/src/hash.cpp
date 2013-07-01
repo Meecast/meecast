@@ -24,12 +24,28 @@
  * 02110-1301 USA
  *
 */
-#include <glib.h>
+//#include <glib.h>
 #include <stdio.h>
 #include "hash.h"
-#ifdef RELEASE
-#undef DEBUGFUNCTIONCALL
+
+xmlHashTablePtr 
+hash_icons_forecacom_table_create(){
+    xmlHashTablePtr hash;
+    hash = xmlHashCreate(6);
+#include "hash_icons.data"
+    return hash;
+}
+
+#ifdef QT
+QHash<QString, QString> *
+hash_icons_forecacom_table_create(void) {
+
+    QHash<QString, QString> *hash = new QHash <QString, QString>;
+#include "hash_icons.data"
+    return hash;
+}
 #endif
+#if 0
 /*******************************************************************************/
 GHashTable *hash_icons_forecacom_table_create(void) {
     GHashTable *hash = NULL;
@@ -69,5 +85,5 @@ hash_forecacom_table_find(GHashTable *hash, gpointer key, gboolean search_short_
 #endif
     return result;
 }
-
+#endif
 /*******************************************************************************/

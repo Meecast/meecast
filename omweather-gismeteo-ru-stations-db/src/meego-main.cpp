@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of omweather-gismeteo-ru-stations-db
+ * This file is part of omweather-gismeteo-ru-stations-db MeeCast
  *
- * Copyright (C) 2009-2012 Vlad Vasilyeu
+ * Copyright (C) 2009-2013 Vlad Vasilyeu
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or

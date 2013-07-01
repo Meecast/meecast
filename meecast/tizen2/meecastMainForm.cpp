@@ -326,11 +326,13 @@ void
 meecastMainForm::OnTouchPressed(const Tizen::Ui::Control& source, 
                                 const Tizen::Graphics::Point& currentPosition,
 		                        const Tizen::Ui::TouchEventInfo& touchInfo) {
+
+    AppLog("Touch Pressed");
     SceneManager* pSceneManager = SceneManager::GetInstance();
     AppAssert(pSceneManager);
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
-    Tizen::Ui::Controls::Label  *background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
+    Tizen::Ui::Controls::Panel *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
 	if (source.Equals(*left_label)){
         PreviousStation();
         AppLog("Left Touch Screen");
@@ -339,7 +341,7 @@ meecastMainForm::OnTouchPressed(const Tizen::Ui::Control& source,
         NextStation();
         AppLog("Right Touch Screen");
 	}
-    if (source.Equals(*background_label)){
+    if (source.Equals(*pTouchArea)){
         AppLog("BackGround Touch Screen");
         pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_FULLWEATHERSCENE"));
 	}

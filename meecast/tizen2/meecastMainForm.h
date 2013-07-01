@@ -63,17 +63,6 @@ public:
     Tizen::Graphics::Color* GetTemperatureColor(int t);
     void NextStation();
     void PreviousStation();
-/*
-
-	static const int TOUCH_AREA_MARGIN = 5;
-	static const int TOUCH_AREA_WIDTH = 400;
-	static const int TOUCH_RESULT_WIDTH = 300;
-	static const int CANVAS_POS_Y = 225;
-	static const int CONDITION_WIDTH = 200;
-	static const int CONDITION_HEIGHT = 60;
-
-*/
-
 
 protected:
     static const int ID_BUTTON_OK = 101;
@@ -94,7 +83,6 @@ private:
     Tizen::Base::Runtime::Timer* __updateTimer;
 	Tizen::Ui::TouchFlickGestureDetector* __pFlickGesture;
 
-//	TouchAreaPanel* __pTouchArea;
 };
 
 #endif	//_MEECAST_MAIN_FORM_H_

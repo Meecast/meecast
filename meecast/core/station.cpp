@@ -735,7 +735,11 @@ Station::RequestHttpGet(void)
 
 	r = pHttpRequest->SetMethod(NET_HTTP_METHOD_GET);
 	TryCatch(r == E_SUCCESS, , "Failed to set the method.");
-
+    if (this->detailURL().c_str() != ""){
+        Tizen::Base::Utility::StringUtil::Utf8ToString(this->cookie().c_str(), str);
+        r = pHttpRequest->SetCookie(str);
+	    TryCatch(r == E_SUCCESS, , "Failed to set the cookie.");
+    }
 	r = pHttpTransaction->Submit();
 	TryCatch(r == E_SUCCESS, , "Failed to submit the HttpTransaction.");
 

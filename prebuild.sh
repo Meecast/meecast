@@ -7,6 +7,10 @@ cp ../omweather-openweathermap-org-stations-db/data/openweathermap.org.xml ../re
 cp ../omweather-gismeteo-ru-stations-db/data/gismeteo.ru.db ../res/db
 cp ../omweather-gismeteo-ru-stations-db/data/gismeteo.ru.xml ../res/sources
 
+cp ../omweather-foreca-com-stations-db/data/foreca.com.db ../res/db
+cp ../omweather-foreca-com-stations-db/data/foreca.com.xml ../res/sources
+
+
 cp ../meecast/core/data/source.xsd ../res/data/
 mkdir  ../res/screen-size-normal/images
 mkdir  ../res/screen-size-normal/icons

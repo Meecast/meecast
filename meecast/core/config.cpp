@@ -394,7 +394,9 @@ Config::saveConfig()
            }
            file_out<<"  <view_url>"<< temp <<"</view_url>"<<endl;
         }
-
+        if ((*i)->cookie() != ""){
+           file_out<<"  <cookie>"<< (*i)->cookie() <<"</cookie>"<<endl;
+        }
         file_out<<"  <converter>"<< (*i)->converter()<<"</converter>"<<endl;
         if ((*i)->gps() == false)
             file_out<<"  <gps>false</gps>"<<endl;

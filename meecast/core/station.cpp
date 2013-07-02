@@ -38,7 +38,7 @@
 #include <FIo.h>
 int convert_station_openweathermaporg_data(const char *days_data_path, const char *result_file, const char *current_data_path, const char *hours_data_path );
 int convert_station_gismeteo_data(const char *days_data_path, const char *result_file, const char *current_data_path);
- 
+int convert_station_forecacom_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data );
 
 using namespace Tizen::Base;
 using namespace Tizen::Io;
@@ -654,6 +654,14 @@ Station::run_converter(){
         AppLog("gismeteo.ru");
 
     }
+    if (*_sourceName =="foreca.com"){
+        convert_station_forecacom_data(
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(forecast_file)->GetPointer(), 
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(result_file)->GetPointer(), 
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(detail_file)->GetPointer());
+        AppLog("foreca.com");
+
+    }
 }
 
 
@@ -735,9 +743,9 @@ Station::RequestHttpGet(void)
 
 	r = pHttpRequest->SetMethod(NET_HTTP_METHOD_GET);
 	TryCatch(r == E_SUCCESS, , "Failed to set the method.");
-    if (this->detailURL().c_str() != ""){
+    if (this->cookie() != ""){
         Tizen::Base::Utility::StringUtil::Utf8ToString(this->cookie().c_str(), str);
-        r = pHttpRequest->SetCookie(str);
+        r = pHttpRequest->SetCookie(L"Cookie: " + str);
 	    TryCatch(r == E_SUCCESS, , "Failed to set the cookie.");
     }
 	r = pHttpTransaction->Submit();

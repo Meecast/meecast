@@ -663,12 +663,13 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
 
 /*******************************************************************************/
 int
-convert_station_forecacom_data(char *station_id_with_path, char *result_file, char *detail_path_data ){
+convert_station_forecacom_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data ){
  
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;
     int    days_number = -1;
     char   buffer[1024],
+           buffer2[1024],
             *delimiter = NULL;
     FILE    *file_out;
 
@@ -695,7 +696,9 @@ convert_station_forecacom_data(char *station_id_with_path, char *result_file, ch
         else{
             /* prepare station id */
             *buffer = 0;
-            delimiter = strrchr(station_id_with_path, '/');
+            *buffer2 = 0;
+            snprintf(buffer2, sizeof(buffer2) - 1, "%s", station_id_with_path);
+            delimiter = strrchr(buffer2, '/');
             if(delimiter){
                 delimiter++; /* delete '/' */
                 snprintf(buffer, sizeof(buffer) - 1, "%s", delimiter);
@@ -703,7 +706,6 @@ convert_station_forecacom_data(char *station_id_with_path, char *result_file, ch
                 if(!delimiter){
                     xmlFreeDoc(doc);
                     xmlCleanupParser();
-        fprintf(stderr,"6666666666eeeeqqq\n");
                     return -1;
                 }
                 *delimiter = 0;

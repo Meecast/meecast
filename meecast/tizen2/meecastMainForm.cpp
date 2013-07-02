@@ -541,6 +541,8 @@ meecastMainForm::ReInitElements(void){
         if (_config->stationsList().at(_config->current_station_id())->sourceName() == "gismeteo.ru")
             pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("gismeteo.ru.png"));
 
+        if (_config->stationsList().at(_config->current_station_id())->sourceName() == "foreca.com")
+            pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("foreca.com"));
          pFooter->RequestRedraw();
     }
     else 

@@ -486,7 +486,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     size = (nodes) ? nodes->nodeNr : 0;
     if (size > 10)
         size = 10;
-    fprintf(stderr, "SIZE!!!!!!!!!!!!!!: %i\n", size); 
+    /* fprintf(stderr, "SIZE!!!!!!!!!!!!!!: %i\n", size); */
     xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr/td[@class='in']//span[1]/text()", xpathCtx);
     xpathObj3 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr/td[@class='in']//span[2]/text()", xpathCtx);
     xpathObj4 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr/td[2]/img/@alt", xpathCtx);
@@ -683,16 +683,13 @@ convert_station_forecacom_data(char *station_id_with_path, char *result_file, ch
     if(!access(station_id_with_path, R_OK)){
         /* check that the file containe valid data */
         doc =  htmlReadFile(station_id_with_path, "UTF-8",  HTML_PARSE_NOERROR | HTML_PARSE_NOWARNING);
-        fprintf(stderr,"eeee\n");
         if(!doc)
             return -1;
-        fprintf(stderr,"eeeeqqq\n");
         root_node = xmlDocGetRootElement(doc);
         if(root_node->type == XML_ELEMENT_NODE &&
                 strstr((char*)root_node->name, "err")){
             xmlFreeDoc(doc);
             xmlCleanupParser();
-        fprintf(stderr,"11111eeeeqqq\n");
             return -2;
         }
         else{
@@ -758,6 +755,6 @@ main(int argc, char *argv[]){
         return -1;
     }
     result = convert_station_forecacom_data(argv[1], argv[2], argv[3]);
-    fprintf(stderr, "\nresult = %d\n", result);
+    /* fprintf(stderr, "\nresult = %d\n", result); */
     return result;
 }

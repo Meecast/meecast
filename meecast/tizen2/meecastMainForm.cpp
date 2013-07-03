@@ -39,8 +39,7 @@ meecastMainForm::meecastMainForm(void):
 	             __pAnimationFrameList(null),
                  __updateTimer(null),
 	             __pFlickGesture(null),
-	             __gestureDetected(false)
-{
+	             __gestureDetected(false){
 }
 
 meecastMainForm::~meecastMainForm(void)

@@ -33,13 +33,20 @@ using namespace Tizen::Ui::Scenes;
 using namespace Tizen::Graphics;
 
 
-meecastFullWeatherForm::meecastFullWeatherForm(void)
-{
+meecastFullWeatherForm::meecastFullWeatherForm(void):
+                                  __nowButton(null),
+                                  __dayButton(null),
+                                  __nightButton(null),
+                                  __hourlyButton(null){
     _dayNumber = 0;
 }
 
 meecastFullWeatherForm::~meecastFullWeatherForm(void)
 {
+    SAFE_DELETE(__nowButton);
+    SAFE_DELETE(__dayButton);
+    SAFE_DELETE(__nightButton);
+    SAFE_DELETE(__hourlyButton);
 }
 
 bool
@@ -53,6 +60,44 @@ result
 meecastFullWeatherForm::OnInitializing(void)
 {
     result r = E_SUCCESS;
+
+
+    /* Footer */
+    Footer* pFooter = GetFooter();
+    pFooter->SetStyle(FOOTER_STYLE_SEGMENTED_ICON_TEXT);
+
+    __nowButton = new Tizen::Ui::Controls::FooterItem(); 
+    __nowButton->Construct(ID_BUTTON_NOW);
+    __nowButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("now_def.png"));
+    __nowButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("now_sel.png"));
+    __nowButton->SetText(L"Now");
+
+    __dayButton = new Tizen::Ui::Controls::FooterItem(); 
+    __dayButton->Construct(ID_BUTTON_DAY);
+    __dayButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("day_def.png"));
+    __dayButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("day_sel.png"));
+    __dayButton->SetText(L"Day");
+
+    __nightButton = new Tizen::Ui::Controls::FooterItem(); 
+    __nightButton->Construct(ID_BUTTON_NIGHT);
+    __nightButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("night_def.png"));
+    __nightButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("night_sel.png"));
+    __nightButton->SetText(L"Night");
+
+    __hourlyButton = new Tizen::Ui::Controls::FooterItem(); 
+    __hourlyButton->Construct(ID_BUTTON_HOURLY);
+    __hourlyButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("hourly_def.png"));
+    __hourlyButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("hourly_sel.png"));
+    __hourlyButton->SetText(L"Hourly");
+
+
+    pFooter->AddItem(*__nowButton);
+    pFooter->AddItem(*__dayButton);
+    pFooter->AddItem(*__nightButton);
+    pFooter->AddItem(*__hourlyButton);
+
+
+    pFooter->SetBackButton();
 
     // TODO:
     // Add your initialization code here

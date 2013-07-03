@@ -56,10 +56,23 @@ public:
 
 
 protected:
+    static const int ID_BUTTON_OK = 101;
+    static const int ID_BUTTON_NOW = 1905;
+    static const int ID_BUTTON_DAY = 1906;
+    static const int ID_BUTTON_NIGHT = 1907;
+    static const int ID_BUTTON_HOURLY = 1908;
+    static const int ID_SET_LOCATIONS = 909;
+    static const int DURATION = 500;
+    static const int PROGRESS_COUNT = 30;
+
 private:
     ConfigTizen *_config;
     int _dayCount;
     int _dayNumber;
+    Tizen::Ui::Controls::FooterItem* __nowButton;
+    Tizen::Ui::Controls::FooterItem* __dayButton;
+    Tizen::Ui::Controls::FooterItem* __nightButton;
+    Tizen::Ui::Controls::FooterItem* __hourlyButton;
 };
 
 #endif	//_MEECAST_FULL_WEATHER_FORM_H_

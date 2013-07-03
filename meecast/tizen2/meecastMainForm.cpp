@@ -72,7 +72,6 @@ meecastMainForm::OnInitializing(void)
 
     // Setup back event listener
     SetFormBackEventListener(this);
-
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
     if (right_label != null)
 		right_label->AddTouchEventListener(*this);
@@ -285,6 +284,12 @@ meecastMainForm::OnInitializing(void)
         pTouchArea->AddGestureDetector(*__pFlickGesture);
     	__pFlickGesture->AddFlickGestureEventListener(*this);
 	}
+
+    Tizen::Ui::Controls::ListView  *main_listview_forecast = static_cast<ListView*>(GetControl(L"IDC_LISTVIEW_FORECASTS"));
+    main_listview_forecast->SetItemProvider(*this);
+    main_listview_forecast->AddListViewItemEventListener(*this);
+
+
     return r;
 }
 
@@ -874,10 +879,16 @@ meecastMainForm::CreateItem (int index, int itemWidth)
 void
 meecastMainForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
 {
-    ConfigTizen *config;
 
+    AppLog("LIST_ITEM_STATUS_SELECTED init");
 	if (status == LIST_ITEM_STATUS_SELECTED){
-
+        SceneManager* pSceneManager = SceneManager::GetInstance();
+        AppAssert(pSceneManager);
+        AppLog("LIST_ITEM_STATUS_SELECTED");
+        Tizen::Base::Collection::ArrayList* pList = new (std::nothrow)Tizen::Base::Collection::ArrayList();
+		pList->Construct();
+		pList->Add(*new (std::nothrow) Integer(index));
+        pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_FULLWEATHERSCENE"), pList);
    	}
 }
 void

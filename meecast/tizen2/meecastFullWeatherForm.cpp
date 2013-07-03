@@ -258,12 +258,19 @@ meecastFullWeatherForm::ReInitElements(void){
 
      Core::Data *temp_data = NULL;
      AppLog ("DP %p", _config->dp);
+    time_t current_day;
+    struct tm   *tm = NULL;
+    current_day = time(NULL);
+    tm = gmtime(&current_day);
+    tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+    tm->tm_isdst = 1;
+    current_day = mktime(tm); /* today 00:00:00 */
 
 
     int i = 3600*24;
  
     /* Preparing data */
-    if ((temp_data = _config->dp->data().GetDataForTime( current_day + 14 * 3600 + _dayNumber*3600*24))) {
+    if ((temp_data = _config->dp->data().GetDataForTime(current_day + 14 * 3600 + _dayNumber*3600*24))) {
 
      AppLog ("_Config_dp inside");
      /* Preparing units */

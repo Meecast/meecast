@@ -353,7 +353,10 @@ meecastMainForm::OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::
 	if (__gestureDetected == false){
         if (source.Equals(*pTouchArea)){
             AppLog("BackGround Touch Screen");
-            pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_FULLWEATHERSCENE"));
+            Tizen::Base::Collection::ArrayList* pList = new (std::nothrow)Tizen::Base::Collection::ArrayList();
+		    pList->Construct();
+		    pList->Add(*new (std::nothrow) Integer(0));
+            pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_FULLWEATHERSCENE"), pList);
 	    }
 	}
 }
@@ -767,6 +770,7 @@ meecastMainForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSce
     // Add your scene activate code here
     //AppLog("OnSceneActivatedNi %i", _config->current_station_id());
     //AppLog("OnSceneActivatedNi %s", _config->stationname().c_str());
+
     ReInitElements(); 
 }
 

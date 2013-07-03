@@ -35,6 +35,7 @@ using namespace Tizen::Graphics;
 
 meecastFullWeatherForm::meecastFullWeatherForm(void)
 {
+    _dayNumber = 0;
 }
 
 meecastFullWeatherForm::~meecastFullWeatherForm(void)
@@ -257,8 +258,12 @@ meecastFullWeatherForm::ReInitElements(void){
 
      Core::Data *temp_data = NULL;
      AppLog ("DP %p", _config->dp);
+
+
+    int i = 3600*24;
+ 
     /* Preparing data */
-    if (_config->dp != NULL && (temp_data = _config->dp->data().GetDataForTime(time(NULL)))){    
+    if ((temp_data = _config->dp->data().GetDataForTime( current_day + 14 * 3600 + _dayNumber*3600*24))) {
 
      AppLog ("_Config_dp inside");
      /* Preparing units */
@@ -463,6 +468,14 @@ meecastFullWeatherForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& prev
     // Add your scene activate code here
     //AppLog("OnSceneActivatedNi %i", _config->current_station_id());
     //AppLog("OnSceneActivatedNi %s", _config->stationname().c_str());
+    if (pArgs != null) {
+        Integer* pReqId = static_cast<Integer*> (pArgs->GetAt(0));
+        _dayNumber = pReqId->ToInt();
+        pArgs->RemoveAll(true);
+        delete pArgs;
+    }
+
+    AppLog("OnSceneActivatedNi %i", _dayNumber);
     ReInitElements(); 
 }
 

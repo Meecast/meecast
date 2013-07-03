@@ -59,6 +59,7 @@ protected:
 private:
     ConfigTizen *_config;
     int _dayCount;
+    int _dayNumber;
 };
 
 #endif	//_MEECAST_FULL_WEATHER_FORM_H_

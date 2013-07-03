@@ -37,7 +37,9 @@ meecastFullWeatherForm::meecastFullWeatherForm(void):
                                   __nowButton(null),
                                   __dayButton(null),
                                   __nightButton(null),
-                                  __hourlyButton(null){
+                                  __hourlyButton(null),
+                                  _current_selected_tab(NOW)
+{
     _dayNumber = 0;
 }
 
@@ -65,38 +67,7 @@ meecastFullWeatherForm::OnInitializing(void)
     /* Footer */
     Footer* pFooter = GetFooter();
     pFooter->SetStyle(FOOTER_STYLE_SEGMENTED_ICON_TEXT);
-
-    __nowButton = new Tizen::Ui::Controls::FooterItem(); 
-    __nowButton->Construct(ID_BUTTON_NOW);
-    __nowButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("now_def.png"));
-    __nowButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("now_sel.png"));
-    __nowButton->SetText(L"Now");
-
-    __dayButton = new Tizen::Ui::Controls::FooterItem(); 
-    __dayButton->Construct(ID_BUTTON_DAY);
-    __dayButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("day_def.png"));
-    __dayButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("day_sel.png"));
-    __dayButton->SetText(L"Day");
-
-    __nightButton = new Tizen::Ui::Controls::FooterItem(); 
-    __nightButton->Construct(ID_BUTTON_NIGHT);
-    __nightButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("night_def.png"));
-    __nightButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("night_sel.png"));
-    __nightButton->SetText(L"Night");
-
-    __hourlyButton = new Tizen::Ui::Controls::FooterItem(); 
-    __hourlyButton->Construct(ID_BUTTON_HOURLY);
-    __hourlyButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("hourly_def.png"));
-    __hourlyButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("hourly_sel.png"));
-    __hourlyButton->SetText(L"Hourly");
-
-
-    pFooter->AddItem(*__nowButton);
-    pFooter->AddItem(*__dayButton);
-    pFooter->AddItem(*__nightButton);
-    pFooter->AddItem(*__hourlyButton);
-
-
+    pFooter->AddActionEventListener(*this);
     pFooter->SetBackButton();
 
     // TODO:
@@ -207,9 +178,24 @@ meecastFullWeatherForm::OnActionPerformed(const Tizen::Ui::Control& source, int 
     AppAssert(pSceneManager);
 
     AppLog("Check Action");
-    switch(actionId)
-    {
-    default:
+    switch(actionId){
+        case ID_BUTTON_NOW:
+            _current_selected_tab = NOW; 
+            ReInitElements(); 
+            break;
+        case ID_BUTTON_DAY:
+            _current_selected_tab = DAY; 
+            ReInitElements(); 
+            break;
+        case ID_BUTTON_NIGHT:
+            _current_selected_tab = NIGHT; 
+            ReInitElements(); 
+            break;
+        case ID_BUTTON_HOURLY:
+            _current_selected_tab = HOURLY; 
+            ReInitElements(); 
+            break;
+        default:
         break;
     }
 }
@@ -262,16 +248,19 @@ meecastFullWeatherForm::ReInitElements(void){
     }
     main_background_label->RequestRedraw();
     station_label->RequestRedraw();
+
+    /* Next day */
     if (_config->nextstationname().length() < 1)
         right_label->SetShowState(false);
     else{
         right_label->SetShowState(true);
     }
+    /* Previous day */
     if (_config->prevstationname().length() < 1)
         left_label->SetShowState(false);
     else
         left_label->SetShowState(true);
-
+    
     main_humidity_icon->SetShowState(false);
     main_humidity_text->SetShowState(false);
     main_current_state->SetShowState(false);
@@ -301,8 +290,8 @@ meecastFullWeatherForm::ReInitElements(void){
     else 
         _config->dp = NULL;
 
-     Core::Data *temp_data = NULL;
-     AppLog ("DP %p", _config->dp);
+    Core::Data *temp_data = NULL;
+    AppLog ("DP %p", _config->dp);
     time_t current_day;
     struct tm   *tm = NULL;
     current_day = time(NULL);
@@ -312,10 +301,93 @@ meecastFullWeatherForm::ReInitElements(void){
     current_day = mktime(tm); /* today 00:00:00 */
 
 
+
+    /* Footer */
+    Footer* pFooter = GetFooter();
+
+    pFooter->RemoveAllItems();
+    __dayButton = new Tizen::Ui::Controls::FooterItem(); 
+    __dayButton->Construct(ID_BUTTON_DAY);
+    __dayButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("day_def.png"));
+    __dayButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("day_sel.png"));
+    __dayButton->SetText(L"Day");
+
+    __nightButton = new Tizen::Ui::Controls::FooterItem(); 
+    __nightButton->Construct(ID_BUTTON_NIGHT);
+    __nightButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("night_def.png"));
+    __nightButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("night_sel.png"));
+    __nightButton->SetText(L"Night");
+
+
+
+/* Check Now */
+    if (_dayNumber == 0 && _config->dp != NULL && (temp_data = _config->dp->data().GetDataForTime(time(NULL))) && temp_data->Current()){    
+        __nowButton = new Tizen::Ui::Controls::FooterItem(); 
+        __nowButton->Construct(ID_BUTTON_NOW);
+        __nowButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("now_def.png"));
+        __nowButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("now_sel.png"));
+        __nowButton->SetText(L"Now");
+    }
+
+/* Check Hourly */
+    for (unsigned int i=1; i<24; i++){ 
+        if ((temp_data = _config->dp->data().GetDataForTime(current_day + i * 3600, true))) {    
+            __hourlyButton = new Tizen::Ui::Controls::FooterItem(); 
+            __hourlyButton->Construct(ID_BUTTON_HOURLY);
+            __hourlyButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("hourly_def.png"));
+            __hourlyButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("hourly_sel.png"));
+            __hourlyButton->SetText(L"Hourly");
+            break;
+        }
+    }
+    pFooter->SetBackButton();
+    int tab_count = 0;
+    if (__nowButton){
+        pFooter->AddItem(*__nowButton);
+        if (_current_selected_tab == NOW){
+            pFooter->SetItemSelected(tab_count);
+            AppLog("Set tAB NOW!!!!");
+        }
+        tab_count++;
+    }
+    pFooter->AddItem(*__dayButton);
+    if (_current_selected_tab == DAY){
+        pFooter->SetItemSelected(tab_count);
+        AppLog("Set tAB DAY!!!!");
+    }
+    tab_count++;
+
+    pFooter->AddItem(*__nightButton);
+    if (_current_selected_tab == NIGHT)
+        pFooter->SetItemSelected(tab_count);
+    tab_count++;
+    if (__hourlyButton){
+        pFooter->AddItem(*__hourlyButton);
+        if (_current_selected_tab == HOURLY)
+            pFooter->SetItemSelected(tab_count);
+        tab_count++;
+    }
+    pFooter->RequestRedraw();
+
+    //pFooter->SetItemSelected(2);
+   
     int i = 3600*24;
- 
+    /* Select time for showimg */ 
+
+    time_t time_for_show = 0;
+    switch (_current_selected_tab){
+        case NOW: 
+            time_for_show = time(NULL);
+            break;
+        case DAY:
+            time_for_show = current_day + 15 * 3600 + _dayNumber*24*3600;
+            break;
+        case NIGHT:
+            time_for_show = current_day + 3 * 3600 + _dayNumber*24*3600;
+            break;
+    }
     /* Preparing data */
-    if ((temp_data = _config->dp->data().GetDataForTime(current_day + 14 * 3600 + _dayNumber*3600*24))) {
+    if ((temp_data = _config->dp->data().GetDataForTime(time_for_show))) {
 
      AppLog ("_Config_dp inside");
      /* Preparing units */

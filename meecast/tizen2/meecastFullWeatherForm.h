@@ -21,6 +21,14 @@ class meecastFullWeatherForm
     , public Tizen::Ui::ITouchEventListener
      {
 public:
+    enum Current_Selected_Tab{
+            NOW = 0,
+            DAY = 1,
+            NIGHT = 2,
+            HOURLY = 3
+    };
+
+
 	meecastFullWeatherForm(void);
 	virtual ~meecastFullWeatherForm(void);
 	bool Initialize(void);
@@ -56,7 +64,6 @@ public:
 
 
 protected:
-    static const int ID_BUTTON_OK = 101;
     static const int ID_BUTTON_NOW = 1905;
     static const int ID_BUTTON_DAY = 1906;
     static const int ID_BUTTON_NIGHT = 1907;
@@ -69,6 +76,7 @@ private:
     ConfigTizen *_config;
     int _dayCount;
     int _dayNumber;
+    int _current_selected_tab;
     Tizen::Ui::Controls::FooterItem* __nowButton;
     Tizen::Ui::Controls::FooterItem* __dayButton;
     Tizen::Ui::Controls::FooterItem* __nightButton;

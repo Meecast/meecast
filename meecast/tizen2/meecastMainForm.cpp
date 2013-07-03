@@ -38,7 +38,8 @@ meecastMainForm::meecastMainForm(void):
                  __pAnimation(null),
 	             __pAnimationFrameList(null),
                  __updateTimer(null),
-	             __pFlickGesture(null)
+	             __pFlickGesture(null),
+	             __gestureDetected(false)
 {
 }
 
@@ -327,12 +328,12 @@ meecastMainForm::OnTouchPressed(const Tizen::Ui::Control& source,
                                 const Tizen::Graphics::Point& currentPosition,
 		                        const Tizen::Ui::TouchEventInfo& touchInfo) {
 
+	__gestureDetected = false;
     AppLog("Touch Pressed");
     SceneManager* pSceneManager = SceneManager::GetInstance();
     AppAssert(pSceneManager);
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
-    Tizen::Ui::Controls::Panel *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
 	if (source.Equals(*left_label)){
         PreviousStation();
         AppLog("Left Touch Screen");
@@ -341,9 +342,19 @@ meecastMainForm::OnTouchPressed(const Tizen::Ui::Control& source,
         NextStation();
         AppLog("Right Touch Screen");
 	}
-    if (source.Equals(*pTouchArea)){
-        AppLog("BackGround Touch Screen");
-        pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_FULLWEATHERSCENE"));
+}
+
+void
+meecastMainForm::OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo)
+{
+    SceneManager* pSceneManager = SceneManager::GetInstance();
+    AppAssert(pSceneManager);
+    Tizen::Ui::Controls::Panel *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
+	if (__gestureDetected == false){
+        if (source.Equals(*pTouchArea)){
+            AppLog("BackGround Touch Screen");
+            pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_FULLWEATHERSCENE"));
+	    }
 	}
 }
 
@@ -542,7 +553,7 @@ meecastMainForm::ReInitElements(void){
             pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("gismeteo.ru.png"));
 
         if (_config->stationsList().at(_config->current_station_id())->sourceName() == "foreca.com")
-            pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("foreca.com"));
+            pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("foreca.com.png"));
          pFooter->RequestRedraw();
     }
     else 
@@ -926,6 +937,7 @@ meecastMainForm::OnFlickGestureDetected(TouchFlickGestureDetector& gestureDetect
             break;
 	}
     AppLog("Flick detected");
+	__gestureDetected = true;
  //   Invalidate(false);
 }
 

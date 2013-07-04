@@ -280,7 +280,7 @@ NavigationPane {
         }
 
         function updatestationname(){
-        //    console.log("updatestationname() ", Config.stationname );
+           // console.log("updatestationname() ", Config.stationname );
             main.updatemodels();
             //stationname_text = Config.stationname == "Unknown" ? "MeeCast" : Config.stationname
 
@@ -314,10 +314,12 @@ NavigationPane {
             Forecast_night_model.update_model(3);
             Forecast_hours_model.update_model(4);
             if (Config.stationname == "Unknown" || (Forecast_model.rowCount() == 0 &&  Current.rowCount() == 0)){
-                forrecasts_list.visible = false;
+                //forrecasts_list.visible = false;
+
+                forrecasts_list.visible = true;
                 if ((Config.stationname != "Unknown" && Forecast_model.rowCount() == 0 && Current.rowCount() == 0)){
                     refresh_button.visible = true;
-                    forrecasts_list.visible = false;
+                    forrecasts_list.visible = true;
                     notrefreshview.visible = true;
                 }         
             }else{
@@ -941,9 +943,11 @@ NavigationPane {
                                 //mySheet.open();
                                 console.log("DAY    ", main.day);
 
-                                main.day_period = "day";
-                                var newPage = fullpageDefinition.createObject();
-                                rootWindow.push(newPage);
+                                if (refresh_button.visible  == false && Config.stationname != "Unknown"){ 
+                                    main.day_period = "day";
+                                    var newPage = fullpageDefinition.createObject();
+                                    rootWindow.push(newPage);
+                                }
                                 
                                // day_tab.setContent(newPage1);
 

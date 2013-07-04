@@ -725,7 +725,7 @@ meecastMainForm::ReInitElements(void){
         current_day = mktime(tm); /* today 00:00:00 */
 
         /* fill other days */
-        int i = 3600*24;
+        int i = 0;
         int j = 0;
 
         _dayCount = 0;

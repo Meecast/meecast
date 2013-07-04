@@ -90,8 +90,6 @@ meecastFullWeatherForm::OnInitializing(void)
                                        Core::AbstractConfig::prefix+
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");
-
-
     return r;
 }
 
@@ -114,24 +112,14 @@ meecastFullWeatherForm::OnTouchPressed(const Tizen::Ui::Control& source,
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
     Tizen::Ui::Controls::Label  *background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
 	if (source.Equals(*left_label)){
-        if ((uint)(_config->current_station_id() - 1) >= 0)
-            _config->current_station_id(_config->current_station_id() - 1);
-        else
-            _config->current_station_id(_config->stationsList().size());
-        _config->saveConfig();
-
+        if (_dayNumber>0)
+            _dayNumber--;
         ReInitElements(); 
         AppLog("Left Touch Screen");
 	}
     if (source.Equals(*right_label)){
-        if ((uint)(_config->current_station_id() + 1) < _config->stationsList().size())
-            _config->current_station_id(_config->current_station_id() + 1);
-        else
-            _config->current_station_id(0);
-        _config->saveConfig();
-
+        _dayNumber++;
         ReInitElements(); 
-
         AppLog("Right Touch Screen");
 	}
 }

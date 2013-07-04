@@ -214,7 +214,7 @@ meecastFullWeatherForm::ReInitElements(void){
 
     AppLog("REINIT ELEMENTS");
     char  buffer[4096];
-    Tizen::Ui::Controls::Label  *station_label = static_cast<Label*>(GetControl(L"IDC_LABEL_STATION_NAME"));
+    Tizen::Ui::Controls::Label  *day_name_label = static_cast<Label*>(GetControl(L"IDC_LABEL_DAY_NAME"));
     Tizen::Ui::Controls::Label  *main_background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
     Tizen::Ui::Controls::Label  *main_no_locations_label = static_cast<Label*>(GetControl(L"IDC_LABEL_NO_LOCATIONS"));
     Tizen::Ui::Controls::Button *main_set_locations_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_SET_LOCATIONS"));
@@ -240,27 +240,11 @@ meecastFullWeatherForm::ReInitElements(void){
     Tizen::Ui::Controls::ListView  *main_listview_forecast = static_cast<ListView*>(GetControl(L"IDC_LISTVIEW_FORECASTS"));
 
     if (_config->stationsList().size()!=0){
-        station_label->SetText(_config->stationname().c_str());
         main_background_label->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background_main.png"));
     }else{
         main_background_label->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background.png"));
-        station_label->SetText("MeeCast");
     }
     main_background_label->RequestRedraw();
-    station_label->RequestRedraw();
-
-    /* Next day */
-    if (_config->nextstationname().length() < 1)
-        right_label->SetShowState(false);
-    else{
-        right_label->SetShowState(true);
-    }
-    /* Previous day */
-    if (_config->prevstationname().length() < 1)
-        left_label->SetShowState(false);
-    else
-        left_label->SetShowState(true);
-    
     main_humidity_icon->SetShowState(false);
     main_humidity_text->SetShowState(false);
     main_current_state->SetShowState(false);
@@ -327,7 +311,9 @@ meecastFullWeatherForm::ReInitElements(void){
         __nowButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("now_def.png"));
         __nowButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("now_sel.png"));
         __nowButton->SetText(L"Now");
-    }
+    }else
+        if (_current_selected_tab == NOW)
+            _current_selected_tab = DAY;
 
 /* Check Hourly */
     for (unsigned int i=1; i<24; i++){ 
@@ -388,6 +374,24 @@ meecastFullWeatherForm::ReInitElements(void){
     }
     /* Preparing data */
     if ((temp_data = _config->dp->data().GetDataForTime(time_for_show))) {
+
+     day_name_label->SetText(temp_data->FullDayName().c_str());
+     day_name_label->RequestRedraw();
+
+
+    /* Next day */
+    if (_config->dp->data().GetDataForTime(time_for_show + 24*3600 ))
+        right_label->SetShowState(true);
+    else{
+        right_label->SetShowState(false);
+    }
+    right_label->RequestRedraw();
+    /* Previous day */
+    if (_config->dp->data().GetDataForTime(time_for_show - 24*3600 ))
+        left_label->SetShowState(true);
+    else
+        left_label->SetShowState(false);
+    left_label->RequestRedraw();
 
      AppLog ("_Config_dp inside");
      /* Preparing units */

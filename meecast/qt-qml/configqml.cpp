@@ -711,7 +711,7 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
     
 
     (void)source_id;
-
+/* Disable for BB 
     if (latitude == 0 && longitude == 0 && (source == "weather.com" || source == "openweathermap.org")){
         Core::DatabaseSqlite *db_w = new Core::DatabaseSqlite("");
         std::string path(Core::AbstractConfig::prefix);
@@ -731,6 +731,7 @@ ConfigQml::saveStation1(QString city_id, QString city_name, QString region, QStr
         }
         db_w->get_station_coordinate(city_id.toStdString(), latitude, longitude);
     }
+*/
     station = new Core::Station(
                 source.toStdString(),
                 city_id.toStdString(), 

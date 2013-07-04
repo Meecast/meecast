@@ -54,6 +54,7 @@
        <asset path="arm/hko/hkogovhk" type="Qnx/Elf">hkogovhk</asset>
        <asset path="arm/gismeteo/gismeteoru" type="Qnx/Elf">gismeteoru</asset>
        <asset path="arm/bomgovau/bomgovau" type="Qnx/Elf">bomgovau</asset>
+       <asset path="arm/openweathermap/openweathermaporg" type="Qnx/Elf">openweathermaporg</asset>
        <asset path="meecast/qt-qml/qml">qml</asset>
     </configuration>
     <configuration id="com.qnx.qcc.toolChain.530812073" name="Device-Debug">
@@ -64,6 +65,7 @@
        <asset path="arm/hko/hkogovhk" type="Qnx/Elf">hkogovhk</asset>
        <asset path="arm/gismeteo/gismeteoru" type="Qnx/Elf">gismeteoru</asset>
        <asset path="arm/bomgovau/bomgovau" type="Qnx/Elf">bomgovau</asset>
+       <asset path="arm/openweathermap/openweathermaporg" type="Qnx/Elf">openweathermaporg</asset>
     </configuration>
     <configuration id="com.qnx.qcc.toolChain.585662339" name="Device-Release">
        <platformArchitecture>armle-v7</platformArchitecture>
@@ -73,6 +75,7 @@
        <asset path="arm/gismeteo/gismeteoru" type="Qnx/Elf">gismeteoru</asset>
        <asset path="arm/hko/hkogovhk" type="Qnx/Elf">hkogovhk</asset>
        <asset path="arm/bomgovau/bomgovau" type="Qnx/Elf">bomgovau</asset>
+       <asset path="arm/openweathermap/openweathermaporg" type="Qnx/Elf">openweathermaporg</asset>
     </configuration>
     <configuration id="com.qnx.qcc.toolChain.1526872727" name="Simulator-Debug">
        <platformArchitecture>x86</platformArchitecture>
@@ -82,6 +85,7 @@
        <asset path="x86/gismeteo/gismeteoru" type="Qnx/Elf">gismeteoru</asset>
        <asset path="x86/hko/hkogovhk" type="Qnx/Elf">hkogovhk</asset>
        <asset path="x86/bomgovau/bomgovau" type="Qnx/Elf">bomgovau</asset>
+       <asset path="x86/openweathermap/openweathermaporg" type="Qnx/Elf">openweathermaporg</asset>
     </configuration>
     
     <!--  The icon for the application, which should be 150x150. -->
@@ -101,6 +105,9 @@
     <asset path="meecast/core/data/icons">assets/share/icons</asset>
     <asset path="omweather-foreca-com-stations-db/data/foreca.com.xml">share/sources/foreca.com.xml</asset>
     <asset path="omweather-foreca-com-stations-db/data/foreca.com.db">share/db/foreca.com.db</asset>
+    <asset path="omweather-openweathermap-org-stations-db/data/openweathermap.org.xml">share/sources/openweathermap.org.xml</asset>
+    <asset path="omweather-openweathermap-org-stations-db/data/openweathermap.org.db">share/db/openweathermap.org.db</asset>
+
 
      <!-- Locale support -->
     <asset path="translations" dest="qm">

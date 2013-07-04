@@ -7,7 +7,7 @@
 <detail url="http://api.openweathermap.org/data/2.5/weather?id=%s&amp;mode=xml&amp;units=metric" />
 <search url="http://openweathermap.org/find?q=%s" />
 <library>libomweather-yr-no-source.so</library>
-<binary>/opt/com.meecast.omweather/lib/openweathermaporg</binary>
+<binary>app/native/openweathermaporg</binary>
 <showurl url="http://openweathermap.org/city/%s/" />
 <mapurl url="http://wms.openweathermap.org/service?service=WMS&amp;request=GetMap&amp;version=1.1.1&amp;srs=EPSG:4326&amp;layers=clouds&amp;styles=&amp;transparent=TRUE&amp;format=image/png&amp;width=840&amp;height=840&amp;bbox=%f,%f,%f,%f" baseurl="http://irs.gis-lab.info/?layers=osm&amp;srs=EPSG:4326&amp;format=image/png&amp;width=840&amp;height=840&amp;bbox=%f,%f,%f,%f" type="GPSBOX"/>
 

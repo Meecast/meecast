@@ -323,6 +323,7 @@ NavigationPane {
             }else{
                 forrecasts_list.visible = true;
                 notrefreshview.visible = false;
+                refresh_button.visible = false;
             }
             main.update_list();
             main.update_current_data();

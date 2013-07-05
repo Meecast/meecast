@@ -393,7 +393,7 @@ NavigationPane {
                             }
                             layoutProperties: AbsoluteLayoutProperties {
 //                                positionY: 400 
-                                positionY: screen_height / 3 
+                                positionY: screen_height / 4 
                             }
                         }
                     }
@@ -432,7 +432,7 @@ NavigationPane {
                             }
                             layoutProperties: AbsoluteLayoutProperties {
 //                                positionY: 400 
-                                positionY: screen_height / 3 
+                                positionY: screen_height / 4 
                             }
                         }
                     }
@@ -1167,8 +1167,8 @@ NavigationPane {
                             horizontalAlignment: HorizontalAlignment.Center
                             verticalAlignment: VerticalAlignment.Top     
                             textStyle.textAlign: TextAlign.Center
-                            maxWidth:        110
-                            minWidth:        110
+                            maxWidth: 110
+                            minWidth: 110
                             textStyle {
                                 fontSize: FontSize.PointValue
                                 fontSizeValue: 4.0

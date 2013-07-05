@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 
+
 <qnx xmlns="http://www.qnx.com/schemas/application/1.0">
 
 <!-- BlackBerry 10 application descriptor file.
@@ -42,6 +43,9 @@
     
     <!--  The category where the application appears. Either core.games or core.media. -->
     <category>core.media</category>
+   <icon>
+      <image>icon.png</image>
+   </icon>
     <splashScreens>
        <image>splash.png</image>
        <image>splash720x720.png</image>
@@ -89,11 +93,7 @@
     </configuration>
     
     <!--  The icon for the application, which should be 150x150. -->
-    <icon>
-        <image>icon.png</image>
-    </icon>
-    
-    <!--  The splash screen that will appear when your application is launching. -->
+  <!--  The splash screen that will appear when your application is launching. -->
 
     <!-- Application assets -->
     <asset path="splashscreen.jpg">splashscreen.jpg</asset>

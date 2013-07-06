@@ -13,9 +13,9 @@ class meecastMainForm
 	: public Tizen::Ui::Controls::Form
 	, public Tizen::Ui::IActionEventListener
 	, public Tizen::Ui::Controls::IFormBackEventListener
- 	, public Tizen::Ui::Scenes::ISceneEventListener
-	, public Tizen::Ui::Controls::IListViewItemEventListener
-	, public Tizen::Ui::Controls::IListViewItemProvider
+    , public Tizen::Ui::Scenes::ISceneEventListener
+    , public Tizen::Ui::Controls::IListViewItemEventListener
+    , public Tizen::Ui::Controls::IListViewItemProvider
     , public Tizen::Ui::ITouchEventListener
     , public Tizen::Base::Runtime::ITimerEventListener
     , public Tizen::Ui::ITouchFlickGestureEventListener

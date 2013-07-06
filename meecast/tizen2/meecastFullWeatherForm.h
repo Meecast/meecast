@@ -6,6 +6,7 @@
 #include <FUi.h>
 #include "configtizen.h"
 
+#include <FSystem.h>
 
 #define SAFE_DELETE(x)  if (x) { delete x; x = null; }
 
@@ -17,8 +18,11 @@ class meecastFullWeatherForm
 	, public Tizen::Ui::Controls::IFormBackEventListener
  	, public Tizen::Ui::Scenes::ISceneEventListener
     , public Tizen::Ui::ITouchEventListener
-    , public virtual Tizen::Ui::Controls::ISectionTableViewItemEventListener
-    , public virtual Tizen::Ui::Controls::ISectionTableViewItemProvider
+   // , public Tizen::Ui::Controls::ISectionTableViewItemEventListener
+  //  , public Tizen::Ui::Controls::ISectionTableViewItemProvider
+	, public Tizen::Ui::Controls::ITableViewItemEventListener
+	, public Tizen::Ui::Controls::ITableViewItemProvider
+	
      {
 public:
     enum Current_Selected_Tab{
@@ -54,19 +58,35 @@ public:
 
     Tizen::Graphics::Color* GetTemperatureColor(int t);
     /* Table */
+
+
+         //ITableViewItemProvider
+        virtual Tizen::Ui::Controls::TableViewItem* CreateItem(int index, int itemWidth);
+        virtual bool DeleteItem(int index, Tizen::Ui::Controls::TableViewItem* pItem);
+        virtual int GetItemCount(void);
+        virtual void UpdateItem(int index, Tizen::Ui::Controls::TableViewItem* pItem);
+        virtual int GetDefaultItemHeight(void);
+     // ITableViewItemEventListener
+		virtual void OnTableViewItemStateChanged(Tizen::Ui::Controls::TableView& tableView, int itemIndex, Tizen::Ui::Controls::TableViewItem* pItem, Tizen::Ui::Controls::TableViewItemStatus status);
+		virtual void OnTableViewContextItemActivationStateChanged(Tizen::Ui::Controls::TableView& tableView, int itemIndex, Tizen::Ui::Controls::TableViewContextItem* pContextItem, bool activated);
+		virtual void OnTableViewItemReordered(Tizen::Ui::Controls::TableView& tableView, int itemIndexFrom, int itemIndexTo);
+
+    
+         
+/*
 	virtual void OnSectionTableViewItemStateChanged(Tizen::Ui::Controls::SectionTableView& tableView, int sectionIndex, int itemIndex, Tizen::Ui::Controls::TableViewItem* pItem, Tizen::Ui::Controls::TableViewItemStatus status){}
 	virtual void OnSectionTableViewContextItemActivationStateChanged(Tizen::Ui::Controls::SectionTableView& tableView, int sectionIndex, int itemIndex, Tizen::Ui::Controls::TableViewContextItem* pContextItem, bool activated){}
-	virtual int GetSectionCount(void){}
+	virtual int GetSectionCount(void);
 	virtual int GetItemCount(int sectionIndex);
-	virtual Tizen::Ui::Controls::TableViewItem* CreateItem(int sectionIndex, int itemIndex, int itemWidth){}
+	virtual Tizen::Ui::Controls::TableViewItem* CreateItem(int sectionIndex, int itemIndex, int itemWidth);
 	virtual bool DeleteItem(int sectionIndex, int itemIndex, Tizen::Ui::Controls::TableViewItem* pItem);
 	virtual void UpdateItem(int sectionIndex, int itemIndex, Tizen::Ui::Controls::TableViewItem* pItem);
-	virtual Tizen::Base::String GetSectionHeader(int sectionIndex){}
-	virtual bool HasSectionHeader(int sectionIndex){}
-	virtual Tizen::Base::String GetSectionFooter(int sectionIndex){}
-	virtual bool HasSectionFooter(int sectionIndex){}
-	virtual int GetDefaultItemHeight(void){}
-
+	virtual Tizen::Base::String GetSectionHeader(int sectionIndex);
+	virtual bool HasSectionHeader(int sectionIndex);
+	virtual Tizen::Base::String GetSectionFooter(int sectionIndex);
+	virtual bool HasSectionFooter(int sectionIndex);
+	virtual int GetDefaultItemHeight(void);
+*/
 
 
 
@@ -88,6 +108,8 @@ private:
     Tizen::Ui::Controls::FooterItem* __dayButton;
     Tizen::Ui::Controls::FooterItem* __nightButton;
     Tizen::Ui::Controls::FooterItem* __hourlyButton;
+	Tizen::Ui::Controls::TableView* __pTableView;
+	int __clientWidth;
 };
 
 #endif	//_MEECAST_FULL_WEATHER_FORM_H_

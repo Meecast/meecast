@@ -32,7 +32,9 @@ using namespace Tizen::Ui::Controls;
 using namespace Tizen::Ui::Scenes;
 using namespace Tizen::Graphics;
 
+using namespace Tizen::System;
 
+String FEATURE_INFO_KEY_PREFIX = L"http://tizen.org/feature/";
 meecastFullWeatherForm::meecastFullWeatherForm(void):
                                   __nowButton(null),
                                   __dayButton(null),
@@ -90,6 +92,34 @@ meecastFullWeatherForm::OnInitializing(void)
                                        Core::AbstractConfig::prefix+
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");
+    Tizen::Ui::Controls::TableView  *main_tableview_forecast = static_cast<TableView*>(GetControl(L"IDC_TABLEVIEW_FORECAST"));
+
+
+
+	Rectangle clientRect;
+	Form *pForm = static_cast<Form*>(GetParent());
+	AppAssert(pForm);
+    RelativeLayout* pLayout = dynamic_cast< RelativeLayout* >(this->GetLayoutN());
+	AppAssert(pLayout);
+	clientRect = pForm->GetClientAreaBounds();
+	__clientWidth = clientRect.width;
+	SetBounds(Rectangle(0, 0, clientRect.width, clientRect.height));
+
+	__pTableView = new (std::nothrow) TableView();
+	AppLogExceptionIf(__pTableView == null, "Table view creation is failed");
+
+	__pTableView->Construct(Rectangle(0, 0, clientRect.width, clientRect.height), true, TABLE_VIEW_SCROLL_BAR_STYLE_FADE_OUT);
+	__pTableView->SetItemProvider(this);
+	__pTableView->AddTableViewItemEventListener(*this);
+
+	AddControl(*__pTableView);
+    pLayout->SetHorizontalFitPolicy(*__pTableView, FIT_POLICY_PARENT);
+    pLayout->SetRelation(*__pTableView, *this, RECT_EDGE_RELATION_LEFT_TO_LEFT);
+    pLayout->SetRelation(*__pTableView, *this, RECT_EDGE_RELATION_RIGHT_TO_RIGHT);
+    Tizen::Ui::Controls::Label  *main_background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
+    pLayout->SetRelation(*__pTableView, *main_background_label, RECT_EDGE_RELATION_TOP_TO_BOTTOM);
+
+
     return r;
 }
 
@@ -97,7 +127,7 @@ result
 meecastFullWeatherForm::OnTerminating(void){
     result r = E_SUCCESS;
 
-    // TODO:
+   // TODO:
     // Add your termination code here
     return r;
 }
@@ -224,8 +254,7 @@ meecastFullWeatherForm::ReInitElements(void){
     Tizen::Ui::Controls::Label  *main_pressure_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_PRESSURE_ICON"));
     Tizen::Ui::Controls::Label  *main_pressure_text = static_cast<Label*>(GetControl(L"IDC_LABEL_PRESSURE_TEXT"));
     Tizen::Ui::Controls::Panel  *backgroundPanel = static_cast<Panel*>(GetControl(L"IDC_PANEL_BACKGROUND"));
-
-    Tizen::Ui::Controls::TableView  *main_tableview_forecast = static_cast<TableView*>(GetControl(L"IDC_TABLEVIEW_FORECASTS"));
+    Tizen::Ui::Controls::TableView  *main_tableview_forecast = static_cast<TableView*>(GetControl(L"IDC_TABLEVIEW_FORECAST"));
 
     if (_config->stationsList().size()!=0){
         main_background_label->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background_main.png"));
@@ -531,8 +560,9 @@ meecastFullWeatherForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& cur
 
 
 int
-meecastFullWeatherForm::GetItemCount(int sectionIndex)
+meecastFullWeatherForm::GetItemCount(void)
 {
+    AppLog("meecastFullWeatherForm::GetItemCount");
     /*
 	if (sectionIndex == SECTION_TYPE_REPEAT_TYPE)
 	{
@@ -546,17 +576,181 @@ meecastFullWeatherForm::GetItemCount(int sectionIndex)
     return 1;
 }
 
-
+void
+meecastFullWeatherForm::UpdateItem(int index, TableViewItem* pItem)
+{
+}
 
 bool
-meecastFullWeatherForm::DeleteItem(int sectionIndex, int itemIndex, Tizen::Ui::Controls::TableViewItem* pItem)
+meecastFullWeatherForm::DeleteItem(int index, TableViewItem* pItem)
 {
+//	pItem->RemoveAllControls();
 	delete pItem;
+	pItem = null;
+
+   // pItem->Destroy();
 	return true;
 }
 
+
+
+
+int
+meecastFullWeatherForm::GetDefaultItemHeight(void){
+    return 120;
+}
+
+TableViewItem*
+meecastFullWeatherForm::CreateItem(int index, int itemWidth){
+
+	String title;
+	String description;
+	int resValue = -1;
+	bool result = false;
+
+    AppLog("meecastFullWeatherForm::CreateItem");
+	TableViewAnnexStyle style = TABLE_VIEW_ANNEX_STYLE_NORMAL;
+
+	TableViewItem* pItem = new TableViewItem();
+
+	AppLogExceptionIf(pItem == null, "Table item creation is failed");
+	pItem->Construct(Dimension(itemWidth, 120), style);
+
+//	return pItem;
+	switch (index)
+	{
+
+	case 0:
+	{
+		title = L"camera";
+		title.Insert(FEATURE_INFO_KEY_PREFIX, 0);
+		SystemInfo::GetValue(title, result);
+		if (result == true)
+		{
+			description = L"supported";
+		}
+		else
+		{
+			description = L"unsupported";
+		}
+		break;
+	}
+
+	case 1:
+	{
+		title = L"camera.back";
+		title.Insert(FEATURE_INFO_KEY_PREFIX, 0);
+		SystemInfo::GetValue(title, result);
+		if (result == true)
+		{
+			description = L"supported";
+		}
+		else
+		{
+			description = L"unsupported";
+		}
+		break;
+	}
+
+	case 2:
+	{
+		title = L"camera.back.flash";
+		title.Insert(FEATURE_INFO_KEY_PREFIX, 0);
+		SystemInfo::GetValue(title, result);
+		if (result == true)
+		{
+			description = L"supported";
+		}
+		else
+		{
+			description = L"unsupported";
+		}
+		break;
+	}
+
+	case 3:
+	{
+		title = L"camera.front";
+		title.Insert(FEATURE_INFO_KEY_PREFIX, 0);
+		SystemInfo::GetValue(title, result);
+		if (result == true)
+		{
+			description = L"supported";
+		}
+		else
+		{
+			description = L"unsupported";
+		}
+		break;
+	}
+
+	case 4:
+	{
+		title = L"camera.front.flash";
+		title.Insert(FEATURE_INFO_KEY_PREFIX, 0);
+		SystemInfo::GetValue(title, result);
+		if (result == true)
+		{
+			description = L"supported";
+		}
+		else
+		{
+			description = L"unsupported";
+		}
+		break;
+	}
+
+	case 5:
+	{
+		title = L"database.encryption";
+		title.Insert(FEATURE_INFO_KEY_PREFIX, 0);
+		SystemInfo::GetValue(title, result);
+		if (result == true)
+		{
+			description = L"supported";
+		}
+		else
+		{
+			description = L"unsupported";
+		}
+		break;
+	}
+
+	default:
+		break;
+	}
+
+//	title.Replace(SYSTEM_INFO_KEY_PREFIX, "");
+	title.Replace(FEATURE_INFO_KEY_PREFIX, "");
+	Label* pKeyTitleLabel = new Label();
+	pKeyTitleLabel->Construct(Rectangle(0, 0, 200, 50), title);
+	pKeyTitleLabel->SetTextConfig(26, LABEL_TEXT_STYLE_NORMAL);
+	pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+	pItem->AddControl(*pKeyTitleLabel);
+
+	Label* pKeyDescriptionLabel = new Label();
+	pKeyDescriptionLabel->Construct(Rectangle(0, 20, 200, 100), description);
+	pKeyDescriptionLabel->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
+	pKeyDescriptionLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+	pItem->AddControl(*pKeyDescriptionLabel);
+
+	return pItem;
+}
+
+
 void
-meecastFullWeatherForm::UpdateItem(int sectionIndex, int itemIndex, Tizen::Ui::Controls::TableViewItem* pItem)
+meecastFullWeatherForm::OnTableViewItemStateChanged(TableView& tableView, int itemIndex, TableViewItem* pItem, TableViewItemStatus status)
 {
 }
+
+void
+meecastFullWeatherForm::OnTableViewContextItemActivationStateChanged(TableView& tableView, int itemIndex, TableViewContextItem* pContextItem, bool activated)
+{
+}
+
+void
+meecastFullWeatherForm::OnTableViewItemReordered(TableView& tableView, int itemIndexFrom, int itemIndexTo)
+{
+}
+
 

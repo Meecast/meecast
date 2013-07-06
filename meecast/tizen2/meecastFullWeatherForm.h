@@ -16,9 +16,9 @@ class meecastFullWeatherForm
 	, public Tizen::Ui::IActionEventListener
 	, public Tizen::Ui::Controls::IFormBackEventListener
  	, public Tizen::Ui::Scenes::ISceneEventListener
-	, public Tizen::Ui::Controls::IListViewItemEventListener
-	, public Tizen::Ui::Controls::IListViewItemProvider
     , public Tizen::Ui::ITouchEventListener
+    , public virtual Tizen::Ui::Controls::ISectionTableViewItemEventListener
+    , public virtual Tizen::Ui::Controls::ISectionTableViewItemProvider
      {
 public:
     enum Current_Selected_Tab{
@@ -52,15 +52,22 @@ public:
 	virtual void OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
     void ReInitElements(void);
 
-
-	virtual void OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status);
-	virtual void OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction);
-	virtual void OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state);
-	virtual void OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex);
-	virtual Tizen::Ui::Controls::ListItemBase* CreateItem(int index, int itemWidth);
-	virtual bool DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth);
-	virtual int GetItemCount(void);
     Tizen::Graphics::Color* GetTemperatureColor(int t);
+    /* Table */
+	virtual void OnSectionTableViewItemStateChanged(Tizen::Ui::Controls::SectionTableView& tableView, int sectionIndex, int itemIndex, Tizen::Ui::Controls::TableViewItem* pItem, Tizen::Ui::Controls::TableViewItemStatus status){}
+	virtual void OnSectionTableViewContextItemActivationStateChanged(Tizen::Ui::Controls::SectionTableView& tableView, int sectionIndex, int itemIndex, Tizen::Ui::Controls::TableViewContextItem* pContextItem, bool activated){}
+	virtual int GetSectionCount(void){}
+	virtual int GetItemCount(int sectionIndex);
+	virtual Tizen::Ui::Controls::TableViewItem* CreateItem(int sectionIndex, int itemIndex, int itemWidth){}
+	virtual bool DeleteItem(int sectionIndex, int itemIndex, Tizen::Ui::Controls::TableViewItem* pItem);
+	virtual void UpdateItem(int sectionIndex, int itemIndex, Tizen::Ui::Controls::TableViewItem* pItem);
+	virtual Tizen::Base::String GetSectionHeader(int sectionIndex){}
+	virtual bool HasSectionHeader(int sectionIndex){}
+	virtual Tizen::Base::String GetSectionFooter(int sectionIndex){}
+	virtual bool HasSectionFooter(int sectionIndex){}
+	virtual int GetDefaultItemHeight(void){}
+
+
 
 
 protected:

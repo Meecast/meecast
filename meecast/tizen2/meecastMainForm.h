@@ -19,6 +19,7 @@ class meecastMainForm
     , public Tizen::Ui::ITouchEventListener
     , public Tizen::Base::Runtime::ITimerEventListener
     , public Tizen::Ui::ITouchFlickGestureEventListener
+   
      {
 public:
 	meecastMainForm(void);

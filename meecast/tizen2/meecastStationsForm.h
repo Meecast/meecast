@@ -10,10 +10,10 @@ class meecastStationsForm
 	: public Tizen::Ui::Controls::Form
 	, public Tizen::Ui::IActionEventListener
 	, public Tizen::Ui::Controls::IFormBackEventListener
-	, public Tizen::Ui::Controls::IListViewItemEventListener
-	, public Tizen::Ui::Controls::IListViewItemProvider
  	, public Tizen::Ui::Scenes::ISceneEventListener
     , public Tizen::Ui::Controls::IFastScrollListener
+    , public Tizen::Ui::Controls::IListViewItemEventListener
+    , public Tizen::Ui::Controls::IListViewItemProvider
 {
 public:
 	meecastStationsForm(void);

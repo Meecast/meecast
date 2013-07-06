@@ -225,7 +225,7 @@ meecastFullWeatherForm::ReInitElements(void){
     Tizen::Ui::Controls::Label  *main_pressure_text = static_cast<Label*>(GetControl(L"IDC_LABEL_PRESSURE_TEXT"));
     Tizen::Ui::Controls::Panel  *backgroundPanel = static_cast<Panel*>(GetControl(L"IDC_PANEL_BACKGROUND"));
 
-    Tizen::Ui::Controls::ListView  *main_listview_forecast = static_cast<ListView*>(GetControl(L"IDC_LISTVIEW_FORECASTS"));
+    Tizen::Ui::Controls::TableView  *main_tableview_forecast = static_cast<TableView*>(GetControl(L"IDC_TABLEVIEW_FORECASTS"));
 
     if (_config->stationsList().size()!=0){
         main_background_label->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background_main.png"));
@@ -233,19 +233,10 @@ meecastFullWeatherForm::ReInitElements(void){
         main_background_label->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background.png"));
     }
     main_background_label->RequestRedraw();
-    main_humidity_icon->SetShowState(false);
-    main_humidity_text->SetShowState(false);
     main_current_state->SetShowState(false);
     main_icon->SetShowState(false);
     main_temperature->SetShowState(false);
     main_description->SetShowState(false);
-    main_background_wind_icon->SetShowState(false);
-    main_wind_icon->SetShowState(false);
-    main_wind_text->SetShowState(false);
-    main_wind_speed_icon->SetShowState(false);
-    main_wind_speed_text->SetShowState(false);
-    main_pressure_icon->SetShowState(false);
-    main_pressure_text->SetShowState(false);
 
     AppLog("_config->current_station_id() %i", _config->current_station_id());
     AppLog("_config->stationsList().size() %i", _config->stationsList().size());
@@ -452,98 +443,29 @@ meecastFullWeatherForm::ReInitElements(void){
         main_temperature->SetText(str);
         main_temperature->RequestRedraw();
         /* Current or not current period */
-        if (temp_data->Current())
-            Tizen::Base::Utility::StringUtil::Utf8ToString("Now", str);
-        else
-            Tizen::Base::Utility::StringUtil::Utf8ToString("Today", str);
+        switch(_current_selected_tab){
+            case NOW:
+                Tizen::Base::Utility::StringUtil::Utf8ToString("Now", str);
+                break;
+            case DAY:
+                Tizen::Base::Utility::StringUtil::Utf8ToString("Day", str);
+                break;
+            case NIGHT:
+                Tizen::Base::Utility::StringUtil::Utf8ToString("Night", str);
+                break;
+            case ID_BUTTON_HOURLY:
+                Tizen::Base::Utility::StringUtil::Utf8ToString("", str);
+                break;
+            default:
+            break;
+        }
+
         main_current_state->SetShowState(true);
         main_current_state->SetText(str);
         main_current_state->RequestRedraw();
 
-        /* Main humidity */
-        if (temp_data->Humidity() != INT_MAX){
-            main_humidity_text->SetShowState(true);
-            main_humidity_icon->SetShowState(true);
-
-            snprintf (buffer, sizeof(buffer) -1, "%i%%", temp_data->Humidity());
-            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-            main_humidity_text->SetText(str);
-            main_humidity_text->RequestRedraw();
-        }else{
-            main_humidity_text->SetShowState(false);
-            main_humidity_icon->SetShowState(false);
-        }
-        
-    AppLog("REINIT ELEMENTS333");
-        /* Main wind direction */
-        if (temp_data->WindDirection() != "N/A"){
-            snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
-            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-
-            if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/wind_direction_arrow_" + str + ".png")){
-                main_background_wind_icon->SetShowState(true);
-                main_wind_icon->SetShowState(true);
-                main_wind_text->SetShowState(true);
-                main_wind_text->SetText(str);
-                main_wind_text->RequestRedraw();
-
-                /* Wind direction Icon */ 
-                Tizen::Media::Image *image = null;
-                Tizen::Graphics::Bitmap* windIconBitmap = null;
-                image = new (std::nothrow) Tizen::Media::Image();
-                image->Construct();
-
-                windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/wind_direction_arrow_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
-                main_wind_icon->SetBackgroundBitmap(*windIconBitmap);
-                main_wind_icon->RequestRedraw();
-                SAFE_DELETE(image);
-                SAFE_DELETE(windIconBitmap);
-            }
-        }
-        /* Main wind speed */
-        if (temp_data->WindSpeed().value() != INT_MAX){
-            main_wind_speed_text->SetShowState(true);
-            main_wind_speed_icon->SetShowState(true);
-            snprintf (buffer, sizeof(buffer) -1, "%0.f %s", 
-                                             temp_data->WindSpeed().value(), _config->WindSpeedUnit().c_str());
-            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-            main_wind_speed_text->SetText(str);
-            main_wind_speed_text->RequestRedraw();
-        }else{
-            main_wind_speed_text->SetShowState(false);
-            main_wind_speed_icon->SetShowState(false);
-        }
-        /* Main presssure */
-        if (temp_data->pressure().value(true) != INT_MAX){
-            snprintf (buffer, sizeof(buffer) -1, "%i %s", (int)temp_data->pressure().value(), _config->PressureUnit().c_str());
-            main_pressure_text->SetShowState(true);
-            main_pressure_icon->SetShowState(true);
-            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-            main_pressure_text->SetText(str);
-            main_pressure_text->RequestRedraw();
-        }
-
-        main_listview_forecast->SetItemProvider(*this);
-        main_listview_forecast->SetItemDividerColor(Tizen::Graphics::Color(0x1F, 0x1F, 0x1F)); 
-        /* Fill list of days with weather forecast */
-        /* set current day */ 
-        time_t current_day;
-        struct tm   *tm = NULL;
-        current_day = time(NULL);
-        tm = gmtime(&current_day);
-        tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
-        tm->tm_isdst = 1;
-        current_day = mktime(tm); /* today 00:00:00 */
-
-        /* fill other days */
-        int i = 3600*24;
-        int j = 0;
-
-        _dayCount = 0;
-        while  ( (temp_data = _config->dp->data().GetDataForTime( current_day + 14*3600 + i))) {
-            _dayCount ++;
-            i = i + 3600*24;
-        }
+       
+        AppLog("REINIT ELEMENTS333");
     }else{
         /* Main Icon  N/A*/ 
         Tizen::Media::Image *image = null;
@@ -572,7 +494,7 @@ meecastFullWeatherForm::ReInitElements(void){
             backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(0xFF, 0xFF, 0xFF));
         }
     }
-    main_listview_forecast->UpdateList();
+  //  main_tableview_forecast->UpdateList();
     backgroundPanel->RequestRedraw();
 }
 
@@ -605,105 +527,36 @@ meecastFullWeatherForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& cur
 }
 
 
+
+
+
 int
-meecastFullWeatherForm::GetItemCount(void)
+meecastFullWeatherForm::GetItemCount(int sectionIndex)
 {
-    return _dayCount;
+    /*
+	if (sectionIndex == SECTION_TYPE_REPEAT_TYPE)
+	{
+		return SECTION_ITEM_COUNT_TYPE;
+	}
+	else //(sectionIndex == SECTION_TYPE_UNTILE_TYPE)
+	{
+		return SECTION_ITEM_COUNT_UNTIL;
+	}
+    */
+    return 1;
 }
 
 
 
 bool
-meecastFullWeatherForm::DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth)
+meecastFullWeatherForm::DeleteItem(int sectionIndex, int itemIndex, Tizen::Ui::Controls::TableViewItem* pItem)
 {
 	delete pItem;
 	return true;
 }
 
-
-Tizen::Ui::Controls::ListItemBase*
-meecastFullWeatherForm::CreateItem (int index, int itemWidth)
-{
-    char  buffer[4096];
-    CustomItem* pItem = new (std::nothrow) CustomItem();
-    TryReturn(pItem != null, null, "Out of memory");
-
-    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, 100), LIST_ANNEX_STYLE_NORMAL);
-
-    //Tizen::Ui::Controls::ListView  *main_listview_forecast = static_cast<ListView*>(GetControl(L"IDC_LISTVIEW_FORECASTS"));
-
-    if ((index-1) %2 != 0 ){
-        pItem->SetBackgroundColor(LIST_ITEM_DRAWING_STATUS_NORMAL, Tizen::Graphics::Color(0x00, 0x00, 0x00));
-    }else{
-        pItem->SetBackgroundColor(LIST_ITEM_DRAWING_STATUS_NORMAL, Tizen::Graphics::Color(0x1F, 0x1F, 0x1F));
-    }
-    /* set current day */ 
-    time_t current_day;
-    struct tm   *tm = NULL;
-    current_day = time(NULL);
-    tm = gmtime(&current_day);
-    tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
-    tm->tm_isdst = 1;
-    current_day = mktime(tm); /* today 00:00:00 */
-
-    /* fill other days */
-    int i = 3600*24;
-    String* pStr;
-    Core::Data *temp_data = NULL;
-    if ((temp_data = _config->dp->data().GetDataForTime( current_day + 14 * 3600  + index*3600*24))) {
-        temp_data->temperature_low().units(_config->TemperatureUnit());
-        temp_data->temperature_hi().units(_config->TemperatureUnit());
-        temp_data->temperature().units(_config->TemperatureUnit());
-
-        pItem->AddElement(Tizen::Graphics::Rectangle(10, 20, 220, 50), 0, temp_data->DayOfMonthName().c_str(), false);
-        if (index != 0)
-            pItem->AddElement(Tizen::Graphics::Rectangle(90, 20, 220, 50), 4, temp_data->ShortDayName().c_str(), false);
-        else
-            pItem->AddElement(Tizen::Graphics::Rectangle(90, 20, 220, 50), 4, L"Today", false);
-        /* Icon */
-        snprintf(buffer, sizeof(buffer) - 1, "icons/Atmos/%i.png", temp_data->Icon());
-        pItem->AddElement(Tizen::Graphics::Rectangle(320, 0, 100, 100), 1, *Application::GetInstance()->GetAppResource()->GetBitmapN(buffer), null, null);
-
-        if (temp_data->temperature_low().value(true) != INT_MAX){
-            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
-            Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(10);
-            pItem->AddElement(Tizen::Graphics::Rectangle(600, 20, 100, 60), 2, buffer, false);
-            delete color_of_temp;
-            pItem->SetElementTextHorizontalAlignment(2, ALIGNMENT_RIGHT);
-        }
-        if (temp_data->temperature_hi().value(true) != INT_MAX){
-            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
-            Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(temp_data->temperature_hi().value());
-            pItem->AddElement(Tizen::Graphics::Rectangle(500, 20, 100, 60), 3, buffer, 40, *color_of_temp, *color_of_temp, *color_of_temp);
-            pItem->SetElementTextHorizontalAlignment(3, ALIGNMENT_RIGHT);
-            delete color_of_temp;
-        }
-    }
-    return pItem;
-}
-
 void
-meecastFullWeatherForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
-{
-    ConfigTizen *config;
-
-	if (status == LIST_ITEM_STATUS_SELECTED){
-
-   	}
-}
-void
-meecastFullWeatherForm::OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction)
+meecastFullWeatherForm::UpdateItem(int sectionIndex, int itemIndex, Tizen::Ui::Controls::TableViewItem* pItem)
 {
 }
-
-void
-meecastFullWeatherForm::OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state)
-{
-}
-
-void
-meecastFullWeatherForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex)
-{
-}
-
 

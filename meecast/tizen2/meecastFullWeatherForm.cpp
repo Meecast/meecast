@@ -510,14 +510,29 @@ meecastFullWeatherForm::ReInitElements(void){
         main_current_state->SetText(str);
         main_current_state->RequestRedraw();
 
-       
-        /*Presssure */
+        if (_pKeyList->GetCount() > 0){
+            _pKeyList->RemoveAll(true);
+        }
+        if (_pValueList->GetCount() > 0){
+            _pValueList->RemoveAll(true);
+        }
+
+        /* Presssure */
         if (temp_data->pressure().value(true) != INT_MAX){
             snprintf (buffer, sizeof(buffer) -1, "%i %s", (int)temp_data->pressure().value(), _config->PressureUnit().c_str());
             Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
             _pValueList->Add(new String(str));
             _pKeyList->Add(new String(L"Pressure"));
         }
+
+        /* Wind direction */
+        if (temp_data->WindDirection() != "N/A"){
+            snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            _pValueList->Add(new String(str));
+            _pKeyList->Add(new String(L"Wind direction"));
+        }
+
         if (temp_data->WindSpeed().value() != INT_MAX){
             snprintf (buffer, sizeof(buffer) -1, "%0.f %s", 
                     temp_data->WindSpeed().value(), _config->WindSpeedUnit().c_str());
@@ -595,7 +610,7 @@ meecastFullWeatherForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& cur
 int
 meecastFullWeatherForm::GetItemCount(void)
 {
-    AppLog("meecastFullWeatherForm::GetItemCount");
+    AppLog("meecastFullWeatherForm::GetItemCount %i", _pValueList->GetCount()/2);
     /*
 	if (sectionIndex == SECTION_TYPE_REPEAT_TYPE)
 	{
@@ -606,8 +621,10 @@ meecastFullWeatherForm::GetItemCount(void)
 		return SECTION_ITEM_COUNT_UNTIL;
 	}
     */
-  // return _pValueList->GetCount();
-   return 1;
+    if (_pValueList->GetCount() % 2 > 0)
+        return (_pValueList->GetCount() / 2) + 1;
+    else    
+        return _pValueList->GetCount() / 2;
 }
 
 void
@@ -650,123 +667,32 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 	AppLogExceptionIf(pItem == null, "Table item creation is failed");
 	pItem->Construct(Dimension(itemWidth, 120), style);
 
-//	return pItem;
-	switch (index)
-	{
-
-	case 0:
-	{
-		title = L"camera";
-		title.Insert(FEATURE_INFO_KEY_PREFIX, 0);
-		SystemInfo::GetValue(title, result);
-		if (result == true)
-		{
-			description = L"supported";
-		}
-		else
-		{
-			description = L"unsupported";
-		}
-		break;
-	}
-
-	case 1:
-	{
-		title = L"camera.back";
-		title.Insert(FEATURE_INFO_KEY_PREFIX, 0);
-		SystemInfo::GetValue(title, result);
-		if (result == true)
-		{
-			description = L"supported";
-		}
-		else
-		{
-			description = L"unsupported";
-		}
-		break;
-	}
-
-	case 2:
-	{
-		title = L"camera.back.flash";
-		title.Insert(FEATURE_INFO_KEY_PREFIX, 0);
-		SystemInfo::GetValue(title, result);
-		if (result == true)
-		{
-			description = L"supported";
-		}
-		else
-		{
-			description = L"unsupported";
-		}
-		break;
-	}
-
-	case 3:
-	{
-		title = L"camera.front";
-		title.Insert(FEATURE_INFO_KEY_PREFIX, 0);
-		SystemInfo::GetValue(title, result);
-		if (result == true)
-		{
-			description = L"supported";
-		}
-		else
-		{
-			description = L"unsupported";
-		}
-		break;
-	}
-
-	case 4:
-	{
-		title = L"camera.front.flash";
-		title.Insert(FEATURE_INFO_KEY_PREFIX, 0);
-		SystemInfo::GetValue(title, result);
-		if (result == true)
-		{
-			description = L"supported";
-		}
-		else
-		{
-			description = L"unsupported";
-		}
-		break;
-	}
-
-	case 5:
-	{
-		title = L"database.encryption";
-		title.Insert(FEATURE_INFO_KEY_PREFIX, 0);
-		SystemInfo::GetValue(title, result);
-		if (result == true)
-		{
-			description = L"supported";
-		}
-		else
-		{
-			description = L"unsupported";
-		}
-		break;
-	}
-
-	default:
-		break;
-	}
-
-//	title.Replace(SYSTEM_INFO_KEY_PREFIX, "");
-	title.Replace(FEATURE_INFO_KEY_PREFIX, "");
 	Label* pKeyTitleLabel = new Label();
-	pKeyTitleLabel->Construct(Rectangle(0, 0, 200, 50), *static_cast< String* >(_pKeyList->GetAt(index)));
-	pKeyTitleLabel->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
+	pKeyTitleLabel->Construct(Rectangle(0, 0, __clientWidth/2, 50), *static_cast< String* >(_pKeyList->GetAt(2*index)));
+	pKeyTitleLabel->SetTextConfig(30, LABEL_TEXT_STYLE_NORMAL);
 	pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
 	pItem->AddControl(*pKeyTitleLabel);
 
 	Label* pKeyDescriptionLabel = new Label();
-	pKeyDescriptionLabel->Construct(Rectangle(0, 20, 200, 100), *static_cast< String* >(_pValueList->GetAt(index)));
-	pKeyDescriptionLabel->SetTextConfig(26, LABEL_TEXT_STYLE_NORMAL);
+	pKeyDescriptionLabel->Construct(Rectangle(0, 20, __clientWidth/2, 100), *static_cast< String* >(_pValueList->GetAt(2*index)));
+	pKeyDescriptionLabel->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
 	pKeyDescriptionLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
 	pItem->AddControl(*pKeyDescriptionLabel);
+
+    AppLog("meecastFullWeatherForm::CreateItem +111 %i %i", _pKeyList->GetCount()/2 + 1, index + 1);
+    if(_pKeyList->GetCount()/2 + 1 > index + 1){
+        Label* pKeyTitleLabel = new Label();
+        pKeyTitleLabel->Construct(Rectangle(__clientWidth/2, 0, __clientWidth/2, 50), *static_cast< String* >(_pKeyList->GetAt(2*index + 1)));
+        pKeyTitleLabel->SetTextConfig(30, LABEL_TEXT_STYLE_NORMAL);
+        pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+        pItem->AddControl(*pKeyTitleLabel);
+
+        Label* pKeyDescriptionLabel = new Label();
+        pKeyDescriptionLabel->Construct(Rectangle(__clientWidth/2, 20, __clientWidth/2, 100), *static_cast< String* >(_pValueList->GetAt(2*index + 1)));
+        pKeyDescriptionLabel->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
+        pKeyDescriptionLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+        pItem->AddControl(*pKeyDescriptionLabel);
+    }
 
 	return pItem;
 }

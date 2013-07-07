@@ -40,7 +40,9 @@ meecastFullWeatherForm::meecastFullWeatherForm(void):
                                   __dayButton(null),
                                   __nightButton(null),
                                   __hourlyButton(null),
-                                  _current_selected_tab(NOW)
+                                  _current_selected_tab(NOW),
+                                  _pKeyList(null),
+                                  _pValueList(null)
 {
     _dayNumber = 0;
 }
@@ -51,6 +53,15 @@ meecastFullWeatherForm::~meecastFullWeatherForm(void)
     SAFE_DELETE(__dayButton);
     SAFE_DELETE(__nightButton);
     SAFE_DELETE(__hourlyButton);
+    if (_pKeyList->GetCount() > 0){
+        _pKeyList->RemoveAll(true);
+    }
+    delete _pKeyList;
+    if (_pValueList->GetCount() > 0){
+        _pValueList->RemoveAll(true);
+    }
+    delete _pValueList;
+
 }
 
 bool
@@ -119,6 +130,12 @@ meecastFullWeatherForm::OnInitializing(void)
     Tizen::Ui::Controls::Label  *main_background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
     pLayout->SetRelation(*__pTableView, *main_background_label, RECT_EDGE_RELATION_TOP_TO_BOTTOM);
 
+
+    _pValueList = new (std::nothrow) Tizen::Base::Collection::ArrayList();
+    _pValueList->Construct();
+    _pKeyList = new (std::nothrow) Tizen::Base::Collection::ArrayList();
+    _pKeyList->Construct();
+                    
 
     return r;
 }
@@ -494,7 +511,23 @@ meecastFullWeatherForm::ReInitElements(void){
         main_current_state->RequestRedraw();
 
        
-        AppLog("REINIT ELEMENTS333");
+        /*Presssure */
+        if (temp_data->pressure().value(true) != INT_MAX){
+            snprintf (buffer, sizeof(buffer) -1, "%i %s", (int)temp_data->pressure().value(), _config->PressureUnit().c_str());
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            _pValueList->Add(new String(str));
+            _pKeyList->Add(new String(L"Pressure"));
+        }
+        if (temp_data->WindSpeed().value() != INT_MAX){
+            snprintf (buffer, sizeof(buffer) -1, "%0.f %s", 
+                    temp_data->WindSpeed().value(), _config->WindSpeedUnit().c_str());
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            _pValueList->Add(new String(str));
+            _pKeyList->Add(new String(L"Wind speed"));
+        };
+
+        AppLog("REINIT ELEMENTS444");
+
     }else{
         /* Main Icon  N/A*/ 
         Tizen::Media::Image *image = null;
@@ -573,7 +606,8 @@ meecastFullWeatherForm::GetItemCount(void)
 		return SECTION_ITEM_COUNT_UNTIL;
 	}
     */
-    return 1;
+  // return _pValueList->GetCount();
+   return 1;
 }
 
 void
@@ -723,14 +757,14 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 //	title.Replace(SYSTEM_INFO_KEY_PREFIX, "");
 	title.Replace(FEATURE_INFO_KEY_PREFIX, "");
 	Label* pKeyTitleLabel = new Label();
-	pKeyTitleLabel->Construct(Rectangle(0, 0, 200, 50), title);
-	pKeyTitleLabel->SetTextConfig(26, LABEL_TEXT_STYLE_NORMAL);
+	pKeyTitleLabel->Construct(Rectangle(0, 0, 200, 50), *static_cast< String* >(_pKeyList->GetAt(index)));
+	pKeyTitleLabel->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
 	pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
 	pItem->AddControl(*pKeyTitleLabel);
 
 	Label* pKeyDescriptionLabel = new Label();
-	pKeyDescriptionLabel->Construct(Rectangle(0, 20, 200, 100), description);
-	pKeyDescriptionLabel->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
+	pKeyDescriptionLabel->Construct(Rectangle(0, 20, 200, 100), *static_cast< String* >(_pValueList->GetAt(index)));
+	pKeyDescriptionLabel->SetTextConfig(26, LABEL_TEXT_STYLE_NORMAL);
 	pKeyDescriptionLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
 	pItem->AddControl(*pKeyDescriptionLabel);
 

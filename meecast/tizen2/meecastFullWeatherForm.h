@@ -110,6 +110,8 @@ private:
     Tizen::Ui::Controls::FooterItem* __hourlyButton;
 	Tizen::Ui::Controls::TableView* __pTableView;
 	int __clientWidth;
+    Tizen::Base::Collection::ArrayList* _pKeyList;
+    Tizen::Base::Collection::ArrayList* _pValueList;
 };
 
 #endif	//_MEECAST_FULL_WEATHER_FORM_H_

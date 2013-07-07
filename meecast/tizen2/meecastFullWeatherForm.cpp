@@ -539,7 +539,7 @@ meecastFullWeatherForm::ReInitElements(void){
             _pValueList->Add(new String(str));
             _pKeyList->Add(new String(L"Wind direction"));
         }
-
+        /* Wind Speed */
         if (temp_data->WindSpeed().value() != INT_MAX){
             snprintf (buffer, sizeof(buffer) -1, "%0.f %s", 
                     temp_data->WindSpeed().value(), _config->WindSpeedUnit().c_str());
@@ -547,7 +547,14 @@ meecastFullWeatherForm::ReInitElements(void){
             _pValueList->Add(new String(str));
             _pKeyList->Add(new String(L"Wind speed"));
         };
-
+        /* Humidity */
+        if (temp_data->Humidity() != INT_MAX){
+            snprintf (buffer, sizeof(buffer) -1, "%i%%", temp_data->Humidity());
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            _pValueList->Add(new String(str));
+            _pKeyList->Add(new String(L"Humidity"));
+        }
+ 
         AppLog("REINIT ELEMENTS444");
 
     }else{
@@ -566,17 +573,6 @@ meecastFullWeatherForm::ReInitElements(void){
             main_icon->RequestRedraw();
             SAFE_DELETE(image);
             SAFE_DELETE(mainIconBitmap);
-        }
-        _dayCount = 0;
-    }
-    if (_dayCount == 0){
-        main_background_label->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background.png"));
-        main_background_label->RequestRedraw();
-        if (_config->stationsList().size()!=0){
-            main_set_try_update_button->SetShowState(true);
-            main_need_updating->SetShowState(true);
-            main_set_try_update_button->AddActionEventListener(*this);
-            backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(0xFF, 0xFF, 0xFF));
         }
     }
     __pTableView->UpdateTableView();

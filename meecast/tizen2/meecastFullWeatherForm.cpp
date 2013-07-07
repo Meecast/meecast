@@ -119,17 +119,19 @@ meecastFullWeatherForm::OnInitializing(void)
 	__pTableView = new (std::nothrow) TableView();
 	AppLogExceptionIf(__pTableView == null, "Table view creation is failed");
 
-	__pTableView->Construct(Rectangle(0, 0, clientRect.width, clientRect.height), true, TABLE_VIEW_SCROLL_BAR_STYLE_FADE_OUT);
+    Tizen::Ui::Controls::Label  *main_background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
+	__pTableView->Construct(Rectangle(0, 0, clientRect.width, clientRect.height - main_background_label->GetHeight() - pFooter->GetHeight() - 70), true, TABLE_VIEW_SCROLL_BAR_STYLE_FADE_OUT);
 	__pTableView->SetItemProvider(this);
 	__pTableView->AddTableViewItemEventListener(*this);
+    
+    __pTableView->SetBackgroundColor(Tizen::Graphics::Color(0x00, 0x00, 0x00));
 
 	AddControl(*__pTableView);
     pLayout->SetHorizontalFitPolicy(*__pTableView, FIT_POLICY_PARENT);
     pLayout->SetRelation(*__pTableView, *this, RECT_EDGE_RELATION_LEFT_TO_LEFT);
     pLayout->SetRelation(*__pTableView, *this, RECT_EDGE_RELATION_RIGHT_TO_RIGHT);
-    Tizen::Ui::Controls::Label  *main_background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
     pLayout->SetRelation(*__pTableView, *main_background_label, RECT_EDGE_RELATION_TOP_TO_BOTTOM);
-
+    pLayout->SetRelation(*__pTableView, *pFooter, RECT_EDGE_RELATION_BOTTOM_TO_TOP);
 
     _pValueList = new (std::nothrow) Tizen::Base::Collection::ArrayList();
     _pValueList->Construct();
@@ -328,6 +330,7 @@ meecastFullWeatherForm::ReInitElements(void){
     __nightButton->SetText(L"Night");
 
 
+    AppLog ("111111111");
 
 /* Check Now */
     if (_dayNumber == 0 && _config->dp != NULL && (temp_data = _config->dp->data().GetDataForTime(time(NULL))) && temp_data->Current()){    
@@ -369,8 +372,10 @@ meecastFullWeatherForm::ReInitElements(void){
     tab_count++;
 
     pFooter->AddItem(*__nightButton);
-    if (_current_selected_tab == NIGHT)
+    if (_current_selected_tab == NIGHT){
         pFooter->SetItemSelected(tab_count);
+        AppLog("Set tAB Night!!!!");
+    }
     tab_count++;
     if (__hourlyButton){
         pFooter->AddItem(*__hourlyButton);
@@ -397,12 +402,14 @@ meecastFullWeatherForm::ReInitElements(void){
             time_for_show = current_day + 3 * 3600 + _dayNumber*24*3600;
             break;
     }
+    AppLog("222222a");
     /* Preparing data */
     if ((temp_data = _config->dp->data().GetDataForTime(time_for_show))) {
 
      day_name_label->SetText(temp_data->FullDayName().c_str());
      day_name_label->RequestRedraw();
 
+        AppLog("222222");
 
     /* Next day */
     if (_config->dp->data().GetDataForTime(time_for_show + 24*3600 ))
@@ -544,6 +551,7 @@ meecastFullWeatherForm::ReInitElements(void){
         AppLog("REINIT ELEMENTS444");
 
     }else{
+        AppLog("Nothing");
         /* Main Icon  N/A*/ 
         Tizen::Media::Image *image = null;
         Tizen::Graphics::Bitmap* mainIconBitmap = null;
@@ -571,8 +579,11 @@ meecastFullWeatherForm::ReInitElements(void){
             backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(0xFF, 0xFF, 0xFF));
         }
     }
-  //  main_tableview_forecast->UpdateList();
+    __pTableView->UpdateTableView();
     backgroundPanel->RequestRedraw();
+
+    pFooter->SetColor(pFooter->GetButtonColor(BUTTON_ITEM_STATUS_NORMAL));
+    pFooter->RequestRedraw();
 }
 
 void
@@ -666,6 +677,7 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 
 	AppLogExceptionIf(pItem == null, "Table item creation is failed");
 	pItem->Construct(Dimension(itemWidth, 120), style);
+    pItem->SetBackgroundColor(Tizen::Graphics::Color(0x00, 0x00, 0x00), TABLE_VIEW_ITEM_DRAWING_STATUS_NORMAL);
 
 	Label* pKeyTitleLabel = new Label();
 	pKeyTitleLabel->Construct(Rectangle(0, 0, __clientWidth/2, 50), *static_cast< String* >(_pKeyList->GetAt(2*index)));

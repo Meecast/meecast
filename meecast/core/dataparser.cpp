@@ -187,6 +187,9 @@ namespace Core {
                         forecast_data->temperature_hi().value((float)atof((char *)xmlNodeGetContent(p1)));
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"temperature_low"))
                         forecast_data->temperature_low().value((float)atof((char *)xmlNodeGetContent(p1)));
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"flike"))
+                        forecast_data->Flike().value((float)atof((char *)xmlNodeGetContent(p1)));
+
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"icon"))
                         forecast_data->Icon(atoi((char *)xmlNodeGetContent(p1)));
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"description"))

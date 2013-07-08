@@ -24,6 +24,7 @@
 #include <FApp.h>
 #include <FUi.h>
 #include "meecastFullWeatherForm.h"
+#include <time.h>
 
 using namespace Tizen::Base;
 using namespace Tizen::App;
@@ -583,7 +584,7 @@ meecastFullWeatherForm::ReInitElements(void){
         /* Sun Set */
         if (_config->dp->data().GetSunSetForTime(current_day + 15 * 3600 + _dayNumber*24*3600) > 0){
             AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %i %i", timezone, localtimezone);
-            time_t sun_set_time =  _config->dp->data().GetSunSetForTime(current_day + 15 * 3600) + 3600*timezone -3600*localtimezone;
+            time_t sun_set_time =  _config->dp->data().GetSunSetForTime(current_day + 15 * 3600) + 3600*timezone;
             struct tm   tm1;
            // tm = gmtime(&current_day);
             gmtime_r(&sun_set_time, &tm1);
@@ -592,7 +593,16 @@ meecastFullWeatherForm::ReInitElements(void){
             _pValueList->Add(new String(str));
             _pKeyList->Add(new String(L"SunSet"));
         }
-
+        if (_config->dp->LastUpdate()>0){
+            time_t last_update = _config->dp->LastUpdate();
+            struct tm   tm1;
+            localtime_r(&last_update, &tm1);
+            strftime(buffer, sizeof(buffer), "%d %b %H:%M", &tm1);
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            _pValueList->Add(new String(str));
+            _pKeyList->Add(new String(L"Last Update"));
+        }
+ 
         /*
               if (_dp->data().GetSunSetForTime(current_day + 15 * 3600) >0)
                           forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 15 * 3600) + 3600*timezone - 3600*localtimezone);

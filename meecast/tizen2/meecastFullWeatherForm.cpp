@@ -251,6 +251,7 @@ meecastFullWeatherForm::ReInitElements(void){
 
     AppLog("REINIT ELEMENTS");
     char  buffer[4096];
+    int localtimezone = 0;
     Tizen::Ui::Controls::Label  *day_name_label = static_cast<Label*>(GetControl(L"IDC_LABEL_DAY_NAME"));
     Tizen::Ui::Controls::Label  *main_background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
     Tizen::Ui::Controls::Label  *main_no_locations_label = static_cast<Label*>(GetControl(L"IDC_LABEL_NO_LOCATIONS"));
@@ -306,6 +307,15 @@ meecastFullWeatherForm::ReInitElements(void){
     time_t current_day;
     struct tm   *tm = NULL;
     current_day = time(NULL);
+
+    /* Set localtimezone */
+    struct tm time_tm1;
+    struct tm time_tm2;
+    gmtime_r(&current_day, &time_tm1);
+    localtime_r(&current_day, &time_tm2);
+    localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
+
+
     tm = gmtime(&current_day);
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     tm->tm_isdst = 1;
@@ -554,7 +564,27 @@ meecastFullWeatherForm::ReInitElements(void){
             _pValueList->Add(new String(str));
             _pKeyList->Add(new String(L"Humidity"));
         }
- 
+            AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %li", current_day + 15 * 3600 + _dayNumber*24*3600);
+        /* Sun Rise */
+        if (_config->dp->data().GetSunRiseForTime(current_day + 15 * 3600 + _dayNumber*24*3600) > 0){
+
+            AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            time_t sun_rise_time =  _config->dp->data().GetSunRiseForTime(current_day + 15 * 3600) + 3600*timezone -3600*localtimezone;
+            
+            struct tm   tm1;
+
+           // tm = gmtime(&current_day);
+            gmtime_r(&sun_rise_time, &tm1);
+            snprintf (buffer, sizeof(buffer) -1, "%i %i", tm1.tm_hour, tm1.tm_min);
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            _pValueList->Add(new String(str));
+            _pKeyList->Add(new String(L"SunRise"));
+        }
+        /*
+              if (_dp->data().GetSunSetForTime(current_day + 15 * 3600) >0)
+                          forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 15 * 3600) + 3600*timezone - 3600*localtimezone);
+                    forecast_data->LastUpdate(_dp->LastUpdate());
+         */
         AppLog("REINIT ELEMENTS444");
 
     }else{

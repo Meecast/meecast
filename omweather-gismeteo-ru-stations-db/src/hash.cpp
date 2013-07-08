@@ -40,7 +40,7 @@
 xmlHashTablePtr 
 hash_icons_gismeteoru_table_create(){
     xmlHashTablePtr hash;
-    hash = xmlHashCreate(6);
+    hash = xmlHashCreate(150);
 #include "hash_icons.data"
     return hash;
 }

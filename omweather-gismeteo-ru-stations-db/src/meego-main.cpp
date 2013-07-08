@@ -555,7 +555,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
          /* added temperature */
          if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) &&
              xpathObj3->nodesetval->nodeTab[i] && xpathObj3->nodesetval->nodeTab[i]->content){
-             /* fprintf (stderr, "temperature %s\n", xpathObj3->nodesetval->nodeTab[i]->content); */
+            /*  fprintf (stderr, "temperature %s\n", xpathObj3->nodesetval->nodeTab[i]->content); */
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj3->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
@@ -574,15 +574,17 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
              xpathObj4->nodesetval->nodeTab[i] && xpathObj4->nodesetval->nodeTab[i]->children->content){
             temp_char = strrchr((char*)xpathObj4->nodesetval->nodeTab[i]->children->content, '/');
             temp_char ++;
-            /* fprintf (stderr, "icon %s %s \n", xpathObj4->nodesetval->nodeTab[i]->children->content, choose_hour_weather_icon(hash_for_icons, temp_char)); */
+            /* fprintf (stderr, "icon %s \n", xpathObj4->nodesetval->nodeTab[i]->children->content); */
 #ifdef GLIB
             fprintf(file_out,"     <icon>%s</icon>\n",  choose_hour_weather_icon(hash_for_icons, temp_char));
 #endif
 #ifdef QT 
         fprintf(file_out,"     <icon>%s</icon>\n",  choose_hour_weather_icon(hash_for_icons, temp_char).toStdString().c_str());
 #endif
-
-        fprintf(file_out,"     <icon>%s</icon>\n", (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char));
+        if (xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char))
+            fprintf(file_out,"     <icon>%s</icon>\n",(char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char));
+        else
+            fprintf(file_out,"     <icon>49</icon>\n");
 
          }
          /* added text */

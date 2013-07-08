@@ -581,8 +581,12 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
 #ifdef QT 
         fprintf(file_out,"     <icon>%s</icon>\n",  choose_hour_weather_icon(hash_for_icons, temp_char).toStdString().c_str());
 #endif
+        if (xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char))
+            fprintf(file_out,"     <icon>%s</icon>\n",(char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char));
+        else
+            fprintf(file_out,"     <icon>49</icon>\n");
 
-        fprintf(file_out,"     <icon>%s</icon>\n", (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char));
+
 
          }
          /* added text */

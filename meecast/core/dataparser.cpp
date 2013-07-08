@@ -203,7 +203,13 @@ namespace Core {
                     }
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"wind_direction"))
                         forecast_data->WindDirection((char *)xmlNodeGetContent(p1));
- 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"sunrise")){
+                        forecast_data->SunRiseTime((int)atoi((char *)xmlNodeGetContent(p1)));
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"sunset")){
+                        forecast_data->SunSetTime((int)atoi((char *)xmlNodeGetContent(p1)));
+                    }
+
                 }
 
                   //  if  (source_name=="yr.no")

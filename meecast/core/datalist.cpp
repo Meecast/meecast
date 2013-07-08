@@ -31,6 +31,9 @@
 
 #include "datalist.h"
 #include <iostream>
+#include <FApp.h>
+#include <FIo.h>
+
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
      Data*
@@ -128,7 +131,6 @@ namespace Core {
          begin_day_time = mktime(begin_day); 
          end_day = localtime(&_time); begin_day->tm_hour = 23; begin_day->tm_min = 59; begin_day->tm_sec = 59;
          end_day_time = mktime(end_day); 
-
          for(it=this->begin(); it!=this->end(); ++it) {
             ++(next_it = it);
             temp_data = *it;

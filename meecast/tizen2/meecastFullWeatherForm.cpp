@@ -252,6 +252,7 @@ meecastFullWeatherForm::ReInitElements(void){
     AppLog("REINIT ELEMENTS");
     char  buffer[4096];
     int localtimezone = 0;
+    int timezone = 0;
     Tizen::Ui::Controls::Label  *day_name_label = static_cast<Label*>(GetControl(L"IDC_LABEL_DAY_NAME"));
     Tizen::Ui::Controls::Label  *main_background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
     Tizen::Ui::Controls::Label  *main_no_locations_label = static_cast<Label*>(GetControl(L"IDC_LABEL_NO_LOCATIONS"));
@@ -320,7 +321,9 @@ meecastFullWeatherForm::ReInitElements(void){
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     tm->tm_isdst = 1;
     current_day = mktime(tm); /* today 00:00:00 */
-
+    
+    /* Timezone */
+    timezone = _config->dp->timezone();
 
 
     /* Footer */
@@ -568,7 +571,7 @@ meecastFullWeatherForm::ReInitElements(void){
         /* Sun Rise */
         if (_config->dp->data().GetSunRiseForTime(current_day + 15 * 3600 + _dayNumber*24*3600) > 0){
 
-            AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %i %i", timezone, localtimezone);
             time_t sun_rise_time =  _config->dp->data().GetSunRiseForTime(current_day + 15 * 3600) + 3600*timezone -3600*localtimezone;
             
             struct tm   tm1;

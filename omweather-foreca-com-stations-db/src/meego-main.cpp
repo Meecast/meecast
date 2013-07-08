@@ -222,15 +222,15 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         xpathObj->nodesetval->nodeTab[0]->children->content){
        temp_char = strrchr((char*)xpathObj->nodesetval->nodeTab[0]->children->content, '/');
        temp_char ++;
-       /*  fprintf (stderr, "icon %s %s \n", xpathObj6->nodesetval->nodeTab[i]->children->content, choose_hour_weather_icon(hash_for_icons, temp_char)); */ 
+       /* fprintf (stderr, "icon %s \n", xpathObj6->nodesetval->nodeTab[i]->children->content); */ 
 //       fprintf(file_out,"     <icon>%s</icon>\n",  
 //                              choose_hour_weather_icon(temp_char).toStdString().c_str());
+                             
        if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char)){
             fprintf(file_out,"     <icon>%s</icon>\n",  
              (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char));
        }else 
             fprintf(file_out,"     <icon>49</icon>\n");  
-
     }
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
@@ -666,7 +666,8 @@ convert_station_forecacom_data(char *station_id_with_path, char *result_file, ch
     xmlNode *root_node = NULL;
     int    days_number = -1;
     char   buffer[1024],
-            *delimiter = NULL;
+           buffer2[1024],
+           *delimiter = NULL;
     FILE    *file_out;
 
     if(!station_id_with_path)

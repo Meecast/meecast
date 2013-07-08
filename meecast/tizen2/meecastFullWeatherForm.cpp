@@ -444,6 +444,7 @@ meecastFullWeatherForm::ReInitElements(void){
         temp_data->temperature_low().units(_config->TemperatureUnit());
         temp_data->temperature_hi().units(_config->TemperatureUnit());
         temp_data->temperature().units(_config->TemperatureUnit());
+        temp_data->Flike().units(_config->TemperatureUnit());
         temp_data->WindSpeed().units(_config->WindSpeedUnit());
         temp_data->pressure().units(_config->PressureUnit());
         /* Main Icon */
@@ -602,7 +603,14 @@ meecastFullWeatherForm::ReInitElements(void){
             _pValueList->Add(new String(str));
             _pKeyList->Add(new String(L"Last Update"));
         }
- 
+        /*i Flike Temperature */
+        if (temp_data->Flike().value(true) != INT_MAX){
+            AppLog("FLIKE!!!");
+            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->Flike().value());
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            _pValueList->Add(new String(str));
+            _pKeyList->Add(new String(L"Flike"));
+        }
         /*
               if (_dp->data().GetSunSetForTime(current_day + 15 * 3600) >0)
                           forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 15 * 3600) + 3600*timezone - 3600*localtimezone);

@@ -27,9 +27,25 @@
 //#include <glib.h>
 #include <stdio.h>
 #include "hash.h"
-#ifdef RELEASE
-#undef DEBUGFUNCTIONCALL
+
+xmlHashTablePtr 
+hash_icons_forecacom_table_create(){
+    xmlHashTablePtr hash;
+    hash = xmlHashCreate(6);
+#include "hash_icons.data"
+    return hash;
+}
+
+#ifdef QT
+QHash<QString, QString> *
+hash_icons_forecacom_table_create(void) {
+
+    QHash<QString, QString> *hash = new QHash <QString, QString>;
+#include "hash_icons.data"
+    return hash;
+}
 #endif
+<<<<<<< HEAD:omweather-foreca-com-stations-db/src/hash.cpp
 QHash<QString, QString> *
 hash_icons_forecacom_table_create(void) {
 
@@ -41,45 +57,4 @@ hash_icons_forecacom_table_create(void) {
     return hash;
 }
 
-#if 0
-/*******************************************************************************/
-GHashTable *hash_icons_forecacom_table_create(void) {
-    GHashTable *hash = NULL;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    hash = g_hash_table_new(g_str_hash, g_str_equal);
-#include "hash_icons.data"
-    return hash;
-}
 
-/*******************************************************************************/
-gpointer 
-hash_forecacom_table_find(GHashTable *hash, gpointer key, gboolean search_short_name) {
-    gpointer orig_key, search_text, 
-             value = NULL, 
-             result = NULL;
-    gchar buffer[512];
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    if (search_short_name) {
-        buffer[0] = 0;
-        snprintf(buffer, sizeof(buffer) - 1, "%s_short", (gchar *)key);
-        search_text = buffer;
-    } else
-        search_text = key;
-    if (g_hash_table_lookup_extended(hash,
-                                     search_text, &orig_key, &value))
-        result = value;
-    else{
-        result = key;
-        fprintf(stderr,"Not found %s\n",(gchar *)key);
-    }
-#ifdef DEBUGFUNCTIONCALL
-    END_FUNCTION;
-#endif
-    return result;
-}
-#endif
-/*******************************************************************************/

@@ -591,7 +591,14 @@ Config::iconSet(){
 void
 Config::current_station_id(int id_station){
     _current_station_id = id_station;
+    if (id_station >= (int)this->stationsList().size())
+        _current_station_id = 0;
+    if (id_station < 0)
+        _current_station_id = 0;
+    if (this->stationsList().size() == 0)
+        _current_station_id = INT_MAX;
 }
+////////////////////////////////////////////////////////////////////////////////
 int   
 Config::current_station_id(){
     if (_current_station_id >= (int)this->stationsList().size())

@@ -44,7 +44,6 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                 buffer2[buff_size];
     char        temp_buffer[buff_size];
     time_t      utc_time;
-    struct      tm   tmp_tm = {0};
     time_t      utc_time_start;
     time_t      utc_time_end;
     int         count_day = 0;
@@ -84,6 +83,7 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                         /* get weather data */
                         if(!xmlStrcmp(cur_node->name, (const xmlChar *) "time")){
                             if(xmlGetProp(cur_node, (const xmlChar*)"day")) {
+                                struct tm tmp_tm = {0};
                                 memset(temp_buffer, 0, sizeof(buffer));
                                 snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
                                                     xmlGetProp(cur_node, (const xmlChar*)"day"));
@@ -226,8 +226,8 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
 
     time_t      current_time;
     int         localtimezone;
-    struct      tm time_tm1;
-    struct      tm time_tm2;
+    struct      tm time_tm1 = {0};
+    struct      tm time_tm2 = {0};
 
 
     if(!doc)
@@ -279,13 +279,14 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
 
            if(!xmlStrcmp(child_node->name, (const xmlChar *) "lastupdate")){
                if(xmlGetProp(child_node, (const xmlChar*)"value")) {
+                   struct tm tmp_tm1 = {0};
                    memset(temp_buffer, 0, sizeof(buffer));
                    snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
                                        xmlGetProp(child_node, (const xmlChar*)"value"));
-                   strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
+                   strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm1);
                    fprintf(stderr, "Current time buffer %s\n", temp_buffer);
-                   utc_time_start = mktime(&tmp_tm) + localtimezone*3600;
-                   utc_time_end = mktime(&tmp_tm) + localtimezone*3600 + 4*3600;
+                   utc_time_start = mktime(&tmp_tm1) + localtimezone*3600;
+                   utc_time_end = mktime(&tmp_tm1) + localtimezone*3600 + 4*3600;
                }
            }
 

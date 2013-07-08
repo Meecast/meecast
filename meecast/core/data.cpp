@@ -117,7 +117,7 @@ namespace Core {
         delete _month_name;
 
         memset(buffer, 0, sizeof(buffer));
-        tmp_time_date_struct = gmtime(&start_time);
+        tmp_time_date_struct = localtime(&start_time);
         strftime(buffer, sizeof(buffer), "%a", tmp_time_date_struct);
         _short_day_name = new std::string(buffer);
         strftime(buffer, sizeof(buffer), "%A", tmp_time_date_struct);

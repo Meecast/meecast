@@ -27,9 +27,15 @@
 /*******************************************************************************/
 #ifndef _hash_h
 #define _hash_h 1
+#include <libxml/xpath.h>
+#include <string.h>
 /*******************************************************************************/
+xmlHashTablePtr hash_icons_forecacom_table_create();
+
+#ifdef QT
 #include <QHash>
 /*******************************************************************************/
 QHash<QString, QString> *hash_icons_forecacom_table_create(void);
 /*******************************************************************************/
+#endif
 #endif

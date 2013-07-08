@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of omweather-foreca-com-stations-db
+ * This file is part of omweather-foreca-com-stations-db - MeeCast
  *
- * Copyright (C) 2012 Vlad Vasilyeu
+ * Copyright (C) 2013 Vlad Vasilyeu
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or
@@ -30,11 +30,16 @@
 #include <time.h>
 #include <locale.h>
 #include <QHash>
+#include "hash.h"
 /*******************************************************************************/
 #define buff_size 2048
+#ifdef QT
 static QHash<QString, QString> *hash_for_icons;
 QHash<QString, QString> *hash_icons_forecacom_table_create(void);
+#endif
+static xmlHashTablePtr hash_for_icons;
 /*******************************************************************************/
+#ifdef QT
 QString
 choose_hour_weather_icon(char *image)
 {
@@ -47,6 +52,7 @@ choose_hour_weather_icon(char *image)
         return QString("49");
     }
 }
+#endif
 /*******************************************************************************/
 int
 parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *result_file){
@@ -85,8 +91,8 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     time_t      loc_time;
     time_t      utc_time;
     int        location_timezone = 0;
-    int timezone_flag = FALSE;
-    int sunrise_flag = FALSE;
+    int timezone_flag = false;
+    int sunrise_flag = false;
     int    flag;
     struct tm   tmp_tm_loc = {0};
     struct tm   tmp_tm = {0};
@@ -217,8 +223,14 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
        temp_char = strrchr((char*)xpathObj->nodesetval->nodeTab[0]->children->content, '/');
        temp_char ++;
        /*  fprintf (stderr, "icon %s %s \n", xpathObj6->nodesetval->nodeTab[i]->children->content, choose_hour_weather_icon(hash_for_icons, temp_char)); */ 
-       fprintf(file_out,"     <icon>%s</icon>\n",  
-                              choose_hour_weather_icon(temp_char).toStdString().c_str());
+//       fprintf(file_out,"     <icon>%s</icon>\n",  
+//                              choose_hour_weather_icon(temp_char).toStdString().c_str());
+       if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char)){
+            fprintf(file_out,"     <icon>%s</icon>\n",  
+             (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char));
+       }else 
+            fprintf(file_out,"     <icon>49</icon>\n");  
+
     }
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
@@ -284,20 +296,20 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     for(i = 1; i < (size) ; ++i) {
        
        nodes   = xpathObj2->nodesetval;
-       flag = FALSE;
+       flag = false;
        for (j = 0; j <(nodes->nodeNr); ++j){
            if (!flag && xpathObj2->nodesetval->nodeTab[j]->content && 
                xpathObj->nodesetval->nodeTab[i]->content &&
                !strcmp((const char*)xpathObj->nodesetval->nodeTab[i]->content, 
                        (const char*)xpathObj2->nodesetval->nodeTab[j]->content)){
-               flag = TRUE;
+               flag = true;
                k = 0;
            }
            if (flag && i+1 < size && xpathObj2->nodesetval->nodeTab[j]->content && 
                xpathObj->nodesetval->nodeTab[i+1]->content &&
                !strcmp((const char*)xpathObj->nodesetval->nodeTab[i+1]->content, 
                        (const char*)xpathObj2->nodesetval->nodeTab[j]->content)){
-               flag = FALSE;
+               flag = false;
            }
            if (flag){
                switch (k){
@@ -361,8 +373,13 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                             if (strlen((char*)xpathObj2->nodesetval->nodeTab[j]->children->content)>0){
                                 temp_char = strrchr((char*)xpathObj2->nodesetval->nodeTab[j]->children->content, '/');
                                 temp_char ++;
-                                fprintf(file_out,"     <icon>%s</icon>\n",  
-                                choose_hour_weather_icon(temp_char).toStdString().c_str());
+                                //fprintf(file_out,"     <icon>%s</icon>\n",  
+                               // choose_hour_weather_icon(temp_char).toStdString().c_str());
+                               if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char)){
+                                    fprintf(file_out,"     <icon>%s</icon>\n",  
+                                     (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char));
+                               }else 
+                                    fprintf(file_out,"     <icon>49</icon>\n");  
                              } 
                             break;
                 }
@@ -424,8 +441,8 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     time_t      loc_time;
     time_t      utc_time;
     int         location_timezone = 0;
-    int         timezone_flag = FALSE;
-    int         sunrise_flag = FALSE;
+    int         timezone_flag = false;
+    int         sunrise_flag = false;
     struct tm   tmp_tm_loc = {0};
     struct tm   tmp_tm = {0};
     struct tm   current_tm = {0};
@@ -577,8 +594,14 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
             temp_char = strrchr((char*)xpathObj6->nodesetval->nodeTab[i]->children->content, '/');
             temp_char ++;
             /*  fprintf (stderr, "icon %s %s \n", xpathObj6->nodesetval->nodeTab[i]->children->content, choose_hour_weather_icon(hash_for_icons, temp_char)); */ 
-            fprintf(file_out,"     <icon>%s</icon>\n",  
-                                   choose_hour_weather_icon(temp_char).toStdString().c_str());
+            //fprintf(file_out,"     <icon>%s</icon>\n",  
+            //                       choose_hour_weather_icon(temp_char).toStdString().c_str());
+
+             if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char)){
+                fprintf(file_out,"     <icon>%s</icon>\n",  
+                     (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char));
+             }else 
+                fprintf(file_out,"     <icon>49</icon>\n");  
          }
          /* added text */
          if (xpathObj7 && !xmlXPathNodeSetIsEmpty(xpathObj7->nodesetval) &&
@@ -669,7 +692,9 @@ convert_station_forecacom_data(char *station_id_with_path, char *result_file, ch
         else{
             /* prepare station id */
             *buffer = 0;
-            delimiter = strrchr(station_id_with_path, '/');
+            *buffer2 = 0;
+            snprintf(buffer2, sizeof(buffer2) - 1, "%s", station_id_with_path);
+            delimiter = strrchr(buffer2, '/');
             if(delimiter){
                 delimiter++; /* delete '/' */
                 snprintf(buffer, sizeof(buffer) - 1, "%s", delimiter);
@@ -728,6 +753,6 @@ main(int argc, char *argv[]){
         return -1;
     }
     result = convert_station_forecacom_data(argv[1], argv[2], argv[3]);
-    //fprintf(stderr, "\nresult = %d\n", result);
+    /* fprintf(stderr, "\nresult = %d\n", result); */
     return result;
 }

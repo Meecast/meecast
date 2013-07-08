@@ -52,11 +52,10 @@ LIBS += -lxml2
 #    DEFINES += GLIB 
 #}else{
 #    message(GLIB-2.0 is not exist)
-    CONFIG += qt
-    QT += core
-    DEFINES += QT
+#    CONFIG += qt
+#    QT += core
+#    DEFINES += QT
 #}
-
 
 
 db.files = data/foreca.com.db

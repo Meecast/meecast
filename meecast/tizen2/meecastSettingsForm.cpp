@@ -147,7 +147,7 @@ meecastSettingsForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& curren
 int
 meecastSettingsForm::GetItemCount(void)
 {
-    return 1;
+    return 2;
 }
 
 bool
@@ -164,15 +164,14 @@ meecastSettingsForm::CreateItem (int index, int itemWidth)
 	SimpleItem* pItem = new SimpleItem();
 	AppAssert(pItem);
 
-
-//	CalTodo* pTodo = null;
-
     pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_DETAILED);
-//	pTodo = static_cast<CalTodo*>(__pTodosList->GetAt(index));
 
 	String listItemString;
-	String subject = "Manage location";
-
+	String subject = "";
+    switch (index){
+        case 0: subject = "Manage location"; break;
+        case 1: subject = "Settings"; break;
+    }
 	listItemString.Append(subject);
 	pItem->SetElement(listItemString);
 

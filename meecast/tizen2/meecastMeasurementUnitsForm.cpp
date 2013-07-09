@@ -22,7 +22,7 @@
 */
 /*******************************************************************************/
 #include <FApp.h>
-#include "meecastSettingsForm.h"
+#include "meecastMeasurementUnitsForm.h"
 
 using namespace Tizen::Base;
 using namespace Tizen::App;
@@ -33,24 +33,24 @@ using namespace Tizen::Ui::Scenes;
 static const int LIST_HEIGHT = 112;
 static const int BUTTON_HEIGHT = 74;
 
-meecastSettingsForm::meecastSettingsForm(void)
+meecastMeasurementUnits::meecastMeasurementUnits(void)
                     : __pListView(null)
 {
 }
 
-meecastSettingsForm::~meecastSettingsForm(void)
+meecastMeasurementUnits::~meecastMeasurementUnits(void)
 {
 }
 
 bool
-meecastSettingsForm::Initialize(void)
+meecastMeasurementUnits::Initialize(void)
 {
-    Construct(L"SETTINGS_FORM");
+    Construct(L"MEASUREMENT_UNITS_FORM");
     return true;
 }
 
 result
-meecastSettingsForm::OnInitializing(void)
+meecastMeasurementUnits::OnInitializing(void)
 {
     result r = E_SUCCESS;
 
@@ -93,7 +93,7 @@ meecastSettingsForm::OnInitializing(void)
 }
 
 result
-meecastSettingsForm::OnTerminating(void)
+meecastMeasurementUnits::OnTerminating(void)
 {
     result r = E_SUCCESS;
 
@@ -103,7 +103,7 @@ meecastSettingsForm::OnTerminating(void)
 }
 
 void
-meecastSettingsForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionId)
+meecastMeasurementUnits::OnActionPerformed(const Tizen::Ui::Control& source, int actionId)
 {
     SceneManager* pSceneManager = SceneManager::GetInstance();
     AppAssert(pSceneManager);
@@ -117,7 +117,7 @@ meecastSettingsForm::OnActionPerformed(const Tizen::Ui::Control& source, int act
 }
 
 void
-meecastSettingsForm::OnFormBackRequested(Tizen::Ui::Controls::Form& source)
+meecastMeasurementUnits::OnFormBackRequested(Tizen::Ui::Controls::Form& source)
 {
 	SceneManager* pSceneManager = SceneManager::GetInstance();
 	AppAssert(pSceneManager);
@@ -127,7 +127,7 @@ meecastSettingsForm::OnFormBackRequested(Tizen::Ui::Controls::Form& source)
 }
 
 void
-meecastSettingsForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
+meecastMeasurementUnits::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
                                           const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs)
 {
     // TODO:
@@ -136,7 +136,7 @@ meecastSettingsForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previou
 }
 
 void
-meecastSettingsForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSceneId,
+meecastMeasurementUnits::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSceneId,
                                            const Tizen::Ui::Scenes::SceneId& nextSceneId)
 {
     // TODO:
@@ -145,13 +145,13 @@ meecastSettingsForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& curren
 }
 
 int
-meecastSettingsForm::GetItemCount(void)
+meecastMeasurementUnits::GetItemCount(void)
 {
     return 2;
 }
 
 bool
-meecastSettingsForm::DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth)
+meecastMeasurementUnits::DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth)
 {
 	delete pItem;
 	return true;
@@ -159,7 +159,7 @@ meecastSettingsForm::DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pI
 
 
 Tizen::Ui::Controls::ListItemBase*
-meecastSettingsForm::CreateItem (int index, int itemWidth)
+meecastMeasurementUnits::CreateItem (int index, int itemWidth)
 {
 	SimpleItem* pItem = new SimpleItem();
 	AppAssert(pItem);
@@ -170,7 +170,7 @@ meecastSettingsForm::CreateItem (int index, int itemWidth)
 	String subject = "";
     switch (index){
         case 0: subject = "Manage location"; break;
-        case 1: subject = "Measurement units"; break;
+        case 1: subject = "Settings"; break;
     }
 	listItemString.Append(subject);
 	pItem->SetElement(listItemString);
@@ -179,34 +179,45 @@ meecastSettingsForm::CreateItem (int index, int itemWidth)
 }
 
 void
-meecastSettingsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
+meecastMeasurementUnits::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
 {
 	if (status == LIST_ITEM_STATUS_SELECTED || status == LIST_ITEM_STATUS_MORE){
         SceneManager* pSceneManager = SceneManager::GetInstance();
         AppAssert(pSceneManager);
 	    AppLog("LIST_ITEM_STATUS_SELECTED ");
+        /* Select 'Manage location' */
         if (index == 0){
 	        AppLog("i111LIST_ITEM_STATUS_SELECTED ");
             pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_MANAGELOCATIONSSCENE"));
-        }
-        if (index == 1){
-	        AppLog("LIST_ITEM_STATUS_SELECTED ");
-            pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_MEASUREMENT_UNITSSCENE"));
-        }
+//            pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_MAINSCENE"));
+         }
+        /*
+		SceneManager* pSceneManager = SceneManager::GetInstance();
+		AppAssert(pSceneManager);
+
+		CalTodo* pTodo = static_cast<CalTodo*>(__pTodosList->GetAt(index));
+		AppAssert(pTodo);
+
+		ArrayList* pList = new (std::nothrow) ArrayList();
+		pList->Construct();
+		pList->Add(*new (std::nothrow) Integer(pTodo->GetRecordId()));
+
+		pSceneManager->GoForward(ForwardSceneTransition(SCENE_DETAIL), pList);
+        */
 	}
 }
 void
-meecastSettingsForm::OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction)
+meecastMeasurementUnits::OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction)
 {
 }
 
 void
-meecastSettingsForm::OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state)
+meecastMeasurementUnits::OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state)
 {
 }
 
 void
-meecastSettingsForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex)
+meecastMeasurementUnits::OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex)
 {
 }
 

@@ -189,7 +189,6 @@ namespace Core {
                         forecast_data->temperature_low().value((float)atof((char *)xmlNodeGetContent(p1)));
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"flike"))
                         forecast_data->Flike().value((float)atof((char *)xmlNodeGetContent(p1)));
-
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"icon"))
                         forecast_data->Icon(atoi((char *)xmlNodeGetContent(p1)));
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"description"))
@@ -198,6 +197,8 @@ namespace Core {
                         forecast_data->Humidity(atoi((char *)xmlNodeGetContent(p1)));
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"pressure"))
                         forecast_data->pressure().value((float)atof((char *)xmlNodeGetContent(p1)));
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"ppcp"))
+                        forecast_data->Ppcp((float)atof((char *)xmlNodeGetContent(p1)));
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"wind_speed")){
                         if (!xmlStrcmp(xmlNodeGetContent(p1), (const xmlChar*)"clam"))
                             forecast_data->WindSpeed().value((float)0);

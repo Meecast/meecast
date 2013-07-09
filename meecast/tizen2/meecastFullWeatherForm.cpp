@@ -569,6 +569,14 @@ meecastFullWeatherForm::ReInitElements(void){
             _pValueList->Add(new String(str));
             _pKeyList->Add(new String(L"Humidity"));
         }
+        /* Ppcp */
+        if (temp_data->Ppcp() != INT_MAX){
+            snprintf (buffer, sizeof(buffer) -1, "%0.f", temp_data->Ppcp());
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            _pValueList->Add(new String(str));
+            _pKeyList->Add(new String(L"Ppcp"));
+        }
+ 
             AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %li", current_day + 15 * 3600 + _dayNumber*24*3600);
         /* Sun Rise */
         if (_config->dp->data().GetSunRiseForTime(current_day + 15 * 3600 + _dayNumber*24*3600) > 0){

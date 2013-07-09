@@ -112,11 +112,12 @@ main (int argc, char *argv[])
     /* 25*60 = 25 minutes - minimal time between updates */ 
     if ((!dp) || (dp && (abs(time(NULL) - dp->LastUpdate()) > 25*60))){
         /*update weather forecast*/
-
-        if ((time(NULL) - dp->LastUpdate()) > config->UpdatePeriod()){
-            for (i=0; i < config->stationsList().size();i++){
-                if (config->stationsList().at(i)->updateData(true)){
-                    success ++;
+        if (config->UpdatePeriod() != INT_MAX || config->UpdatePeriod() != 0){
+            if ((time(NULL) - dp->LastUpdate()) > config->UpdatePeriod()){
+                for (i=0; i < config->stationsList().size();i++){
+                    if (config->stationsList().at(i)->updateData(true)){
+                        success ++;
+                    }
                 }
             }
         }

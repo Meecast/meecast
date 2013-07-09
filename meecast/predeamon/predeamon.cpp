@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of Other Maemo Weather(omweather)
+ * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -112,9 +112,12 @@ main (int argc, char *argv[])
     /* 25*60 = 25 minutes - minimal time between updates */ 
     if ((!dp) || (dp && (abs(time(NULL) - dp->LastUpdate()) > 25*60))){
         /*update weather forecast*/
-        for (i=0; i < config->stationsList().size();i++){
-            if (config->stationsList().at(i)->updateData(true)){
-                success ++;
+
+        if ((time(NULL) - dp->LastUpdate()) > config->UpdatePeriod()){
+            for (i=0; i < config->stationsList().size();i++){
+                if (config->stationsList().at(i)->updateData(true)){
+                    success ++;
+                }
             }
         }
     }
@@ -163,7 +166,7 @@ main (int argc, char *argv[])
 
         /* Call DBUS */
         MeecastIf* dbusclient = new MeecastIf("com.meecast.applet", "/com/meecast/applet", QDBusConnection::sessionBus(), 0);
-        /* Preparing time for updateing */
+        /* Preparing time for updating */
         uint result_time = 0;
         if (config->UpdatePeriod() != INT_MAX || config->UpdatePeriod() != 0){
             if ((time(NULL) - dp->LastUpdate()) > config->UpdatePeriod())

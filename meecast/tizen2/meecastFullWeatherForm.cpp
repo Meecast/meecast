@@ -593,7 +593,15 @@ meecastFullWeatherForm::ReInitElements(void){
             Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
             _pValueList->Add(new String(str));
             _pKeyList->Add(new String(L"SunSet"));
+            time_t sun_rise_time =  _config->dp->data().GetSunRiseForTime(current_day + 15 * 3600) + 3600*timezone -3600*localtimezone;
+            time_t day_length_time =  sun_set_time - sun_rise_time;
+            gmtime_r(&day_length_time, &tm1);
+            snprintf (buffer, sizeof(buffer) -1, "%i:%i", tm1.tm_hour, tm1.tm_min);
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            _pValueList->Add(new String(str));
+            _pKeyList->Add(new String(L"Day length"));
         }
+
         if (_config->dp->LastUpdate()>0){
             time_t last_update = _config->dp->LastUpdate();
             struct tm   tm1;
@@ -603,7 +611,7 @@ meecastFullWeatherForm::ReInitElements(void){
             _pValueList->Add(new String(str));
             _pKeyList->Add(new String(L"Last Update"));
         }
-        /*i Flike Temperature */
+        /* Flike Temperature */
         if (temp_data->Flike().value(true) != INT_MAX){
             AppLog("FLIKE!!!");
             snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->Flike().value());

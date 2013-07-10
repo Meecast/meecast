@@ -34,7 +34,8 @@ static const int LIST_HEIGHT = 112;
 static const int BUTTON_HEIGHT = 74;
 
 meecastMeasurementUnits::meecastMeasurementUnits(void)
-                    : __pListView(null)
+                            : __pList(null)
+                            , __pItemContext(null)
 {
 }
 
@@ -53,50 +54,36 @@ result
 meecastMeasurementUnits::OnInitializing(void)
 {
     result r = E_SUCCESS;
+	CreateGroupedListView();
 
-    // TODO:
-    // Add your initialization code here
+	// Create Custom Element
+//	__pCustomGroupedListElement = new (std::nothrow) CustomGroupedListElement();
 
-    //CreateContextMenuList();
-    // Setup back event listener
-    SetFormBackEventListener(this);
+	__pItemContext = new (std::nothrow) ListContextItem();
+	__pItemContext->Construct();
+	__pItemContext->AddElement(1, L"Button 1");
+	__pItemContext->AddElement(2, L"Button 2");
 
-
-
-    // Creates an instance of ListView
-    __pListView = new ListView();
-    __pListView->Construct(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, GetClientAreaBounds().height), true, false);
-    __pListView->SetItemProvider(*this);
-    __pListView->AddListViewItemEventListener(*this);
-
-    // Adds the list view to the form
-    AddControl(*__pListView);
-
-    // Get a button via resource ID
-//    Tizen::Ui::Controls::Button *pButtonOk = static_cast<Button*>(GetControl(L"IDC_BUTTON_OK"));
-//    if (pButtonOk != null)
-//    {
-//        pButtonOk->SetActionId(ID_BUTTON_OK);
-//        pButtonOk->AddActionEventListener(*this);
-//    }
-    /* Footer */
-  //  Footer* pFooter = GetFooter();
-  //  pFooter->SetStyle(FOOTER_STYLE_BUTTON_ICON_TEXT);
-
-  //  FooterItem menuButton;
-   // menuButton.Construct(ID_BUTTON_MENU);
-  //  menuButton.SetText("Menu");
-  //  pFooter->AddItem(menuButton);
-  //  pFooter->AddActionEventListener(*this);
 
     return r;
+}
+
+
+void
+meecastMeasurementUnits::CreateGroupedListView(void)
+{
+	__pList = static_cast <GroupedListView*> (GetControl("IDC_GROUPEDLISTVIEW"));
+	__pList->SetItemProvider(*this);
+	__pList->AddGroupedListViewItemEventListener(*this);
+	AddControl(*__pList);
 }
 
 result
 meecastMeasurementUnits::OnTerminating(void)
 {
     result r = E_SUCCESS;
-
+	// Deallocate bitmaps
+	delete __pItemContext;
     // TODO:
     // Add your termination code here
     return r;
@@ -144,81 +131,194 @@ meecastMeasurementUnits::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& cu
     AppLog("OnSceneDeactivated");
 }
 
-int
-meecastMeasurementUnits::GetItemCount(void)
+
+ListItemBase*
+meecastMeasurementUnits::CreateItem(int groupIndex, int itemIndex, int itemWidth)
 {
-    return 2;
-}
+//	ListAnnexStyle style =  LIST_ANNEX_STYLE_NORMAL;
+	ListAnnexStyle style =  LIST_ANNEX_STYLE_RADIO;
+	CustomItem* pItem = new (std::nothrow) CustomItem();
+	pItem->Construct(Tizen::Graphics::Dimension(GetClientAreaBounds().width, 90),style);
 
-bool
-meecastMeasurementUnits::DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth)
-{
-	delete pItem;
-	return true;
-}
-
-
-Tizen::Ui::Controls::ListItemBase*
-meecastMeasurementUnits::CreateItem (int index, int itemWidth)
-{
-	SimpleItem* pItem = new SimpleItem();
-	AppAssert(pItem);
-
-    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_DETAILED);
-
-	String listItemString;
-	String subject = "";
-    switch (index){
-        case 0: subject = "Manage location"; break;
-        case 1: subject = "Settings"; break;
+    Tizen::Graphics::FloatRectangle firstElementRect(26.0f, 27.0f, 60.0f, 60.0f);
+	Tizen::Graphics::FloatRectangle secondElementRect(150.0f, 32.0f, 150.0f, 50.0f);
+    switch (groupIndex){
+        case 0:
+            switch (itemIndex % 4){
+            case 0:
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"Celsius", true);
+                break;
+            case 1:
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"Fahrenheit", true);
+                break;
+            default:
+                break;
+            }
+            break;
+        case 1:
+            switch (itemIndex % 4){
+            case 0:
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"m/s", true);
+                break;
+            case 1:
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"km/h", true);
+                break;
+            case 2:
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"mi/h", true);
+                break;
+            default:
+                break;
+            }
+            break;
+        case 2:
+            switch (itemIndex % 4){
+            case 0:
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"mbar", true);
+                break;
+            case 1:
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"Pa", true);
+                break;
+            case 2:
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"mmHg", true);
+                break;
+            default:
+                break;
+            }
+            break;
+        case 3:
+            switch (itemIndex % 4){
+            case 0:
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"m", true);
+                break;
+            case 1:
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"km", true);
+                break;
+            case 2:
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"mi", true);
+                break;
+            default:
+                break;
+            }
+            break;
     }
-	listItemString.Append(subject);
-	pItem->SetElement(listItemString);
+//	pItem->SetContextItem(__pItemContext);
 
 	return pItem;
 }
 
-void
-meecastMeasurementUnits::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
+int
+meecastMeasurementUnits::GetGroupCount(void)
 {
-	if (status == LIST_ITEM_STATUS_SELECTED || status == LIST_ITEM_STATUS_MORE){
+	return 4;
+}
+
+int
+meecastMeasurementUnits::GetItemCount(int groupIndex)
+{
+	int itemCount = 0;
+	switch(groupIndex)
+	{
+	case 0:
+		itemCount = 2;
+		break;
+	case 1:
+		itemCount = 3;
+		break;
+	case 2:
+		itemCount = 3;
+		break;
+	case 3:
+		itemCount = 3;
+		break;
+	default:
+		break;
+	}
+	return itemCount;
+}
+
+
+bool
+meecastMeasurementUnits::DeleteItem(int groupIndex, int itemIndex, Controls::ListItemBase* pItem, int itemWidth)
+{
+	delete pItem;
+	pItem = null;
+	return true;
+}
+
+bool
+meecastMeasurementUnits::DeleteGroupItem(int groupIndex, Controls::GroupItem* pItem, int itemWidth)
+{
+	delete pItem;
+	pItem = null;
+	return true;
+}
+
+GroupItem*
+meecastMeasurementUnits::CreateGroupItem(int groupIndex, int itemWidth)
+{
+	GroupItem* pItem = new (std::nothrow) GroupItem();
+
+	pItem->Construct(Tizen::Graphics::Dimension(GetClientAreaBounds().width, 80));
+	String text(L"");
+	switch (groupIndex)
+	{
+	case 0:
+		text = L"Temperature units";
+		break;
+	case 1:
+		 text = L"Wind speed units";
+		break;
+	case 2:
+		 text = L"Pressure units";
+		break;
+	case 3:
+		 text = L"Visible units";
+		break;
+	}
+	pItem->SetElement(text, null);
+	return pItem;
+}
+
+
+void
+meecastMeasurementUnits::OnGroupedListViewItemStateChanged(GroupedListView& listView, int groupIndex, int itemIndex, int elementId, ListItemStatus state)
+{
+    /*
+    if (state == LIST_ITEM_STATUS_SELECTED && __requestId == FormFactory::REQUEST_SCAN_RESULT_DEVICE_LIST_FORM)
+    {
+    	WifiDirectDeviceInfo* pDeviceInfo = null;
+
+    	if (groupIndex == INDEX_GROUP_OWNER)
+    	{
+    		pDeviceInfo = new WifiDirectDeviceInfo(*static_cast<WifiDirectDeviceInfo*>(__groupOwnerInfoList.GetAt(itemIndex)));
+    	}
+    	else
+		{
+    		pDeviceInfo = new WifiDirectDeviceInfo(*static_cast<WifiDirectDeviceInfo*>(__othersInfoList.GetAt(itemIndex)));
+		}
+
+        ArrayList* pArgs = new ArrayList(SingleObjectDeleter);
+        pArgs->Add(*pDeviceInfo);
+
         SceneManager* pSceneManager = SceneManager::GetInstance();
         AppAssert(pSceneManager);
-	    AppLog("LIST_ITEM_STATUS_SELECTED ");
-        /* Select 'Manage location' */
-        if (index == 0){
-	        AppLog("i111LIST_ITEM_STATUS_SELECTED ");
-            pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_MANAGELOCATIONSSCENE"));
-//            pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_MAINSCENE"));
-         }
-        /*
-		SceneManager* pSceneManager = SceneManager::GetInstance();
-		AppAssert(pSceneManager);
+        pSceneManager->GoBackward(BackwardSceneTransition(), pArgs);
+    }
 
-		CalTodo* pTodo = static_cast<CalTodo*>(__pTodosList->GetAt(index));
-		AppAssert(pTodo);
-
-		ArrayList* pList = new (std::nothrow) ArrayList();
-		pList->Construct();
-		pList->Add(*new (std::nothrow) Integer(pTodo->GetRecordId()));
-
-		pSceneManager->GoForward(ForwardSceneTransition(SCENE_DETAIL), pList);
-        */
+	if (state == LIST_ITEM_STATUS_CHECKED)
+	{
+		// uncheck the previously selected item
+		__pGroupedListView->SetItemChecked(__selectedGroupIndex, __selectedItemIndex, false);
+		__pGroupedListView->RequestRedraw();
+		__selectedGroupIndex = groupIndex;
+		__selectedItemIndex = itemIndex;
 	}
-}
-void
-meecastMeasurementUnits::OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction)
-{
-}
-
-void
-meecastMeasurementUnits::OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state)
-{
-}
-
-void
-meecastMeasurementUnits::OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex)
-{
+	else if (state == LIST_ITEM_STATUS_UNCHECKED)
+	{
+		__selectedGroupIndex = -1;
+		__selectedItemIndex = -1;
+	}
+    */
 }
 
 

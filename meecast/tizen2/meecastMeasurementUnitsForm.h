@@ -9,8 +9,8 @@ class meecastMeasurementUnits
 	: public Tizen::Ui::Controls::Form
 	, public Tizen::Ui::IActionEventListener
 	, public Tizen::Ui::Controls::IFormBackEventListener
-	, public Tizen::Ui::Controls::IListViewItemEventListener
-	, public Tizen::Ui::Controls::IListViewItemProvider
+    , public Tizen::Ui::Controls::IGroupedListViewItemEventListener
+    , public Tizen::Ui::Controls::IGroupedListViewItemProvider
  	, public Tizen::Ui::Scenes::ISceneEventListener
 {
 public:
@@ -26,17 +26,24 @@ public:
 								   const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs);
 	virtual void OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSceneId,
 									const Tizen::Ui::Scenes::SceneId& nextSceneId);
+// IGroupedListViewItemEventListener
+    virtual void OnGroupedListViewItemSwept(Tizen::Ui::Controls::GroupedListView& listView, int groupIndex, int itemIndex, Tizen::Ui::Controls::SweepDirection direction) {};
+	virtual void OnGroupedListViewItemStateChanged(Tizen::Ui::Controls::GroupedListView& listView, int groupIndex, int itemIndex, int elementId, Tizen::Ui::Controls::ListItemStatus state);
+    virtual void OnGroupedListViewContextItemStateChanged(Tizen::Ui::Controls::GroupedListView& listView, int groupIndex, int itemIndex, int elementId, Tizen::Ui::Controls::ListContextItemStatus state) {};
 
-	virtual void OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status);
-	virtual void OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction);
-	virtual void OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state);
-	virtual void OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex);
-	virtual Tizen::Ui::Controls::ListItemBase* CreateItem(int index, int itemWidth);
-	virtual bool DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth);
-	virtual int GetItemCount(void);
+    // IGroupedListViewItemProvider
+	virtual int GetGroupCount(void);
+	virtual int GetItemCount(int groupIndex);
+	virtual Tizen::Ui::Controls::GroupItem* CreateGroupItem(int groupIndex, int itemWidth);
+	virtual bool DeleteGroupItem(int groupIndex, Tizen::Ui::Controls::GroupItem* pItem, int itemWidth);
+	virtual Tizen::Ui::Controls::ListItemBase* CreateItem(int groupIndex, int itemIndex, int itemWidth);
+	virtual bool DeleteItem(int groupIndex, int itemIndex, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth);
+
+    void CreateGroupedListView(void);
 protected:
 private:
-    Tizen::Ui::Controls::ListView* __pListView;
+	Tizen::Ui::Controls::GroupedListView* __pList;
+	Tizen::Ui::Controls::ListContextItem* __pItemContext;
 };
 
 #endif	//_MEECAST_MEASURENMENT_FORM_H_

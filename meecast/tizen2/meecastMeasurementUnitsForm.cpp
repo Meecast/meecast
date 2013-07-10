@@ -230,8 +230,6 @@ meecastMeasurementUnits::CreateItem(int groupIndex, int itemIndex, int itemWidth
             }
             break;
     }
-//	pItem->SetContextItem(__pItemContext);
-
 	return pItem;
 }
 
@@ -312,18 +310,12 @@ meecastMeasurementUnits::CreateGroupItem(int groupIndex, int itemWidth)
 void
 meecastMeasurementUnits::OnGroupedListViewItemStateChanged(GroupedListView& listView, int groupIndex, int itemIndex, int elementId, ListItemStatus state)
 {
-    AppLog("Selected");
     ConfigTizen *config;
     config = ConfigTizen::Instance( std::string("config.xml"),
                                        Core::AbstractConfig::prefix+
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");
-
-//    __pList->SetItemChecked(2,1, true);
-//    __pList->RequestRedraw();
     if (state == LIST_ITEM_STATUS_CHECKED){
-
-    AppLog("Selected1");
         switch (groupIndex){
             case 0:
                 switch (itemIndex % 4){

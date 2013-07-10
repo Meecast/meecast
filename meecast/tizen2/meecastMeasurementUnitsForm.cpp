@@ -35,7 +35,6 @@ static const int BUTTON_HEIGHT = 74;
 
 meecastMeasurementUnits::meecastMeasurementUnits(void)
                             : __pList(null)
-                            , __pItemContext(null)
 {
 }
 
@@ -54,16 +53,20 @@ result
 meecastMeasurementUnits::OnInitializing(void)
 {
     result r = E_SUCCESS;
+
+    SetFormBackEventListener(this);
 	CreateGroupedListView();
 
 	// Create Custom Element
 //	__pCustomGroupedListElement = new (std::nothrow) CustomGroupedListElement();
-
+/*
 	__pItemContext = new (std::nothrow) ListContextItem();
 	__pItemContext->Construct();
 	__pItemContext->AddElement(1, L"Button 1");
 	__pItemContext->AddElement(2, L"Button 2");
-
+*/
+    __pList->SetItemChecked(1,1, true);
+    __pList->RequestRedraw();
 
     return r;
 }
@@ -83,7 +86,6 @@ meecastMeasurementUnits::OnTerminating(void)
 {
     result r = E_SUCCESS;
 	// Deallocate bitmaps
-	delete __pItemContext;
     // TODO:
     // Add your termination code here
     return r;
@@ -135,22 +137,31 @@ meecastMeasurementUnits::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& cu
 ListItemBase*
 meecastMeasurementUnits::CreateItem(int groupIndex, int itemIndex, int itemWidth)
 {
+
+    ConfigTizen *config;
+    config = ConfigTizen::Instance( std::string("config.xml"),
+                                       Core::AbstractConfig::prefix+
+                                       Core::AbstractConfig::schemaPath+
+                                       "config.xsd");
+ 
 //	ListAnnexStyle style =  LIST_ANNEX_STYLE_NORMAL;
 	ListAnnexStyle style =  LIST_ANNEX_STYLE_RADIO;
 	CustomItem* pItem = new (std::nothrow) CustomItem();
 	pItem->Construct(Tizen::Graphics::Dimension(GetClientAreaBounds().width, 90),style);
 
-    Tizen::Graphics::FloatRectangle firstElementRect(26.0f, 27.0f, 60.0f, 60.0f);
-	Tizen::Graphics::FloatRectangle secondElementRect(150.0f, 32.0f, 150.0f, 50.0f);
     switch (groupIndex){
         case 0:
             switch (itemIndex % 4){
             case 0:
                 pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"Celsius", true);
+                if (config->TemperatureUnit() == "C")
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
                 break;
             case 1:
                 pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"Fahrenheit", true);
-                break;
+                 if (config->TemperatureUnit() == "F")
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+               break;
             default:
                 break;
             }
@@ -159,12 +170,18 @@ meecastMeasurementUnits::CreateItem(int groupIndex, int itemIndex, int itemWidth
             switch (itemIndex % 4){
             case 0:
                 pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"m/s", true);
+                if (config->WindSpeedUnit() == "m/s")
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
                 break;
             case 1:
                 pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"km/h", true);
+                if (config->WindSpeedUnit() == "km/h")
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
                 break;
             case 2:
                 pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"mi/h", true);
+                if (config->WindSpeedUnit() == "mi/h")
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
                 break;
             default:
                 break;
@@ -174,11 +191,17 @@ meecastMeasurementUnits::CreateItem(int groupIndex, int itemIndex, int itemWidth
             switch (itemIndex % 4){
             case 0:
                 pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"mbar", true);
-                break;
+                if (config->PressureUnit() == "mbar")
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+               break;
             case 1:
                 pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"Pa", true);
+                if (config->PressureUnit() == "Pa")
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
                 break;
             case 2:
+                if (config->PressureUnit() == "mmHg")
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
                 pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"mmHg", true);
                 break;
             default:
@@ -189,12 +212,18 @@ meecastMeasurementUnits::CreateItem(int groupIndex, int itemIndex, int itemWidth
             switch (itemIndex % 4){
             case 0:
                 pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"m", true);
+                if (config->VisibleUnit() == "m")
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
                 break;
             case 1:
                 pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"km", true);
+                if (config->VisibleUnit() == "km")
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
                 break;
             case 2:
                 pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"mi", true);
+                if (config->VisibleUnit() == "mi")
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
                 break;
             default:
                 break;
@@ -283,42 +312,113 @@ meecastMeasurementUnits::CreateGroupItem(int groupIndex, int itemWidth)
 void
 meecastMeasurementUnits::OnGroupedListViewItemStateChanged(GroupedListView& listView, int groupIndex, int itemIndex, int elementId, ListItemStatus state)
 {
-    /*
-    if (state == LIST_ITEM_STATUS_SELECTED && __requestId == FormFactory::REQUEST_SCAN_RESULT_DEVICE_LIST_FORM)
-    {
-    	WifiDirectDeviceInfo* pDeviceInfo = null;
+    AppLog("Selected");
+    ConfigTizen *config;
+    config = ConfigTizen::Instance( std::string("config.xml"),
+                                       Core::AbstractConfig::prefix+
+                                       Core::AbstractConfig::schemaPath+
+                                       "config.xsd");
 
-    	if (groupIndex == INDEX_GROUP_OWNER)
-    	{
-    		pDeviceInfo = new WifiDirectDeviceInfo(*static_cast<WifiDirectDeviceInfo*>(__groupOwnerInfoList.GetAt(itemIndex)));
-    	}
-    	else
-		{
-    		pDeviceInfo = new WifiDirectDeviceInfo(*static_cast<WifiDirectDeviceInfo*>(__othersInfoList.GetAt(itemIndex)));
-		}
+//    __pList->SetItemChecked(2,1, true);
+//    __pList->RequestRedraw();
+    if (state == LIST_ITEM_STATUS_CHECKED){
 
-        ArrayList* pArgs = new ArrayList(SingleObjectDeleter);
-        pArgs->Add(*pDeviceInfo);
-
-        SceneManager* pSceneManager = SceneManager::GetInstance();
-        AppAssert(pSceneManager);
-        pSceneManager->GoBackward(BackwardSceneTransition(), pArgs);
-    }
-
-	if (state == LIST_ITEM_STATUS_CHECKED)
-	{
-		// uncheck the previously selected item
-		__pGroupedListView->SetItemChecked(__selectedGroupIndex, __selectedItemIndex, false);
-		__pGroupedListView->RequestRedraw();
-		__selectedGroupIndex = groupIndex;
-		__selectedItemIndex = itemIndex;
-	}
-	else if (state == LIST_ITEM_STATUS_UNCHECKED)
-	{
-		__selectedGroupIndex = -1;
-		__selectedItemIndex = -1;
-	}
-    */
+    AppLog("Selected1");
+        switch (groupIndex){
+            case 0:
+                switch (itemIndex % 4){
+                case 0:
+                    AppLog("Selected2");
+                    config->TemperatureUnit("C");
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+                    __pList->SetItemChecked(groupIndex, itemIndex + 1, false);
+                    break;
+                case 1:
+                    AppLog("Selected3");
+                    config->TemperatureUnit("F");
+                    __pList->SetItemChecked(groupIndex, itemIndex - 1, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+                   break;
+                default:
+                    break;
+                }
+                break;
+            case 1:
+                switch (itemIndex % 4){
+                case 0:
+                    config->WindSpeedUnit("m/s");
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+                    __pList->SetItemChecked(groupIndex, itemIndex + 1, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex + 2, false);
+                    break;
+                case 1:
+                    config->WindSpeedUnit("km/h");
+                    __pList->SetItemChecked(groupIndex, itemIndex - 1, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+                    __pList->SetItemChecked(groupIndex, itemIndex + 1, false);
+                    break;
+                case 2:
+                    config->WindSpeedUnit("mi/h");
+                    __pList->SetItemChecked(groupIndex, itemIndex - 2, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex - 1, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+                    break;
+                default:
+                    break;
+                }
+                break;
+            case 2:
+                switch (itemIndex % 4){
+                case 0:
+                    config->PressureUnit("mbar");
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+                    __pList->SetItemChecked(groupIndex, itemIndex + 1, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex + 2, false);
+                    break;
+                case 1:
+                    config->PressureUnit("Pa");
+                    __pList->SetItemChecked(groupIndex, itemIndex - 1, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+                    __pList->SetItemChecked(groupIndex, itemIndex + 1, false);
+                    break;
+                case 2:
+                    config->PressureUnit("mmHg");
+                    __pList->SetItemChecked(groupIndex, itemIndex - 2, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex - 1, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+                    break;
+                default:
+                    break;
+                }
+                break;
+            case 3:
+                switch (itemIndex % 4){
+                case 0:
+                    config->VisibleUnit("m");
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+                    __pList->SetItemChecked(groupIndex, itemIndex + 1, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex + 2, false);
+                    break;
+                case 1:
+                    config->VisibleUnit("km");
+                    __pList->SetItemChecked(groupIndex, itemIndex - 1, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+                    __pList->SetItemChecked(groupIndex, itemIndex + 1, false);
+                    break;
+                case 2:
+                    config->VisibleUnit("mi");
+                    __pList->SetItemChecked(groupIndex, itemIndex - 2, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex - 1, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+                    break;
+                default:
+                    break;
+                }
+                break;
+        }
+    } 
+    config->saveConfig();
+    __pList->UpdateList();
 }
 
 

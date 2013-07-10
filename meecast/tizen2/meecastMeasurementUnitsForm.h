@@ -3,6 +3,7 @@
 
 #include <FBase.h>
 #include <FUi.h>
+#include "configtizen.h"
 
 
 class meecastMeasurementUnits
@@ -43,7 +44,7 @@ public:
 protected:
 private:
 	Tizen::Ui::Controls::GroupedListView* __pList;
-	Tizen::Ui::Controls::ListContextItem* __pItemContext;
+	//Tizen::Ui::Controls::ListContextItem* __pItemContext;
 };
 
 #endif	//_MEECAST_MEASURENMENT_FORM_H_

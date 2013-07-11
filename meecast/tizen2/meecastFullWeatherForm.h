@@ -18,8 +18,6 @@ class meecastFullWeatherForm
 	, public Tizen::Ui::Controls::IFormBackEventListener
  	, public Tizen::Ui::Scenes::ISceneEventListener
     , public Tizen::Ui::ITouchEventListener
-   // , public Tizen::Ui::Controls::ISectionTableViewItemEventListener
-  //  , public Tizen::Ui::Controls::ISectionTableViewItemProvider
 	, public Tizen::Ui::Controls::ITableViewItemEventListener
 	, public Tizen::Ui::Controls::ITableViewItemProvider
 	
@@ -98,7 +96,7 @@ protected:
     static const int ID_SET_LOCATIONS = 909;
     static const int DURATION = 500;
     static const int PROGRESS_COUNT = 30;
-
+    static const int INDICATE_HEIGHT = 70;
 private:
     ConfigTizen *_config;
     int _dayCount;
@@ -110,6 +108,7 @@ private:
     Tizen::Ui::Controls::FooterItem* __hourlyButton;
 	Tizen::Ui::Controls::TableView* __pTableView;
 	int __clientWidth;
+    int __clientHeight;
     Tizen::Base::Collection::ArrayList* _pKeyList;
     Tizen::Base::Collection::ArrayList* _pValueList;
 };

@@ -111,6 +111,7 @@ private:
     int __clientHeight;
     Tizen::Base::Collection::ArrayList* _pKeyList;
     Tizen::Base::Collection::ArrayList* _pValueList;
+    int _count_of_hours; 
 };
 
 #endif	//_MEECAST_FULL_WEATHER_FORM_H_

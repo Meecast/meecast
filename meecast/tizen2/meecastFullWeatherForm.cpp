@@ -412,6 +412,30 @@ meecastFullWeatherForm::ReInitElements(void){
         Form *main_form = static_cast<Form*>(GetParent());
         pLayout->SetRelation(*__pTableView, *day_name_label, RECT_EDGE_RELATION_TOP_TO_TOP);
         __pTableView->SetSize(__clientWidth, __clientHeight - pFooter->GetHeight() - INDICATE_HEIGHT);
+	        /* set current hour */
+            time_t current_hour;
+            current_hour = time(NULL);
+            tm = gmtime(&current_hour);
+            tm->tm_sec = 0; tm->tm_min = 1; 
+            tm->tm_isdst = 1;
+            current_hour = mktime(tm); 
+            int i =0;
+            if (_pValueList->GetCount() > 0){
+                _pValueList->RemoveAll(true);
+            }
+
+            _count_of_hours = 0; 
+            String str;
+            /* fill hours */
+            while  (_config->dp != NULL && i<5*24*3600) {
+                if (temp_data = _config->dp->data().GetDataForTime(current_hour + i, true)){
+                    if (temp_data->StartTime() + 60 == current_hour + i){
+                      _count_of_hours ++; 
+                     }
+                }
+                i = i + 3600;
+            }
+
         __pTableView->RequestRedraw();
         AppLog("Set tAB Hourly relation");
     }else{
@@ -552,10 +576,6 @@ meecastFullWeatherForm::ReInitElements(void){
             if (_pKeyList->GetCount() > 0){
                 _pKeyList->RemoveAll(true);
             }
-            if (_pValueList->GetCount() > 0){
-                _pValueList->RemoveAll(true);
-            }
-
             /* Presssure */
             if (temp_data->pressure().value(true) != INT_MAX){
                 snprintf (buffer, sizeof(buffer) -1, "%i %s", (int)temp_data->pressure().value(), _config->PressureUnit().c_str());
@@ -726,10 +746,15 @@ meecastFullWeatherForm::GetItemCount(void)
 		return SECTION_ITEM_COUNT_UNTIL;
 	}
     */
-    if (_pValueList->GetCount() % 2 > 0)
-        return (_pValueList->GetCount() / 2) + 1;
-    else    
-        return _pValueList->GetCount() / 2;
+    if (_current_selected_tab != HOURLY){
+        if (_pValueList->GetCount() % 2 > 0)
+            return (_pValueList->GetCount() / 2) + 1;
+        else    
+            return _pValueList->GetCount() / 2;
+    }
+    if (_current_selected_tab == HOURLY){
+        return  _count_of_hours;
+    }
 }
 
 void
@@ -763,6 +788,7 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 	String description;
 	int resValue = -1;
 	bool result = false;
+    char  buffer[4096];
 
     AppLog("meecastFullWeatherForm::CreateItem");
 	TableViewAnnexStyle style = TABLE_VIEW_ANNEX_STYLE_NORMAL;
@@ -771,33 +797,91 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 
 	AppLogExceptionIf(pItem == null, "Table item creation is failed");
 	pItem->Construct(Dimension(itemWidth, 120), style);
-    pItem->SetBackgroundColor(Tizen::Graphics::Color(0x00, 0x00, 0x00), TABLE_VIEW_ITEM_DRAWING_STATUS_NORMAL);
 
-	Label* pKeyTitleLabel = new Label();
-	pKeyTitleLabel->Construct(Rectangle(0, 0, __clientWidth/2, 50), *static_cast< String* >(_pKeyList->GetAt(2*index)));
-	pKeyTitleLabel->SetTextConfig(30, LABEL_TEXT_STYLE_NORMAL);
-	pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
-	pItem->AddControl(*pKeyTitleLabel);
+    if (_current_selected_tab != HOURLY){
+        pItem->SetBackgroundColor(Tizen::Graphics::Color(0x00, 0x00, 0x00), TABLE_VIEW_ITEM_DRAWING_STATUS_NORMAL);
 
-	Label* pKeyDescriptionLabel = new Label();
-	pKeyDescriptionLabel->Construct(Rectangle(0, 20, __clientWidth/2, 100), *static_cast< String* >(_pValueList->GetAt(2*index)));
-	pKeyDescriptionLabel->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
-	pKeyDescriptionLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
-	pItem->AddControl(*pKeyDescriptionLabel);
-
-    AppLog("meecastFullWeatherForm::CreateItem +111 %i %i", _pKeyList->GetCount()/2 + 1, index + 1);
-    if(_pKeyList->GetCount()/2 + 1 > index + 1){
         Label* pKeyTitleLabel = new Label();
-        pKeyTitleLabel->Construct(Rectangle(__clientWidth/2, 0, __clientWidth/2, 50), *static_cast< String* >(_pKeyList->GetAt(2*index + 1)));
+        pKeyTitleLabel->Construct(Rectangle(0, 0, __clientWidth/2, 50), *static_cast< String* >(_pKeyList->GetAt(2*index)));
         pKeyTitleLabel->SetTextConfig(30, LABEL_TEXT_STYLE_NORMAL);
         pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
         pItem->AddControl(*pKeyTitleLabel);
 
         Label* pKeyDescriptionLabel = new Label();
-        pKeyDescriptionLabel->Construct(Rectangle(__clientWidth/2, 20, __clientWidth/2, 100), *static_cast< String* >(_pValueList->GetAt(2*index + 1)));
+        pKeyDescriptionLabel->Construct(Rectangle(0, 20, __clientWidth/2, 100), *static_cast< String* >(_pValueList->GetAt(2*index)));
         pKeyDescriptionLabel->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
         pKeyDescriptionLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
         pItem->AddControl(*pKeyDescriptionLabel);
+
+        AppLog("meecastFullWeatherForm::CreateItem +111 %i %i", _pKeyList->GetCount()/2 + 1, index + 1);
+        if(_pKeyList->GetCount()/2 + 1 > index + 1){
+            Label* pKeyTitleLabel = new Label();
+            pKeyTitleLabel->Construct(Rectangle(__clientWidth/2, 0, __clientWidth/2, 50), *static_cast< String* >(_pKeyList->GetAt(2*index + 1)));
+            pKeyTitleLabel->SetTextConfig(30, LABEL_TEXT_STYLE_NORMAL);
+            pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+            pItem->AddControl(*pKeyTitleLabel);
+
+            Label* pKeyDescriptionLabel = new Label();
+            pKeyDescriptionLabel->Construct(Rectangle(__clientWidth/2, 20, __clientWidth/2, 100), *static_cast< String* >(_pValueList->GetAt(2*index + 1)));
+            pKeyDescriptionLabel->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
+            pKeyDescriptionLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+            pItem->AddControl(*pKeyDescriptionLabel);
+        }
+    }
+
+
+    if (_current_selected_tab == HOURLY){
+        if ((_config->stationsList().size() > 0)) {
+            String temp = (App::GetInstance()->GetAppDataPath());
+            temp.Append(_config->stationsList().at(_config->current_station_id())->fileName().c_str());
+            std::string temp_string = (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(temp)->GetPointer());
+            // AppLog("Filename %s", temp_string.c_str());
+            //_config->dp = Core::DataParser::Instance(temp_string, "");
+            _config->dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
+
+        }
+        else 
+            _config->dp = NULL;
+
+        Core::Data *temp_data = NULL;
+        AppLog ("DP %p", _config->dp);
+
+        /* set current hour */
+        struct tm   *tm = NULL;
+        time_t current_hour;
+        current_hour = time(NULL);
+        tm = gmtime(&current_hour);
+        tm->tm_sec = 0; tm->tm_min = 1; 
+        tm->tm_isdst = 1;
+        current_hour = mktime(tm); 
+        int i =0;
+        if (_pValueList->GetCount() > 0){
+            _pValueList->RemoveAll(true);
+        }
+
+
+        String str;
+        /* fill hours */
+        if (_config->dp != NULL) {
+            if (temp_data = _config->dp->data().GetDataForTime(current_hour + index*3600, true)){
+                if (temp_data->StartTime() + 60 == current_hour + index*3600){
+                    /* Preparing units */
+                    temp_data->temperature().units(_config->TemperatureUnit());
+                    temp_data->WindSpeed().units(_config->WindSpeedUnit());
+                    temp_data->pressure().units(_config->PressureUnit());
+                    pItem->SetBackgroundColor(Tizen::Graphics::Color(0x00, 0x00, 0x00), TABLE_VIEW_ITEM_DRAWING_STATUS_NORMAL);
+                    if (temp_data->temperature().value(true) != INT_MAX){
+                        snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature().value());
+                        Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                        Label* pKeyTitleLabel = new Label();
+                        pKeyTitleLabel->Construct(Rectangle(0, 0, __clientWidth/2, 50), str);
+                        pKeyTitleLabel->SetTextConfig(30, LABEL_TEXT_STYLE_NORMAL);
+                        pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+                        pItem->AddControl(*pKeyTitleLabel);
+                    }
+                }
+            }
+        }
     }
 
 	return pItem;

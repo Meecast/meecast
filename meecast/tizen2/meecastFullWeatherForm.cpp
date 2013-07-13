@@ -425,12 +425,14 @@ meecastFullWeatherForm::ReInitElements(void){
             }
 
             _count_of_hours = 0; 
-            String str;
             /* fill hours */
             while  (_config->dp != NULL && i<5*24*3600) {
                 if (temp_data = _config->dp->data().GetDataForTime(current_hour + i, true)){
                     if (temp_data->StartTime() + 60 == current_hour + i){
-                      _count_of_hours ++; 
+                        AppLog("Time1111 %li",current_hour + i);
+                        _pValueList->Add(new Long(current_hour + i));
+                        _pKeyList->Add(new Integer(_count_of_hours));
+                        _count_of_hours ++; 
                      }
                 }
                 i = i + 3600;
@@ -796,7 +798,7 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 	TableViewItem* pItem = new TableViewItem();
 
 	AppLogExceptionIf(pItem == null, "Table item creation is failed");
-	pItem->Construct(Dimension(itemWidth, 120), style);
+	pItem->Construct(Dimension(itemWidth, 90), style);
 
     if (_current_selected_tab != HOURLY){
         pItem->SetBackgroundColor(Tizen::Graphics::Color(0x00, 0x00, 0x00), TABLE_VIEW_ITEM_DRAWING_STATUS_NORMAL);
@@ -846,39 +848,82 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
         Core::Data *temp_data = NULL;
         AppLog ("DP %p", _config->dp);
 
-        /* set current hour */
-        struct tm   *tm = NULL;
-        time_t current_hour;
-        current_hour = time(NULL);
-        tm = gmtime(&current_hour);
-        tm->tm_sec = 0; tm->tm_min = 1; 
-        tm->tm_isdst = 1;
-        current_hour = mktime(tm); 
-        int i =0;
-        if (_pValueList->GetCount() > 0){
-            _pValueList->RemoveAll(true);
-        }
-
-
         String str;
         /* fill hours */
         if (_config->dp != NULL) {
-            if (temp_data = _config->dp->data().GetDataForTime(current_hour + index*3600, true)){
-                if (temp_data->StartTime() + 60 == current_hour + index*3600){
-                    /* Preparing units */
-                    temp_data->temperature().units(_config->TemperatureUnit());
-                    temp_data->WindSpeed().units(_config->WindSpeedUnit());
-                    temp_data->pressure().units(_config->PressureUnit());
+            Long* pLong = static_cast< Long* >(_pValueList->GetAt(index));
+            temp_data = _config->dp->data().GetDataForTime((time_t)pLong->ToLong(), true);
+            if ( temp_data){
+                /* Preparing units */
+                temp_data->temperature().units(_config->TemperatureUnit());
+                temp_data->WindSpeed().units(_config->WindSpeedUnit());
+                temp_data->pressure().units(_config->PressureUnit());
+                if ((index-1) %2 != 0 ){
                     pItem->SetBackgroundColor(Tizen::Graphics::Color(0x00, 0x00, 0x00), TABLE_VIEW_ITEM_DRAWING_STATUS_NORMAL);
-                    if (temp_data->temperature().value(true) != INT_MAX){
-                        snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature().value());
-                        Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-                        Label* pKeyTitleLabel = new Label();
-                        pKeyTitleLabel->Construct(Rectangle(0, 0, __clientWidth/2, 50), str);
-                        pKeyTitleLabel->SetTextConfig(30, LABEL_TEXT_STYLE_NORMAL);
-                        pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
-                        pItem->AddControl(*pKeyTitleLabel);
-                    }
+                }else{
+                    pItem->SetBackgroundColor(Tizen::Graphics::Color(0x1F, 0x1F, 0x1F), TABLE_VIEW_ITEM_DRAWING_STATUS_NORMAL);
+                }
+
+                Label* pDateLabel = new Label();
+                Tizen::Base::Utility::StringUtil::Utf8ToString(temp_data->DayOfMonthName().c_str(), str);
+                pDateLabel->Construct(Rectangle(10, 20, 220, 50), str);
+                pDateLabel->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+                pDateLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+                pItem->AddControl(*pDateLabel);
+
+
+                Label* pMonthLabel = new Label();
+                Tizen::Base::Utility::StringUtil::Utf8ToString(temp_data->FullMonthName().c_str(), str);
+                pMonthLabel->Construct(Rectangle(70, 20, 220, 50), str);
+                pMonthLabel->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+                pMonthLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+                pItem->AddControl(*pMonthLabel);
+
+                struct tm   *tm = NULL;
+                time_t current_day;
+                current_day = temp_data->StartTime();
+                Label* pHourLabel = new Label();
+                tm = gmtime(&(current_day));
+
+                snprintf(buffer, sizeof(buffer) - 1, "%02d:00", tm->tm_hour);
+                Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                pHourLabel->Construct(Rectangle(160, 20, 140, 50), str);
+                pHourLabel->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+                pHourLabel->SetTextHorizontalAlignment(ALIGNMENT_RIGHT);
+                pItem->AddControl(*pHourLabel);
+
+                Label* main_icon = new Label();
+                main_icon->Construct(Rectangle(400, 00, 90, 90), "");
+                Tizen::Base::Integer icon_int =  temp_data->Icon();
+                if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Atmos/" + icon_int.ToString() + ".png")){
+                    /* Main Icon */ 
+                    Tizen::Media::Image *image = null;
+                    Tizen::Graphics::Bitmap* mainIconBitmap = null;
+                    image = new (std::nothrow) Tizen::Media::Image();
+                    image->Construct();
+
+                    String icon_number = temp_data->Icon();
+
+                    mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Atmos/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+                    main_icon->SetBackgroundBitmap(*mainIconBitmap);
+                    main_icon->RequestRedraw();
+                    SAFE_DELETE(image);
+                    SAFE_DELETE(mainIconBitmap);
+                }
+                pItem->AddControl(*main_icon);
+
+
+
+                if (temp_data->temperature().value(true) != INT_MAX){
+                    snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature().value());
+                    Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                    Label* pKeyTitleLabel = new Label();
+                    Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(temp_data->temperature().value());
+                    pKeyTitleLabel->Construct(Rectangle( __clientWidth - 160, 20, 100, 50), str);
+                    pKeyTitleLabel->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+                    pKeyTitleLabel->SetTextColor(*color_of_temp);
+                    pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_RIGHT);
+                    pItem->AddControl(*pKeyTitleLabel);
                 }
             }
         }

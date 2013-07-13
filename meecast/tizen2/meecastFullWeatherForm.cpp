@@ -866,8 +866,9 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 
                 Label* pDateLabel = new Label();
                 Tizen::Base::Utility::StringUtil::Utf8ToString(temp_data->DayOfMonthName().c_str(), str);
-                pDateLabel->Construct(Rectangle(10, 20, 220, 50), str);
+                pDateLabel->Construct(Rectangle(5, 20, 220, 50), str);
                 pDateLabel->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+
                 pDateLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
                 pItem->AddControl(*pDateLabel);
 
@@ -887,13 +888,14 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 
                 snprintf(buffer, sizeof(buffer) - 1, "%02d:00", tm->tm_hour);
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-                pHourLabel->Construct(Rectangle(160, 20, 140, 50), str);
+                pHourLabel->Construct(Rectangle(140, 20, 140, 50), str);
                 pHourLabel->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+                pHourLabel->SetTextColor(Tizen::Graphics::Color(Color::GetColor(COLOR_ID_WHITE)));
                 pHourLabel->SetTextHorizontalAlignment(ALIGNMENT_RIGHT);
                 pItem->AddControl(*pHourLabel);
 
                 Label* main_icon = new Label();
-                main_icon->Construct(Rectangle(400, 00, 90, 90), "");
+                main_icon->Construct(Rectangle(350, 0, 90, 90), "");
                 Tizen::Base::Integer icon_int =  temp_data->Icon();
                 if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Atmos/" + icon_int.ToString() + ".png")){
                     /* Main Icon */ 
@@ -919,7 +921,7 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
                     Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                     Label* pKeyTitleLabel = new Label();
                     Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(temp_data->temperature().value());
-                    pKeyTitleLabel->Construct(Rectangle( __clientWidth - 160, 20, 100, 50), str);
+                    pKeyTitleLabel->Construct(Rectangle( __clientWidth - 120, 20, 100, 50), str);
                     pKeyTitleLabel->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
                     pKeyTitleLabel->SetTextColor(*color_of_temp);
                     pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_RIGHT);

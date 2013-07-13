@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-hko-gov-hk-stations-db - MeeCast
  *
- * Copyright (C) 2012 Vlad Vasilyeu
+ * Copyright (C) 2012 - 2013 Vlad Vasilyeu
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or
@@ -38,7 +38,7 @@
     static QHash<QString, QString> *hash_for_icons;
     QHash<QString, QString> *hash_hko_table_create(void);
 #endif
-
+static xmlHashTablePtr hash_for_icons;
 /*******************************************************************************/
 #ifdef GLIB
 gchar*
@@ -97,7 +97,7 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
         if (strstr(buffer,"Weather Cartoons for 7-day weather forecast"))
             break;
     }
-    hash_for_icons = hash_hko_table_create();
+    hash_for_icons = hash_icons_hko_table_create();
  
     while(fgets(buffer, sizeof(buffer), file_in)){
         if (strstr(buffer,"Bulletin updated"))
@@ -231,7 +231,7 @@ parse_current_weather(const char *detail_path_data, const char *result_file){
     if (!file_in)
         return;
 
-    hash_for_icons = hash_hko_table_create();
+    hash_for_icons = hash_icons_hko_table_create();
     while(fgets(buffer, sizeof(buffer), file_in)){
         if (strstr(buffer,"Bulletin updated"))
             if (comma = strstr(buffer, "at ")){

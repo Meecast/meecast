@@ -40,6 +40,7 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <sys/stat.h>
+#include "hash.h"
 
 /*******************************************************************************/
 int source_init(void);

@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2012 Vlad Vasilyeu
+ * Copyright (C) 2012- 2013 Vlad Vasilyeu
  * 	for the code
  *        
  * Copyright (C) 2008 Andrew Zhilin
@@ -28,6 +28,10 @@
 #ifndef _hash_h
 #define _hash_h 1
 /*******************************************************************************/
+
+#include <libxml/xpath.h>
+#include <string.h>
+xmlHashTablePtr hash_icons_hko_table_create();
 #ifdef GLIB
     GHashTable* hash_hko_table_create(void);
     gpointer hash_hko_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);

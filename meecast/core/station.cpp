@@ -39,6 +39,7 @@
 int convert_station_openweathermaporg_data(const char *days_data_path, const char *result_file, const char *current_data_path, const char *hours_data_path );
 int convert_station_gismeteo_data(const char *days_data_path, const char *result_file, const char *current_data_path);
 int convert_station_forecacom_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data );
+int convert_station_hkogovhk_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data );
 
 using namespace Tizen::Base;
 using namespace Tizen::Io;
@@ -660,6 +661,14 @@ Station::run_converter(){
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(result_file)->GetPointer(), 
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(detail_file)->GetPointer());
         AppLog("foreca.com");
+
+    }
+    if (*_sourceName =="hko.gov.hk"){
+        convert_station_hkogovhk_data(
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(forecast_file)->GetPointer(), 
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(result_file)->GetPointer(), 
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(detail_file)->GetPointer());
+        AppLog("hko.gov.hk");
 
     }
 }

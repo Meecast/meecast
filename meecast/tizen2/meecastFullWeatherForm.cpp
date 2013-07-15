@@ -415,7 +415,7 @@ meecastFullWeatherForm::ReInitElements(void){
 	        /* set current hour */
             time_t current_hour;
             current_hour = time(NULL);
-            tm = gmtime(&current_hour);
+            tm = localtime(&current_hour);
             tm->tm_sec = 0; tm->tm_min = 1; 
             tm->tm_isdst = 1;
             current_hour = mktime(tm); 

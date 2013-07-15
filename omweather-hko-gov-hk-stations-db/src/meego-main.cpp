@@ -300,21 +300,24 @@ parse_current_weather(const char *detail_path_data, const char *result_file){
 }
 /*******************************************************************************/
 int
-convert_station_hkogovhk_data(char *station_id_with_path, const char *result_file, const char *detail_path_data ){
+convert_station_hkogovhk_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data ){
  
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;
     int    days_number = -1;
     char   buffer[1024],
-            *delimiter = NULL;
-    FILE    *file_out;
+           buffer2[1024],
+           *delimiter = NULL;
+    FILE   *file_out;
 
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
     /* prepare station id */
     *buffer = 0;
-    delimiter = strrchr(station_id_with_path, '/');
+    *buffer2 = 0;
+    snprintf(buffer2, sizeof(buffer2) - 1, "%s", station_id_with_path);
+    delimiter = strrchr(buffer2, '/');
     if(delimiter){
         delimiter++; /* delete '/' */
         snprintf(buffer, sizeof(buffer) - 1, "%s", delimiter);
@@ -359,7 +362,9 @@ convert_station_hkogovhk_data(char *station_id_with_path, const char *result_fil
         else{
             /* prepare station id */
             *buffer = 0;
-            delimiter = strrchr(station_id_with_path, '/');
+            *buffer2 = 0;
+            snprintf(buffer2, sizeof(buffer2) - 1, "%s", station_id_with_path);
+            delimiter = strrchr(buffer2, '/');
             if(delimiter){
                 delimiter++; /* delete '/' */
                 snprintf(buffer, sizeof(buffer) - 1, "%s", delimiter);
@@ -411,7 +416,7 @@ convert_station_hkogovhk_data(char *station_id_with_path, const char *result_fil
 }
 /*******************************************************************************/
 int
-main(int argc, char *argv[]){
+main_hkogovhk(int argc, char *argv[]){
     int result; 
     if (argc < 3) {
         fprintf(stderr, "hkogovhk <input_file> <output_file> <input_detail_data>\n");

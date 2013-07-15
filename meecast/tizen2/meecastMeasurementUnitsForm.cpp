@@ -144,7 +144,6 @@ meecastMeasurementUnits::CreateItem(int groupIndex, int itemIndex, int itemWidth
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");
  
-//	ListAnnexStyle style =  LIST_ANNEX_STYLE_NORMAL;
 	ListAnnexStyle style =  LIST_ANNEX_STYLE_RADIO;
 	CustomItem* pItem = new (std::nothrow) CustomItem();
 	pItem->Construct(Tizen::Graphics::Dimension(GetClientAreaBounds().width, 90),style);

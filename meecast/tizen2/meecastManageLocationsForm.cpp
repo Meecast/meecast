@@ -59,9 +59,6 @@ meecastManageLocationsForm::OnInitializing(void)
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");
 
-    // TODO:
-    // Add your initialization code here
-
     // Setup back event listener
     SetFormBackEventListener(this);
 
@@ -69,7 +66,6 @@ meecastManageLocationsForm::OnInitializing(void)
 
     // Creates an instance of ListView
     __pListView = static_cast <ListView*> (GetControl(L"IDC_LISTVIEW"));
-   // __pListView->Construct(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, GetClientAreaBounds().height), true, false);
     __pListView->SetItemProvider(*this);
     __pListView->AddListViewItemEventListener(*this);
 
@@ -79,7 +75,6 @@ meecastManageLocationsForm::OnInitializing(void)
 	GetStationsList();
     /* Footer */
     Footer* pFooter = GetFooter();
-
     pFooter->AddActionEventListener(*this);
 
     return r;
@@ -160,10 +155,12 @@ meecastManageLocationsForm::CreateItem (int index, int itemWidth)
     CustomItem* pItem = new (std::nothrow) CustomItem();
     TryReturn(pItem != null, null, "Out of memory");
 
-    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_DETAILED);
+//    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_DETAILED);
+    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_ONOFF_SLIDING);
     String* pStr = new String (_config->stationsList().at(index)->name().c_str()); 
     pItem->AddElement(Tizen::Graphics::Rectangle(26, 32, 600, 50), 0, *pStr, false);
 
+    __pListView->SetItemChecked(index, true);
 	return pItem;
 }
 
@@ -193,8 +190,7 @@ meecastManageLocationsForm::DeleteMessageBox(const Tizen::Base::String& Station,
 void
 meecastManageLocationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
 {
-    if (status == LIST_ITEM_STATUS_MORE)
-	{
+    if (status ==  LIST_ITEM_STATUS_UNCHECKED){
         DeleteMessageBox(_config->stationsList().at(index)->name().c_str(), index);
         listView.UpdateList();
    	}

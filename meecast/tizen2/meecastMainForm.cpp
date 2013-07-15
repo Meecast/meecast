@@ -717,30 +717,6 @@ meecastMainForm::ReInitElements(void){
             main_pressure_text->RequestRedraw();
         }
 
-        main_listview_forecast->SetItemProvider(*this);
-        main_listview_forecast->SetItemDividerColor(Tizen::Graphics::Color(0x1F, 0x1F, 0x1F)); 
-        /* Fill list of days with weather forecast */
-        /* set current day */ 
-        time_t current_day;
-        struct tm   *tm = NULL;
-        current_day = time(NULL);
-        tm = gmtime(&current_day);
-        tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
-        tm->tm_isdst = 1;
-        current_day = mktime(tm); /* today 00:00:00 */
-
-        /* fill other days */
-        int i = 0;
-        int j = 0;
-
-        _dayCount = 0;
-        while  (_config->dp != NULL && i < 3600*24*14) {
-            if (_config->dp->data().GetDataForTime( current_day + 14*3600 + i)){
-                __daysmap->Add(*(new (std::nothrow) Integer(_dayCount)), *(new (std::nothrow) Long(current_day + 14*3600 + i)));
-                _dayCount ++;
-            }
-            i = i + 3600*24;
-        }
     }else{
         /* Main Icon  N/A*/ 
         Tizen::Media::Image *image = null;
@@ -749,28 +725,53 @@ meecastMainForm::ReInitElements(void){
         image->Construct();
 
         if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() +
-                                            L"screen-size-normal/icons/Atmos/na.png")){
+                                            L"screen-density-xhigh/icons/Atmos/na.png")){
             mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() +
-                                            L"screen-size-normal/icons/Atmos/na.png", BITMAP_PIXEL_FORMAT_ARGB8888);
+                                            L"screen-density-xhigh/icons/Atmos/na.png", BITMAP_PIXEL_FORMAT_ARGB8888);
             main_icon->SetBackgroundBitmap(*mainIconBitmap);
             main_icon->RequestRedraw();
             SAFE_DELETE(image);
             SAFE_DELETE(mainIconBitmap);
         }
-        _dayCount = 0;
-    }
-    if (_dayCount == 0){
         main_background_label->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background.png"));
         main_background_label->RequestRedraw();
-        if (_config->stationsList().size()!=0){
-            main_set_try_update_button->SetShowState(true);
-            main_need_updating->SetShowState(true);
-            main_set_try_update_button->AddActionEventListener(*this);
-            main_set_try_update_button->SetActionId(ID_BUTTON_UPDATE);
-            backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(0xFF, 0xFF, 0xFF));
-        }
     }
 
+    main_listview_forecast->SetItemProvider(*this);
+    main_listview_forecast->SetItemDividerColor(Tizen::Graphics::Color(0x1F, 0x1F, 0x1F)); 
+    /* Fill list of days with weather forecast */
+    /* set current day */ 
+    time_t current_day;
+    struct tm   *tm = NULL;
+    current_day = time(NULL);
+    tm = gmtime(&current_day);
+    tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+    tm->tm_isdst = 1;
+    current_day = mktime(tm); /* today 00:00:00 */
+
+    /* fill other days */
+    int i = 0;
+    int j = 0;
+
+    _dayCount = 0;
+    while  (_config->dp != NULL && i < 3600*24*14) {
+        if (_config->dp->data().GetDataForTime( current_day + 14*3600 + i)){
+            __daysmap->Add(*(new (std::nothrow) Integer(_dayCount)), *(new (std::nothrow) Long(current_day + 14*3600 + i)));
+            _dayCount ++;
+        }
+        i = i + 3600*24;
+    }
+    /* Check nil weather data */
+    if (_config->stationsList().size()!=0 && _dayCount == 0){
+        main_set_try_update_button->SetShowState(true);
+        main_need_updating->SetShowState(true);
+        main_set_try_update_button->AddActionEventListener(*this);
+        main_set_try_update_button->SetActionId(ID_BUTTON_UPDATE);
+        backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(0xFF, 0xFF, 0xFF));
+    }
+
+    if (_dayCount >0)
+        main_icon->SetShowState(true);
     main_listview_forecast->UpdateList();
     backgroundPanel->RequestRedraw();
 }

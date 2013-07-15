@@ -524,6 +524,15 @@ meecastFullWeatherForm::ReInitElements(void){
             int t = INT_MAX;
             /* Temperature */
             if (temp_data->temperature().value(true) == INT_MAX){
+              if (temp_data->temperature_hi().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
+                t = temp_data->temperature_hi().value();
+              }
+              if (temp_data->temperature_low().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
+                t = temp_data->temperature_low().value();
+              }
+
               if ((temp_data->temperature_hi().value(true) == INT_MAX) &&
                   (temp_data->temperature_low().value(true) == INT_MAX)){ 
                 main_description->SetText("N/A");
@@ -533,15 +542,8 @@ meecastFullWeatherForm::ReInitElements(void){
                 snprintf(buffer, sizeof(buffer) - 1, "%0.f°/ %0.f°", temp_data->temperature_low().value(),
                                                                      temp_data->temperature_hi().value());
                 t = temp_data->temperature_hi().value();
+
               }  
-              if (temp_data->temperature_hi().value(true) != INT_MAX){
-                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
-                t = temp_data->temperature_hi().value();
-              }
-              if (temp_data->temperature_low().value(true) != INT_MAX){
-                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
-                t = temp_data->temperature_low().value();
-              }
             }else{
                 snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature().value());
                 t = temp_data->temperature().value();
@@ -551,6 +553,10 @@ meecastFullWeatherForm::ReInitElements(void){
             delete color_of_temp;
             main_temperature->SetShowState(true);
             Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            if (str.GetLength()>6)
+                main_temperature->SetTextConfig(55, LABEL_TEXT_STYLE_NORMAL); 
+            else
+                main_temperature->SetTextConfig(95, LABEL_TEXT_STYLE_NORMAL); 
             main_temperature->SetText(str);
             main_temperature->RequestRedraw();
             /* Current or not current period */

@@ -133,6 +133,12 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
 #ifdef QT 
                     fprintf(file_out, "     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer).toStdString().c_str());
 #endif
+                   if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer)){
+                        fprintf(file_out,"     <icon>%s</icon>\n",  
+                         (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));
+                   }else 
+                        fprintf(file_out,"     <icon>49</icon>\n");  
+
                 }
             }
         if (strstr(buffer,"Wind"))
@@ -146,7 +152,10 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
 #ifdef QT 
                     fprintf(file_out, "     <wind_direction>%s</wind_direction>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer).toStdString().c_str());
 #endif
+                if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer)){
 
+                    fprintf(file_out, "     <wind_direction>%s</wind_direction>\n", (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));
+                }
                 comma = strstr(comma2, " ");               
                 comma++;
                 switch (atoi(comma)){
@@ -270,6 +279,13 @@ parse_current_weather(const char *detail_path_data, const char *result_file){
 #ifdef QT 
                     fprintf(file_out, "     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer).toStdString().c_str());
 #endif
+               if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer)){
+                    fprintf(file_out,"     <icon>%s</icon>\n",  
+                     (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));
+               }else 
+                    fprintf(file_out,"     <icon>49</icon>\n");  
+
+
             }
             if (comma = strstr(buffer, " - ")){
                 comma = comma + 3;

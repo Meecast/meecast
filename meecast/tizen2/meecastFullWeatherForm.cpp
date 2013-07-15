@@ -345,7 +345,6 @@ meecastFullWeatherForm::ReInitElements(void){
     __nightButton->SetText(L"Night");
 
 
-    AppLog ("111111111");
 
 /* Check Now */
     if (_dayNumber == 0 && _config->dp != NULL && (temp_data = _config->dp->data().GetDataForTime(time(NULL))) && temp_data->Current()){    
@@ -399,20 +398,14 @@ meecastFullWeatherForm::ReInitElements(void){
            AppLog("Set tAB Hourly!!!!");
         }
     }
-    AppLog("Set 333333");
     pFooter->RequestRedraw();
-    AppLog("Set 44444");
     RelativeLayout* pLayout = dynamic_cast< RelativeLayout* >(this->GetLayoutN());
     AppAssert(pLayout);
 
-    AppLog("Set 5555");
-
     if (_current_selected_tab == HOURLY){
       //  Tizen::Ui::Controls::Form  *main_form = static_cast<Label*>(GetControl(L"FULL_WEATHER_FORM"));
-        Form *main_form = static_cast<Form*>(GetParent());
-        pLayout->SetRelation(*__pTableView, *day_name_label, RECT_EDGE_RELATION_TOP_TO_TOP);
-        __pTableView->SetSize(__clientWidth, __clientHeight - pFooter->GetHeight() - INDICATE_HEIGHT);
-	        /* set current hour */
+
+        /* set current hour */
             time_t current_hour;
             current_hour = time(NULL);
             tm = localtime(&current_hour);
@@ -423,13 +416,16 @@ meecastFullWeatherForm::ReInitElements(void){
             if (_pValueList->GetCount() > 0){
                 _pValueList->RemoveAll(true);
             }
+            if (_pKeyList->GetCount() > 0){
+                _pKeyList->RemoveAll(true);
+            }
+
 
             _count_of_hours = 0; 
             /* fill hours */
             while  (_config->dp != NULL && i<5*24*3600) {
                 if (temp_data = _config->dp->data().GetDataForTime(current_hour + i, true)){
                     if (temp_data->StartTime() + 60 == current_hour + i){
-                        AppLog("Time1111 %li",current_hour + i);
                         _pValueList->Add(new Long(current_hour + i));
                         _pKeyList->Add(new Integer(_count_of_hours));
                         _count_of_hours ++; 
@@ -437,13 +433,14 @@ meecastFullWeatherForm::ReInitElements(void){
                 }
                 i = i + 3600;
             }
-
+        Form *main_form = static_cast<Form*>(GetParent());
+        pLayout->SetRelation(*__pTableView, *day_name_label, RECT_EDGE_RELATION_TOP_TO_TOP);
+        __pTableView->SetSize(__clientWidth, __clientHeight - pFooter->GetHeight() - INDICATE_HEIGHT);
+	
         __pTableView->RequestRedraw();
         AppLog("Set tAB Hourly relation");
     }else{
 
-        pLayout->SetRelation(*__pTableView, *main_background_label, RECT_EDGE_RELATION_TOP_TO_BOTTOM);
-        __pTableView->SetSize(__clientWidth, __clientHeight - pFooter->GetHeight() - main_background_label->GetHeight() - INDICATE_HEIGHT);
         int i = 3600*24;
         /* Select time for showimg */ 
 
@@ -459,14 +456,12 @@ meecastFullWeatherForm::ReInitElements(void){
                 time_for_show = current_day + 3 * 3600 + _dayNumber*24*3600;
                 break;
         }
-        AppLog("222222a");
         /* Preparing data */
         if ((temp_data = _config->dp->data().GetDataForTime(time_for_show))) {
 
          day_name_label->SetText(temp_data->FullDayName().c_str());
          day_name_label->RequestRedraw();
 
-            AppLog("222222");
 
         /* Next day */
         if (_config->dp->data().GetDataForTime(time_for_show + 24*3600 ))
@@ -588,6 +583,10 @@ meecastFullWeatherForm::ReInitElements(void){
             if (_pKeyList->GetCount() > 0){
                 _pKeyList->RemoveAll(true);
             }
+            if (_pValueList->GetCount() > 0){
+                _pValueList->RemoveAll(true);
+            }
+
             /* Presssure */
             if (temp_data->pressure().value(true) != INT_MAX){
                 snprintf (buffer, sizeof(buffer) -1, "%i %s", (int)temp_data->pressure().value(), _config->PressureUnit().c_str());
@@ -670,7 +669,6 @@ meecastFullWeatherForm::ReInitElements(void){
             }
             /* Flike Temperature */
             if (temp_data->Flike().value(true) != INT_MAX){
-                AppLog("FLIKE!!!");
                 snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->Flike().value());
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
@@ -701,14 +699,15 @@ meecastFullWeatherForm::ReInitElements(void){
                 SAFE_DELETE(mainIconBitmap);
             }
         }
+        pLayout->SetRelation(*__pTableView, *main_background_label, RECT_EDGE_RELATION_TOP_TO_BOTTOM);
+        __pTableView->SetSize(__clientWidth, __clientHeight - pFooter->GetHeight() - main_background_label->GetHeight() - INDICATE_HEIGHT);
+ 
     }
-    AppLog("1111111111111!!!!");
     __pTableView->UpdateTableView();
     backgroundPanel->RequestRedraw();
 
     pFooter->SetColor(pFooter->GetButtonColor(BUTTON_ITEM_STATUS_NORMAL));
     pFooter->RequestRedraw();
-    AppLog("2222");
 }
 
 void
@@ -765,7 +764,7 @@ meecastFullWeatherForm::GetItemCount(void)
             return _pValueList->GetCount() / 2;
     }
     if (_current_selected_tab == HOURLY){
-        return  _count_of_hours;
+        return _pValueList->GetCount();
     }
 }
 
@@ -814,17 +813,21 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 
         pItem->SetBackgroundColor(Tizen::Graphics::Color(0x00, 0x00, 0x00), TABLE_VIEW_ITEM_DRAWING_STATUS_NORMAL);
         if (_pKeyList->GetAt(2*index)){
+
             Label* pKeyTitleLabel = new Label();
             pKeyTitleLabel->Construct(Rectangle(0, 0, __clientWidth/2, 50), *static_cast< String* >(_pKeyList->GetAt(2*index)));
             pKeyTitleLabel->SetTextConfig(30, LABEL_TEXT_STYLE_NORMAL);
             pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
             pItem->AddControl(*pKeyTitleLabel);
 
-            Label* pKeyDescriptionLabel = new Label();
-            pKeyDescriptionLabel->Construct(Rectangle(0, 20, __clientWidth/2, 100), *static_cast< String* >(_pValueList->GetAt(2*index)));
-            pKeyDescriptionLabel->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
-            pKeyDescriptionLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
-            pItem->AddControl(*pKeyDescriptionLabel);
+            if (_pValueList->GetAt(2*index)){
+                Label* pKeyDescriptionLabel = new Label();
+                pKeyDescriptionLabel->Construct(Rectangle(0, 20, __clientWidth/2, 100), *static_cast< String* >(_pValueList->GetAt(2*index)));
+
+                pKeyDescriptionLabel->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
+                pKeyDescriptionLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+                pItem->AddControl(*pKeyDescriptionLabel);
+            }
 
         }
         AppLog("meecastFullWeatherForm::CreateItem +111 %i %i", _pKeyList->GetCount()/2 + 1, index + 1);
@@ -835,14 +838,15 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
             pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
             pItem->AddControl(*pKeyTitleLabel);
 
-            Label* pKeyDescriptionLabel = new Label();
-            pKeyDescriptionLabel->Construct(Rectangle(__clientWidth/2, 20, __clientWidth/2, 100), *static_cast< String* >(_pValueList->GetAt(2*index + 1)));
-            pKeyDescriptionLabel->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
-            pKeyDescriptionLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
-            pItem->AddControl(*pKeyDescriptionLabel);
+            if (_pValueList->GetAt(2*index + 1)){
+                Label* pKeyDescriptionLabel = new Label();
+                pKeyDescriptionLabel->Construct(Rectangle(__clientWidth/2, 20, __clientWidth/2, 100), *static_cast< String* >(_pValueList->GetAt(2*index + 1)));
+                pKeyDescriptionLabel->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
+                pKeyDescriptionLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+                pItem->AddControl(*pKeyDescriptionLabel);
+            }
         }
     }
-
     if (_current_selected_tab == HOURLY){
         if ((_config->stationsList().size() > 0)) {
             String temp = (App::GetInstance()->GetAppDataPath());
@@ -863,8 +867,11 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
         /* fill hours */
         if (_config->dp != NULL) {
             Long* pLong = static_cast< Long* >(_pValueList->GetAt(index));
-            temp_data = _config->dp->data().GetDataForTime((time_t)pLong->ToLong(), true);
-            AppLog ("Long %li", pLong->ToLong());
+            if (pLong){
+                temp_data = _config->dp->data().GetDataForTime((time_t)pLong->ToLong(), true);
+            }else
+                temp_data = NULL;
+
             if ( temp_data){
                 AppLog ("it's TRUE");
                 /* Preparing units */

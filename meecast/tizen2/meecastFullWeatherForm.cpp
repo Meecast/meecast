@@ -801,20 +801,22 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 	pItem->Construct(Dimension(itemWidth, 90), style);
 
     if (_current_selected_tab != HOURLY){
+
         pItem->SetBackgroundColor(Tizen::Graphics::Color(0x00, 0x00, 0x00), TABLE_VIEW_ITEM_DRAWING_STATUS_NORMAL);
+        if (_pKeyList->GetAt(2*index)){
+            Label* pKeyTitleLabel = new Label();
+            pKeyTitleLabel->Construct(Rectangle(0, 0, __clientWidth/2, 50), *static_cast< String* >(_pKeyList->GetAt(2*index)));
+            pKeyTitleLabel->SetTextConfig(30, LABEL_TEXT_STYLE_NORMAL);
+            pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+            pItem->AddControl(*pKeyTitleLabel);
 
-        Label* pKeyTitleLabel = new Label();
-        pKeyTitleLabel->Construct(Rectangle(0, 0, __clientWidth/2, 50), *static_cast< String* >(_pKeyList->GetAt(2*index)));
-        pKeyTitleLabel->SetTextConfig(30, LABEL_TEXT_STYLE_NORMAL);
-        pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
-        pItem->AddControl(*pKeyTitleLabel);
+            Label* pKeyDescriptionLabel = new Label();
+            pKeyDescriptionLabel->Construct(Rectangle(0, 20, __clientWidth/2, 100), *static_cast< String* >(_pValueList->GetAt(2*index)));
+            pKeyDescriptionLabel->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
+            pKeyDescriptionLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+            pItem->AddControl(*pKeyDescriptionLabel);
 
-        Label* pKeyDescriptionLabel = new Label();
-        pKeyDescriptionLabel->Construct(Rectangle(0, 20, __clientWidth/2, 100), *static_cast< String* >(_pValueList->GetAt(2*index)));
-        pKeyDescriptionLabel->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
-        pKeyDescriptionLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
-        pItem->AddControl(*pKeyDescriptionLabel);
-
+        }
         AppLog("meecastFullWeatherForm::CreateItem +111 %i %i", _pKeyList->GetCount()/2 + 1, index + 1);
         if(_pKeyList->GetCount()/2 + 1 > index + 1){
             Label* pKeyTitleLabel = new Label();
@@ -830,7 +832,6 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
             pItem->AddControl(*pKeyDescriptionLabel);
         }
     }
-
 
     if (_current_selected_tab == HOURLY){
         if ((_config->stationsList().size() > 0)) {
@@ -853,7 +854,9 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
         if (_config->dp != NULL) {
             Long* pLong = static_cast< Long* >(_pValueList->GetAt(index));
             temp_data = _config->dp->data().GetDataForTime((time_t)pLong->ToLong(), true);
+            AppLog ("Long %li", pLong->ToLong());
             if ( temp_data){
+                AppLog ("it's TRUE");
                 /* Preparing units */
                 temp_data->temperature().units(_config->TemperatureUnit());
                 temp_data->WindSpeed().units(_config->WindSpeedUnit());

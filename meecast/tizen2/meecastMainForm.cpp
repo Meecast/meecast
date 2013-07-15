@@ -31,6 +31,7 @@ using namespace Tizen::Ui;
 using namespace Tizen::Ui::Controls;
 using namespace Tizen::Ui::Scenes;
 using namespace Tizen::Graphics;
+using namespace Tizen::Base::Collection;
 
 
 meecastMainForm::meecastMainForm(void):
@@ -39,6 +40,7 @@ meecastMainForm::meecastMainForm(void):
 	             __pAnimationFrameList(null),
                  __updateTimer(null),
 	             __pFlickGesture(null),
+                 __daysmap(null),
 	             __gestureDetected(false){
 }
 
@@ -52,6 +54,7 @@ meecastMainForm::~meecastMainForm(void)
     delete __updateButton;
     __updateButton = null;
     delete __updateTimer;
+    __daysmap->RemoveAll(true);
 }
 
 bool
@@ -65,9 +68,8 @@ result
 meecastMainForm::OnInitializing(void)
 {
     result r = E_SUCCESS;
-
-    // TODO:
-    // Add your initialization code here
+    __daysmap = new Tizen::Base::Collection::HashMap;
+    __daysmap->Construct();
 
     // Setup back event listener
     SetFormBackEventListener(this);
@@ -568,6 +570,9 @@ meecastMainForm::ReInitElements(void){
 
      Core::Data *temp_data = NULL;
      AppLog ("DP %p", _config->dp);
+     if (__daysmap)
+        __daysmap->RemoveAll(true);
+
     /* Preparing data */
     if (_config->dp != NULL && (temp_data = _config->dp->data().GetDataForTime(time(NULL)))){    
 
@@ -729,8 +734,11 @@ meecastMainForm::ReInitElements(void){
         int j = 0;
 
         _dayCount = 0;
-        while  ( (temp_data = _config->dp->data().GetDataForTime( current_day + 14*3600 + i))) {
-            _dayCount ++;
+        while  (_config->dp != NULL && i < 3600*24*14) {
+            if (_config->dp->data().GetDataForTime( current_day + 14*3600 + i)){
+                __daysmap->Add(*(new (std::nothrow) Integer(_dayCount)), *(new (std::nothrow) Long(current_day + 14*3600 + i)));
+                _dayCount ++;
+            }
             i = i + 3600*24;
         }
     }else{
@@ -762,6 +770,7 @@ meecastMainForm::ReInitElements(void){
             backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(0xFF, 0xFF, 0xFF));
         }
     }
+
     main_listview_forecast->UpdateList();
     backgroundPanel->RequestRedraw();
 }
@@ -801,7 +810,14 @@ meecastMainForm::CreateContextMenuList(Tizen::Graphics::Point Corner_Point)
 int
 meecastMainForm::GetItemCount(void)
 {
-    return _dayCount;
+    int itemCount = 0;
+    if (__daysmap){
+        IList* pList = __daysmap->GetKeysN();
+        AppAssert(pList);
+        itemCount = pList->GetCount();
+        delete pList;
+    }
+    return itemCount;
 }
 
 
@@ -843,7 +859,10 @@ meecastMainForm::CreateItem (int index, int itemWidth)
     int i = 3600*24;
     String* pStr;
     Core::Data *temp_data = NULL;
-    if ((temp_data = _config->dp->data().GetDataForTime( current_day + 14 * 3600  + index*3600*24))) {
+
+    Long* pLong = static_cast< Long* >(__daysmap->GetValue(Integer(index)));
+
+    if ((temp_data = _config->dp->data().GetDataForTime( (time_t)pLong->ToLong()))) {
         temp_data->temperature_low().units(_config->TemperatureUnit());
         temp_data->temperature_hi().units(_config->TemperatureUnit());
         temp_data->temperature().units(_config->TemperatureUnit());
@@ -886,7 +905,7 @@ meecastMainForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listV
         AppLog("LIST_ITEM_STATUS_SELECTED");
         Tizen::Base::Collection::ArrayList* pList = new (std::nothrow)Tizen::Base::Collection::ArrayList();
 		pList->Construct();
-		pList->Add(*new (std::nothrow) Integer(index));
+        pList->Add(*new (std::nothrow) Integer(index));
         pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_FULLWEATHERSCENE"), pList);
    	}
 }

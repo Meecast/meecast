@@ -84,6 +84,7 @@ private:
     Tizen::Base::Runtime::Timer* __updateTimer;
 	Tizen::Ui::TouchFlickGestureDetector* __pFlickGesture;
 
+    Tizen::Base::Collection::HashMap *__daysmap;
 	bool __gestureDetected;
 };
 

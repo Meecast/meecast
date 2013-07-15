@@ -46,7 +46,7 @@ namespace Core {
          Data* temp_data;
          Data* temp_data_result = NULL;
          float hi_day_temp = INT_MAX, low_day_temp = INT_MAX;
-
+         /* AppLog ("SIZE of Vector %i", this->size()); */
          /* std::cerr<<"SIZE of Vector "<<this->size()<<std::endl; */
          begin_day = localtime(&_time); begin_day->tm_hour = 0; begin_day->tm_min = 0; begin_day->tm_sec = 0;
          begin_day_time = mktime(begin_day); 

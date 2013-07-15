@@ -624,6 +624,13 @@ meecastFullWeatherForm::ReInitElements(void){
                 _pValueList->Add(new String(str));
                 _pKeyList->Add(new String(L"Ppcp"));
             }
+            /* UV index */
+            if (temp_data->UVindex() != INT_MAX){
+                snprintf (buffer, sizeof(buffer) -1, "%0.i", temp_data->UVindex());
+                Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                _pValueList->Add(new String(str));
+                _pKeyList->Add(new String(L"UV index"));
+            }
      
                 AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %li", current_day + 15 * 3600 + _dayNumber*24*3600);
             /* Sun Rise */

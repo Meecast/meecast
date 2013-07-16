@@ -41,6 +41,8 @@
 #include <stdlib.h>
 #include <sys/stat.h>
 
+#include <limits.h>
+#include "hash.h"
 /*******************************************************************************/
 int source_init(void);
 void source_destroy(void);

@@ -7,6 +7,7 @@
 #endif
 
 
+    #define hash_insert(hash, s2, s3) xmlHashAddEntry(hash, (const xmlChar *)s2, (void *)strdup(s3)); 
     hash_insert(hash, "1", "32");
     hash_insert(hash, "2", "31");
     hash_insert(hash, "3", "28");

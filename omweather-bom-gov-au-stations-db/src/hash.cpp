@@ -1,7 +1,7 @@
 /* vim: set sw=4 ts=4 et: */
 /* This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2011-2012 Vlad Vasilyeu
+ * Copyright (C) 2011-2013 Vlad Vasilyeu
  * 	for the code
  *        
  * Copyright (C) 2008 Andrew Zhilin
@@ -33,6 +33,24 @@
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
+
+xmlHashTablePtr 
+hash_icons_bomgovau_table_create(){
+    xmlHashTablePtr hash;
+    hash = xmlHashCreate(6);
+#include "hash_icons.data"
+    return hash;
+}
+
+xmlHashTablePtr 
+hash_stations_bomgovau_table_create(){
+    xmlHashTablePtr hash;
+    hash = xmlHashCreate(6);
+#include "hash_stations.data"
+    return hash;
+}
+
+
 /*******************************************************************************/
 #ifdef GLIB
 GHashTable *hash_stations_table_create(void) {

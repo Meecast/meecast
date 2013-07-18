@@ -135,8 +135,6 @@ parse_and_write_bom_gov_au_detail_data(const char *station_name, htmlDocPtr doc,
         return -1;
 
 //#ifdef GLIB
-    hash_for_icons = hash_icons_bomgovau_table_create();
-    hash_for_stations = hash_stations_bomgovau_table_create();
 //#endif
     /* Create xpath evaluation context */
     xpathCtx = xmlXPathNewContext(doc);
@@ -262,16 +260,13 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
-#ifdef GLIB
-    hash_for_icons = hash_icons_bomgovau_table_create();
-#endif
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", station_id);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
 
-    memset(current_icon, 0, sizeof(icon));
+    memset(current_icon, 0, sizeof(current_icon));
     sprintf(current_icon, "%s", "48"); 
-    memset(current_title, 0, sizeof(icon));
+    memset(current_title, 0, sizeof(current_title));
     root_node = xmlDocGetRootElement(doc);
 
     for(cur_node0 = root_node->children; cur_node0; cur_node0 = cur_node0->next){
@@ -329,7 +324,7 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
                                             /* get index */
                                             if (xmlGetProp(child_node, (const xmlChar*)"index") != NULL){
                                                 index = atoi((char *)xmlGetProp(child_node, (const xmlChar*)"index"));
-                                                fprintf(stderr,"Index %i\n", index);
+                                                /* fprintf(stderr,"Index %i\n", index); */
                                             }
 
                                             for (child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
@@ -340,7 +335,7 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
                                                             temp_low = atoi((char *)xmlNodeGetContent(child_node2));
                                                         if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "air_temperature_maximum" ))
                                                             temp_hi = atoi((char *)xmlNodeGetContent(child_node2));
-                                                        if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "forecast_icon_code" ))
+                                                        if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "forecast_icon_code" )){
 #ifdef GLIB                                                         
                                                             snprintf(icon, sizeof(icon) - 1, "%s", choose_hour_weather_icon(hash_for_icons, (char *)xmlNodeGetContent(child_node2))); 
 #endif
@@ -350,7 +345,8 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
                                                            if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)xmlNodeGetContent(child_node2))){
                                                                 snprintf(icon, sizeof(icon) - 1, "%s", (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)xmlNodeGetContent(child_node2))); 
                                                            }else 
-                                                                snprintf(icon, sizeof(icon) - 1, "49"); 
+                                                                snprintf(icon, sizeof(icon) - 1, "49");
+                                                        }
 
                                                     }
                                                     if(!xmlStrcmp(child_node2->name, (const xmlChar *) "text")){                           
@@ -424,6 +420,10 @@ convert_station_bomgovau_data(const char *station_id_with_path, const char *resu
 
     if(!station_id_with_path)
         return -1;
+
+    hash_for_icons = hash_icons_bomgovau_table_create();
+    hash_for_stations = hash_stations_bomgovau_table_create();
+
 /* check for new file, if it exist, than rename it */
     *buffer = 0;
     snprintf(buffer, sizeof(buffer) - 1, "%s.new", station_id_with_path);

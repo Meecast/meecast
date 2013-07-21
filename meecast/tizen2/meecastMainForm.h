@@ -6,7 +6,11 @@
 #include <FUi.h>
 #include "configtizen.h"
 
+#include <libintl.h>
+#include <locale.h>
+
 #define SAFE_DELETE(x)  if (x) { delete x; x = null; }
+#define _(String) gettext(String)
 
 
 class meecastMainForm

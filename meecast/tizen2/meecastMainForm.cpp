@@ -805,7 +805,7 @@ meecastMainForm::CreateContextMenuList(Tizen::Graphics::Point Corner_Point)
 {
     __pContextMenuText = new (std::nothrow) ContextMenu();
     __pContextMenuText->Construct(Corner_Point, CONTEXT_MENU_STYLE_LIST, CONTEXT_MENU_ANCHOR_DIRECTION_UPWARD);
-    __pContextMenuText->AddItem("Settings", ID_MENU_SETTINGS);
+    __pContextMenuText->AddItem(_("Settings"), ID_MENU_SETTINGS);
     __pContextMenuText->AddItem("About", ID_MENU_ABOUT);
     __pContextMenuText->AddActionEventListener(*this);
 }

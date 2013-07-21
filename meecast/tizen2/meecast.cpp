@@ -95,6 +95,19 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
         config->dp = NULL;
 
 
+    ByteBuffer* pBuf = null;
+    String dataPath= App::GetInstance()->GetAppResourcePath() + "locales";
+    pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(dataPath);
+//    _pathPrefix = new std::string((const char*)pBuf->GetPointer());
+
+    textdomain("omweather");
+    bindtextdomain("omweather", (const char*)pBuf->GetPointer());
+    if (config->Language() != "System"){
+        setlocale (LC_ALL, "ru_RU.UTF8");
+        setlocale (LC_MESSAGES, "ru_RU.UTF8");
+    }
+    AppLog("Language %s",config->Language().c_str());
+    AppLog("String %s",gettext("Blowing Snow"));
 
 	// Uncomment the following statement to listen to the screen on/off events.
 	//PowerManager::SetScreenEventListener(*this);

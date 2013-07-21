@@ -347,6 +347,7 @@ Config::saveConfig()
     file_out<<" <pressure_unit>"<< *_pressure_unit<<"</pressure_unit>"<<endl;
     file_out<<" <current_station_id>"<< _current_station_id<<"</current_station_id>"<<endl;
     file_out<<" <update_period>"<< _update_period<<"</update_period>"<<endl;
+    file_out<<" <language>"<< *_language<<"</language>"<<endl;
     std::vector<Station*>::iterator i = _stations->begin();
     while (i != _stations->end()){
         file_out<<"  <station>"<<endl;
@@ -650,6 +651,9 @@ Config::LoadConfig(){
             }
             if (!xmlStrcmp(p->name, (const xmlChar*)"pressure_unit")){
                 _pressure_unit->assign(std::string((char *)xmlNodeGetContent(p)));
+            }
+            if (!xmlStrcmp(p->name, (const xmlChar*)"language")){
+                _language->assign(std::string((char *)xmlNodeGetContent(p)));
             }
             if (!xmlStrcmp(p->name, (const xmlChar*)"station")){
                 bool gps = false;

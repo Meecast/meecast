@@ -7,6 +7,10 @@
 #include <FUi.h>
 #include "configtizen.h"
 
+#include <libintl.h>
+#include <locale.h>
+
+
 /**
  * [meecast] UiApp must inherit from UiApp class
  * which provides basic features necessary to define an UiApp.

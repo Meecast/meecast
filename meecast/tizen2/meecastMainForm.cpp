@@ -290,6 +290,10 @@ meecastMainForm::OnInitializing(void)
     main_listview_forecast->SetItemProvider(*this);
     main_listview_forecast->AddListViewItemEventListener(*this);
 
+    Tizen::Ui::Controls::Label  *main_no_locations_label = static_cast<Label*>(GetControl(L"IDC_LABEL_NO_LOCATIONS"));
+    main_no_locations_label->SetText(_("No locations are set up yet."));
+    Tizen::Ui::Controls::Button *main_set_locations_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_SET_LOCATIONS"));
+    main_set_locations_button->SetText(_("Set locations"));
 
     return r;
 }

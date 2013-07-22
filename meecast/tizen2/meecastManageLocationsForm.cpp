@@ -68,6 +68,7 @@ meecastManageLocationsForm::OnInitializing(void)
     __pListView = static_cast <ListView*> (GetControl(L"IDC_LISTVIEW"));
     __pListView->SetItemProvider(*this);
     __pListView->AddListViewItemEventListener(*this);
+    __pListView->SetTextOfEmptyList(_("No locations are set up yet."));
 
     // Adds the list view to the form
     AddControl(*__pListView);

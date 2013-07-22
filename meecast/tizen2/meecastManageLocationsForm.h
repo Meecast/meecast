@@ -6,6 +6,9 @@
 
 #include "configtizen.h"
 
+#include <libintl.h>
+#include <locale.h>
+#define _(String) gettext(String)
 class meecastManageLocationsForm
 	: public Tizen::Ui::Controls::Form
 	, public Tizen::Ui::IActionEventListener

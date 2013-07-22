@@ -294,6 +294,10 @@ meecastMainForm::OnInitializing(void)
     main_no_locations_label->SetText(_("No locations are set up yet."));
     Tizen::Ui::Controls::Button *main_set_locations_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_SET_LOCATIONS"));
     main_set_locations_button->SetText(_("Set locations"));
+    Tizen::Ui::Controls::Label  *main_need_updating = static_cast<Label*>(GetControl(L"IDC_LABEL_NEED_UPDATING"));
+    main_need_updating->SetText(_("Looks like there's no info for this location."));
+    Tizen::Ui::Controls::Button  *main_set_try_update_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_TRY_UPDATE"));
+    main_set_try_update_button->SetText(_("Try to update"));
 
     return r;
 }

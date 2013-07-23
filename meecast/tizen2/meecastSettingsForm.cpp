@@ -61,7 +61,8 @@ meecastSettingsForm::OnInitializing(void)
     // Setup back event listener
     SetFormBackEventListener(this);
 
-
+    Header* pHeader = GetHeader();
+    pHeader->SetTitleText(_("Settings"));
 
     // Creates an instance of ListView
     __pListView = new ListView();
@@ -169,8 +170,8 @@ meecastSettingsForm::CreateItem (int index, int itemWidth)
 	String listItemString;
 	String subject = "";
     switch (index){
-        case 0: subject = "Manage location"; break;
-        case 1: subject = "Measurement units"; break;
+        case 0: subject = _("Manage locations"); break;
+        case 1: subject = _("Measurement units"); break;
     }
 	listItemString.Append(subject);
 	pItem->SetElement(listItemString);

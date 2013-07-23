@@ -641,12 +641,12 @@ Page {
                             layout: DockLayout {
                             }
                             background: Color.create(ListItemData.bg_color)
-                            preferredWidth: screen_width
+                            preferredWidth: Qt.screen_width
                             Container{
                                 layout: StackLayout {
                                     orientation: LayoutOrientation.LeftToRight
                                 }
-                                preferredWidth: screen_width/2
+                                preferredWidth: Qt.screen_width/2
                                 verticalAlignment: VerticalAlignment.Center
                                 horizontalAlignment: HorizontalAlignment.Left
                                 Container{

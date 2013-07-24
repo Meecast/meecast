@@ -5,6 +5,13 @@
 #include <FUi.h>
 #include "../core/core.h"
 
+#include <libintl.h>
+#include <locale.h>
+
+#define SAFE_DELETE(x)  if (x) { delete x; x = null; }
+#define _(String) gettext(String)
+
+
 
 class meecastCountriesForm
 	: public Tizen::Ui::Controls::Form

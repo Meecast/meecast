@@ -67,6 +67,9 @@ meecastCountriesForm::OnInitializing(void)
     // Setup back event listener
     SetFormBackEventListener(this);
 
+    Header* pHeader = GetHeader();
+    pHeader->SetTitleText(_("Select country"));
+
 
     // Creates an instance of ListView
     __pListView = static_cast <ListView*> (GetControl(L"IDC_LISTVIEW"));

@@ -63,6 +63,10 @@ meecastRegionsForm::OnInitializing(void)
 
     SetFormBackEventListener(this);
 
+    Header* pHeader = GetHeader();
+    pHeader->SetTitleText(_("Select region"));
+
+
     // Creates an instance of ListView
     __pListView = static_cast <ListView*> (GetControl(L"IDC_LISTVIEW"));
     __pListView->SetItemProvider(*this);

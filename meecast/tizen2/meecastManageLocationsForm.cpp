@@ -62,6 +62,9 @@ meecastManageLocationsForm::OnInitializing(void)
     // Setup back event listener
     SetFormBackEventListener(this);
 
+    Header* pHeader = GetHeader();
+    pHeader->SetTitleText(_("Manage locations"));
+
 
 
     // Creates an instance of ListView
@@ -76,8 +79,15 @@ meecastManageLocationsForm::OnInitializing(void)
 	GetStationsList();
     /* Footer */
     Footer* pFooter = GetFooter();
+
     pFooter->AddActionEventListener(*this);
 
+    Tizen::Ui::Controls::FooterItem* addButton;
+    addButton = new Tizen::Ui::Controls::FooterItem(); 
+    addButton->Construct(0);
+    addButton->SetText(_("Add"));
+    pFooter->AddItem(*addButton);
+ 
     return r;
 }
 

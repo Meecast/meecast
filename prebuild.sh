@@ -25,8 +25,8 @@ cp ../meecast/core/data/images/humidity.png ../res/screen-size-normal/images
 cp -r ../meecast/core/data/icons/Atmos/* ../res/screen-density-xhigh/icons/Atmos
 cp ../meecast/core/data/images/arrow_left.png ../res/screen-size-normal/images
 cp ../meecast/core/data/images/arrow_right.png ../res/screen-size-normal/images
-rm -rf ../src/core
-cp -r ../meecast/core ../src/core 
-rm -rf ../src/tizen2
-cp -r ../meecast/tizen2 ../src/tizen2
+#rm -rf ../src/core
+#cp -r ../meecast/core ../src/core 
+#rm -rf ../src/tizen2
+#cp -r ../meecast/tizen2 ../src/tizen2
 #cp ../po/*.po ../res/locales

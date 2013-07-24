@@ -66,6 +66,9 @@ meecastSourcesForm::OnInitializing(void)
     // Setup back event listener
     SetFormBackEventListener(this);
 
+    Header* pHeader = GetHeader();
+    pHeader->SetTitleText(_("Select the weather source"));
+
 
 
     // Creates an instance of ListView

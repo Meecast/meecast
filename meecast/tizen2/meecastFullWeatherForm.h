@@ -8,6 +8,10 @@
 
 #include <FSystem.h>
 
+#include <libintl.h>
+#include <locale.h>
+#define _(String) gettext(String)
+
 #define SAFE_DELETE(x)  if (x) { delete x; x = null; }
 
 

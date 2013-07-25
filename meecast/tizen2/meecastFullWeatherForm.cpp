@@ -35,7 +35,6 @@ using namespace Tizen::Graphics;
 
 using namespace Tizen::System;
 
-String FEATURE_INFO_KEY_PREFIX = L"http://tizen.org/feature/";
 meecastFullWeatherForm::meecastFullWeatherForm(void):
                                   __nowButton(null),
                                   __dayButton(null),
@@ -336,13 +335,13 @@ meecastFullWeatherForm::ReInitElements(void){
     __dayButton->Construct(ID_BUTTON_DAY);
     __dayButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("day_def.png"));
     __dayButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("day_sel.png"));
-    __dayButton->SetText(L"Day");
+    __dayButton->SetText(_("Day"));
 
     __nightButton = new Tizen::Ui::Controls::FooterItem(); 
     __nightButton->Construct(ID_BUTTON_NIGHT);
     __nightButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("night_def.png"));
     __nightButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("night_sel.png"));
-    __nightButton->SetText(L"Night");
+    __nightButton->SetText(_("Night"));
 
 
 
@@ -352,7 +351,7 @@ meecastFullWeatherForm::ReInitElements(void){
         __nowButton->Construct(ID_BUTTON_NOW);
         __nowButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("now_def.png"));
         __nowButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("now_sel.png"));
-        __nowButton->SetText(L"Now");
+        __nowButton->SetText(_("Now"));
     }else
         if (_current_selected_tab == NOW)
             _current_selected_tab = DAY;
@@ -364,7 +363,7 @@ meecastFullWeatherForm::ReInitElements(void){
             __hourlyButton->Construct(ID_BUTTON_HOURLY);
             __hourlyButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("hourly_def.png"));
             __hourlyButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("hourly_sel.png"));
-            __hourlyButton->SetText(L"Hourly");
+            __hourlyButton->SetText(_("Hourly"));
             break;
         }
     }
@@ -511,7 +510,7 @@ meecastFullWeatherForm::ReInitElements(void){
 
             /* Description for current weather forecast */
             String str;
-            Tizen::Base::Utility::StringUtil::Utf8ToString(temp_data->Text().c_str(), str);
+            Tizen::Base::Utility::StringUtil::Utf8ToString(_(temp_data->Text().c_str()), str);
             main_description->SetText(str);
             main_description->RequestRedraw();
             main_description->SetShowState(true);
@@ -561,13 +560,13 @@ meecastFullWeatherForm::ReInitElements(void){
             /* Current or not current period */
             switch(_current_selected_tab){
                 case NOW:
-                    Tizen::Base::Utility::StringUtil::Utf8ToString("Now", str);
+                    Tizen::Base::Utility::StringUtil::Utf8ToString(_("Now"), str);
                     break;
                 case DAY:
-                    Tizen::Base::Utility::StringUtil::Utf8ToString("Day", str);
+                    Tizen::Base::Utility::StringUtil::Utf8ToString(_("Day"), str);
                     break;
                 case NIGHT:
-                    Tizen::Base::Utility::StringUtil::Utf8ToString("Night", str);
+                    Tizen::Base::Utility::StringUtil::Utf8ToString(_("Night"), str);
                     break;
                 case ID_BUTTON_HOURLY:
                     Tizen::Base::Utility::StringUtil::Utf8ToString("", str);
@@ -589,47 +588,47 @@ meecastFullWeatherForm::ReInitElements(void){
 
             /* Presssure */
             if (temp_data->pressure().value(true) != INT_MAX){
-                snprintf (buffer, sizeof(buffer) -1, "%i %s", (int)temp_data->pressure().value(), _config->PressureUnit().c_str());
+                snprintf (buffer, sizeof(buffer) -1, "%i %s", (int)temp_data->pressure().value(), _(_config->PressureUnit().c_str()));
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
-                _pKeyList->Add(new String(L"Pressure"));
+                _pKeyList->Add(new String(_("Pressure:")));
             }
 
             /* Wind direction */
             if (temp_data->WindDirection() != "N/A"){
-                snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
+                snprintf (buffer, sizeof(buffer) -1, "%s", _(temp_data->WindDirection().c_str()));
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
-                _pKeyList->Add(new String(L"Wind direction"));
+                _pKeyList->Add(new String(_("Wind direction:")));
             }
             /* Wind Speed */
             if (temp_data->WindSpeed().value() != INT_MAX){
                 snprintf (buffer, sizeof(buffer) -1, "%0.f %s", 
-                        temp_data->WindSpeed().value(), _config->WindSpeedUnit().c_str());
+                        temp_data->WindSpeed().value(), _(_config->WindSpeedUnit().c_str()));
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
-                _pKeyList->Add(new String(L"Wind speed"));
+                _pKeyList->Add(new String(_("Wind speed:")));
             };
             /* Humidity */
             if (temp_data->Humidity() != INT_MAX){
                 snprintf (buffer, sizeof(buffer) -1, "%i%%", temp_data->Humidity());
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
-                _pKeyList->Add(new String(L"Humidity"));
+                _pKeyList->Add(new String(_("Humidity:")));
             }
             /* Ppcp */
             if (temp_data->Ppcp() != INT_MAX){
                 snprintf (buffer, sizeof(buffer) -1, "%0.f", temp_data->Ppcp());
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
-                _pKeyList->Add(new String(L"Ppcp"));
+                _pKeyList->Add(new String(_("Ppcp:")));
             }
             /* UV index */
             if (temp_data->UVindex() != INT_MAX){
                 snprintf (buffer, sizeof(buffer) -1, "%0.i", temp_data->UVindex());
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
-                _pKeyList->Add(new String(L"UV index"));
+                _pKeyList->Add(new String(_("UV index:")));
             }
      
                 AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %li", current_day + 15 * 3600 + _dayNumber*24*3600);
@@ -643,7 +642,7 @@ meecastFullWeatherForm::ReInitElements(void){
                 snprintf (buffer, sizeof(buffer) -1, "%i:%i", tm1.tm_hour, tm1.tm_min);
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
-                _pKeyList->Add(new String(L"SunRise"));
+                _pKeyList->Add(new String(_("SunRise:")));
             }
             /* Sun Set */
             if (_config->dp->data().GetSunSetForTime(current_day + 15 * 3600 + _dayNumber*24*3600) > 0){
@@ -655,14 +654,14 @@ meecastFullWeatherForm::ReInitElements(void){
                 snprintf (buffer, sizeof(buffer) -1, "%i:%i", tm1.tm_hour, tm1.tm_min);
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
-                _pKeyList->Add(new String(L"SunSet"));
+                _pKeyList->Add(new String(_("SunSet:")));
                 time_t sun_rise_time =  _config->dp->data().GetSunRiseForTime(current_day + 15 * 3600) + 3600*timezone -3600*localtimezone;
                 time_t day_length_time =  sun_set_time - sun_rise_time;
                 gmtime_r(&day_length_time, &tm1);
                 snprintf (buffer, sizeof(buffer) -1, "%i:%i", tm1.tm_hour, tm1.tm_min);
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
-                _pKeyList->Add(new String(L"Day length"));
+                _pKeyList->Add(new String(_("Day length:")));
             }
 
             if (_config->dp->LastUpdate()>0){
@@ -672,14 +671,14 @@ meecastFullWeatherForm::ReInitElements(void){
                 strftime(buffer, sizeof(buffer), "%d %b %H:%M", &tm1);
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
-                _pKeyList->Add(new String(L"Last Update"));
+                _pKeyList->Add(new String(_("Last update:")));
             }
             /* Flike Temperature */
             if (temp_data->Flike().value(true) != INT_MAX){
                 snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->Flike().value());
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
-                _pKeyList->Add(new String(L"Flike"));
+                _pKeyList->Add(new String(_("Flike:")));
             }
             /*
                   if (_dp->data().GetSunSetForTime(current_day + 15 * 3600) >0)
@@ -814,7 +813,7 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 	TableViewItem* pItem = new TableViewItem();
 
 	AppLogExceptionIf(pItem == null, "Table item creation is failed");
-	pItem->Construct(Dimension(itemWidth, 90), style);
+	pItem->Construct(Dimension(itemWidth, 100), style);
 
     if (_current_selected_tab != HOURLY){
 

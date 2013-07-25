@@ -95,6 +95,9 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
         config->dp = NULL;
 
 
+    /* AppLog ("Lang: %s", getenv ("LANG")); */
+    setlocale(LC_ALL, getenv ("LANG"));
+    setlocale (LC_TIME, getenv ("LANG"));
     ByteBuffer* pBuf = null;
     String dataPath= App::GetInstance()->GetAppResourcePath() + "locales";
     pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(dataPath);
@@ -106,6 +109,7 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
         str = config->Language()+ ".UTF8";
         setlocale (LC_ALL, str.c_str());
         setlocale (LC_MESSAGES, str.c_str());
+        setlocale (LC_TIME, str.c_str());
     }
 
 	// Uncomment the following statement to listen to the screen on/off events.

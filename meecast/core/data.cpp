@@ -119,6 +119,7 @@ namespace Core {
         delete _day_of_month_name;
         delete _month_name;
 
+        setlocale (LC_TIME, setlocale(LC_MESSAGES, ""));
         memset(buffer, 0, sizeof(buffer));
         tmp_time_date_struct = localtime(&start_time);
         strftime(buffer, sizeof(buffer), "%a", tmp_time_date_struct);

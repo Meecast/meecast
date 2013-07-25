@@ -57,6 +57,9 @@ meecastMeasurementUnits::OnInitializing(void)
     SetFormBackEventListener(this);
 	CreateGroupedListView();
 
+    Header* pHeader = GetHeader();
+    pHeader->SetTitleText(_("Measurement units"));
+
 	// Create Custom Element
 //	__pCustomGroupedListElement = new (std::nothrow) CustomGroupedListElement();
 /*
@@ -152,12 +155,12 @@ meecastMeasurementUnits::CreateItem(int groupIndex, int itemIndex, int itemWidth
         case 0:
             switch (itemIndex % 4){
             case 0:
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"Celsius", true);
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("Celsius"), true);
                 if (config->TemperatureUnit() == "C")
                     __pList->SetItemChecked(groupIndex, itemIndex, true);
                 break;
             case 1:
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"Fahrenheit", true);
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("Fahrenheit"), true);
                  if (config->TemperatureUnit() == "F")
                     __pList->SetItemChecked(groupIndex, itemIndex, true);
                break;
@@ -168,17 +171,17 @@ meecastMeasurementUnits::CreateItem(int groupIndex, int itemIndex, int itemWidth
         case 1:
             switch (itemIndex % 4){
             case 0:
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"m/s", true);
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("m/s"), true);
                 if (config->WindSpeedUnit() == "m/s")
                     __pList->SetItemChecked(groupIndex, itemIndex, true);
                 break;
             case 1:
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"km/h", true);
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("km/h"), true);
                 if (config->WindSpeedUnit() == "km/h")
                     __pList->SetItemChecked(groupIndex, itemIndex, true);
                 break;
             case 2:
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"mi/h", true);
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("mi/h"), true);
                 if (config->WindSpeedUnit() == "mi/h")
                     __pList->SetItemChecked(groupIndex, itemIndex, true);
                 break;
@@ -189,19 +192,19 @@ meecastMeasurementUnits::CreateItem(int groupIndex, int itemIndex, int itemWidth
         case 2:
             switch (itemIndex % 4){
             case 0:
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"mbar", true);
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("mbar"), true);
                 if (config->PressureUnit() == "mbar")
                     __pList->SetItemChecked(groupIndex, itemIndex, true);
                break;
             case 1:
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"Pa", true);
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("Pa"), true);
                 if (config->PressureUnit() == "Pa")
                     __pList->SetItemChecked(groupIndex, itemIndex, true);
                 break;
             case 2:
                 if (config->PressureUnit() == "mmHg")
                     __pList->SetItemChecked(groupIndex, itemIndex, true);
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"mmHg", true);
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("mmHg"), true);
                 break;
             default:
                 break;
@@ -210,17 +213,17 @@ meecastMeasurementUnits::CreateItem(int groupIndex, int itemIndex, int itemWidth
         case 3:
             switch (itemIndex % 4){
             case 0:
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"m", true);
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("m"), true);
                 if (config->VisibleUnit() == "m")
                     __pList->SetItemChecked(groupIndex, itemIndex, true);
                 break;
             case 1:
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"km", true);
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("km"), true);
                 if (config->VisibleUnit() == "km")
                     __pList->SetItemChecked(groupIndex, itemIndex, true);
                 break;
             case 2:
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, L"mi", true);
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("mi"), true);
                 if (config->VisibleUnit() == "mi")
                     __pList->SetItemChecked(groupIndex, itemIndex, true);
                 break;
@@ -289,16 +292,16 @@ meecastMeasurementUnits::CreateGroupItem(int groupIndex, int itemWidth)
 	switch (groupIndex)
 	{
 	case 0:
-		text = L"Temperature units";
+		text = _("Temperature units");
 		break;
 	case 1:
-		 text = L"Wind speed units";
+		 text = _("Wind speed units");
 		break;
 	case 2:
-		 text = L"Pressure units";
+		 text = _("Pressure units");
 		break;
 	case 3:
-		 text = L"Visible units";
+		 text = _("Visible units");
 		break;
 	}
 	pItem->SetElement(text, null);

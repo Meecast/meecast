@@ -91,23 +91,15 @@ meecastMainForm::OnInitializing(void)
     pFooter->SetStyle(FOOTER_STYLE_BUTTON_ICON);
 
     __updateButton = new Button();
-    __updateButton->Construct(Rectangle(50, 50, 100, 100), "1111"); 
+    __updateButton->Construct(Rectangle(0, 0, 100, 100), ""); 
     __updateButton->SetActionId(ID_BUTTON_UPDATE);
     __updateButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_def.png"));
     __updateButton->SetPressedBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_sel.png"));
     __updateButton->AddActionEventListener(*this);
 
-//    pFooter->AddItem(*__updateButton);
-    /*
-    pFooter->AddItem(fake1menuButton);
-    pFooter->AddItem(fake2menuButton);
-    pFooter->AddItem(fake3menuButton);
-    pFooter->AddItem(menuButton);
-*/
     Tizen::Graphics::Point position = pFooter->GetPosition();
-    position.SetPosition(position.x + pFooter->GetWidth(), position.y - 100);
-//    __updateButton->SetPosition(position.x + pFooter->GetWidth(), position.y);
-    __updateButton->SetPosition(200, 200);
+    position.SetPosition(position.x + pFooter->GetWidth(), position.y);
+    __updateButton->SetPosition(0 + 25, position.y - 60);
     AddControl(__updateButton);
     CreateContextMenuList(position);
     pFooter->AddActionEventListener(*this);
@@ -469,7 +461,10 @@ void
 meecastMainForm::OnFormMenuRequested(Tizen::Ui::Controls::Form& source){
     SceneManager* pSceneManager = SceneManager::GetInstance();
     AppAssert(pSceneManager);
-    pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_SETTINGSSCENE"));
+    __pContextMenuText->SetShowState(true);
+    __pContextMenuText->Show();
+
+//    pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_SETTINGSSCENE"));
 }
 
 
@@ -814,6 +809,7 @@ meecastMainForm::CreateContextMenuList(Tizen::Graphics::Point Corner_Point){
     __pContextMenuText = new (std::nothrow) ContextMenu();
     __pContextMenuText->Construct(Corner_Point, CONTEXT_MENU_STYLE_LIST, CONTEXT_MENU_ANCHOR_DIRECTION_UPWARD);
     __pContextMenuText->AddItem(_("Settings"), ID_MENU_SETTINGS);
+    __pContextMenuText->AddItem(_("Update"), ID_BUTTON_UPDATE);
     __pContextMenuText->AddItem("About", ID_MENU_ABOUT);
     __pContextMenuText->AddActionEventListener(*this);
 }

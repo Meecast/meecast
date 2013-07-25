@@ -588,7 +588,7 @@ meecastFullWeatherForm::ReInitElements(void){
 
             /* Presssure */
             if (temp_data->pressure().value(true) != INT_MAX){
-                snprintf (buffer, sizeof(buffer) -1, "%i %s", (int)temp_data->pressure().value(), _config->PressureUnit().c_str());
+                snprintf (buffer, sizeof(buffer) -1, "%i %s", (int)temp_data->pressure().value(), _(_config->PressureUnit().c_str()));
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
                 _pKeyList->Add(new String(_("Pressure:")));
@@ -596,7 +596,7 @@ meecastFullWeatherForm::ReInitElements(void){
 
             /* Wind direction */
             if (temp_data->WindDirection() != "N/A"){
-                snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
+                snprintf (buffer, sizeof(buffer) -1, "%s", _(temp_data->WindDirection().c_str()));
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
                 _pKeyList->Add(new String(_("Wind direction:")));
@@ -604,7 +604,7 @@ meecastFullWeatherForm::ReInitElements(void){
             /* Wind Speed */
             if (temp_data->WindSpeed().value() != INT_MAX){
                 snprintf (buffer, sizeof(buffer) -1, "%0.f %s", 
-                        temp_data->WindSpeed().value(), _config->WindSpeedUnit().c_str());
+                        temp_data->WindSpeed().value(), _(_config->WindSpeedUnit().c_str()));
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
                 _pKeyList->Add(new String(_("Wind speed:")));
@@ -813,7 +813,7 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 	TableViewItem* pItem = new TableViewItem();
 
 	AppLogExceptionIf(pItem == null, "Table item creation is failed");
-	pItem->Construct(Dimension(itemWidth, 90), style);
+	pItem->Construct(Dimension(itemWidth, 100), style);
 
     if (_current_selected_tab != HOURLY){
 

@@ -73,6 +73,8 @@ meecastMainForm::OnInitializing(void)
 
     // Setup back event listener
     SetFormBackEventListener(this);
+    SetFormMenuEventListener(this);
+
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
     if (right_label != null)
 		right_label->AddTouchEventListener(*this);
@@ -88,34 +90,25 @@ meecastMainForm::OnInitializing(void)
     Footer* pFooter = GetFooter();
     pFooter->SetStyle(FOOTER_STYLE_BUTTON_ICON);
 
-    FooterItem menuButton;
-    menuButton.Construct(ID_BUTTON_MENU);
-    menuButton.SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("icon_more_ef.png"));
+    __updateButton = new Button();
+    __updateButton->Construct(Rectangle(50, 50, 100, 100), "1111"); 
+    __updateButton->SetActionId(ID_BUTTON_UPDATE);
+    __updateButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_def.png"));
+    __updateButton->SetPressedBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_sel.png"));
+    __updateButton->AddActionEventListener(*this);
 
-    FooterItem fake1menuButton;
-    fake1menuButton.Construct(10000);
-    fake1menuButton.SetBackgroundBitmap(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("null.png"));
-    FooterItem fake2menuButton;
-    fake2menuButton.Construct(100011);
-    fake2menuButton.SetBackgroundBitmap(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("null.png"));
-    FooterItem fake3menuButton;
-    fake3menuButton.Construct(1000033);
-    fake3menuButton.SetBackgroundBitmap(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("null.png"));
-
-
-
-    __updateButton = new Tizen::Ui::Controls::FooterItem(); 
-    __updateButton->Construct(ID_BUTTON_UPDATE);
-    __updateButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_def.png"));
-    __updateButton->SetIcon(FOOTER_ITEM_STATUS_PRESSED, Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_sel.png"));
-
-    pFooter->AddItem(*__updateButton);
+//    pFooter->AddItem(*__updateButton);
+    /*
     pFooter->AddItem(fake1menuButton);
     pFooter->AddItem(fake2menuButton);
     pFooter->AddItem(fake3menuButton);
     pFooter->AddItem(menuButton);
+*/
     Tizen::Graphics::Point position = pFooter->GetPosition();
-    position.SetPosition(position.x + pFooter->GetWidth(), position.y);
+    position.SetPosition(position.x + pFooter->GetWidth(), position.y - 100);
+//    __updateButton->SetPosition(position.x + pFooter->GetWidth(), position.y);
+    __updateButton->SetPosition(200, 200);
+    AddControl(__updateButton);
     CreateContextMenuList(position);
     pFooter->AddActionEventListener(*this);
 
@@ -454,25 +447,31 @@ meecastMainForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionI
     }
 }
 void
-meecastMainForm::OnTimerExpired(Tizen::Base::Runtime::Timer& timer)
-{
+meecastMainForm::OnTimerExpired(Tizen::Base::Runtime::Timer& timer){
     if (!_config->isupdatingstations()){
         __updateTimer->Cancel();
         __pAnimation->Stop();
         Footer* pFooter = GetFooter();
-        pFooter->InsertItemAt(0, *__updateButton);
+//        pFooter->InsertItemAt(0, *__updateButton);
         ReInitElements();
     }
 }
 
 
 void
-meecastMainForm::OnFormBackRequested(Tizen::Ui::Controls::Form& source)
-{
+meecastMainForm::OnFormBackRequested(Tizen::Ui::Controls::Form& source){
     UiApp* pApp = UiApp::GetInstance();
     AppAssert(pApp);
     pApp->Terminate();
 }
+
+void
+meecastMainForm::OnFormMenuRequested(Tizen::Ui::Controls::Form& source){
+    SceneManager* pSceneManager = SceneManager::GetInstance();
+    AppAssert(pSceneManager);
+    pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_SETTINGSSCENE"));
+}
+
 
 
 void 
@@ -793,8 +792,7 @@ meecastMainForm::ReInitElements(void){
 
 void
 meecastMainForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
-                                          const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs)
-{
+                                          const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs){
     // TODO:
     // Add your scene activate code here
     //AppLog("OnSceneActivatedNi %i", _config->current_station_id());
@@ -805,16 +803,14 @@ meecastMainForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSce
 
 void
 meecastMainForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSceneId,
-                                           const Tizen::Ui::Scenes::SceneId& nextSceneId)
-{
+                                           const Tizen::Ui::Scenes::SceneId& nextSceneId){
     // TODO:
     // Add your scene deactivate code here
     AppLog("OnSceneDeactivated");
 }
 
 void
-meecastMainForm::CreateContextMenuList(Tizen::Graphics::Point Corner_Point)
-{
+meecastMainForm::CreateContextMenuList(Tizen::Graphics::Point Corner_Point){
     __pContextMenuText = new (std::nothrow) ContextMenu();
     __pContextMenuText->Construct(Corner_Point, CONTEXT_MENU_STYLE_LIST, CONTEXT_MENU_ANCHOR_DIRECTION_UPWARD);
     __pContextMenuText->AddItem(_("Settings"), ID_MENU_SETTINGS);
@@ -824,8 +820,7 @@ meecastMainForm::CreateContextMenuList(Tizen::Graphics::Point Corner_Point)
 
 
 int
-meecastMainForm::GetItemCount(void)
-{
+meecastMainForm::GetItemCount(void){
     int itemCount = 0;
     if (__daysmap){
         IList* pList = __daysmap->GetKeysN();
@@ -839,16 +834,14 @@ meecastMainForm::GetItemCount(void)
 
 
 bool
-meecastMainForm::DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth)
-{
+meecastMainForm::DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth){
 	delete pItem;
 	return true;
 }
 
 
 Tizen::Ui::Controls::ListItemBase*
-meecastMainForm::CreateItem (int index, int itemWidth)
-{
+meecastMainForm::CreateItem (int index, int itemWidth){
     char  buffer[4096];
     CustomItem* pItem = new (std::nothrow) CustomItem();
     TryReturn(pItem != null, null, "Out of memory");

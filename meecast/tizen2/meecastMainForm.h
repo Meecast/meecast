@@ -17,6 +17,7 @@ class meecastMainForm
 	: public Tizen::Ui::Controls::Form
 	, public Tizen::Ui::IActionEventListener
 	, public Tizen::Ui::Controls::IFormBackEventListener
+    , public Tizen::Ui::Controls::IFormMenuEventListener
     , public Tizen::Ui::Scenes::ISceneEventListener
     , public Tizen::Ui::Controls::IListViewItemEventListener
     , public Tizen::Ui::Controls::IListViewItemProvider
@@ -35,6 +36,7 @@ public:
 	virtual result OnTerminating(void);
 	virtual void OnActionPerformed(const Tizen::Ui::Control& source, int actionId);
 	virtual void OnFormBackRequested(Tizen::Ui::Controls::Form& source);
+    virtual void OnFormMenuRequested(Tizen::Ui::Controls::Form& source);
 	virtual void OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
 								   const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs);
 	virtual void OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSceneId,
@@ -84,7 +86,7 @@ private:
     int _dayCount;
     Tizen::Ui::Controls::Animation* __pAnimation;
 	Tizen::Base::Collection::ArrayList* __pAnimationFrameList;
-    Tizen::Ui::Controls::FooterItem* __updateButton;
+    Tizen::Ui::Controls::Button* __updateButton;
     Tizen::Base::Runtime::Timer* __updateTimer;
 	Tizen::Ui::TouchFlickGestureDetector* __pFlickGesture;
 

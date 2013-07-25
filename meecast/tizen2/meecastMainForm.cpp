@@ -685,20 +685,23 @@ meecastMainForm::ReInitElements(void){
             snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
             Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
 
-            if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/wind_direction_arrow_" + str + ".png")){
+            if (str == "CALM" || Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/wind_direction_arrow_" + str + ".png")){
                 main_background_wind_icon->SetShowState(true);
                 main_wind_icon->SetShowState(true);
-                              /* Wind direction Icon */ 
+
+                /* Wind direction Icon */ 
                 Tizen::Media::Image *image = null;
                 Tizen::Graphics::Bitmap* windIconBitmap = null;
                 image = new (std::nothrow) Tizen::Media::Image();
                 image->Construct();
-
-                windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/wind_direction_arrow_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
-                main_wind_icon->SetBackgroundBitmap(*windIconBitmap);
-                main_wind_icon->RequestRedraw();
-                SAFE_DELETE(image);
-                SAFE_DELETE(windIconBitmap);
+                
+                if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/wind_direction_arrow_" + str + ".png")){
+                    windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/wind_direction_arrow_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+                    main_wind_icon->SetBackgroundBitmap(*windIconBitmap);
+                    main_wind_icon->RequestRedraw();
+                    SAFE_DELETE(image);
+                    SAFE_DELETE(windIconBitmap);
+                }
                 snprintf (buffer, sizeof(buffer) -1, "%s", _(temp_data->WindDirection().c_str()));
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 main_wind_text->SetShowState(true);

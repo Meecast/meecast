@@ -620,7 +620,7 @@ meecastMainForm::ReInitElements(void){
 
         /* Description for current weather forecast */
         String str;
-        Tizen::Base::Utility::StringUtil::Utf8ToString(temp_data->Text().c_str(), str);
+        Tizen::Base::Utility::StringUtil::Utf8ToString(_(temp_data->Text().c_str()), str);
         main_description->SetText(str);
         main_description->RequestRedraw();
         main_description->SetShowState(true);
@@ -659,9 +659,9 @@ meecastMainForm::ReInitElements(void){
         main_temperature->RequestRedraw();
         /* Current or not current period */
         if (temp_data->Current())
-            Tizen::Base::Utility::StringUtil::Utf8ToString("Now", str);
+            Tizen::Base::Utility::StringUtil::Utf8ToString(_("Now"), str);
         else
-            Tizen::Base::Utility::StringUtil::Utf8ToString("Today", str);
+            Tizen::Base::Utility::StringUtil::Utf8ToString(_("Today"), str);
         main_current_state->SetShowState(true);
         main_current_state->SetText(str);
         main_current_state->RequestRedraw();
@@ -688,11 +688,7 @@ meecastMainForm::ReInitElements(void){
             if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/wind_direction_arrow_" + str + ".png")){
                 main_background_wind_icon->SetShowState(true);
                 main_wind_icon->SetShowState(true);
-                main_wind_text->SetShowState(true);
-                main_wind_text->SetText(str);
-                main_wind_text->RequestRedraw();
-
-                /* Wind direction Icon */ 
+                              /* Wind direction Icon */ 
                 Tizen::Media::Image *image = null;
                 Tizen::Graphics::Bitmap* windIconBitmap = null;
                 image = new (std::nothrow) Tizen::Media::Image();
@@ -703,6 +699,11 @@ meecastMainForm::ReInitElements(void){
                 main_wind_icon->RequestRedraw();
                 SAFE_DELETE(image);
                 SAFE_DELETE(windIconBitmap);
+                snprintf (buffer, sizeof(buffer) -1, "%s", _(temp_data->WindDirection().c_str()));
+                Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                main_wind_text->SetShowState(true);
+                main_wind_text->SetText(str);
+                main_wind_text->RequestRedraw();
             }
         }
         /* Main wind speed */
@@ -710,7 +711,7 @@ meecastMainForm::ReInitElements(void){
             main_wind_speed_text->SetShowState(true);
             main_wind_speed_icon->SetShowState(true);
             snprintf (buffer, sizeof(buffer) -1, "%0.f %s", 
-                                             temp_data->WindSpeed().value(), _config->WindSpeedUnit().c_str());
+                                             temp_data->WindSpeed().value(), _(_config->WindSpeedUnit().c_str()));
             Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
             main_wind_speed_text->SetText(str);
             main_wind_speed_text->RequestRedraw();
@@ -720,7 +721,7 @@ meecastMainForm::ReInitElements(void){
         }
         /* Main presssure */
         if (temp_data->pressure().value(true) != INT_MAX){
-            snprintf (buffer, sizeof(buffer) -1, "%i %s", (int)temp_data->pressure().value(), _config->PressureUnit().c_str());
+            snprintf (buffer, sizeof(buffer) -1, "%i %s", (int)temp_data->pressure().value(), _(_config->PressureUnit().c_str()));
             main_pressure_text->SetShowState(true);
             main_pressure_icon->SetShowState(true);
             Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
@@ -883,7 +884,7 @@ meecastMainForm::CreateItem (int index, int itemWidth)
         if (index != 0)
             pItem->AddElement(Tizen::Graphics::Rectangle(90, 20, 220, 50), 4, temp_data->ShortDayName().c_str(), false);
         else
-            pItem->AddElement(Tizen::Graphics::Rectangle(90, 20, 220, 50), 4, L"Today", false);
+            pItem->AddElement(Tizen::Graphics::Rectangle(90, 20, 220, 50), 4, _("Today"), false);
         /* Icon */
         snprintf(buffer, sizeof(buffer) - 1, "icons/Atmos/%i.png", temp_data->Icon());
         pItem->AddElement(Tizen::Graphics::Rectangle(320, 0, 100, 100), 1, *Application::GetInstance()->GetAppResource()->GetBitmapN(buffer), null, null);

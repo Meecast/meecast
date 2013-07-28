@@ -128,6 +128,10 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         xmlXPathFreeContext(xpathCtx); 
         return(-1);
     }
+    if (xpathObj->nodesetval == NULL || xpathObj->nodesetval->nodeTab[0] || xpathObj->nodesetval->nodeTab[0]->content == NULL){
+        return -1;
+    }
+
     temp_char = strchr((char*)xpathObj->nodesetval->nodeTab[0]->content, ' ');
     if (temp_char == NULL || strlen(temp_char)<2)
         return -1;

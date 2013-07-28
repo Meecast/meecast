@@ -30,6 +30,7 @@
 #include <time.h>
 #include <locale.h>
 #include "hash.h"
+#include <FApp.h>
 /*******************************************************************************/
 #define buff_size 2048
 #ifdef QT
@@ -127,6 +128,9 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", " /html/body/div/div/table//tr[1]/th[@colspan='4']/text()");
         xmlXPathFreeContext(xpathCtx); 
         return(-1);
+    }
+    if (xpathObj->nodesetval == NULL || xpathObj->nodesetval->nodeTab[0] || xpathObj->nodesetval->nodeTab[0]->content == NULL){
+        return -1;
     }
     temp_char = strchr((char*)xpathObj->nodesetval->nodeTab[0]->content, ' ');
     if (temp_char == NULL || strlen(temp_char)<2)
@@ -280,7 +284,6 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         fprintf(file_out,"     <flike>%s</flike>\n", temp_buffer); 
     }
     fprintf(file_out,"    </period>\n");
-
 
 
     /* To DO sunrise and sunset */
@@ -475,7 +478,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     /* Day weather forecast */
     /* Evaluate xpath expression */
     xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr/th[@colspan='3']", xpathCtx);
-  
+ 
     if(xpathObj == NULL) {
         fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", "/html/body/div/div/table//tr/th[@colspan='3']/text()");
         xmlXPathFreeContext(xpathCtx); 

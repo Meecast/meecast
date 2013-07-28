@@ -87,8 +87,8 @@ meecastMainForm::OnInitializing(void)
     }
 
     /* Footer */
-    Footer* pFooter = GetFooter();
-    pFooter->SetStyle(FOOTER_STYLE_BUTTON_ICON);
+//    Footer* pFooter = GetFooter();
+//    pFooter->SetStyle(FOOTER_STYLE_BUTTON_ICON);
 
     __updateButton = new Button();
     __updateButton->Construct(Rectangle(0, 0, 100, 100), ""); 
@@ -97,12 +97,13 @@ meecastMainForm::OnInitializing(void)
     __updateButton->SetPressedBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_sel.png"));
     __updateButton->AddActionEventListener(*this);
 
-    Tizen::Graphics::Point position = pFooter->GetPosition();
-    position.SetPosition(position.x + pFooter->GetWidth(), position.y);
-    __updateButton->SetPosition(0 + 25, position.y - 60);
-    AddControl(__updateButton);
+    Tizen::Ui::Controls::Label  *source_icon_label = static_cast<Label*>(GetControl(L"IDC_LABEL_SOURCE_ICON"));
+    Tizen::Graphics::Point position = source_icon_label->GetPosition();
+   // position.SetPosition(position.x + pFooter->GetWidth(), position.y);
+   // __updateButton->SetPosition(0 + 25, position.y - 60);
+    __updateButton->SetPosition(0 + 25, position.y - 00);
     CreateContextMenuList(position);
-    pFooter->AddActionEventListener(*this);
+  //  pFooter->AddActionEventListener(*this);
 
     _config = ConfigTizen::Instance( std::string("config.xml"),
                                        Core::AbstractConfig::prefix+
@@ -111,8 +112,7 @@ meecastMainForm::OnInitializing(void)
 
 
 	AppResource *pAppResource = Application::GetInstance()->GetAppResource();
-	if (pAppResource != null)
-	{
+	if (pAppResource != null){
 		Bitmap *pBitmap0 = pAppResource->GetBitmapN("animations/00_list_process_01.png");
 		Bitmap *pBitmap1 = pAppResource->GetBitmapN("animations/00_list_process_02.png");
 		Bitmap *pBitmap2 = pAppResource->GetBitmapN("animations/00_list_process_03.png");
@@ -245,10 +245,13 @@ meecastMainForm::OnInitializing(void)
 
 		// Create Animation
 		__pAnimation = new (std::nothrow) Animation();
-		__pAnimation->Construct(Rectangle((50), (1140), 60, 60), *__pAnimationFrameList);
+		__pAnimation->Construct(Rectangle((35), position.y + 5, 80, 80), *__pAnimationFrameList);
 		__pAnimation->SetRepeatCount(10000);
 		AddControl(*__pAnimation);
-       }
+        __pAnimation->SetShowState(false);
+    }
+
+    AddControl(__updateButton);
     __updateTimer = new (std::nothrow) Tizen::Base::Runtime::Timer;
     TryReturn(__updateTimer != null, E_FAILURE, "[E_FAILURE] Failed to create __updateTimer.");
     AppLog("updateTimer is created.");
@@ -291,8 +294,7 @@ result
 meecastMainForm::OnTerminating(void){
     result r = E_SUCCESS;
 
-	if (__pFlickGesture != null)
-	{
+	if (__pFlickGesture != null){
 		__pFlickGesture->RemoveFlickGestureEventListener(*this);
 		delete __pFlickGesture;
 	}
@@ -402,7 +404,7 @@ meecastMainForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionI
     AppAssert(pSceneManager);
 
     AppLog("Check Action");
-    Footer* pFooter = GetFooter();
+   // Footer* pFooter = GetFooter();
     switch(actionId)
     {
     case ID_BUTTON_OK:
@@ -424,7 +426,8 @@ meecastMainForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionI
             Tizen::Ui::Controls::Button  *main_set_try_update_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_TRY_UPDATE"));
             main_set_try_update_button->SetShowState(false);
             main_need_updating->SetShowState(false);
-            pFooter->RemoveItemAt(0);
+            __pAnimation->SetShowState(true);
+            __updateButton->SetShowState(false);
             __pAnimation->Play();
 	        __updateTimer->StartAsRepeatable(1000);
             _config->updatestations();
@@ -443,8 +446,8 @@ meecastMainForm::OnTimerExpired(Tizen::Base::Runtime::Timer& timer){
     if (!_config->isupdatingstations()){
         __updateTimer->Cancel();
         __pAnimation->Stop();
-        Footer* pFooter = GetFooter();
-//        pFooter->InsertItemAt(0, *__updateButton);
+        __updateButton->SetShowState(true);
+        __pAnimation->SetShowState(false);
         ReInitElements();
     }
 }
@@ -556,17 +559,16 @@ meecastMainForm::ReInitElements(void){
         //_config->dp = Core::DataParser::Instance(temp_string, "");
         _config->dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
 
-        /* Footer */
-        Footer* pFooter = GetFooter();
+        Tizen::Ui::Controls::Label  *pFooter = static_cast<Label*>(GetControl(L"IDC_LABEL_SOURCE_ICON"));
+        //Footer* pFooter = GetFooter();
         if (_config->stationsList().at(_config->current_station_id())->sourceName() == "openweathermap.org")
-            pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("openweathermap.org.png"));
+            pFooter->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("openweathermap.org.png"));
         if (_config->stationsList().at(_config->current_station_id())->sourceName() == "gismeteo.ru")
-            pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("gismeteo.ru.png"));
-
+            pFooter->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("gismeteo.ru.png"));
         if (_config->stationsList().at(_config->current_station_id())->sourceName() == "foreca.com")
-            pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("foreca.com.png"));
+            pFooter->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("foreca.com.png"));
         if (_config->stationsList().at(_config->current_station_id())->sourceName() == "hko.gov.hk")
-            pFooter->SetBackgroundBitmap(Application::GetInstance()->GetAppResource()->GetBitmapN("hko.gov.hk.png"));
+            pFooter->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("hko.gov.hk.png"));
  
          pFooter->RequestRedraw();
     }

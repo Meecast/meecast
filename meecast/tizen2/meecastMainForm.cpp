@@ -101,7 +101,7 @@ meecastMainForm::OnInitializing(void)
     Tizen::Graphics::Point position = source_icon_label->GetPosition();
    // position.SetPosition(position.x + pFooter->GetWidth(), position.y);
    // __updateButton->SetPosition(0 + 25, position.y - 60);
-    __updateButton->SetPosition(0 + 25, position.y - 00);
+    __updateButton->SetPosition(0 + 25, position.y - 0);
     CreateContextMenuList(position);
   //  pFooter->AddActionEventListener(*this);
 
@@ -796,6 +796,15 @@ meecastMainForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSce
     //AppLog("OnSceneActivatedNi %s", _config->stationname().c_str());
 
     ReInitElements(); 
+
+
+    Tizen::Ui::Controls::Label  *source_icon_label = static_cast<Label*>(GetControl(L"IDC_LABEL_SOURCE_ICON"));
+    Tizen::Graphics::Point position = source_icon_label->GetPosition();
+    __updateButton->SetPosition(0 + 25, position.y - 0);
+    __updateButton->RequestRedraw();
+    __pAnimation->SetPosition(0 + 35, position.y + 10);
+    __pAnimation->RequestRedraw();
+
 }
 
 void
@@ -880,16 +889,15 @@ meecastMainForm::CreateItem (int index, int itemWidth){
         if (index != 0)
             pItem->AddElement(Tizen::Graphics::Rectangle(70, 20, 220, 50), 4, temp_data->ShortDayName().c_str(), false);
         else
-            pItem->AddElement(Tizen::Graphics::Rectangle(90, 20, 220, 50), 4, _("Today"), false);
+            pItem->AddElement(Tizen::Graphics::Rectangle(70, 20, 220, 50), 4, _("Today"), false);
         /* Icon */
         snprintf(buffer, sizeof(buffer) - 1, "icons/Atmos/%i.png", temp_data->Icon());
         pItem->AddElement(Tizen::Graphics::Rectangle(320, 0, 100, 100), 1, *Application::GetInstance()->GetAppResource()->GetBitmapN(buffer), null, null);
 
         if (temp_data->temperature_low().value(true) != INT_MAX){
             snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
-            Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(10);
-            pItem->AddElement(Tizen::Graphics::Rectangle(600, 20, 100, 60), 2, buffer, false);
-            delete color_of_temp;
+            pItem->AddElement(Tizen::Graphics::Rectangle(600, 20, 100, 60), 2, buffer, 40, Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)), Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)),
+                Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)));
             pItem->SetElementTextHorizontalAlignment(2, ALIGNMENT_RIGHT);
         }
         if (temp_data->temperature_hi().value(true) != INT_MAX){

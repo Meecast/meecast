@@ -874,9 +874,11 @@ meecastMainForm::CreateItem (int index, int itemWidth){
         temp_data->temperature_hi().units(_config->TemperatureUnit());
         temp_data->temperature().units(_config->TemperatureUnit());
 
-        pItem->AddElement(Tizen::Graphics::Rectangle(10, 20, 220, 50), 0, temp_data->DayOfMonthName().c_str(), false);
+        pItem->AddElement(Tizen::Graphics::Rectangle(10, 24, 220, 50), 0, temp_data->DayOfMonthName().c_str(), 38,
+                Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)), Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)),
+                Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)));
         if (index != 0)
-            pItem->AddElement(Tizen::Graphics::Rectangle(90, 20, 220, 50), 4, temp_data->ShortDayName().c_str(), false);
+            pItem->AddElement(Tizen::Graphics::Rectangle(70, 20, 220, 50), 4, temp_data->ShortDayName().c_str(), false);
         else
             pItem->AddElement(Tizen::Graphics::Rectangle(90, 20, 220, 50), 4, _("Today"), false);
         /* Icon */

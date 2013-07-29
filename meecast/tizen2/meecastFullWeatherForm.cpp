@@ -337,15 +337,19 @@ meecastFullWeatherForm::ReInitElements(void){
     __dayButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("day_sel.png"));
     __dayButton->SetText(_("Day"));
 
-    __nightButton = new Tizen::Ui::Controls::FooterItem(); 
-    __nightButton->Construct(ID_BUTTON_NIGHT);
-    __nightButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("night_def.png"));
-    __nightButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("night_sel.png"));
-    __nightButton->SetText(_("Night"));
+    /* Check Night */
+    __nightButton = NULL;
+    if ((temp_data = _config->dp->data().GetDataForTime(current_day + 3 * 3600 + _dayNumber*24*3600))) {
+        __nightButton = new Tizen::Ui::Controls::FooterItem(); 
+        __nightButton->Construct(ID_BUTTON_NIGHT);
+        __nightButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("night_def.png"));
+        __nightButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("night_sel.png"));
+        __nightButton->SetText(_("Night"));
+    }
 
 
-
-/* Check Now */
+    /* Check Now */
+    __nowButton = NULL;
     if (_dayNumber == 0 && _config->dp != NULL && (temp_data = _config->dp->data().GetDataForTime(time(NULL))) && temp_data->Current()){    
         __nowButton = new Tizen::Ui::Controls::FooterItem(); 
         __nowButton->Construct(ID_BUTTON_NOW);
@@ -383,13 +387,14 @@ meecastFullWeatherForm::ReInitElements(void){
         AppLog("Set tAB DAY!!!!");
     }
     tab_count++;
-
-    pFooter->AddItem(*__nightButton);
-    if (_current_selected_tab == NIGHT){
-        pFooter->SetItemSelected(tab_count);
-        AppLog("Set tAB Night!!!!");
+    if (__nightButton){
+        pFooter->AddItem(*__nightButton);
+        if (_current_selected_tab == NIGHT){
+            pFooter->SetItemSelected(tab_count);
+            AppLog("Set tAB Night!!!!");
+        }
+        tab_count++;
     }
-    tab_count++;
     if (__hourlyButton){
         pFooter->AddItem(*__hourlyButton);
         if (_current_selected_tab == HOURLY){
@@ -401,37 +406,35 @@ meecastFullWeatherForm::ReInitElements(void){
     RelativeLayout* pLayout = dynamic_cast< RelativeLayout* >(this->GetLayoutN());
     AppAssert(pLayout);
 
+    if (_pKeyList->GetCount() > 0){
+        _pKeyList->RemoveAll(true);
+    }
+    if (_pValueList->GetCount() > 0){
+        _pValueList->RemoveAll(true);
+    }
+
+
     if (_current_selected_tab == HOURLY){
-      //  Tizen::Ui::Controls::Form  *main_form = static_cast<Label*>(GetControl(L"FULL_WEATHER_FORM"));
-
         /* set current hour */
-            time_t current_hour;
-            current_hour = time(NULL);
-            tm = localtime(&current_hour);
-            tm->tm_sec = 0; tm->tm_min = 1; 
-            tm->tm_isdst = 1;
-            current_hour = mktime(tm); 
-            int i =0;
-            if (_pValueList->GetCount() > 0){
-                _pValueList->RemoveAll(true);
+        time_t current_hour;
+        current_hour = time(NULL);
+        tm = localtime(&current_hour);
+        tm->tm_sec = 0; tm->tm_min = 1; 
+        tm->tm_isdst = 1;
+        current_hour = mktime(tm); 
+        int i =0;
+        _count_of_hours = 0; 
+        /* fill hours */
+        while  (_config->dp != NULL && i<5*24*3600) {
+            if (temp_data = _config->dp->data().GetDataForTime(current_hour + i, true)){
+                if (temp_data->StartTime() + 60 == current_hour + i){
+                    _pValueList->Add(new Long(current_hour + i));
+                    _pKeyList->Add(new Integer(_count_of_hours));
+                    _count_of_hours ++; 
+                 }
             }
-            if (_pKeyList->GetCount() > 0){
-                _pKeyList->RemoveAll(true);
-            }
-
-
-            _count_of_hours = 0; 
-            /* fill hours */
-            while  (_config->dp != NULL && i<5*24*3600) {
-                if (temp_data = _config->dp->data().GetDataForTime(current_hour + i, true)){
-                    if (temp_data->StartTime() + 60 == current_hour + i){
-                        _pValueList->Add(new Long(current_hour + i));
-                        _pKeyList->Add(new Integer(_count_of_hours));
-                        _count_of_hours ++; 
-                     }
-                }
-                i = i + 3600;
-            }
+            i = i + 3600;
+        }
         Form *main_form = static_cast<Form*>(GetParent());
         pLayout->SetRelation(*__pTableView, *day_name_label, RECT_EDGE_RELATION_TOP_TO_TOP);
         __pTableView->SetSize(__clientWidth, __clientHeight - pFooter->GetHeight() - INDICATE_HEIGHT);
@@ -458,26 +461,25 @@ meecastFullWeatherForm::ReInitElements(void){
         /* Preparing data */
         if ((temp_data = _config->dp->data().GetDataForTime(time_for_show))) {
 
-         day_name_label->SetText(temp_data->FullDayName().c_str());
-         day_name_label->RequestRedraw();
+            day_name_label->SetText(temp_data->FullDayName().c_str());
+            day_name_label->RequestRedraw();
 
+            /* Next day */
+            if (_config->dp->data().GetDataForTime(time_for_show + 24*3600 ))
+                right_label->SetShowState(true);
+            else{
+                right_label->SetShowState(false);
+            }
+            right_label->RequestRedraw();
+            /* Previous day */
+            if (_config->dp->data().GetDataForTime(time_for_show - 24*3600 ))
+                left_label->SetShowState(true);
+            else
+                left_label->SetShowState(false);
+            left_label->RequestRedraw();
 
-        /* Next day */
-        if (_config->dp->data().GetDataForTime(time_for_show + 24*3600 ))
-            right_label->SetShowState(true);
-        else{
-            right_label->SetShowState(false);
-        }
-        right_label->RequestRedraw();
-        /* Previous day */
-        if (_config->dp->data().GetDataForTime(time_for_show - 24*3600 ))
-            left_label->SetShowState(true);
-        else
-            left_label->SetShowState(false);
-        left_label->RequestRedraw();
-
-         AppLog ("_Config_dp inside");
-         /* Preparing units */
+             AppLog ("_Config_dp inside");
+            /* Preparing units */
             temp_data->temperature_low().units(_config->TemperatureUnit());
             temp_data->temperature_hi().units(_config->TemperatureUnit());
             temp_data->temperature().units(_config->TemperatureUnit());
@@ -578,14 +580,6 @@ meecastFullWeatherForm::ReInitElements(void){
             main_current_state->SetShowState(true);
             main_current_state->SetText(str);
             main_current_state->RequestRedraw();
-
-            if (_pKeyList->GetCount() > 0){
-                _pKeyList->RemoveAll(true);
-            }
-            if (_pValueList->GetCount() > 0){
-                _pValueList->RemoveAll(true);
-            }
-
             /* Presssure */
             if (temp_data->pressure().value(true) != INT_MAX){
                 snprintf (buffer, sizeof(buffer) -1, "%i %s", (int)temp_data->pressure().value(), _(_config->PressureUnit().c_str()));
@@ -819,7 +813,6 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 
         pItem->SetBackgroundColor(Tizen::Graphics::Color(0x00, 0x00, 0x00), TABLE_VIEW_ITEM_DRAWING_STATUS_NORMAL);
         if (_pKeyList->GetAt(2*index)){
-
             Label* pKeyTitleLabel = new Label();
             pKeyTitleLabel->Construct(Rectangle(0, 0, __clientWidth/2, 50), *static_cast< String* >(_pKeyList->GetAt(2*index)));
             pKeyTitleLabel->SetTextConfig(30, LABEL_TEXT_STYLE_NORMAL);
@@ -829,14 +822,12 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
             if (_pValueList->GetAt(2*index)){
                 Label* pKeyDescriptionLabel = new Label();
                 pKeyDescriptionLabel->Construct(Rectangle(0, 20, __clientWidth/2, 100), *static_cast< String* >(_pValueList->GetAt(2*index)));
-
                 pKeyDescriptionLabel->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
                 pKeyDescriptionLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
                 pItem->AddControl(*pKeyDescriptionLabel);
             }
-
         }
-        AppLog("meecastFullWeatherForm::CreateItem +111 %i %i", _pKeyList->GetCount()/2 + 1, index + 1);
+
         if(_pKeyList->GetCount()/2 + 1 > index + 1){
             Label* pKeyTitleLabel = new Label();
             pKeyTitleLabel->Construct(Rectangle(__clientWidth/2, 0, __clientWidth/2, 50), *static_cast< String* >(_pKeyList->GetAt(2*index + 1)));
@@ -879,7 +870,6 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
                 temp_data = NULL;
 
             if ( temp_data){
-                AppLog ("it's TRUE");
                 /* Preparing units */
                 temp_data->temperature().units(_config->TemperatureUnit());
                 temp_data->WindSpeed().units(_config->WindSpeedUnit());
@@ -893,16 +883,18 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
                 Label* pDateLabel = new Label();
                 Tizen::Base::Utility::StringUtil::Utf8ToString(temp_data->DayOfMonthName().c_str(), str);
                 pDateLabel->Construct(Rectangle(5, 20, 220, 50), str);
-                pDateLabel->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+                pDateLabel->SetTextConfig(35, LABEL_TEXT_STYLE_NORMAL);
 
+                pDateLabel->SetTextColor(Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)));
                 pDateLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
                 pItem->AddControl(*pDateLabel);
 
 
                 Label* pMonthLabel = new Label();
                 Tizen::Base::Utility::StringUtil::Utf8ToString(temp_data->FullMonthName().c_str(), str);
-                pMonthLabel->Construct(Rectangle(70, 20, 220, 50), str);
-                pMonthLabel->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+                pMonthLabel->Construct(Rectangle(50, 20, 220, 50), str);
+                pMonthLabel->SetTextConfig(35, LABEL_TEXT_STYLE_NORMAL);
+                pMonthLabel->SetTextColor(Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)));
                 pMonthLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
                 pItem->AddControl(*pMonthLabel);
 
@@ -914,7 +906,7 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 
                 snprintf(buffer, sizeof(buffer) - 1, "%02d:00", tm->tm_hour);
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-                pHourLabel->Construct(Rectangle(140, 20, 140, 50), str);
+                pHourLabel->Construct(Rectangle(150, 20, 140, 50), str);
                 pHourLabel->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
                 pHourLabel->SetTextColor(Tizen::Graphics::Color(Color::GetColor(COLOR_ID_WHITE)));
                 pHourLabel->SetTextHorizontalAlignment(ALIGNMENT_RIGHT);
@@ -939,8 +931,6 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
                     SAFE_DELETE(mainIconBitmap);
                 }
                 pItem->AddControl(*main_icon);
-
-
 
                 if (temp_data->temperature().value(true) != INT_MAX){
                     snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature().value());

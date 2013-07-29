@@ -815,7 +815,8 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
         if (_pKeyList->GetAt(2*index)){
             Label* pKeyTitleLabel = new Label();
             pKeyTitleLabel->Construct(Rectangle(0, 0, __clientWidth/2, 50), *static_cast< String* >(_pKeyList->GetAt(2*index)));
-            pKeyTitleLabel->SetTextConfig(30, LABEL_TEXT_STYLE_NORMAL);
+            pKeyTitleLabel->SetTextColor(Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)));
+            pKeyTitleLabel->SetTextConfig(28, LABEL_TEXT_STYLE_NORMAL);
             pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
             pItem->AddControl(*pKeyTitleLabel);
 
@@ -831,7 +832,8 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
         if(_pKeyList->GetCount()/2 + 1 > index + 1){
             Label* pKeyTitleLabel = new Label();
             pKeyTitleLabel->Construct(Rectangle(__clientWidth/2, 0, __clientWidth/2, 50), *static_cast< String* >(_pKeyList->GetAt(2*index + 1)));
-            pKeyTitleLabel->SetTextConfig(30, LABEL_TEXT_STYLE_NORMAL);
+            pKeyTitleLabel->SetTextConfig(28, LABEL_TEXT_STYLE_NORMAL);
+            pKeyTitleLabel->SetTextColor(Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)));
             pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
             pItem->AddControl(*pKeyTitleLabel);
 

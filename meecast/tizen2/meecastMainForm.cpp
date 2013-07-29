@@ -99,9 +99,9 @@ meecastMainForm::OnInitializing(void)
 
     Tizen::Ui::Controls::Label  *source_icon_label = static_cast<Label*>(GetControl(L"IDC_LABEL_SOURCE_ICON"));
     Tizen::Graphics::Point position = source_icon_label->GetPosition();
-   // position.SetPosition(position.x + pFooter->GetWidth(), position.y);
    // __updateButton->SetPosition(0 + 25, position.y - 60);
     __updateButton->SetPosition(0 + 25, position.y - 0);
+    position.SetPosition(position.x + source_icon_label->GetWidth(), position.y + 50);
     CreateContextMenuList(position);
   //  pFooter->AddActionEventListener(*this);
 
@@ -821,7 +821,7 @@ meecastMainForm::CreateContextMenuList(Tizen::Graphics::Point Corner_Point){
     __pContextMenuText->Construct(Corner_Point, CONTEXT_MENU_STYLE_LIST, CONTEXT_MENU_ANCHOR_DIRECTION_UPWARD);
     __pContextMenuText->AddItem(_("Settings"), ID_MENU_SETTINGS);
     __pContextMenuText->AddItem(_("Update"), ID_BUTTON_UPDATE);
-    __pContextMenuText->AddItem("About", ID_MENU_ABOUT);
+    __pContextMenuText->AddItem(_("About"), ID_MENU_ABOUT);
     __pContextMenuText->AddActionEventListener(*this);
 }
 

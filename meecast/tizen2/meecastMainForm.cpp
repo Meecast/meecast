@@ -51,10 +51,12 @@ meecastMainForm::~meecastMainForm(void)
 		delete __pAnimationFrameList;
 		__pAnimationFrameList = null;
 	}
-    delete __updateButton;
-    __updateButton = null;
-    delete __updateTimer;
-    __daysmap->RemoveAll(true);
+
+    if (__updateTimer)
+        delete __updateTimer;
+
+    if (__daysmap)
+        __daysmap->RemoveAll(true);
 }
 
 bool
@@ -293,7 +295,7 @@ meecastMainForm::OnInitializing(void)
 result
 meecastMainForm::OnTerminating(void){
     result r = E_SUCCESS;
-
+    
 	if (__pFlickGesture != null){
 		__pFlickGesture->RemoveFlickGestureEventListener(*this);
 		delete __pFlickGesture;

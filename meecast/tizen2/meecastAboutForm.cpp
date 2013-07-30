@@ -23,6 +23,7 @@
 /*******************************************************************************/
 #include <FApp.h>
 #include "meecastAboutForm.h"
+#include "../core/core.h"
 
 using namespace Tizen::Base;
 using namespace Tizen::App;
@@ -32,8 +33,6 @@ using namespace Tizen::Ui::Scenes;
 using namespace Tizen::System;
 using namespace Tizen::Io;
 
-static const int LIST_HEIGHT = 112;
-static const int BUTTON_HEIGHT = 74;
 
 meecastAboutForm::meecastAboutForm(void)
 {
@@ -61,11 +60,6 @@ meecastAboutForm::OnInitializing(void)
     //CreateContextMenuList();
     // Setup back event listener
     SetFormBackEventListener(this);
-
-    Header* pHeader = GetHeader();
-    pHeader->SetTitleText(_("MeeCast for Tizen"));
-
-
 
     return r;
 }
@@ -108,9 +102,49 @@ void
 meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
                                           const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs)
 {
-    // TODO:
-    // Add your scene activate code here
     AppLog("OnSceneActivatedN Sources");
+    Tizen::Ui::Controls::Label  *main_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_MAIN_ICON"));
+    if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Atmos/30.png")){
+        /* Main Icon */ 
+        Tizen::Media::Image *image = null;
+        Tizen::Graphics::Bitmap* mainIconBitmap = null;
+        image = new (std::nothrow) Tizen::Media::Image();
+        image->Construct();
+        mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Atmos/30.png",Tizen::Graphics::BITMAP_PIXEL_FORMAT_ARGB8888);
+        main_icon->SetBackgroundBitmap(*mainIconBitmap);
+        main_icon->RequestRedraw();
+        SAFE_DELETE(image);
+        SAFE_DELETE(mainIconBitmap);
+    }
+    Tizen::Ui::Controls::Panel  *backgroundPanel = static_cast<Panel*>(GetControl(L"IDC_PANEL_BACKGROUND"));
+    backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_VIOLET)));
+    Tizen::Ui::Controls::Label  *title_label = static_cast<Label*>(GetControl(L"IDC_LABEL_TITLE"));
+    title_label->SetText(_("MeeCast for Tizen"));
+    Tizen::Ui::Controls::Label  *version_label = static_cast<Label*>(GetControl(L"IDC_LABEL_VERSION"));
+
+    String temp = (_("Version"));
+    temp.Append(" ");
+    temp.Append(MEECAST_VERSION);
+    version_label->SetText(temp);
+    Tizen::Ui::Controls::ScrollPanel  *scrollPanel = static_cast<ScrollPanel*>(GetControl(L"IDC_SCROLLPANEL"));
+    Tizen::Graphics::Rectangle clientRect;
+    Form *pForm = static_cast<Form*>(GetParent());
+    AppAssert(pForm);
+    clientRect = pForm->GetClientAreaBounds();
+    Label* about = new Label();
+    about->Construct(Tizen::Graphics::Rectangle(0, 0, clientRect.width, 200), _("About:"));
+    about->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    Label* fillabout = new Label();
+    fillabout->Construct(Tizen::Graphics::Rectangle(0,50, 200, 150), _("Aboutmy:"));
+
+    EditField* pEdit = new EditField();
+    pEdit->Construct(Tizen::Graphics::Rectangle(0, 250, 200, 150));
+    pEdit->SetText(L"Edit");
+
+    scrollPanel->AddControl(about);
+    scrollPanel->AddControl(fillabout);
+    scrollPanel->AddControl(pEdit);
+
 }
 
 void

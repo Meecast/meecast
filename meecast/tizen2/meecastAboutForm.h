@@ -2,8 +2,8 @@
 #define _MEECAST_ABOUT_FORM_H_
 
 #include <FBase.h>
+#include <FMedia.h>
 #include <FUi.h>
-#include <FIo.h>
 
 #include <libintl.h>
 #include <locale.h>

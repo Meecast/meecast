@@ -439,6 +439,10 @@ meecastMainForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionI
         AppLog("Locations is clicked!");
         pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_SOURCESSCENE"));
         break;
+    case ID_MENU_ABOUT:
+        AppLog("About is clicked!");
+        pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_ABOUTSCENE"));
+        break;
     default:
         break;
     }

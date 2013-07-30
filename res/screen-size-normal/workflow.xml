@@ -1,21 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Workflow>
     <Scene Form="IDF_FORM" Id="MainScene"/>
-    <Scene Form="SETTINGS_FORM" Id="SettingsScene"/>
-    <Scene Form="MEASUREMENT_UNITS_FORM" Id="MeasurementUnitsScene"/>
-    <Scene Form="MANAGE_LOCATIONS_FORM" Id="ManageLocationsScene"/>
-    <Scene Form="SOURCES_FORM" Id="SourcesScene"/>
-    <Scene Form="COUNTRIES_FORM" Id="CountriesScene"/>
-    <Scene Form="REGIONS_FORM" Id="RegionsScene"/>
-    <Scene Form="STATIONS_FORM" Id="StationsScene"/>
-    <Scene Form="FULL_WEATHER_FORM" Id="FullWeatherScene"/>
     <SceneTransition AnimationType="none" DestroyOption="keep" DirectionType="forward" HistoryOption="add" Id="ID_SCNT_MAINSCENE" Method="" SourceId="" SourceResourceType="" TargetId="MainScene"/>
-    <SceneTransition AnimationType="none" DestroyOption="keep" DirectionType="forward" HistoryOption="add" Id="ID_SCNT_MEASUREMENT_UNITSSCENE" Method="" SourceId="" SourceResourceType="" TargetId="MeasurementUnitsScene"/>
-    <SceneTransition AnimationType="none" DestroyOption="keep" DirectionType="forward" HistoryOption="add" Id="ID_SCNT_SETTINGSSCENE" Method="" SourceId="" SourceResourceType="" TargetId="SettingsScene"/>
-    <SceneTransition AnimationType="none" DestroyOption="keep" DirectionType="forward" HistoryOption="add" Id="ID_SCNT_MANAGELOCATIONSSCENE" Method="" SourceId="" SourceResourceType="" TargetId="ManageLocationsScene"/>
-    <SceneTransition AnimationType="none" DestroyOption="keep" DirectionType="forward" HistoryOption="add" Id="ID_SCNT_SOURCESSCENE" Method="" SourceId="" SourceResourceType="" TargetId="SourcesScene"/>
-    <SceneTransition AnimationType="none" DestroyOption="keep" DirectionType="forward" HistoryOption="add" Id="ID_SCNT_COUNTRIESSCENE" Method="" SourceId="" SourceResourceType="" TargetId="CountriesScene"/>
-    <SceneTransition AnimationType="none" DestroyOption="keep" DirectionType="forward" HistoryOption="add" Id="ID_SCNT_REGIONSSCENE" Method="" SourceId="" SourceResourceType="" TargetId="RegionsScene"/>
-    <SceneTransition AnimationType="none" DestroyOption="keep" DirectionType="forward" HistoryOption="add" Id="ID_SCNT_STATIONSSCENE" Method="" SourceId="" SourceResourceType="" TargetId="StationsScene"/>
-    <SceneTransition AnimationType="none" DestroyOption="keep" DirectionType="forward" HistoryOption="add" Id="ID_SCNT_FULLWEATHERSCENE" Method="" SourceId="" SourceResourceType="" TargetId="FullWeatherScene"/>
+    <!--UI Builder(Workflow Designer) only-->
+    <WorkflowDesigner>
+        <Position Name="MainScene" X="170" Y="60"/>
+    </WorkflowDesigner>
 </Workflow>

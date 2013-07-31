@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2012 Vlad Vasilyeu
+ * Copyright (C) 2012 - 2013 Vlad Vasilyeu
  * 	for the code
  *        
  * Copyright (C) 2008 Andrew Zhilin
@@ -27,7 +27,12 @@
 /*******************************************************************************/
 #ifndef _hash_h
 #define _hash_h 1
+#include <libxml/hash.h> 
+#include <string.h>
+
 /*******************************************************************************/
+xmlHashTablePtr hash_icons_bomgovau_table_create();
+xmlHashTablePtr hash_stations_bomgovau_table_create();
 /*******************************************************************************/
 #ifdef GLIB
 GHashTable* hash_icons_bomgovau_table_create(void);

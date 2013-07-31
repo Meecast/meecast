@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-hko-gov-hk-stations-db - MeeCast
  *
- * Copyright (C) 2012 Vlad Vasilyeu
+ * Copyright (C) 2012 - 2013 Vlad Vasilyeu
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or
@@ -38,7 +38,7 @@
     static QHash<QString, QString> *hash_for_icons;
     QHash<QString, QString> *hash_hko_table_create(void);
 #endif
-
+static xmlHashTablePtr hash_for_icons;
 /*******************************************************************************/
 #ifdef GLIB
 gchar*
@@ -97,7 +97,7 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
         if (strstr(buffer,"Weather Cartoons for 7-day weather forecast"))
             break;
     }
-    hash_for_icons = hash_hko_table_create();
+    hash_for_icons = hash_icons_hko_table_create();
  
     while(fgets(buffer, sizeof(buffer), file_in)){
         if (strstr(buffer,"Bulletin updated"))
@@ -133,6 +133,12 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
 #ifdef QT 
                     fprintf(file_out, "     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer).toStdString().c_str());
 #endif
+                   if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer)){
+                        fprintf(file_out,"     <icon>%s</icon>\n",  
+                         (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));
+                   }else 
+                        fprintf(file_out,"     <icon>49</icon>\n");  
+
                 }
             }
         if (strstr(buffer,"Wind"))
@@ -146,7 +152,10 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
 #ifdef QT 
                     fprintf(file_out, "     <wind_direction>%s</wind_direction>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer).toStdString().c_str());
 #endif
+                if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer)){
 
+                    fprintf(file_out, "     <wind_direction>%s</wind_direction>\n", (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));
+                }
                 comma = strstr(comma2, " ");               
                 comma++;
                 switch (atoi(comma)){
@@ -231,7 +240,7 @@ parse_current_weather(const char *detail_path_data, const char *result_file){
     if (!file_in)
         return;
 
-    hash_for_icons = hash_hko_table_create();
+    hash_for_icons = hash_icons_hko_table_create();
     while(fgets(buffer, sizeof(buffer), file_in)){
         if (strstr(buffer,"Bulletin updated"))
             if (comma = strstr(buffer, "at ")){
@@ -270,6 +279,13 @@ parse_current_weather(const char *detail_path_data, const char *result_file){
 #ifdef QT 
                     fprintf(file_out, "     <icon>%s</icon>\n", choose_hour_weather_icon(hash_for_icons, temp_buffer).toStdString().c_str());
 #endif
+               if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer)){
+                    fprintf(file_out,"     <icon>%s</icon>\n",  
+                     (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));
+               }else 
+                    fprintf(file_out,"     <icon>49</icon>\n");  
+
+
             }
             if (comma = strstr(buffer, " - ")){
                 comma = comma + 3;
@@ -300,21 +316,24 @@ parse_current_weather(const char *detail_path_data, const char *result_file){
 }
 /*******************************************************************************/
 int
-convert_station_hkogovhk_data(char *station_id_with_path, const char *result_file, const char *detail_path_data ){
+convert_station_hkogovhk_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data ){
  
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;
     int    days_number = -1;
     char   buffer[1024],
-            *delimiter = NULL;
-    FILE    *file_out;
+           buffer2[1024],
+           *delimiter = NULL;
+    FILE   *file_out;
 
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
     /* prepare station id */
     *buffer = 0;
-    delimiter = strrchr(station_id_with_path, '/');
+    *buffer2 = 0;
+    snprintf(buffer2, sizeof(buffer2) - 1, "%s", station_id_with_path);
+    delimiter = strrchr(buffer2, '/');
     if(delimiter){
         delimiter++; /* delete '/' */
         snprintf(buffer, sizeof(buffer) - 1, "%s", delimiter);
@@ -359,7 +378,9 @@ convert_station_hkogovhk_data(char *station_id_with_path, const char *result_fil
         else{
             /* prepare station id */
             *buffer = 0;
-            delimiter = strrchr(station_id_with_path, '/');
+            *buffer2 = 0;
+            snprintf(buffer2, sizeof(buffer2) - 1, "%s", station_id_with_path);
+            delimiter = strrchr(buffer2, '/');
             if(delimiter){
                 delimiter++; /* delete '/' */
                 snprintf(buffer, sizeof(buffer) - 1, "%s", delimiter);

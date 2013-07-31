@@ -122,7 +122,7 @@ Page {
                     Label {
                         multiline: true
                         id: aboutfulltext 
-                        text: Config.tr("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2012")
+                        text: Config.tr("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013")
                         textStyle {
                             base: SystemDefaults.TextStyles.BodyText 
                             color: Color.White

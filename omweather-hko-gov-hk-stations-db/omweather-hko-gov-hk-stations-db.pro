@@ -34,7 +34,7 @@ system(pkg-config --exists glib-2.0_____){
     message(GLIB-2.0 is not exist)
     CONFIG += qt
     QT += core
-    DEFINES += QT
+#    DEFINES += QT
 }
 
 LIBS += -lxml2

@@ -5,6 +5,8 @@ meecast (0.7.4) unstable; urgency=low
   * BB Changed desktop icon and splash
   * BB Fixed problem with hours form
   * Added icon fot forca.com
+  * Added icon fot foreca.com
+  * Fixed problem with updating
   * Added icon for openweathermap.org 
   * Added station Halikko, Finland to weather.com
 

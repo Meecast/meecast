@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-bom-gov-au-stations-db
  *
- * Copyright (C) 2012 Vlad Vasilyeu
+ * Copyright (C) 2012-2013 Vlad Vasilyeu
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or
@@ -38,6 +38,8 @@
     static QHash<QString, QString> *hash_for_icons;
     static QHash<QString, QString> *hash_for_stations;
 #endif
+static xmlHashTablePtr hash_for_icons;
+static xmlHashTablePtr hash_for_stations;
 int au_timezone = 0;
 char current_icon[256];
 char current_title[1024];
@@ -115,8 +117,8 @@ parse_and_write_detail_data(const char *station_name, htmlDocPtr doc, const char
     time_t      loc_time;
     time_t      utc_time;
     int        location_timezone = 0;
-    int timezone_flag = FALSE;
-    int sunrise_flag = FALSE;
+    int timezone_flag = false;
+    int sunrise_flag = false;
     struct tm   tmp_tm_loc = {0};
     struct tm   tmp_tm = {0};
     struct tm   current_tm = {0};
@@ -134,8 +136,6 @@ parse_and_write_detail_data(const char *station_name, htmlDocPtr doc, const char
         return -1;
 
 //#ifdef GLIB
-    hash_for_icons = hash_icons_bomgovau_table_create();
-    hash_for_stations = hash_stations_table_create();
 //#endif
     /* Create xpath evaluation context */
     xpathCtx = xmlXPathNewContext(doc);
@@ -168,6 +168,11 @@ parse_and_write_detail_data(const char *station_name, htmlDocPtr doc, const char
        if (!strcmp((char*)xpathObj->nodesetval->nodeTab[i]->content, 
                    (char*)hash_bomgovau_table_find(hash_for_stations, station_name, FALSE).toStdString().c_str())){
        #endif
+
+       if ((char*)xmlHashLookup(hash_for_stations, (const xmlChar *)station_name) &&
+            !strcmp((char*)xpathObj->nodesetval->nodeTab[i]->content, 
+                   (char *)xmlHashLookup(hash_for_stations, (const xmlChar *)station_name))){
+
             xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/table/tbody/tr/td[contains (@headers, '-datetime')]/text()", xpathCtx);
             current_time = time(NULL);
             tm = localtime(&current_time);
@@ -223,18 +228,18 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
                 *child_node4 = NULL;
     xmlChar     *temp_xml_string = NULL;
     xmlChar     *part_of_day = NULL;
-    int        store2day = 0,
+    int         store2day = 0,
                 count_day = 0;
-    char       id_station[1024],
+    char        id_station[1024],
                 short_text[1024],
                 ppcp[128],
                 buffer[1024],
                 buff[256];
     int         i;
     int         temp_hi, temp_low;
-    char       icon[256];
-    int         check_timezone = FALSE;
-    char       temp_buffer[buff_size];
+    char        icon[256];
+    int         check_timezone = false;
+    char        temp_buffer[buff_size];
     struct tm   tmp_tm = {0};
 #ifdef GLIB
     GSList      *forecast = NULL;
@@ -250,23 +255,19 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
     GHashTable *hash_for_icons;
 #endif
     int index = INT_MAX;
-
     if(!doc)
         return -1;
 
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
-//#ifdef GLIB
-    hash_for_icons = hash_icons_bomgovau_table_create();
-//#endif
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", station_id);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
 
-    memset(current_icon, 0, sizeof(icon));
+    memset(current_icon, 0, sizeof(current_icon));
     sprintf(current_icon, "%s", "48"); 
-    memset(current_title, 0, sizeof(icon));
+    memset(current_title, 0, sizeof(current_title));
     root_node = xmlDocGetRootElement(doc);
 
     for(cur_node0 = root_node->children; cur_node0; cur_node0 = cur_node0->next){
@@ -305,7 +306,7 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
                                                 }
                                                 fprintf(file_out,"  <timezone>%s</timezone>\n", buffer);
                                                 au_timezone = atoi(buffer);
-                                                check_timezone = TRUE;
+                                                check_timezone = true;
                                             }
 
                                             /* get start time for period */
@@ -325,7 +326,7 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
                                             /* get index */
                                             if (xmlGetProp(child_node, (const xmlChar*)"index") != NULL){
                                                 index = atoi((char *)xmlGetProp(child_node, (const xmlChar*)"index"));
-                                                fprintf(stderr,"Index %i\n", index);
+                                                /* fprintf(stderr,"Index %i\n", index); */
                                             }
 
                                             for (child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
@@ -336,7 +337,7 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
                                                             temp_low = atoi((char *)xmlNodeGetContent(child_node2));
                                                         if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "air_temperature_maximum" ))
                                                             temp_hi = atoi((char *)xmlNodeGetContent(child_node2));
-                                                        if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "forecast_icon_code" ))
+                                                        if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "forecast_icon_code" )){
 #ifdef GLIB                                                         
                                                             snprintf(icon, sizeof(icon) - 1, "%s", choose_hour_weather_icon(hash_for_icons, (char *)xmlNodeGetContent(child_node2))); 
 #endif
@@ -344,6 +345,12 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
 #ifdef QT
                                                             snprintf(icon, sizeof(icon) - 1, "%s", (char*)(choose_hour_weather_icon(hash_for_icons, (char *)xmlNodeGetContent(child_node2))).toStdString().c_str()); 
 #endif
+                                                           if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)xmlNodeGetContent(child_node2))){
+                                                                snprintf(icon, sizeof(icon) - 1, "%s", (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)xmlNodeGetContent(child_node2))); 
+                                                           }else 
+                                                                snprintf(icon, sizeof(icon) - 1, "49");
+                                                        }
+
                                                     }
                                                     if(!xmlStrcmp(child_node2->name, (const xmlChar *) "text")){                           
                                                         if(!xmlStrcmp(xmlGetProp(child_node2, (const xmlChar*)"type"), (const xmlChar *) "precis" )){
@@ -417,6 +424,10 @@ convert_station_bomgovau_data(const char *station_id_with_path, const char *resu
 
     if(!station_id_with_path)
         return -1;
+
+    hash_for_icons = hash_icons_bomgovau_table_create();
+    hash_for_stations = hash_stations_bomgovau_table_create();
+
 /* check for new file, if it exist, than rename it */
     *buffer = 0;
     snprintf(buffer, sizeof(buffer) - 1, "%s.new", station_id_with_path);

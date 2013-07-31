@@ -22,18 +22,7 @@ OTHER_FILES += \
 
 CONFIG = link_pkgconfig 
 CONFIG += warn_on debug_and_release
-#PKGCONFIG += libxml-2.0 
-#system(pkg-config --exists glib-2.0){
-#    PKGCONFIG += glib-2.0
-#    message(GLIB-2.0 is exist)
-#    CONFIG += -qt
-#    DEFINES += GLIB 
-#}else{
-#    message(GLIB-2.0 is not exist)
-    CONFIG += qt
-    QT += core
-    DEFINES += QT
-#}
+DEFINES += QT
 
 device {
 	CONFIG(release, debug|release) {
@@ -52,6 +41,10 @@ simulator {
 		DESTDIR = o-g
 	}
 }
+=======
+#    DEFINES += QT
+#}
+>>>>>>> master
 
 LIBS += -lxml2
 db.files = data/bom.gov.au.db

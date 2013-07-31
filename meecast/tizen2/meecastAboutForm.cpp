@@ -132,10 +132,13 @@ meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSc
     AppAssert(pForm);
     clientRect = pForm->GetClientAreaBounds();
     Label* about = new Label();
-    about->Construct(Tizen::Graphics::Rectangle(0, 0, clientRect.width, 200), _("About:"));
+    about->Construct(Tizen::Graphics::Rectangle(0, 0, clientRect.width, 50), _("About:"));
     about->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    about->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* fillabout = new Label();
-    fillabout->Construct(Tizen::Graphics::Rectangle(0,50, 200, 150), _("Aboutmy:"));
+    fillabout->Construct(Tizen::Graphics::Rectangle(0,50, clientRect.width, 150), _("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013"));
+    fillabout->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    fillabout->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     EditField* pEdit = new EditField();
     pEdit->Construct(Tizen::Graphics::Rectangle(0, 250, 200, 150));

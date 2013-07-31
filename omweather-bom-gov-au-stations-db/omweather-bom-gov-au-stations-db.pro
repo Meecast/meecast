@@ -22,7 +22,6 @@ OTHER_FILES += \
 
 CONFIG = link_pkgconfig 
 CONFIG += warn_on debug_and_release
-DEFINES += QT
 
 device {
 	CONFIG(release, debug|release) {
@@ -41,10 +40,6 @@ simulator {
 		DESTDIR = o-g
 	}
 }
-=======
-#    DEFINES += QT
-#}
->>>>>>> master
 
 LIBS += -lxml2
 db.files = data/bom.gov.au.db

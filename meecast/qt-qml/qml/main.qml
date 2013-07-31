@@ -609,7 +609,7 @@ NavigationPane {
                                                                             positionY: 8.0
                                                                         }
                                                                         visible: ListItemData.wind_direction_angle == -1 ? false : true;
-                                                                        imageSource: "asset:///share/images//wind_direction_arrow.png"
+                                                                        imageSource: "asset:///share/images/wind_direction_arrow.png"
                                                                         preferredWidth: 30
                                                                         preferredHeight: 30
                                                                         rotationZ: ListItemData.wind_direction_angle  

@@ -132,21 +132,99 @@ meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSc
     AppAssert(pForm);
     clientRect = pForm->GetClientAreaBounds();
     Label* about = new Label();
-    about->Construct(Tizen::Graphics::Rectangle(0, 0, clientRect.width, 50), _("About:"));
+    about->Construct(Tizen::Graphics::Rectangle(0, 0, clientRect.width, 50), _("About"));
     about->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     about->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* fillabout = new Label();
     fillabout->Construct(Tizen::Graphics::Rectangle(0,50, clientRect.width, 150), _("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013"));
     fillabout->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     fillabout->SetTextVerticalAlignment(ALIGNMENT_TOP);
+    Label* admin = new Label();
+    admin->Construct(Tizen::Graphics::Rectangle(0, 200, clientRect.width, 50), _("Project administrator"));
+    admin->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    admin->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
+    Label* filladmin = new Label();
+    filladmin->Construct(Tizen::Graphics::Rectangle(0,250, clientRect.width, 150), _("Vlad Vailyeu, Oksana Kalinkevich"));
+    filladmin->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    filladmin->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
-    EditField* pEdit = new EditField();
-    pEdit->Construct(Tizen::Graphics::Rectangle(0, 250, 200, 150));
-    pEdit->SetText(L"Edit");
+    Label* develop = new Label();
+    develop->Construct(Tizen::Graphics::Rectangle(0, 300, clientRect.width, 50), _("Programmers"));
+    develop->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    develop->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
+    Label* filldevelop = new Label();
+    filldevelop->Construct(Tizen::Graphics::Rectangle(0,350, clientRect.width, 150), _("Vlad Vailyeu"));
+    filldevelop->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    filldevelop->SetTextVerticalAlignment(ALIGNMENT_TOP);
+
+    Label* designer = new Label();
+    designer->Construct(Tizen::Graphics::Rectangle(0, 400, clientRect.width, 50), _("Lead designer"));
+    designer->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    designer->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
+    Label* filldesigner = new Label();
+    filldesigner->Construct(Tizen::Graphics::Rectangle(0,450, clientRect.width, 150), _("Andrew Zhilin"));
+    filldesigner->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    filldesigner->SetTextVerticalAlignment(ALIGNMENT_TOP);
+
+    Label* manager = new Label();
+    manager->Construct(Tizen::Graphics::Rectangle(0, 500, clientRect.width, 50), _("Project manager"));
+    manager->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    manager->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
+    Label* fillmanager = new Label();
+    fillmanager->Construct(Tizen::Graphics::Rectangle(0,550, clientRect.width, 150), _("Ludmila Lisovskaya"));
+    fillmanager->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    fillmanager->SetTextVerticalAlignment(ALIGNMENT_TOP);
+
+    Label* translators = new Label();
+    translators->Construct(Tizen::Graphics::Rectangle(0, 600, clientRect.width, 50), _("Translators"));
+    translators->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    translators->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
+    Label* filltranslators = new Label();
+    filltranslators->Construct(Tizen::Graphics::Rectangle(0,650, clientRect.width, 150), _("\
+French -  Nicolas Granziano, \n \
+\tPhilippe, Benot Knecht \n \
+Russian - Pavel Fialko, Vlad Vasiliev, \n \
+\tEd Bartosh\n \
+Finnish - Marko Vertainen\n \
+German -  Claudius Henrichs\n \
+Italian - Lorenzo Facca,\n \
+\tPavel Fialko, Alessandro Pasotti,\n \
+\tSalvatore Fiorenzo, Ilir Gjika,\n \
+\tLuca Onnis\n \
+Spanish - Alejandro Lopez\n \
+Polish - Tomasz Dominikowski\n \
+Slovak - Roman Moravčík\n \
+Dutch - Tom Leenders, Michiel Pater\n \
+Bulgarian - Zlatko Enikov\n \
+Albanian - Ilir Gjika\n \
+Chinese - Wong Man Kong, Michael\n \
+Portuguese - Jose Narciso,\n \
+Turkish - Burak Kaan Kose,\n \
+Catalan - Agustí Clara,\n \
+Arabic - Tarad Alfandi,\n \
+Serbian - Aleksandar Zaric,\n \
+Norwegian - Peer-Atle Motland,\n \
+Hungarian - Salmi,\n \
+Vietnamese - Hieu Nguyen\n \
+\tAnh Dương and truongnx, \n \
+Swedish - Angela Nennebrandt,\n \
+\tNiklas Åkerström, \n \
+\tTomislav Veleckovik"));
+    filltranslators->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    filltranslators->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     scrollPanel->AddControl(about);
     scrollPanel->AddControl(fillabout);
-    scrollPanel->AddControl(pEdit);
+    scrollPanel->AddControl(admin);
+    scrollPanel->AddControl(filladmin);
+    scrollPanel->AddControl(develop);
+    scrollPanel->AddControl(filldevelop);
+    scrollPanel->AddControl(designer);
+    scrollPanel->AddControl(filldesigner);
+    scrollPanel->AddControl(manager);
+    scrollPanel->AddControl(fillmanager);
+    scrollPanel->AddControl(translators);
+    scrollPanel->AddControl(filltranslators);
 
 }
 

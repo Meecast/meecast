@@ -126,6 +126,7 @@ meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSc
     temp.Append(" ");
     temp.Append(MEECAST_VERSION);
     version_label->SetText(temp);
+
     Tizen::Ui::Controls::ScrollPanel  *scrollPanel = static_cast<ScrollPanel*>(GetControl(L"IDC_SCROLLPANEL"));
     Tizen::Graphics::Rectangle clientRect;
     Form *pForm = static_cast<Form*>(GetParent());

@@ -143,29 +143,29 @@ meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSc
     fillabout->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     fillabout->SetTextVerticalAlignment(ALIGNMENT_TOP);
     Label* admin = new Label();
-    admin->Construct(Tizen::Graphics::Rectangle(0, 200, clientRect.width, 50), _("Project administrator"));
+    admin->Construct(Tizen::Graphics::Rectangle(0, 230, clientRect.width, 50), _("Project administrator"));
     admin->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     admin->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* filladmin = new Label();
-    filladmin->Construct(Tizen::Graphics::Rectangle(0,250, clientRect.width, 150), _("Vlad Vailyeu, Oksana Kalinkevich"));
+    filladmin->Construct(Tizen::Graphics::Rectangle(0,275, clientRect.width, 150), _("Vlad Vailyeu, Oksana Kalinkevich"));
     filladmin->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     filladmin->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* develop = new Label();
-    develop->Construct(Tizen::Graphics::Rectangle(0, 300, clientRect.width, 50), _("Programmers"));
+    develop->Construct(Tizen::Graphics::Rectangle(0, 320, clientRect.width, 50), _("Programmers"));
     develop->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     develop->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* filldevelop = new Label();
-    filldevelop->Construct(Tizen::Graphics::Rectangle(0,350, clientRect.width, 150), _("Vlad Vailyeu"));
+    filldevelop->Construct(Tizen::Graphics::Rectangle(0,365, clientRect.width, 150), _("Vlad Vailyeu"));
     filldevelop->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     filldevelop->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* designer = new Label();
-    designer->Construct(Tizen::Graphics::Rectangle(0, 400, clientRect.width, 50), _("Lead designer"));
+    designer->Construct(Tizen::Graphics::Rectangle(0, 410, clientRect.width, 50), _("Lead designer"));
     designer->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     designer->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* filldesigner = new Label();
-    filldesigner->Construct(Tizen::Graphics::Rectangle(0,450, clientRect.width, 150), _("Andrew Zhilin"));
+    filldesigner->Construct(Tizen::Graphics::Rectangle(0,455, clientRect.width, 150), _("Andrew Zhilin"));
     filldesigner->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     filldesigner->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
@@ -233,7 +233,10 @@ later version."));
     filllicense->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Button* donationButton = new Button();
-    donationButton->Construct(Tizen::Graphics::Rectangle(0, 0, 100, 100), ""); 
+    donationButton->Construct(Tizen::Graphics::Rectangle(clientRect.width - 184 - 20, 180, 184, 52), ""); 
+    donationButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("btn_donate_LG.png"));
+    donationButton->SetPressedBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("btn_donate_LG.png"));
+
     donationButton->SetActionId(ID_BUTTON_DONATION);
     donationButton->AddActionEventListener(*this);
 

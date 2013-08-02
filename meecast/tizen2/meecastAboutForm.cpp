@@ -257,8 +257,11 @@ later version."));
 
 void
 meecastAboutForm::AppControlBrowser(void){
-    String uri = L"http://www.tizen.org";
+//    String uri = L"https://raw.github.com/Meecast/meecast/tizen2/res/html/donation.html";
 //
+    String uri = "file://";
+    uri.Append(App::GetInstance()->App::GetAppSharedPath());
+    uri.Append(L"res/donation.html");
     AppControl* pAc = AppManager::FindAppControlN(L"tizen.internet",
                                                                  L"http://tizen.org/appcontrol/operation/view");
     if (pAc){

@@ -126,6 +126,7 @@ meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSc
     temp.Append(" ");
     temp.Append(MEECAST_VERSION);
     version_label->SetText(temp);
+
     Tizen::Ui::Controls::ScrollPanel  *scrollPanel = static_cast<ScrollPanel*>(GetControl(L"IDC_SCROLLPANEL"));
     Tizen::Graphics::Rectangle clientRect;
     Form *pForm = static_cast<Form*>(GetParent());
@@ -180,7 +181,7 @@ meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSc
     translators->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     translators->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* filltranslators = new Label();
-    filltranslators->Construct(Tizen::Graphics::Rectangle(0,650, clientRect.width, 150), _("\
+    filltranslators->Construct(Tizen::Graphics::Rectangle(0,650, clientRect.width, 350), _("\
 French -  Nicolas Granziano, \n \
 \tPhilippe, Benot Knecht \n \
 Russian - Pavel Fialko, Vlad Vasiliev, \n \
@@ -213,6 +214,24 @@ Swedish - Angela Nennebrandt,\n \
     filltranslators->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     filltranslators->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
+    Label* license = new Label();
+    license->Construct(Tizen::Graphics::Rectangle(0, 1000, clientRect.width, 50), _("License"));
+    license->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    license->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
+    Label* filllicense = new Label();
+    filllicense->Construct(Tizen::Graphics::Rectangle(0,1050, clientRect.width, 350), _("\
+This software is free software; you can\n \
+redistribute it and/or modify it under \n \
+the terms of the GNU General Public\n \
+License as published by the Free Software \n \
+Foundation; either version 2.1 of the \n \
+License, or (at your option) any \n \
+later version."));
+    filllicense->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    filllicense->SetTextVerticalAlignment(ALIGNMENT_TOP);
+
+
+
     scrollPanel->AddControl(about);
     scrollPanel->AddControl(fillabout);
     scrollPanel->AddControl(admin);
@@ -225,6 +244,8 @@ Swedish - Angela Nennebrandt,\n \
     scrollPanel->AddControl(fillmanager);
     scrollPanel->AddControl(translators);
     scrollPanel->AddControl(filltranslators);
+    scrollPanel->AddControl(license);
+    scrollPanel->AddControl(filllicense);
 
 }
 

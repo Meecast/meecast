@@ -229,6 +229,17 @@ Swedish - Angela Nennebrandt,\n \
 }
 
 void
+meecastAboutForm::AppControlBrowser(void){
+    String uri = L"http://www.tizen.org";
+    AppControl* pAc = AppManager::FindAppControlN(L"tizen.internet",
+                                                                 L"http://tizen.org/appcontrol/operation/view");
+    if (pAc){
+        pAc->Start(&uri, null, null, null);
+        delete pAc;
+    }
+}
+
+void
 meecastAboutForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSceneId,
                                            const Tizen::Ui::Scenes::SceneId& nextSceneId)
 {

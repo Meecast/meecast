@@ -18,6 +18,7 @@ class meecastAboutForm
 	, public Tizen::Ui::IActionEventListener
 	, public Tizen::Ui::Controls::IFormBackEventListener
  	, public Tizen::Ui::Scenes::ISceneEventListener
+
 {
 public:
 	meecastAboutForm(void);
@@ -32,8 +33,10 @@ public:
 								   const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs);
 	virtual void OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSceneId,
 									const Tizen::Ui::Scenes::SceneId& nextSceneId);
-
+    void AppControlBrowser(void);
 protected:
+
+    static const int ID_BUTTON_DONATION = 101;
 private:
 };
 

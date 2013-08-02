@@ -82,7 +82,9 @@ meecastAboutForm::OnActionPerformed(const Tizen::Ui::Control& source, int action
 
     AppLog("Check Action");
     switch(actionId){
-
+    case ID_BUTTON_DONATION:
+            AppControlBrowser();
+            break;
     default:
         break;
     }
@@ -230,8 +232,12 @@ later version."));
     filllicense->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     filllicense->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
+    Button* donationButton = new Button();
+    donationButton->Construct(Tizen::Graphics::Rectangle(0, 0, 100, 100), ""); 
+    donationButton->SetActionId(ID_BUTTON_DONATION);
+    donationButton->AddActionEventListener(*this);
 
-
+//We
     scrollPanel->AddControl(about);
     scrollPanel->AddControl(fillabout);
     scrollPanel->AddControl(admin);
@@ -246,12 +252,13 @@ later version."));
     scrollPanel->AddControl(filltranslators);
     scrollPanel->AddControl(license);
     scrollPanel->AddControl(filllicense);
-
+    scrollPanel->AddControl(donationButton);
 }
 
 void
 meecastAboutForm::AppControlBrowser(void){
     String uri = L"http://www.tizen.org";
+//
     AppControl* pAc = AppManager::FindAppControlN(L"tizen.internet",
                                                                  L"http://tizen.org/appcontrol/operation/view");
     if (pAc){

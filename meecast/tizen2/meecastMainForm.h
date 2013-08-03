@@ -70,6 +70,7 @@ public:
     Tizen::Graphics::Color* GetTemperatureColor(int t);
     void NextStation();
     void PreviousStation();
+    void AppControlBrowser(Tizen::Base::String uri);
 
 protected:
     static const int ID_BUTTON_OK = 101;

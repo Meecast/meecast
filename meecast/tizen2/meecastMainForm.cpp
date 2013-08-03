@@ -100,7 +100,9 @@ meecastMainForm::OnInitializing(void)
     __updateButton->AddActionEventListener(*this);
 
     Tizen::Ui::Controls::Label  *source_icon_label = static_cast<Label*>(GetControl(L"IDC_LABEL_SOURCE_ICON"));
+	source_icon_label->AddTouchEventListener(*this);
     Tizen::Graphics::Point position = source_icon_label->GetPosition();
+
    // __updateButton->SetPosition(0 + 25, position.y - 60);
     __updateButton->SetPosition(0 + 25, position.y - 0);
     position.SetPosition(position.x + source_icon_label->GetWidth(), position.y + 50);
@@ -337,6 +339,7 @@ meecastMainForm::OnTouchPressed(const Tizen::Ui::Control& source,
     AppAssert(pSceneManager);
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
+    Tizen::Ui::Controls::Label  *source_icon_label = static_cast<Label*>(GetControl(L"IDC_LABEL_SOURCE_ICON"));
     if (source.Equals(*left_label)){
         PreviousStation();
         AppLog("Left Touch Screen");
@@ -345,6 +348,14 @@ meecastMainForm::OnTouchPressed(const Tizen::Ui::Control& source,
         NextStation();
         AppLog("Right Touch Screen");
 	}
+    if (source.Equals(*source_icon_label)){
+        if (_config->stationsList().size() > 0){
+            AppControlBrowser(_config->stationsList().at(_config->current_station_id())->viewURL().c_str());
+            AppLog("Source Touch Screen %s", _config->stationsList().at(_config->current_station_id())->viewURL().c_str());
+        }
+          
+	}
+
 }
 
 void
@@ -515,6 +526,7 @@ meecastMainForm::ReInitElements(void){
         main_set_locations_button->SetShowState(false);
         main_set_try_update_button->SetShowState(false);
         main_need_updating->SetShowState(false);
+        __updateButton->SetShowState(true);
     }else{
         main_background_label->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background.png"));
         station_label->SetText("MeeCast");
@@ -525,6 +537,7 @@ meecastMainForm::ReInitElements(void){
         backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(0xFF, 0xFF, 0xFF));
         main_set_try_update_button->SetShowState(false);
         main_need_updating->SetShowState(false);
+        __updateButton->SetShowState(false);
     }
     main_background_label->RequestRedraw();
     station_label->RequestRedraw();
@@ -1004,4 +1017,13 @@ meecastMainForm::OnFlickGestureCanceled(TouchFlickGestureDetector& gestureDetect
 }
 
 
+void
+meecastMainForm::AppControlBrowser(Tizen::Base::String uri){
+    AppControl* pAc = AppManager::FindAppControlN(L"tizen.internet",
+                                                     L"http://tizen.org/appcontrol/operation/view");
+    if (pAc){
+        pAc->Start(&uri, null, null, null);
+        delete pAc;
+    }
+}
 

@@ -283,7 +283,6 @@ later version."));
     scrollPanel->AddControl(filllicense);
     scrollPanel->AddControl(source);
     scrollPanel->AddControl(__fillsource);
-
     scrollPanel->AddControl(donationButton);
 }
 

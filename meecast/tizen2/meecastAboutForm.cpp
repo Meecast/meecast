@@ -142,44 +142,57 @@ meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSc
     fillabout->Construct(Tizen::Graphics::Rectangle(0,50, clientRect.width, 150), _("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013"));
     fillabout->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     fillabout->SetTextVerticalAlignment(ALIGNMENT_TOP);
+
+    Label* support = new Label();
+    support->Construct(Tizen::Graphics::Rectangle(0, 165, clientRect.width, 50), _("Support"));
+    support->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    support->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
+    Label* fillsupport = new Label();
+    fillsupport->Construct(Tizen::Graphics::Rectangle(0,200, clientRect.width, 150), _("support@meecast.com"));
+    fillsupport->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    fillsupport->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_BLUE));
+    fillsupport->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
+    fillsupport->SetTextVerticalAlignment(ALIGNMENT_TOP);
+    fillsupport->AddTouchEventListener(*this);
+
     Label* admin = new Label();
-    admin->Construct(Tizen::Graphics::Rectangle(0, 230, clientRect.width, 50), _("Project administrator"));
+    admin->Construct(Tizen::Graphics::Rectangle(0, 250, clientRect.width, 50), _("Project administrator"));
     admin->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     admin->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* filladmin = new Label();
-    filladmin->Construct(Tizen::Graphics::Rectangle(0,275, clientRect.width, 150), _("Vlad Vailyeu, Oksana Kalinkevich"));
+    filladmin->Construct(Tizen::Graphics::Rectangle(0,300, clientRect.width, 150), _("Vlad Vailyeu, Oksana Kalinkevich"));
     filladmin->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     filladmin->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* develop = new Label();
-    develop->Construct(Tizen::Graphics::Rectangle(0, 320, clientRect.width, 50), _("Programmers"));
+    develop->Construct(Tizen::Graphics::Rectangle(0, 340, clientRect.width, 50), _("Programmers"));
     develop->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     develop->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* filldevelop = new Label();
-    filldevelop->Construct(Tizen::Graphics::Rectangle(0,365, clientRect.width, 150), _("Vlad Vailyeu"));
+    filldevelop->Construct(Tizen::Graphics::Rectangle(0,385, clientRect.width, 150), _("Vlad Vailyeu"));
     filldevelop->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     filldevelop->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* designer = new Label();
-    designer->Construct(Tizen::Graphics::Rectangle(0, 410, clientRect.width, 50), _("Lead designer"));
+    designer->Construct(Tizen::Graphics::Rectangle(0, 430, clientRect.width, 50), _("Lead designer"));
     designer->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     designer->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* filldesigner = new Label();
-    filldesigner->Construct(Tizen::Graphics::Rectangle(0,455, clientRect.width, 150), _("Andrew Zhilin"));
+    filldesigner->Construct(Tizen::Graphics::Rectangle(0,475, clientRect.width, 150), _("Andrew Zhilin"));
     filldesigner->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     filldesigner->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* manager = new Label();
-    manager->Construct(Tizen::Graphics::Rectangle(0, 500, clientRect.width, 50), _("Project manager"));
+    manager->Construct(Tizen::Graphics::Rectangle(0, 520, clientRect.width, 50), _("Project manager"));
     manager->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     manager->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* fillmanager = new Label();
-    fillmanager->Construct(Tizen::Graphics::Rectangle(0,550, clientRect.width, 150), _("Ludmila Lisovskaya"));
+    fillmanager->Construct(Tizen::Graphics::Rectangle(0,565, clientRect.width, 150), _("Ludmila Lisovskaya"));
     fillmanager->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     fillmanager->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* translators = new Label();
-    translators->Construct(Tizen::Graphics::Rectangle(0, 600, clientRect.width, 50), _("Translators"));
+    translators->Construct(Tizen::Graphics::Rectangle(0, 610, clientRect.width, 50), _("Translators"));
     translators->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     translators->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* filltranslators = new Label();
@@ -233,16 +246,17 @@ later version."));
     filllicense->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Button* donationButton = new Button();
-    donationButton->Construct(Tizen::Graphics::Rectangle(clientRect.width - 184 - 20, 180, 184, 52), ""); 
+    donationButton->Construct(Tizen::Graphics::Rectangle(clientRect.width - 184 - 20, 190, 184, 52), ""); 
     donationButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("btn_donate_LG.png"));
     donationButton->SetPressedBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("btn_donate_LG.png"));
 
     donationButton->SetActionId(ID_BUTTON_DONATION);
     donationButton->AddActionEventListener(*this);
 
-//We
     scrollPanel->AddControl(about);
     scrollPanel->AddControl(fillabout);
+    scrollPanel->AddControl(support);
+    scrollPanel->AddControl(fillsupport);
     scrollPanel->AddControl(admin);
     scrollPanel->AddControl(filladmin);
     scrollPanel->AddControl(develop);
@@ -274,12 +288,44 @@ meecastAboutForm::AppControlBrowser(void){
 }
 
 void
+meecastAboutForm::AppControlEmail(void){
+
+   Tizen::Base::Collection::HashMap extraData;
+   extraData.Construct();
+   String subjectKey = L"http://tizen.org/appcontrol/data/subject";
+   String subjectVal = L"Problem in the MeeCast";
+   String toKey = L"http://tizen.org/appcontrol/data/to";
+   String toVal = L"support@meecast.com";
+   extraData.Add(&subjectKey, &subjectVal);
+   extraData.Add(&toKey, &toVal);
+   AppControl* pAc = AppManager::FindAppControlN(L"tizen.email",
+                                                  L"http://tizen.org/appcontrol/operation/compose");
+   if (pAc){
+       pAc->Start(null, null, &extraData, null);
+       delete pAc;
+    }
+}
+
+void
 meecastAboutForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSceneId,
                                            const Tizen::Ui::Scenes::SceneId& nextSceneId)
 {
     // TODO:
     // Add your scene deactivate code here
     AppLog("OnSceneDeactivated");
+}
+
+void
+meecastAboutForm::OnTouchPressed(const Tizen::Ui::Control& source, 
+                                const Tizen::Graphics::Point& currentPosition,
+		                        const Tizen::Ui::TouchEventInfo& touchInfo) {
+
+    AppControlEmail();
+}
+
+void
+meecastAboutForm::OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo)
+{
 }
 
 

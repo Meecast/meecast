@@ -337,10 +337,10 @@ meecastMainForm::OnTouchPressed(const Tizen::Ui::Control& source,
     AppAssert(pSceneManager);
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
-	if (source.Equals(*left_label)){
+    if (source.Equals(*left_label)){
         PreviousStation();
         AppLog("Left Touch Screen");
-	}
+    }
     if (source.Equals(*right_label)){
         NextStation();
         AppLog("Right Touch Screen");

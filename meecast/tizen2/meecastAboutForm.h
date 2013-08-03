@@ -34,7 +34,7 @@ public:
 								   const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs);
 	virtual void OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSceneId,
 									const Tizen::Ui::Scenes::SceneId& nextSceneId);
-    void AppControlBrowser(void);
+    void AppControlBrowser(Tizen::Base::String uri);
     void AppControlEmail(void);
     // from ITouchEventListener
 	virtual void OnTouchPressed(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo);
@@ -50,6 +50,7 @@ protected:
 
     static const int ID_BUTTON_DONATION = 101;
 private:
+    Tizen::Ui::Controls::Label* __fillsource;
 };
 
 #endif	//_MEECAST_ABOUT_FORM_H_

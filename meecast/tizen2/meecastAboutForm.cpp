@@ -82,11 +82,11 @@ meecastAboutForm::OnActionPerformed(const Tizen::Ui::Control& source, int action
 
     AppLog("Check Action");
     switch(actionId){
-    case ID_BUTTON_DONATION:
-            AppControlBrowser();
+        case ID_BUTTON_DONATION:
+            AppControlBrowser(Tizen::Base::String(L""));
             break;
-    default:
-        break;
+        default:
+            break;
     }
 }
 
@@ -245,6 +245,18 @@ later version."));
     filllicense->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     filllicense->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
+    Label* source = new Label();
+    source->Construct(Tizen::Graphics::Rectangle(0, 1325, clientRect.width, 50), _("Source code in github"));
+    source->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    source->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
+    __fillsource = new Label();
+    __fillsource->Construct(Tizen::Graphics::Rectangle(0,1375, clientRect.width, 350), "http://github.com/Meecast/meecast");
+    __fillsource->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    __fillsource->SetTextVerticalAlignment(ALIGNMENT_TOP);
+    __fillsource->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_BLUE));
+    __fillsource->AddTouchEventListener(*this);
+
+
     Button* donationButton = new Button();
     donationButton->Construct(Tizen::Graphics::Rectangle(clientRect.width - 184 - 20, 190, 184, 52), ""); 
     donationButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("btn_donate_LG.png"));
@@ -269,18 +281,21 @@ later version."));
     scrollPanel->AddControl(filltranslators);
     scrollPanel->AddControl(license);
     scrollPanel->AddControl(filllicense);
+    scrollPanel->AddControl(source);
+    scrollPanel->AddControl(__fillsource);
+
     scrollPanel->AddControl(donationButton);
 }
 
 void
-meecastAboutForm::AppControlBrowser(void){
-//    String uri = L"https://raw.github.com/Meecast/meecast/tizen2/res/html/donation.html";
-//
-    String uri = "file://";
-    uri.Append(App::GetInstance()->App::GetAppSharedPath());
-    uri.Append(L"res/donation.html");
+meecastAboutForm::AppControlBrowser(Tizen::Base::String uri){
+    if (uri == ""){
+        uri = "file://";
+        uri.Append(App::GetInstance()->App::GetAppSharedPath());
+        uri.Append(L"res/donation.html");
+    }
     AppControl* pAc = AppManager::FindAppControlN(L"tizen.internet",
-                                                                 L"http://tizen.org/appcontrol/operation/view");
+                                                     L"http://tizen.org/appcontrol/operation/view");
     if (pAc){
         pAc->Start(&uri, null, null, null);
         delete pAc;
@@ -319,7 +334,10 @@ void
 meecastAboutForm::OnTouchPressed(const Tizen::Ui::Control& source, 
                                 const Tizen::Graphics::Point& currentPosition,
 		                        const Tizen::Ui::TouchEventInfo& touchInfo) {
-
+    if (source.Equals(*__fillsource)){
+        AppControlBrowser(Tizen::Base::String(L"https://github.com/Meecast/meecast"));
+    }
+ 
     AppControlEmail();
 }
 

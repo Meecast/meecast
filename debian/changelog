@@ -5,8 +5,10 @@ meecast (0.7.4) unstable; urgency=low
   * Fixed problem with updating
   * Added icon for openweathermap.org 
   * Added station Halikko, Finland to weather.com
+  * Updated Catalan, Finish, Italian, Serbian, Norwegain, Chinese (Hong Kong) translations
+  * Updated USA stations in foreca.com 
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 21 Jun 2013 15:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 04 Aug 2013 15:31:23 +0200
 
 meecast (0.7.3) unstable; urgency=low
 

@@ -399,7 +399,7 @@ Page {
             Container{
                 id: current_rect_back
                 preferredWidth: screen_width
-                preferredHeight: 564
+                preferredHeight: screen_height > 1000 ? 564 : 364
                 layoutProperties: AbsoluteLayoutProperties {
                     positionY: 0
                 }
@@ -408,7 +408,7 @@ Page {
             ImageView {
                 imageSource: "asset:///share/images/mask_background_main.png"
                 preferredWidth: screen_width
-                preferredHeight: 564
+                preferredHeight: screen_height > 1000 ? 564 : 364
                 layoutProperties: AbsoluteLayoutProperties {
                     positionY: 0
                 }
@@ -419,7 +419,8 @@ Page {
                 layout: DockLayout {}
                 preferredHeight: Qt.main_icon_size - Qt.main_information_position + 50
                 layoutProperties: AbsoluteLayoutProperties {
-                    positionY: Qt.main_information_position
+                    positionY: screen_height > 1000 ? Qt.main_information_position : Qt.main_information_position - 160
+//                    positionY: Qt.main_information_position
                 }
                 Container{
                     id: dayperiodname
@@ -431,7 +432,7 @@ Page {
                         Label {
                             layoutProperties: AbsoluteLayoutProperties {
                                 positionX: 10.0
-                                positionY: 0.0
+                                positionY: screen_height > 1000 ? 0.0 : 60.0
                             }
                             text: day_period_name 
                             horizontalAlignment: HorizontalAlignment.Left
@@ -478,7 +479,7 @@ Page {
                 preferredWidth: screen_width
                 layout: DockLayout {}
                 layoutProperties: AbsoluteLayoutProperties {
-                    positionY: 480.0
+                    positionY: screen_height > 1000 ? 480.0 : 480.0 - 160.0 
                 }
                 Label {                 
                     text: description_text 
@@ -563,11 +564,13 @@ Page {
         ImageView {
             id: main_icon
             layoutProperties: AbsoluteLayoutProperties {
-                positionX: screen_width/2 - Qt.main_icon_size/2 
+                //positionX: screen_width/2 - Qt.main_icon_size/2 
+                positionX: screen_height > 1000 ? screen_width/2 - Qt.main_icon_size/2 : screen_width/2 - Qt.main_icon_size/3 
                 positionY: 40 
             }
-            preferredWidth: Qt.main_icon_size 
-            preferredHeight: Qt.main_icon_size
+            preferredWidth: screen_height > 1000 ? Qt.main_icon_size  : Qt.main_icon_size/1.5
+            preferredHeight: screen_height > 1000 ? Qt.main_icon_size  : Qt.main_icon_size/1.5
+//            preferredHeight: Qt.main_icon_size  
             imageSource: image_source 
             horizontalAlignment: HorizontalAlignment.Center                
         } 
@@ -576,11 +579,12 @@ Page {
             id: day_rect
             layoutProperties: AbsoluteLayoutProperties {
                 positionX: 0
-                positionY: 564
+                //positionY: 564
+                positionY: screen_height > 1000 ? 564 : 364
             }
             preferredWidth: screen_width
             //preferredHeight: screen_height-564-100
-            preferredHeight: screen_height - menu_height 
+            preferredHeight: screen_height > 1000 ? screen_height - menu_height : screen_height - menu_height - 350
             ListView {
                 id: forrecasts_grid_list 
                 layout: GridListLayout {

@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2011-2012 Vlad Vasilyeu
+ * Copyright (C) 2011-2013 Vlad Vasilyeu
  * 	for the code
  *        
  * Copyright (C) 2008 Andrew Zhilin
@@ -28,6 +28,9 @@
 #ifndef _hash_h
 #define _hash_h 1
 /*******************************************************************************/
+#include <libxml/xpath.h>
+#include <string.h>
+
 /*******************************************************************************/
 #ifdef GLIB
     GHashTable* hash_description_yrno_table_create(void);
@@ -43,7 +46,8 @@
     QString hash_yrno_description_table_find(QHash<QString, QString> *hash_for_description, char *key);
 /*******************************************************************************/
 #endif
-
+xmlHashTablePtr hash_icons_yrno_table_create();
+xmlHashTablePtr hash_description_yrno_table_create();
 
 /*******************************************************************************/
 #endif

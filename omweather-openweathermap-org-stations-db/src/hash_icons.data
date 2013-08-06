@@ -17,6 +17,7 @@
     hash_insert(hash, "52009n", "11");
 
     hash_insert(hash, "70150d", "20");
+    hash_insert(hash, "74150n", "20");
     hash_insert(hash, "80001n", "31");
     hash_insert(hash, "80001d", "32");
     hash_insert(hash, "80002d", "34");

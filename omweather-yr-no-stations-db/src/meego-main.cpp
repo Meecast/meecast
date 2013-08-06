@@ -1,8 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of omweather-weather-com-stations-db
+ * This file is part of omweather-weather-com-stations-db - MeeCast
  *
- * Copyright (C) 2006-2009 Vlad Vasiliev
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or
@@ -30,6 +30,8 @@
 #include <time.h>
 #include <locale.h>
 
+static xmlHashTablePtr hash_for_icons;
+static xmlHashTablePtr hash_for_translate;
 #ifdef GLIB
     static GHashTable *data = NULL;
 #endif 
@@ -174,7 +176,7 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                 *day = NULL;
 #endif
     int         temp_hi = INT_MAX,temp_low = INT_MAX,temp_temp = INT_MAX;
-    int         first_day = TRUE;
+    int         first_day = true;
     int         period;
     int         timezone = 0;
 #ifdef GLIB
@@ -203,6 +205,9 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
     hash_for_translate = hash_description_yrno_table_create();
     hash_for_icons = hash_icons_yrno_table_create();
 #endif
+
+    hash_for_icons = hash_icons_yrno_table_create();
+    hash_for_translate = hash_description_yrno_table_create();
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
@@ -323,7 +328,7 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                             utc_time = mktime(&tmp_tm) - timezone * 3600 + localtimezone*3600;
                             /* increase past time for first forecast data */ 
                             if (first_day){
-                                first_day = FALSE;
+                                first_day = false;
                                 utc_time = utc_time - 12*3600;
                             }
                             fprintf(file_out,"    <period start=\"%li\"", utc_time);
@@ -361,6 +366,11 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                                             #ifdef QT
 			                                    fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_icon_table_find(hash_for_icons, buff).toStdString().c_str()); 
                                             #endif
+                                            if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff)){
+                                                fprintf(file_out,"     <icon>%s</icon>\n",  
+                                                    (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff));
+                                            }else 
+                                                fprintf(file_out,"     <icon>49</icon>\n");  
                                         }
                                         if (period == 1){
                                             snprintf(buff, sizeof(buff)-1, "night%s",(char*)temp_xml_string);
@@ -370,7 +380,12 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                                             #ifdef QT
 			                                    fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_icon_table_find(hash_for_icons, buff).toStdString().c_str()); 
                                             #endif
- 
+                                             if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff)){
+                                                fprintf(file_out,"     <icon>%s</icon>\n",  
+                                                    (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff));
+                                            }else 
+                                                fprintf(file_out,"     <icon>49</icon>\n");  
+
                                         }
                                         if (period == 2){
                                             snprintf(buff, sizeof(buff)-1, "day%s",(char*)temp_xml_string);
@@ -380,7 +395,12 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                                             #ifdef QT
 			                                    fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_icon_table_find(hash_for_icons, buff).toStdString().c_str()); 
                                             #endif
- 
+                                             if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff)){
+                                                fprintf(file_out,"     <icon>%s</icon>\n",  
+                                                    (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff));
+                                            }else 
+                                                fprintf(file_out,"     <icon>49</icon>\n");  
+
                                         }
                                         if (period == 3){
                                             snprintf(buff, sizeof(buff)-1, "day%s",(char*)temp_xml_string);
@@ -390,7 +410,12 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                                             #ifdef QT
 			                                    fprintf(file_out,"     <icon>%s</icon>\n", hash_yrno_icon_table_find(hash_for_icons, buff).toStdString().c_str()); 
                                             #endif
- 
+                                             if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff)){
+                                                fprintf(file_out,"     <icon>%s</icon>\n",  
+                                                    (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)buff));
+                                            }else 
+                                                fprintf(file_out,"     <icon>49</icon>\n");  
+
                                         }
                                         xmlFree(temp_xml_string);
                                         temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"name");
@@ -402,7 +427,10 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                                         #ifdef QT
 			                                fprintf(file_out,"     <description>%s</description>\n", hash_yrno_description_table_find(hash_for_translate,  (char*)temp_xml_string).toStdString().c_str()); 
                                         #endif
- 
+                                        if ((char*)xmlHashLookup(hash_for_translate, (const xmlChar*)temp_xml_string)){
+			                                fprintf(file_out,"     <description>%s</description>\n",
+                                                    (char*)xmlHashLookup(hash_for_translate, (const xmlChar*)temp_xml_string));
+                                        }
                                         xmlFree(temp_xml_string);
                                         continue;
                                     }
@@ -487,7 +515,7 @@ main(int argc, char *argv[]){
         fprintf(stderr, "yrno <input_file> <output_file>\n");
         return -1;
     }
-    result = convert_station_yrno_data(argv[1], argv[2], FALSE);
+    result = convert_station_yrno_data(argv[1], argv[2], false);
     fprintf(stderr, "\nresult = %d\n", result);
     return result;
 }

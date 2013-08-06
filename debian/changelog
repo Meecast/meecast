@@ -1,6 +1,6 @@
 meecast (0.7.5) unstable; urgency=low
 
-  * Nothing 
+  * Added icon for openweathermap.com
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 04 Aug 2013 15:31:23 +0200
 
@@ -8,7 +8,7 @@ meecast (0.7.5) unstable; urgency=low
 meecast (0.7.4) unstable; urgency=low
 
   * Added description strings and icon to gismeteo.ru 
-  * Added icon fot foreca.com
+  * Added icon for foreca.com
   * Fixed problem with updating
   * Added icon for openweathermap.org 
   * Added station Halikko, Finland to weather.com

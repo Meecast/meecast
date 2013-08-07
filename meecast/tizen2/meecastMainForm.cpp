@@ -849,7 +849,7 @@ void
 meecastMainForm::CreateContextMenuList(Tizen::Graphics::Point Corner_Point){
     __pContextMenuText = new (std::nothrow) ContextMenu();
     __pContextMenuText->Construct(Corner_Point, CONTEXT_MENU_STYLE_LIST, CONTEXT_MENU_ANCHOR_DIRECTION_UPWARD);
-    __pContextMenuText->AddItem(_("Add location"), ID_MENU_ADD_LOCATION);
+    __pContextMenuText->AddItem(_("Add Station"), ID_MENU_ADD_LOCATION);
     __pContextMenuText->AddItem(_("Settings"), ID_MENU_SETTINGS);
     __pContextMenuText->AddItem(_("Update"), ID_BUTTON_UPDATE);
     __pContextMenuText->AddItem(_("About"), ID_MENU_ABOUT);

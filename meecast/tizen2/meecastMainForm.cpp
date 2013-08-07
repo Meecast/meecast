@@ -270,17 +270,19 @@ meecastMainForm::OnInitializing(void)
 		pTouchArea->AddTouchEventListener(*this);
 	}
 
+    Tizen::Ui::Controls::ListView  *main_listview_forecast = static_cast<ListView*>(GetControl(L"IDC_LISTVIEW_FORECASTS"));
+    main_listview_forecast->SetItemProvider(*this);
+    main_listview_forecast->AddListViewItemEventListener(*this);
+	main_listview_forecast->AddTouchEventListener(*this);
+
 	__pFlickGesture = new (std::nothrow) TouchFlickGestureDetector;
 	if (__pFlickGesture != null)
 	{
 		__pFlickGesture->Construct();
         pTouchArea->AddGestureDetector(*__pFlickGesture);
+        main_listview_forecast->AddGestureDetector(*__pFlickGesture);
     	__pFlickGesture->AddFlickGestureEventListener(*this);
 	}
-
-    Tizen::Ui::Controls::ListView  *main_listview_forecast = static_cast<ListView*>(GetControl(L"IDC_LISTVIEW_FORECASTS"));
-    main_listview_forecast->SetItemProvider(*this);
-    main_listview_forecast->AddListViewItemEventListener(*this);
 
     Tizen::Ui::Controls::Label  *main_no_locations_label = static_cast<Label*>(GetControl(L"IDC_LABEL_NO_LOCATIONS"));
     main_no_locations_label->SetText(_("No locations are set up yet."));
@@ -363,6 +365,7 @@ meecastMainForm::OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::
 {
     SceneManager* pSceneManager = SceneManager::GetInstance();
     AppAssert(pSceneManager);
+    AppLog("OnTouchReleased");
     Tizen::Ui::Controls::Panel *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
 	if (__gestureDetected == false){
         if (source.Equals(*pTouchArea)){
@@ -970,7 +973,12 @@ meecastMainForm::OnFlickGestureDetected(TouchFlickGestureDetector& gestureDetect
 	Rectangle rc(0, 0, 0, 0);
 	Point point(0, 0);
 
-    Tizen::Ui::Controls::Panel *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
+
+    Tizen::Ui::Controls::Panel 
+        *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
+    Tizen::Ui::Controls::ListView  
+        *main_listview_forecast = static_cast<ListView*>(GetControl(L"IDC_LISTVIEW_FORECASTS"));
+    /*
 	if (pTouchArea != null) {
 		rc = pTouchArea->GetBounds();
 
@@ -983,7 +991,7 @@ meecastMainForm::OnFlickGestureDetected(TouchFlickGestureDetector& gestureDetect
         AppLog("Problem with Flick");
 		    return;
 	}
-
+*/
 //	pTouchArea->Invalidate(false);
 
 	FlickDirection direction = gestureDetector.GetDirection();

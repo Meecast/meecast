@@ -986,7 +986,8 @@ meecastFullWeatherForm::OnFlickGestureDetected(TouchFlickGestureDetector& gestur
     AppLog("Flick detected!");
 	Rectangle rc(0, 0, 0, 0);
 	Point point(0, 0);
-
+    Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
+ 
 
     /*
     Tizen::Ui::Controls::Panel 
@@ -1017,8 +1018,10 @@ meecastFullWeatherForm::OnFlickGestureDetected(TouchFlickGestureDetector& gestur
             AppLog("Flick detected RIGHT");
             break;
         case FLICK_DIRECTION_LEFT:
-            _dayNumber++;
-            ReInitElements(); 
+           if (right_label->GetShowState()){
+                _dayNumber++;
+                ReInitElements(); 
+            }
             AppLog("Flick detected LEFT");
             break;
         case FLICK_DIRECTION_UP:

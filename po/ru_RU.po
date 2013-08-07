@@ -1280,7 +1280,6 @@ msgid "Light Snow Shower"
 msgstr "Легкий снегопад"
 
 #: omweather/src/hash.data:333
-#, fuzzy
 msgid "Light rain"
 msgstr "Небольшой дождь"
 

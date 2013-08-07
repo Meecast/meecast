@@ -149,9 +149,11 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                                             if (xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer))
                                                 snprintf(icon, sizeof(icon)-1, "%s",
                                                       (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));
-                                            if (xmlGetProp(child_node, (const xmlChar*)"name"))
+                                            if (xmlGetProp(child_node, (const xmlChar*)"name")){
                                                 snprintf(short_text, sizeof(short_text)-1, "%s",
                                                     xmlGetProp(child_node, (const xmlChar*)"name"));
+                                                short_text[0] = toupper(short_text[0]);
+                                            }
                                         }
                                     }
                                 }

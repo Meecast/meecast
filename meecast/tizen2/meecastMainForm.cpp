@@ -437,6 +437,10 @@ meecastMainForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionI
         AppLog("Settings Button is clicked!");
         pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_SETTINGSSCENE"));
         break;
+    case ID_MENU_ADD_LOCATION:
+        AppLog("Add Location Button is clicked!");
+        pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_SOURCESSCENE"));
+        break;
     case ID_BUTTON_UPDATE: 
         AppLog("Settings Update is clicked!");
         if (_config->stationsList().size() > 0){
@@ -845,6 +849,7 @@ void
 meecastMainForm::CreateContextMenuList(Tizen::Graphics::Point Corner_Point){
     __pContextMenuText = new (std::nothrow) ContextMenu();
     __pContextMenuText->Construct(Corner_Point, CONTEXT_MENU_STYLE_LIST, CONTEXT_MENU_ANCHOR_DIRECTION_UPWARD);
+    __pContextMenuText->AddItem(_("Add location"), ID_MENU_ADD_LOCATION);
     __pContextMenuText->AddItem(_("Settings"), ID_MENU_SETTINGS);
     __pContextMenuText->AddItem(_("Update"), ID_BUTTON_UPDATE);
     __pContextMenuText->AddItem(_("About"), ID_MENU_ABOUT);

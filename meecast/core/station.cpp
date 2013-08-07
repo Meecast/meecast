@@ -180,15 +180,11 @@ Station::Station(const std::string& source_name, const std::string& id,
          _viewURL = new std::string(view_url);
 
          /* Hack for yr.no */
-         if  (source_name=="yr.no")
+         if  (source_name=="yr.no"){
              std::replace(_forecastURL->begin(), _forecastURL->end(),'#', '/');
-            //_forecastURL->replace("#","/");
-         if  (source_name=="yr.no")
              std::replace(_viewURL->begin(), _viewURL->end(),'#', '/');
-           // _viewURL->replace("#","/");
-
-        AppLog("STation11 ");
-
+             std::replace(_detailURL->begin(), _detailURL->end(),'#', '/');
+         }
         _fileName = new std::string(filename);
         _converter = new std::string(sourcelist->at(source_id)->binary());
 

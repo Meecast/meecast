@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-18 19:17+0300\n"
+"POT-Creation-Date: 2013-08-07 20:28+0300\n"
 "PO-Revision-Date: 2012-12-20 12:13+0000\n"
 "Last-Translator: Ludmila Lisovskaya <ludmila.lisovskaya@gmail.com>\n"
 "Language-Team: Chinese (http://www.transifex.com/projects/p/meecast/language/"
@@ -881,6 +881,10 @@ msgstr "短暂阵雪"
 msgid "Few Snow Showers / Wind"
 msgstr ""
 
+#: omweather/src/hash.data:332
+msgid "Few clouds"
+msgstr ""
+
 #: meecast/qt-qml/qml/StationsPage.qml:92
 msgid "Find location via GPS"
 msgstr "通过GPS定位"
@@ -1115,6 +1119,11 @@ msgstr "大雪"
 msgid "Heavy Snow / Wind"
 msgstr "大雪"
 
+#: omweather/src/hash.data:336
+#, fuzzy
+msgid "Heavy intensity rain"
+msgstr "大雨"
+
 #: omweather/src/hash.data:95
 msgid "High"
 msgstr "高"
@@ -1306,6 +1315,11 @@ msgstr "晚间小雪"
 msgid "Light Snow Shower"
 msgstr "小阵雪"
 
+#: omweather/src/hash.data:333
+#, fuzzy
+msgid "Light rain"
+msgstr "小雨"
+
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
 msgstr "载入地区列表"
@@ -1351,9 +1365,10 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
+#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2012"
+"client based on OMWeather code. Copyright (C) 2006-2013"
 msgstr ""
 "MeeCast - 一个多平台高定制性的开源天气预报软件。基于OMWeather的源码. "
 "Copyright (C) 2006-2011"
@@ -1373,6 +1388,11 @@ msgstr "英里"
 #: omweather/src/hash.data:126
 msgid "Mist"
 msgstr "薄雾"
+
+#: omweather/src/hash.data:334
+#, fuzzy
+msgid "Moderate rain"
+msgstr "(中度)"
 
 #: omweather/src/weather-simple-settings.c:434
 msgid "Modification"
@@ -2275,9 +2295,10 @@ msgstr "晚间阵雨"
 msgid "Showers in the Vicinity"
 msgstr "周围有阵雨"
 
-#: omweather/src/hash.data:336
-msgid "Sky is Clear"
-msgstr ""
+#: omweather/src/hash.data:335
+#, fuzzy
+msgid "Sky is clear"
+msgstr "大部晴朗"
 
 #: omweather/src/hash.data:269
 msgid "Sleet"
@@ -2894,14 +2915,6 @@ msgstr "下降"
 msgid "feels like"
 msgstr "体感温度"
 
-#: omweather/src/hash.data:332
-msgid "few clouds"
-msgstr ""
-
-#: omweather/src/hash.data:337
-msgid "heavy intensity rain"
-msgstr ""
-
 #: meecast/qt-qml/dataitem.cpp:449
 msgid "hour ago"
 msgstr "小时前"
@@ -2939,11 +2952,6 @@ msgstr "km/h"
 #: omweather/src/hash.data:321
 msgid "km/s"
 msgstr "km/s"
-
-#: omweather/src/hash.data:333
-#, fuzzy
-msgid "light rain"
-msgstr "小雨"
 
 #: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1296
 #: omweather/src/weather-simple-settings.c:1328
@@ -3017,11 +3025,6 @@ msgstr "mm"
 msgid "mmHg"
 msgstr "mmHg"
 
-#: omweather/src/hash.data:334
-#, fuzzy
-msgid "moderate rain"
-msgstr "(中度)"
-
 #: omweather/src/weather-simple-popup.c:489
 msgid "n:"
 msgstr "n:"
@@ -3052,11 +3055,6 @@ msgstr "上升"
 msgid "seconds ago"
 msgstr "秒前"
 
-#: omweather/src/hash.data:335
-#, fuzzy
-msgid "sky is clear"
-msgstr "大部晴朗"
-
 #: omweather/src/weather-popup.c:271
 msgid "station local time"
 msgstr "当前地区时间"
@@ -3069,34 +3067,34 @@ msgstr "地区名称"
 msgid "steady"
 msgstr "稳定"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:337
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:338
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:339
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:340
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:341
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:342
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:343
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:344
 msgid "Ю-З"
 msgstr "Ю-З"

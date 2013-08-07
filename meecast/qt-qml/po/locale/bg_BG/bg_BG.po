@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-18 19:17+0300\n"
+"POT-Creation-Date: 2013-08-07 20:28+0300\n"
 "PO-Revision-Date: 2012-12-21 07:15+0000\n"
 "Last-Translator: zlatko <zlatko23@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/"
@@ -895,6 +895,10 @@ msgstr "Леки Превалявания от Сняг"
 msgid "Few Snow Showers / Wind"
 msgstr "Превалявания от Сняг/Вятър"
 
+#: omweather/src/hash.data:332
+msgid "Few clouds"
+msgstr ""
+
 #: meecast/qt-qml/qml/StationsPage.qml:92
 msgid "Find location via GPS"
 msgstr "Използвай GPS"
@@ -1114,6 +1118,11 @@ msgstr "Силен снеговалеж"
 msgid "Heavy Snow / Wind"
 msgstr "Порой/Вятър"
 
+#: omweather/src/hash.data:336
+#, fuzzy
+msgid "Heavy intensity rain"
+msgstr "Порой"
+
 #: omweather/src/hash.data:95
 msgid "High"
 msgstr "Висок"
@@ -1305,6 +1314,11 @@ msgstr "Слаб Сняг следобед"
 msgid "Light Snow Shower"
 msgstr "Слаби Снежни Превалявания"
 
+#: omweather/src/hash.data:333
+#, fuzzy
+msgid "Light rain"
+msgstr "Слаб Дъжд"
+
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
 msgstr "Зареждане списък станции"
@@ -1351,9 +1365,10 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
+#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2012"
+"client based on OMWeather code. Copyright (C) 2006-2013"
 msgstr ""
 "MeeCast - мултиплатформен лесно персонализируем open source клиент за "
 "прогноза на времето базиран на OMWeather код. Copyright (C) 2006-2012"
@@ -1373,6 +1388,11 @@ msgstr "Мили"
 #: omweather/src/hash.data:126
 msgid "Mist"
 msgstr "Мъгла"
+
+#: omweather/src/hash.data:334
+#, fuzzy
+msgid "Moderate rain"
+msgstr "(Умерено)"
 
 #: omweather/src/weather-simple-settings.c:434
 msgid "Modification"
@@ -2275,9 +2295,10 @@ msgstr "Превалявания следобед"
 msgid "Showers in the Vicinity"
 msgstr "Валежи в близост"
 
-#: omweather/src/hash.data:336
-msgid "Sky is Clear"
-msgstr ""
+#: omweather/src/hash.data:335
+#, fuzzy
+msgid "Sky is clear"
+msgstr "Предимно ясно"
 
 #: omweather/src/hash.data:269
 msgid "Sleet"
@@ -2900,14 +2921,6 @@ msgstr "неуспешен"
 msgid "feels like"
 msgstr "усеща се като"
 
-#: omweather/src/hash.data:332
-msgid "few clouds"
-msgstr ""
-
-#: omweather/src/hash.data:337
-msgid "heavy intensity rain"
-msgstr ""
-
 #: meecast/qt-qml/dataitem.cpp:449
 msgid "hour ago"
 msgstr "преди час"
@@ -2945,11 +2958,6 @@ msgstr "км/ч"
 #: omweather/src/hash.data:321
 msgid "km/s"
 msgstr "км/с"
-
-#: omweather/src/hash.data:333
-#, fuzzy
-msgid "light rain"
-msgstr "Слаб Дъжд"
 
 #: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1296
 #: omweather/src/weather-simple-settings.c:1328
@@ -3023,11 +3031,6 @@ msgstr "мм"
 msgid "mmHg"
 msgstr "mmHg"
 
-#: omweather/src/hash.data:334
-#, fuzzy
-msgid "moderate rain"
-msgstr "(Умерено)"
-
 #: omweather/src/weather-simple-popup.c:489
 msgid "n:"
 msgstr "n:"
@@ -3058,11 +3061,6 @@ msgstr "покачва се"
 msgid "seconds ago"
 msgstr "секунди назад"
 
-#: omweather/src/hash.data:335
-#, fuzzy
-msgid "sky is clear"
-msgstr "Предимно ясно"
-
 #: omweather/src/weather-popup.c:271
 msgid "station local time"
 msgstr "местно време"
@@ -3075,34 +3073,34 @@ msgstr "име на метео станцията"
 msgid "steady"
 msgstr "стабилно"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:337
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:338
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:339
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:340
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:341
 msgid "С-З"
 msgstr "С-3"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:342
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:343
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:344
 msgid "Ю-З"
 msgstr "Ю-3"

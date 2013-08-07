@@ -42,6 +42,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <string.h>
+#include <cctype>
 #include "hash.h"
 
 /*******************************************************************************/

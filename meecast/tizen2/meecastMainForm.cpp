@@ -275,14 +275,6 @@ meecastMainForm::OnInitializing(void)
     main_listview_forecast->AddListViewItemEventListener(*this);
 	main_listview_forecast->AddTouchEventListener(*this);
 
-	__pFlickGesture = new (std::nothrow) TouchFlickGestureDetector;
-	if (__pFlickGesture != null)
-	{
-		__pFlickGesture->Construct();
-        pTouchArea->AddGestureDetector(*__pFlickGesture);
-        main_listview_forecast->AddGestureDetector(*__pFlickGesture);
-    	__pFlickGesture->AddFlickGestureEventListener(*this);
-	}
 
     Tizen::Ui::Controls::Label  *main_no_locations_label = static_cast<Label*>(GetControl(L"IDC_LABEL_NO_LOCATIONS"));
     main_no_locations_label->SetText(_("No locations are set up yet."));
@@ -292,6 +284,16 @@ meecastMainForm::OnInitializing(void)
     main_need_updating->SetText(_("Looks like there's no info for this location."));
     Tizen::Ui::Controls::Button  *main_set_try_update_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_TRY_UPDATE"));
     main_set_try_update_button->SetText(_("Try to update"));
+
+	__pFlickGesture = new (std::nothrow) TouchFlickGestureDetector;
+	if (__pFlickGesture != null){
+		__pFlickGesture->Construct();
+        pTouchArea->AddGestureDetector(*__pFlickGesture);
+        main_listview_forecast->AddGestureDetector(*__pFlickGesture);
+	    source_icon_label->AddGestureDetector(*__pFlickGesture);
+        main_need_updating->AddGestureDetector(*__pFlickGesture);
+    	__pFlickGesture->AddFlickGestureEventListener(*this);
+	}
 
     return r;
 }
@@ -341,7 +343,6 @@ meecastMainForm::OnTouchPressed(const Tizen::Ui::Control& source,
     AppAssert(pSceneManager);
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
-    Tizen::Ui::Controls::Label  *source_icon_label = static_cast<Label*>(GetControl(L"IDC_LABEL_SOURCE_ICON"));
     if (source.Equals(*left_label)){
         PreviousStation();
         AppLog("Left Touch Screen");
@@ -350,13 +351,7 @@ meecastMainForm::OnTouchPressed(const Tizen::Ui::Control& source,
         NextStation();
         AppLog("Right Touch Screen");
 	}
-    if (source.Equals(*source_icon_label)){
-        if (_config->stationsList().size() > 0){
-            AppControlBrowser(_config->stationsList().at(_config->current_station_id())->viewURL().c_str());
-            AppLog("Source Touch Screen %s", _config->stationsList().at(_config->current_station_id())->viewURL().c_str());
-        }
-          
-	}
+
 
 }
 
@@ -367,6 +362,7 @@ meecastMainForm::OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::
     AppAssert(pSceneManager);
     AppLog("OnTouchReleased");
     Tizen::Ui::Controls::Panel *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
+    Tizen::Ui::Controls::Label  *source_icon_label = static_cast<Label*>(GetControl(L"IDC_LABEL_SOURCE_ICON"));
 	if (__gestureDetected == false){
         if (source.Equals(*pTouchArea)){
             AppLog("BackGround Touch Screen");
@@ -374,6 +370,12 @@ meecastMainForm::OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::
 		    pList->Construct();
 		    pList->Add(*new (std::nothrow) Integer(0));
             pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_FULLWEATHERSCENE"), pList);
+	    }
+        if (source.Equals(*source_icon_label)){
+            if (_config->stationsList().size() > 0){
+                AppControlBrowser(_config->stationsList().at(_config->current_station_id())->viewURL().c_str());
+                AppLog("Source Touch Screen %s", _config->stationsList().at(_config->current_station_id())->viewURL().c_str());
+            }
 	    }
 	}
 }
@@ -974,11 +976,11 @@ meecastMainForm::OnFlickGestureDetected(TouchFlickGestureDetector& gestureDetect
 	Point point(0, 0);
 
 
+    /*
     Tizen::Ui::Controls::Panel 
         *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
     Tizen::Ui::Controls::ListView  
         *main_listview_forecast = static_cast<ListView*>(GetControl(L"IDC_LISTVIEW_FORECASTS"));
-    /*
 	if (pTouchArea != null) {
 		rc = pTouchArea->GetBounds();
 

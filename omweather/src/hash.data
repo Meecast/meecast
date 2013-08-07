@@ -329,12 +329,11 @@
     g_hash_table_insert(hash, (void*)"Hourly", _("Hourly"));
     g_hash_table_insert(hash, (void*)"Back", _("Back"));
     g_hash_table_insert(hash, (void*)"Language", _("Language"));
-    g_hash_table_insert(hash, (void*)"few clouds", _("few clouds"));
-    g_hash_table_insert(hash, (void*)"light rain", _("light rain"));
-    g_hash_table_insert(hash, (void*)"moderate rain", _("moderate rain"));
-    g_hash_table_insert(hash, (void*)"sky is clear", _("sky is clear"));
-    g_hash_table_insert(hash, (void*)"Sky is Clear", _("Sky is Clear"));
-    g_hash_table_insert(hash, (void*)"heavy intensity rain", _("heavy intensity rain"));
+    g_hash_table_insert(hash, (void*)"Few clouds", _("Few clouds"));
+    g_hash_table_insert(hash, (void*)"Light rain", _("Light rain"));
+    g_hash_table_insert(hash, (void*)"Moderate rain", _("Moderate rain"));
+    g_hash_table_insert(hash, (void*)"Sky is clear", _("Sky is clear"));
+    g_hash_table_insert(hash, (void*)"Heavy intensity rain", _("Heavy intensity rain"));
     g_hash_table_insert(hash, (void*)"В", _("В"));
     g_hash_table_insert(hash, (void*)"З", _("З"));
     g_hash_table_insert(hash, (void*)"С", _("С"));

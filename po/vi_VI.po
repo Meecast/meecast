@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-18 19:17+0300\n"
+"POT-Creation-Date: 2013-08-07 20:28+0300\n"
 "PO-Revision-Date: 2012-10-05 08:15+0000\n"
 "Last-Translator: quytrong287 <quytrong287@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/meecast/"
@@ -883,6 +883,10 @@ msgstr "Có tuyết và mưa rào rải rác"
 msgid "Few Snow Showers / Wind"
 msgstr "Có tuyết và mưa rào rải rác/ gió nhẹ"
 
+#: omweather/src/hash.data:332
+msgid "Few clouds"
+msgstr ""
+
 #: meecast/qt-qml/qml/StationsPage.qml:92
 msgid "Find location via GPS"
 msgstr "Tìm địa điểm qua GPS"
@@ -1093,6 +1097,11 @@ msgstr "Tuyết dày"
 msgid "Heavy Snow / Wind"
 msgstr "Mưa lớn / Gió"
 
+#: omweather/src/hash.data:336
+#, fuzzy
+msgid "Heavy intensity rain"
+msgstr "Mưa to"
+
 #: omweather/src/hash.data:95
 msgid "High"
 msgstr "Cao"
@@ -1285,6 +1294,11 @@ msgstr "Tuyết nhẹ muộn"
 msgid "Light Snow Shower"
 msgstr "Tuyết nhẹ mau"
 
+#: omweather/src/hash.data:333
+#, fuzzy
+msgid "Light rain"
+msgstr "Mưa nhẹ"
+
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
 msgstr "Đang tải danh sách trạm"
@@ -1333,7 +1347,7 @@ msgstr "MeeCast"
 #, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2012"
+"client based on OMWeather code. Copyright (C) 2006-2013"
 msgstr ""
 "MeeCast - ứng dụng đa nền tảng, có thể chỉnh mã nguồn mở của thời tiết dựa "
 "trên mã OMWeather. Bản quyền (C) 2006-2011"
@@ -1353,6 +1367,11 @@ msgstr "Miles"
 #: omweather/src/hash.data:126
 msgid "Mist"
 msgstr "Sương mù"
+
+#: omweather/src/hash.data:334
+#, fuzzy
+msgid "Moderate rain"
+msgstr "U ám và mưa"
 
 #: omweather/src/weather-simple-settings.c:434
 msgid "Modification"
@@ -2259,9 +2278,10 @@ msgstr "Mưa rào muộn"
 msgid "Showers in the Vicinity"
 msgstr "Mưa ở vùng lân cận"
 
-#: omweather/src/hash.data:336
-msgid "Sky is Clear"
-msgstr ""
+#: omweather/src/hash.data:335
+#, fuzzy
+msgid "Sky is clear"
+msgstr "Ít mây, trời quang"
 
 #: omweather/src/hash.data:269
 msgid "Sleet"
@@ -2874,14 +2894,6 @@ msgstr "giảm"
 msgid "feels like"
 msgstr "cảm giác như"
 
-#: omweather/src/hash.data:332
-msgid "few clouds"
-msgstr ""
-
-#: omweather/src/hash.data:337
-msgid "heavy intensity rain"
-msgstr ""
-
 #: meecast/qt-qml/dataitem.cpp:449
 msgid "hour ago"
 msgstr "Giờ trước"
@@ -2919,11 +2931,6 @@ msgstr "m"
 #: omweather/src/hash.data:321
 msgid "km/s"
 msgstr "km/s"
-
-#: omweather/src/hash.data:333
-#, fuzzy
-msgid "light rain"
-msgstr "Mưa nhẹ"
 
 #: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1296
 #: omweather/src/weather-simple-settings.c:1328
@@ -2997,11 +3004,6 @@ msgstr "mm"
 msgid "mmHg"
 msgstr "mmHg"
 
-#: omweather/src/hash.data:334
-#, fuzzy
-msgid "moderate rain"
-msgstr "U ám và mưa"
-
 #: omweather/src/weather-simple-popup.c:489
 msgid "n:"
 msgstr "n:"
@@ -3032,11 +3034,6 @@ msgstr "tăng lên"
 msgid "seconds ago"
 msgstr "giây trước"
 
-#: omweather/src/hash.data:335
-#, fuzzy
-msgid "sky is clear"
-msgstr "Ít mây, trời quang"
-
 #: omweather/src/weather-popup.c:271
 msgid "station local time"
 msgstr "Thời gian của trạm địa phương"
@@ -3049,35 +3046,35 @@ msgstr "Tên quốc gia"
 msgid "steady"
 msgstr "Ổn định"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:337
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:338
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:339
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:340
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:341
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:342
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:343
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:344
 msgid "Ю-З"
 msgstr "Ю-З"
 

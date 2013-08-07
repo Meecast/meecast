@@ -2254,9 +2254,8 @@ msgid "Showers in the Vicinity"
 msgstr "Местами ливни"
 
 #: omweather/src/hash.data:335
-#, fuzzy
 msgid "Sky is clear"
-msgstr "В основном безоблачно"
+msgstr "Ясное небо"
 
 #: omweather/src/hash.data:269
 msgid "Sleet"

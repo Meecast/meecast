@@ -11,6 +11,9 @@ cp ../omweather-foreca-com-stations-db/data/foreca.com.db ../res/db
 cp ../omweather-foreca-com-stations-db/data/foreca.com.xml ../res/sources
 cp ../omweather-hko-gov-hk-stations-db/data/hko.gov.hk.db ../res/db
 cp ../omweather-hko-gov-hk-stations-db/data/hko.gov.hk.xml ../res/sources
+cp ../omweather-yr-no-stations-db/data/yr.no.db ../res/db
+cp ../omweather-yr-no-stations-db/data/yr.no.xml ../res/sources
+
 
 #cp ../omweather-bom-gov-au-stations-db/data/bom.gov.au.db ../res/db
 #cp ../omweather-bom-gov-au-stations-db/data/bom.gov.au.xml ../res/sources

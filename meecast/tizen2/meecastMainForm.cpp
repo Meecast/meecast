@@ -588,7 +588,9 @@ meecastMainForm::ReInitElements(void){
             pFooter->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("foreca.com.png"));
         if (_config->stationsList().at(_config->current_station_id())->sourceName() == "hko.gov.hk")
             pFooter->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("hko.gov.hk.png"));
- 
+         if (_config->stationsList().at(_config->current_station_id())->sourceName() == "yr.no")
+            pFooter->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("yr.no.png"));
+
          pFooter->RequestRedraw();
     }
     else 

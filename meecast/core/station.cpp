@@ -41,6 +41,7 @@ int convert_station_gismeteo_data(const char *days_data_path, const char *result
 int convert_station_forecacom_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data );
 int convert_station_hkogovhk_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data );
 int convert_station_bomgovau_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data );
+int convert_station_yrno_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data );
 
 using namespace Tizen::Base;
 using namespace Tizen::Io;
@@ -465,17 +466,19 @@ Station::Station(const std::string& source_name, const std::string& id,
                 Tizen::Io::File::Remove(buffer_file);
 
             _downloading = DETAIL_FORECAST;
-
+            AppLog("First step ");
             r = RequestHttpGet();
             if (r == E_INVALID_SESSION){
-                AppLog("Problem with downloading");
+                AppLog("Problem with downloading1");
                 delete __pHttpSession;
                 __pHttpSession = null;
                 _downloading = NONE;
+                return false;
             }
             else if (IsFailed(r)){
-                AppLog("Problem with downloading");
+                AppLog("Problem with downloading2");
                 _downloading = NONE;
+                return false;
             }
         }else 
             if  (_downloading == FORECAST_DONE){
@@ -484,22 +487,24 @@ Station::Station(const std::string& source_name, const std::string& id,
             }
         r = E_SUCCESS;
         if (_downloading == NONE){
+            AppLog ("Begin download FORECAST");
             _downloading = FORECAST;
             snprintf(buffer_file, sizeof(buffer_file) -1, "%s.orig", this->fileName().c_str());
             if (Tizen::Io::File::IsFileExist(buffer_file))
                 Tizen::Io::File::Remove(buffer_file);
 
+            AppLog("Second step ");
             r = RequestHttpGet();
             if (r == E_INVALID_SESSION)
             {
-                AppLog("Problem with downloading");
+                AppLog("Problem with downloading3");
                 delete __pHttpSession;
                 __pHttpSession = null;
                 _downloading = NONE;
             }
             else if (IsFailed(r))
             {
-                AppLog("Problem with downloading");
+                AppLog("Problem with downloading4");
                 _downloading = NONE;
             }
         }
@@ -647,6 +652,7 @@ Station::run_converter(){
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(result_file)->GetPointer(), 
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(detail_file)->GetPointer(), 
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(hours_file)->GetPointer());
+        AppLog("openweathermap.org");
     }
     if (*_sourceName =="gismeteo.ru"){
         convert_station_gismeteo_data(
@@ -654,7 +660,6 @@ Station::run_converter(){
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(result_file)->GetPointer(), 
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(detail_file)->GetPointer());
         AppLog("gismeteo.ru");
-
     }
     if (*_sourceName =="foreca.com"){
         convert_station_forecacom_data(
@@ -662,7 +667,6 @@ Station::run_converter(){
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(result_file)->GetPointer(), 
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(detail_file)->GetPointer());
         AppLog("foreca.com");
-
     }
     if (*_sourceName =="hko.gov.hk"){
         convert_station_hkogovhk_data(
@@ -670,7 +674,6 @@ Station::run_converter(){
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(result_file)->GetPointer(), 
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(detail_file)->GetPointer());
         AppLog("hko.gov.hk");
-
     }
     if (*_sourceName =="bom.gov.au"){
         convert_station_bomgovau_data(
@@ -678,8 +681,15 @@ Station::run_converter(){
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(result_file)->GetPointer(), 
             (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(detail_file)->GetPointer());
         AppLog("bom.gov.au");
-
     }
+    if (*_sourceName =="yr.no"){
+        convert_station_yrno_data(
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(forecast_file)->GetPointer(), 
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(result_file)->GetPointer(), 
+            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(detail_file)->GetPointer());
+        AppLog("yr.no");
+    }
+
 
 }
 
@@ -730,6 +740,7 @@ Station::RequestHttpGet(void)
             Tizen::Base::Utility::StringUtil::Utf8ToString(this->forecastURL().c_str(), str);
         if (_downloading == DETAIL_FORECAST)
             Tizen::Base::Utility::StringUtil::Utf8ToString(this->detailURL().c_str(), str);
+        AppLog("URL %S",str.GetPointer());
 		r = __pHttpSession->Construct(NET_HTTP_SESSION_MODE_NORMAL, null, str, null);
 		if (IsFailed(r))
 		{

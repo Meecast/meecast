@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-09 15:38+0300\n"
+"POT-Creation-Date: 2013-08-09 22:23+0300\n"
 "PO-Revision-Date: 2012-12-20 12:13+0000\n"
 "Last-Translator: Ludmila Lisovskaya <ludmila.lisovskaya@gmail.com>\n"
 "Language-Team: Chinese (http://www.transifex.com/projects/p/meecast/language/"
@@ -1119,7 +1119,7 @@ msgstr "大雪"
 msgid "Heavy Snow / Wind"
 msgstr "大雪"
 
-#: omweather/src/hash.data:337
+#: omweather/src/hash.data:338
 #, fuzzy
 msgid "Heavy intensity rain"
 msgstr "大雨"
@@ -1713,6 +1713,11 @@ msgstr "阴天有湿雪"
 msgid "Overcast and wet snow showers"
 msgstr "阴有湿阵雪"
 
+#: omweather/src/hash.data:335
+#, fuzzy
+msgid "Overcast clouds"
+msgstr "密云"
+
 #: omweather/src/hash.data:179
 msgid "Overcast, thunderstorms with rain"
 msgstr "阴有雷暴大雨"
@@ -2295,12 +2300,12 @@ msgstr "晚间阵雨"
 msgid "Showers in the Vicinity"
 msgstr "周围有阵雨"
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:337
 #, fuzzy
 msgid "Sky is Clear"
 msgstr "大部晴朗"
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:336
 #, fuzzy
 msgid "Sky is clear"
 msgstr "大部晴朗"
@@ -2492,7 +2497,7 @@ msgstr "致谢"
 msgid "The weather has been updated."
 msgstr "天气已经更新了."
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:339
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
@@ -3076,34 +3081,34 @@ msgstr "地区名称"
 msgid "steady"
 msgstr "稳定"
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:340
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:341
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:344
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:345
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:346
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:347
 msgid "Ю-З"
 msgstr "Ю-З"

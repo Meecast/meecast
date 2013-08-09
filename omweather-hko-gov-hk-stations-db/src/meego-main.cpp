@@ -122,8 +122,7 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
                 t_end = t_start + 3600*24 - 1;
                 fprintf(file_out," end=\"%li\">\n", t_end);
                 number_of_day ++; 
-                fgets(buffer2, sizeof(buffer2), file_in2);
-                if (comma = strstr(buffer2, "no. ")){
+                if ((fgets(buffer2, sizeof(buffer2), file_in2) != NULL) && (comma = strstr(buffer2, "no. "))){
                     comma = comma + 3;
                     icon = atoi (comma);
                     snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%i", icon);

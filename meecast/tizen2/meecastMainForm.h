@@ -76,6 +76,7 @@ protected:
     static const int ID_BUTTON_OK = 101;
     static const int ID_BUTTON_MENU = 905;
     static const int ID_MENU_SETTINGS = 906;
+    static const int ID_MENU_ADD_LOCATION = 910;
     static const int ID_MENU_ABOUT = 907;
     static const int ID_BUTTON_UPDATE = 908;
     static const int ID_SET_LOCATIONS = 909;

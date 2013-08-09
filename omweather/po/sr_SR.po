@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# saleki <alexandarzaric@gmail.com>, 2013
-# saleki <alexandarzaric@gmail.com>, 2013
+# Alexandar Zaric <alexandarzaric@gmail.com>, 2013
+# Alexandar Zaric <alexandarzaric@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-18 19:17+0300\n"
-"PO-Revision-Date: 2013-05-10 09:43+0000\n"
-"Last-Translator: saleki <alexandarzaric@gmail.com>\n"
+"POT-Creation-Date: 2013-08-07 20:28+0300\n"
+"PO-Revision-Date: 2013-06-28 18:31+0000\n"
+"Last-Translator: Alexandar Zaric <alexandarzaric@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/meecast/language/"
 "sr/)\n"
 "Language: sr\n"
@@ -116,7 +116,7 @@ msgstr ""
 
 #: meecast/qt-qml/dataitem.cpp:479 meecast/qt-qml/dataitem.cpp:480
 msgid "(Low)"
-msgstr "(Nisko)"
+msgstr "(Nizak)"
 
 #: meecast/qt-qml/dataitem.cpp:481 meecast/qt-qml/dataitem.cpp:482
 msgid "(Moderate)"
@@ -291,7 +291,7 @@ msgstr "Prepodne Snežne mećave / Vetar u kasnijim satima"
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
 #: meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
-msgstr "Više o ovome"
+msgstr "Više o aplikaciji"
 
 #: omweather/src/weather-download.c:417
 msgid "Access denied to the given URL."
@@ -882,6 +882,11 @@ msgstr "Po koji snežni nalet"
 msgid "Few Snow Showers / Wind"
 msgstr "Po koji snežni nalet / Vetar"
 
+#: omweather/src/hash.data:332
+#, fuzzy
+msgid "Few clouds"
+msgstr "malo oblaka"
+
 #: meecast/qt-qml/qml/StationsPage.qml:92
 msgid "Find location via GPS"
 msgstr "Pronađi lokaciju preko GPS-a"
@@ -1117,9 +1122,14 @@ msgstr "Jak sneg"
 msgid "Heavy Snow / Wind"
 msgstr "Snežna mećava / Vetar"
 
+#: omweather/src/hash.data:336
+#, fuzzy
+msgid "Heavy intensity rain"
+msgstr "kiša jakog intenziteta"
+
 #: omweather/src/hash.data:95
 msgid "High"
-msgstr "Visoko"
+msgstr "Visok"
 
 #: omweather/src/hash.data:329
 msgid "Hourly"
@@ -1307,6 +1317,11 @@ msgstr "Blagi sneg kasnije"
 msgid "Light Snow Shower"
 msgstr "Blagi snežni naleti"
 
+#: omweather/src/hash.data:333
+#, fuzzy
+msgid "Light rain"
+msgstr "blaga kiša"
+
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
 msgstr "Učitava se lista stanica"
@@ -1325,7 +1340,7 @@ msgstr "Izgleda da nema informacija  za ovu lokaciju"
 
 #: omweather/src/hash.data:124
 msgid "Low"
-msgstr "Nisko"
+msgstr "Nizak"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
@@ -1352,9 +1367,10 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
+#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2012"
+"client based on OMWeather code. Copyright (C) 2006-2013"
 msgstr ""
 "MeeCast - višeplatformna visoko podešavajuća vremenska prognoza otvorenog "
 "koda klijent bazirana na OMWeather kodu. Copyright (C) 2006-2012"
@@ -1375,6 +1391,11 @@ msgstr "Milje"
 msgid "Mist"
 msgstr "Izmaglica"
 
+#: omweather/src/hash.data:334
+#, fuzzy
+msgid "Moderate rain"
+msgstr "umerena kiša"
+
 #: omweather/src/weather-simple-settings.c:434
 msgid "Modification"
 msgstr "Modifikacija"
@@ -1389,7 +1410,7 @@ msgstr "Pretežno oblačno"
 
 #: omweather/src/hash.data:129
 msgid "Mostly Cloudy / Wind"
-msgstr "Pretežno oblačnoc / Vetar"
+msgstr "Pretežno oblačno / Vetar"
 
 #: omweather/src/hash.data:130
 msgid "Mostly Cloudy Few Snow"
@@ -1603,7 +1624,7 @@ msgstr "Nema vremenskih podataka za ovu stanicu."
 #: meecast/qt-qml/dataitem.cpp:191 meecast/qt-qml/qml/FullWeatherPage.qml:130
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Now"
-msgstr "Sada"
+msgstr "Trenutno"
 
 #: omweather/src/weather-simple-settings.c:2880
 msgid "Now + 2 days vert."
@@ -1624,7 +1645,7 @@ msgstr "Sada + 7 dana vert."
 #: omweather/src/weather-home.c:1531
 #, c-format
 msgid "Now: "
-msgstr "Sada:"
+msgstr "Trenutno:"
 
 #: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1223
 #: meecast/qt-qml/qml/VisualsPage.qml:115
@@ -2275,9 +2296,10 @@ msgstr "U kasnijim satima pljuskovi"
 msgid "Showers in the Vicinity"
 msgstr "Pljuskovi u okruženju"
 
-#: omweather/src/hash.data:336
-msgid "Sky is Clear"
-msgstr ""
+#: omweather/src/hash.data:335
+#, fuzzy
+msgid "Sky is clear"
+msgstr "nebo je vedro"
 
 #: omweather/src/hash.data:269
 msgid "Sleet"
@@ -2477,12 +2499,12 @@ msgid ""
 " later version."
 msgstr ""
 "Ovaj softver je slobodan softver; možete ga\n"
-" redistribuirati i/ili modifikovati pod \n"
-" uslovima GNU General Public\n"
-" License kao izdatog od strane Free Software \n"
-" Foundation; bilo kao verzija 2.1 \n"
-" Dozvole, ili (po vašem mišljenju) kao bilo koja \n"
-" kasnija verzija."
+"redistribuirati i/ili modifikovati pod \n"
+"uslovima GNU General Public\n"
+"License kao izdatog od strane Free Software \n"
+"Foundation; bilo kao verzija 2.1 \n"
+"Dozvole, ili (po vašem mišljenju) kao bilo koja \n"
+"kasnija verzija."
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:438
 msgid ""
@@ -2617,7 +2639,7 @@ msgstr "Ispravno vreme za trenutne vremenske uslove"
 
 #: omweather/src/hash.data:300
 msgid "Very High"
-msgstr "Mnogo visoko"
+msgstr "Mnogo visok"
 
 #: omweather/src/weather-settings.c:3517 omweather/src/weather-settings.c:3522
 msgid "Visible items:"
@@ -2744,7 +2766,7 @@ msgstr "Udari vetra:"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:203
 #: meecast/qt-qml/qml/FullWeatherPage.qml:253
 msgid "Wind speed"
-msgstr "Brzina vetra:"
+msgstr "Brzina vetra"
 
 #: omweather/src/hash.data:312 meecast/qt-qml/qml/UnitsPage.qml:40
 #: meecast/qt-qml/qml/UnitsPage.qml:142
@@ -2898,14 +2920,6 @@ msgstr "opada"
 msgid "feels like"
 msgstr "subjektivni osećaj"
 
-#: omweather/src/hash.data:332
-msgid "few clouds"
-msgstr ""
-
-#: omweather/src/hash.data:337
-msgid "heavy intensity rain"
-msgstr ""
-
 #: meecast/qt-qml/dataitem.cpp:449
 msgid "hour ago"
 msgstr "sat ranije"
@@ -2943,11 +2957,6 @@ msgstr "km/h"
 #: omweather/src/hash.data:321
 msgid "km/s"
 msgstr "km/s"
-
-#: omweather/src/hash.data:333
-#, fuzzy
-msgid "light rain"
-msgstr "Blaga kiša"
 
 #: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1296
 #: omweather/src/weather-simple-settings.c:1328
@@ -3001,7 +3010,7 @@ msgstr "mi/s"
 
 #: meecast/qt-qml/dataitem.cpp:443
 msgid "minute ago"
-msgstr "pre minut"
+msgstr "minut ranije"
 
 #: meecast/qt-qml/dataitem.cpp:446
 msgid "minutes ago"
@@ -3020,11 +3029,6 @@ msgstr "mm"
 #: meecast/qt-qml/qml/UnitsPage.qml:201
 msgid "mmHg"
 msgstr "mmHg"
-
-#: omweather/src/hash.data:334
-#, fuzzy
-msgid "moderate rain"
-msgstr "(Umereno)"
 
 #: omweather/src/weather-simple-popup.c:489
 msgid "n:"
@@ -3056,11 +3060,6 @@ msgstr "raste"
 msgid "seconds ago"
 msgstr "sekundi ranije"
 
-#: omweather/src/hash.data:335
-#, fuzzy
-msgid "sky is clear"
-msgstr "Pretežno vedro"
-
 #: omweather/src/weather-popup.c:271
 msgid "station local time"
 msgstr "lokalno vreme stanice"
@@ -3073,34 +3072,37 @@ msgstr "ime stanice"
 msgid "steady"
 msgstr "mirno"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:337
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:338
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:339
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:340
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:341
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:342
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:343
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:344
 msgid "Ю-З"
 msgstr "Ю-З"
+
+#~ msgid "Sky is Clear"
+#~ msgstr "Nebo je vedro"

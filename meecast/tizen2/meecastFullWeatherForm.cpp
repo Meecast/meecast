@@ -42,8 +42,9 @@ meecastFullWeatherForm::meecastFullWeatherForm(void):
                                   __hourlyButton(null),
                                   _current_selected_tab(NOW),
                                   _pKeyList(null),
-                                  _pValueList(null)
-{
+	                              __pFlickGesture(null),
+                                  _pValueList(null),
+	                              __gestureDetected(false){
     _dayNumber = 0;
 }
 
@@ -95,9 +96,6 @@ meecastFullWeatherForm::OnInitializing(void)
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
     if (left_label != null)
 		left_label->AddTouchEventListener(*this);
-    Tizen::Ui::Controls::Label  *background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
-    if (background_label != null)
-        background_label->AddTouchEventListener(*this);
 
     _config = ConfigTizen::Instance( std::string("config.xml"),
                                        Core::AbstractConfig::prefix+
@@ -138,17 +136,30 @@ meecastFullWeatherForm::OnInitializing(void)
     _pValueList->Construct();
     _pKeyList = new (std::nothrow) Tizen::Base::Collection::ArrayList();
     _pKeyList->Construct();
-                    
-
+    Tizen::Ui::Controls::Panel *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
+	if (pTouchArea != null){
+	    AddControl(*pTouchArea);
+		pTouchArea->AddTouchEventListener(*this);
+	}                   
+	__pFlickGesture = new (std::nothrow) TouchFlickGestureDetector;
+	if (__pFlickGesture != null){
+		__pFlickGesture->Construct();
+        pTouchArea->AddGestureDetector(*__pFlickGesture);
+        __pTableView->AddGestureDetector(*__pFlickGesture);
+//	    source_icon_label->AddGestureDetector(*__pFlickGesture);
+//        main_need_updating->AddGestureDetector(*__pFlickGesture);
+    	__pFlickGesture->AddFlickGestureEventListener(*this);
+	}
     return r;
 }
 
 result
 meecastFullWeatherForm::OnTerminating(void){
     result r = E_SUCCESS;
-
-   // TODO:
-    // Add your termination code here
+	if (__pFlickGesture != null){
+		__pFlickGesture->RemoveFlickGestureEventListener(*this);
+		delete __pFlickGesture;
+	}
     return r;
 }
 
@@ -156,11 +167,12 @@ void
 meecastFullWeatherForm::OnTouchPressed(const Tizen::Ui::Control& source, 
                                 const Tizen::Graphics::Point& currentPosition,
 		                        const Tizen::Ui::TouchEventInfo& touchInfo) {
+
+	__gestureDetected = false;
     SceneManager* pSceneManager = SceneManager::GetInstance();
     AppAssert(pSceneManager);
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
-    Tizen::Ui::Controls::Label  *background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
 	if (source.Equals(*left_label)){
         if (_dayNumber>0)
             _dayNumber--;
@@ -966,6 +978,72 @@ meecastFullWeatherForm::OnTableViewContextItemActivationStateChanged(TableView& 
 void
 meecastFullWeatherForm::OnTableViewItemReordered(TableView& tableView, int itemIndexFrom, int itemIndexTo)
 {
+}
+
+void
+meecastFullWeatherForm::OnFlickGestureDetected(TouchFlickGestureDetector& gestureDetector)
+{
+    AppLog("Flick detected!");
+	Rectangle rc(0, 0, 0, 0);
+	Point point(0, 0);
+    Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
+ 
+
+    /*
+    Tizen::Ui::Controls::Panel 
+        *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
+    Tizen::Ui::Controls::ListView  
+        *main_listview_forecast = static_cast<ListView*>(GetControl(L"IDC_LISTVIEW_FORECASTS"));
+	if (pTouchArea != null) {
+		rc = pTouchArea->GetBounds();
+
+		Touch touch;
+		point = touch.GetPosition(*pTouchArea);
+	}
+
+	if (point.y < 0 || point.y > rc.height)
+	{
+        AppLog("Problem with Flick");
+		    return;
+	}
+*/
+//	pTouchArea->Invalidate(false);
+
+	FlickDirection direction = gestureDetector.GetDirection();
+	switch(direction){
+        case FLICK_DIRECTION_RIGHT:
+            if (_dayNumber>0)
+                _dayNumber--;
+            ReInitElements(); 
+            AppLog("Flick detected RIGHT");
+            break;
+        case FLICK_DIRECTION_LEFT:
+           if (right_label->GetShowState()){
+                _dayNumber++;
+                ReInitElements(); 
+            }
+            AppLog("Flick detected LEFT");
+            break;
+        case FLICK_DIRECTION_UP:
+            AppLog("Flick detected UP");
+            break;
+        case FLICK_DIRECTION_DOWN:
+            AppLog("Flick detected DOWN");
+            break;
+        case FLICK_DIRECTION_NONE:
+        default:
+            AppLog("Flick detected NONE");
+            break;
+	}
+    AppLog("Flick detected");
+	__gestureDetected = true;
+ //   Invalidate(false);
+}
+
+void
+meecastFullWeatherForm::OnFlickGestureCanceled(TouchFlickGestureDetector& gestureDetector)
+{
+    AppLog("Flick canceled!");
 }
 
 

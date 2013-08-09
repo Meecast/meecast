@@ -130,11 +130,14 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         return(-1);
     }
     if (xpathObj->nodesetval == NULL || xpathObj->nodesetval->nodeTab[0] || xpathObj->nodesetval->nodeTab[0]->content == NULL){
+        xmlXPathFreeContext(xpathCtx); 
         return -1;
     }
     temp_char = strchr((char*)xpathObj->nodesetval->nodeTab[0]->content, ' ');
-    if (temp_char == NULL || strlen(temp_char)<2)
+    if (temp_char == NULL || strlen(temp_char)<2){
+        xmlXPathFreeContext(xpathCtx); 
         return -1;
+    }
     temp_char = temp_char + 1;
     temp_char = strchr(temp_char, ' ');
     if (temp_char != NULL){
@@ -402,6 +405,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
        }
     }
     fclose(file_out);
+    xmlHashFree(hash_for_icons, NULL);
   return 1;
 }
 
@@ -655,12 +659,15 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     xmlXPathFreeObject(xpathObj7);
   if (xpathObj8)
     xmlXPathFreeObject(xpathObj8);
-  
+  if (xpathCtx)
+    xmlXPathFreeContext(xpathCtx);
   /* Clean */
   //g_hash_table_destroy(hash_for_icons);
 
   fclose(file_out);
 
+  //xmlHashFree(hash_for_icons, (xmlHashDeallocator)free_string);
+  xmlHashFree(hash_for_icons, NULL);
   return size;
 }
 

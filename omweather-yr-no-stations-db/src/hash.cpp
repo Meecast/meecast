@@ -1,12 +1,9 @@
 /* vim: set sw=4 ts=4 et: */
 /* This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2011-2012 Vlad Vasilyeu
+ * Copyright (C) 2011-2013 Vlad Vasilyeu
  * 	for the code
  *        
- * Copyright (C) 2008 Andrew Zhilin
- *		      az@pocketpcrussia.com 
- *	for default icon set (Glance)
  *
  * This software is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -34,6 +31,23 @@
 #endif
 
 /*******************************************************************************/
+
+xmlHashTablePtr 
+hash_icons_yrno_table_create(){
+    xmlHashTablePtr hash;
+    hash = xmlHashCreate(6);
+#include "hash_icons.data"
+    return hash;
+}
+
+xmlHashTablePtr
+hash_description_yrno_table_create(){
+    xmlHashTablePtr hash;
+    hash = xmlHashCreate(6);
+#include "hash_description.data"
+    return hash;
+}
+
 #ifdef QT
 QHash<QString, QString> *
 hash_icons_yrno_table_create(void) {

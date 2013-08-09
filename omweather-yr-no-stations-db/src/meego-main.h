@@ -1,9 +1,8 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of omweather-weather-com-source
+ * This file is part of omweather-weather-com-source - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
- * Copyright (C) 2006-2009 Pavel Fialko
+ * Copyright (C) 2006-2013 Vlad Vasilyeu
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or
@@ -34,6 +33,7 @@
 
 #include <libxml/parser.h>
 #include <stdlib.h>
+#include <limits.h>
 /*******************************************************************************/
 int source_init(void);
 void source_destroy(void);
@@ -41,7 +41,7 @@ void free_fields( void* key, void* val, void* user_data);
 #ifdef GLIB
     int get_station_weather_data(const char *station_id_with_path, GHashTable *data, int get_detail_data);
 #endif
-int parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file);
+int parse_and_write_yrno_xml_data(char *station_id, xmlNode *root_node, const char *result_file);
 #ifdef GLIB
     GHashTable* hash_description_yrno_table_create(void);
     GHashTable* hash_icons_yrno_table_create(void);
@@ -52,5 +52,8 @@ int parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_
     QString hash_yrno_icon_table_find(QHash<QString, QString> *hash_for_icons, char *key);
     QString hash_yrno_description_table_find(QHash<QString, QString> *hash_for_description, char *key);
 #endif
+xmlHashTablePtr hash_icons_yrno_table_create();
+xmlHashTablePtr hash_description_yrno_table_create();
+
 /*******************************************************************************/
 #endif

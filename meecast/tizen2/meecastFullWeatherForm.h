@@ -24,7 +24,7 @@ class meecastFullWeatherForm
     , public Tizen::Ui::ITouchEventListener
 	, public Tizen::Ui::Controls::ITableViewItemEventListener
 	, public Tizen::Ui::Controls::ITableViewItemProvider
-	
+    , public Tizen::Ui::ITouchFlickGestureEventListener
      {
 public:
     enum Current_Selected_Tab{
@@ -62,18 +62,22 @@ public:
     /* Table */
 
 
-         //ITableViewItemProvider
-        virtual Tizen::Ui::Controls::TableViewItem* CreateItem(int index, int itemWidth);
-        virtual bool DeleteItem(int index, Tizen::Ui::Controls::TableViewItem* pItem);
-        virtual int GetItemCount(void);
-        virtual void UpdateItem(int index, Tizen::Ui::Controls::TableViewItem* pItem);
-        virtual int GetDefaultItemHeight(void);
-     // ITableViewItemEventListener
-		virtual void OnTableViewItemStateChanged(Tizen::Ui::Controls::TableView& tableView, int itemIndex, Tizen::Ui::Controls::TableViewItem* pItem, Tizen::Ui::Controls::TableViewItemStatus status);
-		virtual void OnTableViewContextItemActivationStateChanged(Tizen::Ui::Controls::TableView& tableView, int itemIndex, Tizen::Ui::Controls::TableViewContextItem* pContextItem, bool activated);
-		virtual void OnTableViewItemReordered(Tizen::Ui::Controls::TableView& tableView, int itemIndexFrom, int itemIndexTo);
+    //ITableViewItemProvider
+    virtual Tizen::Ui::Controls::TableViewItem* CreateItem(int index, int itemWidth);
+    virtual bool DeleteItem(int index, Tizen::Ui::Controls::TableViewItem* pItem);
+    virtual int GetItemCount(void);
+    virtual void UpdateItem(int index, Tizen::Ui::Controls::TableViewItem* pItem);
+    virtual int GetDefaultItemHeight(void);
+    // ITableViewItemEventListener
+    virtual void OnTableViewItemStateChanged(Tizen::Ui::Controls::TableView& tableView, int itemIndex, Tizen::Ui::Controls::TableViewItem* pItem, Tizen::Ui::Controls::TableViewItemStatus status);
+	virtual void OnTableViewContextItemActivationStateChanged(Tizen::Ui::Controls::TableView& tableView, int itemIndex, Tizen::Ui::Controls::TableViewContextItem* pContextItem, bool activated);
+	virtual void OnTableViewItemReordered(Tizen::Ui::Controls::TableView& tableView, int itemIndexFrom, int itemIndexTo);
 
-    
+    //Gesture
+	virtual void OnFlickGestureDetected(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
+	virtual void OnFlickGestureCanceled(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
+
+
          
 /*
 	virtual void OnSectionTableViewItemStateChanged(Tizen::Ui::Controls::SectionTableView& tableView, int sectionIndex, int itemIndex, Tizen::Ui::Controls::TableViewItem* pItem, Tizen::Ui::Controls::TableViewItemStatus status){}
@@ -116,6 +120,8 @@ private:
     Tizen::Base::Collection::ArrayList* _pKeyList;
     Tizen::Base::Collection::ArrayList* _pValueList;
     int _count_of_hours; 
+	Tizen::Ui::TouchFlickGestureDetector* __pFlickGesture;
+	bool __gestureDetected;
 };
 
 #endif	//_MEECAST_FULL_WEATHER_FORM_H_

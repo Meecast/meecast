@@ -31,7 +31,7 @@
 #include <string.h>
 /*******************************************************************************/
 xmlHashTablePtr hash_icons_forecacom_table_create();
-
+void free_string(xmlChar *s2, char *key);
 #ifdef QT
 #include <QHash>
 /*******************************************************************************/

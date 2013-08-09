@@ -6,7 +6,8 @@
     #define hash_insert(hash, s2, s3)  hash->insert(s2, s3);
 #endif
 
-    #define hash_insert(hash, s2, s3) xmlHashAddEntry(hash, (const xmlChar *)s2, (void *)strdup(s3)); 
+    #define hash_insert(hash, s2, s3) xmlHashAddEntry(hash, (const xmlChar *)s2, (void *)s3); 
+    //#define hash_insert(hash, s2, s3) xmlHashAddEntry(hash, (const xmlChar *)s2, (void *)strdup(s3)); 
     hash_insert(hash, "d000.png", "32");
     hash_insert(hash, "n000.png", "31");
     hash_insert(hash, "d100.png", "34");

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-07 20:28+0300\n"
+"POT-Creation-Date: 2013-08-09 06:47+0300\n"
 "PO-Revision-Date: 2013-05-18 15:13+0000\n"
 "Last-Translator: Tarad Alfandi <ttt0600@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/meecast/language/"
@@ -1122,7 +1122,7 @@ msgstr "ثلوج كثيفه"
 msgid "Heavy Snow / Wind"
 msgstr "ثلج كثيف/رياح"
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:337
 #, fuzzy
 msgid "Heavy intensity rain"
 msgstr "أمطار كثيفه"
@@ -2295,6 +2295,11 @@ msgstr "زخات متأخره"
 msgid "Showers in the Vicinity"
 msgstr "زخات مطر في المنطقة المجاورة"
 
+#: omweather/src/hash.data:336
+#, fuzzy
+msgid "Sky is Clear"
+msgstr "صحو كلياً"
+
 #: omweather/src/hash.data:335
 #, fuzzy
 msgid "Sky is clear"
@@ -3069,34 +3074,34 @@ msgstr "إسم الوقع"
 msgid "steady"
 msgstr "ثابت"
 
-#: omweather/src/hash.data:337
+#: omweather/src/hash.data:338
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:339
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:340
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:341
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:344
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:345
 msgid "Ю-З"
 msgstr "Ю-З"

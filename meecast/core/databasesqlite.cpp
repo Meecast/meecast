@@ -346,7 +346,8 @@ DatabaseSqlite::create_stations_list_by_name(Tizen::Base::String& country_name, 
 
     String strWord;
     int nIndx = 0;
-    while (pEnum->MoveNext() == E_SUCCESS){
+
+    while (pEnum && pEnum->MoveNext() == E_SUCCESS){
         if (pEnum->GetStringAt(1, strWord) != E_SUCCESS){
             break;
         }

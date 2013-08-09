@@ -228,8 +228,8 @@ meecastStationsForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int ol
 
 bool
 meecastStationsForm::LoadList(void){
+     __map = __db->create_stations_list_by_name(__CountryName, __RegionName);
     AppLog("Open DB success");
-     __map = __db->create_stations_list_by_name(__CountryName, __RegionName );
      String* pValue = null;
      String letter;
      __indexString = "";

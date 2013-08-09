@@ -2449,7 +2449,7 @@ msgstr "Данные о погоде обновлены."
 
 #: omweather/src/hash.data:338
 msgid "There are no stations to show in this view of the list"
-msgstr ""
+msgstr "Нет никаких станций, чтобы показать их в этом списке"
 
 #: meecast/qt-qml/qml/AboutPage.qml:292
 msgid ""

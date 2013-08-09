@@ -56,16 +56,16 @@ choose_hour_weather_icon(char *image)
 int
 parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *result_file){
     char       buff[256],
-                buffer[buff_size],
-                current_temperature[20],
-                current_icon[10],
-                current_title[1024],
-                current_pressure[15],
-                current_humidity[15],
-                current_wind_direction[15],
-                current_wind_speed[15];
-    char        temp_buffer[buff_size];
-    int         night_flag;
+               buffer[buff_size],
+               current_temperature[20],
+               current_icon[10],
+               current_title[1024],
+               current_pressure[15],
+               current_humidity[15],
+               current_wind_direction[15],
+               current_wind_speed[15];
+    char       temp_buffer[buff_size];
+    int        night_flag;
     int        size;
     int        i, j, k, l;
     xmlXPathContextPtr xpathCtx; 
@@ -105,11 +105,13 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     FILE        *file_out;
     int index = 1;
 
+    /* fprintf(stderr, "parse_and_write_detail_data()\n"); */
     file_out = fopen(result_file, "a");
     if (!file_out)
         return -1;
     /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
     hash_for_icons = hash_icons_forecacom_table_create();
+
     /* Create xpath evaluation context */
     xpathCtx = xmlXPathNewContext(doc);
     if(xpathCtx == NULL) {
@@ -128,7 +130,8 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         xmlXPathFreeContext(xpathCtx); 
         return(-1);
     }
-    if (xpathObj->nodesetval == NULL || xpathObj->nodesetval->nodeTab[0] || xpathObj->nodesetval->nodeTab[0]->content == NULL){
+
+    if (xpathObj->nodesetval == NULL || xpathObj->nodesetval->nodeTab[0] ==NULL || xpathObj->nodesetval->nodeTab[0]->content == NULL){
         xmlXPathFreeContext(xpathCtx); 
         return -1;
     }
@@ -644,6 +647,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
 
   }	
   /* Cleanup */
+  fclose(file_out);
   if (xpathObj)
     xmlXPathFreeObject(xpathObj);
   if (xpathObj2)
@@ -662,13 +666,9 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     xmlXPathFreeObject(xpathObj8);
   if (xpathCtx)
     xmlXPathFreeContext(xpathCtx);
-  /* Clean */
-  //g_hash_table_destroy(hash_for_icons);
 
-  fclose(file_out);
-
-  //xmlHashFree(hash_for_icons, (xmlHashDeallocator)free_string);
   xmlHashFree(hash_for_icons, NULL);
+
   return size;
 }
 

@@ -76,6 +76,7 @@ meecastStationsForm::OnInitializing(void)
     __pListView->SetItemProvider(*this);
     __pListView->AddListViewItemEventListener(*this);
     __pListView->AddFastScrollListener(*this);
+    __pListView->SetTextOfEmptyList(_("There are no stations to show in this view of the list"));
 
     // Adds the list view to the form
     AddControl(*__pListView);

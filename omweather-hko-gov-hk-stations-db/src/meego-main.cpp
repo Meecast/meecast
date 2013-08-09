@@ -212,6 +212,7 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
 
     }
     fprintf(file_out,"    </period>\n");
+    xmlHashFree(hash_for_icons, NULL);
     fclose(file_out);
     fclose(file_in);
     fclose(file_in2);
@@ -310,6 +311,7 @@ parse_current_weather(const char *detail_path_data, const char *result_file){
 
     }
     fprintf(file_out,"    </period>\n");
+    xmlHashFree(hash_for_icons, NULL);
     fclose(file_out);
     fclose(file_in);
 }

@@ -335,6 +335,7 @@
     g_hash_table_insert(hash, (void*)"Sky is clear", _("Sky is clear"));
     g_hash_table_insert(hash, (void*)"Sky is Clear", _("Sky is Clear"));
     g_hash_table_insert(hash, (void*)"Heavy intensity rain", _("Heavy intensity rain"));
+    g_hash_table_insert(hash, (void*)"There are no stations to show in this view of the list", _("There are no stations to show in this view of the list"));
     g_hash_table_insert(hash, (void*)"В", _("В"));
     g_hash_table_insert(hash, (void*)"З", _("З"));
     g_hash_table_insert(hash, (void*)"С", _("С"));

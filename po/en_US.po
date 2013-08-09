@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-09 22:23+0300\n"
+"POT-Creation-Date: 2013-08-09 22:33+0300\n"
 "PO-Revision-Date: 2012-04-16 13:52+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -411,6 +411,14 @@ msgstr "Beaufort scale"
 #: omweather/src/hash.data:25
 msgid "Blowing Snow"
 msgstr "Blowing Snow"
+
+#: omweather/src/hash.data:332
+msgid "Broken Clouds"
+msgstr ""
+
+#: omweather/src/hash.data:333
+msgid "Broken clouds"
+msgstr ""
 
 #: omweather/src/weather-home.c:1536 omweather/src/weather-home.c:1562
 #: omweather/src/weather-simple-popup.c:1042
@@ -862,6 +870,11 @@ msgstr "Feels like:"
 msgid "Feels like:"
 msgstr "Feels like:"
 
+#: omweather/src/hash.data:335
+#, fuzzy
+msgid "Few Clouds"
+msgstr "Cloudy"
+
 #: omweather/src/hash.data:77
 msgid "Few Showers"
 msgstr "Few Showers"
@@ -882,7 +895,7 @@ msgstr "Few Snow Showers"
 msgid "Few Snow Showers / Wind"
 msgstr "Few Snow Showers / Wind"
 
-#: omweather/src/hash.data:332
+#: omweather/src/hash.data:334
 msgid "Few clouds"
 msgstr ""
 
@@ -1108,7 +1121,7 @@ msgstr "Heavy Snow"
 msgid "Heavy Snow / Wind"
 msgstr "Heavy Rain / Wind"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:346
 #, fuzzy
 msgid "Heavy intensity rain"
 msgstr "Heavy Rain"
@@ -1238,7 +1251,7 @@ msgstr "Light Drizzle"
 msgid "Light Freezing Rain"
 msgstr "Light Freezing Rain"
 
-#: omweather/src/hash.data:115
+#: omweather/src/hash.data:115 omweather/src/hash.data:337
 msgid "Light Rain"
 msgstr "Light Rain"
 
@@ -1306,7 +1319,7 @@ msgstr "Light Snow Late"
 msgid "Light Snow Shower"
 msgstr "Light Snow Shower"
 
-#: omweather/src/hash.data:333
+#: omweather/src/hash.data:336
 #, fuzzy
 msgid "Light rain"
 msgstr "Light Rain"
@@ -1380,7 +1393,12 @@ msgstr "Miles"
 msgid "Mist"
 msgstr "Mist"
 
-#: omweather/src/hash.data:334
+#: omweather/src/hash.data:339
+#, fuzzy
+msgid "Moderate Rain"
+msgstr "Overcast and light rain"
+
+#: omweather/src/hash.data:338
 #, fuzzy
 msgid "Moderate rain"
 msgstr "Overcast and light rain"
@@ -1668,6 +1686,11 @@ msgstr "Other Maemo Weather Info"
 msgid "Overcast"
 msgstr "Overcast"
 
+#: omweather/src/hash.data:341
+#, fuzzy
+msgid "Overcast Clouds"
+msgstr "Overcast"
+
 #: omweather/src/hash.data:170
 msgid "Overcast and light rain"
 msgstr "Overcast and light rain"
@@ -1705,7 +1728,7 @@ msgstr "Overcast and wet snow"
 msgid "Overcast and wet snow showers"
 msgstr "Overcast and wet snow showers"
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:340
 #, fuzzy
 msgid "Overcast clouds"
 msgstr "Overcast"
@@ -2101,6 +2124,11 @@ msgstr "S_short"
 msgid "Save"
 msgstr "Save"
 
+#: omweather/src/hash.data:343
+#, fuzzy
+msgid "Scattered Clouds"
+msgstr "Scattered Snow"
+
 #: omweather/src/hash.data:257
 msgid "Scattered Showers"
 msgstr "Scattered Showers"
@@ -2116,6 +2144,11 @@ msgstr "Scattered Snow Showers"
 #: omweather/src/hash.data:260
 msgid "Scattered T-Storms"
 msgstr "Scattered T-Storms"
+
+#: omweather/src/hash.data:342
+#, fuzzy
+msgid "Scattered clouds"
+msgstr "Scattered Snow"
 
 #: omweather/src/weather-settings.c:3943
 msgid "Sea miles"
@@ -2300,12 +2333,12 @@ msgstr "Showers Late"
 msgid "Showers in the Vicinity"
 msgstr "Showers in the Vicinity"
 
-#: omweather/src/hash.data:337
+#: omweather/src/hash.data:345
 #, fuzzy
 msgid "Sky is Clear"
 msgstr "Mostly clear"
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:344
 #, fuzzy
 msgid "Sky is clear"
 msgstr "Mostly clear"
@@ -2497,7 +2530,7 @@ msgstr "Thanks"
 msgid "The weather has been updated."
 msgstr "The weather has been updated."
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:347
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
@@ -3088,35 +3121,35 @@ msgstr "station name"
 msgid "steady"
 msgstr "steady"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:348
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:349
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:350
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:351
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:352
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:353
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:354
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:355
 msgid "Ю-З"
 msgstr "Ю-З"
 

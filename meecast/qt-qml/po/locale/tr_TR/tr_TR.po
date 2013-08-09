@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-09 22:23+0300\n"
+"POT-Creation-Date: 2013-08-09 22:33+0300\n"
 "PO-Revision-Date: 2012-12-23 14:16+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/meecast/language/"
@@ -406,6 +406,14 @@ msgstr "Beaufort cizelgesi"
 #: omweather/src/hash.data:25
 msgid "Blowing Snow"
 msgstr "Ufleyen Kar"
+
+#: omweather/src/hash.data:332
+msgid "Broken Clouds"
+msgstr ""
+
+#: omweather/src/hash.data:333
+msgid "Broken clouds"
+msgstr ""
 
 #: omweather/src/weather-home.c:1536 omweather/src/weather-home.c:1562
 #: omweather/src/weather-simple-popup.c:1042
@@ -855,6 +863,11 @@ msgstr "Hissedilis Benzerlikleri"
 msgid "Feels like:"
 msgstr "Hissedilis Benzerlikleri:"
 
+#: omweather/src/hash.data:335
+#, fuzzy
+msgid "Few Clouds"
+msgstr "Bulutlu"
+
 #: omweather/src/hash.data:77
 msgid "Few Showers"
 msgstr "Hafif Yagmur"
@@ -875,7 +888,7 @@ msgstr "Karla Karisik Yagmur"
 msgid "Few Snow Showers / Wind"
 msgstr "Karla Karisik Yagmur / Ruzgar"
 
-#: omweather/src/hash.data:332
+#: omweather/src/hash.data:334
 msgid "Few clouds"
 msgstr ""
 
@@ -1086,7 +1099,7 @@ msgstr "Tipi Kar"
 msgid "Heavy Snow / Wind"
 msgstr "Sagnak Yagmur / Ruzgar"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:346
 #, fuzzy
 msgid "Heavy intensity rain"
 msgstr "Sagnak Yagmur"
@@ -1215,7 +1228,7 @@ msgstr "Hafif Ciseleyen Yagmur"
 msgid "Light Freezing Rain"
 msgstr "Hafif Dondurucu Yagmur"
 
-#: omweather/src/hash.data:115
+#: omweather/src/hash.data:115 omweather/src/hash.data:337
 msgid "Light Rain"
 msgstr "Hafif Yagmur"
 
@@ -1283,7 +1296,7 @@ msgstr "Aksama Dogru Hafif Kar"
 msgid "Light Snow Shower"
 msgstr "Hafif Sagnak Kar"
 
-#: omweather/src/hash.data:333
+#: omweather/src/hash.data:336
 #, fuzzy
 msgid "Light rain"
 msgstr "Hafif Yagmur"
@@ -1354,7 +1367,12 @@ msgstr "Mil"
 msgid "Mist"
 msgstr "Pus"
 
-#: omweather/src/hash.data:334
+#: omweather/src/hash.data:339
+#, fuzzy
+msgid "Moderate Rain"
+msgstr "(Orta)"
+
+#: omweather/src/hash.data:338
 #, fuzzy
 msgid "Moderate rain"
 msgstr "(Orta)"
@@ -1642,6 +1660,11 @@ msgstr "Diger Maemo Havadurumu Bilgisi"
 msgid "Overcast"
 msgstr "Kapali"
 
+#: omweather/src/hash.data:341
+#, fuzzy
+msgid "Overcast Clouds"
+msgstr "Kapali"
+
 #: omweather/src/hash.data:170
 msgid "Overcast and light rain"
 msgstr "Kapali ve hafif yagmur"
@@ -1678,7 +1701,7 @@ msgstr "Kapali ve sulu kar"
 msgid "Overcast and wet snow showers"
 msgstr "Kapali ve sulu sagnak kar"
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:340
 #, fuzzy
 msgid "Overcast clouds"
 msgstr "Kapali"
@@ -2070,6 +2093,11 @@ msgstr "S_short"
 msgid "Save"
 msgstr "Kaydet"
 
+#: omweather/src/hash.data:343
+#, fuzzy
+msgid "Scattered Clouds"
+msgstr "Seyrek Kar"
+
 #: omweather/src/hash.data:257
 msgid "Scattered Showers"
 msgstr "Seyrek Yagmur"
@@ -2085,6 +2113,11 @@ msgstr "Seyrek Sagnak Yagmur"
 #: omweather/src/hash.data:260
 msgid "Scattered T-Storms"
 msgstr "Daginik Firtinalar"
+
+#: omweather/src/hash.data:342
+#, fuzzy
+msgid "Scattered clouds"
+msgstr "Seyrek Kar"
 
 #: omweather/src/weather-settings.c:3943
 msgid "Sea miles"
@@ -2265,12 +2298,12 @@ msgstr "Aksama Dogru Saganak"
 msgid "Showers in the Vicinity"
 msgstr "Cevredeki Saganaklar"
 
-#: omweather/src/hash.data:337
+#: omweather/src/hash.data:345
 #, fuzzy
 msgid "Sky is Clear"
 msgstr "Cogunlukla acik"
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:344
 #, fuzzy
 msgid "Sky is clear"
 msgstr "Cogunlukla acik"
@@ -2462,7 +2495,7 @@ msgstr "Tesekkurler"
 msgid "The weather has been updated."
 msgstr "Havadurumu guncellendi."
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:347
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
@@ -3045,34 +3078,34 @@ msgstr "istasyon adi"
 msgid "steady"
 msgstr "saglam"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:348
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:349
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:350
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:351
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:352
 msgid "С-З"
 msgstr "C-3"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:353
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:354
 msgid "Ю-В"
 msgstr "Ю-B"
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:355
 msgid "Ю-З"
 msgstr "Ю-3"

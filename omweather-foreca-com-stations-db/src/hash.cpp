@@ -25,10 +25,11 @@
 #include <stdio.h>
 #include "hash.h"
 
+
 xmlHashTablePtr 
 hash_icons_forecacom_table_create(){
     xmlHashTablePtr hash;
-    hash = xmlHashCreate(6);
+    hash = xmlHashCreate(1);
 #include "hash_icons.data"
     return hash;
 }

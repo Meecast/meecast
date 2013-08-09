@@ -333,6 +333,7 @@
     g_hash_table_insert(hash, (void*)"Light rain", _("Light rain"));
     g_hash_table_insert(hash, (void*)"Moderate rain", _("Moderate rain"));
     g_hash_table_insert(hash, (void*)"Sky is clear", _("Sky is clear"));
+    g_hash_table_insert(hash, (void*)"Sky is Clear", _("Sky is Clear"));
     g_hash_table_insert(hash, (void*)"Heavy intensity rain", _("Heavy intensity rain"));
     g_hash_table_insert(hash, (void*)"В", _("В"));
     g_hash_table_insert(hash, (void*)"З", _("З"));

@@ -286,7 +286,7 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
                    snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
                                        xmlGetProp(child_node, (const xmlChar*)"value"));
                    strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm1);
-                   fprintf(stderr, "Current time buffer %s\n", temp_buffer);
+                   /* fprintf(stderr, "Current time buffer %s\n", temp_buffer); */
                    utc_time_start = mktime(&tmp_tm1) + localtimezone*3600;
                    utc_time_end = mktime(&tmp_tm1) + localtimezone*3600 + 4*3600;
                }

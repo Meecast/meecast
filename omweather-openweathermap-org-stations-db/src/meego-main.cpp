@@ -61,7 +61,8 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
     int         localtimezone = 0;
     struct      tm time_tm1;
     struct      tm time_tm2;
-
+    xmlChar     *day_prop;
+    xmlChar     *temp_prop;
 
     if(!doc)
         return -1;
@@ -78,15 +79,15 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
     for(cur_node0 = root_node->children; cur_node0; cur_node0 = cur_node0->next){
         if( cur_node0->type == XML_ELEMENT_NODE ){
             if (!xmlStrcmp(cur_node0->name, (const xmlChar *) "forecast" ) ){
-                for(cur_node = cur_node0->children; cur_node; cur_node = cur_node->next){
+               for(cur_node = cur_node0->children; cur_node; cur_node = cur_node->next){
                     if( cur_node->type == XML_ELEMENT_NODE ){
                         /* get weather data */
                         if(!xmlStrcmp(cur_node->name, (const xmlChar *) "time")){
-                            if(xmlGetProp(cur_node, (const xmlChar*)"day")) {
+                            if(day_prop = xmlGetProp(cur_node, (const xmlChar*)"day")) {
                                 struct tm tmp_tm = {0};
                                 memset(temp_buffer, 0, sizeof(buffer));
-                                snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
-                                                    xmlGetProp(cur_node, (const xmlChar*)"day"));
+                                snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s", day_prop);
+                                xmlFree(day_prop);
                                 strptime(temp_buffer, "%Y-%m-%d", &tmp_tm);
                                 utc_time_start = mktime(&tmp_tm)  + localtimezone*3600;
                                 utc_time_end = mktime(&tmp_tm) + 24*3600  + localtimezone*3600;
@@ -103,55 +104,88 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                                 for (child_node = cur_node->children; child_node; child_node = child_node->next){
                                     if (child_node->type == XML_ELEMENT_NODE ){
                                         if(!xmlStrcmp(child_node->name, (const xmlChar *) "temperature")){
-                                            temp_low = atoi((char *)xmlGetProp(child_node, (const xmlChar*)"min"));
-                                            temp_hi = atoi((char *)xmlGetProp(child_node, (const xmlChar*)"max"));
+                                            if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"min")){
+                                                temp_low = atoi((char *)temp_prop);
+                                                xmlFree(temp_prop);
+                                                temp_prop = NULL;
+                                            }
+                                            if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"max")){
+                                                temp_hi = atoi((char *)temp_prop);
+                                                xmlFree(temp_prop);
+                                                temp_prop = NULL;
+                                            }
                                         }
                                     }
 
                                     if (child_node->type == XML_ELEMENT_NODE ){
                                         if(!xmlStrcmp(child_node->name, (const xmlChar *) "precipitation")){
-                                            if (xmlGetProp(child_node, (const xmlChar*)"value"))
-                                                snprintf(ppcp, sizeof(ppcp)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"value"));
+                                            if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"value")){
+                                                snprintf(ppcp, sizeof(ppcp)-1,"%s",(char *)temp_prop);
+                                                xmlFree(temp_prop);
+                                                temp_prop = NULL;
+                                            }
                                         }
                                     }
 
                                     if (child_node->type == XML_ELEMENT_NODE ){
                                         if(!xmlStrcmp(child_node->name, (const xmlChar *) "windDirection")){
-                                            snprintf(wind_direction, sizeof(wind_direction)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"code"));
+                                            if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"code")){
+                                                snprintf(wind_direction, sizeof(wind_direction)-1,"%s",(char *)temp_prop);
+                                                xmlFree(temp_prop);
+                                                temp_prop = NULL;
+                                            }
                                         }
                                     }
 
                                     if (child_node->type == XML_ELEMENT_NODE ){
                                         if(!xmlStrcmp(child_node->name, (const xmlChar *) "windSpeed")){
-                                            snprintf(wind_speed, sizeof(wind_speed)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"mps"));
+                                            if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"mps")){
+                                                snprintf(wind_speed, sizeof(wind_speed)-1,"%s",(char *)temp_prop);
+                                                xmlFree(temp_prop);
+                                                temp_prop = NULL;
+                                            }
                                         }
                                     }
 
                                     if (child_node->type == XML_ELEMENT_NODE ){
                                         if(!xmlStrcmp(child_node->name, (const xmlChar *) "pressure")){
-                                            snprintf(pressure, sizeof(pressure)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"value"));
+                                            if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"value")){
+                                                snprintf(pressure, sizeof(pressure)-1,"%s",(char *)temp_prop);
+                                                xmlFree(temp_prop);
+                                                temp_prop = NULL;
+                                            }
                                         }
                                     }
                                     if (child_node->type == XML_ELEMENT_NODE ){
                                         if(!xmlStrcmp(child_node->name, (const xmlChar *) "humidity")){
-                                            snprintf(humidity, sizeof(humidity)-1,"%s",(char *)xmlGetProp(child_node, (const xmlChar*)"value"));
+                                            if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"value")){
+                                                snprintf(humidity, sizeof(humidity)-1,"%s",(char *)temp_prop);
+                                                xmlFree(temp_prop);
+                                                temp_prop = NULL;
+                                            }
                                         }
                                     }
                                     /* symbol number="801" name="few clouds" var="02d" */
                                     if (child_node->type == XML_ELEMENT_NODE ){
                                         if(!xmlStrcmp(child_node->name, (const xmlChar *) "symbol")){
                                             memset(temp_buffer, 0, sizeof(buffer));
-                                            if (xmlGetProp(child_node, (const xmlChar*)"number"))
-                                                snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
-                                                    xmlGetProp(child_node, (const xmlChar*)"number"));
-                                            if (xmlGetProp(child_node, (const xmlChar*)"var"))
-                                                strcat(temp_buffer, (char *)xmlGetProp(child_node, (const xmlChar*)"var"));
+                                            if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"number")){
+                                                snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s", (char *)temp_prop);
+                                                xmlFree(temp_prop);
+                                                temp_prop = NULL;
+                                            }
+                                            if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"var")){
+                                                strcat(temp_buffer, (char *)temp_prop);
+                                                xmlFree(temp_prop);
+                                                temp_prop = NULL;
+                                            }
                                             if (xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer))
                                                 snprintf(icon, sizeof(icon)-1, "%s",
                                                       (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));
-                                            if (xmlGetProp(child_node, (const xmlChar*)"name")){
-                                                snprintf(short_text, sizeof(short_text)-1, "%s",
-                                                    xmlGetProp(child_node, (const xmlChar*)"name"));
+                                            if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"name")){
+                                                snprintf(short_text, sizeof(short_text)-1, "%s", (char *)temp_prop);
+                                                xmlFree(temp_prop);
+                                                temp_prop = NULL;
                                                 short_text[0] = toupper(short_text[0]);
                                             }
                                         }
@@ -230,7 +264,7 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
     int         localtimezone;
     struct      tm time_tm1 = {0};
     struct      tm time_tm2 = {0};
-
+    xmlChar     *temp_prop;
 
     if(!doc)
         return -1;
@@ -264,27 +298,34 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
                for (child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
                    if (child_node2->type == XML_ELEMENT_NODE ){
                        if(!xmlStrcmp(child_node2->name, (const xmlChar *) "sun")){
-                            memset(temp_buffer, 0, sizeof(buffer));
-                            snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
-                                       xmlGetProp(child_node2, (const xmlChar*)"rise"));
-                            strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
-                            utc_time_sunrise = mktime(&tmp_tm) + localtimezone*3600;
-                            memset(temp_buffer, 0, sizeof(buffer));
-                            snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
-                                       xmlGetProp(child_node2, (const xmlChar*)"set"));
-                            strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
-                            utc_time_sunset = mktime(&tmp_tm) + localtimezone*3600;
+                            if (temp_prop = xmlGetProp(child_node2, (const xmlChar*)"rise")){
+                                memset(temp_buffer, 0, sizeof(buffer));
+                                snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s", (char *)temp_prop);
+                                xmlFree(temp_prop);
+                                temp_prop = NULL;
+                                strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
+                                utc_time_sunrise = mktime(&tmp_tm) + localtimezone*3600;
+                            }
+                            if (temp_prop = xmlGetProp(child_node2, (const xmlChar*)"set")){
+                                memset(temp_buffer, 0, sizeof(buffer));
+                                snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",(char *)temp_prop);
+                                xmlFree(temp_prop);
+                                temp_prop = NULL;
+                                strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
+                                utc_time_sunset = mktime(&tmp_tm) + localtimezone*3600;
+                            }
                        }
                    }
                }   
            }
 
            if(!xmlStrcmp(child_node->name, (const xmlChar *) "lastupdate")){
-               if(xmlGetProp(child_node, (const xmlChar*)"value")) {
+               if(temp_prop = xmlGetProp(child_node, (const xmlChar*)"value")) {
                    struct tm tmp_tm1 = {0};
                    memset(temp_buffer, 0, sizeof(buffer));
-                   snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
-                                       xmlGetProp(child_node, (const xmlChar*)"value"));
+                   snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s", (char *)temp_prop);
+                   xmlFree(temp_prop);
+                   temp_prop = NULL;
                    strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm1);
                    /* fprintf(stderr, "Current time buffer %s\n", temp_buffer); */
                    utc_time_start = mktime(&tmp_tm1) + localtimezone*3600;
@@ -293,55 +334,79 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
            }
 
            if(!xmlStrcmp(child_node->name, (const xmlChar *) "temperature")){
-               temp = atoi((char *)xmlGetProp(child_node, (const xmlChar*)"value"));
+                if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"value")){
+                   temp = atoi((char *)temp_prop);
+                   xmlFree(temp_prop);
+                   temp_prop = NULL;
+                }
            }
 
            if(!xmlStrcmp(child_node->name, (const xmlChar *) "precipitation")){
-               if (xmlGetProp(child_node, (const xmlChar*)"value"))
-                   snprintf(ppcp, sizeof(ppcp)-1,"%s",(
-                                    char *)xmlGetProp(child_node, (const xmlChar*)"value"));
+                if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"value")){
+                   snprintf(ppcp, sizeof(ppcp)-1,"%s", (char *)temp_prop);
+                   xmlFree(temp_prop);
+                   temp_prop = NULL;
+                }
            }
 
            if(!xmlStrcmp(child_node->name, (const xmlChar *) "wind")){
                for (child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
                    if (child_node2->type == XML_ELEMENT_NODE ){
                        if(!xmlStrcmp(child_node2->name, (const xmlChar *) "speed")){
-                           snprintf(wind_speed, sizeof(wind_speed)-1,"%s",
-                                            (char *)xmlGetProp(child_node2, (const xmlChar*)"value"));
+                           if (temp_prop = xmlGetProp(child_node2, (const xmlChar*)"value")){
+                                snprintf(wind_speed, sizeof(wind_speed)-1,"%s",(char *)temp_prop);
+                                xmlFree(temp_prop);
+                                temp_prop = NULL;
+                           }
                        }
                        if(!xmlStrcmp(child_node2->name, (const xmlChar *) "direction")){
-                           snprintf(wind_direction, sizeof(wind_direction)-1,"%s",
-                                      (char *)xmlGetProp(child_node2, (const xmlChar*)"code"));
+                           if (temp_prop = xmlGetProp(child_node2, (const xmlChar*)"code")){
+                                snprintf(wind_direction, sizeof(wind_direction)-1,"%s", (char *)temp_prop);
+                                xmlFree(temp_prop);
+                                temp_prop = NULL;
+                           } 
                        }
                    }
                }   
            }
 
            if(!xmlStrcmp(child_node->name, (const xmlChar *) "pressure")){
-               snprintf(pressure, sizeof(pressure)-1,"%s",
-                                  (char *)xmlGetProp(child_node, (const xmlChar*)"value"));
+               if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"value")){
+                    snprintf(pressure, sizeof(pressure)-1,"%s", (char *)temp_prop);
+                    xmlFree(temp_prop);
+                    temp_prop = NULL;
+               }
            }
 
            if(!xmlStrcmp(child_node->name, (const xmlChar *) "humidity")){
-               snprintf(humidity, sizeof(humidity)-1,"%s",
-                                  (char *)xmlGetProp(child_node, (const xmlChar*)"value"));
+               if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"value")){
+                   snprintf(humidity, sizeof(humidity)-1,"%s", (char *)temp_prop);
+                   xmlFree(temp_prop);
+                   temp_prop = NULL;
+               }
            }
 
-       /* symbol number="801" name="few clouds" var="02d" */
+           /* symbol number="801" name="few clouds" var="02d" */
            if(!xmlStrcmp(child_node->name, (const xmlChar *) "weather")){
                memset(temp_buffer, 0, sizeof(buffer));
-               if (xmlGetProp(child_node, (const xmlChar*)"number"))
-                   snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",
-                       xmlGetProp(child_node, (const xmlChar*)"number"));
-               if (xmlGetProp(child_node, (const xmlChar*)"icon"))
-                   strcat(temp_buffer, (char *)xmlGetProp(child_node, (const xmlChar*)"icon"));
+               if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"number")){
+                   snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s", (char *)temp_prop);
+                   xmlFree(temp_prop);
+                   temp_prop = NULL;
+               }
+               if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"icon")){
+                   strcat(temp_buffer, (char *)temp_prop);
+                   xmlFree(temp_prop);
+                   temp_prop = NULL;
+               }
                if (xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer))
                    snprintf(icon, sizeof(icon)-1, "%s",
                          (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));
-               if (xmlGetProp(child_node, (const xmlChar*)"value")){
-                   snprintf(short_text, sizeof(short_text)-1, "%s",
-                       xmlGetProp(child_node, (const xmlChar*)"value"));
+               if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"value")){
+                   snprintf(short_text, sizeof(short_text)-1, "%s",(char *)temp_prop);
                    short_text[0] = toupper(short_text[0]);
+                   xmlFree(temp_prop);
+                   temp_prop = NULL;
                }
            }
        }
@@ -400,13 +465,16 @@ convert_station_openweathermaporg_data(const char *days_data_path, const char *r
     if(!access(days_data_path, R_OK)){
         /* check that the file containe valid data */
         doc =  xmlReadFile(days_data_path, "UTF-8", 0);
-        if(!doc)
+        if(!doc){
+            xmlHashFree(hash_for_icons, NULL);
             return -1;
+        }
         root_node = xmlDocGetRootElement(doc);
         if(root_node->type == XML_ELEMENT_NODE &&
                 strstr((char*)root_node->name, "err")){
             xmlFreeDoc(doc);
             xmlCleanupParser();
+            xmlHashFree(hash_for_icons, NULL);
             return -2;
         }else{
             days_number = parse_and_write_days_xml_data(doc, result_file);
@@ -436,9 +504,12 @@ convert_station_openweathermaporg_data(const char *days_data_path, const char *r
                 }
             }
         }
-    }else
+    }else{
+        xmlHashFree(hash_for_icons, NULL);
         return -1;/* file isn't accessability */
+    }
 
+    xmlHashFree(hash_for_icons, NULL);
     return days_number;
 }
 

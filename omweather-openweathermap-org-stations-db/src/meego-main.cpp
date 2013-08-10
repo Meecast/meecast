@@ -338,9 +338,11 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
                if (xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer))
                    snprintf(icon, sizeof(icon)-1, "%s",
                          (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_buffer));
-               if (xmlGetProp(child_node, (const xmlChar*)"value"))
+               if (xmlGetProp(child_node, (const xmlChar*)"value")){
                    snprintf(short_text, sizeof(short_text)-1, "%s",
                        xmlGetProp(child_node, (const xmlChar*)"value"));
+                   short_text[0] = toupper(short_text[0]);
+               }
            }
        }
     }

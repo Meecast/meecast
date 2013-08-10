@@ -1001,18 +1001,18 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
       setlocale(LC_TIME, "");
 
       if(!timezone_flag){
-          utc_time = mktime(&tmp_tm) + localtimezone*3600;
-          temp_char = strstr((char *)nodes->nodeTab[i]->children->content, "Local: ");
-          if (temp_char && strlen(temp_char) > 8)
-              temp_char = temp_char + 7;
-           tmp_tm_loc = get_date_for_hour_weather(temp_char);
-           loc_time = mktime(&tmp_tm_loc);
-           time_diff = difftime(loc_time, utc_time);
-           if(time_diff)
-               timezone_flag = true;
-           location_timezone = (int)time_diff/3600;
-           /* fprintf(stderr, "\nTimezone %i\n", location_timezone); */
-           snprintf(temp_buffer, sizeof(temp_buffer)-1, "%i",location_timezone);
+        utc_time = mktime(&tmp_tm) + localtimezone*3600;
+        temp_char = strstr((char *)nodes->nodeTab[i]->children->content, "Local: ");
+        if (temp_char && strlen(temp_char) > 8)
+            temp_char = temp_char + 7;
+        tmp_tm_loc = get_date_for_hour_weather(temp_char);
+        loc_time = mktime(&tmp_tm_loc);
+        time_diff = difftime(loc_time, utc_time);
+        if(time_diff != 0)
+            timezone_flag = true;
+        location_timezone = (int)time_diff/3600;
+        /* fprintf(stderr, "\nTimezone %i\n", location_timezone); */
+        snprintf(temp_buffer, sizeof(temp_buffer)-1, "%i",location_timezone);
       }
  
    /* added icon */
@@ -1196,6 +1196,8 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
                             xmlFreeDoc(doc);
                             xmlCleanupParser();
                             rename(buffer, station_id_with_path);
+                            xmlHashFree(hash_for_icons, NULL);
+                            xmlHashFree(hash_for_descriptions, NULL);
                             return days_number;
                         }
                     }
@@ -1207,13 +1209,18 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
     if(!access(station_id_with_path, R_OK)){
         /* check that the file containe valid data */
         doc =  htmlReadFile(station_id_with_path, "UTF-8", HTML_PARSE_NOERROR | HTML_PARSE_NOWARNING);
-        if(!doc)
+        if(!doc){
+            xmlHashFree(hash_for_icons, NULL);
+            xmlHashFree(hash_for_descriptions, NULL);
             return -1;
+        }
         root_node = xmlDocGetRootElement(doc);
         if(root_node && root_node->type == XML_ELEMENT_NODE &&
                 strstr((char*)root_node->name, "err")){
             xmlFreeDoc(doc);
             xmlCleanupParser();
+            xmlHashFree(hash_for_icons, NULL);
+            xmlHashFree(hash_for_descriptions, NULL);
             return -2;
         }
         else{
@@ -1227,6 +1234,8 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
                 if(!delimiter){
                     xmlFreeDoc(doc);
                     xmlCleanupParser();
+                    xmlHashFree(hash_for_icons, NULL);
+                    xmlHashFree(hash_for_descriptions, NULL);
                     return -1;
                 }
 
@@ -1265,11 +1274,16 @@ convert_station_gismeteo_data(const char *station_id_with_path, const char *resu
                     //parse_and_write_xml_detail_data(buffer, doc, result_file);
 
             }
+            xmlHashFree(hash_for_icons, NULL);
+            xmlHashFree(hash_for_descriptions, NULL);
             return days_number;
         }
     }
-    else
+    else{
+        xmlHashFree(hash_for_icons, NULL);
+        xmlHashFree(hash_for_descriptions, NULL);
         return -1;/* file isn't accessability */
+    }
 }
 
 int

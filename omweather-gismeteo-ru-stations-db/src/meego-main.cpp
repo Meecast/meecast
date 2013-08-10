@@ -212,9 +212,9 @@ get_date_for_hour_weather(char *temp_string){
     strcat(buff, " ");
     temp_point = strchr(temp_string,' ');
     strcat(buff, temp_point+1);
-    fprintf(stderr, "Buffer %s\n", buff); 
+    /* fprintf(stderr, "Buffer %s\n", buff); */
     strptime(buff, "%m-%d %Y %H:%M", &tmp_tm);
-    fprintf(stderr, "\ntmp_tm hour %d\n", (&tmp_tm)->tm_hour); 
+    /* fprintf(stderr, "\ntmp_tm hour %d\n", (&tmp_tm)->tm_hour); */
     return tmp_tm;
 }
 /*******************************************************************************/
@@ -291,7 +291,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
     gmtime_r(&current_time, &time_tm1);
     localtime_r(&current_time, &time_tm2);
     localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
-    fprintf(stderr,"Local Time Zone %i\n", localtimezone);
+    /* fprintf(stderr,"Local Time Zone %i\n", localtimezone); */
 
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", station_id);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
@@ -320,7 +320,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div//span[@class='icon date']/text()", xpathCtx);
 
    if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
-      fprintf(stderr, "Current date and time %s\n", (char*)xpathObj->nodesetval->nodeTab[0]->content);
+     /* fprintf(stderr, "Current date and time %s\n", (char*)xpathObj->nodesetval->nodeTab[0]->content); */
       current_tm = get_date_for_current_weather((char*)xpathObj->nodesetval->nodeTab[0]->content);
    }
    if (xpathObj)
@@ -473,7 +473,7 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
 
   nodes   = xpathObj->nodesetval;
   size = (nodes) ? nodes->nodeNr : 0;
-  fprintf(stderr, "SIZE!!!!!!!!!!!!!!: %i\n", size); 
+  /* fprintf(stderr, "SIZE!!!!!!!!!!!!!!: %i\n", size); */
   xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody/tr/th[@title]/text()", xpathCtx);
   xpathObj3 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div//table/tbody//*/td[@class='temp']/span[@class='value m_temp c']/text()", xpathCtx);
  
@@ -974,7 +974,7 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
   xpathObj9 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div//div/table/tbody/tr/td[7]/span[@class='value m_temp c']/text()", xpathCtx);
   nodes   = xpathObj->nodesetval;
   size = (nodes) ? nodes->nodeNr : 0;
-  fprintf(stderr,"Size fo hours %i\n", size);
+  /* fprintf(stderr,"Size fo hours %i\n", size); */
   //if (size > 8)
   //    size = 8;
   for(i = 0; i < size; ++i) {
@@ -1011,7 +1011,7 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
            if(time_diff)
                timezone_flag = true;
            location_timezone = (int)time_diff/3600;
-           fprintf(stderr, "\nTimezone %i\n", location_timezone); 
+           /* fprintf(stderr, "\nTimezone %i\n", location_timezone); */
            snprintf(temp_buffer, sizeof(temp_buffer)-1, "%i",location_timezone);
       }
  
@@ -1280,6 +1280,6 @@ main(int argc, char *argv[]){
         return -1;
     }
     result = convert_station_gismeteo_data(argv[1], argv[2], argv[3]);
-    fprintf(stderr, "\nresult = %d\n", result);
+    /* fprintf(stderr, "\nresult = %d\n", result); */
     return result;
 }

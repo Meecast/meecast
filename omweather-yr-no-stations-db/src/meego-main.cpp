@@ -217,7 +217,7 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
     gmtime_r(&current_time, &time_tm1);
     localtime_r(&current_time, &time_tm2);
     localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
-    fprintf(stderr,"Local Time Zone %i\n", localtimezone);
+    /* fprintf(stderr,"Local Time Zone %i\n", localtimezone); */
 
 
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", station_id);
@@ -269,7 +269,7 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                     memset(buff, 0, sizeof(buff));
                     strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
                     utc_time = mktime(&tmp_tm) - timezone * 3600 + localtimezone*3600;
-                    fprintf(file_out,"    <period start=\"%li\" end=\"%l\"", utc_time, utc_time + 24*3600);
+                    fprintf(file_out,"    <period start=\"%li\" end=\"%li\"", utc_time, utc_time + 24*3600);
                     setlocale(LC_TIME, "POSIX");
                     strptime((const char*)temp_xml_string, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
                     setlocale(LC_TIME, "");
@@ -516,6 +516,6 @@ main(int argc, char *argv[]){
         return -1;
     }
     result = convert_station_yrno_data(argv[1], argv[2], false);
-    fprintf(stderr, "\nresult = %d\n", result);
+    /* fprintf(stderr, "\nresult = %d\n", result); */
     return result;
 }

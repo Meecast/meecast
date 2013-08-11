@@ -3,6 +3,8 @@ meecast (0.7.5) unstable; urgency=low
   * Added icon for openweathermap.com
   * Fixed problem with current weather in foreca.com source
   * Updated Russian translations
+  * Added Chinese(Taiwan), Chinese (Hong Kong) translations
+  * Fixed problem with Chinese translation
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 04 Aug 2013 15:31:23 +0200
 

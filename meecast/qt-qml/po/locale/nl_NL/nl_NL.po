@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-09 22:33+0300\n"
+"POT-Creation-Date: 2013-08-11 15:31+0300\n"
 "PO-Revision-Date: 2013-03-15 11:58+0000\n"
 "Last-Translator: Michiel Pater <michiel@wateennaam.nl>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/meecast/language/"
@@ -1121,7 +1121,7 @@ msgstr "Zware Sneeuwval"
 msgid "Heavy Snow / Wind"
 msgstr "Zware Regen / Wind"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:347
 #, fuzzy
 msgid "Heavy intensity rain"
 msgstr "Zware Regen"
@@ -1321,6 +1321,11 @@ msgstr "Lichte Sneeuwbui"
 msgid "Light rain"
 msgstr "Lichte Regen"
 
+#: omweather/src/hash.data:338
+#, fuzzy
+msgid "Light snow"
+msgstr "Lichte Sneeuw"
+
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
 msgstr "Laden stationslijst"
@@ -1390,12 +1395,12 @@ msgstr "Mijlen"
 msgid "Mist"
 msgstr "Mist"
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:340
 #, fuzzy
 msgid "Moderate Rain"
 msgstr "(Gemiddeld)"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:339
 #, fuzzy
 msgid "Moderate rain"
 msgstr "(Gemiddeld)"
@@ -1683,7 +1688,7 @@ msgstr "Overige Maemo Weather info"
 msgid "Overcast"
 msgstr "Grijs"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 #, fuzzy
 msgid "Overcast Clouds"
 msgstr "Grijs"
@@ -1724,7 +1729,7 @@ msgstr "Grijs en natte sneeuw"
 msgid "Overcast and wet snow showers"
 msgstr "Grijs en natte sneeuwbuien "
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:341
 #, fuzzy
 msgid "Overcast clouds"
 msgstr "Grijs"
@@ -2116,7 +2121,7 @@ msgstr "Z_kort"
 msgid "Save"
 msgstr "Opslaan"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:344
 #, fuzzy
 msgid "Scattered Clouds"
 msgstr "Verspreide Sneeuw"
@@ -2137,7 +2142,7 @@ msgstr "Verspreide Sneeuwbuien"
 msgid "Scattered T-Storms"
 msgstr "Verspreid Onweer"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 #, fuzzy
 msgid "Scattered clouds"
 msgstr "Verspreide Sneeuw"
@@ -2321,12 +2326,12 @@ msgstr "Late Buien"
 msgid "Showers in the Vicinity"
 msgstr "Buien in de Omgeving"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:346
 #, fuzzy
 msgid "Sky is Clear"
 msgstr "Overwegend Helder"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:345
 #, fuzzy
 msgid "Sky is clear"
 msgstr "Overwegend Helder"
@@ -2518,7 +2523,7 @@ msgstr "Bedankt"
 msgid "The weather has been updated."
 msgstr "Het weerbericht is ge-update."
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:348
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
@@ -3105,34 +3110,34 @@ msgstr "stationsnaam"
 msgid "steady"
 msgstr "bestendig"
 
-#: omweather/src/hash.data:348
+#: omweather/src/hash.data:349
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:350
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:351
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:352
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:353
 msgid "С-З"
 msgstr "C-3"
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:354
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:355
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:356
 msgid "Ю-З"
 msgstr "Ю-3"

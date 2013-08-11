@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-09 22:33+0300\n"
+"POT-Creation-Date: 2013-08-11 15:31+0300\n"
 "PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -1131,7 +1131,7 @@ msgstr "Silné sneženie"
 msgid "Heavy Snow / Wind"
 msgstr "Silný dážď / Vietor"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:347
 #, fuzzy
 msgid "Heavy intensity rain"
 msgstr "Silný dážď"
@@ -1333,6 +1333,11 @@ msgstr "Slabé snehové prehánky"
 msgid "Light rain"
 msgstr "Slabý dážď"
 
+#: omweather/src/hash.data:338
+#, fuzzy
+msgid "Light snow"
+msgstr "Slabé sneženie"
+
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
 msgstr "Načítavam zoznam staníc"
@@ -1402,12 +1407,12 @@ msgstr "Míle"
 msgid "Mist"
 msgstr "Opar"
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:340
 #, fuzzy
 msgid "Moderate Rain"
 msgstr "(Stredná)"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:339
 #, fuzzy
 msgid "Moderate rain"
 msgstr "(Stredná)"
@@ -1695,7 +1700,7 @@ msgstr "Informácie o Other Maemo Weather"
 msgid "Overcast"
 msgstr "Zamračené"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 #, fuzzy
 msgid "Overcast Clouds"
 msgstr "Zamračené"
@@ -1736,7 +1741,7 @@ msgstr "Zamračené a mokrý sneh"
 msgid "Overcast and wet snow showers"
 msgstr "Zamračené a mokré snehové prehánky"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:341
 #, fuzzy
 msgid "Overcast clouds"
 msgstr "Zamračené"
@@ -2129,7 +2134,7 @@ msgstr "J"
 msgid "Save"
 msgstr "Uložiť"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:344
 #, fuzzy
 msgid "Scattered Clouds"
 msgstr "Ojedinelé sneženie"
@@ -2150,7 +2155,7 @@ msgstr "Ojedinelé snehové prehánky"
 msgid "Scattered T-Storms"
 msgstr "Ojedinelé búrky"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 #, fuzzy
 msgid "Scattered clouds"
 msgstr "Ojedinelé sneženie"
@@ -2336,12 +2341,12 @@ msgstr "Neskôr prehánky"
 msgid "Showers in the Vicinity"
 msgstr "Prehánky v okolí"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:346
 #, fuzzy
 msgid "Sky is Clear"
 msgstr "Prevažne jasno"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:345
 #, fuzzy
 msgid "Sky is clear"
 msgstr "Prevažne jasno"
@@ -2533,7 +2538,7 @@ msgstr "Poďakovanie"
 msgid "The weather has been updated."
 msgstr "Údaje o počasí boli aktualizované."
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:348
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
@@ -3120,35 +3125,35 @@ msgstr "názov stanice"
 msgid "steady"
 msgstr "ustálený"
 
-#: omweather/src/hash.data:348
+#: omweather/src/hash.data:349
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:350
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:351
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:352
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:353
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:354
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:355
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:356
 msgid "Ю-З"
 msgstr "Ю-З"
 

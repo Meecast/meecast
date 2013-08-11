@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-09 22:33+0300\n"
+"POT-Creation-Date: 2013-08-11 15:31+0300\n"
 "PO-Revision-Date: 2012-10-05 08:15+0000\n"
 "Last-Translator: quytrong287 <quytrong287@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/meecast/"
@@ -1110,7 +1110,7 @@ msgstr "Tuyết dày"
 msgid "Heavy Snow / Wind"
 msgstr "Mưa lớn / Gió"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:347
 #, fuzzy
 msgid "Heavy intensity rain"
 msgstr "Mưa to"
@@ -1312,6 +1312,11 @@ msgstr "Tuyết nhẹ mau"
 msgid "Light rain"
 msgstr "Mưa nhẹ"
 
+#: omweather/src/hash.data:338
+#, fuzzy
+msgid "Light snow"
+msgstr "Tuyết nhẹ"
+
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
 msgstr "Đang tải danh sách trạm"
@@ -1381,12 +1386,12 @@ msgstr "Miles"
 msgid "Mist"
 msgstr "Sương mù"
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:340
 #, fuzzy
 msgid "Moderate Rain"
 msgstr "U ám và mưa"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:339
 #, fuzzy
 msgid "Moderate rain"
 msgstr "U ám và mưa"
@@ -1674,7 +1679,7 @@ msgstr "Tin tức thời tiết Maemo khác"
 msgid "Overcast"
 msgstr "Âm u"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 #, fuzzy
 msgid "Overcast Clouds"
 msgstr "Âm u"
@@ -1715,7 +1720,7 @@ msgstr "Âm u và tuyết ướt"
 msgid "Overcast and wet snow showers"
 msgstr "Âm u và tuyết ướt,mau"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:341
 #, fuzzy
 msgid "Overcast clouds"
 msgstr "Âm u"
@@ -2108,7 +2113,7 @@ msgstr "S_ngắn"
 msgid "Save"
 msgstr "Lưu"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:344
 #, fuzzy
 msgid "Scattered Clouds"
 msgstr "Tuyết rải rác"
@@ -2129,7 +2134,7 @@ msgstr "Tuyết rào rải rác"
 msgid "Scattered T-Storms"
 msgstr "Sấm sét rải rác"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 #, fuzzy
 msgid "Scattered clouds"
 msgstr "Tuyết rải rác"
@@ -2316,12 +2321,12 @@ msgstr "Mưa rào muộn"
 msgid "Showers in the Vicinity"
 msgstr "Mưa ở vùng lân cận"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:346
 #, fuzzy
 msgid "Sky is Clear"
 msgstr "Ít mây, trời quang"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:345
 #, fuzzy
 msgid "Sky is clear"
 msgstr "Ít mây, trời quang"
@@ -2513,7 +2518,7 @@ msgstr "Cám ơn"
 msgid "The weather has been updated."
 msgstr "Thời tiết đã được cập nhật"
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:348
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
@@ -3093,35 +3098,35 @@ msgstr "Tên quốc gia"
 msgid "steady"
 msgstr "Ổn định"
 
-#: omweather/src/hash.data:348
+#: omweather/src/hash.data:349
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:350
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:351
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:352
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:353
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:354
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:355
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:356
 msgid "Ю-З"
 msgstr "Ю-З"
 

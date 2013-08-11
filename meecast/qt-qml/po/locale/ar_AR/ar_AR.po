@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-09 22:33+0300\n"
+"POT-Creation-Date: 2013-08-11 15:31+0300\n"
 "PO-Revision-Date: 2013-05-18 15:13+0000\n"
 "Last-Translator: Tarad Alfandi <ttt0600@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/meecast/language/"
@@ -1135,7 +1135,7 @@ msgstr "ثلوج كثيفه"
 msgid "Heavy Snow / Wind"
 msgstr "ثلج كثيف/رياح"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:347
 #, fuzzy
 msgid "Heavy intensity rain"
 msgstr "أمطار كثيفه"
@@ -1335,6 +1335,11 @@ msgstr "ثلوج خفيفة متفرقة"
 msgid "Light rain"
 msgstr "أمطار خفيفة"
 
+#: omweather/src/hash.data:338
+#, fuzzy
+msgid "Light snow"
+msgstr "ثلوج خفيفة"
+
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
 msgstr "تحميل قائمة المحطات"
@@ -1403,12 +1408,12 @@ msgstr "أميال"
 msgid "Mist"
 msgstr "سحب"
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:340
 #, fuzzy
 msgid "Moderate Rain"
 msgstr "(معتدل)"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:339
 #, fuzzy
 msgid "Moderate rain"
 msgstr "(معتدل)"
@@ -1696,7 +1701,7 @@ msgstr "معلومات Meamo Weather أُخرى"
 msgid "Overcast"
 msgstr "معتم"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 #, fuzzy
 msgid "Overcast Clouds"
 msgstr "معتم"
@@ -1737,7 +1742,7 @@ msgstr " معتم مع ثلوج رطبه"
 msgid "Overcast and wet snow showers"
 msgstr "معتم مع زخات ثلج رطبه"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:341
 #, fuzzy
 msgid "Overcast clouds"
 msgstr "معتم"
@@ -2129,7 +2134,7 @@ msgstr "S_short"
 msgid "Save"
 msgstr "حفظ"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:344
 #, fuzzy
 msgid "Scattered Clouds"
 msgstr "ثلوج مُتفرقة"
@@ -2150,7 +2155,7 @@ msgstr "ثلوج مُتساقطة مُتفرقة"
 msgid "Scattered T-Storms"
 msgstr "عواصف رعديه مُتفرقة"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 #, fuzzy
 msgid "Scattered clouds"
 msgstr "ثلوج مُتفرقة"
@@ -2333,12 +2338,12 @@ msgstr "زخات متأخره"
 msgid "Showers in the Vicinity"
 msgstr "زخات مطر في المنطقة المجاورة"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:346
 #, fuzzy
 msgid "Sky is Clear"
 msgstr "صحو كلياً"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:345
 #, fuzzy
 msgid "Sky is clear"
 msgstr "صحو كلياً"
@@ -2530,7 +2535,7 @@ msgstr "شكرا"
 msgid "The weather has been updated."
 msgstr "تم تحديث الطقس"
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:348
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
@@ -3116,34 +3121,34 @@ msgstr "إسم الوقع"
 msgid "steady"
 msgstr "ثابت"
 
-#: omweather/src/hash.data:348
+#: omweather/src/hash.data:349
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:350
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:351
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:352
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:353
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:354
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:355
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:356
 msgid "Ю-З"
 msgstr "Ю-З"

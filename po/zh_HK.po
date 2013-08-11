@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-11 10:04+0300\n"
+"POT-Creation-Date: 2013-08-11 15:31+0300\n"
 "PO-Revision-Date: 2013-07-23 05:02+0000\n"
 "Last-Translator: michaelmhk <micmhk@gmail.com>\n"
 "Language-Team: Chinese (Hong Kong) (http://www.transifex.com/projects/p/"
@@ -1123,7 +1123,7 @@ msgstr "大雪"
 msgid "Heavy Snow / Wind"
 msgstr "大雨時有風"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:347
 #, fuzzy
 msgid "Heavy intensity rain"
 msgstr "豪大雨"
@@ -1323,6 +1323,11 @@ msgstr "小鎮雪"
 msgid "Light rain"
 msgstr "小雨"
 
+#: omweather/src/hash.data:338
+#, fuzzy
+msgid "Light snow"
+msgstr "小雪"
+
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
 msgstr "載入站點清單中"
@@ -1391,12 +1396,12 @@ msgstr "英里"
 msgid "Mist"
 msgstr "迷濛"
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:340
 #, fuzzy
 msgid "Moderate Rain"
 msgstr "中等雨量"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:339
 #, fuzzy
 msgid "Moderate rain"
 msgstr "中等雨量"
@@ -1684,7 +1689,7 @@ msgstr "其他 Maemo 氣象資訊"
 msgid "Overcast"
 msgstr "陰天"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 #, fuzzy
 msgid "Overcast Clouds"
 msgstr "陰天"
@@ -1725,7 +1730,7 @@ msgstr "陰帶濕雪"
 msgid "Overcast and wet snow showers"
 msgstr "陰帶濕陣雪"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:341
 #, fuzzy
 msgid "Overcast clouds"
 msgstr "陰天"
@@ -2117,7 +2122,7 @@ msgstr ""
 msgid "Save"
 msgstr "儲存"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:344
 #, fuzzy
 msgid "Scattered Clouds"
 msgstr "零星陣雨"
@@ -2138,7 +2143,7 @@ msgstr "零星陣雪"
 msgid "Scattered T-Storms"
 msgstr "零星雷雨"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 #, fuzzy
 msgid "Scattered clouds"
 msgstr "零星陣雨"
@@ -2321,11 +2326,11 @@ msgstr "晚有陣雨"
 msgid "Showers in the Vicinity"
 msgstr "附近有陣雨"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:346
 msgid "Sky is Clear"
 msgstr "天晴"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:345
 #, fuzzy
 msgid "Sky is clear"
 msgstr "天晴"
@@ -2517,7 +2522,7 @@ msgstr "感謝"
 msgid "The weather has been updated."
 msgstr "氣象資訊已更新。"
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:348
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
@@ -3094,34 +3099,34 @@ msgstr "站點名稱"
 msgid "steady"
 msgstr ""
 
-#: omweather/src/hash.data:348
+#: omweather/src/hash.data:349
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:350
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:351
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:352
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:353
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:354
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:355
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:356
 msgid "Ю-З"
 msgstr "Ю-З"

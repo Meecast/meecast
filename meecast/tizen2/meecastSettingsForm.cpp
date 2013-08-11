@@ -31,27 +31,22 @@ using namespace Tizen::Ui::Controls;
 using namespace Tizen::Ui::Scenes;
 
 static const int LIST_HEIGHT = 112;
-static const int BUTTON_HEIGHT = 74;
 
 meecastSettingsForm::meecastSettingsForm(void)
-                    : __pListView(null)
-{
+                    : __pListView(null){
 }
 
-meecastSettingsForm::~meecastSettingsForm(void)
-{
+meecastSettingsForm::~meecastSettingsForm(void){
 }
 
 bool
-meecastSettingsForm::Initialize(void)
-{
+meecastSettingsForm::Initialize(void){
     Construct(L"SETTINGS_FORM");
     return true;
 }
 
 result
-meecastSettingsForm::OnInitializing(void)
-{
+meecastSettingsForm::OnInitializing(void){
     result r = E_SUCCESS;
 
     // TODO:
@@ -72,24 +67,6 @@ meecastSettingsForm::OnInitializing(void)
 
     // Adds the list view to the form
     AddControl(*__pListView);
-
-    // Get a button via resource ID
-//    Tizen::Ui::Controls::Button *pButtonOk = static_cast<Button*>(GetControl(L"IDC_BUTTON_OK"));
-//    if (pButtonOk != null)
-//    {
-//        pButtonOk->SetActionId(ID_BUTTON_OK);
-//        pButtonOk->AddActionEventListener(*this);
-//    }
-    /* Footer */
-  //  Footer* pFooter = GetFooter();
-  //  pFooter->SetStyle(FOOTER_STYLE_BUTTON_ICON_TEXT);
-
-  //  FooterItem menuButton;
-   // menuButton.Construct(ID_BUTTON_MENU);
-  //  menuButton.SetText("Menu");
-  //  pFooter->AddItem(menuButton);
-  //  pFooter->AddActionEventListener(*this);
-
     return r;
 }
 

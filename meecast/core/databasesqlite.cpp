@@ -507,9 +507,6 @@ DatabaseSqlite::calculate_distance(double lat1, double lon1,
                                    double lat2, double lon2) {
     double dlat, dlon, slat, slon, a;
 
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
     /* Convert to radians. */
     lat1 = deg2rad(lat1);
     lon1 = deg2rad(lon1);
@@ -531,7 +528,6 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
                                     std::string& code, std::string& name,
                                     double& latitude, double& longitude)
 {
-    char sql[512];
     int rc;
     char *errMsg = NULL;
     char **result;
@@ -539,21 +535,46 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
     double  distance,
             min_distance = 40000.0;
 
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-/*
-    if (!db)
-        return; // database doesn't open 
-*/
-    snprintf(sql,
-             sizeof(sql) - 1,
-             "select regions.name, stations.code, stations.name, stations.latitude, stations.longititude, countries.name \
+    double result_lat, result_lon;
+    String sql;
+    DbEnumerator* pEnum;
+
+    AppLog ("get_nearest_station");
+    sql.Append(L"select regions.name, stations.code, stations.name, stations.latitude, stations.longititude, countries.name \
              from regions left join stations on regions.id=stations.region_id \
              left join countries on regions.country_id=countries.id \
-             where regions.latitudemax>%f and regions.latitudemin<%f and regions.longititudemax>%f and regions.longititudemin<%f",
-             lat, lat, lon, lon);
-    std::cerr << "sql = " << sql << std::endl;
+             where regions.latitudemax>");
+     sql.Append(lat);        
+     sql.Append(" and regions.latitudemin<");
+     sql.Append(lat);        
+     sql.Append(" and regions.longititudemax>");
+     sql.Append(lon);        
+     sql.Append(" and regions.longititudemin<");
+     sql.Append(lon);        
+
+     AppLog ("Sql %S",sql.GetPointer());
+     pEnum = db.QueryN(sql);
+     while (pEnum && pEnum->MoveNext() == E_SUCCESS){
+        pEnum->GetDoubleAt(3, result_lat);
+        pEnum->GetDoubleAt(4, result_lon);
+        AppLog("sssss2 %f %f", result_lat, result_lon);
+        distance = DatabaseSqlite::calculate_distance(lat, lon, result_lat, result_lon);
+        AppLog ("Distance %f", distance);
+        /*
+        if (distance < min_distance){
+            min_distance = distance;
+            country = result[ncol+i+5];
+            region = result[ncol+i+0];
+            code = result[ncol+i+1];
+            name = result[ncol+i+2];
+            latitude = atof(result[ncol+i+3]);
+            longitude = atof(result[ncol+i+4]);
+        }
+        */
+
+     }
+
+
 /*
     rc = sqlite3_get_table(db,
                            sql,
@@ -586,9 +607,6 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
     }
     sqlite3_free_table(result);
 */
-#ifdef DEBUGFUNCTIONCALL
-    END_FUNCTION;
-#endif
 
 }
 

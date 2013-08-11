@@ -22,6 +22,8 @@
 */
 /*******************************************************************************/
 #include <FApp.h>
+#include <FLocations.h>
+#include <FSystem.h>
 #include "meecastManageLocationsForm.h"
 
 using namespace Tizen::Base;
@@ -31,9 +33,9 @@ using namespace Tizen::Ui::Controls;
 using namespace Tizen::Ui::Scenes;
 using namespace Tizen::Graphics;
 using namespace Tizen::Base::Collection;
+using namespace Tizen::Locations;
 
 static const int LIST_HEIGHT = 112;
-static const int BUTTON_HEIGHT = 74;
 
 meecastManageLocationsForm::meecastManageLocationsForm(void)
                     : __pListView(null)
@@ -173,7 +175,7 @@ meecastManageLocationsForm::CreateItem (int index, int itemWidth)
 
     if (index == 0){
         pStr = new String (_("Find location via GPS"));
-        pItem->AddElement(Tizen::Graphics::Rectangle(26, 32, 600, 50), 0, *pStr, 36,
+        pItem->AddElement(Tizen::Graphics::Rectangle(16, 32, 700, 50), 0, *pStr, 36,
                           Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)),
                           Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)),
                           Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)), true);
@@ -183,7 +185,7 @@ meecastManageLocationsForm::CreateItem (int index, int itemWidth)
             __pListView->SetItemChecked(index, false);
     }else{
         pStr = new String (_config->stationsList().at(index -1)->name().c_str()); 
-        pItem->AddElement(Tizen::Graphics::Rectangle(26, 32, 600, 50), 0, *pStr, true);
+        pItem->AddElement(Tizen::Graphics::Rectangle(16, 32, 700, 50), 0, *pStr, true);
         __pListView->SetItemChecked(index, true);
     }
 	return pItem;
@@ -217,10 +219,56 @@ meecastManageLocationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::List
     if (index == 0){
         if (status ==  LIST_ITEM_STATUS_UNCHECKED)
             _config->Gps(false);
-        else
-            _config->Gps(true);
+        else{
+            bool check;
+            Tizen::System::SystemInfo::GetValue("http://tizen.org/feature/location", check); 
+            if (check)
+                _config->Gps(true);
+            else
+                _config->Gps(false);
+        }
         _config->saveConfig();
         AppLog("Gps is changed ");
+        if (_config->Gps()){
+            result lastResult = E_SUCCESS;
+            LocationCriteria locCriteria;
+
+            locCriteria.SetAccuracy(LOC_ACCURACY_ANY);
+
+            Location location = LocationProvider::GetLocation(locCriteria);
+
+            lastResult = GetLastResult();
+
+            if (lastResult == E_USER_NOT_CONSENTED){
+                int doModal;
+                MessageBox messageBox;
+                messageBox.Construct(L"Error", "The user has disabled the required settings.", MSGBOX_STYLE_OK, 0);
+                messageBox.ShowAndWait(doModal);
+            }else{
+                AppLog("Yes!!!");
+                AppLog ("Latitude %d",location.GetCoordinates().GetLatitude());
+                AppLog ("Longitude %d",location.GetCoordinates().GetLongitude());
+                String dbPath;
+                dbPath.Append(App::GetInstance()->GetAppResourcePath());
+                dbPath.Append("db/openweathermap.org.db");
+                if (Database::Exists(dbPath) == true){
+
+                    Core::DatabaseSqlite *__db;
+                    __db = new Core::DatabaseSqlite(dbPath);
+
+                    if (__db->open_database() == true){
+                        std::string country,  region,
+                                     code,  name;
+                        double latitude, longitude;
+                        __db->get_nearest_station(location.GetCoordinates().GetLatitude(), location.GetCoordinates().GetLongitude(), country, region, code,  name, latitude, longitude);
+
+                    }
+                    delete __db;
+                }
+
+
+            }
+        }
     }else{
         if (status ==  LIST_ITEM_STATUS_UNCHECKED){
             DeleteMessageBox(_config->stationsList().at(index-1)->name().c_str(), index-1);

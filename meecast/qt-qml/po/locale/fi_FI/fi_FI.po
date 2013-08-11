@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-09 22:33+0300\n"
+"POT-Creation-Date: 2013-08-11 15:31+0300\n"
 "PO-Revision-Date: 2013-06-20 14:09+0000\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
@@ -1140,7 +1140,7 @@ msgstr "Kova lumisade"
 msgid "Heavy Snow / Wind"
 msgstr "Kovaa lumisadetta / Tuulista"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:347
 #, fuzzy
 msgid "Heavy intensity rain"
 msgstr "Rankaa vesisadetta"
@@ -1340,6 +1340,11 @@ msgstr "Kevyitä lumikuuroja"
 msgid "Light rain"
 msgstr "kevyttä vesisadetta"
 
+#: omweather/src/hash.data:338
+#, fuzzy
+msgid "Light snow"
+msgstr "Kevyttä lumisadetta"
+
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
 msgstr "Ladataan asemalistaa"
@@ -1409,12 +1414,12 @@ msgstr "Maileja"
 msgid "Mist"
 msgstr "Utua"
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:340
 #, fuzzy
 msgid "Moderate Rain"
 msgstr "kohtalaista vesisadetta"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:339
 #, fuzzy
 msgid "Moderate rain"
 msgstr "kohtalaista vesisadetta"
@@ -1702,7 +1707,7 @@ msgstr "Other Maemo Weather Tietoja"
 msgid "Overcast"
 msgstr "Pilvistä"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 #, fuzzy
 msgid "Overcast Clouds"
 msgstr "Pilvistä"
@@ -1743,7 +1748,7 @@ msgstr "Pilvistä ja räntäsadetta"
 msgid "Overcast and wet snow showers"
 msgstr "Pilvistä ja räntäsadetta"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:341
 #, fuzzy
 msgid "Overcast clouds"
 msgstr "Pilvistä"
@@ -2135,7 +2140,7 @@ msgstr "Etelästä"
 msgid "Save"
 msgstr "Tallenna"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:344
 #, fuzzy
 msgid "Scattered Clouds"
 msgstr "Hajanaisia lumisateita"
@@ -2156,7 +2161,7 @@ msgstr "Hajanaisia lumikuuroja"
 msgid "Scattered T-Storms"
 msgstr "Hajanaisia ukkoskuuroja"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 #, fuzzy
 msgid "Scattered clouds"
 msgstr "Hajanaisia lumisateita"
@@ -2339,11 +2344,11 @@ msgstr "Myöhemmin Sadekuuroja"
 msgid "Showers in the Vicinity"
 msgstr "Sadekuuroja lähialueilla"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:346
 msgid "Sky is Clear"
 msgstr "Selkeää"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:345
 #, fuzzy
 msgid "Sky is clear"
 msgstr "selkeää"
@@ -2535,7 +2540,7 @@ msgstr "Kiitokset"
 msgid "The weather has been updated."
 msgstr "Säätiedot päivitetty."
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:348
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
@@ -3127,34 +3132,34 @@ msgstr "aseman nimessä"
 msgid "steady"
 msgstr "tasainen"
 
-#: omweather/src/hash.data:348
+#: omweather/src/hash.data:349
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:350
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:351
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:352
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:353
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:354
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:355
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:356
 msgid "Ю-З"
 msgstr "Ю-З"

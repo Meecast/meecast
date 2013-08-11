@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-11 10:11+0300\n"
+"POT-Creation-Date: 2013-08-11 15:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1021,7 +1021,7 @@ msgstr ""
 msgid "Heavy Snow / Wind"
 msgstr ""
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:347
 msgid "Heavy intensity rain"
 msgstr ""
 
@@ -1217,6 +1217,10 @@ msgstr ""
 msgid "Light rain"
 msgstr ""
 
+#: omweather/src/hash.data:338
+msgid "Light snow"
+msgstr ""
+
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
 msgstr ""
@@ -1281,11 +1285,11 @@ msgstr ""
 msgid "Mist"
 msgstr ""
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:340
 msgid "Moderate Rain"
 msgstr ""
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:339
 msgid "Moderate rain"
 msgstr ""
 
@@ -1572,7 +1576,7 @@ msgstr ""
 msgid "Overcast"
 msgstr ""
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 msgid "Overcast Clouds"
 msgstr ""
 
@@ -1612,7 +1616,7 @@ msgstr ""
 msgid "Overcast and wet snow showers"
 msgstr ""
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:341
 msgid "Overcast clouds"
 msgstr ""
 
@@ -2003,7 +2007,7 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:344
 msgid "Scattered Clouds"
 msgstr ""
 
@@ -2023,7 +2027,7 @@ msgstr ""
 msgid "Scattered T-Storms"
 msgstr ""
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 msgid "Scattered clouds"
 msgstr ""
 
@@ -2205,11 +2209,11 @@ msgstr ""
 msgid "Showers in the Vicinity"
 msgstr ""
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:346
 msgid "Sky is Clear"
 msgstr ""
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:345
 msgid "Sky is clear"
 msgstr ""
 
@@ -2400,7 +2404,7 @@ msgstr ""
 msgid "The weather has been updated."
 msgstr ""
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:348
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
@@ -2961,34 +2965,34 @@ msgstr ""
 msgid "steady"
 msgstr ""
 
-#: omweather/src/hash.data:348
+#: omweather/src/hash.data:349
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:350
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:351
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:352
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:353
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:354
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:355
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:356
 msgid "Ю-З"
 msgstr ""

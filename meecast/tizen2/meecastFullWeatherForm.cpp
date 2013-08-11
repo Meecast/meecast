@@ -613,7 +613,10 @@ meecastFullWeatherForm::ReInitElements(void){
                         temp_data->WindSpeed().value(), _(_config->WindSpeedUnit().c_str()));
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
-                _pKeyList->Add(new String(_("Wind speed:")));
+                String *temp_String;
+                temp_String =  new String(_("Wind speed"));
+                temp_String->Append(":");
+                _pKeyList->Add(temp_String);
             };
             /* Humidity */
             if (temp_data->Humidity() != INT_MAX){

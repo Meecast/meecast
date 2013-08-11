@@ -149,7 +149,7 @@ meecastManageLocationsForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId&
 int
 meecastManageLocationsForm::GetItemCount(void)
 {
-    return _config->stationsList().size();
+    return _config->stationsList().size() + 1;
 }
 
 bool
@@ -168,10 +168,21 @@ meecastManageLocationsForm::CreateItem (int index, int itemWidth)
 
 //    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_DETAILED);
     pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_ONOFF_SLIDING);
-    String* pStr = new String (_config->stationsList().at(index)->name().c_str()); 
-    pItem->AddElement(Tizen::Graphics::Rectangle(26, 32, 600, 50), 0, *pStr, false);
+    String* pStr;
 
-    __pListView->SetItemChecked(index, true);
+    if (index == 0){
+        pStr = new String (_("Find location via GPS"));
+    }else{
+        pStr = new String (_config->stationsList().at(index -1)->name().c_str()); 
+    }
+    pItem->AddElement(Tizen::Graphics::Rectangle(26, 32, 600, 50), 0, *pStr, false);
+    if (index == 0){
+        if (_config->Gps())
+            __pListView->SetItemChecked(index, true);
+        else
+            __pListView->SetItemChecked(index, false);
+    }else
+        __pListView->SetItemChecked(index, true);
 	return pItem;
 }
 
@@ -201,29 +212,29 @@ meecastManageLocationsForm::DeleteMessageBox(const Tizen::Base::String& Station,
 void
 meecastManageLocationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
 {
-    if (status ==  LIST_ITEM_STATUS_UNCHECKED){
-        DeleteMessageBox(_config->stationsList().at(index)->name().c_str(), index);
-        listView.UpdateList();
-   	}
+    if (index == 0){
+        AppLog("Gps is changed ");
+    }else{
+        if (status ==  LIST_ITEM_STATUS_UNCHECKED){
+            DeleteMessageBox(_config->stationsList().at(index-1)->name().c_str(), index-1);
+            listView.UpdateList();
+        }
+    }
 }
 void
-meecastManageLocationsForm::OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction)
-{
-}
-
-void
-meecastManageLocationsForm::OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state)
-{
+meecastManageLocationsForm::OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction){
 }
 
 void
-meecastManageLocationsForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex)
-{
+meecastManageLocationsForm::OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state){
 }
 
 void
-meecastManageLocationsForm::GetStationsList(void)
-{
+meecastManageLocationsForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex){
+}
+
+void
+meecastManageLocationsForm::GetStationsList(void){
 }
 
 

@@ -655,6 +655,13 @@ Config::LoadConfig(){
             if (!xmlStrcmp(p->name, (const xmlChar*)"language")){
                 _language->assign(std::string((char *)xmlNodeGetContent(p)));
             }
+            if (!xmlStrcmp(p->name, (const xmlChar*)"gps")){
+                if(!xmlStrcmp(xmlNodeGetContent(p),(const xmlChar*)"true"))
+                    Gps(true);
+                else
+                    Gps(false);
+            }
+
             if (!xmlStrcmp(p->name, (const xmlChar*)"station")){
                 bool gps = false;
                 for(xmlNodePtr p1 = p->children; p1; p1 = p1->next) {

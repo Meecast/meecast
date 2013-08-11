@@ -1,21 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+# Translators:
+# osk2 <sc60714@gmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-11 09:56+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2013-08-10 08:23+0000\n"
+"Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/meecast/"
+"language/zh_TW/)\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
@@ -42,6 +44,21 @@ msgid ""
 "for Semi-transparency\n"
 "and coloured backgrounds\n"
 msgstr ""
+"\n"
+"Hildon desktop applet\n"
+"for the Nokia N800/N810/N900\n"
+"to show weather forecasts.\n"
+"Version %s Build: %s\n"
+"Copyright(c) 2006-2011\n"
+"Vlad Vasiliev, Pavel Fialko\n"
+"Copyright(c) 2008\n"
+"for default icon set (Glance)\n"
+"and design of interface\n"
+"Andrew Zhilin\n"
+"Copyright(c) 2008\n"
+"Andrew Olmsted\n"
+"for Semi-transparency\n"
+"and coloured backgrounds\n"
 
 #: omweather/src/weather-home.c:1383 omweather/src/weather-home.c:1439
 #: omweather/src/weather-popup.c:965 omweather/src/weather-popup.c:1098
@@ -49,6 +66,8 @@ msgid ""
 "\n"
 "Humidity: "
 msgstr ""
+"\n"
+"濕度"
 
 #: omweather/src/weather-home.c:1608
 msgid ""
@@ -62,12 +81,16 @@ msgid ""
 "\n"
 "Precipitation: "
 msgstr ""
+"\n"
+"降雨機率"
 
 #: omweather/src/weather-popup.c:976 omweather/src/weather-popup.c:1108
 msgid ""
 "\n"
 "Pressure: "
 msgstr ""
+"\n"
+"氣壓"
 
 #: omweather/src/weather-home.c:1577
 msgid ""
@@ -92,165 +115,165 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:1714
 #: omweather/src/weather-simple-settings.c:2811
 msgid "1 day"
-msgstr ""
+msgstr "1 天"
 
 #: omweather/src/weather-settings.c:4240
 #: omweather/src/weather-simple-settings.c:1696
 #: omweather/src/weather-simple-settings.c:2805
 #: meecast/qt-qml/qml/UpdatePage.qml:154
 msgid "1 hour"
-msgstr ""
+msgstr "1 小時"
 
 #: omweather/src/weather-sensor.c:143
 msgid "1 minute"
-msgstr ""
+msgstr "1 分鐘"
 
 #: omweather/src/weather-sensor.c:149
 msgid "10 minutes"
-msgstr ""
+msgstr "10 分鐘"
 
 #: omweather/src/weather-settings.c:4192
 msgid "10 seconds"
-msgstr ""
+msgstr "10 秒"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:175
 msgid "12 hours"
-msgstr ""
+msgstr "12 小時"
 
 #: omweather/src/weather-sensor.c:151 meecast/qt-qml/qml/UpdatePage.qml:140
 msgid "15 minutes"
-msgstr ""
+msgstr "15 分鐘"
 
 #: omweather/src/weather-settings.c:4242 meecast/qt-qml/qml/UpdatePage.qml:161
 msgid "2 hours"
-msgstr ""
+msgstr "2 小時"
 
 #: omweather/src/weather-settings.c:4194
 msgid "20 seconds"
-msgstr ""
+msgstr "20 秒"
 
 #: omweather/src/weather-sensor.c:145
 msgid "3 minutes"
-msgstr ""
+msgstr "3 分鐘"
 
 #: omweather/src/weather-sensor.c:153 meecast/qt-qml/qml/UpdatePage.qml:147
 msgid "30 minutes"
-msgstr ""
+msgstr "30 分鐘"
 
 #: omweather/src/weather-settings.c:4196
 msgid "30 seconds"
-msgstr ""
+msgstr "30 秒"
 
 #: omweather/src/weather-settings.c:4244
 #: omweather/src/weather-simple-settings.c:1705
 #: omweather/src/weather-simple-settings.c:2808
 #: meecast/qt-qml/qml/UpdatePage.qml:168
 msgid "4 hours"
-msgstr ""
+msgstr "4 小時"
 
 #: omweather/src/weather-settings.c:4198
 msgid "40 seconds"
-msgstr ""
+msgstr "40 秒"
 
 #: omweather/src/weather-sensor.c:147
 msgid "5 minutes"
-msgstr ""
+msgstr "5 分鐘"
 
 #: omweather/src/weather-settings.c:4200
 msgid "50 seconds"
-msgstr ""
+msgstr "50 秒"
 
 #: omweather/src/weather-settings.c:4202
 msgid "60 seconds"
-msgstr ""
+msgstr "60 秒"
 
 #: omweather/src/weather-settings.c:4246
 msgid "8 hours"
-msgstr ""
+msgstr "8 小時"
 
 #: omweather/src/hash.data:4
 msgid "AM Clouds / PM Sun"
-msgstr ""
+msgstr "午前有雲／午後晴"
 
 #: omweather/src/hash.data:6
 msgid "AM Drizzle"
-msgstr ""
+msgstr "午前毛毛雨"
 
 #: omweather/src/hash.data:5
 msgid "AM Drizzle / Wind"
-msgstr ""
+msgstr "午前毛毛雨時有風"
 
 #: omweather/src/hash.data:7
 msgid "AM Fog / PM Clouds"
-msgstr ""
+msgstr "午前有霧／午後有雲"
 
 #: omweather/src/hash.data:8
 msgid "AM Fog / PM Sun"
-msgstr ""
+msgstr "午前有霧／午後晴"
 
 #: omweather/src/hash.data:10
 msgid "AM Light Rain"
-msgstr ""
+msgstr "午前小雨"
 
 #: omweather/src/hash.data:9
 msgid "AM Light Rain / Wind"
-msgstr ""
+msgstr "午前小雨時有風"
 
 #: omweather/src/hash.data:12
 msgid "AM Light Snow"
-msgstr ""
+msgstr "午前小雪"
 
 #: omweather/src/hash.data:11
 msgid "AM Light Snow / Wind"
-msgstr ""
+msgstr "午前有雪時有風"
 
 #: omweather/src/hash.data:13
 msgid "AM Light Wintry Mix"
-msgstr ""
+msgstr "午前小雨雪混合"
 
 #: omweather/src/hash.data:18
 msgid "AM Rain"
-msgstr ""
+msgstr "午前有雨"
 
 #: omweather/src/hash.data:16
 msgid "AM Rain / Snow"
-msgstr ""
+msgstr "午前有雨時有雪"
 
 #: omweather/src/hash.data:15
 msgid "AM Rain / Snow Showers"
-msgstr ""
+msgstr "午前有雨時有陣雪"
 
 #: omweather/src/hash.data:14
 msgid "AM Rain / Snow Showers / Wind"
-msgstr ""
+msgstr "午前有雨時有陣雪疾風"
 
 #: omweather/src/hash.data:17
 msgid "AM Rain / Wind"
-msgstr ""
+msgstr "午前有雨疾風"
 
 #: omweather/src/hash.data:20
 msgid "AM Showers"
-msgstr ""
+msgstr "五前鎮雨"
 
 #: omweather/src/hash.data:19
 msgid "AM Showers / Wind"
-msgstr ""
+msgstr "雨前鎮雨時有風"
 
 #: omweather/src/hash.data:24
 msgid "AM Snow"
-msgstr ""
+msgstr "午前有雪"
 
 #: omweather/src/hash.data:23
 msgid "AM Snow Showers"
-msgstr ""
+msgstr "午前陣雪"
 
 #: omweather/src/hash.data:22
 msgid "AM Snow Showers / Wind"
-msgstr ""
+msgstr "午前陣雪時有風"
 
 #: omweather/src/hash.data:21
 msgid "AM Snow Showers / Wind Late"
-msgstr ""
+msgstr "午前陣雪晚有風"
 
 #: omweather/src/weather-home.c:1286 omweather/src/weather-help.c:100
 #: omweather/src/weather-simple-popup.c:1164
@@ -258,28 +281,28 @@ msgstr ""
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
 #: meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
-msgstr ""
+msgstr "關於"
 
 #: omweather/src/weather-download.c:417
 msgid "Access denied to the given URL."
-msgstr ""
+msgstr "指定的 URL 存取被拒。"
 
 #: omweather/src/weather-simple-popup.c:283
 msgid "Action|Update"
-msgstr ""
+msgstr "動作 | 更新"
 
 #: omweather/src/weather-settings.c:480
 msgid "Add"
-msgstr ""
+msgstr "新增"
 
 #: omweather/src/weather-settings.c:467
 msgid "Add Station"
-msgstr ""
+msgstr "新增佔點"
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
 #: omweather/src/weather-settings.c:1381
 msgid "Alerts"
-msgstr ""
+msgstr "警報"
 
 #: omweather/src/weather-help.c:125
 msgid ""
@@ -293,18 +316,27 @@ msgid ""
 "Timeless - for patches \n"
 "Eric Link - for feature request and donation\n"
 msgstr ""
+"Alexis Iglauer - 測試\n"
+"Eugene Roytenberg - 測試\n"
+"Jarek Szczepanski aka Imrahil - 測試\n"
+"Vladimir Shakhov aka Mendoza - 測試\n"
+"Marc Dillon - 英文用語檢查\n"
+"Arkady Glazov aka Globster - 測試\n"
+"Alexander Savchenko aka dizel - 測試\n"
+"Timeless - 功能補強\n"
+"Eric Link - 請求功能及贊助\n"
 
 #: omweather/src/weather-download.c:397
 msgid "An unknown error has occurred."
-msgstr ""
+msgstr "發生未知的錯誤。"
 
 #: omweather/src/weather-simple-settings.c:413
 msgid "Animation"
-msgstr ""
+msgstr "動畫"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:566
 msgid "Appearance"
-msgstr ""
+msgstr "外觀"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:94
 msgid ""
@@ -313,14 +345,16 @@ msgid ""
 "You should uninstall AccuWeather \n"
 "before installing this package"
 msgstr ""
+"程式管理員將會開始安裝 MeeCast applet。\n"
+"安裝之前請先將 AccuWeather 移除。"
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
-msgstr ""
+msgstr "你確定要刪除這個站點嗎？"
 
 #: omweather/src/weather-simple-settings.c:848
 msgid "Are you sure?"
-msgstr ""
+msgstr "你確定嗎？"
 
 #: omweather/src/weather-help.c:103
 msgid ""
@@ -330,39 +364,44 @@ msgid ""
 "Design UI and default iconset: Andrew Zhilin\n"
 "Design UI for Fremantle: Krebber Jan Niemelä Ulla\n"
 msgstr ""
+"作者及維護者： Vlad Vasiliev, <vlad@gas.by>\n"
+"維護者： Pavel Fialko, <pavelnf@gmail.com>\n"
+"文件： Marko Vertainen\n"
+"介面設計及預設圖示集： Andrew Zhilin\n"
+"Fremantle 介面設計： Krebber Jan Niemelä Ulla\n"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:415
 msgid "Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n"
-msgstr ""
+msgstr "作者及維護者： Vlad Vasilyeu, <vlad@gas.by>\n"
 
 #: omweather/src/weather-help.c:111
 msgid "Authors"
-msgstr ""
+msgstr "作者"
 
 #: omweather/src/weather-settings.c:4156
 msgid "Automatically update data when connecting to the Internet"
-msgstr ""
+msgstr "當連線至網路時自動更新資料"
 
 #: omweather/src/hash.data:330
 msgid "Back"
-msgstr ""
+msgstr "返回"
 
 #: omweather/src/weather-settings.c:3378 omweather/src/weather-settings.c:3382
 msgid "Background color:"
-msgstr ""
+msgstr "背景顏色："
 
 #: omweather/src/weather-simple-settings.c:1426
 msgid "Beauf."
-msgstr ""
+msgstr "蒲福氏"
 
 #: omweather/src/weather-settings.c:4021
 #: omweather/src/weather-simple-settings.c:2707
 msgid "Beaufort scale"
-msgstr ""
+msgstr "蒲福氏風級"
 
 #: omweather/src/hash.data:25
 msgid "Blowing Snow"
-msgstr ""
+msgstr "暴風雪"
 
 #: omweather/src/hash.data:332
 msgid "Broken Clouds"
@@ -390,307 +429,311 @@ msgstr ""
 
 #: meecast/qt-qml/qml/VisualsPage.qml:108
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: omweather/src/weather-config.c:383
 #, c-format
 msgid "Cannot get path to the HOME directory. Quitting.\n"
-msgstr ""
+msgstr "無法取得家目錄路徑。退出中。\n"
 
 #: omweather/src/weather-settings.c:3864
 msgid "Celcius"
-msgstr ""
+msgstr "攝氏溫度"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:114
 msgid "Celsius"
-msgstr ""
+msgstr "攝氏"
 
 #: omweather/src/weather-simple-settings.c:677
 #: omweather/src/weather-simple-settings.c:710
 #: omweather/src/weather-simple-settings.c:807
 #: omweather/src/weather-simple-settings.c:2341
 msgid "City"
-msgstr ""
+msgstr "程式"
 
 #: omweather/src/weather-settings.c:533
 msgid "City:"
-msgstr ""
+msgstr "城市："
 
 #: omweather/src/hash.data:29
 msgid "Clear"
-msgstr ""
+msgstr "清除"
 
 #: omweather/src/hash.data:27
 msgid "Clear / Wind"
-msgstr ""
+msgstr "晴時有風"
 
 #: omweather/src/hash.data:28
 msgid "Clear Sky"
-msgstr ""
+msgstr "天晴"
 
 #: omweather/src/hash.data:30
 msgid "Clear, Drifting Snow"
-msgstr ""
+msgstr "晴朗有吹雪"
 
 #: omweather/src/hash.data:31
 msgid "Clear, Fog"
-msgstr ""
+msgstr "晴朗有霧"
 
 #: omweather/src/hash.data:32
 msgid "Clear, Fog, Drizzle"
-msgstr ""
+msgstr "晴朗有霧及毛毛雨"
 
 #: omweather/src/hash.data:33
 msgid "Clear, Haze"
-msgstr ""
+msgstr "晴朗有埋"
 
 #: omweather/src/hash.data:34
 msgid "Clear, Smoke"
-msgstr ""
+msgstr "晴朗有煙"
 
 #: omweather/src/weather-settings.c:485
 msgid "Close"
-msgstr ""
+msgstr "關閉"
 
 #: omweather/src/hash.data:35
 msgid "Clouds Early / Clearing Late"
-msgstr ""
+msgstr "早有雲／婉轉晴"
 
 #: omweather/src/hash.data:47
 msgid "Cloudy"
-msgstr ""
+msgstr "多雲"
 
 #: omweather/src/hash.data:36
 msgid "Cloudy / Wind"
-msgstr ""
+msgstr "多雲時有風"
 
 #: omweather/src/hash.data:37
 msgid "Cloudy Few Snow"
-msgstr ""
+msgstr "多雲時有小雪"
 
 #: omweather/src/hash.data:38
 msgid "Cloudy Light Rain"
-msgstr ""
+msgstr "多雲時有小雨"
 
 #: omweather/src/hash.data:39
 msgid "Cloudy T-Storm"
-msgstr ""
+msgstr "多雲時有雷雨"
 
 #: omweather/src/hash.data:40
 msgid "Cloudy and Windy"
-msgstr ""
+msgstr "多雲時有強風"
 
 #: omweather/src/hash.data:41
 msgid "Cloudy and light rain"
-msgstr ""
+msgstr "多雲帶小雨"
 
 #: omweather/src/hash.data:42
 msgid "Cloudy and light snow"
-msgstr ""
+msgstr "多雲帶小雪"
 
 #: omweather/src/hash.data:43
 msgid "Cloudy and light wet snow"
-msgstr ""
+msgstr "多雲帶小失雪"
 
 #: omweather/src/hash.data:44
 msgid "Cloudy and showers"
-msgstr ""
+msgstr "多雲帶陣雨"
 
 #: omweather/src/hash.data:45
 msgid "Cloudy and snow showers"
-msgstr ""
+msgstr "多雲帶陣雪"
 
 #: omweather/src/hash.data:46
 msgid "Cloudy and wet snow showers"
-msgstr ""
+msgstr "陰帶濕陣雪"
 
 #: omweather/src/hash.data:48
 msgid "Cloudy, Drifting Snow"
-msgstr ""
+msgstr "多雲時有吹雪"
 
 #: omweather/src/hash.data:49
 msgid "Cloudy, Few Snow"
-msgstr ""
+msgstr "多雲時有小雪"
 
 #: omweather/src/hash.data:50
 msgid "Cloudy, Heavy Rain"
-msgstr ""
+msgstr "多雲時有大雨"
 
 #: omweather/src/hash.data:51
 msgid "Cloudy, Heavy Rain, T-Storm"
-msgstr ""
+msgstr "多雲時有大雨及雷雨"
 
 #: omweather/src/hash.data:52
 msgid "Cloudy, Heavy Snow"
-msgstr ""
+msgstr "多雲時有大雪"
 
 #: omweather/src/hash.data:53
 msgid "Cloudy, Light Rain"
-msgstr ""
+msgstr "多雲時有小雨"
 
 #: omweather/src/hash.data:54
 msgid "Cloudy, Light Rain, T-Storm"
-msgstr ""
+msgstr "多雲時有小雨及雷雨"
 
 #: omweather/src/hash.data:55
 msgid "Cloudy, Rain"
-msgstr ""
+msgstr "多雲時有雨"
 
 #: omweather/src/hash.data:56
 msgid "Cloudy, Rain, T-Storm"
-msgstr ""
+msgstr "多雲時有雨及雷雨"
 
 #: omweather/src/hash.data:57
 msgid "Cloudy, Smoke"
-msgstr ""
+msgstr "多雲時有煙"
 
 #: omweather/src/hash.data:59
 msgid "Cloudy, Snow"
-msgstr ""
+msgstr "多雲時有雪"
 
 #: omweather/src/hash.data:58
 msgid "Cloudy, thunderstorms with rain"
-msgstr ""
+msgstr "陰帶雷雨"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:413
 msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
-msgstr ""
+msgstr "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:414
 msgid "Copyright(c) 2010-2011 by Tanya Makova\n"
-msgstr ""
+msgstr "Copyright(c) 2010-2011 by Tanya Makova\n"
 
 #: omweather/src/weather-download.c:226
 msgid ""
 "Could not connecting to Internet.\n"
 "Connection timeout is expired."
 msgstr ""
+"無法連線至網路。\n"
+"連線已逾時。"
 
 #: omweather/src/weather-config.c:401
 #, c-format
 msgid "Could not create weather cache directory.\n"
-msgstr ""
+msgstr "無法產生氣象快取目錄。\n"
 
 #: omweather/src/weather-download.c:409
 msgid "Couldn't resolve host."
-msgstr ""
+msgstr "無法解析主機。"
 
 #: omweather/src/weather-download.c:405
 msgid "Couldn't resolve proxy."
-msgstr ""
+msgstr "無法解析 proxy。"
 
 #: omweather/src/weather-simple-settings.c:764
 #: omweather/src/weather-simple-settings.c:2313
 msgid "Country"
-msgstr ""
+msgstr "國家"
 
 #: omweather/src/weather-settings.c:510
 msgid "Country:"
-msgstr ""
+msgstr "國家："
 
 #: omweather/src/weather-simple-settings.c:2896
 msgid "Custom"
-msgstr ""
+msgstr "自訂"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:183
 msgid "Daily"
-msgstr ""
+msgstr "每天"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
 #: meecast/qt-qml/qml/FullWeatherPage.qml:188
 msgid "Day"
-msgstr ""
+msgstr "白天"
 
 #: omweather/src/weather-popup.c:1182
 msgid "Day length"
-msgstr ""
+msgstr "日長"
 
 #: omweather/src/hash.data:60 meecast/qt-qml/qml/FullWeatherPage.qml:298
 msgid "Day length:"
-msgstr ""
+msgstr "日長"
 
 #: omweather/src/weather-popup.c:913
 msgid "Day:"
-msgstr ""
+msgstr "白天"
 
 #: meecast/qt-qml/qml/StationsPage.qml:75
 msgid "Delete location?"
-msgstr ""
+msgstr "刪除地點？"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
 "Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
 "zhilin@ovi.com>\n"
 msgstr ""
+"介面設計及預設圖示集 Copyright 2006-2011 Andrew Zhilin, <andrew.zhilin@ovi."
+"com>\n"
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
 msgid "Detailed"
-msgstr ""
+msgstr "詳細"
 
 #: omweather/src/weather-settings.c:1128 omweather/src/weather-settings.c:1321
 #: omweather/src/weather-settings.c:1325
 msgid "Display"
-msgstr ""
+msgstr "顯示"
 
 #: omweather/src/weather-simple-settings.c:1315
 msgid "Distance"
-msgstr ""
+msgstr "距離"
 
 #: omweather/src/weather-settings.c:3894
 msgid "Distance units:"
-msgstr ""
+msgstr "距離單位"
 
 #: omweather/src/weather-settings.c:595
 msgid ""
 "Does not to add station, because no one\n"
 "of 'omweather-*-stations-db' packages was installed."
-msgstr ""
+msgstr "因未安裝任一 \"omweather-*-stations-db\" 套件，無法新增站點。"
 
 #: omweather/src/weather-simple-popup.c:1171
 #: omweather/src/weather-simple-popup.c:1220
 #: omweather/src/weather-simple-popup.c:1226
 msgid "Donation"
-msgstr ""
+msgstr "贊助"
 
 #: omweather/src/weather-settings.c:4164
 msgid "Download and show detailed weather"
-msgstr ""
+msgstr "下載及顯示更詳細的氣象"
 
 #: omweather/src/weather-download.c:429
 msgid "Download timed out."
-msgstr ""
+msgstr "下載逾時。"
 
 #: omweather/src/hash.data:61
 msgid "Drifting Snow"
-msgstr ""
+msgstr "吹雪"
 
 #: omweather/src/hash.data:66
 msgid "Drizzle"
-msgstr ""
+msgstr "毛毛雨"
 
 #: omweather/src/hash.data:62
 msgid "Drizzle / Fog"
-msgstr ""
+msgstr "毛毛雨時有霧"
 
 #: omweather/src/hash.data:63
 msgid "Drizzle / Wind"
-msgstr ""
+msgstr "毛毛雨時有風"
 
 #: omweather/src/hash.data:64
 msgid "Drizzle Early"
-msgstr ""
+msgstr "早有毛毛雨"
 
 #: omweather/src/hash.data:65
 msgid "Drizzle Late"
-msgstr ""
+msgstr "晚有毛毛雨"
 
 #: omweather/src/hash.data:67
 msgid "E"
-msgstr ""
+msgstr "東"
 
 #: omweather/src/hash.data:68
 msgid "ENE"
-msgstr ""
+msgstr "東北偏東"
 
 #: omweather/src/hash.data:69
 msgid "ENE_short"
@@ -698,7 +741,7 @@ msgstr ""
 
 #: omweather/src/hash.data:70
 msgid "ESE"
-msgstr ""
+msgstr "東南偏東"
 
 #: omweather/src/hash.data:71
 msgid "ESE_short"
@@ -721,41 +764,51 @@ msgid ""
 "Andrew aka Tabster - for testing and ideas\n"
 "Brad Jones aka kazrak - for testing\n"
 msgstr ""
+"Ed Bartosh - for more feature requests, support and criticism\n"
+"Daniel Wilms - for feature requests and testing\n"
+"Eugen Kaluta aka tren - for feature requests and support\n"
+"Maxim Kalinkevish aka spark for testing\n"
+"Yuri Komyakov - for Nokia 770 device \n"
+"Greg Thompson for support stations.txt file\n"
+"Frank Persian - for idea of new layout\n"
+"Brian Knight - for idea of iconset, criticism and donation ;-)\n"
+"Andrew aka Tabster - for testing and ideas\n"
+"Brad Jones aka kazrak - for testing\n"
 
 #: omweather/src/weather-simple-settings.c:330
 #: omweather/src/weather-simple-settings.c:421
 msgid "Edit custom layout"
-msgstr ""
+msgstr "編輯自訂頁面布局"
 
 #: omweather/src/weather-settings.c:2865
 msgid "Enable GPS"
-msgstr ""
+msgstr "啟用 GPS"
 
 #: meecast/qt-qml/qml/SearchField.qml:50
 msgid "Enter search"
-msgstr ""
+msgstr "輸入搜尋內容"
 
 #: omweather/src/weather-home.c:841
 #, c-format
 msgid "Error in xml file\n"
-msgstr ""
+msgstr "XML 檔案錯誤\n"
 
 #: omweather/src/weather-home.c:914
 msgid "Error initializing the OMWeather applet"
-msgstr ""
+msgstr "初始化 OMWeather applet 錯誤"
 
 #: omweather/src/hash.data:73
 msgid "Exit"
-msgstr ""
+msgstr "離開"
 
 #: omweather/src/weather-simple-settings.c:1892
 #: omweather/src/weather-simple-settings.c:2771
 msgid "Extended Settings"
-msgstr ""
+msgstr "擴充設定"
 
 #: omweather/src/hash.data:74
 msgid "Extreme"
-msgstr ""
+msgstr "強烈"
 
 #: omweather/src/weather-home.c:1537 omweather/src/weather-home.c:1563
 #: omweather/src/weather-simple-popup.c:1043
@@ -775,33 +828,33 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:3876 meecast/qt-qml/qml/UnitsPage.qml:122
 msgid "Fahrenheit"
-msgstr ""
+msgstr "華式溫度"
 
 #: omweather/src/weather-download.c:413
 msgid "Failed to connect to host or proxy."
-msgstr ""
+msgstr "無法連線至 proxy 或主機。"
 
 #: omweather/src/weather-config.c:360
 #, c-format
 msgid "Failed to initialize GConf. Quitting.\n"
-msgstr ""
+msgstr "無法初始化 GConf。正在退出。\n"
 
 #: omweather/src/weather-config.c:948
 #, c-format
 msgid "Failed to initialize GConf. Settings were not saved.\n"
-msgstr ""
+msgstr "無法初始化 GConf。設定將不會被儲存。\n"
 
 #: omweather/src/hash.data:75
 msgid "Fair"
-msgstr ""
+msgstr "好天氣"
 
 #: omweather/src/hash.data:328
 msgid "Feels like"
-msgstr ""
+msgstr "體感溫度"
 
 #: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
 msgid "Feels like:"
-msgstr ""
+msgstr "體感溫度"
 
 #: omweather/src/hash.data:335
 msgid "Few Clouds"
@@ -809,23 +862,23 @@ msgstr ""
 
 #: omweather/src/hash.data:77
 msgid "Few Showers"
-msgstr ""
+msgstr "短暫陣雨"
 
 #: omweather/src/hash.data:76
 msgid "Few Showers / Wind"
-msgstr ""
+msgstr "短暫陣雨時有風"
 
 #: omweather/src/hash.data:80
 msgid "Few Snow"
-msgstr ""
+msgstr "短暫鎮雪"
 
 #: omweather/src/hash.data:79
 msgid "Few Snow Showers"
-msgstr ""
+msgstr "短暫陣雪"
 
 #: omweather/src/hash.data:78
 msgid "Few Snow Showers / Wind"
-msgstr ""
+msgstr "短暫陣雪時有風"
 
 #: omweather/src/hash.data:334
 msgid "Few clouds"
@@ -833,51 +886,53 @@ msgstr ""
 
 #: meecast/qt-qml/qml/StationsPage.qml:92
 msgid "Find location via GPS"
-msgstr ""
+msgstr "由 GPS 取得位置"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:428
 msgid ""
 "Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
 "Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
 msgstr ""
+"Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
+"Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
 
 #: omweather/src/hash.data:81
 msgid "First Quarter"
-msgstr ""
+msgstr "第一寄"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:154
 #: meecast/qt-qml/qml/FullWeatherPage.qml:212
 #: meecast/qt-qml/qml/FullWeatherPage.qml:262
 msgid "Flike"
-msgstr ""
+msgstr "體感溫度"
 
 #: omweather/src/hash.data:85
 msgid "Fog"
-msgstr ""
+msgstr "誤"
 
 #: omweather/src/hash.data:82
 msgid "Fog Early / Clouds Late"
-msgstr ""
+msgstr "早有霧／晚多雲"
 
 #: omweather/src/hash.data:83
 msgid "Fog Late"
-msgstr ""
+msgstr "晚有霧"
 
 #: omweather/src/hash.data:84
 msgid "Fog early / Clearing late"
-msgstr ""
+msgstr "早有霧／晚轉情"
 
 #: omweather/src/hash.data:86
 msgid "Foggy"
-msgstr ""
+msgstr "模糊"
 
 #: omweather/src/weather-settings.c:3257
 msgid "Font color:"
-msgstr ""
+msgstr "字體顏色："
 
 #: omweather/src/weather-settings.c:3227 omweather/src/weather-settings.c:3231
 msgid "Font:"
-msgstr ""
+msgstr "字體："
 
 #: meecast/qt-qml/qml/VisualsPage.qml:292
 msgid ""
@@ -886,23 +941,25 @@ msgid ""
 "'Activating MeeCast Applet'\n"
 "using Application manager"
 msgstr ""
+"如欲停用 Meecast 小工具，\n"
+"請用程式管理員手動移除 Activating MeeCast Applet"
 
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
-msgstr ""
+msgstr "預報"
 
 #: omweather/src/weather-popup.c:1433
 #: omweather/src/weather-simple-popup.c:1028
 msgid "Forecast at: "
-msgstr ""
+msgstr "預報地點"
 
 #: omweather/src/weather-home.c:1355
 msgid "Forecast: \n"
-msgstr ""
+msgstr "預報︰\n"
 
 #: omweather/src/hash.data:87
 msgid "Freezing Drizzle"
-msgstr ""
+msgstr "凍與"
 
 #: meecast/qt-qml/qml/AboutPage.qml:211
 msgid ""
@@ -936,6 +993,35 @@ msgid ""
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
+"French -  Nicolas Granziano, \n"
+" \tPhilippe, Benot Knecht \n"
+" Russian - Pavel Fialko, Vlad Vasiliev, \n"
+" \tEd Bartosh\n"
+" Finnish - Marko Vertainen\n"
+" German -  Claudius Henrichs\n"
+" Italian - Lorenzo Facca,\n"
+" \tPavel Fialko, Alessandro Pasotti,\n"
+" \tSalvatore Fiorenzo, Ilir Gjika,\n"
+" \tLuca Onnis\n"
+" Spanish - Alejandro Lopez\n"
+" Polish - Tomasz Dominikowski\n"
+" Slovak - Roman Moravčík\n"
+" Dutch - Tom Leenders, Michiel Pater\n"
+" Bulgarian - Zlatko Enikov\n"
+" Albanian - Ilir Gjika\n"
+" Chinese - Wong Man Kong, Michael\n"
+" Portuguese - Jose Narciso,\n"
+" Turkish - Burak Kaan Kose,\n"
+" Catalan - Agustí Clara,\n"
+" Arabic - Tarad Alfandi,\n"
+" Serbian - Aleksandar Zaric,\n"
+" Norwegian - Peer-Atle Motland,\n"
+" Hungarian - Salmi,\n"
+" Vietnamese - Hieu Nguyen\n"
+" \tAnh Dương and truongnx, \n"
+" Swedish - Angela Nennebrandt,\n"
+" \tNiklas Åkerström, \n"
+" \tTomislav Veleckovik"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -949,18 +1035,27 @@ msgid ""
 "Polish - Tomasz Dominikowski\n"
 "Slovak - Roman Moravčík"
 msgstr ""
+"French - Nicolas Granziano, Philippe, Benot Knecht\n"
+"Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
+"Finnish - Marko Vertainen\n"
+"German - Claudius Henrichs\n"
+"Italian - Pavel Fialko, Alessandro Pasotti,\n"
+"\tSalvatore Fiorenzo, Luca Onnis\n"
+"Spanish - Alejandro Lopez\n"
+"Polish - Tomasz Dominikowski\n"
+"Slovak - Roman Moravčík"
 
 #: omweather/src/hash.data:88
 msgid "Full"
-msgstr ""
+msgstr "完整"
 
 #: omweather/src/weather-home.c:1296
 msgid "Full forecast"
-msgstr ""
+msgstr "完整預報"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:369
 msgid "Fullscreen mode"
-msgstr ""
+msgstr "全螢幕模式"
 
 #: omweather/src/weather-home.c:1641
 msgid "G: "
@@ -968,26 +1063,27 @@ msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2249
 msgid "GPS"
-msgstr ""
+msgstr "GPS"
 
 #: omweather/src/weather-simple-settings.c:1752
 #: omweather/src/weather-simple-settings.c:1758
 #: omweather/src/weather-simple-settings.c:2824
 msgid "GSM"
-msgstr ""
+msgstr "GSM"
 
 #: omweather/src/weather-simple-settings.c:2818
 msgid "GSM+WLAN"
-msgstr ""
+msgstr "GSM+WLAN"
 
 #: omweather/src/weather-simple-settings.c:2395
 msgid "GUI|Clear"
-msgstr ""
+msgstr "使用者介面 | 清除"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:418
 msgid ""
 "Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>"
 msgstr ""
+"Grzanka 的圖示集： Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>"
 
 #: omweather/src/weather-popup.c:1354 omweather/src/weather-popup.c:1493
 msgid "Gust:"
@@ -995,31 +1091,31 @@ msgstr ""
 
 #: omweather/src/weather-download.c:421
 msgid "HTTP error."
-msgstr ""
+msgstr "HTTP 錯誤。"
 
 #: omweather/src/hash.data:89
 msgid "Haze"
-msgstr ""
+msgstr "霾"
 
 #: omweather/src/hash.data:92
 msgid "Heavy Rain"
-msgstr ""
+msgstr "大雨"
 
 #: omweather/src/hash.data:90
 msgid "Heavy Rain / Wind"
-msgstr ""
+msgstr "大雨時有風"
 
 #: omweather/src/hash.data:91
 msgid "Heavy Rain Shower"
-msgstr ""
+msgstr "大陣雨"
 
 #: omweather/src/hash.data:93
 msgid "Heavy Snow"
-msgstr ""
+msgstr "大雪"
 
 #: omweather/src/hash.data:94
 msgid "Heavy Snow / Wind"
-msgstr ""
+msgstr "大雨時有風"
 
 #: omweather/src/hash.data:346
 msgid "Heavy intensity rain"
@@ -1027,7 +1123,7 @@ msgstr ""
 
 #: omweather/src/hash.data:95
 msgid "High"
-msgstr ""
+msgstr "高"
 
 #: omweather/src/hash.data:329
 msgid "Hourly"
@@ -1035,183 +1131,185 @@ msgstr ""
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:280
 msgid "Hours"
-msgstr ""
+msgstr "小時"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:136
 #: meecast/qt-qml/qml/FullWeatherPage.qml:194
 #: meecast/qt-qml/qml/FullWeatherPage.qml:244
 msgid "Humidity"
-msgstr ""
+msgstr "濕度"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
 #: meecast/qt-qml/dataitem.cpp:183
 msgid "Humidity:"
-msgstr ""
+msgstr "濕度"
 
 #: omweather/src/weather-settings.c:3326
 msgid "Icon set:"
-msgstr ""
+msgstr "圖示集"
 
 #: omweather/src/weather-settings.c:3558 omweather/src/weather-settings.c:3563
 msgid "Icon size:"
-msgstr ""
+msgstr "圖示大小："
 
 #: meecast/qt-qml/qml/VisualsPage.qml:44 meecast/qt-qml/qml/UpdatePage.qml:42
 msgid "Icons"
-msgstr ""
+msgstr "圖示"
 
 #: omweather/src/hash.data:96 meecast/qt-qml/qml/VisualsPage.qml:391
 msgid "Iconset"
-msgstr ""
+msgstr "圖示集"
 
 #: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:247
 msgid "Iconsets"
-msgstr ""
+msgstr "圖示集"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:64
 #: meecast/qt-qml/qml/VisualsPage.qml:136
 #: meecast/qt-qml/qml/VisualsPage.qml:163
 #: meecast/qt-qml/qml/VisualsPage.qml:226
 msgid "Information"
-msgstr ""
+msgstr "資訊"
 
 #: omweather/src/hash.data:99
 msgid "Isolated T-Storms"
-msgstr ""
+msgstr "短暫雷雨"
 
 #: omweather/src/hash.data:98
 msgid "Isolated T-Storms / Wind"
-msgstr ""
+msgstr "短暫雷雨／風"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:429
 msgid ""
 "Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
 "Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov"
 msgstr ""
+"Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
+"Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov"
 
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
-msgstr ""
+msgstr "公里"
 
 #: omweather/src/hash.data:331
 msgid "Language"
-msgstr ""
+msgstr "語言"
 
 #: omweather/src/hash.data:100
 msgid "Last Quarter"
-msgstr ""
+msgstr "上一季"
 
 #: omweather/src/weather-popup.c:264
 msgid "Last update at server: "
-msgstr ""
+msgstr "最後更新的伺服器："
 
 #: omweather/src/weather-popup.c:278 omweather/src/weather-popup.c:282
 msgid "Last update from server: "
-msgstr ""
+msgstr "最後更新從伺服器："
 
 #: omweather/src/hash.data:101 meecast/qt-qml/qml/FullWeatherPage.qml:301
 msgid "Last update:"
-msgstr ""
+msgstr "最後更新："
 
 #: omweather/src/weather-simple-popup.c:271
 #: omweather/src/weather-simple-popup.c:273
 #: omweather/src/weather-simple-popup.c:280
 #, c-format
 msgid "Last update: "
-msgstr ""
+msgstr "最後更新："
 
 #: omweather/src/hash.data:102
 msgid "Lawn and Garden Weather"
-msgstr ""
+msgstr "草坪及花園氣象"
 
 #: omweather/src/weather-settings.c:2924 omweather/src/weather-settings.c:2931
 msgid "Layout:"
-msgstr ""
+msgstr "頁面佈局"
 
 #: meecast/qt-qml/qml/AboutPage.qml:170
 msgid "Lead designer"
-msgstr ""
+msgstr "首席設計師"
 
 #: meecast/qt-qml/qml/AboutPage.qml:283
 msgid "License"
-msgstr ""
+msgstr "版權"
 
 #: omweather/src/hash.data:103
 msgid "Light Drizzle"
-msgstr ""
+msgstr "微與"
 
 #: omweather/src/hash.data:104
 msgid "Light Freezing Rain"
-msgstr ""
+msgstr "小凍與"
 
 #: omweather/src/hash.data:115 omweather/src/hash.data:337
 msgid "Light Rain"
-msgstr ""
+msgstr "小雨"
 
 #: omweather/src/hash.data:105
 msgid "Light Rain / Fog"
-msgstr ""
+msgstr "小雨／誤"
 
 #: omweather/src/hash.data:107
 msgid "Light Rain / Wind"
-msgstr ""
+msgstr "小雨／風"
 
 #: omweather/src/hash.data:106
 msgid "Light Rain / Wind Late"
-msgstr ""
+msgstr "小雨後轉風"
 
 #: omweather/src/hash.data:108
 msgid "Light Rain Early"
-msgstr ""
+msgstr "早小雨"
 
 #: omweather/src/hash.data:109
 msgid "Light Rain Late"
-msgstr ""
+msgstr "晚轉小雨"
 
 #: omweather/src/hash.data:110
 msgid "Light Rain Shower"
-msgstr ""
+msgstr "小鎮雨"
 
 #: omweather/src/hash.data:111
 msgid "Light Rain and Freezing Rain"
-msgstr ""
+msgstr "小雨及棟宇"
 
 #: omweather/src/hash.data:112
 msgid "Light Rain and Shower"
-msgstr ""
+msgstr "小雨有鎮雨"
 
 #: omweather/src/hash.data:113
 msgid "Light Rain and Windy"
-msgstr ""
+msgstr "小雨有強風"
 
 #: omweather/src/hash.data:114
 msgid "Light Rain with Thunder"
-msgstr ""
+msgstr "小雨有雷"
 
 #: omweather/src/hash.data:121
 msgid "Light Snow"
-msgstr ""
+msgstr "小雪"
 
 #: omweather/src/hash.data:116
 msgid "Light Snow / Fog"
-msgstr ""
+msgstr "小雪時有霧"
 
 #: omweather/src/hash.data:117
 msgid "Light Snow / Wind"
-msgstr ""
+msgstr "小雪時有風"
 
 #: omweather/src/hash.data:118
 msgid "Light Snow Early"
-msgstr ""
+msgstr "早小雪"
 
 #: omweather/src/hash.data:119
 msgid "Light Snow Late"
-msgstr ""
+msgstr "晚轉小雪"
 
 #: omweather/src/hash.data:120
 msgid "Light Snow Shower"
-msgstr ""
+msgstr "小鎮雪"
 
 #: omweather/src/hash.data:336
 msgid "Light rain"
@@ -1219,45 +1317,46 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
-msgstr ""
+msgstr "載入站點清單中"
 
 #: omweather/src/hash.data:122
 msgid "Local Pollen Reports"
-msgstr ""
+msgstr "當地花粉資訊報告"
 
 #: omweather/src/weather-settings.c:3454
 msgid "Long"
-msgstr ""
+msgstr "長"
 
 #: omweather/src/hash.data:123 meecast/qt-qml/qml/WeatherPage.qml:487
 msgid "Looks like there's no info for this location."
-msgstr ""
+msgstr "好像沒有這地點的資訊。"
 
 #: omweather/src/hash.data:124
 msgid "Low"
-msgstr ""
+msgstr "低"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
 "Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
 "com>\n"
 msgstr ""
+"維護： Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail.com>\n"
 
 #: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:153
 msgid "Manage locations"
-msgstr ""
+msgstr "管理位置"
 
 #: omweather/src/weather-simple-settings.c:2240
 msgid "Manual"
-msgstr ""
+msgstr "手動"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:270
 msgid "Measurement units"
-msgstr ""
+msgstr "量測單位"
 
 #: meecast/qt-qml/qml/WeatherPage.qml:292
 msgid "MeeCast"
-msgstr ""
+msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
 msgid ""
@@ -1267,19 +1366,19 @@ msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
-msgstr ""
+msgstr "MeeCast for Harmattan"
 
 #: omweather/src/weather-settings.c:3901
 msgid "Meters"
-msgstr ""
+msgstr "公尺"
 
 #: omweather/src/weather-settings.c:3930
 msgid "Miles"
-msgstr ""
+msgstr "英哩"
 
 #: omweather/src/hash.data:126
 msgid "Mist"
-msgstr ""
+msgstr "迷濛"
 
 #: omweather/src/hash.data:339
 msgid "Moderate Rain"
@@ -1291,120 +1390,120 @@ msgstr ""
 
 #: omweather/src/weather-simple-settings.c:434
 msgid "Modification"
-msgstr ""
+msgstr "修改"
 
 #: omweather/src/hash.data:127
 msgid "Mostly Clear"
-msgstr ""
+msgstr "多雲時情"
 
 #: omweather/src/hash.data:137
 msgid "Mostly Cloudy"
-msgstr ""
+msgstr "多雲時陰"
 
 #: omweather/src/hash.data:129
 msgid "Mostly Cloudy / Wind"
-msgstr ""
+msgstr "多雲時陰有風"
 
 #: omweather/src/hash.data:130
 msgid "Mostly Cloudy Few Snow"
-msgstr ""
+msgstr "多雲時陰有小雪"
 
 #: omweather/src/hash.data:131
 msgid "Mostly Cloudy Light Rain"
-msgstr ""
+msgstr "多雲時陰有小雨"
 
 #: omweather/src/hash.data:132
 msgid "Mostly Cloudy Rain"
-msgstr ""
+msgstr "多雲時陰有雨"
 
 #: omweather/src/hash.data:133
 msgid "Mostly Cloudy Snow"
-msgstr ""
+msgstr "多雲時陰有雪"
 
 #: omweather/src/hash.data:134
 msgid "Mostly Cloudy T-Storm"
-msgstr ""
+msgstr "多雲時陰有雷雨"
 
 #: omweather/src/hash.data:128 omweather/src/hash.data:135
 #: omweather/src/hash.data:136
 msgid "Mostly Cloudy and Windy"
-msgstr ""
+msgstr "多雲時陰有強風"
 
 #: omweather/src/hash.data:138
 msgid "Mostly Cloudy, Drifting Snow"
-msgstr ""
+msgstr "多雲時陰有吹雪"
 
 #: omweather/src/hash.data:139
 msgid "Mostly Cloudy, Few Snow"
-msgstr ""
+msgstr "多雲時陰有小雪"
 
 #: omweather/src/hash.data:140
 msgid "Mostly Cloudy, Fog"
-msgstr ""
+msgstr "多雲時陰有誤"
 
 #: omweather/src/hash.data:141
 msgid "Mostly Cloudy, Fog, Drizzle"
-msgstr ""
+msgstr "多雲時陰有霧及毛毛雨"
 
 #: omweather/src/hash.data:142
 msgid "Mostly Cloudy, Heavy Rain"
-msgstr ""
+msgstr "多雲時陰有大雨"
 
 #: omweather/src/hash.data:143
 msgid "Mostly Cloudy, Heavy Rain, T-Storm"
-msgstr ""
+msgstr "多雲時陰有大雨及雷雨"
 
 #: omweather/src/hash.data:144
 msgid "Mostly Cloudy, Heavy Snow"
-msgstr ""
+msgstr "多雲時陰有大雪"
 
 #: omweather/src/hash.data:145
 msgid "Mostly Cloudy, Heavy Snow, Freezing Rain"
-msgstr ""
+msgstr "多雲時陰有大雪及凍雨"
 
 #: omweather/src/hash.data:146
 msgid "Mostly Cloudy, Light Rain"
-msgstr ""
+msgstr "多雲時陰有小雨"
 
 #: omweather/src/hash.data:147
 msgid "Mostly Cloudy, Light Rain, Drizzle"
-msgstr ""
+msgstr "多雲時陰有小雨及毛毛雨"
 
 #: omweather/src/hash.data:148
 msgid "Mostly Cloudy, Light Rain, T-Storm"
-msgstr ""
+msgstr "多雲時陰有小雨及雷雨"
 
 #: omweather/src/hash.data:149
 msgid "Mostly Cloudy, Rain"
-msgstr ""
+msgstr "多雲時陰有雨"
 
 #: omweather/src/hash.data:150
 msgid "Mostly Cloudy, Rain, T-Storm"
-msgstr ""
+msgstr "多雲時陰有雨及雷雨"
 
 #: omweather/src/hash.data:151
 msgid "Mostly Cloudy, Smoke"
-msgstr ""
+msgstr "多雲時陰有煙"
 
 #: omweather/src/hash.data:152
 msgid "Mostly Cloudy, Snow"
-msgstr ""
+msgstr "多雲時陰有雪"
 
 #: omweather/src/hash.data:153
 msgid "Mostly Cloudy, T-Storm"
-msgstr ""
+msgstr "多雲時陰有雷雨"
 
 #: omweather/src/hash.data:154
 msgid "Mostly Sunny"
-msgstr ""
+msgstr "晴時多雲"
 
 #: omweather/src/hash.data:155
 msgid "Mostly clear"
-msgstr ""
+msgstr "多雲時晴"
 
 #: omweather/src/hash.data:156
 msgid "N"
-msgstr ""
+msgstr "北"
 
 #: omweather/src/weather-home.c:658 omweather/src/weather-home.c:664
 #: omweather/src/weather-home.c:665 omweather/src/weather-home.c:671
@@ -1414,11 +1513,11 @@ msgstr ""
 #: omweather/src/weather-home.c:2835 omweather/src/weather-home.c:2839
 #: omweather/src/hash.data:157
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: omweather/src/hash.data:158
 msgid "NE"
-msgstr ""
+msgstr "東北"
 
 #: omweather/src/hash.data:159
 msgid "NE_short"
@@ -1426,7 +1525,7 @@ msgstr ""
 
 #: omweather/src/hash.data:160
 msgid "NNE"
-msgstr ""
+msgstr "東北偏北"
 
 #: omweather/src/hash.data:161
 msgid "NNE_short"
@@ -1434,7 +1533,7 @@ msgstr ""
 
 #: omweather/src/hash.data:162
 msgid "NNW"
-msgstr ""
+msgstr "西北偏北"
 
 #: omweather/src/hash.data:163
 msgid "NNW_short"
@@ -1442,11 +1541,11 @@ msgstr ""
 
 #: omweather/src/hash.data:164
 msgid "NO STATION"
-msgstr ""
+msgstr "無站點"
 
 #: omweather/src/hash.data:165
 msgid "NW"
-msgstr ""
+msgstr "西北"
 
 #: omweather/src/hash.data:166
 msgid "NW_short"
@@ -1458,55 +1557,55 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:545
 msgid "Name:"
-msgstr ""
+msgstr "名稱"
 
 #: omweather/src/weather-settings.c:920 omweather/src/weather-settings.c:4190
 #: omweather/src/weather-config.c:324 omweather/src/weather-sensor.c:141
 #: omweather/src/weather-simple-settings.c:2802
 #: meecast/qt-qml/qml/UpdatePage.qml:133
 msgid "Never"
-msgstr ""
+msgstr "永不"
 
 #: omweather/src/hash.data:168
 msgid "New"
-msgstr ""
+msgstr "新的"
 
 #: meecast/qt-qml/qml/NewStationPage.qml:38
 msgid "New location"
-msgstr ""
+msgstr "新增位置"
 
 #: omweather/src/weather-settings.c:4275
 msgid "Next update:"
-msgstr ""
+msgstr "下個更新："
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:588
 #: meecast/qt-qml/qml/FullWeatherPage.qml:230
 msgid "Night"
-msgstr ""
+msgstr "晚間"
 
 #: omweather/src/weather-popup.c:1046
 msgid "Night:"
-msgstr ""
+msgstr "夜間"
 
 #: omweather/src/weather-settings.c:825 meecast/qt-qml/qml/StationsPage.qml:78
 msgid "No"
-msgstr ""
+msgstr "無"
 
 #: omweather/src/weather-popup.c:669
 msgid "No current weather data."
-msgstr ""
+msgstr "沒有目前的氣象。"
 
 #: omweather/src/hash.data:169 meecast/qt-qml/qml/WeatherPage.qml:313
 msgid "No locations are set up yet."
-msgstr ""
+msgstr "尚未設定位置。"
 
 #: omweather/src/weather-popup.c:657
 msgid "No weather data for this day."
-msgstr ""
+msgstr "無今日氣象。"
 
 #: omweather/src/weather-popup.c:681 omweather/src/weather-simple-popup.c:608
 msgid "No weather data for this station."
-msgstr ""
+msgstr "此站點無氣象資料。"
 
 #: omweather/src/weather-home.c:2734 omweather/src/weather-home.c:2746
 #: omweather/src/weather-popup.c:459 omweather/src/weather-popup.c:570
@@ -1517,7 +1616,7 @@ msgstr ""
 #: meecast/qt-qml/dataitem.cpp:191 meecast/qt-qml/qml/FullWeatherPage.qml:130
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Now"
-msgstr ""
+msgstr "現在"
 
 #: omweather/src/weather-simple-settings.c:2880
 msgid "Now + 2 days vert."
@@ -1538,39 +1637,39 @@ msgstr ""
 #: omweather/src/weather-home.c:1531
 #, c-format
 msgid "Now: "
-msgstr ""
+msgstr "現在︰"
 
 #: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1223
 #: meecast/qt-qml/qml/VisualsPage.qml:115
 msgid "OK"
-msgstr ""
+msgstr "確定"
 
 #: omweather/src/weather-popup.c:532
 msgid "OMWeather Forecast"
-msgstr ""
+msgstr "OMWeather 氣象預報"
 
 #: omweather/src/weather-settings.c:1220
 #: omweather/src/weather-simple-settings.c:2998
 msgid "OMWeather Settings"
-msgstr ""
+msgstr "OMWeather 設定"
 
 #: omweather/src/weather-home.c:1268 omweather/src/weather-home.c:2856
 msgid "OMWeather settings"
-msgstr ""
+msgstr "OMWeather 設定"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:206
 #: meecast/qt-qml/qml/VisualsPage.qml:269
 #: meecast/qt-qml/qml/VisualsPage.qml:305
 msgid "Ok"
-msgstr ""
+msgstr "確定"
 
 #: omweather/src/weather-help.c:64 omweather/src/weather-help.c:70
 msgid "Other Maemo Weather Info"
-msgstr ""
+msgstr "其他 Maemo 氣象資訊"
 
 #: omweather/src/hash.data:180
 msgid "Overcast"
-msgstr ""
+msgstr "陰天"
 
 #: omweather/src/hash.data:341
 msgid "Overcast Clouds"
@@ -1578,39 +1677,39 @@ msgstr ""
 
 #: omweather/src/hash.data:170
 msgid "Overcast and light rain"
-msgstr ""
+msgstr "陰帶小雨"
 
 #: omweather/src/hash.data:171
 msgid "Overcast and light snow"
-msgstr ""
+msgstr "音帶小雪"
 
 #: omweather/src/hash.data:172
 msgid "Overcast and light wet snow"
-msgstr ""
+msgstr "陰帶小濕雪"
 
 #: omweather/src/hash.data:173
 msgid "Overcast and rain"
-msgstr ""
+msgstr "陰代與"
 
 #: omweather/src/hash.data:174
 msgid "Overcast and showers"
-msgstr ""
+msgstr "陰帶陣雨"
 
 #: omweather/src/hash.data:176
 msgid "Overcast and snow"
-msgstr ""
+msgstr "音帶雪"
 
 #: omweather/src/hash.data:175
 msgid "Overcast and snow showers"
-msgstr ""
+msgstr "陰戴震雪"
 
 #: omweather/src/hash.data:178
 msgid "Overcast and wet snow"
-msgstr ""
+msgstr "陰帶濕雪"
 
 #: omweather/src/hash.data:177
 msgid "Overcast and wet snow showers"
-msgstr ""
+msgstr "陰帶濕陣雪"
 
 #: omweather/src/hash.data:340
 msgid "Overcast clouds"
@@ -1618,175 +1717,175 @@ msgstr ""
 
 #: omweather/src/hash.data:179
 msgid "Overcast, thunderstorms with rain"
-msgstr ""
+msgstr "陰帶雷雨"
 
 #: omweather/src/hash.data:181
 msgid "PM Fog"
-msgstr ""
+msgstr "午後有誤"
 
 #: omweather/src/hash.data:183
 msgid "PM Light Rain"
-msgstr ""
+msgstr "午後有小雨"
 
 #: omweather/src/hash.data:182
 msgid "PM Light Rain / Wind"
-msgstr ""
+msgstr "午後小雨有風"
 
 #: omweather/src/hash.data:185
 msgid "PM Light Snow"
-msgstr ""
+msgstr "午後小雪"
 
 #: omweather/src/hash.data:184
 msgid "PM Light Snow / Wind"
-msgstr ""
+msgstr "午後小雪有風"
 
 #: omweather/src/hash.data:188
 msgid "PM Rain"
-msgstr ""
+msgstr "五後有雨"
 
 #: omweather/src/hash.data:186
 msgid "PM Rain / Snow"
-msgstr ""
+msgstr "五後有雨及雪"
 
 #: omweather/src/hash.data:187
 msgid "PM Rain / Wind"
-msgstr ""
+msgstr "五後有雨及風"
 
 #: omweather/src/hash.data:190
 msgid "PM Showers"
-msgstr ""
+msgstr "午後陣雨"
 
 #: omweather/src/hash.data:189
 msgid "PM Showers / Wind"
-msgstr ""
+msgstr "午後陣雨有風"
 
 #: omweather/src/hash.data:193
 msgid "PM Snow"
-msgstr ""
+msgstr "午後有雪"
 
 #: omweather/src/hash.data:192
 msgid "PM Snow Showers"
-msgstr ""
+msgstr "午後陣雪"
 
 #: omweather/src/hash.data:191
 msgid "PM Snow Showers / Wind"
-msgstr ""
+msgstr "午後陣雪有風"
 
 #: omweather/src/hash.data:194
 msgid "PM T-Showers"
-msgstr ""
+msgstr "午後雷雨"
 
 #: omweather/src/hash.data:195
 msgid "PM T-Storms"
-msgstr ""
+msgstr "午後雷雨"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:194
 msgid "Pa"
-msgstr ""
+msgstr "帕"
 
 #: omweather/src/hash.data:204
 msgid "Partly Cloudy"
-msgstr ""
+msgstr "多雲"
 
 #: omweather/src/hash.data:197
 msgid "Partly Cloudy / Wind"
-msgstr ""
+msgstr "多雲時有風"
 
 #: omweather/src/hash.data:198
 msgid "Partly Cloudy Few Snow"
-msgstr ""
+msgstr "多雲時有雪"
 
 #: omweather/src/hash.data:199
 msgid "Partly Cloudy Light Rain"
-msgstr ""
+msgstr "多雲時有小雨"
 
 #: omweather/src/hash.data:200
 msgid "Partly Cloudy T-Storm"
-msgstr ""
+msgstr "多雲時有雷雨"
 
 #: omweather/src/hash.data:201
 msgid "Partly Cloudy and Windly"
-msgstr ""
+msgstr "多雲時有強風"
 
 #: omweather/src/hash.data:202 omweather/src/hash.data:203
 msgid "Partly Cloudy and Windy"
-msgstr ""
+msgstr "多雲時有強風"
 
 #: omweather/src/hash.data:205
 msgid "Partly Cloudy, Few Snow"
-msgstr ""
+msgstr "多雲時有小雪"
 
 #: omweather/src/hash.data:206
 msgid "Partly Cloudy, Haze"
-msgstr ""
+msgstr "多雲時有埋"
 
 #: omweather/src/hash.data:207
 msgid "Partly Cloudy, Heavy Rain"
-msgstr ""
+msgstr "多雲時有大雨"
 
 #: omweather/src/hash.data:208
 msgid "Partly Cloudy, Heavy Rain, T-Storm"
-msgstr ""
+msgstr "多雲時有大雨及雷雨"
 
 #: omweather/src/hash.data:209
 msgid "Partly Cloudy, Heavy Snow"
-msgstr ""
+msgstr "多雲時有大雪"
 
 #: omweather/src/hash.data:210
 msgid "Partly Cloudy, Light Rain"
-msgstr ""
+msgstr "多雲時有小雨"
 
 #: omweather/src/hash.data:211
 msgid "Partly Cloudy, Light Rain, T-Storm"
-msgstr ""
+msgstr "多雲時有小雨及雷雨"
 
 #: omweather/src/hash.data:212
 msgid "Partly Cloudy, Rain"
-msgstr ""
+msgstr "多雲時有雨"
 
 #: omweather/src/hash.data:213
 msgid "Partly Cloudy, Rain, T-Storm"
-msgstr ""
+msgstr "多雲時有雨及雷雨"
 
 #: omweather/src/hash.data:214
 msgid "Partly Cloudy, Smoke"
-msgstr ""
+msgstr "多雲時有煙"
 
 #: omweather/src/hash.data:215
 msgid "Partly Cloudy, Snow"
-msgstr ""
+msgstr "多雲時有雪"
 
 #: omweather/src/hash.data:216
 msgid "Partly Cloudy, T-Storm"
-msgstr ""
+msgstr "多雲時有雷雨"
 
 #: omweather/src/hash.data:224
 msgid "Partly cloudy"
-msgstr ""
+msgstr "多雲時陰"
 
 #: omweather/src/hash.data:217
 msgid "Partly cloudy and light rain"
-msgstr ""
+msgstr "多雲帶小雨"
 
 #: omweather/src/hash.data:218
 msgid "Partly cloudy and light snow"
-msgstr ""
+msgstr "多雲帶小雪"
 
 #: omweather/src/hash.data:219
 msgid "Partly cloudy and light wet snow"
-msgstr ""
+msgstr "多雲帶失雪"
 
 #: omweather/src/hash.data:220
 msgid "Partly cloudy and showers"
-msgstr ""
+msgstr "多雲帶陣雨"
 
 #: omweather/src/hash.data:221
 msgid "Partly cloudy and snow showers"
-msgstr ""
+msgstr "多雲帶陣雪"
 
 #: omweather/src/hash.data:222
 msgid "Partly cloudy and wet snow showers"
-msgstr ""
+msgstr "多雲帶濕陣雪"
 
 #: omweather/src/hash.data:196 omweather/src/hash.data:223
 msgid "Partly cloudy, possible thunderstorms with rain"
@@ -1798,30 +1897,30 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:3649
 msgid "Position:"
-msgstr ""
+msgstr "位置"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:148
 #: meecast/qt-qml/qml/FullWeatherPage.qml:206
 #: meecast/qt-qml/qml/FullWeatherPage.qml:256
 msgid "Ppcp:"
-msgstr ""
+msgstr "降雨機率"
 
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836
 msgid "Preference|Update"
-msgstr ""
+msgstr "偏好設定 | 更新"
 
 #: omweather/src/weather-simple-settings.c:1460
 msgid "Pressure"
-msgstr ""
+msgstr "氣壓"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:49 meecast/qt-qml/qml/UnitsPage.qml:176
 msgid "Pressure units"
-msgstr ""
+msgstr "氣壓單位"
 
 #: omweather/src/weather-settings.c:4049
 msgid "Pressure units:"
-msgstr ""
+msgstr "氣壓單位"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
@@ -1829,115 +1928,115 @@ msgstr ""
 #: meecast/qt-qml/qml/FullWeatherPage.qml:200
 #: meecast/qt-qml/qml/FullWeatherPage.qml:250
 msgid "Pressure:"
-msgstr ""
+msgstr "氣壓"
 
 #: omweather/src/weather-home.c:1393 omweather/src/weather-home.c:1448
 msgid "Pressure: "
-msgstr ""
+msgstr "氣壓"
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
 msgid "Programmers"
-msgstr ""
+msgstr "程式設計者"
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
 msgid "Project administrator"
-msgstr ""
+msgstr "專案管理員"
 
 #: meecast/qt-qml/qml/AboutPage.qml:186
 msgid "Project manager"
-msgstr ""
+msgstr "專案管理人"
 
 #: meecast/qt-qml/qml/AboutPage.qml:86
 msgid "Project website"
-msgstr ""
+msgstr "專案網站"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:922
 msgid "Provided by"
-msgstr ""
+msgstr "提供者"
 
 #: omweather/src/hash.data:245
 msgid "Rain"
-msgstr ""
+msgstr "雨"
 
 #: omweather/src/hash.data:225
 msgid "Rain / Freezing Rain"
-msgstr ""
+msgstr "雨時有凍雨"
 
 #: omweather/src/hash.data:232
 msgid "Rain / Snow"
-msgstr ""
+msgstr "雨時有雪"
 
 #: omweather/src/hash.data:226
 msgid "Rain / Snow / Wind"
-msgstr ""
+msgstr "雨時有雪及風"
 
 #: omweather/src/hash.data:227
 msgid "Rain / Snow Early"
-msgstr ""
+msgstr "早有雨及雪"
 
 #: omweather/src/hash.data:228
 msgid "Rain / Snow Late"
-msgstr ""
+msgstr "晚有雨和雪"
 
 #: omweather/src/hash.data:231
 msgid "Rain / Snow Showers"
-msgstr ""
+msgstr "雨轉陣雪"
 
 #: omweather/src/hash.data:229
 msgid "Rain / Snow Showers / Wind"
-msgstr ""
+msgstr "雨時有陣雪及風"
 
 #: omweather/src/hash.data:230
 msgid "Rain / Snow Showers Late"
-msgstr ""
+msgstr "晚有雨及陣雪"
 
 #: omweather/src/hash.data:233
 msgid "Rain / Thunder"
-msgstr ""
+msgstr "雨時有雷"
 
 #: omweather/src/hash.data:235
 msgid "Rain / Wind"
-msgstr ""
+msgstr "雨及風"
 
 #: omweather/src/hash.data:234
 msgid "Rain / Wind Early"
-msgstr ""
+msgstr "早有雨及風"
 
 #: omweather/src/hash.data:236
 msgid "Rain Early"
-msgstr ""
+msgstr "早有雨"
 
 #: omweather/src/hash.data:237
 msgid "Rain Late"
-msgstr ""
+msgstr "晚有雨"
 
 #: omweather/src/hash.data:239
 msgid "Rain Shower"
-msgstr ""
+msgstr "陣雨"
 
 #: omweather/src/hash.data:238
 msgid "Rain Shower and Windy"
-msgstr ""
+msgstr "陣雨及強風"
 
 #: omweather/src/hash.data:240
 msgid "Rain Showers"
-msgstr ""
+msgstr "陣雨"
 
 #: omweather/src/hash.data:241
 msgid "Rain and Snow"
-msgstr ""
+msgstr "雨及雪"
 
 #: omweather/src/hash.data:242
 msgid "Rain to Snow / Wind"
-msgstr ""
+msgstr "雨轉雪及風"
 
 #: omweather/src/hash.data:244
 msgid "Rain to Wintry Mix"
-msgstr ""
+msgstr "雨轉雨雪混合"
 
 #: omweather/src/hash.data:243
 msgid "Rain to Wintry Mix / Wind"
-msgstr ""
+msgstr "雨轉雨雪混合及風"
 
 #: omweather/src/weather-sensor.c:127
 msgid "Read sensor every:"
@@ -1947,19 +2046,19 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:786
 #: omweather/src/weather-simple-settings.c:2327
 msgid "Region"
-msgstr ""
+msgstr "地區"
 
 #: omweather/src/hash.data:246
 msgid "Rush Hour Traffic"
-msgstr ""
+msgstr "交通尖峰時段"
 
 #: omweather/src/hash.data:247
 msgid "S"
-msgstr ""
+msgstr "難"
 
 #: omweather/src/hash.data:248
 msgid "SE"
-msgstr ""
+msgstr "東南"
 
 #: omweather/src/hash.data:249
 msgid "SE_short"
@@ -1967,7 +2066,7 @@ msgstr ""
 
 #: omweather/src/hash.data:250
 msgid "SSE"
-msgstr ""
+msgstr "東南偏南"
 
 #: omweather/src/hash.data:251
 msgid "SSE_short"
@@ -1975,7 +2074,7 @@ msgstr ""
 
 #: omweather/src/hash.data:252
 msgid "SSW"
-msgstr ""
+msgstr "西南偏南"
 
 #: omweather/src/hash.data:253
 msgid "SSW_short"
@@ -1983,7 +2082,7 @@ msgstr ""
 
 #: omweather/src/hash.data:254
 msgid "SW"
-msgstr ""
+msgstr "西南"
 
 #: omweather/src/hash.data:255
 msgid "SW_short"
@@ -2001,7 +2100,7 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:2396
 #: omweather/src/weather-simple-settings.c:3125
 msgid "Save"
-msgstr ""
+msgstr "儲存"
 
 #: omweather/src/hash.data:343
 msgid "Scattered Clouds"
@@ -2009,19 +2108,19 @@ msgstr ""
 
 #: omweather/src/hash.data:257
 msgid "Scattered Showers"
-msgstr ""
+msgstr "零星陣雨"
 
 #: omweather/src/hash.data:259
 msgid "Scattered Snow"
-msgstr ""
+msgstr "零星陣雨"
 
 #: omweather/src/hash.data:258
 msgid "Scattered Snow Showers"
-msgstr ""
+msgstr "零星陣雪"
 
 #: omweather/src/hash.data:260
 msgid "Scattered T-Storms"
-msgstr ""
+msgstr "零星雷雨"
 
 #: omweather/src/hash.data:342
 msgid "Scattered clouds"
@@ -2029,95 +2128,95 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:3943
 msgid "Sea miles"
-msgstr ""
+msgstr "海裡"
 
 #: omweather/src/weather-settings.c:474
 msgid "Search"
-msgstr ""
+msgstr "搜尋"
 
 #: meecast/qt-qml/qml/NewStationPage.qml:73
 #: meecast/qt-qml/qml/NewStationPage.qml:120
 msgid "Select city"
-msgstr ""
+msgstr "選擇程式"
 
 #: meecast/qt-qml/qml/CountryPage.qml:153
 #: meecast/qt-qml/qml/NewStationPage.qml:55
 #: meecast/qt-qml/qml/NewStationPage.qml:102
 msgid "Select country"
-msgstr ""
+msgstr "選擇國家"
 
 #: omweather/src/weather-simple-settings.c:2168
 #: meecast/qt-qml/qml/CityPage.qml:142
 msgid "Select location"
-msgstr ""
+msgstr "選擇地點"
 
 #: meecast/qt-qml/qml/NewStationPage.qml:64
 #: meecast/qt-qml/qml/NewStationPage.qml:111
 #: meecast/qt-qml/qml/RegionPage.qml:144
 msgid "Select region"
-msgstr ""
+msgstr "選擇地區"
 
 #: meecast/qt-qml/qml/NewStationPage.qml:46
 #: meecast/qt-qml/qml/NewStationPage.qml:93
 msgid "Select source"
-msgstr ""
+msgstr "選擇來源"
 
 #: meecast/qt-qml/qml/LockScreen.qml:85
 msgid "Select the X-position for left corner of widget"
-msgstr ""
+msgstr "選擇小工具左邊的 X 軸位置"
 
 #: meecast/qt-qml/qml/LockScreen.qml:125
 msgid "Select the Y-position for left corner of widget"
-msgstr ""
+msgstr "選擇小工具的左邊的 Y 軸位置"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:267
 msgid "Select the color of font for current temperature"
-msgstr ""
+msgstr "選擇目前溫度的字體顏色"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:123
 msgid "Select the color of font for station name"
-msgstr ""
+msgstr "選擇站點名稱的字體顏色"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:195
 msgid "Select the color of font for temperature"
-msgstr ""
+msgstr "選擇溫度的字體顏色"
 
 #: meecast/qt-qml/qml/IconsetPage.qml:97
 msgid "Select the iconset"
-msgstr ""
+msgstr "選擇圖示集"
 
 #: meecast/qt-qml/qml/LanguagesPage.qml:130
 msgid "Select the language"
-msgstr ""
+msgstr "選擇語言"
 
 #: meecast/qt-qml/qml/SourcePage.qml:108
 msgid "Select the weather source"
-msgstr ""
+msgstr "選擇氣象來源"
 
 #: omweather/src/weather-simple-settings.c:1035
 #, c-format
 msgid "Selecting country"
-msgstr ""
+msgstr "選擇國家"
 
 #: omweather/src/weather-simple-settings.c:1043
 #, c-format
 msgid "Selecting region"
-msgstr ""
+msgstr "選擇地區"
 
 #: omweather/src/weather-simple-settings.c:1039
 #, c-format
 msgid "Selecting source"
-msgstr ""
+msgstr "選擇來源"
 
 #: omweather/src/weather-simple-settings.c:1047
 #, c-format
 msgid "Selecting station"
-msgstr ""
+msgstr "選擇站點"
 
 #: omweather/src/weather-settings.c:1150 omweather/src/weather-settings.c:1362
 #: omweather/src/weather-settings.c:1366 omweather/src/weather-sensor.c:263
 msgid "Sensor"
-msgstr ""
+msgstr "感測器"
 
 #: omweather/src/weather-simple-settings.c:2228
 msgid "Set"
@@ -2125,29 +2224,29 @@ msgstr ""
 
 #: omweather/src/hash.data:261 meecast/qt-qml/qml/WeatherPage.qml:327
 msgid "Set locations"
-msgstr ""
+msgstr "設定位置"
 
 #: omweather/src/weather-home.c:1291 omweather/src/weather-simple-popup.c:1157
 #: omweather/src/weather-simple-status.c:158
 #: meecast/qt-qml/qml/SettingsPage.qml:144
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: meecast/qt-qml/qml/LockScreen.qml:65
 msgid "Settings for Lockscreen widget"
-msgstr ""
+msgstr "鎖定螢幕小工具設定"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:102
 msgid "Settings for standby widget"
-msgstr ""
+msgstr "待機小工具設定"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:534
 msgid "Settings of LockScreen"
-msgstr ""
+msgstr "鎖定畫面設定"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:514
 msgid "Settings of StandbyScreen"
-msgstr ""
+msgstr "待機螢幕設定"
 
 #: omweather/src/hash.data:262
 msgid "Shallow Fog"
@@ -2159,51 +2258,51 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:3824
 msgid "Show arrows"
-msgstr ""
+msgstr "顯示箭頭"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:605
 msgid "Show on Map"
-msgstr ""
+msgstr "在地圖上顯示"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
-msgstr ""
+msgstr "第一個圖示緊顯示目前天氣"
 
 #: omweather/src/weather-settings.c:3801
 msgid "Show station name"
-msgstr ""
+msgstr "顯示站點名稱"
 
 #: omweather/src/weather-sensor.c:86
 msgid "Show temperature at:"
-msgstr ""
+msgstr "顯示溫度於"
 
 #: omweather/src/weather-settings.c:3795
 msgid "Show wind"
-msgstr ""
+msgstr "顯示風"
 
 #: omweather/src/hash.data:268
 msgid "Showers"
-msgstr ""
+msgstr "陣雨"
 
 #: omweather/src/hash.data:264
 msgid "Showers / Wind"
-msgstr ""
+msgstr "陣雨時有風"
 
 #: omweather/src/hash.data:263
 msgid "Showers / Wind Early"
-msgstr ""
+msgstr "早有陣雨及風"
 
 #: omweather/src/hash.data:265
 msgid "Showers Early"
-msgstr ""
+msgstr "早有陣雨"
 
 #: omweather/src/hash.data:266
 msgid "Showers Late"
-msgstr ""
+msgstr "晚有陣雨"
 
 #: omweather/src/hash.data:267
 msgid "Showers in the Vicinity"
-msgstr ""
+msgstr "附近有陣雨"
 
 #: omweather/src/hash.data:345
 msgid "Sky is Clear"
@@ -2215,76 +2314,76 @@ msgstr ""
 
 #: omweather/src/hash.data:269
 msgid "Sleet"
-msgstr ""
+msgstr "霰"
 
 #: omweather/src/hash.data:270
 msgid "Smoke"
-msgstr ""
+msgstr "煙"
 
 #: omweather/src/hash.data:281
 msgid "Snow"
-msgstr ""
+msgstr "雪"
 
 #: omweather/src/hash.data:271
 msgid "Snow / Wind"
-msgstr ""
+msgstr "雪時有風"
 
 #: omweather/src/hash.data:273
 msgid "Snow Shower"
-msgstr ""
+msgstr "陣雪"
 
 #: omweather/src/hash.data:272
 msgid "Snow Shower / Wind"
-msgstr ""
+msgstr "陣雪時有風"
 
 #: omweather/src/hash.data:274
 msgid "Snow Showers / Wind Early"
-msgstr ""
+msgstr "早有陣雪及風"
 
 #: omweather/src/hash.data:275
 msgid "Snow Showers Early"
-msgstr ""
+msgstr "早有陣雪"
 
 #: omweather/src/hash.data:276
 msgid "Snow Showers Late"
-msgstr ""
+msgstr "晚有陣雪"
 
 #: omweather/src/hash.data:277
 msgid "Snow and Freezing Rain"
-msgstr ""
+msgstr "雪時有凍雨"
 
 #: omweather/src/hash.data:278
 msgid "Snow to Rain"
-msgstr ""
+msgstr "雪轉雨"
 
 #: omweather/src/hash.data:280
 msgid "Snow to Wintry Mix"
-msgstr ""
+msgstr "雪轉雨雪混合"
 
 #: omweather/src/hash.data:279
 msgid "Snow to Wintry Mix / Wind"
-msgstr ""
+msgstr "雪轉雨雪混合及風"
 
 #: omweather/src/weather-simple-settings.c:2295
 msgid "Source"
-msgstr ""
+msgstr "來源"
 
 #: omweather/src/weather-settings.c:498
 msgid "Source:"
-msgstr ""
+msgstr "來源"
 
 #: omweather/src/weather-popup.c:998 omweather/src/weather-popup.c:1004
 #: omweather/src/weather-popup.c:1011 omweather/src/weather-popup.c:1129
 #: omweather/src/weather-popup.c:1135 omweather/src/weather-popup.c:1142
 #: omweather/src/weather-simple-settings.c:1389
 msgid "Speed"
-msgstr ""
+msgstr "速度"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
 #: meecast/qt-qml/dataitem.cpp:187
 msgid "Speed:"
-msgstr ""
+msgstr "速度"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:491
 msgid "Splash screen"
@@ -2292,53 +2391,53 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:522
 msgid "State:"
-msgstr ""
+msgstr "周"
 
 #: omweather/src/weather-simple-settings.c:2512
 #, c-format
 msgid "Station %i"
-msgstr ""
+msgstr "站點 %i"
 
 #: omweather/src/weather-settings.c:1114 omweather/src/weather-settings.c:1292
 #: omweather/src/weather-settings.c:1297
 msgid "Stations"
-msgstr ""
+msgstr "站點"
 
 #: omweather/src/hash.data:282 omweather/src/weather-alerts.c:154
 msgid "Storm"
-msgstr ""
+msgstr "風暴"
 
 #: omweather/src/weather-download.c:392
 msgid "Successfully loaded"
-msgstr ""
+msgstr "成功載入"
 
 #: omweather/src/hash.data:284
 msgid "Sunny"
-msgstr ""
+msgstr "晴"
 
 #: omweather/src/hash.data:283
 msgid "Sunny / Wind"
-msgstr ""
+msgstr "晴時有風"
 
 #: omweather/src/hash.data:285 meecast/qt-qml/qml/FullWeatherPage.qml:292
 msgid "Sunrise:"
-msgstr ""
+msgstr "日出"
 
 #: omweather/src/weather-popup.c:125 omweather/src/weather-popup.c:1019
 msgid "Sunrise: "
-msgstr ""
+msgstr "日出"
 
 #: omweather/src/hash.data:286 meecast/qt-qml/qml/FullWeatherPage.qml:295
 msgid "Sunset:"
-msgstr ""
+msgstr "日落"
 
 #: omweather/src/weather-popup.c:139 omweather/src/weather-popup.c:1150
 msgid "Sunset: "
-msgstr ""
+msgstr "日落︰"
 
 #: omweather/src/weather-settings.c:3773
 msgid "Swap hi/low temperature"
-msgstr ""
+msgstr "交換高低溫度"
 
 #: omweather/src/weather-settings.c:4180
 msgid "Switch to the next station after:"
@@ -2346,59 +2445,59 @@ msgstr ""
 
 #: omweather/src/hash.data:288
 msgid "T-Showers"
-msgstr ""
+msgstr "雷陣雨"
 
 #: omweather/src/hash.data:287
 msgid "T-Showers Early"
-msgstr ""
+msgstr "早有雷陣雨"
 
 #: omweather/src/hash.data:289
 msgid "T-Storm"
-msgstr ""
+msgstr "雷雨"
 
 #: omweather/src/hash.data:292
 msgid "T-Storms"
-msgstr ""
+msgstr "雷雨"
 
 #: omweather/src/hash.data:290
 msgid "T-Storms Early"
-msgstr ""
+msgstr "早有雷雨"
 
 #: omweather/src/hash.data:291
 msgid "T-Storms Late"
-msgstr ""
+msgstr "晚有雷雨"
 
 #: omweather/src/weather-popup.c:947 omweather/src/weather-popup.c:950
 #: omweather/src/weather-popup.c:1080 omweather/src/weather-popup.c:1083
 #: omweather/src/weather-simple-settings.c:1267
 msgid "Temperature"
-msgstr ""
+msgstr "溫度"
 
 #: omweather/src/hash.data:293 meecast/qt-qml/qml/UnitsPage.qml:31
 #: meecast/qt-qml/qml/UnitsPage.qml:103
 msgid "Temperature units"
-msgstr ""
+msgstr "溫度單位"
 
 #: omweather/src/weather-settings.c:3858
 msgid "Temperature units:"
-msgstr ""
+msgstr "溫度單位︰"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
 #: meecast/qt-qml/dataitem.cpp:181
 msgid "Temperature:"
-msgstr ""
+msgstr "溫度"
 
 #: omweather/src/weather-popup.c:1259 omweather/src/weather-popup.c:1441
 msgid "Temperature: "
-msgstr ""
+msgstr "溫度"
 
 #: omweather/src/weather-help.c:138
 msgid "Thanks"
-msgstr ""
+msgstr "感謝"
 
 #: omweather/src/weather-download.c:401
 msgid "The weather has been updated."
-msgstr ""
+msgstr "氣象資訊已更新。"
 
 #: omweather/src/hash.data:347
 msgid "There are no stations to show in this view of the list"
@@ -2414,37 +2513,48 @@ msgid ""
 " License, or (at your option) any \n"
 " later version."
 msgstr ""
+"This software is free software; you can\n"
+" redistribute it and/or modify it under \n"
+" the terms of the GNU General Public\n"
+" License as published by the Free Software \n"
+" Foundation; either version 2.1 of the \n"
+" License, or (at your option) any \n"
+" later version."
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:438
 msgid ""
 "This software is free software; you can redistribute it and/or modify it "
 "under the terms of the GNU General Public License\n"
 msgstr ""
+"This software is free software; you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License\n"
 
 #: omweather/src/hash.data:294
 msgid "Thunder"
-msgstr ""
+msgstr "雷"
 
 #: omweather/src/hash.data:295
 msgid "Thunder in the Vicinity"
-msgstr ""
+msgstr "附近有雷"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
 #: meecast/qt-qml/qml/FullWeatherPage.qml:427
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Today"
-msgstr ""
+msgstr "今天"
 
 #: omweather/src/weather-help.c:154 meecast/qt-qml/qml/AboutPage.qml:202
 msgid "Translators"
-msgstr ""
+msgstr "翻譯者"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:427
 msgid ""
 "Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - "
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 msgstr ""
+"翻譯者 French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel "
+"Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 
 #: omweather/src/weather-settings.c:3272 omweather/src/weather-settings.c:3277
 #: omweather/src/weather-settings.c:3295
@@ -2453,7 +2563,7 @@ msgstr ""
 
 #: omweather/src/hash.data:296 meecast/qt-qml/qml/WeatherPage.qml:501
 msgid "Try to update"
-msgstr ""
+msgstr "試圖更新"
 
 #: omweather/src/weather-settings.c:3452
 msgid "Type of click:"
@@ -2461,14 +2571,14 @@ msgstr ""
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:174
 msgid "UV index:"
-msgstr ""
+msgstr "UV 指數"
 
 #: omweather/src/weather-settings.c:1135 omweather/src/weather-settings.c:1334
 #: omweather/src/weather-settings.c:1338
 #: omweather/src/weather-simple-settings.c:1251
 #: omweather/src/weather-simple-settings.c:2732
 msgid "Units"
-msgstr ""
+msgstr "單位"
 
 #: omweather/src/weather-home.c:240 omweather/src/weather-settings.c:78
 #: omweather/src/weather-popup.c:266 omweather/src/weather-popup.c:278
@@ -2483,36 +2593,36 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:2631
 #: omweather/src/weather-simple-settings.c:2633
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 #: omweather/src/hash.data:297
 msgid "Unlimited"
-msgstr ""
+msgstr "無線"
 
 #: omweather/src/weather-settings.c:1142 omweather/src/weather-settings.c:1348
 #: omweather/src/weather-settings.c:1352
 msgid "Update"
-msgstr ""
+msgstr "更新"
 
 #: omweather/src/weather-download.c:425
 msgid "Update already running."
-msgstr ""
+msgstr "正在更新中。"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:122
 msgid "Update interval"
-msgstr ""
+msgstr "更新間隔"
 
 #: omweather/src/hash.data:298 meecast/qt-qml/qml/WeatherPage.qml:360
 msgid "Updating forecast"
-msgstr ""
+msgstr "更新氣象中"
 
 #: omweather/src/weather-settings.c:4264
 msgid "Updating of weather data:"
-msgstr ""
+msgstr "更新氣象資料中"
 
 #: omweather/src/weather-download.c:174
 msgid "Updating weather"
-msgstr ""
+msgstr "更新氣象中"
 
 #: omweather/src/weather-settings.c:1944
 msgid ""
@@ -2528,11 +2638,11 @@ msgstr ""
 
 #: omweather/src/weather-sensor.c:65
 msgid "Use device temperature sensor"
-msgstr ""
+msgstr "使用裝置溫度感應器"
 
 #: omweather/src/hash.data:299
 msgid "VAR"
-msgstr ""
+msgstr "VAR"
 
 #: omweather/src/weather-settings.c:4231
 msgid "Valid time for current weather:"
@@ -2540,39 +2650,39 @@ msgstr ""
 
 #: omweather/src/hash.data:300
 msgid "Very High"
-msgstr ""
+msgstr "非常高"
 
 #: omweather/src/weather-settings.c:3517 omweather/src/weather-settings.c:3522
 msgid "Visible items:"
-msgstr ""
+msgstr "可見的項目"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:58 meecast/qt-qml/qml/UnitsPage.qml:209
 msgid "Visible units"
-msgstr ""
+msgstr "能見度單位"
 
 #: omweather/src/weather-popup.c:1288
 #: meecast/qt-qml/qml/FullWeatherPage.qml:171
 msgid "Visible:"
-msgstr ""
+msgstr "能見度"
 
 #: omweather/src/weather-settings.c:1121 omweather/src/weather-settings.c:1307
 #: omweather/src/weather-settings.c:1312
 msgid "Visuals"
-msgstr ""
+msgstr "視覺"
 
 #: omweather/src/hash.data:301
 msgid "W"
-msgstr ""
+msgstr "西"
 
 #: omweather/src/weather-simple-settings.c:1789
 #: omweather/src/weather-simple-settings.c:1796
 #: omweather/src/weather-simple-settings.c:2830
 msgid "WLAN"
-msgstr ""
+msgstr "WLAN"
 
 #: omweather/src/hash.data:302
 msgid "WNW"
-msgstr ""
+msgstr "西北偏西"
 
 #: omweather/src/hash.data:303
 msgid "WNW_short"
@@ -2580,7 +2690,7 @@ msgstr ""
 
 #: omweather/src/hash.data:304
 msgid "WSW"
-msgstr ""
+msgstr "西南偏西"
 
 #: omweather/src/hash.data:305
 msgid "WSW_short"
@@ -2592,7 +2702,7 @@ msgstr ""
 
 #: omweather/src/hash.data:307
 msgid "Waning Crescent"
-msgstr ""
+msgstr "殘月"
 
 #: omweather/src/hash.data:308
 msgid "Waning Gibbous"
@@ -2600,7 +2710,7 @@ msgstr ""
 
 #: omweather/src/weather-simple-settings.c:846
 msgid "Warning"
-msgstr ""
+msgstr "警告"
 
 #: omweather/src/hash.data:309
 msgid "Waxing Crescent"
@@ -2612,82 +2722,82 @@ msgstr ""
 
 #: omweather/src/weather-popup.c:1553
 msgid "Weather data provided by: "
-msgstr ""
+msgstr "氣象資料提供者"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:410
 msgid "Weather forecast for the Meego. Version "
-msgstr ""
+msgstr "氣象預報 Meego 版"
 
 #: omweather/src/weather-utils.c:797
 msgid "Widget OMWeather is reloading"
-msgstr ""
+msgstr "小工具 OMWeather 正在重新載入"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:437
 msgid "Widget in LockScreen"
-msgstr ""
+msgstr "鎖定畫面小工具"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:464
 msgid "Widget in StandbyScreen"
-msgstr ""
+msgstr "待機螢幕小工具"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:411
 msgid "Widget in events view"
-msgstr ""
+msgstr "事件檢視小工具"
 
 #: omweather/src/weather-simple-settings.c:2914
 #: omweather/src/weather-simple-settings.c:2922
 msgid "Widget style"
-msgstr ""
+msgstr "小工具樣式"
 
 #: omweather/src/weather-simple-settings.c:393
 msgid "Widget style and Iconset"
-msgstr ""
+msgstr "小工具樣式及圖示及"
 
 #: omweather/src/hash.data:314
 msgid "Wind"
-msgstr ""
+msgstr "風"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:139
 #: meecast/qt-qml/qml/FullWeatherPage.qml:197
 #: meecast/qt-qml/qml/FullWeatherPage.qml:247
 msgid "Wind direction"
-msgstr ""
+msgstr "風向"
 
 #: omweather/src/hash.data:311
 msgid "Wind direction:"
-msgstr ""
+msgstr "風向"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:151
 #: meecast/qt-qml/qml/FullWeatherPage.qml:209
 #: meecast/qt-qml/qml/FullWeatherPage.qml:259
 msgid "Wind gust:"
-msgstr ""
+msgstr "陣風"
 
 #: omweather/src/hash.data:313 meecast/qt-qml/qml/FullWeatherPage.qml:145
 #: meecast/qt-qml/qml/FullWeatherPage.qml:203
 #: meecast/qt-qml/qml/FullWeatherPage.qml:253
 msgid "Wind speed"
-msgstr ""
+msgstr "風速"
 
 #: omweather/src/hash.data:312 meecast/qt-qml/qml/UnitsPage.qml:40
 #: meecast/qt-qml/qml/UnitsPage.qml:142
 msgid "Wind speed units"
-msgstr ""
+msgstr "風速單位"
 
 #: omweather/src/weather-settings.c:3974
 msgid "Wind speed units:"
-msgstr ""
+msgstr "風速單位︰"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
 #: meecast/qt-qml/dataitem.cpp:185
 msgid "Wind:"
-msgstr ""
+msgstr "風"
 
 #: omweather/src/weather-home.c:1409 omweather/src/weather-home.c:1464
 #: omweather/src/weather-popup.c:992 omweather/src/weather-popup.c:1123
 msgid "Wind: "
-msgstr ""
+msgstr "風"
 
 #: omweather/src/hash.data:318
 msgid "Wintry Mix"
@@ -2710,34 +2820,37 @@ msgid ""
 "Wrong station code \n"
 "or ZIP code!!!"
 msgstr ""
+"錯誤的站點代碼\n"
+"或郵遞區號！"
 
 #: omweather/src/weather-settings.c:824 meecast/qt-qml/qml/StationsPage.qml:77
 msgid "Yes"
-msgstr ""
+msgstr "事"
 
 #: omweather/src/weather-simple-popup.c:1233
 msgid "You can make donation here: "
-msgstr ""
+msgstr "你可以在此贊助"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:193
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using LockScreen widget"
-msgstr ""
+msgstr "欲使用鎖定螢幕小工具，請先啟用 \"項目檢視小工具\""
 
 #: meecast/qt-qml/qml/VisualsPage.qml:256
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using StandbyScreen widget"
-msgstr ""
+msgstr "欲使用待機螢幕小工具，請先啟用 \"項目檢視小工具\""
 
 #: meecast/qt-qml/qml/UpdatePage.qml:73
 msgid ""
 "You should activate 'Widget in the events view' option in MeeCast appearance "
 "settings for auto update."
 msgstr ""
+"欲使用自動更新，請先啟用於 MeeCast 的外觀選項中啟用 \"項目檢視小工具\"。"
 
 #: omweather/src/weather-simple-settings.c:2758
 msgid "Zoom in popup window "
@@ -2752,10 +2865,12 @@ msgid ""
 "as published by the Free Software Foundation; either version 2.1 of the "
 "License, or (at your option) any later version."
 msgstr ""
+"as published by the Free Software Foundation; either version 2.1 of the "
+"License, or (at your option) any later version."
 
 #: omweather/src/weather-popup.c:286
 msgid "current location local time"
-msgstr ""
+msgstr "目前位置的當地時間"
 
 #: omweather/src/weather-simple-popup.c:432
 msgid "d:"
@@ -2763,43 +2878,43 @@ msgstr ""
 
 #: meecast/qt-qml/dataitem.cpp:455
 msgid "day ago"
-msgstr ""
+msgstr "天以前"
 
 #: meecast/qt-qml/dataitem.cpp:457
 msgid "days ago"
-msgstr ""
+msgstr "天以前"
 
 #: omweather/src/weather-config.c:332
 msgid "every 2 hours"
-msgstr ""
+msgstr "每 2 小時"
 
 #: omweather/src/weather-config.c:338
 msgid "every 24 hours"
-msgstr ""
+msgstr "每 24 小時"
 
 #: omweather/src/weather-config.c:328
 msgid "every 30 minutes"
-msgstr ""
+msgstr "每 30 分鐘"
 
 #: omweather/src/weather-config.c:334
 msgid "every 4 hours"
-msgstr ""
+msgstr "每 4 小時"
 
 #: omweather/src/weather-config.c:326
 msgid "every 5 minutes"
-msgstr ""
+msgstr "每 5 分鐘"
 
 #: omweather/src/weather-config.c:336
 msgid "every 8 hours"
-msgstr ""
+msgstr "每 8 小時"
 
 #: omweather/src/weather-config.c:330
 msgid "every hour"
-msgstr ""
+msgstr "每小時"
 
 #: omweather/src/weather-config.c:340
 msgid "every minute (Debug)"
-msgstr ""
+msgstr "每分鐘（除錯）"
 
 #: omweather/src/hash.data:319
 msgid "falling"
@@ -2807,15 +2922,15 @@ msgstr ""
 
 #: omweather/src/weather-simple-popup.c:1048
 msgid "feels like"
-msgstr ""
+msgstr "體感溫度"
 
 #: meecast/qt-qml/dataitem.cpp:449
 msgid "hour ago"
-msgstr ""
+msgstr "小時前"
 
 #: meecast/qt-qml/dataitem.cpp:452
 msgid "hours ago"
-msgstr ""
+msgstr "小時前"
 
 #: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
 #: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
@@ -2823,47 +2938,47 @@ msgstr ""
 #: omweather/src/weather-popup.c:1313
 #: omweather/src/weather-simple-settings.c:1479
 msgid "inHg"
-msgstr ""
+msgstr "inHg"
 
 #: omweather/src/weather-simple-settings.c:2722
 msgid "inch"
-msgstr ""
+msgstr "吋"
 
 #: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
 #: omweather/src/weather-simple-settings.c:1336
 #: omweather/src/weather-simple-settings.c:2670
 #: meecast/qt-qml/qml/UnitsPage.qml:227
 msgid "km"
-msgstr ""
+msgstr "公里"
 
 #: omweather/src/weather-settings.c:3994 omweather/src/hash.data:320
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
 #: meecast/qt-qml/qml/UnitsPage.qml:160
 msgid "km/h"
-msgstr ""
+msgstr "公里／小時"
 
 #: omweather/src/hash.data:321
 msgid "km/s"
-msgstr ""
+msgstr "公里／秒"
 
 #: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1296
 #: omweather/src/weather-simple-settings.c:1328
 #: omweather/src/weather-simple-settings.c:2664
 #: meecast/qt-qml/qml/UnitsPage.qml:220
 msgid "m"
-msgstr ""
+msgstr "公尺"
 
 #: omweather/src/hash.data:322
 msgid "m/h"
-msgstr ""
+msgstr "公尺／小時"
 
 #: omweather/src/weather-settings.c:3980 omweather/src/hash.data:323
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
 #: meecast/qt-qml/qml/UnitsPage.qml:153
 msgid "m/s"
-msgstr ""
+msgstr "公尺／秒"
 
 #: omweather/src/weather-home.c:1397 omweather/src/weather-home.c:1452
 #: omweather/src/weather-home.c:1604 omweather/src/weather-settings.c:4055
@@ -2884,26 +2999,26 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:2676
 #: meecast/qt-qml/qml/UnitsPage.qml:234
 msgid "mi"
-msgstr ""
+msgstr "裡"
 
 #: omweather/src/weather-settings.c:4008 omweather/src/hash.data:324
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
 #: meecast/qt-qml/qml/UnitsPage.qml:167
 msgid "mi/h"
-msgstr ""
+msgstr "哩／小時"
 
 #: omweather/src/hash.data:325
 msgid "mi/s"
-msgstr ""
+msgstr "哩／秒"
 
 #: meecast/qt-qml/dataitem.cpp:443
 msgid "minute ago"
-msgstr ""
+msgstr "分鐘前"
 
 #: meecast/qt-qml/dataitem.cpp:446
 msgid "minutes ago"
-msgstr ""
+msgstr "分鐘前"
 
 #: omweather/src/weather-popup.c:961 omweather/src/weather-popup.c:1094
 #: omweather/src/weather-simple-settings.c:2727
@@ -2925,16 +3040,16 @@ msgstr ""
 
 #: omweather/src/weather-simple-settings.c:1688
 msgid "never"
-msgstr ""
+msgstr "永不"
 
 #: omweather/src/weather-sensor.c:108
 msgid "new icon"
-msgstr ""
+msgstr "新圖示"
 
 #: omweather/src/weather-simple-popup.c:257
 #: omweather/src/weather-simple-popup.c:260
 msgid "next"
-msgstr ""
+msgstr "下一個"
 
 #: omweather/src/weather-simple-settings.c:1354
 #: omweather/src/weather-simple-settings.c:2681
@@ -2947,15 +3062,15 @@ msgstr ""
 
 #: meecast/qt-qml/dataitem.cpp:440
 msgid "seconds ago"
-msgstr ""
+msgstr "秒前"
 
 #: omweather/src/weather-popup.c:271
 msgid "station local time"
-msgstr ""
+msgstr "站點當地時間"
 
 #: omweather/src/weather-sensor.c:92
 msgid "station name"
-msgstr ""
+msgstr "站點名稱"
 
 #: omweather/src/hash.data:327
 msgid "steady"

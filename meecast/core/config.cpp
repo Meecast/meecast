@@ -536,6 +536,8 @@ Config::InitLanguagesList(){
     _languages_list->push_back(std::make_pair("Bulgarian", "bg_BG"));
     _languages_list->push_back(std::make_pair("Catalan", "ca"));
     _languages_list->push_back(std::make_pair("Chinese", "zh_ZH"));
+    _languages_list->push_back(std::make_pair("Chinese(Hong Kong)", "zh_HK"));
+    _languages_list->push_back(std::make_pair("Chinese(Taiwan)", "zh_TW"));
     _languages_list->push_back(std::make_pair("Dutch", "nl_NL"));
     _languages_list->push_back(std::make_pair("German", "de_DE"));
     _languages_list->push_back(std::make_pair("English", "en_GB"));

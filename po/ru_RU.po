@@ -886,7 +886,7 @@ msgstr "Малооблачно"
 
 #: meecast/qt-qml/qml/StationsPage.qml:92
 msgid "Find location via GPS"
-msgstr ""
+msgstr "Найти станцию с помощью GPS"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:428
 msgid ""

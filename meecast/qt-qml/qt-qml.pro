@@ -134,7 +134,6 @@ TRANSLIST = ar_AR \
             sq_SQ \
             tr_TR \
             vi_VI \
-            zh_CN \
             zh_TW \
             zh_HK \
 	    zh_ZH
@@ -280,11 +279,6 @@ transinstallvi.extra = cp po/locale/vi_VI/omweather.mo $(INSTALL_ROOT)$$DATADIR/
 transinstallvi.path = /opt/com.meecast.omweather/share/locale/vi/LC_MESSAGES
 transinstallvi.files = po/locale/vi_VI/omweather.mo
 INSTALLS += transinstallvi
-
-transinstallzhcn.extra = cp po/locale/zh_CN/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/zh_CN/LC_MESSAGES
-transinstallzhcn.path = /opt/com.meecast.omweather/share/locale/zh_CN/LC_MESSAGES
-transinstallzhcn.files = po/locale/zh_CN/omweather.mo
-INSTALLS += transinstallzhcn
 
 transinstallzh.extra = cp po/locale/zh_ZH/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/zh/LC_MESSAGES
 transinstallzh.path = /opt/com.meecast.omweather/share/locale/zh/LC_MESSAGES

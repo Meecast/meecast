@@ -136,6 +136,7 @@ TRANSLIST = ar_AR \
             vi_VI \
             zh_CN \
             zh_TW \
+            zh_HK \
 	    zh_ZH
 
 for(language, TRANSLIST):TRANSLATIONS += po/locale/$${language}/$${language}.po

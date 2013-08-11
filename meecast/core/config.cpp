@@ -348,6 +348,11 @@ Config::saveConfig()
     file_out<<" <current_station_id>"<< _current_station_id<<"</current_station_id>"<<endl;
     file_out<<" <update_period>"<< _update_period<<"</update_period>"<<endl;
     file_out<<" <language>"<< *_language<<"</language>"<<endl;
+    if (Gps() == false)
+        file_out<<"  <gps>false</gps>"<<endl;
+    else
+        file_out<<"  <gps>true</gps>"<<endl;
+
     std::vector<Station*>::iterator i = _stations->begin();
     while (i != _stations->end()){
         file_out<<"  <station>"<<endl;

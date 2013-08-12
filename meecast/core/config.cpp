@@ -348,6 +348,11 @@ Config::saveConfig()
     file_out<<" <current_station_id>"<< _current_station_id<<"</current_station_id>"<<endl;
     file_out<<" <update_period>"<< _update_period<<"</update_period>"<<endl;
     file_out<<" <language>"<< *_language<<"</language>"<<endl;
+    if (Gps() == false)
+        file_out<<"  <gps>false</gps>"<<endl;
+    else
+        file_out<<"  <gps>true</gps>"<<endl;
+
     std::vector<Station*>::iterator i = _stations->begin();
     while (i != _stations->end()){
         file_out<<"  <station>"<<endl;
@@ -655,6 +660,13 @@ Config::LoadConfig(){
             if (!xmlStrcmp(p->name, (const xmlChar*)"language")){
                 _language->assign(std::string((char *)xmlNodeGetContent(p)));
             }
+            if (!xmlStrcmp(p->name, (const xmlChar*)"gps")){
+                if(!xmlStrcmp(xmlNodeGetContent(p),(const xmlChar*)"true"))
+                    Gps(true);
+                else
+                    Gps(false);
+            }
+
             if (!xmlStrcmp(p->name, (const xmlChar*)"station")){
                 bool gps = false;
                 for(xmlNodePtr p1 = p->children; p1; p1 = p1->next) {
@@ -743,7 +755,9 @@ Config::InitLanguagesList(){
     _languages_list->push_back(std::make_pair("Arabic", "ar_AR"));
     _languages_list->push_back(std::make_pair("Bulgarian", "bg_BG"));
     _languages_list->push_back(std::make_pair("Catalan", "ca"));
-    _languages_list->push_back(std::make_pair("Chinese", "zh_ZH"));
+    _languages_list->push_back(std::make_pair("Chinese", "zh"));
+    _languages_list->push_back(std::make_pair("Chinese(Hong Kong)", "zh_HK"));
+    _languages_list->push_back(std::make_pair("Chinese(Taiwan)", "zh_TW"));
     _languages_list->push_back(std::make_pair("Dutch", "nl_NL"));
     _languages_list->push_back(std::make_pair("German", "de_DE"));
     _languages_list->push_back(std::make_pair("English", "en_GB"));

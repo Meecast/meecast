@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en_GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-09 15:38+0300\n"
+"POT-Creation-Date: 2013-08-11 15:31+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -362,6 +362,14 @@ msgstr ""
 
 #: omweather/src/hash.data:25
 msgid "Blowing Snow"
+msgstr ""
+
+#: omweather/src/hash.data:332
+msgid "Broken Clouds"
+msgstr ""
+
+#: omweather/src/hash.data:333
+msgid "Broken clouds"
 msgstr ""
 
 #: omweather/src/weather-home.c:1536 omweather/src/weather-home.c:1562
@@ -797,6 +805,10 @@ msgstr ""
 msgid "Feels like:"
 msgstr ""
 
+#: omweather/src/hash.data:335
+msgid "Few Clouds"
+msgstr ""
+
 #: omweather/src/hash.data:77
 msgid "Few Showers"
 msgstr ""
@@ -817,7 +829,7 @@ msgstr ""
 msgid "Few Snow Showers / Wind"
 msgstr ""
 
-#: omweather/src/hash.data:332
+#: omweather/src/hash.data:334
 msgid "Few clouds"
 msgstr ""
 
@@ -1011,7 +1023,7 @@ msgstr ""
 msgid "Heavy Snow / Wind"
 msgstr ""
 
-#: omweather/src/hash.data:337
+#: omweather/src/hash.data:347
 msgid "Heavy intensity rain"
 msgstr ""
 
@@ -1135,7 +1147,7 @@ msgstr ""
 msgid "Light Freezing Rain"
 msgstr ""
 
-#: omweather/src/hash.data:115
+#: omweather/src/hash.data:115 omweather/src/hash.data:337
 msgid "Light Rain"
 msgstr ""
 
@@ -1203,8 +1215,12 @@ msgstr ""
 msgid "Light Snow Shower"
 msgstr ""
 
-#: omweather/src/hash.data:333
+#: omweather/src/hash.data:336
 msgid "Light rain"
+msgstr ""
+
+#: omweather/src/hash.data:338
+msgid "Light snow"
 msgstr ""
 
 #: omweather/src/weather-settings.c:463
@@ -1271,7 +1287,11 @@ msgstr ""
 msgid "Mist"
 msgstr ""
 
-#: omweather/src/hash.data:334
+#: omweather/src/hash.data:340
+msgid "Moderate Rain"
+msgstr ""
+
+#: omweather/src/hash.data:339
 msgid "Moderate rain"
 msgstr ""
 
@@ -1558,6 +1578,10 @@ msgstr ""
 msgid "Overcast"
 msgstr ""
 
+#: omweather/src/hash.data:342
+msgid "Overcast Clouds"
+msgstr ""
+
 #: omweather/src/hash.data:170
 msgid "Overcast and light rain"
 msgstr ""
@@ -1592,6 +1616,10 @@ msgstr ""
 
 #: omweather/src/hash.data:177
 msgid "Overcast and wet snow showers"
+msgstr ""
+
+#: omweather/src/hash.data:341
+msgid "Overcast clouds"
 msgstr ""
 
 #: omweather/src/hash.data:179
@@ -1983,6 +2011,10 @@ msgstr "S"
 msgid "Save"
 msgstr ""
 
+#: omweather/src/hash.data:344
+msgid "Scattered Clouds"
+msgstr ""
+
 #: omweather/src/hash.data:257
 msgid "Scattered Showers"
 msgstr ""
@@ -1997,6 +2029,10 @@ msgstr ""
 
 #: omweather/src/hash.data:260
 msgid "Scattered T-Storms"
+msgstr ""
+
+#: omweather/src/hash.data:343
+msgid "Scattered clouds"
 msgstr ""
 
 #: omweather/src/weather-settings.c:3943
@@ -2180,11 +2216,11 @@ msgstr ""
 msgid "Showers in the Vicinity"
 msgstr ""
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:346
 msgid "Sky is Clear"
 msgstr ""
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:345
 msgid "Sky is clear"
 msgstr ""
 
@@ -2379,7 +2415,7 @@ msgstr ""
 msgid "The weather has been updated."
 msgstr ""
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:348
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
@@ -2940,34 +2976,34 @@ msgstr ""
 msgid "steady"
 msgstr ""
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:349
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:350
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:351
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:352
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:353
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:354
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:355
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:356
 msgid "Ю-З"
 msgstr ""

@@ -6,7 +6,7 @@
     #define hash_insert(hash, s2, s3)  hash->insert(s2, s3);
 #endif
 
-    #define hash_insert(hash, s2, s3) xmlHashAddEntry(hash, (const xmlChar *)s2, (void *)strdup(s3)); 
+    #define hash_insert(hash, s2, s3) xmlHashAddEntry(hash, (const xmlChar *)s2, (void *)(s3)); 
     hash_insert(hash, "day1", "32");
     hash_insert(hash, "night1", "31");
     hash_insert(hash, "day2", "30");

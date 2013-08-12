@@ -22,6 +22,8 @@
 */
 /*******************************************************************************/
 #include <FApp.h>
+#include <FLocations.h>
+#include <FSystem.h>
 #include "meecastManageLocationsForm.h"
 
 using namespace Tizen::Base;
@@ -29,9 +31,11 @@ using namespace Tizen::App;
 using namespace Tizen::Ui;
 using namespace Tizen::Ui::Controls;
 using namespace Tizen::Ui::Scenes;
+using namespace Tizen::Graphics;
+using namespace Tizen::Base::Collection;
+using namespace Tizen::Locations;
 
 static const int LIST_HEIGHT = 112;
-static const int BUTTON_HEIGHT = 74;
 
 meecastManageLocationsForm::meecastManageLocationsForm(void)
                     : __pListView(null)
@@ -149,7 +153,7 @@ meecastManageLocationsForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId&
 int
 meecastManageLocationsForm::GetItemCount(void)
 {
-    return _config->stationsList().size();
+    return _config->stationsList().size() + 1;
 }
 
 bool
@@ -166,12 +170,24 @@ meecastManageLocationsForm::CreateItem (int index, int itemWidth)
     CustomItem* pItem = new (std::nothrow) CustomItem();
     TryReturn(pItem != null, null, "Out of memory");
 
-//    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_DETAILED);
     pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_ONOFF_SLIDING);
-    String* pStr = new String (_config->stationsList().at(index)->name().c_str()); 
-    pItem->AddElement(Tizen::Graphics::Rectangle(26, 32, 600, 50), 0, *pStr, false);
+    String* pStr;
 
-    __pListView->SetItemChecked(index, true);
+    if (index == 0){
+        pStr = new String (_("Find location via GPS"));
+        pItem->AddElement(Tizen::Graphics::Rectangle(16, 32, 700, 50), 0, *pStr, 36,
+                          Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)),
+                          Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)),
+                          Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)), true);
+        if (_config->Gps())
+            __pListView->SetItemChecked(index, true);
+        else
+            __pListView->SetItemChecked(index, false);
+    }else{
+        pStr = new String (_config->stationsList().at(index -1)->name().c_str()); 
+        pItem->AddElement(Tizen::Graphics::Rectangle(16, 32, 700, 50), 0, *pStr, true);
+        __pListView->SetItemChecked(index, true);
+    }
 	return pItem;
 }
 
@@ -199,31 +215,81 @@ meecastManageLocationsForm::DeleteMessageBox(const Tizen::Base::String& Station,
 
 
 void
-meecastManageLocationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
-{
-    if (status ==  LIST_ITEM_STATUS_UNCHECKED){
-        DeleteMessageBox(_config->stationsList().at(index)->name().c_str(), index);
-        listView.UpdateList();
-   	}
+meecastManageLocationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status){
+    if (index == 0){
+        if (status ==  LIST_ITEM_STATUS_UNCHECKED)
+            _config->Gps(false);
+        else{
+            bool check;
+            Tizen::System::SystemInfo::GetValue("http://tizen.org/feature/location", check); 
+            if (check)
+                _config->Gps(true);
+            else
+                _config->Gps(false);
+        }
+        _config->saveConfig();
+        AppLog("Gps is changed ");
+        if (_config->Gps()){
+            result lastResult = E_SUCCESS;
+            LocationCriteria locCriteria;
+
+            locCriteria.SetAccuracy(LOC_ACCURACY_ANY);
+
+            Location location = LocationProvider::GetLocation(locCriteria);
+
+            lastResult = GetLastResult();
+
+            if (lastResult == E_USER_NOT_CONSENTED){
+                int doModal;
+                MessageBox messageBox;
+                messageBox.Construct(L"Error", "The user has disabled the required settings.", MSGBOX_STYLE_OK, 0);
+                messageBox.ShowAndWait(doModal);
+            }else{
+                AppLog("Yes!!!");
+                AppLog ("Latitude %d",location.GetCoordinates().GetLatitude());
+                AppLog ("Longitude %d",location.GetCoordinates().GetLongitude());
+                String dbPath;
+                dbPath.Append(App::GetInstance()->GetAppResourcePath());
+                dbPath.Append("db/openweathermap.org.db");
+                if (Database::Exists(dbPath) == true){
+
+                    Core::DatabaseSqlite *__db;
+                    __db = new Core::DatabaseSqlite(dbPath);
+
+                    if (__db->open_database() == true){
+                        std::string country,  region,
+                                     code,  name;
+                        double latitude, longitude;
+                        __db->get_nearest_station(location.GetCoordinates().GetLatitude(), location.GetCoordinates().GetLongitude(), country, region, code,  name, latitude, longitude);
+
+                    }
+                    delete __db;
+                }
+
+
+            }
+        }
+    }else{
+        if (status ==  LIST_ITEM_STATUS_UNCHECKED){
+            DeleteMessageBox(_config->stationsList().at(index-1)->name().c_str(), index-1);
+            listView.UpdateList();
+        }
+    }
 }
 void
-meecastManageLocationsForm::OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction)
-{
+meecastManageLocationsForm::OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction){
 }
 
 void
-meecastManageLocationsForm::OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state)
-{
+meecastManageLocationsForm::OnListViewContextItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListContextItemStatus state){
 }
 
 void
-meecastManageLocationsForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex)
-{
+meecastManageLocationsForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int oldIndex, int newIndex){
 }
 
 void
-meecastManageLocationsForm::GetStationsList(void)
-{
+meecastManageLocationsForm::GetStationsList(void){
 }
 
 

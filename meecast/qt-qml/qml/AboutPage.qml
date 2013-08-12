@@ -219,7 +219,7 @@ Italian - Lorenzo Facca,\n \
 \tPavel Fialko, Alessandro Pasotti,\n \
 \tSalvatore Fiorenzo, Ilir Gjika,\n \
 \tLuca Onnis\n \
-Spanish - Alejandro Lopez\n \
+Spanish - Alejandro Lopez, Agustí Clara\n \
 Polish - Tomasz Dominikowski\n \
 Slovak - Roman Moravčík\n \
 Dutch - Tom Leenders, Michiel Pater\n \
@@ -233,6 +233,7 @@ Arabic - Tarad Alfandi,\n \
 Serbian - Aleksandar Zaric,\n \
 Norwegian - Peer-Atle Motland,\n \
 Hungarian - Salmi,\n \
+Chinese(Taiwan) - osk2, \n \ 	
 Vietnamese - Hieu Nguyen\n \
 \tAnh Dương and truongnx, \n \
 Swedish - Angela Nennebrandt,\n \

@@ -70,7 +70,7 @@ Config::Config()
     _fullscreen = false;
     _lockscreen = false;
     _standbyscreen = false;
-    _gps = false;
+    _gps = true;
     _splash = true;
     _font_color = new std::string("#00ff00");
     _language = new std::string("System");
@@ -349,9 +349,9 @@ Config::saveConfig()
     file_out<<" <update_period>"<< _update_period<<"</update_period>"<<endl;
     file_out<<" <language>"<< *_language<<"</language>"<<endl;
     if (Gps() == false)
-        file_out<<"  <gps>false</gps>"<<endl;
+        file_out<<" <gps>false</gps>"<<endl;
     else
-        file_out<<"  <gps>true</gps>"<<endl;
+        file_out<<" <gps>true</gps>"<<endl;
 
     std::vector<Station*>::iterator i = _stations->begin();
     while (i != _stations->end()){
@@ -455,7 +455,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _fullscreen = false;
     _lockscreen = false;
     _standbyscreen = false;
-    _gps = false;
+    _gps = true;
     _splash = true;
     _update_period = INT_MAX;
     _font_color = new std::string("#00ff00");

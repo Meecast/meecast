@@ -8,12 +8,14 @@
 
 #include "meecast.h"
 #include "meecastFrame.h"
+#include <FLocations.h>
 
 using namespace Tizen::App;
 using namespace Tizen::Base;
 using namespace Tizen::System;
 using namespace Tizen::Ui;
 using namespace Tizen::Ui::Controls;
+using namespace Tizen::Locations;
 
 
 
@@ -111,7 +113,32 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
         setlocale (LC_MESSAGES, str.c_str());
         setlocale (LC_TIME, str.c_str());
     }
-
+    /* Add GPS station */
+    if (config->Gps() && config->getGpsStation() == -1){
+        Location location = LocationProvider::GetLastKnownLocation();
+        String dbPath;
+        dbPath.Append(App::GetInstance()->GetAppResourcePath());
+        dbPath.Append("db/openweathermap.org.db");
+        if (Database::Exists(dbPath) == true){
+            Core::DatabaseSqlite *__db;
+            __db = new Core::DatabaseSqlite(dbPath);
+            if (__db->open_database() == true){
+                std::string country,  region, code, name;
+                double latitude, longitude;
+                if (!((Double::ToString(location.GetCoordinates().GetLatitude())== "NaN") || 
+                    (Double::ToString(location.GetCoordinates().GetLongitude()) == "NaN"))){
+                    __db->get_nearest_station(location.GetCoordinates().GetLatitude(), location.GetCoordinates().GetLongitude(), country, region, code,  name, latitude, longitude);
+                    if (latitude != INT_MAX && longitude != INT_MAX){
+                        String Name;
+                        Name = name.c_str();
+                        Name.Append(" (GPS)");
+                        config->saveStation1("openweathermap.org", String(code.c_str()), Name, String(country.c_str()), String(region.c_str()), true, latitude, longitude);
+                    }
+                }
+            }
+            delete __db;
+        }
+    }
 	// Uncomment the following statement to listen to the screen on/off events.
 	//PowerManager::SetScreenEventListener(*this);
 

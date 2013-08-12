@@ -443,17 +443,7 @@ meecastMainForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionI
         break;
     case ID_BUTTON_UPDATE: 
         AppLog("Settings Update is clicked!");
-        if (_config->stationsList().size() > 0){
-            Tizen::Ui::Controls::Label  *main_need_updating = static_cast<Label*>(GetControl(L"IDC_LABEL_NEED_UPDATING"));
-            Tizen::Ui::Controls::Button  *main_set_try_update_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_TRY_UPDATE"));
-            main_set_try_update_button->SetShowState(false);
-            main_need_updating->SetShowState(false);
-            __pAnimation->SetShowState(true);
-            __updateButton->SetShowState(false);
-            __pAnimation->Play();
-	        __updateTimer->StartAsRepeatable(1000);
-            _config->updatestations();
-        }
+        UpdateWeatherForecast();
         break;
     case ID_SET_LOCATIONS:
         AppLog("Locations is clicked!");
@@ -820,21 +810,20 @@ meecastMainForm::ReInitElements(void){
 void
 meecastMainForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
                                           const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs){
-    // TODO:
-    // Add your scene activate code here
-    //AppLog("OnSceneActivatedNi %i", _config->current_station_id());
-    //AppLog("OnSceneActivatedNi %s", _config->stationname().c_str());
 
     ReInitElements(); 
 
-
     Tizen::Ui::Controls::Label  *source_icon_label = static_cast<Label*>(GetControl(L"IDC_LABEL_SOURCE_ICON"));
+    Tizen::Ui::Controls::Button  *main_set_try_update_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_TRY_UPDATE"));
     Tizen::Graphics::Point position = source_icon_label->GetPosition();
     __updateButton->SetPosition(0 + 25, position.y - 0);
     __updateButton->RequestRedraw();
     __pAnimation->SetPosition(0 + 35, position.y + 10);
     __pAnimation->RequestRedraw();
-
+    
+    if(_config->Gps() && main_set_try_update_button->GetShowState()){
+        UpdateWeatherForecast();
+    }
 }
 
 void
@@ -1042,5 +1031,21 @@ meecastMainForm::AppControlBrowser(Tizen::Base::String uri){
         pAc->Start(&uri, null, null, null);
         delete pAc;
     }
+}
+
+void
+meecastMainForm::UpdateWeatherForecast(){
+    if (_config->stationsList().size() > 0){
+        Tizen::Ui::Controls::Label  *main_need_updating = static_cast<Label*>(GetControl(L"IDC_LABEL_NEED_UPDATING"));
+        Tizen::Ui::Controls::Button  *main_set_try_update_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_TRY_UPDATE"));
+        main_set_try_update_button->SetShowState(false);
+        main_need_updating->SetShowState(false);
+        __pAnimation->SetShowState(true);
+        __updateButton->SetShowState(false);
+        __pAnimation->Play();
+        __updateTimer->StartAsRepeatable(1000);
+        _config->updatestations();
+    }
+
 }
 

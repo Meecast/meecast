@@ -538,7 +538,8 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
     double result_lat, result_lon;
     String sql;
     DbEnumerator* pEnum;
-
+    latitude = INT_MAX;
+    longitude = INT_MAX;
     AppLog ("get_nearest_station");
     sql.Append(L"select regions.name, stations.code, stations.name, stations.latitude, stations.longititude, countries.name \
              from regions left join stations on regions.id=stations.region_id \
@@ -560,18 +561,20 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
         AppLog("sssss2 %f %f", result_lat, result_lon);
         distance = DatabaseSqlite::calculate_distance(lat, lon, result_lat, result_lon);
         AppLog ("Distance %f", distance);
-        /*
         if (distance < min_distance){
             min_distance = distance;
-            country = result[ncol+i+5];
-            region = result[ncol+i+0];
-            code = result[ncol+i+1];
-            name = result[ncol+i+2];
-            latitude = atof(result[ncol+i+3]);
-            longitude = atof(result[ncol+i+4]);
+            String Country, Region, Code, Name;
+            pEnum->GetStringAt(5, Country);
+            country = (char*)Tizen::Base::Utility::StringUtil::StringToUtf8N(Country)->GetPointer();
+            pEnum->GetStringAt(0, Region);
+            region = (char*)Tizen::Base::Utility::StringUtil::StringToUtf8N(Region)->GetPointer();
+            pEnum->GetStringAt(1, Code);
+            code = (char*)Tizen::Base::Utility::StringUtil::StringToUtf8N(Code)->GetPointer();
+            pEnum->GetStringAt(2, Name);
+            name = (char*)Tizen::Base::Utility::StringUtil::StringToUtf8N(Name)->GetPointer();
+            latitude = result_lat;
+            longitude = result_lon;
         }
-        */
-
      }
 
 

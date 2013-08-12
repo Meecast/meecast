@@ -43,6 +43,7 @@
 
 #include "databaseabstract.h"
 #include <FIo.h>
+#include <limits.h>
 
 namespace Core{
 

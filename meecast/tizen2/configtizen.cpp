@@ -139,7 +139,7 @@ ConfigTizen::saveStation1(String source, String city_id, String city_name, Strin
                 _name,
                 _country,
                 _region,
-                false, latitude, longitude);
+                gps, latitude, longitude);
 
     AppLog ("ConfigTizen::saveStation preend");
     stationsList().push_back(station);

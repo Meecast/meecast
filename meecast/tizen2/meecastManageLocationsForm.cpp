@@ -257,11 +257,22 @@ meecastManageLocationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::List
                     __db = new Core::DatabaseSqlite(dbPath);
 
                     if (__db->open_database() == true){
-                        std::string country,  region,
-                                     code,  name;
+                        std::string country,  region, code, name;
                         double latitude, longitude;
-                        __db->get_nearest_station(location.GetCoordinates().GetLatitude(), location.GetCoordinates().GetLongitude(), country, region, code,  name, latitude, longitude);
-
+                        if ((Double::ToString(location.GetCoordinates().GetLatitude())== "NaN") || (Double::ToString(location.GetCoordinates().GetLongitude()) == "NaN")){
+                            int doModal;
+                            MessageBox messageBox;
+                            messageBox.Construct(L"Error", "Data for GPS is not available", MSGBOX_STYLE_OK, 0);
+                            messageBox.ShowAndWait(doModal);
+                        }else{ 
+                            __db->get_nearest_station(location.GetCoordinates().GetLatitude(), location.GetCoordinates().GetLongitude(), country, region, code,  name, latitude, longitude);
+                            if (latitude != INT_MAX && longitude != INT_MAX){
+                                String Name;
+                                Name = name.c_str();
+                                Name.Append(" (GPS)");
+                                _config->saveStation1("openweathermap.org", String(code.c_str()), Name, String(country.c_str()), String(region.c_str()), true, latitude, longitude);
+                            }
+                        }
                     }
                     delete __db;
                 }

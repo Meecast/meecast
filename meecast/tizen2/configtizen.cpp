@@ -107,8 +107,7 @@ ConfigTizen::isupdatingstations(){
 }
 
 void
-ConfigTizen::removeStation(int index)
-{
+ConfigTizen::removeStation(int index){
     stationsList().erase(stationsList().begin() + index);
     if (this->stationsList().size() > 0){
         this->current_station_id(0);
@@ -118,8 +117,7 @@ ConfigTizen::removeStation(int index)
 
 void 
 ConfigTizen::saveStation1(String source, String city_id, String city_name, String country,
-                      String region, bool gps, double latitude, double longitude)
-{
+                      String region, bool gps, double latitude, double longitude){
     AppLog ("ConfigTizen::saveStation1");
     std::string _source = "";
     _source =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(source)->GetPointer());
@@ -151,3 +149,12 @@ ConfigTizen::saveStation1(String source, String city_id, String city_name, Strin
  
 }
 
+int
+ConfigTizen::getGpsStation(){
+    int index = -1;
+    for (unsigned int i=0; i<stationsList().size(); i++){
+        if (stationsList().at(i)->gps() == true)
+            index = i;
+    }
+    return index;
+}

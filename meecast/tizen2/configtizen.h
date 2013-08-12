@@ -62,6 +62,7 @@ public:
     void convertstations();
     bool isupdatingstations();
     void removeStation(int index);
+    int  getGpsStation();
 };
 
 #endif // CONFIGTIZEN_H

@@ -252,14 +252,13 @@ meecastManageLocationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::List
                 dbPath.Append(App::GetInstance()->GetAppResourcePath());
                 dbPath.Append("db/openweathermap.org.db");
                 if (Database::Exists(dbPath) == true){
-
                     Core::DatabaseSqlite *__db;
                     __db = new Core::DatabaseSqlite(dbPath);
-
                     if (__db->open_database() == true){
                         std::string country,  region, code, name;
                         double latitude, longitude;
-                        if ((Double::ToString(location.GetCoordinates().GetLatitude())== "NaN") || (Double::ToString(location.GetCoordinates().GetLongitude()) == "NaN")){
+                        if ((Double::ToString(location.GetCoordinates().GetLatitude())== "NaN") || 
+                            (Double::ToString(location.GetCoordinates().GetLongitude()) == "NaN")){
                             int doModal;
                             MessageBox messageBox;
                             messageBox.Construct(L"Error", "Data for GPS is not available", MSGBOX_STYLE_OK, 0);
@@ -267,17 +266,22 @@ meecastManageLocationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::List
                         }else{ 
                             __db->get_nearest_station(location.GetCoordinates().GetLatitude(), location.GetCoordinates().GetLongitude(), country, region, code,  name, latitude, longitude);
                             if (latitude != INT_MAX && longitude != INT_MAX){
+                                /* find exist gps station */
+                                int index = _config->getGpsStation();
+                                if (index > -1){
+                                    /* delete gps station */
+                                    _config->removeStation(index);
+                                }
                                 String Name;
                                 Name = name.c_str();
                                 Name.Append(" (GPS)");
                                 _config->saveStation1("openweathermap.org", String(code.c_str()), Name, String(country.c_str()), String(region.c_str()), true, latitude, longitude);
+                                listView.UpdateList();
                             }
                         }
                     }
                     delete __db;
                 }
-
-
             }
         }
     }else{

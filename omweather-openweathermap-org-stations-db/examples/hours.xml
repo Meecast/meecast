@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <weatherdata>
   <location>
     <name>Vitsyebsk</name>
@@ -9,81 +9,401 @@
   </location>
   <credit/>
   <meta>
-    <lastupdate>2013-05-16T08:00:00</lastupdate>
-    <calctime>0.0166</calctime>
-    <nextupdate>2013-05-16T11:00:00</nextupdate>
+    <lastupdate>2013-08-13T09:00:00</lastupdate>
+    <calctime>0.0078</calctime>
+    <nextupdate>2013-08-13T12:00:00</nextupdate>
   </meta>
-  <sun rise="2013-05-16T01:47:15" set="2013-05-16T18:03:52"/>
+  <sun rise="2013-08-13T02:30:38" set="2013-08-13T17:37:14"/>
   <forecast>
-    <time day="2013-05-16">
-      <symbol number="801" name="few clouds" var="02d"/>
-      <precipitation value="2.5" type="rain"/>
-      <windDirection deg="99" code="E" name="East"/>
-      <windSpeed mps="2.66" name="Light breeze"/>
-      <temperature day="26.25" min="20.41" max="27.66" night="20.41" eve="27.66" morn="22"/>
-      <pressure unit="hPa" value="1006.46"/>
-      <humidity value="83" unit="%"/>
-      <clouds value="few clouds" all="20" unit="%"/>
+    <time from="2013-08-13T06:00:00" to="2013-08-13T09:00:00">
+      <symbol number="802" name="scattered clouds" var="03d"/>
+      <precipitation/>
+      <windDirection deg="184.001" code="S" name="South"/>
+      <windSpeed mps="2.81" name="Light breeze"/>
+      <temperature unit="celsius" value="21.15" min="19.47" max="21.15"/>
+      <pressure unit="hPa" value="1009.69"/>
+      <humidity value="69" unit="%"/>
+      <clouds value="scattered clouds" all="44" unit="%"/>
     </time>
-    <time day="2013-05-17">
-      <symbol number="800" name="sky is clear" var="01d"/>
-      <precipitation value="2.5" type="rain"/>
-      <windDirection deg="139" code="SE" name="SouthEast"/>
-      <windSpeed mps="5.26" name="Gentle Breeze"/>
-      <temperature day="28.51" min="17.69" max="29.42" night="19.68" eve="27.13" morn="17.69"/>
-      <pressure unit="hPa" value="1007.95"/>
-      <humidity value="68" unit="%"/>
-      <clouds value="Sky is Clear" all="0" unit="%"/>
-    </time>
-    <time day="2013-05-18">
-      <symbol number="800" name="sky is clear" var="01d"/>
-      <precipitation value="2.5" type="rain"/>
-      <windDirection deg="141" code="SE" name="SouthEast"/>
-      <windSpeed mps="2.19" name="Light breeze"/>
-      <temperature day="27.97" min="17" max="27.97" night="19.13" eve="27.84" morn="17"/>
-      <pressure unit="hPa" value="1008.67"/>
-      <humidity value="73" unit="%"/>
-      <clouds value="Sky is Clear" all="0" unit="%"/>
-    </time>
-    <time day="2013-05-19">
-      <symbol number="800" name="sky is clear" var="01d"/>
-      <precipitation value="6.5" type="rain"/>
-      <windDirection deg="185" code="S" name="South"/>
-      <windSpeed mps="3.86" name="Gentle Breeze"/>
-      <temperature day="26.67" min="16.92" max="27.37" night="18.86" eve="25.18" morn="16.92"/>
-      <pressure unit="hPa" value="1008.29"/>
-      <humidity value="68" unit="%"/>
-      <clouds value="scattered clouds" all="32" unit="%"/>
-    </time>
-    <time day="2013-05-20">
+    <time from="2013-08-13T09:00:00" to="2013-08-13T12:00:00">
       <symbol number="800" name="sky is clear" var="01d"/>
       <precipitation/>
-      <windDirection deg="254" code="WSW" name="West-southwest"/>
-      <windSpeed mps="4.38" name="Gentle Breeze"/>
-      <temperature day="23.94" min="17.15" max="25.33" night="21.15" eve="25.02" morn="17.15"/>
-      <pressure unit="hPa" value="1007.22"/>
-      <humidity value="70" unit="%"/>
-      <clouds value="Sky is Clear" all="0" unit="%"/>
+      <windDirection deg="202.501" code="SSW" name="South-southwest"/>
+      <windSpeed mps="4.41" name="Gentle Breeze"/>
+      <temperature unit="celsius" value="23.99" min="22.4" max="23.99"/>
+      <pressure unit="hPa" value="1009.02"/>
+      <humidity value="61" unit="%"/>
+      <clouds value="sky is clear" all="0" unit="%"/>
     </time>
-    <time day="2013-05-21">
-      <symbol number="800" name="sky is clear" var="01d"/>
-      <precipitation value="13" type="rain"/>
-      <windDirection deg="100" code="E" name="East"/>
-      <windSpeed mps="2.93" name="Light breeze"/>
-      <temperature day="23.87" min="14.8" max="23.87" night="14.8" eve="19.5" morn="17.49"/>
-      <pressure unit="hPa" value="1006.45"/>
-      <humidity value="71" unit="%"/>
+    <time from="2013-08-13T12:00:00" to="2013-08-13T15:00:00">
+      <symbol number="803" name="broken clouds" var="04d"/>
+      <precipitation/>
+      <windDirection deg="211" code="SSW" name="South-southwest"/>
+      <windSpeed mps="5.41" name=""/>
+      <temperature unit="celsius" value="24.78" min="23.27" max="24.78"/>
+      <pressure unit="hPa" value="1007.57"/>
+      <humidity value="53" unit="%"/>
+      <clouds value="broken clouds" all="64" unit="%"/>
+    </time>
+    <time from="2013-08-13T15:00:00" to="2013-08-13T18:00:00">
+      <symbol number="802" name="scattered clouds" var="03d"/>
+      <precipitation/>
+      <windDirection deg="199.001" code="SSW" name="South-southwest"/>
+      <windSpeed mps="5.71" name="Moderate breeze"/>
+      <temperature unit="celsius" value="24.13" min="22.71" max="24.13"/>
+      <pressure unit="hPa" value="1006.34"/>
+      <humidity value="57" unit="%"/>
+      <clouds value="scattered clouds" all="36" unit="%"/>
+    </time>
+    <time from="2013-08-13T18:00:00" to="2013-08-13T21:00:00">
+      <symbol number="802" name="scattered clouds" var="03n"/>
+      <precipitation/>
+      <windDirection deg="184" code="S" name="South"/>
+      <windSpeed mps="5.8" name="Moderate breeze"/>
+      <temperature unit="celsius" value="22.48" min="21.14" max="22.48"/>
+      <pressure unit="hPa" value="1005.29"/>
+      <humidity value="59" unit="%"/>
+      <clouds value="scattered clouds" all="44" unit="%"/>
+    </time>
+    <time from="2013-08-13T21:00:00" to="2013-08-14T00:00:00">
+      <symbol number="803" name="broken clouds" var="04n"/>
+      <precipitation/>
+      <windDirection deg="175.5" code="S" name="South"/>
+      <windSpeed mps="6.6" name="Moderate breeze"/>
+      <temperature unit="celsius" value="21.45" min="20.19" max="21.45"/>
+      <pressure unit="hPa" value="1003.71"/>
+      <humidity value="64" unit="%"/>
+      <clouds value="broken clouds" all="68" unit="%"/>
+    </time>
+    <time from="2013-08-14T00:00:00" to="2013-08-14T03:00:00">
+      <symbol number="500" name="light rain" var="10n"/>
+      <precipitation value="1" unit="3h" type="rain"/>
+      <windDirection deg="236.5" code="WSW" name="West-southwest"/>
+      <windSpeed mps="6.16" name="Moderate breeze"/>
+      <temperature unit="celsius" value="18.16" min="16.99" max="18.16"/>
+      <pressure unit="hPa" value="1003.47"/>
+      <humidity value="90" unit="%"/>
+      <clouds value="overcast clouds" all="92" unit="%"/>
+    </time>
+    <time from="2013-08-14T03:00:00" to="2013-08-14T06:00:00">
+      <symbol number="500" name="light rain" var="10d"/>
+      <precipitation value="3" unit="3h" type="rain"/>
+      <windDirection deg="259" code="W" name="West"/>
+      <windSpeed mps="5.45" name=""/>
+      <temperature unit="celsius" value="16.58" min="15.49" max="16.58"/>
+      <pressure unit="hPa" value="1003.64"/>
+      <humidity value="100" unit="%"/>
+      <clouds value="overcast clouds" all="92" unit="%"/>
+    </time>
+    <time from="2013-08-14T06:00:00" to="2013-08-14T09:00:00">
+      <symbol number="500" name="light rain" var="10d"/>
+      <precipitation value="1" unit="3h" type="rain"/>
+      <windDirection deg="275" code="W" name="West"/>
+      <windSpeed mps="5.1" name="Gentle Breeze"/>
+      <temperature unit="celsius" value="15.91" min="14.9" max="15.91"/>
+      <pressure unit="hPa" value="1004.72"/>
+      <humidity value="94" unit="%"/>
+      <clouds value="overcast clouds" all="92" unit="%"/>
+    </time>
+    <time from="2013-08-14T09:00:00" to="2013-08-14T12:00:00">
+      <symbol number="801" name="few clouds" var="02d"/>
+      <precipitation/>
+      <windDirection deg="247.5" code="WSW" name="West-southwest"/>
+      <windSpeed mps="5.21" name="Gentle Breeze"/>
+      <temperature unit="celsius" value="17.84" min="16.91" max="17.84"/>
+      <pressure unit="hPa" value="1005.37"/>
+      <humidity value="83" unit="%"/>
+      <clouds value="few clouds" all="12" unit="%"/>
+    </time>
+    <time from="2013-08-14T12:00:00" to="2013-08-14T15:00:00">
+      <symbol number="803" name="broken clouds" var="04d"/>
+      <precipitation/>
+      <windDirection deg="242" code="WSW" name="West-southwest"/>
+      <windSpeed mps="6.96" name="Moderate breeze"/>
+      <temperature unit="celsius" value="20.27" min="19.43" max="20.27"/>
+      <pressure unit="hPa" value="1005.55"/>
+      <humidity value="69" unit="%"/>
+      <clouds value="broken clouds" all="56" unit="%"/>
+    </time>
+    <time from="2013-08-14T15:00:00" to="2013-08-14T18:00:00">
+      <symbol number="803" name="broken clouds" var="04d"/>
+      <precipitation/>
+      <windDirection deg="240.5" code="WSW" name="West-southwest"/>
+      <windSpeed mps="7.71" name="Moderate breeze"/>
+      <temperature unit="celsius" value="19.94" min="19.19" max="19.94"/>
+      <pressure unit="hPa" value="1006.04"/>
+      <humidity value="60" unit="%"/>
+      <clouds value="broken clouds" all="56" unit="%"/>
+    </time>
+    <time from="2013-08-14T18:00:00" to="2013-08-14T21:00:00">
+      <symbol number="803" name="broken clouds" var="04n"/>
+      <precipitation/>
+      <windDirection deg="240.5" code="WSW" name="West-southwest"/>
+      <windSpeed mps="6.8" name="Moderate breeze"/>
+      <temperature unit="celsius" value="18.19" min="17.52" max="18.19"/>
+      <pressure unit="hPa" value="1007.13"/>
+      <humidity value="61" unit="%"/>
+      <clouds value="broken clouds" all="56" unit="%"/>
+    </time>
+    <time from="2013-08-14T21:00:00" to="2013-08-15T00:00:00">
+      <symbol number="802" name="scattered clouds" var="03n"/>
+      <precipitation/>
+      <windDirection deg="233.001" code="SW" name="Southwest"/>
+      <windSpeed mps="5.8" name="Moderate breeze"/>
+      <temperature unit="celsius" value="16.18" min="15.59" max="16.18"/>
+      <pressure unit="hPa" value="1007.36"/>
+      <humidity value="67" unit="%"/>
       <clouds value="scattered clouds" all="48" unit="%"/>
     </time>
-    <time day="2013-05-22">
-      <symbol number="500" name="light rain" var="10d"/>
-      <precipitation value="3.42" type="rain"/>
-      <windDirection deg="346" code="NNW" name="North-northwest"/>
-      <windSpeed mps="2.93" name="Light breeze"/>
-      <temperature day="26.48" min="16.38" max="26.48" night="16.38" eve="22.58" morn="23.79"/>
-      <pressure unit="hPa" value="1015.84"/>
-      <humidity value="0" unit="%"/>
-      <clouds value="Sky is Clear" all="0" unit="%"/>
+    <time from="2013-08-15T00:00:00" to="2013-08-15T03:00:00">
+      <symbol number="800" name="sky is clear" var="01n"/>
+      <precipitation/>
+      <windDirection deg="231.001" code="SW" name="Southwest"/>
+      <windSpeed mps="5.85" name="Moderate breeze"/>
+      <temperature unit="celsius" value="15.38" min="14.88" max="15.38"/>
+      <pressure unit="hPa" value="1007.93"/>
+      <humidity value="68" unit="%"/>
+      <clouds value="sky is clear" all="0" unit="%"/>
+    </time>
+    <time from="2013-08-15T03:00:00" to="2013-08-15T06:00:00">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="234" code="SW" name="Southwest"/>
+      <windSpeed mps="6.3" name="Moderate breeze"/>
+      <temperature unit="celsius" value="13.25" min="12.83" max="13.25"/>
+      <pressure unit="hPa" value="1008.4"/>
+      <humidity value="78" unit="%"/>
+      <clouds value="sky is clear" all="0" unit="%"/>
+    </time>
+    <time from="2013-08-15T06:00:00" to="2013-08-15T09:00:00">
+      <symbol number="803" name="broken clouds" var="04d"/>
+      <precipitation/>
+      <windDirection deg="254.501" code="WSW" name="West-southwest"/>
+      <windSpeed mps="6.9" name="Moderate breeze"/>
+      <temperature unit="celsius" value="15.86" min="15.52" max="15.86"/>
+      <pressure unit="hPa" value="1009.51"/>
+      <humidity value="74" unit="%"/>
+      <clouds value="broken clouds" all="80" unit="%"/>
+    </time>
+    <time from="2013-08-15T09:00:00" to="2013-08-15T12:00:00">
+      <symbol number="801" name="few clouds" var="02d"/>
+      <precipitation/>
+      <windDirection deg="258" code="WSW" name="West-southwest"/>
+      <windSpeed mps="6" name="Moderate breeze"/>
+      <temperature unit="celsius" value="18.24" min="17.99" max="18.24"/>
+      <pressure unit="hPa" value="1010.26"/>
+      <humidity value="68" unit="%"/>
+      <clouds value="few clouds" all="12" unit="%"/>
+    </time>
+    <time from="2013-08-15T12:00:00" to="2013-08-15T15:00:00">
+      <symbol number="801" name="few clouds" var="02d"/>
+      <precipitation/>
+      <windDirection deg="250.001" code="WSW" name="West-southwest"/>
+      <windSpeed mps="6.75" name="Moderate breeze"/>
+      <temperature unit="celsius" value="20.86" min="20.7" max="20.86"/>
+      <pressure unit="hPa" value="1010.39"/>
+      <humidity value="58" unit="%"/>
+      <clouds value="few clouds" all="24" unit="%"/>
+    </time>
+    <time from="2013-08-15T15:00:00" to="2013-08-15T18:00:00">
+      <symbol number="803" name="broken clouds" var="04d"/>
+      <precipitation/>
+      <windDirection deg="253.501" code="WSW" name="West-southwest"/>
+      <windSpeed mps="7.16" name="Moderate breeze"/>
+      <temperature unit="celsius" value="19.23" min="19.15" max="19.23"/>
+      <pressure unit="hPa" value="1011.12"/>
+      <humidity value="57" unit="%"/>
+      <clouds value="broken clouds" all="80" unit="%"/>
+    </time>
+    <time from="2013-08-15T18:00:00" to="2013-08-15T21:00:00">
+      <symbol number="803" name="broken clouds" var="04n"/>
+      <precipitation/>
+      <windDirection deg="249.501" code="WSW" name="West-southwest"/>
+      <windSpeed mps="4.51" name="Gentle Breeze"/>
+      <temperature unit="celsius" value="17.13" min="17.13" max="17.13"/>
+      <pressure unit="hPa" value="1011.68"/>
+      <humidity value="65" unit="%"/>
+      <clouds value="broken clouds" all="64" unit="%"/>
+    </time>
+    <time from="2013-08-15T21:00:00" to="2013-08-16T00:00:00">
+      <symbol number="801" name="few clouds" var="02n"/>
+      <precipitation/>
+      <windDirection deg="256" code="WSW" name="West-southwest"/>
+      <windSpeed mps="4.01" name="Gentle Breeze"/>
+      <temperature unit="celsius" value="15.08" min="15.08" max="15.08"/>
+      <pressure unit="hPa" value="1012.55"/>
+      <humidity value="74" unit="%"/>
+      <clouds value="few clouds" all="12" unit="%"/>
+    </time>
+    <time from="2013-08-16T00:00:00" to="2013-08-16T03:00:00">
+      <symbol number="803" name="broken clouds" var="04n"/>
+      <precipitation/>
+      <windDirection deg="260.001" code="W" name="West"/>
+      <windSpeed mps="3.75" name="Gentle Breeze"/>
+      <temperature unit="celsius" value="14.46" min="14.46" max="14.46"/>
+      <pressure unit="hPa" value="1013.39"/>
+      <humidity value="81" unit="%"/>
+      <clouds value="broken clouds" all="56" unit="%"/>
+    </time>
+    <time from="2013-08-16T03:00:00" to="2013-08-16T06:00:00">
+      <symbol number="803" name="broken clouds" var="04d"/>
+      <precipitation/>
+      <windDirection deg="266" code="W" name="West"/>
+      <windSpeed mps="3.31" name=""/>
+      <temperature unit="celsius" value="12.78" min="12.78" max="12.78"/>
+      <pressure unit="hPa" value="1014.3"/>
+      <humidity value="92" unit="%"/>
+      <clouds value="broken clouds" all="56" unit="%"/>
+    </time>
+    <time from="2013-08-16T06:00:00" to="2013-08-16T09:00:00">
+      <symbol number="803" name="broken clouds" var="04d"/>
+      <precipitation/>
+      <windDirection deg="270" code="W" name="West"/>
+      <windSpeed mps="3.56" name="Gentle Breeze"/>
+      <temperature unit="celsius" value="16.71" min="16.71" max="16.71"/>
+      <pressure unit="hPa" value="1015.32"/>
+      <humidity value="75" unit="%"/>
+      <clouds value="broken clouds" all="68" unit="%"/>
+    </time>
+    <time from="2013-08-16T09:00:00" to="2013-08-16T12:00:00">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="274.001" code="W" name="West"/>
+      <windSpeed mps="4.05" name="Gentle Breeze"/>
+      <temperature unit="celsius" value="19.12" min="19.12" max="19.12"/>
+      <pressure unit="hPa" value="1015.78"/>
+      <humidity value="65" unit="%"/>
+      <clouds value="sky is clear" all="0" unit="%"/>
+    </time>
+    <time from="2013-08-16T12:00:00" to="2013-08-16T15:00:00">
+      <symbol number="802" name="scattered clouds" var="03d"/>
+      <precipitation/>
+      <windDirection deg="263" code="W" name="West"/>
+      <windSpeed mps="4.91" name="Gentle Breeze"/>
+      <temperature unit="celsius" value="21.2" min="21.2" max="21.2"/>
+      <pressure unit="hPa" value="1014.97"/>
+      <humidity value="57" unit="%"/>
+      <clouds value="scattered clouds" all="32" unit="%"/>
+    </time>
+    <time from="2013-08-16T15:00:00" to="2013-08-16T18:00:00">
+      <symbol number="803" name="broken clouds" var="04d"/>
+      <precipitation/>
+      <windDirection deg="257.501" code="WSW" name="West-southwest"/>
+      <windSpeed mps="4.75" name="Gentle Breeze"/>
+      <temperature unit="celsius" value="20.92" min="20.92" max="20.92"/>
+      <pressure unit="hPa" value="1014.55"/>
+      <humidity value="51" unit="%"/>
+      <clouds value="broken clouds" all="76" unit="%"/>
+    </time>
+    <time from="2013-08-16T18:00:00" to="2013-08-16T21:00:00">
+      <symbol number="803" name="broken clouds" var="04n"/>
+      <precipitation/>
+      <windDirection deg="253" code="WSW" name="West-southwest"/>
+      <windSpeed mps="3.3" name=""/>
+      <temperature unit="celsius" value="18.5" min="18.5" max="18.5"/>
+      <pressure unit="hPa" value="1014.79"/>
+      <humidity value="55" unit="%"/>
+      <clouds value="broken clouds" all="64" unit="%"/>
+    </time>
+    <time from="2013-08-16T21:00:00" to="2013-08-17T00:00:00">
+      <symbol number="803" name="broken clouds" var="04n"/>
+      <precipitation/>
+      <windDirection deg="210.001" code="SSW" name="South-southwest"/>
+      <windSpeed mps="2.45" name="Light breeze"/>
+      <temperature unit="celsius" value="16.56" min="16.56" max="16.56"/>
+      <pressure unit="hPa" value="1014.69"/>
+      <humidity value="63" unit="%"/>
+      <clouds value="broken clouds" all="80" unit="%"/>
+    </time>
+    <time from="2013-08-17T00:00:00" to="2013-08-17T03:00:00">
+      <symbol number="803" name="broken clouds" var="04n"/>
+      <precipitation/>
+      <windDirection deg="199.001" code="SSW" name="South-southwest"/>
+      <windSpeed mps="3.46" name="Gentle Breeze"/>
+      <temperature unit="celsius" value="14.94" min="14.94" max="14.94"/>
+      <pressure unit="hPa" value="1014.59"/>
+      <humidity value="72" unit="%"/>
+      <clouds value="broken clouds" all="64" unit="%"/>
+    </time>
+    <time from="2013-08-17T03:00:00" to="2013-08-17T06:00:00">
+      <symbol number="803" name="broken clouds" var="04d"/>
+      <precipitation/>
+      <windDirection deg="185.001" code="S" name="South"/>
+      <windSpeed mps="4.06" name="Gentle Breeze"/>
+      <temperature unit="celsius" value="14.31" min="14.31" max="14.31"/>
+      <pressure unit="hPa" value="1014.34"/>
+      <humidity value="76" unit="%"/>
+      <clouds value="broken clouds" all="64" unit="%"/>
+    </time>
+    <time from="2013-08-17T06:00:00" to="2013-08-17T09:00:00">
+      <symbol number="802" name="scattered clouds" var="03d"/>
+      <precipitation/>
+      <windDirection deg="198" code="SSW" name="South-southwest"/>
+      <windSpeed mps="5.01" name="Gentle Breeze"/>
+      <temperature unit="celsius" value="19.12" min="19.12" max="19.12"/>
+      <pressure unit="hPa" value="1013.68"/>
+      <humidity value="62" unit="%"/>
+      <clouds value="scattered clouds" all="44" unit="%"/>
+    </time>
+    <time from="2013-08-17T09:00:00" to="2013-08-17T12:00:00">
+      <symbol number="800" name="sky is clear" var="01d"/>
+      <precipitation/>
+      <windDirection deg="218.002" code="SW" name="Southwest"/>
+      <windSpeed mps="5.65" name="Moderate breeze"/>
+      <temperature unit="celsius" value="23.67" min="23.67" max="23.67"/>
+      <pressure unit="hPa" value="1012.79"/>
+      <humidity value="50" unit="%"/>
+      <clouds value="sky is clear" all="0" unit="%"/>
+    </time>
+    <time from="2013-08-17T12:00:00" to="2013-08-17T15:00:00">
+      <symbol number="800" name="sky is clear" var="02d"/>
+      <precipitation/>
+      <windDirection deg="218.502" code="SW" name="Southwest"/>
+      <windSpeed mps="7.46" name="Moderate breeze"/>
+      <temperature unit="celsius" value="24.16" min="24.16" max="24.16"/>
+      <pressure unit="hPa" value="1011.52"/>
+      <humidity value="46" unit="%"/>
+      <clouds value="sky is clear" all="8" unit="%"/>
+    </time>
+    <time from="2013-08-17T15:00:00" to="2013-08-17T18:00:00">
+      <symbol number="803" name="broken clouds" var="04d"/>
+      <precipitation/>
+      <windDirection deg="216.501" code="SW" name="Southwest"/>
+      <windSpeed mps="7.45" name="Moderate breeze"/>
+      <temperature unit="celsius" value="22.71" min="22.71" max="22.71"/>
+      <pressure unit="hPa" value="1010.55"/>
+      <humidity value="46" unit="%"/>
+      <clouds value="broken clouds" all="56" unit="%"/>
+    </time>
+    <time from="2013-08-17T18:00:00" to="2013-08-17T21:00:00">
+      <symbol number="801" name="few clouds" var="02n"/>
+      <precipitation/>
+      <windDirection deg="212.5" code="SSW" name="South-southwest"/>
+      <windSpeed mps="5.55" name="Moderate breeze"/>
+      <temperature unit="celsius" value="20.07" min="20.07" max="20.07"/>
+      <pressure unit="hPa" value="1010.05"/>
+      <humidity value="53" unit="%"/>
+      <clouds value="few clouds" all="24" unit="%"/>
+    </time>
+    <time from="2013-08-17T21:00:00" to="2013-08-18T00:00:00">
+      <symbol number="804" name="overcast clouds" var="04n"/>
+      <precipitation/>
+      <windDirection deg="200.5" code="SSW" name="South-southwest"/>
+      <windSpeed mps="5.45" name=""/>
+      <temperature unit="celsius" value="18.4" min="18.4" max="18.4"/>
+      <pressure unit="hPa" value="1009.15"/>
+      <humidity value="59" unit="%"/>
+      <clouds value="overcast clouds" all="88" unit="%"/>
+    </time>
+    <time from="2013-08-18T00:00:00" to="2013-08-18T03:00:00">
+      <symbol number="801" name="few clouds" var="02n"/>
+      <precipitation/>
+      <windDirection deg="208.5" code="SSW" name="South-southwest"/>
+      <windSpeed mps="5.66" name="Moderate breeze"/>
+      <temperature unit="celsius" value="17.3" min="17.3" max="17.3"/>
+      <pressure unit="hPa" value="1008.47"/>
+      <humidity value="62" unit="%"/>
+      <clouds value="few clouds" all="20" unit="%"/>
     </time>
   </forecast>
 </weatherdata>

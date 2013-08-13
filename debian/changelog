@@ -1,6 +1,6 @@
 meecast (0.7.6) unstable; urgency=low
 
-  * Nothing 
+  * Added horly forcast for openweathermap.org source 
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 12 Aug 2013 22:31:23 +0200
 

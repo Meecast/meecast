@@ -40,6 +40,7 @@ Station::Station(const std::string& source_name, const std::string& id,
                  const std::string& name,
                  const std::string& country, const std::string& region, 
                  const std::string& forecastURL, const std::string& detailURL,
+                 const std::string& hoursURL,
                  const std::string& viewURL, const std::string& mapURL, 
                  const std::string& basemapURL, 
                  const std::string&  cookie, const bool gps, 
@@ -51,6 +52,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         _region = new std::string(region);
         _forecastURL = new std::string(forecastURL);
         _detailURL = new std::string(detailURL);
+        _hoursURL = new std::string(hoursURL);
         _cookie = new std::string(cookie);
         _viewURL = new std::string(viewURL);
         _mapURL = new std::string(mapURL);
@@ -88,6 +90,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         int source_id = sourcelist->source_id_by_name(source_name);
         std::string url_template = sourcelist->at(source_id)->url_template();
         std::string url_detail_template = sourcelist->at(source_id)->url_detail_template();
+        std::string url_hours_template = sourcelist->at(source_id)->url_hours_template();
         std::string url_for_view = sourcelist->at(source_id)->url_for_view();
         std::string url_for_map = sourcelist->at(source_id)->url_for_map();
         std::string base_map_url = sourcelist->at(source_id)->url_for_basemap();
@@ -97,6 +100,8 @@ Station::Station(const std::string& source_name, const std::string& id,
         snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), id.c_str());
         char forecast_detail_url[4096];
         snprintf(forecast_detail_url, sizeof(forecast_detail_url)-1, url_detail_template.c_str(), id.c_str());
+        char forecast_hours_url[4096];
+        snprintf(forecast_hours_url, sizeof(forecast_hours_url)-1, url_hours_template.c_str(), id.c_str());
         char view_url[4096];
         snprintf(view_url, sizeof(view_url)-1, url_for_view.c_str(), id.c_str());
         char map_url[4096];
@@ -123,6 +128,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         filename += id;
         _forecastURL = new std::string(forecast_url);
         _detailURL = new std::string(forecast_detail_url);
+        _hoursURL = new std::string(forecast_hours_url);
         _mapURL = new std::string(map_url);
         _basemapURL = new std::string(basemap_url);
         if (source_name == "bom.gov.au"){
@@ -175,6 +181,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         delete _region;
         delete _forecastURL;
         delete _detailURL;
+        delete _hoursURL;
         delete _cookie;
         delete _viewURL;
         delete _mapURL;
@@ -197,6 +204,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         _region = new std::string(*(station._region));
         _forecastURL = new std::string(*(station._forecastURL));
         _detailURL = new std::string(*(station._detailURL));
+        _hoursURL = new std::string(*(station._hoursURL));
         _cookie = new std::string(*(station._cookie));
         _viewURL = new std::string(*(station._viewURL));
         _mapURL = new std::string(*(station._mapURL));
@@ -224,6 +232,8 @@ Station::Station(const std::string& source_name, const std::string& id,
             _forecastURL = new std::string(*(station._forecastURL));
             delete _detailURL;
             _detailURL = new std::string(*(station._detailURL));
+            delete _hoursURL;
+            _hoursURL = new std::string(*(station._hoursURL));
             delete _cookie;
             _cookie = new std::string(*(station._cookie));
             delete _viewURL;
@@ -284,10 +294,13 @@ Station::Station(const std::string& source_name, const std::string& id,
     void Station::basemapURL(const std::string& basemapURL){
         _basemapURL->assign(basemapURL);
     }
-
     ////////////////////////////////////////////////////////////////////////////////
     void Station::detailURL(const std::string& detailURL){
         _sourceName->assign(detailURL);
+    }
+    ////////////////////////////////////////////////////////////////////////////////
+    void Station::hoursURL(const std::string& hoursURL){
+        _sourceName->assign(hoursURL);
     }
     ////////////////////////////////////////////////////////////////////////////////
     std::string& Station::forecastURL() const{
@@ -296,6 +309,10 @@ Station::Station(const std::string& source_name, const std::string& id,
     ////////////////////////////////////////////////////////////////////////////////
     std::string& Station::detailURL() const{
         return *_detailURL;
+    }
+    ////////////////////////////////////////////////////////////////////////////////
+    std::string& Station::hoursURL() const{
+        return *_hoursURL;
     }
     ////////////////////////////////////////////////////////////////////////////////
     std::string& Station::cookie() const{
@@ -387,12 +404,21 @@ Station::Station(const std::string& source_name, const std::string& id,
         std::string command;
         bool result = false;
          if (this->detailURL() != "") {
-            command = this->converter()+ " " +  this->fileName() + ".orig " + this->fileName()+" " + this->fileName()+".detail.orig";
-            std::cerr<<" EXEC "<<command<<std::endl;
-            if (system(command.c_str()) == 0)
-                result = true;
-            else
-               result = false;
+            if (this->hoursURL() != ""){
+                command = this->converter()+ " " +  this->fileName() + ".orig " + this->fileName()+" " + this->fileName()+".detail.orig" + " " + this->fileName()+".hours.orig";
+                std::cerr<<" EXEC "<<command<<std::endl;
+                if (system(command.c_str()) == 0)
+                    result = true;
+                else
+                   result = false;
+            }else{ 
+                command = this->converter()+ " " +  this->fileName() + ".orig " + this->fileName()+" " + this->fileName()+".detail.orig";
+                std::cerr<<" EXEC "<<command<<std::endl;
+                if (system(command.c_str()) == 0)
+                    result = true;
+                else
+                   result = false;
+            }
          }else{
             command = this->converter()+ " " +  this->fileName() + ".orig " + this->fileName();
             std::cerr<<" EXEC "<<command<<std::endl;
@@ -418,12 +444,21 @@ Station::Station(const std::string& source_name, const std::string& id,
             result = false;
         }
         if ((result) && (this->detailURL() != "") && (Downloader::downloadData(this->fileName()+".detail.orig", this->detailURL(), this->cookie()))){
-            command = this->converter()+ " " +  this->fileName() + ".orig " + this->fileName()+" " + this->fileName()+".detail.orig";
-            std::cerr<<" EXEC "<<command<<std::endl;
-            if (system(command.c_str()) == 0)
-                result = true;
-            else
-               result = false;
+            if ((this->hoursURL()!="") && (Downloader::downloadData(this->fileName()+".hours.orig", this->hoursURL(), this->cookie()))){
+                command = this->converter()+ " " + this->fileName() + ".orig " + this->fileName()+" " + this->fileName()+".detail.orig" + " " + this->fileName()+ ".hours.orig";
+                std::cerr<<" EXEC "<<command<<std::endl;
+                if (system(command.c_str()) == 0)
+                    result = true;
+                else
+                   result = false;
+            }else{
+                command = this->converter()+ " " +  this->fileName() + ".orig " + this->fileName()+" " + this->fileName()+".detail.orig";
+                std::cerr<<" EXEC "<<command<<std::endl;
+                if (system(command.c_str()) == 0)
+                    result = true;
+                else
+                   result = false;
+            }
         }else{
             command = this->converter()+ " " +  this->fileName() + ".orig " + this->fileName();
             std::cerr<<" EXEC "<<command<<std::endl;

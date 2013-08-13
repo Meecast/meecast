@@ -269,6 +269,11 @@ Config::saveConfig()
         el.appendChild(t);
         st.appendChild(el);
 
+        el = doc.createElement("hours_url");
+        t = doc.createTextNode(QString::fromStdString((*i)->hoursURL()));
+        el.appendChild(t);
+        st.appendChild(el);
+
         el = doc.createElement("view_url");
         t = doc.createTextNode(QString::fromStdString((*i)->viewURL()));
         el.appendChild(t);
@@ -432,7 +437,7 @@ Config::LoadConfig(){
 
         nodelist = root.elementsByTagName("station");
         for (int i=0; i<nodelist.count(); i++){
-            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, basemapURL,  mapURL, cookie, latitude, longitude;
+            QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, hoursURL, basemapURL,  mapURL, cookie, latitude, longitude;
             bool gps = false;
             bool splash = true;
             QDomElement e = nodelist.at(i).toElement();
@@ -459,6 +464,8 @@ Config::LoadConfig(){
                     cookie = el.text();
                 else if (tag == "detail_url")
                     detailURL = el.text();
+                else if (tag == "hours_url")
+                    hoursURL = el.text();
                 else if (tag == "view_url")
                     viewURL = el.text();
                 else if (tag == "map_url")
@@ -501,6 +508,7 @@ Config::LoadConfig(){
                                       region.toStdString(),
                                       forecastURL.toStdString(),
 				                      detailURL.toStdString(),
+				                      hoursURL.toStdString(),
                                       viewURL.toStdString(),
                                       mapURL.toStdString(),
                                       basemapURL.toStdString(),

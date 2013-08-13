@@ -86,8 +86,11 @@ parse_and_write_hours_data(htmlDocPtr doc, const char *result_file){
                                 snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s", day_prop);
                                 xmlFree(day_prop);
                                 strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
-                                utc_time_start = mktime(&tmp_tm)  + localtimezone*3600;
-                                utc_time_end = mktime(&tmp_tm) + 3*3600  + localtimezone*3600;
+                               // utc_time_start = mktime(&tmp_tm)  + localtimezone*3600;
+                               // utc_time_end = mktime(&tmp_tm) + 3*3600  + localtimezone*3600;
+                                utc_time_start = mktime(&tmp_tm);
+                                utc_time_end = mktime(&tmp_tm) + 3*3600;
+
                                 /* clear variables */
                                 temp_hi = INT_MAX; temp_low = INT_MAX; 
                                 memset(short_text, 0, sizeof(short_text));
@@ -101,17 +104,12 @@ parse_and_write_hours_data(htmlDocPtr doc, const char *result_file){
                                 for (child_node = cur_node->children; child_node; child_node = child_node->next){
                                     if (child_node->type == XML_ELEMENT_NODE ){
                                         if(!xmlStrcmp(child_node->name, (const xmlChar *) "temperature")){
-                                            if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"min")){
+                                            if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"value")){
                                                 temp_low = atoi((char *)temp_prop);
                                                 xmlFree(temp_prop);
                                                 temp_prop = NULL;
                                             }
-                                            if (temp_prop = xmlGetProp(child_node, (const xmlChar*)"max")){
-                                                temp_hi = atoi((char *)temp_prop);
-                                                xmlFree(temp_prop);
-                                                temp_prop = NULL;
-                                            }
-                                        }
+                                       }
                                     }
 
                                     if (child_node->type == XML_ELEMENT_NODE ){
@@ -195,10 +193,8 @@ parse_and_write_hours_data(htmlDocPtr doc, const char *result_file){
                                    fprintf(file_out, "     <description>%s</description>\n", short_text);
                                 if (strlen(icon)>0)
                                     fprintf(file_out,"     <icon>%s</icon>\n", icon);
-                                if (temp_hi != INT_MAX)
-                                    fprintf(file_out,"     <temperature_hi>%i</temperature_hi>\n", temp_hi);				                
                                 if (temp_low != INT_MAX)
-                                    fprintf(file_out,"     <temperature_low>%i</temperature_low>\n", temp_low);
+                                    fprintf(file_out,"     <temperature>%i</temperature>\n", temp_low);				                
                                 if (strlen (ppcp)>0)
                                     fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp);
 

@@ -86,12 +86,12 @@ parse_and_write_hours_data(htmlDocPtr doc, const char *result_file){
                                 snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s", day_prop);
                                 xmlFree(day_prop);
                                 strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
-                               // utc_time_start = mktime(&tmp_tm)  + localtimezone*3600;
-                               // utc_time_end = mktime(&tmp_tm) + 3*3600  + localtimezone*3600;
+                                utc_time_start = mktime(&tmp_tm)  + localtimezone*3600;
+                                utc_time_end = mktime(&tmp_tm) + 3*3600  + localtimezone*3600;
                                // utc_time_start = mktime(&tmp_tm);
                               //  utc_time_end = mktime(&tmp_tm) + 3*3600;
-                                utc_time_start = mktime(&tmp_tm)  - localtimezone*3600;
-                                utc_time_end = mktime(&tmp_tm) + 3*3600  - localtimezone*3600;
+                                //utc_time_start = mktime(&tmp_tm)  - localtimezone*3600;
+                                //utc_time_end = mktime(&tmp_tm) + 3*3600  - localtimezone*3600;
  
                                 /* clear variables */
                                 temp_hi = INT_MAX; temp_low = INT_MAX; 

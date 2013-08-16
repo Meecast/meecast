@@ -87,8 +87,8 @@ parse_and_write_hours_data(htmlDocPtr doc, const char *result_file){
                                 xmlFree(day_prop);
                                 strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
  
-                                utc_time_start = timegm(&tmp_tm);
-                                utc_time_end = timegm(&tmp_tm) + 3*3600;
+                                utc_time_start = timelocal(&tmp_tm);
+                                utc_time_end = timelocal(&tmp_tm) + 3*3600;
  
                                 /* clear variables */
                                 temp_hi = INT_MAX; temp_low = INT_MAX; 
@@ -268,6 +268,7 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"Unknown\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n");
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
+    fprintf(file_out,"  <timezone>0</timezone>\n");
     for(cur_node0 = root_node->children; cur_node0; cur_node0 = cur_node0->next){
         if( cur_node0->type == XML_ELEMENT_NODE ){
             if (!xmlStrcmp(cur_node0->name, (const xmlChar *) "forecast" ) ){

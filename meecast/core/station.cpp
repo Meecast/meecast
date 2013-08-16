@@ -436,6 +436,24 @@ Station::Station(const std::string& source_name, const std::string& id,
         /* To do */
         /* Check connection and if force true update connection */
         force = false;
+        /* TimeZone */
+        if (this->sourceName() == "openweathermap.org"){
+            std::string TZUrl;
+
+            char lon[32];
+            char lat[32];
+            snprintf(lat, 32, "%g", this->latitude());
+            snprintf(lon, 32, "%g", this->longitude());
+            TZUrl = "http://api.geonames.org/timezone?lat=" + std::string(lat)  + "&lng=" + std::string(lon) + "&username=omweather";
+            /* std::cerr<<"URL "<<TZUrl<<std::endl; */
+            if (Downloader::downloadData(this->fileName()+".timezone", TZUrl, this->cookie())) {
+                result = true;
+            }else{
+                std::cerr<<"ERROR downloading of TimeZone  "<< TZUrl <<std::endl;
+                result = false;
+        }
+ 
+        }
         /* Weather Forecast */
         if (Downloader::downloadData(this->fileName()+".orig", this->forecastURL(), this->cookie())) {
             result = true;

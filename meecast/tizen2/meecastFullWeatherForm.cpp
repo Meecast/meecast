@@ -644,7 +644,8 @@ meecastFullWeatherForm::ReInitElements(void){
             /* Sun Rise */
             if (_config->dp->data().GetSunRiseForTime(current_day + 15 * 3600 + _dayNumber*24*3600) > 0){
                 AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %i %i", timezone, localtimezone);
-                time_t sun_rise_time =  _config->dp->data().GetSunRiseForTime(current_day + 15 * 3600) + 3600*timezone -3600*localtimezone;
+                //time_t sun_rise_time =  _config->dp->data().GetSunRiseForTime(current_day + 15 * 3600) + 3600*timezone -3600*localtimezone;
+                time_t sun_rise_time =  _config->dp->data().GetSunRiseForTime(current_day + 15 * 3600) + 3600*timezone;
                 struct tm   tm1;
                // tm = gmtime(&current_day);
                 gmtime_r(&sun_rise_time, &tm1);
@@ -664,7 +665,7 @@ meecastFullWeatherForm::ReInitElements(void){
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
                 _pKeyList->Add(new String(_("SunSet:")));
-                time_t sun_rise_time =  _config->dp->data().GetSunRiseForTime(current_day + 15 * 3600) + 3600*timezone -3600*localtimezone;
+                time_t sun_rise_time =  _config->dp->data().GetSunRiseForTime(current_day + 15 * 3600) + 3600*timezone;
                 time_t day_length_time =  sun_set_time - sun_rise_time;
                 gmtime_r(&day_length_time, &tm1);
                 snprintf (buffer, sizeof(buffer) -1, "%i:%i", tm1.tm_hour, tm1.tm_min);

@@ -419,6 +419,9 @@ Config::saveConfig()
         if ((*i)->cookie() != ""){
            file_out<<"  <cookie>"<< (*i)->cookie() <<"</cookie>"<<endl;
         }
+
+        file_out<<"  <latitude>"<< (*i)->latitude()<<"</latitude>"<<endl;
+        file_out<<"  <longitude>"<< (*i)->longitude()<<"</longitude>"<<endl;
         file_out<<"  <converter>"<< (*i)->converter()<<"</converter>"<<endl;
         if ((*i)->gps() == false)
             file_out<<"  <gps>false</gps>"<<endl;

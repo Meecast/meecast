@@ -58,7 +58,11 @@ namespace Core{
             FORECAST = 1,
             FORECAST_DONE = 2,
             DETAIL_FORECAST = 3,
-            DETAIL_FORECAST_DONE = 4
+            DETAIL_FORECAST_DONE = 4,
+            HOURS_FORECAST = 5,
+            HOURS_FORECAST_DONE = 6,
+            TIMEZONE = 7,
+            TIMEZONE_DONE = 8
         };
 
         std::string *_sourceName;

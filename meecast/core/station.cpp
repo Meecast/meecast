@@ -481,13 +481,15 @@ Station::Station(const std::string& source_name, const std::string& id,
         force = false;
         result res = E_SUCCESS;
 	    result r = E_SUCCESS;
+        AppLog ("_downloading  %i", _downloading);
 
-        if  (this->detailURL() != "" &&  _downloading == FORECAST_DONE){
-            snprintf(buffer_file, sizeof(buffer_file) -1, "%s.detail.orig", this->fileName().c_str());
+
+        if  (this->sourceName() == "openweathermap.org" &&  _downloading == HOURS_FORECAST_DONE){
+            snprintf(buffer_file, sizeof(buffer_file) -1, "%s.timezone", this->fileName().c_str());
             if (Tizen::Io::File::IsFileExist(buffer_file))
                 Tizen::Io::File::Remove(buffer_file);
 
-            _downloading = DETAIL_FORECAST;
+            _downloading = TIMEZONE;
             AppLog("First step ");
             r = RequestHttpGet();
             if (r == E_INVALID_SESSION){
@@ -502,11 +504,56 @@ Station::Station(const std::string& source_name, const std::string& id,
                 _downloading = NONE;
                 return false;
             }
-        }else 
-            if  (_downloading == FORECAST_DONE){
-                _downloading = NONE;
-                return true;
+        }else{
+            if  (this->hoursURL() != "" &&  _downloading == DETAIL_FORECAST_DONE){
+                snprintf(buffer_file, sizeof(buffer_file) -1, "%s.hours.orig", this->fileName().c_str());
+                if (Tizen::Io::File::IsFileExist(buffer_file))
+                    Tizen::Io::File::Remove(buffer_file);
+
+                _downloading = HOURS_FORECAST;
+                AppLog("First step ");
+                r = RequestHttpGet();
+                if (r == E_INVALID_SESSION){
+                    AppLog("Problem with downloading1");
+                    delete __pHttpSession;
+                    __pHttpSession = null;
+                    _downloading = NONE;
+                    return false;
+                }
+                else if (IsFailed(r)){
+                    AppLog("Problem with downloading2");
+                    _downloading = NONE;
+                    return false;
+                }
+            }else{
+                if  (this->detailURL() != "" &&  _downloading == FORECAST_DONE){
+                    snprintf(buffer_file, sizeof(buffer_file) -1, "%s.detail.orig", this->fileName().c_str());
+                    if (Tizen::Io::File::IsFileExist(buffer_file))
+                        Tizen::Io::File::Remove(buffer_file);
+
+                    _downloading = DETAIL_FORECAST;
+                    AppLog("First step ");
+                    r = RequestHttpGet();
+                    if (r == E_INVALID_SESSION){
+                        AppLog("Problem with downloading1");
+                        delete __pHttpSession;
+                        __pHttpSession = null;
+                        _downloading = NONE;
+                        return false;
+                    }
+                    else if (IsFailed(r)){
+                        AppLog("Problem with downloading2");
+                        _downloading = NONE;
+                        return false;
+                    }
+                }else {
+                    if  (_downloading == FORECAST_DONE){
+                        _downloading = NONE;
+                        return true;
+                    }
+                }
             }
+        }
         r = E_SUCCESS;
         if (_downloading == NONE){
             AppLog ("Begin download FORECAST");
@@ -789,6 +836,21 @@ Station::RequestHttpGet(void)
             Tizen::Base::Utility::StringUtil::Utf8ToString(this->forecastURL().c_str(), str);
         if (_downloading == DETAIL_FORECAST)
             Tizen::Base::Utility::StringUtil::Utf8ToString(this->detailURL().c_str(), str);
+        if (_downloading == HOURS_FORECAST)
+            Tizen::Base::Utility::StringUtil::Utf8ToString(this->hoursURL().c_str(), str);
+        if (_downloading == TIMEZONE){
+            if (this->sourceName() == "openweathermap.org"){
+                std::string TZUrl;
+                char lon[32];
+                char lat[32];
+                setlocale(LC_NUMERIC, "C");
+                snprintf(lat, 32, "%g", this->latitude());
+                snprintf(lon, 32, "%g", this->longitude());
+                setlocale(LC_NUMERIC, "");
+                TZUrl = "http://api.geonames.org/timezone?lat=" + std::string(lat)  + "&lng=" + std::string(lon) + "&username=omweather";
+                Tizen::Base::Utility::StringUtil::Utf8ToString(TZUrl.c_str(), str);
+             }
+        }
         AppLog("URL %S",str.GetPointer());
 		r = __pHttpSession->Construct(NET_HTTP_SESSION_MODE_NORMAL, null, str, null);
 		if (IsFailed(r))
@@ -816,6 +878,21 @@ Station::RequestHttpGet(void)
         Tizen::Base::Utility::StringUtil::Utf8ToString(this->forecastURL().c_str(), str);
     if (_downloading == DETAIL_FORECAST)
         Tizen::Base::Utility::StringUtil::Utf8ToString(this->detailURL().c_str(), str);
+    if (_downloading == HOURS_FORECAST)
+        Tizen::Base::Utility::StringUtil::Utf8ToString(this->hoursURL().c_str(), str);
+    if (_downloading == TIMEZONE){
+        if (this->sourceName() == "openweathermap.org"){
+            std::string TZUrl;
+            char lon[32];
+            char lat[32];
+            setlocale(LC_NUMERIC, "C");
+            snprintf(lat, 32, "%g", this->latitude());
+            snprintf(lon, 32, "%g", this->longitude());
+            setlocale(LC_NUMERIC, "");
+            TZUrl = "http://api.geonames.org/timezone?lat=" + std::string(lat)  + "&lng=" + std::string(lon) + "&username=omweather";
+            Tizen::Base::Utility::StringUtil::Utf8ToString(TZUrl.c_str(), str);
+         }
+    }
 
 	r = pHttpRequest->SetUri(str);
 	TryCatch(r == E_SUCCESS, , "Failed to set the uri.");
@@ -866,6 +943,16 @@ Station::OnTransactionReadyToRead(HttpSession& httpSession, HttpTransaction& htt
                 AppLog("DETAILFORECAST");
                 snprintf(buffer_file, sizeof(buffer_file) -1, "%s.detail.orig", this->fileName().c_str());
             }
+            if (_downloading == HOURS_FORECAST){
+                AppLog("HOURSFORECAST");
+                snprintf(buffer_file, sizeof(buffer_file) -1, "%s.hours.orig", this->fileName().c_str());
+            }
+            if (_downloading == TIMEZONE){
+                AppLog("TIMEZONE");
+                snprintf(buffer_file, sizeof(buffer_file) -1, "%s.timezone", this->fileName().c_str());
+            }
+
+
             AppLog ("File name %S", (App::GetInstance()->GetAppDataPath() + buffer_file).GetPointer());
             result r = E_SUCCESS;
             // Decodes a UTF-8 string into a Unicode string
@@ -906,8 +993,39 @@ Station::OnTransactionCompleted(HttpSession& httpSession, HttpTransaction& httpT
 {
 	AppLog("OnTransactionCompleted");
 	delete &httpTransaction;
-    if (_downloading == DETAIL_FORECAST){
-       // _downloading = DETAIL_FORECAST_DONE;
+    if ( _downloading == TIMEZONE){
+        AppLog("_downloading = TIMEZONE");
+        _downloading = NONE;
+        run_converter();
+        delete __pHttpSession;
+        __pHttpSession = null;
+    }
+    if (this->hoursURL() != "" && _downloading == HOURS_FORECAST){
+        if (this->sourceName() == "openweathermap.org"){
+            AppLog("_downloading = NONE");
+            _downloading = HOURS_FORECAST_DONE;
+            delete __pHttpSession;
+            __pHttpSession = null;
+            updateData(true);
+        }else{
+            AppLog("_downloading = NONE");
+            _downloading = NONE;
+            run_converter();
+            delete __pHttpSession;
+            __pHttpSession = null;
+        }
+    }
+    if (this->hoursURL() != "" && _downloading == DETAIL_FORECAST){
+        AppLog("_downloading = DETAIL_FORECAST_DONE");
+        _downloading = DETAIL_FORECAST_DONE;
+      //  _downloading = NONE;
+        delete __pHttpSession;
+        __pHttpSession = null;
+        updateData(true);
+    }
+    if (this->hoursURL() == "" && _downloading == DETAIL_FORECAST){
+
+        AppLog("_downloading = NONE2");
         _downloading = NONE;
         run_converter();
         delete __pHttpSession;

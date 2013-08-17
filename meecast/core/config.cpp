@@ -392,6 +392,17 @@ Config::saveConfig()
            }
            file_out<<"  <detail_url>"<< temp <<"</detail_url>"<<endl;
         }
+        if ((*i)->hoursURL() != ""){
+           std::string temp("");
+           snprintf(buffer, sizeof(buffer)-1, "%s", (char *)(*i)->hoursURL().c_str()); 
+           for (int i= 0;i<strlen(buffer); i ++){
+                if (buffer[i] == '&')
+                   temp += "&amp;";
+                else
+                    temp += buffer[i];
+           }
+           file_out<<"  <hours_url>"<< temp <<"</hours_url>"<<endl;
+        }
 
 //        file_out<<"  <view_url>"<< (*i)->viewURL()<<"</view_url>"<<endl;
         {
@@ -643,7 +654,7 @@ Config::LoadConfig(){
        if (!root)
            return;
         AppLogDebug("Load for config ");
-        std::string source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, mapURL, basemapURL, cookie ;
+        std::string source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, mapURL, hoursURL, basemapURL, cookie ;
         double latitude, longitude;
        for(xmlNodePtr p = root->children; p; p = p->next) {
             if (p->type != XML_ELEMENT_NODE)
@@ -700,6 +711,8 @@ Config::LoadConfig(){
                         basemapURL = std::string((char *)xmlNodeGetContent(p1)); 
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"detail_url"))
                         detailURL = std::string((char *)xmlNodeGetContent(p1)); 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"hours_url"))
+                        hoursURL = std::string((char *)xmlNodeGetContent(p1)); 
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"view_url"))
                         viewURL = std::string((char *)xmlNodeGetContent(p1)); 
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"converter"))
@@ -730,7 +743,8 @@ Config::LoadConfig(){
                                       country,
                                       region,
                                       forecastURL,
-				                      detailURL,
+                                      detailURL,
+                                      hoursURL,
                                       viewURL,
                                       mapURL,
                                       basemapURL,

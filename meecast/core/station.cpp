@@ -479,7 +479,6 @@ Station::Station(const std::string& source_name, const std::string& id,
         char buffer_file[2048];
         RequestId reqId = 0;
         force = false;
-<<<<<<< HEAD
         result res = E_SUCCESS;
 	    result r = E_SUCCESS;
 

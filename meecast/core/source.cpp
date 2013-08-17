@@ -98,6 +98,11 @@ namespace Core {
                         _hasDetail = (el.text() == "true") ? true : false;
                         _url_detail_template->assign(el.attribute("url").toStdString());
                    }
+                }else if (tag == "hours"){
+                    if (el.hasAttribute("url")){
+                        _hasHours = (el.text() == "true") ? true : false;
+                        _url_hours_template->assign(el.attribute("url").toStdString());
+                   }
                 }else if (tag =="showurl"){
                     if (el.hasAttribute("url"))
                         _url_for_view->assign(el.attribute("url").toStdString());
@@ -139,6 +144,11 @@ namespace Core {
                 if (!xmlStrcmp(p->name, (const xmlChar*)"detail")){
                     if (xmlGetProp(p, (const xmlChar*)"url"))
                         _url_detail_template->assign((char *)xmlGetProp(p, (const xmlChar*)"url"));
+                    continue;
+                }
+                if (!xmlStrcmp(p->name, (const xmlChar*)"hours")){
+                    if (xmlGetProp(p, (const xmlChar*)"url"))
+                        _url_hours_template->assign((char *)xmlGetProp(p, (const xmlChar*)"url"));
                     continue;
                 }
                 if (!xmlStrcmp(p->name, (const xmlChar*)"showurl")){

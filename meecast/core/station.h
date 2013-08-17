@@ -69,6 +69,7 @@ namespace Core{
         std::string *_fileName;
         std::string *_forecastURL;
         std::string *_detailURL;
+        std::string *_hoursURL;
         std::string *_cookie;
         std::string *_viewURL;
         std::string *_mapURL;
@@ -89,6 +90,7 @@ namespace Core{
                     const std::string& country = 0, const std::string& region = 0, 
                     const std::string& forecastURL = 0,
 		            const std::string& detailURL = 0,
+		            const std::string& hoursURL = 0,
 		            const std::string& viewURL = 0, 
 		            const std::string& mapURL = 0, 
 		            const std::string& basemapURL = 0, 
@@ -117,11 +119,13 @@ namespace Core{
             void cookie(const std::string& Cookie);
             std::string& cookie() const;
             void detailURL(const std::string& region);
+            void hoursURL(const std::string& hours);
             std::string& mapURL() const;
             void mapURL(const std::string& MapURL);
             std::string& basemapURL() const;
             void basemapURL(const std::string& MapURL);
             std::string& detailURL() const;
+            std::string& hoursURL() const;
             void viewURL(const std::string& ViewURL);
             std::string& viewURL() const;
             void timezone(const int timezone = 0);

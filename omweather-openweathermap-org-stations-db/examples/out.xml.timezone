@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<geonames>
+<timezone tzversion="tzdata2013d">
+<countryCode>RU</countryCode>
+<countryName>Russia</countryName>
+<lat>55.01</lat>
+<lng>37.2</lng>
+<timezoneId>Europe/Moscow</timezoneId>
+<dstOffset>4.0</dstOffset>
+<gmtOffset>4.0</gmtOffset>
+<rawOffset>4.0</rawOffset>
+<time>2013-08-17 08:52</time>
+<sunrise>2013-08-17 06:08</sunrise>
+<sunset>2013-08-17 21:01</sunset>
+</timezone>
+</geonames>

@@ -57,6 +57,7 @@ namespace Core {
         std::string *_binary;
         std::string *_url_template;
         std::string *_url_detail_template;
+        std::string *_url_hours_template;
         std::string *_url_for_view;
         std::string *_url_for_map;
         std::string *_url_for_basemap;
@@ -65,6 +66,7 @@ namespace Core {
         void *_libraryHandler;
         bool _hasForecast;
         bool _hasDetail;
+        bool _hasHours;
         bool _hasSearch;
         // source init function
         void (*_sourceInit)();
@@ -85,6 +87,7 @@ namespace Core {
             std::string& url_template() const;
             std::string& cookie() const;
             std::string& url_detail_template() const;
+            std::string& url_hours_template() const;
             std::string& url_for_view() const;
             std::string& url_for_map() const;
             std::string& url_for_basemap() const;

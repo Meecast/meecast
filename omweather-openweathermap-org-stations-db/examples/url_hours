@@ -1,2 +1,2 @@
-http://api.openweathermap.org/data/2.5/forecast/daily?id=620127&mode=xml&units=metric
+http://api.openweathermap.org/data/2.5/forecast?id=620127&mode=xml&units=metric
 

@@ -41,14 +41,15 @@ namespace Core {
         _binary = new std::string;
         _url_template = new std::string;
         _url_detail_template = new std::string;
+        _url_hours_template = new std::string;
         _url_for_view = new std::string;
         _url_for_map = new std::string;
         _url_for_basemap = new std::string;
         _cookie = new std::string;
         _hasForecast = false;
         _hasDetail = false;
+        _hasHours = false;
         _hasSearch = false;
-
         _libraryHandler = 0;
         _map_type = 0;
         _sourceInit = 0;
@@ -102,8 +103,8 @@ namespace Core {
                         _url_for_view->assign(el.attribute("url").toStdString());
                 }else if (tag =="cookie"){
                     _cookie->assign(el.text().toStdString());
-                }
-                n = n.nextSibling();
+               }
+               n = n.nextSibling();
             }
             #else
             AppLog("Before checkong doc");
@@ -221,6 +222,7 @@ namespace Core {
             delete _binary;
         delete _url_template;
         delete _url_detail_template;
+        delete _url_hours_template;
         delete _url_for_view;
         delete _url_for_map;
         delete _url_for_basemap;
@@ -240,6 +242,8 @@ namespace Core {
             _url_template = new std::string(*(source._url_template));
             delete _url_detail_template;
             _url_detail_template = new std::string(*(source._url_detail_template));
+            delete _url_hours_template;
+            _url_hours_template = new std::string(*(source._url_hours_template));
             delete _url_for_view;
             _url_for_view = new std::string(*(source._url_for_view));
             delete _url_for_map;
@@ -298,6 +302,16 @@ namespace Core {
             (str.compare("true")) ? (_hasDetail = false) : (_hasDetail = true);
             return;
         }
+        // hours tag
+        if(nodeName == "hours"){
+            xmlpp::Node::NodeList list = node->get_children();
+            xmlpp::Node::NodeList::iterator iter = list.begin();
+            const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+            std::string str = nodeText->get_content();
+            (str.compare("true")) ? (_hasHours = false) : (_hasHours = true);
+            return;
+        }
+
         // library tag
         if(nodeName == "library"){
             xmlpp::Node::NodeList list = node->get_children();
@@ -328,6 +342,13 @@ namespace Core {
             const xmlpp::Attribute* attribute = nodeElement->get_attribute("url");
             if (attribute)
                 _url_detail_template->assign(attribute->get_value().c_str());
+            return;
+        }
+        if(nodeName == "hours"){
+            const xmlpp::Element* nodeElement = dynamic_cast<const xmlpp::Element*>(node);
+            const xmlpp::Attribute* attribute = nodeElement->get_attribute("url");
+            if (attribute)
+                _url_hours_template->assign(attribute->get_value().c_str());
             return;
         }
 
@@ -381,8 +402,11 @@ namespace Core {
     std::string& Source::url_detail_template() const{
         return *_url_detail_template;
     }
-
 ////////////////////////////////////////////////////////////////////////////////
+    std::string& Source::url_hours_template() const{
+        return *_url_hours_template;
+    }
+/////////////////////////////////////////////////////////////////////////////////
     std::string& Source::url_for_view() const{
         return *_url_for_view;
     }

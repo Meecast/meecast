@@ -9,6 +9,7 @@
     #define hash_insert(hash, s2, s3) xmlHashAddEntry(hash, (const xmlChar *)s2, (void *)(s3)); 
 
     hash_insert(hash, "50110d", "39");
+    hash_insert(hash, "50110n", "45");
     hash_insert(hash, "50210d", "39");
     hash_insert(hash, "50010d", "39");
     hash_insert(hash, "50010n", "45");
@@ -28,10 +29,10 @@
     hash_insert(hash, "80102n", "33");
 
     hash_insert(hash, "80203d", "30");
-    hash_insert(hash, "80203n", "29");
+    hash_insert(hash, "80203n", "27");
 
     hash_insert(hash, "80304d", "28");
-    hash_insert(hash, "80304n", "27");
+    hash_insert(hash, "80304n", "26");
 
     hash_insert(hash, "80404d", "26");
     hash_insert(hash, "80404n", "26");

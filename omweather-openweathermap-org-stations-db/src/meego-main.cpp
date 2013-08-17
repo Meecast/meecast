@@ -268,7 +268,6 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"Unknown\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n");
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
-    fprintf(file_out,"  <timezone>0</timezone>\n");
     for(cur_node0 = root_node->children; cur_node0; cur_node0 = cur_node0->next){
         if( cur_node0->type == XML_ELEMENT_NODE ){
             if (!xmlStrcmp(cur_node0->name, (const xmlChar *) "forecast" ) ){
@@ -421,6 +420,74 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
     fclose(file_out);
     return count_day;
 }
+/*******************************************************************************/
+int
+parse_and_write_timezone_data(htmlDocPtr doc, const char *result_file){
+
+    FILE        *file_out;
+    xmlNode     *cur_node = NULL,
+                *cur_node0 = NULL,
+                *child_node = NULL,
+                *child_node2 = NULL;
+    xmlNode *root_node = NULL;
+    char   buffer[buff_size],
+           buffer2[buff_size];
+    char   temp_buffer[buff_size];
+    time_t      utc_time;
+    struct tm   tmp_tm = {0};
+    time_t      utc_time_start;
+    time_t      utc_time_end;
+    time_t      utc_time_sunrise = -1;
+    time_t      utc_time_sunset = -1;
+    int         count_day = 0;
+    int         temp;
+    char        id_station[1024],
+                short_text[1024];
+    char        icon[256],
+                ppcp[128],
+                wind_direction[10],
+                wind_speed[10],
+                pressure[10],
+                humidity[10];
+
+    time_t      current_time;
+    int         timezone = 0;
+    struct      tm time_tm1 = {0};
+    struct      tm time_tm2 = {0};
+    xmlChar     *temp_prop;
+
+    if(!doc)
+        return -1;
+
+    file_out = fopen(result_file, "aw");
+    if (!file_out)
+        return -1;
+
+    root_node = xmlDocGetRootElement(doc);
+
+  
+    for(child_node = root_node->children; child_node; child_node = child_node->next){
+        fprintf(stderr," first name %s", child_node->name);
+       if (child_node->type == XML_ELEMENT_NODE ){
+           if(!xmlStrcmp(child_node->name, (const xmlChar *) "timezone")){
+               for (child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
+                   if (child_node2->type == XML_ELEMENT_NODE ){
+                        fprintf(stderr,"second name %s", child_node2->name);
+                        if(!xmlStrcmp(child_node2->name, (const xmlChar *) "rawOffset")){
+                            xmlChar     *temp_xml_string = NULL;
+                            temp_xml_string = xmlNodeGetContent(child_node2);
+                            timezone = atoi((char *)temp_xml_string);
+                            xmlFree(temp_xml_string);
+                        }
+                    }
+               }   
+           }
+       }
+    }
+    fprintf(file_out,"    <timezone>%i</timezone>\n", timezone);
+    fclose(file_out);
+}
+
 /*******************************************************************************/
 int
 parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
@@ -627,12 +694,10 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
 
     if (strlen (humidity)>0)
         fprintf(file_out, "     <humidity>%s</humidity>\n", humidity);
-/*
     if (utc_time_sunset != -1)
         fprintf(file_out,"     <sunset>%li</sunset>\n", utc_time_sunset);
     if (utc_time_sunrise != -1)
         fprintf(file_out,"     <sunrise>%li</sunrise>\n", utc_time_sunrise);
-*/
     fprintf(file_out, "    </period>\n");
     count_day++;
     fclose(file_out);
@@ -646,7 +711,7 @@ convert_station_openweathermaporg_data(const char *days_data_path, const char *r
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;
     int     days_number = -1;
-    char    buffer[1024],
+    char    buffer[2048],
             *delimiter = NULL;
     FILE    *file_out;
     
@@ -707,6 +772,25 @@ convert_station_openweathermaporg_data(const char *days_data_path, const char *r
             }
 
             if (days_number > 0){
+                snprintf(buffer, sizeof(buffer)-1,"%s.timezone", result_file);
+                if(!access(buffer, R_OK)){
+                     doc =  xmlReadFile(buffer, "UTF-8", 0);
+                    if(doc){
+                        root_node = NULL;
+                        root_node = xmlDocGetRootElement(doc);
+                        if(!root_node || ( root_node->type == XML_ELEMENT_NODE &&
+                                strstr((char*)root_node->name, "err"))){
+                            xmlFreeDoc(doc);
+                            xmlCleanupParser();
+                        }else{
+                            parse_and_write_timezone_data(doc, result_file);
+                            xmlFreeDoc(doc);
+                            xmlCleanupParser();
+                        }
+                    }
+                }
+
+
                 file_out = fopen(result_file, "a");
                 if (file_out){
                     fprintf(file_out,"</station>");

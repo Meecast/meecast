@@ -71,6 +71,12 @@ parse_and_write_hours_data(htmlDocPtr doc, const char *result_file){
     if (!file_out)
         return -1;
 
+    /* Set localtimezone */
+    current_time = time(NULL);
+    gmtime_r(&current_time, &time_tm1);
+    localtime_r(&current_time, &time_tm2);
+    localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
+
     root_node = xmlDocGetRootElement(doc);
 
     for(cur_node0 = root_node->children; cur_node0; cur_node0 = cur_node0->next){
@@ -87,8 +93,8 @@ parse_and_write_hours_data(htmlDocPtr doc, const char *result_file){
                                 xmlFree(day_prop);
                                 strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
  
-                                utc_time_start = timelocal(&tmp_tm);
-                                utc_time_end = timelocal(&tmp_tm) + 3*3600;
+                                utc_time_start = mktime(&tmp_tm) + localtimezone*3600;
+                                utc_time_end = mktime(&tmp_tm) + 3*3600 + localtimezone*3600;
  
                                 /* clear variables */
                                 temp_hi = INT_MAX; temp_low = INT_MAX; 
@@ -262,6 +268,13 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
+
+    /* Set localtimezone */
+    current_time = time(NULL);
+    gmtime_r(&current_time, &time_tm1);
+    localtime_r(&current_time, &time_tm2);
+    localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
+
 
     root_node = xmlDocGetRootElement(doc);
 
@@ -553,7 +566,6 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
    
     for(child_node = root_node->children; child_node; child_node = child_node->next){
        if (child_node->type == XML_ELEMENT_NODE ){
-
            if(!xmlStrcmp(child_node->name, (const xmlChar *) "city")){
                for (child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
                    if (child_node2->type == XML_ELEMENT_NODE ){
@@ -698,7 +710,7 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
     if (utc_time_sunset != -1 && utc_time_sunrise != -1){
         tmp_tm.tm_min = 0;
         tmp_tm.tm_hour = 0;
-        utc_time = mktime(&tmp_tm) + localtimezone*3600;
+        utc_time = mktime(&tmp_tm);
 
         fprintf(file_out,"    <period start=\"%li\"", utc_time);
         fprintf(file_out," end=\"%li\">\n", utc_time + 24*3600); 

@@ -421,6 +421,7 @@ Config::saveConfig()
         }
 
         file_out<<"  <latitude>"<< (*i)->latitude()<<"</latitude>"<<endl;
+        AppLog("Latitude in Save %f", (*i)->latitude());
         file_out<<"  <longitude>"<< (*i)->longitude()<<"</longitude>"<<endl;
         file_out<<"  <converter>"<< (*i)->converter()<<"</converter>"<<endl;
         if ((*i)->gps() == false)
@@ -720,10 +721,11 @@ Config::LoadConfig(){
                         viewURL = std::string((char *)xmlNodeGetContent(p1)); 
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"converter"))
                         converter = std::string((char *)xmlNodeGetContent(p1)); 
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"latitude"))
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"latitude")){
                         latitude  = atof((char *)xmlNodeGetContent(p1)); 
+                    }
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"longitude"))
-                        latitude  = atof((char *)xmlNodeGetContent(p1)); 
+                        longitude  = atof((char *)xmlNodeGetContent(p1)); 
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"gps")){
                         if(!xmlStrcmp(xmlNodeGetContent(p1),(const xmlChar*)"true"))
                             gps = true;

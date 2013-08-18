@@ -39,18 +39,14 @@ namespace Core {
         DIR *dir_fd = opendir(path.c_str());
         AppLog("Path %s", path.c_str());
         if(dir_fd){
-            AppLog("Sources List");
             while((dp = readdir(dir_fd))){
-            AppLog("Sources111 List");
                 std::string name = dp->d_name;
-                AppLog("name %s", name.c_str());
                 if(name == "." || name == "..")
                     continue;
 //                if(dp->d_type == DT_REG || dp->d_type == DT_LNK){
 /*                std::cerr<<"Source "<< name<<std::endl; */
                     try{
                         std::string file = path + dp->d_name;
-                        AppLog("Sources111 Listi %s", file.c_str());
                         std::string schemafile = AbstractConfig::prefix;
                         schemafile += AbstractConfig::schemaPath;
                         schemafile += "source.xsd";

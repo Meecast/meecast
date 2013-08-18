@@ -801,10 +801,12 @@ meecastMainForm::ReInitElements(void){
     /* fill other days */
     int i = 0;
     int j = 0;
+    int timezone = 0;
     /* Timezone */
-    int timezone = _config->dp->timezone();
-    AppLog("TimeZone %i", timezone);
-
+    if (_config->dp != NULL){
+        timezone = _config->dp->timezone();
+        AppLog("TimeZone %i", timezone);
+    }
 
     _dayCount = 0;
     while  (_config->dp != NULL && i < 3600*24*14) {
@@ -863,8 +865,8 @@ meecastMainForm::CreateContextMenuList(Tizen::Graphics::Point Corner_Point){
     __pContextMenuText = new (std::nothrow) ContextMenu();
     __pContextMenuText->Construct(Corner_Point, CONTEXT_MENU_STYLE_LIST, CONTEXT_MENU_ANCHOR_DIRECTION_UPWARD);
     __pContextMenuText->AddItem(_("Add Station"), ID_MENU_ADD_LOCATION);
-    if (_config->Gps())
-        __pContextMenuText->AddItem(_("Adjust gps station"), ID_MENU_ADJUST_GPS);
+  //  if (_config->Gps())
+  //      __pContextMenuText->AddItem(_("Adjust gps station"), ID_MENU_ADJUST_GPS);
     __pContextMenuText->AddItem(_("Settings"), ID_MENU_SETTINGS);
     __pContextMenuText->AddItem(_("Update"), ID_BUTTON_UPDATE);
     __pContextMenuText->AddItem(_("About"), ID_MENU_ABOUT);

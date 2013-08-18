@@ -86,6 +86,7 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
         AppLogDebug("Create Config class:  ");
         config =  ConfigTizen::Instance();
     }
+    AppLog("Before saveConfig()");
     config->saveConfig();
 //    save_station((char*)"gismeteo.ru.xml",(char*)"Afghanistan",(char*)"Afghanistan", (char*)"Herat",(char*) "5511");
  //   save_station((char*)"gismeteo.ru",(char*)"Afghanistan",(char*)"Afghanistan", (char*)"Herat",(char*) "5511");

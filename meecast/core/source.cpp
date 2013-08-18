@@ -122,9 +122,9 @@ namespace Core {
            for(xmlNodePtr p = root->children; p; p = p->next) {
                 if (p->type != XML_ELEMENT_NODE)
                     continue;
-                AppLog("Name of node %s", (char *)p->name);
+                /* AppLog("Name of node %s", (char *)p->name);*/
                 if (!xmlStrcmp(p->name, (const xmlChar*)"name")){
-                     AppLog("Name %s", (char *)xmlNodeGetContent(p));
+                     /* AppLog("Name %s", (char *)xmlNodeGetContent(p)); */
                     _name->assign((char *)xmlNodeGetContent(p));
                     continue;
                 }

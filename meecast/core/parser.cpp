@@ -113,10 +113,10 @@ namespace Core {
         //String  filepath = "/opt/apps/ctLjIIgCCj/data/config.xml";
         pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(filepath);
 
-        AppLogDebug("Parser for libxml %s", pBuf->GetPointer());
+        /*AppLogDebug("Parser for libxml %s", pBuf->GetPointer()); */
         _doc = xmlReadFile((const char*)pBuf->GetPointer(), "UTF-8", XML_PARSE_SAX1);
 
-        AppLogDebug("Parser for libxml %p ", _doc);
+       /* AppLogDebug("Parser for libxml %p ", _doc); */
     #endif
     #endif //LIBXML
     }

@@ -471,6 +471,7 @@ meecastFullWeatherForm::ReInitElements(void){
                 time_for_show = current_day + 3 * 3600 + _dayNumber*24*3600 + timezone*3600;
                 break;
         }
+        AppLog("Time for Show %li", time_for_show);
         /* Preparing data */
         if ((temp_data = _config->dp->data().GetDataForTime(time_for_show))) {
 

@@ -737,10 +737,12 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
   if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
       setlocale(LC_TIME, "POSIX");
       snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s %s", xpathObj->nodesetval->nodeTab[0]->content, buffer);
-      utc_time = mktime(&current_tm) + localtimezone*3600;
+//      utc_time = mktime(&current_tm) + localtimezone*3600;
+      utc_time = mktime(&current_tm);
       strptime(temp_buffer, " %H:%M %d.%m.Y", &current_tm);
       setlocale(LC_TIME, "");
-      utc_time = mktime(&current_tm) + localtimezone*3600;
+//      utc_time = mktime(&current_tm) + localtimezone*3600;
+      utc_time = mktime(&current_tm);
       fprintf(file_out,"    <sunrise>%li</sunrise>\n", utc_time );
   }
   if (xpathObj)
@@ -752,7 +754,8 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
         snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s %s", xpathObj->nodesetval->nodeTab[0]->content, buffer);
         strptime(temp_buffer, " %H:%M %d.%m.Y", &current_tm);
         setlocale(LC_TIME, "");
-        utc_time = mktime(&current_tm) + localtimezone*3600;
+        //utc_time = mktime(&current_tm) + localtimezone*3600;
+        utc_time = mktime(&current_tm);
         fprintf(file_out,"    <sunset>%li</sunset>\n", utc_time);
   }
   if (xpathObj)

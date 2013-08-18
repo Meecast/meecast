@@ -99,8 +99,10 @@ namespace Core {
             /* select min period including _time */
             if (((result_time != -1) && result_time <= temp_time) || (result_time != -1 && !is_hour && temp_data->Current()) ){
                 if (!(temp_data_result && temp_data_result->Current()) || is_hour){
-                    temp_time = result_time; 
-                    temp_data_result = temp_data;
+                    if(temp_data->SunRiseTime() == 0){
+                        temp_time = result_time; 
+                        temp_data_result = temp_data;
+                    }
                 }
 	     //if (is_hour)
              //   std::cerr<<"success"<<std::endl;

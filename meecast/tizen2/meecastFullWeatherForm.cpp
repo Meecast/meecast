@@ -465,10 +465,10 @@ meecastFullWeatherForm::ReInitElements(void){
                 time_for_show = time(NULL);
                 break;
             case DAY:
-                time_for_show = current_day + 15 * 3600 + _dayNumber*24*3600;
+                time_for_show = current_day + 15 * 3600 + _dayNumber*24*3600 + timezone*3600;
                 break;
             case NIGHT:
-                time_for_show = current_day + 3 * 3600 + _dayNumber*24*3600;
+                time_for_show = current_day + 3 * 3600 + _dayNumber*24*3600 + timezone*3600;
                 break;
         }
         /* Preparing data */

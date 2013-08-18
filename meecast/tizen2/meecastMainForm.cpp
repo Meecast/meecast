@@ -771,23 +771,47 @@ meecastMainForm::ReInitElements(void){
     main_listview_forecast->SetItemProvider(*this);
     main_listview_forecast->SetItemDividerColor(Tizen::Graphics::Color(0x1F, 0x1F, 0x1F)); 
     /* Fill list of days with weather forecast */
-    /* set current day */ 
+
+
     time_t current_day;
     struct tm   *tm = NULL;
     current_day = time(NULL);
+
+    /* Set localtimezone */
+    struct tm time_tm1;
+    struct tm time_tm2;
+    gmtime_r(&current_day, &time_tm1);
+    localtime_r(&current_day, &time_tm2);
+    int localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
+
+
+
+    /* set current day */ 
+    current_day = time(NULL);
+
+
+
+
     tm = gmtime(&current_day);
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     tm->tm_isdst = 1;
-    current_day = mktime(tm); /* today 00:00:00 */
+    current_day = mktime(tm) + 3600*localtimezone; /* today 00:00:00 */
+    AppLog("Local TimeZone %i", localtimezone);
 
     /* fill other days */
     int i = 0;
     int j = 0;
+    /* Timezone */
+    int timezone = _config->dp->timezone();
+    AppLog("TimeZone %i", timezone);
+
 
     _dayCount = 0;
     while  (_config->dp != NULL && i < 3600*24*14) {
-        if (_config->dp->data().GetDataForTime( current_day + 14*3600 + i)){
-            __daysmap->Add(*(new (std::nothrow) Integer(_dayCount)), *(new (std::nothrow) Long(current_day + 14*3600 + i)));
+        if (_config->dp->data().GetDataForTime( current_day + 15*3600 + i - 3600*timezone)){
+            __daysmap->Add(*(new (std::nothrow) Integer(_dayCount)), *(new (std::nothrow) Long(current_day + 15*3600 + i - 3600*timezone)));
+            AppLog ("Result1 %li", current_day);
+            AppLog ("Result %li", current_day + 15*3600 + i - 3600*timezone);
             _dayCount ++;
         }
         i = i + 3600*24;
@@ -882,17 +906,6 @@ meecastMainForm::CreateItem (int index, int itemWidth){
     }else{
         pItem->SetBackgroundColor(LIST_ITEM_DRAWING_STATUS_NORMAL, Tizen::Graphics::Color(0x1F, 0x1F, 0x1F));
     }
-    /* set current day */ 
-    time_t current_day;
-    struct tm   *tm = NULL;
-    current_day = time(NULL);
-    tm = gmtime(&current_day);
-    tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
-    tm->tm_isdst = 1;
-    current_day = mktime(tm); /* today 00:00:00 */
-
-    /* fill other days */
-    int i = 3600*24;
     String* pStr;
     Core::Data *temp_data = NULL;
 

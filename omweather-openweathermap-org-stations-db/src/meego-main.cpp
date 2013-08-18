@@ -518,6 +518,7 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
     char   temp_buffer[buff_size];
     time_t      utc_time;
     struct tm   tmp_tm = {0};
+    struct tm   tmp_tm2 = {0};
     time_t      utc_time_start;
     time_t      utc_time_end;
     time_t      utc_time_sunrise = -1;
@@ -583,8 +584,8 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
                                 snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s",(char *)temp_prop);
                                 xmlFree(temp_prop);
                                 temp_prop = NULL;
-                                strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
-                                utc_time_sunset = mktime(&tmp_tm) + localtimezone*3600;
+                                strptime(temp_buffer, "%Y-%m-%dT%H:%M:%S", &tmp_tm2);
+                                utc_time_sunset = mktime(&tmp_tm2) + localtimezone*3600;
                             }
                        }
                    }

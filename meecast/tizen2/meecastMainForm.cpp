@@ -91,6 +91,10 @@ meecastMainForm::OnInitializing(void)
     /* Footer */
 //    Footer* pFooter = GetFooter();
 //    pFooter->SetStyle(FOOTER_STYLE_BUTTON_ICON);
+    _config = ConfigTizen::Instance( std::string("config.xml"),
+                                       Core::AbstractConfig::prefix+
+                                       Core::AbstractConfig::schemaPath+
+                                       "config.xsd");
 
     __updateButton = new Button();
     __updateButton->Construct(Rectangle(0, 0, 100, 100), ""); 
@@ -109,12 +113,7 @@ meecastMainForm::OnInitializing(void)
     CreateContextMenuList(position);
   //  pFooter->AddActionEventListener(*this);
 
-    _config = ConfigTizen::Instance( std::string("config.xml"),
-                                       Core::AbstractConfig::prefix+
-                                       Core::AbstractConfig::schemaPath+
-                                       "config.xsd");
-
-
+  
 	AppResource *pAppResource = Application::GetInstance()->GetAppResource();
 	if (pAppResource != null){
 		Bitmap *pBitmap0 = pAppResource->GetBitmapN("animations/00_list_process_01.png");
@@ -518,6 +517,14 @@ meecastMainForm::ReInitElements(void){
 
     Tizen::Ui::Controls::ListView  *main_listview_forecast = static_cast<ListView*>(GetControl(L"IDC_LISTVIEW_FORECASTS"));
 
+    if(__pContextMenuText){
+        if (_config->Gps())
+            __pContextMenuText->InsertItemAt(3, _("Adjust gps station"), ID_MENU_ADJUST_GPS);
+        else{
+           __pContextMenuText->RemoveItemAt(__pContextMenuText->GetItemIndexFromActionId(ID_MENU_ADJUST_GPS));
+        }
+    }
+
     if (_config->stationsList().size()!=0){
         station_label->SetText(_config->stationname().c_str());
         main_background_label->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background_main.png"));
@@ -865,12 +872,11 @@ meecastMainForm::CreateContextMenuList(Tizen::Graphics::Point Corner_Point){
     __pContextMenuText = new (std::nothrow) ContextMenu();
     __pContextMenuText->Construct(Corner_Point, CONTEXT_MENU_STYLE_LIST, CONTEXT_MENU_ANCHOR_DIRECTION_UPWARD);
     __pContextMenuText->AddItem(_("Add Station"), ID_MENU_ADD_LOCATION);
-  //  if (_config->Gps())
-  //      __pContextMenuText->AddItem(_("Adjust gps station"), ID_MENU_ADJUST_GPS);
     __pContextMenuText->AddItem(_("Settings"), ID_MENU_SETTINGS);
     __pContextMenuText->AddItem(_("Update"), ID_BUTTON_UPDATE);
     __pContextMenuText->AddItem(_("About"), ID_MENU_ABOUT);
     __pContextMenuText->AddActionEventListener(*this);
+    __pContextMenuText->SetMaxVisibleItemsCount(5);
 }
 
 

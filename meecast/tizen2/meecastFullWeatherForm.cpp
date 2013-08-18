@@ -921,7 +921,8 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
                 time_t current_day;
                 current_day = temp_data->StartTime() + _config->dp->timezone()*3600;
                 Label* pHourLabel = new Label();
-                tm = localtime(&(current_day));
+               // tm = localtime(&(current_day));
+                tm = gmtime(&(current_day));
 
                 snprintf(buffer, sizeof(buffer) - 1, "%02d:00", tm->tm_hour);
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);

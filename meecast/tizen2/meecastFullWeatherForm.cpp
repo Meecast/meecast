@@ -337,6 +337,7 @@ meecastFullWeatherForm::ReInitElements(void){
     
     /* Timezone */
     timezone = _config->dp->timezone();
+    AppLog("TimeZone %i", timezone);
 
 
     /* Footer */
@@ -433,7 +434,7 @@ meecastFullWeatherForm::ReInitElements(void){
         tm = localtime(&current_hour);
         tm->tm_sec = 0; tm->tm_min = 1; 
         tm->tm_isdst = 1;
-        current_hour = mktime(tm); 
+        current_hour = mktime(tm) + localtimezone*3600 - 3*3600; 
         int i =0;
         _count_of_hours = 0; 
         /* fill hours */
@@ -918,9 +919,9 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 
                 struct tm   *tm = NULL;
                 time_t current_day;
-                current_day = temp_data->StartTime();
+                current_day = temp_data->StartTime() + _config->dp->timezone()*3600;
                 Label* pHourLabel = new Label();
-                tm = gmtime(&(current_day));
+                tm = localtime(&(current_day));
 
                 snprintf(buffer, sizeof(buffer) - 1, "%02d:00", tm->tm_hour);
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);

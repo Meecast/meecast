@@ -514,12 +514,13 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
           if (temp_char && strlen(temp_char) > 8)
               temp_char = temp_char + 7;
            tmp_tm_loc = get_date_for_hour_weather(temp_char);
-           loc_time = mktime(&tmp_tm_loc);
+           loc_time = mktime(&tmp_tm_loc) + localtimezone*3600;
            /* fprintf(stderr," Local Temp char %s %li\n", temp_char, loc_time); */
-           time_diff = difftime(loc_time, utc_time);
+//           time_diff = difftime(loc_time, utc_time);
 //           if(time_diff)
            timezone_flag = true;
-           location_timezone = (int)time_diff/3600;
+//           location_timezone = (int)time_diff/3600;
+           location_timezone = (int)((loc_time - utc_time)/3600);
            /* fprintf(stderr, "\nTimezone %i\n", location_timezone); */
            fprintf(file_out,"  <timezone>%i</timezone>\n", location_timezone);
       }

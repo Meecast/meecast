@@ -8,6 +8,8 @@
 
 #include <libintl.h>
 #include <locale.h>
+#include <FLocations.h>
+#include <FSystem.h>
 
 #define SAFE_DELETE(x)  if (x) { delete x; x = null; }
 #define _(String) gettext(String)
@@ -24,8 +26,12 @@ class meecastMainForm
     , public Tizen::Ui::ITouchEventListener
     , public Tizen::Base::Runtime::ITimerEventListener
     , public Tizen::Ui::ITouchFlickGestureEventListener
+ 	, public Tizen::App::IAppControlResponseListener
    
      {
+public:
+	static const RequestId LOC_MGR_DRAW_SYNC_LOC_UPDATE = 101;
+	static const RequestId LOC_MGR_NOTIFY_ERROR = 102;
 public:
 	meecastMainForm(void);
 	virtual ~meecastMainForm(void);
@@ -71,7 +77,13 @@ public:
     void NextStation();
     void PreviousStation();
     void UpdateWeatherForecast();
+    void UpdateGpsPosition();
     void AppControlBrowser(Tizen::Base::String uri);
+    /* Event */
+	virtual void OnUserEventReceivedN(RequestId requestId, Tizen::Base::Collection::IList* pArgs);
+
+	virtual void OnAppControlCompleteResponseReceived(const Tizen::App::AppId &appId, const Tizen::Base::String &operationId, Tizen::App::AppCtrlResult appControlResult, const Tizen::Base::Collection::IMap *pExtraData){}
+
 
 protected:
     static const int ID_BUTTON_OK = 101;

@@ -32,6 +32,7 @@ using namespace Tizen::Ui::Controls;
 using namespace Tizen::Ui::Scenes;
 using namespace Tizen::Graphics;
 using namespace Tizen::Base::Collection;
+using namespace Tizen::Locations;
 
 
 meecastMainForm::meecastMainForm(void):
@@ -451,6 +452,10 @@ meecastMainForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionI
     case ID_MENU_ABOUT:
         AppLog("About is clicked!");
         pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_ABOUTSCENE"));
+        break;
+    case ID_MENU_ADJUST_GPS:
+        AppLog("GpS is clicked!");
+        UpdateGpsPosition();
         break;
     default:
         break;
@@ -1071,4 +1076,101 @@ meecastMainForm::UpdateWeatherForecast(){
     }
 
 }
+void
+meecastMainForm::UpdateGpsPosition(){
+    AppLog("Gps is changed ");
+    if (_config->Gps()){
+        result lastResult = E_SUCCESS;
+        LocationCriteria locCriteria;
+
+        locCriteria.SetAccuracy(LOC_ACCURACY_ANY);
+
+        Location location = LocationProvider::GetLocation(locCriteria);
+
+        lastResult = GetLastResult();
+
+        if (lastResult == E_USER_NOT_CONSENTED){
+            int doModal;
+            MessageBox messageBox;
+            messageBox.Construct(L"Error", "The user has disabled the required settings.", MSGBOX_STYLE_OK, 0);
+            messageBox.ShowAndWait(doModal);
+        }else{
+            AppLog("Yes!!!");
+            AppLog ("Latitude %d",location.GetCoordinates().GetLatitude());
+            AppLog ("Longitude %d",location.GetCoordinates().GetLongitude());
+            String dbPath;
+            dbPath.Append(App::GetInstance()->GetAppResourcePath());
+            dbPath.Append("db/openweathermap.org.db");
+            if (Database::Exists(dbPath) == true){
+                Core::DatabaseSqlite *__db;
+                __db = new Core::DatabaseSqlite(dbPath);
+                if (__db->open_database() == true){
+                    std::string country,  region, code, name;
+                    double latitude, longitude;
+                    if ((Double::ToString(location.GetCoordinates().GetLatitude())== "NaN") || 
+                        (Double::ToString(location.GetCoordinates().GetLongitude()) == "NaN")){
+                        int doModal;
+                        MessageBox messageBox;
+                        messageBox.Construct(L"Error", "Data for GPS is not available", MSGBOX_STYLE_OK, 0);
+                        messageBox.ShowAndWait(doModal);
+                    }else{ 
+                        __db->get_nearest_station(location.GetCoordinates().GetLatitude(), location.GetCoordinates().GetLongitude(), country, region, code,  name, latitude, longitude);
+                        if (latitude != INT_MAX && longitude != INT_MAX){
+                            /* find exist gps station */
+                            int index = _config->getGpsStation();
+                            if (index > -1){
+                                /* delete gps station */
+                                _config->removeStation(index);
+                            }
+                            String Name;
+                            Name = name.c_str();
+                            Name.Append(" (GPS)");
+                            _config->saveStation1("openweathermap.org", String(code.c_str()), Name, String(country.c_str()), String(region.c_str()), true, latitude, longitude);
+                        }
+                    }
+                }
+                delete __db;
+            }
+        }
+        ReInitElements(); 
+    }
+}
+
+void
+meecastMainForm::OnUserEventReceivedN(RequestId requestId, Tizen::Base::Collection::IList* pArgs){
+	if (requestId == LOC_MGR_DRAW_SYNC_LOC_UPDATE)
+	{
+		Location* pLocation = static_cast<Location*> (pArgs->GetAt(0));
+
+		if (pLocation->IsValid())
+		{
+//			DrawLocationInformation(*pLocation);
+		}
+		else
+		{
+//			__pTextBoxInfo->Clear();
+//			__pTextBoxInfo->AppendText(L"Failed to fetch the current location");
+//			__pTextBoxInfo->Draw();
+		}
+	}
+	else if(requestId == LOC_MGR_NOTIFY_ERROR)
+	{
+//		bool isSettingEnabled = CheckLocationSetting();
+//		if (!isSettingEnabled)
+///		{
+//			LaunchLocationSettings();
+//		}
+//		else
+//		{
+//			ShowMessageBox(L"Privacy protection", L"Please allow the application to use your location. You can change settings at Settings->Privacy.");
+//		}
+	}
+
+	if(pArgs)
+	{
+		pArgs->RemoveAll(true);
+		delete pArgs;
+	}
+}
+
 

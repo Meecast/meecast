@@ -9,6 +9,8 @@
 #include <libintl.h>
 #include <locale.h>
 #define _(String) gettext(String)
+
+class meecastLocationManager;
 class meecastManageLocationsForm
 	: public Tizen::Ui::Controls::Form
 	, public Tizen::Ui::IActionEventListener
@@ -16,7 +18,11 @@ class meecastManageLocationsForm
 	, public Tizen::Ui::Controls::IListViewItemEventListener
 	, public Tizen::Ui::Controls::IListViewItemProvider
  	, public Tizen::Ui::Scenes::ISceneEventListener
+ 	, public Tizen::App::IAppControlResponseListener
 {
+public:
+	static const RequestId UPDATE_LIST = 111;
+
 public:
 	meecastManageLocationsForm(void);
 	virtual ~meecastManageLocationsForm(void);
@@ -41,11 +47,17 @@ public:
     void GetStationsList(void);
 
     void DeleteMessageBox(const Tizen::Base::String& Station, int index);
+    /* Events */
+	virtual void OnUserEventReceivedN(RequestId requestId, Tizen::Base::Collection::IList* pArgs);
+	virtual void OnAppControlCompleteResponseReceived(const Tizen::App::AppId &appId, const Tizen::Base::String &operationId, Tizen::App::AppCtrlResult appControlResult, const Tizen::Base::Collection::IMap *pExtraData){}
+
+
 protected:
 private:
     Tizen::Ui::Controls::ListView* __pListView;
     Tizen::Base::Collection::ArrayList __stationsList;
     ConfigTizen *_config;
+	meecastLocationManager* __pLocationManagerThread;
 };
 
 #endif	//_MEECAST_MANAGELOCATIONS_FORM_H_

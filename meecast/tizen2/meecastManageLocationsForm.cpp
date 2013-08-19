@@ -25,6 +25,7 @@
 #include <FLocations.h>
 #include <FSystem.h>
 #include "meecastManageLocationsForm.h"
+#include "meecastLocationManager.h"
 
 using namespace Tizen::Base;
 using namespace Tizen::App;
@@ -38,7 +39,8 @@ using namespace Tizen::Locations;
 static const int LIST_HEIGHT = 112;
 
 meecastManageLocationsForm::meecastManageLocationsForm(void)
-                    : __pListView(null)
+                    : __pListView(null),
+                    __pLocationManagerThread(null)
 {
 }
 
@@ -91,7 +93,14 @@ meecastManageLocationsForm::OnInitializing(void)
     addButton->Construct(0);
     addButton->SetText(_("Add"));
     pFooter->AddItem(*addButton);
- 
+
+ 	__pLocationManagerThread =  new (std::nothrow) meecastLocationManager();
+	r = __pLocationManagerThread->Construct(*this);
+	if (IsFailed(r)){
+		AppLog("Thread Construct failed.");
+		return r;
+	}
+
     return r;
 }
 
@@ -222,13 +231,19 @@ meecastManageLocationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::List
         else{
             bool check;
             Tizen::System::SystemInfo::GetValue("http://tizen.org/feature/location", check); 
-            if (check)
+            if (check){
                 _config->Gps(true);
-            else
+                _config->saveConfig();
+    	        result r = __pLocationManagerThread->Start();
+            }
+            else{
                 _config->Gps(false);
+                _config->saveConfig();
+            }
         }
-        _config->saveConfig();
         AppLog("Gps is changed ");
+
+#if 0 
         if (_config->Gps()){
             result lastResult = E_SUCCESS;
             LocationCriteria locCriteria;
@@ -284,6 +299,7 @@ meecastManageLocationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::List
                 }
             }
         }
+#endif
     }else{
         if (status ==  LIST_ITEM_STATUS_UNCHECKED){
             DeleteMessageBox(_config->stationsList().at(index-1)->name().c_str(), index-1);
@@ -308,4 +324,9 @@ meecastManageLocationsForm::GetStationsList(void){
 }
 
 
-
+void
+meecastManageLocationsForm::OnUserEventReceivedN(RequestId requestId, Tizen::Base::Collection::IList* pArgs){
+    AppLog("Update List");
+    __pListView = static_cast <ListView*> (GetControl(L"IDC_LISTVIEW"));
+    __pListView->UpdateList();
+}

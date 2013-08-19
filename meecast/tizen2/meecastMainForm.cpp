@@ -24,6 +24,8 @@
 #include <FApp.h>
 #include <FUi.h>
 #include "meecastMainForm.h"
+#include "meecastLocationManager.h"
+#include "meecastManageLocationsForm.h"
 
 using namespace Tizen::Base;
 using namespace Tizen::App;
@@ -42,7 +44,8 @@ meecastMainForm::meecastMainForm(void):
                  __updateTimer(null),
 	             __pFlickGesture(null),
                  __daysmap(null),
-	             __gestureDetected(false){
+	             __gestureDetected(false),
+                 __pLocationManagerThread(null){
 }
 
 meecastMainForm::~meecastMainForm(void)
@@ -58,6 +61,10 @@ meecastMainForm::~meecastMainForm(void)
 
     if (__daysmap)
         __daysmap->RemoveAll(true);
+
+	__pLocationManagerThread->Join();
+	delete __pLocationManagerThread;
+
 }
 
 bool
@@ -295,6 +302,12 @@ meecastMainForm::OnInitializing(void)
     	__pFlickGesture->AddFlickGestureEventListener(*this);
 	}
 
+	__pLocationManagerThread =  new (std::nothrow) meecastLocationManager();
+	r = __pLocationManagerThread->Construct(*this);
+	if (IsFailed(r)){
+		AppLog("Thread Construct failed.");
+		return r;
+	}
     return r;
 }
 
@@ -453,10 +466,21 @@ meecastMainForm::OnActionPerformed(const Tizen::Ui::Control& source, int actionI
         AppLog("About is clicked!");
         pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_ABOUTSCENE"));
         break;
-    case ID_MENU_ADJUST_GPS:
+    case ID_MENU_ADJUST_GPS:{
         AppLog("GpS is clicked!");
-        UpdateGpsPosition();
+
+        if (_config->Gps()){
+			result r = __pLocationManagerThread->Start();
+
+        AppLog("GpS is clicked!1");
+			if (IsFailed(r)){
+				AppLog("Failed to fetch the current location");
+			}
+        }
+
+//        UpdateGpsPosition();
         break;
+    }    
     default:
         break;
     }
@@ -1079,7 +1103,6 @@ meecastMainForm::UpdateWeatherForecast(){
 void
 meecastMainForm::UpdateGpsPosition(){
     AppLog("Gps is changed ");
-    if (_config->Gps()){
         result lastResult = E_SUCCESS;
         LocationCriteria locCriteria;
 
@@ -1133,7 +1156,6 @@ meecastMainForm::UpdateGpsPosition(){
             }
         }
         ReInitElements(); 
-    }
 }
 
 void
@@ -1141,29 +1163,62 @@ meecastMainForm::OnUserEventReceivedN(RequestId requestId, Tizen::Base::Collecti
 	if (requestId == LOC_MGR_DRAW_SYNC_LOC_UPDATE)
 	{
 		Location* pLocation = static_cast<Location*> (pArgs->GetAt(0));
-
-		if (pLocation->IsValid())
-		{
-//			DrawLocationInformation(*pLocation);
+		if (pLocation->IsValid()){
+            AppLog ("Latitude %d",pLocation->GetCoordinates().GetLatitude());
+            AppLog ("Longitude %d",pLocation->GetCoordinates().GetLongitude());
+            String dbPath;
+            dbPath.Append(App::GetInstance()->GetAppResourcePath());
+            dbPath.Append("db/openweathermap.org.db");
+            if (Database::Exists(dbPath) == true){
+                Core::DatabaseSqlite *__db;
+                __db = new Core::DatabaseSqlite(dbPath);
+                if (__db->open_database() == true){
+                    std::string country,  region, code, name;
+                    double latitude, longitude;
+                    if ((Double::ToString(pLocation->GetCoordinates().GetLatitude())== "NaN") || 
+                        (Double::ToString(pLocation->GetCoordinates().GetLongitude()) == "NaN")){
+                        int doModal;
+                        MessageBox messageBox;
+                        messageBox.Construct(L"Error", "Data for GPS is not available", MSGBOX_STYLE_OK, 0);
+                        messageBox.ShowAndWait(doModal);
+                    }else{ 
+                        __db->get_nearest_station(pLocation->GetCoordinates().GetLatitude(), pLocation->GetCoordinates().GetLongitude(), country, region, code,  name, latitude, longitude);
+                        if (latitude != INT_MAX && longitude != INT_MAX){
+                            /* find exist gps station */
+                            int index = _config->getGpsStation();
+                            if (index > -1){
+                                /* delete gps station */
+                                _config->removeStation(index);
+                            }
+                            String Name;
+                            Name = name.c_str();
+                            Name.Append(" (GPS)");
+                            _config->saveStation1("openweathermap.org", String(code.c_str()), Name, String(country.c_str()), String(region.c_str()), true, latitude, longitude);
+                        }
+                    }
+                }
+                delete __db;
+            }
+           App* pApp = App::GetInstance(); 
+           pApp->SendUserEvent(meecastManageLocationsForm::UPDATE_LIST, null);
+           ReInitElements(); 
+     	}else{
+            int doModal;
+            MessageBox messageBox;
+            messageBox.Construct(_("Error"), _("Failed to fetch the current location"), MSGBOX_STYLE_OK, 0);
+            messageBox.ShowAndWait(doModal);
 		}
-		else
-		{
-//			__pTextBoxInfo->Clear();
-//			__pTextBoxInfo->AppendText(L"Failed to fetch the current location");
-//			__pTextBoxInfo->Draw();
+	}else if(requestId == LOC_MGR_NOTIFY_ERROR){
+		bool isSettingEnabled = CheckLocationSetting();
+		if (!isSettingEnabled){
+			LaunchLocationSettings();
 		}
-	}
-	else if(requestId == LOC_MGR_NOTIFY_ERROR)
-	{
-//		bool isSettingEnabled = CheckLocationSetting();
-//		if (!isSettingEnabled)
-///		{
-//			LaunchLocationSettings();
-//		}
-//		else
-//		{
-//			ShowMessageBox(L"Privacy protection", L"Please allow the application to use your location. You can change settings at Settings->Privacy.");
-//		}
+		else{
+            int doModal;
+            MessageBox messageBox;
+            messageBox.Construct(_("Privacy protection"), _("Allow the MeeCast to use your location. You can change settings at Settings->Privacy."), MSGBOX_STYLE_OK, 0);
+            messageBox.ShowAndWait(doModal);
+		}
 	}
 
 	if(pArgs)
@@ -1173,4 +1228,49 @@ meecastMainForm::OnUserEventReceivedN(RequestId requestId, Tizen::Base::Collecti
 	}
 }
 
+bool
+meecastMainForm::CheckLocationSetting(void){
+	bool hasPrivilege = false;
+	bool gpsEnabled = true;
+	bool wpsEnabled = true;
+
+	result gps = Tizen::System::SettingInfo::GetValue(L"http://tizen.org/setting/location.gps", gpsEnabled);
+	result wps = Tizen::System::SettingInfo::GetValue(L"http://tizen.org/setting/location.wps", wpsEnabled);
+
+	hasPrivilege = gpsEnabled | wpsEnabled;
+	if (gps != E_SUCCESS || wps != E_SUCCESS || hasPrivilege == false)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+void
+meecastMainForm::LaunchLocationSettings(void)
+{
+	int res;
+
+	MessageBox messageBox;
+	messageBox.Construct(L"Information", L"Location services are disabled. Enable them in location settings?", MSGBOX_STYLE_YESNO);
+	messageBox.ShowAndWait(res);
+
+	if (res == MSGBOX_RESULT_YES)
+	{
+		HashMap extraData;
+		extraData.Construct();
+		String categoryKey = L"category";
+		String categoryVal = L"Location";
+		extraData.Add(&categoryKey, &categoryVal);
+
+		AppControl* pAc = AppManager::FindAppControlN(L"tizen.settings", L"http://tizen.org/appcontrol/operation/configure");
+
+		if (pAc)
+		{
+			pAc->Start(null, null, &extraData, this);
+			delete pAc;
+		}
+	}
+	return;
+}
 

@@ -14,6 +14,7 @@
 #define SAFE_DELETE(x)  if (x) { delete x; x = null; }
 #define _(String) gettext(String)
 
+class meecastLocationManager;
 
 class meecastMainForm
 	: public Tizen::Ui::Controls::Form
@@ -79,11 +80,11 @@ public:
     void UpdateWeatherForecast();
     void UpdateGpsPosition();
     void AppControlBrowser(Tizen::Base::String uri);
-    /* Event */
+    bool CheckLocationSetting(void);
+    void LaunchLocationSettings(void);
+    /* Events */
 	virtual void OnUserEventReceivedN(RequestId requestId, Tizen::Base::Collection::IList* pArgs);
-
 	virtual void OnAppControlCompleteResponseReceived(const Tizen::App::AppId &appId, const Tizen::Base::String &operationId, Tizen::App::AppCtrlResult appControlResult, const Tizen::Base::Collection::IMap *pExtraData){}
-
 
 protected:
     static const int ID_BUTTON_OK = 101;
@@ -108,6 +109,7 @@ private:
 
     Tizen::Base::Collection::HashMap *__daysmap;
 	bool __gestureDetected;
+	meecastLocationManager* __pLocationManagerThread;
 };
 
 #endif	//_MEECAST_MAIN_FORM_H_

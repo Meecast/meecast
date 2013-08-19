@@ -21,6 +21,7 @@
  * 02110-1301 USA
 */
 #include <FUi.h>
+#include <FBase.h>
 #include <FLocations.h>
 #include "meecastLocationManager.h"
 #include "meecastMainForm.h"
@@ -29,6 +30,7 @@ using namespace Tizen::Base;
 using namespace Tizen::Base::Collection;
 using namespace Tizen::Base::Runtime;
 using namespace Tizen::Locations;
+using namespace Tizen::Ui::Controls;
 
 meecastLocationManager::meecastLocationManager(void)
 	: Tizen::Base::Runtime::Thread()
@@ -48,28 +50,34 @@ meecastLocationManager::Construct(const Tizen::Ui::Control& uiControl)
 Object*
 meecastLocationManager::Run(void)
 {
+	AppLog("Requested for current location in new thread.");
 	result lastResult = E_SUCCESS;
 	LocationCriteria locCriteria;
 
-	locCriteria.SetAccuracy(LOC_ACCURACY_HUNDRED_METERS);
+	locCriteria.SetAccuracy(LOC_ACCURACY_ANY);
 
 	Location location = LocationProvider::GetLocation(locCriteria);
 
-	AppLog("Requested for current location in new thread.");
+    AppLog ("Latitude1 %d",location.GetCoordinates().GetLatitude());
+    AppLog ("Longitude1 %d",location.GetCoordinates().GetLongitude());
 
 	lastResult = GetLastResult();
 
 	if (lastResult == E_USER_NOT_CONSENTED)
 	{
-		__pUiControl->SendUserEvent(meecastMainForm::LOC_MGR_NOTIFY_ERROR, null);
+        AppLog("Problem");
+   		__pUiControl->SendUserEvent(meecastMainForm::LOC_MGR_NOTIFY_ERROR, null);
 	}
+    
+	if (lastResult == E_SUCCESS){
+        AppLog("Success GPS position");
+        ArrayList* pList = new (std::nothrow) ArrayList();
+        Location* pLocation = new (std::nothrow) Location(location);
 
-	ArrayList* pList = new (std::nothrow) ArrayList();
-	Location* pLocation = new (std::nothrow) Location(location);
-
-	pList->Construct();
-	pList->Add(*pLocation);
-	__pUiControl->SendUserEvent(meecastMainForm::LOC_MGR_DRAW_SYNC_LOC_UPDATE, pList);
+        pList->Construct();
+        pList->Add(*pLocation);
+        __pUiControl->SendUserEvent(meecastMainForm::LOC_MGR_DRAW_SYNC_LOC_UPDATE, pList);
+    }
 
 	return null;
 }

@@ -242,64 +242,6 @@ meecastManageLocationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::List
             }
         }
         AppLog("Gps is changed ");
-
-#if 0 
-        if (_config->Gps()){
-            result lastResult = E_SUCCESS;
-            LocationCriteria locCriteria;
-
-            locCriteria.SetAccuracy(LOC_ACCURACY_ANY);
-
-            Location location = LocationProvider::GetLocation(locCriteria);
-
-            lastResult = GetLastResult();
-
-            if (lastResult == E_USER_NOT_CONSENTED){
-                int doModal;
-                MessageBox messageBox;
-                messageBox.Construct(L"Error", "The user has disabled the required settings.", MSGBOX_STYLE_OK, 0);
-                messageBox.ShowAndWait(doModal);
-            }else{
-                AppLog("Yes!!!");
-                AppLog ("Latitude %d",location.GetCoordinates().GetLatitude());
-                AppLog ("Longitude %d",location.GetCoordinates().GetLongitude());
-                String dbPath;
-                dbPath.Append(App::GetInstance()->GetAppResourcePath());
-                dbPath.Append("db/openweathermap.org.db");
-                if (Database::Exists(dbPath) == true){
-                    Core::DatabaseSqlite *__db;
-                    __db = new Core::DatabaseSqlite(dbPath);
-                    if (__db->open_database() == true){
-                        std::string country,  region, code, name;
-                        double latitude, longitude;
-                        if ((Double::ToString(location.GetCoordinates().GetLatitude())== "NaN") || 
-                            (Double::ToString(location.GetCoordinates().GetLongitude()) == "NaN")){
-                            int doModal;
-                            MessageBox messageBox;
-                            messageBox.Construct(L"Error", "Data for GPS is not available", MSGBOX_STYLE_OK, 0);
-                            messageBox.ShowAndWait(doModal);
-                        }else{ 
-                            __db->get_nearest_station(location.GetCoordinates().GetLatitude(), location.GetCoordinates().GetLongitude(), country, region, code,  name, latitude, longitude);
-                            if (latitude != INT_MAX && longitude != INT_MAX){
-                                /* find exist gps station */
-                                int index = _config->getGpsStation();
-                                if (index > -1){
-                                    /* delete gps station */
-                                    _config->removeStation(index);
-                                }
-                                String Name;
-                                Name = name.c_str();
-                                Name.Append(" (GPS)");
-                                _config->saveStation1("openweathermap.org", String(code.c_str()), Name, String(country.c_str()), String(region.c_str()), true, latitude, longitude);
-                                listView.UpdateList();
-                            }
-                        }
-                    }
-                    delete __db;
-                }
-            }
-        }
-#endif
     }else{
         if (status ==  LIST_ITEM_STATUS_UNCHECKED){
             DeleteMessageBox(_config->stationsList().at(index-1)->name().c_str(), index-1);
@@ -326,7 +268,73 @@ meecastManageLocationsForm::GetStationsList(void){
 
 void
 meecastManageLocationsForm::OnUserEventReceivedN(RequestId requestId, Tizen::Base::Collection::IList* pArgs){
-    AppLog("Update List");
-    __pListView = static_cast <ListView*> (GetControl(L"IDC_LISTVIEW"));
-    __pListView->UpdateList();
+	if (requestId == LOC_MGR_DRAW_SYNC_LOC_UPDATE){
+        AppLog("Update List");
+        __pListView = static_cast <ListView*> (GetControl(L"IDC_LISTVIEW"));
+        __pListView->UpdateList();
+	}else if(requestId == LOC_MGR_NOTIFY_ERROR){
+		bool isSettingEnabled = CheckLocationSetting();
+		if (!isSettingEnabled){
+			LaunchLocationSettings();
+		}
+		else{
+            int doModal;
+            MessageBox messageBox;
+            messageBox.Construct(_("Privacy protection"), _("Allow the MeeCast to use your location. You can change settings at Settings->Privacy."), MSGBOX_STYLE_OK, 0);
+            messageBox.ShowAndWait(doModal);
+		}
+	}
+
+	if(pArgs){
+		pArgs->RemoveAll(true);
+		delete pArgs;
+	}
+
 }
+
+bool
+meecastManageLocationsForm::CheckLocationSetting(void){
+	bool hasPrivilege = false;
+	bool gpsEnabled = true;
+	bool wpsEnabled = true;
+
+	result gps = Tizen::System::SettingInfo::GetValue(L"http://tizen.org/setting/location.gps", gpsEnabled);
+	result wps = Tizen::System::SettingInfo::GetValue(L"http://tizen.org/setting/location.wps", wpsEnabled);
+
+	hasPrivilege = gpsEnabled | wpsEnabled;
+	if (gps != E_SUCCESS || wps != E_SUCCESS || hasPrivilege == false)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+void
+meecastManageLocationsForm::LaunchLocationSettings(void)
+{
+	int res;
+
+	MessageBox messageBox;
+	messageBox.Construct(L"Information", L"Location services are disabled. Enable them in location settings?", MSGBOX_STYLE_YESNO);
+	messageBox.ShowAndWait(res);
+
+	if (res == MSGBOX_RESULT_YES)
+	{
+		HashMap extraData;
+		extraData.Construct();
+		String categoryKey = L"category";
+		String categoryVal = L"Location";
+		extraData.Add(&categoryKey, &categoryVal);
+
+		AppControl* pAc = AppManager::FindAppControlN(L"tizen.settings", L"http://tizen.org/appcontrol/operation/configure");
+
+		if (pAc)
+		{
+			pAc->Start(null, null, &extraData, this);
+			delete pAc;
+		}
+	}
+	return;
+}
+

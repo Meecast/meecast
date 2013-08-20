@@ -25,6 +25,7 @@
 #include <FLocations.h>
 #include "meecastLocationManager.h"
 #include "meecastMainForm.h"
+#include "meecastManageLocationsForm.h"
 
 using namespace Tizen::Base;
 using namespace Tizen::Base::Collection;
@@ -50,6 +51,12 @@ meecastLocationManager::Construct(const Tizen::Ui::Control& uiControl)
 Object*
 meecastLocationManager::Run(void)
 {
+    _config = ConfigTizen::Instance( std::string("config.xml"),
+                                       Core::AbstractConfig::prefix+
+                                       Core::AbstractConfig::schemaPath+
+                                       "config.xsd");
+
+
 	AppLog("Requested for current location in new thread.");
 	result lastResult = E_SUCCESS;
 	LocationCriteria locCriteria;
@@ -67,16 +74,49 @@ meecastLocationManager::Run(void)
 	{
         AppLog("Problem");
    		__pUiControl->SendUserEvent(meecastMainForm::LOC_MGR_NOTIFY_ERROR, null);
+ 		
 	}
     
 	if (lastResult == E_SUCCESS){
-        AppLog("Success GPS position");
-        ArrayList* pList = new (std::nothrow) ArrayList();
-        Location* pLocation = new (std::nothrow) Location(location);
+            AppLog("Yes!!!");
+            AppLog ("Latitude %d",location.GetCoordinates().GetLatitude());
+            AppLog ("Longitude %d",location.GetCoordinates().GetLongitude());
+            String dbPath;
+            dbPath.Append(App::GetInstance()->GetAppResourcePath());
+            dbPath.Append("db/openweathermap.org.db");
+            if (Database::Exists(dbPath) == true){
+                Core::DatabaseSqlite *__db;
+                __db = new Core::DatabaseSqlite(dbPath);
+                if (__db->open_database() == true){
+                    std::string country,  region, code, name;
+                    double latitude, longitude;
+                    if ((Double::ToString(location.GetCoordinates().GetLatitude())== "NaN") || 
+                        (Double::ToString(location.GetCoordinates().GetLongitude()) == "NaN")){
+                        int doModal;
+                        MessageBox messageBox;
+                        messageBox.Construct(L"Error", "Data for GPS is not available", MSGBOX_STYLE_OK, 0);
+                        messageBox.ShowAndWait(doModal);
+                    }else{ 
+                        __db->get_nearest_station(location.GetCoordinates().GetLatitude(), location.GetCoordinates().GetLongitude(), country, region, code,  name, latitude, longitude);
+                        if (latitude != INT_MAX && longitude != INT_MAX){
+                            /* find exist gps station */
+                            int index = _config->getGpsStation();
+                            if (index > -1){
+                                /* delete gps station */
+                                _config->removeStation(index);
+                            }
+                            String Name;
+                            Name = name.c_str();
+                            Name.Append(" (GPS)");
+                            _config->saveStation1("openweathermap.org", String(code.c_str()), Name, String(country.c_str()), String(region.c_str()), true, latitude, longitude);
+                        }
+                    }
+                }
+                delete __db;
+            }
 
-        pList->Construct();
-        pList->Add(*pLocation);
-        __pUiControl->SendUserEvent(meecastMainForm::LOC_MGR_DRAW_SYNC_LOC_UPDATE, pList);
+       __pUiControl->SendUserEvent(meecastMainForm::LOC_MGR_DRAW_SYNC_LOC_UPDATE, null);
+      __pUiControl->SendUserEvent(meecastManageLocationsForm::UPDATE_LIST, null);
     }
 
 	return null;

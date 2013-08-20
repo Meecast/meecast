@@ -24,6 +24,7 @@
 #ifndef MEECAST_LOCATION_MANAGER_H_
 #define MEECAST_LOCATION_MANAGER_H_
 
+#include "configtizen.h"
 class meecastLocationManager
 	:public Tizen::Base::Runtime::Thread
 {
@@ -35,6 +36,7 @@ public:
 
 private:
 	const Tizen::Ui::Control* __pUiControl;
+    ConfigTizen *_config;
 };
 
 #endif /* MEECAST_LOCATION_MANAGER_H_ */

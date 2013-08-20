@@ -1162,52 +1162,7 @@ void
 meecastMainForm::OnUserEventReceivedN(RequestId requestId, Tizen::Base::Collection::IList* pArgs){
 	if (requestId == LOC_MGR_DRAW_SYNC_LOC_UPDATE)
 	{
-		Location* pLocation = static_cast<Location*> (pArgs->GetAt(0));
-		if (pLocation->IsValid()){
-            AppLog ("Latitude %d",pLocation->GetCoordinates().GetLatitude());
-            AppLog ("Longitude %d",pLocation->GetCoordinates().GetLongitude());
-            String dbPath;
-            dbPath.Append(App::GetInstance()->GetAppResourcePath());
-            dbPath.Append("db/openweathermap.org.db");
-            if (Database::Exists(dbPath) == true){
-                Core::DatabaseSqlite *__db;
-                __db = new Core::DatabaseSqlite(dbPath);
-                if (__db->open_database() == true){
-                    std::string country,  region, code, name;
-                    double latitude, longitude;
-                    if ((Double::ToString(pLocation->GetCoordinates().GetLatitude())== "NaN") || 
-                        (Double::ToString(pLocation->GetCoordinates().GetLongitude()) == "NaN")){
-                        int doModal;
-                        MessageBox messageBox;
-                        messageBox.Construct(L"Error", "Data for GPS is not available", MSGBOX_STYLE_OK, 0);
-                        messageBox.ShowAndWait(doModal);
-                    }else{ 
-                        __db->get_nearest_station(pLocation->GetCoordinates().GetLatitude(), pLocation->GetCoordinates().GetLongitude(), country, region, code,  name, latitude, longitude);
-                        if (latitude != INT_MAX && longitude != INT_MAX){
-                            /* find exist gps station */
-                            int index = _config->getGpsStation();
-                            if (index > -1){
-                                /* delete gps station */
-                                _config->removeStation(index);
-                            }
-                            String Name;
-                            Name = name.c_str();
-                            Name.Append(" (GPS)");
-                            _config->saveStation1("openweathermap.org", String(code.c_str()), Name, String(country.c_str()), String(region.c_str()), true, latitude, longitude);
-                        }
-                    }
-                }
-                delete __db;
-            }
-           App* pApp = App::GetInstance(); 
-           pApp->SendUserEvent(meecastManageLocationsForm::UPDATE_LIST, null);
-           ReInitElements(); 
-     	}else{
-            int doModal;
-            MessageBox messageBox;
-            messageBox.Construct(_("Error"), _("Failed to fetch the current location"), MSGBOX_STYLE_OK, 0);
-            messageBox.ShowAndWait(doModal);
-		}
+        ReInitElements(); 
 	}else if(requestId == LOC_MGR_NOTIFY_ERROR){
 		bool isSettingEnabled = CheckLocationSetting();
 		if (!isSettingEnabled){

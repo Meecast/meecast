@@ -548,7 +548,7 @@ meecastMainForm::ReInitElements(void){
 
     if(__pContextMenuText){
         if (_config->Gps())
-            __pContextMenuText->InsertItemAt(3, _("Adjust gps station"), ID_MENU_ADJUST_GPS);
+            __pContextMenuText->InsertItemAt(3, _("Adjust GPS station"), ID_MENU_ADJUST_GPS);
         else{
            __pContextMenuText->RemoveItemAt(__pContextMenuText->GetItemIndexFromActionId(ID_MENU_ADJUST_GPS));
         }

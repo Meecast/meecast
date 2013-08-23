@@ -104,6 +104,7 @@ private:
     Tizen::Ui::Controls::Animation* __pAnimation;
 	Tizen::Base::Collection::ArrayList* __pAnimationFrameList;
     Tizen::Ui::Controls::Button* __updateButton;
+    Tizen::Ui::Controls::Button* __menuButton;
     Tizen::Base::Runtime::Timer* __updateTimer;
 	Tizen::Ui::TouchFlickGestureDetector* __pFlickGesture;
 

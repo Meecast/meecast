@@ -44,6 +44,7 @@ meecastMainForm::meecastMainForm(void):
                  __updateTimer(null),
 	             __pFlickGesture(null),
                  __daysmap(null),
+                 __menuButton(null),
 	             __gestureDetected(false),
                  __pLocationManagerThread(null){
 }
@@ -115,13 +116,22 @@ meecastMainForm::OnInitializing(void)
 	source_icon_label->AddTouchEventListener(*this);
     Tizen::Graphics::Point position = source_icon_label->GetPosition();
 
-   // __updateButton->SetPosition(0 + 25, position.y - 60);
     __updateButton->SetPosition(0 + 25, position.y - 0);
     position.SetPosition(position.x + source_icon_label->GetWidth(), position.y + 50);
     CreateContextMenuList(position);
-  //  pFooter->AddActionEventListener(*this);
 
-  
+/* Menu button */
+    __menuButton = new Button();
+    __menuButton->Construct(Rectangle(0, 0, 100, 100), ""); 
+    __menuButton->SetActionId(ID_BUTTON_MENU);
+    __menuButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("menu.png"));
+    __menuButton->SetPressedBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("menu.png"));
+    __menuButton->AddActionEventListener(*this);
+    position = source_icon_label->GetPosition();
+
+    __menuButton->SetPosition(source_icon_label->GetWidth() - 100 - 25, position.y - 0);
+/* end menu button */
+
 	AppResource *pAppResource = Application::GetInstance()->GetAppResource();
 	if (pAppResource != null){
 		Bitmap *pBitmap0 = pAppResource->GetBitmapN("animations/00_list_process_01.png");
@@ -263,6 +273,8 @@ meecastMainForm::OnInitializing(void)
     }
 
     AddControl(__updateButton);
+    if (__menuButton)
+        AddControl(__menuButton);
     __updateTimer = new (std::nothrow) Tizen::Base::Runtime::Timer;
     TryReturn(__updateTimer != null, E_FAILURE, "[E_FAILURE] Failed to create __updateTimer.");
     AppLog("updateTimer is created.");
@@ -880,6 +892,12 @@ meecastMainForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSce
     Tizen::Graphics::Point position = source_icon_label->GetPosition();
     __updateButton->SetPosition(0 + 25, position.y - 0);
     __updateButton->RequestRedraw();
+
+    if (__menuButton){
+        __menuButton->SetPosition(source_icon_label->GetWidth() - 100 - 25, position.y - 0);
+        __menuButton->RequestRedraw();
+    }
+
     __pAnimation->SetPosition(0 + 35, position.y + 10);
     __pAnimation->RequestRedraw();
     

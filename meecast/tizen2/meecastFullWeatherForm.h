@@ -7,6 +7,7 @@
 #include "configtizen.h"
 
 #include <FSystem.h>
+#include <FLocales.h>
 
 #include <libintl.h>
 #include <locale.h>

@@ -32,6 +32,7 @@ using namespace Tizen::Ui;
 using namespace Tizen::Ui::Controls;
 using namespace Tizen::Ui::Scenes;
 using namespace Tizen::Graphics;
+using namespace Tizen::Locales;
 
 using namespace Tizen::System;
 
@@ -66,15 +67,13 @@ meecastFullWeatherForm::~meecastFullWeatherForm(void)
 }
 
 bool
-meecastFullWeatherForm::Initialize(void)
-{
+meecastFullWeatherForm::Initialize(void){
     Construct(L"FULL_WEATHER_FORM");
     return true;
 }
 
 result
-meecastFullWeatherForm::OnInitializing(void)
-{
+meecastFullWeatherForm::OnInitializing(void){
     result r = E_SUCCESS;
 
 
@@ -894,6 +893,29 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
                 temp_data->temperature().units(_config->TemperatureUnit());
                 temp_data->WindSpeed().units(_config->WindSpeedUnit());
                 temp_data->pressure().units(_config->PressureUnit());
+
+                /* Convert date and time */
+                DateTime dt;
+                time_t day_and_time;
+                struct tm   *tm1 = NULL;
+                day_and_time = temp_data->StartTime() + _config->dp->timezone()*3600;
+                tm1 = gmtime(&(day_and_time));
+                dt.SetValue(tm1->tm_year, tm1->tm_mon + 1, tm1->tm_mday, tm1->tm_hour, tm1->tm_min);
+                String dateString;
+                String timeString;
+                LocaleManager localeManager;
+                localeManager.Construct();
+                Locale  systemLocale = localeManager.GetSystemLocale();
+                String countryCodeString = systemLocale.GetCountryCodeString();
+                String languageCodeString = systemLocale.GetLanguageCodeString();
+                Tizen::Locales::DateTimeFormatter* pDateFormatter = DateTimeFormatter::CreateDateFormatterN(systemLocale, DATE_TIME_STYLE_DEFAULT);
+                Tizen::Locales::DateTimeFormatter* pTimeFormatter = DateTimeFormatter::CreateTimeFormatterN(systemLocale, DATE_TIME_STYLE_SHORT);
+//                timeString = pTimeFormatter->GetPattern();
+        		String customizedPattern = L"dd MMM";
+		        pDateFormatter->ApplyPattern(customizedPattern);
+		        pDateFormatter->Format(dt, dateString);
+                pTimeFormatter->Format(dt, timeString);
+
                 if ((index-1) %2 != 0 ){
                     pItem->SetBackgroundColor(Tizen::Graphics::Color(0x00, 0x00, 0x00), TABLE_VIEW_ITEM_DRAWING_STATUS_NORMAL);
                 }else{
@@ -901,33 +923,27 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
                 }
 
                 Label* pDateLabel = new Label();
-                Tizen::Base::Utility::StringUtil::Utf8ToString(temp_data->DayOfMonthName().c_str(), str);
-                pDateLabel->Construct(Rectangle(5, 20, 220, 50), str);
-                pDateLabel->SetTextConfig(35, LABEL_TEXT_STYLE_NORMAL);
+                pDateLabel->Construct(Rectangle(5, 20, 220, 50), dateString);
+                pDateLabel->SetTextConfig(38, LABEL_TEXT_STYLE_NORMAL);
 
                 pDateLabel->SetTextColor(Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)));
                 pDateLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
                 pItem->AddControl(*pDateLabel);
 
+                Label* pHourLabel = new Label();
+/*
 
-                Label* pMonthLabel = new Label();
-                Tizen::Base::Utility::StringUtil::Utf8ToString(temp_data->FullMonthName().c_str(), str);
-                pMonthLabel->Construct(Rectangle(50, 20, 220, 50), str);
-                pMonthLabel->SetTextConfig(35, LABEL_TEXT_STYLE_NORMAL);
-                pMonthLabel->SetTextColor(Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)));
-                pMonthLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
-                pItem->AddControl(*pMonthLabel);
-
-                struct tm   *tm = NULL;
+               struct tm   *tm = NULL;
                 time_t current_day;
                 current_day = temp_data->StartTime() + _config->dp->timezone()*3600;
-                Label* pHourLabel = new Label();
                // tm = localtime(&(current_day));
                 tm = gmtime(&(current_day));
 
                 snprintf(buffer, sizeof(buffer) - 1, "%02d:00", tm->tm_hour);
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-                pHourLabel->Construct(Rectangle(150, 20, 140, 50), str);
+//                pHourLabel->Construct(Rectangle(150, 20, 140, 50), str);
+*/
+                pHourLabel->Construct(Rectangle(130, 20, 190, 50), timeString);
                 pHourLabel->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
                 pHourLabel->SetTextColor(Tizen::Graphics::Color(Color::GetColor(COLOR_ID_WHITE)));
                 pHourLabel->SetTextHorizontalAlignment(ALIGNMENT_RIGHT);

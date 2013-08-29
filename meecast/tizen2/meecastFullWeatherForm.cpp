@@ -943,7 +943,7 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
 //                pHourLabel->Construct(Rectangle(150, 20, 140, 50), str);
 */
-                pHourLabel->Construct(Rectangle(130, 20, 200, 50), timeString);
+                pHourLabel->Construct(Rectangle(110, 20, 220, 50), timeString);
                 pHourLabel->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
                 pHourLabel->SetTextColor(Tizen::Graphics::Color(Color::GetColor(COLOR_ID_WHITE)));
                 pHourLabel->SetTextHorizontalAlignment(ALIGNMENT_RIGHT);

@@ -594,6 +594,17 @@ meecastFullWeatherForm::ReInitElements(void){
             main_current_state->SetShowState(true);
             main_current_state->SetText(str);
             main_current_state->RequestRedraw();
+            /* Flike Temperature */
+            if (temp_data->Flike().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->Flike().value());
+                Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                _pValueList->Add(new String(str));
+                String *temp_String;
+                temp_String =  new String(_("Flike"));
+                temp_String->Append(":");
+                _pKeyList->Add(temp_String);
+            }
+
             /* Presssure */
             if (temp_data->pressure().value(true) != INT_MAX){
                 snprintf (buffer, sizeof(buffer) -1, "%i %s", (int)temp_data->pressure().value(), _(_config->PressureUnit().c_str()));
@@ -684,13 +695,6 @@ meecastFullWeatherForm::ReInitElements(void){
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
                 _pKeyList->Add(new String(_("Last update:")));
-            }
-            /* Flike Temperature */
-            if (temp_data->Flike().value(true) != INT_MAX){
-                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->Flike().value());
-                Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-                _pValueList->Add(new String(str));
-                _pKeyList->Add(new String(_("Flike:")));
             }
             /*
                   if (_dp->data().GetSunSetForTime(current_day + 15 * 3600) >0)

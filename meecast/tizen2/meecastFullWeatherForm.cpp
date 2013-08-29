@@ -701,7 +701,6 @@ meecastFullWeatherForm::ReInitElements(void){
                               forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 15 * 3600) + 3600*timezone - 3600*localtimezone);
                         forecast_data->LastUpdate(_dp->LastUpdate());
              */
-            AppLog("REINIT ELEMENTS444");
 
         }else{
             AppLog("Nothing");
@@ -948,10 +947,11 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
 //                pHourLabel->Construct(Rectangle(150, 20, 140, 50), str);
 */
-                pHourLabel->Construct(Rectangle(110, 20, 220, 50), timeString);
+                pHourLabel->Construct(Rectangle(130, 20, 220, 50), timeString);
                 pHourLabel->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
                 pHourLabel->SetTextColor(Tizen::Graphics::Color(Color::GetColor(COLOR_ID_WHITE)));
-                pHourLabel->SetTextHorizontalAlignment(ALIGNMENT_RIGHT);
+  //              pHourLabel->SetTextHorizontalAlignment(ALIGNMENT_RIGHT);
+                pHourLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
                 pItem->AddControl(*pHourLabel);
 
                 Label* main_icon = new Label();

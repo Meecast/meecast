@@ -381,15 +381,14 @@ meecastMainForm::OnTouchPressed(const Tizen::Ui::Control& source,
 }
 
 void
-meecastMainForm::OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo)
-{
+meecastMainForm::OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){
     SceneManager* pSceneManager = SceneManager::GetInstance();
     AppAssert(pSceneManager);
     AppLog("OnTouchReleased");
     Tizen::Ui::Controls::Panel *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
     Tizen::Ui::Controls::Label  *source_icon_label = static_cast<Label*>(GetControl(L"IDC_LABEL_SOURCE_ICON"));
 	if (__gestureDetected == false){
-        if (source.Equals(*pTouchArea)){
+        if (source.Equals(*pTouchArea) && _config->stationsList().size() > 0){
             AppLog("BackGround Touch Screen");
             Tizen::Base::Collection::ArrayList* pList = new (std::nothrow)Tizen::Base::Collection::ArrayList();
 		    pList->Construct();
@@ -651,8 +650,8 @@ meecastMainForm::ReInitElements(void){
     /* Preparing data */
     if (_config->dp != NULL && (temp_data = _config->dp->data().GetDataForTime(time(NULL)))){    
 
-     AppLog ("_Config_dp inside");
-     /* Preparing units */
+        AppLog ("_Config_dp inside");
+        /* Preparing units */
         temp_data->temperature_low().units(_config->TemperatureUnit());
         temp_data->temperature_hi().units(_config->TemperatureUnit());
         temp_data->temperature().units(_config->TemperatureUnit());
@@ -833,11 +832,8 @@ meecastMainForm::ReInitElements(void){
     int localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
 
 
-
     /* set current day */ 
     current_day = time(NULL);
-
-
 
 
     tm = gmtime(&current_day);
@@ -1011,7 +1007,7 @@ meecastMainForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listV
         AppAssert(pSceneManager);
         AppLog("LIST_ITEM_STATUS_SELECTED");
         Tizen::Base::Collection::ArrayList* pList = new (std::nothrow)Tizen::Base::Collection::ArrayList();
-		pList->Construct();
+        pList->Construct();
         pList->Add(*new (std::nothrow) Integer(index));
         pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_FULLWEATHERSCENE"), pList);
    	}

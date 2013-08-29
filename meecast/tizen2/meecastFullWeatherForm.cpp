@@ -311,8 +311,7 @@ meecastFullWeatherForm::ReInitElements(void){
         //_config->dp = Core::DataParser::Instance(temp_string, "");
         _config->dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
 
-    }
-    else 
+    }else 
         _config->dp = NULL;
 
     Core::Data *temp_data = NULL;
@@ -335,8 +334,10 @@ meecastFullWeatherForm::ReInitElements(void){
     current_day = mktime(tm); /* today 00:00:00 */
     
     /* Timezone */
-    timezone = _config->dp->timezone();
-    AppLog("TimeZone %i", timezone);
+    if (_config->dp){
+        timezone = _config->dp->timezone();
+        AppLog("TimeZone %i", timezone);
+    }
 
 
     /* Footer */
@@ -351,7 +352,7 @@ meecastFullWeatherForm::ReInitElements(void){
 
     /* Check Night */
     __nightButton = NULL;
-    if ((temp_data = _config->dp->data().GetDataForTime(current_day + 3 * 3600 + _dayNumber*24*3600))) {
+    if (_config->dp && (temp_data = _config->dp->data().GetDataForTime(current_day + 3 * 3600 + _dayNumber*24*3600))) {
         __nightButton = new Tizen::Ui::Controls::FooterItem(); 
         __nightButton->Construct(ID_BUTTON_NIGHT);
         __nightButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("night_def.png"));
@@ -374,7 +375,7 @@ meecastFullWeatherForm::ReInitElements(void){
 
 /* Check Hourly */
     for (unsigned int i=1; i<24; i++){ 
-        if ((temp_data = _config->dp->data().GetDataForTime(current_day + i * 3600, true))) {    
+        if (_config->dp && (temp_data = _config->dp->data().GetDataForTime(current_day + i * 3600, true))) {    
             __hourlyButton = new Tizen::Ui::Controls::FooterItem(); 
             __hourlyButton->Construct(ID_BUTTON_HOURLY);
             __hourlyButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("hourly_def.png"));
@@ -472,7 +473,7 @@ meecastFullWeatherForm::ReInitElements(void){
         }
         AppLog("Time for Show %li", time_for_show);
         /* Preparing data */
-        if ((temp_data = _config->dp->data().GetDataForTime(time_for_show))) {
+        if (_config->dp && (temp_data = _config->dp->data().GetDataForTime(time_for_show))) {
 
             day_name_label->SetText(temp_data->FullDayName().c_str());
             day_name_label->RequestRedraw();

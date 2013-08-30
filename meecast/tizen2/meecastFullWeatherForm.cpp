@@ -919,6 +919,8 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 		        pDateFormatter->ApplyPattern(customizedPattern);
 		        pDateFormatter->Format(dt, dateString);
                 pTimeFormatter->Format(dt, timeString);
+                if (timeString.StartsWith(":", 1))
+                    timeString.Insert("0", 0);
 
                 if ((index-1) %2 != 0 ){
                     pItem->SetBackgroundColor(Tizen::Graphics::Color(0x00, 0x00, 0x00), TABLE_VIEW_ITEM_DRAWING_STATUS_NORMAL);

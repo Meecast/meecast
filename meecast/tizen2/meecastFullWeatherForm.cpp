@@ -691,11 +691,28 @@ meecastFullWeatherForm::ReInitElements(void){
                 time_t last_update = _config->dp->LastUpdate();
                 struct tm   tm1;
                 localtime_r(&last_update, &tm1);
-                strftime(buffer, sizeof(buffer), "%d %b %H:%M", &tm1);
-                Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-                _pValueList->Add(new String(str));
+
+                /* Convert date and time */
+                DateTime dt;
+                dt.SetValue(tm1.tm_year, tm1.tm_mon + 1, tm1.tm_mday, tm1.tm_hour, tm1.tm_min);
+                String dateString;
+                String timeString;
+                LocaleManager localeManager;
+                localeManager.Construct();
+                Locale  systemLocale = localeManager.GetSystemLocale();
+                String countryCodeString = systemLocale.GetCountryCodeString();
+                String languageCodeString = systemLocale.GetLanguageCodeString();
+                Tizen::Locales::DateTimeFormatter* pDateFormatter = DateTimeFormatter::CreateDateFormatterN(systemLocale, DATE_TIME_STYLE_DEFAULT);
+                Tizen::Locales::DateTimeFormatter* pTimeFormatter = DateTimeFormatter::CreateTimeFormatterN(systemLocale, DATE_TIME_STYLE_SHORT);
+        		String customizedPattern = L"dd MMM ";
+		        pDateFormatter->ApplyPattern(customizedPattern);
+		        pDateFormatter->Format(dt, dateString);
+                pTimeFormatter->Format(dt, timeString);
+                dateString.Append(timeString);
+                _pValueList->Add(new String(dateString));
                 _pKeyList->Add(new String(_("Last update:")));
             }
+
             /*
                   if (_dp->data().GetSunSetForTime(current_day + 15 * 3600) >0)
                               forecast_data->SunSetTime(_dp->data().GetSunSetForTime(current_day + 15 * 3600) + 3600*timezone - 3600*localtimezone);

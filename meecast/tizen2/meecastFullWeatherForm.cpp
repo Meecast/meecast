@@ -662,9 +662,19 @@ meecastFullWeatherForm::ReInitElements(void){
                 struct tm   tm1;
                // tm = gmtime(&current_day);
                 gmtime_r(&sun_rise_time, &tm1);
-                snprintf (buffer, sizeof(buffer) -1, "%i:%i", tm1.tm_hour, tm1.tm_min);
-                Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-                _pValueList->Add(new String(str));
+                /* Convert date and time */
+                DateTime dt;
+                dt.SetValue(tm1.tm_year, tm1.tm_mon + 1, tm1.tm_mday, tm1.tm_hour, tm1.tm_min);
+                String dateString;
+                String timeString;
+                LocaleManager localeManager;
+                localeManager.Construct();
+                Locale  systemLocale = localeManager.GetSystemLocale();
+                String countryCodeString = systemLocale.GetCountryCodeString();
+                String languageCodeString = systemLocale.GetLanguageCodeString();
+                Tizen::Locales::DateTimeFormatter* pTimeFormatter = DateTimeFormatter::CreateTimeFormatterN(systemLocale, DATE_TIME_STYLE_SHORT);
+                pTimeFormatter->Format(dt, timeString);
+                _pValueList->Add(new String(timeString));
                 _pKeyList->Add(new String(_("Sunrise:")));
             }
             /* Sun Set */
@@ -674,9 +684,19 @@ meecastFullWeatherForm::ReInitElements(void){
                 struct tm   tm1;
                // tm = gmtime(&current_day);
                 gmtime_r(&sun_set_time, &tm1);
-                snprintf (buffer, sizeof(buffer) -1, "%i:%i", tm1.tm_hour, tm1.tm_min);
-                Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-                _pValueList->Add(new String(str));
+                /* Convert date and time */
+                DateTime dt;
+                dt.SetValue(tm1.tm_year, tm1.tm_mon + 1, tm1.tm_mday, tm1.tm_hour, tm1.tm_min);
+                String dateString;
+                String timeString;
+                LocaleManager localeManager;
+                localeManager.Construct();
+                Locale  systemLocale = localeManager.GetSystemLocale();
+                String countryCodeString = systemLocale.GetCountryCodeString();
+                String languageCodeString = systemLocale.GetLanguageCodeString();
+                Tizen::Locales::DateTimeFormatter* pTimeFormatter = DateTimeFormatter::CreateTimeFormatterN(systemLocale, DATE_TIME_STYLE_SHORT);
+                pTimeFormatter->Format(dt, timeString);
+                _pValueList->Add(new String(timeString));
                 _pKeyList->Add(new String(_("Sunset:")));
                 time_t sun_rise_time =  _config->dp->data().GetSunRiseForTime(current_day + 15 * 3600) + 3600*timezone;
                 time_t day_length_time =  sun_set_time - sun_rise_time;

@@ -15,17 +15,22 @@
 
 class meecastRegionsForm
 	: public Tizen::Ui::Controls::Form
+	, public Tizen::Ui::Controls::ISearchBarEventListener
+	, public Tizen::Ui::IKeypadEventListener
+	, public Tizen::Ui::ITextEventListener
 	, public Tizen::Ui::IActionEventListener
 	, public Tizen::Ui::Controls::IFormBackEventListener
 	, public Tizen::Ui::Controls::IListViewItemEventListener
 	, public Tizen::Ui::Controls::IListViewItemProvider
  	, public Tizen::Ui::Scenes::ISceneEventListener
     , public Tizen::Ui::Controls::IFastScrollListener
+	, public Tizen::Ui::ITouchEventListener
 {
 public:
 	meecastRegionsForm(void);
 	virtual ~meecastRegionsForm(void);
 	bool Initialize(void);
+    void UpdateSearchResult(void);
 public:
 	virtual result OnInitializing(void);
 	virtual result OnTerminating(void);
@@ -46,7 +51,27 @@ public:
     bool LoadList(void);
 	// FastScroll
 	virtual void OnFastScrollIndexSelected(Tizen::Ui::Control& source, Tizen::Base::String& index);
+	// ISearchBarEventListener
+	virtual void OnSearchBarModeChanged(Tizen::Ui::Controls::SearchBar& source, Tizen::Ui::Controls::SearchBarMode mode);
+	virtual void OnTextValueChanged(const Tizen::Ui::Control& source);
+	virtual void OnTextValueChangeCanceled(const Tizen::Ui::Control& source){}
 
+	// IKeypadEventListener
+	virtual void OnKeypadActionPerformed(Tizen::Ui::Control &source, Tizen::Ui::KeypadAction keypadAction);
+	virtual void OnKeypadClosed(Tizen::Ui::Control &source);
+	virtual void OnKeypadOpened(Tizen::Ui::Control &source);
+	virtual void OnKeypadWillOpen(Tizen::Ui::Control &source);
+	virtual void OnKeypadBoundsChanged(Tizen::Ui::Control& source);
+	//ITouchEventListener
+	virtual void  OnTouchDoublePressed (const Tizen::Ui::Control &source, const Tizen::Graphics::Point &currentPosition, const Tizen::Ui::TouchEventInfo &touchInfo){}
+	virtual void  OnTouchFocusIn (const Tizen::Ui::Control &source, const Tizen::Graphics::Point &currentPosition, const Tizen::Ui::TouchEventInfo &touchInfo){}
+	virtual void  OnTouchFocusOut (const Tizen::Ui::Control &source, const Tizen::Graphics::Point &currentPosition, const Tizen::Ui::TouchEventInfo &touchInfo){}
+	virtual void  OnTouchLongPressed (const Tizen::Ui::Control &source, const Tizen::Graphics::Point &currentPosition, const Tizen::Ui::TouchEventInfo &touchInfo){}
+	virtual void  OnTouchMoved (const Tizen::Ui::Control &source, const Tizen::Graphics::Point &currentPosition, const Tizen::Ui::TouchEventInfo &touchInfo){}
+	virtual void  OnTouchPressed (const Tizen::Ui::Control &source, const Tizen::Graphics::Point &currentPosition, const Tizen::Ui::TouchEventInfo &touchInfo);
+	virtual void  OnTouchReleased (const Tizen::Ui::Control &source, const Tizen::Graphics::Point &currentPosition, const Tizen::Ui::TouchEventInfo &touchInfo){}
+
+ 
 protected:
 private:
     Tizen::Ui::Controls::ListView* __pListView;
@@ -56,7 +81,7 @@ private:
     Tizen::Base::String __dbPath;
     Tizen::Base::String __indexString;
     Core::DatabaseSqlite *__db;
-
+	Tizen::Ui::Controls::SearchBar* __pSearchBar;
 };
 
 #endif	//_MEECAST_REGIONS_FORM_H_

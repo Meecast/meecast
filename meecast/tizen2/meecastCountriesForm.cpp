@@ -86,6 +86,10 @@ meecastCountriesForm::OnInitializing(void){
 
     // Adds the list view to the form
     AddControl(*__pListView);
+    AddControl(*__pSearchBar);
+ 	FloatRectangle clientRect = GetClientAreaBoundsF();
+ 	__pListView->SetSize(FloatDimension(clientRect.width, clientRect.height - __pSearchBar->GetHeightF()));
+
 
     return r;
 }

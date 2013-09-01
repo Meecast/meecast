@@ -10,7 +10,7 @@
 
 #define SAFE_DELETE(x)  if (x) { delete x; x = null; }
 #define _(String) gettext(String)
-
+static const int INDICATE_HEIGHT = 70;
 
 
 class meecastCountriesForm

@@ -30,6 +30,7 @@ using namespace Tizen::App;
 using namespace Tizen::Ui;
 using namespace Tizen::Ui::Controls;
 using namespace Tizen::Ui::Scenes;
+using namespace Tizen::Graphics;
 using namespace Tizen::Base;
 using namespace Tizen::Base::Collection;
 using namespace Tizen::Io;
@@ -39,27 +40,25 @@ static const int BUTTON_HEIGHT = 74;
 
 meecastCountriesForm::meecastCountriesForm(void)
                     : __pListView(null)
-{
+                    , __pSearchBar(null){
 }
 
-meecastCountriesForm::~meecastCountriesForm(void)
-{
+meecastCountriesForm::~meecastCountriesForm(void){
     AppLog(" delete meecastCountriesForm");
     __map->RemoveAll(true);
 }
 
 bool
-meecastCountriesForm::Initialize(void)
-{
+meecastCountriesForm::Initialize(void){
     Construct(L"COUNTRIES_FORM");
     return true;
 }
 
 result
-meecastCountriesForm::OnInitializing(void)
-{
+meecastCountriesForm::OnInitializing(void){
     result r = E_SUCCESS;
 
+    Tizen::Graphics::Rectangle rect = GetClientAreaBounds();
     // TODO:
     // Add your initialization code here
 
@@ -76,15 +75,113 @@ meecastCountriesForm::OnInitializing(void)
     __pListView->SetItemProvider(*this);
     __pListView->AddListViewItemEventListener(*this);
     __pListView->AddFastScrollListener(*this);
+
+	__pSearchBar = static_cast<SearchBar*>(GetControl("IDC_SEARCHBAR"));
+	__pSearchBar->SetText(_("Click here!"));
+	__pSearchBar->AddSearchBarEventListener(*this);
+	__pSearchBar->AddTextEventListener(*this);
+	__pSearchBar->AddKeypadEventListener(*this);
+
+// 	__pSearchBar->SetContent(__pListView);
+
     // Adds the list view to the form
     AddControl(*__pListView);
 
     return r;
 }
 
-result
-meecastCountriesForm::OnTerminating(void)
+void
+meecastCountriesForm::OnKeypadActionPerformed(Control &source, Tizen::Ui::KeypadAction keypadAction){
+	__pSearchBar->HideKeypad();
+	Invalidate(true);
+}
+
+void
+meecastCountriesForm::OnKeypadClosed(Control &source){
+	FloatRectangle clientRect = GetClientAreaBoundsF();
+	__pSearchBar->SetContentAreaSize(FloatDimension(clientRect.width, clientRect.height - __pSearchBar->GetHeightF()));
+	__pListView->SetSize(FloatDimension(clientRect.width, clientRect.height - __pSearchBar->GetHeightF()));
+	Invalidate(true);
+}
+
+void
+meecastCountriesForm::OnKeypadOpened(Control &source)
 {
+	FloatRectangle clientRect = GetClientAreaBoundsF();
+	FloatRectangle searchBarBounds = CoordinateSystem::AlignToDevice(FloatRectangle(__pSearchBar->GetBoundsF()));
+	__pSearchBar->SetContentAreaSize(FloatDimension(clientRect.width, clientRect.height - searchBarBounds.height));
+	__pListView->SetSize(FloatDimension(clientRect.width, clientRect.height - __pSearchBar->GetHeightF()));
+	Invalidate(true);
+}
+
+
+void
+meecastCountriesForm::OnKeypadWillOpen(Control &source){
+	Invalidate(true);
+}
+
+void
+meecastCountriesForm::OnKeypadBoundsChanged(Tizen::Ui::Control& source)
+{
+	FloatRectangle clientRect = GetClientAreaBoundsF();
+	FloatRectangle searchBarBounds = CoordinateSystem::AlignToDevice(FloatRectangle(__pSearchBar->GetBoundsF()));
+	__pSearchBar->SetContentAreaSize(FloatDimension(clientRect.width, clientRect.height - searchBarBounds.height));
+	__pListView->SetSize(FloatDimension(clientRect.width, clientRect.height - __pSearchBar->GetHeightF()));
+	__pListView->SetEnabled(false);
+	Invalidate(true);
+}
+
+void
+meecastCountriesForm::OnSearchBarModeChanged(SearchBar& source, SearchBarMode mode){
+
+    AppLog("OnSearchBarModeChanged");
+	FloatRectangle clientRect = GetClientAreaBoundsF();
+	__pSearchBar->SetText(L"");
+	if(mode == SEARCH_BAR_MODE_INPUT)
+	{
+		__pSearchBar->SetContentAreaSize(FloatDimension(clientRect.width, clientRect.height - __pSearchBar->GetHeightF()));
+		__pListView->SetSize(FloatDimension(clientRect.width, clientRect.height - __pSearchBar->GetHeightF()));
+	}
+	else
+	{
+		__pSearchBar->SetText(L"Click here!");
+		__pListView->SetSize(FloatDimension(clientRect.width, clientRect.height - __pSearchBar->GetHeightF()));
+		__pListView->SetEnabled(true);
+        LoadList();
+		__pListView->UpdateList();
+
+	}
+	__pListView->ScrollToItem(0);
+	Invalidate(true);
+}
+
+void
+meecastCountriesForm::OnTextValueChanged(const Control& source){
+	UpdateSearchResult();
+}
+
+
+void
+meecastCountriesForm::UpdateSearchResult(void){
+	String inputText = __pSearchBar->GetText();
+	int Indexof = -1;
+	int GetItemCount = 0;
+
+	if(inputText.CompareTo(L"") != 0){
+        LoadList();
+		__pListView->UpdateList();
+	}else{
+		__pSearchBar->SetText(L"");
+        LoadList();
+		__pListView->UpdateList();
+	}
+	Invalidate(true);
+}
+
+
+
+result
+meecastCountriesForm::OnTerminating(void){
     result r = E_SUCCESS;
 
     // TODO:
@@ -228,12 +325,39 @@ meecastCountriesForm::LoadList(void){
         AppLog("LoadList DB not success");
         return false;
     }
-
+    String inputText;
+    if (__pSearchBar)
+	    inputText = __pSearchBar->GetText();
+    else
+	    inputText = "";
     __db = new Core::DatabaseSqlite(__dbPath);
     if (__db->open_database() == true){
-        AppLog("Open DB success");
         __map = __db->create_countries_list();
         String* pValue = null;
+	    if(inputText != "" && inputText != _("Click here!")){
+            for(int i = 0; i <  __map->GetCount(); i ++){
+                pValue = static_cast< String* > (__map->GetValue(Integer(i)));
+                result r = E_SUCCESS;
+	            int Indexof = -1;
+                r = pValue->IndexOf(inputText, 0, Indexof);
+                if(Indexof < 0){
+                    __map->Remove((Integer(i)));
+                }
+            }
+            Tizen::Base::Collection::HashMap *map; 
+            map = new Tizen::Base::Collection::HashMap;
+            map->Construct();
+            int j = 0;
+            for(int i = 0; i <  __map->GetCount(); i ++){
+                pValue = static_cast< String* > (__map->GetValue(Integer(i)));
+                if (pValue){
+                    map->Add(*(new (std::nothrow) Integer(j++)), *(new (std::nothrow) String(pValue->GetPointer())));
+                }
+            }
+            __map->RemoveAll();
+            delete __map;
+            __map = map;
+        }
         String letter;
         __indexString = "";
 	    for(int i = 0; i <  __map->GetCount(); i ++){
@@ -265,4 +389,7 @@ meecastCountriesForm::OnFastScrollIndexSelected(Control& source, Tizen::Base::St
     __pListView->Invalidate(false);
 }
 
-
+void
+meecastCountriesForm::OnTouchPressed (const Control& source, const Point& currentPosition, const TouchEventInfo &touchInfo) {
+    Invalidate(true);
+}

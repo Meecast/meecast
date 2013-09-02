@@ -339,20 +339,20 @@ meecastCountriesForm::LoadList(void){
         __map = __db->create_countries_list();
         String* pValue = null;
 	    if(inputText != "" && inputText != _("Click here!")){
-            for(int i = 0; i <  __map->GetCount(); i ++){
+            int size_of_array = __map->GetCount();
+            for(int i = 0; i < size_of_array ; i ++){
                 pValue = static_cast< String* > (__map->GetValue(Integer(i)));
                 result r = E_SUCCESS;
 	            int Indexof = -1;
                 r = pValue->IndexOf(inputText, 0, Indexof);
-                if(Indexof < 0){
+                if(Indexof < 0)
                     __map->Remove((Integer(i)));
-                }
             }
             Tizen::Base::Collection::HashMap *map; 
             map = new Tizen::Base::Collection::HashMap;
             map->Construct();
             int j = 0;
-            for(int i = 0; i <  __map->GetCount(); i ++){
+            for(int i = 0; i < size_of_array; i ++){
                 pValue = static_cast< String* > (__map->GetValue(Integer(i)));
                 if (pValue){
                     map->Add(*(new (std::nothrow) Integer(j++)), *(new (std::nothrow) String(pValue->GetPointer())));

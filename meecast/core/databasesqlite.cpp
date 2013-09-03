@@ -32,12 +32,14 @@
 #include "databasesqlite.h"
 #include <FApp.h>
 #include <FIo.h>
+#include <FBase.h>
+#include <FLocales.h>
 
 using namespace Tizen::Base; 
 using namespace Tizen::Base::Collection; 
 using namespace Tizen::Io; 
 using namespace Tizen::App;
-
+using namespace Tizen::Locales;
 
 namespace Core {
 
@@ -541,17 +543,26 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
     latitude = INT_MAX;
     longitude = INT_MAX;
     AppLog ("get_nearest_station");
+    
+
+    Locale engLoc(LANGUAGE_ENG, COUNTRY_GB);
+    NumberFormatter* pNumberFormatter = NumberFormatter::CreateNumberFormatterN(engLoc);
+
+    String formattedStringLat;
+    String formattedStringLon;
+    pNumberFormatter->Format(lat, formattedStringLat);
+    pNumberFormatter->Format(lon, formattedStringLon);
     sql.Append(L"select regions.name, stations.code, stations.name, stations.latitude, stations.longititude, countries.name \
              from regions left join stations on regions.id=stations.region_id \
              left join countries on regions.country_id=countries.id \
              where regions.latitudemax>");
-     sql.Append(lat);        
+     sql.Append(formattedStringLat);        
      sql.Append(" and regions.latitudemin<");
-     sql.Append(lat);        
+     sql.Append(formattedStringLat);        
      sql.Append(" and regions.longititudemax>");
-     sql.Append(lon);        
+     sql.Append(formattedStringLon);        
      sql.Append(" and regions.longititudemin<");
-     sql.Append(lon);        
+     sql.Append(formattedStringLon);        
 
      AppLog ("Sql %S",sql.GetPointer());
      pEnum = db.QueryN(sql);

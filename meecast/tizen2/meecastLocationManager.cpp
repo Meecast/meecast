@@ -58,6 +58,20 @@ meecastLocationManager::Run(void)
 
 
 	AppLog("Requested for current location in new thread.");
+/*
+    std::stringstream file_out;
+ 
+    File log_file;
+    
+    String filePath(App::GetInstance()->GetAppDataPath() + ("log.txt"));
+   // String filePath((_filename->c_str()));
+    result r = E_SUCCESS;
+    r = log_file.Construct(filePath, "w+");
+ //   file_out.open(_filename->c_str());
+    file_out<<"Requested for current location in new thread."<<std::endl;
+    log_file.Write(file_out.str().c_str());
+    log_file.Flush();
+*/
 	result lastResult = E_SUCCESS;
 	LocationCriteria locCriteria;
 

@@ -18,7 +18,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactExtension="exe" artifactName="${ProjName}" buildArtefactType="org.tizen.nativecpp.buildArtefactType.app" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.tizen.nativecpp.buildArtefactType.app" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;" id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.905958591" name="Debug-Tizen-Emulator" parent="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator">
+				<configuration artifactExtension="exe" artifactName="meecast" buildArtefactType="org.tizen.nativecpp.buildArtefactType.app" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.tizen.nativecpp.buildArtefactType.app" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;" id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.905958591" name="Debug-Tizen-Emulator" parent="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator" prebuildStep="../prebuild.sh">
 					<folderInfo id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.905958591." name="/" resourcePath="">
 						<toolChain id="org.tizen.nativecpp.toolchain.sbi.gcc45.app.debug.emulator.1637170027" name="Tizen Native Toolchain" superClass="org.tizen.nativecpp.toolchain.sbi.gcc45.app.debug.emulator">
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF;org.tizen.nativeapp.SlpElfBinaryparser" id="org.tizen.nativeide.target.sbi.gnu.platform.base.771100885" osList="linux,win32" superClass="org.tizen.nativeide.target.sbi.gnu.platform.base"/>
@@ -145,6 +145,7 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="omweather-hko-gov-hk-stations-db/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="omweather-openweathermap-org-stations-db/src"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="meecast/core"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="omweather-yr-no-stations-db/src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -165,7 +166,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactExtension="exe" artifactName="${ProjName}" buildArtefactType="org.tizen.nativecpp.buildArtefactType.app" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.tizen.nativecpp.buildArtefactType.app" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;" id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.1055543585" name="Debug-Tizen-Device" parent="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device">
+				<configuration artifactExtension="exe" artifactName="${ProjName}" buildArtefactType="org.tizen.nativecpp.buildArtefactType.app" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.tizen.nativecpp.buildArtefactType.app" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;" id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.1055543585" name="Debug-Tizen-Device" parent="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device" prebuildStep="../prebuild.sh">
 					<folderInfo id="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.1055543585." name="/" resourcePath="">
 						<toolChain id="org.tizen.nativecpp.toolchain.sbi.gcc45.app.debug.device.1160268698" name="Tizen Native Toolchain" superClass="org.tizen.nativecpp.toolchain.sbi.gcc45.app.debug.device">
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF;org.tizen.nativeapp.SlpElfBinaryparser" id="org.tizen.nativeide.target.sbi.gnu.platform.base.107295385" osList="linux,win32" superClass="org.tizen.nativeide.target.sbi.gnu.platform.base"/>
@@ -283,9 +284,15 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="res"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="inc"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="omweather-bom-gov-au-stations-db/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="omweather-foreca-com-stations-db/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="omweather-gismeteo-ru-stations-db/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="omweather-hko-gov-hk-stations-db/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="omweather-openweathermap-org-stations-db/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="omweather-yr-no-stations-db/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="meecast/core"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="meecast/tizen2"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -701,8 +708,14 @@
 					</folderInfo>
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="res"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="inc"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="meecast/core"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="meecast/tizen2"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="omweather-foreca-com-stations-db/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="omweather-gismeteo-ru-stations-db/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="omweather-hko-gov-hk-stations-db/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="omweather-openweathermap-org-stations-db/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="omweather-bom-gov-au-stations-db/src"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="omweather-yr-no-stations-db/src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -716,23 +729,26 @@
 	<storageModule moduleId="refreshScope" versionNumber="1">
 		<resource resourceType="PROJECT" workspacePath="/qqqqq"/>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.da.173822686">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.tizen.nativecommon.TizenGCCManagedMakePerProjectProfileCPP"/>
+		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.da.836493868">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.tizen.nativecommon.TizenGCCManagedMakePerProjectProfileCPP"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.1055543585">
+		<scannerConfigBuildInfo instanceId="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.da.1129331544">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.tizen.nativecommon.TizenGCCManagedMakePerProjectProfileCPP"/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="org.tizen.nativecpp.config.sbi.gcc45.app.release.783254993">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.tizen.nativecommon.TizenGCCManagedMakePerProjectProfileCPP"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.da.173822686">
+		<scannerConfigBuildInfo instanceId="org.tizen.nativecpp.config.sbi.gcc45.app.debug.device.1055543585">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.tizen.nativecommon.TizenGCCManagedMakePerProjectProfileCPP"/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="org.tizen.nativecpp.config.sbi.gcc45.app.debug.emulator.905958591">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.tizen.nativecommon.TizenGCCManagedMakePerProjectProfileCPP"/>
 		</scannerConfigBuildInfo>
 	</storageModule>
-	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>

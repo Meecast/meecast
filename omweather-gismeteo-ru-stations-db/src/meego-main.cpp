@@ -1008,6 +1008,7 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
       setlocale(LC_TIME, "");
 
       if(!timezone_flag){
+        /* this is very strange using localtimezone */
         utc_time = mktime(&tmp_tm) + localtimezone*3600;
         temp_char = strstr((char *)nodes->nodeTab[i]->children->content, "Local: ");
         if (temp_char && strlen(temp_char) > 8)

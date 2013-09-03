@@ -160,8 +160,8 @@ int
 parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file){
     xmlNode     *cur_node = NULL,
                 *child_node = NULL,
-                *child_node1 = NULL;
-                *child_node2 = NULL,
+                *child_node1 = NULL,
+                *child_node2 = NULL;
     xmlChar     *temp_xml_string = NULL;
     int         count_day = 0;
     char        id_station[10],

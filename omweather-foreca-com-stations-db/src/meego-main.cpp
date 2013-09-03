@@ -55,8 +55,7 @@ choose_hour_weather_icon(char *image)
 /*******************************************************************************/
 int
 parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *result_file){
-    char       buff[256],
-               buffer[buff_size],
+    char       buffer[buff_size],
                current_temperature[20],
                current_icon[10],
                current_title[1024],
@@ -95,7 +94,6 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     int    flag;
     struct tm   tmp_tm_loc = {0};
     struct tm   tmp_tm = {0};
-    struct tm   current_tm = {0};
     struct tm   tm_l = {0};
     struct tm   tmp_tm2 = {0};
     struct tm   *tm;
@@ -417,8 +415,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
 /*******************************************************************************/
 int
 parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *result_file){
-    char       buff[256],
-                buffer[buff_size],
+    char        buffer[buff_size],
                 current_temperature[20],
                 current_icon[10],
                 current_title[1024],
@@ -426,11 +423,11 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
                 current_humidity[15],
                 current_wind_direction[15],
                 current_wind_speed[15];
-    char       temp_buffer[buff_size];
+    char        temp_buffer[buff_size];
     int         flag;
     int         night_flag;
-    int        size;
-    int        i, j;
+    int         size;
+    int         i,j;
     xmlXPathContextPtr xpathCtx; 
     xmlXPathObjectPtr xpathObj = NULL; 
     xmlXPathObjectPtr xpathObj2 = NULL; 
@@ -457,7 +454,6 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     int         sunrise_flag = false;
     struct tm   tmp_tm_loc = {0};
     struct tm   tmp_tm = {0};
-    struct tm   current_tm = {0};
     struct tm   tm_l = {0};
     struct tm   tmp_tm2 = {0};
     struct tm   *tm;

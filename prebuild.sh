@@ -61,7 +61,9 @@ mkdir -p ../res/locales/sr/LC_MESSAGES
 mkdir -p ../res/locales/sv/LC_MESSAGES
 mkdir -p ../res/locales/tr/LC_MESSAGES
 mkdir -p ../res/locales/vi/LC_MESSAGES
-mkdir -p ../res/locales/zh_CN/LC_MESSAGES
+mkdir -p ../res/locales/zh_ZH/LC_MESSAGES
+mkdir -p ../res/locales/zh_HK/LC_MESSAGES
+mkdir -p ../res/locales/zh_TW/LC_MESSAGES
 mkdir -p ../res/locales/zh/LC_MESSAGES
 
 msgfmt -o ../res/locales/ar/LC_MESSAGES/omweather.mo ../po/ar_AR.po 
@@ -88,6 +90,8 @@ msgfmt -o ../res/locales/sr/LC_MESSAGES/omweather.mo ../po/sr_SR.po
 msgfmt -o ../res/locales/sv/LC_MESSAGES/omweather.mo ../po/sv_SV.po 
 msgfmt -o ../res/locales/tr/LC_MESSAGES/omweather.mo ../po/tr_TR.po 
 msgfmt -o ../res/locales/vi/LC_MESSAGES/omweather.mo ../po/vi_VI.po 
-msgfmt -o ../res/locales/zh_CN/LC_MESSAGES/omweather.mo ../po/zh_CN.po 
+msgfmt -o ../res/locales/zh_HK/LC_MESSAGES/omweather.mo ../po/zh_HK.po 
+msgfmt -o ../res/locales/zh_TW/LC_MESSAGES/omweather.mo ../po/zh_TW.po 
+msgfmt -o ../res/locales/zh_ZH/LC_MESSAGES/omweather.mo ../po/zh_ZH.po 
 msgfmt -o ../res/locales/zh/LC_MESSAGES/omweather.mo ../po/zh_ZH.po 
 

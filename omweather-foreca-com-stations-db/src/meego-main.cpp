@@ -485,52 +485,41 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
                                 (const xmlChar*)"http://www.w3.org/1999/xhtml");
     /* Day weather forecast */
     /* Evaluate xpath expression */
-    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr/th[@colspan='3']", xpathCtx);
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/*/div[(@data-ts)]/@data-ts", xpathCtx);
+//    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr/th[@colspan='3']", xpathCtx);
   
     if(xpathObj == NULL) {
-        fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", "/html/body/div/div/table//tr/th[@colspan='3']/text()");
+        fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", "/html/body/*/div[(@data-ts)]/@data-ts");
         xmlXPathFreeContext(xpathCtx); 
         return(-1);
     }
 
     nodes   = xpathObj->nodesetval;
     size = (nodes) ? nodes->nodeNr : 0;
-    if (size > 10)
-        size = 10;
+    if (size > 14)
+        size = 14;
     /* fprintf(stderr, "SIZE!!!!!!!!!!!!!!: %i\n", size); */
-    xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr/td[@class='in']//span[1]/text()", xpathCtx);
-    xpathObj3 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr/td[@class='in']//span[2]/text()", xpathCtx);
-    xpathObj4 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr/td[2]/img/@alt", xpathCtx);
-    xpathObj5 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr/td[2]/text()", xpathCtx);
-    xpathObj6 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr/td[3]/img/@src", xpathCtx);
-    xpathObj7 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr/td[@class='in2']/text()[1]", xpathCtx);
-    xpathObj8 = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr/td[@class='in2']/text()[2]", xpathCtx);
+    xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/*/div[(@data-ts)]/div/span[(@class='temp_max temp_warm')]/text()", xpathCtx);
+    xpathObj3 = xmlXPathEvalExpression((const xmlChar*)"/html/body/*/div[(@data-ts)]/div/span[(@class='temp_min')]/text()", xpathCtx);
+    xpathObj4 = xmlXPathEvalExpression((const xmlChar*)"/html/body/*/div[(@data-ts)]/div/div/@class", xpathCtx);
+    xpathObj5 = xmlXPathEvalExpression((const xmlChar*)"/html/body/*/div[(@data-ts)]/div/strong/text()", xpathCtx);
+    xpathObj6 = xmlXPathEvalExpression((const xmlChar*)"/html/body/*/div[(@data-ts)]/div/img/@src", xpathCtx);
+    xpathObj7 = xmlXPathEvalExpression((const xmlChar*)"/html/body/*/div[(@data-ts)]/div/img/@title", xpathCtx);
   
     /* fprintf(stderr, "Result (%d nodes):\n", size); */
     for(i = 0; i < size; ++i) {
 
          /* Take time: */
-         if (!nodes->nodeTab[i]->children->content)
+         if (!nodes->nodeTab[i]->children->content){
+             fprintf(stderr,"ERRROR");
              continue;
-         temp_char = strstr((char*)nodes->nodeTab[i]->children->content, " ");
-         int j = 0;
-         if (temp_char != NULL){
-             for (j=0; j<strlen(temp_char)-1; j++){
-                 if (temp_char[j] == ' ' || temp_char[j] == '\n')
-                     continue; 
-                 else{
-                     temp_char = temp_char + j;
-                     break;
-                 }
-             }
          }
-         if (temp_char == NULL)
-            continue;
+         /* fprintf(stderr," TEXT %s\n", nodes->nodeTab[i]->children->content); */
          current_time = time(NULL);
          tm = localtime(&current_time);
 
          setlocale(LC_TIME, "POSIX");
-         strptime((const char*)temp_char, "%b %d", &tmp_tm);
+         strptime((const char*)nodes->nodeTab[i]->children->content, "%Y%m%d", &tmp_tm);
          setlocale(LC_TIME, "");
          /* set begin of day in localtime */
          tmp_tm.tm_year = tm->tm_year;
@@ -542,11 +531,10 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
          t_end = t_start + 3600*24 - 1;
          fprintf(file_out," end=\"%li\">\n", t_end);
      
-           
          /* added hi temperature */
          if (xpathObj2 && !xmlXPathNodeSetIsEmpty(xpathObj2->nodesetval) &&
              xpathObj2->nodesetval->nodeTab[i] && xpathObj2->nodesetval->nodeTab[i]->content){
-             /* fprintf (stderr, "temperature %s\n", xpathObj2->nodesetval->nodeTab[i]->content); */
+/*              fprintf (stderr, "temperature %s\n", xpathObj2->nodesetval->nodeTab[i]->content); */
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj2->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
@@ -587,8 +575,40 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
          if (xpathObj4 && !xmlXPathNodeSetIsEmpty(xpathObj4->nodesetval) &&
              xpathObj4->nodesetval->nodeTab[i] && 
              xpathObj4->nodesetval->nodeTab[i]->children->content){
-            /* fprintf(stderr, "Wind  direction  %s  \n", xpathObj4->nodesetval->nodeTab[i]->children->content);  */
-            fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  xpathObj4->nodesetval->nodeTab[i]->children->content);
+             temp_char = strstr((char*)xpathObj4->nodesetval->nodeTab[i]->children->content, " ");
+             temp_char++;
+             temp_char++;
+             switch (atoi(temp_char)){
+                case 0:
+                    snprintf(buff, sizeof(buff)-1,"N");
+                    break;
+                case 45:
+                    snprintf(buff, sizeof(buff)-1,"NE");
+                    break;
+                case 90:
+                    snprintf(buff, sizeof(buff)-1,"E");
+                    break;
+                case 135:
+                    snprintf(buff, sizeof(buff)-1,"SE");
+                    break;
+                case 180:
+                    snprintf(buff, sizeof(buff)-1,"S");
+                    break;
+                case 225:
+                    snprintf(buff, sizeof(buff)-1,"SW");
+                    break;
+                case 270:
+                    snprintf(buff, sizeof(buff)-1,"W");
+                    break;
+                case 315:
+                    snprintf(buff, sizeof(buff)-1,"NW");
+                    break;
+                default:
+                    snprintf(buff, sizeof(buff)-1,"");
+                    break;
+             }
+             /* fprintf(stderr, "Wind  direction %s %s  \n",temp_char, buff); */
+             fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", buff);
          }
 
         /* added wind speed */
@@ -629,22 +649,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
             }
             fprintf(file_out,"     <description>%s</description>\n", temp_buffer);
          }
-         /* added ppcp */
-         if (xpathObj8 && !xmlXPathNodeSetIsEmpty(xpathObj8->nodesetval) &&
-             xpathObj8->nodesetval->nodeTab[i] && xpathObj8->nodesetval->nodeTab[i]->content){
-             snprintf(buffer, sizeof(buffer) - 1, "%s", xpathObj8->nodesetval->nodeTab[i]->content); 
-             memset(temp_buffer, 0, sizeof(temp_buffer));
-             for (j = 0 ; (j<(strlen(buffer)) && j < strlen(buffer)); j++ ){
-                 if (buffer[j] == '%')
-                    break;
-                 if ( (buffer[j]>='0' && buffer[j]<='9')){
-                        sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
-                 }
-             }
-             fprintf(file_out,"     <ppcp>%s</ppcp>\n", temp_buffer);
-         }
-      fprintf(file_out,"    </period>\n");
-
+         fprintf(file_out,"    </period>\n");
   }	
   /* Cleanup */
   fclose(file_out);
@@ -694,6 +699,7 @@ convert_station_forecacom_data(const char *station_id_with_path, const char *res
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
         /* check that the file containe valid data */
+        fprintf(stderr,"FILE %s\n", station_id_with_path);
         doc =  htmlReadFile(station_id_with_path, "UTF-8",  HTML_PARSE_NOERROR | HTML_PARSE_NOWARNING);
         if(!doc)
             return -1;

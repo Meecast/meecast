@@ -47,13 +47,11 @@ parse_and_write_hours_data(htmlDocPtr doc, const char *result_file){
     xmlNode     *root_node = NULL;
     char        buffer[buff_size];
     char        temp_buffer[buff_size];
-    time_t      utc_time;
     time_t      utc_time_start;
     time_t      utc_time_end;
     int         count_day = 0;
     int         temp_hi, temp_low;
-    char        id_station[1024],
-                short_text[1024];
+    char        short_text[1024];
     char        icon[256],
                 ppcp[128],
                 wind_direction[10],
@@ -241,13 +239,11 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
     xmlNode     *root_node = NULL;
     char        buffer[buff_size];
     char        temp_buffer[buff_size];
-    time_t      utc_time;
     time_t      utc_time_start;
     time_t      utc_time_end;
     int         count_day = 0;
     int         temp_hi, temp_low;
-    char        id_station[1024],
-                short_text[1024];
+    char        short_text[1024];
     char        icon[256],
                 ppcp[128],
                 wind_direction[10],
@@ -442,10 +438,9 @@ parse_and_write_timezone_data(htmlDocPtr doc, const char *result_file){
                 *cur_node0 = NULL,
                 *child_node = NULL,
                 *child_node2 = NULL;
-    xmlNode *root_node = NULL;
-    char   buffer[buff_size];
-    char   temp_buffer[buff_size];
-    time_t      utc_time;
+    xmlNode     *root_node = NULL;
+    char        buffer[buff_size];
+    char        temp_buffer[buff_size];
     struct tm   tmp_tm = {0};
     time_t      utc_time_start;
     time_t      utc_time_end;
@@ -453,8 +448,7 @@ parse_and_write_timezone_data(htmlDocPtr doc, const char *result_file){
     time_t      utc_time_sunset = -1;
     int         count_day = 0;
     int         temp;
-    char        id_station[1024],
-                short_text[1024];
+    char        short_text[1024];
     char        icon[256],
                 ppcp[128],
                 wind_direction[10],
@@ -521,8 +515,7 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
     time_t      utc_time_sunset = -1;
     int         count_day = 0;
     int         temp;
-    char        id_station[1024],
-                short_text[1024];
+    char        short_text[1024];
     char        icon[256],
                 ppcp[128],
                 wind_direction[10],

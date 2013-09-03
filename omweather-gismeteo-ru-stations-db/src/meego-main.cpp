@@ -838,7 +838,7 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
     FILE        *file_out;
     struct tm time_tm1;
     struct tm time_tm2;
-    int localtimezone;
+    int localtimezone = 0;
 
 
 

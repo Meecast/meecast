@@ -40,8 +40,7 @@ parse_and_write_hours_data(htmlDocPtr doc, const char *result_file){
                 *child_node3 = NULL,
                 *child_node4 = NULL;
     xmlNode     *root_node = NULL;
-    char        buffer[buff_size],
-                buffer2[buff_size];
+    char        buffer[buff_size];
     char        temp_buffer[buff_size];
     time_t      utc_time;
     time_t      utc_time_start;
@@ -238,8 +237,7 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
                 *child_node3 = NULL,
                 *child_node4 = NULL;
     xmlNode     *root_node = NULL;
-    char        buffer[buff_size],
-                buffer2[buff_size];
+    char        buffer[buff_size];
     char        temp_buffer[buff_size];
     time_t      utc_time;
     time_t      utc_time_start;
@@ -443,8 +441,7 @@ parse_and_write_timezone_data(htmlDocPtr doc, const char *result_file){
                 *child_node = NULL,
                 *child_node2 = NULL;
     xmlNode *root_node = NULL;
-    char   buffer[buff_size],
-           buffer2[buff_size];
+    char   buffer[buff_size];
     char   temp_buffer[buff_size];
     time_t      utc_time;
     struct tm   tmp_tm = {0};
@@ -513,8 +510,7 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
                 *child_node3 = NULL,
                 *child_node4 = NULL;
     xmlNode *root_node = NULL;
-    char   buffer[buff_size],
-           buffer2[buff_size];
+    char   buffer[buff_size];
     char   temp_buffer[buff_size];
     time_t      utc_time;
     struct tm   tmp_tm = {0};

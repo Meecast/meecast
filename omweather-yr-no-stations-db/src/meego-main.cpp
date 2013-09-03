@@ -163,14 +163,11 @@ int
 parse_and_write_yrno_xml_data(char *station_id, xmlNode *root_node, const char *result_file){
     xmlNode     *cur_node = NULL,
                 *child_node = NULL,
-                *child_node2 = NULL,
-                *child_node3 = NULL,
-                *child_node4 = NULL,
                 *child_node1 = NULL;
+                *child_node2 = NULL,
     xmlChar     *temp_xml_string = NULL;
-    xmlChar     *part_of_day = NULL;
-    int        count_day = 0;
-    char       id_station[10],
+    int         count_day = 0;
+    char        id_station[10],
                 buff[256];
     struct tm   tmp_tm = {0};
 
@@ -178,7 +175,6 @@ parse_and_write_yrno_xml_data(char *station_id, xmlNode *root_node, const char *
     GHashTable  *current = NULL,
                 *day = NULL;
 #endif
-    int         temp_hi = INT_MAX,temp_low = INT_MAX,temp_temp = INT_MAX;
     int         first_day = true;
     int         period;
     int         timezone = 0;

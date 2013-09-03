@@ -434,9 +434,9 @@ parse_and_write_timezone_data(htmlDocPtr doc, const char *result_file){
                 *cur_node0 = NULL,
                 *child_node = NULL,
                 *child_node2 = NULL;
-    xmlNode *root_node = NULL;
-    char   buffer[buff_size];
-    char   temp_buffer[buff_size];
+    xmlNode     *root_node = NULL;
+    char        buffer[buff_size];
+    char        temp_buffer[buff_size];
     time_t      utc_time;
     struct tm   tmp_tm = {0};
     time_t      utc_time_start;

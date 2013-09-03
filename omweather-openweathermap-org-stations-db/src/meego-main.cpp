@@ -434,9 +434,7 @@ int
 parse_and_write_timezone_data(htmlDocPtr doc, const char *result_file){
 
     FILE        *file_out;
-    xmlNode     *cur_node = NULL,
-                *cur_node0 = NULL,
-                *child_node = NULL,
+    xmlNode     *child_node = NULL,
                 *child_node2 = NULL;
     xmlNode     *root_node = NULL;
     char        buffer[buff_size];
@@ -499,9 +497,7 @@ int
 parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
 
     FILE        *file_out;
-    xmlNode     *cur_node = NULL,
-                *cur_node0 = NULL,
-                *child_node = NULL,
+    xmlNode     *child_node = NULL,
                 *child_node2 = NULL;
     xmlNode *root_node = NULL;
     char   buffer[buff_size];

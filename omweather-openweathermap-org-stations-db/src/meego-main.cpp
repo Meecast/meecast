@@ -35,10 +35,7 @@ parse_and_write_hours_data(htmlDocPtr doc, const char *result_file){
     FILE        *file_out;
     xmlNode     *cur_node = NULL,
                 *cur_node0 = NULL,
-                *child_node = NULL,
-                *child_node2 = NULL,
-                *child_node3 = NULL,
-                *child_node4 = NULL;
+                *child_node = NULL;
     xmlNode     *root_node = NULL;
     char        buffer[buff_size];
     char        temp_buffer[buff_size];
@@ -232,10 +229,7 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
     FILE        *file_out;
     xmlNode     *cur_node = NULL,
                 *cur_node0 = NULL,
-                *child_node = NULL,
-                *child_node2 = NULL,
-                *child_node3 = NULL,
-                *child_node4 = NULL;
+                *child_node = NULL;
     xmlNode     *root_node = NULL;
     char        buffer[buff_size];
     char        temp_buffer[buff_size];
@@ -506,9 +500,7 @@ parse_and_write_current_data(htmlDocPtr doc, const char *result_file){
     xmlNode     *cur_node = NULL,
                 *cur_node0 = NULL,
                 *child_node = NULL,
-                *child_node2 = NULL,
-                *child_node3 = NULL,
-                *child_node4 = NULL;
+                *child_node2 = NULL;
     xmlNode *root_node = NULL;
     char   buffer[buff_size];
     char   temp_buffer[buff_size];

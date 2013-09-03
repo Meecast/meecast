@@ -90,10 +90,9 @@ parse_and_write_detail_data(const char *station_name, htmlDocPtr doc, const char
     GHashTable *hash_for_stations;
     GHashTable *hash_for_icons;
 #endif
-    int    flag;
-    int    night_flag;
+    int        flag;
     int        size;
-    int        i, j;
+    int        i,j;
     xmlXPathContextPtr xpathCtx; 
     xmlXPathObjectPtr xpathObj = NULL; 
     xmlXPathObjectPtr xpathObj2 = NULL; 

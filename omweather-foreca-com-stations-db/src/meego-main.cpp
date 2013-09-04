@@ -122,10 +122,10 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                                 (const xmlChar*)"http://www.w3.org/1999/xhtml");
     /* Current weather forecast */
     /* Evaluate xpath expression */
-    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[1]/th[@colspan='4']/text()", xpathCtx);
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@id='cc']/div[@class='cctext']/p/text()[3]", xpathCtx);
   
     if(xpathObj == NULL) {
-        fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", " /html/body/div/div/table//tr[1]/th[@colspan='4']/text()");
+        fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", " /html/body/div[@id='cc']/div[@class='cctext']/p/text()[3]");
         xmlXPathFreeContext(xpathCtx); 
         return(-1);
     }
@@ -134,26 +134,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         xmlXPathFreeContext(xpathCtx); 
         return -1;
     }
-    temp_char = strchr((char*)xpathObj->nodesetval->nodeTab[0]->content, ' ');
-    if (temp_char == NULL || strlen(temp_char)<2){
-        xmlXPathFreeContext(xpathCtx); 
-        return -1;
-    }
-    temp_char = temp_char + 1;
-    temp_char = strchr(temp_char, ' ');
-    if (temp_char != NULL){
-        for (j=0; j<strlen(temp_char)-1; j++){
-            if (temp_char[j] == ' ' || temp_char[j] == '\n')
-                continue; 
-            else{
-                temp_char = temp_char + j;
-                break;
-            }
-        }
-    }
 
-
-    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[3]/td[@class='in']/text()", xpathCtx);
     if (xpathObj && xpathObj->nodesetval->nodeTab[0]->content){
         snprintf(buffer, sizeof(buffer)-1,"%s %s", temp_char, xpathObj->nodesetval->nodeTab[0]->content);
         current_time = time(NULL);

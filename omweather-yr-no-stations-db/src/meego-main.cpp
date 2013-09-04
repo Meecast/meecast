@@ -228,7 +228,7 @@ parse_and_write_yrno_xml_data(char *station_id, xmlNode *root_node, const char *
         if( cur_node->type == XML_ELEMENT_NODE ){
             /* get weather station data */
             if(!xmlStrcmp(cur_node->name, (const xmlChar *) "location" ) ){
-                if (temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"id")){
+                if ((temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"id")) != NULL){
                     snprintf(id_station, sizeof(id_station) - 1,
                                 "%s", temp_xml_string);
                     xmlFree(temp_xml_string);

@@ -34,106 +34,106 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <p id="linkbar" class="mrgn in"><a href="#loc">Change Location</a> &#124; <a href="/old/settings.php">Settings</a></p>
 
 <h1 class="drk">Vitebsk</h1>
-<img id="mapimg" src="symtilecrop.php?l=100620127&amp;s=0&amp;c=1&amp;x=4675&amp;y=1469&amp;lx=108&amp;ly=90&amp;w=217&amp;h=181&amp;zo=4&amp;la=en&amp;n0=100625144,48,142&amp;n1=100625665,111,141&amp;n2=100460413,24,63&amp;n3=100457714,17,24&amp;z=1377872807" alt="Vitebsk" width="217" height="181" />
+<img id="mapimg" src="symtilecrop.php?l=100620127&amp;s=0&amp;c=1&amp;x=4675&amp;y=1469&amp;lx=108&amp;ly=90&amp;w=217&amp;h=181&amp;zo=4&amp;la=en&amp;n0=100625144,48,142&amp;n1=100625665,111,141&amp;n2=100460413,24,63&amp;n3=100457714,17,24&amp;z=1376038440" alt="Vitebsk" width="217" height="181" />
 <p class="mrgn2 in">
-Fri 21:00 &#124; <a href="/old/index.php?l=100620127&amp;step=1">Sat 03:00</a> &#124; <a href="/old/index.php?l=100620127&amp;step=2">Sat 09:00</a></p>
+Fri 15:00 &#124; <a href="/old/index.php?l=100620127&amp;step=1">Fri 21:00</a> &#124; <a href="/old/index.php?l=100620127&amp;step=2">Sat 03:00</a></p>
 <table id="cc">
 
-	<tr><th colspan="4">Current conditions 30/08</th></tr>
+	<tr><th colspan="4">Current conditions 09/08</th></tr>
 <tr><td>&nbsp;</td>
 <td><span><a href="/old/settings.php#units">&deg;C</a></span></td>
 <td><span><a href="/old/settings.php#units">m/s</a></span></td>
 <td>&nbsp;</td>
 </tr>
 <tr>
-<td class="in">17:00</td>
-<td><span>+18&deg;</span></td>
-<td><img src="/old/img/wind/w045.png" alt="NE" width="10" height="10" /> 3</td>
-<td><img src="/old/img/symb/d300.png" width="29" height="19" alt="Cloudy" /></td>
+<td class="in">11:00</td>
+<td><span>+26&deg;</span></td>
+<td><img src="/old/img/wind/w180.png" alt="S" width="10" height="10" /> 3</td>
+<td><img src="/old/img/symb/d000.png" width="29" height="19" alt="Clear" /></td>
 </tr>
 <tr><td colspan="4" class="in">
-Cloudy<br />
-	Feels Like: +18&deg;<br />
+Clear<br />
+	Feels Like: +26&deg;<br />
 
-	Sunrise: 06:00<br />	Sunset:  19:58<br />Observed at <a href="/old/obshistory.php?stn=1020026666">Vitebsk</a><br />
+	Sunrise: 05:20<br />	Sunset:  20:47<br />Observed at <a href="/old/obshistory.php?stn=1020026666">Vitebsk</a><br />
 </td></tr>
 
 
-<tr><th colspan="4">Friday Aug 30</th></tr>
+<tr><th colspan="4">Friday Aug 9</th></tr>
+	<tr>
+<td class="in">15:00</td>
+<td><span>+30&deg;</span></td>
+<td><img src="/old/img/wind/w225.png" alt="SW" width="10" height="10" /> 4</td>
+<td><img src="/old/img/symb/d200.png" width="29" height="19" alt="Partly cloudy" /></td>
+</tr>
 	<tr>
 <td class="in">21:00</td>
-<td><span>+15&deg;</span></td>
-<td><img src="/old/img/wind/w045.png" alt="NE" width="10" height="10" /> 2</td>
-<td><img src="/old/img/symb/n400.png" width="29" height="19" alt="Overcast" /></td>
+<td><span>+26&deg;</span></td>
+<td><img src="/old/img/wind/w270.png" alt="W" width="10" height="10" /> 2</td>
+<td><img src="/old/img/symb/n100.png" width="29" height="19" alt="Mostly clear" /></td>
 </tr>
-	<tr><th colspan="4">Saturday Aug 31</th></tr>
+	<tr><th colspan="4">Saturday Aug 10</th></tr>
 	<tr>
 <td class="in">03:00</td>
-<td><span>+11&deg;</span></td>
-<td><img src="/old/img/wind/w000.png" alt="N" width="10" height="10" /> 2</td>
-<td><img src="/old/img/symb/n400.png" width="29" height="19" alt="Overcast" /></td>
+<td><span>+21&deg;</span></td>
+<td><img src="/old/img/wind/w315.png" alt="NW" width="10" height="10" /> 2</td>
+<td><img src="/old/img/symb/n200.png" width="29" height="19" alt="Partly cloudy" /></td>
 </tr>
 	<tr>
 <td class="in">09:00</td>
-<td><span>+15&deg;</span></td>
-<td><img src="/old/img/wind/w000.png" alt="N" width="10" height="10" /> 3</td>
+<td><span>+22&deg;</span></td>
+<td><img src="/old/img/wind/w045.png" alt="NE" width="10" height="10" /> 2</td>
 <td><img src="/old/img/symb/d300.png" width="29" height="19" alt="Cloudy" /></td>
 </tr>
 	<tr>
 <td class="in">15:00</td>
-<td><span>+19&deg;</span></td>
-<td><img src="/old/img/wind/w045.png" alt="NE" width="10" height="10" /> 3</td>
-<td><img src="/old/img/symb/d210.png" width="29" height="19" alt="Partly cloudy and light rain" /></td>
+<td><span>+28&deg;</span></td>
+<td><img src="/old/img/wind/w180.png" alt="S" width="10" height="10" /> 2</td>
+<td><img src="/old/img/symb/d200.png" width="29" height="19" alt="Partly cloudy" /></td>
 </tr>
 	<tr>
 <td class="in">21:00</td>
-<td><span>+15&deg;</span></td>
-<td><img src="/old/img/wind/w045.png" alt="NE" width="10" height="10" /> 2</td>
+<td><span>+25&deg;</span></td>
+<td><img src="/old/img/wind/w135.png" alt="SE" width="10" height="10" /> 2</td>
 <td><img src="/old/img/symb/n100.png" width="29" height="19" alt="Mostly clear" /></td>
 </tr>
-	<tr><th colspan="4">Sunday Sep 1</th></tr>
+	<tr><th colspan="4">Sunday Aug 11</th></tr>
 	<tr>
 <td class="in">03:00</td>
-<td><span>+11&deg;</span></td>
-<td><img src="/old/img/wind/w180.png" alt="S" width="10" height="10" /> 2</td>
+<td><span>+23&deg;</span></td>
+<td><img src="/old/img/wind/w180.png" alt="S" width="10" height="10" /> 4</td>
+<td><img src="/old/img/symb/n100.png" width="29" height="19" alt="Mostly clear" /></td>
+</tr>
+	<tr>
+<td class="in">09:00</td>
+<td><span>+25&deg;</span></td>
+<td><img src="/old/img/wind/w180.png" alt="S" width="10" height="10" /> 4</td>
+<td><img src="/old/img/symb/d000.png" width="29" height="19" alt="Clear" /></td>
+</tr>
+	<tr>
+<td class="in">15:00</td>
+<td><span>+23&deg;</span></td>
+<td><img src="/old/img/wind/w270.png" alt="W" width="10" height="10" /> 6</td>
+<td><img src="/old/img/symb/d410.png" width="29" height="19" alt="Overcast and light rain" /></td>
+</tr>
+	<tr>
+<td class="in">21:00</td>
+<td><span>+19&deg;</span></td>
+<td><img src="/old/img/wind/w270.png" alt="W" width="10" height="10" /> 2</td>
+<td><img src="/old/img/symb/n000.png" width="29" height="19" alt="Clear" /></td>
+</tr>
+	<tr><th colspan="4">Monday Aug 12</th></tr>
+	<tr>
+<td class="in">03:00</td>
+<td><span>+14&deg;</span></td>
+<td><img src="/old/img/wind/w225.png" alt="SW" width="10" height="10" /> 2</td>
 <td><img src="/old/img/symb/n000.png" width="29" height="19" alt="Clear" /></td>
 </tr>
 	<tr>
 <td class="in">09:00</td>
-<td><span>+13&deg;</span></td>
+<td><span>+19&deg;</span></td>
 <td><img src="/old/img/wind/w225.png" alt="SW" width="10" height="10" /> 2</td>
-<td><img src="/old/img/symb/d300.png" width="29" height="19" alt="Cloudy" /></td>
-</tr>
-	<tr>
-<td class="in">15:00</td>
-<td><span>+18&deg;</span></td>
-<td><img src="/old/img/wind/w270.png" alt="W" width="10" height="10" /> 3</td>
-<td><img src="/old/img/symb/d300.png" width="29" height="19" alt="Cloudy" /></td>
-</tr>
-	<tr>
-<td class="in">21:00</td>
-<td><span>+15&deg;</span></td>
-<td><img src="/old/img/wind/w270.png" alt="W" width="10" height="10" /> 3</td>
-<td><img src="/old/img/symb/n310.png" width="29" height="19" alt="Cloudy and light rain" /></td>
-</tr>
-	<tr><th colspan="4">Monday Sep 2</th></tr>
-	<tr>
-<td class="in">03:00</td>
-<td><span>+11&deg;</span></td>
-<td><img src="/old/img/wind/w270.png" alt="W" width="10" height="10" /> 3</td>
-<td><img src="/old/img/symb/n300.png" width="29" height="19" alt="Cloudy" /></td>
-</tr>
-	<tr>
-<td class="in">09:00</td>
-<td><span>+12&deg;</span></td>
-<td><img src="/old/img/wind/w270.png" alt="W" width="10" height="10" /> 3</td>
-<td><img src="/old/img/symb/d400.png" width="29" height="19" alt="Overcast" /></td>
-</tr>
-	<tr>
-<td class="in">15:00</td>
-<td><span>+15&deg;</span></td>
-<td><img src="/old/img/wind/w270.png" alt="W" width="10" height="10" /> 5</td>
-<td><img src="/old/img/symb/d410.png" width="29" height="19" alt="Overcast and light rain" /></td>
+<td><img src="/old/img/symb/d100.png" width="29" height="19" alt="Mostly clear" /></td>
 </tr>
 	<tr><th colspan="4"><a href="/old/7d.php?l=100620127">10 day forecast</a></th></tr>
 </table>
@@ -181,8 +181,8 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <p><a href="/old/bookmark.php">Send bookmark</a></p>
 <p>
 <a href="http://www.foreca.com/?mobi=1">Web site</a>
-<img src="/old/ga.php?utmac=MO-137801-26&utmn=1875157943&utmr=-&utmp=%2Fold%2Findex.php%3Fl%3D100620127&utmdt=spot&guid=ON" />
-<img id="qaimPictureFetch" alt="" src="http://c.cem4mobile.com/?s=foreca.mobi&amp;referer=&amp;p=home&amp;requestidentifier=13778728074246&amp;x=loc%3DVitsyebsk%26cid%3Dby%26res%3D240x320%26lang%3Den%26time%3D24h%26units%3Dmetric" width="1" height="1" /> 
+<img src="/old/ga.php?utmac=MO-137801-26&utmn=118752832&utmr=-&utmp=%2Fold%2Findex.php%3Fl%3D100620127&utmdt=spot&guid=ON" />
+<img id="qaimPictureFetch" alt="" src="http://c.cem4mobile.com/?s=foreca.mobi&amp;referer=&amp;p=home&amp;requestidentifier=13760384403249&amp;x=loc%3DVitsyebsk%26cid%3Dby%26res%3D240x320%26lang%3Den%26time%3D24h%26units%3Dmetric" width="1" height="1" /> 
 <script type="text/javascript" src="/js/identify2.js"></script> 
 </p>
 </div></div>

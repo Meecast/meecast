@@ -248,7 +248,7 @@ parse_and_write_yrno_xml_data(char *station_id, xmlNode *root_node, const char *
                         /* station time zone */
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"timezone") ){
                             memset(buff, 0, sizeof(buff));
-                            if (temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"utcoffsetMinutes")){
+                            if ((temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"utcoffsetMinutes")) != NULL){
                                 timezone = atoi((char *)temp_xml_string)/60;
                                 fprintf(file_out,"  <timezone>%i</timezone>\n", timezone);
                                 xmlFree(temp_xml_string);

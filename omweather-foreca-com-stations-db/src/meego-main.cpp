@@ -55,6 +55,7 @@ choose_hour_weather_icon(char *image)
 /*******************************************************************************/
 int
 parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *result_file){
+    char       buff[256];
     char       buffer[buff_size],
                current_temperature[20],
                current_icon[10],
@@ -121,10 +122,10 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                                 (const xmlChar*)"http://www.w3.org/1999/xhtml");
     /* Current weather forecast */
     /* Evaluate xpath expression */
-    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[1]/th[@colspan='4']/text()", xpathCtx);
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@id='cc']/div[@class='cctext']/p/text()[3]", xpathCtx);
   
     if(xpathObj == NULL) {
-        fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", " /html/body/div/div/table//tr[1]/th[@colspan='4']/text()");
+        fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", " /html/body/div[@id='cc']/div[@class='cctext']/p/text()[3]");
         xmlXPathFreeContext(xpathCtx); 
         return(-1);
     }
@@ -134,33 +135,13 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         return -1;
     }
 
-    temp_char = strchr((char*)xpathObj->nodesetval->nodeTab[0]->content, ' ');
-    if (temp_char == NULL || strlen(temp_char)<2){
-        xmlXPathFreeContext(xpathCtx); 
-        return -1;
-    }
-    temp_char = temp_char + 1;
-    temp_char = strchr(temp_char, ' ');
-    if (temp_char != NULL){
-        for (j=0; j<strlen(temp_char)-1; j++){
-            if (temp_char[j] == ' ' || temp_char[j] == '\n')
-                continue; 
-            else{
-                temp_char = temp_char + j;
-                break;
-            }
-        }
-    }
-
-
-    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[3]/td[@class='in']/text()", xpathCtx);
     if (xpathObj && xpathObj->nodesetval->nodeTab[0]->content){
-        snprintf(buffer, sizeof(buffer)-1,"%s %s", temp_char, xpathObj->nodesetval->nodeTab[0]->content);
+        snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj->nodesetval->nodeTab[0]->content);
         current_time = time(NULL);
         tm = localtime(&current_time);
 
         setlocale(LC_TIME, "POSIX");
-        strptime((const char*)buffer, "%d/%m %H:%M", &tmp_tm);
+        strptime((const char*)buffer, "%n%d/%m %H:%M", &tmp_tm);
         setlocale(LC_TIME, "");
         /* set begin of day in localtime */
         tmp_tm.tm_year = tm->tm_year;
@@ -175,7 +156,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
 
-    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[3]/td[2]/span/text()", xpathCtx);
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@id='cc']/div[@class='right']/span/text()", xpathCtx);
     /* added temperature */
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
         xpathObj->nodesetval->nodeTab[0] && xpathObj->nodesetval->nodeTab[0]->content){
@@ -199,18 +180,56 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
 
-    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[3]/td[3]/img/@alt", xpathCtx);
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@id='cc']/div[@class='right wind']/div/@class", xpathCtx);
+             fprintf(stderr,"sss %s", xpathObj->nodesetval->nodeTab[0]->children->content);
     /* added wind direction */
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
         xpathObj->nodesetval->nodeTab[0] && 
         xpathObj->nodesetval->nodeTab[0]->children->content){
+             temp_char = strstr((char*)xpathObj->nodesetval->nodeTab[0]->children->content, " ");
+             temp_char++;
+             temp_char++;
+             fprintf(stderr, "Chislo %s", temp_char);
+             switch (atoi(temp_char)){
+                case 0:
+                    snprintf(buff, sizeof(buff)-1,"N");
+                    break;
+                case 45:
+                    snprintf(buff, sizeof(buff)-1,"NE");
+                    break;
+                case 90:
+                    snprintf(buff, sizeof(buff)-1,"E");
+                    break;
+                case 135:
+                    snprintf(buff, sizeof(buff)-1,"SE");
+                    break;
+                case 180:
+                    snprintf(buff, sizeof(buff)-1,"S");
+                    break;
+                case 225:
+                    snprintf(buff, sizeof(buff)-1,"SW");
+                    break;
+                case 270:
+                    snprintf(buff, sizeof(buff)-1,"W");
+                    break;
+                case 315:
+                    snprintf(buff, sizeof(buff)-1,"NW");
+                    break;
+                case 360:
+                    snprintf(buff, sizeof(buff)-1,"N");
+                    break;
+                default:
+                    snprintf(buff, sizeof(buff)-1,"");
+                    break;
+             }
+
        /* fprintf(stderr, "Wind  direction  .%s.  \n", xpathObj->nodesetval->nodeTab[0]->children->content); */
-       if (strlen((char*)xpathObj->nodesetval->nodeTab[0]->children->content)>0)
-            fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  xpathObj->nodesetval->nodeTab[0]->children->content);
+            fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  buff);
     }
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
 
+    return 1;
     xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[3]/td[3]/text()", xpathCtx);
     /* added wind speed */
      if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
@@ -599,6 +618,9 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
                     break;
                 case 315:
                     snprintf(buff, sizeof(buff)-1,"NW");
+                    break;
+                case 360:
+                    snprintf(buff, sizeof(buff)-1,"N");
                     break;
                 default:
                     snprintf(buff, sizeof(buff)-1,"");

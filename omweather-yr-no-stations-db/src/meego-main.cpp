@@ -261,7 +261,7 @@ parse_and_write_yrno_xml_data(char *station_id, xmlNode *root_node, const char *
             }
             /* fill sun set sun rise */
             if(!xmlStrcmp(cur_node->name, (const xmlChar *) "sun" ) ){
-                if (temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"rise")){
+                if ((temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"rise")) != NULL){
                     setlocale(LC_TIME, "POSIX");
                     strptime((const char*)temp_xml_string, "%Y-%m-%dT", &tmp_tm);
                     setlocale(LC_TIME, "");
@@ -279,7 +279,7 @@ parse_and_write_yrno_xml_data(char *station_id, xmlNode *root_node, const char *
                     fprintf(file_out,"    <sunrise> %li <sunirise>", utc_time);
                     xmlFree(temp_xml_string);
                     temp_xml_string = NULL;
-                    if (temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"set")){
+                    if ((temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"set")) != NULL){
                         setlocale(LC_TIME, "POSIX");
                         strptime((const char*)temp_xml_string, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
                         setlocale(LC_TIME, "");
@@ -302,7 +302,7 @@ parse_and_write_yrno_xml_data(char *station_id, xmlNode *root_node, const char *
                     for(child_node1 = child_node->children; child_node1; child_node1 = child_node1->next){
                         if(child_node1->type == XML_ELEMENT_NODE  &&
                                 ( !xmlStrcmp(child_node1->name, (const xmlChar *)"time") ) ){
-                            if (temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"period")){
+                            if ((temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"period")) != NULL){
                                 if (!xmlStrcmp(temp_xml_string, (const xmlChar *)"0")){
                                     period = 0;
                                     count_day++;

@@ -347,7 +347,7 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                                 if( child_node2->type == XML_ELEMENT_NODE){
                                     /* 24h hi temperature */
                                     if(!xmlStrcmp(child_node2->name, (const xmlChar *)"temperature")){
-                                        if (temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"value")){
+                                        if ((temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"value")) != NULL){
 			                                fprintf(file_out,"     <temperature>%s</temperature>\n", (char*)temp_xml_string); 
                                             xmlFree(temp_xml_string);
                                             temp_xml_string = NULL;

@@ -414,7 +414,8 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
 /*******************************************************************************/
 int
 parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *result_file){
-    char        buffer[buff_size],
+    char        buff[256],
+                buffer[buff_size],
                 current_temperature[20],
                 current_icon[10],
                 current_title[1024],

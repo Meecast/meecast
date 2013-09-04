@@ -783,21 +783,6 @@ gismeteoru_parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, c
     GHashTable  *hours_data = NULL;
     GSList      *hour_weather = NULL;
 #endif
-    xmlNode     *cur_node = NULL;
-    xmlNode     *child_node = NULL;
-    xmlNode     *child_node2 = NULL;
-    xmlNode     *child_node4 = NULL;
-    xmlNode     *child_node5 = NULL;
-    xmlNode     *child_node7 = NULL;
-    xmlNode     *child_node8 = NULL;
-    xmlNode     *child_node9 = NULL;
-    xmlNode     *child_node10 = NULL;
-    xmlNode     *child_node11 = NULL;
-    xmlNode     *child_node12 = NULL;
-    xmlChar     *temp_xml_string = NULL;
-    xmlChar     *temp_xml_string2 = NULL;
-    xmlChar     *temp_xml_string_2 = NULL;
-    xmlChar     *temp_xml_string3 = NULL;
     int        i = 0, j = 0, k = 0;
     char       buffer[buff_size];
     char       buff[buff_size];

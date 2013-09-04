@@ -316,7 +316,7 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                             }
 
                             /* add day */
-                            if (temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"from")){
+                            if ((temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"from")) != NULL){
                                 setlocale(LC_TIME, "POSIX");
                                 strptime((const char*)temp_xml_string, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
                                 setlocale(LC_TIME, "");
@@ -331,7 +331,7 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                                 fprintf(file_out,"    <period start=\"%li\"", utc_time);
                                 xmlFree(temp_xml_string);
                                 temp_xml_string = NULL;
-                                if (temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"to")){
+                                if ((temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"to")) != NULL){
                                     setlocale(LC_TIME, "POSIX");
                                     strptime((const char*)temp_xml_string, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
                                     setlocale(LC_TIME, "");
@@ -435,7 +435,7 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                                         continue;
                                     }
                                     if(!xmlStrcmp(child_node2->name, (const xmlChar *)"pressure") ){
-                                        if (temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"value")){
+                                        if ((temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"value")) != NULL){
                                             fprintf(file_out,"     <pressure>%s</pressure>\n",
                                                                        (char*)temp_xml_string);
                                             xmlFree(temp_xml_string);
@@ -444,7 +444,7 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                                         continue;
                                     }
                                     if(!xmlStrcmp(child_node2->name, (const xmlChar *)"precipitation") ){
-                                        if (temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"value")){
+                                        if ((temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"value")) != NULL){
                                             fprintf(file_out,"     <precipitation>%s</precipitation>\n",
                                                                    (char*)temp_xml_string);
                                             xmlFree(temp_xml_string);
@@ -453,7 +453,7 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                                         continue;
                                     }
                                     if(!xmlStrcmp(child_node2->name, (const xmlChar *)"windSpeed") ){
-                                        if (temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"mps")){
+                                        if ((temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"mps")) != NULL){
                                             /* Normalize speed to km/h from m/s */
                                             /* fprintf(stderr, "Wind  speed    %s\n", temp_buffer); */
                                             speed = atoi((char*)temp_xml_string);
@@ -467,7 +467,7 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
                                         continue;
                                     }
                                     if(!xmlStrcmp(child_node2->name, (const xmlChar *)"windDirection") ){
-                                        if (temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"code")){
+                                        if ((temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"code")) != NULL){
                                             fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",
                                                                                      (char*)temp_xml_string);
                                             xmlFree(temp_xml_string);

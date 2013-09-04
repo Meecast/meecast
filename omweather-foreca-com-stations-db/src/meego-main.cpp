@@ -181,7 +181,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         xmlXPathFreeObject(xpathObj);
 
     xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@id='cc']/div[@class='right wind']/div/@class", xpathCtx);
-             fprintf(stderr,"sss %s", xpathObj->nodesetval->nodeTab[0]->children->content);
+    /*         fprintf(stderr,"sss %s", xpathObj->nodesetval->nodeTab[0]->children->content); */
     /* added wind direction */
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
         xpathObj->nodesetval->nodeTab[0] && 
@@ -189,7 +189,6 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
              temp_char = strstr((char*)xpathObj->nodesetval->nodeTab[0]->children->content, " ");
              temp_char++;
              temp_char++;
-             fprintf(stderr, "Chislo %s", temp_char);
              switch (atoi(temp_char)){
                 case 0:
                     snprintf(buff, sizeof(buff)-1,"N");
@@ -229,19 +228,18 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
 
-    return 1;
-    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[3]/td[3]/text()", xpathCtx);
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@id='cc']/div[@class='right wind']/strong/text()", xpathCtx);
     /* added wind speed */
      if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
          xpathObj->nodesetval->nodeTab[0] && xpathObj->nodesetval->nodeTab[0]->content){
         /* fprintf(stderr, "Wind  direction  %s  \n", xpathObj4->nodesetval->nodeTab[i]->children->content);  */
-        fprintf(file_out,"     <wind_speed>%s</wind_speed>\n",  
-                               xpathObj->nodesetval->nodeTab[0]->content);
+        fprintf(file_out,"     <wind_speed>%i</wind_speed>\n",  
+                               atoi((const char*)xpathObj->nodesetval->nodeTab[0]->content));
      }
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
 
-    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[3]/td[4]/img/@src", xpathCtx);
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@id='cc']/div[@class='left']/img/@src", xpathCtx);
     /* added icon */
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
         xpathObj->nodesetval->nodeTab[0] && 
@@ -262,53 +260,27 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         xmlXPathFreeObject(xpathObj);
     
     index = 1;
-    snprintf(buffer, sizeof(buffer)-1,"/html/body/div/div/table//tr[4]/td/text()[%i]", index);
+    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong/text()", index);
     xpathObj = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
     /* added text */
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
         xpathObj->nodesetval->nodeTab[0] && xpathObj->nodesetval->nodeTab[0]->content){
-        if (strstr((char*)xpathObj->nodesetval->nodeTab[0]->content, "Feels Like:") == NULL){
             /* fprintf (stderr, "description %s\n", xpathObj7->nodesetval->nodeTab[i]->content); */
-
-            snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj->nodesetval->nodeTab[0]->content);
-            memset(temp_buffer, 0, sizeof(temp_buffer));
-            for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
-               if (buffer[j] == 13 || buffer[j] == 10)
-                    continue;
-               sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
-            }
-            index ++;
-            fprintf(file_out,"     <description>%s</description>\n", temp_buffer);
-        }
+            fprintf(file_out,"     <description>%s</description>\n", xpathObj->nodesetval->nodeTab[0]->content);
     }
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
-    snprintf(buffer, sizeof(buffer)-1,"/html/body/div/div/table//tr[4]/td/text()[%i]", index);
+    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong[1]/text()", index);
     xpathObj = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
+    if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
+        xpathObj->nodesetval->nodeTab[1] && xpathObj->nodesetval->nodeTab[1]->content){
 
-    temp_char = strstr((char*)xpathObj->nodesetval->nodeTab[0]->content, "Feels Like:");
-    if (temp_char != NULL){
-        temp_char = strchr(temp_char, ':');
-        temp_char = temp_char + 2;
-        snprintf(buffer, sizeof(buffer)-1,"%s", temp_char);
-        memset(temp_buffer, 0, sizeof(temp_buffer));
-        for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
-            if (buffer[j] == '&')
-               break;
-            if ((uint)buffer[j] == 226 ||  buffer[j] == '-' || 
-                (buffer[j]>='0' && buffer[j]<='9')){
-                if ((uint)buffer[j] == 226)
-                   sprintf(temp_buffer,"%s-",temp_buffer);
-                else
-                   sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
-            }
-        }
-        /* fprintf(stderr, "     <temperature>%s</temperature>\n", temp_buffer); */
-        fprintf(file_out,"     <flike>%s</flike>\n", temp_buffer); 
+        fprintf(file_out,"     <flike>%i</flike>\n", atoi((char*)xpathObj->nodesetval->nodeTab[1]->content)); 
     }
     fprintf(file_out,"    </period>\n");
 
 
+    return 1;
 
     /* To DO sunrise and sunset */
 

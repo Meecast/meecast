@@ -274,9 +274,19 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     xpathObj = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
         xpathObj->nodesetval->nodeTab[1] && xpathObj->nodesetval->nodeTab[1]->content){
-
         fprintf(file_out,"     <flike>%i</flike>\n", atoi((char*)xpathObj->nodesetval->nodeTab[1]->content)); 
     }
+    if (xpathObj)
+        xmlXPathFreeObject(xpathObj);
+    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong/text()", index);
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
+    if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
+        xpathObj->nodesetval->nodeTab[1] && xpathObj->nodesetval->nodeTab[1]->content){
+        fprintf(file_out,"     <humidity>%f</humidity>\n", atof((char*)xpathObj->nodesetval->nodeTab[2]->content)); 
+    }
+    if (xpathObj)
+        xmlXPathFreeObject(xpathObj);
+
     fprintf(file_out,"    </period>\n");
 
 

@@ -310,14 +310,15 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     fprintf(file_out,"    </period>\n");
 
 
-    return 1;
+    //return 1;
 
     /* To DO sunrise and sunset */
 
-    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@class='hourlyfc'", xpathCtx);
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@class='hourlyfc']/*[@class='symbcol']/preceding-sibling::div[@class='timecol']/p/strong/text()", xpathCtx);
     /* Day weather forecast */
     nodes   = xpathObj->nodesetval;
     size = (nodes) ? nodes->nodeNr : 0; 
+    fprintf(stderr, "size %i\n", size);
     snprintf(buffer, sizeof(buffer)-1,"(/html/body/div[@class='hourlyfc']/*[@class='symbcol']/preceding-sibling::div[@class='timecol']/p/strong/text() | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/preceding-sibling::div[@class='timecol']/p/text()  | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/img/@title | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/img/@src | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/following-sibling::div/span/text() | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/following-sibling::div/div/@class | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/following-sibling::div/strong/text() ) ");
     xpathObj2 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
     k = 0; 
@@ -326,82 +327,45 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
        nodes   = xpathObj2->nodesetval;
        flag = false;
        for (j = 0; j <(nodes->nodeNr); ++j){
+           /* fprintf(stderr,"%s > %s\n",(const char*)xpathObj->nodesetval->nodeTab[i]->content, (const char*)xpathObj2->nodesetval->nodeTab[j]->content); */
            if (!flag && xpathObj2->nodesetval->nodeTab[j]->content && 
                xpathObj->nodesetval->nodeTab[i]->content &&
                !strcmp((const char*)xpathObj->nodesetval->nodeTab[i]->content, 
                        (const char*)xpathObj2->nodesetval->nodeTab[j]->content)){
+               /* fprintf(stderr, "Flag true\n"); */
                flag = true;
                k = 0;
            }
-           if (flag && i+1 < size && xpathObj2->nodesetval->nodeTab[j]->content && 
-               xpathObj->nodesetval->nodeTab[i+1]->content &&
-               !strcmp((const char*)xpathObj->nodesetval->nodeTab[i+1]->content, 
-                       (const char*)xpathObj2->nodesetval->nodeTab[j]->content)){
+           if (k >6)
                flag = false;
-           }
+/*           fprintf(stderr, "k %i j %i\n", k, j); */
+           
            if (flag){
                switch (k){
-                case 1: {
-                            current_time = time(NULL);
-                            tm = localtime(&current_time);
+                    case 1: {
+                        current_time = time(NULL);
+                        tm = localtime(&current_time);
 
-                            snprintf(buffer, sizeof(buffer)-1,"%s %s", xpathObj->nodesetval->nodeTab[i]->content, xpathObj2->nodesetval->nodeTab[j]->content);
-                            /* fprintf(stderr," Buffer %s\n", buffer); */
-                            setlocale(LC_TIME, "POSIX");
-                            strptime((const char*)buffer, "%A %b %d %H:%M", &tmp_tm);
-                            setlocale(LC_TIME, "");
-                            /* set begin of day in localtime */
-                            tmp_tm.tm_year = tm->tm_year;
+                        snprintf(buffer, sizeof(buffer)-1,"%s %s", xpathObj->nodesetval->nodeTab[i]->content, xpathObj2->nodesetval->nodeTab[j]->content);
+                       /* fprintf(stderr," Buffer %s\n", buffer); */
+                        setlocale(LC_TIME, "POSIX");
+                        strptime((const char*)buffer, "%A %b %d %H:%M", &tmp_tm);
+                        setlocale(LC_TIME, "");
+                        /* set begin of day in localtime */
+                        tmp_tm.tm_year = tm->tm_year;
 
-                            t_start = mktime(&tmp_tm);
-                            fprintf(file_out,"    <period start=\"%li\"", (t_start));
-                            /* set end of current time in localtime */
-                            t_end = t_start + 3600*6 - 1;
-                            fprintf(file_out," end=\"%li\" hour=\"true\">\n", t_end);
-
-                            break;
+                        t_start = mktime(&tmp_tm);
+                        fprintf(file_out,"    <period start=\"%li\"", (t_start));
+                        /* set end of current time in localtime */
+                        t_end = t_start + 3600*6 - 1;
+                        fprintf(file_out," end=\"%li\" hour=\"true\">\n", t_end);
+                        break;
                         }
-                case 2: {
-                            /* added temperature */
-                            if (xpathObj2->nodesetval->nodeTab[j]->content){
-                                /* fprintf (stderr, "temperature %s\n", xpathObj->nodesetval->nodeTab[0]->content); */
-                                snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj2->nodesetval->nodeTab[j]->content);
-                                memset(temp_buffer, 0, sizeof(temp_buffer));
-                                for (l = 0 ; (l<(strlen(buffer)) && l < buff_size); l++ ){
-                                    if (buffer[l] == '&')
-                                       break;
-                                    if ((uint)buffer[l] == 226 ||  buffer[l] == '-' || 
-                                        (buffer[l]>='0' && buffer[l]<='9')){
-                                        if ((uint)buffer[l] == 226)
-                                           sprintf(temp_buffer,"%s-",temp_buffer);
-                                        else
-                                           sprintf(temp_buffer,"%s%c",temp_buffer, buffer[l]);
-                                    }
-                                }
-                                /* fprintf(stderr, "     <temperature>%s</temperature>\n", temp_buffer); */
-                                fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 
-                            }
-                            break;
-                        }
-                case 4: {
-                            if (strlen((char*)xpathObj2->nodesetval->nodeTab[j]->children->content)>0)
-                                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  xpathObj2->nodesetval->nodeTab[j]->children->content);
-
-                            break;
-                        }
-                case 5: { 
-                            if (xpathObj2->nodesetval->nodeTab[j] && xpathObj2->nodesetval->nodeTab[j]->content){
-                                /* fprintf(stderr, "Wind  direction  %s  \n", xpathObj4->nodesetval->nodeTab[i]->children->content);  */
-                                fprintf(file_out,"     <wind_speed>%s</wind_speed>\n",  
-                                                       xpathObj2->nodesetval->nodeTab[j]->content);
-                             }
-                             break;
-                }
-                case 6: {
-                            if (strlen((char*)xpathObj2->nodesetval->nodeTab[j]->children->content)>0){
+                    case 2: {
+                            if (xpathObj2->nodesetval->nodeTab[j] && xpathObj2->nodesetval->nodeTab[j]->children && xpathObj2->nodesetval->nodeTab[j]->children->content && strlen((char*)xpathObj2->nodesetval->nodeTab[j]->children->content)>0){
                                 temp_char = strrchr((char*)xpathObj2->nodesetval->nodeTab[j]->children->content, '/');
                                 temp_char ++;
-                                //fprintf(file_out,"     <icon>%s</icon>\n",  
+                               // fprintf(file_out,"     <icon>%s</icon>\n",  
                                // choose_hour_weather_icon(temp_char).toStdString().c_str());
                                if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char)){
                                     fprintf(file_out,"     <icon>%s</icon>\n",  
@@ -409,18 +373,93 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                                }else 
                                     fprintf(file_out,"     <icon>49</icon>\n");  
 
-
                              } 
-                            break;
-                }
-                case 7: {
+                    }
+                    break;
+                    case 3: {
                         if (strlen((char*)xpathObj2->nodesetval->nodeTab[j]->children->content)>0){
                             fprintf(file_out,"     <description>%s</description>\n", xpathObj2->nodesetval->nodeTab[j]->children->content);
                         }
-                        k = 0;
-                        fprintf(file_out,"    </period>\n");
 
                 }
+                break;
+ 
+                case 4: {
+                        /* added temperature */
+                        if (xpathObj2->nodesetval->nodeTab[j]->content){
+                             fprintf (stderr, "temperature %s\n", xpathObj2->nodesetval->nodeTab[j]->content); 
+                            snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj2->nodesetval->nodeTab[j]->content);
+                            memset(temp_buffer, 0, sizeof(temp_buffer));
+                            for (l = 0 ; (l<(strlen(buffer)) && l < buff_size); l++ ){
+                                if (buffer[l] == '&')
+                                   break;
+                                if ((uint)buffer[l] == 226 ||  buffer[l] == '-' || 
+                                    (buffer[l]>='0' && buffer[l]<='9')){
+                                    if ((uint)buffer[l] == 226)
+                                       sprintf(temp_buffer,"%s-",temp_buffer);
+                                    else
+                                       sprintf(temp_buffer,"%s%c",temp_buffer, buffer[l]);
+                                }
+                            }
+                            fprintf(stderr, "     <temperature>%s</temperature>\n", temp_buffer); 
+                            fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 
+                        }
+                        break;
+                    }
+                case 5: {
+                    if (strlen((char*)xpathObj2->nodesetval->nodeTab[j]->children->content)>0){
+                        temp_char = strstr((char*)xpathObj2->nodesetval->nodeTab[j]->children->content, " ");
+                        temp_char++;
+                        temp_char++;
+                        switch (atoi(temp_char)){
+                            case 0:
+                                snprintf(buff, sizeof(buff)-1,"N");
+                                break;
+                            case 45:
+                                snprintf(buff, sizeof(buff)-1,"NE");
+                                break;
+                            case 90:
+                                snprintf(buff, sizeof(buff)-1,"E");
+                                break;
+                            case 135:
+                                snprintf(buff, sizeof(buff)-1,"SE");
+                                break;
+                            case 180:
+                                snprintf(buff, sizeof(buff)-1,"S");
+                                break;
+                            case 225:
+                                snprintf(buff, sizeof(buff)-1,"SW");
+                                break;
+                            case 270:
+                                snprintf(buff, sizeof(buff)-1,"W");
+                                break;
+                            case 315:
+                                snprintf(buff, sizeof(buff)-1,"NW");
+                                break;
+                            case 360:
+                                snprintf(buff, sizeof(buff)-1,"N");
+                                break;
+                            default:
+                                snprintf(buff, sizeof(buff)-1,"");
+                                break;
+                        }
+                        fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  buff);
+                        }
+                        break;
+                        }
+               case 6: {
+                        fprintf(stderr, "begin 6\n");
+                        if (strlen((char*)xpathObj2->nodesetval->nodeTab[j]->content)>0){
+                            fprintf(file_out,"     <wind_speed>%s</wind_speed>\n",  xpathObj2->nodesetval->nodeTab[j]->content);
+                            fprintf(stderr,"     <wind_speed>%s</wind_speed>\n",  xpathObj2->nodesetval->nodeTab[j]->content);
+
+                        }
+                        k = -1;
+                        fprintf(file_out,"    </period>\n");
+
+
+                }
+                break;
 
                }
             k++;

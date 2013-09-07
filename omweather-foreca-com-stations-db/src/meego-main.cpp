@@ -103,6 +103,11 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                 current_time = 0;
     FILE        *file_out;
     int index = 1;
+    struct tm time_tm1;
+    struct tm time_tm2;
+    int localtimezone = 0;
+    int remotetimezone = 0;
+
 
     /* fprintf(stderr, "parse_and_write_detail_data()\n"); */
     file_out = fopen(result_file, "a");
@@ -134,19 +139,46 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         xmlXPathFreeContext(xpathCtx); 
         return -1;
     }
+    /* Set localtimezone */
+    current_time = time(NULL);
+    gmtime_r(&current_time, &time_tm1);
+    localtime_r(&current_time, &time_tm2);
+    localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
+    fprintf(stderr,"Local Time Zone %i\n", localtimezone); 
 
     if (xpathObj && xpathObj->nodesetval->nodeTab[0]->content){
-        snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj->nodesetval->nodeTab[0]->content);
-        current_time = time(NULL);
         tm = localtime(&current_time);
-
+        snprintf(buffer, sizeof(buffer)-1,"%i %s", tm->tm_year + 1900, xpathObj->nodesetval->nodeTab[0]->content);
+        /* fprintf(stderr, "Time %s", buffer); */
         setlocale(LC_TIME, "POSIX");
-        strptime((const char*)buffer, "%n%d/%m %H:%M", &tmp_tm);
+        strptime((const char*)buffer, "%Y%n%d/%m %H", &tmp_tm);
+
+        if (xpathObj)
+            xmlXPathFreeObject(xpathObj);
+        xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@class='hourlyfc']/*[@class='symbcol']/preceding-sibling::div[@class='timecol']/p/text()", xpathCtx);
+        if (xpathObj && xpathObj->nodesetval->nodeTab[0]->content){
+            int hour = atoi((const char*)xpathObj->nodesetval->nodeTab[0]->content) -1;
+            fprintf(stderr, "ATOI %i\n", hour);
+            tmp_tm.tm_hour = hour;
+        }
+        time_tm1.tm_min = 0;
+        tmp_tm.tm_min = 0;
+        remotetimezone = (mktime(&tmp_tm) - mktime(&time_tm1))/3600; 
+        if (abs(remotetimezone) < 13)
+           fprintf(file_out,"  <timezone>%i</timezone>\n", remotetimezone);
+        fprintf(stderr,"Remote timezone %i\n", remotetimezone);
+        strptime((const char*)buffer, "%Y%n%d/%m %H:%M", &tmp_tm);
+        fprintf (stderr, "Time %s\n", buffer);
+
         setlocale(LC_TIME, "");
         /* set begin of day in localtime */
-        tmp_tm.tm_year = tm->tm_year;
+        //tmp_tm.tm_year = tm->tm_year;
 
-        t_start = mktime(&tmp_tm);
+        fprintf(stderr,"t_start %li\n", mktime(&tmp_tm));
+        t_start = mktime(&tmp_tm) - 3600*remotetimezone;
+        fprintf(stderr,"t_start+zone %li\n", t_start);
+        t_start = mktime(&tmp_tm) - 3600*remotetimezone + 3600*localtimezone;
+        fprintf(stderr,"t_start+zone+rmote %li\n", t_start);
         fprintf(file_out,"    <period start=\"%li\"", (t_start + 1 - 2*3600));
         /* set end of current time in localtime */
         t_end = t_start + 3600*4 - 1;
@@ -349,7 +381,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                         snprintf(buffer, sizeof(buffer)-1,"%s %s", xpathObj->nodesetval->nodeTab[i]->content, xpathObj2->nodesetval->nodeTab[j]->content);
                        /* fprintf(stderr," Buffer %s\n", buffer); */
                         setlocale(LC_TIME, "POSIX");
-                        strptime((const char*)buffer, "%A %b %d %H:%M", &tmp_tm);
+                        strptime((const char*)buffer, "%A %H:%M", &tmp_tm);
                         setlocale(LC_TIME, "");
                         /* set begin of day in localtime */
                         tmp_tm.tm_year = tm->tm_year;
@@ -372,7 +404,6 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                                      (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char));
                                }else 
                                     fprintf(file_out,"     <icon>49</icon>\n");  
-
                              } 
                     }
                     break;
@@ -380,14 +411,12 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                         if (strlen((char*)xpathObj2->nodesetval->nodeTab[j]->children->content)>0){
                             fprintf(file_out,"     <description>%s</description>\n", xpathObj2->nodesetval->nodeTab[j]->children->content);
                         }
-
                 }
                 break;
  
                 case 4: {
                         /* added temperature */
                         if (xpathObj2->nodesetval->nodeTab[j]->content){
-                             fprintf (stderr, "temperature %s\n", xpathObj2->nodesetval->nodeTab[j]->content); 
                             snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj2->nodesetval->nodeTab[j]->content);
                             memset(temp_buffer, 0, sizeof(temp_buffer));
                             for (l = 0 ; (l<(strlen(buffer)) && l < buff_size); l++ ){
@@ -401,7 +430,6 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                                        sprintf(temp_buffer,"%s%c",temp_buffer, buffer[l]);
                                 }
                             }
-                            fprintf(stderr, "     <temperature>%s</temperature>\n", temp_buffer); 
                             fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 
                         }
                         break;
@@ -448,19 +476,13 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                         break;
                         }
                case 6: {
-                        fprintf(stderr, "begin 6\n");
-                        if (strlen((char*)xpathObj2->nodesetval->nodeTab[j]->content)>0){
-                            fprintf(file_out,"     <wind_speed>%s</wind_speed>\n",  xpathObj2->nodesetval->nodeTab[j]->content);
-                            fprintf(stderr,"     <wind_speed>%s</wind_speed>\n",  xpathObj2->nodesetval->nodeTab[j]->content);
-
-                        }
-                        k = -1;
-                        fprintf(file_out,"    </period>\n");
-
-
+                    if (strlen((char*)xpathObj2->nodesetval->nodeTab[j]->content)>0){
+                        fprintf(file_out,"     <wind_speed>%s</wind_speed>\n",  xpathObj2->nodesetval->nodeTab[j]->content);
+                    }
+                    k = -1;
+                    fprintf(file_out,"    </period>\n");
                 }
                 break;
-
                }
             k++;
            }

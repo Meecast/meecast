@@ -348,16 +348,15 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     /* To DO sunrise and sunset */
 
     xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@class='hourlyfc']/*[@class='symbcol']/preceding-sibling::div[@class='timecol']/p/strong/text()", xpathCtx);
-    /* Day weather forecast */
-    nodes   = xpathObj->nodesetval;
-    size = (nodes) ? nodes->nodeNr : 0; 
-    /* fprintf(stderr, "size %i\n", size); */
+    snprintf(buff_day, sizeof(buff_day)-1,"%s", (const char*)xpathObj->nodesetval->nodeTab[0]->content);
+    /* fprintf(stderr, "buff_day %s\n", buff_day); */
+    if (xpathObj)
+        xmlXPathFreeObject(xpathObj);
+
     snprintf(buffer, sizeof(buffer)-1,"(/html/body/div[@class='hourlyfc']/*[@class='symbcol']/preceding-sibling::div[@class='timecol']/p/strong/text() | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/preceding-sibling::div[@class='timecol']/p/text()  | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/img/@title | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/img/@src | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/following-sibling::div/span/text() | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/following-sibling::div/div/@class | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/following-sibling::div/strong/text() ) ");
     xpathObj2 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
     k = 0; 
 
-    snprintf(buff_day, sizeof(buff_day)-1,"%s", (const char*)xpathObj->nodesetval->nodeTab[0]->content);
-    /* fprintf(stderr, "buff_day %s\n", buff_day); */
        
    nodes   = xpathObj2->nodesetval;
    flag = true;
@@ -483,7 +482,10 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
        }
     }
     fclose(file_out);
+    if (xpathObj2)
+        xmlXPathFreeObject(xpathObj2);
     xmlHashFree(hash_for_icons, NULL);
+    xmlXPathFreeContext(xpathCtx); 
     return 1;
 }
 

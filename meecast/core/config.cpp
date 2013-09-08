@@ -619,15 +619,14 @@ Config::LoadConfig(){
                 viewURL.replace("#","/");
             std::cerr<<"SOurce name "<<source_name.toStdString()<<std::endl;
          /* Hack for foreca.com Remove it after version 0.8 */
-         if  (source_name=="foreca.com" and !( forecastURL.contains("old"))){
-             forecastURL.replace(QString(".mobi/"), QString(".mobi/old/"));
+         if  (source_name=="foreca.com" and !( forecastURL.contains("daily"))){
+             forecastURL.replace(QString(".mobi/old/7d.php"), QString(".mobi/daily.php"));
              std::cerr<<"Forecast URL "<<forecastURL.toStdString()<<std::endl;
          }
-         if  (source_name=="foreca.com" and !(detailURL.contains("old"))){
-             detailURL.replace(QString(".mobi/"), QString(".mobi/old/"));
+         if  (source_name=="foreca.com" and !(detailURL.contains("spot"))){
+             detailURL.replace(QString(".mobi/old/index.php"), QString(".mobi/spot.php"));
              std::cerr<<"Detail URL "<<detailURL.toStdString()<<std::endl;
          }
- 
             Station *st = new Station(source_name.toStdString(),
                                       station_id.toStdString(),
                                       station_name.toUtf8().data(),

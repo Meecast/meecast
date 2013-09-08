@@ -56,6 +56,7 @@ choose_hour_weather_icon(char *image)
 /*******************************************************************************/
 int
 parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *result_file){
+    char       buff[256];
     char       buffer[buff_size],
                current_temperature[20],
                current_icon[10],
@@ -103,6 +104,15 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                 current_time = 0;
     FILE        *file_out;
     int index = 1;
+    struct tm time_tm1;
+    struct tm time_tm2;
+    int localtimezone = 0;
+    int remotetimezone = 0;
+    int hour = 0;
+    int day = 0;
+    int month = 0;
+    char buff_day[256];
+
 
     /* fprintf(stderr, "parse_and_write_detail_data()\n"); */
     file_out = fopen(result_file, "a");
@@ -134,19 +144,43 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         xmlXPathFreeContext(xpathCtx); 
         return -1;
     }
+    /* Set localtimezone */
+    current_time = time(NULL);
+    gmtime_r(&current_time, &time_tm1);
+    localtime_r(&current_time, &time_tm2);
+    localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
+    /* fprintf(stderr,"Local Time Zone %i\n", localtimezone); */
 
     if (xpathObj && xpathObj->nodesetval->nodeTab[0]->content){
-        snprintf(buffer, sizeof(buffer)-1,"%s %s", temp_char, xpathObj->nodesetval->nodeTab[0]->content);
-        current_time = time(NULL);
         tm = localtime(&current_time);
-
+        snprintf(buffer, sizeof(buffer)-1,"%i %s", tm->tm_year + 1900, xpathObj->nodesetval->nodeTab[0]->content);
+        /* fprintf(stderr, "Time %s", buffer); */
         setlocale(LC_TIME, "POSIX");
-        strptime((const char*)buffer, "%d/%m %H:%M", &tmp_tm);
+        strptime((const char*)buffer, "%Y%n%d/%m %H", &tmp_tm);
+        hour = tmp_tm.tm_hour; 
+        day = tmp_tm.tm_mday;
+        month = tmp_tm.tm_mon;
+        if (xpathObj)
+            xmlXPathFreeObject(xpathObj);
+        xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@class='hourlyfc']/*[@class='symbcol']/preceding-sibling::div[@class='timecol']/p/text()", xpathCtx);
+        if (xpathObj && xpathObj->nodesetval->nodeTab[0]->content){
+            int hour = atoi((const char*)xpathObj->nodesetval->nodeTab[0]->content) -1;
+            tmp_tm.tm_hour = hour;
+        }
+        time_tm1.tm_min = 0;
+        tmp_tm.tm_min = 0;
+        remotetimezone = (mktime(&tmp_tm) - mktime(&time_tm1))/3600; 
+        if (abs(remotetimezone) < 13)
+           fprintf(file_out,"  <timezone>%i</timezone>\n", remotetimezone);
+        /* fprintf(stderr,"Remote timezone %i\n", remotetimezone); */
+        strptime((const char*)buffer, "%Y%n%d/%m %H:%M", &tmp_tm);
+        /* fprintf (stderr, "Time %s\n", buffer); */
+
         setlocale(LC_TIME, "");
         /* set begin of day in localtime */
-        tmp_tm.tm_year = tm->tm_year;
+        //tmp_tm.tm_year = tm->tm_year;
 
-        t_start = mktime(&tmp_tm);
+        t_start = mktime(&tmp_tm) - 3600*remotetimezone + 3600*localtimezone;
         fprintf(file_out,"    <period start=\"%li\"", (t_start + 1 - 2*3600));
         /* set end of current time in localtime */
         t_end = t_start + 3600*4 - 1;
@@ -156,7 +190,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
 
-    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[3]/td[2]/span/text()", xpathCtx);
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@id='cc']/div[@class='right']/span/text()", xpathCtx);
     /* added temperature */
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
         xpathObj->nodesetval->nodeTab[0] && xpathObj->nodesetval->nodeTab[0]->content){
@@ -180,30 +214,66 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
 
-    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[3]/td[3]/img/@alt", xpathCtx);
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@id='cc']/div[@class='right wind']/div/@class", xpathCtx);
+    /*         fprintf(stderr,"sss %s", xpathObj->nodesetval->nodeTab[0]->children->content); */
     /* added wind direction */
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
         xpathObj->nodesetval->nodeTab[0] && 
         xpathObj->nodesetval->nodeTab[0]->children->content){
+             temp_char = strstr((char*)xpathObj->nodesetval->nodeTab[0]->children->content, " ");
+             temp_char++;
+             temp_char++;
+             switch (atoi(temp_char)){
+                case 0:
+                    snprintf(buff, sizeof(buff)-1,"N");
+                    break;
+                case 45:
+                    snprintf(buff, sizeof(buff)-1,"NE");
+                    break;
+                case 90:
+                    snprintf(buff, sizeof(buff)-1,"E");
+                    break;
+                case 135:
+                    snprintf(buff, sizeof(buff)-1,"SE");
+                    break;
+                case 180:
+                    snprintf(buff, sizeof(buff)-1,"S");
+                    break;
+                case 225:
+                    snprintf(buff, sizeof(buff)-1,"SW");
+                    break;
+                case 270:
+                    snprintf(buff, sizeof(buff)-1,"W");
+                    break;
+                case 315:
+                    snprintf(buff, sizeof(buff)-1,"NW");
+                    break;
+                case 360:
+                    snprintf(buff, sizeof(buff)-1,"N");
+                    break;
+                default:
+                    snprintf(buff, sizeof(buff)-1,"");
+                    break;
+             }
+
        /* fprintf(stderr, "Wind  direction  .%s.  \n", xpathObj->nodesetval->nodeTab[0]->children->content); */
-       if (strlen((char*)xpathObj->nodesetval->nodeTab[0]->children->content)>0)
-            fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  xpathObj->nodesetval->nodeTab[0]->children->content);
+            fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  buff);
     }
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
 
-    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[3]/td[3]/text()", xpathCtx);
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@id='cc']/div[@class='right wind']/strong/text()", xpathCtx);
     /* added wind speed */
      if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
          xpathObj->nodesetval->nodeTab[0] && xpathObj->nodesetval->nodeTab[0]->content){
         /* fprintf(stderr, "Wind  direction  %s  \n", xpathObj4->nodesetval->nodeTab[i]->children->content);  */
-        fprintf(file_out,"     <wind_speed>%s</wind_speed>\n",  
-                               xpathObj->nodesetval->nodeTab[0]->content);
+        fprintf(file_out,"     <wind_speed>%i</wind_speed>\n",  
+                               atoi((const char*)xpathObj->nodesetval->nodeTab[0]->content));
      }
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
 
-    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[3]/td[4]/img/@src", xpathCtx);
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@id='cc']/div[@class='left']/img/@src", xpathCtx);
     /* added icon */
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
         xpathObj->nodesetval->nodeTab[0] && 
@@ -224,171 +294,198 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         xmlXPathFreeObject(xpathObj);
     
     index = 1;
-    snprintf(buffer, sizeof(buffer)-1,"/html/body/div/div/table//tr[4]/td/text()[%i]", index);
+    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong/text()", index);
     xpathObj = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
     /* added text */
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
         xpathObj->nodesetval->nodeTab[0] && xpathObj->nodesetval->nodeTab[0]->content){
-        if (strstr((char*)xpathObj->nodesetval->nodeTab[0]->content, "Feels Like:") == NULL){
             /* fprintf (stderr, "description %s\n", xpathObj7->nodesetval->nodeTab[i]->content); */
-
-            snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj->nodesetval->nodeTab[0]->content);
-            memset(temp_buffer, 0, sizeof(temp_buffer));
-            for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
-               if (buffer[j] == 13 || buffer[j] == 10)
-                    continue;
-               sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
-            }
-            index ++;
-            fprintf(file_out,"     <description>%s</description>\n", temp_buffer);
-        }
+            fprintf(file_out,"     <description>%s</description>\n", xpathObj->nodesetval->nodeTab[0]->content);
     }
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
-    snprintf(buffer, sizeof(buffer)-1,"/html/body/div/div/table//tr[4]/td/text()[%i]", index);
+    
+    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong[1]/text()", index);
     xpathObj = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
-
-    temp_char = strstr((char*)xpathObj->nodesetval->nodeTab[0]->content, "Feels Like:");
-    if (temp_char != NULL){
-        temp_char = strchr(temp_char, ':');
-        temp_char = temp_char + 2;
-        snprintf(buffer, sizeof(buffer)-1,"%s", temp_char);
-        memset(temp_buffer, 0, sizeof(temp_buffer));
-        for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
-            if (buffer[j] == '&')
-               break;
-            if ((uint)buffer[j] == 226 ||  buffer[j] == '-' || 
-                (buffer[j]>='0' && buffer[j]<='9')){
-                if ((uint)buffer[j] == 226)
-                   sprintf(temp_buffer,"%s-",temp_buffer);
-                else
-                   sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
-            }
-        }
-        /* fprintf(stderr, "     <temperature>%s</temperature>\n", temp_buffer); */
-        fprintf(file_out,"     <flike>%s</flike>\n", temp_buffer); 
+    if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
+        xpathObj->nodesetval->nodeTab[1] && xpathObj->nodesetval->nodeTab[1]->content){
+        fprintf(file_out,"     <flike>%i</flike>\n", atoi((char*)xpathObj->nodesetval->nodeTab[1]->content)); 
     }
+    if (xpathObj)
+        xmlXPathFreeObject(xpathObj);
+
+    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong/text()", index);
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
+    if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
+        xpathObj->nodesetval->nodeTab[2] && xpathObj->nodesetval->nodeTab[2]->content){
+        fprintf(file_out,"     <humidity>%i</humidity>\n", atoi((char*)xpathObj->nodesetval->nodeTab[2]->content)); 
+    }
+    if (xpathObj)
+        xmlXPathFreeObject(xpathObj);
+
+    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong/text()", index);
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
+    if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
+        xpathObj->nodesetval->nodeTab[3] && xpathObj->nodesetval->nodeTab[3]->content){
+        fprintf(file_out,"     <pressure>%i</pressure>\n", atoi((char*)xpathObj->nodesetval->nodeTab[3]->content)); 
+    }
+    if (xpathObj)
+        xmlXPathFreeObject(xpathObj);
+
+    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong/text()", index);
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
+    if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
+        xpathObj->nodesetval->nodeTab[4] && xpathObj->nodesetval->nodeTab[4]->content){
+        fprintf(file_out,"     <visible>%i</visible>\n", atoi((char*)xpathObj->nodesetval->nodeTab[4]->content)*1000); 
+    }
+    if (xpathObj)
+        xmlXPathFreeObject(xpathObj);
+
     fprintf(file_out,"    </period>\n");
 
 
     /* To DO sunrise and sunset */
 
-    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/table//tr[th]/*/text()", xpathCtx);
-    /* Day weather forecast */
-    nodes   = xpathObj->nodesetval;
-    size = (nodes) ? nodes->nodeNr : 0; 
-    snprintf(buffer, sizeof(buffer)-1,"(/html/body/div/div/table//tr/th/text() | /html/body/div/div/table//tr/td[@class='in']/text() | /html/body/div/div/table//tr/td/span/text() | /html/body/div/div/table//tr/td/img/@alt | /html/body/div/div/table//tr/td/text() | /html/body/div/div/table//tr/td/img/@src )");
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@class='hourlyfc']/*[@class='symbcol']/preceding-sibling::div[@class='timecol']/p/strong/text()", xpathCtx);
+    snprintf(buff_day, sizeof(buff_day)-1,"%s", (const char*)xpathObj->nodesetval->nodeTab[0]->content);
+    /* fprintf(stderr, "buff_day %s\n", buff_day); */
+    if (xpathObj)
+        xmlXPathFreeObject(xpathObj);
+
+    snprintf(buffer, sizeof(buffer)-1,"(/html/body/div[@class='hourlyfc']/*[@class='symbcol']/preceding-sibling::div[@class='timecol']/p/strong/text() | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/preceding-sibling::div[@class='timecol']/p/text()  | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/img/@title | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/img/@src | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/following-sibling::div/span/text() | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/following-sibling::div/div/@class | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/following-sibling::div/strong/text() ) ");
     xpathObj2 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
     k = 0; 
-    for(i = 1; i < (size) ; ++i) {
+
        
-       nodes   = xpathObj2->nodesetval;
-       flag = false;
-       for (j = 0; j <(nodes->nodeNr); ++j){
-           if (!flag && xpathObj2->nodesetval->nodeTab[j]->content && 
-               xpathObj->nodesetval->nodeTab[i]->content &&
-               !strcmp((const char*)xpathObj->nodesetval->nodeTab[i]->content, 
-                       (const char*)xpathObj2->nodesetval->nodeTab[j]->content)){
-               flag = true;
-               k = 0;
-           }
-           if (flag && i+1 < size && xpathObj2->nodesetval->nodeTab[j]->content && 
-               xpathObj->nodesetval->nodeTab[i+1]->content &&
-               !strcmp((const char*)xpathObj->nodesetval->nodeTab[i+1]->content, 
-                       (const char*)xpathObj2->nodesetval->nodeTab[j]->content)){
-               flag = false;
-           }
-           if (flag){
-               switch (k){
+   nodes   = xpathObj2->nodesetval;
+   flag = true;
+   for (j = 0; j <(nodes->nodeNr); ++j){
+      if (k >6)
+           flag = false;
+       
+      if (flag){
+           switch (k){
                 case 1: {
-                            current_time = time(NULL);
-                            tm = localtime(&current_time);
+                    current_time = time(NULL);
+                    tm = localtime(&current_time);
+                    snprintf(buffer, sizeof(buffer)-1,"%i %i %s", month + 1, day, xpathObj2->nodesetval->nodeTab[j]->content);
+                    /* fprintf(stderr," Buffer %s\n", buffer); */
+                    setlocale(LC_TIME, "POSIX");
+                    strptime((const char*)buffer, "%m %d %H:%M", &tmp_tm);
+                    setlocale(LC_TIME, "");
+                    /* set begin of day in localtime */
+                    tmp_tm.tm_year = tm->tm_year;
 
-                            snprintf(buffer, sizeof(buffer)-1,"%s %s", xpathObj->nodesetval->nodeTab[i]->content, xpathObj2->nodesetval->nodeTab[j]->content);
-                            /* fprintf(stderr," Buffer %s\n", buffer); */
-                            setlocale(LC_TIME, "POSIX");
-                            strptime((const char*)buffer, "%A %b %d %H:%M", &tmp_tm);
-                            setlocale(LC_TIME, "");
-                            /* set begin of day in localtime */
-                            tmp_tm.tm_year = tm->tm_year;
-
-                            t_start = mktime(&tmp_tm);
-                            fprintf(file_out,"    <period start=\"%li\"", (t_start));
-                            /* set end of current time in localtime */
-                            t_end = t_start + 3600*6 - 1;
-                            fprintf(file_out," end=\"%li\" hour=\"true\">\n", t_end);
-
-                            break;
-                        }
+                    t_start = mktime(&tmp_tm) - 3600*remotetimezone + 3600*localtimezone;
+                    if (strcmp((const char*)xpathObj2->nodesetval->nodeTab[j-1]->content, buff_day)){
+                        t_start = t_start + 24*3600;
+                    }
+                    fprintf(file_out,"    <period start=\"%li\"", (t_start));
+                    /* set end of current time in localtime */
+                    t_end = t_start + 3600*3 - 1;
+                    fprintf(file_out," end=\"%li\" hour=\"true\">\n", t_end);
+                    break;
+                    }
                 case 2: {
-                            /* added temperature */
-                            if (xpathObj2->nodesetval->nodeTab[j]->content){
-                                /* fprintf (stderr, "temperature %s\n", xpathObj->nodesetval->nodeTab[0]->content); */
-                                snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj2->nodesetval->nodeTab[j]->content);
-                                memset(temp_buffer, 0, sizeof(temp_buffer));
-                                for (l = 0 ; (l<(strlen(buffer)) && l < buff_size); l++ ){
-                                    if (buffer[l] == '&')
-                                       break;
-                                    if ((uint)buffer[l] == 226 ||  buffer[l] == '-' || 
-                                        (buffer[l]>='0' && buffer[l]<='9')){
-                                        if ((uint)buffer[l] == 226)
-                                           sprintf(temp_buffer,"%s-",temp_buffer);
-                                        else
-                                           sprintf(temp_buffer,"%s%c",temp_buffer, buffer[l]);
-                                    }
-                                }
-                                /* fprintf(stderr, "     <temperature>%s</temperature>\n", temp_buffer); */
-                                fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 
+                        if (xpathObj2->nodesetval->nodeTab[j] && xpathObj2->nodesetval->nodeTab[j]->children && xpathObj2->nodesetval->nodeTab[j]->children->content && strlen((char*)xpathObj2->nodesetval->nodeTab[j]->children->content)>0){
+                            temp_char = strrchr((char*)xpathObj2->nodesetval->nodeTab[j]->children->content, '/');
+                            temp_char ++;
+                           // fprintf(file_out,"     <icon>%s</icon>\n",  
+                           // choose_hour_weather_icon(temp_char).toStdString().c_str());
+                           if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char)){
+                                fprintf(file_out,"     <icon>%s</icon>\n",  
+                                 (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char));
+                           }else 
+                                fprintf(file_out,"     <icon>49</icon>\n");  
+                         } 
+                }
+                break;
+                case 3: {
+                    if (strlen((char*)xpathObj2->nodesetval->nodeTab[j]->children->content)>0){
+                        fprintf(file_out,"     <description>%s</description>\n", xpathObj2->nodesetval->nodeTab[j]->children->content);
+                    }
+            }
+            break;
+
+            case 4: {
+                    /* added temperature */
+                    if (xpathObj2->nodesetval->nodeTab[j]->content){
+                        snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj2->nodesetval->nodeTab[j]->content);
+                        memset(temp_buffer, 0, sizeof(temp_buffer));
+                        for (l = 0 ; (l<(strlen(buffer)) && l < buff_size); l++ ){
+                            if (buffer[l] == '&')
+                               break;
+                            if ((uint)buffer[l] == 226 ||  buffer[l] == '-' || 
+                                (buffer[l]>='0' && buffer[l]<='9')){
+                                if ((uint)buffer[l] == 226)
+                                   sprintf(temp_buffer,"%s-",temp_buffer);
+                                else
+                                   sprintf(temp_buffer,"%s%c",temp_buffer, buffer[l]);
                             }
-                            break;
                         }
-                case 4: {
-                            if (strlen((char*)xpathObj2->nodesetval->nodeTab[j]->children->content)>0)
-                                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  xpathObj2->nodesetval->nodeTab[j]->children->content);
-
+                        fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 
+                    }
+                    break;
+                }
+            case 5: {
+                if (strlen((char*)xpathObj2->nodesetval->nodeTab[j]->children->content)>0){
+                    temp_char = strstr((char*)xpathObj2->nodesetval->nodeTab[j]->children->content, " ");
+                    temp_char++;
+                    temp_char++;
+                    switch (atoi(temp_char)){
+                        case 0:
+                            snprintf(buff, sizeof(buff)-1,"N");
                             break;
-                        }
-                case 5: { 
-                            if (xpathObj2->nodesetval->nodeTab[j] && xpathObj2->nodesetval->nodeTab[j]->content){
-                                /* fprintf(stderr, "Wind  direction  %s  \n", xpathObj4->nodesetval->nodeTab[i]->children->content);  */
-                                fprintf(file_out,"     <wind_speed>%s</wind_speed>\n",  
-                                                       xpathObj2->nodesetval->nodeTab[j]->content);
-                             }
-                             break;
-                }
-                case 6: {
-                            if (strlen((char*)xpathObj2->nodesetval->nodeTab[j]->children->content)>0){
-                                temp_char = strrchr((char*)xpathObj2->nodesetval->nodeTab[j]->children->content, '/');
-                                temp_char ++;
-                                //fprintf(file_out,"     <icon>%s</icon>\n",  
-                               // choose_hour_weather_icon(temp_char).toStdString().c_str());
-                               if ((char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char)){
-                                    fprintf(file_out,"     <icon>%s</icon>\n",  
-                                     (char*)xmlHashLookup(hash_for_icons, (const xmlChar*)temp_char));
-                               }else 
-                                    fprintf(file_out,"     <icon>49</icon>\n");  
-
-
-                             } 
+                        case 45:
+                            snprintf(buff, sizeof(buff)-1,"NE");
                             break;
+                        case 90:
+                            snprintf(buff, sizeof(buff)-1,"E");
+                            break;
+                        case 135:
+                            snprintf(buff, sizeof(buff)-1,"SE");
+                            break;
+                        case 180:
+                            snprintf(buff, sizeof(buff)-1,"S");
+                            break;
+                        case 225:
+                            snprintf(buff, sizeof(buff)-1,"SW");
+                            break;
+                        case 270:
+                            snprintf(buff, sizeof(buff)-1,"W");
+                            break;
+                        case 315:
+                            snprintf(buff, sizeof(buff)-1,"NW");
+                            break;
+                        case 360:
+                            snprintf(buff, sizeof(buff)-1,"N");
+                            break;
+                        default:
+                            snprintf(buff, sizeof(buff)-1,"");
+                            break;
+                    }
+                    fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  buff);
+                    }
+                    break;
+                    }
+           case 6: {
+                if (strlen((char*)xpathObj2->nodesetval->nodeTab[j]->content)>0){
+                    fprintf(file_out,"     <wind_speed>%s</wind_speed>\n",  xpathObj2->nodesetval->nodeTab[j]->content);
                 }
-                case 7: {
-                        if (strlen((char*)xpathObj2->nodesetval->nodeTab[j]->children->content)>0){
-                            fprintf(file_out,"     <description>%s</description>\n", xpathObj2->nodesetval->nodeTab[j]->children->content);
-                        }
-                        k = 0;
-                        fprintf(file_out,"    </period>\n");
-
-                }
-
-               }
-            k++;
+                k = -1;
+                fprintf(file_out,"    </period>\n");
+            }
+            break;
            }
+        k++;
        }
     }
     fclose(file_out);
+    if (xpathObj2)
+        xmlXPathFreeObject(xpathObj2);
     xmlHashFree(hash_for_icons, NULL);
-  return 1;
+    xmlXPathFreeContext(xpathCtx); 
+    return 1;
 }
 
 
@@ -580,6 +677,9 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
                 case 315:
                     snprintf(buff, sizeof(buff)-1,"NW");
                     break;
+                case 360:
+                    snprintf(buff, sizeof(buff)-1,"N");
+                    break;
                 default:
                     snprintf(buff, sizeof(buff)-1,"");
                     break;
@@ -616,8 +716,8 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
          }
          /* added text */
          if (xpathObj7 && !xmlXPathNodeSetIsEmpty(xpathObj7->nodesetval) &&
-             xpathObj7->nodesetval->nodeTab[i] && xpathObj7->nodesetval->nodeTab[i]->content){
-            snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj7->nodesetval->nodeTab[i]->content);
+             xpathObj7->nodesetval->nodeTab[i] && xpathObj7->nodesetval->nodeTab[i]->children->content){
+            snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj7->nodesetval->nodeTab[i]->children->content);
             memset(temp_buffer, 0, sizeof(temp_buffer));
             for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
                if (buffer[j] == 13 || buffer[j] == 10)
@@ -676,7 +776,6 @@ convert_station_forecacom_data(const char *station_id_with_path, const char *res
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
         /* check that the file containe valid data */
-        fprintf(stderr,"FILE %s\n", station_id_with_path);
         doc =  htmlReadFile(station_id_with_path, "UTF-8",  HTML_PARSE_NOERROR | HTML_PARSE_NOWARNING);
         if(!doc)
             return -1;

@@ -2,6 +2,8 @@ meecast (0.7.6) unstable; urgency=low
 
   * Added icon for openweathermap.com and gismeteo.ru
   * Added hourly forcast for openweathermap.org source 
+  * Fixed problem with hourly forecast
+  * Moved to new data structure in foreca.mobi converter
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 12 Aug 2013 22:31:23 +0200
 

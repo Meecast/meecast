@@ -339,7 +339,8 @@ DataModel::update_model(int period)
         case hours_period:
 	        /* set current hour */
             current_hour = time(NULL);
-            tm = gmtime(&current_hour);
+            //tm = gmtime(&current_hour);
+            tm = localtime(&current_hour);
             tm->tm_sec = 0; tm->tm_min = 1; 
             tm->tm_isdst = 1;
             current_hour = mktime(tm); 

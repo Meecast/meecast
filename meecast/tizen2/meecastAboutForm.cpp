@@ -148,7 +148,7 @@ meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSc
     support->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     support->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* fillsupport = new Label();
-    fillsupport->Construct(Tizen::Graphics::Rectangle(0,200, clientRect.width, 150), _("support@meecast.com"));
+    fillsupport->Construct(Tizen::Graphics::Rectangle(0,200, clientRect.width, 150), _("support@meecast.org"));
     fillsupport->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     fillsupport->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_BLUE));
     fillsupport->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
@@ -310,7 +310,7 @@ meecastAboutForm::AppControlEmail(void){
    String subjectKey = L"http://tizen.org/appcontrol/data/subject";
    String subjectVal = L"Problem in the MeeCast";
    String toKey = L"http://tizen.org/appcontrol/data/to";
-   String toVal = L"support@meecast.com";
+   String toVal = L"support@meecast.org";
    extraData.Add(&subjectKey, &subjectVal);
    extraData.Add(&toKey, &toVal);
    AppControl* pAc = AppManager::FindAppControlN(L"tizen.email",

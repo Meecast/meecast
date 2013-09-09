@@ -180,7 +180,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         //tmp_tm.tm_year = tm->tm_year;
 
         t_start = mktime(&tmp_tm) - 3600*remotetimezone + 3600*localtimezone;
-        fprintf(file_out,"    <period start=\"%li\"", (t_start + 1 - 2*3600));
+        fprintf(file_out,"    <period start=\"%li\"", (t_start  - 2*3600));
         /* set end of current time in localtime */
         t_end = t_start + 3600*4 - 1;
         fprintf(file_out," end=\"%li\" current=\"true\" >\n", t_end);
@@ -601,7 +601,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
          tmp_tm.tm_hour = 0; tmp_tm.tm_min = 0; tmp_tm.tm_sec = 0;
 
          t_start = mktime(&tmp_tm);
-         fprintf(file_out,"    <period start=\"%li\"", (t_start +1));
+         fprintf(file_out,"    <period start=\"%li\"", t_start);
          /* set end of day in localtime */
          t_end = t_start + 3600*24 - 1;
          fprintf(file_out," end=\"%li\">\n", t_end);

@@ -500,6 +500,7 @@ meecastFullWeatherForm::ReInitElements(void){
             temp_data->Flike().units(_config->TemperatureUnit());
             temp_data->WindSpeed().units(_config->WindSpeedUnit());
             temp_data->pressure().units(_config->PressureUnit());
+            temp_data->ViSible().units(_config->VisibleUnit());
             /* Main Icon */
     //        snprintf(buffer, sizeof(buffer) - 1, "%s/%s/%i.png", 
     //                                       app->config->iconspath().c_str(), 
@@ -651,6 +652,13 @@ meecastFullWeatherForm::ReInitElements(void){
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
                 _pKeyList->Add(new String(_("UV index:")));
+            }
+            /* Visible */
+            if (temp_data->ViSible().value() != INT_MAX){
+                snprintf (buffer, sizeof(buffer) -1, "%0.f %s", temp_data->ViSible().value(), _(_config->VisibleUnit().c_str()));
+                Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                _pValueList->Add(new String(str));
+                _pKeyList->Add(new String(_("Visible:")));
             }
      
                 AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %li", current_day + 15 * 3600 + _dayNumber*24*3600);

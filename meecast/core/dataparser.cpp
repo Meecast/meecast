@@ -197,6 +197,8 @@ namespace Core {
                         forecast_data->Text((char *)xmlNodeGetContent(p1));
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"humidity"))
                         forecast_data->Humidity(atoi((char *)xmlNodeGetContent(p1)));
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"visible"))
+                        forecast_data->ViSible().value((float)atof((char *)xmlNodeGetContent(p1)));
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"pressure"))
                         forecast_data->pressure().value((float)atof((char *)xmlNodeGetContent(p1)));
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"ppcp"))

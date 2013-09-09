@@ -4,6 +4,7 @@ meecast (0.7.6) unstable; urgency=low
   * Added hourly forcast for openweathermap.org source 
   * Fixed problem with hourly forecast
   * Moved to new data structure in foreca.mobi converter
+  * Added South Korea to foreca.com database
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 12 Aug 2013 22:31:23 +0200
 

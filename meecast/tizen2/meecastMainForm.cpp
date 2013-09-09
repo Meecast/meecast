@@ -854,12 +854,11 @@ meecastMainForm::ReInitElements(void){
 
     _dayCount = 0;
     while  (_config->dp != NULL && i < 3600*24*14) {
-        /*    AppLog ("Result0 %li", current_day + 15*3600 + i - 3600*timezone); */
+        /* AppLog ("Result0 %li", current_day + 15*3600 + i - 3600*timezone); */
         if (_config->dp->data().GetDataForTime(current_day + 15*3600 + i - 3600*timezone)){
             __daysmap->Add(*(new (std::nothrow) Integer(_dayCount)), *(new (std::nothrow) Long(current_day + 15*3600 + i - 3600*timezone)));
-            /* AppLog ("Result1 %li", current_day);
-            AppLog ("Result %li", current_day + 15*3600 + i - 3600*timezone);
-            */
+            /* AppLog ("Result1 %li", current_day); */
+            /* AppLog ("Result %li", current_day + 15*3600 + i - 3600*timezone); */
             _dayCount ++;
         }
         i = i + 3600*24;

@@ -63,7 +63,6 @@ namespace Core {
 //	 	if (is_hour)
  //           		std::cerr<<"yyyyyyyyyyyyyyyy "<<temp_data->StartTime() <<" "<<temp_data->EndTime() <<std::endl;
             if (temp_data->StartTime() >= begin_day_time && temp_data->StartTime() < end_day_time){  
-                AppLog("Inside cycle");
                 if (temp_data->temperature_hi().value(true) != INT_MAX){
                     if (hi_day_temp != INT_MAX){
                        if (temp_data->temperature_hi().value(true) > hi_day_temp)

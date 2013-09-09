@@ -380,7 +380,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                     if (strcmp((const char*)xpathObj2->nodesetval->nodeTab[j-1]->content, buff_day)){
                         t_start = t_start + 24*3600;
                     }
-                    fprintf(file_out,"    <period start=\"%li\"", (t_start + 1));
+                    fprintf(file_out,"    <period start=\"%li\"", (t_start));
                     /* set end of current time in localtime */
                     t_end = t_start + 3600*3 - 1;
                     fprintf(file_out," end=\"%li\" hour=\"true\">\n", t_end);

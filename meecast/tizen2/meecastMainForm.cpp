@@ -796,7 +796,7 @@ meecastMainForm::ReInitElements(void){
         }
 
     }else{
-        /* Main Icon  N/A*/ 
+        /* Main Icon N/A */ 
         Tizen::Media::Image *image = null;
         Tizen::Graphics::Bitmap* mainIconBitmap = null;
         image = new (std::nothrow) Tizen::Media::Image();
@@ -854,10 +854,12 @@ meecastMainForm::ReInitElements(void){
 
     _dayCount = 0;
     while  (_config->dp != NULL && i < 3600*24*14) {
-        if (_config->dp->data().GetDataForTime( current_day + 15*3600 + i - 3600*timezone)){
+        /*    AppLog ("Result0 %li", current_day + 15*3600 + i - 3600*timezone); */
+        if (_config->dp->data().GetDataForTime(current_day + 15*3600 + i - 3600*timezone)){
             __daysmap->Add(*(new (std::nothrow) Integer(_dayCount)), *(new (std::nothrow) Long(current_day + 15*3600 + i - 3600*timezone)));
-            AppLog ("Result1 %li", current_day);
+            /* AppLog ("Result1 %li", current_day);
             AppLog ("Result %li", current_day + 15*3600 + i - 3600*timezone);
+            */
             _dayCount ++;
         }
         i = i + 3600*24;

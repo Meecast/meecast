@@ -279,7 +279,7 @@ later version."));
     filllicense->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* source = new Label();
-    source->Construct(Tizen::Graphics::Rectangle(0, 2215, clientRect.width, 50), _("Source code on Github:"));
+    source->Construct(Tizen::Graphics::Rectangle(0, 2215, clientRect.width, 50), _("Source code:"));
     source->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     source->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     __fillsource = new Label();

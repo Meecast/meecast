@@ -485,8 +485,9 @@ meecastFullWeatherForm::ReInitElements(void){
                 right_label->SetShowState(false);
             }
             right_label->RequestRedraw();
+
             /* Previous day */
-            if (_config->dp->data().GetDataForTime(time_for_show - 24*3600 ))
+            if ((_dayNumber > 0) && _config->dp->data().GetDataForTime(time_for_show - 24*3600 ))
                 left_label->SetShowState(true);
             else
                 left_label->SetShowState(false);

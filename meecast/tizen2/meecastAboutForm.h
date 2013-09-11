@@ -51,6 +51,7 @@ protected:
     static const int ID_BUTTON_DONATION = 101;
 private:
     Tizen::Ui::Controls::Label* __fillsource;
+    Tizen::Ui::Controls::Label* __fillplatform;
 };
 
 #endif	//_MEECAST_ABOUT_FORM_H_

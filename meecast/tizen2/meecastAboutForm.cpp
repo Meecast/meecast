@@ -191,12 +191,25 @@ meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSc
     fillmanager->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     fillmanager->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
+    Label* platform = new Label();
+    platform->Construct(Tizen::Graphics::Rectangle(0, 610, clientRect.width, 50), _("Localization platform"));
+    platform->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    platform->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
+
+    __fillplatform = new Label();
+    __fillplatform->Construct(Tizen::Graphics::Rectangle(0,650, clientRect.width, 150), "http://transifex.net");
+    __fillplatform->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    __fillplatform->SetTextVerticalAlignment(ALIGNMENT_TOP);
+    __fillplatform->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_BLUE));
+    __fillplatform->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
+    __fillplatform->AddTouchEventListener(*this);
+
     Label* translators = new Label();
-    translators->Construct(Tizen::Graphics::Rectangle(0, 610, clientRect.width, 50), _("Translators"));
+    translators->Construct(Tizen::Graphics::Rectangle(0, 700, clientRect.width, 50), _("Translators"));
     translators->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     translators->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* filltranslators = new Label();
-    filltranslators->Construct(Tizen::Graphics::Rectangle(0,650, clientRect.width, 350), _("\
+    filltranslators->Construct(Tizen::Graphics::Rectangle(0,750, clientRect.width, 350), _("\
 French -  Nicolas Granziano, \n \
 \tPhilippe, Benot Knecht \n \
 Russian - Pavel Fialko, Vlad Vasiliev, \n \
@@ -231,11 +244,11 @@ Swedish - Angela Nennebrandt,\n \
     filltranslators->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* license = new Label();
-    license->Construct(Tizen::Graphics::Rectangle(0, 1000, clientRect.width, 50), _("License"));
+    license->Construct(Tizen::Graphics::Rectangle(0, 1060, clientRect.width, 50), _("License"));
     license->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     license->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* filllicense = new Label();
-    filllicense->Construct(Tizen::Graphics::Rectangle(0,1050, clientRect.width, 350), _("\
+    filllicense->Construct(Tizen::Graphics::Rectangle(0,1090, clientRect.width, 350), _("\
 This software is free software; you can\n \
 redistribute it and/or modify it under \n \
 the terms of the GNU General Public\n \
@@ -247,11 +260,11 @@ later version."));
     filllicense->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* source = new Label();
-    source->Construct(Tizen::Graphics::Rectangle(0, 1325, clientRect.width, 50), _("Source code in github"));
+    source->Construct(Tizen::Graphics::Rectangle(0, 1405, clientRect.width, 50), _("Source code in github"));
     source->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     source->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     __fillsource = new Label();
-    __fillsource->Construct(Tizen::Graphics::Rectangle(0,1375, clientRect.width, 350), "http://github.com/Meecast/meecast");
+    __fillsource->Construct(Tizen::Graphics::Rectangle(0,1455, clientRect.width, 350), "http://github.com/Meecast/meecast");
     __fillsource->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     __fillsource->SetTextVerticalAlignment(ALIGNMENT_TOP);
     __fillsource->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_BLUE));
@@ -278,6 +291,8 @@ later version."));
     scrollPanel->AddControl(filldesigner);
     scrollPanel->AddControl(manager);
     scrollPanel->AddControl(fillmanager);
+    scrollPanel->AddControl(platform);
+    scrollPanel->AddControl(__fillplatform);
     scrollPanel->AddControl(translators);
     scrollPanel->AddControl(filltranslators);
     scrollPanel->AddControl(license);
@@ -336,9 +351,12 @@ meecastAboutForm::OnTouchPressed(const Tizen::Ui::Control& source,
 		                        const Tizen::Ui::TouchEventInfo& touchInfo) {
     if (source.Equals(*__fillsource)){
         AppControlBrowser(Tizen::Base::String(L"https://github.com/Meecast/meecast"));
+    }else{
+        if (source.Equals(*__fillplatform)){
+            AppControlBrowser(Tizen::Base::String(L"https://www.transifex.com/projects/p/meecast/"));
+        }else
+            AppControlEmail();
     }
- 
-    AppControlEmail();
 }
 
 void

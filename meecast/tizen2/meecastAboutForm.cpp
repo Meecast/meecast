@@ -163,7 +163,7 @@ meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSc
     Label* admin = new Label();
     temp_String = String(_("Project administrators"));
     temp_String.Append(":");
-    admin->Construct(Tizen::Graphics::Rectangle(0, 250, clientRect.width, 50), temp_String);
+    admin->Construct(Tizen::Graphics::Rectangle(0, 260, clientRect.width, 50), temp_String);
     admin->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     admin->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* filladmin = new Label();
@@ -263,11 +263,11 @@ Swedish - Angela Nennebrandt,\n \
     Label* license = new Label();
     temp_String = String(_("License"));
     temp_String.Append(":");
-    license->Construct(Tizen::Graphics::Rectangle(0, 1850, clientRect.width, 50), temp_String);
+    license->Construct(Tizen::Graphics::Rectangle(0, 1900, clientRect.width, 50), temp_String);
     license->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     license->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* filllicense = new Label();
-    filllicense->Construct(Tizen::Graphics::Rectangle(0,1890, clientRect.width, 350), _("\
+    filllicense->Construct(Tizen::Graphics::Rectangle(0,1940, clientRect.width, 350), _("\
 This software is free software; you can\n \
 redistribute it and/or modify it under \n \
 the terms of the GNU General Public\n \
@@ -279,11 +279,11 @@ later version."));
     filllicense->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* source = new Label();
-    source->Construct(Tizen::Graphics::Rectangle(0, 2305, clientRect.width, 50), _("Source code on Github"));
+    source->Construct(Tizen::Graphics::Rectangle(0, 2215, clientRect.width, 50), _("Source code on Github:"));
     source->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     source->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     __fillsource = new Label();
-    __fillsource->Construct(Tizen::Graphics::Rectangle(0,2355, clientRect.width, 350), "http://github.com/Meecast/meecast");
+    __fillsource->Construct(Tizen::Graphics::Rectangle(0,2255, clientRect.width, 350), "http://github.com/Meecast/meecast");
     __fillsource->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     __fillsource->SetTextVerticalAlignment(ALIGNMENT_TOP);
     __fillsource->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_BLUE));

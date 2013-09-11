@@ -260,11 +260,11 @@ later version."));
     filllicense->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* source = new Label();
-    source->Construct(Tizen::Graphics::Rectangle(0, 1405, clientRect.width, 50), _("Source code in github"));
+    source->Construct(Tizen::Graphics::Rectangle(0, 1385, clientRect.width, 50), _("Source code in github"));
     source->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     source->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     __fillsource = new Label();
-    __fillsource->Construct(Tizen::Graphics::Rectangle(0,1455, clientRect.width, 350), "http://github.com/Meecast/meecast");
+    __fillsource->Construct(Tizen::Graphics::Rectangle(0,1435, clientRect.width, 350), "http://github.com/Meecast/meecast");
     __fillsource->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     __fillsource->SetTextVerticalAlignment(ALIGNMENT_TOP);
     __fillsource->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_BLUE));

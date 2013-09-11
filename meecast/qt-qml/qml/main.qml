@@ -42,11 +42,17 @@ PageStackWindow {
                 text: Config.tr("Settings")
                 onClicked: {
                     rootWindow.openFile("SettingsPage.qml");
-
                 }
             }
             MenuItem {
                 id: item2
+                text: Config.tr("Adjust GPS station")
+                onClicked: {
+                    Config.updategpsstation();
+                }
+            }
+            MenuItem {
+                id: item3
                 text: Config.tr("About")
                 onClicked: {
                     rootWindow.openFile("AboutPage.qml");

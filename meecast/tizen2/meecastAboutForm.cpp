@@ -244,11 +244,11 @@ Swedish - Angela Nennebrandt,\n \
     filltranslators->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* license = new Label();
-    license->Construct(Tizen::Graphics::Rectangle(0, 1060, clientRect.width, 50), _("License"));
+    license->Construct(Tizen::Graphics::Rectangle(0, 1100, clientRect.width, 50), _("License"));
     license->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     license->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* filllicense = new Label();
-    filllicense->Construct(Tizen::Graphics::Rectangle(0,1090, clientRect.width, 350), _("\
+    filllicense->Construct(Tizen::Graphics::Rectangle(0,1130, clientRect.width, 350), _("\
 This software is free software; you can\n \
 redistribute it and/or modify it under \n \
 the terms of the GNU General Public\n \
@@ -260,11 +260,11 @@ later version."));
     filllicense->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* source = new Label();
-    source->Construct(Tizen::Graphics::Rectangle(0, 1385, clientRect.width, 50), _("Source code in github"));
+    source->Construct(Tizen::Graphics::Rectangle(0, 1405, clientRect.width, 50), _("Source code in github"));
     source->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     source->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     __fillsource = new Label();
-    __fillsource->Construct(Tizen::Graphics::Rectangle(0,1435, clientRect.width, 350), "http://github.com/Meecast/meecast");
+    __fillsource->Construct(Tizen::Graphics::Rectangle(0,1455, clientRect.width, 350), "http://github.com/Meecast/meecast");
     __fillsource->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     __fillsource->SetTextVerticalAlignment(ALIGNMENT_TOP);
     __fillsource->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_BLUE));

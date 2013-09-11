@@ -912,6 +912,13 @@ ConfigQml::updatestations()
 }
 
 void
+ConfigQml::updategpsstation()
+{
+    qDebug() << "Update GPS ";
+}
+
+
+void
 ConfigQml::showweb()
 {
     if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0

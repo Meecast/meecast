@@ -105,6 +105,7 @@ meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSc
                                           const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs)
 {
     AppLog("OnSceneActivatedN Sources");
+    String temp_String;
     Tizen::Ui::Controls::Label  *main_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_MAIN_ICON"));
     if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Atmos/30.png")){
         /* Main Icon */ 
@@ -135,16 +136,20 @@ meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSc
     AppAssert(pForm);
     clientRect = pForm->GetClientAreaBounds();
     Label* about = new Label();
-    about->Construct(Tizen::Graphics::Rectangle(0, 0, clientRect.width, 50), _("About"));
+    temp_String = String(_("About"));
+    temp_String.Append(":");
+    about->Construct(Tizen::Graphics::Rectangle(0, 0, clientRect.width, 50), temp_String);
     about->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     about->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* fillabout = new Label();
-    fillabout->Construct(Tizen::Graphics::Rectangle(0,50, clientRect.width, 150), _("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013"));
+    fillabout->Construct(Tizen::Graphics::Rectangle(0, 45, clientRect.width, 150), _("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013"));
     fillabout->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     fillabout->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* support = new Label();
-    support->Construct(Tizen::Graphics::Rectangle(0, 165, clientRect.width, 50), _("Support"));
+    temp_String = String(_("Support"));
+    temp_String.Append(":");
+    support->Construct(Tizen::Graphics::Rectangle(0, 165, clientRect.width, 50), temp_String);
     support->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     support->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* fillsupport = new Label();
@@ -156,7 +161,9 @@ meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSc
     fillsupport->AddTouchEventListener(*this);
 
     Label* admin = new Label();
-    admin->Construct(Tizen::Graphics::Rectangle(0, 250, clientRect.width, 50), _("Project administrator"));
+    temp_String = String(_("Project administrators"));
+    temp_String.Append(":");
+    admin->Construct(Tizen::Graphics::Rectangle(0, 250, clientRect.width, 50), temp_String);
     admin->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     admin->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* filladmin = new Label();
@@ -165,7 +172,9 @@ meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSc
     filladmin->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* develop = new Label();
-    develop->Construct(Tizen::Graphics::Rectangle(0, 340, clientRect.width, 50), _("Programmers"));
+    temp_String = String(_("Programmer"));
+    temp_String.Append(":");
+    develop->Construct(Tizen::Graphics::Rectangle(0, 340, clientRect.width, 50), temp_String);
     develop->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     develop->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* filldevelop = new Label();
@@ -174,7 +183,9 @@ meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSc
     filldevelop->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* designer = new Label();
-    designer->Construct(Tizen::Graphics::Rectangle(0, 430, clientRect.width, 50), _("Lead designer"));
+    temp_String = String(_("Lead designer"));
+    temp_String.Append(":");
+    designer->Construct(Tizen::Graphics::Rectangle(0, 430, clientRect.width, 50), temp_String);
     designer->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     designer->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* filldesigner = new Label();
@@ -183,7 +194,9 @@ meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSc
     filldesigner->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* manager = new Label();
-    manager->Construct(Tizen::Graphics::Rectangle(0, 520, clientRect.width, 50), _("Project manager"));
+    temp_String = String(_("Project manager"));
+    temp_String.Append(":");
+    manager->Construct(Tizen::Graphics::Rectangle(0, 520, clientRect.width, 50), temp_String);
     manager->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     manager->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* fillmanager = new Label();
@@ -192,7 +205,9 @@ meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSc
     fillmanager->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* platform = new Label();
-    platform->Construct(Tizen::Graphics::Rectangle(0, 610, clientRect.width, 50), _("Localization platform"));
+    temp_String = String(_("Localization platform"));
+    temp_String.Append(":");
+    platform->Construct(Tizen::Graphics::Rectangle(0, 610, clientRect.width, 50),  temp_String);
     platform->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     platform->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
 
@@ -205,11 +220,13 @@ meecastAboutForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSc
     __fillplatform->AddTouchEventListener(*this);
 
     Label* translators = new Label();
-    translators->Construct(Tizen::Graphics::Rectangle(0, 700, clientRect.width, 50), _("Translators"));
+    temp_String = String(_("Translators"));
+    temp_String.Append(":");
+    translators->Construct(Tizen::Graphics::Rectangle(0, 700, clientRect.width, 50), temp_String);
     translators->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     translators->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* filltranslators = new Label();
-    filltranslators->Construct(Tizen::Graphics::Rectangle(0,750, clientRect.width, 350), _("\
+    filltranslators->Construct(Tizen::Graphics::Rectangle(0, 750, clientRect.width, 1300), _("\
 French -  Nicolas Granziano, \n \
 \tPhilippe, Benot Knecht \n \
 Russian - Pavel Fialko, Vlad Vasiliev, \n \
@@ -244,11 +261,13 @@ Swedish - Angela Nennebrandt,\n \
     filltranslators->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* license = new Label();
-    license->Construct(Tizen::Graphics::Rectangle(0, 1100, clientRect.width, 50), _("License"));
+    temp_String = String(_("License"));
+    temp_String.Append(":");
+    license->Construct(Tizen::Graphics::Rectangle(0, 1850, clientRect.width, 50), temp_String);
     license->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     license->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     Label* filllicense = new Label();
-    filllicense->Construct(Tizen::Graphics::Rectangle(0,1130, clientRect.width, 350), _("\
+    filllicense->Construct(Tizen::Graphics::Rectangle(0,1890, clientRect.width, 350), _("\
 This software is free software; you can\n \
 redistribute it and/or modify it under \n \
 the terms of the GNU General Public\n \
@@ -260,11 +279,11 @@ later version."));
     filllicense->SetTextVerticalAlignment(ALIGNMENT_TOP);
 
     Label* source = new Label();
-    source->Construct(Tizen::Graphics::Rectangle(0, 1405, clientRect.width, 50), _("Source code in github"));
+    source->Construct(Tizen::Graphics::Rectangle(0, 2305, clientRect.width, 50), _("Source code on Github"));
     source->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     source->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_GREY));
     __fillsource = new Label();
-    __fillsource->Construct(Tizen::Graphics::Rectangle(0,1455, clientRect.width, 350), "http://github.com/Meecast/meecast");
+    __fillsource->Construct(Tizen::Graphics::Rectangle(0,2355, clientRect.width, 350), "http://github.com/Meecast/meecast");
     __fillsource->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     __fillsource->SetTextVerticalAlignment(ALIGNMENT_TOP);
     __fillsource->SetTextColor(Tizen::Graphics::Color::GetColor(Tizen::Graphics::COLOR_ID_BLUE));

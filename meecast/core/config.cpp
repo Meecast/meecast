@@ -822,6 +822,8 @@ Config::~Config(){
     delete _temperature_unit;
     _languages_list->clear();
     delete _languages_list;
+    _stations->clear();
+    delete _stations;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

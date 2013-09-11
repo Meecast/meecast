@@ -45,6 +45,7 @@ meecastApp::meecastApp(void)
 
 meecastApp::~meecastApp(void)
 {
+//    delete config;
 }
 
 UiApp*

@@ -155,6 +155,7 @@ public:
     Q_INVOKABLE void nextstation();
     Q_INVOKABLE void prevstation();
     Q_INVOKABLE void updatestations();
+    Q_INVOKABLE void updategpsstation();
     Q_INVOKABLE void showweb();
     Q_INVOKABLE void showwebdonation();
     Q_INVOKABLE void showwebsupport();

@@ -18,7 +18,7 @@ cu = c.cursor()
 
 
 #Search  id of country
-cur = cu.execute("select distinct id_gismeteo_new from stations where (name == russian_name)")
+cur = cu.execute("select distinct id_gismeteo_new from stations where (name == russian_name and region_id=176)")
 
 myrow = []
 for row in cur:

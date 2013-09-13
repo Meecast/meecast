@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-13 16:28+0300\n"
+"POT-Creation-Date: 2013-09-13 16:37+0300\n"
 "PO-Revision-Date: 2012-10-05 08:15+0000\n"
 "Last-Translator: quytrong287 <quytrong287@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/meecast/"
@@ -292,7 +292,7 @@ msgstr "AM Mưa tuyết/Gió nhẹ"
 #: omweather/src/weather-simple-popup.c:1164
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/qml/AboutPage.qml:68
+#: meecast/qt-qml/qml/main.qml:56 meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
 msgstr "Giới thiệu"
 
@@ -310,6 +310,11 @@ msgstr "Thêm"
 
 #: omweather/src/weather-settings.c:467
 msgid "Add Station"
+msgstr "Thêm vị trí"
+
+#: meecast/qt-qml/qml/main.qml:49
+#, fuzzy
+msgid "Adjust GPS station"
 msgstr "Thêm vị trí"
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
@@ -2253,7 +2258,7 @@ msgid "Set locations"
 msgstr "Đặt vị trí"
 
 #: omweather/src/weather-home.c:1291 omweather/src/weather-simple-popup.c:1157
-#: omweather/src/weather-simple-status.c:158
+#: omweather/src/weather-simple-status.c:158 meecast/qt-qml/qml/main.qml:42
 #: meecast/qt-qml/qml/SettingsPage.qml:144
 msgid "Settings"
 msgstr "Cài đặt"

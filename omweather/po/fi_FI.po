@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-13 16:28+0300\n"
+"POT-Creation-Date: 2013-09-13 16:37+0300\n"
 "PO-Revision-Date: 2013-08-13 20:22+0000\n"
 "Last-Translator: deadhead\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
@@ -292,7 +292,7 @@ msgstr "ap: Lumikuuroja / Myöhemmin tuulista"
 #: omweather/src/weather-simple-popup.c:1164
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/qml/AboutPage.qml:68
+#: meecast/qt-qml/qml/main.qml:56 meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
 msgstr "Tietoja"
 
@@ -310,6 +310,11 @@ msgstr "Lisää"
 
 #: omweather/src/weather-settings.c:467
 msgid "Add Station"
+msgstr "Lisää asema"
+
+#: meecast/qt-qml/qml/main.qml:49
+#, fuzzy
+msgid "Adjust GPS station"
 msgstr "Lisää asema"
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
@@ -2269,7 +2274,7 @@ msgid "Set locations"
 msgstr "Aseta sijainnit"
 
 #: omweather/src/weather-home.c:1291 omweather/src/weather-simple-popup.c:1157
-#: omweather/src/weather-simple-status.c:158
+#: omweather/src/weather-simple-status.c:158 meecast/qt-qml/qml/main.qml:42
 #: meecast/qt-qml/qml/SettingsPage.qml:144
 msgid "Settings"
 msgstr "Asetukset"

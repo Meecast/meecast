@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-13 16:28+0300\n"
+"POT-Creation-Date: 2013-09-13 16:37+0300\n"
 "PO-Revision-Date: 2012-04-19 10:38+0000\n"
 "Last-Translator: ludmilalisovskaya <ludmila.lisovskaya@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -257,7 +257,7 @@ msgstr ""
 #: omweather/src/weather-simple-popup.c:1164
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/qml/AboutPage.qml:68
+#: meecast/qt-qml/qml/main.qml:56 meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
 msgstr ""
 
@@ -275,6 +275,10 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:467
 msgid "Add Station"
+msgstr ""
+
+#: meecast/qt-qml/qml/main.qml:49
+msgid "Adjust GPS station"
 msgstr ""
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
@@ -2142,7 +2146,7 @@ msgid "Set locations"
 msgstr ""
 
 #: omweather/src/weather-home.c:1291 omweather/src/weather-simple-popup.c:1157
-#: omweather/src/weather-simple-status.c:158
+#: omweather/src/weather-simple-status.c:158 meecast/qt-qml/qml/main.qml:42
 #: meecast/qt-qml/qml/SettingsPage.qml:144
 msgid "Settings"
 msgstr ""

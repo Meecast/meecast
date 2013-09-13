@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-13 16:28+0300\n"
+"POT-Creation-Date: 2013-09-13 16:37+0300\n"
 "PO-Revision-Date: 2012-12-18 10:33+0200\n"
 "Last-Translator: Vlad Vasilyeu <vasvlad@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -271,7 +271,7 @@ msgstr "До полудня снегопады / Позже ветер"
 #: omweather/src/weather-simple-popup.c:1164
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/qml/AboutPage.qml:68
+#: meecast/qt-qml/qml/main.qml:56 meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
 msgstr "О программе"
 
@@ -290,6 +290,11 @@ msgstr "Добавить"
 #: omweather/src/weather-settings.c:467
 msgid "Add Station"
 msgstr "Добавить станцию"
+
+#: meecast/qt-qml/qml/main.qml:49
+#, fuzzy
+msgid "Adjust GPS station"
+msgstr "Добавить свою станцию"
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
 #: omweather/src/weather-settings.c:1381
@@ -543,9 +548,8 @@ msgid "Cloudy and wet snow showers"
 msgstr "Облачно и кратковременный мокрый снег"
 
 #: omweather/src/hash.data:350
-#, fuzzy
 msgid "Cloudy with occasional rain."
-msgstr "Облачно и небольшой дождь"
+msgstr "Облачно, временами дождь"
 
 #: omweather/src/hash.data:48
 msgid "Cloudy, Drifting Snow"
@@ -1105,7 +1109,6 @@ msgid "Heavy Snow / Wind"
 msgstr "Сильный снег / Ветер"
 
 #: omweather/src/hash.data:351
-#, fuzzy
 msgid "Heavy intensity rain"
 msgstr "Сильный дождь"
 
@@ -1330,9 +1333,8 @@ msgid "Low"
 msgstr "Низкий"
 
 #: omweather/src/hash.data:349
-#, fuzzy
 msgid "Mainly cloudy with occasional rain."
-msgstr "Переменная облачность и небольшой дождь"
+msgstr "Пасмурно, временами дождь"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
@@ -1379,9 +1381,8 @@ msgid "Mist"
 msgstr "Легкий туман"
 
 #: omweather/src/hash.data:340
-#, fuzzy
 msgid "Moderate Rain"
-msgstr "Небольшой дождь"
+msgstr "Умеренный дождь"
 
 #: omweather/src/hash.data:339
 msgid "Moderate rain"
@@ -1934,14 +1935,12 @@ msgid "Pressure: "
 msgstr "Давление: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
-#, fuzzy
 msgid "Programmer"
-msgstr "Программисты"
+msgstr "Программист"
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
-#, fuzzy
 msgid "Project administrators"
-msgstr "Администратор проекта"
+msgstr "Администраторы проекта"
 
 #: meecast/qt-qml/qml/AboutPage.qml:202
 msgid "Project manager"
@@ -2224,7 +2223,7 @@ msgid "Set locations"
 msgstr "Установите местоположения"
 
 #: omweather/src/weather-home.c:1291 omweather/src/weather-simple-popup.c:1157
-#: omweather/src/weather-simple-status.c:158
+#: omweather/src/weather-simple-status.c:158 meecast/qt-qml/qml/main.qml:42
 #: meecast/qt-qml/qml/SettingsPage.qml:144
 msgid "Settings"
 msgstr "Настройки"
@@ -2366,9 +2365,8 @@ msgid "Source"
 msgstr "Источник"
 
 #: meecast/qt-qml/qml/AboutPage.qml:320
-#, fuzzy
 msgid "Source code"
-msgstr "Источник"
+msgstr "Исходный код"
 
 #: omweather/src/weather-settings.c:498
 msgid "Source:"
@@ -3361,9 +3359,6 @@ msgstr ""
 
 #~ msgid " Add "
 #~ msgstr " Добавить "
-
-#~ msgid "Add Custom Station"
-#~ msgstr "Добавить свою станцию"
 
 #~ msgid "Delete"
 #~ msgstr "Удалить"

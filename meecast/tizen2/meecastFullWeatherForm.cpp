@@ -1027,7 +1027,7 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
                     Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                     Label* pKeyTitleLabel = new Label();
                     Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(temp_data->temperature().value());
-                    pKeyTitleLabel->Construct(Rectangle( __clientWidth - 120, 20, 100, 50), str);
+                    pKeyTitleLabel->Construct(Rectangle( __clientWidth - 140, 20, 130, 50), str);
                     pKeyTitleLabel->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
                     pKeyTitleLabel->SetTextColor(*color_of_temp);
                     pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_RIGHT);

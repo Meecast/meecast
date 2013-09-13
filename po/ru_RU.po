@@ -293,7 +293,7 @@ msgstr "Добавить станцию"
 
 #: meecast/qt-qml/qml/main.qml:49
 msgid "Adjust GPS station"
-msgstr "Подкорректировать GPS станцию"
+msgstr "Обновить GPS станцию"
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
 #: omweather/src/weather-settings.c:1381

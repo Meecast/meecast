@@ -83,7 +83,7 @@ Page {
 	}
     Label {
             id: projectsitetext 
-            text: Config.tr("Project website") + ":"
+            text: Config.tr("Support") + ":"
 	    anchors.top: aboutfulltext.bottom 
 	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20
@@ -93,7 +93,7 @@ Page {
 	Label {
         signal clicked
         id: projectfulltext 
-	    text: "http://meecast.com"
+	    text: "support@meecast.org"
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    anchors.top: projectsitetext.bottom
@@ -135,7 +135,7 @@ Page {
 
         Label {
             id: projectadministratortext 
-            text: Config.tr("Project administrator") + ":"
+            text: Config.tr("Project administrators") + ":"
 	    anchors.top: splitter.bottom 
 	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20
@@ -144,38 +144,54 @@ Page {
         }
 	Label {
             id: prohectadministatorfulltext 
-	    text: "Vlad Vasilyeu"
+	    text: "Vlad Vasilyeu, Oksana Kalinkevich"
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    anchors.top: projectadministratortext.bottom
 	}
-        Label {
-            id: leadprogrammertext 
-            text: Config.tr ("Programmers") + ":"
+    Label {
+        id: leadprogrammertext 
+        text: Config.tr ("Programmer") + ":"
 	    anchors.top: prohectadministatorfulltext.bottom 
 	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    color: "#999999"
-        }
+    }
 	Label {
-            id: leadprogrammerfulltext 
+        id: leadprogrammerfulltext 
 	    text: "Vlad Vasilyeu, Tanya Makava"
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    anchors.top: leadprogrammertext.bottom
 	}
-	Label {
-            id: leaddesignertext 
-            text: Config.tr("Lead designer") + ":"
+    Label {
+        id: localizationtext
+        text: Config.tr ("Localization platform") + ":"
 	    anchors.top: leadprogrammerfulltext.bottom 
+	    anchors.topMargin: 30 
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    color: "#999999"
+    }
+	Label {
+        id: localizationfulltext 
+	    text: "http://transifex.net"
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    anchors.top: localizationtext.bottom
+	}
+	Label {
+        id: leaddesignertext 
+        text: Config.tr("Lead designer") + ":"
+	    anchors.top: localizationfulltext.bottom 
 	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    color: "#999999"
         }
 	Label {
-            id: leaddesignerfulltext 
+        id: leaddesignerfulltext 
 	    text: "Andrew Zhilin"
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
@@ -277,9 +293,7 @@ jyrik(at)koti.luukku.com";
 	    anchors.top: iconsetext.bottom
 	    font.pixelSize: 20 
 	}
-
-
-        Label {
+    Label {
             id: licensetext  
             text: Config.tr("License") + ":"
             anchors.top: iconsetfulltext.bottom
@@ -287,9 +301,9 @@ jyrik(at)koti.luukku.com";
             anchors.leftMargin: 20
             anchors.left: parent.left
             color: "#999999"
-        }
+    }
 	Label {
-            id: licensefulltext 
+        id: licensefulltext 
 	    text: Config.tr ("This software is free software; you can\n \
 redistribute it and/or modify it under \n \
 the terms of the GNU General Public\n \
@@ -301,6 +315,22 @@ later version.");
 	    anchors.left: parent.left
 	    anchors.top: licensetext.bottom
 	}
-	                                                                                                    
+	Label {
+            id: sourcetext  
+            text: Config.tr("Source code") + ":"
+            anchors.top: licencefulltext.bottom
+            anchors.topMargin: 30
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            color: "#999999"
+    }
+	Label {
+        id: sourcefulltext 
+	    text: Config.tr ("http://github.com/Meecast/meecast");
+	    anchors.leftMargin: 20
+	    anchors.left: parent.left
+	    anchors.top: sourcetext.bottom
+	}
+                                                                                                    
     }
 }

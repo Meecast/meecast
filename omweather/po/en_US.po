@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-11 15:31+0300\n"
-"PO-Revision-Date: 2012-04-16 13:52+0000\n"
+"POT-Creation-Date: 2013-09-13 16:37+0300\n"
+"PO-Revision-Date: 2013-08-12 08:22+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
@@ -112,11 +112,11 @@ msgstr ""
 
 #: meecast/qt-qml/dataitem.cpp:479 meecast/qt-qml/dataitem.cpp:480
 msgid "(Low)"
-msgstr ""
+msgstr "(Low)"
 
 #: meecast/qt-qml/dataitem.cpp:481 meecast/qt-qml/dataitem.cpp:482
 msgid "(Moderate)"
-msgstr ""
+msgstr "(Moderate)"
 
 #: omweather/src/weather-simple-settings.c:1714
 #: omweather/src/weather-simple-settings.c:2811
@@ -143,9 +143,8 @@ msgid "10 seconds"
 msgstr "10 seconds"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:175
-#, fuzzy
 msgid "12 hours"
-msgstr "2 hours"
+msgstr "12 hours"
 
 #: omweather/src/weather-sensor.c:151 meecast/qt-qml/qml/UpdatePage.qml:140
 msgid "15 minutes"
@@ -286,7 +285,7 @@ msgstr "AM Snow Showers / Wind Late"
 #: omweather/src/weather-simple-popup.c:1164
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/qml/AboutPage.qml:68
+#: meecast/qt-qml/qml/main.qml:56 meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
 msgstr "About"
 
@@ -304,6 +303,11 @@ msgstr "Add"
 
 #: omweather/src/weather-settings.c:467
 msgid "Add Station"
+msgstr "Add Station"
+
+#: meecast/qt-qml/qml/main.qml:49
+#, fuzzy
+msgid "Adjust GPS station"
 msgstr "Add Station"
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
@@ -393,7 +397,7 @@ msgstr "Automatically update data when connecting to the Internet"
 
 #: omweather/src/hash.data:330
 msgid "Back"
-msgstr ""
+msgstr "Back"
 
 #: omweather/src/weather-settings.c:3378 omweather/src/weather-settings.c:3382
 msgid "Background color:"
@@ -414,11 +418,11 @@ msgstr "Blowing Snow"
 
 #: omweather/src/hash.data:332
 msgid "Broken Clouds"
-msgstr ""
+msgstr "Broken Clouds"
 
 #: omweather/src/hash.data:333
 msgid "Broken clouds"
-msgstr ""
+msgstr "Broken clouds"
 
 #: omweather/src/weather-home.c:1536 omweather/src/weather-home.c:1562
 #: omweather/src/weather-simple-popup.c:1042
@@ -451,7 +455,7 @@ msgstr "Celcius"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:114
 msgid "Celsius"
-msgstr ""
+msgstr "Celsius"
 
 #: omweather/src/weather-simple-settings.c:677
 #: omweather/src/weather-simple-settings.c:710
@@ -549,9 +553,13 @@ msgid "Cloudy and snow showers"
 msgstr "Cloudy and snow showers"
 
 #: omweather/src/hash.data:46
-#, fuzzy
 msgid "Cloudy and wet snow showers"
-msgstr "Cloudy and snow showers"
+msgstr "Cloudy and wet snow showers"
+
+#: omweather/src/hash.data:350
+#, fuzzy
+msgid "Cloudy with occasional rain."
+msgstr "Cloudy and light rain"
 
 #: omweather/src/hash.data:48
 msgid "Cloudy, Drifting Snow"
@@ -598,9 +606,8 @@ msgid "Cloudy, Snow"
 msgstr "Cloudy, Snow"
 
 #: omweather/src/hash.data:58
-#, fuzzy
 msgid "Cloudy, thunderstorms with rain"
-msgstr "Overcast and light rain"
+msgstr "Cloudy, thunderstorms with rain"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:413
 msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
@@ -646,7 +653,7 @@ msgstr "Custom"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:183
 msgid "Daily"
-msgstr ""
+msgstr "Daily"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
 #: meecast/qt-qml/qml/FullWeatherPage.qml:188
@@ -862,18 +869,16 @@ msgid "Fair"
 msgstr "Fair"
 
 #: omweather/src/hash.data:328
-#, fuzzy
 msgid "Feels like"
-msgstr "Feels like:"
+msgstr "Feels like"
 
 #: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
 msgid "Feels like:"
 msgstr "Feels like:"
 
 #: omweather/src/hash.data:335
-#, fuzzy
 msgid "Few Clouds"
-msgstr "Cloudy"
+msgstr "Few Clouds"
 
 #: omweather/src/hash.data:77
 msgid "Few Showers"
@@ -897,20 +902,19 @@ msgstr "Few Snow Showers / Wind"
 
 #: omweather/src/hash.data:334
 msgid "Few clouds"
-msgstr ""
+msgstr "Few clouds"
 
 #: meecast/qt-qml/qml/StationsPage.qml:92
 msgid "Find location via GPS"
 msgstr "Find location via GPS"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:428
-#, fuzzy
 msgid ""
 "Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
 "Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
 msgstr ""
 "Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
-"Lopez; Slovak - Roman Moravčík\n"
+"Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
 
 #: omweather/src/hash.data:81
 msgid "First Quarter"
@@ -919,9 +923,8 @@ msgstr "First Quarter"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:154
 #: meecast/qt-qml/qml/FullWeatherPage.qml:212
 #: meecast/qt-qml/qml/FullWeatherPage.qml:262
-#, fuzzy
 msgid "Flike"
-msgstr "Flike:"
+msgstr "Flike"
 
 #: omweather/src/hash.data:85
 msgid "Fog"
@@ -980,9 +983,40 @@ msgstr "Forecast: \n"
 msgid "Freezing Drizzle"
 msgstr "Freezing Drizzle"
 
-#: meecast/qt-qml/qml/AboutPage.qml:211
+#: meecast/qt-qml/qml/AboutPage.qml:227
 #, fuzzy
 msgid ""
+"French -  Nicolas Granziano, \n"
+" \tPhilippe, Benot Knecht \n"
+" Russian - Pavel Fialko, Vlad Vasiliev, \n"
+" \tEd Bartosh\n"
+" Finnish - Marko Vertainen\n"
+" German -  Claudius Henrichs\n"
+" Italian - Lorenzo Facca,\n"
+" \tPavel Fialko, Alessandro Pasotti,\n"
+" \tSalvatore Fiorenzo, Ilir Gjika,\n"
+" \tLuca Onnis\n"
+" Spanish - Alejandro Lopez, Agustí Clara\n"
+" Polish - Tomasz Dominikowski\n"
+" Slovak - Roman Moravčík\n"
+" Dutch - Tom Leenders, Michiel Pater\n"
+" Bulgarian - Zlatko Enikov\n"
+" Albanian - Ilir Gjika\n"
+" Chinese - Wong Man Kong, Michael\n"
+" Portuguese - Jose Narciso,\n"
+" Turkish - Burak Kaan Kose,\n"
+" Catalan - Agustí Clara,\n"
+" Arabic - Tarad Alfandi,\n"
+" Serbian - Aleksandar Zaric,\n"
+" Norwegian - Peer-Atle Motland,\n"
+" Hungarian - Salmi,\n"
+" Chinese(Taiwan) - osk2, \n"
+" Vietnamese - Hieu Nguyen\n"
+" \tAnh Dương and truongnx, \n"
+" Swedish - Angela Nennebrandt,\n"
+" \tNiklas Åkerström, \n"
+" \tTomislav Veleckovik"
+msgstr ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
 " Russian - Pavel Fialko, Vlad Vasiliev, \n"
@@ -1012,19 +1046,6 @@ msgid ""
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
-msgstr ""
-"French -  Nicolas Granziano, \n"
-" \tPhilippe, Benot Knecht \n"
-" Russian - Pavel Fialko, Vlad Vasiliev, \n"
-" \tEd Bartosh\n"
-" Finnish - Marko Vertainen\n"
-" German -  Claudius Henrichs\n"
-" Italian - Pavel Fialko, Alessandro Pasotti,\n"
-" \tSalvatore Fiorenzo, Luca Onnis\n"
-" Spanish - Alejandro Lopez\n"
-" Polish - Tomasz Dominikowski\n"
-" Slovak - Roman Moravčík \n"
-" Swedish - Angela Nennebrandt, Tomislav Veleckovik"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1117,23 +1138,20 @@ msgid "Heavy Snow"
 msgstr "Heavy Snow"
 
 #: omweather/src/hash.data:94
-#, fuzzy
 msgid "Heavy Snow / Wind"
-msgstr "Heavy Rain / Wind"
+msgstr "Heavy Snow / Wind"
 
-#: omweather/src/hash.data:347
-#, fuzzy
+#: omweather/src/hash.data:351
 msgid "Heavy intensity rain"
-msgstr "Heavy Rain"
+msgstr "Heavy intensity rain"
 
 #: omweather/src/hash.data:95
 msgid "High"
 msgstr "High"
 
 #: omweather/src/hash.data:329
-#, fuzzy
 msgid "Hourly"
-msgstr "Hours"
+msgstr "Hourly"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:280
 msgid "Hours"
@@ -1142,9 +1160,8 @@ msgstr "Hours"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:136
 #: meecast/qt-qml/qml/FullWeatherPage.qml:194
 #: meecast/qt-qml/qml/FullWeatherPage.qml:244
-#, fuzzy
 msgid "Humidity"
-msgstr "Humidity:"
+msgstr "Humidity"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
@@ -1168,7 +1185,7 @@ msgstr "Icons"
 msgid "Iconset"
 msgstr "Iconset"
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:247
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:264
 msgid "Iconsets"
 msgstr "Iconsets"
 
@@ -1188,13 +1205,12 @@ msgid "Isolated T-Storms / Wind"
 msgstr "Isolated T-Storms / Wind"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:429
-#, fuzzy
 msgid ""
 "Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
 "Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov"
 msgstr ""
 "Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
-"Polish - Tomasz Dominikowski;"
+"Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov"
 
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
@@ -1202,7 +1218,7 @@ msgstr "Kilometers"
 
 #: omweather/src/hash.data:331
 msgid "Language"
-msgstr ""
+msgstr "Language"
 
 #: omweather/src/hash.data:100
 msgid "Last Quarter"
@@ -1235,11 +1251,11 @@ msgstr "Lawn and Garden Weather"
 msgid "Layout:"
 msgstr "Layout:"
 
-#: meecast/qt-qml/qml/AboutPage.qml:170
+#: meecast/qt-qml/qml/AboutPage.qml:186
 msgid "Lead designer"
 msgstr "Lead designer"
 
-#: meecast/qt-qml/qml/AboutPage.qml:283
+#: meecast/qt-qml/qml/AboutPage.qml:298
 msgid "License"
 msgstr "License"
 
@@ -1320,14 +1336,12 @@ msgid "Light Snow Shower"
 msgstr "Light Snow Shower"
 
 #: omweather/src/hash.data:336
-#, fuzzy
 msgid "Light rain"
-msgstr "Light Rain"
+msgstr "Light rain"
 
 #: omweather/src/hash.data:338
-#, fuzzy
 msgid "Light snow"
-msgstr "Light Snow"
+msgstr "Light snow"
 
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
@@ -1336,6 +1350,10 @@ msgstr "Loading station list"
 #: omweather/src/hash.data:122
 msgid "Local Pollen Reports"
 msgstr "Local Pollen Reports"
+
+#: meecast/qt-qml/qml/AboutPage.qml:170
+msgid "Localization platform"
+msgstr ""
 
 #: omweather/src/weather-settings.c:3454
 msgid "Long"
@@ -1348,6 +1366,11 @@ msgstr "Looks like there's no info for this location."
 #: omweather/src/hash.data:124
 msgid "Low"
 msgstr "Low"
+
+#: omweather/src/hash.data:349
+#, fuzzy
+msgid "Mainly cloudy with occasional rain."
+msgstr "Partly cloudy and light rain"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
@@ -1374,13 +1397,12 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2013"
 msgstr ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2011"
+"client based on OMWeather code. Copyright (C) 2006-2013"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -1399,14 +1421,12 @@ msgid "Mist"
 msgstr "Mist"
 
 #: omweather/src/hash.data:340
-#, fuzzy
 msgid "Moderate Rain"
-msgstr "Overcast and light rain"
+msgstr "Moderate Rain"
 
 #: omweather/src/hash.data:339
-#, fuzzy
 msgid "Moderate rain"
-msgstr "Overcast and light rain"
+msgstr "Moderate rain"
 
 #: omweather/src/weather-simple-settings.c:434
 msgid "Modification"
@@ -1692,9 +1712,8 @@ msgid "Overcast"
 msgstr "Overcast"
 
 #: omweather/src/hash.data:342
-#, fuzzy
 msgid "Overcast Clouds"
-msgstr "Overcast"
+msgstr "Overcast Clouds"
 
 #: omweather/src/hash.data:170
 msgid "Overcast and light rain"
@@ -1709,9 +1728,8 @@ msgid "Overcast and light wet snow"
 msgstr "Overcast and light wet snow"
 
 #: omweather/src/hash.data:173
-#, fuzzy
 msgid "Overcast and rain"
-msgstr "Overcast and light rain"
+msgstr "Overcast and rain"
 
 #: omweather/src/hash.data:174
 msgid "Overcast and showers"
@@ -1734,14 +1752,12 @@ msgid "Overcast and wet snow showers"
 msgstr "Overcast and wet snow showers"
 
 #: omweather/src/hash.data:341
-#, fuzzy
 msgid "Overcast clouds"
-msgstr "Overcast"
+msgstr "Overcast clouds"
 
 #: omweather/src/hash.data:179
-#, fuzzy
 msgid "Overcast, thunderstorms with rain"
-msgstr "Overcast and light rain"
+msgstr "Overcast, thunderstorms with rain"
 
 #: omweather/src/hash.data:181
 msgid "PM Fog"
@@ -1912,9 +1928,8 @@ msgid "Partly cloudy and wet snow showers"
 msgstr "Partly cloudy and wet snow showers"
 
 #: omweather/src/hash.data:196 omweather/src/hash.data:223
-#, fuzzy
 msgid "Partly cloudy, possible thunderstorms with rain"
-msgstr "Partly cloudy and light rain"
+msgstr "Partly cloudy, possible thunderstorms with rain"
 
 #: omweather/src/weather-simple-settings.c:1676
 msgid "Period"
@@ -1961,21 +1976,17 @@ msgstr "Pressure: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
 #, fuzzy
-msgid "Programmers"
-msgstr "Lead programmers"
+msgid "Programmer"
+msgstr "Programmers"
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
-msgid "Project administrator"
-msgstr "Project administrator"
-
-#: meecast/qt-qml/qml/AboutPage.qml:186
 #, fuzzy
-msgid "Project manager"
+msgid "Project administrators"
 msgstr "Project administrator"
 
-#: meecast/qt-qml/qml/AboutPage.qml:86
-msgid "Project website"
-msgstr "Project website"
+#: meecast/qt-qml/qml/AboutPage.qml:202
+msgid "Project manager"
+msgstr "Project manager"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:922
 msgid "Provided by"
@@ -2130,9 +2141,8 @@ msgid "Save"
 msgstr "Save"
 
 #: omweather/src/hash.data:344
-#, fuzzy
 msgid "Scattered Clouds"
-msgstr "Scattered Snow"
+msgstr "Scattered Clouds"
 
 #: omweather/src/hash.data:257
 msgid "Scattered Showers"
@@ -2151,9 +2161,8 @@ msgid "Scattered T-Storms"
 msgstr "Scattered T-Storms"
 
 #: omweather/src/hash.data:343
-#, fuzzy
 msgid "Scattered clouds"
-msgstr "Scattered Snow"
+msgstr "Scattered clouds"
 
 #: omweather/src/weather-settings.c:3943
 msgid "Sea miles"
@@ -2192,32 +2201,31 @@ msgstr "Select source"
 
 #: meecast/qt-qml/qml/LockScreen.qml:85
 msgid "Select the X-position for left corner of widget"
-msgstr ""
+msgstr "Select the X-position for left corner of widget"
 
 #: meecast/qt-qml/qml/LockScreen.qml:125
 msgid "Select the Y-position for left corner of widget"
-msgstr ""
+msgstr "Select the Y-position for left corner of widget"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:267
 msgid "Select the color of font for current temperature"
-msgstr ""
+msgstr "Select the color of font for current temperature"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:123
 msgid "Select the color of font for station name"
-msgstr ""
+msgstr "Select the color of font for station name"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:195
 msgid "Select the color of font for temperature"
-msgstr ""
+msgstr "Select the color of font for temperature"
 
 #: meecast/qt-qml/qml/IconsetPage.qml:97
 msgid "Select the iconset"
 msgstr "Select the iconset"
 
 #: meecast/qt-qml/qml/LanguagesPage.qml:130
-#, fuzzy
 msgid "Select the language"
-msgstr "Select the iconset"
+msgstr "Select the language"
 
 #: meecast/qt-qml/qml/SourcePage.qml:108
 msgid "Select the weather source"
@@ -2257,29 +2265,26 @@ msgid "Set locations"
 msgstr "Set locations"
 
 #: omweather/src/weather-home.c:1291 omweather/src/weather-simple-popup.c:1157
-#: omweather/src/weather-simple-status.c:158
+#: omweather/src/weather-simple-status.c:158 meecast/qt-qml/qml/main.qml:42
 #: meecast/qt-qml/qml/SettingsPage.qml:144
 msgid "Settings"
 msgstr "Settings"
 
 #: meecast/qt-qml/qml/LockScreen.qml:65
 msgid "Settings for Lockscreen widget"
-msgstr ""
+msgstr "Settings for Lockscreen widget"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:102
-#, fuzzy
 msgid "Settings for standby widget"
-msgstr "Widget in StandbyScreen"
+msgstr "Settings for standby widget"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:534
-#, fuzzy
 msgid "Settings of LockScreen"
-msgstr "Widget in StandbyScreen"
+msgstr "Settings of LockScreen"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:514
-#, fuzzy
 msgid "Settings of StandbyScreen"
-msgstr "Widget in StandbyScreen"
+msgstr "Settings of StandbyScreen"
 
 #: omweather/src/hash.data:262
 msgid "Shallow Fog"
@@ -2294,9 +2299,8 @@ msgid "Show arrows"
 msgstr "Show arrows"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:605
-#, fuzzy
 msgid "Show on Map"
-msgstr "Show station name"
+msgstr "Show on Map"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
@@ -2339,14 +2343,12 @@ msgid "Showers in the Vicinity"
 msgstr "Showers in the Vicinity"
 
 #: omweather/src/hash.data:346
-#, fuzzy
 msgid "Sky is Clear"
-msgstr "Mostly clear"
+msgstr "Sky is Clear"
 
 #: omweather/src/hash.data:345
-#, fuzzy
 msgid "Sky is clear"
-msgstr "Mostly clear"
+msgstr "Sky is clear"
 
 #: omweather/src/hash.data:269
 msgid "Sleet"
@@ -2404,6 +2406,11 @@ msgstr "Snow to Wintry Mix / Wind"
 msgid "Source"
 msgstr "Source"
 
+#: meecast/qt-qml/qml/AboutPage.qml:320
+#, fuzzy
+msgid "Source code"
+msgstr "Source"
+
 #: omweather/src/weather-settings.c:498
 msgid "Source:"
 msgstr "Source:"
@@ -2423,7 +2430,7 @@ msgstr "Speed:"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:491
 msgid "Splash screen"
-msgstr ""
+msgstr "Splash screen"
 
 #: omweather/src/weather-settings.c:522
 msgid "State:"
@@ -2455,6 +2462,10 @@ msgstr "Sunny"
 msgid "Sunny / Wind"
 msgstr "Sunny / Wind"
 
+#: omweather/src/hash.data:347 omweather/src/hash.data:348
+msgid "Sunny periods and a few showers."
+msgstr ""
+
 #: omweather/src/hash.data:285 meecast/qt-qml/qml/FullWeatherPage.qml:292
 msgid "Sunrise:"
 msgstr "Sunrise:"
@@ -2470,6 +2481,10 @@ msgstr "Sunset:"
 #: omweather/src/weather-popup.c:139 omweather/src/weather-popup.c:1150
 msgid "Sunset: "
 msgstr "Sunset: "
+
+#: meecast/qt-qml/qml/AboutPage.qml:86
+msgid "Support"
+msgstr ""
 
 #: omweather/src/weather-settings.c:3773
 msgid "Swap hi/low temperature"
@@ -2535,11 +2550,11 @@ msgstr "Thanks"
 msgid "The weather has been updated."
 msgstr "The weather has been updated."
 
-#: omweather/src/hash.data:348
+#: omweather/src/hash.data:352
 msgid "There are no stations to show in this view of the list"
-msgstr ""
+msgstr "There are no stations to show in this view of the list"
 
-#: meecast/qt-qml/qml/AboutPage.qml:292
+#: meecast/qt-qml/qml/AboutPage.qml:307
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2570,9 +2585,8 @@ msgid "Thunder"
 msgstr "Thunder"
 
 #: omweather/src/hash.data:295
-#, fuzzy
 msgid "Thunder in the Vicinity"
-msgstr "Showers in the Vicinity"
+msgstr "Thunder in the Vicinity"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
@@ -2581,7 +2595,7 @@ msgstr "Showers in the Vicinity"
 msgid "Today"
 msgstr "Today"
 
-#: omweather/src/weather-help.c:154 meecast/qt-qml/qml/AboutPage.qml:202
+#: omweather/src/weather-help.c:154 meecast/qt-qml/qml/AboutPage.qml:218
 msgid "Translators"
 msgstr "Translators"
 
@@ -2608,7 +2622,7 @@ msgstr "Type of click:"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:174
 msgid "UV index:"
-msgstr ""
+msgstr "UV index:"
 
 #: omweather/src/weather-settings.c:1135 omweather/src/weather-settings.c:1334
 #: omweather/src/weather-settings.c:1338
@@ -2698,9 +2712,8 @@ msgid "Visible items:"
 msgstr "Visible items:"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:58 meecast/qt-qml/qml/UnitsPage.qml:209
-#, fuzzy
 msgid "Visible units"
-msgstr "Visible items:"
+msgstr "Visible units"
 
 #: omweather/src/weather-popup.c:1288
 #: meecast/qt-qml/qml/FullWeatherPage.qml:171
@@ -2802,9 +2815,8 @@ msgstr "Wind"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:139
 #: meecast/qt-qml/qml/FullWeatherPage.qml:197
 #: meecast/qt-qml/qml/FullWeatherPage.qml:247
-#, fuzzy
 msgid "Wind direction"
-msgstr "Wind direction:"
+msgstr "Wind direction"
 
 #: omweather/src/hash.data:311
 msgid "Wind direction:"
@@ -2982,6 +2994,10 @@ msgstr "hour ago"
 msgid "hours ago"
 msgstr "hours ago"
 
+#: meecast/qt-qml/qml/AboutPage.qml:329
+msgid "http://github.com/Meecast/meecast"
+msgstr ""
+
 #: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
 #: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
 #: omweather/src/weather-popup.c:983 omweather/src/weather-popup.c:1115
@@ -3126,37 +3142,37 @@ msgstr "station name"
 msgid "steady"
 msgstr "steady"
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:353
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:354
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:355
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:356
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:357
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:358
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:359
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:356
+#: omweather/src/hash.data:360
 msgid "Ю-З"
 msgstr "Ю-З"
 
-#~ msgid "Flike:"
-#~ msgstr "Flike:"
+#~ msgid "Project website"
+#~ msgstr "Project website"

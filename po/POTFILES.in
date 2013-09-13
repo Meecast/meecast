@@ -16,6 +16,7 @@ omweather/src/weather-utils.c
 meecast/netbook-UX/meego-netbookUX-omweather.cpp
 meecast/netbook-UX/meego-panel-omweather.cpp
 meecast/qt-qml/dataitem.cpp
+meecast/qt-qml/qml/main.qml
 meecast/qt-qml/qml/AboutPage.qml
 meecast/qt-qml/qml/SourcePage.qml
 meecast/qt-qml/qml/CityPage.qml

@@ -29,6 +29,7 @@
 #include <string.h>
 #include <time.h>
 #include <locale.h>
+#include <ctype.h> 
 /*******************************************************************************/
 #define buff_size 2048
 #if GLIB
@@ -292,6 +293,13 @@ parse_current_weather(const char *detail_path_data, const char *result_file){
                 snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%s", comma);
                 if (strlen(temp_buffer) > 3)
                     temp_buffer[strlen(temp_buffer) - 2] = 0; 
+                int l=0;
+                while (temp_buffer[l]){
+                    temp_buffer[l] = tolower(temp_buffer[l]);
+                    l++;
+                }
+                if (temp_buffer[0])
+                    temp_buffer[0] = toupper(temp_buffer[0]);
                 fprintf(file_out,"     <description>%s</description>\n", temp_buffer);				                
             }else
                 if (comma = strstr(buffer, " : ")){
@@ -299,6 +307,13 @@ parse_current_weather(const char *detail_path_data, const char *result_file){
                     snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%s", comma);
                     if (strlen(temp_buffer) > 3)
                         temp_buffer[strlen(temp_buffer) - 1] = 0; 
+                    int l=0;
+                    while (temp_buffer[l]){
+                        temp_buffer[l] = tolower(temp_buffer[l]);
+                        l++;
+                    }
+                    if (temp_buffer[0])
+                        temp_buffer[0] = toupper(temp_buffer[0]);
                     fprintf(file_out,"     <description>%s</description>\n", temp_buffer);				                       
                 }
         }

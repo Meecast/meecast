@@ -224,7 +224,7 @@ Page {
         }
 	Label {
             id: translatorsfulltext 
-	    text: Config.tr ("\
+            text: Config.tr("\
 French -  Nicolas Granziano, \n \
 \tPhilippe, Benot Knecht \n \
 Russian - Pavel Fialko, Vlad Vasiliev, \n \
@@ -249,7 +249,7 @@ Arabic - Tarad Alfandi,\n \
 Serbian - Aleksandar Zaric,\n \
 Norwegian - Peer-Atle Motland,\n \
 Hungarian - Salmi,\n \
-Chinese(Taiwan) - osk2, \n \ 	
+Chinese(Taiwan) - osk2, \n \
 Vietnamese - Hieu Nguyen\n \
 \tAnh Dương and truongnx, \n \
 Swedish - Angela Nennebrandt,\n \
@@ -318,7 +318,7 @@ later version.");
 	Label {
             id: sourcetext  
             text: Config.tr("Source code") + ":"
-            anchors.top: licencefulltext.bottom
+            anchors.top: licensefulltext.bottom
             anchors.topMargin: 30
             anchors.leftMargin: 20
             anchors.left: parent.left

@@ -344,6 +344,10 @@
     g_hash_table_insert(hash, (void*)"Scattered Clouds", _("Scattered Clouds"));
     g_hash_table_insert(hash, (void*)"Sky is clear", _("Sky is clear"));
     g_hash_table_insert(hash, (void*)"Sky is Clear", _("Sky is Clear"));
+    g_hash_table_insert(hash, (void*)"Sunny periods and a few showers.", _("Sunny periods and a few showers."));
+    g_hash_table_insert(hash, (void*)"Sunny periods and a few showers.", _("Sunny periods and a few showers."));
+    g_hash_table_insert(hash, (void*)"Mainly cloudy with occasional rain.", _("Mainly cloudy with occasional rain."));
+    g_hash_table_insert(hash, (void*)"Cloudy with occasional rain.", _("Cloudy with occasional rain."));
     g_hash_table_insert(hash, (void*)"Heavy intensity rain", _("Heavy intensity rain"));
     g_hash_table_insert(hash, (void*)"There are no stations to show in this view of the list", _("There are no stations to show in this view of the list"));
     g_hash_table_insert(hash, (void*)"В", _("В"));

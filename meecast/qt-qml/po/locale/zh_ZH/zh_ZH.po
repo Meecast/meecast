@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-11 15:31+0300\n"
+"POT-Creation-Date: 2013-09-13 16:28+0300\n"
 "PO-Revision-Date: 2012-12-20 12:13+0000\n"
 "Last-Translator: Ludmila Lisovskaya <ludmila.lisovskaya@gmail.com>\n"
 "Language-Team: Chinese (http://www.transifex.com/projects/p/meecast/language/"
@@ -555,6 +555,11 @@ msgstr "多云时阵雪"
 msgid "Cloudy and wet snow showers"
 msgstr "多云时阵雪"
 
+#: omweather/src/hash.data:350
+#, fuzzy
+msgid "Cloudy with occasional rain."
+msgstr "多云时小雨"
+
 #: omweather/src/hash.data:48
 msgid "Cloudy, Drifting Snow"
 msgstr "多云, 飘雪"
@@ -977,7 +982,7 @@ msgstr "预测: \n"
 msgid "Freezing Drizzle"
 msgstr "冻毛毛雨"
 
-#: meecast/qt-qml/qml/AboutPage.qml:211
+#: meecast/qt-qml/qml/AboutPage.qml:227
 #, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
@@ -990,7 +995,7 @@ msgid ""
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
 " \tLuca Onnis\n"
-" Spanish - Alejandro Lopez\n"
+" Spanish - Alejandro Lopez, Agustí Clara\n"
 " Polish - Tomasz Dominikowski\n"
 " Slovak - Roman Moravčík\n"
 " Dutch - Tom Leenders, Michiel Pater\n"
@@ -1004,6 +1009,7 @@ msgid ""
 " Serbian - Aleksandar Zaric,\n"
 " Norwegian - Peer-Atle Motland,\n"
 " Hungarian - Salmi,\n"
+" Chinese(Taiwan) - osk2, \n"
 " Vietnamese - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
 " Swedish - Angela Nennebrandt,\n"
@@ -1132,7 +1138,7 @@ msgstr "大雪"
 msgid "Heavy Snow / Wind"
 msgstr "大雪"
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:351
 #, fuzzy
 msgid "Heavy intensity rain"
 msgstr "大雨"
@@ -1178,7 +1184,7 @@ msgstr "图标"
 msgid "Iconset"
 msgstr "图标设置"
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:247
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:264
 msgid "Iconsets"
 msgstr "图标集"
 
@@ -1244,11 +1250,11 @@ msgstr "草坪和花园的天气"
 msgid "Layout:"
 msgstr "设计: "
 
-#: meecast/qt-qml/qml/AboutPage.qml:170
+#: meecast/qt-qml/qml/AboutPage.qml:186
 msgid "Lead designer"
 msgstr "首席设计师"
 
-#: meecast/qt-qml/qml/AboutPage.qml:283
+#: meecast/qt-qml/qml/AboutPage.qml:298
 msgid "License"
 msgstr "许可"
 
@@ -1346,6 +1352,10 @@ msgstr "载入地区列表"
 msgid "Local Pollen Reports"
 msgstr "当地花粉报告"
 
+#: meecast/qt-qml/qml/AboutPage.qml:170
+msgid "Localization platform"
+msgstr ""
+
 #: omweather/src/weather-settings.c:3454
 msgid "Long"
 msgstr "长"
@@ -1357,6 +1367,11 @@ msgstr "看起来好像还没有这个地区的天气信息啊"
 #: omweather/src/hash.data:124
 msgid "Low"
 msgstr "最低"
+
+#: omweather/src/hash.data:349
+#, fuzzy
+msgid "Mainly cloudy with occasional rain."
+msgstr "局部多云有小雨"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
@@ -1966,20 +1981,18 @@ msgid "Pressure: "
 msgstr "气压: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
-msgid "Programmers"
+#, fuzzy
+msgid "Programmer"
 msgstr "程序员"
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
-msgid "Project administrator"
+#, fuzzy
+msgid "Project administrators"
 msgstr "项目负责人"
 
-#: meecast/qt-qml/qml/AboutPage.qml:186
+#: meecast/qt-qml/qml/AboutPage.qml:202
 msgid "Project manager"
 msgstr "项目管理"
-
-#: meecast/qt-qml/qml/AboutPage.qml:86
-msgid "Project website"
-msgstr "项目网址"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:922
 msgid "Provided by"
@@ -2404,6 +2417,11 @@ msgstr ""
 msgid "Source"
 msgstr "服务器"
 
+#: meecast/qt-qml/qml/AboutPage.qml:320
+#, fuzzy
+msgid "Source code"
+msgstr "服务器"
+
 #: omweather/src/weather-settings.c:498
 msgid "Source:"
 msgstr "服务器:"
@@ -2455,6 +2473,10 @@ msgstr "晴朗"
 msgid "Sunny / Wind"
 msgstr ""
 
+#: omweather/src/hash.data:347 omweather/src/hash.data:348
+msgid "Sunny periods and a few showers."
+msgstr ""
+
 #: omweather/src/hash.data:285 meecast/qt-qml/qml/FullWeatherPage.qml:292
 msgid "Sunrise:"
 msgstr "日出:"
@@ -2470,6 +2492,10 @@ msgstr "日落:"
 #: omweather/src/weather-popup.c:139 omweather/src/weather-popup.c:1150
 msgid "Sunset: "
 msgstr "日落: "
+
+#: meecast/qt-qml/qml/AboutPage.qml:86
+msgid "Support"
+msgstr ""
 
 #: omweather/src/weather-settings.c:3773
 msgid "Swap hi/low temperature"
@@ -2535,11 +2561,11 @@ msgstr "致谢"
 msgid "The weather has been updated."
 msgstr "天气已经更新了."
 
-#: omweather/src/hash.data:348
+#: omweather/src/hash.data:352
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:292
+#: meecast/qt-qml/qml/AboutPage.qml:307
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2580,7 +2606,7 @@ msgstr "周围有阵雨"
 msgid "Today"
 msgstr "今天"
 
-#: omweather/src/weather-help.c:154 meecast/qt-qml/qml/AboutPage.qml:202
+#: omweather/src/weather-help.c:154 meecast/qt-qml/qml/AboutPage.qml:218
 msgid "Translators"
 msgstr "翻译名单"
 
@@ -2975,6 +3001,10 @@ msgstr "小时前"
 msgid "hours ago"
 msgstr "小时前"
 
+#: meecast/qt-qml/qml/AboutPage.qml:329
+msgid "http://github.com/Meecast/meecast"
+msgstr ""
+
 #: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
 #: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
 #: omweather/src/weather-popup.c:983 omweather/src/weather-popup.c:1115
@@ -3119,34 +3149,37 @@ msgstr "地区名称"
 msgid "steady"
 msgstr "稳定"
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:353
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:354
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:355
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:356
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:357
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:358
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:359
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:356
+#: omweather/src/hash.data:360
 msgid "Ю-З"
 msgstr "Ю-З"
+
+#~ msgid "Project website"
+#~ msgstr "项目网址"

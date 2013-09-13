@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-11 15:31+0300\n"
-"PO-Revision-Date: 2013-06-24 15:13+0000\n"
+"POT-Creation-Date: 2013-09-13 16:28+0300\n"
+"PO-Revision-Date: 2013-08-12 13:18+0000\n"
 "Last-Translator: agustí clara <agusti.clara@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/meecast/language/"
 "ca/)\n"
@@ -417,14 +417,12 @@ msgid "Blowing Snow"
 msgstr "Torb"
 
 #: omweather/src/hash.data:332
-#, fuzzy
 msgid "Broken Clouds"
-msgstr "poc núvol"
+msgstr "Núvols trencats"
 
 #: omweather/src/hash.data:333
-#, fuzzy
 msgid "Broken clouds"
-msgstr "poc núvol"
+msgstr "Núvols trencats"
 
 #: omweather/src/weather-home.c:1536 omweather/src/weather-home.c:1562
 #: omweather/src/weather-simple-popup.c:1042
@@ -557,6 +555,11 @@ msgstr "Núvol i ruixats de neu"
 #: omweather/src/hash.data:46
 msgid "Cloudy and wet snow showers"
 msgstr "Núvol i ruixats de neu humida"
+
+#: omweather/src/hash.data:350
+#, fuzzy
+msgid "Cloudy with occasional rain."
+msgstr "Núvol i pluja suau"
 
 #: omweather/src/hash.data:48
 msgid "Cloudy, Drifting Snow"
@@ -874,9 +877,8 @@ msgid "Feels like:"
 msgstr "Sensació tèrmica:"
 
 #: omweather/src/hash.data:335
-#, fuzzy
 msgid "Few Clouds"
-msgstr "poc núvol"
+msgstr "Poc núvol"
 
 #: omweather/src/hash.data:77
 msgid "Few Showers"
@@ -899,9 +901,8 @@ msgid "Few Snow Showers / Wind"
 msgstr "Alguns ruixats de neu / Vent"
 
 #: omweather/src/hash.data:334
-#, fuzzy
 msgid "Few clouds"
-msgstr "poc núvol"
+msgstr "Poc núvol"
 
 #: meecast/qt-qml/qml/StationsPage.qml:92
 msgid "Find location via GPS"
@@ -982,7 +983,8 @@ msgstr "Previsió:\n"
 msgid "Freezing Drizzle"
 msgstr "Plugims gebradors"
 
-#: meecast/qt-qml/qml/AboutPage.qml:211
+#: meecast/qt-qml/qml/AboutPage.qml:227
+#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -994,7 +996,7 @@ msgid ""
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
 " \tLuca Onnis\n"
-" Spanish - Alejandro Lopez\n"
+" Spanish - Alejandro Lopez, Agustí Clara\n"
 " Polish - Tomasz Dominikowski\n"
 " Slovak - Roman Moravčík\n"
 " Dutch - Tom Leenders, Michiel Pater\n"
@@ -1008,6 +1010,7 @@ msgid ""
 " Serbian - Aleksandar Zaric,\n"
 " Norwegian - Peer-Atle Motland,\n"
 " Hungarian - Salmi,\n"
+" Chinese(Taiwan) - osk2, \n"
 " Vietnamese - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
 " Swedish - Angela Nennebrandt,\n"
@@ -1140,10 +1143,9 @@ msgstr "Neu intensa"
 msgid "Heavy Snow / Wind"
 msgstr "Neu intensa / Vent"
 
-#: omweather/src/hash.data:347
-#, fuzzy
+#: omweather/src/hash.data:351
 msgid "Heavy intensity rain"
-msgstr "pluja molt intensa"
+msgstr "Pluja molt intensa"
 
 #: omweather/src/hash.data:95
 msgid "High"
@@ -1185,7 +1187,7 @@ msgstr "Icones"
 msgid "Iconset"
 msgstr "Joc d'icones"
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:247
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:264
 msgid "Iconsets"
 msgstr "Jocs d'icones"
 
@@ -1251,11 +1253,11 @@ msgstr "Temps per gespa i jardineria"
 msgid "Layout:"
 msgstr "Format:"
 
-#: meecast/qt-qml/qml/AboutPage.qml:170
+#: meecast/qt-qml/qml/AboutPage.qml:186
 msgid "Lead designer"
 msgstr "Dissenyador principal"
 
-#: meecast/qt-qml/qml/AboutPage.qml:283
+#: meecast/qt-qml/qml/AboutPage.qml:298
 msgid "License"
 msgstr "Llicència"
 
@@ -1336,12 +1338,10 @@ msgid "Light Snow Shower"
 msgstr "Ruixats poc intensos de neu"
 
 #: omweather/src/hash.data:336
-#, fuzzy
 msgid "Light rain"
-msgstr "pluja suau"
+msgstr "Pluja suau"
 
 #: omweather/src/hash.data:338
-#, fuzzy
 msgid "Light snow"
 msgstr "Neu poc intensa"
 
@@ -1352,6 +1352,10 @@ msgstr "S'està carregant la llista d'estacions"
 #: omweather/src/hash.data:122
 msgid "Local Pollen Reports"
 msgstr "Informes locals sobre polen"
+
+#: meecast/qt-qml/qml/AboutPage.qml:170
+msgid "Localization platform"
+msgstr ""
 
 #: omweather/src/weather-settings.c:3454
 msgid "Long"
@@ -1364,6 +1368,11 @@ msgstr "No es disposa d'informació per aquesta ubicació."
 #: omweather/src/hash.data:124
 msgid "Low"
 msgstr "Mínima"
+
+#: omweather/src/hash.data:349
+#, fuzzy
+msgid "Mainly cloudy with occasional rain."
+msgstr "En part núvol i pluja suau"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
@@ -1390,14 +1399,13 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2013"
 msgstr ""
-"MeeCast - Client multiplataforma de previsió meteorològica molt "
-"personalitzable i de codi obert basat en el codi d'OMWeather. Copyright (C) "
-"2006-2012"
+"MeeCast - client de pronòstics del temps de codi obert, de fàcil "
+"personalització i multiplataforma, basat en el codi d'OMWeather. Copyright "
+"(C) 2006-2013"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -1416,14 +1424,12 @@ msgid "Mist"
 msgstr "Boirina"
 
 #: omweather/src/hash.data:340
-#, fuzzy
 msgid "Moderate Rain"
-msgstr "pluja moderada"
+msgstr "Pluja moderada"
 
 #: omweather/src/hash.data:339
-#, fuzzy
 msgid "Moderate rain"
-msgstr "pluja moderada"
+msgstr "Pluja moderada"
 
 #: omweather/src/weather-simple-settings.c:434
 msgid "Modification"
@@ -1709,7 +1715,6 @@ msgid "Overcast"
 msgstr "Núvol"
 
 #: omweather/src/hash.data:342
-#, fuzzy
 msgid "Overcast Clouds"
 msgstr "Núvol"
 
@@ -1750,7 +1755,6 @@ msgid "Overcast and wet snow showers"
 msgstr "Núvol i ruixats de neu humida"
 
 #: omweather/src/hash.data:341
-#, fuzzy
 msgid "Overcast clouds"
 msgstr "Núvol"
 
@@ -1974,20 +1978,18 @@ msgid "Pressure: "
 msgstr "Pressió:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
-msgid "Programmers"
+#, fuzzy
+msgid "Programmer"
 msgstr "Programadors"
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
-msgid "Project administrator"
+#, fuzzy
+msgid "Project administrators"
 msgstr "Administrador del projecte"
 
-#: meecast/qt-qml/qml/AboutPage.qml:186
+#: meecast/qt-qml/qml/AboutPage.qml:202
 msgid "Project manager"
 msgstr "Gestor del projecte"
-
-#: meecast/qt-qml/qml/AboutPage.qml:86
-msgid "Project website"
-msgstr "Web del projecte"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:922
 msgid "Provided by"
@@ -2142,9 +2144,8 @@ msgid "Save"
 msgstr "Desa"
 
 #: omweather/src/hash.data:344
-#, fuzzy
 msgid "Scattered Clouds"
-msgstr "Neu dispersa"
+msgstr "Núvols dispersos"
 
 #: omweather/src/hash.data:257
 msgid "Scattered Showers"
@@ -2163,9 +2164,8 @@ msgid "Scattered T-Storms"
 msgstr "Tempeses disperses"
 
 #: omweather/src/hash.data:343
-#, fuzzy
 msgid "Scattered clouds"
-msgstr "Neu dispersa"
+msgstr "Núvols dispersos"
 
 #: omweather/src/weather-settings.c:3943
 msgid "Sea miles"
@@ -2350,9 +2350,8 @@ msgid "Sky is Clear"
 msgstr "Cel clar"
 
 #: omweather/src/hash.data:345
-#, fuzzy
 msgid "Sky is clear"
-msgstr "cel clar"
+msgstr "Cel clar"
 
 #: omweather/src/hash.data:269
 msgid "Sleet"
@@ -2410,6 +2409,11 @@ msgstr "De neu a aiguaneu / Vent"
 msgid "Source"
 msgstr "Origen"
 
+#: meecast/qt-qml/qml/AboutPage.qml:320
+#, fuzzy
+msgid "Source code"
+msgstr "Origen"
+
 #: omweather/src/weather-settings.c:498
 msgid "Source:"
 msgstr "Origen:"
@@ -2461,6 +2465,10 @@ msgstr "Sol"
 msgid "Sunny / Wind"
 msgstr "Sol / Vent"
 
+#: omweather/src/hash.data:347 omweather/src/hash.data:348
+msgid "Sunny periods and a few showers."
+msgstr ""
+
 #: omweather/src/hash.data:285 meecast/qt-qml/qml/FullWeatherPage.qml:292
 msgid "Sunrise:"
 msgstr "Sortida sol:"
@@ -2476,6 +2484,10 @@ msgstr "Posta sol:"
 #: omweather/src/weather-popup.c:139 omweather/src/weather-popup.c:1150
 msgid "Sunset: "
 msgstr "Posta sol:"
+
+#: meecast/qt-qml/qml/AboutPage.qml:86
+msgid "Support"
+msgstr ""
 
 #: omweather/src/weather-settings.c:3773
 msgid "Swap hi/low temperature"
@@ -2541,11 +2553,11 @@ msgstr "Gràcies"
 msgid "The weather has been updated."
 msgstr "S'ha actualitzat el temps"
 
-#: omweather/src/hash.data:348
+#: omweather/src/hash.data:352
 msgid "There are no stations to show in this view of the list"
-msgstr ""
+msgstr "No hi ha cap estació en aquesta visualització de la llista"
 
-#: meecast/qt-qml/qml/AboutPage.qml:292
+#: meecast/qt-qml/qml/AboutPage.qml:307
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2587,7 +2599,7 @@ msgstr "Tempestes localitzades"
 msgid "Today"
 msgstr "Avui"
 
-#: omweather/src/weather-help.c:154 meecast/qt-qml/qml/AboutPage.qml:202
+#: omweather/src/weather-help.c:154 meecast/qt-qml/qml/AboutPage.qml:218
 msgid "Translators"
 msgstr "Traductors"
 
@@ -2985,6 +2997,10 @@ msgstr "hora enrere"
 msgid "hours ago"
 msgstr "hores enrere"
 
+#: meecast/qt-qml/qml/AboutPage.qml:329
+msgid "http://github.com/Meecast/meecast"
+msgstr ""
+
 #: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
 #: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
 #: omweather/src/weather-popup.c:983 omweather/src/weather-popup.c:1115
@@ -3129,34 +3145,37 @@ msgstr "nom de l'estació"
 msgid "steady"
 msgstr "estable"
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:353
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:354
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:355
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:356
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:357
 msgid "С-З"
 msgstr "C-3"
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:358
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:359
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:356
+#: omweather/src/hash.data:360
 msgid "Ю-З"
 msgstr "Ю-З"
+
+#~ msgid "Project website"
+#~ msgstr "Web del projecte"

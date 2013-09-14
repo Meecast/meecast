@@ -244,7 +244,7 @@ parse_current_weather(const char *detail_path_data, const char *result_file){
     hash_for_icons = hash_icons_hko_table_create();
     while(fgets(buffer, sizeof(buffer), file_in)){
         if (strstr(buffer,"Bulletin updated"))
-            if (comma = strstr(buffer, "at ")){
+            if ((comma = strstr(buffer, "at ")) != NULL){
                 comma = comma + 3;
                 setlocale(LC_TIME, "POSIX");
                 /* 3:02 HKT 28/Apr/2012 */
@@ -258,19 +258,19 @@ parse_current_weather(const char *detail_path_data, const char *result_file){
                 fprintf(file_out," end=\"%li\" current=\"true\" >\n", t_end);
             }
         if (strstr(buffer,"Air Temperature"))
-            if (comma = strstr(buffer, ": ")){
+            if ((comma = strstr(buffer, ": ")) != NULL){
                 comma = comma + 2;
                 temperature = atoi (comma);
                 fprintf(file_out,"     <temperature>%i</temperature>\n", temperature); 
             }
         if (strstr(buffer,"Relative Humidity"))
-            if (comma = strstr(buffer, ": ")){
+            if ((comma = strstr(buffer, ": ")) != NULL){
                 comma = comma + 2;
                 humidity = atoi (comma);
                 fprintf(file_out,"     <humidity>%i</humidity>\n", humidity);				                
             }
         if (strstr(buffer,"Weather Cartoon")){
-            if (comma = strstr(buffer, "No. ")){
+            if ((comma = strstr(buffer, "No. ")) != NULL){
                 comma = comma + 3;
                 icon = atoi (comma);
                 snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%i", icon);
@@ -288,7 +288,7 @@ parse_current_weather(const char *detail_path_data, const char *result_file){
 
 
             }
-            if (comma = strstr(buffer, " - ")){
+            if ((comma = strstr(buffer, " - ")) != NULL){
                 comma = comma + 3;
                 snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%s", comma);
                 if (strlen(temp_buffer) > 3)
@@ -302,7 +302,7 @@ parse_current_weather(const char *detail_path_data, const char *result_file){
                     temp_buffer[0] = toupper(temp_buffer[0]);
                 fprintf(file_out,"     <description>%s</description>\n", temp_buffer);				                
             }else
-                if (comma = strstr(buffer, " : ")){
+                if ((comma = strstr(buffer, " : ")) != NULL){
                     comma = comma + 3;
                     snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%s", comma);
                     if (strlen(temp_buffer) > 3)
@@ -318,7 +318,7 @@ parse_current_weather(const char *detail_path_data, const char *result_file){
                 }
         }
         if (strstr(buffer,"UV Index"))
-            if (comma = strstr(buffer, ": ")){
+            if ((comma = strstr(buffer, ": ")) != NULL){
                 comma = comma + 2;
                 humidity = atoi (comma);
                 fprintf(file_out,"     <uv_index>%i</uv_index>\n", humidity);

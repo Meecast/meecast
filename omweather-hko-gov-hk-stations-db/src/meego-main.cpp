@@ -102,7 +102,7 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
  
     while(fgets(buffer, sizeof(buffer), file_in)){
         if (strstr(buffer,"Bulletin updated"))
-            if (comma = strstr(buffer, "at ")){
+            if ((comma = strstr(buffer, "at ")) != NULL){
                 comma = comma + 3;
                 setlocale(LC_TIME, "POSIX");
                 /* 3:02 HKT 28/Apr/2012 */
@@ -111,7 +111,7 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
                 year = tmp_tm.tm_year + 1900;
             }
         if (strstr(buffer,"Date/Month"))
-            if (comma = strstr(buffer, "h ")){
+            if ((comma = strstr(buffer, "h ")) != NULL){
                 if (number_of_day != 0)
                     fprintf(file_out,"    </period>\n");
                 comma = comma + 2;

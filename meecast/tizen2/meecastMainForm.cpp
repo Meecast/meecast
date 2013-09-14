@@ -975,9 +975,9 @@ meecastMainForm::CreateItem (int index, int itemWidth){
                 Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)), Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)),
                 Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)));
         if (index != 0)
-            pItem->AddElement(Tizen::Graphics::Rectangle(70, 20, 220, 50), 4, temp_data->ShortDayName().c_str(), false);
+            pItem->AddElement(Tizen::Graphics::Rectangle(70, 20, 240, 50), 4, temp_data->ShortDayName().c_str(), false);
         else
-            pItem->AddElement(Tizen::Graphics::Rectangle(70, 20, 220, 50), 4, _("Today"), false);
+            pItem->AddElement(Tizen::Graphics::Rectangle(70, 20, 240, 50), 4, _("Today"), false);
         /* Icon */
         snprintf(buffer, sizeof(buffer) - 1, "icons/Atmos/%i.png", temp_data->Icon());
         pItem->AddElement(Tizen::Graphics::Rectangle(320, 0, 100, 100), 1, *Application::GetInstance()->GetAppResource()->GetBitmapN(buffer), null, null);

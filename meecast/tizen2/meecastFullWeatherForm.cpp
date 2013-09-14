@@ -319,6 +319,14 @@ meecastFullWeatherForm::ReInitElements(void){
     time_t current_day;
     struct tm   *tm = NULL;
     current_day = time(NULL);
+    AppLog ("Current day: !! %li", current_day);
+
+    /* Timezone */
+    if (_config->dp){
+        timezone = _config->dp->timezone();
+        AppLog("TimeZone %i", timezone);
+    }
+
 
     /* Set localtimezone */
     struct tm time_tm1;
@@ -327,19 +335,13 @@ meecastFullWeatherForm::ReInitElements(void){
     localtime_r(&current_day, &time_tm2);
     localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
 
-
+    current_day = current_day + 3600*timezone; 
     tm = gmtime(&current_day);
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     tm->tm_isdst = 1;
     current_day = mktime(tm); /* today 00:00:00 */
+    current_day = current_day + 3600*localtimezone - 3600*timezone; 
     
-    /* Timezone */
-    if (_config->dp){
-        timezone = _config->dp->timezone();
-        AppLog("TimeZone %i", timezone);
-    }
-
-
     /* Footer */
     Footer* pFooter = GetFooter();
 
@@ -465,10 +467,11 @@ meecastFullWeatherForm::ReInitElements(void){
                 time_for_show = time(NULL);
                 break;
             case DAY:
-                time_for_show = current_day + 15 * 3600 + _dayNumber*24*3600 + timezone*3600;
+                time_for_show = current_day + 15 * 3600 + _dayNumber*24*3600;
+                AppLog("Time_for_show %li %li %i", time_for_show, current_day, timezone);
                 break;
             case NIGHT:
-                time_for_show = current_day + 3 * 3600 + _dayNumber*24*3600 + timezone*3600;
+                time_for_show = current_day + 3 * 3600 + _dayNumber*24*3600;
                 break;
         }
         AppLog("Time for Show %li", time_for_show);

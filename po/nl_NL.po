@@ -1,32 +1,29 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Michiel Pater <michiel@wateennaam.nl>, 2012-2013.
-#   <tjjleenders@gmail.com>, 2012.
+# Michiel Pater <michiel@wateennaam.nl>, 2012-2013
+# tomleenders <tjjleenders@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-09-13 20:23+0300\n"
-"PO-Revision-Date: 2013-03-15 11:58+0000\n"
+"PO-Revision-Date: 2013-09-15 09:29+0000\n"
 "Last-Translator: Michiel Pater <michiel@wateennaam.nl>\n"
-"Language-Team: Dutch (http://www.transifex.com/projects/p/meecast/language/"
-"nl/)\n"
-"Language: nl\n"
+"Language-Team: Dutch (http://www.transifex.com/projects/p/meecast/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
 "\n"
 "H: "
-msgstr ""
-"\n"
-"H:"
+msgstr "\nH:"
 
 #: omweather/src/weather-help.c:80
 #, c-format
@@ -46,72 +43,45 @@ msgid ""
 "Andrew Olmsted\n"
 "for Semi-transparency\n"
 "and coloured backgrounds\n"
-msgstr ""
-"\n"
-"Hilon desktop applet \n"
-"voor de Nokia N800/N810/N900\n"
-"om weersvoorspellingen te weergeven. \n"
-"Versie %s Build: %s \n"
-"Copyright(c) 2006-2011 \n"
-"Vlad Vasiliev, Pavel Fialko \n"
-"Copyright(c) 2008 \n"
-"voor de default icoonset (Glance) \n"
-"en interface ontwerp \n"
-"Andrew Zhilin \n"
-"Copyright(c) 2008\n"
-"Andrew Olmsted \n"
-"voor Semi-transparante\n"
-"en gekleurde achtergronden \n"
+msgstr "\nHilon desktop applet \nvoor de Nokia N800/N810/N900\nom weersvoorspellingen te weergeven. \nVersie %s Build: %s \nCopyright(c) 2006-2011 \nVlad Vasiliev, Pavel Fialko \nCopyright(c) 2008 \nvoor de default icoonset (Glance) \nen interface ontwerp \nAndrew Zhilin \nCopyright(c) 2008\nAndrew Olmsted \nvoor Semi-transparante\nen gekleurde achtergronden \n"
 
 #: omweather/src/weather-home.c:1383 omweather/src/weather-home.c:1439
 #: omweather/src/weather-popup.c:965 omweather/src/weather-popup.c:1098
 msgid ""
 "\n"
 "Humidity: "
-msgstr ""
-"\n"
-"Luchtvochtigheid: "
+msgstr "\nLuchtvochtigheid: "
 
 #: omweather/src/weather-home.c:1608
 msgid ""
 "\n"
 "P: "
-msgstr ""
-"\n"
-"P:"
+msgstr "\nP:"
 
 #: omweather/src/weather-popup.c:954 omweather/src/weather-popup.c:959
 #: omweather/src/weather-popup.c:1087 omweather/src/weather-popup.c:1092
 msgid ""
 "\n"
 "Precipitation: "
-msgstr ""
-"\n"
-"Neerslag: "
+msgstr "\nNeerslag: "
 
 #: omweather/src/weather-popup.c:976 omweather/src/weather-popup.c:1108
 msgid ""
 "\n"
 "Pressure: "
-msgstr ""
-"\n"
-"Luchtdruk: "
+msgstr "\nLuchtdruk: "
 
 #: omweather/src/weather-home.c:1577
 msgid ""
 "\n"
 "V: "
-msgstr ""
-"\n"
-"V:"
+msgstr "\nV:"
 
 #: omweather/src/weather-home.c:1614
 msgid ""
 "\n"
 "W: "
-msgstr ""
-"\n"
-"W:"
+msgstr "\nW:"
 
 #: meecast/qt-qml/dataitem.cpp:479 meecast/qt-qml/dataitem.cpp:480
 msgid "(Low)"
@@ -309,9 +279,8 @@ msgid "Add Station"
 msgstr "Station toevoegen"
 
 #: meecast/qt-qml/qml/main.qml:49
-#, fuzzy
 msgid "Adjust GPS station"
-msgstr "Station toevoegen"
+msgstr ""
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
 #: omweather/src/weather-settings.c:1381
@@ -329,17 +298,7 @@ msgid ""
 "Alexander Savchenko aka dizel - for testing\n"
 "Timeless - for patches \n"
 "Eric Link - for feature request and donation\n"
-msgstr ""
-"Alexis Iglauer - voor het testen\n"
-"Eugene Roytenberg - voor het testen\n"
-"Jarek Szczepanski aka Imrahil - voor het testen\n"
-"Vladimir Shakhov aka Mendoza - voor het testen\n"
-"Marc Dillon - Voor spelling/stijlcheck van de Engelse tekst\n"
-"Arkady Glazov aka Globster - voor het testen\n"
-"Alexander Savchenko aka dizel - voor het testen\n"
-"Timeless - voor de patches\n"
-"Eric Link - Voor het aanvragen van applicatie opties en donatie\n"
-"\n"
+msgstr "Alexis Iglauer - voor het testen\nEugene Roytenberg - voor het testen\nJarek Szczepanski aka Imrahil - voor het testen\nVladimir Shakhov aka Mendoza - voor het testen\nMarc Dillon - Voor spelling/stijlcheck van de Engelse tekst\nArkady Glazov aka Globster - voor het testen\nAlexander Savchenko aka dizel - voor het testen\nTimeless - voor de patches\nEric Link - Voor het aanvragen van applicatie opties en donatie\n\n"
 
 #: omweather/src/weather-download.c:397
 msgid "An unknown error has occurred."
@@ -359,11 +318,7 @@ msgid ""
 "for installing package 'MeeCast applet'.\n"
 "You should uninstall AccuWeather \n"
 "before installing this package"
-msgstr ""
-"Applicatiebeheer start nu met\n"
-"installeren 'MeeCast Applet'.\n"
-"Verwijder AccuWeather\n"
-"alvorens te installeren."
+msgstr "Applicatiebeheer start nu met\ninstalleren 'MeeCast Applet'.\nVerwijder AccuWeather\nalvorens te installeren."
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -380,18 +335,11 @@ msgid ""
 "Documentation: Marko Vertainen\n"
 "Design UI and default iconset: Andrew Zhilin\n"
 "Design UI for Fremantle: Krebber Jan Niemelä Ulla\n"
-msgstr ""
-"Auteur en onderhouder: Vlad Vasiliev, <vlad@gas.by>\n"
-"Onderhouder: Pavel Fialko, <pavelnf@gmail.com>\n"
-"Documentatie: Marko Vertainen\n"
-"Ontwerp UI & standaard icoonset: Andrew Zhilin\n"
-"Ontwerp UI voor Fremantle: Krebber Jan Niemelä Ulla\n"
+msgstr "Auteur en onderhouder: Vlad Vasiliev, <vlad@gas.by>\nOnderhouder: Pavel Fialko, <pavelnf@gmail.com>\nDocumentatie: Marko Vertainen\nOntwerp UI & standaard icoonset: Andrew Zhilin\nOntwerp UI voor Fremantle: Krebber Jan Niemelä Ulla\n"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:415
 msgid "Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n"
-msgstr ""
-"Auteur en onderhouder: Vlad Vasilyeu, <vlad@gas.by>\n"
-"\n"
+msgstr "Auteur en onderhouder: Vlad Vasilyeu, <vlad@gas.by>\n\n"
 
 #: omweather/src/weather-help.c:111
 msgid "Authors"
@@ -559,14 +507,12 @@ msgid "Cloudy and snow showers"
 msgstr "Bewolkt en sneeuwbuien"
 
 #: omweather/src/hash.data:46
-#, fuzzy
 msgid "Cloudy and wet snow showers"
-msgstr "Bewolkt en sneeuwbuien"
+msgstr "Bewolkt en natte sneeuwbuien"
 
 #: omweather/src/hash.data:350
-#, fuzzy
 msgid "Cloudy with occasional rain."
-msgstr "Bewolkt en Lichte Regen"
+msgstr "Bewolkt en af en toe een bui"
 
 #: omweather/src/hash.data:48
 msgid "Cloudy, Drifting Snow"
@@ -628,9 +574,7 @@ msgstr "Copyright(c) 2010-2011 Tanya Makova\n"
 msgid ""
 "Could not connecting to Internet.\n"
 "Connection timeout is expired."
-msgstr ""
-"Geen internetverbinding.\n"
-"Verbinding is verlopen."
+msgstr "Geen internetverbinding.\nVerbinding is verlopen."
 
 #: omweather/src/weather-config.c:401
 #, c-format
@@ -685,11 +629,9 @@ msgstr "Locatie wissen?"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
-"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
-"zhilin@ovi.com>\n"
-msgstr ""
-"Ontwerp UI en default iconen: Copyright 2006-2011 Andrew Zhilin, <andrew."
-"zhilin@ovi.com>\n"
+"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, "
+"<andrew.zhilin@ovi.com>\n"
+msgstr "Ontwerp UI en default iconen: Copyright 2006-2011 Andrew Zhilin, <andrew.zhilin@ovi.com>\n"
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
 msgid "Detailed"
@@ -712,9 +654,7 @@ msgstr "Afstand"
 msgid ""
 "Does not to add station, because no one\n"
 "of 'omweather-*-stations-db' packages was installed."
-msgstr ""
-"Geen station toegevoegd, omdat er geen enkele \n"
-"'omweather-*-stations-db' onderdelen zijn geïnstalleerd."
+msgstr "Geen station toegevoegd, omdat er geen enkele \n'omweather-*-stations-db' onderdelen zijn geïnstalleerd."
 
 #: omweather/src/weather-simple-popup.c:1171
 #: omweather/src/weather-simple-popup.c:1220
@@ -790,18 +730,7 @@ msgid ""
 "Brian Knight - for idea of iconset, criticism and donation ;-)\n"
 "Andrew aka Tabster - for testing and ideas\n"
 "Brad Jones aka kazrak - for testing\n"
-msgstr ""
-"Ed Bartosh - voor het aanvragen van applicatie opties, support en kritiek\n"
-"Daniel Wilms - voor het aanvragen van applicatie opties en het testen\n"
-"Eugen Kaluta aka tren - voor het aanvragen van applicatie opties en support\n"
-"Maxim Kalinkevish aka spark - voor het testen\n"
-"Yuri Komyakov - voor de Nokia 770\n"
-"Greg Thompson voor de support van het stations.txt. bestand\n"
-"Frand Persian - Voor het idee van een nieuwe lay-out\n"
-"Brian Knight - Voor het idee van de icoonset, kritiek en donatie ;-)\n"
-"Andrew aka Tabster - voor het testen en de ideeën\n"
-"Brad Jones aka kazrak - voor het testen\n"
-"\n"
+msgstr "Ed Bartosh - voor het aanvragen van applicatie opties, support en kritiek\nDaniel Wilms - voor het aanvragen van applicatie opties en het testen\nEugen Kaluta aka tren - voor het aanvragen van applicatie opties en support\nMaxim Kalinkevish aka spark - voor het testen\nYuri Komyakov - voor de Nokia 770\nGreg Thompson voor de support van het stations.txt. bestand\nFrand Persian - Voor het idee van een nieuwe lay-out\nBrian Knight - Voor het idee van de icoonset, kritiek en donatie ;-)\nAndrew aka Tabster - voor het testen en de ideeën\nBrad Jones aka kazrak - voor het testen\n\n"
 
 #: omweather/src/weather-simple-settings.c:330
 #: omweather/src/weather-simple-settings.c:421
@@ -885,9 +814,8 @@ msgid "Feels like:"
 msgstr "Voelt als:"
 
 #: omweather/src/hash.data:335
-#, fuzzy
 msgid "Few Clouds"
-msgstr "Bewolkt"
+msgstr "Een paar wolken"
 
 #: omweather/src/hash.data:77
 msgid "Few Showers"
@@ -911,7 +839,7 @@ msgstr "Enkele Sneeuwbuien / Wind"
 
 #: omweather/src/hash.data:334
 msgid "Few clouds"
-msgstr ""
+msgstr "Een paar wolken"
 
 #: meecast/qt-qml/qml/StationsPage.qml:92
 msgid "Find location via GPS"
@@ -921,9 +849,7 @@ msgstr "Vind locatie via GPS"
 msgid ""
 "Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
 "Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
-msgstr ""
-"Fins- Marko Vertainen; German - Claudius Henrichs; Spaans - Alejandro Lopez; "
-"Nederlands - Tom Leenders; Slowaaks - Roman Moravčík\n"
+msgstr "Fins- Marko Vertainen; German - Claudius Henrichs; Spaans - Alejandro Lopez; Nederlands - Tom Leenders; Slowaaks - Roman Moravčík\n"
 
 #: omweather/src/hash.data:81
 msgid "First Quarter"
@@ -969,11 +895,7 @@ msgid ""
 "you should uninstall package\n"
 "'Activating MeeCast Applet'\n"
 "using Application manager"
-msgstr ""
-"Om de MeeCast widget uit te\n"
-"schakelen moet het pakket\n"
-"'MeeCast Applet' gedeïnstalleerd\n"
-"worden."
+msgstr "Om de MeeCast widget uit te\nschakelen moet het pakket\n'MeeCast Applet' gedeïnstalleerd\nworden."
 
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
@@ -993,7 +915,6 @@ msgid "Freezing Drizzle"
 msgstr "Lichte IJzel"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1025,17 +946,7 @@ msgid ""
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
-msgstr ""
-"Frans - Nicolas Granziano, ⏎ »Philippe, Benot Knecht ⏎ Russisch - Pavel "
-"Fialko, Vlad Vasiliev, ⏎ »Ed Bartosh⏎ Fins - Marko Vertainen⏎ Duits - "
-"Claudius Henrichs⏎ Italiaans - Pavel Fialko, Alessandro Pasotti,⏎ »Salvatore "
-"Fiorenzo, Ilir Gjika,⏎ »Luca Onnis⏎ Spaans - Alejandro Lopez⏎ Pools - Tomasz "
-"Dominikowski⏎ Slowaaks - Roman Moravčík⏎ Nederlands - Tom Leenders, Michiel "
-"Pater⏎ Bulgaars - Zlatko Enikov⏎ Albanian - Ilir Gjika⏎ Chinees - Wong Man "
-"Kong, Michael⏎ Portugees - Jose Narciso,⏎ Turks - Burak Kaan Kose,⏎ "
-"Catalaans - Agustí Clara,⏎ Arabisch - Tarad Alfandi,⏎ Noors - Peer-Atle "
-"Motland,⏎ Vietnamees - Hieu Nguyen⏎ »Anh Dương and truongnx, ⏎ Zweeds - "
-"Angela Nennebrandt,⏎ »Niklas Åkerström, ⏎ »Tomislav Veleckovik"
+msgstr "Frans - Nicolas Granziano, ⏎\n⇥Philippe, Benot Knecht ⏎\nRussisch - Pavel Fialko, Vlad Vasiliev, ⏎\n⇥Ed Bartosh⏎\nFins - Marko Vertainen⏎\nDuits - Claudius Henrichs⏎\nItaliaans - Lorenzo Facca,⏎\n⇥Pavel Fialko, Alessandro Pasotti,⏎\n⇥Salvatore Fiorenzo, Ilir Gjika,⏎\n⇥Luca Onnis⏎\nSpaans- Alejandro Lopez, Agustí Clara⏎\nPools - Tomasz Dominikowski⏎\nSlowaaks - Roman Moravčík⏎\nNederlands - Tom Leenders, Michiel Pater⏎\nBulgaars - Zlatko Enikov⏎\nAlbanees - Ilir Gjika⏎\nChinees - Wong Man Kong, Michael⏎\nPortugees - Jose Narciso,⏎\nTurks - Burak Kaan Kose,⏎\nCatalaans - Agustí Clara,⏎\nArabisch - Tarad Alfandi,⏎\nServisch - Aleksandar Zaric,⏎\nNoors - Peer-Atle Motland,⏎\nHongaars - Salmi,⏎\nChinees(Taiwan) - osk2, ⏎\nVietnamees - Hieu Nguyen⏎\n⇥Anh Dương and truongnx, ⏎\nZweeds - Angela Nennebrandt,⏎\n⇥Niklas Åkerström, ⏎\n⇥Tomislav Veleckovik"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1048,16 +959,7 @@ msgid ""
 "Spanish - Alejandro Lopez\n"
 "Polish - Tomasz Dominikowski\n"
 "Slovak - Roman Moravčík"
-msgstr ""
-"Frans - Nicolas Granziano, Philippe, Benot Knecht\n"
-"Russisch - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
-"Fins - Marko Vertainen\n"
-"Duits - Claudius Henrichs \n"
-"Italiaans - Pavel Fialko, Alessandro Pasotti,\n"
-"»Salvatore Fiorenzo, Luca Onnis⏎ \n"
-"Spaans - Alejandro Lopez\n"
-"Pools - Tomasz Dominikowski\n"
-"Slowaaks - Roman Moravčík"
+msgstr "Frans - Nicolas Granziano, Philippe, Benot Knecht\nRussisch - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\nFins - Marko Vertainen\nDuits - Claudius Henrichs \nItaliaans - Pavel Fialko, Alessandro Pasotti,\n»Salvatore Fiorenzo, Luca Onnis⏎ \nSpaans - Alejandro Lopez\nPools - Tomasz Dominikowski\nSlowaaks - Roman Moravčík"
 
 #: omweather/src/hash.data:88
 msgid "Full"
@@ -1096,8 +998,7 @@ msgstr "GUI | Helder"
 #: meecast/netbook-UX/meego-panel-omweather.cpp:418
 msgid ""
 "Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>"
-msgstr ""
-"Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>"
+msgstr "Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>"
 
 #: omweather/src/weather-popup.c:1354 omweather/src/weather-popup.c:1493
 msgid "Gust:"
@@ -1128,14 +1029,12 @@ msgid "Heavy Snow"
 msgstr "Zware Sneeuwval"
 
 #: omweather/src/hash.data:94
-#, fuzzy
 msgid "Heavy Snow / Wind"
-msgstr "Zware Regen / Wind"
+msgstr "Hevige Sneeuwval / Wind"
 
 #: omweather/src/hash.data:351
-#, fuzzy
 msgid "Heavy intensity rain"
-msgstr "Zware Regen"
+msgstr ""
 
 #: omweather/src/hash.data:95
 msgid "High"
@@ -1200,9 +1099,7 @@ msgstr "Lokaal Onweer / Wind"
 msgid ""
 "Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
 "Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov"
-msgstr ""
-"Italiaans - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca "
-"Onnis; Pools - Tomasz Dominikowski; Bulgarian - Zlatko Enikov"
+msgstr "Italiaans - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Pools - Tomasz Dominikowski; Bulgarian - Zlatko Enikov"
 
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
@@ -1210,7 +1107,7 @@ msgstr "Kilometers"
 
 #: omweather/src/hash.data:331
 msgid "Language"
-msgstr ""
+msgstr "Taal"
 
 #: omweather/src/hash.data:100
 msgid "Last Quarter"
@@ -1328,19 +1225,16 @@ msgid "Light Snow Shower"
 msgstr "Lichte Sneeuwbui"
 
 #: omweather/src/hash.data:352
-#, fuzzy
 msgid "Light intensity shower rain"
-msgstr "Zware Regen"
+msgstr ""
 
 #: omweather/src/hash.data:336
-#, fuzzy
 msgid "Light rain"
-msgstr "Lichte Regen"
+msgstr "Lichte regen"
 
 #: omweather/src/hash.data:338
-#, fuzzy
 msgid "Light snow"
-msgstr "Lichte Sneeuw"
+msgstr "Lichte sneeuw"
 
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
@@ -1367,17 +1261,14 @@ msgid "Low"
 msgstr "Laag"
 
 #: omweather/src/hash.data:349
-#, fuzzy
 msgid "Mainly cloudy with occasional rain."
-msgstr "Deels bewolkt en lichte regen"
+msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
-"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
-"com>\n"
-msgstr ""
-"Onderhoud: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
-"com>\n"
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
+"<tanyshk@gmail.com>\n"
+msgstr "Onderhoud: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail.com>\n"
 
 #: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:153
 msgid "Manage locations"
@@ -1396,13 +1287,10 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2013"
-msgstr ""
-"MeeCast - multiplatform, zeer aanpasbare open source weerbericht client op "
-"basis van OMWeather code. Copyright (C) 2006-2012"
+msgstr "MeeCast - Een zeer aanpasbare open source multiplatform weerbericht cliënt op basis van OMWeather code. Copyright (C) 2006-2013"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -1421,14 +1309,12 @@ msgid "Mist"
 msgstr "Mist"
 
 #: omweather/src/hash.data:340
-#, fuzzy
 msgid "Moderate Rain"
-msgstr "(Gemiddeld)"
+msgstr ""
 
 #: omweather/src/hash.data:339
-#, fuzzy
 msgid "Moderate rain"
-msgstr "(Gemiddeld)"
+msgstr ""
 
 #: omweather/src/weather-simple-settings.c:434
 msgid "Modification"
@@ -1714,9 +1600,8 @@ msgid "Overcast"
 msgstr "Grijs"
 
 #: omweather/src/hash.data:342
-#, fuzzy
 msgid "Overcast Clouds"
-msgstr "Grijs"
+msgstr ""
 
 #: omweather/src/hash.data:170
 msgid "Overcast and light rain"
@@ -1755,9 +1640,8 @@ msgid "Overcast and wet snow showers"
 msgstr "Grijs en natte sneeuwbuien "
 
 #: omweather/src/hash.data:341
-#, fuzzy
 msgid "Overcast clouds"
-msgstr "Grijs"
+msgstr ""
 
 #: omweather/src/hash.data:179
 msgid "Overcast, thunderstorms with rain"
@@ -1979,14 +1863,12 @@ msgid "Pressure: "
 msgstr "Luchtdruk: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
-#, fuzzy
 msgid "Programmer"
-msgstr "Programmeurs"
+msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
-#, fuzzy
 msgid "Project administrators"
-msgstr "Project administrator"
+msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:202
 msgid "Project manager"
@@ -2145,9 +2027,8 @@ msgid "Save"
 msgstr "Opslaan"
 
 #: omweather/src/hash.data:344
-#, fuzzy
 msgid "Scattered Clouds"
-msgstr "Verspreide Sneeuw"
+msgstr "Verspreide Wolken"
 
 #: omweather/src/hash.data:257
 msgid "Scattered Showers"
@@ -2166,9 +2047,8 @@ msgid "Scattered T-Storms"
 msgstr "Verspreid Onweer"
 
 #: omweather/src/hash.data:343
-#, fuzzy
 msgid "Scattered clouds"
-msgstr "Verspreide Sneeuw"
+msgstr "Verspreide wolken"
 
 #: omweather/src/weather-settings.c:3943
 msgid "Sea miles"
@@ -2230,9 +2110,8 @@ msgid "Select the iconset"
 msgstr "Kies icoonset"
 
 #: meecast/qt-qml/qml/LanguagesPage.qml:130
-#, fuzzy
 msgid "Select the language"
-msgstr "Kies icoonset"
+msgstr "Selecteer taal"
 
 #: meecast/qt-qml/qml/SourcePage.qml:108
 msgid "Select the weather source"
@@ -2350,14 +2229,12 @@ msgid "Showers in the Vicinity"
 msgstr "Buien in de Omgeving"
 
 #: omweather/src/hash.data:346
-#, fuzzy
 msgid "Sky is Clear"
-msgstr "Overwegend Helder"
+msgstr "Heldere lucht"
 
 #: omweather/src/hash.data:345
-#, fuzzy
 msgid "Sky is clear"
-msgstr "Overwegend Helder"
+msgstr "Heldere lucht"
 
 #: omweather/src/hash.data:269
 msgid "Sleet"
@@ -2416,9 +2293,8 @@ msgid "Source"
 msgstr "Bron"
 
 #: meecast/qt-qml/qml/AboutPage.qml:320
-#, fuzzy
 msgid "Source code"
-msgstr "Bron"
+msgstr ""
 
 #: omweather/src/weather-settings.c:498
 msgid "Source:"
@@ -2473,7 +2349,7 @@ msgstr "Zonnig / Wind"
 
 #: omweather/src/hash.data:347 omweather/src/hash.data:348
 msgid "Sunny periods and a few showers."
-msgstr ""
+msgstr "Zonnige perioden en een paar buien"
 
 #: omweather/src/hash.data:285 meecast/qt-qml/qml/FullWeatherPage.qml:292
 msgid "Sunrise:"
@@ -2572,21 +2448,13 @@ msgid ""
 " Foundation; either version 2.1 of the \n"
 " License, or (at your option) any \n"
 " later version."
-msgstr ""
-"Deze software is gratis; het kan\n"
-"geherdistribueerd en/of aangepast\n"
-"worden onder de voorwaarden van \n"
-"de GNU General Public License zoals\n"
-"gepubliceerd door de Free Software \n"
-"Foundation; versie 2.1 of latere versies."
+msgstr "Deze software is gratis; het kan\ngeherdistribueerd en/of aangepast\nworden onder de voorwaarden van \nde GNU General Public License zoals\ngepubliceerd door de Free Software \nFoundation; versie 2.1 of latere versies."
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:438
 msgid ""
 "This software is free software; you can redistribute it and/or modify it "
 "under the terms of the GNU General Public License\n"
-msgstr ""
-"Deze software is gratis; het kan geherdistribueerd en/of aangepast worden "
-"onder de voorwaarden van de GNU General Public License\n"
+msgstr "Deze software is gratis; het kan geherdistribueerd en/of aangepast worden onder de voorwaarden van de GNU General Public License\n"
 
 #: omweather/src/hash.data:294
 msgid "Thunder"
@@ -2611,9 +2479,7 @@ msgstr "Vertalers"
 msgid ""
 "Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - "
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
-msgstr ""
-"Vertalers: Frans - Nicolas Granziano, Philippe, Benot Knecht; Russisch - "
-"Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
+msgstr "Vertalers: Frans - Nicolas Granziano, Philippe, Benot Knecht; Russisch - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 
 #: omweather/src/weather-settings.c:3272 omweather/src/weather-settings.c:3277
 #: omweather/src/weather-settings.c:3295
@@ -2687,17 +2553,13 @@ msgstr "Update weer"
 msgid ""
 "Use Edit layout \n"
 "for tuning images of applet"
-msgstr ""
-"Gebruik Lay-out bewerken \n"
-"voor het bewerken van de applet beelden"
+msgstr "Gebruik Lay-out bewerken \nvoor het bewerken van de applet beelden"
 
 #: omweather/src/weather-simple-settings.c:1835
 msgid ""
 "Use GSM and/or WLAN for periodic updating\n"
 " the weather information.\n"
-msgstr ""
-"Gebruik GSM en/of WLAN voor periodieke updates\n"
-"van weerinformatie.\n"
+msgstr "Gebruik GSM en/of WLAN voor periodieke updates\nvan weerinformatie.\n"
 
 #: omweather/src/weather-sensor.c:65
 msgid "Use device temperature sensor"
@@ -2882,9 +2744,7 @@ msgstr "Winterse Bui tot Sneeuw"
 msgid ""
 "Wrong station code \n"
 "or ZIP code!!!"
-msgstr ""
-"Verkeerde stationscode\n"
-"of postcode!!!"
+msgstr "Verkeerde stationscode\nof postcode!!!"
 
 #: omweather/src/weather-settings.c:824 meecast/qt-qml/qml/StationsPage.qml:77
 msgid "Yes"
@@ -2899,28 +2759,20 @@ msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using LockScreen widget"
-msgstr ""
-"Activeer\n"
-"'Widget in Notificaties'\n"
-"voor Lock-scherm widget"
+msgstr "Activeer\n'Widget in Notificaties'\nvoor Lock-scherm widget"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:256
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using StandbyScreen widget"
-msgstr ""
-"Activeer\n"
-"'Widget in Notificaties'\n"
-"voor Standby-scherm widget"
+msgstr "Activeer\n'Widget in Notificaties'\nvoor Standby-scherm widget"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:73
 msgid ""
-"You should activate 'Widget in the events view' option in MeeCast appearance "
-"settings for auto update."
-msgstr ""
-"Activeer 'Widget in Notificaties' optie in MeeCast instellingen voor "
-"automatische updates."
+"You should activate 'Widget in the events view' option in MeeCast appearance"
+" settings for auto update."
+msgstr "Activeer 'Widget in Notificaties' optie in MeeCast instellingen voor automatische updates."
 
 #: omweather/src/weather-simple-settings.c:2758
 msgid "Zoom in popup window "
@@ -2934,9 +2786,7 @@ msgstr "Zoomen in popup venster"
 msgid ""
 "as published by the Free Software Foundation; either version 2.1 of the "
 "License, or (at your option) any later version."
-msgstr ""
-"zoals gepubliceerd door de Free Software Foundation; ofwel versie 2.1 van de "
-"Licentie, of (naar keuze) een latere versie."
+msgstr "zoals gepubliceerd door de Free Software Foundation; ofwel versie 2.1 van de Licentie, of (naar keuze) een latere versie."
 
 #: omweather/src/weather-popup.c:286
 msgid "current location local time"
@@ -3004,7 +2854,7 @@ msgstr "uren geleden"
 
 #: meecast/qt-qml/qml/AboutPage.qml:329
 msgid "http://github.com/Meecast/meecast"
-msgstr ""
+msgstr "http://github.com/Meecast/meecast"
 
 #: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
 #: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
@@ -3181,6 +3031,3 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:361
 msgid "Ю-З"
 msgstr "Ю-3"
-
-#~ msgid "Project website"
-#~ msgstr "Project website"

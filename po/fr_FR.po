@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-09-13 20:23+0300\n"
-"PO-Revision-Date: 2013-09-14 18:23+0000\n"
+"PO-Revision-Date: 2013-09-15 07:50+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/meecast/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -1229,11 +1229,11 @@ msgstr "Légères averses de neige"
 
 #: omweather/src/hash.data:352
 msgid "Light intensity shower rain"
-msgstr ""
+msgstr "Averses de pluie fine"
 
 #: omweather/src/hash.data:336
 msgid "Light rain"
-msgstr ""
+msgstr "Pluie légère"
 
 #: omweather/src/hash.data:338
 msgid "Light snow"
@@ -1313,11 +1313,11 @@ msgstr "Brume"
 
 #: omweather/src/hash.data:340
 msgid "Moderate Rain"
-msgstr ""
+msgstr "Pluie modérée"
 
 #: omweather/src/hash.data:339
 msgid "Moderate rain"
-msgstr ""
+msgstr "Pluie modérée"
 
 #: omweather/src/weather-simple-settings.c:434
 msgid "Modification"
@@ -1604,7 +1604,7 @@ msgstr "Ciel couvert"
 
 #: omweather/src/hash.data:342
 msgid "Overcast Clouds"
-msgstr ""
+msgstr "Ciel couvert"
 
 #: omweather/src/hash.data:170
 msgid "Overcast and light rain"
@@ -1644,7 +1644,7 @@ msgstr ""
 
 #: omweather/src/hash.data:341
 msgid "Overcast clouds"
-msgstr ""
+msgstr "Ciel couvert"
 
 #: omweather/src/hash.data:179
 msgid "Overcast, thunderstorms with rain"
@@ -2031,7 +2031,7 @@ msgstr "Enregistrer"
 
 #: omweather/src/hash.data:344
 msgid "Scattered Clouds"
-msgstr ""
+msgstr "Nuageux"
 
 #: omweather/src/hash.data:257
 msgid "Scattered Showers"
@@ -2051,7 +2051,7 @@ msgstr "Orages épars"
 
 #: omweather/src/hash.data:343
 msgid "Scattered clouds"
-msgstr ""
+msgstr "Nuageux"
 
 #: omweather/src/weather-settings.c:3943
 msgid "Sea miles"
@@ -2233,7 +2233,7 @@ msgstr "Averses à proximité"
 
 #: omweather/src/hash.data:346
 msgid "Sky is Clear"
-msgstr ""
+msgstr "Ciel dégagé"
 
 #: omweather/src/hash.data:345
 msgid "Sky is clear"

@@ -6,8 +6,8 @@ meecast (0.7.6) unstable; urgency=low
   * Moved to new data structure in foreca.mobi converter
   * Added South Korea to foreca.com database
   * Added many stations to gismeteo.ru 
-  * Updated Arabic, Chinese(Taiwan), Chinese, Finnish, Norwegian, Serbian,
-    Spanish, French, Swedish, German
+  * Updated Arabic, Catalan, Chinese(Taiwan), Chinese, Dutch, Finnish, Norwegian, Serbian,
+    Spanish, Finish, French, Swedish, German, Portuguese
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 12 Aug 2013 22:31:23 +0200
 

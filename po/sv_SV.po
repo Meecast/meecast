@@ -1,23 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-#  Angela Nennebrandt <EMAIL@ADDRESS>, 2012.
-# Niklas Åkerström <nille.kungen@gmail.com>, 2012.
+#  Angela Nennebrandt <EMAIL@ADDRESS>, 2012
+# Niklas Åkerström <nille.kungen@gmail.com>, 2012-2013
+# Vlad Vas <vasvlad@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-09-13 20:23+0300\n"
-"PO-Revision-Date: 2012-11-08 15:02+0000\n"
-"Last-Translator: Niklas Åkerström <nille.kungen@gmail.com>\n"
-"Language-Team: Swedish (http://www.transifex.com/projects/p/meecast/language/"
-"sv/)\n"
-"Language: sv\n"
+"PO-Revision-Date: 2013-09-15 06:33+0000\n"
+"Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
+"Language-Team: Swedish (http://www.transifex.com/projects/p/meecast/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: omweather/src/weather-home.c:1567
@@ -281,7 +281,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/main.qml:49
 msgid "Adjust GPS station"
-msgstr ""
+msgstr "Justera GPS station"
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
 #: omweather/src/weather-settings.c:1381
@@ -319,11 +319,7 @@ msgid ""
 "for installing package 'MeeCast applet'.\n"
 "You should uninstall AccuWeather \n"
 "before installing this package"
-msgstr ""
-"Applikationmanager startar nu\n"
-"för installation av 'Meecast applet'.\n"
-"Du bör avinstallera AccuWeather\n"
-"innan installation av detta paket"
+msgstr "Applikationmanager startar nu\nför installation av 'Meecast applet'.\nDu bör avinstallera AccuWeather\ninnan installation av detta paket"
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -634,8 +630,8 @@ msgstr "Radera område?"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
-"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
-"zhilin@ovi.com>\n"
+"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, "
+"<andrew.zhilin@ovi.com>\n"
 msgstr ""
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
@@ -819,9 +815,8 @@ msgid "Feels like:"
 msgstr ""
 
 #: omweather/src/hash.data:335
-#, fuzzy
 msgid "Few Clouds"
-msgstr "Molnigt"
+msgstr ""
 
 #: omweather/src/hash.data:77
 msgid "Few Showers"
@@ -901,11 +896,7 @@ msgid ""
 "you should uninstall package\n"
 "'Activating MeeCast Applet'\n"
 "using Application manager"
-msgstr ""
-"För att avaktivera MeeCast widget\n"
-"ska du avinstallera paketet\n"
-"'Activating MeeCast Applet' genom \n"
-"Hantera program."
+msgstr "För att avaktivera MeeCast widget\nska du avinstallera paketet\n'Activating MeeCast Applet' genom \nHantera program."
 
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
@@ -1039,14 +1030,12 @@ msgid "Heavy Snow"
 msgstr "Kraftigt snöfall"
 
 #: omweather/src/hash.data:94
-#, fuzzy
 msgid "Heavy Snow / Wind"
-msgstr "Kraftigt regn / Vind"
+msgstr ""
 
 #: omweather/src/hash.data:351
-#, fuzzy
 msgid "Heavy intensity rain"
-msgstr "Kraftigt regn"
+msgstr ""
 
 #: omweather/src/hash.data:95
 msgid "High"
@@ -1063,9 +1052,8 @@ msgstr ""
 #: meecast/qt-qml/qml/FullWeatherPage.qml:136
 #: meecast/qt-qml/qml/FullWeatherPage.qml:194
 #: meecast/qt-qml/qml/FullWeatherPage.qml:244
-#, fuzzy
 msgid "Humidity"
-msgstr "Fuktighet:"
+msgstr ""
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
@@ -1091,7 +1079,7 @@ msgstr "Ikoninställningar"
 
 #: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:264
 msgid "Iconsets"
-msgstr ""
+msgstr "Ikonset"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:64
 #: meecast/qt-qml/qml/VisualsPage.qml:136
@@ -1120,7 +1108,7 @@ msgstr ""
 
 #: omweather/src/hash.data:331
 msgid "Language"
-msgstr ""
+msgstr "Språk"
 
 #: omweather/src/hash.data:100
 msgid "Last Quarter"
@@ -1238,19 +1226,16 @@ msgid "Light Snow Shower"
 msgstr ""
 
 #: omweather/src/hash.data:352
-#, fuzzy
 msgid "Light intensity shower rain"
-msgstr "Kraftigt regn"
+msgstr ""
 
 #: omweather/src/hash.data:336
-#, fuzzy
 msgid "Light rain"
-msgstr "Lätt Regn"
+msgstr ""
 
 #: omweather/src/hash.data:338
-#, fuzzy
 msgid "Light snow"
-msgstr "Lätt Snöfall"
+msgstr ""
 
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
@@ -1282,8 +1267,8 @@ msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
-"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
-"com>\n"
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
+"<tanyshk@gmail.com>\n"
 msgstr ""
 
 #: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:153
@@ -1325,13 +1310,12 @@ msgid "Mist"
 msgstr ""
 
 #: omweather/src/hash.data:340
-#, fuzzy
 msgid "Moderate Rain"
-msgstr "Kraftigt regn"
+msgstr "Måttligt regn"
 
 #: omweather/src/hash.data:339
 msgid "Moderate rain"
-msgstr ""
+msgstr "Måttligt regn"
 
 #: omweather/src/weather-simple-settings.c:434
 msgid "Modification"
@@ -1810,7 +1794,7 @@ msgstr ""
 
 #: omweather/src/hash.data:217
 msgid "Partly cloudy and light rain"
-msgstr ""
+msgstr "Delvis Molnigt med lätt regn"
 
 #: omweather/src/hash.data:218
 msgid "Partly cloudy and light snow"
@@ -1880,18 +1864,16 @@ msgid "Pressure: "
 msgstr "Tryck: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
-#, fuzzy
 msgid "Programmer"
-msgstr "Huvudprogrammerare"
+msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
-#, fuzzy
 msgid "Project administrators"
-msgstr "Projektadministratör"
+msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:202
 msgid "Project manager"
-msgstr ""
+msgstr "Projektledare"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:922
 msgid "Provided by"
@@ -1899,7 +1881,7 @@ msgstr ""
 
 #: omweather/src/hash.data:245
 msgid "Rain"
-msgstr ""
+msgstr "Regn"
 
 #: omweather/src/hash.data:225
 msgid "Rain / Freezing Rain"
@@ -2106,11 +2088,11 @@ msgstr ""
 
 #: meecast/qt-qml/qml/LockScreen.qml:85
 msgid "Select the X-position for left corner of widget"
-msgstr ""
+msgstr "Widget-placering höjdled (x)"
 
 #: meecast/qt-qml/qml/LockScreen.qml:125
 msgid "Select the Y-position for left corner of widget"
-msgstr ""
+msgstr "Widget-placering sidled (y)"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:267
 msgid "Select the color of font for current temperature"
@@ -2129,9 +2111,8 @@ msgid "Select the iconset"
 msgstr "Välj ikonuppsättning"
 
 #: meecast/qt-qml/qml/LanguagesPage.qml:130
-#, fuzzy
 msgid "Select the language"
-msgstr "Välj ikonuppsättning"
+msgstr "Välj önskat språk"
 
 #: meecast/qt-qml/qml/SourcePage.qml:108
 msgid "Select the weather source"
@@ -2178,7 +2159,7 @@ msgstr "Inställningar"
 
 #: meecast/qt-qml/qml/LockScreen.qml:65
 msgid "Settings for Lockscreen widget"
-msgstr ""
+msgstr "Anpassa widget på låsskärm"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:102
 msgid "Settings for standby widget"
@@ -2186,7 +2167,7 @@ msgstr "Anpassa widget på väntelägeskärm"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:534
 msgid "Settings of LockScreen"
-msgstr ""
+msgstr "Anpassa låsskärm"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:514
 msgid "Settings of StandbyScreen"
@@ -2258,7 +2239,7 @@ msgstr ""
 
 #: omweather/src/hash.data:269
 msgid "Sleet"
-msgstr ""
+msgstr "Snöblandat regn"
 
 #: omweather/src/hash.data:270
 msgid "Smoke"
@@ -2335,7 +2316,7 @@ msgstr "Hastighet:"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:491
 msgid "Splash screen"
-msgstr ""
+msgstr "Välkomstskärm"
 
 #: omweather/src/weather-settings.c:522
 msgid "State:"
@@ -2603,7 +2584,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/UnitsPage.qml:58 meecast/qt-qml/qml/UnitsPage.qml:209
 msgid "Visible units"
-msgstr ""
+msgstr "Synliga enheter"
 
 #: omweather/src/weather-popup.c:1288
 #: meecast/qt-qml/qml/FullWeatherPage.qml:171
@@ -2705,9 +2686,8 @@ msgstr "Vind"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:139
 #: meecast/qt-qml/qml/FullWeatherPage.qml:197
 #: meecast/qt-qml/qml/FullWeatherPage.qml:247
-#, fuzzy
 msgid "Wind direction"
-msgstr "Vindriktning:"
+msgstr "Vindriktning"
 
 #: omweather/src/hash.data:311
 msgid "Wind direction:"
@@ -2780,30 +2760,20 @@ msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using LockScreen widget"
-msgstr ""
-"Du måste först aktivera\n"
-"'Widget i vyn Händelser'\n"
-"för att kunna aktivera widget på\n"
-"låsskärm."
+msgstr "Du måste först aktivera\n'Widget i vyn Händelser'\nför att kunna aktivera widget på\nlåsskärm."
 
 #: meecast/qt-qml/qml/VisualsPage.qml:256
 msgid ""
 "You should activate \n"
 "'Widget in events view'\n"
 " for using StandbyScreen widget"
-msgstr ""
-"Du måste först aktivera\n"
-"'Widget i vyn Händelser'\n"
-"för att kunna aktivera widget på\n"
-"väntelägeskärm."
+msgstr "Du måste först aktivera\n'Widget i vyn Händelser'\nför att kunna aktivera widget på\nväntelägeskärm."
 
 #: meecast/qt-qml/qml/UpdatePage.qml:73
 msgid ""
-"You should activate 'Widget in the events view' option in MeeCast appearance "
-"settings for auto update."
-msgstr ""
-"Du måste aktivera 'Widget i vyn Händelser' under 'Utseende' för automatisk "
-"väderuppdatering."
+"You should activate 'Widget in the events view' option in MeeCast appearance"
+" settings for auto update."
+msgstr "Du måste aktivera 'Widget i vyn Händelser' under 'Utseende' för automatisk väderuppdatering."
 
 #: omweather/src/weather-simple-settings.c:2758
 msgid "Zoom in popup window "
@@ -3062,6 +3032,3 @@ msgstr ""
 #: omweather/src/hash.data:361
 msgid "Ю-З"
 msgstr ""
-
-#~ msgid "Project website"
-#~ msgstr "Projektets hemsida"

@@ -533,6 +533,9 @@ meecastMainForm::ReInitElements(void){
 
     AppLog("REINIT ELEMENTS");
     char  buffer[4096];
+    int localtimezone = 0;
+    int timezone = 0;
+
     Tizen::Ui::Controls::Label  *station_label = static_cast<Label*>(GetControl(L"IDC_LABEL_STATION_NAME"));
     Tizen::Ui::Controls::Label  *main_background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
     Tizen::Ui::Controls::Label  *main_no_locations_label = static_cast<Label*>(GetControl(L"IDC_LABEL_NO_LOCATIONS"));
@@ -823,6 +826,13 @@ meecastMainForm::ReInitElements(void){
 
     time_t current_day;
     struct tm   *tm = NULL;
+
+    /* Timezone */
+    if (_config->dp != NULL){
+        timezone = _config->dp->timezone();
+        AppLog("TimeZone %i", timezone);
+    }
+
     current_day = time(NULL);
 
     /* Set localtimezone */
@@ -830,34 +840,30 @@ meecastMainForm::ReInitElements(void){
     struct tm time_tm2;
     gmtime_r(&current_day, &time_tm1);
     localtime_r(&current_day, &time_tm2);
-    int localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
-
+    localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
 
     /* set current day */ 
-    current_day = time(NULL);
+    current_day = current_day + 3600*timezone; 
 
+    /* AppLog("Current day0 %li", current_day); */
 
     tm = gmtime(&current_day);
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     tm->tm_isdst = 1;
-    current_day = mktime(tm) + 3600*localtimezone; /* today 00:00:00 */
-    AppLog("Local TimeZone %i", localtimezone);
+    current_day = mktime(tm); /* today 00:00:00 */
+    current_day = current_day + 3600*localtimezone - 3600*timezone; 
+
+    /* AppLog("Current day %li", current_day); */
+    /* AppLog("Local TimeZone %i", localtimezone); */
 
     /* fill other days */
     int i = 0;
     int j = 0;
-    int timezone = 0;
-    /* Timezone */
-    if (_config->dp != NULL){
-        timezone = _config->dp->timezone();
-        AppLog("TimeZone %i", timezone);
-    }
-
     _dayCount = 0;
     while  (_config->dp != NULL && i < 3600*24*14) {
         /* AppLog ("Result0 %li", current_day + 15*3600 + i - 3600*timezone); */
-        if (_config->dp->data().GetDataForTime(current_day + 15*3600 + i - 3600*timezone)){
-            __daysmap->Add(*(new (std::nothrow) Integer(_dayCount)), *(new (std::nothrow) Long(current_day + 15*3600 + i - 3600*timezone)));
+        if (_config->dp->data().GetDataForTime(current_day + 15*3600 + i)){
+            __daysmap->Add(*(new (std::nothrow) Integer(_dayCount)), *(new (std::nothrow) Long(current_day + 15*3600 + i)));
             /* AppLog ("Result1 %li", current_day); */
             /* AppLog ("Result %li", current_day + 15*3600 + i - 3600*timezone); */
             _dayCount ++;

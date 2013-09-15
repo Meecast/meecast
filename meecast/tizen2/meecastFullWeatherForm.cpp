@@ -318,14 +318,14 @@ meecastFullWeatherForm::ReInitElements(void){
     AppLog ("DP %p", _config->dp);
     time_t current_day;
     struct tm   *tm = NULL;
-    current_day = time(NULL);
-    AppLog ("Current day: !! %li", current_day);
-
     /* Timezone */
     if (_config->dp){
         timezone = _config->dp->timezone();
         AppLog("TimeZone %i", timezone);
     }
+
+    current_day = time(NULL);
+    /* AppLog ("Current day: !! %li", current_day); */
 
 
     /* Set localtimezone */
@@ -336,12 +336,14 @@ meecastFullWeatherForm::ReInitElements(void){
     localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
 
     current_day = current_day + 3600*timezone; 
+    /* AppLog("Current day0 %li", current_day); */
+
     tm = gmtime(&current_day);
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     tm->tm_isdst = 1;
     current_day = mktime(tm); /* today 00:00:00 */
     current_day = current_day + 3600*localtimezone - 3600*timezone; 
-    
+    /* AppLog("Current day %li", current_day); */
     /* Footer */
     Footer* pFooter = GetFooter();
 

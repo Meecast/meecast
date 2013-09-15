@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-09-13 20:23+0300\n"
-"PO-Revision-Date: 2013-09-15 07:27+0000\n"
+"PO-Revision-Date: 2013-09-15 09:59+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/meecast/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
@@ -1034,7 +1034,7 @@ msgstr ""
 
 #: omweather/src/hash.data:351
 msgid "Heavy intensity rain"
-msgstr ""
+msgstr "Wolkenbruchartige Regenschauer"
 
 #: omweather/src/hash.data:95
 msgid "High"
@@ -1601,7 +1601,7 @@ msgstr "Bedeckt"
 
 #: omweather/src/hash.data:342
 msgid "Overcast Clouds"
-msgstr ""
+msgstr "Bedeckt"
 
 #: omweather/src/hash.data:170
 msgid "Overcast and light rain"
@@ -1641,7 +1641,7 @@ msgstr "Bedeckt und Schneeregenschauer"
 
 #: omweather/src/hash.data:341
 msgid "Overcast clouds"
-msgstr ""
+msgstr "Bedeckt"
 
 #: omweather/src/hash.data:179
 msgid "Overcast, thunderstorms with rain"
@@ -2028,7 +2028,7 @@ msgstr "Speichern"
 
 #: omweather/src/hash.data:344
 msgid "Scattered Clouds"
-msgstr ""
+msgstr "Wolkig"
 
 #: omweather/src/hash.data:257
 msgid "Scattered Showers"
@@ -2048,7 +2048,7 @@ msgstr "Vereinzelt Gewitter"
 
 #: omweather/src/hash.data:343
 msgid "Scattered clouds"
-msgstr ""
+msgstr "Wolkig"
 
 #: omweather/src/weather-settings.c:3943
 msgid "Sea miles"

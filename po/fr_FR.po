@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-09-13 20:23+0300\n"
-"PO-Revision-Date: 2013-09-15 07:50+0000\n"
+"PO-Revision-Date: 2013-09-15 10:07+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/meecast/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -375,11 +375,11 @@ msgstr "Poudrerie"
 
 #: omweather/src/hash.data:332
 msgid "Broken Clouds"
-msgstr ""
+msgstr "Nuageux"
 
 #: omweather/src/hash.data:333
 msgid "Broken clouds"
-msgstr ""
+msgstr "Nuageux"
 
 #: omweather/src/weather-home.c:1536 omweather/src/weather-home.c:1562
 #: omweather/src/weather-simple-popup.c:1042
@@ -1037,7 +1037,7 @@ msgstr ""
 
 #: omweather/src/hash.data:351
 msgid "Heavy intensity rain"
-msgstr ""
+msgstr "Pluie battante"
 
 #: omweather/src/hash.data:95
 msgid "High"
@@ -2237,7 +2237,7 @@ msgstr "Ciel dégagé"
 
 #: omweather/src/hash.data:345
 msgid "Sky is clear"
-msgstr ""
+msgstr "Ciel dégagé"
 
 #: omweather/src/hash.data:269
 msgid "Sleet"

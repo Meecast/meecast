@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-13 20:23+0300\n"
+"POT-Creation-Date: 2013-09-16 17:47+0300\n"
 "PO-Revision-Date: 2012-12-21 07:15+0000\n"
 "Last-Translator: zlatko <zlatko23@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/"
@@ -290,7 +290,7 @@ msgstr "АМ Сняг/Вятър"
 #: omweather/src/weather-simple-popup.c:1164
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/qml/main.qml:56 meecast/qt-qml/qml/AboutPage.qml:68
+#: meecast/qt-qml/qml/main.qml:57 meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
 msgstr "Относно"
 
@@ -310,7 +310,7 @@ msgstr "Добави"
 msgid "Add Station"
 msgstr "Добави станция"
 
-#: meecast/qt-qml/qml/main.qml:49
+#: meecast/qt-qml/qml/main.qml:50
 #, fuzzy
 msgid "Adjust GPS station"
 msgstr "Добави станция"
@@ -1391,7 +1391,7 @@ msgstr ""
 "com>\n"
 "\n"
 
-#: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:153
+#: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:158
 msgid "Manage locations"
 msgstr "Управление на локации"
 

@@ -10,6 +10,7 @@ PageStackWindow {
 
     platformStyle: defaultStyle
     showStatusBar: !Config.fullscreen
+    property bool menuitemgps: Config.gps
 
     PageStackWindowStyle { id: defaultStyle }
     PageStackWindowStyle {
@@ -46,6 +47,7 @@ PageStackWindow {
             }
             MenuItem {
                 id: item2
+                visible: menuitemgps
                 text: Config.tr("Adjust GPS station")
                 onClicked: {
                     Config.updategpsstation();

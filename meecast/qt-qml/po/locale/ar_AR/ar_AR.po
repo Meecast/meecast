@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-13 20:23+0300\n"
-"PO-Revision-Date: 2013-09-04 07:45+0000\n"
+"POT-Creation-Date: 2013-09-16 17:47+0300\n"
+"PO-Revision-Date: 2013-09-15 07:31+0000\n"
 "Last-Translator: Tarad Alfandi <ttt0600@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/meecast/language/"
 "ar/)\n"
@@ -288,7 +288,7 @@ msgstr "زخات ثلج صباحاً / رياح متأخره"
 #: omweather/src/weather-simple-popup.c:1164
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/qml/main.qml:56 meecast/qt-qml/qml/AboutPage.qml:68
+#: meecast/qt-qml/qml/main.qml:57 meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
 msgstr "عن"
 
@@ -308,10 +308,9 @@ msgstr "إضافة"
 msgid "Add Station"
 msgstr "إضافة محطة"
 
-#: meecast/qt-qml/qml/main.qml:49
-#, fuzzy
+#: meecast/qt-qml/qml/main.qml:50
 msgid "Adjust GPS station"
-msgstr "إضافة محطة"
+msgstr "ضبط محطه تحديد المواقع"
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
 #: omweather/src/weather-settings.c:1381
@@ -560,9 +559,8 @@ msgid "Cloudy and wet snow showers"
 msgstr "غائم مع زخات ثلج رطبه"
 
 #: omweather/src/hash.data:350
-#, fuzzy
 msgid "Cloudy with occasional rain."
-msgstr "غائم مع أمطار خفيفة"
+msgstr "غائم مع امطار نسبيه"
 
 #: omweather/src/hash.data:48
 msgid "Cloudy, Drifting Snow"
@@ -988,7 +986,6 @@ msgid "Freezing Drizzle"
 msgstr "رذار متجمد"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1027,12 +1024,12 @@ msgstr ""
 " \tEd Bartosh\n"
 " الفنلندية - Marko Vertainen\n"
 " الألمانية -  Claudius Henrichs\n"
-" الإيطالية - Lorenzo Facca,\n"
-" \tPavel Fialko, Alessandro Pasotti,\n"
-" \tSalvatore Fiorenzo, Ilir Gjika,\n"
-" \tLuca Onnis\n"
-" الأسبانية - Alejandro Lopez\n"
-" البولندية - Tomasz Dominikowski\n"
+" الإيطالية - Lorenzo Facca\n"
+"\t\tPavel Fialko, Alessandro Pasotti,\n"
+"\t\t   Salvatore Fiorenzo, Ilir Gjika,\n"
+"\t\tLuca Onnis\n"
+" الإسبانية - Agustí Clara, Alejandro Lopez\n"
+" البولندية - Michiel Pater, Tom Dominikowski\n"
 " السلوفاكية - Roman Moravčík\n"
 " الهولندية - Tom Leenders, Michiel Pater\n"
 " البلغارية - Zlatko Enikov\n"
@@ -1042,14 +1039,15 @@ msgstr ""
 " التركية - Burak Kaan Kose,\n"
 " الكتالانية - Agustí Clara,\n"
 " العربية - Tarad Alfandi,\n"
-" الصربية - Aleksandar Zaric,\n"
-" النَرْوِيجية - Peer-Atle Motland,\n"
-" الهنغارية - Salmi,\n"
-" الفيتنامية - Hieu Nguyen\n"
-" \tAnh Dương and truongnx, \n"
+" الصربيه - Aleksandar Zaric,\n"
+"النَرْوِيجية - Peer-Atle Motland,\n"
+"الهنقارية - Salmi,\n"
+"الصينية (تايوان) - osk2,\n"
+" الفيتنامية - Hieu Nguyen,\n"
+"\t\tAnh Dương and truongnx, \n"
 " السويدية - Angela Nennebrandt,\n"
-" \tNiklas Åkerström, \n"
-" \tTomislav Veleckovik"
+" \t\tNiklas Åkerström, \n"
+"\tTomislav Veleckovik"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1341,9 +1339,8 @@ msgid "Light Snow Shower"
 msgstr "ثلوج خفيفة متفرقة"
 
 #: omweather/src/hash.data:352
-#, fuzzy
 msgid "Light intensity shower rain"
-msgstr "أمطار ذات كثافة عاليه"
+msgstr "أمطار ذات كثافة خفيفة"
 
 #: omweather/src/hash.data:336
 msgid "Light rain"
@@ -1363,7 +1360,7 @@ msgstr "تقارير اللقاح المحليه"
 
 #: meecast/qt-qml/qml/AboutPage.qml:170
 msgid "Localization platform"
-msgstr ""
+msgstr "منصة التعريب"
 
 #: omweather/src/weather-settings.c:3454
 msgid "Long"
@@ -1378,9 +1375,8 @@ msgid "Low"
 msgstr "الصغرى"
 
 #: omweather/src/hash.data:349
-#, fuzzy
 msgid "Mainly cloudy with occasional rain."
-msgstr "غائم جزئيأ مع أمطار خفيفه"
+msgstr "غائم مع امطار نسبيه"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
@@ -1389,7 +1385,7 @@ msgid ""
 msgstr ""
 "صيانة: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail.com>\n"
 
-#: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:153
+#: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:158
 msgid "Manage locations"
 msgstr "إدارة الأماكن"
 
@@ -1984,12 +1980,10 @@ msgid "Pressure: "
 msgstr "الضغط:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
-#, fuzzy
 msgid "Programmer"
-msgstr "المبرمجين"
+msgstr "المبرمج"
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
-#, fuzzy
 msgid "Project administrators"
 msgstr "مدير المشروع"
 
@@ -2416,9 +2410,8 @@ msgid "Source"
 msgstr "المصدر"
 
 #: meecast/qt-qml/qml/AboutPage.qml:320
-#, fuzzy
 msgid "Source code"
-msgstr "المصدر"
+msgstr "المصدر البرمجي"
 
 #: omweather/src/weather-settings.c:498
 msgid "Source:"
@@ -2473,7 +2466,7 @@ msgstr "مُشمس / رياح"
 
 #: omweather/src/hash.data:347 omweather/src/hash.data:348
 msgid "Sunny periods and a few showers."
-msgstr ""
+msgstr "فترات مشمسه مع زخات مطر قليلة"
 
 #: omweather/src/hash.data:285 meecast/qt-qml/qml/FullWeatherPage.qml:292
 msgid "Sunrise:"
@@ -2493,7 +2486,7 @@ msgstr "الغروب:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:86
 msgid "Support"
-msgstr ""
+msgstr "الدعم"
 
 #: omweather/src/weather-settings.c:3773
 msgid "Swap hi/low temperature"
@@ -3003,7 +2996,7 @@ msgstr "قبل ساعات"
 
 #: meecast/qt-qml/qml/AboutPage.qml:329
 msgid "http://github.com/Meecast/meecast"
-msgstr ""
+msgstr "http://github.com/Meecast/meecast"
 
 #: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
 #: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
@@ -3180,6 +3173,3 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:361
 msgid "Ю-З"
 msgstr "Ю-З"
-
-#~ msgid "Project website"
-#~ msgstr "موقع المشروع"

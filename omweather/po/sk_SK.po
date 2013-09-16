@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-13 20:23+0300\n"
+"POT-Creation-Date: 2013-09-16 17:47+0300\n"
 "PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -287,7 +287,7 @@ msgstr "Dopoludnia snehové prehánky / Neskôr vietor"
 #: omweather/src/weather-simple-popup.c:1164
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/qml/main.qml:56 meecast/qt-qml/qml/AboutPage.qml:68
+#: meecast/qt-qml/qml/main.qml:57 meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
 msgstr "O aplikácií"
 
@@ -307,7 +307,7 @@ msgstr "Pridať"
 msgid "Add Station"
 msgstr "Pridať stanicu"
 
-#: meecast/qt-qml/qml/main.qml:49
+#: meecast/qt-qml/qml/main.qml:50
 #, fuzzy
 msgid "Adjust GPS station"
 msgstr "Pridať stanicu"
@@ -1391,7 +1391,7 @@ msgstr ""
 "Správca: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
 "com>\n"
 
-#: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:153
+#: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:158
 msgid "Manage locations"
 msgstr "Spravovať miesta"
 

@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Cristian Măgherușan-Stanciu <cristi.magherusan@gmail.com>, 2012.
-# Vlad Vas <vasvlad@gmail.com>, 2012.
+# Cristian Măgherușan-Stanciu <cristi.magherusan@gmail.com>, 2012
+# Vlad Vas <vasvlad@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-13 20:23+0300\n"
-"PO-Revision-Date: 2012-12-23 14:25+0000\n"
+"POT-Creation-Date: 2013-09-16 17:47+0300\n"
+"PO-Revision-Date: 2013-09-15 09:59+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/meecast/"
 "language/de_DE/)\n"
@@ -288,7 +288,7 @@ msgstr "Vormittags Schneeschauer / Wind"
 #: omweather/src/weather-simple-popup.c:1164
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/qml/main.qml:56 meecast/qt-qml/qml/AboutPage.qml:68
+#: meecast/qt-qml/qml/main.qml:57 meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
 msgstr "Info"
 
@@ -308,10 +308,9 @@ msgstr "Hinzufügen"
 msgid "Add Station"
 msgstr "Station hinzufügen"
 
-#: meecast/qt-qml/qml/main.qml:49
-#, fuzzy
+#: meecast/qt-qml/qml/main.qml:50
 msgid "Adjust GPS station"
-msgstr "Station hinzufügen"
+msgstr "Passen Sie GPS-Station"
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
 #: omweather/src/weather-settings.c:1381
@@ -558,14 +557,12 @@ msgid "Cloudy and snow showers"
 msgstr "Bewölkt und Schneeschauer"
 
 #: omweather/src/hash.data:46
-#, fuzzy
 msgid "Cloudy and wet snow showers"
-msgstr "Bewölkt und Schneeschauer"
+msgstr ""
 
 #: omweather/src/hash.data:350
-#, fuzzy
 msgid "Cloudy with occasional rain."
-msgstr "Bewölkt und leichter Regen"
+msgstr ""
 
 #: omweather/src/hash.data:48
 msgid "Cloudy, Drifting Snow"
@@ -884,9 +881,8 @@ msgid "Feels like:"
 msgstr "Gefühlt: "
 
 #: omweather/src/hash.data:335
-#, fuzzy
 msgid "Few Clouds"
-msgstr "Bewölkt"
+msgstr ""
 
 #: omweather/src/hash.data:77
 msgid "Few Showers"
@@ -1114,23 +1110,20 @@ msgid "Heavy Snow"
 msgstr "Starker Schneefall"
 
 #: omweather/src/hash.data:94
-#, fuzzy
 msgid "Heavy Snow / Wind"
-msgstr "Starkregen / Wind"
+msgstr ""
 
 #: omweather/src/hash.data:351
-#, fuzzy
 msgid "Heavy intensity rain"
-msgstr "Starkregen"
+msgstr "Wolkenbruchartige Regenschauer"
 
 #: omweather/src/hash.data:95
 msgid "High"
 msgstr "Hoch"
 
 #: omweather/src/hash.data:329
-#, fuzzy
 msgid "Hourly"
-msgstr "Stunden"
+msgstr ""
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:280
 msgid "Hours"
@@ -1313,19 +1306,16 @@ msgid "Light Snow Shower"
 msgstr "Leichte Schneeschauer"
 
 #: omweather/src/hash.data:352
-#, fuzzy
 msgid "Light intensity shower rain"
-msgstr "Starkregen"
+msgstr "Leichte Regenschauer"
 
 #: omweather/src/hash.data:336
-#, fuzzy
 msgid "Light rain"
 msgstr "Leichter Regen"
 
 #: omweather/src/hash.data:338
-#, fuzzy
 msgid "Light snow"
-msgstr "Leichter Schneefall"
+msgstr ""
 
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
@@ -1352,9 +1342,8 @@ msgid "Low"
 msgstr "Niedrig"
 
 #: omweather/src/hash.data:349
-#, fuzzy
 msgid "Mainly cloudy with occasional rain."
-msgstr "Teilweise bewölkt und leichter Regen"
+msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
@@ -1364,7 +1353,7 @@ msgstr ""
 "Produktpflege: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
 "<tanyshk@gmail.com>\n"
 
-#: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:153
+#: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:158
 msgid "Manage locations"
 msgstr "Standorte verwalten"
 
@@ -1403,13 +1392,12 @@ msgid "Mist"
 msgstr "Leichter Nebel"
 
 #: omweather/src/hash.data:340
-#, fuzzy
 msgid "Moderate Rain"
-msgstr "Starkregen"
+msgstr "Mäßiger Regen"
 
 #: omweather/src/hash.data:339
 msgid "Moderate rain"
-msgstr ""
+msgstr "Mäßiger Regen"
 
 #: omweather/src/weather-simple-settings.c:434
 msgid "Modification"
@@ -1695,7 +1683,6 @@ msgid "Overcast"
 msgstr "Bedeckt"
 
 #: omweather/src/hash.data:342
-#, fuzzy
 msgid "Overcast Clouds"
 msgstr "Bedeckt"
 
@@ -1736,7 +1723,6 @@ msgid "Overcast and wet snow showers"
 msgstr "Bedeckt und Schneeregenschauer"
 
 #: omweather/src/hash.data:341
-#, fuzzy
 msgid "Overcast clouds"
 msgstr "Bedeckt"
 
@@ -1964,9 +1950,8 @@ msgid "Programmer"
 msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
-#, fuzzy
 msgid "Project administrators"
-msgstr "Projektadministrator"
+msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:202
 msgid "Project manager"
@@ -2125,9 +2110,8 @@ msgid "Save"
 msgstr "Speichern"
 
 #: omweather/src/hash.data:344
-#, fuzzy
 msgid "Scattered Clouds"
-msgstr "Vereinzelt Schneefall"
+msgstr "Wolkig"
 
 #: omweather/src/hash.data:257
 msgid "Scattered Showers"
@@ -2146,9 +2130,8 @@ msgid "Scattered T-Storms"
 msgstr "Vereinzelt Gewitter"
 
 #: omweather/src/hash.data:343
-#, fuzzy
 msgid "Scattered clouds"
-msgstr "Vereinzelt Schneefall"
+msgstr "Wolkig"
 
 #: omweather/src/weather-settings.c:3943
 msgid "Sea miles"
@@ -2210,9 +2193,8 @@ msgid "Select the iconset"
 msgstr "Symbolsatz wählen"
 
 #: meecast/qt-qml/qml/LanguagesPage.qml:130
-#, fuzzy
 msgid "Select the language"
-msgstr "Symbolsatz wählen"
+msgstr ""
 
 #: meecast/qt-qml/qml/SourcePage.qml:108
 msgid "Select the weather source"
@@ -2330,14 +2312,12 @@ msgid "Showers in the Vicinity"
 msgstr "Schauer in der Nähe"
 
 #: omweather/src/hash.data:346
-#, fuzzy
 msgid "Sky is Clear"
-msgstr "Überwiegend klar"
+msgstr "Klar"
 
 #: omweather/src/hash.data:345
-#, fuzzy
 msgid "Sky is clear"
-msgstr "Überwiegend klar"
+msgstr "Klar"
 
 #: omweather/src/hash.data:269
 msgid "Sleet"
@@ -2396,9 +2376,8 @@ msgid "Source"
 msgstr "Quelle"
 
 #: meecast/qt-qml/qml/AboutPage.qml:320
-#, fuzzy
 msgid "Source code"
-msgstr "Quelle"
+msgstr ""
 
 #: omweather/src/weather-settings.c:498
 msgid "Source:"
@@ -3164,6 +3143,3 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:361
 msgid "Ю-З"
 msgstr "Ю-З"
-
-#~ msgid "Project website"
-#~ msgstr "Projektseite"

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-13 20:23+0300\n"
-"PO-Revision-Date: 2013-08-12 21:25+0000\n"
+"POT-Creation-Date: 2013-09-16 17:47+0300\n"
+"PO-Revision-Date: 2013-09-15 08:24+0000\n"
 "Last-Translator: Alexandar Zaric <alexandarzaric@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/meecast/language/"
 "sr/)\n"
@@ -290,7 +290,7 @@ msgstr "Prepodne Snežne mećave / Vetar u kasnijim satima"
 #: omweather/src/weather-simple-popup.c:1164
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/qml/main.qml:56 meecast/qt-qml/qml/AboutPage.qml:68
+#: meecast/qt-qml/qml/main.qml:57 meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
 msgstr "Više o aplikaciji"
 
@@ -310,10 +310,9 @@ msgstr "Dodaj"
 msgid "Add Station"
 msgstr "Dodaj stanicu"
 
-#: meecast/qt-qml/qml/main.qml:49
-#, fuzzy
+#: meecast/qt-qml/qml/main.qml:50
 msgid "Adjust GPS station"
-msgstr "Dodaj stanicu"
+msgstr "Podesi GPS stanicu"
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
 #: omweather/src/weather-settings.c:1381
@@ -562,9 +561,8 @@ msgid "Cloudy and wet snow showers"
 msgstr "Oblačno i naleti vlažnog snega"
 
 #: omweather/src/hash.data:350
-#, fuzzy
 msgid "Cloudy with occasional rain."
-msgstr "Oblačno sa slabom kišom"
+msgstr "Oblačno sa povremenom kišom."
 
 #: omweather/src/hash.data:48
 msgid "Cloudy, Drifting Snow"
@@ -989,7 +987,6 @@ msgid "Freezing Drizzle"
 msgstr "Ledena kiša"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1022,35 +1019,36 @@ msgid ""
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
-"Francuski - Nicolas Granziano,\n"
-"»Filipinski, Benot Knecht\n"
-"Ruski - Pavel Fialko, Vlad Vasiliev,\n"
-"»Ed Bartosh\n"
-"Finski - Marko Vertainen\n"
-"Nemački - Claudius Henrichs\n"
-"Italijanski - Lorenzo Facca,\n"
-"»Pavel Fialko, Alessandro Pasotti,\n"
-"»Salvatore Fiorenzo, Ilir Gjika,\n"
-"»Luca Onnis\n"
-"Španski - Alejandro Lopez\n"
-"Poljski - Tomasz Dominikowski\n"
-"Slovački - Roman Moravčík\n"
-"Holandski - Tom Leenders, Michiel Pater\n"
-"Bugarski - Zlatko Enikov\n"
-"Albanski - Ilir Gjika\n"
-"Kineski - Wong Man Kong, Michael\n"
-"Portugalski - Jose Narciso,\n"
-"Turski - Burak Kaan Kose,\n"
-"Katalonski - Agustí Clara,\n"
-"Arapski - Tarad Alfandi,\n"
-"Srpski - Aleksandar Zarić,\n"
-"Norveški - Peer-Atle Motland,\n"
-"Mađarski - Salmi,\n"
-"Vijetnamski - Hieu Nguyen\n"
-"»Anh Dương and truongnx, \n"
-"Švedski - Angela Nennebrandt,\n"
-"»Niklas Åkerström, \n"
-"»Tomislav Veleckovik"
+"Francuski -  Nicolas Granziano, \n"
+" \tPhilippe, Benot Knecht \n"
+" Ruski - Pavel Fialko, Vlad Vasiliev, \n"
+" \tEd Bartosh\n"
+" Finski - Marko Vertainen\n"
+" Nemački -  Claudius Henrichs\n"
+" Italijanski - Lorenzo Facca,\n"
+" \tPavel Fialko, Alessandro Pasotti,\n"
+" \tSalvatore Fiorenzo, Ilir Gjika,\n"
+" \tLuca Onnis\n"
+" Španski - Alejandro Lopez, Agustí Clara\n"
+" Poljski - Tomasz Dominikowski\n"
+" Slovački - Roman Moravčík\n"
+" Holandski - Tom Leenders, Michiel Pater\n"
+" Bugarski - Zlatko Enikov\n"
+" Albanski - Ilir Gjika\n"
+" Kineski - Wong Man Kong, Michael\n"
+" Portugalski - Jose Narciso,\n"
+" Turski - Burak Kaan Kose,\n"
+" Katalonski - Agustí Clara,\n"
+" Arapski - Tarad Alfandi,\n"
+" Srpski - Aleksandar Zaric,\n"
+" Norveški - Peer-Atle Motland,\n"
+" Mađarski - Salmi,\n"
+" Kineski(Tajvanski) - osk2, \n"
+" Vijetnamski - Hieu Nguyen\n"
+" \tAnh Dương and truongnx, \n"
+" Švedski - Angela Nennebrandt,\n"
+" \tNiklas Åkerström, \n"
+" \tTomislav Veleckovik"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1341,9 +1339,8 @@ msgid "Light Snow Shower"
 msgstr "Blagi snežni naleti"
 
 #: omweather/src/hash.data:352
-#, fuzzy
 msgid "Light intensity shower rain"
-msgstr "Kiša jakog intenziteta"
+msgstr "Pljusak blagog intenziteta"
 
 #: omweather/src/hash.data:336
 msgid "Light rain"
@@ -1363,7 +1360,7 @@ msgstr "Lokalni izveštaj o polenu"
 
 #: meecast/qt-qml/qml/AboutPage.qml:170
 msgid "Localization platform"
-msgstr ""
+msgstr "Platforma lokalizacije"
 
 #: omweather/src/weather-settings.c:3454
 msgid "Long"
@@ -1378,9 +1375,8 @@ msgid "Low"
 msgstr "Nizak"
 
 #: omweather/src/hash.data:349
-#, fuzzy
 msgid "Mainly cloudy with occasional rain."
-msgstr "Delimično oblačno i blaga kiša"
+msgstr "Pretežno oblačno sa povremenom kišom."
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
@@ -1390,7 +1386,7 @@ msgstr ""
 "Održavanje: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
 "com>\n"
 
-#: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:153
+#: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:158
 msgid "Manage locations"
 msgstr "Upravljanje lokacijama"
 
@@ -1985,14 +1981,12 @@ msgid "Pressure: "
 msgstr "Pritisak:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
-#, fuzzy
 msgid "Programmer"
-msgstr "Programeri"
+msgstr "Programer"
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
-#, fuzzy
 msgid "Project administrators"
-msgstr "Administrator projekta"
+msgstr "Administratori projekta"
 
 #: meecast/qt-qml/qml/AboutPage.qml:202
 msgid "Project manager"
@@ -2417,9 +2411,8 @@ msgid "Source"
 msgstr "Izvor"
 
 #: meecast/qt-qml/qml/AboutPage.qml:320
-#, fuzzy
 msgid "Source code"
-msgstr "Izvor"
+msgstr "Izvorni kod"
 
 #: omweather/src/weather-settings.c:498
 msgid "Source:"
@@ -2474,7 +2467,7 @@ msgstr "Sunčano / Vetar"
 
 #: omweather/src/hash.data:347 omweather/src/hash.data:348
 msgid "Sunny periods and a few showers."
-msgstr ""
+msgstr "Sunčani periodi i malo pljuskova"
 
 #: omweather/src/hash.data:285 meecast/qt-qml/qml/FullWeatherPage.qml:292
 msgid "Sunrise:"
@@ -2494,7 +2487,7 @@ msgstr "Izlazak sunca: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:86
 msgid "Support"
-msgstr ""
+msgstr "Podrška"
 
 #: omweather/src/weather-settings.c:3773
 msgid "Swap hi/low temperature"
@@ -3006,7 +2999,7 @@ msgstr "sati ranije"
 
 #: meecast/qt-qml/qml/AboutPage.qml:329
 msgid "http://github.com/Meecast/meecast"
-msgstr ""
+msgstr "http://github.com/Meecast/meecast"
 
 #: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
 #: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
@@ -3183,6 +3176,3 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:361
 msgid "Ю-З"
 msgstr "Ю-З"
-
-#~ msgid "Project website"
-#~ msgstr "Veb sajt projekta"

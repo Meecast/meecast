@@ -915,6 +915,13 @@ void
 ConfigQml::updategpsstation()
 {
     qDebug() << "Update GPS ";
+    if (ConfigQml::Config::Gps()){
+        if (_gps){
+            delete _gps;
+            _gps = NULL;
+        }
+        enableGps();
+    }
 }
 
 

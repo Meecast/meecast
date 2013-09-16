@@ -1,3 +1,9 @@
+meecast (0.7.7) unstable; urgency=low
+
+  * Nothing 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 16 Sep 2013 18:31:23 +0200
+
 meecast (0.7.6) unstable; urgency=low
 
   * Added icon for openweathermap.com and gismeteo.ru

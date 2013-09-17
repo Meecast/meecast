@@ -54,6 +54,7 @@ namespace Core{
             std::string *_pressure_unit;
             std::string *_visible_unit;
             std::string *_language;
+            std::string *_nullname;
             bool         _update_connect;
             bool         _fullscreen;
             bool         _lockscreen;

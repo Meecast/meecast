@@ -844,6 +844,11 @@ Config::~Config(){
     _stations->clear();
     delete _stations;
     delete _nullname;
+    delete _iconset;
+    delete _temperature_unit;
+    delete _wind_speed_unit;
+    delete _pressure_unit;
+    delete _visible_unit;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

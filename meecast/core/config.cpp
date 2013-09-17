@@ -335,10 +335,10 @@ Config::Instance(const std::string& filename, const std::string& schema_filename
 bool 
 Config::DeleteInstance(){
     if (_refcount >1){
-        delete _self;
+        _refcount --;
         return false;
     }
-    if (_refcount == 0  && _self){
+    if (_refcount == 1  && _self){
         delete _self;
         _self = 0;
         return true;

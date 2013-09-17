@@ -445,7 +445,7 @@ Config::Instance(){
     if (!_self)
         _self = new Config();
     _refcount++;
-    std::cerr<<"Refcount for Config: "<<_refcount<<std::endl;
+    AppLogDebug("Instance0 %i", _refcount);
     return _self;
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -454,17 +454,20 @@ Config::Instance(const std::string& filename, const std::string& schema_filename
     if (!_self)
         _self = new Config(filename, schema_filename);
     _refcount++;
-    std::cerr<<"Refcount for Config: "<<_refcount<<std::endl;
+    AppLogDebug("Instance1 %i", _refcount);
     return _self;
 }
 ////////////////////////////////////////////////////////////////////////////////
 bool 
 Config::DeleteInstance(){
+
+    AppLogDebug("DeleteInstance %i", _refcount);
     if (_refcount >1){
         delete _self;
         return false;
     }
     if (_refcount == 0  && _self){
+        AppLogDebug("Destroy Config ");
         delete _self;
         _self = 0;
         return true;

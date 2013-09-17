@@ -52,6 +52,7 @@ public:
     Core::DataParser* dp;
     static ConfigTizen* Instance();
     static ConfigTizen* Instance(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
+    static bool DeleteInstance();
     void set_screen_width(int width);
     int  get_screen_width();
     void set_screen_height(int height);

@@ -70,6 +70,8 @@ meecastMainForm::~meecastMainForm(void)
 
     if (__pContextMenuText)
         delete __pContextMenuText;
+
+    _config->DeleteInstance();
 }
 
 bool

@@ -180,6 +180,7 @@ meecastApp::OnAppTerminating(AppRegistry& appRegistry, bool forcedTermination)
 	// TODO:
 	// Deallocate resources allocated by this App for termination.
 	// The App's permanent data and context can be saved via appRegistry.
+    config->DeleteInstance();
 	return true;
 }
 

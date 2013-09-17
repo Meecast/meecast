@@ -49,6 +49,7 @@ ConfigTizen::Instance()
     if (!_self)
         _self = new ConfigTizen();
     _refcount++;
+    AppLogDebug("Instance Tizen0 %i", _refcount);
     return _self;
 }
 
@@ -58,7 +59,26 @@ ConfigTizen::Instance(const std::string& filename, const std::string& schema_fil
     if (!_self)
         _self = new ConfigTizen(filename, schema_filename);
     _refcount++;
+    AppLogDebug("Instance Tizen1 %i", _refcount);
     return _self;
+}
+
+bool 
+ConfigTizen::DeleteInstance(){
+
+    AppLogDebug("DeleteInstance Tizen %i", _refcount);
+    if (_refcount >0){
+        _self --;
+        return false;
+    }
+    if (_refcount == 0  && _self){
+        AppLogDebug("Destroy Config Tizen");
+//        Core::Config::DeleteInstance();
+        delete _self;
+        _self = 0;
+        return true;
+    }
+    return false;
 }
 
 void 

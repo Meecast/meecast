@@ -66,6 +66,8 @@ meecastMainForm::~meecastMainForm(void)
 	__pLocationManagerThread->Join();
 	delete __pLocationManagerThread;
 
+    if (__pContextMenuText)
+        delete __pContextMenuText;
 }
 
 bool

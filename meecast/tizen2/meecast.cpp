@@ -115,6 +115,7 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
         setlocale (LC_MESSAGES, str.c_str());
         setlocale (LC_TIME, str.c_str());
     }
+//#if 0
     /* Add GPS station */
     if (config->Gps() && config->getGpsStation() == -1){
         Location location = LocationProvider::GetLastKnownLocation();
@@ -141,6 +142,7 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
             delete __db;
         }
     }
+//#endif
 	// Uncomment the following statement to listen to the screen on/off events.
 	//PowerManager::SetScreenEventListener(*this);
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-13 20:23+0300\n"
+"POT-Creation-Date: 2013-09-16 17:47+0300\n"
 "PO-Revision-Date: 2013-04-29 10:02+0000\n"
 "Last-Translator: Ilir Gjika <ilir.gjika@gmail.com>\n"
 "Language-Team: Albanian (http://www.transifex.com/projects/p/meecast/"
@@ -287,7 +287,7 @@ msgstr "Në mëngjes Rreshje të dëndura dëbore/Më vonë erë"
 #: omweather/src/weather-simple-popup.c:1164
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/qml/main.qml:56 meecast/qt-qml/qml/AboutPage.qml:68
+#: meecast/qt-qml/qml/main.qml:57 meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
 msgstr "Rreth"
 
@@ -307,7 +307,7 @@ msgstr "Shto"
 msgid "Add Station"
 msgstr "Shto Stacion"
 
-#: meecast/qt-qml/qml/main.qml:49
+#: meecast/qt-qml/qml/main.qml:50
 #, fuzzy
 msgid "Adjust GPS station"
 msgstr "Shto Stacion"
@@ -1391,7 +1391,7 @@ msgstr ""
 "Mirëmbajtja: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
 "com>\n"
 
-#: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:153
+#: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:158
 msgid "Manage locations"
 msgstr "Rregullo lokalitetet"
 

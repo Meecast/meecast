@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-13 20:23+0300\n"
-"PO-Revision-Date: 2013-08-12 13:23+0000\n"
+"POT-Creation-Date: 2013-09-16 17:47+0300\n"
+"PO-Revision-Date: 2013-09-14 09:41+0000\n"
 "Last-Translator: agustí clara <agusti.clara@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/meecast/language/"
 "es/)\n"
@@ -288,7 +288,7 @@ msgstr "Por la mañana chaparrones de nieve / viento luego"
 #: omweather/src/weather-simple-popup.c:1164
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/qml/main.qml:56 meecast/qt-qml/qml/AboutPage.qml:68
+#: meecast/qt-qml/qml/main.qml:57 meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
 msgstr "Acerca de"
 
@@ -308,10 +308,9 @@ msgstr "Agregar"
 msgid "Add Station"
 msgstr "Agregar estación"
 
-#: meecast/qt-qml/qml/main.qml:49
-#, fuzzy
+#: meecast/qt-qml/qml/main.qml:50
 msgid "Adjust GPS station"
-msgstr "Agregar estación"
+msgstr "Ajuste de la estación GPS"
 
 #: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
 #: omweather/src/weather-settings.c:1381
@@ -559,9 +558,8 @@ msgid "Cloudy and wet snow showers"
 msgstr "Nublado y chaparrones de nieve húmeda"
 
 #: omweather/src/hash.data:350
-#, fuzzy
 msgid "Cloudy with occasional rain."
-msgstr "Nublado y lluvias leves"
+msgstr "Nublado con lluvias ocasionales."
 
 #: omweather/src/hash.data:48
 msgid "Cloudy, Drifting Snow"
@@ -986,7 +984,6 @@ msgid "Freezing Drizzle"
 msgstr "Llovisna helada"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1029,7 +1026,7 @@ msgstr ""
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
 " \tLuca Onnis\n"
-" Español - Alejandro Lopez\n"
+" Español - Alejandro Lopez, Agustí Clara\n"
 " Polaco - Tomasz Dominikowski\n"
 " Eslovaco - Roman Moravčík\n"
 " Holandés - Tom Leenders, Michiel Pater\n"
@@ -1043,6 +1040,7 @@ msgstr ""
 " Serbio - Aleksandar Zaric,\n"
 " Noruego - Peer-Atle Motland,\n"
 " Húngaro - Salmi,\n"
+" Chinese(Taiwan) - osk2,\n"
 " Vietnamita - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
 " Sueco - Angela Nennebrandt,\n"
@@ -1338,9 +1336,8 @@ msgid "Light Snow Shower"
 msgstr "Ligero chaparrón de nieve"
 
 #: omweather/src/hash.data:352
-#, fuzzy
 msgid "Light intensity shower rain"
-msgstr "Lluvia intensa"
+msgstr "Chubascos poco intensos"
 
 #: omweather/src/hash.data:336
 msgid "Light rain"
@@ -1360,7 +1357,7 @@ msgstr "Reportes locales de polen"
 
 #: meecast/qt-qml/qml/AboutPage.qml:170
 msgid "Localization platform"
-msgstr ""
+msgstr "Plataforma de localización"
 
 #: omweather/src/weather-settings.c:3454
 msgid "Long"
@@ -1375,9 +1372,8 @@ msgid "Low"
 msgstr "Mínima"
 
 #: omweather/src/hash.data:349
-#, fuzzy
 msgid "Mainly cloudy with occasional rain."
-msgstr "Parcialmente nublado y lluvias leves"
+msgstr "Principalmente nublado con lluvias ocasionales."
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
@@ -1387,7 +1383,7 @@ msgstr ""
 "Mantenimiento: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
 "<tanyshk@gmail.com>\n"
 
-#: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:153
+#: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:158
 msgid "Manage locations"
 msgstr "Administrar ubicaciones"
 
@@ -1983,14 +1979,12 @@ msgid "Pressure: "
 msgstr "Presión: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
-#, fuzzy
 msgid "Programmer"
-msgstr "Programadores"
+msgstr "Programador"
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
-#, fuzzy
 msgid "Project administrators"
-msgstr "Administrador del proyecto"
+msgstr "Administradores del proyecto"
 
 #: meecast/qt-qml/qml/AboutPage.qml:202
 msgid "Project manager"
@@ -2415,9 +2409,8 @@ msgid "Source"
 msgstr "Origen"
 
 #: meecast/qt-qml/qml/AboutPage.qml:320
-#, fuzzy
 msgid "Source code"
-msgstr "Origen"
+msgstr "Código fuente"
 
 #: omweather/src/weather-settings.c:498
 msgid "Source:"
@@ -2472,7 +2465,7 @@ msgstr "Soleado / Viento"
 
 #: omweather/src/hash.data:347 omweather/src/hash.data:348
 msgid "Sunny periods and a few showers."
-msgstr ""
+msgstr "Intérvalos soleados y algunos chubascos."
 
 #: omweather/src/hash.data:285 meecast/qt-qml/qml/FullWeatherPage.qml:292
 msgid "Sunrise:"
@@ -2492,7 +2485,7 @@ msgstr "Ocaso: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:86
 msgid "Support"
-msgstr ""
+msgstr "Soporte"
 
 #: omweather/src/weather-settings.c:3773
 msgid "Swap hi/low temperature"
@@ -3005,7 +2998,7 @@ msgstr "horas atrás"
 
 #: meecast/qt-qml/qml/AboutPage.qml:329
 msgid "http://github.com/Meecast/meecast"
-msgstr ""
+msgstr "http://github.com/Meecast/meecast"
 
 #: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
 #: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4068
@@ -3182,6 +3175,3 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:361
 msgid "Ю-З"
 msgstr "Ю-З"
-
-#~ msgid "Project website"
-#~ msgstr "Sitio web del proyecto"

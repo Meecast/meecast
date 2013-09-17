@@ -102,6 +102,11 @@ Page {
                 onCheckedChanged: {
                     console.log("swithc checked changed");
                     Config.setgps(gps.checked);
+                    if (gps.checked){
+                        rootWindow.menuitemgps = true
+                    }else{
+                        rootWindow.menuitemgps = false 
+                    }
                 }
                 //platformStyle: SwitchStyle {inverted: true}
             }

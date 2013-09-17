@@ -133,6 +133,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         char map_url[4096];
         char basemap_url[4096];
         memset(map_url, 0, sizeof(map_url));
+        memset(basemap_url, 0, sizeof(basemap_url));
         if (url_for_map.length() > 0) {
             if (sourcelist->at(source_id)->map_type() == 1) 
                 snprintf(map_url, sizeof(map_url)-1, url_for_map.c_str(), _latitude, _longitude);

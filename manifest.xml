@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Manifest xmlns="http://schemas.tizen.org/2012/12/manifest">
     <Id>ctLjIIgCCj</Id>
-    <Version>0.7.6</Version>
+    <Version>0.7.7</Version>
     <Type>C++App</Type>
     <Author>Uladzislau Vasilyeu</Author>
     <Descriptions>
@@ -19,8 +19,8 @@
         <ApiVersion>2.2</ApiVersion>
         <Privileges>
             <Privilege>http://tizen.org/privilege/location</Privilege>
-            <Privilege>http://tizen.org/privilege/http</Privilege>
             <Privilege>http://tizen.org/privilege/application.launch</Privilege>
+            <Privilege>http://tizen.org/privilege/http</Privilege>
         </Privileges>
         <UiApp LaunchingHistoryVisible="True" Main="True" MenuIconVisible="True" Name="meecast">
             <UiScalability BaseScreenSize="Normal" CoordinateSystem="Logical" LogicalCoordinate="720"/>

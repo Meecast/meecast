@@ -463,10 +463,10 @@ Config::DeleteInstance(){
 
     AppLogDebug("DeleteInstance %i", _refcount);
     if (_refcount >1){
-        delete _self;
+        _refcount --;
         return false;
     }
-    if (_refcount == 0  && _self){
+    if (_refcount == 1  && _self){
         AppLogDebug("Destroy Config ");
         delete _self;
         _self = 0;

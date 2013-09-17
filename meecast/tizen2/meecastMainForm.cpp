@@ -60,8 +60,10 @@ meecastMainForm::~meecastMainForm(void)
     if (__updateTimer)
         delete __updateTimer;
 
-    if (__daysmap)
+    if (__daysmap){
         __daysmap->RemoveAll(true);
+        delete __daysmap;
+    }
 
 	__pLocationManagerThread->Join();
 	delete __pLocationManagerThread;

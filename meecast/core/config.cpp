@@ -331,6 +331,20 @@ Config::Instance(const std::string& filename, const std::string& schema_filename
     std::cerr<<"Refcount for Config: "<<_refcount<<std::endl;
     return _self;
 }
+////////////////////////////////////////////////////////////////////////////////
+bool 
+Config::DeleteInstance(){
+    if (_refcount >1){
+        delete _self;
+        return false;
+    }
+    if (_refcount == 0  && _self){
+        delete _self;
+        _self = 0;
+        return true;
+    }
+    return false;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 Config::Config(const std::string& filename, const std::string& schema_filename)

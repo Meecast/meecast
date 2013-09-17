@@ -75,6 +75,7 @@ namespace Core{
         public:
             static Config* Instance();
             static Config* Instance(const std::string& filename, const std::string& schema_filename);
+            static bool DeleteInstance();
             void LoadConfig();
             void ReLoadConfig();
             void InitLanguagesList();

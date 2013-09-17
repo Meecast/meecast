@@ -55,6 +55,7 @@ Config::Config()
     _splash = true;
     _font_color = new std::string("#00ff00");
     _language = new std::string("System");
+    _nullname = new std::string("");
     _stations = new StationsList;
     _current_station_id = INT_MAX;
     _update_period = INT_MAX;
@@ -345,6 +346,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _pressure_unit = new std::string("mbar");
     _visible_unit = new std::string("m");
     _language = new std::string("System");
+    _nullname = new std::string("");
     _update_connect = false;
     _fullscreen = false;
     _lockscreen = false;
@@ -585,6 +587,7 @@ Config::~Config(){
     delete _languages_list;
     _stations->clear();
     delete _stations;
+    delete _nullname;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void
@@ -782,9 +785,7 @@ Config::prevstationname()
         &&  this->stationsList().at(this->current_station_id()-1)){
          return this->stationsList().at(this->current_station_id()-1)->name();
     }else{
-        std::string *_name;
-        _name = new std::string(""); 
-        return *_name;
+        return *_nullname;
     }
 }
 
@@ -797,9 +798,7 @@ Config::nextstationname()
         &&  this->stationsList().at(this->current_station_id()+1)){
          return this->stationsList().at(this->current_station_id()+1)->name();
     }else {
-        std::string *_name;
-        _name = new std::string(""); 
-        return *_name;
+        return *_nullname;
     }
 }
 ////////////////////////////////////////////////////////////////////////////////

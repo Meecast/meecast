@@ -67,11 +67,11 @@ bool
 ConfigTizen::DeleteInstance(){
 
     AppLogDebug("DeleteInstance Tizen %i", _refcount);
-    if (_refcount >0){
-        _self --;
+    if (_refcount > 1){
+        _refcount --;
         return false;
     }
-    if (_refcount == 0  && _self){
+    if (_refcount == 1  && _self){
         AppLogDebug("Destroy Config Tizen");
 //        Core::Config::DeleteInstance();
         delete _self;

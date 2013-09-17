@@ -153,6 +153,10 @@ namespace Core {
         delete parser;
         delete validator;
     #endif
+    #ifdef QT
+    #else
+        xmlFreeDoc(_doc);
+    #endif
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

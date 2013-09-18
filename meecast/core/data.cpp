@@ -347,6 +347,7 @@ namespace Core {
        delete _day_of_month_name;
        delete _month_name;
        delete _map_pattern;
+       delete  _map_background_pattern;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Temperature& Data::temperature_hi(){

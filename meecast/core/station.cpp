@@ -798,7 +798,10 @@ Station::run_converter(){
 ////////////////////////////////////////////////////////////////////////////////
     Source* Station::getSourceByName()
     {
-        std::string path =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(App::GetInstance()->GetAppResourcePath())->GetPointer());
+        ByteBuffer* pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(App::GetInstance()->GetAppResourcePath());
+        std::string path =  (const char*) (pBuf->GetPointer());
+        delete pBuf;
+
         path += Core::AbstractConfig::sourcesPath;
         SourceList *sourcelist = new Core::SourceList(path);
         for (int i=0; i<(int)sourcelist->size(); i++){
@@ -808,6 +811,7 @@ Station::run_converter(){
                 return source; 
             }
         }
+        delete sourcelist;
         return 0;
     }
 ////////////////////////////////////////////////////////////////////////////////

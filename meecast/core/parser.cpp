@@ -115,6 +115,8 @@ namespace Core {
 
         /*AppLogDebug("Parser for libxml %s", pBuf->GetPointer()); */
         _doc = xmlReadFile((const char*)pBuf->GetPointer(), "UTF-8", XML_PARSE_SAX1);
+        if (pBuf)
+            delete pBuf;
 
        /* AppLogDebug("Parser for libxml %p ", _doc); */
     #endif
@@ -144,6 +146,8 @@ namespace Core {
         pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(filepath);
         AppLogDebug("Reload file Parser for libxml %s", pBuf->GetPointer());
         _doc = xmlReadFile((const char*)pBuf->GetPointer(), "UTF-8", XML_PARSE_SAX1);
+        if (pBuf)
+            delete pBuf;
         AppLogDebug("Reload file Parser for libxml DOC %p ", _doc);
     #endif
     }

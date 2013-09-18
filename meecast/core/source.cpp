@@ -119,45 +119,62 @@ namespace Core {
            xmlNodePtr root = xmlDocGetRootElement(_doc);
            if (!root)
                return;
+           xmlChar *temp_xml_string = NULL;
            for(xmlNodePtr p = root->children; p; p = p->next) {
                 if (p->type != XML_ELEMENT_NODE)
                     continue;
                 /* AppLog("Name of node %s", (char *)p->name);*/
                 if (!xmlStrcmp(p->name, (const xmlChar*)"name")){
                      /* AppLog("Name %s", (char *)xmlNodeGetContent(p)); */
-                    _name->assign((char *)xmlNodeGetContent(p));
+                    temp_xml_string = xmlNodeGetContent(p);
+                    _name->assign((char *)temp_xml_string);
+                    xmlFree(temp_xml_string);
                     continue;
                 }
                 if (!xmlStrcmp(p->name, (const xmlChar*)"logo")){
-                    _logo->assign((char *)xmlNodeGetContent(p));
+                    temp_xml_string = xmlNodeGetContent(p);
+                    _logo->assign((char *)temp_xml_string);
+                    xmlFree(temp_xml_string);
                     continue;
                 }
                 if (!xmlStrcmp(p->name, (const xmlChar*)"binary")){
-                    _binary->assign((char *)xmlNodeGetContent(p));
+                    temp_xml_string = xmlNodeGetContent(p);
+                    _binary->assign((char *)temp_xml_string);
+                    xmlFree(temp_xml_string);
                     continue;
                 }
                 if (!xmlStrcmp(p->name, (const xmlChar*)"forecast")){
-                    if (xmlGetProp(p, (const xmlChar*)"url"))
-                        _url_template->assign((char *)xmlGetProp(p, (const xmlChar*)"url"));
+                    if ((temp_xml_string = xmlGetProp(p, (const xmlChar*)"url")) != NULL){
+                        _url_template->assign((char *)temp_xml_string);
+                        xmlFree(temp_xml_string);
+                    }
                     continue;
                 }
                 if (!xmlStrcmp(p->name, (const xmlChar*)"detail")){
-                    if (xmlGetProp(p, (const xmlChar*)"url"))
-                        _url_detail_template->assign((char *)xmlGetProp(p, (const xmlChar*)"url"));
+                    if ((temp_xml_string = xmlGetProp(p, (const xmlChar*)"url")) != NULL){
+                        _url_detail_template->assign((char *)temp_xml_string);
+                        xmlFree(temp_xml_string);
+                    }
                     continue;
                 }
                 if (!xmlStrcmp(p->name, (const xmlChar*)"hours")){
-                    if (xmlGetProp(p, (const xmlChar*)"url"))
-                        _url_hours_template->assign((char *)xmlGetProp(p, (const xmlChar*)"url"));
+                    if ((temp_xml_string = xmlGetProp(p, (const xmlChar*)"url")) != NULL){
+                        _url_hours_template->assign((char *)temp_xml_string);
+                        xmlFree(temp_xml_string);
+                    }
                     continue;
                 }
                 if (!xmlStrcmp(p->name, (const xmlChar*)"showurl")){
-                    if (xmlGetProp(p, (const xmlChar*)"url"))
-                        _url_for_view->assign((char *)xmlGetProp(p, (const xmlChar*)"url"));
+                    if ((temp_xml_string = xmlGetProp(p, (const xmlChar*)"url")) != NULL){
+                        _url_for_view->assign((char *)temp_xml_string);
+                        xmlFree(temp_xml_string);
+                    }
                     continue;
                 }
                 if (!xmlStrcmp(p->name, (const xmlChar*)"cookie")){
-                    _cookie->assign((char *)xmlNodeGetContent(p));
+                    temp_xml_string = xmlNodeGetContent(p);
+                    _cookie->assign((char *)temp_xml_string);
+                    xmlFree(temp_xml_string);
                     continue;
                 }
 
@@ -236,6 +253,7 @@ namespace Core {
         delete _url_for_view;
         delete _url_for_map;
         delete _url_for_basemap;
+        delete _cookie;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Source& Source::operator=(const Source& source){

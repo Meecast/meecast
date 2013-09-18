@@ -552,6 +552,7 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
     String formattedStringLon;
     pNumberFormatter->Format(lat, formattedStringLat);
     pNumberFormatter->Format(lon, formattedStringLon);
+    delete pNumberFormatter;
     sql.Append(L"select regions.name, stations.code, stations.name, stations.latitude, stations.longititude, countries.name \
              from regions left join stations on regions.id=stations.region_id \
              left join countries on regions.country_id=countries.id \
@@ -588,7 +589,8 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
         }
      }
 
-
+     if (pEnum != null)
+        delete pEnum;
 /*
     rc = sqlite3_get_table(db,
                            sql,

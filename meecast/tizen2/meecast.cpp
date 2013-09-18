@@ -108,6 +108,7 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
 
     textdomain("omweather");
     bindtextdomain("omweather", (const char*)pBuf->GetPointer());
+    delete pBuf;
     if (config->Language() != "System"){
         std::string str;
         str = config->Language()+ ".UTF8";

@@ -155,7 +155,7 @@ namespace Core {
         }
 #else
       xmlChar *temp_xml_string = NULL;
-        AppLogDebug("DataParser load data1");
+      AppLogDebug("DataParser load data1");
       if (!_doc)
            return;
         AppLogDebug("DataParser load data2");
@@ -167,59 +167,104 @@ namespace Core {
             if (p->type != XML_ELEMENT_NODE)
                 continue;
             if (!xmlStrcmp(p->name, (const xmlChar*)"timezone")){
-                _timezone = atoi((char *)xmlNodeGetContent(p));
-                std::cerr<<"TIMEZONE in entering   "<<_timezone<<std::endl;
+                temp_xml_string = xmlNodeGetContent(p);
+                _timezone = atoi((char *)temp_xml_string);
+                xmlFree(temp_xml_string);
             }
             if (!xmlStrcmp(p->name, (const xmlChar*)"period")){
                 AppLogDebug("DataParser load data3 period");
                 forecast_data = new Data();
-                if (xmlGetProp(p, (const xmlChar*)"start"))
-                    forecast_data->StartTime(atoi((const char *)xmlGetProp(p, (const xmlChar*)"start")));
-                if (xmlGetProp(p, (const xmlChar*)"end"))
-                    forecast_data->EndTime(atoi((const char *)xmlGetProp(p, (const xmlChar*)"end")));
-                if (xmlGetProp(p, (const xmlChar*)"hour"))
+                if ((temp_xml_string = xmlGetProp(p, (const xmlChar*)"start")) != NULL){
+                    forecast_data->StartTime(atoi((const char *)temp_xml_string));
+                    xmlFree(temp_xml_string);
+                }
+                if ((temp_xml_string = xmlGetProp(p, (const xmlChar*)"end")) != NULL){
+                    forecast_data->EndTime(atoi((const char *)temp_xml_string));
+                    xmlFree(temp_xml_string);
+                }
+                if ((temp_xml_string = xmlGetProp(p, (const xmlChar*)"hour")) != NULL){
                     forecast_data->Hour(1);
-                if (xmlGetProp(p, (const xmlChar*)"current"))
+                    xmlFree(temp_xml_string);
+                }
+                if ((temp_xml_string = xmlGetProp(p, (const xmlChar*)"current")) != NULL){
                     forecast_data->Current(1);
+                    xmlFree(temp_xml_string);
+                }
                 for(xmlNodePtr p1 = p->children; p1; p1 = p1->next) {
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"temperature"))
-                        forecast_data->temperature().value((float)atof((char *)xmlNodeGetContent(p1)));
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"temperature_hi"))
-                        forecast_data->temperature_hi().value((float)atof((char *)xmlNodeGetContent(p1)));
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"temperature_low"))
-                        forecast_data->temperature_low().value((float)atof((char *)xmlNodeGetContent(p1)));
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"uv_index"))
-                        forecast_data->UVindex((int)atoi((char *)xmlNodeGetContent(p1)));
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"flike"))
-                        forecast_data->Flike().value((float)atof((char *)xmlNodeGetContent(p1)));
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"icon"))
-                        forecast_data->Icon(atoi((char *)xmlNodeGetContent(p1)));
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"description")){
-                        temp_xml_string = (char *)xmlNodeGetContent(p1);
-                        forecast_data->Text((char *)xmlNodeGetContent(temp_xml_string));
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"temperature")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        forecast_data->temperature().value((float)atof((char *)temp_xml_string));
                         xmlFree(temp_xml_string);
                     }
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"humidity"))
-                        forecast_data->Humidity(atoi((char *)xmlNodeGetContent(p1)));
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"temperature_hi")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        forecast_data->temperature_hi().value((float)atof((char *)temp_xml_string));
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"temperature_low")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        forecast_data->temperature_low().value((float)atof((char *)temp_xml_string));
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"uv_index")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        forecast_data->UVindex((int)atoi((char *)temp_xml_string));
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"flike")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        forecast_data->Flike().value((float)atof((char *)temp_xml_string));
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"icon")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        forecast_data->Icon(atoi((char *)temp_xml_string));
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"description")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        forecast_data->Text((char *)(temp_xml_string));
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"humidity")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        forecast_data->Humidity(atoi((char *)temp_xml_string));
+                        xmlFree(temp_xml_string);
+                    }
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"visible"))
                         forecast_data->ViSible().value((float)atof((char *)xmlNodeGetContent(p1)));
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"pressure"))
-                        forecast_data->pressure().value((float)atof((char *)xmlNodeGetContent(p1)));
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"pressure")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        forecast_data->pressure().value((float)atof((char *)temp_xml_string));
+                        xmlFree(temp_xml_string);
+                    }
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"ppcp"))
                         forecast_data->Ppcp((float)atof((char *)xmlNodeGetContent(p1)));
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"wind_speed")){
-                        if (!xmlStrcmp(xmlNodeGetContent(p1), (const xmlChar*)"clam"))
-                            forecast_data->WindSpeed().value((float)0);
-                        else
-                            forecast_data->WindSpeed().value((float)atof((char *)xmlNodeGetContent(p1)));
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        if (temp_xml_string){
+                            if (!xmlStrcmp(temp_xml_string, (const xmlChar*)"clam"))
+                                forecast_data->WindSpeed().value((float)0);
+                            else{
+                                forecast_data->WindSpeed().value((float)atof((char *)temp_xml_string));
+                            }
+                            xmlFree(temp_xml_string);
+                        }
                     }
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"wind_direction"))
-                        forecast_data->WindDirection((char *)xmlNodeGetContent(p1));
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"wind_direction")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        forecast_data->WindDirection((char *)temp_xml_string);
+                        xmlFree(temp_xml_string);
+                    }
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"sunrise")){
-                        forecast_data->SunRiseTime((int)atoi((char *)xmlNodeGetContent(p1)));
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        forecast_data->SunRiseTime((int)atoi((char *)temp_xml_string));
+                        xmlFree(temp_xml_string);
                     }
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"sunset")){
-                        forecast_data->SunSetTime((int)atoi((char *)xmlNodeGetContent(p1)));
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        forecast_data->SunSetTime((int)atoi((char *)temp_xml_string));
+                        xmlFree(temp_xml_string);
                     }
 
                 }

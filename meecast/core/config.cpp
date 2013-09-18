@@ -678,77 +678,139 @@ Config::LoadConfig(){
         AppLogDebug("Load for config ");
         std::string source_name, station_name, station_id, country, region, forecastURL, fileName, converter, viewURL, detailURL, mapURL, hoursURL, basemapURL, cookie ;
         double latitude, longitude;
+      xmlChar *temp_xml_string = NULL;
        for(xmlNodePtr p = root->children; p; p = p->next) {
             if (p->type != XML_ELEMENT_NODE)
                 continue;
             if (!xmlStrcmp(p->name, (const xmlChar*)"iconset")){
-                _iconset->assign(std::string((char *)xmlNodeGetContent(p)));
-                std::cerr << "Iconset !!!!" << xmlNodeGetContent(p)<< std::endl;
+                temp_xml_string = xmlNodeGetContent(p);
+                _iconset->assign(std::string((char *)temp_xml_string));
+                xmlFree(temp_xml_string);
             }
             if (!xmlStrcmp(p->name, (const xmlChar*)"current_station_id")){
-                _current_station_id = atoi((char *)xmlNodeGetContent(p)); 
-                std::cerr << "Station id " << _current_station_id << std::endl;
+                temp_xml_string = xmlNodeGetContent(p);
+                _current_station_id = atoi((char *)temp_xml_string); 
+                xmlFree(temp_xml_string);
             }
             if (!xmlStrcmp(p->name, (const xmlChar*)"temperature_unit")){
-                _temperature_unit->assign(std::string((char *)xmlNodeGetContent(p)));
+                temp_xml_string = xmlNodeGetContent(p);
+                _temperature_unit->assign(std::string((char *)temp_xml_string));
+                xmlFree(temp_xml_string);
             }
             if (!xmlStrcmp(p->name, (const xmlChar*)"wind_speed_unit")){
-                _wind_speed_unit->assign(std::string((char *)xmlNodeGetContent(p)));
+                temp_xml_string = xmlNodeGetContent(p);
+                _wind_speed_unit->assign(std::string((char *)temp_xml_string));
+                xmlFree(temp_xml_string);
             }
             if (!xmlStrcmp(p->name, (const xmlChar*)"pressure_unit")){
-                _pressure_unit->assign(std::string((char *)xmlNodeGetContent(p)));
+                temp_xml_string = xmlNodeGetContent(p);
+                _pressure_unit->assign(std::string((char *)temp_xml_string));
+                xmlFree(temp_xml_string);
             }
             if (!xmlStrcmp(p->name, (const xmlChar*)"language")){
-                _language->assign(std::string((char *)xmlNodeGetContent(p)));
+                temp_xml_string = xmlNodeGetContent(p);
+                _language->assign(std::string((char *)temp_xml_string));
+                xmlFree(temp_xml_string);
             }
             if (!xmlStrcmp(p->name, (const xmlChar*)"gps")){
-                if(!xmlStrcmp(xmlNodeGetContent(p),(const xmlChar*)"true"))
+                temp_xml_string = xmlNodeGetContent(p);
+                if(!xmlStrcmp(temp_xml_string,(const xmlChar*)"true"))
                     Gps(true);
                 else
                     Gps(false);
+                xmlFree(temp_xml_string);
             }
 
             if (!xmlStrcmp(p->name, (const xmlChar*)"station")){
                 bool gps = false;
                 for(xmlNodePtr p1 = p->children; p1; p1 = p1->next) {
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"source_name"))
-                        source_name = std::string((char *)xmlNodeGetContent(p1)); 
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"station_name"))
-                        station_name = std::string((char *)xmlNodeGetContent(p1)); 
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"station_id"))
-                        station_id = std::string((char *)xmlNodeGetContent(p1)); 
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"country"))
-                        country = std::string((char *)xmlNodeGetContent(p1)); 
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"region"))
-                        region = std::string((char *)xmlNodeGetContent(p1)); 
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"file_name"))
-                        fileName = std::string((char *)xmlNodeGetContent(p1)); 
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"forecast_url"))
-                        forecastURL = std::string((char *)xmlNodeGetContent(p1)); 
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"cookie"))
-                        cookie = std::string((char *)xmlNodeGetContent(p1)); 
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"map_url"))
-                        mapURL = std::string((char *)xmlNodeGetContent(p1)); 
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"basemap_url"))
-                        basemapURL = std::string((char *)xmlNodeGetContent(p1)); 
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"detail_url"))
-                        detailURL = std::string((char *)xmlNodeGetContent(p1)); 
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"hours_url"))
-                        hoursURL = std::string((char *)xmlNodeGetContent(p1)); 
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"view_url"))
-                        viewURL = std::string((char *)xmlNodeGetContent(p1)); 
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"converter"))
-                        converter = std::string((char *)xmlNodeGetContent(p1)); 
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"latitude")){
-                        latitude  = atof((char *)xmlNodeGetContent(p1)); 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"source_name")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        source_name = std::string((char *)temp_xml_string); 
+                        xmlFree(temp_xml_string);
                     }
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"longitude"))
-                        longitude  = atof((char *)xmlNodeGetContent(p1)); 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"station_name")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        station_name = std::string((char *)temp_xml_string); 
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"station_id")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        station_id = std::string((char *)temp_xml_string); 
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"country")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        country = std::string((char *)temp_xml_string); 
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"region")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        region = std::string((char *)temp_xml_string); 
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"file_name")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        fileName = std::string((char *)temp_xml_string); 
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"forecast_url")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        forecastURL = std::string((char *)temp_xml_string); 
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"cookie")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        cookie = std::string((char *)temp_xml_string); 
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"map_url")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        mapURL = std::string((char *)temp_xml_string);
+                        xmlFree(temp_xml_string);
+                    } 
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"basemap_url")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        basemapURL = std::string((char *)temp_xml_string); 
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"detail_url")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        detailURL = std::string((char *)temp_xml_string); 
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"hours_url")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        hoursURL = std::string((char *)temp_xml_string); 
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"view_url")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        viewURL = std::string((char *)temp_xml_string); 
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"converter")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        converter = std::string((char *)temp_xml_string); 
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"latitude")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        latitude  = atof((char *)temp_xml_string); 
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"longitude")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        longitude  = atof((char *)temp_xml_string); 
+                        xmlFree(temp_xml_string);
+                    }
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"gps")){
-                        if(!xmlStrcmp(xmlNodeGetContent(p1),(const xmlChar*)"true"))
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        if(!xmlStrcmp(temp_xml_string, (const xmlChar*)"true"))
                             gps = true;
                         else
                             gps = false;
+                        xmlFree(temp_xml_string);
                      }
 
                   //  if  (source_name=="yr.no")
@@ -841,12 +903,18 @@ Config::~Config(){
     delete _temperature_unit;
     _languages_list->clear();
     delete _languages_list;
+//    for(unsigned i = 0; i < _stations->size(); i++){
+//        delete _stations->at(i);
+//    }
     _stations->clear();
     delete _stations;
     delete _nullname;
     delete _wind_speed_unit;
     delete _pressure_unit;
     delete _visible_unit;
+    delete _filename;
+    delete _language;
+    delete _font_color;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

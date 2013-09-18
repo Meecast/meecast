@@ -70,7 +70,8 @@ meecastMainForm::~meecastMainForm(void)
 
     if (__pContextMenuText)
         delete __pContextMenuText;
-
+    if (_config->dp)
+        _config->dp->DeleteInstance();
     _config->DeleteInstance();
 }
 
@@ -114,8 +115,17 @@ meecastMainForm::OnInitializing(void)
     __updateButton = new Button();
     __updateButton->Construct(Rectangle(0, 0, 100, 100), ""); 
     __updateButton->SetActionId(ID_BUTTON_UPDATE);
-    __updateButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_def.png"));
-    __updateButton->SetPressedBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_sel.png"));
+
+	Bitmap *pBitmap_ref_def = Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_def.png");
+    if (pBitmap_ref_def){
+        __updateButton->SetNormalBackgroundBitmap(*pBitmap_ref_def);
+        delete pBitmap_ref_def;
+    }
+    Bitmap *pBitmap_ref_sel = Application::GetInstance()->GetAppResource()->GetBitmapN("refresh_sel.png");
+    if (pBitmap_ref_sel){
+        __updateButton->SetPressedBackgroundBitmap(*pBitmap_ref_sel);
+        delete pBitmap_ref_sel;
+    }
     __updateButton->AddActionEventListener(*this);
 
     Tizen::Ui::Controls::Label  *source_icon_label = static_cast<Label*>(GetControl(L"IDC_LABEL_SOURCE_ICON"));
@@ -577,14 +587,22 @@ meecastMainForm::ReInitElements(void){
 
     if (_config->stationsList().size()!=0){
         station_label->SetText(_config->stationname().c_str());
-        main_background_label->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background_main.png"));
+    	Bitmap *pBitmap_mask = Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background_main.png");
+        if (pBitmap_mask){
+            main_background_label->SetBackgroundBitmap(*pBitmap_mask);
+            delete pBitmap_mask;
+        }
         main_no_locations_label->SetShowState(false);
         main_set_locations_button->SetShowState(false);
         main_set_try_update_button->SetShowState(false);
         main_need_updating->SetShowState(false);
         __updateButton->SetShowState(true);
     }else{
-        main_background_label->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background.png"));
+    	Bitmap *pBitmap_mask = Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background.png");
+        if (pBitmap_mask){
+            main_background_label->SetBackgroundBitmap(*pBitmap_mask);
+            delete pBitmap_mask;
+        }
         station_label->SetText("MeeCast");
         main_no_locations_label->SetShowState(true);
         main_set_locations_button->SetShowState(true);
@@ -629,23 +647,32 @@ meecastMainForm::ReInitElements(void){
     if ((_config->stationsList().size() > 0)) {
         String temp = (App::GetInstance()->GetAppDataPath());
         temp.Append(_config->stationsList().at(_config->current_station_id())->fileName().c_str());
-        std::string temp_string = (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(temp)->GetPointer());
+        ByteBuffer* pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(temp);
+        std::string temp_string = (const char*)(pBuf->GetPointer());
+        delete pBuf;
         // AppLog("Filename %s", temp_string.c_str());
         //_config->dp = Core::DataParser::Instance(temp_string, "");
+        if (_config->dp)
+            _config->dp->DeleteInstance();
         _config->dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
 
         Tizen::Ui::Controls::Label  *pFooter = static_cast<Label*>(GetControl(L"IDC_LABEL_SOURCE_ICON"));
         //Footer* pFooter = GetFooter();
+        Bitmap *pBitmap_source_icon = NULL;
         if (_config->stationsList().at(_config->current_station_id())->sourceName() == "openweathermap.org")
-            pFooter->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("openweathermap.org.png"));
+    	    pBitmap_source_icon = Application::GetInstance()->GetAppResource()->GetBitmapN("openweathermap.org.png");
         if (_config->stationsList().at(_config->current_station_id())->sourceName() == "gismeteo.ru")
-            pFooter->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("gismeteo.ru.png"));
+    	    pBitmap_source_icon = Application::GetInstance()->GetAppResource()->GetBitmapN("gismeteo.ru.png");
         if (_config->stationsList().at(_config->current_station_id())->sourceName() == "foreca.com")
-            pFooter->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("foreca.com.png"));
+    	    pBitmap_source_icon = Application::GetInstance()->GetAppResource()->GetBitmapN("foreca.com.png");
         if (_config->stationsList().at(_config->current_station_id())->sourceName() == "hko.gov.hk")
-            pFooter->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("hko.gov.hk.png"));
+    	    pBitmap_source_icon = Application::GetInstance()->GetAppResource()->GetBitmapN("hko.gov.hk.png");
          if (_config->stationsList().at(_config->current_station_id())->sourceName() == "yr.no")
-            pFooter->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("yr.no.png"));
+    	    pBitmap_source_icon = Application::GetInstance()->GetAppResource()->GetBitmapN("yr.no.png");
+         if (pBitmap_source_icon){
+            pFooter->SetBackgroundBitmap(*pBitmap_source_icon);
+            delete pBitmap_source_icon;
+         }
 
          pFooter->RequestRedraw();
     }
@@ -992,7 +1019,11 @@ meecastMainForm::CreateItem (int index, int itemWidth){
             pItem->AddElement(Tizen::Graphics::Rectangle(70, 20, 240, 50), 4, _("Today"), false);
         /* Icon */
         snprintf(buffer, sizeof(buffer) - 1, "icons/Atmos/%i.png", temp_data->Icon());
-        pItem->AddElement(Tizen::Graphics::Rectangle(320, 0, 100, 100), 1, *Application::GetInstance()->GetAppResource()->GetBitmapN(buffer), null, null);
+    	Bitmap *pBitmap_icon = Application::GetInstance()->GetAppResource()->GetBitmapN(buffer);
+        if (pBitmap_icon){
+            pItem->AddElement(Tizen::Graphics::Rectangle(320, 0, 100, 100), 1, *pBitmap_icon, null, null);
+            delete pBitmap_icon;
+        }
 
         if (temp_data->temperature_low().value(true) != INT_MAX){
             snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());

@@ -123,7 +123,7 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
                 t_end = t_start + 3600*24 - 1;
                 fprintf(file_out," end=\"%li\">\n", t_end);
                 number_of_day ++; 
-                if ((fgets(buffer2, sizeof(buffer2), file_in2) != NULL) && (comma = strstr(buffer2, "no. "))){
+                if ((fgets(buffer2, sizeof(buffer2), file_in2) != NULL) && ((comma = strstr(buffer2, "no. ")) != NULL)){
                     comma = comma + 3;
                     icon = atoi (comma);
                     snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%i", icon);
@@ -142,7 +142,7 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
                 }
             }
         if (strstr(buffer,"Wind"))
-            if (comma = strstr(buffer, ": ")){
+            if ((comma = strstr(buffer, ": ")) != NULL){
                 comma = comma + 2;
                 comma2 = strstr(comma, "force");               
                 snprintf(temp_buffer, comma2 - comma, "%s", comma);
@@ -176,7 +176,7 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
                 fprintf(file_out, "     <wind_speed>%f</wind_speed>\n", wind_speed); 
             }
         if (strstr(buffer,"Weather"))
-            if (comma = strstr(buffer, ": ")){
+            if ((comma = strstr(buffer, ": ")) != NULL){
                 comma = comma + 2;
                 snprintf(temp_buffer, sizeof(temp_buffer) - 1, "%s", comma);
                 fgetpos (file_in, &pos);
@@ -192,7 +192,7 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
                 fprintf(file_out, "     <description>%s</description>\n", temp_buffer); 
             }
         if (strstr(buffer,"Temp Range"))
-            if (comma = strstr(buffer, ": ")){
+            if ((comma = strstr(buffer, ": ")) != NULL){
                 comma = comma + 2;
                 temperature = atoi (comma);
                 fprintf(file_out, "     <temperature_low>%i</temperature_low>\n", temperature);
@@ -202,7 +202,7 @@ parse_forecast_weather(const char *detail_path_data, const char *result_file){
                 fprintf(file_out, "     <temperature_hi>%i</temperature_hi>\n", temperature);
             }
         if (strstr(buffer,"R.H. Range"))
-            if (comma = strstr(buffer, ": ")){
+            if ((comma = strstr(buffer, ": ")) != NULL){
                 comma = comma + 2;
                 humidity1 = atoi (comma);
                 comma2 = strstr(buffer, "- ");

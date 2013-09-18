@@ -273,12 +273,8 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
     struct tm   tmp_tm_loc = {0};
     struct tm   tmp_tm = {0};
     struct tm   current_tm = {0};
-    struct tm   tm_l = {0};
-    struct tm   tmp_tm2 = {0};
     struct tm   *tm;
-    time_t      t_start = 0, t_end = 0,
-                t_sunrise = 0, t_sunset = 0,
-                current_time = 0;
+    time_t      current_time = 0;
     FILE        *file_out;
     int         localtimezone;
     struct tm time_tm1;

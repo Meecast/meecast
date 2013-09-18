@@ -154,6 +154,7 @@ namespace Core {
             _list->push_back(forecast_data);
         }
 #else
+      xmlChar *temp_xml_string = NULL;
         AppLogDebug("DataParser load data1");
       if (!_doc)
            return;
@@ -193,8 +194,11 @@ namespace Core {
                         forecast_data->Flike().value((float)atof((char *)xmlNodeGetContent(p1)));
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"icon"))
                         forecast_data->Icon(atoi((char *)xmlNodeGetContent(p1)));
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"description"))
-                        forecast_data->Text((char *)xmlNodeGetContent(p1));
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"description")){
+                        temp_xml_string = (char *)xmlNodeGetContent(p1);
+                        forecast_data->Text((char *)xmlNodeGetContent(temp_xml_string));
+                        xmlFree(temp_xml_string);
+                    }
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"humidity"))
                         forecast_data->Humidity(atoi((char *)xmlNodeGetContent(p1)));
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"visible"))

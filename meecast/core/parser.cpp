@@ -155,6 +155,7 @@ namespace Core {
     #endif
     #ifdef QT
     #else
+        AppLog("Delete parser");
         xmlFreeDoc(_doc);
     #endif
     }

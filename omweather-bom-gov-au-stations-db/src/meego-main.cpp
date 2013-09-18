@@ -96,22 +96,13 @@ parse_and_write_bom_gov_au_detail_data(const char *station_name, htmlDocPtr doc,
     xmlXPathContextPtr xpathCtx; 
     xmlXPathObjectPtr xpathObj = NULL; 
     xmlXPathObjectPtr xpathObj2 = NULL; 
-    xmlXPathObjectPtr xpathObj3 = NULL; 
-    xmlXPathObjectPtr xpathObj4 = NULL; 
-    xmlXPathObjectPtr xpathObj5 = NULL; 
-    xmlXPathObjectPtr xpathObj6 = NULL; 
-    xmlXPathObjectPtr xpathObj7 = NULL; 
-    xmlXPathObjectPtr xpathObj8 = NULL; 
-    xmlXPathObjectPtr xpathObj9 = NULL; 
     xmlNodeSetPtr nodes;
     char       *temp_char;
     char       *temp_char2;
     int        pressure; 
     int        speed;
     int        ppcp;
-
     char       *image = NULL;
-    double      time_diff = 0;
     time_t      loc_time;
     time_t      utc_time;
     int        location_timezone = 0;
@@ -124,7 +115,6 @@ parse_and_write_bom_gov_au_detail_data(const char *station_name, htmlDocPtr doc,
     struct tm   tmp_tm2 = {0};
     struct tm   *tm;
     time_t      t_start = 0, t_end = 0,
-                t_sunrise = 0, t_sunset = 0,
                 current_time = 0;
     FILE        *file_out;
     int index = 1;

@@ -16,6 +16,7 @@ using namespace Tizen::System;
 using namespace Tizen::Ui;
 using namespace Tizen::Ui::Controls;
 using namespace Tizen::Locations;
+using namespace Tizen::Base::Runtime;
 
 
 
@@ -144,8 +145,48 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
         }
     }
 //#endif
+
+    /*
+     String title;
+     String description;
+     result r = E_SUCCESS;
+     title = L"http://tizen.org/setting/screen.wallpaper"; 
+     r = SettingInfo::GetValue(title, description);
+     if(r == E_UNSUPPORTED_OPERATION){
+        description = "Unsupported";
+     }
+     AppLog (" Result %S", description.GetPointer());
+*/
 	// Uncomment the following statement to listen to the screen on/off events.
 	//PowerManager::SetScreenEventListener(*this);
+
+    String repAppId(15);
+	repAppId = L"C8xIFTMoRh";
+
+	String serviceName(L".meecastservice");
+	AppId serviceId(repAppId+serviceName);
+
+	AppLog("SampleUiApp : Service Id is %ls", serviceId.GetPointer());
+
+	AppManager* pAppManager = AppManager::GetInstance();
+    AppLog("SampleUiApp : Checking service status for time out 5 sec...");
+
+	result r = E_FAILURE;
+	for (int i=0; i < 5; ++i)
+	{
+		if (pAppManager->IsRunning(serviceId))
+		{
+			AppLog("SampleUiApp : Service is ready !!!");
+			break;
+		}
+		else
+		{
+			AppLog("SampleUiApp : Service is not ready !!! try to launch !!! ");
+			r = pAppManager->LaunchApplication(serviceId, null);
+			TryReturn(!IsFailed(r), r, "SampleUiApp : [%s]", GetErrorMessage(r));
+			Thread::Sleep(1000);
+		}
+	}
 
 	// Create a Frame
 	meecastFrame* pmeecastFrame = new meecastFrame;

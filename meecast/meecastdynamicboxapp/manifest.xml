@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Manifest xmlns="http://schemas.tizen.org/2012/12/manifest">
+    <Id>$(manifestAppId)</Id>
+    <Version>1.0.0</Version>
+    <Type>C++App</Type>
+<Requirements>
+<Feature Name="http://tizen.org/feature/screen.size.normal">true</Feature>
+</Requirements>
+    <Apps>
+        <ApiVersion>2.2</ApiVersion>
+        <ServiceApp Name="meecastdynamicboxapp" LifeDuration="30000" UseUi="True" Main="True" >
+        	<UiScalability BaseScreenSize="Normal" CoordinateSystem="Logical" LogicalCoordinate="720"/>
+            <UiTheme SystemTheme="White"/>
+            <DisplayNames>
+                <DisplayName Locale="eng-GB">MeeCast</DisplayName>
+            </DisplayNames>
+            <Icons>
+                <Icon Section="MainMenu">mainmenu.png</Icon>
+            </Icons>
+            <AppWidgets>
+                <AppWidget AppWidgetPopupEnabled="True" ProviderName="meecastdynamicboxappProvider" UpdatePeriod="1800000">
+                    <DisplayNames>
+                        <DisplayName Locale="eng-GB">meecastdynamicboxapp</DisplayName>
+                    </DisplayNames>
+                    <Sizes>
+                        <Size PreviewImage="1x1.png">1x1</Size>
+                        <Size PreviewImage="2x1.png">2x1</Size>
+                        <Size PreviewImage="2x2.png">2x2</Size>
+                    </Sizes>
+                </AppWidget>
+            </AppWidgets>
+        </ServiceApp>
+    </Apps>
+</Manifest>

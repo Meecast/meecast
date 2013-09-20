@@ -21,7 +21,12 @@ public:
 	void OnAppWidgetUpdate(void);
 
 private:
+    Tizen::Ui::Controls::Panel* __pPanel;
 	Tizen::Ui::Controls::Label* __pLabel;
+    Tizen::Ui::Controls::Label* __pLabelBackground1;
+    Tizen::Ui::Controls::Label* __pLabelBackground2;
+    Tizen::Ui::Controls::Label* __pLabelBackgroundTown;
+    Tizen::Ui::Controls::Label* __pLabelTown;
     Core::Config *_config;
 };
 

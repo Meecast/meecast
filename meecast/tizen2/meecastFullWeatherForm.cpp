@@ -124,7 +124,7 @@ meecastFullWeatherForm::OnInitializing(void){
     
     __pTableView->SetBackgroundColor(Tizen::Graphics::Color(0x00, 0x00, 0x00));
 
-	AddControl(*__pTableView);
+    AddControl(*__pTableView);
     pLayout->SetHorizontalFitPolicy(*__pTableView, FIT_POLICY_PARENT);
     pLayout->SetRelation(*__pTableView, *this, RECT_EDGE_RELATION_LEFT_TO_LEFT);
     pLayout->SetRelation(*__pTableView, *this, RECT_EDGE_RELATION_RIGHT_TO_RIGHT);

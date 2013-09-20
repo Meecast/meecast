@@ -4,19 +4,15 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="bin/meecastservice.exe">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>XESEQB1aNwCqhObQCtrNJX+oxyoQ2Dxf6MpokJwVntM=</DigestValue>
+<DigestValue>UWkGhm1pMOTyJvHjpgPrLAwwMKhbexi3pqxUf1515oo=</DigestValue>
 </Reference>
 <Reference URI="info/manifest.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>9rjo7tkBCtzxFnAZJOzwUnrI31tyQkPT2tayLBS8AiI=</DigestValue>
 </Reference>
-<Reference URI="shared/res/screen-density-xhigh/mainmenu.png">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>1d0oEZHqPn+QzNzGIHwj9ODby6x9ggFs9uOsav6jPNs=</DigestValue>
-</Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>ZjZ4xnYecE9n4AfOLpWAs6JbW8oygwcvM4YVn08N2CU=</DigestValue>
+<DigestValue>4D4cRZID9AsDd1ppG+zuOG1ZCh+NflY50fJwyc91+4k=</DigestValue>
 </Reference>
 <Reference URI="#prop">
 <Transforms>
@@ -27,9 +23,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-NmRn73e1DA9hnVhvfi++GFIxpvKw1WjtjWoEcLmIYR4wqXCxsc+YKtDV7TGuxtXrK59vaHRW/vq6
-o9wOcikr6LLihMEJm6ub9buyGhE6/ZfqRq0uBuN/r6d424XWXE5KPEd3fGnWeGFNcInbzuFR/I3c
-dskrO4wBRQTDducHz5o=
+Pyr6B9OpzxqzTC1r7zMSHvWaZ1K/WZeiewbETB01vI34RGgU2APtfSWAubzXelUi+tVLkCmTIywd
+XOdCRUCLr7fQINvDrjV4EEYz0dl/lybxWlUyY6zJZyBxFrS4YM+YwWqJDplB/GMB6TEa5Y742lZX
+NUQeORJJWRP4Huu0u3Y=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

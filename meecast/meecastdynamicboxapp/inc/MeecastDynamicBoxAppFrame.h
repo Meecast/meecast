@@ -30,6 +30,7 @@ private:
     Tizen::Ui::Controls::Label* __pLabelBackgroundTown;
     Tizen::Ui::Controls::Label* __pLabelTown;
     Tizen::Ui::Controls::Label* __pLabelMainIcon;
+    Tizen::Ui::Controls::Label* __pLabelMainWindIcon;
     Tizen::Ui::Controls::Label* __pLabelMainTemperature;
     Tizen::Ui::Controls::Label* __pLabelMainTemperatureBackground;
     Core::Config *_config;

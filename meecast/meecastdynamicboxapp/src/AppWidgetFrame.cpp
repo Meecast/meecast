@@ -75,6 +75,9 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
     __pLabelMainIcon = new Label();
     __pLabelMainIcon->Construct(FloatRectangle(bounds.x - 0, bounds.y - 0, 128, 128), L"");
 
+    __pLabelMainWindIcon = new Label();
+    __pLabelMainWindIcon->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1/2.8), bounds.y + background_height1_1/2.8, 52, 42), L"");
+
     __pLabelMainTemperatureBackground = new Label();
     __pLabelMainTemperatureBackground->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1 + 1), (bounds.height - bounds.height/3 + 1) , background_width1_1, bounds.height/3), L"");
 
@@ -153,13 +156,13 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
         __pLabelMainTemperature->SetShowState(true);
         Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
         __pLabelMainTemperature->SetText(str);
-        __pLabelMainTemperature->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
+        __pLabelMainTemperature->SetTextConfig(42, LABEL_TEXT_STYLE_BOLD);
         __pLabelMainTemperature->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
         __pLabelMainTemperature->RequestRedraw();
 
         __pLabelMainTemperatureBackground->SetShowState(true);
         __pLabelMainTemperatureBackground->SetText(str);
-        __pLabelMainTemperatureBackground->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
+        __pLabelMainTemperatureBackground->SetTextConfig(42, LABEL_TEXT_STYLE_BOLD);
         __pLabelMainTemperatureBackground->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
         __pLabelMainTemperatureBackground->RequestRedraw();
 
@@ -173,50 +176,33 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
         main_current_state->SetShowState(true);
         main_current_state->SetText(str);
         main_current_state->RequestRedraw();
+#endif
 
-        /* Main humidity */
-        if (temp_data->Humidity() != INT_MAX){
-            main_humidity_text->SetShowState(true);
-            main_humidity_icon->SetShowState(true);
-
-            snprintf (buffer, sizeof(buffer) -1, "%i%%", temp_data->Humidity());
-            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-            main_humidity_text->SetText(str);
-            main_humidity_text->RequestRedraw();
-        }else{
-            main_humidity_text->SetShowState(false);
-            main_humidity_icon->SetShowState(false);
-        }
-        
         /* Main wind direction */
         if (temp_data->WindDirection() != "N/A"){
             snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
             Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-
-            if (str == "CALM" || Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/wind_direction_arrow_" + str + ".png")){
-                main_background_wind_icon->SetShowState(true);
-                main_wind_icon->SetShowState(true);
-
+            AppLog("Wind1 %S", str.GetPointer());
+            if (str == "CALM" || Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
+                __pLabelMainWindIcon->SetShowState(true);
                 /* Wind direction Icon */ 
                 Tizen::Media::Image *image = null;
                 Tizen::Graphics::Bitmap* windIconBitmap = null;
                 image = new (std::nothrow) Tizen::Media::Image();
                 image->Construct();
                 
-                if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/wind_direction_arrow_" + str + ".png")){
-                    windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/wind_direction_arrow_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
-                    main_wind_icon->SetBackgroundBitmap(*windIconBitmap);
-                    main_wind_icon->RequestRedraw();
+                if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
+                    windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+                    AppLog("Wind %S", str.GetPointer());
+                    __pLabelMainWindIcon->SetBackgroundBitmap(*windIconBitmap);
+                    __pLabelMainWindIcon->SetSize(windIconBitmap->GetWidth(), windIconBitmap->GetHeight());
+                    __pLabelMainWindIcon->RequestRedraw();
                     SAFE_DELETE(image);
                     SAFE_DELETE(windIconBitmap);
                 }
-                snprintf (buffer, sizeof(buffer) -1, "%s", _(temp_data->WindDirection().c_str()));
-                Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-                main_wind_text->SetShowState(true);
-                main_wind_text->SetText(str);
-                main_wind_text->RequestRedraw();
             }
         }
+#if 0
         /* Main wind speed */
         if (temp_data->WindSpeed().value() != INT_MAX){
             main_wind_speed_text->SetShowState(true);
@@ -292,6 +278,7 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
 
     }
     __pPanel->AddControl(__pLabelMainIcon);
+    __pPanel->AddControl(__pLabelMainWindIcon);
     __pPanel->AddControl(__pLabelMainTemperatureBackground);
     __pPanel->AddControl(__pLabelMainTemperature);
 

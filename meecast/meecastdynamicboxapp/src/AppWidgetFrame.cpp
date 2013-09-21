@@ -14,6 +14,7 @@ using namespace Tizen::Ui::Controls;
 using namespace Tizen::App;
 using namespace Core;
 #define SAFE_DELETE(x)  if (x) { delete x; x = null; }
+#define STRONG_WIND 25
 
 
 MeecastDynamicBoxAppFrame::MeecastDynamicBoxAppFrame()
@@ -77,6 +78,9 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
 
     __pLabelMainWindIcon = new Label();
     __pLabelMainWindIcon->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1/2.8), bounds.y + background_height1_1/2.8, 52, 42), L"");
+
+    __pLabelMainWindSpeed = new Label();
+    __pLabelMainWindSpeed->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1/2.8) - 6, (bounds.y + background_height1_1/2.8) - 1, 52+10, 52), L"");
 
     __pLabelMainTemperatureBackground = new Label();
     __pLabelMainTemperatureBackground->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1 + 1 - 20), (bounds.height - bounds.height/3 + 1) , background_width1_1 + 40, bounds.height/3), L"");
@@ -186,11 +190,25 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
         main_current_state->SetText(str);
         main_current_state->RequestRedraw();
 #endif
+        /* Main wind speed */
+        if (temp_data->WindSpeed().value() != INT_MAX){
+            __pLabelMainWindSpeed->SetShowState(true);
+            snprintf (buffer, sizeof(buffer) -1, "%0.f", 
+                                             temp_data->WindSpeed().value());
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            __pLabelMainWindSpeed->SetText(str);
+            __pLabelMainWindSpeed->RequestRedraw();
+        }else{
+            __pLabelMainWindSpeed->SetShowState(false);
+        }
 
         /* Main wind direction */
         if (temp_data->WindDirection() != "N/A"){
             snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
             Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            if (temp_data->WindSpeed().value() > STRONG_WIND){
+                str.Append("_warning");
+            }
             AppLog("Wind1 %S", str.GetPointer());
             if (str == "CALM" || Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
                 __pLabelMainWindIcon->SetShowState(true);
@@ -212,19 +230,6 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
             }
         }
 #if 0
-        /* Main wind speed */
-        if (temp_data->WindSpeed().value() != INT_MAX){
-            main_wind_speed_text->SetShowState(true);
-            main_wind_speed_icon->SetShowState(true);
-            snprintf (buffer, sizeof(buffer) -1, "%0.f %s", 
-                                             temp_data->WindSpeed().value(), _(_config->WindSpeedUnit().c_str()));
-            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-            main_wind_speed_text->SetText(str);
-            main_wind_speed_text->RequestRedraw();
-        }else{
-            main_wind_speed_text->SetShowState(false);
-            main_wind_speed_icon->SetShowState(false);
-        }
         /* Main presssure */
         if (temp_data->pressure().value(true) != INT_MAX){
             snprintf (buffer, sizeof(buffer) -1, "%i %s", (int)temp_data->pressure().value(), _(_config->PressureUnit().c_str()));
@@ -256,14 +261,17 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
 	   __pLabelBackgroundTown->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
 	   __pLabelBackgroundTown->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
 
-       __pPanel->AddControl(__pLabelBackgroundTown);
        __pLabelBackgroundTown->SetShowState(false);
+
+       __pLabelMainWindSpeed->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
+       __pLabelMainWindSpeed->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
+	   __pLabelMainWindSpeed->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
+	   __pLabelMainWindSpeed->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
 
        __pLabelTown->SetTextConfig(24, LABEL_TEXT_STYLE_NORMAL);
        __pLabelTown->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
 	   __pLabelTown->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
 	   __pLabelTown->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
-       __pPanel->AddControl(__pLabelTown);
        __pLabelTown->SetShowState(false);
 
 
@@ -288,8 +296,12 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
     }
     __pPanel->AddControl(__pLabelMainIcon);
     __pPanel->AddControl(__pLabelMainWindIcon);
+    __pPanel->AddControl(__pLabelMainWindSpeed);
+    __pPanel->AddControl(__pLabelMainWindSpeed);
     __pPanel->AddControl(__pLabelMainTemperatureBackground);
     __pPanel->AddControl(__pLabelMainTemperature);
+    __pPanel->AddControl(__pLabelBackgroundTown);
+    __pPanel->AddControl(__pLabelTown);
 
     AppLog ("33333");
 

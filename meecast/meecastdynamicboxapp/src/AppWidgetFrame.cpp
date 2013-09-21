@@ -79,10 +79,10 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
     __pLabelMainWindIcon->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1/2.8), bounds.y + background_height1_1/2.8, 52, 42), L"");
 
     __pLabelMainTemperatureBackground = new Label();
-    __pLabelMainTemperatureBackground->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1 + 1), (bounds.height - bounds.height/3 + 1) , background_width1_1, bounds.height/3), L"");
+    __pLabelMainTemperatureBackground->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1 + 1 - 20), (bounds.height - bounds.height/3 + 1) , background_width1_1 + 40, bounds.height/3), L"");
 
     __pLabelMainTemperature = new Label();
-    __pLabelMainTemperature->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1), (bounds.height - bounds.height/3) , background_width1_1, bounds.height/3), L"");
+    __pLabelMainTemperature->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1- 20), (bounds.height - bounds.height/3) , background_width1_1 + 40, bounds.height/3), L"");
 
     __pLabelTown = new Label();
     __pLabelTown->Construct(FloatRectangle(bounds.x - 1, bounds.y+103, bounds.width, bounds.height - 104), _config->stationname().c_str());
@@ -137,14 +137,15 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
             snprintf(buffer, sizeof(buffer) - 1, "%0.f°/ %0.f°", temp_data->temperature_low().value(),
                                                                  temp_data->temperature_hi().value());
             t = temp_data->temperature_hi().value();
-          }  
-          if (temp_data->temperature_hi().value(true) != INT_MAX){
-            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
-            t = temp_data->temperature_hi().value();
-          }
-          if (temp_data->temperature_low().value(true) != INT_MAX){
-            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
-            t = temp_data->temperature_low().value();
+          }else{  
+              if (temp_data->temperature_hi().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
+                t = temp_data->temperature_hi().value();
+              }
+              if (temp_data->temperature_low().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
+                t = temp_data->temperature_low().value();
+              }
           }
         }else{
             snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature().value());
@@ -156,13 +157,21 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
         __pLabelMainTemperature->SetShowState(true);
         Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
         __pLabelMainTemperature->SetText(str);
-        __pLabelMainTemperature->SetTextConfig(42, LABEL_TEXT_STYLE_BOLD);
+
+        if (str.GetLength()<8)
+            __pLabelMainTemperature->SetTextConfig(44, LABEL_TEXT_STYLE_BOLD);
+        else
+            __pLabelMainTemperature->SetTextConfig(30, LABEL_TEXT_STYLE_BOLD);
         __pLabelMainTemperature->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
         __pLabelMainTemperature->RequestRedraw();
 
         __pLabelMainTemperatureBackground->SetShowState(true);
         __pLabelMainTemperatureBackground->SetText(str);
-        __pLabelMainTemperatureBackground->SetTextConfig(42, LABEL_TEXT_STYLE_BOLD);
+
+        if (str.GetLength()<8)
+            __pLabelMainTemperatureBackground->SetTextConfig(44, LABEL_TEXT_STYLE_BOLD);
+        else
+            __pLabelMainTemperatureBackground->SetTextConfig(30, LABEL_TEXT_STYLE_BOLD);
         __pLabelMainTemperatureBackground->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
         __pLabelMainTemperatureBackground->RequestRedraw();
 

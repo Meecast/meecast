@@ -641,8 +641,8 @@ meecastMainForm::ReInitElements(void){
     main_pressure_text->SetShowState(false);
 
 
-    AppLog("_config->current_station_id() %i", _config->current_station_id());
-    AppLog("_config->stationsList().size() %i", _config->stationsList().size());
+    /* AppLog("_config->current_station_id() %i", _config->current_station_id()); */
+    /* AppLog("_config->stationsList().size() %i", _config->stationsList().size()); */
     //if ((_config->stationsList().size() > 0) && _config->current_station_id() > _config->stationsList().size()) {
     if ((_config->stationsList().size() > 0)) {
         String temp = (App::GetInstance()->GetAppDataPath());
@@ -650,6 +650,7 @@ meecastMainForm::ReInitElements(void){
         ByteBuffer* pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(temp);
         std::string temp_string = (const char*)(pBuf->GetPointer());
         delete pBuf;
+
         // AppLog("Filename %s", temp_string.c_str());
         //_config->dp = Core::DataParser::Instance(temp_string, "");
         if (_config->dp)

@@ -34,6 +34,7 @@ private:
     Tizen::Ui::Controls::Label* __pLabelMainWindSpeed;
     Tizen::Ui::Controls::Label* __pLabelMainTemperature;
     Tizen::Ui::Controls::Label* __pLabelMainTemperatureBackground;
+    Tizen::Ui::Controls::Label* __pLabelMainDescription;
     Core::Config *_config;
     Core::DataParser* _dp;
 };

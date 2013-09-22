@@ -102,6 +102,12 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
     __pLabelBackgroundTown->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
     __pLabelBackgroundTown->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
 
+    __pLabelMainDescription = new Label();
+    __pLabelMainDescription->Construct(FloatRectangle(bounds.x, bounds.y+104, bounds.width, bounds.height - 104), L"");
+    __pLabelMainDescription->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
+    __pLabelMainDescription->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
+    __pLabelMainDescription->SetTextHorizontalAlignment(ALIGNMENT_RIGHT);
+
     if (_dp)
         _dp->DeleteInstance();
     _dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
@@ -139,12 +145,17 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
             SAFE_DELETE(mainIconBitmap);
         }
 
+        String str;
+        Tizen::Base::Utility::StringUtil::Utf8ToString(temp_data->Text().c_str(), str);
+        __pLabelMainDescription->SetText(str);
+        __pLabelMainDescription->RequestRedraw();
+
         int t = INT_MAX;
         /* Temperature */
         if (temp_data->temperature().value(true) == INT_MAX){
           if ((temp_data->temperature_hi().value(true) == INT_MAX) &&
               (temp_data->temperature_low().value(true) == INT_MAX)){ 
-            //main_description->SetText("N/A");
+            //__pLabelMainDescription->SetText("N/A");
           } 
           if ((temp_data->temperature_hi().value(true) != INT_MAX) &&
               (temp_data->temperature_low().value(true) != INT_MAX)){ 
@@ -255,8 +266,10 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
        __pLabelBackgroundTown->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
        __pLabelTown->SetShowState(true);
        __pLabelTown->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
+       __pLabelMainDescription->SetShowState(true);
     }
     if ((bounds.height == bounds.width) && bounds.height<200){
+        __pLabelMainDescription->SetShowState(false);
         __pLabelBackground1->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1), (bounds.y + bounds.height - background_height1_1), background_width1_1, background_height1_1), L"");
   //     __pLabelBackground1->SetSize(background_width1_1, background_height1_1);
        __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/single_now1_1.png"));
@@ -307,6 +320,7 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
     __pPanel->AddControl(__pLabelMainWindSpeed);
     __pPanel->AddControl(__pLabelMainTemperatureBackground);
     __pPanel->AddControl(__pLabelMainTemperature);
+    __pPanel->AddControl(__pLabelMainDescription);
     __pPanel->AddControl(__pLabelBackgroundTown);
     __pPanel->AddControl(__pLabelTown);
 
@@ -321,7 +335,6 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
 	__pLabel->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
 	__pLabel->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
 	__pLabel->SetBackgroundColor(Color::GetColor(COLOR_ID_YELLOW));
-//	this->AddControl(__pLabel);
 
     Tizen::Base::ByteBuffer* pBuf = null;
     Tizen::Base::String filepath = App::GetInstance()->GetAppDataPath() + "config.xml";
@@ -398,19 +411,25 @@ MeecastDynamicBoxAppFrame::OnBoundsChanged(const Tizen::Graphics::Rectangle& old
        }
        __pLabelBackgroundTown->SetShowState(true);
        __pLabelBackgroundTown->SetSize(Dimension(bounds.width + 40, (bounds.height - bounds.height/2)));
-//       __pLabelBackgroundTown->SetPosition((bounds.x + bounds.width - background_width2_1 + 1), (bounds.height - bounds.height/2.5 + 1));
        __pLabelBackgroundTown->SetPosition((bounds.x  + 1), (bounds.height - bounds.height/2.5 + 1));
-
        __pLabelTown->SetShowState(true);
-//       __pLabelTown->SetSize(Dimension(background_width2_1, (bounds.height - bounds.height/2)));
        __pLabelTown->SetSize(Dimension(bounds.width + 40, (bounds.height - bounds.height/2)));
-//       __pLabelTown->SetPosition((bounds.x + bounds.width - background_width2_1), (bounds.height - bounds.height/2.5));
        __pLabelTown->SetPosition((bounds.x), (bounds.height - bounds.height/2.5));
 
+       __pLabelMainDescription->SetShowState(false);
+/*
+        __pLabelMainDescription->SetShowState(true);
+        __pLabelMainDescription->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
+       __pLabelMainDescription->SetSize(Dimension((bounds.width - bounds.width/3 + 10) , (bounds.height - bounds.height/2)));
+       __pLabelMainDescription->SetPosition((bounds.x + bounds.width/3), (bounds.height - bounds.height/1.55));
+*/
     }
+
+    
     if ((bounds.height == bounds.width) && bounds.height<200){
         __pLabelBackground1->SetSize(Dimension(background_width1_1, background_height1_1));
         __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/single_now1_1.png"));
+        __pLabelMainDescription->SetShowState(false);
     }
 }
 

@@ -19,6 +19,9 @@ using namespace Core;
 #define background_height1_1 134
 #define background_width2_1 320
 #define background_height2_1 134
+#define background_width2_2 320
+#define background_height2_2 320 
+
 
 
 
@@ -87,6 +90,7 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
     __pLabelMainTemperature->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1- 20), (bounds.height - bounds.height/3) , background_width1_1 + 40, bounds.height/3), L"");
     __pLabelMainTemperature->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
 
+    AppLog("Town begin");
     __pLabelTown = new Label();
     __pLabelTown->Construct(FloatRectangle((bounds.x + bounds.width - background_width2_1) - 1, bounds.y+103, bounds.width, bounds.height - 104), _config->stationname().c_str());
     __pLabelTown->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
@@ -99,6 +103,7 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
     __pLabelBackgroundTown->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
     __pLabelBackgroundTown->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
 
+    AppLog("Town end");
     __pLabelMainDescription = new Label();
     __pLabelMainDescription->Construct(FloatRectangle(bounds.x, bounds.y+104, bounds.width, bounds.height - 104), L"");
     __pLabelMainDescription->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
@@ -249,7 +254,8 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
             //
             //
     /* Prepared for 2x2 mode */
-    if ((bounds.width <= (bounds.height*2 + 4)) && bounds.width>300){
+
+    if ((bounds.width != bounds.height) && bounds.width>300){
         __pLabelBackground1->Construct(FloatRectangle((bounds.x + bounds.width - background_width2_1), (bounds.y + bounds.height - background_height2_1), background_width2_1, background_height2_1), L"");
         __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/single_now1_2.png"));
         __pLabelBackgroundTown->SetShowState(true);
@@ -293,12 +299,13 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
         __pLabelTown->SetShowState(true);
         __pLabelTown->SetSize(Dimension(bounds.width + 40, (bounds.height - bounds.height/2)));
         __pLabelTown->SetPosition((bounds.x), (bounds.height - bounds.height/2.5));
-
         __pLabelMainDescription->SetShowState(false);
 
     }
     /* Prepared for 1x2 mode */
     if ((bounds.height == bounds.width) && bounds.height<200){
+
+        AppLog("111111111");
         __pLabelMainDescription->SetShowState(false);
         __pLabelBackground1->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1), (bounds.y + bounds.height - background_height1_1), background_width1_1, background_height1_1), L"");
        __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/single_now1_1.png"));
@@ -310,6 +317,36 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
        __pLabelTown->SetShowState(false);
     }
 
+    /* Prepared for 2x2 mode */
+    if ((bounds.height == bounds.width) && bounds.height>200){
+        __pLabelMainDescription->SetShowState(false);
+        __pLabelBackground1->Construct(FloatRectangle((bounds.x + bounds.width - background_width2_2), (bounds.y + bounds.height - background_height2_2), background_width2_2, background_height2_2), L"");
+       __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/single_now2_2.png"));
+        if (__pLabelTown->GetText().GetLength()>15){
+            if (__pLabelTown->GetText().GetLength()>20){
+                __pLabelTown->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+                __pLabelBackgroundTown->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+            }else{
+                __pLabelTown->SetTextConfig(24, LABEL_TEXT_STYLE_NORMAL);
+                __pLabelBackgroundTown->SetTextConfig(24, LABEL_TEXT_STYLE_NORMAL);
+            }
+        }else{
+            __pLabelTown->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
+            __pLabelBackgroundTown->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
+        }
+        __pLabelBackgroundTown->SetShowState(true);
+        __pLabelBackgroundTown->SetSize(Dimension(bounds.width + 40, (bounds.height - bounds.height/2)));
+        __pLabelBackgroundTown->SetPosition((bounds.x  + 1), (bounds.height - bounds.height/3 + 1));
+        __pLabelTown->SetShowState(true);
+        __pLabelTown->SetSize(Dimension(bounds.width + 40, (bounds.height - bounds.height/2)));
+        __pLabelTown->SetPosition((bounds.x), (bounds.height - bounds.height/3));
+
+        __pLabelMainDescription->SetShowState(true);
+        __pLabelMainDescription->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
+       __pLabelMainDescription->SetSize(Dimension((bounds.width - bounds.width/3 + 10) , (bounds.height - bounds.height/2)));
+       __pLabelMainDescription->SetPosition((bounds.x + bounds.width/3), (bounds.height - bounds.height/1.55));
+
+    }
     __pPanel->AddControl(__pLabelBackground1);
     __pPanel->AddControl(__pLabelMainIcon);
     __pPanel->AddControl(__pLabelMainWindIcon);
@@ -317,9 +354,11 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
     __pPanel->AddControl(__pLabelMainTemperatureBackground);
     __pPanel->AddControl(__pLabelMainTemperature);
     __pPanel->AddControl(__pLabelMainDescription);
+
+    
     __pPanel->AddControl(__pLabelBackgroundTown);
     __pPanel->AddControl(__pLabelTown);
-
+ 
     this->AddControl(*__pPanel);
 
 	return E_SUCCESS;

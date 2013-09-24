@@ -341,11 +341,22 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
         __pLabelMainDescription->RequestRedraw();
 
        __pLabelMainIcon->SetSize(Dimension(210, 210));
-        __pLabelMainTemperatureBackground->SetPosition((int)(bounds.x + bounds.width - background_width2_2/1.8 + 1), (int)(bounds.y + background_height2_2/2.5 +1));
-        __pLabelMainTemperature->SetPosition((int)(bounds.x + bounds.width - background_width2_2/1.8), (int)(bounds.y + background_height2_2/2.5));
-        __pLabelMainTemperature->SetTextConfig(90, LABEL_TEXT_STYLE_BOLD);
-        __pLabelMainTemperatureBackground->SetTextConfig(90, LABEL_TEXT_STYLE_BOLD);
-
+        __pLabelMainTemperatureBackground->SetPosition((int)(bounds.x + bounds.width - background_width2_2/1.4 + 1), (int)(bounds.y + background_height2_2/2.5 + 1));
+        __pLabelMainTemperature->SetPosition((int)(bounds.x + bounds.width - background_width2_2/1.4), (int)(bounds.y + background_height2_2/2.5));
+        __pLabelMainTemperature->SetSize((int)(background_width2_2/1.3), (int)(background_height2_2/2.5));
+        __pLabelMainTemperatureBackground->SetSize((int)(background_width2_2/1.3), (int)(background_height2_2/2.5));
+        if (__pLabelMainTemperature->GetText().GetLength()<6){
+            __pLabelMainTemperature->SetTextConfig(90, LABEL_TEXT_STYLE_BOLD);
+            __pLabelMainTemperatureBackground->SetTextConfig(90, LABEL_TEXT_STYLE_BOLD);
+        }else{
+            if (__pLabelMainTemperature->GetText().GetLength()<9){
+                __pLabelMainTemperature->SetTextConfig(55, LABEL_TEXT_STYLE_BOLD);
+                __pLabelMainTemperatureBackground->SetTextConfig(55, LABEL_TEXT_STYLE_BOLD);
+            }else{
+                __pLabelMainTemperature->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
+                __pLabelMainTemperatureBackground->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
+            }
+        }
 
     }
     __pPanel->AddControl(__pLabelBackground1);

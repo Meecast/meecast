@@ -35,6 +35,7 @@ private:
     Tizen::Ui::Controls::Label* __pLabelMainTemperature;
     Tizen::Ui::Controls::Label* __pLabelMainTemperatureBackground;
     Tizen::Ui::Controls::Label* __pLabelMainDescription;
+    Tizen::Ui::Controls::Label* __pLabelMainDescriptionBackground;
     Core::Config *_config;
     Core::DataParser* _dp;
 };

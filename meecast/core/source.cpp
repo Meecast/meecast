@@ -177,6 +177,7 @@ namespace Core {
     Source::~Source(){
         delete _name;
         delete _logo;
+        delete _cookie;
         if (_library)
             delete _library;
         if (_binary)
@@ -190,6 +191,20 @@ namespace Core {
         if(_libraryHandler)
             dlclose(_libraryHandler);
     }
+Source::Source(const Source& source){
+    _name = new std::string(*(source._name));
+    _logo = new std::string(*(source._logo));
+    _library = new std::string(*(source._library));
+    _binary = new std::string(*(source._binary));
+    _url_template = new std::string(*(source._url_template));
+    _url_detail_template = new std::string(*(source._url_detail_template));
+    _url_hours_template = new std::string(*(source._url_hours_template));
+    _url_for_view = new std::string(*(source._url_for_view));
+    _url_for_map = new std::string(*(source._url_for_map));
+    _url_for_basemap = new std::string(*(source._url_for_basemap));
+    _cookie = new std::string(*(source._cookie));
+}
+
 ////////////////////////////////////////////////////////////////////////////////
     Source& Source::operator=(const Source& source){
         if(this != &source){

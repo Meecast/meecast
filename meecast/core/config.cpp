@@ -445,16 +445,17 @@ Config::Instance(){
     if (!_self)
         _self = new Config();
     _refcount++;
-    AppLogDebug("Instance0 %i", _refcount);
+    AppLogDebug("Config Instance0 %i", _refcount);
     return _self;
 }
 ////////////////////////////////////////////////////////////////////////////////
 Config* 
 Config::Instance(const std::string& filename, const std::string& schema_filename){
+    AppLogDebug("Config Instance");
     if (!_self)
         _self = new Config(filename, schema_filename);
     _refcount++;
-    AppLogDebug("Instance1 %i", _refcount);
+    AppLogDebug("Config Instance1 %i", _refcount);
     return _self;
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -466,7 +467,7 @@ Config::DeleteInstance(){
         _refcount --;
         return false;
     }
-    if (_refcount == 1  && _self){
+    if ((_refcount == 1) && _self){
         AppLogDebug("Destroy Config ");
         delete _self;
         _self = 0;
@@ -478,6 +479,8 @@ Config::DeleteInstance(){
 ////////////////////////////////////////////////////////////////////////////////
 Config::Config(const std::string& filename, const std::string& schema_filename)
                     : Parser(filename, schema_filename){
+
+    AppLog("Create Config"); 
     std::cerr<<"CONFIG CREATE222222!!!!!!!!!!!!!!"<<std::endl;
    /* std::cerr<<"new Config"<<std::endl; */
     _filename = new std::string;
@@ -898,14 +901,20 @@ Config::languagesList(){
 
 ////////////////////////////////////////////////////////////////////////////////
 Config::~Config(){
+    AppLog("Destroy Config");
     delete _pathPrefix;
     delete _iconset;
     delete _temperature_unit;
     _languages_list->clear();
     delete _languages_list;
-//    for(unsigned i = 0; i < _stations->size(); i++){
-//        delete _stations->at(i);
-//    }
+    for(unsigned i = 0; i < _stations->size(); i++){
+        AppLog("sssss %s", _stations->at(i)->name().c_str());
+        Core::Station *_station =_stations->at(i);
+
+        AppLog("sssss %p", _station);
+        delete (_station);
+        AppLog("sssss 11");
+    }
     _stations->clear();
     delete _stations;
     delete _nullname;

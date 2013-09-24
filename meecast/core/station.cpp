@@ -96,13 +96,19 @@ Station::Station(const std::string& source_name, const std::string& id,
         _region = new std::string(region);
         _timezone = 0;
         _source = this->getSourceByName();
+        AppLog("Begin te Source %p", _source);
         _gps = gps;
         _latitude = latitude;
         _longitude = longitude;
 
         std::string path;
 
-        path =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(App::GetInstance()->GetAppResourcePath())->GetPointer());
+//        ByteBuffer* pBuf = App::GetInstance()->GetAppResourcePath();
+        String temp_String = App::GetInstance()->GetAppResourcePath();
+//        path =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(App::GetInstance()->GetAppResourcePath())->GetPointer());
+        ByteBuffer* pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(temp_String);
+        path = (const char*) (pBuf->GetPointer());
+        delete pBuf;
 
         AppLog("STation888p %s", path.c_str());
         AppLog("Region %s", _region->c_str());
@@ -214,14 +220,19 @@ Station::Station(const std::string& source_name, const std::string& id,
         delete _viewURL;
         delete _mapURL;
         delete _basemapURL;
-        if(_data)
-            delete _data;
         if(_fileName)
             delete _fileName;
+        AppLog("Delete Station4aa!!!");
         if(_converter)
             delete _converter;
-        if (_source)
+        AppLog("Delete Source in Station!!!!");
+        if (_source){
+
+            AppLog("Delete te Source %p", _source);
             delete _source;
+        }
+        
+        AppLog("Delete Station4!!!!");
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const Station& station){
@@ -726,7 +737,7 @@ Station::run_converter(){
     /* TO DO fixed for all sources */
     Tizen::Base::String dirPath;
     dirPath = App::GetInstance()->GetAppDataPath();
-    Tizen::Base::String forecast_file;
+    Tizen::Base::String forecast_file = "";
     forecast_file.Append(dirPath);
     forecast_file.Append(this->fileName().c_str());
     forecast_file.Append(".orig");
@@ -741,14 +752,31 @@ Station::run_converter(){
     hours_file.Append(dirPath);
     hours_file.Append(this->fileName().c_str());
     hours_file.Append(".hours.orig");
-    AppLog("SOurce %s",_sourceName->c_str());
+    /* AppLog("SOurce %s",_sourceName->c_str()); */
+    ByteBuffer* pBuf1 = Tizen::Base::Utility::StringUtil::StringToUtf8N(forecast_file);
+    std::string forecast_file_string = "";
+    std::string result_file_string  = "";
+    std::string detail_file_string = "";
+    std::string hours_file_string = "";
+    if (pBuf1)
+        forecast_file_string = (const char*)(pBuf1->GetPointer());
+    ByteBuffer* pBuf2 = Tizen::Base::Utility::StringUtil::StringToUtf8N(result_file);
+    if (pBuf2)
+        result_file_string = (const char*)(pBuf2->GetPointer());
+    ByteBuffer* pBuf3 = Tizen::Base::Utility::StringUtil::StringToUtf8N(detail_file);
+    if (pBuf3)
+        detail_file_string = (const char*)(pBuf3->GetPointer());
+    ByteBuffer*pBuf4 = Tizen::Base::Utility::StringUtil::StringToUtf8N(hours_file);
+    if (pBuf4)
+        hours_file_string = (const char*)(pBuf4->GetPointer());
+
     if (*_sourceName == "openweathermap.org"){
     AppLog("openweathermap.org");
         convert_station_openweathermaporg_data(
-            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(forecast_file)->GetPointer(), 
-            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(result_file)->GetPointer(), 
-            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(detail_file)->GetPointer(), 
-            (const char *)Tizen::Base::Utility::StringUtil::StringToUtf8N(hours_file)->GetPointer());
+            (const char *)forecast_file_string.c_str(), 
+            (const char *)result_file_string.c_str(), 
+            (const char *)detail_file_string.c_str(), 
+            (const char *)hours_file_string.c_str());
         AppLog("openweathermap.org");
     }
     if (*_sourceName =="gismeteo.ru"){
@@ -787,6 +815,14 @@ Station::run_converter(){
         AppLog("yr.no");
     }
 
+    if (pBuf1)
+        delete pBuf1;
+    if (pBuf2)
+        delete pBuf2;
+    if (pBuf3)
+        delete pBuf3;
+    if (pBuf4)
+        delete pBuf4;
 
 }
 
@@ -806,12 +842,15 @@ Station::run_converter(){
         SourceList *sourcelist = new Core::SourceList(path);
         for (int i=0; i<(int)sourcelist->size(); i++){
             if (_sourceName->compare(sourcelist->at(i)->name()) == 0){
+                AppLog(" Before new te Source");
                 Source* source = new Core::Source(*sourcelist->at(i));
+                AppLog(" Insert new te Source %p", source);
                 delete sourcelist;
                 return source; 
             }
         }
         delete sourcelist;
+        AppLog (" Return 0 de Source");
         return 0;
     }
 ////////////////////////////////////////////////////////////////////////////////

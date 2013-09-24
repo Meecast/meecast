@@ -35,6 +35,7 @@
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Source::Source(const std::string& filename, const std::string& schema_filename) : Parser(filename, schema_filename){
+        AppLog("Create Source");
         _name = new std::string;
         _logo = new std::string;
         _library = new std::string;
@@ -241,8 +242,12 @@ namespace Core {
     }
 ////////////////////////////////////////////////////////////////////////////////
     Source::~Source(){
+        AppLog("Delete Source");
+        AppLog("Delete Source %p", _name);
         delete _name;
+        AppLog("Delete Source1");
         delete _logo;
+        delete _cookie;
         if (_library)
             delete _library;
         if (_binary)
@@ -255,9 +260,40 @@ namespace Core {
         delete _url_for_basemap;
         delete _cookie;
     }
+Source::Source(const Source& source){
+    _name = new std::string(*(source._name));
+    _logo = new std::string(*(source._logo));
+    _library = new std::string(*(source._library));
+    _binary = new std::string(*(source._binary));
+    _url_template = new std::string(*(source._url_template));
+    _url_detail_template = new std::string(*(source._url_detail_template));
+    _url_hours_template = new std::string(*(source._url_hours_template));
+    _url_for_view = new std::string(*(source._url_for_view));
+    _url_for_map = new std::string(*(source._url_for_map));
+    _url_for_basemap = new std::string(*(source._url_for_basemap));
+    _cookie = new std::string(*(source._cookie));
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+Source::Source(const Source& source){
+    _name = new std::string(*(source._name));
+    _logo = new std::string(*(source._logo));
+    _library = new std::string(*(source._library));
+    _binary = new std::string(*(source._binary));
+    _url_template = new std::string(*(source._url_template));
+    _url_detail_template = new std::string(*(source._url_detail_template));
+    _url_hours_template = new std::string(*(source._url_hours_template));
+    _url_for_view = new std::string(*(source._url_for_view));
+    _url_for_map = new std::string(*(source._url_for_map));
+    _url_for_basemap = new std::string(*(source._url_for_basemap));
+    _cookie = new std::string(*(source._cookie));
+}
 ////////////////////////////////////////////////////////////////////////////////
     Source& Source::operator=(const Source& source){
+        AppLog("New = te Source"); 
         if(this != &source){
+        AppLog("New = te Source"); 
             delete _name;
             _name = new std::string(*(source._name));
             delete _logo;

@@ -73,7 +73,6 @@ ConfigTizen::DeleteInstance(){
     }
     if (_refcount == 1  && _self){
         AppLogDebug("Destroy Config Tizen");
-//        Core::Config::DeleteInstance();
         delete _self;
         _self = 0;
         return true;
@@ -140,15 +139,25 @@ ConfigTizen::saveStation1(String source, String city_id, String city_name, Strin
                       String region, bool gps, double latitude, double longitude){
     AppLog ("ConfigTizen::saveStation1");
     std::string _source = "";
-    _source =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(source)->GetPointer());
+    ByteBuffer* pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(source);
+    _source = (const char*)(pBuf->GetPointer());
+    delete pBuf;
     std::string _code = "";
-    _code =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(city_id)->GetPointer());
+    pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(city_id);
+    _code = (const char*)(pBuf->GetPointer());
+    delete pBuf;
     std::string _name = "";
-    _name =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(city_name)->GetPointer());
+    pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(city_name);
+    _name =  (const char*)(pBuf->GetPointer());
+    delete pBuf;
     std::string _country = "";
-    _country =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(country)->GetPointer());
+    pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(country);
+    _country =  (const char*)(pBuf->GetPointer());
+    delete pBuf;
     std::string _region = "";
-    _region =  (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(region)->GetPointer());
+    pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(region);
+    _region =  (const char*)(pBuf->GetPointer());
+    delete pBuf;
 
     Core::Station *station;
     station = new Core::Station(

@@ -857,8 +857,13 @@ meecastMainForm::ReInitElements(void){
             SAFE_DELETE(image);
             SAFE_DELETE(mainIconBitmap);
         }
-        main_background_label->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background.png"));
-        main_background_label->RequestRedraw();
+    	Bitmap *pBitmap_icon = Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background.png");
+        if (pBitmap_icon){
+            main_background_label->SetBackgroundBitmap(*pBitmap_icon);
+            main_background_label->RequestRedraw();
+            delete pBitmap_icon;
+        }
+
     }
 
     main_listview_forecast->SetItemProvider(*this);

@@ -37,7 +37,16 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    Parser::Parser(){}
+    Parser::Parser(){
+        #ifdef LIBXML
+        #else
+            #ifdef QT
+            #else
+                _doc = NULL;
+            #endif
+        #endif
+
+    }
     Parser::Parser(const std::string& filename, const std::string& schema_filename)
                         : AbstractConfig(){
         _filename = filename;
@@ -160,7 +169,8 @@ namespace Core {
     #ifdef QT
     #else
         AppLog("Delete parser");
-        xmlFreeDoc(_doc);
+        if (_doc)
+            xmlFreeDoc(_doc);
     #endif
     }
 ////////////////////////////////////////////////////////////////////////////////

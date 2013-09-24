@@ -577,13 +577,21 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
             min_distance = distance;
             String Country, Region, Code, Name;
             pEnum->GetStringAt(5, Country);
-            country = (char*)Tizen::Base::Utility::StringUtil::StringToUtf8N(Country)->GetPointer();
+            ByteBuffer* pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(Country);
+            country = (char*)pBuf->GetPointer();
+            delete pBuf;
             pEnum->GetStringAt(0, Region);
-            region = (char*)Tizen::Base::Utility::StringUtil::StringToUtf8N(Region)->GetPointer();
+            pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(Region);
+            region = (char*)pBuf->GetPointer();
+            delete pBuf;
             pEnum->GetStringAt(1, Code);
-            code = (char*)Tizen::Base::Utility::StringUtil::StringToUtf8N(Code)->GetPointer();
+            pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(Code);
+            code = (char*)pBuf->GetPointer();
+            delete pBuf;
             pEnum->GetStringAt(2, Name);
-            name = (char*)Tizen::Base::Utility::StringUtil::StringToUtf8N(Name)->GetPointer();
+            pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(Name);
+            name = (char*)pBuf->GetPointer();
+            delete pBuf;
             latitude = result_lat;
             longitude = result_lon;
         }

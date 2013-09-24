@@ -83,7 +83,6 @@ namespace Core{
         double _longitude;
         int _timezone;
         bool _gps;
-        Data *_data; /* Is it really needed ? Vlad */
         bool dataValid();
         bool prepareFile();
         Source *getSourceByName();

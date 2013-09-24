@@ -82,6 +82,7 @@ namespace Core {
             Source(const std::string& filename,
                    const std::string& schema_filename = prefix + schemaPath + "source.xsd");
             Source& operator=(const Source& source);
+            Source(const Source& source);
             std::string& name() const;
             std::string& logo() const;
             std::string& url_template() const;

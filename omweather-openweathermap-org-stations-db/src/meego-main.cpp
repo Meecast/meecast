@@ -720,11 +720,11 @@ convert_station_openweathermaporg_data(const char *days_data_path, const char *r
     char    buffer[2048],
             *delimiter = NULL;
     FILE    *file_out;
-    
-    AppLog("convert_station_openweathermaporg_data %S", days_data_path);
+
+    if (days_data_path) 
+       AppLog("convert_station_openweathermaporg_data %s", days_data_path);
     if(!days_data_path)
         return -1;
-
     hash_for_icons = hash_icons_openweathermaporg_table_create();
     /* check file accessability */
     if(!access(days_data_path, R_OK)){

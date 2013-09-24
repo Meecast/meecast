@@ -161,7 +161,7 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
 	//PowerManager::SetScreenEventListener(*this);
 
     String repAppId(15);
-	repAppId = L"C8xIFTMoRh";
+	repAppId = L"ctLjIIgCCj";
 
 	String serviceName(L".meecastservice");
 	AppId serviceId(repAppId+serviceName);
@@ -183,7 +183,6 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
 		{
 			AppLog("SampleUiApp : Service is not ready !!! try to launch !!! ");
 			r = pAppManager->LaunchApplication(serviceId, null);
-			TryReturn(!IsFailed(r), r, "SampleUiApp : [%s]", GetErrorMessage(r));
 			Thread::Sleep(1000);
 		}
 	}
@@ -222,6 +221,7 @@ meecastApp::OnAppTerminating(AppRegistry& appRegistry, bool forcedTermination)
 	// TODO:
 	// Deallocate resources allocated by this App for termination.
 	// The App's permanent data and context can be saved via appRegistry.
+    config->dp->DeleteInstance();
     config->DeleteInstance();
 	return true;
 }

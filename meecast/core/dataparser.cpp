@@ -231,15 +231,25 @@ namespace Core {
                         forecast_data->Humidity(atoi((char *)temp_xml_string));
                         xmlFree(temp_xml_string);
                     }
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"visible"))
-                        forecast_data->ViSible().value((float)atof((char *)xmlNodeGetContent(p1)));
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"visible")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        if (temp_xml_string){
+                            forecast_data->ViSible().value((float)atof((char*)temp_xml_string));
+                            xmlFree(temp_xml_string);
+                        }
+                    }
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"pressure")){
                         temp_xml_string = xmlNodeGetContent(p1);
                         forecast_data->pressure().value((float)atof((char *)temp_xml_string));
                         xmlFree(temp_xml_string);
                     }
-                    if (!xmlStrcmp(p1->name, (const xmlChar*)"ppcp"))
-                        forecast_data->Ppcp((float)atof((char *)xmlNodeGetContent(p1)));
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"ppcp")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        if (temp_xml_string){
+                            forecast_data->Ppcp((float)atof((char *)temp_xml_string));
+                            xmlFree(temp_xml_string);
+                        }
+                    }
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"wind_speed")){
                         temp_xml_string = xmlNodeGetContent(p1);
                         if (temp_xml_string){

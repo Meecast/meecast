@@ -641,8 +641,8 @@ meecastMainForm::ReInitElements(void){
     main_pressure_text->SetShowState(false);
 
 
-    AppLog("_config->current_station_id() %i", _config->current_station_id());
-    AppLog("_config->stationsList().size() %i", _config->stationsList().size());
+    /* AppLog("_config->current_station_id() %i", _config->current_station_id()); */
+    /* AppLog("_config->stationsList().size() %i", _config->stationsList().size()); */
     //if ((_config->stationsList().size() > 0) && _config->current_station_id() > _config->stationsList().size()) {
     if ((_config->stationsList().size() > 0)) {
         String temp = (App::GetInstance()->GetAppDataPath());
@@ -650,6 +650,7 @@ meecastMainForm::ReInitElements(void){
         ByteBuffer* pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(temp);
         std::string temp_string = (const char*)(pBuf->GetPointer());
         delete pBuf;
+
         // AppLog("Filename %s", temp_string.c_str());
         //_config->dp = Core::DataParser::Instance(temp_string, "");
         if (_config->dp)
@@ -737,14 +738,15 @@ meecastMainForm::ReInitElements(void){
             snprintf(buffer, sizeof(buffer) - 1, "%0.f°/ %0.f°", temp_data->temperature_low().value(),
                                                                  temp_data->temperature_hi().value());
             t = temp_data->temperature_hi().value();
-          }  
-          if (temp_data->temperature_hi().value(true) != INT_MAX){
-            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
-            t = temp_data->temperature_hi().value();
-          }
-          if (temp_data->temperature_low().value(true) != INT_MAX){
-            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
-            t = temp_data->temperature_low().value();
+          }else{  
+              if (temp_data->temperature_hi().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
+                t = temp_data->temperature_hi().value();
+              }
+              if (temp_data->temperature_low().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
+                t = temp_data->temperature_low().value();
+              }
           }
         }else{
             snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature().value());
@@ -755,6 +757,13 @@ meecastMainForm::ReInitElements(void){
         delete color_of_temp;
         main_temperature->SetShowState(true);
         Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+        if (str.GetLength()<6)
+            main_temperature->SetTextConfig(95, LABEL_TEXT_STYLE_NORMAL); 
+        else
+           if (str.GetLength()<8)
+                main_temperature->SetTextConfig(75, LABEL_TEXT_STYLE_NORMAL); 
+           else
+                main_temperature->SetTextConfig(55, LABEL_TEXT_STYLE_NORMAL); 
         main_temperature->SetText(str);
         main_temperature->RequestRedraw();
         /* Current or not current period */

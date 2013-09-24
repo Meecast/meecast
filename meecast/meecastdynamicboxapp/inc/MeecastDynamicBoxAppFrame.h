@@ -4,7 +4,9 @@
 #include <FApp.h>
 #include <FBase.h>
 #include <FSystem.h>
+#include <FMedia.h>
 #include <FUi.h>
+#include "../../core/core.h"
 #include "../../core/config.h"
 
 #include <FShell.h>
@@ -27,7 +29,14 @@ private:
     Tizen::Ui::Controls::Label* __pLabelBackground2;
     Tizen::Ui::Controls::Label* __pLabelBackgroundTown;
     Tizen::Ui::Controls::Label* __pLabelTown;
+    Tizen::Ui::Controls::Label* __pLabelMainIcon;
+    Tizen::Ui::Controls::Label* __pLabelMainWindIcon;
+    Tizen::Ui::Controls::Label* __pLabelMainWindSpeed;
+    Tizen::Ui::Controls::Label* __pLabelMainTemperature;
+    Tizen::Ui::Controls::Label* __pLabelMainTemperatureBackground;
+    Tizen::Ui::Controls::Label* __pLabelMainDescription;
     Core::Config *_config;
+    Core::DataParser* _dp;
 };
 
 #endif /* _MeecastDynamicBoxApp_FRAME_H_ */

@@ -351,6 +351,7 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
         __pLabelMainDescription->RequestRedraw();
 
         __pLabelMainDescriptionBackground->SetShowState(true);
+//        __pLabelMainDescriptionBackground->SetShowState(false);
         __pLabelMainDescriptionBackground->SetTextConfig(28, LABEL_TEXT_STYLE_NORMAL);
 
         __pLabelMainDescriptionBackground->SetPosition((bounds.x + 40 + 1), (bounds.height - bounds.height/2.2 + 1));
@@ -375,7 +376,7 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
                 __pLabelMainTemperatureBackground->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
             }
         }
-
+       __pLabelMainWindIcon->SetSize(__pLabelMainWindIcon->GetWidth()*2, __pLabelMainWindIcon->GetHeight()*2);
     }
     __pPanel->AddControl(__pLabelBackground1);
     __pPanel->AddControl(__pLabelMainIcon);

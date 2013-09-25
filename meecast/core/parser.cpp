@@ -171,6 +171,7 @@ namespace Core {
         AppLog("Delete parser");
         if (_doc)
             xmlFreeDoc(_doc);
+        xmlCleanupParser();
     #endif
     }
 ////////////////////////////////////////////////////////////////////////////////

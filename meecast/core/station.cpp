@@ -1018,6 +1018,9 @@ Station::OnTransactionAborted(HttpSession& httpSession, HttpTransaction& httpTra
 	AppLog("OnTransactionAborted(%s)", GetErrorMessage(r));
     _downloading = NONE;
 	delete &httpTransaction;
+    delete __pHttpSession; 
+    __pHttpSession = null;
+
 }
 
 void

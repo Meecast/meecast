@@ -149,6 +149,7 @@ DatabaseSqlite::create_countries_list()
         }
         map->Add(*(new (std::nothrow) Integer(nIndx++)), *(new (std::nothrow) String(strWord)));
     }
+
     if (pEnum != null){
         delete pEnum;
     }
@@ -218,6 +219,7 @@ DatabaseSqlite::create_region_list_by_name(Tizen::Base::String& country_name)
         }
         map->Add(*(new (std::nothrow) Integer(nIndx++)), *(new (std::nothrow) String(strWord)));
     }
+
     if (pEnum != null){
         delete pEnum;
     }

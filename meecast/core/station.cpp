@@ -900,10 +900,12 @@ Station::RequestHttpGet(void)
 			goto CATCH;
 		}
 
+        AppLog("URL ");
 		r = __pHttpSession->SetAutoRedirectionEnabled(true);
 		TryCatch(r == E_SUCCESS, , "Failed to set the redirection automatically.");
 	}
 
+        AppLog("URL111 ");
 	pHttpTransaction = __pHttpSession->OpenTransactionN();
 	r = GetLastResult();
 	TryCatch(pHttpTransaction != null, , "Failed to open the HttpTransaction.");
@@ -911,6 +913,7 @@ Station::RequestHttpGet(void)
 	r = pHttpTransaction->AddHttpTransactionListener(*this);
 	TryCatch(r == E_SUCCESS, , "Failed to add the HttpTransactionListener.");
 
+        AppLog("URL111222 ");
 	pHttpRequest = const_cast< HttpRequest* >(pHttpTransaction->GetRequest());
 
     if (_downloading == FORECAST)
@@ -933,6 +936,7 @@ Station::RequestHttpGet(void)
          }
     }
 
+        AppLog("URL111222333 ");
 	r = pHttpRequest->SetUri(str);
 	TryCatch(r == E_SUCCESS, , "Failed to set the uri.");
 

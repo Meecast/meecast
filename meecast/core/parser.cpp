@@ -129,7 +129,8 @@ namespace Core {
             delete pBuf;
         if (!_doc){
             AppLogDebug("cleanup xml parser");
-            xmlCleanupParser();
+            /* !!!!!!!!!!!!!!!!! */
+          /*  xmlCleanupParser(); */
         }
 
         AppLogDebug("Parser for libxml %p ", _doc); 
@@ -162,7 +163,7 @@ namespace Core {
         if (_doc){
             xmlFreeDoc(_doc);
             AppLog("Inside delete2");
-            xmlCleanupParser();
+            /* xmlCleanupParser(); */
             AppLog("Inside delete3");
         }
         _doc = xmlReadFile((const char*)pBuf->GetPointer(), "UTF-8", XML_PARSE_SAX1);
@@ -184,7 +185,7 @@ namespace Core {
             AppLog("Inside delete");
             xmlFreeDoc(_doc);
             AppLog("Inside delete2");
-            xmlCleanupParser();
+       //     xmlCleanupParser();
             AppLog("Inside delete3");
         }
     #endif

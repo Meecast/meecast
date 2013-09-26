@@ -257,8 +257,24 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
             //
             //
     /* Prepared for 1x1 mode */
-    if ((bounds.width != bounds.height) && bounds.width>300){
+    if ((bounds.height == bounds.width) && bounds.height<200){
         AppLog("Init 1x1");
+        __pLabelMainIcon->SetSize(Dimension(128, 128));
+        __pLabelMainDescription->SetShowState(false);
+        __pLabelMainDescriptionBackground->SetShowState(false);
+        __pLabelBackground1->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1), (bounds.y + bounds.height - background_height1_1), background_width1_1, background_height1_1), L"");
+       __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/single_now1_1.png"));
+
+       __pLabelBackgroundTown->SetTextConfig(24, LABEL_TEXT_STYLE_NORMAL);
+       __pLabelBackgroundTown->SetShowState(false);
+
+       __pLabelTown->SetTextConfig(24, LABEL_TEXT_STYLE_NORMAL);
+       __pLabelTown->SetShowState(false);
+       __pLabelMainWindSpeed->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
+    }
+    /* Prepared for 2x1 mode */
+    if ((bounds.width != bounds.height) && bounds.width<200){
+        AppLog("Init 2x1");
         __pLabelMainIcon->SetSize(Dimension(128, 128));
         __pLabelBackground1->Construct(FloatRectangle((bounds.x + bounds.width - background_width2_1), (bounds.y + bounds.height - background_height2_1), background_width2_1, background_height2_1), L"");
         __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/single_now1_2.png"));
@@ -306,22 +322,7 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
         __pLabelMainDescriptionBackground->SetShowState(false);
         __pLabelMainWindSpeed->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
     }
-    /* Prepared for 2x1 mode */
-    if ((bounds.height != bounds.width) && bounds.height<200){
-        AppLog("Init 2x1");
-        __pLabelMainIcon->SetSize(Dimension(128, 128));
-        __pLabelMainDescription->SetShowState(false);
-        __pLabelMainDescriptionBackground->SetShowState(false);
-        __pLabelBackground1->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1), (bounds.y + bounds.height - background_height1_1), background_width1_1, background_height1_1), L"");
-       __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/single_now1_1.png"));
 
-       __pLabelBackgroundTown->SetTextConfig(24, LABEL_TEXT_STYLE_NORMAL);
-       __pLabelBackgroundTown->SetShowState(false);
-
-       __pLabelTown->SetTextConfig(24, LABEL_TEXT_STYLE_NORMAL);
-       __pLabelTown->SetShowState(false);
-       __pLabelMainWindSpeed->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
-    }
 
     /* Prepared for 2x2 mode */
     if ((bounds.height == bounds.width) && bounds.height>200){
@@ -548,6 +549,7 @@ MeecastDynamicBoxAppFrame::OnBoundsChanged(const Tizen::Graphics::Rectangle& old
         AppLog("2x2");
         __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/single_now2_2.png"));
         __pLabelBackground1->SetSize(Dimension(background_width2_2, background_height2_2));
+        __pLabelBackground1->SetPosition((bounds.x + bounds.width - background_width2_2), (bounds.y + bounds.height - background_height2_2));
 
     }
 }

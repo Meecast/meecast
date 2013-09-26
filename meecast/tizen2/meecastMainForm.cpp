@@ -939,6 +939,7 @@ void
 meecastMainForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
                                           const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs){
 
+    AppLog("meecastMainForm::OnSceneActivatedN");
     ReInitElements(); 
 
     Tizen::Ui::Controls::Label  *source_icon_label = static_cast<Label*>(GetControl(L"IDC_LABEL_SOURCE_ICON"));
@@ -947,17 +948,21 @@ meecastMainForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSce
     __updateButton->SetPosition(0 + 25, position.y - 0);
     __updateButton->RequestRedraw();
 
+    AppLog("meecastMainForm::OnSceneActivatedN1");
     if (__menuButton){
         __menuButton->SetPosition(source_icon_label->GetWidth() - 100 - 25, position.y - 0);
         __menuButton->RequestRedraw();
     }
 
+    AppLog("meecastMainForm::OnSceneActivatedN2");
     __pAnimation->SetPosition(0 + 35, position.y + 10);
     __pAnimation->RequestRedraw();
     
+    AppLog("meecastMainForm::OnSceneActivatedN3");
     if(_config->Gps() && main_set_try_update_button->GetShowState()){
         UpdateWeatherForecast();
     }
+    AppLog("meecastMainForm::OnSceneActivatedN end");
 }
 
 void

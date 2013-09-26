@@ -417,6 +417,9 @@ DatabaseSqlite::get_station_code_by_name(Tizen::Base::String& country_name,
         pEnum->GetStringAt(0, strWord);
         stationcode = new String(strWord);
     }
+    if (pEnum != null){
+        delete pEnum;
+    }
 
     return *stationcode;
 
@@ -570,9 +573,9 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
      while (pEnum && pEnum->MoveNext() == E_SUCCESS){
         pEnum->GetDoubleAt(3, result_lat);
         pEnum->GetDoubleAt(4, result_lon);
-        AppLog("sssss2 %f %f", result_lat, result_lon);
+        /* AppLog("Lat Lon %f %f", result_lat, result_lon); */
         distance = DatabaseSqlite::calculate_distance(lat, lon, result_lat, result_lon);
-        AppLog ("Distance %f", distance);
+        /* AppLog ("Distance %f", distance); */
         if (distance < min_distance){
             min_distance = distance;
             String Country, Region, Code, Name;

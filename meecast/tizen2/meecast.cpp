@@ -46,6 +46,15 @@ meecastApp::meecastApp(void)
 
 meecastApp::~meecastApp(void)
 {
+    AppLog("ssssssssssssssssssssss");
+    if (config->dp){
+        config->dp->DeleteInstance();
+    }
+
+    AppLog("1111");
+
+    config->DeleteInstance(); 
+    AppLog("2222222");
 //    delete config;
 }
 
@@ -94,11 +103,12 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
  //   save_station((char*)"gismeteo.ru",(char*)"Afghanistan",(char*)"Afghanistan", (char*)"Herat",(char*) "5511");
  
     config->ReLoadConfig();
+    /*
     if ((config->stationsList().size() > 0) && config->current_station_id() > config->stationsList().size()) 
        config->dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
     else 
         config->dp = NULL;
-
+    */
 
     /* AppLog ("Lang: %s", getenv ("LANG")); */
     setlocale(LC_ALL, getenv ("LANG"));
@@ -221,8 +231,14 @@ meecastApp::OnAppTerminating(AppRegistry& appRegistry, bool forcedTermination)
 	// TODO:
 	// Deallocate resources allocated by this App for termination.
 	// The App's permanent data and context can be saved via appRegistry.
-    config->dp->DeleteInstance();
-    config->DeleteInstance();
+    /*
+    if (config->dp){
+        config->dp->DeleteInstance();
+    }
+
+    */
+    AppLog("qqqqqqqqqqqqqqqqqqq1111");
+    AppLog("qqqqqqqqqqqqqqqqqqq");
 	return true;
 }
 

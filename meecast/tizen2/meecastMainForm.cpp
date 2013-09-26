@@ -70,8 +70,9 @@ meecastMainForm::~meecastMainForm(void)
 
     if (__pContextMenuText)
         delete __pContextMenuText;
-    if (_config->dp)
-        _config->dp->DeleteInstance();
+//    if (_config->dp)
+//        _config->dp->DeleteInstance();
+    AppLog("DeleteInstance 11111111");
     _config->DeleteInstance();
 }
 
@@ -926,10 +927,12 @@ meecastMainForm::ReInitElements(void){
         backgroundPanel->SetBackgroundColor(Tizen::Graphics::Color(0xFF, 0xFF, 0xFF));
     }
 
+    /* Check nil weather data */
     if (_dayCount >0)
         main_icon->SetShowState(true);
     main_listview_forecast->UpdateList();
     backgroundPanel->RequestRedraw();
+    AppLog("qqqqqqqqqqqqqqq");
 }
 
 void

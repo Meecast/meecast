@@ -155,14 +155,11 @@ namespace Core {
         }
 #else
       xmlChar *temp_xml_string = NULL;
-      AppLogDebug("DataParser load data1");
       if (!_doc)
            return;
-        AppLogDebug("DataParser load data2");
        xmlNodePtr root = xmlDocGetRootElement(_doc);
        if (!root)
            return;
-        AppLogDebug("DataParser load data3");
        for(xmlNodePtr p = root->children; p; p = p->next) {
             if (p->type != XML_ELEMENT_NODE)
                 continue;
@@ -172,7 +169,6 @@ namespace Core {
                 xmlFree(temp_xml_string);
             }
             if (!xmlStrcmp(p->name, (const xmlChar*)"period")){
-                AppLogDebug("DataParser load data3 period");
                 forecast_data = new Data();
                 if ((temp_xml_string = xmlGetProp(p, (const xmlChar*)"start")) != NULL){
                     forecast_data->StartTime(atoi((const char *)temp_xml_string));
@@ -336,6 +332,7 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     void
     DataParser::DeleteInstance(){
+       AppLog("Try to delete Dataparser Instance");
        if (_refcount == 0)
             return;
        _refcount--;
@@ -347,6 +344,7 @@ namespace Core {
     }
 ////////////////////////////////////////////////////////////////////////////////
     DataParser::~DataParser(){
+       AppLog("Delete DataParser");
        Data* forecast_data;
        while (!_list->empty()){
          forecast_data = _list->back();

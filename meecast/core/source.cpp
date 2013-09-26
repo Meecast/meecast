@@ -35,7 +35,7 @@
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Source::Source(const std::string& filename, const std::string& schema_filename) : Parser(filename, schema_filename){
-        AppLog("Create Source");
+        AppLog("Create Source %p", this);
         _name = new std::string;
         _logo = new std::string;
         _library = new std::string;
@@ -242,10 +242,8 @@ namespace Core {
     }
 ////////////////////////////////////////////////////////////////////////////////
     Source::~Source(){
-        AppLog("Delete Source");
-        AppLog("Delete Source %p", _name);
+        AppLog("Delete Source %p", this);
         delete _name;
-        AppLog("Delete Source1");
         delete _logo;
         if (_library)
             delete _library;
@@ -260,7 +258,8 @@ namespace Core {
         delete _cookie;
     }
 ////////////////////////////////////////////////////////////////////////////////
-Source::Source(const Source& source){
+Source::Source(const Source& source) : Parser(){
+     AppLog("Create Source form Source %p", this); 
     _name = new std::string(*(source._name));
     _logo = new std::string(*(source._logo));
     _library = new std::string(*(source._library));
@@ -275,7 +274,7 @@ Source::Source(const Source& source){
 }
 ////////////////////////////////////////////////////////////////////////////////
     Source& Source::operator=(const Source& source){
-        AppLog("New = te Source"); 
+        AppLog("New = te Source %p", this); 
         if(this != &source){
         AppLog("New = te Source"); 
             delete _name;

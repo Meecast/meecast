@@ -38,6 +38,7 @@
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Parser::Parser(){
+        AppLogDebug("Init null Parser %p", this);
         #ifdef LIBXML
         #else
             #ifdef QT
@@ -52,7 +53,7 @@ namespace Core {
         _filename = filename;
         /* std::cerr<<"Parse file "<<filename<<std::endl; */
 
-    AppLogDebug("Parser");
+    AppLogDebug("Parser %s %p", filename.c_str(), this);
     #ifdef LIBXML
         if(filename.empty())
             throw("Invalid source file.");
@@ -126,8 +127,12 @@ namespace Core {
         _doc = xmlReadFile((const char*)pBuf->GetPointer(), "UTF-8", XML_PARSE_SAX1);
         if (pBuf)
             delete pBuf;
+        if (!_doc){
+            AppLogDebug("cleanup xml parser");
+            xmlCleanupParser();
+        }
 
-       /* AppLogDebug("Parser for libxml %p ", _doc); */
+        AppLogDebug("Parser for libxml %p ", _doc); 
     #endif
     #endif //LIBXML
     }
@@ -154,6 +159,12 @@ namespace Core {
         String filepath = App::GetInstance()->GetAppDataPath() + _filename.c_str();
         pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(filepath);
         AppLogDebug("Reload file Parser for libxml %s", pBuf->GetPointer());
+        if (_doc){
+            xmlFreeDoc(_doc);
+            AppLog("Inside delete2");
+            xmlCleanupParser();
+            AppLog("Inside delete3");
+        }
         _doc = xmlReadFile((const char*)pBuf->GetPointer(), "UTF-8", XML_PARSE_SAX1);
         if (pBuf)
             delete pBuf;
@@ -168,10 +179,14 @@ namespace Core {
     #endif
     #ifdef QT
     #else
-        AppLog("Delete parser");
-        if (_doc)
+        AppLog("Delete parser %s %p", _filename.c_str(), this);
+        if (_doc){
+            AppLog("Inside delete");
             xmlFreeDoc(_doc);
-        xmlCleanupParser();
+            AppLog("Inside delete2");
+            xmlCleanupParser();
+            AppLog("Inside delete3");
+        }
     #endif
     }
 ////////////////////////////////////////////////////////////////////////////////

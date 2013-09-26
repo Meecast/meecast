@@ -63,6 +63,7 @@ Station::Station(const std::string& source_name, const std::string& id,
                  const std::string&  cookie, const bool gps, 
                  double latitude, double longitude ): __pHttpSession(null){
 
+        AppLog("Create station1 %p", this);
         _sourceName = new std::string(source_name);
         _id = new std::string(id);
         _name = new std::string(name);
@@ -88,7 +89,7 @@ Station::Station(const std::string& source_name, const std::string& id,
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const std::string& source_name, const std::string& id, const std::string& name,
                      const std::string& country, const std::string& region, const bool gps, double latitude, double longitude): __pHttpSession(null){
-        AppLog("STation ");
+        AppLog("Create station2 %p", this);
         _sourceName = new std::string(source_name);
         _id = new std::string(id);
         _name = new std::string(name);
@@ -222,17 +223,11 @@ Station::Station(const std::string& source_name, const std::string& id,
         delete _basemapURL;
         if(_fileName)
             delete _fileName;
-        AppLog("Delete Station4aa!!!");
         if(_converter)
             delete _converter;
-        AppLog("Delete Source in Station!!!!");
         if (_source){
-
-            AppLog("Delete te Source %p", _source);
             delete _source;
         }
-        
-        AppLog("Delete Station4!!!!");
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const Station& station){

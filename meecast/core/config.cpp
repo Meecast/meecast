@@ -514,6 +514,16 @@ void
 Config::ReLoadConfig(){
 
     std::cerr<<"ReLoadConfig"<<std::endl;
+    for(unsigned i = 0; i < _stations->size(); i++){
+        AppLog("Station number %i", i);
+        Core::Station *_station =_stations->at(i);
+        if (_station){
+            AppLog("Try to delete station %p", _station);
+            delete (_station);
+            _station = null;
+        }
+    }
+    
     _stations->clear();
     this->Reloadfile();
     this->LoadConfig();
@@ -907,13 +917,15 @@ Config::~Config(){
     delete _temperature_unit;
     _languages_list->clear();
     delete _languages_list;
+    AppLog("Destroy Config00");
     for(unsigned i = 0; i < _stations->size(); i++){
-        AppLog("sssss %s", _stations->at(i)->name().c_str());
+        AppLog("Station number %i", i);
         Core::Station *_station =_stations->at(i);
-
-        AppLog("sssss %p", _station);
-        delete (_station);
-        AppLog("sssss 11");
+        if (_station){
+            AppLog("Try to delete station %p", _station);
+            delete (_station);
+            _station = null;
+        }
     }
     _stations->clear();
     delete _stations;
@@ -924,6 +936,7 @@ Config::~Config(){
     delete _filename;
     delete _language;
     delete _font_color;
+    AppLog("Destroy Config222");
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

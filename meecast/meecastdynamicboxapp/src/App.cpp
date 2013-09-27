@@ -52,8 +52,7 @@ MeecastDynamicBoxAppApp::OnAppInitializing(AppRegistry& appRegistry)
 
 	pAppWidgetProviderManager->SetAppWidgetProviderFactory(*(new MeecastDynamicBoxAppProviderFactory));
 	pAppWidgetProviderManager->SetAppWidgetPopupProviderFactory(*(new MeecastDynamicBoxAppPopupProviderFactory));
-
-     	return true;
+  	return true;
 }
 
 bool

@@ -8,12 +8,18 @@
 #include "MeecastDynamicBoxAppProvider.h"
 #include "MeecastDynamicBoxAppFrame.h"
 
+#include <libintl.h>
+#include <locale.h>
+
+
+
 using namespace Tizen::Graphics;
 using namespace Tizen::Ui;
 using namespace Tizen::Ui::Controls;
 using namespace Tizen::App;
 using namespace Core;
 #define SAFE_DELETE(x)  if (x) { delete x; x = null; }
+#define _(String) gettext(String)
 #define STRONG_WIND 8 
 #define background_width1_1 140
 #define background_height1_1 134
@@ -54,6 +60,23 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
         _config =  Config::Instance();
     }
 
+    /* AppLog ("Lang: %s", getenv ("LANG")); */
+    setlocale(LC_ALL, getenv ("LANG"));
+    setlocale (LC_TIME, getenv ("LANG"));
+    ByteBuffer* pBuf = null;
+    String dataPath= App::GetInstance()->GetAppResourcePath() + "locales";
+    pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(dataPath);
+
+    textdomain("omweather");
+    bindtextdomain("omweather", (const char*)pBuf->GetPointer());
+    delete pBuf;
+    if (_config->Language() != "System"){
+        std::string str;
+        str = _config->Language()+ ".UTF8";
+        setlocale (LC_ALL, str.c_str());
+        setlocale (LC_MESSAGES, str.c_str());
+        setlocale (LC_TIME, str.c_str());
+    }
 
 	FloatRectangle bounds = this->GetBoundsF();
 
@@ -149,7 +172,7 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
         }
 
         String str;
-        Tizen::Base::Utility::StringUtil::Utf8ToString(temp_data->Text().c_str(), str);
+        Tizen::Base::Utility::StringUtil::Utf8ToString(_(temp_data->Text().c_str()), str);
         __pLabelMainDescription->SetText(str);
         __pLabelMainDescriptionBackground->SetText(str);
 
@@ -418,8 +441,6 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
     __pPanel->AddControl(__pLabelMainTemperature);
     __pPanel->AddControl(__pLabelMainDescriptionBackground);
     __pPanel->AddControl(__pLabelMainDescription);
-
-    
     __pPanel->AddControl(__pLabelBackgroundTown);
     __pPanel->AddControl(__pLabelTown);
  

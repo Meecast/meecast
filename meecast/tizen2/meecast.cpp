@@ -46,15 +46,10 @@ meecastApp::meecastApp(void)
 
 meecastApp::~meecastApp(void)
 {
-    AppLog("ssssssssssssssssssssss");
     if (config->dp){
         config->dp->DeleteInstance();
     }
-
-    AppLog("1111");
-
     config->DeleteInstance(); 
-    AppLog("2222222");
     xmlCleanupParser();
 //    delete config;
 }

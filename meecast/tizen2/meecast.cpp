@@ -55,6 +55,7 @@ meecastApp::~meecastApp(void)
 
     config->DeleteInstance(); 
     AppLog("2222222");
+    xmlCleanupParser();
 //    delete config;
 }
 

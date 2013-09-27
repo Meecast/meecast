@@ -118,7 +118,7 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
     _dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
 
     Core::Data *temp_data = NULL;
-    if (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))){    
+    if (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))){ 
 
         AppLog ("_Config_dp inside");
         /* Preparing units */
@@ -140,8 +140,6 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
             Tizen::Graphics::Bitmap* mainIconBitmap = null;
             image = new (std::nothrow) Tizen::Media::Image();
             image->Construct();
-
-            String icon_number = temp_data->Icon();
 
             mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
             __pLabelMainIcon->SetBackgroundBitmap(*mainIconBitmap);
@@ -184,8 +182,8 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
 //        Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(t);
 //        backgroundPanel->SetBackgroundColor(*color_of_temp);
 //        delete color_of_temp;
-        __pLabelMainTemperature->SetShowState(true);
-        __pLabelMainTemperatureBackground->SetShowState(true);
+//        __pLabelMainTemperature->SetShowState(true);
+//        __pLabelMainTemperatureBackground->SetShowState(true);
         Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
         __pLabelMainTemperature->SetText(str);
         __pLabelMainTemperatureBackground->SetText(str);
@@ -251,6 +249,26 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
                 }
             }
         }
+    }else{
+        __pLabelMainTemperature->SetText("MeeCast");
+        __pLabelMainTemperatureBackground->SetText("MeeCast");
+
+        Tizen::Base::Integer icon_int = 49;
+        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png")){
+            /* Main Icon */ 
+
+            Tizen::Media::Image *image = null;
+            Tizen::Graphics::Bitmap* mainIconBitmap = null;
+
+            image = new (std::nothrow) Tizen::Media::Image();
+            image->Construct();
+
+            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+            __pLabelMainIcon->SetBackgroundBitmap(*mainIconBitmap);
+            __pLabelMainIcon->RequestRedraw();
+            SAFE_DELETE(image);
+            SAFE_DELETE(mainIconBitmap);
+        }
     }
             //Adds the panel to the form
             //    AddControl(__pPanel);
@@ -273,7 +291,7 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
        __pLabelMainWindSpeed->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
     }
     /* Prepared for 2x1 mode */
-    if ((bounds.width != bounds.height) && bounds.width<200){
+    if ((bounds.width != bounds.height) && bounds.height<200){
         AppLog("Init 2x1");
         __pLabelMainIcon->SetSize(Dimension(128, 128));
         __pLabelBackground1->Construct(FloatRectangle((bounds.x + bounds.width - background_width2_1), (bounds.y + bounds.height - background_height2_1), background_width2_1, background_height2_1), L"");
@@ -284,6 +302,9 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
         __pLabelTown->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
         __pLabelMainTemperatureBackground->SetPosition((int)(bounds.x + bounds.width - background_width2_1/1.4 + 1), (int)(bounds.y + background_height2_1/3 +1));
         __pLabelMainTemperature->SetPosition((int)(bounds.x + bounds.width - background_width2_1/1.4), (int)(bounds.y + background_height2_1/3));
+        __pLabelMainTemperature->SetSize((background_width2_1/1.6), bounds.height/3);
+        __pLabelMainTemperatureBackground->SetSize((background_width2_1/1.6), bounds.height/3);
+
 
         if (__pLabelMainTemperature->GetText().GetLength()<6){
             __pLabelMainTemperature->SetTextConfig(58, LABEL_TEXT_STYLE_BOLD);
@@ -499,9 +520,8 @@ MeecastDynamicBoxAppFrame::OnBoundsChanged(const Tizen::Graphics::Rectangle& old
          __pLabelMainTemperatureBackground->SetPosition((int)(bounds.x + bounds.width - background_width2_1/1.4 + 1), (int)(bounds.y + background_height2_1/3 +1));
          __pLabelMainTemperature->SetPosition((int)(bounds.x + bounds.width - background_width2_1/1.4), (int)(bounds.y + background_height2_1/3));
 
-        __pLabelMainTemperature->SetSize(background_width1_1 + 40, bounds.height/3);
-        __pLabelMainTemperatureBackground->SetSize(background_width1_1 + 40, bounds.height/3);
-
+        __pLabelMainTemperature->SetSize((background_width2_1/1.6), bounds.height/3);
+        __pLabelMainTemperatureBackground->SetSize((background_width2_1/1.6), bounds.height/3);
 
        if (__pLabelMainTemperature->GetText().GetLength()<6){
             __pLabelMainTemperature->SetTextConfig(58, LABEL_TEXT_STYLE_BOLD);
@@ -550,6 +570,65 @@ MeecastDynamicBoxAppFrame::OnBoundsChanged(const Tizen::Graphics::Rectangle& old
         __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/single_now2_2.png"));
         __pLabelBackground1->SetSize(Dimension(background_width2_2, background_height2_2));
         __pLabelBackground1->SetPosition((bounds.x + bounds.width - background_width2_2), (bounds.y + bounds.height - background_height2_2));
+        if (__pLabelTown->GetText().GetLength()>15){
+            if (__pLabelTown->GetText().GetLength()>20){
+                __pLabelTown->SetTextConfig(24, LABEL_TEXT_STYLE_NORMAL);
+                __pLabelBackgroundTown->SetTextConfig(24, LABEL_TEXT_STYLE_NORMAL);
+            }else{
+                __pLabelTown->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+                __pLabelBackgroundTown->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+            }
+        }else{
+            __pLabelTown->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
+            __pLabelBackgroundTown->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
+        }
+        __pLabelBackgroundTown->SetShowState(true);
+        __pLabelBackgroundTown->SetSize(Dimension(bounds.width + 40, (bounds.height - bounds.height/2)));
+        __pLabelBackgroundTown->SetPosition((bounds.x  + 1), (bounds.height - bounds.height/3 + 1));
+
+        __pLabelTown->SetShowState(true);
+        __pLabelTown->SetSize(Dimension(bounds.width + 40, (bounds.height - bounds.height/2)));
+        __pLabelTown->SetPosition((bounds.x), (bounds.height - bounds.height/3));
+
+        __pLabelMainDescription->SetShowState(true);
+        __pLabelMainDescription->SetTextConfig(28, LABEL_TEXT_STYLE_NORMAL);
+
+        __pLabelMainDescription->SetPosition((bounds.x + 40), (bounds.height - bounds.height/2.2));
+        __pLabelMainDescription->SetSize(Dimension(bounds.width - 40, (bounds.height - bounds.height/1.7)));
+        __pLabelMainDescription->RequestRedraw();
+
+        __pLabelMainDescriptionBackground->SetShowState(true);
+//        __pLabelMainDescriptionBackground->SetShowState(false);
+        __pLabelMainDescriptionBackground->SetTextConfig(28, LABEL_TEXT_STYLE_NORMAL);
+
+        __pLabelMainDescriptionBackground->SetPosition((bounds.x + 40 + 1), (bounds.height - bounds.height/2.2 + 1));
+        __pLabelMainDescriptionBackground->SetSize(Dimension(bounds.width - 40, (bounds.height - bounds.height/1.7)));
+        __pLabelMainDescriptionBackground->RequestRedraw();
+
+
+        __pLabelMainIcon->SetSize(Dimension(210, 210));
+        __pLabelMainTemperatureBackground->SetPosition((int)(bounds.x + bounds.width - background_width2_2/1.4 + 1), (int)(bounds.y + background_height2_2/2.5 + 1));
+        __pLabelMainTemperature->SetPosition((int)(bounds.x + bounds.width - background_width2_2/1.4), (int)(bounds.y + background_height2_2/2.5));
+        __pLabelMainTemperature->SetSize((int)(background_width2_2/1.3), (int)(background_height2_2/2.5));
+        __pLabelMainTemperatureBackground->SetSize((int)(background_width2_2/1.3), (int)(background_height2_2/2.5));
+        if (__pLabelMainTemperature->GetText().GetLength()<6){
+            __pLabelMainTemperature->SetTextConfig(90, LABEL_TEXT_STYLE_BOLD);
+            __pLabelMainTemperatureBackground->SetTextConfig(90, LABEL_TEXT_STYLE_BOLD);
+        }else{
+            if (__pLabelMainTemperature->GetText().GetLength()<9){
+                __pLabelMainTemperature->SetTextConfig(55, LABEL_TEXT_STYLE_BOLD);
+                __pLabelMainTemperatureBackground->SetTextConfig(55, LABEL_TEXT_STYLE_BOLD);
+            }else{
+                __pLabelMainTemperature->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
+                __pLabelMainTemperatureBackground->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
+            }
+        }
+       __pLabelMainWindIcon->SetSize(__pLabelMainWindIcon->GetWidth()*2, __pLabelMainWindIcon->GetHeight()*2);
+       __pLabelMainWindIcon->SetPosition((int)(bounds.x + bounds.width - background_width2_2/3.2), (int)(bounds.y + background_height2_2/6.5));
+       __pLabelMainWindSpeed->SetPosition((int)(bounds.x + bounds.width - background_width2_2/3.55), (int)(bounds.y + background_height2_2/4.55));
+
+       __pLabelMainWindSpeed->SetSize(1.30*(52+10), (62));
+       __pLabelMainWindSpeed->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
 
     }
 }

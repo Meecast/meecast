@@ -20,7 +20,7 @@
             <AppWidgets>
                 <AppWidget AppWidgetPopupEnabled="True" ProviderName="meecastdynamicboxappProvider" UpdatePeriod="1800000">
                     <DisplayNames>
-                        <DisplayName Locale="eng-GB">meecastdynamicboxapp</DisplayName>
+                        <DisplayName Locale="eng-GB">MeeCast</DisplayName>
                     </DisplayNames>
                     <Sizes>
                         <Size PreviewImage="1x1.png">1x1</Size>

@@ -19,6 +19,7 @@ using namespace Tizen::Locations;
 using namespace Tizen::Base::Runtime;
 
 
+static const wchar_t* REMOTE_PORT_NAME = L"SERVICE_PORT";
 
 Core::DataParser*
 current_data(std::string& str){
@@ -40,7 +41,8 @@ current_data(std::string& str){
 
 
 
-meecastApp::meecastApp(void)
+meecastApp::meecastApp(void): __pService(null), 
+                              __pServiceWidget(null)
 {
 }
 
@@ -51,6 +53,8 @@ meecastApp::~meecastApp(void)
     }
     config->DeleteInstance(); 
     xmlCleanupParser();
+	delete __pService;
+	delete __pServiceWidget;
 //    delete config;
 }
 
@@ -72,7 +76,6 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
 	// If this method returns false, the App will be terminated.
 
     AppLogDebug("Create Config class: ");
-
     try{
 //        ByteBuffer* pBuf = null;
 //        String filepath = App::GetInstance()->GetAppDataPath();
@@ -170,7 +173,9 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
 	repAppId = L"ctLjIIgCCj";
 
 	String serviceName(L".meecastservice");
+	String widgetName(L".meecastdynamicboxapp");
 	AppId serviceId(repAppId+serviceName);
+	AppId widgetId(repAppId+widgetName);
 
 	AppLog("SampleUiApp : Service Id is %ls", serviceId.GetPointer());
 
@@ -192,6 +197,27 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
 			Thread::Sleep(1000);
 		}
 	}
+
+	r = E_SUCCESS;
+	__pService = new (std::nothrow) MeecastServiceProxy();
+	TryReturn(__pService != null, false, "SampleUiApp : [%s] SeviceProxy creation is failed.", GetErrorMessage(r));
+	r = __pService->Construct(serviceId, REMOTE_PORT_NAME);
+
+	__pServiceWidget = new (std::nothrow) MeecastServiceProxy();
+	TryReturn(__pService != null, false, "SampleUiApp : [%s] SeviceProxy creation is failed.", GetErrorMessage(r));
+	r = __pServiceWidget->Construct(widgetId, REMOTE_PORT_NAME);
+
+    Tizen::Base::Collection::HashMap *pMap = new Tizen::Base::Collection::HashMap(Tizen::Base::Collection::SingleObjectDeleter);
+			pMap->Construct();
+			pMap->Add(new String(L"UiApp"), new String(L"Reload_Config"));
+
+			r = __pService->SendMessage(pMap);
+			r = __pServiceWidget->SendMessage(pMap);
+
+			delete pMap;
+
+//			TryReturn(!IsFailed(r), "SampleUiApp : [%s] MessagePort Operation is Failed", GetErrorMessage(r));
+
 
 	// Create a Frame
 	meecastFrame* pmeecastFrame = new meecastFrame;

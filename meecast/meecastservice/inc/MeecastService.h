@@ -6,6 +6,7 @@
 #include <FBase.h>
 #include <FSystem.h>
 #include <FUi.h>
+#include "MeecastServiceMessagePort.h"
 
 /**
  * [MeecastServiceApp] ServiceApp must inherit from ServiceApp class
@@ -25,6 +26,9 @@ public:
 
 	MeecastServiceApp(void);
 	~MeecastServiceApp(void);
+
+private:
+    MeecastServiceMessagePort* __pMessagePort;
 
 public:
 

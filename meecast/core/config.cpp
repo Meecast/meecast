@@ -481,7 +481,6 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
                     : Parser(filename, schema_filename){
 
     AppLog("Create Config"); 
-    std::cerr<<"CONFIG CREATE222222!!!!!!!!!!!!!!"<<std::endl;
    /* std::cerr<<"new Config"<<std::endl; */
     _filename = new std::string;
     _filename->assign(filename);
@@ -911,18 +910,16 @@ Config::languagesList(){
 
 ////////////////////////////////////////////////////////////////////////////////
 Config::~Config(){
-    AppLog("Destroy Config");
+    /* AppLog("Destroy Config"); */
     delete _pathPrefix;
     delete _iconset;
     delete _temperature_unit;
     _languages_list->clear();
     delete _languages_list;
-    AppLog("Destroy Config00");
     for(unsigned i = 0; i < _stations->size(); i++){
-        AppLog("Station number %i", i);
         Core::Station *_station =_stations->at(i);
         if (_station){
-            AppLog("Try to delete station %p", _station);
+            /* AppLog("Try to delete station %p", _station); */
             delete (_station);
             _station = null;
         }
@@ -936,7 +933,6 @@ Config::~Config(){
     delete _filename;
     delete _language;
     delete _font_color;
-    AppLog("Destroy Config222");
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

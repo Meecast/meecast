@@ -79,3 +79,18 @@ MeecastDynamicBoxAppProvider::OnAppWidgetProviderRemoved()
 	// TODO:
 	// The AppWidget provider's permanent data and context can be remove at here
 }
+void
+MeecastDynamicBoxAppProvider::Update(){
+	MeecastDynamicBoxAppFrame* pAppWidgetFrame = dynamic_cast<MeecastDynamicBoxAppFrame*>(GetAppWidgetFrame());
+
+	// TODO:
+	// Add your code to update AppWidget here.
+	//
+	// If this method is successful, return true; otherwise, return false.
+	// If this method returns false, the AppWidget provider will be terminated.
+
+	pAppWidgetFrame->OnAppWidgetUpdate();
+
+}
+
+

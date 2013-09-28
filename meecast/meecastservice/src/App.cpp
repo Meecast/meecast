@@ -10,6 +10,7 @@
 using namespace Tizen::App;
 using namespace Tizen::Base;
 using namespace Tizen::System;
+static const wchar_t* LOCAL_MESSAGE_PORT_NAME = L"SERVICE_PORT";
 
 MeecastServiceApp::MeecastServiceApp(void)
 {
@@ -37,6 +38,16 @@ MeecastServiceApp::OnAppInitializing(AppRegistry& appRegistry)
 	// If this method returns false, the App will be terminated.
 
 	// TODO: Add your initialization code here
+	// Initialize ServerChannel
+	__pMessagePort = new (std::nothrow) MeecastServiceMessagePort();
+	TryReturn(__pMessagePort != null, false, "MeeCastService : [E_FAILURE] Failed to create __pMessagePort.");
+	AppLog("MeeCastService : __pMessagePort is created.");
+
+    result r = E_SUCCESS;
+	r = __pMessagePort->Construct(LOCAL_MESSAGE_PORT_NAME);
+	TryReturn(IsFailed(r) != true, r, "MeeCastService : [%s] Failed to construct __pMessagePort", GetErrorMessage(r));
+	AppLog("MeeCastService : __pMessagePort is constructed.");
+
 
 	return true;
 }

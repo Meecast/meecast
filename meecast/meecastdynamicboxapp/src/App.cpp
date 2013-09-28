@@ -50,7 +50,9 @@ MeecastDynamicBoxAppApp::OnAppInitializing(AppRegistry& appRegistry)
 	AppWidgetProviderManager* pAppWidgetProviderManager = AppWidgetProviderManager::GetInstance();
 	AppAssertf(pAppWidgetProviderManager, "AppWidgetProviderManager creation failed.");
 
-	pAppWidgetProviderManager->SetAppWidgetProviderFactory(*(new MeecastDynamicBoxAppProviderFactory));
+    _mdbaProviderFactory = new MeecastDynamicBoxAppProviderFactory;
+//	pAppWidgetProviderManager->SetAppWidgetProviderFactory(*(new MeecastDynamicBoxAppProviderFactory));
+	pAppWidgetProviderManager->SetAppWidgetProviderFactory(*(_mdbaProviderFactory));
 	pAppWidgetProviderManager->SetAppWidgetPopupProviderFactory(*(new MeecastDynamicBoxAppPopupProviderFactory));
   	return true;
 }
@@ -94,3 +96,18 @@ MeecastDynamicBoxAppApp::OnBatteryLevelChanged(BatteryLevel batteryLevel)
 	// Stop using multimedia features(mp3 etc.) if the battery level is CRITICAL.
 }
 
+void
+MeecastDynamicBoxAppApp::OnUserEventReceivedN(RequestId requestId, IList* pArgs)
+{
+	AppLog("MeeCastDynamicBox::OnUserEventReceivedN is called. requestId is %d", requestId);
+
+	switch (requestId)
+	{
+	case RELOAD_CONFIG :
+//        OnAppWidgetUpdate();
+        _mdbaProviderFactory->Update();
+		break;
+	default:
+		break;
+	}
+}

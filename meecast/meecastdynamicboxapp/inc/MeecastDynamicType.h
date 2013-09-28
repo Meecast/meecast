@@ -20,29 +20,12 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
 */
-#ifndef _MeecastDynamicBoxApp_PROVIDER_FACTORY_H_
-#define _MeecastDynamicBoxApp_PROVIDER_FACTORY_H_
 
-#include <FApp.h>
+#ifndef _MEECAST_TYPE_H_
+#define _MEECAST_TYPE_H_
+
 #include <FBase.h>
-#include <FSystem.h>
-#include <FUi.h>
 
+static const RequestId RELOAD_CONFIG = 0;
 
-#include <FShell.h>
-#include "MeecastDynamicBoxAppProvider.h"
-
-class MeecastDynamicBoxAppProviderFactory
-: public Tizen::Shell::IAppWidgetProviderFactory
-{
-public:
-	MeecastDynamicBoxAppProviderFactory();
-	virtual ~MeecastDynamicBoxAppProviderFactory();
-
-	virtual Tizen::Shell::AppWidgetProvider* CreateInstance(const Tizen::Base::String& name, float width, float height, const Tizen::Base::String& userInfo);
-    void Update();
-private: 
-    MeecastDynamicBoxAppProvider* _mdbaprovider;
-};
-
-#endif /* _MeecastDynamicBoxApp_PROVIDER_FACTORY_H_ */
+#endif // _MEECAST_TYPE_H_

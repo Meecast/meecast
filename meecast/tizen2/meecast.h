@@ -11,6 +11,7 @@
 #include <locale.h>
 
 
+#include "meecastServiceProxy.h"
 /**
  * [meecast] UiApp must inherit from UiApp class
  * which provides basic features necessary to define an UiApp.
@@ -25,6 +26,9 @@ public:
 	 */
 	static Tizen::App::UiApp* CreateInstance(void);
 
+private:
+    MeecastServiceProxy* __pService;
+    MeecastServiceProxy* __pServiceWidget;
 public:
 	meecastApp(void);
 	virtual ~meecastApp(void);

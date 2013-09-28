@@ -12,12 +12,14 @@
 #include <locale.h>
 
 
-
 using namespace Tizen::Graphics;
 using namespace Tizen::Ui;
 using namespace Tizen::Ui::Controls;
 using namespace Tizen::App;
 using namespace Core;
+using namespace Tizen::Base;
+using namespace Tizen::Base::Collection;
+
 #define SAFE_DELETE(x)  if (x) { delete x; x = null; }
 #define _(String) gettext(String)
 #define STRONG_WIND 8 
@@ -29,8 +31,9 @@ using namespace Core;
 #define background_height2_2 320 
 
 
+static const wchar_t* LOCAL_MESSAGE_PORT_NAME = L"SERVICE_PORT";
 
-MeecastDynamicBoxAppFrame::MeecastDynamicBoxAppFrame()
+MeecastDynamicBoxAppFrame::MeecastDynamicBoxAppFrame(): __pMessagePort(null)
 {
 
 }
@@ -77,6 +80,15 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
         setlocale (LC_MESSAGES, str.c_str());
         setlocale (LC_TIME, str.c_str());
     }
+	// Initialize ServerChannel
+	__pMessagePort = new (std::nothrow) MeecastDynamicMessagePort();
+	TryReturn(__pMessagePort != null, false, "MeeCastDynamicBox : [E_FAILURE] Failed to create __pMessagePort.");
+	AppLog("MeeCastDynamicBox : __pMessagePort is created.");
+
+    result r = E_SUCCESS;
+	r = __pMessagePort->Construct(LOCAL_MESSAGE_PORT_NAME);
+	TryReturn(IsFailed(r) != true, r, "MeeCastDynamicBox : [%s] Failed to construct __pMessagePort", GetErrorMessage(r));
+	AppLog("MeeCastDynamicBox : __pMessagePort is constructed.");
 
 	FloatRectangle bounds = this->GetBoundsF();
 
@@ -323,8 +335,8 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
         __pLabelBackgroundTown->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
         __pLabelTown->SetShowState(true);
         __pLabelTown->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
-        __pLabelMainTemperatureBackground->SetPosition((int)(bounds.x + bounds.width - background_width2_1/1.4 + 1), (int)(bounds.y + background_height2_1/3 +1));
-        __pLabelMainTemperature->SetPosition((int)(bounds.x + bounds.width - background_width2_1/1.4), (int)(bounds.y + background_height2_1/3));
+        __pLabelMainTemperatureBackground->SetPosition((int)(bounds.x + bounds.width - background_width2_1/1.4 + 1), (int)(bounds.y + background_height2_1/2.9 +1));
+        __pLabelMainTemperature->SetPosition((int)(bounds.x + bounds.width - background_width2_1/1.4), (int)(bounds.y + background_height2_1/2.9));
         __pLabelMainTemperature->SetSize((background_width2_1/1.6), bounds.height/3);
         __pLabelMainTemperatureBackground->SetSize((background_width2_1/1.6), bounds.height/3);
 

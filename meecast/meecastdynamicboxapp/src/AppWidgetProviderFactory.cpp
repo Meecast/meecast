@@ -26,6 +26,10 @@ MeecastDynamicBoxAppProviderFactory::CreateInstance(const String& name, float wi
 {
 	// TODO:
 	// Create the AppWidgetProvider instance through the constructor.
-	return new MeecastDynamicBoxAppProvider();
+    _mdbaprovider = new MeecastDynamicBoxAppProvider();
+	return _mdbaprovider;
 }
-
+void
+MeecastDynamicBoxAppProviderFactory::Update(){
+    _mdbaprovider->Update();
+}

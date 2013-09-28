@@ -44,8 +44,7 @@ MeecastDynamicBoxAppFrame::~MeecastDynamicBoxAppFrame()
 }
 
 result
-MeecastDynamicBoxAppFrame::OnInitializing(void)
-{ 
+MeecastDynamicBoxAppFrame::OnInitializing(void){ 
   char  buffer[4096]; 
   String str;
     try{
@@ -92,12 +91,9 @@ MeecastDynamicBoxAppFrame::OnInitializing(void)
 
 	FloatRectangle bounds = this->GetBoundsF();
 
-    RelativeLayout topPanelLayout;
-    topPanelLayout.Construct();
 
     __pPanel = new Panel();
-    __pPanel->Construct(topPanelLayout, bounds);
-
+    __pPanel->Construct(bounds);
 //	__pPanel->SetBackgroundColor(Color::GetColor(COLOR_ID_YELLOW));
     __pLabelBackground1 = new Label();
 

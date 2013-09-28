@@ -16,6 +16,7 @@
  * [meecast] UiApp must inherit from UiApp class
  * which provides basic features necessary to define an UiApp.
  */
+static const RequestId SEND_RELOAD_CONFIG = 200;
 class meecastApp
 	: public Tizen::App::UiApp
 	, public Tizen::System::IScreenEventListener
@@ -64,6 +65,8 @@ public:
 
 	// Called when the screen turns off.
 	virtual void OnScreenOff(void);
+
+	virtual void OnUserEventReceivedN(RequestId requestId, Tizen::Base::Collection::IList* pArgs);
 };
 
 #endif // _meecast_H_

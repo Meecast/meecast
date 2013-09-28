@@ -14,6 +14,7 @@
 #define SAFE_DELETE(x)  if (x) { delete x; x = null; }
 #define _(String) gettext(String)
 
+static const RequestId SEND_RELOAD_CONFIG = 200;
 class meecastLocationManager;
 
 class meecastMainForm

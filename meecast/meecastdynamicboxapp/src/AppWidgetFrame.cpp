@@ -151,13 +151,12 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
     Core::Data *temp_data = NULL;
     if (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))){ 
 
-        AppLog ("_Config_dp inside");
+        /* AppLog ("_Config_dp inside"); */
         /* Preparing units */
         temp_data->temperature_low().units(_config->TemperatureUnit());
         temp_data->temperature_hi().units(_config->TemperatureUnit());
         temp_data->temperature().units(_config->TemperatureUnit());
         temp_data->WindSpeed().units(_config->WindSpeedUnit());
-        temp_data->pressure().units(_config->PressureUnit());
         /* Main Icon */
 //        snprintf(buffer, sizeof(buffer) - 1, "%s/%s/%i.png", 
 //                                       app->config->iconspath().c_str(), 
@@ -179,6 +178,7 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
             SAFE_DELETE(mainIconBitmap);
         }
 
+        /* Description */
         String str;
         Tizen::Base::Utility::StringUtil::Utf8ToString(_(temp_data->Text().c_str()), str);
         __pLabelMainDescription->SetText(str);
@@ -460,10 +460,155 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
 void
 MeecastDynamicBoxAppFrame::OnAppWidgetUpdate(void)
 {
+
+  char  buffer[4096]; 
 	// TODO:
 	// Add your code to update AppWidget here
-    AppLog("OnAppWidgetUpdate");
+  AppLog("OnAppWidgetUpdate");
+
+    _config->ReLoadConfig();
+    Rectangle bounds = GetBounds();
+    if (_dp)
+        _dp->DeleteInstance();
+    _dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
+
+    Core::Data *temp_data = NULL;
+    if (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))){ 
+        temp_data->temperature_low().units(_config->TemperatureUnit());
+        temp_data->temperature_hi().units(_config->TemperatureUnit());
+        temp_data->temperature().units(_config->TemperatureUnit());
+        temp_data->WindSpeed().units(_config->WindSpeedUnit());
+
+        Tizen::Base::Integer icon_int =  temp_data->Icon();
+        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png")){
+            /* Main Icon */ 
+            Tizen::Media::Image *image = null;
+            Tizen::Graphics::Bitmap* mainIconBitmap = null;
+            image = new (std::nothrow) Tizen::Media::Image();
+            image->Construct();
+
+            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+            __pLabelMainIcon->SetBackgroundBitmap(*mainIconBitmap);
+            __pLabelMainIcon->RequestRedraw();
+            SAFE_DELETE(image);
+            SAFE_DELETE(mainIconBitmap);
+        }
+
+        /* Description */
+        String str;
+        Tizen::Base::Utility::StringUtil::Utf8ToString(_(temp_data->Text().c_str()), str);
+        __pLabelMainDescription->SetText(str);
+        __pLabelMainDescriptionBackground->SetText(str);
+        int t = INT_MAX;
+        /* Temperature */
+        if (temp_data->temperature().value(true) == INT_MAX){
+          if ((temp_data->temperature_hi().value(true) == INT_MAX) &&
+              (temp_data->temperature_low().value(true) == INT_MAX)){ 
+            //__pLabelMainDescription->SetText("N/A");
+          } 
+          if ((temp_data->temperature_hi().value(true) != INT_MAX) &&
+              (temp_data->temperature_low().value(true) != INT_MAX)){ 
+            snprintf(buffer, sizeof(buffer) - 1, "%0.f°/ %0.f°", temp_data->temperature_low().value(),
+                                                                 temp_data->temperature_hi().value());
+            t = temp_data->temperature_hi().value();
+          }else{  
+              if (temp_data->temperature_hi().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
+                t = temp_data->temperature_hi().value();
+              }
+              if (temp_data->temperature_low().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
+                t = temp_data->temperature_low().value();
+              }
+          }
+        }else{
+            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature().value());
+            t = temp_data->temperature().value();
+        }
+//        Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(t);
+//        backgroundPanel->SetBackgroundColor(*color_of_temp);
+//        delete color_of_temp;
+//        __pLabelMainTemperature->SetShowState(true);
+//        __pLabelMainTemperatureBackground->SetShowState(true);
+        Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+        //__pLabelMainTemperature->SetText(str);
+        __pLabelMainTemperature->SetText("aaaaaaa");
+        __pLabelMainTemperatureBackground->SetText(str);
+
+
+        if (str.GetLength()<8){
+            __pLabelMainTemperature->SetTextConfig(44, LABEL_TEXT_STYLE_BOLD);
+            __pLabelMainTemperatureBackground->SetTextConfig(44, LABEL_TEXT_STYLE_BOLD);
+        }else{
+            __pLabelMainTemperature->SetTextConfig(30, LABEL_TEXT_STYLE_BOLD);
+            __pLabelMainTemperatureBackground->SetTextConfig(30, LABEL_TEXT_STYLE_BOLD);
+        }
+        __pLabelMainTemperature->RequestRedraw();
+        __pLabelMainTemperatureBackground->RequestRedraw();
+
+        /* Main wind speed */
+        if (temp_data->WindSpeed().value() != INT_MAX){
+            __pLabelMainWindSpeed->SetShowState(true);
+            snprintf (buffer, sizeof(buffer) -1, "%0.f", 
+                                             temp_data->WindSpeed().value());
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            __pLabelMainWindSpeed->SetText(str);
+            __pLabelMainWindSpeed->RequestRedraw();
+        }else{
+            __pLabelMainWindSpeed->SetShowState(false);
+        }
+
+        /* Main wind direction */
+        if (temp_data->WindDirection() != "N/A"){
+            snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            if (temp_data->WindSpeed().value() > STRONG_WIND){
+                str.Append("_warning");
+            }
+            /* AppLog("Wind1 %S", str.GetPointer()); */
+            if (str == "CALM" || Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
+                __pLabelMainWindIcon->SetShowState(true);
+                /* Wind direction Icon */ 
+                Tizen::Media::Image *image = null;
+                Tizen::Graphics::Bitmap* windIconBitmap = null;
+                image = new (std::nothrow) Tizen::Media::Image();
+                image->Construct();
+                
+                if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
+                    windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+                    AppLog("Wind %S", str.GetPointer());
+                    __pLabelMainWindIcon->SetBackgroundBitmap(*windIconBitmap);
+                    __pLabelMainWindIcon->SetSize(windIconBitmap->GetWidth(), windIconBitmap->GetHeight());
+                    __pLabelMainWindIcon->RequestRedraw();
+                    SAFE_DELETE(image);
+                    SAFE_DELETE(windIconBitmap);
+                }
+            }
+        }
+    }else{
+        __pLabelMainTemperature->SetText("MeeCast");
+        __pLabelMainTemperatureBackground->SetText("MeeCast");
+
+        Tizen::Base::Integer icon_int = 49;
+        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png")){
+            /* Main Icon */ 
+
+            Tizen::Media::Image *image = null;
+            Tizen::Graphics::Bitmap* mainIconBitmap = null;
+
+            image = new (std::nothrow) Tizen::Media::Image();
+            image->Construct();
+
+            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+            __pLabelMainIcon->SetBackgroundBitmap(*mainIconBitmap);
+            __pLabelMainIcon->RequestRedraw();
+            SAFE_DELETE(image);
+            SAFE_DELETE(mainIconBitmap);
+        }
+    }
+
 	Invalidate(true);
+  AppLog("OnAppWidgetUpdate Done");
 }
 
 result
@@ -479,7 +624,7 @@ void
 MeecastDynamicBoxAppFrame::OnBoundsChanged(const Tizen::Graphics::Rectangle& oldRect, const Tizen::Graphics::Rectangle& newRect)
 {
     Rectangle bounds = GetBounds();
-   AppLog(" bounds.height %i bounds.width %i", bounds.height, bounds.width);
+    /* AppLog(" bounds.height %i bounds.width %i", bounds.height, bounds.width); */
 
     __pPanel->SetSize(Dimension(bounds.width, bounds.height));
 

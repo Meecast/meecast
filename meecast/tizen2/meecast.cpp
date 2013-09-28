@@ -17,6 +17,8 @@ using namespace Tizen::Ui;
 using namespace Tizen::Ui::Controls;
 using namespace Tizen::Locations;
 using namespace Tizen::Base::Runtime;
+using namespace Tizen::Base::Collection;
+
 
 
 static const wchar_t* REMOTE_PORT_NAME = L"SERVICE_PORT";
@@ -207,16 +209,7 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
 	TryReturn(__pService != null, false, "SampleUiApp : [%s] SeviceProxy creation is failed.", GetErrorMessage(r));
 	r = __pServiceWidget->Construct(widgetId, REMOTE_PORT_NAME);
 
-    Tizen::Base::Collection::HashMap *pMap = new Tizen::Base::Collection::HashMap(Tizen::Base::Collection::SingleObjectDeleter);
-			pMap->Construct();
-			pMap->Add(new String(L"UiApp"), new String(L"Reload_Config"));
-
-			r = __pService->SendMessage(pMap);
-			r = __pServiceWidget->SendMessage(pMap);
-
-			delete pMap;
-
-//			TryReturn(!IsFailed(r), "SampleUiApp : [%s] MessagePort Operation is Failed", GetErrorMessage(r));
+ //			TryReturn(!IsFailed(r), "SampleUiApp : [%s] MessagePort Operation is Failed", GetErrorMessage(r));
 
 
 	// Create a Frame
@@ -259,8 +252,6 @@ meecastApp::OnAppTerminating(AppRegistry& appRegistry, bool forcedTermination)
     }
 
     */
-    AppLog("qqqqqqqqqqqqqqqqqqq1111");
-    AppLog("qqqqqqqqqqqqqqqqqqq");
 	return true;
 }
 
@@ -309,4 +300,27 @@ meecastApp::OnScreenOff(void)
 	// Invoking a lengthy asynchronous method within this listener method can be risky, because it is not guaranteed to invoke a
 	// callback before the device enters the sleep mode.
 	// Similarly, do not perform lengthy operations in this listener method. Any operation must be a quick one.
+}
+
+void
+meecastApp::OnUserEventReceivedN(RequestId requestId, IList* pArgs)
+{
+
+    result r = E_FAILURE;
+    Tizen::Base::Collection::HashMap *pMap = new Tizen::Base::Collection::HashMap(Tizen::Base::Collection::SingleObjectDeleter);
+	pMap->Construct();
+	switch (requestId)
+	{
+	case SEND_RELOAD_CONFIG :
+        AppLog("Reload_Config");
+		pMap->Add(new String(L"UiApp"), new String(L"Reload_Config"));
+
+		r = __pService->SendMessage(pMap);
+		r = __pServiceWidget->SendMessage(pMap);
+
+		break;
+	default:
+		break;
+	}
+	delete pMap;
 }

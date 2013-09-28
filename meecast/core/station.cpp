@@ -63,7 +63,7 @@ Station::Station(const std::string& source_name, const std::string& id,
                  const std::string&  cookie, const bool gps, 
                  double latitude, double longitude ): __pHttpSession(null){
 
-        AppLog("Create station1 %p", this);
+        /* AppLog("Create station1 %p", this); */
         _sourceName = new std::string(source_name);
         _id = new std::string(id);
         _name = new std::string(name);
@@ -89,7 +89,7 @@ Station::Station(const std::string& source_name, const std::string& id,
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const std::string& source_name, const std::string& id, const std::string& name,
                      const std::string& country, const std::string& region, const bool gps, double latitude, double longitude): __pHttpSession(null){
-        AppLog("Create station2 %p", this);
+        /* AppLog("Create station2 %p", this); */
         _sourceName = new std::string(source_name);
         _id = new std::string(id);
         _name = new std::string(name);
@@ -97,7 +97,6 @@ Station::Station(const std::string& source_name, const std::string& id,
         _region = new std::string(region);
         _timezone = 0;
         _source = this->getSourceByName();
-        AppLog("Begin te Source %p", _source);
         _gps = gps;
         _latitude = latitude;
         _longitude = longitude;
@@ -110,13 +109,14 @@ Station::Station(const std::string& source_name, const std::string& id,
         ByteBuffer* pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(temp_String);
         path = (const char*) (pBuf->GetPointer());
         delete pBuf;
-
+/*
         AppLog("STation888p %s", path.c_str());
         AppLog("Region %s", _region->c_str());
         AppLog("Country %s", _country->c_str());
         AppLog("Source %s", source_name.c_str());
         AppLog("Station %s", _name->c_str());
         AppLog("Code %s", _id->c_str());
+*/        
         path += Core::AbstractConfig::sourcesPath;
         Core::SourceList *sourcelist = new Core::SourceList(path);
         int source_id = sourcelist->source_id_by_name(source_name);
@@ -128,7 +128,6 @@ Station::Station(const std::string& source_name, const std::string& id,
         std::string base_map_url = sourcelist->at(source_id)->url_for_basemap();
         std::string cookie = sourcelist->at(source_id)->cookie();
 
-        AppLog("STation!!! ");
         char forecast_url[4096];
         snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), id.c_str());
         char forecast_detail_url[4096];
@@ -208,7 +207,7 @@ Station::Station(const std::string& source_name, const std::string& id,
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::~Station(){
-        AppLog("Delete Station!!!!");
+        /* AppLog("Delete Station!!!!"); */
         delete _sourceName;
         delete _id;
         delete _name;
@@ -250,7 +249,6 @@ Station::Station(const std::string& source_name, const std::string& id,
         _downloading = station._downloading;
         _longitude = station._longitude;
         __pHttpSession = station.__pHttpSession;
-       AppLog("New Station!!!!");
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station& Station::operator=(const Station& station){
@@ -488,7 +486,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         force = false;
         result res = E_SUCCESS;
 	    result r = E_SUCCESS;
-        AppLog ("_downloading  %i", _downloading);
+        /* AppLog ("_downloading  %i", _downloading); */
 
 
         if  (this->sourceName() == "openweathermap.org" &&  _downloading == HOURS_FORECAST_DONE){
@@ -497,17 +495,14 @@ Station::Station(const std::string& source_name, const std::string& id,
                 Tizen::Io::File::Remove(buffer_file);
 
             _downloading = TIMEZONE;
-            AppLog("First step ");
             r = RequestHttpGet();
             if (r == E_INVALID_SESSION){
-                AppLog("Problem with downloading1");
                 delete __pHttpSession;
                 __pHttpSession = null;
                 _downloading = NONE;
                 return false;
             }
             else if (IsFailed(r)){
-                AppLog("Problem with downloading2");
                 _downloading = NONE;
                 return false;
             }
@@ -518,7 +513,6 @@ Station::Station(const std::string& source_name, const std::string& id,
                     Tizen::Io::File::Remove(buffer_file);
 
                 _downloading = HOURS_FORECAST;
-                AppLog("First step ");
                 r = RequestHttpGet();
                 if (r == E_INVALID_SESSION){
                     AppLog("Problem with downloading1");
@@ -539,7 +533,6 @@ Station::Station(const std::string& source_name, const std::string& id,
                         Tizen::Io::File::Remove(buffer_file);
 
                     _downloading = DETAIL_FORECAST;
-                    AppLog("First step ");
                     r = RequestHttpGet();
                     if (r == E_INVALID_SESSION){
                         AppLog("Problem with downloading1");
@@ -563,13 +556,11 @@ Station::Station(const std::string& source_name, const std::string& id,
         }
         r = E_SUCCESS;
         if (_downloading == NONE){
-            AppLog ("Begin download FORECAST");
             _downloading = FORECAST;
             snprintf(buffer_file, sizeof(buffer_file) -1, "%s.orig", this->fileName().c_str());
             if (Tizen::Io::File::IsFileExist(buffer_file))
                 Tizen::Io::File::Remove(buffer_file);
 
-            AppLog("Second step ");
             r = RequestHttpGet();
             if (r == E_INVALID_SESSION)
             {
@@ -728,7 +719,7 @@ Station::Station(const std::string& source_name, const std::string& id,
 void
 Station::run_converter(){
 
-    AppLog("RUN CONVERTER ");
+    /* AppLog("RUN CONVERTER "); */
     /* TO DO fixed for all sources */
     Tizen::Base::String dirPath;
     dirPath = App::GetInstance()->GetAppDataPath();
@@ -766,13 +757,12 @@ Station::run_converter(){
         hours_file_string = (const char*)(pBuf4->GetPointer());
 
     if (*_sourceName == "openweathermap.org"){
-    AppLog("openweathermap.org");
         convert_station_openweathermaporg_data(
             (const char *)forecast_file_string.c_str(), 
             (const char *)result_file_string.c_str(), 
             (const char *)detail_file_string.c_str(), 
             (const char *)hours_file_string.c_str());
-        AppLog("openweathermap.org");
+       /* AppLog("openweathermap.org"); */
     }
     if (*_sourceName =="gismeteo.ru"){
         convert_station_gismeteo_data(
@@ -837,15 +827,12 @@ Station::run_converter(){
         SourceList *sourcelist = new Core::SourceList(path);
         for (int i=0; i<(int)sourcelist->size(); i++){
             if (_sourceName->compare(sourcelist->at(i)->name()) == 0){
-                AppLog(" Before new te Source");
                 Source* source = new Core::Source(*sourcelist->at(i));
-                AppLog(" Insert new te Source %p", source);
                 delete sourcelist;
                 return source; 
             }
         }
         delete sourcelist;
-        AppLog (" Return 0 de Source");
         return 0;
     }
 ////////////////////////////////////////////////////////////////////////////////
@@ -867,7 +854,7 @@ Station::RequestHttpGet(void)
 	HttpRequest* pHttpRequest = null;
     String str;
 
-    AppLog("Station::RequestHttpGet");
+    /* AppLog("Station::RequestHttpGet"); */
 	if (__pHttpSession == null)
 	{
 		__pHttpSession = new (std::nothrow) HttpSession();
@@ -890,7 +877,7 @@ Station::RequestHttpGet(void)
                 Tizen::Base::Utility::StringUtil::Utf8ToString(TZUrl.c_str(), str);
              }
         }
-        AppLog("URL %S",str.GetPointer());
+        /* AppLog("URL %S",str.GetPointer()); */
 		r = __pHttpSession->Construct(NET_HTTP_SESSION_MODE_NORMAL, null, str, null);
 		if (IsFailed(r))
 		{
@@ -900,12 +887,10 @@ Station::RequestHttpGet(void)
 			goto CATCH;
 		}
 
-        AppLog("URL ");
 		r = __pHttpSession->SetAutoRedirectionEnabled(true);
 		TryCatch(r == E_SUCCESS, , "Failed to set the redirection automatically.");
 	}
 
-        AppLog("URL111 ");
 	pHttpTransaction = __pHttpSession->OpenTransactionN();
 	r = GetLastResult();
 	TryCatch(pHttpTransaction != null, , "Failed to open the HttpTransaction.");
@@ -913,7 +898,6 @@ Station::RequestHttpGet(void)
 	r = pHttpTransaction->AddHttpTransactionListener(*this);
 	TryCatch(r == E_SUCCESS, , "Failed to add the HttpTransactionListener.");
 
-        AppLog("URL111222 ");
 	pHttpRequest = const_cast< HttpRequest* >(pHttpTransaction->GetRequest());
 
     if (_downloading == FORECAST)
@@ -936,7 +920,6 @@ Station::RequestHttpGet(void)
          }
     }
 
-        AppLog("URL111222333 ");
 	r = pHttpRequest->SetUri(str);
 	TryCatch(r == E_SUCCESS, , "Failed to set the uri.");
 
@@ -965,7 +948,7 @@ CATCH:
 void
 Station::OnTransactionReadyToRead(HttpSession& httpSession, HttpTransaction& httpTransaction, int availableBodyLen)
 {
-	AppLog("OnTransactionReadyToRead");
+	/* AppLog("OnTransactionReadyToRead"); */
     char buffer_file[2048];
     File file;
 
@@ -979,24 +962,24 @@ Station::OnTransactionReadyToRead(HttpSession& httpSession, HttpTransaction& htt
 			ByteBuffer* pBuffer = pHttpResponse->ReadBodyN();
             
             if (_downloading == FORECAST){
-                AppLog("FORECAST");
+                /* AppLog("FORECAST"); */
                 snprintf(buffer_file, sizeof(buffer_file) -1, "%s.orig", this->fileName().c_str());
             }
             if (_downloading == DETAIL_FORECAST){
-                AppLog("DETAILFORECAST");
+                /* AppLog("DETAILFORECAST"); */
                 snprintf(buffer_file, sizeof(buffer_file) -1, "%s.detail.orig", this->fileName().c_str());
             }
             if (_downloading == HOURS_FORECAST){
-                AppLog("HOURSFORECAST");
+               /*  AppLog("HOURSFORECAST"); */
                 snprintf(buffer_file, sizeof(buffer_file) -1, "%s.hours.orig", this->fileName().c_str());
             }
             if (_downloading == TIMEZONE){
-                AppLog("TIMEZONE");
+                /* AppLog("TIMEZONE"); */
                 snprintf(buffer_file, sizeof(buffer_file) -1, "%s.timezone", this->fileName().c_str());
             }
 
 
-            AppLog ("File name %S", (App::GetInstance()->GetAppDataPath() + buffer_file).GetPointer());
+            /* AppLog ("File name %S", (App::GetInstance()->GetAppDataPath() + buffer_file).GetPointer()); */
             result r = E_SUCCESS;
             // Decodes a UTF-8 string into a Unicode string
             String str;
@@ -1025,22 +1008,22 @@ Station::OnTransactionAborted(HttpSession& httpSession, HttpTransaction& httpTra
 void
 Station::OnTransactionReadyToWrite(HttpSession& httpSession, HttpTransaction& httpTransaction, int recommendedChunkSize)
 {
-	AppLog("OnTransactionReadyToWrite");
+/* 	AppLog("OnTransactionReadyToWrite"); */
 }
 
 void
 Station::OnTransactionHeaderCompleted(HttpSession& httpSession, HttpTransaction& httpTransaction, int headerLen, bool authRequired)
 {
-	AppLog("OnTransactionHeaderCompleted");
+/*	AppLog("OnTransactionHeaderCompleted"); */
 }
 
 void
 Station::OnTransactionCompleted(HttpSession& httpSession, HttpTransaction& httpTransaction)
 {
-	AppLog("OnTransactionCompleted");
+/*	AppLog("OnTransactionCompleted"); */
 	delete &httpTransaction;
     if ( _downloading == TIMEZONE){
-        AppLog("_downloading = TIMEZONE");
+        /* AppLog("_downloading = TIMEZONE"); */
         _downloading = NONE;
         run_converter();
         delete __pHttpSession;
@@ -1048,13 +1031,13 @@ Station::OnTransactionCompleted(HttpSession& httpSession, HttpTransaction& httpT
     }
     if (this->hoursURL() != "" && _downloading == HOURS_FORECAST){
         if (this->sourceName() == "openweathermap.org"){
-            AppLog("_downloading = NONE");
+           /*  AppLog("_downloading = NONE"); */
             _downloading = HOURS_FORECAST_DONE;
             delete __pHttpSession;
             __pHttpSession = null;
             updateData(true);
         }else{
-            AppLog("_downloading = NONE");
+          /*  AppLog("_downloading = NONE"); */
             _downloading = NONE;
             run_converter();
             delete __pHttpSession;
@@ -1062,7 +1045,7 @@ Station::OnTransactionCompleted(HttpSession& httpSession, HttpTransaction& httpT
         }
     }
     if (this->hoursURL() != "" && _downloading == DETAIL_FORECAST){
-        AppLog("_downloading = DETAIL_FORECAST_DONE");
+       /*  AppLog("_downloading = DETAIL_FORECAST_DONE"); */
         _downloading = DETAIL_FORECAST_DONE;
       //  _downloading = NONE;
         delete __pHttpSession;
@@ -1070,8 +1053,7 @@ Station::OnTransactionCompleted(HttpSession& httpSession, HttpTransaction& httpT
         updateData(true);
     }
     if (this->hoursURL() == "" && _downloading == DETAIL_FORECAST){
-
-        AppLog("_downloading = NONE2");
+       /*  AppLog("_downloading = NONE2"); */
         _downloading = NONE;
         run_converter();
         delete __pHttpSession;
@@ -1089,7 +1071,7 @@ Station::OnTransactionCompleted(HttpSession& httpSession, HttpTransaction& httpT
 void
 Station::OnTransactionCertVerificationRequiredN(HttpSession& httpSession, HttpTransaction& httpTransaction, Tizen::Base::String* pCert)
 {
-	AppLog("OnTransactionCertVerificationRequiredN");
+/* 	AppLog("OnTransactionCertVerificationRequiredN"); */
 
 	httpTransaction.Resume();
 

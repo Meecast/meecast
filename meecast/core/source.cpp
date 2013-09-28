@@ -35,7 +35,7 @@
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Source::Source(const std::string& filename, const std::string& schema_filename) : Parser(filename, schema_filename){
-        AppLog("Create Source %p", this);
+        /* AppLog("Create Source %p", this); */
         _name = new std::string;
         _logo = new std::string;
         _library = new std::string;
@@ -60,7 +60,7 @@ namespace Core {
         _sourceGetDetail = 0;
 
 
-        AppLog("New Source");
+        /* AppLog("New Source"); */
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
     try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
@@ -113,10 +113,8 @@ namespace Core {
                n = n.nextSibling();
             }
             #else
-            AppLog("Before checkong doc");
           if (!_doc)
                return;
-            AppLog("After checkong doc");
            xmlNodePtr root = xmlDocGetRootElement(_doc);
            if (!root)
                return;
@@ -183,7 +181,7 @@ namespace Core {
 
            }
      
-            AppLog("Done filling source");
+            /* AppLog("Done filling source"); */
             #endif
             #endif //LIBXML
             // TODO check binaryName for empty
@@ -242,7 +240,7 @@ namespace Core {
     }
 ////////////////////////////////////////////////////////////////////////////////
     Source::~Source(){
-        AppLog("Delete Source %p", this);
+        /* AppLog("Delete Source %p", this); */
         delete _name;
         delete _logo;
         if (_library)
@@ -259,7 +257,7 @@ namespace Core {
     }
 ////////////////////////////////////////////////////////////////////////////////
 Source::Source(const Source& source) : Parser(){
-     AppLog("Create Source form Source %p", this); 
+     /* AppLog("Create Source form Source %p", this); */
     _name = new std::string(*(source._name));
     _logo = new std::string(*(source._logo));
     _library = new std::string(*(source._library));
@@ -274,9 +272,8 @@ Source::Source(const Source& source) : Parser(){
 }
 ////////////////////////////////////////////////////////////////////////////////
     Source& Source::operator=(const Source& source){
-        AppLog("New = te Source %p", this); 
+        /* AppLog("New = te Source %p", this); */
         if(this != &source){
-        AppLog("New = te Source"); 
             delete _name;
             _name = new std::string(*(source._name));
             delete _logo;

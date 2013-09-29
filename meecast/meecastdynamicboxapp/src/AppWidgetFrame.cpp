@@ -531,8 +531,8 @@ MeecastDynamicBoxAppFrame::OnAppWidgetUpdate(void)
 //        __pLabelMainTemperature->SetShowState(true);
 //        __pLabelMainTemperatureBackground->SetShowState(true);
         Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-        //__pLabelMainTemperature->SetText(str);
-        __pLabelMainTemperature->SetText("aaaaaaa");
+        __pLabelMainTemperature->SetText(str);
+      //  __pLabelMainTemperature->SetText("aaaaaaa");
         __pLabelMainTemperatureBackground->SetText(str);
 
 
@@ -606,6 +606,11 @@ MeecastDynamicBoxAppFrame::OnAppWidgetUpdate(void)
             SAFE_DELETE(mainIconBitmap);
         }
     }
+    /* Town */
+    String str;
+    Tizen::Base::Utility::StringUtil::Utf8ToString(_config->stationname().c_str(), str);
+    __pLabelTown->SetText(str);
+    __pLabelBackgroundTown->SetText(str);
 
 	Invalidate(true);
   AppLog("OnAppWidgetUpdate Done");

@@ -82,12 +82,12 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
 	// Initialize ServerChannel
 	__pMessagePort = new (std::nothrow) MeecastDynamicMessagePort();
 	TryReturn(__pMessagePort != null, false, "MeeCastDynamicBox : [E_FAILURE] Failed to create __pMessagePort.");
-	AppLog("MeeCastDynamicBox : __pMessagePort is created.");
+	/* AppLog("MeeCastDynamicBox : __pMessagePort is created."); */
 
     result r = E_SUCCESS;
 	r = __pMessagePort->Construct(LOCAL_MESSAGE_PORT_NAME);
 	TryReturn(IsFailed(r) != true, r, "MeeCastDynamicBox : [%s] Failed to construct __pMessagePort", GetErrorMessage(r));
-	AppLog("MeeCastDynamicBox : __pMessagePort is constructed.");
+	/* AppLog("MeeCastDynamicBox : __pMessagePort is constructed."); */
 
 	FloatRectangle bounds = this->GetBoundsF();
 
@@ -109,7 +109,6 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
     __pLabelMainWindSpeed->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
     __pLabelMainWindSpeed->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
     __pLabelMainWindSpeed->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
-
 
     __pLabelMainTemperatureBackground = new Label();
     __pLabelMainTemperatureBackground->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1 + 1 - 20), (bounds.height - bounds.height/3 + 1) , background_width1_1 + 40, bounds.height/3), L"");
@@ -146,7 +145,10 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
 
     if (_dp)
         _dp->DeleteInstance();
-    _dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
+    if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0){
+        _dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
+    }else
+        _dp = NULL;
 
     Core::Data *temp_data = NULL;
     if (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))){ 

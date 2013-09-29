@@ -60,6 +60,7 @@ MeecastDynamicBoxAppProvider::OnAppWidgetProviderTerminating()
 bool
 MeecastDynamicBoxAppProvider::OnAppWidgetProviderUpdating(const Tizen::Base::String& argument)
 {
+    AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!");
 	MeecastDynamicBoxAppFrame* pAppWidgetFrame = dynamic_cast<MeecastDynamicBoxAppFrame*>(GetAppWidgetFrame());
 
 	// TODO:

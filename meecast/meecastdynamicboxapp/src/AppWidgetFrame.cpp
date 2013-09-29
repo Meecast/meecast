@@ -552,6 +552,7 @@ MeecastDynamicBoxAppFrame::OnAppWidgetUpdate(void)
             snprintf (buffer, sizeof(buffer) -1, "%0.f", 
                                              temp_data->WindSpeed().value());
             Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            /* AppLog("Wind Speed %S", str.GetPointer()); */
             __pLabelMainWindSpeed->SetText(str);
             __pLabelMainWindSpeed->RequestRedraw();
         }else{

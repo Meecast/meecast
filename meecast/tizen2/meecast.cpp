@@ -43,8 +43,8 @@ current_data(std::string& str){
 
 
 
-meecastApp::meecastApp(void): __pService(null), 
-                              __pServiceWidget(null)
+meecastApp::meecastApp(void): __pService(null) 
+                              
 {
 }
 
@@ -56,7 +56,6 @@ meecastApp::~meecastApp(void)
     config->DeleteInstance(); 
     xmlCleanupParser();
 	delete __pService;
-	delete __pServiceWidget;
 //    delete config;
 }
 
@@ -189,12 +188,12 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
 	{
 		if (pAppManager->IsRunning(serviceId))
 		{
-			AppLog("SampleUiApp : Service is ready !!!");
+			AppLog("MeeCast : Service is ready !!!");
 			break;
 		}
 		else
 		{
-			AppLog("SampleUiApp : Service is not ready !!! try to launch !!! ");
+			AppLog("MeeCast : Service is not ready !!! try to launch !!! ");
 			r = pAppManager->LaunchApplication(serviceId, null);
 			Thread::Sleep(1000);
 		}
@@ -204,13 +203,6 @@ meecastApp::OnAppInitializing(AppRegistry& appRegistry)
 	__pService = new (std::nothrow) MeecastServiceProxy();
 	TryReturn(__pService != null, false, "SampleUiApp : [%s] SeviceProxy creation is failed.", GetErrorMessage(r));
 	r = __pService->Construct(serviceId, REMOTE_PORT_NAME);
-
-	__pServiceWidget = new (std::nothrow) MeecastServiceProxy();
-	TryReturn(__pService != null, false, "SampleUiApp : [%s] SeviceProxy creation is failed.", GetErrorMessage(r));
-	r = __pServiceWidget->Construct(widgetId, REMOTE_PORT_NAME);
-
- //			TryReturn(!IsFailed(r), "SampleUiApp : [%s] MessagePort Operation is Failed", GetErrorMessage(r));
-
 
 	// Create a Frame
 	meecastFrame* pmeecastFrame = new meecastFrame;
@@ -306,6 +298,12 @@ void
 meecastApp::OnUserEventReceivedN(RequestId requestId, IList* pArgs)
 {
 
+    String repAppId(15);
+    String widgetName(L".meecastdynamicboxapp");
+    repAppId = L"ctLjIIgCCj";
+    AppId widgetId(repAppId+widgetName);
+    Tizen::Shell::AppWidgetProviderManager* pAppWidgetProviderManager = Tizen::Shell::AppWidgetProviderManager::GetInstance();
+
     result r = E_FAILURE;
     Tizen::Base::Collection::HashMap *pMap = new Tizen::Base::Collection::HashMap(Tizen::Base::Collection::SingleObjectDeleter);
 	pMap->Construct();
@@ -314,9 +312,8 @@ meecastApp::OnUserEventReceivedN(RequestId requestId, IList* pArgs)
 	case SEND_RELOAD_CONFIG :
         AppLog("Reload_Config");
 		pMap->Add(new String(L"UiApp"), new String(L"Reload_Config"));
-
 		r = __pService->SendMessage(pMap);
-		r = __pServiceWidget->SendMessage(pMap);
+        pAppWidgetProviderManager->RequestUpdate(widgetId, "MeecastDynamicBoxAppProvider", L"");
 
 		break;
 	default:

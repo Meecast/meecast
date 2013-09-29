@@ -5,6 +5,7 @@
 #include <FBase.h>
 #include <FSystem.h>
 #include <FUi.h>
+#include <FShell.h>
 #include "configtizen.h"
 
 #include <libintl.h>
@@ -29,7 +30,6 @@ public:
 
 private:
     MeecastServiceProxy* __pService;
-    MeecastServiceProxy* __pServiceWidget;
 public:
 	meecastApp(void);
 	virtual ~meecastApp(void);

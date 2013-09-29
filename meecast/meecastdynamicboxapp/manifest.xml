@@ -18,7 +18,7 @@
                 <Icon Section="MainMenu">mainmenu.png</Icon>
             </Icons>
             <AppWidgets>
-                <AppWidget AppWidgetPopupEnabled="True" ProviderName="meecastdynamicboxappProvider" UpdatePeriod="1800000">
+                <AppWidget AppWidgetPopupEnabled="True" ProviderName="MeecastDynamicBoxAppProvider" UpdatePeriod="1800000">
                     <DisplayNames>
                         <DisplayName Locale="eng-GB">MeeCast</DisplayName>
                     </DisplayNames>

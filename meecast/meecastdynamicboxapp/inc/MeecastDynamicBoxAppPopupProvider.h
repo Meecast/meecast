@@ -27,6 +27,11 @@
 #include <FBase.h>
 #include <FSystem.h>
 #include <FUi.h>
+#include "../../core/core.h"
+#include "../../core/config.h"
+#include <FSystem.h>
+#include <FLocales.h>
+
 
 
 #include <FShell.h>
@@ -46,6 +51,9 @@ public:
 protected:
 	virtual bool OnAppWidgetPopupProviderInitializing(const Tizen::Base::String& userInfo);
 	virtual void OnAppWidgetPopupProviderTerminating(void);
+private:
+    Core::Config *_config;
+    Core::DataParser* _dp;
 };
 
 #endif /* _MeecastDynamicBoxApp_POPUP_PROVIDER_H_ */

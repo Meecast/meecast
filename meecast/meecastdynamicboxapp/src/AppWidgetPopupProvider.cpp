@@ -37,7 +37,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
 	TryReturn(pAppWidgetPopup, false, "Failed to allocate memory for AppWidgetPopup.");
 
 	const float width = 720.0;
-	const float height = 250.0;
+	const float height = 350.0;
 
 	pAppWidgetPopup->Construct(FloatDimension(width, height));
 
@@ -51,7 +51,8 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
 	pLabel->SetTextConfig(30, LABEL_TEXT_STYLE_BOLD);
 	pLabel->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
 	pLabel->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
-	pLabel->SetBackgroundColor(Color::GetColor(COLOR_ID_GREY));
+	//pLabel->SetBackgroundColor(Color::GetColor(COLOR_ID_GREY));
+    pLabel->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/popup_window4.png"));
 	pAppWidgetPopup->AddControl(pLabel);
 
 	pAppWidgetPopup->Show();

@@ -514,10 +514,10 @@ Config::ReLoadConfig(){
 
     std::cerr<<"ReLoadConfig"<<std::endl;
     for(unsigned i = 0; i < _stations->size(); i++){
-        AppLog("Station number %i", i);
+        /* AppLog("Station number %i", i); */
         Core::Station *_station =_stations->at(i);
         if (_station){
-            AppLog("Try to delete station %p", _station);
+            /* AppLog("Try to delete station %p", _station); */
             delete (_station);
             _station = null;
         }

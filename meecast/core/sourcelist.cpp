@@ -37,7 +37,7 @@ namespace Core {
     SourceList::SourceList(const std::string path){
         Dirent *dp = 0;
         DIR *dir_fd = opendir(path.c_str());
-        AppLog("Path %s", path.c_str());
+        /* AppLog("Path %s", path.c_str()); */
         if(dir_fd){
             while((dp = readdir(dir_fd))){
                 std::string name = dp->d_name;

@@ -38,7 +38,7 @@
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Parser::Parser(){
-        AppLogDebug("Init null Parser %p", this);
+        /* AppLogDebug("Init null Parser %p", this); */
         #ifdef LIBXML
         #else
             #ifdef QT
@@ -133,7 +133,7 @@ namespace Core {
           /*  xmlCleanupParser(); */
         }
 
-        AppLogDebug("Parser for libxml %p ", _doc); 
+        /* AppLogDebug("Parser for libxml %p ", _doc); */
     #endif
     #endif //LIBXML
     }

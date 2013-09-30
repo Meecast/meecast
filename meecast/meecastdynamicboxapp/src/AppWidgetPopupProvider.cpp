@@ -102,11 +102,11 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
 
     /* Temperature */
     Label* __pLabelMainTemperatureBackground = new Label();
-    __pLabelMainTemperatureBackground->Construct(FloatRectangle((width/8 + 1), (height/5 + 1) , width/4, height/4), L"");
+    __pLabelMainTemperatureBackground->Construct(FloatRectangle((width/8.5 + 1), (height/5 + 1) , width/4, height/4), L"");
     __pLabelMainTemperatureBackground->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
     
     Label* __pLabelMainTemperature = new Label();
-    __pLabelMainTemperature->Construct(FloatRectangle((width/8), (height/5) , width/4, height/4), L"");
+    __pLabelMainTemperature->Construct(FloatRectangle((width/8.5), (height/5) , width/4, height/4), L"");
     __pLabelMainTemperature->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
      
     /* Wind Speed */
@@ -172,6 +172,19 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
     if (_config->stationname().c_str()){
        __pLabelTown->SetText(_config->stationname().c_str());
        __pLabelTownBG->SetText(_config->stationname().c_str());
+       if (__pLabelTown->GetText().GetLength()>15){
+            if (__pLabelTown->GetText().GetLength()>20){
+                __pLabelTown->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+                __pLabelTownBG->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+            }else{
+                __pLabelTown->SetTextConfig(24, LABEL_TEXT_STYLE_NORMAL);
+                __pLabelTownBG->SetTextConfig(24, LABEL_TEXT_STYLE_NORMAL);
+            }
+        }else{
+            __pLabelTown->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
+            __pLabelTownBG->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
+        }
+
         pAppWidgetPopup->AddControl(__pLabelTownBG);
         pAppWidgetPopup->AddControl(__pLabelTown);
     }
@@ -241,6 +254,17 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
             t = temp_data->temperature().value();
         }
 
+//        Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(t);
+//        backgroundPanel->SetBackgroundColor(*color_of_temp);
+//        delete color_of_temp;
+//        __pLabelMainTemperature->SetShowState(true);
+//        __pLabelMainTemperatureBackground->SetShowState(true);
+        Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+        __pLabelMainTemperature->SetText(str);
+        __pLabelMainTemperatureBackground->SetText(str);
+        __pLabelMainTemperature->RequestRedraw();
+        __pLabelMainTemperatureBackground->RequestRedraw();
+
         if (__pLabelMainTemperature->GetText().GetLength()<6){
             __pLabelMainTemperature->SetTextConfig(58, LABEL_TEXT_STYLE_BOLD);
             __pLabelMainTemperatureBackground->SetTextConfig(58, LABEL_TEXT_STYLE_BOLD);
@@ -253,17 +277,6 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
                 __pLabelMainTemperatureBackground->SetTextConfig(32, LABEL_TEXT_STYLE_BOLD);
             }
         }
-
-//        Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(t);
-//        backgroundPanel->SetBackgroundColor(*color_of_temp);
-//        delete color_of_temp;
-//        __pLabelMainTemperature->SetShowState(true);
-//        __pLabelMainTemperatureBackground->SetShowState(true);
-        Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-        __pLabelMainTemperature->SetText(str);
-        __pLabelMainTemperatureBackground->SetText(str);
-        __pLabelMainTemperature->RequestRedraw();
-        __pLabelMainTemperatureBackground->RequestRedraw();
 
 
 #if 0        

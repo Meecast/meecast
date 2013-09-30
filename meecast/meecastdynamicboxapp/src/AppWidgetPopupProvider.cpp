@@ -12,14 +12,17 @@
 
 #define _(String) gettext(String)
 #define STRONG_WIND 8 
+#define SAFE_DELETE(x)  if (x) { delete x; x = null; }
 
 
 using namespace Tizen::App;
 using namespace Tizen::Base;
 using namespace Tizen::Graphics;
 using namespace Tizen::Ui::Controls;
+using namespace Tizen::Ui;
 using namespace Tizen::Shell;
 using namespace Core;
+using namespace Tizen::Base::Collection;
 using namespace Tizen::Locales;
 
 MeecastDynamicBoxAppPopupProvider::MeecastDynamicBoxAppPopupProvider()
@@ -47,6 +50,8 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
 	const float width = 720.0;
 	const float height = 350.0;
 
+    char  buffer[4096]; 
+    String str;
 	pAppWidgetPopup->Construct(FloatDimension(width, height));
 
 	// TODO:
@@ -80,16 +85,38 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
    
     /* Station name */
     Label* __pLabelTown = new Label();
-    __pLabelTown->Construct(FloatRectangle(-10,  height/2.4, width - width/1.6, height/4), L"");
+    __pLabelTown->Construct(FloatRectangle(-10,  height/2.3, width - width/1.6, height/4), L"");
     __pLabelTown->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
     __pLabelTown->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
     __pLabelTown->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
 
     Label* __pLabelTownBG = new Label();
-    __pLabelTownBG->Construct(FloatRectangle(-10 + 1, height/2.4 +1, width - width/1.6, height/4), L"");
+    __pLabelTownBG->Construct(FloatRectangle(-10 + 1, height/2.3 +1, width - width/1.6, height/4), L"");
     __pLabelTownBG->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
     __pLabelTownBG->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
     __pLabelTownBG->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
+
+    /* Main icon */
+    Label* __pLabelMainIcon = new Label();
+    __pLabelMainIcon->Construct(FloatRectangle(0, 0, 128, 128), L"");
+
+    /* Temperature */
+    Label* __pLabelMainTemperatureBackground = new Label();
+    __pLabelMainTemperatureBackground->Construct(FloatRectangle((width/8 + 1), (height/5 + 1) , width/4, height/4), L"");
+    __pLabelMainTemperatureBackground->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
+    
+    Label* __pLabelMainTemperature = new Label();
+    __pLabelMainTemperature->Construct(FloatRectangle((width/8), (height/5) , width/4, height/4), L"");
+    __pLabelMainTemperature->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+     
+    /* Wind Speed */
+    Label* __pLabelMainWindSpeed = new Label();
+    __pLabelMainWindSpeed->Construct(FloatRectangle((width/3.7) - 6, (height/18), 52+10, 52), L"");
+    __pLabelMainWindSpeed->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
+
+    /* Wind icon */
+    Label* __pLabelMainWindIcon = new Label();
+    __pLabelMainWindIcon->Construct(FloatRectangle((width/3.7), (height/18), 52+10, 52), L"");
 
 
     try{
@@ -137,7 +164,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
                 __pLabelLastUpdate->SetText(dateString);
 	            __pLabelLastUpdateBG->SetText(dateString);
 	            pAppWidgetPopup->AddControl(__pLabelLastUpdateBG);
-	            pAppWidgetPopup->AddControl(__pLabelLastUpdate);
+//	            pAppWidgetPopup->AddControl(__pLabelLastUpdate);
             }
     }else
         _dp = NULL;
@@ -148,6 +175,156 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
         pAppWidgetPopup->AddControl(__pLabelTownBG);
         pAppWidgetPopup->AddControl(__pLabelTown);
     }
+
+    Core::Data *temp_data = NULL;
+    if (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))){ 
+
+        /* AppLog ("_Config_dp inside"); */
+        /* Preparing units */
+        temp_data->temperature_low().units(_config->TemperatureUnit());
+        temp_data->temperature_hi().units(_config->TemperatureUnit());
+        temp_data->temperature().units(_config->TemperatureUnit());
+        temp_data->WindSpeed().units(_config->WindSpeedUnit());
+        /* Main Icon */
+//        snprintf(buffer, sizeof(buffer) - 1, "%s/%s/%i.png", 
+//                                       app->config->iconspath().c_str(), 
+//                                       app->config->iconSet().c_str(), 
+//                                       temp_data->Icon());
+
+        Tizen::Base::Integer icon_int =  temp_data->Icon();
+        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png")){
+            /* Main Icon */ 
+            Tizen::Media::Image *image = null;
+            Tizen::Graphics::Bitmap* mainIconBitmap = null;
+            image = new (std::nothrow) Tizen::Media::Image();
+            image->Construct();
+
+            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+            __pLabelMainIcon->SetBackgroundBitmap(*mainIconBitmap);
+            __pLabelMainIcon->RequestRedraw();
+            SAFE_DELETE(image);
+            SAFE_DELETE(mainIconBitmap);
+        }
+
+        pAppWidgetPopup->AddControl(__pLabelMainIcon);
+        /* Description */
+        /*
+        String str;
+        Tizen::Base::Utility::StringUtil::Utf8ToString(_(temp_data->Text().c_str()), str);
+        __pLabelMainDescription->SetText(str);
+        __pLabelMainDescriptionBackground->SetText(str);
+        */
+        int t = INT_MAX;
+        /* Temperature */
+        if (temp_data->temperature().value(true) == INT_MAX){
+          if ((temp_data->temperature_hi().value(true) == INT_MAX) &&
+              (temp_data->temperature_low().value(true) == INT_MAX)){ 
+            //__pLabelMainDescription->SetText("N/A");
+          } 
+          if ((temp_data->temperature_hi().value(true) != INT_MAX) &&
+              (temp_data->temperature_low().value(true) != INT_MAX)){ 
+            snprintf(buffer, sizeof(buffer) - 1, "%0.f°/ %0.f°", temp_data->temperature_low().value(),
+                                                                 temp_data->temperature_hi().value());
+            t = temp_data->temperature_hi().value();
+          }else{  
+              if (temp_data->temperature_hi().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
+                t = temp_data->temperature_hi().value();
+              }
+              if (temp_data->temperature_low().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
+                t = temp_data->temperature_low().value();
+              }
+          }
+        }else{
+            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature().value());
+            t = temp_data->temperature().value();
+        }
+
+        if (__pLabelMainTemperature->GetText().GetLength()<6){
+            __pLabelMainTemperature->SetTextConfig(58, LABEL_TEXT_STYLE_BOLD);
+            __pLabelMainTemperatureBackground->SetTextConfig(58, LABEL_TEXT_STYLE_BOLD);
+        }else{
+            if (__pLabelMainTemperature->GetText().GetLength()<9){
+                __pLabelMainTemperature->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
+                __pLabelMainTemperatureBackground->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
+            }else{
+                __pLabelMainTemperature->SetTextConfig(32, LABEL_TEXT_STYLE_BOLD);
+                __pLabelMainTemperatureBackground->SetTextConfig(32, LABEL_TEXT_STYLE_BOLD);
+            }
+        }
+
+//        Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(t);
+//        backgroundPanel->SetBackgroundColor(*color_of_temp);
+//        delete color_of_temp;
+//        __pLabelMainTemperature->SetShowState(true);
+//        __pLabelMainTemperatureBackground->SetShowState(true);
+        Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+        __pLabelMainTemperature->SetText(str);
+        __pLabelMainTemperatureBackground->SetText(str);
+        __pLabelMainTemperature->RequestRedraw();
+        __pLabelMainTemperatureBackground->RequestRedraw();
+
+
+#if 0        
+        /* Current or not current period */
+        if (temp_data->Current())
+            Tizen::Base::Utility::StringUtil::Utf8ToString(_("Now"), str);
+        else
+            Tizen::Base::Utility::StringUtil::Utf8ToString(_("Today"), str);
+        main_current_state->SetShowState(true);
+        main_current_state->SetText(str);
+        main_current_state->RequestRedraw();
+#endif
+
+        /* Main wind direction */
+        if (temp_data->WindDirection() != "N/A"){
+            snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            if (temp_data->WindSpeed().value() > STRONG_WIND){
+                str.Append("_warning");
+            }
+            /* AppLog("Wind1 %S", str.GetPointer()); */
+            if (str == "CALM" || Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
+                __pLabelMainWindIcon->SetShowState(true);
+                /* Wind direction Icon */ 
+                Tizen::Media::Image *image = null;
+                Tizen::Graphics::Bitmap* windIconBitmap = null;
+                image = new (std::nothrow) Tizen::Media::Image();
+                image->Construct();
+                
+                if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
+                    windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+                    AppLog("Wind %S", str.GetPointer());
+                    __pLabelMainWindIcon->SetBackgroundBitmap(*windIconBitmap);
+                    __pLabelMainWindIcon->SetSize(windIconBitmap->GetWidth(), windIconBitmap->GetHeight());
+                    __pLabelMainWindIcon->RequestRedraw();
+                    SAFE_DELETE(image);
+                    SAFE_DELETE(windIconBitmap);
+                }
+            }
+            pAppWidgetPopup->AddControl(__pLabelMainWindIcon);
+        }
+        /* Main wind speed */
+        if (temp_data->WindSpeed().value() != INT_MAX){
+            __pLabelMainWindSpeed->SetShowState(true);
+            snprintf (buffer, sizeof(buffer) -1, "%0.f", 
+                                             temp_data->WindSpeed().value());
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            __pLabelMainWindSpeed->SetText(str);
+            __pLabelMainWindSpeed->RequestRedraw();
+        }else{
+            __pLabelMainWindSpeed->SetShowState(false);
+        }
+
+        pAppWidgetPopup->AddControl(__pLabelMainWindSpeed);
+
+    }else{
+        __pLabelMainTemperature->SetText("MeeCast");
+        __pLabelMainTemperatureBackground->SetText("MeeCast");
+    }
+    pAppWidgetPopup->AddControl(__pLabelMainTemperatureBackground);
+    pAppWidgetPopup->AddControl(__pLabelMainTemperature);
 
 	pAppWidgetPopup->Show();
 

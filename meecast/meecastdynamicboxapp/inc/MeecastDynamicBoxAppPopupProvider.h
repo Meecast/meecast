@@ -27,6 +27,7 @@
 #include <FBase.h>
 #include <FSystem.h>
 #include <FUi.h>
+#include <FMedia.h>
 #include "../../core/core.h"
 #include "../../core/config.h"
 #include <FSystem.h>

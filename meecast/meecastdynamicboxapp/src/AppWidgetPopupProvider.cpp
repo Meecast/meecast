@@ -49,13 +49,20 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
 	FloatRectangle popupClientAreaBounds = pAppWidgetPopup->GetClientAreaBounds();
 	FloatRectangle rect(0, 0, popupClientAreaBounds.width, popupClientAreaBounds.height);
 
-	pLabel->Construct(rect, L"Last update: ");
+	pLabel->Construct(rect, L"");
 	pLabel->SetTextConfig(30, LABEL_TEXT_STYLE_BOLD);
 	pLabel->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
 	pLabel->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
 	//pLabel->SetBackgroundColor(Color::GetColor(COLOR_ID_GREY));
     pLabel->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/popup_window.png"));
 	pAppWidgetPopup->AddControl(pLabel);
+    /* Last Update */
+    Label* __pLabelLastUpdate = new Label();
+    __pLabelLastUpdate->Construct(FloatRectangle(width/2.8, height/2.8, (width - width/2.8), (height - height/2.8)), L"");
+	__pLabelLastUpdate->SetTextConfig(30, LABEL_TEXT_STYLE_BOLD);
+	__pLabelLastUpdate->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
+	__pLabelLastUpdate->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
+
 
 
 
@@ -101,7 +108,8 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
                 pTimeFormatter->Format(dt, timeString);
                 dateString.Append(timeString);
                 dateString.Insert(L"Last update: ",0);
-	            pLabel->SetText(dateString);
+	            __pLabelLastUpdate->SetText(dateString);
+	            pAppWidgetPopup->AddControl(__pLabelLastUpdate);
             }
     }else
         _dp = NULL;

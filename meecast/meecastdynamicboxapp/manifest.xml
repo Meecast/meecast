@@ -12,7 +12,7 @@
 
         <ServiceApp Name="meecastdynamicboxapp" LifeDuration="30000" UseUi="True" Main="True" >
             <UiScalability BaseScreenSize="Normal" CoordinateSystem="Logical" LogicalCoordinate="720"/>
-            <UiTheme SystemTheme="Black"/>
+            <UiTheme SystemTheme="White"/>
             <DisplayNames>
                 <DisplayName Locale="eng-GB">MeeCast</DisplayName>
             </DisplayNames>

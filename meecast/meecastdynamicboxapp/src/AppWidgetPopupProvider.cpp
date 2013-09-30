@@ -7,6 +7,12 @@
 
 #include "MeecastDynamicBoxAppProvider.h"
 #include "MeecastDynamicBoxAppPopupProvider.h"
+#include <libintl.h>
+#include <locale.h>
+
+#define _(String) gettext(String)
+#define STRONG_WIND 8 
+
 
 using namespace Tizen::App;
 using namespace Tizen::Base;
@@ -56,14 +62,34 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
 	//pLabel->SetBackgroundColor(Color::GetColor(COLOR_ID_GREY));
     pLabel->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/popup_window.png"));
 	pAppWidgetPopup->AddControl(pLabel);
+
     /* Last Update */
     Label* __pLabelLastUpdate = new Label();
-    __pLabelLastUpdate->Construct(FloatRectangle(width/2.8, height/2.8, (width - width/2.8), (height - height/2.8)), L"");
-	__pLabelLastUpdate->SetTextConfig(30, LABEL_TEXT_STYLE_BOLD);
+    __pLabelLastUpdate->Construct(FloatRectangle(width/5, (height - height/3), (width - width/5), height/5), L"");
+	__pLabelLastUpdate->SetTextConfig(28, LABEL_TEXT_STYLE_BOLD);
 	__pLabelLastUpdate->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
-	__pLabelLastUpdate->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
+	__pLabelLastUpdate->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+	__pLabelLastUpdate->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
 
+    Label* __pLabelLastUpdateBG = new Label();
+    __pLabelLastUpdateBG->Construct(FloatRectangle(width/5, (height - height/3)+1 , (width - width/5), height/5), L"");
+	__pLabelLastUpdateBG->SetTextConfig(28, LABEL_TEXT_STYLE_BOLD);
+	__pLabelLastUpdateBG->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
+	__pLabelLastUpdateBG->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+	__pLabelLastUpdateBG->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
+   
+    /* Station name */
+    Label* __pLabelTown = new Label();
+    __pLabelTown->Construct(FloatRectangle(-10,  height/2.4, width - width/1.6, height/4), L"");
+    __pLabelTown->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+    __pLabelTown->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
+    __pLabelTown->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
 
+    Label* __pLabelTownBG = new Label();
+    __pLabelTownBG->Construct(FloatRectangle(-10 + 1, height/2.4 +1, width - width/1.6, height/4), L"");
+    __pLabelTownBG->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
+    __pLabelTownBG->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
+    __pLabelTownBG->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
 
 
     try{
@@ -102,19 +128,26 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
                 String languageCodeString = systemLocale.GetLanguageCodeString();
                 Tizen::Locales::DateTimeFormatter* pDateFormatter = DateTimeFormatter::CreateDateFormatterN(systemLocale, DATE_TIME_STYLE_DEFAULT);
                 Tizen::Locales::DateTimeFormatter* pTimeFormatter = DateTimeFormatter::CreateTimeFormatterN(systemLocale, DATE_TIME_STYLE_SHORT);
-        		String customizedPattern = L"dd MMM ";
+        		String customizedPattern = L" dd MMM";
 		        pDateFormatter->ApplyPattern(customizedPattern);
 		        pDateFormatter->Format(dt, dateString);
                 pTimeFormatter->Format(dt, timeString);
                 dateString.Append(timeString);
-                dateString.Insert(L"Last update: ",0);
-	            __pLabelLastUpdate->SetText(dateString);
+                dateString.Insert(_("Last update:"), 0);
+                __pLabelLastUpdate->SetText(dateString);
+	            __pLabelLastUpdateBG->SetText(dateString);
+	            pAppWidgetPopup->AddControl(__pLabelLastUpdateBG);
 	            pAppWidgetPopup->AddControl(__pLabelLastUpdate);
             }
     }else
         _dp = NULL;
 
-
+    if (_config->stationname().c_str()){
+       __pLabelTown->SetText(_config->stationname().c_str());
+       __pLabelTownBG->SetText(_config->stationname().c_str());
+        pAppWidgetPopup->AddControl(__pLabelTownBG);
+        pAppWidgetPopup->AddControl(__pLabelTown);
+    }
 
 	pAppWidgetPopup->Show();
 

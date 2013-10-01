@@ -118,6 +118,14 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
     Label* __pLabelMainWindIcon = new Label();
     __pLabelMainWindIcon->Construct(FloatRectangle((width/3.7), (height/18), 52+10, 52), L"");
 
+    /* Days labels */
+    Label* icon1 = new Label();
+    icon1->Construct(FloatRectangle(0, 0, 128, 128), L"");
+    Label* windicon1 = new Label();
+    windicon1->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
+    Label* windspeed1 = new Label();
+    windspeed1->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
+
 
     try{
         _config = Config::Instance( std::string("config.xml"),

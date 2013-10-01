@@ -883,6 +883,7 @@ meecastMainForm::ReInitElements(void){
 
     current_day = time(NULL);
 
+     AppLog("First Current day %li", current_day); 
     /* Set localtimezone */
     struct tm time_tm1;
     struct tm time_tm2;
@@ -893,7 +894,7 @@ meecastMainForm::ReInitElements(void){
     /* set current day */ 
     current_day = current_day + 3600*timezone; 
 
-    /* AppLog("Current day0 %li", current_day); */
+     AppLog("Current day0 %li", current_day); 
 
     tm = gmtime(&current_day);
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
@@ -901,7 +902,7 @@ meecastMainForm::ReInitElements(void){
     current_day = mktime(tm); /* today 00:00:00 */
     current_day = current_day + 3600*localtimezone - 3600*timezone; 
 
-    /* AppLog("Current day %li", current_day); */
+     AppLog("Current day %li", current_day); 
     /* AppLog("Local TimeZone %i", localtimezone); */
 
     /* fill other days */
@@ -909,7 +910,7 @@ meecastMainForm::ReInitElements(void){
     int j = 0;
     _dayCount = 0;
     while  (_config->dp != NULL && i < 3600*24*14) {
-        /* AppLog ("Result0 %li", current_day + 15*3600 + i - 3600*timezone); */
+         AppLog ("Result0 %li", current_day + 15*3600 + i); 
         if (_config->dp->data().GetDataForTime(current_day + 15*3600 + i)){
             __daysmap->Add(*(new (std::nothrow) Integer(_dayCount)), *(new (std::nothrow) Long(current_day + 15*3600 + i)));
             /* AppLog ("Result1 %li", current_day); */
@@ -934,7 +935,6 @@ meecastMainForm::ReInitElements(void){
     backgroundPanel->RequestRedraw();
     App* pApp = App::GetInstance();
     pApp->SendUserEvent(SEND_RELOAD_CONFIG, null);
-    AppLog("qqqqqqqqqqqqqqq");
 }
 
 void

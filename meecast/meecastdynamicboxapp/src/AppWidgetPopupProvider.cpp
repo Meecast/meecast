@@ -48,7 +48,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
 	TryReturn(pAppWidgetPopup, false, "Failed to allocate memory for AppWidgetPopup.");
 
 	const float width = 720.0;
-	const float height = 350.0;
+	const float height = 380.0;
 
     char  buffer[4096]; 
     String str;
@@ -58,10 +58,9 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
 	// Put your UI code here
 	Label* pLabel = new Label();
 	FloatRectangle popupClientAreaBounds = pAppWidgetPopup->GetClientAreaBounds();
-	FloatRectangle rect(0, 0, popupClientAreaBounds.width, popupClientAreaBounds.height);
+	FloatRectangle rect(0, 20, popupClientAreaBounds.width, popupClientAreaBounds.height - 20);
 
 	pLabel->Construct(rect, L"");
-	pLabel->SetTextConfig(30, LABEL_TEXT_STYLE_BOLD);
 	pLabel->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
 	pLabel->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
 	//pLabel->SetBackgroundColor(Color::GetColor(COLOR_ID_GREY));
@@ -111,14 +110,25 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
      
     /* Wind Speed */
     Label* __pLabelMainWindSpeed = new Label();
-    __pLabelMainWindSpeed->Construct(FloatRectangle((width/3.7) - 6, (height/18), 52+10, 52), L"");
+    __pLabelMainWindSpeed->Construct(FloatRectangle((width/3.7) - 6, (height/15), 52+10, 52), L"");
     __pLabelMainWindSpeed->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
 
     /* Wind icon */
     Label* __pLabelMainWindIcon = new Label();
-    __pLabelMainWindIcon->Construct(FloatRectangle((width/3.7), (height/18), 52+10, 52), L"");
+    __pLabelMainWindIcon->Construct(FloatRectangle((width/3.7), (height/15), 52+10, 52), L"");
 
     Label* icon1;
+    Label* icon2;
+    Label* icon3;
+    Label* icon4;
+    Label* windicon1;
+    Label* windicon2;
+    Label* windicon3;
+    Label* windicon4;
+    Label* windspeed1;
+    Label* windspeed2;
+    Label* windspeed3;
+    Label* windspeed4;
     /* Days labels */
     /*
     Label* icon1 = new Label();
@@ -132,34 +142,16 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
     Label* temperature1 = new Label();
     temperature1->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
 */
-    Label* icon2 = new Label();
-    icon2->Construct(FloatRectangle(0, 0, 128, 128), L"");
-    Label* windicon2 = new Label();
-    windicon2->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
-    Label* windspeed2 = new Label();
-    windspeed2->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
     Label* dayname2 = new Label();
     dayname2->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
     Label* temperature2 = new Label();
     temperature2->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
 
-    Label* icon3 = new Label();
-    icon3->Construct(FloatRectangle(0, 0, 128, 128), L"");
-    Label* windicon3 = new Label();
-    windicon3->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
-    Label* windspeed3 = new Label();
-    windspeed3->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
     Label* dayname3 = new Label();
     dayname3->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
     Label* temperature3 = new Label();
     temperature3->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
 
-    Label* icon4 = new Label();
-    icon4->Construct(FloatRectangle(0, 0, 128, 128), L"");
-    Label* windicon4 = new Label();
-    windicon4->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
-    Label* windspeed4 = new Label();
-    windspeed4->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
     Label* dayname4 = new Label();
     dayname4->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
     Label* temperature4 = new Label();
@@ -202,7 +194,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
                 String languageCodeString = systemLocale.GetLanguageCodeString();
                 Tizen::Locales::DateTimeFormatter* pDateFormatter = DateTimeFormatter::CreateDateFormatterN(systemLocale, DATE_TIME_STYLE_DEFAULT);
                 Tizen::Locales::DateTimeFormatter* pTimeFormatter = DateTimeFormatter::CreateTimeFormatterN(systemLocale, DATE_TIME_STYLE_SHORT);
-        		String customizedPattern = L" dd MMM";
+        		String customizedPattern = L" dd MMM ";
 		        pDateFormatter->ApplyPattern(customizedPattern);
 		        pDateFormatter->Format(dt, dateString);
                 pTimeFormatter->Format(dt, timeString);
@@ -390,6 +382,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
     struct tm   *tm = NULL;
 
     int localtimezone = 0;
+    int timezone = 0;
     /* Timezone */
     if (_dp != NULL){
         timezone = _dp->timezone();
@@ -399,7 +392,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
 
     current_day = time(NULL);
 
-     AppLog("First Current day %li", current_day); 
+    /*  AppLog("First Current day %li", current_day); */
     /* Set localtimezone */
     struct tm time_tm1;
     struct tm time_tm2;
@@ -408,18 +401,19 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
     localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
 
     /* set current day */ 
-//    current_day = current_day + 3600*timezone; 
+    current_day = current_day + 3600*timezone; 
 
-    AppLog("Current day0 %li", current_day); 
+    /* AppLog("Current day0 %li", current_day); */
 
     tm = gmtime(&current_day);
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     tm->tm_isdst = 1;
     current_day = mktime(tm); /* today 00:00:00 */
+    AppLog("Current day before %li", current_day);
     current_day = current_day + 3600*localtimezone - 3600*timezone; 
 
-    AppLog("Current day %li", current_day);
-     AppLog("Local TimeZone %i", localtimezone); 
+    /* AppLog("Current day %li", current_day); */
+    /* AppLog("Local TimeZone %i Remote timezone %i", localtimezone, timezone); */
 
     /* fill other days */
     int i = 3600*24;
@@ -429,7 +423,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
         if ((temp_data = _dp->data().GetDataForTime(current_day + 15*3600 + i)) != null){
             Tizen::Base::Integer icon_int = temp_data->Icon();
             Label* icon = new Label();
-            icon->Construct(FloatRectangle(250 + (_dayCount -1)*110 , 0, 64, 64), L"");
+            icon->Construct(FloatRectangle(255 + (_dayCount -1)*110 , 0, 80, 80), L"");
 
             if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png")){
                 /* Main Icon */ 
@@ -444,19 +438,71 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
                 SAFE_DELETE(image);
                 SAFE_DELETE(mainIconBitmap);
             }
+
+            Label* windicon = new Label();
+            windicon->Construct(FloatRectangle(275 + (_dayCount -1)*110 , 75, 52 + 10, 52), L"");
+            /* Main wind direction */
+            if (temp_data->WindDirection() != "N/A"){
+                snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
+                Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                if (temp_data->WindSpeed().value() > STRONG_WIND){
+                    str.Append("_warning");
+                }
+                /* AppLog("Wind1 %S", str.GetPointer()); */
+                if (str == "CALM" || Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
+                    /* Wind direction Icon */ 
+                    Tizen::Media::Image *image = null;
+                    Tizen::Graphics::Bitmap* windIconBitmap = null;
+                    image = new (std::nothrow) Tizen::Media::Image();
+                    image->Construct();
+                    
+                    if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
+                        windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+                        windicon->SetBackgroundBitmap(*windIconBitmap);
+                        windicon->SetSize(windIconBitmap->GetWidth(), windIconBitmap->GetHeight());
+                        SAFE_DELETE(image);
+                        SAFE_DELETE(windIconBitmap);
+                    }
+                }
+            }
+            Label* windspeed = new Label();
+            windspeed->Construct(FloatRectangle(275 + (_dayCount -1)*110 - 6 , 75, 52 + 10, 52), L"");
+            windspeed->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
+            /* wind speed */
+            if (temp_data->WindSpeed().value() != INT_MAX){
+                windspeed->SetShowState(true);
+                snprintf (buffer, sizeof(buffer) -1, "%0.f", 
+                                                 temp_data->WindSpeed().value());
+                Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                windspeed->SetText(str);
+            }else{
+                windspeed->SetShowState(false);
+            }
+
+
+            pAppWidgetPopup->AddControl(windicon);
+            pAppWidgetPopup->AddControl(windspeed);
             pAppWidgetPopup->AddControl(icon);
             switch (_dayCount){
                 case 1:
                     icon1=icon;
+                    windicon1=windicon;
+                    windspeed1=windspeed;
                     break;  
                 case 2:
                     icon2=icon;
+                    windicon2=windicon;
+                    windspeed2=windspeed;
                     break;
                 case 3:
                     icon3=icon;
+                    windicon3=windicon;
+                    windspeed3=windspeed;
                     break;
                 case 4:
                     icon4=icon;
+                    windicon4=windicon;
+                    windspeed4=windspeed;
                     break;
             }
     //        __daysmap->Add(*(new (std::nothrow) Integer(_dayCount)), *(new (std::nothrow) Long(current_day + 15*3600 + i)));

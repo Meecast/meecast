@@ -69,14 +69,14 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
 
     /* Last Update */
     Label* __pLabelLastUpdate = new Label();
-    __pLabelLastUpdate->Construct(FloatRectangle(width/5, (height - height/3), (width - width/5), height/5), L"");
+    __pLabelLastUpdate->Construct(FloatRectangle(width/6, (height - height/3.05), (width - width/6), height/5), L"");
 	__pLabelLastUpdate->SetTextConfig(28, LABEL_TEXT_STYLE_BOLD);
 	__pLabelLastUpdate->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
 	__pLabelLastUpdate->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
 	__pLabelLastUpdate->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
 
     Label* __pLabelLastUpdateBG = new Label();
-    __pLabelLastUpdateBG->Construct(FloatRectangle(width/5, (height - height/3)+1 , (width - width/5), height/5), L"");
+    __pLabelLastUpdateBG->Construct(FloatRectangle(width/6, (height - height/3.05)+1 , (width - width/6), height/5), L"");
 	__pLabelLastUpdateBG->SetTextConfig(28, LABEL_TEXT_STYLE_BOLD);
 	__pLabelLastUpdateBG->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
 	__pLabelLastUpdateBG->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
@@ -84,13 +84,13 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
    
     /* Station name */
     Label* __pLabelTown = new Label();
-    __pLabelTown->Construct(FloatRectangle(-10,  height/2.3, width - width/1.6, height/4), L"");
+    __pLabelTown->Construct(FloatRectangle(-10,  height/2.3, width - width/1.6, height/3.5), L"");
     __pLabelTown->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
     __pLabelTown->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
     __pLabelTown->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
 
     Label* __pLabelTownBG = new Label();
-    __pLabelTownBG->Construct(FloatRectangle(-10 + 1, height/2.3 +1, width - width/1.6, height/4), L"");
+    __pLabelTownBG->Construct(FloatRectangle(-10 + 1, height/2.3 +1, width - width/1.6, height/3.5), L"");
     __pLabelTownBG->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
     __pLabelTownBG->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
     __pLabelTownBG->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
@@ -129,6 +129,15 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
     Label* windspeed2;
     Label* windspeed3;
     Label* windspeed4;
+    Label* temperature_hi1;
+    Label* temperature_hi2;
+    Label* temperature_hi3;
+    Label* temperature_hi4;
+    Label* temperature_low1;
+    Label* temperature_low2;
+    Label* temperature_low3;
+    Label* temperature_low4;
+
     /* Days labels */
     /*
     Label* icon1 = new Label();
@@ -478,31 +487,67 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
             }else{
                 windspeed->SetShowState(false);
             }
+            /* Temperatures */
 
+            Label* temperature_hi = new Label();
+            temperature_hi->Construct(FloatRectangle(250 + (_dayCount -1)*110, 165, 110, 70), L"");
+            temperature_hi->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+
+            Label* temperature_low = new Label();
+            temperature_low->Construct(FloatRectangle(250 + (_dayCount -1)*110, 215, 110, 70), L"");
+            temperature_low->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+
+
+            if (temp_data->temperature_low().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
+                Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                temperature_low->SetText(str);
+	            temperature_low->SetTextColor(Color::GetColor(COLOR_ID_GREY));
+                temperature_low->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
+                temperature_low->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
+            }
+            if (temp_data->temperature_hi().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
+                Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                temperature_hi->SetText(str);
+	            temperature_hi->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+                temperature_hi->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
+                temperature_hi->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
+            }
 
             pAppWidgetPopup->AddControl(windicon);
             pAppWidgetPopup->AddControl(windspeed);
             pAppWidgetPopup->AddControl(icon);
+            pAppWidgetPopup->AddControl(temperature_low);
+            pAppWidgetPopup->AddControl(temperature_hi);
             switch (_dayCount){
                 case 1:
-                    icon1=icon;
-                    windicon1=windicon;
-                    windspeed1=windspeed;
+                    icon1 = icon;
+                    windicon1 = windicon;
+                    windspeed1 = windspeed;
+                    temperature_hi1 = temperature_hi;
+                    temperature_low1 = temperature_low;
                     break;  
                 case 2:
                     icon2=icon;
                     windicon2=windicon;
                     windspeed2=windspeed;
+                    temperature_hi2 = temperature_hi;
+                    temperature_low2 = temperature_low;
                     break;
                 case 3:
                     icon3=icon;
                     windicon3=windicon;
                     windspeed3=windspeed;
+                    temperature_hi3 = temperature_hi;
+                    temperature_low3 = temperature_low;
                     break;
                 case 4:
                     icon4=icon;
                     windicon4=windicon;
                     windspeed4=windspeed;
+                    temperature_hi4 = temperature_hi;
+                    temperature_low4 = temperature_low;
                     break;
             }
     //        __daysmap->Add(*(new (std::nothrow) Integer(_dayCount)), *(new (std::nothrow) Long(current_day + 15*3600 + i)));

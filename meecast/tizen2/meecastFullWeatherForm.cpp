@@ -678,7 +678,7 @@ meecastFullWeatherForm::ReInitElements(void){
                 gmtime_r(&sun_rise_time, &tm1);
                 /* Convert date and time */
                 DateTime dt;
-                dt.SetValue(tm1.tm_year, tm1.tm_mon + 1, tm1.tm_mday, tm1.tm_hour, tm1.tm_min);
+                dt.SetValue(1900 + tm1.tm_year, tm1.tm_mon + 1, tm1.tm_mday, tm1.tm_hour, tm1.tm_min);
                 String dateString;
                 String timeString;
                 LocaleManager localeManager;
@@ -700,7 +700,7 @@ meecastFullWeatherForm::ReInitElements(void){
                 gmtime_r(&sun_set_time, &tm1);
                 /* Convert date and time */
                 DateTime dt;
-                dt.SetValue(tm1.tm_year, tm1.tm_mon + 1, tm1.tm_mday, tm1.tm_hour, tm1.tm_min);
+                dt.SetValue(1900 + tm1.tm_year, tm1.tm_mon + 1, tm1.tm_mday, tm1.tm_hour, tm1.tm_min);
                 String dateString;
                 String timeString;
                 LocaleManager localeManager;
@@ -728,7 +728,7 @@ meecastFullWeatherForm::ReInitElements(void){
 
                 /* Convert date and time */
                 DateTime dt;
-                dt.SetValue(tm1.tm_year, tm1.tm_mon + 1, tm1.tm_mday, tm1.tm_hour, tm1.tm_min);
+                dt.SetValue(1900 + tm1.tm_year, tm1.tm_mon + 1, tm1.tm_mday, tm1.tm_hour, tm1.tm_min);
                 String dateString;
                 String timeString;
                 LocaleManager localeManager;
@@ -955,7 +955,7 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
                 struct tm   *tm1 = NULL;
                 day_and_time = temp_data->StartTime() + _config->dp->timezone()*3600;
                 tm1 = gmtime(&(day_and_time));
-                dt.SetValue(tm1->tm_year, tm1->tm_mon + 1, tm1->tm_mday, tm1->tm_hour, tm1->tm_min);
+                dt.SetValue(1900 + tm1->tm_year, tm1->tm_mon + 1, tm1->tm_mday, tm1->tm_hour, tm1->tm_min);
                 String dateString;
                 String timeString;
                 LocaleManager localeManager;

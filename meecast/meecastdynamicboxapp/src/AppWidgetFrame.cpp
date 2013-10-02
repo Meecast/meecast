@@ -396,11 +396,11 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
             __pLabelBackgroundTown->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
         }
         __pLabelBackgroundTown->SetShowState(true);
-        __pLabelBackgroundTown->SetSize(Dimension(bounds.width + 40, (bounds.height - bounds.height/1.5)));
+        __pLabelBackgroundTown->SetSize(Dimension(bounds.width + 40, (bounds.height - bounds.height/2.6)));
         __pLabelBackgroundTown->SetPosition((bounds.x  + 1), (bounds.height - bounds.height/2.5 + 1));
 
         __pLabelTown->SetShowState(true);
-        __pLabelTown->SetSize(Dimension(bounds.width + 40, (bounds.height - bounds.height/1.5)));
+        __pLabelTown->SetSize(Dimension(bounds.width + 40, (bounds.height - bounds.height/2.6)));
         __pLabelTown->SetPosition((bounds.x), (bounds.height - bounds.height/2.5));
 
         __pLabelMainDescription->SetShowState(true);

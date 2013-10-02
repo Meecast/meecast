@@ -402,12 +402,12 @@ void
 meecastMainForm::OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){
     SceneManager* pSceneManager = SceneManager::GetInstance();
     AppAssert(pSceneManager);
-    AppLog("OnTouchReleased");
+    /* AppLog("OnTouchReleased"); */
     Tizen::Ui::Controls::Panel *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
     Tizen::Ui::Controls::Label  *source_icon_label = static_cast<Label*>(GetControl(L"IDC_LABEL_SOURCE_ICON"));
 	if (__gestureDetected == false){
         if (source.Equals(*pTouchArea) && _config->stationsList().size() > 0){
-            AppLog("BackGround Touch Screen");
+            /* AppLog("BackGround Touch Screen"); */
             Tizen::Base::Collection::ArrayList* pList = new (std::nothrow)Tizen::Base::Collection::ArrayList();
 		    pList->Construct();
 		    pList->Add(*new (std::nothrow) Integer(0));
@@ -416,7 +416,7 @@ meecastMainForm::OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::
         if (source.Equals(*source_icon_label)){
             if (_config->stationsList().size() > 0){
                 AppControlBrowser(_config->stationsList().at(_config->current_station_id())->viewURL().c_str());
-                AppLog("Source Touch Screen %s", _config->stationsList().at(_config->current_station_id())->viewURL().c_str());
+                /* AppLog("Source Touch Screen %s", _config->stationsList().at(_config->current_station_id())->viewURL().c_str());*/
             }
 	    }
 	}
@@ -941,7 +941,7 @@ void
 meecastMainForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
                                           const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs){
 
-    AppLog("meecastMainForm::OnSceneActivatedN");
+    /* AppLog("meecastMainForm::OnSceneActivatedN"); */
     ReInitElements(); 
 
     Tizen::Ui::Controls::Label  *source_icon_label = static_cast<Label*>(GetControl(L"IDC_LABEL_SOURCE_ICON"));
@@ -961,7 +961,7 @@ meecastMainForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSce
     if(_config->Gps() && main_set_try_update_button->GetShowState()){
         UpdateWeatherForecast();
     }
-    AppLog("meecastMainForm::OnSceneActivatedN end");
+   /* AppLog("meecastMainForm::OnSceneActivatedN end"); */
 }
 
 void
@@ -1198,7 +1198,7 @@ meecastMainForm::UpdateGpsPosition(){
             messageBox.Construct(L"Error", "The user has disabled the required settings.", MSGBOX_STYLE_OK, 0);
             messageBox.ShowAndWait(doModal);
         }else{
-            AppLog("Yes!!!");
+            /* AppLog("Yes!!!"); */
             AppLog ("Latitude %d",location.GetCoordinates().GetLatitude());
             AppLog ("Longitude %d",location.GetCoordinates().GetLongitude());
             String dbPath;

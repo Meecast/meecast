@@ -137,35 +137,10 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
     Label* temperature_low2;
     Label* temperature_low3;
     Label* temperature_low4;
-
-    /* Days labels */
-    /*
-    Label* icon1 = new Label();
-    icon1->Construct(FloatRectangle(0, 0, 128, 128), L"");
-    Label* windicon1 = new Label();
-    windicon1->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
-    Label* windspeed1 = new Label();
-    windspeed1->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
-    Label* dayname1 = new Label();
-    dayname1->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
-    Label* temperature1 = new Label();
-    temperature1->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
-*/
-    Label* dayname2 = new Label();
-    dayname2->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
-    Label* temperature2 = new Label();
-    temperature2->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
-
-    Label* dayname3 = new Label();
-    dayname3->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
-    Label* temperature3 = new Label();
-    temperature3->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
-
-    Label* dayname4 = new Label();
-    dayname4->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
-    Label* temperature4 = new Label();
-    temperature4->Construct(FloatRectangle(0, 0, 52 + 10, 52), L"");
-
+    Label* dayname1;
+    Label* dayname2;
+    Label* dayname3;
+    Label* dayname4;
 
     try{
         _config = Config::Instance( std::string("config.xml"),
@@ -302,6 +277,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
             t = temp_data->temperature().value();
         }
 
+
 //        Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(t);
 //        backgroundPanel->SetBackgroundColor(*color_of_temp);
 //        delete color_of_temp;
@@ -313,16 +289,22 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
         __pLabelMainTemperature->RequestRedraw();
         __pLabelMainTemperatureBackground->RequestRedraw();
 
-        if (__pLabelMainTemperature->GetText().GetLength()<6){
-            __pLabelMainTemperature->SetTextConfig(58, LABEL_TEXT_STYLE_BOLD);
-            __pLabelMainTemperatureBackground->SetTextConfig(58, LABEL_TEXT_STYLE_BOLD);
+
+        if (__pLabelMainTemperature->GetText().GetLength()<4){
+            __pLabelMainTemperature->SetTextConfig(68, LABEL_TEXT_STYLE_BOLD);
+            __pLabelMainTemperatureBackground->SetTextConfig(68, LABEL_TEXT_STYLE_BOLD);
         }else{
-            if (__pLabelMainTemperature->GetText().GetLength()<9){
-                __pLabelMainTemperature->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
-                __pLabelMainTemperatureBackground->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
+            if (__pLabelMainTemperature->GetText().GetLength()<6){
+                __pLabelMainTemperature->SetTextConfig(58, LABEL_TEXT_STYLE_BOLD);
+                __pLabelMainTemperatureBackground->SetTextConfig(58, LABEL_TEXT_STYLE_BOLD);
             }else{
-                __pLabelMainTemperature->SetTextConfig(32, LABEL_TEXT_STYLE_BOLD);
-                __pLabelMainTemperatureBackground->SetTextConfig(32, LABEL_TEXT_STYLE_BOLD);
+                if (__pLabelMainTemperature->GetText().GetLength()<9){
+                    __pLabelMainTemperature->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
+                    __pLabelMainTemperatureBackground->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
+                }else{
+                    __pLabelMainTemperature->SetTextConfig(32, LABEL_TEXT_STYLE_BOLD);
+                    __pLabelMainTemperatureBackground->SetTextConfig(32, LABEL_TEXT_STYLE_BOLD);
+                }
             }
         }
 
@@ -432,7 +414,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
         if ((temp_data = _dp->data().GetDataForTime(current_day + 15*3600 + i)) != null){
             Tizen::Base::Integer icon_int = temp_data->Icon();
             Label* icon = new Label();
-            icon->Construct(FloatRectangle(255 + (_dayCount -1)*110 , 0, 80, 80), L"");
+            icon->Construct(FloatRectangle(260 + (_dayCount -1)*110 , 0, 80, 80), L"");
 
             if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png")){
                 /* Main Icon */ 
@@ -477,7 +459,8 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
             Label* windspeed = new Label();
             windspeed->Construct(FloatRectangle(275 + (_dayCount -1)*110 - 6 , 75, 52 + 10, 52), L"");
             windspeed->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
-            /* wind speed */
+
+            /* Wind speed */
             if (temp_data->WindSpeed().value() != INT_MAX){
                 windspeed->SetShowState(true);
                 snprintf (buffer, sizeof(buffer) -1, "%0.f", 
@@ -487,8 +470,33 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
             }else{
                 windspeed->SetShowState(false);
             }
-            /* Temperatures */
+            /* Day name */
+            Label* day_name = new Label();
+            day_name->Construct(FloatRectangle(245 + (_dayCount -1)*110, 115, 110, 70), L"");
+            day_name->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
+            /* Convert date and time */
+            DateTime dt;
+            time_t day_and_time;
+            struct tm   *tm1 = NULL;
+            day_and_time = temp_data->StartTime() + _dp->timezone()*3600;
+            tm1 = gmtime(&(day_and_time));
+            dt.SetValue(1900 + tm1->tm_year, tm1->tm_mon + 1, tm1->tm_mday, tm1->tm_hour, tm1->tm_min);
+            String dateString;
+            String timeString;
+            LocaleManager localeManager;
+            localeManager.Construct();
+            Locale  systemLocale = localeManager.GetSystemLocale();
+            String countryCodeString = systemLocale.GetCountryCodeString();
+            String languageCodeString = systemLocale.GetLanguageCodeString();
+            Tizen::Locales::DateTimeFormatter* pDateFormatter = DateTimeFormatter::CreateDateFormatterN(systemLocale, DATE_TIME_STYLE_SHORT);
+            String customizedPattern = L"E";
+            pDateFormatter->ApplyPattern(customizedPattern);
+            pDateFormatter->Format(dt, dateString);
 
+//          Tizen::Base::Utility::StringUtil::Utf8ToString(temp_data->ShortDayName().c_str(), str);
+            day_name->SetText(dateString);
+
+            /* Temperatures */
             Label* temperature_hi = new Label();
             temperature_hi->Construct(FloatRectangle(250 + (_dayCount -1)*110, 165, 110, 70), L"");
             temperature_hi->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
@@ -520,6 +528,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
             pAppWidgetPopup->AddControl(icon);
             pAppWidgetPopup->AddControl(temperature_low);
             pAppWidgetPopup->AddControl(temperature_hi);
+            pAppWidgetPopup->AddControl(day_name);
             switch (_dayCount){
                 case 1:
                     icon1 = icon;
@@ -527,6 +536,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
                     windspeed1 = windspeed;
                     temperature_hi1 = temperature_hi;
                     temperature_low1 = temperature_low;
+                    dayname1 = day_name;
                     break;  
                 case 2:
                     icon2=icon;
@@ -534,6 +544,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
                     windspeed2=windspeed;
                     temperature_hi2 = temperature_hi;
                     temperature_low2 = temperature_low;
+                    dayname2 = day_name;
                     break;
                 case 3:
                     icon3=icon;
@@ -541,6 +552,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
                     windspeed3=windspeed;
                     temperature_hi3 = temperature_hi;
                     temperature_low3 = temperature_low;
+                    dayname3 = day_name;
                     break;
                 case 4:
                     icon4=icon;
@@ -548,6 +560,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
                     windspeed4=windspeed;
                     temperature_hi4 = temperature_hi;
                     temperature_low4 = temperature_low;
+                    dayname4 = day_name;
                     break;
             }
     //        __daysmap->Add(*(new (std::nothrow) Integer(_dayCount)), *(new (std::nothrow) Long(current_day + 15*3600 + i)));

@@ -377,7 +377,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
     /* Timezone */
     if (_dp != NULL){
         timezone = _dp->timezone();
-        AppLog("TimeZone %i", timezone);
+        /* AppLog("TimeZone %i", timezone); */
     }
 
 
@@ -400,7 +400,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     tm->tm_isdst = 1;
     current_day = mktime(tm); /* today 00:00:00 */
-    AppLog("Current day before %li", current_day);
+    /* AppLog("Current day before %li", current_day); */
     current_day = current_day + 3600*localtimezone - 3600*timezone; 
 
     /* AppLog("Current day %li", current_day); */
@@ -565,12 +565,22 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
             }
     //        __daysmap->Add(*(new (std::nothrow) Integer(_dayCount)), *(new (std::nothrow) Long(current_day + 15*3600 + i)));
              /* AppLog ("Result1 %li", current_day); */
-            AppLog ("Result %li", current_day + 15*3600 + i);
+            /* AppLog ("Result %li", current_day + 15*3600 + i); */
             _dayCount ++;
         }
         i = i + 3600*24;
     }
 
+    /* Launcher Button */
+    Button* __pLauncherButton = new Button();
+    __pLauncherButton->Construct(Tizen::Graphics::Rectangle((width/1.12), (height/1.4), 45, 45), ""); 
+    __pLauncherButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mainmenu.png"));
+    __pLauncherButton->SetPressedBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mainmenu.png"));
+
+    __pLauncherButton->SetActionId(ID_BUTTON_LAUNCHER);
+    __pLauncherButton->AddActionEventListener(*this);
+
+    pAppWidgetPopup->AddControl(__pLauncherButton);
 
 	pAppWidgetPopup->Show();
 
@@ -579,9 +589,29 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
 }
 
 void
-MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderTerminating(void)
-{
+MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderTerminating(void){
 	// TODO:
 	// Deallocate resources allocated by this AppWidget provider for termination.
 	// The AppWidget provider's permanent data and context can be saved via appRegistry.
 }
+
+void
+MeecastDynamicBoxAppPopupProvider::OnActionPerformed(const Tizen::Ui::Control& source, int actionId){
+    AppLog("Check Action");
+    String repAppId(15);
+    repAppId = L"ctLjIIgCCj.meecast";
+    AppId appId(repAppId);
+    AppManager* pAppManager = AppManager::GetInstance();
+    result r = E_FAILURE;
+    switch(actionId){
+        case ID_BUTTON_LAUNCHER:
+            AppLog("sssssssssssssssssssssss");
+
+            r = pAppManager->LaunchApplication(repAppId, null);
+
+            break;
+        default:
+            break;
+    }
+}
+

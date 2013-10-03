@@ -43,15 +43,19 @@
  */
 class MeecastDynamicBoxAppPopupProvider
 	: public Tizen::Shell::AppWidgetPopupProvider
+	, public Tizen::Ui::IActionEventListener
 {
 public:
 	MeecastDynamicBoxAppPopupProvider();
 	virtual ~MeecastDynamicBoxAppPopupProvider();
     void Update();
+	virtual void OnActionPerformed(const Tizen::Ui::Control& source, int actionId);
 
 protected:
 	virtual bool OnAppWidgetPopupProviderInitializing(const Tizen::Base::String& userInfo);
 	virtual void OnAppWidgetPopupProviderTerminating(void);
+
+    static const int ID_BUTTON_LAUNCHER = 101;
 private:
     Core::Config *_config;
     Core::DataParser* _dp;

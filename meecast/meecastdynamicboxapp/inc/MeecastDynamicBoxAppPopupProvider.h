@@ -44,17 +44,36 @@
 class MeecastDynamicBoxAppPopupProvider
 	: public Tizen::Shell::AppWidgetPopupProvider
 	, public Tizen::Ui::IActionEventListener
+    , public Tizen::Ui::ITouchFlickGestureEventListener
+    , public Tizen::Ui::ITouchEventListener
 {
 public:
 	MeecastDynamicBoxAppPopupProvider();
 	virtual ~MeecastDynamicBoxAppPopupProvider();
     void Update();
 	virtual void OnActionPerformed(const Tizen::Ui::Control& source, int actionId);
+// from ITouchEventListener
+	virtual void OnTouchPressed(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo);
+	virtual void OnTouchDoublePressed(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
+	virtual void OnTouchFocusIn(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
+	virtual void OnTouchFocusOut(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
+	virtual void OnTouchLongPressed(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
+	virtual void OnTouchMoved(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
+	virtual void OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo);
+    //Gesture
+	virtual void OnFlickGestureDetected(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
+	virtual void OnFlickGestureCanceled(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
+    void NextStation();
+    void PreviousStation();
+
+
 
 protected:
 	virtual bool OnAppWidgetPopupProviderInitializing(const Tizen::Base::String& userInfo);
 	virtual void OnAppWidgetPopupProviderTerminating(void);
 
+	bool __gestureDetected;
+	Tizen::Ui::TouchFlickGestureDetector* __pFlickGesture;
     static const int ID_BUTTON_LAUNCHER = 101;
 private:
     Core::Config *_config;

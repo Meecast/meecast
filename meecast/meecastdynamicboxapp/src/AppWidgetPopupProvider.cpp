@@ -25,7 +25,7 @@ using namespace Core;
 using namespace Tizen::Base::Collection;
 using namespace Tizen::Locales;
 
-MeecastDynamicBoxAppPopupProvider::MeecastDynamicBoxAppPopupProvider()
+MeecastDynamicBoxAppPopupProvider::MeecastDynamicBoxAppPopupProvider(): __pFlickGesture(null)
 {
 
 }
@@ -582,6 +582,13 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
 
     pAppWidgetPopup->AddControl(__pLauncherButton);
 
+	__pFlickGesture = new (std::nothrow) TouchFlickGestureDetector;
+	if (__pFlickGesture != null){
+		__pFlickGesture->Construct();
+        pAppWidgetPopup->AddGestureDetector(*__pFlickGesture);
+    	__pFlickGesture->AddFlickGestureEventListener(*this);
+	}
+
 	pAppWidgetPopup->Show();
 
 	SetAppWidgetPopup(pAppWidgetPopup);
@@ -613,5 +620,139 @@ MeecastDynamicBoxAppPopupProvider::OnActionPerformed(const Tizen::Ui::Control& s
         default:
             break;
     }
+}
+
+
+
+
+void
+MeecastDynamicBoxAppPopupProvider::OnTouchPressed(const Tizen::Ui::Control& source, 
+                                const Tizen::Graphics::Point& currentPosition,
+		                        const Tizen::Ui::TouchEventInfo& touchInfo) {
+
+	__gestureDetected = false;
+    /*
+    AppLog("Touch Pressed");
+    SceneManager* pSceneManager = SceneManager::GetInstance();
+    AppAssert(pSceneManager);
+    Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
+    Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
+    if (source.Equals(*left_label)){
+        PreviousStation();
+        AppLog("Left Touch Screen");
+    }
+    if (source.Equals(*right_label)){
+        NextStation();
+        AppLog("Right Touch Screen");
+	}
+*/
+
+}
+
+void
+MeecastDynamicBoxAppPopupProvider::OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){
+#if 0
+    SceneManager* pSceneManager = SceneManager::GetInstance();
+    AppAssert(pSceneManager);
+    /* AppLog("OnTouchReleased"); */
+    Tizen::Ui::Controls::Panel *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
+    Tizen::Ui::Controls::Label  *source_icon_label = static_cast<Label*>(GetControl(L"IDC_LABEL_SOURCE_ICON"));
+	if (__gestureDetected == false){
+        if (source.Equals(*pTouchArea) && _config->stationsList().size() > 0){
+            /* AppLog("BackGround Touch Screen"); */
+            Tizen::Base::Collection::ArrayList* pList = new (std::nothrow)Tizen::Base::Collection::ArrayList();
+		    pList->Construct();
+		    pList->Add(*new (std::nothrow) Integer(0));
+            pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_FULLWEATHERSCENE"), pList);
+	    }
+        if (source.Equals(*source_icon_label)){
+            if (_config->stationsList().size() > 0){
+                AppControlBrowser(_config->stationsList().at(_config->current_station_id())->viewURL().c_str());
+                /* AppLog("Source Touch Screen %s", _config->stationsList().at(_config->current_station_id())->viewURL().c_str());*/
+            }
+	    }
+	}
+ #endif
+}
+
+
+void
+MeecastDynamicBoxAppPopupProvider::OnFlickGestureDetected(TouchFlickGestureDetector& gestureDetector)
+{
+    AppLog("Flick detected!");
+	Rectangle rc(0, 0, 0, 0);
+	Point point(0, 0);
+
+
+    /*
+    Tizen::Ui::Controls::Panel 
+        *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
+    Tizen::Ui::Controls::ListView  
+        *main_listview_forecast = static_cast<ListView*>(GetControl(L"IDC_LISTVIEW_FORECASTS"));
+	if (pTouchArea != null) {
+		rc = pTouchArea->GetBounds();
+
+		Touch touch;
+		point = touch.GetPosition(*pTouchArea);
+	}
+
+	if (point.y < 0 || point.y > rc.height)
+	{
+        AppLog("Problem with Flick");
+		    return;
+	}
+*/
+//	pTouchArea->Invalidate(false);
+
+	FlickDirection direction = gestureDetector.GetDirection();
+	switch(direction){
+        case FLICK_DIRECTION_RIGHT:
+//            PreviousStation();
+            AppLog("Flick detected RIGHT");
+            break;
+        case FLICK_DIRECTION_LEFT:
+  //          NextStation();
+            AppLog("Flick detected LEFT");
+            break;
+        case FLICK_DIRECTION_UP:
+            AppLog("Flick detected UP");
+            break;
+        case FLICK_DIRECTION_DOWN:
+            AppLog("Flick detected DOWN");
+            break;
+        case FLICK_DIRECTION_NONE:
+        default:
+            AppLog("Flick detected NONE");
+            break;
+	}
+    AppLog("Flick detected");
+	__gestureDetected = true;
+ //   Invalidate(false);
+}
+
+void
+MeecastDynamicBoxAppPopupProvider::OnFlickGestureCanceled(TouchFlickGestureDetector& gestureDetector)
+{
+    AppLog("Flick canceled!");
+}
+
+void
+MeecastDynamicBoxAppPopupProvider::PreviousStation(){
+    if ((uint)(_config->current_station_id() - 1) >= 0)
+        _config->current_station_id(_config->current_station_id() - 1);
+    else
+        _config->current_station_id(_config->stationsList().size());
+    _config->saveConfig();
+  //  ReInitElements(); 
+}
+
+void
+meecastMainForm::NextStation(){
+    if ((uint)(_config->current_station_id() + 1) < _config->stationsList().size())
+        _config->current_station_id(_config->current_station_id() + 1);
+    else
+       _config->current_station_id(0);
+    _config->saveConfig();
+//    ReInitElements(); 
 }
 

@@ -12,7 +12,8 @@
 
 #define _(String) gettext(String)
 #define STRONG_WIND 8 
-#define SAFE_DELETE(x)  if (x) { delete x; x = null; }
+#define SAFE_DELETE(x)  if (x) {delete x; x = null; }
+#define SAFE_DELETE2(x)  if (x) {__pAppWidgetPopup->RemoveControl(x); x = null; }
 
 
 using namespace Tizen::App;
@@ -25,122 +26,125 @@ using namespace Core;
 using namespace Tizen::Base::Collection;
 using namespace Tizen::Locales;
 
-MeecastDynamicBoxAppPopupProvider::MeecastDynamicBoxAppPopupProvider(): __pFlickGesture(null)
+MeecastDynamicBoxAppPopupProvider::MeecastDynamicBoxAppPopupProvider():  __pFlickGesture(null)
+                                                                        ,__pAppWidgetPopup(null)
+                                                                        ,__pLabelLastUpdate(null)
+                                                                        ,__pLabelLastUpdateBG(null)
+                                                                        ,__pLabelTown(null)
+                                                                        ,__pLabelTownBG(null)
+                                                                        ,__pLabelMainIcon(null)
+                                                                        ,__pLabelMainTemperature(null)
+                                                                        ,__pLabelMainTemperatureBG(null)
+                                                                        ,__pLabelMainWindSpeed(null)
+                                                                        ,__pLabelMainWindIcon(null)
+                                                                        ,icon1(null)
+                                                                        ,icon2(null)
+                                                                        ,icon3(null)
+                                                                        ,icon4(null)
+                                                                        ,windicon1(null)
+                                                                        ,windicon2(null)
+                                                                        ,windicon3(null)
+                                                                        ,windicon4(null)
+                                                                        ,windspeed1(null)
+                                                                        ,windspeed2(null)
+                                                                        ,windspeed3(null)
+                                                                        ,windspeed4(null)
+                                                                        ,temperature_hi1(null)
+                                                                        ,temperature_hi2(null)
+                                                                        ,temperature_hi3(null)
+                                                                        ,temperature_hi4(null)
+                                                                        ,temperature_low1(null)
+                                                                        ,temperature_low2(null)
+                                                                        ,temperature_low3(null)
+                                                                        ,temperature_low4(null)
+                                                                        ,dayname1(null)
+                                                                        ,dayname2(null)
+                                                                        ,dayname3(null)
+                                                                        ,dayname4(null)
 {
 
 }
 
-MeecastDynamicBoxAppPopupProvider::~MeecastDynamicBoxAppPopupProvider()
-{
+MeecastDynamicBoxAppPopupProvider::~MeecastDynamicBoxAppPopupProvider(){
 
 }
 
-bool
-MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const String& userInfo)
-{
-	// TODO:
-	// Initialize AppWidgetFrame and AppWidget provider specific data.
-	// The AppWidget provider permanent data and context can be obtained from the appRegistry.
-	//
-	// If this method is successful, return true; otherwise, return false.
-	// If this method returns false, the App will be terminated.
-	AppWidgetPopup* pAppWidgetPopup = new AppWidgetPopup;
-	TryReturn(pAppWidgetPopup, false, "Failed to allocate memory for AppWidgetPopup.");
-
-	const float width = 720.0;
-	const float height = 380.0;
+void
+MeecastDynamicBoxAppPopupProvider::ReInitElements(){
 
     char  buffer[4096]; 
     String str;
-	pAppWidgetPopup->Construct(FloatDimension(width, height));
 
-	// TODO:
-	// Put your UI code here
-	Label* pLabel = new Label();
-	FloatRectangle popupClientAreaBounds = pAppWidgetPopup->GetClientAreaBounds();
-	FloatRectangle rect(0, 20, popupClientAreaBounds.width, popupClientAreaBounds.height - 20);
-
-	pLabel->Construct(rect, L"");
-	pLabel->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
-	pLabel->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
-	//pLabel->SetBackgroundColor(Color::GetColor(COLOR_ID_GREY));
-    pLabel->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/popup_window.png"));
-	pAppWidgetPopup->AddControl(pLabel);
-
+    /* AppLog("ReInitElements"); */
     /* Last Update */
-    Label* __pLabelLastUpdate = new Label();
-    __pLabelLastUpdate->Construct(FloatRectangle(width/6, (height - height/3.05), (width - width/6), height/5), L"");
-	__pLabelLastUpdate->SetTextConfig(28, LABEL_TEXT_STYLE_BOLD);
-	__pLabelLastUpdate->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
-	__pLabelLastUpdate->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
-	__pLabelLastUpdate->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+    if (!__pLabelLastUpdate){
+        __pLabelLastUpdate = new Label();
+        __pLabelLastUpdate->Construct(FloatRectangle(width/6, (height - height/3.05), (width - width/6), height/5), L"");
+        __pLabelLastUpdate->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
+        __pLabelLastUpdate->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+        __pLabelLastUpdate->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+	    __pLabelLastUpdate->SetTextConfig(28, LABEL_TEXT_STYLE_BOLD);
+    }
 
-    Label* __pLabelLastUpdateBG = new Label();
-    __pLabelLastUpdateBG->Construct(FloatRectangle(width/6, (height - height/3.05)+1 , (width - width/6), height/5), L"");
-	__pLabelLastUpdateBG->SetTextConfig(28, LABEL_TEXT_STYLE_BOLD);
-	__pLabelLastUpdateBG->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
-	__pLabelLastUpdateBG->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
-	__pLabelLastUpdateBG->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
-   
+    if (!__pLabelLastUpdateBG){
+        __pLabelLastUpdateBG = new Label();
+        __pLabelLastUpdateBG->Construct(FloatRectangle(width/6, (height - height/3.05)+1 , (width - width/6), height/5), L"");
+	    __pLabelLastUpdateBG->SetTextConfig(28, LABEL_TEXT_STYLE_BOLD);
+	    __pLabelLastUpdateBG->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
+	    __pLabelLastUpdateBG->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+    	__pLabelLastUpdateBG->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
+    }
     /* Station name */
-    Label* __pLabelTown = new Label();
-    __pLabelTown->Construct(FloatRectangle(-10,  height/2.3, width - width/1.6, height/3.5), L"");
-    __pLabelTown->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
-    __pLabelTown->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
-    __pLabelTown->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
 
-    Label* __pLabelTownBG = new Label();
-    __pLabelTownBG->Construct(FloatRectangle(-10 + 1, height/2.3 +1, width - width/1.6, height/3.5), L"");
-    __pLabelTownBG->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
-    __pLabelTownBG->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
-    __pLabelTownBG->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
+    if (!__pLabelTownBG){
+        __pLabelTownBG = new Label();
+        __pLabelTownBG->Construct(FloatRectangle(-10 + 1, height/2.3 +1, width - width/1.6, height/3.5), L"");
+        __pLabelTownBG->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
+        __pLabelTownBG->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
+        __pLabelTownBG->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
+        __pAppWidgetPopup->AddControl(__pLabelTownBG);
+    }
+
+    if (!__pLabelTown){
+        __pLabelTown = new Label();
+        __pLabelTown->Construct(FloatRectangle(-10,  height/2.3, width - width/1.6, height/3.5), L"");
+        __pLabelTown->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+        __pLabelTown->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
+        __pLabelTown->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
+        __pAppWidgetPopup->AddControl(__pLabelTown);
+    }
 
     /* Main icon */
-    Label* __pLabelMainIcon = new Label();
-    __pLabelMainIcon->Construct(FloatRectangle(0, 0, 128, 128), L"");
+    if (!__pLabelMainIcon){
+        __pLabelMainIcon = new Label();
+        __pLabelMainIcon->Construct(FloatRectangle(0, 0, 128, 128), L"");
+    }
 
     /* Temperature */
-    Label* __pLabelMainTemperatureBackground = new Label();
-    __pLabelMainTemperatureBackground->Construct(FloatRectangle((width/8.5 + 1), (height/5 + 1) , width/4, height/4), L"");
-    __pLabelMainTemperatureBackground->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
+    if (!__pLabelMainTemperatureBG){
+        __pLabelMainTemperatureBG = new Label();
+        __pLabelMainTemperatureBG->Construct(FloatRectangle((width/8.5 + 1), (height/5 + 1) , width/4, height/4), L"");
+        __pLabelMainTemperatureBG->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
+    }
     
-    Label* __pLabelMainTemperature = new Label();
-    __pLabelMainTemperature->Construct(FloatRectangle((width/8.5), (height/5) , width/4, height/4), L"");
-    __pLabelMainTemperature->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+    if (!__pLabelMainTemperature){
+        __pLabelMainTemperature = new Label();
+        __pLabelMainTemperature->Construct(FloatRectangle((width/8.5), (height/5) , width/4, height/4), L"");
+        __pLabelMainTemperature->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+    }
      
     /* Wind Speed */
-    Label* __pLabelMainWindSpeed = new Label();
-    __pLabelMainWindSpeed->Construct(FloatRectangle((width/3.7) - 6, (height/15), 52+10, 52), L"");
-    __pLabelMainWindSpeed->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
+    if (!__pLabelMainWindSpeed){
+        __pLabelMainWindSpeed = new Label();
+        __pLabelMainWindSpeed->Construct(FloatRectangle((width/3.7) - 6, (height/15), 52+10, 52), L"");
+        __pLabelMainWindSpeed->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
+    }
 
     /* Wind icon */
-    Label* __pLabelMainWindIcon = new Label();
-    __pLabelMainWindIcon->Construct(FloatRectangle((width/3.7), (height/15), 52+10, 52), L"");
-
-    Label* icon1;
-    Label* icon2;
-    Label* icon3;
-    Label* icon4;
-    Label* windicon1;
-    Label* windicon2;
-    Label* windicon3;
-    Label* windicon4;
-    Label* windspeed1;
-    Label* windspeed2;
-    Label* windspeed3;
-    Label* windspeed4;
-    Label* temperature_hi1;
-    Label* temperature_hi2;
-    Label* temperature_hi3;
-    Label* temperature_hi4;
-    Label* temperature_low1;
-    Label* temperature_low2;
-    Label* temperature_low3;
-    Label* temperature_low4;
-    Label* dayname1;
-    Label* dayname2;
-    Label* dayname3;
-    Label* dayname4;
+    if (!__pLabelMainWindIcon){
+        __pLabelMainWindIcon = new Label();
+        __pLabelMainWindIcon->Construct(FloatRectangle((width/3.7), (height/15), 52+10, 52), L"");
+    }
 
     try{
         _config = Config::Instance( std::string("config.xml"),
@@ -156,6 +160,30 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
         AppLogDebug("Create Config class:  ");
         _config =  Config::Instance();
     }
+    SAFE_DELETE2(icon1);
+    SAFE_DELETE2(icon2);
+    SAFE_DELETE2(icon3);
+    SAFE_DELETE2(icon4);
+    SAFE_DELETE2(windicon1);
+    SAFE_DELETE2(windicon2);
+    SAFE_DELETE2(windicon3);
+    SAFE_DELETE2(windicon4);
+    SAFE_DELETE2(windspeed1);
+    SAFE_DELETE2(windspeed2);
+    SAFE_DELETE2(windspeed3);
+    SAFE_DELETE2(windspeed4);
+    SAFE_DELETE2(temperature_hi1);
+    SAFE_DELETE2(temperature_hi2);
+    SAFE_DELETE2(temperature_hi3);
+    SAFE_DELETE2(temperature_hi4);
+    SAFE_DELETE2(temperature_low1);
+    SAFE_DELETE2(temperature_low2);
+    SAFE_DELETE2(temperature_low3);
+    SAFE_DELETE2(temperature_low4);
+    SAFE_DELETE2(dayname1);
+    SAFE_DELETE2(dayname2);
+    SAFE_DELETE2(dayname3);
+    SAFE_DELETE2(dayname4);
     if (_dp)
         _dp->DeleteInstance();
     if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0){
@@ -186,8 +214,8 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
                 dateString.Insert(_("Last update:"), 0);
                 __pLabelLastUpdate->SetText(dateString);
 	            __pLabelLastUpdateBG->SetText(dateString);
-	            pAppWidgetPopup->AddControl(__pLabelLastUpdateBG);
-//	            pAppWidgetPopup->AddControl(__pLabelLastUpdate);
+	            __pAppWidgetPopup->AddControl(__pLabelLastUpdateBG);
+//	            __pAppWidgetPopup->AddControl(__pLabelLastUpdate);
             }
     }else
         _dp = NULL;
@@ -207,15 +235,15 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
             __pLabelTown->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
             __pLabelTownBG->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
         }
-
-        pAppWidgetPopup->AddControl(__pLabelTownBG);
-        pAppWidgetPopup->AddControl(__pLabelTown);
     }
+
+    __pLabelTownBG->RequestRedraw();
+    __pLabelTown->RequestRedraw();
 
     Core::Data *temp_data = NULL;
     if (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))){
 
-        /* AppLog ("_Config_dp inside"); */
+        /*  AppLog ("_Config_dp inside"); */
         /* Preparing units */
         temp_data->temperature_low().units(_config->TemperatureUnit());
         temp_data->temperature_hi().units(_config->TemperatureUnit());
@@ -242,7 +270,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
             SAFE_DELETE(mainIconBitmap);
         }
 
-        pAppWidgetPopup->AddControl(__pLabelMainIcon);
+        __pAppWidgetPopup->AddControl(__pLabelMainIcon);
         /* Description */
         /*
         String str;
@@ -277,37 +305,35 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
             t = temp_data->temperature().value();
         }
 
-
 //        Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(t);
 //        backgroundPanel->SetBackgroundColor(*color_of_temp);
 //        delete color_of_temp;
 //        __pLabelMainTemperature->SetShowState(true);
-//        __pLabelMainTemperatureBackground->SetShowState(true);
+//        __pLabelMainTemperatureBG->SetShowState(true);
         Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
         __pLabelMainTemperature->SetText(str);
-        __pLabelMainTemperatureBackground->SetText(str);
+        __pLabelMainTemperatureBG->SetText(str);
         __pLabelMainTemperature->RequestRedraw();
-        __pLabelMainTemperatureBackground->RequestRedraw();
+        __pLabelMainTemperatureBG->RequestRedraw();
 
 
         if (__pLabelMainTemperature->GetText().GetLength()<4){
             __pLabelMainTemperature->SetTextConfig(68, LABEL_TEXT_STYLE_BOLD);
-            __pLabelMainTemperatureBackground->SetTextConfig(68, LABEL_TEXT_STYLE_BOLD);
+            __pLabelMainTemperatureBG->SetTextConfig(68, LABEL_TEXT_STYLE_BOLD);
         }else{
             if (__pLabelMainTemperature->GetText().GetLength()<6){
                 __pLabelMainTemperature->SetTextConfig(58, LABEL_TEXT_STYLE_BOLD);
-                __pLabelMainTemperatureBackground->SetTextConfig(58, LABEL_TEXT_STYLE_BOLD);
+                __pLabelMainTemperatureBG->SetTextConfig(58, LABEL_TEXT_STYLE_BOLD);
             }else{
                 if (__pLabelMainTemperature->GetText().GetLength()<9){
                     __pLabelMainTemperature->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
-                    __pLabelMainTemperatureBackground->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
+                    __pLabelMainTemperatureBG->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
                 }else{
                     __pLabelMainTemperature->SetTextConfig(32, LABEL_TEXT_STYLE_BOLD);
-                    __pLabelMainTemperatureBackground->SetTextConfig(32, LABEL_TEXT_STYLE_BOLD);
+                    __pLabelMainTemperatureBG->SetTextConfig(32, LABEL_TEXT_STYLE_BOLD);
                 }
             }
         }
-
 
 #if 0        
         /* Current or not current period */
@@ -338,7 +364,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
                 
                 if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
                     windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
-                    AppLog("Wind %S", str.GetPointer());
+                    /* AppLog("Wind %S", str.GetPointer()); */
                     __pLabelMainWindIcon->SetBackgroundBitmap(*windIconBitmap);
                     __pLabelMainWindIcon->SetSize(windIconBitmap->GetWidth(), windIconBitmap->GetHeight());
                     __pLabelMainWindIcon->RequestRedraw();
@@ -346,7 +372,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
                     SAFE_DELETE(windIconBitmap);
                 }
             }
-            pAppWidgetPopup->AddControl(__pLabelMainWindIcon);
+            __pAppWidgetPopup->AddControl(__pLabelMainWindIcon);
         }
         /* Main wind speed */
         if (temp_data->WindSpeed().value() != INT_MAX){
@@ -360,14 +386,14 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
             __pLabelMainWindSpeed->SetShowState(false);
         }
 
-        pAppWidgetPopup->AddControl(__pLabelMainWindSpeed);
+        __pAppWidgetPopup->AddControl(__pLabelMainWindSpeed);
 
     }else{
         __pLabelMainTemperature->SetText("MeeCast");
-        __pLabelMainTemperatureBackground->SetText("MeeCast");
+        __pLabelMainTemperatureBG->SetText("MeeCast");
     }
-    pAppWidgetPopup->AddControl(__pLabelMainTemperatureBackground);
-    pAppWidgetPopup->AddControl(__pLabelMainTemperature);
+    __pAppWidgetPopup->AddControl(__pLabelMainTemperatureBG);
+    __pAppWidgetPopup->AddControl(__pLabelMainTemperature);
 
     time_t current_day;
     struct tm   *tm = NULL;
@@ -410,7 +436,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
     int i = 3600*24;
     int _dayCount = 1;
     while  (_dp != NULL && i < 3600*24*5) {
-       /* AppLog ("Result0 %li", current_day + 15*3600 + i - 3600*timezone); */
+        /* AppLog ("Result0 %li", current_day + 15*3600 + i - 3600*timezone); */
         if ((temp_data = _dp->data().GetDataForTime(current_day + 15*3600 + i)) != null){
             Tizen::Base::Integer icon_int = temp_data->Icon();
             Label* icon = new Label();
@@ -439,7 +465,6 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
                 if (temp_data->WindSpeed().value() > STRONG_WIND){
                     str.Append("_warning");
                 }
-                /* AppLog("Wind1 %S", str.GetPointer()); */
                 if (str == "CALM" || Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
                     /* Wind direction Icon */ 
                     Tizen::Media::Image *image = null;
@@ -523,12 +548,12 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
                 temperature_hi->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
             }
 
-            pAppWidgetPopup->AddControl(windicon);
-            pAppWidgetPopup->AddControl(windspeed);
-            pAppWidgetPopup->AddControl(icon);
-            pAppWidgetPopup->AddControl(temperature_low);
-            pAppWidgetPopup->AddControl(temperature_hi);
-            pAppWidgetPopup->AddControl(day_name);
+            __pAppWidgetPopup->AddControl(windicon);
+            __pAppWidgetPopup->AddControl(windspeed);
+            __pAppWidgetPopup->AddControl(temperature_low);
+            __pAppWidgetPopup->AddControl(temperature_hi);
+            __pAppWidgetPopup->AddControl(day_name);
+            __pAppWidgetPopup->AddControl(icon);
             switch (_dayCount){
                 case 1:
                     icon1 = icon;
@@ -563,14 +588,12 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
                     dayname4 = day_name;
                     break;
             }
-    //        __daysmap->Add(*(new (std::nothrow) Integer(_dayCount)), *(new (std::nothrow) Long(current_day + 15*3600 + i)));
              /* AppLog ("Result1 %li", current_day); */
             /* AppLog ("Result %li", current_day + 15*3600 + i); */
             _dayCount ++;
         }
         i = i + 3600*24;
     }
-
     /* Launcher Button */
     Button* __pLauncherButton = new Button();
     __pLauncherButton->Construct(Tizen::Graphics::Rectangle((width/1.12), (height/1.4), 45, 45), ""); 
@@ -580,18 +603,48 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
     __pLauncherButton->SetActionId(ID_BUTTON_LAUNCHER);
     __pLauncherButton->AddActionEventListener(*this);
 
-    pAppWidgetPopup->AddControl(__pLauncherButton);
+    __pAppWidgetPopup->AddControl(__pLauncherButton);
 
 	__pFlickGesture = new (std::nothrow) TouchFlickGestureDetector;
 	if (__pFlickGesture != null){
 		__pFlickGesture->Construct();
-        pAppWidgetPopup->AddGestureDetector(*__pFlickGesture);
+        __pAppWidgetPopup->AddGestureDetector(*__pFlickGesture);
     	__pFlickGesture->AddFlickGestureEventListener(*this);
 	}
 
-	pAppWidgetPopup->Show();
+}
 
-	SetAppWidgetPopup(pAppWidgetPopup);
+bool
+MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const String& userInfo)
+{
+	// TODO:
+	// Initialize AppWidgetFrame and AppWidget provider specific data.
+	// The AppWidget provider permanent data and context can be obtained from the appRegistry.
+	//
+	// If this method is successful, return true; otherwise, return false.
+	// If this method returns false, the App will be terminated.
+	__pAppWidgetPopup = new AppWidgetPopup;
+	TryReturn(__pAppWidgetPopup, false, "Failed to allocate memory for AppWidgetPopup.");
+
+	__pAppWidgetPopup->Construct(FloatDimension(width, height));
+  	
+	// TODO:
+	// Put your UI code here
+	Label* pLabel = new Label();
+	FloatRectangle popupClientAreaBounds = __pAppWidgetPopup->GetClientAreaBounds();
+	FloatRectangle rect(0, 20, popupClientAreaBounds.width, popupClientAreaBounds.height - 20);
+
+	pLabel->Construct(rect, L"");
+	pLabel->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
+	pLabel->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
+	//pLabel->SetBackgroundColor(Color::GetColor(COLOR_ID_GREY));
+    pLabel->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/popup_window.png"));
+	__pAppWidgetPopup->AddControl(pLabel);
+    ReInitElements();
+
+	__pAppWidgetPopup->Show();
+
+	SetAppWidgetPopup(__pAppWidgetPopup);
 	return true;
 }
 
@@ -604,7 +657,7 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderTerminating(void){
 
 void
 MeecastDynamicBoxAppPopupProvider::OnActionPerformed(const Tizen::Ui::Control& source, int actionId){
-    AppLog("Check Action");
+    /* AppLog("Check Action"); */
     String repAppId(15);
     repAppId = L"ctLjIIgCCj.meecast";
     AppId appId(repAppId);
@@ -612,10 +665,7 @@ MeecastDynamicBoxAppPopupProvider::OnActionPerformed(const Tizen::Ui::Control& s
     result r = E_FAILURE;
     switch(actionId){
         case ID_BUTTON_LAUNCHER:
-            AppLog("sssssssssssssssssssssss");
-
             r = pAppManager->LaunchApplication(repAppId, null);
-
             break;
         default:
             break;
@@ -679,7 +729,7 @@ MeecastDynamicBoxAppPopupProvider::OnTouchReleased(const Tizen::Ui::Control& sou
 void
 MeecastDynamicBoxAppPopupProvider::OnFlickGestureDetected(TouchFlickGestureDetector& gestureDetector)
 {
-    AppLog("Flick detected!");
+    /* AppLog("Flick detected!"); */
 	Rectangle rc(0, 0, 0, 0);
 	Point point(0, 0);
 
@@ -707,12 +757,12 @@ MeecastDynamicBoxAppPopupProvider::OnFlickGestureDetected(TouchFlickGestureDetec
 	FlickDirection direction = gestureDetector.GetDirection();
 	switch(direction){
         case FLICK_DIRECTION_RIGHT:
-//            PreviousStation();
-            AppLog("Flick detected RIGHT");
+            PreviousStation();
+            /* AppLog("Flick detected RIGHT"); */
             break;
         case FLICK_DIRECTION_LEFT:
-  //          NextStation();
-            AppLog("Flick detected LEFT");
+            NextStation();
+            /* AppLog("Flick detected LEFT"); */
             break;
         case FLICK_DIRECTION_UP:
             AppLog("Flick detected UP");
@@ -725,7 +775,7 @@ MeecastDynamicBoxAppPopupProvider::OnFlickGestureDetected(TouchFlickGestureDetec
             AppLog("Flick detected NONE");
             break;
 	}
-    AppLog("Flick detected");
+    /* AppLog("Flick detected"); */
 	__gestureDetected = true;
  //   Invalidate(false);
 }
@@ -733,26 +783,30 @@ MeecastDynamicBoxAppPopupProvider::OnFlickGestureDetected(TouchFlickGestureDetec
 void
 MeecastDynamicBoxAppPopupProvider::OnFlickGestureCanceled(TouchFlickGestureDetector& gestureDetector)
 {
-    AppLog("Flick canceled!");
+    /* AppLog("Flick canceled!"); */
 }
 
 void
 MeecastDynamicBoxAppPopupProvider::PreviousStation(){
-    if ((uint)(_config->current_station_id() - 1) >= 0)
+    if ((int)(_config->current_station_id() - 1) >= 0){
+        AppLog ("11111 %i", _config->current_station_id());
         _config->current_station_id(_config->current_station_id() - 1);
-    else
-        _config->current_station_id(_config->stationsList().size());
+    }else{
+        _config->current_station_id(_config->stationsList().size() - 1);
+    }
     _config->saveConfig();
-  //  ReInitElements(); 
+    _config->ReLoadConfig();
+    ReInitElements(); 
 }
 
 void
-meecastMainForm::NextStation(){
-    if ((uint)(_config->current_station_id() + 1) < _config->stationsList().size())
+MeecastDynamicBoxAppPopupProvider::NextStation(){
+    if ((int)(_config->current_station_id() + 1) < _config->stationsList().size())
         _config->current_station_id(_config->current_station_id() + 1);
     else
        _config->current_station_id(0);
     _config->saveConfig();
-//    ReInitElements(); 
+    _config->ReLoadConfig();
+    ReInitElements(); 
 }
 

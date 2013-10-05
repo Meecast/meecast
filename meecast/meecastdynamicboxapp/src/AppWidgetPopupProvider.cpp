@@ -76,6 +76,17 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
     String str;
 
     /* AppLog("ReInitElements"); */
+    /* Reload widget if it is not the first reinit of popup window */
+    if (__pLabelLastUpdate){
+        String repAppId(15);
+        String widgetName(L".meecastdynamicboxapp");
+        repAppId = L"ctLjIIgCCj";
+        AppId widgetId(repAppId+widgetName);
+        Tizen::Shell::AppWidgetProviderManager* pAppWidgetProviderManager = Tizen::Shell::AppWidgetProviderManager::GetInstance();
+        result r = E_FAILURE;
+        /*  AppLog("Reload Widget"); */
+        pAppWidgetProviderManager->RequestUpdate(widgetId, "MeecastDynamicBoxAppProvider", L"");
+    }
     /* Last Update */
     if (!__pLabelLastUpdate){
         __pLabelLastUpdate = new Label();
@@ -808,5 +819,9 @@ MeecastDynamicBoxAppPopupProvider::NextStation(){
     _config->saveConfig();
     _config->ReLoadConfig();
     ReInitElements(); 
+
+
+
+
 }
 

@@ -3,13 +3,14 @@
     <Id>C8xIFTMoRh</Id>
     <Version>1.0.0</Version>
     <Type>C++App</Type>
+    <Author>Uladzislau Vasilyeu</Author>
     <Requirements>
         <Feature Name="http://tizen.org/feature/screen.size.normal">true</Feature>
     </Requirements>
     <Apps>
         <ApiVersion>2.2</ApiVersion>
         <Privileges/>
-        <ServiceApp AutoRestart="False" LaunchOnBoot="False" LaunchingHistoryVisible="True" Main="True" Name="meecastservice">
+        <ServiceApp AutoRestart="False" LaunchOnBoot="True" LaunchingHistoryVisible="True" Main="True" Name="meecastservice">
             <DisplayNames>
                 <DisplayName Locale="eng-GB">$(projectName)</DisplayName>
             </DisplayNames>

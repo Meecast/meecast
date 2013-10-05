@@ -704,6 +704,11 @@ Config::LoadConfig(){
                 _current_station_id = atoi((char *)temp_xml_string); 
                 xmlFree(temp_xml_string);
             }
+            if (!xmlStrcmp(p->name, (const xmlChar*)"update_period")){
+                temp_xml_string = xmlNodeGetContent(p);
+                _update_period = atoi((char *)temp_xml_string); 
+                xmlFree(temp_xml_string);
+            }
             if (!xmlStrcmp(p->name, (const xmlChar*)"temperature_unit")){
                 temp_xml_string = xmlNodeGetContent(p);
                 _temperature_unit->assign(std::string((char *)temp_xml_string));

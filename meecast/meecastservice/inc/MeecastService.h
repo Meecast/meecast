@@ -6,7 +6,11 @@
 #include <FBase.h>
 #include <FSystem.h>
 #include <FUi.h>
+#include "MeecastDynamicType.h"
 #include "MeecastServiceMessagePort.h"
+#include "../../core/core.h"
+#include "../../core/config.h"
+
 
 /**
  * [MeecastServiceApp] ServiceApp must inherit from ServiceApp class
@@ -14,6 +18,7 @@
  */
 class MeecastServiceApp
 	: public Tizen::App::ServiceApp
+    , public Tizen::Base::Runtime::ITimerEventListener
 {
 public:
 
@@ -29,6 +34,9 @@ public:
 
 private:
     MeecastServiceMessagePort* __pMessagePort;
+    Core::Config *_config;
+    Tizen::Base::Runtime::Timer* __updateTimer;
+    Tizen::Base::Runtime::Timer* __checkupdatingTimer;
 
 public:
 
@@ -49,6 +57,10 @@ public:
 
 	// Called when the battery level changes.
 	void OnBatteryLevelChanged(Tizen::System::BatteryLevel batteryLevel);
+
+	virtual void OnUserEventReceivedN(RequestId requestId, Tizen::Base::Collection::IList* pArgs);
+
+    virtual void OnTimerExpired(Tizen::Base::Runtime::Timer& timer);
 
 };
 

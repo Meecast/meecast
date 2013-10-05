@@ -62,6 +62,15 @@ MeecastServiceMessagePort::OnMessageReceivedN(RemoteMessagePort* pRemoteMessageP
 
 	HashMap *pMap =	new HashMap(SingleObjectDeleter);
 	pMap->Construct();
+
+	if (pData->CompareTo(L"Reload_Config") == 0){
+		App* pApp = App::GetInstance();
+        AppLog("Send reload to App");
+		pApp->SendUserEvent(RELOAD_CONFIG, null);
+		pMap->Add(new String(L"ServiceApp"), new String(L"Service reload config"));
+	}
+	else
+
 /*
 	if (pData->CompareTo(L"connect") == 0)
 	{
@@ -91,9 +100,10 @@ MeecastServiceMessagePort::OnMessageReceivedN(RemoteMessagePort* pRemoteMessageP
 		pMap->Add(new String(L"ServiceApp"), new String(L"unsupported"));
 	}
 */
-	pMap->Add(new String(L"ServiceApp"), new String(L"unsupported"));
-	pRemoteMessagePort->SendMessage(__pLocalMessagePort, pMap);
-
+    {
+	    pMap->Add(new String(L"ServiceApp"), new String(L"unsupported"));
+	    pRemoteMessagePort->SendMessage(__pLocalMessagePort, pMap);
+    }
 	delete pMap;
 
 	delete pMessage;

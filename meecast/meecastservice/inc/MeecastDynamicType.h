@@ -20,33 +20,12 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
 */
-#ifndef _MEECAST_SERVICE_MESSAGE_PORT_H_
-#define _MEECAST_SERVICE_MESSAGE_PORT_H_
 
-#include <FApp.h>
+#ifndef _MEECAST_TYPE_H_
+#define _MEECAST_TYPE_H_
+
 #include <FBase.h>
-#include <FIo.h>
-#include "MeecastDynamicType.h"
 
-//#include "SampleType.h"
+static const RequestId RELOAD_CONFIG = 0;
 
-class MeecastServiceMessagePort
-	: public Tizen::Io::IMessagePortListener
-{
-public :
-	MeecastServiceMessagePort(void);
-
-	~MeecastServiceMessagePort(void);
-
-	result Construct(const Tizen::Base::String& localPortName);
-
-	virtual void OnMessageReceivedN(Tizen::Io::RemoteMessagePort* pRemoteMessagePort, Tizen::Base::Collection::IMap* pMessage);
-
-	result SendMessage(const Tizen::Base::Collection::IMap* pMessage);
-
-private :
-	Tizen::Io::LocalMessagePort* __pLocalMessagePort;
-	Tizen::Io::RemoteMessagePort* __pRemoteMessagePort;
-};
-
-#endif // _MEECAST_SERVICE_MESSAGE_PORT_H_
+#endif // _MEECAST_TYPE_H_

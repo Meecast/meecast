@@ -85,4 +85,11 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 		<nature>org.tizen.nativecpp.apichecker.core.tizenCppNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>core2</name>
+			<type>2</type>
+			<location>/home/vlad/workspace/meecast/meecast/core</location>
+		</link>
+	</linkedResources>
 </projectDescription>

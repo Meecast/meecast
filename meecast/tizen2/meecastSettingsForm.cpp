@@ -125,7 +125,7 @@ meecastSettingsForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& curren
 int
 meecastSettingsForm::GetItemCount(void)
 {
-    return 2;
+    return 3;
 }
 
 bool
@@ -149,6 +149,7 @@ meecastSettingsForm::CreateItem (int index, int itemWidth)
     switch (index){
         case 0: subject = _("Manage locations"); break;
         case 1: subject = _("Measurement units"); break;
+        case 2: subject = _("Update"); break;
     }
 	listItemString.Append(subject);
 	pItem->SetElement(listItemString);
@@ -164,12 +165,13 @@ meecastSettingsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& l
         AppAssert(pSceneManager);
 	    AppLog("LIST_ITEM_STATUS_SELECTED ");
         if (index == 0){
-	        AppLog("i111LIST_ITEM_STATUS_SELECTED ");
             pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_MANAGELOCATIONSSCENE"));
         }
         if (index == 1){
-	        AppLog("LIST_ITEM_STATUS_SELECTED ");
             pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_MEASUREMENT_UNITSSCENE"));
+        }
+        if (index == 2){
+            pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_UPDATESCENE"));
         }
 	}
 }

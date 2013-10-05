@@ -87,9 +87,39 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>bomgovau</name>
+			<type>2</type>
+			<location>/home/vlad/workspace/meecast/omweather-bom-gov-au-stations-db/src</location>
+		</link>
+		<link>
 			<name>core2</name>
 			<type>2</type>
 			<location>/home/vlad/workspace/meecast/meecast/core</location>
+		</link>
+		<link>
+			<name>forecacom</name>
+			<type>2</type>
+			<location>/home/vlad/workspace/meecast/omweather-foreca-com-stations-db/src</location>
+		</link>
+		<link>
+			<name>gismeteoru</name>
+			<type>2</type>
+			<location>/home/vlad/workspace/meecast/omweather-gismeteo-ru-stations-db/src</location>
+		</link>
+		<link>
+			<name>hkogovhk</name>
+			<type>2</type>
+			<location>/home/vlad/workspace/meecast/omweather-hko-gov-hk-stations-db/src</location>
+		</link>
+		<link>
+			<name>openweathermap</name>
+			<type>2</type>
+			<location>/home/vlad/workspace/meecast/omweather-openweathermap-org-stations-db/src</location>
+		</link>
+		<link>
+			<name>yrnosource</name>
+			<type>2</type>
+			<location>/home/vlad/workspace/meecast/omweather-yr-no-stations-db/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>

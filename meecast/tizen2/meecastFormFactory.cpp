@@ -9,6 +9,7 @@
 #include "meecastFullWeatherForm.h"
 #include "meecastMeasurementUnitsForm.h"
 #include "meecastAboutForm.h"
+#include "meecastUpdateForm.h"
 
 using namespace Tizen::Ui::Scenes;
 
@@ -40,6 +41,11 @@ meecastFormFactory::CreateFormN(const Tizen::Base::String& formId, const Tizen::
 		pNewForm = pForm;
 	}else if (formId == L"MEASUREMENT_UNITS_FORM"){
 		meecastMeasurementUnits* pForm = new (std::nothrow) meecastMeasurementUnits();
+		pForm->Initialize();
+		pSceneManager->AddSceneEventListener(sceneId, *pForm);
+		pNewForm = pForm;
+	}else if (formId == L"UPDATE_FORM"){
+		meecastUpdate* pForm = new (std::nothrow) meecastUpdate();
 		pForm->Initialize();
 		pSceneManager->AddSceneEventListener(sceneId, *pForm);
 		pNewForm = pForm;

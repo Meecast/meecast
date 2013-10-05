@@ -14,21 +14,10 @@ using namespace Core;
 using namespace Tizen::Base::Collection;
 static const wchar_t* LOCAL_MESSAGE_PORT_NAME = L"SERVICE_PORT";
 
-//STUBS
-int convert_station_yrno_data(char const* a, char const* b, char const* c){return 0;}
-int convert_station_bomgovau_data(char const* a, char const* b, char const* c){ return 0;}
-int convert_station_hkogovhk_data(char const* a, char const* b, char const* c){return 0;}
-int convert_station_gismeteo_data(char const* a, char const* b, char const* c){return 0;}
-int convert_station_forecacom_data(char const* a, char const* b, char const* c){return 0;}
-int convert_station_openweathermaporg_data(char const* a, char const* b, char const* c, char const* d){return 0;}
-
-
-
 
 MeecastServiceApp::MeecastServiceApp(void):
                  __updateTimer(null),
-                 __checkupdatingTimer(null)
-{
+                 __checkupdatingTimer(null){
 
     result r = E_SUCCESS;
     __updateTimer = new (std::nothrow) Tizen::Base::Runtime::Timer;
@@ -103,7 +92,7 @@ MeecastServiceApp::OnAppInitializing(AppRegistry& appRegistry){
 
     AppLog("Update Period %i", _config->UpdatePeriod());
     if (_config->UpdatePeriod() != INT_MAX){
-        __updateTimer->StartAsRepeatable(_config->UpdatePeriod()*1000);
+        __updateTimer->Start(_config->UpdatePeriod()*1000);
     }
 
 	return true;
@@ -160,6 +149,11 @@ MeecastServiceApp::OnUserEventReceivedN(RequestId requestId, IList* pArgs){
 //        OnAppWidgetUpdate();
 //        _mdbaProviderFactory->Update(); 
         _config->ReLoadConfig();
+        __updateTimer->Cancel();
+        if (_config->UpdatePeriod() != INT_MAX){
+            __updateTimer->Start(_config->UpdatePeriod()*1000);
+        }
+
 		break;
 	default:
 		break;
@@ -169,8 +163,36 @@ MeecastServiceApp::OnUserEventReceivedN(RequestId requestId, IList* pArgs){
 void
 MeecastServiceApp::OnTimerExpired(Tizen::Base::Runtime::Timer& timer){
     AppLog("OnTimerExpired");
-    for (short i=0; i < _config->stationsList().size();i++){
-        _config->stationsList().at(i)->updateData(true);
+    if (&timer ==  __updateTimer){
+        AppLog("In  __updateTimer");
+        for (short i=0; i < _config->stationsList().size();i++){
+            _config->stationsList().at(i)->updateData(true);
+        }
+        __checkupdatingTimer->StartAsRepeatable(10*1000);
+    }
+    if (&timer == __checkupdatingTimer){
+        AppLog("In __checkupdatingTimer");
+        for (short i=0; i < _config->stationsList().size();i++){
+            if (_config->stationsList().at(i)->isupdating())
+                return;
+        }
+        AppLog("Out __checkupdatingTimer");
+        __checkupdatingTimer->Cancel();
+        for (short i=0; i < _config->stationsList().size();i++){
+            _config->stationsList().at(i)->run_converter();
+        }
+        String repAppId(15);
+        String widgetName(L".meecastdynamicboxapp");
+        repAppId = L"ctLjIIgCCj";
+        AppId widgetId(repAppId+widgetName);
+        Tizen::Shell::AppWidgetProviderManager* pAppWidgetProviderManager = Tizen::Shell::AppWidgetProviderManager::GetInstance();
+        result r = E_FAILURE;
+        /*  AppLog("Reload Widget"); */
+        pAppWidgetProviderManager->RequestUpdate(widgetId, "MeecastDynamicBoxAppProvider", L"");
+
+        AppLog("Out __checkupdatingTimer1");
+        __updateTimer->Start(_config->UpdatePeriod()*1000);
+        AppLog("Out __checkupdatingTimer2");
     }
 }
 

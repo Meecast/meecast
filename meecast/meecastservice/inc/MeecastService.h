@@ -6,6 +6,7 @@
 #include <FBase.h>
 #include <FSystem.h>
 #include <FUi.h>
+#include <FShell.h>
 #include "MeecastDynamicType.h"
 #include "MeecastServiceMessagePort.h"
 #include "../../core/core.h"

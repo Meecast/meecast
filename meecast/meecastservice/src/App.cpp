@@ -11,11 +11,17 @@ using namespace Tizen::App;
 using namespace Tizen::Base;
 using namespace Tizen::System;
 using namespace Core;
+using namespace Tizen::Ui;
+using namespace Tizen::Ui::Controls;
 using namespace Tizen::Base::Collection;
+using namespace Tizen::Graphics;
+using namespace Tizen::Media;
+
 static const wchar_t* LOCAL_MESSAGE_PORT_NAME = L"SERVICE_PORT";
 
 
 MeecastServiceApp::MeecastServiceApp(void):
+                 __pBitmapOriginal(null),
                  __updateTimer(null),
                  __checkupdatingTimer(null){
 
@@ -98,15 +104,12 @@ MeecastServiceApp::OnAppInitializing(AppRegistry& appRegistry){
     /* TODO Check config */
     String title;
     String orig_filename;
-    title = L"http://tizen.org/setting/screen.wallpaper"; 
+    title = L"http://tizen.org/setting/screen.wallpaper.lock"; 
     r = SettingInfo::GetValue(title, orig_filename);
-    if(r == E_UNSUPPORTED_OPERATION){
-       orig_filename = "Unsupported";
-    }
     AppLog (" Result of wallpaper %S", orig_filename.GetPointer());
     
+    String meecastWallpaperFilePath(App::GetInstance()->GetAppSharedPath() + "data/" +  "wallpaper.meecast.png");
     String originalWallpaperFilePath(App::GetInstance()->GetAppDataPath() + "wallpaper.original.jpg");
-    String meecastWallpaperFilePath(App::GetInstance()->GetAppDataPath() + "wallpaper.meecast.jpg");
     if (orig_filename != meecastWallpaperFilePath){
          Tizen::Io::File::Copy(orig_filename, originalWallpaperFilePath, false);
     }
@@ -218,4 +221,72 @@ MeecastServiceApp::OnTimerExpired(Tizen::Base::Runtime::Timer& timer){
 void
 MeecastServiceApp::UpdateLockScreen(){
     AppLog("Update LockScreen");
+
+    Image img;
+    img.Construct();
+
+    String originalWallpaperFilePath(App::GetInstance()->GetAppDataPath() + "wallpaper.original.jpg");
+    String meecastWallpaperFilePath(App::GetInstance()->GetAppSharedPath() + "data/" +  "wallpaper.meecast.png");
+    if (__pBitmapOriginal){
+        delete __pBitmapOriginal;
+    }
+    __pBitmapOriginal = img.DecodeN(originalWallpaperFilePath, BITMAP_PIXEL_FORMAT_ARGB8888);
+
+	Canvas *pCanvas = new Canvas();
+    pCanvas->Construct(Rectangle(0, 0, __pBitmapOriginal->GetWidth(), __pBitmapOriginal->GetHeight()));
+
+//	if(!pCanvas)
+//		return GetLastResult();
+
+	if (__pBitmapOriginal)
+	{
+		pCanvas->Clear();
+		pCanvas->DrawBitmap(Rectangle(0, 0,  __pBitmapOriginal->GetWidth(), __pBitmapOriginal->GetHeight()), *__pBitmapOriginal);
+
+		Rectangle rect;
+		Dimension round;
+
+        rect.x = 20;
+        rect.y = 100;
+        rect.width = 500;
+        rect.height = 200;
+//		round.width = rect.width / 600;
+//		round.height = rect.height / 300;
+		round.width = 1;
+        round.height = 1;
+
+
+        AppLog("sssssss1111");
+
+		pCanvas->SetForegroundColor(Color::GetColor(COLOR_ID_BLACK));
+		pCanvas->SetLineWidth(5);
+		pCanvas->SetLineStyle(LINE_STYLE_SOLID);
+        pCanvas->DrawRoundRectangle(rect, round);
+        AppLog("sssssss");
+		byte red   =  0xBB;
+		byte green =  0x09;
+		byte blue  =  0xCC;
+		byte alpha =  0xAA;
+
+		Color color(red, green, blue, alpha);
+        rect.width = rect.width - 10 ;
+        rect.height = rect.height - 20;
+
+		pCanvas->FillRoundRectangle(color, rect, round);
+    }
+
+	//make bitmap using canvas
+	Bitmap* pBitmap = new Bitmap();
+	pBitmap->Construct(*pCanvas,Rectangle(0, 0, __pBitmapOriginal->GetWidth(), __pBitmapOriginal->GetHeight()));
+
+	delete pCanvas;
+
+
+    img.EncodeToFile(*pBitmap, IMG_FORMAT_PNG, meecastWallpaperFilePath, true);
+    AppLog(" New Path %S", meecastWallpaperFilePath.GetPointer());
+    result r = E_SUCCESS;
+    String title;
+    title = L"http://tizen.org/setting/screen.wallpaper.lock"; 
+    r = SettingInfo::SetValue(title, meecastWallpaperFilePath);
+
 }

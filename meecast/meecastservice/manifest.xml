@@ -9,7 +9,9 @@
     </Requirements>
     <Apps>
         <ApiVersion>2.2</ApiVersion>
-        <Privileges/>
+        <Privileges>
+            <Privilege>http://tizen.org/privilege/setting</Privilege>
+        </Privileges>
         <ServiceApp AutoRestart="False" LaunchOnBoot="True" LaunchingHistoryVisible="True" Main="True" Name="meecastservice">
             <DisplayNames>
                 <DisplayName Locale="eng-GB">$(projectName)</DisplayName>

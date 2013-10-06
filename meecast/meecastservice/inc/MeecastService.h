@@ -8,6 +8,8 @@
 #include <FUi.h>
 #include <FIo.h>
 #include <FShell.h>
+#include <FMedia.h> 
+#include <FGraphics.h>
 #include "MeecastDynamicType.h"
 #include "MeecastServiceMessagePort.h"
 #include "../../core/core.h"
@@ -39,6 +41,7 @@ private:
     Core::Config *_config;
     Tizen::Base::Runtime::Timer* __updateTimer;
     Tizen::Base::Runtime::Timer* __checkupdatingTimer;
+    Tizen::Graphics::Bitmap * __pBitmapOriginal;
 
 public:
 

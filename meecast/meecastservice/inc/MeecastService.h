@@ -6,6 +6,7 @@
 #include <FBase.h>
 #include <FSystem.h>
 #include <FUi.h>
+#include <FIo.h>
 #include <FShell.h>
 #include "MeecastDynamicType.h"
 #include "MeecastServiceMessagePort.h"
@@ -62,6 +63,7 @@ public:
 	virtual void OnUserEventReceivedN(RequestId requestId, Tizen::Base::Collection::IList* pArgs);
 
     virtual void OnTimerExpired(Tizen::Base::Runtime::Timer& timer);
+    void UpdateLockScreen();
 
 };
 

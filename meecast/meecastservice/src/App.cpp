@@ -95,6 +95,22 @@ MeecastServiceApp::OnAppInitializing(AppRegistry& appRegistry){
         __updateTimer->Start(_config->UpdatePeriod()*1000);
     }
 
+    /* TODO Check config */
+    String title;
+    String orig_filename;
+    title = L"http://tizen.org/setting/screen.wallpaper"; 
+    r = SettingInfo::GetValue(title, orig_filename);
+    if(r == E_UNSUPPORTED_OPERATION){
+       orig_filename = "Unsupported";
+    }
+    AppLog (" Result of wallpaper %S", orig_filename.GetPointer());
+    
+    String originalWallpaperFilePath(App::GetInstance()->GetAppDataPath() + "wallpaper.original.jpg");
+    String meecastWallpaperFilePath(App::GetInstance()->GetAppDataPath() + "wallpaper.meecast.jpg");
+    if (orig_filename != meecastWallpaperFilePath){
+         Tizen::Io::File::Copy(orig_filename, originalWallpaperFilePath, false);
+    }
+
 	return true;
 }
 
@@ -149,10 +165,12 @@ MeecastServiceApp::OnUserEventReceivedN(RequestId requestId, IList* pArgs){
 //        OnAppWidgetUpdate();
 //        _mdbaProviderFactory->Update(); 
         _config->ReLoadConfig();
+        UpdateLockScreen();
         __updateTimer->Cancel();
         if (_config->UpdatePeriod() != INT_MAX){
             __updateTimer->Start(_config->UpdatePeriod()*1000);
         }
+        /* TODO Check config */
 
 		break;
 	default:
@@ -190,10 +208,14 @@ MeecastServiceApp::OnTimerExpired(Tizen::Base::Runtime::Timer& timer){
         /*  AppLog("Reload Widget"); */
         pAppWidgetProviderManager->RequestUpdate(widgetId, "MeecastDynamicBoxAppProvider", L"");
 
+        UpdateLockScreen();
         AppLog("Out __checkupdatingTimer1");
         __updateTimer->Start(_config->UpdatePeriod()*1000);
         AppLog("Out __checkupdatingTimer2");
     }
 }
 
-
+void
+MeecastServiceApp::UpdateLockScreen(){
+    AppLog("Update LockScreen");
+}

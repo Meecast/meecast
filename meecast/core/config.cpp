@@ -358,7 +358,10 @@ Config::saveConfig()
         file_out<<" <gps>false</gps>"<<endl;
     else
         file_out<<" <gps>true</gps>"<<endl;
-
+    if (Lockscreen() == false)
+        file_out<<" <lockscreen>false</lockscreen>"<<endl;
+    else
+        file_out<<" <lockscreen>true</lockscreen>"<<endl;
     std::vector<Station*>::iterator i = _stations->begin();
     while (i != _stations->end()){
         file_out<<"  <station>"<<endl;
@@ -735,6 +738,14 @@ Config::LoadConfig(){
                     Gps(true);
                 else
                     Gps(false);
+                xmlFree(temp_xml_string);
+            }
+            if (!xmlStrcmp(p->name, (const xmlChar*)"lockscreen")){
+                temp_xml_string = xmlNodeGetContent(p);
+                if(!xmlStrcmp(temp_xml_string,(const xmlChar*)"true"))
+                    Lockscreen(true);
+                else
+                    Lockscreen(false);
                 xmlFree(temp_xml_string);
             }
 

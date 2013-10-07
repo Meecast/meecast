@@ -224,6 +224,8 @@ MeecastServiceApp::UpdateLockScreen(){
 
     int Width = 768;
     int Height = 1024;
+    char  buffer[4096]; 
+
     Image img;
     img.Construct();
 
@@ -234,7 +236,6 @@ MeecastServiceApp::UpdateLockScreen(){
     }
     __pBitmapOriginal = img.DecodeN(originalWallpaperFilePath, BITMAP_PIXEL_FORMAT_ARGB8888);
 
-    AppLog("1111111111111");
 	Canvas *pCanvas = new Canvas();
     if (__pBitmapOriginal){
         Width = __pBitmapOriginal->GetWidth();
@@ -252,33 +253,91 @@ MeecastServiceApp::UpdateLockScreen(){
         pCanvas->SetForegroundColor(Color::GetColor(COLOR_ID_BLACK));
         pCanvas->FillRectangle(Color::GetColor(COLOR_ID_BLACK), Rectangle(0, 0, Width, Height));
     }
+
+    /* Create background rectangle */
     Rectangle rect;
     Dimension round;
-
-    rect.x = 20;
-    rect.y = 300;
+    int PositionX = 40;
+    int PositionY = 300;
+    rect.x = PositionX;
+    rect.y = PositionY;
     rect.width = 500;
-    rect.height = 200;
-    round.width = 3;
-    round.height = 3;
+    rect.height = 300;
+    round.width = 9;
+    round.height = 9;
 
 
-    pCanvas->SetForegroundColor(Color::GetColor(COLOR_ID_BLACK));
+    pCanvas->SetForegroundColor(Color::GetColor(COLOR_ID_WHITE));
     pCanvas->SetLineWidth(5);
     pCanvas->SetLineStyle(LINE_STYLE_SOLID);
     pCanvas->DrawRoundRectangle(rect, round);
     byte red   =  0xFF;
     byte green =  0xFF;
     byte blue  =  0xFF;
-    byte alpha =  0x60;
+    byte alpha =  0x20;
 
     Color color(red, green, blue, alpha);
-    rect.x = rect.x - 5;
-    rect.y = rect.y - 5;
+    rect.x = rect.x + 5;
+    rect.y = rect.y + 5;
     rect.width = rect.width - 10;
     rect.height = rect.height - 10;
 
     pCanvas->FillRoundRectangle(color, rect, round);
+
+
+    if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0){
+        _dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
+    }else
+        _dp = NULL;
+
+    Core::Data *temp_data = NULL;
+    if (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))){ 
+        /* Main Icon */
+        Tizen::Base::Integer icon_int =  temp_data->Icon();
+        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Atmos/" + icon_int.ToString() + ".png")){
+            /* Main Icon */ 
+            Tizen::Media::Image *image = null;
+            Tizen::Graphics::Bitmap* mainIconBitmap = null;
+            image = new (std::nothrow) Tizen::Media::Image();
+            image->Construct();
+            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Atmos/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+
+		    pCanvas->DrawBitmap(Rectangle(PositionX + 10, PositionY + 10, 256, 256), *mainIconBitmap);
+            if (mainIconBitmap)
+                delete mainIconBitmap;
+            if (image)
+                delete image;
+        }
+        /* Temperature */
+        int t = INT_MAX;
+        /* Temperature */
+        if (temp_data->temperature().value(true) == INT_MAX){
+          if ((temp_data->temperature_hi().value(true) == INT_MAX) &&
+              (temp_data->temperature_low().value(true) == INT_MAX)){ 
+            //__pLabelMainDescription->SetText("N/A");
+          } 
+          if ((temp_data->temperature_hi().value(true) != INT_MAX) &&
+              (temp_data->temperature_low().value(true) != INT_MAX)){ 
+            snprintf(buffer, sizeof(buffer) - 1, "%0.f°/ %0.f°", temp_data->temperature_low().value(),
+                                                                 temp_data->temperature_hi().value());
+            t = temp_data->temperature_hi().value();
+          }else{  
+              if (temp_data->temperature_hi().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
+                t = temp_data->temperature_hi().value();
+              }
+              if (temp_data->temperature_low().value(true) != INT_MAX){
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
+                t = temp_data->temperature_low().value();
+              }
+          }
+        }else{
+            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature().value());
+            t = temp_data->temperature().value();
+        }
+        pCanvas->DrawText(Point(PositionX + 100, PositionY + 100), buffer);
+
+    }
 
 	//make bitmap using canvas
 	Bitmap* pBitmap = new Bitmap();

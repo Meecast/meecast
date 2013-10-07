@@ -39,6 +39,7 @@ public:
 private:
     MeecastServiceMessagePort* __pMessagePort;
     Core::Config *_config;
+    Core::DataParser* _dp;
     Tizen::Base::Runtime::Timer* __updateTimer;
     Tizen::Base::Runtime::Timer* __checkupdatingTimer;
     Tizen::Graphics::Bitmap * __pBitmapOriginal;

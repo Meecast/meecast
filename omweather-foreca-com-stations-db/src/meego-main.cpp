@@ -139,9 +139,14 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         return(-1);
     }
 
-    if (xpathObj->nodesetval == NULL || xpathObj->nodesetval->nodeTab[0] ==NULL || xpathObj->nodesetval->nodeTab[0]->content == NULL){
-        xmlXPathFreeContext(xpathCtx); 
-        return -1;
+    if (xpathObj->nodesetval == NULL || xpathObj->nodesetval->nodeTab == NULL || xpathObj->nodesetval->nodeTab[0] ==NULL || xpathObj->nodesetval->nodeTab[0]->content == NULL){
+        
+        xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@id='cc']/div[@class='cctext']/p/text()[2]", xpathCtx);
+
+        if (xpathObj->nodesetval == NULL || xpathObj->nodesetval->nodeTab == NULL || xpathObj->nodesetval->nodeTab[0] ==NULL || xpathObj->nodesetval->nodeTab[0]->content == NULL){
+            xmlXPathFreeContext(xpathCtx); 
+            return -1;
+        }
     }
     /* Set localtimezone */
     current_time = time(NULL);

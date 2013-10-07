@@ -599,6 +599,10 @@ Config::~Config(){
     delete _temperature_unit;
     _languages_list->clear();
     delete _languages_list;
+    for(unsigned i = 0; i < _stations->size(); i++){
+        Core::Station *_station =_stations->at(i);
+        delete (_station);
+    }
     _stations->clear();
     delete _stations;
     delete _nullname;

@@ -256,28 +256,27 @@ MeecastServiceApp::UpdateLockScreen(){
     Dimension round;
 
     rect.x = 20;
-    rect.y = 100;
+    rect.y = 300;
     rect.width = 500;
     rect.height = 200;
-//		round.width = rect.width / 600;
-//		round.height = rect.height / 300;
-    round.width = 1;
-    round.height = 1;
+    round.width = 3;
+    round.height = 3;
 
 
     pCanvas->SetForegroundColor(Color::GetColor(COLOR_ID_BLACK));
     pCanvas->SetLineWidth(5);
     pCanvas->SetLineStyle(LINE_STYLE_SOLID);
     pCanvas->DrawRoundRectangle(rect, round);
-    AppLog("sssssss");
-    byte red   =  0xBB;
-    byte green =  0x09;
-    byte blue  =  0xCC;
-    byte alpha =  0xAA;
+    byte red   =  0xFF;
+    byte green =  0xFF;
+    byte blue  =  0xFF;
+    byte alpha =  0x60;
 
     Color color(red, green, blue, alpha);
-    rect.width = rect.width - 10 ;
-    rect.height = rect.height - 20;
+    rect.x = rect.x - 5;
+    rect.y = rect.y - 5;
+    rect.width = rect.width - 10;
+    rect.height = rect.height - 10;
 
     pCanvas->FillRoundRectangle(color, rect, round);
 

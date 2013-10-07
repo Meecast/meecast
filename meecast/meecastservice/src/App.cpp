@@ -222,6 +222,8 @@ void
 MeecastServiceApp::UpdateLockScreen(){
     AppLog("Update LockScreen");
 
+    int Width = 768;
+    int Height = 1024;
     Image img;
     img.Construct();
 
@@ -232,52 +234,56 @@ MeecastServiceApp::UpdateLockScreen(){
     }
     __pBitmapOriginal = img.DecodeN(originalWallpaperFilePath, BITMAP_PIXEL_FORMAT_ARGB8888);
 
+    AppLog("1111111111111");
 	Canvas *pCanvas = new Canvas();
-    pCanvas->Construct(Rectangle(0, 0, __pBitmapOriginal->GetWidth(), __pBitmapOriginal->GetHeight()));
+    if (__pBitmapOriginal){
+        Width = __pBitmapOriginal->GetWidth();
+        Height = __pBitmapOriginal->GetHeight();
+    }
+    pCanvas->Construct(Rectangle(0, 0, Width, Height));
 
 //	if(!pCanvas)
 //		return GetLastResult();
 
+    pCanvas->Clear();
 	if (__pBitmapOriginal)
-	{
-		pCanvas->Clear();
-		pCanvas->DrawBitmap(Rectangle(0, 0,  __pBitmapOriginal->GetWidth(), __pBitmapOriginal->GetHeight()), *__pBitmapOriginal);
+		pCanvas->DrawBitmap(Rectangle(0, 0, Width, Height), *__pBitmapOriginal);
+    else{
+        pCanvas->SetForegroundColor(Color::GetColor(COLOR_ID_BLACK));
+        pCanvas->FillRectangle(Color::GetColor(COLOR_ID_BLACK), Rectangle(0, 0, Width, Height));
+    }
+    Rectangle rect;
+    Dimension round;
 
-		Rectangle rect;
-		Dimension round;
-
-        rect.x = 20;
-        rect.y = 100;
-        rect.width = 500;
-        rect.height = 200;
+    rect.x = 20;
+    rect.y = 100;
+    rect.width = 500;
+    rect.height = 200;
 //		round.width = rect.width / 600;
 //		round.height = rect.height / 300;
-		round.width = 1;
-        round.height = 1;
+    round.width = 1;
+    round.height = 1;
 
 
-        AppLog("sssssss1111");
+    pCanvas->SetForegroundColor(Color::GetColor(COLOR_ID_BLACK));
+    pCanvas->SetLineWidth(5);
+    pCanvas->SetLineStyle(LINE_STYLE_SOLID);
+    pCanvas->DrawRoundRectangle(rect, round);
+    AppLog("sssssss");
+    byte red   =  0xBB;
+    byte green =  0x09;
+    byte blue  =  0xCC;
+    byte alpha =  0xAA;
 
-		pCanvas->SetForegroundColor(Color::GetColor(COLOR_ID_BLACK));
-		pCanvas->SetLineWidth(5);
-		pCanvas->SetLineStyle(LINE_STYLE_SOLID);
-        pCanvas->DrawRoundRectangle(rect, round);
-        AppLog("sssssss");
-		byte red   =  0xBB;
-		byte green =  0x09;
-		byte blue  =  0xCC;
-		byte alpha =  0xAA;
+    Color color(red, green, blue, alpha);
+    rect.width = rect.width - 10 ;
+    rect.height = rect.height - 20;
 
-		Color color(red, green, blue, alpha);
-        rect.width = rect.width - 10 ;
-        rect.height = rect.height - 20;
-
-		pCanvas->FillRoundRectangle(color, rect, round);
-    }
+    pCanvas->FillRoundRectangle(color, rect, round);
 
 	//make bitmap using canvas
 	Bitmap* pBitmap = new Bitmap();
-	pBitmap->Construct(*pCanvas,Rectangle(0, 0, __pBitmapOriginal->GetWidth(), __pBitmapOriginal->GetHeight()));
+	pBitmap->Construct(*pCanvas,Rectangle(0, 0, Width, Height));
 
 	delete pCanvas;
 

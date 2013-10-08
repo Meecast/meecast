@@ -136,6 +136,7 @@ MeecastServiceApp::OnAppInitializing(AppRegistry& appRegistry){
         if (IsFailed(r)){
             AppLog("Error in Registry Save");
         }
+        AppLog("test111111");
         /* Save original wallpaper */
         Tizen::Io::File::Copy(orig_filename, originalWallpaperFilePath, false);
     }
@@ -251,22 +252,36 @@ MeecastServiceApp::UpdateLockScreen(){
     int Width = 768;
     int Height = 1024;
     char  buffer[4096]; 
+    
+    
+    result r = E_SUCCESS;
 
+    r = SettingInfo::GetValue(L"screen.height", Height);
+    r = SettingInfo::GetValue(L"screen.width", Width);
+
+    AppLog("Height %i", Height);
     Image img;
     img.Construct();
 
+
+    AppLog("11111111");
     String originalWallpaperFilePath(App::GetInstance()->GetAppDataPath() + "wallpaper.original.jpg");
     String meecastWallpaperFilePath(App::GetInstance()->GetAppSharedPath() + "data/" +  "wallpaper.meecast.png");
     if (__pBitmapOriginal){
         delete __pBitmapOriginal;
     }
     __pBitmapOriginal = img.DecodeN(originalWallpaperFilePath, BITMAP_PIXEL_FORMAT_ARGB8888);
+    if (__pBitmapOriginal)
+        __pBitmapOriginal->Scale(Dimension(Width, Height));
 
+    AppLog("111111111222");
 	Canvas *pCanvas = new Canvas();
+    /*
     if (__pBitmapOriginal){
         Width = __pBitmapOriginal->GetWidth();
         Height = __pBitmapOriginal->GetHeight();
     }
+    */
     pCanvas->Construct(Rectangle(0, 0, Width, Height));
 
 //	if(!pCanvas)
@@ -280,37 +295,45 @@ MeecastServiceApp::UpdateLockScreen(){
         pCanvas->FillRectangle(Color::GetColor(COLOR_ID_BLACK), Rectangle(0, 0, Width, Height));
     }
 
+    AppLog("222222");
     /* Create background rectangle */
     Rectangle rect;
     Dimension round;
     int PositionX = 40;
-    int PositionY = 300;
+    int PositionY = 200;
     rect.x = PositionX;
     rect.y = PositionY;
-    rect.width = 500;
-    rect.height = 300;
+    rect.width = 600;
+    rect.height = 600;
     round.width = 9;
     round.height = 9;
 
+    pCanvas->SetForegroundColor(Color::GetColor(COLOR_ID_BLACK));
+    pCanvas->SetLineWidth(1);
+    pCanvas->SetLineStyle(LINE_STYLE_SOLID);
+    pCanvas->DrawRoundRectangle(Rectangle(PositionX - 1, PositionY - 1, rect.width + 1, rect.height + 1), round);
 
     pCanvas->SetForegroundColor(Color::GetColor(COLOR_ID_WHITE));
-    pCanvas->SetLineWidth(5);
+    pCanvas->SetLineWidth(3);
     pCanvas->SetLineStyle(LINE_STYLE_SOLID);
     pCanvas->DrawRoundRectangle(rect, round);
-    byte red   =  0xFF;
-    byte green =  0xFF;
-    byte blue  =  0xFF;
-    byte alpha =  0x20;
+
+
+    byte red   =  0x10;
+    byte green =  0x10;
+    byte blue  =  0x10;
+    byte alpha =  0x40;
 
     Color color(red, green, blue, alpha);
-    rect.x = rect.x + 5;
-    rect.y = rect.y + 5;
-    rect.width = rect.width - 10;
-    rect.height = rect.height - 10;
+    rect.x = rect.x + 3;
+    rect.y = rect.y + 3;
+    rect.width = rect.width - 6;
+    rect.height = rect.height - 6;
 
     pCanvas->FillRoundRectangle(color, rect, round);
 
 
+    AppLog("333333");
     if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0){
         _dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
     }else
@@ -335,18 +358,16 @@ MeecastServiceApp::UpdateLockScreen(){
                 delete image;
         }
         /* Temperature */
-        result r = E_SUCCESS;
         EnrichedText* pEnrichedText = null;
         TextElement* pTextElement = null;
         pEnrichedText = new EnrichedText();
         r = pEnrichedText->Construct(Dimension(200, 200));
-        pEnrichedText->SetHorizontalAlignment(TEXT_ALIGNMENT_RIGHT);
-        pEnrichedText->SetVerticalAlignment(TEXT_ALIGNMENT_BOTTOM);
+        pEnrichedText->SetHorizontalAlignment(TEXT_ALIGNMENT_CENTER);
+        pEnrichedText->SetVerticalAlignment(TEXT_ALIGNMENT_MIDDLE);
         pEnrichedText->SetTextWrapStyle(TEXT_WRAP_CHARACTER_WRAP);
         pEnrichedText->SetTextAbbreviationEnabled(true);
 
         int t = INT_MAX;
-        /* Temperature */
         if (temp_data->temperature().value(true) == INT_MAX){
           if ((temp_data->temperature_hi().value(true) == INT_MAX) &&
               (temp_data->temperature_low().value(true) == INT_MAX)){ 
@@ -354,7 +375,7 @@ MeecastServiceApp::UpdateLockScreen(){
           } 
           if ((temp_data->temperature_hi().value(true) != INT_MAX) &&
               (temp_data->temperature_low().value(true) != INT_MAX)){ 
-            snprintf(buffer, sizeof(buffer) - 1, "%0.f°/ %0.f°", temp_data->temperature_low().value(),
+            snprintf(buffer, sizeof(buffer) - 1, "%0.f°\n %0.f°", temp_data->temperature_low().value(),
                                                                  temp_data->temperature_hi().value());
             t = temp_data->temperature_hi().value();
           }else{  
@@ -374,27 +395,71 @@ MeecastServiceApp::UpdateLockScreen(){
         pTextElement = new TextElement();
         r = pTextElement->Construct(buffer);
 
-        pTextElement->SetTextColor(Color::GetColor(COLOR_ID_BLUE));
-        {
+        pTextElement->SetTextColor(Color::GetColor(COLOR_ID_BLACK));{
             Font font;
             font.Construct(FONT_STYLE_BOLD, 80);
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 250, PositionY + 20), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 300 + 2, PositionY + 80 + 2), *pEnrichedText);
+
+        pTextElement->SetTextColor(Color::GetColor(COLOR_ID_WHITE));{
+            Font font;
+            font.Construct(FONT_STYLE_BOLD, 80);
+            pTextElement->SetFont(font);
+        }
+        pEnrichedText->Add(*pTextElement);
+        pCanvas->DrawText(Point(PositionX + 300, PositionY + 80), *pEnrichedText);
+
+
+        delete pTextElement;
+        delete pEnrichedText;
+
+        /* Station name */
+        pEnrichedText = new EnrichedText();
+        r = pEnrichedText->Construct(Dimension(350, 150));
+        pEnrichedText->SetHorizontalAlignment(TEXT_ALIGNMENT_CENTER);
+        pEnrichedText->SetVerticalAlignment(TEXT_ALIGNMENT_MIDDLE);
+        pEnrichedText->SetTextWrapStyle(TEXT_WRAP_CHARACTER_WRAP);
+        pEnrichedText->SetTextAbbreviationEnabled(true);
+        pTextElement = new TextElement();
+
+        if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0){
+            String str;
+            Tizen::Base::Utility::StringUtil::Utf8ToString(_config->stationname().c_str(), str);
+            r = pTextElement->Construct(str);
+        }else{
+            r = pTextElement->Construct(L"MeeCast");
+        }
+
+        pTextElement->SetTextColor(Color::GetColor(COLOR_ID_BLACK));{
+            Font font;
+            font.Construct(FONT_STYLE_BOLD, 60);
+            pTextElement->SetFont(font);
+        }
+        pEnrichedText->Add(*pTextElement);
+        pCanvas->DrawText(Point(PositionX + 250 + 2 , PositionY + 5 +2), *pEnrichedText);
+
+        pTextElement->SetTextColor(Color::GetColor(COLOR_ID_WHITE));{
+            Font font;
+            font.Construct(FONT_STYLE_BOLD, 60);
+            pTextElement->SetFont(font);
+        }
+        pEnrichedText->Add(*pTextElement);
+        pCanvas->DrawText(Point(PositionX + 250, PositionY + 5), *pEnrichedText);
+
 
     }
 
 	//make bitmap using canvas
 	Bitmap* pBitmap = new Bitmap();
-	pBitmap->Construct(*pCanvas,Rectangle(0, 0, Width, Height));
+	pBitmap->Construct(*pCanvas, Rectangle(0, 0, Width, Height));
 
 	delete pCanvas;
 
 
     img.EncodeToFile(*pBitmap, IMG_FORMAT_PNG, meecastWallpaperFilePath, true);
     AppLog(" New Path %S", meecastWallpaperFilePath.GetPointer());
-    result r = E_SUCCESS;
     r = SettingInfo::SetValue(L"http://tizen.org/setting/screen.wallpaper.lock", meecastWallpaperFilePath);
 
 }

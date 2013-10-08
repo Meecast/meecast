@@ -52,6 +52,14 @@ MeecastServiceApp::~MeecastServiceApp(void){
         delete __updateTimer;
     _config->DeleteInstance();
     String originalWallpaperFilePath(L"");
+
+    result r = E_SUCCESS;
+    AppRegistry* appRegistry = Application::GetInstance()->GetAppRegistry();
+    r = appRegistry->Get(L"OriginalWallpaperPath", originalWallpaperFilePath);
+    if (r == E_SUCCESS && originalWallpaperFilePath != L""){
+        AppLog("set wallpaper %S", originalWallpaperFilePath.GetPointer());
+        r = SettingInfo::SetValue(L"http://tizen.org/setting/screen.wallpaper.lock", originalWallpaperFilePath);
+    }
 }
 
 ServiceApp*
@@ -103,18 +111,32 @@ MeecastServiceApp::OnAppInitializing(AppRegistry& appRegistry){
     }
 
     /* TODO Check config */
-    String title;
     String orig_filename;
-    title = L"http://tizen.org/setting/screen.wallpaper.lock"; 
-    r = SettingInfo::GetValue(title, orig_filename);
+    r = SettingInfo::GetValue(L"http://tizen.org/setting/screen.wallpaper.lock", orig_filename);
     AppLog (" Result of wallpaper %S", orig_filename.GetPointer());
     
     String meecastWallpaperFilePath(App::GetInstance()->GetAppSharedPath() + "data/" +  "wallpaper.meecast.png");
     String originalWallpaperFilePath(App::GetInstance()->GetAppDataPath() + "wallpaper.original.jpg");
     if (orig_filename != meecastWallpaperFilePath){
         AppRegistry* appRegistry = Application::GetInstance()->GetAppRegistry();
-        appRegistry->Set("original_wallpaper_path", originalWallpaperFilePath);
-        appRegistry->Save();
+        AppLog (" Set wallpaper %S", orig_filename.GetPointer());
+        String temp_name;
+        r = appRegistry->Get(L"OriginalWallpaperPath", temp_name);
+        if (r == E_KEY_NOT_FOUND){
+            r = appRegistry->Add(L"OriginalWallpaperPath", orig_filename);
+            if (IsFailed(r)){
+                AppLog("Error in Registry Add");
+            }
+        }else
+            r = appRegistry->Set(L"OriginalWallpaperPath", orig_filename);
+        if (IsFailed(r)){
+            AppLog("Error in Registry Set");
+        }
+        r = appRegistry->Save();
+        if (IsFailed(r)){
+            AppLog("Error in Registry Save");
+        }
+        /* Save original wallpaper */
         Tizen::Io::File::Copy(orig_filename, originalWallpaperFilePath, false);
     }
 
@@ -373,8 +395,6 @@ MeecastServiceApp::UpdateLockScreen(){
     img.EncodeToFile(*pBitmap, IMG_FORMAT_PNG, meecastWallpaperFilePath, true);
     AppLog(" New Path %S", meecastWallpaperFilePath.GetPointer());
     result r = E_SUCCESS;
-    String title;
-    title = L"http://tizen.org/setting/screen.wallpaper.lock"; 
-    r = SettingInfo::SetValue(title, meecastWallpaperFilePath);
+    r = SettingInfo::SetValue(L"http://tizen.org/setting/screen.wallpaper.lock", meecastWallpaperFilePath);
 
 }

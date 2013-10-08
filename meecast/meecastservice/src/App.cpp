@@ -51,6 +51,7 @@ MeecastServiceApp::~MeecastServiceApp(void){
     if (__updateTimer)
         delete __updateTimer;
     _config->DeleteInstance();
+    String originalWallpaperFilePath(L"");
 }
 
 ServiceApp*
@@ -111,7 +112,10 @@ MeecastServiceApp::OnAppInitializing(AppRegistry& appRegistry){
     String meecastWallpaperFilePath(App::GetInstance()->GetAppSharedPath() + "data/" +  "wallpaper.meecast.png");
     String originalWallpaperFilePath(App::GetInstance()->GetAppDataPath() + "wallpaper.original.jpg");
     if (orig_filename != meecastWallpaperFilePath){
-         Tizen::Io::File::Copy(orig_filename, originalWallpaperFilePath, false);
+        AppRegistry* appRegistry = Application::GetInstance()->GetAppRegistry();
+        appRegistry->Set("original_wallpaper_path", originalWallpaperFilePath);
+        appRegistry->Save();
+        Tizen::Io::File::Copy(orig_filename, originalWallpaperFilePath, false);
     }
 
 	return true;

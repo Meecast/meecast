@@ -14,6 +14,8 @@
 #include "MeecastServiceMessagePort.h"
 #include "../../core/core.h"
 #include "../../core/config.h"
+#include <FLocales.h>
+
 
 
 /**
@@ -23,6 +25,7 @@
 class MeecastServiceApp
 	: public Tizen::App::ServiceApp
     , public Tizen::Base::Runtime::ITimerEventListener
+    , public Tizen::System::ISettingEventListener
 {
 public:
 
@@ -68,6 +71,8 @@ public:
 
     virtual void OnTimerExpired(Tizen::Base::Runtime::Timer& timer);
     void UpdateLockScreen();
+//ISettingEventLisetener
+    virtual void OnSettingChanged(Tizen::Base::String& key);
 
 };
 

@@ -21,6 +21,7 @@ using namespace Tizen::Ui::Controls;
 using namespace Tizen::Base::Collection;
 using namespace Tizen::Graphics;
 using namespace Tizen::Media;
+using namespace Tizen::Locales;
 
 static const wchar_t* LOCAL_MESSAGE_PORT_NAME = L"SERVICE_PORT";
 
@@ -55,7 +56,9 @@ MeecastServiceApp::~MeecastServiceApp(void){
         delete __checkupdatingTimer;
     if (__updateTimer)
         delete __updateTimer;
+    __updateTimer = NULL;
     _config->DeleteInstance();
+    _config = NULL;
     String originalWallpaperFilePath(L"");
 
     result r = E_SUCCESS;
@@ -135,36 +138,10 @@ MeecastServiceApp::OnAppInitializing(AppRegistry& appRegistry){
     }
 
     /* TODO Check config */
-    String orig_filename;
-    r = SettingInfo::GetValue(L"http://tizen.org/setting/screen.wallpaper.lock", orig_filename);
-    AppLog (" Result of wallpaper %S", orig_filename.GetPointer());
-    
-    String meecastWallpaperFilePath(App::GetInstance()->GetAppSharedPath() + "data/" +  "wallpaper.meecast.png");
-    String originalWallpaperFilePath(App::GetInstance()->GetAppDataPath() + "wallpaper.original.jpg");
-    if (orig_filename != meecastWallpaperFilePath){
-        AppRegistry* appRegistry = Application::GetInstance()->GetAppRegistry();
-        AppLog (" Set wallpaper %S", orig_filename.GetPointer());
-        String temp_name;
-        r = appRegistry->Get(L"OriginalWallpaperPath", temp_name);
-        if (r == E_KEY_NOT_FOUND){
-            r = appRegistry->Add(L"OriginalWallpaperPath", orig_filename);
-            if (IsFailed(r)){
-                AppLog("Error in Registry Add");
-            }
-        }else
-            r = appRegistry->Set(L"OriginalWallpaperPath", orig_filename);
-        if (IsFailed(r)){
-            AppLog("Error in Registry Set");
-        }
-        r = appRegistry->Save();
-        if (IsFailed(r)){
-            AppLog("Error in Registry Save");
-        }
-        AppLog("test111111");
-        /* Save original wallpaper */
-        Tizen::Io::File::Copy(orig_filename, originalWallpaperFilePath, false);
-    }
-
+    SettingInfo::AddSettingEventListener(*this);
+    Tizen::Base::String str1;
+    str1 = L"http://tizen.org/setting/screen.wallpaper.lock";
+    OnSettingChanged(str1);
 	return true;
 }
 
@@ -273,19 +250,15 @@ void
 MeecastServiceApp::UpdateLockScreen(){
     AppLog("Update LockScreen");
 
-    int Width = 768;
-    int Height = 1024;
-    char  buffer[4096]; 
+    int  Width = 720;
+    int  Height = 1280;
+    char buffer[4096]; 
     
-    
-    int Dpi = 0;
     result r = E_SUCCESS;
-
-    r = SettingInfo::GetValue(L"screen.height", Height);
-    r = SettingInfo::GetValue(L"screen.width", Width);
-    r = SettingInfo::GetValue(L"screen.dpi", Dpi);
-
-    AppLog("Dpi %i", Dpi);
+/*
+    r = SettingInfo::GetValue(L"http://tizen.org/feature/screen.height", Height);
+    r = SettingInfo::GetValue(L"http://tizen.org/feature/screen.width", Width);
+*/
     Image img;
     img.Construct();
 
@@ -325,12 +298,13 @@ MeecastServiceApp::UpdateLockScreen(){
     /* Create background rectangle */
     Rectangle rect;
     Dimension round;
-    int PositionX = 40;
-    int PositionY = 200;
+    int PositionX = 60;
+    int PositionY = 400;
     rect.x = PositionX;
     rect.y = PositionY;
     rect.width = 600;
-    rect.height = 340;
+    rect.height = 300;
+
     round.width = 9;
     round.height = 9;
 
@@ -377,7 +351,7 @@ MeecastServiceApp::UpdateLockScreen(){
             image->Construct();
             mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Atmos/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
 
-		    pCanvas->DrawBitmap(Rectangle(PositionX - 50, PositionY - 50, 350, 350), *mainIconBitmap);
+		    pCanvas->DrawBitmap(Rectangle(PositionX - 70, PositionY - 90, 350, 350), *mainIconBitmap);
             if (mainIconBitmap)
                 delete mainIconBitmap;
             if (image)
@@ -387,7 +361,7 @@ MeecastServiceApp::UpdateLockScreen(){
         EnrichedText* pEnrichedText = null;
         TextElement* pTextElement = null;
         pEnrichedText = new EnrichedText();
-        r = pEnrichedText->Construct(Dimension(200, 200));
+        r = pEnrichedText->Construct(Dimension(280, 100));
         pEnrichedText->SetHorizontalAlignment(TEXT_ALIGNMENT_CENTER);
         pEnrichedText->SetVerticalAlignment(TEXT_ALIGNMENT_MIDDLE);
         pEnrichedText->SetTextWrapStyle(TEXT_WRAP_CHARACTER_WRAP);
@@ -401,7 +375,7 @@ MeecastServiceApp::UpdateLockScreen(){
           } 
           if ((temp_data->temperature_hi().value(true) != INT_MAX) &&
               (temp_data->temperature_low().value(true) != INT_MAX)){ 
-            snprintf(buffer, sizeof(buffer) - 1, "%0.f°\n %0.f°", temp_data->temperature_low().value(),
+            snprintf(buffer, sizeof(buffer) - 1, "%0.f°/ %0.f°", temp_data->temperature_low().value(),
                                                                  temp_data->temperature_hi().value());
             t = temp_data->temperature_hi().value();
           }else{  
@@ -427,7 +401,7 @@ MeecastServiceApp::UpdateLockScreen(){
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 300 + 2, PositionY + 90 + 2), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 220 + 2, PositionY + 90 + 2), *pEnrichedText);
 
         pTextElement->SetTextColor(Color::GetColor(COLOR_ID_WHITE));{
             Font font;
@@ -435,7 +409,7 @@ MeecastServiceApp::UpdateLockScreen(){
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 300, PositionY + 90), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 220, PositionY + 90), *pEnrichedText);
 
 
         delete pTextElement;
@@ -443,9 +417,9 @@ MeecastServiceApp::UpdateLockScreen(){
 
         /* Station name */
         pEnrichedText = new EnrichedText();
-        r = pEnrichedText->Construct(Dimension(320, 120));
+        r = pEnrichedText->Construct(Dimension(350, 120));
         pEnrichedText->SetHorizontalAlignment(TEXT_ALIGNMENT_CENTER);
-        pEnrichedText->SetVerticalAlignment(TEXT_ALIGNMENT_MIDDLE);
+        pEnrichedText->SetVerticalAlignment(TEXT_ALIGNMENT_TOP);
         pEnrichedText->SetTextWrapStyle(TEXT_WRAP_CHARACTER_WRAP);
         pEnrichedText->SetTextAbbreviationEnabled(true);
         pTextElement = new TextElement();
@@ -464,7 +438,7 @@ MeecastServiceApp::UpdateLockScreen(){
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 280 + 2 , PositionY + 2), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 250 + 2 , PositionY + 2), *pEnrichedText);
 
         pTextElement->SetTextColor(Color::GetColor(COLOR_ID_WHITE));{
             Font font;
@@ -472,14 +446,14 @@ MeecastServiceApp::UpdateLockScreen(){
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 280, PositionY), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 250, PositionY), *pEnrichedText);
 
         delete pTextElement;
         delete pEnrichedText;
 
         /* Description */
         pEnrichedText = new EnrichedText();
-        r = pEnrichedText->Construct(Dimension(550, 150));
+        r = pEnrichedText->Construct(Dimension(550, 100));
         pEnrichedText->SetHorizontalAlignment(TEXT_ALIGNMENT_CENTER);
         pEnrichedText->SetVerticalAlignment(TEXT_ALIGNMENT_MIDDLE);
         pEnrichedText->SetTextWrapStyle(TEXT_WRAP_CHARACTER_WRAP);
@@ -501,7 +475,7 @@ MeecastServiceApp::UpdateLockScreen(){
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 5 + 2 , PositionY + 210 + 2), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 5 + 2 , PositionY + 170 + 2), *pEnrichedText);
 
         pTextElement->SetTextColor(Color::GetColor(COLOR_ID_WHITE));{
             Font font;
@@ -509,16 +483,72 @@ MeecastServiceApp::UpdateLockScreen(){
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 5, PositionY + 210), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 5, PositionY + 170), *pEnrichedText);
 
         delete pTextElement;
         delete pEnrichedText;
-    }
 
+        /* Last Update */
+        if (_dp->LastUpdate()>0){
+            time_t last_update = _dp->LastUpdate();
+            struct tm   tm1;
+            localtime_r(&last_update, &tm1);
+
+            /* Convert date and time */
+            DateTime dt;
+            dt.SetValue(tm1.tm_year, tm1.tm_mon + 1, tm1.tm_mday, tm1.tm_hour, tm1.tm_min);
+            String dateString;
+            String timeString;
+            LocaleManager localeManager;
+            localeManager.Construct();
+            Locale  systemLocale = localeManager.GetSystemLocale();
+            String countryCodeString = systemLocale.GetCountryCodeString();
+            String languageCodeString = systemLocale.GetLanguageCodeString();
+            Tizen::Locales::DateTimeFormatter* pDateFormatter = DateTimeFormatter::CreateDateFormatterN(systemLocale, DATE_TIME_STYLE_DEFAULT);
+            Tizen::Locales::DateTimeFormatter* pTimeFormatter = DateTimeFormatter::CreateTimeFormatterN(systemLocale, DATE_TIME_STYLE_SHORT);
+            String customizedPattern = L" dd MMM ";
+            pDateFormatter->ApplyPattern(customizedPattern);
+            pDateFormatter->Format(dt, dateString);
+            pTimeFormatter->Format(dt, timeString);
+            dateString.Append(timeString);
+            dateString.Insert(_("Last update:"), 0);
+
+            pEnrichedText = new EnrichedText();
+            r = pEnrichedText->Construct(Dimension(570, 100));
+            pEnrichedText->SetHorizontalAlignment(TEXT_ALIGNMENT_RIGHT);
+            pEnrichedText->SetVerticalAlignment(TEXT_ALIGNMENT_MIDDLE);
+            pEnrichedText->SetTextWrapStyle(TEXT_WRAP_CHARACTER_WRAP);
+            pEnrichedText->SetTextAbbreviationEnabled(true);
+            pTextElement = new TextElement();
+
+            r = pTextElement->Construct(dateString);
+
+            pTextElement->SetTextColor(Color::GetColor(COLOR_ID_BLACK));{
+                Font font;
+                font.Construct(FONT_STYLE_BOLD, 30);
+                pTextElement->SetFont(font);
+            }
+            pEnrichedText->Add(*pTextElement);
+            pCanvas->DrawText(Point(PositionX + 5 + 2 , PositionY + 220 + 2), *pEnrichedText);
+
+            pTextElement->SetTextColor(Color::GetColor(COLOR_ID_WHITE));{
+                Font font;
+                font.Construct(FONT_STYLE_BOLD, 30);
+                pTextElement->SetFont(font);
+            }
+            pEnrichedText->Add(*pTextElement);
+            pCanvas->DrawText(Point(PositionX + 5, PositionY + 220), *pEnrichedText);
+
+            delete pTextElement;
+            delete pEnrichedText;
+
+        }
+
+    }
 	//make bitmap using canvas
 	Bitmap* pBitmap = new Bitmap();
 	pBitmap->Construct(*pCanvas, Rectangle(0, 0, Width, Height));
-    pBitmap->Scale(Dimension(Width, Height));
+//    pBitmap->Scale(Dimension(Width, Height));
 
 	delete pCanvas;
 
@@ -527,4 +557,46 @@ MeecastServiceApp::UpdateLockScreen(){
     AppLog(" New Path %S", meecastWallpaperFilePath.GetPointer());
     r = SettingInfo::SetValue(L"http://tizen.org/setting/screen.wallpaper.lock", meecastWallpaperFilePath);
 
+}
+
+void
+MeecastServiceApp::OnSettingChanged(Tizen::Base::String& key){
+    if (key == L"http://tizen.org/setting/screen.wallpaper.lock"){
+
+        if ( __updateTimer == NULL)
+            return;
+        result r = E_SUCCESS;
+        AppLog("Changed %S", key.GetPointer());
+        String orig_filename;
+        r = SettingInfo::GetValue(L"http://tizen.org/setting/screen.wallpaper.lock", orig_filename);
+        AppLog (" Result of wallpaper %S", orig_filename.GetPointer());
+        
+        String meecastWallpaperFilePath(App::GetInstance()->GetAppSharedPath() + "data/" +  "wallpaper.meecast.png");
+        String originalWallpaperFilePath(App::GetInstance()->GetAppDataPath() + "wallpaper.original.jpg");
+        if (orig_filename != meecastWallpaperFilePath){
+            AppRegistry* appRegistry = Application::GetInstance()->GetAppRegistry();
+            AppLog (" Set wallpaper %S", orig_filename.GetPointer());
+            String temp_name;
+            r = appRegistry->Get(L"OriginalWallpaperPath", temp_name);
+            if (r == E_KEY_NOT_FOUND){
+                r = appRegistry->Add(L"OriginalWallpaperPath", orig_filename);
+                if (IsFailed(r)){
+                    AppLog("Error in Registry Add");
+                }
+            }else
+                r = appRegistry->Set(L"OriginalWallpaperPath", orig_filename);
+            if (IsFailed(r)){
+                AppLog("Error in Registry Set");
+            }
+            r = appRegistry->Save();
+            if (IsFailed(r)){
+                AppLog("Error in Registry Save");
+            }
+            AppLog("test111111");
+            /* Save original wallpaper */
+            Tizen::Io::File::Copy(orig_filename, originalWallpaperFilePath, false);
+        }else
+            return;
+        UpdateLockScreen();
+    }
 }

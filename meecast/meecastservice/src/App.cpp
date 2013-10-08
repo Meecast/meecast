@@ -302,13 +302,23 @@ MeecastServiceApp::UpdateLockScreen(){
             image->Construct();
             mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Atmos/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
 
-		    pCanvas->DrawBitmap(Rectangle(PositionX + 10, PositionY + 10, 256, 256), *mainIconBitmap);
+		    pCanvas->DrawBitmap(Rectangle(PositionX - 50, PositionY - 50, 350, 350), *mainIconBitmap);
             if (mainIconBitmap)
                 delete mainIconBitmap;
             if (image)
                 delete image;
         }
         /* Temperature */
+        result r = E_SUCCESS;
+        EnrichedText* pEnrichedText = null;
+        TextElement* pTextElement = null;
+        pEnrichedText = new EnrichedText();
+        r = pEnrichedText->Construct(Dimension(200, 200));
+        pEnrichedText->SetHorizontalAlignment(TEXT_ALIGNMENT_RIGHT);
+        pEnrichedText->SetVerticalAlignment(TEXT_ALIGNMENT_BOTTOM);
+        pEnrichedText->SetTextWrapStyle(TEXT_WRAP_CHARACTER_WRAP);
+        pEnrichedText->SetTextAbbreviationEnabled(true);
+
         int t = INT_MAX;
         /* Temperature */
         if (temp_data->temperature().value(true) == INT_MAX){
@@ -335,7 +345,17 @@ MeecastServiceApp::UpdateLockScreen(){
             snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature().value());
             t = temp_data->temperature().value();
         }
-        pCanvas->DrawText(Point(PositionX + 100, PositionY + 100), buffer);
+        pTextElement = new TextElement();
+        r = pTextElement->Construct(buffer);
+
+        pTextElement->SetTextColor(Color::GetColor(COLOR_ID_BLUE));
+        {
+            Font font;
+            font.Construct(FONT_STYLE_BOLD, 80);
+            pTextElement->SetFont(font);
+        }
+        pEnrichedText->Add(*pTextElement);
+        pCanvas->DrawText(Point(PositionX + 250, PositionY + 20), *pEnrichedText);
 
     }
 

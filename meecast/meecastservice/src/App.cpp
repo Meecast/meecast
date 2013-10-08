@@ -330,7 +330,7 @@ MeecastServiceApp::UpdateLockScreen(){
     rect.x = PositionX;
     rect.y = PositionY;
     rect.width = 600;
-    rect.height = 350;
+    rect.height = 340;
     round.width = 9;
     round.height = 9;
 
@@ -518,7 +518,7 @@ MeecastServiceApp::UpdateLockScreen(){
 	//make bitmap using canvas
 	Bitmap* pBitmap = new Bitmap();
 	pBitmap->Construct(*pCanvas, Rectangle(0, 0, Width, Height));
-    pBitmap->Scale(Dimension(1.333333*Width, Height));
+    pBitmap->Scale(Dimension(Width, Height));
 
 	delete pCanvas;
 

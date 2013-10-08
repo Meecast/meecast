@@ -6,6 +6,11 @@
  */
 
 #include "MeecastService.h"
+#include <libintl.h>
+#include <locale.h>
+
+
+#define _(String) gettext(String)
 
 using namespace Tizen::App;
 using namespace Tizen::Base;
@@ -108,6 +113,25 @@ MeecastServiceApp::OnAppInitializing(AppRegistry& appRegistry){
     AppLog("Update Period %i", _config->UpdatePeriod());
     if (_config->UpdatePeriod() != INT_MAX){
         __updateTimer->Start(_config->UpdatePeriod()*1000);
+    }
+
+
+    /* AppLog ("Lang: %s", getenv ("LANG")); */
+    setlocale(LC_ALL, getenv ("LANG"));
+    setlocale (LC_TIME, getenv ("LANG"));
+    ByteBuffer* pBuf = null;
+    String dataPath= App::GetInstance()->GetAppResourcePath() + "locales";
+    pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(dataPath);
+
+    textdomain("omweather");
+    bindtextdomain("omweather", (const char*)pBuf->GetPointer());
+    delete pBuf;
+    if (_config->Language() != "System"){
+        std::string str;
+        str = _config->Language()+ ".UTF8";
+        setlocale (LC_ALL, str.c_str());
+        setlocale (LC_MESSAGES, str.c_str());
+        setlocale (LC_TIME, str.c_str());
     }
 
     /* TODO Check config */
@@ -254,12 +278,14 @@ MeecastServiceApp::UpdateLockScreen(){
     char  buffer[4096]; 
     
     
+    int Dpi = 0;
     result r = E_SUCCESS;
 
     r = SettingInfo::GetValue(L"screen.height", Height);
     r = SettingInfo::GetValue(L"screen.width", Width);
+    r = SettingInfo::GetValue(L"screen.dpi", Dpi);
 
-    AppLog("Height %i", Height);
+    AppLog("Dpi %i", Dpi);
     Image img;
     img.Construct();
 
@@ -304,14 +330,14 @@ MeecastServiceApp::UpdateLockScreen(){
     rect.x = PositionX;
     rect.y = PositionY;
     rect.width = 600;
-    rect.height = 600;
+    rect.height = 350;
     round.width = 9;
     round.height = 9;
 
     pCanvas->SetForegroundColor(Color::GetColor(COLOR_ID_BLACK));
     pCanvas->SetLineWidth(1);
     pCanvas->SetLineStyle(LINE_STYLE_SOLID);
-    pCanvas->DrawRoundRectangle(Rectangle(PositionX - 1, PositionY - 1, rect.width + 1, rect.height + 1), round);
+    pCanvas->DrawRoundRectangle(Rectangle(PositionX - 1, PositionY - 1, rect.width + 2, rect.height + 2), round);
 
     pCanvas->SetForegroundColor(Color::GetColor(COLOR_ID_WHITE));
     pCanvas->SetLineWidth(3);
@@ -401,7 +427,7 @@ MeecastServiceApp::UpdateLockScreen(){
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 300 + 2, PositionY + 80 + 2), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 300 + 2, PositionY + 90 + 2), *pEnrichedText);
 
         pTextElement->SetTextColor(Color::GetColor(COLOR_ID_WHITE));{
             Font font;
@@ -409,7 +435,7 @@ MeecastServiceApp::UpdateLockScreen(){
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 300, PositionY + 80), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 300, PositionY + 90), *pEnrichedText);
 
 
         delete pTextElement;
@@ -417,7 +443,7 @@ MeecastServiceApp::UpdateLockScreen(){
 
         /* Station name */
         pEnrichedText = new EnrichedText();
-        r = pEnrichedText->Construct(Dimension(350, 150));
+        r = pEnrichedText->Construct(Dimension(320, 120));
         pEnrichedText->SetHorizontalAlignment(TEXT_ALIGNMENT_CENTER);
         pEnrichedText->SetVerticalAlignment(TEXT_ALIGNMENT_MIDDLE);
         pEnrichedText->SetTextWrapStyle(TEXT_WRAP_CHARACTER_WRAP);
@@ -434,31 +460,70 @@ MeecastServiceApp::UpdateLockScreen(){
 
         pTextElement->SetTextColor(Color::GetColor(COLOR_ID_BLACK));{
             Font font;
-            font.Construct(FONT_STYLE_BOLD, 60);
+            font.Construct(FONT_STYLE_BOLD, 50);
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 250 + 2 , PositionY + 5 +2), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 280 + 2 , PositionY + 2), *pEnrichedText);
 
         pTextElement->SetTextColor(Color::GetColor(COLOR_ID_WHITE));{
             Font font;
-            font.Construct(FONT_STYLE_BOLD, 60);
+            font.Construct(FONT_STYLE_BOLD, 50);
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 250, PositionY + 5), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 280, PositionY), *pEnrichedText);
 
+        delete pTextElement;
+        delete pEnrichedText;
 
+        /* Description */
+        pEnrichedText = new EnrichedText();
+        r = pEnrichedText->Construct(Dimension(550, 150));
+        pEnrichedText->SetHorizontalAlignment(TEXT_ALIGNMENT_CENTER);
+        pEnrichedText->SetVerticalAlignment(TEXT_ALIGNMENT_MIDDLE);
+        pEnrichedText->SetTextWrapStyle(TEXT_WRAP_CHARACTER_WRAP);
+        pEnrichedText->SetTextAbbreviationEnabled(true);
+        pTextElement = new TextElement();
+
+        if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0){
+            String str;
+            str = L"";
+            Tizen::Base::Utility::StringUtil::Utf8ToString(_(temp_data->Text().c_str()), str);
+            r = pTextElement->Construct(str);
+        }else{
+            r = pTextElement->Construct(L"");
+        }
+
+        pTextElement->SetTextColor(Color::GetColor(COLOR_ID_BLACK));{
+            Font font;
+            font.Construct(FONT_STYLE_BOLD, 40);
+            pTextElement->SetFont(font);
+        }
+        pEnrichedText->Add(*pTextElement);
+        pCanvas->DrawText(Point(PositionX + 5 + 2 , PositionY + 210 + 2), *pEnrichedText);
+
+        pTextElement->SetTextColor(Color::GetColor(COLOR_ID_WHITE));{
+            Font font;
+            font.Construct(FONT_STYLE_BOLD, 40);
+            pTextElement->SetFont(font);
+        }
+        pEnrichedText->Add(*pTextElement);
+        pCanvas->DrawText(Point(PositionX + 5, PositionY + 210), *pEnrichedText);
+
+        delete pTextElement;
+        delete pEnrichedText;
     }
 
 	//make bitmap using canvas
 	Bitmap* pBitmap = new Bitmap();
 	pBitmap->Construct(*pCanvas, Rectangle(0, 0, Width, Height));
+    pBitmap->Scale(Dimension(1.333333*Width, Height));
 
 	delete pCanvas;
 
-
     img.EncodeToFile(*pBitmap, IMG_FORMAT_PNG, meecastWallpaperFilePath, true);
+    delete pBitmap;
     AppLog(" New Path %S", meecastWallpaperFilePath.GetPointer());
     r = SettingInfo::SetValue(L"http://tizen.org/setting/screen.wallpaper.lock", meecastWallpaperFilePath);
 

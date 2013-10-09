@@ -71,6 +71,7 @@ public:
 
     virtual void OnTimerExpired(Tizen::Base::Runtime::Timer& timer);
     void UpdateLockScreen();
+    Tizen::Graphics::Color* GetTemperatureColor(int t);
 //ISettingEventLisetener
     virtual void OnSettingChanged(Tizen::Base::String& key);
 

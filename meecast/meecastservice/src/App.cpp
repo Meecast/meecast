@@ -25,6 +25,40 @@ using namespace Tizen::Locales;
 
 static const wchar_t* LOCAL_MESSAGE_PORT_NAME = L"SERVICE_PORT";
 
+Tizen::Graphics::Color*
+MeecastServiceApp::GetTemperatureColor(int t){
+        Tizen::Graphics::Color* color = new (std::nothrow)Tizen::Graphics::Color();
+        int c1, c2, c3;
+        if (_config->TemperatureUnit() == "F"){
+             t = (t - 32) * 5 / 9;
+        }
+
+        if (t >= 30){
+            c2 = ((t - 50.0)*(246.0/255.0-60.0/255.0)/(30.0-50.0) + 60.0/255.0)*255.0;
+            color->SetColorComponents(255, c2, 0);
+        }else if (t < 30 && t >= 15){
+            c1 = (((t - 30.0)*(114.0/255.0-1.0)/(15.0-30.0) + 1.0))*255.0;
+            c2 = ((t - 30.0)*(1.0-246.0/255.0)/(15.0-30.0) + 246.0/255.0)*255.0;
+            color->SetColorComponents(c1, c2, 0);
+        }else if (t < 15 && t >= 0){
+            c1 = ((t - 15.0)*(1.0-114.0/255.0)/(0.0-15.0) + 144.0/255.0)*255.0;
+            c3 = ((t - 15.0)*(1.0-0.0)/(0.0-15.0) + 0.0)*255.0;
+            color->SetColorComponents(c1, 255, c3);
+        }else if (t < 0 && t >= -15){
+            c1 = ((t - 0.0)*(0.0-1.0)/(-15.0-0.0) + 1.0)*255.0;
+            c2 = ((t - 0.0)*(216.0/255.0-1.0)/(-15.0-0.0) + 1.0)*255.0;
+            color->SetColorComponents(c1, c2, 255);
+        }
+        else if (t < -15 && t >= -30){
+            c2 = ((t - (-15.0))*(66/255.0-216.0/255.0)/(-30.0+15.0) + 216.0/255.0)*255.0;
+            color->SetColorComponents(0, c2, 255);
+        }else if (t < -30){
+            c1 = ((t - (-30.0))*(132.0/255.0-0.0)/(-30.0+15.0) + 0.0)*255.0;
+            c2 = ((t - (-30.0))*(0.0-66.0/255.0)/(-30.0+15.0) + 66.0/255.0)*255.0;
+            color->SetColorComponents(c1, c2, 255);
+        }
+   return(color);
+}
 
 MeecastServiceApp::MeecastServiceApp(void):
                  __pBitmapOriginal(null),
@@ -361,7 +395,7 @@ MeecastServiceApp::UpdateLockScreen(){
         EnrichedText* pEnrichedText = null;
         TextElement* pTextElement = null;
         pEnrichedText = new EnrichedText();
-        r = pEnrichedText->Construct(Dimension(280, 100));
+        r = pEnrichedText->Construct(Dimension(350, 100));
         pEnrichedText->SetHorizontalAlignment(TEXT_ALIGNMENT_CENTER);
         pEnrichedText->SetVerticalAlignment(TEXT_ALIGNMENT_MIDDLE);
         pEnrichedText->SetTextWrapStyle(TEXT_WRAP_CHARACTER_WRAP);
@@ -397,19 +431,20 @@ MeecastServiceApp::UpdateLockScreen(){
 
         pTextElement->SetTextColor(Color::GetColor(COLOR_ID_BLACK));{
             Font font;
-            font.Construct(FONT_STYLE_BOLD, 80);
+            font.Construct(FONT_STYLE_BOLD, 95);
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 220 + 2, PositionY + 90 + 2), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 240 + 2, PositionY + 70 + 2), *pEnrichedText);
+        Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(t);
 
-        pTextElement->SetTextColor(Color::GetColor(COLOR_ID_WHITE));{
+        pTextElement->SetTextColor(*color_of_temp);{
             Font font;
-            font.Construct(FONT_STYLE_BOLD, 80);
+            font.Construct(FONT_STYLE_BOLD, 95);
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 220, PositionY + 90), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 240, PositionY + 70), *pEnrichedText);
 
 
         delete pTextElement;
@@ -453,11 +488,11 @@ MeecastServiceApp::UpdateLockScreen(){
 
         /* Description */
         pEnrichedText = new EnrichedText();
-        r = pEnrichedText->Construct(Dimension(550, 60));
+        r = pEnrichedText->Construct(Dimension(550, 110));
         pEnrichedText->SetHorizontalAlignment(TEXT_ALIGNMENT_CENTER);
         pEnrichedText->SetVerticalAlignment(TEXT_ALIGNMENT_MIDDLE);
-        pEnrichedText->SetTextWrapStyle(TEXT_WRAP_CHARACTER_WRAP);
-        pEnrichedText->SetTextAbbreviationEnabled(true);
+        //pEnrichedText->SetTextWrapStyle(TEXT_WRAP_CHARACTER_WRAP);
+        //pEnrichedText->SetTextAbbreviationEnabled(true);
         pTextElement = new TextElement();
 
         if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0){
@@ -471,19 +506,19 @@ MeecastServiceApp::UpdateLockScreen(){
 
         pTextElement->SetTextColor(Color::GetColor(COLOR_ID_BLACK));{
             Font font;
-            font.Construct(FONT_STYLE_BOLD, 40);
+            font.Construct(FONT_STYLE_BOLD, 36);
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 5 + 2 , PositionY + 190 + 2), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 5 + 2 , PositionY + 175 + 2), *pEnrichedText);
 
         pTextElement->SetTextColor(Color::GetColor(COLOR_ID_WHITE));{
             Font font;
-            font.Construct(FONT_STYLE_BOLD, 40);
+            font.Construct(FONT_STYLE_BOLD, 36);
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 5, PositionY + 190), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 5, PositionY + 175), *pEnrichedText);
 
         delete pTextElement;
         delete pEnrichedText;
@@ -514,7 +549,7 @@ MeecastServiceApp::UpdateLockScreen(){
             dateString.Insert(_("Last update:"), 0);
 
             pEnrichedText = new EnrichedText();
-            r = pEnrichedText->Construct(Dimension(570, 100));
+            r = pEnrichedText->Construct(Dimension(590, 80));
             pEnrichedText->SetHorizontalAlignment(TEXT_ALIGNMENT_RIGHT);
             pEnrichedText->SetVerticalAlignment(TEXT_ALIGNMENT_MIDDLE);
             pEnrichedText->SetTextWrapStyle(TEXT_WRAP_CHARACTER_WRAP);
@@ -525,19 +560,19 @@ MeecastServiceApp::UpdateLockScreen(){
 
             pTextElement->SetTextColor(Color::GetColor(COLOR_ID_BLACK));{
                 Font font;
-                font.Construct(FONT_STYLE_BOLD, 30);
+                font.Construct(FONT_STYLE_BOLD, 26);
                 pTextElement->SetFont(font);
             }
             pEnrichedText->Add(*pTextElement);
-            pCanvas->DrawText(Point(PositionX + 5 + 2 , PositionY + 220 + 2), *pEnrichedText);
+            pCanvas->DrawText(Point(PositionX + 5 + 2 , PositionY + 245 + 2), *pEnrichedText);
 
             pTextElement->SetTextColor(Color::GetColor(COLOR_ID_WHITE));{
                 Font font;
-                font.Construct(FONT_STYLE_BOLD, 30);
+                font.Construct(FONT_STYLE_BOLD, 26);
                 pTextElement->SetFont(font);
             }
             pEnrichedText->Add(*pTextElement);
-            pCanvas->DrawText(Point(PositionX + 5, PositionY + 220), *pEnrichedText);
+            pCanvas->DrawText(Point(PositionX + 5, PositionY + 245), *pEnrichedText);
 
             delete pTextElement;
             delete pEnrichedText;

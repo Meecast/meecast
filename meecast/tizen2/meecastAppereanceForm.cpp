@@ -29,6 +29,8 @@ using namespace Tizen::App;
 using namespace Tizen::Ui;
 using namespace Tizen::Ui::Controls;
 using namespace Tizen::Ui::Scenes;
+using namespace Tizen::Base::Collection;
+using namespace Tizen::Graphics;
 
 static const int LIST_HEIGHT = 112;
 static const int BUTTON_HEIGHT = 74;
@@ -59,7 +61,7 @@ meecastAppereanceForm::OnInitializing(void)
 	CreateGroupedListView();
 
     Header* pHeader = GetHeader();
-    pHeader->SetTitleText(_("Update interval"));
+    pHeader->SetTitleText(_("Appereance"));
 
 	// Create Custom Element
 //	__pCustomGroupedListElement = new (std::nothrow) CustomGroupedListElement();
@@ -148,59 +150,56 @@ meecastAppereanceForm::CreateItem(int groupIndex, int itemIndex, int itemWidth)
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");
  
-	ListAnnexStyle style =  LIST_ANNEX_STYLE_RADIO;
-	CustomItem* pItem = new (std::nothrow) CustomItem();
-	pItem->Construct(Tizen::Graphics::Dimension(GetClientAreaBounds().width, 90),style);
+//	ListAnnexStyle style =  LIST_ANNEX_STYLE_RADIO;
+//	CustomItem* pItem = new (std::nothrow) CustomItem();
+//	pItem->Construct(Tizen::Graphics::Dimension(GetClientAreaBounds().width, 90),style);
 
-    switch (groupIndex){
+     CustomItem* pItem = new (std::nothrow) CustomItem();
+    TryReturn(pItem != null, null, "Out of memory");
+
+    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_ONOFF_SLIDING);
+    String* pStr;
+
+   switch (groupIndex){
         case 0:
             switch (itemIndex % 8){
             case 0:
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("Never"), true);
-                if (config->UpdatePeriod() == INT_MAX)
-                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+                pStr = new String (_("Widget in LockScreen"));
+                pItem->AddElement(Tizen::Graphics::Rectangle(16, 32, 700, 50), 0, *pStr, 36,
+                                  Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)),
+                                  Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)),
+                                  Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)), true);
+//                if (_config->Gps())
+ //                   __pListView->SetItemChecked(index, true);
+  //              else
+ //                   __pListView->SetItemChecked(index, false);
                 break;
-            case 1:
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("15 minutes"), true);
-                 if (config->UpdatePeriod() == 15*60)
-                    __pList->SetItemChecked(groupIndex, itemIndex, true);
-               break;
-            case 2:
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("30 minutes"), true);
-                 if (config->UpdatePeriod() == 30*60)
-                    __pList->SetItemChecked(groupIndex, itemIndex, true);
-               break;
-            case 3:
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("1 hour"), true);
-                 if (config->UpdatePeriod() == 1*3600)
-                    __pList->SetItemChecked(groupIndex, itemIndex, true);
-               break;
-            case 4:
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("2 hours"), true);
-                 if (config->UpdatePeriod() == 2*3600)
-                    __pList->SetItemChecked(groupIndex, itemIndex, true);
-               break;
-            case 5:
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("4 hours"), true);
-                 if (config->UpdatePeriod() == 4*3600)
-                    __pList->SetItemChecked(groupIndex, itemIndex, true);
-               break;
-            case 6:
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("12 hours"), true);
-                 if (config->UpdatePeriod() == 12*3600)
-                    __pList->SetItemChecked(groupIndex, itemIndex, true);
-               break;
-            case 7:
-                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("Daily"), true);
-                 if (config->UpdatePeriod() == 24*3600)
-                    __pList->SetItemChecked(groupIndex, itemIndex, true);
-               break;
 
 
             default:
                 break;
             }
             break;
+         case 1: 
+            switch (itemIndex % 8){
+            case 0:
+                pStr = new String (_("Widget in LockScreen"));
+                pItem->AddElement(Tizen::Graphics::Rectangle(16, 32, 700, 50), 0, *pStr, 36,
+                                  Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)),
+                                  Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)),
+                                  Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)), true);
+//                if (_config->Gps())
+//                    __pListView->SetItemChecked(index, true);
+  //              else
+ //                   __pListView->SetItemChecked(index, false);
+                break;
+
+
+            default:
+                break;
+            }
+            break;
+
     }
 	return pItem;
 }
@@ -208,7 +207,7 @@ meecastAppereanceForm::CreateItem(int groupIndex, int itemIndex, int itemWidth)
 int
 meecastAppereanceForm::GetGroupCount(void)
 {
-	return 1;
+	return 2;
 }
 
 int
@@ -218,8 +217,12 @@ meecastAppereanceForm::GetItemCount(int groupIndex)
 	switch(groupIndex)
 	{
 	case 0:
-		itemCount = 8;
+		itemCount = 1;
 		break;
+	case 1:
+		itemCount = 2;
+		break;
+
 	default:
 		break;
 	}
@@ -252,9 +255,12 @@ meecastAppereanceForm::CreateGroupItem(int groupIndex, int itemWidth)
 	String text(L"");
 	switch (groupIndex)
 	{
-	case 0:
-		text = _("    ");
-		break;
+        case 0:
+            text = _("Settings for Lockscreen widget");
+            break;
+        case 1:
+            text = _("Widget");
+            break;
 	}
 	pItem->SetElement(text, null);
 	return pItem;

@@ -417,7 +417,7 @@ MeecastServiceApp::UpdateLockScreen(){
 
         /* Station name */
         pEnrichedText = new EnrichedText();
-        r = pEnrichedText->Construct(Dimension(350, 120));
+        r = pEnrichedText->Construct(Dimension(350, 70));
         pEnrichedText->SetHorizontalAlignment(TEXT_ALIGNMENT_CENTER);
         pEnrichedText->SetVerticalAlignment(TEXT_ALIGNMENT_TOP);
         pEnrichedText->SetTextWrapStyle(TEXT_WRAP_CHARACTER_WRAP);
@@ -434,26 +434,26 @@ MeecastServiceApp::UpdateLockScreen(){
 
         pTextElement->SetTextColor(Color::GetColor(COLOR_ID_BLACK));{
             Font font;
-            font.Construct(FONT_STYLE_BOLD, 50);
+            font.Construct(FONT_STYLE_BOLD, 45);
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 250 + 2 , PositionY + 2), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 250 + 2 , PositionY + 10 + 2), *pEnrichedText);
 
         pTextElement->SetTextColor(Color::GetColor(COLOR_ID_WHITE));{
             Font font;
-            font.Construct(FONT_STYLE_BOLD, 50);
+            font.Construct(FONT_STYLE_BOLD, 45);
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 250, PositionY), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 250, PositionY + 10), *pEnrichedText);
 
         delete pTextElement;
         delete pEnrichedText;
 
         /* Description */
         pEnrichedText = new EnrichedText();
-        r = pEnrichedText->Construct(Dimension(550, 100));
+        r = pEnrichedText->Construct(Dimension(550, 60));
         pEnrichedText->SetHorizontalAlignment(TEXT_ALIGNMENT_CENTER);
         pEnrichedText->SetVerticalAlignment(TEXT_ALIGNMENT_MIDDLE);
         pEnrichedText->SetTextWrapStyle(TEXT_WRAP_CHARACTER_WRAP);
@@ -475,7 +475,7 @@ MeecastServiceApp::UpdateLockScreen(){
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 5 + 2 , PositionY + 170 + 2), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 5 + 2 , PositionY + 190 + 2), *pEnrichedText);
 
         pTextElement->SetTextColor(Color::GetColor(COLOR_ID_WHITE));{
             Font font;
@@ -483,7 +483,7 @@ MeecastServiceApp::UpdateLockScreen(){
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 5, PositionY + 170), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 5, PositionY + 190), *pEnrichedText);
 
         delete pTextElement;
         delete pEnrichedText;

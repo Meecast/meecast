@@ -214,6 +214,8 @@ meecastAppereanceForm::CreateItem(int groupIndex, int itemIndex, int itemWidth)
             break;
 
     }
+
+    config->DeleteInstance();
 	return pItem;
 }
 
@@ -344,7 +346,7 @@ meecastAppereanceForm::OnGroupedListViewItemStateChanged(GroupedListView& listVi
     __pList->UpdateList();
     App* pApp = App::GetInstance();
     pApp->SendUserEvent(SEND_RELOAD_CONFIG, null);
-
+    config->DeleteInstance();
 }
 
 

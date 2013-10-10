@@ -45,7 +45,9 @@ meecastIconsetsForm::meecastIconsetsForm(void)
 }
 
 meecastIconsetsForm::~meecastIconsetsForm(void){
-    __map->RemoveAll(true);
+	if (__fileList.GetCount() > 0){
+		__fileList.RemoveAll(true);
+	}
 }
 
 bool
@@ -63,7 +65,7 @@ meecastIconsetsForm::OnInitializing(void){
     SetFormBackEventListener(this);
 
     Header* pHeader = GetHeader();
-    pHeader->SetTitleText(_("Select iconset"));
+    pHeader->SetTitleText(_("Select the iconset"));
 
 
     // Creates an instance of ListView
@@ -72,20 +74,12 @@ meecastIconsetsForm::OnInitializing(void){
     __pListView->AddListViewItemEventListener(*this);
     __pListView->AddFastScrollListener(*this);
 
-	__pSearchBar = static_cast<SearchBar*>(GetControl("IDC_SEARCHBAR"));
-	__pSearchBar->SetText(_("Click here!"));
-	__pSearchBar->AddSearchBarEventListener(*this);
-	__pSearchBar->AddTextEventListener(*this);
-	__pSearchBar->AddKeypadEventListener(*this);
-
-// 	__pSearchBar->SetContent(__pListView);
-
-
     // Adds the list view to the form
     AddControl(*__pListView);
-
+	r = GetFilesList();
+	TryReturn(r == E_SUCCESS, r, "Could not get iconsets files present in iconsets directory");
  	FloatRectangle clientRect = GetClientAreaBoundsF();
- 	__pListView->SetSize(FloatDimension(clientRect.width, clientRect.height - __pSearchBar->GetHeightF()));
+ 	__pListView->SetSize(FloatDimension(clientRect.width, clientRect.height));
     return r;
 }
 
@@ -97,97 +91,6 @@ meecastIconsetsForm::OnTerminating(void){
     // Add your termination code here
     return r;
 }
-
-void
-meecastIconsetsForm::OnKeypadActionPerformed(Control &source, Tizen::Ui::KeypadAction keypadAction){
-	__pSearchBar->HideKeypad();
-	Invalidate(true);
-}
-
-void
-meecastIconsetsForm::OnKeypadClosed(Control &source){
-	FloatRectangle clientRect = GetClientAreaBoundsF();
-	__pSearchBar->SetContentAreaSize(FloatDimension(clientRect.width, clientRect.height - __pSearchBar->GetHeightF()));
-	__pListView->SetSize(FloatDimension(clientRect.width, clientRect.height - __pSearchBar->GetHeightF()));
-	Invalidate(true);
-}
-
-void
-meecastIconsetsForm::OnKeypadOpened(Control &source)
-{
-	FloatRectangle clientRect = GetClientAreaBoundsF();
-	FloatRectangle searchBarBounds = CoordinateSystem::AlignToDevice(FloatRectangle(__pSearchBar->GetBoundsF()));
-	__pSearchBar->SetContentAreaSize(FloatDimension(clientRect.width, clientRect.height - searchBarBounds.height));
-	__pListView->SetSize(FloatDimension(clientRect.width, clientRect.height - __pSearchBar->GetHeightF()));
-	Invalidate(true);
-}
-
-
-void
-meecastIconsetsForm::OnKeypadWillOpen(Control &source){
-	Invalidate(true);
-}
-
-void
-meecastIconsetsForm::OnKeypadBoundsChanged(Tizen::Ui::Control& source)
-{
-	FloatRectangle clientRect = GetClientAreaBoundsF();
-	FloatRectangle searchBarBounds = CoordinateSystem::AlignToDevice(FloatRectangle(__pSearchBar->GetBoundsF()));
-	__pSearchBar->SetContentAreaSize(FloatDimension(clientRect.width, clientRect.height - searchBarBounds.height));
-	__pListView->SetSize(FloatDimension(clientRect.width, clientRect.height - __pSearchBar->GetHeightF()));
-	__pListView->SetEnabled(false);
-	Invalidate(true);
-}
-
-void
-meecastIconsetsForm::OnSearchBarModeChanged(SearchBar& source, SearchBarMode mode){
-
-    AppLog("OnSearchBarModeChanged");
-	FloatRectangle clientRect = GetClientAreaBoundsF();
-	__pSearchBar->SetText(L"");
-	if(mode == SEARCH_BAR_MODE_INPUT)
-	{
-		__pSearchBar->SetContentAreaSize(FloatDimension(clientRect.width, clientRect.height - __pSearchBar->GetHeightF()));
-		__pListView->SetSize(FloatDimension(clientRect.width, clientRect.height - __pSearchBar->GetHeightF()));
-	}
-	else
-	{
-		__pSearchBar->SetText(L"Click here!");
-		__pListView->SetSize(FloatDimension(clientRect.width, clientRect.height - __pSearchBar->GetHeightF()));
-		__pListView->SetEnabled(true);
-        LoadList();
-		__pListView->UpdateList();
-
-	}
-	__pListView->ScrollToItem(0);
-	Invalidate(true);
-}
-
-void
-meecastIconsetsForm::OnTextValueChanged(const Control& source){
-	UpdateSearchResult();
-}
-
-
-void
-meecastIconsetsForm::UpdateSearchResult(void){
-	String inputText = __pSearchBar->GetText();
-	int Indexof = -1;
-	int GetItemCount = 0;
-
-	if(inputText.CompareTo(L"") != 0){
-        LoadList();
-		__pListView->UpdateList();
-	}else{
-		__pSearchBar->SetText(L"");
-        LoadList();
-		__pListView->UpdateList();
-	}
-	Invalidate(true);
-}
-
-
-
 
 
 
@@ -243,15 +146,9 @@ meecastIconsetsForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& curren
 }
 
 int
-meecastIconsetsForm::GetItemCount(void)
-{
-    int itemCount = 0;
-
-    IList* pList = __map->GetKeysN();
-    AppAssert(pList);
-    itemCount = pList->GetCount();
-    delete pList;
-    return itemCount;
+meecastIconsetsForm::GetItemCount(void){
+   /* AppLog("Count %i",  __fileList.GetCount()); */
+    return __fileList.GetCount();
 }
 
 bool
@@ -270,7 +167,7 @@ meecastIconsetsForm::CreateItem (int index, int itemWidth)
 
     pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_DETAILED);
 
-    String* pStr = new String ("aaaa");
+    String* pStr = dynamic_cast< String* >(__fileList.GetAt(index));
     pItem->AddElement(Tizen::Graphics::Rectangle(26, 32, 600, 50), 0, *pStr, false);
     return pItem;
 }
@@ -278,32 +175,33 @@ meecastIconsetsForm::CreateItem (int index, int itemWidth)
 void
 meecastIconsetsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
 {
+    ConfigTizen *config;
+    config = ConfigTizen::Instance( std::string("config.xml"),
+                                       Core::AbstractConfig::prefix+
+                                       Core::AbstractConfig::schemaPath+
+                                       "config.xsd");
+
 	if (status == LIST_ITEM_STATUS_SELECTED || status == LIST_ITEM_STATUS_MORE){
         SceneManager* pSceneManager = SceneManager::GetInstance();
         AppAssert(pSceneManager);
 
-        Tizen::Base::Collection::ArrayList* pList = new Tizen::Base::Collection::ArrayList();
-        AppAssert(pList);
-        pList->Construct();
-        pList->Add(*__db);
-
-        String* tempS = new String("");
-        tempS->Append(__SourceId);
-        String* pStr0 = dynamic_cast< String* >(tempS);
-        pList->Add(*(new String(*pStr0)));
-        tempS->Clear();
-        tempS->Append(__CountryName);
-        pStr0 = dynamic_cast< String* >(tempS);
-        pList->Add(*(new String(*pStr0)));
-        delete tempS;
-
-        String* pStr = dynamic_cast< String* >(__map->GetValue(Integer(index)));
-        pList->Add(*(new String(*pStr)));
-        
-        pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_STATIONSSCENE"), pList);
 	    AppLog("LIST_ITEM_STATUS_SELECTED ");
-   	}
+        String* pStr = dynamic_cast< String* >(__fileList.GetAt(index));
+
+        std::string temp_string = (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(*pStr)->GetPointer());
+        config->iconSet(temp_string);
+        config->saveConfig();
+        /* Select 'Source location' */
+        if (index == 0){
+	        AppLog("i111LIST_ITEM_STATUS_SELECTED ");
+//            pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_MAINSCENE"));
+        }
+	    pSceneManager->GoBackward(BackwardSceneTransition(SCENE_TRANSITION_ANIMATION_TYPE_RIGHT));
+
+	}
+    config->DeleteInstance();
 }
+
 void
 meecastIconsetsForm::OnListViewItemSwept(Tizen::Ui::Controls::ListView& listView, int index, Tizen::Ui::Controls::SweepDirection direction)
 {
@@ -319,74 +217,58 @@ meecastIconsetsForm::OnItemReordered(Tizen::Ui::Controls::ListView& view, int ol
 {
 }
 
-bool
-meecastIconsetsForm::LoadList(void){
-    String inputText;
-    if (__pSearchBar)
-	    inputText = __pSearchBar->GetText();
-    else
-	    inputText = "";
-
-    AppLog("Open DB of regions is success");
-     __map = __db->create_region_list_by_name(__CountryName);
-
-    String* pValue = null;
-    if(inputText != "" && inputText != _("Click here!")){
-        int size_of_array = __map->GetCount();
-        for(int i = 0; i < size_of_array; i ++){
-            pValue = static_cast< String* > (__map->GetValue(Integer(i)));
-            result r = E_SUCCESS;
-            int Indexof = -1;
-            r = pValue->IndexOf(inputText, 0, Indexof);
-            if(Indexof < 0)
-                __map->Remove((Integer(i)));
-        }
-        Tizen::Base::Collection::HashMap *map; 
-        map = new Tizen::Base::Collection::HashMap;
-        map->Construct();
-        int j = 0;
-        for(int i = 0; i < size_of_array; i ++){
-            pValue = static_cast< String* > (__map->GetValue(Integer(i)));
-            if (pValue){
-                map->Add(*(new (std::nothrow) Integer(j++)), *(new (std::nothrow) String(pValue->GetPointer())));
-            }
-        }
-        __map->RemoveAll();
-        delete __map;
-        __map = map;
-    }
-
-     String letter;
-     __indexString = "";
-	 for(int i = 0; i <  __map->GetCount(); i ++){
-        pValue = static_cast< String* > (__map->GetValue(Integer(i)));
-        pValue->SubString(0, 1, letter);
-        if (!__indexString.Contains(letter))
-            __indexString += letter;
-     }
-	__pListView->SetFastScrollIndex(__indexString, false);
-    return true;
-}
-
-
 void
 meecastIconsetsForm::OnFastScrollIndexSelected(Control& source, Tizen::Base::String& index)
 {
-	String compare(L"");
-    String* pValue = null;
-	for(int i = 0; i <  __map->GetCount(); i ++){
-        pValue = static_cast< String* > (__map->GetValue(Integer(i)));
-        pValue->SubString(0,1,compare);
-		if(compare.CompareTo(index) == 0){
-			__pListView->ScrollToItem(i, LIST_SCROLL_ITEM_ALIGNMENT_TOP);
-            break;
-		}
-	}
-    __pListView->Invalidate(false);
 }
 
 void
 meecastIconsetsForm::OnTouchPressed (const Control& source, const Point& currentPosition, const TouchEventInfo &touchInfo) {
     Invalidate(true);
+}
+
+result
+meecastIconsetsForm::GetFilesList(void){
+	Directory* pDir = null;
+	DirEnumerator* pDirEnum = null;
+	StringComparer strComparer;
+	result r = E_SUCCESS;
+
+     AppLog("meecastSourcesForm::GetFilesList"); 
+	__fileList.Construct();
+
+	pDir = new (std::nothrow) Directory();
+
+	r = pDir->Construct(App::GetInstance()->GetAppResourcePath() + "/screen-density-xhigh/icons");
+
+	TryCatch(r == E_SUCCESS, delete pDir ,"[%s] Failed to construct directory %S", GetErrorMessage(r), ((App::GetInstance()->GetAppResourcePath() + "/screen-density-xhigh/icons").GetPointer()));
+
+	pDirEnum = pDir->ReadN();
+
+	TryCatch(pDirEnum != null, delete pDir ,"[%s] Failed to read entries from directory %S", GetErrorMessage(GetLastResult()), (App::GetInstance()->GetAppResourcePath() + "/screen-density-xhigh/icons").GetPointer());
+
+	while (pDirEnum->MoveNext() == E_SUCCESS){
+		DirEntry dirEntry = pDirEnum->GetCurrentDirEntry();
+		if ((dirEntry.IsDirectory() == true) && ((dirEntry.GetName() != ".") || (dirEntry.GetName() != ".."))){
+			String* fullFileName = new (std::nothrow) String;
+            String fileName(dirEntry.GetName());
+//            fileName.Remove(fileName.GetLength()-4, 4);
+			fullFileName->Append(fileName);
+            /* TODO load data from xml */
+			__fileList.Add(fullFileName);
+            AppLog("sssssssssss %S", dirEntry.GetName().GetPointer());
+		}
+	}
+
+	delete pDir;
+	delete pDirEnum;
+
+	if (__fileList.GetCount() >= 0){
+		return E_SUCCESS;
+	}else{
+		return E_FAILURE;
+	}
+CATCH:
+	return r;
 }
 

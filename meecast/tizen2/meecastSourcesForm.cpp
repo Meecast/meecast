@@ -79,7 +79,7 @@ meecastSourcesForm::OnInitializing(void)
     // Adds the list view to the form
     AddControl(*__pListView);
 	r = GetFilesList();
-	TryReturn(r == E_SUCCESS, r, "Could not get sources files present in socrces directory");
+	TryReturn(r == E_SUCCESS, r, "Could not get sources files present in sources directory");
 
     return r;
 }
@@ -140,7 +140,7 @@ meecastSourcesForm::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& current
 int
 meecastSourcesForm::GetItemCount(void)
 {
-    AppLog("Count %i",  __fileList.GetCount());
+   /* AppLog("Count %i",  __fileList.GetCount()); */
     return __fileList.GetCount();
 }
 
@@ -225,7 +225,7 @@ meecastSourcesForm::GetFilesList(void)
 	StringComparer strComparer;
 	result r = E_SUCCESS;
 
-    AppLog("meecastSourcesForm::GetFilesList");
+    /* AppLog("meecastSourcesForm::GetFilesList"); */
 	__fileList.Construct();
 
 	pDir = new (std::nothrow) Directory();
@@ -238,14 +238,10 @@ meecastSourcesForm::GetFilesList(void)
 
 	TryCatch(pDirEnum != null, delete pDir ,"[%s] Failed to read entries from directory %S", GetErrorMessage(GetLastResult()), (App::GetInstance()->GetAppResourcePath() + "/sources").GetPointer());
 
-	while (pDirEnum->MoveNext() == E_SUCCESS)
-	{
+	while (pDirEnum->MoveNext() == E_SUCCESS){
 		DirEntry dirEntry = pDirEnum->GetCurrentDirEntry();
-		if ((dirEntry.IsDirectory() == false) && (dirEntry.IsHidden() == false))
-		{
+		if ((dirEntry.IsDirectory() == false) && (dirEntry.IsHidden() == false)){
 			String* fullFileName = new (std::nothrow) String;
-			//fullFileName->Append(__appRootPath + __dirName);
-			//fullFileName->Append('/');
             String fileName(dirEntry.GetName());
             fileName.Remove(fileName.GetLength()-4, 4);
 			fullFileName->Append(fileName);
@@ -254,21 +250,16 @@ meecastSourcesForm::GetFilesList(void)
 		}
 	}
 
-//	__fileList.Sort(strComparer);
-
 	delete pDir;
 	delete pDirEnum;
 
-	if (__fileList.GetCount() >= 0)
-	{
+	if (__fileList.GetCount() >= 0){
 		return E_SUCCESS;
 	}
-	else
-	{
+	else{
 		return E_FAILURE;
 	}
 CATCH:
 	return r;
-
 }
 

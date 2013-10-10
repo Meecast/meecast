@@ -3,8 +3,9 @@
 
 #include <FBase.h>
 #include <FUi.h>
-#include "../core/core.h"
+//#include "../core/core.h"
 
+#include "configtizen.h"
 #include <libintl.h>
 #include <locale.h>
 
@@ -15,9 +16,6 @@
 
 class meecastIconsetsForm
 	: public Tizen::Ui::Controls::Form
-	, public Tizen::Ui::Controls::ISearchBarEventListener
-	, public Tizen::Ui::IKeypadEventListener
-	, public Tizen::Ui::ITextEventListener
 	, public Tizen::Ui::IActionEventListener
 	, public Tizen::Ui::Controls::IFormBackEventListener
 	, public Tizen::Ui::Controls::IListViewItemEventListener
@@ -48,20 +46,8 @@ public:
 	virtual Tizen::Ui::Controls::ListItemBase* CreateItem(int index, int itemWidth);
 	virtual bool DeleteItem(int index, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth);
 	virtual int GetItemCount(void);
-    bool LoadList(void);
 	// FastScroll
 	virtual void OnFastScrollIndexSelected(Tizen::Ui::Control& source, Tizen::Base::String& index);
-	// ISearchBarEventListener
-	virtual void OnSearchBarModeChanged(Tizen::Ui::Controls::SearchBar& source, Tizen::Ui::Controls::SearchBarMode mode);
-	virtual void OnTextValueChanged(const Tizen::Ui::Control& source);
-	virtual void OnTextValueChangeCanceled(const Tizen::Ui::Control& source){}
-
-	// IKeypadEventListener
-	virtual void OnKeypadActionPerformed(Tizen::Ui::Control &source, Tizen::Ui::KeypadAction keypadAction);
-	virtual void OnKeypadClosed(Tizen::Ui::Control &source);
-	virtual void OnKeypadOpened(Tizen::Ui::Control &source);
-	virtual void OnKeypadWillOpen(Tizen::Ui::Control &source);
-	virtual void OnKeypadBoundsChanged(Tizen::Ui::Control& source);
 	//ITouchEventListener
 	virtual void  OnTouchDoublePressed (const Tizen::Ui::Control &source, const Tizen::Graphics::Point &currentPosition, const Tizen::Ui::TouchEventInfo &touchInfo){}
 	virtual void  OnTouchFocusIn (const Tizen::Ui::Control &source, const Tizen::Graphics::Point &currentPosition, const Tizen::Ui::TouchEventInfo &touchInfo){}
@@ -70,6 +56,7 @@ public:
 	virtual void  OnTouchMoved (const Tizen::Ui::Control &source, const Tizen::Graphics::Point &currentPosition, const Tizen::Ui::TouchEventInfo &touchInfo){}
 	virtual void  OnTouchPressed (const Tizen::Ui::Control &source, const Tizen::Graphics::Point &currentPosition, const Tizen::Ui::TouchEventInfo &touchInfo);
 	virtual void  OnTouchReleased (const Tizen::Ui::Control &source, const Tizen::Graphics::Point &currentPosition, const Tizen::Ui::TouchEventInfo &touchInfo){}
+    result GetFilesList(void);
 
  
 protected:
@@ -77,11 +64,12 @@ private:
     Tizen::Ui::Controls::ListView* __pListView;
     Tizen::Base::String __SourceId;
     Tizen::Base::String __CountryName;
-    Tizen::Base::Collection::HashMap *__map;
+    //Tizen::Base::Collection::HashMap *__map;
     Tizen::Base::String __dbPath;
     Tizen::Base::String __indexString;
     Core::DatabaseSqlite *__db;
 	Tizen::Ui::Controls::SearchBar* __pSearchBar;
+    Tizen::Base::Collection::ArrayList __fileList;
 };
 
 #endif	//_MEECAST_REGIONS_FORM_H_

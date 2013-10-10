@@ -11,6 +11,7 @@
 #include "meecastAboutForm.h"
 #include "meecastUpdateForm.h"
 #include "meecastAppereanceForm.h"
+#include "meecastIconsetsForm.h"
 
 using namespace Tizen::Ui::Scenes;
 
@@ -87,6 +88,11 @@ meecastFormFactory::CreateFormN(const Tizen::Base::String& formId, const Tizen::
 		pNewForm = pForm;
 	}else if (formId == L"APPEARANCE_FORM"){
 		meecastAppereanceForm* pForm = new (std::nothrow) meecastAppereanceForm();
+		pForm->Initialize();
+		pSceneManager->AddSceneEventListener(sceneId, *pForm);
+		pNewForm = pForm;
+	}else if (formId == L"ICONSETS_FORM"){
+		meecastIconsetsForm* pForm = new (std::nothrow) meecastIconsetsForm();
 		pForm->Initialize();
 		pSceneManager->AddSceneEventListener(sceneId, *pForm);
 		pNewForm = pForm;

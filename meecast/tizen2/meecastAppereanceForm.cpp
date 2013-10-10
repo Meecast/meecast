@@ -61,7 +61,7 @@ meecastAppereanceForm::OnInitializing(void)
 	CreateGroupedListView();
 
     Header* pHeader = GetHeader();
-    pHeader->SetTitleText(_("Appereance"));
+    pHeader->SetTitleText(_("Appearance"));
 
 	// Create Custom Element
 //	__pCustomGroupedListElement = new (std::nothrow) CustomGroupedListElement();
@@ -319,6 +319,26 @@ meecastAppereanceForm::OnGroupedListViewItemStateChanged(GroupedListView& listVi
                 break;
        }
     } 
+
+	if (state == LIST_ITEM_STATUS_SELECTED || state == LIST_ITEM_STATUS_MORE){
+        SceneManager* pSceneManager = SceneManager::GetInstance();
+        AppAssert(pSceneManager);
+	    AppLog("LIST_ITEM_STATUS_SELECTED ");
+        pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_ICONSETSSCENE"), null);
+        switch (groupIndex){
+            case 0:
+                switch (itemIndex % 8){
+                case 0:
+                   break;
+
+                default:
+                    break;
+                }
+                break;
+       }
+
+	}
+
 
     config->saveConfig();
     __pList->UpdateList();

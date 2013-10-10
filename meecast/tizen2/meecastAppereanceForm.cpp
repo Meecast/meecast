@@ -154,25 +154,27 @@ meecastAppereanceForm::CreateItem(int groupIndex, int itemIndex, int itemWidth)
 //	CustomItem* pItem = new (std::nothrow) CustomItem();
 //	pItem->Construct(Tizen::Graphics::Dimension(GetClientAreaBounds().width, 90),style);
 
-     CustomItem* pItem = new (std::nothrow) CustomItem();
+    CustomItem* pItem = new (std::nothrow) CustomItem();
     TryReturn(pItem != null, null, "Out of memory");
 
-    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_ONOFF_SLIDING);
     String* pStr;
 
-   switch (groupIndex){
+    Tizen::Media::Image *image = null;
+    Tizen::Graphics::Bitmap* mainIconBitmap = null;
+    switch (groupIndex){
         case 0:
             switch (itemIndex % 8){
             case 0:
+              pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_ONOFF_SLIDING);
                 pStr = new String (_("Widget in LockScreen"));
                 pItem->AddElement(Tizen::Graphics::Rectangle(16, 32, 700, 50), 0, *pStr, 36,
                                   Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)),
                                   Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)),
                                   Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)), true);
-//                if (_config->Gps())
- //                   __pListView->SetItemChecked(index, true);
-  //              else
- //                   __pListView->SetItemChecked(index, false);
+                if (config->Lockscreen())
+                   __pList->SetItemChecked(0, 0, true);
+                else
+                   __pList->SetItemChecked(0, 0, false);
                 break;
 
 
@@ -183,19 +185,30 @@ meecastAppereanceForm::CreateItem(int groupIndex, int itemIndex, int itemWidth)
          case 1: 
             switch (itemIndex % 8){
             case 0:
-                pStr = new String (_("Widget in LockScreen"));
+                pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_DETAILED);
+                pStr = new String (_("Iconset"));
+                pStr->Append(" - ");
+                pStr->Append(config->iconSet().c_str());
                 pItem->AddElement(Tizen::Graphics::Rectangle(16, 32, 700, 50), 0, *pStr, 36,
                                   Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)),
                                   Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)),
                                   Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)), true);
-//                if (_config->Gps())
-//                    __pListView->SetItemChecked(index, true);
-  //              else
- //                   __pListView->SetItemChecked(index, false);
+
+                image = new (std::nothrow) Tizen::Media::Image();
+                image->Construct();
+
+
+                AppLog("Iconset %s", config->iconSet().c_str());
+                mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + config->iconSet().c_str() + "/30.png", BITMAP_PIXEL_FORMAT_ARGB8888);
+                pItem->AddElement(Rectangle(480, 10, 100, 100), 502, *mainIconBitmap, null, null);
+                SAFE_DELETE(image);
+                SAFE_DELETE(mainIconBitmap);
+
                 break;
 
 
             default:
+                pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_ONOFF_SLIDING);
                 break;
             }
             break;
@@ -259,7 +272,8 @@ meecastAppereanceForm::CreateGroupItem(int groupIndex, int itemWidth)
             text = _("Settings for Lockscreen widget");
             break;
         case 1:
-            text = _("Widget");
+            text = _("Widget style and Iconset");
+            text.Append(_("(Home screen)"));
             break;
 	}
 	pItem->SetElement(text, null);
@@ -276,98 +290,12 @@ meecastAppereanceForm::OnGroupedListViewItemStateChanged(GroupedListView& listVi
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");
     if (state == LIST_ITEM_STATUS_CHECKED){
+        AppLog(" LIST_ITEM_STATUS_CHECKED");
         switch (groupIndex){
             case 0:
                 switch (itemIndex % 8){
                 case 0:
-                    AppLog("Selected2");
-                    config->UpdatePeriod(INT_MAX);
-                    __pList->SetItemChecked(groupIndex, itemIndex, true);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 1, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 2, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 3, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 4, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 5, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 6, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 7, false);
-                    break;
-                case 1:
-                    AppLog("Selected3");
-                    config->UpdatePeriod(15*60);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 1, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex, true);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 1, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 2, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 3, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 4, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 5, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 6, false);
-                   break;
-                case 2:
-                    config->UpdatePeriod(30*60);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 2, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 1, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex, true);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 1, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 2, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 3, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 4, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 5, false);
-                   break;
-                 case 3:
-                    config->UpdatePeriod(1*3600);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 3, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 2, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 1, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex, true);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 1, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 2, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 3, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 4, false);
-                   break;
-                 case 4:
-                    config->UpdatePeriod(2*3600);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 4, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 3, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 2, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 1, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex, true);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 1, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 2, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 3, false);
-                   break;
-                 case 5:
-                    config->UpdatePeriod(4*3600);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 5, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 4, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 3, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 2, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 1, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex, true);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 1, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 2, false);
-                   break;
-                 case 6:
-                    config->UpdatePeriod(12*3600);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 6, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 5, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 4, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 3, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 2, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 1, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex, true);
-                    __pList->SetItemChecked(groupIndex, itemIndex + 1, false);
-                   break;
-                 case 7:
-                    config->UpdatePeriod(24*3600);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 7, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 6, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 5, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 4, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 3, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 2, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex - 1, false);
-                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+                    config->Lockscreen(true);
                    break;
 
                 default:
@@ -376,6 +304,22 @@ meecastAppereanceForm::OnGroupedListViewItemStateChanged(GroupedListView& listVi
                 break;
        }
     } 
+    if (state == LIST_ITEM_STATUS_UNCHECKED){
+        AppLog(" LIST_ITEM_STATUS_UNCHECKED");
+        switch (groupIndex){
+            case 0:
+                switch (itemIndex % 8){
+                case 0:
+                    config->Lockscreen(false);
+                   break;
+
+                default:
+                    break;
+                }
+                break;
+       }
+    } 
+
     config->saveConfig();
     __pList->UpdateList();
     App* pApp = App::GetInstance();

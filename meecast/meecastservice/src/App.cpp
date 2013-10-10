@@ -32,7 +32,6 @@ MeecastServiceApp::GetTemperatureColor(int t){
         if (_config->TemperatureUnit() == "F"){
              t = (t - 32) * 5 / 9;
         }
-
         if (t >= 30){
             c2 = ((t - 50.0)*(246.0/255.0-60.0/255.0)/(30.0-50.0) + 60.0/255.0)*255.0;
             color->SetColorComponents(255, c2, 0);
@@ -224,20 +223,32 @@ void
 MeecastServiceApp::OnUserEventReceivedN(RequestId requestId, IList* pArgs){
 	AppLog("MeeCastService::OnUserEventReceivedN is called. requestId is %d", requestId);
 
-	switch (requestId)
-	{
-	case RELOAD_CONFIG :
-//        OnAppWidgetUpdate();
-//        _mdbaProviderFactory->Update(); 
-        _config->ReLoadConfig();
-        UpdateLockScreen();
-        __updateTimer->Cancel();
-        if (_config->UpdatePeriod() != INT_MAX){
-            __updateTimer->Start(_config->UpdatePeriod()*1000);
-        }
-        /* TODO Check config */
+    bool previous_condition_of_lockscreen = _config->Lockscreen();
+    String originalWallpaperFilePath(L"");
 
-		break;
+	switch (requestId) {
+        case RELOAD_CONFIG :
+            _config->ReLoadConfig();
+            __updateTimer->Cancel();
+            /* Disable widget on LockScreen */
+            if (previous_condition_of_lockscreen == true && _config->Lockscreen() == false){
+                result r = E_SUCCESS;
+                AppRegistry* appRegistry = Application::GetInstance()->GetAppRegistry();
+                r = appRegistry->Get(L"OriginalWallpaperPath", originalWallpaperFilePath);
+                if (r == E_SUCCESS && originalWallpaperFilePath != L""){
+                    AppLog("set wallpaper %S", originalWallpaperFilePath.GetPointer());
+                    r = SettingInfo::SetValue(L"http://tizen.org/setting/screen.wallpaper.lock", originalWallpaperFilePath);
+                }
+            }else{ 
+                if (_config->Lockscreen() == true)
+                    UpdateLockScreen();
+            }
+            if (_config->UpdatePeriod() != INT_MAX){
+                __updateTimer->Start(_config->UpdatePeriod()*1000);
+            }
+            /* TODO Check config */
+
+            break;
 	default:
 		break;
 	}
@@ -273,7 +284,8 @@ MeecastServiceApp::OnTimerExpired(Tizen::Base::Runtime::Timer& timer){
         /*  AppLog("Reload Widget"); */
         pAppWidgetProviderManager->RequestUpdate(widgetId, "MeecastDynamicBoxAppProvider", L"");
 
-        UpdateLockScreen();
+        if (_config->Lockscreen() == true)
+            UpdateLockScreen();
         AppLog("Out __checkupdatingTimer1");
         __updateTimer->Start(_config->UpdatePeriod()*1000);
         AppLog("Out __checkupdatingTimer2");
@@ -597,7 +609,6 @@ MeecastServiceApp::UpdateLockScreen(){
 void
 MeecastServiceApp::OnSettingChanged(Tizen::Base::String& key){
     if (key == L"http://tizen.org/setting/screen.wallpaper.lock"){
-
         if ( __updateTimer == NULL)
             return;
         result r = E_SUCCESS;
@@ -632,6 +643,7 @@ MeecastServiceApp::OnSettingChanged(Tizen::Base::String& key){
             Tizen::Io::File::Copy(orig_filename, originalWallpaperFilePath, false);
         }else
             return;
-        UpdateLockScreen();
+        if (_config->Lockscreen() == true)
+            UpdateLockScreen();
     }
 }

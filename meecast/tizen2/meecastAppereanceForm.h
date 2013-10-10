@@ -4,6 +4,7 @@
 #include <FBase.h>
 #include <FUi.h>
 #include "configtizen.h"
+#include <FMedia.h>
 
 #include <libintl.h>
 #include <locale.h>

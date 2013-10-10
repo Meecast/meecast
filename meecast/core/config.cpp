@@ -61,7 +61,7 @@ Config::Config()
     String filepath = App::GetInstance()->GetAppResourcePath();
     pBuf = Tizen::Base::Utility::StringUtil::StringToUtf8N(filepath);
     _pathPrefix = new std::string((const char*)pBuf->GetPointer());
-    _iconset = new std::string("Meecast");
+    _iconset = new std::string("Atmos");
     _temperature_unit = new std::string("C");
     _wind_speed_unit = new std::string("m/s");
     _pressure_unit = new std::string("mbar");
@@ -488,7 +488,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _filename = new std::string;
     _filename->assign(filename);
     _pathPrefix = new std::string(AbstractConfig::prefix + AbstractConfig::sharePath);
-    _iconset = new std::string("Meecast");
+    _iconset = new std::string("Atmos");
     _temperature_unit = new std::string("C");
     _wind_speed_unit = new std::string("m/s");
     _pressure_unit = new std::string("mbar");

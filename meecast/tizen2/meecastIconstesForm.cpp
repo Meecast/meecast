@@ -249,12 +249,10 @@ meecastIconsetsForm::GetFilesList(void){
 
 	while (pDirEnum->MoveNext() == E_SUCCESS){
 		DirEntry dirEntry = pDirEnum->GetCurrentDirEntry();
-		if ((dirEntry.IsDirectory() == true) && ((dirEntry.GetName() != ".") || (dirEntry.GetName() != ".."))){
+		if ((dirEntry.IsDirectory() == true) && (dirEntry.GetName() != ".") && (dirEntry.GetName() != "..")){
 			String* fullFileName = new (std::nothrow) String;
             String fileName(dirEntry.GetName());
-//            fileName.Remove(fileName.GetLength()-4, 4);
 			fullFileName->Append(fileName);
-            /* TODO load data from xml */
 			__fileList.Add(fullFileName);
             AppLog("sssssssssss %S", dirEntry.GetName().GetPointer());
 		}

@@ -128,6 +128,7 @@ meecastAppereanceForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previ
     // TODO:
     // Add your scene activate code here
     AppLog("OnSceneActivatedN Settings");
+    __pList->UpdateList();
 }
 
 void

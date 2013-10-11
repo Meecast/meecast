@@ -955,8 +955,9 @@ Config::~Config(){
     delete _pressure_unit;
     delete _visible_unit;
     delete _filename;
-    delete _language;
     delete _font_color;
+    delete _language;
+    delete mod;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

@@ -55,6 +55,7 @@ namespace Core{
             std::string *_visible_unit;
             std::string *_language;
             std::string *_nullname;
+            std::string *_mod;
             bool         _update_connect;
             bool         _fullscreen;
             bool         _lockscreen;

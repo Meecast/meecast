@@ -344,7 +344,7 @@ meecastAppereanceForm::OnGroupedListViewItemStateChanged(GroupedListView& listVi
                    pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_ICONSETSSCENE"), null);
                    break;
                 case 1:
-                   pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_ICONSETSSCENE"), null);
+                   pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_MODSSCENE"), null);
                    break;
 
                 default:

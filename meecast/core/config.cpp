@@ -957,7 +957,7 @@ Config::~Config(){
     delete _filename;
     delete _font_color;
     delete _language;
-    delete mod;
+    delete _mod;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

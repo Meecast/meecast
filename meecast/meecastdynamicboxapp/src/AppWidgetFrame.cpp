@@ -315,7 +315,10 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
         __pLabelMainDescriptionBackground->SetShowState(false);
         __pLabelBackground1->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1), (bounds.y + bounds.height - background_height1_1), background_width1_1, background_height1_1), L"");
 //       __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/single_now1_1.png"));
-       __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/" + _config->Mod().c_str() + "/single_now1_1.png"));
+        String temp_str;
+        Tizen::Base::Utility::StringUtil::Utf8ToString(_config->Mod().c_str(), temp_str);
+
+       __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN(L"Widget/" + temp_str + L"/single_now1_1.png"));
 
        __pLabelBackgroundTown->SetTextConfig(24, LABEL_TEXT_STYLE_NORMAL);
        __pLabelBackgroundTown->SetShowState(false);
@@ -330,7 +333,9 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
         __pLabelMainIcon->SetSize(Dimension(128, 128));
         __pLabelBackground1->Construct(FloatRectangle((bounds.x + bounds.width - background_width2_1), (bounds.y + bounds.height - background_height2_1), background_width2_1, background_height2_1), L"");
         //__pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/single_now1_2.png"));
-        __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/" + _config->Mod().c_str() + "/single_now1_2.png"));
+        String temp_str;
+        Tizen::Base::Utility::StringUtil::Utf8ToString(_config->Mod().c_str(), temp_str);
+        __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/" + temp_str + "/single_now1_2.png"));
         __pLabelBackgroundTown->SetShowState(true);
         __pLabelBackgroundTown->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
         __pLabelTown->SetShowState(true);
@@ -385,7 +390,10 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
         AppLog("Init 2x2");
         __pLabelBackground1->Construct(FloatRectangle((bounds.x + bounds.width - background_width2_2), (bounds.y + bounds.height - background_height2_2), background_width2_2, background_height2_2), L"");
        //__pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/single_now2_2.png"));
-        __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/" + _config->Mod().c_str() + "/single_now2_2.png"));
+        String temp_str;
+        Tizen::Base::Utility::StringUtil::Utf8ToString(_config->Mod().c_str(), temp_str);
+        __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/" + temp_str + "/single_now2_2.png"));
+
         if (__pLabelTown->GetText().GetLength()>15){
             if (__pLabelTown->GetText().GetLength()>20){
                 __pLabelTown->SetTextConfig(24, LABEL_TEXT_STYLE_NORMAL);

@@ -165,10 +165,23 @@ meecastIconsetsForm::CreateItem (int index, int itemWidth)
     CustomItem* pItem = new (std::nothrow) CustomItem();
     TryReturn(pItem != null, null, "Out of memory");
 
-    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_DETAILED);
+    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_NORMAL);
 
     String* pStr = dynamic_cast< String* >(__fileList.GetAt(index));
     pItem->AddElement(Tizen::Graphics::Rectangle(26, 32, 600, 50), 0, *pStr, false);
+
+    Tizen::Media::Image *image = null;
+    Tizen::Graphics::Bitmap* mainIconBitmap = null;
+
+    image = new (std::nothrow) Tizen::Media::Image();
+    image->Construct();
+
+    /* AppLog("Iconset %s", config->iconSet().c_str()); */
+    mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + *pStr + "/30.png", BITMAP_PIXEL_FORMAT_ARGB8888);
+    pItem->AddElement(Rectangle(600, 10, 100, 100), 502, *mainIconBitmap, null, null);
+    SAFE_DELETE(image);
+    SAFE_DELETE(mainIconBitmap);
+
     return pItem;
 }
 

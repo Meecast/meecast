@@ -2,6 +2,7 @@
 #define _MEECAST_ICONSETS_FORM_H_
 
 #include <FBase.h>
+#include <FMedia.h>
 #include <FUi.h>
 //#include "../core/core.h"
 

@@ -199,7 +199,7 @@ meecastAppereanceForm::CreateItem(int groupIndex, int itemIndex, int itemWidth)
                 image->Construct();
 
 
-                AppLog("Iconset %s", config->iconSet().c_str());
+                /* AppLog("Iconset %s", config->iconSet().c_str()); */
                 mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + config->iconSet().c_str() + "/30.png", BITMAP_PIXEL_FORMAT_ARGB8888);
                 pItem->AddElement(Rectangle(480, 10, 100, 100), 502, *mainIconBitmap, null, null);
                 SAFE_DELETE(image);

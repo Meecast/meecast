@@ -263,7 +263,10 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
                 str.Append("_warning");
             }
             /* AppLog("Wind1 %S", str.GetPointer()); */
-            if (str == "CALM" || Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
+            String temp_str;
+            Tizen::Base::Utility::StringUtil::Utf8ToString(_config->Mod().c_str(), temp_str);
+
+            if (str == "CALM" || Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/"+ temp_str +"/wind_" + str + ".png")){
                 __pLabelMainWindIcon->SetShowState(true);
                 /* Wind direction Icon */ 
                 Tizen::Media::Image *image = null;
@@ -271,8 +274,8 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
                 image = new (std::nothrow) Tizen::Media::Image();
                 image->Construct();
                 
-                if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
-                    windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+                if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/" + temp_str + "/wind_" + str + ".png")){
+                    windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/" + temp_str + "/wind_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
                     AppLog("Wind %S", str.GetPointer());
                     __pLabelMainWindIcon->SetBackgroundBitmap(*windIconBitmap);
                     __pLabelMainWindIcon->SetSize(windIconBitmap->GetWidth(), windIconBitmap->GetHeight());
@@ -317,7 +320,6 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
 //       __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/single_now1_1.png"));
         String temp_str;
         Tizen::Base::Utility::StringUtil::Utf8ToString(_config->Mod().c_str(), temp_str);
-
        __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN(L"Widget/" + temp_str + L"/single_now1_1.png"));
 
        __pLabelBackgroundTown->SetTextConfig(24, LABEL_TEXT_STYLE_NORMAL);
@@ -614,7 +616,9 @@ MeecastDynamicBoxAppFrame::OnAppWidgetUpdate(void)
                 str.Append("_warning");
             }
             /* AppLog("Wind1 %S", str.GetPointer()); */
-            if (str == "CALM" || Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
+            String temp_str;
+            Tizen::Base::Utility::StringUtil::Utf8ToString(_config->Mod().c_str(), temp_str);
+            if (str == "CALM" || Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/" + temp_str + "/wind_" + str + ".png")){
                 __pLabelMainWindIcon->SetShowState(true);
                 /* Wind direction Icon */ 
                 Tizen::Media::Image *image = null;
@@ -622,8 +626,8 @@ MeecastDynamicBoxAppFrame::OnAppWidgetUpdate(void)
                 image = new (std::nothrow) Tizen::Media::Image();
                 image->Construct();
                 
-                if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
-                    windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+                if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/" + temp_str + "/wind_" + str + ".png")){
+                    windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/" + temp_str + "/wind_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
                     AppLog("Wind %S", str.GetPointer());
                     __pLabelMainWindIcon->SetBackgroundBitmap(*windIconBitmap);
                     __pLabelMainWindIcon->RequestRedraw();
@@ -692,7 +696,9 @@ MeecastDynamicBoxAppFrame::OnBoundsChanged(const Tizen::Graphics::Rectangle& old
         __pLabelMainIcon->SetSize(Dimension(128, 128));
         __pLabelBackground1->SetSize(Dimension(background_width1_1, background_height1_1));
         __pLabelBackground1->SetPosition((bounds.x + bounds.width - background_width1_1), (bounds.y + bounds.height - background_height1_1));
-        __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/single_now1_1.png"));
+        String temp_str;
+        Tizen::Base::Utility::StringUtil::Utf8ToString(_config->Mod().c_str(), temp_str);
+        __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN(L"Widget/" + temp_str + L"/single_now1_1.png"));
         __pLabelBackground1->RequestRedraw();
         __pLabelMainDescription->SetShowState(false);
 
@@ -737,8 +743,10 @@ MeecastDynamicBoxAppFrame::OnBoundsChanged(const Tizen::Graphics::Rectangle& old
         if ((oldRect.height == oldRect.width) && oldRect.height >300){
             __pLabelMainWindIcon->SetSize(__pLabelMainWindIcon->GetWidth()/2, __pLabelMainWindIcon->GetHeight()/2);
         }
-        __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/single_now1_2.png"));
-         __pLabelBackground1->SetSize(Dimension(background_width2_1, background_height2_1));
+        String temp_str;
+        Tizen::Base::Utility::StringUtil::Utf8ToString(_config->Mod().c_str(), temp_str);
+        __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN(L"Widget/" + temp_str + L"/single_now1_2.png"));
+        __pLabelBackground1->SetSize(Dimension(background_width2_1, background_height2_1));
 
          __pLabelMainWindIcon->SetPosition((int)(bounds.x + bounds.width - background_width2_1/6), (int)(bounds.y + background_height2_1/2.8));
          __pLabelMainWindSpeed->SetPosition((int)(bounds.x + bounds.width - background_width2_1/6) - 6, (bounds.y + background_height2_1/2.8) - 1);
@@ -793,7 +801,9 @@ MeecastDynamicBoxAppFrame::OnBoundsChanged(const Tizen::Graphics::Rectangle& old
     /* Prepared for 2x2 mode */
     if ((bounds.height == bounds.width) && bounds.height>200){
         AppLog("2x2");
-        __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/single_now2_2.png"));
+        String temp_str;
+        Tizen::Base::Utility::StringUtil::Utf8ToString(_config->Mod().c_str(), temp_str);
+        __pLabelBackground1->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN(L"Widget/" + temp_str + L"/single_now2_2.png"));
         __pLabelBackground1->SetSize(Dimension(background_width2_2, background_height2_2));
         __pLabelBackground1->SetPosition((bounds.x + bounds.width - background_width2_2), (bounds.y + bounds.height - background_height2_2));
         if (__pLabelTown->GetText().GetLength()>15){

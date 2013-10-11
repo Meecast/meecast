@@ -355,6 +355,7 @@ Config::saveConfig()
     file_out<<" <current_station_id>"<< _current_station_id<<"</current_station_id>"<<endl;
     file_out<<" <update_period>"<< _update_period<<"</update_period>"<<endl;
     file_out<<" <language>"<< *_language<<"</language>"<<endl;
+    file_out<<" <mod>"<< *_mod<<"</mod>"<<endl;
     if (Gps() == false)
         file_out<<" <gps>false</gps>"<<endl;
     else
@@ -732,6 +733,11 @@ Config::LoadConfig(){
             if (!xmlStrcmp(p->name, (const xmlChar*)"language")){
                 temp_xml_string = xmlNodeGetContent(p);
                 _language->assign(std::string((char *)temp_xml_string));
+                xmlFree(temp_xml_string);
+            }
+            if (!xmlStrcmp(p->name, (const xmlChar*)"mod")){
+                temp_xml_string = xmlNodeGetContent(p);
+                _mod->assign(std::string((char *)temp_xml_string));
                 xmlFree(temp_xml_string);
             }
             if (!xmlStrcmp(p->name, (const xmlChar*)"gps")){

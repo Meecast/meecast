@@ -98,6 +98,9 @@ namespace Core{
             std::string& VisibleUnit(void);
             std::string& Language(void);
             void Language(const std::string& lang);
+            std::string& Mod(void);
+            void Mod(const std::string& mod);
+
             void UpdateConnect(const bool uc);
             bool UpdateConnect(void);
             void Fullscreen(const bool uc);

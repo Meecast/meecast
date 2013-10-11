@@ -166,14 +166,14 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
 //                                       temp_data->Icon());
 
         Tizen::Base::Integer icon_int =  temp_data->Icon();
-        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png")){
+        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png")){
             /* Main Icon */ 
             Tizen::Media::Image *image = null;
             Tizen::Graphics::Bitmap* mainIconBitmap = null;
             image = new (std::nothrow) Tizen::Media::Image();
             image->Construct();
 
-            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
             __pLabelMainIcon->SetBackgroundBitmap(*mainIconBitmap);
             __pLabelMainIcon->RequestRedraw();
             SAFE_DELETE(image);
@@ -287,7 +287,7 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
         __pLabelMainTemperatureBackground->SetText("MeeCast");
 
         Tizen::Base::Integer icon_int = 49;
-        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png")){
+        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png")){
             /* Main Icon */ 
 
             Tizen::Media::Image *image = null;
@@ -296,7 +296,7 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
             image = new (std::nothrow) Tizen::Media::Image();
             image->Construct();
 
-            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
             __pLabelMainIcon->SetBackgroundBitmap(*mainIconBitmap);
             __pLabelMainIcon->RequestRedraw();
             SAFE_DELETE(image);
@@ -482,14 +482,14 @@ MeecastDynamicBoxAppFrame::OnAppWidgetUpdate(void)
         temp_data->WindSpeed().units(_config->WindSpeedUnit());
 
         Tizen::Base::Integer icon_int =  temp_data->Icon();
-        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png")){
+        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png")){
             /* Main Icon */ 
             Tizen::Media::Image *image = null;
             Tizen::Graphics::Bitmap* mainIconBitmap = null;
             image = new (std::nothrow) Tizen::Media::Image();
             image->Construct();
 
-            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/"  + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
             __pLabelMainIcon->SetBackgroundBitmap(*mainIconBitmap);
             __pLabelMainIcon->RequestRedraw();
             SAFE_DELETE(image);
@@ -626,7 +626,7 @@ MeecastDynamicBoxAppFrame::OnAppWidgetUpdate(void)
         __pLabelMainTemperatureBackground->SetText("MeeCast");
 
         Tizen::Base::Integer icon_int = 49;
-        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png")){
+        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png")){
             /* Main Icon */ 
 
             Tizen::Media::Image *image = null;
@@ -635,7 +635,7 @@ MeecastDynamicBoxAppFrame::OnAppWidgetUpdate(void)
             image = new (std::nothrow) Tizen::Media::Image();
             image->Construct();
 
-            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
             __pLabelMainIcon->SetBackgroundBitmap(*mainIconBitmap);
             __pLabelMainIcon->RequestRedraw();
             SAFE_DELETE(image);

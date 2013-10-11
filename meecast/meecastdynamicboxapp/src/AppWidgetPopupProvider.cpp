@@ -267,14 +267,14 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
 //                                       temp_data->Icon());
 
         Tizen::Base::Integer icon_int =  temp_data->Icon();
-        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png")){
+        if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png")){
             /* Main Icon */ 
             Tizen::Media::Image *image = null;
             Tizen::Graphics::Bitmap* mainIconBitmap = null;
             image = new (std::nothrow) Tizen::Media::Image();
             image->Construct();
 
-            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+            mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
             __pLabelMainIcon->SetBackgroundBitmap(*mainIconBitmap);
             __pLabelMainIcon->RequestRedraw();
             SAFE_DELETE(image);
@@ -453,14 +453,14 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
             Label* icon = new Label();
             icon->Construct(FloatRectangle(260 + (_dayCount -1)*110 , 0, 80, 80), L"");
 
-            if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png")){
+            if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png")){
                 /* Main Icon */ 
                 Tizen::Media::Image *image = null;
                 Tizen::Graphics::Bitmap* mainIconBitmap = null;
                 image = new (std::nothrow) Tizen::Media::Image();
                 image->Construct();
 
-                mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/Glance/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+                mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
                 icon->SetBackgroundBitmap(*mainIconBitmap);
                 icon->RequestRedraw();
                 SAFE_DELETE(image);

@@ -612,7 +612,7 @@ Config::~Config(){
     delete _pressure_unit;
     delete _visible_unit;
     delete _language;
-    delete mod;
+    delete _mod;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

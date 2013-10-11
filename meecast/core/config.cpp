@@ -611,6 +611,8 @@ Config::~Config(){
     delete _wind_speed_unit;
     delete _pressure_unit;
     delete _visible_unit;
+    delete _language;
+    delete mod;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

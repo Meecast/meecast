@@ -206,7 +206,17 @@ meecastAppereanceForm::CreateItem(int groupIndex, int itemIndex, int itemWidth)
                 SAFE_DELETE(mainIconBitmap);
 
                 break;
+            case 1:
+                pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_DETAILED);
+                pStr = new String (_("Modification"));
+                pStr->Append(" - ");
+                pStr->Append(config->Mod().c_str());
+                pItem->AddElement(Tizen::Graphics::Rectangle(16, 32, 700, 50), 0, *pStr, 36,
+                                  Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)),
+                                  Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)),
+                                  Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)), true);
 
+                break;
 
             default:
                 pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_ONOFF_SLIDING);
@@ -327,11 +337,14 @@ meecastAppereanceForm::OnGroupedListViewItemStateChanged(GroupedListView& listVi
         SceneManager* pSceneManager = SceneManager::GetInstance();
         AppAssert(pSceneManager);
 	    AppLog("LIST_ITEM_STATUS_SELECTED ");
-        pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_ICONSETSSCENE"), null);
         switch (groupIndex){
-            case 0:
+            case 1:
                 switch (itemIndex % 8){
                 case 0:
+                   pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_ICONSETSSCENE"), null);
+                   break;
+                case 1:
+                   pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_ICONSETSSCENE"), null);
                    break;
 
                 default:

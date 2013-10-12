@@ -55,6 +55,7 @@ Config::Config()
     _splash = true;
     _font_color = new std::string("#00ff00");
     _language = new std::string("System");
+    _mod = new std::string("Digia");
     _nullname = new std::string("");
     _stations = new StationsList;
     _current_station_id = INT_MAX;
@@ -362,6 +363,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _pressure_unit = new std::string("mbar");
     _visible_unit = new std::string("m");
     _language = new std::string("System");
+    _mod = new std::string("Digia");
     _nullname = new std::string("");
     _update_connect = false;
     _fullscreen = false;
@@ -613,6 +615,8 @@ Config::~Config(){
     delete _wind_speed_unit;
     delete _pressure_unit;
     delete _visible_unit;
+    delete _language;
+    delete _mod;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void
@@ -709,6 +713,18 @@ Config::Language(){
 }
 ////////////////////////////////////////////////////////////////////////////////
 void
+Config::Mod(const std::string& mod){
+    _mod->assign(mod);
+}
+////////////////////////////////////////////////////////////////////////////////
+std::string&
+Config::Mod(){
+    return *_mod;
+}
+////////////////////////////////////////////////////////////////////////////////
+
+void
+
 Config::UpdateConnect(const bool uc){
     _update_connect = uc;
 }

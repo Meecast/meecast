@@ -142,8 +142,10 @@ meecastMainForm::OnInitializing(void)
     __menuButton = new Button();
     __menuButton->Construct(Rectangle(0, 0, 100, 100), ""); 
     __menuButton->SetActionId(ID_BUTTON_MENU);
-    __menuButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("menu.png"));
-    __menuButton->SetPressedBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("menu.png"));
+    Bitmap *pBitmap_mask1 = Application::GetInstance()->GetAppResource()->GetBitmapN("menu.png");
+    __menuButton->SetNormalBackgroundBitmap(*pBitmap_mask1);
+    __menuButton->SetPressedBackgroundBitmap(*pBitmap_mask1);
+    delete pBitmap_mask1;
     __menuButton->AddActionEventListener(*this);
     position = source_icon_label->GetPosition();
     __menuButton->SetPosition(source_icon_label->GetWidth() - 100 - 25, position.y - 0);

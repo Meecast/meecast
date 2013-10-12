@@ -314,6 +314,7 @@ MeecastServiceApp::UpdateLockScreen(){
     String meecastWallpaperFilePath(App::GetInstance()->GetAppSharedPath() + "data/" +  "wallpaper.meecast.png");
     if (__pBitmapOriginal){
         delete __pBitmapOriginal;
+        __pBitmapOriginal = null;
     }
     __pBitmapOriginal = img.DecodeN(originalWallpaperFilePath, BITMAP_PIXEL_FORMAT_ARGB8888);
     if (__pBitmapOriginal)
@@ -450,7 +451,9 @@ MeecastServiceApp::UpdateLockScreen(){
         pCanvas->DrawText(Point(PositionX + 240 + 2, PositionY + 70 + 2), *pEnrichedText);
         Tizen::Graphics::Color*  color_of_temp = GetTemperatureColor(t);
 
-        pTextElement->SetTextColor(*color_of_temp);{
+        pTextElement->SetTextColor(*color_of_temp);
+        delete color_of_temp;
+        {
             Font font;
             font.Construct(FONT_STYLE_BOLD, 95);
             pTextElement->SetFont(font);
@@ -560,6 +563,8 @@ MeecastServiceApp::UpdateLockScreen(){
             dateString.Append(timeString);
             dateString.Insert(_("Last update:"), 0);
 
+            delete pDateFormatter;
+            delete pTimeFormatter;
             pEnrichedText = new EnrichedText();
             r = pEnrichedText->Construct(Dimension(590, 80));
             pEnrichedText->SetHorizontalAlignment(TEXT_ALIGNMENT_RIGHT);
@@ -592,15 +597,21 @@ MeecastServiceApp::UpdateLockScreen(){
         }
 
     }
+    if (_dp)
+        _dp->DeleteInstance();
+    if (__pBitmapOriginal){
+        delete __pBitmapOriginal;
+        __pBitmapOriginal = null;
+    }
 	//make bitmap using canvas
 	Bitmap* pBitmap = new Bitmap();
 	pBitmap->Construct(*pCanvas, Rectangle(0, 0, Width, Height));
 //    pBitmap->Scale(Dimension(Width, Height));
 
-	delete pCanvas;
 
     img.EncodeToFile(*pBitmap, IMG_FORMAT_PNG, meecastWallpaperFilePath, true);
     delete pBitmap;
+	delete pCanvas;
     AppLog(" New Path %S", meecastWallpaperFilePath.GetPointer());
     r = SettingInfo::SetValue(L"http://tizen.org/setting/screen.wallpaper.lock", meecastWallpaperFilePath);
 

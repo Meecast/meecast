@@ -75,7 +75,7 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
     char  buffer[4096]; 
     String str;
 
-    AppLog("ReInitElements"); 
+    /* AppLog("ReInitElements"); */
     /* Reload widget if it is not the first reinit of popup window */
     if (__pLabelLastUpdate){
         String repAppId(15);
@@ -87,8 +87,6 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
           AppLog("Reload Widget"); 
         pAppWidgetProviderManager->RequestUpdate(widgetId, "MeecastDynamicBoxAppProvider", L"");
     }
-
-    AppLog("ssssssssssssssss");
     /* Last Update */
     if (!__pLabelLastUpdate){
         __pLabelLastUpdate = new Label();
@@ -111,8 +109,8 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
 	    __pLabelLastUpdateBG->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
     	__pLabelLastUpdateBG->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
     }
-    /* Station name */
 
+    /* Station name */
     if (!__pLabelTownBG){
         __pLabelTownBG = new Label();
         __pLabelTownBG->Construct(FloatRectangle(-10 + 1, height/2.3 +1, width - width/1.6, height/3.5), L"");
@@ -147,7 +145,13 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
     if (!__pLabelMainTemperature){
         __pLabelMainTemperature = new Label();
         __pLabelMainTemperature->Construct(FloatRectangle((width/8.5), (height/5) , width/4, height/4), L"");
-        __pLabelMainTemperature->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+        if (_config->Mod() == "Digia"){
+            __pLabelMainTemperature->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+        }else if (_config->Mod() == "Marina"){
+            __pLabelMainTemperature->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+        } if (_config->Mod() == "ExtraCoffe"){
+            __pLabelMainTemperature->SetTextColor(Color::Color(0xff, 0xda, 0x9f));
+        }
     }
      
     /* Wind Speed */
@@ -168,6 +172,7 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
         __pLabelMainWindIcon = new Label();
         __pLabelMainWindIcon->Construct(FloatRectangle((width/3.7), (height/15), 52+10, 52), L"");
     }
+
     SAFE_DELETE2(icon1);
     SAFE_DELETE2(icon2);
     SAFE_DELETE2(icon3);
@@ -192,6 +197,7 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
     SAFE_DELETE2(dayname2);
     SAFE_DELETE2(dayname3);
     SAFE_DELETE2(dayname4);
+
     if (_dp)
         _dp->DeleteInstance();
     if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0){
@@ -342,6 +348,7 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
                 }
             }
         }
+
 
 #if 0        
         /* Current or not current period */
@@ -522,8 +529,9 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
                 day_name->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
             }else if (_config->Mod() == "Marina"){
                 day_name->SetTextColor(Color::Color(0x98,0xa7, 0xb5, 0xff));
-            }
-
+            }else if (_config->Mod() == "ExtraCoffe"){ 
+                day_name->SetTextColor(Color::Color(0x56,0x4a, 0x3b, 0xff));
+            } 
 
             /* Convert date and time */
             DateTime dt;
@@ -567,19 +575,24 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
                     temperature_low->SetTextColor(Color::GetColor(COLOR_ID_GREY));
                 }else if (_config->Mod() == "Marina"){
                     temperature_low->SetTextColor(Color::GetColor(COLOR_ID_BLUE));
+                }else if (_config->Mod() == "ExtraCoffe"){
+                    temperature_low->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
                 }
+
             }
             if (temp_data->temperature_hi().value(true) != INT_MAX){
                 snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 temperature_hi->SetText(str);
+                temperature_hi->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
+                temperature_hi->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
                 if (_config->Mod() == "Digia"){
                     temperature_hi->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
                 }else if (_config->Mod() == "Marina"){
                     temperature_hi->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+                }else if (_config->Mod() == "ExtraCoffe"){
+                    temperature_hi->SetTextColor(Color::Color(0xff, 0xda, 0x9f));
                 }
-                temperature_hi->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
-                temperature_hi->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
             }
 
             __pAppWidgetPopup->AddControl(windicon);

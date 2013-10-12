@@ -38,6 +38,7 @@ using namespace Tizen::Io;
 static const int LIST_HEIGHT = 112;
 static const int BUTTON_HEIGHT = 74;
 
+static const RequestId SEND_RELOAD_CONFIG = 200;
 
 meecastModsetsForm::meecastModsetsForm(void)
                     : __pListView(null)
@@ -201,6 +202,9 @@ meecastModsetsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& li
         _config->Mod(temp_string);
         _config->saveConfig();
         __pListView->UpdateList();
+        App* pApp = App::GetInstance();
+        pApp->SendUserEvent(SEND_RELOAD_CONFIG, null);
+
 	    pSceneManager->GoBackward(BackwardSceneTransition(SCENE_TRANSITION_ANIMATION_TYPE_RIGHT));
 
 	}

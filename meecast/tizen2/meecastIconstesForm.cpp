@@ -38,6 +38,7 @@ using namespace Tizen::Io;
 static const int LIST_HEIGHT = 112;
 static const int BUTTON_HEIGHT = 74;
 
+static const RequestId SEND_RELOAD_CONFIG = 200;
 
 meecastIconsetsForm::meecastIconsetsForm(void)
                     : __pListView(null)
@@ -211,13 +212,9 @@ meecastIconsetsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& l
         _config->iconSet(temp_string);
         _config->saveConfig();
         __pListView->UpdateList();
-        /* Select 'Source location' */
-        if (index == 0){
-	        AppLog("i111LIST_ITEM_STATUS_SELECTED ");
-//            pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_MAINSCENE"));
-        }
+        App* pApp = App::GetInstance();
+        pApp->SendUserEvent(SEND_RELOAD_CONFIG, null);
 	    pSceneManager->GoBackward(BackwardSceneTransition(SCENE_TRANSITION_ANIMATION_TYPE_RIGHT));
-
 	}
 }
 

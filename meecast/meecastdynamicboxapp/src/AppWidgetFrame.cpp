@@ -106,7 +106,11 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
     __pLabelMainWindSpeed = new Label();
     __pLabelMainWindSpeed->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1/2.8) - 6, (bounds.y + background_height1_1/2.8) - 1, 52+10, 52), L"");
     __pLabelMainWindSpeed->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
-    __pLabelMainWindSpeed->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
+    if (_config->Mod() == "Digia"){
+        __pLabelMainWindSpeed->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
+    }else if (_config->Mod() == "Marina"){
+        __pLabelMainWindSpeed->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+    }
     __pLabelMainWindSpeed->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
     __pLabelMainWindSpeed->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
 

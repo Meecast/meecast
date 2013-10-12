@@ -75,7 +75,7 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
     char  buffer[4096]; 
     String str;
 
-    /* AppLog("ReInitElements"); */
+    AppLog("ReInitElements"); 
     /* Reload widget if it is not the first reinit of popup window */
     if (__pLabelLastUpdate){
         String repAppId(15);
@@ -84,17 +84,23 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
         AppId widgetId(repAppId+widgetName);
         Tizen::Shell::AppWidgetProviderManager* pAppWidgetProviderManager = Tizen::Shell::AppWidgetProviderManager::GetInstance();
         result r = E_FAILURE;
-        /*  AppLog("Reload Widget"); */
+          AppLog("Reload Widget"); 
         pAppWidgetProviderManager->RequestUpdate(widgetId, "MeecastDynamicBoxAppProvider", L"");
     }
+
+    AppLog("ssssssssssssssss");
     /* Last Update */
     if (!__pLabelLastUpdate){
         __pLabelLastUpdate = new Label();
         __pLabelLastUpdate->Construct(FloatRectangle(width/6, (height - height/3.05), (width - width/6), height/5), L"");
         __pLabelLastUpdate->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
         __pLabelLastUpdate->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
-        __pLabelLastUpdate->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
 	    __pLabelLastUpdate->SetTextConfig(28, LABEL_TEXT_STYLE_BOLD);
+        if (_config->Mod() == "Digia"){
+            __pLabelLastUpdate->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
+        }else if (_config->Mod() == "Marina"){
+            __pLabelLastUpdate->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+        }
     }
 
     if (!__pLabelLastUpdateBG){
@@ -149,27 +155,18 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
         __pLabelMainWindSpeed = new Label();
         __pLabelMainWindSpeed->Construct(FloatRectangle((width/3.7) - 6, (height/15), 52+10, 52), L"");
         __pLabelMainWindSpeed->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
+        if (_config->Mod() == "Digia"){
+            __pLabelMainWindSpeed->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
+        }else if (_config->Mod() == "Marina"){
+            __pLabelMainWindSpeed->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+        }
+
     }
 
     /* Wind icon */
     if (!__pLabelMainWindIcon){
         __pLabelMainWindIcon = new Label();
         __pLabelMainWindIcon->Construct(FloatRectangle((width/3.7), (height/15), 52+10, 52), L"");
-    }
-
-    try{
-        _config = Config::Instance( std::string("config.xml"),
-                                       Core::AbstractConfig::prefix+
-                                       Core::AbstractConfig::schemaPath+
-                                       "config.xsd");
-    }
-    catch(const std::string &str){
-        AppLogDebug("Create Config class:  ");
-        _config =  Config::Instance();
-    }
-    catch(const char *str){
-        AppLogDebug("Create Config class:  ");
-        _config =  Config::Instance();
     }
     SAFE_DELETE2(icon1);
     SAFE_DELETE2(icon2);
@@ -225,8 +222,8 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
                 dateString.Insert(_("Last update:"), 0);
                 __pLabelLastUpdate->SetText(dateString);
 	            __pLabelLastUpdateBG->SetText(dateString);
-	            __pAppWidgetPopup->AddControl(__pLabelLastUpdateBG);
-//	            __pAppWidgetPopup->AddControl(__pLabelLastUpdate);
+	            //__pAppWidgetPopup->AddControl(__pLabelLastUpdateBG);
+	            __pAppWidgetPopup->AddControl(__pLabelLastUpdate);
             }
     }else
         _dp = NULL;
@@ -364,8 +361,10 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
             if (temp_data->WindSpeed().value() > STRONG_WIND){
                 str.Append("_warning");
             }
-            /* AppLog("Wind1 %S", str.GetPointer()); */
-            if (str == "CALM" || Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
+            AppLog("Wind1 %S", str.GetPointer()); 
+            String temp_str;
+            Tizen::Base::Utility::StringUtil::Utf8ToString(_config->Mod().c_str(), temp_str);
+            if (str == "CALM" || Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/" + temp_str + "/wind_" + str + ".png")){
                 __pLabelMainWindIcon->SetShowState(true);
                 /* Wind direction Icon */ 
                 Tizen::Media::Image *image = null;
@@ -373,8 +372,8 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
                 image = new (std::nothrow) Tizen::Media::Image();
                 image->Construct();
                 
-                if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
-                    windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+                if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/"+temp_str + "/wind_" + str + ".png")){
+                    windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/" + temp_str + "/wind_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
                     /* AppLog("Wind %S", str.GetPointer()); */
                     __pLabelMainWindIcon->SetBackgroundBitmap(*windIconBitmap);
                     __pLabelMainWindIcon->SetSize(windIconBitmap->GetWidth(), windIconBitmap->GetHeight());
@@ -476,15 +475,18 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
                 if (temp_data->WindSpeed().value() > STRONG_WIND){
                     str.Append("_warning");
                 }
-                if (str == "CALM" || Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
+                String temp_str;
+                Tizen::Base::Utility::StringUtil::Utf8ToString(_config->Mod().c_str(), temp_str);
+                if (str == "CALM" || Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/" + temp_str + "/wind_" + str + ".png")){
                     /* Wind direction Icon */ 
                     Tizen::Media::Image *image = null;
                     Tizen::Graphics::Bitmap* windIconBitmap = null;
                     image = new (std::nothrow) Tizen::Media::Image();
                     image->Construct();
-                    
-                    if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png")){
-                        windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/Digia/wind_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
+                    String temp_str;
+                    Tizen::Base::Utility::StringUtil::Utf8ToString(_config->Mod().c_str(), temp_str);
+                    if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/" + temp_str + "/wind_" + str + ".png")){
+                        windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/" + temp_str + "/wind_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
                         windicon->SetBackgroundBitmap(*windIconBitmap);
                         windicon->SetSize(windIconBitmap->GetWidth(), windIconBitmap->GetHeight());
                         SAFE_DELETE(image);
@@ -492,9 +494,15 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
                     }
                 }
             }
+
             Label* windspeed = new Label();
             windspeed->Construct(FloatRectangle(275 + (_dayCount -1)*110 - 6 , 75, 52 + 10, 52), L"");
             windspeed->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
+            if (_config->Mod() == "Digia"){
+                windspeed->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
+            }else if (_config->Mod() == "Marina"){
+                windspeed->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+            }
 
             /* Wind speed */
             if (temp_data->WindSpeed().value() != INT_MAX){
@@ -510,6 +518,13 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
             Label* day_name = new Label();
             day_name->Construct(FloatRectangle(245 + (_dayCount -1)*110, 115, 110, 70), L"");
             day_name->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
+            if (_config->Mod() == "Digia"){
+                day_name->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
+            }else if (_config->Mod() == "Marina"){
+                day_name->SetTextColor(Color::Color(0x98,0xa7, 0xb5, 0xff));
+            }
+
+
             /* Convert date and time */
             DateTime dt;
             time_t day_and_time;
@@ -546,15 +561,23 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
                 snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 temperature_low->SetText(str);
-	            temperature_low->SetTextColor(Color::GetColor(COLOR_ID_GREY));
                 temperature_low->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
                 temperature_low->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
+                if (_config->Mod() == "Digia"){
+                    temperature_low->SetTextColor(Color::GetColor(COLOR_ID_GREY));
+                }else if (_config->Mod() == "Marina"){
+                    temperature_low->SetTextColor(Color::GetColor(COLOR_ID_BLUE));
+                }
             }
             if (temp_data->temperature_hi().value(true) != INT_MAX){
                 snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 temperature_hi->SetText(str);
-	            temperature_hi->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+                if (_config->Mod() == "Digia"){
+                    temperature_hi->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+                }else if (_config->Mod() == "Marina"){
+                    temperature_hi->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+                }
                 temperature_hi->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
                 temperature_hi->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
             }
@@ -639,6 +662,21 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
 
 	__pAppWidgetPopup->Construct(FloatDimension(width, height));
   	
+    try{
+        _config = Config::Instance( std::string("config.xml"),
+                                       Core::AbstractConfig::prefix+
+                                       Core::AbstractConfig::schemaPath+
+                                       "config.xsd");
+    }
+    catch(const std::string &str){
+        AppLogDebug("Create Config class:  ");
+        _config =  Config::Instance();
+    }
+    catch(const char *str){
+        AppLogDebug("Create Config class:  ");
+        _config =  Config::Instance();
+    }
+
 	// TODO:
 	// Put your UI code here
 	Label* pLabel = new Label();
@@ -649,7 +687,10 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
 	pLabel->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
 	pLabel->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
 	//pLabel->SetBackgroundColor(Color::GetColor(COLOR_ID_GREY));
-    pLabel->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/Digia/popup_window.png"));
+    String temp_str;
+    Tizen::Base::Utility::StringUtil::Utf8ToString(_config->Mod().c_str(), temp_str);
+
+    pLabel->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("Widget/" + temp_str + "/popup_window.png"));
 	__pAppWidgetPopup->AddControl(pLabel);
     ReInitElements();
 

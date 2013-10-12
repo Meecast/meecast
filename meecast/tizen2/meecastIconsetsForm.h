@@ -71,6 +71,7 @@ private:
     Core::DatabaseSqlite *__db;
 	Tizen::Ui::Controls::SearchBar* __pSearchBar;
     Tizen::Base::Collection::ArrayList __fileList;
+    ConfigTizen *_config;
 };
 
 #endif	//_MEECAST_REGIONS_FORM_H_

@@ -48,6 +48,8 @@ meecastModsetsForm::~meecastModsetsForm(void){
 	if (__fileList.GetCount() > 0){
 		__fileList.RemoveAll(true);
 	}
+
+    _config->DeleteInstance();
 }
 
 bool
@@ -65,7 +67,13 @@ meecastModsetsForm::OnInitializing(void){
     SetFormBackEventListener(this);
 
     Header* pHeader = GetHeader();
-    pHeader->SetTitleText(_("Modifacation"));
+    pHeader->SetTitleText(_("Modification"));
+
+    _config = ConfigTizen::Instance( std::string("config.xml"),
+                                       Core::AbstractConfig::prefix+
+                                       Core::AbstractConfig::schemaPath+
+                                       "config.xsd");
+
 
 
     // Creates an instance of ListView
@@ -77,7 +85,7 @@ meecastModsetsForm::OnInitializing(void){
     // Adds the list view to the form
     AddControl(*__pListView);
 	r = GetFilesList();
-	TryReturn(r == E_SUCCESS, r, "Could not get iconsets files present in iconsets directory");
+	TryReturn(r == E_SUCCESS, r, "Could not get themes files present in themes directory");
  	FloatRectangle clientRect = GetClientAreaBoundsF();
  	__pListView->SetSize(FloatDimension(clientRect.width, clientRect.height));
     return r;
@@ -165,10 +173,16 @@ meecastModsetsForm::CreateItem (int index, int itemWidth)
     CustomItem* pItem = new (std::nothrow) CustomItem();
     TryReturn(pItem != null, null, "Out of memory");
 
-    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_NORMAL);
+//    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_NORMAL);
+    pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_RADIO);
 
     String* pStr = dynamic_cast< String* >(__fileList.GetAt(index));
     pItem->AddElement(Tizen::Graphics::Rectangle(26, 32, 600, 50), 0, *pStr, true);
+    String temp_str;
+    Tizen::Base::Utility::StringUtil::Utf8ToString(_config->Mod().c_str(), temp_str);
+
+    if (*pStr == temp_str) 
+        __pListView->SetItemChecked(index, true);
 
     return pItem;
 }
@@ -176,13 +190,7 @@ meecastModsetsForm::CreateItem (int index, int itemWidth)
 void
 meecastModsetsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& listView, int index, int elementId, Tizen::Ui::Controls::ListItemStatus status)
 {
-    ConfigTizen *config;
-    config = ConfigTizen::Instance( std::string("config.xml"),
-                                       Core::AbstractConfig::prefix+
-                                       Core::AbstractConfig::schemaPath+
-                                       "config.xsd");
-
-	if (status == LIST_ITEM_STATUS_SELECTED || status == LIST_ITEM_STATUS_MORE){
+	if (status == LIST_ITEM_STATUS_SELECTED || status == LIST_ITEM_STATUS_MORE ||  LIST_ITEM_STATUS_CHECKED){
         SceneManager* pSceneManager = SceneManager::GetInstance();
         AppAssert(pSceneManager);
 
@@ -190,12 +198,12 @@ meecastModsetsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::ListView& li
         String* pStr = dynamic_cast< String* >(__fileList.GetAt(index));
 
         std::string temp_string = (const char*) (Tizen::Base::Utility::StringUtil::StringToUtf8N(*pStr)->GetPointer());
-        config->Mod(temp_string);
-        config->saveConfig();
+        _config->Mod(temp_string);
+        _config->saveConfig();
+        __pListView->UpdateList();
 	    pSceneManager->GoBackward(BackwardSceneTransition(SCENE_TRANSITION_ANIMATION_TYPE_RIGHT));
 
 	}
-    config->DeleteInstance();
 }
 
 void

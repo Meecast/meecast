@@ -67,6 +67,8 @@ namespace Core{
             int          _current_station_id;
             StationsList *_stations;
             languages    *_languages_list;
+            int         _Xleft_corner_of_lockscreen_widget;
+            int         _Yleft_corner_of_lockscreen_widget;
         protected:
             static Config* _self;
             static int _refcount;
@@ -125,7 +127,10 @@ namespace Core{
             //void stationsList(std::vector<Core::Station*> list);
             void stationsList(StationsList list);
             languages& languagesList();
-
+            void Xleft_corner_of_lockscreen_widget(const int X);
+            int Xleft_corner_of_lockscreen_widget(void);
+            void Yleft_corner_of_lockscreen_widget(const int Y);
+            int Yleft_corner_of_lockscreen_widget(void);
             void saveConfig();
     };
 } // namespace Core

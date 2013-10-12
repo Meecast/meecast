@@ -110,6 +110,8 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
         __pLabelMainWindSpeed->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
     }else if (_config->Mod() == "Marina"){
         __pLabelMainWindSpeed->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+    }else if (_config->Mod() == "ExtraCoffe"){
+        __pLabelMainWindSpeed->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
     }
     __pLabelMainWindSpeed->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
     __pLabelMainWindSpeed->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
@@ -121,6 +123,13 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
     __pLabelMainTemperature = new Label();
     __pLabelMainTemperature->Construct(FloatRectangle((bounds.x + bounds.width - background_width1_1- 20), (bounds.height - bounds.height/3) , background_width1_1 + 40, bounds.height/3), L"");
     __pLabelMainTemperature->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+    if (_config->Mod() == "Digia"){
+        __pLabelMainTemperature->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+    }else if (_config->Mod() == "Marina"){
+        __pLabelMainTemperature->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
+    } if (_config->Mod() == "ExtraCoffe"){
+        __pLabelMainTemperature->SetTextColor(Color::Color(0xff, 0xda, 0x9f));
+    }
 
     __pLabelTown = new Label();
     __pLabelTown->Construct(FloatRectangle((bounds.x + bounds.width - background_width2_1) - 1, bounds.y+103, bounds.width, bounds.height - 104), _config->stationname().c_str());

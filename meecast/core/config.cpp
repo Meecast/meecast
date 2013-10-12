@@ -59,6 +59,8 @@ Config::Config()
     _stations = new StationsList;
     _current_station_id = INT_MAX;
     _update_period = INT_MAX;
+    _Xleft_corner_of_lockscreen_widget = 0;
+    _Yleft_corner_of_lockscreen_widget = 0;
     //std::cerr << Core::AbstractConfig::configPath << std::endl;
     std::string path(AbstractConfig::getConfigPath());
     path += "config.xml";
@@ -365,6 +367,8 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _fullscreen = false;
     _lockscreen = false;
     _standbyscreen = false;
+    _Xleft_corner_of_lockscreen_widget = 0;
+    _Yleft_corner_of_lockscreen_widget = 0;
     _gps = false;
     _splash = true;
     _update_period = INT_MAX;
@@ -756,6 +760,24 @@ Config::Splash(const bool uc){
 bool
 Config::Splash(void){
     return _splash;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::Xleft_corner_of_lockscreen_widget(const int x){
+    _Xleft_corner_of_lockscreen_widget = x;
+}
+int
+Config::Xleft_corner_of_lockscreen_widget(void){
+    return _Xleft_corner_of_lockscreen_widget;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::Yleft_corner_of_lockscreen_widget(const int y){
+    _Yleft_corner_of_lockscreen_widget = y;
+}
+int
+Config::Yleft_corner_of_lockscreen_widget(void){
+    return _Yleft_corner_of_lockscreen_widget;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

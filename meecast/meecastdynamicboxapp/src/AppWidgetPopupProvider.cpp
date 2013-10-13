@@ -258,8 +258,8 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
     }
 
     __pAppWidgetPopup->AddControl(__pLabelLastUpdate);
- //   __pLabelTownBG->RequestRedraw();
- //   __pLabelTown->RequestRedraw();
+    __pLabelTownBG->RequestRedraw();
+    __pLabelTown->RequestRedraw();
 
     Core::Data *temp_data = NULL;
     if (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))){

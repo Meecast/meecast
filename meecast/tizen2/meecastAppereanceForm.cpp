@@ -41,10 +41,16 @@ meecastAppereanceForm::meecastAppereanceForm(void)
                             ,__pSliderX(null)
                             ,__pSliderY(null)
 {
+    _config = ConfigTizen::Instance( std::string("config.xml"),
+                                       Core::AbstractConfig::prefix+
+                                       Core::AbstractConfig::schemaPath+
+                                       "config.xsd");
+
 }
 
 meecastAppereanceForm::~meecastAppereanceForm(void)
 {
+    _config->DeleteInstance();
 }
 
 bool
@@ -62,38 +68,23 @@ meecastAppereanceForm::OnInitializing(void)
     SetFormBackEventListener(this);
 	CreateGroupedListView();
 
-    ConfigTizen *config;
-    config = ConfigTizen::Instance( std::string("config.xml"),
-                                       Core::AbstractConfig::prefix+
-                                       Core::AbstractConfig::schemaPath+
-                                       "config.xsd");
-
     __pSliderX = static_cast<Slider*>(GetControl(L"IDC_SLIDERX"));
     __pSliderY = static_cast<Slider*>(GetControl(L"IDC_SLIDERY"));
     __pSliderX->SetTitleText(_("Select the X-position for left corner of widget"));
     __pSliderY->SetTitleText(_("Select the Y-position for left corner of widget"));
-    __pSliderX->SetValue(config->Xleft_corner_of_lockscreen_widget());
-    __pSliderY->SetValue(config->Yleft_corner_of_lockscreen_widget());
+    __pSliderX->SetValue(_config->Xleft_corner_of_lockscreen_widget());
+    __pSliderY->SetValue(_config->Yleft_corner_of_lockscreen_widget());
     __pSliderX->SetRange(40, 130);
-    __pSliderY->SetRange(120, 960);
+    __pSliderY->SetRange(110, 960);
     __pSliderX->AddAdjustmentEventListener(*this);
     __pSliderY->AddAdjustmentEventListener(*this);
 
     Header* pHeader = GetHeader();
     pHeader->SetTitleText(_("Appearance"));
 
-	// Create Custom Element
-//	__pCustomGroupedListElement = new (std::nothrow) CustomGroupedListElement();
-/*
-	__pItemContext = new (std::nothrow) ListContextItem();
-	__pItemContext->Construct();
-	__pItemContext->AddElement(1, L"Button 1");
-	__pItemContext->AddElement(2, L"Button 2");
-*/
     __pList->SetItemChecked(1,1, true);
     __pList->RequestRedraw();
 
-    config->DeleteInstance();
     return r;
 }
 
@@ -137,6 +128,9 @@ meecastAppereanceForm::OnFormBackRequested(Tizen::Ui::Controls::Form& source)
 	SceneManager* pSceneManager = SceneManager::GetInstance();
 	AppAssert(pSceneManager);
 
+    _config->saveConfig();
+    App* pApp = App::GetInstance();
+    pApp->SendUserEvent(SEND_RELOAD_CONFIG, null);
 
 	pSceneManager->GoBackward(BackwardSceneTransition(SCENE_TRANSITION_ANIMATION_TYPE_RIGHT));
 
@@ -166,15 +160,6 @@ ListItemBase*
 meecastAppereanceForm::CreateItem(int groupIndex, int itemIndex, int itemWidth)
 {
 
-    ConfigTizen *config;
-    config = ConfigTizen::Instance( std::string("config.xml"),
-                                       Core::AbstractConfig::prefix+
-                                       Core::AbstractConfig::schemaPath+
-                                       "config.xsd");
- 
-//	ListAnnexStyle style =  LIST_ANNEX_STYLE_RADIO;
-//	CustomItem* pItem = new (std::nothrow) CustomItem();
-//	pItem->Construct(Tizen::Graphics::Dimension(GetClientAreaBounds().width, 90),style);
 
     CustomItem* pItem = new (std::nothrow) CustomItem();
     TryReturn(pItem != null, null, "Out of memory");
@@ -190,7 +175,7 @@ meecastAppereanceForm::CreateItem(int groupIndex, int itemIndex, int itemWidth)
                 pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_DETAILED);
                 pStr = new String (_("Iconset"));
                 pStr->Append(" - ");
-                pStr->Append(config->iconSet().c_str());
+                pStr->Append(_config->iconSet().c_str());
                 pItem->AddElement(Tizen::Graphics::Rectangle(16, 32, 700, 50), 0, *pStr, 36,
                                   Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)),
                                   Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)),
@@ -201,7 +186,7 @@ meecastAppereanceForm::CreateItem(int groupIndex, int itemIndex, int itemWidth)
 
 
                 /* AppLog("Iconset %s", config->iconSet().c_str()); */
-                mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + config->iconSet().c_str() + "/30.png", BITMAP_PIXEL_FORMAT_ARGB8888);
+                mainIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/30.png", BITMAP_PIXEL_FORMAT_ARGB8888);
                 pItem->AddElement(Rectangle(480, 10, 100, 100), 502, *mainIconBitmap, null, null);
                 SAFE_DELETE(image);
                 SAFE_DELETE(mainIconBitmap);
@@ -211,7 +196,7 @@ meecastAppereanceForm::CreateItem(int groupIndex, int itemIndex, int itemWidth)
                 pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_DETAILED);
                 pStr = new String (_("Modification"));
                 pStr->Append(" - ");
-                pStr->Append(config->Mod().c_str());
+                pStr->Append(_config->Mod().c_str());
                 pItem->AddElement(Tizen::Graphics::Rectangle(16, 32, 700, 50), 0, *pStr, 36,
                                   Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)),
                                   Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)),
@@ -234,7 +219,7 @@ meecastAppereanceForm::CreateItem(int groupIndex, int itemIndex, int itemWidth)
                                   Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)),
                                   Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)),
                                   Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)), true);
-                if (config->Lockscreen()){
+                if (_config->Lockscreen()){
                    __pList->SetItemChecked(0, 0, true);
                    __pSliderX->SetShowState(true);
                    __pSliderY->SetShowState(true);
@@ -252,7 +237,6 @@ meecastAppereanceForm::CreateItem(int groupIndex, int itemIndex, int itemWidth)
 
     }
 
-    config->DeleteInstance();
 	return pItem;
 }
 
@@ -325,20 +309,16 @@ meecastAppereanceForm::CreateGroupItem(int groupIndex, int itemWidth)
 void
 meecastAppereanceForm::OnGroupedListViewItemStateChanged(GroupedListView& listView, int groupIndex, int itemIndex, int elementId, ListItemStatus state)
 {
-    ConfigTizen *config;
-    config = ConfigTizen::Instance( std::string("config.xml"),
-                                       Core::AbstractConfig::prefix+
-                                       Core::AbstractConfig::schemaPath+
-                                       "config.xsd");
     if (state == LIST_ITEM_STATUS_CHECKED){
         AppLog(" LIST_ITEM_STATUS_CHECKED");
         switch (groupIndex){
             case 1:
                 switch (itemIndex % 8){
                 case 0:
-                    config->Lockscreen(true);
+                   _config->Lockscreen(true);
                    __pSliderX->SetShowState(true);
                    __pSliderY->SetShowState(true);
+                   _config->saveConfig();
                    break;
 
                 default:
@@ -353,9 +333,10 @@ meecastAppereanceForm::OnGroupedListViewItemStateChanged(GroupedListView& listVi
             case 1:
                 switch (itemIndex % 8){
                 case 0:
-                    config->Lockscreen(false);
+                   _config->Lockscreen(false);
                    __pSliderX->SetShowState(false);
                    __pSliderY->SetShowState(false);
+                   _config->saveConfig();
                    break;
 
                 default:
@@ -385,12 +366,9 @@ meecastAppereanceForm::OnGroupedListViewItemStateChanged(GroupedListView& listVi
                 break;
        }
 	}
-
-    config->saveConfig();
     __pList->UpdateList();
     App* pApp = App::GetInstance();
     pApp->SendUserEvent(SEND_RELOAD_CONFIG, null);
-    config->DeleteInstance();
 }
 
 
@@ -398,16 +376,10 @@ meecastAppereanceForm::OnGroupedListViewItemStateChanged(GroupedListView& listVi
 void
 meecastAppereanceForm::OnAdjustmentValueChanged(const Control& source, int adjustment){
      // ....
-    ConfigTizen *config;
-    config = ConfigTizen::Instance( std::string("config.xml"),
-                                       Core::AbstractConfig::prefix+
-                                       Core::AbstractConfig::schemaPath+
-                                       "config.xsd");
 
-    config->Xleft_corner_of_lockscreen_widget(__pSliderX->GetValue());
-    config->Yleft_corner_of_lockscreen_widget(__pSliderY->GetValue());
-    config->saveConfig();
+    _config->Xleft_corner_of_lockscreen_widget(__pSliderX->GetValue());
+    _config->Yleft_corner_of_lockscreen_widget(__pSliderY->GetValue());
+    _config->saveConfig();
     App* pApp = App::GetInstance();
     pApp->SendUserEvent(SEND_RELOAD_CONFIG, null);
-    config->DeleteInstance();
 }

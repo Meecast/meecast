@@ -79,8 +79,8 @@ Config::Config()
     _stations = new StationsList;
     _current_station_id = INT_MAX;
     _update_period = INT_MAX;
-    _Xleft_corner_of_lockscreen_widget = 0;
-    _Yleft_corner_of_lockscreen_widget = 0;
+    _Xleft_corner_of_lockscreen_widget = 40;
+    _Yleft_corner_of_lockscreen_widget = 120;
     //std::cerr << Core::AbstractConfig::configPath << std::endl;
     std::string path(AbstractConfig::getConfigPath());
     path += "config.xml";
@@ -507,8 +507,8 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _lockscreen = false;
     _standbyscreen = false;
     _gps = true;
-    _Xleft_corner_of_lockscreen_widget = 0;
-    _Yleft_corner_of_lockscreen_widget = 0;
+    _Xleft_corner_of_lockscreen_widget = 40;
+    _Yleft_corner_of_lockscreen_widget = 120;
     _splash = true;
     _update_period = INT_MAX;
     _font_color = new std::string("#00ff00");

@@ -84,13 +84,13 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
         AppId widgetId(repAppId+widgetName);
         Tizen::Shell::AppWidgetProviderManager* pAppWidgetProviderManager = Tizen::Shell::AppWidgetProviderManager::GetInstance();
         result r = E_FAILURE;
-          AppLog("Reload Widget"); 
+        /*  AppLog("Reload Widget"); */
         pAppWidgetProviderManager->RequestUpdate(widgetId, "MeecastDynamicBoxAppProvider", L"");
     }
     /* Last Update */
     if (!__pLabelLastUpdate){
         __pLabelLastUpdate = new Label();
-        __pLabelLastUpdate->Construct(FloatRectangle(width/6, (height - height/3.05), (width - width/6), height/5), L"");
+        __pLabelLastUpdate->Construct(FloatRectangle(width/8, (height - height/3.05), (width - width/6), height/5), L"");
         __pLabelLastUpdate->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
         __pLabelLastUpdate->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
 	    __pLabelLastUpdate->SetTextConfig(28, LABEL_TEXT_STYLE_BOLD);
@@ -98,7 +98,10 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
             __pLabelLastUpdate->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
         }else if (_config->Mod() == "Marina"){
             __pLabelLastUpdate->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
-        }
+        }if (_config->Mod() == "ExtraCoffe"){ 
+            __pLabelLastUpdate->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
+        } 
+
     }
 
     if (!__pLabelLastUpdateBG){
@@ -229,30 +232,34 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
                 __pLabelLastUpdate->SetText(dateString);
 	            __pLabelLastUpdateBG->SetText(dateString);
 	            //__pAppWidgetPopup->AddControl(__pLabelLastUpdateBG);
-	            __pAppWidgetPopup->AddControl(__pLabelLastUpdate);
             }
     }else
         _dp = NULL;
 
-    if (_config->stationname().c_str()){
-       __pLabelTown->SetText(_config->stationname().c_str());
-       __pLabelTownBG->SetText(_config->stationname().c_str());
-       if (__pLabelTown->GetText().GetLength()>15){
-            if (__pLabelTown->GetText().GetLength()>20){
-                __pLabelTown->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
-                __pLabelTownBG->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+    if (_config->stationsList().size() == 0){
+        __pLabelLastUpdate->SetText(_("No locations are set up yet."));
+    }else{
+        if (_config->stationname().c_str()){
+           __pLabelTown->SetText(_config->stationname().c_str());
+           __pLabelTownBG->SetText(_config->stationname().c_str());
+           if (__pLabelTown->GetText().GetLength()>15){
+                if (__pLabelTown->GetText().GetLength()>20){
+                    __pLabelTown->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+                    __pLabelTownBG->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+                }else{
+                    __pLabelTown->SetTextConfig(24, LABEL_TEXT_STYLE_NORMAL);
+                    __pLabelTownBG->SetTextConfig(24, LABEL_TEXT_STYLE_NORMAL);
+                }
             }else{
-                __pLabelTown->SetTextConfig(24, LABEL_TEXT_STYLE_NORMAL);
-                __pLabelTownBG->SetTextConfig(24, LABEL_TEXT_STYLE_NORMAL);
+                __pLabelTown->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
+                __pLabelTownBG->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
             }
-        }else{
-            __pLabelTown->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
-            __pLabelTownBG->SetTextConfig(44, LABEL_TEXT_STYLE_NORMAL);
         }
     }
 
-    __pLabelTownBG->RequestRedraw();
-    __pLabelTown->RequestRedraw();
+    __pAppWidgetPopup->AddControl(__pLabelLastUpdate);
+ //   __pLabelTownBG->RequestRedraw();
+ //   __pLabelTown->RequestRedraw();
 
     Core::Data *temp_data = NULL;
     if (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))){
@@ -640,6 +647,10 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
             _dayCount ++;
         }
         i = i + 3600*24;
+    }
+    /* Check nil weather data */
+    if (_config->stationsList().size()!=0 && _dayCount == 1){
+        __pLabelLastUpdate->SetText(_("Looks like there's no info for this location."));
     }
     /* Launcher Button */
     Button* __pLauncherButton = new Button();

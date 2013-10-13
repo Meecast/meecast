@@ -301,6 +301,8 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
     }else{
         __pLabelMainTemperature->SetText("MeeCast");
         __pLabelMainTemperatureBackground->SetText("MeeCast");
+        __pLabelMainTemperature->SetTextConfig(30, LABEL_TEXT_STYLE_BOLD);
+        __pLabelMainTemperatureBackground->SetTextConfig(30, LABEL_TEXT_STYLE_BOLD);
 
         Tizen::Base::Integer icon_int = 49;
         if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png")){
@@ -500,6 +502,8 @@ MeecastDynamicBoxAppFrame::OnAppWidgetUpdate(void)
         _dp->DeleteInstance();
     _dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
 
+    __pLabelMainWindIcon->SetShowState(false);
+    __pLabelMainWindSpeed->SetShowState(false);
     Core::Data *temp_data = NULL;
     if (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))){ 
         temp_data->temperature_low().units(_config->TemperatureUnit());
@@ -652,11 +656,12 @@ MeecastDynamicBoxAppFrame::OnAppWidgetUpdate(void)
     }else{
         __pLabelMainTemperature->SetText("MeeCast");
         __pLabelMainTemperatureBackground->SetText("MeeCast");
+        __pLabelMainTemperature->SetTextConfig(30, LABEL_TEXT_STYLE_BOLD);
+        __pLabelMainTemperatureBackground->SetTextConfig(30, LABEL_TEXT_STYLE_BOLD);
 
         Tizen::Base::Integer icon_int = 49;
         if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png")){
             /* Main Icon */ 
-
             Tizen::Media::Image *image = null;
             Tizen::Graphics::Bitmap* mainIconBitmap = null;
 

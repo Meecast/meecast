@@ -57,7 +57,7 @@ private:
 	Tizen::Ui::Controls::GroupedListView* __pList;
     Tizen::Ui::Controls::Slider* __pSliderX;
     Tizen::Ui::Controls::Slider* __pSliderY;
-	//Tizen::Ui::Controls::ListContextItem* __pItemContext;
+    ConfigTizen *_config;
 };
 
 #endif	//_MEECAST_APPEREANCE_FORM_H_

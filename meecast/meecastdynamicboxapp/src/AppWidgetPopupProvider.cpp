@@ -654,8 +654,8 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
     }
     /* Launcher Button */
     Button* __pLauncherButton = new Button();
-    __pLauncherButton->Construct(Tizen::Graphics::Rectangle((width/1.12), (height/1.4), 45, 45), ""); 
-    __pLauncherButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mainmenu.png"));
+    __pLauncherButton->Construct(Tizen::Graphics::Rectangle((width/1.15), (height/1.45), 70, 70), ""); 
+    __pLauncherButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mainmenu_small.png"));
     __pLauncherButton->SetPressedBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mainmenu.png"));
 
     __pLauncherButton->SetActionId(ID_BUTTON_LAUNCHER);

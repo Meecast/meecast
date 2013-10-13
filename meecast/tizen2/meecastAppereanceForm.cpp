@@ -67,24 +67,21 @@ meecastAppereanceForm::OnInitializing(void)
                                        Core::AbstractConfig::prefix+
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");
- 
 
-    AppLog("ssssssssss");
     __pSliderX = static_cast<Slider*>(GetControl(L"IDC_SLIDERX"));
     __pSliderY = static_cast<Slider*>(GetControl(L"IDC_SLIDERY"));
     __pSliderX->SetTitleText(_("Select the X-position for left corner of widget"));
     __pSliderY->SetTitleText(_("Select the Y-position for left corner of widget"));
     __pSliderX->SetValue(config->Xleft_corner_of_lockscreen_widget());
     __pSliderY->SetValue(config->Yleft_corner_of_lockscreen_widget());
-    __pSliderX->SetRange(40, 150);
-    __pSliderY->SetRange(120, 999);
+    __pSliderX->SetRange(40, 130);
+    __pSliderY->SetRange(120, 960);
     __pSliderX->AddAdjustmentEventListener(*this);
     __pSliderY->AddAdjustmentEventListener(*this);
 
     Header* pHeader = GetHeader();
     pHeader->SetTitleText(_("Appearance"));
 
-    AppLog("1111ssssssssss");
 	// Create Custom Element
 //	__pCustomGroupedListElement = new (std::nothrow) CustomGroupedListElement();
 /*

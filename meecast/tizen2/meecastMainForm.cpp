@@ -138,7 +138,7 @@ meecastMainForm::OnInitializing(void)
     CreateContextMenuList(position);
 
 /* Menu button */
-//#if 0
+#if 0
     __menuButton = new Button();
     __menuButton->Construct(Rectangle(0, 0, 100, 100), ""); 
     __menuButton->SetActionId(ID_BUTTON_MENU);
@@ -149,7 +149,7 @@ meecastMainForm::OnInitializing(void)
     __menuButton->AddActionEventListener(*this);
     position = source_icon_label->GetPosition();
     __menuButton->SetPosition(source_icon_label->GetWidth() - 100 - 25, position.y - 0);
-//#endif
+#endif
 /* end menu button */
 
 	AppResource *pAppResource = Application::GetInstance()->GetAppResource();

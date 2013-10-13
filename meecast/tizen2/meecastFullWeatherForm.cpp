@@ -660,7 +660,7 @@ meecastFullWeatherForm::ReInitElements(void){
                 _pKeyList->Add(new String(_("UV index:")));
             }
             /* Visible */
-            if (temp_data->ViSible().value() != INT_MAX){
+            if (temp_data->ViSible().value(true) != INT_MAX){
                 snprintf (buffer, sizeof(buffer) -1, "%0.f %s", temp_data->ViSible().value(), _(_config->VisibleUnit().c_str()));
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));

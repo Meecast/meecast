@@ -822,7 +822,7 @@ meecastMainForm::ReInitElements(void){
             }
         }
         /* Main wind speed */
-        if (temp_data->WindSpeed().value() != INT_MAX){
+        if (temp_data->WindSpeed().value(true) != INT_MAX){
             main_wind_speed_text->SetShowState(true);
             main_wind_speed_icon->SetShowState(true);
             snprintf (buffer, sizeof(buffer) -1, "%0.f %s", 

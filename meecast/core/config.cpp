@@ -358,6 +358,8 @@ Config::saveConfig()
     file_out<<" <update_period>"<< _update_period<<"</update_period>"<<endl;
     file_out<<" <language>"<< *_language<<"</language>"<<endl;
     file_out<<" <mod>"<< *_mod<<"</mod>"<<endl;
+    file_out<<" <xlockposition>"<< _Xleft_corner_of_lockscreen_widget <<"</xlockposition>"<<endl;
+    file_out<<" <ylockposition>"<< _Yleft_corner_of_lockscreen_widget <<"</ylockposition>"<<endl;
     if (Gps() == false)
         file_out<<" <gps>false</gps>"<<endl;
     else
@@ -758,6 +760,16 @@ Config::LoadConfig(){
                     Lockscreen(true);
                 else
                     Lockscreen(false);
+                xmlFree(temp_xml_string);
+            }
+            if (!xmlStrcmp(p->name, (const xmlChar*)"xlockposition")){
+                temp_xml_string = xmlNodeGetContent(p);
+                Xleft_corner_of_lockscreen_widget(atoi((char *)temp_xml_string)); 
+                xmlFree(temp_xml_string);
+            }
+            if (!xmlStrcmp(p->name, (const xmlChar*)"ylockposition")){
+                temp_xml_string = xmlNodeGetContent(p);
+                Yleft_corner_of_lockscreen_widget(atoi((char *)temp_xml_string)); 
                 xmlFree(temp_xml_string);
             }
 

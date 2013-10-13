@@ -60,8 +60,8 @@ MeecastServiceApp::GetTemperatureColor(int t){
 }
 
 MeecastServiceApp::MeecastServiceApp(void):
-                 __pBitmapOriginal(null),
                  __updateTimer(null),
+                 __pBitmapOriginal(null),
                  __checkupdatingTimer(null){
 
     result r = E_SUCCESS;
@@ -129,7 +129,6 @@ MeecastServiceApp::OnAppInitializing(AppRegistry& appRegistry){
 	TryReturn(IsFailed(r) != true, r, "MeeCastService : [%s] Failed to construct __pMessagePort", GetErrorMessage(r));
 	AppLog("MeeCastService : __pMessagePort is constructed.");
 
-    char  buffer[4096]; 
     String str;
     try{
         _config = Config::Instance( std::string("config.xml"),
@@ -265,12 +264,12 @@ MeecastServiceApp::OnTimerExpired(Tizen::Base::Runtime::Timer& timer){
         __checkupdatingTimer->StartAsRepeatable(10*1000);
     }
     if (&timer == __checkupdatingTimer){
-        AppLog("In __checkupdatingTimer");
+        /* AppLog("In __checkupdatingTimer"); */
         for (short i=0; i < _config->stationsList().size();i++){
             if (_config->stationsList().at(i)->isupdating())
                 return;
         }
-        AppLog("Out __checkupdatingTimer");
+        /* AppLog("Out __checkupdatingTimer"); */
         __checkupdatingTimer->Cancel();
         for (short i=0; i < _config->stationsList().size();i++){
             _config->stationsList().at(i)->run_converter();
@@ -280,7 +279,6 @@ MeecastServiceApp::OnTimerExpired(Tizen::Base::Runtime::Timer& timer){
         repAppId = L"ctLjIIgCCj";
         AppId widgetId(repAppId+widgetName);
         Tizen::Shell::AppWidgetProviderManager* pAppWidgetProviderManager = Tizen::Shell::AppWidgetProviderManager::GetInstance();
-        result r = E_FAILURE;
         /*  AppLog("Reload Widget"); */
         pAppWidgetProviderManager->RequestUpdate(widgetId, "MeecastDynamicBoxAppProvider", L"");
 
@@ -294,7 +292,7 @@ MeecastServiceApp::OnTimerExpired(Tizen::Base::Runtime::Timer& timer){
 
 void
 MeecastServiceApp::UpdateLockScreen(){
-    AppLog("Update LockScreen");
+    /* AppLog("Update LockScreen"); */
 
     int  Width = 720;
     int  Height = 1280;
@@ -347,6 +345,8 @@ MeecastServiceApp::UpdateLockScreen(){
     Dimension round;
     int PositionX = 60;
     int PositionY = 400;
+    PositionX = _config->Xleft_corner_of_lockscreen_widget();
+    PositionY = _config->Yleft_corner_of_lockscreen_widget();
     rect.x = PositionX;
     rect.y = PositionY;
     rect.width = 600;

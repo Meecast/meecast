@@ -38,6 +38,8 @@ static const RequestId SEND_RELOAD_CONFIG = 200;
 
 meecastAppereanceForm::meecastAppereanceForm(void)
                             : __pList(null)
+                            ,__pSliderX(null)
+                            ,__pSliderY(null)
 {
 }
 
@@ -60,9 +62,29 @@ meecastAppereanceForm::OnInitializing(void)
     SetFormBackEventListener(this);
 	CreateGroupedListView();
 
+    ConfigTizen *config;
+    config = ConfigTizen::Instance( std::string("config.xml"),
+                                       Core::AbstractConfig::prefix+
+                                       Core::AbstractConfig::schemaPath+
+                                       "config.xsd");
+ 
+
+    AppLog("ssssssssss");
+    __pSliderX = static_cast<Slider*>(GetControl(L"IDC_SLIDERX"));
+    __pSliderY = static_cast<Slider*>(GetControl(L"IDC_SLIDERY"));
+    __pSliderX->SetTitleText(_("Select the X-position for left corner of widget"));
+    __pSliderY->SetTitleText(_("Select the Y-position for left corner of widget"));
+    __pSliderX->SetValue(config->Xleft_corner_of_lockscreen_widget());
+    __pSliderY->SetValue(config->Yleft_corner_of_lockscreen_widget());
+    __pSliderX->SetRange(40, 150);
+    __pSliderY->SetRange(120, 999);
+    __pSliderX->AddAdjustmentEventListener(*this);
+    __pSliderY->AddAdjustmentEventListener(*this);
+
     Header* pHeader = GetHeader();
     pHeader->SetTitleText(_("Appearance"));
 
+    AppLog("1111ssssssssss");
 	// Create Custom Element
 //	__pCustomGroupedListElement = new (std::nothrow) CustomGroupedListElement();
 /*
@@ -74,6 +96,7 @@ meecastAppereanceForm::OnInitializing(void)
     __pList->SetItemChecked(1,1, true);
     __pList->RequestRedraw();
 
+    config->DeleteInstance();
     return r;
 }
 
@@ -116,6 +139,7 @@ meecastAppereanceForm::OnFormBackRequested(Tizen::Ui::Controls::Form& source)
 {
 	SceneManager* pSceneManager = SceneManager::GetInstance();
 	AppAssert(pSceneManager);
+
 
 	pSceneManager->GoBackward(BackwardSceneTransition(SCENE_TRANSITION_ANIMATION_TYPE_RIGHT));
 
@@ -163,27 +187,7 @@ meecastAppereanceForm::CreateItem(int groupIndex, int itemIndex, int itemWidth)
     Tizen::Media::Image *image = null;
     Tizen::Graphics::Bitmap* mainIconBitmap = null;
     switch (groupIndex){
-        case 0:
-            switch (itemIndex % 8){
-            case 0:
-              pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_ONOFF_SLIDING);
-                pStr = new String (_("Widget in LockScreen"));
-                pItem->AddElement(Tizen::Graphics::Rectangle(16, 32, 700, 50), 0, *pStr, 36,
-                                  Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)),
-                                  Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)),
-                                  Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)), true);
-                if (config->Lockscreen())
-                   __pList->SetItemChecked(0, 0, true);
-                else
-                   __pList->SetItemChecked(0, 0, false);
-                break;
-
-
-            default:
-                break;
-            }
-            break;
-         case 1: 
+         case 0: 
             switch (itemIndex % 8){
             case 0:
                 pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_DETAILED);
@@ -223,6 +227,31 @@ meecastAppereanceForm::CreateItem(int groupIndex, int itemIndex, int itemWidth)
                 break;
             }
             break;
+            case 1:
+            switch (itemIndex % 8){
+
+            case 0:
+              pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_ONOFF_SLIDING);
+                pStr = new String (_("Widget in LockScreen"));
+                pItem->AddElement(Tizen::Graphics::Rectangle(16, 32, 700, 50), 0, *pStr, 36,
+                                  Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)),
+                                  Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)),
+                                  Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)), true);
+                if (config->Lockscreen()){
+                   __pList->SetItemChecked(0, 0, true);
+                   __pSliderX->SetShowState(true);
+                   __pSliderY->SetShowState(true);
+                }else{
+                   __pList->SetItemChecked(0, 0, false);
+                   __pSliderX->SetShowState(false);
+                   __pSliderY->SetShowState(false);
+                }
+                break;
+
+            default:
+                break;
+            }
+            break;
 
     }
 
@@ -243,10 +272,10 @@ meecastAppereanceForm::GetItemCount(int groupIndex)
 	switch(groupIndex)
 	{
 	case 0:
-		itemCount = 1;
+		itemCount = 2;
 		break;
 	case 1:
-		itemCount = 2;
+		itemCount = 1;
 		break;
 
 	default:
@@ -282,11 +311,13 @@ meecastAppereanceForm::CreateGroupItem(int groupIndex, int itemWidth)
 	switch (groupIndex)
 	{
         case 0:
-            text = _("Settings for Lockscreen widget");
-            break;
-        case 1:
             text = _("Widget style and Iconset");
+            text.Append(" ");
             text.Append(_("(Home screen)"));
+            break;
+
+        case 1:
+            text = _("Settings for Lockscreen widget");
             break;
 	}
 	pItem->SetElement(text, null);
@@ -305,10 +336,12 @@ meecastAppereanceForm::OnGroupedListViewItemStateChanged(GroupedListView& listVi
     if (state == LIST_ITEM_STATUS_CHECKED){
         AppLog(" LIST_ITEM_STATUS_CHECKED");
         switch (groupIndex){
-            case 0:
+            case 1:
                 switch (itemIndex % 8){
                 case 0:
                     config->Lockscreen(true);
+                   __pSliderX->SetShowState(true);
+                   __pSliderY->SetShowState(true);
                    break;
 
                 default:
@@ -320,10 +353,12 @@ meecastAppereanceForm::OnGroupedListViewItemStateChanged(GroupedListView& listVi
     if (state == LIST_ITEM_STATUS_UNCHECKED){
         AppLog(" LIST_ITEM_STATUS_UNCHECKED");
         switch (groupIndex){
-            case 0:
+            case 1:
                 switch (itemIndex % 8){
                 case 0:
                     config->Lockscreen(false);
+                   __pSliderX->SetShowState(false);
+                   __pSliderY->SetShowState(false);
                    break;
 
                 default:
@@ -338,7 +373,7 @@ meecastAppereanceForm::OnGroupedListViewItemStateChanged(GroupedListView& listVi
         AppAssert(pSceneManager);
 	    AppLog("LIST_ITEM_STATUS_SELECTED ");
         switch (groupIndex){
-            case 1:
+            case 0:
                 switch (itemIndex % 8){
                 case 0:
                    pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_ICONSETSSCENE"), null);
@@ -352,9 +387,7 @@ meecastAppereanceForm::OnGroupedListViewItemStateChanged(GroupedListView& listVi
                 }
                 break;
        }
-
 	}
-
 
     config->saveConfig();
     __pList->UpdateList();
@@ -364,3 +397,20 @@ meecastAppereanceForm::OnGroupedListViewItemStateChanged(GroupedListView& listVi
 }
 
 
+// IAdjustmentEventListener implementation
+void
+meecastAppereanceForm::OnAdjustmentValueChanged(const Control& source, int adjustment){
+     // ....
+    ConfigTizen *config;
+    config = ConfigTizen::Instance( std::string("config.xml"),
+                                       Core::AbstractConfig::prefix+
+                                       Core::AbstractConfig::schemaPath+
+                                       "config.xsd");
+
+    config->Xleft_corner_of_lockscreen_widget(__pSliderX->GetValue());
+    config->Yleft_corner_of_lockscreen_widget(__pSliderY->GetValue());
+    config->saveConfig();
+    App* pApp = App::GetInstance();
+    pApp->SendUserEvent(SEND_RELOAD_CONFIG, null);
+    config->DeleteInstance();
+}

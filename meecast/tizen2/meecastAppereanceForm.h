@@ -21,6 +21,7 @@ class meecastAppereanceForm
     , public Tizen::Ui::Controls::IGroupedListViewItemEventListener
     , public Tizen::Ui::Controls::IGroupedListViewItemProvider
  	, public Tizen::Ui::Scenes::ISceneEventListener
+    , public Tizen::Ui::IAdjustmentEventListener
 {
 public:
 	meecastAppereanceForm(void);
@@ -49,9 +50,13 @@ public:
 	virtual bool DeleteItem(int groupIndex, int itemIndex, Tizen::Ui::Controls::ListItemBase* pItem, int itemWidth);
 
     void CreateGroupedListView(void);
+    virtual void OnAdjustmentValueChanged(const Tizen::Ui::Control& source, int adjustment);
+
 protected:
 private:
 	Tizen::Ui::Controls::GroupedListView* __pList;
+    Tizen::Ui::Controls::Slider* __pSliderX;
+    Tizen::Ui::Controls::Slider* __pSliderY;
 	//Tizen::Ui::Controls::ListContextItem* __pItemContext;
 };
 

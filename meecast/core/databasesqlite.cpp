@@ -537,8 +537,6 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
 {
     int rc;
     char *errMsg = NULL;
-    char **result;
-    int nrow, ncol;
     double  distance,
             min_distance = 40000.0;
 
@@ -605,6 +603,8 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
      if (pEnum != null)
         delete pEnum;
 /*
+    int nrow, ncol;
+    char **result;
     rc = sqlite3_get_table(db,
                            sql,
                            &result,
@@ -643,7 +643,6 @@ void DatabaseSqlite::get_station_coordinate(Tizen::Base::String& code, double &l
 {
     String sql;
     DbEnumerator* pEnum;
-    result r = E_SUCCESS;
 
     sql.Append(L"select latitude, longititude from nstations where code='");
     sql.Append(code);

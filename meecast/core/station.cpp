@@ -482,9 +482,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         std::string command;
 
         char buffer_file[2048];
-        RequestId reqId = 0;
         force = false;
-        result res = E_SUCCESS;
 	    result r = E_SUCCESS;
         /* AppLog ("_downloading  %i", _downloading); */
 

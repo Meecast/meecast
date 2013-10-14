@@ -92,7 +92,7 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
         __pLabelLastUpdate = new Label();
         __pLabelLastUpdate->Construct(FloatRectangle(width/8, (height - height/3.05), (width - width/6), height/5), L"");
         __pLabelLastUpdate->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
-        __pLabelLastUpdate->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+        __pLabelLastUpdate->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
 	    __pLabelLastUpdate->SetTextConfig(28, LABEL_TEXT_STYLE_BOLD);
         if (_config->Mod() == "Digia"){
             __pLabelLastUpdate->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
@@ -654,7 +654,7 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
     }
     /* Launcher Button */
     Button* __pLauncherButton = new Button();
-    __pLauncherButton->Construct(Tizen::Graphics::Rectangle((width/1.15), (height/1.45), 70, 70), ""); 
+    __pLauncherButton->Construct(Tizen::Graphics::Rectangle((width/1.15), (height/1.46), 70, 70), ""); 
     __pLauncherButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mainmenu_small.png"));
     __pLauncherButton->SetPressedBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mainmenu.png"));
 

@@ -133,6 +133,7 @@ TRANSLIST = ar_AR \
             sk_SK \
             sq_SQ \
             tr_TR \
+            uk_UA \
             vi_VI \
             zh_TW \
             zh_HK \
@@ -294,4 +295,10 @@ transinstallzhhk.extra = cp po/locale/zh_HK/omweather.mo $(INSTALL_ROOT)$$DATADI
 transinstallzhhk.path = /opt/com.meecast.omweather/share/locale/zh_HK/LC_MESSAGES
 transinstallzhhk.files = po/locale/zh_HK/omweather.mo
 INSTALLS += transinstallzhhk
+
+transinstallukua.extra = cp po/locale/uk_UA/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/uk_UA/LC_MESSAGES
+transinstallukua.path = /opt/com.meecast.omweather/share/locale/uk_UA/LC_MESSAGES
+transinstallukua.files = po/locale/uk_UA/omweather.mo
+INSTALLS += transinstallukua
+
 

@@ -2,7 +2,8 @@ meecast (0.7.7) unstable; urgency=low
 
   * Added icon for openweathermap.com 
   * Fixed problem with foreca.com
-  * Updated Russian translation
+  * Updated Russian, Dutch translations
+  * Added Ukrain translation
   * Tizen2 Fixed problem with temperature view
   * Tizen2 Add LockScreen Widget
   * Tizen Add Home Icon

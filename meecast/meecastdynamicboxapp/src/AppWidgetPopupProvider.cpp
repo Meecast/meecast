@@ -90,7 +90,7 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
     /* Last Update */
     if (!__pLabelLastUpdate){
         __pLabelLastUpdate = new Label();
-        __pLabelLastUpdate->Construct(FloatRectangle(width/8, (height - height/3.05), (width - width/6), height/5), L"");
+        __pLabelLastUpdate->Construct(FloatRectangle(width/8, (height - height/3.15), (width - width/6), height/5), L"");
         __pLabelLastUpdate->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
         __pLabelLastUpdate->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
 	    __pLabelLastUpdate->SetTextConfig(28, LABEL_TEXT_STYLE_BOLD);
@@ -356,7 +356,6 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
             }
         }
 
-
 #if 0        
         /* Current or not current period */
         if (temp_data->Current())
@@ -528,9 +527,10 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
             }else{
                 windspeed->SetShowState(false);
             }
+
             /* Day name */
             Label* day_name = new Label();
-            day_name->Construct(FloatRectangle(245 + (_dayCount -1)*110, 115, 110, 70), L"");
+            day_name->Construct(FloatRectangle(245 + (_dayCount -1)*110, 118, 110, 70), L"");
             day_name->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
             if (_config->Mod() == "Digia"){
                 day_name->SetTextColor(Color::GetColor(COLOR_ID_BLACK));

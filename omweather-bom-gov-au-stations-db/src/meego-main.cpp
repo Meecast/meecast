@@ -75,13 +75,7 @@ choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
 /*******************************************************************************/
 int
 parse_and_write_bom_gov_au_detail_data(const char *station_name, htmlDocPtr doc, const char *result_file){
-    char       buff[256],
-               buffer[buff_size],
-               current_temperature[20],
-               current_pressure[15],
-               current_humidity[15],
-               current_wind_direction[15],
-               current_wind_speed[15];
+    char       buffer[buff_size];
     char       temp_buffer[buff_size];
 #ifdef GLIB
     GSList      *forecast = NULL;
@@ -107,7 +101,6 @@ parse_and_write_bom_gov_au_detail_data(const char *station_name, htmlDocPtr doc,
     time_t      utc_time;
     int        location_timezone = 0;
     int timezone_flag = false;
-    int sunrise_flag = false;
     struct tm   tmp_tm_loc = {0};
     struct tm   tmp_tm = {0};
     struct tm   current_tm = {0};
@@ -211,18 +204,13 @@ parse_and_write_xml_data(const char *station_id, const char *station_name, htmlD
     xmlNode     *cur_node = NULL,
                 *cur_node0 = NULL,
                 *child_node = NULL,
-                *child_node2 = NULL,
-                *child_node3 = NULL,
-                *child_node4 = NULL;
+                *child_node2 = NULL;
     xmlChar     *temp_xml_string = NULL;
-    xmlChar     *part_of_day = NULL;
-    int         store2day = 0,
-                count_day = 0;
+    int         count_day = 0;
     char        id_station[1024],
                 short_text[1024],
                 ppcp[128],
-                buffer[1024],
-                buff[256];
+                buffer[1024];
     int         i;
     int         temp_hi, temp_low;
     char        icon[256];

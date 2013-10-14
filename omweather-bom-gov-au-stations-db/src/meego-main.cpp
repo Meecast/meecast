@@ -75,7 +75,6 @@ choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
 /*******************************************************************************/
 int
 parse_and_write_detail_data(const char *station_name, htmlDocPtr doc, const char *result_file){
-    char       buffer[buff_size];
 #ifdef GLIB
     GSList      *forecast = NULL;
     GSList      *tmp = NULL;
@@ -83,23 +82,17 @@ parse_and_write_detail_data(const char *station_name, htmlDocPtr doc, const char
     GHashTable *hash_for_stations;
     GHashTable *hash_for_icons;
 #endif
-    int        flag;
     int        size;
     int        i;
     xmlXPathContextPtr xpathCtx; 
     xmlXPathObjectPtr xpathObj = NULL; 
     xmlXPathObjectPtr xpathObj2 = NULL; 
     xmlNodeSetPtr nodes;
-    char       *temp_char;
-    char       *image = NULL;
-    time_t      utc_time;
-    int        location_timezone = 0;
     struct tm   tmp_tm = {0};
     struct tm   *tm;
     time_t      t_start = 0, t_end = 0,
                 current_time = 0;
     FILE        *file_out;
-    int index = 1;
 
     file_out = fopen(result_file, "a");
     if (!file_out)

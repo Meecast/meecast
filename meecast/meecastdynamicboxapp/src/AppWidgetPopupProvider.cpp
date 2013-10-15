@@ -389,7 +389,7 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
                     windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/" + temp_str + "/wind_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
                     /* AppLog("Wind %S", str.GetPointer()); */
                     __pLabelMainWindIcon->SetBackgroundBitmap(*windIconBitmap);
-                    __pLabelMainWindIcon->SetSize(windIconBitmap->GetWidth(), windIconBitmap->GetHeight());
+                    __pLabelMainWindIcon->SetSize(windIconBitmap->GetWidth()/2, windIconBitmap->GetHeight()/2);
                     __pLabelMainWindIcon->RequestRedraw();
                     SAFE_DELETE(image);
                     SAFE_DELETE(windIconBitmap);
@@ -501,7 +501,7 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
                     if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/" + temp_str + "/wind_" + str + ".png")){
                         windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"720x1280/" + temp_str + "/wind_" + str + ".png", BITMAP_PIXEL_FORMAT_ARGB8888);
                         windicon->SetBackgroundBitmap(*windIconBitmap);
-                        windicon->SetSize(windIconBitmap->GetWidth(), windIconBitmap->GetHeight());
+                        windicon->SetSize(windIconBitmap->GetWidth()/2, windIconBitmap->GetHeight()/2);
                         SAFE_DELETE(image);
                         SAFE_DELETE(windIconBitmap);
                     }

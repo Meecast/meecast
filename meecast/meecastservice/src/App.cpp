@@ -292,7 +292,7 @@ MeecastServiceApp::OnTimerExpired(Tizen::Base::Runtime::Timer& timer){
 
 void
 MeecastServiceApp::UpdateLockScreen(){
-    /* AppLog("Update LockScreen"); */
+     AppLog("Update LockScreen"); 
 
     int  Width = 720;
     int  Height = 1280;
@@ -307,7 +307,6 @@ MeecastServiceApp::UpdateLockScreen(){
     img.Construct();
 
 
-    AppLog("11111111");
     String originalWallpaperFilePath(App::GetInstance()->GetAppDataPath() + "wallpaper.original.jpg");
     String meecastWallpaperFilePath(App::GetInstance()->GetAppSharedPath() + "data/" +  "wallpaper.meecast.png");
     if (__pBitmapOriginal){
@@ -318,7 +317,6 @@ MeecastServiceApp::UpdateLockScreen(){
     if (__pBitmapOriginal)
         __pBitmapOriginal->Scale(Dimension(Width, Height));
 
-    AppLog("111111111222");
 	Canvas *pCanvas = new Canvas();
     /*
     if (__pBitmapOriginal){
@@ -339,7 +337,6 @@ MeecastServiceApp::UpdateLockScreen(){
         pCanvas->FillRectangle(Color::GetColor(COLOR_ID_BLACK), Rectangle(0, 0, Width, Height));
     }
 
-    AppLog("222222");
     /* Create background rectangle */
     Rectangle rect;
     Dimension round;
@@ -379,8 +376,6 @@ MeecastServiceApp::UpdateLockScreen(){
 
     pCanvas->FillRoundRectangle(color, rect, round);
 
-
-    AppLog("333333");
     if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0){
         _dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
     }else
@@ -503,7 +498,7 @@ MeecastServiceApp::UpdateLockScreen(){
 
         /* Description */
         pEnrichedText = new EnrichedText();
-        r = pEnrichedText->Construct(Dimension(550, 110));
+        r = pEnrichedText->Construct(Dimension(550, 92));
         pEnrichedText->SetHorizontalAlignment(TEXT_ALIGNMENT_CENTER);
         pEnrichedText->SetVerticalAlignment(TEXT_ALIGNMENT_MIDDLE);
         //pEnrichedText->SetTextWrapStyle(TEXT_WRAP_CHARACTER_WRAP);
@@ -525,7 +520,7 @@ MeecastServiceApp::UpdateLockScreen(){
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 5 + 2 , PositionY + 175 + 2), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 5 + 2 , PositionY + 185 + 2), *pEnrichedText);
 
         pTextElement->SetTextColor(Color::GetColor(COLOR_ID_WHITE));{
             Font font;
@@ -533,7 +528,7 @@ MeecastServiceApp::UpdateLockScreen(){
             pTextElement->SetFont(font);
         }
         pEnrichedText->Add(*pTextElement);
-        pCanvas->DrawText(Point(PositionX + 5, PositionY + 175), *pEnrichedText);
+        pCanvas->DrawText(Point(PositionX + 5, PositionY + 185), *pEnrichedText);
 
         delete pTextElement;
         delete pEnrichedText;
@@ -623,33 +618,35 @@ MeecastServiceApp::OnSettingChanged(Tizen::Base::String& key){
         if ( __updateTimer == NULL)
             return;
         result r = E_SUCCESS;
-        AppLog("Changed %S", key.GetPointer());
+        /* AppLog("Changed %S", key.GetPointer()); */
         String orig_filename;
         r = SettingInfo::GetValue(L"http://tizen.org/setting/screen.wallpaper.lock", orig_filename);
-        AppLog (" Result of wallpaper %S", orig_filename.GetPointer());
+        /*  AppLog (" Result of wallpaper %S", orig_filename.GetPointer()); */
         
         String meecastWallpaperFilePath(App::GetInstance()->GetAppSharedPath() + "data/" +  "wallpaper.meecast.png");
         String originalWallpaperFilePath(App::GetInstance()->GetAppDataPath() + "wallpaper.original.jpg");
         if (orig_filename != meecastWallpaperFilePath){
             AppRegistry* appRegistry = Application::GetInstance()->GetAppRegistry();
-            AppLog (" Set wallpaper %S", orig_filename.GetPointer());
+            /* AppLog (" Set wallpaper %S", orig_filename.GetPointer()); */
             String temp_name;
-            r = appRegistry->Get(L"OriginalWallpaperPath", temp_name);
-            if (r == E_KEY_NOT_FOUND){
-                r = appRegistry->Add(L"OriginalWallpaperPath", orig_filename);
-                if (IsFailed(r)){
-                    AppLog("Error in Registry Add");
+            if (appRegistry){
+                r = appRegistry->Get(L"OriginalWallpaperPath", temp_name);
+                if (r == E_KEY_NOT_FOUND){
+                    r = appRegistry->Add(L"OriginalWallpaperPath", orig_filename);
+                    if (IsFailed(r)){
+                        AppLog("Error in Registry Add");
+                    }
+                }else{
+                    r = appRegistry->Set(L"OriginalWallpaperPath", orig_filename);
                 }
-            }else
-                r = appRegistry->Set(L"OriginalWallpaperPath", orig_filename);
-            if (IsFailed(r)){
-                AppLog("Error in Registry Set");
+                if (IsFailed(r)){
+                    AppLog("Error in Registry Set");
+                }
+                r = appRegistry->Save();
+                if (IsFailed(r)){
+                    AppLog("Error in Registry Save");
+                }
             }
-            r = appRegistry->Save();
-            if (IsFailed(r)){
-                AppLog("Error in Registry Save");
-            }
-            AppLog("test111111");
             /* Save original wallpaper */
             Tizen::Io::File::Copy(orig_filename, originalWallpaperFilePath, false);
         }else

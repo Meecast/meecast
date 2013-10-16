@@ -83,14 +83,13 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
         repAppId = L"ctLjIIgCCj";
         AppId widgetId(repAppId+widgetName);
         Tizen::Shell::AppWidgetProviderManager* pAppWidgetProviderManager = Tizen::Shell::AppWidgetProviderManager::GetInstance();
-        result r = E_FAILURE;
         /*  AppLog("Reload Widget"); */
         pAppWidgetProviderManager->RequestUpdate(widgetId, "MeecastDynamicBoxAppProvider", L"");
     }
     /* Last Update */
     if (!__pLabelLastUpdate){
         __pLabelLastUpdate = new Label();
-        __pLabelLastUpdate->Construct(FloatRectangle(width/8, (height - height/3.15), (width - width/6), height/5), L"");
+        __pLabelLastUpdate->Construct(FloatRectangle(width/10, (height - height/3.15), (width - width/6), height/5), L"");
         __pLabelLastUpdate->SetTextVerticalAlignment(ALIGNMENT_MIDDLE);
         __pLabelLastUpdate->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
 	    __pLabelLastUpdate->SetTextConfig(28, LABEL_TEXT_STYLE_BOLD);
@@ -101,7 +100,6 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
         }if (_config->Mod() == "ExtraCoffe"){ 
             __pLabelLastUpdate->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
         } 
-
     }
 
     if (!__pLabelLastUpdateBG){
@@ -167,7 +165,6 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
         }else if (_config->Mod() == "Marina"){
             __pLabelMainWindSpeed->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
         }
-
     }
 
     /* Wind icon */
@@ -206,38 +203,57 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
     if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0){
         _dp = Core::DataParser::Instance(_config->stationsList().at(_config->current_station_id())->fileName().c_str(), "");
 
-            if (_dp->LastUpdate()>0){
-                time_t last_update = _dp->LastUpdate();
-                struct tm   tm1;
-                localtime_r(&last_update, &tm1);
+        if (_dp->LastUpdate()>0){
+            time_t last_update = _dp->LastUpdate();
+            struct tm   tm1;
+            localtime_r(&last_update, &tm1);
 
-                /* Convert date and time */
-                DateTime dt;
-                dt.SetValue(tm1.tm_year, tm1.tm_mon + 1, tm1.tm_mday, tm1.tm_hour, tm1.tm_min);
-                String dateString;
-                String timeString;
-                LocaleManager localeManager;
-                localeManager.Construct();
-                Locale  systemLocale = localeManager.GetSystemLocale();
-                String countryCodeString = systemLocale.GetCountryCodeString();
-                String languageCodeString = systemLocale.GetLanguageCodeString();
-                Tizen::Locales::DateTimeFormatter* pDateFormatter = DateTimeFormatter::CreateDateFormatterN(systemLocale, DATE_TIME_STYLE_DEFAULT);
-                Tizen::Locales::DateTimeFormatter* pTimeFormatter = DateTimeFormatter::CreateTimeFormatterN(systemLocale, DATE_TIME_STYLE_SHORT);
-        		String customizedPattern = L" dd MMM ";
-		        pDateFormatter->ApplyPattern(customizedPattern);
-		        pDateFormatter->Format(dt, dateString);
-                pTimeFormatter->Format(dt, timeString);
-                dateString.Append(timeString);
-                dateString.Insert(_("Last update:"), 0);
-                __pLabelLastUpdate->SetText(dateString);
-	            __pLabelLastUpdateBG->SetText(dateString);
-	            //__pAppWidgetPopup->AddControl(__pLabelLastUpdateBG);
-            }
+            /* Convert date and time */
+            DateTime dt;
+            dt.SetValue(tm1.tm_year, tm1.tm_mon + 1, tm1.tm_mday, tm1.tm_hour, tm1.tm_min);
+            String dateString;
+            String timeString;
+            LocaleManager localeManager;
+            localeManager.Construct();
+            Locale  systemLocale = localeManager.GetSystemLocale();
+            String countryCodeString = systemLocale.GetCountryCodeString();
+            String languageCodeString = systemLocale.GetLanguageCodeString();
+            Tizen::Locales::DateTimeFormatter* pDateFormatter = DateTimeFormatter::CreateDateFormatterN(systemLocale, DATE_TIME_STYLE_DEFAULT);
+            Tizen::Locales::DateTimeFormatter* pTimeFormatter = DateTimeFormatter::CreateTimeFormatterN(systemLocale, DATE_TIME_STYLE_SHORT);
+            String customizedPattern = L" dd MMM ";
+            pDateFormatter->ApplyPattern(customizedPattern);
+            pDateFormatter->Format(dt, dateString);
+            pTimeFormatter->Format(dt, timeString);
+            dateString.Append(timeString);
+            dateString.Insert(_("Last update:"), 0);
+            __pLabelLastUpdate->SetText(dateString);
+            __pLabelLastUpdateBG->SetText(dateString);
+            //__pAppWidgetPopup->AddControl(__pLabelLastUpdateBG);
+
+            __pLabelMainWindSpeed->SetShowState(true);
+            __pLabelMainWindIcon->SetShowState(true);
+            __pLabelMainTemperatureBG->SetShowState(true);
+            __pLabelMainTemperature->SetShowState(true);
+            __pLabelMainIcon->SetShowState(true);
+        }else{
+            __pLabelLastUpdate->SetText(_("Looks like there's no info for this location."));
+            __pLabelMainWindIcon->SetShowState(false);
+            __pLabelMainWindSpeed->SetShowState(false);
+            __pLabelMainTemperatureBG->SetShowState(false);
+            __pLabelMainTemperature->SetShowState(false);
+            __pLabelMainIcon->SetShowState(false);
+        }
+        __pLabelLastUpdate->RequestRedraw();
     }else
         _dp = NULL;
 
     if (_config->stationsList().size() == 0){
         __pLabelLastUpdate->SetText(_("No locations are set up yet."));
+        __pLabelMainWindIcon->SetShowState(false);
+        __pLabelMainWindSpeed->SetShowState(false);
+        __pLabelMainTemperatureBG->SetShowState(false);
+        __pLabelMainTemperature->SetShowState(false);
+        __pLabelMainIcon->SetShowState(false);
     }else{
         if (_config->stationname().c_str()){
            __pLabelTown->SetText(_config->stationname().c_str());
@@ -397,6 +413,7 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
             }
             __pAppWidgetPopup->AddControl(__pLabelMainWindIcon);
         }
+
         /* Main wind speed */
         if (temp_data->WindSpeed().value() != INT_MAX){
             __pLabelMainWindSpeed->SetShowState(true);
@@ -408,9 +425,7 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
         }else{
             __pLabelMainWindSpeed->SetShowState(false);
         }
-
         __pAppWidgetPopup->AddControl(__pLabelMainWindSpeed);
-
     }else{
         __pLabelMainTemperature->SetText("MeeCast");
         __pLabelMainTemperatureBG->SetText("MeeCast");
@@ -865,7 +880,7 @@ MeecastDynamicBoxAppPopupProvider::OnFlickGestureCanceled(TouchFlickGestureDetec
 void
 MeecastDynamicBoxAppPopupProvider::PreviousStation(){
     if ((int)(_config->current_station_id() - 1) >= 0){
-        AppLog ("11111 %i", _config->current_station_id());
+        /* AppLog ("11111 %i", _config->current_station_id()); */
         _config->current_station_id(_config->current_station_id() - 1);
     }else{
         _config->current_station_id(_config->stationsList().size() - 1);

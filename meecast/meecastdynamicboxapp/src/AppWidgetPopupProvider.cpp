@@ -772,22 +772,6 @@ MeecastDynamicBoxAppPopupProvider::OnTouchPressed(const Tizen::Ui::Control& sour
 		                        const Tizen::Ui::TouchEventInfo& touchInfo) {
 
 	__gestureDetected = false;
-    /*
-    AppLog("Touch Pressed");
-    SceneManager* pSceneManager = SceneManager::GetInstance();
-    AppAssert(pSceneManager);
-    Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
-    Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
-    if (source.Equals(*left_label)){
-        PreviousStation();
-        AppLog("Left Touch Screen");
-    }
-    if (source.Equals(*right_label)){
-        NextStation();
-        AppLog("Right Touch Screen");
-	}
-*/
-
 }
 
 void

@@ -41,10 +41,10 @@ meecastMainForm::meecastMainForm(void):
                  __pContextMenuText(null),
                  __pAnimation(null),
 	             __pAnimationFrameList(null),
+                 __menuButton(null),
                  __updateTimer(null),
 	             __pFlickGesture(null),
                  __daysmap(null),
-                 __menuButton(null),
 	             __gestureDetected(false),
                  __pLocationManagerThread(null){
 }
@@ -369,10 +369,11 @@ meecastMainForm::NextStation(){
 
 void
 meecastMainForm::PreviousStation(){
-    if ((uint)(_config->current_station_id() - 1) >= 0)
+    if ((_config->current_station_id() - 1) >= 0){
         _config->current_station_id(_config->current_station_id() - 1);
-    else
-        _config->current_station_id(_config->stationsList().size());
+    }else{
+        _config->current_station_id(_config->stationsList().size() - 1);
+    }
     _config->saveConfig();
     ReInitElements(); 
 }
@@ -383,7 +384,7 @@ meecastMainForm::OnTouchPressed(const Tizen::Ui::Control& source,
 		                        const Tizen::Ui::TouchEventInfo& touchInfo) {
 
 	__gestureDetected = false;
-    AppLog("Touch Pressed");
+    /* AppLog("Touch Pressed"); */
     SceneManager* pSceneManager = SceneManager::GetInstance();
     AppAssert(pSceneManager);
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
@@ -909,7 +910,6 @@ meecastMainForm::ReInitElements(void){
 
     /* fill other days */
     int i = 0;
-    int j = 0;
     _dayCount = 0;
     while  (_config->dp != NULL && i < 3600*24*14) {
          AppLog ("Result0 %li", current_day + 15*3600 + i); 
@@ -1023,7 +1023,7 @@ meecastMainForm::CreateItem (int index, int itemWidth){
     }else{
         pItem->SetBackgroundColor(LIST_ITEM_DRAWING_STATUS_NORMAL, Tizen::Graphics::Color(0x1F, 0x1F, 0x1F));
     }
-    String* pStr;
+
     Core::Data *temp_data = NULL;
 
     Long* pLong = static_cast< Long* >(__daysmap->GetValue(Integer(index)));

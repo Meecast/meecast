@@ -96,10 +96,12 @@ MeecastServiceApp::~MeecastServiceApp(void){
 
     result r = E_SUCCESS;
     AppRegistry* appRegistry = Application::GetInstance()->GetAppRegistry();
-    r = appRegistry->Get(L"OriginalWallpaperPath", originalWallpaperFilePath);
-    if (r == E_SUCCESS && originalWallpaperFilePath != L""){
-        AppLog("set wallpaper %S", originalWallpaperFilePath.GetPointer());
-        r = SettingInfo::SetValue(L"http://tizen.org/setting/screen.wallpaper.lock", originalWallpaperFilePath);
+    if (appRegistry){
+        r = appRegistry->Get(L"OriginalWallpaperPath", originalWallpaperFilePath);
+        if (r == E_SUCCESS && originalWallpaperFilePath != L""){
+           /* AppLog("set wallpaper %S", originalWallpaperFilePath.GetPointer()); */
+            r = SettingInfo::SetValue(L"http://tizen.org/setting/screen.wallpaper.lock", originalWallpaperFilePath);
+        }
     }
 }
 

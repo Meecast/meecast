@@ -4,13 +4,14 @@
 # 
 # Translators:
 # oksana_berry <mkalinkevich@gmail.com>, 2013
+# Vlad Vas <vasvlad@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-09-16 17:47+0300\n"
-"PO-Revision-Date: 2013-10-12 14:52+0000\n"
-"Last-Translator: oksana_berry <mkalinkevich@gmail.com>\n"
+"PO-Revision-Date: 2013-10-18 11:37+0000\n"
+"Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Ukrainian (Ukraine) (http://www.transifex.com/projects/p/meecast/language/uk_UA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -275,7 +276,7 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:467
 msgid "Add Station"
-msgstr ""
+msgstr "Додати станцію"
 
 #: meecast/qt-qml/qml/main.qml:50
 msgid "Adjust GPS station"
@@ -1543,7 +1544,7 @@ msgstr ""
 #: meecast/qt-qml/dataitem.cpp:191 meecast/qt-qml/qml/FullWeatherPage.qml:130
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Now"
-msgstr ""
+msgstr "Зараз"
 
 #: omweather/src/weather-simple-settings.c:2880
 msgid "Now + 2 days vert."
@@ -2229,11 +2230,11 @@ msgstr ""
 
 #: omweather/src/hash.data:346
 msgid "Sky is Clear"
-msgstr ""
+msgstr "Ясно"
 
 #: omweather/src/hash.data:345
 msgid "Sky is clear"
-msgstr ""
+msgstr "Ясно"
 
 #: omweather/src/hash.data:269
 msgid "Sleet"
@@ -2468,7 +2469,7 @@ msgstr ""
 #: meecast/qt-qml/qml/FullWeatherPage.qml:427
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Today"
-msgstr ""
+msgstr "Сьогодні"
 
 #: omweather/src/weather-help.c:154 meecast/qt-qml/qml/AboutPage.qml:218
 msgid "Translators"
@@ -2526,7 +2527,7 @@ msgstr ""
 #: omweather/src/weather-settings.c:1142 omweather/src/weather-settings.c:1348
 #: omweather/src/weather-settings.c:1352
 msgid "Update"
-msgstr ""
+msgstr "Оновити"
 
 #: omweather/src/weather-download.c:425
 msgid "Update already running."

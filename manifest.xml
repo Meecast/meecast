@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Manifest xmlns="http://schemas.tizen.org/2012/12/manifest">
     <Id>ctLjIIgCCj</Id>
-    <Version>0.7.7</Version>
+    <Version>0.7.8</Version>
     <Type>C++App</Type>
     <Author>Uladzislau Vasilyeu</Author>
     <Descriptions>
@@ -12,6 +12,7 @@
         <Feature Name="http://tizen.org/feature/platform.core.cpu.arch.armv7">true</Feature>
         <Feature Name="http://tizen.org/feature/platform.core.cpu.arch.x86">true</Feature>
         <Feature Name="http://tizen.org/feature/platform.core.fpu.arch.vfpv3">true</Feature>
+        <Feature Name="http://tizen.org/feature/screen.size.normal">true</Feature>
         <Feature Name="http://tizen.org/feature/screen.size.normal.480.800">true</Feature>
         <Feature Name="http://tizen.org/feature/screen.size.normal.720.1280">true</Feature>
     </Requirements>

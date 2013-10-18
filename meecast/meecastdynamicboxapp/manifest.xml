@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Manifest xmlns="http://schemas.tizen.org/2012/12/manifest">
-    <Id>$(manifestAppId)</Id>
+    <Id>EYticn5acb</Id>
     <Version>1.0.0</Version>
     <Type>C++App</Type>
+    <Author>Uladzislau Vasilyeu</Author>
+    <Descriptions>
+        <Description Locale="eng-GB">MeeCast</Description>
+    </Descriptions>
     <Requirements>
+        <Feature Name="http://tizen.org/feature/location">true</Feature>
         <Feature Name="http://tizen.org/feature/screen.size.normal">true</Feature>
+        <Feature Name="http://tizen.org/feature/screen.size.normal.480.800">true</Feature>
+        <Feature Name="http://tizen.org/feature/screen.size.normal.720.1280">true</Feature>
     </Requirements>
     <Apps>
         <ApiVersion>2.2</ApiVersion>
         <Privileges/>
-
-        <ServiceApp Name="meecastdynamicboxapp" LifeDuration="30000" UseUi="True" Main="True" >
+        <ServiceApp AutoRestart="False" LaunchOnBoot="False" LaunchingHistoryVisible="True" LifeDuration="30000" Main="True" Name="meecastdynamicboxapp" UseUi="True">
             <UiScalability BaseScreenSize="Normal" CoordinateSystem="Logical" LogicalCoordinate="720"/>
             <UiTheme SystemTheme="White"/>
             <DisplayNames>

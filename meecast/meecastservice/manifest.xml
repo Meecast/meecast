@@ -5,7 +5,10 @@
     <Type>C++App</Type>
     <Author>Uladzislau Vasilyeu</Author>
     <Requirements>
+        <Feature Name="http://tizen.org/feature/location">true</Feature>
         <Feature Name="http://tizen.org/feature/screen.size.normal">true</Feature>
+        <Feature Name="http://tizen.org/feature/screen.size.normal.480.800">true</Feature>
+        <Feature Name="http://tizen.org/feature/screen.size.normal.720.1280">true</Feature>
     </Requirements>
     <Apps>
         <ApiVersion>2.2</ApiVersion>
@@ -14,7 +17,7 @@
         </Privileges>
         <ServiceApp AutoRestart="False" LaunchOnBoot="True" LaunchingHistoryVisible="True" Main="True" Name="meecastservice">
             <DisplayNames>
-                <DisplayName Locale="eng-GB">$(projectName)</DisplayName>
+                <DisplayName Locale="eng-GB">MeeCast</DisplayName>
             </DisplayNames>
             <Icons>
                 <Icon Section="MainMenu">mainmenu.png</Icon>

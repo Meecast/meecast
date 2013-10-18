@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-09-16 17:47+0300\n"
-"PO-Revision-Date: 2013-10-18 11:37+0000\n"
+"PO-Revision-Date: 2013-10-18 12:47+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Ukrainian (Ukraine) (http://www.transifex.com/projects/p/meecast/language/uk_UA/)\n"
 "MIME-Version: 1.0\n"
@@ -310,7 +310,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/VisualsPage.qml:566
 msgid "Appearance"
-msgstr ""
+msgstr "Зовнішній вигляд"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:94
 msgid ""
@@ -1280,7 +1280,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/UnitsPage.qml:270
 msgid "Measurement units"
-msgstr ""
+msgstr "Одиниці виміру"
 
 #: meecast/qt-qml/qml/WeatherPage.qml:292
 msgid "MeeCast"
@@ -2154,11 +2154,11 @@ msgstr ""
 #: omweather/src/weather-simple-status.c:158 meecast/qt-qml/qml/main.qml:42
 #: meecast/qt-qml/qml/SettingsPage.qml:144
 msgid "Settings"
-msgstr ""
+msgstr "Налаштування"
 
 #: meecast/qt-qml/qml/LockScreen.qml:65
 msgid "Settings for Lockscreen widget"
-msgstr ""
+msgstr "Налаштування для Lockscreen віджета"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:102
 msgid "Settings for standby widget"
@@ -2488,7 +2488,7 @@ msgstr ""
 
 #: omweather/src/hash.data:296 meecast/qt-qml/qml/WeatherPage.qml:501
 msgid "Try to update"
-msgstr ""
+msgstr "Спробуйте оновити"
 
 #: omweather/src/weather-settings.c:3452
 msgid "Type of click:"
@@ -2527,7 +2527,7 @@ msgstr ""
 #: omweather/src/weather-settings.c:1142 omweather/src/weather-settings.c:1348
 #: omweather/src/weather-settings.c:1352
 msgid "Update"
-msgstr "Оновити"
+msgstr "Оновлення"
 
 #: omweather/src/weather-download.c:425
 msgid "Update already running."
@@ -2535,7 +2535,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/UpdatePage.qml:122
 msgid "Update interval"
-msgstr ""
+msgstr "Iнтервал оновлення"
 
 #: omweather/src/hash.data:298 meecast/qt-qml/qml/WeatherPage.qml:360
 msgid "Updating forecast"

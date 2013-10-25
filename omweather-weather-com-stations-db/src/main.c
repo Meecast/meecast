@@ -819,8 +819,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                 current_time = 0;
     FILE        *file_out;
     float       visible_float;
-    struct tm time_tm1;
-    struct tm time_tm2;
+    struct tm time_tm1 = {0};;
+    struct tm time_tm2 = {0};;
     int    localtimezone = 0;
 
 
@@ -833,9 +833,13 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
         return -1;
 /* Set localtimezone */
 
+
     current_time = time(NULL);
     gmtime_r(&current_time, &time_tm1);
     localtime_r(&current_time, &time_tm2);
+
+    time_tm1.tm_isdst = 1;
+    time_tm2.tm_isdst = 1;
     localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
     fprintf(stderr,"Local Time Zone %i\n", localtimezone);
 
@@ -1173,7 +1177,10 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     /* set begin of day in localtime */
                                     tmp_tm2.tm_year = tm->tm_year;
                                     tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
+                                    tmp_tm2.tm_isdst = 1;
+                                    fprintf(stderr, "sunrise %li %li %s\n", mktime(&tmp_tm2), mktime(&tmp_tm2), (const char*)temp_xml_string);
                                     t_sunrise = mktime(&tmp_tm2) + localtimezone*3600 -  timezone_my*3600;
+                                    fprintf(stderr, "LocaltimeZone %i MyTimeZone %i", localtimezone, timezone_my);
                                     xmlFree(temp_xml_string);
                                     continue;
                                 }
@@ -1186,6 +1193,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     /* set begin of day in localtime */
                                     tmp_tm2.tm_year = tm->tm_year;
                                     tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
+
+                                    tmp_tm2.tm_isdst = 1;
                                     t_sunset = mktime(&tmp_tm2) + localtimezone*3600 -  timezone_my*3600;
                                     xmlFree(temp_xml_string);
                                     continue;

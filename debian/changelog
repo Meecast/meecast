@@ -1,4 +1,4 @@
-meecast (0.7.7) unstable; urgency=low
+meecast (0.7.9) unstable; urgency=low
 
   * Added icon for openweathermap.com 
   * Fixed problem with foreca.com

@@ -5,12 +5,13 @@
 # Translators:
 # Michiel Pater <michiel@wateennaam.nl>, 2012-2013
 # tomleenders <tjjleenders@gmail.com>, 2012
+# Vlad Vas <vasvlad@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-16 17:47+0300\n"
-"PO-Revision-Date: 2013-09-15 09:29+0000\n"
+"POT-Creation-Date: 2013-10-26 08:33+0300\n"
+"PO-Revision-Date: 2013-09-28 08:48+0000\n"
 "Last-Translator: Michiel Pater <michiel@wateennaam.nl>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/meecast/language/"
 "nl/)\n"
@@ -288,7 +289,7 @@ msgstr "AM Laat: Sneeuwbuien / Wind"
 #: omweather/src/weather-simple-popup.c:1164
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/qml/main.qml:57 meecast/qt-qml/qml/AboutPage.qml:68
+#: meecast/qt-qml/qml/main.qml:58 meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
 msgstr "Over"
 
@@ -308,7 +309,7 @@ msgstr "Voeg toe"
 msgid "Add Station"
 msgstr "Station toevoegen"
 
-#: meecast/qt-qml/qml/main.qml:50
+#: meecast/qt-qml/qml/main.qml:51
 msgid "Adjust GPS station"
 msgstr "Update GPS station"
 
@@ -423,11 +424,11 @@ msgstr "Sneeuwjacht"
 
 #: omweather/src/hash.data:332
 msgid "Broken Clouds"
-msgstr ""
+msgstr "Her en der wolken"
 
 #: omweather/src/hash.data:333
 msgid "Broken clouds"
-msgstr ""
+msgstr "Her en der wolken"
 
 #: omweather/src/weather-home.c:1536 omweather/src/weather-home.c:1562
 #: omweather/src/weather-simple-popup.c:1042
@@ -1148,7 +1149,7 @@ msgstr "Hevige Sneeuwval / Wind"
 
 #: omweather/src/hash.data:351
 msgid "Heavy intensity rain"
-msgstr ""
+msgstr "Zware regenval"
 
 #: omweather/src/hash.data:95
 msgid "High"
@@ -1342,7 +1343,7 @@ msgstr "Lichte Sneeuwbui"
 
 #: omweather/src/hash.data:352
 msgid "Light intensity shower rain"
-msgstr ""
+msgstr "Korte hevige regenbui"
 
 #: omweather/src/hash.data:336
 msgid "Light rain"
@@ -1362,7 +1363,7 @@ msgstr "Lokale Pollen Rapporten"
 
 #: meecast/qt-qml/qml/AboutPage.qml:170
 msgid "Localization platform"
-msgstr ""
+msgstr "Lokalisatie platform"
 
 #: omweather/src/weather-settings.c:3454
 msgid "Long"
@@ -1378,7 +1379,7 @@ msgstr "Laag"
 
 #: omweather/src/hash.data:349
 msgid "Mainly cloudy with occasional rain."
-msgstr ""
+msgstr "Vooral bewolkt met af en toe een bui"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
@@ -1430,11 +1431,11 @@ msgstr "Mist"
 
 #: omweather/src/hash.data:340
 msgid "Moderate Rain"
-msgstr ""
+msgstr "Matige Regen"
 
 #: omweather/src/hash.data:339
 msgid "Moderate rain"
-msgstr ""
+msgstr "Matige bui"
 
 #: omweather/src/weather-simple-settings.c:434
 msgid "Modification"
@@ -1721,7 +1722,7 @@ msgstr "Grijs"
 
 #: omweather/src/hash.data:342
 msgid "Overcast Clouds"
-msgstr ""
+msgstr "Bewolkt"
 
 #: omweather/src/hash.data:170
 msgid "Overcast and light rain"
@@ -1761,7 +1762,7 @@ msgstr "Grijs en natte sneeuwbuien "
 
 #: omweather/src/hash.data:341
 msgid "Overcast clouds"
-msgstr ""
+msgstr "Bewolkt"
 
 #: omweather/src/hash.data:179
 msgid "Overcast, thunderstorms with rain"
@@ -1984,11 +1985,11 @@ msgstr "Luchtdruk: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
 msgid "Programmer"
-msgstr ""
+msgstr "Programmeur "
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
 msgid "Project administrators"
-msgstr ""
+msgstr "Project administrators"
 
 #: meecast/qt-qml/qml/AboutPage.qml:202
 msgid "Project manager"
@@ -2271,7 +2272,7 @@ msgid "Set locations"
 msgstr "Kies locaties"
 
 #: omweather/src/weather-home.c:1291 omweather/src/weather-simple-popup.c:1157
-#: omweather/src/weather-simple-status.c:158 meecast/qt-qml/qml/main.qml:42
+#: omweather/src/weather-simple-status.c:158 meecast/qt-qml/qml/main.qml:43
 #: meecast/qt-qml/qml/SettingsPage.qml:144
 msgid "Settings"
 msgstr "Instellingen"
@@ -2414,7 +2415,7 @@ msgstr "Bron"
 
 #: meecast/qt-qml/qml/AboutPage.qml:320
 msgid "Source code"
-msgstr ""
+msgstr "Bron code"
 
 #: omweather/src/weather-settings.c:498
 msgid "Source:"
@@ -2489,7 +2490,7 @@ msgstr "Zonsondergang: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:86
 msgid "Support"
-msgstr ""
+msgstr "Ondersteuning"
 
 #: omweather/src/weather-settings.c:3773
 msgid "Swap hi/low temperature"
@@ -2557,7 +2558,7 @@ msgstr "Het weerbericht is ge-update."
 
 #: omweather/src/hash.data:353
 msgid "There are no stations to show in this view of the list"
-msgstr ""
+msgstr "Er zijn geen stations in de lijst om weer te geven"
 
 #: meecast/qt-qml/qml/AboutPage.qml:307
 msgid ""

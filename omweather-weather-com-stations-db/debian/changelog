@@ -1,4 +1,11 @@
-oomweather-weather-com-stations-db (1.0.7) unstable; urgency=low
+omweather-weather-com-stations-db (1.0.8) unstable; urgency=low
+
+  * Fixed URL 
+
+ --  Vlad Vasiliev <vlad@gas.by>  Sun, 27 Oct 2013 11:14:31 +0200
+
+
+omweather-weather-com-stations-db (1.0.7) unstable; urgency=low
 
   * Added station Villa Angela 
 

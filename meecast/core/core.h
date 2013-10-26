@@ -52,6 +52,7 @@
 #include "downloader.h"
 
 #define MEECAST_VERSION "0.7.9"
+
 namespace Core{
     class Connection;
     class AbstractConfig;

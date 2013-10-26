@@ -40,7 +40,7 @@ namespace Core{
 ////////////////////////////////////////////////////////////////////////////////
 Config::Config()
 {
-    std::cerr<<"CONFIG CREATE111111!!!!!!!!!!!!!!"<<std::endl;
+    /* std::cerr<<"CONFIG CREATE111111!!!!!!!!!!!!!!"<<std::endl; */
     _pathPrefix = new std::string(AbstractConfig::prefix + AbstractConfig::sharePath);
     _iconset = new std::string("Meecast");
     _temperature_unit = new std::string("C");
@@ -296,7 +296,6 @@ Config::saveConfig()
             t = doc.createTextNode("true");
         el.appendChild(t);
         st.appendChild(el);
-
         
         root.appendChild(st);
         ++i;
@@ -352,7 +351,7 @@ Config::DeleteInstance(){
 ////////////////////////////////////////////////////////////////////////////////
 Config::Config(const std::string& filename, const std::string& schema_filename)
                     : Parser(filename, schema_filename){
-    std::cerr<<"CONFIG CREATE222222!!!!!!!!!!!!!!"<<std::endl;
+    /* std::cerr<<"CONFIG CREATE222222!!!!!!!!!!!!!!"<<std::endl; */
    /* std::cerr<<"new Config"<<std::endl; */
     _filename = new std::string;
     _filename->assign(filename);
@@ -518,10 +517,20 @@ Config::LoadConfig(){
              forecastURL.replace(QString(".mobi/old/7d.php"), QString(".mobi/daily.php"));
              std::cerr<<"Forecast URL "<<forecastURL.toStdString()<<std::endl;
          }
-         if  (source_name=="foreca.com" and !(detailURL.contains("spot"))){
+         if (source_name=="foreca.com" and !(detailURL.contains("spot"))){
              detailURL.replace(QString(".mobi/old/index.php"), QString(".mobi/spot.php"));
              std::cerr<<"Detail URL "<<detailURL.toStdString()<<std::endl;
          }
+         /* Hack for weather.com  Remove it after version 0.8.5 */
+         if (source_name=="weather.com" and (forecastURL.contains("xml.weather.com"))){
+            forecastURL.replace(QString("xml.weather.com"), QString("wxdata.weather.com/wxdata"));
+            std::cerr<<"Replace URL"<<forecastURL.toStdString()<<std::endl;
+        }
+        if  (source_name=="weather.com" and (detailURL.contains("xml.weather.com"))){
+
+            detailURL.replace(QString("xml.weather.com"), QString("wxdata.weather.com/wxdata"));
+        }
+
             Station *st = new Station(source_name.toStdString(),
                                       station_id.toStdString(),
                                       station_name.toUtf8().data(),
@@ -584,6 +593,7 @@ Config::InitLanguagesList(){
     _languages_list->push_back(std::make_pair("Spanish(Mexico)", "es_MX"));
     _languages_list->push_back(std::make_pair("Swedish", "sv_SV"));
     _languages_list->push_back(std::make_pair("Turkish", "tr_TR"));
+    _languages_list->push_back(std::make_pair("Ukrain", "uk_UA"));
     _languages_list->push_back(std::make_pair("Vietnamese", "vi_VI"));
 /*
     languages::iterator cur;

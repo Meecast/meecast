@@ -2,6 +2,7 @@ meecast (0.7.9) unstable; urgency=low
 
   * Added icon for openweathermap.com 
   * Fixed problem with foreca.com
+  * Fixed problem with source weather.com
   * Updated Russian, Dutch translations
   * Added Ukrain translation
 

@@ -593,7 +593,7 @@ Config::InitLanguagesList(){
     _languages_list->push_back(std::make_pair("Spanish(Mexico)", "es_MX"));
     _languages_list->push_back(std::make_pair("Swedish", "sv_SV"));
     _languages_list->push_back(std::make_pair("Turkish", "tr_TR"));
-    _languages_list->push_back(std::make_pair("Ukrain", "uk_UA"));
+    _languages_list->push_back(std::make_pair("Ukraine", "uk_UA"));
     _languages_list->push_back(std::make_pair("Vietnamese", "vi_VI"));
 /*
     languages::iterator cur;

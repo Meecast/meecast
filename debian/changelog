@@ -4,7 +4,7 @@ meecast (0.7.9) unstable; urgency=low
   * Fixed problem with foreca.com
   * Fixed problem with source weather.com
   * Updated Russian, Dutch translations
-  * Added Ukrain translation
+  * Added Ukraine translation
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 16 Sep 2013 18:31:23 +0200
 

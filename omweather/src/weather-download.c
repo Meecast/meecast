@@ -500,10 +500,11 @@ get_station_url(gchar **url, gchar **filename, gchar **hour_url,
                            if (station_code[i] == '#')
                               station_code[i] = '/'; 
                 }
-               snprintf(buffer, sizeof(buffer) - 1,
+                snprintf(buffer, sizeof(buffer) - 1,
                                 get_source_forecast_url(app->sources_list, station_source),
                                                         station_code);
-               *url = g_strdup(buffer);
+
+                *url = g_strdup(buffer);
             }
          
 

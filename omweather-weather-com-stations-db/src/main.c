@@ -1179,7 +1179,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
                                     tmp_tm2.tm_isdst = 1;
                                     fprintf(stderr, "sunrise %li %li %s\n", mktime(&tmp_tm2), mktime(&tmp_tm2), (const char*)temp_xml_string);
-                                    t_sunrise = mktime(&tmp_tm2) + localtimezone*3600 -  timezone_my*3600;
+                                    t_sunrise = mktime(&tmp_tm2) + localtimezone*3600 -  timezone_my*3600 ;
+//                                    t_sunrise = mktime(&tmp_tm2)  -  timezone_my*3600 + (timezone_my*3600 + 4*3600);
                                     fprintf(stderr, "LocaltimeZone %i MyTimeZone %i", localtimezone, timezone_my);
                                     xmlFree(temp_xml_string);
                                     continue;
@@ -1195,7 +1196,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
 
                                     tmp_tm2.tm_isdst = 1;
-                                    t_sunset = mktime(&tmp_tm2) + localtimezone*3600 -  timezone_my*3600;
+                                    t_sunset = mktime(&tmp_tm2) + localtimezone*3600 - timezone_my*3600;
+//                                    t_sunset = mktime(&tmp_tm2) - timezone_my*3600 - (timezone_my*3600 + 4*3600);
                                     xmlFree(temp_xml_string);
                                     continue;
                                 }

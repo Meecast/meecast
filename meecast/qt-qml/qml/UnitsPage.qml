@@ -172,7 +172,7 @@ Page {
 					}
 					Button {
 						text: Config.tr("Knots")
-						checked: (Config.windspeedunit == "knots")
+						checked: (Config.windspeedunit == "kn")
 						onClicked: {
 							Config.windspeed_unit("3");
 						}

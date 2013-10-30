@@ -487,7 +487,6 @@ Config::DeleteInstance(){
 ////////////////////////////////////////////////////////////////////////////////
 Config::Config(const std::string& filename, const std::string& schema_filename)
                     : Parser(filename, schema_filename){
-<<<<<<< HEAD
 
     AppLog("Create Config"); 
     /* std::cerr<<"CONFIG CREATE222222!!!!!!!!!!!!!!"<<std::endl; */

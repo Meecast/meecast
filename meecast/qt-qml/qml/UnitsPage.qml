@@ -170,7 +170,20 @@ Page {
 							Config.windspeed_unit("2");
 						}
 					}
-
+					Button {
+						text: Config.tr("Knots")
+						checked: (Config.windspeedunit == "knots")
+						onClicked: {
+							Config.windspeed_unit("3");
+						}
+					}
+					Button {
+						text: Config.tr("Beaufort scale")
+						checked: (Config.windspeedunit == "beaufort")
+						onClicked: {
+							Config.windspeed_unit("4");
+						}
+					}
 				}
 				Label {
 					text: Config.tr("Pressure units")

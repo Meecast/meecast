@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-16 17:47+0300\n"
+"POT-Creation-Date: 2013-10-26 08:33+0300\n"
 "PO-Revision-Date: 2013-06-25 17:38+0000\n"
 "Last-Translator: Lorenzo Facca <lorenzo.facca@ovi.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/meecast/language/"
@@ -289,7 +289,7 @@ msgstr "Al mattino Rovesci nevosi/ Vento più tardi"
 #: omweather/src/weather-simple-popup.c:1164
 #: omweather/src/weather-simple-status.c:179
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
-#: meecast/qt-qml/qml/main.qml:57 meecast/qt-qml/qml/AboutPage.qml:68
+#: meecast/qt-qml/qml/main.qml:58 meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
 msgstr "Informazioni su"
 
@@ -309,7 +309,7 @@ msgstr "Aggiungi"
 msgid "Add Station"
 msgstr "Aggiungi Stazione"
 
-#: meecast/qt-qml/qml/main.qml:50
+#: meecast/qt-qml/qml/main.qml:51
 #, fuzzy
 msgid "Adjust GPS station"
 msgstr "Aggiungi Stazione"
@@ -2293,7 +2293,7 @@ msgid "Set locations"
 msgstr "Inserisci la località"
 
 #: omweather/src/weather-home.c:1291 omweather/src/weather-simple-popup.c:1157
-#: omweather/src/weather-simple-status.c:158 meecast/qt-qml/qml/main.qml:42
+#: omweather/src/weather-simple-status.c:158 meecast/qt-qml/qml/main.qml:43
 #: meecast/qt-qml/qml/SettingsPage.qml:144
 msgid "Settings"
 msgstr "Impostazioni"

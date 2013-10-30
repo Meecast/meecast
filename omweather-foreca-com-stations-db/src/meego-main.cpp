@@ -299,7 +299,8 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         xmlXPathFreeObject(xpathObj);
     
     index = 1;
-    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong/text()", index);
+//    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong/text()", index);
+    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p[not(contains(text(), ':'))]/strong/text()", index);
     xpathObj = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
     /* added text */
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&

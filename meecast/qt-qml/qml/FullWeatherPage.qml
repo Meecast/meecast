@@ -141,9 +141,15 @@ Page {
             if ((model_current.getdata(day, "pressure")) != "N/A")
                 condition.append({cond_name: Config.tr("Pressure:"),
                          value: model_current.getdata(day, "pressure") + ' ' + Config.tr(Config.pressureunit)});
-            if ((model_current.getdata(day, "wind_speed")) != "N/A")
-                condition.append({cond_name: Config.tr("Wind speed") + ":",
+            if ((model_current.getdata(day, "wind_speed")) != "N/A"){
+                if (Config.windspeedunit == "Beaufort scale"){
+                    condition.append({cond_name: Config.tr("Wind speed") + ":",
+                         value: model_current.getdata(day, "wind_speed") + ' (' + Config.tr(Config.windspeedunit) + ')'});
+                }else{
+                    condition.append({cond_name: Config.tr("Wind speed") + ":",
                          value: model_current.getdata(day, "wind_speed") + ' ' + Config.tr(Config.windspeedunit)});
+                }
+            }
             if ((model_current.getdata(day, "ppcp")) != "N/A")
                 condition.append({cond_name: Config.tr("Ppcp:"),
                          value: model_current.getdata(day, "ppcp") + '%'});
@@ -200,8 +206,13 @@ Page {
                 condition.append({cond_name: Config.tr("Pressure:"),
                          value: model_day.getdata(day, "pressure") + ' ' + Config.tr(Config.pressureunit)});
             if ((model_day.getdata(day, "wind_speed")) != "N/A")
-                condition.append({cond_name: Config.tr("Wind speed") + ":",
+                if (Config.windspeedunit == "Beaufort scale"){
+                    condition.append({cond_name: Config.tr("Wind speed") + ":",
+                         value: model_day.getdata(day, "wind_speed") + ' (' + Config.tr(Config.windspeedunit) + ')'});
+                }else{
+                    condition.append({cond_name: Config.tr("Wind speed") + ":",
                          value: model_day.getdata(day, "wind_speed") + ' ' + Config.tr(Config.windspeedunit)});
+                }
             if ((model_day.getdata(day, "ppcp")) != "N/A")
                 condition.append({cond_name: Config.tr("Ppcp:"),
                          value: model_day.getdata(day, "ppcp") + '%'});
@@ -250,8 +261,13 @@ Page {
                 condition.append({cond_name: Config.tr("Pressure:"),
                          value: model_night.getdata(day, "pressure") + ' ' + Config.tr(Config.pressureunit)});
             if ((model_night.getdata(day, "wind_speed")) != "N/A")
-                condition.append({cond_name: Config.tr("Wind speed") + ":",
+                if (Config.windspeedunit == "Beaufort scale"){
+                    condition.append({cond_name: Config.tr("Wind speed") + ":",
+                         value: model_night.getdata(day, "wind_speed") + ' (' + Config.tr(Config.windspeedunit) + ')'});
+                }else{
+                    condition.append({cond_name: Config.tr("Wind speed") + ":",
                          value: model_night.getdata(day, "wind_speed") + ' ' + Config.tr(Config.windspeedunit)});
+                }
             if ((model_night.getdata(day, "ppcp")) != "N/A")
                 condition.append({cond_name: Config.tr("Ppcp:"),
                          value: model_night.getdata(day, "ppcp") + '%'});

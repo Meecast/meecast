@@ -102,7 +102,7 @@ void ConfigQml::init()
 
     _gps = NULL;
 
-    wind_list << "m/s" << "km/h" << "mi/h";
+    wind_list << "m/s" << "km/h" << "mi/h" << "kn" << "Beaufort scale";
     press_list << "mbar" << "Pa" << "mmHg";
     vis_list << "m" << "km" << "mi";
 

@@ -169,7 +169,7 @@ meecastMeasurementUnits::CreateItem(int groupIndex, int itemIndex, int itemWidth
             }
             break;
         case 1:
-            switch (itemIndex % 4){
+            switch (itemIndex % 5){
             case 0:
                 pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("m/s"), true);
                 if (config->WindSpeedUnit() == "m/s")
@@ -183,6 +183,16 @@ meecastMeasurementUnits::CreateItem(int groupIndex, int itemIndex, int itemWidth
             case 2:
                 pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("mi/h"), true);
                 if (config->WindSpeedUnit() == "mi/h")
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+                break;
+            case 3:
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("Knots"), true);
+                if (config->WindSpeedUnit() == "kn")
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+                break;
+            case 4:
+                pItem->AddElement(Tizen::Graphics::Rectangle(0, 0, GetClientAreaBounds().width, 100), 1, _("Beaufort scale"), true);
+                if (config->WindSpeedUnit() == "Beaufort scale")
                     __pList->SetItemChecked(groupIndex, itemIndex, true);
                 break;
             default:
@@ -251,7 +261,7 @@ meecastMeasurementUnits::GetItemCount(int groupIndex)
 		itemCount = 2;
 		break;
 	case 1:
-		itemCount = 3;
+		itemCount = 5;
 		break;
 	case 2:
 		itemCount = 3;
@@ -338,25 +348,48 @@ meecastMeasurementUnits::OnGroupedListViewItemStateChanged(GroupedListView& list
                 }
                 break;
             case 1:
-                switch (itemIndex % 4){
+                switch (itemIndex % 5){
                 case 0:
                     config->WindSpeedUnit("m/s");
                     __pList->SetItemChecked(groupIndex, itemIndex, true);
                     __pList->SetItemChecked(groupIndex, itemIndex + 1, false);
                     __pList->SetItemChecked(groupIndex, itemIndex + 2, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex + 3, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex + 4, false);
                     break;
                 case 1:
                     config->WindSpeedUnit("km/h");
                     __pList->SetItemChecked(groupIndex, itemIndex - 1, false);
                     __pList->SetItemChecked(groupIndex, itemIndex, true);
                     __pList->SetItemChecked(groupIndex, itemIndex + 1, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex + 2, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex + 3, false);
                     break;
                 case 2:
                     config->WindSpeedUnit("mi/h");
                     __pList->SetItemChecked(groupIndex, itemIndex - 2, false);
                     __pList->SetItemChecked(groupIndex, itemIndex - 1, false);
                     __pList->SetItemChecked(groupIndex, itemIndex, true);
+                    __pList->SetItemChecked(groupIndex, itemIndex + 1, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex + 2, false);
                     break;
+                case 3:
+                    config->WindSpeedUnit("kn");
+                    __pList->SetItemChecked(groupIndex, itemIndex - 3, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex - 2, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex - 1, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+                    __pList->SetItemChecked(groupIndex, itemIndex + 1, false);
+                    break;
+                case 4:
+                    config->WindSpeedUnit("Beaufort scale");
+                    __pList->SetItemChecked(groupIndex, itemIndex - 4, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex - 3, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex - 2, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex - 1, false);
+                    __pList->SetItemChecked(groupIndex, itemIndex, true);
+                    break;
+
                 default:
                     break;
                 }

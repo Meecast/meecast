@@ -629,8 +629,14 @@ meecastFullWeatherForm::ReInitElements(void){
             }
             /* Wind Speed */
             if (temp_data->WindSpeed().value() != INT_MAX){
-                snprintf (buffer, sizeof(buffer) -1, "%0.f %s", 
+
+                if (_config->WindSpeedUnit() == "Beaufort scale"){
+                    snprintf (buffer, sizeof(buffer) -1, "%0.f (%s)", 
                         temp_data->WindSpeed().value(), _(_config->WindSpeedUnit().c_str()));
+                }else{
+                    snprintf (buffer, sizeof(buffer) -1, "%0.f %s", 
+                        temp_data->WindSpeed().value(), _(_config->WindSpeedUnit().c_str()));
+                }
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 _pValueList->Add(new String(str));
                 String *temp_String;

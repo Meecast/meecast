@@ -826,8 +826,13 @@ meecastMainForm::ReInitElements(void){
         if (temp_data->WindSpeed().value(true) != INT_MAX){
             main_wind_speed_text->SetShowState(true);
             main_wind_speed_icon->SetShowState(true);
-            snprintf (buffer, sizeof(buffer) -1, "%0.f %s", 
+            if (_config->WindSpeedUnit() == "Beaufort scale"){
+                snprintf (buffer, sizeof(buffer) -1, "%0.f", 
+                                             temp_data->WindSpeed().value());
+            }else{
+                snprintf (buffer, sizeof(buffer) -1, "%0.f %s", 
                                              temp_data->WindSpeed().value(), _(_config->WindSpeedUnit().c_str()));
+            }
             Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
             main_wind_speed_text->SetText(str);
             main_wind_speed_text->RequestRedraw();

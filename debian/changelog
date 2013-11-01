@@ -1,6 +1,7 @@
 meecast (0.8) unstable; urgency=low
 
   * Added Perth to bom.gov.au source
+  * Added icon for openweathermap.com 
   * Update Arabic language
   * Added new measure units for wind speed - Knots and Beaufort scale
 

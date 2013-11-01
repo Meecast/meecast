@@ -151,7 +151,7 @@ meecastFullWeatherForm::OnInitializing(void){
 	}
 
     Tizen::Graphics::Point position = pFooter->GetPosition();
-    position.SetPosition(position.x + pFooter->GetWidth(), position.y + 50);
+    position.SetPosition(position.x + pFooter->GetWidth(), position.y + 10);
     CreateContextMenuList(position);
 
 
@@ -265,6 +265,15 @@ meecastFullWeatherForm::OnActionPerformed(const Tizen::Ui::Control& source, int 
             __pContextMenuText->SetShowState(true);
             __pContextMenuText->Show();
             break;
+        case ID_MENU_SETTINGS:
+            AppLog("Settings Button is clicked!");
+            pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_SETTINGSSCENE"));
+            break;
+        case ID_MENU_ABOUT:
+            AppLog("About is clicked!");
+            pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_ABOUTSCENE"));
+            break;
+
         default:
         break;
     }

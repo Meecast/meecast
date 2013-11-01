@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-26 08:33+0300\n"
+"POT-Creation-Date: 2013-11-01 06:45+0300\n"
 "PO-Revision-Date: 2013-09-15 08:00+0000\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
@@ -401,7 +401,7 @@ msgstr "Tekijät"
 msgid "Automatically update data when connecting to the Internet"
 msgstr "Päivitä säätiedot automaattisesti yhdistettäessä Internettiin"
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "Back"
 msgstr "Takaisin"
 
@@ -415,6 +415,7 @@ msgstr "Bofor."
 
 #: omweather/src/weather-settings.c:4021
 #: omweather/src/weather-simple-settings.c:2707
+#: meecast/qt-qml/qml/UnitsPage.qml:181
 msgid "Beaufort scale"
 msgstr "Boforiasteikko"
 
@@ -422,11 +423,11 @@ msgstr "Boforiasteikko"
 msgid "Blowing Snow"
 msgstr "Lumituiskua"
 
-#: omweather/src/hash.data:332
+#: omweather/src/hash.data:333
 msgid "Broken Clouds"
 msgstr "Hajanaisia pilviä"
 
-#: omweather/src/hash.data:333
+#: omweather/src/hash.data:334
 msgid "Broken clouds"
 msgstr "Hajanaisia pilviä"
 
@@ -562,7 +563,7 @@ msgstr "Puolipilvistä ja lumikuuroja"
 msgid "Cloudy and wet snow showers"
 msgstr "Pilvistä ja räntäkuuroja"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:351
 msgid "Cloudy with occasional rain."
 msgstr "Pilvistä ja ajoittaista vesisadetta."
 
@@ -661,7 +662,7 @@ msgid "Daily"
 msgstr "Päivittäin"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
-#: meecast/qt-qml/qml/FullWeatherPage.qml:188
+#: meecast/qt-qml/qml/FullWeatherPage.qml:194
 msgid "Day"
 msgstr "Päivällä"
 
@@ -669,7 +670,7 @@ msgstr "Päivällä"
 msgid "Day length"
 msgstr "Päivän pituus"
 
-#: omweather/src/hash.data:60 meecast/qt-qml/qml/FullWeatherPage.qml:298
+#: omweather/src/hash.data:60 meecast/qt-qml/qml/FullWeatherPage.qml:314
 msgid "Day length:"
 msgstr "Päivän pituus:"
 
@@ -873,7 +874,7 @@ msgstr "GConfin asetus epäonnistui. Asetuksia ei tallennettu.\n"
 msgid "Fair"
 msgstr "Poutaa"
 
-#: omweather/src/hash.data:328
+#: omweather/src/hash.data:329
 msgid "Feels like"
 msgstr "Tuntuu kuin"
 
@@ -881,7 +882,7 @@ msgstr "Tuntuu kuin"
 msgid "Feels like:"
 msgstr "Tuntuu kuin:"
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:336
 msgid "Few Clouds"
 msgstr "Hajanaisia pilviä"
 
@@ -905,7 +906,7 @@ msgstr "Ajoittain lumikuuroja"
 msgid "Few Snow Showers / Wind"
 msgstr "Ajoittain lumikuuroja / Tuulista"
 
-#: omweather/src/hash.data:334
+#: omweather/src/hash.data:335
 msgid "Few clouds"
 msgstr "Hajanaisia pilviä"
 
@@ -925,9 +926,9 @@ msgstr ""
 msgid "First Quarter"
 msgstr "Ensimmäinen neljännes"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:154
-#: meecast/qt-qml/qml/FullWeatherPage.qml:212
-#: meecast/qt-qml/qml/FullWeatherPage.qml:262
+#: meecast/qt-qml/qml/FullWeatherPage.qml:160
+#: meecast/qt-qml/qml/FullWeatherPage.qml:223
+#: meecast/qt-qml/qml/FullWeatherPage.qml:278
 msgid "Flike"
 msgstr "Tuntuu"
 
@@ -1148,7 +1149,7 @@ msgstr "Rankkaa lumisadetta"
 msgid "Heavy Snow / Wind"
 msgstr "Rankkaa lumisadetta / Tuulista"
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:352
 msgid "Heavy intensity rain"
 msgstr "Rankkaa vesisadetta"
 
@@ -1156,17 +1157,17 @@ msgstr "Rankkaa vesisadetta"
 msgid "High"
 msgstr "Korkea"
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "Hourly"
 msgstr "Tunneittain"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:280
+#: meecast/qt-qml/qml/FullWeatherPage.qml:296
 msgid "Hours"
 msgstr "Tunteja"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:136
-#: meecast/qt-qml/qml/FullWeatherPage.qml:194
-#: meecast/qt-qml/qml/FullWeatherPage.qml:244
+#: meecast/qt-qml/qml/FullWeatherPage.qml:200
+#: meecast/qt-qml/qml/FullWeatherPage.qml:255
 msgid "Humidity"
 msgstr "Ilmankosteus"
 
@@ -1223,7 +1224,11 @@ msgstr ""
 msgid "Kilometers"
 msgstr "Kilometrejä"
 
-#: omweather/src/hash.data:331
+#: meecast/qt-qml/qml/UnitsPage.qml:174
+msgid "Knots"
+msgstr ""
+
+#: omweather/src/hash.data:332
 msgid "Language"
 msgstr "Kieli"
 
@@ -1239,7 +1244,7 @@ msgstr "Viimeisin päivitys palvelimella: "
 msgid "Last update from server: "
 msgstr "Viimeisin päivitys palvelimelta: "
 
-#: omweather/src/hash.data:101 meecast/qt-qml/qml/FullWeatherPage.qml:301
+#: omweather/src/hash.data:101 meecast/qt-qml/qml/FullWeatherPage.qml:317
 msgid "Last update:"
 msgstr "Viimeisin päivitys:"
 
@@ -1274,7 +1279,7 @@ msgstr "Kevyttä tihkusadetta"
 msgid "Light Freezing Rain"
 msgstr "Kevyttä jäätävää sadetta"
 
-#: omweather/src/hash.data:115 omweather/src/hash.data:337
+#: omweather/src/hash.data:115 omweather/src/hash.data:338
 msgid "Light Rain"
 msgstr "Kevyttä vesisadetta"
 
@@ -1342,15 +1347,15 @@ msgstr "Myöhemmin kevyttä lumisadetta"
 msgid "Light Snow Shower"
 msgstr "Kevyitä lumikuuroja"
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:353
 msgid "Light intensity shower rain"
 msgstr "Kevyitä sadekuuroja"
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:337
 msgid "Light rain"
 msgstr "Kevyttä vesisadetta"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:339
 msgid "Light snow"
 msgstr "Kevyttä lumisadetta"
 
@@ -1378,7 +1383,7 @@ msgstr "Tälle sijainnille ei näytä olevan säätietoja."
 msgid "Low"
 msgstr "Matala"
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:350
 msgid "Mainly cloudy with occasional rain."
 msgstr "Melko pilvistä ja satunnaista vesisadetta."
 
@@ -1398,7 +1403,7 @@ msgstr "Sijainnit"
 msgid "Manual"
 msgstr "Manuaalinen"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:270
+#: meecast/qt-qml/qml/UnitsPage.qml:283
 msgid "Measurement units"
 msgstr "Mittayksiköt"
 
@@ -1430,11 +1435,11 @@ msgstr "Maileja"
 msgid "Mist"
 msgstr "Utua"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:341
 msgid "Moderate Rain"
 msgstr "Kohtalaista vesisadetta"
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:340
 msgid "Moderate rain"
 msgstr "Kohtalaista vesisadetta"
 
@@ -1629,7 +1634,7 @@ msgid "Next update:"
 msgstr "Seuraava päivitys:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:588
-#: meecast/qt-qml/qml/FullWeatherPage.qml:230
+#: meecast/qt-qml/qml/FullWeatherPage.qml:241
 msgid "Night"
 msgstr "Yöllä"
 
@@ -1721,7 +1726,7 @@ msgstr "Other Maemo Weather Tietoja"
 msgid "Overcast"
 msgstr "Pilvistä"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 msgid "Overcast Clouds"
 msgstr "Pilvistä"
 
@@ -1761,7 +1766,7 @@ msgstr "Pilvistä ja räntäsadetta"
 msgid "Overcast and wet snow showers"
 msgstr "Pilvistä ja räntäkuuroja"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 msgid "Overcast clouds"
 msgstr "Pilvistä"
 
@@ -1829,7 +1834,7 @@ msgstr "ip: Ukkoskuuroja"
 msgid "PM T-Storms"
 msgstr "ip: Ukkosta"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:194
+#: meecast/qt-qml/qml/UnitsPage.qml:207
 msgid "Pa"
 msgstr "Pa"
 
@@ -1949,9 +1954,9 @@ msgstr "Jakso"
 msgid "Position:"
 msgstr "Sijainti:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:148
-#: meecast/qt-qml/qml/FullWeatherPage.qml:206
-#: meecast/qt-qml/qml/FullWeatherPage.qml:256
+#: meecast/qt-qml/qml/FullWeatherPage.qml:154
+#: meecast/qt-qml/qml/FullWeatherPage.qml:217
+#: meecast/qt-qml/qml/FullWeatherPage.qml:272
 msgid "Ppcp:"
 msgstr "Sateen todennäköisyys:"
 
@@ -1964,7 +1969,7 @@ msgstr "Päivitys"
 msgid "Pressure"
 msgstr "Ilmanpaine"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:49 meecast/qt-qml/qml/UnitsPage.qml:176
+#: meecast/qt-qml/qml/UnitsPage.qml:49 meecast/qt-qml/qml/UnitsPage.qml:189
 msgid "Pressure units"
 msgstr "Paineen yksikkö"
 
@@ -1975,8 +1980,8 @@ msgstr "Paineen yksiköt:"
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
 #: meecast/qt-qml/dataitem.cpp:189 meecast/qt-qml/qml/FullWeatherPage.qml:142
-#: meecast/qt-qml/qml/FullWeatherPage.qml:200
-#: meecast/qt-qml/qml/FullWeatherPage.qml:250
+#: meecast/qt-qml/qml/FullWeatherPage.qml:206
+#: meecast/qt-qml/qml/FullWeatherPage.qml:261
 msgid "Pressure:"
 msgstr "Ilmanpaine:"
 
@@ -2148,7 +2153,7 @@ msgstr "Etelästä"
 msgid "Save"
 msgstr "Tallenna"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:345
 msgid "Scattered Clouds"
 msgstr "Hajanaisia pilviä"
 
@@ -2168,7 +2173,7 @@ msgstr "Hajanaisia lumikuuroja"
 msgid "Scattered T-Storms"
 msgstr "Hajanaisia ukkoskuuroja"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:344
 msgid "Scattered clouds"
 msgstr "Hajanaisia pilviä"
 
@@ -2306,7 +2311,7 @@ msgstr "Lyhyt"
 msgid "Show arrows"
 msgstr "Näytä nuolet"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:605
+#: meecast/qt-qml/qml/FullWeatherPage.qml:621
 msgid "Show on Map"
 msgstr "Näytä kartalla"
 
@@ -2350,11 +2355,11 @@ msgstr "Myöhemmin sadekuuroja"
 msgid "Showers in the Vicinity"
 msgstr "Sadekuuroja lähistöllä"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:347
 msgid "Sky is Clear"
 msgstr "Selkeää"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:346
 msgid "Sky is clear"
 msgstr "Selkeää"
 
@@ -2469,11 +2474,11 @@ msgstr "Aurinkoista"
 msgid "Sunny / Wind"
 msgstr "Aurinkoista / Tuulista"
 
-#: omweather/src/hash.data:347 omweather/src/hash.data:348
+#: omweather/src/hash.data:348 omweather/src/hash.data:349
 msgid "Sunny periods and a few showers."
 msgstr "Aurinkoista ja ajoittaisia sadekuuroja."
 
-#: omweather/src/hash.data:285 meecast/qt-qml/qml/FullWeatherPage.qml:292
+#: omweather/src/hash.data:285 meecast/qt-qml/qml/FullWeatherPage.qml:308
 msgid "Sunrise:"
 msgstr "Auringonnousu:"
 
@@ -2481,7 +2486,7 @@ msgstr "Auringonnousu:"
 msgid "Sunrise: "
 msgstr "Auringonnousu: "
 
-#: omweather/src/hash.data:286 meecast/qt-qml/qml/FullWeatherPage.qml:295
+#: omweather/src/hash.data:286 meecast/qt-qml/qml/FullWeatherPage.qml:311
 msgid "Sunset:"
 msgstr "Auringonlasku:"
 
@@ -2557,7 +2562,7 @@ msgstr "Kiitokset"
 msgid "The weather has been updated."
 msgstr "Säätiedot päivitetty."
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:354
 msgid "There are no stations to show in this view of the list"
 msgstr "Ei sääasemia tässä näkymässä"
 
@@ -2598,7 +2603,7 @@ msgstr "Ukkosta lähistöllä"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
-#: meecast/qt-qml/qml/FullWeatherPage.qml:427
+#: meecast/qt-qml/qml/FullWeatherPage.qml:443
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Today"
 msgstr "Tänään"
@@ -2628,7 +2633,7 @@ msgstr "Hae säätiedot"
 msgid "Type of click:"
 msgstr "Näpäytystapa:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:174
+#: meecast/qt-qml/qml/FullWeatherPage.qml:180
 msgid "UV index:"
 msgstr "UV indeksi:"
 
@@ -2720,12 +2725,12 @@ msgstr "Erittäin korkea"
 msgid "Visible items:"
 msgstr "Näkyvät elementit:"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:58 meecast/qt-qml/qml/UnitsPage.qml:209
+#: meecast/qt-qml/qml/UnitsPage.qml:58 meecast/qt-qml/qml/UnitsPage.qml:222
 msgid "Visible units"
 msgstr "Näkyvyyden yksikkö"
 
 #: omweather/src/weather-popup.c:1288
-#: meecast/qt-qml/qml/FullWeatherPage.qml:171
+#: meecast/qt-qml/qml/FullWeatherPage.qml:177
 msgid "Visible:"
 msgstr "Näkyvyys:"
 
@@ -2822,8 +2827,8 @@ msgid "Wind"
 msgstr "Tuulista"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:139
-#: meecast/qt-qml/qml/FullWeatherPage.qml:197
-#: meecast/qt-qml/qml/FullWeatherPage.qml:247
+#: meecast/qt-qml/qml/FullWeatherPage.qml:203
+#: meecast/qt-qml/qml/FullWeatherPage.qml:258
 msgid "Wind direction"
 msgstr "Tuulen suunta"
 
@@ -2831,15 +2836,18 @@ msgstr "Tuulen suunta"
 msgid "Wind direction:"
 msgstr "Tuulen suunta:"
 
-#: meecast/qt-qml/qml/FullWeatherPage.qml:151
-#: meecast/qt-qml/qml/FullWeatherPage.qml:209
-#: meecast/qt-qml/qml/FullWeatherPage.qml:259
+#: meecast/qt-qml/qml/FullWeatherPage.qml:157
+#: meecast/qt-qml/qml/FullWeatherPage.qml:220
+#: meecast/qt-qml/qml/FullWeatherPage.qml:275
 msgid "Wind gust:"
 msgstr "Tuulenpuuskat:"
 
-#: omweather/src/hash.data:313 meecast/qt-qml/qml/FullWeatherPage.qml:145
-#: meecast/qt-qml/qml/FullWeatherPage.qml:203
-#: meecast/qt-qml/qml/FullWeatherPage.qml:253
+#: omweather/src/hash.data:313 meecast/qt-qml/qml/FullWeatherPage.qml:146
+#: meecast/qt-qml/qml/FullWeatherPage.qml:149
+#: meecast/qt-qml/qml/FullWeatherPage.qml:210
+#: meecast/qt-qml/qml/FullWeatherPage.qml:213
+#: meecast/qt-qml/qml/FullWeatherPage.qml:265
+#: meecast/qt-qml/qml/FullWeatherPage.qml:268
 msgid "Wind speed"
 msgstr "Tuulen nopeus"
 
@@ -3024,7 +3032,7 @@ msgstr "tuuma"
 #: omweather/src/weather-home.c:1588 omweather/src/weather-popup.c:1297
 #: omweather/src/weather-simple-settings.c:1336
 #: omweather/src/weather-simple-settings.c:2670
-#: meecast/qt-qml/qml/UnitsPage.qml:227
+#: meecast/qt-qml/qml/UnitsPage.qml:240
 msgid "km"
 msgstr "km"
 
@@ -3039,18 +3047,22 @@ msgstr "km/h"
 msgid "km/s"
 msgstr "km/s"
 
+#: omweather/src/hash.data:322
+msgid "kn"
+msgstr ""
+
 #: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1296
 #: omweather/src/weather-simple-settings.c:1328
 #: omweather/src/weather-simple-settings.c:2664
-#: meecast/qt-qml/qml/UnitsPage.qml:220
+#: meecast/qt-qml/qml/UnitsPage.qml:233
 msgid "m"
 msgstr "m"
 
-#: omweather/src/hash.data:322
+#: omweather/src/hash.data:323
 msgid "m/h"
 msgstr "m/h"
 
-#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:323
+#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:324
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
 #: meecast/qt-qml/qml/UnitsPage.qml:153
@@ -3066,7 +3078,7 @@ msgstr "m/s"
 msgid "mb"
 msgstr "mbar"
 
-#: meecast/qt-qml/qml/UnitsPage.qml:187
+#: meecast/qt-qml/qml/UnitsPage.qml:200
 msgid "mbar"
 msgstr "mbar"
 
@@ -3074,18 +3086,18 @@ msgstr "mbar"
 #: omweather/src/weather-popup.c:1298 omweather/src/weather-popup.c:1299
 #: omweather/src/weather-simple-settings.c:1345
 #: omweather/src/weather-simple-settings.c:2676
-#: meecast/qt-qml/qml/UnitsPage.qml:234
+#: meecast/qt-qml/qml/UnitsPage.qml:247
 msgid "mi"
 msgstr "mi"
 
-#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:324
+#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:325
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
 #: meecast/qt-qml/qml/UnitsPage.qml:167
 msgid "mi/h"
 msgstr "mi/h"
 
-#: omweather/src/hash.data:325
+#: omweather/src/hash.data:326
 msgid "mi/s"
 msgstr "mi/s"
 
@@ -3107,7 +3119,7 @@ msgstr "mm"
 #: omweather/src/weather-popup.c:986 omweather/src/weather-popup.c:1118
 #: omweather/src/weather-popup.c:1314
 #: omweather/src/weather-simple-settings.c:1488
-#: meecast/qt-qml/qml/UnitsPage.qml:201
+#: meecast/qt-qml/qml/UnitsPage.qml:214
 msgid "mmHg"
 msgstr "mmHg"
 
@@ -3133,7 +3145,7 @@ msgstr "Seuraava"
 msgid "nmi"
 msgstr "nmi"
 
-#: omweather/src/hash.data:326
+#: omweather/src/hash.data:327
 msgid "rising"
 msgstr "nousussa"
 
@@ -3149,38 +3161,38 @@ msgstr "aseman paikallisaika"
 msgid "station name"
 msgstr "aseman nimessä"
 
-#: omweather/src/hash.data:327
+#: omweather/src/hash.data:328
 msgid "steady"
 msgstr "tasainen"
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:355
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:356
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:356
+#: omweather/src/hash.data:357
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:357
+#: omweather/src/hash.data:358
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:358
+#: omweather/src/hash.data:359
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:359
+#: omweather/src/hash.data:360
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:360
+#: omweather/src/hash.data:361
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:361
+#: omweather/src/hash.data:362
 msgid "Ю-З"
 msgstr "Ю-З"

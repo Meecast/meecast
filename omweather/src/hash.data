@@ -319,6 +319,7 @@
     g_hash_table_insert(hash, (void*)"falling", _("falling"));
     g_hash_table_insert(hash, (void*)"km/h", _("km/h"));
     g_hash_table_insert(hash, (void*)"km/s", _("km/s"));
+    g_hash_table_insert(hash, (void*)"kn", _("kn"));
     g_hash_table_insert(hash, (void*)"m/h", _("m/h"));
     g_hash_table_insert(hash, (void*)"m/s", _("m/s"));
     g_hash_table_insert(hash, (void*)"mi/h", _("mi/h"));

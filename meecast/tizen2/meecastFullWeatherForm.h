@@ -18,13 +18,14 @@
 
 
 class meecastFullWeatherForm
-	: public Tizen::Ui::Controls::Form
-	, public Tizen::Ui::IActionEventListener
-	, public Tizen::Ui::Controls::IFormBackEventListener
- 	, public Tizen::Ui::Scenes::ISceneEventListener
+    : public Tizen::Ui::Controls::Form
+    , public Tizen::Ui::IActionEventListener
+    , public Tizen::Ui::Controls::IFormBackEventListener
+    , public Tizen::Ui::Controls::IFormMenuEventListener
+    , public Tizen::Ui::Scenes::ISceneEventListener
     , public Tizen::Ui::ITouchEventListener
-	, public Tizen::Ui::Controls::ITableViewItemEventListener
-	, public Tizen::Ui::Controls::ITableViewItemProvider
+    , public Tizen::Ui::Controls::ITableViewItemEventListener
+    , public Tizen::Ui::Controls::ITableViewItemProvider
     , public Tizen::Ui::ITouchFlickGestureEventListener
      {
 public:
@@ -36,27 +37,28 @@ public:
     };
 
 
-	meecastFullWeatherForm(void);
-	virtual ~meecastFullWeatherForm(void);
-	bool Initialize(void);
+    meecastFullWeatherForm(void);
+    virtual ~meecastFullWeatherForm(void);
+    bool Initialize(void);
     void CreateContextMenuList(Tizen::Graphics::Point Corner_Point);
 public:
-	virtual result OnInitializing(void);
-	virtual result OnTerminating(void);
-	virtual void OnActionPerformed(const Tizen::Ui::Control& source, int actionId);
-	virtual void OnFormBackRequested(Tizen::Ui::Controls::Form& source);
-	virtual void OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
-								   const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs);
-	virtual void OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSceneId,
-									const Tizen::Ui::Scenes::SceneId& nextSceneId);
+    virtual result OnInitializing(void);
+    virtual result OnTerminating(void);
+    virtual void OnActionPerformed(const Tizen::Ui::Control& source, int actionId);
+    virtual void OnFormMenuRequested(Tizen::Ui::Controls::Form& source);
+    virtual void OnFormBackRequested(Tizen::Ui::Controls::Form& source);
+    virtual void OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
+                                   const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs);
+    virtual void OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSceneId,
+                                    const Tizen::Ui::Scenes::SceneId& nextSceneId);
 // from ITouchEventListener
-	virtual void OnTouchPressed(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo);
-	virtual void OnTouchDoublePressed(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
-	virtual void OnTouchFocusIn(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
-	virtual void OnTouchFocusOut(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
-	virtual void OnTouchLongPressed(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
-	virtual void OnTouchMoved(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
-	virtual void OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
+    virtual void OnTouchPressed(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo);
+    virtual void OnTouchDoublePressed(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
+    virtual void OnTouchFocusIn(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
+    virtual void OnTouchFocusOut(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
+    virtual void OnTouchLongPressed(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
+    virtual void OnTouchMoved(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
+    virtual void OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
     void ReInitElements(void);
 
     Tizen::Graphics::Color* GetTemperatureColor(int t);
@@ -71,12 +73,12 @@ public:
     virtual int GetDefaultItemHeight(void);
     // ITableViewItemEventListener
     virtual void OnTableViewItemStateChanged(Tizen::Ui::Controls::TableView& tableView, int itemIndex, Tizen::Ui::Controls::TableViewItem* pItem, Tizen::Ui::Controls::TableViewItemStatus status);
-	virtual void OnTableViewContextItemActivationStateChanged(Tizen::Ui::Controls::TableView& tableView, int itemIndex, Tizen::Ui::Controls::TableViewContextItem* pContextItem, bool activated);
-	virtual void OnTableViewItemReordered(Tizen::Ui::Controls::TableView& tableView, int itemIndexFrom, int itemIndexTo);
+    virtual void OnTableViewContextItemActivationStateChanged(Tizen::Ui::Controls::TableView& tableView, int itemIndex, Tizen::Ui::Controls::TableViewContextItem* pContextItem, bool activated);
+    virtual void OnTableViewItemReordered(Tizen::Ui::Controls::TableView& tableView, int itemIndexFrom, int itemIndexTo);
 
     //Gesture
-	virtual void OnFlickGestureDetected(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
-	virtual void OnFlickGestureCanceled(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
+    virtual void OnFlickGestureDetected(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
+    virtual void OnFlickGestureCanceled(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
 
 
          
@@ -103,6 +105,9 @@ protected:
     static const int ID_BUTTON_NIGHT = 1907;
     static const int ID_BUTTON_HOURLY = 1908;
     static const int ID_SET_LOCATIONS = 909;
+    static const int ID_MENU_SETTINGS = 906;
+    static const int ID_BUTTON_MENU = 905;
+    static const int ID_MENU_ABOUT = 907;
     static const int DURATION = 500;
     static const int PROGRESS_COUNT = 30;
     static const int INDICATE_HEIGHT = 70;
@@ -110,19 +115,20 @@ private:
     ConfigTizen *_config;
     int _dayCount;
     int _dayNumber;
-    int _current_selected_tab;
+    Tizen::Ui::Controls::ContextMenu* __pContextMenuText;
     Tizen::Ui::Controls::FooterItem* __nowButton;
     Tizen::Ui::Controls::FooterItem* __dayButton;
     Tizen::Ui::Controls::FooterItem* __nightButton;
     Tizen::Ui::Controls::FooterItem* __hourlyButton;
-	Tizen::Ui::Controls::TableView* __pTableView;
-	int __clientWidth;
+    Tizen::Ui::Controls::TableView* __pTableView;
+    int _current_selected_tab;
+    int __clientWidth;
     int __clientHeight;
     Tizen::Base::Collection::ArrayList* _pKeyList;
     Tizen::Base::Collection::ArrayList* _pValueList;
     int _count_of_hours; 
-	Tizen::Ui::TouchFlickGestureDetector* __pFlickGesture;
-	bool __gestureDetected;
+    Tizen::Ui::TouchFlickGestureDetector* __pFlickGesture;
+    bool __gestureDetected;
 };
 
 #endif	//_MEECAST_FULL_WEATHER_FORM_H_

@@ -72,7 +72,7 @@ meecastMainForm::~meecastMainForm(void)
         delete __pContextMenuText;
 //    if (_config->dp)
 //        _config->dp->DeleteInstance();
-    AppLog("DeleteInstance 11111111");
+   /*  AppLog("DeleteInstance "); */
     _config->DeleteInstance();
 }
 

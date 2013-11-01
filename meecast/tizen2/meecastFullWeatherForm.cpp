@@ -37,14 +37,15 @@ using namespace Tizen::Locales;
 using namespace Tizen::System;
 
 meecastFullWeatherForm::meecastFullWeatherForm(void):
+                                  __pContextMenuText(null),
                                   __nowButton(null),
                                   __dayButton(null),
                                   __nightButton(null),
                                   __hourlyButton(null),
                                   _current_selected_tab(NOW),
                                   _pKeyList(null),
-	                              __pFlickGesture(null),
                                   _pValueList(null),
+	                              __pFlickGesture(null),
 	                              __gestureDetected(false){
     _dayNumber = 0;
 }
@@ -63,7 +64,8 @@ meecastFullWeatherForm::~meecastFullWeatherForm(void)
         _pValueList->RemoveAll(true);
     }
     delete _pValueList;
-
+    if (__pContextMenuText)
+        delete __pContextMenuText;
 }
 
 bool
@@ -88,6 +90,7 @@ meecastFullWeatherForm::OnInitializing(void){
 
     // Setup back event listener
     SetFormBackEventListener(this);
+    SetFormMenuEventListener(this);
 
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
     if (right_label != null)
@@ -100,9 +103,6 @@ meecastFullWeatherForm::OnInitializing(void){
                                        Core::AbstractConfig::prefix+
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");
-    Tizen::Ui::Controls::TableView  *main_tableview_forecast = static_cast<TableView*>(GetControl(L"IDC_TABLEVIEW_FORECAST"));
-
-
 
 	Rectangle clientRect;
 	Form *pForm = static_cast<Form*>(GetParent());
@@ -149,7 +149,23 @@ meecastFullWeatherForm::OnInitializing(void){
 //        main_need_updating->AddGestureDetector(*__pFlickGesture);
     	__pFlickGesture->AddFlickGestureEventListener(*this);
 	}
+
+    Tizen::Graphics::Point position = pFooter->GetPosition();
+    position.SetPosition(position.x + pFooter->GetWidth(), position.y + 50);
+    CreateContextMenuList(position);
+
+
     return r;
+}
+
+void
+meecastFullWeatherForm::CreateContextMenuList(Tizen::Graphics::Point Corner_Point){
+    __pContextMenuText = new (std::nothrow) ContextMenu();
+    __pContextMenuText->Construct(Corner_Point, CONTEXT_MENU_STYLE_LIST, CONTEXT_MENU_ANCHOR_DIRECTION_UPWARD);
+    __pContextMenuText->AddItem(_("Settings"), ID_MENU_SETTINGS);
+    __pContextMenuText->AddItem(_("About"), ID_MENU_ABOUT);
+    __pContextMenuText->AddActionEventListener(*this);
+    __pContextMenuText->SetMaxVisibleItemsCount(5);
 }
 
 result
@@ -244,10 +260,27 @@ meecastFullWeatherForm::OnActionPerformed(const Tizen::Ui::Control& source, int 
             _current_selected_tab = HOURLY; 
             ReInitElements(); 
             break;
+        case ID_BUTTON_MENU:
+            AppLog("Menu Button is clicked!");
+            __pContextMenuText->SetShowState(true);
+            __pContextMenuText->Show();
+            break;
         default:
         break;
     }
 }
+
+void
+meecastFullWeatherForm::OnFormMenuRequested(Tizen::Ui::Controls::Form& source){
+    AppLog("OnFormMenuRequested");
+    SceneManager* pSceneManager = SceneManager::GetInstance();
+    AppAssert(pSceneManager);
+    __pContextMenuText->SetShowState(true);
+    __pContextMenuText->Show();
+
+//    pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_SETTINGSSCENE"));
+}
+
 
 void
 meecastFullWeatherForm::OnFormBackRequested(Tizen::Ui::Controls::Form& source)
@@ -267,27 +300,13 @@ meecastFullWeatherForm::ReInitElements(void){
     int timezone = 0;
     Tizen::Ui::Controls::Label  *day_name_label = static_cast<Label*>(GetControl(L"IDC_LABEL_DAY_NAME"));
     Tizen::Ui::Controls::Label  *main_background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
-    Tizen::Ui::Controls::Label  *main_no_locations_label = static_cast<Label*>(GetControl(L"IDC_LABEL_NO_LOCATIONS"));
-    Tizen::Ui::Controls::Button *main_set_locations_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_SET_LOCATIONS"));
-    Tizen::Ui::Controls::Label  *main_need_updating = static_cast<Label*>(GetControl(L"IDC_LABEL_NEED_UPDATING"));
-    Tizen::Ui::Controls::Button *main_set_try_update_button = static_cast<Button*>(GetControl(L"IDC_BUTTON_TRY_UPDATE"));
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
     Tizen::Ui::Controls::Label  *main_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_MAIN_ICON"));
     Tizen::Ui::Controls::Label  *main_description = static_cast<Label*>(GetControl(L"IDC_LABEL_MAIN_DESCRIPTION"));
     Tizen::Ui::Controls::Label  *main_temperature = static_cast<Label*>(GetControl(L"IDC_LABEL_MAIN_TEMPERATURE"));
     Tizen::Ui::Controls::Label  *main_current_state = static_cast<Label*>(GetControl(L"IDC_LABEL_CURRENT_STATE"));
-    Tizen::Ui::Controls::Label  *main_humidity_text = static_cast<Label*>(GetControl(L"IDC_LABEL_HUMIDITY_TEXT"));
-    Tizen::Ui::Controls::Label  *main_humidity_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_HUMIDITY_ICON"));
-    Tizen::Ui::Controls::Label  *main_background_wind_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_WIND_BACKGROUND"));
-    Tizen::Ui::Controls::Label  *main_wind_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_WIND_DIRECTION"));
-    Tizen::Ui::Controls::Label  *main_wind_text = static_cast<Label*>(GetControl(L"IDC_LABEL_WINDDIRECTION_TEXT"));
-    Tizen::Ui::Controls::Label  *main_wind_speed_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_WIND_SPEED_ICON"));
-    Tizen::Ui::Controls::Label  *main_wind_speed_text = static_cast<Label*>(GetControl(L"IDC_LABEL_WINDSPEED_TEXT"));
-    Tizen::Ui::Controls::Label  *main_pressure_icon = static_cast<Label*>(GetControl(L"IDC_LABEL_PRESSURE_ICON"));
-    Tizen::Ui::Controls::Label  *main_pressure_text = static_cast<Label*>(GetControl(L"IDC_LABEL_PRESSURE_TEXT"));
     Tizen::Ui::Controls::Panel  *backgroundPanel = static_cast<Panel*>(GetControl(L"IDC_PANEL_BACKGROUND"));
-    Tizen::Ui::Controls::TableView  *main_tableview_forecast = static_cast<TableView*>(GetControl(L"IDC_TABLEVIEW_FORECAST"));
 
     if (_config->stationsList().size()!=0){
         main_background_label->SetBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("mask_background_main.png"));
@@ -300,8 +319,9 @@ meecastFullWeatherForm::ReInitElements(void){
     main_temperature->SetShowState(false);
     main_description->SetShowState(false);
 
-    AppLog("_config->current_station_id() %i", _config->current_station_id());
+    /* AppLog("_config->current_station_id() %i", _config->current_station_id());
     AppLog("_config->stationsList().size() %i", _config->stationsList().size());
+    */
     //if ((_config->stationsList().size() > 0) && _config->current_station_id() > _config->stationsList().size()) {
     if ((_config->stationsList().size() > 0)) {
         String temp = (App::GetInstance()->GetAppDataPath());
@@ -321,7 +341,7 @@ meecastFullWeatherForm::ReInitElements(void){
     /* Timezone */
     if (_config->dp){
         timezone = _config->dp->timezone();
-        AppLog("TimeZone %i", timezone);
+     /*   AppLog("TimeZone %i", timezone); */
     }
 
     current_day = time(NULL);
@@ -443,7 +463,7 @@ meecastFullWeatherForm::ReInitElements(void){
         _count_of_hours = 0; 
         /* fill hours */
         while  (_config->dp != NULL && i<5*24*3600) {
-            if (temp_data = _config->dp->data().GetDataForTime(current_hour + i, true)){
+            if ((temp_data = _config->dp->data().GetDataForTime(current_hour + i, true)) != NULL){
                 if (temp_data->StartTime() + 60 == current_hour + i){
                     _pValueList->Add(new Long(current_hour + i));
                     _pKeyList->Add(new Integer(_count_of_hours));
@@ -452,17 +472,13 @@ meecastFullWeatherForm::ReInitElements(void){
             }
             i = i + 3600;
         }
-        Form *main_form = static_cast<Form*>(GetParent());
         pLayout->SetRelation(*__pTableView, *day_name_label, RECT_EDGE_RELATION_TOP_TO_TOP);
         __pTableView->SetSize(__clientWidth, __clientHeight - pFooter->GetHeight() - INDICATE_HEIGHT);
 	
         __pTableView->RequestRedraw();
         AppLog("Set tAB Hourly relation");
     }else{
-
-        int i = 3600*24;
         /* Select time for showimg */ 
-
         time_t time_for_show = 0;
         switch (_current_selected_tab){
             case NOW: 
@@ -840,8 +856,7 @@ meecastFullWeatherForm::GetItemCount(void)
             return (_pValueList->GetCount() / 2) + 1;
         else    
             return _pValueList->GetCount() / 2;
-    }
-    if (_current_selected_tab == HOURLY){
+    }else{
         return _pValueList->GetCount();
     }
 }
@@ -849,6 +864,7 @@ meecastFullWeatherForm::GetItemCount(void)
 void
 meecastFullWeatherForm::UpdateItem(int index, TableViewItem* pItem)
 {
+    return;
 }
 
 bool
@@ -875,9 +891,7 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 
 	String title;
 	String description;
-	int resValue = -1;
-	bool result = false;
-    char  buffer[4096];
+    char buffer[4096];
 
     AppLog("meecastFullWeatherForm::CreateItem");
 	TableViewAnnexStyle style = TABLE_VIEW_ANNEX_STYLE_NORMAL;

@@ -45,8 +45,8 @@ meecastFullWeatherForm::meecastFullWeatherForm(void):
                                   _current_selected_tab(NOW),
                                   _pKeyList(null),
                                   _pValueList(null),
-	                              __pFlickGesture(null),
-	                              __gestureDetected(false){
+                                  __pFlickGesture(null),
+                                  __gestureDetected(false){
     _dayNumber = 0;
 }
 
@@ -94,34 +94,33 @@ meecastFullWeatherForm::OnInitializing(void){
 
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
     if (right_label != null)
-		right_label->AddTouchEventListener(*this);
+        right_label->AddTouchEventListener(*this);
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
     if (left_label != null)
-		left_label->AddTouchEventListener(*this);
+        left_label->AddTouchEventListener(*this);
 
     _config = ConfigTizen::Instance( std::string("config.xml"),
                                        Core::AbstractConfig::prefix+
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");
-
-	Rectangle clientRect;
-	Form *pForm = static_cast<Form*>(GetParent());
-	AppAssert(pForm);
+    Rectangle clientRect;
+    Form *pForm = static_cast<Form*>(GetParent());
+    AppAssert(pForm);
     RelativeLayout* pLayout = dynamic_cast< RelativeLayout* >(this->GetLayoutN());
-	AppAssert(pLayout);
-	clientRect = pForm->GetClientAreaBounds();
-	__clientWidth = clientRect.width;
-	__clientHeight = clientRect.height;
-	SetBounds(Rectangle(0, 0, clientRect.width, clientRect.height));
+    AppAssert(pLayout);
+    clientRect = pForm->GetClientAreaBounds();
+    __clientWidth = clientRect.width;
+    __clientHeight = clientRect.height;
+    SetBounds(Rectangle(0, 0, clientRect.width, clientRect.height));
 
-	__pTableView = new (std::nothrow) TableView();
-	AppLogExceptionIf(__pTableView == null, "Table view creation is failed");
+    __pTableView = new (std::nothrow) TableView();
+    AppLogExceptionIf(__pTableView == null, "Table view creation is failed");
 
     Tizen::Ui::Controls::Label  *main_background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
-	__pTableView->Construct(Rectangle(0, 0, clientRect.width, clientRect.height - main_background_label->GetHeight() - pFooter->GetHeight() - INDICATE_HEIGHT), true, TABLE_VIEW_SCROLL_BAR_STYLE_FADE_OUT);
-	__pTableView->SetItemProvider(this);
-	__pTableView->AddTableViewItemEventListener(*this);
-    
+    __pTableView->Construct(Rectangle(0, 0, clientRect.width, clientRect.height - main_background_label->GetHeight() - pFooter->GetHeight() - INDICATE_HEIGHT), true, TABLE_VIEW_SCROLL_BAR_STYLE_FADE_OUT);
+    __pTableView->SetItemProvider(this);
+    __pTableView->AddTableViewItemEventListener(*this);
+
     __pTableView->SetBackgroundColor(Tizen::Graphics::Color(0x00, 0x00, 0x00));
 
     AddControl(*__pTableView);
@@ -136,19 +135,19 @@ meecastFullWeatherForm::OnInitializing(void){
     _pKeyList = new (std::nothrow) Tizen::Base::Collection::ArrayList();
     _pKeyList->Construct();
     Tizen::Ui::Controls::Panel *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
-	if (pTouchArea != null){
-	    AddControl(*pTouchArea);
-		pTouchArea->AddTouchEventListener(*this);
-	}                   
-	__pFlickGesture = new (std::nothrow) TouchFlickGestureDetector;
-	if (__pFlickGesture != null){
-		__pFlickGesture->Construct();
+    if (pTouchArea != null){
+        AddControl(*pTouchArea);
+        pTouchArea->AddTouchEventListener(*this);
+    }
+    __pFlickGesture = new (std::nothrow) TouchFlickGestureDetector;
+    if (__pFlickGesture != null){
+        __pFlickGesture->Construct();
         pTouchArea->AddGestureDetector(*__pFlickGesture);
         __pTableView->AddGestureDetector(*__pFlickGesture);
 //	    source_icon_label->AddGestureDetector(*__pFlickGesture);
 //        main_need_updating->AddGestureDetector(*__pFlickGesture);
-    	__pFlickGesture->AddFlickGestureEventListener(*this);
-	}
+        __pFlickGesture->AddFlickGestureEventListener(*this);
+    }
 
     Tizen::Graphics::Point position = pFooter->GetPosition();
     position.SetPosition(position.x + pFooter->GetWidth(), position.y + 10);
@@ -344,7 +343,7 @@ meecastFullWeatherForm::ReInitElements(void){
         _config->dp = NULL;
 
     Core::Data *temp_data = NULL;
-    AppLog ("DP %p", _config->dp);
+    /* AppLog ("DP %p", _config->dp); */
     time_t current_day;
     struct tm   *tm = NULL;
     /* Timezone */
@@ -698,10 +697,10 @@ meecastFullWeatherForm::ReInitElements(void){
                 _pKeyList->Add(new String(_("Visible:")));
             }
      
-                AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %li", current_day + 15 * 3600 + _dayNumber*24*3600);
+              /*  AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %li", current_day + 15 * 3600 + _dayNumber*24*3600); */
             /* Sun Rise */
             if (_config->dp->data().GetSunRiseForTime(current_day + 15 * 3600 + _dayNumber*24*3600) > 0){
-                AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %i %i", timezone, localtimezone);
+            /*    AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %i %i", timezone, localtimezone); */
                 //time_t sun_rise_time =  _config->dp->data().GetSunRiseForTime(current_day + 15 * 3600) + 3600*timezone -3600*localtimezone;
                 time_t sun_rise_time =  _config->dp->data().GetSunRiseForTime(current_day + 15 * 3600) + 3600*timezone;
                 struct tm   tm1;
@@ -724,7 +723,7 @@ meecastFullWeatherForm::ReInitElements(void){
             }
             /* Sun Set */
             if (_config->dp->data().GetSunSetForTime(current_day + 15 * 3600 + _dayNumber*24*3600) > 0){
-                AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %i %i", timezone, localtimezone);
+                /* AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %i %i", timezone, localtimezone); */
                 time_t sun_set_time =  _config->dp->data().GetSunSetForTime(current_day + 15 * 3600) + 3600*timezone;
                 struct tm   tm1;
                // tm = gmtime(&current_day);

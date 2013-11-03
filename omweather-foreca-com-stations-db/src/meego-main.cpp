@@ -73,18 +73,11 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     xmlXPathObjectPtr xpathObj9 = NULL; 
     xmlNodeSetPtr nodes;
     char       *temp_char;
-    char       *temp_char2;
-    int        pressure; 
-    int        speed;
-    int        ppcp;
 
-    char       *image = NULL;
-    double      time_diff = 0;
     int    flag;
     struct tm   tmp_tm = {0};
     struct tm   *tm;
     time_t      t_start = 0, t_end = 0,
-                t_sunrise = 0, t_sunset = 0,
                 current_time = 0;
     FILE        *file_out;
     int index = 1;
@@ -497,12 +490,10 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     xmlXPathObjectPtr xpathObj7 = NULL; 
     xmlNodeSetPtr nodes;
     char       *temp_char;
-    char       *temp_char2;
 
     struct tm   tmp_tm = {0};
     struct tm   *tm;
     time_t      t_start = 0, t_end = 0,
-                t_sunrise = 0, t_sunset = 0,
                 current_time = 0;
     FILE        *file_out;
 

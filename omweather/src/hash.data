@@ -337,6 +337,7 @@
     g_hash_table_insert(hash, (void*)"Light rain", _("Light rain"));
     g_hash_table_insert(hash, (void*)"Light Rain", _("Light Rain"));
     g_hash_table_insert(hash, (void*)"Light snow", _("Light snow"));
+    g_hash_table_insert(hash, (void*)"Light intensity drizzle", _("Light intensity drizzle"));
     g_hash_table_insert(hash, (void*)"Moderate rain", _("Moderate rain"));
     g_hash_table_insert(hash, (void*)"Moderate Rain", _("Moderate Rain"));
     g_hash_table_insert(hash, (void*)"Overcast clouds", _("Overcast clouds"));

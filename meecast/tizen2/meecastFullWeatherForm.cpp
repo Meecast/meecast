@@ -377,12 +377,14 @@ meecastFullWeatherForm::ReInitElements(void){
     Footer* pFooter = GetFooter();
 
     pFooter->RemoveAllItems();
-    __dayButton = new Tizen::Ui::Controls::FooterItem(); 
-    __dayButton->Construct(ID_BUTTON_DAY);
-    __dayButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("day_def.png"));
-    __dayButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("day_sel.png"));
-    __dayButton->SetText(_("Day"));
 
+    if (_config->dp && (temp_data = _config->dp->data().GetDataForTime(current_day + 15 * 3600 + _dayNumber*24*3600))) {
+        __dayButton = new Tizen::Ui::Controls::FooterItem(); 
+        __dayButton->Construct(ID_BUTTON_DAY);
+        __dayButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("day_def.png"));
+        __dayButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("day_sel.png"));
+        __dayButton->SetText(_("Day"));
+    }
     /* Check Night */
     __nightButton = NULL;
 
@@ -410,7 +412,6 @@ meecastFullWeatherForm::ReInitElements(void){
         }
     }
 
-
     /* Check Now */
     __nowButton = NULL;
     if (_dayNumber == 0 && _config->dp != NULL && (temp_data = _config->dp->data().GetDataForTime(time(NULL))) && temp_data->Current()){    
@@ -425,7 +426,8 @@ meecastFullWeatherForm::ReInitElements(void){
 
     /* Check Hourly */
     for (unsigned int i=1; i<24; i++){ 
-        if (_config->dp && (temp_data = _config->dp->data().GetDataForTime(current_day + i * 3600 + _dayNumber*24*3600, true))) {    
+        if (_config->dp &&
+            (temp_data = _config->dp->data().GetDataForTime(current_day + i * 3600 + _dayNumber*24*3600, true)) != NULL) {    
             __hourlyButton = new Tizen::Ui::Controls::FooterItem(); 
             __hourlyButton->Construct(ID_BUTTON_HOURLY);
             __hourlyButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("hourly_def.png"));

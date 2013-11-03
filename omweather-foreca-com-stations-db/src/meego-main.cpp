@@ -91,12 +91,8 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     time_t      loc_time;
     time_t      utc_time;
     int        location_timezone = 0;
-    int timezone_flag = false;
-    int sunrise_flag = false;
     int    flag;
     struct tm   tmp_tm = {0};
-    struct tm   tm_l = {0};
-    struct tm   tmp_tm2 = {0};
     struct tm   *tm;
     time_t      t_start = 0, t_end = 0,
                 t_sunrise = 0, t_sunset = 0,
@@ -533,12 +529,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     time_t      loc_time;
     time_t      utc_time;
     int         location_timezone = 0;
-    int         timezone_flag = false;
-    int         sunrise_flag = false;
-    struct tm   tmp_tm_loc = {0};
     struct tm   tmp_tm = {0};
-    struct tm   tm_l = {0};
-    struct tm   tmp_tm2 = {0};
     struct tm   *tm;
     time_t      t_start = 0, t_end = 0,
                 t_sunrise = 0, t_sunset = 0,

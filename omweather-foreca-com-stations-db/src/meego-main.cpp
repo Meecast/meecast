@@ -56,7 +56,7 @@ choose_hour_weather_icon(char *image)
 int
 parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *result_file){
     char       buff[256];
-    char       buffer[buff_size],
+    char       buffer[buff_size];
     char        temp_buffer[buff_size];
     int         flag;
     int         night_flag;

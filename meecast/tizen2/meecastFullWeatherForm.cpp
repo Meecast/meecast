@@ -423,9 +423,9 @@ meecastFullWeatherForm::ReInitElements(void){
         if (_current_selected_tab == NOW)
             _current_selected_tab = DAY;
 
-/* Check Hourly */
+    /* Check Hourly */
     for (unsigned int i=1; i<24; i++){ 
-        if (_config->dp && (temp_data = _config->dp->data().GetDataForTime(current_day + i * 3600, true))) {    
+        if (_config->dp && (temp_data = _config->dp->data().GetDataForTime(current_day + i * 3600 + _dayNumber*24*3600, true))) {    
             __hourlyButton = new Tizen::Ui::Controls::FooterItem(); 
             __hourlyButton->Construct(ID_BUTTON_HOURLY);
             __hourlyButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("hourly_def.png"));

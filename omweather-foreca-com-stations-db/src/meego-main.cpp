@@ -93,7 +93,6 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     int timezone_flag = false;
     int sunrise_flag = false;
     int    flag;
-    struct tm   tmp_tm_loc = {0};
     struct tm   tmp_tm = {0};
     struct tm   tm_l = {0};
     struct tm   tmp_tm2 = {0};

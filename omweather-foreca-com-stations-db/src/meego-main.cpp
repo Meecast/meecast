@@ -57,14 +57,7 @@ choose_hour_weather_icon(char *image)
 int
 parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *result_file){
     char       buff[256];
-    char       buffer[buff_size],
-               current_temperature[20],
-               current_icon[10],
-               current_title[1024],
-               current_pressure[15],
-               current_humidity[15],
-               current_wind_direction[15],
-               current_wind_speed[15];
+    char       buffer[buff_size];
     char       temp_buffer[buff_size];
     int        night_flag;
     int        size;
@@ -494,14 +487,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
 int
 parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *result_file){
     char        buff[256],
-                buffer[buff_size],
-                current_temperature[20],
-                current_icon[10],
-                current_title[1024],
-                current_pressure[15],
-                current_humidity[15],
-                current_wind_direction[15],
-                current_wind_speed[15];
+                buffer[buff_size];
     char        temp_buffer[buff_size];
     int         flag;
     int         night_flag;
@@ -515,7 +501,6 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     xmlXPathObjectPtr xpathObj5 = NULL; 
     xmlXPathObjectPtr xpathObj6 = NULL; 
     xmlXPathObjectPtr xpathObj7 = NULL; 
-    xmlXPathObjectPtr xpathObj8 = NULL; 
     xmlXPathObjectPtr xpathObj9 = NULL; 
     xmlNodeSetPtr nodes;
     char       *temp_char;
@@ -740,8 +725,6 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     xmlXPathFreeObject(xpathObj6);
   if (xpathObj7)
     xmlXPathFreeObject(xpathObj7);
-  if (xpathObj8)
-    xmlXPathFreeObject(xpathObj8);
   if (xpathCtx)
     xmlXPathFreeContext(xpathCtx);
 

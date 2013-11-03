@@ -495,7 +495,6 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     xmlXPathObjectPtr xpathObj5 = NULL; 
     xmlXPathObjectPtr xpathObj6 = NULL; 
     xmlXPathObjectPtr xpathObj7 = NULL; 
-    xmlXPathObjectPtr xpathObj9 = NULL; 
     xmlNodeSetPtr nodes;
     char       *temp_char;
     char       *temp_char2;

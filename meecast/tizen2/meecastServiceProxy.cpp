@@ -111,9 +111,9 @@ MeecastServiceProxy::OnMessageReceivedN(RemoteMessagePort* pRemoteMessagePort, I
 	AppLog("MeecastServiceProxy : A response message is Received.");
 
 	String key(L"ServiceApp");
-	String* pData = static_cast<String*>(pMessage->GetValue(key));
 
 /*
+	String* pData = static_cast<String*>(pMessage->GetValue(key));
 	App* pApp = App::GetInstance();
     AppLog("Response data %S", pData->GetPointer());
 

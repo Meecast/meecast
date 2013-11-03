@@ -498,12 +498,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     xmlNodeSetPtr nodes;
     char       *temp_char;
     char       *temp_char2;
-    int        pressure; 
-    int        speed;
-    int        ppcp;
 
-    char       *image = NULL;
-    double      time_diff = 0;
     struct tm   tmp_tm = {0};
     struct tm   *tm;
     time_t      t_start = 0, t_end = 0,

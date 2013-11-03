@@ -59,7 +59,6 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     char       buff[256];
     char       buffer[buff_size];
     char       temp_buffer[buff_size];
-    int        night_flag;
     int        size;
     int        i, j, k, l;
     xmlXPathContextPtr xpathCtx; 
@@ -81,9 +80,6 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
 
     char       *image = NULL;
     double      time_diff = 0;
-    time_t      loc_time;
-    time_t      utc_time;
-    int        location_timezone = 0;
     int    flag;
     struct tm   tmp_tm = {0};
     struct tm   *tm;
@@ -489,8 +485,6 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     char        buff[256],
                 buffer[buff_size];
     char        temp_buffer[buff_size];
-    int         flag;
-    int         night_flag;
     int         size;
     int         i,j;
     xmlXPathContextPtr xpathCtx; 
@@ -511,9 +505,6 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
 
     char       *image = NULL;
     double      time_diff = 0;
-    time_t      loc_time;
-    time_t      utc_time;
-    int         location_timezone = 0;
     struct tm   tmp_tm = {0};
     struct tm   *tm;
     time_t      t_start = 0, t_end = 0,

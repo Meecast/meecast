@@ -4,6 +4,7 @@ meecast (0.8) unstable; urgency=low
   * Added icons for openweathermap.com source
   * Update Arabic language
   * Added new measure units for wind speed - Knots and Beaufort scale
+  * Tizen2 Added checking night weather forecast
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 28 Oct 2013 18:31:23 +0200
 
@@ -15,7 +16,7 @@ meecast (0.7.9) unstable; urgency=low
   * Updated Russian, Dutch translations
   * Tizen2 Fixed problem with temperature view
   * Tizen2 Add LockScreen Widget
-  * Tizen Add Home Icon
+  * Tizen2 Add Home Icon
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 27 Oct 2013 18:31:23 +0200
 

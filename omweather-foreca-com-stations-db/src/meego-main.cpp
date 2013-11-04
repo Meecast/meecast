@@ -488,7 +488,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
 int
 parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *result_file){
     char        buff[256],
-                buffer[buff_size]
+                buffer[buff_size];
     char        temp_buffer[buff_size];
     int         size;
     int         i,j;

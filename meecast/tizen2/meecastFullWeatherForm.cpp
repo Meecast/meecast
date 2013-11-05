@@ -45,8 +45,8 @@ meecastFullWeatherForm::meecastFullWeatherForm(void):
                                   _current_selected_tab(NOW),
                                   _pKeyList(null),
                                   _pValueList(null),
-	                              __pFlickGesture(null),
-	                              __gestureDetected(false){
+                                  __pFlickGesture(null),
+                                  __gestureDetected(false){
     _dayNumber = 0;
 }
 
@@ -94,34 +94,33 @@ meecastFullWeatherForm::OnInitializing(void){
 
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
     if (right_label != null)
-		right_label->AddTouchEventListener(*this);
+        right_label->AddTouchEventListener(*this);
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
     if (left_label != null)
-		left_label->AddTouchEventListener(*this);
+        left_label->AddTouchEventListener(*this);
 
     _config = ConfigTizen::Instance( std::string("config.xml"),
                                        Core::AbstractConfig::prefix+
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");
-
-	Rectangle clientRect;
-	Form *pForm = static_cast<Form*>(GetParent());
-	AppAssert(pForm);
+    Rectangle clientRect;
+    Form *pForm = static_cast<Form*>(GetParent());
+    AppAssert(pForm);
     RelativeLayout* pLayout = dynamic_cast< RelativeLayout* >(this->GetLayoutN());
-	AppAssert(pLayout);
-	clientRect = pForm->GetClientAreaBounds();
-	__clientWidth = clientRect.width;
-	__clientHeight = clientRect.height;
-	SetBounds(Rectangle(0, 0, clientRect.width, clientRect.height));
+    AppAssert(pLayout);
+    clientRect = pForm->GetClientAreaBounds();
+    __clientWidth = clientRect.width;
+    __clientHeight = clientRect.height;
+    SetBounds(Rectangle(0, 0, clientRect.width, clientRect.height));
 
-	__pTableView = new (std::nothrow) TableView();
-	AppLogExceptionIf(__pTableView == null, "Table view creation is failed");
+    __pTableView = new (std::nothrow) TableView();
+    AppLogExceptionIf(__pTableView == null, "Table view creation is failed");
 
     Tizen::Ui::Controls::Label  *main_background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
-	__pTableView->Construct(Rectangle(0, 0, clientRect.width, clientRect.height - main_background_label->GetHeight() - pFooter->GetHeight() - INDICATE_HEIGHT), true, TABLE_VIEW_SCROLL_BAR_STYLE_FADE_OUT);
-	__pTableView->SetItemProvider(this);
-	__pTableView->AddTableViewItemEventListener(*this);
-    
+    __pTableView->Construct(Rectangle(0, 0, clientRect.width, clientRect.height - main_background_label->GetHeight() - pFooter->GetHeight() - INDICATE_HEIGHT), true, TABLE_VIEW_SCROLL_BAR_STYLE_FADE_OUT);
+    __pTableView->SetItemProvider(this);
+    __pTableView->AddTableViewItemEventListener(*this);
+
     __pTableView->SetBackgroundColor(Tizen::Graphics::Color(0x00, 0x00, 0x00));
 
     AddControl(*__pTableView);
@@ -136,19 +135,19 @@ meecastFullWeatherForm::OnInitializing(void){
     _pKeyList = new (std::nothrow) Tizen::Base::Collection::ArrayList();
     _pKeyList->Construct();
     Tizen::Ui::Controls::Panel *pTouchArea = static_cast<Panel*>(GetControl(L"IDC_PANEL_TOUCH"));
-	if (pTouchArea != null){
-	    AddControl(*pTouchArea);
-		pTouchArea->AddTouchEventListener(*this);
-	}                   
-	__pFlickGesture = new (std::nothrow) TouchFlickGestureDetector;
-	if (__pFlickGesture != null){
-		__pFlickGesture->Construct();
+    if (pTouchArea != null){
+        AddControl(*pTouchArea);
+        pTouchArea->AddTouchEventListener(*this);
+    }
+    __pFlickGesture = new (std::nothrow) TouchFlickGestureDetector;
+    if (__pFlickGesture != null){
+        __pFlickGesture->Construct();
         pTouchArea->AddGestureDetector(*__pFlickGesture);
         __pTableView->AddGestureDetector(*__pFlickGesture);
 //	    source_icon_label->AddGestureDetector(*__pFlickGesture);
 //        main_need_updating->AddGestureDetector(*__pFlickGesture);
-    	__pFlickGesture->AddFlickGestureEventListener(*this);
-	}
+        __pFlickGesture->AddFlickGestureEventListener(*this);
+    }
 
     Tizen::Graphics::Point position = pFooter->GetPosition();
     position.SetPosition(position.x + pFooter->GetWidth(), position.y + 10);
@@ -344,7 +343,8 @@ meecastFullWeatherForm::ReInitElements(void){
         _config->dp = NULL;
 
     Core::Data *temp_data = NULL;
-    AppLog ("DP %p", _config->dp);
+    Core::Data *temp_data2 = NULL;
+    /* AppLog ("DP %p", _config->dp); */
     time_t current_day;
     struct tm   *tm = NULL;
     /* Timezone */
@@ -377,22 +377,40 @@ meecastFullWeatherForm::ReInitElements(void){
     Footer* pFooter = GetFooter();
 
     pFooter->RemoveAllItems();
-    __dayButton = new Tizen::Ui::Controls::FooterItem(); 
-    __dayButton->Construct(ID_BUTTON_DAY);
-    __dayButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("day_def.png"));
-    __dayButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("day_sel.png"));
-    __dayButton->SetText(_("Day"));
 
+    if (_config->dp && (temp_data = _config->dp->data().GetDataForTime(current_day + 15 * 3600 + _dayNumber*24*3600))) {
+        __dayButton = new Tizen::Ui::Controls::FooterItem(); 
+        __dayButton->Construct(ID_BUTTON_DAY);
+        __dayButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("day_def.png"));
+        __dayButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("day_sel.png"));
+        __dayButton->SetText(_("Day"));
+    }
     /* Check Night */
     __nightButton = NULL;
-    if (_config->dp && (temp_data = _config->dp->data().GetDataForTime(current_day + 3 * 3600 + _dayNumber*24*3600))) {
-        __nightButton = new Tizen::Ui::Controls::FooterItem(); 
-        __nightButton->Construct(ID_BUTTON_NIGHT);
-        __nightButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("night_def.png"));
-        __nightButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("night_sel.png"));
-        __nightButton->SetText(_("Night"));
-    }
 
+    if (_config->dp && (temp_data = _config->dp->data().GetDataForTime(current_day + 3 * 3600 + _dayNumber*24*3600))) {
+        /* Compare day and night weather */
+        if ((temp_data2 = _config->dp->data().GetDataForTime(current_day + 15 * 3600 + _dayNumber*24*3600)) != NULL){
+            if (!((temp_data->Icon() == temp_data2->Icon()) &&
+                (temp_data->temperature().value(true) == temp_data2->temperature().value(true))&&
+                (temp_data->temperature_hi().value(true) == temp_data2->temperature_hi().value(true))&&
+                (temp_data->temperature_low().value(true) == temp_data2->temperature_low().value(true))&&
+                (temp_data->WindDirection() == temp_data2->WindDirection())&&
+                (temp_data->WindSpeed().value() == temp_data2->WindSpeed().value())&&
+                (temp_data->Humidity() == temp_data2->Humidity())&&
+                (temp_data->pressure().value() == temp_data2->pressure().value()))){
+                __nightButton = new Tizen::Ui::Controls::FooterItem(); 
+            }
+        }else{
+            __nightButton = new Tizen::Ui::Controls::FooterItem(); 
+        }
+        if (__nightButton){
+            __nightButton->Construct(ID_BUTTON_NIGHT);
+            __nightButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("night_def.png"));
+            __nightButton->SetIcon(FOOTER_ITEM_STATUS_SELECTED, Application::GetInstance()->GetAppResource()->GetBitmapN("night_sel.png"));
+            __nightButton->SetText(_("Night"));
+        }
+    }
 
     /* Check Now */
     __nowButton = NULL;
@@ -406,9 +424,10 @@ meecastFullWeatherForm::ReInitElements(void){
         if (_current_selected_tab == NOW)
             _current_selected_tab = DAY;
 
-/* Check Hourly */
+    /* Check Hourly */
     for (unsigned int i=1; i<24; i++){ 
-        if (_config->dp && (temp_data = _config->dp->data().GetDataForTime(current_day + i * 3600, true))) {    
+        if (_config->dp &&
+            (temp_data = _config->dp->data().GetDataForTime(current_day + i * 3600 + _dayNumber*24*3600, true)) != NULL) {    
             __hourlyButton = new Tizen::Ui::Controls::FooterItem(); 
             __hourlyButton->Construct(ID_BUTTON_HOURLY);
             __hourlyButton->SetIcon(FOOTER_ITEM_STATUS_NORMAL, Application::GetInstance()->GetAppResource()->GetBitmapN("hourly_def.png"));
@@ -483,7 +502,7 @@ meecastFullWeatherForm::ReInitElements(void){
         }
         pLayout->SetRelation(*__pTableView, *day_name_label, RECT_EDGE_RELATION_TOP_TO_TOP);
         __pTableView->SetSize(__clientWidth, __clientHeight - pFooter->GetHeight() - INDICATE_HEIGHT);
-	
+
         __pTableView->RequestRedraw();
         AppLog("Set tAB Hourly relation");
     }else{
@@ -562,7 +581,7 @@ meecastFullWeatherForm::ReInitElements(void){
             main_description->SetText(str);
             main_description->RequestRedraw();
             main_description->SetShowState(true);
-            
+
             int t = INT_MAX;
             /* Temperature */
             if (temp_data->temperature().value(true) == INT_MAX){
@@ -595,7 +614,7 @@ meecastFullWeatherForm::ReInitElements(void){
             delete color_of_temp;
             main_temperature->SetShowState(true);
             Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-           
+
             if (str.GetLength()<6)
                 main_temperature->SetTextConfig(95, LABEL_TEXT_STYLE_NORMAL); 
             else
@@ -697,11 +716,11 @@ meecastFullWeatherForm::ReInitElements(void){
                 _pValueList->Add(new String(str));
                 _pKeyList->Add(new String(_("Visible:")));
             }
-     
-                AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %li", current_day + 15 * 3600 + _dayNumber*24*3600);
+
+              /*  AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %li", current_day + 15 * 3600 + _dayNumber*24*3600); */
             /* Sun Rise */
             if (_config->dp->data().GetSunRiseForTime(current_day + 15 * 3600 + _dayNumber*24*3600) > 0){
-                AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %i %i", timezone, localtimezone);
+            /*    AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %i %i", timezone, localtimezone); */
                 //time_t sun_rise_time =  _config->dp->data().GetSunRiseForTime(current_day + 15 * 3600) + 3600*timezone -3600*localtimezone;
                 time_t sun_rise_time =  _config->dp->data().GetSunRiseForTime(current_day + 15 * 3600) + 3600*timezone;
                 struct tm   tm1;
@@ -724,7 +743,7 @@ meecastFullWeatherForm::ReInitElements(void){
             }
             /* Sun Set */
             if (_config->dp->data().GetSunSetForTime(current_day + 15 * 3600 + _dayNumber*24*3600) > 0){
-                AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %i %i", timezone, localtimezone);
+                /* AppLog("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %i %i", timezone, localtimezone); */
                 time_t sun_set_time =  _config->dp->data().GetSunSetForTime(current_day + 15 * 3600) + 3600*timezone;
                 struct tm   tm1;
                // tm = gmtime(&current_day);
@@ -769,9 +788,9 @@ meecastFullWeatherForm::ReInitElements(void){
                 String languageCodeString = systemLocale.GetLanguageCodeString();
                 Tizen::Locales::DateTimeFormatter* pDateFormatter = DateTimeFormatter::CreateDateFormatterN(systemLocale, DATE_TIME_STYLE_DEFAULT);
                 Tizen::Locales::DateTimeFormatter* pTimeFormatter = DateTimeFormatter::CreateTimeFormatterN(systemLocale, DATE_TIME_STYLE_SHORT);
-        		String customizedPattern = L"dd MMM ";
-		        pDateFormatter->ApplyPattern(customizedPattern);
-		        pDateFormatter->Format(dt, dateString);
+                String customizedPattern = L"dd MMM ";
+                pDateFormatter->ApplyPattern(customizedPattern);
+                pDateFormatter->Format(dt, dateString);
                 pTimeFormatter->Format(dt, timeString);
                 dateString.Append(timeString);
                 _pValueList->Add(new String(dateString));
@@ -880,11 +899,11 @@ bool
 meecastFullWeatherForm::DeleteItem(int index, TableViewItem* pItem)
 {
 //	pItem->RemoveAllControls();
-	delete pItem;
-	pItem = null;
+    delete pItem;
+    pItem = null;
 
    // pItem->Destroy();
-	return true;
+    return true;
 }
 
 
@@ -898,17 +917,17 @@ meecastFullWeatherForm::GetDefaultItemHeight(void){
 TableViewItem*
 meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 
-	String title;
-	String description;
+    String title;
+    String description;
     char buffer[4096];
 
     AppLog("meecastFullWeatherForm::CreateItem");
-	TableViewAnnexStyle style = TABLE_VIEW_ANNEX_STYLE_NORMAL;
+    TableViewAnnexStyle style = TABLE_VIEW_ANNEX_STYLE_NORMAL;
 
-	TableViewItem* pItem = new TableViewItem();
+    TableViewItem* pItem = new TableViewItem();
 
-	AppLogExceptionIf(pItem == null, "Table item creation is failed");
-	pItem->Construct(Dimension(itemWidth, 100), style);
+    AppLogExceptionIf(pItem == null, "Table item creation is failed");
+    pItem->Construct(Dimension(itemWidth, 100), style);
 
     if (_current_selected_tab != HOURLY){
 
@@ -995,9 +1014,9 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
                 Tizen::Locales::DateTimeFormatter* pDateFormatter = DateTimeFormatter::CreateDateFormatterN(systemLocale, DATE_TIME_STYLE_DEFAULT);
                 Tizen::Locales::DateTimeFormatter* pTimeFormatter = DateTimeFormatter::CreateTimeFormatterN(systemLocale, DATE_TIME_STYLE_SHORT);
 //                timeString = pTimeFormatter->GetPattern();
-        		String customizedPattern = L"dd MMM";
-		        pDateFormatter->ApplyPattern(customizedPattern);
-		        pDateFormatter->Format(dt, dateString);
+                String customizedPattern = L"dd MMM";
+                pDateFormatter->ApplyPattern(customizedPattern);
+                pDateFormatter->Format(dt, dateString);
                 pTimeFormatter->Format(dt, timeString);
                 if (timeString.StartsWith(":", 1))
                     timeString.Insert("0", 0);
@@ -1071,7 +1090,7 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
         }
     }
 
-	return pItem;
+    return pItem;
 }
 
 
@@ -1094,10 +1113,10 @@ void
 meecastFullWeatherForm::OnFlickGestureDetected(TouchFlickGestureDetector& gestureDetector)
 {
     AppLog("Flick detected!");
-	Rectangle rc(0, 0, 0, 0);
-	Point point(0, 0);
+    Rectangle rc(0, 0, 0, 0);
+    Point point(0, 0);
     Tizen::Ui::Controls::Label  *right_label = static_cast<Label*>(GetControl(L"IDC_LABEL_RIGHT_BUTTON"));
- 
+
 
     /*
     Tizen::Ui::Controls::Panel 
@@ -1119,8 +1138,8 @@ meecastFullWeatherForm::OnFlickGestureDetected(TouchFlickGestureDetector& gestur
 */
 //	pTouchArea->Invalidate(false);
 
-	FlickDirection direction = gestureDetector.GetDirection();
-	switch(direction){
+        FlickDirection direction = gestureDetector.GetDirection();
+        switch(direction){
         case FLICK_DIRECTION_RIGHT:
             if (_dayNumber>0)
                 _dayNumber--;
@@ -1144,9 +1163,9 @@ meecastFullWeatherForm::OnFlickGestureDetected(TouchFlickGestureDetector& gestur
         default:
             AppLog("Flick detected NONE");
             break;
-	}
+    }
     AppLog("Flick detected");
-	__gestureDetected = true;
+    __gestureDetected = true;
  //   Invalidate(false);
 }
 
@@ -1155,5 +1174,3 @@ meecastFullWeatherForm::OnFlickGestureCanceled(TouchFlickGestureDetector& gestur
 {
     AppLog("Flick canceled!");
 }
-
-

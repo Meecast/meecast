@@ -75,8 +75,6 @@ bool
 DatabaseSqlite::open_database()
 {
     std::string lang = std::string();
-    int rc;
-    char * msg;
     std::string key ("gismeteo.ru.db");
 
     result r = E_SUCCESS;
@@ -88,6 +86,8 @@ DatabaseSqlite::open_database()
         return true;
 //    std::cerr << (databasename->length() - databasename->rfind(key)) << " " << key.length() << std::endl;
 /*
+    int rc;
+    char * msg;
     if (sqlite3_open(databasename->c_str(), &db)){
         std::cerr << "error open " << *databasename << std::endl;
         return false;
@@ -116,10 +116,6 @@ DatabaseSqlite::open_database()
 Tizen::Base::Collection::HashMap* 
 DatabaseSqlite::create_countries_list()
 {
-    listdata *list = NULL;
-    int rc;
-    char *errMsg = NULL;
-    int nrow, ncol;
     Tizen::Base::Collection::HashMap *map; 
     String sql;
     DbEnumerator* pEnum;
@@ -156,6 +152,11 @@ DatabaseSqlite::create_countries_list()
 
     return map;
 /*
+    listdata *list = NULL;
+    int rc;
+    char *errMsg = NULL;
+
+    int nrow, ncol;
     if(!db)
         return NULL;    
     list = new listdata;
@@ -186,17 +187,11 @@ DatabaseSqlite::create_countries_list()
 Tizen::Base::Collection::HashMap* 
 DatabaseSqlite::create_region_list_by_name(Tizen::Base::String& country_name)
 {
-    listdata *list = NULL;
-    int rc;
-    char *errMsg = NULL;
-    int nrow, ncol;
     //std::string sql;
 
     Tizen::Base::Collection::HashMap *map; 
     String sql;
     DbEnumerator* pEnum;
-    result r = E_SUCCESS;
-
 
 
     AppLog("Country name %S", country_name.GetPointer() );
@@ -229,6 +224,11 @@ DatabaseSqlite::create_region_list_by_name(Tizen::Base::String& country_name)
 
 //    list = new listdata;
     /*
+    int rc;
+    listdata *list = NULL;
+    char *errMsg = NULL;
+    int nrow, ncol;
+
     if(!db){
         return NULL;
     }
@@ -265,10 +265,6 @@ listdata*
 DatabaseSqlite::create_region_list(int country_id)
 {
     listdata *list = NULL;
-    int rc;
-    char *errMsg = NULL;
-    char **result;
-    int nrow, ncol;
     //std::string sql;
     char sql[256];
 #ifdef DEBUGFUNCTIONCALL
@@ -294,6 +290,10 @@ DatabaseSqlite::create_region_list(int country_id)
     }
 /*    std::cerr <<"Select region: "<< sql << std::endl; */
 /*
+    char *errMsg = NULL;
+    char **result;
+    int nrow, ncol;
+    int rc;
     rc = sqlite3_get_table(db,
                            sql,
                            &result,
@@ -322,9 +322,6 @@ DatabaseSqlite::create_region_list(int country_id)
 Tizen::Base::Collection::HashMap* 
 DatabaseSqlite::create_stations_list_by_name(Tizen::Base::String& country_name, Tizen::Base::String&  region_name)
 {
-    int rc;
-    char *errMsg = NULL;
-    int nrow, ncol;
 /*
     if(!db || country_name =="" || region_name == "")
         return list;    // database doesn't open 
@@ -333,7 +330,6 @@ DatabaseSqlite::create_stations_list_by_name(Tizen::Base::String& country_name, 
     Tizen::Base::Collection::HashMap *map; 
     String sql;
     DbEnumerator* pEnum;
-    result r = E_SUCCESS;
 
 
     map = new Tizen::Base::Collection::HashMap;
@@ -364,6 +360,10 @@ DatabaseSqlite::create_stations_list_by_name(Tizen::Base::String& country_name, 
 
     return map;
     /*
+    int nrow, ncol;
+
+    char *errMsg = NULL;
+    int rc;
     snprintf(sql, sizeof(sql) - 1,
             "select code, name from stations where region_id = \
             (select id from regions where name = '%s' and country_id = \
@@ -402,7 +402,6 @@ DatabaseSqlite::get_station_code_by_name(Tizen::Base::String& country_name,
     Tizen::Base::String *stationcode; 
     String sql;
     DbEnumerator* pEnum;
-    result r = E_SUCCESS;
 
     sql.Append(L"select code from nstations where name='");
     sql.Append(station_name);
@@ -460,10 +459,6 @@ listdata*
 DatabaseSqlite::create_stations_list(int region_id)
 {
     listdata *list = NULL;
-    int rc;
-    char *errMsg = NULL;
-    char **result;
-    int nrow, ncol;
     //std::string sql;
     char sql[256];
 #ifdef DEBUGFUNCTIONCALL
@@ -480,6 +475,11 @@ DatabaseSqlite::create_stations_list(int region_id)
         region_id = %d ORDER BY name", region_id);
     //std::cerr << sql << std::endl;
  /*
+
+    int nrow, ncol;
+    int rc;
+    char **result;
+    char *errMsg = NULL;
     rc = sqlite3_get_table(db,
                            sql,
                            &result,
@@ -535,8 +535,6 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
                                     std::string& code, std::string& name,
                                     double& latitude, double& longitude)
 {
-    int rc;
-    char *errMsg = NULL;
     double  distance,
             min_distance = 40000.0;
 
@@ -603,7 +601,9 @@ DatabaseSqlite::get_nearest_station(double lat, double lon,
      if (pEnum != null)
         delete pEnum;
 /*
+    int rc;
     int nrow, ncol;
+    char *errMsg = NULL;
     char **result;
     rc = sqlite3_get_table(db,
                            sql,

@@ -234,7 +234,7 @@ meecastManageLocationsForm::OnListViewItemStateChanged(Tizen::Ui::Controls::List
             if (check){
                 _config->Gps(true);
                 _config->saveConfig();
-    	        result r = __pLocationManagerThread->Start();
+    	        __pLocationManagerThread->Start();
             }
             else{
                 _config->Gps(false);

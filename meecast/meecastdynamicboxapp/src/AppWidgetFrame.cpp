@@ -1,9 +1,26 @@
-/**
- * Name        : MeecastDynamicBoxAppFrame
- * Version     :
- * Vendor      :
- * Description :
- */
+/* vim: set sw=4 ts=4 et: */
+/*
+ * This file is part of Meecast for Tizen
+ *
+ * Copyright (C) 2012 - 2013 Vlad Vasilyeu
+ * 	for the code
+ *
+ * This software is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU  General Public License
+ * as published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ *  General Public License for more details.
+ *
+ * You should have received a copy of the GNU  General Public
+ * License along with this software; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA
+*/
+
 
 #include "MeecastDynamicBoxAppProvider.h"
 #include "MeecastDynamicBoxAppFrame.h"
@@ -179,6 +196,8 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
 //                                       temp_data->Icon());
 
         Tizen::Base::Integer icon_int =  temp_data->Icon();
+        if (temp_data->Icon() == INT_MAX)
+            icon_int = 49;
         if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png")){
             /* Main Icon */ 
             Tizen::Media::Image *image = null;
@@ -514,6 +533,8 @@ MeecastDynamicBoxAppFrame::OnAppWidgetUpdate(void)
 
         /* Main Icon */
         Tizen::Base::Integer icon_int =  temp_data->Icon();
+        if (temp_data->Icon() == INT_MAX)
+            icon_int = 49;
         if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png")){
             /* Main Icon */ 
             Tizen::Media::Image *image = null;
@@ -678,6 +699,9 @@ MeecastDynamicBoxAppFrame::OnAppWidgetUpdate(void)
         __pLabelMainTemperatureBackground->SetTextConfig(30, LABEL_TEXT_STYLE_BOLD);
 
         Tizen::Base::Integer icon_int = 49;
+
+        if (temp_data->Icon() == INT_MAX)
+            icon_int = 49;
         if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png")){
             /* Main Icon */ 
             Tizen::Media::Image *image = null;

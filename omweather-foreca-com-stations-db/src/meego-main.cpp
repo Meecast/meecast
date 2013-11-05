@@ -57,16 +57,8 @@ choose_hour_weather_icon(char *image)
 int
 parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *result_file){
     char       buff[256];
-    char       buffer[buff_size],
-               current_temperature[20],
-               current_icon[10],
-               current_title[1024],
-               current_pressure[15],
-               current_humidity[15],
-               current_wind_direction[15],
-               current_wind_speed[15];
+    char       buffer[buff_size];
     char       temp_buffer[buff_size];
-    int        night_flag;
     int        size;
     int        i, j, k, l;
     xmlXPathContextPtr xpathCtx; 
@@ -81,6 +73,9 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     xmlXPathObjectPtr xpathObj9 = NULL; 
     xmlNodeSetPtr nodes;
     char       *temp_char;
+<<<<<<< HEAD
+
+=======
     char       *temp_char2;
     int        pressure; 
     int        speed;
@@ -91,16 +86,15 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     time_t      loc_time;
     time_t      utc_time;
     int        location_timezone = 0;
-    int timezone_flag = false;
-    int sunrise_flag = false;
+>>>>>>> master
     int    flag;
-    struct tm   tmp_tm_loc = {0};
     struct tm   tmp_tm = {0};
-    struct tm   tm_l = {0};
-    struct tm   tmp_tm2 = {0};
     struct tm   *tm;
     time_t      t_start = 0, t_end = 0,
+<<<<<<< HEAD
+=======
                 t_sunrise = 0, t_sunset = 0,
+>>>>>>> master
                 current_time = 0;
     FILE        *file_out;
     int index = 1;
@@ -350,6 +344,11 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     fprintf(file_out,"    </period>\n");
 
 
+<<<<<<< HEAD
+=======
+    //return 1;
+
+>>>>>>> master
     /* To DO sunrise and sunset */
 
     xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@class='hourlyfc']/*[@class='symbcol']/preceding-sibling::div[@class='timecol']/p/strong/text()", xpathCtx);
@@ -499,17 +498,8 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
 int
 parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *result_file){
     char        buff[256],
-                buffer[buff_size],
-                current_temperature[20],
-                current_icon[10],
-                current_title[1024],
-                current_pressure[15],
-                current_humidity[15],
-                current_wind_direction[15],
-                current_wind_speed[15];
+                buffer[buff_size];
     char        temp_buffer[buff_size];
-    int         flag;
-    int         night_flag;
     int         size;
     int         i,j;
     xmlXPathContextPtr xpathCtx; 
@@ -520,29 +510,12 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     xmlXPathObjectPtr xpathObj5 = NULL; 
     xmlXPathObjectPtr xpathObj6 = NULL; 
     xmlXPathObjectPtr xpathObj7 = NULL; 
-    xmlXPathObjectPtr xpathObj8 = NULL; 
-    xmlXPathObjectPtr xpathObj9 = NULL; 
     xmlNodeSetPtr nodes;
     char       *temp_char;
-    char       *temp_char2;
-    int        pressure; 
-    int        speed;
-    int        ppcp;
 
-    char       *image = NULL;
-    double      time_diff = 0;
-    time_t      loc_time;
-    time_t      utc_time;
-    int         location_timezone = 0;
-    int         timezone_flag = false;
-    int         sunrise_flag = false;
-    struct tm   tmp_tm_loc = {0};
     struct tm   tmp_tm = {0};
-    struct tm   tm_l = {0};
-    struct tm   tmp_tm2 = {0};
     struct tm   *tm;
     time_t      t_start = 0, t_end = 0,
-                t_sunrise = 0, t_sunset = 0,
                 current_time = 0;
     FILE        *file_out;
 
@@ -750,8 +723,6 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     xmlXPathFreeObject(xpathObj6);
   if (xpathObj7)
     xmlXPathFreeObject(xpathObj7);
-  if (xpathObj8)
-    xmlXPathFreeObject(xpathObj8);
   if (xpathCtx)
     xmlXPathFreeContext(xpathCtx);
 

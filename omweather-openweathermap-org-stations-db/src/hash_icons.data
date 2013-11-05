@@ -9,6 +9,7 @@
     #define hash_insert(hash, s2, s3) xmlHashAddEntry(hash, (const xmlChar *)s2, (void *)(s3)); 
 
     hash_insert(hash, "20111d", "17");
+    hash_insert(hash, "30009d", "9");
     hash_insert(hash, "31009d", "9");
 
     hash_insert(hash, "50110d", "39");

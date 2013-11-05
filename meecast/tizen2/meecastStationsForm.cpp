@@ -168,8 +168,6 @@ meecastStationsForm::OnTextValueChanged(const Control& source){
 void
 meecastStationsForm::UpdateSearchResult(void){
 	String inputText = __pSearchBar->GetText();
-	int Indexof = -1;
-	int GetItemCount = 0;
 
 	if(inputText.CompareTo(L"") != 0){
         LoadList();

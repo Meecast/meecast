@@ -5,6 +5,7 @@ meecast (0.8) unstable; urgency=low
   * Update Arabic language
   * Added new measure units for wind speed - Knots and Beaufort scale
   * Tizen2 Added checking day/night/hourly weather forecast
+  * Tizen2 Fixed problem with null wind on popup Window in Home Applet
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 28 Oct 2013 18:31:23 +0200
 

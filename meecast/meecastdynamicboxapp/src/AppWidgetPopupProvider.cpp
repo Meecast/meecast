@@ -1,9 +1,25 @@
-/**
- * Name        : MeecastDynamicBoxAppPopupProvider
- * Version     :
- * Vendor      :
- * Description :
- */
+/* vim: set sw=4 ts=4 et: */
+/*
+ * This file is part of Meecast for Tizen
+ *
+ * Copyright (C) 2012 - 2013 Vlad Vasilyeu
+ * 	for the code
+ *
+ * This software is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU  General Public License
+ * as published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ *  General Public License for more details.
+ *
+ * You should have received a copy of the GNU  General Public
+ * License along with this software; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA
+*/
 
 #include "MeecastDynamicBoxAppProvider.h"
 #include "MeecastDynamicBoxAppPopupProvider.h"
@@ -160,7 +176,7 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
         __pLabelMainWindSpeed = new Label();
         __pLabelMainWindSpeed->Construct(FloatRectangle((width/3.7) - 6, (height/15), 52+10, 52), L"");
         __pLabelMainWindSpeed->SetTextConfig(20, LABEL_TEXT_STYLE_NORMAL);
-        if (_config->Mod() == "Digia"){
+        if (_config->Mod() == "Digia" || _config->Mod() == "ExtraCoffe"){
             __pLabelMainWindSpeed->SetTextColor(Color::GetColor(COLOR_ID_BLACK));
         }else if (_config->Mod() == "Marina"){
             __pLabelMainWindSpeed->SetTextColor(Color::GetColor(COLOR_ID_WHITE));
@@ -390,7 +406,7 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
             if (temp_data->WindSpeed().value() > STRONG_WIND){
                 str.Append("_warning");
             }
-            AppLog("Wind1 %S", str.GetPointer()); 
+            /* AppLog("Wind1 %S", str.GetPointer());  */
             String temp_str;
             Tizen::Base::Utility::StringUtil::Utf8ToString(_config->Mod().c_str(), temp_str);
             if (str == "CALM" || Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"720x1280/" + temp_str + "/wind_" + str + ".png")){
@@ -411,11 +427,27 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
                     SAFE_DELETE(windIconBitmap);
                 }
             }
-            __pAppWidgetPopup->AddControl(__pLabelMainWindIcon);
+        }else{
+            if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/null.png")){
+                    Tizen::Media::Image *image = null;
+                    Tizen::Graphics::Bitmap* windIconBitmap = null;
+                    image = new (std::nothrow) Tizen::Media::Image();
+                    image->Construct();
+                    windIconBitmap = image->DecodeN(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/null.png", BITMAP_PIXEL_FORMAT_ARGB8888);
+                    /* AppLog("Wind %S", str.GetPointer()); */
+                    __pLabelMainWindIcon->SetBackgroundBitmap(*windIconBitmap);
+                    __pLabelMainWindIcon->RequestRedraw();
+                    SAFE_DELETE(image);
+                    SAFE_DELETE(windIconBitmap);
+            }
+//            __pLabelMainWindIcon->SetShowState(false);
         }
+
+        __pAppWidgetPopup->AddControl(__pLabelMainWindIcon);
 
         /* Main wind speed */
         if (temp_data->WindSpeed().value() != INT_MAX){
+            AppLog("Main wind speed");
             __pLabelMainWindSpeed->SetShowState(true);
             snprintf (buffer, sizeof(buffer) -1, "%0.f", 
                                              temp_data->WindSpeed().value());

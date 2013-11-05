@@ -73,11 +73,28 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     xmlXPathObjectPtr xpathObj9 = NULL; 
     xmlNodeSetPtr nodes;
     char       *temp_char;
+<<<<<<< HEAD
 
+=======
+    char       *temp_char2;
+    int        pressure; 
+    int        speed;
+    int        ppcp;
+
+    char       *image = NULL;
+    double      time_diff = 0;
+    time_t      loc_time;
+    time_t      utc_time;
+    int        location_timezone = 0;
+>>>>>>> master
     int    flag;
     struct tm   tmp_tm = {0};
     struct tm   *tm;
     time_t      t_start = 0, t_end = 0,
+<<<<<<< HEAD
+=======
+                t_sunrise = 0, t_sunset = 0,
+>>>>>>> master
                 current_time = 0;
     FILE        *file_out;
     int index = 1;
@@ -327,6 +344,11 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     fprintf(file_out,"    </period>\n");
 
 
+<<<<<<< HEAD
+=======
+    //return 1;
+
+>>>>>>> master
     /* To DO sunrise and sunset */
 
     xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div[@class='hourlyfc']/*[@class='symbcol']/preceding-sibling::div[@class='timecol']/p/strong/text()", xpathCtx);

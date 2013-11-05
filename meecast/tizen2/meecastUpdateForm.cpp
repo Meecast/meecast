@@ -56,7 +56,7 @@ meecastUpdate::OnInitializing(void)
     result r = E_SUCCESS;
 
     SetFormBackEventListener(this);
-	CreateGroupedListView();
+    CreateGroupedListView();
 
     Header* pHeader = GetHeader();
     pHeader->SetTitleText(_("Update interval"));
@@ -77,12 +77,11 @@ meecastUpdate::OnInitializing(void)
 
 
 void
-meecastUpdate::CreateGroupedListView(void)
-{
-	__pList = static_cast <GroupedListView*> (GetControl("IDC_GROUPEDLISTVIEW"));
-	__pList->SetItemProvider(*this);
-	__pList->AddGroupedListViewItemEventListener(*this);
-	AddControl(*__pList);
+meecastUpdate::CreateGroupedListView(void){
+    __pList = static_cast <GroupedListView*> (GetControl("IDC_GROUPEDLISTVIEW"));
+    __pList->SetItemProvider(*this);
+    __pList->AddGroupedListViewItemEventListener(*this);
+    AddControl(*__pList);
 }
 
 result
@@ -110,19 +109,15 @@ meecastUpdate::OnActionPerformed(const Tizen::Ui::Control& source, int actionId)
 }
 
 void
-meecastUpdate::OnFormBackRequested(Tizen::Ui::Controls::Form& source)
-{
-	SceneManager* pSceneManager = SceneManager::GetInstance();
-	AppAssert(pSceneManager);
-
-	pSceneManager->GoBackward(BackwardSceneTransition(SCENE_TRANSITION_ANIMATION_TYPE_RIGHT));
-
+meecastUpdate::OnFormBackRequested(Tizen::Ui::Controls::Form& source){
+    SceneManager* pSceneManager = SceneManager::GetInstance();
+    AppAssert(pSceneManager);
+    pSceneManager->GoBackward(BackwardSceneTransition(SCENE_TRANSITION_ANIMATION_TYPE_RIGHT));
 }
 
 void
 meecastUpdate::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousSceneId,
-                                          const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs)
-{
+                                          const Tizen::Ui::Scenes::SceneId& currentSceneId, Tizen::Base::Collection::IList* pArgs){
     // TODO:
     // Add your scene activate code here
     AppLog("OnSceneActivatedN Settings");
@@ -130,8 +125,7 @@ meecastUpdate::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& previousScene
 
 void
 meecastUpdate::OnSceneDeactivated(const Tizen::Ui::Scenes::SceneId& currentSceneId,
-                                           const Tizen::Ui::Scenes::SceneId& nextSceneId)
-{
+                                           const Tizen::Ui::Scenes::SceneId& nextSceneId){
     // TODO:
     // Add your scene deactivate code here
     AppLog("OnSceneDeactivated");
@@ -147,10 +141,10 @@ meecastUpdate::CreateItem(int groupIndex, int itemIndex, int itemWidth)
                                        Core::AbstractConfig::prefix+
                                        Core::AbstractConfig::schemaPath+
                                        "config.xsd");
- 
-	ListAnnexStyle style =  LIST_ANNEX_STYLE_RADIO;
-	CustomItem* pItem = new (std::nothrow) CustomItem();
-	pItem->Construct(Tizen::Graphics::Dimension(GetClientAreaBounds().width, 90),style);
+
+    ListAnnexStyle style =  LIST_ANNEX_STYLE_RADIO;
+    CustomItem* pItem = new (std::nothrow) CustomItem();
+    pItem->Construct(Tizen::Graphics::Dimension(GetClientAreaBounds().width, 90),style);
 
     switch (groupIndex){
         case 0:
@@ -202,62 +196,56 @@ meecastUpdate::CreateItem(int groupIndex, int itemIndex, int itemWidth)
             }
             break;
     }
-	return pItem;
+    return pItem;
 }
 
 int
-meecastUpdate::GetGroupCount(void)
-{
-	return 1;
+meecastUpdate::GetGroupCount(void){
+    return 1;
 }
 
 int
 meecastUpdate::GetItemCount(int groupIndex)
 {
-	int itemCount = 0;
-	switch(groupIndex)
-	{
-	case 0:
-		itemCount = 8;
-		break;
-	default:
-		break;
-	}
-	return itemCount;
+    int itemCount = 0;
+    switch(groupIndex){
+        case 0:
+            itemCount = 8;
+            break;
+        default:
+            break;
+    }
+    return itemCount;
 }
 
 
 bool
-meecastUpdate::DeleteItem(int groupIndex, int itemIndex, Controls::ListItemBase* pItem, int itemWidth)
-{
-	delete pItem;
-	pItem = null;
-	return true;
+meecastUpdate::DeleteItem(int groupIndex, int itemIndex, Controls::ListItemBase* pItem, int itemWidth){
+    delete pItem;
+    pItem = null;
+    return true;
 }
 
 bool
-meecastUpdate::DeleteGroupItem(int groupIndex, Controls::GroupItem* pItem, int itemWidth)
-{
-	delete pItem;
-	pItem = null;
-	return true;
+meecastUpdate::DeleteGroupItem(int groupIndex, Controls::GroupItem* pItem, int itemWidth){
+    delete pItem;
+    pItem = null;
+    return true;
 }
 
 GroupItem*
 meecastUpdate::CreateGroupItem(int groupIndex, int itemWidth)
 {
-	GroupItem* pItem = new (std::nothrow) GroupItem();
-
-	pItem->Construct(Tizen::Graphics::Dimension(GetClientAreaBounds().width, 80));
-	String text(L"");
-	switch (groupIndex)
-	{
-	case 0:
-		text = _("    ");
-		break;
-	}
-	pItem->SetElement(text, null);
-	return pItem;
+    GroupItem* pItem = new (std::nothrow) GroupItem();
+    pItem->Construct(Tizen::Graphics::Dimension(GetClientAreaBounds().width, 80));
+    String text(L"");
+    switch (groupIndex){
+        case 0:
+            text = _("    ");
+            break;
+    }
+    pItem->SetElement(text, null);
+    return pItem;
 }
 
 
@@ -369,7 +357,7 @@ meecastUpdate::OnGroupedListViewItemStateChanged(GroupedListView& listView, int 
                 }
                 break;
        }
-    } 
+    }
     config->saveConfig();
     __pList->UpdateList();
     App* pApp = App::GetInstance();

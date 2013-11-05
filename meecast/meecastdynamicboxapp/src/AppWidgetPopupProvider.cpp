@@ -309,6 +309,8 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
 //                                       temp_data->Icon());
 
         Tizen::Base::Integer icon_int =  temp_data->Icon();
+        if (temp_data->Icon() == INT_MAX)
+            icon_int = 49;
         if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png")){
             /* Main Icon */ 
             Tizen::Media::Image *image = null;
@@ -447,7 +449,6 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
 
         /* Main wind speed */
         if (temp_data->WindSpeed().value() != INT_MAX){
-            AppLog("Main wind speed");
             __pLabelMainWindSpeed->SetShowState(true);
             snprintf (buffer, sizeof(buffer) -1, "%0.f", 
                                              temp_data->WindSpeed().value());

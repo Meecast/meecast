@@ -196,6 +196,8 @@ MeecastDynamicBoxAppFrame::OnInitializing(void){
 //                                       temp_data->Icon());
 
         Tizen::Base::Integer icon_int =  temp_data->Icon();
+        if (temp_data->Icon() == INT_MAX)
+            icon_int = 49;
         if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png")){
             /* Main Icon */ 
             Tizen::Media::Image *image = null;
@@ -531,6 +533,8 @@ MeecastDynamicBoxAppFrame::OnAppWidgetUpdate(void)
 
         /* Main Icon */
         Tizen::Base::Integer icon_int =  temp_data->Icon();
+        if (temp_data->Icon() == INT_MAX)
+            icon_int = 49;
         if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png")){
             /* Main Icon */ 
             Tizen::Media::Image *image = null;
@@ -695,6 +699,9 @@ MeecastDynamicBoxAppFrame::OnAppWidgetUpdate(void)
         __pLabelMainTemperatureBackground->SetTextConfig(30, LABEL_TEXT_STYLE_BOLD);
 
         Tizen::Base::Integer icon_int = 49;
+
+        if (temp_data->Icon() == INT_MAX)
+            icon_int = 49;
         if (Tizen::Io::File::IsFileExist(App::GetInstance()->GetAppResourcePath() + L"screen-density-xhigh/icons/" + _config->iconSet().c_str() + "/" + icon_int.ToString() + ".png")){
             /* Main Icon */ 
             Tizen::Media::Image *image = null;

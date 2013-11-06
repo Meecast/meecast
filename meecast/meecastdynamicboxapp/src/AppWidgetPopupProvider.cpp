@@ -826,14 +826,16 @@ MeecastDynamicBoxAppPopupProvider::OnActionPerformed(const Tizen::Ui::Control& s
                 String countryCodeString = systemLocale.GetCountryCodeString();
                 String languageCodeString = systemLocale.GetLanguageCodeString();
                 Tizen::Locales::DateTimeFormatter* pDateFormatter = DateTimeFormatter::CreateDateFormatterN(systemLocale, DATE_TIME_STYLE_SHORT);
-                String customizedPattern = L" EEE ";
+                String customizedPattern = L"EEEE";
                 pDateFormatter->ApplyPattern(customizedPattern);
                 pDateFormatter->Format(dt, dateString);
 
                 TextToSpeech = "Weather forecast for   ";
                 TextToSpeech.Append( _config->stationname().c_str());        
-                TextToSpeech.Append(" ");
+                TextToSpeech.Append(" on ");
+                AppLog("Date %S", dateString.GetPointer());
                 TextToSpeech.Append(dateString);
+
                 r = __pTts->Speak(TextToSpeech, TEXT_TO_SPEECH_REQUEST_MODE_REPLACE);
                 if (IsFailed(r))
                 {
@@ -971,6 +973,7 @@ MeecastDynamicBoxAppPopupProvider::NextStation(){
 void
 MeecastDynamicBoxAppPopupProvider::OnTextToSpeechInitialized(void)
 {
+     __pTts->SetSpeechRate(TEXT_TO_SPEECH_SPEECH_RATE_NORMAL);
 	result r = E_SUCCESS;
 
 }

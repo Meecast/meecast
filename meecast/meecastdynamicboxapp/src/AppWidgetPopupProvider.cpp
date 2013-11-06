@@ -41,8 +41,10 @@ using namespace Tizen::Shell;
 using namespace Core;
 using namespace Tizen::Base::Collection;
 using namespace Tizen::Locales;
+using namespace Tizen::Uix::Speech;
 
 MeecastDynamicBoxAppPopupProvider::MeecastDynamicBoxAppPopupProvider():  __pFlickGesture(null)
+	                                                                    ,__pTts(null)
                                                                         ,__pAppWidgetPopup(null)
                                                                         ,__pLabelLastUpdate(null)
                                                                         ,__pLabelLastUpdateBG(null)
@@ -76,13 +78,13 @@ MeecastDynamicBoxAppPopupProvider::MeecastDynamicBoxAppPopupProvider():  __pFlic
                                                                         ,dayname1(null)
                                                                         ,dayname2(null)
                                                                         ,dayname3(null)
-                                                                        ,dayname4(null)
-{
+                                                                        ,dayname4(null){
 
 }
 
 MeecastDynamicBoxAppPopupProvider::~MeecastDynamicBoxAppPopupProvider(){
-
+    if(__pTts)
+        delete __pTts;
 }
 
 void
@@ -721,8 +723,7 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
 }
 
 bool
-MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const String& userInfo)
-{
+MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const String& userInfo) {
 	// TODO:
 	// Initialize AppWidgetFrame and AppWidget provider specific data.
 	// The AppWidget provider permanent data and context can be obtained from the appRegistry.
@@ -748,6 +749,21 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
         AppLogDebug("Create Config class:  ");
         _config =  Config::Instance();
     }
+
+
+	result r = E_SUCCESS;
+	__pTts = new (std::nothrow) TextToSpeech();
+	if (__pTts != null){
+		r = __pTts->Construct(*this);
+		TryLog(!IsFailed(r), "[%s] Construct() error", GetErrorMessage(r));
+
+		r = __pTts->Initialize();
+		TryLog(!IsFailed(r), "[%s] Initialize() error", GetErrorMessage(r));
+
+		r = __pTts->SetLocale(Locale(LANGUAGE_ENG, COUNTRY_US));
+		TryLog(!IsFailed(r), "[%s] setlocale() error", GetErrorMessage(r));
+
+	}
 
 	// TODO:
 	// Put your UI code here
@@ -787,9 +803,43 @@ MeecastDynamicBoxAppPopupProvider::OnActionPerformed(const Tizen::Ui::Control& s
     AppId appId(repAppId);
     AppManager* pAppManager = AppManager::GetInstance();
     result r = E_FAILURE;
+
+    String TextToSpeech;
+
+    Core::Data *temp_data = NULL;
     switch(actionId){
         case ID_BUTTON_LAUNCHER:
-            r = pAppManager->LaunchApplication(repAppId, null);
+//            r = pAppManager->LaunchApplication(repAppId, null); 
+            if (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))){
+
+                DateTime dt;
+                time_t day_and_time;
+                struct tm   *tm1 = NULL;
+                day_and_time = temp_data->StartTime() + _dp->timezone()*3600;
+                tm1 = gmtime(&(day_and_time));
+                dt.SetValue(1900 + tm1->tm_year, tm1->tm_mon + 1, tm1->tm_mday, tm1->tm_hour, tm1->tm_min);
+                String dateString;
+                String timeString;
+                LocaleManager localeManager;
+                localeManager.Construct();
+                Locale  systemLocale = localeManager.GetSystemLocale();
+                String countryCodeString = systemLocale.GetCountryCodeString();
+                String languageCodeString = systemLocale.GetLanguageCodeString();
+                Tizen::Locales::DateTimeFormatter* pDateFormatter = DateTimeFormatter::CreateDateFormatterN(systemLocale, DATE_TIME_STYLE_SHORT);
+                String customizedPattern = L" EEE ";
+                pDateFormatter->ApplyPattern(customizedPattern);
+                pDateFormatter->Format(dt, dateString);
+
+                TextToSpeech = "Weather forecast for   ";
+                TextToSpeech.Append( _config->stationname().c_str());        
+                TextToSpeech.Append(" ");
+                TextToSpeech.Append(dateString);
+                r = __pTts->Speak(TextToSpeech, TEXT_TO_SPEECH_REQUEST_MODE_REPLACE);
+                if (IsFailed(r))
+                {
+                    AppLog("[%s] Speak() error", GetErrorMessage(r));
+                }
+            }
             break;
         default:
             break;
@@ -916,9 +966,44 @@ MeecastDynamicBoxAppPopupProvider::NextStation(){
     _config->saveConfig();
     _config->ReLoadConfig();
     ReInitElements(); 
+}
+
+void
+MeecastDynamicBoxAppPopupProvider::OnTextToSpeechInitialized(void)
+{
+	result r = E_SUCCESS;
+
+}
+
+void
+MeecastDynamicBoxAppPopupProvider::OnTextToSpeechStatusChanged(Tizen::Uix::Speech::TextToSpeechStatus status)
+{
+	if (status == TEXT_TO_SPEECH_STATUS_READY)
+	{
+	}
+	if (status == TEXT_TO_SPEECH_STATUS_PLAYING)
+	{
+	}
+
+	/* when any external timer or call or music is played the Paused event is received */
+	if(status == TEXT_TO_SPEECH_STATUS_PAUSED)
+	{
+	}
 
 
+}
 
+void
+MeecastDynamicBoxAppPopupProvider::OnTextToSpeechErrorOccurred(Tizen::Uix::Speech::TextToSpeechError error)
+{
+	if (error == TEXT_TO_SPEECH_ERROR_UNSUPPORTED_SERVICE)
+	{
+//		this->SendUserEvent(REQUEST_ID_EXIT, null);
+	}
+}
 
+void
+MeecastDynamicBoxAppPopupProvider::OnTextToSpeechCompleted(void)
+{
 }
 

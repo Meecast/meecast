@@ -34,7 +34,7 @@
 #include <FLocales.h>
 
 
-
+#include <FUix.h>
 #include <FShell.h>
 
 /**
@@ -46,6 +46,7 @@ class MeecastDynamicBoxAppPopupProvider
 	, public Tizen::Ui::IActionEventListener
     , public Tizen::Ui::ITouchFlickGestureEventListener
     , public Tizen::Ui::ITouchEventListener
+    , public Tizen::Uix::Speech::ITextToSpeechEventListener
 {
 public:
 	MeecastDynamicBoxAppPopupProvider();
@@ -63,6 +64,12 @@ public:
     //Gesture
 	virtual void OnFlickGestureDetected(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
 	virtual void OnFlickGestureCanceled(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
+    // Speech
+	virtual void OnTextToSpeechInitialized(void);
+	virtual void OnTextToSpeechStatusChanged(Tizen::Uix::Speech::TextToSpeechStatus status);
+	virtual void OnTextToSpeechErrorOccurred(Tizen::Uix::Speech::TextToSpeechError error);
+	virtual void OnTextToSpeechCompleted(void);
+
     void NextStation();
     void PreviousStation();
     void ReInitElements();
@@ -75,6 +82,7 @@ protected:
 	bool __gestureDetected;
 	Tizen::Ui::TouchFlickGestureDetector* __pFlickGesture;
     static const int ID_BUTTON_LAUNCHER = 101;
+	Tizen::Uix::Speech::TextToSpeech* __pTts;
 private:
     Core::Config *_config;
     Core::DataParser* _dp;

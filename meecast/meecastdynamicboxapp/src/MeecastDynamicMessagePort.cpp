@@ -29,93 +29,62 @@ using namespace Tizen::Io;
 
 
 MeecastDynamicMessagePort::MeecastDynamicMessagePort(void)
-	: __pLocalMessagePort(null)
-	, __pRemoteMessagePort(null)
-{
+    : __pLocalMessagePort(null)
+    , __pRemoteMessagePort(null){
 }
 
-MeecastDynamicMessagePort::~MeecastDynamicMessagePort(void)
-{
+MeecastDynamicMessagePort::~MeecastDynamicMessagePort(void){
 }
 
 result
 MeecastDynamicMessagePort::Construct(const String& localPortName)
 {
-	result r = E_SUCCESS;
+    result r = E_SUCCESS;
 
-	__pLocalMessagePort = MessagePortManager::RequestLocalMessagePort(localPortName);
-	TryReturn(__pLocalMessagePort != null, E_FAILURE, "MeeCastDynamicBox : [E_FAILURE] Failed to get LocalMessagePort instance.");
+    __pLocalMessagePort = MessagePortManager::RequestLocalMessagePort(localPortName);
+    TryReturn(__pLocalMessagePort != null, E_FAILURE, "MeeCastDynamicBox : [E_FAILURE] Failed to get LocalMessagePort instance.");
 
-	__pLocalMessagePort->AddMessagePortListener(*this);
+    __pLocalMessagePort->AddMessagePortListener(*this);
 
-	AppLog("MeeCastDynamicBox : LocalMessagePort is ready.");
+    AppLog("MeeCastDynamicBox : LocalMessagePort is ready.");
 
-	return r;
+    return r;
 }
 
 void
 MeecastDynamicMessagePort::OnMessageReceivedN(RemoteMessagePort* pRemoteMessagePort, IMap* pMessage)
 {
-	String *pData = static_cast<String *>(pMessage->GetValue(String(L"UiApp")));
+    String *pData = static_cast<String *>(pMessage->GetValue(String(L"UiApp")));
 
-	AppLog("Received data : %ls", pData->GetPointer());
+    AppLog("Received data : %ls", pData->GetPointer());
 
-	HashMap *pMap =	new HashMap(SingleObjectDeleter);
-	pMap->Construct();
+    HashMap *pMap =	new HashMap(SingleObjectDeleter);
+    pMap->Construct();
 
-	if (pData->CompareTo(L"Reload_Config") == 0){
-		App* pApp = App::GetInstance();
+    if (pData->CompareTo(L"Reload_Config") == 0){
+        App* pApp = App::GetInstance();
         AppLog("Send reload to App");
-		pApp->SendUserEvent(RELOAD_CONFIG, null);
-		pMap->Add(new String(L"ServiceApp"), new String(L"Widget reload config"));
-	}
-	else
-    /*
-    if (pData->CompareTo(L"start") == 0)
-	{
-		App* pApp = App::GetInstance();
-		pApp->SendUserEvent(TIMER_START, null);
-		pMap->Add(new String(L"ServiceApp"), new String(L"started"));
-	}
-	else if (pData->CompareTo(L"stop") == 0)
-	{
-		App* pApp = App::GetInstance();
-		pApp->SendUserEvent(TIMER_STOP, null);
-		pMap->Add(new String(L"ServiceApp"), new String(L"stopped"));
-	}
-	else if (pData->CompareTo(L"exit") == 0)
-	{
-		App* pApp = App::GetInstance();
-		pApp->SendUserEvent(TIMER_EXIT, null);
-		pMap->Add(new String(L"ServiceApp"), new String(L"exit"));
-	}
+        pApp->SendUserEvent(RELOAD_CONFIG, null);
+        pMap->Add(new String(L"ServiceApp"), new String(L"Widget reload config"));
+    }else{
+        pMap->Add(new String(L"ServiceApp"), new String(L"unsupported"));
+    }
+    pRemoteMessagePort->SendMessage(__pLocalMessagePort, pMap);
 
-	else
-    */
-	{
-		pMap->Add(new String(L"ServiceApp"), new String(L"unsupported"));
-	}
-	pRemoteMessagePort->SendMessage(__pLocalMessagePort, pMap);
+    delete pMap;
 
-	delete pMap;
-
-	delete pMessage;
+    delete pMessage;
 }
 
 result
-MeecastDynamicMessagePort::SendMessage(const IMap* pMessage)
-{
-	result r = E_SUCCESS;
-	AppLog("MeeCastDynamicBox : SendMessage is called.");
+MeecastDynamicMessagePort::SendMessage(const IMap* pMessage){
+    result r = E_SUCCESS;
+    AppLog("MeeCastDynamicBox : SendMessage is called.");
 
-	if (__pRemoteMessagePort != null)
-	{
-		r = __pRemoteMessagePort->SendMessage(__pLocalMessagePort, pMessage);
-	}
-	else
-	{
-		r = E_FAILURE;
-	}
-
-	return r;
+    if (__pRemoteMessagePort != null){
+        r = __pRemoteMessagePort->SendMessage(__pLocalMessagePort, pMessage);
+    }else{
+        r = E_FAILURE;
+    }
+    return r;
 }

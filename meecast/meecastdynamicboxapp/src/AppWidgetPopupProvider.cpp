@@ -45,6 +45,7 @@ using namespace Tizen::Uix::Speech;
 
 MeecastDynamicBoxAppPopupProvider::MeecastDynamicBoxAppPopupProvider():  __pFlickGesture(null)
 	                                                                    ,__pTts(null)
+                                                                        ,_speaking(false)
                                                                         ,__pAppWidgetPopup(null)
                                                                         ,__pLabelLastUpdate(null)
                                                                         ,__pLabelLastUpdateBG(null)
@@ -702,6 +703,7 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
     if (_config->stationsList().size()!=0 && _dayCount == 1){
         __pLabelLastUpdate->SetText(_("Looks like there's no info for this location."));
     }
+
     /* Launcher Button */
     Button* __pLauncherButton = new Button();
     __pLauncherButton->Construct(Tizen::Graphics::Rectangle((width/1.15), (height/1.46), 70, 70), ""); 
@@ -712,6 +714,17 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
     __pLauncherButton->AddActionEventListener(*this);
 
     __pAppWidgetPopup->AddControl(__pLauncherButton);
+
+    /* Speaker button */
+     __pSpeakerButton = new Button();
+    __pSpeakerButton->Construct(Tizen::Graphics::Rectangle(0, (height/1.46), 70, 70), ""); 
+    __pSpeakerButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("din_small.png"));
+    __pSpeakerButton->SetPressedBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("din.png"));
+
+    __pSpeakerButton->SetActionId(ID_BUTTON_SPEAKER);
+    __pSpeakerButton->AddActionEventListener(*this);
+
+    __pAppWidgetPopup->AddControl(__pSpeakerButton);
 
 	__pFlickGesture = new (std::nothrow) TouchFlickGestureDetector;
 	if (__pFlickGesture != null){
@@ -750,7 +763,6 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
         _config =  Config::Instance();
     }
 
-
 	result r = E_SUCCESS;
 	__pTts = new (std::nothrow) TextToSpeech();
 	if (__pTts != null){
@@ -760,8 +772,6 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
 		r = __pTts->Initialize();
 		TryLog(!IsFailed(r), "[%s] Initialize() error", GetErrorMessage(r));
 
-		r = __pTts->SetLocale(Locale(LANGUAGE_ENG, COUNTRY_US));
-		TryLog(!IsFailed(r), "[%s] setlocale() error", GetErrorMessage(r));
 
 	}
 
@@ -787,7 +797,44 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderInitializing(const St
 	SetAppWidgetPopup(__pAppWidgetPopup);
 	return true;
 }
+Tizen::Base::String
+MeecastDynamicBoxAppPopupProvider::WindConverter(const Tizen::Base::String str){
+    Tizen::Base::String wind_string;
+    if (str == "N")
+        wind_string = "North";
+    if (str == "S")
+        wind_string = "South";
+    if (str == "W")
+        wind_string = "West";
+    if (str == "E")
+        wind_string = "East";
+    if (str == "ENE")
+        wind_string = "East-Northeast";
+    if (str == "ESE")
+        wind_string = "East-Southeast";
+    if (str == "NE")
+        wind_string = "North-East";
+    if (str == "NNE")
+        wind_string = "North-Northeast";
+    if (str == "NNW")
+        wind_string = "North-Northwest";
+    if (str == "NW")
+        wind_string = "North-West";
+    if (str == "SE")
+        wind_string = "South-East";
+    if (str == "SSE")
+        wind_string = "South-Southeast";
+    if (str == "SSW")
+        wind_string = "South-Southwest";
+    if (str == "SW")
+        wind_string = "South-West";
+    if (str == "WNW")
+        wind_string = "West-Northwest";
+    if (str == "WSW")
+        wind_string = "West-Southwest";
 
+    return wind_string;
+}
 void
 MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderTerminating(void){
 	// TODO:
@@ -797,52 +844,136 @@ MeecastDynamicBoxAppPopupProvider::OnAppWidgetPopupProviderTerminating(void){
 
 void
 MeecastDynamicBoxAppPopupProvider::OnActionPerformed(const Tizen::Ui::Control& source, int actionId){
+
+    char  buffer[4096]; 
     /* AppLog("Check Action"); */
     String repAppId(15);
     repAppId = L"ctLjIIgCCj.meecast";
     AppId appId(repAppId);
     AppManager* pAppManager = AppManager::GetInstance();
     result r = E_FAILURE;
-
     String TextToSpeech;
-
     Core::Data *temp_data = NULL;
     switch(actionId){
         case ID_BUTTON_LAUNCHER:
-//            r = pAppManager->LaunchApplication(repAppId, null); 
-            if (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))){
+            r = pAppManager->LaunchApplication(repAppId, null);
+            break;
+        case ID_BUTTON_SPEAKER:
+            if (_speaking){
+                r = __pTts->Stop();
+                __pSpeakerButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("din_small.png"));
+                __pSpeakerButton->RequestRedraw();
+                _speaking = false;
+            }else{
+                if (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))){
 
-                DateTime dt;
-                time_t day_and_time;
-                struct tm   *tm1 = NULL;
-                day_and_time = temp_data->StartTime() + _dp->timezone()*3600;
-                tm1 = gmtime(&(day_and_time));
-                dt.SetValue(1900 + tm1->tm_year, tm1->tm_mon + 1, tm1->tm_mday, tm1->tm_hour, tm1->tm_min);
-                String dateString;
-                String timeString;
-                LocaleManager localeManager;
-                localeManager.Construct();
-                Locale  systemLocale = localeManager.GetSystemLocale();
-                String countryCodeString = systemLocale.GetCountryCodeString();
-                String languageCodeString = systemLocale.GetLanguageCodeString();
-                Tizen::Locales::DateTimeFormatter* pDateFormatter = DateTimeFormatter::CreateDateFormatterN(systemLocale, DATE_TIME_STYLE_SHORT);
-                String customizedPattern = L"EEEE";
-                pDateFormatter->ApplyPattern(customizedPattern);
-                pDateFormatter->Format(dt, dateString);
+                    /* Preparing units */
+                    temp_data->temperature_low().units(_config->TemperatureUnit());
+                    temp_data->temperature_hi().units(_config->TemperatureUnit());
+                    temp_data->temperature().units(_config->TemperatureUnit());
+                    temp_data->WindSpeed().units(_config->WindSpeedUnit());
 
-                TextToSpeech = "Weather forecast for   ";
-                TextToSpeech.Append( _config->stationname().c_str());        
-                TextToSpeech.Append(" on ");
-                AppLog("Date %S", dateString.GetPointer());
-                TextToSpeech.Append(dateString);
+                    DateTime dt;
+                    time_t day_and_time;
+                    struct tm   *tm1 = NULL;
+                    day_and_time = temp_data->StartTime() + _dp->timezone()*3600;
+                    tm1 = gmtime(&(day_and_time));
+                    dt.SetValue(1900 + tm1->tm_year, tm1->tm_mon + 1, tm1->tm_mday, tm1->tm_hour, tm1->tm_min);
+                    String dateString;
+                    String timeString;
+                    LocaleManager localeManager;
+                    localeManager.Construct();
+                    Locale  systemLocale = localeManager.GetSystemLocale();
+                    String countryCodeString = systemLocale.GetCountryCodeString();
+                    String languageCodeString = systemLocale.GetLanguageCodeString();
+                    Tizen::Locales::DateTimeFormatter* pDateFormatter = DateTimeFormatter::CreateDateFormatterN(systemLocale, DATE_TIME_STYLE_SHORT);
+                    String customizedPattern = L"EEEE";
+                    pDateFormatter->ApplyPattern(customizedPattern);
+                    pDateFormatter->Format(dt, dateString);
 
-                r = __pTts->Speak(TextToSpeech, TEXT_TO_SPEECH_REQUEST_MODE_REPLACE);
-                if (IsFailed(r))
-                {
-                    AppLog("[%s] Speak() error", GetErrorMessage(r));
+                    TextToSpeech = "Weather forecast for   ";
+                    TextToSpeech.Append( _config->stationname().c_str());        
+                    TextToSpeech.Append(" on ");
+                    AppLog("Date %S", dateString.GetPointer());
+                    TextToSpeech.Append(dateString);
+                    TextToSpeech.Append(" ");
+                    String str;
+                    Tizen::Base::Utility::StringUtil::Utf8ToString(_(temp_data->Text().c_str()), str);
+                    TextToSpeech.Append(str);
+                    TextToSpeech.Append(" Temperature ");
+                    memset(buffer, 0, sizeof(buffer));
+
+
+                    /* Temperature */
+                    if (temp_data->temperature().value(true) == INT_MAX){
+                      if ((temp_data->temperature_hi().value(true) == INT_MAX) &&
+                          (temp_data->temperature_low().value(true) == INT_MAX)){ 
+                      } 
+                      if ((temp_data->temperature_hi().value(true) != INT_MAX) &&
+                          (temp_data->temperature_low().value(true) != INT_MAX)){ 
+                        snprintf(buffer, sizeof(buffer) - 1, "from %0.f to %0.f°",
+                                                        temp_data->temperature_low().value(),  
+                                                        temp_data->temperature_hi().value());
+                      }else{  
+                          if (temp_data->temperature_hi().value(true) != INT_MAX){
+                            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
+                          }
+                          if (temp_data->temperature_low().value(true) != INT_MAX){
+                            snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
+                          }
+                      }
+                    }else{
+                        snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature().value());
+                    }
+
+                    Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+     
+                    TextToSpeech.Append(str);
+
+                    memset(buffer, 0, sizeof(buffer));
+                    if (temp_data->WindDirection() != "N/A"){
+                        snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
+                        Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                        AppLog("Wind %S", WindConverter("sss").GetPointer());
+                        TextToSpeech.Append(", Wind ");
+                        TextToSpeech.Append(WindConverter(str));
+                        TextToSpeech.Append(", ");
+
+                    }
+                    if (temp_data->WindSpeed().value() != INT_MAX){
+                        snprintf (buffer, sizeof(buffer) -1, "%0.f", 
+                                                 temp_data->WindSpeed().value());
+                        Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                        TextToSpeech.Append(" Speed ");
+                        TextToSpeech.Append(str);
+                        TextToSpeech.Append("  ");
+
+                        snprintf (buffer, sizeof(buffer) -1, "%s", _config->WindSpeedUnit().c_str());
+                        Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                        TextToSpeech.Append(str);
+
+                    }
+                    if (temp_data->Humidity() != INT_MAX){
+                        snprintf (buffer, sizeof(buffer) -1, "%0.f", 
+                                                 temp_data->Humidity());
+                        Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                        TextToSpeech.Append(" Humidity ");
+                        TextToSpeech.Append(str);
+                        TextToSpeech.Append("%");
+
+                        Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                        TextToSpeech.Append(str);
+
+                    }
+
+                    r = __pTts->Speak(TextToSpeech, TEXT_TO_SPEECH_REQUEST_MODE_REPLACE);
+                    if (IsFailed(r)){
+                        AppLog("[%s] Speak() error", GetErrorMessage(r));
+                    }
                 }
             }
             break;
+
         default:
             break;
     }
@@ -973,40 +1104,43 @@ MeecastDynamicBoxAppPopupProvider::NextStation(){
 void
 MeecastDynamicBoxAppPopupProvider::OnTextToSpeechInitialized(void)
 {
-     __pTts->SetSpeechRate(TEXT_TO_SPEECH_SPEECH_RATE_NORMAL);
+     __pTts->SetSpeechRate(TEXT_TO_SPEECH_SPEECH_RATE_SYSTEM_SETTING);
 	result r = E_SUCCESS;
-
-}
-
-void
-MeecastDynamicBoxAppPopupProvider::OnTextToSpeechStatusChanged(Tizen::Uix::Speech::TextToSpeechStatus status)
-{
-	if (status == TEXT_TO_SPEECH_STATUS_READY)
-	{
-	}
-	if (status == TEXT_TO_SPEECH_STATUS_PLAYING)
-	{
-	}
-
-	/* when any external timer or call or music is played the Paused event is received */
-	if(status == TEXT_TO_SPEECH_STATUS_PAUSED)
-	{
-	}
+    r = __pTts->SetLocale(Locale(LANGUAGE_ENG, COUNTRY_US));
+	TryLog(!IsFailed(r), "[%s] setlocale() error", GetErrorMessage(r));
 
 
 }
 
 void
-MeecastDynamicBoxAppPopupProvider::OnTextToSpeechErrorOccurred(Tizen::Uix::Speech::TextToSpeechError error)
-{
-	if (error == TEXT_TO_SPEECH_ERROR_UNSUPPORTED_SERVICE)
-	{
+MeecastDynamicBoxAppPopupProvider::OnTextToSpeechStatusChanged(Tizen::Uix::Speech::TextToSpeechStatus status){
+	if (status == TEXT_TO_SPEECH_STATUS_READY){
+        _speaking = false;
+	}
+	if (status == TEXT_TO_SPEECH_STATUS_PLAYING){
+        _speaking = true;
+        __pSpeakerButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("din.png"));
+        __pSpeakerButton->RequestRedraw();
+	}
+
+	if(status == TEXT_TO_SPEECH_STATUS_PAUSED) {
+	}
+
+
+}
+
+void
+MeecastDynamicBoxAppPopupProvider::OnTextToSpeechErrorOccurred(Tizen::Uix::Speech::TextToSpeechError error){
+	if (error == TEXT_TO_SPEECH_ERROR_UNSUPPORTED_SERVICE){
 //		this->SendUserEvent(REQUEST_ID_EXIT, null);
 	}
 }
 
 void
-MeecastDynamicBoxAppPopupProvider::OnTextToSpeechCompleted(void)
-{
+MeecastDynamicBoxAppPopupProvider::OnTextToSpeechCompleted(void){
+
+    _speaking = false;
+    __pSpeakerButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("din_small.png"));
+    __pSpeakerButton->RequestRedraw();
 }
 

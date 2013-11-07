@@ -42,53 +42,56 @@
  * which provides basic features necessary to define a AppWidget popup.
  */
 class MeecastDynamicBoxAppPopupProvider
-	: public Tizen::Shell::AppWidgetPopupProvider
-	, public Tizen::Ui::IActionEventListener
+    : public Tizen::Shell::AppWidgetPopupProvider
+    , public Tizen::Ui::IActionEventListener
     , public Tizen::Ui::ITouchFlickGestureEventListener
     , public Tizen::Ui::ITouchEventListener
     , public Tizen::Uix::Speech::ITextToSpeechEventListener
 {
 public:
-	MeecastDynamicBoxAppPopupProvider();
-	virtual ~MeecastDynamicBoxAppPopupProvider();
+    MeecastDynamicBoxAppPopupProvider();
+    virtual ~MeecastDynamicBoxAppPopupProvider();
     void Update();
-	virtual void OnActionPerformed(const Tizen::Ui::Control& source, int actionId);
+    virtual void OnActionPerformed(const Tizen::Ui::Control& source, int actionId);
 // from ITouchEventListener
-	virtual void OnTouchPressed(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo);
-	virtual void OnTouchDoublePressed(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
-	virtual void OnTouchFocusIn(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
-	virtual void OnTouchFocusOut(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
-	virtual void OnTouchLongPressed(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
-	virtual void OnTouchMoved(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
-	virtual void OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo);
+    virtual void OnTouchPressed(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo);
+    virtual void OnTouchDoublePressed(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
+    virtual void OnTouchFocusIn(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
+    virtual void OnTouchFocusOut(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
+    virtual void OnTouchLongPressed(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
+    virtual void OnTouchMoved(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
+    virtual void OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo);
     //Gesture
-	virtual void OnFlickGestureDetected(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
-	virtual void OnFlickGestureCanceled(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
+    virtual void OnFlickGestureDetected(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
+    virtual void OnFlickGestureCanceled(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
     // Speech
-	virtual void OnTextToSpeechInitialized(void);
-	virtual void OnTextToSpeechStatusChanged(Tizen::Uix::Speech::TextToSpeechStatus status);
-	virtual void OnTextToSpeechErrorOccurred(Tizen::Uix::Speech::TextToSpeechError error);
-	virtual void OnTextToSpeechCompleted(void);
+    virtual void OnTextToSpeechInitialized(void);
+    virtual void OnTextToSpeechStatusChanged(Tizen::Uix::Speech::TextToSpeechStatus status);
+    virtual void OnTextToSpeechErrorOccurred(Tizen::Uix::Speech::TextToSpeechError error);
+    virtual void OnTextToSpeechCompleted(void);
 
     void NextStation();
     void PreviousStation();
     void ReInitElements();
 
+    Tizen::Base::String MeecastDynamicBoxAppPopupProvider::WindConverter(const Tizen::Base::String str);
 
 
 protected:
-	virtual bool OnAppWidgetPopupProviderInitializing(const Tizen::Base::String& userInfo);
-	virtual void OnAppWidgetPopupProviderTerminating(void);
-	bool __gestureDetected;
-	Tizen::Ui::TouchFlickGestureDetector* __pFlickGesture;
+    virtual bool OnAppWidgetPopupProviderInitializing(const Tizen::Base::String& userInfo);
+    virtual void OnAppWidgetPopupProviderTerminating(void);
+    bool __gestureDetected;
+    Tizen::Ui::TouchFlickGestureDetector* __pFlickGesture;
     static const int ID_BUTTON_LAUNCHER = 101;
-	Tizen::Uix::Speech::TextToSpeech* __pTts;
+    static const int ID_BUTTON_SPEAKER = 102;
+    Tizen::Uix::Speech::TextToSpeech* __pTts;
+    bool _speaking;
 private:
     Core::Config *_config;
     Core::DataParser* _dp;
     Tizen::Shell::AppWidgetPopup::AppWidgetPopup* __pAppWidgetPopup;
     static const float width =  720.0;
-	static const float height =  380.0;
+    static const float height =  380.0;
     Tizen::Ui::Controls::Label* __pLabelLastUpdate;
     Tizen::Ui::Controls::Label* __pLabelLastUpdateBG;
     Tizen::Ui::Controls::Label* __pLabelTown;
@@ -124,6 +127,7 @@ private:
     Tizen::Ui::Controls::Label* dayname3;
     Tizen::Ui::Controls::Label* dayname4;
 
+    Tizen::Ui::Controls::Button* __pSpeakerButton;
 };
 
 #endif /* _MeecastDynamicBoxApp_POPUP_PROVIDER_H_ */

@@ -72,6 +72,7 @@ Config::Config()
     _standbyscreen = false;
     _gps = true;
     _splash = true;
+    _speech_on_full_window = false;
     _font_color = new std::string("#00ff00");
     _language = new std::string("System");
     _mod = new std::string("Digia");
@@ -367,6 +368,11 @@ Config::saveConfig()
         file_out<<" <lockscreen>false</lockscreen>"<<endl;
     else
         file_out<<" <lockscreen>true</lockscreen>"<<endl;
+    if (SpeechFullWindow() == false)
+        file_out<<" <speechfullwindow>false</speechfullwindow>"<<endl;
+    else
+        file_out<<" <speechfullwindow>true</speechfullwindow>"<<endl;
+
     std::vector<Station*>::iterator i = _stations->begin();
     while (i != _stations->end()){
         file_out<<"  <station>"<<endl;
@@ -506,6 +512,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _fullscreen = false;
     _lockscreen = false;
     _standbyscreen = false;
+    _speech_on_full_window = false;
     _gps = true;
     _Xleft_corner_of_lockscreen_widget = 40;
     _Yleft_corner_of_lockscreen_widget = 120;
@@ -770,6 +777,14 @@ Config::LoadConfig(){
                     Lockscreen(true);
                 else
                     Lockscreen(false);
+                xmlFree(temp_xml_string);
+            }
+            if (!xmlStrcmp(p->name, (const xmlChar*)"speechfullwindow")){
+                temp_xml_string = xmlNodeGetContent(p);
+                if(!xmlStrcmp(temp_xml_string,(const xmlChar*)"true"))
+                   SpeechFullWindow(true);
+                else
+                   SpeechFullWindow(false);
                 xmlFree(temp_xml_string);
             }
             if (!xmlStrcmp(p->name, (const xmlChar*)"xlockposition")){
@@ -1109,6 +1124,16 @@ bool
 Config::Fullscreen(void){
     return _fullscreen;
 }
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::SpeechFullWindow(const bool uc){
+    _speech_on_full_window = uc;
+}
+bool
+Config::SpeechFullWindow(void){
+    return _speech_on_full_window;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 void
 Config::Lockscreen(const bool uc){

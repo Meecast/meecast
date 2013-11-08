@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # oksana_berry <mkalinkevich@gmail.com>, 2013
 # Vlad Vas <vasvlad@gmail.com>, 2013
@@ -10,16 +10,14 @@ msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-01 06:45+0300\n"
-"PO-Revision-Date: 2013-10-18 12:47+0000\n"
-"Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
-"Language-Team: Ukrainian (Ukraine) (http://www.transifex.com/projects/p/"
-"meecast/language/uk_UA/)\n"
-"Language: uk_UA\n"
+"PO-Revision-Date: 2013-11-08 14:07+0000\n"
+"Last-Translator: oksana_berry <mkalinkevich@gmail.com>\n"
+"Language-Team: Ukrainian (Ukraine) (http://www.transifex.com/projects/p/meecast/language/uk_UA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: uk_UA\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
@@ -174,87 +172,87 @@ msgstr "8 годин"
 
 #: omweather/src/hash.data:4
 msgid "AM Clouds / PM Sun"
-msgstr "До полудня Хмарно / Після полудня Сонячно"
+msgstr "До полудня хмарно, після полудня сонячно"
 
 #: omweather/src/hash.data:6
 msgid "AM Drizzle"
-msgstr "До полудня Мряка"
+msgstr "До полудня мряка"
 
 #: omweather/src/hash.data:5
 msgid "AM Drizzle / Wind"
-msgstr "До полудня Мряка/Вітер"
+msgstr "До полудня мряка / Вітер"
 
 #: omweather/src/hash.data:7
 msgid "AM Fog / PM Clouds"
-msgstr "До полудня Туман/ Після полудня Хмарно"
+msgstr "До полудня туман, після полудня хмарно"
 
 #: omweather/src/hash.data:8
 msgid "AM Fog / PM Sun"
-msgstr "До полудня Туман / Після полудня Сонячно"
+msgstr "До полудня туман, після полудня сонячно"
 
 #: omweather/src/hash.data:10
 msgid "AM Light Rain"
-msgstr "До полудня Невеликий дощ"
+msgstr "До полудня невеликий дощ"
 
 #: omweather/src/hash.data:9
 msgid "AM Light Rain / Wind"
-msgstr "До полудня Невеликий дощ / Вітер"
+msgstr "До полудня невеликий дощ / Вітер"
 
 #: omweather/src/hash.data:12
 msgid "AM Light Snow"
-msgstr "До полудня Невеликий сніг"
+msgstr "До полудня невеликий сніг"
 
 #: omweather/src/hash.data:11
 msgid "AM Light Snow / Wind"
-msgstr "До полудня Невеликий сніг / Вітер"
+msgstr "До полудня невеликий сніг / Вітер"
 
 #: omweather/src/hash.data:13
 msgid "AM Light Wintry Mix"
-msgstr ""
+msgstr "До полудня сніг з дощем"
 
 #: omweather/src/hash.data:18
 msgid "AM Rain"
-msgstr "До полудня Дощ"
+msgstr "До полудня дощ"
 
 #: omweather/src/hash.data:16
 msgid "AM Rain / Snow"
-msgstr "До полудня Дощ / Сніг"
+msgstr "До полудня дощ / Сніг"
 
 #: omweather/src/hash.data:15
 msgid "AM Rain / Snow Showers"
-msgstr ""
+msgstr "До полудня дощ / Снігопади"
 
 #: omweather/src/hash.data:14
 msgid "AM Rain / Snow Showers / Wind"
-msgstr ""
+msgstr "До полудня дощ / Снігопади / Вітер"
 
 #: omweather/src/hash.data:17
 msgid "AM Rain / Wind"
-msgstr "До полудня Дощ / Вітер"
+msgstr "До полудня дощ / Вітер"
 
 #: omweather/src/hash.data:20
 msgid "AM Showers"
-msgstr "До полудня Злива"
+msgstr "До полудня злива"
 
 #: omweather/src/hash.data:19
 msgid "AM Showers / Wind"
-msgstr "До полудня Злива / Вітер"
+msgstr "До полудня злива / Вітер"
 
 #: omweather/src/hash.data:24
 msgid "AM Snow"
-msgstr "До полудня Сніг"
+msgstr "До полудня сніг"
 
 #: omweather/src/hash.data:23
 msgid "AM Snow Showers"
-msgstr ""
+msgstr "До полудня снігопади"
 
 #: omweather/src/hash.data:22
 msgid "AM Snow Showers / Wind"
-msgstr ""
+msgstr "До полудня снігопади / Вітер"
 
 #: omweather/src/hash.data:21
 msgid "AM Snow Showers / Wind Late"
-msgstr ""
+msgstr "До полудня снігопади / Пізніше вітер"
 
 #: omweather/src/weather-home.c:1286 omweather/src/weather-help.c:100
 #: omweather/src/weather-simple-popup.c:1164
@@ -262,19 +260,19 @@ msgstr ""
 #: meecast/netbook-UX/meego-panel-omweather.cpp:373
 #: meecast/qt-qml/qml/main.qml:58 meecast/qt-qml/qml/AboutPage.qml:68
 msgid "About"
-msgstr "Приблизно"
+msgstr "Про програму"
 
 #: omweather/src/weather-download.c:417
 msgid "Access denied to the given URL."
-msgstr ""
+msgstr "До заданого URL доступ заборонений"
 
 #: omweather/src/weather-simple-popup.c:283
 msgid "Action|Update"
-msgstr ""
+msgstr "Оновити"
 
 #: omweather/src/weather-settings.c:480
 msgid "Add"
-msgstr ""
+msgstr "Додати"
 
 #: omweather/src/weather-settings.c:467
 msgid "Add Station"
@@ -304,11 +302,11 @@ msgstr ""
 
 #: omweather/src/weather-download.c:397
 msgid "An unknown error has occurred."
-msgstr ""
+msgstr "Відбулася невідома помилка"
 
 #: omweather/src/weather-simple-settings.c:413
 msgid "Animation"
-msgstr ""
+msgstr "Анімація"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:566
 msgid "Appearance"
@@ -320,15 +318,15 @@ msgid ""
 "for installing package 'MeeCast applet'.\n"
 "You should uninstall AccuWeather \n"
 "before installing this package"
-msgstr ""
+msgstr "Зараз буде запущена програма \n'Управління Додатками' для\nтого щоб встановити пакет\n'MeeCast applet'.\nВи повинні деінсталювати\nпакет AccuWeather до\nвстановлення цієї програми"
 
 #: omweather/src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
-msgstr ""
+msgstr "Ви впевнені, що хочете видалити обрану станцію?"
 
 #: omweather/src/weather-simple-settings.c:848
 msgid "Are you sure?"
-msgstr ""
+msgstr "Ви впевнені?"
 
 #: omweather/src/weather-help.c:103
 msgid ""
@@ -337,15 +335,15 @@ msgid ""
 "Documentation: Marko Vertainen\n"
 "Design UI and default iconset: Andrew Zhilin\n"
 "Design UI for Fremantle: Krebber Jan Niemelä Ulla\n"
-msgstr ""
+msgstr "Автор та підтримка: Влад Васільєв, <vlad@gas.by>\nПідтримка: Павло Фіалко, <pavelnf@gmail.com>\nДокументація: Marko Vertainen\nДизайн інтерфейсу та набір стандартних системних іконок: Андрій Жилін\nДизайн інтерфейсу для Fremantle: Krebber Jan Niemelä Ulla\n"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:415
 msgid "Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n"
-msgstr ""
+msgstr "Автор та підтримка: Влад Васільєв, <vlad@gas.by>\n"
 
 #: omweather/src/weather-help.c:111
 msgid "Authors"
-msgstr ""
+msgstr "Автори"
 
 #: omweather/src/weather-settings.c:4156
 msgid "Automatically update data when connecting to the Internet"
@@ -357,21 +355,21 @@ msgstr ""
 
 #: omweather/src/weather-settings.c:3378 omweather/src/weather-settings.c:3382
 msgid "Background color:"
-msgstr ""
+msgstr "Кольори фону:"
 
 #: omweather/src/weather-simple-settings.c:1426
 msgid "Beauf."
-msgstr ""
+msgstr "Бофор."
 
 #: omweather/src/weather-settings.c:4021
 #: omweather/src/weather-simple-settings.c:2707
 #: meecast/qt-qml/qml/UnitsPage.qml:181
 msgid "Beaufort scale"
-msgstr ""
+msgstr "Шкала Бофорта"
 
 #: omweather/src/hash.data:25
 msgid "Blowing Snow"
-msgstr ""
+msgstr "Завірюха"
 
 #: omweather/src/hash.data:333
 msgid "Broken Clouds"
@@ -386,29 +384,29 @@ msgstr ""
 #: omweather/src/weather-simple-popup.c:1052
 #: omweather/src/weather-simple-settings.c:1281
 msgid "C"
-msgstr ""
+msgstr "С"
 
 #: omweather/src/weather-popup.c:1265 omweather/src/weather-popup.c:1275
 #: omweather/src/weather-popup.c:1446 omweather/src/weather-popup.c:1454
 msgid "C\n"
-msgstr ""
+msgstr "С\n"
 
 #: omweather/src/hash.data:26
 msgid "CALM"
-msgstr ""
+msgstr "Штиль"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:108
 msgid "Cancel"
-msgstr "Відміна"
+msgstr "Відмінити"
 
 #: omweather/src/weather-config.c:383
 #, c-format
 msgid "Cannot get path to the HOME directory. Quitting.\n"
-msgstr ""
+msgstr "Неможливо отримати шлях до домашньої директорії. Виходимо.\n\n"
 
 #: omweather/src/weather-settings.c:3864
 msgid "Celcius"
-msgstr ""
+msgstr "Цельсій"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:114
 msgid "Celsius"
@@ -435,11 +433,11 @@ msgstr "Ясно / Вітер"
 
 #: omweather/src/hash.data:28
 msgid "Clear Sky"
-msgstr "Ясне Небо"
+msgstr "Ясне небо"
 
 #: omweather/src/hash.data:30
 msgid "Clear, Drifting Snow"
-msgstr "Ясно, Снігові замети"
+msgstr "Ясно, снігові замети"
 
 #: omweather/src/hash.data:31
 msgid "Clear, Fog"
@@ -463,7 +461,7 @@ msgstr "Закрити"
 
 #: omweather/src/hash.data:35
 msgid "Clouds Early / Clearing Late"
-msgstr ""
+msgstr "На початку дня хмарно, пізніше ясно"
 
 #: omweather/src/hash.data:47
 msgid "Cloudy"
@@ -475,7 +473,7 @@ msgstr "Хмарно / Вітер"
 
 #: omweather/src/hash.data:37
 msgid "Cloudy Few Snow"
-msgstr ""
+msgstr "Хмарно Невеликий сніг"
 
 #: omweather/src/hash.data:38
 msgid "Cloudy Light Rain"
@@ -483,11 +481,11 @@ msgstr "Хмарно Невеликий Дощ"
 
 #: omweather/src/hash.data:39
 msgid "Cloudy T-Storm"
-msgstr ""
+msgstr "Хмарно Гроза"
 
 #: omweather/src/hash.data:40
 msgid "Cloudy and Windy"
-msgstr "Хмарно та Вітряно"
+msgstr "Хмарно та вітряно"
 
 #: omweather/src/hash.data:41
 msgid "Cloudy and light rain"
@@ -499,7 +497,7 @@ msgstr "Хмарно та невеликий сніг"
 
 #: omweather/src/hash.data:43
 msgid "Cloudy and light wet snow"
-msgstr "Хмарно та невеликий вологий сніг"
+msgstr "Хмарно та невеликий мокрий сніг"
 
 #: omweather/src/hash.data:44
 msgid "Cloudy and showers"
@@ -519,23 +517,23 @@ msgstr ""
 
 #: omweather/src/hash.data:48
 msgid "Cloudy, Drifting Snow"
-msgstr ""
+msgstr "Хмарно, Снігові замети"
 
 #: omweather/src/hash.data:49
 msgid "Cloudy, Few Snow"
-msgstr ""
+msgstr "Хмарно, Невеликий сніг"
 
 #: omweather/src/hash.data:50
 msgid "Cloudy, Heavy Rain"
-msgstr ""
+msgstr "Хмарно, Сильний Дощ"
 
 #: omweather/src/hash.data:51
 msgid "Cloudy, Heavy Rain, T-Storm"
-msgstr ""
+msgstr "Хмарно, Сильний дощ, Гроза"
 
 #: omweather/src/hash.data:52
 msgid "Cloudy, Heavy Snow"
-msgstr ""
+msgstr "Хмарно, Сильний сніг"
 
 #: omweather/src/hash.data:53
 msgid "Cloudy, Light Rain"
@@ -543,7 +541,7 @@ msgstr "Хмарно, Невеликий Дощ"
 
 #: omweather/src/hash.data:54
 msgid "Cloudy, Light Rain, T-Storm"
-msgstr ""
+msgstr "Хмарно, Невеликий дощ, Гроза"
 
 #: omweather/src/hash.data:55
 msgid "Cloudy, Rain"
@@ -551,11 +549,11 @@ msgstr "Хмарно, Дощ"
 
 #: omweather/src/hash.data:56
 msgid "Cloudy, Rain, T-Storm"
-msgstr ""
+msgstr "Хмарно, Дощ, Гроза"
 
 #: omweather/src/hash.data:57
 msgid "Cloudy, Smoke"
-msgstr ""
+msgstr "Хмарно, Серпанок"
 
 #: omweather/src/hash.data:59
 msgid "Cloudy, Snow"
@@ -567,30 +565,30 @@ msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:413
 msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
-msgstr ""
+msgstr "Copyright(c) 2006-2011 Владислав Васільєв, Павло Фіалко, "
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:414
 msgid "Copyright(c) 2010-2011 by Tanya Makova\n"
-msgstr ""
+msgstr "Copyright(c) 2010-2011 by Таня Макова\n\n"
 
 #: omweather/src/weather-download.c:226
 msgid ""
 "Could not connecting to Internet.\n"
 "Connection timeout is expired."
-msgstr ""
+msgstr "Не можу підключитися до Інтернету.\nЧас з'єднання вичерпаний."
 
 #: omweather/src/weather-config.c:401
 #, c-format
 msgid "Could not create weather cache directory.\n"
-msgstr ""
+msgstr "Неможливо створити директорію кеша.\n"
 
 #: omweather/src/weather-download.c:409
 msgid "Couldn't resolve host."
-msgstr ""
+msgstr "Не можу отримати адресу серверу."
 
 #: omweather/src/weather-download.c:405
 msgid "Couldn't resolve proxy."
-msgstr ""
+msgstr "Не можу отримати адресу проксі."
 
 #: omweather/src/weather-simple-settings.c:764
 #: omweather/src/weather-simple-settings.c:2313
@@ -607,7 +605,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/UpdatePage.qml:183
 msgid "Daily"
-msgstr ""
+msgstr "Щодня"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
 #: meecast/qt-qml/qml/FullWeatherPage.qml:194
@@ -628,22 +626,22 @@ msgstr "День:"
 
 #: meecast/qt-qml/qml/StationsPage.qml:75
 msgid "Delete location?"
-msgstr ""
+msgstr "Видалити місцезнаходження?"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
-"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
-"zhilin@ovi.com>\n"
-msgstr ""
+"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, "
+"<andrew.zhilin@ovi.com>\n"
+msgstr "Дизайн інтерфейсу та набору стандартних системних іконок: Copyright 2006-2011  Андрій Жилін, <andrew.zhilin@ovi.com>\n"
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
 msgid "Detailed"
-msgstr ""
+msgstr "Детально"
 
 #: omweather/src/weather-settings.c:1128 omweather/src/weather-settings.c:1321
 #: omweather/src/weather-settings.c:1325
 msgid "Display"
-msgstr ""
+msgstr "Відображення"
 
 #: omweather/src/weather-simple-settings.c:1315
 msgid "Distance"
@@ -651,27 +649,27 @@ msgstr "Відстань"
 
 #: omweather/src/weather-settings.c:3894
 msgid "Distance units:"
-msgstr ""
+msgstr "Одиниці відстані:"
 
 #: omweather/src/weather-settings.c:595
 msgid ""
 "Does not to add station, because no one\n"
 "of 'omweather-*-stations-db' packages was installed."
-msgstr ""
+msgstr "Неможливо додати станцію, тому що жоден\nз 'omweather-*-stations-db пакетів не встановлений."
 
 #: omweather/src/weather-simple-popup.c:1171
 #: omweather/src/weather-simple-popup.c:1220
 #: omweather/src/weather-simple-popup.c:1226
 msgid "Donation"
-msgstr ""
+msgstr "Пожертвування"
 
 #: omweather/src/weather-settings.c:4164
 msgid "Download and show detailed weather"
-msgstr "Завантажити та показати деталізовану погоду"
+msgstr "Завантажувати та показувати прогноз по годинах"
 
 #: omweather/src/weather-download.c:429
 msgid "Download timed out."
-msgstr ""
+msgstr "Час очікування вичерпано."
 
 #: omweather/src/hash.data:61
 msgid "Drifting Snow"
@@ -691,35 +689,35 @@ msgstr "Мряка / Вітер"
 
 #: omweather/src/hash.data:64
 msgid "Drizzle Early"
-msgstr ""
+msgstr "Вранці мряка"
 
 #: omweather/src/hash.data:65
 msgid "Drizzle Late"
-msgstr ""
+msgstr "Пізніше мряка"
 
 #: omweather/src/hash.data:67
 msgid "E"
-msgstr ""
+msgstr "С"
 
 #: omweather/src/hash.data:68
 msgid "ENE"
-msgstr ""
+msgstr "СПнС"
 
 #: omweather/src/hash.data:69
 msgid "ENE_short"
-msgstr ""
+msgstr "СПнС"
 
 #: omweather/src/hash.data:70
 msgid "ESE"
-msgstr ""
+msgstr "СПдС"
 
 #: omweather/src/hash.data:71
 msgid "ESE_short"
-msgstr ""
+msgstr "СПдС"
 
 #: omweather/src/hash.data:72
 msgid "E_short"
-msgstr ""
+msgstr "С"
 
 #: omweather/src/weather-help.c:114
 msgid ""
@@ -733,16 +731,16 @@ msgid ""
 "Brian Knight - for idea of iconset, criticism and donation ;-)\n"
 "Andrew aka Tabster - for testing and ideas\n"
 "Brad Jones aka kazrak - for testing\n"
-msgstr ""
+msgstr "Едуард Бартош - за запропонованих покращень, підтримку та критику\nЄвгеній Калюта ака tren - за нові ідеї та підтримку\nМаксим Калінкевіч ака spark за тестування\nЮрій Комяков - за Nokia 770 \nGreg Thompson - за наданий файл stations.txt\nFrank Persian - за ідею зміни розташування іконок\nBrian Knight - за ідею про набір іконок, критику та фінансову підтримку. ;-)\nAndrew aka Tabster - за ідеї та тестування\nBrad Jones aka kazrak - за тестування\n"
 
 #: omweather/src/weather-simple-settings.c:330
 #: omweather/src/weather-simple-settings.c:421
 msgid "Edit custom layout"
-msgstr ""
+msgstr "Налаштувати віджет"
 
 #: omweather/src/weather-settings.c:2865
 msgid "Enable GPS"
-msgstr ""
+msgstr "Включити GPS"
 
 #: meecast/qt-qml/qml/SearchField.qml:50
 msgid "Enter search"
@@ -846,7 +844,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/StationsPage.qml:92
 msgid "Find location via GPS"
-msgstr ""
+msgstr "Знайти станцію за допомогою GPS"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:428
 msgid ""
@@ -1077,11 +1075,11 @@ msgstr "Символи"
 
 #: omweather/src/hash.data:96 meecast/qt-qml/qml/VisualsPage.qml:391
 msgid "Iconset"
-msgstr ""
+msgstr "Набір іконок"
 
 #: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:264
 msgid "Iconsets"
-msgstr ""
+msgstr "Набори іконок:"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:64
 #: meecast/qt-qml/qml/VisualsPage.qml:136
@@ -1273,13 +1271,13 @@ msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
-"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
-"com>\n"
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
+"<tanyshk@gmail.com>\n"
 msgstr ""
 
 #: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:158
 msgid "Manage locations"
-msgstr ""
+msgstr "Управління місцями розташування"
 
 #: omweather/src/weather-simple-settings.c:2240
 msgid "Manual"
@@ -1851,11 +1849,11 @@ msgstr "Тиск"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:49 meecast/qt-qml/qml/UnitsPage.qml:189
 msgid "Pressure units"
-msgstr ""
+msgstr "Одиниці тиску"
 
 #: omweather/src/weather-settings.c:4049
 msgid "Pressure units:"
-msgstr ""
+msgstr "Одиниці тиску:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
@@ -2122,7 +2120,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/SourcePage.qml:108
 msgid "Select the weather source"
-msgstr ""
+msgstr "Виберіть джерело прогнозу погоди"
 
 #: omweather/src/weather-simple-settings.c:1035
 #, c-format
@@ -2360,19 +2358,19 @@ msgstr ""
 
 #: omweather/src/hash.data:285 meecast/qt-qml/qml/FullWeatherPage.qml:308
 msgid "Sunrise:"
-msgstr ""
+msgstr "Схід сонця:"
 
 #: omweather/src/weather-popup.c:125 omweather/src/weather-popup.c:1019
 msgid "Sunrise: "
-msgstr ""
+msgstr "Схід сонця:"
 
 #: omweather/src/hash.data:286 meecast/qt-qml/qml/FullWeatherPage.qml:311
 msgid "Sunset:"
-msgstr ""
+msgstr "Захід сонця:"
 
 #: omweather/src/weather-popup.c:139 omweather/src/weather-popup.c:1150
 msgid "Sunset: "
-msgstr ""
+msgstr "Захід сонця:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:86
 msgid "Support"
@@ -2419,11 +2417,11 @@ msgstr ""
 #: omweather/src/hash.data:293 meecast/qt-qml/qml/UnitsPage.qml:31
 #: meecast/qt-qml/qml/UnitsPage.qml:103
 msgid "Temperature units"
-msgstr ""
+msgstr "Одениці температури"
 
 #: omweather/src/weather-settings.c:3858
 msgid "Temperature units:"
-msgstr ""
+msgstr "Одениці температури:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
 #: meecast/qt-qml/dataitem.cpp:181
@@ -2590,12 +2588,12 @@ msgstr ""
 
 #: meecast/qt-qml/qml/UnitsPage.qml:58 meecast/qt-qml/qml/UnitsPage.qml:222
 msgid "Visible units"
-msgstr ""
+msgstr "Одиниці виміру видимості"
 
 #: omweather/src/weather-popup.c:1288
 #: meecast/qt-qml/qml/FullWeatherPage.qml:177
 msgid "Visible:"
-msgstr ""
+msgstr "Видимість:"
 
 #: omweather/src/weather-settings.c:1121 omweather/src/weather-settings.c:1307
 #: omweather/src/weather-settings.c:1312
@@ -2687,7 +2685,7 @@ msgstr ""
 
 #: omweather/src/hash.data:314
 msgid "Wind"
-msgstr ""
+msgstr "Вітер"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:139
 #: meecast/qt-qml/qml/FullWeatherPage.qml:203
@@ -2697,7 +2695,7 @@ msgstr ""
 
 #: omweather/src/hash.data:311
 msgid "Wind direction:"
-msgstr ""
+msgstr "Напрямок вітру:"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:157
 #: meecast/qt-qml/qml/FullWeatherPage.qml:220
@@ -2717,11 +2715,11 @@ msgstr ""
 #: omweather/src/hash.data:312 meecast/qt-qml/qml/UnitsPage.qml:40
 #: meecast/qt-qml/qml/UnitsPage.qml:142
 msgid "Wind speed units"
-msgstr ""
+msgstr "Одиниці швидкості вітру"
 
 #: omweather/src/weather-settings.c:3974
 msgid "Wind speed units:"
-msgstr ""
+msgstr "Одиниці швидкості вітру:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
@@ -2780,8 +2778,8 @@ msgstr ""
 
 #: meecast/qt-qml/qml/UpdatePage.qml:73
 msgid ""
-"You should activate 'Widget in the events view' option in MeeCast appearance "
-"settings for auto update."
+"You should activate 'Widget in the events view' option in MeeCast appearance"
+" settings for auto update."
 msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2758

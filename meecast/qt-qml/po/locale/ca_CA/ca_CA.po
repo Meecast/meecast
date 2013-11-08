@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-01 06:45+0300\n"
-"PO-Revision-Date: 2013-09-14 09:35+0000\n"
+"POT-Creation-Date: 2013-11-08 22:33+0300\n"
+"PO-Revision-Date: 2013-11-05 08:18+0000\n"
 "Last-Translator: agustí clara <agusti.clara@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/meecast/language/"
 "ca/)\n"
@@ -561,7 +561,7 @@ msgstr "Núvol i ruixats de neu"
 msgid "Cloudy and wet snow showers"
 msgstr "Núvol i ruixats de neu humida"
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:352
 msgid "Cloudy with occasional rain."
 msgstr "Núvol amb pluja ocasional."
 
@@ -1147,7 +1147,7 @@ msgstr "Neu intensa"
 msgid "Heavy Snow / Wind"
 msgstr "Neu intensa / Vent"
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:353
 msgid "Heavy intensity rain"
 msgstr "Pluja molt intensa"
 
@@ -1224,7 +1224,7 @@ msgstr "Quilòmetres"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:174
 msgid "Knots"
-msgstr ""
+msgstr "Nusos"
 
 #: omweather/src/hash.data:332
 msgid "Language"
@@ -1345,7 +1345,12 @@ msgstr "Neu poc intensa tard"
 msgid "Light Snow Shower"
 msgstr "Ruixats poc intensos de neu"
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:340
+#, fuzzy
+msgid "Light intensity drizzle"
+msgstr "Ruixats de poca intensitat"
+
+#: omweather/src/hash.data:354
 msgid "Light intensity shower rain"
 msgstr "Ruixats de poca intensitat"
 
@@ -1381,7 +1386,7 @@ msgstr "No es disposa d'informació per aquesta ubicació."
 msgid "Low"
 msgstr "Mínima"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:351
 msgid "Mainly cloudy with occasional rain."
 msgstr "Núvol, en general, amb pluja ocasional."
 
@@ -1434,11 +1439,11 @@ msgstr "Milles"
 msgid "Mist"
 msgstr "Boirina"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 msgid "Moderate Rain"
 msgstr "Pluja moderada"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:341
 msgid "Moderate rain"
 msgstr "Pluja moderada"
 
@@ -1725,7 +1730,7 @@ msgstr "Informació de Other Maemo Weather"
 msgid "Overcast"
 msgstr "Núvol"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:344
 msgid "Overcast Clouds"
 msgstr "Núvol"
 
@@ -1765,7 +1770,7 @@ msgstr "Núvol tapat i neu humida"
 msgid "Overcast and wet snow showers"
 msgstr "Núvol i ruixats de neu humida"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 msgid "Overcast clouds"
 msgstr "Núvol"
 
@@ -2152,7 +2157,7 @@ msgstr "S"
 msgid "Save"
 msgstr "Desa"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:346
 msgid "Scattered Clouds"
 msgstr "Núvols dispersos"
 
@@ -2172,7 +2177,7 @@ msgstr "Ruixats de neu dispersos"
 msgid "Scattered T-Storms"
 msgstr "Tempeses disperses"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:345
 msgid "Scattered clouds"
 msgstr "Núvols dispersos"
 
@@ -2354,11 +2359,11 @@ msgstr "Ruixats més tard"
 msgid "Showers in the Vicinity"
 msgstr "Ruixats localitzats"
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:348
 msgid "Sky is Clear"
 msgstr "Cel clar"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:347
 msgid "Sky is clear"
 msgstr "Cel clar"
 
@@ -2473,7 +2478,7 @@ msgstr "Sol"
 msgid "Sunny / Wind"
 msgstr "Sol / Vent"
 
-#: omweather/src/hash.data:348 omweather/src/hash.data:349
+#: omweather/src/hash.data:349 omweather/src/hash.data:350
 msgid "Sunny periods and a few showers."
 msgstr "Estones de sol i alguns ruixats."
 
@@ -2561,7 +2566,7 @@ msgstr "Gràcies"
 msgid "The weather has been updated."
 msgstr "S'ha actualitzat el temps"
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:355
 msgid "There are no stations to show in this view of the list"
 msgstr "No hi ha cap estació en aquesta visualització de la llista"
 
@@ -3044,7 +3049,7 @@ msgstr "km/s"
 
 #: omweather/src/hash.data:322
 msgid "kn"
-msgstr ""
+msgstr "kn"
 
 #: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1296
 #: omweather/src/weather-simple-settings.c:1328
@@ -3160,34 +3165,34 @@ msgstr "nom de l'estació"
 msgid "steady"
 msgstr "estable"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:356
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:356
+#: omweather/src/hash.data:357
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:357
+#: omweather/src/hash.data:358
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:358
+#: omweather/src/hash.data:359
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:359
+#: omweather/src/hash.data:360
 msgid "С-З"
 msgstr "C-3"
 
-#: omweather/src/hash.data:360
+#: omweather/src/hash.data:361
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:361
+#: omweather/src/hash.data:362
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:362
+#: omweather/src/hash.data:363
 msgid "Ю-З"
 msgstr "Ю-З"

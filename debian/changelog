@@ -4,6 +4,7 @@ meecast (0.8) unstable; urgency=low
   * Added icons for openweathermap.com source
   * Update Arabic language
   * Added new measure units for wind speed - Knots and Beaufort scale
+  * Update Serbian, Ukrain, Norwegian, Catalan languages
   * Tizen2 Added checking day/night/hourly weather forecast
   * Tizen2 Fixed problem with null wind and Main Icon on popup Window in Home Applet
 

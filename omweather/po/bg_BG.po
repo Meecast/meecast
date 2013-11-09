@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-01 06:45+0300\n"
+"POT-Creation-Date: 2013-11-08 22:33+0300\n"
 "PO-Revision-Date: 2012-12-21 07:15+0000\n"
 "Last-Translator: zlatko <zlatko23@gmail.com>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/"
@@ -567,7 +567,7 @@ msgstr "Облачно и превалявания от сняг"
 msgid "Cloudy and wet snow showers"
 msgstr "Облачно и превалявания от сняг"
 
-#: omweather/src/hash.data:351
+#: omweather/src/hash.data:352
 #, fuzzy
 msgid "Cloudy with occasional rain."
 msgstr "Облачно и слаб дъжд"
@@ -1143,7 +1143,7 @@ msgstr "Силен снеговалеж"
 msgid "Heavy Snow / Wind"
 msgstr "Порой/Вятър"
 
-#: omweather/src/hash.data:352
+#: omweather/src/hash.data:353
 #, fuzzy
 msgid "Heavy intensity rain"
 msgstr "Порой"
@@ -1343,7 +1343,12 @@ msgstr "Слаб Сняг следобед"
 msgid "Light Snow Shower"
 msgstr "Слаби Снежни Превалявания"
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:340
+#, fuzzy
+msgid "Light intensity drizzle"
+msgstr "Порой"
+
+#: omweather/src/hash.data:354
 #, fuzzy
 msgid "Light intensity shower rain"
 msgstr "Порой"
@@ -1382,7 +1387,7 @@ msgstr "Няма инфо за тази локация"
 msgid "Low"
 msgstr "Нисък"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:351
 #, fuzzy
 msgid "Mainly cloudy with occasional rain."
 msgstr "Разкъсана облачност и слаб дъжд"
@@ -1437,12 +1442,12 @@ msgstr "Мили"
 msgid "Mist"
 msgstr "Мъгла"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 #, fuzzy
 msgid "Moderate Rain"
 msgstr "(Умерено)"
 
-#: omweather/src/hash.data:340
+#: omweather/src/hash.data:341
 #, fuzzy
 msgid "Moderate rain"
 msgstr "(Умерено)"
@@ -1730,7 +1735,7 @@ msgstr "Друго Maemo Метео инфо"
 msgid "Overcast"
 msgstr "Облачно"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:344
 #, fuzzy
 msgid "Overcast Clouds"
 msgstr "Облачно"
@@ -1771,7 +1776,7 @@ msgstr "Мрачно и мокър сняг"
 msgid "Overcast and wet snow showers"
 msgstr "Мрачно и превалявания от мокър сняг"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 #, fuzzy
 msgid "Overcast clouds"
 msgstr "Облачно"
@@ -2161,7 +2166,7 @@ msgstr "SW_късо"
 msgid "Save"
 msgstr "Запази"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:346
 #, fuzzy
 msgid "Scattered Clouds"
 msgstr "Слаб Снеговалеж"
@@ -2182,7 +2187,7 @@ msgstr "Слаби Превалявания от Сняг"
 msgid "Scattered T-Storms"
 msgstr "Слаби Гръмотевици"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:345
 #, fuzzy
 msgid "Scattered clouds"
 msgstr "Слаб Снеговалеж"
@@ -2366,12 +2371,12 @@ msgstr "Превалявания следобед"
 msgid "Showers in the Vicinity"
 msgstr "Валежи в близост"
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:348
 #, fuzzy
 msgid "Sky is Clear"
 msgstr "Предимно ясно"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:347
 #, fuzzy
 msgid "Sky is clear"
 msgstr "Предимно ясно"
@@ -2488,7 +2493,7 @@ msgstr "Слънчево"
 msgid "Sunny / Wind"
 msgstr "Слънчево/Вятър"
 
-#: omweather/src/hash.data:348 omweather/src/hash.data:349
+#: omweather/src/hash.data:349 omweather/src/hash.data:350
 msgid "Sunny periods and a few showers."
 msgstr ""
 
@@ -2576,7 +2581,7 @@ msgstr "Благодаря"
 msgid "The weather has been updated."
 msgstr "Прогнозата е опреснена."
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:355
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
@@ -3177,35 +3182,35 @@ msgstr "име на метео станцията"
 msgid "steady"
 msgstr "стабилно"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:356
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:356
+#: omweather/src/hash.data:357
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:357
+#: omweather/src/hash.data:358
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:358
+#: omweather/src/hash.data:359
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:359
+#: omweather/src/hash.data:360
 msgid "С-З"
 msgstr "С-3"
 
-#: omweather/src/hash.data:360
+#: omweather/src/hash.data:361
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:361
+#: omweather/src/hash.data:362
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:362
+#: omweather/src/hash.data:363
 msgid "Ю-З"
 msgstr "Ю-3"
 

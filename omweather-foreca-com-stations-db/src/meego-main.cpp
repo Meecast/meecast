@@ -269,7 +269,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     
     index = 1;
 //    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong/text()", index);
-    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p[not(contains(text(), ':'))]/strong/text()", index);
+    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p[not(contains(text(), ':'))]/strong/text()");
     xpathObj = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
     /* added text */
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
@@ -280,7 +280,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
     
-    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong[1]/text()", index);
+    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong[1]/text()");
     xpathObj = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
         xpathObj->nodesetval->nodeTab[1] && xpathObj->nodesetval->nodeTab[1]->content){
@@ -289,7 +289,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
 
-    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong/text()", index);
+    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong/text()");
     xpathObj = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
         xpathObj->nodesetval->nodeTab[2] && xpathObj->nodesetval->nodeTab[2]->content){
@@ -298,7 +298,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
 
-    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong/text()", index);
+    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong/text()");
     xpathObj = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
         xpathObj->nodesetval->nodeTab[3] && xpathObj->nodesetval->nodeTab[3]->content){
@@ -307,7 +307,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
 
-    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong/text()", index);
+    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong/text()");
     xpathObj = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
         xpathObj->nodesetval->nodeTab[4] && xpathObj->nodesetval->nodeTab[4]->content){

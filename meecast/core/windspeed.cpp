@@ -200,6 +200,7 @@ namespace Core {
                         }
                     }else
                         return (_value);
+        return (_value);
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

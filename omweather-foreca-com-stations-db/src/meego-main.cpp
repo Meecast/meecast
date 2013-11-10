@@ -59,18 +59,9 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     char       buff[256];
     char       buffer[buff_size];
     char       temp_buffer[buff_size];
-    int        size;
-    int        i, j, k, l;
     xmlXPathContextPtr xpathCtx; 
     xmlXPathObjectPtr xpathObj = NULL; 
     xmlXPathObjectPtr xpathObj2 = NULL; 
-    xmlXPathObjectPtr xpathObj3 = NULL; 
-    xmlXPathObjectPtr xpathObj4 = NULL; 
-    xmlXPathObjectPtr xpathObj5 = NULL; 
-    xmlXPathObjectPtr xpathObj6 = NULL; 
-    xmlXPathObjectPtr xpathObj7 = NULL; 
-    xmlXPathObjectPtr xpathObj8 = NULL; 
-    xmlXPathObjectPtr xpathObj9 = NULL; 
     xmlNodeSetPtr nodes;
     char       *temp_char;
     int    flag;
@@ -337,7 +328,6 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     snprintf(buffer, sizeof(buffer)-1,"(/html/body/div[@class='hourlyfc']/*[@class='symbcol']/preceding-sibling::div[@class='timecol']/p/strong/text() | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/preceding-sibling::div[@class='timecol']/p/text()  | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/img/@title | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/img/@src | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/following-sibling::div/span/text() | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/following-sibling::div/div/@class | /html/body/div[@class='hourlyfc']/*[@class='symbcol']/following-sibling::div/strong/text() ) ");
     xpathObj2 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
     k = 0; 
-
        
    nodes   = xpathObj2->nodesetval;
    flag = true;

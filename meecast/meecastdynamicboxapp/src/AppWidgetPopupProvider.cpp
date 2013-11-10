@@ -893,17 +893,16 @@ MeecastDynamicBoxAppPopupProvider::OnActionPerformed(const Tizen::Ui::Control& s
 
                     TextToSpeech = "Weather forecast for   ";
                     TextToSpeech.Append( _config->stationname().c_str());        
-                    TextToSpeech.Append(" on ");
+                    TextToSpeech.Append(". on ");
                     AppLog("Date %S", dateString.GetPointer());
                     TextToSpeech.Append(dateString);
-                    TextToSpeech.Append(" ");
+                    TextToSpeech.Append(". ");
                     String str;
-                    Tizen::Base::Utility::StringUtil::Utf8ToString(_(temp_data->Text().c_str()), str);
+                    Tizen::Base::Utility::StringUtil::Utf8ToString((temp_data->Text().c_str()), str);
                     TextToSpeech.Append(str);
-                    TextToSpeech.Append(" Temperature ");
+
+                    TextToSpeech.Append(". Temperature: ");
                     memset(buffer, 0, sizeof(buffer));
-
-
                     /* Temperature */
                     if (temp_data->temperature().value(true) == INT_MAX){
                       if ((temp_data->temperature_hi().value(true) == INT_MAX) &&
@@ -932,45 +931,172 @@ MeecastDynamicBoxAppPopupProvider::OnActionPerformed(const Tizen::Ui::Control& s
 
                     memset(buffer, 0, sizeof(buffer));
                     if (temp_data->WindDirection() != "N/A"){
+
                         snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
                         Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                         AppLog("Wind %S", WindConverter("sss").GetPointer());
-                        TextToSpeech.Append(", Wind ");
+                        TextToSpeech.Append(". Wind direction: ");
                         TextToSpeech.Append(WindConverter(str));
-                        TextToSpeech.Append(", ");
+                        TextToSpeech.Append(". ");
 
                     }
                     if (temp_data->WindSpeed().value() != INT_MAX){
                         snprintf (buffer, sizeof(buffer) -1, "%0.f", 
                                                  temp_data->WindSpeed().value());
                         Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-                        TextToSpeech.Append(" Speed ");
+                        TextToSpeech.Append(" Wind speed ");
                         TextToSpeech.Append(str);
-                        TextToSpeech.Append("  ");
-
+                        TextToSpeech.Append(" ");
+/*
                         snprintf (buffer, sizeof(buffer) -1, "%s", _config->WindSpeedUnit().c_str());
                         Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                         TextToSpeech.Append(str);
-
+                        TextToSpeech.Append(". ");
+*/
                     }
                     if (temp_data->Humidity() != INT_MAX){
-                        snprintf (buffer, sizeof(buffer) -1, "%0.f", 
+                        snprintf (buffer, sizeof(buffer) -1, "%i", 
                                                  temp_data->Humidity());
                         Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                         TextToSpeech.Append(" Humidity ");
                         TextToSpeech.Append(str);
-                        TextToSpeech.Append("%");
+                        TextToSpeech.Append(" %.");
+                    }
 
+                }
+                time_t current_day;
+                struct tm   *tm = NULL;
+
+                int localtimezone = 0;
+                int timezone = 0;
+                /* Timezone */
+                if (_dp != NULL){
+                    timezone = _dp->timezone();
+                    /* AppLog("TimeZone %i", timezone); */
+                }
+
+
+                current_day = time(NULL);
+
+                /*  AppLog("First Current day %li", current_day); */
+                /* Set localtimezone */
+                struct tm time_tm1;
+                struct tm time_tm2;
+                gmtime_r(&current_day, &time_tm1);
+                localtime_r(&current_day, &time_tm2);
+                localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
+
+                /* set current day */ 
+                current_day = current_day + 3600*timezone; 
+
+                /* AppLog("Current day0 %li", current_day); */
+
+                tm = gmtime(&current_day);
+                tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+                tm->tm_isdst = 1;
+                current_day = mktime(tm); /* today 00:00:00 */
+                /* AppLog("Current day before %li", current_day); */
+                current_day = current_day + 3600*localtimezone - 3600*timezone; 
+
+                /* fill other days */
+                int i = 3600*24;
+                int _dayCount = 1;
+                while  (_dp != NULL && i < 3600*24*4) {
+                    /* AppLog ("Result0 %li", current_day + 15*3600 + i - 3600*timezone); */
+                    if ((temp_data = _dp->data().GetDataForTime(current_day + 15*3600 + i)) != null){
+
+                    DateTime dt;
+                    time_t day_and_time;
+                    struct tm   *tm1 = NULL;
+                    day_and_time = temp_data->StartTime() + _dp->timezone()*3600;
+                    tm1 = gmtime(&(day_and_time));
+                    dt.SetValue(1900 + tm1->tm_year, tm1->tm_mon + 1, tm1->tm_mday, tm1->tm_hour, tm1->tm_min);
+                    String dateString;
+                    String timeString;
+                    LocaleManager localeManager;
+                    localeManager.Construct();
+                    Locale  systemLocale = localeManager.GetSystemLocale();
+                    String countryCodeString = systemLocale.GetCountryCodeString();
+                    String languageCodeString = systemLocale.GetLanguageCodeString();
+                    Tizen::Locales::DateTimeFormatter* pDateFormatter = DateTimeFormatter::CreateDateFormatterN(systemLocale, DATE_TIME_STYLE_SHORT);
+                    String customizedPattern = L"EEEE";
+                    pDateFormatter->ApplyPattern(customizedPattern);
+                    pDateFormatter->Format(dt, dateString);
+
+                    TextToSpeech.Append("Forecast for   ");
+                    AppLog("Date %S", dateString.GetPointer());
+                    TextToSpeech.Append(dateString);
+                    TextToSpeech.Append(" .");
+                    String str;
+                    Tizen::Base::Utility::StringUtil::Utf8ToString((temp_data->Text().c_str()), str);
+
+                    TextToSpeech.Append(str);
+                    TextToSpeech.Append(".");
+                    TextToSpeech.Append(" Temperature ");
+                    memset(buffer, 0, sizeof(buffer));
+
+                    /* Temperatures */
+                    if (temp_data->temperature_low().value(true) != INT_MAX){
+                        snprintf(buffer, sizeof(buffer) - 1, "%0.f", temp_data->temperature_low().value());
+                        Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+
+                        TextToSpeech.Append(" from ");
+                        TextToSpeech.Append(str);
+                        TextToSpeech.Append(" to ");
+                    }
+                    if (temp_data->temperature_hi().value(true) != INT_MAX){
+                        snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
                         Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                         TextToSpeech.Append(str);
+                    }
+
+                    if (temp_data->WindDirection() != "N/A"){
+
+                        snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
+                        Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                        AppLog("Wind %S", WindConverter("sss").GetPointer());
+                        TextToSpeech.Append(". Wind direction ");
+                        TextToSpeech.Append(WindConverter(str));
+                        TextToSpeech.Append(" .");
 
                     }
 
-                    r = __pTts->Speak(TextToSpeech, TEXT_TO_SPEECH_REQUEST_MODE_REPLACE);
-                    if (IsFailed(r)){
-                        AppLog("[%s] Speak() error", GetErrorMessage(r));
+                    if (temp_data->WindSpeed().value() != INT_MAX){
+                        snprintf (buffer, sizeof(buffer) -1, "%0.f", 
+                                                 temp_data->WindSpeed().value());
+                        Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                        TextToSpeech.Append(". Wind speed ");
+                        TextToSpeech.Append(str);
+                        TextToSpeech.Append("  ");
+/*
+                        snprintf (buffer, sizeof(buffer) -1, "%s", _config->WindSpeedUnit().c_str());
+                        Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                        TextToSpeech.Append(str);
+*/
                     }
+                    /*
+                    if (temp_data->Humidity() != INT_MAX){
+                        snprintf (buffer, sizeof(buffer) -1, "%i", 
+                                                 temp_data->Humidity());
+                        Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                        TextToSpeech.Append(". Humidity  ");
+                        TextToSpeech.Append(str);
+                        TextToSpeech.Append(" %. ");
+                    }
+                    */
+
+                        _dayCount ++;
+                    }
+                    i = i + 3600*24;
                 }
+
+               // r = __pTts->Speak(TextToSpeech, TEXT_TO_SPEECH_REQUEST_MODE_APPEND);
+                r = __pTts->Speak(TextToSpeech, TEXT_TO_SPEECH_REQUEST_MODE_REPLACE);
+                AppLog("Text %S", TextToSpeech.GetPointer());
+                if (IsFailed(r)){
+                    AppLog("[%s] Speak() error", GetErrorMessage(r));
+                }
+
             }
             break;
 

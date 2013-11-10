@@ -59,6 +59,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     char       buff[256];
     char       buffer[buff_size];
     char       temp_buffer[buff_size];
+    int        i, j, k, l;
     xmlXPathContextPtr xpathCtx; 
     xmlXPathObjectPtr xpathObj = NULL; 
     xmlXPathObjectPtr xpathObj2 = NULL; 

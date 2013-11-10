@@ -74,7 +74,7 @@ public:
     void PreviousStation();
     void ReInitElements();
 
-    Tizen::Base::String MeecastDynamicBoxAppPopupProvider::WindConverter(const Tizen::Base::String str);
+    Tizen::Base::String WindConverter(const Tizen::Base::String str);
 
 
 protected:

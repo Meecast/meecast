@@ -168,7 +168,11 @@ meecastFullWeatherForm::CreateContextMenuList(Tizen::Graphics::Point Corner_Poin
 
 	Bitmap* pNormalBitmap0 = pAppResource->GetBitmapN("null.png");
     __pContextMenuText->AddItem(_("Settings"), ID_MENU_SETTINGS, *pNormalBitmap0, pNormalBitmap0);
-	Bitmap* pNormalBitmap1 = pAppResource->GetBitmapN("din.png");
+	Bitmap* pNormalBitmap1; 
+    if (_config->SpeechFullWindow())
+	    pNormalBitmap1 = pAppResource->GetBitmapN("din.png");
+    else
+	    pNormalBitmap1 = pAppResource->GetBitmapN("din_off.png");
     __pContextMenuText->AddItem(_("Speak weather forecast"), ID_MENU_SPEAK, *pNormalBitmap1, pNormalBitmap1);
     __pContextMenuText->AddItem(_("About"), ID_MENU_ABOUT, *pNormalBitmap0, pNormalBitmap0);
     delete pNormalBitmap0;
@@ -252,6 +256,7 @@ meecastFullWeatherForm::OnActionPerformed(const Tizen::Ui::Control& source, int 
     SceneManager* pSceneManager = SceneManager::GetInstance();
     AppAssert(pSceneManager);
 
+    AppResource* pAppResource = Application::GetInstance()->GetAppResource();
     AppLog("Check Action");
     switch(actionId){
         case ID_BUTTON_NOW:
@@ -282,6 +287,20 @@ meecastFullWeatherForm::OnActionPerformed(const Tizen::Ui::Control& source, int 
         case ID_MENU_ABOUT:
             AppLog("About is clicked!");
             pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_ABOUTSCENE"));
+            break;
+        case ID_MENU_SPEAK:
+            AppLog("Speak is clicked!");
+            Bitmap* pNormalBitmap1; 
+            __pContextMenuText->RemoveItemAt(1);
+            if (_config->SpeechFullWindow()){
+                _config->SpeechFullWindow(false);
+                pNormalBitmap1 = pAppResource->GetBitmapN("din_off.png");
+            }else{
+                _config->SpeechFullWindow(true);
+                pNormalBitmap1 = pAppResource->GetBitmapN("din.png");
+            }
+            __pContextMenuText->InsertItemAt(1, _("Speak weather forecast"), ID_MENU_SPEAK, *pNormalBitmap1, pNormalBitmap1);
+            delete pNormalBitmap1;
             break;
 
         default:

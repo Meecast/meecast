@@ -132,6 +132,7 @@ protected:
     static const int ID_MENU_SETTINGS = 906;
     static const int ID_BUTTON_MENU = 905;
     static const int ID_MENU_ABOUT = 907;
+    static const int ID_MENU_SPEAK = 908;
     static const int DURATION = 500;
     static const int PROGRESS_COUNT = 30;
     static const int INDICATE_HEIGHT = 70;

@@ -1067,7 +1067,7 @@ MeecastDynamicBoxAppPopupProvider::OnActionPerformed(const Tizen::Ui::Control& s
                         Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                         TextToSpeech.Append(". Wind speed ");
                         TextToSpeech.Append(str);
-                        TextToSpeech.Append("  ");
+                        TextToSpeech.Append(".");
 /*
                         snprintf (buffer, sizeof(buffer) -1, "%s", _config->WindSpeedUnit().c_str());
                         Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);

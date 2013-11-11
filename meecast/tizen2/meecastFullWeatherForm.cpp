@@ -159,10 +159,21 @@ meecastFullWeatherForm::OnInitializing(void){
 
 void
 meecastFullWeatherForm::CreateContextMenuList(Tizen::Graphics::Point Corner_Point){
+
+
+	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
     __pContextMenuText = new (std::nothrow) ContextMenu();
+    //__pContextMenuText->Construct(Corner_Point, CONTEXT_MENU_STYLE_LIST);
     __pContextMenuText->Construct(Corner_Point, CONTEXT_MENU_STYLE_LIST, CONTEXT_MENU_ANCHOR_DIRECTION_UPWARD);
-    __pContextMenuText->AddItem(_("Settings"), ID_MENU_SETTINGS);
-    __pContextMenuText->AddItem(_("About"), ID_MENU_ABOUT);
+
+	Bitmap* pNormalBitmap0 = pAppResource->GetBitmapN("null.png");
+    __pContextMenuText->AddItem(_("Settings"), ID_MENU_SETTINGS, *pNormalBitmap0, pNormalBitmap0);
+	Bitmap* pNormalBitmap1 = pAppResource->GetBitmapN("din.png");
+    __pContextMenuText->AddItem(_("Speak weather forecast"), ID_MENU_SPEAK, *pNormalBitmap1, pNormalBitmap1);
+    __pContextMenuText->AddItem(_("About"), ID_MENU_ABOUT, *pNormalBitmap0, pNormalBitmap0);
+    delete pNormalBitmap0;
+    delete pNormalBitmap1;
+	__pContextMenuText->SetFocusable(true);
     __pContextMenuText->AddActionEventListener(*this);
     __pContextMenuText->SetMaxVisibleItemsCount(5);
 }
@@ -438,6 +449,7 @@ meecastFullWeatherForm::ReInitElements(void){
     }
     pFooter->SetBackButton();
     int tab_count = 0;
+    AppLog("11111111");
     if (__nowButton){
         pFooter->AddItem(*__nowButton);
         if (_current_selected_tab == NOW){
@@ -446,12 +458,14 @@ meecastFullWeatherForm::ReInitElements(void){
         }
         tab_count++;
     }
-    pFooter->AddItem(*__dayButton);
-    if (_current_selected_tab == DAY){
-        pFooter->SetItemSelected(tab_count);
-        AppLog("Set tAB DAY!!!!");
+    if (__dayButton){
+        pFooter->AddItem(*__dayButton);
+        if (_current_selected_tab == DAY){
+            pFooter->SetItemSelected(tab_count);
+            AppLog("Set tAB DAY!!!!");
+        }
+        tab_count++;
     }
-    tab_count++;
     if (__nightButton){
         pFooter->AddItem(*__nightButton);
         if (_current_selected_tab == NIGHT){

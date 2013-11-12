@@ -33,10 +33,12 @@ using namespace Tizen::Ui::Controls;
 using namespace Tizen::Ui::Scenes;
 using namespace Tizen::Graphics;
 using namespace Tizen::Locales;
-
+using namespace Tizen::Uix::Speech;
 using namespace Tizen::System;
 
 meecastFullWeatherForm::meecastFullWeatherForm(void):
+                                  __pTts(null),
+                                  _speaking(false),
                                   __pContextMenuText(null),
                                   __nowButton(null),
                                   __dayButton(null),
@@ -66,6 +68,8 @@ meecastFullWeatherForm::~meecastFullWeatherForm(void)
     delete _pValueList;
     if (__pContextMenuText)
         delete __pContextMenuText;
+    if(__pTts)
+        delete __pTts;
 }
 
 bool
@@ -78,6 +82,13 @@ result
 meecastFullWeatherForm::OnInitializing(void){
     result r = E_SUCCESS;
 
+	__pTts = new (std::nothrow) TextToSpeech();
+	if (__pTts != null){
+		r = __pTts->Construct(*this);
+		TryLog(!IsFailed(r), "[%s] Construct() error", GetErrorMessage(r));
+		r = __pTts->Initialize();
+		TryLog(!IsFailed(r), "[%s] Initialize() error", GetErrorMessage(r));
+	}
 
     /* Footer */
     Footer* pFooter = GetFooter();
@@ -152,7 +163,6 @@ meecastFullWeatherForm::OnInitializing(void){
     Tizen::Graphics::Point position = pFooter->GetPosition();
     position.SetPosition(position.x + pFooter->GetWidth(), position.y + 10);
     CreateContextMenuList(position);
-
 
     return r;
 }
@@ -301,6 +311,10 @@ meecastFullWeatherForm::OnActionPerformed(const Tizen::Ui::Control& source, int 
             }
             __pContextMenuText->InsertItemAt(1, _("Speak weather forecast"), ID_MENU_SPEAK, *pNormalBitmap1, pNormalBitmap1);
             delete pNormalBitmap1;
+
+            __pContextMenuText->SetShowState(true);
+            __pContextMenuText->Show();
+
             break;
 
         default:
@@ -336,6 +350,10 @@ meecastFullWeatherForm::ReInitElements(void){
     char  buffer[4096];
     int localtimezone = 0;
     int timezone = 0;
+
+    result r = E_FAILURE;
+
+    String TextToSpeech;
     Tizen::Ui::Controls::Label  *day_name_label = static_cast<Label*>(GetControl(L"IDC_LABEL_DAY_NAME"));
     Tizen::Ui::Controls::Label  *main_background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
@@ -560,6 +578,9 @@ meecastFullWeatherForm::ReInitElements(void){
             day_name_label->SetText(temp_data->FullDayName().c_str());
             day_name_label->RequestRedraw();
 
+            TextToSpeech = "Weather forecast for   ";
+            TextToSpeech.Append( _config->stationname().c_str());        
+ 
             /* Next day */
             if (_config->dp->data().GetDataForTime(time_for_show + 24*3600 ))
                 right_label->SetShowState(true);
@@ -856,13 +877,21 @@ meecastFullWeatherForm::ReInitElements(void){
         }
         pLayout->SetRelation(*__pTableView, *main_background_label, RECT_EDGE_RELATION_TOP_TO_BOTTOM);
         __pTableView->SetSize(__clientWidth, __clientHeight - pFooter->GetHeight() - main_background_label->GetHeight() - INDICATE_HEIGHT);
- 
+    }
+    if (_config->SpeechFullWindow()) {
+        AppLog("test");
+        r = __pTts->Speak(TextToSpeech, TEXT_TO_SPEECH_REQUEST_MODE_REPLACE);
+        AppLog("Text %S", TextToSpeech.GetPointer());
+        if (IsFailed(r)){
+            AppLog("[%s] Speak() error", GetErrorMessage(r));
+        }
     }
     __pTableView->UpdateTableView();
     backgroundPanel->RequestRedraw();
 
     pFooter->SetColor(pFooter->GetButtonColor(BUTTON_ITEM_STATUS_NORMAL));
     pFooter->RequestRedraw();
+
 }
 
 void
@@ -1207,3 +1236,46 @@ meecastFullWeatherForm::OnFlickGestureCanceled(TouchFlickGestureDetector& gestur
 {
     AppLog("Flick canceled!");
 }
+
+
+
+
+void
+meecastFullWeatherForm::OnTextToSpeechInitialized(void)
+{
+     __pTts->SetSpeechRate(TEXT_TO_SPEECH_SPEECH_RATE_SYSTEM_SETTING);
+	result r = E_SUCCESS;
+    r = __pTts->SetLocale(Locale(LANGUAGE_ENG, COUNTRY_US));
+	TryLog(!IsFailed(r), "[%s] setlocale() error", GetErrorMessage(r));
+
+
+}
+
+void
+meecastFullWeatherForm::OnTextToSpeechStatusChanged(Tizen::Uix::Speech::TextToSpeechStatus status){
+	if (status == TEXT_TO_SPEECH_STATUS_READY){
+        _speaking = false;
+	}
+	if (status == TEXT_TO_SPEECH_STATUS_PLAYING){
+        _speaking = true;
+	}
+
+	if(status == TEXT_TO_SPEECH_STATUS_PAUSED) {
+	}
+
+
+}
+
+void
+meecastFullWeatherForm::OnTextToSpeechErrorOccurred(Tizen::Uix::Speech::TextToSpeechError error){
+	if (error == TEXT_TO_SPEECH_ERROR_UNSUPPORTED_SERVICE){
+//		this->SendUserEvent(REQUEST_ID_EXIT, null);
+	}
+}
+
+void
+meecastFullWeatherForm::OnTextToSpeechCompleted(void){
+
+    _speaking = false;
+}
+

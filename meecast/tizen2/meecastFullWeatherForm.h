@@ -32,6 +32,7 @@
 
 #include <FSystem.h>
 #include <FLocales.h>
+#include <FUix.h>
 
 #include <libintl.h>
 #include <locale.h>
@@ -51,6 +52,7 @@ class meecastFullWeatherForm
     , public Tizen::Ui::Controls::ITableViewItemEventListener
     , public Tizen::Ui::Controls::ITableViewItemProvider
     , public Tizen::Ui::ITouchFlickGestureEventListener
+    , public Tizen::Uix::Speech::ITextToSpeechEventListener
      {
 public:
     enum Current_Selected_Tab{
@@ -100,6 +102,12 @@ public:
     virtual void OnTableViewContextItemActivationStateChanged(Tizen::Ui::Controls::TableView& tableView, int itemIndex, Tizen::Ui::Controls::TableViewContextItem* pContextItem, bool activated);
     virtual void OnTableViewItemReordered(Tizen::Ui::Controls::TableView& tableView, int itemIndexFrom, int itemIndexTo);
 
+    // Speech
+    virtual void OnTextToSpeechInitialized(void);
+    virtual void OnTextToSpeechStatusChanged(Tizen::Uix::Speech::TextToSpeechStatus status);
+    virtual void OnTextToSpeechErrorOccurred(Tizen::Uix::Speech::TextToSpeechError error);
+    virtual void OnTextToSpeechCompleted(void);
+
     //Gesture
     virtual void OnFlickGestureDetected(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
     virtual void OnFlickGestureCanceled(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
@@ -136,6 +144,8 @@ protected:
     static const int DURATION = 500;
     static const int PROGRESS_COUNT = 30;
     static const int INDICATE_HEIGHT = 70;
+    Tizen::Uix::Speech::TextToSpeech* __pTts;
+    bool _speaking;
 private:
     ConfigTizen *_config;
     int _dayCount;

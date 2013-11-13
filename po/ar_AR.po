@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-08 22:33+0300\n"
-"PO-Revision-Date: 2013-11-07 03:00+0000\n"
+"POT-Creation-Date: 2013-11-13 19:23+0300\n"
+"PO-Revision-Date: 2013-11-10 07:19+0000\n"
 "Last-Translator: Tarad Alfandi <ttt0600@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/meecast/language/"
 "ar/)\n"
@@ -1344,9 +1344,8 @@ msgid "Light Snow Shower"
 msgstr "ثلوج خفيفة متفرقة"
 
 #: omweather/src/hash.data:340
-#, fuzzy
 msgid "Light intensity drizzle"
-msgstr "أمطار ذات كثافة خفيفة"
+msgstr "رذاذ ذو كثافة خفيفة"
 
 #: omweather/src/hash.data:354
 msgid "Light intensity shower rain"

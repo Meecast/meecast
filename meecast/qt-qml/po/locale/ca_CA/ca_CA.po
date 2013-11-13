@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-08 22:33+0300\n"
-"PO-Revision-Date: 2013-11-05 08:18+0000\n"
+"POT-Creation-Date: 2013-11-13 19:23+0300\n"
+"PO-Revision-Date: 2013-11-11 09:59+0000\n"
 "Last-Translator: agustí clara <agusti.clara@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/meecast/language/"
 "ca/)\n"
@@ -1346,9 +1346,8 @@ msgid "Light Snow Shower"
 msgstr "Ruixats poc intensos de neu"
 
 #: omweather/src/hash.data:340
-#, fuzzy
 msgid "Light intensity drizzle"
-msgstr "Ruixats de poca intensitat"
+msgstr "Plugims poc intensos"
 
 #: omweather/src/hash.data:354
 msgid "Light intensity shower rain"

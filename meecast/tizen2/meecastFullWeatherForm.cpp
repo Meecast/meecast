@@ -50,6 +50,17 @@ meecastFullWeatherForm::meecastFullWeatherForm(void):
                                   __pFlickGesture(null),
                                   __gestureDetected(false){
     _dayNumber = 0;
+    result r = E_SUCCESS;
+    AppLog("Initializea meecastFullWeatherForm");
+    __pTts = new (std::nothrow) TextToSpeech();
+	if (__pTts != null){
+		r = __pTts->Construct(*this);
+		TryLog(!IsFailed(r), "[%s] Construct() error", GetErrorMessage(r));
+		r = __pTts->Initialize();
+		TryLog(!IsFailed(r), "[%s] Initialize() error", GetErrorMessage(r));
+        AppLog("Initializea meecastFullWeatherForm2");
+	}
+
 }
 
 meecastFullWeatherForm::~meecastFullWeatherForm(void)
@@ -75,21 +86,15 @@ meecastFullWeatherForm::~meecastFullWeatherForm(void)
 bool
 meecastFullWeatherForm::Initialize(void){
     Construct(L"FULL_WEATHER_FORM");
+
     return true;
 }
 
 result
 meecastFullWeatherForm::OnInitializing(void){
+
+
     result r = E_SUCCESS;
-
-	__pTts = new (std::nothrow) TextToSpeech();
-	if (__pTts != null){
-		r = __pTts->Construct(*this);
-		TryLog(!IsFailed(r), "[%s] Construct() error", GetErrorMessage(r));
-		r = __pTts->Initialize();
-		TryLog(!IsFailed(r), "[%s] Initialize() error", GetErrorMessage(r));
-	}
-
     /* Footer */
     Footer* pFooter = GetFooter();
     pFooter->SetStyle(FOOTER_STYLE_SEGMENTED_ICON_TEXT);
@@ -309,6 +314,7 @@ meecastFullWeatherForm::OnActionPerformed(const Tizen::Ui::Control& source, int 
                 _config->SpeechFullWindow(true);
                 pNormalBitmap1 = pAppResource->GetBitmapN("din.png");
             }
+            _config->saveConfig();
             __pContextMenuText->InsertItemAt(1, _("Speak weather forecast"), ID_MENU_SPEAK, *pNormalBitmap1, pNormalBitmap1);
             delete pNormalBitmap1;
 
@@ -878,14 +884,6 @@ meecastFullWeatherForm::ReInitElements(void){
         pLayout->SetRelation(*__pTableView, *main_background_label, RECT_EDGE_RELATION_TOP_TO_BOTTOM);
         __pTableView->SetSize(__clientWidth, __clientHeight - pFooter->GetHeight() - main_background_label->GetHeight() - INDICATE_HEIGHT);
     }
-    if (_config->SpeechFullWindow()) {
-        AppLog("test");
-        r = __pTts->Speak(TextToSpeech, TEXT_TO_SPEECH_REQUEST_MODE_REPLACE);
-        AppLog("Text %S", TextToSpeech.GetPointer());
-        if (IsFailed(r)){
-            AppLog("[%s] Speak() error", GetErrorMessage(r));
-        }
-    }
     __pTableView->UpdateTableView();
     backgroundPanel->RequestRedraw();
 
@@ -911,6 +909,18 @@ meecastFullWeatherForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& prev
 
     AppLog("OnSceneActivatedNi %i", _dayNumber);
     ReInitElements(); 
+
+    result r = E_FAILURE;
+    if (_config->SpeechFullWindow()) {
+        AppLog("test");
+        //r = __pTts->Speak(TextToSpeech, TEXT_TO_SPEECH_REQUEST_MODE_REPLACE);
+        r = __pTts->Speak("Test hello", TEXT_TO_SPEECH_REQUEST_MODE_REPLACE);
+      //  AppLog("Text %S", TextToSpeech.GetPointer());
+        if (IsFailed(r)){
+            AppLog("[%s] Speak() error", GetErrorMessage(r));
+        }
+    }
+
 }
 
 void
@@ -1243,6 +1253,7 @@ meecastFullWeatherForm::OnFlickGestureCanceled(TouchFlickGestureDetector& gestur
 void
 meecastFullWeatherForm::OnTextToSpeechInitialized(void)
 {
+    AppLog("OnTextToSpeechInitialized");
      __pTts->SetSpeechRate(TEXT_TO_SPEECH_SPEECH_RATE_SYSTEM_SETTING);
 	result r = E_SUCCESS;
     r = __pTts->SetLocale(Locale(LANGUAGE_ENG, COUNTRY_US));

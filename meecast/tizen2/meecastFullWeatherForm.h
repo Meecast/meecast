@@ -43,7 +43,8 @@
 
 
 class meecastFullWeatherForm
-    : public Tizen::Ui::Controls::Form
+    : public Tizen::Uix::Speech::ITextToSpeechEventListener
+    , public Tizen::Ui::Controls::Form
     , public Tizen::Ui::IActionEventListener
     , public Tizen::Ui::Controls::IFormBackEventListener
     , public Tizen::Ui::Controls::IFormMenuEventListener
@@ -52,7 +53,6 @@ class meecastFullWeatherForm
     , public Tizen::Ui::Controls::ITableViewItemEventListener
     , public Tizen::Ui::Controls::ITableViewItemProvider
     , public Tizen::Ui::ITouchFlickGestureEventListener
-    , public Tizen::Uix::Speech::ITextToSpeechEventListener
      {
 public:
     enum Current_Selected_Tab{
@@ -102,16 +102,17 @@ public:
     virtual void OnTableViewContextItemActivationStateChanged(Tizen::Ui::Controls::TableView& tableView, int itemIndex, Tizen::Ui::Controls::TableViewContextItem* pContextItem, bool activated);
     virtual void OnTableViewItemReordered(Tizen::Ui::Controls::TableView& tableView, int itemIndexFrom, int itemIndexTo);
 
-    // Speech
-    virtual void OnTextToSpeechInitialized(void);
-    virtual void OnTextToSpeechStatusChanged(Tizen::Uix::Speech::TextToSpeechStatus status);
-    virtual void OnTextToSpeechErrorOccurred(Tizen::Uix::Speech::TextToSpeechError error);
-    virtual void OnTextToSpeechCompleted(void);
 
     //Gesture
     virtual void OnFlickGestureDetected(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
     virtual void OnFlickGestureCanceled(Tizen::Ui::TouchFlickGestureDetector& gestureDetector);
 
+
+    // Speech
+    virtual void OnTextToSpeechInitialized(void);
+    virtual void OnTextToSpeechStatusChanged(Tizen::Uix::Speech::TextToSpeechStatus status);
+    virtual void OnTextToSpeechErrorOccurred(Tizen::Uix::Speech::TextToSpeechError error);
+    virtual void OnTextToSpeechCompleted(void);
 
          
 /*

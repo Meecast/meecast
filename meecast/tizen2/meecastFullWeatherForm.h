@@ -43,8 +43,7 @@
 
 
 class meecastFullWeatherForm
-    : public Tizen::Uix::Speech::ITextToSpeechEventListener
-    , public Tizen::Ui::Controls::Form
+    : public Tizen::Ui::Controls::Form
     , public Tizen::Ui::IActionEventListener
     , public Tizen::Ui::Controls::IFormBackEventListener
     , public Tizen::Ui::Controls::IFormMenuEventListener
@@ -52,7 +51,9 @@ class meecastFullWeatherForm
     , public Tizen::Ui::ITouchEventListener
     , public Tizen::Ui::Controls::ITableViewItemEventListener
     , public Tizen::Ui::Controls::ITableViewItemProvider
+    , public Tizen::Base::Runtime::ITimerEventListener
     , public Tizen::Ui::ITouchFlickGestureEventListener
+    , public Tizen::Uix::Speech::ITextToSpeechEventListener
      {
 public:
     enum Current_Selected_Tab{
@@ -85,6 +86,9 @@ public:
     virtual void OnTouchLongPressed(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
     virtual void OnTouchMoved(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
     virtual void OnTouchReleased(const Tizen::Ui::Control& source, const Tizen::Graphics::Point& currentPosition, const Tizen::Ui::TouchEventInfo& touchInfo){}
+
+    virtual void OnTimerExpired(Tizen::Base::Runtime::Timer& timer);
+
     void ReInitElements(void);
 
     Tizen::Graphics::Color* GetTemperatureColor(int t);
@@ -145,8 +149,8 @@ protected:
     static const int DURATION = 500;
     static const int PROGRESS_COUNT = 30;
     static const int INDICATE_HEIGHT = 70;
-    Tizen::Uix::Speech::TextToSpeech* __pTts;
     bool _speaking;
+    String TextToSpeech;
 private:
     ConfigTizen *_config;
     int _dayCount;
@@ -165,6 +169,8 @@ private:
     int _count_of_hours; 
     Tizen::Ui::TouchFlickGestureDetector* __pFlickGesture;
     bool __gestureDetected;
+    Tizen::Base::Runtime::Timer* __updateTimer;
+    Tizen::Uix::Speech::TextToSpeech* __pTts;
 };
 
 #endif	//_MEECAST_FULL_WEATHER_FORM_H_

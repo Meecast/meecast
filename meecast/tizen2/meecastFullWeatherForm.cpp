@@ -37,7 +37,6 @@ using namespace Tizen::Uix::Speech;
 using namespace Tizen::System;
 
 meecastFullWeatherForm::meecastFullWeatherForm(void):
-                                  __pTts(null),
                                   _speaking(false),
                                   __pContextMenuText(null),
                                   __nowButton(null),
@@ -48,11 +47,19 @@ meecastFullWeatherForm::meecastFullWeatherForm(void):
                                   _pKeyList(null),
                                   _pValueList(null),
                                   __pFlickGesture(null),
-                                  __gestureDetected(false){
+                                  __gestureDetected(false),
+                                  __pTts(null),
+                                  __updateTimer()
+                                  {
     _dayNumber = 0;
     result r = E_SUCCESS;
+    __updateTimer = new (std::nothrow) Tizen::Base::Runtime::Timer;
+    if (__updateTimer){
+        AppLog("updateTimer is created.");
+        r = __updateTimer->Construct(*this);
+    }
     AppLog("Initializea meecastFullWeatherForm");
-    __pTts = new (std::nothrow) TextToSpeech();
+    __pTts = new Tizen::Uix::Speech::TextToSpeech();
 	if (__pTts != null){
 		r = __pTts->Construct(*this);
 		TryLog(!IsFailed(r), "[%s] Construct() error", GetErrorMessage(r));
@@ -168,6 +175,7 @@ meecastFullWeatherForm::OnInitializing(void){
     Tizen::Graphics::Point position = pFooter->GetPosition();
     position.SetPosition(position.x + pFooter->GetWidth(), position.y + 10);
     CreateContextMenuList(position);
+
 
     return r;
 }
@@ -359,7 +367,6 @@ meecastFullWeatherForm::ReInitElements(void){
 
     result r = E_FAILURE;
 
-    String TextToSpeech;
     Tizen::Ui::Controls::Label  *day_name_label = static_cast<Label*>(GetControl(L"IDC_LABEL_DAY_NAME"));
     Tizen::Ui::Controls::Label  *main_background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
     Tizen::Ui::Controls::Label  *left_label = static_cast<Label*>(GetControl(L"IDC_LABEL_LEFT_BUTTON"));
@@ -889,6 +896,9 @@ meecastFullWeatherForm::ReInitElements(void){
 
     pFooter->SetColor(pFooter->GetButtonColor(BUTTON_ITEM_STATUS_NORMAL));
     pFooter->RequestRedraw();
+    __updateTimer->StartAsRepeatable(500);
+
+
 
 }
 
@@ -910,16 +920,6 @@ meecastFullWeatherForm::OnSceneActivatedN(const Tizen::Ui::Scenes::SceneId& prev
     AppLog("OnSceneActivatedNi %i", _dayNumber);
     ReInitElements(); 
 
-    result r = E_FAILURE;
-    if (_config->SpeechFullWindow()) {
-        AppLog("test");
-        //r = __pTts->Speak(TextToSpeech, TEXT_TO_SPEECH_REQUEST_MODE_REPLACE);
-        r = __pTts->Speak("Test hello", TEXT_TO_SPEECH_REQUEST_MODE_REPLACE);
-      //  AppLog("Text %S", TextToSpeech.GetPointer());
-        if (IsFailed(r)){
-            AppLog("[%s] Speak() error", GetErrorMessage(r));
-        }
-    }
 
 }
 
@@ -1288,5 +1288,23 @@ void
 meecastFullWeatherForm::OnTextToSpeechCompleted(void){
 
     _speaking = false;
+}
+
+void
+meecastFullWeatherForm::OnTimerExpired(Tizen::Base::Runtime::Timer& timer){
+    result r = E_FAILURE;
+    if (_config->SpeechFullWindow()){
+        AppLog("test");
+        //r = __pTts->Speak(TextToSpeech, TEXT_TO_SPEECH_REQUEST_MODE_REPLACE);
+        r = __pTts->Speak("Test hello", TEXT_TO_SPEECH_REQUEST_MODE_REPLACE);
+      //  AppLog("Text %S", TextToSpeech.GetPointer());
+        if (IsFailed(r)){
+            AppLog("[%s] Speak() error", GetErrorMessage(r));
+        }else{
+            __updateTimer->Cancel();
+        }
+    }else{
+        __updateTimer->Cancel();
+    }
 }
 

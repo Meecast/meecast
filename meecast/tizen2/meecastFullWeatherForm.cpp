@@ -79,6 +79,8 @@ meecastFullWeatherForm::~meecastFullWeatherForm(void)
     if (_pKeyList->GetCount() > 0){
         _pKeyList->RemoveAll(true);
     }
+    if (__updateTimer)
+        delete __updateTimer;
     delete _pKeyList;
     if (_pValueList->GetCount() > 0){
         _pValueList->RemoveAll(true);
@@ -93,7 +95,6 @@ meecastFullWeatherForm::~meecastFullWeatherForm(void)
 bool
 meecastFullWeatherForm::Initialize(void){
     Construct(L"FULL_WEATHER_FORM");
-
     return true;
 }
 
@@ -593,6 +594,28 @@ meecastFullWeatherForm::ReInitElements(void){
 
             TextToSpeech = "Weather forecast for   ";
             TextToSpeech.Append( _config->stationname().c_str());        
+            TextToSpeech.Append( " on "); 
+
+            DateTime dt;
+            time_t day_and_time;
+            struct tm   *tm1 = NULL;
+            day_and_time = temp_data->StartTime() + _config->dp->timezone()*3600;
+            tm1 = gmtime(&(day_and_time));
+            dt.SetValue(1900 + tm1->tm_year, tm1->tm_mon + 1, tm1->tm_mday, tm1->tm_hour, tm1->tm_min);
+            String dateString;
+            String timeString;
+            LocaleManager localeManager;
+            localeManager.Construct();
+            Locale  systemLocale = Locale(LANGUAGE_ENG, COUNTRY_US);
+            String countryCodeString = systemLocale.GetCountryCodeString();
+            String languageCodeString = systemLocale.GetLanguageCodeString();
+            Tizen::Locales::DateTimeFormatter* pDateFormatter = DateTimeFormatter::CreateDateFormatterN(systemLocale, DATE_TIME_STYLE_SHORT);
+            String customizedPattern = L"EEEE";
+            pDateFormatter->ApplyPattern(customizedPattern);
+            pDateFormatter->Format(dt, dateString);
+            TextToSpeech.Append( "."); 
+
+            TextToSpeech.Append(dateString);
  
             /* Next day */
             if (_config->dp->data().GetDataForTime(time_for_show + 24*3600 ))
@@ -1295,9 +1318,8 @@ meecastFullWeatherForm::OnTimerExpired(Tizen::Base::Runtime::Timer& timer){
     result r = E_FAILURE;
     if (_config->SpeechFullWindow()){
         AppLog("test");
-        //r = __pTts->Speak(TextToSpeech, TEXT_TO_SPEECH_REQUEST_MODE_REPLACE);
-        r = __pTts->Speak("Test hello", TEXT_TO_SPEECH_REQUEST_MODE_REPLACE);
-      //  AppLog("Text %S", TextToSpeech.GetPointer());
+        r = __pTts->Speak(TextToSpeech, TEXT_TO_SPEECH_REQUEST_MODE_REPLACE);
+        AppLog("Text %S", TextToSpeech.GetPointer());
         if (IsFailed(r)){
             AppLog("[%s] Speak() error", GetErrorMessage(r));
         }else{

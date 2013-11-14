@@ -1,6 +1,7 @@
 meecast (0.8) unstable; urgency=low
 
   * Added Perth to bom.gov.au source
+  * Fixed problem with long name of station in LockWallpaper widget 
   * Added icons for openweathermap.com source
   * Added new measure units for wind speed - Knots and Beaufort scale
   * Updated Arabic, Serbian, Ukrain, Norwegian, Catalan, Finish, Spanish languages

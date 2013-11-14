@@ -174,8 +174,14 @@ void drawwallpaper(QImage image, QHash <QString, QString> hash){
     paint.drawImage(point, icon.scaledToHeight(128, Qt::SmoothTransformation)); 
         
     /* Station */
-    paint.setFont(QFont("Nokia Pure Light", 18));
-    paint.drawText( x + 1, y, 196, 28, Qt::AlignHCenter, stationname.mid(0, 19));
+    if (stationname.length() > 21)
+        paint.setFont(QFont("Nokia Pure Light", 13));
+    else
+        if (stationname.length() > 18)
+            paint.setFont(QFont("Nokia Pure Light", 15));
+        else
+            paint.setFont(QFont("Nokia Pure Light", 18));
+    paint.drawText( x + 1, y, 196, 28, Qt::AlignHCenter, stationname.mid(0, 23));
 
     /* Temperature */
     paint.setFont(QFont("Nokia Pure", 22));

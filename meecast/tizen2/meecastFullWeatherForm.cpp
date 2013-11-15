@@ -616,7 +616,19 @@ meecastFullWeatherForm::ReInitElements(void){
             TextToSpeech.Append( "."); 
 
             TextToSpeech.Append(dateString);
- 
+
+            switch (_current_selected_tab){
+                case NOW: 
+                    TextToSpeech.Append( " Now ."); 
+                    break;
+                case DAY:
+                    TextToSpeech.Append( " Day ."); 
+                    break;
+                case NIGHT:
+                    TextToSpeech.Append( " Night ."); 
+                    break;
+            }
+
             /* Next day */
             if (_config->dp->data().GetDataForTime(time_for_show + 24*3600 ))
                 right_label->SetShowState(true);

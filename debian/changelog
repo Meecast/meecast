@@ -1,3 +1,10 @@
+meecast (0.8.1) unstable; urgency=low
+
+  * Updated  Norwegian translation
+
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 13 Nov 2013 20:31:23 +0200
+
+
 meecast (0.8) unstable; urgency=low
 
   * Added Perth to bom.gov.au source

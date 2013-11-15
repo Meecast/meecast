@@ -521,7 +521,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
     if (size > 14)
         size = 14;
     /* fprintf(stderr, "SIZE!!!!!!!!!!!!!!: %i\n", size); */
-    xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/*/div[(@data-ts)]/div/span[(@class='temp_max temp_warm')]/text()", xpathCtx);
+    xpathObj2 = xmlXPathEvalExpression((const xmlChar*)"/html/body/*/div[(@data-ts)]/div/span[(@class='temp_max temp_warm') or (@class='temp_max temp_cold')]/text()", xpathCtx);
     xpathObj3 = xmlXPathEvalExpression((const xmlChar*)"/html/body/*/div[(@data-ts)]/div/span[(@class='temp_min')]/text()", xpathCtx);
     xpathObj4 = xmlXPathEvalExpression((const xmlChar*)"/html/body/*/div[(@data-ts)]/div/div/@class", xpathCtx);
     xpathObj5 = xmlXPathEvalExpression((const xmlChar*)"/html/body/*/div[(@data-ts)]/div/strong/text()", xpathCtx);
@@ -536,7 +536,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
              fprintf(stderr,"ERRROR");
              continue;
          }
-         /* fprintf(stderr," TEXT %s\n", nodes->nodeTab[i]->children->content); */
+         /* fprintf(stderr," TEXT %s\n", nodes->nodeTab[i]->children->content); */ 
          current_time = time(NULL);
          tm = localtime(&current_time);
 
@@ -556,7 +556,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
          /* added hi temperature */
          if (xpathObj2 && !xmlXPathNodeSetIsEmpty(xpathObj2->nodesetval) &&
              xpathObj2->nodesetval->nodeTab[i] && xpathObj2->nodesetval->nodeTab[i]->content){
-/*              fprintf (stderr, "temperature %s\n", xpathObj2->nodesetval->nodeTab[i]->content); */
+             /* fprintf (stderr, "temperature %s\n", xpathObj2->nodesetval->nodeTab[i]->content); */
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj2->nodesetval->nodeTab[i]->content);
              memset(temp_buffer, 0, sizeof(temp_buffer));
              for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){

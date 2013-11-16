@@ -17,7 +17,7 @@ Page {
     Flickable {
         anchors.fill: parent
         flickableDirection: Flickable.VerticalFlick
-        contentHeight: 3000 
+        contentHeight: 3300 
         Label {
             id: titletext
             text: Config.tr("MeeCast for Harmattan")
@@ -244,6 +244,7 @@ Albanian - Ilir Gjika\n \
 Chinese - Wong Man Kong, Michael\n \
 Portuguese - Jose Narciso,\n \
 Turkish - Burak Kaan Kose,\n \
+\tMehmet Çilingir,\n \
 Catalan - Agustí Clara,\n \
 Arabic - Tarad Alfandi,\n \
 Serbian - Aleksandar Zaric,\n \

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-08 22:33+0300\n"
+"POT-Creation-Date: 2013-11-16 20:33+0300\n"
 "PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -1012,6 +1012,7 @@ msgid ""
 " Chinese - Wong Man Kong, Michael\n"
 " Portuguese - Jose Narciso,\n"
 " Turkish - Burak Kaan Kose,\n"
+" \tMehmet Çilingir,\n"
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
 " Serbian - Aleksandar Zaric,\n"
@@ -1190,7 +1191,7 @@ msgstr "Ikony"
 msgid "Iconset"
 msgstr "Téma ikon"
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:264
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:265
 msgid "Iconsets"
 msgstr "Témy ikon"
 
@@ -1264,7 +1265,7 @@ msgstr "Rozloženie:"
 msgid "Lead designer"
 msgstr "Vedúci návrhár"
 
-#: meecast/qt-qml/qml/AboutPage.qml:298
+#: meecast/qt-qml/qml/AboutPage.qml:299
 msgid "License"
 msgstr "Licencia"
 
@@ -2439,7 +2440,7 @@ msgstr "Chladno a sychravo so snežením / Vietor"
 msgid "Source"
 msgstr "Zdroj"
 
-#: meecast/qt-qml/qml/AboutPage.qml:320
+#: meecast/qt-qml/qml/AboutPage.qml:321
 #, fuzzy
 msgid "Source code"
 msgstr "Zdroj"
@@ -2587,7 +2588,7 @@ msgstr "Údaje o počasí boli aktualizované."
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:307
+#: meecast/qt-qml/qml/AboutPage.qml:308
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3029,7 +3030,7 @@ msgstr "hodinu dozadu"
 msgid "hours ago"
 msgstr "hodín dozadu"
 
-#: meecast/qt-qml/qml/AboutPage.qml:329
+#: meecast/qt-qml/qml/AboutPage.qml:330
 msgid "http://github.com/Meecast/meecast"
 msgstr ""
 

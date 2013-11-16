@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en_GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-08 22:33+0300\n"
+"POT-Creation-Date: 2013-11-16 20:33+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -936,6 +936,7 @@ msgid ""
 " Chinese - Wong Man Kong, Michael\n"
 " Portuguese - Jose Narciso,\n"
 " Turkish - Burak Kaan Kose,\n"
+" \tMehmet Çilingir,\n"
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
 " Serbian - Aleksandar Zaric,\n"
@@ -1077,7 +1078,7 @@ msgstr ""
 msgid "Iconset"
 msgstr ""
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:264
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:265
 msgid "Iconsets"
 msgstr ""
 
@@ -1149,7 +1150,7 @@ msgstr ""
 msgid "Lead designer"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:298
+#: meecast/qt-qml/qml/AboutPage.qml:299
 msgid "License"
 msgstr ""
 
@@ -2306,7 +2307,7 @@ msgstr ""
 msgid "Source"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:320
+#: meecast/qt-qml/qml/AboutPage.qml:321
 msgid "Source code"
 msgstr ""
 
@@ -2457,7 +2458,7 @@ msgstr ""
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:307
+#: meecast/qt-qml/qml/AboutPage.qml:308
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2873,7 +2874,7 @@ msgstr ""
 msgid "hours ago"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:329
+#: meecast/qt-qml/qml/AboutPage.qml:330
 msgid "http://github.com/Meecast/meecast"
 msgstr ""
 

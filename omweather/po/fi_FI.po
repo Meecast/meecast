@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-13 19:23+0300\n"
+"POT-Creation-Date: 2013-11-16 20:33+0300\n"
 "PO-Revision-Date: 2013-11-10 19:08+0000\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
@@ -991,6 +991,7 @@ msgid "Freezing Drizzle"
 msgstr "Jäätävää tihkusadetta"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
+#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1011,6 +1012,7 @@ msgid ""
 " Chinese - Wong Man Kong, Michael\n"
 " Portuguese - Jose Narciso,\n"
 " Turkish - Burak Kaan Kose,\n"
+" \tMehmet Çilingir,\n"
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
 " Serbian - Aleksandar Zaric,\n"
@@ -1193,7 +1195,7 @@ msgstr "Sääsymbolit"
 msgid "Iconset"
 msgstr "Sääsymbolit"
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:264
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:265
 msgid "Iconsets"
 msgstr "Sääsymbolit"
 
@@ -1267,7 +1269,7 @@ msgstr "Asettelu:"
 msgid "Lead designer"
 msgstr "Pääsuunnittelija"
 
-#: meecast/qt-qml/qml/AboutPage.qml:298
+#: meecast/qt-qml/qml/AboutPage.qml:299
 msgid "License"
 msgstr "Lisenssi"
 
@@ -2423,7 +2425,7 @@ msgstr "Lumi- ja räntäsadetta / Tuulista"
 msgid "Source"
 msgstr "Lähde"
 
-#: meecast/qt-qml/qml/AboutPage.qml:320
+#: meecast/qt-qml/qml/AboutPage.qml:321
 msgid "Source code"
 msgstr "Lähdekoodi"
 
@@ -2570,7 +2572,7 @@ msgstr "Säätiedot päivitetty."
 msgid "There are no stations to show in this view of the list"
 msgstr "Ei sääasemia tässä näkymässä"
 
-#: meecast/qt-qml/qml/AboutPage.qml:307
+#: meecast/qt-qml/qml/AboutPage.qml:308
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3017,7 +3019,7 @@ msgstr "tunti sitten"
 msgid "hours ago"
 msgstr "tuntia sitten"
 
-#: meecast/qt-qml/qml/AboutPage.qml:329
+#: meecast/qt-qml/qml/AboutPage.qml:330
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-08 22:33+0300\n"
+"POT-Creation-Date: 2013-11-16 20:33+0300\n"
 "PO-Revision-Date: 2013-04-29 10:02+0000\n"
 "Last-Translator: Ilir Gjika <ilir.gjika@gmail.com>\n"
 "Language-Team: Albanian (http://www.transifex.com/projects/p/meecast/"
@@ -1009,6 +1009,7 @@ msgid ""
 " Chinese - Wong Man Kong, Michael\n"
 " Portuguese - Jose Narciso,\n"
 " Turkish - Burak Kaan Kose,\n"
+" \tMehmet Çilingir,\n"
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
 " Serbian - Aleksandar Zaric,\n"
@@ -1190,7 +1191,7 @@ msgstr "Iconat"
 msgid "Iconset"
 msgstr "Seti i ikonave"
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:264
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:265
 msgid "Iconsets"
 msgstr "Setet e ikonave"
 
@@ -1264,7 +1265,7 @@ msgstr "Paraqitja:"
 msgid "Lead designer"
 msgstr "Krye designer"
 
-#: meecast/qt-qml/qml/AboutPage.qml:298
+#: meecast/qt-qml/qml/AboutPage.qml:299
 msgid "License"
 msgstr "Liçencat"
 
@@ -2438,7 +2439,7 @@ msgstr "Nga dëborë në shi me akull / Erë"
 msgid "Source"
 msgstr "Burimi"
 
-#: meecast/qt-qml/qml/AboutPage.qml:320
+#: meecast/qt-qml/qml/AboutPage.qml:321
 #, fuzzy
 msgid "Source code"
 msgstr "Burimi"
@@ -2586,7 +2587,7 @@ msgstr "Të dhënat e motit u përditësuan."
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:307
+#: meecast/qt-qml/qml/AboutPage.qml:308
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3027,7 +3028,7 @@ msgstr "orë më parë"
 msgid "hours ago"
 msgstr "orë më parë"
 
-#: meecast/qt-qml/qml/AboutPage.qml:329
+#: meecast/qt-qml/qml/AboutPage.qml:330
 msgid "http://github.com/Meecast/meecast"
 msgstr ""
 

@@ -134,6 +134,7 @@ public:
 	virtual int GetDefaultItemHeight(void);
 */
 
+    Tizen::Base::String WindConverter(const Tizen::Base::String str);
 
 
 protected:

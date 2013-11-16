@@ -67,7 +67,6 @@ meecastFullWeatherForm::meecastFullWeatherForm(void):
 		TryLog(!IsFailed(r), "[%s] Initialize() error", GetErrorMessage(r));
         AppLog("Initializea meecastFullWeatherForm2");
 	}
-
 }
 
 meecastFullWeatherForm::~meecastFullWeatherForm(void)
@@ -97,6 +96,46 @@ meecastFullWeatherForm::Initialize(void){
     Construct(L"FULL_WEATHER_FORM");
     return true;
 }
+
+Tizen::Base::String
+meecastFullWeatherForm::WindConverter(const Tizen::Base::String str){
+    Tizen::Base::String wind_string;
+    if (str == "N")
+        wind_string = "North";
+    if (str == "S")
+        wind_string = "South";
+    if (str == "W")
+        wind_string = "West";
+    if (str == "E")
+        wind_string = "East";
+    if (str == "ENE")
+        wind_string = "East-Northeast";
+    if (str == "ESE")
+        wind_string = "East-Southeast";
+    if (str == "NE")
+        wind_string = "North-East";
+    if (str == "NNE")
+        wind_string = "North-Northeast";
+    if (str == "NNW")
+        wind_string = "North-Northwest";
+    if (str == "NW")
+        wind_string = "North-West";
+    if (str == "SE")
+        wind_string = "South-East";
+    if (str == "SSE")
+        wind_string = "South-Southeast";
+    if (str == "SSW")
+        wind_string = "South-Southwest";
+    if (str == "SW")
+        wind_string = "South-West";
+    if (str == "WNW")
+        wind_string = "West-Northwest";
+    if (str == "WSW")
+        wind_string = "West-Southwest";
+
+    return wind_string;
+}
+
 
 result
 meecastFullWeatherForm::OnInitializing(void){
@@ -683,6 +722,10 @@ meecastFullWeatherForm::ReInitElements(void){
             main_description->SetText(str);
             main_description->RequestRedraw();
             main_description->SetShowState(true);
+            Tizen::Base::Utility::StringUtil::Utf8ToString((temp_data->Text().c_str()), str);
+            TextToSpeech.Append(str);
+            TextToSpeech.Append(". ");
+
 
             int t = INT_MAX;
             /* Temperature */
@@ -726,6 +769,40 @@ meecastFullWeatherForm::ReInitElements(void){
                     main_temperature->SetTextConfig(55, LABEL_TEXT_STYLE_NORMAL); 
             main_temperature->SetText(str);
             main_temperature->RequestRedraw();
+
+
+            TextToSpeech.Append(". Temperature: ");
+            memset(buffer, 0, sizeof(buffer));
+            /* Temperature */
+            if (temp_data->temperature().value(true) == INT_MAX){
+              if ((temp_data->temperature_hi().value(true) == INT_MAX) &&
+                  (temp_data->temperature_low().value(true) == INT_MAX)){ 
+              } 
+              if ((temp_data->temperature_hi().value(true) != INT_MAX) &&
+                  (temp_data->temperature_low().value(true) != INT_MAX)){ 
+                snprintf(buffer, sizeof(buffer) - 1, "from %0.f to %0.f°",
+                                                temp_data->temperature_low().value(),  
+                                                temp_data->temperature_hi().value());
+              }else{  
+                  if (temp_data->temperature_hi().value(true) != INT_MAX){
+                    snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_hi().value());
+                  }
+                  if (temp_data->temperature_low().value(true) != INT_MAX){
+                    snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature_low().value());
+                  }
+              }
+            }else{
+                snprintf(buffer, sizeof(buffer) - 1, "%0.f°", temp_data->temperature().value());
+            }
+
+            Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+            TextToSpeech.Append(str);
+            TextToSpeech.Append(". ");
+
+
+
+
+
             /* Current or not current period */
             switch(_current_selected_tab){
                 case NOW:
@@ -797,6 +874,41 @@ meecastFullWeatherForm::ReInitElements(void){
                 _pValueList->Add(new String(str));
                 _pKeyList->Add(new String(_("Humidity:")));
             }
+            /* For Speech */
+            memset(buffer, 0, sizeof(buffer));
+            if (temp_data->WindDirection() != "N/A"){
+
+                snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
+                Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                AppLog("Wind %S", WindConverter("sss").GetPointer());
+                TextToSpeech.Append(". Wind direction: ");
+                TextToSpeech.Append(WindConverter(str));
+                TextToSpeech.Append(". ");
+
+            }
+            if (temp_data->WindSpeed().value() != INT_MAX){
+                snprintf (buffer, sizeof(buffer) -1, "%0.f", 
+                                         temp_data->WindSpeed().value());
+                Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                TextToSpeech.Append(" Wind speed ");
+                TextToSpeech.Append(str);
+                TextToSpeech.Append(" ");
+/*
+                snprintf (buffer, sizeof(buffer) -1, "%s", _config->WindSpeedUnit().c_str());
+                Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                TextToSpeech.Append(str);
+                TextToSpeech.Append(". ");
+*/
+            }
+            if (temp_data->Humidity() != INT_MAX){
+                snprintf (buffer, sizeof(buffer) -1, "%i", 
+                                         temp_data->Humidity());
+                Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
+                TextToSpeech.Append(" Humidity ");
+                TextToSpeech.Append(str);
+                TextToSpeech.Append(" %.");
+            }
+
             /* Ppcp */
             if (temp_data->Ppcp() != INT_MAX){
                 snprintf (buffer, sizeof(buffer) -1, "%0.f", temp_data->Ppcp());

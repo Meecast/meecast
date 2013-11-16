@@ -48,8 +48,8 @@ meecastFullWeatherForm::meecastFullWeatherForm(void):
                                   _pValueList(null),
                                   __pFlickGesture(null),
                                   __gestureDetected(false),
-                                  __pTts(null),
-                                  __updateTimer()
+                                  __updateTimer(),
+                                  __pTts(null)
                                   {
     _dayNumber = 0;
     result r = E_SUCCESS;
@@ -405,7 +405,6 @@ meecastFullWeatherForm::ReInitElements(void){
     int localtimezone = 0;
     int timezone = 0;
 
-    result r = E_FAILURE;
 
     Tizen::Ui::Controls::Label  *day_name_label = static_cast<Label*>(GetControl(L"IDC_LABEL_DAY_NAME"));
     Tizen::Ui::Controls::Label  *main_background_label = static_cast<Label*>(GetControl(L"IDC_BACKGROUND_LABEL"));
@@ -874,13 +873,13 @@ meecastFullWeatherForm::ReInitElements(void){
                 _pValueList->Add(new String(str));
                 _pKeyList->Add(new String(_("Humidity:")));
             }
-            /* For Speech */
+
+            /* Wind and humidity for Speech */
             memset(buffer, 0, sizeof(buffer));
             if (temp_data->WindDirection() != "N/A"){
 
                 snprintf (buffer, sizeof(buffer) -1, "%s", temp_data->WindDirection().c_str());
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
-                AppLog("Wind %S", WindConverter("sss").GetPointer());
                 TextToSpeech.Append(". Wind direction: ");
                 TextToSpeech.Append(WindConverter(str));
                 TextToSpeech.Append(". ");
@@ -892,7 +891,7 @@ meecastFullWeatherForm::ReInitElements(void){
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
                 TextToSpeech.Append(" Wind speed ");
                 TextToSpeech.Append(str);
-                TextToSpeech.Append(" ");
+                TextToSpeech.Append(". ");
 /*
                 snprintf (buffer, sizeof(buffer) -1, "%s", _config->WindSpeedUnit().c_str());
                 Tizen::Base::Utility::StringUtil::Utf8ToString(buffer, str);
@@ -1044,7 +1043,6 @@ meecastFullWeatherForm::ReInitElements(void){
     pFooter->SetColor(pFooter->GetButtonColor(BUTTON_ITEM_STATUS_NORMAL));
     pFooter->RequestRedraw();
     __updateTimer->StartAsRepeatable(500);
-
 
 
 }

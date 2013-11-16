@@ -2,6 +2,7 @@ meecast (0.8.1) unstable; urgency=low
 
   * Updated Norwegian translation
   * Fixed problem with negative temperature in foreca.com source
+  * Fixed problem with page About
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 13 Nov 2013 20:31:23 +0200
 

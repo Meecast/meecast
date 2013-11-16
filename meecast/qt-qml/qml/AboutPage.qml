@@ -17,7 +17,7 @@ Page {
     Flickable {
         anchors.fill: parent
         flickableDirection: Flickable.VerticalFlick
-        contentHeight: 3000 
+        contentHeight: 3300 
         Label {
             id: titletext
             text: Config.tr("MeeCast for Harmattan")

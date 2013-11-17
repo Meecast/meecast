@@ -3,6 +3,9 @@ meecast (0.8.1) unstable; urgency=low
   * Updated Norwegian, Turkish translations
   * Fixed problem with negative temperature in foreca.com source
   * Fixed problem with page About
+  * Tizen2 Added checking day/night/hourly weather forecast
+  * Tizen2 Fixed problem with null wind and Main Icon on popup Window in Home Applet
+  * Tizen2 Added Voice for weather forecast
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 13 Nov 2013 20:31:23 +0200
 
@@ -14,8 +17,6 @@ meecast (0.8) unstable; urgency=low
   * Added icons for openweathermap.com source
   * Added new measure units for wind speed - Knots and Beaufort scale
   * Updated Arabic, Serbian, Ukrain, Norwegian, Catalan, Finish, Spanish languages
-  * Tizen2 Added checking day/night/hourly weather forecast
-  * Tizen2 Fixed problem with null wind and Main Icon on popup Window in Home Applet
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 13 Nov 2013 20:31:23 +0200
 

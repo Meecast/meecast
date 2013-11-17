@@ -323,14 +323,19 @@ meecastAppereanceForm::CreateGroupItem(int groupIndex, int itemWidth)
 void
 meecastAppereanceForm::OnGroupedListViewItemStateChanged(GroupedListView& listView, int groupIndex, int itemIndex, int elementId, ListItemStatus state)
 {
+
+    MessageBox messageBox;
+    int modalResult = 0;
     if (state == LIST_ITEM_STATUS_CHECKED){
-        AppLog(" LIST_ITEM_STATUS_CHECKED");
+/*        AppLog(" LIST_ITEM_STATUS_CHECKED"); */
         switch (groupIndex){
             case 0:
                 switch (itemIndex % 8){
                     case 2:
                         _config->SpeechWidget(true);
-                       _config->saveConfig();
+                        _config->saveConfig();
+                        messageBox.Construct(_("Warning"), _("This is experimental feature. For English only yet."), MSGBOX_STYLE_OK, 30000);
+                        messageBox.ShowAndWait(modalResult);
                         break;
                     default:
                         break;

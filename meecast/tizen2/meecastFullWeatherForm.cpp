@@ -320,7 +320,10 @@ meecastFullWeatherForm::OnActionPerformed(const Tizen::Ui::Control& source, int 
     AppAssert(pSceneManager);
 
     AppResource* pAppResource = Application::GetInstance()->GetAppResource();
-    AppLog("Check Action");
+    MessageBox messageBox;
+    int modalResult = 0;
+
+/*  AppLog("Check Action"); */
     switch(actionId){
         case ID_BUTTON_NOW:
             _current_selected_tab = NOW; 
@@ -339,20 +342,20 @@ meecastFullWeatherForm::OnActionPerformed(const Tizen::Ui::Control& source, int 
             ReInitElements(); 
             break;
         case ID_BUTTON_MENU:
-            AppLog("Menu Button is clicked!");
+            /* AppLog("Menu Button is clicked!"); */
             __pContextMenuText->SetShowState(true);
             __pContextMenuText->Show();
             break;
         case ID_MENU_SETTINGS:
-            AppLog("Settings Button is clicked!");
+            /* AppLog("Settings Button is clicked!"); */
             pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_SETTINGSSCENE"));
             break;
         case ID_MENU_ABOUT:
-            AppLog("About is clicked!");
+            /* AppLog("About is clicked!"); */
             pSceneManager->GoForward(SceneTransitionId(L"ID_SCNT_ABOUTSCENE"));
             break;
         case ID_MENU_SPEAK:
-            AppLog("Speak is clicked!");
+            /* AppLog("Speak is clicked!"); */
             Bitmap* pNormalBitmap1; 
             __pContextMenuText->RemoveItemAt(1);
             if (_config->SpeechFullWindow()){
@@ -361,6 +364,8 @@ meecastFullWeatherForm::OnActionPerformed(const Tizen::Ui::Control& source, int 
             }else{
                 _config->SpeechFullWindow(true);
                 pNormalBitmap1 = pAppResource->GetBitmapN("din.png");
+                messageBox.Construct(_("Warning"), _("This is experimental feature. For English only yet."), MSGBOX_STYLE_OK, 30000);
+                messageBox.ShowAndWait(modalResult);
             }
             _config->saveConfig();
             __pContextMenuText->InsertItemAt(1, _("Speak weather forecast"), ID_MENU_SPEAK, *pNormalBitmap1, pNormalBitmap1);

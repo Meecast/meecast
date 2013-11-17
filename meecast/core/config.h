@@ -63,6 +63,7 @@ namespace Core{
             bool         _gps;
             bool         _splash;
             bool         _speech_on_full_window;
+            bool         _speech_on_widget;
             int          _update_period;
             std::string *_font_color;
             int          _current_station_id;
@@ -112,6 +113,8 @@ namespace Core{
             bool Lockscreen(void);
             void SpeechFullWindow(const bool uc);
             bool SpeechFullWindow(void);
+            void SpeechWidget(const bool uc);
+            bool SpeechWidget(void);
             void Standbyscreen(const bool uc);
             bool Standbyscreen(void);
             void Gps(const bool uc);

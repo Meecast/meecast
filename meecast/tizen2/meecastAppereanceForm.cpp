@@ -203,6 +203,20 @@ meecastAppereanceForm::CreateItem(int groupIndex, int itemIndex, int itemWidth)
                                   Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)), true);
 
                 break;
+            case 2:
+                pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_ONOFF_SLIDING);
+                //pStr = new String (_("Voice button on widget"));
+                pStr = new String ("Voice button on widget");
+                pItem->AddElement(Tizen::Graphics::Rectangle(16, 32, 700, 50), 0, *pStr, 36,
+                                  Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)),
+                                  Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)),
+                                  Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)), true);
+                if (_config->SpeechWidget()){
+                   __pList->SetItemChecked(0, 2, true);
+                }else{
+                   __pList->SetItemChecked(0, 2, false);
+                }
+                break;
 
             default:
                 pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_ONOFF_SLIDING);
@@ -253,7 +267,7 @@ meecastAppereanceForm::GetItemCount(int groupIndex)
 	switch(groupIndex)
 	{
 	case 0:
-		itemCount = 2;
+		itemCount = 3;
 		break;
 	case 1:
 		itemCount = 1;
@@ -312,24 +326,43 @@ meecastAppereanceForm::OnGroupedListViewItemStateChanged(GroupedListView& listVi
     if (state == LIST_ITEM_STATUS_CHECKED){
         AppLog(" LIST_ITEM_STATUS_CHECKED");
         switch (groupIndex){
-            case 1:
+            case 0:
                 switch (itemIndex % 8){
-                case 0:
-                   _config->Lockscreen(true);
-                   __pSliderX->SetShowState(true);
-                   __pSliderY->SetShowState(true);
-                   _config->saveConfig();
-                   break;
-
-                default:
-                    break;
+                    case 2:
+                        _config->SpeechWidget(true);
+                       _config->saveConfig();
+                        break;
+                    default:
+                        break;
                 }
                 break;
-       }
+            case 1:
+                switch (itemIndex % 8){
+                    case 0:
+                       _config->Lockscreen(true);
+                       __pSliderX->SetShowState(true);
+                       __pSliderY->SetShowState(true);
+                       _config->saveConfig();
+                       break;
+                    default:
+                        break;
+                }
+                break;
+        }
     } 
     if (state == LIST_ITEM_STATUS_UNCHECKED){
         AppLog(" LIST_ITEM_STATUS_UNCHECKED");
         switch (groupIndex){
+            case 0:
+                switch (itemIndex % 8){
+                    case 2:
+                        _config->SpeechWidget(false);
+                        _config->saveConfig();
+                        break;
+                    default:
+                        break;
+                }
+                break;
             case 1:
                 switch (itemIndex % 8){
                 case 0:

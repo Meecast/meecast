@@ -73,6 +73,7 @@ Config::Config()
     _gps = true;
     _splash = true;
     _speech_on_full_window = false;
+    _speech_on_widget = false;
     _font_color = new std::string("#00ff00");
     _language = new std::string("System");
     _mod = new std::string("Digia");
@@ -372,6 +373,11 @@ Config::saveConfig()
         file_out<<" <speechfullwindow>false</speechfullwindow>"<<endl;
     else
         file_out<<" <speechfullwindow>true</speechfullwindow>"<<endl;
+    if (SpeechWidget() == false)
+        file_out<<" <speechwidget>false</speechwidget>"<<endl;
+    else
+        file_out<<" <speechwidget>true</speechwidget>"<<endl;
+
 
     std::vector<Station*>::iterator i = _stations->begin();
     while (i != _stations->end()){
@@ -513,6 +519,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _lockscreen = false;
     _standbyscreen = false;
     _speech_on_full_window = false;
+    _speech_on_widget = false;
     _gps = true;
     _Xleft_corner_of_lockscreen_widget = 40;
     _Yleft_corner_of_lockscreen_widget = 120;
@@ -787,6 +794,15 @@ Config::LoadConfig(){
                    SpeechFullWindow(false);
                 xmlFree(temp_xml_string);
             }
+            if (!xmlStrcmp(p->name, (const xmlChar*)"speechwidget")){
+                temp_xml_string = xmlNodeGetContent(p);
+                if(!xmlStrcmp(temp_xml_string,(const xmlChar*)"true"))
+                   SpeechWidget(true);
+                else
+                   SpeechWidget(false);
+                xmlFree(temp_xml_string);
+            }
+
             if (!xmlStrcmp(p->name, (const xmlChar*)"xlockposition")){
                 temp_xml_string = xmlNodeGetContent(p);
                 Xleft_corner_of_lockscreen_widget(atoi((char *)temp_xml_string)); 
@@ -1132,6 +1148,15 @@ Config::SpeechFullWindow(const bool uc){
 bool
 Config::SpeechFullWindow(void){
     return _speech_on_full_window;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::SpeechWidget(const bool uc){
+    _speech_on_widget = uc;
+}
+bool
+Config::SpeechWidget(void){
+    return  _speech_on_widget;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

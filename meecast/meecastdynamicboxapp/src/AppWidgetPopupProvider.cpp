@@ -716,16 +716,16 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
     __pAppWidgetPopup->AddControl(__pLauncherButton);
 
     /* Speaker button */
-     __pSpeakerButton = new Button();
-    __pSpeakerButton->Construct(Tizen::Graphics::Rectangle(0, (height/1.46), 70, 70), ""); 
-    __pSpeakerButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("din_small.png"));
-    __pSpeakerButton->SetPressedBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("din.png"));
-
-    __pSpeakerButton->SetActionId(ID_BUTTON_SPEAKER);
-    __pSpeakerButton->AddActionEventListener(*this);
-
-    __pAppWidgetPopup->AddControl(__pSpeakerButton);
-
+    if (_config->SpeechWidget()){
+        __pSpeakerButton = new Button();
+        __pSpeakerButton->Construct(Tizen::Graphics::Rectangle(0, (height/1.46), 70, 70), ""); 
+        __pSpeakerButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("din_small.png"));
+        __pSpeakerButton->SetPressedBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("din.png"));
+        __pSpeakerButton->SetActionId(ID_BUTTON_SPEAKER);
+        __pSpeakerButton->AddActionEventListener(*this);
+        __pAppWidgetPopup->AddControl(__pSpeakerButton);
+    }
+    
 	__pFlickGesture = new (std::nothrow) TouchFlickGestureDetector;
 	if (__pFlickGesture != null){
 		__pFlickGesture->Construct();

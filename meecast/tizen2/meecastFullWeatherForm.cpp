@@ -216,7 +216,6 @@ meecastFullWeatherForm::OnInitializing(void){
     position.SetPosition(position.x + pFooter->GetWidth(), position.y + 10);
     CreateContextMenuList(position);
 
-
     return r;
 }
 
@@ -323,7 +322,7 @@ meecastFullWeatherForm::OnActionPerformed(const Tizen::Ui::Control& source, int 
     MessageBox messageBox;
     int modalResult = 0;
 
-/*  AppLog("Check Action"); */
+   /* AppLog("Check Action"); */
     switch(actionId){
         case ID_BUTTON_NOW:
             _current_selected_tab = NOW; 
@@ -804,9 +803,6 @@ meecastFullWeatherForm::ReInitElements(void){
             TextToSpeech.Append(". ");
 
 
-
-
-
             /* Current or not current period */
             switch(_current_selected_tab){
                 case NOW:
@@ -1014,6 +1010,14 @@ meecastFullWeatherForm::ReInitElements(void){
                 _pValueList->Add(new String(dateString));
                 _pKeyList->Add(new String(_("Last update:")));
             }
+            /* Added MapLink */
+            _pValueList->Add(new String("http://openweathermap.org/city/634963#map"));
+            _pKeyList->Add(new String(_("Show on Map")));
+//            if (_pValueList->GetCount() % 2 == 0){
+                _pValueList->Add(new String("http://openweathermap.org/city/634963#map"));
+                _pKeyList->Add(new String(_("Show on Map")));
+//            }
+
 
             /*
                   if (_dp->data().GetSunSetForTime(current_day + 15 * 3600) >0)
@@ -1154,37 +1158,48 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
     if (_current_selected_tab != HOURLY){
 
         pItem->SetBackgroundColor(Tizen::Graphics::Color(0x00, 0x00, 0x00), TABLE_VIEW_ITEM_DRAWING_STATUS_NORMAL);
-        if (_pKeyList->GetAt(2*index)){
-            Label* pKeyTitleLabel = new Label();
-            pKeyTitleLabel->Construct(Rectangle(0, 0, __clientWidth/2, 50), *static_cast< String* >(_pKeyList->GetAt(2*index)));
-            pKeyTitleLabel->SetTextColor(Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)));
-            pKeyTitleLabel->SetTextConfig(28, LABEL_TEXT_STYLE_NORMAL);
-            pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
-            pItem->AddControl(*pKeyTitleLabel);
 
-            if (_pValueList->GetAt(2*index)){
-                Label* pKeyDescriptionLabel = new Label();
-                pKeyDescriptionLabel->Construct(Rectangle(0, 20, __clientWidth/2, 100), *static_cast< String* >(_pValueList->GetAt(2*index)));
-                pKeyDescriptionLabel->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
-                pKeyDescriptionLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
-                pItem->AddControl(*pKeyDescriptionLabel);
+        if (_pKeyList->GetAt(2*index) && *static_cast< String* >(_pKeyList->GetAt(2*index)) == _("Show on Map")){
+            Label* pKeyTitleLabel = new Label();
+            pKeyTitleLabel->Construct(Rectangle(0, 0, __clientWidth, 50), *static_cast< String* >(_pKeyList->GetAt(2*index)));
+            pKeyTitleLabel->SetTextColor(Tizen::Graphics::Color(Color::GetColor(COLOR_ID_BLUE)));
+            pKeyTitleLabel->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+            pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
+            pItem->AddControl(*pKeyTitleLabel);
+        }else{
+            if (_pKeyList->GetAt(2*index)){
+                Label* pKeyTitleLabel = new Label();
+                pKeyTitleLabel->Construct(Rectangle(0, 0, __clientWidth/2, 50), *static_cast< String* >(_pKeyList->GetAt(2*index)));
+                pKeyTitleLabel->SetTextColor(Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)));
+                pKeyTitleLabel->SetTextConfig(28, LABEL_TEXT_STYLE_NORMAL);
+                pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+                pItem->AddControl(*pKeyTitleLabel);
+
+                if (_pValueList->GetAt(2*index)){
+                    Label* pKeyDescriptionLabel = new Label();
+                    pKeyDescriptionLabel->Construct(Rectangle(0, 20, __clientWidth/2, 100), *static_cast< String* >(_pValueList->GetAt(2*index)));
+                    pKeyDescriptionLabel->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
+                    pKeyDescriptionLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+                    pItem->AddControl(*pKeyDescriptionLabel);
+                }
             }
-        }
+       }
+       if (_pKeyList->GetAt(2*index + 1) && *static_cast< String* >(_pKeyList->GetAt(2*index + 1)) != _("Show on Map")){
+            if(_pKeyList->GetCount()/2 + 1 > index + 1){
+                Label* pKeyTitleLabel = new Label();
+                pKeyTitleLabel->Construct(Rectangle(__clientWidth/2, 0, __clientWidth/2, 50), *static_cast< String* >(_pKeyList->GetAt(2*index + 1)));
+                pKeyTitleLabel->SetTextConfig(28, LABEL_TEXT_STYLE_NORMAL);
+                pKeyTitleLabel->SetTextColor(Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)));
+                pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+                pItem->AddControl(*pKeyTitleLabel);
 
-        if(_pKeyList->GetCount()/2 + 1 > index + 1){
-            Label* pKeyTitleLabel = new Label();
-            pKeyTitleLabel->Construct(Rectangle(__clientWidth/2, 0, __clientWidth/2, 50), *static_cast< String* >(_pKeyList->GetAt(2*index + 1)));
-            pKeyTitleLabel->SetTextConfig(28, LABEL_TEXT_STYLE_NORMAL);
-            pKeyTitleLabel->SetTextColor(Tizen::Graphics::Color(Color::GetColor(COLOR_ID_GREY)));
-            pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
-            pItem->AddControl(*pKeyTitleLabel);
-
-            if (_pValueList->GetAt(2*index + 1)){
-                Label* pKeyDescriptionLabel = new Label();
-                pKeyDescriptionLabel->Construct(Rectangle(__clientWidth/2, 20, __clientWidth/2, 100), *static_cast< String* >(_pValueList->GetAt(2*index + 1)));
-                pKeyDescriptionLabel->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
-                pKeyDescriptionLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
-                pItem->AddControl(*pKeyDescriptionLabel);
+                if (_pValueList->GetAt(2*index + 1)){
+                    Label* pKeyDescriptionLabel = new Label();
+                    pKeyDescriptionLabel->Construct(Rectangle(__clientWidth/2, 20, __clientWidth/2, 100), *static_cast< String* >(_pValueList->GetAt(2*index + 1)));
+                    pKeyDescriptionLabel->SetTextConfig(36, LABEL_TEXT_STYLE_NORMAL);
+                    pKeyDescriptionLabel->SetTextHorizontalAlignment(ALIGNMENT_LEFT);
+                    pItem->AddControl(*pKeyDescriptionLabel);
+                }
             }
         }
     }
@@ -1317,8 +1332,19 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 
 
 void
-meecastFullWeatherForm::OnTableViewItemStateChanged(TableView& tableView, int itemIndex, TableViewItem* pItem, TableViewItemStatus status)
-{
+meecastFullWeatherForm::OnTableViewItemStateChanged(TableView& tableView, int itemIndex, TableViewItem* pItem, TableViewItemStatus status){
+    if (itemIndex >= _pValueList->GetCount() / 2){
+        Tizen::Base::String uri = _config->stationsList().at(_config->current_station_id())->mapURL().c_str();
+        AppLog("meecastFullWeatherForm::OnTableViewItemStateChanged %S", uri.GetPointer()); 
+        AppControl* pAc = AppManager::FindAppControlN(L"tizen.internet",
+                                                         L"http://tizen.org/appcontrol/operation/view");
+        if (pAc){
+            pAc->Start(&uri, null, null, null);
+            delete pAc;
+        }
+
+        AppLog("meecastFullWeatherForm::OnTableViewItemStateChanged"); 
+    }
 }
 
 void

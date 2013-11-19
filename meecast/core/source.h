@@ -44,7 +44,8 @@ namespace Core {
      class Source : public Parser {
         enum Type_Of_Maps{
             GPS1_TYPE = 1,
-            GPS2_TYPE = 2
+            GPS2_TYPE = 2,
+            WWW_TYPE = 3
         };
 
 

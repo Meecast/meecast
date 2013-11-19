@@ -63,7 +63,7 @@ Station::Station(const std::string& source_name, const std::string& id,
                  const std::string&  cookie, const bool gps, 
                  double latitude, double longitude ): __pHttpSession(null){
 
-        /* AppLog("Create station1 %p", this); */
+         AppLog("Create station1 %p", this); 
         _sourceName = new std::string(source_name);
         _id = new std::string(id);
         _name = new std::string(name);
@@ -89,7 +89,7 @@ Station::Station(const std::string& source_name, const std::string& id,
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const std::string& source_name, const std::string& id, const std::string& name,
                      const std::string& country, const std::string& region, const bool gps, double latitude, double longitude): __pHttpSession(null){
-        /* AppLog("Create station2 %p", this); */
+         AppLog("Create station2 %p", this); 
         _sourceName = new std::string(source_name);
         _id = new std::string(id);
         _name = new std::string(name);
@@ -117,6 +117,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         AppLog("Station %s", _name->c_str());
         AppLog("Code %s", _id->c_str());
 */        
+        AppLog("!!!!!!!!!!!!!!!!!!!!!!!!");
         path += Core::AbstractConfig::sourcesPath;
         Core::SourceList *sourcelist = new Core::SourceList(path);
         int source_id = sourcelist->source_id_by_name(source_name);
@@ -145,6 +146,8 @@ Station::Station(const std::string& source_name, const std::string& id,
                 snprintf(map_url, sizeof(map_url)-1, url_for_map.c_str(), _latitude, _longitude);
             if (sourcelist->at(source_id)->map_type() == 2) 
                 snprintf(map_url, sizeof(map_url)-1, url_for_map.c_str(), _longitude - 1, _latitude - 1, _longitude + 1, _latitude + 1);
+            if (sourcelist->at(source_id)->map_type() == 3) 
+                snprintf(map_url, sizeof(map_url)-1, url_for_map.c_str(), id.c_str());
             fprintf(stderr,"map_url: %s\n", map_url);
         }
         if (base_map_url.length() > 0) {

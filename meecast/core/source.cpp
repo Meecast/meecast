@@ -92,8 +92,13 @@ namespace Core {
                     if (el.hasAttribute("url"))
                         _url_template->assign(el.attribute("url").toStdString());
                 }else if (tag == "mapurl"){
+                    AppLog ("mapurl");
                     if (el.hasAttribute("url"))
-                        _url_for_map->assign(el.attribute("url").toStdString());
+                    if (el.hasAttribute("type")){
+                        if (el.hasAttribute("type") == "WWW"){
+                            _map_type = WWW_TYPE;
+                        }
+                    }
                 }else if (tag == "detail"){
                     if (el.hasAttribute("url")){
                         _hasDetail = (el.text() == "true") ? true : false;
@@ -170,18 +175,38 @@ namespace Core {
                     }
                     continue;
                 }
+                AppLog ("mapurl0");
+                if (!xmlStrcmp(p->name, (const xmlChar*)"mapurl")){
+                AppLog ("mapurl01");
+                    if ((temp_xml_string = xmlGetProp(p, (const xmlChar*)"url")) != NULL){
+                        _url_for_map->assign((char *)temp_xml_string);
+                        xmlFree(temp_xml_string);
+                    }
+                    if ((temp_xml_string = xmlGetProp(p, (const xmlChar*)"type")) != NULL){
+                        AppLog("mapurl");
+                        if (!xmlStrcmp(temp_xml_string, (const xmlChar*)"WWW")){
+                            AppLog("mapurli1");
+                            _map_type = WWW_TYPE;
+                        }
+                        if (!xmlStrcmp(temp_xml_string, (const xmlChar*)"GPS")){
+                            AppLog("mapurli2");
+                            _map_type = GPS1_TYPE;
+                        }
+
+                        xmlFree(temp_xml_string);
+                    }
+                    continue;
+                }
+
                 if (!xmlStrcmp(p->name, (const xmlChar*)"cookie")){
                     temp_xml_string = xmlNodeGetContent(p);
                     _cookie->assign((char *)temp_xml_string);
                     xmlFree(temp_xml_string);
                     continue;
                 }
-
-
-
            }
      
-            /* AppLog("Done filling source"); */
+             AppLog("Done filling source"); 
             #endif
             #endif //LIBXML
             // TODO check binaryName for empty
@@ -413,6 +438,12 @@ Source::Source(const Source& source) : Parser(){
             const xmlpp::Attribute* attribute = nodeElement->get_attribute("baseurl");
             if (attribute)
                 _url_for_basemap->assign(attribute->get_value().c_str());
+            const xmlpp::Attribute* attribute = nodeElement->get_attribute("type");
+            if (attribute){
+                if (attribute->get_value() == "WWW"){
+                    _map_type = WWW_TYPE;
+                 }
+             }
             return;
         }
         // cookie tag

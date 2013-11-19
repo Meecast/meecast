@@ -437,6 +437,18 @@ Config::saveConfig()
            }
            file_out<<"  <view_url>"<< temp <<"</view_url>"<<endl;
         }
+        {
+           std::string temp("");
+           snprintf(buffer, sizeof(buffer)-1, "%s", (*i)->mapURL().c_str()); 
+           for (int i= 0;i<strlen(buffer); i ++){
+                if (buffer[i] == '&')
+                   temp += "&amp;";
+                else
+                    temp += buffer[i];
+           }
+           file_out<<"  <map_url>"<< temp <<"</map_url>"<<endl;
+        }
+
         if ((*i)->cookie() != ""){
            file_out<<"  <cookie>"<< (*i)->cookie() <<"</cookie>"<<endl;
         }
@@ -880,6 +892,11 @@ Config::LoadConfig(){
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"view_url")){
                         temp_xml_string = xmlNodeGetContent(p1);
                         viewURL = std::string((char *)temp_xml_string); 
+                        xmlFree(temp_xml_string);
+                    }
+                    if (!xmlStrcmp(p1->name, (const xmlChar*)"map_url")){
+                        temp_xml_string = xmlNodeGetContent(p1);
+                        mapURL = std::string((char *)temp_xml_string); 
                         xmlFree(temp_xml_string);
                     }
                     if (!xmlStrcmp(p1->name, (const xmlChar*)"converter")){

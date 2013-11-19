@@ -1333,7 +1333,8 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
 
 void
 meecastFullWeatherForm::OnTableViewItemStateChanged(TableView& tableView, int itemIndex, TableViewItem* pItem, TableViewItemStatus status){
-    if (itemIndex >= _pValueList->GetCount() / 2){
+    AppLog ("Index %i Getcount %i ",itemIndex,  _pValueList->GetCount() / 2);
+    if (itemIndex + 1 >= _pValueList->GetCount() / 2){
         Tizen::Base::String uri = _config->stationsList().at(_config->current_station_id())->mapURL().c_str();
         AppLog("meecastFullWeatherForm::OnTableViewItemStateChanged %S", uri.GetPointer()); 
         AppControl* pAc = AppManager::FindAppControlN(L"tizen.internet",

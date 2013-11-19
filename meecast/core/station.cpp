@@ -117,7 +117,7 @@ Station::Station(const std::string& source_name, const std::string& id,
         AppLog("Station %s", _name->c_str());
         AppLog("Code %s", _id->c_str());
 */        
-        AppLog("!!!!!!!!!!!!!!!!!!!!!!!!");
+        /* AppLog("!!!!!!!!!!!!!!!!!!!!!!!!"); */
         path += Core::AbstractConfig::sourcesPath;
         Core::SourceList *sourcelist = new Core::SourceList(path);
         int source_id = sourcelist->source_id_by_name(source_name);

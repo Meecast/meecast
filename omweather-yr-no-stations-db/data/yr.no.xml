@@ -9,4 +9,5 @@
 <library>libomweather-yr-no-source.so</library>
 <binary>/opt/com.meecast.omweather/lib/yrno</binary>
 <showurl url="http://www.yr.no/sted/%s/" />
+<mapurl url="http://m.yr.no/kart/#lat=%f&amp;lon=%f&amp;zoom=5" type="GPS"/>
 </source>

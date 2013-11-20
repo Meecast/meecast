@@ -1157,12 +1157,13 @@ meecastFullWeatherForm::CreateItem(int index, int itemWidth){
     if (_current_selected_tab != HOURLY){
 
         pItem->SetBackgroundColor(Tizen::Graphics::Color(0x00, 0x00, 0x00), TABLE_VIEW_ITEM_DRAWING_STATUS_NORMAL);
-
-        if (_pKeyList->GetAt(2*index) && *static_cast< String* >(_pKeyList->GetAt(2*index)) == _("Show on Map")){
+        /* Check 'Show on Map' */
+        if (_pKeyList->GetAt(2*index) &&
+            *static_cast< String* >(_pKeyList->GetAt(2*index)) == _("Show on Map")){
             Label* pKeyTitleLabel = new Label();
             pKeyTitleLabel->Construct(Rectangle(0, 0, __clientWidth, 50), *static_cast< String* >(_pKeyList->GetAt(2*index)));
             pKeyTitleLabel->SetTextColor(Tizen::Graphics::Color(Color::GetColor(COLOR_ID_BLUE)));
-            pKeyTitleLabel->SetTextConfig(40, LABEL_TEXT_STYLE_NORMAL);
+            pKeyTitleLabel->SetTextConfig(40, LABEL_TEXT_STYLE_BOLD);
             pKeyTitleLabel->SetTextHorizontalAlignment(ALIGNMENT_CENTER);
             pItem->AddControl(*pKeyTitleLabel);
         }else{

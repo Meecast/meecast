@@ -1011,13 +1011,12 @@ meecastFullWeatherForm::ReInitElements(void){
                 _pKeyList->Add(new String(_("Last update:")));
             }
             /* Added MapLink */
-            _pValueList->Add(new String("http://openweathermap.org/city/634963#map"));
-            _pKeyList->Add(new String(_("Show on Map")));
-//            if (_pValueList->GetCount() % 2 == 0){
-                _pValueList->Add(new String("http://openweathermap.org/city/634963#map"));
+            if (_config->stationsList().at(_config->current_station_id())->mapURL() != ""){
+                _pValueList->Add(new String("Show on Map"));
                 _pKeyList->Add(new String(_("Show on Map")));
-//            }
-
+                _pValueList->Add(new String("Show on Map"));
+                _pKeyList->Add(new String(_("Show on Map")));
+            }
 
             /*
                   if (_dp->data().GetSunSetForTime(current_day + 15 * 3600) >0)

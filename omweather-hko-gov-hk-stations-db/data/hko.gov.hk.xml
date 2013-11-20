@@ -9,4 +9,5 @@
 <library>libomweather-hko-gov-hk-source.so</library>
 <binary>/opt/com.meecast.omweather/lib/hkogovhk</binary>
 <showurl url="http://www.hko.gov.hk/contente.htm" />
+<mapurl url="http://m.weather.gov.hk/wxreport/isohyet_p24.htm" type="WWW"/>
 </source>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-16 20:33+0300\n"
+"POT-Creation-Date: 2013-11-27 22:11+0300\n"
 "PO-Revision-Date: 2013-08-12 08:22+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2570,6 +2570,10 @@ msgstr "The weather has been updated."
 msgid "There are no stations to show in this view of the list"
 msgstr "There are no stations to show in this view of the list"
 
+#: omweather/src/hash.data:357
+msgid "This is experimental feature. Only English is supported."
+msgstr ""
+
 #: meecast/qt-qml/qml/AboutPage.qml:308
 msgid ""
 "This software is free software; you can\n"
@@ -2740,6 +2744,15 @@ msgstr "Visible:"
 #: omweather/src/weather-settings.c:1312
 msgid "Visuals"
 msgstr "Visuals"
+
+#: omweather/src/hash.data:356
+msgid "Voice forecast button on a widget"
+msgstr ""
+
+#: omweather/src/hash.data:358
+#, fuzzy
+msgid "Voice weather forecast"
+msgstr "OMWeather Forecast"
 
 #: omweather/src/hash.data:301
 msgid "W"
@@ -3165,35 +3178,35 @@ msgstr "station name"
 msgid "steady"
 msgstr "steady"
 
-#: omweather/src/hash.data:356
+#: omweather/src/hash.data:359
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:357
+#: omweather/src/hash.data:360
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:358
+#: omweather/src/hash.data:361
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:359
+#: omweather/src/hash.data:362
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:360
+#: omweather/src/hash.data:363
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:361
+#: omweather/src/hash.data:364
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:362
+#: omweather/src/hash.data:365
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:363
+#: omweather/src/hash.data:366
 msgid "Ю-З"
 msgstr "Ю-З"
 

@@ -353,6 +353,8 @@
     g_hash_table_insert(hash, (void*)"Heavy intensity rain", _("Heavy intensity rain"));
     g_hash_table_insert(hash, (void*)"Light intensity shower rain", _("Light intensity shower rain"));
     g_hash_table_insert(hash, (void*)"There are no stations to show in this view of the list", _("There are no stations to show in this view of the list"));
+    g_hash_table_insert(hash, (void*)"Voice forecast button on a widget", _("Voice forecast button on a widget"));
+    g_hash_table_insert(hash, (void*)"This is experimental feature. Only English is supported.", _("This is experimental feature. Only English is supported."));
     g_hash_table_insert(hash, (void*)"В", _("В"));
     g_hash_table_insert(hash, (void*)"З", _("З"));
     g_hash_table_insert(hash, (void*)"С", _("С"));

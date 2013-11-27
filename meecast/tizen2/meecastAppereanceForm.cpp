@@ -205,8 +205,7 @@ meecastAppereanceForm::CreateItem(int groupIndex, int itemIndex, int itemWidth)
                 break;
             case 2:
                 pItem->Construct(Tizen::Graphics::Dimension(itemWidth, LIST_HEIGHT), LIST_ANNEX_STYLE_ONOFF_SLIDING);
-                //pStr = new String (_("Voice button on widget"));
-                pStr = new String ("Voice button on widget");
+                pStr = new String (_("Voice forecast button on a widget"));
                 pItem->AddElement(Tizen::Graphics::Rectangle(16, 32, 700, 50), 0, *pStr, 36,
                                   Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)),
                                   Tizen::Graphics::Color(Tizen::Graphics::Color::GetColor(COLOR_ID_GREY)),
@@ -334,7 +333,7 @@ meecastAppereanceForm::OnGroupedListViewItemStateChanged(GroupedListView& listVi
                     case 2:
                         _config->SpeechWidget(true);
                         _config->saveConfig();
-                        messageBox.Construct(_("Warning"), _("This is experimental feature. For English only yet."), MSGBOX_STYLE_OK, 30000);
+                        messageBox.Construct(_("Warning"), _("This is experimental feature. Only English is supported."), MSGBOX_STYLE_OK, 30000);
                         messageBox.ShowAndWait(modalResult);
                         break;
                     default:

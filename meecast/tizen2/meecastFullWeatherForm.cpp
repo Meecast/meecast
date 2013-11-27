@@ -363,11 +363,11 @@ meecastFullWeatherForm::OnActionPerformed(const Tizen::Ui::Control& source, int 
             }else{
                 _config->SpeechFullWindow(true);
                 pNormalBitmap1 = pAppResource->GetBitmapN("din.png");
-                messageBox.Construct(_("Warning"), _("This is experimental feature. For English only yet."), MSGBOX_STYLE_OK, 30000);
+                messageBox.Construct(_("Warning"), _("This is experimental feature. Only English is supported."), MSGBOX_STYLE_OK, 30000);
                 messageBox.ShowAndWait(modalResult);
             }
             _config->saveConfig();
-            __pContextMenuText->InsertItemAt(1, _("Speak weather forecast"), ID_MENU_SPEAK, *pNormalBitmap1, pNormalBitmap1);
+            __pContextMenuText->InsertItemAt(1, _("Voice weather forecast"), ID_MENU_SPEAK, *pNormalBitmap1, pNormalBitmap1);
             delete pNormalBitmap1;
 
             __pContextMenuText->SetShowState(true);

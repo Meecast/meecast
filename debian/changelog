@@ -1,6 +1,6 @@
 meecast (0.8.1) unstable; urgency=low
 
-  * Updated Norwegian, Turkish translations
+  * Updated Norwegian, Turkish, Italian, Ukraine, Russian translations
   * Fixed problem with negative temperature in foreca.com source
   * Fixed problem with page About
 

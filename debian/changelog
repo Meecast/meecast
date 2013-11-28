@@ -5,7 +5,7 @@ meecast (0.8.1) unstable; urgency=low
   * Fixed problem with page About
   * Changed station source for Melbourne in source bom.gov.au 
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 13 Nov 2013 20:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 29 Nov 2013 05:31:23 +0200
 
 
 meecast (0.8) unstable; urgency=low

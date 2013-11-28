@@ -1,22 +1,25 @@
-# Russian translation for meecast
-# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
-# This file is distributed under the same license as the meecast package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 #
+# Translators:
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012
+# Vlad Vas <vasvlad@gmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: ru_RU\n"
+"Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-16 20:33+0300\n"
-"PO-Revision-Date: 2012-12-18 10:33+0200\n"
-"Last-Translator: Vlad Vasilyeu <vasvlad@gmail.com>\n"
-"Language-Team: Russian <ru@li.org>\n"
+"POT-Creation-Date: 2013-11-27 22:11+0300\n"
+"PO-Revision-Date: 2013-11-27 17:36+0000\n"
+"Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
+"Language-Team: Russian (http://www.transifex.com/projects/p/meecast/language/"
+"ru/)\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-16 10:52+0000\n"
-"X-Generator: Launchpad (build 15099)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: omweather/src/weather-home.c:1567
 msgid ""
@@ -301,7 +304,6 @@ msgid "Alerts"
 msgstr "Опастности"
 
 #: omweather/src/weather-help.c:125
-#, fuzzy
 msgid ""
 "Alexis Iglauer - for testing\n"
 "Eugene Roytenberg - for testing\n"
@@ -313,16 +315,6 @@ msgid ""
 "Timeless - for patches \n"
 "Eric Link - for feature request and donation\n"
 msgstr ""
-"Andrew aka Tabster - за тестирование и предложения\n"
-"Brad Jones aka kazrak - за тестирование\n"
-"Alexis Iglauer - за тестирование\n"
-"Eugene Roytenberg - за тестирование\n"
-"Jarek Szczepanski aka Imrahil - за тестирование\n"
-"Vladimir Shakhov aka Mendoza - за тестирование \n"
-"Marc Dillon - за проверку правописания английских текстов\n"
-"Arkady Glazov aka Globster - за тестирование\n"
-"Alexander Savchenko aka dizel - за тестирование\n"
-"Eric Link - за предложения и финансовую поддержку\n"
 
 #: omweather/src/weather-download.c:397
 msgid "An unknown error has occurred."
@@ -972,7 +964,6 @@ msgid "Freezing Drizzle"
 msgstr "Изморось с градом"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1006,15 +997,6 @@ msgid ""
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
-"Французский - Nicolas Granziano, Philippe, Benot Knecht\n"
-"Русский - Павел Фиалко, Владислав Васильев, Эдуард Бартош\n"
-"Финнский - Marko Vertainen\n"
-"Немецкий - Claudius Henrichs\n"
-"Итальянский - Павел Фиалко, Alessandro Pasotti, \n"
-"\tSalvatore Fiorenzo, Luca Onnis\n"
-"Испанский - Alejandro Lopez\n"
-"Польский - Tomasz Dominikowski\n"
-"Словацкий - Roman Moravčík"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1184,7 +1166,7 @@ msgstr "Километры"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:174
 msgid "Knots"
-msgstr ""
+msgstr "Узлы"
 
 #: omweather/src/hash.data:332
 msgid "Language"
@@ -1227,7 +1209,7 @@ msgstr "Ведущий дизайнер"
 
 #: meecast/qt-qml/qml/AboutPage.qml:299
 msgid "License"
-msgstr ""
+msgstr "Лицензия"
 
 #: omweather/src/hash.data:103
 msgid "Light Drizzle"
@@ -1306,9 +1288,8 @@ msgid "Light Snow Shower"
 msgstr "Легкий снегопад"
 
 #: omweather/src/hash.data:340
-#, fuzzy
 msgid "Light intensity drizzle"
-msgstr "Кратковременный легкий дождь"
+msgstr "Небольшой мелкий дождь"
 
 #: omweather/src/hash.data:354
 msgid "Light intensity shower rain"
@@ -1332,7 +1313,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:170
 msgid "Localization platform"
-msgstr ""
+msgstr "Платформа для переводов"
 
 #: omweather/src/weather-settings.c:3454
 msgid "Long"
@@ -1380,7 +1361,7 @@ msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
-msgstr ""
+msgstr "MeeCast для Harmattan"
 
 #: omweather/src/weather-settings.c:3901
 msgid "Meters"
@@ -1481,7 +1462,7 @@ msgstr "Пасмурно, Небольшой дождь"
 
 #: omweather/src/hash.data:147
 msgid "Mostly Cloudy, Light Rain, Drizzle"
-msgstr "Пасмурно Небольшой дождь"
+msgstr "Пасмурно, Небольшой дождь, Изморось"
 
 #: omweather/src/hash.data:148
 msgid "Mostly Cloudy, Light Rain, T-Storm"
@@ -2260,7 +2241,7 @@ msgstr "Настройки для StandbyScreen экрана"
 
 #: omweather/src/hash.data:262
 msgid "Shallow Fog"
-msgstr ""
+msgstr "Стелющийся Туман"
 
 #: omweather/src/weather-settings.c:3465
 msgid "Short"
@@ -2435,7 +2416,7 @@ msgstr "Солнечно / Ветер"
 
 #: omweather/src/hash.data:349 omweather/src/hash.data:350
 msgid "Sunny periods and a few showers."
-msgstr ""
+msgstr "Временами солнечено и небольшие ливни."
 
 #: omweather/src/hash.data:285 meecast/qt-qml/qml/FullWeatherPage.qml:308
 msgid "Sunrise:"
@@ -2455,7 +2436,7 @@ msgstr "Закат: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:86
 msgid "Support"
-msgstr ""
+msgstr "Поддержка"
 
 #: omweather/src/weather-settings.c:3773
 msgid "Swap hi/low temperature"
@@ -2525,6 +2506,10 @@ msgstr "Данные о погоде обновлены."
 msgid "There are no stations to show in this view of the list"
 msgstr "Нет никаких станций, чтобы показать их в этом списке"
 
+#: omweather/src/hash.data:357
+msgid "This is experimental feature. Only English is supported."
+msgstr ""
+
 #: meecast/qt-qml/qml/AboutPage.qml:308
 msgid ""
 "This software is free software; you can\n"
@@ -2582,7 +2567,7 @@ msgstr "Тип нажатия"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:180
 msgid "UV index:"
-msgstr ""
+msgstr "УФ индекс:"
 
 #: omweather/src/weather-settings.c:1135 omweather/src/weather-settings.c:1334
 #: omweather/src/weather-settings.c:1338
@@ -2685,6 +2670,15 @@ msgstr "Видимость:"
 #: omweather/src/weather-settings.c:1312
 msgid "Visuals"
 msgstr "Оформление"
+
+#: omweather/src/hash.data:356
+msgid "Voice forecast button on a widget"
+msgstr ""
+
+#: omweather/src/hash.data:358
+#, fuzzy
+msgid "Voice weather forecast"
+msgstr "OMWeather прогноз погоды"
 
 #: omweather/src/hash.data:301
 msgid "W"
@@ -2996,7 +2990,7 @@ msgstr "км/с"
 
 #: omweather/src/hash.data:322
 msgid "kn"
-msgstr ""
+msgstr "Уз"
 
 #: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1296
 #: omweather/src/weather-simple-settings.c:1328
@@ -3112,311 +3106,34 @@ msgstr "в названии станции"
 msgid "steady"
 msgstr "устойчивое"
 
-#: omweather/src/hash.data:356
+#: omweather/src/hash.data:359
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:357
+#: omweather/src/hash.data:360
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:358
+#: omweather/src/hash.data:361
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:359
+#: omweather/src/hash.data:362
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:360
+#: omweather/src/hash.data:363
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:361
+#: omweather/src/hash.data:364
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:362
+#: omweather/src/hash.data:365
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:363
+#: omweather/src/hash.data:366
 msgid "Ю-З"
 msgstr ""
-
-#~ msgid "Project website"
-#~ msgstr "Web-сайт проекта"
-
-#~ msgid "Flike:"
-#~ msgstr "По ощущениям:"
-
-#, fuzzy
-#~ msgid ""
-#~ "French -  Nicolas Granziano, \n"
-#~ " \tPhilippe, Benot Knecht \n"
-#~ " Russian - Pavel Fialko, Vlad Vasiliev, \n"
-#~ " \tEd Bartosh\n"
-#~ " Finnish - Marko Vertainen\n"
-#~ " German -  Claudius Henrichs\n"
-#~ " Italian - Pavel Fialko, Alessandro Pasotti,\n"
-#~ " \tSalvatore Fiorenzo, Ilir Gjika, "
-#~ msgstr ""
-#~ "Французский - Nicolas Granziano, Philippe, Benot Knecht\n"
-#~ "Русский - Павел Фиалко, Владислав Васильев, Эдуард Бартош\n"
-#~ "Финнский - Marko Vertainen\n"
-#~ "Немецкий - Claudius Henrichs\n"
-#~ "Итальянский - Павел Фиалко, Alessandro Pasotti, \n"
-#~ "\tSalvatore Fiorenzo, Luca Onnis\n"
-#~ "Испанский - Alejandro Lopez\n"
-#~ "Польский - Tomasz Dominikowski\n"
-#~ "Словацкий - Roman Moravčík"
-
-#~ msgid "Farenheit"
-#~ msgstr "Фаренгейт"
-
-#~ msgid "Countries"
-#~ msgstr "Страны"
-
-#~ msgid "Regions"
-#~ msgstr "Районы"
-
-#~ msgid "Sources"
-#~ msgstr "Источники"
-
-#, fuzzy
-#~ msgid "Speed: "
-#~ msgstr "Скорость:"
-
-#, fuzzy
-#~ msgid "Humidity: "
-#~ msgstr ""
-#~ "\n"
-#~ "Влажность: "
-
-#~ msgid ""
-#~ "\n"
-#~ "Copyright(c) 2008\n"
-#~ "Andrew Olmsted\n"
-#~ "for Semi-transparency\n"
-#~ "and coloured backgrounds\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Copyright(c) 2008\n"
-#~ "Andrew Olmsted\n"
-#~ "для полупрозрачности\n"
-#~ "и цвета фона\n"
-
-#~ msgid ""
-#~ "\n"
-#~ "Copyright(c) 2008\n"
-#~ "for default icon set (Glance)\n"
-#~ "and design of interface\n"
-#~ "Andrew Zhilin"
-#~ msgstr ""
-#~ "\n"
-#~ "Copyright(c) 2008\n"
-#~ "для набора иконок по-умолчанию (Glance)\n"
-#~ "и дизайн интерфейса\n"
-#~ "Андрей Жилин"
-
-#~ msgid ""
-#~ "\n"
-#~ "Hildon desktop applet\n"
-#~ "for Nokia N800/N810/N900\n"
-#~ "to show weather forecasts.\n"
-#~ "Version "
-#~ msgstr ""
-#~ "\n"
-#~ "Апплет рабочего стола Hildon\n"
-#~ "для Nokia N800/N810/N900\n"
-#~ "для отображения погоды.\n"
-#~ "Версия "
-
-#~ msgid " Build: "
-#~ msgstr " Сборка: "
-
-#~ msgid "Configuring station"
-#~ msgstr "Конфигурация станции"
-
-#~ msgid ""
-#~ "GPS station already exist.\n"
-#~ "Only one station can be received via GPS"
-#~ msgstr ""
-#~ "GPS станция уже выбрана.\n"
-#~ "Только одна станция может быть получена через GPS"
-
-#~ msgid "s. mi"
-#~ msgstr "м. ми"
-
-#~ msgid "s.mi"
-#~ msgstr "м.ми"
-
-#, fuzzy
-#~ msgid "Extended settings"
-#~ msgstr "Настройки OMWeather"
-
-#~ msgid "You didn't select GSM/GPRS for updating weather forecast!"
-#~ msgstr "Вы не выбрали GSM/GPRS для обновления прогноза погоды!"
-
-#~ msgid "You didn't select WLAN for updating weather forecast!"
-#~ msgstr "Вы не выбрали WLAN для обновления прогноза погоды!"
-
-#~ msgid "You didn't select WLAN or GSM/GPRS for updating weather forecast!"
-#~ msgstr "Вы не выбрали WLAN или GSM/GPRS для обновления прогноза погоды!"
-
-#~ msgid "The downloading now is working."
-#~ msgstr "Загрузка уже Ззапущена."
-
-#~ msgid "Did not download weather"
-#~ msgstr "Невозможно загрузить данные о погоде."
-
-#~ msgid "Not connected to Internet"
-#~ msgstr "Нет соединения с интернетом."
-
-#~ msgid "Temperatura"
-#~ msgstr "Температура"
-
-#~ msgid "Temp."
-#~ msgstr "Температура"
-
-#~ msgid "List of the found station(s):"
-#~ msgstr "Список найденных станций:"
-
-#~ msgid ""
-#~ "Arkady Glazov aka Globster - for testing\n"
-#~ "Alexander Savchenko aka dizel - for testing\n"
-#~ msgstr ""
-#~ "Аркадий Глазов aka Globster - за тестирование\n"
-#~ "Александр Савченко aka dizel - за тестирование\n"
-
-#~ msgid "Eric Link - for feature request and donation\n"
-#~ msgstr ""
-#~ "Eric Link - за предложенные улучшения и \n"
-#~ "за финансовую поддержку\n"
-
-#~ msgid "From the list:"
-#~ msgstr "Из списка:"
-
-#~ msgid ""
-#~ "No one station found! May be you don't have installed omweather-*-station-"
-#~ "db packet"
-#~ msgstr ""
-#~ "Не найдено ни одной станции! Возмодно вы не установили пакет omweather-*-"
-#~ "station-db"
-
-#~ msgid "UI Theme Override"
-#~ msgstr "Игнорировать параметры темы"
-
-#~ msgid "Code (Zip):"
-#~ msgstr "Код (Индекс):"
-
-#~ msgid "Other Maemo Weather Settings"
-#~ msgstr "Настройки программы"
-
-#~ msgid "Invalid symbol in field or field is empty."
-#~ msgstr "Недопустимый символ в поле или пустое поле."
-
-#~ msgid "Hide arrows"
-#~ msgstr "Убрать стрелки"
-
-#~ msgid "Hide station name"
-#~ msgstr "Убрать название станции"
-
-#~ msgid "Hide wind"
-#~ msgstr "Убрать ветер"
-
-#~ msgid "Current weather on first icon:"
-#~ msgstr "Текущая погода в первой иконке:"
-
-#~ msgid "Interface"
-#~ msgstr "Интерфейс"
-
-#~ msgid "One column"
-#~ msgstr "в один столбец"
-
-#~ msgid "One row"
-#~ msgstr "в одну строку"
-
-#~ msgid "Two columns"
-#~ msgstr "в два столбца"
-
-#~ msgid "Two rows"
-#~ msgstr "в две строки"
-
-#~ msgid "Arrange"
-#~ msgstr "Упорядочить"
-
-#~ msgid ""
-#~ "The current weather\n"
-#~ "is not available"
-#~ msgstr "Нет данных для текущей погоды."
-
-#~ msgid ""
-#~ "\n"
-#~ "Feels like: "
-#~ msgstr ""
-#~ "\n"
-#~ "По ощущениям: "
-
-#~ msgid ""
-#~ "\n"
-#~ "Visible: "
-#~ msgstr ""
-#~ "\n"
-#~ "Видимость: "
-
-#~ msgid ""
-#~ "\n"
-#~ "Wind: "
-#~ msgstr ""
-#~ "\n"
-#~ "Ветер: "
-
-#~ msgid " Gust: "
-#~ msgstr " Порывы: "
-
-#~ msgid " Humidity: "
-#~ msgstr " Влажность: "
-
-#~ msgid " Add "
-#~ msgstr " Добавить "
-
-#~ msgid "Delete"
-#~ msgstr "Удалить"
-
-#~ msgid "Events"
-#~ msgstr "События"
-
-#~ msgid "Giant"
-#~ msgstr "Гигантские"
-
-#~ msgid "Large"
-#~ msgstr "Большой"
-
-#~ msgid "Medium"
-#~ msgstr "Средний"
-
-#~ msgid "Miles (Sea)"
-#~ msgstr "Мили (морские)"
-
-#~ msgid "Rename"
-#~ msgstr "Переименовать"
-
-#~ msgid "Small"
-#~ msgstr "Малый"
-
-#~ msgid "State(Province):"
-#~ msgstr "Штат (область):"
-
-#~ msgid ""
-#~ "Station code\n"
-#~ " (ZIP Code):"
-#~ msgstr ""
-#~ "Код станции\n"
-#~ " (индекс):"
-
-#~ msgid "Station(Place):"
-#~ msgstr "Станция(город)"
-
-#~ msgid "Tiny"
-#~ msgstr "Крошечные"

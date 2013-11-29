@@ -718,7 +718,7 @@ MeecastDynamicBoxAppPopupProvider::ReInitElements(){
     /* Speaker button */
     if (_config->SpeechWidget()){
         __pSpeakerButton = new Button();
-        __pSpeakerButton->Construct(Tizen::Graphics::Rectangle(0, (height/1.46), 70, 70), ""); 
+        __pSpeakerButton->Construct(Tizen::Graphics::Rectangle(0, (height/1.66), 50, 95), ""); 
         __pSpeakerButton->SetNormalBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("din_small.png"));
         __pSpeakerButton->SetPressedBackgroundBitmap(*Application::GetInstance()->GetAppResource()->GetBitmapN("din.png"));
         __pSpeakerButton->SetActionId(ID_BUTTON_SPEAKER);

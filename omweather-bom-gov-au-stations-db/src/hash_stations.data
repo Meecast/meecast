@@ -9,5 +9,5 @@
     #define hash_insert(hash, s2, s3) xmlHashAddEntry(hash, (const xmlChar *)s2, (void *)strdup(s3)); 
 
     hash_insert(hash, "Sydney", "Sydney Airport");
-    hash_insert(hash, "Melbourne", "Melbourne Airport");
+    hash_insert(hash, "Melbourne", "Melbourne (Olympic Park)");
 

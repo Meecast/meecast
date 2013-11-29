@@ -1,3 +1,9 @@
+meecast (0.8.2) unstable; urgency=low
+
+  * Nothing 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 29 Nov 2013 05:31:23 +0200
+
 meecast (0.8.1) unstable; urgency=low
 
   * Updated Norwegian, Turkish, Italian, Ukraine, Russian translations
@@ -6,9 +12,9 @@ meecast (0.8.1) unstable; urgency=low
   * Tizen2 Added checking day/night/hourly weather forecast
   * Tizen2 Fixed problem with null wind and Main Icon on popup Window in Home Applet
   * Tizen2 Added Voice for weather forecast
+  * Changed station source for Melbourne in source bom.gov.au 
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 13 Nov 2013 20:31:23 +0200
-
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 29 Nov 2013 05:31:23 +0200
 
 meecast (0.8) unstable; urgency=low
 

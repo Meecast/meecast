@@ -10,5 +10,5 @@
 <library>libomweather-yr-no-source.so</library>
 <binary>/opt/com.meecast.omweather/lib/openweathermaporg</binary>
 <showurl url="http://openweathermap.org/city/%s/" />
-<mapurl url="http://m.openweathermap.org/Maps?zoom=7&amp;lat=%f&amp;lon=%f&amp;" type="GPS"/>
+<mapurl url="http://m.openweathermap.org/Maps?zoom=7&amp;lat=%f&amp;lon=%f" type="GPS"/>
 </source>

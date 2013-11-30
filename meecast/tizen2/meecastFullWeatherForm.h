@@ -172,6 +172,7 @@ private:
     bool __gestureDetected;
     Tizen::Base::Runtime::Timer* __updateTimer;
     Tizen::Uix::Speech::TextToSpeech* __pTts;
+    Tizen::Ui::Controls::Button* __menuButton;
 };
 
 #endif	//_MEECAST_FULL_WEATHER_FORM_H_

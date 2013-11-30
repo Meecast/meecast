@@ -49,7 +49,8 @@ meecastFullWeatherForm::meecastFullWeatherForm(void):
                                   __pFlickGesture(null),
                                   __gestureDetected(false),
                                   __updateTimer(),
-                                  __pTts(null)
+                                  __pTts(null),
+                                  __menuButton(null)
                                   {
     _dayNumber = 0;
     result r = E_SUCCESS;
@@ -215,6 +216,25 @@ meecastFullWeatherForm::OnInitializing(void){
     Tizen::Graphics::Point position = pFooter->GetPosition();
     position.SetPosition(position.x + pFooter->GetWidth(), position.y + 10);
     CreateContextMenuList(position);
+
+    /* Menu button */
+//#if 0
+    __menuButton = new Button();
+    __menuButton->Construct(Rectangle(0, 0, 100, 100), ""); 
+    __menuButton->SetActionId(ID_BUTTON_MENU);
+    Bitmap *pBitmap_mask1 = Application::GetInstance()->GetAppResource()->GetBitmapN("menu.png");
+    __menuButton->SetNormalBackgroundBitmap(*pBitmap_mask1);
+    __menuButton->SetPressedBackgroundBitmap(*pBitmap_mask1);
+    delete pBitmap_mask1;
+    __menuButton->AddActionEventListener(*this);
+//    __menuButton->SetPosition(pFooter->GetWidth() - 100 - 25, position
+    __menuButton->SetPosition(pFooter->GetWidth() - 100 - 25, position.y - 200);
+    if (__menuButton)
+        AddControl(__menuButton);
+
+//#endif
+/* end menu button */
+
 
     return r;
 }

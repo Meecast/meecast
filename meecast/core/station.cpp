@@ -142,13 +142,15 @@ Station::Station(const std::string& source_name, const std::string& id,
         memset(map_url, 0, sizeof(map_url));
         memset(basemap_url, 0, sizeof(basemap_url));
         if (url_for_map.length() > 0) {
+            setlocale(LC_NUMERIC, "C");
             if (sourcelist->at(source_id)->map_type() == 1) 
                 snprintf(map_url, sizeof(map_url)-1, url_for_map.c_str(), _latitude, _longitude);
             if (sourcelist->at(source_id)->map_type() == 2) 
                 snprintf(map_url, sizeof(map_url)-1, url_for_map.c_str(), _longitude - 1, _latitude - 1, _longitude + 1, _latitude + 1);
             if (sourcelist->at(source_id)->map_type() == 3) 
                 snprintf(map_url, sizeof(map_url)-1, url_for_map.c_str(), id.c_str());
-            fprintf(stderr,"map_url: %s\n", map_url);
+            setlocale(LC_NUMERIC, "");
+         /*   fprintf(stderr,"map_url: %s\n", map_url); */
         }
         if (base_map_url.length() > 0) {
             if (sourcelist->at(source_id)->map_type() == 1) 

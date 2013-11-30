@@ -175,21 +175,16 @@ namespace Core {
                     }
                     continue;
                 }
-                AppLog ("mapurl0");
                 if (!xmlStrcmp(p->name, (const xmlChar*)"mapurl")){
-                AppLog ("mapurl01");
                     if ((temp_xml_string = xmlGetProp(p, (const xmlChar*)"url")) != NULL){
                         _url_for_map->assign((char *)temp_xml_string);
                         xmlFree(temp_xml_string);
                     }
                     if ((temp_xml_string = xmlGetProp(p, (const xmlChar*)"type")) != NULL){
-                        AppLog("mapurl");
                         if (!xmlStrcmp(temp_xml_string, (const xmlChar*)"WWW")){
-                            AppLog("mapurli1");
                             _map_type = WWW_TYPE;
                         }
                         if (!xmlStrcmp(temp_xml_string, (const xmlChar*)"GPS")){
-                            AppLog("mapurli2");
                             _map_type = GPS1_TYPE;
                         }
 

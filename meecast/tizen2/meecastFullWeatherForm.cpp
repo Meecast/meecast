@@ -218,7 +218,7 @@ meecastFullWeatherForm::OnInitializing(void){
     CreateContextMenuList(position);
 
     /* Menu button */
-//#if 0
+#if 0
     __menuButton = new Button();
     __menuButton->Construct(Rectangle(0, 0, 100, 100), ""); 
     __menuButton->SetActionId(ID_BUTTON_MENU);
@@ -227,12 +227,11 @@ meecastFullWeatherForm::OnInitializing(void){
     __menuButton->SetPressedBackgroundBitmap(*pBitmap_mask1);
     delete pBitmap_mask1;
     __menuButton->AddActionEventListener(*this);
-//    __menuButton->SetPosition(pFooter->GetWidth() - 100 - 25, position
     __menuButton->SetPosition(pFooter->GetWidth() - 100 - 25, position.y - 200);
     if (__menuButton)
         AddControl(__menuButton);
 
-//#endif
+#endif
 /* end menu button */
 
 

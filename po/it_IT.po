@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-27 22:11+0300\n"
-"PO-Revision-Date: 2013-11-20 15:35+0000\n"
+"POT-Creation-Date: 2013-12-01 18:56+0300\n"
+"PO-Revision-Date: 2013-11-28 19:26+0000\n"
 "Last-Translator: Lorenzo Facca <lorenzo.facca@ovi.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/meecast/language/"
 "it/)\n"
@@ -2576,6 +2576,8 @@ msgstr "Nessuna stazione disponibile per questa visualizzazione dell'elenco "
 #: omweather/src/hash.data:357
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
+"Questa è una funzione in sperimentazione. L'inglese è l'unica lingua "
+"supportata"
 
 #: meecast/qt-qml/qml/AboutPage.qml:308
 msgid ""
@@ -2752,12 +2754,11 @@ msgstr "Visuali"
 
 #: omweather/src/hash.data:356
 msgid "Voice forecast button on a widget"
-msgstr ""
+msgstr "Pulsante previsioni vocali con widget"
 
 #: omweather/src/hash.data:358
-#, fuzzy
 msgid "Voice weather forecast"
-msgstr "Previsioni OMWeather"
+msgstr "Previsioni meteo vocali"
 
 #: omweather/src/hash.data:301
 msgid "W"

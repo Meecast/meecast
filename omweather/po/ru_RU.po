@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-27 22:11+0300\n"
-"PO-Revision-Date: 2013-11-27 17:36+0000\n"
+"POT-Creation-Date: 2013-12-01 18:56+0300\n"
+"PO-Revision-Date: 2013-12-01 15:44+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/meecast/language/"
 "ru/)\n"
@@ -1351,7 +1351,7 @@ msgstr "Единицы измерений"
 
 #: meecast/qt-qml/qml/WeatherPage.qml:292
 msgid "MeeCast"
-msgstr ""
+msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
 msgid ""
@@ -1656,7 +1656,7 @@ msgstr "Настройки OMWeather"
 #: meecast/qt-qml/qml/VisualsPage.qml:269
 #: meecast/qt-qml/qml/VisualsPage.qml:305
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: omweather/src/weather-help.c:64 omweather/src/weather-help.c:70
 msgid "Other Maemo Weather Info"
@@ -2509,6 +2509,7 @@ msgstr "Нет никаких станций, чтобы показать их �
 #: omweather/src/hash.data:357
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
+"Это экспериментальная возможность. Поддерживается только английский язык."
 
 #: meecast/qt-qml/qml/AboutPage.qml:308
 msgid ""
@@ -2673,12 +2674,11 @@ msgstr "Оформление"
 
 #: omweather/src/hash.data:356
 msgid "Voice forecast button on a widget"
-msgstr ""
+msgstr "Кнопка Прогноза голосом на виджете"
 
 #: omweather/src/hash.data:358
-#, fuzzy
 msgid "Voice weather forecast"
-msgstr "OMWeather прогноз погоды"
+msgstr "Голосовой прогноз погоды"
 
 #: omweather/src/hash.data:301
 msgid "W"

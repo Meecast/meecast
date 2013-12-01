@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-27 22:11+0300\n"
-"PO-Revision-Date: 2013-11-11 09:59+0000\n"
+"POT-Creation-Date: 2013-12-01 18:56+0300\n"
+"PO-Revision-Date: 2013-11-28 14:57+0000\n"
 "Last-Translator: agustí clara <agusti.clara@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/meecast/language/"
 "ca/)\n"
@@ -988,7 +988,6 @@ msgid "Freezing Drizzle"
 msgstr "Plugims gebradors"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1041,12 +1040,13 @@ msgstr ""
 " Xinès - Wong Man Kong, Michael\n"
 " Portuguès - Jose Narciso,\n"
 " Turc - Burak Kaan Kose,\n"
+"        Mehmet Çilingir,\n"
 " Català - Agustí Clara,\n"
 " Àrab - Tarad Alfandi,\n"
 " Serbi - Aleksandar Zaric,\n"
 " Noruec - Peer-Atle Motland,\n"
 " Hongarès - Salmi,\n"
-" Chinese(Taiwan) - osk2,\n"
+" Xinès (Taiwan) - osk2,\n"
 " Vietnamita - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
 " Suec - Angela Nennebrandt,\n"
@@ -2573,7 +2573,7 @@ msgstr "No hi ha cap estació en aquesta visualització de la llista"
 
 #: omweather/src/hash.data:357
 msgid "This is experimental feature. Only English is supported."
-msgstr ""
+msgstr "Aquesta funció és experimental. Només està disponible en anglès."
 
 #: meecast/qt-qml/qml/AboutPage.qml:308
 msgid ""
@@ -2750,12 +2750,11 @@ msgstr "Visuals"
 
 #: omweather/src/hash.data:356
 msgid "Voice forecast button on a widget"
-msgstr ""
+msgstr "Botó de previsió amb veu en un giny"
 
 #: omweather/src/hash.data:358
-#, fuzzy
 msgid "Voice weather forecast"
-msgstr "Previsió de l'OMWeather"
+msgstr "Previsió amb veu"
 
 #: omweather/src/hash.data:301
 msgid "W"

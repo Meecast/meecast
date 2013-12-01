@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Manifest xmlns="http://schemas.tizen.org/2012/12/manifest">
     <Id>ctLjIIgCCj</Id>
-    <Version>0.7.8</Version>
+    <Version>0.8.2</Version>
     <Type>C++App</Type>
     <Author>Uladzislau Vasilyeu</Author>
     <Descriptions>
-        <Description Locale="eng-GB">MeeCast is a versatile, customizable and yet simple to use and beautiful looking weather forecast application that allows you to set up as much weather stations as you want using various weather forecast providers like Foreca, yr.no, Gismeteo, HKO, Australian Bureau of Meteorology and others to come. Have a quick glance at current conditions along with 7+ day forecast right at the start screen or look into detailed forecast for each day.</Description>
+        <Description Locale="eng-GB">MeeCast is a versatile, customizable and yet simple to use and beautiful looking weather forecast application that allows you to set up as much weather stations as you want using various weather forecast providers like Openweathermap.org, yr.no, Gismeteo, HKO, Foreca and others to come. Have a quick glance at current conditions along with 7+ day forecast right at the start screen or look into detailed forecast for each day.</Description>
     </Descriptions>
     <Requirements>
         <Feature Name="http://tizen.org/feature/location">true</Feature>
@@ -20,8 +20,8 @@
         <ApiVersion>2.2</ApiVersion>
         <Privileges>
             <Privilege>http://tizen.org/privilege/location</Privilege>
-            <Privilege>http://tizen.org/privilege/http</Privilege>
             <Privilege>http://tizen.org/privilege/application.launch</Privilege>
+            <Privilege>http://tizen.org/privilege/http</Privilege>
             <Privilege>http://tizen.org/privilege/setting</Privilege>
         </Privileges>
         <UiApp LaunchingHistoryVisible="True" Main="True" MenuIconVisible="True" Name="meecast">

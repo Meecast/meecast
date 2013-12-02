@@ -5,6 +5,7 @@ TEMPLATE = lib
 #TEMPLATE = app
 CONFIG += plugin \
     dbus \
+    qdbus \
     gui \
     link_pkgconfig \
     mobility \

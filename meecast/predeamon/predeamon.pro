@@ -29,7 +29,8 @@ LIBS += -L ../core  ../core/libomweather-core.a
 
 
 CONFIG += link_pkgconfig \
-         dbus
+         dbus \
+         qdbus
 PKGCONFIG += libcurl
 PKGCONFIG += sqlite3
 

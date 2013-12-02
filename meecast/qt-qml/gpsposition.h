@@ -9,7 +9,9 @@
 #include <QTimer>
 #include "core.h"
 
-//QTM_USE_NAMESPACE
+#ifdef MEEGO_EDITION_HARMATTAN
+QTM_USE_NAMESPACE
+#endif
 
 class GpsPosition : public QObject
 {

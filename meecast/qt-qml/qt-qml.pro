@@ -89,6 +89,7 @@ QMAKE_LFLAGS += -pie -rdynamic
 INCLUDEPATH += ../core                                                                                                        
 LIBS += -L ../core ../core/libomweather-core.a  
 CONFIG += dbus
+CONFIG += qdbus
 CONFIG += link_pkgconfig
 PKGCONFIG += glib-2.0
 PKGCONFIG += sqlite3

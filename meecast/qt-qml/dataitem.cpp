@@ -198,7 +198,7 @@ QString
 DataItem::temperature_high() {
     QString c;
     DataItem::Data::temperature_hi().units(temperatureunit.toStdString());
-    if (DataItem::Data::temperature_hi().value(TRUE) == INT_MAX){
+    if (DataItem::Data::temperature_hi().value(true) == INT_MAX){
         c = "N/A";
         return c;
     }
@@ -209,7 +209,7 @@ QString
 DataItem::temperature() {
     QString c;
     DataItem::Data::temperature().units(temperatureunit.toStdString());
-    if (DataItem::Data::temperature().value(TRUE) == INT_MAX){
+    if (DataItem::Data::temperature().value(true) == INT_MAX){
         c = "N/A";
         return c;
     }
@@ -220,7 +220,7 @@ QString
 DataItem::temperature_low() {
     QString c;
     DataItem::Data::temperature_low().units(temperatureunit.toStdString());
-    if (DataItem::Data::temperature_low().value(TRUE) == INT_MAX){
+    if (DataItem::Data::temperature_low().value(true) == INT_MAX){
         c = "N/A";
         return c;
     }
@@ -231,7 +231,7 @@ QString
 DataItem::flike() {
     QString c;
     DataItem::Data::Flike().units(temperatureunit.toStdString());
-    if (DataItem::Data::Flike().value(TRUE) == INT_MAX){
+    if (DataItem::Data::Flike().value(true) == INT_MAX){
         c = "N/A";
         return c;
     }
@@ -297,7 +297,7 @@ QString
 DataItem::wind_speed() {
     QString c;
     DataItem::Data::WindSpeed().units(windunit.toStdString());
-    if (DataItem::Data::WindSpeed().value(TRUE) == INT_MAX){
+    if (DataItem::Data::WindSpeed().value(true) == INT_MAX){
         c = "N/A";
         return c;
     }
@@ -424,7 +424,7 @@ QString
 DataItem::pressure() {
     QString c;
     DataItem::Data::pressure().units(pressureunit.toStdString());
-    if (DataItem::Data::pressure().value(TRUE) == INT_MAX){
+    if (DataItem::Data::pressure().value(true) == INT_MAX){
         c = "N/A";
         return c;
     }

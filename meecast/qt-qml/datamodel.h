@@ -63,6 +63,9 @@ public:
     Q_INVOKABLE void reload_data(QString filename);
     Q_INVOKABLE void update_model(int period);
     Q_INVOKABLE QVariant getdata(const int index, QString role);
+    #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+        QHash<int, QByteArray> roleNames() const; 
+    #endif
 
 private:
     DataItem* _prototype;

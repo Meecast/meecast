@@ -33,7 +33,10 @@
 DataModel::DataModel(DataItem* prototype, QObject *parent) :
     QAbstractListModel(parent), _prototype(prototype)
 {
+    //setRoleNames(_prototype->roleNames());
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     setRoleNames(_prototype->roleNames());
+#endif
     try{
        _config =  ConfigQml::Instance(Core::AbstractConfig::getConfigPath()+
                                "config.xml",
@@ -91,7 +94,8 @@ DataModel::clear()
     //qDeleteAll(this->_list);
     this->_list.clear();
     //emit dataChanged(this->createIndex(0, 0), this->createIndex(count, 0));
-    this->reset();
+    //this->reset();
+    this->endResetModel();
 }
 
 void
@@ -364,6 +368,13 @@ DataModel::update_model(int period)
             break;
     }
     dp->DeleteInstance();
-    this->reset();
+    //this->reset();
+    this->endResetModel();
     
 }
+#if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+QHash<int, QByteArray> DataModel::roleNames() const {
+    return _prototype->roleNames();
+}
+
+#endif

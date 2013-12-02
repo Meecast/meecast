@@ -9,7 +9,7 @@
 #include <QTimer>
 #include "core.h"
 
-QTM_USE_NAMESPACE
+//QTM_USE_NAMESPACE
 
 class GpsPosition : public QObject
 {

@@ -38,7 +38,9 @@
 #include <QUrl>
 #include "updatethread.h"
 #include "gpsposition.h"
+#ifdef MEEGO_EDITION_HARMATTAN
 #include <MGConfItem>
+#endif
 #include <QSettings>
 #include <QDir>
 

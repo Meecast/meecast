@@ -31,10 +31,19 @@ LIBS += -L ../core  ../core/libomweather-core.a
 CONFIG = link_pkgconfig 
 PKGCONFIG += sqlite3
 PKGCONFIG += libcurl
-PKGCONFIG += dbus-glib-1 \
-             QtCore \
-             QtXml
+PKGCONFIG += dbus-glib-1 
 
+system(pkg-config --exists Qt5Core) {
+ PKGCONFIG += Qt5Core
+}else {
+ PKGCONFIG += QtCore
+}
+
+system(pkg-config --exists Qt5Xml) {
+ PKGCONFIG += Qt5Xml
+}else {
+ PKGCONFIG += QtXml
+}
 
 #install
 target.path = /opt/com.meecast.omweather/bin

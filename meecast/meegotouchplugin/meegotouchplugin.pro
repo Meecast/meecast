@@ -4,7 +4,7 @@ QT += declarative network
 TEMPLATE = lib
 #TEMPLATE = app
 CONFIG += plugin \
-    qdbus \
+    dbus \
     gui \
     link_pkgconfig \
     mobility \

@@ -376,5 +376,4 @@ DataModel::update_model(int period)
 QHash<int, QByteArray> DataModel::roleNames() const {
     return _prototype->roleNames();
 }
-
 #endif

@@ -188,8 +188,8 @@ namespace Core {
         delete _url_for_view;
         delete _url_for_map;
         delete _url_for_basemap;
-        if(_libraryHandler)
-            dlclose(_libraryHandler);
+//        if(_libraryHandler)
+//            dlclose(_libraryHandler);
     }
 Source::Source(const Source& source){
     _name = new std::string(*(source._name));

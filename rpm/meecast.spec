@@ -3,12 +3,16 @@
 # spectacle version 0.18
 # 
 # >> macros
-%define wantmeegopanel 0
-%define all_x86 i386 i586 i686 %{ix86}
-%define all_arm %{arm}
+#%define wantmeegopanel 0
+#%define all_x86 i386 i586 i686 %{ix86}
+#%define all_arm %{arm}
 # << macros
- 
-Name:       com.meecast
+%{!?qtc_qmake:%define qtc_qmake %qmake}
+%{!?qtc_qmake5:%define qtc_qmake5 %qmake5}
+%{!?qtc_make:%define qtc_make make}
+%{?qtc_builddir:%define _builddir %qtc_builddir}
+
+Name:       meecast
 Summary:    Weather for Meego
 Version:    0.4.1
 Release:    1
@@ -18,22 +22,19 @@ URL:        https://garage.maemo.org/projects/omweather/
 Source0:    %{name}-%{version}.tar.bz2
 #Temporary
 #Requires:       libmeegotouch-devel
-BuildRequires:  pkgconfig(QtCore) >= 4.7.0
+BuildRequires:  pkgconfig(sailfishapp)
+BuildRequires:  pkgconfig(Qt5Quick)
+BuildRequires:  pkgconfig(Qt5Qml)
+BuildRequires:  pkgconfig(Qt5Core)
+BuildRequires:  pkgconfig(qdeclarative5-boostable)
+BuildRequires:  desktop-file-utils
 BuildRequires:  pkgconfig(libcurl)
 BuildRequires:  pkgconfig(sqlite3)
-BuildRequires:  pkgconfig(gconf-2.0)
+#BuildRequires:  pkgconfig(gconf-2.0)
 BuildRequires:  pkgconfig(dbus-glib-1)
 BuildRequires:  pkgconfig(libxml-2.0)
-%if %{wantmeegopanel}
-BuildRequires:  pkgconfig(meego-panel)
-BuildRequires:  pkgconfig(mutter-plugins)
-%endif
-BuildRequires:  gettext
-BuildRequires:  qt-qmake
-BuildRequires:  libqt-devel
-#BuildRequires:  libmeegotouch
-BuildRequires:  libmeegotouch-devel
-BuildRequires:  desktop-file-utils
+#BuildRequires:  gettext
+#BuildRequires:  libqt-devel
 
 
 %description
@@ -50,11 +51,7 @@ Weather Forecast on Meego.
 %build
 # >> build pre
 #export PATH=/usr/lib/qt4/bin:$PATH
-%if %{wantmeegopanel}
-qmake PREFIX=%{_prefix} CONFIG+=meegopanel CONFIG+=UXpanel -r
-%else
-qmake PREFIX=%{_prefix} CONFIG+=UXpanel -r
-%endif
+qmake 
 make
 # << build pre
 

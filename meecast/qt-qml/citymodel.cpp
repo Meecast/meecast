@@ -68,5 +68,6 @@ CityModel::populate(QString source, QString region)
         _list.append(new SelectData(str, QString::fromStdString((*cur).first), str.left(1)));
     }
     endInsertRows();
-    reset();
+    //reset();
+    endResetModel();
 }

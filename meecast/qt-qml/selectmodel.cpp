@@ -74,11 +74,13 @@ void SelectData::setCategory(QString category)
 SelectModel::SelectModel(QObject *parent)
     :QAbstractListModel(parent)
 {
-    QHash<int, QByteArray> roles;
     roles[NameRole] = "name";
     roles[KeyRole] = "key";
     roles[CategoryRole] = "category";
+
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     setRoleNames(roles);
+#endif
 }
 
 QVariant SelectModel::get(int index)
@@ -114,5 +116,13 @@ QVariant SelectModel::data(const QModelIndex & index, int role) const {
      else if (role == CategoryRole)
          return data->category();
      return QVariant();
- }
+}
 
+/*
+#if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+QHash<int, QByteArray> SelectModel::roleNames() const {
+    //return _name->roleNames();
+    return NULL;
+}
+#endif
+*/

@@ -68,6 +68,7 @@ RegionModel::populate(QString source, QString country)
         _list.append(new SelectData(str, QString::fromStdString(list->at(i).first), str.left(1)));
     }
     endInsertRows();
-    reset();
+    //reset();
+    endResetModel();
 
 }

@@ -1,9 +1,10 @@
 meecast (0.8.2) unstable; urgency=low
 
   * Added icon for openweathermap.com 
+  * Fixed problem with temporary moved http pages in gismeteo.ru source
   * Updated Italian, Ukraine, Russian, Catalan, Finish, Spanish translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 01 Dec 2013 22:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 04 Dec 2013 22:31:23 +0200
 
 meecast (0.8.1) unstable; urgency=low
 

@@ -93,6 +93,20 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     QDir::setCurrent(app.applicationDirPath());
 
     
+    std::cerr<<"Begin "<<std::endl;
+    std::cerr<<app.applicationDirPath().toStdString().c_str()<<std::endl;
+    std::cerr<<"End "<<std::endl;
+
+
+    QString str = QDir::currentPath();
+    std::cerr<<str.toStdString().c_str()<<std::endl;
+
+    str.truncate(str.length()-4);
+
+    Core::AbstractConfig::prefix = str.toStdString();
+    QDir::setCurrent(QDir::currentPath());
+
+
 
     /*
     //Set up a graphics scene with a QGraphicsWidget and Layout

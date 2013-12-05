@@ -105,19 +105,18 @@ PKGCONFIG += glib-2.0
 PKGCONFIG += sqlite3
 PKGCONFIG += libcurl
 target.path = /opt/com.meecast.omweather/bin
-INSTALLS += target
 
 desktop.files = meecast.desktop
 desktop.path = /usr/share/applications
 icon64.path = /usr/share/pixmaps
 icon64.files += omweather.png
-qml.files = qml/*.qml *.js
-qml.path = /opt/com.meecast.omweather/share/omweather/qml
+qmls.files = qml/*.qml *.js
+qmls.path = /opt/com.meecast.omweather/share/omweather/qml
 searchicon.files += gfx/*.png
 searchicon.path += /opt/com.meecast.omweather/share/omweather/qml/gfx
 
 #INSTALLS += desktop qml icon64
-INSTALLS += desktop qml searchicon
+INSTALLS += target desktop qmls searchicon
 
 DATADIR=/opt/com.meecast.omweather/share
 

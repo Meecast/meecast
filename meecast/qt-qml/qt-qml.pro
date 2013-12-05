@@ -16,6 +16,9 @@ exists($$QMAKE_INCDIR_QT"/../qmsystem2/qmkeys.h"):contains(MEEGO_EDITION,harmatt
     DEFINES += MEEGO_EDITION_HARMATTAN
 }
 
+exists("/usr/lib/qt5/qml/Sailfish/Silica/SilicaGridView.qml"): {
+    DEFINES += SAILFISHOS 
+}
 SOURCES += main.cpp \
     dataqml.cpp \
     configqml.cpp \
@@ -87,6 +90,7 @@ CONFIG += mobility
 MOBILITY += location
 CONFIG += qdeclarative-boostable
 CONFIG += meegotouch 
+CONFIG += sailfishapp
 
 QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
 QMAKE_LFLAGS += -pie -rdynamic

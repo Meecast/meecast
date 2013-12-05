@@ -8,6 +8,9 @@ CONFIG += link_pkgconfig staticlib
 CONFIG += qdeclarative-boostable
 CONFIG += qt-boostable 
 
+exists("/usr/lib/qt5/qml/Sailfish/Silica/SilicaGridView.qml"): {
+    DEFINES += SAILFISHOS 
+}
 
 system(pkg-config --exists libxml++-2.6) {
     CONFIG += -qt

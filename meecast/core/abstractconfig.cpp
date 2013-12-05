@@ -51,6 +51,7 @@ namespace Core {
     std::string AbstractConfig::layoutqml = "/usr/share/omweather/qml/weatherlayoutitem.qml";
     //std::string AbstractConfig::configPath = "~/.config/omweather/";
     */
+#ifdef SAILFISHOS
     std::string AbstractConfig::prefix = "/opt/com.meecast.omweather";
     std::string AbstractConfig::sharePath = "/share/";
     std::string AbstractConfig::schemaPath = "/share/xsd/";
@@ -59,7 +60,16 @@ namespace Core {
     std::string AbstractConfig::sourcesPath = "/share/sources/";
     std::string AbstractConfig::layoutqml = "omweather/qml/main.qml";
     //std::string AbstractConfig::configPath = "~/.config/omweather/";
-
+#else
+    std::string AbstractConfig::prefix = "/opt/com.meecast.omweather";
+    std::string AbstractConfig::sharePath = "/share/";
+    std::string AbstractConfig::schemaPath = "/share/xsd/";
+    std::string AbstractConfig::iconsPath = "/share/icons/";
+    std::string AbstractConfig::libPath = "/lib/";
+    std::string AbstractConfig::sourcesPath = "/share/sources/";
+    std::string AbstractConfig::layoutqml = "omweather/qml/main.qml";
+    //std::string AbstractConfig::configPath = "~/.config/omweather/";
+#endif
 #endif
     std::string AbstractConfig::getConfigPath()
     {

@@ -27,26 +27,33 @@
 */
 /*******************************************************************************/
 
-#include <QtCore/QtGlobal>
-#include <QApplication>
-#include <QGraphicsView>
-#include <QGraphicsScene>
-#include <QGraphicsWidget>
-#include <QGraphicsLinearLayout>
-#include <QDeclarativeComponent>
-#include <QDeclarativeContext>
-#include <QDeclarativeEngine>
-#include <QDeclarativeView>
+//#include <sailfishapp.h>
+#include <QtGui/QGuiApplication>
+#include <QtQuick/QQuickView>
+//#include <QtQml/qqml.h>
+
+
+//#include <QtCore/QtGlobal>
+//#include <QApplication>
+//#include <QGraphicsView>
+//#include <QGraphicsScene>
+//#include <QGraphicsWidget>
+//#include <QGraphicsLinearLayout>
+//#include <QDeclarativeComponent>
+//#include <QDeclarativeContext>
+//#include <QDeclarativeEngine>
+//#include <QDeclarativeView>
 #include <QTranslator>
 #include <QHash>
-#include <QGraphicsGridLayout>
+//#include <QGraphicsGridLayout>
 #include <exception>
 #include <iostream>
 
+#include "sailfishapplication.h"
 #include "core.h"
 #include "dataqml.h"
 #include "configqml.h"
-#include "qmllayoutitem.h"
+//#include "qmllayoutitem.h"
 #include "dataitem.h"
 #include "datamodel.h"
 #include "parserqt.h"
@@ -55,7 +62,7 @@
 #include "dbusadaptor.h" 
 #include "controller.h" 
 
-#include <QtDebug>
+//#include <QtDebug>
 
 #include <libintl.h>
 #include <locale.h>
@@ -81,20 +88,20 @@ update_weather_forecast(Core::Config *config){
     }
     return true;
 }
-//////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
 
 Q_DECL_EXPORT int main(int argc, char* argv[])
 {
-    //QApplication::setGraphicsSystem("native");
-    QApplication app(argc, argv);
 
-    app.setProperty("NoMStyle", true);
+    QScopedPointer<QGuiApplication> app(Sailfish::createApplication(argc, argv));
+     
+    app->setProperty("NoMStyle", true);
 
-    QDir::setCurrent(app.applicationDirPath());
+    QDir::setCurrent(app->applicationDirPath());
 
     
     std::cerr<<"Begin "<<std::endl;
-    std::cerr<<app.applicationDirPath().toStdString().c_str()<<std::endl;
+    std::cerr<<app->applicationDirPath().toStdString().c_str()<<std::endl;
     std::cerr<<"End "<<std::endl;
 
 
@@ -159,19 +166,34 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     //std::cerr<<"iconpath = "<<config->imagespath().toStdString() << std::endl;
     //update_weather_forecast(config);
     
-    QDeclarativeView *qview;
+    QQuickView *qview;
     qview = controller->qview();
+    
+    Sailfish::setView(qview,QString::fromStdString("file://" + Core::AbstractConfig::prefix + 
+                                                   Core::AbstractConfig::sharePath +
+                                                   Core::AbstractConfig::layoutqml));
+    
+//    Sailfish::setView(qview,QString::fromStdString("main.qml")); 
+//    QScopedPointer<QQuickView> view(Sailfish::createView(QString::fromStdString(Core::AbstractConfig::prefix +
+//                                                                Core::AbstractConfig::sharePath +
+//                                                                Core::AbstractConfig::layoutqml)));
+  //  QScopedPointer<QQuickView> view(Sailfish::createView("main.qml"));
+    Sailfish::showView(qview);
 
     std::cerr << "qml path = " << Core::AbstractConfig::layoutqml << std::endl;
+    /*
     qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::prefix +
                                                                 Core::AbstractConfig::sharePath +
                                                                 Core::AbstractConfig::layoutqml)));
-    QObject::connect((QObject*)qview->engine(), SIGNAL(quit()), &app, SLOT(quit()));
-    qview->showFullScreen();
+    */
+   // QObject::connect((QObject*)qview->engine(), SIGNAL(quit()), app, SLOT(quit()));
+    //qview->showFullScreen();
     /*This code provides Segmantation fault
     delete dadapt;
-    delete controller;
+    dQString::fromStdString(Core::AbstractConfig::prefix +
+//                                                                Core::AbstractConfig::sharePath +
+//                                                                Core::AbstractConfig::layoutqml)));elete controller;
     */
-    return app.exec();
+    return app->exec();
    
 }

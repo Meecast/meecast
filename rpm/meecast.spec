@@ -36,7 +36,8 @@ BuildRequires:  pkgconfig(libxml-2.0)
 #BuildRequires:  gettext
 #BuildRequires:  libqt-devel
 BuildRequires: qt5-qtpositioning-devel
-Requires: qt5-qtpositioning 
+Requires:      qt5-qtpositioning 
+Requires:      sailfishsilica-qt5
 
 %description
 Weather Forecast on Meego.

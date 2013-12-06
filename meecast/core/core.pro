@@ -76,16 +76,16 @@ HEADERS = \
 
 
 icon.files = data/desktop/Icon/meecast.svg
-icon.path =  /opt/com.meecast.omweather/share/icons/
+icon.path =  /usr/share/icons/
 
 icon50.files = data/desktop/Icon/omweather.png
-icon50.path = /opt/com.meecast.omweather/share/icons/
+icon50.path = /usr/share/icons/
 
 icon255.files = data/desktop/Icon/omweather255.png
-icon255.path = /opt/com.meecast.omweather/share/icons/
+icon255.path = /usr/share/icons/
 
 iconpanel.files = data/desktop/Icon/pnl_icn_omweather.png
-iconpanel.path = /opt/com.meecast.omweather/share/icons/
+iconpanel.path = /usr/share/icons/
 
 icon16.files = data/desktop/Icon/16/omweather.png
 icon16.path = /usr/share/icons/hicolor/16x16/apps/
@@ -99,45 +99,45 @@ icon64.path = /usr/share/icons/hicolor/64x64/apps/
 icon128.files = data/desktop/Icon/128/omweather.png
 icon128.path = /usr/share/icons/hicolor/128x128/apps/
 
-target.path = /opt/com.meecast.omweather/lib
+target.path = /usr/lib
 #data.files = data/icons/
 databeginning.files += data/icons/Beginning/*.png
-databeginning.path = /opt/com.meecast.omweather/share/icons/Beginning
+databeginning.path = /usr/share/icons/Beginning
 datacontour.files += data/icons/Contour/*.png
-datacontour.path = /opt/com.meecast.omweather/share/icons/Contour
+datacontour.path = /usr/share/icons/Contour
 dataepona.files += data/icons/Epona/*.png
-dataepona.path = /opt/com.meecast.omweather/share/icons/Epona
+dataepona.path = /usr/share/icons/Epona
 dataglance.files += data/icons/Glance/*.png
-dataglance.path = /opt/com.meecast.omweather/share/icons/Glance
+dataglance.path = /usr/share/icons/Glance
 datameecast.files += data/icons/Meecast/*.png
-datameecast.path = /opt/com.meecast.omweather/share/icons/Meecast
+datameecast.path = /usr/share/icons/Meecast
 datagrzankas.files += data/icons/Grzankas/*.png
-datagrzankas.path = /opt/com.meecast.omweather/share/icons/Grzankas
+datagrzankas.path = /usr/share/icons/Grzankas
 datashiny.files += data/icons/Shiny/*.png
-datashiny.path = /opt/com.meecast.omweather/share/icons/Shiny
+datashiny.path = /usr/share/icons/Shiny
 datatango.files += data/icons/Tango/*.png
-datatango.path = /opt/com.meecast.omweather/share/icons/Tango
+datatango.path = /usr/share/icons/Tango
 datasimpelmee.files += data/icons/SimpelMee/*.png
-datasimpelmee.path = /opt/com.meecast.omweather/share/icons/SimpelMee
+datasimpelmee.path = /usr/share/icons/SimpelMee
 datanoun.files += data/icons/Noun/*.png
-datanoun.path = /opt/com.meecast.omweather/share/icons/Noun
+datanoun.path = /usr/share/icons/Noun
 dataatmos.files += data/icons/Atmos/*.png
-dataatmos.path = /opt/com.meecast.omweather/share/icons/Atmos
+dataatmos.path = /usr/share/icons/Atmos
 
 
 
 
-#data.path = /opt/com.meecast.omweather/share
+#data.path = /usr/share
 xsd.files += data/config.xsd
 xsd.files += data/data.xsd
 xsd.files += data/source.xsd
-xsd.path = /opt/com.meecast.omweather/share/xsd
-buttonicons.path = /opt/com.meecast.omweather/share/buttons_icons
+xsd.path = /usr/share/xsd
+buttonicons.path = /usr/share/buttons_icons
 buttonicons.files += data/button_icons/*.png
-images.path = /opt/com.meecast.omweather/share/images
+images.path = /usr/share/images
 images.files += data/images/*.png
 alib.files = libomweather-core.a
-alib.path = /opt/com.meecast.omweather/lib
+alib.path = /usr/lib
 
 INSTALLS += target databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images alib icon icon50 icon255 icon16 icon32 icon64 icon128 iconpanel
 QMAKE_CLEAN += lib$$TARGET* \

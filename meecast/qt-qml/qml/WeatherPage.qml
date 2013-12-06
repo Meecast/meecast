@@ -1,43 +1,45 @@
 //import QtQuick 1.1
-import Qt 4.7
-import com.nokia.meego 1.0
-import Qt.labs.gestures 1.0
+//import Qt 4.7
+//import com.nokia.meego 1.0
+//import Qt.labs.gestures 1.0
 
+import QtQuick 2.0
 
+import Sailfish.Silica 1.0
 Page {
     id: main
     property int margin: 16
-    property int screen_width : 854
+    property int screen_width : 950 
     property bool isUpdate: false
     property real flick_start_position: 0
 
-    tools: ToolBarLayout {
-        ToolIcon {
-            iconId: (!isUpdate) ? "toolbar-refresh" : "toolbar-stop-dimmed"
-            onClicked: {
-                if (!isUpdate) main.update();
-                //console.log(main.getColor(-15));
-            }
-        }
-        Image {
-            id: sourceicon
-	    anchors.horizontalCenter: parent.horizontalCenter
-            source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
-            smooth: true
-	    MouseArea{
-	        anchors.fill: parent
-		onClicked: {
- 		    Config.showweb();	
-		}
-	    }
-        }
-        ToolIcon {
-            iconId: "toolbar-view-menu"
-            onClicked: {(myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()}
-            anchors.right: parent == undefined ? undefined : parent.right
-        }
-    }
-    orientationLock: PageOrientation.LockPortrait
+//    tools: ToolBarLayout {
+//        ToolIcon {
+//            iconId: (!isUpdate) ? "toolbar-refresh" : "toolbar-stop-dimmed"
+//            onClicked: {
+//                if (!isUpdate) main.update();
+//                //console.log(main.getColor(-15));
+//            }
+//        }
+//        Image {
+//            id: sourceicon
+//	    anchors.horizontalCenter: parent.horizontalCenter
+//            source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
+//            smooth: true
+//	    MouseArea{
+//	        anchors.fill: parent
+//		onClicked: {
+// 		    Config.showweb();	
+//		}
+//	    }
+//        }
+//        ToolIcon {
+//            iconId: "toolbar-view-menu"
+//            onClicked: {(myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()}
+//            anchors.right: parent == undefined ? undefined : parent.right
+//        }
+//    }
+//    orientationLock: PageOrientation.LockPortrait
     function openFile(file)
     {
         var component = Qt.createComponent(file);

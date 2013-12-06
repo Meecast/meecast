@@ -90,17 +90,21 @@ CONFIG += mobility
 MOBILITY += location
 CONFIG += qdeclarative-boostable
 CONFIG += meegotouch 
-CONFIG += sailfishapp
 
 QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
 QMAKE_LFLAGS += -pie -rdynamic
 
 
 INCLUDEPATH += ../core                                                                                                        
+
+include(sailfishapplication/sailfishapplication.pri)
+
+
 LIBS += -L ../core ../core/libomweather-core.a  
 CONFIG += dbus
 CONFIG += qdbus
 CONFIG += link_pkgconfig
+CONFIG += sailfishapp
 PKGCONFIG += glib-2.0
 PKGCONFIG += sqlite3
 PKGCONFIG += libcurl

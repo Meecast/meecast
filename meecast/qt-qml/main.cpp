@@ -172,7 +172,11 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     Sailfish::setView(qview,QString::fromStdString("file://" + Core::AbstractConfig::prefix + 
                                                    Core::AbstractConfig::sharePath +
                                                    Core::AbstractConfig::layoutqml));
-    
+   /* 
+    QDir::setCurrent(QString::fromStdString(Core::AbstractConfig::prefix + 
+                     Core::AbstractConfig::sharePath +
+                     "omweather-qml/qml/"));
+   */
 //    Sailfish::setView(qview,QString::fromStdString("main.qml")); 
 //    QScopedPointer<QQuickView> view(Sailfish::createView(QString::fromStdString(Core::AbstractConfig::prefix +
 //                                                                Core::AbstractConfig::sharePath +

@@ -28,10 +28,8 @@
 /*******************************************************************************/
 #include "core.h"
 #include <QObject>
-//#include <QDeclarativeView>
-//#include <QDeclarativeContext>
-#include <QQmlContext>
-#include <QtQuick/QQuickView>
+#include <QDeclarativeView>
+#include <QDeclarativeContext>
 #include "configqml.h"
 #include "datamodel.h"
 #include "dataitem.h"
@@ -52,7 +50,7 @@ class Controller : public QObject
 public:
     Controller();
     ConfigQml* config();
-    QQuickView *qview();
+    QDeclarativeView *qview();
     virtual ~Controller();
 
 public Q_SLOTS:
@@ -62,7 +60,7 @@ public Q_SLOTS:
 
 private:
     ConfigQml *_config;
-    QQuickView *_qview;
+    QDeclarativeView *_qview;
     Core::DataParser *_dp;
     DataModel *_model; 
     DataModel *_hours_model; 

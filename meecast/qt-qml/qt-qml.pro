@@ -16,9 +16,6 @@ exists($$QMAKE_INCDIR_QT"/../qmsystem2/qmkeys.h"):contains(MEEGO_EDITION,harmatt
     DEFINES += MEEGO_EDITION_HARMATTAN
 }
 
-exists("/usr/lib/qt5/qml/Sailfish/Silica/SilicaGridView.qml"): {
-    DEFINES += SAILFISHOS 
-}
 SOURCES += main.cpp \
     dataqml.cpp \
     configqml.cpp \
@@ -96,31 +93,27 @@ QMAKE_LFLAGS += -pie -rdynamic
 
 
 INCLUDEPATH += ../core                                                                                                        
-
-include(sailfishapplication/sailfishapplication.pri)
-
-
 LIBS += -L ../core ../core/libomweather-core.a  
 CONFIG += dbus
 CONFIG += qdbus
 CONFIG += link_pkgconfig
-CONFIG += sailfishapp
 PKGCONFIG += glib-2.0
 PKGCONFIG += sqlite3
 PKGCONFIG += libcurl
 target.path = /opt/com.meecast.omweather/bin
+INSTALLS += target
 
 desktop.files = meecast.desktop
 desktop.path = /usr/share/applications
 icon64.path = /usr/share/pixmaps
 icon64.files += omweather.png
-qmls.files = qml/*.qml *.js
-qmls.path = /opt/com.meecast.omweather/share/omweather/qml
+qml.files = qml/*.qml *.js
+qml.path = /opt/com.meecast.omweather/share/omweather/qml
 searchicon.files += gfx/*.png
 searchicon.path += /opt/com.meecast.omweather/share/omweather/qml/gfx
 
 #INSTALLS += desktop qml icon64
-INSTALLS += target desktop qmls searchicon
+INSTALLS += desktop qml searchicon
 
 DATADIR=/opt/com.meecast.omweather/share
 

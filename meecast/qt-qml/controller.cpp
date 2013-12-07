@@ -27,7 +27,6 @@
 */
 /*******************************************************************************/
 #include "controller.h"
-#include "sailfishapplication.h"
 ConfigQml *
 create_and_fill_config(){
     ConfigQml *config;
@@ -58,7 +57,7 @@ create_and_fill_config(){
 
 Controller::Controller() : QObject()
 {
-  _qview = Sailfish::createView();
+  _qview = new QDeclarativeView();
   _dp = NULL;
   this->load_config();
   this->load_data();
@@ -72,7 +71,7 @@ Controller::~Controller()
 
 }
 
-QQuickView* 
+QDeclarativeView* 
 Controller::qview()
 {
     return _qview;

@@ -35,7 +35,9 @@ BuildRequires:  pkgconfig(dbus-glib-1)
 BuildRequires:  pkgconfig(libxml-2.0)
 #BuildRequires:  gettext
 #BuildRequires:  libqt-devel
-
+BuildRequires: qt5-qtpositioning-devel
+Requires:      qt5-qtpositioning 
+Requires:      sailfishsilica-qt5
 
 %description
 Weather Forecast on Meego.
@@ -66,9 +68,6 @@ rm -rf %{buildroot}
 
 # >> install post
 make INSTALL_ROOT=%{buildroot} install
-%if %{wantmeegopanel}
-ln -s /opt/com.meecast.omweather/share/icons  %{buildroot}/opt/com.meecast.omweather/share/meego-panel-omweather/theme/icons
-%endif
 rm %{buildroot}/opt/com.meecast.omweather/lib/libomweather-core.a
 # << install post
 #desktop-file-install --delete-original       \

@@ -182,7 +182,11 @@ Page {
 
     Flickable {
         id: flickable
-        anchors.fill: parent
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: toolbar.top
+
         contentWidth: flickable.width
         contentHeight: station_rect.height + current_rect.height + list.height
         flickableDirection: Flickable.VerticalFlick
@@ -271,8 +275,7 @@ Page {
             id: startview
             visible: Config.stationname == "Unknown" ? true : false
             width: parent.width
-//            height: screen_width - 72 - 36
-            height: screen_width 
+            height: screen_width - 72 - 36
             Rectangle {
                 anchors.left: parent.left
                 anchors.top: parent.top
@@ -337,6 +340,7 @@ Page {
             id: mainview
             visible: Config.stationname == "Unknown" ? false : true
             anchors.fill: parent
+
             /*
             Loader {
                 id: background
@@ -552,7 +556,7 @@ Page {
                             anchors.top: parent.top
                             anchors.topMargin: -22
                             anchors.left: now.right
-			    smooth: true    
+                            smooth: true    
                         }
                         Text {
                             anchors.top: parent.top
@@ -835,7 +839,26 @@ Page {
             } //component itemDelegate
 
         }
-
     }
-
+    Rectangle {
+        id: toolbar
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: 72
+        color: "black"
+        Image {
+            id: sourceicon
+	        anchors.horizontalCenter: parent.horizontalCenter
+	        anchors.verticalCenter: parent.verticalCenter
+            source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
+            smooth: true
+	        MouseArea{
+	            anchors.fill: parent
+		        onClicked: {
+ 		            Config.showweb();	
+		        }
+            }
+        }
+    }
 }

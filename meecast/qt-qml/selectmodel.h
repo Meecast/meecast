@@ -80,7 +80,7 @@ public:
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
     QHash<int, QByteArray> roles;
     #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
-//        QHash<int, QByteArray> roleNames() const; 
+        QHash<int, QByteArray> roleNames() const; 
     #endif
 
 

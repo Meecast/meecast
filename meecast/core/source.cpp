@@ -83,7 +83,7 @@ namespace Core {
                     }else if (tag == "library"){
                         _library->assign(el.text().toStdString());
                     }else if (tag == "binary"){
-                        _binary->assign(el.text().toStdString());
+                        _binary->assign(Core::AbstractConfig::prefix + Core::AbstractConfig::libPath + el.text().toStdString());
                     }else if (tag == "forecast"){
                         if (el.hasAttribute("url"))
                             _url_template->assign(el.attribute("url").toStdString());

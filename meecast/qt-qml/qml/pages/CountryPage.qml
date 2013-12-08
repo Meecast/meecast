@@ -20,8 +20,8 @@ Page {
         anchors.fill: parent
         anchors.top: title_rect.bottom
         anchors.topMargin: 80
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
+//        anchors.leftMargin: margin
+//        anchors.rightMargin: margin
 
         Rectangle {
             anchors.top: parent.top
@@ -60,6 +60,7 @@ Page {
 
                 Label {
                     anchors.left: parent.left
+                    anchors.leftMargin: margin
                     anchors.verticalCenter: parent.verticalCenter
                     text: model.name
                 }
@@ -140,13 +141,13 @@ Page {
         id: title_rect
         anchors.top: parent.top
         anchors.left: parent.left
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-        width: parent.width - 2*margin
+        anchors.right: parent.right
+        width: parent.width 
         height: 80
         color: "black"
         Label {
             id: title
+            anchors.leftMargin: margin
             anchors.fill: parent
             color: "white"
             text: Config.tr("Select country")

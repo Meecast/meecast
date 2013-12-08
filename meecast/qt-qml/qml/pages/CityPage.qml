@@ -1,7 +1,5 @@
-import Qt 4.7
-//import QtQuick 1.1
-//import Qt.labs.components 1.0
-import com.nokia.meego 1.0
+import QtQuick 2.0
+import Sailfish.Silica 1.0
 
 Page {
     id: citypage
@@ -10,22 +8,22 @@ Page {
     property int source_id: -1
     property string country_name: ""
     property string region_name: ""
-    tools: ToolBarLayout {
-        ToolIcon {
-            iconId: "toolbar-back"
-            onClicked: {
-                pageStack.pop();
-            }
-        }
-
-    }
-    orientationLock: PageOrientation.LockPortrait
+//    tools: ToolBarLayout {
+//        ToolIcon {
+//            iconId: "toolbar-back"
+//            onClicked: {
+//                pageStack.pop();
+//            }
+//        }
+//
+//    }
+//    orientationLock: PageOrientation.LockPortrait
     Rectangle{
         anchors.fill: parent
         anchors.top: title_rect.bottom
         anchors.topMargin: 80
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
+ //       anchors.leftMargin: margin
+ //       anchors.rightMargin: margin
 
         Rectangle {
             anchors.top: parent.top
@@ -50,8 +48,8 @@ Page {
         }
         ListView {
             id: citylist
-            //anchors.fill: parent
-            anchors.top: search.bottom
+            anchors.fill: parent
+            //anchors.top: search.bottom
             anchors.bottom: parent.bottom
             width: parent.width
             model: city_model
@@ -115,6 +113,7 @@ Page {
         SectionScroller {
         listView: citylist
     }*/
+    /*
         SearchField {
             id: search
             model: citylist.model
@@ -125,14 +124,15 @@ Page {
                 citylist.model = search.filtermodel;
             }
         }
+      */
     }
     Rectangle {
         id: title_rect
         anchors.top: parent.top
         anchors.left: parent.left
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-        width: parent.width - 2*margin
+//        anchors.leftMargin: margin
+//        anchors.rightMargin: margin
+        width: parent.width 
         height: 80
         color: "black"
         Label {

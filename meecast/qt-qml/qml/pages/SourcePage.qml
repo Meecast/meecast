@@ -51,15 +51,8 @@ Page {
             delegate: Item {
                 height: 80
                 width: parent.width
-                Rectangle {
-                    id: null_rect
-                    anchors.left: parent.left
-                    width: margin 
-                    color: "black"
-                }
 
                 Label {
-//                    anchors.left: null_rect.right
                     anchors.left: parent.left 
                     anchors.leftMargin: margin
                     anchors.verticalCenter: parent.verticalCenter

@@ -1,7 +1,5 @@
-import Qt 4.7
-//import QtQuick 1.1
-//import Qt.labs.components 1.0
-import com.nokia.meego 1.0
+import QtQuick 2.0
+import Sailfish.Silica 1.0
 
 Page {
     id: regionpage
@@ -9,22 +7,22 @@ Page {
     property string source: ""
     property int source_id: -1
     property string country_name: ""
-    tools: ToolBarLayout {
-        ToolIcon {
-            iconId: "toolbar-back"
-            onClicked: {
-                pageStack.pop();
-            }
-        }
-
-    }
-    orientationLock: PageOrientation.LockPortrait
+//    tools: ToolBarLayout {
+//        ToolIcon {
+//            iconId: "toolbar-back"
+//            onClicked: {
+//                pageStack.pop();
+//            }
+//        }
+//
+//    }
+//    orientationLock: PageOrientation.LockPortrait
     Rectangle{
         anchors.fill: parent
         anchors.top: title_rect.bottom
         anchors.topMargin: 80
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
+//        anchors.leftMargin: margin
+//        anchors.rightMargin: margin
 
         Rectangle {
             anchors.top: parent.top
@@ -49,8 +47,8 @@ Page {
         }
         ListView {
             id: regionlist
-            //anchors.fill: parent
-            anchors.top: search.bottom
+            anchors.fill: parent
+            //anchors.top: search.bottom
             anchors.bottom: parent.bottom
             width: parent.width
             model: region_model
@@ -61,6 +59,7 @@ Page {
 
                 Label {
                     anchors.left: parent.left
+                    anchors.leftMargin: margin
                     anchors.verticalCenter: parent.verticalCenter
                     text: model.name
                 }
@@ -116,6 +115,7 @@ Page {
         SectionScroller {
         listView: regionlist
     }*/
+    /*
         SearchField {
             id: search
             model: regionlist.model
@@ -126,19 +126,20 @@ Page {
                 regionlist.model = search.filtermodel;
             }
         }
+     */
     }
 
     Rectangle {
         id: title_rect
         anchors.top: parent.top
         anchors.left: parent.left
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-        width: parent.width - 2*margin
+        width: parent.width 
         height: 80
         color: "black"
         Label {
             id: title
+            anchors.leftMargin: margin
+            anchors.rightMargin: margin
             anchors.fill: parent
             color: "white"
             text: Config.tr("Select region")

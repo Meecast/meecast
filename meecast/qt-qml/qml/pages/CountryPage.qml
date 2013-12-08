@@ -1,23 +1,21 @@
-import Qt 4.7
-//import QtQuick 1.1
-//import Qt.labs.components 1.0
-import com.nokia.meego 1.0
+import QtQuick 2.0
+import Sailfish.Silica 1.0
 
 Page {
     id: countrypage
     property int margin: 16
     property string source: ""
     property int source_id: -1
-    tools: ToolBarLayout {
-        ToolIcon {
-            iconId: "toolbar-back"
-            onClicked: {
-                pageStack.pop();
-            }
-        }
+//    tools: ToolBarLayout {
+//        ToolIcon {
+//            iconId: "toolbar-back"
+//            onClicked: {
+//                pageStack.pop();
+//            }
+//        }
 
-    }
-    orientationLock: PageOrientation.LockPortrait
+//    }
+//    orientationLock: PageOrientation.LockPortrait
     Rectangle{
         anchors.fill: parent
         anchors.top: title_rect.bottom
@@ -49,8 +47,9 @@ Page {
 
         ListView {
             id: countrylist
-            //anchors.fill: parent
-            anchors.top: search.bottom
+            anchors.fill: parent
+            //anchors.top: search.bottom
+            anchors.top: title_rect.bottom
             anchors.bottom: parent.bottom
             width: parent.width
             model: country_model
@@ -125,16 +124,16 @@ Page {
         SectionScroller {
 		listView: countrylist
             }*/
-        SearchField {
-            id: search
-            model: countrylist.model
-            anchors.top: parent.top
-            width: parent.width
-            height: 80
-            onFiltered: {
-                countrylist.model = search.filtermodel;
-            }
-        }
+//        SearchField {
+//            id: search
+//            model: countrylist.model
+//            anchors.top: parent.top
+//            width: parent.width
+//            height: 80
+//            onFiltered: {
+//                countrylist.model = search.filtermodel;
+//            }
+//        }
 
     }
     Rectangle {

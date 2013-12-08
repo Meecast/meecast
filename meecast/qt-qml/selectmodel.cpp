@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2013 Vlad Vasiliev
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -31,49 +31,41 @@
 
 SelectData::SelectData(){};
 
-SelectData::SelectData(const SelectData* d)
-{
+SelectData::SelectData(const SelectData* d){
+
     _name = d->_name;
     _key = d->_key;
     _category = d->_category;
 }
 
 SelectData::SelectData(QString name, QString key, QString category)
-    : _name(name), _key(key), _category(category)
-{
+    : _name(name), _key(key), _category(category){
 }
 
-QString SelectData::name()
-{
+QString SelectData::name(){
     return _name;
 }
-QString SelectData::key()
-{
+QString SelectData::key(){
     return _key;
 }
-QString SelectData::category()
-{
+QString SelectData::category(){
     return _category;
 }
-void SelectData::setName(QString name)
-{
+void SelectData::setName(QString name){
     _name = name;
     emit nameChanged(name);
 }
-void SelectData::setKey(QString key)
-{
+void SelectData::setKey(QString key){
     _key = key;
     emit keyChanged(key);
 }
-void SelectData::setCategory(QString category)
-{
+void SelectData::setCategory(QString category){
     _category = category;
     emit categoryChanged(category);
 }
 
 SelectModel::SelectModel(QObject *parent)
-    :QAbstractListModel(parent)
-{
+    :QAbstractListModel(parent){
     roles[NameRole] = "name";
     roles[KeyRole] = "key";
     roles[CategoryRole] = "category";
@@ -83,8 +75,7 @@ SelectModel::SelectModel(QObject *parent)
 #endif
 }
 
-QVariant SelectModel::get(int index)
-{
+QVariant SelectModel::get(int index){
     QVariantMap map;
     map.insert(QLatin1String("category"), _list.at(index)->category());
     map.insert(QLatin1String("name"), _list.at(index)->name());
@@ -92,13 +83,11 @@ QVariant SelectModel::get(int index)
     return map;
 }
 
-int SelectModel::rowCount(const QModelIndex &parent) const
-{
+int SelectModel::rowCount(const QModelIndex &parent) const{
     return _list.count();
 }
 
-void SelectModel::addData(SelectData* data)
-{
+void SelectModel::addData(SelectData* data){
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     _list.append(data);
     endInsertRows();
@@ -118,11 +107,10 @@ QVariant SelectModel::data(const QModelIndex & index, int role) const {
      return QVariant();
 }
 
-/*
+
 #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
 QHash<int, QByteArray> SelectModel::roleNames() const {
-    //return _name->roleNames();
-    return NULL;
+    return roles;
 }
 #endif
-*/
+

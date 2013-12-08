@@ -35,13 +35,16 @@ PKGCONFIG += libxml-2.0
 #}
 
 db.files = data/bom.gov.au.db
-db.path = /opt/com.meecast.omweather/share/db/
+#db.path = /opt/com.meecast.omweather/share/db/
+db.path = /usr/share/db/
 
 source.files = data/bom.gov.au.xml
-source.path = /opt/com.meecast.omweather/share/sources/
+#source.path = /opt/com.meecast.omweather/share/sources/
+source.path = /usr/share/sources/
 
 #install
-target.path = /opt/com.meecast.omweather/lib
+#target.path = /opt/com.meecast.omweather/lib
+target.path = /usr/lib
 INSTALLS += target db source
 
 

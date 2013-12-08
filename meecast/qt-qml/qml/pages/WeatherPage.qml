@@ -1,11 +1,6 @@
-//import QtQuick 1.1
-//import Qt 4.7
-//import com.nokia.meego 1.0
-//import Qt.labs.gestures 1.0
-
 import QtQuick 2.0
-
 import Sailfish.Silica 1.0
+
 Page {
     id: main
     property int margin: 16
@@ -42,12 +37,13 @@ Page {
 //    orientationLock: PageOrientation.LockPortrait
     function openFile(file)
     {
-        var component = Qt.createComponent(file);
-        if (component.status == Component.Ready){
-            pageStack.push(component);
-        }else {
-            console.log("error open file "+file);
-        }
+        pageStack.push(Qt.resolvedUrl(file))
+//        var component = Qt.createComponent(file);
+//        if (component.status == Component.Ready){
+//            pageStack.push(component);
+//        }else {
+//            console.log("error open file "+file);
+//        }
     }
 
     function getColor(t)
@@ -275,7 +271,8 @@ Page {
             id: startview
             visible: Config.stationname == "Unknown" ? true : false
             width: parent.width
-            height: screen_width - 72 - 36
+//            height: screen_width - 72 - 36
+            height: screen_width 
             Rectangle {
                 anchors.left: parent.left
                 anchors.top: parent.top
@@ -468,7 +465,8 @@ Page {
                 anchors.top: station_rect.bottom
                 width: parent.width
                 //height: current_rect.height + list.height
-                height: screen_width - 72 - 72 - 36
+                //height: screen_width - 72 - 72 - 36
+                height: screen_width - 72 
                 //color: "black"
                 Loader {
                     id: empty_background

@@ -1,28 +1,24 @@
-import Qt 4.7
-//import QtQuick 1.1
-//import Qt.labs.components 1.0
-import com.nokia.meego 1.0
+import QtQuick 2.0
+import Sailfish.Silica 1.0
 
 Page {
     id: sourcepage
     property int margin: 16
-    tools: ToolBarLayout {
-        ToolIcon {
-            iconId: "toolbar-back"
-            onClicked: {
-                pageStack.pop();
-            }
-        }
-
-    }
-    orientationLock: PageOrientation.LockPortrait
+//    tools: ToolBarLayout {
+//        ToolIcon {
+//            iconId: "toolbar-back"
+//            onClicked: {
+//                pageStack.pop();
+//            }
+//        }
+//
+//    }
+//    orientationLock: PageOrientation.LockPortrait
 
     Rectangle{
         anchors.fill: parent
         anchors.top: title_rect.bottom
         anchors.topMargin: 80
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
 
         Rectangle {
             anchors.top: parent.top
@@ -55,9 +51,17 @@ Page {
             delegate: Item {
                 height: 80
                 width: parent.width
+                Rectangle {
+                    id: null_rect
+                    anchors.left: parent.left
+                    width: margin 
+                    color: "black"
+                }
 
                 Label {
-                    anchors.left: parent.left
+//                    anchors.left: null_rect.right
+                    anchors.left: parent.left 
+                    anchors.leftMargin: margin
                     anchors.verticalCenter: parent.verticalCenter
                     text: model.name
                 }
@@ -96,14 +100,14 @@ Page {
         id: title_rect
         anchors.top: parent.top
         anchors.left: parent.left
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-        width: parent.width - 2*margin
+        width: parent.width 
         height: 80
         color: "black"
         Label {
             id: title
             anchors.fill: parent
+            anchors.leftMargin: margin
+            anchors.rightMargin: margin
             color: "white"
             text: Config.tr("Select the weather source")
             //font.family: "Nokia Pure Light"

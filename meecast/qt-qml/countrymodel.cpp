@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2013 Vlad Vasiliev
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -33,8 +33,7 @@ CountryModel::CountryModel(QObject *parent): SelectModel(parent)
 {
 }
 void
-CountryModel::populate(QString source)
-{
+CountryModel::populate(QString source){
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     _list.clear();
     std::string path(Core::AbstractConfig::prefix);

@@ -1,6 +1,5 @@
-//import QtQuick 1.1
-import Qt 4.7
-import com.nokia.meego 1.0
+import QtQuick 2.0
+import Sailfish.Silica 1.0
 
 Page {
     id: fullweather
@@ -21,75 +20,75 @@ Page {
     property variant model_night:  (current) ? Current_night : Forecast_night_model
     property variant model_hours:  Forecast_hours_model
 
-    tools: ToolBarLayout {
-        ToolIcon {
-            iconId: "toolbar-back"
-            onClicked: {
-                //menu.close();
-                pageStack.pop();
-            }
-        }
-        ButtonRow{
-            ToolButton {
-                id: "toolbarnow"
-                platformStyle: TabButtonStyle{}
-                visible: (current && day == 0) ? true : false
-                onClicked: {
-                    day_period = "current";
-                    updateperiod();
-                }
-                iconSource:  Config.imagespath + "/now.png"
-                flat: true
-                checkable: true
-                checked: flase 
-            }
-
-            ToolButton {
-                id: "toolbarday"
-                platformStyle: TabButtonStyle{}
-                onClicked: {
-                    day_period = "day";
-                    updateperiod();
-                }
-                iconSource:  Config.imagespath + "/day.png"
-                flat: true 
-                checkable: true
-                checked: true 
-            }
-            ToolButton {
-                id: "toolbarnight"
-                platformStyle: TabButtonStyle{}
-                onClicked: {
-                    day_period = "night";
-                    updateperiod();
-                }
-                iconSource:  Config.imagespath + "/night.png"
-                flat: true
-                checkable: true
-                checked: flase 
-            }
-            ToolButton {
-                id: "toolbarclock"
-                platformStyle: TabButtonStyle{}
-                visible: (check_hours()) ? true : false
-                onClicked: {
-                    day_period = "hours";
-                    updateperiod();
-                }
-                iconSource:  Config.imagespath + "/clock.png"
-                flat: true
-                checkable: true
-                checked: flase 
-            }
-        }
-        ToolIcon {
-            iconId: "toolbar-view-menu"
-            onClicked: {(myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()}
-            anchors.right: parent == undefined ? undefined : parent.right
-        }
-
-    }
-    orientationLock: PageOrientation.LockPortrait
+//    tools: ToolBarLayout {
+//        ToolIcon {
+//            iconId: "toolbar-back"
+//            onClicked: {
+//                //menu.close();
+//                pageStack.pop();
+//            }
+//        }
+//        ButtonRow{
+//            ToolButton {
+//                id: "toolbarnow"
+//                platformStyle: TabButtonStyle{}
+//                visible: (current && day == 0) ? true : false
+//                onClicked: {
+//                    day_period = "current";
+//                    updateperiod();
+//                }
+//                iconSource:  Config.imagespath + "/now.png"
+//                flat: true
+//                checkable: true
+//                checked: flase 
+//            }
+//
+//            ToolButton {
+//                id: "toolbarday"
+//                platformStyle: TabButtonStyle{}
+//                onClicked: {
+//                    day_period = "day";
+//                    updateperiod();
+//                }
+//                iconSource:  Config.imagespath + "/day.png"
+//                flat: true 
+//                checkable: true
+//                checked: true 
+//            }
+//            ToolButton {
+//                id: "toolbarnight"
+//                platformStyle: TabButtonStyle{}
+//                onClicked: {
+//                    day_period = "night";
+//                    updateperiod();
+//                }
+//                iconSource:  Config.imagespath + "/night.png"
+//                flat: true
+//                checkable: true
+//                checked: flase 
+//            }
+//            ToolButton {
+//                id: "toolbarclock"
+//                platformStyle: TabButtonStyle{}
+//                visible: (check_hours()) ? true : false
+//                onClicked: {
+//                    day_period = "hours";
+//                    updateperiod();
+//                }
+//                iconSource:  Config.imagespath + "/clock.png"
+//                flat: true
+//                checkable: true
+//                checked: flase 
+//            }
+//        }
+//        ToolIcon {
+//            iconId: "toolbar-view-menu"
+//            onClicked: {(myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()}
+//            anchors.right: parent == undefined ? undefined : parent.right
+//        }
+//
+//    }
+//    orientationLock: PageOrientation.LockPortrait
     function openFile(file)
     {
         var component = Qt.createComponent(file);
@@ -118,10 +117,10 @@ Page {
         condition.clear()
         condition2.clear()
 	    if (day_period == "current"){
-	        toolbarnow.checked = true
-	        toolbarday.checked = false 
-	        toolbarnight.checked = false
-	        toolbarclock.checked = false
+	        //toolbarnow.checked = true
+	        //toolbarday.checked = false 
+	        //toolbarnight.checked = false
+	        //toolbarclock.checked = false
             day_rect.visible = true;
             current_rect.visible = true;
             hours_list.visible = false;
@@ -182,10 +181,10 @@ Page {
 	}
 
         if (day_period == "day"){
-	    toolbarnow.checked = false 
-	    toolbarday.checked = true
-	    toolbarnight.checked = false
-	    toolbarclock.checked = false
+	       // toolbarnow.checked = false 
+	       // toolbarday.checked = true
+	       // toolbarnight.checked = false
+	       // toolbarclock.checked = false
             day_rect.visible = true;
             current_rect.visible = true;
             hours_list.visible = false;
@@ -239,10 +238,10 @@ Page {
 	}
 	if (day_period == "night"){
             day_period_name = Config.tr("Night");
-            toolbarnow.checked = false;
-            toolbarnight.checked = true;
-            toolbarday.checked = false;
-            toolbarclock.checked = false;
+            //toolbarnow.checked = false;
+            //toolbarnight.checked = true;
+            //toolbarday.checked = false;
+            //toolbarclock.checked = false;
             day_rect.visible = true;
             current_rect.visible = true;
             hours_list.visible = false;
@@ -294,10 +293,10 @@ Page {
 	}
 	if (day_period == "hours"){
             day_period_name = Config.tr("Hours");
-	        toolbarnow.checked = false;
-            toolbarnight.checked = false;
-            toolbarday.checked = false;
-            toolbarclock.checked = true;
+	        //toolbarnow.checked = false;
+            //toolbarnight.checked = false;
+            //toolbarday.checked = false;
+            //toolbarclock.checked = true;
             day_rect.visible = true;
             current_rect.visible = false;
             hours_list.visible = true;
@@ -357,9 +356,19 @@ Page {
         }
 
     }
+    Rectangle {
+        anchors.fill: parent
+        color: "black"
+    }
+
+
     Flickable {
         id: flickable
-        anchors.fill: parent
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: toolbar.top
+
         flickableDirection: Flickable.VerticalFlick
 
         contentWidth: flickable.width
@@ -453,6 +462,7 @@ Page {
             anchors.top: day_rect.bottom
             width: parent.width
             height: 274
+            color: "black"
             Loader {
                 anchors.fill: parent
                 sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}
@@ -709,9 +719,30 @@ Page {
                         }
                     }
                 }
-        } //component itemDelegate
-
-
+            } //component itemDelegate
+        }
+//    }
+    Rectangle {
+        id: toolbar
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: 72
+        color: "black"
+        Image {
+            id: sourceicon
+	        anchors.horizontalCenter: parent.horizontalCenter
+	        anchors.verticalCenter: parent.verticalCenter
+            source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
+            smooth: true
+	        MouseArea{
+	            anchors.fill: parent
+		        onClicked: {
+ 		            Config.showweb();	
+		        }
+            }
+        }
     }
+
 }
 

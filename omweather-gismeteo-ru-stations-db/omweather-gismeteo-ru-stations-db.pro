@@ -36,16 +36,16 @@ PKGCONFIG += libxml-2.0
 
 
 db.files = data/gismeteo.ru.db
-db.path = /opt/com.meecast.omweather/share/db/
+db.path = /usr/share/db/
 
 icon.files = data/gismeteo.ru.png
 icon.path = /opt/com.meecast.omweather/share/copyright_icons/
 
 source.files = data/gismeteom.ru.xml
-source.path = /opt/com.meecast.omweather/share/sources/
+source.path = /usr/share/sources/
 
 #install
-target.path = /opt/com.meecast.omweather/lib
+target.path = /usr/lib
 INSTALLS += target db icon source
 
 

@@ -117,10 +117,10 @@ Page {
         condition.clear()
         condition2.clear()
 	    if (day_period == "current"){
-	        //toolbarnow.checked = true
-	        //toolbarday.checked = false 
-	        //toolbarnight.checked = false
-	        //toolbarclock.checked = false
+	        toolbarnow.checked = true
+	        toolbarday.checked = false 
+	        toolbarnight.checked = false
+	        toolbarclock.checked = false
             day_rect.visible = true;
             current_rect.visible = true;
             hours_list.visible = false;
@@ -181,10 +181,10 @@ Page {
 	}
 
         if (day_period == "day"){
-	       // toolbarnow.checked = false 
-	       // toolbarday.checked = true
-	       // toolbarnight.checked = false
-	       // toolbarclock.checked = false
+	        toolbarnow.checked = false 
+	        toolbarday.checked = true
+	        toolbarnight.checked = false
+	        toolbarclock.checked = false
             day_rect.visible = true;
             current_rect.visible = true;
             hours_list.visible = false;
@@ -238,10 +238,10 @@ Page {
 	}
 	if (day_period == "night"){
             day_period_name = Config.tr("Night");
-            //toolbarnow.checked = false;
-            //toolbarnight.checked = true;
-            //toolbarday.checked = false;
-            //toolbarclock.checked = false;
+            toolbarnow.checked = false;
+            toolbarnight.checked = true;
+            toolbarday.checked = false;
+            toolbarclock.checked = false;
             day_rect.visible = true;
             current_rect.visible = true;
             hours_list.visible = false;
@@ -293,10 +293,10 @@ Page {
 	}
 	if (day_period == "hours"){
             day_period_name = Config.tr("Hours");
-	        //toolbarnow.checked = false;
-            //toolbarnight.checked = false;
-            //toolbarday.checked = false;
-            //toolbarclock.checked = true;
+	        toolbarnow.checked = false;
+            toolbarnight.checked = false;
+            toolbarday.checked = false;
+            toolbarclock.checked = true;
             day_rect.visible = true;
             current_rect.visible = false;
             hours_list.visible = true;
@@ -722,27 +722,52 @@ Page {
             } //component itemDelegate
         }
 //    }
-    Rectangle {
-        id: toolbar
+    Rectangle{
+        color: "black"
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        height: 72
-        color: "black"
-        Image {
-            id: sourceicon
-	        anchors.horizontalCenter: parent.horizontalCenter
-	        anchors.verticalCenter: parent.verticalCenter
-            source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
-            smooth: true
-	        MouseArea{
-	            anchors.fill: parent
-		        onClicked: {
- 		            Config.showweb();	
-		        }
+        anchors.top: flickable.botttom
+        id: toolbar
+        height: 110 
+        Row {
+            spacing: Theme.paddingLarge
+            //spacing: Theme.itemSizeSmall
+            anchors.horizontalCenter: parent.horizontalCenter
+            Switch {
+                id: "toolbarnow"
+                icon.source: Config.imagespath + "/now.png" 
+                visible: (current && day == 0) ? true : false
+                onClicked: {
+                     day_period = "current";
+                     updateperiod();
+                }
+            }
+            Switch {
+                id: "toolbarday"
+                icon.source:  Config.imagespath + "/day.png"
+                onClicked: {
+                     day_period = "day";
+                     updateperiod();
+                }
+            }
+            Switch {
+                id: "toolbarnight"
+                icon.source:  Config.imagespath + "/night.png"
+                onClicked: {
+                     day_period = "night";
+                     updateperiod();
+                }
+            }
+            Switch {
+                id: "toolbarclock"
+                icon.source:  Config.imagespath + "/clock.png"
+                onClicked: {
+                     day_period = "hours";
+                     updateperiod();
+                }
             }
         }
     }
-
 }
 

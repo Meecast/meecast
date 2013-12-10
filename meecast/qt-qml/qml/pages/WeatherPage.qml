@@ -7,6 +7,7 @@ Page {
     property int screen_width : 950 
     property bool isUpdate: false
     property real flick_start_position: 0
+    property bool menuitemgps: Config.gps
 
 //    tools: ToolBarLayout {
 //        ToolIcon {
@@ -180,7 +181,7 @@ Page {
         }
     }
 
-    Flickable {
+    SilicaFlickable {
         id: flickable
         anchors.top: parent.top
         anchors.left: parent.left
@@ -190,6 +191,31 @@ Page {
         contentWidth: flickable.width
         contentHeight: station_rect.height + current_rect.height + list.height
         flickableDirection: Flickable.VerticalFlick
+
+        PullDownMenu {
+            MenuItem {
+                text: Config.tr("Settings")
+                onClicked: {
+                    rootWindow.openFile("SettingsPage.qml");
+                }
+            }
+            MenuItem {
+                id: item2
+                visible: menuitemgps
+                text: Config.tr("Adjust GPS station")
+                onClicked: {
+                    Config.updategpsstation();
+                }
+           }
+           MenuItem {
+                id: item3
+                text: Config.tr("About")
+                onClicked: {
+                    rootWindow.openFile("AboutPage.qml");
+                }
+           }
+
+        }
         //clip: true
         /*
         GestureArea {

@@ -3,64 +3,43 @@ import Sailfish.Silica 1.0
 
 Page {
     id: about
-    property int margin: 16
-//    tools: ToolBarLayout {
-//        ToolIcon {
-//            iconId: "toolbar-back"
-//            onClicked: {
-//                pageStack.pop();
-//            }
-//        }
-//    }
-//    orientationLock: PageOrientation.LockPortrait
-    Flickable {
+    SilicaFlickable {
         anchors.fill: parent
         flickableDirection: Flickable.VerticalFlick
         contentHeight: 3300 
-        Label {
-            id: titletext
-            text: Config.tr("MeeCast for Harmattan")
-            anchors.horizontalCenter: parent.horizontalCenter
-	    font.pixelSize: 32
-        }
+        PageHeader { title: Config.tr("MeeCast for Harmattan")}
 
         Rectangle {
             color: "purple"
             x: 0; y: 80; width: parent.width; height: 274
         }
-
-	Image {
+        Image {
             id: backgroundmask 
 	        source: Config.imagespath + "/mask_background.png"
             x: 0; y: 80; width: parent.width; 
 	        smooth: true
         }
-	Image {
+        Image {
             id: titlemask 
-	    source: Config.imagespath + "/mask_title.png"
-//            x: 0; y: 80; width: parent.width; 	
-//	    anchors.bottom: versiontext.bottom
-	    anchors.verticalCenter: versiontext.verticalCenter
+            source: Config.imagespath + "/mask_title.png"
+	        anchors.verticalCenter: versiontext.verticalCenter
             smooth: true	
         }
-
-
-	Image {
+        Image {
             id: icon
-	    source: Config.iconspath + "/" + Config.iconset + "/28.png" 
+            source: Config.iconspath + "/" + Config.iconset + "/28.png" 
             anchors.horizontalCenter: parent.horizontalCenter
-	    anchors.top: titletext.bottom
-	    anchors.topMargin: 25
+            anchors.top: parent.top
+            anchors.topMargin: 100
             smooth: true	
         }
-
      	Label {
             id: versiontext
             text: "Version" + " " + Config.version 
             anchors.horizontalCenter: parent.horizontalCenter
-	    anchors.top: icon.bottom
-	    anchors.topMargin: 5
-	    font.pixelSize: 24
+            anchors.top: icon.bottom
+            anchors.topMargin: 5
+            font.pixelSize: 24
         }
         Label {
             id: abouttext 
@@ -331,6 +310,5 @@ later version.");
 	    anchors.left: parent.left
 	    anchors.top: sourcetext.bottom
 	}
-                                                                                                    
     }
 }

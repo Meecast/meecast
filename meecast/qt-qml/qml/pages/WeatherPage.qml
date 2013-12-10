@@ -194,13 +194,14 @@ Page {
 
         PullDownMenu {
             MenuItem {
+                id: item1menu
                 text: Config.tr("Settings")
                 onClicked: {
-                    rootWindow.openFile("SettingsPage.qml");
+                     openFile("SettingsPage.qml");
                 }
             }
             MenuItem {
-                id: item2
+                id: item2menu
                 visible: menuitemgps
                 text: Config.tr("Adjust GPS station")
                 onClicked: {
@@ -208,10 +209,10 @@ Page {
                 }
            }
            MenuItem {
-                id: item3
+                id: item3menu
                 text: Config.tr("About")
                 onClicked: {
-                    rootWindow.openFile("AboutPage.qml");
+                     openFile("AboutPage.qml");
                 }
            }
 

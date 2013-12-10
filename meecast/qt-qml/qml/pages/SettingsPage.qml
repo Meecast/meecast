@@ -1,28 +1,27 @@
-import Qt 4.7
-//import QtQuick 1.1
-//import Qt.labs.components 1.0
-import com.nokia.meego 1.0
+import QtQuick 2.0
+import Sailfish.Silica 1.0
 
 Page {
     id: settings
     property int margin: 16
-    tools: ToolBarLayout {
-        ToolIcon {
-            iconId: "toolbar-back"
-            onClicked: {
-                //menu.close();
-                pageStack.pop();
-            }
-        }/*
-        ToolIcon {
-            platformStyle: ToolItemStyle {inverted: true}
-            iconId: "toolbar-view-menu"
-            onClicked: menu.open();
-            anchors.right: parent == undefined ? undefined : parent.right
-        }*/
-    }
-    //FontLoader {id: localFont; source: "fonts/nokia/Nokia Pure/NokiaPureMbLight.ttf"}
-    orientationLock: PageOrientation.LockPortrait
+//    tools: ToolBarLayout {
+//        ToolIcon {
+//            iconId: "toolbar-back"
+//            onClicked: {
+//                //menu.close();
+//                pageStack.pop();
+//            }
+//        }
+        /*
+//        ToolIcon {
+//            platformStyle: ToolItemStyle {inverted: true}
+//            iconId: "toolbar-view-menu"
+//            onClicked: menu.open();
+//            anchors.right: parent == undefined ? undefined : parent.right
+//        }*/
+//    }
+//    //FontLoader {id: localFont; source: "fonts/nokia/Nokia Pure/NokiaPureMbLight.ttf"}
+//    orientationLock: PageOrientation.LockPortrait
     function openFile(file)
     {
         var component = Qt.createComponent(file);
@@ -124,9 +123,9 @@ Page {
                 }
             }
         }
-        ScrollDecorator {
-            flickableItem: listview
-        }
+     //   ScrollDecorator {
+     //       flickableItem: listview
+     //   }
     }
     Rectangle {
         id: title_rect

@@ -24,12 +24,7 @@ Page {
 //    orientationLock: PageOrientation.LockPortrait
     function openFile(file)
     {
-        var component = Qt.createComponent(file);
-        if (component.status == Component.Ready){
-            pageStack.push(component);
-        }else {
-            console.log("error open file "+file);
-        }
+        pageStack.push(Qt.resolvedUrl(file))
     }
     Connections {
         target: Config
@@ -40,9 +35,10 @@ Page {
     }
 
     Rectangle{
-        anchors.fill: parent
-        color: "black"
+       anchors.fill: parent
+       color: "black"
 
+        id: mainrect
         Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left
@@ -88,6 +84,7 @@ Page {
         }
         Column {
             anchors.fill: parent
+            id: maincolumn
             PageHeader {
                 title: Config.tr("Manage locations")
             }
@@ -106,7 +103,6 @@ Page {
                     id: gps
                     checked: Config.gps
                     anchors.right: parent.right
-                    anchors.rightMargin: margin
                     anchors.verticalCenter: parent.verticalCenter
                     onCheckedChanged: {
                         console.log("swithc checked changed");
@@ -117,12 +113,10 @@ Page {
                             rootWindow.menuitemgps = false 
                         }
                     }
-                    //platformStyle: SwitchStyle {inverted: true}
                 }
             }
             SilicaListView {
                 id: stationslist
-                //anchors.fill: parent
                 width: parent.width
                 height: parent.height - 80
                 model: Config.stations()
@@ -152,5 +146,11 @@ Page {
                 }
             }
         }
+    }
+    Button {
+        anchors.bottom: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        text: Config.tr("Add Station")
+        onClicked: {stations.openFile("SourcePage.qml")}
     }
 }

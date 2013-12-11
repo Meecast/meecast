@@ -8,6 +8,7 @@ Page {
     property bool isUpdate: false
     property real flick_start_position: 0
     property bool menuitemgps: Config.gps
+    objectName: "WeatherPage"
 
 //    tools: ToolBarLayout {
 //        ToolIcon {

@@ -4,22 +4,8 @@ import Sailfish.Silica 1.0
 Page {
     id: sourcepage
     property int margin: 16
-//    tools: ToolBarLayout {
-//        ToolIcon {
-//            iconId: "toolbar-back"
-//            onClicked: {
-//                pageStack.pop();
-//            }
-//        }
-//
-//    }
-//    orientationLock: PageOrientation.LockPortrait
-
     Rectangle{
         anchors.fill: parent
-        anchors.top: title_rect.bottom
-        anchors.topMargin: 80
-
         Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left
@@ -42,11 +28,13 @@ Page {
             color: "black"
         }
 
-        ListView {
+        SilicaListView {
             id: sourcelist
             anchors.fill: parent
-            //anchors.top: search.bottom
             model: source_model
+            header: PageHeader {
+                title: Config.tr("Select the weather source")
+            }
 
             delegate: Item {
                 height: 80
@@ -88,28 +76,5 @@ Page {
             }
         }*/
     }
-
-    Rectangle {
-        id: title_rect
-        anchors.top: parent.top
-        anchors.left: parent.left
-        width: parent.width 
-        height: 80
-        color: "black"
-        Label {
-            id: title
-            anchors.fill: parent
-            anchors.leftMargin: margin
-            anchors.rightMargin: margin
-            color: "white"
-            text: Config.tr("Select the weather source")
-            //font.family: "Nokia Pure Light"
-            font.pixelSize: 30
-            horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
-        }
-    }
-
-
 }
 

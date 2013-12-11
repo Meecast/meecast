@@ -7,23 +7,8 @@ Page {
     property string source: ""
     property int source_id: -1
     property string country_name: ""
-//    tools: ToolBarLayout {
-//        ToolIcon {
-//            iconId: "toolbar-back"
-//            onClicked: {
-//                pageStack.pop();
-//            }
-//        }
-//
-//    }
-//    orientationLock: PageOrientation.LockPortrait
     Rectangle{
         anchors.fill: parent
-        anchors.top: title_rect.bottom
-        anchors.topMargin: 80
-//        anchors.leftMargin: margin
-//        anchors.rightMargin: margin
-
         Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left
@@ -45,13 +30,15 @@ Page {
             height: parent.height - 274
             color: "black"
         }
-        ListView {
+        SilicaListView {
             id: regionlist
             anchors.fill: parent
-            //anchors.top: search.bottom
             anchors.bottom: parent.bottom
             width: parent.width
             model: region_model
+            header: PageHeader {
+                title: Config.tr("Select region")
+            }
 
             delegate: Item {
                 height: 80
@@ -81,74 +68,7 @@ Page {
                     }
                 }
             }
-            /*
-            section {
-            property: "category"
-            criteria: ViewSection.FullString
-            delegate: Rectangle {
-                color: "black"
-                width: parent.width
-                height: childrenRect.height + 4
-                Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    font.pointSize: 24
-                    text: section
-                    color: "white"
-                }
-            }
-
-        }
-        ScrollDecorator {
-            flickableItem: regionlist
-        }*/
-                /*AdaptiveSearch {
-                    id: adaptive
-                    anchors.fill: parent
-                    model: parent.model
-
-                    onFilterUpdated: {
-                        regionlist.model = adaptive.filtermodel
-                    }
-                }*/
-            }
-        /*
-        SectionScroller {
-        listView: regionlist
-    }*/
-    /*
-        SearchField {
-            id: search
-            model: regionlist.model
-            anchors.top: parent.top
-            width: parent.width
-            height: 80
-            onFiltered: {
-                regionlist.model = search.filtermodel;
-            }
-        }
-     */
-    }
-
-    Rectangle {
-        id: title_rect
-        anchors.top: parent.top
-        anchors.left: parent.left
-        width: parent.width 
-        height: 80
-        color: "black"
-        Label {
-            id: title
-            anchors.leftMargin: margin
-            anchors.rightMargin: margin
-            anchors.fill: parent
-            color: "white"
-            text: Config.tr("Select region")
-            //font.family: "Nokia Pure Light"
-            font.pixelSize: 30
-            horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
         }
     }
-
 }
 

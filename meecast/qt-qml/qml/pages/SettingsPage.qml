@@ -24,12 +24,7 @@ Page {
 //    orientationLock: PageOrientation.LockPortrait
     function openFile(file)
     {
-        var component = Qt.createComponent(file);
-        if (component.status == Component.Ready){
-            pageStack.push(component);
-        }else {
-            console.log("error open file "+file);
-        }
+        pageStack.push(Qt.resolvedUrl(file))
     }
     ListModel {
         id: settingsModel
@@ -64,13 +59,17 @@ Page {
 
     Rectangle{
         anchors.fill: parent
-        anchors.top: title_rect.bottom
-        anchors.topMargin: 80
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
+        Rectangle {
+            id: top_rect
+            anchors.top: parent.top
+            anchors.left: parent.left
+            width: parent.width
+            height: 80 
+            color: "black"
+        }
 
         Rectangle {
-            anchors.top: parent.top
+            anchors.top: top_rect.bottom
             anchors.left: parent.left
             width: parent.width
             height: 274
@@ -78,7 +77,7 @@ Page {
         }
         Loader {
             id: background
-            anchors.top: parent.top
+            anchors.top: top_rect.bottom
             anchors.left: parent.left
             width: parent.width
             height: 274
@@ -91,10 +90,13 @@ Page {
             color: "black"
         }
 
-        ListView {
+        SilicaListView {
             id: listview
             model: settingsModel
             anchors.fill: parent
+            header: PageHeader { 
+                title: Config.tr("Settings") 
+            }
             //anchors.top: title_rect.bottom
             //anchors.topMargin: 80
             //anchors.leftMargin: margin
@@ -106,6 +108,8 @@ Page {
 
                 Label {
                     anchors.left: parent.left
+                    anchors.leftMargin: margin
+                    anchors.rightMargin: margin
                     anchors.verticalCenter: parent.verticalCenter
                     text: Config.tr(model.title)
                 }
@@ -127,6 +131,7 @@ Page {
      //       flickableItem: listview
      //   }
     }
+    /*
     Rectangle {
         id: title_rect
         anchors.top: parent.top
@@ -147,4 +152,5 @@ Page {
             verticalAlignment: Text.AlignVCenter
         }
     }
+    */
 }

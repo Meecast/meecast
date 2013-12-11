@@ -3,12 +3,17 @@ import Sailfish.Silica 1.0
 
 Page {
     id: about
+    Rectangle {
+        anchors.fill: parent
+        color: "black"
+    }
     SilicaFlickable {
         anchors.fill: parent
         flickableDirection: Flickable.VerticalFlick
-        contentHeight: 3300 
-        PageHeader { title: Config.tr("MeeCast for Harmattan")}
-
+        contentHeight: 4700 
+        PageHeader { 
+            title: Config.tr("MeeCast for Harmattan")
+        }
         Rectangle {
             color: "purple"
             x: 0; y: 80; width: parent.width; height: 274
@@ -270,7 +275,7 @@ jyrik(at)koti.luukku.com";
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    anchors.top: iconsetext.bottom
-	    font.pixelSize: 20 
+	    font.pixelSize: 26 
 	}
     Label {
             id: licensetext  
@@ -293,6 +298,7 @@ later version.");
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    anchors.top: licensetext.bottom
+	    font.pixelSize: 30 
 	}
 	Label {
             id: sourcetext  
@@ -309,6 +315,7 @@ later version.");
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    anchors.top: sourcetext.bottom
+	    font.pixelSize: 30 
 	}
     }
 }

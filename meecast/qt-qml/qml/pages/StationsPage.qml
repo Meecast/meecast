@@ -1,8 +1,5 @@
-import Qt 4.7
-//import QtQuick 1.1
-//import Qt.labs.components 1.0
-import com.nokia.meego 1.0
-//import "/opt/com.meecast.omweather/lib/OmweatherPlugin" 0.1
+import QtQuick 2.0
+import Sailfish.Silica 1.0
 
 Page {
     id: stations
@@ -10,20 +7,21 @@ Page {
     property int margin: 16
     property int removedStation: -1
     property string removedStationName: ""
-    tools: ToolBarLayout {
-        ToolIcon {
-            iconId: "toolbar-back"
-            onClicked: {
-                pageStack.pop();
-            }
-        }
-        ToolIcon {
-            iconId: "toolbar-add"
-            onClicked: {stations.openFile("SourcePage.qml")}
-            anchors.right: parent == undefined ? undefined : parent.right
-        }
-    }
-    orientationLock: PageOrientation.LockPortrait
+
+//    tools: ToolBarLayout {
+//        ToolIcon {
+//            iconId: "toolbar-back"
+//            onClicked: {
+//                pageStack.pop();
+//            }
+//        }
+//        ToolIcon {
+//            iconId: "toolbar-add"
+//            onClicked: {stations.openFile("SourcePage.qml")}
+//            anchors.right: parent == undefined ? undefined : parent.right
+//        }
+//    }
+//    orientationLock: PageOrientation.LockPortrait
     function openFile(file)
     {
         var component = Qt.createComponent(file);
@@ -33,7 +31,6 @@ Page {
             console.log("error open file "+file);
         }
     }
-    //Config {id: config1}
     Connections {
         target: Config
         onConfigChanged: {
@@ -44,14 +41,12 @@ Page {
 
     Rectangle{
         anchors.fill: parent
-        anchors.top: title_rect.bottom
-        anchors.topMargin: 80
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
+        color: "black"
 
         Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left
+            anchors.topMargin: 80
             width: parent.width
             height: 274
             color: "#999999"
@@ -59,6 +54,7 @@ Page {
         Loader {
             id: background
             anchors.top: parent.top
+            anchors.topMargin: 80
             anchors.left: parent.left
             width: parent.width
             height: 274
@@ -70,96 +66,84 @@ Page {
             height: parent.height - 274
             color: "black"
         }
-        QueryDialog {
-            id: confirm
-            titleText: Config.tr("Delete location?")
-            message: removedStationName
-            acceptButtonText: Config.tr("Yes")
-            rejectButtonText: Config.tr("No");
-            onAccepted: {
-                if (removedStation > -1){
-                    Config.removeStation(removedStation);
-                    stationslist.model = Config.stations();
-                }
-            }
-        }
+//        QueryDialog {
+//            id: confirm
+//            titleText: Config.tr("Delete location?")
+//            message: removedStationName
+//            acceptButtonText: Config.tr("Yes")
+//            rejectButtonText: Config.tr("No");
+//            onAccepted: {
+//                if (removedStation > -1){
+//                    Config.removeStation(removedStation);
+//                    stationslist.model = Config.stations();
+//                }
+//            }
+//        }
         Column {
             anchors.fill: parent
-        Item {
-            width: parent.width
-            height: 80
-            Label {
-                text: Config.tr("Find location via GPS")
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
+            PageHeader {
+                title: Config.tr("Manage locations")
             }
-            Switch {
-                //checked: !rootWindow.showStatusBar
-                id: gps
-                checked: Config.gps
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-                onCheckedChanged: {
-                    console.log("swithc checked changed");
-                    Config.setgps(gps.checked);
-                    if (gps.checked){
-                        rootWindow.menuitemgps = true
-                    }else{
-                        rootWindow.menuitemgps = false 
-                    }
-                }
-                //platformStyle: SwitchStyle {inverted: true}
-            }
-
-        }
-        ListView {
-            id: stationslist
-            //anchors.fill: parent
-            width: parent.width
-            height: parent.height - 80
-            model: Config.stations()
-
-            delegate: Item {
+            Item {
                 width: parent.width
+ 
                 height: 80
                 Label {
-                    text: modelData
+                    text: Config.tr("Find location via GPS")
                     anchors.left: parent.left
+                    anchors.leftMargin: margin
                     anchors.verticalCenter: parent.verticalCenter
                 }
-                Button {
-                    iconSource: "image://theme/icon-m-toolbar-cancle-white"
+                Switch {
+                    //checked: !rootWindow.showStatusBar
+                    id: gps
+                    checked: Config.gps
                     anchors.right: parent.right
+                    anchors.rightMargin: margin
                     anchors.verticalCenter: parent.verticalCenter
-                    width: 50
-                    onClicked: {
-                        removedStation = index;
-                        removedStationName = modelData;
-                        confirm.open();
+                    onCheckedChanged: {
+                        console.log("swithc checked changed");
+                        Config.setgps(gps.checked);
+                        if (gps.checked){
+                            rootWindow.menuitemgps = true
+                        }else{
+                            rootWindow.menuitemgps = false 
+                        }
+                    }
+                    //platformStyle: SwitchStyle {inverted: true}
+                }
+            }
+            SilicaListView {
+                id: stationslist
+                //anchors.fill: parent
+                width: parent.width
+                height: parent.height - 80
+                model: Config.stations()
+
+                delegate: Item {
+                    width: parent.width
+                    height: 80
+ 
+                    Label {
+                        text: modelData
+                        anchors.left: parent.left
+                        anchors.leftMargin: margin
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                    Button {
+                        //iconSource: "image://theme/icon-m-toolbar-cancle-white"
+                        anchors.right: parent.right
+                        anchors.rightMargin: margin
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: 50
+                        onClicked: {
+                            removedStation = index;
+                            removedStationName = modelData;
+                            confirm.open();
+                        }
                     }
                 }
             }
-        }
-        }
-    }
-    Rectangle {
-        id: title_rect
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-        width: parent.width - 2*margin
-        height: 80
-        color: "black"
-        Label {
-            id: title
-            anchors.fill: parent
-            color: "white"
-            text: Config.tr("Manage locations")
-            //font.family: "Nokia Pure Text Light"
-            font.pixelSize: 30
-            horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
         }
     }
 }

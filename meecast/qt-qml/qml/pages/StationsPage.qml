@@ -66,19 +66,26 @@ Page {
             height: parent.height - 274
             color: "black"
         }
-//        QueryDialog {
-//            id: confirm
-//            titleText: Config.tr("Delete location?")
-//            message: removedStationName
-//            acceptButtonText: Config.tr("Yes")
-//            rejectButtonText: Config.tr("No");
-//            onAccepted: {
-//                if (removedStation > -1){
-//                    Config.removeStation(removedStation);
-//                    stationslist.model = Config.stations();
-//                }
-//            }
-//        }
+        Component{
+            id: confirm
+            Dialog{
+                Column{
+                    DialogHeader {
+                        title: removedStationName
+                        acceptText: Config.tr("Yes")
+                    }
+                    Label {
+                        text: Config.tr("Delete location?")
+                    }
+                }
+                onAccepted: {
+                    if (removedStation > -1){
+                        Config.removeStation(removedStation);
+                        stationslist.model = Config.stations();
+                    }
+                }
+            }
+        }
         Column {
             anchors.fill: parent
             PageHeader {
@@ -130,8 +137,8 @@ Page {
                         anchors.leftMargin: margin
                         anchors.verticalCenter: parent.verticalCenter
                     }
-                    Button {
-                        //iconSource: "image://theme/icon-m-toolbar-cancle-white"
+                    IconButton {
+                        icon.source: "image://theme/icon-l-delete"
                         anchors.right: parent.right
                         anchors.rightMargin: margin
                         anchors.verticalCenter: parent.verticalCenter
@@ -139,7 +146,7 @@ Page {
                         onClicked: {
                             removedStation = index;
                             removedStationName = modelData;
-                            confirm.open();
+                            var dialog = pageStack.push(confirm);
                         }
                     }
                 }

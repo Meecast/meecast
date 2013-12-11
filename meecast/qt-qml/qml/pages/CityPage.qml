@@ -53,7 +53,7 @@ Page {
                 }
 
                 Image {
-                    source: "image://theme/icon-s-common-add-inverse"
+                    source: "image://theme/icon-m-add"
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                 }

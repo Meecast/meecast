@@ -39,7 +39,6 @@ Page {
             header: PageHeader {
                 title: Config.tr("Select region")
             }
-
             delegate: Item {
                 height: 80
                 width: parent.width
@@ -50,9 +49,8 @@ Page {
                     anchors.verticalCenter: parent.verticalCenter
                     text: model.name
                 }
-
                 Image {
-                    source: "image://theme/icon-m-common-drilldown-arrow-inverse"
+                    source: "image://theme/icon-m-right"
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                 }

@@ -35,7 +35,6 @@ Page {
             header: PageHeader {
                 title: Config.tr("Select the weather source")
             }
-
             delegate: Item {
                 height: 80
                 width: parent.width
@@ -48,7 +47,7 @@ Page {
                 }
 
                 Image {
-                    source: "image://theme/icon-m-common-drilldown-arrow-inverse"
+                    source: "image://theme/icon-m-right"
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                 }
@@ -63,18 +62,6 @@ Page {
                 }
             }
         }
-        /*
-        SearchField {
-            id: search
-            model: sourcelist.model
-            anchors.top: parent.top
-            width: parent.width
-            height: 80
-            onFiltered: {
-                console.log(search.filter + " "+ search.filtermodel.count);
-                sourcelist.model = search.filtermodel;
-            }
-        }*/
     }
 }
 

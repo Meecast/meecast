@@ -7,6 +7,19 @@ Page {
     property string source: ""
     property int source_id: -1
     property string country_name: ""
+    ListModel {
+        id: listModel
+        function update(my_text) {
+            clear()
+            for (var i=0; i<region_model.rowCount(); i++) {
+                if (my_text == "" || region_model.get(i).name.indexOf(my_text) >= 0) {
+                    append({"name": region_model.get(i).name, "key": region_model.get(i).key})
+                }
+            }
+        }
+        Component.onCompleted: update("")
+    }
+
     Rectangle{
         anchors.fill: parent
         Rectangle {
@@ -30,15 +43,24 @@ Page {
             height: parent.height - 274
             color: "black"
         }
+        PageHeader {
+            title: Config.tr("Select region")
+        }
         SilicaListView {
             id: regionlist
             anchors.fill: parent
+            anchors.topMargin: 100
             anchors.bottom: parent.bottom
             width: parent.width
-            model: region_model
-            header: PageHeader {
-                title: Config.tr("Select region")
-            }
+            model: listModel 
+            header: SearchField {
+                        id: searchField
+                        width: parent.width
+                        onTextChanged: {
+                            listModel.update(text)
+                            forceActiveFocus()
+                        }
+                    }
             delegate: Item {
                 height: 80
                 width: parent.width

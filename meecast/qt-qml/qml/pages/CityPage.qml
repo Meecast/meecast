@@ -8,6 +8,20 @@ Page {
     property int source_id: -1
     property string country_name: ""
     property string region_name: ""
+    ListModel {
+        id: listModel
+        function update(my_text) {
+            clear()
+            for (var i=0; i<city_model.rowCount(); i++) {
+                if (my_text == "" || city_model.get(i).name.indexOf(my_text) >= 0) {
+                    append({"name": city_model.get(i).name, "key": city_model.get(i).key})
+                }
+            }
+        }
+        Component.onCompleted: update("")
+    }
+
+
     Rectangle{
         anchors.fill: parent
         Rectangle {
@@ -31,16 +45,25 @@ Page {
             height: parent.height - 274
             color: "black"
         }
+        PageHeader {
+            title: Config.tr("Select location")
+        }
         SilicaListView {
             id: citylist
             anchors.fill: parent
+            anchors.topMargin: 100
             anchors.bottom: parent.bottom
             width: parent.width
-            model: city_model
-            header: PageHeader {
-                title: Config.tr("Select location")
-            }
-
+            model: listModel
+            header:  SearchField {
+                        id: searchField
+                        width: parent.width
+                        onTextChanged: {
+                            listModel.update(text)
+                            forceActiveFocus()
+                        }
+                    }
+            
             delegate: Item {
                 height: 80
                 width: parent.width

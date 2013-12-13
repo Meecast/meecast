@@ -6,13 +6,20 @@ Page {
     property int margin: 16
     property string source: ""
     property int source_id: -1
+    ListModel {
+        id: listModel
+        function update(my_text) {
+            clear()
+            for (var i=0; i<country_model.rowCount(); i++) {
+                if (my_text == "" || country_model.get(i).name.indexOf(my_text) >= 0) {
+                    append({"name": country_model.get(i).name, "key": country_model.get(i).key})
+                }
+            }
+        }
+        Component.onCompleted: update("")
+    }
     Rectangle{
         anchors.fill: parent
-//        anchors.top: title_rect.bottom
-//        anchors.topMargin: 80
-//        anchors.leftMargin: margin
-//        anchors.rightMargin: margin
-
         Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left
@@ -20,6 +27,7 @@ Page {
             height: 274
             color: "#999999"
         }
+
         Loader {
             id: background
             anchors.top: parent.top
@@ -34,20 +42,26 @@ Page {
             height: parent.height - 274
             color: "black"
         }
+        PageHeader {
+            title: Config.tr("Select country")
+        }
 
         SilicaListView {
             id: countrylist
             anchors.fill: parent
-            //anchors.top: search.bottom
-            anchors.top: title_rect.bottom
+            anchors.topMargin: 100
             anchors.bottom: parent.bottom
             width: parent.width
-            model: country_model
-            header: PageHeader {
-                title: Config.tr("Select country")
-            }
+            model: listModel
 
-
+            header: SearchField {
+                        id: searchField
+                        width: parent.width
+                        onTextChanged: {
+                            listModel.update(text)
+                            forceActiveFocus()
+                        }
+                    }
             delegate: Item {
                 height: 80
                 width: parent.width
@@ -76,6 +90,7 @@ Page {
                                             country_name: model.name, region_name: region_model.get(0).name}
                             );
                         }else {
+                            console.log(model.name)
                             pageStack.push(Qt.resolvedUrl("RegionPage.qml"),
                                        {source: source, source_id: source_id, country_name: model.name}
                                        );

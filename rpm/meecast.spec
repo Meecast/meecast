@@ -32,7 +32,8 @@ BuildRequires:  pkgconfig(libcurl)
 BuildRequires:  pkgconfig(sqlite3)
 #BuildRequires:  pkgconfig(gconf-2.0)
 BuildRequires:  pkgconfig(dbus-glib-1)
-BuildRequires:  pkgconfig(libxml-2.0)
+#BuildRequires:  pkgconfig(libxml-2.0)
+BuildRequires:  libxml2-devel
 #BuildRequires:  gettext
 #BuildRequires:  libqt-devel
 BuildRequires: qt5-qtpositioning-devel
@@ -53,7 +54,7 @@ Weather Forecast on Meego.
 %build
 # >> build pre
 #export PATH=/usr/lib/qt4/bin:$PATH
-qmake 
+%qtc_qmake5
 make
 # << build pre
 
@@ -68,7 +69,7 @@ rm -rf %{buildroot}
 
 # >> install post
 make INSTALL_ROOT=%{buildroot} install
-rm %{buildroot}/opt/com.meecast.omweather/lib/libomweather-core.a
+#rm %{buildroot}/opt/com.meecast.omweather/lib/libomweather-core.a
 # << install post
 #desktop-file-install --delete-original       \
 #  --dir %{buildroot}%{_datadir}/applications             \
@@ -89,9 +90,14 @@ rm %{buildroot}/opt/com.meecast.omweather/lib/libomweather-core.a
 
 %files
 %defattr(-,root,root,-)
-/opt/com.meecast.omweather
-/opt/com.meecast.omweather/bin
-/opt/com.meecast.omweather/bin/omweather-settings
+/usr/bin/omweather-qml
+/usr/lib/bomgovau
+/usr/lib/forecacom
+/usr/lib/gismeteoru
+/usr/lib/
+#/opt/com.meecast.omweather
+#/opt/com.meecast.omweather/bin
+#/opt/com.meecast.omweather/bin/omweather-settings
 #%if %{wantmeegopanel}
 #/opt/com.meecast.omweather/bin/omweather-qml
 #/opt/com.meecast.omweather/bin/omweather-settouch
@@ -104,7 +110,7 @@ rm %{buildroot}/opt/com.meecast.omweather/lib/libomweather-core.a
 #/usr/share/omweather/db/weather.com.db
 #/usr/share/omweather/sources/weather.com.xml
 # >> files
-/usr/lib/meegotouch/applicationextensions/libevents-meecast.so
+#/usr/lib/meegotouch/applicationextensions/libevents-meecast.so
 %if  %{wantmeegopanel}
 /usr/share/omweather-settings
 /opt/com.meecast.omweather/libexec
@@ -113,9 +119,9 @@ rm %{buildroot}/opt/com.meecast.omweather/lib/libomweather-core.a
 /usr/share/mutter-netbook/panels/meego-panel-omweather.desktop
 /etc/xdg
 /usr/share/dbus-1/services
-%{_datadir}/applications/*.desktop
-%else 
-%{_datadir}/applications/*.desktop
+#%{_datadir}/applications/*.desktop
+#%else 
+#%{_datadir}/applications/*.desktop
 #/usr/share/pixmaps
 %endif
 /usr/share

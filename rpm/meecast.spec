@@ -71,9 +71,9 @@ rm -rf %{buildroot}
 make INSTALL_ROOT=%{buildroot} install
 #rm %{buildroot}/opt/com.meecast.omweather/lib/libomweather-core.a
 # << install post
-#desktop-file-install --delete-original       \
-#  --dir %{buildroot}%{_datadir}/applications             \
-#   %{buildroot}%{_datadir}/applications/*.desktop
+desktop-file-install --delete-original       \
+  --dir %{buildroot}%{_datadir}/applications             \
+   %{buildroot}%{_datadir}/applications/*.desktop
 
 
 
@@ -90,6 +90,7 @@ make INSTALL_ROOT=%{buildroot} install
 
 %files
 %defattr(-,root,root,-)
+/usr/share/applications/meecast.desktop
 /usr/bin/omweather-qml
 /usr/lib/bomgovau
 /usr/lib/forecacom
@@ -111,20 +112,8 @@ make INSTALL_ROOT=%{buildroot} install
 #/usr/share/omweather/sources/weather.com.xml
 # >> files
 #/usr/lib/meegotouch/applicationextensions/libevents-meecast.so
-%if  %{wantmeegopanel}
-/usr/share/omweather-settings
-/opt/com.meecast.omweather/libexec
-/opt/com.meecast.omweather/libexec/meego-panel-omweather
-#/usr/share/meego-panel-omweather
-/usr/share/mutter-netbook/panels/meego-panel-omweather.desktop
-/etc/xdg
-/usr/share/dbus-1/services
-#%{_datadir}/applications/*.desktop
-#%else 
-#%{_datadir}/applications/*.desktop
-#/usr/share/pixmaps
-%endif
 /usr/share
+/usr/share/icons/hicolor/86x86/apps
 %changelog
 * Fri Aug 05 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.24
   * began support MeeGo 1.2.0.90 on Tablet UX

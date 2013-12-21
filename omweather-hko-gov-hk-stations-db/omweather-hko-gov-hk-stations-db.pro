@@ -38,13 +38,13 @@ PKGCONFIG += libxml-2.0
 
 
 db.files = data/hko.gov.hk.db
-db.path = /opt/com.meecast.omweather/share/db/
+db.path = /usr/share/db/
 
 source.files = data/hko.gov.hk.xml
-source.path = /opt/com.meecast.omweather/share/sources/
+source.path = /usr/share/sources/
 
 #install
-target.path = /opt/com.meecast.omweather/lib
+target.path = /usr/lib
 INSTALLS += target db source
 
 

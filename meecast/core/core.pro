@@ -99,6 +99,9 @@ icon64.path = /usr/share/icons/hicolor/64x64/apps/
 icon128.files = data/desktop/Icon/128/omweather.png
 icon128.path = /usr/share/icons/hicolor/128x128/apps/
 
+icon86.files = data/desktop/Icon/86/meecast.png
+icon86.path = /usr/share/icons/hicolor/86x86/apps/
+
 target.path = /usr/lib
 #data.files = data/icons/
 databeginning.files += data/icons/Beginning/*.png
@@ -139,7 +142,7 @@ images.files += data/images/*.png
 alib.files = libomweather-core.a
 alib.path = /usr/lib
 
-INSTALLS += target databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images alib icon icon50 icon255 icon16 icon32 icon64 icon128 iconpanel
+INSTALLS += target databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images alib icon icon50 icon255 icon16 icon32 icon64 icon128 icon86 iconpanel
 QMAKE_CLEAN += lib$$TARGET* \
     *.pro.user
 

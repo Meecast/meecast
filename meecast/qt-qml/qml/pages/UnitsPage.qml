@@ -1,30 +1,22 @@
-import Qt 4.7
-//import QtQuick 1.1
-//import Qt.labs.components 1.0
-import com.nokia.meego 1.0
+import QtQuick 2.0
+import Sailfish.Silica 1.0
+
 
 Page {
     id: units
     property int margin: 16
-    tools: ToolBarLayout {
-        ToolIcon {
-            iconId: "toolbar-back"
-            onClicked: {
-                //menu.close();
-                pageStack.pop();
-            }
-        }
-    }
-    orientationLock: PageOrientation.LockPortrait
 
-    function getIndex(model, value)
-    {
+    function getIndex(model, value){
         var i=0;
-        while (i<model.length && model[i]!=value) i++;
-        if (i == model.length) return -1;
+        console.log(model.count);
+        console.log(model[0])
+        console.log(value)
+        while (i<model.count && model[i]!=value) i++;
+        if (i == model.count) return -1;
         else return i;
     }
 
+/*
     MySelectionDialog {
         id: temperature_dlg
         model: Config.temperature_list()
@@ -61,10 +53,15 @@ Page {
             Config.visible_unit(selectedIndex);
         }
     }
+    */
+     PageHeader {
+                title: Config.tr("Measurement units")
+            }
+
 
     Rectangle{
         anchors.fill: parent
-        anchors.top: title_rect.bottom
+//        anchors.top: title_rect.bottom
         anchors.topMargin: 80
         anchors.leftMargin: margin
         anchors.rightMargin: margin
@@ -90,21 +87,44 @@ Page {
             height: parent.height - 274
             color: "black"
         }
-		Flickable {
+//		SilicaListView {
+		SilicaFlickable {
 			anchors.fill: parent
-		    flickableDirection: Flickable.VerticalFlick
+//		    flickableDirection: Flickable.VerticalFlick
+//            header: PageHeader {
+//                title: Config.tr("Measurement units")
+//            }
+
 		    contentHeight: 850 
 
-			Column {
+//            model: VisualItemModel {
+		Column {
 				anchors.fill: parent
 				//spacing: 20
-
-				Label {
-					text: Config.tr("Temperature units")
-					height: 60
-					horizontalAlignment: Text.AlignLeft
-					verticalAlignment: Text.AlignVCenter
-				}
+                ComboBox {
+                    label: Config.tr("Temperature units")
+                    currentIndex: -1
+                    width: units.width
+                    menu: ContextMenu {
+                        MenuItem { 
+                            text: Config.tr("Celsius")
+                            onClicked: { Config.temperature_unit("C") } 
+                        }
+                        MenuItem {
+                            text: Config.tr("Fahrenheit")
+                            onClicked: { Config.temperature_unit("F") }
+                        }
+                    }
+    				Component.onCompleted: {
+                        for (var i=0; i<Config.temperature_list().length; i++) {
+                            console.log(Config.temperature_list()[i])
+                            console.log(Config.temperatureunit)
+                            if  (Config.temperature_list()[i] == Config.temperatureunit)
+                                currentIndex = i 
+                        }
+				    }
+                }
+                /*
 				ButtonColumn {
 					width: parent.width
 					platformStyle: ButtonStyle {
@@ -125,7 +145,8 @@ Page {
 							Config.temperature_unit('F');
 						}
 					}
-				}
+                }
+                */
 				/*
 			Button {
 				anchors.horizontalCenter: parent.horizontalCenter
@@ -144,6 +165,7 @@ Page {
 					horizontalAlignment: Text.AlignLeft
 					verticalAlignment: Text.AlignVCenter
 				}
+                /*
 				ButtonColumn {
 					width: parent.width
 					platformStyle: ButtonStyle {
@@ -185,12 +207,14 @@ Page {
 						}
 					}
 				}
+                */
 				Label {
 					text: Config.tr("Pressure units")
 					height: 60
 					horizontalAlignment: Text.AlignLeft
 					verticalAlignment: Text.AlignVCenter
 				}
+                /*
 				ButtonColumn {
 					width: parent.width
 					platformStyle: ButtonStyle {
@@ -218,12 +242,14 @@ Page {
 						}
 					}
 				}
+                */
 				Label {
 					text: Config.tr("Visible units")
 					height: 60
 					horizontalAlignment: Text.AlignLeft
 					verticalAlignment: Text.AlignVCenter
 				}
+                /*
 				ButtonColumn {
 					width: parent.width
 					platformStyle: ButtonStyle {
@@ -252,6 +278,7 @@ Page {
 					}
 
 				}
+                */
 
 				/*
 			Button {
@@ -264,28 +291,8 @@ Page {
 					wind_dlg.selectedIndex = units.getIndex(wind_dlg.model, Config.windspeedunit)
 				}
 			}*/
-			}
+            }
+//			}
 		}
     }
-    Rectangle {
-        id: title_rect
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-        width: parent.width - 2*margin
-        height: 60
-        color: "black"
-        Label {
-            id: title
-            anchors.fill: parent
-            color: "white"
-            text: Config.tr("Measurement units")
-            //font.family: "Nokia Pure Light"
-            font.pixelSize: 30
-            horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
-        }
-    }
-
 }

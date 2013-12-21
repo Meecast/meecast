@@ -97,7 +97,7 @@ QMAKE_LFLAGS += -pie -rdynamic
 
 INCLUDEPATH += ../core                                                                                                        
 
-include(sailfishapplication/sailfishapplication.pri)
+#include(sailfishapplication/sailfishapplication.pri)
 
 
 LIBS += -L ../core ../core/libomweather-core.a  
@@ -110,8 +110,8 @@ PKGCONFIG += sqlite3
 PKGCONFIG += libcurl
 target.path = /opt/com.meecast.omweather/bin
 
-desktop.files = meecast.desktop
-desktop.path = /usr/share/applications
+desktop_.files = meecast.desktop
+desktop_.path = /usr/share/applications
 icon64.path = /usr/share/pixmaps
 icon64.files += omweather.png
 qmls.files = qml/*.qml *.js
@@ -119,10 +119,13 @@ qmls.path = /opt/com.meecast.omweather/share/omweather/qml
 searchicon.files += gfx/*.png
 searchicon.path += /opt/com.meecast.omweather/share/omweather/qml/gfx
 
-#INSTALLS += desktop qml icon64
-INSTALLS += target desktop qmls searchicon
+# Please do not modify the following line.
+include(sailfishapplication/sailfishapplication.pri)
 
-DATADIR=/opt/com.meecast.omweather/share
+#INSTALLS += desktop qml icon64
+INSTALLS += target desktop_ qmls searchicon
+
+DATADIR=/usr/share
 
 TRANSLIST = ar_AR \
             bg_BG \

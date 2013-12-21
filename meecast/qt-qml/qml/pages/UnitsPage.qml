@@ -63,8 +63,8 @@ Page {
         anchors.fill: parent
 //        anchors.top: title_rect.bottom
         anchors.topMargin: 80
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
+//        anchors.leftMargin: margin
+//        anchors.rightMargin: margin
 
         Rectangle {
             anchors.top: parent.top
@@ -98,7 +98,7 @@ Page {
 		    contentHeight: 850 
 
 //            model: VisualItemModel {
-		Column {
+		    Column {
 				anchors.fill: parent
 				//spacing: 20
                 ComboBox {
@@ -117,97 +117,47 @@ Page {
                     }
     				Component.onCompleted: {
                         for (var i=0; i<Config.temperature_list().length; i++) {
-                            console.log(Config.temperature_list()[i])
-                            console.log(Config.temperatureunit)
                             if  (Config.temperature_list()[i] == Config.temperatureunit)
                                 currentIndex = i 
                         }
 				    }
                 }
-                /*
-				ButtonColumn {
-					width: parent.width
-					platformStyle: ButtonStyle {
-						horizontalAlignment: Text.AlignLeft
-					}
-					Button {
-						text: Config.tr("Celsius")
-						checked: (Config.temperatureunit == 'C')
 
-						onClicked: {
-							Config.temperature_unit('C');
-						}
-					}
-					Button {
-						text: Config.tr("Fahrenheit")
-						checked: (Config.temperatureunit == 'F')
-						onClicked: {
-							Config.temperature_unit('F');
-						}
-					}
+                ComboBox {
+                    label: Config.tr("Wind speed units")
+                    currentIndex: -1
+                    width: units.width
+                    menu: ContextMenu {
+                        MenuItem { 
+                            text: Config.tr("m/s")
+                            onClicked: { Config.windspeed_unit("0") } 
+                        }
+                        MenuItem {
+                            text: Config.tr("km/h")
+                            onClicked: { Config.windspeed_unit("1") } 
+                        }
+                        MenuItem {
+                            text: Config.tr("mi/h")
+                            onClicked: { Config.windspeed_unit("2") } 
+                        }
+                        MenuItem {
+                            text: Config.tr("Knots")
+                            onClicked: { Config.windspeed_unit("3") } 
+                        }
+                        MenuItem {
+                            text: Config.tr("Beaufort scale")
+                            onClicked: { Config.windspeed_unit("4") } 
+                        }
+
+                    }
+    				Component.onCompleted: {
+                        for (var i=0; i<Config.windspeed_list().length; i++) {
+                            if  (Config.windspeed_list()[i] == Config.windspeedunit)
+                                currentIndex = i 
+                        }
+				    }
                 }
-                */
-				/*
-			Button {
-				anchors.horizontalCenter: parent.horizontalCenter
-				text: Config.tr("Temperature")+": "+Config.temperatureunit
-				onClicked: {
-					temperature_dlg.open();
-				}
-				Component.onCompleted: {
-					temperature_dlg.selectedIndex = units.getIndex(temperature_dlg.model, Config.temperatureunit)
-				}
-			}
-			*/
-				Label {
-					text: Config.tr("Wind speed units")
-					height: 60
-					horizontalAlignment: Text.AlignLeft
-					verticalAlignment: Text.AlignVCenter
-				}
-                /*
-				ButtonColumn {
-					width: parent.width
-					platformStyle: ButtonStyle {
-						horizontalAlignment: Text.AlignLeft
-					}
-					Button {
-						text: Config.tr("m/s")
-						checked: (Config.windspeedunit == "m/s")
-						onClicked: {
-							Config.windspeed_unit("0");
-						}
-					}
-					Button {
-						text: Config.tr("km/h")
-						checked: (Config.windspeedunit == "km/h")
-						onClicked: {
-							Config.windspeed_unit("1");
-						}
-					}
-					Button {
-						text: Config.tr("mi/h")
-						checked: (Config.windspeedunit == "mi/h")
-						onClicked: {
-							Config.windspeed_unit("2");
-						}
-					}
-					Button {
-						text: Config.tr("Knots")
-						checked: (Config.windspeedunit == "kn")
-						onClicked: {
-							Config.windspeed_unit("3");
-						}
-					}
-					Button {
-						text: Config.tr("Beaufort scale")
-						checked: (Config.windspeedunit == "beaufort")
-						onClicked: {
-							Config.windspeed_unit("4");
-						}
-					}
-				}
-                */
+
 				Label {
 					text: Config.tr("Pressure units")
 					height: 60

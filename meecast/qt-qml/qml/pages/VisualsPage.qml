@@ -1,7 +1,5 @@
-import Qt 4.7
-//import QtQuick 1.1
-//import Qt.labs.components 1.0
-import com.nokia.meego 1.0
+import QtQuick 2.0
+import Sailfish.Silica 1.0
 
 Page {
     id: visuals
@@ -10,24 +8,19 @@ Page {
     property bool lockscreen_widget_status: Config.lockscreen
     property bool standbyscreen_widget_status: Config.standbyscreen
     property bool splash_status: Config.splash
-    tools: ToolBarLayout {
-        ToolIcon {
-            iconId: "toolbar-back"
-            onClicked: {
-                //menu.close();
-                pageStack.pop();
-            }
-        }
+    Rectangle {
+        anchors.fill: parent
+        color: "black"
     }
-    orientationLock: PageOrientation.LockPortrait
+
+
+    PageHeader {
+        title: Config.tr("Appearance")
+    }
+
     function openFile(file)
     {
-        var component = Qt.createComponent(file);
-        if (component.status == Component.Ready){
-            pageStack.push(component);
-        }else {
-            console.log("error open file "+file);
-        }
+        pageStack.push(Qt.resolvedUrl(file))
     }
 
     function getIndex(model, value)
@@ -37,7 +30,7 @@ Page {
         if (i == model.length) return -1;
         else return i;
     }
-
+/*
     MySelectionDialog {
         id: icon_dlg
         model: Config.icon_list()
@@ -310,10 +303,10 @@ Page {
             }
 	}
     }
-
+    */
     Rectangle{
         anchors.fill: parent
-        anchors.top: title_rect.bottom
+//        anchors.top: title_rect.bottom
         anchors.topMargin: 80
         anchors.leftMargin: margin
         anchors.rightMargin: margin
@@ -362,6 +355,7 @@ Page {
                 rootWindow.showStatusBar = !rootWindow.showStatusBar;
             }
         }*/
+        /*
         Item {
             width: parent.width
             height: 80
@@ -384,6 +378,7 @@ Page {
             }
 
         }
+        */
         Item {
             width: parent.width
             height: 80
@@ -393,7 +388,7 @@ Page {
                 anchors.verticalCenter: parent.verticalCenter
             }
             Image {
-                source: "image://theme/icon-m-common-drilldown-arrow-inverse"
+                source: "image://theme/icon-m-right"
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
             }
@@ -404,6 +399,7 @@ Page {
                 }
             }
         }
+        /*
         Item {
             width: parent.width
             height: 80
@@ -547,29 +543,9 @@ Page {
                 }
             }
         }
+        */
 
     }
     }
-    Rectangle {
-        id: title_rect
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-        width: parent.width - 2*margin
-        height: 80
-        color: "black"
-        Label {
-            id: title
-            anchors.fill: parent
-            color: "white"
-            text: Config.tr("Appearance")
-            //font.family: "Nokia Pure Light"
-            font.pixelSize: 30
-            horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
-        }
-    }
-
 }
 

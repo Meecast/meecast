@@ -20,15 +20,15 @@ Page {
         }
         Image {
             id: backgroundmask 
-	        source: Config.imagespath + "/mask_background.png"
+            source: Config.imagespath + "/mask_background.png"
             x: 0; y: 80; width: parent.width; 
-	        smooth: true
+            smooth: true
         }
         Image {
             id: titlemask 
             source: Config.imagespath + "/mask_title.png"
-	        anchors.verticalCenter: versiontext.verticalCenter
-            smooth: true	
+            anchors.verticalCenter: versiontext.verticalCenter
+            smooth: true
         }
         Image {
             id: icon
@@ -36,9 +36,9 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top
             anchors.topMargin: 100
-            smooth: true	
+            smooth: true
         }
-     	Label {
+        Label {
             id: versiontext
             text: "Version" + " " + Config.version 
             anchors.horizontalCenter: parent.horizontalCenter
@@ -49,13 +49,13 @@ Page {
         Label {
             id: abouttext 
             text: Config.tr("About") + ":"
-	    anchors.top: versiontext.bottom 
-	    anchors.topMargin: 30 
-	    anchors.leftMargin: 20
-	    anchors.left: parent.left
-	    color: "#999999"
+            anchors.top: versiontext.bottom 
+            anchors.topMargin: 30 
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            color: "#999999"
         }
-	Label {
+        Label {
             id: aboutfulltext 
             text: Config.tr("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013")
 	    anchors.leftMargin: 20

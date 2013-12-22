@@ -4,24 +4,6 @@ import Sailfish.Silica 1.0
 Page {
     id: settings
     property int margin: 16
-//    tools: ToolBarLayout {
-//        ToolIcon {
-//            iconId: "toolbar-back"
-//            onClicked: {
-//                //menu.close();
-//                pageStack.pop();
-//            }
-//        }
-        /*
-//        ToolIcon {
-//            platformStyle: ToolItemStyle {inverted: true}
-//            iconId: "toolbar-view-menu"
-//            onClicked: menu.open();
-//            anchors.right: parent == undefined ? undefined : parent.right
-//        }*/
-//    }
-//    //FontLoader {id: localFont; source: "fonts/nokia/Nokia Pure/NokiaPureMbLight.ttf"}
-//    orientationLock: PageOrientation.LockPortrait
     function openFile(file)
     {
         pageStack.push(Qt.resolvedUrl(file))

@@ -113,6 +113,7 @@ desktop-file-install --delete-original       \
 # >> files
 #/usr/lib/meegotouch/applicationextensions/libevents-meecast.so
 /usr/share
+/usr/share/iconsets
 /usr/share/icons/hicolor/86x86/apps
 %changelog
 * Fri Aug 05 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.24

@@ -1,193 +1,124 @@
-import Qt 4.7
-//import QtQuick 1.1
-//import Qt.labs.components 1.0
-import com.nokia.meego 1.0
+import QtQuick 2.0
+import Sailfish.Silica 1.0
 
 Page {
     id: update 
     property int margin: 16
     property int screen_width : 854
     property bool event_widget_status: Config.eventwidget
-    tools: ToolBarLayout {
-        ToolIcon {
-            iconId: "toolbar-back"
-            onClicked: {
-                //menu.close();
-                pageStack.pop();
-            }
-        }
-    }
-    orientationLock: PageOrientation.LockPortrait
-    function openFile(file)
-    {
-        var component = Qt.createComponent(file);
-        if (component.status == Component.Ready){
-            pageStack.push(component);
-        }else {
-            console.log("error open file "+file);
-        }
-    }
-
-    function getIndex(model, value)
-    {
-        var i=0;
-        while (i<model.length && model[i]!=value) i++;
-        if (i == model.length) return -1;
-        else return i;
-    }
-
-    MySelectionDialog {
-        id: icon_dlg
-        model: Config.icon_list()
-        titleText: Config.tr("Icons")
-        selectedIndex: -1
-        onAccepted: {
-            Config.set_iconset(selectedText);
-        }
-
-    }
     Rectangle {
-	id: dataview
-	visible: ( event_widget_status == false) ? true : false
-//	anchors.top: station_rect.bottom
-	width: parent.width
-	//height: current_rect.height + list.height
-	height: screen_width - 72 - 72 - 36
-	//color: "black"
-	Loader {
-	    id: empty_background
-	    anchors.top: parent.top
-	    anchors.left: parent.left
-	    width: parent.width
-	    height: 274
-	    sourceComponent: Image {source: Config.imagespath + "/mask_background.png"}
-	}
-	Rectangle {
-	    anchors.top: empty_background.bottom
-	    width: parent.width
-	    height: dataview.height - 274
-	    color: "black"
-	}
-	Label {
-	    horizontalAlignment: Text.AlignHCenter
-	    text: Config.tr("You should activate 'Widget in the events view' option in MeeCast appearance settings for auto update.")
-	    font.pixelSize: 54 
-	    color: "#999999"
-	    wrapMode: Text.Wrap
-	    width: parent.width - 2*margin
-	    //anchors.verticalCenter: parent.verticalCenter
-	    anchors.top: parent.top
-	    anchors.topMargin: 200
-	    anchors.left: parent.left
-	    anchors.right: parent.right
-	    anchors.leftMargin: margin
-	    anchors.rightMargin: margin
-	}
+        anchors.fill: parent
+        color: "black"
     }
 
-    Rectangle{
-        anchors.fill: parent
-//        anchors.top: title_rect.bottom
-        anchors.topMargin: 80
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-	visible: ( event_widget_status == true) ? true : false
+    PageHeader {
+        title: Config.tr("Update")
+    }
 
+    Rectangle {
+    	id: dataview
+        anchors.fill: parent
+        color: "transparent"
         Rectangle {
-            anchors.top: parent.top
+                id: top_rect
+                anchors.top: parent.top
+                anchors.left: parent.left
+                width: parent.width
+                height: 80 
+                color: "transparent"
+        }
+        Rectangle {
+            anchors.top: top_rect.bottom
             anchors.left: parent.left
             width: parent.width
             height: 274
             color: "#999999"
         }
+
         Loader {
-            id: background
-            anchors.top: parent.top
+            id: empty_background
+            anchors.top: top_rect.bottom
             anchors.left: parent.left
             width: parent.width
             height: 274
             sourceComponent: Image {source: Config.imagespath + "/mask_background_grid.png"}
         }
         Rectangle {
-            anchors.top: background.bottom
+            anchors.top: empty_background.bottom
             width: parent.width
-            height: parent.height - 274
+            height: dataview.height - 274
             color: "black"
         }
-        Column {
+
+        SilicaFlickable {
             anchors.fill: parent
-            //spacing: 20
+            anchors.topMargin: 80
+            contentHeight: 950 
 
-            Label {
-                text: Config.tr("Update interval")
-                height: 80
-                horizontalAlignment: Text.AlignLeft
-                verticalAlignment: Text.AlignVCenter
-            }
-            ButtonColumn {
-                width: parent.width
-                platformStyle: ButtonStyle {
-                    horizontalAlignment: Text.AlignLeft
+            Column{
+                anchors.fill: parent
+                ComboBox {
+                    label: Config.tr("Update interval1")
+                    currentIndex: -1
+                    width: update.width
+                    menu: ContextMenu {
+                        MenuItem { 
+                            text: Config.tr("Never")
+                            onClicked: {Config.update_interval(2147483647); } 
+                        }
+                        MenuItem {
+                            text: Config.tr("15 minutes")
+                            onClicked: {Config.update_interval(900); }
+                        }
+                        MenuItem {
+                            text: Config.tr("30 minutes")
+                            onClicked: { Config.update_interval(1800); }
+                        }
+                        MenuItem {
+                            text: Config.tr("1 hour")
+                            onClicked: { Config.update_interval(3600); }
+                        }
+                        MenuItem {
+                            text: Config.tr("2 hours")
+                            onClicked: { Config.update_interval(7200); }
+                        }
+                        MenuItem {
+                            text: Config.tr("4 hours")
+                            onClicked: { Config.update_interval(14400); }
+                        }/*
+                        MenuItem {
+                            text: Config.tr("12 hours")
+                            onClicked: { Config.update_interval(43200); }
+                        }
+                        */
+                       /* 
+                        MenuItem {
+                            text: Config.tr("Dayily")
+                            onClicked: { Config.update_interval(86400); }
+                        }
+                        */
+
+                    }
+                    Component.onCompleted: {
+                        if (!(Config.updateinterval == 900 || Config.updateinterval == 1800 || Config.updateinterval == 3600 || Config.updateinterval == 7200 || Config.updateinterval == 14400 || Config.updateinterval == 43200 || Config.updateinterval == 86400))
+                            currentIndex = 0
+                        if (Config.updateinterval == 900)
+                            currentIndex = 1
+                        if (Config.updateinterval == 1800)
+                            currentIndex = 2
+                        if (Config.updateinterval == 3600)
+                            currentIndex = 3
+                        if (Config.updateinterval == 7200)
+                            currentIndex = 4
+                        if (Config.updateinterval == 14400)
+                            currentIndex = 5
+                        if (Config.updateinterval == 43200)
+                            currentIndex = 6
+                        if (Config.updateinterval == 86400)
+                            currentIndex = 7
+                    }
                 }
-                Button {
-                    text: Config.tr("Never")
-                    checked: (!(Config.updateinterval == 900 || Config.updateinterval == 1800 || Config.updateinterval == 3600 || Config.updateinterval == 7200 || Config.updateinterval == 14400 || Config.updateinterval == 43200 || Config.updateinterval == 86400))
-                    onClicked: {
-                        Config.update_interval(2147483647);
-                    }
-	            }
-                Button {
-                    text: Config.tr("15 minutes")
-                    checked: (Config.updateinterval == 900)
-                    onClicked: {
-                        Config.update_interval(900);
-                    }
-	            }
-                Button {
-                    text: Config.tr("30 minutes")
-                    checked: (Config.updateinterval == 1800)
-                    onClicked: {
-                        Config.update_interval(1800);
-                    }
-	            }
-                Button {
-                    text: Config.tr("1 hour")
-                    checked: (Config.updateinterval == 3600)
-                    onClicked: {
-                        Config.update_interval(3600);
-                    }
-	            }
-                Button {
-                    text: Config.tr("2 hours")
-                    checked: (Config.updateinterval == 7200)
-                    onClicked: {
-                        Config.update_interval(7200);
-                    }
-	            }
-                Button {
-                    text: Config.tr("4 hours")
-                    checked: (Config.updateinterval == 14400)
-                    onClicked: {
-                        Config.update_interval(14400);
-                    }
-	            }
-                Button {
-                    text: Config.tr("12 hours")
-                    checked: (Config.updateinterval == 43200)
-                    onClicked: {
-                        Config.update_interval(43200);
-                    }
-	            }
-
-                Button {
-                    text: Config.tr("Daily")
-                    checked: (Config.updateinterval == 86400)
-                    onClicked: {
-                        Config.update_interval(86400);
-                    }
-	            }
-
-	        }
+            }
         }
     }
 }

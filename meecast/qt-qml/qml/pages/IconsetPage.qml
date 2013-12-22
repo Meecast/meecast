@@ -1,25 +1,20 @@
-import Qt 4.7
-//import QtQuick 1.1
-//import Qt.labs.components 1.0
-import com.nokia.meego 1.0
+import QtQuick 2.0
+import Sailfish.Silica 1.0
 
 Page {
     id: iconsetpage
     property int margin: 16
-    tools: ToolBarLayout {
-        ToolIcon {
-            iconId: "toolbar-back"
-            onClicked: {
-                pageStack.pop();
-            }
-        }
-
+    Rectangle {
+        anchors.fill: parent
+        color: "black"
     }
-    orientationLock: PageOrientation.LockPortrait
+
+    PageHeader {
+        title: Config.tr("Select the iconset")
+    }
 
     Rectangle{
         anchors.fill: parent
-        anchors.top: title_rect.bottom
         anchors.topMargin: 80
         anchors.leftMargin: margin
         anchors.rightMargin: margin
@@ -46,7 +41,7 @@ Page {
             color: "black"
         }
 
-        ListView {
+        SilicaListView {
             id: sourcelist
             anchors.fill: parent
             model: Config.icon_list()
@@ -80,29 +75,6 @@ Page {
             }
         }
     }
-
-    Rectangle {
-        id: title_rect
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-        width: parent.width - 2*margin
-        height: 80
-        color: "black"
-        Label {
-            id: title
-            anchors.fill: parent
-            color: "white"
-            text: Config.tr("Select the iconset")
-            //font.family: "Nokia Pure Light"
-            font.pixelSize: 30
-            horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
-        }
-    }
-
-
 }
 
 

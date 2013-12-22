@@ -27,7 +27,7 @@ Page {
             page: "VisualsPage.qml"
             title: "Appearance"
         }
-	    ListElement {
+        ListElement {
             page: "UpdatePage.qml"
             title: "Update"
         }
@@ -79,11 +79,6 @@ Page {
             header: PageHeader { 
                 title: Config.tr("Settings") 
             }
-            //anchors.top: title_rect.bottom
-            //anchors.topMargin: 80
-            //anchors.leftMargin: margin
-            //anchors.rightMargin: margin
-
             delegate: Item {
                 height: 80
                 width: parent.width
@@ -91,14 +86,14 @@ Page {
                 Label {
                     anchors.left: parent.left
                     anchors.leftMargin: margin
-                    anchors.rightMargin: margin
                     anchors.verticalCenter: parent.verticalCenter
                     text: Config.tr(model.title)
                 }
 
                 Image {
-                    source: "image://theme/icon-m-common-drilldown-arrow-inverse"
+                    source: "image://theme/icon-m-right"
                     anchors.right: parent.right
+                    anchors.rightMargin: margin
                     anchors.verticalCenter: parent.verticalCenter
                 }
                 MouseArea {
@@ -109,30 +104,5 @@ Page {
                 }
             }
         }
-     //   ScrollDecorator {
-     //       flickableItem: listview
-     //   }
     }
-    /*
-    Rectangle {
-        id: title_rect
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-        width: parent.width - 2*margin
-        height: 80
-        color: "black"
-        Label {
-            id: title
-            anchors.fill: parent
-            color: "white"
-            text: Config.tr("Settings")
-            font.family: "Nokia Pure Text Light"
-            font.pixelSize: 30
-            horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
-        }
-    }
-    */
 }

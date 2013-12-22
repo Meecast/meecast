@@ -9,6 +9,7 @@ Page {
         Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left
+            anchors.topMargin: 80
             width: parent.width
             height: 274
             color: "#999999"
@@ -17,12 +18,14 @@ Page {
             id: background
             anchors.top: parent.top
             anchors.left: parent.left
+            anchors.topMargin: 80
             width: parent.width
             height: 274
             sourceComponent: Image {source: Config.imagespath + "/mask_background_grid.png"}
         }
         Rectangle {
             anchors.top: background.bottom
+            anchors.topMargin: 80
             width: parent.width
             height: parent.height - 274
             color: "black"
@@ -45,7 +48,6 @@ Page {
                     anchors.verticalCenter: parent.verticalCenter
                     text: model.name
                 }
-
                 Image {
                     source: "image://theme/icon-m-right"
                     anchors.right: parent.right

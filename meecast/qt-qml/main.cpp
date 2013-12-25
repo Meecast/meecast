@@ -44,6 +44,7 @@
 //#include <QDeclarativeEngine>
 //#include <QDeclarativeView>
 #include <QTranslator>
+#include <QLocale>
 #include <QHash>
 //#include <QGraphicsGridLayout>
 #include <exception>
@@ -69,9 +70,10 @@
 
 #include "selectmodel.h"
 
-#define _(String) gettext(String)
+//#define _(String) gettext(String)
 
 
+#define _(String)  QObject::trUtf8(String).toStdString().c_str()
 
 //////////////////////////////////////////////////////////////////////////////
 bool
@@ -141,18 +143,42 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     translator.load("ru.qml", "i18n");
     app.installTranslator(&translator);
 */
+    /*
+    textdomain("omweather");
+    bindtextdomain("omweather", localepath.toStdString().c_str());
+    std::cerr<<" Path for tanslate "<<localepath.toStdString().c_str()<<std::endl;
+*/
     controller = new Controller(); 
-    
+
+    // Set up the translator.
+    QTranslator translator;
+    QString locale_string = QLocale().name();
+    QString filename = QString("omweather_%1").arg(locale_string);
+    std::cerr<<filename.toStdString().c_str()<<std::endl;
+
+    QString localepath =QString::fromStdString(Core::AbstractConfig::prefix + "/share/locale");
+    if (translator.load(filename, localepath)) {
+        std::cerr<<"Success TR"<<std::endl;
+        app->installTranslator(&translator);
+    }
+
+//    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+   
     /* Locale */
     for (unsigned int i=1; i<controller->config()->languagesList().size(); i++){
         if (controller->config()->languagesList().at(i).first == controller->config()->Language()){
-            setlocale (LC_ALL, controller->config()->languagesList().at(i).second.c_str());
-            setlocale (LC_MESSAGES, controller->config()->languagesList().at(i).second.c_str());
-            QLocale::setDefault(QLocale(controller->config()->languagesList().at(i).second.c_str()));
+         //   setlocale (LC_ALL, controller->config()->languagesList().at(i).second.c_str());
+         //   setlocale (LC_MESSAGES, controller->config()->languagesList().at(i).second.c_str());
+         //   QLocale::setDefault(QLocale(controller->config()->languagesList().at(i).second.c_str()));
+            filename = QString("omweather_%1").arg(controller->config()->languagesList().at(i).second.c_str());
+            std::cerr<<filename.toStdString().c_str()<<std::endl;
+            QString localepath =QString::fromStdString(Core::AbstractConfig::prefix + "/share/locale");
+            if (translator.load(filename, localepath)) {
+                    std::cerr<<"Success TR"<<std::endl;
+                    app->installTranslator(&translator);
+            }
         }
     }
-    textdomain("omweather");
-    bindtextdomain("omweather", "/opt/com.meecast.omweather/share/locale");
 
     /* D-BUS */
     DbusAdaptor* dadapt = new DbusAdaptor(controller);

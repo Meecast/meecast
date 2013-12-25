@@ -14,7 +14,7 @@
 
 Name:       meecast
 Summary:    Weather for Meego
-Version:    0.4.1
+Version:    0.8.3
 Release:    1
 Group:      Utility
 License:    GPLv2.1
@@ -34,7 +34,7 @@ BuildRequires:  pkgconfig(sqlite3)
 BuildRequires:  pkgconfig(dbus-glib-1)
 #BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:  libxml2-devel
-#BuildRequires:  gettext
+BuildRequires:  gettext
 #BuildRequires:  libqt-devel
 BuildRequires: qt5-qtpositioning-devel
 Requires:      qt5-qtpositioning 
@@ -103,8 +103,6 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/bin/omweather-qml
 #/opt/com.meecast.omweather/bin/omweather-settouch
 #%endif
-/opt/com.meecast.omweather/share
-/opt/com.meecast.omweather/lib
 #/usr/share/locale
 #/usr/lib/omweather/weathercom
 #/usr/share/omweather/copyright_icons/weather.com.png
@@ -112,9 +110,13 @@ desktop-file-install --delete-original       \
 #/usr/share/omweather/sources/weather.com.xml
 # >> files
 #/usr/lib/meegotouch/applicationextensions/libevents-meecast.so
+/usr/share/locale
 /usr/share
 /usr/share/iconsets
 /usr/share/icons/hicolor/86x86/apps
+/opt/com.meecast.omweather/share
+/opt/com.meecast.omweather/lib
+
 %changelog
 * Fri Aug 05 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.24
   * began support MeeGo 1.2.0.90 on Tablet UX

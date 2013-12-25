@@ -1,24 +1,18 @@
-// import QtQuick 1.0
-// import "content"
+import QtQuick 2.0
+import Sailfish.Silica 1.0
 
-import Qt 4.7
-import com.nokia.meego 1.0
 Page {
     id: languagespage
     property int margin: 16
-    tools: ToolBarLayout {
-        ToolIcon {
-            iconId: "toolbar-back"
-            onClicked: {
-                pageStack.pop();
-            }
-        }
-
+    Rectangle {
+        anchors.fill: parent
+        color: "black"
     }
-    orientationLock: PageOrientation.LockPortrait
 
+    PageHeader {
+        title: Config.tr("Select the language")
+    }
 
- 
     Rectangle {
         anchors.fill: parent
         anchors.top: title_rect.bottom

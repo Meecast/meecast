@@ -48,8 +48,9 @@
 #include <locale.h>
 
 
-#define _(String) gettext(String)
+//#define _(String) gettext(String)
 
+#define _(String)  QObject::trUtf8(String).toStdString().c_str()
 class ConfigQml : public QObject, public Core::Config
 
 {

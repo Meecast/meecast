@@ -150,28 +150,26 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 */
     controller = new Controller(); 
 
+    /* Locale */
     // Set up the translator.
     QTranslator translator;
     QString locale_string = QLocale().name();
     QString filename = QString("omweather_%1").arg(locale_string);
-    std::cerr<<filename.toStdString().c_str()<<std::endl;
+/*    std::cerr<<filename.toStdString().c_str()<<std::endl; */
 
     QString localepath =QString::fromStdString(Core::AbstractConfig::prefix + "/share/locale");
     if (translator.load(filename, localepath)) {
-        std::cerr<<"Success TR"<<std::endl;
+        /* std::cerr<<"Success TR"<<std::endl; */
         app->installTranslator(&translator);
     }
 
 //    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
    
-    /* Locale */
     for (unsigned int i=1; i<controller->config()->languagesList().size(); i++){
         if (controller->config()->languagesList().at(i).first == controller->config()->Language()){
-         //   setlocale (LC_ALL, controller->config()->languagesList().at(i).second.c_str());
-         //   setlocale (LC_MESSAGES, controller->config()->languagesList().at(i).second.c_str());
-         //   QLocale::setDefault(QLocale(controller->config()->languagesList().at(i).second.c_str()));
+            QLocale::setDefault(QLocale(controller->config()->languagesList().at(i).second.c_str()));
             filename = QString("omweather_%1").arg(controller->config()->languagesList().at(i).second.c_str());
-            std::cerr<<filename.toStdString().c_str()<<std::endl;
+/*            std::cerr<<filename.toStdString().c_str()<<std::endl; */
             QString localepath =QString::fromStdString(Core::AbstractConfig::prefix + "/share/locale");
             if (translator.load(filename, localepath)) {
                     std::cerr<<"Success TR"<<std::endl;

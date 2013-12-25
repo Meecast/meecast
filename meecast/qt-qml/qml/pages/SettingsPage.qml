@@ -82,19 +82,22 @@ Page {
             delegate: Item {
                 height: 80
                 width: parent.width
-
                 Label {
+                    id: title
                     anchors.left: parent.left
                     anchors.leftMargin: margin
+                    anchors.right: arrow.left
                     anchors.verticalCenter: parent.verticalCenter
                     text: Config.tr(model.title)
+                    font.pixelSize: 29
                 }
-
                 Image {
+                    id: arrow
                     source: "image://theme/icon-m-right"
                     anchors.right: parent.right
                     anchors.rightMargin: margin
                     anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalRight
                 }
                 MouseArea {
                     anchors.fill: parent

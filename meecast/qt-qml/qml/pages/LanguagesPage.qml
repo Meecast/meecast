@@ -15,7 +15,7 @@ Page {
 
     Rectangle {
         anchors.fill: parent
-        anchors.top: title_rect.bottom
+        anchors.top: parent.top
         anchors.topMargin: 80
         anchors.leftMargin: margin
         anchors.rightMargin: margin
@@ -44,88 +44,72 @@ Page {
 
 
 
-     // Define a delegate component.  A component will be
-     // instantiated for each visible item in the list.
-     Component {
-         id: langDelegate
-         Item {
-             id: wrapper
-             width: parent.width 
-             height: 80
-                Label {
-                    id: lang_label
-                    anchors.leftMargin: margin
-                    anchors.left: parent.left 
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: modelData
-                }
-                Image {
-                    source: "image://theme/icon-m-common-drilldown-arrow-inverse"
-                    anchors.right: parent.right
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        Config.set_language(modelData);
-                        pageStack.pop();
-                    }
-                }
+        // Define a delegate component.  A component will be
+        // instantiated for each visible item in the list.
+        Component {
+            id: langDelegate
+            Item {
+                id: wrapper
+                width: parent.width 
+                height: 80
+                   Label {
+                       id: lang_label
+                       anchors.leftMargin: margin
+                       anchors.left: parent.left 
+                       anchors.verticalCenter: parent.verticalCenter
+                       text: modelData
+                   }
+                   Image {
+                       source: "image://theme/icon-m-right"
+                       anchors.right: parent.right
+                       anchors.verticalCenter: parent.verticalCenter
+                   }
+                   MouseArea {
+                       anchors.fill: parent
+                       onClicked: {
+                           Config.set_language(modelData);
+                           pageStack.pop();
+                       }
+                   }
 
- 
-             // indent the item if it is the current item
-             states: State {
-                 name: "Current"
-                 when: wrapper.ListView.isCurrentItem
-             }
-             transitions: Transition {
-                 NumberAnimation { properties: "x"; duration: 200 }
-             }
-         }
-     }
+     
+                // indent the item if it is the current item
+                states: State {
+                    name: "Current"
+                    when: wrapper.ListView.isCurrentItem
+                }
+                transitions: Transition {
+                    NumberAnimation { properties: "x"; duration: 200 }
+                }
+            }
+        }
 
-     // Define a highlight with customised movement between items.
-     Component {
-         id: highlightBar
-         Rectangle {
-             width: parent.width; height: 80
-             color: "blue" 
-             y: listView.currentItem.y;
-             radius: 5
-             Behavior on y { SpringAnimation { spring: 2; damping: 0.1 } }
-         }
-     }
-
-     ListView {
-         id: listView
-         width: parent.width; height: parent.height
-         currentIndex : Config.index_of_current_language() 
-         model: Config.languages_list() 
-         delegate: langDelegate
-         focus: true
-         highlight: highlightBar
-         highlightFollowsCurrentItem: true
-         Component.onCompleted: { positionViewAtIndex(Config.index_of_current_language(), ListView.End);}
-     }
- }
- Rectangle {
-        id: title_rect
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-        width: parent.width - 2*margin
-        height: 80
-        color: "black"
-        Label {
-            id: title
-            anchors.fill: parent
-            color: "white"
-            text: Config.tr("Select the language")
-            //font.family: "Nokia Pure Light"
-            font.pixelSize: 30
-            horizontalAlignment: Text.AlignLeft
-            verticalAlignment: Text.AlignVCenter
+        // Define a highlight with customised movement between items.
+        
+        Component {
+            id: highlightBar
+            Rectangle {
+                width: parent.width; height: 80
+                color: "blue" 
+                y: listView.currentItem.y;
+                radius: 5
+                Behavior on y { SpringAnimation { spring: 2; damping: 0.1 } }
+            }
+        }
+        
+        SilicaListView {
+            id: listView
+            width: parent.width; 
+            height: parent.height
+            anchors.top: parent.top
+           // anchors.topMargin: 80
+            currentIndex : Config.index_of_current_language() 
+            model: Config.languages_list() 
+            delegate: langDelegate
+            focus: true
+            highlight: highlightBar
+            highlightFollowsCurrentItem: true
+            Component.onCompleted: { positionViewAtIndex(Config.index_of_current_language(), ListView.End);}
         }
     }
 }

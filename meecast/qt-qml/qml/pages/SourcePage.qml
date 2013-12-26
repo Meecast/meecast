@@ -6,6 +6,7 @@ Page {
     property int margin: 16
     Rectangle{
         anchors.fill: parent
+        color: "black"
         Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left

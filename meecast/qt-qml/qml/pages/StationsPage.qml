@@ -29,14 +29,13 @@ Page {
     Connections {
         target: Config
         onConfigChanged: {
-            console.log("wwwwwwwww");
             stationslist.model = Config.stations();
         }
     }
 
     Rectangle{
-       anchors.fill: parent
-       color: "black"
+        anchors.fill: parent
+        color: "black"
 
         id: mainrect
         Rectangle {

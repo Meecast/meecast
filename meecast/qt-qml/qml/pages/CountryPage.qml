@@ -45,10 +45,10 @@ Page {
         PageHeader {
             title: Config.tr("Select country")
         }
-
         SilicaListView {
             id: countrylist
             anchors.fill: parent
+            currentIndex: -1
             anchors.topMargin: 100
             anchors.bottom: parent.bottom
             width: parent.width
@@ -59,7 +59,6 @@ Page {
                         width: parent.width
                         onTextChanged: {
                             listModel.update(text)
-                            forceActiveFocus()
                         }
                     }
             delegate: Item {

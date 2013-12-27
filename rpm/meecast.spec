@@ -115,7 +115,6 @@ desktop-file-install --delete-original       \
 /usr/share/iconsets
 /usr/share/icons/hicolor/86x86/apps
 /opt/com.meecast.omweather/share
-/opt/com.meecast.omweather/lib
 
 %changelog
 * Fri Aug 05 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.24

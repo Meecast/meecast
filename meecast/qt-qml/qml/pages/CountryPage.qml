@@ -20,10 +20,12 @@ Page {
     }
     Rectangle{
         anchors.fill: parent
+        color: "black"
         Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left
             width: parent.width
+            anchors.topMargin: 80
             height: 274
             color: "#999999"
         }
@@ -32,12 +34,14 @@ Page {
             id: background
             anchors.top: parent.top
             anchors.left: parent.left
+            anchors.topMargin: 80
             width: parent.width
             height: 274
             sourceComponent: Image {source: Config.imagespath + "/mask_background_grid.png"}
         }
         Rectangle {
             anchors.top: background.bottom
+            anchors.topMargin: 80
             width: parent.width
             height: parent.height - 274
             color: "black"

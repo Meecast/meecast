@@ -21,13 +21,14 @@ Page {
         Component.onCompleted: update("")
     }
 
-
     Rectangle{
         anchors.fill: parent
+        color: "black"
         Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left
             width: parent.width
+            anchors.topMargin: 80
             height: 274
             color: "#999999"
         }
@@ -36,12 +37,14 @@ Page {
             anchors.top: parent.top
             anchors.left: parent.left
             width: parent.width
+            anchors.topMargin: 80
             height: 274
             sourceComponent: Image {source: Config.imagespath + "/mask_background_grid.png"}
         }
         Rectangle {
             anchors.top: background.bottom
             width: parent.width
+            anchors.topMargin: 80
             height: parent.height - 274
             color: "black"
         }

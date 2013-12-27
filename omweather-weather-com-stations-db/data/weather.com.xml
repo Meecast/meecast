@@ -8,7 +8,7 @@
 <detail url="http://wxdata.weather.com/wxdata/weather/local/%s?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;hbhf=12" />
 <search url="http://xml.weather.com/search/search?where=%s" />
 <library>libomweather-weather-com-source.so</library>
-<binary>/opt/com.meecast.omweather/lib/weathercom</binary>
+<binary>weathercom</binary>
 <showurl url="http://www.weather.com/weather/tenday/%s" />
 <mapurl url="http://mapserver.weather.com/MapServer/map?layers=sat&amp;lat=%f&amp;lng=%f&amp;bpp=8&amp;fmt=png&amp;w=854&amp;h=480&amp;zoom=5&amp;base=msve-hyb&amp;g=1.5&amp;tx=0.7" type="GPS"/>
 </source>

@@ -9,6 +9,14 @@ Page {
     property real flick_start_position: 0
     property bool menuitemgps: Config.gps
     objectName: "WeatherPage"
+    Rectangle {
+        anchors.fill: parent
+        color: "black"
+    }
+    PageHeader {
+        id: stationname
+        title: Config.stationname
+    }
 
 //    tools: ToolBarLayout {
 //        ToolIcon {
@@ -162,9 +170,9 @@ Page {
     function updatestationname()
     {
         main.updatemodels();
-        stationname.text = Config.stationname;
-        left_arrow.visible = Config.prevstationname == "" ? false : true;
-        right_arrow.visible = Config.nextstationname == "" ? false : true;
+        stationname.title = Config.stationname;
+       // left_arrow.visible = Config.prevstationname == "" ? false : true;
+      //  right_arrow.visible = Config.nextstationname == "" ? false : true;
         sourceicon.visible = false;
         sourceicon.source = Config.imagespath + "/" + Config.source + ".png";
         sourceicon.visible = true;
@@ -404,10 +412,11 @@ Page {
                 anchors.left: parent.left
                 anchors.top: parent.top
                 width: parent.width
-                height: 72
-                color: "black"
+                height: 92
+                color: "transparent"
+                //color: "black"
                 visible: isUpdate ? false : true
-
+/*
                 Text {
                     id: stationname
                     anchors.top: parent.top
@@ -423,9 +432,10 @@ Page {
                     //wrapMode: Text.Wrap
                     elide: Text.ElideRight
                 }
-
+                */
+               /*
                 Rectangle {
-		    id: left_arrow
+                    id: left_arrow
                     width: 72
                     height: 72
                     anchors.top: parent.top
@@ -453,9 +463,10 @@ Page {
                     }
 
                 }
-
+                */
+                /*
                Rectangle {
-		    id: right_arrow
+                    id: right_arrow
                     width: 72
                     height: 72
                     anchors.top: parent.top
@@ -483,6 +494,7 @@ Page {
                         }
                     }
                 }
+                */
 
  
                 /*

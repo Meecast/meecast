@@ -82,7 +82,7 @@ OTHER_FILES += \
     qml/StandbyScreen.qml \
     qml/ColorCell.qml \
     qml/LanguagesPage.qml \
-    qml/SearchField.qml \
+    qml/wrapper.qml \
     translations/omweather_ru_RU.qm
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG

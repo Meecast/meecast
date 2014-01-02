@@ -189,7 +189,7 @@ public:
     Q_INVOKABLE void set_lock_screen_y_position(int y);
     Q_INVOKABLE QString tr(QString str);
     Q_INVOKABLE void enableGps();
-    Q_INVOKABLE QString stationname(int i);
+    Q_INVOKABLE QString stationname_index(int i);
     void refreshconfig();
 signals:
     void iconsetChanged();

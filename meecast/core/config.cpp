@@ -830,8 +830,7 @@ Config::FontColor(){
 }
 ////////////////////////////////////////////////////////////////////////////////
 std::string&
-Config::stationname()
-{
+Config::stationname(){
     if (this->current_station_id() == INT_MAX && this->stationsList().size() > 0){
         this->current_station_id(0);
     }
@@ -847,8 +846,20 @@ Config::stationname()
 }
 ////////////////////////////////////////////////////////////////////////////////
 std::string&
-Config::prevstationname()
-{
+Config::stationname(int i){
+    if (this->stationsList().size() > 0
+        &&  this->stationsList().at(i)){
+        return this->stationsList().at(i)->name();
+    }
+    else{
+        std::string *_name;
+        _name = new std::string("Unknown"); 
+        return *_name;
+    }
+}
+////////////////////////////////////////////////////////////////////////////////
+std::string&
+Config::prevstationname(){
     if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
         && (this->current_station_id() - 1) >= 0
         &&  this->stationsList().at(this->current_station_id()-1)){
@@ -860,8 +871,7 @@ Config::prevstationname()
 
 ////////////////////////////////////////////////////////////////////////////////    
 std::string&
-Config::nextstationname()
-{
+Config::nextstationname(){
     if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
         && ((uint)this->current_station_id() + 1) < (uint)this->stationsList().size()
         &&  this->stationsList().at(this->current_station_id()+1)){

@@ -791,7 +791,7 @@ ConfigQml::saveStation(int city_id, QString city,
 }
 
 QString
-ConfigQml::stationname(int i){
+ConfigQml::stationname_index(int i){
     QString qstr = "";
     return qstr.fromUtf8(ConfigQml::Config::stationname(i).c_str()); 
 }

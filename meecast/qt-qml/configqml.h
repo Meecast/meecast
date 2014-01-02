@@ -134,6 +134,7 @@ public:
     int lock_screen_x_position();
     int lock_screen_y_position();
     QString stationname();
+    QString stationname(int i);
     QString prevstationname();
     QString nextstationname();
     QString filename();

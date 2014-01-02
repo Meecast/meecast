@@ -791,22 +791,25 @@ ConfigQml::saveStation(int city_id, QString city,
 }
 
 QString
-ConfigQml::stationname()
-{
+ConfigQml::stationname(int i){
+    QString qstr = "";
+    return qstr.fromUtf8(ConfigQml::Config::stationname(i).c_str()); 
+}
+
+QString
+ConfigQml::stationname(){
     QString qstr = "";
     return qstr.fromUtf8(ConfigQml::Config::stationname().c_str()); 
 }
 
 QString
-ConfigQml::nextstationname()
-{
+ConfigQml::nextstationname(){
     QString qstr = "";
     return qstr.fromUtf8(ConfigQml::Config::nextstationname().c_str()); 
 }
 
 QString
-ConfigQml::prevstationname()
-{
+ConfigQml::prevstationname(){
     QString qstr = "";
     return qstr.fromUtf8(ConfigQml::Config::prevstationname().c_str()); 
 }

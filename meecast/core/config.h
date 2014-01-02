@@ -118,6 +118,7 @@ namespace Core{
             std::string& FontColor(void);
             StationsList& stationsList();
             std::string& stationname();
+            std::string& stationname(int i);
             std::string& nextstationname();
             std::string& prevstationname();
             std::string& iconspath();

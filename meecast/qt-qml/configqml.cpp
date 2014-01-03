@@ -871,6 +871,19 @@ ConfigQml::changestation()
    this->saveConfig();
 }
 
+
+void
+ConfigQml::station_by_index(int i)
+{
+    if ((uint)(i) < this->stationsList().size() && i > 0){
+       this->current_station_id(i);
+
+   }else {
+       this->current_station_id(0);
+   }
+   this->saveConfig();
+}
+
 void
 ConfigQml::nextstation()
 {

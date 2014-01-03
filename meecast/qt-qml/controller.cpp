@@ -93,7 +93,7 @@ Controller::load_data()
   int timezone = 0;
   int localtimezone = 0;
   
- /*  std::cerr<<" Controller::load_data()"<<std::endl; */
+  std::cerr<<" Controller::load_data()"<<std::endl; 
 
   std::string mapfilename(Core::AbstractConfig::getCachePath());
   std::string basemapfilename(Core::AbstractConfig::getCachePath());

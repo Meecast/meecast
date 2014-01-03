@@ -793,6 +793,7 @@ ConfigQml::saveStation(int city_id, QString city,
 QString
 ConfigQml::stationname_index(int i){
     QString qstr = "";
+    std::cerr<<"ConfigQml::stationname_index "<<i<<std::endl;
     return qstr.fromUtf8(ConfigQml::Config::stationname(i).c_str()); 
 }
 

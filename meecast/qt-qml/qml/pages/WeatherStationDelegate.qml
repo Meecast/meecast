@@ -47,7 +47,7 @@ Component {
         anchors.bottom: toolbar.top
         PageHeader {
             id: stationname
-            title: Config.stationname
+            title: main.stationname1_index(index) 
         }
         PullDownMenu {
             MenuItem {

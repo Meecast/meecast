@@ -116,6 +116,7 @@ DataModel::appendRow(DataItem *item)
 void 
 DataModel::reload_data(QString filename)
 {
+   std::cerr<<"DataModel::reload_data"<<std::endl;
    Core::DataParser* dp = NULL;
    if (!filename.isEmpty()){
         try{

@@ -791,15 +791,6 @@ ConfigQml::saveStation(int city_id, QString city,
 }
 
 QString
-ConfigQml::source_index(int i){
-    QString qstr = "";
-    if (i>=0 && i <this->stationsList().size())
-        return  this->stationsList().at(i)->sourceName().c_str();
-    else
-        return QString();
-}
-
-QString
 ConfigQml::stationname_index(int i){
     QString qstr = "";
     if (i>=0 && i <this->stationsList().size()){

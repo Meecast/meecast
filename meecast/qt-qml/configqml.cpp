@@ -1059,8 +1059,7 @@ ConfigQml::addGpsStation(double latitude, double longitude)
 }
 
 int
-ConfigQml::getGpsStation()
-{
+ConfigQml::getGpsStation(){
     int index = -1;
     for (unsigned int i=0; i<stationsList().size(); i++){
         if (stationsList().at(i)->gps() == true)
@@ -1068,3 +1067,9 @@ ConfigQml::getGpsStation()
     }
     return index;
 }
+
+int
+ConfigQml::_current_station_id(){
+    return current_station_id();
+}
+

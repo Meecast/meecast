@@ -8,7 +8,7 @@ Page {
     property int margin: 16
     property int screen_height : 960 
     property int screen_width : 540 
-    property int real_current_id : 0 
+    property int real_current_id : Config._current_station_id() 
     property bool isUpdate: false
     property real flick_start_position: 0
     property bool menuitemgps: Config.gps
@@ -201,7 +201,7 @@ Page {
         snapMode: ListView.SnapOneItem
         model: stations
         interactive: true
-        currentIndex: 0 
+        currentIndex: Config._current_station_id() 
 
      }
      Rectangle {

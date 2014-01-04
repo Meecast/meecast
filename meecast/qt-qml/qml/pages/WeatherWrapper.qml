@@ -19,7 +19,7 @@ Page {
         id: listModel
         function update(my_text) {
             clear()
-            for (var i=0; i<Config.stations().length - 1; i++) {
+            for (var i=0; i<Config.stations().length; i++) {
                 append({"id": i, "key": Config.stations()[i]})
             }
             console.log("Size of stations List")

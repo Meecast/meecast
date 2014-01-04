@@ -316,10 +316,15 @@ Component {
                     text: Config.tr("Try to update")
                     onClicked: {
                         main.update();
+                        dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
+                        current_rect.visible = Current.rowCount() == 0 ? false : true;
+                        list.visible = (Forecast_model.rowCount() == 0) ? false : true;
+                        
+
                     }
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.bottom: parent.bottom
-                    anchors.bottomMargin: 50
+                    anchors.bottomMargin: 150
                 }
 
             }
@@ -682,7 +687,7 @@ Component {
             id: sourceicon
 	        anchors.horizontalCenter: parent.horizontalCenter
 	        anchors.verticalCenter: parent.verticalCenter
-            source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
+            source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source() + ".png"
             smooth: true
 	        MouseArea{
 	            anchors.fill: parent

@@ -13,20 +13,18 @@ Page {
     property bool menuitemgps: Config.gps
  
    objectName: "WeatherPage"
-    /*
+    
     ListModel {
         id: listModel
         function update(my_text) {
             clear()
-            for (var i=0; i<country_model.rowCount(); i++) {
-                if (my_text == "" || country_model.get(i).name.indexOf(my_text) >= 0) {
-                    append({"name": country_model.get(i).name, "key": country_model.get(i).key})
-                }
+            for (var i=0; i<Config.stations().length; i++) {
+                append({"id": i, "key": Config.stations()[i]})
             }
         }
         Component.onCompleted: update("")
     }
-    */
+   
     function openFile(file)
     {
         pageStack.push(Qt.resolvedUrl(file))
@@ -146,12 +144,17 @@ Page {
 //        dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
 //        current_rect.visible = Current.rowCount() == 0 ? false : true;
         //list.visible = (Forecast_model.rowCount() == 0) ? false : true;
+        listview.visible = Config.stationname == "Unknown" ? false : true
+        startview.visible = Config.stationname == "Unknown" ? true : false
+//        startview.model = stations 
     }
 
     function stationname1_index(index){
+        Config.station_by_index(index);
         console.log("stationname1_index(index)")
         updatestationname();
-        return Config.stationname_index(index)
+//        return Config.stationname_index(index)
+        return Config.stationname
     }
 
     function updatestationname(){
@@ -170,7 +173,8 @@ Page {
         onConfigChanged: {
             console.log("end update station name = "+Config.stationname);
             startview.visible = Config.stationname == "Unknown" ? true : false;
-            mainview.visible = Config.stationname == "Unknown" ? false : true;
+            listview.visible = Config.stationname == "Unknown" ? false : true;
+            listModel.update()
             main.updatestationname();
             isUpdate = false;
 
@@ -179,13 +183,15 @@ Page {
 
     DelegateModel { 
         id: stations
-        model: Config.stations()
+//        model: Config.stations()
+        model: listModel
         delegate: WeatherStationDelegate { id: weatherStationDelegate }
     } 
 
     SilicaListView {
-        id: listView
+        id: listview
         anchors.fill: parent
+        visible: Config.stationname == "Unknown" ? false : true
         orientation: Qt.Horizontal
         highlightRangeMode: ListView.StrictlyEnforceRange
         snapMode: ListView.SnapOneItem
@@ -194,4 +200,73 @@ Page {
         currentIndex: 1
 
      }
+     Rectangle {
+            id: startview
+            visible: Config.stationname == "Unknown" ? true : false
+            //visible: true 
+//            width: parent.width
+//            height: main.screen_height - 72 - 36
+            width: 540
+            height: 950
+            Rectangle {
+                anchors.left: parent.left
+                anchors.top: parent.top
+                width: parent.width
+                height: 72
+                color: "black"
+            }
+            Text {
+                id: empty_text
+                anchors.left: parent.left
+                anchors.top: parent.top
+                width: parent.width
+                height: 72
+                color: "white"
+                font.pointSize: 28
+                text: Config.tr("MeeCast")
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+
+            Loader {
+                id: empty_background1
+                anchors.top: empty_text.bottom
+                anchors.left: parent.left
+                width: parent.width
+                height: 274
+                sourceComponent: Image {source: Config.imagespath + "/mask_background.png"}
+            }
+            Rectangle {
+                anchors.top: empty_background1.bottom
+                width: parent.width
+                height: 600 
+                //height: dataview.height - 274
+                color: "black"
+            }
+            Label {
+                horizontalAlignment: Text.AlignHCenter
+                text: Config.tr("No locations are set up yet.")
+                font.pixelSize: 54 
+                color: "#999999"
+                wrapMode: Text.Wrap
+                width: parent.width - 2*margin
+                //anchors.verticalCenter: parent.verticalCenter
+                anchors.top: parent.top
+                anchors.topMargin: 250
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: margin
+                anchors.rightMargin: margin
+            }
+            Button {
+                text: Config.tr("Set locations")
+                onClicked: {
+                    main.openFile("SourcePage.qml")
+                }
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 50
+            }
+        }
+
 }

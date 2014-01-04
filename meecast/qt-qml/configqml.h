@@ -192,6 +192,7 @@ public:
     Q_INVOKABLE void enableGps();
     Q_INVOKABLE QString stationname_index(int i);
     Q_INVOKABLE void station_by_index(int i);
+    Q_INVOKABLE QString _source();
     void refreshconfig();
 signals:
     void iconsetChanged();

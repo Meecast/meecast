@@ -840,8 +840,7 @@ ConfigQml::filename()
 }
 
 QString
-ConfigQml::source()
-{
+ConfigQml::source(){
     if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
                                                 &&  this->stationsList().at(this->current_station_id()))
         return this->stationsList().at(this->current_station_id())->sourceName().c_str();
@@ -849,6 +848,10 @@ ConfigQml::source()
         return QString();
 }
 
+QString
+ConfigQml::_source(){
+    return source();
+}
 QString
 ConfigQml::viewURL()
 {

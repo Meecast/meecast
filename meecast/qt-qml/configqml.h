@@ -193,6 +193,7 @@ public:
     Q_INVOKABLE QString stationname_index(int i);
     Q_INVOKABLE void station_by_index(int i);
     Q_INVOKABLE QString _source();
+    Q_INVOKABLE int _current_station_id();
     void refreshconfig();
 signals:
     void iconsetChanged();

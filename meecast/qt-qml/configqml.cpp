@@ -793,7 +793,21 @@ ConfigQml::saveStation(int city_id, QString city,
 QString
 ConfigQml::stationname_index(int i){
     QString qstr = "";
-    return qstr.fromUtf8(ConfigQml::Config::stationname(i).c_str()); 
+    if (i>=0 && i <this->stationsList().size()){
+        return qstr.fromUtf8(ConfigQml::Config::stationname(i).c_str()); 
+    }else
+        return QString("Unknown");
+
+}
+
+QString
+ConfigQml::stationname_index(int i){
+    QString qstr = "";
+    if (i>=0 && i <this->stationsList().size()){
+        std::cerr<<"ConfigQml::stationname_index "<<i<<std::endl;
+        return qstr.fromUtf8(ConfigQml::Config::stationname(i).c_str()); 
+    }else
+        QString("Unknown");
 }
 
 QString

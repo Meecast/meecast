@@ -687,13 +687,13 @@ Component {
             id: sourceicon
 	        anchors.horizontalCenter: parent.horizontalCenter
 	        anchors.verticalCenter: parent.verticalCenter
-            source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config._source() + ".png"
+            source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source_index() + ".png"
             smooth: true
 
             Component.onCompleted: {
                 console.log("Index")
                 console.log(index)
-                console.log( Config._source())
+                console.log( Config.source_index())
                 console.log( Config.stationname)
                 console.log(main.stationname1_index(index))
             }

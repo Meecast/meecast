@@ -8,6 +8,7 @@ Page {
     property int margin: 16
     property int screen_height : 960 
     property int screen_width : 540 
+    property int real_current_id : 0 
     property bool isUpdate: false
     property real flick_start_position: 0
     property bool menuitemgps: Config.gps
@@ -18,9 +19,11 @@ Page {
         id: listModel
         function update(my_text) {
             clear()
-            for (var i=0; i<Config.stations().length; i++) {
+            for (var i=0; i<Config.stations().length - 1; i++) {
                 append({"id": i, "key": Config.stations()[i]})
             }
+            console.log("Size of stations List")
+            console.log(Config.stations().length)
         }
         Component.onCompleted: update("")
     }
@@ -149,12 +152,13 @@ Page {
 //        startview.model = stations 
     }
 
-    function stationname1_index(index){
-        Config.station_by_index(index);
-        console.log("stationname1_index(index)")
+    function stationname1_index(i){
+        Config.station_by_index(i);
+        console.log("stationname1_index(index) ")
+        console.log(i)
         updatestationname();
-//        return Config.stationname_index(index)
-        return Config.stationname
+        return Config.stationname_index(i)
+//        return Config.stationname
     }
 
     function updatestationname(){
@@ -197,7 +201,7 @@ Page {
         snapMode: ListView.SnapOneItem
         model: stations
         interactive: true
-        currentIndex: 1
+        currentIndex: 0 
 
      }
      Rectangle {

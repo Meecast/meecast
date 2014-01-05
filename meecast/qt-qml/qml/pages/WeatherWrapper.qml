@@ -17,17 +17,30 @@ Page {
     
     ListModel {
         id: listModel
-        function update(my_text) {
+        function update() {
             clear()
             for (var i=0; i<Config.stations().length; i++) {
                 append({"id": i, "key": Config.stations()[i]})
             }
-            console.log("Size of stations List")
-            console.log(Config.stations().length)
+//            console.log("Size of stations List")
+//            console.log(Config.stations().length)
         }
         Component.onCompleted: update("")
     }
-   
+    ListModel {
+        id: current_stub 
+        ListElement { description: "" }
+    }
+ /*
+    ListModel {
+        id: current_ 
+        function update() {
+            clear()
+            append({"description": Current.getdata(0, "description") })
+        }
+        Component.onCompleted: update("")
+    }
+    */ 
     function openFile(file)
     {
         pageStack.push(Qt.resolvedUrl(file))
@@ -135,6 +148,17 @@ Page {
         Config.updatestations();
     }
 
+    function model_current_description(){
+        console.log("model_current_description" );
+        return Current.getdata(0,"description");
+    }
+    function model_current_wind_direction(){
+        console.log("model_current_wind_direction" );
+        return Current.getdata(0,"wind_direction");
+    }
+    function current_model(name){
+        return Current.getdata(0, name);
+    }
     function updatemodels(){
         console.log("QML updatemodels())")
         Current.reload_data(Config.filename);
@@ -143,6 +167,7 @@ Page {
         Forecast_model.update_model(2);
         Forecast_night_model.update_model(3);
         Forecast_hours_model.update_model(4);
+     //   current_.update();
         //list.height = 80 * Forecast_model.rowCount();
 //        dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
 //        current_rect.visible = Current.rowCount() == 0 ? false : true;
@@ -153,8 +178,9 @@ Page {
     }
 
     function stationname1_index(i){
+        console.log(" before stationname1_index(index) ")
         Config.station_by_index(i);
-        console.log("stationname1_index(index) ")
+        console.log(" after stationname1_index(index) ")
         console.log(i)
         updatestationname();
         return Config.stationname_index(i)
@@ -178,8 +204,8 @@ Page {
             console.log("end update station name = "+Config.stationname);
             startview.visible = Config.stationname == "Unknown" ? true : false;
             listview.visible = Config.stationname == "Unknown" ? false : true;
-            listModel.update()
-            main.updatestationname();
+            //listModel.update()
+           // main.updatestationname();
             isUpdate = false;
 
         }

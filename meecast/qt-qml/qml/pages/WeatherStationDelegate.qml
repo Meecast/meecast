@@ -114,13 +114,6 @@ Component {
                 id: mainview
                 visible: Config.stationname == "Unknown" ? false : true
                 anchors.fill: parent
-
-                /*
-                Loader {
-                    id: background
-                    anchors.fill: parent
-                    sourceComponent: Image {source: "../core/data/images/background.png"}
-                }*/
                 Rectangle {
                     id: updateview
                     anchors.left: parent.left
@@ -154,92 +147,6 @@ Component {
                     color: "transparent"
                     //color: "black"
                     visible: isUpdate ? false : true
-    /*
-                    Text {
-                        id: stationname
-                        anchors.top: parent.top
-                        anchors.left: left_arrow.right
-                        //anchors.right: right_arrow.left
-                        height: parent.height
-                        width: parent.width - right_arrow.width - left_arrow.width
-                        text: Config.stationname
-                        verticalAlignment: Text.AlignVCenter
-                        horizontalAlignment: Text.AlignHCenter
-                        color: "white"
-                        font.pointSize: 20
-                        //wrapMode: Text.Wrap
-                        elide: Text.ElideRight
-                    }
-                    */
-                   /*
-                    Rectangle {
-                        id: left_arrow
-                        width: 72
-                        height: 72
-                        anchors.top: parent.top
-                        anchors.left: parent.left
-                        color: "black"
-                        visible: Config.prevstationname == "" ? false : true;
-                        Image {
-                            id: prevstationimage
-                            source: Config.imagespath + "/arrow_left.png"
-                            width:  62 
-                            height: 62
-                            anchors.top: parent.top
-                            anchors.left: parent.left
-                            //anchors.leftMargin: margin
-                            smooth: true
-                        }
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                if (prevstationimage.visible){
-                                    Config.prevstation();
-                                    main.updatestationname();
-                                }
-                            }
-                        }
-
-                    }
-                    */
-                    /*
-                   Rectangle {
-                        id: right_arrow
-                        width: 72
-                        height: 72
-                        anchors.top: parent.top
-                        anchors.right: parent.right
-                        color: "black"
-                        visible: Config.nextstationname == "" ? false : true;
-                        Image {
-                            id: nextstationimage
-                            source: Config.imagespath + "/arrow_right.png"
-                            width: 62 
-                            height: 62
-                            anchors.top: parent.top
-                            anchors.right: parent.right
-                            //anchors.verticalCenter: parent.verticalCenter
-                            //anchors.rightMargin: margin
-                            smooth: true
-                        }
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                if (nextstationimage.visible){
-                                    Config.nextstation();
-                                    main.updatestationname();
-                                }
-                            }
-                        }
-                    }
-                    */
-
-     
-                    /*
-                    Loader {
-                        anchors.fill: parent
-                        sourceComponent: Image {source: Config.imagespath + "/mask_title.png"}
-                    }*/
                 }
                 Rectangle {
                     id: dataview
@@ -315,8 +222,6 @@ Component {
                     Component {
                         id: currentDelegate
                         Item {
-                            //anchors.fill: ListView
-
                             Text {
                                 id: now
                                 width: 160
@@ -378,38 +283,36 @@ Component {
                                anchors.top: now.bottom
                                property color textColor: "white"
                                Row {  
-                                id: desc_row
-                                width: parent.width 
-                                Text { 
-                                  id: text; 
-                                  font.pointSize: 20; 
-                                  width: parent.width 
-                                  color: desc.textColor; 
-                                  text: main.current_model("description"); 
-                                  verticalAlignment: Text.AlignVCenter; 
-                                  horizontalAlignment: (main.current_model("description") >35) ? Text.AlignHLeft : Text.AlignHCenter; 
-                                  MouseArea {
-                                      anchors.fill: parent
-                                      onClicked: {
-                                     if (text_anim.running){
-                                         text_anim.running = false;
-                                     }else{
-                                         text_anim.running = true;
-                                     }
-                                      }
-                                  }
-                                }  
-                                NumberAnimation on x { 
-                                     id: text_anim; 
-                                 from: 450; to: -500 ; 
-                                 duration: 10000; 
-                                 loops: Animation.Infinite; 
-                                 running : (main.current_model("description") >35) ? true : false;  
+                                   id: desc_row
+                                   width: parent.width 
+                                   Text { 
+                                     id: text; 
+                                     font.pointSize: 20; 
+                                     width: parent.width 
+                                     color: desc.textColor; 
+                                     text: main.current_model("description"); 
+                                     verticalAlignment: Text.AlignVCenter; 
+                                     horizontalAlignment: (main.current_model("description") >35) ? Text.AlignHLeft : Text.AlignHCenter; 
+                                        MouseArea {
+                                            anchors.fill: parent
+                                            onClicked: {
+                                                if (text_anim.running){
+                                                    text_anim.running = false;
+                                                }else{
+                                                    text_anim.running = true;
+                                                }
+                                            }
+                                        }
                                     }  
-
-                               }  
-                        }
-
+                                    NumberAnimation on x { 
+                                        id: text_anim; 
+                                        from: 450; to: -500 ; 
+                                        duration: 10000; 
+                                        loops: Animation.Infinite; 
+                                        running : (main.current_model("description") >35) ? true : false;  
+                                    }  
+                                }  
+                            }
                             Image {
                                 id: humidity
                                 source: Config.imagespath + "/humidity.png"
@@ -458,7 +361,7 @@ Component {
                                 transform: Rotation {
                                     origin.x: 15
                                     origin.y: 15
-                                    angle: main.getAngle(main.current_model("wind_direction"))
+                                    angle: main.current_model("wind_direction") == "N/A" ? 0 : main.getAngle(main.current_model("wind_direction"))
                                 }
                             }
                             Text {
@@ -473,15 +376,15 @@ Component {
                                 verticalAlignment: Text.AlignVCenter
                             }
                             Image {
-                                id: pressure
-                                source: Config.imagespath + "/pressure.png"
-                                anchors.top: humidity.bottom
-                                anchors.topMargin: 22
-                                anchors.left: parent.left
-                                anchors.leftMargin: margin
-                                width: 30
-                                height: 30
-                                smooth: true
+                                    id: pressure
+                                    source: Config.imagespath + "/pressure.png"
+                                    anchors.top: humidity.bottom
+                                    anchors.topMargin: 22
+                                    anchors.left: parent.left
+                                    anchors.leftMargin: margin
+                                    width: 30
+                                    height: 30
+                                    smooth: true
                             }
                             Text {
                                 text: main.current_model("pressure") + ' ' + Config.tr(Config.pressureunit)
@@ -524,7 +427,7 @@ Component {
                             console.log("current day onclicked");
                             pageStack.push(Qt.resolvedUrl("FullWeatherPage.qml"),
                                            {day: 0, day_period: "day", current: true }
-                                           )
+                                          )
                         }
                     }
                 }
@@ -532,14 +435,17 @@ Component {
                     id: list
                     visible: Forecast_model.rowCount() == 0 ? false : true
                     anchors.top: current_rect.bottom
-                    model: Forecast_model
+                    model:  forecast_stub
+                    //model: Forecast_model
                     delegate: itemDelegate
                     width: parent.width
                     height: 80 * Forecast_model.rowCount()
                     //height: 800
                     interactive: false
                     clip: true
-
+                    Component.onCompleted: {
+                        console.log("list onCompleted")
+                    }
                 }
                 Component {
                     id: itemDelegate
@@ -547,6 +453,7 @@ Component {
                         id: day
                         width: parent.width
                         height: 80
+                        visible: main.forecast_model(index, "fulldate") == undefined ? false : true
 
                         Rectangle {
                             width: parent.width
@@ -555,7 +462,7 @@ Component {
 
                             Text {
                                 id: txt_date
-                                text: model.fulldate
+                                text: main.forecast_model(index, "fulldate") == undefined ? "" : main.forecast_model(index, "fulldate")
                                 color: "#889397"
                                 font.pointSize: 18
                                 anchors.left: parent.left
@@ -564,7 +471,7 @@ Component {
                                 verticalAlignment: Text.AlignVCenter
                             }
                             Text {
-                                text: model.shortdate
+                                text: main.forecast_model(index, "shortdate") == undefined ? "" : main.forecast_model(index, "shortdate") 
                                 color: "white"
                                 font.pointSize: 18
                                 anchors.left: parent.left
@@ -573,7 +480,7 @@ Component {
                                 verticalAlignment: Text.AlignVCenter
                             }
                             Image {
-                                source: Config.iconspath + "/" + Config.iconset + "/" + model.pict
+                                source: main.forecast_model(index, "pict") == undefined ? Config.iconspath + "/" + Config.iconset + "/49.png" : Config.iconspath + "/" + Config.iconset + "/" +  main.forecast_model(index, "pict")
                                 width: 64
                                 height: 64
                                 anchors.horizontalCenter: parent.horizontalCenter
@@ -583,8 +490,8 @@ Component {
                             Text {
                                 id: txt_temphi
                                 font.pointSize: 18
-                                color: getColor(temp_high)
-                                text: model.temp_high + '°'
+                                color: main.forecast_model(index, "temp_high") != undefined ? getColor(main.forecast_model(index, "temp_high")) : getColor(0)
+                                text: main.forecast_model(index, "temp_high") + '°'
                                 anchors.right: parent.right
                                 anchors.rightMargin: margin + 70
                                 height:parent.height
@@ -594,7 +501,7 @@ Component {
                                 id: txt_templo
                                 font.pointSize: 18
                                 color: "#889397"
-                                text: model.temp_low + '°'
+                                text: main.forecast_model(index, "temp_high") + '°'
                                 anchors.right: parent.right
                                 anchors.rightMargin: margin
                                 height:parent.height

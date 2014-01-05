@@ -31,6 +31,30 @@ Page {
         id: current_stub 
         ListElement { description: "" }
     }
+    ListModel {
+        id: forecast_stub 
+        function update() {
+            console.log("forecast_stub")
+            console.log(Forecast_model.rowCount())
+            console.log(forecast_stub.count)
+            if (Forecast_model.rowCount() < forecast_stub.count){
+                console.log("SIZE<")
+                for (var i=forecast_stub.count; i>Forecast_model.rowCount(); i--) {
+                    remove(forecast_stub.count)
+                }
+             }
+             if (Forecast_model.rowCount() > forecast_stub.count){
+                console.log("SIZE>")
+        //        for (var i=forecast_stub.count; i<Forecast_model.rowCount(); i++) {
+                for (var i=forecast_stub.count; i<21; i++) {
+                    append({"id": i})
+                }
+                                                                                                                                    }
+        }
+        Component.onCompleted: update()
+
+    }
+
  /*
     ListModel {
         id: current_ 
@@ -148,17 +172,15 @@ Page {
         Config.updatestations();
     }
 
-    function model_current_description(){
-        console.log("model_current_description" );
-        return Current.getdata(0,"description");
-    }
-    function model_current_wind_direction(){
-        console.log("model_current_wind_direction" );
-        return Current.getdata(0,"wind_direction");
-    }
     function current_model(name){
         return Current.getdata(0, name);
     }
+    function forecast_model(i, name){
+//        console.log("forecast_model(i, name)");
+//        console.log(i);
+        return Forecast_model.getdata(i, name);
+    }
+
     function updatemodels(){
         console.log("QML updatemodels())")
         Current.reload_data(Config.filename);
@@ -167,7 +189,7 @@ Page {
         Forecast_model.update_model(2);
         Forecast_night_model.update_model(3);
         Forecast_hours_model.update_model(4);
-     //   current_.update();
+        //forecast_stub.update()
         //list.height = 80 * Forecast_model.rowCount();
 //        dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
 //        current_rect.visible = Current.rowCount() == 0 ? false : true;
@@ -182,14 +204,13 @@ Page {
         Config.station_by_index(i);
         console.log(" after stationname1_index(index) ")
         console.log(i)
-        updatestationname();
+        main.updatemodels();
         return Config.stationname_index(i)
 //        return Config.stationname
     }
 
     function updatestationname(){
         console.log("updatestationname()")
-        main.updatemodels();
 //        stationname.title = Config.stationname;
        // left_arrow.visible = Config.prevstationname == "" ? false : true;
       //  right_arrow.visible = Config.nextstationname == "" ? false : true;

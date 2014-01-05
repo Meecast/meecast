@@ -175,6 +175,14 @@ Page {
     function current_model(name){
         return Current.getdata(0, name);
     }
+    function get_count_days(i){
+        console.log( "get_count_days()")
+        Config.station_by_index(i);
+        main.updatemodels();
+        console.log(Forecast_model.rowCount())
+        return Forecast_model.rowCount()
+    }
+
     function forecast_model(i, name){
 //        console.log("forecast_model(i, name)");
 //        console.log(i);
@@ -201,10 +209,10 @@ Page {
 
     function stationname1_index(i){
         console.log(" before stationname1_index(index) ")
-        Config.station_by_index(i);
+  //      Config.station_by_index(i);
         console.log(" after stationname1_index(index) ")
         console.log(i)
-        main.updatemodels();
+//        main.updatemodels();
         return Config.stationname_index(i)
 //        return Config.stationname
     }

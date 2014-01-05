@@ -439,7 +439,7 @@ Component {
                     //model: Forecast_model
                     delegate: itemDelegate
                     width: parent.width
-                    height: 80 * Forecast_model.rowCount()
+                    height: 80 *  main.get_count_days(index)
                     //height: 800
                     interactive: false
                     clip: true

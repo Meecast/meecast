@@ -3,6 +3,8 @@ import Sailfish.Silica 1.0
 
 Page {
     id: fullweather
+    property int screen_height : 960
+    property int screen_width : 540
     property int margin: 16
     property int day: 0
     property bool current: false
@@ -356,370 +358,339 @@ Page {
         }
 
     }
-    Rectangle {
-        anchors.fill: parent
+
+    Rectangle{
+        width: screen_width
+        height: screen_height 
         color: "black"
-    }
-
-
-    Flickable {
-        id: flickable
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.bottom: toolbar.top
-
-        flickableDirection: Flickable.VerticalFlick
-
-        contentWidth: flickable.width
-
-        Rectangle {
-            id: day_rect
-            anchors.left: parent.left
+        Flickable {
+            id: flickable
             anchors.top: parent.top
-            width: parent.width
-            height: 72
-            color: "black"
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: toolbar.top
+            flickableDirection: Flickable.VerticalFlick
+            contentWidth: flickable.width
+            PageHeader {
+                id: daynameheader
+                title: (current && day == 0) ? Config.tr("Today") : model_day.getdata(day, "date");
+            }
+
             Rectangle {
-                id: left_arrow
-                width: 72
-                height: 72
-                anchors.top: parent.top
+                id: day_rect
                 anchors.left: parent.left
-                color: "black"
-                visible: day > 0 ? true : false;
-                Image {
-                    id: prevstationimage
-                    source: Config.imagespath + "/arrow_left.png"
-                    width:  62
-                    height: 62
+                anchors.top: parent.top
+                width: parent.width
+                height: 92
+                color: "transparent"
+                Rectangle {
+                    id: left_arrow
+                    width: 72
+                    height: 92
                     anchors.top: parent.top
                     anchors.left: parent.left
-                    //anchors.leftMargin: margin
-                    smooth: true
-                }
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        if (day > 0){
-                            console.log("prev day");
-                            day--;
-                            fullweather.updateperiod();
-                        }
-                    }
-                }
-
-            }
-            Rectangle {
-                 id: right_arrow
-                 width: 72
-                 height: 72
-                 anchors.top: parent.top
-                 anchors.right: parent.right
-                 color: "black"
-                 visible: day < (model_day.rowCount()-1) ? true : false;
-                 Image {
-                     id: nextstationimage
-                     source: Config.imagespath + "/arrow_right.png"
-                     width: 62
-                     height: 62
-                     anchors.top: parent.top
-                     anchors.right: parent.right
-                     //anchors.verticalCenter: parent.verticalCenter
-                     //anchors.rightMargin: margin
-
-                     smooth: true
-                 }
-                 MouseArea {
-                     anchors.fill: parent
-                     onClicked: {
-                        /* if (!current && day < model_day.rowCount()-1){ */
-                        if (day < model_day.rowCount()-1){ 
-                            console.log("next day");
-                            day_period="day";
-                            day++;
-                            fullweather.updateperiod();
-                        }
-                     }
-                 }
-             }
-            Text {
-                id: dayname
-                anchors.top: parent.top
-                anchors.left: parent.left
-                height: parent.height
-                width: parent.width
-                text: (current && day == 0) ? Config.tr("Today") : model_day.getdata(day, "date");
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-                color: "white"
-                font.pointSize: 20
-            }
-        }
-
-        Rectangle {
-            id: current_rect
-            anchors.top: day_rect.bottom
-            width: parent.width
-            height: 274
-            color: "black"
-            Loader {
-                anchors.fill: parent
-                sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}
-            }
-
-            Text {
-                id: now
-                width: 160
-                height: 84
-                anchors.top: parent.top
-                anchors.left: parent.left
-                anchors.leftMargin: margin
-                color: "white"
-                text: day_period_name;
-                font.pointSize: 26
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-            Image {
-                id: icon
-                source:  image_source 
-            	width: 128
-                height: 128
-                anchors.top: parent.top
-                anchors.topMargin: -22
-                anchors.left: now.right
-		         smooth: true
-            }
-            Text {
-		        id: temperature
-                anchors.top: parent.top
-                anchors.left: icon.right
-                anchors.rightMargin: margin
-                width: 160
-                height: 84
-                color: "white"
-                font.pointSize: 26
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-            Rectangle {
-               id: desc  
-               height: 44
-               color: "transparent"
-               width: parent.width 
-               anchors.left: parent.left
-               anchors.top: now.bottom
-               property color textColor: "white"
-               Row {  
-	                id: desc_row
-	                width: parent.width 
-                    Text { 
-                        id: text; 
-                        font.pointSize: 20; 
-                        width: parent.width 
-                        color: desc.textColor; 
-                        text: description_text ; 
-                        verticalAlignment: Text.AlignVCenter; 
-                        horizontalAlignment: description_text_alignment; 
-		    	        MouseArea {
-                    	      anchors.fill: parent
-                              onClicked: {
-				                if (text_anim.running){
-				                    text_anim.running = false;
-				                }else{
-				                    text_anim.running = true;
-				                }
-                              }
-               	        }
-		            }  
-                    NumberAnimation on x { 
-                        id: text_anim; from: 450; to: -500 ; 
-                        duration: 10000; loops: Animation.Infinite; 
-                        running : false; 
-                    } 
-               }  
-            }
-
-            ListModel {
-                id: condition
-            }
-            Component.onCompleted: {
-                updateperiod();
-            }
-            GridView {
-                id: grid
-                anchors.top: desc.bottom
-                anchors.topMargin: 20
-                anchors.left: parent.left
-                anchors.leftMargin: margin
-                anchors.right: parent.right
-                anchors.rightMargin: margin
-                width: parent.width - 2*margin
-                height: 260
-                cellWidth: (parent.width - 2*margin) / 2
-                cellHeight: (condition.count > 6) ? 64 : 94
-                model: condition
-                interactive: false
-                clip: true
-                delegate: Column {
-                    width: grid.width / 2
-                    spacing: 3
-                    Text {
-                        text: model.cond_name
-                        color: "#999999"
-                        font.pointSize: 18
-                    }
-                    Text {
-                        text: model.value
-                        color: "white"
-                        font.pointSize: 18
-                    }
-                }
-            }
-            Rectangle {
-                id: splitter
-		        color: "#303030"
-		        x: 20; width: parent.width - 40; height: 2
-		        anchors.top: grid.bottom 
-		        anchors.leftMargin: 20
-	        }
-	        ListModel {
-                id: condition2
-            }
-            GridView {
-                id: grid2
-                anchors.top: splitter.bottom
-                anchors.topMargin: 10
-                anchors.left: parent.left
-                anchors.leftMargin: margin
-                anchors.right: parent.right
-                anchors.rightMargin: margin
-                width: parent.width - 2*margin
-                height: 165
-                cellWidth: (parent.width - 2*margin) / 2
-                model: condition2
-                interactive: false
-                clip: true
-                delegate: Column {
-                    width: grid.width / 2
-                    spacing: 3
-                    Text {
-                        text: model.cond_name
-                        color: "#999999"
-                        font.pointSize: 18
-                    }
-                    Text {
-                        text: model.value
-                        color: "white"
-                        font.pointSize: 18
-                    }
-                }
-            }
-	        Rectangle {
-               id: map_rect  
-               visible: (count_of_maps > 0) ? true : false
-               height: 44
-               color: "transparent"
-               width: parent.width 
-               anchors.left: parent.left
-               anchors.top: grid2.bottom 
-               anchors.topMargin: 20
-               Text {
-                    id: map_text
-                    anchors.fill: parent
-                    text:  Config.tr("Show on Map") 
-                    color: "white"
-                    visible: false
-                    font.pointSize: 24 
-                    width: parent.width 
-                    horizontalAlignment: Text.AlignHCenter
-               }
-	           MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                           console.log("Map onclicked");
-                           pageStack.push(Qt.resolvedUrl("MapPage.qml"),
-                                          {map_pattern: map_pattern, count_of_maps: count_of_maps,
-                                           mapbackground_pattern: mapbackground_pattern }
-                                         )
-                    }
-               }
-	        }
-        }
-        ListView {
-                id: hours_list
-                visible: false 
-                anchors.top: day_rect.bottom
-                model: Forecast_hours_model 
-                delegate: itemDelegate
-                width: parent.width
-                height: 80 * Forecast_hours_model.rowCount()
-                interactive: false
-                clip: true
-        }
-        Component {
-                id: itemDelegate
-                Item {
-                    id: day
-                    width: parent.width
-                    height: 80
-
-                    Rectangle {
-                        width: parent.width
-                        height: 80
-                        color: (index % 2 != 0) ? "black" : "#0f0f0f"
-
-                        Text {
-                            id: txt_date
-                            text: model.fulldate
-                            color: "#889397"
-                            font.pointSize: 18
-                            anchors.left: parent.left
-                            anchors.leftMargin: margin
-                            height:parent.height
-                            verticalAlignment: Text.AlignVCenter
-                        }
-                        Text {
-                            text: model.hourdate
-                            color: "white"
-                            font.pointSize: 18
-                            anchors.left: parent.left
-                            anchors.leftMargin: (margin + txt_date.width + 8)
-                            height:parent.height
-                            verticalAlignment: Text.AlignVCenter
-                        }
-                        Image {
-                            source: Config.iconspath + "/" + Config.iconset + "/" + model.pict
-                            width: 64
-                            height: 64
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            anchors.verticalCenter: parent.verticalCenter
-                            smooth: true
-                        }
-                        Text {
-                            id: txt_temp
-                            font.pointSize: 18
-                            color: getColor(temp_high)
-                            text: model.temp + '°'
-                            anchors.right: parent.right
-                            anchors.rightMargin: margin + 70
-                            height:parent.height
-                            verticalAlignment: Text.AlignVCenter
-                        }
-
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                console.log("hour onclicked");
-//                                pageStack.push(Qt.resolvedUrl("FullWeatherPage.qml"),
-//                                               {day: index, day_period: "day" }
-//                                               )
+                    color: "transparent"
+                    visible: day > 0 ? true : false;
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            if (day > 0){
+                                console.log("prev day");
+                                day--;
+                                fullweather.updateperiod();
                             }
                         }
                     }
+
                 }
-            } //component itemDelegate
+
+                Rectangle {
+                     id: right_arrow
+                     width: 92
+                     height: 92
+                     anchors.top: parent.top
+                     anchors.right: parent.right
+                     color: "transparent"
+                     visible: day < (model_day.rowCount()-1) ? true : false;
+                     MouseArea {
+                         anchors.fill: parent
+                         onClicked: {
+                            // if (!current && day < model_day.rowCount()-1){ 
+                            if (day < model_day.rowCount()-1){ 
+                                console.log("next day");
+                                day_period="day";
+                                day++;
+                                fullweather.updateperiod();
+                            }
+                         }
+                     }
+                 }
+            }
+            Rectangle {
+                id: current_rect
+                anchors.top: day_rect.bottom
+                width: parent.width
+                height: 274
+                //color: "black"
+                color: "transparent"
+                Loader {
+                    anchors.fill: parent
+                    sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}
+                }
+
+                Text {
+                    id: now
+                    width: 160
+                    height: 84
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    anchors.leftMargin: margin
+                    color: "white"
+                    text: day_period_name;
+                    font.pointSize: 26
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                }
+                Image {
+                    id: icon
+                    source:  image_source 
+                    width: 128
+                    height: 128
+                    anchors.top: parent.top
+                    anchors.topMargin: -22
+                    anchors.left: now.right
+                     smooth: true
+                }
+                Text {
+                    id: temperature
+                    anchors.top: parent.top
+                    anchors.left: icon.right
+                    anchors.rightMargin: margin
+                    width: 160
+                    height: 84
+                    color: "white"
+                    font.pointSize: 26
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                }
+                Rectangle {
+                   id: desc  
+                   height: 44
+                   color: "transparent"
+                   width: parent.width 
+                   anchors.left: parent.left
+                   anchors.top: now.bottom
+                   property color textColor: "white"
+                   Row {  
+                        id: desc_row
+                        width: parent.width 
+                        Text { 
+                            id: text; 
+                            font.pointSize: 20; 
+                            width: parent.width 
+                            color: desc.textColor; 
+                            text: description_text ; 
+                            verticalAlignment: Text.AlignVCenter; 
+                            horizontalAlignment: description_text_alignment; 
+                            MouseArea {
+                                  anchors.fill: parent
+                                  onClicked: {
+                                    if (text_anim.running){
+                                        text_anim.running = false;
+                                    }else{
+                                        text_anim.running = true;
+                                    }
+                                  }
+                            }
+                        }  
+                        NumberAnimation on x { 
+                            id: text_anim; from: 450; to: -500 ; 
+                            duration: 10000; loops: Animation.Infinite; 
+                            running : false; 
+                        } 
+                   }  
+                }
+
+                ListModel {
+                    id: condition
+                }
+                Component.onCompleted: {
+                    updateperiod();
+                }
+                GridView {
+                    id: grid
+                    anchors.top: desc.bottom
+                    anchors.topMargin: 20
+                    anchors.left: parent.left
+                    anchors.leftMargin: margin
+                    anchors.right: parent.right
+                    anchors.rightMargin: margin
+                    width: parent.width - 2*margin
+                    height: 260
+                    cellWidth: (parent.width - 2*margin) / 2
+                    cellHeight: (condition.count > 6) ? 64 : 94
+                    model: condition
+                    interactive: false
+                    clip: true
+                    delegate: Column {
+                        width: grid.width / 2
+                        spacing: 3
+                        Text {
+                            text: model.cond_name
+                            color: "#999999"
+                            font.pointSize: 18
+                        }
+                        Text {
+                            text: model.value
+                            color: "white"
+                            font.pointSize: 18
+                        }
+                    }
+                }
+                Rectangle {
+                    id: splitter
+                    color: "#303030"
+                    x: 20; width: parent.width - 40; height: 2
+                    anchors.top: grid.bottom 
+                    anchors.leftMargin: 20
+                }
+                ListModel {
+                    id: condition2
+                }
+                GridView {
+                    id: grid2
+                    anchors.top: splitter.bottom
+                    anchors.topMargin: 10
+                    anchors.left: parent.left
+                    anchors.leftMargin: margin
+                    anchors.right: parent.right
+                    anchors.rightMargin: margin
+                    width: parent.width - 2*margin
+                    height: 165
+                    cellWidth: (parent.width - 2*margin) / 2
+                    model: condition2
+                    interactive: false
+                    clip: true
+                    delegate: Column {
+                        width: grid.width / 2
+                        spacing: 3
+                        Text {
+                            text: model.cond_name
+                            color: "#999999"
+                            font.pointSize: 18
+                        }
+                        Text {
+                            text: model.value
+                            color: "white"
+                            font.pointSize: 18
+                        }
+                    }
+                }
+                Rectangle {
+                   id: map_rect  
+                   visible: (count_of_maps > 0) ? true : false
+                   height: 44
+                   color: "transparent"
+                   width: parent.width 
+                   anchors.left: parent.left
+                   anchors.top: grid2.bottom 
+                   anchors.topMargin: 20
+                   Text {
+                        id: map_text
+                        anchors.fill: parent
+                        text:  Config.tr("Show on Map") 
+                        color: "white"
+                        visible: false
+                        font.pointSize: 24 
+                        width: parent.width 
+                        horizontalAlignment: Text.AlignHCenter
+                   }
+                   MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                               console.log("Map onclicked");
+                               pageStack.push(Qt.resolvedUrl("MapPage.qml"),
+                                              {map_pattern: map_pattern, count_of_maps: count_of_maps,
+                                               mapbackground_pattern: mapbackground_pattern }
+                                             )
+                        }
+                   }
+                }
+            }
+            ListView {
+                    id: hours_list
+                    visible: false 
+                    anchors.top: day_rect.bottom
+                    model: Forecast_hours_model 
+                    delegate: itemDelegate
+                    width: parent.width
+                    height: 80 * Forecast_hours_model.rowCount()
+                    interactive: false
+                    clip: true
+            }
+            Component {
+                    id: itemDelegate
+                    Item {
+                        id: day
+                        width: parent.width
+                        height: 80
+
+                        Rectangle {
+                            width: parent.width
+                            height: 80
+                            color: (index % 2 != 0) ? "black" : "#0f0f0f"
+
+                            Text {
+                                id: txt_date
+                                text: model.fulldate
+                                color: "#889397"
+                                font.pointSize: 18
+                                anchors.left: parent.left
+                                anchors.leftMargin: margin
+                                height:parent.height
+                                verticalAlignment: Text.AlignVCenter
+                            }
+                            Text {
+                                text: model.hourdate
+                                color: "white"
+                                font.pointSize: 18
+                                anchors.left: parent.left
+                                anchors.leftMargin: (margin + txt_date.width + 8)
+                                height:parent.height
+                                verticalAlignment: Text.AlignVCenter
+                            }
+                            Image {
+                                source: Config.iconspath + "/" + Config.iconset + "/" + model.pict
+                                width: 64
+                                height: 64
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                anchors.verticalCenter: parent.verticalCenter
+                                smooth: true
+                            }
+                            Text {
+                                id: txt_temp
+                                font.pointSize: 18
+                                color: getColor(temp_high)
+                                text: model.temp + '°'
+                                anchors.right: parent.right
+                                anchors.rightMargin: margin + 70
+                                height:parent.height
+                                verticalAlignment: Text.AlignVCenter
+                            }
+
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: {
+                                    console.log("hour onclicked");
+    //                                pageStack.push(Qt.resolvedUrl("FullWeatherPage.qml"),
+    //                                               {day: index, day_period: "day" }
+    //                                               )
+                                }
+                            }
+                        }
+                    }
+                } //component itemDelegate
+            }
         }
 //    }
     Rectangle{

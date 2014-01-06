@@ -22,8 +22,6 @@ Page {
             for (var i=0; i<Config.stations().length; i++) {
                 append({"id": i, "key": Config.stations()[i]})
             }
-//            console.log("Size of stations List")
-//            console.log(Config.stations().length)
         }
         Component.onCompleted: update("")
     }
@@ -34,22 +32,9 @@ Page {
     ListModel {
         id: forecast_stub 
         function update() {
-            console.log("forecast_stub")
-            console.log(Forecast_model.rowCount())
-            console.log(forecast_stub.count)
-            if (Forecast_model.rowCount() < forecast_stub.count){
-                console.log("SIZE<")
-                for (var i=forecast_stub.count; i>Forecast_model.rowCount(); i--) {
-                    remove(forecast_stub.count)
-                }
-             }
-             if (Forecast_model.rowCount() > forecast_stub.count){
-                console.log("SIZE>")
-        //        for (var i=forecast_stub.count; i<Forecast_model.rowCount(); i++) {
-                for (var i=forecast_stub.count; i<21; i++) {
+            for (var i=0; i<21; i++) {
                     append({"id": i})
-                }
-                                                                                                                                    }
+            }
         }
         Component.onCompleted: update()
 
@@ -250,9 +235,7 @@ Page {
         Timer{
             interval: 500; running: true; repeat: false
             onTriggered: { 
-                console.log("%%%%%%%%%%%%%%%%%%%")
                 listview.positionViewAtIndex(real_current_id, ListView.Beginning)
-                console.log(main.real_current_id)
                 Config._current_station_id(main.real_current_id)
                 Config.saveConfig()
             }
@@ -270,11 +253,13 @@ Page {
         model: stations
         interactive: true
         currentIndex: Config._current_station_id() 
-        Component.onCompleted: {
-            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        Component.onCompleted: {}
+        onCurrentIndexChanged:{}
+        onFlickEnded: { 
+            real_current_id = indexAt(contentX,contentY);
+            Config._current_station_id(main.real_current_id)
+            Config.saveConfig();
         }
-        onCurrentIndexChanged:{ console.log("2222222222222222")}
-
      }
      Rectangle {
             id: startview

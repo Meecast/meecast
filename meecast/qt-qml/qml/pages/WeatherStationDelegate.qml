@@ -449,8 +449,8 @@ Component {
                     clip: true
                     Component.onCompleted: {
                         console.log("list onCompleted")
-                        Config._current_station_id(main.real_current_id)
-                        Config.saveConfig()
+                     //   Config._current_station_id(main.real_current_id)
+                     //   Config.saveConfig()
                     }
                 }
                 Component {
@@ -507,7 +507,7 @@ Component {
                                 id: txt_templo
                                 font.pointSize: 18
                                 color: "#889397"
-                                text: main.forecast_model(index, "temp_high") + '°'
+                                text: main.forecast_model(index, "temp_low") + '°'
                                 anchors.right: parent.right
                                 anchors.rightMargin: margin
                                 height:parent.height

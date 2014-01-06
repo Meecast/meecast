@@ -425,6 +425,8 @@ Component {
                         anchors.fill: parent
                         onClicked: {
                             console.log("current day onclicked");
+                            Config._current_station_id(main.real_current_id)
+                            console.log(Config._current_station_id())
                             pageStack.push(Qt.resolvedUrl("FullWeatherPage.qml"),
                                            {day: 0, day_period: "day", current: true }
                                           )

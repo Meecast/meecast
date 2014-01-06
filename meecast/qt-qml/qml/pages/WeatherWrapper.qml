@@ -257,6 +257,11 @@ Page {
         model: stations
         interactive: true
         currentIndex: Config._current_station_id() 
+        Component.onCompleted: {
+            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            positionViewAtIndex(count - 1, ListView.Beginning) 
+        }
+        onCurrentIndexChanged:{ console.log("2222222222222222")}
 
      }
      Rectangle {
@@ -327,5 +332,5 @@ Page {
                 anchors.bottomMargin: 50
             }
         }
+    }
 
-}

@@ -246,6 +246,19 @@ Page {
         model: listModel
         delegate: WeatherStationDelegate { id: weatherStationDelegate }
     } 
+    Item{
+        Timer{
+            interval: 500; running: true; repeat: false
+            onTriggered: { 
+                console.log("%%%%%%%%%%%%%%%%%%%")
+                listview.positionViewAtIndex(real_current_id, ListView.Beginning)
+                console.log(main.real_current_id)
+                Config._current_station_id(main.real_current_id)
+                Config.saveConfig()
+            }
+        }
+    }
+
 
     SilicaListView {
         id: listview
@@ -259,7 +272,6 @@ Page {
         currentIndex: Config._current_station_id() 
         Component.onCompleted: {
             console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-            positionViewAtIndex(count - 1, ListView.Beginning) 
         }
         onCurrentIndexChanged:{ console.log("2222222222222222")}
 

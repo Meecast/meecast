@@ -426,7 +426,9 @@ Component {
                         onClicked: {
                             console.log("current day onclicked");
                             Config._current_station_id(main.real_current_id)
+                            //Config._current_station_id(0)
                             console.log(Config._current_station_id())
+                            main.updatemodels()
                             pageStack.push(Qt.resolvedUrl("FullWeatherPage.qml"),
                                            {day: 0, day_period: "day", current: true }
                                           )
@@ -447,6 +449,8 @@ Component {
                     clip: true
                     Component.onCompleted: {
                         console.log("list onCompleted")
+                        Config._current_station_id(main.real_current_id)
+                        Config.saveConfig()
                     }
                 }
                 Component {

@@ -1,6 +1,5 @@
-//import QtQuick 1.1
-import Qt 4.7
-import com.nokia.meego 1.0
+import QtQuick 2.0
+import Sailfish.Silica 1.0
 
 Page {
     id: mapweather
@@ -10,23 +9,6 @@ Page {
     property string mapbackground_pattern: ""
     property string filenamebackground: ""
     property string count_of_maps: ""
-    tools: ToolBarLayout {
-        ToolIcon {
-            iconId: "toolbar-back"
-            onClicked: {
-                //menu.close();
-                pageStack.pop();
-            }
-        }
-   
-        ToolIcon {
-            iconId: "toolbar-view-menu"
-            onClicked: {(myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()}
-            anchors.right: parent == undefined ? undefined : parent.right
-        }
-
-    }
-    orientationLock: PageOrientation.LockPortrait
     function openFile(file)
     {
         var component = Qt.createComponent(file);

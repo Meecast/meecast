@@ -1086,3 +1086,8 @@ ConfigQml::_current_station_id(){
     return current_station_id();
 }
 
+void
+ConfigQml::_current_station_id(int i){
+    current_station_id(i);
+}
+

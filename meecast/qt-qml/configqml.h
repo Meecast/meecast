@@ -138,7 +138,7 @@ public:
     QString filename();
     QString source();
     QString version();
-    void saveConfig();
+    Q_INVOKABLE void saveConfig();
     int updateinterval();
     QString viewURL();
     Q_INVOKABLE QStringList stations();

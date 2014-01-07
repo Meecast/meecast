@@ -57,6 +57,7 @@ Page {
             anchors.topMargin: 100
             anchors.bottom: parent.bottom
             width: parent.width
+            currentIndex: -1
             model: listModel
             header:  SearchField {
                         id: searchField

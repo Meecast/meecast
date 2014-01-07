@@ -7,21 +7,6 @@ Page {
     property int margin: 16
     property int removedStation: -1
     property string removedStationName: ""
-
-//    tools: ToolBarLayout {
-//        ToolIcon {
-//            iconId: "toolbar-back"
-//            onClicked: {
-//                pageStack.pop();
-//            }
-//        }
-//        ToolIcon {
-//            iconId: "toolbar-add"
-//            onClicked: {stations.openFile("SourcePage.qml")}
-//            anchors.right: parent == undefined ? undefined : parent.right
-//        }
-//    }
-//    orientationLock: PageOrientation.LockPortrait
     function openFile(file)
     {
         pageStack.push(Qt.resolvedUrl(file))

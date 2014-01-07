@@ -632,10 +632,12 @@ Config::~Config(){
 void
 Config::iconSet(const std::string& text){
     /* ToDo Check access to path */
+    /* std::cerr<<"Config::iconSet(const std::string& text) "<<text.c_str()<<std::endl; */
     _iconset->assign(text);
 }
 std::string&
 Config::iconSet(){
+    /* std::cerr<<"Config::iconSet() "<<_iconset->c_str()<<std::endl; */
     return *_iconset;
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -886,7 +888,8 @@ Config::iconspath(){
     std::string *_path;
     _path = new std::string("");
     _path->assign( _pathPrefix->c_str());
-    _path->append("/icons");
+    _path->append("/iconsets");
+    /* std::cerr<<"Iconset path "<< _path->c_str()<<std::endl; */
     return *_path;
 }
 

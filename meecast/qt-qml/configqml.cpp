@@ -170,6 +170,7 @@ QString
 ConfigQml::iconset(){
     QString c;
     c = ConfigQml::Config::iconSet().c_str();
+    /* std::cerr<<"ConfigQml::iconset()"<< c.toStdString().c_str()<<std::endl; */
     return c;
 }
 QStringList
@@ -204,6 +205,7 @@ ConfigQml::icon_list()
 void
 ConfigQml::set_iconset(QString c)
 {
+    /* std::cerr<<"ConfigQml::set_iconset(QString c)"<< c.toStdString().c_str()<<std::endl; */
     ConfigQml::Config::iconSet(c.toStdString());
     saveConfig();
     refreshconfig();
@@ -796,8 +798,9 @@ ConfigQml::stationname_index(int i){
     if (i>=0 && i <this->stationsList().size()){
         std::cerr<<"ConfigQml::stationname_index "<<i<<std::endl;
         return qstr.fromUtf8(ConfigQml::Config::stationname(i).c_str()); 
-    }else
-        QString("Unknown");
+    }else{
+        return QString("Unknown");
+    }
 }
 
 QString

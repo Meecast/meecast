@@ -39,9 +39,10 @@ BuildRequires:  gettext
 BuildRequires: qt5-qtpositioning-devel
 Requires:      qt5-qtpositioning 
 Requires:      sailfishsilica-qt5
+Requires:      qt5-qtdeclarative-import-models2 
 
 %description
-Weather Forecast on Meego.
+MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code
 
 
 

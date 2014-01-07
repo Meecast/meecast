@@ -192,7 +192,8 @@ Page {
             console.log("end update station name = "+Config.stationname);
             startview.visible = Config.stationname == "Unknown" ? true : false;
             listview.visible = Config.stationname == "Unknown" ? false : true;
-            //listModel.update()
+            listModel.update()
+            updatemodels();
             isUpdate = false;
 
         }

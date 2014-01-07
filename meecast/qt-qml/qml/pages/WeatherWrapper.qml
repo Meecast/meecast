@@ -12,9 +12,9 @@ Page {
     property bool isUpdate: false
     property real flick_start_position: 0
     property bool menuitemgps: Config.gps
- 
-   objectName: "WeatherPage"
-    
+
+    objectName: "WeatherPage"
+
     ListModel {
         id: listModel
         function update() {
@@ -40,25 +40,9 @@ Page {
 
     }
 
- /*
-    ListModel {
-        id: current_ 
-        function update() {
-            clear()
-            append({"description": Current.getdata(0, "description") })
-        }
-        Component.onCompleted: update("")
-    }
-    */ 
     function openFile(file)
     {
         pageStack.push(Qt.resolvedUrl(file))
-//        var component = Qt.createComponent(file);
-//        if (component.status == Component.Ready){
-//            pageStack.push(component);
-//        }else {
-//            console.log("error open file "+file);
-//        }
     }
 
     function getColor(t)
@@ -202,16 +186,6 @@ Page {
 //        return Config.stationname
     }
 
-    function updatestationname(){
-        console.log("updatestationname()")
-//        stationname.title = Config.stationname;
-       // left_arrow.visible = Config.prevstationname == "" ? false : true;
-      //  right_arrow.visible = Config.nextstationname == "" ? false : true;
-//        sourceicon.visible = false;
-//        sourceicon.source = Config.imagespath + "/" + Config.source + ".png";
-//        sourceicon.visible = true;
-    }
-
     Connections {
         target: Config
         onConfigChanged: {
@@ -219,7 +193,6 @@ Page {
             startview.visible = Config.stationname == "Unknown" ? true : false;
             listview.visible = Config.stationname == "Unknown" ? false : true;
             //listModel.update()
-           // main.updatestationname();
             isUpdate = false;
 
         }
@@ -264,11 +237,9 @@ Page {
      Rectangle {
             id: startview
             visible: Config.stationname == "Unknown" ? true : false
-            //visible: true 
-//            width: parent.width
-//            height: main.screen_height - 72 - 36
-            width: 540
-            height: 950
+            width: screen_width
+            height: screen_height
+            color: "black"
             Rectangle {
                 anchors.left: parent.left
                 anchors.top: parent.top
@@ -311,7 +282,6 @@ Page {
                 color: "#999999"
                 wrapMode: Text.Wrap
                 width: parent.width - 2*margin
-                //anchors.verticalCenter: parent.verticalCenter
                 anchors.top: parent.top
                 anchors.topMargin: 250
                 anchors.left: parent.left
@@ -326,7 +296,7 @@ Page {
                 }
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: 50
+                anchors.bottomMargin: 150
             }
         }
     }

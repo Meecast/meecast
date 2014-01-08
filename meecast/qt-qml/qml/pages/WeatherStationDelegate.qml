@@ -343,7 +343,7 @@ Component {
                                 anchors.top: desc.bottom
                                 anchors.topMargin: 32
                                 anchors.left: parent.left
-                                anchors.leftMargin: margin+224
+                                anchors.leftMargin: margin + main.width/2
                                 width: 30
                                 height: 30
                                 smooth: true
@@ -355,7 +355,7 @@ Component {
                                 anchors.top: desc.bottom
                                 anchors.topMargin: 32
                                 anchors.left: parent.left
-                                anchors.leftMargin: margin+224
+                                anchors.leftMargin: margin + main.width/2
                                 width: 30
                                 height: 30
                                 smooth: true
@@ -404,7 +404,7 @@ Component {
                                 anchors.top: humidity.bottom
                                 anchors.topMargin: 22
                                 anchors.left: parent.left
-                                anchors.leftMargin: margin+224
+                                anchors.leftMargin: margin + main.width/2 
                                 width: 30
                                 height: 30
                                 smooth: true

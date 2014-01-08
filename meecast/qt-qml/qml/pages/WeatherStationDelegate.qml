@@ -4,8 +4,10 @@ Component {
    id: weatherStationDelegate
 
     Rectangle {
-        width: screen_width
+        id: main_recatngle
+        width: main.screen_width
         height: main.screen_height 
+        property int icon_size: 128
         color: "black"
         SilicaFlickable {
             id: flickable
@@ -119,7 +121,7 @@ Component {
                     anchors.left: parent.left
                     anchors.top: parent.top
                     width: parent.width
-                    height: 72
+                    height: 92
                     color: "black"
                     visible: isUpdate ? true : false
 
@@ -145,7 +147,6 @@ Component {
                     width: parent.width
                     height: 92
                     color: "transparent"
-                    //color: "black"
                     visible: isUpdate ? false : true
                 }
                 Rectangle {
@@ -155,7 +156,7 @@ Component {
                     width: parent.width
                     //height: current_rect.height + list.height
                     //height: main.screen_height - 72 - 72 - 36
-                    height: main.screen_height - 72 
+                    height: main.screen_height - 92 
                     //color: "black"
                     Loader {
                         id: empty_background
@@ -224,7 +225,7 @@ Component {
                         Item {
                             Text {
                                 id: now
-                                width: 160
+                                width: screen_width/2 - icon_size/2 
                                 height: 84
                                 anchors.top: parent.top
                                 anchors.left: parent.left
@@ -239,8 +240,8 @@ Component {
                             Image {
                                 id: icon
                                 source: Config.iconspath + "/" + Config.iconset + "/" + main.current_model("pict") 
-                                width: 128
-                                height: 128
+                                width: icon_size 
+                                height: icon_size
                                 anchors.top: parent.top
                                 anchors.topMargin: -22
                                 anchors.left: now.right
@@ -251,7 +252,7 @@ Component {
                                 anchors.left: icon.right
                                 anchors.rightMargin: margin
                                 id: temp_text
-                                width: 160
+                                width: screen_width/2 - icon_size/2
                                 height: 84
                                 color: "white"
                                 text: model.temp + '°'

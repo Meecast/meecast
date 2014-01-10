@@ -18,6 +18,12 @@ Component {
             PageHeader {
                 id: stationname
                 title: main.stationname1_index(index) 
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        console.log("111111111111111")
+                    }
+                }
             }
             PullDownMenu {
                 MenuItem {

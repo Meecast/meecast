@@ -37,16 +37,13 @@ Page {
             }
         }
         Component.onCompleted: update()
-
     }
 
-    function openFile(file)
-    {
+    function openFile(file){
         pageStack.push(Qt.resolvedUrl(file))
     }
 
-    function getColor(t)
-    {
+    function getColor(t){
         var c1, c2, c3;
         if (Config.temperatureunit == "F"){
             t = (t - 32) * 5 / 9;
@@ -77,8 +74,7 @@ Page {
         }
 
     }
-    function getAngle(s)
-    {
+    function getAngle(s){
         var a;
 
         /*
@@ -216,10 +212,11 @@ Page {
         }
     }
 
-
     SilicaListView {
         id: listview
         anchors.fill: parent
+        height: 960 
+        width: 540
         visible: Config.stationname == "Unknown" ? false : true
         orientation: Qt.Horizontal
         highlightRangeMode: ListView.StrictlyEnforceRange
@@ -237,69 +234,69 @@ Page {
         }
      }
      Rectangle {
-            id: startview
-            visible: Config.stationname == "Unknown" ? true : false
-            width: screen_width
-            height: screen_height
+        id: startview
+        visible: Config.stationname == "Unknown" ? true : false
+        width: screen_width
+        height: screen_height
+        color: "black"
+        Rectangle {
+            anchors.left: parent.left
+            anchors.top: parent.top
+            width: parent.width
+            height: 72
             color: "black"
-            Rectangle {
-                anchors.left: parent.left
-                anchors.top: parent.top
-                width: parent.width
-                height: 72
-                color: "black"
-            }
-            Text {
-                id: empty_text
-                anchors.left: parent.left
-                anchors.top: parent.top
-                width: parent.width
-                height: 72
-                color: "white"
-                font.pointSize: 28
-                text: Config.tr("MeeCast")
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-            }
+        }
+        Text {
+            id: empty_text
+            anchors.left: parent.left
+            anchors.top: parent.top
+            width: parent.width
+            height: 72
+            color: "white"
+            font.pointSize: 28
+            text: Config.tr("MeeCast")
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
 
-            Loader {
-                id: empty_background1
-                anchors.top: empty_text.bottom
-                anchors.left: parent.left
-                width: parent.width
-                height: 274
-                sourceComponent: Image {source: Config.imagespath + "/mask_background.png"}
+        Loader {
+            id: empty_background1
+            anchors.top: empty_text.bottom
+            anchors.left: parent.left
+            width: parent.width
+            height: 274
+            sourceComponent: Image {source: Config.imagespath + "/mask_background.png"}
+        }
+        Rectangle {
+            anchors.top: empty_background1.bottom
+            width: parent.width
+            height: 600 
+            //height: dataview.height - 274
+            color: "black"
+        }
+        Label {
+            horizontalAlignment: Text.AlignHCenter
+            text: Config.tr("No locations are set up yet.")
+            font.pixelSize: 54 
+            color: "#999999"
+            wrapMode: Text.Wrap
+            width: parent.width - 2*margin
+            anchors.top: parent.top
+            anchors.topMargin: 250
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.leftMargin: margin
+            anchors.rightMargin: margin
+        }
+        Button {
+            text: Config.tr("Set locations")
+            onClicked: {
+                main.openFile("SourcePage.qml")
             }
-            Rectangle {
-                anchors.top: empty_background1.bottom
-                width: parent.width
-                height: 600 
-                //height: dataview.height - 274
-                color: "black"
-            }
-            Label {
-                horizontalAlignment: Text.AlignHCenter
-                text: Config.tr("No locations are set up yet.")
-                font.pixelSize: 54 
-                color: "#999999"
-                wrapMode: Text.Wrap
-                width: parent.width - 2*margin
-                anchors.top: parent.top
-                anchors.topMargin: 250
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.leftMargin: margin
-                anchors.rightMargin: margin
-            }
-            Button {
-                text: Config.tr("Set locations")
-                onClicked: {
-                    main.openFile("SourcePage.qml")
-                }
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: 150
-            }
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 150
         }
     }
+}
 

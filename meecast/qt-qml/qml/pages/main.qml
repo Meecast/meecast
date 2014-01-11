@@ -23,45 +23,5 @@ ApplicationWindow {
 //        theme.inverted = true;
 //    }
 
-    initialPage: WeatherPage {}
-
-    function openFile(file)
-    {
-        var component = Qt.createComponent(file);
-        if (component.status == Component.Ready){
-            pageStack.push(component);
-        }else {
-            console.log("error open file "+file);
-        }
-    }
-
-//    Menu {
-//        id: myMenu
-//        // visualParent: pageStack
-//        MenuLayout {
-//            MenuItem {
-//                id: item1
-//                text: Config.tr("Settings")
-//                onClicked: {
-//                    rootWindow.openFile("SettingsPage.qml");
-//                }
-//            }
-//            MenuItem {
-//                id: item2
-//                visible: menuitemgps
-//                text: Config.tr("Adjust GPS station")
-//                onClicked: {
-//                    Config.updategpsstation();
-//                }
-//            }
-//            MenuItem {
-//                id: item3
-//                text: Config.tr("About")
-//                onClicked: {
-//                    rootWindow.openFile("AboutPage.qml");
-//                }
-//            }
-//        }
-//    }
-//
+    initialPage: Component { WeatherPage {} }
 }

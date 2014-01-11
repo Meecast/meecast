@@ -5,7 +5,7 @@ Component {
 
     Rectangle {
         id: main_recatngle
-        width: main.screen_width
+        width: main.screen_width 
         height: main.screen_height 
         property int icon_size: 128
         color: "black"
@@ -15,6 +15,11 @@ Component {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: toolbar.top
+            pressDelay: 0
+            contentWidth: flickable.width
+            contentHeight: station_rect.height + current_rect.height + list.height
+            flickableDirection: Flickable.VerticalFlick
+
             PageHeader {
                 id: stationname
                 title: main.stationname1_index(index) 
@@ -50,9 +55,6 @@ Component {
                 }
             }
 
-            contentWidth: flickable.width
-            contentHeight: station_rect.height + current_rect.height + list.height
-            flickableDirection: Flickable.VerticalFlick
             Rectangle {
                 id: startview
                 visible: Config.stationname == "Unknown" ? true : false

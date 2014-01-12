@@ -570,10 +570,10 @@ Component {
                 smooth: true
 
                 Component.onCompleted: {
-                    console.log("Index")
-                    console.log(index)
-                    console.log( Config.source_index(index))
-                    console.log( Config.stationname)
+//                    console.log("Index")
+//                    console.log(index)
+//                    console.log( Config.source_index(index))
+//                    console.log( Config.stationname)
                 }
                 MouseArea{
                     anchors.fill: parent

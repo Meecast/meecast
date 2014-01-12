@@ -121,6 +121,7 @@ Config::saveConfig()
     t = doc.createTextNode(QString::number(_current_station_id));
     el.appendChild(t);
     root.appendChild(el);
+    std::cerr<<"Save Config _current_station_id "<<_current_station_id<< std::endl;
 
     el = doc.createElement("update_period");
     t = doc.createTextNode(QString::number(_update_period));
@@ -650,6 +651,7 @@ Config::current_station_id(int id_station){
         _current_station_id = 0;
     if (this->stationsList().size() == 0)
         _current_station_id = INT_MAX;
+    std::cerr<<"Config::current_station_id(int id_station) "<<_current_station_id<<std::endl;
 }
 ////////////////////////////////////////////////////////////////////////////////
 int   
@@ -658,6 +660,8 @@ Config::current_station_id(){
         _current_station_id = 0;
     if (this->stationsList().size() == 0)
         _current_station_id = INT_MAX;
+
+    std::cerr<<"Config::current_station_id() "<<_current_station_id<<std::endl;
     return _current_station_id;
 }
 ////////////////////////////////////////////////////////////////////////////////

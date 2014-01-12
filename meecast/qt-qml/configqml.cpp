@@ -838,6 +838,7 @@ ConfigQml::update_interval(int interval)
 QString
 ConfigQml::filename()
 {
+    std::cerr<<"current_station_id"<<this->current_station_id()<<std::endl;
     if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
                                                 &&  this->stationsList().at(this->current_station_id()))
         return this->stationsList().at(this->current_station_id())->fileName().c_str();
@@ -1086,11 +1087,13 @@ ConfigQml::getGpsStation(){
 
 int
 ConfigQml::_current_station_id(){
+    std::cerr<<"ConfigQml::_current_station_id() "<< std::endl;
     return current_station_id();
 }
 
 void
 ConfigQml::_current_station_id(int i){
+    std::cerr<<"ConfigQml::_current_station_id(int i) "<< i<<std::endl;
     current_station_id(i);
 }
 

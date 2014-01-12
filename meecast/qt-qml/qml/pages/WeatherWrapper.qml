@@ -140,9 +140,10 @@ Page {
     function current_model(name){
         return Current.getdata(0, name);
     }
-    function get_count_days(i){
+    function get_count_days(){
         console.log( "get_count_days()")
-        Config.station_by_index(i);
+//        console.log( i )
+       // Config.station_by_index(i);
         main.updatemodels();
         console.log(Forecast_model.rowCount())
         return Forecast_model.rowCount()
@@ -227,10 +228,11 @@ Page {
         Component.onCompleted: {}
         onCurrentIndexChanged:{ console.log("onCurrentIndexChanged")}
         onFlickEnded: { 
-            console.log("onFlickEnded")
+            //console.log("onFlickEnded")
             real_current_id = indexAt(contentX,contentY);
             Config._current_station_id(main.real_current_id)
             Config.saveConfig();
+            Config.refreshconfig();
         }
      }
      Rectangle {

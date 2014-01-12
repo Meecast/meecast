@@ -3,7 +3,8 @@ import Sailfish.Silica 1.0
 import "pages"
 
 ApplicationWindow {
-    //initialPage: WeatherPage {}
+    id: app
+    property string temperature : ""
     initialPage: WeatherWrapper {}
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
 }

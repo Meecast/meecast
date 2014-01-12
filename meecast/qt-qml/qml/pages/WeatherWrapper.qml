@@ -144,8 +144,8 @@ Page {
         console.log( "get_count_days()")
 //        console.log( i )
        // Config.station_by_index(i);
-        main.updatemodels();
-        console.log(Forecast_model.rowCount())
+ //       main.updatemodels();
+ //       console.log(Forecast_model.rowCount())
         return Forecast_model.rowCount()
     }
 

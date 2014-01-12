@@ -68,10 +68,11 @@ CoverBackground {
         anchors.top: icon.bottom
         id: description
         width: parent.width 
-        height: 100 
+        height: 150 
         color: "white"
+        wrapMode:  TextEdit.WordWrap
         text: current_model("description")
-        font.pointSize: 30 
+        font.pointSize: 25 
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
     }
@@ -79,6 +80,7 @@ CoverBackground {
         id: source_image 
         source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
         anchors.bottom: parent.bottom
+        anchors.top: description.bottom
         smooth: true    
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter

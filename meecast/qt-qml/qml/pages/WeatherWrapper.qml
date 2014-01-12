@@ -142,9 +142,10 @@ Page {
     }
     function get_count_days(i){
         console.log( "get_count_days()")
-        /* For pretty view but it works very slowly */
-        Config.station_by_index(i);
-        main.updatemodels();
+        /* For pretty view but it works very slowly  and Cover doesn't work correctly*/
+        //Config.station_by_index(i);
+        //main.updatemodels();
+        /* To do make right forecast model */
         return Forecast_model.rowCount()
     }
 

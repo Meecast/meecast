@@ -449,17 +449,14 @@ Component {
                     visible: Forecast_model.rowCount() == 0 ? false : true
                     anchors.top: current_rect.bottom
                     model:  forecast_stub
-                    //model: Forecast_model
                     delegate: itemDelegate
                     width: parent.width
-                    height: 80 *  main.get_count_days()
+                    height: 80 *  main.get_count_days(index)
                     //height: 800
                     interactive: false
                     clip: true
                     Component.onCompleted: {
-                        console.log("list onCompleted")
-                     //   Config._current_station_id(main.real_current_id)
-                     //   Config.saveConfig()
+                     //   console.log("list onCompleted")
                     }
                 }
                 Component {

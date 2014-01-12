@@ -140,12 +140,11 @@ Page {
     function current_model(name){
         return Current.getdata(0, name);
     }
-    function get_count_days(){
+    function get_count_days(i){
         console.log( "get_count_days()")
-//        console.log( i )
-       // Config.station_by_index(i);
- //       main.updatemodels();
- //       console.log(Forecast_model.rowCount())
+        /* For pretty view but it works very slowly */
+        Config.station_by_index(i);
+        main.updatemodels();
         return Forecast_model.rowCount()
     }
 
@@ -174,13 +173,7 @@ Page {
     }
 
     function stationname1_index(i){
-        console.log(" before stationname1_index(index) ")
-  //      Config.station_by_index(i);
-        console.log(" after stationname1_index(index) ")
-        console.log(i)
-//        main.updatemodels();
         return Config.stationname_index(i)
-//        return Config.stationname
     }
 
     Connections {

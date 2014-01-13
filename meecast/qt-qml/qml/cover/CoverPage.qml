@@ -68,7 +68,7 @@ CoverBackground {
         anchors.top: icon.bottom
         id: description
         width: parent.width 
-        height: 150 
+        height: 130 
         color: "white"
         wrapMode:  TextEdit.WordWrap
         text: current_model("description")
@@ -82,6 +82,7 @@ CoverBackground {
         anchors.bottom: parent.bottom
         anchors.top: description.bottom
         smooth: true    
+        fillMode: PreserveAspectFit
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         scale: 0.7

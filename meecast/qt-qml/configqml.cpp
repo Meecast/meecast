@@ -898,6 +898,7 @@ ConfigQml::changestationback(){
        this->current_station_id(stationsList().size());
    }
    this->saveConfig();
+   refreshconfig();
 }
 
 

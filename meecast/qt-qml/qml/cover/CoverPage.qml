@@ -31,7 +31,7 @@ CoverBackground {
             current_temperature()
             icon.source = Config.iconspath + "/" + Config.iconset + "/" + cover.current_model("pict")
             description.text = cover.current_model("description")
-            source.image = Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
+            source_image.source = Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
         }
     }
 
@@ -81,7 +81,7 @@ CoverBackground {
         id: source_image 
         source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
         anchors.bottom: parent.bottom
-//        anchors.top: description.bottom
+        anchors.top: description.bottom
         smooth: true    
         fillMode: PreserveAspectFit
         anchors.horizontalCenter: parent.horizontalCenter
@@ -90,11 +90,10 @@ CoverBackground {
     }
     CoverActionList {
         CoverAction {
-            onTriggered: { Config.prevstation(); }
+            onTriggered: { Config.changestationback(); }
         }
         CoverAction {
             onTriggered: { Config.changestation();}
         }
-
     }
 }

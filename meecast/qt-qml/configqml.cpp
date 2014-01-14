@@ -875,8 +875,7 @@ ConfigQml::viewURL()
 }
 
 void
-ConfigQml::changestation()
-{
+ConfigQml::changestation(){
     if ((uint)(this->current_station_id() + 1) < this->stationsList().size()){
        this->current_station_id(this->current_station_id() + 1);
 
@@ -886,10 +885,19 @@ ConfigQml::changestation()
    this->saveConfig();
 }
 
+void
+ConfigQml::changestationback(){
+    if ((uint)(this->current_station_id() - 1) >= 0){
+       this->current_station_id(this->current_station_id() - 1);
+   }else {
+       this->current_station_id(stationsList().size());
+   }
+   this->saveConfig();
+}
+
 
 void
-ConfigQml::station_by_index(int i)
-{
+ConfigQml::station_by_index(int i){
     if ((uint)(i) < this->stationsList().size() && i > 0){
        this->current_station_id(i);
 
@@ -916,7 +924,6 @@ ConfigQml::prevstation()
 {
     if ((int)(this->current_station_id() - 1) >= 0){
        this->current_station_id(this->current_station_id() - 1);
-
    }else {
        this->current_station_id(stationsList().size());
    }

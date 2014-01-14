@@ -154,6 +154,7 @@ public:
     Q_INVOKABLE void saveStation1(QString city_id, QString city_name, QString region,
                                   QString country, QString source, int source_id, bool gps=false, double latitude = 0.0, double longitude = 0.0);
     Q_INVOKABLE void changestation();
+    Q_INVOKABLE void changestationback();
     Q_INVOKABLE void nextstation();
     Q_INVOKABLE void prevstation();
     Q_INVOKABLE void updatestations();

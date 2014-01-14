@@ -892,7 +892,7 @@ ConfigQml::changestation(){
 
 void
 ConfigQml::changestationback(){
-    if ((uint)(this->current_station_id() - 1) >= 0){
+    if ((int)(this->current_station_id() - 1) >= 0){
        this->current_station_id(this->current_station_id() - 1);
    }else {
        this->current_station_id(stationsList().size());
@@ -904,7 +904,7 @@ ConfigQml::changestationback(){
 
 void
 ConfigQml::station_by_index(int i){
-    if ((uint)(i) < this->stationsList().size() && i > 0){
+    if ((int)(i) < this->stationsList().size() && i > 0){
        this->current_station_id(i);
 
    }else {
@@ -917,7 +917,7 @@ ConfigQml::station_by_index(int i){
 void
 ConfigQml::nextstation()
 {
-    if ((uint)(this->current_station_id() + 1) < this->stationsList().size()){
+    if ((int)(this->current_station_id() + 1) < this->stationsList().size()){
        this->current_station_id(this->current_station_id() + 1);
 
    }else {

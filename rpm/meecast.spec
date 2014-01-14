@@ -12,13 +12,13 @@
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 
-Name:       meecast
-Summary:    Weather for Meego
-Version:    0.8.3
+Name:       harbour-meecast
+Summary:    Weather forecast application for SailfishOS
+Version:    0.8.4
 Release:    1
 Group:      Utility
 License:    GPLv2.1
-URL:        https://garage.maemo.org/projects/omweather/
+URL:        https://github.com/Meecast/meecast 
 Source0:    %{name}-%{version}.tar.bz2
 #Temporary
 #Requires:       libmeegotouch-devel
@@ -92,106 +92,16 @@ desktop-file-install --delete-original       \
 %files
 %defattr(-,root,root,-)
 /usr/share/applications/meecast.desktop
-/usr/bin/omweather-qml
-/usr/lib/bomgovau
-/usr/lib/forecacom
-/usr/lib/gismeteoru
-/usr/lib/
-#/opt/com.meecast.omweather
-#/opt/com.meecast.omweather/bin
-#/opt/com.meecast.omweather/bin/omweather-settings
-#%if %{wantmeegopanel}
-#/opt/com.meecast.omweather/bin/omweather-qml
-#/opt/com.meecast.omweather/bin/omweather-settouch
-#%endif
-#/usr/share/locale
-#/usr/lib/omweather/weathercom
-#/usr/share/omweather/copyright_icons/weather.com.png
-#/usr/share/omweather/db/weather.com.db
-#/usr/share/omweather/sources/weather.com.xml
-# >> files
-#/usr/lib/meegotouch/applicationextensions/libevents-meecast.so
+/usr/bin/harbour-meecast
 /usr/share/locale
-/usr/share
-/usr/share/iconsets
+/usr/share/harbour-meecast
+#/usr/share/iconsets
 /usr/share/icons/hicolor/86x86/apps
-/opt/com.meecast.omweather/share
+#/opt/com.meecast.omweather/share
 
 %changelog
-* Fri Aug 05 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.24
-  * began support MeeGo 1.2.0.90 on Tablet UX
-* Mon Aug 01 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.23
-  * began support Tabblet UX
-* Thu Jul 26 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.22
-  * fixed desktop file
-* Sun Jul 03 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.21
-  * Adapted for Meego 1.2
-  * Fixed probem with night information
-  * Fixed current view
-  * Fixed segmentation fault in application mode
-* Thu Apr 14 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.20
-  * Fixed error with autostart
-  * Fixed small memory leak
-* Thu Apr 06 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.19
-  * Adapted to Intel AppUP
-* Thu Apr 04 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.18
-  * Adapted to Intel AppUP
-* Thu Mar 26 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.17
-  * Added automatic updating intervals
-  * Added automatically updating on connection
-  * Added iconset Grazank's
-  * Fixed temperature units
-  * Added wind speed units
-* Thu Mar 22 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.16
-  * Fixed problem in iconstes switching
-* Thu Mar 22 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.15
-  * Fixed problem with button icon "refresh" for qml
-  * Associeted icon 49 as icon "na"
-  * Fixed problem with destroing of clutter objects
-* Mon Mar 21 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.14
-  * Added switching between iconstes to settings 
-  * Disabled animation
-* Sun Mar 20 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.13
-  * New design by Wazd (Andrew Zhilin) for Meego-panel
-  * fixed problem with libtouch setting application
-  * Added new iconset MeCast
-* Thu Mar 12 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.12
-  * changed signals in qml
-  * cosmetic changes in qt touch
-  * switched to new settings(qml) and renamed qml settings bin file
-  * fixed segmantation fault in meego-mpl
-* Thu Mar 10 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.11
-  * Began adding temeperature day
-  * Added new source of weather forecast gismeteo.ru
-  * Redesigned qml window
-  * Began added MeegoTouch setting  
-* Sat Mar 5 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.10
-  * Fixed spelling mistake
-  * Changed default icon to N/A in meego panel
-* Sat Feb 26 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.9
-  * Fixed problem with Temperature unit
-  * Improvements in config and QML window
-* Mon Feb 21 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.8
-  * Fixed problem with time for forecast.
-  * Fixed QML forms
-  * Added Night box for detail window
-* Fri Feb 19 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.7
-  * Added transaltion for wind and forecast's description
-* Fri Feb 19 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.6
-  * Added Russian translate to omweather-settings
-* Fri Feb 18 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.5
-  * Added animation for meego panel
-* Wed Feb 16 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.4
-  * Added icon to desktop. Added translation to QML.
-  * Added button 'close' to qml
-* Tue Feb 15 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.3 
-  * Updated QML version of Omweather
-* Mon Feb 14 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.2
-  * Updated QML version of Omweather
-* Sun Feb 13 2011  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.1
-  * Added QML version of Omweather
-* Wed Feb 9 2011 Vlad Vasilyeu <vasvlad@gmail.com> 0.3
-  * Initial version
+* Fri Jan 17 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.4
+  * First release SailfishOS
 # << files
 
 

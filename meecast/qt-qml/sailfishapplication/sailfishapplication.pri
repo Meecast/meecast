@@ -7,7 +7,7 @@ INCLUDEPATH += $$PWD
 TARGETPATH = /usr/bin
 target.path = $$TARGETPATH
 
-DEPLOYMENT_PATH = /usr/share/$$TARGET
+DEPLOYMENT_PATH = /usr/share/harbour-meecast/$$TARGET
 qml.path = $$DEPLOYMENT_PATH
 desktop.path = /usr/share/applications
 

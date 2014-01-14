@@ -38,13 +38,13 @@ PKGCONFIG += libxml-2.0
 
 
 db.files = data/hko.gov.hk.db
-db.path = /usr/share/db/
+db.path = /usr/share/harbour-meecast/db/
 
 source.files = data/hko.gov.hk.xml
-source.path = /usr/share/sources/
+source.path = /usr/share/harbour-meecast/sources/
 
 #install
-target.path = /usr/lib
+target.path = /usr/share/harbour-meecast/lib
 INSTALLS += target db source
 
 

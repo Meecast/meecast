@@ -193,9 +193,13 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     QQuickView *qview;
     qview = controller->qview();
     
-    Sailfish::setView(qview,QString::fromStdString("file://" + Core::AbstractConfig::prefix + 
+   Sailfish::setView(qview,QString::fromStdString("file://" + Core::AbstractConfig::prefix + 
                                                    Core::AbstractConfig::sharePath +
                                                    Core::AbstractConfig::layoutqml));
+
+   //  Sailfish::setView(qview,QString::fromStdString("file://" + Core::AbstractConfig::prefix + 
+   //                                                Core::AbstractConfig::sharePath +
+   //                                                Core::AbstractConfig::layoutqml));
    /* 
     QDir::setCurrent(QString::fromStdString(Core::AbstractConfig::prefix + 
                      Core::AbstractConfig::sharePath +

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=MeeCast
 GenericName=MeeCast
-Exec=invoker --type=j /usr/bin/omweather-qml
+Exec=invoker --type=j /usr/bin/harbour-meecast
 Icon=meecast
 Terminal=false
 Type=Application

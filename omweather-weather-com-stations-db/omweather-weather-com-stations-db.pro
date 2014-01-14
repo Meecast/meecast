@@ -25,16 +25,17 @@ PKGCONFIG += libxml-2.0 \
              glib-2.0
 
 db.files = data/weather.com.db
-db.path =  /usr/share/db/
+db.path =  /usr/share/harbour-meecast/db/
 
-icon.files = data/weather.com.png
-icon.path = /usr/share/copyright_icons/
+#icon.files = data/weather.com.png
+#icon.path = /usr/share/copyright_icons/
 
 source.files = data/weather.com.xml
-source.path = /usr/share/sources/
+source.path = /usr/share/harbour-meecast/sources/
 
 #install
-target.path = /usr/lib
-INSTALLS += target db icon source
+target.path = /usr/share/harbour-meecast/lib
+INSTALLS += target db source
+ 
 
 

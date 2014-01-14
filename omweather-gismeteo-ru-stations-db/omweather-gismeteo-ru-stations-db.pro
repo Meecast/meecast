@@ -36,16 +36,16 @@ PKGCONFIG += libxml-2.0
 
 
 db.files = data/gismeteo.ru.db
-db.path = /usr/share/db/
+db.path = /usr/share/harbour-meecast/db/
 
-icon.files = data/gismeteo.ru.png
-icon.path = /opt/com.meecast.omweather/share/copyright_icons/
+#icon.files = data/gismeteo.ru.png
+#icon.path = /opt/com.meecast.omweather/share/copyright_icons/
 
 source.files = data/gismeteom.ru.xml
-source.path = /usr/share/sources/
+source.path = /usr/share/harbour-meecast/sources/
 
 #install
-target.path = /usr/lib
-INSTALLS += target db icon source
+target.path = /usr/share/harbour-meecast/lib
+INSTALLS += target db source
 
 

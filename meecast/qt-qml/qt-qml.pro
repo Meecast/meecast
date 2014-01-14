@@ -4,9 +4,9 @@
 #
 #-------------------------------------------------
 
-QT       += declarative sql xml xmlpatterns network positioning
+QT       += declarative sql xml xmlpatterns network positioning qml
 
-TARGET = omweather-qml
+TARGET = harbour-meecast 
 TEMPLATE = app
 
 
@@ -85,6 +85,9 @@ OTHER_FILES += \
     qml/wrapper.qml \
     translations/omweather_ru_RU.qm
 
+
+
+
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 
 CONFIG += mobility
@@ -96,6 +99,7 @@ QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
 QMAKE_LFLAGS += -pie -rdynamic
 
 
+DATADIR=/usr/share/harbour-meecast
 INCLUDEPATH += ../core                                                                                                        
 
 #include(sailfishapplication/sailfishapplication.pri)
@@ -110,15 +114,14 @@ PKGCONFIG += glib-2.0
 PKGCONFIG += sqlite3
 PKGCONFIG += libcurl
 target.path = /usr/bin
+DEPLOYMENT_PATH = /usr/share/harbour-meecast
 
 desktop_.files = meecast.desktop
 desktop_.path = /usr/share/applications
 icon64.path = /usr/share/pixmaps
 icon64.files += omweather.png
-qmls.files = qml/*.qml *.js
-qmls.path = /opt/com.meecast.omweather/share/omweather/qml
-searchicon.files += gfx/*.png
-searchicon.path += /opt/com.meecast.omweather/share/omweather/qml/gfx
+qml.files = qml/*.qml *.js
+qml.path = $$DEPLOYMENT_PATH/qml
 translations.files = translations/*.qm
 translations.path = /usr/share/locale/
 
@@ -128,8 +131,5 @@ translations.path = /usr/share/locale/
 include(sailfishapplication/sailfishapplication.pri)
 
 #INSTALLS += desktop qml icon64
-INSTALLS += target desktop_ qmls searchicon translations
-
-DATADIR=/usr/share
-
+INSTALLS += target desktop_ translations qml
 

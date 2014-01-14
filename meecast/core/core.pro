@@ -1,4 +1,4 @@
-VERSION = 1.0
+ERSION = 1.0
 TARGET = omweather-core
 TEMPLATE = lib
 PKGCONFIG += libcurl
@@ -102,30 +102,30 @@ icon128.path = /usr/share/icons/hicolor/128x128/apps/
 icon86.files = data/desktop/Icon/86/meecast.png
 icon86.path = /usr/share/icons/hicolor/86x86/apps/
 
-target.path = /usr/lib
+target.path = /usr/share/harbour-meecast/lib
 #data.files = data/icons/
 databeginning.files += data/icons/Beginning/*.png
-databeginning.path = /usr/share/iconsets/Beginning
+databeginning.path = /usr/share/harbour-meecast/iconsets/Beginning
 datacontour.files += data/icons/Contour/*.png
-datacontour.path = /usr/share/iconsets/Contour
+datacontour.path = /usr/share/harbour-meecast/iconsets/Contour
 dataepona.files += data/icons/Epona/*.png
-dataepona.path = /usr/share/iconsets/Epona
+dataepona.path = /usr/share/harbour-meecast/iconsets/Epona
 dataglance.files += data/icons/Glance/*.png
-dataglance.path = /usr/share/iconsets/Glance
+dataglance.path = /usr/share/harbour-meecast/iconsets/Glance
 datameecast.files += data/icons/Meecast/*.png
-datameecast.path = /usr/share/iconsets/Meecast
+datameecast.path = /usr/share/harbour-meecast/iconsets/Meecast
 datagrzankas.files += data/icons/Grzankas/*.png
-datagrzankas.path = /usr/share/iconsets/Grzankas
+datagrzankas.path = /usr/share/harbour-meecast/iconsets/Grzankas
 datashiny.files += data/icons/Shiny/*.png
-datashiny.path = /usr/share/iconsets/Shiny
+datashiny.path = /usr/share/harbour-meecast/iconsets/Shiny
 datatango.files += data/icons/Tango/*.png
-datatango.path = /usr/share/iconsets/Tango
+datatango.path = /usr/share/harbour-meecast/iconsets/Tango
 datasimpelmee.files += data/icons/SimpelMee/*.png
-datasimpelmee.path = /usr/share/iconsets/SimpelMee
+datasimpelmee.path = /usr/share/harbour-meecast/iconsets/SimpelMee
 datanoun.files += data/icons/Noun/*.png
-datanoun.path = /usr/share/iconsets/Noun
+datanoun.path = /usr/share/harbour-meecast/iconsets/Noun
 dataatmos.files += data/icons/Atmos/*.png
-dataatmos.path = /usr/share/iconsets/Atmos
+dataatmos.path = /usr/share/harbour-meecast/iconsets/Atmos
 
 
 
@@ -134,15 +134,15 @@ dataatmos.path = /usr/share/iconsets/Atmos
 xsd.files += data/config.xsd
 xsd.files += data/data.xsd
 xsd.files += data/source.xsd
-xsd.path = /usr/share/xsd
-buttonicons.path = /usr/share/buttons_icons
+xsd.path = /usr/share/harbour-meecast/xsd
+buttonicons.path = /usr/share/harbour-meecast/buttons_icons
 buttonicons.files += data/button_icons/*.png
-images.path = /usr/share/images
+images.path = /usr/share/harbour-meecast/images
 images.files += data/images/*.png
 alib.files = libomweather-core.a
-alib.path = /usr/lib
+alib.path = /usr/share/harbour-meecast/lib
 
-INSTALLS += target databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images alib icon icon50 icon255 icon16 icon32 icon64 icon128 icon86 iconpanel
+INSTALLS += target databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images alib icon50  icon16 icon32 icon64 icon128 icon86 
 QMAKE_CLEAN += lib$$TARGET* \
     *.pro.user
 

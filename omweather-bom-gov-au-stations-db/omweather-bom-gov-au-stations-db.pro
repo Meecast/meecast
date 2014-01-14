@@ -35,13 +35,13 @@ PKGCONFIG += libxml-2.0
 #}
 
 db.files = data/bom.gov.au.db
-db.path = /usr/share/db/
+db.path = /usr/share/harbour-meecast/db/
 
 source.files = data/bom.gov.au.xml
-source.path = /usr/share/sources/
+source.path = /usr/share/harbour-meecast/sources/
 
 #install
-target.path = /usr/lib
+target.path = /usr/share/harbour-meecast/lib
 INSTALLS += target db source
 
 

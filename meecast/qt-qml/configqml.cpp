@@ -888,6 +888,7 @@ ConfigQml::changestation()
        this->current_station_id(0);
    }
    this->saveConfig();
+   refreshconfig();
 }
 
 
@@ -901,6 +902,7 @@ ConfigQml::station_by_index(int i)
        this->current_station_id(0);
    }
    this->saveConfig();
+   refreshconfig();
 }
 
 void
@@ -913,6 +915,7 @@ ConfigQml::nextstation()
        this->current_station_id(0);
    }
    this->saveConfig();
+   refreshconfig();
 }
 
 void
@@ -925,6 +928,7 @@ ConfigQml::prevstation()
        this->current_station_id(stationsList().size());
    }
    this->saveConfig();
+   refreshconfig();
 }
 
 void

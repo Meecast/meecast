@@ -47,6 +47,7 @@ CoverBackground {
         anchors.top: stationname.bottom
         id: temp_text
         width: parent.width 
+        anchors.rightMargin: 20 
         height: 84
         color: "white"
         text: Current.temp + '°'
@@ -68,7 +69,7 @@ CoverBackground {
         anchors.top: icon.bottom
         id: description
         width: parent.width 
-        height: 130 
+        height: 135 
         color: "white"
         wrapMode:  TextEdit.WordWrap
         text: current_model("description")
@@ -80,12 +81,20 @@ CoverBackground {
         id: source_image 
         source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
         anchors.bottom: parent.bottom
-        anchors.top: description.bottom
+//        anchors.top: description.bottom
         smooth: true    
         fillMode: PreserveAspectFit
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         scale: 0.7
     }
+    CoverActionList {
+        CoverAction {
+            onTriggered: { Config.prevstation(); }
+        }
+        CoverAction {
+            onTriggered: { Config.changestation();}
+        }
 
+    }
 }

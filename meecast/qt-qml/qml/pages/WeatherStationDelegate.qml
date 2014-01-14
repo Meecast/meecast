@@ -274,7 +274,7 @@ Component {
                                            temp_text.text =  main.current_model("temp_high") + '°'
                                         if ((main.current_model("temp_low")  != "N/A") && (main.current_model("temp_high") != "N/A"))
                                            temp_text.text =  temp_text.text + " / "
-                                        if (model.temp_low != "N/A")
+                                        if (main.current_model("temp_low")  != "N/A")
                                            temp_text.text = temp_text.text + main.current_model("temp_low") + '°'
                                         current_rect.color = getColor(main.current_model("temp_high"));
                                     }else{

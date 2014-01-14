@@ -8,13 +8,17 @@ CoverBackground {
         return Current.getdata(0, name);
     }
     function current_temperature(){
+        if (cover.current_model("temp") == undefined){
+            temp_text.text = ""
+            return;
+        }
         if (cover.current_model("temp") == "N/A"){
             temp_text.text = ""
             if (cover.current_model("temp_high") != "N/A")
                temp_text.text =  cover.current_model("temp_high") + '°'
             if ((cover.current_model("temp_low")  != "N/A") && (cover.current_model("temp_high") != "N/A"))
                temp_text.text =  temp_text.text + "\n"
-            if ((cover.current_model("temp_low") != "N/A")
+            if (cover.current_model("temp_low") != "N/A")
                temp_text.text = temp_text.text + cover.current_model("temp_low") + '°'
             current_rect.color = getColor(cover.current_model("temp_high"));
         }else{
@@ -26,11 +30,13 @@ CoverBackground {
     Connections {
         target: Config
         onConfigChanged: {
-            console.log("!!!!!!!!!!!!!11end update station name = "+Config.stationname);
             stationname.text = Config.stationname
             current_temperature()
             icon.source = Config.iconspath + "/" + Config.iconset + "/" + cover.current_model("pict")
-            description.text = cover.current_model("description")
+            if (cover.current_model("description") != undefined)
+                description.text = cover.current_model("description")
+            else
+                description.text = ""
             source_image.source = Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
         }
     }
@@ -46,6 +52,7 @@ CoverBackground {
     Text {
         anchors.top: stationname.bottom
         id: temp_text
+        anchors.right: parent.right 
         anchors.rightMargin: 20 
         anchors.topMargin: 20 
         anchors.left: icon.right
@@ -63,17 +70,17 @@ CoverBackground {
     Image {
         id: icon
         source: Config.iconspath + "/" + Config.iconset + "/" + cover.current_model("pict") 
-        width:  128 
+        width:  128
         height: 128
         anchors.top: stationname.bottom
-        anchors.topMargin: 20 
-        smooth: true    
+        anchors.topMargin: 20
+        smooth: true
     }
     Text {
         anchors.top: icon.bottom
         id: description
         width: parent.width 
-        height: 135 
+        height: 130 
         color: "white"
         wrapMode:  TextEdit.WordWrap
         text: current_model("description")
@@ -90,7 +97,7 @@ CoverBackground {
         fillMode: Image.PreserveAspectFit
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        scale: 0.7
+        scale: 0.8
     }
     CoverActionList {
         CoverAction {

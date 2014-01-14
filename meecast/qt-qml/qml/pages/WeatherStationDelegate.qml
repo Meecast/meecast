@@ -237,7 +237,6 @@ Component {
                                 height: 84
                                 anchors.top: parent.top
                                 anchors.left: parent.left
-                                anchors.leftMargin: margin
                                 color: "white"
                                 text: main.current_model("current") == true ? Config.tr("Now") : Config.tr("Today")
                                 font.pointSize: 26
@@ -258,7 +257,6 @@ Component {
                             Text {
                                 anchors.top: parent.top
                                 anchors.left: icon.right
-                                anchors.rightMargin: margin
                                 id: temp_text
                                 width: screen_width/2 - icon_size/2
                                 height: 84

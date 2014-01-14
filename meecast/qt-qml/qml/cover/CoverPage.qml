@@ -46,12 +46,13 @@ CoverBackground {
         anchors.top: parent.top
         anchors.topMargin: Theme.paddingMedium
         anchors.horizontalCenter: parent.horizontalCenter
-        text: Config.stationname
+        text: Config.stationname == "Unknown" ? "MeeCast" : Config.stationname
         font.pixelSize: text.length > 20 ? 24 : 35 
     }
     Text {
-        anchors.top: stationname.bottom
         id: temp_text
+        visible: Config.stationname == "Unknown" ? false : true
+        anchors.top: stationname.bottom
         anchors.right: parent.right 
         anchors.rightMargin: 20 
         anchors.topMargin: 20 
@@ -69,7 +70,7 @@ CoverBackground {
     }
     Image {
         id: icon
-        source: Config.iconspath + "/" + Config.iconset + "/" + cover.current_model("pict") 
+        source: (Config.stationname == "Unknown" || Current.rowCount() == 0) ? Config.iconspath + "/" + Config.iconset + "/49.png" : Config.iconspath + "/" + Config.iconset + "/" + cover.current_model("pict") 
         width:  128
         height: 128
         anchors.top: stationname.bottom
@@ -77,13 +78,13 @@ CoverBackground {
         smooth: true
     }
     Text {
-        anchors.top: icon.bottom
         id: description
+        anchors.top: icon.bottom
         width: parent.width 
         height: 130 
         color: "white"
         wrapMode:  TextEdit.WordWrap
-        text: current_model("description")
+        text: Config.stationname == "Unknown" ? Config.tr("No locations are set up yet.") : (Current.rowCount() == 0) ? "Looks like there's no info for this location." : current_model("description")
         font.pointSize: 25 
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
@@ -96,7 +97,7 @@ CoverBackground {
         smooth: true    
         fillMode: Image.PreserveAspectFit
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
+     //   anchors.verticalCenter: parent.verticalCenter
         scale: 0.8
     }
     CoverActionList {

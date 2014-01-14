@@ -220,7 +220,7 @@ Page {
         interactive: true
         currentIndex: Config._current_station_id() 
         Component.onCompleted: {}
-        onCurrentIndexChanged:{ console.log("onCurrentIndexChanged")}
+        onCurrentIndexChanged:{ }
         onFlickEnded: { 
             //console.log("onFlickEnded")
             real_current_id = indexAt(contentX,contentY);

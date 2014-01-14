@@ -880,9 +880,8 @@ ConfigQml::viewURL()
 
 void
 ConfigQml::changestation(){
-    if ((uint)(this->current_station_id() + 1) < this->stationsList().size()){
+   if ((uint)(this->current_station_id() + 1) < this->stationsList().size()){
        this->current_station_id(this->current_station_id() + 1);
-
    }else {
        this->current_station_id(0);
    }
@@ -892,10 +891,11 @@ ConfigQml::changestation(){
 
 void
 ConfigQml::changestationback(){
-    if ((int)(this->current_station_id() - 1) >= 0){
+   
+   if ((int)(this->current_station_id() - 1) >= 0){
        this->current_station_id(this->current_station_id() - 1);
    }else {
-       this->current_station_id(stationsList().size());
+       this->current_station_id(stationsList().size() - 1);
    }
    this->saveConfig();
    refreshconfig();

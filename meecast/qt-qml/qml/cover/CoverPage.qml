@@ -13,8 +13,8 @@ CoverBackground {
             if (cover.current_model("temp_high") != "N/A")
                temp_text.text =  cover.current_model("temp_high") + '°'
             if ((cover.current_model("temp_low")  != "N/A") && (cover.current_model("temp_high") != "N/A"))
-               temp_text.text =  temp_text.text + " / "
-            if (model.temp_low != "N/A")
+               temp_text.text =  temp_text.text + "\n"
+            if ((cover.current_model("temp_low") != "N/A")
                temp_text.text = temp_text.text + cover.current_model("temp_low") + '°'
             current_rect.color = getColor(cover.current_model("temp_high"));
         }else{
@@ -46,14 +46,18 @@ CoverBackground {
     Text {
         anchors.top: stationname.bottom
         id: temp_text
-        width: parent.width 
         anchors.rightMargin: 20 
-        height: 84
+        anchors.topMargin: 20 
+        anchors.left: icon.right
+        wrapMode:  TextEdit.WordWrap
+        height: 128 
         color: "white"
         text: Current.temp + '°'
         font.pointSize: 53 
         verticalAlignment: Text.AlignVCenter
-        horizontalAlignment: Text.AlignRight
+        horizontalAlignment: Text.AlignHCenter
+//        anchors.horizontalCenter: parent.horizontalCenter
+//        anchors.verticalCenter: parent.verticalCenter
         Component.onCompleted: { current_temperature()}
     }
     Image {
@@ -83,7 +87,7 @@ CoverBackground {
         anchors.bottom: parent.bottom
         anchors.top: description.bottom
         smooth: true    
-        fillMode: PreserveAspectFit
+        fillMode: Image.PreserveAspectFit
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         scale: 0.7

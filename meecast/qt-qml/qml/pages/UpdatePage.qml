@@ -58,7 +58,7 @@ Page {
             Column{
                 anchors.fill: parent
                 ComboBox {
-                    label: Config.tr("Update interval1")
+                    label: Config.tr("Update interval")
                     currentIndex: -1
                     width: update.width
                     menu: ContextMenu {

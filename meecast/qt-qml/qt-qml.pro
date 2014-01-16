@@ -34,7 +34,8 @@ SOURCES += main.cpp \
     countrymodel.cpp \
     regionmodel.cpp \
     citymodel.cpp \
-    gpsposition.cpp
+    gpsposition.cpp \
+    meecastcover.cpp
 
 HEADERS  += \
     dataqml.h \
@@ -51,7 +52,8 @@ HEADERS  += \
     countrymodel.h \
     regionmodel.h \
     citymodel.h \
-    gpsposition.h
+    gpsposition.h \
+    meecastcover.h
 
 FORMS    +=
 #RESOURCES += weatherlayoutitem.qrc

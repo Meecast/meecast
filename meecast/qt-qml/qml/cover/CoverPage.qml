@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import MeeCastCover 1.0
 
 
 CoverBackground {
@@ -26,6 +27,12 @@ CoverBackground {
            //current_rect.color = getColor(cover.current_model("temp"));
         }
 
+    }
+    property bool active: status == Cover.Active || applicationActive;
+
+    MeeCastCover {
+        status: cover.active
+        
     }
     Connections {
         target: Config

@@ -46,6 +46,7 @@
 #include <QTranslator>
 #include <QLocale>
 #include <QHash>
+#include <QtQml>
 //#include <QGraphicsGridLayout>
 #include <exception>
 #include <iostream>
@@ -62,6 +63,7 @@
 #include "abstractconfig.h"
 #include "dbusadaptor.h" 
 #include "controller.h" 
+#include "meecastcover.h"
 
 //#include <QtDebug>
 
@@ -95,8 +97,10 @@ update_weather_forecast(Core::Config *config){
 Q_DECL_EXPORT int main(int argc, char* argv[])
 {
 
+
     QScopedPointer<QGuiApplication> app(Sailfish::createApplication(argc, argv));
      
+    qmlRegisterType<MeeCastCover>("MeeCastCover", 1, 0, "MeeCastCover");
     app->setProperty("NoMStyle", true);
 
     QDir::setCurrent(app->applicationDirPath());

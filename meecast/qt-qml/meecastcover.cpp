@@ -31,18 +31,34 @@
 
 MeeCastCover::MeeCastCover(QObject* parent): QObject(parent){
     _status = false;
+    try{
+       _config =  ConfigQml::Instance(Core::AbstractConfig::getConfigPath()+
+                               "config.xml",
+                               Core::AbstractConfig::prefix+
+                               Core::AbstractConfig::schemaPath+
+                               "config.xsd");
+    }
+    catch(const std::string &str){
+        std::cerr<<"Error in Config class: "<< str <<std::endl;
+        _config =  ConfigQml::Instance();
+    }
+    catch(const char *str){
+        std::cerr<<"Error in Config class: "<< str <<std::endl;
+        _config =  ConfigQml::Instance();
+    }
+
 }
 
 MeeCastCover::~MeeCastCover(){
 }
 
-bool MeeCastCover::MeeCastCover::status()
-{
-  return _status;
+bool MeeCastCover::MeeCastCover::status(){
+    return _status;
 }
-void MeeCastCover::MeeCastCover::setStatus(bool _status)
-{
-  _status = _status;
-  emit statusChanged();
-  std::cerr<<"MeeCastCover::MeeCastCover::setStatus"<<std::endl;
+void MeeCastCover::MeeCastCover::setStatus(bool _status){
+    _status = _status;
+    emit statusChanged();
+    std::cerr<<"MeeCastCover::MeeCastCover::setStatus"<<std::endl;
+    if (_status)
+      _config->check_and_update_station();
 }

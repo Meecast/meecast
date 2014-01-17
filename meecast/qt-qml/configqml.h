@@ -101,6 +101,7 @@ private:
     QSettings *lockscreen_settings;
     int _lockscreen_x_position;
     int _lockscreen_y_position;
+    uint _time_for_updating;
 protected:
     static ConfigQml* _self;
     static int _refcount;
@@ -133,6 +134,7 @@ public:
     QColor standby_color_font_current_temperature();
     int lock_screen_x_position();
     int lock_screen_y_position();
+    void time_for_updating(uint _time);
     QString stationname();
     QString prevstationname();
     QString nextstationname();
@@ -198,6 +200,7 @@ public:
     Q_INVOKABLE int _current_station_id();
     Q_INVOKABLE void _current_station_id(int i);
     Q_INVOKABLE void refreshconfig();
+    Q_INVOKABLE void check_and_update_station();
 signals:
     void iconsetChanged();
     void iconspathChanged();

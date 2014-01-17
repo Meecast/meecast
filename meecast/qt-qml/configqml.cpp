@@ -80,6 +80,7 @@ ConfigQml::Instance(const std::string& filename, const std::string& schema_filen
 void ConfigQml::init()
 {
     int index;
+    _time_for_updating = 0;
     db = new Core::DatabaseSqlite("");
 
     /* setting for stndbyscreen */
@@ -1099,13 +1100,30 @@ ConfigQml::getGpsStation(){
 
 int
 ConfigQml::_current_station_id(){
-    std::cerr<<"ConfigQml::_current_station_id() "<< std::endl;
     return current_station_id();
 }
 
 void
 ConfigQml::_current_station_id(int i){
-    std::cerr<<"ConfigQml::_current_station_id(int i) "<< i<<std::endl;
     current_station_id(i);
 }
 
+void
+ConfigQml::check_and_update_station(){
+    std::cerr<<"ConfigQml::check_and_update_station"<<std::endl;
+    if (_time_for_updating < time(NULL)){
+        Core::DataParser* dp = NULL;
+        dp = Core::DataParser::Instance();
+        if (dp && (time(NULL) - dp->LastUpdate()) > this->UpdatePeriod()){
+            std::cerr<<"ssssssssssssssssssssssss"<<std::endl;
+            this->updatestations();
+        }else{
+            std::cerr<<"aaaaaaaaaaaaaaaaaaaaaaaa"<<std::endl;
+            this->configChanged();
+        }
+    }
+}
+
+void ConfigQml::time_for_updating(uint _time){
+    _time_for_updating = _time;
+}

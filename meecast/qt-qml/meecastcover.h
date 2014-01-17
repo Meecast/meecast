@@ -31,12 +31,14 @@
 #define MEECASTCOVER_H
 
 #include <QObject>
+#include "configqml.h"
 
 class MeeCastCover : public QObject {
     Q_OBJECT
     Q_PROPERTY(bool status READ status WRITE setStatus NOTIFY statusChanged)
 private:
    bool _status;
+   ConfigQml  *_config;
 protected:
 public:
    explicit MeeCastCover(QObject* parent = 0);

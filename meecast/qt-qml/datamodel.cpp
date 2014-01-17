@@ -236,7 +236,7 @@ DataModel::update_model(int period)
                 icon_string.append("/") ;
                 icon_string.append(forecast_data->icon());
                 QString stationname = "";
-                /* Preparing time for updateing */
+                /* Preparing time for updating */
                 uint result_time = 0;
                 if (_config->UpdatePeriod() != INT_MAX){
                     if ((time(NULL) - dp->LastUpdate()) > _config->UpdatePeriod())
@@ -248,6 +248,7 @@ DataModel::update_model(int period)
                            result_time = temp_data->EndTime();
                 }else
                     result_time = temp_data->EndTime();
+                _config->time_for_updating(result_time);
                 QDateTime t;
                 t.setTime_t(dp->LastUpdate());
                 QString description = forecast_data->Text().c_str();

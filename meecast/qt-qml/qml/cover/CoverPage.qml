@@ -32,7 +32,6 @@ CoverBackground {
 
     MeeCastCover {
         status: cover.active
-        
     }
     Connections {
         target: Config

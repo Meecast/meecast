@@ -100,7 +100,7 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
-* Sat Jan 12 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.4.2
+* Sat Jan 18 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.4.2
   * Fixed problem with refreshing weather forecast
 * Fri Jan 17 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.4.1
   * First release SailfishOS

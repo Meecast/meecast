@@ -57,7 +57,7 @@ namespace Core {
     std::string AbstractConfig::sharePath = "/share/harbour-meecast/";
     std::string AbstractConfig::schemaPath = "/share/xsd/";
     std::string AbstractConfig::iconsPath = "/share/harbour-meecast/iconsets/";
-    std::string AbstractConfig::libPath = "/lib/";
+    std::string AbstractConfig::libPath = "/share/harbour-meecast/lib/";
     std::string AbstractConfig::sourcesPath = "/share/harbour-meecast/sources/";
     std::string AbstractConfig::layoutqml = "qml/main.qml";
     //std::string AbstractConfig::configPath = "~/.config/omweather/";
@@ -66,7 +66,7 @@ namespace Core {
     std::string AbstractConfig::sharePath = "/share/";
     std::string AbstractConfig::schemaPath = "/share/xsd/";
     std::string AbstractConfig::iconsPath = "/share/iconsets/";
-    std::string AbstractConfig::libPath = "/lib/";
+    std::string AbstractConfig::libPath = "/share/harbour-meecast/lib/";
     std::string AbstractConfig::sourcesPath = "/share/sources/";
     std::string AbstractConfig::layoutqml = "qml/main.qml";
     //std::string AbstractConfig::configPath = "~/.config/omweather/";

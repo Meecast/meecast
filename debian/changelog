@@ -1,6 +1,12 @@
+meecast (0.8.5) unstable; urgency=low
+
+  * Second release for SailfishOS 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 17 Jan 2014 22:31:23 +0200
+
 meecast (0.8.4) unstable; urgency=low
 
-  * Bagan version for SailfishOS 
+  * Began version for SailfishOS 
 
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 17 Jan 2014 22:31:23 +0200
 

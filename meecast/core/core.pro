@@ -99,7 +99,7 @@ icon64.path = /usr/share/icons/hicolor/64x64/apps/
 icon128.files = data/desktop/Icon/128/omweather.png
 icon128.path = /usr/share/icons/hicolor/128x128/apps/
 
-icon86.files = data/desktop/Icon/86/meecast.png
+icon86.files = data/desktop/Icon/86/harbour-meecast.png
 icon86.path = /usr/share/icons/hicolor/86x86/apps/
 
 target.path = /usr/share/harbour-meecast/lib

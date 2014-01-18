@@ -100,7 +100,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 
     QScopedPointer<QGuiApplication> app(Sailfish::createApplication(argc, argv));
      
-    qmlRegisterType<MeeCastCover>("MeeCastCover", 1, 0, "MeeCastCover");
+    qmlRegisterType<MeeCastCover>("harbour.meecast.meecastcover", 1, 0, "MeeCastCover");
     app->setProperty("NoMStyle", true);
 
     QDir::setCurrent(app->applicationDirPath());

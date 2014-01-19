@@ -22,87 +22,8 @@ Page {
     property variant model_night:  (current) ? Current_night : Forecast_night_model
     property variant model_hours:  Forecast_hours_model
 
-//    tools: ToolBarLayout {
-//        ToolIcon {
-//            iconId: "toolbar-back"
-//            onClicked: {
-//                //menu.close();
-//                pageStack.pop();
-//            }
-//        }
-//        ButtonRow{
-//            ToolButton {
-//                id: "toolbarnow"
-//                platformStyle: TabButtonStyle{}
-//                visible: (current && day == 0) ? true : false
-//                onClicked: {
-//                    day_period = "current";
-//                    updateperiod();
-//                }
-//                iconSource:  Config.imagespath + "/now.png"
-//                flat: true
-//                checkable: true
-//                checked: flase 
-//            }
-//
-//            ToolButton {
-//                id: "toolbarday"
-//                platformStyle: TabButtonStyle{}
-//                onClicked: {
-//                    day_period = "day";
-//                    updateperiod();
-//                }
-//                iconSource:  Config.imagespath + "/day.png"
-//                flat: true 
-//                checkable: true
-//                checked: true 
-//            }
-//            ToolButton {
-//                id: "toolbarnight"
-//                platformStyle: TabButtonStyle{}
-//                onClicked: {
-//                    day_period = "night";
-//                    updateperiod();
-//                }
-//                iconSource:  Config.imagespath + "/night.png"
-//                flat: true
-//                checkable: true
-//                checked: flase 
-//            }
-//            ToolButton {
-//                id: "toolbarclock"
-//                platformStyle: TabButtonStyle{}
-//                visible: (check_hours()) ? true : false
-//                onClicked: {
-//                    day_period = "hours";
-//                    updateperiod();
-//                }
-//                iconSource:  Config.imagespath + "/clock.png"
-//                flat: true
-//                checkable: true
-//                checked: flase 
-//            }
-//        }
-//        ToolIcon {
-//            iconId: "toolbar-view-menu"
-//            onClicked: {(myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()}
-//            anchors.right: parent == undefined ? undefined : parent.right
-//        }
-//
-//    }
-//    orientationLock: PageOrientation.LockPortrait
-    function openFile(file)
-    {
-        var component = Qt.createComponent(file);
-        if (component.status == Component.Ready){
-            pageStack.push(component);
-        }else {
-            console.log("error open file "+file);
-        }
-    }
 
-    function check_hours ()
-    {
+    function check_hours (){
         var i = 0;
         var result = 0;
         var fulldate = model_day.getdata(day, "fulldate");
@@ -114,8 +35,7 @@ Page {
         return result;
     }
 
-    function updateperiod()
-    {
+    function updateperiod(){
         condition.clear()
         condition2.clear()
 	    if (day_period == "current"){
@@ -327,8 +247,7 @@ Page {
     }
 
  
-    function getColor(t)
-    {
+    function getColor(t){
         var c1, c2, c3;
         if (Config.temperatureunit == "F"){
             t = (t - 32) * 5 / 9;
@@ -356,7 +275,6 @@ Page {
             c2 = (t - (-30))*(0-66/255)/(-30+15) + 66/255;
             return Qt.rgba(c1, c2, 1, 1);
         }
-
     }
 
     Rectangle{
@@ -374,6 +292,17 @@ Page {
             PageHeader {
                 id: daynameheader
                 title: (current && day == 0) ? Config.tr("Today") : model_day.getdata(day, "date");
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        if (day < model_day.rowCount()-1){ 
+                            console.log("next day");
+                            day_period="day";
+                            day++;
+                            fullweather.updateperiod();
+                        }
+                    }
+                }
             }
 
             Rectangle {
@@ -383,49 +312,7 @@ Page {
                 width: parent.width
                 height: 92
                 color: "transparent"
-                Rectangle {
-                    id: left_arrow
-                    width: 72
-                    height: 92
-                    anchors.top: parent.top
-                    anchors.left: parent.left
-                    color: "transparent"
-                    visible: day > 0 ? true : false;
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            if (day > 0){
-                                console.log("prev day");
-                                day--;
-                                fullweather.updateperiod();
-                            }
-                        }
-                    }
 
-                }
-
-                Rectangle {
-                     id: right_arrow
-                     width: 92
-                     height: 92
-                     anchors.top: parent.top
-                     anchors.right: parent.right
-                     color: "transparent"
-                     visible: day < (model_day.rowCount()-1) ? true : false;
-                     MouseArea {
-                         anchors.fill: parent
-                         onClicked: {
-                            // if (!current && day < model_day.rowCount()-1){ 
-                            if (day < model_day.rowCount()-1){ 
-                                console.log("next day");
-                                day_period="day";
-                                day++;
-                                fullweather.updateperiod();
-                            }
-                         }
-                     }
-                 }
-            }
             Rectangle {
                 id: current_rect
                 anchors.top: day_rect.bottom
@@ -677,65 +564,55 @@ Page {
                                 height:parent.height
                                 verticalAlignment: Text.AlignVCenter
                             }
-
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: {
-                                    console.log("hour onclicked");
-    //                                pageStack.push(Qt.resolvedUrl("FullWeatherPage.qml"),
-    //                                               {day: index, day_period: "day" }
-    //                                               )
-                                }
-                            }
                         }
                     }
                 } //component itemDelegate
             }
         }
-//    }
-    Rectangle{
-        color: "black"
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: flickable.botttom
-        id: toolbar
-        height: 110 
-        Row {
-            spacing: Theme.paddingLarge
-            //spacing: Theme.itemSizeSmall
-            anchors.horizontalCenter: parent.horizontalCenter
-            Switch {
-                id: "toolbarnow"
-                icon.source: Config.imagespath + "/now.png" 
-                visible: (current && day == 0) ? true : false
-                onClicked: {
-                     day_period = "current";
-                     updateperiod();
+        Rectangle{
+            color: "black"
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: flickable.botttom
+            id: toolbar
+            height: 110 
+            Row {
+                spacing: Theme.paddingLarge
+                //spacing: Theme.itemSizeSmall
+                anchors.horizontalCenter: parent.horizontalCenter
+                Switch {
+                    id: "toolbarnow"
+                    icon.source: Config.imagespath + "/now.png" 
+                    visible: (current && day == 0) ? true : false
+                    onClicked: {
+                         day_period = "current";
+                         updateperiod();
+                    }
                 }
-            }
-            Switch {
-                id: "toolbarday"
-                icon.source:  Config.imagespath + "/day.png"
-                onClicked: {
-                     day_period = "day";
-                     updateperiod();
+                Switch {
+                    id: "toolbarday"
+                    icon.source:  Config.imagespath + "/day.png"
+                    onClicked: {
+                         day_period = "day";
+                         updateperiod();
+                    }
                 }
-            }
-            Switch {
-                id: "toolbarnight"
-                icon.source:  Config.imagespath + "/night.png"
-                onClicked: {
-                     day_period = "night";
-                     updateperiod();
+                Switch {
+                    id: "toolbarnight"
+                    icon.source:  Config.imagespath + "/night.png"
+                    onClicked: {
+                         day_period = "night";
+                         updateperiod();
+                    }
                 }
-            }
-            Switch {
-                id: "toolbarclock"
-                icon.source:  Config.imagespath + "/clock.png"
-                onClicked: {
-                     day_period = "hours";
-                     updateperiod();
+                Switch {
+                    id: "toolbarclock"
+                    icon.source:  Config.imagespath + "/clock.png"
+                    onClicked: {
+                         day_period = "hours";
+                         updateperiod();
+                    }
                 }
             }
         }

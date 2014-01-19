@@ -37,6 +37,8 @@ PKGCONFIG += libxml-2.0
 #}
 
 
+#CONFIG += static
+
 db.files = data/hko.gov.hk.db
 db.path = /usr/share/harbour-meecast/db/
 

@@ -98,7 +98,7 @@ CONFIG += qdeclarative-boostable
 CONFIG += meegotouch 
 
 QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
-QMAKE_LFLAGS += -pie -rdynamic
+QMAKE_LFLAGS += -pie -rdynamic 
 
 
 DATADIR=/usr/share/harbour-meecast
@@ -115,17 +115,20 @@ CONFIG += sailfishapp
 PKGCONFIG += glib-2.0
 PKGCONFIG += sqlite3
 PKGCONFIG += libcurl
+#CONFIG += static
+#CONFIG += staticlib
+
 target.path = /usr/bin
 DEPLOYMENT_PATH = /usr/share/harbour-meecast
 
-desktop_.files = meecast.desktop
+desktop_.files = harbour-meecast.desktop
 desktop_.path = /usr/share/applications
 icon64.path = /usr/share/pixmaps
 icon64.files += omweather.png
 qml.files = qml/*.qml *.js
 qml.path = $$DEPLOYMENT_PATH/qml
 translations.files = translations/*.qm
-translations.path = /usr/share/locale/
+translations.path = $$DEPLOYMENT_PATH/locale/
 
 
 

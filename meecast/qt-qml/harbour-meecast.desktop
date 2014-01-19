@@ -1,8 +1,9 @@
 [Desktop Entry]
 Name=MeeCast
 GenericName=MeeCast
-Exec=invoker --type=j /usr/bin/harbour-meecast
-Icon=meecast
+X-Nemo-Application-Type=silica-qt5
+Exec=harbour-meecast
+Icon=harbour-meecast
 Terminal=false
 Type=Application
 Categories=Utility;

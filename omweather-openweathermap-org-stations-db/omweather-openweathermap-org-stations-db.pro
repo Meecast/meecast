@@ -35,6 +35,8 @@ system(pkg-config --exists glib-2.0){
     DEFINES += QT
 }
 
+#CONFIG += static
+
 db.files = data/openweathermap.org.db
 db.path = /usr/share/harbour-meecast/db/
 

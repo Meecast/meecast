@@ -35,6 +35,8 @@ PKGCONFIG += libxml-2.0
 #}
 
 
+#CONFIG += static
+
 db.files = data/gismeteo.ru.db
 db.path = /usr/share/harbour-meecast/db/
 

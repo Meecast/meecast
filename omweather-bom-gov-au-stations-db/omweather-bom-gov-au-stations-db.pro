@@ -34,6 +34,17 @@ PKGCONFIG += libxml-2.0
 #    DEFINES += QT
 #}
 
+#CONFIG += static
+
+
+#CONFIG += staticlib
+
+#PKGCONFIG += glib-2.0
+#QMAKE_CXXFLAGS += `pkg-config libxml-2.0 --cflags`
+#QMAKE_CXXFLAGS += `pkg-config glib-2.0 --cflags`
+#QMAKE_LFLAGS +=   -Wl,-Bstatic -lxml2  -Wl,-Bdynamic -lgcc_s  
+#QMAKE_LFLAGS +=   -Wl,-Bstatic -lxml2 -glib-2.0 -Wl,--as-needed
+#-Wl,-Bstatic -lz -lfoo -Wl,-Bdynamic -lbar -Wl,--as-needed
 db.files = data/bom.gov.au.db
 db.path = /usr/share/harbour-meecast/db/
 

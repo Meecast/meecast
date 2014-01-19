@@ -35,6 +35,7 @@ PKGCONFIG += libxml-2.0
 #    DEFINES += QT
 #}
 
+CONFIG += static
 db.files = data/yr.no.db
 db.path = /usr/share/harbour-meecast/db/
 

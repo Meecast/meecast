@@ -24,6 +24,7 @@ CONFIG = link_pkgconfig -qt
 PKGCONFIG += libxml-2.0 \
              glib-2.0
 
+#CONFIG += static
 db.files = data/weather.com.db
 db.path =  /usr/share/harbour-meecast/db/
 

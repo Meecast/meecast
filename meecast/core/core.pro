@@ -1,4 +1,4 @@
-ERSION = 1.0
+VERSION = 1.0
 TARGET = omweather-core
 TEMPLATE = lib
 PKGCONFIG += libcurl
@@ -7,6 +7,8 @@ CONFIG += link_pkgconfig staticlib
 
 CONFIG += qdeclarative-boostable
 CONFIG += qt-boostable 
+
+DEPLOYMENT_PATH = /usr/share/harbour-meecast/
 
 exists("/usr/lib/qt5/qml/Sailfish/Silica/SilicaGridView.qml"): {
     DEFINES += SAILFISHOS 
@@ -29,9 +31,6 @@ CONFIG(localdebug):DEFINES += LOCALDEBUG
 QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
 QMAKE_LFLAGS += -pie -rdynamic
 
-system(pkg-config --exists meego-panel) {
- DEFINES += MEEGO_MPL
-} 
  
 SOURCES = \
     abstractconfig.cpp \ 
@@ -74,7 +73,6 @@ HEADERS = \
     visible.h \
     pressure.h
 
-
 icon.files = data/desktop/Icon/meecast.svg
 icon.path =  /usr/share/icons/
 
@@ -105,7 +103,7 @@ icon86.path = /usr/share/icons/hicolor/86x86/apps/
 target.path = /usr/share/harbour-meecast/lib
 #data.files = data/icons/
 databeginning.files += data/icons/Beginning/*.png
-databeginning.path = /usr/share/harbour-meecast/iconsets/Beginning
+databeginning.path = $$DEPLOYMENT_PATH/iconsets/Beginning
 datacontour.files += data/icons/Contour/*.png
 datacontour.path = /usr/share/harbour-meecast/iconsets/Contour
 dataepona.files += data/icons/Epona/*.png
@@ -126,8 +124,6 @@ datanoun.files += data/icons/Noun/*.png
 datanoun.path = /usr/share/harbour-meecast/iconsets/Noun
 dataatmos.files += data/icons/Atmos/*.png
 dataatmos.path = /usr/share/harbour-meecast/iconsets/Atmos
-
-
 
 
 #data.path = /usr/share

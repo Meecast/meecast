@@ -15,7 +15,7 @@
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
 Version:    0.8.5
-Release:    2
+Release:    1
 Group:      Utility
 License:    GPLv2.1
 URL:        https://github.com/Meecast/meecast 
@@ -56,7 +56,8 @@ MeeCast - multiplatform highly customizable open source weather forecast client 
 # >> build pre
 #export PATH=/usr/lib/qt4/bin:$PATH
 %qtc_qmake5
-make
+%qtc_make %{?_smp_mflags}
+#make
 # << build pre
 
 
@@ -69,7 +70,8 @@ rm -rf %{buildroot}
 # << install pre
 
 # >> install post
-make INSTALL_ROOT=%{buildroot} install
+%qmake5_install
+#make INSTALL_ROOT=%{buildroot} install
 #rm %{buildroot}/opt/com.meecast.omweather/lib/libomweather-core.a
 # << install post
 desktop-file-install --delete-original       \
@@ -77,23 +79,10 @@ desktop-file-install --delete-original       \
    %{buildroot}%{_datadir}/applications/*.desktop
 
 
-
-%post
-# >> post
-/sbin/ldconfig
-# << post
-
-%postun
-# >> postun
-/sbin/ldconfig
-# << postun
-
-
 %files
 %defattr(-,root,root,-)
-/usr/share/applications/meecast.desktop
+/usr/share/applications/harbour-meecast.desktop
 /usr/bin/harbour-meecast
-/usr/share/locale
 /usr/share/harbour-meecast
 #/usr/share/iconsets
 /usr/share/icons/hicolor/86x86/apps

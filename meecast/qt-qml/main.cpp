@@ -27,7 +27,7 @@
 */
 /*******************************************************************************/
 
-//#include <sailfishapp.h>
+#include <sailfishapp.h>
 #include <QtGui/QGuiApplication>
 #include <QtQuick/QQuickView>
 //#include <QtQml/qqml.h>
@@ -161,7 +161,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     QString filename = QString("omweather_%1").arg(locale_string);
 /*    std::cerr<<filename.toStdString().c_str()<<std::endl; */
 
-    QString localepath =QString::fromStdString(Core::AbstractConfig::prefix + "/share/locale");
+    QString localepath =QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
     if (translator.load(filename, localepath)) {
         /* std::cerr<<"Success TR"<<std::endl; */
         app->installTranslator(&translator);
@@ -174,7 +174,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
             QLocale::setDefault(QLocale(controller->config()->languagesList().at(i).second.c_str()));
             filename = QString("omweather_%1").arg(controller->config()->languagesList().at(i).second.c_str());
             std::cerr<<filename.toStdString().c_str()<<std::endl; 
-            QString localepath =QString::fromStdString(Core::AbstractConfig::prefix + "/share/locale");
+            QString localepath =QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
             if (translator.load(filename, localepath)) {
                     std::cerr<<"Success TR"<<std::endl;
                     app->installTranslator(&translator);
@@ -231,5 +231,6 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 //                                                                Core::AbstractConfig::layoutqml)));elete controller;
     */
     return app->exec();
+//    return SailfishApp::main(argc, argv);
    
 }

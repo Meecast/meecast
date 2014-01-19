@@ -93,6 +93,7 @@ desktop-file-install --delete-original       \
   * Fixed various small problems
   * Fixed problem with size of font in CoverPage
   * Fixed problem with scroll down for hours in FullWeather page
+  * Added possibility to refresh weather forecast using the CoverPage
 * Sat Jan 18 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.4.2
   * Fixed problem with refreshing weather forecast
 * Fri Jan 17 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.4.1

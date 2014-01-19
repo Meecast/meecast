@@ -21,7 +21,7 @@ CoverBackground {
                temp_text.text =  temp_text.text + "\n"
             if (cover.current_model("temp_low") != "N/A")
                temp_text.text = temp_text.text + cover.current_model("temp_low") + '°'
-            current_rect.color = getColor(cover.current_model("temp_high"));
+            //current_rect.color = getColor(cover.current_model("temp_high"));
         }else{
            temp_text.text = cover.current_model("temp") + '°'
            //current_rect.color = getColor(cover.current_model("temp"));
@@ -44,11 +44,27 @@ CoverBackground {
             else
                 description.text = ""
             source_image.source = Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
+            if (Config.stationname == "Unknown") {
+                description.text = Config.tr("No locations are set up yet.")
+            }else {
+            if (Current.rowCount() == 0) {
+                    description.text = Config.tr("Looks like there's no info for this location.")}
+                else{
+                    description.text = current_model("description")
+                }
+            }
+            if (description.text.length < 31)
+                if (description.text.length < 12)
+                    description.font.pointSize = 32
+                else
+                    description.font.pointSize = 25
+            else
+                description.font.pointSize = 18
         }
     }
 
     Label {
-        id: stationname 
+        id: stationname
         anchors.top: parent.top
         anchors.topMargin: Theme.paddingMedium
         anchors.horizontalCenter: parent.horizontalCenter
@@ -87,11 +103,11 @@ CoverBackground {
         id: description
         anchors.top: icon.bottom
         width: parent.width 
-        height: 130 
+        height: 120 
         color: "white"
         wrapMode:  TextEdit.WordWrap
         text: Config.stationname == "Unknown" ? Config.tr("No locations are set up yet.") : (Current.rowCount() == 0) ? "Looks like there's no info for this location." : current_model("description")
-        font.pointSize: 25 
+        font.pointSize: text.length < 40 ? 25 : 18
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
     }

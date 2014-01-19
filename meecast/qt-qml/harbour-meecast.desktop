@@ -1,9 +1,7 @@
 [Desktop Entry]
-Name=MeeCast
-GenericName=MeeCast
-X-Nemo-Application-Type=silica-qt5
-Exec=harbour-meecast
-Icon=harbour-meecast
-Terminal=false
 Type=Application
-Categories=Utility;
+Name=MeeCast
+Icon=harbour-meecast
+X-Nemo-Application-Type=silica-qt5
+Comment=Weather forecast for Sailfish
+Exec=harbour-meecast

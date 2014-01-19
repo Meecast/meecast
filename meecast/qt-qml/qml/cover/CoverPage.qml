@@ -29,6 +29,7 @@ CoverBackground {
 
     }
     property bool active: status == Cover.Active || applicationActive;
+    property bool isUpdate: false
 
     MeeCastCover {
         status: cover.active
@@ -57,14 +58,16 @@ CoverBackground {
                 if (description.text.length < 12)
                     description.font.pointSize = 32
                 else
-                    description.font.pointSize = 25
+                    description.font.pointSize = 20
             else
-                description.font.pointSize = 18
+                description.font.pointSize = 16
+            isUpdate = false;
         }
     }
 
     Label {
         id: stationname
+        visible: isUpdate ? false : true
         anchors.top: parent.top
         anchors.topMargin: Theme.paddingMedium
         anchors.horizontalCenter: parent.horizontalCenter
@@ -73,14 +76,15 @@ CoverBackground {
     }
     Text {
         id: temp_text
-        visible: Config.stationname == "Unknown" ? false : true
+        visible: Config.stationname == "Unknown" || isUpdate  ? false : true
         anchors.top: stationname.bottom
         anchors.right: parent.right 
+        anchors.topMargin: 10 
         anchors.rightMargin: 20 
-        anchors.topMargin: 20 
+        anchors.bottomMargin: 10 
         anchors.left: icon.right
         wrapMode:  TextEdit.WordWrap
-        height: 128 
+        height: 108 
         color: "white"
         text: Current.temp + '°'
         font.pointSize: 53 
@@ -92,6 +96,7 @@ CoverBackground {
     }
     Image {
         id: icon
+        visible: isUpdate ? false : true
         source: (Config.stationname == "Unknown" || Current.rowCount() == 0) ? Config.iconspath + "/" + Config.iconset + "/49.png" : Config.iconspath + "/" + Config.iconset + "/" + cover.current_model("pict") 
         width:  128
         height: 128
@@ -101,33 +106,88 @@ CoverBackground {
     }
     Text {
         id: description
+        visible: isUpdate ? false : true
         anchors.top: icon.bottom
         width: parent.width 
-        height: 120 
+        height: 80 
         color: "white"
         wrapMode:  TextEdit.WordWrap
         text: Config.stationname == "Unknown" ? Config.tr("No locations are set up yet.") : (Current.rowCount() == 0) ? "Looks like there's no info for this location." : current_model("description")
-        font.pointSize: text.length < 40 ? 25 : 18
+        font.pointSize: text.length < 20 ? 25 : 16
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
     }
     Image {
+        visible: isUpdate ? false : true
         id: source_image 
         source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
         anchors.bottom: parent.bottom
-        anchors.top: description.bottom
+        height: 40 
+    //    anchors.top: description.bottom
         smooth: true    
         fillMode: Image.PreserveAspectFit
         anchors.horizontalCenter: parent.horizontalCenter
      //   anchors.verticalCenter: parent.verticalCenter
         scale: 0.8
     }
+    Label {
+        id: title
+        visible: isUpdate ? true : false
+        anchors.top: parent.top
+        anchors.topMargin: Theme.paddingMedium
+        anchors.horizontalCenter: parent.horizontalCenter
+        text: "MeeCast" 
+        font.pixelSize: 35 
+    }
+
+    Image {
+        id: refresh_image
+        source: "image://theme/icon-cover-refresh"
+        anchors.top: parent.top 
+        anchors.topMargin: 80 
+        visible: isUpdate ? true : false
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: 100
+        height: 100
+        RotationAnimation on rotation {
+            duration: 2000; 
+            loops: Animation.Infinite; 
+            running : isUpdate ? active : false
+            from: 0; to: 360
+        }
+    }
+
+    Text {
+        text: Config.tr("Updating forecast")
+        horizontalAlignment: Text.AlignHLeft; 
+        anchors.top: parent.top 
+        anchors.topMargin: 190 
+        //anchors.centerIn: parent
+        visible: isUpdate ? true : false
+        font.pointSize: 20; 
+        NumberAnimation on x { 
+            id: text_anim; 
+            from: 250; to: -300; 
+            duration: 7000; 
+            loops: Animation.Infinite; 
+            running : isUpdate ? active : false
+        }  
+    }
+
     CoverActionList {
+        id: ordinary
+        enabled: isUpdate ? false : true
         CoverAction {
-            onTriggered: { Config.changestationback(); }
+            iconSource: "image://theme/icon-cover-next"
+            onTriggered: { Config.changestation();}
         }
         CoverAction {
-            onTriggered: { Config.changestation();}
+            iconSource: "image://theme/icon-cover-refresh"
+            onTriggered: {
+                Config.updatestations(); 
+                isUpdate = true;  
+            }
+
         }
     }
 }

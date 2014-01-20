@@ -2,6 +2,6 @@
 Type=Application
 Name=MeeCast
 Icon=harbour-meecast
-X-Nemo-Application-Type=silica-qt5
+X-Nemo-Application-Type=qt5
 Comment=Weather forecast for Sailfish
 Exec=harbour-meecast

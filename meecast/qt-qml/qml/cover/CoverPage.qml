@@ -5,6 +5,9 @@ import harbour.meecast.meecastcover 1.0
 
 CoverBackground {
     id: cover
+    property bool active: status == Cover.Active || applicationActive;
+    property bool isUpdate: false
+
     function current_model(name){
         return Current.getdata(0, name);
     }
@@ -28,8 +31,6 @@ CoverBackground {
         }
 
     }
-    property bool active: status == Cover.Active || applicationActive;
-    property bool isUpdate: false
 
     MeeCastCover {
         status: cover.active
@@ -55,12 +56,13 @@ CoverBackground {
                 }
             }
             if (description.text.length < 31)
-                if (description.text.length < 12)
+                if (description.text.length < 10)
                     description.font.pointSize = 32
                 else
                     description.font.pointSize = 20
             else
                 description.font.pointSize = 16
+
             isUpdate = false;
         }
     }

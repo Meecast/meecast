@@ -11,6 +11,9 @@ Page {
     {
         pageStack.push(Qt.resolvedUrl(file))
     }
+    RemorsePopup {
+        id: clearRemorse
+    }
     Connections {
         target: Config
         onConfigChanged: {
@@ -122,9 +125,12 @@ Page {
                         anchors.verticalCenter: parent.verticalCenter
                         width: 50
                         onClicked: {
-                            removedStation = index;
-                            removedStationName = modelData;
-                            var dialog = pageStack.push(confirm);
+                            clearRemorse.execute(modelData + " " + Config.tr("Delete location?"), 
+                            function() {
+                                if (index > -1){
+                                    Config.removeStation(index);
+                                }
+                            }, 4000)
                         }
                     }
                 }

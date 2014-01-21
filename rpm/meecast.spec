@@ -90,7 +90,8 @@ desktop-file-install --delete-original       \
 
 %changelog
 * Sun Jan 19 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.5
-  * Nothing
+  * Removed button refresh from main form and add Item menu 'Update' to pulley menu 
+  * Redisigned form for delete location
 * Sun Jan 19 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.5
   * Fixed various small problems
   * Fixed problem with size of font in CoverPage

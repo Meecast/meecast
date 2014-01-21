@@ -40,6 +40,13 @@ Component {
                 }
                 MenuItem {
                     id: item2menu
+                    text: Config.tr("Update")
+                    onClicked: {
+                        if (!isUpdate) main.update();
+                    }
+                }
+                MenuItem {
+                    id: item3menu
                     visible: menuitemgps
                     text: Config.tr("Adjust GPS station")
                     onClicked: {
@@ -47,7 +54,7 @@ Component {
                     }
                 }
                 MenuItem {
-                     id: item3menu
+                     id: item4menu
                      text: Config.tr("About")
                      onClicked: {
                           openFile("AboutPage.qml");
@@ -541,25 +548,6 @@ Component {
             anchors.right: parent.right
             height: 72
             color: "black"
-            Image {
-                id: refresh_button
-                anchors.left: parent.left
-                source:  "image://theme/icon-m-refresh"
-                visible: isUpdate ? false : true
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: {
-                        if (!isUpdate) main.update();
-                    }
-                }
-            } 
-            BusyIndicator {
-                running: isUpdate ? true : false
-                anchors.left: parent.left
-                visible: isUpdate ? true : false
-                size: BusyIndicatorSize.Medium
-                anchors.verticalCenter: parent.verticalCenter
-            }
             Image {
                 id: sourceicon
                 anchors.horizontalCenter: parent.horizontalCenter

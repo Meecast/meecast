@@ -90,6 +90,8 @@ desktop-file-install --delete-original       \
 
 %changelog
 * Sun Jan 19 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.5
+  * Nothing
+* Sun Jan 19 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.5
   * Fixed various small problems
   * Fixed problem with size of font in CoverPage
   * Fixed problem with scroll down for hours in FullWeather page

@@ -65,6 +65,7 @@ CoverBackground {
                     description.font.pointSize = 20
             else
                 description.font.pointSize = 16
+            lastupdate.text = current_model("lastupdate")
             isUpdate = false;
         }
     }
@@ -99,6 +100,7 @@ CoverBackground {
 //        anchors.verticalCenter: parent.verticalCenter
         Component.onCompleted: { current_temperature()}
     }
+   
     Image {
         id: icon
         visible: isUpdate ? false : true
@@ -122,6 +124,16 @@ CoverBackground {
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
     }
+    Label {
+        id: lastupdate 
+        anchors.bottom: source_image.top
+        anchors.bottomMargin: 0
+        visible: isUpdate ? false : true
+        anchors.horizontalCenter: parent.horizontalCenter
+        text: current_model("lastupdate")
+        font.pixelSize: 12 
+    }
+
     Image {
         visible: isUpdate ? false : true
         id: source_image 

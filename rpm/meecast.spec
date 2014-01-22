@@ -93,6 +93,7 @@ desktop-file-install --delete-original       \
   * Removed button refresh from main form and add Item menu 'Update' to pulley menu 
   * Redesigned form for delete location
   * Fixed problem with transparency Cover window and font size on Cover Window
+  * Added last update information on Cover Page
 * Sun Jan 19 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.5
   * Fixed various small problems
   * Fixed problem with size of font in CoverPage

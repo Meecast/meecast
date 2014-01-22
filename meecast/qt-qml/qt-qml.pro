@@ -104,10 +104,9 @@ QMAKE_LFLAGS += -pie -rdynamic
 DATADIR=/usr/share/harbour-meecast
 INCLUDEPATH += ../core                                                                                                        
 
-#include(sailfishapplication/sailfishapplication.pri)
 
 
-LIBS += -L ../core ../core/libomweather-core.a  
+LIBS += -L ../core ../core/libomweather-core.a -lsailfishapp 
 CONFIG += dbus
 CONFIG += qdbus
 CONFIG += link_pkgconfig
@@ -133,7 +132,7 @@ translations.path = $$DEPLOYMENT_PATH/locale/
 
 
 # Please do not modify the following line.
-include(sailfishapplication/sailfishapplication.pri)
+#include(sailfishapplication/sailfishapplication.pri)
 
 #INSTALLS += desktop qml icon64
 INSTALLS += target desktop_ translations qml

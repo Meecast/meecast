@@ -51,7 +51,6 @@
 #include <exception>
 #include <iostream>
 
-#include "sailfishapplication.h"
 #include "core.h"
 #include "dataqml.h"
 #include "configqml.h"
@@ -98,10 +97,11 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 {
 
 
-    QScopedPointer<QGuiApplication> app(Sailfish::createApplication(argc, argv));
+    //QScopedPointer<QGuiApplication> app(Sailfish::createApplication(argc, argv));
      
+    QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
     qmlRegisterType<MeeCastCover>("harbour.meecast.meecastcover", 1, 0, "MeeCastCover");
-    app->setProperty("NoMStyle", true);
+    //app->setProperty("NoMStyle", true);
 
     QDir::setCurrent(app->applicationDirPath());
 
@@ -121,18 +121,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 
 
 
-    /*
-    //Set up a graphics scene with a QGraphicsWidget and Layout
-    QGraphicsView view;
-    QGraphicsScene scene;
-    QGraphicsWidget *widget = new QGraphicsWidget();
-    QGraphicsGridLayout *layout = new QGraphicsGridLayout;
-    layout->setSpacing(0);
-    widget->setLayout(layout);
-    scene.addItem(widget);
-    view.setScene(&scene);
-*/
-
+    
     //Add the QML snippet into the layout
 
   //  QString locale = QLocale::system().name();
@@ -188,48 +177,13 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     QDBusConnection connection = QDBusConnection::sessionBus();
     connection.registerService("org.meego.omweather");
     connection.registerObject("/org/meego/omweather", controller);
-   
 
-    //config = controller->config();
-    //std::cerr<<"iconpath = "<<config->imagespath().toStdString() << std::endl;
-    //update_weather_forecast(config);
-    
     QQuickView *qview;
     qview = controller->qview();
-    
-   Sailfish::setView(qview,QString::fromStdString("file://" + Core::AbstractConfig::prefix + 
-                                                   Core::AbstractConfig::sharePath +
-                                                   Core::AbstractConfig::layoutqml));
+    QUrl qmlPath(SailfishApp::pathTo("qml/main.qml"));
+    qview->setSource(qmlPath);
+    qview->show();
 
-   //  Sailfish::setView(qview,QString::fromStdString("file://" + Core::AbstractConfig::prefix + 
-   //                                                Core::AbstractConfig::sharePath +
-   //                                                Core::AbstractConfig::layoutqml));
-   /* 
-    QDir::setCurrent(QString::fromStdString(Core::AbstractConfig::prefix + 
-                     Core::AbstractConfig::sharePath +
-                     "omweather-qml/qml/"));
-   */
-//    Sailfish::setView(qview,QString::fromStdString("main.qml")); 
-//    QScopedPointer<QQuickView> view(Sailfish::createView(QString::fromStdString(Core::AbstractConfig::prefix +
-//                                                                Core::AbstractConfig::sharePath +
-//                                                                Core::AbstractConfig::layoutqml)));
-  //  QScopedPointer<QQuickView> view(Sailfish::createView("main.qml"));
-    Sailfish::showView(qview);
-
-    std::cerr << "qml path = " << Core::AbstractConfig::layoutqml << std::endl;
-    /*
-    qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::prefix +
-                                                                Core::AbstractConfig::sharePath +
-                                                                Core::AbstractConfig::layoutqml)));
-    */
-   // QObject::connect((QObject*)qview->engine(), SIGNAL(quit()), app, SLOT(quit()));
-    //qview->showFullScreen();
-    /*This code provides Segmantation fault
-    delete dadapt;
-    dQString::fromStdString(Core::AbstractConfig::prefix +
-//                                                                Core::AbstractConfig::sharePath +
-//                                                                Core::AbstractConfig::layoutqml)));elete controller;
-    */
     return app->exec();
 //    return SailfishApp::main(argc, argv);
    

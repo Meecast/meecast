@@ -183,7 +183,7 @@ Page {
 	}
 	Label {
         id: leaddesignertext 
-        text: Config.tr("Lead designer") + ":"
+        text: Config.tr("Lead designers") + ":"
 	    anchors.top: localizationfulltext.bottom 
 	    anchors.topMargin: 30 
 	    anchors.leftMargin: 20
@@ -192,7 +192,7 @@ Page {
         }
 	Label {
         id: leaddesignerfulltext 
-	    text: "Andrew Zhilin"
+	    text: "Andrew Zhilin, Stephan Beyerle"
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    anchors.top: leaddesignertext.bottom

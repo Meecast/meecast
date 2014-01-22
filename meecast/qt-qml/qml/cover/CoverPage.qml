@@ -30,7 +30,6 @@ CoverBackground {
            temp_text.text = coverPage.current_model("temp") + '°'
            //current_rect.color = getColor(coverPage.current_model("temp"));
         }
-
     }
 
     MeeCastCover {
@@ -39,6 +38,9 @@ CoverBackground {
     Connections {
         target: Config
         onConfigChanged: {
+            Current.reload_data(Config.filename);
+            Current.update_model(0);
+
             stationname.text = Config.stationname
             current_temperature()
             icon.source = Config.iconspath + "/" + Config.iconset + "/" + coverPage.current_model("pict")
@@ -63,7 +65,6 @@ CoverBackground {
                     description.font.pointSize = 20
             else
                 description.font.pointSize = 16
-
             isUpdate = false;
         }
     }

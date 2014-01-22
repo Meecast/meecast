@@ -70,6 +70,13 @@ CoverBackground {
         }
     }
 
+    Image {
+        source: Config.imagespath + "/cover.png"
+        opacity: 0.1
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: parent.width
+        height: sourceSize.height * width / sourceSize.width
+    }
     Label {
         id: stationname
         visible: isUpdate ? false : true

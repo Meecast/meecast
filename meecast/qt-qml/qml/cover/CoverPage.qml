@@ -77,6 +77,13 @@ CoverBackground {
         width: parent.width
         height: sourceSize.height * width / sourceSize.width
     }
+    /*
+    Rectangle {
+        anchors.fill: parent
+        opacity: 0.1
+        color: "red"
+    }
+    */
     Label {
         id: stationname
         visible: isUpdate ? false : true

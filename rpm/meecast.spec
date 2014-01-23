@@ -89,12 +89,13 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
-* Sun Jan 19 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.5
+* Tue Jan 23 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.6.1
   * Removed button refresh from main form and add Item menu 'Update' to pulley menu 
   * Redesigned form for delete location
   * Fixed problem with transparency Cover window and font size on Cover Window
   * Added last update information on Cover Page
   * Added new icons from Stephan Beyerle (Thank you very much Stephan)
+  * Added background Image to Cover (Thank you very much Stephan again)
 * Sun Jan 19 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.5
   * Fixed various small problems
   * Fixed problem with size of font in CoverPage

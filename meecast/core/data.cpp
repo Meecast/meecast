@@ -269,7 +269,8 @@ namespace Core {
      }
      int
      Data::Icon() const{
-         /* need to check range (0 - 49) */
+         if (_icon >49|| _icon <0)
+             return 49;
          return _icon;
      }
 ////////////////////////////////////////////////////////////////////////////////

@@ -25,11 +25,42 @@ CoverBackground {
                temp_text.text =  temp_text.text + "\n"
             if (coverPage.current_model("temp_low") != "N/A")
                temp_text.text = temp_text.text + coverPage.current_model("temp_low") + '°'
-            //current_rect.color = getColor(coverPage.current_model("temp_high"));
+            background_rect.color = getColor(coverPage.current_model("temp_high"));
         }else{
            temp_text.text = coverPage.current_model("temp") + '°'
-           //current_rect.color = getColor(coverPage.current_model("temp"));
+           background_rect.color = getColor(coverPage.current_model("temp"));
         }
+    }
+    function getColor(t){
+        var c1, c2, c3;
+        if (Config.temperatureunit == "F"){
+            t = (t - 32) * 5 / 9;
+        }
+        if (t >= 30){
+            c2 = (t - 50)*(246/255-60/255)/(30-50) + 60/255;
+            return Qt.rgba(1, c2, 0, 1);
+        }else if (t < 30 && t >= 15){
+            c1 = (t - 30)*(114/255-1)/(15-30) + 1;
+            c2 = (t - 30)*(1-246/255)/(15-30) + 246/255;
+            return Qt.rgba(c1, c2, 0, 1);
+        }else if (t < 15 && t >= 0){
+            c1 = (t - 15)*(1-114/255)/(0-15) + 144/255;
+            c3 = (t - 15)*(1-0)/(0-15) + 0;
+            return Qt.rgba(c1, 1, c3, 1);
+        }else if (t < 0 && t >= -15){
+            c1 = (t - 0)*(0-1)/(-15-0) + 1;
+            c2 = (t - 0)*(216/255-1)/(-15-0) + 1;
+            return Qt.rgba(c1, c2, 1, 1);
+        }else if (t < -15 && t >= -30){
+            c2 = (t - (-15))*(66/255-216/255)/(-30+15) + 216/255;
+            //console.log(t+ " "+c2);
+            return Qt.rgba(0, c2, 1, 1);
+        }else if (t < -30){
+            c1 = (t - (-30))*(132/255-0)/(-30+15) + 0;
+            c2 = (t - (-30))*(0-66/255)/(-30+15) + 66/255;
+            return Qt.rgba(c1, c2, 1, 1);
+        }
+
     }
 
     MeeCastCover {
@@ -69,7 +100,12 @@ CoverBackground {
             isUpdate = false;
         }
     }
-
+    Rectangle {
+        id: background_rect
+        anchors.fill: parent
+        opacity: 0.1
+        color: "white"
+    }
     Image {
         source: Config.imagespath + "/cover.png"
         opacity: 0.1
@@ -77,13 +113,6 @@ CoverBackground {
         width: parent.width
         height: sourceSize.height * width / sourceSize.width
     }
-    /*
-    Rectangle {
-        anchors.fill: parent
-        opacity: 0.1
-        color: "red"
-    }
-    */
     Label {
         id: stationname
         visible: isUpdate ? false : true

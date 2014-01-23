@@ -5,7 +5,7 @@ import harbour.meecast.meecastcover 1.0
 
 CoverBackground {
     id: coverPage
-    property bool active: status == coverPage.Active || applicationActive;
+    property bool active: status == Cover.Active || applicationActive;
     property bool isUpdate: false
     anchors.fill: parent
 
@@ -69,8 +69,8 @@ CoverBackground {
     Connections {
         target: Config
         onConfigChanged: {
-            Current.reload_data(Config.filename);
-            Current.update_model(0);
+    //        Current.reload_data(Config.filename);
+    //        Current.update_model(0);
 
             stationname.text = Config.stationname
             current_temperature()

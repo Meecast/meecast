@@ -14,7 +14,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    0.8.5
+Version:    0.8.6
 Release:    1
 Group:      Utility
 License:    GPLv2.1
@@ -94,6 +94,7 @@ desktop-file-install --delete-original       \
   * Redesigned form for delete location
   * Fixed problem with transparency Cover window and font size on Cover Window
   * Added last update information on Cover Page
+  * Added new icons from Stephan Beyerle (Thank you very much Stephan)
 * Sun Jan 19 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.5
   * Fixed various small problems
   * Fixed problem with size of font in CoverPage

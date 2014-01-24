@@ -96,7 +96,8 @@ CoverBackground {
                     description.font.pointSize = 20
             else
                 description.font.pointSize = 16
-            lastupdate.text = current_model("lastupdate")
+//            lastupdate.text = current_model("lastupdate")
+            lastupdate.text = Config.tr("Last update:") + "\n" + current_model("lastupdatetime")
             isUpdate = false;
         }
     }
@@ -174,7 +175,7 @@ CoverBackground {
         visible: isUpdate ? false : true
         anchors.horizontalCenter: parent.horizontalCenter
         text: current_model("lastupdate")
-        font.pixelSize: 12 
+        font.pixelSize: 15 
     }
 
     Image {

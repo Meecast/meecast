@@ -97,7 +97,8 @@ CoverBackground {
             else
                 description.font.pointSize = 16
 //            lastupdate.text = current_model("lastupdate")
-            lastupdate.text = Config.tr("Last update:") + "\n" + current_model("lastupdatetime")
+          //  lastupdate.text = Config.tr("Last update:") + "\n" + current_model("lastupdatetime")
+            lastupdate.text = Config.tr("Last update:") + " " + current_model("lastupdatetime")
             isUpdate = false;
         }
     }
@@ -170,26 +171,31 @@ CoverBackground {
     }
     Label {
         id: lastupdate 
-        anchors.bottom: source_image.top
+        //anchors.bottom: source_image.top
+        anchors.bottom: parent.bottom
         anchors.bottomMargin: 0
         visible: isUpdate ? false : true
         anchors.horizontalCenter: parent.horizontalCenter
         text: current_model("lastupdate")
-        font.pixelSize: 15 
+        font.pixelSize: 21 
     }
 
     Image {
         visible: isUpdate ? false : true
         id: source_image 
         source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
-        anchors.bottom: parent.bottom
-        height: 40 
+        anchors.bottom: lastupdate.top
+        anchors.top: description.bottom 
+        anchors.topMargin: 15
+        //anchors.bottom: parent.bottom
+       // height: 40 
+       width: 80
     //    anchors.top: description.bottom
         smooth: true    
         fillMode: Image.PreserveAspectFit
         anchors.horizontalCenter: parent.horizontalCenter
-     //   anchors.verticalCenter: parent.verticalCenter
-        scale: 0.8
+        anchors.verticalCenter: parent.verticalCenter
+      //  scale: 0.8
     }
     Label {
         id: title

@@ -14,7 +14,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    0.8.6
+Version:    0.8.7
 Release:    1
 Group:      Utility
 License:    GPLv2.1
@@ -89,6 +89,8 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
+* Tue Jan 23 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.7.1
+  * Nothing
 * Tue Jan 23 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.6.1
   * Removed button refresh from main form and add Item menu 'Update' to pulley menu 
   * Redesigned form for delete location

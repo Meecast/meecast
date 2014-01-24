@@ -98,6 +98,7 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[SunRiseRole] = "sunrise";
     names[SunSetRole] = "sunset";
     names[LastUpdateRole] = "lastupdate";
+    names[LastUpdateTimeRole] = "lastupdatetime";
     names[TemperatureLabelRole] = "temperature_label";
     names[HumidityLabelRole] = "humidity_label";
     names[WindLabelRole] = "wind_label";
@@ -177,6 +178,8 @@ QVariant DataItem::data(int role)
         return count_of_maps();
     case LastUpdateRole:
         return lastupdate();
+    case LastUpdateTimeRole:
+        return lastupdatetime();
     case TemperatureLabelRole:
         return QString(QString::fromUtf8( _("Temperature:")));
     case HumidityLabelRole:
@@ -455,6 +458,11 @@ DataItem::lastupdate() {
                             return c.number(((int)((temp.toTime_t() - _lastupdate.toTime_t())/(24*3600))), 'i', 0) + " " + QString::fromUtf8(_("day ago"));
                         else
                             return c.number((int)((temp.toTime_t() - _lastupdate.toTime_t())/(3600*24)), 'i', 0) + " " + QString::fromUtf8(_("days ago"));
+}
+
+QString
+DataItem::lastupdatetime() {
+    return _lastupdate.toString("d MMM hh:mm");
 }
 
 QString

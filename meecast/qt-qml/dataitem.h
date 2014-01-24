@@ -77,6 +77,7 @@ class DataItem : public QObject, public Core::Data
         SunRiseRole,
         DayLengthRole,
         LastUpdateRole,
+        LastUpdateTimeRole,
         NowLabelRole,
         MapPatternRole,
         MapBackgroundPatternRole,
@@ -100,6 +101,7 @@ public:
     Q_PROPERTY(QString sunset READ sunset)
     Q_PROPERTY(QString daylength READ daylength)
     Q_PROPERTY(QString lastupdate READ lastupdate)
+    Q_PROPERTY(QString lastupdatetime READ lastupdatetime)
     Q_PROPERTY(QString map_pattern READ map_pattern)
     Q_PROPERTY(QString count_of_maps READ count_of_maps)
 
@@ -137,6 +139,7 @@ public:
     QString sunset();
     QString daylength();
     QString lastupdate();
+    QString lastupdatetime();
     void LastUpdate(time_t date_and_time);
 
     Q_INVOKABLE void update(QString filename);

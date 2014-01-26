@@ -103,15 +103,23 @@ Page {
                 width: parent.width
                // height: 80
                 TextSwitch {
+                    id: logocover
                     text: Config.tr("Show source logo")
                     checked: Config.logocoverpage
+                    onCheckedChanged: {
+                        Config.setlogocoverpage(logocover.checked);
+                    }
                 }
             }
             Row {
                 width: parent.width
                 TextSwitch {
+                    id: windcover
                     text: Config.tr("Show wind")
                     checked: Config.windcoverpage
+                    onCheckedChanged: {
+                        Config.setwindcoverpage(windcover.checked);
+                    }
                 }
             }
         }

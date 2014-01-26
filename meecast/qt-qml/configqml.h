@@ -185,6 +185,8 @@ public:
     Q_INVOKABLE void seteventwidget(bool c);
     Q_INVOKABLE void setgps(bool c);
     Q_INVOKABLE void setsplash(bool c);
+    Q_INVOKABLE void setlogocoverpage(bool c);
+    Q_INVOKABLE void setwindcoverpage(bool c);
     Q_INVOKABLE QStringList icon_list();
     Q_INVOKABLE QStringList languages_list();
     Q_INVOKABLE int index_of_current_language();

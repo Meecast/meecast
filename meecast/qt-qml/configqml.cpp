@@ -489,10 +489,22 @@ bool
 ConfigQml::logocoverpage(){
     return ConfigQml::Config::LogoOnCover();
 }
+void
+ConfigQml::setlogocoverpage(bool c){
+    ConfigQml::Config::LogoOnCover(c);
+    saveConfig();
+    refreshconfig();
+}
 
 bool
 ConfigQml::windcoverpage(){
     return ConfigQml::Config::WindOnCover();
+}
+void
+ConfigQml::setwindcoverpage(bool c){
+    ConfigQml::Config::WindOnCover(c);
+    saveConfig();
+    refreshconfig();
 }
 
 bool
@@ -1134,6 +1146,3 @@ void ConfigQml::time_for_updating(uint _time){
     _time_for_updating = _time;
 }
 
-void ConfigQml::logocoverpageChanged(){
-    std::cerr<"qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq "<< std::endl;
-}

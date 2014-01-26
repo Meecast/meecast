@@ -99,6 +99,23 @@ CoverBackground {
 //            lastupdate.text = current_model("lastupdate")
           //  lastupdate.text = Config.tr("Last update:") + "\n" + current_model("lastupdatetime")
             lastupdate.text = Config.tr("Last update:") + " " + current_model("lastupdatetime")
+            console.log(Config.logocoverpage)
+            if (Config.logocoverpage)
+                source_image.visible = true
+            else
+                source_image.visible = false
+            if (Config.windcoverpage){
+                icon.width = 100
+                icon.height = 100
+                wind_speed_text.visible = true
+                wind_speed_icon.visible = true
+            }else{
+                icon.width = 128
+                icon.height = 128
+                wind_speed_text.visible = false
+                wind_speed_icon.visible = false
+            }
+
             isUpdate = false;
         }
     }
@@ -129,7 +146,7 @@ CoverBackground {
         visible: Config.stationname == "Unknown" || isUpdate  ? false : true
         anchors.top: stationname.bottom
         anchors.right: parent.right 
-        anchors.topMargin: 15 
+        anchors.topMargin: 5 
         anchors.rightMargin: 0 
         anchors.leftMargin: 0 
         anchors.bottomMargin: 15 
@@ -141,21 +158,44 @@ CoverBackground {
         font.pointSize: 42 
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-//        anchors.horizontalCenter: parent.horizontalCenter
-//        anchors.verticalCenter: parent.verticalCenter
         Component.onCompleted: { current_temperature()}
     }
-   
     Image {
         id: icon
         visible: isUpdate ? false : true
         source: (Config.stationname == "Unknown" || Current.rowCount() == 0) ? Config.iconspath + "/" + Config.iconset + "/49.png" : Config.iconspath + "/" + Config.iconset + "/" + coverPage.current_model("pict") 
-        width:  128
-        height: 128
+        width:  Config.windcoverpage ? 128 : 100
+        height: Config.windcoverpage ? 128 : 100
         anchors.top: stationname.bottom
-        anchors.topMargin: 20
+        anchors.topMargin: 5 
         smooth: true
     }
+    Image {
+        id: wind_speed_icon
+        anchors.leftMargin: Theme.paddingSmall
+        visible: Config.windcoverpage
+        source: Config.imagespath + "/wind_speed.png"
+        anchors.top: icon.bottom
+        anchors.topMargin: -20
+        anchors.left: parent.left
+        width: 30
+        height: 30
+        smooth: true
+    }
+    Text {
+        id: wind_speed_text
+        text: (Config.windspeedunit == "Beaufort scale") ? coverPage.current_model("wind_speed") : coverPage.current_model("wind_speed") + ' ' + Config.tr(Config.windspeedunit)
+        visible: Config.windcoverpage
+        anchors.top: icon.bottom
+        anchors.topMargin: -20
+        anchors.left: wind_speed_icon.right
+        anchors.leftMargin: 3
+        height: 30
+        color: "white"
+        font.pointSize: 14
+        verticalAlignment: Text.AlignVCenter
+    }
+
     Text {
         id: description
         visible: isUpdate ? false : true
@@ -194,7 +234,7 @@ CoverBackground {
         smooth: true    
         fillMode: Image.PreserveAspectFit
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
+    //    anchors.verticalCenter: parent.verticalCenter
       //  scale: 0.8
     }
     Label {

@@ -89,8 +89,10 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
-* Tue Jan 23 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.7.1
-  * Nothing
+* Tue Jan 26 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.7.1
+  * Added Wind spped and wind direction to Cover Page
+  * Added text 'Now' to Cover Page
+  * Polished Cover Page
 * Tue Jan 23 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.6.1
   * Removed button refresh from main form and add Item menu 'Update' to pulley menu 
   * Redesigned form for delete location

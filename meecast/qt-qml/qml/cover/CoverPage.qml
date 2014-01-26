@@ -25,7 +25,11 @@ CoverBackground {
                temp_text.text =  temp_text.text + "\n"
             if (coverPage.current_model("temp_low") != "N/A")
                temp_text.text = temp_text.text + coverPage.current_model("temp_low") + '°'
-            background_rect.color = getColor(coverPage.current_model("temp_high"));
+            if (coverPage.current_model("temp_high") != undefined && coverPage.current_model("temp_high") != "N/A") 
+                background_rect.color = getColor(coverPage.current_model("temp_high"));
+            else
+                if (coverPage.current_model("temp_low") != undefined && coverPage.current_model("temp_low") != "N/A") 
+                    background_rect.color = getColor(coverPage.current_model("temp_low"));
         }else{
            temp_text.text = coverPage.current_model("temp") + '°'
            background_rect.color = getColor(coverPage.current_model("temp"));
@@ -60,6 +64,45 @@ CoverBackground {
             c2 = (t - (-30))*(0-66/255)/(-30+15) + 66/255;
             return Qt.rgba(c1, c2, 1, 1);
         }
+    }
+    function getAngle(s){
+        var a;
+
+        switch (s){
+        case 'S':
+            return 0;
+        case 'SSW':
+            return 22.5;
+        case 'SW':
+            return 45;
+        case 'WSW':
+            return (45+22.5);
+        case 'W':
+            return 90;
+        case 'WNW':
+            return (90+22.5);
+        case 'NW':
+            return (90+45);
+        case 'NNW':
+            return (180-22.5);
+        case 'N':
+            return 180;
+        case 'NNE':
+            return (180+22.5);
+        case 'NE':
+            return (180+45);
+        case 'ENE':
+            return (270-22.5);
+        case 'E':
+            return 270;
+        case 'ESE':
+            return (270+22.5);
+        case 'SE':
+            return (270+45);
+        case 'SSE':
+            return (360-22.5);
+
+        }
 
     }
 
@@ -74,6 +117,8 @@ CoverBackground {
 
             stationname.text = Config.stationname
             current_temperature()
+            temp.text.bold = current_model("current")
+            now.visible = current_model("current")
             icon.source = Config.iconspath + "/" + Config.iconset + "/" + coverPage.current_model("pict")
             if (coverPage.current_model("description") != undefined)
                 description.text = coverPage.current_model("description")
@@ -92,8 +137,11 @@ CoverBackground {
             if (description.text.length < 31)
                 if (description.text.length < 10)
                     description.font.pointSize = 32
-                else
-                    description.font.pointSize = 20
+                else 
+                    if (description.text.length < 20)
+                        description.font.pointSize = 25
+                    else
+                        description.font.pointSize = 20
             else
                 description.font.pointSize = 16
 //            lastupdate.text = current_model("lastupdate")
@@ -107,13 +155,36 @@ CoverBackground {
             if (Config.windcoverpage){
                 icon.width = 100
                 icon.height = 100
-                wind_speed_text.visible = true
-                wind_speed_icon.visible = true
+                if (coverPage.current_model("wind_speed") != undefined && coverPage.current_model("wind_speed") != "N/A"){
+                    wind_speed_text.text = (Config.windspeedunit == "Beaufort scale") ? coverPage.current_model("wind_speed") : coverPage.current_model("wind_speed") + ' ' + Config.tr(Config.windspeedunit)
+                    wind_speed_text.visible = true
+                    wind_speed_icon.visible = true
+                    description.anchors.top = wind_speed_icon.bottom
+                }else{
+                    wind_speed_text.visible = false
+                    wind_speed_icon.visible = false
+                    description.anchors.top = icon.bottom
+                }
+                if (coverPage.current_model("wind_direction") != undefined && coverPage.current_model("wind_direction") != "N/A"){
+                    wind_direction_background.visible = true
+                    wind_direction.visible = true
+                    wind_text.visible = true
+                    wind_text.text = Config.tr(current_model("wind_direction"))
+                    description.anchors.top = wind_text.bottom
+                }else{
+                    wind_direction_background.visible = false
+                    wind_direction.visible = false
+                    wind_text.visible = false
+                }
             }else{
                 icon.width = 128
                 icon.height = 128
                 wind_speed_text.visible = false
                 wind_speed_icon.visible = false
+                wind_direction_background.visible = false
+                wind_direction.visible = false
+                wind_text.visible = false
+                description.anchors.top = icon.bottom
             }
 
             isUpdate = false;
@@ -142,6 +213,20 @@ CoverBackground {
         font.pixelSize: text.length > 20 ? 24 : 35 
     }
     Text {
+        id: now
+        width: parent.width/2  
+        height: 30
+        anchors.top: stationname.top
+        anchors.right: parent.right
+        color: "white"
+        visible: current_model("current")
+        text: current_model("current") == true ? Config.tr("Now") : Config.tr("Today")
+        font.pointSize: 12
+        verticalAlignment: Text.AlignVCenter
+        horizontalAlignment: Text.AlignHCenter
+    }
+
+    Text {
         id: temp_text
         visible: Config.stationname == "Unknown" || isUpdate  ? false : true
         anchors.top: stationname.bottom
@@ -156,6 +241,7 @@ CoverBackground {
         color: "white"
         text: Current.temp + '°'
         font.pointSize: 42 
+        font.bold: current_model("current")
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         Component.onCompleted: { current_temperature()}
@@ -173,10 +259,10 @@ CoverBackground {
     Image {
         id: wind_speed_icon
         anchors.leftMargin: Theme.paddingSmall
-        visible: Config.windcoverpage
+        visible: Config.windcoverpage && !isUpdate && coverPage.current_model("wind_speed") != undefined && coverPage.current_model("wind_speed") != "N/A" 
         source: Config.imagespath + "/wind_speed.png"
         anchors.top: icon.bottom
-        anchors.topMargin: -20
+        //anchors.topMargin: -20
         anchors.left: parent.left
         width: 30
         height: 30
@@ -185,9 +271,9 @@ CoverBackground {
     Text {
         id: wind_speed_text
         text: (Config.windspeedunit == "Beaufort scale") ? coverPage.current_model("wind_speed") : coverPage.current_model("wind_speed") + ' ' + Config.tr(Config.windspeedunit)
-        visible: Config.windcoverpage
+        visible: Config.windcoverpage && !isUpdate && coverPage.current_model("wind_speed") != undefined && coverPage.current_model("wind_speed") != "N/A"
         anchors.top: icon.bottom
-        anchors.topMargin: -20
+       // anchors.topMargin: -20
         anchors.left: wind_speed_icon.right
         anchors.leftMargin: 3
         height: 30
@@ -195,13 +281,62 @@ CoverBackground {
         font.pointSize: 14
         verticalAlignment: Text.AlignVCenter
     }
+    Image {
+        id: wind_direction_background
+        visible: Config.windcoverpage && !isUpdate && coverPage.current_model("wind_direction") != "N/A"
+        //source: Config.imagespath + "/wind_direction.png"
+        source: Config.imagespath + "/wind_direction_background.png"
+        anchors.top: icon.bottom
+        anchors.right: wind_text.left
+        anchors.rightMargin: 8
+       // anchors.topMargin: -20
+//        anchors.left: parent.left
+ //       anchors.leftMargin: margin + main.width/2
+        width: 30
+        height: 30
+        smooth: true
+    }
+    Image {
+        id: wind_direction
+        visible: Config.windcoverpage && !isUpdate && coverPage.current_model("wind_direction") != "N/A"
+        //source: Config.imagespath + "/wind_direction.png"
+        source: Config.imagespath + "/wind_direction_arrow.png"
+        anchors.top: icon.bottom
+        //anchors.topMargin: -20
+        anchors.right: wind_text.left
+        anchors.rightMargin: 8
+        width: 30
+        height: 30
+        smooth: true
+        transform: Rotation {
+            id : transform
+            origin.x: 15
+            origin.y: 15
+            angle: current_model("wind_direction") == "N/A" ? 0 : coverPage.getAngle(current_model("wind_direction"))
+        }
+    }
+    Text {
+        id: wind_text
+        visible: Config.windcoverpage && !isUpdate && coverPage.current_model("wind_direction") != "N/A"
+        text: Config.tr(current_model("wind_direction"))
+        //anchors.left: wind_direction.right
+        anchors.right: parent.right
+        anchors.rightMargin: Theme.paddingSmall
+        anchors.top: icon.bottom
+        //anchors.topMargin: -20
+        height: 30
+        color: "white"
+        font.pointSize: 18
+        verticalAlignment: Text.AlignVCenter
+    }
 
     Text {
         id: description
         visible: isUpdate ? false : true
-        anchors.top: icon.bottom
+        anchors.top: Config.windcoverpage ? wind_direction.bottom : icon.bottom
         width: parent.width 
-        height: 80 
+        height: 135 
+        elide : Text.ElideRight
         color: "white"
         wrapMode:  TextEdit.WordWrap
         text: Config.stationname == "Unknown" ? Config.tr("No locations are set up yet.") : (Current.rowCount() == 0) ? "Looks like there's no info for this location." : current_model("description")
@@ -293,6 +428,11 @@ CoverBackground {
             onTriggered: {
                 Config.updatestations(); 
                 isUpdate = true;  
+                wind_speed_text.visible = false
+                wind_speed_icon.visible = false
+                wind_direction_background.visible = false
+                wind_direction.visible = false
+                wind_text.visible = false
             }
         }
     }

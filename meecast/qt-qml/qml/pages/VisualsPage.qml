@@ -14,9 +14,9 @@ Page {
     }
 
 
-    PageHeader {
-        title: Config.tr("Appearance")
-    }
+  //  PageHeader {
+  //      title: Config.tr("Appearance")
+  //  }
 
     function openFile(file)
     {
@@ -29,6 +29,92 @@ Page {
         while (i<model.length && model[i]!=value) i++;
         if (i == model.length) return -1;
         else return i;
+    }
+    Rectangle{
+        anchors.fill: parent
+        anchors.topMargin: 80
+        anchors.leftMargin: margin
+        anchors.rightMargin: margin
+
+        Rectangle {
+            anchors.top: parent.top
+            anchors.left: parent.left
+            width: parent.width
+            height: 274
+            color: "#999999"
+        }
+        Loader {
+            id: background
+            anchors.top: parent.top
+            anchors.left: parent.left
+            width: parent.width
+            height: 274
+            sourceComponent: Image {source: Config.imagespath + "/mask_background_grid.png"}
+        }
+        Rectangle {
+            anchors.top: background.bottom
+            width: parent.width
+            height: parent.height - 274
+            color: "black"
+        }
+    }
+
+    SilicaFlickable {
+        anchors.fill: parent
+        contentHeight: column.height
+        contentWidth: parent.width
+        VerticalScrollDecorator {}
+        Column {
+            id: column
+            spacing: Theme.paddingLarge
+            width: parent.width
+            PageHeader {
+                title: Config.tr("Appearance")
+            }
+//            SectionHeader {
+//                text: " 111"
+//            }
+            Row {
+                width: parent.width
+                height: 80
+                Label {
+                    //anchors.leftMargin: margin
+                    anchors.leftMargin: Theme.paddingLarge 
+                    text: Config.tr("Iconset")+": "+Config.iconset
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                Image {
+                    source: "image://theme/icon-m-right"
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        visuals.openFile("IconsetPage.qml");
+                    }
+                }
+            }
+            SectionHeader {
+                text: "Cover Page"
+            }
+            Row {
+                width: parent.width
+               // height: 80
+                TextSwitch {
+                    text: Config.tr("Show source logo")
+                    checked: Config.logocoverpage
+                }
+            }
+            Row {
+                width: parent.width
+                TextSwitch {
+                    text: Config.tr("Show wind")
+                    checked: Config.windcoverpage
+                }
+            }
+        }
     }
 /*
     MySelectionDialog {
@@ -304,248 +390,7 @@ Page {
 	}
     }
     */
-    Rectangle{
-        anchors.fill: parent
-//        anchors.top: title_rect.bottom
-        anchors.topMargin: 80
-        anchors.leftMargin: margin
-        anchors.rightMargin: margin
-
-        Rectangle {
-            anchors.top: parent.top
-            anchors.left: parent.left
-            width: parent.width
-            height: 274
-            color: "#999999"
-        }
-        Loader {
-            id: background
-            anchors.top: parent.top
-            anchors.left: parent.left
-            width: parent.width
-            height: 274
-            sourceComponent: Image {source: Config.imagespath + "/mask_background_grid.png"}
-        }
-        Rectangle {
-            anchors.top: background.bottom
-            width: parent.width
-            height: parent.height - 274
-            color: "black"
-        }
-    Column {
-        anchors.fill: parent
-        //spacing: 20
-        /*
-        Button {
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: Config.tr("Iconset")+": "+Config.iconset
-            onClicked: {
-                icon_dlg.open();
-            }
-            Component.onCompleted: {
-                icon_dlg.selectedIndex = units.getIndex(icon_dlg.model, Config.iconset);
-            }
-        }
-        Button {
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: Config.tr("FullScreen")
-            checkable: true
-            checked: !rootWindow.showStatusBar
-            onClicked: {
-                rootWindow.showStatusBar = !rootWindow.showStatusBar;
-            }
-        }*/
-        /*
-        Item {
-            width: parent.width
-            height: 80
-            Label {
-                text: Config.tr("Fullscreen mode")
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            Switch {
-                //checked: !rootWindow.showStatusBar
-                id: fullscreen
-                checked: Config.fullscreen
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-                onCheckedChanged: {
-                    rootWindow.showStatusBar = !fullscreen.checked;
-                    Config.setfullscreen(fullscreen.checked);
-                }
-                //platformStyle: SwitchStyle {inverted: true}
-            }
-
-        }
-        */
-        Item {
-            width: parent.width
-            height: 80
-            Label {
-                text: Config.tr("Iconset")+": "+Config.iconset
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            Image {
-                source: "image://theme/icon-m-right"
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    visuals.openFile("IconsetPage.qml");
-                }
-            }
-        }
-        /*
-        Item {
-            width: parent.width
-            height: 80
-            Label {
-                text: Config.tr("Widget in events view")
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            Switch {
-                id: eventwidget 
-                checked: Config.eventwidget
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-                onCheckedChanged: {
-         	    if (event_widget_status != checked){          
-                       if (checked)
-                           enableDialog.open();
-                       else
-                           disableDialog.open();
-		    }
-                }
-                //platformStyle: SwitchStyle {inverted: true}
-            }
-
-        }
-        Item {
-            width: parent.width
-            height: 80
-            id: lockscreenitem
-            Label {
-                text: Config.tr("Widget in LockScreen")
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            Switch {
-                id: lockscreen 
-                checked: Config.lockscreen
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-                onCheckedChanged: {
-                    if (lockscreen_widget_status != checked){
-                        if (event_widget_status){
-                            Config.setlockscreen(lockscreen.checked);
-                            lockscreen_widget_status = checked;
-                        }else
-                            warningDialog.open();
-                   }                    
-                }
-                //platformStyle: SwitchStyle {inverted: true}
-            }
-
-        }
-        Item {
-            width: parent.width
-            height: 80
-            id: standbyscreenitem
-            Label {
-                text: Config.tr("Widget in StandbyScreen")
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            Switch {
-                id: standbyscreen 
-                checked: Config.standbyscreen
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-                onCheckedChanged: {
-                    if (standbyscreen_widget_status != checked){
-                        if (event_widget_status){
-                            Config.setstandbyscreen(standbyscreen.checked);
-                            standbyscreen_widget_status = checked;
-                        }else
-                            warningDialog4.open();
-                   }                    
-                }
-                //platformStyle: SwitchStyle {inverted: true}
-            }
-
-        }
-        Item {
-            width: parent.width
-            height: 80
-            id: splashitem
-            Label {
-                text: Config.tr("Splash screen")
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            Switch {
-                id: splash 
-                checked: Config.splash
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-                onCheckedChanged: {
-                    if (splash_status != checked){
-                            splash_status = checked;
-                            Config.setsplash(splash_status);
-                    }                   
-                }
-                //platformStyle: SwitchStyle {inverted: true}
-            }
-        }
-
-        Item {
-            width: parent.width
-            height: 80
-            Label {
-                text: Config.tr("Settings of StandbyScreen")
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            Image {
-                source: "image://theme/icon-m-common-drilldown-arrow-inverse"
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    visuals.openFile("StandbyScreen.qml");
-                }
-            }
-        }
-        Item {
-            width: parent.width
-            height: 80
-            Label {
-                text: Config.tr("Settings of LockScreen")
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            Image {
-                source: "image://theme/icon-m-common-drilldown-arrow-inverse"
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    visuals.openFile("LockScreen.qml");
-                }
-            }
-        }
-        */
-
-    }
-    }
+   /*
+    */
 }
 

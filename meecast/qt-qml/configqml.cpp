@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2013 Vlad Vasilyeu
+ * Copyright (C) 2006-2014 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -486,13 +486,21 @@ ConfigQml::setsplash(bool c)
 }
 
 bool
-ConfigQml::gps()
-{
+ConfigQml::logocoverpage(){
+    return ConfigQml::Config::LogoOnCover();
+}
+
+bool
+ConfigQml::windcoverpage(){
+    return ConfigQml::Config::WindOnCover();
+}
+
+bool
+ConfigQml::gps(){
     return ConfigQml::Config::Gps();
 }
 void
-ConfigQml::setgps(bool c)
-{
+ConfigQml::setgps(bool c){
     /* if gps option changed */
     if (c == ConfigQml::Config::Gps())
         return;
@@ -1115,10 +1123,8 @@ ConfigQml::check_and_update_station(){
         Core::DataParser* dp = NULL;
         dp = Core::DataParser::Instance();
         if (dp && (time(NULL) - dp->LastUpdate()) > this->UpdatePeriod()){
-            std::cerr<<"ssssssssssssssssssssssss"<<std::endl;
             this->updatestations();
         }else{
-            std::cerr<<"aaaaaaaaaaaaaaaaaaaaaaaa"<<std::endl;
             this->configChanged();
         }
     }
@@ -1126,4 +1132,8 @@ ConfigQml::check_and_update_station(){
 
 void ConfigQml::time_for_updating(uint _time){
     _time_for_updating = _time;
+}
+
+void ConfigQml::logocoverpageChanged(){
+    std::cerr<"qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq "<< std::endl;
 }

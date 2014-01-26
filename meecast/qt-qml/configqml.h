@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2013 Vlad Vasilyeu
+ * Copyright (C) 2006-2014 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -69,6 +69,8 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(bool eventwidget READ eventwidget NOTIFY eventwidgetChanged)
     Q_PROPERTY(bool splash READ splash NOTIFY splashChanged)
     Q_PROPERTY(bool gps READ gps NOTIFY gpsChanged)
+    Q_PROPERTY(bool logocoverpage READ logocoverpage NOTIFY logocoverpageChanged)
+    Q_PROPERTY(bool windcoverpage READ windcoverpage NOTIFY windcoverpageChanged)
     Q_PROPERTY(QColor fontcolor READ fontcolor NOTIFY fontcolorChanged)
     Q_PROPERTY(QColor standby_color_font_stationname READ standby_color_font_stationname NOTIFY standby_color_font_stationnameChanged)
     Q_PROPERTY(QColor standby_color_font_temperature READ standby_color_font_temperature NOTIFY standby_color_font_temperatureChanged)
@@ -128,6 +130,8 @@ public:
     bool eventwidget();
     bool gps();
     bool splash();
+    bool logocoverpage();
+    bool windcoverpage();
     QColor fontcolor();
     QColor standby_color_font_stationname();
     QColor standby_color_font_temperature();
@@ -228,6 +232,8 @@ signals:
     void updateintervalChanged();
     void configChanged();
     void splashChanged();
+    void logocoverpageChanged();
+    void windcoverpageChanged();
     void lock_screen_x_positionChanged();
     void lock_screen_y_positionChanged();
 public Q_SLOTS:
@@ -236,6 +242,6 @@ public Q_SLOTS:
 private slots:
     void downloadFinishedSlot();
 
-       };
+};
 
 #endif // CONFIGQML_H

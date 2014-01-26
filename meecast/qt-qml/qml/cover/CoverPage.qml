@@ -181,7 +181,7 @@ CoverBackground {
     }
 
     Image {
-        visible: isUpdate ? false : true
+        visible: (Config.logocoverpage && !isUpdate)  ? true : false
         id: source_image 
         source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
         anchors.bottom: lastupdate.top

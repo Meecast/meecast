@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2013 Vlad Vasilyeu
+ * Copyright (C) 2006-2014 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -66,6 +66,8 @@ namespace Core{
             languages    *_languages_list;
             int         _Xleft_corner_of_lockscreen_widget;
             int         _Yleft_corner_of_lockscreen_widget;
+            bool        _logo_on_cover;
+            bool        _wind_on_cover;
         protected:
             static Config* _self;
             static int _refcount;
@@ -130,6 +132,10 @@ namespace Core{
             void Yleft_corner_of_lockscreen_widget(const int Y);
             int Yleft_corner_of_lockscreen_widget(void);
             void saveConfig();
+            void LogoOnCover(const bool uc);
+            bool LogoOnCover(void);
+            void WindOnCover(const bool uc);
+            bool WindOnCover(void);
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

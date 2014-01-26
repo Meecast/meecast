@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2013 Vlad Vasilyeu
+ * Copyright (C) 2006-2014 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -53,6 +53,8 @@ Config::Config()
     _standbyscreen = false;
     _gps = false;
     _splash = true;
+    _logo_on_cover = false;
+    _wind_on_cover = false;
     _font_color = new std::string("#00ff00");
     _language = new std::string("System");
     _mod = new std::string("Digia");
@@ -137,6 +139,22 @@ Config::saveConfig()
 
     el = doc.createElement("fullscreen");
     if (_fullscreen)
+        t = doc.createTextNode("true");
+    else
+        t = doc.createTextNode("false");
+    el.appendChild(t);
+    root.appendChild(el);
+
+    el = doc.createElement("logo_on_cover");
+    if (_logo_on_cover)
+        t = doc.createTextNode("true");
+    else
+        t = doc.createTextNode("false");
+    el.appendChild(t);
+    root.appendChild(el);
+
+    el = doc.createElement("wind_on_cover");
+    if (_wind_on_cover)
         t = doc.createTextNode("true");
     else
         t = doc.createTextNode("false");
@@ -366,6 +384,8 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _nullname = new std::string("");
     _update_connect = false;
     _fullscreen = false;
+    _logo_on_cover = false;
+    _wind_on_cover = false;
     _lockscreen = false;
     _standbyscreen = false;
     _Xleft_corner_of_lockscreen_widget = 0;
@@ -439,6 +459,12 @@ Config::LoadConfig(){
         el = root.firstChildElement("fullscreen");
         if (!el.isNull())
             _fullscreen = (el.text() == "true") ? true : false;
+        el = root.firstChildElement("logo_on_cover");
+        if (!el.isNull())
+            _logo_on_cover = (el.text() == "true") ? true : false;
+        el = root.firstChildElement("wind_on_cover");
+        if (!el.isNull())
+            _wind_on_cover = (el.text() == "true") ? true : false;
         el = root.firstChildElement("lockscreen");
         if (!el.isNull())
             _lockscreen = (el.text() == "true") ? true : false;
@@ -751,6 +777,24 @@ Config::Fullscreen(const bool uc){
 bool
 Config::Fullscreen(void){
     return _fullscreen;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::LogoOnCover(const bool uc){
+    _logo_on_cover = uc;
+}
+bool
+Config::LogoOnCover(void){
+    return _logo_on_cover;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::WindOnCover(const bool uc){
+    _wind_on_cover = uc;
+}
+bool
+Config::WindOnCover(void){
+    return _wind_on_cover;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

@@ -8,11 +8,13 @@ CoverBackground {
     property bool active: status == Cover.Active || applicationActive;
     property bool isUpdate: false
     anchors.fill: parent
+    property double angle: 0.0
 
     function current_model(name){
         return Current.getdata(0, name);
     }
     function current_temperature(){
+        coverPage.angle = coverPage.current_model("wind_direction") == "N/A" ? 0 : coverPage.getAngle(current_model("wind_direction"))
         if (coverPage.current_model("temp") == undefined){
             temp_text.text = ""
             return;
@@ -103,7 +105,6 @@ CoverBackground {
             return (360-22.5);
 
         }
-
     }
 
     MeeCastCover {
@@ -117,8 +118,22 @@ CoverBackground {
 
             stationname.text = Config.stationname
             current_temperature()
-            temp.text.bold = current_model("current")
-            now.visible = current_model("current")
+            if (coverPage.current_model("current") != undefined){
+                now.visible = coverPage.current_model("current")
+
+                if (coverPage.current_model("current") == true)
+                    now.text = Config.tr("Now")
+                else
+                    now.text = Config.tr("Today")
+                temp_text.font.bold = coverPage.current_model("current")
+            }else{
+                now.visible = false
+                temp_text.font.bold = false
+            }
+            if (temp_text.text.length < 5)
+                temp_text.font.pointSize = 44 
+            else
+                temp_text.font.pointSize = 40 
             icon.source = Config.iconspath + "/" + Config.iconset + "/" + coverPage.current_model("pict")
             if (coverPage.current_model("description") != undefined)
                 description.text = coverPage.current_model("description")
@@ -131,7 +146,7 @@ CoverBackground {
             if (Current.rowCount() == 0) {
                     description.text = Config.tr("Looks like there's no info for this location.")}
                 else{
-                    description.text = current_model("description")
+                    description.text = coverPage.current_model("description")
                 }
             }
             if (description.text.length < 31)
@@ -146,8 +161,12 @@ CoverBackground {
                 description.font.pointSize = 16
 //            lastupdate.text = current_model("lastupdate")
           //  lastupdate.text = Config.tr("Last update:") + "\n" + current_model("lastupdatetime")
-            lastupdate.text = Config.tr("Last update:") + " " + current_model("lastupdatetime")
-            console.log(Config.logocoverpage)
+            if (coverPage.current_model("lastupdatetime") != undefined){
+                lastupdate.visible = true
+                lastupdate.text = Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime")
+            }else{
+                lastupdate.visible = false
+            }
             if (Config.logocoverpage)
                 source_image.visible = true
             else
@@ -169,8 +188,9 @@ CoverBackground {
                     wind_direction_background.visible = true
                     wind_direction.visible = true
                     wind_text.visible = true
-                    wind_text.text = Config.tr(current_model("wind_direction"))
+                    wind_text.text = Config.tr(coverPage.current_model("wind_direction"))
                     description.anchors.top = wind_text.bottom
+                    coverPage.angle = coverPage.current_model("wind_direction") == "N/A" ? 0 : coverPage.getAngle(current_model("wind_direction"))
                 }else{
                     wind_direction_background.visible = false
                     wind_direction.visible = false
@@ -216,12 +236,12 @@ CoverBackground {
         id: now
         width: parent.width/2  
         height: 30
-        anchors.top: stationname.top
+        anchors.top: stationname.bottom
         anchors.right: parent.right
         color: "white"
-        visible: current_model("current")
-        text: current_model("current") == true ? Config.tr("Now") : Config.tr("Today")
-        font.pointSize: 12
+        visible: coverPage.current_model("current") != undefined && coverPage.current_model("current")
+        text: coverPage.current_model("current") == true ? Config.tr("Now") : Config.tr("Today")
+        font.pointSize: 10
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
     }
@@ -231,17 +251,18 @@ CoverBackground {
         visible: Config.stationname == "Unknown" || isUpdate  ? false : true
         anchors.top: stationname.bottom
         anchors.right: parent.right 
-        anchors.topMargin: 5 
+        anchors.topMargin: -10 
         anchors.rightMargin: 0 
         anchors.leftMargin: 0 
-        anchors.bottomMargin: 15 
+        //anchors.bottomMargin: 15 
         anchors.left: icon.right
-        wrapMode:  TextEdit.WordWrap
+        wrapMode: TextEdit.WordWrap
         height: 108 
         color: "white"
+        lineHeight: 0.7
         text: Current.temp + '°'
-        font.pointSize: 42 
-        font.bold: current_model("current")
+        font.pointSize: 40 
+        font.bold: coverPage.current_model("current") != undefined && coverPage.current_model("current") ? true : false
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         Component.onCompleted: { current_temperature()}
@@ -312,13 +333,13 @@ CoverBackground {
             id : transform
             origin.x: 15
             origin.y: 15
-            angle: current_model("wind_direction") == "N/A" ? 0 : coverPage.getAngle(current_model("wind_direction"))
+            angle: coverPage.angle
         }
     }
     Text {
         id: wind_text
         visible: Config.windcoverpage && !isUpdate && coverPage.current_model("wind_direction") != "N/A"
-        text: Config.tr(current_model("wind_direction"))
+        text: Config.tr(coverPage.current_model("wind_direction"))
         //anchors.left: wind_direction.right
         anchors.right: parent.right
         anchors.rightMargin: Theme.paddingSmall
@@ -339,7 +360,7 @@ CoverBackground {
         elide : Text.ElideRight
         color: "white"
         wrapMode:  TextEdit.WordWrap
-        text: Config.stationname == "Unknown" ? Config.tr("No locations are set up yet.") : (Current.rowCount() == 0) ? "Looks like there's no info for this location." : current_model("description")
+        text: Config.stationname == "Unknown" ? Config.tr("No locations are set up yet.") : (Current.rowCount() == 0) ? "Looks like there's no info for this location." : coverPage.current_model("description")
         font.pointSize: text.length < 20 ? 25 : 16
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
@@ -349,9 +370,9 @@ CoverBackground {
         //anchors.bottom: source_image.top
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 0
-        visible: isUpdate ? false : true
+        visible: (!isUpdate && coverPage.current_model("lastupdatetime") != undefined) ? true : false 
         anchors.horizontalCenter: parent.horizontalCenter
-        text: current_model("lastupdate")
+        text: Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime")
         font.pixelSize: 21 
     }
 
@@ -359,17 +380,12 @@ CoverBackground {
         visible: (Config.logocoverpage && !isUpdate)  ? true : false
         id: source_image 
         source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
+        anchors.bottomMargin: 22
         anchors.bottom: lastupdate.top
-        anchors.top: description.bottom 
-        anchors.topMargin: 15
-        //anchors.bottom: parent.bottom
-       // height: 40 
-       width: 80
-    //    anchors.top: description.bottom
+        width: 80
         smooth: true    
         fillMode: Image.PreserveAspectFit
         anchors.horizontalCenter: parent.horizontalCenter
-    //    anchors.verticalCenter: parent.verticalCenter
       //  scale: 0.8
     }
     Label {
@@ -433,6 +449,9 @@ CoverBackground {
                 wind_direction_background.visible = false
                 wind_direction.visible = false
                 wind_text.visible = false
+                source_image.visible = false
+                now.visible = false
+                lastupdate.visible = false
             }
         }
     }

@@ -36,6 +36,8 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top
             anchors.topMargin: 100
+            height: 128
+            width:  128
             smooth: true
         }
         Label {
@@ -58,12 +60,12 @@ Page {
         Label {
             id: aboutfulltext 
             text: Config.tr("MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014")
-	    anchors.leftMargin: 20
-	    anchors.left: parent.left
-	    anchors.top: abouttext.bottom
-	    wrapMode: Text.Wrap                                                                                                                                            
+            anchors.leftMargin: 20
+            anchors.left: parent.left
+            anchors.top: abouttext.bottom
+            wrapMode: Text.Wrap 
             width: parent.width - 20
-	}
+	    }
     Label {
             id: projectsitetext 
             text: Config.tr("Support") + ":"
@@ -143,7 +145,7 @@ Page {
     }
 	Label {
         id: leadprogrammerfulltext 
-	    text: "Vlad Vasilyeu, Tanya Makava"
+	    text: "Vlad Vasilyeu"
 	    anchors.leftMargin: 20
 	    anchors.left: parent.left
 	    anchors.top: leadprogrammertext.bottom

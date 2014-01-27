@@ -61,7 +61,6 @@ MeeCast - multiplatform highly customizable open source weather forecast client 
 # << build pre
 
 
-
 # >> build post
 # << build post
 %install
@@ -90,7 +89,7 @@ desktop-file-install --delete-original       \
 
 %changelog
 * Tue Jan 26 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.7.1
-  * Added Wind spped and wind direction to Cover Page
+  * Added Wind speed and Wind direction to Cover Page
   * Added text 'Now' to Cover Page
   * Polished Cover Page
 * Tue Jan 23 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.6.1

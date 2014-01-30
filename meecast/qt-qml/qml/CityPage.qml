@@ -19,7 +19,6 @@ Page {
         }
 
     }
-    orientationLock: PageOrientation.LockPortrait
     Rectangle{
         anchors.fill: parent
         anchors.top: title_rect.bottom

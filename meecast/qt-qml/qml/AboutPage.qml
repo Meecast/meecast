@@ -13,7 +13,6 @@ Page {
             }
         }
     }
-    orientationLock: PageOrientation.LockPortrait
     Flickable {
         anchors.fill: parent
         flickableDirection: Flickable.VerticalFlick

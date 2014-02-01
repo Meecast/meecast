@@ -71,6 +71,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(bool gps READ gps NOTIFY gpsChanged)
     Q_PROPERTY(bool logocoverpage READ logocoverpage NOTIFY logocoverpageChanged)
     Q_PROPERTY(bool windcoverpage READ windcoverpage NOTIFY windcoverpageChanged)
+    Q_PROPERTY(bool lastupdatecoverpage READ lastupdatecoverpage NOTIFY lastupdatecoverpageChanged)
     Q_PROPERTY(QColor fontcolor READ fontcolor NOTIFY fontcolorChanged)
     Q_PROPERTY(QColor standby_color_font_stationname READ standby_color_font_stationname NOTIFY standby_color_font_stationnameChanged)
     Q_PROPERTY(QColor standby_color_font_temperature READ standby_color_font_temperature NOTIFY standby_color_font_temperatureChanged)
@@ -132,6 +133,7 @@ public:
     bool splash();
     bool logocoverpage();
     bool windcoverpage();
+    bool lastupdatecoverpage();
     QColor fontcolor();
     QColor standby_color_font_stationname();
     QColor standby_color_font_temperature();
@@ -187,6 +189,7 @@ public:
     Q_INVOKABLE void setsplash(bool c);
     Q_INVOKABLE void setlogocoverpage(bool c);
     Q_INVOKABLE void setwindcoverpage(bool c);
+    Q_INVOKABLE void setlastupdatecoverpage(bool c);
     Q_INVOKABLE QStringList icon_list();
     Q_INVOKABLE QStringList languages_list();
     Q_INVOKABLE int index_of_current_language();
@@ -236,6 +239,7 @@ signals:
     void splashChanged();
     void logocoverpageChanged();
     void windcoverpageChanged();
+    void lastupdatecoverpageChanged();
     void lock_screen_x_positionChanged();
     void lock_screen_y_positionChanged();
 public Q_SLOTS:

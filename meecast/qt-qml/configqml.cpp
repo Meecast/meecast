@@ -507,6 +507,18 @@ ConfigQml::setwindcoverpage(bool c){
     refreshconfig();
 }
 
+
+bool
+ConfigQml::lastupdatecoverpage(){
+    return ConfigQml::Config::LastUpdateOnCover();
+}
+void
+ConfigQml::setlastupdatecoverpage(bool c){
+    ConfigQml::Config::LastUpdateOnCover(c);
+    saveConfig();
+    refreshconfig();
+}
+
 bool
 ConfigQml::gps(){
     return ConfigQml::Config::Gps();

@@ -68,6 +68,7 @@ namespace Core{
             int         _Yleft_corner_of_lockscreen_widget;
             bool        _logo_on_cover;
             bool        _wind_on_cover;
+            bool        _lastupdate_on_cover;
         protected:
             static Config* _self;
             static int _refcount;
@@ -136,6 +137,8 @@ namespace Core{
             bool LogoOnCover(void);
             void WindOnCover(const bool uc);
             bool WindOnCover(void);
+            void LastUpdateOnCover(const bool uc);
+            bool LastUpdateOnCover(void);
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

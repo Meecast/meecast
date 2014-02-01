@@ -159,14 +159,16 @@ CoverBackground {
                         description.font.pointSize = 20
             else
                 description.font.pointSize = 16
-//            lastupdate.text = current_model("lastupdate")
-          //  lastupdate.text = Config.tr("Last update:") + "\n" + current_model("lastupdatetime")
-            if (coverPage.current_model("lastupdatetime") != undefined){
+            if ((Config.lastupdatecoverpage && coverPage.current_model("lastupdatetime") != undefined)){
                 lastupdate.visible = true
-                lastupdate.text = Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime")
             }else{
                 lastupdate.visible = false
             }
+            if ((coverPage.current_model("lastupdatetime").length + Config.tr("Last update:").length) < 25)
+               lastupdate.text = Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime")
+            else
+               lastupdate.text = coverPage.current_model("lastupdatetime")
+
             if (Config.logocoverpage)
                 source_image.visible = true
             else
@@ -206,10 +208,6 @@ CoverBackground {
                 wind_text.visible = false
                 description.anchors.top = icon.bottom
             }
-            if ((coverPage.current_model("lastupdatetime").length + Config.tr("Last update:").length) < 25)
-               lastupdate.text = Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime")
-            else
-               lastupdate.text = coverPage.current_model("lastupdatetime")
             isUpdate = false;
         }
     }
@@ -373,7 +371,7 @@ CoverBackground {
         //anchors.bottom: source_image.top
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 0
-        visible: (!isUpdate && coverPage.current_model("lastupdatetime") != undefined) ? true : false 
+        visible: (Config.lastupdatecoverpage && !isUpdate && coverPage.current_model("lastupdatetime") != undefined) ? true : false 
         anchors.horizontalCenter: parent.horizontalCenter
         text: (coverPage.current_model("lastupdatetime").length + Config.tr("Last update:").length) < 25 ?  Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime") : coverPage.current_model("lastupdatetime")
         font.pixelSize: 21 

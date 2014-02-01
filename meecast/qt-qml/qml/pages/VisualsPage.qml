@@ -122,6 +122,17 @@ Page {
                     }
                 }
             }
+            Row {
+                width: parent.width
+                TextSwitch {
+                    id: lastupdatecover
+                    text: Config.tr("Show last update time")
+                    checked: Config.lastupdatecoverpage
+                    onCheckedChanged: {
+                        Config.setlastupdatecoverpage(lastupdatecover.checked);
+                    }
+                }
+            }
         }
     }
 /*

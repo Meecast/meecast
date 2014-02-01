@@ -206,7 +206,10 @@ CoverBackground {
                 wind_text.visible = false
                 description.anchors.top = icon.bottom
             }
-
+            if ((coverPage.current_model("lastupdatetime").length + Config.tr("Last update:").length) < 25)
+               lastupdate.text = Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime")
+            else
+               lastupdate.text = coverPage.current_model("lastupdatetime")
             isUpdate = false;
         }
     }
@@ -372,7 +375,7 @@ CoverBackground {
         anchors.bottomMargin: 0
         visible: (!isUpdate && coverPage.current_model("lastupdatetime") != undefined) ? true : false 
         anchors.horizontalCenter: parent.horizontalCenter
-        text: Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime")
+        text: (coverPage.current_model("lastupdatetime").length + Config.tr("Last update:").length) < 25 ?  Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime") : coverPage.current_model("lastupdatetime")
         font.pixelSize: 21 
     }
 

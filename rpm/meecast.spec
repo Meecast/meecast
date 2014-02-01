@@ -89,8 +89,7 @@ desktop-file-install --delete-original       \
 
 %changelog
 * Tue Jan 26 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.8.1
-  * Nothing 
-
+  * Fixed problem with long text in last update string
 * Tue Jan 26 2014  Vlad Vasilyeu <vasvlad@gmail.com> 0.8.7.1
   * Added Wind speed and Wind direction to Cover Page
   * Added text 'Now' to Cover Page

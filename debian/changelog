@@ -1,6 +1,7 @@
 meecast (0.8.8) unstable; urgency=low
 
-  * The next release for SailfishOS 
+  * Updated Norwegian, Arabic, Serbian, Turkish, Dutch, Hungarian translations
+  * Added Slovenian and Czech translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 17 Jan 2014 22:31:23 +0200
 

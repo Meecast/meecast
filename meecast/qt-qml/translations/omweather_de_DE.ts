@@ -1525,8 +1525,8 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Layout:</translation>
         </message>
         <message>
-            <source>Lead designer</source>
-            <translation>Chefdesigner</translation>
+            <source>Lead designers</source>
+            <translation type="unfinished">Chefdesigner</translation>
         </message>
         <message>
             <source>License</source>
@@ -1690,7 +1690,7 @@ Spanisch - Alejandro Lopez</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
             <translation type="unfinished">
             </translation>
         </message>

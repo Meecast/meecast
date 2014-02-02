@@ -1505,8 +1505,8 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Изглед:</translation>
         </message>
         <message>
-            <source>Lead designer</source>
-            <translation>Главен дизайнер</translation>
+            <source>Lead designers</source>
+            <translation type="unfinished">Главен дизайнер</translation>
         </message>
         <message>
             <source>License</source>
@@ -1668,7 +1668,7 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
             <translation type="unfinished">MeeCast - мултиплатформен лесно персонализируем open source клиент за прогноза на времето базиран на OMWeather код. Copyright (C) 2006-2012</translation>
         </message>
         <message>

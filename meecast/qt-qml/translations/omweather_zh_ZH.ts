@@ -1555,8 +1555,8 @@ Slovak - Roman Moravčík</translation>
             <translation>设计: </translation>
         </message>
         <message>
-            <source>Lead designer</source>
-            <translation>首席设计师</translation>
+            <source>Lead designers</source>
+            <translation type="unfinished">首席设计师</translation>
         </message>
         <message>
             <source>License</source>
@@ -1723,7 +1723,7 @@ Slovak - Roman Moravčík</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
             <translation type="unfinished">MeeCast - 一个多平台高定制性的开源天气预报软件。基于OMWeather的源码. Copyright (C) 2006-2011</translation>
         </message>
         <message>

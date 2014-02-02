@@ -1520,8 +1520,8 @@ słowacki - Roman Moravčík</translation>
             <translation>Układ:</translation>
         </message>
         <message>
-            <source>Lead designer</source>
-            <translation>Projekt interfejsu</translation>
+            <source>Lead designers</source>
+            <translation type="unfinished">Projekt interfejsu</translation>
         </message>
         <message>
             <source>License</source>
@@ -1683,7 +1683,7 @@ słowacki - Roman Moravčík</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
             <translation type="unfinished">MeeCast - multiplatformowy, możliwy do dostosowania otwartoźródłowy program wyświetlający prognozy pogody, bazujący na kodzie OMWeather. Copyright (C) 2006-2011</translation>
         </message>
         <message>

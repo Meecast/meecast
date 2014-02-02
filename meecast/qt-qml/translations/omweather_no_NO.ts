@@ -1231,34 +1231,35 @@ bør du avinstallere pakken
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">French -  Nicolas Granziano, 
+            <translation>Fransk -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
- Russian - Pavel Fialko, Vlad Vasiliev, 
+ Russisk - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
- Finnish - Marko Vertainen
- German -  Claudius Henrichs
- Italian - Lorenzo Facca,
+ Finsk - Marko Vertainen
+ Tysk -  Claudius Henrichs
+ Italiensk - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
  	Luca Onnis
- Spanish - Alejandro Lopez, Agustí Clara
- Polish - Tomasz Dominikowski
- Slovak - Roman Moravčík
- Dutch - Tom Leenders, Michiel Pater
- Bulgarian - Zlatko Enikov
- Albanian - Ilir Gjika
- Chinese - Wong Man Kong, Michael
- Portuguese - Jose Narciso,
- Turkish - Burak Kaan Kose,
- Catalan - Agustí Clara,
- Arabic - Tarad Alfandi,
- Serbian - Aleksandar Zaric,
- Norwegian - Peer-Atle Motland,
- Hungarian - Salmi,
- Chinese(Taiwan) - osk2, 
- Vietnamese - Hieu Nguyen
+ Spansk - Alejandro Lopez, Agustí Clara
+ Polsk - Tomasz Dominikowski
+ Slovakisk - Roman Moravčík
+ Nederlansk - Tom Leenders, Michiel Pater
+ Bulgarsk - Zlatko Enikov
+ Albansk - Ilir Gjika
+ Kinesisk - Wong Man Kong, Michael
+ Portugisisk - Jose Narciso,
+ Tyrkisk - Burak Kaan Kose,
+ 	Mehmet Çilingir,
+ Katalansk - Agustí Clara,
+ Arabisk - Tarad Alfandi,
+ Serbisk - Aleksandar Zaric,
+ Norsk - Peer-Atle Motland,
+ Ungarsk - Salmi,
+ Kinesisk(Taiwan) - osk2, 
+ Vietnamesisk - Hieu Nguyen
  	Anh Dương and truongnx, 
- Swedish - Angela Nennebrandt,
+ Svensk - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</translation>
         </message>
@@ -1531,8 +1532,8 @@ Slovak - Roman Moravčík</translation>
             <translation>Layout:</translation>
         </message>
         <message>
-            <source>Lead designer</source>
-            <translation>Sjef designer</translation>
+            <source>Lead designers</source>
+            <translation type="unfinished">Sjef designer</translation>
         </message>
         <message>
             <source>License</source>
@@ -1693,8 +1694,8 @@ Slovak - Roman Moravčík</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013</source>
-            <translation>MeeCast - multiplattform lett tilpasselig åpen kildekode værmeldings klient basert på OMWeather kode. Copyright (C) 2006-2013</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
+            <translation type="unfinished">MeeCast - multiplattform lett tilpasselig åpen kildekode værmeldings klient basert på OMWeather kode. Copyright (C) 2006-2013</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -3182,8 +3183,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>This is experimental feature. Only English is supported.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dette er en eksperimentell funksjon. Kun engelsk støttes</translation>
         </message>
         <message>
             <source>This software is free software; you can
@@ -3457,12 +3457,11 @@ av værinformasjonen.
         </message>
         <message>
             <source>Voice forecast button on a widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Værvarsel knapp på en widget</translation>
         </message>
         <message>
             <source>Voice weather forecast</source>
-            <translation type="unfinished">OMWeather Forecast</translation>
+            <translation>Tale værmelding</translation>
         </message>
         <message>
             <source>W</source>

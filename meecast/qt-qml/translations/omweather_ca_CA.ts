@@ -1531,8 +1531,8 @@ Català - Agustí Clara</translation>
             <translation>Format:</translation>
         </message>
         <message>
-            <source>Lead designer</source>
-            <translation>Dissenyador principal</translation>
+            <source>Lead designers</source>
+            <translation type="unfinished">Dissenyador principal</translation>
         </message>
         <message>
             <source>License</source>
@@ -1693,8 +1693,8 @@ Català - Agustí Clara</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013</source>
-            <translation>MeeCast - client de pronòstics del temps de codi obert, de fàcil personalització i multiplataforma, basat en el codi d'OMWeather. Copyright (C) 2006-2013</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
+            <translation type="unfinished">MeeCast - client de pronòstics del temps de codi obert, de fàcil personalització i multiplataforma, basat en el codi d'OMWeather. Copyright (C) 2006-2013</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>

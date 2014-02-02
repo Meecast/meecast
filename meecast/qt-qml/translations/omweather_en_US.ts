@@ -1529,8 +1529,8 @@ Slovak - Roman Moravčík</translation>
             <translation>Layout:</translation>
         </message>
         <message>
-            <source>Lead designer</source>
-            <translation>Lead designer</translation>
+            <source>Lead designers</source>
+            <translation type="unfinished">Lead designer</translation>
         </message>
         <message>
             <source>License</source>
@@ -1692,8 +1692,8 @@ Slovak - Roman Moravčík</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013</source>
-            <translation>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
+            <translation type="unfinished">MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>

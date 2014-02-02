@@ -242,8 +242,7 @@ W: </source>
         </message>
         <message>
             <source>AM Clouds / PM Sun</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>De. felhős/Du. napos</translation>
         </message>
         <message>
             <source>AM Drizzle</source>
@@ -262,8 +261,7 @@ W: </source>
         </message>
         <message>
             <source>AM Fog / PM Sun</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>De. ködös/Du. napos</translation>
         </message>
         <message>
             <source>AM Light Rain</source>
@@ -292,13 +290,11 @@ W: </source>
         </message>
         <message>
             <source>AM Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>De. eső</translation>
         </message>
         <message>
             <source>AM Rain / Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>De. eső/hó</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
@@ -327,8 +323,7 @@ W: </source>
         </message>
         <message>
             <source>AM Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>De. hó</translation>
         </message>
         <message>
             <source>AM Snow Showers</source>
@@ -384,13 +379,11 @@ W: </source>
         </message>
         <message>
             <source>Add</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hozzáad</translation>
         </message>
         <message>
             <source>Add Station</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Állomás hozzáadása</translation>
         </message>
         <message>
             <source>Adjust GPS station</source>
@@ -399,18 +392,15 @@ W: </source>
         </message>
         <message>
             <source>Alerts</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Figyelmeztetések</translation>
         </message>
         <message>
             <source>Alerts</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Figyelmeztetések</translation>
         </message>
         <message>
             <source>Alerts</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Figyelmeztetések</translation>
         </message>
         <message>
             <source>Alexis Iglauer - for testing
@@ -428,8 +418,7 @@ Eric Link - for feature request and donation
         </message>
         <message>
             <source>An unknown error has occurred.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ismeretlen hiba történt.</translation>
         </message>
         <message>
             <source>Animation</source>
@@ -468,12 +457,12 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Author and maintenance: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Készítő: Vlad Vasilyeu, &lt;vlad@gas.by&gt;
+</translation>
         </message>
         <message>
             <source>Authors</source>
-            <translation>Szerzők</translation>
+            <translation>Készítők</translation>
         </message>
         <message>
             <source>Automatically update data when connecting to the Internet</source>
@@ -481,8 +470,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Back</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vissza</translation>
         </message>
         <message>
             <source>Background color:</source>
@@ -597,8 +585,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Celsius</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Celsius</translation>
         </message>
         <message>
             <source>City</source>
@@ -658,8 +645,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bezár</translation>
         </message>
         <message>
             <source>Clouds Early / Clearing Late</source>
@@ -668,8 +654,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős</translation>
         </message>
         <message>
             <source>Cloudy / Wind</source>
@@ -805,14 +790,14 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Could not connecting to Internet.
 Connection timeout is expired.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kapcsolódás az internethez sikertelen.
+Időtúllépés ideje lejárt.</translation>
         </message>
         <message>
             <source>Could not create weather cache directory.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Időjárás-gyorsítótár könyvtárának létrehozása sikertelen.
+</translation>
         </message>
         <message>
             <source>Couldn't resolve host.</source>
@@ -855,18 +840,15 @@ Connection timeout is expired.</source>
         </message>
         <message>
             <source>Day length</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nappal hossza</translation>
         </message>
         <message>
             <source>Day length:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nappal hossza:</translation>
         </message>
         <message>
             <source>Day length:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nappal hossza:</translation>
         </message>
         <message>
             <source>Day:</source>
@@ -884,28 +866,23 @@ Connection timeout is expired.</source>
         </message>
         <message>
             <source>Detailed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Részletes</translation>
         </message>
         <message>
             <source>Detailed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Részletes</translation>
         </message>
         <message>
             <source>Display</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kijelző</translation>
         </message>
         <message>
             <source>Display</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kijelző</translation>
         </message>
         <message>
             <source>Display</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kijelző</translation>
         </message>
         <message>
             <source>Distance</source>
@@ -936,8 +913,7 @@ of 'omweather-*-stations-db' packages was installed.</source>
         </message>
         <message>
             <source>Download and show detailed weather</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Letöltés és részletes előrejelzés mutatása</translation>
         </message>
         <message>
             <source>Download timed out.</source>
@@ -1020,13 +996,11 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Edit custom layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Egyedi megjelenés szerkesztése</translation>
         </message>
         <message>
             <source>Edit custom layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Egyedi megjelenés szerkesztése</translation>
         </message>
         <message>
             <source>Enable GPS</source>
@@ -1160,8 +1134,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Few Clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Néhány felhő</translation>
         </message>
         <message>
             <source>Few Showers</source>
@@ -1190,13 +1163,11 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Few clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Néhány felhő</translation>
         </message>
         <message>
             <source>Find location via GPS</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helykeresés GPS-szel</translation>
         </message>
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
@@ -1226,8 +1197,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Köd</translation>
         </message>
         <message>
             <source>Fog Early / Clouds Late</source>
@@ -1246,8 +1216,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Foggy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ködös</translation>
         </message>
         <message>
             <source>Font color:</source>
@@ -1271,8 +1240,7 @@ using Application manager</source>
         </message>
         <message>
             <source>Forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Előrejelzés</translation>
         </message>
         <message>
             <source>Forecast at: </source>
@@ -1327,8 +1295,37 @@ using Application manager</source>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Francia -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht 
+ Orosz - Pavel Fialko, Vlad Vasiliev, 
+ 	Ed Bartosh
+ Finn - Marko Vertainen
+ Német -  Claudius Henrichs
+ Olasz - Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+ Spanyol - Alejandro Lopez, Agustí Clara
+ Lengyel - Tomasz Dominikowski
+ Szlovák - Roman Moravčík
+ Holland - Tom Leenders, Michiel Pater
+ Bolgár - Zlatko Enikov
+ Albán - Ilir Gjika
+ Kínai - Wong Man Kong, Michael
+ Portugál - Jose Narciso,
+ Török - Burak Kaan Kose,
+ 	Mehmet Çilingir,
+ Katalán - Agustí Clara,
+ Arab - Tarad Alfandi,
+ Szerb - Aleksandar Zaric,
+ Norvég - Peer-Atle Motland,
+ Magyar - Salmi,
+ Kínai (Taiwan) - osk2, 
+ Vietnam - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+ Svéd - Angela Nennebrandt,
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1345,48 +1342,39 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Full</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Teljes</translation>
         </message>
         <message>
             <source>Full forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Teljes előrejelzés</translation>
         </message>
         <message>
             <source>Fullscreen mode</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Teljesképernyős mód</translation>
         </message>
         <message>
             <source>G: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>G:</translation>
         </message>
         <message>
             <source>GPS</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GPS</translation>
         </message>
         <message>
             <source>GSM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GSM</translation>
         </message>
         <message>
             <source>GSM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GSM</translation>
         </message>
         <message>
             <source>GSM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GSM</translation>
         </message>
         <message>
             <source>GSM+WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GSM+WLAN</translation>
         </message>
         <message>
             <source>GUI|Clear</source>
@@ -1410,8 +1398,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>HTTP error.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>HTTP hiba.</translation>
         </message>
         <message>
             <source>Haze</source>
@@ -1450,8 +1437,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>High</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Magas</translation>
         </message>
         <message>
             <source>Hourly</source>
@@ -1500,68 +1486,55 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Icon set:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ikoncsomag:</translation>
         </message>
         <message>
             <source>Icon size:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ikonméret:</translation>
         </message>
         <message>
             <source>Icon size:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ikonméret:</translation>
         </message>
         <message>
             <source>Icons</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ikonok</translation>
         </message>
         <message>
             <source>Icons</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ikonok</translation>
         </message>
         <message>
             <source>Iconset</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ikoncsomag</translation>
         </message>
         <message>
             <source>Iconset</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ikoncsomag</translation>
         </message>
         <message>
             <source>Iconsets</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ikoncsomagok</translation>
         </message>
         <message>
             <source>Iconsets</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ikoncsomagok</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Információ</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Információ</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Információ</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Információ</translation>
         </message>
         <message>
             <source>Isolated T-Storms</source>
@@ -1585,13 +1558,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Knots</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Csomó</translation>
         </message>
         <message>
             <source>Language</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nyelv</translation>
         </message>
         <message>
             <source>Last Quarter</source>
@@ -1615,28 +1586,23 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Last update:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Utolsó frissítés:</translation>
         </message>
         <message>
             <source>Last update:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Utolsó frissítés:</translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Utolsó frissítés:</translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Utolsó frissítés:</translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Utolsó frissítés:</translation>
         </message>
         <message>
             <source>Lawn and Garden Weather</source>
@@ -1645,23 +1611,19 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Layout:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Megjelenés:</translation>
         </message>
         <message>
             <source>Layout:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Megjelenés:</translation>
         </message>
         <message>
-            <source>Lead designer</source>
-            <translation type="unfinished">
-            </translation>
+            <source>Lead designers</source>
+            <translation type="unfinished">Főtervező</translation>
         </message>
         <message>
             <source>License</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Licensz</translation>
         </message>
         <message>
             <source>Light Drizzle</source>
@@ -1815,8 +1777,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Low</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alacsony</translation>
         </message>
         <message>
             <source>Mainly cloudy with occasional rain.</source>
@@ -1831,48 +1792,40 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Manage locations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyek kezelése</translation>
         </message>
         <message>
             <source>Manage locations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyek kezelése</translation>
         </message>
         <message>
             <source>Manual</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kézi</translation>
         </message>
         <message>
             <source>Measurement units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mértékegységek</translation>
         </message>
         <message>
             <source>MeeCast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
             <translation type="unfinished">
             </translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>MeeCast Harmattan-re</translation>
         </message>
         <message>
             <source>Meters</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Méter</translation>
         </message>
         <message>
             <source>Miles</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mérföld</translation>
         </message>
         <message>
             <source>Mist</source>
@@ -1891,8 +1844,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Modification</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Módosítás</translation>
         </message>
         <message>
             <source>Mostly Clear</source>
@@ -2161,53 +2113,43 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Name:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Név:</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Soha</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Soha</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Soha</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Soha</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Soha</translation>
         </message>
         <message>
             <source>Never</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Soha</translation>
         </message>
         <message>
             <source>New</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Új</translation>
         </message>
         <message>
             <source>New location</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Új hely</translation>
         </message>
         <message>
             <source>Next update:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Következő frissítés:</translation>
         </message>
         <message>
             <source>Night</source>
@@ -2226,13 +2168,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>No</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nem</translation>
         </message>
         <message>
             <source>No</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nem</translation>
         </message>
         <message>
             <source>No current weather data.</source>
@@ -2241,18 +2181,15 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>No locations are set up yet.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Még nincs hely beállítva.</translation>
         </message>
         <message>
             <source>No locations are set up yet.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Még nincs hely beállítva.</translation>
         </message>
         <message>
             <source>No weather data for this day.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nincs időjárásadat ehhez a naphoz.</translation>
         </message>
         <message>
             <source>No weather data for this station.</source>
@@ -2266,58 +2203,47 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Now</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Most</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Most</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Most</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Most</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Most</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Most</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Most</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Most</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Most</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Most</translation>
         </message>
         <message>
             <source>Now</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Most</translation>
         </message>
         <message>
             <source>Now + 2 days vert.</source>
@@ -2341,23 +2267,19 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Now: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Most:</translation>
         </message>
         <message>
             <source>OK</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OK</translation>
         </message>
         <message>
             <source>OK</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OK</translation>
         </message>
         <message>
             <source>OK</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OK</translation>
         </message>
         <message>
             <source>OMWeather Forecast</source>
@@ -2386,28 +2308,23 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ok</translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ok</translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ok</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Egyéb Maemo időjárásinfó</translation>
         </message>
         <message>
             <source>Other Maemo Weather Info</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Egyéb Maemo időjárásinfó</translation>
         </message>
         <message>
             <source>Overcast</source>
@@ -2551,8 +2468,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Pa</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Pa</translation>
         </message>
         <message>
             <source>Partly Cloudy</source>
@@ -2706,8 +2622,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Position:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Pozíció:</translation>
         </message>
         <message>
             <source>Ppcp:</source>
@@ -2796,18 +2711,15 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Programmer</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Programozó</translation>
         </message>
         <message>
             <source>Project administrators</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Projektadminisztrátor</translation>
         </message>
         <message>
             <source>Project manager</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Projektmenedzser</translation>
         </message>
         <message>
             <source>Provided by</source>
@@ -2816,8 +2728,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eső</translation>
         </message>
         <message>
             <source>Rain / Freezing Rain</source>
@@ -2826,8 +2737,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain / Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eső/hó</translation>
         </message>
         <message>
             <source>Rain / Snow / Wind</source>
@@ -2926,18 +2836,15 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Region</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Régió</translation>
         </message>
         <message>
             <source>Region</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Régió</translation>
         </message>
         <message>
             <source>Region</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Régió</translation>
         </message>
         <message>
             <source>Rush Hour Traffic</source>
@@ -2996,38 +2903,31 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mentés</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mentés</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mentés</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mentés</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mentés</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mentés</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mentés</translation>
         </message>
         <message>
             <source>Scattered Clouds</source>
@@ -3061,73 +2961,59 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Sea miles</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tengeri mérföld</translation>
         </message>
         <message>
             <source>Search</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Keresés</translation>
         </message>
         <message>
             <source>Select city</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Város kiválasztása</translation>
         </message>
         <message>
             <source>Select city</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Város kiválasztása</translation>
         </message>
         <message>
             <source>Select country</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ország kiválasztása</translation>
         </message>
         <message>
             <source>Select country</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ország kiválasztása</translation>
         </message>
         <message>
             <source>Select country</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ország kiválasztása</translation>
         </message>
         <message>
             <source>Select location</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hely kiválasztása</translation>
         </message>
         <message>
             <source>Select location</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hely kiválasztása</translation>
         </message>
         <message>
             <source>Select region</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Régió kiválasztása</translation>
         </message>
         <message>
             <source>Select region</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Régió kiválasztása</translation>
         </message>
         <message>
             <source>Select region</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Régió kiválasztása</translation>
         </message>
         <message>
             <source>Select source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Forrás kiválasztása</translation>
         </message>
         <message>
             <source>Select source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Forrás kiválasztása</translation>
         </message>
         <message>
             <source>Select the X-position for left corner of widget</source>
@@ -3156,58 +3042,47 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Select the iconset</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ikoncsomag kiválasztása</translation>
         </message>
         <message>
             <source>Select the language</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Válaszd ki a nyelvet</translation>
         </message>
         <message>
             <source>Select the weather source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Időjárás jelentés forrásának kiválasztása</translation>
         </message>
         <message>
             <source>Selecting country</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ország kiválasztása</translation>
         </message>
         <message>
             <source>Selecting region</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Régió kiválasztása</translation>
         </message>
         <message>
             <source>Selecting source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Forrás kiválasztása</translation>
         </message>
         <message>
             <source>Selecting station</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Állomás kiválasztása</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Érzékelő</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Érzékelő</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Érzékelő</translation>
         </message>
         <message>
             <source>Sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Érzékelő</translation>
         </message>
         <message>
             <source>Set</source>
@@ -3216,38 +3091,31 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Set locations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyek beállítása</translation>
         </message>
         <message>
             <source>Set locations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyek beállítása</translation>
         </message>
         <message>
             <source>Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beállítások</translation>
         </message>
         <message>
             <source>Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beállítások</translation>
         </message>
         <message>
             <source>Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beállítások</translation>
         </message>
         <message>
             <source>Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beállítások</translation>
         </message>
         <message>
             <source>Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beállítások</translation>
         </message>
         <message>
             <source>Settings for Lockscreen widget</source>
@@ -3276,13 +3144,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rövid</translation>
         </message>
         <message>
             <source>Show arrows</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nyilak mutatása</translation>
         </message>
         <message>
             <source>Show on Map</source>
@@ -3291,13 +3157,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Csak jelenlegi időjárás az első ikonon</translation>
         </message>
         <message>
             <source>Show station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Állomásnév kijelzése</translation>
         </message>
         <message>
             <source>Show temperature at:</source>
@@ -3346,8 +3210,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Sky is clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Az ég tiszta</translation>
         </message>
         <message>
             <source>Sleet</source>
@@ -3356,18 +3219,15 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Füst</translation>
         </message>
         <message>
             <source>Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hó</translation>
         </message>
         <message>
             <source>Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hó/szél</translation>
         </message>
         <message>
             <source>Snow Shower</source>
@@ -3416,73 +3276,59 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Source</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Forrás</translation>
         </message>
         <message>
             <source>Source code</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Forráskód</translation>
         </message>
         <message>
             <source>Source:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Forrás:</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sebesség</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sebesség</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sebesség</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sebesség</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sebesség</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sebesség</translation>
         </message>
         <message>
             <source>Speed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sebesség</translation>
         </message>
         <message>
             <source>Speed:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sebesség:</translation>
         </message>
         <message>
             <source>Speed:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sebesség:</translation>
         </message>
         <message>
             <source>Speed:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sebesség:</translation>
         </message>
         <message>
             <source>Speed:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sebesség:</translation>
         </message>
         <message>
             <source>Splash screen</source>
@@ -3496,48 +3342,39 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Station %i</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Állomás: %i</translation>
         </message>
         <message>
             <source>Stations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Állomások</translation>
         </message>
         <message>
             <source>Stations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Állomások</translation>
         </message>
         <message>
             <source>Stations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Állomások</translation>
         </message>
         <message>
             <source>Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vihar</translation>
         </message>
         <message>
             <source>Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vihar</translation>
         </message>
         <message>
             <source>Successfully loaded</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sikeresen betöltve</translation>
         </message>
         <message>
             <source>Sunny</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Napos</translation>
         </message>
         <message>
             <source>Sunny / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Napos/szél</translation>
         </message>
         <message>
             <source>Sunny periods and a few showers.</source>
@@ -3551,48 +3388,39 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Sunrise:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Napfelkelte:</translation>
         </message>
         <message>
             <source>Sunrise:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Napfelkelte:</translation>
         </message>
         <message>
             <source>Sunrise: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Napfelkelte:</translation>
         </message>
         <message>
             <source>Sunrise: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Napfelkelte:</translation>
         </message>
         <message>
             <source>Sunset:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Napnyugta:</translation>
         </message>
         <message>
             <source>Sunset:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Napnyugta:</translation>
         </message>
         <message>
             <source>Sunset: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Napnyugta:</translation>
         </message>
         <message>
             <source>Sunset: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Napnyugta:</translation>
         </message>
         <message>
             <source>Support</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Támogatás</translation>
         </message>
         <message>
             <source>Swap hi/low temperature</source>
@@ -3636,78 +3464,63 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőmérséklet</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőmérséklet</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőmérséklet</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőmérséklet</translation>
         </message>
         <message>
             <source>Temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőmérséklet</translation>
         </message>
         <message>
             <source>Temperature units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőmérséklet</translation>
         </message>
         <message>
             <source>Temperature units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőmérséklet</translation>
         </message>
         <message>
             <source>Temperature units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőmérséklet</translation>
         </message>
         <message>
             <source>Temperature units:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőmérséklet:</translation>
         </message>
         <message>
             <source>Temperature:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőmérséklet:</translation>
         </message>
         <message>
             <source>Temperature:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőmérséklet:</translation>
         </message>
         <message>
             <source>Temperature: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőmérséklet:</translation>
         </message>
         <message>
             <source>Temperature: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőmérséklet:</translation>
         </message>
         <message>
             <source>Thanks</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Köszönjük</translation>
         </message>
         <message>
             <source>The weather has been updated.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Az előrejelzés sikeresen frissítve.</translation>
         </message>
         <message>
             <source>There are no stations to show in this view of the list</source>
@@ -3716,8 +3529,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>This is experimental feature. Only English is supported.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ez egy kísérleti funkció. Csak az angol nyelv támogatott.</translation>
         </message>
         <message>
             <source>This software is free software; you can
@@ -3748,33 +3560,27 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Today</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ma</translation>
         </message>
         <message>
             <source>Today</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ma</translation>
         </message>
         <message>
             <source>Today</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ma</translation>
         </message>
         <message>
             <source>Today</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ma</translation>
         </message>
         <message>
             <source>Translators</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fordítók</translation>
         </message>
         <message>
             <source>Translators</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fordítók</translation>
         </message>
         <message>
             <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
@@ -3784,18 +3590,15 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Transparency:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Áttetszőség:</translation>
         </message>
         <message>
             <source>Transparency:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Áttetszőség:</translation>
         </message>
         <message>
             <source>Transparency:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Áttetszőség:</translation>
         </message>
         <message>
             <source>Try to update</source>
@@ -3809,158 +3612,127 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Type of click:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kattintás típusa:</translation>
         </message>
         <message>
             <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>UV index:</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Egység</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Egység</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Egység</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Egység</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Egység</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ismeretlen</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ismeretlen</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ismeretlen</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ismeretlen</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ismeretlen</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ismeretlen</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ismeretlen</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ismeretlen</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ismeretlen</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ismeretlen</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ismeretlen</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ismeretlen</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ismeretlen</translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ismeretlen</translation>
         </message>
         <message>
             <source>Unlimited</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Korlátlan</translation>
         </message>
         <message>
             <source>Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Frissítés</translation>
         </message>
         <message>
             <source>Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Frissítés</translation>
         </message>
         <message>
             <source>Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Frissítés</translation>
         </message>
         <message>
             <source>Update already running.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Frissítés már folyik</translation>
         </message>
         <message>
             <source>Update interval</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Frissítési intervallum</translation>
         </message>
         <message>
             <source>Updating forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Előrejelzés frissítése</translation>
         </message>
         <message>
             <source>Updating forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Előrejelzés frissítése</translation>
         </message>
         <message>
             <source>Updating of weather data:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Időjárásadat frissítése:</translation>
         </message>
         <message>
             <source>Updating weather</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Előrejelzés frissítése</translation>
         </message>
         <message>
             <source>Use Edit layout 
@@ -3977,8 +3749,7 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Use device temperature sensor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Készülék hőmérséklet-érzékelőjének használása</translation>
         </message>
         <message>
             <source>VAR</source>
@@ -3992,18 +3763,15 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Very High</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nagyon magas</translation>
         </message>
         <message>
             <source>Visible items:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Látható elemek:</translation>
         </message>
         <message>
             <source>Visible items:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Látható elemek:</translation>
         </message>
         <message>
             <source>Visible units</source>
@@ -4017,13 +3785,11 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Visible:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Látható:</translation>
         </message>
         <message>
             <source>Visible:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Látható:</translation>
         </message>
         <message>
             <source>Visuals</source>
@@ -4047,8 +3813,7 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Voice weather forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hangos időjárás-előrejelzés</translation>
         </message>
         <message>
             <source>W</source>
@@ -4057,18 +3822,15 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WLAN</translation>
         </message>
         <message>
             <source>WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WLAN</translation>
         </message>
         <message>
             <source>WLAN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>WLAN</translation>
         </message>
         <message>
             <source>WNW</source>
@@ -4107,8 +3869,7 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Warning</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Figyelem</translation>
         </message>
         <message>
             <source>Waxing Crescent</source>
@@ -4152,23 +3913,19 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Widget style</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Widget stílusa</translation>
         </message>
         <message>
             <source>Widget style</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Widget stílusa</translation>
         </message>
         <message>
             <source>Widget style and Iconset</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Widget stílusa és ikoncsomag</translation>
         </message>
         <message>
             <source>Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szél</translation>
         </message>
         <message>
             <source>Wind direction</source>
@@ -4187,8 +3944,7 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Wind direction:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélirány:</translation>
         </message>
         <message>
             <source>Wind gust:</source>
@@ -4207,53 +3963,43 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélsebesség</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélsebesség</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélsebesség</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélsebesség</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélsebesség</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélsebesség</translation>
         </message>
         <message>
             <source>Wind speed</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélsebesség</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélmértékegység</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélmértékegység</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélmértékegység</translation>
         </message>
         <message>
             <source>Wind speed units:</source>
@@ -4262,43 +4008,35 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Wind:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szél:</translation>
         </message>
         <message>
             <source>Wind:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szél:</translation>
         </message>
         <message>
             <source>Wind:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szél:</translation>
         </message>
         <message>
             <source>Wind:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szél:</translation>
         </message>
         <message>
             <source>Wind: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szél:</translation>
         </message>
         <message>
             <source>Wind: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szél:</translation>
         </message>
         <message>
             <source>Wind: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szél:</translation>
         </message>
         <message>
             <source>Wind: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szél:</translation>
         </message>
         <message>
             <source>Wintry Mix</source>
@@ -4328,18 +4066,15 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>Yes</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Igen</translation>
         </message>
         <message>
             <source>Yes</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Igen</translation>
         </message>
         <message>
             <source>You can make donation here: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Itt támogathatsz minket:</translation>
         </message>
         <message>
             <source>You should activate 
@@ -4387,18 +4122,15 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>day ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>nappal ezelőtt</translation>
         </message>
         <message>
             <source>days ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>nappal ezelőtt</translation>
         </message>
         <message>
             <source>every 2 hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>2 óránként</translation>
         </message>
         <message>
             <source>every 24 hours</source>
@@ -4447,18 +4179,15 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>hour ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>órája</translation>
         </message>
         <message>
             <source>hours ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>órája</translation>
         </message>
         <message>
             <source>http://github.com/Meecast/meecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>http://github.com/Meecast/meecast</translation>
         </message>
         <message>
             <source>inHg</source>
@@ -4502,63 +4231,51 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>inch</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>hüvelyk</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km</translation>
         </message>
         <message>
             <source>km/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km/h</translation>
         </message>
         <message>
             <source>km/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km/h</translation>
         </message>
         <message>
             <source>km/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km/h</translation>
         </message>
         <message>
             <source>km/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km/h</translation>
         </message>
         <message>
             <source>km/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km/h</translation>
         </message>
         <message>
             <source>km/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>km/s</translation>
         </message>
         <message>
             <source>kn</source>
@@ -4567,58 +4284,47 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>m</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m</translation>
         </message>
         <message>
             <source>m</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m</translation>
         </message>
         <message>
             <source>m</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m</translation>
         </message>
         <message>
             <source>m</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m</translation>
         </message>
         <message>
             <source>m</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m</translation>
         </message>
         <message>
             <source>m/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m/h</translation>
         </message>
         <message>
             <source>m/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m/s</translation>
         </message>
         <message>
             <source>m/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m/s</translation>
         </message>
         <message>
             <source>m/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m/s</translation>
         </message>
         <message>
             <source>m/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m/s</translation>
         </message>
         <message>
             <source>m/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>m/s</translation>
         </message>
         <message>
             <source>mb</source>
@@ -4667,8 +4373,7 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>mbar</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mbar</translation>
         </message>
         <message>
             <source>mi</source>
@@ -4737,28 +4442,23 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>minute ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>perce</translation>
         </message>
         <message>
             <source>minutes ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>perce</translation>
         </message>
         <message>
             <source>mm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mm</translation>
         </message>
         <message>
             <source>mmHg</source>
@@ -4812,23 +4512,19 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>never</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>soha</translation>
         </message>
         <message>
             <source>new icon</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>új ikon</translation>
         </message>
         <message>
             <source>next</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>következő</translation>
         </message>
         <message>
             <source>next</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>következő</translation>
         </message>
         <message>
             <source>nmi</source>
@@ -4847,8 +4543,7 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>seconds ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>másodperce</translation>
         </message>
         <message>
             <source>station local time</source>

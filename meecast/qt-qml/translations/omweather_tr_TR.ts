@@ -1516,8 +1516,8 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Düzen</translation>
         </message>
         <message>
-            <source>Lead designer</source>
-            <translation>Baş stilist</translation>
+            <source>Lead designers</source>
+            <translation type="unfinished">Baş stilist</translation>
         </message>
         <message>
             <source>License</source>
@@ -1678,8 +1678,8 @@ Turkish - Burak Kaan Kose</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013</source>
-            <translation>MeeCast - OMWeathet kodu üzerine inşa edilmiş yüksek ölçüde özelleştirilebilir açık kaynaklı hava takmin istemcisi. Copyright (C) 2006-2013</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
+            <translation type="unfinished">MeeCast - OMWeathet kodu üzerine inşa edilmiş yüksek ölçüde özelleştirilebilir açık kaynaklı hava takmin istemcisi. Copyright (C) 2006-2013</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -3019,7 +3019,7 @@ Turkish - Burak Kaan Kose</translation>
         </message>
         <message>
             <source>Sunny</source>
-            <translation>Gğneşli</translation>
+            <translation>Güneşli</translation>
         </message>
         <message>
             <source>Sunny / Wind</source>
@@ -3167,8 +3167,7 @@ Turkish - Burak Kaan Kose</translation>
         </message>
         <message>
             <source>This is experimental feature. Only English is supported.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>This is experimental feature. Only English is supported.</translation>
         </message>
         <message>
             <source>This software is free software; you can
@@ -3224,8 +3223,7 @@ hem 2.1 versiyonu ve hem de (isteginize göre) farklı bir ileriki version olabi
         <message>
             <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
 </source>
-            <translation>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
-</translation>
+            <translation>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose\n</translation>
         </message>
         <message>
             <source>Transparency:</source>
@@ -3438,12 +3436,11 @@ GSM ve/veya WLAN kullan.
         </message>
         <message>
             <source>Voice forecast button on a widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Widgat'a sesli tahmin butonu</translation>
         </message>
         <message>
             <source>Voice weather forecast</source>
-            <translation type="unfinished">OMWeather Hava Tahmini</translation>
+            <translation>Sesli hava tahmini</translation>
         </message>
         <message>
             <source>W</source>

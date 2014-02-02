@@ -1532,8 +1532,8 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>Paraqitja:</translation>
         </message>
         <message>
-            <source>Lead designer</source>
-            <translation>Krye designer</translation>
+            <source>Lead designers</source>
+            <translation type="unfinished">Krye designer</translation>
         </message>
         <message>
             <source>License</source>
@@ -1695,7 +1695,7 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
             <translation type="unfinished">MeeCast është një program multiplataformë dhe i personalizueshëm, me kod të hapur, për paraqitjen e parashikimeve te motit i bazuar në kodin e OMWeather. Të gjitha të drejtat janë të rezervuara 2006-2012</translation>
         </message>
         <message>

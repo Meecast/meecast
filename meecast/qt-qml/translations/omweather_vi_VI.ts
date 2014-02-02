@@ -1506,8 +1506,8 @@ Việt Nam- Quý Trọng</translation>
             <translation>Bố trí:</translation>
         </message>
         <message>
-            <source>Lead designer</source>
-            <translation>Chỉ đạo thiết kế</translation>
+            <source>Lead designers</source>
+            <translation type="unfinished">Chỉ đạo thiết kế</translation>
         </message>
         <message>
             <source>License</source>
@@ -1669,7 +1669,7 @@ Việt Nam- Quý Trọng</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
             <translation type="unfinished">MeeCast - ứng dụng đa nền tảng, có thể chỉnh mã nguồn mở của thời tiết dựa trên mã OMWeather. Bản quyền (C) 2006-2011</translation>
         </message>
         <message>

@@ -1528,8 +1528,8 @@ Slovenčina - Roman Moravčík</translation>
             <translation>Rozloženie:</translation>
         </message>
         <message>
-            <source>Lead designer</source>
-            <translation>Vedúci návrhár</translation>
+            <source>Lead designers</source>
+            <translation type="unfinished">Vedúci návrhár</translation>
         </message>
         <message>
             <source>License</source>
@@ -1691,7 +1691,7 @@ Slovenčina - Roman Moravčík</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013</source>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
             <translation type="unfinished">MeeCast - multiplatformový veľmi prispôsobiteľný open source klient predpoveďe počasia založený na kóde OMWeather. Copyright (C) 2006-2011</translation>
         </message>
         <message>

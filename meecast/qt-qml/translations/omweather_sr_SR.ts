@@ -1229,7 +1229,7 @@ koristeći Menadžer aplikacija</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Francuski -  Nicolas Granziano, 
+            <translation>Francuski -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  Ruski - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
@@ -1248,6 +1248,7 @@ koristeći Menadžer aplikacija</translation>
  Kineski - Wong Man Kong, Michael
  Portugalski - Jose Narciso,
  Turski - Burak Kaan Kose,
+ 	Mehmet Çilingir,
  Katalonski - Agustí Clara,
  Arapski - Tarad Alfandi,
  Srpski - Aleksandar Zarić,
@@ -1529,8 +1530,8 @@ Slovački - Roman Moravčík</translation>
             <translation>Prikaz:</translation>
         </message>
         <message>
-            <source>Lead designer</source>
-            <translation>Glavni dizajner</translation>
+            <source>Lead designers</source>
+            <translation type="unfinished">Glavni dizajner</translation>
         </message>
         <message>
             <source>License</source>
@@ -1618,7 +1619,7 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
-            <translation type="unfinished">Pljusak blagog intenziteta</translation>
+            <translation>Rominjajuća kiša blagog intenziteta</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
@@ -1691,8 +1692,8 @@ Slovački - Roman Moravčík</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013</source>
-            <translation>MeeCast - višeplatformna visoko podešavajuća vremenska prognoza otvorenog koda klijent bazirana na OMWeather kodu. Copyright (C) 2006-2013</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
+            <translation type="unfinished">MeeCast - Klijent visoko podešavajuće vremenske prognoze otvorenog koda za više platformi baziran na OMWeather kodu. Copyright (C) 2006-2013</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -3180,8 +3181,7 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>This is experimental feature. Only English is supported.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ovo je eksperimentalna opcija. Podržan je samo engleski jezik.</translation>
         </message>
         <message>
             <source>This software is free software; you can
@@ -3455,12 +3455,11 @@ za korigovanje slika applet-a</translation>
         </message>
         <message>
             <source>Voice forecast button on a widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dugme za glasovnu prognozu na vidžetu</translation>
         </message>
         <message>
             <source>Voice weather forecast</source>
-            <translation type="unfinished">OMWeather Prognoza</translation>
+            <translation>Glasovna vremenska prognoza</translation>
         </message>
         <message>
             <source>W</source>

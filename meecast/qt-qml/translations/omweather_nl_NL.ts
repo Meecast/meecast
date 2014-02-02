@@ -1229,36 +1229,8 @@ worden.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Frans - Nicolas Granziano, ⏎
-⇥Philippe, Benot Knecht ⏎
-Russisch - Pavel Fialko, Vlad Vasiliev, ⏎
-⇥Ed Bartosh⏎
-Fins - Marko Vertainen⏎
-Duits - Claudius Henrichs⏎
-Italiaans - Lorenzo Facca,⏎
-⇥Pavel Fialko, Alessandro Pasotti,⏎
-⇥Salvatore Fiorenzo, Ilir Gjika,⏎
-⇥Luca Onnis⏎
-Spaans- Alejandro Lopez, Agustí Clara⏎
-Pools - Tomasz Dominikowski⏎
-Slowaaks - Roman Moravčík⏎
-Nederlands - Tom Leenders, Michiel Pater⏎
-Bulgaars - Zlatko Enikov⏎
-Albanees - Ilir Gjika⏎
-Chinees - Wong Man Kong, Michael⏎
-Portugees - Jose Narciso,⏎
-Turks - Burak Kaan Kose,⏎
-Catalaans - Agustí Clara,⏎
-Arabisch - Tarad Alfandi,⏎
-Servisch - Aleksandar Zaric,⏎
-Noors - Peer-Atle Motland,⏎
-Hongaars - Salmi,⏎
-Chinees(Taiwan) - osk2, ⏎
-Vietnamees - Hieu Nguyen⏎
-⇥Anh Dương and truongnx, ⏎
-Zweeds - Angela Nennebrandt,⏎
-⇥Niklas Åkerström, ⏎
-⇥Tomislav Veleckovik</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1474,8 +1446,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Knots</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Knopen</translation>
         </message>
         <message>
             <source>Language</source>
@@ -1530,8 +1501,8 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Layout:</translation>
         </message>
         <message>
-            <source>Lead designer</source>
-            <translation>Hoofdontwerper</translation>
+            <source>Lead designers</source>
+            <translation type="unfinished">Hoofdontwerper</translation>
         </message>
         <message>
             <source>License</source>
@@ -1619,7 +1590,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
-            <translation type="unfinished">Korte hevige regenbui</translation>
+            <translation>Lichte motregen</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
@@ -1692,8 +1663,8 @@ Slowaaks - Roman Moravčík</translation>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013</source>
-            <translation>MeeCast - Een zeer aanpasbare open source multiplatform weerbericht cliënt op basis van OMWeather code. Copyright (C) 2006-2013</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
+            <translation type="unfinished">MeeCast - Een zeer aanpasbare open source multiplatform weerbericht cliënt op basis van OMWeather code. Copyright (C) 2006-2013</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -3181,8 +3152,7 @@ Slowaaks - Roman Moravčík</translation>
         </message>
         <message>
             <source>This is experimental feature. Only English is supported.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dit is experimentele functie. Alleen Engels wordt ondersteund.</translation>
         </message>
         <message>
             <source>This software is free software; you can
@@ -3455,12 +3425,11 @@ van weerinformatie.
         </message>
         <message>
             <source>Voice forecast button on a widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Gesproken weersvoorspelling knop op een widget</translation>
         </message>
         <message>
             <source>Voice weather forecast</source>
-            <translation type="unfinished">OMWeather Voorspelling</translation>
+            <translation>Gesproken weersvoorspelling</translation>
         </message>
         <message>
             <source>W</source>
@@ -3878,8 +3847,7 @@ voor Standby-scherm widget</translation>
         </message>
         <message>
             <source>kn</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>kn</translation>
         </message>
         <message>
             <source>m</source>

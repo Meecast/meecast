@@ -1229,7 +1229,7 @@ using Application manager</source>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">الفرنسية -  Nicolas Granziano, 
+            <translation>الفرنسية -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  الروسية - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
@@ -1255,7 +1255,7 @@ using Application manager</source>
 الهنقارية - Salmi,
 الصينية (تايوان) - osk2,
  الفيتنامية - Hieu Nguyen,
-		Anh Dương and truongnx, 
+		Anh Dương و truongnx, 
  السويدية - Angela Nennebrandt,
  		Niklas Åkerström, 
 	Tomislav Veleckovik</translation>
@@ -1529,8 +1529,8 @@ Slovak - Roman Moravčík</source>
             <translation>التصميم:</translation>
         </message>
         <message>
-            <source>Lead designer</source>
-            <translation>قائد التصميم</translation>
+            <source>Lead designers</source>
+            <translation type="unfinished">قائد التصميم</translation>
         </message>
         <message>
             <source>License</source>
@@ -1691,8 +1691,8 @@ Slovak - Roman Moravčík</source>
             <translation>MeeCast</translation>
         </message>
         <message>
-            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2013</source>
-            <translation>MeeCast - هو تطبيق يعرض حاله الطقس ويعتر مفتوح المصدر وقابل للتعديل إستنادا الى كود OMWeather. الحقوق(C) 2006-2013</translation>
+            <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
+            <translation type="unfinished">MeeCast - هو تطبيق يعرض حاله الطقس ويعتر مفتوح المصدر وقابل للتعديل إستنادا الى كود OMWeather. الحقوق(C) 2006-2013</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -3180,8 +3180,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>This is experimental feature. Only English is supported.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>هذه  الميزة تجريبية. مدعومه باللغة الإنجليزية فقط.</translation>
         </message>
         <message>
             <source>This software is free software; you can
@@ -3454,12 +3453,11 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Voice forecast button on a widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>توقعات الطقس الصوتيه على الويدجت</translation>
         </message>
         <message>
             <source>Voice weather forecast</source>
-            <translation type="unfinished">توقعات OMWeather</translation>
+            <translation>توقعات الطقس الصوتيه</translation>
         </message>
         <message>
             <source>W</source>

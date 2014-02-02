@@ -1,21 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # salmi <salmoneus01@hotmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-02 18:38+0300\n"
+"POT-Creation-Date: 2014-02-02 14:49+0300\n"
 "PO-Revision-Date: 2014-01-18 20:01+0000\n"
 "Last-Translator: salmi <salmoneus01@hotmail.com>\n"
-"Language-Team: Hungarian (http://www.transifex.com/projects/p/meecast/language/hu/)\n"
+"Language-Team: Hungarian (http://www.transifex.com/projects/p/meecast/"
+"language/hu/)\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: omweather/src/weather-home.c:1567
@@ -82,11 +83,11 @@ msgid ""
 "W: "
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:479 meecast/qt-qml/dataitem.cpp:480
+#: meecast/qt-qml/dataitem.cpp:487 meecast/qt-qml/dataitem.cpp:488
 msgid "(Low)"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:481 meecast/qt-qml/dataitem.cpp:482
+#: meecast/qt-qml/dataitem.cpp:489 meecast/qt-qml/dataitem.cpp:490
 msgid "(Moderate)"
 msgstr ""
 
@@ -574,7 +575,9 @@ msgstr ""
 msgid ""
 "Could not connecting to Internet.\n"
 "Connection timeout is expired."
-msgstr "Kapcsolódás az internethez sikertelen.\nIdőtúllépés ideje lejárt."
+msgstr ""
+"Kapcsolódás az internethez sikertelen.\n"
+"Időtúllépés ideje lejárt."
 
 #: omweather/src/weather-config.c:401
 #, c-format
@@ -629,9 +632,11 @@ msgstr "Hely törlése?"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
-"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, "
-"<andrew.zhilin@ovi.com>\n"
-msgstr "Felhasználói felület dizájn és alap ikoncsomag: Copyright 2006-2011 Andrew Zhilin, <andrew.zhilin@ovi.com>\n"
+"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
+"zhilin@ovi.com>\n"
+msgstr ""
+"Felhasználói felület dizájn és alap ikoncsomag: Copyright 2006-2011 Andrew "
+"Zhilin, <andrew.zhilin@ovi.com>\n"
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
 msgid "Detailed"
@@ -947,7 +952,38 @@ msgid ""
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
-msgstr "Francia -  Nicolas Granziano, \n \tPhilippe, Benot Knecht \n Orosz - Pavel Fialko, Vlad Vasiliev, \n \tEd Bartosh\n Finn - Marko Vertainen\n Német -  Claudius Henrichs\n Olasz - Lorenzo Facca,\n \tPavel Fialko, Alessandro Pasotti,\n \tSalvatore Fiorenzo, Ilir Gjika,\n \tLuca Onnis\n Spanyol - Alejandro Lopez, Agustí Clara\n Lengyel - Tomasz Dominikowski\n Szlovák - Roman Moravčík\n Holland - Tom Leenders, Michiel Pater\n Bolgár - Zlatko Enikov\n Albán - Ilir Gjika\n Kínai - Wong Man Kong, Michael\n Portugál - Jose Narciso,\n Török - Burak Kaan Kose,\n \tMehmet Çilingir,\n Katalán - Agustí Clara,\n Arab - Tarad Alfandi,\n Szerb - Aleksandar Zaric,\n Norvég - Peer-Atle Motland,\n Magyar - Salmi,\n Kínai (Taiwan) - osk2, \n Vietnam - Hieu Nguyen\n \tAnh Dương and truongnx, \n Svéd - Angela Nennebrandt,\n \tNiklas Åkerström, \n \tTomislav Veleckovik"
+msgstr ""
+"Francia -  Nicolas Granziano, \n"
+" \tPhilippe, Benot Knecht \n"
+" Orosz - Pavel Fialko, Vlad Vasiliev, \n"
+" \tEd Bartosh\n"
+" Finn - Marko Vertainen\n"
+" Német -  Claudius Henrichs\n"
+" Olasz - Lorenzo Facca,\n"
+" \tPavel Fialko, Alessandro Pasotti,\n"
+" \tSalvatore Fiorenzo, Ilir Gjika,\n"
+" \tLuca Onnis\n"
+" Spanyol - Alejandro Lopez, Agustí Clara\n"
+" Lengyel - Tomasz Dominikowski\n"
+" Szlovák - Roman Moravčík\n"
+" Holland - Tom Leenders, Michiel Pater\n"
+" Bolgár - Zlatko Enikov\n"
+" Albán - Ilir Gjika\n"
+" Kínai - Wong Man Kong, Michael\n"
+" Portugál - Jose Narciso,\n"
+" Török - Burak Kaan Kose,\n"
+" \tMehmet Çilingir,\n"
+" Katalán - Agustí Clara,\n"
+" Arab - Tarad Alfandi,\n"
+" Szerb - Aleksandar Zaric,\n"
+" Norvég - Peer-Atle Motland,\n"
+" Magyar - Salmi,\n"
+" Kínai (Taiwan) - osk2, \n"
+" Vietnam - Hieu Nguyen\n"
+" \tAnh Dương and truongnx, \n"
+" Svéd - Angela Nennebrandt,\n"
+" \tNiklas Åkerström, \n"
+" \tTomislav Veleckovik"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1057,7 +1093,7 @@ msgstr ""
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:183
+#: meecast/qt-qml/dataitem.cpp:186
 msgid "Humidity:"
 msgstr ""
 
@@ -1146,7 +1182,8 @@ msgid "Layout:"
 msgstr "Megjelenés:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:186
-msgid "Lead designer"
+#, fuzzy
+msgid "Lead designers"
 msgstr "Főtervező"
 
 #: meecast/qt-qml/qml/AboutPage.qml:299
@@ -1275,8 +1312,8 @@ msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
-"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
-"<tanyshk@gmail.com>\n"
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
+"com>\n"
 msgstr ""
 
 #: omweather/src/hash.data:125 meecast/qt-qml/qml/StationsPage.qml:158
@@ -1298,7 +1335,7 @@ msgstr "MeeCast"
 #: meecast/qt-qml/qml/AboutPage.qml:77
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2013"
+"client based on OMWeather code. Copyright (C) 2006-2014"
 msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
@@ -1550,7 +1587,7 @@ msgstr ""
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:191 meecast/qt-qml/qml/FullWeatherPage.qml:130
+#: meecast/qt-qml/dataitem.cpp:194 meecast/qt-qml/qml/FullWeatherPage.qml:130
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Now"
 msgstr "Most"
@@ -1861,7 +1898,7 @@ msgstr ""
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:189 meecast/qt-qml/qml/FullWeatherPage.qml:142
+#: meecast/qt-qml/dataitem.cpp:192 meecast/qt-qml/qml/FullWeatherPage.qml:142
 #: meecast/qt-qml/qml/FullWeatherPage.qml:206
 #: meecast/qt-qml/qml/FullWeatherPage.qml:261
 msgid "Pressure:"
@@ -2318,7 +2355,7 @@ msgstr "Sebesség"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
-#: meecast/qt-qml/dataitem.cpp:187
+#: meecast/qt-qml/dataitem.cpp:190
 msgid "Speed:"
 msgstr "Sebesség:"
 
@@ -2428,7 +2465,7 @@ msgid "Temperature units:"
 msgstr "Hőmérséklet:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
-#: meecast/qt-qml/dataitem.cpp:181
+#: meecast/qt-qml/dataitem.cpp:184
 msgid "Temperature:"
 msgstr "Hőmérséklet:"
 
@@ -2739,7 +2776,7 @@ msgstr ""
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
-#: meecast/qt-qml/dataitem.cpp:185
+#: meecast/qt-qml/dataitem.cpp:188
 msgid "Wind:"
 msgstr "Szél:"
 
@@ -2794,8 +2831,8 @@ msgstr ""
 
 #: meecast/qt-qml/qml/UpdatePage.qml:73
 msgid ""
-"You should activate 'Widget in the events view' option in MeeCast appearance"
-" settings for auto update."
+"You should activate 'Widget in the events view' option in MeeCast appearance "
+"settings for auto update."
 msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2758
@@ -2820,11 +2857,11 @@ msgstr ""
 msgid "d:"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:455
+#: meecast/qt-qml/dataitem.cpp:458
 msgid "day ago"
 msgstr "nappal ezelőtt"
 
-#: meecast/qt-qml/dataitem.cpp:457
+#: meecast/qt-qml/dataitem.cpp:460
 msgid "days ago"
 msgstr "nappal ezelőtt"
 
@@ -2868,11 +2905,11 @@ msgstr ""
 msgid "feels like"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:449
+#: meecast/qt-qml/dataitem.cpp:452
 msgid "hour ago"
 msgstr "órája"
 
-#: meecast/qt-qml/dataitem.cpp:452
+#: meecast/qt-qml/dataitem.cpp:455
 msgid "hours ago"
 msgstr "órája"
 
@@ -2964,11 +3001,11 @@ msgstr ""
 msgid "mi/s"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:443
+#: meecast/qt-qml/dataitem.cpp:446
 msgid "minute ago"
 msgstr "perce"
 
-#: meecast/qt-qml/dataitem.cpp:446
+#: meecast/qt-qml/dataitem.cpp:449
 msgid "minutes ago"
 msgstr "perce"
 
@@ -3012,7 +3049,7 @@ msgstr ""
 msgid "rising"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:440
+#: meecast/qt-qml/dataitem.cpp:443
 msgid "seconds ago"
 msgstr "másodperce"
 

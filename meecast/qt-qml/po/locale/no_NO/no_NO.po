@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-27 22:11+0300\n"
-"PO-Revision-Date: 2013-11-14 22:25+0000\n"
+"POT-Creation-Date: 2014-02-02 14:49+0300\n"
+"PO-Revision-Date: 2013-12-02 21:57+0000\n"
 "Last-Translator: Peer-Atle Motland <PeerAtle@online.no>\n"
 "Language-Team: Norwegian (Norway) (http://www.transifex.com/projects/p/"
 "meecast/language/no_NO/)\n"
@@ -112,11 +112,11 @@ msgstr ""
 "\n"
 "W:"
 
-#: meecast/qt-qml/dataitem.cpp:479 meecast/qt-qml/dataitem.cpp:480
+#: meecast/qt-qml/dataitem.cpp:487 meecast/qt-qml/dataitem.cpp:488
 msgid "(Low)"
 msgstr "(Lav)"
 
-#: meecast/qt-qml/dataitem.cpp:481 meecast/qt-qml/dataitem.cpp:482
+#: meecast/qt-qml/dataitem.cpp:489 meecast/qt-qml/dataitem.cpp:490
 msgid "(Moderate)"
 msgstr "(Moderat)"
 
@@ -987,7 +987,6 @@ msgid "Freezing Drizzle"
 msgstr "Underkjølt Yr"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1021,34 +1020,35 @@ msgid ""
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
-"French -  Nicolas Granziano, \n"
+"Fransk -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
-" Russian - Pavel Fialko, Vlad Vasiliev, \n"
+" Russisk - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
-" Finnish - Marko Vertainen\n"
-" German -  Claudius Henrichs\n"
-" Italian - Lorenzo Facca,\n"
+" Finsk - Marko Vertainen\n"
+" Tysk -  Claudius Henrichs\n"
+" Italiensk - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
 " \tLuca Onnis\n"
-" Spanish - Alejandro Lopez, Agustí Clara\n"
-" Polish - Tomasz Dominikowski\n"
-" Slovak - Roman Moravčík\n"
-" Dutch - Tom Leenders, Michiel Pater\n"
-" Bulgarian - Zlatko Enikov\n"
-" Albanian - Ilir Gjika\n"
-" Chinese - Wong Man Kong, Michael\n"
-" Portuguese - Jose Narciso,\n"
-" Turkish - Burak Kaan Kose,\n"
-" Catalan - Agustí Clara,\n"
-" Arabic - Tarad Alfandi,\n"
-" Serbian - Aleksandar Zaric,\n"
-" Norwegian - Peer-Atle Motland,\n"
-" Hungarian - Salmi,\n"
-" Chinese(Taiwan) - osk2, \n"
-" Vietnamese - Hieu Nguyen\n"
+" Spansk - Alejandro Lopez, Agustí Clara\n"
+" Polsk - Tomasz Dominikowski\n"
+" Slovakisk - Roman Moravčík\n"
+" Nederlansk - Tom Leenders, Michiel Pater\n"
+" Bulgarsk - Zlatko Enikov\n"
+" Albansk - Ilir Gjika\n"
+" Kinesisk - Wong Man Kong, Michael\n"
+" Portugisisk - Jose Narciso,\n"
+" Tyrkisk - Burak Kaan Kose,\n"
+" \tMehmet Çilingir,\n"
+" Katalansk - Agustí Clara,\n"
+" Arabisk - Tarad Alfandi,\n"
+" Serbisk - Aleksandar Zaric,\n"
+" Norsk - Peer-Atle Motland,\n"
+" Ungarsk - Salmi,\n"
+" Kinesisk(Taiwan) - osk2, \n"
+" Vietnamesisk - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
-" Swedish - Angela Nennebrandt,\n"
+" Svensk - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 
@@ -1170,7 +1170,7 @@ msgstr "Fuktighet"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:183
+#: meecast/qt-qml/dataitem.cpp:186
 msgid "Humidity:"
 msgstr "Fuktighet:"
 
@@ -1261,7 +1261,8 @@ msgid "Layout:"
 msgstr "Layout:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:186
-msgid "Lead designer"
+#, fuzzy
+msgid "Lead designers"
 msgstr "Sjef designer"
 
 #: meecast/qt-qml/qml/AboutPage.qml:299
@@ -1413,9 +1414,10 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
+#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2013"
+"client based on OMWeather code. Copyright (C) 2006-2014"
 msgstr ""
 "MeeCast - multiplattform lett tilpasselig åpen kildekode værmeldings klient "
 "basert på OMWeather kode. Copyright (C) 2006-2013"
@@ -1669,7 +1671,7 @@ msgstr "Ingen værdata for denne stasjonen"
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:191 meecast/qt-qml/qml/FullWeatherPage.qml:130
+#: meecast/qt-qml/dataitem.cpp:194 meecast/qt-qml/qml/FullWeatherPage.qml:130
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Now"
 msgstr "Nå"
@@ -1980,7 +1982,7 @@ msgstr "Trykkenheter"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:189 meecast/qt-qml/qml/FullWeatherPage.qml:142
+#: meecast/qt-qml/dataitem.cpp:192 meecast/qt-qml/qml/FullWeatherPage.qml:142
 #: meecast/qt-qml/qml/FullWeatherPage.qml:206
 #: meecast/qt-qml/qml/FullWeatherPage.qml:261
 msgid "Pressure:"
@@ -2437,7 +2439,7 @@ msgstr "Hastighet"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
-#: meecast/qt-qml/dataitem.cpp:187
+#: meecast/qt-qml/dataitem.cpp:190
 msgid "Speed:"
 msgstr "Hastighet:"
 
@@ -2547,7 +2549,7 @@ msgid "Temperature units:"
 msgstr "Temperaturenheter:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
-#: meecast/qt-qml/dataitem.cpp:181
+#: meecast/qt-qml/dataitem.cpp:184
 msgid "Temperature:"
 msgstr "Temperatur:"
 
@@ -2569,7 +2571,7 @@ msgstr "Det er ingen stasjoner som kan vises i denne listen"
 
 #: omweather/src/hash.data:357
 msgid "This is experimental feature. Only English is supported."
-msgstr ""
+msgstr "Dette er en eksperimentell funksjon. Kun engelsk støttes"
 
 #: meecast/qt-qml/qml/AboutPage.qml:308
 msgid ""
@@ -2744,12 +2746,11 @@ msgstr "Visuelle"
 
 #: omweather/src/hash.data:356
 msgid "Voice forecast button on a widget"
-msgstr ""
+msgstr "Værvarsel knapp på en widget"
 
 #: omweather/src/hash.data:358
-#, fuzzy
 msgid "Voice weather forecast"
-msgstr "OMWeather Forecast"
+msgstr "Tale værmelding"
 
 #: omweather/src/hash.data:301
 msgid "W"
@@ -2874,7 +2875,7 @@ msgstr "Vindhastighetsenheter:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
-#: meecast/qt-qml/dataitem.cpp:185
+#: meecast/qt-qml/dataitem.cpp:188
 msgid "Wind:"
 msgstr "Vind:"
 
@@ -2967,11 +2968,11 @@ msgstr "lokaltid gjeldende sted"
 msgid "d:"
 msgstr "d:"
 
-#: meecast/qt-qml/dataitem.cpp:455
+#: meecast/qt-qml/dataitem.cpp:458
 msgid "day ago"
 msgstr "dag siden"
 
-#: meecast/qt-qml/dataitem.cpp:457
+#: meecast/qt-qml/dataitem.cpp:460
 msgid "days ago"
 msgstr "dager siden"
 
@@ -3015,11 +3016,11 @@ msgstr "fallende"
 msgid "feels like"
 msgstr "føles som"
 
-#: meecast/qt-qml/dataitem.cpp:449
+#: meecast/qt-qml/dataitem.cpp:452
 msgid "hour ago"
 msgstr "time siden"
 
-#: meecast/qt-qml/dataitem.cpp:452
+#: meecast/qt-qml/dataitem.cpp:455
 msgid "hours ago"
 msgstr "timer siden"
 
@@ -3111,11 +3112,11 @@ msgstr "mi/t"
 msgid "mi/s"
 msgstr "mi/s"
 
-#: meecast/qt-qml/dataitem.cpp:443
+#: meecast/qt-qml/dataitem.cpp:446
 msgid "minute ago"
 msgstr "minutt siden"
 
-#: meecast/qt-qml/dataitem.cpp:446
+#: meecast/qt-qml/dataitem.cpp:449
 msgid "minutes ago"
 msgstr "minutter siden"
 
@@ -3159,7 +3160,7 @@ msgstr "nmi"
 msgid "rising"
 msgstr "økende"
 
-#: meecast/qt-qml/dataitem.cpp:440
+#: meecast/qt-qml/dataitem.cpp:443
 msgid "seconds ago"
 msgstr "sekunder siden"
 

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-27 22:11+0300\n"
+"POT-Creation-Date: 2014-02-02 14:49+0300\n"
 "PO-Revision-Date: 2013-07-23 05:02+0000\n"
 "Last-Translator: michaelmhk <micmhk@gmail.com>\n"
 "Language-Team: Chinese (Hong Kong) (http://www.transifex.com/projects/p/"
@@ -106,11 +106,11 @@ msgid ""
 "W: "
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:479 meecast/qt-qml/dataitem.cpp:480
+#: meecast/qt-qml/dataitem.cpp:487 meecast/qt-qml/dataitem.cpp:488
 msgid "(Low)"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:481 meecast/qt-qml/dataitem.cpp:482
+#: meecast/qt-qml/dataitem.cpp:489 meecast/qt-qml/dataitem.cpp:490
 msgid "(Moderate)"
 msgstr ""
 
@@ -1162,7 +1162,7 @@ msgstr "濕度"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:183
+#: meecast/qt-qml/dataitem.cpp:186
 msgid "Humidity:"
 msgstr "濕度:"
 
@@ -1253,7 +1253,8 @@ msgid "Layout:"
 msgstr "頁面佈局"
 
 #: meecast/qt-qml/qml/AboutPage.qml:186
-msgid "Lead designer"
+#, fuzzy
+msgid "Lead designers"
 msgstr "首席設計師"
 
 #: meecast/qt-qml/qml/AboutPage.qml:299
@@ -1412,7 +1413,7 @@ msgstr "MeeCast"
 #, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2013"
+"client based on OMWeather code. Copyright (C) 2006-2014"
 msgstr ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2012"
@@ -1668,7 +1669,7 @@ msgstr "此站點無氣象資料。"
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:191 meecast/qt-qml/qml/FullWeatherPage.qml:130
+#: meecast/qt-qml/dataitem.cpp:194 meecast/qt-qml/qml/FullWeatherPage.qml:130
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Now"
 msgstr "現在"
@@ -1981,7 +1982,7 @@ msgstr "氣壓單位:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:189 meecast/qt-qml/qml/FullWeatherPage.qml:142
+#: meecast/qt-qml/dataitem.cpp:192 meecast/qt-qml/qml/FullWeatherPage.qml:142
 #: meecast/qt-qml/qml/FullWeatherPage.qml:206
 #: meecast/qt-qml/qml/FullWeatherPage.qml:261
 msgid "Pressure:"
@@ -2444,7 +2445,7 @@ msgstr "速度"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
-#: meecast/qt-qml/dataitem.cpp:187
+#: meecast/qt-qml/dataitem.cpp:190
 msgid "Speed:"
 msgstr "速度"
 
@@ -2554,7 +2555,7 @@ msgid "Temperature units:"
 msgstr "溫度單位︰"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
-#: meecast/qt-qml/dataitem.cpp:181
+#: meecast/qt-qml/dataitem.cpp:184
 msgid "Temperature:"
 msgstr "溫度"
 
@@ -2877,7 +2878,7 @@ msgstr "風速單位︰"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
-#: meecast/qt-qml/dataitem.cpp:185
+#: meecast/qt-qml/dataitem.cpp:188
 msgid "Wind:"
 msgstr "風"
 
@@ -2963,11 +2964,11 @@ msgstr "目前位置的當地時間"
 msgid "d:"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:455
+#: meecast/qt-qml/dataitem.cpp:458
 msgid "day ago"
 msgstr "天以前"
 
-#: meecast/qt-qml/dataitem.cpp:457
+#: meecast/qt-qml/dataitem.cpp:460
 msgid "days ago"
 msgstr "天以前"
 
@@ -3011,11 +3012,11 @@ msgstr ""
 msgid "feels like"
 msgstr "體感溫度"
 
-#: meecast/qt-qml/dataitem.cpp:449
+#: meecast/qt-qml/dataitem.cpp:452
 msgid "hour ago"
 msgstr "小時前"
 
-#: meecast/qt-qml/dataitem.cpp:452
+#: meecast/qt-qml/dataitem.cpp:455
 msgid "hours ago"
 msgstr "小時前"
 
@@ -3107,11 +3108,11 @@ msgstr "里／小時"
 msgid "mi/s"
 msgstr "里／秒"
 
-#: meecast/qt-qml/dataitem.cpp:443
+#: meecast/qt-qml/dataitem.cpp:446
 msgid "minute ago"
 msgstr "分鐘前"
 
-#: meecast/qt-qml/dataitem.cpp:446
+#: meecast/qt-qml/dataitem.cpp:449
 msgid "minutes ago"
 msgstr "分鐘前"
 
@@ -3155,7 +3156,7 @@ msgstr "nmi"
 msgid "rising"
 msgstr ""
 
-#: meecast/qt-qml/dataitem.cpp:440
+#: meecast/qt-qml/dataitem.cpp:443
 msgid "seconds ago"
 msgstr "秒前"
 

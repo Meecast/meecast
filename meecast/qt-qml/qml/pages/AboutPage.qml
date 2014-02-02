@@ -235,6 +235,8 @@ Arabic - Tarad Alfandi,\n \
 Serbian - Aleksandar Zaric,\n \
 Norwegian - Peer-Atle Motland,\n \
 Hungarian - Salmi,\n \
+Slovenian -  Boštjan,\n \
+Czech - Jakub Kožíšek, Pavel Šrubař,\n \
 Chinese(Taiwan) - osk2, \n \
 Vietnamese - Hieu Nguyen\n \
 \tAnh Dương and truongnx, \n \

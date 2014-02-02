@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-27 22:11+0300\n"
-"PO-Revision-Date: 2013-11-06 09:43+0000\n"
+"POT-Creation-Date: 2014-02-02 14:49+0300\n"
+"PO-Revision-Date: 2013-12-04 19:28+0000\n"
 "Last-Translator: Alexandar Zaric <alexandarzaric@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/meecast/language/"
 "sr/)\n"
@@ -115,11 +115,11 @@ msgstr ""
 "\n"
 "W: "
 
-#: meecast/qt-qml/dataitem.cpp:479 meecast/qt-qml/dataitem.cpp:480
+#: meecast/qt-qml/dataitem.cpp:487 meecast/qt-qml/dataitem.cpp:488
 msgid "(Low)"
 msgstr "(Nizak)"
 
-#: meecast/qt-qml/dataitem.cpp:481 meecast/qt-qml/dataitem.cpp:482
+#: meecast/qt-qml/dataitem.cpp:489 meecast/qt-qml/dataitem.cpp:490
 msgid "(Moderate)"
 msgstr "(Umereno)"
 
@@ -988,7 +988,6 @@ msgid "Freezing Drizzle"
 msgstr "Ledena kiša"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1041,6 +1040,7 @@ msgstr ""
 " Kineski - Wong Man Kong, Michael\n"
 " Portugalski - Jose Narciso,\n"
 " Turski - Burak Kaan Kose,\n"
+" \tMehmet Çilingir,\n"
 " Katalonski - Agustí Clara,\n"
 " Arapski - Tarad Alfandi,\n"
 " Srpski - Aleksandar Zarić,\n"
@@ -1171,7 +1171,7 @@ msgstr "Vlažnost"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
-#: meecast/qt-qml/dataitem.cpp:183
+#: meecast/qt-qml/dataitem.cpp:186
 msgid "Humidity:"
 msgstr "Vlažnost:"
 
@@ -1262,7 +1262,8 @@ msgid "Layout:"
 msgstr "Prikaz:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:186
-msgid "Lead designer"
+#, fuzzy
+msgid "Lead designers"
 msgstr "Glavni dizajner"
 
 #: meecast/qt-qml/qml/AboutPage.qml:299
@@ -1346,9 +1347,8 @@ msgid "Light Snow Shower"
 msgstr "Blagi snežni naleti"
 
 #: omweather/src/hash.data:340
-#, fuzzy
 msgid "Light intensity drizzle"
-msgstr "Pljusak blagog intenziteta"
+msgstr "Rominjajuća kiša blagog intenziteta"
 
 #: omweather/src/hash.data:354
 msgid "Light intensity shower rain"
@@ -1415,12 +1415,13 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
+#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
-"client based on OMWeather code. Copyright (C) 2006-2013"
+"client based on OMWeather code. Copyright (C) 2006-2014"
 msgstr ""
-"MeeCast - višeplatformna visoko podešavajuća vremenska prognoza otvorenog "
-"koda klijent bazirana na OMWeather kodu. Copyright (C) 2006-2013"
+"MeeCast - Klijent visoko podešavajuće vremenske prognoze otvorenog koda za "
+"više platformi baziran na OMWeather kodu. Copyright (C) 2006-2013"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -1671,7 +1672,7 @@ msgstr "Nema vremenskih podataka za ovu stanicu."
 #: omweather/src/weather-simple-settings.c:2886
 #: meecast/netbook-UX/meego-panel-omweather.cpp:592
 #: meecast/netbook-UX/meego-panel-omweather.cpp:847
-#: meecast/qt-qml/dataitem.cpp:191 meecast/qt-qml/qml/FullWeatherPage.qml:130
+#: meecast/qt-qml/dataitem.cpp:194 meecast/qt-qml/qml/FullWeatherPage.qml:130
 #: meecast/qt-qml/qml/WeatherPage.qml:541
 msgid "Now"
 msgstr "Trenutno"
@@ -1982,7 +1983,7 @@ msgstr "Jedinice pritiska:"
 
 #: omweather/src/weather-popup.c:1308
 #: meecast/netbook-UX/meego-panel-omweather.cpp:697
-#: meecast/qt-qml/dataitem.cpp:189 meecast/qt-qml/qml/FullWeatherPage.qml:142
+#: meecast/qt-qml/dataitem.cpp:192 meecast/qt-qml/qml/FullWeatherPage.qml:142
 #: meecast/qt-qml/qml/FullWeatherPage.qml:206
 #: meecast/qt-qml/qml/FullWeatherPage.qml:261
 msgid "Pressure:"
@@ -2439,7 +2440,7 @@ msgstr "Brzina"
 
 #: omweather/src/weather-popup.c:1332 omweather/src/weather-popup.c:1472
 #: meecast/netbook-UX/meego-panel-omweather.cpp:772
-#: meecast/qt-qml/dataitem.cpp:187
+#: meecast/qt-qml/dataitem.cpp:190
 msgid "Speed:"
 msgstr "Brzina:"
 
@@ -2549,7 +2550,7 @@ msgid "Temperature units:"
 msgstr "Jedinice temperature:"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:660
-#: meecast/qt-qml/dataitem.cpp:181
+#: meecast/qt-qml/dataitem.cpp:184
 msgid "Temperature:"
 msgstr "Temperatura:"
 
@@ -2571,7 +2572,7 @@ msgstr "Nema stanica za prikaz u ovom pregledu liste"
 
 #: omweather/src/hash.data:357
 msgid "This is experimental feature. Only English is supported."
-msgstr ""
+msgstr "Ovo je eksperimentalna opcija. Podržan je samo engleski jezik."
 
 #: meecast/qt-qml/qml/AboutPage.qml:308
 msgid ""
@@ -2746,12 +2747,11 @@ msgstr "Vizuelizacije"
 
 #: omweather/src/hash.data:356
 msgid "Voice forecast button on a widget"
-msgstr ""
+msgstr "Dugme za glasovnu prognozu na vidžetu"
 
 #: omweather/src/hash.data:358
-#, fuzzy
 msgid "Voice weather forecast"
-msgstr "OMWeather Prognoza"
+msgstr "Glasovna vremenska prognoza"
 
 #: omweather/src/hash.data:301
 msgid "W"
@@ -2876,7 +2876,7 @@ msgstr "Jedinice brzine vetra:"
 
 #: omweather/src/weather-popup.c:1327 omweather/src/weather-popup.c:1468
 #: meecast/netbook-UX/meego-panel-omweather.cpp:747
-#: meecast/qt-qml/dataitem.cpp:185
+#: meecast/qt-qml/dataitem.cpp:188
 msgid "Wind:"
 msgstr "Vetar:"
 
@@ -2969,11 +2969,11 @@ msgstr "lokalno vreme trenutne lokacije"
 msgid "d:"
 msgstr "d:"
 
-#: meecast/qt-qml/dataitem.cpp:455
+#: meecast/qt-qml/dataitem.cpp:458
 msgid "day ago"
 msgstr "dan ranije"
 
-#: meecast/qt-qml/dataitem.cpp:457
+#: meecast/qt-qml/dataitem.cpp:460
 msgid "days ago"
 msgstr "dana ranije"
 
@@ -3017,11 +3017,11 @@ msgstr "opada"
 msgid "feels like"
 msgstr "subjektivni osećaj"
 
-#: meecast/qt-qml/dataitem.cpp:449
+#: meecast/qt-qml/dataitem.cpp:452
 msgid "hour ago"
 msgstr "sat ranije"
 
-#: meecast/qt-qml/dataitem.cpp:452
+#: meecast/qt-qml/dataitem.cpp:455
 msgid "hours ago"
 msgstr "sati ranije"
 
@@ -3113,11 +3113,11 @@ msgstr "mi/h"
 msgid "mi/s"
 msgstr "mi/s"
 
-#: meecast/qt-qml/dataitem.cpp:443
+#: meecast/qt-qml/dataitem.cpp:446
 msgid "minute ago"
 msgstr "minut ranije"
 
-#: meecast/qt-qml/dataitem.cpp:446
+#: meecast/qt-qml/dataitem.cpp:449
 msgid "minutes ago"
 msgstr "minuta ranije"
 
@@ -3161,7 +3161,7 @@ msgstr "nmi"
 msgid "rising"
 msgstr "raste"
 
-#: meecast/qt-qml/dataitem.cpp:440
+#: meecast/qt-qml/dataitem.cpp:443
 msgid "seconds ago"
 msgstr "sekundi ranije"
 

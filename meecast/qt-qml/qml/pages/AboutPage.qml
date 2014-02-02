@@ -12,7 +12,7 @@ Page {
         flickableDirection: Flickable.VerticalFlick
         contentHeight: 4700 
         PageHeader { 
-            title: Config.tr("MeeCast for Harmattan")
+            title: Config.tr("MeeCast for SailfishOS")
         }
         Rectangle {
             color: "purple"

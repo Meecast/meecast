@@ -179,33 +179,26 @@ CoverBackground {
                 if (coverPage.current_model("wind_speed") != undefined && coverPage.current_model("wind_speed") != "N/A"){
                     wind_speed_text.text = (Config.windspeedunit == "Beaufort scale") ? coverPage.current_model("wind_speed") : coverPage.current_model("wind_speed") + ' ' + Config.tr(Config.windspeedunit)
                     wind_speed_text.visible = true
-                    wind_speed_icon.visible = true
-                    description.anchors.top = wind_speed_icon.bottom
+                    description.anchors.top = wind_speed_text.bottom
                 }else{
                     wind_speed_text.visible = false
-                    wind_speed_icon.visible = false
                     description.anchors.top = icon.bottom
                 }
                 if (coverPage.current_model("wind_direction") != undefined && coverPage.current_model("wind_direction") != "N/A"){
                     wind_direction_background.visible = true
                     wind_direction.visible = true
-                    wind_text.visible = true
-                    wind_text.text = Config.tr(coverPage.current_model("wind_direction"))
-                    description.anchors.top = wind_text.bottom
+                    description.anchors.top = wind_direction_background.bottom
                     coverPage.angle = coverPage.current_model("wind_direction") == "N/A" ? 0 : coverPage.getAngle(current_model("wind_direction"))
                 }else{
                     wind_direction_background.visible = false
                     wind_direction.visible = false
-                    wind_text.visible = false
                 }
             }else{
                 icon.width = 128
                 icon.height = 128
                 wind_speed_text.visible = false
-                wind_speed_icon.visible = false
                 wind_direction_background.visible = false
                 wind_direction.visible = false
-                wind_text.visible = false
                 description.anchors.top = icon.bottom
             }
             isUpdate = false;
@@ -228,7 +221,6 @@ CoverBackground {
         id: stationname
         visible: isUpdate ? false : true
         anchors.top: parent.top
-//        anchors.topMargin: Theme.paddingMedium
         anchors.horizontalCenter: parent.horizontalCenter
         text: Config.stationname == "Unknown" ? "MeeCast" : Config.stationname
         font.pixelSize: text.length > 20 ? 24 : 35 
@@ -255,7 +247,6 @@ CoverBackground {
         anchors.topMargin: -10 
         anchors.rightMargin: 0 
         anchors.leftMargin: 0 
-        //anchors.bottomMargin: 15 
         anchors.left: icon.right
         wrapMode: TextEdit.WordWrap
         height: 108 
@@ -278,26 +269,13 @@ CoverBackground {
         anchors.topMargin: 5 
         smooth: true
     }
-    Image {
-        id: wind_speed_icon
-        anchors.leftMargin: Theme.paddingSmall
-        visible: Config.windcoverpage && !isUpdate && coverPage.current_model("wind_speed") != undefined && coverPage.current_model("wind_speed") != "N/A" 
-        source: Config.imagespath + "/wind_speed.png"
-        anchors.top: icon.bottom
-        //anchors.topMargin: -20
-        anchors.left: parent.left
-        width: 30
-        height: 30
-        smooth: true
-    }
     Text {
         id: wind_speed_text
         text: (Config.windspeedunit == "Beaufort scale") ? coverPage.current_model("wind_speed") : coverPage.current_model("wind_speed") + ' ' + Config.tr(Config.windspeedunit)
         visible: Config.windcoverpage && !isUpdate && coverPage.current_model("wind_speed") != undefined && coverPage.current_model("wind_speed") != "N/A"
-        anchors.top: icon.bottom
-       // anchors.topMargin: -20
-        anchors.left: wind_speed_icon.right
-        anchors.leftMargin: 3
+        anchors.top: temp_text.bottom
+        anchors.right: parent.right
+        anchors.rightMargin: Theme.paddingLarge
         height: 30
         color: "white"
         font.pointSize: 14
@@ -306,14 +284,10 @@ CoverBackground {
     Image {
         id: wind_direction_background
         visible: Config.windcoverpage && !isUpdate && coverPage.current_model("wind_direction") != "N/A"
-        //source: Config.imagespath + "/wind_direction.png"
         source: Config.imagespath + "/wind_direction_background.png"
-        anchors.top: icon.bottom
-        anchors.right: wind_text.left
-        anchors.rightMargin: 8
-       // anchors.topMargin: -20
-//        anchors.left: parent.left
- //       anchors.leftMargin: margin + main.width/2
+        anchors.top: temp_text.bottom
+        anchors.right: wind_speed_text.left
+        anchors.rightMargin: 4
         width: 30
         height: 30
         smooth: true
@@ -321,12 +295,10 @@ CoverBackground {
     Image {
         id: wind_direction
         visible: Config.windcoverpage && !isUpdate && coverPage.current_model("wind_direction") != "N/A"
-        //source: Config.imagespath + "/wind_direction.png"
         source: Config.imagespath + "/wind_direction_arrow.png"
-        anchors.top: icon.bottom
-        //anchors.topMargin: -20
-        anchors.right: wind_text.left
-        anchors.rightMargin: 8
+        anchors.top: temp_text.bottom
+        anchors.right: wind_speed_text.left
+        anchors.rightMargin: 4
         width: 30
         height: 30
         smooth: true
@@ -337,21 +309,6 @@ CoverBackground {
             angle: coverPage.angle
         }
     }
-    Text {
-        id: wind_text
-        visible: Config.windcoverpage && !isUpdate && coverPage.current_model("wind_direction") != "N/A"
-        text: Config.tr(coverPage.current_model("wind_direction"))
-        //anchors.left: wind_direction.right
-        anchors.right: parent.right
-        anchors.rightMargin: Theme.paddingSmall
-        anchors.top: icon.bottom
-        //anchors.topMargin: -20
-        height: 30
-        color: "white"
-        font.pointSize: 18
-        verticalAlignment: Text.AlignVCenter
-    }
-
     Text {
         id: description
         visible: isUpdate ? false : true
@@ -368,7 +325,6 @@ CoverBackground {
     }
     Label {
         id: lastupdate 
-        //anchors.bottom: source_image.top
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 0
         visible: (Config.lastupdatecoverpage && !isUpdate && coverPage.current_model("lastupdatetime") != undefined) ? true : false 
@@ -446,10 +402,8 @@ CoverBackground {
                 Config.updatestations(); 
                 isUpdate = true;  
                 wind_speed_text.visible = false
-                wind_speed_icon.visible = false
                 wind_direction_background.visible = false
                 wind_direction.visible = false
-                wind_text.visible = false
                 source_image.visible = false
                 now.visible = false
                 lastupdate.visible = false

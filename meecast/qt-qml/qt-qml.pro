@@ -106,7 +106,7 @@ INCLUDEPATH += ../core
 
 
 
-LIBS += -L ../core ../core/libomweather-core.a -lsailfishapp 
+LIBS += -L ../core ../core/libomweather-core.a  ../libxml2/liblibxml2.a -lsailfishapp 
 CONFIG += dbus
 CONFIG += qdbus
 CONFIG += link_pkgconfig

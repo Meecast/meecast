@@ -102,6 +102,7 @@
     g_hash_table_insert(hash, (void*)"Lawn and Garden Weather", _("Lawn and Garden Weather"));
     g_hash_table_insert(hash, (void*)"Light Drizzle", _("Light Drizzle"));
     g_hash_table_insert(hash, (void*)"Light Freezing Rain", _("Light Freezing Rain"));
+    g_hash_table_insert(hash, (void*)"Light Freezing Drizzle", _("Light Freezing Drizzle"));
     g_hash_table_insert(hash, (void*)"Light Rain / Fog", _("Light Rain / Fog"));    
     g_hash_table_insert(hash, (void*)"Light Rain / Wind Late", _("Light Rain / Wind Late"));    
     g_hash_table_insert(hash, (void*)"Light Rain / Wind", _("Light Rain / Wind"));

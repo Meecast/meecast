@@ -22,6 +22,7 @@ OTHER_FILES += \
 
 CONFIG = link_pkgconfig 
 PKGCONFIG += libxml-2.0 
+LIBS += -L ../meecast/libxml2/liblibxml2.a
 #system(pkg-config --exists glib-2.0){
 #    PKGCONFIG += glib-2.0
 #    message(GLIB-2.0 is exist)

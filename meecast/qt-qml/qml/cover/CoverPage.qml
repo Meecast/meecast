@@ -211,6 +211,7 @@ CoverBackground {
         color: "white"
     }
     Image {
+        id: background_image
         source: Config.imagespath + "/cover.png"
         opacity: 0.1
         anchors.horizontalCenter: parent.horizontalCenter

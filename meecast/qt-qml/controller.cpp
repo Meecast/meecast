@@ -200,7 +200,7 @@ Controller::load_data()
       dbusclient->SetCurrentData( _config->stationname(), forecast_data->temperature(),
                                   forecast_data->temperature_high(),
                                   forecast_data->temperature_low(), 
-                                  (_config->iconspath() + "/" + _config->iconset() + "/" + forecast_data->icon()), 
+                                  (_config->iconspath() + "/" + _config->iconset() + "/" + forecast_data->icon()),
                                   description.fromUtf8(temp_data->Text().c_str()),
                                   result_time, 
                                   forecast_data->current(), 

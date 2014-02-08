@@ -110,7 +110,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     std::cerr<<app->applicationDirPath().toStdString().c_str()<<std::endl;
     std::cerr<<"End "<<std::endl;
 
-
+/*
     QString str = QDir::currentPath();
     std::cerr<<str.toStdString().c_str()<<std::endl;
 
@@ -118,7 +118,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
 
     Core::AbstractConfig::prefix = str.toStdString();
     QDir::setCurrent(QDir::currentPath());
-
+*/
 
 
     

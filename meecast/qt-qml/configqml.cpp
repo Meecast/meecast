@@ -53,7 +53,8 @@ ConfigQml::~ConfigQml()
         delete standby_settings;
     if (lockscreen_settings)
         delete lockscreen_settings;
-
+    if (db)
+        delete db;
 }
 
 

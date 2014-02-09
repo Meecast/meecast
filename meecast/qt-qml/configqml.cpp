@@ -243,7 +243,7 @@ ConfigQml::set_language(QString c)
 
 QString
 ConfigQml::iconspath(){
-    return ConfigQml::Config::iconspath().c_str(); 
+    return ConfigQml::Config::iconspath().c_str();
 }
 
 QString

@@ -106,7 +106,7 @@ protected:
     virtual ~ConfigQml();
     ConfigQml();
     ConfigQml(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
-
+    static bool DeleteInstance();
 
 
 public:

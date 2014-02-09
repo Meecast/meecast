@@ -347,7 +347,6 @@ Config::DeleteInstance(){
     }
     return false;
 }
-
 ////////////////////////////////////////////////////////////////////////////////
 Config::Config(const std::string& filename, const std::string& schema_filename)
                     : Parser(filename, schema_filename){

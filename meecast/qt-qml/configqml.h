@@ -107,7 +107,7 @@ private:
     uint _time_for_updating;
 protected:
     static ConfigQml* _self;
-    static int _refcount;
+    static int _refcount_;
     virtual ~ConfigQml();
     ConfigQml();
     ConfigQml(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");

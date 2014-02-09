@@ -67,6 +67,16 @@ Controller::Controller() : QObject()
 
 Controller::~Controller(){
   std::cerr<<"Controller::~Controller()"<<std::endl;
+  if (_model)
+      delete _model;
+  if (_current)
+      delete _current;
+  if (_night_model)
+      delete _night_model;
+  if (_current_night)
+      delete _current_night;
+  if (_hours_model)
+      delete _hours_model;
   if (_config)
       _config->DeleteInstance();
   if (_dp) 
@@ -126,7 +136,6 @@ Controller::load_data(){
             basemapfilename += "%s.png";
   }
 
- 
     
   _model = new DataModel(new DataItem, qApp);
   _current = new DataModel(new DataItem, qApp);

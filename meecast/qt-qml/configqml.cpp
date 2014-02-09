@@ -31,17 +31,19 @@
 #include "configqml.h"
 
 ConfigQml* ConfigQml::_self;
-int ConfigQml::_refcount;
+int ConfigQml::_refcount_;
 
 
 //ConfigQml::ConfigQml():QObject(),Core::Config("config.xml", "../core/data/config.xsd"){}
 ConfigQml::ConfigQml(const std::string& filename, const std::string& schema_filename):QObject(),Core::Config(filename, schema_filename){
     std::cerr<<"CONFIG CREATEQML11111!!!!!!!!!!!!!!"<<std::endl;
+    _refcount_ = 0;
     init();
 }
 
 ConfigQml::ConfigQml():QObject(),Core::Config(){
     std::cerr<<"CONFIG CREATEQML22222!!!!!!!!!!!!!!"<<std::endl;
+    _refcount_ = 0;
     init();
 }
 
@@ -58,8 +60,8 @@ ConfigQml*
 ConfigQml::Instance(){
     if (!_self)
         _self = new ConfigQml();
-    _refcount++;
-    std::cerr<<"RefcountQML1: "<<_refcount<<std::endl;
+    _refcount_++;
+    std::cerr<<"Refcount ConfigQML1: "<<_refcount_<<std::endl;
     return _self;
 }
 
@@ -67,19 +69,20 @@ ConfigQml*
 ConfigQml::Instance(const std::string& filename, const std::string& schema_filename){
     if (!_self)
         _self = new ConfigQml(filename, schema_filename);
-    _refcount++;
-    std::cerr<<"RefcountQML2: "<<_refcount<<std::endl;
+    _refcount_++;
+    std::cerr<<"Refcount ConfigQML2: "<<_refcount_<<std::endl;
     return _self;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 bool 
 ConfigQml::DeleteInstance(){
-    if (_refcount >1){
-        _refcount --;
+    std::cerr<<"ConfigQml::DeleteInstance() Refcount ConfigQML: "<<_refcount_<<std::endl;
+    if (_refcount_ >1){
+        _refcount_ --;
         return false;
     }
-    if (_refcount == 1  && _self){
+    if (_refcount_ == 1  && _self){
         delete _self;
         _self = 0;
         return true;

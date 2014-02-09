@@ -68,20 +68,21 @@ Controller::Controller() : QObject()
 Controller::~Controller()
 {
   std::cerr<<"Controller::~Controller()"<<std::endl;
+Controller::~Controller(){
+  if (_config)
+      _config->DeleteInstance();
   if (_dp) 
       _dp->DeleteInstance();
 
 }
 
-QQuickView* 
-Controller::qview()
-{
+QDeclarativeView* 
+Controller::qview(){
     return _qview;
 }
 
 void
-Controller::load_data()
-{
+Controller::load_data(){
   time_t current_day;
   time_t current_hour;
   struct tm *tm = NULL;
@@ -352,15 +353,13 @@ Controller::load_data()
 }
 
 void
-Controller::load_config()
-{
+Controller::load_config(){
    std::cout<<"Load"<<std::endl;
   _config = create_and_fill_config();   
   _qview->rootContext()->setContextProperty("Config", _config);
 }
 void
-Controller::reload_config()
-{
+Controller::reload_config(){
   std::cout<<"Reload";
   _config->ReLoadConfig();
   delete _model;
@@ -368,8 +367,7 @@ Controller::reload_config()
 }
 
 ConfigQml*
-Controller::config()
-{
+Controller::config(){
    return _config;
 }
 

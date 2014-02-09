@@ -35,20 +35,17 @@ int ConfigQml::_refcount;
 
 
 //ConfigQml::ConfigQml():QObject(),Core::Config("config.xml", "../core/data/config.xsd"){}
-ConfigQml::ConfigQml(const std::string& filename, const std::string& schema_filename):QObject(),Core::Config(filename, schema_filename)
-{
+ConfigQml::ConfigQml(const std::string& filename, const std::string& schema_filename):QObject(),Core::Config(filename, schema_filename){
     std::cerr<<"CONFIG CREATEQML11111!!!!!!!!!!!!!!"<<std::endl;
     init();
 }
 
-ConfigQml::ConfigQml():QObject(),Core::Config()
-{
+ConfigQml::ConfigQml():QObject(),Core::Config(){
     std::cerr<<"CONFIG CREATEQML22222!!!!!!!!!!!!!!"<<std::endl;
     init();
 }
 
-ConfigQml::~ConfigQml()
-{
+ConfigQml::~ConfigQml(){
     if (standby_settings)
         delete standby_settings;
     if (lockscreen_settings)
@@ -57,10 +54,8 @@ ConfigQml::~ConfigQml()
         delete db;
 }
 
-
 ConfigQml* 
-ConfigQml::Instance()
-{
+ConfigQml::Instance(){
     if (!_self)
         _self = new ConfigQml();
     _refcount++;
@@ -69,13 +64,27 @@ ConfigQml::Instance()
 }
 
 ConfigQml* 
-ConfigQml::Instance(const std::string& filename, const std::string& schema_filename)
-{
+ConfigQml::Instance(const std::string& filename, const std::string& schema_filename){
     if (!_self)
         _self = new ConfigQml(filename, schema_filename);
     _refcount++;
     std::cerr<<"RefcountQML2: "<<_refcount<<std::endl;
     return _self;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+bool 
+Config::DeleteInstance(){
+    if (_refcount >1){
+        _refcount --;
+        return false;
+    }
+    if (_refcount == 1  && _self){
+        delete _self;
+        _self = 0;
+        return true;
+    }
+    return false;
 }
 
 void ConfigQml::init()

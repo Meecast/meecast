@@ -65,15 +65,12 @@ Controller::Controller() : QObject()
 
 }
 
-Controller::~Controller()
-{
-  std::cerr<<"Controller::~Controller()"<<std::endl;
 Controller::~Controller(){
+  std::cerr<<"Controller::~Controller()"<<std::endl;
   if (_config)
       _config->DeleteInstance();
   if (_dp) 
       _dp->DeleteInstance();
-
 }
 
 QDeclarativeView* 

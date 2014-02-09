@@ -38,7 +38,6 @@ class MeeCastCover : public QObject {
     Q_PROPERTY(bool status READ status WRITE setStatus NOTIFY statusChanged)
 private:
    bool _status;
-   ConfigQml  *_config;
 protected:
 public:
    explicit MeeCastCover(QObject* parent = 0);

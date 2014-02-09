@@ -109,6 +109,10 @@ CoverBackground {
 
     MeeCastCover {
         status: coverPage.active
+        onStatusChanged: { 
+            if (status)
+                Config.check_and_update_station();
+        }
     }
     Connections {
         target: Config
@@ -330,7 +334,7 @@ CoverBackground {
         anchors.bottomMargin: 0
         visible: (Config.lastupdatecoverpage && !isUpdate && coverPage.current_model("lastupdatetime") != undefined) ? true : false 
         anchors.horizontalCenter: parent.horizontalCenter
-        text: (coverPage.current_model("lastupdatetime").length + Config.tr("Last update:").length) < 25 ?  Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime") : coverPage.current_model("lastupdatetime")
+        text: coverPage.current_model("lastupdatetime") == undefined ? "MeeCast" : ((coverPage.current_model("lastupdatetime").length + Config.tr("Last update:").length) < 25 ?  Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime") : coverPage.current_model("lastupdatetime"))
         font.pixelSize: 21 
     }
 
@@ -410,5 +414,8 @@ CoverBackground {
                 lastupdate.visible = false
             }
         }
+    }
+    Component.onDestruction : {   
+        console.log("Component.onDestruction")
     }
 }

@@ -629,6 +629,7 @@ Config::~Config(){
     delete _language;
     delete _mod;
     delete _filename;
+    delete _font_color;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

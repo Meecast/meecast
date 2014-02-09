@@ -45,6 +45,7 @@ namespace Core{
             #endif
             std::string *_filename;
             std::string *_pathPrefix;
+            std::string *_iconspath;
             std::string *_iconset;
             std::string *_temperature_unit;
             std::string *_wind_speed_unit;

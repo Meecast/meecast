@@ -65,6 +65,16 @@ Controller::Controller() : QObject()
 }
 
 Controller::~Controller(){
+  if (_model)
+      delete _model;
+  if (_current)
+      delete _current;
+  if (_night_model)
+      delete _night_model;
+  if (_current_night)
+      delete _current_night;
+  if (_hours_model)
+      delete _hours_model;
   if (_config)
       _config->DeleteInstance();
   if (_dp) 

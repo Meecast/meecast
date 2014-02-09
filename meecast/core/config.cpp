@@ -674,6 +674,7 @@ Config::~Config(){
     delete _mod;
     delete _filename;
     delete _iconspath;
+    delete _font_color;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

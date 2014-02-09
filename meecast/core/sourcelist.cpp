@@ -34,6 +34,7 @@
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     SourceList::SourceList(const std::string path){
+        std::cerr<<"SourceList::SourceList()"<<std::endl;
         Dirent *dp = 0;
         DIR *dir_fd = opendir(path.c_str());
         if(dir_fd){
@@ -67,6 +68,7 @@ namespace Core {
     }
 ////////////////////////////////////////////////////////////////////////////////
     SourceList::~SourceList(){
+        std::cerr<<"SourceList::~SourceList()"<<std::endl;
         for(unsigned i = 0; i < this->size(); i++){
             Source *s = this->at(i);
             if(s)

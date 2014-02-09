@@ -83,14 +83,13 @@ DataModel::find(const int row)
     return _list.at(row);
 }
 
-DataModel::~DataModel()
-{
+DataModel::~DataModel(){
+    delete _config->DeleteInstance();
     delete _prototype;
 }
 
 void
-DataModel::clear()
-{
+DataModel::clear(){
     //qDeleteAll(this->_list);
     this->_list.clear();
     //emit dataChanged(this->createIndex(0, 0), this->createIndex(count, 0));

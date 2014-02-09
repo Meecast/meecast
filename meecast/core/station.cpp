@@ -187,8 +187,6 @@ Station::Station(const std::string& source_name, const std::string& id,
         delete _viewURL;
         delete _mapURL;
         delete _basemapURL;
-        if(_data)
-            delete _data;
         if(_fileName)
             delete _fileName;
         if(_converter)

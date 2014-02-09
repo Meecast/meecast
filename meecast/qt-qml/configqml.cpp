@@ -74,7 +74,7 @@ ConfigQml::Instance(const std::string& filename, const std::string& schema_filen
 
 ////////////////////////////////////////////////////////////////////////////////
 bool 
-Config::DeleteInstance(){
+ConfigQml::DeleteInstance(){
     if (_refcount >1){
         _refcount --;
         return false;

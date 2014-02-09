@@ -73,7 +73,7 @@ Controller::~Controller(){
       _dp->DeleteInstance();
 }
 
-QDeclarativeView* 
+QQuickView* 
 Controller::qview(){
     return _qview;
 }

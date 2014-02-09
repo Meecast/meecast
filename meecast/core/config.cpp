@@ -893,11 +893,7 @@ Config::nextstationname(){
 ////////////////////////////////////////////////////////////////////////////////
 std::string&
 Config::iconspath(){
-    std::string *_path;
-    _path = new std::string("");
-    _path->assign( _pathPrefix->c_str());
-    _path->append("/icons");
-    return *_path;
+    return *_iconspath;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

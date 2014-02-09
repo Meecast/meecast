@@ -628,6 +628,7 @@ Config::~Config(){
     delete _visible_unit;
     delete _language;
     delete _mod;
+    delete _filename;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

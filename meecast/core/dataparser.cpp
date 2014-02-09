@@ -175,6 +175,7 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     DataParser* 
     DataParser::Instance(const std::string& filename, const std::string& schema_filename){
+        std::cerr<<"DataParser::Instance "<<_refcount<<std::endl;  
         Data* forecast_data;
         if (!_self)
             _self = new DataParser(filename, schema_filename);
@@ -195,10 +196,10 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     void
     DataParser::DeleteInstance(){
+       std::cerr<<"Delete Refcount for DataParser: "<<_refcount<<std::endl;  
        if (_refcount == 0)
             return;
        _refcount--;
-       /*  std::cerr<<"Delete Refcount for DataParser: "<<_refcount<<std::endl; */ 
        if (_refcount == 0){
             delete _self;
             _self = NULL;

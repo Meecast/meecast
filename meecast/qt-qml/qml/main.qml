@@ -9,5 +9,8 @@ ApplicationWindow {
     initialPage: WeatherWrapper {}
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
   //  cover: CoverPage {} 
+    Component.onDestruction : {   
+        console.log("Component.onDestruction")
+    }
 }
 

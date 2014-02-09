@@ -184,7 +184,12 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     qview->setSource(qmlPath);
     qview->show();
 
-    return app->exec();
+
+    int result = app->exec();
+    std::cerr<<"This is the End "<<std::endl;
+    delete controller;
+    return result;
+//    return app->exec();
 //    return SailfishApp::main(argc, argv);
    
 }

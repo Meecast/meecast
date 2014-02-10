@@ -215,6 +215,8 @@ Controller::load_data(){
                                   _config->Lockscreen(),
                                   _config->Standbyscreen(),
                                   t.toString("dd MMM h:mm"));
+     if (dbusclient)
+        delete dbusclient;
   }
 
   /* fill current night */

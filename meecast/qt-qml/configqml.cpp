@@ -664,6 +664,7 @@ ConfigQml::Sources()
     for (unsigned int i=0; i<sourcelist->size(); i++){
         l << QString::fromStdString(sourcelist->at(i)->name());
     }
+    delete sourcelist;
     return l;
 }
 QStringList

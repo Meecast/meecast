@@ -260,6 +260,8 @@ DataModel::update_model(int period)
                                            result_time, forecast_data->current(), 
                                            _config->Lockscreen(), _config->Standbyscreen(),
                                            t.toString("dd MMM h:mm")); 
+                 if (dbusclient)
+                    delete dbusclient;
            }
             break;
         case current_night_period:

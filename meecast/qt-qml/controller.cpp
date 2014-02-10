@@ -338,6 +338,7 @@ Controller::load_data(){
   _qview->rootContext()->setContextProperty("Forecast_night_model", _night_model);
   _qview->rootContext()->setContextProperty("Forecast_hours_model", _hours_model);
 
+  std::cerr<<"End filling"<<std::endl;
 
   /* models for station selection */
   SelectModel* source_model = new SelectModel(qApp);

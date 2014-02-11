@@ -81,6 +81,8 @@ Controller::~Controller(){
       _config->DeleteInstance();
   if (_dp) 
       _dp->DeleteInstance();
+  if (_qview)
+      delete _qview;
 }
 
 QQuickView* 

@@ -85,6 +85,7 @@ DataModel::find(const int row)
 
 DataModel::~DataModel(){
     _config->DeleteInstance();
+    _list.clear();
     delete _prototype;
 }
 

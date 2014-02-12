@@ -171,6 +171,7 @@ Controller::load_data(){
       fprintf(stderr,"Current day %li\n", current_day);
   /* fill current day */
   if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL)))) {
+      std::cerr<<"Fill current day"<<std::endl;
       forecast_data = new DataItem(temp_data);
 
       if (forecast_data->Text() != "")

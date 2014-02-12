@@ -106,7 +106,9 @@ public:
 
     DataItem();
     DataItem(const Core::Data *data);
-    virtual ~DataItem(){};
+    virtual ~DataItem(){ 
+        std::cerr<<"DataItem::~DataItem()"<<std::endl;
+    }
     QVariant data(int role);
     int getRole(QString roleName);
     QHash<int, QByteArray> roleNames() const;

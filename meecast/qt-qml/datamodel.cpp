@@ -33,6 +33,8 @@
 DataModel::DataModel(DataItem* prototype, QObject *parent) :
     QAbstractListModel(parent), _prototype(prototype)
 {
+
+    qDebug() <<"DataModel::DataModel()";
     //setRoleNames(_prototype->roleNames());
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     setRoleNames(_prototype->roleNames());
@@ -84,6 +86,7 @@ DataModel::find(const int row)
 }
 
 DataModel::~DataModel(){
+    qDebug() <<"DataModel::~DataModel()";
     _config->DeleteInstance();
     _list.clear();
     delete _prototype;

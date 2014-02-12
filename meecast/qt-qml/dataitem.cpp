@@ -32,6 +32,7 @@
 
 DataItem::DataItem()
 {
+    std::cerr <<"DataItem::DataItem()"<<std::endl;
 }
 
 DataItem::DataItem(const Core::Data* data):QObject(),Core::Data(data){

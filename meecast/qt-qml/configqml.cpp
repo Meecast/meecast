@@ -54,6 +54,8 @@ ConfigQml::~ConfigQml(){
         delete lockscreen_settings;
     if (db)
         delete db;
+    if (thread)
+        delete thread;
 }
 
 ConfigQml* 

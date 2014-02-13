@@ -125,7 +125,6 @@ datanoun.path = /usr/share/harbour-meecast/iconsets/Noun
 dataatmos.files += data/icons/Atmos/*.png
 dataatmos.path = /usr/share/harbour-meecast/iconsets/Atmos
 
-
 #data.path = /usr/share
 xsd.files += data/config.xsd
 xsd.files += data/data.xsd

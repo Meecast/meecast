@@ -14,7 +14,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    0.8.8
+Version:    0.8.9
 Release:    1
 Group:      Utility
 License:    GPLv2.1
@@ -88,6 +88,8 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
+* Sun Feb 02 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.9.1
+  * Fixed memory leaks
 * Sun Feb 02 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.8.1
   * Fixed problem with long text in last update string
   * Added possibility to switch off 'Last update' on Cover Page

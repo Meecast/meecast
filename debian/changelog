@@ -1,9 +1,10 @@
 meecast (0.8.9) unstable; urgency=low
 
-  * Updated Norwegian, Arabic, Serbian, Turkish, Dutch, Hungarian translations
+  * Updated Finnish, Norwegian, Arabic, Serbian, Turkish, Dutch, Hungarian translations
   * Added Slovenian and Czech translations
   * Fixed memory leaks
   * Fixed problem with yr.no database for Belarus
+  * Added icon and descripion string for openweathermap.org source
 
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 17 Jan 2014 22:31:23 +0200
 

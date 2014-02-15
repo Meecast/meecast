@@ -88,8 +88,13 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
-* Sun Feb 02 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.9.1
+* Sat Feb 15 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.9.1
+  * Updated Finnish, Norwegian, Arabic, Serbian, Turkish, Dutch, Hungarian translations
+  * Added Slovenian and Czech translations
   * Fixed memory leaks
+  * Fixed problem with yr.no database for Belarus
+  * Added icon and descripion string for openweathermap.org source
+
 * Sun Feb 02 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.8.1
   * Fixed problem with long text in last update string
   * Added possibility to switch off 'Last update' on Cover Page

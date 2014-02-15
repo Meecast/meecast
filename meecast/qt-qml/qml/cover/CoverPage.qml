@@ -14,7 +14,11 @@ CoverBackground {
         return Current.getdata(0, name);
     }
     function current_temperature(){
-        coverPage.angle = coverPage.current_model("wind_direction") == "N/A" ? 0 : coverPage.getAngle(current_model("wind_direction"))
+        if (coverPage.current_model("wind_direction") == "CALM"){
+            coverPage.angle = 0;
+        }else{
+            coverPage.angle = coverPage.current_model("wind_direction") == "N/A" ? 0 : coverPage.getAngle(current_model("wind_direction"))
+        }
         if (coverPage.current_model("temp") == undefined){
             temp_text.text = ""
             return;

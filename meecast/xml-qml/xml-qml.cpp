@@ -139,7 +139,7 @@ make_item(QDomDocument doc, Core::Data *data, int num, bool current)
     item.appendChild(el);
 
     el = doc.createElement("icon");
-    t = doc.createTextNode(QString::fromStdString(config->prefix_path()) + "icons/" +
+    t = doc.createTextNode(QString::fromStdString(config->prefix_path()) + "iconsets/" +
                            QString::fromStdString(config->iconSet()) + "/" +
                            QString::number(data->Icon()) + ".png");
     el.appendChild(t);

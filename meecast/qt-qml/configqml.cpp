@@ -194,7 +194,7 @@ ConfigQml::icon_list()
 {
     QStringList icon_list;
     Dirent *dp = 0;
-    DIR *dir_fd = opendir((Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath).c_str());
+    DIR *dir_fd = opendir(iconspath().toStdString().c_str());
     if(dir_fd){
         while((dp = readdir(dir_fd))){
             std::string name = dp->d_name;

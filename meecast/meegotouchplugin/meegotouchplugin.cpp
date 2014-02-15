@@ -315,7 +315,7 @@ MyMWidget::MyMWidget(){
       _temperature = "";
       _temperature_low = "";
       _temperature_high = "";
-      _iconpath = "/opt/com.meecast.omweather/share/icons/Meecast/49.png";
+      _iconpath = "/opt/com.meecast.omweather/share/iconsets/Meecast/49.png";
       _current = false;
       _lockscreen = false;
       _standbyscreen = false;
@@ -326,7 +326,7 @@ MyMWidget::MyMWidget(){
       /* preparing for events widget */ 
       QGraphicsAnchorLayout *layout = new QGraphicsAnchorLayout();
       _events_image = new QImage (QSize(127, 96), QImage::Format_ARGB32);
-      _events_image->load("/opt/com.meecast.omweather/share/icons/Meecast/49.png");
+      _events_image->load("/opt/com.meecast.omweather/share/iconsets/Meecast/49.png");
       *_events_image = _events_image->scaled(127, 96);
       _icon = new MImageWidget(_events_image);
       grabMouse();

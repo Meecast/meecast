@@ -1,37 +1,12 @@
 meecast (0.8.9) unstable; urgency=low
 
-  * Updated Norwegian, Arabic, Serbian, Turkish, Dutch, Hungarian translations
+  * Updated Finnish, Norwegian, Arabic, Serbian, Turkish, Dutch, Hungarian translations
   * Added Slovenian and Czech translations
   * Fixed memory leaks
+  * Fixed problem with yr.no database for Belarus
+  * Added icon and descripion string for openweathermap.org source
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 17 Jan 2014 22:31:23 +0200
-
-
-meecast (0.8.7) unstable; urgency=low
-
-  * The next release for SailfishOS 
-
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 17 Jan 2014 22:31:23 +0200
-
-meecast (0.8.6) unstable; urgency=low
-
-  * Thrid release for SailfishOS 
-
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 17 Jan 2014 22:31:23 +0200
-
-
-meecast (0.8.5) unstable; urgency=low
-
-  * Second release for SailfishOS 
-
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 17 Jan 2014 22:31:23 +0200
-
-meecast (0.8.4) unstable; urgency=low
-
-  * Began version for SailfishOS 
-
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 17 Jan 2014 22:31:23 +0200
-
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 15 Feb 2014 12:31:23 +0200
 
 meecast (0.8.2) unstable; urgency=low
 

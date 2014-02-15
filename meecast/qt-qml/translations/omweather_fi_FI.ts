@@ -911,7 +911,7 @@ of 'omweather-*-stations-db' packages was installed.</source>
         </message>
         <message>
             <source>ENE_short</source>
-            <translation>Itäkoilisesta</translation>
+            <translation>ENE</translation>
         </message>
         <message>
             <source>ESE</source>
@@ -919,11 +919,11 @@ of 'omweather-*-stations-db' packages was installed.</source>
         </message>
         <message>
             <source>ESE_short</source>
-            <translation>Itäkaakosta</translation>
+            <translation>ESE</translation>
         </message>
         <message>
             <source>E_short</source>
-            <translation>Idästä</translation>
+            <translation>E</translation>
         </message>
         <message>
             <source>Ed Bartosh - for more feature requests, support and criticism
@@ -1500,23 +1500,23 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Last update:</source>
-            <translation>Viimeisin päivitys:</translation>
+            <translation>Päivitetty:</translation>
         </message>
         <message>
             <source>Last update:</source>
-            <translation>Viimeisin päivitys:</translation>
+            <translation>Päivitetty:</translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation>Viimeisin päivitys: </translation>
+            <translation>Päivitetty: </translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation>Viimeisin päivitys: </translation>
+            <translation>Päivitetty: </translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation>Viimeisin päivitys: </translation>
+            <translation>Päivitetty: </translation>
         </message>
         <message>
             <source>Lawn and Garden Weather</source>
@@ -1532,7 +1532,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation type="unfinished">Pääsuunnittelija</translation>
+            <translation>Pääsuunnittelijat</translation>
         </message>
         <message>
             <source>License</source>
@@ -1694,7 +1694,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
-            <translation type="unfinished">MeeCast - useilla alustoilla toimiva avoimen lähdekoodin sääohjelma. Perustuu OMWeatherin koodiin. Copyright (C) 2006-2013</translation>
+            <translation>MeeCast - OMWeatherin koodiin pohjautuva monipuolinen avoimen lähdekoodin sää-ohjelma. Copyright (C) 2006-2014</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -1902,7 +1902,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>NE_short</source>
-            <translation>Koilisesta</translation>
+            <translation>NE</translation>
         </message>
         <message>
             <source>NNE</source>
@@ -1910,7 +1910,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>NNE_short</source>
-            <translation>Pohjoiskoilisesta</translation>
+            <translation>NNE</translation>
         </message>
         <message>
             <source>NNW</source>
@@ -1918,7 +1918,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>NNW_short</source>
-            <translation>Pohjoisluoteesta</translation>
+            <translation>NNW</translation>
         </message>
         <message>
             <source>NO STATION</source>
@@ -1930,11 +1930,11 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>NW_short</source>
-            <translation>Luoteesta</translation>
+            <translation>NW</translation>
         </message>
         <message>
             <source>N_short</source>
-            <translation>Pohjoisesta</translation>
+            <translation>N</translation>
         </message>
         <message>
             <source>Name:</source>
@@ -2574,7 +2574,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>SE_short</source>
-            <translation>Kaakosta</translation>
+            <translation>SE</translation>
         </message>
         <message>
             <source>SSE</source>
@@ -2582,7 +2582,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>SSE_short</source>
-            <translation>Eteläkaakosta</translation>
+            <translation>SSE</translation>
         </message>
         <message>
             <source>SSW</source>
@@ -2590,7 +2590,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>SSW_short</source>
-            <translation>Etelälounaasta</translation>
+            <translation>SSW</translation>
         </message>
         <message>
             <source>SW</source>
@@ -2598,11 +2598,11 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>SW_short</source>
-            <translation>Lounaasta</translation>
+            <translation>SW</translation>
         </message>
         <message>
             <source>S_short</source>
-            <translation>Etelästä</translation>
+            <translation>S</translation>
         </message>
         <message>
             <source>Save</source>
@@ -3486,7 +3486,7 @@ ajoitettuun päivitykseen.
         </message>
         <message>
             <source>WNW_short</source>
-            <translation>Länsiluoteesta</translation>
+            <translation>WNW</translation>
         </message>
         <message>
             <source>WSW</source>
@@ -3494,11 +3494,11 @@ ajoitettuun päivitykseen.
         </message>
         <message>
             <source>WSW_short</source>
-            <translation>Länsilounaasta</translation>
+            <translation>WSW</translation>
         </message>
         <message>
             <source>W_short</source>
-            <translation>Lännestä</translation>
+            <translation>W</translation>
         </message>
         <message>
             <source>Waning Crescent</source>

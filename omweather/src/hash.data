@@ -358,6 +358,8 @@
     g_hash_table_insert(hash, (void*)"Voice forecast button on a widget", _("Voice forecast button on a widget"));
     g_hash_table_insert(hash, (void*)"This is experimental feature. Only English is supported.", _("This is experimental feature. Only English is supported."));
     g_hash_table_insert(hash, (void*)"Voice weather forecast", _("Voice weather forecast"));
+    g_hash_table_insert(hash, (void*)"Show source logo", _("Show source logo"));
+    g_hash_table_insert(hash, (void*)"Show last update time", _("Show last update time"));
     g_hash_table_insert(hash, (void*)"В", _("В"));
     g_hash_table_insert(hash, (void*)"З", _("З"));
     g_hash_table_insert(hash, (void*)"С", _("С"));

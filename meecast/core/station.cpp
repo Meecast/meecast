@@ -33,6 +33,14 @@
 #include <iostream> 
 #include <cstdlib>
 #include <algorithm>
+int convert_station_openweathermaporg_data(const char *days_data_path, const char *result_file, const char *current_data_path, const char *hours_data_path );
+int convert_station_gismeteo_data(const char *days_data_path, const char *result_file, const char *current_data_path);
+int convert_station_forecacom_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data );
+int convert_station_hkogovhk_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data );
+int convert_station_bomgovau_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data );
+int convert_station_yrno_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data );
+
+
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
@@ -400,6 +408,8 @@ Station::Station(const std::string& source_name, const std::string& id,
 
 ///////////////////////////////////////////////////////////////////////////////
     bool Station::convertData(bool force){
+
+     /*
         std::string command;
         bool result = false;
          if (this->detailURL() != "") {
@@ -427,6 +437,7 @@ Station::Station(const std::string& source_name, const std::string& id,
                result = false;
         }
         return result;
+       */
    }
 ///////////////////////////////////////////////////////////////////////////////
     bool Station::updateData(bool force){
@@ -566,6 +577,73 @@ Station::Station(const std::string& source_name, const std::string& id,
 
         return result;
     }
+
+////////////////////////////////////////////////////////////////////////////////
+void
+Station::run_converter(){
+
+    /* AppLog("RUN CONVERTER "); */
+    /* TO DO fixed for all sources */
+    std::string dirPath;
+    dirPath = Core::AbstractConfig::getConfigPath();
+    std::string forecast_file_string = "";
+    std::string result_file_string  = "";
+    std::string detail_file_string = "";
+    std::string hours_file_string = "";
+   
+    forecast_file_string.append(dirPath);
+    forecast_file_string.append(this->fileName().c_str());
+    forecast_file_string.append(".orig");
+    result_file_string.append(dirPath);
+    result_file_string.append(this->fileName().c_str());
+    detail_file_string.append(dirPath);
+    detail_file_string.append(this->fileName().c_str());
+    detail_file_string.append(".detail.orig");
+    hours_file_string.append(dirPath);
+    hours_file_string.append(this->fileName().c_str());
+    hours_file_string.append(".hours.orig");
+
+    if (*_sourceName == "openweathermap.org"){
+        convert_station_openweathermaporg_data(
+            (const char *)forecast_file_string.c_str(), 
+            (const char *)result_file_string.c_str(), 
+            (const char *)detail_file_string.c_str(), 
+            (const char *)hours_file_string.c_str());
+       /* AppLog("openweathermap.org"); */
+    }
+    if (*_sourceName =="gismeteo.ru"){
+        convert_station_gismeteo_data(
+            (const char *)forecast_file_string.c_str(), 
+            (const char *)result_file_string.c_str(), 
+            (const char *)detail_file_string.c_str());
+    }
+    if (*_sourceName =="foreca.com"){
+        convert_station_forecacom_data(
+            (const char *)forecast_file_string.c_str(), 
+            (const char *)result_file_string.c_str(), 
+            (const char *)detail_file_string.c_str());
+    }
+    if (*_sourceName =="hko.gov.hk"){
+        convert_station_hkogovhk_data(
+            (const char *)forecast_file_string.c_str(), 
+            (const char *)result_file_string.c_str(), 
+            (const char *)detail_file_string.c_str());
+    }
+    if (*_sourceName =="bom.gov.au"){
+        convert_station_bomgovau_data(
+            (const char *)forecast_file_string.c_str(), 
+            (const char *)result_file_string.c_str(), 
+            (const char *)detail_file_string.c_str());
+    }
+    if (*_sourceName =="yr.no"){
+        convert_station_yrno_data(
+            (const char *)forecast_file_string.c_str(), 
+            (const char *)result_file_string.c_str(), 
+            (const char *)detail_file_string.c_str());
+    }
+}
+
+   
 ////////////////////////////////////////////////////////////////////////////////
     void Station::updateSource(const Source* source){
         _source = const_cast<Source*>(source);

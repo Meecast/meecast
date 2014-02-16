@@ -6,9 +6,10 @@
 
 
 TARGET = hkogovhk 
-TEMPLATE = app
+#TEMPLATE = app
 
 
+TEMPLATE = lib
 
 HEADERS += src/meego-main.h \
            src/hash.h
@@ -21,7 +22,7 @@ FORMS    +=
 OTHER_FILES += \
 
 
-CONFIG = link_pkgconfig -qt
+CONFIG += link_pkgconfig staticlib -qt
 PKGCONFIG += libxml-2.0 
 
 #system(pkg-config --exists glib-2.0){

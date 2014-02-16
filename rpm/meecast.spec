@@ -29,6 +29,7 @@ BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(qdeclarative5-boostable)
 BuildRequires:  desktop-file-utils
 BuildRequires:  pkgconfig(libcurl)
+BuildRequires:  pkgconfig(zlib)
 BuildRequires:  pkgconfig(sqlite3)
 #BuildRequires:  pkgconfig(gconf-2.0)
 BuildRequires:  pkgconfig(dbus-glib-1)

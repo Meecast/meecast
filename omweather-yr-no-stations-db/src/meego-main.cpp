@@ -103,12 +103,13 @@ static xmlHashTablePtr hash_for_translate;
 #endif
 /*******************************************************************************/
 int
-convert_station_yrno_data(char *station_id_with_path, char *result_file, int get_detail_data){
+convert_station_yrno_data(const char *station_id_with_path, const char *result_file, const char *detail){
  
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;
     int     days_number = -1;
     char    buffer[1024],
+            buffer2[1024],
             *delimiter = NULL;
     
     if(!station_id_with_path)
@@ -134,7 +135,8 @@ convert_station_yrno_data(char *station_id_with_path, char *result_file, int get
         else{
             /* prepare station id */
             *buffer = 0;
-            delimiter = strrchr(station_id_with_path, '/');
+            snprintf(buffer2, sizeof(buffer2) - 1, "%s", station_id_with_path);
+            delimiter = strrchr(buffer2, '/');
             if(delimiter){
                 delimiter++; /* delete '/' */
                 snprintf(buffer, sizeof(buffer) - 1, "%s", delimiter);
@@ -145,7 +147,7 @@ convert_station_yrno_data(char *station_id_with_path, char *result_file, int get
                     return -1;
                 }
                 *delimiter = 0;
-                days_number = parse_and_write_xml_data(buffer, root_node, result_file);
+                days_number = parse_and_write_yrno_xml_data(buffer, root_node, result_file);
             }
             xmlFreeDoc(doc);
             xmlCleanupParser();
@@ -157,7 +159,7 @@ convert_station_yrno_data(char *station_id_with_path, char *result_file, int get
 }
 /*******************************************************************************/
 int
-parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file){
+parse_and_write_yrno_xml_data(char *station_id, xmlNode *root_node, const char *result_file){
     xmlNode     *cur_node = NULL,
                 *child_node = NULL,
                 *child_node1 = NULL,
@@ -519,13 +521,14 @@ parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file
 }
 /*******************************************************************************/
 int
-main(int argc, char *argv[]){
+main_yr_no(int argc, char *argv[]){
     int result; 
     if (argc < 3) {
         fprintf(stderr, "yrno <input_file> <output_file>\n");
         return -1;
     }
-    result = convert_station_yrno_data(argv[1], argv[2], false);
+    result = convert_station_yrno_data(argv[1], argv[2], argv[3]);
+    fprintf(stderr, "\nresult = %d\n", result);
     /* fprintf(stderr, "\nresult = %d\n", result); */
     return result;
 }

@@ -807,7 +807,7 @@ convert_station_openweathermaporg_data(const char *days_data_path, const char *r
 
 /*******************************************************************************/
 int
-main(int argc, char *argv[]){
+main_openweathermap_org(int argc, char *argv[]){
     int result; 
     if (argc < 4) {
         fprintf(stderr, "openweathermaporg <input_days_file> <output_file> <input_hours_file> <input_current_file>\n");

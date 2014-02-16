@@ -6,8 +6,9 @@
 
 
 TARGET = openweathermaporg 
-TEMPLATE = app
+#TEMPLATE = app
 
+TEMPLATE = lib
 
 
 HEADERS += src/meego-main.h \
@@ -21,7 +22,7 @@ FORMS    +=
 OTHER_FILES += \
 
 
-CONFIG = link_pkgconfig 
+CONFIG += link_pkgconfig staticlib
 PKGCONFIG += libxml-2.0 
 system(pkg-config --exists glib-2.0){
     PKGCONFIG += glib-2.0

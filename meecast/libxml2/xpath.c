@@ -182,7 +182,7 @@ int wrap_cmp( xmlNodePtr x, xmlNodePtr y );
 #ifndef TRIO_REPLACE_STDIO
 #define TRIO_PUBLIC static
 #endif
-//#include "trionan.c"
+#include "trionan.c"
 
 /*
  * The lack of portability of this section of the libc is annoying !

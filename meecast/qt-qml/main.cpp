@@ -163,7 +163,7 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
             QLocale::setDefault(QLocale(controller->config()->languagesList().at(i).second.c_str()));
             filename = QString("omweather_%1").arg(controller->config()->languagesList().at(i).second.c_str());
             std::cerr<<filename.toStdString().c_str()<<std::endl; 
-            QString localepath =QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
+            QString localepath = QString::fromStdString(Core::AbstractConfig::prefix + "/share/harbour-meecast/locale");
             if (translator.load(filename, localepath)) {
                     std::cerr<<"Success TR"<<std::endl;
                     app->installTranslator(&translator);

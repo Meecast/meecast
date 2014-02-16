@@ -1476,7 +1476,7 @@ convert_station_weather_com_data(const char *station_id_with_path, const char *r
 }
 
 int
-main(int argc, char *argv[]){
+main_weather_com(int argc, char *argv[]){
     int result; 
     if (argc < 3) {
         fprintf(stderr, "weathercom <input_file> <output_file> <input_detail_fail>\n");
@@ -1485,7 +1485,7 @@ main(int argc, char *argv[]){
     if (argc == 3) 
     	result = convert_station_weather_com_data(argv[1], argv[2], "");
     if (argc == 4)
-    	result = convert_station_weather_com__data(argv[1], argv[2], argv[3]);
+    	result = convert_station_weather_com_data(argv[1], argv[2], argv[3]);
     fprintf(stderr, "\nresult = %d\n", result);
     return result;
 }

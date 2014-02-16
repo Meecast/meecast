@@ -12,7 +12,7 @@ TEMPLATE = app
 
 HEADERS += src/main.h
 
-SOURCES += src/main.c
+SOURCES += src/main.cpp
 
 
 FORMS    +=

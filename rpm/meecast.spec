@@ -34,13 +34,14 @@ BuildRequires:  pkgconfig(sqlite3)
 #BuildRequires:  pkgconfig(gconf-2.0)
 BuildRequires:  pkgconfig(dbus-glib-1)
 #BuildRequires:  pkgconfig(libxml-2.0)
-BuildRequires:  libxml2-devel
+#BuildRequires:  libxml2-devel
 BuildRequires:  gettext
 #BuildRequires:  libqt-devel
 BuildRequires: qt5-qtpositioning-devel
-Requires:      qt5-qtpositioning 
-Requires:      sailfishsilica-qt5
-Requires:      qt5-qtdeclarative-import-models2 
+#Requires:      qt5-qtpositioning 
+#Requires:      sailfishsilica-qt5
+#Requires:      qt5-qtdeclarative-import-models2 
+#Requires:      zlib 
 
 %description
 MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code

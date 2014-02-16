@@ -1401,9 +1401,9 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
 }
 
 /*******************************************************************************/
-gint
-convert_station_weather_data(const gchar *station_id_with_path, const gchar *result_file,
-	                     const gchar *station_detail_id_with_path){
+int
+convert_station_weather_com_data(const char *station_id_with_path, const char *result_file,
+	                     const char *station_detail_id_with_path){
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;
     gint    days_number = -1;
@@ -1483,9 +1483,9 @@ main(int argc, char *argv[]){
         return -1;
     }
     if (argc == 3) 
-    	result = convert_station_weather_data(argv[1], argv[2], "");
+    	result = convert_station_weather_com_data(argv[1], argv[2], "");
     if (argc == 4)
-    	result = convert_station_weather_data(argv[1], argv[2], argv[3]);
+    	result = convert_station_weather_com__data(argv[1], argv[2], argv[3]);
     fprintf(stderr, "\nresult = %d\n", result);
     return result;
 }

@@ -6,9 +6,10 @@
 
 
 TARGET = weathercom
-TEMPLATE = app
+#TEMPLATE = app
 
 
+TEMPLATE = lib
 
 HEADERS += src/main.h
 
@@ -20,7 +21,7 @@ FORMS    +=
 OTHER_FILES += \
 
 
-CONFIG = link_pkgconfig -qt
+CONFIG += link_pkgconfig staticlib -qt
 PKGCONFIG += libxml-2.0 \
              glib-2.0
 

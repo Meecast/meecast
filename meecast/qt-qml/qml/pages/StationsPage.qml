@@ -75,6 +75,7 @@ Page {
             PageHeader {
                 title: Config.tr("Manage locations")
             }
+            /*
             Item {
                 width: parent.width
  
@@ -102,6 +103,7 @@ Page {
                     }
                 }
             }
+            */
             SilicaListView {
                 id: stationslist
                 width: parent.width

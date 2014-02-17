@@ -36,8 +36,9 @@
 #include <QColor>
 #include <QDesktopServices>
 #include <QUrl>
+#include <QDebug>
 #include "updatethread.h"
-#include "gpsposition.h"
+//#include "gpsposition.h"
 #ifdef MEEGO_EDITION_HARMATTAN
 #include <MGConfItem>
 #endif
@@ -88,7 +89,7 @@ class ConfigQml : public QObject, public Core::Config
 private:
     Core::DatabaseSqlite *db;
     UpdateThread *thread;
-    GpsPosition *_gps;
+    //GpsPosition *_gps;
     int getCountryId(int index);
     int getRegionId(int country, int index);
     int getGpsStation();

@@ -116,12 +116,12 @@ void ConfigQml::init()
     thread = new UpdateThread();
     connect(thread, SIGNAL(finished()), this, SLOT(downloadFinishedSlot()));
 
-    _gps = NULL;
 
     wind_list << "m/s" << "km/h" << "mi/h" << "kn" << "Beaufort scale";
     press_list << "mbar" << "Pa" << "mmHg";
     vis_list << "m" << "km" << "mi";
-
+/*
+    _gps = NULL;
     if (gps()){
         _gps = new GpsPosition();
         _gps->startTimer();
@@ -150,7 +150,8 @@ void ConfigQml::init()
             delete db_w;
         }
     }
-
+*/
+#if 0 
     if (QFile::exists("/home/user/.cache/com.meecast.omweather/splash.png")){
         /* Check file size */
         QFile f1("/home/user/.cache/com.meecast.omweather/splash.png");
@@ -165,7 +166,7 @@ void ConfigQml::init()
                     "/home/user/.cache/com.meecast.omweather/splash.png");
         }
     }
-
+#endif
 }
 
 void
@@ -179,7 +180,7 @@ ConfigQml::saveConfig()
     lockscreen_settings->setValue("y_position", _lockscreen_y_position);
     lockscreen_settings->sync();
     Core::Config::saveConfig();
-    qDebug()<<"SaveConfig";
+    //qDebug()<<"SaveConfig";
 }
 
 QString
@@ -541,6 +542,7 @@ ConfigQml::gps(){
 void
 ConfigQml::setgps(bool c){
     /* if gps option changed */
+#if 0    
     if (c == ConfigQml::Config::Gps())
         return;
     if (c)
@@ -560,6 +562,7 @@ ConfigQml::setgps(bool c){
     ConfigQml::Config::Gps(c);
     saveConfig();
     refreshconfig();
+#endif        
 }
 
 QString
@@ -1013,6 +1016,7 @@ ConfigQml::updatestations()
 void
 ConfigQml::updategpsstation()
 {
+    /*
     qDebug() << "Update GPS ";
     if (ConfigQml::Config::Gps()){
         if (_gps){
@@ -1021,6 +1025,7 @@ ConfigQml::updategpsstation()
         }
         enableGps();
     }
+    */
 }
 
 
@@ -1073,12 +1078,14 @@ ConfigQml::tr(QString str)
 void
 ConfigQml::enableGps()
 {
+    /*
     if (!_gps) {
         _gps = new GpsPosition();
         _gps->startGps();
         qDebug() << "create gps, add slot";
         connect(_gps, SIGNAL(findCoord(double, double)), this, SLOT(addGpsStation(double, double)));
     }
+    */
     //addGpsStation(55.1882, 30.2177);
 }
 void
@@ -1133,7 +1140,9 @@ ConfigQml::addGpsStation(double latitude, double longitude)
     qDebug() << "SAVE GPS STATION";
 
     /* save gps station's coordinates */
+    /*
     _gps->setLastCoordinates(lat, lon);
+    */
 }
 
 int

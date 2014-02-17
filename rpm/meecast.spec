@@ -90,6 +90,10 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
+* Sat Feb 15 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.10.1
+  * Adapted for Harbour (Jolla store)
+  * Disabled GPS-station
+
 * Sat Feb 15 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.9.1
   * Updated Finnish, Norwegian, Arabic, Serbian, Turkish, Dutch, Hungarian translations
   * Added Slovenian and Czech translations

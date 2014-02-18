@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtQml.Models 2.1
 import "./"
 
 Page {
@@ -190,12 +189,6 @@ Page {
         }
     }
 
-    DelegateModel { 
-        id: stations
-//        model: Config.stations()
-        model: listModel
-        delegate: WeatherStationDelegate { id: weatherStationDelegate }
-    } 
     Item{
         Timer{
             interval: 500; running: true; repeat: false
@@ -216,7 +209,7 @@ Page {
         orientation: Qt.Horizontal
         highlightRangeMode: ListView.StrictlyEnforceRange
         snapMode: ListView.SnapOneItem
-        model: stations
+        model: listModel
         interactive: true
         currentIndex: Config._current_station_id() 
         Component.onCompleted: {}
@@ -228,6 +221,7 @@ Page {
             Config.saveConfig();
             Config.refreshconfig();
         }
+	delegate: WeatherStationDelegate { id: weatherStationDelegate } 
      }
      Rectangle {
         id: startview

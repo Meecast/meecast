@@ -471,6 +471,7 @@ Station::Station(const std::string& source_name, const std::string& id,
             std::cerr<<"ERROR downloading  "<<this->forecastURL()<<std::endl;
             result = false;
         }
+	/*
         if ((result) && (this->detailURL() != "") && (Downloader::downloadData(this->fileName()+".detail.orig", this->detailURL(), this->cookie()))){
             if ((this->hoursURL()!="") && (Downloader::downloadData(this->fileName()+".hours.orig", this->hoursURL(), this->cookie()))){
                 command = this->converter()+ " " + this->fileName() + ".orig " + this->fileName()+" " + this->fileName()+".detail.orig" + " " + this->fileName()+ ".hours.orig";
@@ -495,6 +496,7 @@ Station::Station(const std::string& source_name, const std::string& id,
             else
                result = false;
         }
+	*/
         /* BAseMap */
         if (this->basemapURL() != ""){
             std::string mapfilename(Core::AbstractConfig::getCachePath());
@@ -574,7 +576,7 @@ Station::Station(const std::string& source_name, const std::string& id,
             
             
         }
-
+        run_converter();
         return result;
     }
 
@@ -584,22 +586,16 @@ Station::run_converter(){
 
     /* AppLog("RUN CONVERTER "); */
     /* TO DO fixed for all sources */
-    std::string dirPath;
-    dirPath = Core::AbstractConfig::getConfigPath();
     std::string forecast_file_string = "";
     std::string result_file_string  = "";
     std::string detail_file_string = "";
     std::string hours_file_string = "";
    
-    forecast_file_string.append(dirPath);
     forecast_file_string.append(this->fileName().c_str());
     forecast_file_string.append(".orig");
-    result_file_string.append(dirPath);
     result_file_string.append(this->fileName().c_str());
-    detail_file_string.append(dirPath);
     detail_file_string.append(this->fileName().c_str());
     detail_file_string.append(".detail.orig");
-    hours_file_string.append(dirPath);
     hours_file_string.append(this->fileName().c_str());
     hours_file_string.append(".hours.orig");
 

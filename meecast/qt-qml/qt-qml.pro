@@ -101,11 +101,11 @@ QMAKE_LFLAGS += -pie -rdynamic
 
 
 DATADIR=/usr/share/harbour-meecast
-INCLUDEPATH += ../core                                                                                                        
+INCLUDEPATH += ../core ../sqlite3 
 
 
 
-LIBS += ../../omweather-openweathermap-org-stations-db/meego-main.o ../../omweather-openweathermap-org-stations-db/hash.o ../../omweather-gismeteo-ru-stations-db/meego-main.o ../../omweather-gismeteo-ru-stations-db/hash.o ../../omweather-foreca-com-stations-db/meego-main.o ../../omweather-foreca-com-stations-db/hash.o ../../omweather-hko-gov-hk-stations-db/meego-main.o ../../omweather-hko-gov-hk-stations-db/hash.o ../../omweather-bom-gov-au-stations-db/meego-main.o ../../omweather-bom-gov-au-stations-db/hash.o ../../omweather-yr-no-stations-db/meego-main.o ../../omweather-yr-no-stations-db/hash.o ../../omweather-weather-com-stations-db/main.o 
+LIBS += ../../omweather-openweathermap-org-stations-db/meego-main.o ../../omweather-openweathermap-org-stations-db/hash.o ../../omweather-gismeteo-ru-stations-db/meego-main.o ../../omweather-gismeteo-ru-stations-db/hash.o ../../omweather-foreca-com-stations-db/meego-main.o ../../omweather-foreca-com-stations-db/hash.o ../../omweather-hko-gov-hk-stations-db/meego-main.o ../../omweather-hko-gov-hk-stations-db/hash.o ../../omweather-bom-gov-au-stations-db/meego-main.o ../../omweather-bom-gov-au-stations-db/hash.o ../../omweather-yr-no-stations-db/meego-main.o ../../omweather-yr-no-stations-db/hash.o ../../omweather-weather-com-stations-db/main.o  ../sqlite3/sqlite3.o
 
 
 
@@ -113,13 +113,12 @@ LIBS += ../../omweather-openweathermap-org-stations-db/meego-main.o ../../omweat
 
 
 #LIBS += -L ../core ../core/libomweather-core.a  ../libxml2/liblibxml2.a ../../omweather-openweathermap-org-stations-db/libopenweathermaporg.a -lsailfishapp 
-LIBS += -L ../core ../core/libomweather-core.a  ../libxml2/liblibxml2.a -lsailfishapp 
+LIBS += -L ../core ../core/libomweather-core.a  ../libxml2/liblibxml2.a  -lsailfishapp  
 CONFIG += dbus
 CONFIG += qdbus
 CONFIG += link_pkgconfig
 CONFIG += sailfishapp
 PKGCONFIG += glib-2.0
-PKGCONFIG += sqlite3
 PKGCONFIG += libcurl
 PKGCONFIG += zlib
 #CONFIG += static

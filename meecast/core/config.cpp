@@ -79,7 +79,7 @@ Config::Config()
 void
 Config::saveConfig()
 {
-    std::cerr<<"SaveConfig"<<std::endl;
+    std::cerr<<"Config::saveConfig "<<_filename->c_str() <<std::endl;
     #ifndef LIBXML
     QDomDocument doc;
     doc.appendChild(doc.createProcessingInstruction("xml", "version=\"1.0\" encoding=\"utf-8\""));

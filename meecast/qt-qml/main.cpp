@@ -124,18 +124,10 @@ Q_DECL_EXPORT int main(int argc, char* argv[])
     
     //Add the QML snippet into the layout
 
-  //  QString locale = QLocale::system().name();
-
-   // std::cerr<<"locale: "<<locale.toStdString()<<std::endl;
     
     //ConfigQml *config;
     //
     Controller *controller;
-/*
-    QTranslator translator;
-    translator.load("ru.qml", "i18n");
-    app.installTranslator(&translator);
-*/
     /*
     textdomain("omweather");
     bindtextdomain("omweather", localepath.toStdString().c_str());

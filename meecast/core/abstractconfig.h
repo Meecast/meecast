@@ -50,6 +50,8 @@ namespace Core {
             static std::string layoutqml;
             static std::string getConfigPath();
             static std::string getCachePath();
+            static std::string getConfigPathOld();
+            static std::string getCachePathOld();
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

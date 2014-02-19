@@ -82,12 +82,42 @@ namespace Core {
         path += "/.config";
         /* TODO check directory exist */
         mkdir(path.c_str(), 0755);
-        path += "/com.meecast.omweather/";
+        path += "/harbour-meecast/";
         mkdir(path.c_str(), 0755);
         return path;
 #endif
     }
     std::string AbstractConfig::getCachePath()
+    {
+#ifdef LOCALDEBUG
+        return "../test/";
+#else
+        struct passwd *pw = getpwuid(getuid());
+        std::string path(pw->pw_dir);
+        path += "/.cache";
+        /* TODO check directory exist */
+        mkdir(path.c_str(), 0755);
+        path += "/harbour-meecast/";
+        mkdir(path.c_str(), 0755);
+        return path;
+#endif
+    }
+    std::string AbstractConfig::getConfigPathOld()
+    {
+#ifdef LOCALDEBUG
+        return "../test/";
+#else
+        struct passwd *pw = getpwuid(getuid());
+        std::string path(pw->pw_dir);
+        path += "/.config";
+        /* TODO check directory exist */
+        mkdir(path.c_str(), 0755);
+        path += "/com.meecast.omweather/";
+        mkdir(path.c_str(), 0755);
+        return path;
+#endif
+    }
+    std::string AbstractConfig::getCachePathOld()
     {
 #ifdef LOCALDEBUG
         return "../test/";

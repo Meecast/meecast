@@ -33,7 +33,7 @@ BuildRequires:  pkgconfig(zlib)
 BuildRequires:  pkgconfig(sqlite3)
 #BuildRequires:  pkgconfig(gconf-2.0)
 BuildRequires:  pkgconfig(dbus-glib-1)
-#BuildRequires:  pkgconfig(libxml-2.0)
+BuildRequires:  pkgconfig(libxml-2.0)
 #BuildRequires:  libxml2-devel
 BuildRequires:  gettext
 #BuildRequires:  libqt-devel
@@ -90,7 +90,11 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
-* Sat Feb 15 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.10.1
+* Wed Feb 18 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.11.1
+  * Adapted for Harbour (Jolla store)
+  * Disabled GPS-station
+
+* Wed Feb 18 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.10.1
   * Adapted for Harbour (Jolla store)
   * Disabled GPS-station
 

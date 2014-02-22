@@ -117,6 +117,19 @@ namespace Core {
         return path;
 #endif
     }
+    std::string AbstractConfig::getConfigPathOld2()
+    {
+#ifdef LOCALDEBUG
+        return "../test/";
+#else
+        struct passwd *pw = getpwuid(getuid());
+        std::string path(pw->pw_dir);
+        path += "/.config";
+        path += "/com.meecast.omweather/";
+        return path;
+#endif
+    }
+
     std::string AbstractConfig::getCachePathOld()
     {
 #ifdef LOCALDEBUG

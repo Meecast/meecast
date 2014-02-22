@@ -48,10 +48,12 @@ ConfigQml::ConfigQml():QObject(),Core::Config(){
 }
 
 ConfigQml::~ConfigQml(){
+#if 0
     if (standby_settings)
         delete standby_settings;
     if (lockscreen_settings)
         delete lockscreen_settings;
+#endif
     if (db)
         delete db;
     if (thread)
@@ -98,6 +100,7 @@ void ConfigQml::init()
     _time_for_updating = 0;
     db = new Core::DatabaseSqlite("");
 
+#if 0
     /* setting for stndbyscreen */
     standby_settings = new QSettings("/home/user/.config/com.meecast.omweather/standby.conf",QSettings::NativeFormat); 
     QVariant v = standby_settings->value("color_font_stationname", QColor(Qt::white));
@@ -112,7 +115,7 @@ void ConfigQml::init()
     _lockscreen_x_position = v.value<int>();
     v = lockscreen_settings->value("y_position", int(240));
     _lockscreen_y_position = v.value<int>();
-
+#endif
     thread = new UpdateThread();
     connect(thread, SIGNAL(finished()), this, SLOT(downloadFinishedSlot()));
 
@@ -172,6 +175,7 @@ void ConfigQml::init()
 void
 ConfigQml::saveConfig()
 {
+#if 0
     standby_settings->setValue("color_font_stationname", _standby_color_font_stationname);
     standby_settings->setValue("color_font_temperature", _standby_color_font_temperature);
     standby_settings->setValue("color_font_current_temperature", _standby_color_font_current_temperature);
@@ -179,6 +183,7 @@ ConfigQml::saveConfig()
     lockscreen_settings->setValue("x_position", _lockscreen_x_position);
     lockscreen_settings->setValue("y_position", _lockscreen_y_position);
     lockscreen_settings->sync();
+#endif
     Core::Config::saveConfig();
     //qDebug()<<"SaveConfig";
 }
@@ -419,6 +424,7 @@ ConfigQml::standbyscreen()
 void
 ConfigQml::setstandbyscreen(bool c)
 {
+#if 0
     ConfigQml::Config::Standbyscreen(c);
     if (!c && (QFile::exists("/home/user/.cache/com.meecast.omweather/logo.png")))
        QFile::remove("/home/user/.cache/com.meecast.omweather/logo.png"); 
@@ -428,12 +434,14 @@ ConfigQml::setstandbyscreen(bool c)
 #endif
     saveConfig();
     refreshconfig();
+#endif
 }
 
 bool
 ConfigQml::eventwidget()
 {
     bool result = false;
+#if 0
     QFile file("/usr/share/meegotouch/applicationextensions/events-weather.desktop");
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
         QTextStream in(&file);
@@ -449,11 +457,15 @@ ConfigQml::eventwidget()
         setlockscreen(false);
         setstandbyscreen(false);
      }
+#endif
     return result;
+
 }
 void
 ConfigQml::seteventwidget(bool c)
 {    
+#if 0
+    QFile file("/usr/share/meegotouch/applicationextensions/events-weather.desktop");
     if (!c){
     	QDesktopServices::openUrl(QUrl("file:///usr/bin/installui"));
         setlockscreen(false);
@@ -471,19 +483,23 @@ ConfigQml::seteventwidget(bool c)
     if (c)
     	QDesktopServices::openUrl(QUrl("file:///opt/com.meecast.omweather/share/packages/meecast-applet-enable_0.2_all.deb"));
     
+#endif
 }
 bool
 ConfigQml::splash()
 {
+#if 0
 
     if (QFile::exists("/home/user/.cache/com.meecast.omweather/splash.png"))
         return true;
     else
         return false;
+#endif
 }
 void
 ConfigQml::setsplash(bool c)
 {
+#if 0
     ConfigQml::Config::Splash(c);
     saveConfig();
     refreshconfig();
@@ -499,6 +515,7 @@ ConfigQml::setsplash(bool c)
         QFile::copy("/opt/com.meecast.omweather/share/images/splash.png",
                     "/home/user/.cache/com.meecast.omweather/splash.png");
     }
+#endif
 }
 
 bool

@@ -17,7 +17,7 @@ CoverBackground {
         if (coverPage.current_model("wind_direction") == "CALM"){
             coverPage.angle = 0;
         }else{
-            coverPage.angle = coverPage.current_model("wind_direction") == "N/A" ? 0 : coverPage.getAngle(current_model("wind_direction"))
+            coverPage.angle = (coverPage.current_model("wind_direction") == "N/A" || current_model("wind_direction") == undefined) ? 0 : coverPage.getAngle(current_model("wind_direction"))
         }
         if (coverPage.current_model("temp") == undefined){
             temp_text.text = ""
@@ -142,7 +142,11 @@ CoverBackground {
                 temp_text.font.pointSize = 44 
             else
                 temp_text.font.pointSize = 40 
-            icon.source = Config.iconspath + "/" + Config.iconset + "/" + coverPage.current_model("pict")
+	    if (coverPage.current_model("pict") == undefined){
+	        icon.source = Config.iconspath + "/" + Config.iconset + "/49.png"
+	    }else{
+	        icon.source = Config.iconspath + "/" + Config.iconset + "/" + coverPage.current_model("pict")
+            }
             if (coverPage.current_model("description") != undefined)
                 description.text = coverPage.current_model("description")
             else
@@ -150,10 +154,15 @@ CoverBackground {
             source_image.source = Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
             if (Config.stationname == "Unknown") {
                 description.text = Config.tr("No locations are set up yet.")
+		stationname.text = "MeeCast"
+		update_next_cover.enabled = false
+		add_cover.enabled = true
             }else {
-            if (Current.rowCount() == 0) {
-                    description.text = Config.tr("Looks like there's no info for this location.")}
-                else{
+		add_cover.enabled = false 
+		update_next_cover.enabled = true
+                if (Current.rowCount() == 0) {
+		    description.text = Config.tr("Looks like there's no info for this location.")
+	        }else{
                     description.text = coverPage.current_model("description")
                 }
             }
@@ -172,10 +181,12 @@ CoverBackground {
             }else{
                 lastupdate.visible = false
             }
-            if ((coverPage.current_model("lastupdatetime").length + Config.tr("Last update:").length) < 25)
-               lastupdate.text = Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime")
-            else
-               lastupdate.text = coverPage.current_model("lastupdatetime")
+	    if (coverPage.current_model("lastupdatetime") != undefined){
+                if ((coverPage.current_model("lastupdatetime").length + Config.tr("Last update:").length) < 25)
+                    lastupdate.text = Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime")
+                else
+	            lastupdate.text = coverPage.current_model("lastupdatetime")
+            }
 
             if (Config.logocoverpage)
                 source_image.visible = true
@@ -271,7 +282,7 @@ CoverBackground {
     Image {
         id: icon
         visible: isUpdate ? false : true
-        source: (Config.stationname == "Unknown" || Current.rowCount() == 0) ? Config.iconspath + "/" + Config.iconset + "/49.png" : Config.iconspath + "/" + Config.iconset + "/" + coverPage.current_model("pict") 
+        source: (Config.stationname == "Unknown" || Current.rowCount() == 0 || coverPage.current_model("pict") != undefined) ? Config.iconspath + "/" + Config.iconset + "/49.png" : Config.iconspath + "/" + Config.iconset + "/" + coverPage.current_model("pict") 
         width:  Config.windcoverpage ? 128 : 100
         height: Config.windcoverpage ? 128 : 100
         anchors.top: stationname.bottom
@@ -399,8 +410,8 @@ CoverBackground {
     }
 
     CoverActionList {
-        id: ordinary
-        enabled: isUpdate ? false : true
+        id: update_next_cover 
+        enabled: (Config.stationname == "Unknown") || isUpdate ? false : true
         CoverAction {
             iconSource: "image://theme/icon-cover-next"
             onTriggered: { Config.changestation();}
@@ -419,6 +430,17 @@ CoverBackground {
             }
         }
     }
+    CoverActionList {
+        id: add_cover 
+        enabled: (isUpdate || Config.stationname != "Unknown") ? false : true
+        CoverAction {
+            iconSource: "image://theme/icon-cover-new"
+	    onTriggered: { 
+		     app.activate(); pageStack.push(Qt.resolvedUrl("../pages/SourcePage.qml"))
+	    }
+        }
+    }
+
     Component.onDestruction : {   
         console.log("Component.onDestruction")
     }

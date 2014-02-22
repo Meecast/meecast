@@ -91,8 +91,7 @@ desktop-file-install --delete-original       \
 
 %changelog
 * Wed Feb 18 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.11.1
-  * Adapted for Harbour (Jolla store)
-  * Disabled GPS-station
+  * Polished Cover page
 
 * Wed Feb 18 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.10.1
   * Adapted for Harbour (Jolla store)

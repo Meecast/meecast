@@ -92,7 +92,7 @@ desktop-file-install --delete-original       \
 %changelog
 * Sat Feb 22 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.11.1
   * Polished Cover page
-  * Disablaed unusable config files 
+  * Disable unused configuration files 
 
 * Wed Feb 18 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.10.1
   * Adapted for Harbour (Jolla store)

@@ -626,13 +626,13 @@ void MyMWidget::refresheventswidget(){
 	 // paint.setFont(QFont("Nokia Pure Light", 14));
 	 paint.drawText( x , y, 127, 21, Qt::AlignHCenter, _stationname.mid(0, 14));
 
-         /* Icon */
-         QPoint point(x + 50, y + 19);
-         QImage icon;
-         icon.load(_iconpath);
-         icon = icon.scaled(72, 72);
-         paint.drawImage(point, icon); 
-		    
+     /* Icon */
+     QPoint point(x + 50, y + 19);
+     QImage icon;
+     icon.load(_iconpath);
+     icon = icon.scaled(72, 72);
+     paint.drawImage(point, icon); 
+        
 	 /* Temperature */
 	 paint.setFont(QFont("Nokia Pure", 20));
 	 if (_temperature == "N/A" || _temperature == ""){

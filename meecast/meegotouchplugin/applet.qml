@@ -9,27 +9,27 @@
      property int texty: 0
      function temp(){
         if (Applet.temperature == "N/A" || Applet.temperature == ""){
-	   if (Applet.temperature_high != "N/A"){
-		  mytext = Applet.temperature_high + '°'
-	          texty = 20
-	   }
-	   if ((Applet.temperature_low != "N/A") && (Applet.temperature_high != "N/A")){
-		  mytext =  mytext + "\n"
-	          texty = 0
-           }
-	   if (Applet.temperature_low != "N/A")
-		   mytext = mytext + Applet.temperature_low + '°'
-        }else{
-	   texty = 20
-           mytext = Applet.temperature + '°'
-        }
-	return mytext; 
+            if (Applet.temperature_high != "N/A"){
+                mytext = Applet.temperature_high + '°'
+                texty = 20
+	        }
+            if ((Applet.temperature_low != "N/A") && (Applet.temperature_high != "N/A")){
+                mytext =  mytext + "\n"
+                texty = 0
+            }
+            if (Applet.temperature_low != "N/A")
+                mytext = mytext + Applet.temperature_low + '°'
+            }else{
+                texty = 20
+                mytext = Applet.temperature + '°'
+            }
+	    return mytext; 
      }
      MouseArea {
-         anchors.fill: parent
-          onClicked: {
-	 	Applet.startapplication() 
-	  }
+        anchors.fill: parent
+        onClicked: {
+            Applet.startapplication() 
+	    }
      }
 
 

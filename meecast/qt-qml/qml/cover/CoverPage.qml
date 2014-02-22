@@ -14,11 +14,7 @@ CoverBackground {
         return Current.getdata(0, name);
     }
     function current_temperature(){
-        if (coverPage.current_model("wind_direction") == "CALM"){
-            coverPage.angle = 0;
-        }else{
-            coverPage.angle = (coverPage.current_model("wind_direction") == "N/A" || current_model("wind_direction") == undefined) ? 0 : coverPage.getAngle(current_model("wind_direction"))
-        }
+
         if (coverPage.current_model("temp") == undefined){
             temp_text.text = ""
             return;
@@ -215,7 +211,14 @@ CoverBackground {
                     wind_direction_background.visible = true
                     wind_direction.visible = true
                     description.anchors.top = wind_direction_background.bottom
-                    coverPage.angle = coverPage.current_model("wind_direction") == "N/A" ? 0 : coverPage.getAngle(current_model("wind_direction"))
+                    if (coverPage.current_model("wind_direction") == undefined ||
+                        coverPage.current_model("wind_direction") == "CALM" ||
+                        coverPage.current_model("wind_direction") == "VAR" ||
+                        coverPage.current_model("wind_direction") == "N/A"){
+                        coverPage.angle = 0;
+                    }else{
+                        coverPage.angle = coverPage.getAngle(coverPage.current_model("wind_direction"))
+                    }
                 }else{
                     wind_direction_background.visible = false
                     wind_direction.visible = false
@@ -290,7 +293,7 @@ CoverBackground {
     Image {
         id: icon
         visible: isUpdate ? false : true
-        source: (Config.stationname == "Unknown" || Current.rowCount() == 0 || coverPage.current_model("pict") != undefined) ? Config.iconspath + "/" + Config.iconset + "/49.png" : Config.iconspath + "/" + Config.iconset + "/" + coverPage.current_model("pict") 
+        source: (Config.stationname == "Unknown" || Current.rowCount() == 0 || coverPage.current_model("pict") == undefined) ? Config.iconspath + "/" + Config.iconset + "/49.png" : Config.iconspath + "/" + Config.iconset + "/" + coverPage.current_model("pict") 
         width:  Config.windcoverpage ? 128 : 100
         height: Config.windcoverpage ? 128 : 100
         anchors.top: stationname.bottom
@@ -419,7 +422,7 @@ CoverBackground {
 
     CoverActionList {
         id: update_next_cover 
-        enabled: (Config.stationname == "Unknown") || isUpdate ? false : true
+        enabled: (Config.stationname == "Unknown") || isUpdate || (Config.nextstationname == "" && Config.prevstationname == "") ? false : true
         CoverAction {
             iconSource: "image://theme/icon-cover-next"
             onTriggered: { Config.changestation();}

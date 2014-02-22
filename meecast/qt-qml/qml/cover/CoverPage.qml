@@ -154,15 +154,23 @@ CoverBackground {
             source_image.source = Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
             if (Config.stationname == "Unknown") {
                 description.text = Config.tr("No locations are set up yet.")
-		stationname.text = "MeeCast"
-		update_next_cover.enabled = false
-		add_cover.enabled = true
+                stationname.text = "MeeCast"
+                update_next_cover.enabled = false
+                update_cover = false
+                add_cover.enabled = true
             }else {
-		add_cover.enabled = false 
-		update_next_cover.enabled = true
+                if (Config.prevstationname == "" && Config.nextstationname == ""){
+                    add_cover.enabled = false 
+                    update_cover = true
+                    update_next_cover.enabled = false
+                }else{
+                    add_cover.enabled = false 
+                    update_cover = false
+                    update_next_cover.enabled = true
+                }
                 if (Current.rowCount() == 0) {
-		    description.text = Config.tr("Looks like there's no info for this location.")
-	        }else{
+                    description.text = Config.tr("Looks like there's no info for this location.")
+	            }else{
                     description.text = coverPage.current_model("description")
                 }
             }
@@ -435,9 +443,27 @@ CoverBackground {
         enabled: (isUpdate || Config.stationname != "Unknown") ? false : true
         CoverAction {
             iconSource: "image://theme/icon-cover-new"
-	    onTriggered: { 
-		     app.activate(); pageStack.push(Qt.resolvedUrl("../pages/SourcePage.qml"))
-	    }
+            onTriggered: { 
+                app.activate()
+                pageStack.push(Qt.resolvedUrl("../pages/SourcePage.qml"))
+	        }
+        }
+    }
+    CoverActionList {
+        id: update_cover 
+        enabled: (isUpdate || Config.stationname == "Unknown" || Config.nextstationname != "" || Config.prevstationname != "" ) ? false : true
+        CoverAction {
+            iconSource: "image://theme/icon-cover-refresh"
+	        onTriggered: { 
+                Config.updatestations(); 
+                isUpdate = true;  
+                wind_speed_text.visible = false
+                wind_direction_background.visible = false
+                wind_direction.visible = false
+                source_image.visible = false
+                now.visible = false
+                lastupdate.visible = false
+	        }
         }
     }
 

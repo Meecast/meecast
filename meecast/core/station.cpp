@@ -471,32 +471,36 @@ Station::Station(const std::string& source_name, const std::string& id,
             std::cerr<<"ERROR downloading  "<<this->forecastURL()<<std::endl;
             result = false;
         }
-	/*
         if ((result) && (this->detailURL() != "") && (Downloader::downloadData(this->fileName()+".detail.orig", this->detailURL(), this->cookie()))){
             if ((this->hoursURL()!="") && (Downloader::downloadData(this->fileName()+".hours.orig", this->hoursURL(), this->cookie()))){
+                /*
                 command = this->converter()+ " " + this->fileName() + ".orig " + this->fileName()+" " + this->fileName()+".detail.orig" + " " + this->fileName()+ ".hours.orig";
                 std::cerr<<" EXEC "<<command<<std::endl;
                 if (system(command.c_str()) == 0)
                     result = true;
                 else
                    result = false;
+                */
             }else{
+                /*
                 command = this->converter()+ " " +  this->fileName() + ".orig " + this->fileName()+" " + this->fileName()+".detail.orig";
                 std::cerr<<" EXEC "<<command<<std::endl;
                 if (system(command.c_str()) == 0)
                     result = true;
                 else
                    result = false;
+                */
             }
         }else{
+            /*
             command = this->converter()+ " " +  this->fileName() + ".orig " + this->fileName();
             std::cerr<<" EXEC "<<command<<std::endl;
             if (system(command.c_str()) == 0)
                 result = true;
             else
                result = false;
+            */
         }
-	*/
         /* BAseMap */
         if (this->basemapURL() != ""){
             std::string mapfilename(Core::AbstractConfig::getCachePath());

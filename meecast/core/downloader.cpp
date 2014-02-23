@@ -49,6 +49,10 @@ Downloader::downloadData(const std::string &filename, const std::string &url, co
     CURLcode res;
     FILE *fp;
 
+    /*
+    std::cerr<<"Downloader::downloadData"<<std::endl;
+    std::cerr<<filename.c_str()<<" "<<url.c_str()<<std::endl;
+    */
     curl = curl_easy_init();
     if (curl){
         fp = fopen(filename.c_str(), "w");

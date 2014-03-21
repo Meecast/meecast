@@ -10,8 +10,8 @@ import os
 import re
 import string
 import zipfile
-country = "Sweden"
-country_code = "SE"
+country = "Denmark"
+country_code = "DE"
                 
 
 def normalizing4 (source):
@@ -112,7 +112,7 @@ fh = open(country_code + ".txt")
 for line in fh.readlines():
     pattern = re.split('(\t)', line)
 #    print "Station %s" %(line)
-#    if (pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
+#    if (pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLC" or pattern[14] == "PPL"):    
     if (pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
         if (pattern[20] != "" and int(pattern[28]) >= 1000):
             if (regions_name.get(pattern[20]) == None):

@@ -727,7 +727,7 @@ convert_station_forecacom_data(const char *station_id_with_path, const char *res
         if(!doc)
             return -1;
         root_node = xmlDocGetRootElement(doc);
-        if(root_node->type == XML_ELEMENT_NODE &&
+        if(root_node && root_node->type == XML_ELEMENT_NODE &&
                 strstr((char*)root_node->name, "err")){
             xmlFreeDoc(doc);
             xmlCleanupParser();

@@ -121,6 +121,12 @@ CoverBackground {
     //        Current.update_model(0);
 
             stationname.text = Config.stationname
+
+	    stationname.font.pixelSize = 35 
+	    if (stationname.text.length > 16)
+            	stationname.font.pixelSize = 30 
+	    if (stationname.text.length > 20)
+            	stationname.font.pixelSize = 24 
             current_temperature()
             if (coverPage.current_model("current") != undefined){
                 now.visible = coverPage.current_model("current")
@@ -254,7 +260,7 @@ CoverBackground {
         anchors.top: parent.top
         anchors.horizontalCenter: parent.horizontalCenter
         text: Config.stationname == "Unknown" ? "MeeCast" : Config.stationname
-        font.pixelSize: text.length > 20 ? 24 : 35 
+        font.pixelSize: text.length > 20 ? 24 : (text.length > 16 ? 30 : 35)
     }
     Text {
         id: now

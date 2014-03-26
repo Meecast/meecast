@@ -307,7 +307,7 @@ T: </translation>
         </message>
         <message>
             <source>AM Rain / Wind</source>
-            <translation>ap: Vesiadetta / Tuulista</translation>
+            <translation>ap: Vesisadetta / Tuulista</translation>
         </message>
         <message>
             <source>AM Showers</source>
@@ -669,7 +669,7 @@ Fremantle käyttöliittymä: Krebber Jan ja Niemelä Ulla
         </message>
         <message>
             <source>Cloudy and light snow</source>
-            <translation>Pilvistä ja kevyttä lumisdetta</translation>
+            <translation>Pilvistä ja kevyttä lumisadetta</translation>
         </message>
         <message>
             <source>Cloudy and light wet snow</source>
@@ -681,7 +681,7 @@ Fremantle käyttöliittymä: Krebber Jan ja Niemelä Ulla
         </message>
         <message>
             <source>Cloudy and snow showers</source>
-            <translation>Puolipilvistä ja lumikuuroja</translation>
+            <translation>Pilvistä ja lumikuuroja</translation>
         </message>
         <message>
             <source>Cloudy and wet snow showers</source>
@@ -907,7 +907,7 @@ of 'omweather-*-stations-db' packages was installed.</source>
         </message>
         <message>
             <source>ENE</source>
-            <translation>Itäkoilisesta</translation>
+            <translation>Itäkoillisesta</translation>
         </message>
         <message>
             <source>ENE_short</source>
@@ -1224,6 +1224,8 @@ sinun tulee poistaa
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
+ Slovenian -  Boštjan,
+ Czech - Jakub Kožíšek, Pavel Šrubař,
  Chinese(Taiwan) - osk2, 
  Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
@@ -1247,7 +1249,7 @@ sinun tulee poistaa
  Bulgaria - Zlatko Enikov
  Albania - Ilir Gjika
  Kiina - Wong Man Kong, Michael
- Portugali - Jose Narciso,
+ Portugula - Jose Narciso,
  Turkki - Burak Kaan Kose,
  	Mehmet Çilingir,
  Katalaani - Agustí Clara,
@@ -1255,7 +1257,9 @@ sinun tulee poistaa
  Serbia - Aleksandar Zaric,
  Norja - Peer-Atle Motland,
  Unkari - Salmi,
- Kiina(Taiwan) - osk2, 
+ Slovenia -  Boštjan,
+ Tsekki - Jakub Kožíšek, Pavel Šrubař,
+ Kiina (Taiwan) - osk2, 
  Vietnami - Hieu Nguyen
  	Anh Dương and truongnx, 
  Ruotsi - Angela Nennebrandt,
@@ -1543,6 +1547,10 @@ Slovakia - Roman Moravčík</translation>
             <translation>Kevyttä tihkusadetta</translation>
         </message>
         <message>
+            <source>Light Freezing Drizzle</source>
+            <translation>Kevyttä jäätävää tihkusadetta</translation>
+        </message>
+        <message>
             <source>Light Freezing Rain</source>
             <translation>Kevyttä jäätävää sadetta</translation>
         </message>
@@ -1798,7 +1806,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Snow, Freezing Rain</source>
-            <translation>Enimmäkseen pilvistä, rankkaa lumisadetta,  jäätävää sadetta</translation>
+            <translation>Enimmäkseen pilvistä, rankkaa lumisadetta, jäätävää sadetta</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain</source>
@@ -1898,7 +1906,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>NE</source>
-            <translation>Koilisesta</translation>
+            <translation>Koillisesta</translation>
         </message>
         <message>
             <source>NE_short</source>
@@ -1906,7 +1914,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>NNE</source>
-            <translation>Pohjoiskoilisesta</translation>
+            <translation>Pohjoiskoillisesta</translation>
         </message>
         <message>
             <source>NNE_short</source>
@@ -2066,7 +2074,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Now + 2 days vert.</source>
-            <translation>Nyt + 2 päivää vaaka</translation>
+            <translation>Nyt + 2 päivää pysty</translation>
         </message>
         <message>
             <source>Now + 3 days hor.</source>
@@ -2218,7 +2226,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>
-            <translation>ip: Vesiadetta / Tuulista</translation>
+            <translation>ip: Vesisadetta / Tuulista</translation>
         </message>
         <message>
             <source>PM Showers</source>
@@ -2533,6 +2541,10 @@ Slovakia - Roman Moravčík</translation>
             <translation>Vesi- ja lumisadetta</translation>
         </message>
         <message>
+            <source>Rain and Snow</source>
+            <translation>Vesi- ja lumisadetta</translation>
+        </message>
+        <message>
             <source>Rain to Snow / Wind</source>
             <translation>Vesi- ja lumisadetta / Tuulista</translation>
         </message>
@@ -2742,7 +2754,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Select the weather source</source>
-            <translation>Valitse sään lähde</translation>
+            <translation>Valitse sääpalvelu</translation>
         </message>
         <message>
             <source>Selecting country</source>
@@ -2837,12 +2849,20 @@ Slovakia - Roman Moravčík</translation>
             <translation>Näytä nuolet</translation>
         </message>
         <message>
+            <source>Show last update time</source>
+            <translation>Näytä päivityksen ajankohta</translation>
+        </message>
+        <message>
             <source>Show on Map</source>
             <translation>Näytä kartalla</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
             <translation>Nykyinen säätieto ensimmäisessä kuvakkeessa</translation>
+        </message>
+        <message>
+            <source>Show source logo</source>
+            <translation>Näytä sääpalvelun logo</translation>
         </message>
         <message>
             <source>Show station name</source>
@@ -3182,7 +3202,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>This is experimental feature. Only English is supported.</source>
-            <translation>Tämä on kokeellinen toiminto ja tukee toistaiseksi vain Englannin kieltä.</translation>
+            <translation>Tämä on kokeellinen toiminto ja tukee toistaiseksi vain englannin kieltä.</translation>
         </message>
         <message>
             <source>This software is free software; you can
@@ -3730,7 +3750,7 @@ tapahtumat-näkymässä' valinta</translation>
         </message>
         <message>
             <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
-            <translation>kuten Free Software Foundationin julkaisu; käyttäen joko lisenssin versiota 2.1 tai  (valinnan mukaan) myöhemmän version ehtojen mukaisesti.</translation>
+            <translation>kuten Free Software Foundationin julkaisu; käyttäen joko lisenssin versiota 2.1 tai (valinnan mukaan) myöhemmän version ehtojen mukaisesti.</translation>
         </message>
         <message>
             <source>current location local time</source>

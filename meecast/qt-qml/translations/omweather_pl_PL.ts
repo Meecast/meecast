@@ -1223,6 +1223,8 @@ używając Menedżera aplikacji</translation>
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
+ Slovenian -  Boštjan,
+ Czech - Jakub Kožíšek, Pavel Šrubař,
  Chinese(Taiwan) - osk2, 
  Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
@@ -1530,6 +1532,10 @@ słowacki - Roman Moravčík</translation>
         <message>
             <source>Light Drizzle</source>
             <translation>Lekka mżawka</translation>
+        </message>
+        <message>
+            <source>Light Freezing Drizzle</source>
+            <translation type="unfinished">Marznąca mżawka</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -2534,6 +2540,10 @@ słowacki - Roman Moravčík</translation>
             <translation>Deszcz i śnieg</translation>
         </message>
         <message>
+            <source>Rain and Snow</source>
+            <translation>Deszcz i śnieg</translation>
+        </message>
+        <message>
             <source>Rain to Snow / Wind</source>
             <translation>Deszcz / śnieg / wiatr</translation>
         </message>
@@ -2851,12 +2861,21 @@ słowacki - Roman Moravčík</translation>
             <translation>Wyświetlanie strzałek</translation>
         </message>
         <message>
+            <source>Show last update time</source>
+            <translation type="unfinished">Ostatnia aktualizacja: </translation>
+        </message>
+        <message>
             <source>Show on Map</source>
             <translation type="unfinished">Wyświetlanie nazwy stacji</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
             <translation>Wyświetlanie tylko bieżącej pogody przy pierwszej ikonie</translation>
+        </message>
+        <message>
+            <source>Show source logo</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Show station name</source>

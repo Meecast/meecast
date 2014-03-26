@@ -1224,6 +1224,8 @@ bằng trình quản lý ứng dụng</translation>
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
+ Slovenian -  Boštjan,
+ Czech - Jakub Kožíšek, Pavel Šrubař,
  Chinese(Taiwan) - osk2, 
  Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
@@ -1516,6 +1518,10 @@ Việt Nam- Quý Trọng</translation>
         <message>
             <source>Light Drizzle</source>
             <translation>Mưa phùn nhẹ</translation>
+        </message>
+        <message>
+            <source>Light Freezing Drizzle</source>
+            <translation type="unfinished">Trời băng giá, có mưa phùn</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -2517,6 +2523,10 @@ Việt Nam- Quý Trọng</translation>
             <translation> Mưa và tuyết</translation>
         </message>
         <message>
+            <source>Rain and Snow</source>
+            <translation> Mưa và tuyết</translation>
+        </message>
+        <message>
             <source>Rain to Snow / Wind</source>
             <translation>Mưa tới tuyết / Gió</translation>
         </message>
@@ -2827,12 +2837,21 @@ Việt Nam- Quý Trọng</translation>
             <translation>Xem kiểu mũi tên</translation>
         </message>
         <message>
+            <source>Show last update time</source>
+            <translation type="unfinished">Cập nhật cuối:</translation>
+        </message>
+        <message>
             <source>Show on Map</source>
             <translation type="unfinished">Hiển thị tên trạm</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
             <translation>Chỉ hiện thời tiết hiện tại trên icon ban đầu</translation>
+        </message>
+        <message>
+            <source>Show source logo</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Show station name</source>

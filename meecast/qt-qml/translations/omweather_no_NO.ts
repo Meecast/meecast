@@ -1225,6 +1225,8 @@ bør du avinstallere pakken
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
+ Slovenian -  Boštjan,
+ Czech - Jakub Kožíšek, Pavel Šrubař,
  Chinese(Taiwan) - osk2, 
  Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
@@ -1256,10 +1258,12 @@ bør du avinstallere pakken
  Serbisk - Aleksandar Zaric,
  Norsk - Peer-Atle Motland,
  Ungarsk - Salmi,
+ Slovensk -  Boštjan,
+ Tsjekkisk - Jakub Kožíšek, Pavel Šrubař,
  Kinesisk(Taiwan) - osk2, 
- Vietnamesisk - Hieu Nguyen
+ Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
- Svensk - Angela Nennebrandt,
+ Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</translation>
         </message>
@@ -1533,7 +1537,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation type="unfinished">Sjef designer</translation>
+            <translation>Sjef designere</translation>
         </message>
         <message>
             <source>License</source>
@@ -1542,6 +1546,10 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Light Drizzle</source>
             <translation>Lett Duskregn</translation>
+        </message>
+        <message>
+            <source>Light Freezing Drizzle</source>
+            <translation>Lett Underkjølt Yr</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -1695,7 +1703,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
-            <translation type="unfinished">MeeCast - multiplattform lett tilpasselig åpen kildekode værmeldings klient basert på OMWeather kode. Copyright (C) 2006-2013</translation>
+            <translation>MeeCast - multiplattform lett tilpasselig åpen kildekode værmeldings klient basert på OMWeather kode. Copyright (C) 2006-2014</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2534,6 +2542,10 @@ Slovak - Roman Moravčík</translation>
             <translation>Regn og Snø</translation>
         </message>
         <message>
+            <source>Rain and Snow</source>
+            <translation>Regn og Snø</translation>
+        </message>
+        <message>
             <source>Rain to Snow / Wind</source>
             <translation>Regn og Snø / Vind</translation>
         </message>
@@ -2838,12 +2850,20 @@ Slovak - Roman Moravčík</translation>
             <translation>Vis piler</translation>
         </message>
         <message>
+            <source>Show last update time</source>
+            <translation>Vis sist oppdatert</translation>
+        </message>
+        <message>
             <source>Show on Map</source>
             <translation>Vis på Kart</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
             <translation>Vis bare været på første ikon</translation>
+        </message>
+        <message>
+            <source>Show source logo</source>
+            <translation>Vis værkilde logo</translation>
         </message>
         <message>
             <source>Show station name</source>

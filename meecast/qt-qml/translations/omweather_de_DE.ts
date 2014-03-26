@@ -179,8 +179,7 @@ W: </translation>
         </message>
         <message>
             <source>12 hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>12 Stunden</translation>
         </message>
         <message>
             <source>15 minutes</source>
@@ -481,8 +480,7 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Back</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zurück</translation>
         </message>
         <message>
             <source>Background color:</source>
@@ -586,8 +584,7 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Celsius</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Celsius</translation>
         </message>
         <message>
             <source>City</source>
@@ -695,13 +692,11 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy and wet snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bewölkt mit Schneeschauern</translation>
         </message>
         <message>
             <source>Cloudy with occasional rain.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bewölkt mit gelegentlichem Regen</translation>
         </message>
         <message>
             <source>Cloudy, Drifting Snow</source>
@@ -800,8 +795,7 @@ Max. Verbindungszeit überschritten.</translation>
         </message>
         <message>
             <source>Daily</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Täglich</translation>
         </message>
         <message>
             <source>Day</source>
@@ -1242,6 +1236,8 @@ Programm-Manager deinstallieren.</translation>
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
+ Slovenian -  Boštjan,
+ Czech - Jakub Kožíšek, Pavel Šrubař,
  Chinese(Taiwan) - osk2, 
  Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
@@ -1362,8 +1358,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Hourly</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Stündlich</translation>
         </message>
         <message>
             <source>Hours</source>
@@ -1473,8 +1468,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Language</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sprache</translation>
         </message>
         <message>
             <source>Last Quarter</source>
@@ -1526,7 +1520,8 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation type="unfinished">Chefdesigner</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>License</source>
@@ -1535,6 +1530,11 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Light Drizzle</source>
             <translation>Leichter Nieselregen</translation>
+        </message>
+        <message>
+            <source>Light Freezing Drizzle</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -1614,7 +1614,8 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
-            <translation type="unfinished">Leichte Regenschauer</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
@@ -1626,8 +1627,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Leichter Schneefall</translation>
         </message>
         <message>
             <source>Loading station list</source>
@@ -1660,8 +1660,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Mainly cloudy with occasional rain.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Weitgehend bewölkt mit leichtem Regen</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -2156,8 +2155,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Overcast and rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bedeckt und Regen</translation>
         </message>
         <message>
             <source>Overcast and showers</source>
@@ -2448,18 +2446,15 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Programmer</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Programmierer</translation>
         </message>
         <message>
             <source>Project administrators</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Projekt-Administratoren</translation>
         </message>
         <message>
             <source>Project manager</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Projektmanager</translation>
         </message>
         <message>
             <source>Provided by</source>
@@ -2532,6 +2527,10 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Rain Showers</source>
             <translation>Regenschauer</translation>
+        </message>
+        <message>
+            <source>Rain and Snow</source>
+            <translation>Regen und Schnee</translation>
         </message>
         <message>
             <source>Rain and Snow</source>
@@ -2748,8 +2747,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Select the language</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sprache wählen</translation>
         </message>
         <message>
             <source>Select the weather source</source>
@@ -2852,6 +2850,11 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Pfeile anzeigen</translation>
         </message>
         <message>
+            <source>Show last update time</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Show on Map</source>
             <translation type="unfinished">
             </translation>
@@ -2859,6 +2862,11 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Show only current weather on first icon</source>
             <translation>Nur aktuelles Wetter neben erstem Symbol zeigen</translation>
+        </message>
+        <message>
+            <source>Show source logo</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Show station name</source>
@@ -2962,8 +2970,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Source code</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Quelltext</translation>
         </message>
         <message>
             <source>Source:</source>
@@ -3060,13 +3067,11 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Sunny periods and a few showers.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Teilweise sonnig mit wenigen Schauern.</translation>
         </message>
         <message>
             <source>Sunny periods and a few showers.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Teilweise sonnig mit wenigen Schauern.</translation>
         </message>
         <message>
             <source>Sunrise:</source>
@@ -3102,8 +3107,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Support</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Unterstützung</translation>
         </message>
         <message>
             <source>Swap hi/low temperature</source>
@@ -3489,7 +3493,8 @@ um die Darstellung des Applets anzupassen</translation>
         </message>
         <message>
             <source>Voice weather forecast</source>
-            <translation type="unfinished">OMWeather Vorhersage</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>W</source>

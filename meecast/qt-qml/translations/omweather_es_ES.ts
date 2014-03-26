@@ -1222,6 +1222,8 @@ el Administrador de Aplicaciones.</translation>
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
+ Slovenian -  Boštjan,
+ Czech - Jakub Kožíšek, Pavel Šrubař,
  Chinese(Taiwan) - osk2, 
  Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
@@ -1253,7 +1255,9 @@ el Administrador de Aplicaciones.</translation>
  Serbio - Aleksandar Zaric,
  Noruego - Peer-Atle Motland,
  Húngaro - Salmi,
- Chinese(Taiwan) - osk2,
+ Esloveno - Boštjan,
+ Checo - Jakub Kožíšek, Pavel Šrubař,
+ Chino (Taiwan) - osk2,
  Vietnamita - Hieu Nguyen
  	Anh Dương and truongnx, 
  Sueco - Angela Nennebrandt,
@@ -1530,7 +1534,7 @@ Eslovaco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation type="unfinished">Diseñador líder</translation>
+            <translation>Diseñadores principales</translation>
         </message>
         <message>
             <source>License</source>
@@ -1539,6 +1543,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Light Drizzle</source>
             <translation>Lloviznas leves</translation>
+        </message>
+        <message>
+            <source>Light Freezing Drizzle</source>
+            <translation>Llovizna helada ligera</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -1692,7 +1700,7 @@ Eslovaco - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
-            <translation type="unfinished">MeeCast - cliente de pronósticos del tiempo de código abierto, altamente personalizable y multiplataforma, basado en el código de OMWeather. Copyright (C) 2006-2013</translation>
+            <translation>MeeCast - cliente de pronósticos del tiempo de código abierto, altamente personalizable y multiplataforma, basado en el código de OMWeather. Copyright (C) 2006-2014</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2531,6 +2539,10 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Lluvia / Nieve</translation>
         </message>
         <message>
+            <source>Rain and Snow</source>
+            <translation>Lluvia / Nieve</translation>
+        </message>
+        <message>
             <source>Rain to Snow / Wind</source>
             <translation>Lluvia luego nieve / Viento</translation>
         </message>
@@ -2835,12 +2847,20 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Mostrar flechas</translation>
         </message>
         <message>
+            <source>Show last update time</source>
+            <translation>Mostrar la hora de la última actualización</translation>
+        </message>
+        <message>
             <source>Show on Map</source>
             <translation>Mostrar en el mapa</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
             <translation>Clima actual en el primer ícono</translation>
+        </message>
+        <message>
+            <source>Show source logo</source>
+            <translation>Mostrar el logo del proveedor de datos</translation>
         </message>
         <message>
             <source>Show station name</source>

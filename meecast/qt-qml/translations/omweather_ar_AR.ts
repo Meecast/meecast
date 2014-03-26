@@ -1223,13 +1223,15 @@ using Application manager</source>
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
+ Slovenian -  Boštjan,
+ Czech - Jakub Kožíšek, Pavel Šrubař,
  Chinese(Taiwan) - osk2, 
  Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation>الفرنسية -  Nicolas Granziano, 
+            <translation type="unfinished">الفرنسية -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  الروسية - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
@@ -1539,6 +1541,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Light Drizzle</source>
             <translation>رذار خفيف</translation>
+        </message>
+        <message>
+            <source>Light Freezing Drizzle</source>
+            <translation type="unfinished">رذار متجمد</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -2531,6 +2537,10 @@ Slovak - Roman Moravčík</source>
             <translation>أمطار وثلوج</translation>
         </message>
         <message>
+            <source>Rain and Snow</source>
+            <translation>أمطار وثلوج</translation>
+        </message>
+        <message>
             <source>Rain to Snow / Wind</source>
             <translation>أمطار مصحوبه بثلوج /رياح</translation>
         </message>
@@ -2835,12 +2845,21 @@ Slovak - Roman Moravčík</source>
             <translation>إظهار الأسهم</translation>
         </message>
         <message>
+            <source>Show last update time</source>
+            <translation type="unfinished">أخر تحديث:</translation>
+        </message>
+        <message>
             <source>Show on Map</source>
             <translation>إظهار على الخريطة</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
             <translation>عرض الطقس الحالي فقط في الأيقونة الاولى</translation>
+        </message>
+        <message>
+            <source>Show source logo</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Show station name</source>

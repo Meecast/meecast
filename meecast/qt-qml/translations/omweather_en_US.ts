@@ -1223,6 +1223,8 @@ using Application manager</translation>
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
+ Slovenian -  Boštjan,
+ Czech - Jakub Kožíšek, Pavel Šrubař,
  Chinese(Taiwan) - osk2, 
  Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
@@ -1539,6 +1541,10 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Light Drizzle</source>
             <translation>Light Drizzle</translation>
+        </message>
+        <message>
+            <source>Light Freezing Drizzle</source>
+            <translation type="unfinished">Freezing Drizzle</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -2532,6 +2538,10 @@ Slovak - Roman Moravčík</translation>
             <translation>Rain and Snow</translation>
         </message>
         <message>
+            <source>Rain and Snow</source>
+            <translation>Rain and Snow</translation>
+        </message>
+        <message>
             <source>Rain to Snow / Wind</source>
             <translation>Rain to Snow / Wind</translation>
         </message>
@@ -2836,12 +2846,21 @@ Slovak - Roman Moravčík</translation>
             <translation>Show arrows</translation>
         </message>
         <message>
+            <source>Show last update time</source>
+            <translation type="unfinished">Last update: </translation>
+        </message>
+        <message>
             <source>Show on Map</source>
             <translation>Show on Map</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
             <translation>Show only current weather on first icon</translation>
+        </message>
+        <message>
+            <source>Show source logo</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Show station name</source>

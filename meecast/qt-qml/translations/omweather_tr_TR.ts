@@ -1209,6 +1209,8 @@ paketini kaldırın.</translation>
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
+ Slovenian -  Boštjan,
+ Czech - Jakub Kožíšek, Pavel Šrubař,
  Chinese(Taiwan) - osk2, 
  Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
@@ -1240,6 +1242,8 @@ paketini kaldırın.</translation>
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
+ Slovenian -  Boštjan,
+ Czech - Jakub Kožíšek, Pavel Šrubař,
  Chinese(Taiwan) - osk2, 
  Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
@@ -1517,7 +1521,7 @@ Turkish - Burak Kaan Kose</translation>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation type="unfinished">Baş stilist</translation>
+            <translation>Lead designers</translation>
         </message>
         <message>
             <source>License</source>
@@ -1526,6 +1530,10 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Light Drizzle</source>
             <translation>Hafif Çiseleyen Yağmur</translation>
+        </message>
+        <message>
+            <source>Light Freezing Drizzle</source>
+            <translation>Hafif dondurucu çiseleme</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -1679,7 +1687,7 @@ Turkish - Burak Kaan Kose</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
-            <translation type="unfinished">MeeCast - OMWeathet kodu üzerine inşa edilmiş yüksek ölçüde özelleştirilebilir açık kaynaklı hava takmin istemcisi. Copyright (C) 2006-2013</translation>
+            <translation>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2518,6 +2526,10 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Yağmur ve Kar</translation>
         </message>
         <message>
+            <source>Rain and Snow</source>
+            <translation>Yağmur ve Kar</translation>
+        </message>
+        <message>
             <source>Rain to Snow / Wind</source>
             <translation>Karla Karışık Yağmur / Rüzgar</translation>
         </message>
@@ -2822,12 +2834,20 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Okları göster</translation>
         </message>
         <message>
+            <source>Show last update time</source>
+            <translation>Son güncelleme zamanını göster</translation>
+        </message>
+        <message>
             <source>Show on Map</source>
             <translation>Haritada Göster</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
             <translation>Ilk ikonda sadece şimdiki havadurumunu göster</translation>
+        </message>
+        <message>
+            <source>Show source logo</source>
+            <translation>Kaynak logosunu göster</translation>
         </message>
         <message>
             <source>Show station name</source>
@@ -3223,8 +3243,7 @@ hem 2.1 versiyonu ve hem de (isteginize göre) farklı bir ileriki version olabi
         <message>
             <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
 </source>
-            <translation>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose
-</translation>
+            <translation>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose\n</translation>
         </message>
         <message>
             <source>Transparency:</source>

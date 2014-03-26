@@ -5,6 +5,7 @@
 # Translators:
 # deadhead, 2013
 # deadhead, 2013
+# Jarno Liimatainen <jarliim@gmail.com>, 2014
 # Marko Vertainen <marko.vertainen@iki.fi>, 2012-2014
 # Pavel Fialko <pavelnf@gmail.com>, 2007
 # Vlad Vasiliev <vlad@gas.by>, 2007
@@ -13,10 +14,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2014-02-16 21:03+0300\n"
 "PO-Revision-Date: 2014-02-10 18:30+0000\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/meecast/language/fi_FI/)\n"
+=======
+"POT-Creation-Date: 2014-03-26 17:16+0300\n"
+"PO-Revision-Date: 2014-03-04 17:22+0000\n"
+"Last-Translator: Jarno Liimatainen <jarliim@gmail.com>\n"
+"Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
+"meecast/language/fi_FI/)\n"
+"Language: fi_FI\n"
+>>>>>>> master
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -232,7 +242,7 @@ msgstr "ap: Vesisadetta / Lumikuuroja / Tuulista"
 
 #: omweather/src/hash.data:17
 msgid "AM Rain / Wind"
-msgstr "ap: Vesiadetta / Tuulista"
+msgstr "ap: Vesisadetta / Tuulista"
 
 #: omweather/src/hash.data:20
 msgid "AM Showers"
@@ -497,7 +507,7 @@ msgstr "Pilvistä ja kevyttä vesisadetta"
 
 #: omweather/src/hash.data:42
 msgid "Cloudy and light snow"
-msgstr "Pilvistä ja kevyttä lumisdetta"
+msgstr "Pilvistä ja kevyttä lumisadetta"
 
 #: omweather/src/hash.data:43
 msgid "Cloudy and light wet snow"
@@ -509,7 +519,7 @@ msgstr "Pilvistä ja sadekuuroja"
 
 #: omweather/src/hash.data:45
 msgid "Cloudy and snow showers"
-msgstr "Puolipilvistä ja lumikuuroja"
+msgstr "Pilvistä ja lumikuuroja"
 
 #: omweather/src/hash.data:46
 msgid "Cloudy and wet snow showers"
@@ -705,7 +715,7 @@ msgstr "Idästä"
 
 #: omweather/src/hash.data:68
 msgid "ENE"
-msgstr "Itäkoilisesta"
+msgstr "Itäkoillisesta"
 
 #: omweather/src/hash.data:69
 msgid "ENE_short"
@@ -920,7 +930,6 @@ msgid "Freezing Drizzle"
 msgstr "Jäätävää tihkusadetta"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -955,7 +964,44 @@ msgid ""
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
+<<<<<<< HEAD
 msgstr "Ranska -  Nicolas Granziano, \n \tPhilippe, Benot Knecht \n Venäjä - Pavel Fialko, Vlad Vasiliev, \n \tEd Bartosh\n Suomi - Marko Vertainen\n Saksa -  Claudius Henrichs\n Italia - Lorenzo Facca,\n \tPavel Fialko, Alessandro Pasotti,\n \tSalvatore Fiorenzo, Ilir Gjika,\n \tLuca Onnis\n Espanja - Alejandro Lopez, Agustí Clara\n Puola - Tomasz Dominikowski\n Slovakia - Roman Moravčík\n Hollanti - Tom Leenders, Michiel Pater\n Bulgaria - Zlatko Enikov\n Albania - Ilir Gjika\n Kiina - Wong Man Kong, Michael\n Portugali - Jose Narciso,\n Turkki - Burak Kaan Kose,\n \tMehmet Çilingir,\n Katalaani - Agustí Clara,\n Arabia - Tarad Alfandi,\n Serbia - Aleksandar Zaric,\n Norja - Peer-Atle Motland,\n Unkari - Salmi,\n Kiina(Taiwan) - osk2, \n Vietnami - Hieu Nguyen\n \tAnh Dương and truongnx, \n Ruotsi - Angela Nennebrandt,\n \tNiklas Åkerström, \n \tTomislav Veleckovik"
+=======
+msgstr ""
+"Ranska -  Nicolas Granziano, \n"
+" \tPhilippe, Benot Knecht \n"
+" Venäjä - Pavel Fialko, Vlad Vasiliev, \n"
+" \tEd Bartosh\n"
+" Suomi - Marko Vertainen\n"
+" Saksa -  Claudius Henrichs\n"
+" Italia - Lorenzo Facca,\n"
+" \tPavel Fialko, Alessandro Pasotti,\n"
+" \tSalvatore Fiorenzo, Ilir Gjika,\n"
+" \tLuca Onnis\n"
+" Espanja - Alejandro Lopez, Agustí Clara\n"
+" Puola - Tomasz Dominikowski\n"
+" Slovakia - Roman Moravčík\n"
+" Hollanti - Tom Leenders, Michiel Pater\n"
+" Bulgaria - Zlatko Enikov\n"
+" Albania - Ilir Gjika\n"
+" Kiina - Wong Man Kong, Michael\n"
+" Portugula - Jose Narciso,\n"
+" Turkki - Burak Kaan Kose,\n"
+" \tMehmet Çilingir,\n"
+" Katalaani - Agustí Clara,\n"
+" Arabia - Tarad Alfandi,\n"
+" Serbia - Aleksandar Zaric,\n"
+" Norja - Peer-Atle Motland,\n"
+" Unkari - Salmi,\n"
+" Slovenia -  Boštjan,\n"
+" Tsekki - Jakub Kožíšek, Pavel Šrubař,\n"
+" Kiina (Taiwan) - osk2, \n"
+" Vietnami - Hieu Nguyen\n"
+" \tAnh Dương and truongnx, \n"
+" Ruotsi - Angela Nennebrandt,\n"
+" \tNiklas Åkerström, \n"
+" \tTomislav Veleckovik"
+>>>>>>> master
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1166,9 +1212,8 @@ msgid "Light Drizzle"
 msgstr "Kevyttä tihkusadetta"
 
 #: omweather/src/hash.data:105
-#, fuzzy
 msgid "Light Freezing Drizzle"
-msgstr "Jäätävää tihkusadetta"
+msgstr "Kevyttä jäätävää tihkusadetta"
 
 #: omweather/src/hash.data:104
 msgid "Light Freezing Rain"
@@ -1411,7 +1456,7 @@ msgstr "Enimmäkseen pilvistä, rankkaa lumisadetta"
 
 #: omweather/src/hash.data:146
 msgid "Mostly Cloudy, Heavy Snow, Freezing Rain"
-msgstr "Enimmäkseen pilvistä, rankkaa lumisadetta,  jäätävää sadetta"
+msgstr "Enimmäkseen pilvistä, rankkaa lumisadetta, jäätävää sadetta"
 
 #: omweather/src/hash.data:147
 msgid "Mostly Cloudy, Light Rain"
@@ -1469,7 +1514,7 @@ msgstr "N/A"
 
 #: omweather/src/hash.data:159
 msgid "NE"
-msgstr "Koilisesta"
+msgstr "Koillisesta"
 
 #: omweather/src/hash.data:160
 msgid "NE_short"
@@ -1477,7 +1522,7 @@ msgstr "NE"
 
 #: omweather/src/hash.data:161
 msgid "NNE"
-msgstr "Pohjoiskoilisesta"
+msgstr "Pohjoiskoillisesta"
 
 #: omweather/src/hash.data:162
 msgid "NNE_short"
@@ -1572,7 +1617,7 @@ msgstr "Nyt"
 
 #: omweather/src/weather-simple-settings.c:2880
 msgid "Now + 2 days vert."
-msgstr "Nyt + 2 päivää vaaka"
+msgstr "Nyt + 2 päivää pysty"
 
 #: omweather/src/weather-simple-settings.c:2889
 msgid "Now + 3 days hor."
@@ -1701,7 +1746,7 @@ msgstr "ip: Vesisadetta / Lumisadetta"
 
 #: omweather/src/hash.data:188
 msgid "PM Rain / Wind"
-msgstr "ip: Vesiadetta / Tuulista"
+msgstr "ip: Vesisadetta / Tuulista"
 
 #: omweather/src/hash.data:191
 msgid "PM Showers"
@@ -2139,7 +2184,7 @@ msgstr "Valitse kieli"
 
 #: meecast/qt-qml/qml/SourcePage.qml:108
 msgid "Select the weather source"
-msgstr "Valitse sään lähde"
+msgstr "Valitse sääpalvelu"
 
 #: omweather/src/weather-simple-settings.c:1035
 #, c-format
@@ -2209,9 +2254,8 @@ msgid "Show arrows"
 msgstr "Näytä nuolet"
 
 #: omweather/src/hash.data:362
-#, fuzzy
 msgid "Show last update time"
-msgstr "Päivitetty: "
+msgstr "Näytä päivityksen ajankohta"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:621
 msgid "Show on Map"
@@ -2223,7 +2267,7 @@ msgstr "Nykyinen säätieto ensimmäisessä kuvakkeessa"
 
 #: omweather/src/hash.data:361
 msgid "Show source logo"
-msgstr ""
+msgstr "Näytä sääpalvelun logo"
 
 #: omweather/src/weather-settings.c:3801
 msgid "Show station name"
@@ -2474,7 +2518,12 @@ msgstr "Ei sääasemia tässä näkymässä"
 
 #: omweather/src/hash.data:359
 msgid "This is experimental feature. Only English is supported."
+<<<<<<< HEAD
 msgstr "Tämä on kokeellinen toiminto ja tukee toistaiseksi vain Englannin kieltä."
+=======
+msgstr ""
+"Tämä on kokeellinen toiminto ja tukee toistaiseksi vain englannin kieltä."
+>>>>>>> master
 
 #: meecast/qt-qml/qml/AboutPage.qml:310
 msgid ""
@@ -2834,7 +2883,13 @@ msgstr "Zoomaus ponnahdusikkunassa"
 msgid ""
 "as published by the Free Software Foundation; either version 2.1 of the "
 "License, or (at your option) any later version."
+<<<<<<< HEAD
 msgstr "kuten Free Software Foundationin julkaisu; käyttäen joko lisenssin versiota 2.1 tai  (valinnan mukaan) myöhemmän version ehtojen mukaisesti."
+=======
+msgstr ""
+"kuten Free Software Foundationin julkaisu; käyttäen joko lisenssin versiota "
+"2.1 tai (valinnan mukaan) myöhemmän version ehtojen mukaisesti."
+>>>>>>> master
 
 #: omweather/src/weather-popup.c:286
 msgid "current location local time"

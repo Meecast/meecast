@@ -4,14 +4,14 @@
 #
 # Translators:
 # Burak Kaan Kose <bkaankose@gmail.com>, 2012
-# fnldstntn <mehmetfnldstntn@gmail.com>, 2013
+# fnldstntn <mehmetfnldstntn@gmail.com>, 2013-2014
 # Vlad Vas <vasvlad@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-16 21:03+0300\n"
-"PO-Revision-Date: 2013-12-04 14:20+0000\n"
+"POT-Creation-Date: 2014-03-26 17:16+0300\n"
+"PO-Revision-Date: 2014-02-27 15:22+0000\n"
 "Last-Translator: fnldstntn <mehmetfnldstntn@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/meecast/language/"
 "tr/)\n"
@@ -980,7 +980,6 @@ msgid "Freezing Drizzle"
 msgstr "Dondurucu Çiseleyen Yagmur"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1041,6 +1040,8 @@ msgstr ""
 " Serbian - Aleksandar Zaric,\n"
 " Norwegian - Peer-Atle Motland,\n"
 " Hungarian - Salmi,\n"
+" Slovenian -  Boštjan,\n"
+" Czech - Jakub Kožíšek, Pavel Šrubař,\n"
 " Chinese(Taiwan) - osk2, \n"
 " Vietnamese - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
@@ -1258,9 +1259,8 @@ msgid "Layout:"
 msgstr "Düzen"
 
 #: meecast/qt-qml/qml/AboutPage.qml:186
-#, fuzzy
 msgid "Lead designers"
-msgstr "Baş stilist"
+msgstr "Lead designers"
 
 #: meecast/qt-qml/qml/AboutPage.qml:301
 msgid "License"
@@ -1271,9 +1271,8 @@ msgid "Light Drizzle"
 msgstr "Hafif Çiseleyen Yağmur"
 
 #: omweather/src/hash.data:105
-#, fuzzy
 msgid "Light Freezing Drizzle"
-msgstr "Dondurucu Çiseleyen Yagmur"
+msgstr "Hafif dondurucu çiseleme"
 
 #: omweather/src/hash.data:104
 msgid "Light Freezing Rain"
@@ -1416,14 +1415,12 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2014"
 msgstr ""
-"MeeCast - OMWeathet kodu üzerine inşa edilmiş yüksek ölçüde "
-"özelleştirilebilir açık kaynaklı hava takmin istemcisi. Copyright (C) "
-"2006-2013"
+"MeeCast - multiplatform highly customizable open source weather forecast "
+"client based on OMWeather code. Copyright (C) 2006-2014"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -2318,9 +2315,8 @@ msgid "Show arrows"
 msgstr "Okları göster"
 
 #: omweather/src/hash.data:362
-#, fuzzy
 msgid "Show last update time"
-msgstr "Son güncelleme:"
+msgstr "Son güncelleme zamanını göster"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:621
 msgid "Show on Map"
@@ -2332,7 +2328,7 @@ msgstr "Ilk ikonda sadece şimdiki havadurumunu göster"
 
 #: omweather/src/hash.data:361
 msgid "Show source logo"
-msgstr ""
+msgstr "Kaynak logosunu göster"
 
 #: omweather/src/weather-settings.c:3801
 msgid "Show station name"
@@ -2635,7 +2631,7 @@ msgid ""
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 msgstr ""
 "Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - "
-"Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose\n"
+"Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose\\n"
 
 #: omweather/src/weather-settings.c:3272 omweather/src/weather-settings.c:3277
 #: omweather/src/weather-settings.c:3295

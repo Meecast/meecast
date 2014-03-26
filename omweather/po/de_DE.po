@@ -4,14 +4,15 @@
 #
 # Translators:
 # Cristian Măgherușan-Stanciu <cristi.magherusan@gmail.com>, 2012
+# jklingen <jklingen@users.sourceforge.net>, 2014
 # Vlad Vas <vasvlad@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-16 21:03+0300\n"
-"PO-Revision-Date: 2013-09-15 09:59+0000\n"
-"Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
+"POT-Creation-Date: 2014-03-26 17:16+0300\n"
+"PO-Revision-Date: 2014-03-22 23:16+0000\n"
+"Last-Translator: jklingen <jklingen@users.sourceforge.net>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/meecast/"
 "language/de_DE/)\n"
 "Language: de_DE\n"
@@ -147,7 +148,7 @@ msgstr "10 Sekunden"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:175
 msgid "12 hours"
-msgstr ""
+msgstr "12 Stunden"
 
 #: omweather/src/weather-sensor.c:151 meecast/qt-qml/qml/UpdatePage.qml:140
 msgid "15 minutes"
@@ -400,7 +401,7 @@ msgstr "Wetterdaten bei Internetverbindung aktualisieren"
 
 #: omweather/src/hash.data:333
 msgid "Back"
-msgstr ""
+msgstr "Zurück"
 
 #: omweather/src/weather-settings.c:3378 omweather/src/weather-settings.c:3382
 msgid "Background color:"
@@ -460,7 +461,7 @@ msgstr "Celsius"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:114
 msgid "Celsius"
-msgstr ""
+msgstr "Celsius"
 
 #: omweather/src/weather-simple-settings.c:677
 #: omweather/src/weather-simple-settings.c:710
@@ -559,11 +560,11 @@ msgstr "Bewölkt und Schneeschauer"
 
 #: omweather/src/hash.data:46
 msgid "Cloudy and wet snow showers"
-msgstr ""
+msgstr "Bewölkt mit Schneeschauern"
 
 #: omweather/src/hash.data:354
 msgid "Cloudy with occasional rain."
-msgstr ""
+msgstr "Bewölkt mit gelegentlichem Regen"
 
 #: omweather/src/hash.data:48
 msgid "Cloudy, Drifting Snow"
@@ -657,7 +658,7 @@ msgstr "Angepasst"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:183
 msgid "Daily"
-msgstr ""
+msgstr "Täglich"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
 #: meecast/qt-qml/qml/FullWeatherPage.qml:194
@@ -1127,7 +1128,7 @@ msgstr "Hoch"
 
 #: omweather/src/hash.data:332
 msgid "Hourly"
-msgstr ""
+msgstr "Stündlich"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:296
 msgid "Hours"
@@ -1196,7 +1197,7 @@ msgstr ""
 
 #: omweather/src/hash.data:334
 msgid "Language"
-msgstr ""
+msgstr "Sprache"
 
 #: omweather/src/hash.data:100
 msgid "Last Quarter"
@@ -1230,9 +1231,8 @@ msgid "Layout:"
 msgstr "Layout:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:186
-#, fuzzy
 msgid "Lead designers"
-msgstr "Chefdesigner"
+msgstr ""
 
 #: meecast/qt-qml/qml/AboutPage.qml:301
 msgid "License"
@@ -1243,9 +1243,8 @@ msgid "Light Drizzle"
 msgstr "Leichter Nieselregen"
 
 #: omweather/src/hash.data:105
-#, fuzzy
 msgid "Light Freezing Drizzle"
-msgstr "Überfrierender Nieselregen"
+msgstr ""
 
 #: omweather/src/hash.data:104
 msgid "Light Freezing Rain"
@@ -1320,9 +1319,8 @@ msgid "Light Snow Shower"
 msgstr "Leichte Schneeschauer"
 
 #: omweather/src/hash.data:342
-#, fuzzy
 msgid "Light intensity drizzle"
-msgstr "Leichte Regenschauer"
+msgstr ""
 
 #: omweather/src/hash.data:356
 msgid "Light intensity shower rain"
@@ -1334,7 +1332,7 @@ msgstr "Leichter Regen"
 
 #: omweather/src/hash.data:341
 msgid "Light snow"
-msgstr ""
+msgstr "Leichter Schneefall"
 
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
@@ -1362,7 +1360,7 @@ msgstr "Niedrig"
 
 #: omweather/src/hash.data:353
 msgid "Mainly cloudy with occasional rain."
-msgstr ""
+msgstr "Weitgehend bewölkt mit leichtem Regen"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
@@ -1719,7 +1717,7 @@ msgstr "Bedeckt und leichter Schneeregen"
 
 #: omweather/src/hash.data:174
 msgid "Overcast and rain"
-msgstr ""
+msgstr "Bedeckt und Regen"
 
 #: omweather/src/hash.data:175
 msgid "Overcast and showers"
@@ -1966,15 +1964,15 @@ msgstr "Luftdruck: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
 msgid "Programmer"
-msgstr ""
+msgstr "Programmierer"
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
 msgid "Project administrators"
-msgstr ""
+msgstr "Projekt-Administratoren"
 
 #: meecast/qt-qml/qml/AboutPage.qml:202
 msgid "Project manager"
-msgstr ""
+msgstr "Projektmanager"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:922
 msgid "Provided by"
@@ -2213,7 +2211,7 @@ msgstr "Symbolsatz wählen"
 
 #: meecast/qt-qml/qml/LanguagesPage.qml:130
 msgid "Select the language"
-msgstr ""
+msgstr "Sprache wählen"
 
 #: meecast/qt-qml/qml/SourcePage.qml:108
 msgid "Select the weather source"
@@ -2287,9 +2285,8 @@ msgid "Show arrows"
 msgstr "Pfeile anzeigen"
 
 #: omweather/src/hash.data:362
-#, fuzzy
 msgid "Show last update time"
-msgstr "Letzte Aktualisierung: "
+msgstr ""
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:621
 msgid "Show on Map"
@@ -2405,7 +2402,7 @@ msgstr "Quelle"
 
 #: meecast/qt-qml/qml/AboutPage.qml:323
 msgid "Source code"
-msgstr ""
+msgstr "Quelltext"
 
 #: omweather/src/weather-settings.c:498
 msgid "Source:"
@@ -2460,7 +2457,7 @@ msgstr "Sonnig / Wind"
 
 #: omweather/src/hash.data:351 omweather/src/hash.data:352
 msgid "Sunny periods and a few showers."
-msgstr ""
+msgstr "Teilweise sonnig mit wenigen Schauern."
 
 #: omweather/src/hash.data:287 meecast/qt-qml/qml/FullWeatherPage.qml:308
 msgid "Sunrise:"
@@ -2480,7 +2477,7 @@ msgstr "Sonnenuntergang: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:86
 msgid "Support"
-msgstr ""
+msgstr "Unterstützung"
 
 #: omweather/src/weather-settings.c:3773
 msgid "Swap hi/low temperature"
@@ -2731,9 +2728,8 @@ msgid "Voice forecast button on a widget"
 msgstr ""
 
 #: omweather/src/hash.data:360
-#, fuzzy
 msgid "Voice weather forecast"
-msgstr "OMWeather Vorhersage"
+msgstr ""
 
 #: omweather/src/hash.data:303
 msgid "W"

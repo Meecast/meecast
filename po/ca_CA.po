@@ -4,14 +4,14 @@
 #
 # Translators:
 # agustí clara <agusti.clara@gmail.com>, 2012
-# agustí clara <agusti.clara@gmail.com>, 2013
+# agustí clara <agusti.clara@gmail.com>, 2013-2014
 # Vlad Vas <vasvlad@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-16 21:03+0300\n"
-"PO-Revision-Date: 2013-11-28 14:57+0000\n"
+"POT-Creation-Date: 2014-03-26 17:16+0300\n"
+"PO-Revision-Date: 2014-02-18 10:34+0000\n"
 "Last-Translator: agustí clara <agusti.clara@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/meecast/language/"
 "ca/)\n"
@@ -988,7 +988,6 @@ msgid "Freezing Drizzle"
 msgstr "Plugims gebradors"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1049,6 +1048,8 @@ msgstr ""
 " Serbi - Aleksandar Zaric,\n"
 " Noruec - Peer-Atle Motland,\n"
 " Hongarès - Salmi,\n"
+" Eslovè - Boštjan, \n"
+" Txec - Jakub Kožíšek, Pavel Šrubař,\n"
 " Xinès (Taiwan) - osk2,\n"
 " Vietnamita - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
@@ -1267,9 +1268,8 @@ msgid "Layout:"
 msgstr "Format:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:186
-#, fuzzy
 msgid "Lead designers"
-msgstr "Dissenyador principal"
+msgstr "Dissenyadors principals"
 
 #: meecast/qt-qml/qml/AboutPage.qml:301
 msgid "License"
@@ -1280,9 +1280,8 @@ msgid "Light Drizzle"
 msgstr "Plugims suaus"
 
 #: omweather/src/hash.data:105
-#, fuzzy
 msgid "Light Freezing Drizzle"
-msgstr "Plugims gebradors"
+msgstr "Plugims gebradrors suaus"
 
 #: omweather/src/hash.data:104
 msgid "Light Freezing Rain"
@@ -1425,14 +1424,13 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2014"
 msgstr ""
 "MeeCast - client de pronòstics del temps de codi obert, de fàcil "
 "personalització i multiplataforma, basat en el codi d'OMWeather. Copyright "
-"(C) 2006-2013"
+"(C) 2006-2014"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -2327,9 +2325,8 @@ msgid "Show arrows"
 msgstr "Mostra fletxes"
 
 #: omweather/src/hash.data:362
-#, fuzzy
 msgid "Show last update time"
-msgstr "Última actualització:"
+msgstr "Mostra l'hora de l'última actualització"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:621
 msgid "Show on Map"
@@ -2341,7 +2338,7 @@ msgstr "Mostra només el temps actual a la primera icona"
 
 #: omweather/src/hash.data:361
 msgid "Show source logo"
-msgstr ""
+msgstr "Mostra el logo del proveïdor de dades"
 
 #: omweather/src/weather-settings.c:3801
 msgid "Show station name"
@@ -2694,7 +2691,7 @@ msgstr "Il·limitat"
 #: omweather/src/weather-settings.c:1142 omweather/src/weather-settings.c:1348
 #: omweather/src/weather-settings.c:1352
 msgid "Update"
-msgstr "Actualitza"
+msgstr "Actualitzacions"
 
 #: omweather/src/weather-download.c:425
 msgid "Update already running."

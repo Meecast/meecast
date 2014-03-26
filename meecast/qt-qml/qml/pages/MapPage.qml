@@ -28,7 +28,7 @@ Page {
             source: filenamebackground 
             opacity: 1
             // For Full Screen
-            transform: Rotation { origin.x: 240; origin.y: 240; angle: 90}
+            transform: Rotation { origin.x: 270; origin.y: 270; angle: 90}
 //            MouseArea {
 //                anchors.fill: parent
 //                onClicked: {
@@ -50,7 +50,7 @@ Page {
             source: filename 
             opacity: 1
             // For Full Screen
-            transform: Rotation { origin.x: 240; origin.y: 240; angle: 90}
+            transform: Rotation { origin.x: 270; origin.y: 270; angle: 90}
             MouseArea {
                 anchors.fill: parent
                 onClicked: {

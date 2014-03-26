@@ -96,6 +96,7 @@ desktop-file-install --delete-original       \
   * Fixed problem with crashing application with foreca.com data
   * Changed order of items in PullMenu
   * Fixed font size in station name on Cover Page
+  * Fixed problem with size of map image
 
 * Sun Feb 23 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.14.1
   * Fixed problem with downloading

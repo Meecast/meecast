@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Peer-Atle Motland <PeerAtle@online.no>, 2012-2013
+# Peer-Atle Motland <PeerAtle@online.no>, 2012-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-16 21:03+0300\n"
-"PO-Revision-Date: 2013-12-02 21:57+0000\n"
+"POT-Creation-Date: 2014-03-26 17:16+0300\n"
+"PO-Revision-Date: 2014-02-24 18:07+0000\n"
 "Last-Translator: Peer-Atle Motland <PeerAtle@online.no>\n"
 "Language-Team: Norwegian (Norway) (http://www.transifex.com/projects/p/"
 "meecast/language/no_NO/)\n"
@@ -987,7 +987,6 @@ msgid "Freezing Drizzle"
 msgstr "Underkjølt Yr"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1048,10 +1047,12 @@ msgstr ""
 " Serbisk - Aleksandar Zaric,\n"
 " Norsk - Peer-Atle Motland,\n"
 " Ungarsk - Salmi,\n"
+" Slovensk -  Boštjan,\n"
+" Tsjekkisk - Jakub Kožíšek, Pavel Šrubař,\n"
 " Kinesisk(Taiwan) - osk2, \n"
-" Vietnamesisk - Hieu Nguyen\n"
+" Vietnamese - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
-" Svensk - Angela Nennebrandt,\n"
+" Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 
@@ -1264,9 +1265,8 @@ msgid "Layout:"
 msgstr "Layout:"
 
 #: meecast/qt-qml/qml/AboutPage.qml:186
-#, fuzzy
 msgid "Lead designers"
-msgstr "Sjef designer"
+msgstr "Sjef designere"
 
 #: meecast/qt-qml/qml/AboutPage.qml:301
 msgid "License"
@@ -1277,9 +1277,8 @@ msgid "Light Drizzle"
 msgstr "Lett Duskregn"
 
 #: omweather/src/hash.data:105
-#, fuzzy
 msgid "Light Freezing Drizzle"
-msgstr "Underkjølt Yr"
+msgstr "Lett Underkjølt Yr"
 
 #: omweather/src/hash.data:104
 msgid "Light Freezing Rain"
@@ -1422,13 +1421,12 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2014"
 msgstr ""
 "MeeCast - multiplattform lett tilpasselig åpen kildekode værmeldings klient "
-"basert på OMWeather kode. Copyright (C) 2006-2013"
+"basert på OMWeather kode. Copyright (C) 2006-2014"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -2323,9 +2321,8 @@ msgid "Show arrows"
 msgstr "Vis piler"
 
 #: omweather/src/hash.data:362
-#, fuzzy
 msgid "Show last update time"
-msgstr "Sist oppdatert: "
+msgstr "Vis sist oppdatert"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:621
 msgid "Show on Map"
@@ -2337,7 +2334,7 @@ msgstr "Vis bare været på første ikon"
 
 #: omweather/src/hash.data:361
 msgid "Show source logo"
-msgstr ""
+msgstr "Vis værkilde logo"
 
 #: omweather/src/weather-settings.c:3801
 msgid "Show station name"

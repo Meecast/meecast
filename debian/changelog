@@ -2,7 +2,7 @@ meecast (0.8.15) unstable; urgency=low
 
   * Updated Denmark for openstreetmap.org 
   * Fixed problem with crashing application with foreca.com data
-  * Updated Catalan, Czech translations
+  * Updated Catalan, Czech, Finnish translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 18 Feb 2014 12:31:23 +0200
 

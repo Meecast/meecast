@@ -618,7 +618,6 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
                 *child_node3 = NULL;
     xmlChar     *temp_xml_string = NULL;
     gint        count_hour = 0;
-    gchar       buff[256];
     struct tm   tmp_tm = {0};
     struct tm   last_update_time = {0};
     GSList      *hour_weather = NULL;

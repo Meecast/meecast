@@ -32,17 +32,17 @@ Component {
             }
             PullDownMenu {
                 MenuItem {
-                    id: item1menu
-                    text: Config.tr("Settings")
-                    onClicked: {
-                         openFile("SettingsPage.qml");
-                    }
-                }
-                MenuItem {
                     id: item2menu
                     text: Config.tr("Update")
                     onClicked: {
                         if (!isUpdate) main.update();
+                    }
+                }
+                MenuItem {
+                    id: item1menu
+                    text: Config.tr("Settings")
+                    onClicked: {
+                         openFile("SettingsPage.qml");
                     }
                 }
 		/*

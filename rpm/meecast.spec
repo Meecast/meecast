@@ -92,6 +92,7 @@ desktop-file-install --delete-original       \
 %changelog
 * Sun Feb 23 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.15.1
   * Updated Denmark for openstreetmap.org 
+  * Disabled menu item "Adjust GPS station"
 
 * Sun Feb 23 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.14.1
   * Fixed problem with downloading

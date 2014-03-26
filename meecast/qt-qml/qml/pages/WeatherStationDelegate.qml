@@ -45,6 +45,7 @@ Component {
                         if (!isUpdate) main.update();
                     }
                 }
+		/*
                 MenuItem {
                     id: item3menu
                     visible: menuitemgps
@@ -52,7 +53,8 @@ Component {
                     onClicked: {
                         Config.updategpsstation();
                     }
-                }
+	        }
+                */
                 MenuItem {
                      id: item4menu
                      text: Config.tr("About")

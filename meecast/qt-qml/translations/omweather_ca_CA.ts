@@ -1223,6 +1223,8 @@ utilitzant el Gestor d'aplicacions</translation>
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
+ Slovenian -  Boštjan,
+ Czech - Jakub Kožíšek, Pavel Šrubař,
  Chinese(Taiwan) - osk2, 
  Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
@@ -1254,6 +1256,8 @@ utilitzant el Gestor d'aplicacions</translation>
  Serbi - Aleksandar Zaric,
  Noruec - Peer-Atle Motland,
  Hongarès - Salmi,
+ Eslovè - Boštjan, 
+ Txec - Jakub Kožíšek, Pavel Šrubař,
  Xinès (Taiwan) - osk2,
  Vietnamita - Hieu Nguyen
  	Anh Dương and truongnx, 
@@ -1532,7 +1536,7 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation type="unfinished">Dissenyador principal</translation>
+            <translation>Dissenyadors principals</translation>
         </message>
         <message>
             <source>License</source>
@@ -1541,6 +1545,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>Light Drizzle</source>
             <translation>Plugims suaus</translation>
+        </message>
+        <message>
+            <source>Light Freezing Drizzle</source>
+            <translation>Plugims gebradrors suaus</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -1694,7 +1702,7 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
-            <translation type="unfinished">MeeCast - client de pronòstics del temps de codi obert, de fàcil personalització i multiplataforma, basat en el codi d'OMWeather. Copyright (C) 2006-2013</translation>
+            <translation>MeeCast - client de pronòstics del temps de codi obert, de fàcil personalització i multiplataforma, basat en el codi d'OMWeather. Copyright (C) 2006-2014</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2533,6 +2541,10 @@ Català - Agustí Clara</translation>
             <translation>Pluja i Neu</translation>
         </message>
         <message>
+            <source>Rain and Snow</source>
+            <translation>Pluja i Neu</translation>
+        </message>
+        <message>
             <source>Rain to Snow / Wind</source>
             <translation>De Pluja a Neu / Vent</translation>
         </message>
@@ -2837,12 +2849,20 @@ Català - Agustí Clara</translation>
             <translation>Mostra fletxes</translation>
         </message>
         <message>
+            <source>Show last update time</source>
+            <translation>Mostra l'hora de l'última actualització</translation>
+        </message>
+        <message>
             <source>Show on Map</source>
             <translation>Mostra al mapa</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
             <translation>Mostra només el temps actual a la primera icona</translation>
+        </message>
+        <message>
+            <source>Show source logo</source>
+            <translation>Mostra el logo del proveïdor de dades</translation>
         </message>
         <message>
             <source>Show station name</source>
@@ -3353,15 +3373,15 @@ qualsevol versió posterior.</translation>
         </message>
         <message>
             <source>Update</source>
-            <translation>Actualitza</translation>
+            <translation>Actualitzacions</translation>
         </message>
         <message>
             <source>Update</source>
-            <translation>Actualitza</translation>
+            <translation>Actualitzacions</translation>
         </message>
         <message>
             <source>Update</source>
-            <translation>Actualitza</translation>
+            <translation>Actualitzacions</translation>
         </message>
         <message>
             <source>Update already running.</source>

@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# agustí clara <agusti.clara@gmail.com>, 2013
+# agustí clara <agusti.clara@gmail.com>, 2013-2014
 # Alejandro López <listas.apl@gmail.com>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-16 21:03+0300\n"
-"PO-Revision-Date: 2013-11-28 14:59+0000\n"
+"POT-Creation-Date: 2014-03-26 17:16+0300\n"
+"PO-Revision-Date: 2014-02-18 10:40+0000\n"
 "Last-Translator: agustí clara <agusti.clara@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/meecast/language/"
 "es/)\n"
@@ -985,7 +985,6 @@ msgid "Freezing Drizzle"
 msgstr "Llovisna helada"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1046,7 +1045,9 @@ msgstr ""
 " Serbio - Aleksandar Zaric,\n"
 " Noruego - Peer-Atle Motland,\n"
 " Húngaro - Salmi,\n"
-" Chinese(Taiwan) - osk2,\n"
+" Esloveno - Boštjan,\n"
+" Checo - Jakub Kožíšek, Pavel Šrubař,\n"
+" Chino (Taiwan) - osk2,\n"
 " Vietnamita - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
 " Sueco - Angela Nennebrandt,\n"
@@ -1262,9 +1263,8 @@ msgid "Layout:"
 msgstr "Distribución: "
 
 #: meecast/qt-qml/qml/AboutPage.qml:186
-#, fuzzy
 msgid "Lead designers"
-msgstr "Diseñador líder"
+msgstr "Diseñadores principales"
 
 #: meecast/qt-qml/qml/AboutPage.qml:301
 msgid "License"
@@ -1275,9 +1275,8 @@ msgid "Light Drizzle"
 msgstr "Lloviznas leves"
 
 #: omweather/src/hash.data:105
-#, fuzzy
 msgid "Light Freezing Drizzle"
-msgstr "Llovisna helada"
+msgstr "Llovizna helada ligera"
 
 #: omweather/src/hash.data:104
 msgid "Light Freezing Rain"
@@ -1420,14 +1419,13 @@ msgid "MeeCast"
 msgstr "MeeCast"
 
 #: meecast/qt-qml/qml/AboutPage.qml:77
-#, fuzzy
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2014"
 msgstr ""
 "MeeCast - cliente de pronósticos del tiempo de código abierto, altamente "
 "personalizable y multiplataforma, basado en el código de OMWeather. "
-"Copyright (C) 2006-2013"
+"Copyright (C) 2006-2014"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -2322,9 +2320,8 @@ msgid "Show arrows"
 msgstr "Mostrar flechas"
 
 #: omweather/src/hash.data:362
-#, fuzzy
 msgid "Show last update time"
-msgstr "Última actualización: "
+msgstr "Mostrar la hora de la última actualización"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:621
 msgid "Show on Map"
@@ -2336,7 +2333,7 @@ msgstr "Clima actual en el primer ícono"
 
 #: omweather/src/hash.data:361
 msgid "Show source logo"
-msgstr ""
+msgstr "Mostrar el logo del proveedor de datos"
 
 #: omweather/src/weather-settings.c:3801
 msgid "Show station name"

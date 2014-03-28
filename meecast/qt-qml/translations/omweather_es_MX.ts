@@ -1234,6 +1234,8 @@ el Administrador de Aplicaciones.</translation>
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
+ Slovenian -  Boštjan,
+ Czech - Jakub Kožíšek, Pavel Šrubař,
  Chinese(Taiwan) - osk2, 
  Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
@@ -1534,6 +1536,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Light Drizzle</source>
             <translation>Lloviznas leves</translation>
+        </message>
+        <message>
+            <source>Light Freezing Drizzle</source>
+            <translation type="unfinished">Llovisna helada</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -2529,6 +2535,10 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Lluvia / Nieve</translation>
         </message>
         <message>
+            <source>Rain and Snow</source>
+            <translation>Lluvia / Nieve</translation>
+        </message>
+        <message>
             <source>Rain to Snow / Wind</source>
             <translation>Lluvia luego nieve / Viento</translation>
         </message>
@@ -2840,12 +2850,21 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Mostrar flechas</translation>
         </message>
         <message>
+            <source>Show last update time</source>
+            <translation type="unfinished">Última actualización: </translation>
+        </message>
+        <message>
             <source>Show on Map</source>
             <translation type="unfinished">Mostrar nombre de la estación</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
             <translation>Clima actual en el primer ícono</translation>
+        </message>
+        <message>
+            <source>Show source logo</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Show station name</source>

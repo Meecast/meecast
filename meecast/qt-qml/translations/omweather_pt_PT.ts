@@ -1222,6 +1222,8 @@ usando o Gestor de Aplicações</translation>
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
+ Slovenian -  Boštjan,
+ Czech - Jakub Kožíšek, Pavel Šrubař,
  Chinese(Taiwan) - osk2, 
  Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
@@ -1539,6 +1541,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Light Drizzle</source>
             <translation>Chuviscos</translation>
+        </message>
+        <message>
+            <source>Light Freezing Drizzle</source>
+            <translation type="unfinished">Gelo</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -2531,6 +2537,10 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Chuva e Neve</translation>
         </message>
         <message>
+            <source>Rain and Snow</source>
+            <translation>Chuva e Neve</translation>
+        </message>
+        <message>
             <source>Rain to Snow / Wind</source>
             <translation>Chuva para Neve / Vento</translation>
         </message>
@@ -2835,12 +2845,21 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Mostrar setas</translation>
         </message>
         <message>
+            <source>Show last update time</source>
+            <translation type="unfinished">Ultima atualização:</translation>
+        </message>
+        <message>
             <source>Show on Map</source>
             <translation>Mostrar no mapa</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
             <translation>Mostrar apenas tempo actual no primeiro icon</translation>
+        </message>
+        <message>
+            <source>Show source logo</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Show station name</source>

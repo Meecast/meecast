@@ -1223,6 +1223,8 @@ koristeći Menadžer aplikacija</translation>
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
+ Slovenian -  Boštjan,
+ Czech - Jakub Kožíšek, Pavel Šrubař,
  Chinese(Taiwan) - osk2, 
  Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
@@ -1254,6 +1256,8 @@ koristeći Menadžer aplikacija</translation>
  Srpski - Aleksandar Zarić,
  Norveški - Peer-Atle Motland,
  Mađarski - Salmi,
+ Slovenački -  Boštjan,
+ Češki - Jakub Kožíšek, Pavel Šrubař,
  Kineski(Tajvanski) - osk2, 
  Vijetnamski - Hieu Nguyen
  	Anh Dương and truongnx, 
@@ -1531,7 +1535,7 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation type="unfinished">Glavni dizajner</translation>
+            <translation>Glavni dizajneri</translation>
         </message>
         <message>
             <source>License</source>
@@ -1540,6 +1544,10 @@ Slovački - Roman Moravčík</translation>
         <message>
             <source>Light Drizzle</source>
             <translation>Blako rominjanje kiše</translation>
+        </message>
+        <message>
+            <source>Light Freezing Drizzle</source>
+            <translation>Blaga ledena kiša</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -1693,7 +1701,7 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
-            <translation type="unfinished">MeeCast - Klijent visoko podešavajuće vremenske prognoze otvorenog koda za više platformi baziran na OMWeather kodu. Copyright (C) 2006-2013</translation>
+            <translation>MeeCast - višeplatformni visoko podešavajući klijent vremenske prognoze otvorenog koda baziran na OMWeather kodu. Copyright (C) 2006-2014</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2532,6 +2540,10 @@ Slovački - Roman Moravčík</translation>
             <translation>Kiša i sneg</translation>
         </message>
         <message>
+            <source>Rain and Snow</source>
+            <translation>Kiša i sneg</translation>
+        </message>
+        <message>
             <source>Rain to Snow / Wind</source>
             <translation>Iz kiše u sneg / Vetar</translation>
         </message>
@@ -2836,12 +2848,20 @@ Slovački - Roman Moravčík</translation>
             <translation>Prikaži strelice</translation>
         </message>
         <message>
+            <source>Show last update time</source>
+            <translation>Prikaži poslednje vreme ažuriranja</translation>
+        </message>
+        <message>
             <source>Show on Map</source>
             <translation>Prikaži na mapi</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
             <translation>Prikaži samo trenutno vreme na prvoj ikoni</translation>
+        </message>
+        <message>
+            <source>Show source logo</source>
+            <translation>Prikaži izvorni logo</translation>
         </message>
         <message>
             <source>Show station name</source>

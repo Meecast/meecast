@@ -32,13 +32,6 @@ Component {
             }
             PullDownMenu {
                 MenuItem {
-                    id: item1menu
-                    text: Config.tr("Settings")
-                    onClicked: {
-                         openFile("SettingsPage.qml");
-                    }
-                }
-                MenuItem {
                     id: item2menu
                     text: Config.tr("Update")
                     onClicked: {
@@ -46,13 +39,22 @@ Component {
                     }
                 }
                 MenuItem {
+                    id: item1menu
+                    text: Config.tr("Settings")
+                    onClicked: {
+                         openFile("SettingsPage.qml");
+                    }
+                }
+		/*
+                MenuItem {
                     id: item3menu
                     visible: menuitemgps
                     text: Config.tr("Adjust GPS station")
                     onClicked: {
                         Config.updategpsstation();
                     }
-                }
+	        }
+                */
                 MenuItem {
                      id: item4menu
                      text: Config.tr("About")

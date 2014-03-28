@@ -1227,6 +1227,8 @@ using Application manager</source>
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
+ Slovenian -  Boštjan,
+ Czech - Jakub Kožíšek, Pavel Šrubař,
  Chinese(Taiwan) - osk2, 
  Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
@@ -1515,6 +1517,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>Light Drizzle</source>
             <translation>Лек ръмеж</translation>
+        </message>
+        <message>
+            <source>Light Freezing Drizzle</source>
+            <translation type="unfinished">Леден ръмеж</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -2508,6 +2514,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Дъжд и Сняг</translation>
         </message>
         <message>
+            <source>Rain and Snow</source>
+            <translation>Дъжд и Сняг</translation>
+        </message>
+        <message>
             <source>Rain to Snow / Wind</source>
             <translation>Дъжд към Сняг/Вятър</translation>
         </message>
@@ -2812,12 +2822,21 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Покажи стрелки</translation>
         </message>
         <message>
+            <source>Show last update time</source>
+            <translation type="unfinished">Последно опресняване: </translation>
+        </message>
+        <message>
             <source>Show on Map</source>
             <translation>Покажи карта</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
             <translation>Показвай само текущите метео условия на първата иконка</translation>
+        </message>
+        <message>
+            <source>Show source logo</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Show station name</source>

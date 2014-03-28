@@ -1249,6 +1249,8 @@ using Application manager</source>
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
+ Slovenian -  Boštjan,
+ Czech - Jakub Kožíšek, Pavel Šrubař,
  Chinese(Taiwan) - osk2, 
  Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
@@ -1565,6 +1567,10 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Light Drizzle</source>
             <translation>微雨</translation>
+        </message>
+        <message>
+            <source>Light Freezing Drizzle</source>
+            <translation type="unfinished">冻毛毛雨</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -2581,6 +2587,10 @@ Slovak - Roman Moravčík</translation>
             <translation>雨夹雪</translation>
         </message>
         <message>
+            <source>Rain and Snow</source>
+            <translation>雨夹雪</translation>
+        </message>
+        <message>
             <source>Rain to Snow / Wind</source>
             <translation type="unfinished">
             </translation>
@@ -2887,12 +2897,21 @@ Slovak - Roman Moravčík</translation>
             <translation>显示箭头</translation>
         </message>
         <message>
+            <source>Show last update time</source>
+            <translation type="unfinished">最后更新: </translation>
+        </message>
+        <message>
             <source>Show on Map</source>
             <translation>在地图里显示</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
             <translation>目前的天气状况的第一个图标</translation>
+        </message>
+        <message>
+            <source>Show source logo</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Show station name</source>

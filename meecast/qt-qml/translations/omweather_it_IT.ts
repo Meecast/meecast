@@ -1226,13 +1226,15 @@ da Application manager</translation>
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
+ Slovenian -  Boštjan,
+ Czech - Jakub Kožíšek, Pavel Šrubař,
  Chinese(Taiwan) - osk2, 
  Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation>French - Nicolas Granziano,
+            <translation type="unfinished">French - Nicolas Granziano,
 Philippe, Benot Knecht
 Russian - Pavel Fialko, Vlad Vasiliev,
 Ed Bartosh
@@ -1543,6 +1545,10 @@ Slovacco - Roman Moravčík</translation>
         <message>
             <source>Light Drizzle</source>
             <translation>Leggera pioggerella</translation>
+        </message>
+        <message>
+            <source>Light Freezing Drizzle</source>
+            <translation type="unfinished">Pioggerella gelata</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -2535,6 +2541,10 @@ Slovacco - Roman Moravčík</translation>
             <translation>Pioggia e Neve</translation>
         </message>
         <message>
+            <source>Rain and Snow</source>
+            <translation>Pioggia e Neve</translation>
+        </message>
+        <message>
             <source>Rain to Snow / Wind</source>
             <translation>Pioggia poi Neve / Vento</translation>
         </message>
@@ -2839,12 +2849,21 @@ Slovacco - Roman Moravčík</translation>
             <translation>Mostra frecce</translation>
         </message>
         <message>
+            <source>Show last update time</source>
+            <translation type="unfinished">Ultimo aggiornamento: </translation>
+        </message>
+        <message>
             <source>Show on Map</source>
             <translation>Mostra sulla mappa</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
             <translation>Mostra solo il meteo corrente sulla prima icona</translation>
+        </message>
+        <message>
+            <source>Show source logo</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Show station name</source>

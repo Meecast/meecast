@@ -618,7 +618,6 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
                 *child_node3 = NULL;
     xmlChar     *temp_xml_string = NULL;
     gint        count_hour = 0;
-    gchar       buff[256];
     struct tm   tmp_tm = {0};
     struct tm   last_update_time = {0};
     GSList      *hour_weather = NULL;
@@ -1427,7 +1426,7 @@ convert_station_weather_com_data(const char *station_id_with_path, const char *r
         if(!doc)
             return -1;
         root_node = xmlDocGetRootElement(doc);
-        if(root_node->type == XML_ELEMENT_NODE &&
+        if(root_node && root_node->type == XML_ELEMENT_NODE &&
                 strstr((char*)root_node->name, "err")){
             xmlFreeDoc(doc);
             xmlCleanupParser();

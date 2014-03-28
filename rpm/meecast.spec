@@ -90,9 +90,15 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
-* Sun Feb 23 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.15.1
+* Wed Mar 26 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.15.1
   * Updated Denmark for openstreetmap.org 
+  * Disabled menu item "Adjust GPS station"
   * Fixed problem with crashing application with foreca.com data
+  * Changed order of items in PullMenu
+  * Fixed font size in station name on Cover Page
+  * Fixed problem with size of map image
+  * Updated Catalan, Czech, Finnish, Norwegian, Serbian, Slovenian, Spanish,
+    Turkish, Germany translations
 
 * Sun Feb 23 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.14.1
   * Fixed problem with downloading

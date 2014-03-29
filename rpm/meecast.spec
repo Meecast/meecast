@@ -95,6 +95,7 @@ desktop-file-install --delete-original       \
   * Fixed problem with translations
   * Fixed problem with logo on cover page
   * Fixed centering problem of the graphics on the details page
+  * Increased icon size on CoverPage
 
 * Wed Mar 26 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.15.1
   * Updated Denmark for openstreetmap.org 

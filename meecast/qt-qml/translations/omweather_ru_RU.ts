@@ -2224,6 +2224,10 @@ Slovak - Roman Moravčík</source>
             <translation>Небольшая облачность / Ветер</translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">Небольшая облачность / Ветер</translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation>Малооблачно Небольшой Снег</translation>
         </message>

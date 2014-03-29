@@ -2265,6 +2265,10 @@ Slovenčina - Roman Moravčík</translation>
             <translation>Polooblačno / Vietor</translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">Polooblačno / Vietor</translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation>Polooblačno s ojedinelým snežením</translation>
         </message>

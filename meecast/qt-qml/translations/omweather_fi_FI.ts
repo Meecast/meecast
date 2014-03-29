@@ -2269,6 +2269,10 @@ Slovakia - Roman Moravčík</translation>
             <translation>Puolipilvistä / Tuulista</translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">Puolipilvistä / Tuulista</translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation>Puolipilvistä, ajoittaista lumisadetta</translation>
         </message>

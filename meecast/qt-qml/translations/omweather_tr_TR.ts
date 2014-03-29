@@ -2254,6 +2254,10 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Parçali Bulutlu / Rüzgar</translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">Parçali Bulutlu / Rüzgar</translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation>Parçali Bulutlu / Hafif Kar</translation>
         </message>

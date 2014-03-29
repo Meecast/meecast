@@ -2265,6 +2265,10 @@ Slovak - Roman Moravčík</source>
             <translation>غائم جزئياً / رياح</translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">غائم جزئياً / رياح</translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation>غائم جزئيأ مع ثلوج خفيفه</translation>
         </message>

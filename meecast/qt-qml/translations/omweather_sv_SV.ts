@@ -2466,6 +2466,10 @@ Slovak - Roman Moravčík</source>
             <translation>Delvis Molnigt / Vind</translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">Delvis Molnigt / Vind</translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation>Delvis Molnigt Lite Snö</translation>
         </message>

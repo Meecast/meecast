@@ -2269,6 +2269,10 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>Pjesërisht me re / Erë</translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">Pjesërisht me re / Erë</translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation>Pjesërisht me re dhe pak dëborë</translation>
         </message>

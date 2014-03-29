@@ -2488,6 +2488,11 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation type="unfinished">
             </translation>

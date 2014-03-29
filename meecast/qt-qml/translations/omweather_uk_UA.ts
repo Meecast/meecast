@@ -2233,6 +2233,10 @@ Slovak - Roman Moravčík</source>
             <translation>Часткова хмарність / Вітер</translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">Часткова хмарність / Вітер</translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation>Часткова хмарність Часом сніг</translation>
         </message>

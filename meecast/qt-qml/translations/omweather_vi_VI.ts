@@ -2251,6 +2251,10 @@ Việt Nam- Quý Trọng</translation>
             <translation>Ít mây, trời nắng, gió nhẹ</translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">Ít mây, trời nắng, gió nhẹ</translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation>Ít mây, tuyết rơi rải rác</translation>
         </message>

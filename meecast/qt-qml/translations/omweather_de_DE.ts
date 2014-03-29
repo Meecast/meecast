@@ -2259,6 +2259,10 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Teilweise bewölkt / Wind</translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">Teilweise bewölkt / Wind</translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation>Teilweise bewölkt, Leichter Schneefall</translation>
         </message>

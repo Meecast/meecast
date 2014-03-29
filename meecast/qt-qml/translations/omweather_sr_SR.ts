@@ -2268,6 +2268,10 @@ Slovački - Roman Moravčík</translation>
             <translation>Delimično oblačno / Vetar</translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">Delimično oblačno / Vetar</translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation>Delimično oblačno sa malo snega</translation>
         </message>

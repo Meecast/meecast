@@ -2237,6 +2237,10 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Deels Bewolkt / Wind</translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">Deels Bewolkt / Wind</translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation>Deels Bewolkt met Sneeuw</translation>
         </message>

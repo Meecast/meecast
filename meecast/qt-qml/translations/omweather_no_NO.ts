@@ -2270,6 +2270,10 @@ Slovak - Roman Moravčík</translation>
             <translation>Delvis Skyet / Vind</translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">Delvis Skyet / Vind</translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation>Delvis Skyet Noe Snø</translation>
         </message>

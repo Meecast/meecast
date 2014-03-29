@@ -2269,6 +2269,10 @@ Català - Agustí Clara</translation>
             <translation>En part núvol / Vent</translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">En part núvol / Vent</translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation>En part núvol amb una mica de neu</translation>
         </message>

@@ -2265,6 +2265,10 @@ słowacki - Roman Moravčík</translation>
             <translation>Częściowe zachmurzenie / wiatr</translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">Częściowe zachmurzenie / wiatr</translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation>Częściowe zachmurzenie, lekki śnieg</translation>
         </message>

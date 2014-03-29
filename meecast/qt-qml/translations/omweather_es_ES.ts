@@ -2267,6 +2267,10 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Parcialmente nublado / Viento</translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">Parcialmente nublado / Viento</translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation>Parcialmente nublado con algo de nieve</translation>
         </message>

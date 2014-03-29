@@ -2266,6 +2266,10 @@ Slovak - Roman Moravčík</translation>
             <translation>Partly Cloudy / Wind</translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">Partly Cloudy / Wind</translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation>Partly Cloudy Few Snow</translation>
         </message>

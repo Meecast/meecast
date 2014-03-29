@@ -2242,6 +2242,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Разкъсана Облачност/Вятър</translation>
         </message>
         <message>
+            <source>Partly Cloudy / Windy</source>
+            <translation type="unfinished">Разкъсана Облачност/Вятър</translation>
+        </message>
+        <message>
             <source>Partly Cloudy Few Snow</source>
             <translation>Разкъсана Облачност Лек сняг</translation>
         </message>

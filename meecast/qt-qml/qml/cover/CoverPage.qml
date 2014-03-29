@@ -203,8 +203,8 @@ CoverBackground {
             else
                 source_image.visible = false
             if (Config.windcoverpage){
-                icon.width = 100
-                icon.height = 100
+                icon.width = 140
+                icon.height = 140
                 if (coverPage.current_model("wind_speed") != undefined && coverPage.current_model("wind_speed") != "N/A"){
                     wind_speed_text.text = (Config.windspeedunit == "Beaufort scale") ? coverPage.current_model("wind_speed") : coverPage.current_model("wind_speed") + ' ' + Config.tr(Config.windspeedunit)
                     wind_speed_text.visible = true

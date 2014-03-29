@@ -191,7 +191,7 @@ Page {
 
     Item{
         Timer{
-            interval: 500; running: true; repeat: false
+            interval: 700; running: true; repeat: false
             onTriggered: { 
                 listview.positionViewAtIndex(real_current_id, ListView.Beginning)
                 Config._current_station_id(main.real_current_id)

@@ -91,7 +91,7 @@ desktop-file-install --delete-original       \
 
 %changelog
 * Wed Mar 26 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.16.1
-  * Nothing
+  * Fixed segmentation fault 
 
 * Wed Mar 26 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.15.1
   * Updated Denmark for openstreetmap.org 

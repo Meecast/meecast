@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-16 21:03+0300\n"
+"POT-Creation-Date: 2014-03-29 13:26+0300\n"
 "PO-Revision-Date: 2012-10-05 08:15+0000\n"
 "Last-Translator: quytrong287 <quytrong287@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/projects/p/meecast/"
@@ -397,7 +397,7 @@ msgstr "Tác giả"
 msgid "Automatically update data when connecting to the Internet"
 msgstr "Tự động cập nhật dữ liệu khi kết nối mạng"
 
-#: omweather/src/hash.data:333
+#: omweather/src/hash.data:334
 msgid "Back"
 msgstr ""
 
@@ -419,11 +419,11 @@ msgstr "Thang đo sức gió"
 msgid "Blowing Snow"
 msgstr "Tuyết rơi"
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:336
 msgid "Broken Clouds"
 msgstr ""
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:337
 msgid "Broken clouds"
 msgstr ""
 
@@ -560,7 +560,7 @@ msgstr "Có mây, tuyết rơi, mưa rào rải rác"
 msgid "Cloudy and wet snow showers"
 msgstr "Có mây, tuyết rơi, mưa rào rải rác"
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:355
 #, fuzzy
 msgid "Cloudy with occasional rain."
 msgstr "Có mây, mưa nhẹ"
@@ -873,7 +873,7 @@ msgstr "Lỗi khởi tạo GConf. Không lưu được cài đặt. \n"
 msgid "Fair"
 msgstr "Trời đẹp"
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:332
 #, fuzzy
 msgid "Feels like"
 msgstr "Có cảm giác như:"
@@ -882,7 +882,7 @@ msgstr "Có cảm giác như:"
 msgid "Feels like:"
 msgstr "Có cảm giác như:"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:339
 #, fuzzy
 msgid "Few Clouds"
 msgstr "Có mây"
@@ -907,7 +907,7 @@ msgstr "Có tuyết và mưa rào rải rác"
 msgid "Few Snow Showers / Wind"
 msgstr "Có tuyết và mưa rào rải rác/ gió nhẹ"
 
-#: omweather/src/hash.data:337
+#: omweather/src/hash.data:338
 msgid "Few clouds"
 msgstr ""
 
@@ -1125,7 +1125,7 @@ msgstr "Tuyết dày"
 msgid "Heavy Snow / Wind"
 msgstr "Mưa lớn / Gió"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:356
 #, fuzzy
 msgid "Heavy intensity rain"
 msgstr "Mưa to"
@@ -1134,7 +1134,7 @@ msgstr "Mưa to"
 msgid "High"
 msgstr "Cao"
 
-#: omweather/src/hash.data:332
+#: omweather/src/hash.data:333
 #, fuzzy
 msgid "Hourly"
 msgstr "Giờ"
@@ -1207,7 +1207,7 @@ msgstr "Ki-lô-mét"
 msgid "Knots"
 msgstr ""
 
-#: omweather/src/hash.data:334
+#: omweather/src/hash.data:335
 msgid "Language"
 msgstr ""
 
@@ -1264,7 +1264,7 @@ msgstr "Trời băng giá, có mưa phùn"
 msgid "Light Freezing Rain"
 msgstr "Mưa đá nhẹ"
 
-#: omweather/src/hash.data:116 omweather/src/hash.data:340
+#: omweather/src/hash.data:116 omweather/src/hash.data:341
 msgid "Light Rain"
 msgstr "Mưa nhẹ"
 
@@ -1332,22 +1332,22 @@ msgstr "Tuyết nhẹ muộn"
 msgid "Light Snow Shower"
 msgstr "Tuyết nhẹ mau"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 #, fuzzy
 msgid "Light intensity drizzle"
 msgstr "Mưa to"
 
-#: omweather/src/hash.data:356
+#: omweather/src/hash.data:357
 #, fuzzy
 msgid "Light intensity shower rain"
 msgstr "Mưa to"
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:340
 #, fuzzy
 msgid "Light rain"
 msgstr "Mưa nhẹ"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 #, fuzzy
 msgid "Light snow"
 msgstr "Tuyết nhẹ"
@@ -1376,7 +1376,7 @@ msgstr "Có vẻ như không có thông tin cho vị trí này."
 msgid "Low"
 msgstr "Thấp"
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:354
 #, fuzzy
 msgid "Mainly cloudy with occasional rain."
 msgstr "Ít mây, mưa vừa"
@@ -1430,12 +1430,12 @@ msgstr "Miles"
 msgid "Mist"
 msgstr "Sương mù"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:345
 #, fuzzy
 msgid "Moderate Rain"
 msgstr "U ám và mưa"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:344
 #, fuzzy
 msgid "Moderate rain"
 msgstr "U ám và mưa"
@@ -1723,7 +1723,7 @@ msgstr "Tin tức thời tiết Maemo khác"
 msgid "Overcast"
 msgstr "Âm u"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:347
 #, fuzzy
 msgid "Overcast Clouds"
 msgstr "Âm u"
@@ -1764,7 +1764,7 @@ msgstr "Âm u và tuyết ướt"
 msgid "Overcast and wet snow showers"
 msgstr "Âm u và tuyết ướt,mau"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:346
 #, fuzzy
 msgid "Overcast clouds"
 msgstr "Âm u"
@@ -1837,7 +1837,7 @@ msgstr "PM Sấm sét"
 msgid "Pa"
 msgstr "Pa"
 
-#: omweather/src/hash.data:205
+#: omweather/src/hash.data:206
 msgid "Partly Cloudy"
 msgstr "Ít mây, trời nắng"
 
@@ -1846,102 +1846,107 @@ msgid "Partly Cloudy / Wind"
 msgstr "Ít mây, trời nắng, gió nhẹ"
 
 #: omweather/src/hash.data:199
+#, fuzzy
+msgid "Partly Cloudy / Windy"
+msgstr "Ít mây, trời nắng, gió nhẹ"
+
+#: omweather/src/hash.data:200
 msgid "Partly Cloudy Few Snow"
 msgstr "Ít mây, tuyết rơi rải rác"
 
-#: omweather/src/hash.data:200
+#: omweather/src/hash.data:201
 msgid "Partly Cloudy Light Rain"
 msgstr "Ít mây, mưa nhẹ"
 
-#: omweather/src/hash.data:201
+#: omweather/src/hash.data:202
 msgid "Partly Cloudy T-Storm"
 msgstr "Mây ít, có mưa kèm sấm sét"
 
-#: omweather/src/hash.data:202
+#: omweather/src/hash.data:203
 msgid "Partly Cloudy and Windly"
 msgstr "Mây ít, nhiều gió"
 
-#: omweather/src/hash.data:203 omweather/src/hash.data:204
+#: omweather/src/hash.data:204 omweather/src/hash.data:205
 msgid "Partly Cloudy and Windy"
 msgstr "Mây ít, có gió thổi"
 
-#: omweather/src/hash.data:206
+#: omweather/src/hash.data:207
 msgid "Partly Cloudy, Few Snow"
 msgstr "Mây ít, tuyết rơi rải rác"
 
-#: omweather/src/hash.data:207
+#: omweather/src/hash.data:208
 msgid "Partly Cloudy, Haze"
 msgstr "Trời ít mây, có sương mù"
 
-#: omweather/src/hash.data:208
+#: omweather/src/hash.data:209
 msgid "Partly Cloudy, Heavy Rain"
 msgstr "Trời ít mây, mưa to vài nơi"
 
-#: omweather/src/hash.data:209
+#: omweather/src/hash.data:210
 msgid "Partly Cloudy, Heavy Rain, T-Storm"
 msgstr "Có mây, mưa to kèm sấm chớp, sét"
 
-#: omweather/src/hash.data:210
+#: omweather/src/hash.data:211
 msgid "Partly Cloudy, Heavy Snow"
 msgstr "Ít mây, tuyết rơi nặng hạt"
 
-#: omweather/src/hash.data:211
+#: omweather/src/hash.data:212
 msgid "Partly Cloudy, Light Rain"
 msgstr "Ít Mây kèm mưa vừa"
 
-#: omweather/src/hash.data:212
+#: omweather/src/hash.data:213
 msgid "Partly Cloudy, Light Rain, T-Storm"
 msgstr "Ít mây, mưa vừa có sấm chớp"
 
-#: omweather/src/hash.data:213
+#: omweather/src/hash.data:214
 msgid "Partly Cloudy, Rain"
 msgstr "Có mây và mưa vài nơi"
 
-#: omweather/src/hash.data:214
+#: omweather/src/hash.data:215
 msgid "Partly Cloudy, Rain, T-Storm"
 msgstr "Có mây, mưa kèm sấm chớp"
 
-#: omweather/src/hash.data:215
+#: omweather/src/hash.data:216
 msgid "Partly Cloudy, Smoke"
 msgstr "Ít mây, "
 
-#: omweather/src/hash.data:216
+#: omweather/src/hash.data:217
 msgid "Partly Cloudy, Snow"
 msgstr "Ít mây, có tuyết rơi"
 
-#: omweather/src/hash.data:217
+#: omweather/src/hash.data:218
 msgid "Partly Cloudy, T-Storm"
 msgstr "Ít Mây có sấm sét"
 
-#: omweather/src/hash.data:225
+#: omweather/src/hash.data:226
 msgid "Partly cloudy"
 msgstr "Ít mây, nắng nhẹ"
 
-#: omweather/src/hash.data:218
+#: omweather/src/hash.data:219
 msgid "Partly cloudy and light rain"
 msgstr "Ít mây, mưa vừa"
 
-#: omweather/src/hash.data:219
+#: omweather/src/hash.data:220
 msgid "Partly cloudy and light snow"
 msgstr "Ít mây, tuyết rơi vừa"
 
-#: omweather/src/hash.data:220
+#: omweather/src/hash.data:221
 msgid "Partly cloudy and light wet snow"
 msgstr "Ít mây, tuyết rơi, trời ẩm ướt"
 
-#: omweather/src/hash.data:221
+#: omweather/src/hash.data:222
 msgid "Partly cloudy and showers"
 msgstr "Ít mây, có mưa rào"
 
-#: omweather/src/hash.data:222
+#: omweather/src/hash.data:223
 msgid "Partly cloudy and snow showers"
 msgstr "Ít mây, có mưa tuyết"
 
-#: omweather/src/hash.data:223
+#: omweather/src/hash.data:224
 msgid "Partly cloudy and wet snow showers"
 msgstr "Ít mây, mưa tuyết ẩm ướt"
 
-#: omweather/src/hash.data:197 omweather/src/hash.data:224
+#: omweather/src/hash.data:197 omweather/src/hash.data:225
 msgid "Partly cloudy, possible thunderstorms with rain"
 msgstr "Nhiều mây, có thể có bão"
 
@@ -2006,87 +2011,87 @@ msgstr "Người quản lí dự án"
 msgid "Provided by"
 msgstr "Cung cấp bởi"
 
-#: omweather/src/hash.data:247
+#: omweather/src/hash.data:248
 msgid "Rain"
 msgstr "Có mưa"
 
-#: omweather/src/hash.data:226
+#: omweather/src/hash.data:227
 msgid "Rain / Freezing Rain"
 msgstr "Có mưa kèm băng giá"
 
-#: omweather/src/hash.data:233
+#: omweather/src/hash.data:234
 msgid "Rain / Snow"
 msgstr "Có mưa nhẹ, tuyết rơi"
 
-#: omweather/src/hash.data:227
+#: omweather/src/hash.data:228
 msgid "Rain / Snow / Wind"
 msgstr "Mưa/ Tuyết/ Gió"
 
-#: omweather/src/hash.data:228
+#: omweather/src/hash.data:229
 msgid "Rain / Snow Early"
 msgstr "Mưa, có tuyết rơi sớm"
 
-#: omweather/src/hash.data:229
+#: omweather/src/hash.data:230
 msgid "Rain / Snow Late"
 msgstr "Có mưa, Tuyết rơi muộn"
 
-#: omweather/src/hash.data:232
+#: omweather/src/hash.data:233
 msgid "Rain / Snow Showers"
 msgstr "Có mưa và Mưa tuyết"
 
-#: omweather/src/hash.data:230
+#: omweather/src/hash.data:231
 msgid "Rain / Snow Showers / Wind"
 msgstr "Mưa/ Mưa tuyết/ Gió"
 
-#: omweather/src/hash.data:231
+#: omweather/src/hash.data:232
 msgid "Rain / Snow Showers Late"
 msgstr "Mưa / Tuyết mau muộn"
 
-#: omweather/src/hash.data:234
+#: omweather/src/hash.data:235
 msgid "Rain / Thunder"
 msgstr "Mưa / Sấm"
 
-#: omweather/src/hash.data:236
+#: omweather/src/hash.data:237
 msgid "Rain / Wind"
 msgstr "Mưa / Gió"
 
-#: omweather/src/hash.data:235
+#: omweather/src/hash.data:236
 msgid "Rain / Wind Early"
 msgstr "Mưa / Gió sớm"
 
-#: omweather/src/hash.data:237
+#: omweather/src/hash.data:238
 msgid "Rain Early"
 msgstr "Mưa sớm"
 
-#: omweather/src/hash.data:238
+#: omweather/src/hash.data:239
 msgid "Rain Late"
 msgstr "Mưa muộn"
 
-#: omweather/src/hash.data:240
+#: omweather/src/hash.data:241
 msgid "Rain Shower"
 msgstr "Mưa rào"
 
-#: omweather/src/hash.data:239
+#: omweather/src/hash.data:240
 msgid "Rain Shower and Windy"
 msgstr "Mưa rào và gió"
 
-#: omweather/src/hash.data:241
+#: omweather/src/hash.data:242
 msgid "Rain Showers"
 msgstr "Mưa rào"
 
-#: omweather/src/hash.data:242 omweather/src/hash.data:243
+#: omweather/src/hash.data:243 omweather/src/hash.data:244
 msgid "Rain and Snow"
 msgstr " Mưa và tuyết"
 
-#: omweather/src/hash.data:244
+#: omweather/src/hash.data:245
 msgid "Rain to Snow / Wind"
 msgstr "Mưa tới tuyết / Gió"
 
-#: omweather/src/hash.data:246
+#: omweather/src/hash.data:247
 msgid "Rain to Wintry Mix"
 msgstr "Mưa tới đóng băng"
 
-#: omweather/src/hash.data:245
+#: omweather/src/hash.data:246
 msgid "Rain to Wintry Mix / Wind"
 msgstr "Mưa tới đóng băng / Gió"
 
@@ -2100,47 +2105,47 @@ msgstr "Đọc cảm biến mỗi:"
 msgid "Region"
 msgstr "Vùng:"
 
-#: omweather/src/hash.data:248
+#: omweather/src/hash.data:249
 msgid "Rush Hour Traffic"
 msgstr "Giờ giao thông:"
 
-#: omweather/src/hash.data:249
+#: omweather/src/hash.data:250
 msgid "S"
 msgstr "S"
 
-#: omweather/src/hash.data:250
+#: omweather/src/hash.data:251
 msgid "SE"
 msgstr "SE"
 
-#: omweather/src/hash.data:251
+#: omweather/src/hash.data:252
 msgid "SE_short"
 msgstr "SE_ngắn"
 
-#: omweather/src/hash.data:252
+#: omweather/src/hash.data:253
 msgid "SSE"
 msgstr "SSE"
 
-#: omweather/src/hash.data:253
+#: omweather/src/hash.data:254
 msgid "SSE_short"
 msgstr "SSE_ngắn"
 
-#: omweather/src/hash.data:254
+#: omweather/src/hash.data:255
 msgid "SSW"
 msgstr "SSW"
 
-#: omweather/src/hash.data:255
+#: omweather/src/hash.data:256
 msgid "SSW_short"
 msgstr "SSW_ngắn"
 
-#: omweather/src/hash.data:256
+#: omweather/src/hash.data:257
 msgid "SW"
 msgstr "SW"
 
-#: omweather/src/hash.data:257
+#: omweather/src/hash.data:258
 msgid "SW_short"
 msgstr "SW_ngắn"
 
-#: omweather/src/hash.data:258
+#: omweather/src/hash.data:259
 msgid "S_short"
 msgstr "S_ngắn"
 
@@ -2154,28 +2159,28 @@ msgstr "S_ngắn"
 msgid "Save"
 msgstr "Lưu"
 
-#: omweather/src/hash.data:348
+#: omweather/src/hash.data:349
 #, fuzzy
 msgid "Scattered Clouds"
 msgstr "Tuyết rải rác"
 
-#: omweather/src/hash.data:259
+#: omweather/src/hash.data:260
 msgid "Scattered Showers"
 msgstr "Mưa rải rác"
 
-#: omweather/src/hash.data:261
+#: omweather/src/hash.data:262
 msgid "Scattered Snow"
 msgstr "Tuyết rải rác"
 
-#: omweather/src/hash.data:260
+#: omweather/src/hash.data:261
 msgid "Scattered Snow Showers"
 msgstr "Tuyết rào rải rác"
 
-#: omweather/src/hash.data:262
+#: omweather/src/hash.data:263
 msgid "Scattered T-Storms"
 msgstr "Sấm sét rải rác"
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:348
 #, fuzzy
 msgid "Scattered clouds"
 msgstr "Tuyết rải rác"
@@ -2277,7 +2282,7 @@ msgstr "Cảm biến"
 msgid "Set"
 msgstr "Đặt"
 
-#: omweather/src/hash.data:263 meecast/qt-qml/qml/WeatherPage.qml:327
+#: omweather/src/hash.data:264 meecast/qt-qml/qml/WeatherPage.qml:327
 msgid "Set locations"
 msgstr "Đặt vị trí"
 
@@ -2305,7 +2310,7 @@ msgstr "Tùy chỉnh Màn hình chờ"
 msgid "Settings of StandbyScreen"
 msgstr "Tùy chỉnh Màn hình chờ"
 
-#: omweather/src/hash.data:264
+#: omweather/src/hash.data:265
 msgid "Shallow Fog"
 msgstr "Sương mù thấp"
 
@@ -2317,7 +2322,7 @@ msgstr "Ngắn"
 msgid "Show arrows"
 msgstr "Xem kiểu mũi tên"
 
-#: omweather/src/hash.data:362
+#: omweather/src/hash.data:363
 #, fuzzy
 msgid "Show last update time"
 msgstr "Cập nhật cuối:"
@@ -2331,7 +2336,7 @@ msgstr "Hiển thị tên trạm"
 msgid "Show only current weather on first icon"
 msgstr "Chỉ hiện thời tiết hiện tại trên icon ban đầu"
 
-#: omweather/src/hash.data:361
+#: omweather/src/hash.data:362
 msgid "Show source logo"
 msgstr ""
 
@@ -2347,89 +2352,89 @@ msgstr "Xem nhiệt độ tại:"
 msgid "Show wind"
 msgstr "Xem gió"
 
-#: omweather/src/hash.data:270
+#: omweather/src/hash.data:271
 msgid "Showers"
 msgstr "Có mưa rào"
 
-#: omweather/src/hash.data:266
+#: omweather/src/hash.data:267
 msgid "Showers / Wind"
 msgstr "Mưa rào và gió"
 
-#: omweather/src/hash.data:265
+#: omweather/src/hash.data:266
 msgid "Showers / Wind Early"
 msgstr "Mưa rào và có gió sớm"
 
-#: omweather/src/hash.data:267
+#: omweather/src/hash.data:268
 msgid "Showers Early"
 msgstr "Mưa rào sớm"
 
-#: omweather/src/hash.data:268
+#: omweather/src/hash.data:269
 msgid "Showers Late"
 msgstr "Mưa rào muộn"
 
-#: omweather/src/hash.data:269
+#: omweather/src/hash.data:270
 msgid "Showers in the Vicinity"
 msgstr "Mưa ở vùng lân cận"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:351
 #, fuzzy
 msgid "Sky is Clear"
 msgstr "Ít mây, trời quang"
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:350
 #, fuzzy
 msgid "Sky is clear"
 msgstr "Ít mây, trời quang"
 
-#: omweather/src/hash.data:271
+#: omweather/src/hash.data:272
 msgid "Sleet"
 msgstr "Mưa đá"
 
-#: omweather/src/hash.data:272
+#: omweather/src/hash.data:273
 msgid "Smoke"
 msgstr "Nước bốc hơi"
 
-#: omweather/src/hash.data:283
+#: omweather/src/hash.data:284
 msgid "Snow"
 msgstr "Có tuyết rơi"
 
-#: omweather/src/hash.data:273
+#: omweather/src/hash.data:274
 msgid "Snow / Wind"
 msgstr "Có tuyết và gió"
 
-#: omweather/src/hash.data:275
+#: omweather/src/hash.data:276
 msgid "Snow Shower"
 msgstr "Có tuyết kèm mưa rào"
 
-#: omweather/src/hash.data:274
+#: omweather/src/hash.data:275
 msgid "Snow Shower / Wind"
 msgstr "Có gió, mưa rào, tuyết rơi"
 
-#: omweather/src/hash.data:276
+#: omweather/src/hash.data:277
 msgid "Snow Showers / Wind Early"
 msgstr "Có tuyết rơi, mưa rào kèm gió sớm"
 
-#: omweather/src/hash.data:277
+#: omweather/src/hash.data:278
 msgid "Snow Showers Early"
 msgstr "Có tuyết kèm mưa rào sớm"
 
-#: omweather/src/hash.data:278
+#: omweather/src/hash.data:279
 msgid "Snow Showers Late"
 msgstr "Có tuyết kèm mưa rào muộn"
 
-#: omweather/src/hash.data:279
+#: omweather/src/hash.data:280
 msgid "Snow and Freezing Rain"
 msgstr "Tuyết rơi và mưa băng giá"
 
-#: omweather/src/hash.data:280
+#: omweather/src/hash.data:281
 msgid "Snow to Rain"
 msgstr "Tuyết rơi sau đó mưa"
 
-#: omweather/src/hash.data:282
+#: omweather/src/hash.data:283
 msgid "Snow to Wintry Mix"
 msgstr "Tuyết rơi sau đó lạnh giá"
 
-#: omweather/src/hash.data:281
+#: omweather/src/hash.data:282
 msgid "Snow to Wintry Mix / Wind"
 msgstr "Tuyết rơi, lạnh giá, có gió"
 
@@ -2477,7 +2482,7 @@ msgstr "Địa điểm %i"
 msgid "Stations"
 msgstr "Địa điểm"
 
-#: omweather/src/hash.data:284 omweather/src/weather-alerts.c:154
+#: omweather/src/hash.data:285 omweather/src/weather-alerts.c:154
 msgid "Storm"
 msgstr "Có sấm sét"
 
@@ -2485,19 +2490,19 @@ msgstr "Có sấm sét"
 msgid "Successfully loaded"
 msgstr "Hoàn tất tải về"
 
-#: omweather/src/hash.data:286
+#: omweather/src/hash.data:287
 msgid "Sunny"
 msgstr "Trời nắng"
 
-#: omweather/src/hash.data:285
+#: omweather/src/hash.data:286
 msgid "Sunny / Wind"
 msgstr "Trời nắng, có gió"
 
-#: omweather/src/hash.data:351 omweather/src/hash.data:352
+#: omweather/src/hash.data:352 omweather/src/hash.data:353
 msgid "Sunny periods and a few showers."
 msgstr ""
 
-#: omweather/src/hash.data:287 meecast/qt-qml/qml/FullWeatherPage.qml:308
+#: omweather/src/hash.data:288 meecast/qt-qml/qml/FullWeatherPage.qml:308
 msgid "Sunrise:"
 msgstr "Lúc bình minh:"
 
@@ -2505,7 +2510,7 @@ msgstr "Lúc bình minh:"
 msgid "Sunrise: "
 msgstr "Lúc bình minh:"
 
-#: omweather/src/hash.data:288 meecast/qt-qml/qml/FullWeatherPage.qml:311
+#: omweather/src/hash.data:289 meecast/qt-qml/qml/FullWeatherPage.qml:311
 msgid "Sunset:"
 msgstr "Lúc xế chiều:"
 
@@ -2525,27 +2530,27 @@ msgstr "Hoán đổi nhiệt độ Cao/thấp:"
 msgid "Switch to the next station after:"
 msgstr "Chuyển sang quốc gia tiếp theo:"
 
-#: omweather/src/hash.data:290
+#: omweather/src/hash.data:291
 msgid "T-Showers"
 msgstr "Mưa rào và có sấm"
 
-#: omweather/src/hash.data:289
+#: omweather/src/hash.data:290
 msgid "T-Showers Early"
 msgstr "Mưa rào và sấm sớm"
 
-#: omweather/src/hash.data:291
+#: omweather/src/hash.data:292
 msgid "T-Storm"
 msgstr "Mưa rào kèm sấm sét"
 
-#: omweather/src/hash.data:294
+#: omweather/src/hash.data:295
 msgid "T-Storms"
 msgstr "Mưa rào kèm sấm sét"
 
-#: omweather/src/hash.data:292
+#: omweather/src/hash.data:293
 msgid "T-Storms Early"
 msgstr "Trời mưa to, có sấm sét sớm"
 
-#: omweather/src/hash.data:293
+#: omweather/src/hash.data:294
 msgid "T-Storms Late"
 msgstr "Trời mưa to, có sấm sét muộn"
 
@@ -2555,7 +2560,7 @@ msgstr "Trời mưa to, có sấm sét muộn"
 msgid "Temperature"
 msgstr "Nhiệt độ"
 
-#: omweather/src/hash.data:295 meecast/qt-qml/qml/UnitsPage.qml:31
+#: omweather/src/hash.data:296 meecast/qt-qml/qml/UnitsPage.qml:31
 #: meecast/qt-qml/qml/UnitsPage.qml:103
 msgid "Temperature units"
 msgstr "Đơn vị đo nhiệt độ"
@@ -2581,11 +2586,11 @@ msgstr "Cám ơn"
 msgid "The weather has been updated."
 msgstr "Thời tiết đã được cập nhật"
 
-#: omweather/src/hash.data:357
+#: omweather/src/hash.data:358
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
-#: omweather/src/hash.data:359
+#: omweather/src/hash.data:360
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
 
@@ -2612,11 +2617,11 @@ msgstr ""
 "Phần mềm này miễn phí. Do đó bạn có thể phát hành lại hoặc chỉnh sửa nó theo "
 "các điều khoản của GNU General Public License \n"
 
-#: omweather/src/hash.data:296
+#: omweather/src/hash.data:297
 msgid "Thunder"
 msgstr "Sấm"
 
-#: omweather/src/hash.data:297
+#: omweather/src/hash.data:298
 msgid "Thunder in the Vicinity"
 msgstr "Sấm sét vùng lân cận"
 
@@ -2644,7 +2649,7 @@ msgstr ""
 msgid "Transparency:"
 msgstr "Độ trong suốt:"
 
-#: omweather/src/hash.data:298 meecast/qt-qml/qml/WeatherPage.qml:501
+#: omweather/src/hash.data:299 meecast/qt-qml/qml/WeatherPage.qml:501
 msgid "Try to update"
 msgstr "Thử cập nhật"
 
@@ -2678,7 +2683,7 @@ msgstr "Đơn vị"
 msgid "Unknown"
 msgstr "Không biết"
 
-#: omweather/src/hash.data:299
+#: omweather/src/hash.data:300
 msgid "Unlimited"
 msgstr "Không giới hạn"
 
@@ -2695,7 +2700,7 @@ msgstr "Cập nhật đang chạy."
 msgid "Update interval"
 msgstr "Khoảng thời gian cập nhật"
 
-#: omweather/src/hash.data:300 meecast/qt-qml/qml/WeatherPage.qml:360
+#: omweather/src/hash.data:301 meecast/qt-qml/qml/WeatherPage.qml:360
 msgid "Updating forecast"
 msgstr "Đang cập nhật dự báo thời tiết"
 
@@ -2725,7 +2730,7 @@ msgstr "Sử dụng GSM và/hoặc WLAN để cập nhật định kỳ⏎ thôn
 msgid "Use device temperature sensor"
 msgstr "Sử dụng thiết bị cảm biến nhiệt độ"
 
-#: omweather/src/hash.data:301
+#: omweather/src/hash.data:302
 msgid "VAR"
 msgstr "VAR"
 
@@ -2733,7 +2738,7 @@ msgstr "VAR"
 msgid "Valid time for current weather:"
 msgstr "Thời gian hợp lệ cho thời tiết hiện tại:"
 
-#: omweather/src/hash.data:302
+#: omweather/src/hash.data:303
 msgid "Very High"
 msgstr "Rất cao"
 
@@ -2756,16 +2761,16 @@ msgstr "Hiện"
 msgid "Visuals"
 msgstr "Nhìn"
 
-#: omweather/src/hash.data:358
+#: omweather/src/hash.data:359
 msgid "Voice forecast button on a widget"
 msgstr ""
 
-#: omweather/src/hash.data:360
+#: omweather/src/hash.data:361
 #, fuzzy
 msgid "Voice weather forecast"
 msgstr "Dự báo OMWeather"
 
-#: omweather/src/hash.data:303
+#: omweather/src/hash.data:304
 msgid "W"
 msgstr "W"
 
@@ -2775,31 +2780,31 @@ msgstr "W"
 msgid "WLAN"
 msgstr "WLAN"
 
-#: omweather/src/hash.data:304
+#: omweather/src/hash.data:305
 msgid "WNW"
 msgstr "WNW"
 
-#: omweather/src/hash.data:305
+#: omweather/src/hash.data:306
 msgid "WNW_short"
 msgstr "WNW_ngắn"
 
-#: omweather/src/hash.data:306
+#: omweather/src/hash.data:307
 msgid "WSW"
 msgstr "WSW"
 
-#: omweather/src/hash.data:307
+#: omweather/src/hash.data:308
 msgid "WSW_short"
 msgstr ""
 
-#: omweather/src/hash.data:308
+#: omweather/src/hash.data:309
 msgid "W_short"
 msgstr ""
 
-#: omweather/src/hash.data:309
+#: omweather/src/hash.data:310
 msgid "Waning Crescent"
 msgstr "Trăng lưỡi liềm"
 
-#: omweather/src/hash.data:310
+#: omweather/src/hash.data:311
 msgid "Waning Gibbous"
 msgstr "Trăng khuyết"
 
@@ -2807,11 +2812,11 @@ msgstr "Trăng khuyết"
 msgid "Warning"
 msgstr "Cảnh báo"
 
-#: omweather/src/hash.data:311
+#: omweather/src/hash.data:312
 msgid "Waxing Crescent"
 msgstr "Trăng lưỡi liềm"
 
-#: omweather/src/hash.data:312
+#: omweather/src/hash.data:313
 msgid "Waxing Gibbous"
 msgstr "Trăng khuyết"
 
@@ -2848,7 +2853,7 @@ msgstr "Dạng widget"
 msgid "Widget style and Iconset"
 msgstr "Dạng widget và biểu tượng"
 
-#: omweather/src/hash.data:316
+#: omweather/src/hash.data:317
 msgid "Wind"
 msgstr "Gió"
 
@@ -2859,7 +2864,7 @@ msgstr "Gió"
 msgid "Wind direction"
 msgstr "Hướng gió:"
 
-#: omweather/src/hash.data:313
+#: omweather/src/hash.data:314
 msgid "Wind direction:"
 msgstr "Hướng gió:"
 
@@ -2869,7 +2874,7 @@ msgstr "Hướng gió:"
 msgid "Wind gust:"
 msgstr "Cơn gió mạnh:"
 
-#: omweather/src/hash.data:315 meecast/qt-qml/qml/FullWeatherPage.qml:146
+#: omweather/src/hash.data:316 meecast/qt-qml/qml/FullWeatherPage.qml:146
 #: meecast/qt-qml/qml/FullWeatherPage.qml:149
 #: meecast/qt-qml/qml/FullWeatherPage.qml:210
 #: meecast/qt-qml/qml/FullWeatherPage.qml:213
@@ -2878,7 +2883,7 @@ msgstr "Cơn gió mạnh:"
 msgid "Wind speed"
 msgstr "Tốc độ gió"
 
-#: omweather/src/hash.data:314 meecast/qt-qml/qml/UnitsPage.qml:40
+#: omweather/src/hash.data:315 meecast/qt-qml/qml/UnitsPage.qml:40
 #: meecast/qt-qml/qml/UnitsPage.qml:142
 msgid "Wind speed units"
 msgstr "Đơn vị vận tốc gió"
@@ -2898,19 +2903,19 @@ msgstr "Gió:"
 msgid "Wind: "
 msgstr "Gió:"
 
-#: omweather/src/hash.data:320
+#: omweather/src/hash.data:321
 msgid "Wintry Mix"
 msgstr "Lạnh giá"
 
-#: omweather/src/hash.data:318
+#: omweather/src/hash.data:319
 msgid "Wintry Mix / Wind"
 msgstr "Lạnh giá và có gió"
 
-#: omweather/src/hash.data:317
+#: omweather/src/hash.data:318
 msgid "Wintry Mix / Wind Early"
 msgstr "Lạnh giá kèm gió sớm"
 
-#: omweather/src/hash.data:319
+#: omweather/src/hash.data:320
 msgid "Wintry Mix to Snow"
 msgstr "Lạnh giá sau đó có tuyết rơi"
 
@@ -3017,7 +3022,7 @@ msgstr "Mỗi giờ"
 msgid "every minute (Debug)"
 msgstr "Mỗi phút (gỡ lỗi)"
 
-#: omweather/src/hash.data:321
+#: omweather/src/hash.data:322
 msgid "falling"
 msgstr "giảm"
 
@@ -3056,18 +3061,18 @@ msgstr "inch"
 msgid "km"
 msgstr "km"
 
-#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:322
+#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:323
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
 #: meecast/qt-qml/qml/UnitsPage.qml:160
 msgid "km/h"
 msgstr "m"
 
-#: omweather/src/hash.data:323
+#: omweather/src/hash.data:324
 msgid "km/s"
 msgstr "km/s"
 
-#: omweather/src/hash.data:324
+#: omweather/src/hash.data:325
 msgid "kn"
 msgstr ""
 
@@ -3078,11 +3083,11 @@ msgstr ""
 msgid "m"
 msgstr "m"
 
-#: omweather/src/hash.data:325
+#: omweather/src/hash.data:326
 msgid "m/h"
 msgstr "m/h"
 
-#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:326
+#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:327
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
 #: meecast/qt-qml/qml/UnitsPage.qml:153
@@ -3110,14 +3115,14 @@ msgstr "mbar"
 msgid "mi"
 msgstr "mi"
 
-#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:327
+#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:328
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
 #: meecast/qt-qml/qml/UnitsPage.qml:167
 msgid "mi/h"
 msgstr "mi/h"
 
-#: omweather/src/hash.data:328
+#: omweather/src/hash.data:329
 msgid "mi/s"
 msgstr "mi/s"
 
@@ -3165,7 +3170,7 @@ msgstr "Tiếp"
 msgid "nmi"
 msgstr "nmi"
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "rising"
 msgstr "tăng lên"
 
@@ -3181,39 +3186,39 @@ msgstr "Thời gian của trạm địa phương"
 msgid "station name"
 msgstr "Tên quốc gia"
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "steady"
 msgstr "Ổn định"
 
-#: omweather/src/hash.data:363
+#: omweather/src/hash.data:364
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:364
+#: omweather/src/hash.data:365
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:365
+#: omweather/src/hash.data:366
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:366
+#: omweather/src/hash.data:367
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:367
+#: omweather/src/hash.data:368
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:368
+#: omweather/src/hash.data:369
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:369
+#: omweather/src/hash.data:370
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:370
+#: omweather/src/hash.data:371
 msgid "Ю-З"
 msgstr "Ю-З"
 

@@ -5,6 +5,7 @@ Page {
     id: fullweather
     property int screen_height : 960
     property int screen_width : 540
+    property int icon_size: 128
     property int margin: 16
     property int day: 0
     property bool current: false
@@ -327,7 +328,7 @@ Page {
 
                 Text {
                     id: now
-                    width: 160
+                    width: screen_width/2 - icon_size/2 
                     height: 84
                     anchors.top: parent.top
                     anchors.left: parent.left
@@ -341,8 +342,8 @@ Page {
                 Image {
                     id: icon
                     source:  image_source 
-                    width: 128
-                    height: 128
+                    width: icon_size 
+                    height: icon_size 
                     anchors.top: parent.top
                     anchors.topMargin: -22
                     anchors.left: now.right
@@ -353,7 +354,7 @@ Page {
                     anchors.top: parent.top
                     anchors.left: icon.right
                     anchors.rightMargin: margin
-                    width: 160
+                    width: screen_width/2 - icon_size/2 
                     height: 84
                     color: "white"
                     font.pointSize: 26

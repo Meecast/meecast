@@ -242,7 +242,7 @@ Component {
                         Item {
                             Text {
                                 id: now
-                                width: screen_width/2 - icon_size/2 
+                                width: main.screen_width/2 - icon_size/2 
                                 height: 84
                                 anchors.top: parent.top
                                 anchors.left: parent.left
@@ -267,7 +267,7 @@ Component {
                                 anchors.top: parent.top
                                 anchors.left: icon.right
                                 id: temp_text
-                                width: screen_width/2 - icon_size/2
+                                width: main.screen_width/2 - icon_size/2
                                 height: 84
                                 color: "white"
                                 text: model.temp + '°'

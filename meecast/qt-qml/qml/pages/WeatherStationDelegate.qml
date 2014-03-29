@@ -32,17 +32,24 @@ Component {
             }
             PullDownMenu {
                 MenuItem {
-                    id: item2menu
-                    text: Config.tr("Update")
-                    onClicked: {
-                        if (!isUpdate) main.update();
-                    }
+                     id: item4menu
+                     text: Config.tr("About")
+                     onClicked: {
+                          openFile("AboutPage.qml");
+                     }
                 }
                 MenuItem {
                     id: item1menu
                     text: Config.tr("Settings")
                     onClicked: {
                          openFile("SettingsPage.qml");
+                    }
+                }
+                MenuItem {
+                    id: item2menu
+                    text: Config.tr("Update")
+                    onClicked: {
+                        if (!isUpdate) main.update();
                     }
                 }
 		/*
@@ -55,13 +62,6 @@ Component {
                     }
 	        }
                 */
-                MenuItem {
-                     id: item4menu
-                     text: Config.tr("About")
-                     onClicked: {
-                          openFile("AboutPage.qml");
-                     }
-                }
             }
 
             Rectangle {

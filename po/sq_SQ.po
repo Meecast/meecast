@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-16 21:03+0300\n"
+"POT-Creation-Date: 2014-03-29 13:26+0300\n"
 "PO-Revision-Date: 2013-04-29 10:02+0000\n"
 "Last-Translator: Ilir Gjika <ilir.gjika@gmail.com>\n"
 "Language-Team: Albanian (http://www.transifex.com/projects/p/meecast/"
@@ -397,7 +397,7 @@ msgstr "Krijuesit"
 msgid "Automatically update data when connecting to the Internet"
 msgstr "Përditëso të dhënat sa po të lidhesh në internet"
 
-#: omweather/src/hash.data:333
+#: omweather/src/hash.data:334
 msgid "Back"
 msgstr "Mbrapa"
 
@@ -419,11 +419,11 @@ msgstr "Shkalla e Beaufortit"
 msgid "Blowing Snow"
 msgstr "Stuhi dëbore"
 
-#: omweather/src/hash.data:335
+#: omweather/src/hash.data:336
 msgid "Broken Clouds"
 msgstr ""
 
-#: omweather/src/hash.data:336
+#: omweather/src/hash.data:337
 msgid "Broken clouds"
 msgstr ""
 
@@ -559,7 +559,7 @@ msgstr "Me re dhe stuhira bore"
 msgid "Cloudy and wet snow showers"
 msgstr "Me re dhe borë të lagur"
 
-#: omweather/src/hash.data:354
+#: omweather/src/hash.data:355
 #, fuzzy
 msgid "Cloudy with occasional rain."
 msgstr "Mot me re dhe shira të dobët"
@@ -871,7 +871,7 @@ msgstr "Nuk nisa dot GConf-in. Rregullimet nuk qenë ruajtur.\n"
 msgid "Fair"
 msgstr "Fair"
 
-#: omweather/src/hash.data:331
+#: omweather/src/hash.data:332
 msgid "Feels like"
 msgstr "Ndjehet si"
 
@@ -879,7 +879,7 @@ msgstr "Ndjehet si"
 msgid "Feels like:"
 msgstr "Ndjehet si:"
 
-#: omweather/src/hash.data:338
+#: omweather/src/hash.data:339
 #, fuzzy
 msgid "Few Clouds"
 msgstr "Me re"
@@ -904,7 +904,7 @@ msgstr "Disa stuhira dëbore"
 msgid "Few Snow Showers / Wind"
 msgstr "Disa stuhira dëbore / Erë"
 
-#: omweather/src/hash.data:337
+#: omweather/src/hash.data:338
 msgid "Few clouds"
 msgstr ""
 
@@ -1148,7 +1148,7 @@ msgstr "Rreshje të dëndura dëbore"
 msgid "Heavy Snow / Wind"
 msgstr "Stuhi bore / Erë"
 
-#: omweather/src/hash.data:355
+#: omweather/src/hash.data:356
 #, fuzzy
 msgid "Heavy intensity rain"
 msgstr "Shira të fortë"
@@ -1157,7 +1157,7 @@ msgstr "Shira të fortë"
 msgid "High"
 msgstr "E lartë"
 
-#: omweather/src/hash.data:332
+#: omweather/src/hash.data:333
 msgid "Hourly"
 msgstr "çdo orë"
 
@@ -1228,7 +1228,7 @@ msgstr "Kilometra"
 msgid "Knots"
 msgstr ""
 
-#: omweather/src/hash.data:334
+#: omweather/src/hash.data:335
 msgid "Language"
 msgstr ""
 
@@ -1285,7 +1285,7 @@ msgstr "Shi i ngrirë"
 msgid "Light Freezing Rain"
 msgstr "Shi i dobët i ngrirë"
 
-#: omweather/src/hash.data:116 omweather/src/hash.data:340
+#: omweather/src/hash.data:116 omweather/src/hash.data:341
 msgid "Light Rain"
 msgstr "Shi i dobët"
 
@@ -1353,22 +1353,22 @@ msgstr "Dëborë e dobët vonë"
 msgid "Light Snow Shower"
 msgstr "Dëborë e dobët me rreshje të shkurtëra"
 
-#: omweather/src/hash.data:342
+#: omweather/src/hash.data:343
 #, fuzzy
 msgid "Light intensity drizzle"
 msgstr "Shira të fortë"
 
-#: omweather/src/hash.data:356
+#: omweather/src/hash.data:357
 #, fuzzy
 msgid "Light intensity shower rain"
 msgstr "Shira të fortë"
 
-#: omweather/src/hash.data:339
+#: omweather/src/hash.data:340
 #, fuzzy
 msgid "Light rain"
 msgstr "Shi i dobët"
 
-#: omweather/src/hash.data:341
+#: omweather/src/hash.data:342
 #, fuzzy
 msgid "Light snow"
 msgstr "Dëborë e dobët"
@@ -1397,7 +1397,7 @@ msgstr "Duket sikur s'paska të dhëna për këtë stacion"
 msgid "Low"
 msgstr "I ulët"
 
-#: omweather/src/hash.data:353
+#: omweather/src/hash.data:354
 #, fuzzy
 msgid "Mainly cloudy with occasional rain."
 msgstr "Pjesërisht me re dhe shi i dobët"
@@ -1452,12 +1452,12 @@ msgstr "Milje"
 msgid "Mist"
 msgstr "Mjegull"
 
-#: omweather/src/hash.data:344
+#: omweather/src/hash.data:345
 #, fuzzy
 msgid "Moderate Rain"
 msgstr "(Mesatar)"
 
-#: omweather/src/hash.data:343
+#: omweather/src/hash.data:344
 #, fuzzy
 msgid "Moderate rain"
 msgstr "(Mesatar)"
@@ -1745,7 +1745,7 @@ msgstr "Other Maemo Weather Info"
 msgid "Overcast"
 msgstr "Vranësira"
 
-#: omweather/src/hash.data:346
+#: omweather/src/hash.data:347
 #, fuzzy
 msgid "Overcast Clouds"
 msgstr "Vranësira"
@@ -1786,7 +1786,7 @@ msgstr "Vranësira me rreshje dëbore të lagur"
 msgid "Overcast and wet snow showers"
 msgstr "Vranësira me rreshje të shkurtëra dëbore të lagur"
 
-#: omweather/src/hash.data:345
+#: omweather/src/hash.data:346
 #, fuzzy
 msgid "Overcast clouds"
 msgstr "Vranësira"
@@ -1859,7 +1859,7 @@ msgstr "Pasdite Stuhira"
 msgid "Pa"
 msgstr "Pa"
 
-#: omweather/src/hash.data:205
+#: omweather/src/hash.data:206
 msgid "Partly Cloudy"
 msgstr "Pjesërisht me re"
 
@@ -1868,102 +1868,107 @@ msgid "Partly Cloudy / Wind"
 msgstr "Pjesërisht me re / Erë"
 
 #: omweather/src/hash.data:199
+#, fuzzy
+msgid "Partly Cloudy / Windy"
+msgstr "Pjesërisht me re / Erë"
+
+#: omweather/src/hash.data:200
 msgid "Partly Cloudy Few Snow"
 msgstr "Pjesërisht me re dhe pak dëborë"
 
-#: omweather/src/hash.data:200
+#: omweather/src/hash.data:201
 msgid "Partly Cloudy Light Rain"
 msgstr "Pjesërisht me re dhe shi i dobët"
 
-#: omweather/src/hash.data:201
+#: omweather/src/hash.data:202
 msgid "Partly Cloudy T-Storm"
 msgstr "Pjesërisht me re dhe stuhira"
 
-#: omweather/src/hash.data:202
+#: omweather/src/hash.data:203
 msgid "Partly Cloudy and Windly"
 msgstr "Pjesërisht me re dhe erë"
 
-#: omweather/src/hash.data:203 omweather/src/hash.data:204
+#: omweather/src/hash.data:204 omweather/src/hash.data:205
 msgid "Partly Cloudy and Windy"
 msgstr "Pjesërisht me re dhe erë"
 
-#: omweather/src/hash.data:206
+#: omweather/src/hash.data:207
 msgid "Partly Cloudy, Few Snow"
 msgstr "Pjesërisht me re dhe pak dëborë"
 
-#: omweather/src/hash.data:207
+#: omweather/src/hash.data:208
 msgid "Partly Cloudy, Haze"
 msgstr "Pjesërisht me re, Mjegull"
 
-#: omweather/src/hash.data:208
+#: omweather/src/hash.data:209
 msgid "Partly Cloudy, Heavy Rain"
 msgstr "Pjesërisht me re, Shira të fortë"
 
-#: omweather/src/hash.data:209
+#: omweather/src/hash.data:210
 msgid "Partly Cloudy, Heavy Rain, T-Storm"
 msgstr "Pjesërisht me re, Shira të fortë, Rrufe"
 
-#: omweather/src/hash.data:210
+#: omweather/src/hash.data:211
 msgid "Partly Cloudy, Heavy Snow"
 msgstr "Pjesërisht me re, Dëborë e dëndur"
 
-#: omweather/src/hash.data:211
+#: omweather/src/hash.data:212
 msgid "Partly Cloudy, Light Rain"
 msgstr "Pjesërisht me re, Shi i dobët"
 
-#: omweather/src/hash.data:212
+#: omweather/src/hash.data:213
 msgid "Partly Cloudy, Light Rain, T-Storm"
 msgstr "Pjesërisht me re, Shi i dobët, Rrufe"
 
-#: omweather/src/hash.data:213
+#: omweather/src/hash.data:214
 msgid "Partly Cloudy, Rain"
 msgstr "Pjesërisht me re, Shi"
 
-#: omweather/src/hash.data:214
+#: omweather/src/hash.data:215
 msgid "Partly Cloudy, Rain, T-Storm"
 msgstr "Pjesërisht me re, Shi, Rrufe"
 
-#: omweather/src/hash.data:215
+#: omweather/src/hash.data:216
 msgid "Partly Cloudy, Smoke"
 msgstr "Pjesërisht me re, Tym"
 
-#: omweather/src/hash.data:216
+#: omweather/src/hash.data:217
 msgid "Partly Cloudy, Snow"
 msgstr "Pjesërisht me re, Dëborë"
 
-#: omweather/src/hash.data:217
+#: omweather/src/hash.data:218
 msgid "Partly Cloudy, T-Storm"
 msgstr "Pjesërisht me re, Rrufe"
 
-#: omweather/src/hash.data:225
+#: omweather/src/hash.data:226
 msgid "Partly cloudy"
 msgstr "Pjesërisht me re"
 
-#: omweather/src/hash.data:218
+#: omweather/src/hash.data:219
 msgid "Partly cloudy and light rain"
 msgstr "Pjesërisht me re dhe shi i dobët"
 
-#: omweather/src/hash.data:219
+#: omweather/src/hash.data:220
 msgid "Partly cloudy and light snow"
 msgstr "Pjesërisht me re dhe dëborë e dobët"
 
-#: omweather/src/hash.data:220
+#: omweather/src/hash.data:221
 msgid "Partly cloudy and light wet snow"
 msgstr "Pjesërisht me re dhe dëborë e dobët e lagur"
 
-#: omweather/src/hash.data:221
+#: omweather/src/hash.data:222
 msgid "Partly cloudy and showers"
 msgstr "Pjesërisht me re dhe me rreshje"
 
-#: omweather/src/hash.data:222
+#: omweather/src/hash.data:223
 msgid "Partly cloudy and snow showers"
 msgstr "Pjesërisht me re rreshje dëbore"
 
-#: omweather/src/hash.data:223
+#: omweather/src/hash.data:224
 msgid "Partly cloudy and wet snow showers"
 msgstr "Pjesërisht me re dhe rreshje të dobëta dëbore të lagur"
 
-#: omweather/src/hash.data:197 omweather/src/hash.data:224
+#: omweather/src/hash.data:197 omweather/src/hash.data:225
 msgid "Partly cloudy, possible thunderstorms with rain"
 msgstr "Pjesërisht me re, ka mundësi të ketë rrebeshe"
 
@@ -2028,87 +2033,87 @@ msgstr "Shefi i projektit"
 msgid "Provided by"
 msgstr "U mundësua nga"
 
-#: omweather/src/hash.data:247
+#: omweather/src/hash.data:248
 msgid "Rain"
 msgstr "Shi"
 
-#: omweather/src/hash.data:226
+#: omweather/src/hash.data:227
 msgid "Rain / Freezing Rain"
 msgstr "Shi / Shi i ngrirë"
 
-#: omweather/src/hash.data:233
+#: omweather/src/hash.data:234
 msgid "Rain / Snow"
 msgstr "Shi / Dëborë"
 
-#: omweather/src/hash.data:227
+#: omweather/src/hash.data:228
 msgid "Rain / Snow / Wind"
 msgstr "Shi / Dëborë / Erë"
 
-#: omweather/src/hash.data:228
+#: omweather/src/hash.data:229
 msgid "Rain / Snow Early"
 msgstr "Shi / Dëborë herët"
 
-#: omweather/src/hash.data:229
+#: omweather/src/hash.data:230
 msgid "Rain / Snow Late"
 msgstr "Shi / Dëborë vonë"
 
-#: omweather/src/hash.data:232
+#: omweather/src/hash.data:233
 msgid "Rain / Snow Showers"
 msgstr "Shi / rreshje dëbore"
 
-#: omweather/src/hash.data:230
+#: omweather/src/hash.data:231
 msgid "Rain / Snow Showers / Wind"
 msgstr "Shi / Rreshje dëbore / Rrë"
 
-#: omweather/src/hash.data:231
+#: omweather/src/hash.data:232
 msgid "Rain / Snow Showers Late"
 msgstr "Shi / Rreshje dëbore vonë"
 
-#: omweather/src/hash.data:234
+#: omweather/src/hash.data:235
 msgid "Rain / Thunder"
 msgstr "Shi / Rrufe-Bubullima"
 
-#: omweather/src/hash.data:236
+#: omweather/src/hash.data:237
 msgid "Rain / Wind"
 msgstr "Shi / Erë"
 
-#: omweather/src/hash.data:235
+#: omweather/src/hash.data:236
 msgid "Rain / Wind Early"
 msgstr "Shi / Erë herët"
 
-#: omweather/src/hash.data:237
+#: omweather/src/hash.data:238
 msgid "Rain Early"
 msgstr "Shi herët"
 
-#: omweather/src/hash.data:238
+#: omweather/src/hash.data:239
 msgid "Rain Late"
 msgstr "Shi vonë"
 
-#: omweather/src/hash.data:240
+#: omweather/src/hash.data:241
 msgid "Rain Shower"
 msgstr "Rreshje shiu"
 
-#: omweather/src/hash.data:239
+#: omweather/src/hash.data:240
 msgid "Rain Shower and Windy"
 msgstr "Rreshje shiu dhe erë"
 
-#: omweather/src/hash.data:241
+#: omweather/src/hash.data:242
 msgid "Rain Showers"
 msgstr "Rreshje shiu"
 
-#: omweather/src/hash.data:242 omweather/src/hash.data:243
+#: omweather/src/hash.data:243 omweather/src/hash.data:244
 msgid "Rain and Snow"
 msgstr "Shi dhe dëbore"
 
-#: omweather/src/hash.data:244
+#: omweather/src/hash.data:245
 msgid "Rain to Snow / Wind"
 msgstr "Shi dhe dëborë / Erë"
 
-#: omweather/src/hash.data:246
+#: omweather/src/hash.data:247
 msgid "Rain to Wintry Mix"
 msgstr "Nga shi në shi i përzjerë me akull e dëborë"
 
-#: omweather/src/hash.data:245
+#: omweather/src/hash.data:246
 msgid "Rain to Wintry Mix / Wind"
 msgstr "Nga shi në shi i përzjerë me akull e dëborë / Erë"
 
@@ -2122,47 +2127,47 @@ msgstr "Lexo sensorin çdo:"
 msgid "Region"
 msgstr "Rajoni"
 
-#: omweather/src/hash.data:248
+#: omweather/src/hash.data:249
 msgid "Rush Hour Traffic"
 msgstr "Ora e pikut"
 
-#: omweather/src/hash.data:249
+#: omweather/src/hash.data:250
 msgid "S"
 msgstr "J"
 
-#: omweather/src/hash.data:250
+#: omweather/src/hash.data:251
 msgid "SE"
 msgstr "JL"
 
-#: omweather/src/hash.data:251
+#: omweather/src/hash.data:252
 msgid "SE_short"
 msgstr "JL_short"
 
-#: omweather/src/hash.data:252
+#: omweather/src/hash.data:253
 msgid "SSE"
 msgstr "JJL"
 
-#: omweather/src/hash.data:253
+#: omweather/src/hash.data:254
 msgid "SSE_short"
 msgstr "JJL_short"
 
-#: omweather/src/hash.data:254
+#: omweather/src/hash.data:255
 msgid "SSW"
 msgstr "JJP"
 
-#: omweather/src/hash.data:255
+#: omweather/src/hash.data:256
 msgid "SSW_short"
 msgstr "JJP_short"
 
-#: omweather/src/hash.data:256
+#: omweather/src/hash.data:257
 msgid "SW"
 msgstr "JP"
 
-#: omweather/src/hash.data:257
+#: omweather/src/hash.data:258
 msgid "SW_short"
 msgstr "JP_short"
 
-#: omweather/src/hash.data:258
+#: omweather/src/hash.data:259
 msgid "S_short"
 msgstr "J_short"
 
@@ -2176,28 +2181,28 @@ msgstr "J_short"
 msgid "Save"
 msgstr "Ruaji"
 
-#: omweather/src/hash.data:348
+#: omweather/src/hash.data:349
 #, fuzzy
 msgid "Scattered Clouds"
 msgstr "Dëborë tek tuk"
 
-#: omweather/src/hash.data:259
+#: omweather/src/hash.data:260
 msgid "Scattered Showers"
 msgstr "Rrebeshe tek tuk"
 
-#: omweather/src/hash.data:261
+#: omweather/src/hash.data:262
 msgid "Scattered Snow"
 msgstr "Dëborë tek tuk"
 
-#: omweather/src/hash.data:260
+#: omweather/src/hash.data:261
 msgid "Scattered Snow Showers"
 msgstr "Rrebeshe dëbore tek tuk"
 
-#: omweather/src/hash.data:262
+#: omweather/src/hash.data:263
 msgid "Scattered T-Storms"
 msgstr "Stuhira tek tuk"
 
-#: omweather/src/hash.data:347
+#: omweather/src/hash.data:348
 #, fuzzy
 msgid "Scattered clouds"
 msgstr "Dëborë tek tuk"
@@ -2299,7 +2304,7 @@ msgstr "Sensori"
 msgid "Set"
 msgstr "Vendos"
 
-#: omweather/src/hash.data:263 meecast/qt-qml/qml/WeatherPage.qml:327
+#: omweather/src/hash.data:264 meecast/qt-qml/qml/WeatherPage.qml:327
 msgid "Set locations"
 msgstr "Vendos vëndin"
 
@@ -2325,7 +2330,7 @@ msgstr "Rregullimet kur ekrani është i bllokuar"
 msgid "Settings of StandbyScreen"
 msgstr "Rregullimet e Ekranit në Pritje"
 
-#: omweather/src/hash.data:264
+#: omweather/src/hash.data:265
 msgid "Shallow Fog"
 msgstr "Mjegull në sipërfaqe"
 
@@ -2337,7 +2342,7 @@ msgstr "I shkurtër"
 msgid "Show arrows"
 msgstr "Trego shigjetat"
 
-#: omweather/src/hash.data:362
+#: omweather/src/hash.data:363
 #, fuzzy
 msgid "Show last update time"
 msgstr "Përditësimi i fundit: "
@@ -2350,7 +2355,7 @@ msgstr "Trego në hartë"
 msgid "Show only current weather on first icon"
 msgstr "Trego kohën e tashme tek ikona e parë"
 
-#: omweather/src/hash.data:361
+#: omweather/src/hash.data:362
 msgid "Show source logo"
 msgstr ""
 
@@ -2366,89 +2371,89 @@ msgstr "Trego temeperaturën në:"
 msgid "Show wind"
 msgstr "Trego erën"
 
-#: omweather/src/hash.data:270
+#: omweather/src/hash.data:271
 msgid "Showers"
 msgstr "Rrebeshe"
 
-#: omweather/src/hash.data:266
+#: omweather/src/hash.data:267
 msgid "Showers / Wind"
 msgstr "Rrebeshe / Erë"
 
-#: omweather/src/hash.data:265
+#: omweather/src/hash.data:266
 msgid "Showers / Wind Early"
 msgstr "Rrebeshe/ Me erë herët"
 
-#: omweather/src/hash.data:267
+#: omweather/src/hash.data:268
 msgid "Showers Early"
 msgstr "Herët me rrebeshe"
 
-#: omweather/src/hash.data:268
+#: omweather/src/hash.data:269
 msgid "Showers Late"
 msgstr "Rreshje të shkurtëra vonë"
 
-#: omweather/src/hash.data:269
+#: omweather/src/hash.data:270
 msgid "Showers in the Vicinity"
 msgstr "Rreshje të shkurtëra përreth"
 
-#: omweather/src/hash.data:350
+#: omweather/src/hash.data:351
 #, fuzzy
 msgid "Sky is Clear"
 msgstr "Kryesisht mot i kthjellët"
 
-#: omweather/src/hash.data:349
+#: omweather/src/hash.data:350
 #, fuzzy
 msgid "Sky is clear"
 msgstr "Kryesisht mot i kthjellët"
 
-#: omweather/src/hash.data:271
+#: omweather/src/hash.data:272
 msgid "Sleet"
 msgstr "Borë e shkrirë"
 
-#: omweather/src/hash.data:272
+#: omweather/src/hash.data:273
 msgid "Smoke"
 msgstr "Tym"
 
-#: omweather/src/hash.data:283
+#: omweather/src/hash.data:284
 msgid "Snow"
 msgstr "Dëborë"
 
-#: omweather/src/hash.data:273
+#: omweather/src/hash.data:274
 msgid "Snow / Wind"
 msgstr "Dëborë / Erë"
 
-#: omweather/src/hash.data:275
+#: omweather/src/hash.data:276
 msgid "Snow Shower"
 msgstr "Rreshje të shkurtëra dëbore"
 
-#: omweather/src/hash.data:274
+#: omweather/src/hash.data:275
 msgid "Snow Shower / Wind"
 msgstr "Rreshje të shkurtëra dëbore / Erë"
 
-#: omweather/src/hash.data:276
+#: omweather/src/hash.data:277
 msgid "Snow Showers / Wind Early"
 msgstr "Rreshje të shkurtëra dëbore / Erë vonë"
 
-#: omweather/src/hash.data:277
+#: omweather/src/hash.data:278
 msgid "Snow Showers Early"
 msgstr "Rreshje të shkurtëra dëbore herët"
 
-#: omweather/src/hash.data:278
+#: omweather/src/hash.data:279
 msgid "Snow Showers Late"
 msgstr "Rreshje të shkurtëra dëbore vonë"
 
-#: omweather/src/hash.data:279
+#: omweather/src/hash.data:280
 msgid "Snow and Freezing Rain"
 msgstr "Dëborë dhe shi i ngrirë"
 
-#: omweather/src/hash.data:280
+#: omweather/src/hash.data:281
 msgid "Snow to Rain"
 msgstr "Nga dëborë në shi"
 
-#: omweather/src/hash.data:282
+#: omweather/src/hash.data:283
 msgid "Snow to Wintry Mix"
 msgstr "Nga dëborë në shi me akull"
 
-#: omweather/src/hash.data:281
+#: omweather/src/hash.data:282
 msgid "Snow to Wintry Mix / Wind"
 msgstr "Nga dëborë në shi me akull / Erë"
 
@@ -2496,7 +2501,7 @@ msgstr "Stacioni %i"
 msgid "Stations"
 msgstr "Stacionet"
 
-#: omweather/src/hash.data:284 omweather/src/weather-alerts.c:154
+#: omweather/src/hash.data:285 omweather/src/weather-alerts.c:154
 msgid "Storm"
 msgstr "Stuhi"
 
@@ -2504,19 +2509,19 @@ msgstr "Stuhi"
 msgid "Successfully loaded"
 msgstr "U ngarkua me sukses"
 
-#: omweather/src/hash.data:286
+#: omweather/src/hash.data:287
 msgid "Sunny"
 msgstr "Me diell"
 
-#: omweather/src/hash.data:285
+#: omweather/src/hash.data:286
 msgid "Sunny / Wind"
 msgstr "Me diell / Erë"
 
-#: omweather/src/hash.data:351 omweather/src/hash.data:352
+#: omweather/src/hash.data:352 omweather/src/hash.data:353
 msgid "Sunny periods and a few showers."
 msgstr ""
 
-#: omweather/src/hash.data:287 meecast/qt-qml/qml/FullWeatherPage.qml:308
+#: omweather/src/hash.data:288 meecast/qt-qml/qml/FullWeatherPage.qml:308
 msgid "Sunrise:"
 msgstr "Dielli lind në orën:"
 
@@ -2524,7 +2529,7 @@ msgstr "Dielli lind në orën:"
 msgid "Sunrise: "
 msgstr "Dielli lind në orën: "
 
-#: omweather/src/hash.data:288 meecast/qt-qml/qml/FullWeatherPage.qml:311
+#: omweather/src/hash.data:289 meecast/qt-qml/qml/FullWeatherPage.qml:311
 msgid "Sunset:"
 msgstr "Perëndon:"
 
@@ -2544,27 +2549,27 @@ msgstr "Ndërro temperaturën e lartë/ e ulët"
 msgid "Switch to the next station after:"
 msgstr "Kalo tek stacioni tjetër pas:"
 
-#: omweather/src/hash.data:290
+#: omweather/src/hash.data:291
 msgid "T-Showers"
 msgstr "Rrebeshe"
 
-#: omweather/src/hash.data:289
+#: omweather/src/hash.data:290
 msgid "T-Showers Early"
 msgstr "Rrebeshe me rrufe herët"
 
-#: omweather/src/hash.data:291
+#: omweather/src/hash.data:292
 msgid "T-Storm"
 msgstr "Stuhi me rrufe"
 
-#: omweather/src/hash.data:294
+#: omweather/src/hash.data:295
 msgid "T-Storms"
 msgstr "Stuhi me rrufe"
 
-#: omweather/src/hash.data:292
+#: omweather/src/hash.data:293
 msgid "T-Storms Early"
 msgstr "Stuhi me rrufe herët"
 
-#: omweather/src/hash.data:293
+#: omweather/src/hash.data:294
 msgid "T-Storms Late"
 msgstr "Stuhi me rrife vonë"
 
@@ -2574,7 +2579,7 @@ msgstr "Stuhi me rrife vonë"
 msgid "Temperature"
 msgstr "Temperatura"
 
-#: omweather/src/hash.data:295 meecast/qt-qml/qml/UnitsPage.qml:31
+#: omweather/src/hash.data:296 meecast/qt-qml/qml/UnitsPage.qml:31
 #: meecast/qt-qml/qml/UnitsPage.qml:103
 msgid "Temperature units"
 msgstr "Njësia për matjen e temperaturës"
@@ -2600,11 +2605,11 @@ msgstr "Faleminderit"
 msgid "The weather has been updated."
 msgstr "Të dhënat e motit u përditësuan."
 
-#: omweather/src/hash.data:357
+#: omweather/src/hash.data:358
 msgid "There are no stations to show in this view of the list"
 msgstr ""
 
-#: omweather/src/hash.data:359
+#: omweather/src/hash.data:360
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
 
@@ -2633,11 +2638,11 @@ msgstr ""
 "Ky program është falas; ju mund ta shpërndani apo ndryshoni në bazë \n"
 "të GNU General Public License\n"
 
-#: omweather/src/hash.data:296
+#: omweather/src/hash.data:297
 msgid "Thunder"
 msgstr "Bubullima"
 
-#: omweather/src/hash.data:297
+#: omweather/src/hash.data:298
 msgid "Thunder in the Vicinity"
 msgstr "Rrebeshe në rrethinat"
 
@@ -2665,7 +2670,7 @@ msgstr ""
 msgid "Transparency:"
 msgstr "Tejduekshmëria:"
 
-#: omweather/src/hash.data:298 meecast/qt-qml/qml/WeatherPage.qml:501
+#: omweather/src/hash.data:299 meecast/qt-qml/qml/WeatherPage.qml:501
 msgid "Try to update"
 msgstr "Provo të përditësosh"
 
@@ -2699,7 +2704,7 @@ msgstr "Njesitë"
 msgid "Unknown"
 msgstr "I/e panjohur"
 
-#: omweather/src/hash.data:299
+#: omweather/src/hash.data:300
 msgid "Unlimited"
 msgstr "Pa kufi"
 
@@ -2716,7 +2721,7 @@ msgstr "Përditësimi është duke u kryer"
 msgid "Update interval"
 msgstr "Frekuenca e përditësimeve"
 
-#: omweather/src/hash.data:300 meecast/qt-qml/qml/WeatherPage.qml:360
+#: omweather/src/hash.data:301 meecast/qt-qml/qml/WeatherPage.qml:360
 msgid "Updating forecast"
 msgstr "Duke përditësuar parashikimet"
 
@@ -2746,7 +2751,7 @@ msgstr "Përdor GSM dhe/ose WLAN për përditësimet periodike.\n"
 msgid "Use device temperature sensor"
 msgstr "Përdor sensorin e temperaturës të aparatit"
 
-#: omweather/src/hash.data:301
+#: omweather/src/hash.data:302
 msgid "VAR"
 msgstr "VAR"
 
@@ -2754,7 +2759,7 @@ msgstr "VAR"
 msgid "Valid time for current weather:"
 msgstr "Vlefshmëria e parashikimeve të tashme:"
 
-#: omweather/src/hash.data:302
+#: omweather/src/hash.data:303
 msgid "Very High"
 msgstr "Shumë e lartë"
 
@@ -2776,16 +2781,16 @@ msgstr "Në dukje"
 msgid "Visuals"
 msgstr "Pamje"
 
-#: omweather/src/hash.data:358
+#: omweather/src/hash.data:359
 msgid "Voice forecast button on a widget"
 msgstr ""
 
-#: omweather/src/hash.data:360
+#: omweather/src/hash.data:361
 #, fuzzy
 msgid "Voice weather forecast"
 msgstr "Parashikimet OMWeather"
 
-#: omweather/src/hash.data:303
+#: omweather/src/hash.data:304
 msgid "W"
 msgstr "P"
 
@@ -2795,31 +2800,31 @@ msgstr "P"
 msgid "WLAN"
 msgstr "WLAN"
 
-#: omweather/src/hash.data:304
+#: omweather/src/hash.data:305
 msgid "WNW"
 msgstr "PVP"
 
-#: omweather/src/hash.data:305
+#: omweather/src/hash.data:306
 msgid "WNW_short"
 msgstr "PVP_short"
 
-#: omweather/src/hash.data:306
+#: omweather/src/hash.data:307
 msgid "WSW"
 msgstr "PJP"
 
-#: omweather/src/hash.data:307
+#: omweather/src/hash.data:308
 msgid "WSW_short"
 msgstr "PJP_short"
 
-#: omweather/src/hash.data:308
+#: omweather/src/hash.data:309
 msgid "W_short"
 msgstr "P_short"
 
-#: omweather/src/hash.data:309
+#: omweather/src/hash.data:310
 msgid "Waning Crescent"
 msgstr "Në katërshen e fundit"
 
-#: omweather/src/hash.data:310
+#: omweather/src/hash.data:311
 msgid "Waning Gibbous"
 msgstr "Nga e plotë në katërshen e fundit"
 
@@ -2827,11 +2832,11 @@ msgstr "Nga e plotë në katërshen e fundit"
 msgid "Warning"
 msgstr "Kujdes"
 
-#: omweather/src/hash.data:311
+#: omweather/src/hash.data:312
 msgid "Waxing Crescent"
 msgstr "Hëna e re"
 
-#: omweather/src/hash.data:312
+#: omweather/src/hash.data:313
 msgid "Waxing Gibbous"
 msgstr "Nga katërshja e parë në hënën e re"
 
@@ -2868,7 +2873,7 @@ msgstr "Stili i Widget-it"
 msgid "Widget style and Iconset"
 msgstr "Stili i Widget-it dhe Ikonat"
 
-#: omweather/src/hash.data:316
+#: omweather/src/hash.data:317
 msgid "Wind"
 msgstr "Era"
 
@@ -2878,7 +2883,7 @@ msgstr "Era"
 msgid "Wind direction"
 msgstr "Era fryn nga"
 
-#: omweather/src/hash.data:313
+#: omweather/src/hash.data:314
 msgid "Wind direction:"
 msgstr "Era fryn nga:"
 
@@ -2888,7 +2893,7 @@ msgstr "Era fryn nga:"
 msgid "Wind gust:"
 msgstr "Shkulme ere nga:"
 
-#: omweather/src/hash.data:315 meecast/qt-qml/qml/FullWeatherPage.qml:146
+#: omweather/src/hash.data:316 meecast/qt-qml/qml/FullWeatherPage.qml:146
 #: meecast/qt-qml/qml/FullWeatherPage.qml:149
 #: meecast/qt-qml/qml/FullWeatherPage.qml:210
 #: meecast/qt-qml/qml/FullWeatherPage.qml:213
@@ -2897,7 +2902,7 @@ msgstr "Shkulme ere nga:"
 msgid "Wind speed"
 msgstr "Shpejtësia e erës"
 
-#: omweather/src/hash.data:314 meecast/qt-qml/qml/UnitsPage.qml:40
+#: omweather/src/hash.data:315 meecast/qt-qml/qml/UnitsPage.qml:40
 #: meecast/qt-qml/qml/UnitsPage.qml:142
 msgid "Wind speed units"
 msgstr "Njesia matëse për shpejtësinë e erës"
@@ -2917,19 +2922,19 @@ msgstr "Era:"
 msgid "Wind: "
 msgstr "Era: "
 
-#: omweather/src/hash.data:320
+#: omweather/src/hash.data:321
 msgid "Wintry Mix"
 msgstr "Shi i përzjerë me akull dhe borë"
 
-#: omweather/src/hash.data:318
+#: omweather/src/hash.data:319
 msgid "Wintry Mix / Wind"
 msgstr "Shi i përzjerë me akull dhe borë / Erë"
 
-#: omweather/src/hash.data:317
+#: omweather/src/hash.data:318
 msgid "Wintry Mix / Wind Early"
 msgstr "Shi i përzjerë me akull dhe borë / Erë herët"
 
-#: omweather/src/hash.data:319
+#: omweather/src/hash.data:320
 msgid "Wintry Mix to Snow"
 msgstr "Shi i përzjerë me akull dhe borë në borë"
 
@@ -3042,7 +3047,7 @@ msgstr "çdo orë"
 msgid "every minute (Debug)"
 msgstr "çdo minutë (debug)"
 
-#: omweather/src/hash.data:321
+#: omweather/src/hash.data:322
 msgid "falling"
 msgstr "në rënie"
 
@@ -3081,18 +3086,18 @@ msgstr "inç"
 msgid "km"
 msgstr "km"
 
-#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:322
+#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:323
 #: omweather/src/weather-simple-settings.c:1408
 #: omweather/src/weather-simple-settings.c:2696
 #: meecast/qt-qml/qml/UnitsPage.qml:160
 msgid "km/h"
 msgstr "km/h"
 
-#: omweather/src/hash.data:323
+#: omweather/src/hash.data:324
 msgid "km/s"
 msgstr "km/s"
 
-#: omweather/src/hash.data:324
+#: omweather/src/hash.data:325
 msgid "kn"
 msgstr ""
 
@@ -3103,11 +3108,11 @@ msgstr ""
 msgid "m"
 msgstr "m"
 
-#: omweather/src/hash.data:325
+#: omweather/src/hash.data:326
 msgid "m/h"
 msgstr "m/h"
 
-#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:326
+#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:327
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
 #: meecast/qt-qml/qml/UnitsPage.qml:153
@@ -3135,14 +3140,14 @@ msgstr "mbar"
 msgid "mi"
 msgstr "mi"
 
-#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:327
+#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:328
 #: omweather/src/weather-simple-settings.c:1417
 #: omweather/src/weather-simple-settings.c:2702
 #: meecast/qt-qml/qml/UnitsPage.qml:167
 msgid "mi/h"
 msgstr "mi/h"
 
-#: omweather/src/hash.data:328
+#: omweather/src/hash.data:329
 msgid "mi/s"
 msgstr "mi/s"
 
@@ -3190,7 +3195,7 @@ msgstr "përpara"
 msgid "nmi"
 msgstr "nmi"
 
-#: omweather/src/hash.data:329
+#: omweather/src/hash.data:330
 msgid "rising"
 msgstr "në rritje"
 
@@ -3206,39 +3211,39 @@ msgstr "Ora lokale e stacionit"
 msgid "station name"
 msgstr "emri i stacionit"
 
-#: omweather/src/hash.data:330
+#: omweather/src/hash.data:331
 msgid "steady"
 msgstr "e qëndrueshme"
 
-#: omweather/src/hash.data:363
+#: omweather/src/hash.data:364
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:364
+#: omweather/src/hash.data:365
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:365
+#: omweather/src/hash.data:366
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:366
+#: omweather/src/hash.data:367
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:367
+#: omweather/src/hash.data:368
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:368
+#: omweather/src/hash.data:369
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:369
+#: omweather/src/hash.data:370
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:370
+#: omweather/src/hash.data:371
 msgid "Ю-З"
 msgstr "Ю-З"
 

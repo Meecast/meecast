@@ -1489,7 +1489,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation type="unfinished">Ведущий дизайнер</translation>
+            <translation>Ведущие дизайнеры</translation>
         </message>
         <message>
             <source>License</source>
@@ -1501,7 +1501,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Light Freezing Drizzle</source>
-            <translation type="unfinished">Изморось с градом</translation>
+            <translation>Легкая изморось с градом</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -2225,7 +2225,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation type="unfinished">Небольшая облачность / Ветер</translation>
+            <translation>Переменная облачность / Ветренно</translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
@@ -2817,7 +2817,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Show last update time</source>
-            <translation type="unfinished">Последнее обновление: </translation>
+            <translation>Показать время последнего обновления</translation>
         </message>
         <message>
             <source>Show on Map</source>
@@ -2829,8 +2829,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Show source logo</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Показать логотип источника</translation>
         </message>
         <message>
             <source>Show station name</source>

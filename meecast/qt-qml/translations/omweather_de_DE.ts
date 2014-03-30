@@ -123,23 +123,19 @@ W: </translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Niedrig)</translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Niedrig)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Mäßig)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Mäßig)</translation>
         </message>
         <message>
             <source>1 day</source>
@@ -512,13 +508,11 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Broken Clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Aufgerissene Bewölkung</translation>
         </message>
         <message>
             <source>Broken clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Aufgerissene Bewölkung</translation>
         </message>
         <message>
             <source>C</source>
@@ -744,8 +738,7 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bewölkt, Gewitter mit Regen</translation>
         </message>
         <message>
             <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
@@ -1089,8 +1082,7 @@ Brad Jones aka kazrak - fürs Testen
         </message>
         <message>
             <source>Few Clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Leicht bewölkt</translation>
         </message>
         <message>
             <source>Few Showers</source>
@@ -1114,8 +1106,7 @@ Brad Jones aka kazrak - fürs Testen
         </message>
         <message>
             <source>Few clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Leicht bewölkt</translation>
         </message>
         <message>
             <source>Find location via GPS</source>
@@ -1124,8 +1115,8 @@ Brad Jones aka kazrak - fürs Testen
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Finnisch - Marko Vertainen; Deutsch - Claudius Henrichs; Spanisch - Alejandro Lopez; Niederländisch - Tom Leenders; Slovakisch - Roman Moravčík
+</translation>
         </message>
         <message>
             <source>First Quarter</source>
@@ -1244,8 +1235,39 @@ Programm-Manager deinstallieren.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Französich -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht 
+ Russisch - Pavel Fialko, Vlad Vasiliev, 
+ 	Ed Bartosh
+ Finnisch - Marko Vertainen
+ Deutsch -  Claudius Henrichs
+ Italienisch - Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+ Spanisch - Alejandro Lopez, Agustí Clara
+ Polnisch - Tomasz Dominikowski
+ Slovakisch - Roman Moravčík
+ Niederländisch - Tom Leenders, Michiel Pater
+ Bulgarisch - Zlatko Enikov
+ Albanisch - Ilir Gjika
+ Chinesisch - Wong Man Kong, Michael
+ Portugiesisch - Jose Narciso,
+ Türkisch - Burak Kaan Kose,
+ 	Mehmet Çilingir,
+ Catalanisch - Agustí Clara,
+ Arabisch - Tarad Alfandi,
+ Serbisch - Aleksandar Zaric,
+ Norwegisch - Peer-Atle Motland,
+ Ungarisch - Salmi,
+ Slovenisch -  Boštjan,
+ Tschechisch - Jakub Kožíšek, Pavel Šrubař,
+ Chinesisch (Taiwan) - osk2, 
+ Vietnamesisch - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+ Schwedisch - Angela Nennebrandt,
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1345,8 +1367,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Starker Schneefall / Wind</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1454,8 +1475,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Italienisch - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polnisch - Tomasz Dominikowski; Bulgarisch - Zlatko Enikov</translation>
         </message>
         <message>
             <source>Kilometers</source>
@@ -1463,8 +1483,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Knots</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Knoten</translation>
         </message>
         <message>
             <source>Language</source>
@@ -1520,8 +1539,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lead-Designer</translation>
         </message>
         <message>
             <source>License</source>
@@ -1533,8 +1551,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Light Freezing Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Leichter überfrierender Nieselregen</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -1614,8 +1631,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Leichter Nieselregen</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
@@ -1639,8 +1655,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Localization platform</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Übersetzungs-Plattform</translation>
         </message>
         <message>
             <source>Long</source>
@@ -1690,8 +1705,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>MeeCast - hochkonfigurierbarer quelloffener Wettervorhersage-Klient für verschiedene plattforme, basierend auf Code von OMWeather. Copyright (C) 2006-2014</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2183,8 +2197,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Overcast, thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bedeckt, Gewitter mit Regen</translation>
         </message>
         <message>
             <source>PM Fog</source>
@@ -2260,7 +2273,8 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation type="unfinished">Teilweise bewölkt / Wind</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
@@ -2364,13 +2378,11 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Partly cloudy, possible thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Teilweise bewölkt, Gewitter mit Regen möglich</translation>
         </message>
         <message>
             <source>Partly cloudy, possible thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Teilweise bewölkt, Gewitter mit Regen möglich</translation>
         </message>
         <message>
             <source>Period</source>
@@ -2722,28 +2734,23 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Select the X-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>X-Position der linken Ecke des Widgets</translation>
         </message>
         <message>
             <source>Select the Y-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Y-Position der linken Ecke des Widgets</translation>
         </message>
         <message>
             <source>Select the color of font for current temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Schriftfarbe für aktuelle Temperatur auswählen</translation>
         </message>
         <message>
             <source>Select the color of font for station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Schriftfarbe für Stationsnamen auswählen</translation>
         </message>
         <message>
             <source>Select the color of font for temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Schriftfarbe für Temperatur auswählen</translation>
         </message>
         <message>
             <source>Select the iconset</source>
@@ -2823,23 +2830,19 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Settings for Lockscreen widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Widget-Einstellungen für Sperrbildschirm</translation>
         </message>
         <message>
             <source>Settings for standby widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Widget-Einstellungen für Ruhezustand</translation>
         </message>
         <message>
             <source>Settings of LockScreen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Einstellungen für Sperrbildschirm</translation>
         </message>
         <message>
             <source>Settings of StandbyScreen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Einstellungen für Ruhezustands-Ansicht</translation>
         </message>
         <message>
             <source>Shallow Fog</source>
@@ -2855,13 +2858,11 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Show last update time</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Letzten Aktualisierungszeitpunkt anzeigen</translation>
         </message>
         <message>
             <source>Show on Map</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Auf Karte anzeigen</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
@@ -2869,8 +2870,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Show source logo</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Logo der Datenquelle anzeigen</translation>
         </message>
         <message>
             <source>Show station name</source>
@@ -3026,8 +3026,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Splash screen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Splash Screen</translation>
         </message>
         <message>
             <source>State:</source>
@@ -3207,13 +3206,11 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>There are no stations to show in this view of the list</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Für diese Ansicht sind keine Stationen für die Anzeige verfügbar</translation>
         </message>
         <message>
             <source>This is experimental feature. Only English is supported.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Experimentelle Funktion. Nur Englisch wird unterstützt.</translation>
         </message>
         <message>
             <source>This software is free software; you can
@@ -3244,8 +3241,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Thunder in the Vicinity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Donner in der Nähe</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3303,8 +3299,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>UV-Index:</translation>
         </message>
         <message>
             <source>Units</source>
@@ -3462,13 +3457,11 @@ um die Darstellung des Applets anzupassen</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sichtbare Einheiten</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sichtbare Einheiten</translation>
         </message>
         <message>
             <source>Visible:</source>
@@ -3492,13 +3485,11 @@ um die Darstellung des Applets anzupassen</translation>
         </message>
         <message>
             <source>Voice forecast button on a widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sprach-Vorhersage-Schaltfläche auf Widget</translation>
         </message>
         <message>
             <source>Voice weather forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sprach-Wettervorhersage</translation>
         </message>
         <message>
             <source>W</source>
@@ -3832,8 +3823,7 @@ für das Widget im Standby.</translation>
         </message>
         <message>
             <source>http://github.com/Meecast/meecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>http://github.com/Meecast/meecast</translation>
         </message>
         <message>
             <source>inHg</source>
@@ -3917,8 +3907,7 @@ für das Widget im Standby.</translation>
         </message>
         <message>
             <source>kn</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>kn</translation>
         </message>
         <message>
             <source>m</source>

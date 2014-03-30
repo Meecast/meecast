@@ -97,6 +97,7 @@ desktop-file-install --delete-original       \
   * Fixed centering problem of the graphics on the details page
   * Increased icon size on CoverPage
   * Reordered items in Main PullMenu
+  * Updated German and Russian translations
 
 * Wed Mar 26 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.15.1
   * Updated Denmark for openstreetmap.org 
@@ -106,7 +107,7 @@ desktop-file-install --delete-original       \
   * Fixed font size in station name on Cover Page
   * Fixed problem with size of map image
   * Updated Catalan, Czech, Finnish, Norwegian, Serbian, Slovenian, Spanish,
-    Turkish, Germany translations
+    Turkish, German translations
 
 * Sun Feb 23 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.14.1
   * Fixed problem with downloading

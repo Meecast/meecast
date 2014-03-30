@@ -230,7 +230,8 @@ French -  Nicolas Granziano, \n \
 Russian - Pavel Fialko, Vlad Vasiliev, \n \
 \tEd Bartosh\n \
 Finnish - Marko Vertainen\n \
-German -  Claudius Henrichs\n \
+German -  Claudius Henrichs,\n \
+\tJens Klingen\n \
 Italian - Lorenzo Facca,\n \
 \tPavel Fialko, Alessandro Pasotti,\n \
 \tSalvatore Fiorenzo, Ilir Gjika,\n \

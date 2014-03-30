@@ -1205,7 +1205,8 @@ bør du avinstallere pakken
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
- German -  Claudius Henrichs
+ German -  Claudius Henrichs,
+ 	Jens Klingen
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1233,7 +1234,7 @@ bør du avinstallere pakken
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation>Fransk -  Nicolas Granziano, 
+            <translation type="unfinished">Fransk -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  Russisk - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
@@ -2564,6 +2565,11 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Read sensor every:</source>
             <translation>Les sensor hver:</translation>
+        </message>
+        <message>
+            <source>Refresh</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Region</source>

@@ -1229,7 +1229,8 @@ using Application manager</source>
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
- German -  Claudius Henrichs
+ German -  Claudius Henrichs,
+ 	Jens Klingen
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -2611,6 +2612,11 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Read sensor every:</source>
             <translation>传感器读取间隔:</translation>
+        </message>
+        <message>
+            <source>Refresh</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Region</source>

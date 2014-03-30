@@ -1204,7 +1204,8 @@ sinun tulee poistaa
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
- German -  Claudius Henrichs
+ German -  Claudius Henrichs,
+ 	Jens Klingen
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1232,7 +1233,7 @@ sinun tulee poistaa
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation>Ranska -  Nicolas Granziano, 
+            <translation type="unfinished">Ranska -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  Venäjä - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
@@ -2563,6 +2564,11 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Read sensor every:</source>
             <translation>Lue anturi joka:</translation>
+        </message>
+        <message>
+            <source>Refresh</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Region</source>

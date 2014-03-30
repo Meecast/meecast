@@ -1380,7 +1380,8 @@ using Application manager</source>
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
- German -  Claudius Henrichs
+ German -  Claudius Henrichs,
+ 	Jens Klingen
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -3012,6 +3013,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Read sensor every:</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Refresh</source>
             <translation type="unfinished">
             </translation>
         </message>

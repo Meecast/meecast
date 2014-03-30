@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-29 13:26+0300\n"
+"POT-Creation-Date: 2014-03-30 17:27+0300\n"
 "PO-Revision-Date: 2014-03-21 18:50+0000\n"
 "Last-Translator: nodevel <nodevel@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/meecast/language/"
@@ -986,13 +986,15 @@ msgid "Freezing Drizzle"
 msgstr "Mrznoucí mrholení"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
+#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
 " Russian - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
 " Finnish - Marko Vertainen\n"
-" German -  Claudius Henrichs\n"
+" German -  Claudius Henrichs,\n"
+" \tJens Klingen\n"
 " Italian - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
@@ -1193,7 +1195,7 @@ msgstr "Ikony"
 msgid "Iconset"
 msgstr "Sada ikon"
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:267
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:268
 msgid "Iconsets"
 msgstr "Sady ikon"
 
@@ -1267,7 +1269,7 @@ msgstr "Nákres:"
 msgid "Lead designers"
 msgstr "Vedoucí projektu"
 
-#: meecast/qt-qml/qml/AboutPage.qml:301
+#: meecast/qt-qml/qml/AboutPage.qml:302
 msgid "License"
 msgstr "Licence"
 
@@ -2106,6 +2108,10 @@ msgstr "Déšť se sněhem / vítr"
 msgid "Read sensor every:"
 msgstr "Číst senzor každých:"
 
+#: omweather/src/hash.data:364
+msgid "Refresh"
+msgstr ""
+
 #: omweather/src/weather-simple-settings.c:733
 #: omweather/src/weather-simple-settings.c:786
 #: omweather/src/weather-simple-settings.c:2327
@@ -2440,7 +2446,7 @@ msgstr "Sníh až mráz / vítr"
 msgid "Source"
 msgstr "Zdroj"
 
-#: meecast/qt-qml/qml/AboutPage.qml:323
+#: meecast/qt-qml/qml/AboutPage.qml:324
 msgid "Source code"
 msgstr "Zdrojový kód"
 
@@ -2591,7 +2597,7 @@ msgstr "Nejsou žádné stanice k zobrazení v tomto pohledu"
 msgid "This is experimental feature. Only English is supported."
 msgstr "Toto je experimentální vlastnost, dostupná pouze v angličtině."
 
-#: meecast/qt-qml/qml/AboutPage.qml:310
+#: meecast/qt-qml/qml/AboutPage.qml:311
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3041,7 +3047,7 @@ msgstr "před hodinou"
 msgid "hours ago"
 msgstr "hodin nazpět"
 
-#: meecast/qt-qml/qml/AboutPage.qml:332
+#: meecast/qt-qml/qml/AboutPage.qml:333
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 
@@ -3193,34 +3199,34 @@ msgstr "jméno meteostanice"
 msgid "steady"
 msgstr "stabilní"
 
-#: omweather/src/hash.data:364
+#: omweather/src/hash.data:365
 msgid "В"
 msgstr "V"
 
-#: omweather/src/hash.data:365
+#: omweather/src/hash.data:366
 msgid "З"
 msgstr "Z"
 
-#: omweather/src/hash.data:366
+#: omweather/src/hash.data:367
 msgid "С"
 msgstr "S"
 
-#: omweather/src/hash.data:367
+#: omweather/src/hash.data:368
 msgid "С-В"
 msgstr "SV"
 
-#: omweather/src/hash.data:368
+#: omweather/src/hash.data:369
 msgid "С-З"
 msgstr "SZ"
 
-#: omweather/src/hash.data:369
+#: omweather/src/hash.data:370
 msgid "Ю"
 msgstr "J"
 
-#: omweather/src/hash.data:370
+#: omweather/src/hash.data:371
 msgid "Ю-В"
 msgstr "JV"
 
-#: omweather/src/hash.data:371
+#: omweather/src/hash.data:372
 msgid "Ю-З"
 msgstr "JZ"

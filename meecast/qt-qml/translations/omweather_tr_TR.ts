@@ -1189,7 +1189,8 @@ paketini kaldırın.</translation>
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
- German -  Claudius Henrichs
+ German -  Claudius Henrichs,
+ 	Jens Klingen
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1217,7 +1218,7 @@ paketini kaldırın.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation>French -  Nicolas Granziano, 
+            <translation type="unfinished">French -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
@@ -2548,6 +2549,11 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Read sensor every:</source>
             <translation>Sensörü oku her:</translation>
+        </message>
+        <message>
+            <source>Refresh</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Region</source>

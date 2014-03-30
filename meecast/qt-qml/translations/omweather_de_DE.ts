@@ -1207,7 +1207,8 @@ Programm-Manager deinstallieren.</translation>
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
- German -  Claudius Henrichs
+ German -  Claudius Henrichs,
+ 	Jens Klingen
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1235,7 +1236,7 @@ Programm-Manager deinstallieren.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation>Französich -  Nicolas Granziano, 
+            <translation type="unfinished">Französich -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  Russisch - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
@@ -2567,6 +2568,11 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Read sensor every:</source>
             <translation>Sensor auslesen alle:</translation>
+        </message>
+        <message>
+            <source>Refresh</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Region</source>

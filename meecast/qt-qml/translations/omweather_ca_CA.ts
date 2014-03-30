@@ -1203,7 +1203,8 @@ utilitzant el Gestor d'aplicacions</translation>
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
- German -  Claudius Henrichs
+ German -  Claudius Henrichs,
+ 	Jens Klingen
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1231,7 +1232,7 @@ utilitzant el Gestor d'aplicacions</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation>Francès -  Nicolas Granziano, 
+            <translation type="unfinished">Francès -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  Rus - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
@@ -2563,6 +2564,11 @@ Català - Agustí Clara</translation>
         <message>
             <source>Read sensor every:</source>
             <translation>Llegeix el sensor cada:</translation>
+        </message>
+        <message>
+            <source>Refresh</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Region</source>

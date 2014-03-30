@@ -1203,7 +1203,8 @@ koristeći Menadžer aplikacija</translation>
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
- German -  Claudius Henrichs
+ German -  Claudius Henrichs,
+ 	Jens Klingen
  Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1231,7 +1232,7 @@ koristeći Menadžer aplikacija</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation>Francuski -  Nicolas Granziano, 
+            <translation type="unfinished">Francuski -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  Ruski - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
@@ -2562,6 +2563,11 @@ Slovački - Roman Moravčík</translation>
         <message>
             <source>Read sensor every:</source>
             <translation>Očitavanje senzora svakih:</translation>
+        </message>
+        <message>
+            <source>Refresh</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Region</source>

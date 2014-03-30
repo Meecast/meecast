@@ -98,6 +98,7 @@ desktop-file-install --delete-original       \
   * Increased icon size on CoverPage
   * Reordered items in Main PullMenu
   * Updated German and Russian translations
+  * Changed label text "Update" to "Refresh"
 
 * Wed Mar 26 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.15.1
   * Updated Denmark for openstreetmap.org 

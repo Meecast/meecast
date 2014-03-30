@@ -47,7 +47,7 @@ Component {
                 }
                 MenuItem {
                     id: item2menu
-                    text: Config.tr("Update")
+                    text: Config.tr("Refresh")
                     onClicked: {
                         if (!isUpdate) main.update();
                     }

@@ -1,6 +1,6 @@
 meecast (0.8.16) unstable; urgency=low
 
-  * Nothing 
+  * Updated German and Russian translations 
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 18 Feb 2014 12:31:23 +0200
 
@@ -9,7 +9,7 @@ meecast (0.8.15) unstable; urgency=low
   * Updated Denmark for openstreetmap.org 
   * Fixed problem with crashing application with foreca.com data
   * Updated Catalan, Czech, Finnish, Norwegian, Serbian, Slovenian, Spanish,
-    Turkish, Germany translations
+    Turkish, German translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 18 Feb 2014 12:31:23 +0200
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-29 13:26+0300\n"
+"POT-Creation-Date: 2014-03-30 17:27+0300\n"
 "PO-Revision-Date: 2014-01-14 02:29+0000\n"
 "Last-Translator: Tarad Alfandi <ttt0600@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/meecast/language/"
@@ -994,7 +994,8 @@ msgid ""
 " Russian - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
 " Finnish - Marko Vertainen\n"
-" German -  Claudius Henrichs\n"
+" German -  Claudius Henrichs,\n"
+" \tJens Klingen\n"
 " Italian - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
@@ -1193,7 +1194,7 @@ msgstr "أيقونات"
 msgid "Iconset"
 msgstr "مجموعة الأيقونات"
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:267
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:268
 msgid "Iconsets"
 msgstr "مجموعة الأيقونات"
 
@@ -1268,7 +1269,7 @@ msgstr "التصميم:"
 msgid "Lead designers"
 msgstr "قائد التصميم"
 
-#: meecast/qt-qml/qml/AboutPage.qml:301
+#: meecast/qt-qml/qml/AboutPage.qml:302
 msgid "License"
 msgstr "الرخصة"
 
@@ -2108,6 +2109,10 @@ msgstr "أمطار مصحوبه بمزيج شتوي / رياح"
 msgid "Read sensor every:"
 msgstr "قراءة الحساس كل:"
 
+#: omweather/src/hash.data:364
+msgid "Refresh"
+msgstr ""
+
 #: omweather/src/weather-simple-settings.c:733
 #: omweather/src/weather-simple-settings.c:786
 #: omweather/src/weather-simple-settings.c:2327
@@ -2443,7 +2448,7 @@ msgstr "ثلوج مصحوبه بمزيج شتوي / رياح"
 msgid "Source"
 msgstr "المصدر"
 
-#: meecast/qt-qml/qml/AboutPage.qml:323
+#: meecast/qt-qml/qml/AboutPage.qml:324
 msgid "Source code"
 msgstr "المصدر البرمجي"
 
@@ -2594,7 +2599,7 @@ msgstr "لايوجد محطات لعرضها في هذه القائمة"
 msgid "This is experimental feature. Only English is supported."
 msgstr "هذه  الميزة تجريبية. مدعومه باللغة الإنجليزية فقط."
 
-#: meecast/qt-qml/qml/AboutPage.qml:310
+#: meecast/qt-qml/qml/AboutPage.qml:311
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3043,7 +3048,7 @@ msgstr "قبل ساعة"
 msgid "hours ago"
 msgstr "قبل ساعات"
 
-#: meecast/qt-qml/qml/AboutPage.qml:332
+#: meecast/qt-qml/qml/AboutPage.qml:333
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 
@@ -3195,34 +3200,34 @@ msgstr "إسم الوقع"
 msgid "steady"
 msgstr "ثابت"
 
-#: omweather/src/hash.data:364
+#: omweather/src/hash.data:365
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:365
+#: omweather/src/hash.data:366
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:366
+#: omweather/src/hash.data:367
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:367
+#: omweather/src/hash.data:368
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:368
+#: omweather/src/hash.data:369
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:369
+#: omweather/src/hash.data:370
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:370
+#: omweather/src/hash.data:371
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:371
+#: omweather/src/hash.data:372
 msgid "Ю-З"
 msgstr "Ю-З"

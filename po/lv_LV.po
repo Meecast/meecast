@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-29 13:26+0300\n"
+"POT-Creation-Date: 2014-03-30 17:27+0300\n"
 "PO-Revision-Date: 2012-04-19 10:38+0000\n"
 "Last-Translator: ludmilalisovskaya <ludmila.lisovskaya@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -921,7 +921,8 @@ msgid ""
 " Russian - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
 " Finnish - Marko Vertainen\n"
-" German -  Claudius Henrichs\n"
+" German -  Claudius Henrichs,\n"
+" \tJens Klingen\n"
 " Italian - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
@@ -1079,7 +1080,7 @@ msgstr ""
 msgid "Iconset"
 msgstr ""
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:267
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:268
 msgid "Iconsets"
 msgstr ""
 
@@ -1151,7 +1152,7 @@ msgstr ""
 msgid "Lead designers"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:301
+#: meecast/qt-qml/qml/AboutPage.qml:302
 msgid "License"
 msgstr ""
 
@@ -1985,6 +1986,10 @@ msgstr ""
 msgid "Read sensor every:"
 msgstr ""
 
+#: omweather/src/hash.data:364
+msgid "Refresh"
+msgstr ""
+
 #: omweather/src/weather-simple-settings.c:733
 #: omweather/src/weather-simple-settings.c:786
 #: omweather/src/weather-simple-settings.c:2327
@@ -2319,7 +2324,7 @@ msgstr ""
 msgid "Source"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:323
+#: meecast/qt-qml/qml/AboutPage.qml:324
 msgid "Source code"
 msgstr ""
 
@@ -2470,7 +2475,7 @@ msgstr ""
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:310
+#: meecast/qt-qml/qml/AboutPage.qml:311
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2894,7 +2899,7 @@ msgstr ""
 msgid "hours ago"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:332
+#: meecast/qt-qml/qml/AboutPage.qml:333
 msgid "http://github.com/Meecast/meecast"
 msgstr ""
 
@@ -3046,34 +3051,34 @@ msgstr ""
 msgid "steady"
 msgstr ""
 
-#: omweather/src/hash.data:364
+#: omweather/src/hash.data:365
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:365
+#: omweather/src/hash.data:366
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:366
+#: omweather/src/hash.data:367
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:367
+#: omweather/src/hash.data:368
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:368
+#: omweather/src/hash.data:369
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:369
+#: omweather/src/hash.data:370
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:370
+#: omweather/src/hash.data:371
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:371
+#: omweather/src/hash.data:372
 msgid "Ю-З"
 msgstr ""

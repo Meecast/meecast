@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-29 13:26+0300\n"
+"POT-Creation-Date: 2014-03-30 17:27+0300\n"
 "PO-Revision-Date: 2012-12-20 12:13+0000\n"
 "Last-Translator: Ludmila Lisovskaya <ludmila.lisovskaya@gmail.com>\n"
 "Language-Team: Chinese (http://www.transifex.com/projects/p/meecast/language/"
@@ -996,7 +996,8 @@ msgid ""
 " Russian - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
 " Finnish - Marko Vertainen\n"
-" German -  Claudius Henrichs\n"
+" German -  Claudius Henrichs,\n"
+" \tJens Klingen\n"
 " Italian - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
@@ -1193,7 +1194,7 @@ msgstr "图标"
 msgid "Iconset"
 msgstr "图标设置"
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:267
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:268
 msgid "Iconsets"
 msgstr "图标集"
 
@@ -1268,7 +1269,7 @@ msgstr "设计: "
 msgid "Lead designers"
 msgstr "首席设计师"
 
-#: meecast/qt-qml/qml/AboutPage.qml:301
+#: meecast/qt-qml/qml/AboutPage.qml:302
 msgid "License"
 msgstr "许可"
 
@@ -2120,6 +2121,10 @@ msgstr ""
 msgid "Read sensor every:"
 msgstr "传感器读取间隔:"
 
+#: omweather/src/hash.data:364
+msgid "Refresh"
+msgstr ""
+
 #: omweather/src/weather-simple-settings.c:733
 #: omweather/src/weather-simple-settings.c:786
 #: omweather/src/weather-simple-settings.c:2327
@@ -2460,7 +2465,7 @@ msgstr ""
 msgid "Source"
 msgstr "服务器"
 
-#: meecast/qt-qml/qml/AboutPage.qml:323
+#: meecast/qt-qml/qml/AboutPage.qml:324
 #, fuzzy
 msgid "Source code"
 msgstr "服务器"
@@ -2612,7 +2617,7 @@ msgstr ""
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:310
+#: meecast/qt-qml/qml/AboutPage.qml:311
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3060,7 +3065,7 @@ msgstr "小时前"
 msgid "hours ago"
 msgstr "小时前"
 
-#: meecast/qt-qml/qml/AboutPage.qml:332
+#: meecast/qt-qml/qml/AboutPage.qml:333
 msgid "http://github.com/Meecast/meecast"
 msgstr ""
 
@@ -3212,35 +3217,35 @@ msgstr "地区名称"
 msgid "steady"
 msgstr "稳定"
 
-#: omweather/src/hash.data:364
+#: omweather/src/hash.data:365
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:365
+#: omweather/src/hash.data:366
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:366
+#: omweather/src/hash.data:367
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:367
+#: omweather/src/hash.data:368
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:368
+#: omweather/src/hash.data:369
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:369
+#: omweather/src/hash.data:370
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:370
+#: omweather/src/hash.data:371
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:371
+#: omweather/src/hash.data:372
 msgid "Ю-З"
 msgstr "Ю-З"
 

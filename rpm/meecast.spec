@@ -90,7 +90,7 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
-* Wed Mar 26 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.16.1
+* Sun Mar 30 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.16.1
   * Fixed segmentation fault 
   * Fixed problem with translations
   * Fixed problem with logo on cover page

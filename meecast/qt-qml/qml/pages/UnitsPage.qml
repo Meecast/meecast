@@ -106,7 +106,7 @@ Page {
                     }
                     Component.onCompleted: {
                         for (var i=0; i<Config.windspeed_list().length; i++) {
-                            if  (Config.windspeed_list()[i] == Config.windspeedunit)
+                            if  (Config.windspeed_list()[i] == Config.tr(Config.windspeedunit))
                                 currentIndex = i 
                         }
                     }
@@ -131,7 +131,7 @@ Page {
                     }
                     Component.onCompleted: {
                         for (var i=0; i<Config.pressure_list().length; i++) {
-                            if  (Config.pressure_list()[i] == Config.pressureunit)
+                            if  (Config.pressure_list()[i] == Config.tr(Config.pressureunit))
                                 currentIndex = i 
                         }
                     }
@@ -156,7 +156,7 @@ Page {
                     }
                     Component.onCompleted: {
                         for (var i=0; i<Config.visible_list().length; i++) {
-                            if  (Config.visible_list()[i] == Config.visibleunit)
+                            if  (Config.visible_list()[i] == Config.tr(Config.visibleunit))
                                 currentIndex = i 
                         }
                     }

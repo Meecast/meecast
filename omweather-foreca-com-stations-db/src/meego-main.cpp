@@ -196,6 +196,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
              temp_char = strstr((char*)xpathObj->nodesetval->nodeTab[0]->children->content, " ");
              temp_char++;
              temp_char++;
+             memset(buff, 0, sizeof(buff));
              switch (atoi(temp_char)){
                 case 0:
                     snprintf(buff, sizeof(buff)-1,"N");
@@ -225,12 +226,11 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                     snprintf(buff, sizeof(buff)-1,"N");
                     break;
                 default:
-                    snprintf(buff, sizeof(buff)-1,"");
                     break;
              }
-
-       /* fprintf(stderr, "Wind  direction  .%s.  \n", xpathObj->nodesetval->nodeTab[0]->children->content); */
-            fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  buff);
+             /* fprintf(stderr, "Wind  direction  .%s.  \n", xpathObj->nodesetval->nodeTab[0]->children->content); */
+             if (strlen(buff)>0)
+                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  buff);
     }
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
@@ -407,6 +407,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                     temp_char = strstr((char*)xpathObj2->nodesetval->nodeTab[j]->children->content, " ");
                     temp_char++;
                     temp_char++;
+                    memset(buff, 0, sizeof(buff));
                     switch (atoi(temp_char)){
                         case 0:
                             snprintf(buff, sizeof(buff)-1,"N");
@@ -436,13 +437,13 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                             snprintf(buff, sizeof(buff)-1,"N");
                             break;
                         default:
-                            snprintf(buff, sizeof(buff)-1,"");
                             break;
                     }
-                    fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  buff);
-                    }
-                    break;
-                    }
+                    if (strlen(buff)>0)
+                        fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  buff);
+                 }
+                 break;
+              }
            case 6: {
                 if (strlen((char*)xpathObj2->nodesetval->nodeTab[j]->content)>0){
                     fprintf(file_out,"     <wind_speed>%s</wind_speed>\n",  xpathObj2->nodesetval->nodeTab[j]->content);
@@ -601,6 +602,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
              temp_char = strstr((char*)xpathObj4->nodesetval->nodeTab[i]->children->content, " ");
              temp_char++;
              temp_char++;
+             memset(buff, 0, sizeof(buff));
              switch (atoi(temp_char)){
                 case 0:
                     snprintf(buff, sizeof(buff)-1,"N");
@@ -630,11 +632,11 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
                     snprintf(buff, sizeof(buff)-1,"N");
                     break;
                 default:
-                    snprintf(buff, sizeof(buff)-1,"");
                     break;
              }
              /* fprintf(stderr, "Wind  direction %s %s  \n",temp_char, buff); */
-             fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", buff);
+             if (strlen(buff)>0)
+                 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", buff);
          }
 
         /* added wind speed */

@@ -60,6 +60,7 @@ namespace Core{
             bool         _standbyscreen;
             bool         _gps;
             bool         _splash;
+            bool         _transparency;
             int          _update_period;
             std::string *_font_color;
             int          _current_station_id;
@@ -110,6 +111,8 @@ namespace Core{
             bool Fullscreen(void);
             void Lockscreen(const bool uc);
             bool Lockscreen(void);
+            void Transparency(const bool uc);
+            bool Transparency(void);
             void Standbyscreen(const bool uc);
             bool Standbyscreen(void);
             void Gps(const bool uc);

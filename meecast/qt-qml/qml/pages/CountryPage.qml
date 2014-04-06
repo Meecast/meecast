@@ -20,18 +20,19 @@ Page {
     }
     Rectangle{
         anchors.fill: parent
-        color: "black"
+        color: Config.transparency ? "transparent" : "black"
         Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left
             width: parent.width
             anchors.topMargin: 80
             height: 274
-            color: "#999999"
+            color: Config.transparency ? "transparent" : "#999999"
         }
 
         Loader {
             id: background
+            visible: Config.transparency ? false : true
             anchors.top: parent.top
             anchors.left: parent.left
             anchors.topMargin: 80
@@ -44,7 +45,7 @@ Page {
             anchors.topMargin: 80
             width: parent.width
             height: parent.height - 274
-            color: "black"
+            color: Config.transparency ? "transparent" : "black"
         }
         PageHeader {
             title: Config.tr("Select country")
@@ -57,7 +58,6 @@ Page {
             anchors.bottom: parent.bottom
             width: parent.width
             model: listModel
-
             header: SearchField {
                         id: searchField
                         width: parent.width
@@ -68,14 +68,12 @@ Page {
             delegate: Item {
                 height: 80
                 width: parent.width
-
                 Label {
                     anchors.left: parent.left
                     anchors.leftMargin: margin
                     anchors.verticalCenter: parent.verticalCenter
                     text: model.name
                 }
-
                 Image {
                     source: "image://theme/icon-m-right"
                     anchors.right: parent.right

@@ -6,17 +6,18 @@ Page {
     property int margin: 16
     Rectangle{
         anchors.fill: parent
-        color: "black"
+        color: Config.transparency ? "transparent" : "black"
         Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left
             anchors.topMargin: 80
             width: parent.width
             height: 274
-            color: "#999999"
+            color: Config.transparency ? "transparent" : "#999999"
         }
         Loader {
             id: background
+            visible: Config.transparency ? false : true
             anchors.top: parent.top
             anchors.left: parent.left
             anchors.topMargin: 80
@@ -29,7 +30,7 @@ Page {
             anchors.topMargin: 80
             width: parent.width
             height: parent.height - 274
-            color: "black"
+            color: Config.transparency ? "transparent" : "black"
         }
 
         SilicaListView {

@@ -533,6 +533,12 @@ bool
 ConfigQml::windcoverpage(){
     return ConfigQml::Config::WindOnCover();
 }
+
+bool
+ConfigQml::transparency(){
+    return ConfigQml::Config::Transparency();
+}
+
 void
 ConfigQml::setwindcoverpage(bool c){
     ConfigQml::Config::WindOnCover(c);

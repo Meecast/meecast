@@ -23,17 +23,18 @@ Page {
 
     Rectangle{
         anchors.fill: parent
-        color: "black"
+        color: Config.transparency ? "transparent" : "black"
         Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left
             width: parent.width
             anchors.topMargin: 80
             height: 274
-            color: "#999999"
+            color: Config.transparency ? "transparent" : "#999999"
         }
         Loader {
             id: background
+            visible: Config.transparency ? false : true
             anchors.top: parent.top
             anchors.left: parent.left
             width: parent.width
@@ -46,7 +47,7 @@ Page {
             width: parent.width
             anchors.topMargin: 80
             height: parent.height - 274
-            color: "black"
+            color: Config.transparency ? "transparent" : "black"
         }
         PageHeader {
             title: Config.tr("Select location")

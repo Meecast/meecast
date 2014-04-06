@@ -23,7 +23,7 @@ Page {
 
     Rectangle{
         anchors.fill: parent
-        color: "black"
+        color: Config.transparency ? "transparent" : "black"
 
         id: mainrect
         Rectangle {
@@ -32,10 +32,11 @@ Page {
             anchors.topMargin: 80
             width: parent.width
             height: 274
-            color: "#999999"
+            color: Config.transparency ? "transparent" : "#999999"
         }
         Loader {
             id: background
+            visible: Config.transparency ? false : true
             anchors.top: parent.top
             anchors.topMargin: 80
             anchors.left: parent.left
@@ -47,7 +48,7 @@ Page {
             anchors.top: background.bottom
             width: parent.width
             height: parent.height - 274
-            color: "black"
+            color: Config.transparency ? "transparent" : "black"
         }
         Component{
             id: confirm

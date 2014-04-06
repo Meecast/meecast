@@ -41,13 +41,14 @@ Page {
 
     Rectangle{
         anchors.fill: parent
+        color: "transparent" 
         Rectangle {
             id: top_rect
             anchors.top: parent.top
             anchors.left: parent.left
             width: parent.width
             height: 80 
-            color: "black"
+            color: Config.transparency ? "transparent" : "black"
         }
 
         Rectangle {
@@ -55,10 +56,11 @@ Page {
             anchors.left: parent.left
             width: parent.width
             height: 274
-            color: "#999999"
+            color: Config.transparency ? "transparent" : "#999999"
         }
         Loader {
             id: background
+            visible: Config.transparency ? false : true
             anchors.top: top_rect.bottom
             anchors.left: parent.left
             width: parent.width
@@ -69,7 +71,7 @@ Page {
             anchors.top: background.bottom
             width: parent.width
             height: parent.height - 274
-            color: "black"
+            color: Config.transparency ? "transparent" : "black"
         }
 
         SilicaListView {

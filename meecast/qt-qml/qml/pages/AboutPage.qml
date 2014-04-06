@@ -5,7 +5,7 @@ Page {
     id: about
     Rectangle {
         anchors.fill: parent
-        color: "black"
+        color: Config.transparency ? "transparent" : "black"
     }
     SilicaFlickable {
         anchors.fill: parent
@@ -15,17 +15,19 @@ Page {
             title: Config.tr("MeeCast for SailfishOS")
         }
         Rectangle {
-            color: "purple"
+            color: Config.transparency ? "transparent" : "purple"
             x: 0; y: 80; width: parent.width; height: 274
         }
         Image {
             id: backgroundmask 
+            visible: Config.transparency ? false : true
             source: Config.imagespath + "/mask_background.png"
             x: 0; y: 80; width: parent.width; 
             smooth: true
         }
         Image {
             id: titlemask 
+            visible: Config.transparency ? false : true
             source: Config.imagespath + "/mask_title.png"
             anchors.verticalCenter: versiontext.verticalCenter
             smooth: true

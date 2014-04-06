@@ -6,7 +6,7 @@ Page {
     property int margin: 16
     Rectangle {
         anchors.fill: parent
-        color: "black"
+        color: Config.transparency ? "transparent" : "black"
     }
 
     PageHeader {
@@ -19,16 +19,18 @@ Page {
         anchors.topMargin: 80
         anchors.leftMargin: margin
         anchors.rightMargin: margin
+        color:  "transparent" 
         Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left
             width: parent.width
             height: 274
-            color: "#999999"
+            color: Config.transparency ? "transparent" : "#999999"
         }
 
         Loader {
             id: background
+            visible: Config.transparency ? false : true
             anchors.top: parent.top
             anchors.left: parent.left
             width: parent.width
@@ -39,10 +41,8 @@ Page {
             anchors.top: background.bottom
             width: parent.width
             height: parent.height - 274
-            color: "black"
+            color: Config.transparency ? "transparent" : "black"
         }
-
-
 
         // Define a delegate component.  A component will be
         // instantiated for each visible item in the list.

@@ -51,7 +51,10 @@ Page {
 
             day_period_name = Config.tr("Now")
             image_source = Config.iconspath + "/" + Config.iconset + "/" + model_current.getdata(day, "pict")
-            current_rect.color = getColor(model_current.getdata(day, "temp_high"));
+            if (Config.transparency)
+                current_rect.color = "transparent"
+            else
+                current_rect.color = getColor(model_current.getdata(day, "temp_high"));
             description_text = model_current.getdata(day, "description") ? model_current.getdata(day, "description") : ""
 	   
             if ((model_current.getdata(day, "humidity")) != "N/A")
@@ -115,7 +118,10 @@ Page {
 
             day_period_name = Config.tr("Day")
             image_source = Config.iconspath + "/" + Config.iconset + "/" + model_day.getdata(day, "pict")
-            current_rect.color = getColor(model_day.getdata(day, "temp_high"));
+            if (Config.transparency)
+                current_rect.color = "transparent"
+            else
+                current_rect.color = getColor(model_day.getdata(day, "temp_high"));
             description_text = model_day.getdata(day, "description") ? model_day.getdata(day, "description") : ""
 	   
             if ((model_day.getdata(day, "humidity")) != "N/A")
@@ -171,7 +177,10 @@ Page {
             flickable.contentHeight = day_rect.height + current_rect.height;
 
             image_source = Config.iconspath + "/" + Config.iconset + "/" + model_night.getdata(day, "pict");
-            current_rect.color = getColor(model_day.getdata(day, "temp_low"));
+            if (Config.transparency)
+                current_rect.color = "transparent"
+            else
+                current_rect.color = getColor(model_day.getdata(day, "temp_low"));
             description_text = model_night.getdata(day, "description") ? model_night.getdata(day, "description") : ""
             if ((model_night.getdata(day, "humidity")) != "N/A")
                 condition.append({cond_name: Config.tr("Humidity") + ":",
@@ -281,7 +290,7 @@ Page {
     Rectangle{
         width: screen_width
         height: screen_height 
-        color: "black"
+        color: Config.transparency ? "transparent" : "black"
         Flickable {
             id: flickable
             anchors.top: parent.top
@@ -322,6 +331,7 @@ Page {
                 //color: "black"
                 color: "transparent"
                 Loader {
+                    visible: Config.transparency ? false : true
                     anchors.fill: parent
                     sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}
                 }
@@ -571,7 +581,7 @@ Page {
             }
         }
         Rectangle{
-            color: "black"
+            color: Config.transparency ? "transparent" : "black"
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right

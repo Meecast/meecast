@@ -11,7 +11,7 @@ Page {
     objectName: "WeatherPage"
     Rectangle {
         anchors.fill: parent
-        color: "black"
+        color: Config.transparency ? "transparent" : "black"
     }
     PageHeader {
         id: stationname
@@ -317,7 +317,7 @@ Page {
                 anchors.top: parent.top
                 width: parent.width
                 height: 72
-                color: "black"
+                color: Config.transparency ? "transparent" : "black"
             }
             Text {
                 id: empty_text
@@ -344,13 +344,13 @@ Page {
                 anchors.top: empty_background1.bottom
                 width: parent.width
                 height: dataview.height - 274
-                color: "black"
+                color: Config.transparency ? "transparent" : "black"
             }
             Label {
                 horizontalAlignment: Text.AlignHCenter
                 text: Config.tr("No locations are set up yet.")
                 font.pixelSize: 54 
-                color: "#999999"
+                color: Config.transparency ? "transparent" : "#999999"
                 wrapMode: Text.Wrap
                 width: parent.width - 2*margin
                 //anchors.verticalCenter: parent.verticalCenter
@@ -389,7 +389,7 @@ Page {
                 anchors.top: parent.top
                 width: parent.width
                 height: 72
-                color: "black"
+                color: Config.transparency ? "transparent" : "black"
                 visible: isUpdate ? true : false
 
                 Column {
@@ -514,6 +514,7 @@ Page {
                 //color: "black"
                 Loader {
                     id: empty_background
+                    visible: Config.transparency ? false : true
                     anchors.top: parent.top
                     anchors.left: parent.left
                     width: parent.width
@@ -524,7 +525,7 @@ Page {
                     anchors.top: empty_background.bottom
                     width: parent.width
                     height: dataview.height - 274
-                    color: "black"
+                    color: Config.transparency ? "transparent" : "black"
                 }
                 Label {
                     horizontalAlignment: Text.AlignHCenter
@@ -561,6 +562,7 @@ Page {
                 //color: getColor(Current.temperature_high)
                 Loader {
                     anchors.fill: parent
+                    visible: Config.transparency ? false : true
                     sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}
                 }
                 ListView {
@@ -676,7 +678,7 @@ Page {
                             anchors.leftMargin: margin
                             width: 30
                             height: 30
-			    smooth: true
+            			    smooth: true
                         }
                         Text {
                             text: model.humidity+"%"

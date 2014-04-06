@@ -58,6 +58,7 @@ Config::Config()
     _splash = true;
     _logo_on_cover = false;
     _wind_on_cover = false;
+    _transparency = false;
     _lastupdate_on_cover = true;
     _font_color = new std::string("#00ff00");
     _language = new std::string("System");
@@ -159,6 +160,14 @@ Config::saveConfig()
 
     el = doc.createElement("wind_on_cover");
     if (_wind_on_cover)
+        t = doc.createTextNode("true");
+    else
+        t = doc.createTextNode("false");
+    el.appendChild(t);
+    root.appendChild(el);
+
+    el = doc.createElement("transparency");
+    if (_transparency)
         t = doc.createTextNode("true");
     else
         t = doc.createTextNode("false");
@@ -400,6 +409,7 @@ Config::Config(const std::string& filename, const std::string& schema_filename)
     _fullscreen = false;
     _logo_on_cover = false;
     _wind_on_cover = false;
+    _transparency = false;
     _lastupdate_on_cover = true;
     _lockscreen = false;
     _standbyscreen = false;
@@ -480,6 +490,9 @@ Config::LoadConfig(){
         el = root.firstChildElement("wind_on_cover");
         if (!el.isNull())
             _wind_on_cover = (el.text() == "true") ? true : false;
+        el = root.firstChildElement("transparency");
+        if (!el.isNull())
+            _transparency = (el.text() == "true") ? true : false;
         el = root.firstChildElement("lastupdate_on_cover");
         if (!el.isNull())
             _lastupdate_on_cover = (el.text() == "true") ? true : false;
@@ -818,6 +831,15 @@ Config::WindOnCover(const bool uc){
 bool
 Config::WindOnCover(void){
     return _wind_on_cover;
+}
+////////////////////////////////////////////////////////////////////////////////
+void
+Config::Transparency(const bool uc){
+    _transparency = uc;
+}
+bool
+Config::Transparency(void){
+    return _transparency;
 }
 ////////////////////////////////////////////////////////////////////////////////
 void

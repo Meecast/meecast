@@ -8,7 +8,7 @@ Page {
     property bool event_widget_status: Config.eventwidget
     Rectangle {
         anchors.fill: parent
-        color: "black"
+        color: Config.transparency ? "transparent" : "black"
     }
 
     PageHeader {
@@ -32,11 +32,12 @@ Page {
             anchors.left: parent.left
             width: parent.width
             height: 274
-            color: "#999999"
+            color: Config.transparency ? "transparent" : "#999999"
         }
 
         Loader {
             id: empty_background
+            visible: Config.transparency ? false : true
             anchors.top: top_rect.bottom
             anchors.left: parent.left
             width: parent.width
@@ -47,7 +48,7 @@ Page {
             anchors.top: empty_background.bottom
             width: parent.width
             height: dataview.height - 274
-            color: "black"
+            color: Config.transparency ? "transparent" : "black"
         }
 
         SilicaFlickable {

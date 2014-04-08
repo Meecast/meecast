@@ -558,7 +558,7 @@ Component {
             anchors.right: parent.right
             height: 72
             color: "black"
-	    opacity: 0.9
+            opacity: 0.8
             Image {
                 id: sourceicon
                 anchors.horizontalCenter: parent.horizontalCenter

@@ -8,7 +8,7 @@ Component {
         width: main.screen_width 
         height: main.screen_height 
         property int icon_size: 128
-        color: "black"
+        color: Config.transparency ? "transparent" : "black"
         SilicaFlickable {
             id: flickable
             anchors.top: parent.top
@@ -74,7 +74,7 @@ Component {
                     anchors.top: parent.top
                     width: parent.width
                     height: 72
-                    color: "black"
+                    color: Config.transparency ? "transparent" : "black"
                 }
                 Text {
                     id: empty_text
@@ -91,6 +91,7 @@ Component {
 
                 Loader {
                     id: empty_background1
+                    visible: Config.transparency ? false : true
                     anchors.top: empty_text.bottom
                     anchors.left: parent.left
                     width: parent.width
@@ -101,13 +102,13 @@ Component {
                     anchors.top: empty_background1.bottom
                     width: parent.width
                     height: dataview.height - 274
-                    color: "black"
+                    color: Config.transparency ? "transparent" : "black"
                 }
                 Label {
                     horizontalAlignment: Text.AlignHCenter
                     text: Config.tr("No locations are set up yet.")
                     font.pixelSize: 54 
-                    color: "#999999"
+                    color: Config.transparency ? "transparent" : "#999999"
                     wrapMode: Text.Wrap
                     width: parent.width - 2*margin
                     //anchors.verticalCenter: parent.verticalCenter
@@ -139,7 +140,7 @@ Component {
                     anchors.top: parent.top
                     width: parent.width
                     height: 92
-                    color: "black"
+                    color: Config.transparency ? "transparent" : "black"
                     visible: isUpdate ? true : false
 
                     Column {
@@ -177,6 +178,7 @@ Component {
                     //color: "black"
                     Loader {
                         id: empty_background
+                        visible: Config.transparency ? false : true
                         anchors.top: parent.top
                         anchors.left: parent.left
                         width: parent.width
@@ -187,13 +189,13 @@ Component {
                         anchors.top: empty_background.bottom
                         width: parent.width
                         height: dataview.height - 274
-                        color: "black"
+                        color: Config.transparency ? "transparent" : "black"
                     }
                     Label {
                         horizontalAlignment: Text.AlignHCenter
                         text: Config.tr("Looks like there's no info for this location.")
                         font.pixelSize: 54 
-                        color: "#999999"
+                        color: Config.transparency ? "transparent" : "#999999"
                         wrapMode: Text.Wrap
                         width: parent.width - 2*margin
                         //anchors.verticalCenter: parent.verticalCenter
@@ -229,6 +231,7 @@ Component {
                     //color: getColor(Current.temperature_high)
                     Loader {
                         anchors.fill: parent
+                        visible: Config.transparency ? false : true
                         sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}
                     }
                     ListView {
@@ -283,10 +286,16 @@ Component {
                                            temp_text.text =  temp_text.text + " / "
                                         if (main.current_model("temp_low")  != "N/A")
                                            temp_text.text = temp_text.text + main.current_model("temp_low") + '°'
-                                        current_rect.color = getColor(main.current_model("temp_high"));
+                                        if (Config.transparency)
+                                            current_rect.color = "transparent"
+					else
+                                            current_rect.color = getColor(main.current_model("temp_high"));
                                     }else{
                                        temp_text.text = main.current_model("temp") + '°'
-                                       current_rect.color = getColor(main.current_model("temp"));
+                                       if (Config.transparency)
+                                           current_rect.color = "transparent"
+				       else
+                                           current_rect.color = getColor(main.current_model("temp"));
                                     }
                                 }
                             }
@@ -477,8 +486,7 @@ Component {
                         Rectangle {
                             width: parent.width
                             height: 80
-                            color: (index % 2 != 0) ? "black" : "#0f0f0f"
-
+                            color: Config.transparency ? "transparent" : ((index % 2 != 0) ? "black" : "#0f0f0f")
                             Text {
                                 id: txt_date
                                 text: main.forecast_model(index, "fulldate") == undefined ? "" : main.forecast_model(index, "fulldate")
@@ -550,6 +558,7 @@ Component {
             anchors.right: parent.right
             height: 72
             color: "black"
+	    opacity: 0.9
             Image {
                 id: sourceicon
                 anchors.horizontalCenter: parent.horizontalCenter

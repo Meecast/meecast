@@ -228,13 +228,13 @@ Page {
         visible: Config.stationname == "Unknown" ? true : false
         width: screen_width
         height: screen_height
-        color: "black"
+        color: Config.transparency ? "transparent" : "black"
         Rectangle {
             anchors.left: parent.left
             anchors.top: parent.top
             width: parent.width
+            color: Config.transparency ? "transparent" : "black"
             height: 72
-            color: "black"
         }
         Text {
             id: empty_text
@@ -261,8 +261,7 @@ Page {
             anchors.top: empty_background1.bottom
             width: parent.width
             height: 600 
-            //height: dataview.height - 274
-            color: "black"
+            color: Config.transparency ? "transparent" : "black"
         }
         Label {
             horizontalAlignment: Text.AlignHCenter

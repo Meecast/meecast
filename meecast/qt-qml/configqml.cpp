@@ -528,6 +528,12 @@ ConfigQml::setlogocoverpage(bool c){
     saveConfig();
     refreshconfig();
 }
+void
+ConfigQml::settransparency(bool c){
+    ConfigQml::Config::Transparency(c);
+    saveConfig();
+    refreshconfig();
+}
 
 bool
 ConfigQml::windcoverpage(){

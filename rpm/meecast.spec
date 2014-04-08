@@ -91,6 +91,7 @@ desktop-file-install --delete-original       \
 
 %changelog
 * Sun Mar 30 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.17.1
+  * Added transparency
   * Fixed problem with Units view in Menu Settings 
 
 * Sun Mar 30 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.16.1

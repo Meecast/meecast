@@ -98,6 +98,19 @@ Page {
                     }
                 }
             }
+            Row {
+                width: parent.width
+               // height: 80
+                TextSwitch {
+                    id: transparency
+                    text: Config.tr("Transparency")
+                    checked: Config.transparency
+                    onCheckedChanged: {
+                        Config.settransparency(transparency.checked);
+                    }
+                }
+            }
+
             SectionHeader {
                 text: "Cover Page"
             }

@@ -190,6 +190,7 @@ public:
     Q_INVOKABLE void setgps(bool c);
     Q_INVOKABLE void setsplash(bool c);
     Q_INVOKABLE void setlogocoverpage(bool c);
+    Q_INVOKABLE void settransparency(bool c);
     Q_INVOKABLE void setwindcoverpage(bool c);
     Q_INVOKABLE void setlastupdatecoverpage(bool c);
     Q_INVOKABLE QStringList icon_list();

@@ -35,6 +35,7 @@ Page {
         anchors.topMargin: 80
         anchors.leftMargin: margin
         anchors.rightMargin: margin
+        color: Config.transparency ? "transparent" : "black"
 
         Rectangle {
             anchors.top: parent.top

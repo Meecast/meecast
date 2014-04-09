@@ -321,15 +321,25 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval)){
         xmlNodeSetPtr nodeset = xpathObj->nodesetval;
         for (int i=0; i < nodeset->nodeNr; i++) {
-	    
             snprintf(buffer, sizeof(buffer)-1,"normalize-space(/html/body/div[@id='cc']/div[@class='cctext']/p[2]/text()[%i])", i+1);
             xpathObj2 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
             if (xpathObj2){
-                fprintf(stderr, "%i %s\n", i, (char*)xpathObj2->stringval);
-	    }
-	    if (xpathObj2)
+                if ((char*)xpathObj2->stringval && !strcmp((const char*)xpathObj2->stringval, "Humidity:")){
+                    fprintf(file_out,"     <humidity>%i</humidity>\n", atoi((char*)xpathObj2->stringval)); 
+                }
+                if ((char*)xpathObj2->stringval && !strcmp((const char*)xpathObj2->stringval, "Barometer:")){
+                    fprintf(file_out,"     <pressure>%i</pressure>\n", atoi((char*)xpathObj2->stringval)); 
+                }
+                if ((char*)xpathObj2->stringval && !strcmp((const char*)xpathObj2->stringval, "Visibility:")){
+                    fprintf(file_out,"     <visible>%i</visible>\n", atoi((char*)xpathObj2->stringval)); 
+                }
+                if ((char*)xpathObj2->stringval && !strcmp((const char*)xpathObj2->stringval, "Feels Like:")){
+                    fprintf(file_out,"     <flike>%i</flike>\n", atoi((char*)xpathObj2->stringval)); 
+                }
+	        }
+	        if (xpathObj2)
                 xmlXPathFreeObject(xpathObj2);
-	}
+        }
     } 
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);

@@ -63,6 +63,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     xmlXPathContextPtr xpathCtx; 
     xmlXPathObjectPtr xpathObj = NULL; 
     xmlXPathObjectPtr xpathObj2 = NULL; 
+    xmlXPathObjectPtr xpathObj3 = NULL; 
     xmlNodeSetPtr nodes;
     char       *temp_char;
     int    flag;
@@ -196,6 +197,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
              temp_char = strstr((char*)xpathObj->nodesetval->nodeTab[0]->children->content, " ");
              temp_char++;
              temp_char++;
+             memset(buff, 0, sizeof(buff));
              switch (atoi(temp_char)){
                 case 0:
                     snprintf(buff, sizeof(buff)-1,"N");
@@ -225,12 +227,11 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                     snprintf(buff, sizeof(buff)-1,"N");
                     break;
                 default:
-                    snprintf(buff, sizeof(buff)-1,"");
                     break;
              }
-
-       /* fprintf(stderr, "Wind  direction  .%s.  \n", xpathObj->nodesetval->nodeTab[0]->children->content); */
-            fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  buff);
+             /* fprintf(stderr, "Wind  direction  .%s.  \n", xpathObj->nodesetval->nodeTab[0]->children->content); */
+             if (strlen(buff)>0)
+                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  buff);
     }
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
@@ -278,7 +279,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     }
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
-    
+/*    
     snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong[1]/text()");
     xpathObj = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&
@@ -312,6 +313,53 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
         xpathObj->nodesetval->nodeTab[4] && xpathObj->nodesetval->nodeTab[4]->content){
         fprintf(file_out,"     <visible>%i</visible>\n", atoi((char*)xpathObj->nodesetval->nodeTab[4]->content)*1000); 
     }
+    if (xpathObj)
+        xmlXPathFreeObject(xpathObj);
+*/
+
+    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p[2]/text()[normalize-space(.)]");
+    xpathObj = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
+    snprintf(buffer, sizeof(buffer)-1,"/html/body/div[@id='cc']/div[@class='cctext']/p/strong/text()");
+    xpathObj3 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
+    if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&  xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval)){
+        xmlNodeSetPtr nodeset = xpathObj->nodesetval;
+        if (xpathObj->nodesetval < xpathObj3->nodesetval){
+            for (int i=1; i < nodeset->nodeNr; i++) {
+                snprintf(buffer, sizeof(buffer)-1,"normalize-space(/html/body/div[@id='cc']/div[@class='cctext']/p[2]/text()[%i])", i);
+                xpathObj2 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
+                if (xpathObj2){
+                    if ((char*)xpathObj2->stringval && !strcmp((const char*)xpathObj2->stringval, "Humidity:")){
+                        if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) &&
+                            xpathObj3->nodesetval->nodeTab[i+1] && xpathObj3->nodesetval->nodeTab[i+1]->content){
+                            fprintf(file_out,"     <humidity>%i</humidity>\n", atoi((char*)xpathObj3->nodesetval->nodeTab[i+1]->content)); 
+                        }    
+                    }
+                    if ((char*)xpathObj2->stringval && !strcmp((const char*)xpathObj2->stringval, "Barometer:")){
+                        if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) &&
+                            xpathObj3->nodesetval->nodeTab[i+1] && xpathObj3->nodesetval->nodeTab[i+1]->content){
+                            fprintf(file_out,"     <pressure>%i</pressure>\n", atoi((char*)xpathObj3->nodesetval->nodeTab[i+1]->content)); 
+                        }    
+                    }
+                    if ((char*)xpathObj2->stringval && !strcmp((const char*)xpathObj2->stringval, "Visibility:")){
+                        if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) &&
+                            xpathObj3->nodesetval->nodeTab[i+1] && xpathObj3->nodesetval->nodeTab[i+1]->content){
+                            fprintf(file_out,"     <visible>%i</visible>\n", atoi((char*)xpathObj3->nodesetval->nodeTab[i+1]->content)*1000); 
+                        }
+                    }
+                    if ((char*)xpathObj2->stringval && !strcmp((const char*)xpathObj2->stringval, "Feels Like:")){
+                        if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) &&
+                            xpathObj3->nodesetval->nodeTab[i+1] && xpathObj3->nodesetval->nodeTab[i+1]->content){
+                            fprintf(file_out,"     <flike>%i</flike>\n", atoi((char*)(char*)xpathObj3->nodesetval->nodeTab[i+1]->content)); 
+                        }    
+                    }
+                }
+                if (xpathObj2)
+                    xmlXPathFreeObject(xpathObj2);
+            }
+            if (xpathObj3)
+                xmlXPathFreeObject(xpathObj3);
+        }
+    } 
     if (xpathObj)
         xmlXPathFreeObject(xpathObj);
 
@@ -407,6 +455,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                     temp_char = strstr((char*)xpathObj2->nodesetval->nodeTab[j]->children->content, " ");
                     temp_char++;
                     temp_char++;
+                    memset(buff, 0, sizeof(buff));
                     switch (atoi(temp_char)){
                         case 0:
                             snprintf(buff, sizeof(buff)-1,"N");
@@ -436,13 +485,13 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
                             snprintf(buff, sizeof(buff)-1,"N");
                             break;
                         default:
-                            snprintf(buff, sizeof(buff)-1,"");
                             break;
                     }
-                    fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  buff);
-                    }
-                    break;
-                    }
+                    if (strlen(buff)>0)
+                        fprintf(file_out,"     <wind_direction>%s</wind_direction>\n",  buff);
+                 }
+                 break;
+              }
            case 6: {
                 if (strlen((char*)xpathObj2->nodesetval->nodeTab[j]->content)>0){
                     fprintf(file_out,"     <wind_speed>%s</wind_speed>\n",  xpathObj2->nodesetval->nodeTab[j]->content);
@@ -601,6 +650,7 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
              temp_char = strstr((char*)xpathObj4->nodesetval->nodeTab[i]->children->content, " ");
              temp_char++;
              temp_char++;
+             memset(buff, 0, sizeof(buff));
              switch (atoi(temp_char)){
                 case 0:
                     snprintf(buff, sizeof(buff)-1,"N");
@@ -630,11 +680,11 @@ parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, const char *res
                     snprintf(buff, sizeof(buff)-1,"N");
                     break;
                 default:
-                    snprintf(buff, sizeof(buff)-1,"");
                     break;
              }
              /* fprintf(stderr, "Wind  direction %s %s  \n",temp_char, buff); */
-             fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", buff);
+             if (strlen(buff)>0)
+                 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", buff);
          }
 
         /* added wind speed */

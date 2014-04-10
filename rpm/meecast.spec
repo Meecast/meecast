@@ -93,6 +93,7 @@ desktop-file-install --delete-original       \
 * Sun Mar 30 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.17.1
   * Added transparency
   * Fixed problem with Units view in Menu Settings 
+  * Fixed problem with current weather in foreca.com source
 
 * Sun Mar 30 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.16.1
   * Fixed segmentation fault 

@@ -1,6 +1,6 @@
 meecast (0.8.17) unstable; urgency=low
 
-  * Nothing 
+  * Fixed problem with current weather in foreca.com source 
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 30 Mar 2014 12:31:23 +0200
 

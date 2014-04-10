@@ -129,7 +129,7 @@ CoverBackground {
             	stationname.font.pixelSize = 24 
             current_temperature()
             if (coverPage.current_model("current") != undefined){
-                now.visible = coverPage.current_model("current")
+                now.visible = !coverPage.current_model("current")
 
                 if (coverPage.current_model("current") == true)
                     now.text = Config.tr("Now")

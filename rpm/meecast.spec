@@ -94,6 +94,7 @@ desktop-file-install --delete-original       \
   * Added transparency
   * Fixed problem with Units view in Menu Settings 
   * Fixed problem with current weather in foreca.com source
+  * Changed behaviour for displaying label (Now/Today) on Cover Page
 
 * Sun Mar 30 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.16.1
   * Fixed segmentation fault 

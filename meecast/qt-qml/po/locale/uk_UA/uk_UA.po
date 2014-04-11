@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-30 17:27+0300\n"
+"POT-Creation-Date: 2014-04-11 09:25+0300\n"
 "PO-Revision-Date: 2013-11-20 16:44+0000\n"
 "Last-Translator: oksana_berry <mkalinkevich@gmail.com>\n"
 "Language-Team: Ukrainian (Ukraine) (http://www.transifex.com/projects/p/"
@@ -2584,6 +2584,11 @@ msgid ""
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 msgstr ""
 
+#: omweather/src/hash.data:365
+#, fuzzy
+msgid "Transparency"
+msgstr "Прозорість:"
+
 #: omweather/src/weather-settings.c:3272 omweather/src/weather-settings.c:3277
 #: omweather/src/weather-settings.c:3295
 msgid "Transparency:"
@@ -3138,34 +3143,34 @@ msgstr "в назві станції"
 msgid "steady"
 msgstr "стійке"
 
-#: omweather/src/hash.data:365
+#: omweather/src/hash.data:366
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:366
+#: omweather/src/hash.data:367
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:367
+#: omweather/src/hash.data:368
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:368
+#: omweather/src/hash.data:369
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:369
+#: omweather/src/hash.data:370
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:370
+#: omweather/src/hash.data:371
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:371
+#: omweather/src/hash.data:372
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:372
+#: omweather/src/hash.data:373
 msgid "Ю-З"
 msgstr ""

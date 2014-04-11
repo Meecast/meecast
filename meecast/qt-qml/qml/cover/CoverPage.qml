@@ -130,7 +130,6 @@ CoverBackground {
             current_temperature()
             if (coverPage.current_model("current") != undefined){
                 now.visible = !coverPage.current_model("current")
-
                 if (coverPage.current_model("current") == true)
                     now.text = Config.tr("Now")
                 else
@@ -266,10 +265,11 @@ CoverBackground {
         id: now
         width: parent.width/2  
         height: 30
-        anchors.top: stationname.bottom
+        anchors.top: stationname.bottom 
+        anchors.topMargin: -9 
         anchors.right: parent.right
         color: "white"
-        visible: coverPage.current_model("current") != undefined && coverPage.current_model("current")
+        visible: coverPage.current_model("current") != undefined && !coverPage.current_model("current")
         text: coverPage.current_model("current") == true ? Config.tr("Now") : Config.tr("Today")
         font.pointSize: 10
         verticalAlignment: Text.AlignVCenter

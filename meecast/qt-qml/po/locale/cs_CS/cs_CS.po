@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-30 17:27+0300\n"
-"PO-Revision-Date: 2014-03-21 18:50+0000\n"
+"POT-Creation-Date: 2014-04-11 09:25+0300\n"
+"PO-Revision-Date: 2014-04-07 07:14+0000\n"
 "Last-Translator: nodevel <nodevel@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/meecast/language/"
 "cs/)\n"
@@ -986,7 +986,6 @@ msgid "Freezing Drizzle"
 msgstr "Mrznoucí mrholení"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1023,18 +1022,19 @@ msgid ""
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
-"Francouzština -  Nicolas Granziano, \n"
-" \tPhilippe, Benot Knecht \n"
+"Francouzština -  Nicolas Granziano, Philippe\n"
+"\tBenot Knecht \n"
 " Ruština - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
 " Finština - Marko Vertainen\n"
 " Němčina -  Claudius Henrichs\n"
+"\tJens Klingen\n"
 " Italština - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
 " \tLuca Onnis\n"
 " Španělština - Alejandro Lopez, Agustí Clara\n"
-" Polish - Tomasz Dominikowski\n"
+" Polština - Tomasz Dominikowski\n"
 " Slovenština - Roman Moravčík\n"
 " Holandština - Tom Leenders, Michiel Pater\n"
 " Bulharština - Zlatko Enikov\n"
@@ -1857,9 +1857,8 @@ msgid "Partly Cloudy / Wind"
 msgstr "Částečně oblačno / vítr"
 
 #: omweather/src/hash.data:199
-#, fuzzy
 msgid "Partly Cloudy / Windy"
-msgstr "Částečně oblačno / vítr"
+msgstr "Částečně oblačno / větrno"
 
 #: omweather/src/hash.data:200
 msgid "Partly Cloudy Few Snow"
@@ -2110,7 +2109,7 @@ msgstr "Číst senzor každých:"
 
 #: omweather/src/hash.data:364
 msgid "Refresh"
-msgstr ""
+msgstr "Aktualizovat"
 
 #: omweather/src/weather-simple-settings.c:733
 #: omweather/src/weather-simple-settings.c:786
@@ -2648,6 +2647,11 @@ msgid ""
 msgstr ""
 "Překladatelé: Francouzština - Nicolas Granziano, Philippe, Benot Knecht; "
 "Ruština - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
+
+#: omweather/src/hash.data:365
+#, fuzzy
+msgid "Transparency"
+msgstr "Průhlednost:"
 
 #: omweather/src/weather-settings.c:3272 omweather/src/weather-settings.c:3277
 #: omweather/src/weather-settings.c:3295
@@ -3199,34 +3203,34 @@ msgstr "jméno meteostanice"
 msgid "steady"
 msgstr "stabilní"
 
-#: omweather/src/hash.data:365
+#: omweather/src/hash.data:366
 msgid "В"
 msgstr "V"
 
-#: omweather/src/hash.data:366
+#: omweather/src/hash.data:367
 msgid "З"
 msgstr "Z"
 
-#: omweather/src/hash.data:367
+#: omweather/src/hash.data:368
 msgid "С"
 msgstr "S"
 
-#: omweather/src/hash.data:368
+#: omweather/src/hash.data:369
 msgid "С-В"
 msgstr "SV"
 
-#: omweather/src/hash.data:369
+#: omweather/src/hash.data:370
 msgid "С-З"
 msgstr "SZ"
 
-#: omweather/src/hash.data:370
+#: omweather/src/hash.data:371
 msgid "Ю"
 msgstr "J"
 
-#: omweather/src/hash.data:371
+#: omweather/src/hash.data:372
 msgid "Ю-В"
 msgstr "JV"
 
-#: omweather/src/hash.data:372
+#: omweather/src/hash.data:373
 msgid "Ю-З"
 msgstr "JZ"

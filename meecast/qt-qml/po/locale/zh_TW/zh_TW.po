@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-30 17:27+0300\n"
+"POT-Creation-Date: 2014-04-11 09:25+0300\n"
 "PO-Revision-Date: 2013-09-15 07:29+0000\n"
 "Last-Translator: osk2 <sc60714@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/meecast/"
@@ -2647,6 +2647,11 @@ msgstr ""
 "翻譯者︰French - Nicolas Granziano、Philippe、Benot Knecht，Russian - Pavel "
 "Fialko、Vlad Vasiliev、Ed Bartosh\n"
 
+#: omweather/src/hash.data:365
+#, fuzzy
+msgid "Transparency"
+msgstr "透明度："
+
 #: omweather/src/weather-settings.c:3272 omweather/src/weather-settings.c:3277
 #: omweather/src/weather-settings.c:3295
 msgid "Transparency:"
@@ -3185,34 +3190,34 @@ msgstr "站點名稱"
 msgid "steady"
 msgstr "steady"
 
-#: omweather/src/hash.data:365
+#: omweather/src/hash.data:366
 msgid "В"
 msgstr "В"
 
-#: omweather/src/hash.data:366
+#: omweather/src/hash.data:367
 msgid "З"
 msgstr "З"
 
-#: omweather/src/hash.data:367
+#: omweather/src/hash.data:368
 msgid "С"
 msgstr "С"
 
-#: omweather/src/hash.data:368
+#: omweather/src/hash.data:369
 msgid "С-В"
 msgstr "С-В"
 
-#: omweather/src/hash.data:369
+#: omweather/src/hash.data:370
 msgid "С-З"
 msgstr "С-З"
 
-#: omweather/src/hash.data:370
+#: omweather/src/hash.data:371
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:371
+#: omweather/src/hash.data:372
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:372
+#: omweather/src/hash.data:373
 msgid "Ю-З"
 msgstr "Ю-З"

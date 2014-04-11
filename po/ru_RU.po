@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-30 17:27+0300\n"
-"PO-Revision-Date: 2014-03-30 14:14+0000\n"
+"POT-Creation-Date: 2014-04-11 09:25+0300\n"
+"PO-Revision-Date: 2014-04-10 13:27+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/meecast/language/"
 "ru/)\n"
@@ -2046,7 +2046,7 @@ msgstr "Опрашивать датчик каждые:"
 
 #: omweather/src/hash.data:364
 msgid "Refresh"
-msgstr ""
+msgstr "Обновить"
 
 #: omweather/src/weather-simple-settings.c:733
 #: omweather/src/weather-simple-settings.c:786
@@ -2575,6 +2575,11 @@ msgid ""
 "Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - "
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 msgstr ""
+
+#: omweather/src/hash.data:365
+#, fuzzy
+msgid "Transparency"
+msgstr "Прозрачность:"
 
 #: omweather/src/weather-settings.c:3272 omweather/src/weather-settings.c:3277
 #: omweather/src/weather-settings.c:3295
@@ -3129,34 +3134,34 @@ msgstr "в названии станции"
 msgid "steady"
 msgstr "устойчивое"
 
-#: omweather/src/hash.data:365
+#: omweather/src/hash.data:366
 msgid "В"
 msgstr ""
 
-#: omweather/src/hash.data:366
+#: omweather/src/hash.data:367
 msgid "З"
 msgstr ""
 
-#: omweather/src/hash.data:367
+#: omweather/src/hash.data:368
 msgid "С"
 msgstr ""
 
-#: omweather/src/hash.data:368
+#: omweather/src/hash.data:369
 msgid "С-В"
 msgstr ""
 
-#: omweather/src/hash.data:369
+#: omweather/src/hash.data:370
 msgid "С-З"
 msgstr ""
 
-#: omweather/src/hash.data:370
+#: omweather/src/hash.data:371
 msgid "Ю"
 msgstr ""
 
-#: omweather/src/hash.data:371
+#: omweather/src/hash.data:372
 msgid "Ю-В"
 msgstr ""
 
-#: omweather/src/hash.data:372
+#: omweather/src/hash.data:373
 msgid "Ю-З"
 msgstr ""

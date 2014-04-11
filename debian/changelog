@@ -1,6 +1,9 @@
 meecast (0.8.17) unstable; urgency=low
 
   * Fixed problem with current weather in foreca.com source 
+  * Updated Catalan, Czech, Finnish, Slovenian, Spanish,
+    German, Italian, Arabic translations
+
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 30 Mar 2014 12:31:23 +0200
 

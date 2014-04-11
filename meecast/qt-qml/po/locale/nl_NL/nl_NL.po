@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-30 17:27+0300\n"
+"POT-Creation-Date: 2014-04-11 09:25+0300\n"
 "PO-Revision-Date: 2014-01-18 13:43+0000\n"
 "Last-Translator: Michiel Pater <michiel@wateennaam.nl>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/meecast/language/"
@@ -2624,6 +2624,11 @@ msgstr ""
 "Vertalers: Frans - Nicolas Granziano, Philippe, Benot Knecht; Russisch - "
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 
+#: omweather/src/hash.data:365
+#, fuzzy
+msgid "Transparency"
+msgstr "Transparantie:"
+
 #: omweather/src/weather-settings.c:3272 omweather/src/weather-settings.c:3277
 #: omweather/src/weather-settings.c:3295
 msgid "Transparency:"
@@ -3174,34 +3179,34 @@ msgstr "stationsnaam"
 msgid "steady"
 msgstr "bestendig"
 
-#: omweather/src/hash.data:365
+#: omweather/src/hash.data:366
 msgid "В"
 msgstr "B"
 
-#: omweather/src/hash.data:366
+#: omweather/src/hash.data:367
 msgid "З"
 msgstr "3"
 
-#: omweather/src/hash.data:367
+#: omweather/src/hash.data:368
 msgid "С"
 msgstr "C"
 
-#: omweather/src/hash.data:368
+#: omweather/src/hash.data:369
 msgid "С-В"
 msgstr "C-B"
 
-#: omweather/src/hash.data:369
+#: omweather/src/hash.data:370
 msgid "С-З"
 msgstr "C-3"
 
-#: omweather/src/hash.data:370
+#: omweather/src/hash.data:371
 msgid "Ю"
 msgstr "Ю"
 
-#: omweather/src/hash.data:371
+#: omweather/src/hash.data:372
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: omweather/src/hash.data:372
+#: omweather/src/hash.data:373
 msgid "Ю-З"
 msgstr "Ю-3"

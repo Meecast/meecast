@@ -90,11 +90,13 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
-* Sun Mar 30 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.17.1
+* Fri Apr 08 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.17.1
   * Added transparency
   * Fixed problem with Units view in Menu Settings 
   * Fixed problem with current weather in foreca.com source
   * Changed behaviour for displaying label (Now/Today) on Cover Page
+  * Updated Catalan, Czech, Finnish, Slovenian, Spanish,
+    German, Italian, Arabic translations
 
 * Sun Mar 30 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.16.1
   * Fixed segmentation fault 

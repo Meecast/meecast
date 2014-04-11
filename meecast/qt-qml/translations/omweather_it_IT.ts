@@ -1235,16 +1235,14 @@ da Application manager</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">French - Nicolas Granziano,
-Philippe, Benot Knecht
-Russian - Pavel Fialko, Vlad Vasiliev,
+            <translation>Italiano - Lorenzo Facca
+French - Nicolas Granziano, 
+Philippe, Benot Knecht 
+Russian - Pavel Fialko, Vlad Vasiliev, 
 Ed Bartosh
 Finnish - Marko Vertainen
-German - Claudius Henrichs
-Italian - Lorenzo Facca,
-Pavel Fialko, Alessandro Pasotti,
-Salvatore Fiorenzo, Ilir Gjika,
-Luca Onnis
+German - Claudius Henrichs,
+Jens Klingen
 Spanish - Alejandro Lopez, Agustí Clara
 Polish - Tomasz Dominikowski
 Slovak - Roman Moravčík
@@ -1260,9 +1258,11 @@ Arabic - Tarad Alfandi,
 Serbian - Aleksandar Zaric,
 Norwegian - Peer-Atle Motland,
 Hungarian - Salmi,
+Slovenian - Boštjan,
+Czech - Jakub Kožíšek, Pavel Šrubař,
 Chinese(Taiwan) - osk2, 
 Vietnamese - Hieu Nguyen
-Anh Dương and truongnx,
+Anh Dương and truongnx, 
 Swedish - Angela Nennebrandt,
 Niklas Åkerström, 
 Tomislav Veleckovik</translation>
@@ -1537,7 +1537,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation type="unfinished">Capo designer</translation>
+            <translation>Capi designer</translation>
         </message>
         <message>
             <source>License</source>
@@ -1549,7 +1549,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light Freezing Drizzle</source>
-            <translation type="unfinished">Pioggerella gelata</translation>
+            <translation>Debole pioggia gelata</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -1703,7 +1703,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
-            <translation type="unfinished">Meecast - sistema di previsioni meteo open source, multipiattaforma e altamente personalizzabile, basato sul codice di OMWeather. Copyright (C) 2006-2013</translation>
+            <translation>Meecast - app di previsioni meteo open source, multipiattaforma e altamente personalizzabile, basato sul codice di OMWeather. Copyright (C) 2006-2014</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -1907,27 +1907,27 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>NE</source>
-            <translation>Nord-Est</translation>
+            <translation>Nord/Est</translation>
         </message>
         <message>
             <source>NE_short</source>
-            <translation>NE</translation>
+            <translation>N/E</translation>
         </message>
         <message>
             <source>NNE</source>
-            <translation>Nord-Nord-Est</translation>
+            <translation>Nord Nord/Est</translation>
         </message>
         <message>
             <source>NNE_short</source>
-            <translation>NNE</translation>
+            <translation>N N/E</translation>
         </message>
         <message>
             <source>NNW</source>
-            <translation>Nord-Nord-Ovest</translation>
+            <translation>Nord Nord/Ovest</translation>
         </message>
         <message>
             <source>NNW_short</source>
-            <translation>NNO</translation>
+            <translation>N N/O</translation>
         </message>
         <message>
             <source>NO STATION</source>
@@ -1935,11 +1935,11 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>NW</source>
-            <translation>Nord-Ovest</translation>
+            <translation>Nord/Ovest</translation>
         </message>
         <message>
             <source>NW_short</source>
-            <translation>NO</translation>
+            <translation>N/O</translation>
         </message>
         <message>
             <source>N_short</source>
@@ -2271,7 +2271,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation type="unfinished">Parzialmente nuvoloso / Vento</translation>
+            <translation>Parzialmente nuvoloso / Ventoso</translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
@@ -2567,8 +2567,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Refresh</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Aggiorna</translation>
         </message>
         <message>
             <source>Region</source>
@@ -2860,7 +2859,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Show last update time</source>
-            <translation type="unfinished">Ultimo aggiornamento: </translation>
+            <translation>Mostra orario ultimo aggiornamento</translation>
         </message>
         <message>
             <source>Show on Map</source>
@@ -2872,8 +2871,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Show source logo</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mostra logo</translation>
         </message>
         <message>
             <source>Show station name</source>
@@ -3274,6 +3272,10 @@ later version.</translation>
 </source>
             <translation>Traduttori: Francese - Nicolas Granziano, Philippe, Benot Knecht; Russo - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
 </translation>
+        </message>
+        <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Trasparenza:</translation>
         </message>
         <message>
             <source>Transparency:</source>

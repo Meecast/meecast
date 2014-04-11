@@ -3273,6 +3273,10 @@ para qualquer versão posterior.</translation>
 </translation>
         </message>
         <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Transparência:</translation>
+        </message>
+        <message>
             <source>Transparency:</source>
             <translation>Transparência:</translation>
         </message>

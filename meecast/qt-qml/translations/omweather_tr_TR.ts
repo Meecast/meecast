@@ -3256,6 +3256,10 @@ hem 2.1 versiyonu ve hem de (isteginize göre) farklı bir ileriki version olabi
             <translation>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose\n</translation>
         </message>
         <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Transparanlık:</translation>
+        </message>
+        <message>
             <source>Transparency:</source>
             <translation>Transparanlık:</translation>
         </message>

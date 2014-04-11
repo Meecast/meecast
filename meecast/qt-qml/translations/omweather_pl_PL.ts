@@ -3295,6 +3295,10 @@ Fundację wolnego oprogramowania.</translation>
 </translation>
         </message>
         <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Przezroczystość:</translation>
+        </message>
+        <message>
             <source>Transparency:</source>
             <translation>Przezroczystość:</translation>
         </message>

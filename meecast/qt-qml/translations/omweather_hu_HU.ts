@@ -3621,6 +3621,10 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Áttetszőség:</translation>
+        </message>
+        <message>
             <source>Transparency:</source>
             <translation>Áttetszőség:</translation>
         </message>

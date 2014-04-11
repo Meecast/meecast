@@ -1124,18 +1124,15 @@ Brad Jones aka kazrak - fürs Testen
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Gefühlt</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Gefühlt</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Gefühlt</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1236,12 +1233,13 @@ Programm-Manager deinstallieren.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Französich -  Nicolas Granziano, 
+            <translation>Französich -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
- Russisch - Pavel Fialko, Vlad Vasiliev, 
+  Russisch - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnisch - Marko Vertainen
- Deutsch -  Claudius Henrichs
+ Deutsch -  Claudius Henrichs,
+ 	Jens Klingen
  Italienisch - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1252,11 +1250,11 @@ Programm-Manager deinstallieren.</translation>
  Niederländisch - Tom Leenders, Michiel Pater
  Bulgarisch - Zlatko Enikov
  Albanisch - Ilir Gjika
- Chinesisch - Wong Man Kong, Michael
- Portugiesisch - Jose Narciso,
+ Chinesisch- Wong Man Kong, Michael
+ Portugiesisch- Jose Narciso,
  Türkisch - Burak Kaan Kose,
  	Mehmet Çilingir,
- Catalanisch - Agustí Clara,
+ Katalanisch - Agustí Clara,
  Arabisch - Tarad Alfandi,
  Serbisch - Aleksandar Zaric,
  Norwegisch - Peer-Atle Motland,
@@ -2274,8 +2272,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Teilweise bewölkt / windig</translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
@@ -2571,8 +2568,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Refresh</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Aktualisieren</translation>
         </message>
         <message>
             <source>Region</source>
@@ -3280,6 +3276,10 @@ Spanisch - Alejandro Lopez</translation>
 </translation>
         </message>
         <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Transparenz:</translation>
+        </message>
+        <message>
             <source>Transparency:</source>
             <translation>Transparenz:</translation>
         </message>
@@ -3463,11 +3463,11 @@ um die Darstellung des Applets anzupassen</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation>Sichtbare Einheiten</translation>
+            <translation>Sichtweite</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation>Sichtbare Einheiten</translation>
+            <translation>Sichtweite</translation>
         </message>
         <message>
             <source>Visible:</source>

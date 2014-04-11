@@ -1232,36 +1232,8 @@ using Application manager</source>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">الفرنسية -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
- الروسية - Pavel Fialko, Vlad Vasiliev, 
- 	Ed Bartosh
- الفنلندية - Marko Vertainen
- الألمانية -  Claudius Henrichs
- الإيطالية - Lorenzo Facca
-		Pavel Fialko, Alessandro Pasotti,
-		   Salvatore Fiorenzo, Ilir Gjika,
-		Luca Onnis
- الإسبانية - Agustí Clara, Alejandro Lopez
- البولندية - Michiel Pater, Tom Dominikowski
- السلوفاكية - Roman Moravčík
- الهولندية - Tom Leenders, Michiel Pater
- البلغارية - Zlatko Enikov
- الألبانية - Ilir Gjika
- الصينية - Wong Man Kong, Michael
- البرتغالية - Jose Narciso,
- التركية - Burak Kaan Kose,
- الكتالانية - Agustí Clara,
- العربية - Tarad Alfandi,
- الصربيه - Aleksandar Zaric,
-النَرْوِيجية - Peer-Atle Motland,
-الهنقارية - Salmi,
-الصينية (تايوان) - osk2,
- الفيتنامية - Hieu Nguyen,
-		Anh Dương و truongnx, 
- السويدية - Angela Nennebrandt,
- 		Niklas Åkerström, 
-	Tomislav Veleckovik</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1533,7 +1505,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation type="unfinished">قائد التصميم</translation>
+            <translation>إداره التصميم</translation>
         </message>
         <message>
             <source>License</source>
@@ -1545,7 +1517,8 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Light Freezing Drizzle</source>
-            <translation type="unfinished">رذار متجمد</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -1699,7 +1672,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
-            <translation type="unfinished">MeeCast - هو تطبيق يعرض حاله الطقس ويعتر مفتوح المصدر وقابل للتعديل إستنادا الى كود OMWeather. الحقوق(C) 2006-2013</translation>
+            <translation>MeeCast - هو تطبيق لعرض تنبؤات الطقس مفتوح المصدر وقابل للتعديل إستنادا الى كود OMWeather. الحقوق(C) 2006-2014</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -2267,7 +2240,8 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation type="unfinished">غائم جزئياً / رياح</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
@@ -2856,7 +2830,8 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Show last update time</source>
-            <translation type="unfinished">أخر تحديث:</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Show on Map</source>
@@ -3269,6 +3244,10 @@ Slovak - Roman Moravčík</source>
 </source>
             <translation>المترجمين: الفرنسية - Nicolas Granziano, Philippe, Benot Knecht; الروسية - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
 </translation>
+        </message>
+        <message>
+            <source>Transparency</source>
+            <translation type="unfinished">الشفافية:</translation>
         </message>
         <message>
             <source>Transparency:</source>

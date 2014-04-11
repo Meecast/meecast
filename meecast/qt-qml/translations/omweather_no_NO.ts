@@ -3276,6 +3276,10 @@ Slovak - Roman Moravčík</translation>
 </translation>
         </message>
         <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Gjennomskinnelighet:</translation>
+        </message>
+        <message>
             <source>Transparency:</source>
             <translation>Gjennomskinnelighet:</translation>
         </message>

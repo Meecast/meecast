@@ -3254,6 +3254,10 @@ later version.</translation>
 </translation>
         </message>
         <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Прозрачност:</translation>
+        </message>
+        <message>
             <source>Transparency:</source>
             <translation>Прозрачност:</translation>
         </message>

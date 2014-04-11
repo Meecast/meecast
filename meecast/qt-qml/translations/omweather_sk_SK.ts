@@ -3283,6 +3283,10 @@ Slovenčina - Roman Moravčík</translation>
 </translation>
         </message>
         <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Priehľadnosť:</translation>
+        </message>
+        <message>
             <source>Transparency:</source>
             <translation>Priehľadnosť:</translation>
         </message>

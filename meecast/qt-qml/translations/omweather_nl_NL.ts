@@ -3243,6 +3243,10 @@ Foundation; versie 2.1 of latere versies.</translation>
 </translation>
         </message>
         <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Transparantie:</translation>
+        </message>
+        <message>
             <source>Transparency:</source>
             <translation>Transparantie:</translation>
         </message>

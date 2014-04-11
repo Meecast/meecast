@@ -3281,6 +3281,10 @@ të GNU General Public License
 </translation>
         </message>
         <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Tejduekshmëria:</translation>
+        </message>
+        <message>
             <source>Transparency:</source>
             <translation>Tejduekshmëria:</translation>
         </message>

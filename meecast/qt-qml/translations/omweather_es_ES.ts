@@ -1231,7 +1231,7 @@ el Administrador de Aplicaciones.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Francés -  Nicolas Granziano, 
+            <translation>Francés -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  Ruso - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
@@ -2269,7 +2269,7 @@ Eslovaco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation type="unfinished">Parcialmente nublado / Viento</translation>
+            <translation>Parcialmente nublado / Viento</translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
@@ -2565,8 +2565,7 @@ Eslovaco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Refresh</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Refrescar</translation>
         </message>
         <message>
             <source>Region</source>
@@ -3270,6 +3269,10 @@ ya sea la versión 2.1 de la licencia, o (a sudiscreción) cualquier versión po
 </source>
             <translation>Traductores: Francés - Nicolas Granziano, Philippe, Benoit Knecht; Ruso - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
 </translation>
+        </message>
+        <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Transparencia:</translation>
         </message>
         <message>
             <source>Transparency:</source>

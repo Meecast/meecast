@@ -3333,6 +3333,10 @@ Slovaque - Roman Moravčík</translation>
 </translation>
         </message>
         <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Transparence :</translation>
+        </message>
+        <message>
             <source>Transparency:</source>
             <translation>Transparence :</translation>
         </message>

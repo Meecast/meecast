@@ -3248,6 +3248,10 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Прозорість:</translation>
+        </message>
+        <message>
             <source>Transparency:</source>
             <translation>Прозорість:</translation>
         </message>

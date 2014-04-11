@@ -3274,6 +3274,10 @@ kasnija verzija.</translation>
 </translation>
         </message>
         <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Providnost:</translation>
+        </message>
+        <message>
             <source>Transparency:</source>
             <translation>Providnost:</translation>
         </message>

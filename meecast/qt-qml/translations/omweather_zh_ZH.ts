@@ -3336,6 +3336,10 @@ Slovak - Roman Moravčík</translation>
 </translation>
         </message>
         <message>
+            <source>Transparency</source>
+            <translation type="unfinished">透明度:</translation>
+        </message>
+        <message>
             <source>Transparency:</source>
             <translation>透明度:</translation>
         </message>

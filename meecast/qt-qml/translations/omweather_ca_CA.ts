@@ -1232,7 +1232,7 @@ utilitzant el Gestor d'aplicacions</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Francès -  Nicolas Granziano, 
+            <translation>Francès -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  Rus - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
@@ -2271,7 +2271,7 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation type="unfinished">En part núvol / Vent</translation>
+            <translation>En part núvol / Vent</translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
@@ -2567,8 +2567,7 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>Refresh</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Refresca</translation>
         </message>
         <message>
             <source>Region</source>
@@ -3272,6 +3271,10 @@ qualsevol versió posterior.</translation>
 </source>
             <translation>Traductors: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
 </translation>
+        </message>
+        <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Transparència:</translation>
         </message>
         <message>
             <source>Transparency:</source>

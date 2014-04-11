@@ -2526,8 +2526,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Refresh</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Обновить</translation>
         </message>
         <message>
             <source>Region</source>
@@ -3232,6 +3231,10 @@ Slovak - Roman Moravčík</source>
 </source>
             <translation type="unfinished">
             </translation>
+        </message>
+        <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Прозрачность:</translation>
         </message>
         <message>
             <source>Transparency:</source>

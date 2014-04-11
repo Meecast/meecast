@@ -3263,6 +3263,10 @@ Việt Nam- Quý Trọng</translation>
 </translation>
         </message>
         <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Độ trong suốt:</translation>
+        </message>
+        <message>
             <source>Transparency:</source>
             <translation>Độ trong suốt:</translation>
         </message>

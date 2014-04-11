@@ -1233,12 +1233,13 @@ sinun tulee poistaa
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Ranska -  Nicolas Granziano, 
+            <translation>Ranska -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  Venäjä - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Suomi - Marko Vertainen
- Saksa -  Claudius Henrichs
+ Saksa -  Claudius Henrichs,
+ 	Jens Klingen
  Italia - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1250,7 +1251,7 @@ sinun tulee poistaa
  Bulgaria - Zlatko Enikov
  Albania - Ilir Gjika
  Kiina - Wong Man Kong, Michael
- Portugula - Jose Narciso,
+ Portugali - Jose Narciso,
  Turkki - Burak Kaan Kose,
  	Mehmet Çilingir,
  Katalaani - Agustí Clara,
@@ -1260,7 +1261,7 @@ sinun tulee poistaa
  Unkari - Salmi,
  Slovenia -  Boštjan,
  Tsekki - Jakub Kožíšek, Pavel Šrubař,
- Kiina (Taiwan) - osk2, 
+ Kiina(Taiwan) - osk2, 
  Vietnami - Hieu Nguyen
  	Anh Dương and truongnx, 
  Ruotsi - Angela Nennebrandt,
@@ -2271,7 +2272,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation type="unfinished">Puolipilvistä / Tuulista</translation>
+            <translation>Puolipilvistä / Tuulista</translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
@@ -2567,8 +2568,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Refresh</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Päivitä</translation>
         </message>
         <message>
             <source>Region</source>
@@ -3274,6 +3274,10 @@ Slovakia - Roman Moravčík</translation>
 </source>
             <translation>Kääntäjät: Ranska - Nicolas Granziano, Philippe, Benot Knecht; Venäjä - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
 </translation>
+        </message>
+        <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Läpinäkyvyys:</translation>
         </message>
         <message>
             <source>Transparency:</source>

@@ -3282,6 +3282,10 @@ ya sea la versión 2.1 de la licencia, o (a sudiscreción) cualquier versión po
 </translation>
         </message>
         <message>
+            <source>Transparency</source>
+            <translation type="unfinished">Transparencia:</translation>
+        </message>
+        <message>
             <source>Transparency:</source>
             <translation>Transparencia:</translation>
         </message>

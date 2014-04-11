@@ -6,6 +6,7 @@ Page {
     property int margin: 16
     Rectangle {
         anchors.fill: parent
+        color: Config.transparency ? "transparent" : "black"
     }
 
     PageHeader {

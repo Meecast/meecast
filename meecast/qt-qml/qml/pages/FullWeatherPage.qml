@@ -536,8 +536,7 @@ Page {
                         Rectangle {
                             width: parent.width
                             height: 80
-                            color: (index % 2 != 0) ? "black" : "#0f0f0f"
-
+                            color: Config.transparency ? "transparent" : ((index % 2 != 0) ? "black" : "#0f0f0f")
                             Text {
                                 id: txt_date
                                 text: model.fulldate
@@ -581,11 +580,12 @@ Page {
             }
         }
         Rectangle{
-            color: Config.transparency ? "transparent" : "black"
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: flickable.botttom
+            color: "black"
+            opacity: 0.8
             id: toolbar
             height: 110 
             Row {

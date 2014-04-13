@@ -447,7 +447,7 @@ Page {
                 }
                 Rectangle {
                     id: splitter
-                    color: "#303030"
+                    color: Config.transparency ? "#cfcfcf" : "#303030"
                     x: 20; width: parent.width - 40; height: 2
                     anchors.top: grid.bottom 
                     anchors.leftMargin: 20

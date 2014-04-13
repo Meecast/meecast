@@ -221,70 +221,98 @@ Page {
             Config.saveConfig();
             Config.refreshconfig();
         }
-	delegate: WeatherStationDelegate { id: weatherStationDelegate } 
+        delegate: WeatherStationDelegate { id: weatherStationDelegate } 
      }
-     Rectangle {
+     SilicaFlickable {
+        anchors.fill: parent
+        contentHeight: screen_height 
         id: startview
-        visible: Config.stationname == "Unknown" ? true : false
-        width: screen_width
-        height: screen_height
-        color: Config.transparency ? "transparent" : "black"
-        Rectangle {
-            anchors.left: parent.left
-            anchors.top: parent.top
-            width: parent.width
-            color: Config.transparency ? "transparent" : "black"
-            height: 72
-        }
-        Text {
-            id: empty_text
-            anchors.left: parent.left
-            anchors.top: parent.top
-            width: parent.width
-            height: 72
-            color: "white"
-            font.pointSize: 28
-            text: Config.tr("MeeCast")
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-        }
-
-        Loader {
-            id: empty_background1
-            anchors.top: empty_text.bottom
-            anchors.left: parent.left
-            width: parent.width
-            height: 274
-            sourceComponent: Image {source: Config.imagespath + "/mask_background.png"}
-        }
-        Rectangle {
-            anchors.top: empty_background1.bottom
-            width: parent.width
-            height: 600 
-            color: Config.transparency ? "transparent" : "black"
-        }
-        Label {
-            horizontalAlignment: Text.AlignHCenter
-            text: Config.tr("No locations are set up yet.")
-            font.pixelSize: 54 
-            color: "#999999"
-            wrapMode: Text.Wrap
-            width: parent.width - 2*margin
-            anchors.top: parent.top
-            anchors.topMargin: 250
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.leftMargin: margin
-            anchors.rightMargin: margin
-        }
-        Button {
-            text: Config.tr("Set locations")
-            onClicked: {
-                main.openFile("SourcePage.qml")
+        PullDownMenu {
+            MenuItem {
+                 id: item4menu
+                 text: Config.tr("About")
+                 onClicked: {
+                      openFile("AboutPage.qml");
+                 }
             }
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 150
+            MenuItem {
+                id: item1menu
+                text: Config.tr("Settings")
+                onClicked: {
+                     openFile("SettingsPage.qml");
+                }
+            }
+            MenuItem {
+                id: item2menu
+                text: Config.tr("Refresh")
+                onClicked: {
+                    if (!isUpdate) main.update();
+                }
+            }
+         }
+
+         Column {
+            anchors.fill: parent
+            visible: Config.stationname == "Unknown" ? true : false
+           // color: Config.transparency ? "transparent" : "black"
+            Rectangle {
+                anchors.left: parent.left
+                anchors.top: parent.top
+                width: parent.width
+                color: Config.transparency ? "transparent" : "black"
+                height: 72
+            }
+            Text {
+                id: empty_text
+                anchors.left: parent.left
+                anchors.top: parent.top
+                width: parent.width
+                height: 72
+                color: "white"
+                font.pointSize: 28
+                text: Config.tr("MeeCast")
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+
+            Loader {
+                id: empty_background1
+                visible: Config.transparency ? false : true
+                anchors.top: empty_text.bottom
+                anchors.left: parent.left
+                width: parent.width
+                height: 274
+                sourceComponent: Image {source: Config.imagespath + "/mask_background.png"}
+            }
+            Rectangle {
+                anchors.top: empty_background1.bottom
+                width: parent.width
+                height: 600 
+                color: Config.transparency ? "transparent" : "black"
+            }
+            Label {
+                horizontalAlignment: Text.AlignHCenter
+                text: Config.tr("No locations are set up yet.")
+                font.pixelSize: 54 
+                color: "#999999"
+                wrapMode: Text.Wrap
+                width: parent.width - 2*margin
+                anchors.top: parent.top
+                anchors.topMargin: 250
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: margin
+                anchors.rightMargin: margin
+            }
+            Button {
+                text: Config.tr("Set locations")
+                onClicked: {
+                    main.openFile("SourcePage.qml")
+                }
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 150
+            }
         }
     }
 }

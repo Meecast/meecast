@@ -175,7 +175,7 @@ Component {
                     //height: current_rect.height + list.height
                     //height: main.screen_height - 72 - 72 - 36
                     height: main.screen_height - 92 
-                    //color: "black"
+                    color: Config.transparency ? "transparent" : "black"
                     Loader {
                         id: empty_background
                         visible: Config.transparency ? false : true

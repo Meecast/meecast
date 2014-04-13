@@ -108,7 +108,6 @@ Page {
                 Config.showwebdonation();
             }
         }
-
     }
 
 	Rectangle {
@@ -118,24 +117,24 @@ Page {
 	    anchors.top: projectfulltext.bottom 
 	    anchors.leftMargin: 20
 	    anchors.topMargin: 30 
-        }
+    } 
 
-        Label {
-            id: projectadministratortext 
-            text: Config.tr("Project administrators") + ":"
-	    anchors.top: splitter.bottom 
-	    anchors.topMargin: 30 
-	    anchors.leftMargin: 20
-	    anchors.left: parent.left
-	    color: "#999999"
-        }
-	Label {
+    Label {
+        id: projectadministratortext 
+        text: Config.tr("Project administrator") + ":"
+        anchors.top: splitter.bottom 
+        anchors.topMargin: 30 
+        anchors.leftMargin: 20
+        anchors.left: parent.left
+        color: "#999999"
+    }
+    Label {
             id: prohectadministatorfulltext 
-	    text: "Vlad Vasilyeu, Oksana Kalinkevich"
-	    anchors.leftMargin: 20
-	    anchors.left: parent.left
-	    anchors.top: projectadministratortext.bottom
-	}
+        text: "Vlad Vasilyeu"
+        anchors.leftMargin: 20
+        anchors.left: parent.left
+        anchors.top: projectadministratortext.bottom
+    }
     Label {
         id: leadprogrammertext 
         text: Config.tr ("Programmer") + ":"

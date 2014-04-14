@@ -44,220 +44,31 @@
 
 <div id="cc">
 	<div class="left">
-		<img src="/i/150x150-ds/n310.png" width="150" height="150" alt="Cloudy and light rain" title="Cloudy and light rain" />
+		<img src="/i/150x150-ds/d400.png" width="150" height="150" alt="Overcast" title="Overcast" />
 		</div>
 	
 	<div class="right">
-		<span class="temp_warm">+5 &deg;C</span>
+		<span class="temp_warm">+4 &deg;C</span>
 	</div>
 		<div class="right wind">
 		<div class="windarrow w180">&nbsp;</div>
-		<strong>4 m/s</strong></div>
+		<strong>3 m/s</strong></div>
 	
 	<div class="cctext">
 		<p>
-			<strong>Cloudy and light rain</strong><br />
+			<strong>Overcast</strong><br />
 			Tampere / Pirkkala<br />
-			13/04 21:20
+			14/04 08:30
 		</p>
 		
 		<p>
-			Feels Like: <strong>+5&deg;</strong><br/>			
-			Humidity: <strong>93.2%</strong><br/>			
-			Barometer: <strong>993.0 hPa</strong><br/>			
-			Visibility: <strong>10 km</strong>		</p>
+			Feels Like: <strong>+4&deg;</strong><br/>			
+			Humidity: <strong>93.8%</strong><br/>			
+			Barometer: <strong>991.5 hPa</strong><br/>			
+			Visibility: <strong>20 km</strong>		</p>
 		<br style="clear: both;" />
 	</div>
 
-</div>
-<div class="hourlyfc">
-		<div class="timecol">
-		<p><strong>Sun</strong></p>
-		<p>06:11</p>
-	</div>
-
-	<div class="symbcol sun"><img src="/i/sun_rise.png" width="40" height="16" /></div>
-	<div class="windcol sun">Sunrise</div>
-</div>
-<div class="hourlyfc">
-		<div class="timecol">
-		<p><strong>Sun</strong></p>
-		<p>20:41</p>
-	</div>
-
-	<div class="symbcol sun"><img src="/i/sun_set.png" width="40" height="16" /></div>
-	<div class="windcol sun">Sunset</div>
-</div>
-<div class="hourlyfc">
-		<div class="timecol">
-		<p><strong>Sun</strong></p>
-		<p>22:00</p>
-	</div>
-
-	<div class="symbcol">
-		<img src="/i/65x65-ds/n300.png" alt="Cloudy" title="Cloudy" width="40" height="40" />
-	</div>
-
-	<div class="tempcol">
-		<span class="temp_warm">+5&deg;</span>
-	</div>
-
-	<div class="windcol">
-		<div class="windarrow w180">&nbsp;</div>
-		&nbsp;<strong>4</strong> m/s
-	</div>
-</div>
-<div class="hourlyfc newday">
-		<div class="timecol">
-		<p><strong>Sun</strong></p>
-		<p>23:00</p>
-	</div>
-
-	<div class="symbcol">
-		<img src="/i/65x65-ds/n300.png" alt="Cloudy" title="Cloudy" width="40" height="40" />
-	</div>
-
-	<div class="tempcol">
-		<span class="temp_warm">+5&deg;</span>
-	</div>
-
-	<div class="windcol">
-		<div class="windarrow w180">&nbsp;</div>
-		&nbsp;<strong>4</strong> m/s
-	</div>
-</div>
-<div class="hourlyfc">
-		<div class="timecol">
-		<p><strong>Mon</strong></p>
-		<p>00:00</p>
-	</div>
-
-	<div class="symbcol">
-		<img src="/i/65x65-ds/n300.png" alt="Cloudy" title="Cloudy" width="40" height="40" />
-	</div>
-
-	<div class="tempcol">
-		<span class="temp_warm">+4&deg;</span>
-	</div>
-
-	<div class="windcol">
-		<div class="windarrow w180">&nbsp;</div>
-		&nbsp;<strong>4</strong> m/s
-	</div>
-</div>
-<div class="hourlyfc">
-		<div class="timecol">
-		<p><strong>Mon</strong></p>
-		<p>01:00</p>
-	</div>
-
-	<div class="symbcol">
-		<img src="/i/65x65-ds/n300.png" alt="Cloudy" title="Cloudy" width="40" height="40" />
-	</div>
-
-	<div class="tempcol">
-		<span class="temp_warm">+4&deg;</span>
-	</div>
-
-	<div class="windcol">
-		<div class="windarrow w180">&nbsp;</div>
-		&nbsp;<strong>4</strong> m/s
-	</div>
-</div>
-<div class="hourlyfc">
-		<div class="timecol">
-		<p><strong>Mon</strong></p>
-		<p>02:00</p>
-	</div>
-
-	<div class="symbcol">
-		<img src="/i/65x65-ds/n300.png" alt="Cloudy" title="Cloudy" width="40" height="40" />
-	</div>
-
-	<div class="tempcol">
-		<span class="temp_warm">+3&deg;</span>
-	</div>
-
-	<div class="windcol">
-		<div class="windarrow w180">&nbsp;</div>
-		&nbsp;<strong>3</strong> m/s
-	</div>
-</div>
-<div class="hourlyfc">
-		<div class="timecol">
-		<p><strong>Mon</strong></p>
-		<p>03:00</p>
-	</div>
-
-	<div class="symbcol">
-		<img src="/i/65x65-ds/n300.png" alt="Cloudy" title="Cloudy" width="40" height="40" />
-	</div>
-
-	<div class="tempcol">
-		<span class="temp_warm">+2&deg;</span>
-	</div>
-
-	<div class="windcol">
-		<div class="windarrow w180">&nbsp;</div>
-		&nbsp;<strong>3</strong> m/s
-	</div>
-</div>
-<div class="hourlyfc">
-		<div class="timecol">
-		<p><strong>Mon</strong></p>
-		<p>04:00</p>
-	</div>
-
-	<div class="symbcol">
-		<img src="/i/65x65-ds/n300.png" alt="Cloudy" title="Cloudy" width="40" height="40" />
-	</div>
-
-	<div class="tempcol">
-		<span class="temp_warm">+2&deg;</span>
-	</div>
-
-	<div class="windcol">
-		<div class="windarrow w180">&nbsp;</div>
-		&nbsp;<strong>3</strong> m/s
-	</div>
-</div>
-<div class="hourlyfc">
-		<div class="timecol">
-		<p><strong>Mon</strong></p>
-		<p>05:00</p>
-	</div>
-
-	<div class="symbcol">
-		<img src="/i/65x65-ds/n300.png" alt="Cloudy" title="Cloudy" width="40" height="40" />
-	</div>
-
-	<div class="tempcol">
-		<span class="temp_warm">+2&deg;</span>
-	</div>
-
-	<div class="windcol">
-		<div class="windarrow w180">&nbsp;</div>
-		&nbsp;<strong>3</strong> m/s
-	</div>
-</div>
-<div class="hourlyfc">
-		<div class="timecol">
-		<p><strong>Mon</strong></p>
-		<p>06:00</p>
-	</div>
-
-	<div class="symbcol">
-		<img src="/i/65x65-ds/n300.png" alt="Cloudy" title="Cloudy" width="40" height="40" />
-	</div>
-
-	<div class="tempcol">
-		<span class="temp_warm">+1&deg;</span>
-	</div>
-
-	<div class="windcol">
-		<div class="windarrow w180">&nbsp;</div>
-		&nbsp;<strong>3</strong> m/s
-	</div>
 </div>
 <div class="hourlyfc">
 		<div class="timecol">
@@ -271,58 +82,20 @@
 <div class="hourlyfc">
 		<div class="timecol">
 		<p><strong>Mon</strong></p>
-		<p>07:00</p>
-	</div>
-
-	<div class="symbcol">
-		<img src="/i/65x65-ds/d310.png" alt="Cloudy and light rain" title="Cloudy and light rain" width="40" height="40" />
-	</div>
-
-	<div class="tempcol">
-		<span class="temp_warm">+2&deg;</span>
-	</div>
-
-	<div class="windcol">
-		<div class="windarrow w180">&nbsp;</div>
-		&nbsp;<strong>3</strong> m/s
-	</div>
-</div>
-<div class="hourlyfc">
-		<div class="timecol">
-		<p><strong>Mon</strong></p>
-		<p>08:00</p>
-	</div>
-
-	<div class="symbcol">
-		<img src="/i/65x65-ds/d310.png" alt="Cloudy and light rain" title="Cloudy and light rain" width="40" height="40" />
-	</div>
-
-	<div class="tempcol">
-		<span class="temp_warm">+3&deg;</span>
-	</div>
-
-	<div class="windcol">
-		<div class="windarrow w180">&nbsp;</div>
-		&nbsp;<strong>3</strong> m/s
-	</div>
-</div>
-<div class="hourlyfc">
-		<div class="timecol">
-		<p><strong>Mon</strong></p>
 		<p>09:00</p>
 	</div>
 
 	<div class="symbcol">
-		<img src="/i/65x65-ds/d310.png" alt="Cloudy and light rain" title="Cloudy and light rain" width="40" height="40" />
+		<img src="/i/65x65-ds/d400.png" alt="Overcast" title="Overcast" width="40" height="40" />
 	</div>
 
 	<div class="tempcol">
-		<span class="temp_warm">+4&deg;</span>
+		<span class="temp_warm">+6&deg;</span>
 	</div>
 
 	<div class="windcol">
 		<div class="windarrow w180">&nbsp;</div>
-		&nbsp;<strong>3</strong> m/s
+		&nbsp;<strong>4</strong> m/s
 	</div>
 </div>
 <div class="hourlyfc">
@@ -332,11 +105,11 @@
 	</div>
 
 	<div class="symbcol">
-		<img src="/i/65x65-ds/d320.png" alt="Cloudy and showers" title="Cloudy and showers" width="40" height="40" />
+		<img src="/i/65x65-ds/d400.png" alt="Overcast" title="Overcast" width="40" height="40" />
 	</div>
 
 	<div class="tempcol">
-		<span class="temp_warm">+4&deg;</span>
+		<span class="temp_warm">+6&deg;</span>
 	</div>
 
 	<div class="windcol">
@@ -351,15 +124,15 @@
 	</div>
 
 	<div class="symbcol">
-		<img src="/i/65x65-ds/d410.png" alt="Overcast and light rain" title="Overcast and light rain" width="40" height="40" />
+		<img src="/i/65x65-ds/d400.png" alt="Overcast" title="Overcast" width="40" height="40" />
 	</div>
 
 	<div class="tempcol">
-		<span class="temp_warm">+5&deg;</span>
+		<span class="temp_warm">+6&deg;</span>
 	</div>
 
 	<div class="windcol">
-		<div class="windarrow w225">&nbsp;</div>
+		<div class="windarrow w180">&nbsp;</div>
 		&nbsp;<strong>3</strong> m/s
 	</div>
 </div>
@@ -370,19 +143,19 @@
 	</div>
 
 	<div class="symbcol">
-		<img src="/i/65x65-ds/d400.png" alt="Overcast" title="Overcast" width="40" height="40" />
+		<img src="/i/65x65-ds/d410.png" alt="Overcast and light rain" title="Overcast and light rain" width="40" height="40" />
 	</div>
 
 	<div class="tempcol">
-		<span class="temp_warm">+6&deg;</span>
+		<span class="temp_warm">+7&deg;</span>
 	</div>
 
 	<div class="windcol">
-		<div class="windarrow w225">&nbsp;</div>
-		&nbsp;<strong>3</strong> m/s
+		<div class="windarrow w180">&nbsp;</div>
+		&nbsp;<strong>2</strong> m/s
 	</div>
 </div>
-<div class="hourlyfc newday">
+<div class="hourlyfc">
 		<div class="timecol">
 		<p><strong>Mon</strong></p>
 		<p>13:00</p>
@@ -393,11 +166,229 @@
 	</div>
 
 	<div class="tempcol">
-		<span class="temp_warm">+6&deg;</span>
+		<span class="temp_warm">+7&deg;</span>
 	</div>
 
 	<div class="windcol">
 		<div class="windarrow w225">&nbsp;</div>
+		&nbsp;<strong>2</strong> m/s
+	</div>
+</div>
+<div class="hourlyfc">
+		<div class="timecol">
+		<p><strong>Mon</strong></p>
+		<p>14:00</p>
+	</div>
+
+	<div class="symbcol">
+		<img src="/i/65x65-ds/d420.png" alt="Overcast and showers" title="Overcast and showers" width="40" height="40" />
+	</div>
+
+	<div class="tempcol">
+		<span class="temp_warm">+8&deg;</span>
+	</div>
+
+	<div class="windcol">
+		<div class="windarrow w225">&nbsp;</div>
+		&nbsp;<strong>1</strong> m/s
+	</div>
+</div>
+<div class="hourlyfc">
+		<div class="timecol">
+		<p><strong>Mon</strong></p>
+		<p>15:00</p>
+	</div>
+
+	<div class="symbcol">
+		<img src="/i/65x65-ds/d320.png" alt="Cloudy and showers" title="Cloudy and showers" width="40" height="40" />
+	</div>
+
+	<div class="tempcol">
+		<span class="temp_warm">+8&deg;</span>
+	</div>
+
+	<div class="windcol">
+		<div class="windarrow w225">&nbsp;</div>
+		&nbsp;<strong>1</strong> m/s
+	</div>
+</div>
+<div class="hourlyfc">
+		<div class="timecol">
+		<p><strong>Mon</strong></p>
+		<p>16:00</p>
+	</div>
+
+	<div class="symbcol">
+		<img src="/i/65x65-ds/d220.png" alt="Partly cloudy and showers" title="Partly cloudy and showers" width="40" height="40" />
+	</div>
+
+	<div class="tempcol">
+		<span class="temp_warm">+8&deg;</span>
+	</div>
+
+	<div class="windcol">
+		<div class="windarrow w225">&nbsp;</div>
+		&nbsp;<strong>1</strong> m/s
+	</div>
+</div>
+<div class="hourlyfc">
+		<div class="timecol">
+		<p><strong>Mon</strong></p>
+		<p>17:00</p>
+	</div>
+
+	<div class="symbcol">
+		<img src="/i/65x65-ds/d220.png" alt="Partly cloudy and showers" title="Partly cloudy and showers" width="40" height="40" />
+	</div>
+
+	<div class="tempcol">
+		<span class="temp_warm">+7&deg;</span>
+	</div>
+
+	<div class="windcol">
+		<div class="windarrow w270">&nbsp;</div>
+		&nbsp;<strong>1</strong> m/s
+	</div>
+</div>
+<div class="hourlyfc">
+		<div class="timecol">
+		<p><strong>Mon</strong></p>
+		<p>18:00</p>
+	</div>
+
+	<div class="symbcol">
+		<img src="/i/65x65-ds/d430.png" alt="Overcast and rain" title="Overcast and rain" width="40" height="40" />
+	</div>
+
+	<div class="tempcol">
+		<span class="temp_warm">+5&deg;</span>
+	</div>
+
+	<div class="windcol">
+		<div class="windarrow w270">&nbsp;</div>
+		&nbsp;<strong>1</strong> m/s
+	</div>
+</div>
+<div class="hourlyfc">
+		<div class="timecol">
+		<p><strong>Mon</strong></p>
+		<p>19:00</p>
+	</div>
+
+	<div class="symbcol">
+		<img src="/i/65x65-ds/d420.png" alt="Overcast and showers" title="Overcast and showers" width="40" height="40" />
+	</div>
+
+	<div class="tempcol">
+		<span class="temp_warm">+5&deg;</span>
+	</div>
+
+	<div class="windcol">
+		<div class="windarrow w270">&nbsp;</div>
+		&nbsp;<strong>1</strong> m/s
+	</div>
+</div>
+<div class="hourlyfc">
+		<div class="timecol">
+		<p><strong>Mon</strong></p>
+		<p>20:00</p>
+	</div>
+
+	<div class="symbcol">
+		<img src="/i/65x65-ds/d410.png" alt="Overcast and light rain" title="Overcast and light rain" width="40" height="40" />
+	</div>
+
+	<div class="tempcol">
+		<span class="temp_warm">+5&deg;</span>
+	</div>
+
+	<div class="windcol">
+		<div class="windarrow w270">&nbsp;</div>
+		&nbsp;<strong>1</strong> m/s
+	</div>
+</div>
+<div class="hourlyfc">
+		<div class="timecol">
+		<p><strong>Mon</strong></p>
+		<p>20:44</p>
+	</div>
+
+	<div class="symbcol sun"><img src="/i/sun_set.png" width="40" height="16" /></div>
+	<div class="windcol sun">Sunset</div>
+</div>
+<div class="hourlyfc">
+		<div class="timecol">
+		<p><strong>Mon</strong></p>
+		<p>21:00</p>
+	</div>
+
+	<div class="symbcol">
+		<img src="/i/65x65-ds/n400.png" alt="Overcast" title="Overcast" width="40" height="40" />
+	</div>
+
+	<div class="tempcol">
+		<span class="temp_warm">+5&deg;</span>
+	</div>
+
+	<div class="windcol">
+		<div class="windarrow w270">&nbsp;</div>
+		&nbsp;<strong>1</strong> m/s
+	</div>
+</div>
+<div class="hourlyfc">
+		<div class="timecol">
+		<p><strong>Mon</strong></p>
+		<p>22:00</p>
+	</div>
+
+	<div class="symbcol">
+		<img src="/i/65x65-ds/n400.png" alt="Overcast" title="Overcast" width="40" height="40" />
+	</div>
+
+	<div class="tempcol">
+		<span class="temp_warm">+4&deg;</span>
+	</div>
+
+	<div class="windcol">
+		<div class="windarrow w270">&nbsp;</div>
+		&nbsp;<strong>1</strong> m/s
+	</div>
+</div>
+<div class="hourlyfc newday">
+		<div class="timecol">
+		<p><strong>Mon</strong></p>
+		<p>23:00</p>
+	</div>
+
+	<div class="symbcol">
+		<img src="/i/65x65-ds/n400.png" alt="Overcast" title="Overcast" width="40" height="40" />
+	</div>
+
+	<div class="tempcol">
+		<span class="temp_warm">+4&deg;</span>
+	</div>
+
+	<div class="windcol">
+		<div class="windarrow w270">&nbsp;</div>
+		&nbsp;<strong>2</strong> m/s
+	</div>
+</div>
+<div class="hourlyfc newday">
+		<div class="timecol">
+		<p><strong>Tue</strong></p>
+		<p>00:00</p>
+	</div>
+
+	<div class="symbcol">
+		<img src="/i/65x65-ds/n400.png" alt="Overcast" title="Overcast" width="40" height="40" />
+	</div>
+
+	<div class="tempcol">
+		<span class="temp_warm">+3&deg;</span>
+	</div>
+
+	<div class="windcol">
+		<div class="windarrow w315">&nbsp;</div>
 		&nbsp;<strong>2</strong> m/s
 	</div>
 </div>

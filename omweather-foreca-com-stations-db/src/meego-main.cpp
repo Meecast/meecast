@@ -323,33 +323,44 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     xpathObj3 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&  xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval)){
         xmlNodeSetPtr nodeset = xpathObj->nodesetval;
-        if (xpathObj->nodesetval < xpathObj3->nodesetval){
+//        fprintf(stderr, "xpathObj %i xpathObj3 %i\n", xpathObj->nodesetval->nodeNr, xpathObj3->nodesetval->nodeNr); 
+        if (xpathObj->nodesetval->nodeNr < xpathObj3->nodesetval->nodeNr){
             for (int i=1; i < nodeset->nodeNr; i++) {
                 snprintf(buffer, sizeof(buffer)-1,"normalize-space(/html/body/div[@id='cc']/div[@class='cctext']/p[2]/text()[%i])", i);
                 xpathObj2 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
                 if (xpathObj2){
                     if ((char*)xpathObj2->stringval && !strcmp((const char*)xpathObj2->stringval, "Humidity:")){
                         if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) &&
-                            xpathObj3->nodesetval->nodeTab[i+1] && xpathObj3->nodesetval->nodeTab[i+1]->content){
-                            fprintf(file_out,"     <humidity>%i</humidity>\n", atoi((char*)xpathObj3->nodesetval->nodeTab[i+1]->content)); 
+//                            xpathObj3->nodesetval->nodeTab[i+1] && xpathObj3->nodesetval->nodeTab[i+1]->content){
+//                            fprintf(file_out,"     <humidity>%i</humidity>\n", atoi((char*)xpathObj3->nodesetval->nodeTab[i+1]->content)); 
+                             xpathObj3->nodesetval->nodeTab[i] && xpathObj3->nodesetval->nodeTab[i]->content){
+                             fprintf(file_out,"     <humidity>%i</humidity>\n", atoi((char*)xpathObj3->nodesetval->nodeTab[i]->content)); 
                         }    
                     }
                     if ((char*)xpathObj2->stringval && !strcmp((const char*)xpathObj2->stringval, "Barometer:")){
                         if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) &&
-                            xpathObj3->nodesetval->nodeTab[i+1] && xpathObj3->nodesetval->nodeTab[i+1]->content){
-                            fprintf(file_out,"     <pressure>%i</pressure>\n", atoi((char*)xpathObj3->nodesetval->nodeTab[i+1]->content)); 
+//                            xpathObj3->nodesetval->nodeTab[i+1] && xpathObj3->nodesetval->nodeTab[i+1]->content){
+//                            fprintf(file_out,"     <pressure>%i</pressure>\n", atoi((char*)xpathObj3->nodesetval->nodeTab[i+1]->content)); 
+                            xpathObj3->nodesetval->nodeTab[i] && xpathObj3->nodesetval->nodeTab[i]->content){
+                            fprintf(file_out,"     <pressure>%i</pressure>\n", atoi((char*)xpathObj3->nodesetval->nodeTab[i]->content)); 
+
                         }    
                     }
                     if ((char*)xpathObj2->stringval && !strcmp((const char*)xpathObj2->stringval, "Visibility:")){
                         if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) &&
-                            xpathObj3->nodesetval->nodeTab[i+1] && xpathObj3->nodesetval->nodeTab[i+1]->content){
-                            fprintf(file_out,"     <visible>%i</visible>\n", atoi((char*)xpathObj3->nodesetval->nodeTab[i+1]->content)*1000); 
-                        }
+//                            xpathObj3->nodesetval->nodeTab[i+1] && xpathObj3->nodesetval->nodeTab[i+1]->content){
+//                            fprintf(file_out,"     <visible>%i</visible>\n", atoi((char*)xpathObj3->nodesetval->nodeTab[i+1]->content)*1000); 
+                             xpathObj3->nodesetval->nodeTab[i] && xpathObj3->nodesetval->nodeTab[i]->content){
+                             fprintf(file_out,"     <visible>%i</visible>\n", atoi((char*)xpathObj3->nodesetval->nodeTab[i]->content)*1000); 
+                       }
                     }
                     if ((char*)xpathObj2->stringval && !strcmp((const char*)xpathObj2->stringval, "Feels Like:")){
                         if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) &&
-                            xpathObj3->nodesetval->nodeTab[i+1] && xpathObj3->nodesetval->nodeTab[i+1]->content){
-                            fprintf(file_out,"     <flike>%i</flike>\n", atoi((char*)(char*)xpathObj3->nodesetval->nodeTab[i+1]->content)); 
+//                            xpathObj3->nodesetval->nodeTab[i+1] && xpathObj3->nodesetval->nodeTab[i+1]->content){
+//                            fprintf(file_out,"     <flike>%i</flike>\n", atoi((char*)(char*)xpathObj3->nodesetval->nodeTab[i+1]->content)); 
+                            xpathObj3->nodesetval->nodeTab[i] && xpathObj3->nodesetval->nodeTab[i]->content){
+                            fprintf(file_out,"     <flike>%i</flike>\n", atoi((char*)(char*)xpathObj3->nodesetval->nodeTab[i]->content)); 
+
                         }    
                     }
                 }

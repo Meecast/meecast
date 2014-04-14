@@ -45,28 +45,6 @@
 
 <div id="dailywrap">
 	
-		<div class="dailyfc arrow" data-ts="20140413">
-		<div style="float: left; width: 18%; padding: 18px 0 0 12px;">
-			<p><strong>Sun</strong></p>
-			<p>Apr 13</p>
-		</div>
-
-		<div style="float: left; width: 65px;">
-			<img src="/i/65x65-ds/d310.png" alt="Cloudy and light rain" title="Cloudy and light rain" width="65" height="65" style="position: relative; top: 2px;"/>
-		</div>
-
-		<div style="float: left; width: 26%; text-align: left; padding: 20px 0 0 12px;">
-			<span class="temp_max temp_warm">+7&deg;</span>
-			<span class="temp_min">+3&deg;</span>
-		</div>
-
-		<div style="float: right; width: 26%; padding-top: 22px;">
-			<div class="windarrow w225">&nbsp;</div>
-			&nbsp;<strong>6</strong>
-			m/s
-		</div>
-	</div>
-	
 		<div class="dailyfc arrow" data-ts="20140414">
 		<div style="float: left; width: 18%; padding: 18px 0 0 12px;">
 			<p><strong>Mon</strong></p>
@@ -74,17 +52,17 @@
 		</div>
 
 		<div style="float: left; width: 65px;">
-			<img src="/i/65x65-ds/d320.png" alt="Cloudy and showers" title="Cloudy and showers" width="65" height="65" style="position: relative; top: 2px;"/>
+			<img src="/i/65x65-ds/d220.png" alt="Partly cloudy and showers" title="Partly cloudy and showers" width="65" height="65" style="position: relative; top: 2px;"/>
 		</div>
 
 		<div style="float: left; width: 26%; text-align: left; padding: 20px 0 0 12px;">
-			<span class="temp_max temp_warm">+8&deg;</span>
-			<span class="temp_min">+1&deg;</span>
+			<span class="temp_max temp_warm">+9&deg;</span>
+			<span class="temp_min">+2&deg;</span>
 		</div>
 
 		<div style="float: right; width: 26%; padding-top: 22px;">
 			<div class="windarrow w270">&nbsp;</div>
-			&nbsp;<strong>3</strong>
+			&nbsp;<strong>4</strong>
 			m/s
 		</div>
 	</div>
@@ -96,17 +74,17 @@
 		</div>
 
 		<div style="float: left; width: 65px;">
-			<img src="/i/65x65-ds/d210.png" alt="Partly cloudy and light rain" title="Partly cloudy and light rain" width="65" height="65" style="position: relative; top: 2px;"/>
+			<img src="/i/65x65-ds/d200.png" alt="Partly cloudy" title="Partly cloudy" width="65" height="65" style="position: relative; top: 2px;"/>
 		</div>
 
 		<div style="float: left; width: 26%; text-align: left; padding: 20px 0 0 12px;">
 			<span class="temp_max temp_warm">+8&deg;</span>
-			<span class="temp_min">0&deg;</span>
+			<span class="temp_min">-1&deg;</span>
 		</div>
 
 		<div style="float: right; width: 26%; padding-top: 22px;">
 			<div class="windarrow w000">&nbsp;</div>
-			&nbsp;<strong>6</strong>
+			&nbsp;<strong>5</strong>
 			m/s
 		</div>
 	</div>
@@ -118,17 +96,17 @@
 		</div>
 
 		<div style="float: left; width: 65px;">
-			<img src="/i/65x65-ds/d000.png" alt="Clear" title="Clear" width="65" height="65" style="position: relative; top: 2px;"/>
+			<img src="/i/65x65-ds/d200.png" alt="Partly cloudy" title="Partly cloudy" width="65" height="65" style="position: relative; top: 2px;"/>
 		</div>
 
 		<div style="float: left; width: 26%; text-align: left; padding: 20px 0 0 12px;">
 			<span class="temp_max temp_warm">+9&deg;</span>
-			<span class="temp_min">-2&deg;</span>
+			<span class="temp_min">-4&deg;</span>
 		</div>
 
 		<div style="float: right; width: 26%; padding-top: 22px;">
 			<div class="windarrow w000">&nbsp;</div>
-			&nbsp;<strong>4</strong>
+			&nbsp;<strong>3</strong>
 			m/s
 		</div>
 	</div>
@@ -144,13 +122,13 @@
 		</div>
 
 		<div style="float: left; width: 26%; text-align: left; padding: 20px 0 0 12px;">
-			<span class="temp_max temp_warm">+11&deg;</span>
-			<span class="temp_min">-2&deg;</span>
+			<span class="temp_max temp_warm">+9&deg;</span>
+			<span class="temp_min">0&deg;</span>
 		</div>
 
 		<div style="float: right; width: 26%; padding-top: 22px;">
 			<div class="windarrow w225">&nbsp;</div>
-			&nbsp;<strong>7</strong>
+			&nbsp;<strong>6</strong>
 			m/s
 		</div>
 	</div>
@@ -162,16 +140,16 @@
 		</div>
 
 		<div style="float: left; width: 65px;">
-			<img src="/i/65x65-ds/d310.png" alt="Cloudy and light rain" title="Cloudy and light rain" width="65" height="65" style="position: relative; top: 2px;"/>
+			<img src="/i/65x65-ds/d210.png" alt="Partly cloudy and light rain" title="Partly cloudy and light rain" width="65" height="65" style="position: relative; top: 2px;"/>
 		</div>
 
 		<div style="float: left; width: 26%; text-align: left; padding: 20px 0 0 12px;">
-			<span class="temp_max temp_warm">+12&deg;</span>
-			<span class="temp_min">+1&deg;</span>
+			<span class="temp_max temp_warm">+9&deg;</span>
+			<span class="temp_min">+3&deg;</span>
 		</div>
 
 		<div style="float: right; width: 26%; padding-top: 22px;">
-			<div class="windarrow w270">&nbsp;</div>
+			<div class="windarrow w225">&nbsp;</div>
 			&nbsp;<strong>4</strong>
 			m/s
 		</div>
@@ -189,12 +167,12 @@
 
 		<div style="float: left; width: 26%; text-align: left; padding: 20px 0 0 12px;">
 			<span class="temp_max temp_warm">+12&deg;</span>
-			<span class="temp_min">+1&deg;</span>
+			<span class="temp_min">-1&deg;</span>
 		</div>
 
 		<div style="float: right; width: 26%; padding-top: 22px;">
 			<div class="windarrow w270">&nbsp;</div>
-			&nbsp;<strong>5</strong>
+			&nbsp;<strong>6</strong>
 			m/s
 		</div>
 	</div>
@@ -211,11 +189,11 @@
 
 		<div style="float: left; width: 26%; text-align: left; padding: 20px 0 0 12px;">
 			<span class="temp_max temp_warm">+13&deg;</span>
-			<span class="temp_min">+1&deg;</span>
+			<span class="temp_min">0&deg;</span>
 		</div>
 
 		<div style="float: right; width: 26%; padding-top: 22px;">
-			<div class="windarrow w135">&nbsp;</div>
+			<div class="windarrow w315">&nbsp;</div>
 			&nbsp;<strong>3</strong>
 			m/s
 		</div>
@@ -232,12 +210,12 @@
 		</div>
 
 		<div style="float: left; width: 26%; text-align: left; padding: 20px 0 0 12px;">
-			<span class="temp_max temp_warm">+13&deg;</span>
-			<span class="temp_min">+2&deg;</span>
+			<span class="temp_max temp_warm">+14&deg;</span>
+			<span class="temp_min">+1&deg;</span>
 		</div>
 
 		<div style="float: right; width: 26%; padding-top: 22px;">
-			<div class="windarrow w180">&nbsp;</div>
+			<div class="windarrow w270">&nbsp;</div>
 			&nbsp;<strong>3</strong>
 			m/s
 		</div>
@@ -250,16 +228,16 @@
 		</div>
 
 		<div style="float: left; width: 65px;">
-			<img src="/i/65x65-ds/d100.png" alt="Mostly clear" title="Mostly clear" width="65" height="65" style="position: relative; top: 2px;"/>
+			<img src="/i/65x65-ds/d200.png" alt="Partly cloudy" title="Partly cloudy" width="65" height="65" style="position: relative; top: 2px;"/>
 		</div>
 
 		<div style="float: left; width: 26%; text-align: left; padding: 20px 0 0 12px;">
-			<span class="temp_max temp_warm">+15&deg;</span>
-			<span class="temp_min">+3&deg;</span>
+			<span class="temp_max temp_warm">+16&deg;</span>
+			<span class="temp_min">+2&deg;</span>
 		</div>
 
 		<div style="float: right; width: 26%; padding-top: 22px;">
-			<div class="windarrow w180">&nbsp;</div>
+			<div class="windarrow w225">&nbsp;</div>
 			&nbsp;<strong>4</strong>
 			m/s
 		</div>
@@ -272,16 +250,16 @@
 		</div>
 
 		<div style="float: left; width: 65px;">
-			<img src="/i/65x65-ds/d100.png" alt="Mostly clear" title="Mostly clear" width="65" height="65" style="position: relative; top: 2px;"/>
+			<img src="/i/65x65-ds/d200.png" alt="Partly cloudy" title="Partly cloudy" width="65" height="65" style="position: relative; top: 2px;"/>
 		</div>
 
 		<div style="float: left; width: 26%; text-align: left; padding: 20px 0 0 12px;">
-			<span class="temp_max temp_warm">+15&deg;</span>
+			<span class="temp_max temp_warm">+16&deg;</span>
 			<span class="temp_min">+4&deg;</span>
 		</div>
 
 		<div style="float: right; width: 26%; padding-top: 22px;">
-			<div class="windarrow w135">&nbsp;</div>
+			<div class="windarrow w225">&nbsp;</div>
 			&nbsp;<strong>4</strong>
 			m/s
 		</div>
@@ -294,7 +272,7 @@
 		</div>
 
 		<div style="float: left; width: 65px;">
-			<img src="/i/65x65-ds/d200.png" alt="Partly cloudy" title="Partly cloudy" width="65" height="65" style="position: relative; top: 2px;"/>
+			<img src="/i/65x65-ds/d300.png" alt="Cloudy" title="Cloudy" width="65" height="65" style="position: relative; top: 2px;"/>
 		</div>
 
 		<div style="float: left; width: 26%; text-align: left; padding: 20px 0 0 12px;">
@@ -316,16 +294,16 @@
 		</div>
 
 		<div style="float: left; width: 65px;">
-			<img src="/i/65x65-ds/d200.png" alt="Partly cloudy" title="Partly cloudy" width="65" height="65" style="position: relative; top: 2px;"/>
+			<img src="/i/65x65-ds/d300.png" alt="Cloudy" title="Cloudy" width="65" height="65" style="position: relative; top: 2px;"/>
 		</div>
 
 		<div style="float: left; width: 26%; text-align: left; padding: 20px 0 0 12px;">
 			<span class="temp_max temp_warm">+14&deg;</span>
-			<span class="temp_min">+4&deg;</span>
+			<span class="temp_min">+3&deg;</span>
 		</div>
 
 		<div style="float: right; width: 26%; padding-top: 22px;">
-			<div class="windarrow w180">&nbsp;</div>
+			<div class="windarrow w225">&nbsp;</div>
 			&nbsp;<strong>4</strong>
 			m/s
 		</div>
@@ -342,13 +320,35 @@
 		</div>
 
 		<div style="float: left; width: 26%; text-align: left; padding: 20px 0 0 12px;">
-			<span class="temp_max temp_warm">+14&deg;</span>
-			<span class="temp_min">+4&deg;</span>
+			<span class="temp_max temp_warm">+13&deg;</span>
+			<span class="temp_min">+3&deg;</span>
 		</div>
 
 		<div style="float: right; width: 26%; padding-top: 22px;">
 			<div class="windarrow w225">&nbsp;</div>
 			&nbsp;<strong>4</strong>
+			m/s
+		</div>
+	</div>
+	
+		<div class="dailyfc arrow" data-ts="20140427">
+		<div style="float: left; width: 18%; padding: 18px 0 0 12px;">
+			<p><strong>Sun</strong></p>
+			<p>Apr 27</p>
+		</div>
+
+		<div style="float: left; width: 65px;">
+			<img src="/i/65x65-ds/d300.png" alt="Cloudy" title="Cloudy" width="65" height="65" style="position: relative; top: 2px;"/>
+		</div>
+
+		<div style="float: left; width: 26%; text-align: left; padding: 20px 0 0 12px;">
+			<span class="temp_max temp_warm">+13&deg;</span>
+			<span class="temp_min">+3&deg;</span>
+		</div>
+
+		<div style="float: right; width: 26%; padding-top: 22px;">
+			<div class="windarrow w315">&nbsp;</div>
+			&nbsp;<strong>5</strong>
 			m/s
 		</div>
 	</div>

@@ -324,7 +324,7 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
     if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) &&  xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval)){
         xmlNodeSetPtr nodeset = xpathObj->nodesetval;
 //        fprintf(stderr, "xpathObj %i xpathObj3 %i\n", xpathObj->nodesetval->nodeNr, xpathObj3->nodesetval->nodeNr); 
-        if (xpathObj->nodesetval->nodeNr < xpathObj3->nodesetval->nodeNr){
+        if (xpathObj->nodesetval->nodeNr <= xpathObj3->nodesetval->nodeNr){
             for (int i=1; i <= nodeset->nodeNr; i++) {
                 snprintf(buffer, sizeof(buffer)-1,"normalize-space(/html/body/div[@id='cc']/div[@class='cctext']/p[2]/text()[%i])", i);
                 xpathObj2 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);

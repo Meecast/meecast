@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-11 09:25+0300\n"
-"PO-Revision-Date: 2014-04-10 13:27+0000\n"
+"POT-Creation-Date: 2014-04-16 21:13+0300\n"
+"PO-Revision-Date: 2014-04-15 18:18+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/meecast/language/"
 "ru/)\n"
@@ -2577,9 +2577,8 @@ msgid ""
 msgstr ""
 
 #: omweather/src/hash.data:365
-#, fuzzy
 msgid "Transparency"
-msgstr "Прозрачность:"
+msgstr "Прозрачность"
 
 #: omweather/src/weather-settings.c:3272 omweather/src/weather-settings.c:3277
 #: omweather/src/weather-settings.c:3295

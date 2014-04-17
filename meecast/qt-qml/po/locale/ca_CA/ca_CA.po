@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-11 09:25+0300\n"
-"PO-Revision-Date: 2014-03-31 10:49+0000\n"
+"POT-Creation-Date: 2014-04-16 21:13+0300\n"
+"PO-Revision-Date: 2014-04-15 14:47+0000\n"
 "Last-Translator: agustí clara <agusti.clara@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/meecast/language/"
 "ca/)\n"
@@ -2655,9 +2655,8 @@ msgstr ""
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 
 #: omweather/src/hash.data:365
-#, fuzzy
 msgid "Transparency"
-msgstr "Transparència:"
+msgstr "Transparència"
 
 #: omweather/src/weather-settings.c:3272 omweather/src/weather-settings.c:3277
 #: omweather/src/weather-settings.c:3295

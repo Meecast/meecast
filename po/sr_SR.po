@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-11 09:25+0300\n"
-"PO-Revision-Date: 2014-03-20 10:02+0000\n"
+"POT-Creation-Date: 2014-04-16 21:13+0300\n"
+"PO-Revision-Date: 2014-04-15 08:34+0000\n"
 "Last-Translator: Alexandar Zaric <alexandarzaric@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/meecast/language/"
 "sr/)\n"
@@ -988,7 +988,6 @@ msgid "Freezing Drizzle"
 msgstr "Ledena kiša"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1030,7 +1029,8 @@ msgstr ""
 " Ruski - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
 " Finski - Marko Vertainen\n"
-" Nemački -  Claudius Henrichs\n"
+" Nemački -  Claudius Henrichs,\n"
+" \tJens Klingen\n"
 " Italijanski - Lorenzo Facca,\n"
 " \tPavel Fialko, Alessandro Pasotti,\n"
 " \tSalvatore Fiorenzo, Ilir Gjika,\n"
@@ -1047,7 +1047,7 @@ msgstr ""
 " \tMehmet Çilingir,\n"
 " Katalonski - Agustí Clara,\n"
 " Arapski - Tarad Alfandi,\n"
-" Srpski - Aleksandar Zarić,\n"
+" Srpski - Aleksandar Zaric,\n"
 " Norveški - Peer-Atle Motland,\n"
 " Mađarski - Salmi,\n"
 " Slovenački -  Boštjan,\n"
@@ -1859,9 +1859,8 @@ msgid "Partly Cloudy / Wind"
 msgstr "Delimično oblačno / Vetar"
 
 #: omweather/src/hash.data:199
-#, fuzzy
 msgid "Partly Cloudy / Windy"
-msgstr "Delimično oblačno / Vetar"
+msgstr "Delimično oblačno / Vetrovito"
 
 #: omweather/src/hash.data:200
 msgid "Partly Cloudy Few Snow"
@@ -2112,7 +2111,7 @@ msgstr "Očitavanje senzora svakih:"
 
 #: omweather/src/hash.data:364
 msgid "Refresh"
-msgstr ""
+msgstr "Osveži"
 
 #: omweather/src/weather-simple-settings.c:733
 #: omweather/src/weather-simple-settings.c:786
@@ -2653,9 +2652,8 @@ msgstr ""
 "Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n"
 
 #: omweather/src/hash.data:365
-#, fuzzy
 msgid "Transparency"
-msgstr "Providnost:"
+msgstr "Providnost"
 
 #: omweather/src/weather-settings.c:3272 omweather/src/weather-settings.c:3277
 #: omweather/src/weather-settings.c:3295

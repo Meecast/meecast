@@ -31,24 +31,23 @@ Page {
             anchors.top: top_rect.bottom
             anchors.left: parent.left
             width: parent.width
-            height: 274
-            color: Config.transparency ? "transparent" : "#999999"
+            height: 610
+            color: "transparent"
         }
 
         Loader {
             id: empty_background
-            visible: Config.transparency ? false : true
             anchors.top: top_rect.bottom
             anchors.left: parent.left
             width: parent.width
-            height: 274
+            height: 610
             sourceComponent: Image {source: Config.imagespath + "/mask_background_grid.png"}
         }
         Rectangle {
             anchors.top: empty_background.bottom
             width: parent.width
-            height: dataview.height - 274
-            color: Config.transparency ? "transparent" : "black"
+            height: dataview.height - 610
+            color: "transparent"
         }
 
         SilicaFlickable {

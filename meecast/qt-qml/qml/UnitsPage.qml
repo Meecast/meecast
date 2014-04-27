@@ -17,8 +17,7 @@ Page {
     }
     orientationLock: PageOrientation.LockPortrait
 
-    function getIndex(model, value)
-    {
+    function getIndex(model, value) {
         var i=0;
         while (i<model.length && model[i]!=value) i++;
         if (i == model.length) return -1;
@@ -93,7 +92,7 @@ Page {
 		Flickable {
 			anchors.fill: parent
 		    flickableDirection: Flickable.VerticalFlick
-		    contentHeight: 850 
+		    contentHeight: 950 
 
 			Column {
 				anchors.fill: parent

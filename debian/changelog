@@ -1,6 +1,7 @@
 meecast (0.9) unstable; urgency=low
 
   * Fixed problem with Units page 
+  * Added stations to Finland in source yr.no
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 16 Apr 2014 22:31:23 +0200
 

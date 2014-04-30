@@ -17,9 +17,11 @@ Page {
     ListModel {
         id: listModel
         function update() {
+          //  console.log("listModel.update()")
             clear()
             for (var i=0; i<Config.stations().length; i++) {
                 append({"id": i, "key": Config.stations()[i]})
+            //    console.log("append ", i)
             }
         }
         Component.onCompleted: update("")
@@ -136,40 +138,47 @@ Page {
         Config.updatestations();
     }
 
-    function current_model(name){
+    function current_model(name, station_index){
+        if (station_index >= 0 && station_index != Config._current_station_id()){
+            Config._current_station_id(station_index)
+            Current.reload_data(Config.data_filename);
+            Current.update_model(0);
+            Forecast_model.update_model(2);
+            startview.visible = Config.stationname == "Unknown" ? true : false;
+            listview.visible = Config.stationname == "Unknown" ? false : true;
+        }
+        //console.log("Current.getdata(0, name)", Current.getdata(0, name))
         return Current.getdata(0, name);
     }
     function get_count_days(i){
-        console.log( "get_count_days()")
+        // console.log( "get_count_days() ", Forecast_model.rowCount())
         /* For pretty view but it works very slowly  and Cover doesn't work correctly*/
-        //Config.station_by_index(i);
+        // Config.station_by_index(i);
         //main.updatemodels();
         /* To do make right forecast model */
         return Forecast_model.rowCount()
     }
 
-    function forecast_model(i, name){
-//        console.log("forecast_model(i, name)");
-//        console.log(i);
+    function forecast_model(i, name, station_index){
+        if (station_index >= 0 && station_index != Config._current_station_id()){
+            Config._current_station_id(station_index)
+            Current.reload_data(Config.data_filename);
+            Current.update_model(0);
+            Forecast_model.update_model(2);
+            startview.visible = Config.stationname == "Unknown" ? true : false;
+            listview.visible = Config.stationname == "Unknown" ? false : true;
+        }
+        // console.log("Forecast_model.getdata(i, name)", i, " ", name," ", station_index, " ", Forecast_model.getdata(i, name))
         return Forecast_model.getdata(i, name);
     }
 
     function updatemodels(){
         console.log("QML updatemodels())")
-        Current.reload_data(Config.filename);
+        Current.reload_data(Config.data_filename);
         Current.update_model(0);
-        Current_night.update_model(1);
         Forecast_model.update_model(2);
-        Forecast_night_model.update_model(3);
-        Forecast_hours_model.update_model(4);
-        //forecast_stub.update()
-        //list.height = 80 * Forecast_model.rowCount();
-//        dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
-//        current_rect.visible = Current.rowCount() == 0 ? false : true;
-        //list.visible = (Forecast_model.rowCount() == 0) ? false : true;
         listview.visible = Config.stationname == "Unknown" ? false : true
         startview.visible = Config.stationname == "Unknown" ? true : false
-//        startview.model = stations 
     }
 
     function stationname1_index(i){
@@ -219,7 +228,7 @@ Page {
             real_current_id = indexAt(contentX,contentY);
             Config._current_station_id(main.real_current_id)
             Config.saveConfig();
-            Config.refreshconfig();
+           // Config.refreshconfig();
         }
         delegate: WeatherStationDelegate { id: weatherStationDelegate } 
      }

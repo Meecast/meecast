@@ -119,7 +119,7 @@ DataModel::appendRow(DataItem *item)
 void 
 DataModel::reload_data(QString filename)
 {
-   std::cerr<<"DataModel::reload_data"<< filename.toStdString().c_str()<<std::endl;
+   std::cerr<<"DataModel::reload_data "<< filename.toStdString().c_str()<<std::endl;
    Core::DataParser* dp = NULL;
    if (!filename.isEmpty()){
         try{
@@ -291,7 +291,7 @@ DataModel::update_model(int period)
             break;
         case day_period:
           //  i = 3600*24;
-           // fprintf(stderr,"First day in datamodel %i\n", current_day + 14 * 3600);
+            fprintf(stderr,"First day in datamodel %i\n", current_day + 14 * 3600);
             i = 1;
             while  (dp != NULL && ((temp_data = dp->data().GetDataForTime(current_day + 15*3600 + i)) || (i < 7*3600*24))) {
                 if (temp_data){
@@ -377,7 +377,6 @@ DataModel::update_model(int period)
     dp->DeleteInstance();
     //this->reset();
     this->endResetModel();
-    
 }
 #if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
 QHash<int, QByteArray> DataModel::roleNames() const {

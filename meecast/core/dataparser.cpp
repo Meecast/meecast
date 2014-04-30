@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2014 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -43,6 +43,7 @@ namespace Core {
     {
         _timezone = 0;
         _list = new DataList;
+        _filename = "";
         Data *forecast_data;
         forecast_data = new Data();
         _list->push_back(forecast_data);
@@ -51,7 +52,7 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     DataParser::DataParser(const std::string& filename, const std::string& schema_filename) : Parser(filename, schema_filename) {
         this->load_data(filename, schema_filename);
-           }
+    }
 ////////////////////////////////////////////////////////////////////////////////
     void
     DataParser::load_data(const std::string& filename, const std::string& schema_filename){
@@ -61,7 +62,7 @@ namespace Core {
         _list = new DataList;
         
         
-        /* std::cerr<<"Filename   "<<filename<<std::endl; */
+        std::cerr<<" load data Filename   "<<filename<<std::endl; 
         
         this->_filename = filename;
         this->Reloadfile();

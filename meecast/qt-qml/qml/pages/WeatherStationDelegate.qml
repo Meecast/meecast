@@ -164,7 +164,8 @@ Component {
                     anchors.top: parent.top
                     width: parent.width
                     height: 92
-                    color: Config.transparency ? "transparent" : "black"
+                    //color: Config.transparency ? "transparent" : "black"
+                    color: "transparent"
                     visible: isUpdate ? false : true
                 }
                 Rectangle {
@@ -228,10 +229,10 @@ Component {
                     width: parent.width
                     height: 274
                     //color: getColor(Current.temperature_high)
-                    Loader {
-                        anchors.fill: parent
-                        sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}
-                    }
+//                    Loader {
+//                        anchors.fill: parent
+//                        sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}
+ //                   }
                     ListView {
                         anchors.fill: parent
                         model: current_stub

@@ -229,10 +229,10 @@ Component {
                     width: parent.width
                     height: 274
                     //color: getColor(Current.temperature_high)
-//                    Loader {
-//                        anchors.fill: parent
-//                        sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}
- //                   }
+                    Loader {
+                        anchors.fill: parent
+                        sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}
+                    }
                     ListView {
                         anchors.fill: parent
                         model: current_stub

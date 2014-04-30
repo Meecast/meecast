@@ -35,29 +35,28 @@ Page {
         anchors.topMargin: 80
         anchors.leftMargin: margin
         anchors.rightMargin: margin
-        color: Config.transparency ? "transparent" : "black"
+        color: "transparent"
 
         Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left
             width: parent.width
-            height: 274
-            color: Config.transparency ? "transparent" : "#999999"
+            height: 610
+            color: "transparent"
         }
         Loader {
             id: background
-            visible: Config.transparency ? false : true
             anchors.top: parent.top
             anchors.left: parent.left
             width: parent.width
-            height: 274
+            height: 610
             sourceComponent: Image {source: Config.imagespath + "/mask_background_grid.png"}
         }
         Rectangle {
             anchors.top: background.bottom
             width: parent.width
-            height: parent.height - 274
-            color: Config.transparency ? "transparent" : "black"
+            height: parent.height - 610
+            color: "transparent"
         }
     }
 

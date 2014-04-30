@@ -4,9 +4,9 @@ Component {
    id: weatherStationDelegate
 
     Rectangle {
-        id: main_recatngle
+        id: main_rectangle
         width: main.screen_width 
-        height: main.screen_height 
+        height: main.screen_height
         property int icon_size: 128
         property int main_index : index
         color: Config.transparency ? "transparent" : "black"
@@ -92,7 +92,6 @@ Component {
 
                 Loader {
                     id: empty_background1
-                    visible: Config.transparency ? false : true
                     anchors.top: empty_text.bottom
                     anchors.left: parent.left
                     width: parent.width
@@ -109,7 +108,7 @@ Component {
                     horizontalAlignment: Text.AlignHCenter
                     text: Config.tr("No locations are set up yet.")
                     font.pixelSize: 54 
-                    color: Config.transparency ? "transparent" : "#999999"
+                    color: "#999999"
                     wrapMode: Text.Wrap
                     width: parent.width - 2*margin
                     //anchors.verticalCenter: parent.verticalCenter
@@ -165,7 +164,7 @@ Component {
                     anchors.top: parent.top
                     width: parent.width
                     height: 92
-                    color: "transparent"
+                    color: Config.transparency ? "transparent" : "black"
                     visible: isUpdate ? false : true
                 }
                 Rectangle {
@@ -179,7 +178,6 @@ Component {
                     color: Config.transparency ? "transparent" : "black"
                     Loader {
                         id: empty_background
-                        visible: Config.transparency ? false : true
                         anchors.top: parent.top
                         anchors.left: parent.left
                         width: parent.width
@@ -196,7 +194,7 @@ Component {
                         horizontalAlignment: Text.AlignHCenter
                         text: Config.tr("Looks like there's no info for this location.")
                         font.pixelSize: 54 
-                        color: Config.transparency ? "transparent" : "#999999"
+                        color: "#999999"
                         wrapMode: Text.Wrap
                         width: parent.width - 2*margin
                         //anchors.verticalCenter: parent.verticalCenter
@@ -232,7 +230,6 @@ Component {
                     //color: getColor(Current.temperature_high)
                     Loader {
                         anchors.fill: parent
-                        visible: Config.transparency ? false : true
                         sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}
                     }
                     ListView {
@@ -290,20 +287,24 @@ Component {
                                         if (Config.transparency)
                                             current_rect.color = "transparent"
 					else
-                                            current_rect.color = getColor(main.current_model("temp_high", main_index));
+                                            /* current_rect.color = getColor(main.current_model("temp_high", main_index));
+                                            not sure what to do here, with the coloring it looks aweful on black theme */
+                                            current_rect.color = "transparent"
                                     }else{
                                        temp_text.text = main.current_model("temp", main_index) + '°'
                                        if (Config.transparency)
                                            current_rect.color = "transparent"
 				       else
-                                           current_rect.color = getColor(main.current_model("temp", main_index));
+                                           /* current_rect.color = getColor(main.current_model("temp", main_index));
+                                           not sure what to do here, with the coloring it looks aweful on black theme */
+                                           current_rect.color = "transparent"
                                     }
                                 }
                             }
                             Rectangle {
                                id: desc  
                                height: 44
-                               color: "transparent"
+                               color: Config.transparency ? "transparent" : "black"
                                width: current_rect.width 
                                anchors.left: parent.left
                                anchors.top: now.bottom
@@ -492,7 +493,7 @@ Component {
                         Rectangle {
                             width: parent.width
                             height: 80
-                            color: Config.transparency ? "transparent" : ((index % 2 != 0) ? "black" : "#0f0f0f")
+                            color: Config.transparency ? ((index % 2 != 0) ? "transparent" : "#10ffffff") : ((index % 2 != 0) ? "black" : "#0f0f0f")
                             Text {
                                 id: txt_date
                                 text: main.forecast_model(index, "fulldate", main_index) == undefined ? "" : main.forecast_model(index, "fulldate", main_index)
@@ -567,8 +568,8 @@ Component {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
-            height: 72
-            color: "black"
+            height: 90
+            color: Config.transparency ? Theme.secondaryHighlightColor : "black"
             opacity: 0.8
             Image {
                 id: sourceicon

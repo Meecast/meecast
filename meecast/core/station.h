@@ -39,10 +39,15 @@ class Source;
 #include "sourcelist.h"
 #include "downloader.h"
 #include <sys/stat.h>
+#include <locale.h>
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
     class Station{
+        enum Type_Of_Maps{
+            GPS1_TYPE = 1,
+            GPS2_TYPE = 2
+        };
         std::string *_sourceName;
         std::string *_id;
         std::string *_name;

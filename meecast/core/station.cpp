@@ -108,20 +108,22 @@ Station::Station(const std::string& source_name, const std::string& id,
         char basemap_url[4096];
         memset(map_url, 0, sizeof(map_url));
         memset(basemap_url, 0, sizeof(basemap_url));
+        setlocale(LC_NUMERIC, "POSIX");
         if (url_for_map.length() > 0) {
-            if (sourcelist->at(source_id)->map_type() == 1) 
+            if (sourcelist->at(source_id)->map_type() == GPS1_TYPE) 
                 snprintf(map_url, sizeof(map_url)-1, url_for_map.c_str(), _latitude, _longitude);
-            if (sourcelist->at(source_id)->map_type() == 2) 
+            if (sourcelist->at(source_id)->map_type() == GPS2_TYPE) 
                 snprintf(map_url, sizeof(map_url)-1, url_for_map.c_str(), _longitude - 1, _latitude - 1, _longitude + 1, _latitude + 1);
             fprintf(stderr,"map_url: %s\n", map_url);
         }
         if (base_map_url.length() > 0) {
-            if (sourcelist->at(source_id)->map_type() == 1) 
+            if (sourcelist->at(source_id)->map_type() == GPS1_TYPE) 
                 snprintf(basemap_url, sizeof(basemap_url)-1, base_map_url.c_str(), _latitude, _longitude);
-            if (sourcelist->at(source_id)->map_type() == 2) 
+            if (sourcelist->at(source_id)->map_type() == GPS2_TYPE) 
                 snprintf(basemap_url, sizeof(basemap_url)-1, base_map_url.c_str(), _longitude  - 1, _latitude - 1, _longitude  + 1, _latitude + 1);
             fprintf(stderr,"map_url: %s\n", basemap_url);
         }
+        setlocale(LC_NUMERIC, "");
 
         std::string filename(Core::AbstractConfig::getConfigPath());
         filename += source_name;

@@ -283,6 +283,12 @@ Page {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }
+            Rectangle {
+                anchors.top: empty_text.bottom
+                width: parent.width
+                height: 274 
+                color: Config.transparency ? "transparent" : "black"
+            }
 
             Loader {
                 id: empty_background1

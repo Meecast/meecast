@@ -41,37 +41,36 @@ Page {
 
     Rectangle{
         anchors.fill: parent
-        color: "transparent" 
+        color: Config.transparency ? "transparent" : "black" 
         Rectangle {
             id: top_rect
             anchors.top: parent.top
             anchors.left: parent.left
             width: parent.width
             height: 80 
-            color: Config.transparency ? "transparent" : "black"
+            color: "transparent"
         }
 
         Rectangle {
             anchors.top: top_rect.bottom
             anchors.left: parent.left
             width: parent.width
-            height: 274
-            color: Config.transparency ? "transparent" : "#999999"
+            height: 610
+            color: "transparent"
         }
         Loader {
             id: background
-            visible: Config.transparency ? false : true
             anchors.top: top_rect.bottom
             anchors.left: parent.left
             width: parent.width
-            height: 274
+            height: 610
             sourceComponent: Image {source: Config.imagespath + "/mask_background_grid.png"}
         }
         Rectangle {
             anchors.top: background.bottom
             width: parent.width
-            height: parent.height - 274
-            color: Config.transparency ? "transparent" : "black"
+            height: parent.height - 610
+            color: "transparent"
         }
 
         SilicaListView {
@@ -99,7 +98,7 @@ Page {
                     anchors.right: arrow.left
                     anchors.verticalCenter: parent.verticalCenter
                     text: Config.tr(model.title)
-                    font.pixelSize: 29
+                    font.pixelSize: Theme.fontSizeMedium
                 }
                 MouseArea {
                     anchors.fill: parent

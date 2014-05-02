@@ -81,7 +81,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString stationname READ stationname NOTIFY stationnameChanged)
     Q_PROPERTY(QString prevstationname READ prevstationname NOTIFY prevstationnameChanged)
     Q_PROPERTY(QString nextstationname READ nextstationname NOTIFY nextstationnameChanged)
-    Q_PROPERTY(QString filename READ filename NOTIFY filenameChanged)
+    Q_PROPERTY(QString data_filename READ data_filename NOTIFY data_filenameChanged)
     Q_PROPERTY(QString source READ source NOTIFY sourceChanged)
     Q_PROPERTY(QString version READ version NOTIFY versionChanged)
     Q_PROPERTY(int updateinterval READ updateinterval NOTIFY updateintervalChanged)
@@ -146,7 +146,7 @@ public:
     QString stationname();
     QString prevstationname();
     QString nextstationname();
-    QString filename();
+    QString data_filename();
     QString source();
     QString version();
     Q_INVOKABLE void saveConfig();
@@ -234,7 +234,7 @@ signals:
     void stationnameChanged();
     void prevstationnameChanged();
     void nextstationnameChanged();
-    void filenameChanged();
+    void data_filenameChanged();
     void sourceChanged();
     void versionChanged();
     void updateintervalChanged();

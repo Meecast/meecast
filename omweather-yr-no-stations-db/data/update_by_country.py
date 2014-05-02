@@ -12,11 +12,13 @@ import string
 import zipfile
 
 #Country name and code
-#country = "Finland"
-#country_code = "FI"
-#replacing_dict = { "Lapin_Laeaeni":"Laponia", "Province_of_Western_Finland":"Western Finland", 
-#                   "Province_of_Southern_Finland": "Southern Finland", "Itae-Suomen_Laeaeni": "Eastern Finland" } 
-#replacing_dict_after_region_filling = {  } 
+country = "Finland"
+country_code = "FI"
+replacing_dict = { "Eastern_Finland_Province":"Eastern Finland", "Lapin_Laeaeni":"Laponia",
+                   "Province_of_Western_Finland":"Western Finland", 
+                   "Province_of_Southern_Finland": "Southern Finland", "Itae-Suomen_Laeaeni": "Eastern Finland",
+                   "Southern_Finland_Province": "Southern Finland"} 
+replacing_dict_after_region_filling = {  } 
 
 #country = "Sweden"
 #country_code = "SE"
@@ -109,9 +111,9 @@ import zipfile
 #country = "Hong Kong"
 #country_code = "HK"
 #replacing_dict = {}
-country = "Serbia"
-country_code = "RS"
-replacing_dict = {"Central_Serbia": "Central Serbia"}
+#country = "Serbia"
+#country_code = "RS"
+#replacing_dict = {"Central_Serbia": "Central Serbia"}
                 
 
 replacing_dict_after_region_filling = { } 
@@ -216,7 +218,7 @@ for key in regions_name.keys():
 fh = open(country_code + ".txt")
 for line in fh.readlines():
     pattern = re.split('(\t)', line)
-    if (pattern[14] == "PPLA" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
+    if (pattern[14] == "PPLA" or pattern[14] == "PPLC" or pattern[14] == "PPL" or pattern[14] == "STM"):
         if (pattern[20] != "" and int(pattern[28]) >= 10000):
             if (regions_name.get(pattern[20]) == None):
                 continue

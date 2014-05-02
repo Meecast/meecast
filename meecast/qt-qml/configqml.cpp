@@ -917,7 +917,7 @@ ConfigQml::update_interval(int interval)
 }
 
 QString
-ConfigQml::filename()
+ConfigQml::data_filename()
 {
     std::cerr<<"current_station_id"<<this->current_station_id()<<std::endl;
     if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0

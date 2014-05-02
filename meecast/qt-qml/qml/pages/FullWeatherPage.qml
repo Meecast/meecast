@@ -54,7 +54,9 @@ Page {
             if (Config.transparency)
                 current_rect.color = "transparent"
             else
-                current_rect.color = getColor(model_current.getdata(day, "temp_high"));
+                /* current_rect.color = getColor(model_current.getdata(day, "temp_high"));
+                not sure what to do here, with the coloring it looks aweful on black theme */
+                current_rect.color = "transparent"
             description_text = model_current.getdata(day, "description") ? model_current.getdata(day, "description") : ""
 	   
             if ((model_current.getdata(day, "humidity")) != "N/A")
@@ -121,7 +123,9 @@ Page {
             if (Config.transparency)
                 current_rect.color = "transparent"
             else
-                current_rect.color = getColor(model_day.getdata(day, "temp_high"));
+                /* current_rect.color = getColor(model_day.getdata(day, "temp_high"));
+                not sure what to do here, with the coloring it looks aweful on black theme */
+                current_rect.color = "transparent"
             description_text = model_day.getdata(day, "description") ? model_day.getdata(day, "description") : ""
 	   
             if ((model_day.getdata(day, "humidity")) != "N/A")
@@ -180,7 +184,9 @@ Page {
             if (Config.transparency)
                 current_rect.color = "transparent"
             else
-                current_rect.color = getColor(model_day.getdata(day, "temp_low"));
+                /* current_rect.color = getColor(model_day.getdata(day, "temp_low"));
+                not sure what to do here, with the coloring it looks aweful on black theme */
+                current_rect.color = "transparent"
             description_text = model_night.getdata(day, "description") ? model_night.getdata(day, "description") : ""
             if ((model_night.getdata(day, "humidity")) != "N/A")
                 condition.append({cond_name: Config.tr("Humidity") + ":",
@@ -331,7 +337,6 @@ Page {
                 //color: "black"
                 color: "transparent"
                 Loader {
-                    visible: Config.transparency ? false : true
                     anchors.fill: parent
                     sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}
                 }
@@ -536,7 +541,7 @@ Page {
                         Rectangle {
                             width: parent.width
                             height: 80
-                            color: Config.transparency ? "transparent" : ((index % 2 != 0) ? "black" : "#0f0f0f")
+                            color: Config.transparency ? ((index % 2 != 0) ? "transparent" : "#10ffffff") : ((index % 2 != 0) ? "black" : "#0f0f0f")
                             Text {
                                 id: txt_date
                                 text: model.fulldate
@@ -584,15 +589,16 @@ Page {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: flickable.botttom
-            color: "black"
+            color: Config.transparency ? Theme.secondaryHighlightColor : "black"
             opacity: 0.8
             id: toolbar
-            height: 110 
+            height: 90 
             Row {
                 spacing: Theme.paddingLarge
                 //spacing: Theme.itemSizeSmall
                 anchors.horizontalCenter: parent.horizontalCenter
                 Switch {
+                    y: -24
                     id: "toolbarnow"
                     icon.source: Config.imagespath + "/now.png" 
                     visible: (current && day == 0) ? true : false
@@ -602,6 +608,7 @@ Page {
                     }
                 }
                 Switch {
+                    y: -24
                     id: "toolbarday"
                     icon.source:  Config.imagespath + "/day.png"
                     onClicked: {
@@ -610,6 +617,7 @@ Page {
                     }
                 }
                 Switch {
+                    y: -24
                     id: "toolbarnight"
                     icon.source:  Config.imagespath + "/night.png"
                     onClicked: {
@@ -618,6 +626,7 @@ Page {
                     }
                 }
                 Switch {
+                    y: -24
                     id: "toolbarclock"
                     icon.source:  Config.imagespath + "/clock.png"
                     onClicked: {
@@ -629,4 +638,3 @@ Page {
         }
     }
 }
-

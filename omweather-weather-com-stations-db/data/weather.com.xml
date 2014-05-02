@@ -10,5 +10,5 @@
 <library>libomweather-weather-com-source.so</library>
 <binary>weathercom</binary>
 <showurl url="http://www.weather.com/weather/tenday/%s" />
-<mapurl url="http://mapserver.weather.com/MapServer/map?layers=sat&amp;lat=%f&amp;lng=%f&amp;bpp=8&amp;fmt=png&amp;w=960&amp;h=540&amp;zoom=5&amp;base=msve-hyb&amp;g=1.5&amp;tx=0.7" type="GPS"/>
+<mapurl url="http://mapserver.weather.com/MapServer/map?layers=sat&amp;lat=%f&amp;lng=%f&amp;bpp=8&amp;fmt=png&amp;w=1000&amp;h=580&amp;zoom=5&amp;base=msve-hyb&amp;g=1.5&amp;tx=0.7" type="GPS"/>
 </source>

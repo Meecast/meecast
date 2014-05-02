@@ -413,7 +413,7 @@ Page {
                 anchors.top: parent.top
                 width: parent.width
                 height: 92
-                color: "transparent"
+                color: Config.transparency ? "transparent" : "black"
                 //color: "black"
                 visible: isUpdate ? false : true
 /*

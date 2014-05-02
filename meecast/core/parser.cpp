@@ -41,7 +41,7 @@ namespace Core {
     Parser::Parser(const std::string& filename, const std::string& schema_filename)
                         : AbstractConfig(){
         _filename = filename;
-        /* std::cerr<<"Parse file "<<filename<<std::endl; */
+        std::cerr<<"Parse file "<<filename<<std::endl; 
     #ifdef LIBXML
         if(filename.empty())
             throw("Invalid source file.");
@@ -109,7 +109,7 @@ namespace Core {
     void
     Parser::Reloadfile(){
     
-        /* std::cerr<<"_Filename "<<_filename<<std::endl; */
+        std::cerr<<"Reloadfile _Filename "<<_filename<<std::endl; 
         QFile file(QString::fromStdString(_filename));
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
                 std::cerr<<"error file open"<<std::endl;

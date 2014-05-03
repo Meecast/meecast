@@ -144,6 +144,8 @@ Page {
             Current.reload_data(Config.data_filename);
             Current.update_model(0);
             Forecast_model.update_model(2);
+	    /* hack */
+            forecast_stub.append({"id": 0})
             startview.visible = Config.stationname == "Unknown" ? true : false;
             listview.visible = Config.stationname == "Unknown" ? false : true;
         }
@@ -165,6 +167,8 @@ Page {
             Current.reload_data(Config.data_filename);
             Current.update_model(0);
             Forecast_model.update_model(2);
+	    /* hack */
+            forecast_stub.append({"id": 0})
             startview.visible = Config.stationname == "Unknown" ? true : false;
             listview.visible = Config.stationname == "Unknown" ? false : true;
         }

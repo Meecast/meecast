@@ -475,12 +475,13 @@ Component {
                     model:  forecast_stub
                     delegate: itemDelegate
                     width: parent.width
-                    height: 80 *  main.get_count_days(index)
-                    //height: 800
+ //                   height: 80 *  main.get_count_days(index)
+                    height: 80 * 21 
                     interactive: false
                     clip: true
                     Component.onCompleted: {
-                       console.log("list onCompleted ", main_index)
+                       console.log("list onCompleted ", main_index, forecast_stub.count)
+                       list.height = 80 * Forecast_model.rowCount() 
                     }
                 }
                 Component {
@@ -489,6 +490,11 @@ Component {
                         id: day
                         width: parent.width
                         height: 80
+                        ListView.onAdd: {
+		            /* Hack */		
+                            list.height = 80 * Forecast_model.rowCount() 
+			    forecast_stub.remove(list.count-1)
+                        }		    
                         visible: main.forecast_model(index, "fulldate", main_index) == undefined ? false : true
 
                         Rectangle {

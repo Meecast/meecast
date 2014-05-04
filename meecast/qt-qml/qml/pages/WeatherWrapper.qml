@@ -11,6 +11,7 @@ Page {
     property bool isUpdate: false
     property real flick_start_position: 0
     property bool menuitemgps: Config.gps
+    property bool flipmoving: false
 
     objectName: "WeatherPage"
 
@@ -203,12 +204,17 @@ Page {
         Component.onCompleted: {}
         onCurrentIndexChanged:{ }
         onFlickEnded: { 
+            flipmoving = false
             //console.log("onFlickEnded")
             real_current_id = indexAt(contentX,contentY);
             Config._current_station_id(main.real_current_id)
             Config.saveConfig();
            // Config.refreshconfig();
         }
+        onFlickStarted: { 
+            flipmoving = true
+        }
+
         delegate: WeatherStationDelegate { id: weatherStationDelegate } 
      }
      SilicaFlickable {

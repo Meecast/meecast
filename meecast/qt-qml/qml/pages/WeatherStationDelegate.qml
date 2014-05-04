@@ -9,7 +9,26 @@ Component {
         height: main.screen_height
         property int icon_size: 128
         property int main_index : index
+        property bool flipmoving : flipmoving 
         color: Config.transparency ? "transparent" : "black"
+        GlassItem {
+            id: left_indicator
+            visible: (main_index > 0 && flipmoving == false) ? true : false
+            color: Theme.highlightColor
+            falloffRadius: 0.05
+            radius: 0.05
+            height: parent.height / 2
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.left
+            Behavior on falloffRadius {
+                NumberAnimation { duration: 450; easing.type: Easing.InOutQuad }
+            }
+            brightness: 1.0
+            Behavior on brightness {
+                NumberAnimation { duration: 450; easing.type: Easing.InOutQuad }
+            }
+        }
+
         SilicaFlickable {
             id: flickable
             anchors.top: parent.top
@@ -590,6 +609,29 @@ Component {
                         Config.showweb();	
                     }
                 }
+            }
+        }
+        Timer {
+            id: moveTimer
+            running: !flipmoving && Qt.application.active
+            interval: 500
+            repeat: true
+            onRunningChanged: {
+                left_indicator.brightness = 1.0
+                left_indicator.falloffRadius = 0.05
+            }
+            onTriggered: {
+                left_indicator.falloffRadius = left_indicator.falloffRadius < 0.01 ? 0.2 : 0.075
+                left_indicator.brightness = left_indicator.brightness < 0.5 ? 1.0 : 0.4
+            }
+        }
+        Timer {
+            id: stopTimer
+            running: !flipmoving && Qt.application.active 
+            interval: 3000
+            repeat: false
+            onTriggered: {
+                moveTimer.running = false
             }
         }
     }

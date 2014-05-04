@@ -173,8 +173,6 @@ Component {
                     visible: (Forecast_model.rowCount() == 0 && Current.rowCount() == 0) ? true : false
                     anchors.top: station_rect.bottom
                     width: parent.width
-                    //height: current_rect.height + list.height
-                    //height: main.screen_height - 72 - 72 - 36
                     height: main.screen_height - 92 
                     color: Config.transparency ? "transparent" : "black"
                     Loader {
@@ -228,7 +226,6 @@ Component {
                     anchors.top: station_rect.bottom
                     width: parent.width
                     height: 274
-                    //color: getColor(Current.temperature_high)
                     Loader {
                         anchors.fill: parent
                         sourceComponent: Image {source: Config.imagespath + "/mask_background_main.png"}
@@ -365,7 +362,6 @@ Component {
                             }
                             Image {
                                 id: wind_direction_background
-                                //source: Config.imagespath + "/wind_direction.png"
                                 source: Config.imagespath + "/wind_direction_background.png"
                                 anchors.top: desc.bottom
                                 anchors.topMargin: 32
@@ -377,7 +373,6 @@ Component {
                             }
                             Image {
                                 id: wind_direction
-                                //source: Config.imagespath + "/wind_direction.png"
                                 source: Config.imagespath + "/wind_direction_arrow.png"
                                 anchors.top: desc.bottom
                                 anchors.topMargin: 32
@@ -454,7 +449,6 @@ Component {
                         onClicked: {
                             console.log("current day onclicked");
                             Config._current_station_id(main.real_current_id)
-                            //Config._current_station_id(0)
                             console.log(Config._current_station_id())
                             main.updatemodels()
 
@@ -475,7 +469,6 @@ Component {
                     model:  forecast_stub
                     delegate: itemDelegate
                     width: parent.width
- //                   height: 80 *  main.get_count_days(index)
                     height: 80 * 21 
                     interactive: false
                     clip: true
@@ -491,9 +484,9 @@ Component {
                         width: parent.width
                         height: 80
                         ListView.onAdd: {
-		            /* Hack */		
+                            /* Hack */		
                             list.height = 80 * Forecast_model.rowCount() 
-			    forecast_stub.remove(list.count-1)
+                            forecast_stub.remove(list.count-1)
                         }		    
                         visible: main.forecast_model(index, "fulldate", main_index) == undefined ? false : true
 
@@ -599,7 +592,6 @@ Component {
                 }
             }
         }
-
     }
 }
 

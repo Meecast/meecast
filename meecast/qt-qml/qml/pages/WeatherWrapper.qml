@@ -78,22 +78,6 @@ Page {
     function getAngle(s){
         var a;
 
-        /*
-        switch (s[0]){
-        case 'N':
-            a = 0;
-            break;
-        case 'S':
-            a = 8;
-            break;
-        case 'E':
-            a = 4;
-            break;
-        case 'W':
-            a = -4;
-            break;
-        }
-        if (a.length == 1) return a*22.5;*/
         switch (s){
         case 'S':
             return 0;
@@ -144,21 +128,13 @@ Page {
             Current.reload_data(Config.data_filename);
             Current.update_model(0);
             Forecast_model.update_model(2);
-	    /* hack */
+     	    /* hack */
             forecast_stub.append({"id": 0})
             startview.visible = Config.stationname == "Unknown" ? true : false;
             listview.visible = Config.stationname == "Unknown" ? false : true;
         }
         //console.log("Current.getdata(0, name)", Current.getdata(0, name))
         return Current.getdata(0, name);
-    }
-    function get_count_days(i){
-        // console.log( "get_count_days() ", Forecast_model.rowCount())
-        /* For pretty view but it works very slowly  and Cover doesn't work correctly*/
-        // Config.station_by_index(i);
-        //main.updatemodels();
-        /* To do make right forecast model */
-        return Forecast_model.rowCount()
     }
 
     function forecast_model(i, name, station_index){
@@ -167,7 +143,7 @@ Page {
             Current.reload_data(Config.data_filename);
             Current.update_model(0);
             Forecast_model.update_model(2);
-	    /* hack */
+	        /* hack */
             forecast_stub.append({"id": 0})
             startview.visible = Config.stationname == "Unknown" ? true : false;
             listview.visible = Config.stationname == "Unknown" ? false : true;
@@ -198,7 +174,6 @@ Page {
             listModel.update()
             updatemodels();
             isUpdate = false;
-
         }
     }
 

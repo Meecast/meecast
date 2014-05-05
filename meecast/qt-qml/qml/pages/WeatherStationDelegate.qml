@@ -189,7 +189,7 @@ Component {
                 }
                 Rectangle {
                     id: dataview
-                    visible: (Forecast_model.rowCount() == 0 && Current.rowCount() == 0) ? true : false
+                    visible: (forecast_model_count(main_index) == 0 && current_model_count(main_index) == 0) ? true : false
                     anchors.top: station_rect.bottom
                     width: parent.width
                     height: main.screen_height - 92 
@@ -227,9 +227,9 @@ Component {
                         text: Config.tr("Try to update")
                         onClicked: {
                             main.update();
-                            dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
-                            current_rect.visible = Current.rowCount() == 0 ? false : true;
-                            list.visible = (Forecast_model.rowCount() == 0) ? false : true;
+                            dataview.visible = (forecast_model_count(main_index) == 0 || current_model_count(main_index) == 0) ? true : false;
+                            current_rect.visible = current_model_count(main_index) == 0 ? false : true;
+                            list.visible = (forecast_model_count(main_index) == 0) ? false : true;
                         }
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.bottom: parent.bottom
@@ -239,7 +239,7 @@ Component {
                 }
                 Rectangle {
                     id: current_rect
-                    visible: Current.rowCount() == 0 ? false : true
+                    visible: current_model_count(main_index) == 0 ? false : true
                     anchors.top: station_rect.bottom
                     width: parent.width
                     height: 274
@@ -481,7 +481,7 @@ Component {
                 }
                 ListView {
                     id: list
-                    visible: Forecast_model.rowCount() == 0 ? false : true
+                    visible: forecast_model_count(main_index) == 0 ? false : true
                     anchors.top: current_rect.bottom
                     model:  forecast_stub
                     delegate: itemDelegate
@@ -491,7 +491,7 @@ Component {
                     clip: true
                     Component.onCompleted: {
                        console.log("list onCompleted ", main_index, forecast_stub.count)
-                       list.height = 80 * Forecast_model.rowCount() 
+                       list.height = 80 * forecast_model_count(main_index) 
                     }
                 }
                 Component {
@@ -502,7 +502,7 @@ Component {
                         height: 80
                         ListView.onAdd: {
                             /* Hack */		
-                            list.height = 80 * Forecast_model.rowCount() 
+                            list.height = 80 * forecast_model_count(main_index) 
                             forecast_stub.remove(list.count-1)
                         }		    
                         visible: main.forecast_model(index, "fulldate", main_index) == undefined ? false : true

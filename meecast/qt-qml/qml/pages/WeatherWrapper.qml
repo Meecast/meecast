@@ -123,16 +123,34 @@ Page {
         Config.updatestations();
     }
 
+    function update_models (station_index){
+    	Config._current_station_id(station_index)
+        Current.reload_data(Config.data_filename);
+        Current.update_model(0);
+        Forecast_model.update_model(2);
+        /* hack */
+        forecast_stub.append({"id": 0})
+        startview.visible = Config.stationname == "Unknown" ? true : false;
+        listview.visible = Config.stationname == "Unknown" ? false : true;
+
+    }
+    function current_model_count(station_index){
+        if (station_index >= 0 && station_index != Config._current_station_id()){
+            update_models(station_index)
+        }
+        return Current.rowCount();
+    }
+
+    function forecast_model_count(station_index){
+        if (station_index >= 0 && station_index != Config._current_station_id()){
+            update_models(station_index)
+        }
+        return Forecast_model.rowCount();
+    }
+
     function current_model(name, station_index){
         if (station_index >= 0 && station_index != Config._current_station_id()){
-            Config._current_station_id(station_index)
-            Current.reload_data(Config.data_filename);
-            Current.update_model(0);
-            Forecast_model.update_model(2);
-            /* hack */
-            forecast_stub.append({"id": 0})
-            startview.visible = Config.stationname == "Unknown" ? true : false;
-            listview.visible = Config.stationname == "Unknown" ? false : true;
+            update_models(station_index)
         }
         //console.log("Current.getdata(0, name)", Current.getdata(0, name))
         return Current.getdata(0, name);
@@ -140,14 +158,7 @@ Page {
 
     function forecast_model(i, name, station_index){
         if (station_index >= 0 && station_index != Config._current_station_id()){
-            Config._current_station_id(station_index)
-            Current.reload_data(Config.data_filename);
-            Current.update_model(0);
-            Forecast_model.update_model(2);
-            /* hack */
-            forecast_stub.append({"id": 0})
-            startview.visible = Config.stationname == "Unknown" ? true : false;
-            listview.visible = Config.stationname == "Unknown" ? false : true;
+            update_models(station_index)
         }
         // console.log("Forecast_model.getdata(i, name)", i, " ", name," ", station_index, " ", Forecast_model.getdata(i, name))
         return Forecast_model.getdata(i, name);

@@ -230,8 +230,6 @@ Component {
                             dataview.visible = (Forecast_model.rowCount() == 0 || Current.rowCount() == 0) ? true : false;
                             current_rect.visible = Current.rowCount() == 0 ? false : true;
                             list.visible = (Forecast_model.rowCount() == 0) ? false : true;
-                            
-
                         }
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.bottom: parent.bottom

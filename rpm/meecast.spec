@@ -95,6 +95,7 @@ desktop-file-install --delete-original       \
   * Improved design of transparent and black themes
   * Added stations to Finland in source yr.no
   * Fixed problem with converting map URLs
+  * Added separator for stations on Main form
 
 * Fri Apr 18 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.8.18.1
   * Fixed problem with current weather in foreca.com source 

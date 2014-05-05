@@ -21,11 +21,11 @@ Component {
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.left
             Behavior on falloffRadius {
-                NumberAnimation { duration: 450; easing.type: Easing.InOutQuad }
+                NumberAnimation { duration: 250; easing.type: Easing.InOutQuad }
             }
             brightness: 1.0
             Behavior on brightness {
-                NumberAnimation { duration: 450; easing.type: Easing.InOutQuad }
+                NumberAnimation { duration: 250; easing.type: Easing.InOutQuad }
             }
         }
 

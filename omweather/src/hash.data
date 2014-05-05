@@ -224,6 +224,7 @@
     g_hash_table_insert(hash, (void*)"Partly cloudy and wet snow showers", _("Partly cloudy and wet snow showers"));
     g_hash_table_insert(hash, (void*)"Partly cloudy, possible thunderstorms with rain", _("Partly cloudy, possible thunderstorms with rain"));
     g_hash_table_insert(hash, (void*)"Partly cloudy", _("Partly cloudy"));
+    g_hash_table_insert(hash, (void*)"Proximity shower rain", _("Proximity shower rain"));
     g_hash_table_insert(hash, (void*)"Rain / Freezing Rain", _("Rain / Freezing Rain"));
     g_hash_table_insert(hash, (void*)"Rain / Snow / Wind", _("Rain / Snow / Wind"));
     g_hash_table_insert(hash, (void*)"Rain / Snow Early", _("Rain / Snow Early"));

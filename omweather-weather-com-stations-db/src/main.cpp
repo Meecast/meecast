@@ -2,7 +2,7 @@
 /*
  * This file is part of omweather-weather-com-stations-db
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2014 Vlad Vasilyeu
  * Copyright (C) 2006-2009 Pavel Fialko
  * 	for the code
  *
@@ -1180,7 +1180,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     fprintf(stderr, "sunrise %li %li %s\n", mktime(&tmp_tm2), mktime(&tmp_tm2), (const char*)temp_xml_string);
                                     t_sunrise = mktime(&tmp_tm2) + localtimezone*3600 -  timezone_my*3600 ;
 //                                    t_sunrise = mktime(&tmp_tm2)  -  timezone_my*3600 + (timezone_my*3600 + 4*3600);
-                                    fprintf(stderr, "LocaltimeZone %i MyTimeZone %i", localtimezone, timezone_my);
+                                    fprintf(stderr, "LocaltimeZone %i MyTimeZone %i\n", localtimezone, timezone_my);
                                     xmlFree(temp_xml_string);
                                     continue;
                                 }
@@ -1332,7 +1332,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         /* Period after sunrise and before sunset */  
                         /* set sunrise  in localtime */
 
-                        if (temp_hi[0] != 0 || temp_low[0] !=0){
+                        if ((temp_hi[0] != 0 || temp_low[0] !=0) && (strlen(icon_day) > 0 && humidity_day != 0 && strlen(description_day)>0)){
                             fprintf(file_out,"    <period start=\"%li\"", (t_sunrise + 1));
                             fprintf(file_out," end=\"%li\">\n", t_sunset);
                             if (temp_hi[0] != 0 && temp_low[0] != 0){ 

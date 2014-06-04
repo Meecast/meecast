@@ -128,6 +128,8 @@ TRANSLIST = ar_AR \
             es_MX \
             fi_FI \
             fr_FR \
+            da_DK \
+            de_DE \
             hu_HU \
             it_IT \
             lv_LV \
@@ -193,6 +195,12 @@ transinstallcl.extra = cp po/locale/cs_CS/omweather.mo $(INSTALL_ROOT)$$DATADIR/
 transinstallcl.path = /opt/com.meecast.omweather/share/locale/cs/LC_MESSAGES
 transinstallcl.files = po/locale/cs_CS/omweather.mo
 INSTALLS += transinstallcl
+
+transinstallda.extra = cp po/locale/da_DK/omweather.mo  $(INSTALL_ROOT)$$DATADIR/locale/da/LC_MESSAGES
+transinstallda.path = /opt/com.meecast.omweather/share/locale/da/LC_MESSAGES
+transinstallda.files = po/locale/da_DK/omweather.mo
+INSTALLS += transinstallda
+
 
 transinstallde.extra = cp po/locale/de_DE/omweather.mo  $(INSTALL_ROOT)$$DATADIR/locale/de/LC_MESSAGES
 transinstallde.path = /opt/com.meecast.omweather/share/locale/de/LC_MESSAGES

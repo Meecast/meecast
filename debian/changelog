@@ -5,7 +5,8 @@ meecast (0.9.2) unstable; urgency=low
   * Fixed problem with n/a icon for Atmos iconset
   * Added Danish translation
   * Updated Catalan, Chinese (Taiwan), Czech, Finnish, 
-    German, Italian, Norwegian, Serbian, Slovenian  translations
+    German, Italian, Norwegian, Serbian, Slovenian,
+    Spanish translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 16 Apr 2014 22:31:23 +0200
 

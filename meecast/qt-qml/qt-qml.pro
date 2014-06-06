@@ -136,8 +136,6 @@ qml.path = $$DEPLOYMENT_PATH/qml
 translations.files = translations/*.qm
 translations.path = $$DEPLOYMENT_PATH/locale/
 
-
-
 # Please do not modify the following line.
 #include(sailfishapplication/sailfishapplication.pri)
 

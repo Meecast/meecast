@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-05 22:30+0300\n"
+"POT-Creation-Date: 2014-06-06 20:59+0300\n"
 "PO-Revision-Date: 2014-06-05 19:04+0000\n"
 "Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/meecast/language/"
@@ -988,6 +988,7 @@ msgid ""
 " \tMehmet Çilingir,\n"
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
+" Danish - Peter Jespersen,\n"
 " Serbian - Aleksandar Zaric,\n"
 " Norwegian - Peer-Atle Motland,\n"
 " Hungarian - Salmi,\n"
@@ -1138,7 +1139,7 @@ msgstr "Наборы иконок"
 msgid "Iconset"
 msgstr "Набор иконок"
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:268
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:269
 msgid "Iconsets"
 msgstr "Наборы иконок:"
 
@@ -1210,7 +1211,7 @@ msgstr "Расположение:"
 msgid "Lead designers"
 msgstr "Ведущие дизайнеры"
 
-#: meecast/qt-qml/qml/AboutPage.qml:302
+#: meecast/qt-qml/qml/AboutPage.qml:303
 msgid "License"
 msgstr "Лицензия"
 
@@ -2392,7 +2393,7 @@ msgstr "Снег переходящий в поземку / Ветер"
 msgid "Source"
 msgstr "Источник"
 
-#: meecast/qt-qml/qml/AboutPage.qml:324
+#: meecast/qt-qml/qml/AboutPage.qml:325
 msgid "Source code"
 msgstr "Исходный код"
 
@@ -2544,7 +2545,7 @@ msgid "This is experimental feature. Only English is supported."
 msgstr ""
 "Это экспериментальная возможность. Поддерживается только английский язык."
 
-#: meecast/qt-qml/qml/AboutPage.qml:311
+#: meecast/qt-qml/qml/AboutPage.qml:312
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2991,7 +2992,7 @@ msgstr "час назад"
 msgid "hours ago"
 msgstr "часов назад"
 
-#: meecast/qt-qml/qml/AboutPage.qml:333
+#: meecast/qt-qml/qml/AboutPage.qml:334
 msgid "http://github.com/Meecast/meecast"
 msgstr ""
 

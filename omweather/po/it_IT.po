@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-05 22:30+0300\n"
+"POT-Creation-Date: 2014-06-06 20:59+0300\n"
 "PO-Revision-Date: 2014-04-18 10:41+0000\n"
 "Last-Translator: lorenzo facca <lorenzo.facca@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/meecast/language/"
@@ -992,6 +992,7 @@ msgid "Freezing Drizzle"
 msgstr "Pioggerella gelata"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
+#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1016,6 +1017,7 @@ msgid ""
 " \tMehmet Çilingir,\n"
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
+" Danish - Peter Jespersen,\n"
 " Serbian - Aleksandar Zaric,\n"
 " Norwegian - Peer-Atle Motland,\n"
 " Hungarian - Salmi,\n"
@@ -1198,7 +1200,7 @@ msgstr "Icone"
 msgid "Iconset"
 msgstr "Set di icone"
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:268
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:269
 msgid "Iconsets"
 msgstr "Set di icone"
 
@@ -1273,7 +1275,7 @@ msgstr "Sistemazione:"
 msgid "Lead designers"
 msgstr "Capi designer"
 
-#: meecast/qt-qml/qml/AboutPage.qml:302
+#: meecast/qt-qml/qml/AboutPage.qml:303
 msgid "License"
 msgstr "Licenza"
 
@@ -2459,7 +2461,7 @@ msgstr "Nevischio poi Neve / Vento"
 msgid "Source"
 msgstr "Fonte"
 
-#: meecast/qt-qml/qml/AboutPage.qml:324
+#: meecast/qt-qml/qml/AboutPage.qml:325
 msgid "Source code"
 msgstr "Codice sorgente"
 
@@ -2612,7 +2614,7 @@ msgstr ""
 "Questa è una funzione in sperimentazione. L'inglese è l'unica lingua "
 "supportata"
 
-#: meecast/qt-qml/qml/AboutPage.qml:311
+#: meecast/qt-qml/qml/AboutPage.qml:312
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3069,7 +3071,7 @@ msgstr "ora fa"
 msgid "hours ago"
 msgstr "ore fa"
 
-#: meecast/qt-qml/qml/AboutPage.qml:333
+#: meecast/qt-qml/qml/AboutPage.qml:334
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

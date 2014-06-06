@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-05 22:30+0300\n"
+"POT-Creation-Date: 2014-06-06 20:59+0300\n"
 "PO-Revision-Date: 2012-12-20 12:13+0000\n"
 "Last-Translator: Ludmila Lisovskaya <ludmila.lisovskaya@gmail.com>\n"
 "Language-Team: Chinese (http://www.transifex.com/projects/p/meecast/language/"
@@ -1014,6 +1014,7 @@ msgid ""
 " \tMehmet Çilingir,\n"
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
+" Danish - Peter Jespersen,\n"
 " Serbian - Aleksandar Zaric,\n"
 " Norwegian - Peer-Atle Motland,\n"
 " Hungarian - Salmi,\n"
@@ -1194,7 +1195,7 @@ msgstr "图标"
 msgid "Iconset"
 msgstr "图标设置"
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:268
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:269
 msgid "Iconsets"
 msgstr "图标集"
 
@@ -1269,7 +1270,7 @@ msgstr "设计: "
 msgid "Lead designers"
 msgstr "首席设计师"
 
-#: meecast/qt-qml/qml/AboutPage.qml:302
+#: meecast/qt-qml/qml/AboutPage.qml:303
 msgid "License"
 msgstr "许可"
 
@@ -2475,7 +2476,7 @@ msgstr ""
 msgid "Source"
 msgstr "服务器"
 
-#: meecast/qt-qml/qml/AboutPage.qml:324
+#: meecast/qt-qml/qml/AboutPage.qml:325
 #, fuzzy
 msgid "Source code"
 msgstr "服务器"
@@ -2627,7 +2628,7 @@ msgstr ""
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:311
+#: meecast/qt-qml/qml/AboutPage.qml:312
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3080,7 +3081,7 @@ msgstr "小时前"
 msgid "hours ago"
 msgstr "小时前"
 
-#: meecast/qt-qml/qml/AboutPage.qml:333
+#: meecast/qt-qml/qml/AboutPage.qml:334
 msgid "http://github.com/Meecast/meecast"
 msgstr ""
 

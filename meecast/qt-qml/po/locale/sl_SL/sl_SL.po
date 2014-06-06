@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-05 22:30+0300\n"
+"POT-Creation-Date: 2014-06-06 20:59+0300\n"
 "PO-Revision-Date: 2014-05-14 18:52+0000\n"
 "Last-Translator: Boštjan Štrumbelj <sponka@gmail.com>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/projects/p/"
@@ -989,6 +989,7 @@ msgid "Freezing Drizzle"
 msgstr "Pomrznjen pršec"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
+#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1013,6 +1014,7 @@ msgid ""
 " \tMehmet Çilingir,\n"
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
+" Danish - Peter Jespersen,\n"
 " Serbian - Aleksandar Zaric,\n"
 " Norwegian - Peer-Atle Motland,\n"
 " Hungarian - Salmi,\n"
@@ -1198,7 +1200,7 @@ msgstr "Ikone"
 msgid "Iconset"
 msgstr "Nabor ikon"
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:268
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:269
 msgid "Iconsets"
 msgstr "Nabori ikon"
 
@@ -1272,7 +1274,7 @@ msgstr "Videz:"
 msgid "Lead designers"
 msgstr "Vodilni oblikovalci"
 
-#: meecast/qt-qml/qml/AboutPage.qml:302
+#: meecast/qt-qml/qml/AboutPage.qml:303
 msgid "License"
 msgstr "Licenca"
 
@@ -2458,7 +2460,7 @@ msgstr "Sneg z dežjem / veter"
 msgid "Source"
 msgstr "Vir"
 
-#: meecast/qt-qml/qml/AboutPage.qml:324
+#: meecast/qt-qml/qml/AboutPage.qml:325
 msgid "Source code"
 msgstr "Izvorna koda"
 
@@ -2609,7 +2611,7 @@ msgstr "Na spisku ni postaj za prikaz"
 msgid "This is experimental feature. Only English is supported."
 msgstr "Eksperimentalna možnost. Podprt je le angleški jezik."
 
-#: meecast/qt-qml/qml/AboutPage.qml:311
+#: meecast/qt-qml/qml/AboutPage.qml:312
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3064,7 +3066,7 @@ msgstr "uro predtem"
 msgid "hours ago"
 msgstr "ure predtem"
 
-#: meecast/qt-qml/qml/AboutPage.qml:333
+#: meecast/qt-qml/qml/AboutPage.qml:334
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-05 22:30+0300\n"
+"POT-Creation-Date: 2014-06-06 20:59+0300\n"
 "PO-Revision-Date: 2014-04-28 16:33+0000\n"
 "Last-Translator: Jakub Kožíšek <nodevel@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/meecast/language/"
@@ -986,6 +986,7 @@ msgid "Freezing Drizzle"
 msgstr "Mrznoucí mrholení"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
+#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1010,6 +1011,7 @@ msgid ""
 " \tMehmet Çilingir,\n"
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
+" Danish - Peter Jespersen,\n"
 " Serbian - Aleksandar Zaric,\n"
 " Norwegian - Peer-Atle Motland,\n"
 " Hungarian - Salmi,\n"
@@ -1195,7 +1197,7 @@ msgstr "Ikony"
 msgid "Iconset"
 msgstr "Sada ikon"
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:268
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:269
 msgid "Iconsets"
 msgstr "Sady ikon"
 
@@ -1269,7 +1271,7 @@ msgstr "Nákres:"
 msgid "Lead designers"
 msgstr "Vedoucí projektu"
 
-#: meecast/qt-qml/qml/AboutPage.qml:302
+#: meecast/qt-qml/qml/AboutPage.qml:303
 msgid "License"
 msgstr "Licence"
 
@@ -2455,7 +2457,7 @@ msgstr "Sníh až mráz / vítr"
 msgid "Source"
 msgstr "Zdroj"
 
-#: meecast/qt-qml/qml/AboutPage.qml:324
+#: meecast/qt-qml/qml/AboutPage.qml:325
 msgid "Source code"
 msgstr "Zdrojový kód"
 
@@ -2606,7 +2608,7 @@ msgstr "Nejsou žádné stanice k zobrazení v tomto pohledu"
 msgid "This is experimental feature. Only English is supported."
 msgstr "Toto je experimentální vlastnost, dostupná pouze v angličtině."
 
-#: meecast/qt-qml/qml/AboutPage.qml:311
+#: meecast/qt-qml/qml/AboutPage.qml:312
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3060,7 +3062,7 @@ msgstr "před hodinou"
 msgid "hours ago"
 msgstr "hodin nazpět"
 
-#: meecast/qt-qml/qml/AboutPage.qml:333
+#: meecast/qt-qml/qml/AboutPage.qml:334
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

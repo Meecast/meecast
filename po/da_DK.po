@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Vlad Vas <vasvlad@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-05 22:30+0300\n"
-"PO-Revision-Date: 2014-06-03 21:58+0000\n"
-"Last-Translator: Peter Jespersen <flywheeldk@gmail.com>\n"
+"POT-Creation-Date: 2014-06-06 20:59+0300\n"
+"PO-Revision-Date: 2014-06-06 17:58+0000\n"
+"Last-Translator: Vlad Vas <vasvlad@gmail.com>\n"
 "Language-Team: Danish (Denmark) (http://www.transifex.com/projects/p/meecast/"
 "language/da_DK/)\n"
 "Language: da_DK\n"
@@ -62,7 +63,9 @@ msgstr ""
 msgid ""
 "\n"
 "Precipitation: "
-msgstr "Nedbør:"
+msgstr ""
+"\n"
+"Nedbør:"
 
 #: omweather/src/weather-popup.c:976 omweather/src/weather-popup.c:1108
 msgid ""
@@ -80,7 +83,9 @@ msgstr ""
 msgid ""
 "\n"
 "W: "
-msgstr "V:"
+msgstr ""
+"\n"
+"V:"
 
 #: meecast/qt-qml/dataitem.cpp:487 meecast/qt-qml/dataitem.cpp:488
 msgid "(Low)"
@@ -777,7 +782,7 @@ msgstr ""
 #: omweather/src/weather-popup.c:1266 omweather/src/weather-popup.c:1276
 #: omweather/src/weather-popup.c:1447 omweather/src/weather-popup.c:1455
 msgid "F\n"
-msgstr "F"
+msgstr "F\n"
 
 #: omweather/src/weather-home.c:1558
 msgid "FL: "
@@ -939,6 +944,7 @@ msgid ""
 " \tMehmet Çilingir,\n"
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
+" Danish - Peter Jespersen,\n"
 " Serbian - Aleksandar Zaric,\n"
 " Norwegian - Peer-Atle Motland,\n"
 " Hungarian - Salmi,\n"
@@ -1080,7 +1086,7 @@ msgstr "Ikoner"
 msgid "Iconset"
 msgstr ""
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:268
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:269
 msgid "Iconsets"
 msgstr ""
 
@@ -1152,7 +1158,7 @@ msgstr ""
 msgid "Lead designers"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:302
+#: meecast/qt-qml/qml/AboutPage.qml:303
 msgid "License"
 msgstr ""
 
@@ -2333,7 +2339,7 @@ msgstr ""
 msgid "Source"
 msgstr "Kilde"
 
-#: meecast/qt-qml/qml/AboutPage.qml:324
+#: meecast/qt-qml/qml/AboutPage.qml:325
 msgid "Source code"
 msgstr ""
 
@@ -2484,7 +2490,7 @@ msgstr ""
 msgid "This is experimental feature. Only English is supported."
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:311
+#: meecast/qt-qml/qml/AboutPage.qml:312
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -2912,7 +2918,7 @@ msgstr ""
 msgid "hours ago"
 msgstr ""
 
-#: meecast/qt-qml/qml/AboutPage.qml:333
+#: meecast/qt-qml/qml/AboutPage.qml:334
 msgid "http://github.com/Meecast/meecast"
 msgstr ""
 

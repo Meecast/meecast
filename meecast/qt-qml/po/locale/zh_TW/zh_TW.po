@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-05 22:30+0300\n"
+"POT-Creation-Date: 2014-06-06 20:59+0300\n"
 "PO-Revision-Date: 2014-05-15 13:55+0000\n"
 "Last-Translator: osk2 <sc60714@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/meecast/"
@@ -982,6 +982,7 @@ msgid "Freezing Drizzle"
 msgstr "凍雨"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
+#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht \n"
@@ -1006,6 +1007,7 @@ msgid ""
 " \tMehmet Çilingir,\n"
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
+" Danish - Peter Jespersen,\n"
 " Serbian - Aleksandar Zaric,\n"
 " Norwegian - Peer-Atle Motland,\n"
 " Hungarian - Salmi,\n"
@@ -1191,7 +1193,7 @@ msgstr "圖示"
 msgid "Iconset"
 msgstr "圖示集"
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:268
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:269
 msgid "Iconsets"
 msgstr "圖示集"
 
@@ -1265,7 +1267,7 @@ msgstr "頁面樣式︰"
 msgid "Lead designers"
 msgstr "首席設計師"
 
-#: meecast/qt-qml/qml/AboutPage.qml:302
+#: meecast/qt-qml/qml/AboutPage.qml:303
 msgid "License"
 msgstr "版權"
 
@@ -2450,7 +2452,7 @@ msgstr "雪轉雨雪混合及風"
 msgid "Source"
 msgstr "來源"
 
-#: meecast/qt-qml/qml/AboutPage.qml:324
+#: meecast/qt-qml/qml/AboutPage.qml:325
 msgid "Source code"
 msgstr "程式原始碼"
 
@@ -2601,7 +2603,7 @@ msgstr "此清單內沒有戰點可以顯示"
 msgid "This is experimental feature. Only English is supported."
 msgstr "此為實驗功能。僅提供英文版。"
 
-#: meecast/qt-qml/qml/AboutPage.qml:311
+#: meecast/qt-qml/qml/AboutPage.qml:312
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3043,7 +3045,7 @@ msgstr "小時前"
 msgid "hours ago"
 msgstr "小時前"
 
-#: meecast/qt-qml/qml/AboutPage.qml:333
+#: meecast/qt-qml/qml/AboutPage.qml:334
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

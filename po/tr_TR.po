@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-05 22:30+0300\n"
+"POT-Creation-Date: 2014-06-06 20:59+0300\n"
 "PO-Revision-Date: 2014-02-27 15:22+0000\n"
 "Last-Translator: fnldstntn <mehmetfnldstntn@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/meecast/language/"
@@ -1005,6 +1005,7 @@ msgid ""
 " \tMehmet Çilingir,\n"
 " Catalan - Agustí Clara,\n"
 " Arabic - Tarad Alfandi,\n"
+" Danish - Peter Jespersen,\n"
 " Serbian - Aleksandar Zaric,\n"
 " Norwegian - Peer-Atle Motland,\n"
 " Hungarian - Salmi,\n"
@@ -1189,7 +1190,7 @@ msgstr "Ikonlar"
 msgid "Iconset"
 msgstr "Ikonseti"
 
-#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:268
+#: omweather/src/hash.data:97 meecast/qt-qml/qml/AboutPage.qml:269
 msgid "Iconsets"
 msgstr "Ikonsetleri"
 
@@ -1264,7 +1265,7 @@ msgstr "Düzen"
 msgid "Lead designers"
 msgstr "Lead designers"
 
-#: meecast/qt-qml/qml/AboutPage.qml:302
+#: meecast/qt-qml/qml/AboutPage.qml:303
 msgid "License"
 msgstr "Lisans"
 
@@ -2451,7 +2452,7 @@ msgstr "Kardan Karışık Soğuk Havaya / Rüzgar"
 msgid "Source"
 msgstr "Kaynak"
 
-#: meecast/qt-qml/qml/AboutPage.qml:324
+#: meecast/qt-qml/qml/AboutPage.qml:325
 msgid "Source code"
 msgstr "Kaynak kodu"
 
@@ -2602,7 +2603,7 @@ msgstr "Listenin bu görünümünde göstermek için hiçbir istasyonu bulunmakt
 msgid "This is experimental feature. Only English is supported."
 msgstr "This is experimental feature. Only English is supported."
 
-#: meecast/qt-qml/qml/AboutPage.qml:311
+#: meecast/qt-qml/qml/AboutPage.qml:312
 msgid ""
 "This software is free software; you can\n"
 " redistribute it and/or modify it under \n"
@@ -3055,7 +3056,7 @@ msgstr "saat önce"
 msgid "hours ago"
 msgstr "saat önce"
 
-#: meecast/qt-qml/qml/AboutPage.qml:333
+#: meecast/qt-qml/qml/AboutPage.qml:334
 msgid "http://github.com/Meecast/meecast"
 msgstr "http://github.com/Meecast/meecast"
 

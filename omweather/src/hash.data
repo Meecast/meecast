@@ -153,6 +153,7 @@
     g_hash_table_insert(hash, (void*)"Mostly Cloudy, Snow", _("Mostly Cloudy, Snow"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy, T-Storm", _("Mostly Cloudy, T-Storm"));
     g_hash_table_insert(hash, (void*)"Mostly Sunny", _("Mostly Sunny"));
+    g_hash_table_insert(hash, (void*)"Mostly sunny", _("Mostly sunny"));
     g_hash_table_insert(hash, (void*)"Mostly clear", _("Mostly clear"));
     g_hash_table_insert(hash, (void*)"N", _("N"));
     g_hash_table_insert(hash, (void*)"N/A", _("N/A"));

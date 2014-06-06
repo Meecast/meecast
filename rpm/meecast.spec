@@ -92,6 +92,14 @@ desktop-file-install --delete-original       \
 %changelog
 * Fri May 02 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.2
   * Fixed problem with hours forecast button
+  * Fixed problem with today data for weather.com source
+  * Fixed problem with n/a icon for Atmos iconset
+  * Added Danish translation
+  * Updated Catalan, Chinese (Taiwan), Czech, Finnish, 
+    German, Italian, Norwegian, Serbian, Slovenian,
+    Spanish, Russian, Hungarian translations
+
+
 
 * Fri May 02 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.1
   * Fixed problem with swiping to another station 

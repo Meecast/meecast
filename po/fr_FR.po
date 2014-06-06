@@ -1194,7 +1194,7 @@ msgstr ""
 
 #: omweather/src/hash.data:337
 msgid "Language"
-msgstr ""
+msgstr "Langue"
 
 #: omweather/src/hash.data:100
 msgid "Last Quarter"

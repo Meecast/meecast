@@ -628,6 +628,7 @@ Page {
                 Switch {
                     y: -24
                     id: "toolbarclock"
+                    visible: check_hours()
                     icon.source:  Config.imagespath + "/clock.png"
                     onClicked: {
                          day_period = "hours";

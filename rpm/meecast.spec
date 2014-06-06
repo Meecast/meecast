@@ -91,7 +91,7 @@ desktop-file-install --delete-original       \
 
 %changelog
 * Fri May 02 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.2
-  * Nothing 
+  * Fixed problem with hours forecast button
 
 * Fri May 02 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.1
   * Fixed problem with swiping to another station 

@@ -226,6 +226,7 @@ Turkish - Burak Kaan Kose,\n \
 \tMehmet Çilingir,\n \
 Catalan - Agustí Clara,\n \
 Arabic - Tarad Alfandi,\n \
+Danish - Peter Jespersen,\n \
 Serbian - Aleksandar Zaric,\n \
 Norwegian - Peer-Atle Motland,\n \
 Hungarian - Salmi,\n \

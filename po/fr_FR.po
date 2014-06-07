@@ -118,11 +118,11 @@ msgstr ""
 
 #: meecast/qt-qml/dataitem.cpp:487 meecast/qt-qml/dataitem.cpp:488
 msgid "(Low)"
-msgstr ""
+msgstr "(Faible)"
 
 #: meecast/qt-qml/dataitem.cpp:489 meecast/qt-qml/dataitem.cpp:490
 msgid "(Moderate)"
-msgstr ""
+msgstr "(Modéré)"
 
 #: omweather/src/weather-simple-settings.c:1714
 #: omweather/src/weather-simple-settings.c:2811
@@ -150,7 +150,7 @@ msgstr "10 secondes"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:175
 msgid "12 hours"
-msgstr ""
+msgstr "12 heures"
 
 #: omweather/src/weather-sensor.c:151 meecast/qt-qml/qml/UpdatePage.qml:140
 msgid "15 minutes"
@@ -395,11 +395,11 @@ msgstr "Auteurs"
 #: omweather/src/weather-settings.c:4156
 msgid "Automatically update data when connecting to the Internet"
 msgstr ""
-"Automatiquement mettre les données à jour lors de la connexion à Internet"
+"Mettre automatiquement les données à jour lors de la connexion à Internet"
 
 #: omweather/src/hash.data:336
 msgid "Back"
-msgstr ""
+msgstr "Retour"
 
 #: omweather/src/weather-settings.c:3378 omweather/src/weather-settings.c:3382
 msgid "Background color:"
@@ -458,7 +458,7 @@ msgstr "Celsius"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:113
 msgid "Celsius"
-msgstr ""
+msgstr "Celsius"
 
 #: omweather/src/weather-simple-settings.c:677
 #: omweather/src/weather-simple-settings.c:710
@@ -489,7 +489,7 @@ msgstr "Ciel dégagé, congères"
 
 #: omweather/src/hash.data:31
 msgid "Clear, Fog"
-msgstr ""
+msgstr "Ciel dégagé, brouillard"
 
 #: omweather/src/hash.data:32
 msgid "Clear, Fog, Drizzle"
@@ -497,7 +497,7 @@ msgstr "Ciel dégagé, brouillard, bruine"
 
 #: omweather/src/hash.data:33
 msgid "Clear, Haze"
-msgstr ""
+msgstr "Ciel dégagé, brume"
 
 #: omweather/src/hash.data:34
 msgid "Clear, Smoke"
@@ -537,31 +537,31 @@ msgstr "Nuageux et venteux"
 
 #: omweather/src/hash.data:41
 msgid "Cloudy and light rain"
-msgstr ""
+msgstr "Nuageux et pluie légère"
 
 #: omweather/src/hash.data:42
 msgid "Cloudy and light snow"
-msgstr ""
+msgstr "Nuageux et neigeux"
 
 #: omweather/src/hash.data:43
 msgid "Cloudy and light wet snow"
-msgstr ""
+msgstr "Nuageux et de la neige humide"
 
 #: omweather/src/hash.data:44
 msgid "Cloudy and showers"
-msgstr ""
+msgstr "Nuage et averses"
 
 #: omweather/src/hash.data:45
 msgid "Cloudy and snow showers"
-msgstr ""
+msgstr "Nuageux et averses de neige"
 
 #: omweather/src/hash.data:46
 msgid "Cloudy and wet snow showers"
-msgstr ""
+msgstr "Nuageux et averses de neige humide"
 
 #: omweather/src/hash.data:357
 msgid "Cloudy with occasional rain."
-msgstr ""
+msgstr "Nuageux et pluie occasionnelle"
 
 #: omweather/src/hash.data:48
 msgid "Cloudy, Drifting Snow"
@@ -609,7 +609,7 @@ msgstr "Nuageux, neige"
 
 #: omweather/src/hash.data:58
 msgid "Cloudy, thunderstorms with rain"
-msgstr ""
+msgstr "Nuageux, orages et pluie"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:413
 msgid "Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, "
@@ -655,7 +655,7 @@ msgstr "Personnalisé"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:183
 msgid "Daily"
-msgstr ""
+msgstr "Quotidien"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
 #: meecast/qt-qml/qml/FullWeatherPage.qml:194
@@ -808,7 +808,7 @@ msgstr "Activer le GPS"
 
 #: meecast/qt-qml/qml/SearchField.qml:50
 msgid "Enter search"
-msgstr ""
+msgstr "Entrer la recherche"
 
 #: omweather/src/weather-home.c:841
 #, c-format
@@ -874,7 +874,7 @@ msgstr "Beau temps"
 
 #: omweather/src/hash.data:334
 msgid "Feels like"
-msgstr ""
+msgstr "Température ressentie"
 
 #: omweather/src/weather-popup.c:1269 omweather/src/weather-popup.c:1449
 msgid "Feels like:"
@@ -882,7 +882,7 @@ msgstr "Température ressentie :"
 
 #: omweather/src/hash.data:341
 msgid "Few Clouds"
-msgstr ""
+msgstr "Quelques nuages"
 
 #: omweather/src/hash.data:77
 msgid "Few Showers"
@@ -906,7 +906,7 @@ msgstr "Quelques averses de neige / vent"
 
 #: omweather/src/hash.data:340
 msgid "Few clouds"
-msgstr ""
+msgstr "Quelques nuages"
 
 #: meecast/qt-qml/qml/StationsPage.qml:92
 msgid "Find location via GPS"
@@ -963,6 +963,10 @@ msgid ""
 "'Activating MeeCast Applet'\n"
 "using Application manager"
 msgstr ""
+"Pour désactiver le gadget Meecast,\n"
+"vous devriez désinstaller le paquet\n"
+"'Activating MeeCast Applet'\n"
+"en utilisant le gestionnaire d'applications"
 
 #: omweather/src/weather-simple-popup.c:97
 msgid "Forecast"
@@ -1135,7 +1139,7 @@ msgstr ""
 #: meecast/qt-qml/qml/FullWeatherPage.qml:200
 #: meecast/qt-qml/qml/FullWeatherPage.qml:255
 msgid "Humidity"
-msgstr ""
+msgstr "Humidité"
 
 #: omweather/src/weather-popup.c:1281 omweather/src/weather-popup.c:1457
 #: meecast/netbook-UX/meego-panel-omweather.cpp:722
@@ -1168,7 +1172,7 @@ msgstr "Icônes"
 #: meecast/qt-qml/qml/VisualsPage.qml:163
 #: meecast/qt-qml/qml/VisualsPage.qml:226
 msgid "Information"
-msgstr ""
+msgstr "Informations"
 
 #: omweather/src/hash.data:99
 msgid "Isolated T-Storms"
@@ -1190,7 +1194,7 @@ msgstr "Kilomètres"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:173
 msgid "Knots"
-msgstr ""
+msgstr "Noeuds"
 
 #: omweather/src/hash.data:337
 msgid "Language"
@@ -1332,7 +1336,7 @@ msgstr "Pluie légère"
 
 #: omweather/src/hash.data:344
 msgid "Light snow"
-msgstr ""
+msgstr "Neige légère"
 
 #: omweather/src/weather-settings.c:463
 msgid "Loading station list"
@@ -1344,7 +1348,7 @@ msgstr "Bulletin allergo-pollinique"
 
 #: meecast/qt-qml/qml/AboutPage.qml:170
 msgid "Localization platform"
-msgstr ""
+msgstr "Plate-forme de traduction"
 
 #: omweather/src/weather-settings.c:3454
 msgid "Long"
@@ -1360,7 +1364,7 @@ msgstr "Bas"
 
 #: omweather/src/hash.data:356
 msgid "Mainly cloudy with occasional rain."
-msgstr ""
+msgstr "Très nuageux avec quelques précipitations"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
@@ -1710,39 +1714,39 @@ msgstr "Ciel couvert"
 
 #: omweather/src/hash.data:172
 msgid "Overcast and light rain"
-msgstr ""
+msgstr "Couvert et pluie légère"
 
 #: omweather/src/hash.data:173
 msgid "Overcast and light snow"
-msgstr ""
+msgstr "Couvert et neige légère"
 
 #: omweather/src/hash.data:174
 msgid "Overcast and light wet snow"
-msgstr ""
+msgstr "Couvert et neige légère et humide"
 
 #: omweather/src/hash.data:175
 msgid "Overcast and rain"
-msgstr ""
+msgstr "Couvert et pluvieux"
 
 #: omweather/src/hash.data:176
 msgid "Overcast and showers"
-msgstr ""
+msgstr "Couvert avec des averses"
 
 #: omweather/src/hash.data:178
 msgid "Overcast and snow"
-msgstr ""
+msgstr "Couvert et neigeux"
 
 #: omweather/src/hash.data:177
 msgid "Overcast and snow showers"
-msgstr ""
+msgstr "Couvert avec des averses de neige"
 
 #: omweather/src/hash.data:180
 msgid "Overcast and wet snow"
-msgstr ""
+msgstr "Couvert avec de la neige humide"
 
 #: omweather/src/hash.data:179
 msgid "Overcast and wet snow showers"
-msgstr ""
+msgstr "Couvert avec des averses de neige humide"
 
 #: omweather/src/hash.data:348
 msgid "Overcast clouds"
@@ -1750,7 +1754,7 @@ msgstr "Ciel couvert"
 
 #: omweather/src/hash.data:181
 msgid "Overcast, thunderstorms with rain"
-msgstr ""
+msgstr "Couvert, orageux et pluvieux"
 
 #: omweather/src/hash.data:183
 msgid "PM Fog"
@@ -1794,7 +1798,7 @@ msgstr "Averses et vent l'après midi"
 
 #: omweather/src/hash.data:195
 msgid "PM Snow"
-msgstr ""
+msgstr "Neige l'après-midi"
 
 #: omweather/src/hash.data:194
 msgid "PM Snow Showers"
@@ -1814,7 +1818,7 @@ msgstr "Orages l'après-midi"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:206
 msgid "Pa"
-msgstr ""
+msgstr "Pa"
 
 #: omweather/src/hash.data:207
 msgid "Partly Cloudy"
@@ -1843,7 +1847,7 @@ msgstr "Partiellement nuageux, orage"
 
 #: omweather/src/hash.data:204
 msgid "Partly Cloudy and Windly"
-msgstr ""
+msgstr "Partiellement nuageux et venteux"
 
 #: omweather/src/hash.data:205 omweather/src/hash.data:206
 msgid "Partly Cloudy and Windy"
@@ -1899,35 +1903,35 @@ msgstr "Partiellement nuageux, orage"
 
 #: omweather/src/hash.data:227
 msgid "Partly cloudy"
-msgstr ""
+msgstr "Partiellement nuageux"
 
 #: omweather/src/hash.data:220
 msgid "Partly cloudy and light rain"
-msgstr ""
+msgstr "Partiellement nuageux et pluie légère"
 
 #: omweather/src/hash.data:221
 msgid "Partly cloudy and light snow"
-msgstr ""
+msgstr "Partiellement nuageux et neige légère"
 
 #: omweather/src/hash.data:222
 msgid "Partly cloudy and light wet snow"
-msgstr ""
+msgstr "Partiellement nuageux avec de la neige légère et humide"
 
 #: omweather/src/hash.data:223
 msgid "Partly cloudy and showers"
-msgstr ""
+msgstr "Partiellement nuageux et averses"
 
 #: omweather/src/hash.data:224
 msgid "Partly cloudy and snow showers"
-msgstr ""
+msgstr "Partiellement nuageux et averses de neige"
 
 #: omweather/src/hash.data:225
 msgid "Partly cloudy and wet snow showers"
-msgstr ""
+msgstr "Partiellement nuageux avec averses de neige humide"
 
 #: omweather/src/hash.data:198 omweather/src/hash.data:226
 msgid "Partly cloudy, possible thunderstorms with rain"
-msgstr ""
+msgstr "Partiellement nuageux, orages possible avec de la pluie"
 
 #: omweather/src/weather-simple-settings.c:1676
 msgid "Period"
@@ -1974,15 +1978,15 @@ msgstr "Pression : "
 
 #: meecast/qt-qml/qml/AboutPage.qml:154
 msgid "Programmer"
-msgstr ""
+msgstr "Programmeur"
 
 #: meecast/qt-qml/qml/AboutPage.qml:138
 msgid "Project administrators"
-msgstr ""
+msgstr "Administrateurs du projet"
 
 #: meecast/qt-qml/qml/AboutPage.qml:202
 msgid "Project manager"
-msgstr ""
+msgstr "Chef de projet"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:922
 msgid "Provided by"
@@ -2067,7 +2071,7 @@ msgstr "Pluie et vent"
 
 #: omweather/src/hash.data:247
 msgid "Rain to Snow / Wind"
-msgstr ""
+msgstr "Pluie puis neige / vent"
 
 #: omweather/src/hash.data:249
 msgid "Rain to Wintry Mix"
@@ -2083,7 +2087,7 @@ msgstr "Lire le capteur toutes les : "
 
 #: omweather/src/hash.data:366
 msgid "Refresh"
-msgstr ""
+msgstr "Rafraîchir"
 
 #: omweather/src/weather-simple-settings.c:733
 #: omweather/src/weather-simple-settings.c:786
@@ -2206,11 +2210,11 @@ msgstr "Choisir la source"
 
 #: meecast/qt-qml/qml/LockScreen.qml:85
 msgid "Select the X-position for left corner of widget"
-msgstr ""
+msgstr "Sélectionnez la position en X pour le coin gauche du gadget"
 
 #: meecast/qt-qml/qml/LockScreen.qml:125
 msgid "Select the Y-position for left corner of widget"
-msgstr ""
+msgstr "Sélectionnez la position en Y pour le coin gauche du gadget"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:267
 msgid "Select the color of font for current temperature"
@@ -2218,11 +2222,11 @@ msgstr ""
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:123
 msgid "Select the color of font for station name"
-msgstr ""
+msgstr "Sélectionnez la couleur de la police pour le nom de la station"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:195
 msgid "Select the color of font for temperature"
-msgstr ""
+msgstr "Sélectionnez la couleur de la police pour la température"
 
 #: meecast/qt-qml/qml/IconsetPage.qml:97
 msgid "Select the iconset"
@@ -2230,7 +2234,7 @@ msgstr "Choisir les icones"
 
 #: meecast/qt-qml/qml/LanguagesPage.qml:130
 msgid "Select the language"
-msgstr ""
+msgstr "Sélectionnez la langue"
 
 #: meecast/qt-qml/qml/SourcePage.qml:108
 msgid "Select the weather source"
@@ -2277,23 +2281,23 @@ msgstr "Paramètres"
 
 #: meecast/qt-qml/qml/LockScreen.qml:65
 msgid "Settings for Lockscreen widget"
-msgstr ""
+msgstr "Réglages du gadget de verrouillage de l'écran"
 
 #: meecast/qt-qml/qml/StandbyScreen.qml:102
 msgid "Settings for standby widget"
-msgstr ""
+msgstr "Réglages du gadge d'attente"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:534
 msgid "Settings of LockScreen"
-msgstr ""
+msgstr "Réglages de l'écran de verrouillage"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:514
 msgid "Settings of StandbyScreen"
-msgstr ""
+msgstr "Réglages de l'écran d'attente"
 
 #: omweather/src/hash.data:267
 msgid "Shallow Fog"
-msgstr ""
+msgstr "Brouillard léger"
 
 #: omweather/src/weather-settings.c:3465
 msgid "Short"
@@ -2310,15 +2314,15 @@ msgstr "Dernière mise à jour : "
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:621
 msgid "Show on Map"
-msgstr ""
+msgstr "Montrer sur la carte"
 
 #: omweather/src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
-msgstr "Afficher uniquement la météo actuelle sur le premier icône"
+msgstr "Afficher uniquement la météo actuelle sur la première icône"
 
 #: omweather/src/hash.data:364
 msgid "Show source logo"
-msgstr ""
+msgstr "Montrer le logo de la source"
 
 #: omweather/src/weather-settings.c:3801
 msgid "Show station name"
@@ -2366,7 +2370,7 @@ msgstr "Ciel dégagé"
 
 #: omweather/src/hash.data:274
 msgid "Sleet"
-msgstr ""
+msgstr "Neige fondue"
 
 #: omweather/src/hash.data:275
 msgid "Smoke"
@@ -2422,7 +2426,7 @@ msgstr "Source"
 
 #: meecast/qt-qml/qml/AboutPage.qml:325
 msgid "Source code"
-msgstr ""
+msgstr "Code source"
 
 #: omweather/src/weather-settings.c:498
 msgid "Source:"
@@ -2443,7 +2447,7 @@ msgstr "Vitesse :"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:491
 msgid "Splash screen"
-msgstr ""
+msgstr "Page de garde"
 
 #: omweather/src/weather-settings.c:522
 msgid "State:"
@@ -2477,7 +2481,7 @@ msgstr "Ensoleillé / vent"
 
 #: omweather/src/hash.data:354 omweather/src/hash.data:355
 msgid "Sunny periods and a few showers."
-msgstr ""
+msgstr "Des éclaircies avec quelques averses"
 
 #: omweather/src/hash.data:290 meecast/qt-qml/qml/FullWeatherPage.qml:308
 msgid "Sunrise:"
@@ -2497,7 +2501,7 @@ msgstr "Coucher du soleil : "
 
 #: meecast/qt-qml/qml/AboutPage.qml:86
 msgid "Support"
-msgstr ""
+msgstr "Support"
 
 #: omweather/src/weather-settings.c:3773
 msgid "Swap hi/low temperature"
@@ -2565,11 +2569,11 @@ msgstr "La météo a été mise à jour."
 
 #: omweather/src/hash.data:360
 msgid "There are no stations to show in this view of the list"
-msgstr ""
+msgstr "Il n'y a aucune station à montrer dans cette vue de la liste"
 
 #: omweather/src/hash.data:362
 msgid "This is experimental feature. Only English is supported."
-msgstr ""
+msgstr "Ceci est une fonctionnalité expérimentale. Seulement l'anglais est supporté."
 
 #: meecast/qt-qml/qml/AboutPage.qml:312
 msgid ""
@@ -2594,7 +2598,7 @@ msgstr "Orage"
 
 #: omweather/src/hash.data:300
 msgid "Thunder in the Vicinity"
-msgstr ""
+msgstr "Orage dans les environs"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
@@ -2635,7 +2639,7 @@ msgstr "Type de clic :"
 
 #: meecast/qt-qml/qml/FullWeatherPage.qml:180
 msgid "UV index:"
-msgstr ""
+msgstr "Indice UV :"
 
 #: omweather/src/weather-settings.c:1135 omweather/src/weather-settings.c:1334
 #: omweather/src/weather-settings.c:1338
@@ -2674,7 +2678,7 @@ msgstr "Mise à jour déjà en cours."
 
 #: meecast/qt-qml/qml/UpdatePage.qml:122
 msgid "Update interval"
-msgstr ""
+msgstr "Intervalle de mise à jour"
 
 #: omweather/src/hash.data:303 meecast/qt-qml/qml/WeatherPage.qml:360
 msgid "Updating forecast"
@@ -2728,7 +2732,7 @@ msgstr "Éléments visibles :"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:57 meecast/qt-qml/qml/UnitsPage.qml:221
 msgid "Visible units"
-msgstr ""
+msgstr "Unités visibles"
 
 #: omweather/src/weather-popup.c:1288
 #: meecast/qt-qml/qml/FullWeatherPage.qml:177
@@ -2813,15 +2817,15 @@ msgstr "Rechargement du gadget OMWeather"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:437
 msgid "Widget in LockScreen"
-msgstr ""
+msgstr "Gadget sur l'écran de verouillage"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:464
 msgid "Widget in StandbyScreen"
-msgstr ""
+msgstr "Gadget sur l'écran d'attente"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:411
 msgid "Widget in events view"
-msgstr ""
+msgstr "Gadget dans la vue événementielle"
 
 #: omweather/src/weather-simple-settings.c:2914
 #: omweather/src/weather-simple-settings.c:2922
@@ -2840,7 +2844,7 @@ msgstr "Vent"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:203
 #: meecast/qt-qml/qml/FullWeatherPage.qml:258
 msgid "Wind direction"
-msgstr ""
+msgstr "Direction du vent"
 
 #: omweather/src/hash.data:316
 msgid "Wind direction:"
@@ -2919,6 +2923,9 @@ msgid ""
 "'Widget in events view'\n"
 " for using LockScreen widget"
 msgstr ""
+"Vous devriez activer \n"
+"'Le gadget dans la vue événementielle'\n"
+" pour utiliser le gadget sur l'écran de verouillage"
 
 #: meecast/qt-qml/qml/VisualsPage.qml:256
 msgid ""
@@ -2926,12 +2933,17 @@ msgid ""
 "'Widget in events view'\n"
 " for using StandbyScreen widget"
 msgstr ""
+"Vous devriez activer \n"
+"'Gadget dans la vue événementielle'\n"
+" pour utiliser le gadget sur l'écran d'attente"
 
 #: meecast/qt-qml/qml/UpdatePage.qml:73
 msgid ""
 "You should activate 'Widget in the events view' option in MeeCast appearance "
 "settings for auto update."
 msgstr ""
+"Vous devriez activer l'option, 'Gadget dans la vue événementielle' dans le menu apparence de Meecast" 
+"réglages de la mise à jour automatique"
 
 #: omweather/src/weather-simple-settings.c:2758
 msgid "Zoom in popup window "
@@ -2957,11 +2969,11 @@ msgstr "j:"
 
 #: meecast/qt-qml/dataitem.cpp:458
 msgid "day ago"
-msgstr ""
+msgstr "il y a un jour"
 
 #: meecast/qt-qml/dataitem.cpp:460
 msgid "days ago"
-msgstr ""
+msgstr "il y a plusieurs jours"
 
 #: omweather/src/weather-config.c:332
 msgid "every 2 hours"
@@ -3005,11 +3017,11 @@ msgstr "ressentie"
 
 #: meecast/qt-qml/dataitem.cpp:452
 msgid "hour ago"
-msgstr ""
+msgstr "il y a une heure"
 
 #: meecast/qt-qml/dataitem.cpp:455
 msgid "hours ago"
-msgstr ""
+msgstr "il y a plusieurs heures"
 
 #: meecast/qt-qml/qml/AboutPage.qml:334
 msgid "http://github.com/Meecast/meecast"
@@ -3047,7 +3059,7 @@ msgstr "km/s"
 
 #: omweather/src/hash.data:327
 msgid "kn"
-msgstr ""
+msgstr "nd"
 
 #: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1296
 #: omweather/src/weather-simple-settings.c:1328
@@ -3078,7 +3090,7 @@ msgstr "mbar"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:199
 msgid "mbar"
-msgstr ""
+msgstr "mbar"
 
 #: omweather/src/weather-home.c:1589 omweather/src/weather-home.c:1590
 #: omweather/src/weather-popup.c:1298 omweather/src/weather-popup.c:1299
@@ -3101,11 +3113,11 @@ msgstr "mi/s"
 
 #: meecast/qt-qml/dataitem.cpp:446
 msgid "minute ago"
-msgstr ""
+msgstr "il y a une minute"
 
 #: meecast/qt-qml/dataitem.cpp:449
 msgid "minutes ago"
-msgstr ""
+msgstr "il y a plusieurs minutes"
 
 #: omweather/src/weather-popup.c:961 omweather/src/weather-popup.c:1094
 #: omweather/src/weather-simple-settings.c:2727
@@ -3149,7 +3161,7 @@ msgstr "montant"
 
 #: meecast/qt-qml/dataitem.cpp:443
 msgid "seconds ago"
-msgstr ""
+msgstr "il y a quelques secondes"
 
 #: omweather/src/weather-popup.c:271
 msgid "station local time"

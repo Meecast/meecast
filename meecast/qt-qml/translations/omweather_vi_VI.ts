@@ -1222,6 +1222,7 @@ bằng trình quản lý ứng dụng</translation>
  	Mehmet Çilingir,
  Catalan - Agustí Clara,
  Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
@@ -1822,6 +1823,10 @@ Việt Nam- Quý Trọng</translation>
         <message>
             <source>Mostly clear</source>
             <translation>Ít mây, trời quang</translation>
+        </message>
+        <message>
+            <source>Mostly sunny</source>
+            <translation type="unfinished">Ít mây, trời nắng</translation>
         </message>
         <message>
             <source>N</source>
@@ -2454,6 +2459,10 @@ Việt Nam- Quý Trọng</translation>
         <message>
             <source>Provided by</source>
             <translation>Cung cấp bởi</translation>
+        </message>
+        <message>
+            <source>Proximity shower rain</source>
+            <translation type="unfinished">Mưa to</translation>
         </message>
         <message>
             <source>Rain</source>

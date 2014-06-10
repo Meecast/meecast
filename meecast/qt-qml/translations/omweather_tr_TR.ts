@@ -1207,6 +1207,7 @@ paketini kaldırın.</translation>
  	Mehmet Çilingir,
  Catalan - Agustí Clara,
  Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
@@ -1835,6 +1836,10 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Çoğunlukla açık</translation>
         </message>
         <message>
+            <source>Mostly sunny</source>
+            <translation type="unfinished">Çoğunlukla Güneşli</translation>
+        </message>
+        <message>
             <source>N</source>
             <translation>N</translation>
         </message>
@@ -2457,6 +2462,10 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Provided by</source>
             <translation>Sağlayıcı :</translation>
+        </message>
+        <message>
+            <source>Proximity shower rain</source>
+            <translation type="unfinished">Hafif aralıklı sağnak yağmur</translation>
         </message>
         <message>
             <source>Rain</source>
@@ -3253,7 +3262,8 @@ hem 2.1 versiyonu ve hem de (isteginize göre) farklı bir ileriki version olabi
         <message>
             <source>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;
 </source>
-            <translation>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose\n</translation>
+            <translation>Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh; Turkish - Burak Kaan Kose
+</translation>
         </message>
         <message>
             <source>Transparency</source>

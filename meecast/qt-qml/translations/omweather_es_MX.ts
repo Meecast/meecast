@@ -1232,6 +1232,7 @@ el Administrador de Aplicaciones.</translation>
  	Mehmet Çilingir,
  Catalan - Agustí Clara,
  Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
@@ -1840,6 +1841,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Mostly clear</source>
             <translation>Bastante despejado</translation>
+        </message>
+        <message>
+            <source>Mostly sunny</source>
+            <translation type="unfinished">Bastante soleado</translation>
         </message>
         <message>
             <source>N</source>
@@ -2466,6 +2471,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Provided by</source>
             <translation>Provisto por</translation>
+        </message>
+        <message>
+            <source>Proximity shower rain</source>
+            <translation type="unfinished">Lluvia intensa</translation>
         </message>
         <message>
             <source>Rain</source>

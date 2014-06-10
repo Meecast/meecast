@@ -123,23 +123,19 @@ W : </translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Faible)</translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Faible)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Modéré)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Modéré)</translation>
         </message>
         <message>
             <source>1 day</source>
@@ -179,8 +175,7 @@ W : </translation>
         </message>
         <message>
             <source>12 hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>12 heures</translation>
         </message>
         <message>
             <source>15 minutes</source>
@@ -474,12 +469,11 @@ Design de l'interface pour Fremantle : Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Automatically update data when connecting to the Internet</source>
-            <translation>Automatiquement mettre les données à jour lors de la connexion à Internet</translation>
+            <translation>Mettre automatiquement les données à jour lors de la connexion à Internet</translation>
         </message>
         <message>
             <source>Back</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Retour</translation>
         </message>
         <message>
             <source>Background color:</source>
@@ -581,8 +575,7 @@ Design de l'interface pour Fremantle : Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Celsius</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Celsius</translation>
         </message>
         <message>
             <source>City</source>
@@ -622,8 +615,7 @@ Design de l'interface pour Fremantle : Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clear, Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ciel dégagé, brouillard</translation>
         </message>
         <message>
             <source>Clear, Fog, Drizzle</source>
@@ -631,8 +623,7 @@ Design de l'interface pour Fremantle : Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clear, Haze</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ciel dégagé, brume</translation>
         </message>
         <message>
             <source>Clear, Smoke</source>
@@ -672,38 +663,31 @@ Design de l'interface pour Fremantle : Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy and light rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nuageux et pluie légère</translation>
         </message>
         <message>
             <source>Cloudy and light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nuageux et neigeux</translation>
         </message>
         <message>
             <source>Cloudy and light wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nuageux et de la neige humide</translation>
         </message>
         <message>
             <source>Cloudy and showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nuage et averses</translation>
         </message>
         <message>
             <source>Cloudy and snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nuageux et averses de neige</translation>
         </message>
         <message>
             <source>Cloudy and wet snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nuageux et averses de neige humide</translation>
         </message>
         <message>
             <source>Cloudy with occasional rain.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nuageux et pluie occasionnelle</translation>
         </message>
         <message>
             <source>Cloudy, Drifting Snow</source>
@@ -751,8 +735,7 @@ Design de l'interface pour Fremantle : Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nuageux, orages et pluie</translation>
         </message>
         <message>
             <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
@@ -802,8 +785,7 @@ Délai de connexion dépassé.</translation>
         </message>
         <message>
             <source>Daily</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Quotidien</translation>
         </message>
         <message>
             <source>Day</source>
@@ -980,8 +962,7 @@ Brad Jones dit kazrak - pour les tests
         </message>
         <message>
             <source>Enter search</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Entrer la recherche</translation>
         </message>
         <message>
             <source>Error in xml file
@@ -1087,8 +1068,7 @@ Brad Jones dit kazrak - pour les tests
         </message>
         <message>
             <source>Feels like</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Température ressentie</translation>
         </message>
         <message>
             <source>Feels like:</source>
@@ -1100,8 +1080,7 @@ Brad Jones dit kazrak - pour les tests
         </message>
         <message>
             <source>Few Clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Quelques nuages</translation>
         </message>
         <message>
             <source>Few Showers</source>
@@ -1125,8 +1104,7 @@ Brad Jones dit kazrak - pour les tests
         </message>
         <message>
             <source>Few clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Quelques nuages</translation>
         </message>
         <message>
             <source>Find location via GPS</source>
@@ -1194,8 +1172,10 @@ Brad Jones dit kazrak - pour les tests
 you should uninstall package
 'Activating MeeCast Applet'
 using Application manager</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Pour désactiver le gadget Meecast,
+vous devriez désinstaller le paquet
+'Activating MeeCast Applet'
+en utilisant le gestionnaire d'applications</translation>
         </message>
         <message>
             <source>Forecast</source>
@@ -1243,6 +1223,7 @@ using Application manager</source>
  	Mehmet Çilingir,
  Catalan - Agustí Clara,
  Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
@@ -1377,18 +1358,15 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Humidité</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Humidité</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Humidité</translation>
         </message>
         <message>
             <source>Humidity:</source>
@@ -1444,23 +1422,19 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Informations</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Informations</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Informations</translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Informations</translation>
         </message>
         <message>
             <source>Isolated T-Storms</source>
@@ -1481,13 +1455,11 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Knots</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Noeuds</translation>
         </message>
         <message>
             <source>Language</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Langue</translation>
         </message>
         <message>
             <source>Last Quarter</source>
@@ -1643,8 +1615,7 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neige légère</translation>
         </message>
         <message>
             <source>Loading station list</source>
@@ -1656,8 +1627,7 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Localization platform</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Plate-forme de traduction</translation>
         </message>
         <message>
             <source>Long</source>
@@ -1677,8 +1647,7 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mainly cloudy with occasional rain.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Très nuageux avec quelques précipitations</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
@@ -1857,6 +1826,10 @@ Slovaque - Roman Moravčík</translation>
             <source>Mostly clear</source>
             <translation type="unfinished">
             </translation>
+        </message>
+        <message>
+            <source>Mostly sunny</source>
+            <translation type="unfinished">Plutôt ensoleillé</translation>
         </message>
         <message>
             <source>N</source>
@@ -2167,48 +2140,39 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Overcast and light rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Couvert et pluie légère</translation>
         </message>
         <message>
             <source>Overcast and light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Couvert et neige légère</translation>
         </message>
         <message>
             <source>Overcast and light wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Couvert et neige légère et humide</translation>
         </message>
         <message>
             <source>Overcast and rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Couvert et pluvieux</translation>
         </message>
         <message>
             <source>Overcast and showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Couvert avec des averses</translation>
         </message>
         <message>
             <source>Overcast and snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Couvert et neigeux</translation>
         </message>
         <message>
             <source>Overcast and snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Couvert avec des averses de neige</translation>
         </message>
         <message>
             <source>Overcast and wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Couvert avec de la neige humide</translation>
         </message>
         <message>
             <source>Overcast and wet snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Couvert avec des averses de neige humide</translation>
         </message>
         <message>
             <source>Overcast clouds</source>
@@ -2216,8 +2180,7 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Overcast, thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Couvert, orageux et pluvieux</translation>
         </message>
         <message>
             <source>PM Fog</source>
@@ -2261,8 +2224,7 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>PM Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neige l'après-midi</translation>
         </message>
         <message>
             <source>PM Snow Showers</source>
@@ -2282,8 +2244,7 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Pa</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Pa</translation>
         </message>
         <message>
             <source>Partly Cloudy</source>
@@ -2311,8 +2272,7 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Partly Cloudy and Windly</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Partiellement nuageux et venteux</translation>
         </message>
         <message>
             <source>Partly Cloudy and Windy</source>
@@ -2372,48 +2332,39 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Partly cloudy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Partiellement nuageux</translation>
         </message>
         <message>
             <source>Partly cloudy and light rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Partiellement nuageux et pluie légère</translation>
         </message>
         <message>
             <source>Partly cloudy and light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Partiellement nuageux et neige légère</translation>
         </message>
         <message>
             <source>Partly cloudy and light wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Partiellement nuageux avec de la neige légère et humide</translation>
         </message>
         <message>
             <source>Partly cloudy and showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Partiellement nuageux et averses</translation>
         </message>
         <message>
             <source>Partly cloudy and snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Partiellement nuageux et averses de neige</translation>
         </message>
         <message>
             <source>Partly cloudy and wet snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Partiellement nuageux avec averses de neige humide</translation>
         </message>
         <message>
             <source>Partly cloudy, possible thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Partiellement nuageux, orages possible avec de la pluie</translation>
         </message>
         <message>
             <source>Partly cloudy, possible thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Partiellement nuageux, orages possible avec de la pluie</translation>
         </message>
         <message>
             <source>Period</source>
@@ -2496,22 +2447,23 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Programmer</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Programmeur</translation>
         </message>
         <message>
             <source>Project administrators</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Administrateurs du projet</translation>
         </message>
         <message>
             <source>Project manager</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chef de projet</translation>
         </message>
         <message>
             <source>Provided by</source>
             <translation>Fourni par</translation>
+        </message>
+        <message>
+            <source>Proximity shower rain</source>
+            <translation type="unfinished">Averses de pluie fine</translation>
         </message>
         <message>
             <source>Rain</source>
@@ -2591,8 +2543,7 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Pluie puis neige / vent</translation>
         </message>
         <message>
             <source>Rain to Wintry Mix</source>
@@ -2608,8 +2559,7 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Refresh</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rafraîchir</translation>
         </message>
         <message>
             <source>Region</source>
@@ -2777,13 +2727,11 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Select the X-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sélectionnez la position en X pour le coin gauche du gadget</translation>
         </message>
         <message>
             <source>Select the Y-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sélectionnez la position en Y pour le coin gauche du gadget</translation>
         </message>
         <message>
             <source>Select the color of font for current temperature</source>
@@ -2792,13 +2740,11 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Select the color of font for station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sélectionnez la couleur de la police pour le nom de la station</translation>
         </message>
         <message>
             <source>Select the color of font for temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sélectionnez la couleur de la police pour la température</translation>
         </message>
         <message>
             <source>Select the iconset</source>
@@ -2806,8 +2752,7 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Select the language</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sélectionnez la langue</translation>
         </message>
         <message>
             <source>Select the weather source</source>
@@ -2879,28 +2824,23 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Settings for Lockscreen widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Réglages du gadget de verrouillage de l'écran</translation>
         </message>
         <message>
             <source>Settings for standby widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Réglages du gadge d'attente</translation>
         </message>
         <message>
             <source>Settings of LockScreen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Réglages de l'écran de verrouillage</translation>
         </message>
         <message>
             <source>Settings of StandbyScreen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Réglages de l'écran d'attente</translation>
         </message>
         <message>
             <source>Shallow Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Brouillard léger</translation>
         </message>
         <message>
             <source>Short</source>
@@ -2916,17 +2856,15 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Show on Map</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Montrer sur la carte</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
-            <translation>Afficher uniquement la météo actuelle sur le premier icône</translation>
+            <translation>Afficher uniquement la météo actuelle sur la première icône</translation>
         </message>
         <message>
             <source>Show source logo</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Montrer le logo de la source</translation>
         </message>
         <message>
             <source>Show station name</source>
@@ -2974,8 +2912,7 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Sleet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neige fondue</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3031,8 +2968,7 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Source code</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Code source</translation>
         </message>
         <message>
             <source>Source:</source>
@@ -3084,8 +3020,7 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Splash screen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Page de garde</translation>
         </message>
         <message>
             <source>State:</source>
@@ -3129,13 +3064,11 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Sunny periods and a few showers.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Des éclaircies avec quelques averses</translation>
         </message>
         <message>
             <source>Sunny periods and a few showers.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Des éclaircies avec quelques averses</translation>
         </message>
         <message>
             <source>Sunrise:</source>
@@ -3171,8 +3104,7 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Support</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Support</translation>
         </message>
         <message>
             <source>Swap hi/low temperature</source>
@@ -3268,13 +3200,11 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>There are no stations to show in this view of the list</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Il n'y a aucune station à montrer dans cette vue de la liste</translation>
         </message>
         <message>
             <source>This is experimental feature. Only English is supported.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ceci est une fonctionnalité expérimentale. Seulement l'anglais est supporté.</translation>
         </message>
         <message>
             <source>This software is free software; you can
@@ -3299,8 +3229,7 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Thunder in the Vicinity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Orage dans les environs</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3362,8 +3291,7 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>UV index:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Indice UV :</translation>
         </message>
         <message>
             <source>Units</source>
@@ -3463,8 +3391,7 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Update interval</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Intervalle de mise à jour</translation>
         </message>
         <message>
             <source>Updating forecast</source>
@@ -3523,13 +3450,11 @@ pour la météo actuelle :</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Unités visibles</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Unités visibles</translation>
         </message>
         <message>
             <source>Visible:</source>
@@ -3630,18 +3555,15 @@ pour la météo actuelle :</translation>
         </message>
         <message>
             <source>Widget in LockScreen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Gadget sur l'écran de verouillage</translation>
         </message>
         <message>
             <source>Widget in StandbyScreen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Gadget sur l'écran d'attente</translation>
         </message>
         <message>
             <source>Widget in events view</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Gadget dans la vue événementielle</translation>
         </message>
         <message>
             <source>Widget style</source>
@@ -3661,18 +3583,15 @@ pour la météo actuelle :</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Direction du vent</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Direction du vent</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Direction du vent</translation>
         </message>
         <message>
             <source>Wind direction:</source>
@@ -3804,20 +3723,21 @@ ou code postal !!!</translation>
             <source>You should activate 
 'Widget in events view'
  for using LockScreen widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vous devriez activer 
+'Le gadget dans la vue événementielle'
+ pour utiliser le gadget sur l'écran de verouillage</translation>
         </message>
         <message>
             <source>You should activate 
 'Widget in events view'
  for using StandbyScreen widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vous devriez activer 
+'Gadget dans la vue événementielle'
+ pour utiliser le gadget sur l'écran d'attente</translation>
         </message>
         <message>
             <source>You should activate 'Widget in the events view' option in MeeCast appearance settings for auto update.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vous devriez activer l'option, 'Gadget dans la vue événementielle' dans le menu apparence de Meecastréglages de la mise à jour automatique</translation>
         </message>
         <message>
             <source>Zoom in popup window </source>
@@ -3842,13 +3762,11 @@ ou code postal !!!</translation>
         </message>
         <message>
             <source>day ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>il y a un jour</translation>
         </message>
         <message>
             <source>days ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>il y a plusieurs jours</translation>
         </message>
         <message>
             <source>every 2 hours</source>
@@ -3892,13 +3810,11 @@ ou code postal !!!</translation>
         </message>
         <message>
             <source>hour ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>il y a une heure</translation>
         </message>
         <message>
             <source>hours ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>il y a plusieurs heures</translation>
         </message>
         <message>
             <source>http://github.com/Meecast/meecast</source>
@@ -3987,8 +3903,7 @@ ou code postal !!!</translation>
         </message>
         <message>
             <source>kn</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>nd</translation>
         </message>
         <message>
             <source>m</source>
@@ -4072,8 +3987,7 @@ ou code postal !!!</translation>
         </message>
         <message>
             <source>mbar</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mbar</translation>
         </message>
         <message>
             <source>mi</source>
@@ -4129,13 +4043,11 @@ ou code postal !!!</translation>
         </message>
         <message>
             <source>minute ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>il y a une minute</translation>
         </message>
         <message>
             <source>minutes ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>il y a plusieurs minutes</translation>
         </message>
         <message>
             <source>mm</source>
@@ -4219,8 +4131,7 @@ ou code postal !!!</translation>
         </message>
         <message>
             <source>seconds ago</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>il y a quelques secondes</translation>
         </message>
         <message>
             <source>station local time</source>

@@ -1222,6 +1222,7 @@ Programm-Manager deinstallieren.</translation>
  	Mehmet Çilingir,
  Catalan - Agustí Clara,
  Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
@@ -1233,7 +1234,7 @@ Programm-Manager deinstallieren.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation>Französich -  Nicolas Granziano, 
+            <translation type="unfinished">Französich -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
   Russisch - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
@@ -1704,7 +1705,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
-            <translation>MeeCast - hochkonfigurierbarer quelloffener Wettervorhersage-Klient für verschiedene plattforme, basierend auf Code von OMWeather. Copyright (C) 2006-2014</translation>
+            <translation>MeeCast - plattformübergreifende und anpassbare Open-Source-Anwendung zur Wettervorhersage, basierend auf dem Code von OMWeather. Copyright (C) 2006-2014</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -1849,6 +1850,10 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Mostly clear</source>
             <translation>Überwiegend klar</translation>
+        </message>
+        <message>
+            <source>Mostly sunny</source>
+            <translation type="unfinished">Überwiegend sonnig</translation>
         </message>
         <message>
             <source>N</source>
@@ -2473,6 +2478,10 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Provided by</source>
             <translation>Zur Verfügung gestellt durch</translation>
+        </message>
+        <message>
+            <source>Proximity shower rain</source>
+            <translation type="unfinished">Leichte Regenschauer</translation>
         </message>
         <message>
             <source>Rain</source>
@@ -3277,7 +3286,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Transparency</source>
-            <translation type="unfinished">Transparenz:</translation>
+            <translation>Transparenz</translation>
         </message>
         <message>
             <source>Transparency:</source>

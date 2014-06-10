@@ -1221,6 +1221,7 @@ koristeći Menadžer aplikacija</translation>
  	Mehmet Çilingir,
  Catalan - Agustí Clara,
  Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
@@ -1237,7 +1238,8 @@ koristeći Menadžer aplikacija</translation>
  Ruski - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finski - Marko Vertainen
- Nemački -  Claudius Henrichs
+ Nemački -  Claudius Henrichs,
+ 	Jens Klingen
  Italijanski - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1254,7 +1256,7 @@ koristeći Menadžer aplikacija</translation>
  	Mehmet Çilingir,
  Katalonski - Agustí Clara,
  Arapski - Tarad Alfandi,
- Srpski - Aleksandar Zarić,
+ Srpski - Aleksandar Zaric,
  Norveški - Peer-Atle Motland,
  Mađarski - Salmi,
  Slovenački -  Boštjan,
@@ -1849,6 +1851,10 @@ Slovački - Roman Moravčík</translation>
             <translation>Pretežno vedro</translation>
         </message>
         <message>
+            <source>Mostly sunny</source>
+            <translation type="unfinished">Pretežno sunčano</translation>
+        </message>
+        <message>
             <source>N</source>
             <translation>N</translation>
         </message>
@@ -2270,7 +2276,7 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation type="unfinished">Delimično oblačno / Vetar</translation>
+            <translation>Delimično oblačno / Vetrovito</translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
@@ -2473,6 +2479,10 @@ Slovački - Roman Moravčík</translation>
             <translation>Obezbeženo od strane</translation>
         </message>
         <message>
+            <source>Proximity shower rain</source>
+            <translation type="unfinished">Pljusak blagog intenziteta</translation>
+        </message>
+        <message>
             <source>Rain</source>
             <translation>Kiša</translation>
         </message>
@@ -2566,8 +2576,7 @@ Slovački - Roman Moravčík</translation>
         </message>
         <message>
             <source>Refresh</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Osveži</translation>
         </message>
         <message>
             <source>Region</source>
@@ -3275,7 +3284,7 @@ kasnija verzija.</translation>
         </message>
         <message>
             <source>Transparency</source>
-            <translation type="unfinished">Providnost:</translation>
+            <translation>Providnost</translation>
         </message>
         <message>
             <source>Transparency:</source>

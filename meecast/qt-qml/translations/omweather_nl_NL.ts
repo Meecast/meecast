@@ -1221,6 +1221,7 @@ worden.</translation>
  	Mehmet Çilingir,
  Catalan - Agustí Clara,
  Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
@@ -1816,6 +1817,10 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Mostly clear</source>
             <translation>Overwegend Helder</translation>
+        </message>
+        <message>
+            <source>Mostly sunny</source>
+            <translation type="unfinished">Overwegend Zonnig</translation>
         </message>
         <message>
             <source>N</source>
@@ -2440,6 +2445,10 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Provided by</source>
             <translation>Geleverd door</translation>
+        </message>
+        <message>
+            <source>Proximity shower rain</source>
+            <translation type="unfinished">Korte hevige regenbui</translation>
         </message>
         <message>
             <source>Rain</source>

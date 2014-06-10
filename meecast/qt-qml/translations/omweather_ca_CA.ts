@@ -1221,6 +1221,7 @@ utilitzant el Gestor d'aplicacions</translation>
  	Mehmet Çilingir,
  Catalan - Agustí Clara,
  Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
@@ -1232,7 +1233,7 @@ utilitzant el Gestor d'aplicacions</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation>Francès -  Nicolas Granziano, 
+            <translation type="unfinished">Francès -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  Rus - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
@@ -1848,6 +1849,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>Mostly clear</source>
             <translation>Força serè</translation>
+        </message>
+        <message>
+            <source>Mostly sunny</source>
+            <translation type="unfinished">Força sol</translation>
         </message>
         <message>
             <source>N</source>
@@ -2472,6 +2477,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>Provided by</source>
             <translation>Proporcionat per</translation>
+        </message>
+        <message>
+            <source>Proximity shower rain</source>
+            <translation type="unfinished">Ruixats de poca intensitat</translation>
         </message>
         <message>
             <source>Rain</source>
@@ -3274,7 +3283,7 @@ qualsevol versió posterior.</translation>
         </message>
         <message>
             <source>Transparency</source>
-            <translation type="unfinished">Transparència:</translation>
+            <translation>Transparència</translation>
         </message>
         <message>
             <source>Transparency:</source>

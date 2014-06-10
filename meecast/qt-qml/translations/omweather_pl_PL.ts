@@ -1221,6 +1221,7 @@ używając Menedżera aplikacji</translation>
  	Mehmet Çilingir,
  Catalan - Agustí Clara,
  Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
@@ -1836,6 +1837,10 @@ słowacki - Roman Moravčík</translation>
         <message>
             <source>Mostly clear</source>
             <translation>Przeważnie bezchmurnie</translation>
+        </message>
+        <message>
+            <source>Mostly sunny</source>
+            <translation type="unfinished">Głównie słonecznie</translation>
         </message>
         <message>
             <source>N</source>
@@ -2471,6 +2476,10 @@ słowacki - Roman Moravčík</translation>
         <message>
             <source>Provided by</source>
             <translation>Dostarczone przez</translation>
+        </message>
+        <message>
+            <source>Proximity shower rain</source>
+            <translation type="unfinished">Silny deszcz</translation>
         </message>
         <message>
             <source>Rain</source>

@@ -1222,6 +1222,7 @@ sinun tulee poistaa
  	Mehmet Çilingir,
  Catalan - Agustí Clara,
  Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
@@ -1233,7 +1234,7 @@ sinun tulee poistaa
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation>Ranska -  Nicolas Granziano, 
+            <translation type="unfinished">Ranska -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  Venäjä - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
@@ -1849,6 +1850,10 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Mostly clear</source>
             <translation>Enimmäkseen selkeää</translation>
+        </message>
+        <message>
+            <source>Mostly sunny</source>
+            <translation type="unfinished">Enimmäkseen selkeää</translation>
         </message>
         <message>
             <source>N</source>
@@ -2473,6 +2478,10 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Provided by</source>
             <translation>Tuottanut</translation>
+        </message>
+        <message>
+            <source>Proximity shower rain</source>
+            <translation type="unfinished">Kevyitä sadekuuroja</translation>
         </message>
         <message>
             <source>Rain</source>
@@ -3277,7 +3286,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Transparency</source>
-            <translation type="unfinished">Läpinäkyvyys:</translation>
+            <translation>Läpinäkyvä tausta</translation>
         </message>
         <message>
             <source>Transparency:</source>

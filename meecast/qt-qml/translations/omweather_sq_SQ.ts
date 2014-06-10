@@ -1223,6 +1223,7 @@ duke përdorur Application manager</translation>
  	Mehmet Çilingir,
  Catalan - Agustí Clara,
  Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
@@ -1850,6 +1851,10 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>Kryesisht mot i kthjellët</translation>
         </message>
         <message>
+            <source>Mostly sunny</source>
+            <translation type="unfinished">Kryesisht me diell</translation>
+        </message>
+        <message>
             <source>N</source>
             <translation>V</translation>
         </message>
@@ -2472,6 +2477,10 @@ Sllovakisht - Roman Moravčík</translation>
         <message>
             <source>Provided by</source>
             <translation>U mundësua nga</translation>
+        </message>
+        <message>
+            <source>Proximity shower rain</source>
+            <translation type="unfinished">Shira të fortë</translation>
         </message>
         <message>
             <source>Rain</source>

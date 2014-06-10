@@ -1203,6 +1203,7 @@ using Application manager</source>
  	Mehmet Çilingir,
  Catalan - Agustí Clara,
  Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
@@ -1803,6 +1804,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Mostly clear</source>
             <translation>В основном безоблачно</translation>
+        </message>
+        <message>
+            <source>Mostly sunny</source>
+            <translation type="unfinished">В основном солнечно</translation>
         </message>
         <message>
             <source>N</source>
@@ -2433,6 +2438,10 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>Proximity shower rain</source>
+            <translation type="unfinished">Кратковременный легкий дождь</translation>
+        </message>
+        <message>
             <source>Rain</source>
             <translation>Дождь</translation>
         </message>
@@ -2708,8 +2717,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Select the color of font for station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Выберите цвет шрифта для имени станции</translation>
         </message>
         <message>
             <source>Select the color of font for temperature</source>
@@ -3234,7 +3242,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Transparency</source>
-            <translation type="unfinished">Прозрачность:</translation>
+            <translation>Прозрачность</translation>
         </message>
         <message>
             <source>Transparency:</source>

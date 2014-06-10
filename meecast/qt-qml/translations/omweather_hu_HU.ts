@@ -32,26 +32,26 @@ and coloured backgrounds
         <message>
             <source>
 Humidity: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Páratartalom:</translation>
         </message>
         <message>
             <source>
 Humidity: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Páratartalom:</translation>
         </message>
         <message>
             <source>
 Humidity: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Páratartalom:</translation>
         </message>
         <message>
             <source>
 Humidity: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Páratartalom:</translation>
         </message>
         <message>
             <source>
@@ -62,38 +62,38 @@ P: </source>
         <message>
             <source>
 Precipitation: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Előrejelzés:</translation>
         </message>
         <message>
             <source>
 Precipitation: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Előrejelzés:</translation>
         </message>
         <message>
             <source>
 Precipitation: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Előrejelzés:</translation>
         </message>
         <message>
             <source>
 Precipitation: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Előrejelzés:</translation>
         </message>
         <message>
             <source>
 Pressure: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Légnyomás:</translation>
         </message>
         <message>
             <source>
 Pressure: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+Légnyomás:</translation>
         </message>
         <message>
             <source>
@@ -109,23 +109,19 @@ W: </source>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(alacsony)</translation>
         </message>
         <message>
             <source>(Low)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(alacsony)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(mérsékelt)</translation>
         </message>
         <message>
             <source>(Moderate)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(mérsékelt)</translation>
         </message>
         <message>
             <source>1 day</source>
@@ -165,8 +161,7 @@ W: </source>
         </message>
         <message>
             <source>12 hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>12 óra</translation>
         </message>
         <message>
             <source>15 minutes</source>
@@ -242,103 +237,87 @@ W: </source>
         </message>
         <message>
             <source>AM Clouds / PM Sun</source>
-            <translation>De. felhős/Du. napos</translation>
+            <translation>de. felhős / du. napos</translation>
         </message>
         <message>
             <source>AM Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>de. szitáló eső</translation>
         </message>
         <message>
             <source>AM Drizzle / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>de. szitálás / szélfúvás</translation>
         </message>
         <message>
             <source>AM Fog / PM Clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>de. ködös / du. felhős</translation>
         </message>
         <message>
             <source>AM Fog / PM Sun</source>
-            <translation>De. ködös/Du. napos</translation>
+            <translation>de. ködös / du. napos</translation>
         </message>
         <message>
             <source>AM Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>de. könnyű eső</translation>
         </message>
         <message>
             <source>AM Light Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>de. könnyű eső / szeles</translation>
         </message>
         <message>
             <source>AM Light Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>de. könnyű havazás</translation>
         </message>
         <message>
             <source>AM Light Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>de. könnyű havazás / szeles</translation>
         </message>
         <message>
             <source>AM Light Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>de. könnyű havas eső</translation>
         </message>
         <message>
             <source>AM Rain</source>
-            <translation>De. eső</translation>
+            <translation>de. eső</translation>
         </message>
         <message>
             <source>AM Rain / Snow</source>
-            <translation>De. eső/hó</translation>
+            <translation>de. eső / havazás</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>de. eső / hózápor</translation>
         </message>
         <message>
             <source>AM Rain / Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>de. eső / hózápor / szeles</translation>
         </message>
         <message>
             <source>AM Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>de. esős / szeles</translation>
         </message>
         <message>
             <source>AM Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>de. záporok</translation>
         </message>
         <message>
             <source>AM Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>de. záporok / szeles</translation>
         </message>
         <message>
             <source>AM Snow</source>
-            <translation>De. hó</translation>
+            <translation>de. hó</translation>
         </message>
         <message>
             <source>AM Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>de. hózáporok</translation>
         </message>
         <message>
             <source>AM Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>de hózáporok / szeles</translation>
         </message>
         <message>
             <source>AM Snow Showers / Wind Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>de. hózáporok / szeles délután</translation>
         </message>
         <message>
             <source>About</source>
@@ -374,8 +353,7 @@ W: </source>
         </message>
         <message>
             <source>Action|Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Akció|Frissítés</translation>
         </message>
         <message>
             <source>Add</source>
@@ -387,8 +365,7 @@ W: </source>
         </message>
         <message>
             <source>Adjust GPS station</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Válassz GPS állomást</translation>
         </message>
         <message>
             <source>Alerts</source>
@@ -482,38 +459,31 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Beauf.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beauf.</translation>
         </message>
         <message>
             <source>Beaufort scale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beauford skála</translation>
         </message>
         <message>
             <source>Beaufort scale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beauford skála</translation>
         </message>
         <message>
             <source>Beaufort scale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beauford skála</translation>
         </message>
         <message>
             <source>Blowing Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hóvihar</translation>
         </message>
         <message>
             <source>Broken Clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felszakadozó felhőzet</translation>
         </message>
         <message>
             <source>Broken clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felszakadozó felhőzet</translation>
         </message>
         <message>
             <source>C</source>
@@ -576,8 +546,8 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         <message>
             <source>Cannot get path to the HOME directory. Quitting.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nem találom a HOME könyvtárat. Kilépek.
+</translation>
         </message>
         <message>
             <source>Celcius</source>
@@ -621,8 +591,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clear, Drifting Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tiszta, hófúvás</translation>
         </message>
         <message>
             <source>Clear, Fog</source>
@@ -630,18 +599,15 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clear, Fog, Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tiszta, köd, dara</translation>
         </message>
         <message>
             <source>Clear, Haze</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tiszta, párás</translation>
         </message>
         <message>
             <source>Clear, Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tiszta, füst</translation>
         </message>
         <message>
             <source>Close</source>
@@ -649,8 +615,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clouds Early / Clearing Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Később felszakadozó felhőzet</translation>
         </message>
         <message>
             <source>Cloudy</source>
@@ -658,134 +623,109 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős / szeles</translation>
         </message>
         <message>
             <source>Cloudy Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős, elszórtan havazás</translation>
         </message>
         <message>
             <source>Cloudy Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős, könnyű eső</translation>
         </message>
         <message>
             <source>Cloudy T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős vihar</translation>
         </message>
         <message>
             <source>Cloudy and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős és szeles</translation>
         </message>
         <message>
             <source>Cloudy and light rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős és könnyű esős</translation>
         </message>
         <message>
             <source>Cloudy and light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős és könnyű havazás</translation>
         </message>
         <message>
             <source>Cloudy and light wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős és könnyű havas eső</translation>
         </message>
         <message>
             <source>Cloudy and showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős és záporok</translation>
         </message>
         <message>
             <source>Cloudy and snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős és havas esők</translation>
         </message>
         <message>
             <source>Cloudy and wet snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős, havas eső záporok</translation>
         </message>
         <message>
             <source>Cloudy with occasional rain.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős, néhol esővel</translation>
         </message>
         <message>
             <source>Cloudy, Drifting Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős, hófúvás</translation>
         </message>
         <message>
             <source>Cloudy, Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős, elszórtan havazás</translation>
         </message>
         <message>
             <source>Cloudy, Heavy Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős, felhőszakadás</translation>
         </message>
         <message>
             <source>Cloudy, Heavy Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős, felhőszakadás, vihar</translation>
         </message>
         <message>
             <source>Cloudy, Heavy Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős, felhőszakadás</translation>
         </message>
         <message>
             <source>Cloudy, Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős, könnyű eső</translation>
         </message>
         <message>
             <source>Cloudy, Light Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős, könnyű eső, vihar</translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős, eső</translation>
         </message>
         <message>
             <source>Cloudy, Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős, eső, vihar</translation>
         </message>
         <message>
             <source>Cloudy, Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős, füst</translation>
         </message>
         <message>
             <source>Cloudy, Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős, havazás</translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhős és zivataros</translation>
         </message>
         <message>
             <source>Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>A szerzői jogok Vlad Vasilyeu and Pavel Fialko-t illetik (2006-2011),</translation>
         </message>
         <message>
             <source>Copyright(c) 2010-2011 by Tanya Makova
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>A szerzői jogok Tanya Makova-t illetik (2010-2011)
+</translation>
         </message>
         <message>
             <source>Could not connecting to Internet.
@@ -801,13 +741,11 @@ Időtúllépés ideje lejárt.</translation>
         </message>
         <message>
             <source>Couldn't resolve host.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>A host feloldása sikertelen.</translation>
         </message>
         <message>
             <source>Couldn't resolve proxy.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>A proxy feloldása sikertelen.</translation>
         </message>
         <message>
             <source>Country</source>
@@ -827,8 +765,7 @@ Időtúllépés ideje lejárt.</translation>
         </message>
         <message>
             <source>Daily</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Naponta</translation>
         </message>
         <message>
             <source>Day</source>
@@ -890,8 +827,7 @@ Időtúllépés ideje lejárt.</translation>
         </message>
         <message>
             <source>Distance units:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Távolság mértékegységek:</translation>
         </message>
         <message>
             <source>Does not to add station, because no one
@@ -921,38 +857,31 @@ of 'omweather-*-stations-db' packages was installed.</source>
         </message>
         <message>
             <source>Drifting Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hófúvás</translation>
         </message>
         <message>
             <source>Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szitáló eső</translation>
         </message>
         <message>
             <source>Drizzle / Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szitáló eső / köd</translation>
         </message>
         <message>
             <source>Drizzle / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szitáló eső / szél</translation>
         </message>
         <message>
             <source>Drizzle Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Délelőtt szitálás</translation>
         </message>
         <message>
             <source>Drizzle Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Délután szitálás</translation>
         </message>
         <message>
             <source>E</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>K</translation>
         </message>
         <message>
             <source>ENE</source>
@@ -961,23 +890,19 @@ of 'omweather-*-stations-db' packages was installed.</source>
         </message>
         <message>
             <source>ENE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>K</translation>
         </message>
         <message>
             <source>ESE</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>K-DK</translation>
         </message>
         <message>
             <source>ESE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>K-DK</translation>
         </message>
         <message>
             <source>E_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>K</translation>
         </message>
         <message>
             <source>Ed Bartosh - for more feature requests, support and criticism
@@ -1018,8 +943,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Error initializing the OMWeather applet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hiba az OMWeather applet indításakor.</translation>
         </message>
         <message>
             <source>Exit</source>
@@ -1035,8 +959,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Extreme</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Extrém</translation>
         </message>
         <message>
             <source>F</source>
@@ -1097,69 +1020,59 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Failed to connect to host or proxy.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sikertelen csatlakozás a kiszolgálóhoz, proxyhoz.</translation>
         </message>
         <message>
             <source>Failed to initialize GConf. Quitting.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>A GConf sikertelen indítása. Kilépés.
+</translation>
         </message>
         <message>
             <source>Failed to initialize GConf. Settings were not saved.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>A GConf sikertelen indítása. A beállítások nem lettek elmentve.
+</translation>
         </message>
         <message>
             <source>Fair</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kedvező</translation>
         </message>
         <message>
             <source>Feels like</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőérzet</translation>
         </message>
         <message>
             <source>Feels like:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőérzet:</translation>
         </message>
         <message>
             <source>Feels like:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőérzet:</translation>
         </message>
         <message>
             <source>Few Clouds</source>
-            <translation>Néhány felhő</translation>
+            <translation>Kissé felhős</translation>
         </message>
         <message>
             <source>Few Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szorványos záporok</translation>
         </message>
         <message>
             <source>Few Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szorványos záporok / szél</translation>
         </message>
         <message>
             <source>Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Elszórtan havazás</translation>
         </message>
         <message>
             <source>Few Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Elszórtan hózáporok</translation>
         </message>
         <message>
             <source>Few Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Elszórtan hózáporok / szél</translation>
         </message>
         <message>
             <source>Few clouds</source>
@@ -1177,23 +1090,19 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>First Quarter</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Első negyed</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőérzet</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőérzet</translation>
         </message>
         <message>
             <source>Flike</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hőérzet</translation>
         </message>
         <message>
             <source>Fog</source>
@@ -1201,18 +1110,15 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Fog Early / Clouds Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Délelőtt ködös, délután felhős</translation>
         </message>
         <message>
             <source>Fog Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Délután ködös</translation>
         </message>
         <message>
             <source>Fog early / Clearing late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Délelőtt ködös, majd kitisztul</translation>
         </message>
         <message>
             <source>Foggy</source>
@@ -1244,24 +1150,21 @@ using Application manager</source>
         </message>
         <message>
             <source>Forecast at: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Előrejelzés:</translation>
         </message>
         <message>
             <source>Forecast at: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Előrejelzés:</translation>
         </message>
         <message>
             <source>Forecast: 
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Előrejelzés:
+</translation>
         </message>
         <message>
             <source>Freezing Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szitáló jégeső</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
@@ -1287,6 +1190,7 @@ using Application manager</source>
  	Mehmet Çilingir,
  Catalan - Agustí Clara,
  Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
@@ -1298,37 +1202,8 @@ using Application manager</source>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Francia -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
- Orosz - Pavel Fialko, Vlad Vasiliev, 
- 	Ed Bartosh
- Finn - Marko Vertainen
- Német -  Claudius Henrichs
- Olasz - Lorenzo Facca,
- 	Pavel Fialko, Alessandro Pasotti,
- 	Salvatore Fiorenzo, Ilir Gjika,
- 	Luca Onnis
- Spanyol - Alejandro Lopez, Agustí Clara
- Lengyel - Tomasz Dominikowski
- Szlovák - Roman Moravčík
- Holland - Tom Leenders, Michiel Pater
- Bolgár - Zlatko Enikov
- Albán - Ilir Gjika
- Kínai - Wong Man Kong, Michael
- Portugál - Jose Narciso,
- Török - Burak Kaan Kose,
- 	Mehmet Çilingir,
- Katalán - Agustí Clara,
- Arab - Tarad Alfandi,
- Szerb - Aleksandar Zaric,
- Norvég - Peer-Atle Motland,
- Magyar - Salmi,
- Kínai (Taiwan) - osk2, 
- Vietnam - Hieu Nguyen
- 	Anh Dương and truongnx, 
- Svéd - Angela Nennebrandt,
- 	Niklas Åkerström, 
- 	Tomislav Veleckovik</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1405,38 +1280,31 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Haze</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Pára</translation>
         </message>
         <message>
             <source>Heavy Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kiadós eső</translation>
         </message>
         <message>
             <source>Heavy Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kiadós eső / szél</translation>
         </message>
         <message>
             <source>Heavy Rain Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhőszakadás</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kiadós havazás</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kiadós havazás / szél</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felhőszakadás</translation>
         </message>
         <message>
             <source>High</source>
@@ -1444,48 +1312,39 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Hourly</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Óránként</translation>
         </message>
         <message>
             <source>Hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Órák</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Páratartalom</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Páratartalom</translation>
         </message>
         <message>
             <source>Humidity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Páratartalom</translation>
         </message>
         <message>
             <source>Humidity:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Páratartalom:</translation>
         </message>
         <message>
             <source>Humidity:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Páratartalom:</translation>
         </message>
         <message>
             <source>Humidity:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Páratartalom:</translation>
         </message>
         <message>
             <source>Humidity:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Páratartalom:</translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1541,13 +1400,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Isolated T-Storms</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Viharok többfelé</translation>
         </message>
         <message>
             <source>Isolated T-Storms / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Viharok többfelé / szél</translation>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
@@ -1556,8 +1413,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Kilometers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kilóméter</translation>
         </message>
         <message>
             <source>Knots</source>
@@ -1569,23 +1425,19 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Last Quarter</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Utolsó negyed</translation>
         </message>
         <message>
             <source>Last update at server: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Utolsó frissítés a szerveren:</translation>
         </message>
         <message>
             <source>Last update from server: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Utolsó frissítés a szerverről:</translation>
         </message>
         <message>
             <source>Last update from server: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Utolsó frissítés a szerverről:</translation>
         </message>
         <message>
             <source>Last update:</source>
@@ -1609,8 +1461,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Lawn and Garden Weather</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Park és kert időjárás</translation>
         </message>
         <message>
             <source>Layout:</source>
@@ -1622,7 +1473,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation type="unfinished">Főtervező</translation>
+            <translation>Vezető tervezők</translation>
         </message>
         <message>
             <source>License</source>
@@ -1630,158 +1481,127 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Light Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Könnyű szitáló eső</translation>
         </message>
         <message>
             <source>Light Freezing Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Könnyű fagyos szitálás</translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Könnyű jégeső</translation>
         </message>
         <message>
             <source>Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Könnyű eső</translation>
         </message>
         <message>
             <source>Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Könnyű eső</translation>
         </message>
         <message>
             <source>Light Rain / Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Könnyű eső / köd</translation>
         </message>
         <message>
             <source>Light Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Könnyű eső / szél</translation>
         </message>
         <message>
             <source>Light Rain / Wind Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Záporok / délután szeles</translation>
         </message>
         <message>
             <source>Light Rain Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Reggeli záporok</translation>
         </message>
         <message>
             <source>Light Rain Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kisebb esőzés délután</translation>
         </message>
         <message>
             <source>Light Rain Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Könnyű zápor</translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Könnyű eső és jégeső</translation>
         </message>
         <message>
             <source>Light Rain and Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Könnyű eső és zápor</translation>
         </message>
         <message>
             <source>Light Rain and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kisebb záporok, szeles</translation>
         </message>
         <message>
             <source>Light Rain with Thunder</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kisebb zivatarok</translation>
         </message>
         <message>
             <source>Light Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hószállingózás</translation>
         </message>
         <message>
             <source>Light Snow / Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hószállingózás / köd</translation>
         </message>
         <message>
             <source>Light Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hószállingózás / szél</translation>
         </message>
         <message>
             <source>Light Snow Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Délelőtt hószállingózás</translation>
         </message>
         <message>
             <source>Light Snow Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Délután hószállingózás</translation>
         </message>
         <message>
             <source>Light Snow Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Könnyű hózápor</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Enyhe szitálás</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Enyhe zápor</translation>
         </message>
         <message>
             <source>Light rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Könnyű eső</translation>
         </message>
         <message>
             <source>Light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hószállingózás</translation>
         </message>
         <message>
             <source>Loading station list</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Állomáslista betöltése</translation>
         </message>
         <message>
             <source>Local Pollen Reports</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyi pollen jelentés</translation>
         </message>
         <message>
             <source>Localization platform</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nyelvi platform</translation>
         </message>
         <message>
             <source>Long</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hosszú</translation>
         </message>
         <message>
             <source>Looks like there's no info for this location.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Úgy tűnik nincs információ az állomáshoz.</translation>
         </message>
         <message>
             <source>Looks like there's no info for this location.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Úgy tűnik nincs információ az állomáshoz.</translation>
         </message>
         <message>
             <source>Low</source>
@@ -1789,14 +1609,13 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Mainly cloudy with occasional rain.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Túlnyomóan borult ég, elszórtan esőzés</translation>
         </message>
         <message>
             <source>Maintenance: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Karbantartók: Pavel Fialko, &lt;pavelnf@gmail.com&gt;, Tanya Makova, &lt;tanyshk@gmail.com&gt;
+</translation>
         </message>
         <message>
             <source>Manage locations</source>
@@ -1837,18 +1656,15 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Mist</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Köd</translation>
         </message>
         <message>
             <source>Moderate Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Közepesen erős esőzés</translation>
         </message>
         <message>
             <source>Moderate rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Közepesen erős esőzés</translation>
         </message>
         <message>
             <source>Modification</source>
@@ -1856,268 +1672,219 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Mostly Clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire derült</translation>
         </message>
         <message>
             <source>Mostly Cloudy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős</translation>
         </message>
         <message>
             <source>Mostly Cloudy / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős / szél</translation>
         </message>
         <message>
             <source>Mostly Cloudy Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, kevés havazás</translation>
         </message>
         <message>
             <source>Mostly Cloudy Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, könnyű esők</translation>
         </message>
         <message>
             <source>Mostly Cloudy Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, eső</translation>
         </message>
         <message>
             <source>Mostly Cloudy Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, havazás</translation>
         </message>
         <message>
             <source>Mostly Cloudy T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, viharok</translation>
         </message>
         <message>
             <source>Mostly Cloudy and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős és szeles</translation>
         </message>
         <message>
             <source>Mostly Cloudy and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős és szeles</translation>
         </message>
         <message>
             <source>Mostly Cloudy and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős és szeles</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Drifting Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, hófúvások</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, kevés havazás</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, köd</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Fog, Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, köd, szitálás</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, felhőszakadás</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, helhőszakadás, vihar</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, erős havazás</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Heavy Snow, Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, erős havazás, jégeső</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, könnyű eső</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Drizzle</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, könnyű eső, szitálás</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, könnyű eső, vihar</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, esős</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, eső, vihar</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, füst</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, havazás</translation>
         </message>
         <message>
             <source>Mostly Cloudy, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire felhős, vihar</translation>
         </message>
         <message>
             <source>Mostly Sunny</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire napos</translation>
         </message>
         <message>
             <source>Mostly clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Többnyire derült</translation>
+        </message>
+        <message>
+            <source>Mostly sunny</source>
+            <translation type="unfinished">Többnyire napos</translation>
         </message>
         <message>
             <source>N</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>É</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nem elérhető</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nem elérhető</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nem elérhető</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nem elérhető</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nem elérhető</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nem elérhető</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nem elérhető</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nem elérhető</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nem elérhető</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nem elérhető</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nem elérhető</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nem elérhető</translation>
         </message>
         <message>
             <source>N/A</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nem elérhető</translation>
         </message>
         <message>
             <source>NE</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ÉK</translation>
         </message>
         <message>
             <source>NE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ÉK</translation>
         </message>
         <message>
             <source>NNE</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>É-ÉK</translation>
         </message>
         <message>
             <source>NNE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>É-ÉK</translation>
         </message>
         <message>
             <source>NNW</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>É-ÉNY</translation>
         </message>
         <message>
             <source>NNW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>É-ÉNY</translation>
         </message>
         <message>
             <source>NO STATION</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NINCS ÁLLOMÁS</translation>
         </message>
         <message>
             <source>NW</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ÉNY</translation>
         </message>
         <message>
             <source>NW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ÉNY</translation>
         </message>
         <message>
             <source>N_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>É</translation>
         </message>
         <message>
             <source>Name:</source>
@@ -2161,18 +1928,15 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Night</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Éjjel</translation>
         </message>
         <message>
             <source>Night</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Éjjel</translation>
         </message>
         <message>
             <source>Night:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nappal</translation>
         </message>
         <message>
             <source>No</source>
@@ -2184,8 +1948,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>No current weather data.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nincs friss időjárás adat.</translation>
         </message>
         <message>
             <source>No locations are set up yet.</source>
@@ -2201,13 +1964,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>No weather data for this station.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nincs időjárás adat az állomásról.</translation>
         </message>
         <message>
             <source>No weather data for this station.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nincs időjárás adat az állomásról.</translation>
         </message>
         <message>
             <source>Now</source>
@@ -2255,23 +2016,19 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Now + 2 days vert.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>2 napos függőleges</translation>
         </message>
         <message>
             <source>Now + 3 days hor.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>3 napos vízszintes</translation>
         </message>
         <message>
             <source>Now + 3 days vert.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>3 napos függőleges</translation>
         </message>
         <message>
             <source>Now + 7 days vert.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>7 napos függőleges</translation>
         </message>
         <message>
             <source>Now: </source>
@@ -2291,28 +2048,23 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>OMWeather Forecast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather előrejelzés</translation>
         </message>
         <message>
             <source>OMWeather Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather beállítások</translation>
         </message>
         <message>
             <source>OMWeather Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather beállítások</translation>
         </message>
         <message>
             <source>OMWeather settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather beállítások</translation>
         </message>
         <message>
             <source>OMWeather settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather beállítások</translation>
         </message>
         <message>
             <source>Ok</source>
@@ -2336,143 +2088,115 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Overcast</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Borús</translation>
         </message>
         <message>
             <source>Overcast Clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Borús</translation>
         </message>
         <message>
             <source>Overcast and light rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Borús és esős</translation>
         </message>
         <message>
             <source>Overcast and light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Borús és könnyű esők</translation>
         </message>
         <message>
             <source>Overcast and light wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Borús és könnyű havas eső</translation>
         </message>
         <message>
             <source>Overcast and rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Borús és esős</translation>
         </message>
         <message>
             <source>Overcast and showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Borús és záporok</translation>
         </message>
         <message>
             <source>Overcast and snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Borús és havazás</translation>
         </message>
         <message>
             <source>Overcast and snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Borús és hózáporok</translation>
         </message>
         <message>
             <source>Overcast and wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Borús és havas eső</translation>
         </message>
         <message>
             <source>Overcast and wet snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Borús és havas eső záporok</translation>
         </message>
         <message>
             <source>Overcast clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Borús</translation>
         </message>
         <message>
             <source>Overcast, thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Borús és zivataros</translation>
         </message>
         <message>
             <source>PM Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>du. köd</translation>
         </message>
         <message>
             <source>PM Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>du. könnyű eső</translation>
         </message>
         <message>
             <source>PM Light Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>du. könnyű eső / szél</translation>
         </message>
         <message>
             <source>PM Light Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>du. hószállingózás</translation>
         </message>
         <message>
             <source>PM Light Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>du. könnyű havazás / szél</translation>
         </message>
         <message>
             <source>PM Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>du. eső</translation>
         </message>
         <message>
             <source>PM Rain / Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>du. eső / havazás</translation>
         </message>
         <message>
             <source>PM Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>du. eső / szél</translation>
         </message>
         <message>
             <source>PM Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>du. záporok</translation>
         </message>
         <message>
             <source>PM Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>du. záporok / szél</translation>
         </message>
         <message>
             <source>PM Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>du. havazás</translation>
         </message>
         <message>
             <source>PM Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>du. hózáporok</translation>
         </message>
         <message>
             <source>PM Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>du. hózáporok / szél</translation>
         </message>
         <message>
             <source>PM T-Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>du. zivatarok</translation>
         </message>
         <message>
             <source>PM T-Storms</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>du. viharok</translation>
         </message>
         <message>
             <source>Pa</source>
@@ -2480,158 +2204,127 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Partly Cloudy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős</translation>
         </message>
         <message>
             <source>Partly Cloudy / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős / szél</translation>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős / szél</translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, kevés hóval</translation>
         </message>
         <message>
             <source>Partly Cloudy Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, enyhe esővel</translation>
         </message>
         <message>
             <source>Partly Cloudy T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, viharos</translation>
         </message>
         <message>
             <source>Partly Cloudy and Windly</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős és szeles</translation>
         </message>
         <message>
             <source>Partly Cloudy and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős és szeles</translation>
         </message>
         <message>
             <source>Partly Cloudy and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős és szeles</translation>
         </message>
         <message>
             <source>Partly Cloudy, Few Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, kevés hóval</translation>
         </message>
         <message>
             <source>Partly Cloudy, Haze</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, párás</translation>
         </message>
         <message>
             <source>Partly Cloudy, Heavy Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, felhőszakadással</translation>
         </message>
         <message>
             <source>Partly Cloudy, Heavy Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, kiadós esők, viharok</translation>
         </message>
         <message>
             <source>Partly Cloudy, Heavy Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, kiadós havazás</translation>
         </message>
         <message>
             <source>Partly Cloudy, Light Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, könnyű esővel</translation>
         </message>
         <message>
             <source>Partly Cloudy, Light Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, könnyű eső, záporok</translation>
         </message>
         <message>
             <source>Partly Cloudy, Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, esős</translation>
         </message>
         <message>
             <source>Partly Cloudy, Rain, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, esős, záporos</translation>
         </message>
         <message>
             <source>Partly Cloudy, Smoke</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, füst</translation>
         </message>
         <message>
             <source>Partly Cloudy, Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, havazás</translation>
         </message>
         <message>
             <source>Partly Cloudy, T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, zivatarok</translation>
         </message>
         <message>
             <source>Partly cloudy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős</translation>
         </message>
         <message>
             <source>Partly cloudy and light rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, kevés esővel</translation>
         </message>
         <message>
             <source>Partly cloudy and light snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, kevés havazással</translation>
         </message>
         <message>
             <source>Partly cloudy and light wet snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, kevés havas esővel</translation>
         </message>
         <message>
             <source>Partly cloudy and showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, záporokkal</translation>
         </message>
         <message>
             <source>Partly cloudy and snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, hózáporokkal</translation>
         </message>
         <message>
             <source>Partly cloudy and wet snow showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Helyenként felhős, havas eső záporokkal</translation>
         </message>
         <message>
             <source>Partly cloudy, possible thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Elszórtan felhős, néhol záporokkal</translation>
         </message>
         <message>
             <source>Partly cloudy, possible thunderstorms with rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Elszórtan felhős, néhol záporokkal</translation>
         </message>
         <message>
             <source>Period</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Időszak</translation>
         </message>
         <message>
             <source>Position:</source>
@@ -2664,63 +2357,51 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Pressure</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Légnyomás</translation>
         </message>
         <message>
             <source>Pressure units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Légnyomás m.e.</translation>
         </message>
         <message>
             <source>Pressure units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Légnyomás m.e.</translation>
         </message>
         <message>
             <source>Pressure units:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Légnyomás mértékegységek:</translation>
         </message>
         <message>
             <source>Pressure:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Légnyomás:</translation>
         </message>
         <message>
             <source>Pressure:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Légnyomás:</translation>
         </message>
         <message>
             <source>Pressure:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Légnyomás:</translation>
         </message>
         <message>
             <source>Pressure:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Légnyomás:</translation>
         </message>
         <message>
             <source>Pressure:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Légnyomás:</translation>
         </message>
         <message>
             <source>Pressure:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Légnyomás:</translation>
         </message>
         <message>
             <source>Pressure: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Légnyomás:</translation>
         </message>
         <message>
             <source>Pressure: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Légnyomás:</translation>
         </message>
         <message>
             <source>Programmer</source>
@@ -2736,8 +2417,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Provided by</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Elérhetővé tette:</translation>
+        </message>
+        <message>
+            <source>Proximity shower rain</source>
+            <translation type="unfinished">Enyhe zápor</translation>
         </message>
         <message>
             <source>Rain</source>
@@ -2745,117 +2429,95 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain / Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eső / jégeső</translation>
         </message>
         <message>
             <source>Rain / Snow</source>
-            <translation>Eső/hó</translation>
+            <translation>Eső / hó</translation>
         </message>
         <message>
             <source>Rain / Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eső / hó / szél</translation>
         </message>
         <message>
             <source>Rain / Snow Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eső / délelőtti havazás</translation>
         </message>
         <message>
             <source>Rain / Snow Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eső / délutáni havazás</translation>
         </message>
         <message>
             <source>Rain / Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eső / hózáporok</translation>
         </message>
         <message>
             <source>Rain / Snow Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eső / hózáporok / szél</translation>
         </message>
         <message>
             <source>Rain / Snow Showers Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eső / délutáni hózáporok</translation>
         </message>
         <message>
             <source>Rain / Thunder</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eső / mennydörgés</translation>
         </message>
         <message>
             <source>Rain / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eső / szél</translation>
         </message>
         <message>
             <source>Rain / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eső / délelőtt szeles</translation>
         </message>
         <message>
             <source>Rain Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Délelőtti esők</translation>
         </message>
         <message>
             <source>Rain Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Délutáni esők</translation>
         </message>
         <message>
             <source>Rain Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zápor</translation>
         </message>
         <message>
             <source>Rain Shower and Windy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zápor és szél</translation>
         </message>
         <message>
             <source>Rain Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Záporok</translation>
         </message>
         <message>
             <source>Rain and Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eső és hó</translation>
         </message>
         <message>
             <source>Rain and Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eső és hó</translation>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eső, hó / szél</translation>
         </message>
         <message>
             <source>Rain to Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eső, havas eső</translation>
         </message>
         <message>
             <source>Rain to Wintry Mix / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Eső, havas eső / szél</translation>
         </message>
         <message>
             <source>Read sensor every:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Érzékelő olvasása minden:</translation>
         </message>
         <message>
             <source>Refresh</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Frissít</translation>
         </message>
         <message>
             <source>Region</source>
@@ -2871,58 +2533,47 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rush Hour Traffic</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Csúcsidő forgalom</translation>
         </message>
         <message>
             <source>S</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>D</translation>
         </message>
         <message>
             <source>SE</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>DK</translation>
         </message>
         <message>
             <source>SE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>DK</translation>
         </message>
         <message>
             <source>SSE</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>D-DK</translation>
         </message>
         <message>
             <source>SSE_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>D-DK</translation>
         </message>
         <message>
             <source>SSW</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>D-DNY</translation>
         </message>
         <message>
             <source>SSW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>D-DNY</translation>
         </message>
         <message>
             <source>SW</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>DNY</translation>
         </message>
         <message>
             <source>SW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>DNY</translation>
         </message>
         <message>
             <source>S_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>D</translation>
         </message>
         <message>
             <source>Save</source>
@@ -2954,33 +2605,27 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Scattered Clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felszakadozó felhőzet</translation>
         </message>
         <message>
             <source>Scattered Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szórványos záporok</translation>
         </message>
         <message>
             <source>Scattered Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szórványos havazás</translation>
         </message>
         <message>
             <source>Scattered Snow Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szorványos hózáporok</translation>
         </message>
         <message>
             <source>Scattered T-Storms</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szórványos zivatarok</translation>
         </message>
         <message>
             <source>Scattered clouds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Felszakadozó felhőzet</translation>
         </message>
         <message>
             <source>Sea miles</source>
@@ -3040,28 +2685,23 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Select the X-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Válaszd ki az X pozícióját a widget bal sarkához</translation>
         </message>
         <message>
             <source>Select the Y-position for left corner of widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Válaszd ki az Y pozícióját a widget bal sarkához</translation>
         </message>
         <message>
             <source>Select the color of font for current temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Válaszd ki a betű színét a jelenlegi hőmérsékletnek</translation>
         </message>
         <message>
             <source>Select the color of font for station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Válaszd ki a betű színét az állomás nevének</translation>
         </message>
         <message>
             <source>Select the color of font for temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Válaszd ki a betű színét a hőmérsékletnek</translation>
         </message>
         <message>
             <source>Select the iconset</source>
@@ -3109,8 +2749,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Set</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beállít</translation>
         </message>
         <message>
             <source>Set locations</source>
@@ -3142,28 +2781,23 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Settings for Lockscreen widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>A nyitó képernyő beállítása</translation>
         </message>
         <message>
             <source>Settings for standby widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>A készenléti képernyő beállítása</translation>
         </message>
         <message>
             <source>Settings of LockScreen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>A nyitó képernyő beállítása</translation>
         </message>
         <message>
             <source>Settings of StandbyScreen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>A készenléti képernyő beállítása</translation>
         </message>
         <message>
             <source>Shallow Fog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ködfátyol</translation>
         </message>
         <message>
             <source>Short</source>
@@ -3175,12 +2809,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Show last update time</source>
-            <translation type="unfinished">Utolsó frissítés:</translation>
+            <translation>Mutasd az utolsó frissítés idejét.</translation>
         </message>
         <message>
             <source>Show on Map</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mutasd a térképen</translation>
         </message>
         <message>
             <source>Show only current weather on first icon</source>
@@ -3188,8 +2821,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Show source logo</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mutasd a forrás logóját</translation>
         </message>
         <message>
             <source>Show station name</source>
@@ -3197,48 +2829,39 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Show temperature at:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mutasd a hőmérsékletet ha:</translation>
         </message>
         <message>
             <source>Show wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mutasd a szelet</translation>
         </message>
         <message>
             <source>Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Záporok</translation>
         </message>
         <message>
             <source>Showers / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Záporok / szél</translation>
         </message>
         <message>
             <source>Showers / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Záporok / délelőtt szeles</translation>
         </message>
         <message>
             <source>Showers Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Délelőtti záporok</translation>
         </message>
         <message>
             <source>Showers Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Délutáni záporok</translation>
         </message>
         <message>
             <source>Showers in the Vicinity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Záporok a környéken</translation>
         </message>
         <message>
             <source>Sky is Clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Az ég tisza</translation>
         </message>
         <message>
             <source>Sky is clear</source>
@@ -3246,8 +2869,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Sleet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ólmos eső, dara</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3263,48 +2885,39 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Snow Shower</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tartós havazás</translation>
         </message>
         <message>
             <source>Snow Shower / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tartós havazás / szél</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tartós havazás / délelőtt szeles</translation>
         </message>
         <message>
             <source>Snow Showers Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Délelőtt tartós havazás</translation>
         </message>
         <message>
             <source>Snow Showers Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Délután tartós havazás</translation>
         </message>
         <message>
             <source>Snow and Freezing Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hó és jégeső</translation>
         </message>
         <message>
             <source>Snow to Rain</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hó és eső</translation>
         </message>
         <message>
             <source>Snow to Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hó és havas eső</translation>
         </message>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hó és havas eső / szél</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3364,13 +2977,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Splash screen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nyitó képernyő</translation>
         </message>
         <message>
             <source>State:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Állam:</translation>
         </message>
         <message>
             <source>Station %i</source>
@@ -3406,7 +3017,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Sunny / Wind</source>
-            <translation>Napos/szél</translation>
+            <translation>Napos / szeles</translation>
         </message>
         <message>
             <source>Sunny periods and a few showers.</source>
@@ -3456,43 +3067,35 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Swap hi/low temperature</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alacsony/magas hőmérséklet felcserélése</translation>
         </message>
         <message>
             <source>Switch to the next station after:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Válts a következő állomásra, ha:</translation>
         </message>
         <message>
             <source>T-Showers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Záporok</translation>
         </message>
         <message>
             <source>T-Showers Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Délelőtt záporok</translation>
         </message>
         <message>
             <source>T-Storm</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zivatar</translation>
         </message>
         <message>
             <source>T-Storms</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tivatarok</translation>
         </message>
         <message>
             <source>T-Storms Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Délelőtt zivatarok</translation>
         </message>
         <message>
             <source>T-Storms Late</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Délután zivatarok</translation>
         </message>
         <message>
             <source>Temperature</source>
@@ -3556,8 +3159,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>There are no stations to show in this view of the list</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ebben a nézetben nem láthatók állomások</translation>
         </message>
         <message>
             <source>This is experimental feature. Only English is supported.</source>
@@ -3582,13 +3184,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Thunder</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mennydörgés</translation>
         </message>
         <message>
             <source>Thunder in the Vicinity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zivatar a közelven</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3622,7 +3222,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Transparency</source>
-            <translation type="unfinished">Áttetszőség:</translation>
+            <translation>Átlátszóság</translation>
         </message>
         <message>
             <source>Transparency:</source>
@@ -3638,13 +3238,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Try to update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kísérlet a frissítésre</translation>
         </message>
         <message>
             <source>Try to update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kísérlet a frissítésre</translation>
         </message>
         <message>
             <source>Type of click:</source>
@@ -3656,23 +3254,23 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Units</source>
-            <translation>Egység</translation>
+            <translation>Mértékegység</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation>Egység</translation>
+            <translation>Mértékegység</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation>Egység</translation>
+            <translation>Mértékegység</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation>Egység</translation>
+            <translation>Mértékegység</translation>
         </message>
         <message>
             <source>Units</source>
-            <translation>Egység</translation>
+            <translation>Mértékegység</translation>
         </message>
         <message>
             <source>Unknown</source>
@@ -3748,7 +3346,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Update already running.</source>
-            <translation>Frissítés már folyik</translation>
+            <translation>Frissítés folyamatban</translation>
         </message>
         <message>
             <source>Update interval</source>
@@ -3773,19 +3371,20 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Use Edit layout 
 for tuning images of applet</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Használd a nézet frissítését
+a kép applet hangolásához</translation>
         </message>
         <message>
             <source>Use GSM and/or WLAN for periodic updating
  the weather information.
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Használj GSM vagy WiFi kapcsolatot az időjárás
+adatok rendszeres frissítéséhet.
+</translation>
         </message>
         <message>
             <source>Use device temperature sensor</source>
-            <translation>Készülék hőmérséklet-érzékelőjének használása</translation>
+            <translation>Készülék hőmérséklet-érzékelőjének használata</translation>
         </message>
         <message>
             <source>VAR</source>
@@ -3794,8 +3393,7 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Valid time for current weather:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Pontos idő a jelenlegi időjáráshoz:</translation>
         </message>
         <message>
             <source>Very High</source>
@@ -3811,13 +3409,11 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Látható m.e.</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Látható m.e.</translation>
         </message>
         <message>
             <source>Visible:</source>
@@ -3829,23 +3425,19 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Visuals</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Megjelenés</translation>
         </message>
         <message>
             <source>Visuals</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Megjelenés</translation>
         </message>
         <message>
             <source>Visuals</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Megjelenés</translation>
         </message>
         <message>
             <source>Voice forecast button on a widget</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hangos előrejelzés gomb a widgeten</translation>
         </message>
         <message>
             <source>Voice weather forecast</source>
@@ -3853,8 +3445,7 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>W</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NY</translation>
         </message>
         <message>
             <source>WLAN</source>
@@ -3870,38 +3461,31 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>WNW</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NY-ÉNY</translation>
         </message>
         <message>
             <source>WNW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NY-ÉNY</translation>
         </message>
         <message>
             <source>WSW</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NY-DNY</translation>
         </message>
         <message>
             <source>WSW_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NY-DNY</translation>
         </message>
         <message>
             <source>W_short</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>NY</translation>
         </message>
         <message>
             <source>Waning Crescent</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fogyó holdsarló</translation>
         </message>
         <message>
             <source>Waning Gibbous</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fogyó hold</translation>
         </message>
         <message>
             <source>Warning</source>
@@ -3909,43 +3493,35 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Waxing Crescent</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Csökkenő holdsarló</translation>
         </message>
         <message>
             <source>Waxing Gibbous</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Csökkenő hold</translation>
         </message>
         <message>
             <source>Weather data provided by: </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Az időjárás adatok szolgáltatója:</translation>
         </message>
         <message>
             <source>Weather forecast for the Meego. Version </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Időjárás előrejelzős Meegora. Verzió</translation>
         </message>
         <message>
             <source>Widget OMWeather is reloading</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OMWeather widget újratöltődik</translation>
         </message>
         <message>
             <source>Widget in LockScreen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Widget a nyitó képernyőn</translation>
         </message>
         <message>
             <source>Widget in StandbyScreen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Widget a készenléti képernyőn</translation>
         </message>
         <message>
             <source>Widget in events view</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Widget az esemény képernyőn</translation>
         </message>
         <message>
             <source>Widget style</source>
@@ -3965,18 +3541,15 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélirány</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélirány</translation>
         </message>
         <message>
             <source>Wind direction</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélirány</translation>
         </message>
         <message>
             <source>Wind direction:</source>
@@ -3984,18 +3557,15 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Wind gust:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélroham:</translation>
         </message>
         <message>
             <source>Wind gust:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélroham:</translation>
         </message>
         <message>
             <source>Wind gust:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélroham:</translation>
         </message>
         <message>
             <source>Wind speed</source>
@@ -4027,20 +3597,19 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation>Szélmértékegység</translation>
+            <translation>Szélsebesség</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation>Szélmértékegység</translation>
+            <translation>Szélsebesség</translation>
         </message>
         <message>
             <source>Wind speed units</source>
-            <translation>Szélmértékegység</translation>
+            <translation>Szélsebesség</translation>
         </message>
         <message>
             <source>Wind speed units:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélsebesség m.e.:</translation>
         </message>
         <message>
             <source>Wind:</source>
@@ -4076,29 +3645,25 @@ for tuning images of applet</source>
         </message>
         <message>
             <source>Wintry Mix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Havas eső</translation>
         </message>
         <message>
             <source>Wintry Mix / Wind</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Havas eső / szél</translation>
         </message>
         <message>
             <source>Wintry Mix / Wind Early</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Havas eső / délelőtti szél</translation>
         </message>
         <message>
             <source>Wintry Mix to Snow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Havas eső - hó</translation>
         </message>
         <message>
             <source>Wrong station code 
 or ZIP code!!!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hibás állomás kód
+vagy irányítószám!</translation>
         </message>
         <message>
             <source>Yes</source>
@@ -4133,13 +3698,11 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>Zoom in popup window </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nagyítás a felugró ablakban</translation>
         </message>
         <message>
             <source>Zooming in popup window</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nagyítás a felugró ablakban</translation>
         </message>
         <message>
             <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
@@ -4148,13 +3711,11 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>current location local time</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>helyi idő</translation>
         </message>
         <message>
             <source>d:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>n:</translation>
         </message>
         <message>
             <source>day ago</source>
@@ -4170,48 +3731,39 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>every 24 hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>24 óránként</translation>
         </message>
         <message>
             <source>every 30 minutes</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>30 percenként</translation>
         </message>
         <message>
             <source>every 4 hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>4 óránként</translation>
         </message>
         <message>
             <source>every 5 minutes</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>5 percenként</translation>
         </message>
         <message>
             <source>every 8 hours</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>8 óránként</translation>
         </message>
         <message>
             <source>every hour</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>minden órában</translation>
         </message>
         <message>
             <source>every minute (Debug)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>minden perc</translation>
         </message>
         <message>
             <source>falling</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>csökkenő</translation>
         </message>
         <message>
             <source>feels like</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>hőérzet</translation>
         </message>
         <message>
             <source>hour ago</source>
@@ -4227,43 +3779,35 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Higany / inch</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Higany / inch</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Higany / inch</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Higany / inch</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Higany / inch</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Higany / inch</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Higany / inch</translation>
         </message>
         <message>
             <source>inHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Higany / inch</translation>
         </message>
         <message>
             <source>inch</source>
@@ -4413,68 +3957,55 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mérföld</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mérföld</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mérföld</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mérföld</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mérföld</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mérföld</translation>
         </message>
         <message>
             <source>mi</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mérföld</translation>
         </message>
         <message>
             <source>mi/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mph</translation>
         </message>
         <message>
             <source>mi/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mph</translation>
         </message>
         <message>
             <source>mi/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mph</translation>
         </message>
         <message>
             <source>mi/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mph</translation>
         </message>
         <message>
             <source>mi/h</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mph</translation>
         </message>
         <message>
             <source>mi/s</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mérföld/s</translation>
         </message>
         <message>
             <source>minute ago</source>
@@ -4498,48 +4029,39 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hgmm</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hgmm</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hgmm</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hgmm</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hgmm</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hgmm</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hgmm</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hgmm</translation>
         </message>
         <message>
             <source>mmHg</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hgmm</translation>
         </message>
         <message>
             <source>n:</source>
@@ -4574,8 +4096,7 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>rising</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>növekvő</translation>
         </message>
         <message>
             <source>seconds ago</source>
@@ -4583,18 +4104,15 @@ or ZIP code!!!</source>
         </message>
         <message>
             <source>station local time</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>állomás helyi idő</translation>
         </message>
         <message>
             <source>station name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>állomás neve</translation>
         </message>
         <message>
             <source>steady</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>állandó</translation>
         </message>
         <message>
             <source>В</source>

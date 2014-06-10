@@ -1220,6 +1220,7 @@ usando o Gestor de Aplicações</translation>
  	Mehmet Çilingir,
  Catalan - Agustí Clara,
  Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
@@ -1846,6 +1847,10 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Geralmente Limpo</translation>
         </message>
         <message>
+            <source>Mostly sunny</source>
+            <translation type="unfinished">Geralmente Limpo, ensolarado</translation>
+        </message>
+        <message>
             <source>N</source>
             <translation>N</translation>
         </message>
@@ -2468,6 +2473,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Provided by</source>
             <translation>Fornecido por</translation>
+        </message>
+        <message>
+            <source>Proximity shower rain</source>
+            <translation type="unfinished">Aguaceiros fracos</translation>
         </message>
         <message>
             <source>Rain</source>

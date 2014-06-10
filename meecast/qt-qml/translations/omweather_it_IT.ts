@@ -1224,6 +1224,7 @@ da Application manager</translation>
  	Mehmet Çilingir,
  Catalan - Agustí Clara,
  Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
@@ -1235,7 +1236,7 @@ da Application manager</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation>Italiano - Lorenzo Facca
+            <translation type="unfinished">Italiano - Lorenzo Facca
 French - Nicolas Granziano, 
 Philippe, Benot Knecht 
 Russian - Pavel Fialko, Vlad Vasiliev, 
@@ -1848,6 +1849,10 @@ Slovacco - Roman Moravčík</translation>
         <message>
             <source>Mostly clear</source>
             <translation>Generalmente sereno</translation>
+        </message>
+        <message>
+            <source>Mostly sunny</source>
+            <translation type="unfinished">Prevalentemente soleggiato</translation>
         </message>
         <message>
             <source>N</source>
@@ -2472,6 +2477,10 @@ Slovacco - Roman Moravčík</translation>
         <message>
             <source>Provided by</source>
             <translation>Fornito da</translation>
+        </message>
+        <message>
+            <source>Proximity shower rain</source>
+            <translation type="unfinished">Piogge di debole intensità</translation>
         </message>
         <message>
             <source>Rain</source>
@@ -3275,7 +3284,7 @@ later version.</translation>
         </message>
         <message>
             <source>Transparency</source>
-            <translation type="unfinished">Trasparenza:</translation>
+            <translation>Trasparenza</translation>
         </message>
         <message>
             <source>Transparency:</source>

@@ -1220,6 +1220,7 @@ el Administrador de Aplicaciones.</translation>
  	Mehmet Çilingir,
  Catalan - Agustí Clara,
  Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
@@ -1231,7 +1232,7 @@ el Administrador de Aplicaciones.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation>Francés -  Nicolas Granziano, 
+            <translation type="unfinished">Francés -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  Ruso - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
@@ -1846,6 +1847,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Mostly clear</source>
             <translation>Bastante despejado</translation>
+        </message>
+        <message>
+            <source>Mostly sunny</source>
+            <translation type="unfinished">Bastante soleado</translation>
         </message>
         <message>
             <source>N</source>
@@ -2470,6 +2475,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Provided by</source>
             <translation>Provisto por</translation>
+        </message>
+        <message>
+            <source>Proximity shower rain</source>
+            <translation type="unfinished">Chubascos poco intensos</translation>
         </message>
         <message>
             <source>Rain</source>
@@ -3272,7 +3281,7 @@ ya sea la versión 2.1 de la licencia, o (a sudiscreción) cualquier versión po
         </message>
         <message>
             <source>Transparency</source>
-            <translation type="unfinished">Transparencia:</translation>
+            <translation>Transparencia</translation>
         </message>
         <message>
             <source>Transparency:</source>

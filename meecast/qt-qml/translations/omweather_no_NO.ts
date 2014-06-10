@@ -1223,6 +1223,7 @@ bør du avinstallere pakken
  	Mehmet Çilingir,
  Catalan - Agustí Clara,
  Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
  Serbian - Aleksandar Zaric,
  Norwegian - Peer-Atle Motland,
  Hungarian - Salmi,
@@ -1239,7 +1240,8 @@ bør du avinstallere pakken
  Russisk - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finsk - Marko Vertainen
- Tysk -  Claudius Henrichs
+ Tysk -  Claudius Henrichs,
+ 	Jens Klingen
  Italiensk - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1262,9 +1264,9 @@ bør du avinstallere pakken
  Slovensk -  Boštjan,
  Tsjekkisk - Jakub Kožíšek, Pavel Šrubař,
  Kinesisk(Taiwan) - osk2, 
- Vietnamese - Hieu Nguyen
+ Vienamesisk - Hieu Nguyen
  	Anh Dương and truongnx, 
- Swedish - Angela Nennebrandt,
+ Svensk - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</translation>
         </message>
@@ -1851,6 +1853,10 @@ Slovak - Roman Moravčík</translation>
             <translation>For det meste Klart</translation>
         </message>
         <message>
+            <source>Mostly sunny</source>
+            <translation type="unfinished">For det meste Sol</translation>
+        </message>
+        <message>
             <source>N</source>
             <translation>N</translation>
         </message>
@@ -2272,7 +2278,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation type="unfinished">Delvis Skyet / Vind</translation>
+            <translation>Delvis Skyet / Vind</translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
@@ -2475,6 +2481,10 @@ Slovak - Roman Moravčík</translation>
             <translation>Levert av</translation>
         </message>
         <message>
+            <source>Proximity shower rain</source>
+            <translation type="unfinished">Lett duskregn</translation>
+        </message>
+        <message>
             <source>Rain</source>
             <translation>Regn</translation>
         </message>
@@ -2568,8 +2578,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Refresh</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Forny</translation>
         </message>
         <message>
             <source>Region</source>
@@ -3277,7 +3286,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Transparency</source>
-            <translation type="unfinished">Gjennomskinnelighet:</translation>
+            <translation>Gjennomskinnelig</translation>
         </message>
         <message>
             <source>Transparency:</source>

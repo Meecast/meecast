@@ -94,10 +94,11 @@ desktop-file-install --delete-original       \
   * Fixed problem with hours forecast button
   * Fixed problem with today data for weather.com source
   * Fixed problem with n/a icon for Atmos iconset
+  * Fixed problem with hourly foreasts
   * Added Danish translation
   * Updated Catalan, Chinese (Taiwan), Czech, Finnish, 
     German, Italian, Norwegian, Serbian, Slovenian,
-    Spanish, Russian, Hungarian translations
+    Spanish, Russian, Hungarian, French translations
 
 
 

@@ -226,7 +226,8 @@ Page {
             id: translatorsfulltext 
             text: Config.tr("\
 French -  Nicolas Granziano, \n \
-\tPhilippe, Benot Knecht \n \
+\tPhilippe, Benot Knecht, \n \
+\tQuentin Caillard \n \
 Russian - Pavel Fialko, Vlad Vasiliev, \n \
 \tEd Bartosh\n \
 Finnish - Marko Vertainen\n \

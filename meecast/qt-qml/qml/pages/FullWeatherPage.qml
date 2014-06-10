@@ -23,14 +23,18 @@ Page {
     property variant model_night:  (current) ? Current_night : Forecast_night_model
     property variant model_hours:  Forecast_hours_model
 
-
     function check_hours (){
         var i = 0;
-        var result = 0;
+        var result = false;
+        console.log("check_hours ()");
         var fulldate = model_day.getdata(day, "fulldate");
         while (i<model_hours.rowCount()){   
-            if (model_hours.getdata(i, "fulldate") == fulldate)
-		        result = 1;
+            if (model_hours.getdata(i, "fulldate") == fulldate){
+                result = true;
+            }else{
+                model_hours.remove(i)
+                i--;
+            }
 	        i++;
         }
         return result;
@@ -396,14 +400,14 @@ Page {
                             verticalAlignment: Text.AlignVCenter; 
                             horizontalAlignment: description_text_alignment; 
                             MouseArea {
-                                  anchors.fill: parent
-                                  onClicked: {
+                                anchors.fill: parent
+                                onClicked: {
                                     if (text_anim.running){
                                         text_anim.running = false;
                                     }else{
                                         text_anim.running = true;
                                     }
-                                  }
+                                }
                             }
                         }  
                         NumberAnimation on x { 
@@ -511,13 +515,13 @@ Page {
                    MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                               console.log("Map onclicked");
-                               pageStack.push(Qt.resolvedUrl("MapPage.qml"),
+                            console.log("Map onclicked");
+                            pageStack.push(Qt.resolvedUrl("MapPage.qml"),
                                               {map_pattern: map_pattern, count_of_maps: count_of_maps,
                                                mapbackground_pattern: mapbackground_pattern }
-                                             )
+                                          )
                         }
-                   }
+                    }
                 }
             }
             ListView {

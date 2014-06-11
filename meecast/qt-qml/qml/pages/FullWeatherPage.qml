@@ -528,10 +528,10 @@ Page {
                     id: hours_list
                     visible: false 
                     anchors.top: day_rect.bottom
-                    model: Forecast_hours_model 
+                    model: model_hours 
                     delegate: itemDelegate
                     width: parent.width
-                    height: 80 * Forecast_hours_model.rowCount()
+                    height: 80 * model_hours.rowCount()
                     interactive: false
                     clip: true
             }

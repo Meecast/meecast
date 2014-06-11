@@ -90,7 +90,7 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
-* Fri May 02 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.2
+* Wed Jun 11 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.2
   * Fixed problem with hours forecast button
   * Fixed problem with today data for weather.com source
   * Fixed problem with n/a icon for Atmos iconset
@@ -99,8 +99,6 @@ desktop-file-install --delete-original       \
   * Updated Catalan, Chinese (Taiwan), Czech, Finnish, 
     German, Italian, Norwegian, Serbian, Slovenian,
     Spanish, Russian, Hungarian, French translations
-
-
 
 * Fri May 02 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.1
   * Fixed problem with swiping to another station 

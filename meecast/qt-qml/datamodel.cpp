@@ -155,7 +155,7 @@ DataModel::update_model(int period)
     struct tm time_tm1;
     struct tm time_tm2;
 
-    std::cerr<<"Update model"<<std::endl; 
+    std::cerr<<"Update model - period "<<period<<std::endl; 
 
     dp = Core::DataParser::Instance();
     if (dp){

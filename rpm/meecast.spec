@@ -14,7 +14,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    0.9.2
+Version:    0.9.3
 Release:    1
 Group:      Utility
 License:    GPLv2.1
@@ -90,6 +90,9 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
+* Wed Jun 14 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.3
+  * Fixed problem with data(not current day) for more then one station
+
 * Wed Jun 11 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.2
   * Fixed problem with hours forecast button
   * Fixed problem with today data for weather.com source

@@ -563,6 +563,9 @@ Component {
                                 anchors.fill: parent
                                 onClicked: {
                                     console.log("day onclicked");
+                                    Config._current_station_id(main.real_current_id)
+                                    console.log(Config._current_station_id())
+                                    main.updatemodels()
 
                                     Current_night.update_model(1);
                                     Forecast_night_model.update_model(3);
@@ -573,7 +576,6 @@ Component {
                                                    )
                                 }
                             }
-
                         }
                     }
                 } //component itemDelegate

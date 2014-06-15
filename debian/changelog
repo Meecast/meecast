@@ -1,5 +1,6 @@
 meecast (0.9.3) unstable; urgency=low
 
+  * Added United Kingdom to foreca.com source
   * Fixed "N/A" wind direction
   * Fixed problem with today data for weather.com source
   * Fixed problem with n/a icon for Atmos iconset

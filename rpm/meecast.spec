@@ -90,9 +90,10 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
-* Wed Jun 14 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.3
+* Sun Jun 15 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.3
   * Fixed problem with data(not current day) for more then one station
   * Added United Kingdom to foreca.com source
+  * Added Germany's stations to openweathermap.org source
 
 * Wed Jun 11 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.2
   * Fixed problem with hours forecast button

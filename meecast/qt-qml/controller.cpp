@@ -158,6 +158,8 @@ Controller::load_data(){
   current_day = time(NULL);
   fprintf(stderr,"Current time %i\n", current_day);
 
+  current_day = current_day + 3600*timezone;
+  fprintf(stderr,"Current time for time zone %i\n", current_day);
   //tm = localtime(&current_day);
   tm = gmtime(&current_day);
   current_day = mktime(tm)  ; /* today 00:00:00 */
@@ -220,7 +222,7 @@ Controller::load_data(){
   }
 
   /* fill current night */
-  if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(current_day + 3*3600))) {
+  if  (_dp != NULL && ((temp_data = _dp->data().GetDataForTime(current_day + 3*3600)) ||(temp_data = _dp->data().GetDataForTime(current_day + 22*3600)))) {
       forecast_data = new DataItem(temp_data);
 
       if (forecast_data->Text() != "")

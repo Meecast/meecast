@@ -167,6 +167,9 @@ DataModel::update_model(int period)
 
     /* set current day */ 
     current_day = time(NULL);
+    /* Test !!!!! */
+    current_day = current_day + 3600*timezone;
+    fprintf(stderr,"Current time for time zone %i\n", current_day);
 
     //tm = localtime(&current_day);
     tm = gmtime(&current_day);
@@ -264,7 +267,7 @@ DataModel::update_model(int period)
            }
             break;
         case current_night_period:
-            if (dp != NULL && (temp_data = dp->data().GetDataForTime(current_day + 3*3600))) {
+            if  (dp != NULL && ((temp_data = dp->data().GetDataForTime(current_day + 3*3600)) ||(temp_data = dp->data().GetDataForTime(current_day + 22*3600)))) {
                 forecast_data = new DataItem(temp_data);
                 if (forecast_data->Text() != "")
                     forecast_data->Text(forecast_data->Text().c_str());

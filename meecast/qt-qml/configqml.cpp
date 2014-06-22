@@ -587,6 +587,8 @@ ConfigQml::setgps(bool c){
             /* delete gps station */
             removeStation(index);
         }
+        if (dp)
+            dp->DeleteInstance();
     }
     ConfigQml::Config::Gps(c);
     saveConfig();

@@ -90,7 +90,7 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
-* Sun Jun 15 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.3
+* Sun Jun 22 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.4
   * Fixed problem with current night forecsat
   * Fixed memory leaks
   * Fixed crashing

@@ -168,7 +168,7 @@ namespace Core {
         if (!_self)
             _self = new DataParser();
         _refcount++;
-        /*  std::cerr<<"Refcount for DataParser: "<<_refcount<<std::endl; */
+        /* std::cerr<<"DataParser::Instance() Refcount for DataParser: "<<_refcount<<std::endl; */
         return _self;
     }
 
@@ -207,6 +207,7 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     DataParser::~DataParser(){
        Data* forecast_data;
+       /* std::cerr<<"DataParser::~DataParser()"<<std::endl; */
        while (!_list->empty()){
          forecast_data = _list->back();
          delete forecast_data;

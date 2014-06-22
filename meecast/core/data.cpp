@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2014 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -72,33 +72,43 @@ namespace Core {
     }
     ////////////////////////////////////////////////////////////////////////////////
     Data::Data(const Data *data){
-        _flike = data->_flike;
-        _windSpeed = data->_windSpeed;
-        _visible = data->_visible;
+        /* fprintf(stderr," Data::Data(const Data *data) \n"); */
+        //_flike = data->_flike;
+        _windSpeed =  new Windspeed(data->_windSpeed->value(), data->_windSpeed->units());
+        _visible = new Visible(data->_visible->value(), data->_visible->units());
         _windGust = INT_MAX;
         _humidity = data->_humidity;
         //_pressure = INT_MAX;
-        _pressure = data->_pressure;
+        _pressure = new Pressure(data->_pressure->value(), data->_pressure->units());
         _icon = data->_icon;
-        _windDirection = data->_windDirection;
-        _text = data->_text;
-        _temperature_hi = data->_temperature_hi;
-        _temperature_low = data->_temperature_low;
-        _temperature = data->_temperature;
+        _windDirection =  new std::string();
+        _windDirection->assign(data->_windDirection->data());
+        _text = new std::string;
+        _text->assign(data->_text->data());
+        _temperature_hi = new Temperature(data->_temperature_hi->value(), data->_temperature_hi->units());
+        _temperature_low = new Temperature(data->_temperature_low->value(), data->_temperature_low->units());
+        _temperature = new Temperature(data->_temperature->value(), data->_temperature->units());
         _current = data->_current;
         _hour = data->_hour;
         _start_time = data->_start_time;
         _end_time = data->_end_time;
-        _flike = data->_flike;
+        _flike = new Temperature(data->_flike->value(), data->_flike->units());
         _ppcp = data->_ppcp;
         _uv_index = data->_uv_index;
-        _short_day_name = data->_short_day_name;
-        _full_day_name = data->_full_day_name;
-        _full_month_name = data->_full_month_name; 
-        _day_of_month_name = data->_day_of_month_name;
-        _month_name = data->_month_name;
-        _map_pattern = data->_map_pattern;
-        _map_background_pattern = data->_map_background_pattern;
+        _short_day_name = new std::string();
+        _short_day_name->assign(data->_short_day_name->data());
+        _full_day_name = new std::string();
+        _full_day_name->assign(data->_full_day_name->data());
+        _full_month_name = new std::string();
+        _full_month_name->assign(data->_full_month_name->data()); 
+        _day_of_month_name = new std::string();
+        _day_of_month_name->assign(data->_day_of_month_name->data());
+        _month_name = new std::string();
+        _month_name->assign(data->_month_name->data());
+        _map_pattern = new std::string();
+        _map_pattern->assign(data->_map_pattern->data());
+        _map_background_pattern = new std::string();
+        _map_background_pattern->assign(data->_map_background_pattern->data());
         _sunrise = data->_sunrise;
         _sunset = data->_sunset;
     }
@@ -328,6 +338,7 @@ namespace Core {
     }
 ////////////////////////////////////////////////////////////////////////////////
     Data::~Data(){
+       /* fprintf(stderr, " Data::~Data()\n"); */
        delete _windDirection;
        delete _windSpeed;
        delete _visible;

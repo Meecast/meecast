@@ -35,6 +35,7 @@ DataItem::DataItem()
 }
 
 DataItem::DataItem(const Core::Data* data):QObject(),Core::Data(data){
+/*    std::cerr <<"DataItem::DataItem() with Data"<<std::endl; */
     _lastupdate = QDateTime();
     temperatureunit = "C";
     windunit = "m/c";

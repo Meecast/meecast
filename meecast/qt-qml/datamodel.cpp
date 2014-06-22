@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2014 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -81,13 +81,17 @@ DataModel::getdata(const int index, QString role)
 DataItem*
 DataModel::find(const int row)
 {
-    qDebug() << "222 " << row << _list.at(row)->description();
+/*    qDebug() << "222 " << row << _list.at(row)->description(); */
     return _list.at(row);
 }
 
 DataModel::~DataModel(){
     qDebug() <<"DataModel::~DataModel()";
     _config->DeleteInstance();
+    while (!_list.isEmpty()){
+        fprintf(stderr, "DataModel::~DataModel() %p\n",  _list.first());
+        delete _list.takeFirst();
+    }
     _list.clear();
     delete _prototype;
 }
@@ -95,6 +99,10 @@ DataModel::~DataModel(){
 void
 DataModel::clear(){
     //qDeleteAll(this->_list);
+    while (!_list.isEmpty()){
+        delete _list.takeFirst();
+    }
+
     this->_list.clear();
     //emit dataChanged(this->createIndex(0, 0), this->createIndex(count, 0));
     //this->reset();

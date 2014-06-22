@@ -92,6 +92,8 @@ desktop-file-install --delete-original       \
 %changelog
 * Sun Jun 15 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.3
   * Fixed problem with current night forecsat
+  * Fixed memory leaks
+  * Fixed crashing
 
 * Sun Jun 15 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.3
   * Fixed problem with data(not current day) for more then one station

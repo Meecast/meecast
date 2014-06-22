@@ -73,6 +73,7 @@ public:
         CategoryRole = Qt::UserRole + 3
     };
     SelectModel(QObject *parent = 0);
+    virtual ~SelectModel();
 
     Q_INVOKABLE QVariant get(int index);
     Q_INVOKABLE int rowCount(const QModelIndex & parent = QModelIndex()) const;

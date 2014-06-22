@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2012 Vlad Vasilyeu
+ * Copyright (C) 2006-2014 Vlad Vasilyeu
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
@@ -40,6 +40,8 @@
 #include "pressure.h"
 #include "visible.h"
 
+#include <iostream>
+#include <stdio.h>
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
     /* Weather data for interval from _start_time to _end_time */

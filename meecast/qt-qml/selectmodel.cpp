@@ -75,6 +75,12 @@ SelectModel::SelectModel(QObject *parent)
 #endif
 }
 
+SelectModel::~SelectModel(){
+    while (!_list.isEmpty())
+        delete _list.takeFirst();
+    _list.clear();
+}
+
 QVariant SelectModel::get(int index){
     QVariantMap map;
     map.insert(QLatin1String("category"), _list.at(index)->category());

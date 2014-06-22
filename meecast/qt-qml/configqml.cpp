@@ -1205,6 +1205,8 @@ ConfigQml::check_and_update_station(){
         }else{
             this->configChanged();
         }
+        if (dp)
+            dp->DeleteInstance();
     }
 }
 

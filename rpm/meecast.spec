@@ -91,7 +91,7 @@ desktop-file-install --delete-original       \
 
 %changelog
 * Sun Jun 22 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.4
-  * Fixed problem with current night forecsat
+  * Fixed problem with current night forecast
   * Fixed memory leaks
   * Fixed crashing
 

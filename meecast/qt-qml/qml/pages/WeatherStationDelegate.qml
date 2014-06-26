@@ -271,7 +271,7 @@ Component {
                             }
                             Image {
                                 id: icon
-                                source: Config.iconspath + "/" + Config.iconset + "/" + main.current_model("pict", main_index) 
+                                source: main.current_model("current", main_index) == true ? Config.iconspath + "/" + Config.iconset + "/" + main.current_model("pict", main_index) : Config.iconspath + "/" + Config.iconset + "/" + main.forecast_model(index, "pict", main_index)
                                 width: icon_size 
                                 height: icon_size
                                 anchors.top: parent.top
@@ -291,28 +291,34 @@ Component {
                                 verticalAlignment: Text.AlignVCenter
                                 horizontalAlignment: Text.AlignHCenter
                                 Component.onCompleted: {
-                                    if (main.current_model("temp", main_index) == "N/A"){
-                                        temp_text.text = ""
-                                        if (main.current_model("temp_high", main_index) != "N/A")
-                                           temp_text.text =  main.current_model("temp_high", main_index) + '°'
-                                        if ((main.current_model("temp_low", main_index)  != "N/A") && (main.current_model("temp_high", main_index) != "N/A"))
-                                           temp_text.text =  temp_text.text + " / "
-                                        if (main.current_model("temp_low", main_index)  != "N/A")
-                                           temp_text.text = temp_text.text + main.current_model("temp_low", main_index) + '°'
-                                        if (Config.transparency)
+                                    if (main.current_model("current", main_index) == true){
+                                        if (main.current_model("temp", main_index) == "N/A"){
+                                            temp_text.text = ""
+                                            if (main.current_model("temp_high", main_index) != "N/A")
+                                               temp_text.text =  main.current_model("temp_high", main_index) + '°'
+                                            if ((main.current_model("temp_low", main_index)  != "N/A") && (main.current_model("temp_high", main_index) != "N/A"))
+                                               temp_text.text =  temp_text.text + " / "
+                                            if (main.current_model("temp_low", main_index)  != "N/A")
+                                               temp_text.text = temp_text.text + main.current_model("temp_low", main_index) + '°'
                                             current_rect.color = "transparent"
-					else
-                                            /* current_rect.color = getColor(main.current_model("temp_high", main_index));
-                                            not sure what to do here, with the coloring it looks aweful on black theme */
+                                        }else{
+                                            temp_text.text = main.current_model("temp", main_index) + '°'
                                             current_rect.color = "transparent"
+                                        }
                                     }else{
-                                       temp_text.text = main.current_model("temp", main_index) + '°'
-                                       if (Config.transparency)
-                                           current_rect.color = "transparent"
-				       else
-                                           /* current_rect.color = getColor(main.current_model("temp", main_index));
-                                           not sure what to do here, with the coloring it looks aweful on black theme */
-                                           current_rect.color = "transparent"
+                                        if (main.forecast_model(index, "temp", main_index) == "N/A"){
+                                            temp_text.text = ""
+                                            if (main.forecast_model(index, "temp_high", main_index) != "N/A")
+                                               temp_text.text =  main.forecast_model(index, "temp_high", main_index) + '°'
+                                            if ((main.forecast_model(index, "temp_low", main_index)  != "N/A") && (main.forecast_model(index, "temp_high", main_index) != "N/A"))
+                                               temp_text.text =  temp_text.text + " / "
+                                            if (main.forecast_model(index, "temp_low", main_index)  != "N/A")
+                                               temp_text.text = temp_text.text + main.forecast_model(index, "temp_low", main_index) + '°'
+                                            current_rect.color = "transparent"
+                                        }else{
+                                            temp_text.text = main.forecast_model(index, "temp", main_index) + '°'
+                                            current_rect.color = "transparent"
+                                        }
                                     }
                                 }
                             }
@@ -332,9 +338,9 @@ Component {
                                      font.pointSize: 20; 
                                      width: parent.width 
                                      color: desc.textColor; 
-                                     text: main.current_model("description", main_index); 
+                                     text: main.current_model("current", main_index) == true ? main.current_model("description", main_index) : main.forecast_model(index, "description", main_index) ; 
                                      verticalAlignment: Text.AlignVCenter; 
-                                     horizontalAlignment: (main.current_model("description", main_index) >35) ? Text.AlignHLeft : Text.AlignHCenter; 
+                                     horizontalAlignment: main.current_model("current", main_index) == true ? ((main.current_model("description", main_index) >35) ? Text.AlignHLeft : Text.AlignHCenter) : ((main.forecast_model(index, "description", main_index) >35) ? Text.AlignHLeft : Text.AlignHCenter); 
                                         MouseArea {
                                             anchors.fill: parent
                                             onClicked: {
@@ -351,7 +357,7 @@ Component {
                                         from: 450; to: -500 ; 
                                         duration: 10000; 
                                         loops: Animation.Infinite; 
-                                        running : (main.current_model("description", main_index) >35) ? true : false;  
+                                        running : main.current_model("current", main_index) == true ? ((main.current_model("description", main_index) >35) ? true : false) : ((main.forecast_model(index, "description", main_index) >35) ? true : false) ;  
                                     }  
                                 }  
                             }
@@ -367,7 +373,7 @@ Component {
                                 smooth: true
                             }
                             Text {
-                                text: main.current_model("humidity", main_index) + "%"
+                                text: main.current_model("current", main_index) == true ? (main.current_model("humidity", main_index) + "%") : (main.forecast_model(index, "humidity", main_index) + "%") 
                                 anchors.left: humidity.right
                                 anchors.leftMargin: 8
                                 anchors.top: desc.bottom
@@ -401,11 +407,11 @@ Component {
                                 transform: Rotation {
                                     origin.x: 15
                                     origin.y: 15
-                                    angle: main.current_model("wind_direction", main_index) == "N/A" ? 0 : main.getAngle(main.current_model("wind_direction", main_index))
+                                    angle: main.current_model("current", main_index) == true ?  (main.current_model("wind_direction", main_index) == "N/A" ? 0 : main.getAngle(main.current_model("wind_direction", main_index))) : (main.forecast_model(index, "wind_direction", main_index) == "N/A" ? 0 : main.getAngle(main.forecast_model(index, "wind_direction", main_index)))
                                 }
                             }
                             Text {
-                                text: Config.tr(main.current_model("wind_direction", main_index))
+                                text: main.current_model("current", main_index) == true ? Config.tr(main.current_model("wind_direction", main_index)) : Config.tr(main.forecast_model(index, "wind_direction", main_index)) 
                                 anchors.left: wind_direction.right
                                 anchors.leftMargin: 8
                                 anchors.top: desc.bottom
@@ -427,7 +433,7 @@ Component {
                                     smooth: true
                             }
                             Text {
-                                text: main.current_model("pressure", main_index) + ' ' + Config.tr(Config.pressureunit)
+                                text: main.current_model("current", main_index) == true ?  main.current_model("pressure", main_index) : main.forecast_model(index, "pressure", main_index) + ' ' + Config.tr(Config.pressureunit)
                                 anchors.left: pressure.right
                                 anchors.leftMargin: 8
                                 anchors.top: humidity.bottom
@@ -449,7 +455,7 @@ Component {
                                 smooth: true
                             }
                             Text {
-                                text: (Config.windspeedunit == "Beaufort scale") ? main.current_model("wind_speed", main_index) : main.current_model("wind_speed", main_index) + ' ' + Config.tr(Config.windspeedunit)
+                                text: main.current_model("current", main_index) == true ? ((Config.windspeedunit == "Beaufort scale") ? main.current_model("wind_speed", main_index) : main.current_model("wind_speed", main_index) + ' ' + Config.tr(Config.windspeedunit)) : ((Config.windspeedunit == "Beaufort scale") ? main.forecast_model(index, "wind_speed", main_index) : main.forecast_model(index, "wind_speed", main_index) + ' ' + Config.tr(Config.windspeedunit))
                                 anchors.left: wind_speed.right
                                 anchors.leftMargin: 8
                                 anchors.top: humidity.bottom
@@ -467,8 +473,8 @@ Component {
                             console.log("current day onclicked");
                             Config._current_station_id(main.real_current_id)
                             console.log(Config._current_station_id())
-                            main.updatemodels()
 
+                            main.updatemodels()
                             Current_night.update_model(1);
                             Forecast_night_model.update_model(3);
                             Forecast_hours_model.update_model(4);

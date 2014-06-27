@@ -1332,7 +1332,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         /* Period after sunrise and before sunset */  
                         /* set sunrise  in localtime */
 
-                        if (temp_hi[0] != 0 || temp_low[0] !=0){
+                        if ((temp_hi[0] != 0 || temp_low[0] !=0) && (strlen(icon_day) > 0 && humidity_day != 0 && strlen(description_day)>0)){
                             fprintf(file_out,"    <period start=\"%li\"", (t_sunrise + 1));
                             fprintf(file_out," end=\"%li\">\n", t_sunset);
                             if (temp_hi[0] != 0 && temp_low[0] != 0){ 
@@ -1362,7 +1362,10 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                         }
                         /* Period after sunset */  
                         if (temp_hi[0] != 0 || temp_low[0] !=0){
-                            fprintf(file_out,"    <period start=\"%li\"", (t_sunset +1));
+                            if (strlen(icon_day) > 0 && humidity_day != 0 && strlen(description_day)>0)
+                                fprintf(file_out,"    <period start=\"%li\"", (t_sunset +1));
+                            else
+                                fprintf(file_out,"    <period start=\"%li\"", (t_sunrise + 1));
                             /* set end of day in localtime */
                             t_end = t_start + 3600*24 - 1;
                             fprintf(file_out," end=\"%li\">\n", t_end);

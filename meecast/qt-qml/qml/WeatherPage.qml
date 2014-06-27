@@ -521,7 +521,7 @@ Page {
                 }
                 ListView {
                     anchors.fill: parent
-                    model: (Current.current == true) ? Current : Forecast_model
+                    model: Current 
                     delegate: currentDelegate
                     interactive: false
                 }

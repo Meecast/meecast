@@ -21,15 +21,15 @@ Page {
         }
         Image {
             id: sourceicon
-	    anchors.horizontalCenter: parent.horizontalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
             source: Config.stationname == "Unknown" ? "" : Config.imagespath + "/" + Config.source + ".png"
             smooth: true
-	    MouseArea{
-	        anchors.fill: parent
-		onClicked: {
- 		    Config.showweb();	
-		}
-	    }
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    Config.showweb();	
+                }
+	        }
         }
         ToolIcon {
             iconId: "toolbar-view-menu"
@@ -521,7 +521,7 @@ Page {
                 }
                 ListView {
                     anchors.fill: parent
-                    model: Current
+                    model: (Current.current == true) ? Current : Forecast_model
                     delegate: currentDelegate
                     interactive: false
                 }
@@ -552,7 +552,7 @@ Page {
                             anchors.top: parent.top
                             anchors.topMargin: -22
                             anchors.left: now.right
-			    smooth: true    
+                            smooth: true    
                         }
                         Text {
                             anchors.top: parent.top

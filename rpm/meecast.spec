@@ -92,6 +92,9 @@ desktop-file-install --delete-original       \
 %changelog
 * Sun Jun 22 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.5
   * Fixed problem with Now/Today waether data for Main Page 
+  * Fixed problem with null data for day forecast in weather.com source
+  * Updated Catalan, Finnish, Norwegian, Slovenian, Danish,
+    Spanish, Italian, Russian, Hungarian, French translations
 
 * Sun Jun 22 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.4
   * Fixed problem with current night forecast

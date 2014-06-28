@@ -736,6 +736,10 @@ Fremantle käyttöliittymä: Krebber Jan ja Niemelä Ulla
             <translation>Pilvistä, lumisadetta</translation>
         </message>
         <message>
+            <source>Cloudy, Strong Rain, Heavy Rain</source>
+            <translation type="unfinished">Pilvistä, rankkasadetta</translation>
+        </message>
+        <message>
             <source>Cloudy, thunderstorms with rain</source>
             <translation>Pilvistä, ukkosta ja vesisadetta</translation>
         </message>
@@ -1200,7 +1204,8 @@ sinun tulee poistaa
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
@@ -1234,7 +1239,7 @@ sinun tulee poistaa
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Ranska -  Nicolas Granziano, 
+            <translation type="unfinished">Ranska-  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  Venäjä - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
@@ -1257,12 +1262,13 @@ sinun tulee poistaa
  	Mehmet Çilingir,
  Katalaani - Agustí Clara,
  Arabia - Tarad Alfandi,
+ Tanska - Peter Jespersen,
  Serbia - Aleksandar Zaric,
  Norja - Peer-Atle Motland,
  Unkari - Salmi,
  Slovenia -  Boštjan,
  Tsekki - Jakub Kožíšek, Pavel Šrubař,
- Kiina(Taiwan) - osk2, 
+ Kiina (Taiwan) - osk2, 
  Vietnami - Hieu Nguyen
  	Anh Dương and truongnx, 
  Ruotsi - Angela Nennebrandt,
@@ -1853,7 +1859,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mostly sunny</source>
-            <translation type="unfinished">Enimmäkseen selkeää</translation>
+            <translation>Melko selkeää</translation>
         </message>
         <message>
             <source>N</source>
@@ -2481,7 +2487,7 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Proximity shower rain</source>
-            <translation type="unfinished">Kevyitä sadekuuroja</translation>
+            <translation>Lähellä sadekuuroja</translation>
         </message>
         <message>
             <source>Rain</source>

@@ -734,6 +734,10 @@ Design de l'interface pour Fremantle : Krebber Jan Niemelä Ulla
             <translation>Nuageux, neige</translation>
         </message>
         <message>
+            <source>Cloudy, Strong Rain, Heavy Rain</source>
+            <translation type="unfinished">Nuageux, grosse pluie</translation>
+        </message>
+        <message>
             <source>Cloudy, thunderstorms with rain</source>
             <translation>Nuageux, orages et pluie</translation>
         </message>
@@ -1201,7 +1205,8 @@ en utilisant le gestionnaire d'applications</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
@@ -1511,7 +1516,8 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Lead designers</source>
-            <translation type="unfinished">Designer principal</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>License</source>
@@ -1523,7 +1529,8 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light Freezing Drizzle</source>
-            <translation type="unfinished">Bruine verglaçante</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light Freezing Rain</source>
@@ -1603,7 +1610,8 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
-            <translation type="unfinished">Averses de pluie fine</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
@@ -1829,7 +1837,8 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mostly sunny</source>
-            <translation type="unfinished">Plutôt ensoleillé</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>N</source>
@@ -2256,7 +2265,8 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Partly Cloudy / Windy</source>
-            <translation type="unfinished">Partiellement nuageux / vent</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
@@ -2463,7 +2473,8 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Proximity shower rain</source>
-            <translation type="unfinished">Averses de pluie fine</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Rain</source>
@@ -2852,7 +2863,8 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Show last update time</source>
-            <translation type="unfinished">Dernière mise à jour : </translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Show on Map</source>
@@ -3263,7 +3275,8 @@ Slovaque - Roman Moravčík</translation>
         </message>
         <message>
             <source>Transparency</source>
-            <translation type="unfinished">Transparence :</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Transparency:</source>
@@ -3483,7 +3496,8 @@ pour la météo actuelle :</translation>
         </message>
         <message>
             <source>Voice weather forecast</source>
-            <translation type="unfinished">Prévisions d'OMWeather</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>W</source>

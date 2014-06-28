@@ -2572,12 +2572,8 @@ msgstr "Il n'y a aucune station à montrer dans cette vue de la liste"
 
 #: omweather/src/hash.data:363
 msgid "This is experimental feature. Only English is supported."
-<<<<<<< HEAD
-msgstr "Ceci est une fonctionnalité expérimentale. Seulement l'anglais est supporté."
-=======
 msgstr ""
 "Ceci est une fonctionnalité expérimentale. Seulement l'anglais est supporté."
->>>>>>> master
 
 #: meecast/qt-qml/qml/AboutPage.qml:313
 msgid ""
@@ -2944,13 +2940,8 @@ msgid ""
 "You should activate 'Widget in the events view' option in MeeCast appearance "
 "settings for auto update."
 msgstr ""
-<<<<<<< HEAD
-"Vous devriez activer l'option, 'Gadget dans la vue événementielle' dans le menu apparence de Meecast" 
-"réglages de la mise à jour automatique"
-=======
 "Vous devriez activer l'option, 'Gadget dans la vue événementielle' dans le "
 "menu apparence de Meecastréglages de la mise à jour automatique"
->>>>>>> master
 
 #: omweather/src/weather-simple-settings.c:2758
 msgid "Zoom in popup window "

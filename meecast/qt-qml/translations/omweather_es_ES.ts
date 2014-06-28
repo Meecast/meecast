@@ -735,6 +735,10 @@ Diseño de la IU para Fremantle: Krebber Jan Niemelä Ulla
             <translation>Nublado, nieve</translation>
         </message>
         <message>
+            <source>Cloudy, Strong Rain, Heavy Rain</source>
+            <translation type="unfinished">Nublado, Mucha lluvia</translation>
+        </message>
+        <message>
             <source>Cloudy, thunderstorms with rain</source>
             <translation>Nublado, tormentas con lluvia</translation>
         </message>
@@ -1198,7 +1202,8 @@ el Administrador de Aplicaciones.</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
@@ -1232,12 +1237,13 @@ el Administrador de Aplicaciones.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Francés -  Nicolas Granziano, 
+            <translation type="unfinished"> Francés -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  Ruso - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finés - Marko Vertainen
- Alemán -  Claudius Henrichs
+ Alemán -  Claudius Henrichs,
+        Jens Klingen
  Italiano - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1255,6 +1261,7 @@ el Administrador de Aplicaciones.</translation>
  Catalán - Agustí Clara,
  Árabe - Tarad Alfandi,
  Serbio - Aleksandar Zaric,
+ Danés - Peter Jespersen,
  Noruego - Peer-Atle Motland,
  Húngaro - Salmi,
  Esloveno - Boštjan,
@@ -1850,7 +1857,7 @@ Eslovaco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mostly sunny</source>
-            <translation type="unfinished">Bastante soleado</translation>
+            <translation>Bastante soleado</translation>
         </message>
         <message>
             <source>N</source>
@@ -2478,7 +2485,7 @@ Eslovaco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Proximity shower rain</source>
-            <translation type="unfinished">Chubascos poco intensos</translation>
+            <translation>Chubascos cerca</translation>
         </message>
         <message>
             <source>Rain</source>

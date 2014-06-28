@@ -839,6 +839,11 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
             </translation>
         </message>
         <message>
+            <source>Cloudy, Strong Rain, Heavy Rain</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Cloudy, thunderstorms with rain</source>
             <translation type="unfinished">
             </translation>
@@ -1374,7 +1379,8 @@ using Application manager</source>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen

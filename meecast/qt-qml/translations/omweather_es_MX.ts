@@ -745,6 +745,10 @@ Diseño de la IU para Fremantle: Krebber Jan Niemelä Ulla
             <translation>Nublado, nieve</translation>
         </message>
         <message>
+            <source>Cloudy, Strong Rain, Heavy Rain</source>
+            <translation type="unfinished">Nublado, Mucha lluvia</translation>
+        </message>
+        <message>
             <source>Cloudy, thunderstorms with rain</source>
             <translation type="unfinished">Cubierto y lluvias leves</translation>
         </message>
@@ -1210,7 +1214,8 @@ el Administrador de Aplicaciones.</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen

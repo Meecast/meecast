@@ -726,6 +726,10 @@ Frementle için Dizayn : Krebber Jan Niemelä Ulla
             <translation>Bulutlu , Kar</translation>
         </message>
         <message>
+            <source>Cloudy, Strong Rain, Heavy Rain</source>
+            <translation type="unfinished">Bulutlu , Sağnak Yağmur</translation>
+        </message>
+        <message>
             <source>Cloudy, thunderstorms with rain</source>
             <translation>Bulutlu,fırtınalı yağmur</translation>
         </message>
@@ -1185,7 +1189,8 @@ paketini kaldırın.</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen

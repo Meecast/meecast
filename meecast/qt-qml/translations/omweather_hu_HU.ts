@@ -583,7 +583,7 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Clear / Wind</source>
-            <translation>Tiszta / Szél</translation>
+            <translation>Tiszta / Szeles</translation>
         </message>
         <message>
             <source>Clear Sky</source>
@@ -714,6 +714,10 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
             <translation>Felhős, havazás</translation>
         </message>
         <message>
+            <source>Cloudy, Strong Rain, Heavy Rain</source>
+            <translation type="unfinished">Felhős, felhőszakadás</translation>
+        </message>
+        <message>
             <source>Cloudy, thunderstorms with rain</source>
             <translation>Felhős és zivataros</translation>
         </message>
@@ -769,11 +773,11 @@ Időtúllépés ideje lejárt.</translation>
         </message>
         <message>
             <source>Day</source>
-            <translation>Nap</translation>
+            <translation>Nappal</translation>
         </message>
         <message>
             <source>Day</source>
-            <translation>Nap</translation>
+            <translation>Nappal</translation>
         </message>
         <message>
             <source>Day length</source>
@@ -1036,7 +1040,7 @@ Brad Jones aka kazrak - for testing
         </message>
         <message>
             <source>Fair</source>
-            <translation>Kedvező</translation>
+            <translation>Változékony</translation>
         </message>
         <message>
             <source>Feels like</source>
@@ -1085,8 +1089,8 @@ Brad Jones aka kazrak - for testing
         <message>
             <source>Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Finn - Marko Vertainen; Német - Claudius Henrichs; Spanyol - Alejandro Lopez; Holland - Tom Leenders; Szlovák - Roman Moravčík
+</translation>
         </message>
         <message>
             <source>First Quarter</source>
@@ -1168,7 +1172,8 @@ using Application manager</source>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
@@ -1202,8 +1207,41 @@ using Application manager</source>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">Francia - Nicolas Granziano,
+⇥Philippe, Benot Knecht
+Orosz - Pavel Fialko, Vlad Vasiliev,
+⇥Ed Bartosh
+Finn - Marko Vertainen
+Német - Claudius Henrichs,
+⇥Jens Klingen
+Olasz - Lorenzo Facca,
+⇥Pavel Fialko, Alessandro Pasotti,
+⇥Salvatore Fiorenzo, Ilir Gjika,
+⇥Luca Onnis
+Spanyol - Alejandro Lopez, Agustí Clara
+Lengyel - Tomasz Dominikowski
+Szlovák - Roman Moravčík
+Holland - Tom Leenders, Michiel Pater
+Bulgár - Zlatko Enikov
+Albán - Ilir Gjika
+Kínai - Wong Man Kong, Michael
+Portugál - Jose Narciso,
+Török - Burak Kaan Kose,
+⇥Mehmet Çilingir,
+Katalán - Agustí Clara,
+Arab - Tarad Alfandi,
+Dán - Peter Jespersen,
+Szerb - Aleksandar Zaric,
+Norvég - Peer-Atle Motland,
+Magyar - Salmi,
+Szlovén - Boštjan,
+Cseh - Jakub Kožíšek, Pavel Šrubař,
+Kínai(Taiwan) - osk2, 
+Vietnámi - Hieu Nguyen
+⇥Anh Dương and truongnx, 
+Svéd - Angela Nennebrandt,
+⇥Niklas Åkerström, 
+⇥Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1256,23 +1294,19 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>GUI|Clear</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GUI|Töröl</translation>
         </message>
         <message>
             <source>Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, &lt;wojciech@grzanka.pl&gt;</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Grzanka ikonkészlete: Minden jog fenntartva; Wojciech Grzanka, 2005 &lt;wojciech@grzanka.pl&gt;</translation>
         </message>
         <message>
             <source>Gust:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélroham:</translation>
         </message>
         <message>
             <source>Gust:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Szélroham:</translation>
         </message>
         <message>
             <source>HTTP error.</source>
@@ -1408,8 +1442,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Olasz - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Lengyel - Tomasz Dominikowski; Bulgár - Zlatko Enikov</translation>
         </message>
         <message>
             <source>Kilometers</source>
@@ -1639,8 +1672,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>MeeCast - multiplatform highly customizable open source weather forecast client based on OMWeather code. Copyright (C) 2006-2014</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>MeeCast - multiplatform testreszabható nyilt forráskódú irőjárás jelentő kliens az OMWeather kódja alapján. Szerzői joggal védett (C) 2006-2014</translation>
         </message>
         <message>
             <source>MeeCast for Harmattan</source>
@@ -1680,7 +1712,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Mostly Cloudy / Wind</source>
-            <translation>Többnyire felhős / szél</translation>
+            <translation>Többnyire felhős / szeles</translation>
         </message>
         <message>
             <source>Mostly Cloudy Few Snow</source>
@@ -1788,7 +1820,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Mostly sunny</source>
-            <translation type="unfinished">Többnyire napos</translation>
+            <translation>Többnyire napos</translation>
         </message>
         <message>
             <source>N</source>
@@ -2332,28 +2364,23 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Ppcp:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Csapadék esélye:</translation>
         </message>
         <message>
             <source>Ppcp:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Csapadék esélye:</translation>
         </message>
         <message>
             <source>Ppcp:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Csapadék esélye:</translation>
         </message>
         <message>
             <source>Preference|Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beállítások|Frissítés</translation>
         </message>
         <message>
             <source>Preference|Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Beállítások|Frissítés</translation>
         </message>
         <message>
             <source>Pressure</source>
@@ -2421,7 +2448,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Proximity shower rain</source>
-            <translation type="unfinished">Enyhe zápor</translation>
+            <translation>Futó zápor</translation>
         </message>
         <message>
             <source>Rain</source>
@@ -2501,7 +2528,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Rain to Snow / Wind</source>
-            <translation>Eső, hó / szél</translation>
+            <translation>Eső, havas eső / szél</translation>
         </message>
         <message>
             <source>Rain to Wintry Mix</source>
@@ -2881,7 +2908,7 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Snow / Wind</source>
-            <translation>Hó/szél</translation>
+            <translation>Hó / szél</translation>
         </message>
         <message>
             <source>Snow Shower</source>
@@ -3021,13 +3048,11 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Sunny periods and a few showers.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Napos, néhány záporral</translation>
         </message>
         <message>
             <source>Sunny periods and a few showers.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Napos, néhány záporral</translation>
         </message>
         <message>
             <source>Sunrise:</source>
@@ -3409,11 +3434,11 @@ adatok rendszeres frissítéséhet.
         </message>
         <message>
             <source>Visible units</source>
-            <translation>Látható m.e.</translation>
+            <translation>Távolság m.e.</translation>
         </message>
         <message>
             <source>Visible units</source>
-            <translation>Látható m.e.</translation>
+            <translation>Távolság m.e.</translation>
         </message>
         <message>
             <source>Visible:</source>
@@ -3706,8 +3731,7 @@ vagy irányítószám!</translation>
         </message>
         <message>
             <source>as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>az FSF által publikált formában; akár a Licence 2.1-es verziója, vagy (ha úgy gondolod) bármely későbbi verzió.</translation>
         </message>
         <message>
             <source>current location local time</source>

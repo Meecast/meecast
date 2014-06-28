@@ -717,6 +717,10 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
             <translation>Облачно, Cнег</translation>
         </message>
         <message>
+            <source>Cloudy, Strong Rain, Heavy Rain</source>
+            <translation type="unfinished">Облачно, Сильный Дождь</translation>
+        </message>
+        <message>
             <source>Cloudy, thunderstorms with rain</source>
             <translation>Облачно, гроза с дождем</translation>
         </message>
@@ -1181,7 +1185,8 @@ using Application manager</source>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
@@ -1458,23 +1463,23 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Last update:</source>
-            <translation>Последнее обновление:</translation>
+            <translation>Обновлено:</translation>
         </message>
         <message>
             <source>Last update:</source>
-            <translation>Последнее обновление:</translation>
+            <translation>Обновлено:</translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation>Последнее обновление: </translation>
+            <translation>Обновлено:</translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation>Последнее обновление: </translation>
+            <translation>Обновлено:</translation>
         </message>
         <message>
             <source>Last update: </source>
-            <translation>Последнее обновление: </translation>
+            <translation>Обновлено:</translation>
         </message>
         <message>
             <source>Lawn and Garden Weather</source>
@@ -1807,7 +1812,8 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Mostly sunny</source>
-            <translation type="unfinished">В основном солнечно</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>N</source>
@@ -2439,7 +2445,8 @@ Slovak - Roman Moravčík</source>
         </message>
         <message>
             <source>Proximity shower rain</source>
-            <translation type="unfinished">Кратковременный легкий дождь</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Rain</source>
@@ -3748,7 +3755,7 @@ StandbyScreen виджета
         </message>
         <message>
             <source>days ago</source>
-            <translation>дней назад</translation>
+            <translation>дн. назад</translation>
         </message>
         <message>
             <source>every 2 hours</source>
@@ -3796,7 +3803,7 @@ StandbyScreen виджета
         </message>
         <message>
             <source>hours ago</source>
-            <translation>часов назад</translation>
+            <translation>час. назад</translation>
         </message>
         <message>
             <source>http://github.com/Meecast/meecast</source>
@@ -4113,7 +4120,7 @@ StandbyScreen виджета
         </message>
         <message>
             <source>seconds ago</source>
-            <translation>секунд назад</translation>
+            <translation>сек. назад</translation>
         </message>
         <message>
             <source>station local time</source>

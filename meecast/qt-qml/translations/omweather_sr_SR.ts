@@ -736,6 +736,10 @@ Dizajn za Fremantle: Krebber Jan Niemelä Ulla
             <translation>Oblačno, Sneg</translation>
         </message>
         <message>
+            <source>Cloudy, Strong Rain, Heavy Rain</source>
+            <translation type="unfinished">Oblačno, Jaka kiša</translation>
+        </message>
+        <message>
             <source>Cloudy, thunderstorms with rain</source>
             <translation>Oblačno, kiša sa grmljavinom</translation>
         </message>
@@ -1199,7 +1203,8 @@ koristeći Menadžer aplikacija</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen

@@ -736,6 +736,10 @@ Disseny IU per a Fremantle: Krebber Jan Niemelä Ulla
             <translation>Núvol, Neu</translation>
         </message>
         <message>
+            <source>Cloudy, Strong Rain, Heavy Rain</source>
+            <translation type="unfinished">Núvol, Pluja intensa</translation>
+        </message>
+        <message>
             <source>Cloudy, thunderstorms with rain</source>
             <translation>Núvol, tempestes amb pluja</translation>
         </message>
@@ -1199,7 +1203,8 @@ utilitzant el Gestor d'aplicacions</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
@@ -1233,12 +1238,13 @@ utilitzant el Gestor d'aplicacions</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Francès -  Nicolas Granziano, 
+            <translation type="unfinished"> Francès -  Nicolas Granziano, 
  	Philippe, Benot Knecht 
  Rus - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finlandès - Marko Vertainen
  Alemany -  Claudius Henrichs
+       Jens Klingen 
  Italià - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
@@ -1255,6 +1261,7 @@ utilitzant el Gestor d'aplicacions</translation>
         Mehmet Çilingir,
  Català - Agustí Clara,
  Àrab - Tarad Alfandi,
+ Danès - Peter Jespersen,
  Serbi - Aleksandar Zaric,
  Noruec - Peer-Atle Motland,
  Hongarès - Salmi,
@@ -1852,7 +1859,7 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>Mostly sunny</source>
-            <translation type="unfinished">Força sol</translation>
+            <translation>Força sol</translation>
         </message>
         <message>
             <source>N</source>
@@ -2480,7 +2487,7 @@ Català - Agustí Clara</translation>
         </message>
         <message>
             <source>Proximity shower rain</source>
-            <translation type="unfinished">Ruixats de poca intensitat</translation>
+            <translation>Ruixats a l'entorn</translation>
         </message>
         <message>
             <source>Rain</source>

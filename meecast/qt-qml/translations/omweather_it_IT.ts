@@ -736,6 +736,10 @@ Design UI per Fremantle: Krebber Jan Niemelä Ulla
             <translation>Nuvoloso, Neve</translation>
         </message>
         <message>
+            <source>Cloudy, Strong Rain, Heavy Rain</source>
+            <translation type="unfinished">Nuvoloso, forti Piogge</translation>
+        </message>
+        <message>
             <source>Cloudy, thunderstorms with rain</source>
             <translation>Nuvoloso, temporale con pioggia</translation>
         </message>
@@ -1202,7 +1206,8 @@ da Application manager</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
@@ -1236,37 +1241,8 @@ da Application manager</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Italiano - Lorenzo Facca
-French - Nicolas Granziano, 
-Philippe, Benot Knecht 
-Russian - Pavel Fialko, Vlad Vasiliev, 
-Ed Bartosh
-Finnish - Marko Vertainen
-German - Claudius Henrichs,
-Jens Klingen
-Spanish - Alejandro Lopez, Agustí Clara
-Polish - Tomasz Dominikowski
-Slovak - Roman Moravčík
-Dutch - Tom Leenders, Michiel Pater
-Bulgarian - Zlatko Enikov
-Albanian - Ilir Gjika
-Chinese - Wong Man Kong, Michael
-Portuguese - Jose Narciso,
-Turkish - Burak Kaan Kose,
-Mehmet Çilingir,
-Catalan - Agustí Clara,
-Arabic - Tarad Alfandi,
-Serbian - Aleksandar Zaric,
-Norwegian - Peer-Atle Motland,
-Hungarian - Salmi,
-Slovenian - Boštjan,
-Czech - Jakub Kožíšek, Pavel Šrubař,
-Chinese(Taiwan) - osk2, 
-Vietnamese - Hieu Nguyen
-Anh Dương and truongnx, 
-Swedish - Angela Nennebrandt,
-Niklas Åkerström, 
-Tomislav Veleckovik</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1852,7 +1828,7 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mostly sunny</source>
-            <translation type="unfinished">Prevalentemente soleggiato</translation>
+            <translation>Prevalentemente soleggiato</translation>
         </message>
         <message>
             <source>N</source>
@@ -2480,7 +2456,8 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Proximity shower rain</source>
-            <translation type="unfinished">Piogge di debole intensità</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Rain</source>

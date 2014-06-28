@@ -737,6 +737,10 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
             <translation>Bewölkt, Schneefall</translation>
         </message>
         <message>
+            <source>Cloudy, Strong Rain, Heavy Rain</source>
+            <translation type="unfinished">Bewölkt, Starkregen</translation>
+        </message>
+        <message>
             <source>Cloudy, thunderstorms with rain</source>
             <translation>Bewölkt, Gewitter mit Regen</translation>
         </message>
@@ -1200,7 +1204,8 @@ Programm-Manager deinstallieren.</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen

@@ -730,6 +730,10 @@ Interfejs dla Fremantle: Krebber Jan Niemelä Ulla
             <translation>Pochmurnie, śnieg</translation>
         </message>
         <message>
+            <source>Cloudy, Strong Rain, Heavy Rain</source>
+            <translation type="unfinished">Pochmurnie, silny deszcz</translation>
+        </message>
+        <message>
             <source>Cloudy, thunderstorms with rain</source>
             <translation type="unfinished">Zachmurzenie, burze z deszczem</translation>
         </message>
@@ -1199,7 +1203,8 @@ używając Menedżera aplikacji</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen

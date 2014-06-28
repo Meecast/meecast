@@ -738,6 +738,10 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
             <translation>Overskyet, Snø</translation>
         </message>
         <message>
+            <source>Cloudy, Strong Rain, Heavy Rain</source>
+            <translation type="unfinished">Skyet, Mye Regn</translation>
+        </message>
+        <message>
             <source>Cloudy, thunderstorms with rain</source>
             <translation>Skyet, tordenbyger med regn</translation>
         </message>
@@ -1201,7 +1205,8 @@ bør du avinstallere pakken
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen
@@ -1258,13 +1263,14 @@ bør du avinstallere pakken
  	Mehmet Çilingir,
  Katalansk - Agustí Clara,
  Arabisk - Tarad Alfandi,
+ Dansk - Peter Jespersen,
  Serbisk - Aleksandar Zaric,
  Norsk - Peer-Atle Motland,
  Ungarsk - Salmi,
  Slovensk -  Boštjan,
  Tsjekkisk - Jakub Kožíšek, Pavel Šrubař,
  Kinesisk(Taiwan) - osk2, 
- Vienamesisk - Hieu Nguyen
+ Vietnamesisk - Hieu Nguyen
  	Anh Dương and truongnx, 
  Svensk - Angela Nennebrandt,
  	Niklas Åkerström, 
@@ -1854,7 +1860,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Mostly sunny</source>
-            <translation type="unfinished">For det meste Sol</translation>
+            <translation>For det meste Sol</translation>
         </message>
         <message>
             <source>N</source>
@@ -2482,7 +2488,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Proximity shower rain</source>
-            <translation type="unfinished">Lett duskregn</translation>
+            <translation>I nærheten duskregn</translation>
         </message>
         <message>
             <source>Rain</source>
@@ -2578,7 +2584,7 @@ Slovak - Roman Moravčík</translation>
         </message>
         <message>
             <source>Refresh</source>
-            <translation>Forny</translation>
+            <translation>Oppdater</translation>
         </message>
         <message>
             <source>Region</source>

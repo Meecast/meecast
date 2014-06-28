@@ -788,6 +788,10 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
             <translation>Molnigt, Snö</translation>
         </message>
         <message>
+            <source>Cloudy, Strong Rain, Heavy Rain</source>
+            <translation type="unfinished">Mestadels Molnigt, Mycket Regn</translation>
+        </message>
+        <message>
             <source>Cloudy, thunderstorms with rain</source>
             <translation type="unfinished">
             </translation>
@@ -1300,7 +1304,8 @@ Hantera program.</translation>
         </message>
         <message>
             <source>French -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
  Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finnish - Marko Vertainen

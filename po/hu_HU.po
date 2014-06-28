@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Macilaci457 <laci.kara@gmail.com>, 2014
 # salmi <salmoneus01@hotmail.com>, 2013-2014
@@ -10,14 +10,13 @@ msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-06 20:59+0300\n"
-"PO-Revision-Date: 2014-05-22 19:08+0000\n"
+"PO-Revision-Date: 2014-06-23 14:09+0000\n"
 "Last-Translator: Macilaci457 <laci.kara@gmail.com>\n"
-"Language-Team: Hungarian (http://www.transifex.com/projects/p/meecast/"
-"language/hu/)\n"
-"Language: hu\n"
+"Language-Team: Hungarian (http://www.transifex.com/projects/p/meecast/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: omweather/src/weather-home.c:1567
@@ -51,9 +50,7 @@ msgstr ""
 msgid ""
 "\n"
 "Humidity: "
-msgstr ""
-"\n"
-"Páratartalom:"
+msgstr "\nPáratartalom:"
 
 #: omweather/src/weather-home.c:1608
 msgid ""
@@ -66,17 +63,13 @@ msgstr ""
 msgid ""
 "\n"
 "Precipitation: "
-msgstr ""
-"\n"
-"Előrejelzés:"
+msgstr "\nElőrejelzés:"
 
 #: omweather/src/weather-popup.c:976 omweather/src/weather-popup.c:1108
 msgid ""
 "\n"
 "Pressure: "
-msgstr ""
-"\n"
-"Légnyomás:"
+msgstr "\nLégnyomás:"
 
 #: omweather/src/weather-home.c:1577
 msgid ""
@@ -436,7 +429,7 @@ msgstr "Tiszta"
 
 #: omweather/src/hash.data:27
 msgid "Clear / Wind"
-msgstr "Tiszta / Szél"
+msgstr "Tiszta / Szeles"
 
 #: omweather/src/hash.data:28
 msgid "Clear Sky"
@@ -582,9 +575,7 @@ msgstr "A szerzői jogok Tanya Makova-t illetik (2010-2011)\n"
 msgid ""
 "Could not connecting to Internet.\n"
 "Connection timeout is expired."
-msgstr ""
-"Kapcsolódás az internethez sikertelen.\n"
-"Időtúllépés ideje lejárt."
+msgstr "Kapcsolódás az internethez sikertelen.\nIdőtúllépés ideje lejárt."
 
 #: omweather/src/weather-config.c:401
 #, c-format
@@ -619,7 +610,7 @@ msgstr "Naponta"
 #: meecast/netbook-UX/meego-panel-omweather.cpp:584
 #: meecast/qt-qml/qml/FullWeatherPage.qml:194
 msgid "Day"
-msgstr "Nap"
+msgstr "Nappal"
 
 #: omweather/src/weather-popup.c:1182
 msgid "Day length"
@@ -639,11 +630,9 @@ msgstr "Hely törlése?"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:417
 msgid ""
-"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew."
-"zhilin@ovi.com>\n"
-msgstr ""
-"Felhasználói felület dizájn és alap ikoncsomag: Copyright 2006-2011 Andrew "
-"Zhilin, <andrew.zhilin@ovi.com>\n"
+"Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, "
+"<andrew.zhilin@ovi.com>\n"
+msgstr "Felhasználói felület dizájn és alap ikoncsomag: Copyright 2006-2011 Andrew Zhilin, <andrew.zhilin@ovi.com>\n"
 
 #: omweather/src/weather-popup.c:462 omweather/src/weather-popup.c:602
 msgid "Detailed"
@@ -815,7 +804,7 @@ msgstr "A GConf sikertelen indítása. A beállítások nem lettek elmentve.\n"
 
 #: omweather/src/hash.data:75
 msgid "Fair"
-msgstr "Kedvező"
+msgstr "Változékony"
 
 #: omweather/src/hash.data:334
 msgid "Feels like"
@@ -861,7 +850,7 @@ msgstr "Helykeresés GPS-szel"
 msgid ""
 "Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro "
 "Lopez; Dutch - Tom Leenders; Slovak - Roman Moravčík\n"
-msgstr ""
+msgstr "Finn - Marko Vertainen; Német - Claudius Henrichs; Spanyol - Alejandro Lopez; Holland - Tom Leenders; Szlovák - Roman Moravčík\n"
 
 #: omweather/src/hash.data:81
 msgid "First Quarter"
@@ -963,7 +952,7 @@ msgid ""
 " Swedish - Angela Nennebrandt,\n"
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
-msgstr ""
+msgstr "Francia - Nicolas Granziano,\n⇥Philippe, Benot Knecht\nOrosz - Pavel Fialko, Vlad Vasiliev,\n⇥Ed Bartosh\nFinn - Marko Vertainen\nNémet - Claudius Henrichs,\n⇥Jens Klingen\nOlasz - Lorenzo Facca,\n⇥Pavel Fialko, Alessandro Pasotti,\n⇥Salvatore Fiorenzo, Ilir Gjika,\n⇥Luca Onnis\nSpanyol - Alejandro Lopez, Agustí Clara\nLengyel - Tomasz Dominikowski\nSzlovák - Roman Moravčík\nHolland - Tom Leenders, Michiel Pater\nBulgár - Zlatko Enikov\nAlbán - Ilir Gjika\nKínai - Wong Man Kong, Michael\nPortugál - Jose Narciso,\nTörök - Burak Kaan Kose,\n⇥Mehmet Çilingir,\nKatalán - Agustí Clara,\nArab - Tarad Alfandi,\nDán - Peter Jespersen,\nSzerb - Aleksandar Zaric,\nNorvég - Peer-Atle Motland,\nMagyar - Salmi,\nSzlovén - Boštjan,\nCseh - Jakub Kožíšek, Pavel Šrubař,\nKínai(Taiwan) - osk2, \nVietnámi - Hieu Nguyen\n⇥Anh Dương and truongnx, \nSvéd - Angela Nennebrandt,\n⇥Niklas Åkerström, \n⇥Tomislav Veleckovik"
 
 #: omweather/src/weather-help.c:141
 msgid ""
@@ -1010,16 +999,16 @@ msgstr "GSM+WLAN"
 
 #: omweather/src/weather-simple-settings.c:2395
 msgid "GUI|Clear"
-msgstr ""
+msgstr "GUI|Töröl"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:418
 msgid ""
 "Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>"
-msgstr ""
+msgstr "Grzanka ikonkészlete: Minden jog fenntartva; Wojciech Grzanka, 2005 <wojciech@grzanka.pl>"
 
 #: omweather/src/weather-popup.c:1354 omweather/src/weather-popup.c:1493
 msgid "Gust:"
-msgstr ""
+msgstr "Szélroham:"
 
 #: omweather/src/weather-download.c:421
 msgid "HTTP error."
@@ -1116,7 +1105,7 @@ msgstr "Viharok többfelé / szél"
 msgid ""
 "Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; "
 "Polish - Tomasz Dominikowski; Bulgarian - Zlatko Enikov"
-msgstr ""
+msgstr "Olasz - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Lengyel - Tomasz Dominikowski; Bulgár - Zlatko Enikov"
 
 #: omweather/src/weather-settings.c:3915
 msgid "Kilometers"
@@ -1295,11 +1284,9 @@ msgstr "Túlnyomóan borult ég, elszórtan esőzés"
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:416
 msgid ""
-"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail."
-"com>\n"
-msgstr ""
-"Karbantartók: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, "
 "<tanyshk@gmail.com>\n"
+msgstr "Karbantartók: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail.com>\n"
 
 #: omweather/src/hash.data:126 meecast/qt-qml/qml/StationsPage.qml:158
 msgid "Manage locations"
@@ -1321,7 +1308,7 @@ msgstr "MeeCast"
 msgid ""
 "MeeCast - multiplatform highly customizable open source weather forecast "
 "client based on OMWeather code. Copyright (C) 2006-2014"
-msgstr ""
+msgstr "MeeCast - multiplatform testreszabható nyilt forráskódú irőjárás jelentő kliens az OMWeather kódja alapján. Szerzői joggal védett (C) 2006-2014"
 
 #: meecast/qt-qml/qml/AboutPage.qml:23
 msgid "MeeCast for Harmattan"
@@ -1361,7 +1348,7 @@ msgstr "Többnyire felhős"
 
 #: omweather/src/hash.data:130
 msgid "Mostly Cloudy / Wind"
-msgstr "Többnyire felhős / szél"
+msgstr "Többnyire felhős / szeles"
 
 #: omweather/src/hash.data:131
 msgid "Mostly Cloudy Few Snow"
@@ -1461,7 +1448,6 @@ msgid "Mostly clear"
 msgstr "Többnyire derült"
 
 #: omweather/src/hash.data:156
-#, fuzzy
 msgid "Mostly sunny"
 msgstr "Többnyire napos"
 
@@ -1871,12 +1857,12 @@ msgstr "Pozíció:"
 #: meecast/qt-qml/qml/FullWeatherPage.qml:217
 #: meecast/qt-qml/qml/FullWeatherPage.qml:272
 msgid "Ppcp:"
-msgstr ""
+msgstr "Csapadék esélye:"
 
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836
 msgid "Preference|Update"
-msgstr ""
+msgstr "Beállítások|Frissítés"
 
 #: omweather/src/weather-simple-settings.c:1460
 msgid "Pressure"
@@ -1919,9 +1905,8 @@ msgid "Provided by"
 msgstr "Elérhetővé tette:"
 
 #: omweather/src/hash.data:228
-#, fuzzy
 msgid "Proximity shower rain"
-msgstr "Enyhe zápor"
+msgstr "Futó zápor"
 
 #: omweather/src/hash.data:250
 msgid "Rain"
@@ -1997,7 +1982,7 @@ msgstr "Eső és hó"
 
 #: omweather/src/hash.data:247
 msgid "Rain to Snow / Wind"
-msgstr "Eső, hó / szél"
+msgstr "Eső, havas eső / szél"
 
 #: omweather/src/hash.data:249
 msgid "Rain to Wintry Mix"
@@ -2307,7 +2292,7 @@ msgstr "Hó"
 
 #: omweather/src/hash.data:276
 msgid "Snow / Wind"
-msgstr "Hó/szél"
+msgstr "Hó / szél"
 
 #: omweather/src/hash.data:278
 msgid "Snow Shower"
@@ -2406,7 +2391,7 @@ msgstr "Napos / szeles"
 
 #: omweather/src/hash.data:354 omweather/src/hash.data:355
 msgid "Sunny periods and a few showers."
-msgstr ""
+msgstr "Napos, néhány záporral"
 
 #: omweather/src/hash.data:290 meecast/qt-qml/qml/FullWeatherPage.qml:308
 msgid "Sunrise:"
@@ -2618,17 +2603,13 @@ msgstr "Előrejelzés frissítése"
 msgid ""
 "Use Edit layout \n"
 "for tuning images of applet"
-msgstr ""
-"Használd a nézet frissítését\n"
-"a kép applet hangolásához"
+msgstr "Használd a nézet frissítését\na kép applet hangolásához"
 
 #: omweather/src/weather-simple-settings.c:1835
 msgid ""
 "Use GSM and/or WLAN for periodic updating\n"
 " the weather information.\n"
-msgstr ""
-"Használj GSM vagy WiFi kapcsolatot az időjárás\n"
-"adatok rendszeres frissítéséhet.\n"
+msgstr "Használj GSM vagy WiFi kapcsolatot az időjárás\nadatok rendszeres frissítéséhet.\n"
 
 #: omweather/src/weather-sensor.c:65
 msgid "Use device temperature sensor"
@@ -2652,7 +2633,7 @@ msgstr "Látható elemek:"
 
 #: meecast/qt-qml/qml/UnitsPage.qml:57 meecast/qt-qml/qml/UnitsPage.qml:221
 msgid "Visible units"
-msgstr "Látható m.e."
+msgstr "Távolság m.e."
 
 #: omweather/src/weather-popup.c:1288
 #: meecast/qt-qml/qml/FullWeatherPage.qml:177
@@ -2824,9 +2805,7 @@ msgstr "Havas eső - hó"
 msgid ""
 "Wrong station code \n"
 "or ZIP code!!!"
-msgstr ""
-"Hibás állomás kód\n"
-"vagy irányítószám!"
+msgstr "Hibás állomás kód\nvagy irányítószám!"
 
 #: omweather/src/weather-settings.c:824 meecast/qt-qml/qml/StationsPage.qml:77
 msgid "Yes"
@@ -2852,8 +2831,8 @@ msgstr ""
 
 #: meecast/qt-qml/qml/UpdatePage.qml:73
 msgid ""
-"You should activate 'Widget in the events view' option in MeeCast appearance "
-"settings for auto update."
+"You should activate 'Widget in the events view' option in MeeCast appearance"
+" settings for auto update."
 msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2758
@@ -2868,7 +2847,7 @@ msgstr "Nagyítás a felugró ablakban"
 msgid ""
 "as published by the Free Software Foundation; either version 2.1 of the "
 "License, or (at your option) any later version."
-msgstr ""
+msgstr "az FSF által publikált formában; akár a Licence 2.1-es verziója, vagy (ha úgy gondolod) bármely későbbi verzió."
 
 #: omweather/src/weather-popup.c:286
 msgid "current location local time"

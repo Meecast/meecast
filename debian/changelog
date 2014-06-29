@@ -5,6 +5,7 @@ meecast (0.9.5) unstable; urgency=low
   * Updated Catalan, Finnish, Norwegian, Slovenian, Danish,
     Spanish, Italian, Russian, Hungarian, French translations
   * Fixed problem with data (humidity, feels like...) in current weather in foreca.com source 
+  * Added stations to Finland in yr.no source
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 15 Jun 2014 06:31:23 +0200
 

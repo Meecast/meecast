@@ -98,6 +98,7 @@ desktop-file-install --delete-original       \
   * Fixed problem with data (humidity, feels like...) in current weather in foreca.com source
   * Decreased font for 'Last update" on cover page
   * Fixed problem with station name font size on cover page
+  * Added stations to Finland in yr.no source
 
 * Sun Jun 22 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.4
   * Fixed problem with current night forecast

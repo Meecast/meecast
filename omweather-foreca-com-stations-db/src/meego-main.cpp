@@ -363,7 +363,6 @@ parse_and_write_detail_data(const char *station_id, htmlDocPtr doc, const char *
 //                            fprintf(file_out,"     <flike>%i</flike>\n", atoi((char*)(char*)xpathObj3->nodesetval->nodeTab[i+1]->content)); 
                             xpathObj3->nodesetval->nodeTab[i-offset] && xpathObj3->nodesetval->nodeTab[i-offset]->content){
                             fprintf(file_out,"     <flike>%i</flike>\n", atoi((char*)(char*)xpathObj3->nodesetval->nodeTab[i-offset]->content)); 
-
                         }    
                     }
                 }

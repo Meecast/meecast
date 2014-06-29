@@ -518,9 +518,9 @@ Config::LoadConfig(){
                 viewURL.replace("#","/");
             std::cerr<<"SOurce name "<<source_name.toStdString()<<std::endl;
          /* Hack for yr.no Remove it after version 1.0 */
-         if  (source_name=="yr.no" and !(detailURL.contains("time_for_time.html"))){
+         if  (source_name=="yr.no" and (detailURL.contains("time_for_time.html"))){
             detailURL.replace(QString("time_for_time.html"), QString("varsel_time_for_time.xml"));
-             std::cerr<<"detailURL "<<detailURL.toStdString()<<std::endl;
+            std::cerr<<"detailURL "<<detailURL.toStdString()<<std::endl;
          }
 
             Station *st = new Station(source_name.toStdString(),

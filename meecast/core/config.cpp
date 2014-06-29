@@ -517,24 +517,11 @@ Config::LoadConfig(){
             if  (source_name=="yr.no")
                 viewURL.replace("#","/");
             std::cerr<<"SOurce name "<<source_name.toStdString()<<std::endl;
-         /* Hack for foreca.com Remove it after version 0.8 */
-         if  (source_name=="foreca.com" and !( forecastURL.contains("daily"))){
-             forecastURL.replace(QString(".mobi/old/7d.php"), QString(".mobi/daily.php"));
-             std::cerr<<"Forecast URL "<<forecastURL.toStdString()<<std::endl;
+         /* Hack for yr.no Remove it after version 1.0 */
+         if  (source_name=="yr.no" and !(detailURL.contains("time_for_time.html"))){
+            detailURL.replace(QString("time_for_time.html"), QString("varsel_time_for_time.xml"));
+             std::cerr<<"detailURL "<<detailURL.toStdString()<<std::endl;
          }
-         if (source_name=="foreca.com" and !(detailURL.contains("spot"))){
-             detailURL.replace(QString(".mobi/old/index.php"), QString(".mobi/spot.php"));
-             std::cerr<<"Detail URL "<<detailURL.toStdString()<<std::endl;
-         }
-         /* Hack for weather.com  Remove it after version 0.8.5 */
-         if (source_name=="weather.com" and (forecastURL.contains("xml.weather.com"))){
-            forecastURL.replace(QString("xml.weather.com"), QString("wxdata.weather.com/wxdata"));
-            std::cerr<<"Replace URL"<<forecastURL.toStdString()<<std::endl;
-        }
-        if  (source_name=="weather.com" and (detailURL.contains("xml.weather.com"))){
-
-            detailURL.replace(QString("xml.weather.com"), QString("wxdata.weather.com/wxdata"));
-        }
 
             Station *st = new Station(source_name.toStdString(),
                                       station_id.toStdString(),

@@ -96,6 +96,8 @@ desktop-file-install --delete-original       \
   * Updated Catalan, Finnish, Norwegian, Slovenian, Danish,
     Spanish, Italian, Russian, Hungarian, French translations
   * Fixed problem with data (humidity, feels like...) in current weather in foreca.com source
+  * Decreased font for 'Last update" on cover page
+  * Fixed problem with station name font size on cover page
 
 * Sun Jun 22 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.4
   * Fixed problem with current night forecast

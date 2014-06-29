@@ -120,10 +120,10 @@ CoverBackground {
     //        Current.reload_data(Config.filename);
     //        Current.update_model(0);
 
-            stationname.text = Config.stationname
+        stationname.text = Config.stationname
 
 	    stationname.font.pixelSize = 35 
-	    if (stationname.text.length > 16)
+	    if (stationname.text.length > 15)
             	stationname.font.pixelSize = 30 
 	    if (stationname.text.length > 20)
             	stationname.font.pixelSize = 24 
@@ -259,7 +259,7 @@ CoverBackground {
         anchors.top: parent.top
         anchors.horizontalCenter: parent.horizontalCenter
         text: Config.stationname == "Unknown" ? "MeeCast" : Config.stationname
-        font.pixelSize: text.length > 20 ? 24 : (text.length > 16 ? 30 : 35)
+        font.pixelSize: text.length > 20 ? 24 : (text.length > 15 ? 30 : 35)
     }
     Text {
         id: now
@@ -367,7 +367,7 @@ CoverBackground {
         visible: (Config.lastupdatecoverpage && !isUpdate && coverPage.current_model("lastupdatetime") != undefined) ? true : false 
         anchors.horizontalCenter: parent.horizontalCenter
         text: coverPage.current_model("lastupdatetime") == undefined ? "MeeCast" : ((coverPage.current_model("lastupdatetime").length + Config.tr("Last update:").length) < 25 ?  Config.tr("Last update:") + " " + coverPage.current_model("lastupdatetime") : coverPage.current_model("lastupdatetime"))
-        font.pixelSize: 21 
+        font.pixelSize: 20 
     }
 
     Image {

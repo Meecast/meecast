@@ -218,8 +218,8 @@ for key in regions_name.keys():
 fh = open(country_code + ".txt")
 for line in fh.readlines():
     pattern = re.split('(\t)', line)
-    if (pattern[14] == "PPLA" or pattern[14] == "PPLC" or pattern[14] == "PPL" or pattern[14] == "STM"):
-        if (pattern[20] != "" and int(pattern[28]) >= 10000):
+    if (pattern[14] == "PPLA" or pattern[14] == "PPLC" or pattern[14] == "PPL" or pattern[14] == "STM" or pattern[14] == "ISL" ):
+        if (pattern[20] != "" and (int(pattern[28]) >= 10000 or  pattern[14] == "ISL" )):
             if (regions_name.get(pattern[20]) == None):
                 continue
             if (replacing_dict_after_region_filling.get(regions_name[pattern[20]])):

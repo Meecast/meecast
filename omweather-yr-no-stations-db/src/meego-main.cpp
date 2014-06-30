@@ -349,7 +349,7 @@ parse_and_write_detail_data(const char *station_id,  xmlNode *root_node, const c
 
 /*******************************************************************************/
 int
-convert_station_yrno_data(char *station_id_with_path, char *result_file, const char *detail_path_data){
+convert_station_yrno_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data){
  
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;

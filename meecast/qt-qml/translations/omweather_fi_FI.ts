@@ -720,6 +720,10 @@ Fremantle käyttöliittymä: Krebber Jan ja Niemelä Ulla
             <translation>Pilvistä, kevyttä vesisadetta, ukkosta</translation>
         </message>
         <message>
+            <source>Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Pilvistä, rankkasadetta</translation>
+        </message>
+        <message>
             <source>Cloudy, Rain</source>
             <translation>Pilvistä, vesisadetta</translation>
         </message>

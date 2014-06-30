@@ -771,6 +771,10 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
             <translation>Molnigt, Lätt Regn, Åskväder</translation>
         </message>
         <message>
+            <source>Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Mestadels Molnigt, Mycket Regn</translation>
+        </message>
+        <message>
             <source>Cloudy, Rain</source>
             <translation>Molnigt, Regn</translation>
         </message>

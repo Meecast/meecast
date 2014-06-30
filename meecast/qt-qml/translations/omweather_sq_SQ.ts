@@ -721,6 +721,10 @@ Krijimi i ndërfaqes për Fremantle-in: Krebber Jan Niemelä Ulla
             <translation>Me re, Shi i dobët, Stuhira</translation>
         </message>
         <message>
+            <source>Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Me re, rreshje të forta</translation>
+        </message>
+        <message>
             <source>Cloudy, Rain</source>
             <translation>Me re, Shi</translation>
         </message>

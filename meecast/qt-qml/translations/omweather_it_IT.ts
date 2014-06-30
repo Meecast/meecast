@@ -720,6 +720,10 @@ Design UI per Fremantle: Krebber Jan Niemelä Ulla
             <translation>Nuvoloso, deboli Piogge, Temporale</translation>
         </message>
         <message>
+            <source>Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Nuvoloso, forti Piogge</translation>
+        </message>
+        <message>
             <source>Cloudy, Rain</source>
             <translation>Nuvoloso, Pioggia</translation>
         </message>

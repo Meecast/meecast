@@ -723,6 +723,10 @@ Návrh UI pre Fremantle: Krebber Jan Niemelä Ulla
             <translation>Zamračené, slabý dážď, búrka</translation>
         </message>
         <message>
+            <source>Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Zamračené, silný dážď</translation>
+        </message>
+        <message>
             <source>Cloudy, Rain</source>
             <translation>Zamračené, dážď</translation>
         </message>

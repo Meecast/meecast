@@ -722,6 +722,10 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
             <translation>Skyet, Lett Regn, Torden</translation>
         </message>
         <message>
+            <source>Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Skyet, Mye Regn</translation>
+        </message>
+        <message>
             <source>Cloudy, Rain</source>
             <translation>Skyet, Regn</translation>
         </message>

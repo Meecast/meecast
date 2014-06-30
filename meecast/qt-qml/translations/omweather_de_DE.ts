@@ -721,6 +721,10 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
             <translation>Bewölkt, Leichter Regen, Gewitter</translation>
         </message>
         <message>
+            <source>Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Bewölkt, Starkregen</translation>
+        </message>
+        <message>
             <source>Cloudy, Rain</source>
             <translation>Bewölkt, Regen</translation>
         </message>

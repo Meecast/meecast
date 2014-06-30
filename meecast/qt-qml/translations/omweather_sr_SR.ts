@@ -720,6 +720,10 @@ Dizajn za Fremantle: Krebber Jan Niemelä Ulla
             <translation>Oblačno, Slaba kiša, Oluja sa grmljavinom</translation>
         </message>
         <message>
+            <source>Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Oblačno, Jaka kiša</translation>
+        </message>
+        <message>
             <source>Cloudy, Rain</source>
             <translation>Oblačno, Kiša</translation>
         </message>

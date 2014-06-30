@@ -724,6 +724,10 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
             <translation>Облачно, Слаб дъжд, Гръмотевици</translation>
         </message>
         <message>
+            <source>Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Облачно, Порой</translation>
+        </message>
+        <message>
             <source>Cloudy, Rain</source>
             <translation>Облачно, Дъжд</translation>
         </message>

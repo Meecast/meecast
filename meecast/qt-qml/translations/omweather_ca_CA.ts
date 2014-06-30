@@ -720,6 +720,10 @@ Disseny IU per a Fremantle: Krebber Jan Niemelä Ulla
             <translation>Núvol, Pluja suau, Tempesta</translation>
         </message>
         <message>
+            <source>Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Núvol, Pluja intensa</translation>
+        </message>
+        <message>
             <source>Cloudy, Rain</source>
             <translation>Núvol, Pluja</translation>
         </message>

@@ -710,6 +710,10 @@ Frementle için Dizayn : Krebber Jan Niemelä Ulla
             <translation>Bulutlu , Hafif Yağmur , Fırtına</translation>
         </message>
         <message>
+            <source>Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Bulutlu , Sağnak Yağmur</translation>
+        </message>
+        <message>
             <source>Cloudy, Rain</source>
             <translation>Bulutlu , Yağmur</translation>
         </message>

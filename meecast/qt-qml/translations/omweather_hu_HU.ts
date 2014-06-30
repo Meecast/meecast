@@ -698,6 +698,10 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
             <translation>Felhős, könnyű eső, vihar</translation>
         </message>
         <message>
+            <source>Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Felhős, felhőszakadás</translation>
+        </message>
+        <message>
             <source>Cloudy, Rain</source>
             <translation>Felhős, eső</translation>
         </message>

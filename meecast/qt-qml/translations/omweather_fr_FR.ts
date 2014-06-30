@@ -718,6 +718,10 @@ Design de l'interface pour Fremantle : Krebber Jan Niemelä Ulla
             <translation>Nuageux, pluie légère, orage</translation>
         </message>
         <message>
+            <source>Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Nuageux, grosse pluie</translation>
+        </message>
+        <message>
             <source>Cloudy, Rain</source>
             <translation>Nuageux, pluie</translation>
         </message>

@@ -719,6 +719,10 @@ Diseño de la IU para Fremantle: Krebber Jan Niemelä Ulla
             <translation>Nublado, lluvia ligera, tormenta eléctrica</translation>
         </message>
         <message>
+            <source>Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Nublado, Mucha lluvia</translation>
+        </message>
+        <message>
             <source>Cloudy, Rain</source>
             <translation>Nublado, Lluvia</translation>
         </message>

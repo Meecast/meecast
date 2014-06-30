@@ -714,6 +714,10 @@ Interfejs dla Fremantle: Krebber Jan Niemelä Ulla
             <translation>Pochmurnie, lekki deszcz, burza</translation>
         </message>
         <message>
+            <source>Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Pochmurnie, silny deszcz</translation>
+        </message>
+        <message>
             <source>Cloudy, Rain</source>
             <translation>Pochmurnie, deszcz</translation>
         </message>

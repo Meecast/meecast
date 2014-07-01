@@ -109,6 +109,7 @@ parse_and_write_detail_data(const char *station_id,  xmlNode *root_node, const c
                 *child_node1 = NULL,
                 *child_node2 = NULL;
     xmlChar     *temp_xml_string = NULL;
+    xmlChar     *temp_xml_string2 = NULL;
     int         count_day = 0;
     char        id_station[10],
                 buff[256];
@@ -165,7 +166,7 @@ parse_and_write_detail_data(const char *station_id,  xmlNode *root_node, const c
             /* get weather station data */
             if(!xmlStrcmp(cur_node->name, (const xmlChar *) "location" ) ){
                 for(child_node = cur_node->children; child_node; child_node = child_node->next){
-                    if( child_node->type == XML_ELEMENT_NODE ){
+                    if(child_node->type == XML_ELEMENT_NODE ){
                         /* station time zone */
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"timezone") ){
                             memset(buff, 0, sizeof(buff));
@@ -185,7 +186,6 @@ parse_and_write_detail_data(const char *station_id,  xmlNode *root_node, const c
                 for(child_node = cur_node->children; child_node; child_node = child_node->next){
                    if (!xmlStrcmp(child_node->name, (const xmlChar *) "tabular" )){
                     for(child_node1 = child_node->children; child_node1; child_node1 = child_node1->next){
-                        fprintf(stderr,"11111 %s\n", child_node1->name);
                         if(child_node1->type == XML_ELEMENT_NODE  &&
                                 ( !xmlStrcmp(child_node1->name, (const xmlChar *)"time") ) ){
                             
@@ -230,7 +230,11 @@ parse_and_write_detail_data(const char *station_id,  xmlNode *root_node, const c
                                     }  /* 24h icon */
                                     if(!xmlStrcmp(child_node2->name, (const xmlChar *)"symbol")){
                                         temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"number");
+                                        temp_xml_string2 = xmlGetProp(child_node2, (const xmlChar*)"var");
                                         memset(buff, 0, sizeof(buff));
+                                        if (xmlStrchr(temp_xml_string2, 'n'))
+                                            snprintf(buff, sizeof(buff)-1, "night%s",(char*)temp_xml_string);
+                                        else
                                             snprintf(buff, sizeof(buff)-1, "day%s",(char*)temp_xml_string);
                                             #ifdef GLIB
 			                                    fprintf(file_out,"     <icon>%s</icon>\n", (char*)hash_yrno_table_find(hash_for_icons, buff , FALSE)); 
@@ -355,8 +359,9 @@ convert_station_yrno_data(const char *station_id_with_path, const char *result_f
     xmlNode *root_node = NULL;
     int     days_number = -1;
     char    buffer[1024],
+            buffer2[1024],
             *delimiter = NULL;
-    FILE        *file_out;
+    FILE    *file_out;
     
     if(!station_id_with_path)
         return -1;
@@ -381,7 +386,9 @@ convert_station_yrno_data(const char *station_id_with_path, const char *result_f
         else{
             /* prepare station id */
             *buffer = 0;
-            delimiter = strrchr(station_id_with_path, '/');
+            *buffer2 = 0;
+            snprintf(buffer2, sizeof(buffer2) - 1, "%s", station_id_with_path);
+            delimiter = strrchr(buffer2, '/');
             if(delimiter){
                 delimiter++; /* delete '/' */
                 snprintf(buffer, sizeof(buffer) - 1, "%s", delimiter);
@@ -428,7 +435,7 @@ convert_station_yrno_data(const char *station_id_with_path, const char *result_f
 }
 /*******************************************************************************/
 int
-parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file){
+parse_and_write_xml_data(const char *station_id, xmlNode *root_node, const char *result_file){
     xmlNode     *cur_node = NULL,
                 *child_node = NULL,
                 *child_node1 = NULL,

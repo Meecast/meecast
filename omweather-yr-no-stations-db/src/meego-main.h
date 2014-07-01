@@ -41,7 +41,7 @@ void free_fields( void* key, void* val, void* user_data);
 #ifdef GLIB
     int get_station_weather_data(const char *station_id_with_path, GHashTable *data, int get_detail_data);
 #endif
-int parse_and_write_xml_data(char *station_id, xmlNode *root_node, char *result_file);
+int parse_and_write_xml_data(const char *station_id, xmlNode *root_node,const char *result_file);
 #ifdef GLIB
     GHashTable* hash_description_yrno_table_create(void);
     GHashTable* hash_icons_yrno_table_create(void);

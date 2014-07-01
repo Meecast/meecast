@@ -435,7 +435,7 @@ convert_station_yrno_data(const char *station_id_with_path, const char *result_f
 }
 /*******************************************************************************/
 int
-parse_and_write_xml_data(const char *station_id, xmlNode *root_node, const char *result_file){
+parse_and_write_yrno_xml_data(const char *station_id, xmlNode *root_node, const char *result_file){
     xmlNode     *cur_node = NULL,
                 *child_node = NULL,
                 *child_node1 = NULL,

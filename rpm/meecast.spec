@@ -90,7 +90,7 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
-* Sun Jun 22 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.5
+* Sun Jul 03 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.5
   * Fixed problem with Now/Today waether data for Main Page 
   * Fixed problem with null data for day forecast in weather.com source
   * Updated Catalan, Finnish, Norwegian, Slovenian, Danish,
@@ -99,6 +99,7 @@ desktop-file-install --delete-original       \
   * Decreased font for 'Last update" on cover page
   * Fixed problem with station name font size on cover page
   * Added stations to Finland in yr.no source
+  * Added hourly weather forecast for yr.no source
 
 * Sun Jun 22 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.4
   * Fixed problem with current night forecast

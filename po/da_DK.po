@@ -343,7 +343,7 @@ msgstr ""
 
 #: meecast/netbook-UX/meego-panel-omweather.cpp:415
 msgid "Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n"
-msgstr "Udvikling og vedligehold : Vlad Vasilyeu, <vlad@gas.by>"
+msgstr "Udvikling og vedligehold : Vlad Vasilyeu, <vlad@gas.by>\n"
 
 #: omweather/src/weather-help.c:111
 msgid "Authors"
@@ -809,7 +809,7 @@ msgstr ""
 #: omweather/src/weather-config.c:360
 #, c-format
 msgid "Failed to initialize GConf. Quitting.\n"
-msgstr "Det lykkedes ikke at initialisere GConf.  Afslutter."
+msgstr "Det lykkedes ikke at initialisere GConf.  Afslutter.\n"
 
 #: omweather/src/weather-config.c:948
 #, c-format
@@ -2530,7 +2530,7 @@ msgid ""
 "under the terms of the GNU General Public License\n"
 msgstr ""
 "Dette program er fri software; du kan redistribuere det og / eller ændre det "
-"under betingelserne i GNU General Public License."
+"under betingelserne i GNU General Public License.\n"
 
 #: omweather/src/hash.data:301
 msgid "Thunder"

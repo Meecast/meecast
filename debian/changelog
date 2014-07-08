@@ -8,7 +8,7 @@ meecast (0.9.5) unstable; urgency=low
   * Added stations to Finland in yr.no source
   * Added hourly weather forecast for yr.no source
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 15 Jun 2014 06:31:23 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 08 Jul 2014 08:31:23 +0200
 
 meecast (0.9.4) unstable; urgency=low
 

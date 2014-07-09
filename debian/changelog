@@ -1,3 +1,10 @@
+meecast (0.9.6) unstable; urgency=low
+
+  * 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 08 Jul 2014 08:31:23 +0200
+
+
 meecast (0.9.5) unstable; urgency=low
 
   * Added translation string for gismeteo.ru

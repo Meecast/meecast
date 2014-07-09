@@ -14,7 +14,7 @@
 
 Name:       harbour-meecast
 Summary:    Weather forecast application for SailfishOS
-Version:    0.9.5
+Version:    0.9.6
 Release:    1
 Group:      Utility
 License:    GPLv2.1
@@ -90,6 +90,8 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
+* Sun Jul 03 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.6
+
 * Sun Jul 03 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.5
   * Fixed problem with Now/Today waether data for Main Page 
   * Fixed problem with null data for day forecast in weather.com source

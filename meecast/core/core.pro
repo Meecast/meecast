@@ -126,7 +126,7 @@ dataatmos.files += data/icons/Atmos/*.png
 dataatmos.path = /usr/share/harbour-meecast/iconsets/Atmos
 
 donation.files += data/donation.html
-donation.path = /usr/share/harbour-meecast/share/html
+donation.path = /usr/share/harbour-meecast/html
 
 
 #data.path = /usr/share

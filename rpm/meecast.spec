@@ -91,6 +91,7 @@ desktop-file-install --delete-original       \
 
 %changelog
 * Sun Jul 03 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.6
+  * Fixed donation link 
 
 * Sun Jul 03 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.5
   * Fixed problem with Now/Today waether data for Main Page 

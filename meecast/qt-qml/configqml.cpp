@@ -2,7 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather) - MeeCast
  *
- * Copyright (C) 2006-2013 Vlad Vasilyeu
+ * Copyright (C) 2006-2014 Vlad Vasilyeu
  * Copyright (C) 2010-2011 Tanya Makova
  *     for the code
  *
@@ -990,7 +990,7 @@ ConfigQml::showweb()
 void
 ConfigQml::showwebdonation()
 {
-    QDesktopServices::openUrl(QUrl("http://omweather.garage.maemo.org/"));     
+    QDesktopServices::openUrl(QUrl("file:///opt/com.meecast.omweather/share/html/donation.html"));     
 }
 
 void

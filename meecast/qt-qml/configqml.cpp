@@ -1069,7 +1069,7 @@ ConfigQml::showweb()
 void
 ConfigQml::showwebdonation()
 {
-    QDesktopServices::openUrl(QUrl("http://omweather.garage.maemo.org/"));     
+    QDesktopServices::openUrl(QUrl("file:///opt/com.meecast.omweather/share/html/donation.html"));     
 }
 
 void

@@ -125,6 +125,10 @@ datanoun.path = /usr/share/harbour-meecast/iconsets/Noun
 dataatmos.files += data/icons/Atmos/*.png
 dataatmos.path = /usr/share/harbour-meecast/iconsets/Atmos
 
+donation.files += data/donation.html
+donation.path = /usr/share/harbour-meecast/share/html
+
+
 #data.path = /usr/share
 xsd.files += data/config.xsd
 xsd.files += data/data.xsd
@@ -137,7 +141,7 @@ images.files += data/images/*.png
 alib.files = libomweather-core.a
 alib.path = /usr/share/harbour-meecast/lib
 
-INSTALLS += target databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images alib icon50  icon16 icon32 icon64 icon128 icon86 
+INSTALLS += target databeginning datacontour dataepona dataglance datameecast datagrzankas datashiny datatango datasimpelmee datanoun dataatmos xsd buttonicons images alib icon50  icon16 icon32 icon64 icon128 icon86 donation
 QMAKE_CLEAN += lib$$TARGET* \
     *.pro.user
 

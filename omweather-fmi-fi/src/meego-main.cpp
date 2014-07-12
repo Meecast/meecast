@@ -25,6 +25,9 @@
 #include <config.h>
 #endif
 #include "meego-main.h"
+#include "json/json.h"
+#include <fstream>
+#include <iostream> 
 
 static xmlHashTablePtr hash_for_icons;
 #define buff_size 2048
@@ -33,8 +36,43 @@ int station_timezone = 0;
 /*******************************************************************************/
 
 int
-parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
-    int count_day;
+parse_and_write_days_xml_data(const char *days_data_path, const char *result_file){
+    int count_day = -1;
+    Json::Value root;   // will contains the root value after parsing.
+    Json::Reader reader;
+    FILE   *file_out;
+    char buffer  [4096],
+         buffer2 [4096],
+         *delimiter = NULL;
+
+    std::ifstream jsonfile(days_data_path, std::ifstream::binary);
+    bool parsingSuccessful = reader.parse(jsonfile, root, false);
+    fprintf(stderr, "Result %i", parsingSuccessful);
+    if (!parsingSuccessful)
+        return -1;
+
+    std::cout << root["observations"];
+
+    file_out = fopen(result_file, "w");
+    if (!file_out)
+        return -1;
+    /* prepare station id */
+    *buffer = 0;
+    *buffer2 = 0;
+    snprintf(buffer2, sizeof(buffer2) - 1, "%s", days_data_path);
+    delimiter = strrchr(buffer2, '/');
+    if(delimiter){
+        delimiter++; /* delete '/' */
+        snprintf(buffer, sizeof(buffer) - 1, "%s", delimiter);
+    }
+    fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", buffer);
+    fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
+    fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
+
+
+    fclose(file_out);
+
+    count_day=1;
     return count_day;
 }
 
@@ -43,8 +81,6 @@ parse_and_write_days_xml_data(htmlDocPtr doc, const char *result_file){
 int
 convert_station_fmi_fi_data(const char *days_data_path, const char *result_file){
  
-    xmlDoc  *doc = NULL;
-    xmlNode *root_node = NULL;
     int     days_number = -1;
     char    buffer[2048],
             *delimiter = NULL;
@@ -57,38 +93,20 @@ convert_station_fmi_fi_data(const char *days_data_path, const char *result_file)
  //   snprintf(buffer, sizeof(buffer)-1,"%s.timezone", result_file);
     /* check file accessability */
     if(!access(days_data_path, R_OK)){
-        /* check that the file containe valid data */
-        doc =  xmlReadFile(days_data_path, "UTF-8", 0);
-        if(!doc){
-            xmlHashFree(hash_for_icons, NULL);
-            return -1;
-        }
-        root_node = xmlDocGetRootElement(doc);
-        if(root_node && root_node->type == XML_ELEMENT_NODE &&
-                strstr((char*)root_node->name, "err")){
-            xmlFreeDoc(doc);
-            xmlCleanupParser();
-            xmlHashFree(hash_for_icons, NULL);
-            return -2;
-        }else{
-            days_number = parse_and_write_days_xml_data(doc, result_file);
-            xmlFreeDoc(doc);
-            xmlCleanupParser();
-            if (days_number > 0){
-            
-                file_out = fopen(result_file, "a");
-                if (file_out){
-                    fprintf(file_out,"</station>");
-                    fclose(file_out);
-                }
-            }
-        }
+            days_number = parse_and_write_days_xml_data(days_data_path, result_file);
     }else{
-        xmlHashFree(hash_for_icons, NULL);
         return -1;/* file isn't accessability */
     }
 
-    xmlHashFree(hash_for_icons, NULL);
+    
+    if (days_number > 0){
+        file_out = fopen(result_file, "a");
+        if (file_out){
+            fprintf(file_out,"</station>");
+            fclose(file_out);
+        }
+    }
+
     return days_number;
 }
 
@@ -96,7 +114,7 @@ convert_station_fmi_fi_data(const char *days_data_path, const char *result_file)
 int
 main(int argc, char *argv[]){
     int result; 
-    if (argc < 4) {
+    if (argc < 2) {
         fprintf(stderr, "fmifi <input_days_file> <output_file> <input_hours_file> <input_current_file>\n");
         return -1;
     }

@@ -28,6 +28,7 @@
 #include "json/json.h"
 #include <fstream>
 #include <iostream> 
+#include <vector>
 
 static xmlHashTablePtr hash_for_icons;
 #define buff_size 2048
@@ -47,11 +48,10 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 
     std::ifstream jsonfile(days_data_path, std::ifstream::binary);
     bool parsingSuccessful = reader.parse(jsonfile, root, false);
-    fprintf(stderr, "Result %i", parsingSuccessful);
+    fprintf(stderr, "Result %i\n", parsingSuccessful);
     if (!parsingSuccessful)
         return -1;
 
-    std::cout << root["observations"];
 
     file_out = fopen(result_file, "w");
     if (!file_out)
@@ -69,6 +69,25 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
 
+    Json::Value nullval ;
+    std::string sss = root["observations"].getMemberNames()[0];
+    std::cerr<<sss<<std::endl;
+    //std::cerr<<root["observations"].get(root["observations"].getMemberNames()[0], nullval)<<std::endl;
+    Json::Value val = root["observations"].get(root["observations"].getMemberNames()[0], nullval);
+
+    double min_distance = 32000;
+    int max_count_of_parameters = 0;
+    for (int i = 0; i < val.size(); i++){
+        std::cerr<<"size "<<val[i].size()<<std::endl;
+        if (atof(val[i].get("distance","").asCString()) < min_distance && (val[i].size()>max_count_of_parameters && atof(val[i].get("distance","").asCString()) - min_distance < 10)){
+            std::cerr<<val[i].get("distance", nullval)<<std::endl;
+            min_distance = atof(val[i].get("distance","").asCString());
+            max_count_of_parameters = val[i].size();
+        }
+//        std::cerr<<val[i]<<std::endl;
+//        std::cerr<<"qqqqqqqqqqqqq"<<std::endl;
+    }
+    //std::cout << root["observations"];
 
     fclose(file_out);
 

@@ -41,10 +41,22 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     int count_day = -1;
     Json::Value root;   // will contains the root value after parsing.
     Json::Reader reader;
+    Json::Value val;
+    Json::Value nullval ;
     FILE   *file_out;
     char buffer  [4096],
          buffer2 [4096],
          *delimiter = NULL;
+    time_t current_time = 0;
+    int current_temperature = INT_MAX;
+    int current_humidity = INT_MAX;
+    int current_wind_speed = INT_MAX;
+    int current_wind_gust = INT_MAX;
+    int current_pressure = INT_MAX;
+    int current_visibility = INT_MAX;
+    int current_dewpoint = INT_MAX;
+    std::string current_wind_direction = "";
+    struct tm   tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
 
     std::ifstream jsonfile(days_data_path, std::ifstream::binary);
     bool parsingSuccessful = reader.parse(jsonfile, root, false);
@@ -69,26 +81,82 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
 
-    Json::Value nullval ;
-    std::string sss = root["observations"].getMemberNames()[0];
-    std::cerr<<sss<<std::endl;
     //std::cerr<<root["observations"].get(root["observations"].getMemberNames()[0], nullval)<<std::endl;
-    Json::Value val = root["observations"].get(root["observations"].getMemberNames()[0], nullval);
+    val = root["observations"].get(root["observations"].getMemberNames()[0], nullval);
 
     double min_distance = 32000;
     int max_count_of_parameters = 0;
     for (int i = 0; i < val.size(); i++){
         std::cerr<<"size "<<val[i].size()<<std::endl;
+        /* Current weather */
         if (atof(val[i].get("distance","").asCString()) < min_distance && (val[i].size()>max_count_of_parameters && atof(val[i].get("distance","").asCString()) - min_distance < 10)){
-            std::cerr<<val[i].get("distance", nullval)<<std::endl;
-            min_distance = atof(val[i].get("distance","").asCString());
-            max_count_of_parameters = val[i].size();
+            std::string cur_time;
+            cur_time = val[i].get("time","").asCString();
+            if (cur_time!=""){
+                std::cerr<<val[i].get("distance", nullval)<<std::endl;
+                min_distance = atof(val[i].get("distance","").asCString());
+                max_count_of_parameters = val[i].size();
+                std::cerr<<cur_time<<std::endl;
+                strptime((const char*)cur_time.c_str(), "%Y%m%d%H%M", &tmp_tm);
+                current_time = mktime(&tmp_tm); 
+                if (val[i].get("Temperature","").asCString() != ""){
+                    current_temperature = atoi(val[i].get("Temperature","").asCString());
+                }    
+                if (val[i].get("Humidity","").asCString() != ""){
+                    current_humidity = atoi(val[i].get("Humidity","").asCString());
+                }    
+                if (val[i].get("WindSpeedMS","").asCString() != ""){
+                    current_wind_speed = atoi(val[i].get("WindSpeedMS","").asCString());
+                }    
+                if (val[i].get("WindCompass8","").asCString() != ""){
+                    current_wind_direction = val[i].get("WindCompass8","").asCString();
+                }    
+                if (val[i].get("WindGust","").asCString() != ""){
+                    current_wind_gust = atoi(val[i].get("WindGust","").asCString());
+                }    
+                if (val[i].get("Pressure","").asCString() != ""){
+                    current_pressure = atoi(val[i].get("Pressure","").asCString());
+                }    
+                if (val[i].get("Visibility","").asCString() != ""){
+                    current_visibility = atoi(val[i].get("Visibility","").asCString());
+                }    
+                if (val[i].get("DewPoint","").asCString() != ""){
+                    current_dewpoint = atoi(val[i].get("DewPoint","").asCString());
+                }    
+
+
+                std::cerr<<"Timestamp: "<<current_time<<std::endl;
+                std::cerr<<"Temperature: "<<current_temperature<<std::endl;
+                std::cerr<<"Humidity: "<<current_humidity<<std::endl;
+                std::cerr<<"Wind Speed: "<<current_wind_speed<<std::endl;
+                std::cerr<<"Wind Gust: "<<current_wind_gust<<std::endl;
+                std::cerr<<"Wind Direction: "<<current_wind_direction<<std::endl;
+                std::cerr<<"Pressure: "<<current_pressure<<std::endl;
+                std::cerr<<"Visibility: "<<current_visibility<<std::endl;
+                std::cerr<<"DewPoint: "<<current_dewpoint<<std::endl;
+            }
         }
+
 //        std::cerr<<val[i]<<std::endl;
 //        std::cerr<<"qqqqqqqqqqqqq"<<std::endl;
     }
-    //std::cout << root["observations"];
 
+    /* Forecasts */
+    val = root["forecasts"][0].get("forecast", nullval);
+    std::cout << root["forecasts"][0].get("forecast", nullval);
+    std::cerr<<"size oo "<<val.size()<<std::endl;
+    for (int i = 0; i < val.size(); i++){
+        std::string utc_time;
+        std::string local_time;
+        utc_time = val[i].get("utctime","").asCString();
+        local_time = val[i].get("localtime","").asCString();
+
+        if (val[i].get("Temperature","").asCString() != ""){
+            std::cerr<<atoi(val[i].get("Temperature","").asCString())<<std::endl;
+         }    
+
+        std::cerr<<"size "<<val[i].size()<<std::endl;
+    }
     fclose(file_out);
 
     count_day=1;

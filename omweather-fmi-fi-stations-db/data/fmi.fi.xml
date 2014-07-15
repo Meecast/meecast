@@ -3,8 +3,8 @@
 <name>fmi.fi</name>
 <logo>fmi.fi.png</logo>
 <base>fmi.fi.db</base>
-<forecast url="http://m.fmi.fi/mobile/interfaces/weatherdata.php?l=en&locations=%s" />
+<forecast url="http://m.fmi.fi/mobile/interfaces/weatherdata.php?l=en&amp;locations=%s" />
 <library>libomweather-fmi-fi-source.so</library>
-<binary>/opt/com.meecast.omweather/lib/fmimfi</binary>
+<binary>fmimfi</binary>
 <showurl url="http://m.fmi.fi/saa/" />
 </source>

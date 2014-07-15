@@ -40,6 +40,7 @@ int convert_station_hkogovhk_data(const char *station_id_with_path, const char *
 int convert_station_bomgovau_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data );
 int convert_station_yrno_data(const char *station_id_with_path, const char *result_file, const char *detail_path_data );
 int convert_station_weather_com_data(const char *station_id_with_path, const char *result_file, const char *station_detail_id_with_path);
+int convert_station_fmi_fi_data(const char *station_id_with_path, const char *result_file);
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
@@ -649,6 +650,12 @@ Station::run_converter(){
             (const char *)result_file_string.c_str(), 
             (const char *)detail_file_string.c_str());
     }
+    if (*_sourceName =="fmi.fi"){
+        convert_station_fmi_fi_data(
+            (const char *)forecast_file_string.c_str(), 
+            (const char *)result_file_string.c_str());
+    }
+
 }
 
    

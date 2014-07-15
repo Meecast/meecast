@@ -149,6 +149,7 @@
     g_hash_table_insert(hash, (void*)"Mostly Cloudy, Light Rain", _("Mostly Cloudy, Light Rain"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy, Light Rain, Drizzle", _("Mostly Cloudy, Light Rain, Drizzle"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy, Light Rain, T-Storm", _("Mostly Cloudy, Light Rain, T-Storm"));
+    g_hash_table_insert(hash, (void*)"Mostly Cloudy, Light Rain, Weak Heavy Rain", _("Mostly Cloudy, Light Rain, Weak Heavy Rain"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy, Rain", _("Mostly Cloudy, Rain"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy, Rain, T-Storm", _("Mostly Cloudy, Rain, T-Storm"));
     g_hash_table_insert(hash, (void*)"Mostly Cloudy, Smoke", _("Mostly Cloudy, Smoke"));

@@ -48,6 +48,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
          buffer2 [4096],
          *delimiter = NULL;
     time_t current_time = 0;
+    time_t utc_time = 0;
+    time_t local_time = 0;
     int current_temperature = INT_MAX;
     int current_humidity = INT_MAX;
     int current_wind_speed = INT_MAX;
@@ -55,6 +57,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     int current_pressure = INT_MAX;
     int current_visibility = INT_MAX;
     int current_dewpoint = INT_MAX;
+    int check_timezone = false;
+    int timezone = 0;
     std::string current_wind_direction = "";
     struct tm   tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
 
@@ -146,15 +150,24 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     std::cout << root["forecasts"][0].get("forecast", nullval);
     std::cerr<<"size oo "<<val.size()<<std::endl;
     for (int i = 0; i < val.size(); i++){
-        std::string utc_time;
-        std::string local_time;
-        utc_time = val[i].get("utctime","").asCString();
-        local_time = val[i].get("localtime","").asCString();
-
-        if (val[i].get("Temperature","").asCString() != ""){
-            std::cerr<<atoi(val[i].get("Temperature","").asCString())<<std::endl;
-         }    
-
+        std::string utc_time_string;
+        std::string local_time_string;
+        utc_time_string = val[i].get("utctime","").asCString();
+        if (utc_time_string != ""){
+            strptime((const char*)utc_time_string.c_str(), "%Y%m%dT%H%M%S", &tmp_tm);
+            utc_time = mktime(&tmp_tm); 
+            /* get timezone */
+            if (!check_timezone){
+                local_time_string = val[i].get("localtime","").asCString();
+                strptime((const char*)local_time_string.c_str(), "%Y%m%dT%H%M%S", &tmp_tm);
+                local_time = mktime(&tmp_tm); 
+                fprintf(file_out,"  <timezone>%i</timezone>\n", (int)((local_time-utc_time)/3600));
+                check_timezone = true;
+            }    
+            if (val[i].get("Temperature","").asCString() != ""){
+                std::cerr<<atoi(val[i].get("Temperature","").asCString())<<std::endl;
+            }    
+        }
         std::cerr<<"size "<<val[i].size()<<std::endl;
     }
     fclose(file_out);

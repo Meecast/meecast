@@ -438,7 +438,6 @@ convert_station_hkogovhk_data(const char *station_id_with_path, const char *resu
                         fclose(file_out);
                     }
 		        }
-
             }
         }
     }

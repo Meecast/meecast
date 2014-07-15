@@ -1,0 +1,351 @@
+<weather ver="2.0">
+        <head>
+      <locale>en_US</locale>
+      <form>MEDIUM</form>
+      <ut>C</ut>
+      <ud>km</ud>
+      <us>km/h</us>
+      <up>mb</up>
+      <ur>mm</ur>
+    </head>
+        <loc id="BOXX0014">
+      <dnam>Vitebsk, VI, Belarus</dnam>
+      <tm>8:39 AM</tm>
+      <lat>55.17</lat>
+      <lon>30.22</lon>
+      <sunr>4:39 AM</sunr>
+      <suns>9:31 PM</suns>
+      <zone>3</zone>
+    </loc>
+        
+        
+        <cc>
+        <lsup>7/15/14 8:30 AM FET</lsup>
+        <obst>Vitebsk, VI, BO</obst>
+        <tmp>18</tmp>
+        <flik>18</flik>
+        <t>Partly Cloudy</t>
+        <icon>30</icon>
+        
+        <bar>
+          <r>1018.96</r>
+          <d>steady</d>
+        </bar>
+        <wind>
+      <s>6</s>
+      <gust>N/A</gust>
+      <d>180</d>
+      <t>S</t>
+    </wind>
+        <hmid>88</hmid>
+        <vis>6.0</vis>
+        <uv>
+          <i>1</i>
+          <t>Low</t>
+        </uv>
+        <dewp>17</dewp>
+        <moon>
+          <icon>18</icon>
+          <t>Waning Gibbous</t>
+        </moon>
+      </cc>
+        <dayf>
+        <lsup>7/15/14 7:00 AM FET</lsup>
+        <day d="0" t="Tuesday" dt="Jul 15">
+        <hi>24</hi>
+        <low>15</low>
+        <sunr>4:39 AM</sunr>
+        <suns>9:31 PM</suns>
+        
+        <part p="d">
+          <icon>38</icon>
+          <t>PM T-Storms</t>
+          <wind>
+      <s>8</s>
+      <gust>N/A</gust>
+      <d>180</d>
+      <t>S</t>
+    </wind>
+          <bt>PM T-Storms</bt>
+          <ppcp>60</ppcp>
+          <hmid>71</hmid>
+        </part>
+        <part p="n">
+          <icon>33</icon>
+          <t>Mostly Clear</t>
+          <wind>
+      <s>8</s>
+      <gust>N/A</gust>
+      <d>185</d>
+      <t>S</t>
+    </wind>
+          <bt>M Clear</bt>
+          <ppcp>20</ppcp>
+          <hmid>88</hmid>
+        </part>
+      </day><day d="1" t="Wednesday" dt="Jul 16">
+        <hi>27</hi>
+        <low>15</low>
+        <sunr>4:39 AM</sunr>
+        <suns>9:31 PM</suns>
+        
+        <part p="d">
+          <icon>38</icon>
+          <t>PM T-Storms</t>
+          <wind>
+      <s>9</s>
+      <gust>N/A</gust>
+      <d>278</d>
+      <t>W</t>
+    </wind>
+          <bt>PM T-Storms</bt>
+          <ppcp>50</ppcp>
+          <hmid>69</hmid>
+        </part>
+        <part p="n">
+          <icon>29</icon>
+          <t>Partly Cloudy</t>
+          <wind>
+      <s>9</s>
+      <gust>N/A</gust>
+      <d>350</d>
+      <t>N</t>
+    </wind>
+          <bt>P Cloudy</bt>
+          <ppcp>20</ppcp>
+          <hmid>88</hmid>
+        </part>
+      </day><day d="2" t="Thursday" dt="Jul 17">
+        <hi>26</hi>
+        <low>15</low>
+        <sunr>4:39 AM</sunr>
+        <suns>9:31 PM</suns>
+        
+        <part p="d">
+          <icon>34</icon>
+          <t>Mostly Sunny</t>
+          <wind>
+      <s>11</s>
+      <gust>N/A</gust>
+      <d>351</d>
+      <t>N</t>
+    </wind>
+          <bt>M Sunny</bt>
+          <ppcp>0</ppcp>
+          <hmid>70</hmid>
+        </part>
+        <part p="n">
+          <icon>31</icon>
+          <t>Clear</t>
+          <wind>
+      <s>9</s>
+      <gust>N/A</gust>
+      <d>358</d>
+      <t>N</t>
+    </wind>
+          <bt>Clear</bt>
+          <ppcp>0</ppcp>
+          <hmid>76</hmid>
+        </part>
+      </day><day d="3" t="Friday" dt="Jul 18">
+        <hi>25</hi>
+        <low>15</low>
+        <sunr>4:39 AM</sunr>
+        <suns>9:31 PM</suns>
+        
+        <part p="d">
+          <icon>34</icon>
+          <t>Mostly Sunny</t>
+          <wind>
+      <s>12</s>
+      <gust>N/A</gust>
+      <d>356</d>
+      <t>N</t>
+    </wind>
+          <bt>M Sunny</bt>
+          <ppcp>0</ppcp>
+          <hmid>62</hmid>
+        </part>
+        <part p="n">
+          <icon>33</icon>
+          <t>Mostly Clear</t>
+          <wind>
+      <s>9</s>
+      <gust>N/A</gust>
+      <d>357</d>
+      <t>N</t>
+    </wind>
+          <bt>M Clear</bt>
+          <ppcp>0</ppcp>
+          <hmid>76</hmid>
+        </part>
+      </day><day d="4" t="Saturday" dt="Jul 19">
+        <hi>24</hi>
+        <low>15</low>
+        <sunr>4:39 AM</sunr>
+        <suns>9:31 PM</suns>
+        
+        <part p="d">
+          <icon>34</icon>
+          <t>Mostly Sunny</t>
+          <wind>
+      <s>12</s>
+      <gust>N/A</gust>
+      <d>355</d>
+      <t>N</t>
+    </wind>
+          <bt>M Sunny</bt>
+          <ppcp>0</ppcp>
+          <hmid>65</hmid>
+        </part>
+        <part p="n">
+          <icon>29</icon>
+          <t>Partly Cloudy</t>
+          <wind>
+      <s>8</s>
+      <gust>N/A</gust>
+      <d>5</d>
+      <t>N</t>
+    </wind>
+          <bt>P Cloudy</bt>
+          <ppcp>0</ppcp>
+          <hmid>75</hmid>
+        </part>
+      </day><day d="5" t="Sunday" dt="Jul 20">
+        <hi>23</hi>
+        <low>13</low>
+        <sunr>4:39 AM</sunr>
+        <suns>9:31 PM</suns>
+        
+        <part p="d">
+          <icon>38</icon>
+          <t>Scattered T-Storms</t>
+          <wind>
+      <s>11</s>
+      <gust>N/A</gust>
+      <d>357</d>
+      <t>N</t>
+    </wind>
+          <bt>Sct T-Storms</bt>
+          <ppcp>60</ppcp>
+          <hmid>70</hmid>
+        </part>
+        <part p="n">
+          <icon>47</icon>
+          <t>Scattered T-Storms</t>
+          <wind>
+      <s>9</s>
+      <gust>N/A</gust>
+      <d>25</d>
+      <t>NNE</t>
+    </wind>
+          <bt>Sct T-Storms</bt>
+          <ppcp>60</ppcp>
+          <hmid>79</hmid>
+        </part>
+      </day><day d="6" t="Monday" dt="Jul 21">
+        <hi>23</hi>
+        <low>13</low>
+        <sunr>4:39 AM</sunr>
+        <suns>9:31 PM</suns>
+        
+        <part p="d">
+          <icon>38</icon>
+          <t>Scattered T-Storms</t>
+          <wind>
+      <s>14</s>
+      <gust>N/A</gust>
+      <d>48</d>
+      <t>NE</t>
+    </wind>
+          <bt>Sct T-Storms</bt>
+          <ppcp>60</ppcp>
+          <hmid>69</hmid>
+        </part>
+        <part p="n">
+          <icon>47</icon>
+          <t>Scattered T-Storms</t>
+          <wind>
+      <s>9</s>
+      <gust>N/A</gust>
+      <d>56</d>
+      <t>NE</t>
+    </wind>
+          <bt>Sct T-Storms</bt>
+          <ppcp>40</ppcp>
+          <hmid>74</hmid>
+        </part>
+      </day><day d="7" t="Tuesday" dt="Jul 22">
+        <hi>23</hi>
+        <low>14</low>
+        <sunr>4:39 AM</sunr>
+        <suns>9:31 PM</suns>
+        
+        <part p="d">
+          <icon>30</icon>
+          <t>Partly Cloudy</t>
+          <wind>
+      <s>16</s>
+      <gust>N/A</gust>
+      <d>49</d>
+      <t>NE</t>
+    </wind>
+          <bt>P Cloudy</bt>
+          <ppcp>10</ppcp>
+          <hmid>61</hmid>
+        </part>
+        <part p="n">
+          <icon>45</icon>
+          <t>Scattered Showers</t>
+          <wind>
+      <s>9</s>
+      <gust>N/A</gust>
+      <d>44</d>
+      <t>NE</t>
+    </wind>
+          <bt>Sct Showers</bt>
+          <ppcp>30</ppcp>
+          <hmid>72</hmid>
+        </part>
+      </day><day d="8" t="Wednesday" dt="Jul 23">
+        <hi>23</hi>
+        <low>13</low>
+        <sunr>4:39 AM</sunr>
+        <suns>9:31 PM</suns>
+        
+        <part p="d">
+          <icon>11</icon>
+          <t>Showers</t>
+          <wind>
+      <s>16</s>
+      <gust>N/A</gust>
+      <d>31</d>
+      <t>NNE</t>
+    </wind>
+          <bt>Showers</bt>
+          <ppcp>60</ppcp>
+          <hmid>65</hmid>
+        </part>
+        <part p="n">
+          <icon>45</icon>
+          <t>Scattered Showers</t>
+          <wind>
+      <s>9</s>
+      <gust>N/A</gust>
+      <d>8</d>
+      <t>N</t>
+    </wind>
+          <bt>Sct Showers</bt>
+          <ppcp>40</ppcp>
+          <hmid>74</hmid>
+        </part>
+      </day>
+      </dayf>
+        
+        
+        
+        
+        
+        
+        
+      </weather>

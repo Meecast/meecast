@@ -1,4 +1,0 @@
-
-    #define hash_insert(hash, s2, s3) xmlHashAddEntry(hash, (const xmlChar *)s2, (void *)(s3)); 
-
-

@@ -171,7 +171,48 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out,"     <temperature>%i</temperature>\n", atoi(val[i].get("Temperature","").asCString()));
             }    
             if (val[i].get("WeatherSymbol3","").asCString() != ""){
-                fprintf(file_out,"     <icon>%i</icon>\n", atoi(val[i].get("WeatherSymbol3","").asCString()));
+                int result = 0;
+                int icon = 48;
+                std::string description = "";
+                result = 100*(atoi(val[i].get("dark","").asCString()));
+                result = result + atoi(val[i].get("WeatherSymbol3","").asCString());
+                switch (result){
+                    case 1:
+                        icon = 32;
+                        description = "Clear";
+                        break;
+                    case 101:
+                        icon = 31;
+                        description = "Clear";
+                        break;
+                    case 2:
+                        icon = 30;
+                        description = "Partly Cloudy";
+                        break;
+                    case 102:
+                        icon = 29;
+                        description = "Partly Cloudy";
+                        break;
+                    case 3:
+                        icon = 26;
+                        description = "Cloudy";
+                        break;
+                    case 103:
+                        icon = 26;
+                        description = "Cloudy";
+                        break;
+                    case 4:
+                        icon = 39;
+                        description = "Light Rain Showers";
+                        break;
+                    case 103:
+                        icon = 45;
+                        description = "Light Rain Showers";
+                        break;
+
+                }
+                fprintf(file_out,"     <icon>%i</icon>\n", icon);
+                fprintf(file_out, "     <description>%s</description>\n", description.c_str());
             }    
             if (val[i].get("PoP","").asCString() != ""){
                 fprintf(file_out,"     <ppcp>%i</ppcp>\n", atoi(val[i].get("PoP","").asCString()));

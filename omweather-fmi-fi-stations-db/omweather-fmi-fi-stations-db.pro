@@ -6,7 +6,7 @@
 
 
 TARGET = fmifi 
-TEMPLATE = app
+TEMPLATE = lib
 
 
 
@@ -37,16 +37,16 @@ PKGCONFIG += libxml-2.0
 #    QT += core
 #    DEFINES += QT
 #}
-
-
+CONFIG += static
 db.files = data/fmi.fi.db
-db.path = /opt/com.meecast.omweather/share/db/
+db.path = /usr/share/harbour-meecast/db/
+
 
 source.files = data/fmi.fi.xml
-source.path = /opt/com.meecast.omweather/share/sources/
+source.path = /usr/share/harbour-meecast/sources/
 
 #install
-target.path = /opt/com.meecast.omweather/lib
+target.path = /usr/share/harbour-meecast/lib
 INSTALLS += target db source
 
 

@@ -32,8 +32,8 @@
 
 static xmlHashTablePtr hash_for_icons;
 #define buff_size 2048
+xmlHashTablePtr hash_icons_fmifi_table_create(); 
 
-int station_timezone = 0;
 /*******************************************************************************/
 
 int
@@ -236,7 +236,7 @@ convert_station_fmi_fi_data(const char *days_data_path, const char *result_file)
 
 /*******************************************************************************/
 int
-main(int argc, char *argv[]){
+main_fmi_fi(int argc, char *argv[]){
     int result; 
     if (argc < 2) {
         fprintf(stderr, "fmifi <input_days_file> <output_file> <input_hours_file> <input_current_file>\n");

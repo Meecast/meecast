@@ -164,9 +164,33 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out,"  <timezone>%i</timezone>\n", (int)((local_time-utc_time)/3600));
                 check_timezone = true;
             }    
+            fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time);
+            fprintf(file_out," end=\"%li\">\n", utc_time + 3*3600); 
+
             if (val[i].get("Temperature","").asCString() != ""){
-                std::cerr<<atoi(val[i].get("Temperature","").asCString())<<std::endl;
+                fprintf(file_out,"     <temperature>%i</temperature>\n", atoi(val[i].get("Temperature","").asCString()));
             }    
+            if (val[i].get("WeatherSymbol3","").asCString() != ""){
+                fprintf(file_out,"     <icon>%i</icon>\n", atoi(val[i].get("WeatherSymbol3","").asCString()));
+            }    
+            if (val[i].get("PoP","").asCString() != ""){
+                fprintf(file_out,"     <ppcp>%i</ppcp>\n", atoi(val[i].get("PoP","").asCString()));
+            }    
+            if (val[i].get("WindSpeedMS","").asCString() != ""){
+                fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", atoi(val[i].get("WindSpeedMS","").asCString()));
+            }    
+            if (val[i].get("WindCompass8","").asCString() != ""){
+                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", val[i].get("WindCompass8","").asCString());
+            }    
+            if (val[i].get("Precipitation1h","").asCString() != ""){
+                fprintf(file_out,"     <precipitation>%.1f</precipitation>\n", atof(val[i].get("Precipitation1h","").asCString()));
+            }    
+            if (val[i].get("FeelsLike","").asCString() != ""){
+                fprintf(file_out,"     <flike>%i</flike>\n", atoi(val[i].get("FeelsLike","").asCString()));
+            }    
+
+
+            fprintf(file_out,"    </period>\n");
         }
         std::cerr<<"size "<<val[i].size()<<std::endl;
     }

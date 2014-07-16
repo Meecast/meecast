@@ -201,13 +201,37 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 26;
                         description = "Cloudy";
                         break;
-                    case 4:
+                    case 21:
                         icon = 39;
                         description = "Light Rain Showers";
                         break;
-                    case 103:
+                    case 121:
                         icon = 45;
                         description = "Light Rain Showers";
+                        break;
+                    case 22:
+                        icon = 39;
+                        description = "Rain Showers";
+                        break;
+                    case 122:
+                        icon = 45;
+                        description = "Rain Showers";
+                        break;
+                    case 23:
+                        icon = 11;
+                        description = "Heavy Rain Showers";
+                        break;
+                    case 123:
+                        icon = 11;
+                        description = "Heavy Rain Showers";
+                        break;
+                    case 31:
+                        icon = 11;
+                        description = "Light Rain";
+                        break;
+                    case 131:
+                        icon = 11;
+                        description = "Light Rain";
                         break;
 
                 }

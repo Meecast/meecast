@@ -305,6 +305,30 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 47;
                         description = "Thundershowers";
                         break;
+                    case 62:
+                        icon = 38;
+                        description = "Strong Thundershowers";
+                        break;
+                    case 162:
+                        icon = 47;
+                        description = "Strong Thundershowers";
+                        break;
+                    case 63:
+                        icon = 17;
+                        description = "Thunder";
+                        break;
+                    case 163:
+                        icon = 17;
+                        description = "Thunder";
+                        break;
+                    case 64:
+                        icon = 4;
+                        description = "Heavy Thunder";
+                        break;
+                    case 164:
+                        icon = 4;
+                        description = "Heavy Thunder";
+                        break;
 
                 }
                 fprintf(file_out,"     <icon>%i</icon>\n", icon);

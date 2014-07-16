@@ -233,6 +233,78 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 11;
                         description = "Light Rain";
                         break;
+                    case 32:
+                        icon = 12;
+                        description = "Rain";
+                        break;
+                    case 132:
+                        icon = 12;
+                        description = "Rain";
+                        break;
+                    case 33:
+                        icon = 12;
+                        description = "Heavy Rain";
+                        break;
+                    case 133:
+                        icon = 12;
+                        description = "Heavy Rain";
+                        break;
+                    case 41:
+                        icon = 41;
+                        description = "Light Snow Showers";
+                        break;
+                    case 141:
+                        icon = 41;
+                        description = "Light Snow Showers";
+                        break;
+                    case 42:
+                        icon = 41;
+                        description = "Snow Showers";
+                        break;
+                    case 142:
+                        icon = 41;
+                        description = "Snow Showers";
+                        break;
+                    case 43:
+                        icon = 41;
+                        description = "Heavy Snow Showers";
+                        break;
+                    case 143:
+                        icon = 41;
+                        description = "Heavy Snow Showers";
+                        break;
+                    case 51:
+                        icon = 14;
+                        description = "Light Snowfall";
+                        break;
+                    case 151:
+                        icon = 14;
+                        description = "Light Snowfall";
+                        break;
+                    case 52:
+                        icon = 14;
+                        description = "Snowfall";
+                        break;
+                    case 152:
+                        icon = 14;
+                        description = "Snowfall";
+                        break;
+                    case 53:
+                        icon = 42;
+                        description = "Heavy Snowfall";
+                        break;
+                    case 153:
+                        icon = 42;
+                        description = "Heavy Snowfall";
+                        break;
+                    case 61:
+                        icon = 38;
+                        description = "Thundershowers";
+                        break;
+                    case 161:
+                        icon = 47;
+                        description = "Thundershowers";
+                        break;
 
                 }
                 fprintf(file_out,"     <icon>%i</icon>\n", icon);

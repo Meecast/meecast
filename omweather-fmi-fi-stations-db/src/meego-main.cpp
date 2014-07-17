@@ -33,7 +33,6 @@
 static xmlHashTablePtr hash_for_icons;
 #define buff_size 2048
 
-int station_timezone = 0;
 /*******************************************************************************/
 
 int
@@ -49,6 +48,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
          *delimiter = NULL;
     time_t current_time = 0;
     time_t utc_time = 0;
+    time_t after_noon = 0;
     time_t local_time = 0;
     int current_temperature = INT_MAX;
     int current_humidity = INT_MAX;
@@ -60,7 +60,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     int check_timezone = false;
     int timezone = 0;
     int localtimezone = 0;
-    int first_day = 1;
+    int first_day = false;
     std::string current_wind_direction = "";
     struct tm time_tm1 = {0,0,0,0,0,0,0,0,0,0,0};
     struct tm time_tm2 = {0,0,0,0,0,0,0,0,0,0,0};
@@ -160,9 +160,9 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     /* Forecasts */
     val = root["forecasts"][0].get("forecast", nullval);
     std::cout << root["forecasts"][0].get("forecast", nullval);
-    std::cerr<<"size oo "<<val.size()<<std::endl;
     for (int i = 0; i < val.size(); i++){
         std::string utc_time_string;
+        std::string _time_string;
         std::string local_time_string;
         utc_time_string = val[i].get("utctime","").asCString();
         if (utc_time_string != ""){
@@ -177,13 +177,22 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 strptime((const char*)local_time_string.c_str(), "%Y%m%dT%H%M%S", &tmp_tm);
                 setlocale(LC_TIME, "");
                 local_time = mktime(&tmp_tm); 
-                fprintf(file_out,"  <timezone>%i</timezone>\n", (int)((local_time-utc_time)/3600));
+                timezone = (int)((local_time-utc_time)/3600);
+                fprintf(file_out,"  <timezone>%i</timezone>\n", timezone);
                 check_timezone = true;
+                
+                /* set forecast foe whole day */
+                if (tmp_tm.tm_hour >=15){
+                    tmp_tm.tm_hour = 14 - 3600*timezone;
+                    utc_time = mktime(&tmp_tm); 
+                    first_day = true;
+                }
+
             }    
             if (first_day){
                 fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone);
-                fprintf(file_out," end=\"%li\">\n", utc_time + 3*3600); 
-
+                fprintf(file_out," end=\"%li\">\n", utc_time + 6*3600); 
+                first_day = false;
             }else{    
                 fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone);
                 fprintf(file_out," end=\"%li\">\n", utc_time + 3*3600); 

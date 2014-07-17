@@ -59,7 +59,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     int current_dewpoint = INT_MAX;
     int check_timezone = false;
     int timezone = 0;
-    int    localtimezone = 0;
+    int localtimezone = 0;
     std::string current_wind_direction = "";
     struct tm time_tm1 = {0,0,0,0,0,0,0,0,0,0,0};
     struct tm time_tm2 = {0,0,0,0,0,0,0,0,0,0,0};
@@ -113,7 +113,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 setlocale(LC_TIME, "POSIX");
                 strptime((const char*)cur_time.c_str(), "%Y%m%d%H%M", &tmp_tm);
                 setlocale(LC_TIME, "");
-                current_time = mktime(&tmp_tm); 
+                current_time = mktime(&tmp_tm) + 3600*locatimezone; 
                 if (val[i].get("Temperature","").asCString() != ""){
                     current_temperature = atoi(val[i].get("Temperature","").asCString());
                 }    
@@ -179,7 +179,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out,"  <timezone>%i</timezone>\n", (int)((local_time-utc_time)/3600));
                 check_timezone = true;
             }    
-            fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time);
+            fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*locatimezone);
             fprintf(file_out," end=\"%li\">\n", utc_time + 3*3600); 
 
             if (val[i].get("Temperature","").asCString() != ""){

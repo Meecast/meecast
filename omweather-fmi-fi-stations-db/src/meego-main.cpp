@@ -59,8 +59,11 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     int current_dewpoint = INT_MAX;
     int check_timezone = false;
     int timezone = 0;
+    int    localtimezone = 0;
     std::string current_wind_direction = "";
-    struct tm   tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
+    struct tm time_tm1 = {0,0,0,0,0,0,0,0,0,0,0};
+    struct tm time_tm2 = {0,0,0,0,0,0,0,0,0,0,0};
+    struct tm tmp_tm = {0,0,0,0,0,0,0,0,0,0,0};
 
     std::ifstream jsonfile(days_data_path, std::ifstream::binary);
     bool parsingSuccessful = reader.parse(jsonfile, root, false);
@@ -81,6 +84,12 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         delimiter++; /* delete '/' */
         snprintf(buffer, sizeof(buffer) - 1, "%s", delimiter);
     }
+    /* Set localtimezone */
+    current_time = time(NULL);
+    gmtime_r(&current_time, &time_tm1);
+    localtime_r(&current_time, &time_tm2);
+    localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
+
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", buffer);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
@@ -101,7 +110,9 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 min_distance = atof(val[i].get("distance","").asCString());
                 max_count_of_parameters = val[i].size();
                 std::cerr<<cur_time<<std::endl;
+                setlocale(LC_TIME, "POSIX");
                 strptime((const char*)cur_time.c_str(), "%Y%m%d%H%M", &tmp_tm);
+                setlocale(LC_TIME, "");
                 current_time = mktime(&tmp_tm); 
                 if (val[i].get("Temperature","").asCString() != ""){
                     current_temperature = atoi(val[i].get("Temperature","").asCString());
@@ -154,12 +165,16 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         std::string local_time_string;
         utc_time_string = val[i].get("utctime","").asCString();
         if (utc_time_string != ""){
+            setlocale(LC_TIME, "POSIX");
             strptime((const char*)utc_time_string.c_str(), "%Y%m%dT%H%M%S", &tmp_tm);
+            setlocale(LC_TIME, "");
             utc_time = mktime(&tmp_tm); 
             /* get timezone */
             if (!check_timezone){
                 local_time_string = val[i].get("localtime","").asCString();
+                setlocale(LC_TIME, "POSIX");
                 strptime((const char*)local_time_string.c_str(), "%Y%m%dT%H%M%S", &tmp_tm);
+                setlocale(LC_TIME, "");
                 local_time = mktime(&tmp_tm); 
                 fprintf(file_out,"  <timezone>%i</timezone>\n", (int)((local_time-utc_time)/3600));
                 check_timezone = true;
@@ -352,6 +367,30 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                     case 173:
                         icon = 6;
                         description = "Heavy Sleet Showers";
+                        break;
+                    case 81:
+                        icon = 5;
+                        description = "Light Sleet";
+                        break;
+                    case 181:
+                        icon = 5;
+                        description = "Light Sleet";
+                        break;
+                    case 82:
+                        icon = 5;
+                        description = "Sleet";
+                        break;
+                    case 182:
+                        icon = 5;
+                        description = "Sleet";
+                        break;
+                    case 83:
+                        icon = 5;
+                        description = "Heavy Sleet";
+                        break;
+                    case 183:
+                        icon = 5;
+                        description = "Heavy Sleet";
                         break;
 
 

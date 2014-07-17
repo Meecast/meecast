@@ -60,6 +60,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     int check_timezone = false;
     int timezone = 0;
     int localtimezone = 0;
+    int first_day = 1;
     std::string current_wind_direction = "";
     struct tm time_tm1 = {0,0,0,0,0,0,0,0,0,0,0};
     struct tm time_tm2 = {0,0,0,0,0,0,0,0,0,0,0};
@@ -89,7 +90,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     gmtime_r(&current_time, &time_tm1);
     localtime_r(&current_time, &time_tm2);
     localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
-
+    setlocale(LC_NUMERIC, "POSIX");
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", buffer);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
@@ -179,8 +180,14 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out,"  <timezone>%i</timezone>\n", (int)((local_time-utc_time)/3600));
                 check_timezone = true;
             }    
-            fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone);
-            fprintf(file_out," end=\"%li\">\n", utc_time + 3*3600); 
+            if (first_day){
+                fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone);
+                fprintf(file_out," end=\"%li\">\n", utc_time + 3*3600); 
+
+            }else{    
+                fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone);
+                fprintf(file_out," end=\"%li\">\n", utc_time + 3*3600); 
+            }
 
             if (val[i].get("Temperature","").asCString() != ""){
                 fprintf(file_out,"     <temperature>%i</temperature>\n", atoi(val[i].get("Temperature","").asCString()));
@@ -420,6 +427,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         std::cerr<<"size "<<val[i].size()<<std::endl;
     }
     fclose(file_out);
+    setlocale(LC_NUMERIC, "");
 
     count_day=1;
     return count_day;

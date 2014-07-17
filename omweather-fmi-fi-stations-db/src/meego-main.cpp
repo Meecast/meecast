@@ -184,7 +184,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 
                 /* set forecast foe whole day */
                 if (tmp_tm.tm_hour >=15){
-                    utc_time = utc_time - ((tmp_tm.tm_hour -1)*3600); 
+                    utc_time = utc_time - ((tmp_tm.tm_hour - localtimezone - 1)*3600); 
                     first_day = true;
                 }
 

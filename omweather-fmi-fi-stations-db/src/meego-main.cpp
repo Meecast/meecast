@@ -49,6 +49,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
          *delimiter = NULL;
     time_t current_time = 0;
     time_t utc_time = 0;
+    time_t after_noon = 0;
     time_t local_time = 0;
     int current_temperature = INT_MAX;
     int current_humidity = INT_MAX;
@@ -60,6 +61,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     int check_timezone = false;
     int timezone = 0;
     int localtimezone = 0;
+    int first_day = false;
     std::string current_wind_direction = "";
     struct tm time_tm1 = {0,0,0,0,0,0,0,0,0,0,0};
     struct tm time_tm2 = {0,0,0,0,0,0,0,0,0,0,0};
@@ -89,7 +91,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     gmtime_r(&current_time, &time_tm1);
     localtime_r(&current_time, &time_tm2);
     localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
-
+    setlocale(LC_NUMERIC, "POSIX");
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", buffer);
     fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
     fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
@@ -99,7 +101,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 
     double min_distance = 32000;
     int max_count_of_parameters = 0;
-    for (int i = 0; i < val.size(); i++){
+    for (uint i = 0; i < val.size(); i++){
         std::cerr<<"size "<<val[i].size()<<std::endl;
         /* Current weather */
         if (atof(val[i].get("distance","").asCString()) < min_distance && (val[i].size()>max_count_of_parameters && atof(val[i].get("distance","").asCString()) - min_distance < 10)){
@@ -113,7 +115,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 setlocale(LC_TIME, "POSIX");
                 strptime((const char*)cur_time.c_str(), "%Y%m%d%H%M", &tmp_tm);
                 setlocale(LC_TIME, "");
-                current_time = mktime(&tmp_tm) + 3600*locatimezone; 
+                current_time = mktime(&tmp_tm) + 3600*localtimezone; 
                 if (val[i].get("Temperature","").asCString() != ""){
                     current_temperature = atoi(val[i].get("Temperature","").asCString());
                 }    
@@ -159,9 +161,9 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     /* Forecasts */
     val = root["forecasts"][0].get("forecast", nullval);
     std::cout << root["forecasts"][0].get("forecast", nullval);
-    std::cerr<<"size oo "<<val.size()<<std::endl;
     for (int i = 0; i < val.size(); i++){
         std::string utc_time_string;
+        std::string _time_string;
         std::string local_time_string;
         utc_time_string = val[i].get("utctime","").asCString();
         if (utc_time_string != ""){
@@ -176,11 +178,26 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 strptime((const char*)local_time_string.c_str(), "%Y%m%dT%H%M%S", &tmp_tm);
                 setlocale(LC_TIME, "");
                 local_time = mktime(&tmp_tm); 
-                fprintf(file_out,"  <timezone>%i</timezone>\n", (int)((local_time-utc_time)/3600));
+                timezone = (int)((local_time-utc_time)/3600);
+                fprintf(file_out,"  <timezone>%i</timezone>\n", timezone);
                 check_timezone = true;
+                
+                /* set forecast foe whole day */
+                if (tmp_tm.tm_hour >=15){
+                    tmp_tm.tm_hour = 14 - 3600*timezone;
+                    utc_time = mktime(&tmp_tm); 
+                    first_day = true;
+                }
+
             }    
-            fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*locatimezone);
-            fprintf(file_out," end=\"%li\">\n", utc_time + 3*3600); 
+            if (first_day){
+                fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone);
+                fprintf(file_out," end=\"%li\">\n", utc_time + 6*3600); 
+                first_day = false;
+            }else{    
+                fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone);
+                fprintf(file_out," end=\"%li\">\n", utc_time + 3*3600); 
+            }
 
             if (val[i].get("Temperature","").asCString() != ""){
                 fprintf(file_out,"     <temperature>%i</temperature>\n", atoi(val[i].get("Temperature","").asCString()));
@@ -420,6 +437,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         std::cerr<<"size "<<val[i].size()<<std::endl;
     }
     fclose(file_out);
+    setlocale(LC_NUMERIC, "");
 
     count_day=1;
     return count_day;

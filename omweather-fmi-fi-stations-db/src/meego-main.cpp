@@ -102,7 +102,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     double min_distance = 32000;
     int max_count_of_parameters = 0;
     for (uint i = 0; i < val.size(); i++){
-        std::cerr<<"size "<<val[i].size()<<std::endl;
         /* Current weather */
         if (atof(val[i].get("distance","").asCString()) < min_distance && (val[i].size()>max_count_of_parameters && atof(val[i].get("distance","").asCString()) - min_distance < 10)){
             std::string cur_time;
@@ -160,7 +159,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 
     /* Forecasts */
     val = root["forecasts"][0].get("forecast", nullval);
-    std::cout << root["forecasts"][0].get("forecast", nullval);
+/*    std::cout << root["forecasts"][0].get("forecast", nullval); */
     for (int i = 0; i < val.size(); i++){
         std::string utc_time_string;
         std::string _time_string;
@@ -195,7 +194,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 first_day = false;
             }else{    
                 fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone);
-                fprintf(file_out," end=\"%li\">\n", utc_time + 3*3600); 
+                fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600); 
             }
 
             if (val[i].get("Temperature","").asCString() != ""){

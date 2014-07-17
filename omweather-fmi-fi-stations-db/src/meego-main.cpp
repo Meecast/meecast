@@ -171,7 +171,193 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out,"     <temperature>%i</temperature>\n", atoi(val[i].get("Temperature","").asCString()));
             }    
             if (val[i].get("WeatherSymbol3","").asCString() != ""){
-                fprintf(file_out,"     <icon>%i</icon>\n", atoi(val[i].get("WeatherSymbol3","").asCString()));
+                int result = 0;
+                int icon = 48;
+                std::string description = "";
+                result = 100*(atoi(val[i].get("dark","").asCString()));
+                result = result + atoi(val[i].get("WeatherSymbol3","").asCString());
+                switch (result){
+                    case 1:
+                        icon = 32;
+                        description = "Clear";
+                        break;
+                    case 101:
+                        icon = 31;
+                        description = "Clear";
+                        break;
+                    case 2:
+                        icon = 30;
+                        description = "Partly Cloudy";
+                        break;
+                    case 102:
+                        icon = 29;
+                        description = "Partly Cloudy";
+                        break;
+                    case 3:
+                        icon = 26;
+                        description = "Cloudy";
+                        break;
+                    case 103:
+                        icon = 26;
+                        description = "Cloudy";
+                        break;
+                    case 21:
+                        icon = 39;
+                        description = "Light Rain Showers";
+                        break;
+                    case 121:
+                        icon = 45;
+                        description = "Light Rain Showers";
+                        break;
+                    case 22:
+                        icon = 39;
+                        description = "Rain Showers";
+                        break;
+                    case 122:
+                        icon = 45;
+                        description = "Rain Showers";
+                        break;
+                    case 23:
+                        icon = 11;
+                        description = "Heavy Rain Showers";
+                        break;
+                    case 123:
+                        icon = 11;
+                        description = "Heavy Rain Showers";
+                        break;
+                    case 31:
+                        icon = 11;
+                        description = "Light Rain";
+                        break;
+                    case 131:
+                        icon = 11;
+                        description = "Light Rain";
+                        break;
+                    case 32:
+                        icon = 12;
+                        description = "Rain";
+                        break;
+                    case 132:
+                        icon = 12;
+                        description = "Rain";
+                        break;
+                    case 33:
+                        icon = 12;
+                        description = "Heavy Rain";
+                        break;
+                    case 133:
+                        icon = 12;
+                        description = "Heavy Rain";
+                        break;
+                    case 41:
+                        icon = 41;
+                        description = "Light Snow Showers";
+                        break;
+                    case 141:
+                        icon = 41;
+                        description = "Light Snow Showers";
+                        break;
+                    case 42:
+                        icon = 41;
+                        description = "Snow Showers";
+                        break;
+                    case 142:
+                        icon = 41;
+                        description = "Snow Showers";
+                        break;
+                    case 43:
+                        icon = 41;
+                        description = "Heavy Snow Showers";
+                        break;
+                    case 143:
+                        icon = 41;
+                        description = "Heavy Snow Showers";
+                        break;
+                    case 51:
+                        icon = 14;
+                        description = "Light Snowfall";
+                        break;
+                    case 151:
+                        icon = 14;
+                        description = "Light Snowfall";
+                        break;
+                    case 52:
+                        icon = 14;
+                        description = "Snowfall";
+                        break;
+                    case 152:
+                        icon = 14;
+                        description = "Snowfall";
+                        break;
+                    case 53:
+                        icon = 42;
+                        description = "Heavy Snowfall";
+                        break;
+                    case 153:
+                        icon = 42;
+                        description = "Heavy Snowfall";
+                        break;
+                    case 61:
+                        icon = 38;
+                        description = "Thundershowers";
+                        break;
+                    case 161:
+                        icon = 47;
+                        description = "Thundershowers";
+                        break;
+                    case 62:
+                        icon = 38;
+                        description = "Strong Thundershowers";
+                        break;
+                    case 162:
+                        icon = 47;
+                        description = "Strong Thundershowers";
+                        break;
+                    case 63:
+                        icon = 17;
+                        description = "Thunder";
+                        break;
+                    case 163:
+                        icon = 17;
+                        description = "Thunder";
+                        break;
+                    case 64:
+                        icon = 4;
+                        description = "Heavy Thunder";
+                        break;
+                    case 164:
+                        icon = 4;
+                        description = "Heavy Thunder";
+                        break;
+                    case 71:
+                        icon = 6;
+                        description = "Light Sleet Showers";
+                        break;
+                    case 171:
+                        icon = 6;
+                        description = "Light Sleet Showers";
+                        break;
+                    case 72:
+                        icon = 6;
+                        description = "Sleet Showers";
+                        break;
+                    case 172:
+                        icon = 6;
+                        description = "Sleet Showers";
+                        break;
+                    case 73:
+                        icon = 6;
+                        description = "Heavy Sleet Showers";
+                        break;
+                    case 173:
+                        icon = 6;
+                        description = "Heavy Sleet Showers";
+                        break;
+
+
+                }
+                fprintf(file_out,"     <icon>%i</icon>\n", icon);
+                fprintf(file_out, "     <description>%s</description>\n", description.c_str());
             }    
             if (val[i].get("PoP","").asCString() != ""){
                 fprintf(file_out,"     <ppcp>%i</ppcp>\n", atoi(val[i].get("PoP","").asCString()));

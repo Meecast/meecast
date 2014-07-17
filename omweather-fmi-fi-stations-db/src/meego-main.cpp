@@ -329,6 +329,31 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         icon = 4;
                         description = "Heavy Thunder";
                         break;
+                    case 71:
+                        icon = 6;
+                        description = "Light Sleet Showers";
+                        break;
+                    case 171:
+                        icon = 6;
+                        description = "Light Sleet Showers";
+                        break;
+                    case 72:
+                        icon = 6;
+                        description = "Sleet Showers";
+                        break;
+                    case 172:
+                        icon = 6;
+                        description = "Sleet Showers";
+                        break;
+                    case 73:
+                        icon = 6;
+                        description = "Heavy Sleet Showers";
+                        break;
+                    case 173:
+                        icon = 6;
+                        description = "Heavy Sleet Showers";
+                        break;
+
 
                 }
                 fprintf(file_out,"     <icon>%i</icon>\n", icon);

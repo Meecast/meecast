@@ -452,7 +452,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 utc_time = utc_time - localtimezone*3600;
                 fprintf(file_out,"    <period start=\"%li\"", utc_time + offset_time);
                 if (afternoon)
-                    fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 4*3600); 
+                    fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 4*3600 + offset_time); 
                 else
                     fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 4*3600 + offset_time); 
 

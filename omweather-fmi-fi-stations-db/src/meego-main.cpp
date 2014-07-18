@@ -184,7 +184,10 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 if (tmp_tm.tm_hour >=15){
                     utc_time = utc_time - ((tmp_tm.tm_hour - localtimezone - 1)*3600); 
                     first_day = true;
-                }
+                }else{
+                    utc_time = utc_time - (2*3600); 
+                }    
+
 
             }    
             
@@ -196,7 +199,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out," end=\"%li\">\n", utc_time + 18*3600); 
                 first_day = false;
             }else{    
-                fprintf(file_out,"    <period start=\"%li\" ", utc_time + 3600*localtimezone - 2*3600);
+                fprintf(file_out,"    <period start=\"%li\" hour=\"true\""", utc_time + 3600*localtimezone - 2*3601);
                 fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600); 
             }
 

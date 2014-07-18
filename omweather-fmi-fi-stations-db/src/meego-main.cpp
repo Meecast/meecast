@@ -192,10 +192,11 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 }    
             }    
             
-            if (val[i].get("Temperature","").asCString() == "nan" && val[i].get("WeatherSymbol3","").asCString() == "nan" )
+            if (val[i].get("Temperature","").asString() == "nan" && val[i].get("WeatherSymbol3","").asString() == "nan" ){
+                fprintf(stderr, "1111\n");
                 continue;
-
-             
+            }
+            
             if (first_day){
                 if (afternoon){
                     fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone);

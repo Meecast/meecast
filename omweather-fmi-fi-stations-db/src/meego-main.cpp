@@ -166,6 +166,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         std::string _time_string;
         std::string local_time_string;
         int icon = 48;
+        time_t offset_time = 0;
         std::string description = "";
 
 
@@ -189,10 +190,12 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 first_day = true;
                 /* set forecast foe whole day */
                 if (tmp_tm.tm_hour >=15){
-                    utc_time = utc_time - ((tmp_tm.tm_hour - localtimezone - 1)*3600); 
+                    offset_time = (tmp_tm.tm_hour - localtimezone - 1)*3600;
+                    utc_time = utc_time - offset_time; 
                     afternoon = true;
                 }else{
-                    utc_time = utc_time - (2*3600); 
+                    offset_time = 2*3600;
+                    utc_time = utc_time - offset_time; 
                 }    
             }    
             
@@ -202,10 +205,10 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             if (first_day){
                 if (afternoon){
                     fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone);
-                    fprintf(file_out," end=\"%li\">\n", utc_time + 18*3600); 
+                    fprintf(file_out," end=\"%li\">\n", utc_time + offset_time); 
                 }else{    
                     fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone) ;
-                    fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600 + (2*3600)); 
+                    fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600 + offset_time);
                 }
             }else{
                 fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone);
@@ -445,11 +448,11 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             fprintf(file_out,"    </period>\n");
             if (first_day){
                 utc_time = utc_time - localtimezone*3600;
-                fprintf(file_out,"    <period start=\"%li\"", utc_time);
+                fprintf(file_out,"    <period start=\"%li\"", utc_time + offset_time);
                 if (afternoon)
                     fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 4*3600); 
                 else
-                    fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 4*3600 + 2*3600); 
+                    fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 4*3600 + offset_time); 
 
                 fprintf(file_out,"     <temperature>%i</temperature>\n", current_temperature); 
                 fprintf(file_out,"     <icon>%i</icon>\n", icon);

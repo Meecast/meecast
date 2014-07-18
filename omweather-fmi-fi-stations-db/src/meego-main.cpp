@@ -116,29 +116,62 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 strptime((const char*)cur_time.c_str(), "%Y%m%d%H%M", &tmp_tm);
                 setlocale(LC_TIME, "");
                 current_time = mktime(&tmp_tm) + 3600*localtimezone; 
-                if (val[i].get("Temperature","").asCString() != ""){
-                    current_temperature = atoi(val[i].get("Temperature","").asCString());
+                if (val[i].get("Temperature","").asString() != ""){
+                    if (val[i].get("Temperature","").asString() == "nan"){
+                        current_temperature = INT_MAX;
+                        max_count_of_parameters--;
+                    }else
+                        current_temperature = atoi(val[i].get("Temperature","").asCString());
                 }    
-                if (val[i].get("Humidity","").asCString() != ""){
-                    current_humidity = atoi(val[i].get("Humidity","").asCString());
+                if (val[i].get("Humidity","").asString() != ""){
+                    if (val[i].get("Humidity","").asString() == "nan"){
+                        current_humidity = INT_MAX;
+                        max_count_of_parameters--;
+                    }else{
+                        current_humidity = atoi(val[i].get("Humidity","").asCString());
+                    }
                 }    
-                if (val[i].get("WindSpeedMS","").asCString() != ""){
-                    current_wind_speed = atoi(val[i].get("WindSpeedMS","").asCString());
+                if (val[i].get("WindSpeedMS","").asString() != ""){
+                    if (val[i].get("WindSpeedMS","").asString() == "nan"){
+                        current_wind_speed = INT_MAX;
+                        max_count_of_parameters--;
+                    }else
+                        current_wind_speed = atoi(val[i].get("WindSpeedMS","").asCString());
                 }    
-                if (val[i].get("WindCompass8","").asCString() != ""){
-                    current_wind_direction = val[i].get("WindCompass8","").asCString();
+                if (val[i].get("WindCompass8","").asString() != ""){
+
+                    if (val[i].get("WindCompass8","").asString() == "nan"){
+                        current_wind_direction = "N/A";
+                        max_count_of_parameters--;
+                    }else{
+                        current_wind_direction = val[i].get("WindCompass8","").asCString();
+                    }
                 }    
-                if (val[i].get("WindGust","").asCString() != ""){
-                    current_wind_gust = atoi(val[i].get("WindGust","").asCString());
+                if (val[i].get("WindGust","").asString() != ""){
+                    if (val[i].get("WindGust","").asString() == "nan"){
+                        current_wind_gust = INT_MAX;
+                        max_count_of_parameters--;
+                    }else
+                        current_wind_gust = atoi(val[i].get("WindGust","").asCString());
                 }    
-                if (val[i].get("Pressure","").asCString() != ""){
-                    current_pressure = atoi(val[i].get("Pressure","").asCString());
+                if (val[i].get("Pressure","").asString() != ""){
+                    if (val[i].get("Pressure","").asString() == "nan"){
+                        current_pressure = INT_MAX;
+                        max_count_of_parameters--;
+                    }else
+                        current_pressure = atoi(val[i].get("Pressure","").asCString());
                 }    
-                if (val[i].get("Visibility","").asCString() != ""){
-                    current_visibility = atoi(val[i].get("Visibility","").asCString());
+                if (val[i].get("Visibility","").asString() != ""){
+                    if (val[i].get("Visibility","").asString() == "nan"){
+                        current_visibility = INT_MAX;
+                    }else
+                        current_visibility = atoi(val[i].get("Visibility","").asCString());
                 }    
-                if (val[i].get("DewPoint","").asCString() != ""){
-                    current_dewpoint = atoi(val[i].get("DewPoint","").asCString());
+                if (val[i].get("DewPoint","").asString() != ""){
+                    if (val[i].get("DewPoint","").asString() == "nan"){
+                        current_dewpoint = INT_MAX;
+                    }else
+                        current_dewpoint = atoi(val[i].get("DewPoint","").asCString());
                 }    
 
 
@@ -447,12 +480,9 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 
             fprintf(file_out,"    </period>\n");
             if (first_day){
-                utc_time = utc_time - localtimezone*3600;
-                fprintf(file_out,"    <period start=\"%li\"", utc_time + offset_time);
-                if (afternoon)
-                    fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 4*3600 + offset_time); 
-                else
-                    fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 4*3600 + offset_time); 
+                utc_time = current_time - localtimezone*3600;
+                fprintf(file_out,"    <period start=\"%li\"", utc_time - 2*3600);
+                fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 6*3600); 
 
                 fprintf(file_out,"     <temperature>%i</temperature>\n", current_temperature); 
                 fprintf(file_out,"     <icon>%i</icon>\n", icon);
@@ -468,7 +498,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             first_day = false;
             afternoon = false;
         }
-        std::cerr<<"size "<<val[i].size()<<std::endl;
     }
     fclose(file_out);
     setlocale(LC_NUMERIC, "");

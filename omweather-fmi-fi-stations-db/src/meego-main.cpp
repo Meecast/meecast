@@ -105,7 +105,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 
     for (uint i = 0; i < val.size(); i++){
         /* Current weather */
-        if (atof(val[i].get("distance","").asCString()) < min_distance && (val[i].size()>max_count_of_parameters && atof(val[i].get("distance","").asCString()) - min_distance < 10)){
+        if (atof(val[i].get("distance","").asCString()) < min_distance || (val[i].size()>max_count_of_parameters && atof(val[i].get("distance","").asCString()) - min_distance < 10)){
             std::string cur_time;
             cur_time = val[i].get("time","").asCString();
             if (cur_time!=""){

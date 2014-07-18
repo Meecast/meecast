@@ -57,6 +57,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     int current_pressure = INT_MAX;
     int current_visibility = INT_MAX;
     int current_dewpoint = INT_MAX;
+    float current_ppcp_rate = INT_MAX; 
     int check_timezone = false;
     int timezone = 0;
     int localtimezone = 0;
@@ -173,6 +174,13 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                     }else
                         current_dewpoint = atoi(val[i].get("DewPoint","").asCString());
                 }    
+                if (val[i].get("RI_10MIN","").asString() != ""){
+                    if (val[i].get("RI_10MIN","").asString() == "nan"){
+                        current_ppcp_rate = INT_MAX;
+                    }else
+                        current_ppcp_rate = atof(val[i].get("RI_10MIN","").asCString());
+                }    
+
 
 
                 std::cerr<<"Timestamp: "<<current_time<<std::endl;
@@ -486,13 +494,16 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 
                 fprintf(file_out,"     <temperature>%i</temperature>\n", current_temperature); 
                 fprintf(file_out,"     <icon>%i</icon>\n", icon);
-                fprintf(file_out, "     <description>%s</description>\n", description.c_str());
+                fprintf(file_out,"     <description>%s</description>\n", description.c_str());
                 fprintf(file_out,"     <pressure>%i</pressure>\n", current_pressure);
                 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", current_wind_direction.c_str());
                 fprintf(file_out,"     <humidity>%i</humidity>\n", current_humidity);
                 fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", current_wind_speed);
                 fprintf(file_out,"     <wind_gust>%i</wind_gust>\n", current_wind_gust);
                 fprintf(file_out,"     <dewpoint>%i</dewpoint>\n", current_dewpoint);
+                fprintf(file_out,"     <precipitation>%.1f</precipitation>\n", current_ppcp_rate);
+            }    
+   fprintf(file_out,"     <visible>%i</visible>\n", current_visibility);
                 fprintf(file_out,"    </period>\n");
             }    
             first_day = false;

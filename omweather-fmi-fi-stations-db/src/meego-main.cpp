@@ -188,7 +188,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 }else{
                     utc_time = utc_time - (2*3600); 
                 }    
-
             }    
             
             if (val[i].get("Temperature","").asCString() == "nan" && val[i].get("WeatherSymbol3","").asCString() == "nan" )

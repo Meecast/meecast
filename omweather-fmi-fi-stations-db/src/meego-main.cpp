@@ -62,6 +62,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     int timezone = 0;
     int localtimezone = 0;
     int first_day = false;
+    int afternoon = false;
     std::string current_wind_direction = "";
     struct tm time_tm1 = {0,0,0,0,0,0,0,0,0,0,0};
     struct tm time_tm2 = {0,0,0,0,0,0,0,0,0,0,0};
@@ -101,6 +102,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 
     double min_distance = 32000;
     int max_count_of_parameters = 0;
+
     for (uint i = 0; i < val.size(); i++){
         /* Current weather */
         if (atof(val[i].get("distance","").asCString()) < min_distance && (val[i].size()>max_count_of_parameters && atof(val[i].get("distance","").asCString()) - min_distance < 10)){
@@ -164,6 +166,11 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         std::string utc_time_string;
         std::string _time_string;
         std::string local_time_string;
+        int icon = 48;
+        time_t offset_time = 0;
+        std::string description = "";
+
+
         utc_time_string = val[i].get("utctime","").asCString();
         if (utc_time_string != ""){
             setlocale(LC_TIME, "POSIX");
@@ -181,29 +188,40 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out,"  <timezone>%i</timezone>\n", timezone);
                 check_timezone = true;
                 
+                first_day = true;
                 /* set forecast foe whole day */
                 if (tmp_tm.tm_hour >=15){
-                    utc_time = utc_time - ((tmp_tm.tm_hour - localtimezone - 1)*3600); 
-                    first_day = true;
-                }
-
+                    offset_time = (tmp_tm.tm_hour - localtimezone - 1)*3600;
+                    utc_time = utc_time - offset_time; 
+                    afternoon = true;
+                }else{
+                    offset_time = 2*3600;
+                    utc_time = utc_time - offset_time; 
+                }    
             }    
+            
+            if (val[i].get("Temperature","").asString() == "nan" && val[i].get("WeatherSymbol3","").asString() == "nan" ){
+                continue;
+            }
+            
             if (first_day){
-                fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone);
-                fprintf(file_out," end=\"%li\">\n", utc_time + 18*3600); 
-                first_day = false;
-            }else{    
+                if (afternoon){
+                    fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone);
+                    fprintf(file_out," end=\"%li\">\n", utc_time + offset_time); 
+                }else{    
+                    fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone) ;
+                    fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600 + offset_time);
+                }
+            }else{
                 fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone);
                 fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600); 
-            }
+            }    
 
-            if (val[i].get("Temperature","").asCString() != ""){
+            if (val[i].get("Temperature","").asCString() != "" || val[i].get("Temperature","").asCString() != "nan"){
                 fprintf(file_out,"     <temperature>%i</temperature>\n", atoi(val[i].get("Temperature","").asCString()));
             }    
-            if (val[i].get("WeatherSymbol3","").asCString() != ""){
+            if (val[i].get("WeatherSymbol3","").asCString() != "" || val[i].get("WeatherSymbol3","").asCString() != "nan"){
                 int result = 0;
-                int icon = 48;
-                std::string description = "";
                 result = 100*(atoi(val[i].get("dark","").asCString()));
                 result = result + atoi(val[i].get("WeatherSymbol3","").asCString());
                 switch (result){
@@ -429,14 +447,31 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out,"     <flike>%i</flike>\n", atoi(val[i].get("FeelsLike","").asCString()));
             }    
 
-
             fprintf(file_out,"    </period>\n");
+            if (first_day){
+                utc_time = utc_time - localtimezone*3600;
+                fprintf(file_out,"    <period start=\"%li\"", utc_time + offset_time);
+                if (afternoon)
+                    fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 4*3600 + offset_time); 
+                else
+                    fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 4*3600 + offset_time); 
+
+                fprintf(file_out,"     <temperature>%i</temperature>\n", current_temperature); 
+                fprintf(file_out,"     <icon>%i</icon>\n", icon);
+                fprintf(file_out, "     <description>%s</description>\n", description.c_str());
+                fprintf(file_out,"     <pressure>%i</pressure>\n", current_pressure);
+                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", current_wind_direction.c_str());
+                fprintf(file_out,"     <humidity>%i</humidity>\n", current_humidity);
+                fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", current_wind_speed);
+                fprintf(file_out,"    </period>\n");
+            }    
+            first_day = false;
+            afternoon = false;
         }
         std::cerr<<"size "<<val[i].size()<<std::endl;
     }
     fclose(file_out);
     setlocale(LC_NUMERIC, "");
-
     count_day=1;
     return count_day;
 }

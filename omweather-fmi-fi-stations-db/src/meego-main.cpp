@@ -205,7 +205,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             if (first_day){
                 if (afternoon){
                     fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone);
-                    fprintf(file_out," end=\"%li\">\n", utc_time + offset_time); 
+                    fprintf(file_out," end=\"%li\">\n", utc_time + offset_time + 3*3600 + 3600*localtimezone); 
                 }else{    
                     fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone) ;
                     fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600 + offset_time);

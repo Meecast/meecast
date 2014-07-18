@@ -461,6 +461,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", current_wind_direction.c_str());
                 fprintf(file_out,"     <humidity>%i</humidity>\n", current_humidity);
                 fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", current_wind_speed);
+                fprintf(file_out,"     <wind_gust>%i</wind_gust>\n", current_wind_gust);
+                fprintf(file_out,"     <dewpoint>%i</dewpoint>\n", current_dewpoint);
                 fprintf(file_out,"    </period>\n");
             }    
             first_day = false;

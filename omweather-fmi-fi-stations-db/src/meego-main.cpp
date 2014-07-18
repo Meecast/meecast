@@ -502,8 +502,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out,"     <wind_gust>%i</wind_gust>\n", current_wind_gust);
                 fprintf(file_out,"     <dewpoint>%i</dewpoint>\n", current_dewpoint);
                 fprintf(file_out,"     <precipitation>%.1f</precipitation>\n", current_ppcp_rate);
-            }    
-   fprintf(file_out,"     <visible>%i</visible>\n", current_visibility);
+                fprintf(file_out,"     <visible>%i</visible>\n", current_visibility);
                 fprintf(file_out,"    </period>\n");
             }    
             first_day = false;

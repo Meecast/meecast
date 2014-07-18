@@ -61,6 +61,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     int timezone = 0;
     int localtimezone = 0;
     int first_day = false;
+    int afternoon = false;
     std::string current_wind_direction = "";
     struct tm time_tm1 = {0,0,0,0,0,0,0,0,0,0,0};
     struct tm time_tm2 = {0,0,0,0,0,0,0,0,0,0,0};
@@ -180,10 +181,11 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out,"  <timezone>%i</timezone>\n", timezone);
                 check_timezone = true;
                 
+                first_day = true;
                 /* set forecast foe whole day */
                 if (tmp_tm.tm_hour >=15){
                     utc_time = utc_time - ((tmp_tm.tm_hour - localtimezone - 1)*3600); 
-                    first_day = true;
+                    afternoon = true;
                 }else{
                     utc_time = utc_time - (2*3600); 
                 }    
@@ -192,14 +194,21 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             if (val[i].get("Temperature","").asCString() == "nan" && val[i].get("WeatherSymbol3","").asCString() == "nan" )
                 continue;
 
+             
             if (first_day){
-                fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone);
-                fprintf(file_out," end=\"%li\">\n", utc_time + 18*3600); 
+                if (afternoon){
+                    fprintf(file_out,"    <period start=\"%li\"", utc_time + 3600*localtimezone);
+                    fprintf(file_out," end=\"%li\">\n", utc_time + 18*3600); 
+                    afternoon = false;
+                }else{    
+                    fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone + (2*3600));
+                    fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600); 
+                }
                 first_day = false;
-            }else{    
+            }else{
                 fprintf(file_out,"    <period start=\"%li\" hour=\"true\"", utc_time + 3600*localtimezone);
                 fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600); 
-            }
+            }    
 
             if (val[i].get("Temperature","").asCString() != "" || val[i].get("Temperature","").asCString() != "nan"){
                 fprintf(file_out,"     <temperature>%i</temperature>\n", atoi(val[i].get("Temperature","").asCString()));

@@ -58,12 +58,15 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     int current_pressure = INT_MAX;
     int current_visibility = INT_MAX;
     int current_dewpoint = INT_MAX;
+    std::string current_description = "";
+    int current_icon = 48;
     float current_ppcp_rate = INT_MAX; 
     int check_timezone = false;
     int timezone = 0;
     int localtimezone = 0;
     int first_day = false;
     int afternoon = false;
+    int dark = false;
     std::string current_wind_direction = "";
     struct tm time_tm1 = {0,0,0,0,0,0,0,0,0,0,0};
     struct tm time_tm2 = {0,0,0,0,0,0,0,0,0,0,0};
@@ -181,8 +184,133 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                     }else
                         current_ppcp_rate = atof(val[i].get("RI_10MIN","").asCString());
                 }    
-
-
+                if (val[i].get("WW_AWS","").asString() != "" && val[i].get("WW_AWS","").asString() != "nan"){
+                    int code = atoi(val[i].get("WW_AWS","").asCString());
+                    if (code==0 || (code>=20&&code<=29)){
+                        current_icon = 32;
+                        current_description = "Clear";
+                    }
+                    if (code==4 || code==5){
+                        current_icon = 22;
+                        current_description = "Haze, Smoke or Dust";
+                    }
+                    if (code==10){
+                        current_icon = 20;
+                        current_description = "Mist";
+                    }
+                    if (code>=30 && code<=34){
+                        current_icon = 20;
+                        current_description = "Fog";
+                    }
+                    if (code==40){
+                        current_icon = 12;
+                        current_description = "Precipitation";
+                    }
+                    if (code>=50 && code<=53){
+                        current_icon = 9;
+                        current_description = "Drizzle";
+                    }
+                    if (code==60){
+                        current_icon = 12;
+                        current_description = "Rain";
+                    }
+                    if (code==41){
+                        current_icon = 39;
+                        current_description = "Light or Moderate Precipitation";
+                    }
+                    if (code==42){
+                        current_icon = 12;
+                        current_description = "Heavy Precipitation";
+                    }
+                    if (code>=54 && code<=56){
+                        current_icon = 8;
+                        current_description = "Freezing Drizzle";
+                    }
+                    if (code==61){
+                        current_icon = 39;
+                        current_description = "Light Rain";
+                    }
+                    if (code==62){
+                        current_icon = 12;
+                        current_description = "Moderate Rain";
+                    }
+                    if (code==63){
+                        current_icon = 12;
+                        current_description = "Heavy Rain";
+                    }
+                    if (code==64){
+                        current_icon = 10;
+                        current_description = "Light Freezing Rain";
+                    }
+                    if (code==65){
+                        current_icon = 10;
+                        current_description = "Moderate Freezing Rain";
+                    }
+                    if (code==66){
+                        current_icon = 10;
+                        current_description = "Heavy Freezing Rain";
+                    }
+                    if (code==67){
+                        current_icon = 6;
+                        current_description = "Light Sleet";
+                    }
+                    if (code==68){
+                        current_icon = 6;
+                        current_description = "Moderate Sleet";
+                    }
+                    if (code==70){
+                        current_icon = 14;
+                        current_description = "Snow";
+                    }
+                    if (code==71){
+                        current_icon = 14;
+                        current_description = "Light Snow";
+                    }
+                    if (code==72){
+                        current_icon = 14;
+                        current_description = "Light Snow";
+                    }
+                    if (code==73){
+                        current_icon = 16;
+                        current_description = "Heavy Snow";
+                    }
+                    if (code==74 || code==75 || code==76){
+                        current_icon = 7;
+                        current_description = "Ice Pellets";
+                    }
+                    if (code==80){
+                        current_icon = 39;
+                        current_description = "Showers or Intermittent Precipitation";
+                    }
+                    if (code==81){
+                        current_icon = 39;
+                        current_description = "Light Rain Showers";
+                    }
+                    if (code==82){
+                        current_icon = 39;
+                        current_description = "Moderate Rain Showers";
+                    }
+                    if (code==83){
+                        current_icon = 39;
+                        current_description = "Heavy Rain Showers";
+                    }
+                    if (code==84){
+                        current_icon = 39;
+                        current_description = "Violent Rain Showers";
+                    }
+                    if (code==85){
+                        current_icon = 41;
+                        current_description = "Light Snow Showers";
+                    }
+                    if (code==86){
+                        current_icon = 41;
+                        current_description = "Moderate Snow Showers";
+                    }
+                    if (code==87){
+                        current_icon = 41;
+                        current_description = "Heavy Snow Showers";
+                    }
+                }    
 
                 std::cerr<<"Timestamp: "<<current_time<<std::endl;
                 std::cerr<<"Temperature: "<<current_temperature<<std::endl;
@@ -210,7 +338,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
         int icon = 48;
         time_t offset_time = 0;
         std::string description = "";
-
+        dark = false;
 
         utc_time_string = val[i].get("utctime","").asCString();
         if (utc_time_string != ""){
@@ -263,7 +391,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             }    
             if (val[i].get("WeatherSymbol3","").asCString() != "" || val[i].get("WeatherSymbol3","").asCString() != "nan"){
                 int result = 0;
-                result = 100*(atoi(val[i].get("dark","").asCString()));
+                dark = atoi(val[i].get("dark","").asCString());
+                result = 100*(dark);
                 result = result + atoi(val[i].get("WeatherSymbol3","").asCString());
                 switch (result){
                     case 1:
@@ -495,8 +624,22 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out," end=\"%li\" current=\"true\">\n", utc_time + 6*3600); 
 
                 fprintf(file_out,"     <temperature>%i</temperature>\n", current_temperature); 
-                fprintf(file_out,"     <icon>%i</icon>\n", icon);
-                fprintf(file_out,"     <description>%s</description>\n", description.c_str());
+                if (current_icon != 48){
+                    if (current_icon == 32 && dark)
+                        current_icon == 31;
+                    if (current_icon == 39 && dark)
+                        current_icon == 45;
+                    if (current_icon == 41 && dark)
+                        current_icon == 46;
+                    fprintf(file_out,"     <icon>%i</icon>\n", current_icon);
+                }else{
+
+                    fprintf(file_out,"     <icon>%i</icon>\n", icon);
+                }
+                if (current_description != "") 
+                    fprintf(file_out,"     <description>%s</description>\n", current_description.c_str());
+                else
+                    fprintf(file_out,"     <description>%s</description>\n", description.c_str());
                 fprintf(file_out,"     <pressure>%i</pressure>\n", current_pressure);
                 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", current_wind_direction.c_str());
                 fprintf(file_out,"     <humidity>%i</humidity>\n", current_humidity);

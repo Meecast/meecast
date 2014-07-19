@@ -74,7 +74,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 
     std::ifstream jsonfile(days_data_path, std::ifstream::binary);
     bool parsingSuccessful = reader.parse(jsonfile, root, false);
-    fprintf(stderr, "Result %i\n", parsingSuccessful);
     if (!parsingSuccessful)
         return -1;
 
@@ -113,10 +112,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             std::string cur_time;
             cur_time = val[i].get("time","").asCString();
             if (cur_time!=""){
-                std::cerr<<val[i].get("distance", nullval)<<std::endl;
                 min_distance = atof(val[i].get("distance","").asCString());
                 max_count_of_parameters = val[i].size();
-                std::cerr<<cur_time<<std::endl;
                 setlocale(LC_TIME, "POSIX");
                 strptime((const char*)cur_time.c_str(), "%Y%m%d%H%M", &tmp_tm);
                 setlocale(LC_TIME, "");
@@ -311,26 +308,12 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                         current_description = "Heavy Snow Showers";
                     }
                 }    
-
-                std::cerr<<"Timestamp: "<<current_time<<std::endl;
-                std::cerr<<"Temperature: "<<current_temperature<<std::endl;
-                std::cerr<<"Humidity: "<<current_humidity<<std::endl;
-                std::cerr<<"Wind Speed: "<<current_wind_speed<<std::endl;
-                std::cerr<<"Wind Gust: "<<current_wind_gust<<std::endl;
-                std::cerr<<"Wind Direction: "<<current_wind_direction<<std::endl;
-                std::cerr<<"Pressure: "<<current_pressure<<std::endl;
-                std::cerr<<"Visibility: "<<current_visibility<<std::endl;
-                std::cerr<<"DewPoint: "<<current_dewpoint<<std::endl;
             }
         }
-
-//        std::cerr<<val[i]<<std::endl;
-//        std::cerr<<"qqqqqqqqqqqqq"<<std::endl;
     }
 
     /* Forecasts */
     val = root["forecasts"][0].get("forecast", nullval);
-/*    std::cout << root["forecasts"][0].get("forecast", nullval); */
     for (int i = 0; i < val.size(); i++){
         std::string utc_time_string;
         std::string _time_string;
@@ -673,7 +656,7 @@ convert_station_fmi_fi_data(const char *days_data_path, const char *result_file)
     if(!days_data_path)
         return -1;
 
-    hash_for_icons = hash_icons_fmifi_table_create();
+    //hash_for_icons = hash_icons_fmifi_table_create();
  //   snprintf(buffer, sizeof(buffer)-1,"%s.timezone", result_file);
     /* check file accessability */
     if(!access(days_data_path, R_OK)){

@@ -111,10 +111,8 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             std::string cur_time;
             cur_time = val[i].get("time","").asCString();
             if (cur_time!=""){
-                std::cerr<<val[i].get("distance", nullval)<<std::endl;
                 min_distance = atof(val[i].get("distance","").asCString());
                 max_count_of_parameters = val[i].size();
-                std::cerr<<cur_time<<std::endl;
                 setlocale(LC_TIME, "POSIX");
                 strptime((const char*)cur_time.c_str(), "%Y%m%d%H%M", &tmp_tm);
                 setlocale(LC_TIME, "");

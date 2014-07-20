@@ -5,7 +5,7 @@ meecast (0.9.6) unstable; urgency=low
   * Fixed sunrise and sunset time for weather.com source
   * Added fmi.fi source
   * Updated Catalan, Germany, Slovenian, Spanish,
-    Russian translations
+    Russian, Hungarian, translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 08 Jul 2014 08:31:23 +0200
 

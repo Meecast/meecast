@@ -722,7 +722,7 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Bewölkt, Starkregen</translation>
+            <translation>Bewölkt, Leichter Regen, Weak Heavy Rain</translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
@@ -742,7 +742,7 @@ Design der Oberfläche für Freemante: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Strong Rain, Heavy Rain</source>
-            <translation type="unfinished">Bewölkt, Starkregen</translation>
+            <translation>Bewölkt, Starkregen, Starkregen</translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
@@ -1243,38 +1243,40 @@ Programm-Manager deinstallieren.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Französich -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
-  Russisch - Pavel Fialko, Vlad Vasiliev, 
+            <translation>French -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
+ Russian - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
- Finnisch - Marko Vertainen
- Deutsch -  Claudius Henrichs,
+ Finnish - Marko Vertainen
+ German -  Claudius Henrichs,
  	Jens Klingen
- Italienisch - Lorenzo Facca,
+ Italian - Lorenzo Facca,
  	Pavel Fialko, Alessandro Pasotti,
  	Salvatore Fiorenzo, Ilir Gjika,
  	Luca Onnis
- Spanisch - Alejandro Lopez, Agustí Clara
- Polnisch - Tomasz Dominikowski
- Slovakisch - Roman Moravčík
- Niederländisch - Tom Leenders, Michiel Pater
- Bulgarisch - Zlatko Enikov
- Albanisch - Ilir Gjika
- Chinesisch- Wong Man Kong, Michael
- Portugiesisch- Jose Narciso,
- Türkisch - Burak Kaan Kose,
+ Spanish - Alejandro Lopez, Agustí Clara
+ Polish - Tomasz Dominikowski
+ Slovak - Roman Moravčík
+ Dutch - Tom Leenders, Michiel Pater
+ Bulgarian - Zlatko Enikov
+ Albanian - Ilir Gjika
+ Chinese - Wong Man Kong, Michael
+ Portuguese - Jose Narciso,
+ Turkish - Burak Kaan Kose,
  	Mehmet Çilingir,
- Katalanisch - Agustí Clara,
- Arabisch - Tarad Alfandi,
- Serbisch - Aleksandar Zaric,
- Norwegisch - Peer-Atle Motland,
- Ungarisch - Salmi,
- Slovenisch -  Boštjan,
- Tschechisch - Jakub Kožíšek, Pavel Šrubař,
- Chinesisch (Taiwan) - osk2, 
- Vietnamesisch - Hieu Nguyen
+ Catalan - Agustí Clara,
+ Arabic - Tarad Alfandi,
+ Danish - Peter Jespersen,
+ Serbian - Aleksandar Zaric,
+ Norwegian - Peer-Atle Motland,
+ Hungarian - Salmi,
+ Slovenian -  Boštjan,
+ Czech - Jakub Kožíšek, Pavel Šrubař,
+ Chinese(Taiwan) - osk2, 
+ Vietnamese - Hieu Nguyen
  	Anh Dương and truongnx, 
- Schwedisch - Angela Nennebrandt,
+ Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</translation>
         </message>
@@ -1833,6 +1835,10 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Überwiegend bewölkt, Leichter Regen, Gewitter</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Bewölkt, Leichter Regen, Weak Heavy Rain</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>Überwiegend bewölkt, Regen</translation>
         </message>
@@ -1862,7 +1868,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Mostly sunny</source>
-            <translation type="unfinished">Überwiegend sonnig</translation>
+            <translation>Überwiegend sonnig</translation>
         </message>
         <message>
             <source>N</source>
@@ -2490,7 +2496,7 @@ Spanisch - Alejandro Lopez</translation>
         </message>
         <message>
             <source>Proximity shower rain</source>
-            <translation type="unfinished">Leichte Regenschauer</translation>
+            <translation> Regenschauer in der Nähe</translation>
         </message>
         <message>
             <source>Rain</source>

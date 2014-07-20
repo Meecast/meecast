@@ -1834,6 +1834,10 @@ Slovakia - Roman Moravčík</translation>
             <translation>Enimmäkseen pilvistä, kevyttä vesisadetta, ukkosta</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Pilvistä, rankkasadetta</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>Enimmäkseen pilvistä, vesisadetta</translation>
         </message>

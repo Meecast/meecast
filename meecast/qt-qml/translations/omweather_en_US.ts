@@ -1829,6 +1829,10 @@ Slovak - Roman Moravčík</translation>
             <translation>Mostly Cloudy, Light Rain, T-Storm</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Cloudy, Heavy Rain</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>Mostly Cloudy, Rain</translation>
         </message>

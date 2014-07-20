@@ -702,7 +702,8 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Облачно, Сильный Дождь</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
@@ -722,7 +723,8 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Strong Rain, Heavy Rain</source>
-            <translation type="unfinished">Облачно, Сильный Дождь</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
@@ -1785,6 +1787,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Mostly Cloudy, Light Rain, T-Storm</source>
             <translation>Пасмурно, Небольшой дождь, Гроза</translation>
+        </message>
+        <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Пасмурно, Небольшой дождь</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
@@ -4040,7 +4046,7 @@ StandbyScreen виджета
         </message>
         <message>
             <source>minutes ago</source>
-            <translation>минут назад</translation>
+            <translation>мин. назад</translation>
         </message>
         <message>
             <source>mm</source>

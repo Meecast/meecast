@@ -699,7 +699,8 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Felhős, felhőszakadás</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
@@ -719,7 +720,8 @@ Design UI for Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Strong Rain, Heavy Rain</source>
-            <translation type="unfinished">Felhős, felhőszakadás</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
@@ -1211,41 +1213,42 @@ using Application manager</source>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Francia - Nicolas Granziano,
-⇥Philippe, Benot Knecht
-Orosz - Pavel Fialko, Vlad Vasiliev,
-⇥Ed Bartosh
-Finn - Marko Vertainen
-Német - Claudius Henrichs,
-⇥Jens Klingen
-Olasz - Lorenzo Facca,
-⇥Pavel Fialko, Alessandro Pasotti,
-⇥Salvatore Fiorenzo, Ilir Gjika,
-⇥Luca Onnis
-Spanyol - Alejandro Lopez, Agustí Clara
-Lengyel - Tomasz Dominikowski
-Szlovák - Roman Moravčík
-Holland - Tom Leenders, Michiel Pater
-Bulgár - Zlatko Enikov
-Albán - Ilir Gjika
-Kínai - Wong Man Kong, Michael
-Portugál - Jose Narciso,
-Török - Burak Kaan Kose,
-⇥Mehmet Çilingir,
-Katalán - Agustí Clara,
-Arab - Tarad Alfandi,
-Dán - Peter Jespersen,
-Szerb - Aleksandar Zaric,
-Norvég - Peer-Atle Motland,
-Magyar - Salmi,
-Szlovén - Boštjan,
-Cseh - Jakub Kožíšek, Pavel Šrubař,
-Kínai(Taiwan) - osk2, 
-Vietnámi - Hieu Nguyen
-⇥Anh Dương and truongnx, 
-Svéd - Angela Nennebrandt,
-⇥Niklas Åkerström, 
-⇥Tomislav Veleckovik</translation>
+            <translation>Francia -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
+ Orosz - Pavel Fialko, Vlad Vasiliev, 
+ 	Ed Bartosh
+ Finn - Marko Vertainen
+ Német -  Claudius Henrichs,
+ 	Jens Klingen
+ Olasz - Lorenzo Facca,
+ 	Pavel Fialko, Alessandro Pasotti,
+ 	Salvatore Fiorenzo, Ilir Gjika,
+ 	Luca Onnis
+ Spanyol - Alejandro Lopez, Agustí Clara
+ Lengyel - Tomasz Dominikowski
+ Szlovák - Roman Moravčík
+ Holland - Tom Leenders, Michiel Pater
+ Bulgár - Zlatko Enikov
+ Albán - Ilir Gjika
+ Kínai - Wong Man Kong, Michael
+ Portugál - Jose Narciso,
+ Török - Burak Kaan Kose,
+ 	Mehmet Çilingir,
+ Katalán - Agustí Clara,
+ Arab - Tarad Alfandi,
+ Dán - Peter Jespersen,
+ Szerb - Aleksandar Zaric,
+ Norvég - Peer-Atle Motland,
+ Magyar - Salmi, Laszlo Kara
+ Szlovén -  Boštjan,
+ Cseh - Jakub Kožíšek, Pavel Šrubař,
+ Kínai(Taiwan) - osk2, 
+ Vietnámi - Hieu Nguyen
+ 	Anh Dương and truongnx, 
+ Svéd - Angela Nennebrandt,
+ 	Niklas Åkerström, 
+ 	Tomislav Veleckovik</translation>
         </message>
         <message>
             <source>French - Nicolas Granziano, Philippe, Benot Knecht
@@ -1793,6 +1796,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Mostly Cloudy, Light Rain, T-Storm</source>
             <translation>Többnyire felhős, könnyű eső, vihar</translation>
+        </message>
+        <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Többnyire felhős, könnyű eső</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>

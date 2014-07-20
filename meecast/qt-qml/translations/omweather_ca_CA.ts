@@ -721,7 +721,7 @@ Disseny IU per a Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Núvol, Pluja intensa</translation>
+            <translation>Núvol, Pluja suau, Plugims</translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
@@ -741,7 +741,7 @@ Disseny IU per a Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Strong Rain, Heavy Rain</source>
-            <translation type="unfinished">Núvol, Pluja intensa</translation>
+            <translation>Núvol, Pluja molt intensa, Pluja intensa</translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
@@ -1242,8 +1242,9 @@ utilitzant el Gestor d'aplicacions</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished"> Francès -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+            <translation> Francès -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht,
+        Quentin Caillard
  Rus - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finlandès - Marko Vertainen
@@ -1832,6 +1833,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>Mostly Cloudy, Light Rain, T-Storm</source>
             <translation>Força núvol, Pluja suau, Tempestes</translation>
+        </message>
+        <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Núvol, Pluja suau, Plugims</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>

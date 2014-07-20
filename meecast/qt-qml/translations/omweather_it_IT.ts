@@ -1803,6 +1803,10 @@ Slovacco - Roman Moravčík</translation>
             <translation>Prevalentemente nuvoloso, Deboli piogge, temporale</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Nuvoloso, forti Piogge</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>Prevalentemente nuvoloso, pioggia</translation>
         </message>

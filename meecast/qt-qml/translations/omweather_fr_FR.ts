@@ -1811,6 +1811,10 @@ Slovaque - Roman Moravčík</translation>
             <translation>Plutôt nuageux, pluie légère, orage</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Nuageux, grosse pluie</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>Plutôt nuageux, pluie</translation>
         </message>

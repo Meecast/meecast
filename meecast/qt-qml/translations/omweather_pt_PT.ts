@@ -1828,6 +1828,10 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Geralmente Nublado, Chuva Fraca, Trovoadas</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Nublado, Chuva Forte</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>Geralmente Nublado, Chuva</translation>
         </message>

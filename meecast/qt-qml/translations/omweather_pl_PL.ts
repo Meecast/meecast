@@ -1820,6 +1820,10 @@ słowacki - Roman Moravčík</translation>
             <translation>Głównie pochmurnie, lekki deszcz, burza</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Pochmurnie, silny deszcz</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>Głównie pochmurnie, deszcz</translation>
         </message>

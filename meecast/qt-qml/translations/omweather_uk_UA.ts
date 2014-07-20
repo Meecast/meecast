@@ -1793,6 +1793,10 @@ Slovak - Roman Moravčík</source>
             <translation>Переважно хмарно, Невеликий дощ, Гроза</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Хмарно, Сильний Дощ</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>Переважно хмарно, Дощ</translation>
         </message>

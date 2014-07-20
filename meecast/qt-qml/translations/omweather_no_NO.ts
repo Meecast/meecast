@@ -1835,6 +1835,10 @@ Slovak - Roman Moravčík</translation>
             <translation>For det meste Skyet, Lett Regn, Torden</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Skyet, Mye Regn</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>For det meste Skyet, Regn</translation>
         </message>

@@ -1832,6 +1832,10 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>Kryesisht me re, Rreshje të lehta shiu, Stuhira</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Me re, rreshje të forta</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>Kryesisht me re, Shi</translation>
         </message>

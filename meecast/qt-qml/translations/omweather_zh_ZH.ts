@@ -1861,6 +1861,10 @@ Slovak - Roman Moravčík</translation>
             <translation>晴时多云, 小雨, 雷雨</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">多云，大雨</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>晴时多云, 有雨</translation>
         </message>

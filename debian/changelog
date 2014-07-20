@@ -3,6 +3,7 @@ meecast (0.9.6) unstable; urgency=low
   * Fixed donation link 
   * Added translation string for gismeteo.ru
   * Fixed sunrise and sunset time for weather.com source
+  * Added fmi.fi source
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 08 Jul 2014 08:31:23 +0200
 

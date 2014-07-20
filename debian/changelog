@@ -4,7 +4,8 @@ meecast (0.9.6) unstable; urgency=low
   * Added translation string for gismeteo.ru
   * Fixed sunrise and sunset time for weather.com source
   * Added fmi.fi source
-  * Updated Catalan, Germany, Slovenian, Spanish translations
+  * Updated Catalan, Germany, Slovenian, Spanish,
+    Russian translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 08 Jul 2014 08:31:23 +0200
 

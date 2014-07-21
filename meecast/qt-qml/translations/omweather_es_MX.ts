@@ -1824,6 +1824,10 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Bastante nuboso, lluvia ligera, tormenta eléctrica</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Nublado, Mucha lluvia</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>Bastante nuboso, lluvia</translation>
         </message>

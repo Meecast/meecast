@@ -1832,6 +1832,10 @@ Slovački - Roman Moravčík</translation>
             <translation>Pretežno oblačno, Blaga kiša, Oluja sa grmljavinom</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Oblačno, Jaka kiša</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>Pretežno oblačno, kiša</translation>
         </message>

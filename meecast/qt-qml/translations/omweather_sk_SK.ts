@@ -1828,6 +1828,10 @@ Slovenčina - Roman Moravčík</translation>
             <translation>Prevažne zamračené, slabý dážď, búrka</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Zamračené, silný dážď</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>Prevažne zamračené, dážď</translation>
         </message>

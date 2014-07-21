@@ -720,7 +720,7 @@ Diseño de la IU para Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Nublado, Mucha lluvia</translation>
+            <translation>Nublado, Lluvia ligera, Llovizna</translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
@@ -740,7 +740,7 @@ Diseño de la IU para Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Strong Rain, Heavy Rain</source>
-            <translation type="unfinished">Nublado, Mucha lluvia</translation>
+            <translation>Nublado, Lluvia fuerte, Lluvia intensa</translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
@@ -1241,8 +1241,9 @@ el Administrador de Aplicaciones.</translation>
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished"> Francés -  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+            <translation> Francés -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht,
+        Quentin Caillard 
  Ruso - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Finés - Marko Vertainen
@@ -1830,6 +1831,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Mostly Cloudy, Light Rain, T-Storm</source>
             <translation>Bastante nuboso, lluvia ligera, tormenta eléctrica</translation>
+        </message>
+        <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Nublado, Lluvia ligera, Llovizna</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>

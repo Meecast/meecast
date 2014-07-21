@@ -2102,6 +2102,11 @@ Slovak - Roman Moravčík</source>
             </translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation type="unfinished">
             </translation>

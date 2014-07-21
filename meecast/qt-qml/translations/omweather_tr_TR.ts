@@ -1817,6 +1817,10 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Çoğunlukla Bulutlu , Hafif Yağmur , Fırtına</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Bulutlu , Sağnak Yağmur</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>Çoğunlukla Bulutlu , Yağmur</translation>
         </message>

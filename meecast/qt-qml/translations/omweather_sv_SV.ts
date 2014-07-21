@@ -1955,6 +1955,10 @@ Slovak - Roman Moravčík</source>
             <translation>Mestadels Molnigt, Lätt Regn, Åskväder</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Mestadels Molnigt, Mycket Regn</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>Mestadels Molngit, Regn</translation>
         </message>

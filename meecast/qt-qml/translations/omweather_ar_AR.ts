@@ -1801,6 +1801,10 @@ Slovak - Roman Moravčík</source>
             <translation>غائم كلياً, أمطار خفيفه, عواصف رعديه</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">غائم, أمطار كثيفه</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>غائم كلياً,  أمطار</translation>
         </message>

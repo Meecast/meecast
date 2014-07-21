@@ -1806,6 +1806,10 @@ Việt Nam- Quý Trọng</translation>
             <translation>Nhiều mây, mưa vừa kèm sấm sét</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Nhiều mây, có mưa to</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>Nhiều mây, có mưa</translation>
         </message>

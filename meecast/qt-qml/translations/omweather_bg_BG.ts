@@ -1805,6 +1805,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Предимно Облачно, Слаб дъжд, Гръмотевици</translation>
         </message>
         <message>
+            <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
+            <translation type="unfinished">Облачно, Порой</translation>
+        </message>
+        <message>
             <source>Mostly Cloudy, Rain</source>
             <translation>Предимно Облачно, Дъжд</translation>
         </message>

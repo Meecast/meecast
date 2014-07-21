@@ -584,7 +584,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out,"     <icon>%i</icon>\n", icon);
                 fprintf(file_out, "     <description>%s</description>\n", description.c_str());
             }    
-            if (val[i].get("PoP","").asCString() != ""){
+            if (val[i].get("PoP","").asString() != ""){
                 fprintf(file_out,"     <ppcp>%i</ppcp>\n", atoi(val[i].get("PoP","").asCString()));
             }    
             if (val[i].get("WindSpeedMS","").asString() != ""){
@@ -609,11 +609,11 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out,"     <temperature>%i</temperature>\n", current_temperature); 
                 if (current_icon != 48){
                     if (current_icon == 32 && dark)
-                        current_icon == 31;
+                        current_icon = 31;
                     if (current_icon == 39 && dark)
-                        current_icon == 45;
+                        current_icon = 45;
                     if (current_icon == 41 && dark)
-                        current_icon == 46;
+                        current_icon = 46;
                     fprintf(file_out,"     <icon>%i</icon>\n", current_icon);
                 }else{
 

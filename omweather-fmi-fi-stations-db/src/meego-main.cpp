@@ -646,8 +646,7 @@ int
 convert_station_fmi_fi_data(const char *days_data_path, const char *result_file){
  
     int     days_number = -1;
-    char    buffer[2048],
-            *delimiter = NULL;
+    char    *delimiter = NULL;
     FILE    *file_out;
     
     if(!days_data_path)

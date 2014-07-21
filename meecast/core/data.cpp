@@ -210,7 +210,10 @@ namespace Core {
      void
      Data::WindDirection(const std::string& text){
          /* Check possible direction (N,NW,NNW,NE,NEE,S,SW,SWW,SE,SEE, E, W) */
-         _windDirection->assign(text);
+         if (text !="")
+            _windDirection->assign(text);
+         else
+            _windDirection->assign("N/A");
      }
      std::string&
      Data::WindDirection(){

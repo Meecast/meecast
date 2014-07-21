@@ -1376,6 +1376,20 @@ Slovak - Roman Moravčík</translation>
             <translation>薄雾</translation>
         </message>
         <message>
+            <source>Haze, Smoke or Dust</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Heavy Freezing Rain</source>
+            <translation type="unfinished">小冻雨</translation>
+        </message>
+        <message>
+            <source>Heavy Precipitation</source>
+            <translation type="unfinished">
+降水: </translation>
+        </message>
+        <message>
             <source>Heavy Rain</source>
             <translation>大雨</translation>
         </message>
@@ -1389,12 +1403,36 @@ Slovak - Roman Moravčík</translation>
             <translation>大阵雨</translation>
         </message>
         <message>
+            <source>Heavy Rain Showers</source>
+            <translation type="unfinished">大阵雨</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet</source>
+            <translation type="unfinished">大雪</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet Showers</source>
+            <translation type="unfinished">大阵雨</translation>
+        </message>
+        <message>
             <source>Heavy Snow</source>
             <translation>大雪</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation type="unfinished">大雪</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Showers</source>
+            <translation type="unfinished">短暂阵雪</translation>
+        </message>
+        <message>
+            <source>Heavy Snowfall</source>
+            <translation type="unfinished">大雪</translation>
+        </message>
+        <message>
+            <source>Heavy Thunder</source>
+            <translation type="unfinished">雷雨</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1439,6 +1477,11 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Humidity:</source>
             <translation>湿度: </translation>
+        </message>
+        <message>
+            <source>Ice Pellets</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1623,6 +1666,10 @@ Slovak - Roman Moravčík</translation>
             <translation>小阵雨</translation>
         </message>
         <message>
+            <source>Light Rain Showers</source>
+            <translation type="unfinished">小阵雨</translation>
+        </message>
+        <message>
             <source>Light Rain and Freezing Rain</source>
             <translation>小雨转冻雨</translation>
         </message>
@@ -1637,6 +1684,14 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Light Rain with Thunder</source>
             <translation>小雨有雷声</translation>
+        </message>
+        <message>
+            <source>Light Sleet</source>
+            <translation type="unfinished">小雪</translation>
+        </message>
+        <message>
+            <source>Light Sleet Showers</source>
+            <translation type="unfinished">小阵雪</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1665,12 +1720,25 @@ Slovak - Roman Moravčík</translation>
             <translation>小阵雪</translation>
         </message>
         <message>
+            <source>Light Snow Showers</source>
+            <translation type="unfinished">小阵雪</translation>
+        </message>
+        <message>
+            <source>Light Snowfall</source>
+            <translation type="unfinished">小雪</translation>
+        </message>
+        <message>
             <source>Light intensity drizzle</source>
             <translation type="unfinished">大雨</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
             <translation type="unfinished">大雨</translation>
+        </message>
+        <message>
+            <source>Light or Moderate Precipitation</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1760,8 +1828,24 @@ Slovak - Roman Moravčík</translation>
             <translation>薄雾</translation>
         </message>
         <message>
+            <source>Moderate Freezing Rain</source>
+            <translation type="unfinished">(中度)</translation>
+        </message>
+        <message>
             <source>Moderate Rain</source>
             <translation type="unfinished">(中度)</translation>
+        </message>
+        <message>
+            <source>Moderate Rain Showers</source>
+            <translation type="unfinished">(中度)</translation>
+        </message>
+        <message>
+            <source>Moderate Sleet</source>
+            <translation type="unfinished">(中度)</translation>
+        </message>
+        <message>
+            <source>Moderate Snow Showers</source>
+            <translation type="unfinished">上午 阵雪</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -2456,6 +2540,11 @@ Slovak - Roman Moravčík</translation>
             <translation>Ppcp:</translation>
         </message>
         <message>
+            <source>Precipitation</source>
+            <translation type="unfinished">
+降水: </translation>
+        </message>
+        <message>
             <source>Preference|Update</source>
             <translation>更新</translation>
         </message>
@@ -2984,6 +3073,11 @@ Slovak - Roman Moravčík</translation>
             <translation>周围有阵雨</translation>
         </message>
         <message>
+            <source>Showers or Intermittent Precipitation</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Sky is Clear</source>
             <translation type="unfinished">大部晴朗</translation>
         </message>
@@ -2994,6 +3088,10 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Sleet</source>
             <translation>雨雪</translation>
+        </message>
+        <message>
+            <source>Sleet Showers</source>
+            <translation type="unfinished">短暂阵雨</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3016,6 +3114,10 @@ Slovak - Roman Moravčík</translation>
             <source>Snow Shower / Wind</source>
             <translation type="unfinished">
             </translation>
+        </message>
+        <message>
+            <source>Snow Showers</source>
+            <translation type="unfinished">阵雪</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -3046,6 +3148,10 @@ Slovak - Roman Moravčík</translation>
             <source>Snow to Wintry Mix / Wind</source>
             <translation type="unfinished">
             </translation>
+        </message>
+        <message>
+            <source>Snowfall</source>
+            <translation type="unfinished">雪</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3134,6 +3240,11 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Storm</source>
             <translation>暴风</translation>
+        </message>
+        <message>
+            <source>Strong Thundershowers</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3326,6 +3437,10 @@ Slovak - Roman Moravčík</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>周围有阵雨</translation>
+        </message>
+        <message>
+            <source>Thundershowers</source>
+            <translation type="unfinished">雷雨</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3534,6 +3649,10 @@ for tuning images of applet</source>
         <message>
             <source>Very High</source>
             <translation>非常高</translation>
+        </message>
+        <message>
+            <source>Violent Rain Showers</source>
+            <translation type="unfinished">小阵雨</translation>
         </message>
         <message>
             <source>Visible items:</source>

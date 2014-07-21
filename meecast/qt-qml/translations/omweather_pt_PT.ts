@@ -1353,6 +1353,20 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Neblina</translation>
         </message>
         <message>
+            <source>Haze, Smoke or Dust</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Heavy Freezing Rain</source>
+            <translation type="unfinished">Chuva / Granizo</translation>
+        </message>
+        <message>
+            <source>Heavy Precipitation</source>
+            <translation type="unfinished">
+Precipitação:</translation>
+        </message>
+        <message>
             <source>Heavy Rain</source>
             <translation>Chuva Forte</translation>
         </message>
@@ -1365,12 +1379,36 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Aguaceiros Fortes</translation>
         </message>
         <message>
+            <source>Heavy Rain Showers</source>
+            <translation type="unfinished">Aguaceiros Fortes</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet</source>
+            <translation type="unfinished">Forte Queda de Neve</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet Showers</source>
+            <translation type="unfinished">Aguaceiros Fortes</translation>
+        </message>
+        <message>
             <source>Heavy Snow</source>
             <translation>Forte Queda de Neve</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation>Neve Forte / Vento</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Showers</source>
+            <translation type="unfinished">Alguns Aguaceiros Neve</translation>
+        </message>
+        <message>
+            <source>Heavy Snowfall</source>
+            <translation type="unfinished">Forte Queda de Neve</translation>
+        </message>
+        <message>
+            <source>Heavy Thunder</source>
+            <translation type="unfinished">Trovoadas</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1415,6 +1453,11 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Humidity:</source>
             <translation>Humidade:</translation>
+        </message>
+        <message>
+            <source>Ice Pellets</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1594,6 +1637,10 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Aguaceiros Fracos</translation>
         </message>
         <message>
+            <source>Light Rain Showers</source>
+            <translation type="unfinished">Aguaceiros Fracos</translation>
+        </message>
+        <message>
             <source>Light Rain and Freezing Rain</source>
             <translation>Chuva Fraca e Granizo</translation>
         </message>
@@ -1608,6 +1655,14 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Light Rain with Thunder</source>
             <translation>Chuva Fraca com Trovoadas</translation>
+        </message>
+        <message>
+            <source>Light Sleet</source>
+            <translation type="unfinished">Neve Fraca</translation>
+        </message>
+        <message>
+            <source>Light Sleet Showers</source>
+            <translation type="unfinished">Neve Fraca e Aguaceiros</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1634,12 +1689,25 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Neve Fraca e Aguaceiros</translation>
         </message>
         <message>
+            <source>Light Snow Showers</source>
+            <translation type="unfinished">Neve Fraca e Aguaceiros</translation>
+        </message>
+        <message>
+            <source>Light Snowfall</source>
+            <translation type="unfinished">Neve Fraca</translation>
+        </message>
+        <message>
             <source>Light intensity drizzle</source>
             <translation type="unfinished">Aguaceiros fracos</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
             <translation>Aguaceiros fracos</translation>
+        </message>
+        <message>
+            <source>Light or Moderate Precipitation</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1728,8 +1796,24 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Mist</translation>
         </message>
         <message>
+            <source>Moderate Freezing Rain</source>
+            <translation type="unfinished">Chuva Moderada</translation>
+        </message>
+        <message>
             <source>Moderate Rain</source>
             <translation>Chuva Moderada</translation>
+        </message>
+        <message>
+            <source>Moderate Rain Showers</source>
+            <translation type="unfinished">Chuva Moderada</translation>
+        </message>
+        <message>
+            <source>Moderate Sleet</source>
+            <translation type="unfinished">Chuva Moderada</translation>
+        </message>
+        <message>
+            <source>Moderate Snow Showers</source>
+            <translation type="unfinished">AM Aguaceiros de Neve</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -2416,6 +2500,11 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Ppcp:</translation>
         </message>
         <message>
+            <source>Precipitation</source>
+            <translation type="unfinished">
+Precipitação:</translation>
+        </message>
+        <message>
             <source>Preference|Update</source>
             <translation>Preferências | Atualização</translation>
         </message>
@@ -2930,6 +3019,11 @@ Eslovaco - Roman Moravčík</translation>
             <translation>Aguaceiros nas redondezas</translation>
         </message>
         <message>
+            <source>Showers or Intermittent Precipitation</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Sky is Clear</source>
             <translation>Céu está limpo</translation>
         </message>
@@ -2940,6 +3034,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Sleet</source>
             <translation>Chuva com neve</translation>
+        </message>
+        <message>
+            <source>Sleet Showers</source>
+            <translation type="unfinished">Alguns Aguaceiros</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -2960,6 +3058,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Snow Shower / Wind</source>
             <translation>Queda Neve / Vento</translation>
+        </message>
+        <message>
+            <source>Snow Showers</source>
+            <translation type="unfinished">Queda Neve</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -2988,6 +3090,10 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
             <translation>Neve para Tempo Instável / Vento</translation>
+        </message>
+        <message>
+            <source>Snowfall</source>
+            <translation type="unfinished">Neve</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3076,6 +3182,11 @@ Eslovaco - Roman Moravčík</translation>
         <message>
             <source>Storm</source>
             <translation>Trovoadas</translation>
+        </message>
+        <message>
+            <source>Strong Thundershowers</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3263,6 +3374,10 @@ para qualquer versão posterior.</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Trovoadas nas Proximidades</translation>
+        </message>
+        <message>
+            <source>Thundershowers</source>
+            <translation type="unfinished">Trovoadas</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3471,6 +3586,10 @@ de informações do tempo.
         <message>
             <source>Very High</source>
             <translation>Muito Alto</translation>
+        </message>
+        <message>
+            <source>Violent Rain Showers</source>
+            <translation type="unfinished">Aguaceiros Fracos</translation>
         </message>
         <message>
             <source>Visible items:</source>

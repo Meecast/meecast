@@ -1329,6 +1329,20 @@ Slovacco - Roman Moravčík</translation>
             <translation>Foschia</translation>
         </message>
         <message>
+            <source>Haze, Smoke or Dust</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Heavy Freezing Rain</source>
+            <translation type="unfinished">Pioggia / Pioggia congelata</translation>
+        </message>
+        <message>
+            <source>Heavy Precipitation</source>
+            <translation type="unfinished">
+Precipitazioni: </translation>
+        </message>
+        <message>
             <source>Heavy Rain</source>
             <translation>Forte pioggia</translation>
         </message>
@@ -1341,12 +1355,36 @@ Slovacco - Roman Moravčík</translation>
             <translation>Forti rovesci piovosi</translation>
         </message>
         <message>
+            <source>Heavy Rain Showers</source>
+            <translation type="unfinished">Forti rovesci piovosi</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet</source>
+            <translation type="unfinished">Forte nevicata</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet Showers</source>
+            <translation type="unfinished">Forti rovesci piovosi</translation>
+        </message>
+        <message>
             <source>Heavy Snow</source>
             <translation>Forte nevicata</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation>Forti Nevicate / Vento</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Showers</source>
+            <translation type="unfinished">Alcuni rovesci Nevosi</translation>
+        </message>
+        <message>
+            <source>Heavy Snowfall</source>
+            <translation type="unfinished">Forte nevicata</translation>
+        </message>
+        <message>
+            <source>Heavy Thunder</source>
+            <translation type="unfinished">Tuono</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1391,6 +1429,11 @@ Slovacco - Roman Moravčík</translation>
         <message>
             <source>Humidity:</source>
             <translation>Umidità:</translation>
+        </message>
+        <message>
+            <source>Ice Pellets</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1569,6 +1612,10 @@ Slovacco - Roman Moravčík</translation>
             <translation>Rovesci con deboli piogge</translation>
         </message>
         <message>
+            <source>Light Rain Showers</source>
+            <translation type="unfinished">Rovesci con deboli piogge</translation>
+        </message>
+        <message>
             <source>Light Rain and Freezing Rain</source>
             <translation>Deboli piogge con pioggia congelantesi</translation>
         </message>
@@ -1583,6 +1630,14 @@ Slovacco - Roman Moravčík</translation>
         <message>
             <source>Light Rain with Thunder</source>
             <translation>Deboli piogge con tuoni</translation>
+        </message>
+        <message>
+            <source>Light Sleet</source>
+            <translation type="unfinished">Deboli nevicate</translation>
+        </message>
+        <message>
+            <source>Light Sleet Showers</source>
+            <translation type="unfinished">Rovesci di deboli nevicate</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1609,12 +1664,25 @@ Slovacco - Roman Moravčík</translation>
             <translation>Rovesci di deboli nevicate</translation>
         </message>
         <message>
+            <source>Light Snow Showers</source>
+            <translation type="unfinished">Rovesci di deboli nevicate</translation>
+        </message>
+        <message>
+            <source>Light Snowfall</source>
+            <translation type="unfinished">Deboli nevicate</translation>
+        </message>
+        <message>
             <source>Light intensity drizzle</source>
             <translation>Debole pioggerella</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
             <translation>Piogge di debole intensità</translation>
+        </message>
+        <message>
+            <source>Light or Moderate Precipitation</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1703,8 +1771,24 @@ Slovacco - Roman Moravčík</translation>
             <translation>Nebbia</translation>
         </message>
         <message>
+            <source>Moderate Freezing Rain</source>
+            <translation type="unfinished">Pioggia moderata</translation>
+        </message>
+        <message>
             <source>Moderate Rain</source>
             <translation>Pioggia moderata</translation>
+        </message>
+        <message>
+            <source>Moderate Rain Showers</source>
+            <translation type="unfinished">Pioggia moderata</translation>
+        </message>
+        <message>
+            <source>Moderate Sleet</source>
+            <translation type="unfinished">Pioggia moderata</translation>
+        </message>
+        <message>
+            <source>Moderate Snow Showers</source>
+            <translation type="unfinished">Nevicate sparse al matt.</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -2391,6 +2475,11 @@ Slovacco - Roman Moravčík</translation>
             <translation>Probabilità pioggia:</translation>
         </message>
         <message>
+            <source>Precipitation</source>
+            <translation type="unfinished">
+Precipitazioni: </translation>
+        </message>
+        <message>
             <source>Preference|Update</source>
             <translation>Aggiornamento</translation>
         </message>
@@ -2904,6 +2993,11 @@ Slovacco - Roman Moravčík</translation>
             <translation>Rovesci nei paraggi</translation>
         </message>
         <message>
+            <source>Showers or Intermittent Precipitation</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Sky is Clear</source>
             <translation>Il Cielo è Limpido</translation>
         </message>
@@ -2914,6 +3008,10 @@ Slovacco - Roman Moravčík</translation>
         <message>
             <source>Sleet</source>
             <translation>Nevischio</translation>
+        </message>
+        <message>
+            <source>Sleet Showers</source>
+            <translation type="unfinished">Alcuni Rovesci</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -2934,6 +3032,10 @@ Slovacco - Roman Moravčík</translation>
         <message>
             <source>Snow Shower / Wind</source>
             <translation>Rovesci nevosi / Vento</translation>
+        </message>
+        <message>
+            <source>Snow Showers</source>
+            <translation type="unfinished">Rovesci nevosi</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -2962,6 +3064,10 @@ Slovacco - Roman Moravčík</translation>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
             <translation>Nevischio poi Neve / Vento</translation>
+        </message>
+        <message>
+            <source>Snowfall</source>
+            <translation type="unfinished">Neve</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3050,6 +3156,11 @@ Slovacco - Roman Moravčík</translation>
         <message>
             <source>Storm</source>
             <translation>Tempesta</translation>
+        </message>
+        <message>
+            <source>Strong Thundershowers</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3236,6 +3347,10 @@ later version.</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Tuoni nelle vicinanze</translation>
+        </message>
+        <message>
+            <source>Thundershowers</source>
+            <translation type="unfinished">Tuono</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3445,6 +3560,10 @@ meteo periodicamente.
         <message>
             <source>Very High</source>
             <translation>Molto Alto</translation>
+        </message>
+        <message>
+            <source>Violent Rain Showers</source>
+            <translation type="unfinished">Rovesci con deboli piogge</translation>
         </message>
         <message>
             <source>Visible items:</source>

@@ -1355,6 +1355,20 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>Mjegull</translation>
         </message>
         <message>
+            <source>Haze, Smoke or Dust</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Heavy Freezing Rain</source>
+            <translation type="unfinished">Shi / Shi i ngrirë</translation>
+        </message>
+        <message>
+            <source>Heavy Precipitation</source>
+            <translation type="unfinished">
+Rreshjet: </translation>
+        </message>
+        <message>
             <source>Heavy Rain</source>
             <translation>Shira të fortë</translation>
         </message>
@@ -1367,12 +1381,36 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>Stuhi</translation>
         </message>
         <message>
+            <source>Heavy Rain Showers</source>
+            <translation type="unfinished">Stuhi</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet</source>
+            <translation type="unfinished">Rreshje të dëndura dëbore</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet Showers</source>
+            <translation type="unfinished">Stuhi</translation>
+        </message>
+        <message>
             <source>Heavy Snow</source>
             <translation>Rreshje të dëndura dëbore</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation>Stuhi bore / Erë</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Showers</source>
+            <translation type="unfinished">Disa stuhira dëbore</translation>
+        </message>
+        <message>
+            <source>Heavy Snowfall</source>
+            <translation type="unfinished">Rreshje të dëndura dëbore</translation>
+        </message>
+        <message>
+            <source>Heavy Thunder</source>
+            <translation type="unfinished">Bubullima</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1417,6 +1455,11 @@ Sllovakisht - Roman Moravčík</translation>
         <message>
             <source>Humidity:</source>
             <translation>Lagështira:</translation>
+        </message>
+        <message>
+            <source>Ice Pellets</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1597,6 +1640,10 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>Rreshje të shkurtra shiu</translation>
         </message>
         <message>
+            <source>Light Rain Showers</source>
+            <translation type="unfinished">Rreshje të shkurtra shiu</translation>
+        </message>
+        <message>
             <source>Light Rain and Freezing Rain</source>
             <translation>Shi i dobët dhe shi i ngrirë</translation>
         </message>
@@ -1611,6 +1658,14 @@ Sllovakisht - Roman Moravčík</translation>
         <message>
             <source>Light Rain with Thunder</source>
             <translation>Shi i dobët me bubullima</translation>
+        </message>
+        <message>
+            <source>Light Sleet</source>
+            <translation type="unfinished">Dëborë e dobët</translation>
+        </message>
+        <message>
+            <source>Light Sleet Showers</source>
+            <translation type="unfinished">Dëborë e dobët me rreshje të shkurtëra</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1637,12 +1692,25 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>Dëborë e dobët me rreshje të shkurtëra</translation>
         </message>
         <message>
+            <source>Light Snow Showers</source>
+            <translation type="unfinished">Dëborë e dobët me rreshje të shkurtëra</translation>
+        </message>
+        <message>
+            <source>Light Snowfall</source>
+            <translation type="unfinished">Dëborë e dobët</translation>
+        </message>
+        <message>
             <source>Light intensity drizzle</source>
             <translation type="unfinished">Shira të fortë</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
             <translation type="unfinished">Shira të fortë</translation>
+        </message>
+        <message>
+            <source>Light or Moderate Precipitation</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1732,8 +1800,24 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>Mjegull</translation>
         </message>
         <message>
+            <source>Moderate Freezing Rain</source>
+            <translation type="unfinished">(Mesatar)</translation>
+        </message>
+        <message>
             <source>Moderate Rain</source>
             <translation type="unfinished">(Mesatar)</translation>
+        </message>
+        <message>
+            <source>Moderate Rain Showers</source>
+            <translation type="unfinished">(Mesatar)</translation>
+        </message>
+        <message>
+            <source>Moderate Sleet</source>
+            <translation type="unfinished">(Mesatar)</translation>
+        </message>
+        <message>
+            <source>Moderate Snow Showers</source>
+            <translation type="unfinished">Në mëngjes Rreshje të dëndura dëbore</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -2420,6 +2504,11 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>Ppcp:</translation>
         </message>
         <message>
+            <source>Precipitation</source>
+            <translation type="unfinished">
+Rreshjet: </translation>
+        </message>
+        <message>
             <source>Preference|Update</source>
             <translation>Preferencat|Përditësimet</translation>
         </message>
@@ -2934,6 +3023,11 @@ Sllovakisht - Roman Moravčík</translation>
             <translation>Rreshje të shkurtëra përreth</translation>
         </message>
         <message>
+            <source>Showers or Intermittent Precipitation</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Sky is Clear</source>
             <translation type="unfinished">Kryesisht mot i kthjellët</translation>
         </message>
@@ -2944,6 +3038,10 @@ Sllovakisht - Roman Moravčík</translation>
         <message>
             <source>Sleet</source>
             <translation>Borë e shkrirë</translation>
+        </message>
+        <message>
+            <source>Sleet Showers</source>
+            <translation type="unfinished">Disa stuhira shiu</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -2964,6 +3062,10 @@ Sllovakisht - Roman Moravčík</translation>
         <message>
             <source>Snow Shower / Wind</source>
             <translation>Rreshje të shkurtëra dëbore / Erë</translation>
+        </message>
+        <message>
+            <source>Snow Showers</source>
+            <translation type="unfinished">Rreshje të shkurtëra dëbore</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -2992,6 +3094,10 @@ Sllovakisht - Roman Moravčík</translation>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
             <translation>Nga dëborë në shi me akull / Erë</translation>
+        </message>
+        <message>
+            <source>Snowfall</source>
+            <translation type="unfinished">Dëborë</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3080,6 +3186,11 @@ Sllovakisht - Roman Moravčík</translation>
         <message>
             <source>Storm</source>
             <translation>Stuhi</translation>
+        </message>
+        <message>
+            <source>Strong Thundershowers</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3271,6 +3382,10 @@ të GNU General Public License
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Rrebeshe në rrethinat</translation>
+        </message>
+        <message>
+            <source>Thundershowers</source>
+            <translation type="unfinished">Bubullima</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3478,6 +3593,10 @@ për të ndryshuar fotografinë applet</translation>
         <message>
             <source>Very High</source>
             <translation>Shumë e lartë</translation>
+        </message>
+        <message>
+            <source>Violent Rain Showers</source>
+            <translation type="unfinished">Rreshje të shkurtra shiu</translation>
         </message>
         <message>
             <source>Visible items:</source>

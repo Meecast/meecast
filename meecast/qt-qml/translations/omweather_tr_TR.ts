@@ -1343,6 +1343,20 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Sis</translation>
         </message>
         <message>
+            <source>Haze, Smoke or Dust</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Heavy Freezing Rain</source>
+            <translation type="unfinished">Yağmur / Dondurucu Yağmur</translation>
+        </message>
+        <message>
+            <source>Heavy Precipitation</source>
+            <translation type="unfinished">
+Yağıs:</translation>
+        </message>
+        <message>
             <source>Heavy Rain</source>
             <translation>Sağnak Yagmur</translation>
         </message>
@@ -1355,12 +1369,36 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Siddetli Sağnak Yağmur</translation>
         </message>
         <message>
+            <source>Heavy Rain Showers</source>
+            <translation type="unfinished">Siddetli Sağnak Yağmur</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet</source>
+            <translation type="unfinished">Tipi Kar</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet Showers</source>
+            <translation type="unfinished">Siddetli Sağnak Yağmur</translation>
+        </message>
+        <message>
             <source>Heavy Snow</source>
             <translation>Tipi Kar</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation>Ağır Kar / Rüzgar</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Showers</source>
+            <translation type="unfinished">Karla Karışık Yağmur</translation>
+        </message>
+        <message>
+            <source>Heavy Snowfall</source>
+            <translation type="unfinished">Tipi Kar</translation>
+        </message>
+        <message>
+            <source>Heavy Thunder</source>
+            <translation type="unfinished">Gök gurültüsü</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1405,6 +1443,11 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Humidity:</source>
             <translation>Nem:</translation>
+        </message>
+        <message>
+            <source>Ice Pellets</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1583,6 +1626,10 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Hafif Sağnak Yağmur</translation>
         </message>
         <message>
+            <source>Light Rain Showers</source>
+            <translation type="unfinished">Hafif Sağnak Yağmur</translation>
+        </message>
+        <message>
             <source>Light Rain and Freezing Rain</source>
             <translation>Hafif ve Dondurucu Yağmur</translation>
         </message>
@@ -1597,6 +1644,14 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Light Rain with Thunder</source>
             <translation>Fırtınayla Karışık Hafif Yağmur</translation>
+        </message>
+        <message>
+            <source>Light Sleet</source>
+            <translation type="unfinished">Hafif Kar</translation>
+        </message>
+        <message>
+            <source>Light Sleet Showers</source>
+            <translation type="unfinished">Hafif Sağnak Kar</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1623,12 +1678,25 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Hafif Sağnak Kar</translation>
         </message>
         <message>
+            <source>Light Snow Showers</source>
+            <translation type="unfinished">Hafif Sağnak Kar</translation>
+        </message>
+        <message>
+            <source>Light Snowfall</source>
+            <translation type="unfinished">Hafif Kar</translation>
+        </message>
+        <message>
             <source>Light intensity drizzle</source>
             <translation>Hafif aralıklı çiseleme</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
             <translation>Hafif aralıklı sağnak yağmur</translation>
+        </message>
+        <message>
+            <source>Light or Moderate Precipitation</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1717,8 +1785,24 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Pus</translation>
         </message>
         <message>
+            <source>Moderate Freezing Rain</source>
+            <translation type="unfinished">Orta Şiddetli Yağmur</translation>
+        </message>
+        <message>
             <source>Moderate Rain</source>
             <translation>Orta Şiddetli Yağmur</translation>
+        </message>
+        <message>
+            <source>Moderate Rain Showers</source>
+            <translation type="unfinished">Orta Şiddetli Yağmur</translation>
+        </message>
+        <message>
+            <source>Moderate Sleet</source>
+            <translation type="unfinished">Orta Şiddetli Yağmur</translation>
+        </message>
+        <message>
+            <source>Moderate Snow Showers</source>
+            <translation type="unfinished">AM Sağnak Kar</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -2405,6 +2489,11 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Ppcp:</translation>
         </message>
         <message>
+            <source>Precipitation</source>
+            <translation type="unfinished">
+Yağıs:</translation>
+        </message>
+        <message>
             <source>Preference|Update</source>
             <translation>Tercihler|Gğncelleme</translation>
         </message>
@@ -2918,6 +3007,11 @@ Turkish - Burak Kaan Kose</translation>
             <translation>Çevredeki Sağanaklar</translation>
         </message>
         <message>
+            <source>Showers or Intermittent Precipitation</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Sky is Clear</source>
             <translation>Gökyüzü Temiz</translation>
         </message>
@@ -2928,6 +3022,10 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Sleet</source>
             <translation>Sulu Kar</translation>
+        </message>
+        <message>
+            <source>Sleet Showers</source>
+            <translation type="unfinished">Hafif Yağmur</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -2948,6 +3046,10 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Snow Shower / Wind</source>
             <translation>Sağnak Kar / Rüzgar</translation>
+        </message>
+        <message>
+            <source>Snow Showers</source>
+            <translation type="unfinished">Sağnak Kar</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -2976,6 +3078,10 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
             <translation>Kardan Karışık Soğuk Havaya / Rüzgar</translation>
+        </message>
+        <message>
+            <source>Snowfall</source>
+            <translation type="unfinished">Kar</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3064,6 +3170,11 @@ Turkish - Burak Kaan Kose</translation>
         <message>
             <source>Storm</source>
             <translation>Fırtına</translation>
+        </message>
+        <message>
+            <source>Strong Thundershowers</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3247,6 +3358,10 @@ hem 2.1 versiyonu ve hem de (isteginize göre) farklı bir ileriki version olabi
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Çevredeki Fırtına</translation>
+        </message>
+        <message>
+            <source>Thundershowers</source>
+            <translation type="unfinished">Gök gurültüsü</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3454,6 +3569,10 @@ GSM ve/veya WLAN kullan.
         <message>
             <source>Very High</source>
             <translation>Çok Yüksek</translation>
+        </message>
+        <message>
+            <source>Violent Rain Showers</source>
+            <translation type="unfinished">Hafif Sağnak Yağmur</translation>
         </message>
         <message>
             <source>Visible items:</source>

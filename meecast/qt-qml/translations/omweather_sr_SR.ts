@@ -1358,6 +1358,20 @@ Slovački - Roman Moravčík</translation>
             <translation>Sumaglica</translation>
         </message>
         <message>
+            <source>Haze, Smoke or Dust</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Heavy Freezing Rain</source>
+            <translation type="unfinished">Kiša / Ledena kiša</translation>
+        </message>
+        <message>
+            <source>Heavy Precipitation</source>
+            <translation type="unfinished">
+Padavine: </translation>
+        </message>
+        <message>
             <source>Heavy Rain</source>
             <translation>Snažna kiša</translation>
         </message>
@@ -1370,12 +1384,36 @@ Slovački - Roman Moravčík</translation>
             <translation>Snažni kišni pljuskovi</translation>
         </message>
         <message>
+            <source>Heavy Rain Showers</source>
+            <translation type="unfinished">Snažni kišni pljuskovi</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet</source>
+            <translation type="unfinished">Jak sneg</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet Showers</source>
+            <translation type="unfinished">Snažni kišni pljuskovi</translation>
+        </message>
+        <message>
             <source>Heavy Snow</source>
             <translation>Jak sneg</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation>Snežna mećava / Vetar</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Showers</source>
+            <translation type="unfinished">Po koji snežni nalet</translation>
+        </message>
+        <message>
+            <source>Heavy Snowfall</source>
+            <translation type="unfinished">Jak sneg</translation>
+        </message>
+        <message>
+            <source>Heavy Thunder</source>
+            <translation type="unfinished">Grmljavina</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1420,6 +1458,11 @@ Slovački - Roman Moravčík</translation>
         <message>
             <source>Humidity:</source>
             <translation>Vlažnost:</translation>
+        </message>
+        <message>
+            <source>Ice Pellets</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1598,6 +1641,10 @@ Slovački - Roman Moravčík</translation>
             <translation>Blagi kišni pljuskovi</translation>
         </message>
         <message>
+            <source>Light Rain Showers</source>
+            <translation type="unfinished">Blagi kišni pljuskovi</translation>
+        </message>
+        <message>
             <source>Light Rain and Freezing Rain</source>
             <translation>Blaga kiša i ledena kiša</translation>
         </message>
@@ -1612,6 +1659,14 @@ Slovački - Roman Moravčík</translation>
         <message>
             <source>Light Rain with Thunder</source>
             <translation>Blaga kiša sa grmljavinom</translation>
+        </message>
+        <message>
+            <source>Light Sleet</source>
+            <translation type="unfinished">Blagi sneg</translation>
+        </message>
+        <message>
+            <source>Light Sleet Showers</source>
+            <translation type="unfinished">Blagi snežni naleti</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1638,12 +1693,25 @@ Slovački - Roman Moravčík</translation>
             <translation>Blagi snežni naleti</translation>
         </message>
         <message>
+            <source>Light Snow Showers</source>
+            <translation type="unfinished">Blagi snežni naleti</translation>
+        </message>
+        <message>
+            <source>Light Snowfall</source>
+            <translation type="unfinished">Blagi sneg</translation>
+        </message>
+        <message>
             <source>Light intensity drizzle</source>
             <translation>Rominjajuća kiša blagog intenziteta</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
             <translation>Pljusak blagog intenziteta</translation>
+        </message>
+        <message>
+            <source>Light or Moderate Precipitation</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1732,8 +1800,24 @@ Slovački - Roman Moravčík</translation>
             <translation>Izmaglica</translation>
         </message>
         <message>
+            <source>Moderate Freezing Rain</source>
+            <translation type="unfinished">Umerena kiša</translation>
+        </message>
+        <message>
             <source>Moderate Rain</source>
             <translation>Umerena kiša</translation>
+        </message>
+        <message>
+            <source>Moderate Rain Showers</source>
+            <translation type="unfinished">Umerena kiša</translation>
+        </message>
+        <message>
+            <source>Moderate Sleet</source>
+            <translation type="unfinished">Umerena kiša</translation>
+        </message>
+        <message>
+            <source>Moderate Snow Showers</source>
+            <translation type="unfinished">Prepodne Snežne mećave</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -2420,6 +2504,11 @@ Slovački - Roman Moravčík</translation>
             <translation>Ppcp:</translation>
         </message>
         <message>
+            <source>Precipitation</source>
+            <translation type="unfinished">
+Padavine: </translation>
+        </message>
+        <message>
             <source>Preference|Update</source>
             <translation>Opcija|Ažuriranje</translation>
         </message>
@@ -2932,6 +3021,11 @@ Slovački - Roman Moravčík</translation>
             <translation>Pljuskovi u okruženju</translation>
         </message>
         <message>
+            <source>Showers or Intermittent Precipitation</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Sky is Clear</source>
             <translation>Nebo je vedro</translation>
         </message>
@@ -2942,6 +3036,10 @@ Slovački - Roman Moravčík</translation>
         <message>
             <source>Sleet</source>
             <translation>Susnežica</translation>
+        </message>
+        <message>
+            <source>Sleet Showers</source>
+            <translation type="unfinished">Po koji pljusak</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -2962,6 +3060,10 @@ Slovački - Roman Moravčík</translation>
         <message>
             <source>Snow Shower / Wind</source>
             <translation>Nalet snega / Vetar</translation>
+        </message>
+        <message>
+            <source>Snow Showers</source>
+            <translation type="unfinished">Nalet snega</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -2990,6 +3092,10 @@ Slovački - Roman Moravčík</translation>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
             <translation>Iz snega u zimski miks / Vetar</translation>
+        </message>
+        <message>
+            <source>Snowfall</source>
+            <translation type="unfinished">Sneg</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3078,6 +3184,11 @@ Slovački - Roman Moravčík</translation>
         <message>
             <source>Storm</source>
             <translation>Oluja</translation>
+        </message>
+        <message>
+            <source>Strong Thundershowers</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3264,6 +3375,10 @@ kasnija verzija.</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Grmljavina u okruženju</translation>
+        </message>
+        <message>
+            <source>Thundershowers</source>
+            <translation type="unfinished">Grmljavina</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3472,6 +3587,10 @@ za korigovanje slika applet-a</translation>
         <message>
             <source>Very High</source>
             <translation>Mnogo visok</translation>
+        </message>
+        <message>
+            <source>Violent Rain Showers</source>
+            <translation type="unfinished">Blagi kišni pljuskovi</translation>
         </message>
         <message>
             <source>Visible items:</source>

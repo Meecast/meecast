@@ -1361,6 +1361,20 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Dunst</translation>
         </message>
         <message>
+            <source>Haze, Smoke or Dust</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Heavy Freezing Rain</source>
+            <translation type="unfinished">Regen / überfrierender Regen</translation>
+        </message>
+        <message>
+            <source>Heavy Precipitation</source>
+            <translation type="unfinished">
+Niederschlag:</translation>
+        </message>
+        <message>
             <source>Heavy Rain</source>
             <translation>Starkregen</translation>
         </message>
@@ -1373,12 +1387,36 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Schwere Regenschauer</translation>
         </message>
         <message>
+            <source>Heavy Rain Showers</source>
+            <translation type="unfinished">Schwere Regenschauer</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet</source>
+            <translation type="unfinished">Starker Schneefall</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet Showers</source>
+            <translation type="unfinished">Schwere Regenschauer</translation>
+        </message>
+        <message>
             <source>Heavy Snow</source>
             <translation>Starker Schneefall</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation>Starker Schneefall / Wind</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Showers</source>
+            <translation type="unfinished">Leichte Schneeschauer</translation>
+        </message>
+        <message>
+            <source>Heavy Snowfall</source>
+            <translation type="unfinished">Starker Schneefall</translation>
+        </message>
+        <message>
+            <source>Heavy Thunder</source>
+            <translation type="unfinished">Donner</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1423,6 +1461,11 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Humidity:</source>
             <translation>Luftfeuchtigkeit: </translation>
+        </message>
+        <message>
+            <source>Ice Pellets</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1601,6 +1644,10 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Leichte Regenschauer</translation>
         </message>
         <message>
+            <source>Light Rain Showers</source>
+            <translation type="unfinished">Leichte Regenschauer</translation>
+        </message>
+        <message>
             <source>Light Rain and Freezing Rain</source>
             <translation>Leichter und überfrierender Regen</translation>
         </message>
@@ -1615,6 +1662,14 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Light Rain with Thunder</source>
             <translation>Leichter Regen mit Gewitter</translation>
+        </message>
+        <message>
+            <source>Light Sleet</source>
+            <translation type="unfinished">Leichter Schneefall</translation>
+        </message>
+        <message>
+            <source>Light Sleet Showers</source>
+            <translation type="unfinished">Leichte Schneeschauer</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1641,12 +1696,25 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Leichte Schneeschauer</translation>
         </message>
         <message>
+            <source>Light Snow Showers</source>
+            <translation type="unfinished">Leichte Schneeschauer</translation>
+        </message>
+        <message>
+            <source>Light Snowfall</source>
+            <translation type="unfinished">Leichter Schneefall</translation>
+        </message>
+        <message>
             <source>Light intensity drizzle</source>
             <translation>Leichter Nieselregen</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
             <translation>Leichte Regenschauer</translation>
+        </message>
+        <message>
+            <source>Light or Moderate Precipitation</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1735,8 +1803,24 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Leichter Nebel</translation>
         </message>
         <message>
+            <source>Moderate Freezing Rain</source>
+            <translation type="unfinished">Mäßiger Regen</translation>
+        </message>
+        <message>
             <source>Moderate Rain</source>
             <translation>Mäßiger Regen</translation>
+        </message>
+        <message>
+            <source>Moderate Rain Showers</source>
+            <translation type="unfinished">Mäßiger Regen</translation>
+        </message>
+        <message>
+            <source>Moderate Sleet</source>
+            <translation type="unfinished">Mäßiger Regen</translation>
+        </message>
+        <message>
+            <source>Moderate Snow Showers</source>
+            <translation type="unfinished">Vormittags Schneeschauer</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -2423,6 +2507,11 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Niederschlagsrisiko:</translation>
         </message>
         <message>
+            <source>Precipitation</source>
+            <translation type="unfinished">
+Niederschlag:</translation>
+        </message>
+        <message>
             <source>Preference|Update</source>
             <translation>Aktualisierung</translation>
         </message>
@@ -2935,6 +3024,11 @@ Spanisch - Alejandro Lopez</translation>
             <translation>Schauer in der Nähe</translation>
         </message>
         <message>
+            <source>Showers or Intermittent Precipitation</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Sky is Clear</source>
             <translation>Klar</translation>
         </message>
@@ -2945,6 +3039,10 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Sleet</source>
             <translation>Graupel</translation>
+        </message>
+        <message>
+            <source>Sleet Showers</source>
+            <translation type="unfinished">Leichte Schauer</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -2965,6 +3063,10 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Snow Shower / Wind</source>
             <translation>Schneeschauer / Wind</translation>
+        </message>
+        <message>
+            <source>Snow Showers</source>
+            <translation type="unfinished">Schneeschauer</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -2993,6 +3095,10 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
             <translation>Schneefall bis winterlich / Wind</translation>
+        </message>
+        <message>
+            <source>Snowfall</source>
+            <translation type="unfinished">Schnee</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3081,6 +3187,11 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Storm</source>
             <translation>Sturm</translation>
+        </message>
+        <message>
+            <source>Strong Thundershowers</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3268,6 +3379,10 @@ Spanisch - Alejandro Lopez</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Donner in der Nähe</translation>
+        </message>
+        <message>
+            <source>Thundershowers</source>
+            <translation type="unfinished">Donner</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3476,6 +3591,10 @@ um die Darstellung des Applets anzupassen</translation>
         <message>
             <source>Very High</source>
             <translation>Sehr hoch</translation>
+        </message>
+        <message>
+            <source>Violent Rain Showers</source>
+            <translation type="unfinished">Leichte Regenschauer</translation>
         </message>
         <message>
             <source>Visible items:</source>

@@ -1326,6 +1326,20 @@ Slovak - Roman Moravčík</source>
             <translation>عجاج</translation>
         </message>
         <message>
+            <source>Haze, Smoke or Dust</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Heavy Freezing Rain</source>
+            <translation type="unfinished">أمطار / أمطار متجمدة</translation>
+        </message>
+        <message>
+            <source>Heavy Precipitation</source>
+            <translation type="unfinished">
+الترسيب:</translation>
+        </message>
+        <message>
             <source>Heavy Rain</source>
             <translation>أمطار كثيفه</translation>
         </message>
@@ -1338,12 +1352,36 @@ Slovak - Roman Moravčík</source>
             <translation>زخات مطر كثيفه</translation>
         </message>
         <message>
+            <source>Heavy Rain Showers</source>
+            <translation type="unfinished">زخات مطر كثيفه</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet</source>
+            <translation type="unfinished">ثلوج كثيفه</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet Showers</source>
+            <translation type="unfinished">زخات مطر كثيفه</translation>
+        </message>
+        <message>
             <source>Heavy Snow</source>
             <translation>ثلوج كثيفه</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation>ثلج كثيف/رياح</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Showers</source>
+            <translation type="unfinished">زخات ثلج قليله</translation>
+        </message>
+        <message>
+            <source>Heavy Snowfall</source>
+            <translation type="unfinished">ثلوج كثيفه</translation>
+        </message>
+        <message>
+            <source>Heavy Thunder</source>
+            <translation type="unfinished">رعد</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1388,6 +1426,11 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Humidity:</source>
             <translation>الرطوبة:</translation>
+        </message>
+        <message>
+            <source>Ice Pellets</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1567,6 +1610,10 @@ Slovak - Roman Moravčík</source>
             <translation>أمطار خفيفة متفرقة</translation>
         </message>
         <message>
+            <source>Light Rain Showers</source>
+            <translation type="unfinished">أمطار خفيفة متفرقة</translation>
+        </message>
+        <message>
             <source>Light Rain and Freezing Rain</source>
             <translation>أمطار خفيفة ومتجمدة</translation>
         </message>
@@ -1581,6 +1628,14 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Light Rain with Thunder</source>
             <translation>أمطار خفيفة مع رعود</translation>
+        </message>
+        <message>
+            <source>Light Sleet</source>
+            <translation type="unfinished">ثلوج خفيفة</translation>
+        </message>
+        <message>
+            <source>Light Sleet Showers</source>
+            <translation type="unfinished">ثلوج خفيفة متفرقة</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1607,12 +1662,25 @@ Slovak - Roman Moravčík</source>
             <translation>ثلوج خفيفة متفرقة</translation>
         </message>
         <message>
+            <source>Light Snow Showers</source>
+            <translation type="unfinished">ثلوج خفيفة متفرقة</translation>
+        </message>
+        <message>
+            <source>Light Snowfall</source>
+            <translation type="unfinished">ثلوج خفيفة</translation>
+        </message>
+        <message>
             <source>Light intensity drizzle</source>
             <translation>رذاذ ذو كثافة خفيفة</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
             <translation>أمطار ذات كثافة خفيفة</translation>
+        </message>
+        <message>
+            <source>Light or Moderate Precipitation</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1701,8 +1769,24 @@ Slovak - Roman Moravčík</source>
             <translation>سحب</translation>
         </message>
         <message>
+            <source>Moderate Freezing Rain</source>
+            <translation type="unfinished">أمطار معتدله</translation>
+        </message>
+        <message>
             <source>Moderate Rain</source>
             <translation>أمطار معتدله</translation>
+        </message>
+        <message>
+            <source>Moderate Rain Showers</source>
+            <translation type="unfinished">أمطار معتدله</translation>
+        </message>
+        <message>
+            <source>Moderate Sleet</source>
+            <translation type="unfinished">أمطار معتدله</translation>
+        </message>
+        <message>
+            <source>Moderate Snow Showers</source>
+            <translation type="unfinished">زخات ثلج صباحاً</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -2390,6 +2474,11 @@ Slovak - Roman Moravčík</source>
             <translation>Ppcp:</translation>
         </message>
         <message>
+            <source>Precipitation</source>
+            <translation type="unfinished">
+الترسيب:</translation>
+        </message>
+        <message>
             <source>Preference|Update</source>
             <translation>التفضيلات|تحديث</translation>
         </message>
@@ -2905,6 +2994,11 @@ Slovak - Roman Moravčík</source>
             <translation>زخات مطر في المنطقة المجاورة</translation>
         </message>
         <message>
+            <source>Showers or Intermittent Precipitation</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Sky is Clear</source>
             <translation>سماء صافيه</translation>
         </message>
@@ -2915,6 +3009,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Sleet</source>
             <translation>صقيع</translation>
+        </message>
+        <message>
+            <source>Sleet Showers</source>
+            <translation type="unfinished">زخات مطر قليله</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -2935,6 +3033,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Snow Shower / Wind</source>
             <translation>زخات ثلج / رياح</translation>
+        </message>
+        <message>
+            <source>Snow Showers</source>
+            <translation type="unfinished">زخات ثلج</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -2963,6 +3065,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
             <translation>ثلوج مصحوبه بمزيج شتوي / رياح</translation>
+        </message>
+        <message>
+            <source>Snowfall</source>
+            <translation type="unfinished">ثلج</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3051,6 +3157,11 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Storm</source>
             <translation>عاصفة</translation>
+        </message>
+        <message>
+            <source>Strong Thundershowers</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3236,6 +3347,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>رعود في المنطقة المجاورة</translation>
+        </message>
+        <message>
+            <source>Thundershowers</source>
+            <translation type="unfinished">رعد</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3444,6 +3559,10 @@ for tuning images of applet</source>
         <message>
             <source>Very High</source>
             <translation>مرتفع جدا</translation>
+        </message>
+        <message>
+            <source>Violent Rain Showers</source>
+            <translation type="unfinished">أمطار خفيفة متفرقة</translation>
         </message>
         <message>
             <source>Visible items:</source>

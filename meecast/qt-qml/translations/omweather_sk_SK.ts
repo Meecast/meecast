@@ -1351,6 +1351,20 @@ Slovenčina - Roman Moravčík</translation>
             <translation>Opar</translation>
         </message>
         <message>
+            <source>Haze, Smoke or Dust</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Heavy Freezing Rain</source>
+            <translation type="unfinished">Dážď / Mrznúci dážď</translation>
+        </message>
+        <message>
+            <source>Heavy Precipitation</source>
+            <translation type="unfinished">
+Zrážky: </translation>
+        </message>
+        <message>
             <source>Heavy Rain</source>
             <translation>Silný dážď</translation>
         </message>
@@ -1363,12 +1377,36 @@ Slovenčina - Roman Moravčík</translation>
             <translation>Silné dažďové prehánky</translation>
         </message>
         <message>
+            <source>Heavy Rain Showers</source>
+            <translation type="unfinished">Silné dažďové prehánky</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet</source>
+            <translation type="unfinished">Silné sneženie</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet Showers</source>
+            <translation type="unfinished">Silné dažďové prehánky</translation>
+        </message>
+        <message>
             <source>Heavy Snow</source>
             <translation>Silné sneženie</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation type="unfinished">Silný dážď / Vietor</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Showers</source>
+            <translation type="unfinished">Ojedinelé snehové prehánky</translation>
+        </message>
+        <message>
+            <source>Heavy Snowfall</source>
+            <translation type="unfinished">Silné sneženie</translation>
+        </message>
+        <message>
+            <source>Heavy Thunder</source>
+            <translation type="unfinished">Hrmenie</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1413,6 +1451,11 @@ Slovenčina - Roman Moravčík</translation>
         <message>
             <source>Humidity:</source>
             <translation>Vlhkosť:</translation>
+        </message>
+        <message>
+            <source>Ice Pellets</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1593,6 +1636,10 @@ Slovenčina - Roman Moravčík</translation>
             <translation>Slabé dažďové prehánky</translation>
         </message>
         <message>
+            <source>Light Rain Showers</source>
+            <translation type="unfinished">Slabé dažďové prehánky</translation>
+        </message>
+        <message>
             <source>Light Rain and Freezing Rain</source>
             <translation>Slabý a mrznúci dážď</translation>
         </message>
@@ -1607,6 +1654,14 @@ Slovenčina - Roman Moravčík</translation>
         <message>
             <source>Light Rain with Thunder</source>
             <translation>Slabý dážď s hrmením</translation>
+        </message>
+        <message>
+            <source>Light Sleet</source>
+            <translation type="unfinished">Slabé sneženie</translation>
+        </message>
+        <message>
+            <source>Light Sleet Showers</source>
+            <translation type="unfinished">Slabé snehové prehánky</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1633,12 +1688,25 @@ Slovenčina - Roman Moravčík</translation>
             <translation>Slabé snehové prehánky</translation>
         </message>
         <message>
+            <source>Light Snow Showers</source>
+            <translation type="unfinished">Slabé snehové prehánky</translation>
+        </message>
+        <message>
+            <source>Light Snowfall</source>
+            <translation type="unfinished">Slabé sneženie</translation>
+        </message>
+        <message>
             <source>Light intensity drizzle</source>
             <translation type="unfinished">Silný dážď</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
             <translation type="unfinished">Silný dážď</translation>
+        </message>
+        <message>
+            <source>Light or Moderate Precipitation</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1728,8 +1796,24 @@ Slovenčina - Roman Moravčík</translation>
             <translation>Opar</translation>
         </message>
         <message>
+            <source>Moderate Freezing Rain</source>
+            <translation type="unfinished">(Stredná)</translation>
+        </message>
+        <message>
             <source>Moderate Rain</source>
             <translation type="unfinished">(Stredná)</translation>
+        </message>
+        <message>
+            <source>Moderate Rain Showers</source>
+            <translation type="unfinished">(Stredná)</translation>
+        </message>
+        <message>
+            <source>Moderate Sleet</source>
+            <translation type="unfinished">(Stredná)</translation>
+        </message>
+        <message>
+            <source>Moderate Snow Showers</source>
+            <translation type="unfinished">Dopoludnia snehové prehánky</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -2416,6 +2500,11 @@ Slovenčina - Roman Moravčík</translation>
             <translation>Zrážky:</translation>
         </message>
         <message>
+            <source>Precipitation</source>
+            <translation type="unfinished">
+Zrážky: </translation>
+        </message>
+        <message>
             <source>Preference|Update</source>
             <translation>Aktualizácia</translation>
         </message>
@@ -2936,6 +3025,11 @@ Slovenčina - Roman Moravčík</translation>
             <translation>Prehánky v okolí</translation>
         </message>
         <message>
+            <source>Showers or Intermittent Precipitation</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Sky is Clear</source>
             <translation type="unfinished">Prevažne jasno</translation>
         </message>
@@ -2946,6 +3040,10 @@ Slovenčina - Roman Moravčík</translation>
         <message>
             <source>Sleet</source>
             <translation>Dážď so snehom</translation>
+        </message>
+        <message>
+            <source>Sleet Showers</source>
+            <translation type="unfinished">Ojedinelé prehánky</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -2966,6 +3064,10 @@ Slovenčina - Roman Moravčík</translation>
         <message>
             <source>Snow Shower / Wind</source>
             <translation>Snehové prehánky / Vietor</translation>
+        </message>
+        <message>
+            <source>Snow Showers</source>
+            <translation type="unfinished">Snehové prehánky</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -2994,6 +3096,10 @@ Slovenčina - Roman Moravčík</translation>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
             <translation>Chladno a sychravo so snežením / Vietor</translation>
+        </message>
+        <message>
+            <source>Snowfall</source>
+            <translation type="unfinished">Sneženie</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3082,6 +3188,11 @@ Slovenčina - Roman Moravčík</translation>
         <message>
             <source>Storm</source>
             <translation>Búrka</translation>
+        </message>
+        <message>
+            <source>Strong Thundershowers</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3273,6 +3384,10 @@ Slovenčina - Roman Moravčík</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Hrmenie v okolí</translation>
+        </message>
+        <message>
+            <source>Thundershowers</source>
+            <translation type="unfinished">Hrmenie</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3481,6 +3596,10 @@ zovanie informácií o počasí.
         <message>
             <source>Very High</source>
             <translation>Veľmi vysoké</translation>
+        </message>
+        <message>
+            <source>Violent Rain Showers</source>
+            <translation type="unfinished">Slabé dažďové prehánky</translation>
         </message>
         <message>
             <source>Visible items:</source>

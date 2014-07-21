@@ -1328,6 +1328,20 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Мараня</translation>
         </message>
         <message>
+            <source>Haze, Smoke or Dust</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Heavy Freezing Rain</source>
+            <translation type="unfinished">Дъжд/Леден дъжд</translation>
+        </message>
+        <message>
+            <source>Heavy Precipitation</source>
+            <translation type="unfinished">
+Валежи: </translation>
+        </message>
+        <message>
             <source>Heavy Rain</source>
             <translation>Порой</translation>
         </message>
@@ -1340,12 +1354,36 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Поройни Дъждове</translation>
         </message>
         <message>
+            <source>Heavy Rain Showers</source>
+            <translation type="unfinished">Поройни Дъждове</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet</source>
+            <translation type="unfinished">Силен снеговалеж</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet Showers</source>
+            <translation type="unfinished">Поройни Дъждове</translation>
+        </message>
+        <message>
             <source>Heavy Snow</source>
             <translation>Силен снеговалеж</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation type="unfinished">Порой/Вятър</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Showers</source>
+            <translation type="unfinished">Леки Превалявания от Сняг</translation>
+        </message>
+        <message>
+            <source>Heavy Snowfall</source>
+            <translation type="unfinished">Силен снеговалеж</translation>
+        </message>
+        <message>
+            <source>Heavy Thunder</source>
+            <translation type="unfinished">Гръмотевица</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1390,6 +1428,11 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>Humidity:</source>
             <translation>Влажност:</translation>
+        </message>
+        <message>
+            <source>Ice Pellets</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1570,6 +1613,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Слаби Превалявания</translation>
         </message>
         <message>
+            <source>Light Rain Showers</source>
+            <translation type="unfinished">Слаби Превалявания</translation>
+        </message>
+        <message>
             <source>Light Rain and Freezing Rain</source>
             <translation>Слаб Дъжд и Леден Дъжд</translation>
         </message>
@@ -1584,6 +1631,14 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>Light Rain with Thunder</source>
             <translation>Слаб Дъжд и Гръмотевици</translation>
+        </message>
+        <message>
+            <source>Light Sleet</source>
+            <translation type="unfinished">Слаб Сняг</translation>
+        </message>
+        <message>
+            <source>Light Sleet Showers</source>
+            <translation type="unfinished">Слаби Снежни Превалявания</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1610,12 +1665,25 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Слаби Снежни Превалявания</translation>
         </message>
         <message>
+            <source>Light Snow Showers</source>
+            <translation type="unfinished">Слаби Снежни Превалявания</translation>
+        </message>
+        <message>
+            <source>Light Snowfall</source>
+            <translation type="unfinished">Слаб Сняг</translation>
+        </message>
+        <message>
             <source>Light intensity drizzle</source>
             <translation type="unfinished">Порой</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
             <translation type="unfinished">Порой</translation>
+        </message>
+        <message>
+            <source>Light or Moderate Precipitation</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1705,8 +1773,24 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Мъгла</translation>
         </message>
         <message>
+            <source>Moderate Freezing Rain</source>
+            <translation type="unfinished">(Умерено)</translation>
+        </message>
+        <message>
             <source>Moderate Rain</source>
             <translation type="unfinished">(Умерено)</translation>
+        </message>
+        <message>
+            <source>Moderate Rain Showers</source>
+            <translation type="unfinished">(Умерено)</translation>
+        </message>
+        <message>
+            <source>Moderate Sleet</source>
+            <translation type="unfinished">(Умерено)</translation>
+        </message>
+        <message>
+            <source>Moderate Snow Showers</source>
+            <translation type="unfinished">АМ Превалявания от Сняг</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -2393,6 +2477,11 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Ppcp:</translation>
         </message>
         <message>
+            <source>Precipitation</source>
+            <translation type="unfinished">
+Валежи: </translation>
+        </message>
+        <message>
             <source>Preference|Update</source>
             <translation>Предпочитания|Опресни</translation>
         </message>
@@ -2907,6 +2996,11 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
             <translation>Валежи в близост</translation>
         </message>
         <message>
+            <source>Showers or Intermittent Precipitation</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Sky is Clear</source>
             <translation type="unfinished">Предимно ясно</translation>
         </message>
@@ -2917,6 +3011,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>Sleet</source>
             <translation>Суграшица</translation>
+        </message>
+        <message>
+            <source>Sleet Showers</source>
+            <translation type="unfinished">Превалявания</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -2937,6 +3035,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>Snow Shower / Wind</source>
             <translation>Снеговалеж/Вятър</translation>
+        </message>
+        <message>
+            <source>Snow Showers</source>
+            <translation type="unfinished">Снеговалеж</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -2965,6 +3067,10 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
             <translation>Сняг към Лапавица/Вятър</translation>
+        </message>
+        <message>
+            <source>Snowfall</source>
+            <translation type="unfinished">Сняг</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3053,6 +3159,11 @@ Polish - Tomasz Dominikowski⏎ Slovak - Roman Moravčík</translation>
         <message>
             <source>Storm</source>
             <translation>Буря</translation>
+        </message>
+        <message>
+            <source>Strong Thundershowers</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3244,6 +3355,10 @@ later version.</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Гръмотевици наблизо</translation>
+        </message>
+        <message>
+            <source>Thundershowers</source>
+            <translation type="unfinished">Гръмотевица</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3451,6 +3566,10 @@ for tuning images of applet</source>
         <message>
             <source>Very High</source>
             <translation>Много Високо</translation>
+        </message>
+        <message>
+            <source>Violent Rain Showers</source>
+            <translation type="unfinished">Слаби Превалявания</translation>
         </message>
         <message>
             <source>Visible items:</source>

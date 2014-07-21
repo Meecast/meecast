@@ -1360,6 +1360,20 @@ Slovakia - Roman Moravčík</translation>
             <translation>Utua</translation>
         </message>
         <message>
+            <source>Haze, Smoke or Dust</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Heavy Freezing Rain</source>
+            <translation type="unfinished">Vesisadetta / Jäätävää sadetta</translation>
+        </message>
+        <message>
+            <source>Heavy Precipitation</source>
+            <translation type="unfinished">
+Sade: </translation>
+        </message>
+        <message>
             <source>Heavy Rain</source>
             <translation>Rankkasadetta</translation>
         </message>
@@ -1372,12 +1386,36 @@ Slovakia - Roman Moravčík</translation>
             <translation>Rankkoja sadekuuroja</translation>
         </message>
         <message>
+            <source>Heavy Rain Showers</source>
+            <translation type="unfinished">Rankkoja sadekuuroja</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet</source>
+            <translation type="unfinished">Rankkaa lumisadetta</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet Showers</source>
+            <translation type="unfinished">Rankkoja sadekuuroja</translation>
+        </message>
+        <message>
             <source>Heavy Snow</source>
             <translation>Rankkaa lumisadetta</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation>Rankkaa lumisadetta / Tuulista</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Showers</source>
+            <translation type="unfinished">Ajoittain lumikuuroja</translation>
+        </message>
+        <message>
+            <source>Heavy Snowfall</source>
+            <translation type="unfinished">Rankkaa lumisadetta</translation>
+        </message>
+        <message>
+            <source>Heavy Thunder</source>
+            <translation type="unfinished">Ukkosta</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1422,6 +1460,11 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Humidity:</source>
             <translation>Ilmankosteus: </translation>
+        </message>
+        <message>
+            <source>Ice Pellets</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1600,6 +1643,10 @@ Slovakia - Roman Moravčík</translation>
             <translation>Kevyitä sadekuuroja</translation>
         </message>
         <message>
+            <source>Light Rain Showers</source>
+            <translation type="unfinished">Kevyitä sadekuuroja</translation>
+        </message>
+        <message>
             <source>Light Rain and Freezing Rain</source>
             <translation>Kevyttä vesisadetta ja jäätävää sadetta</translation>
         </message>
@@ -1614,6 +1661,14 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Light Rain with Thunder</source>
             <translation>Kevyttä vesisadetta ja ukkosta</translation>
+        </message>
+        <message>
+            <source>Light Sleet</source>
+            <translation type="unfinished">Kevyttä lumisadetta</translation>
+        </message>
+        <message>
+            <source>Light Sleet Showers</source>
+            <translation type="unfinished">Kevyitä lumikuuroja</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1640,12 +1695,25 @@ Slovakia - Roman Moravčík</translation>
             <translation>Kevyitä lumikuuroja</translation>
         </message>
         <message>
+            <source>Light Snow Showers</source>
+            <translation type="unfinished">Kevyitä lumikuuroja</translation>
+        </message>
+        <message>
+            <source>Light Snowfall</source>
+            <translation type="unfinished">Kevyttä lumisadetta</translation>
+        </message>
+        <message>
             <source>Light intensity drizzle</source>
             <translation>Kevyttä tihkusadetta</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
             <translation>Kevyitä sadekuuroja</translation>
+        </message>
+        <message>
+            <source>Light or Moderate Precipitation</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1734,8 +1802,24 @@ Slovakia - Roman Moravčík</translation>
             <translation>Utua</translation>
         </message>
         <message>
+            <source>Moderate Freezing Rain</source>
+            <translation type="unfinished">Kohtalaista vesisadetta</translation>
+        </message>
+        <message>
             <source>Moderate Rain</source>
             <translation>Kohtalaista vesisadetta</translation>
+        </message>
+        <message>
+            <source>Moderate Rain Showers</source>
+            <translation type="unfinished">Kohtalaista vesisadetta</translation>
+        </message>
+        <message>
+            <source>Moderate Sleet</source>
+            <translation type="unfinished">Kohtalaista vesisadetta</translation>
+        </message>
+        <message>
+            <source>Moderate Snow Showers</source>
+            <translation type="unfinished">ap: Lumikuuroja</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -2422,6 +2506,11 @@ Slovakia - Roman Moravčík</translation>
             <translation>Sateen todennäköisyys:</translation>
         </message>
         <message>
+            <source>Precipitation</source>
+            <translation type="unfinished">
+Sade: </translation>
+        </message>
+        <message>
             <source>Preference|Update</source>
             <translation>Päivitys</translation>
         </message>
@@ -2934,6 +3023,11 @@ Slovakia - Roman Moravčík</translation>
             <translation>Sadekuuroja lähistöllä</translation>
         </message>
         <message>
+            <source>Showers or Intermittent Precipitation</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Sky is Clear</source>
             <translation>Selkeää</translation>
         </message>
@@ -2944,6 +3038,10 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Sleet</source>
             <translation>Räntäsade</translation>
+        </message>
+        <message>
+            <source>Sleet Showers</source>
+            <translation type="unfinished">Ajoittain sadekuuroja</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -2964,6 +3062,10 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Snow Shower / Wind</source>
             <translation>Lumikuuroja / Tuulista</translation>
+        </message>
+        <message>
+            <source>Snow Showers</source>
+            <translation type="unfinished">Lumikuuroja</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -2992,6 +3094,10 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
             <translation>Lumi- ja räntäsadetta / Tuulista</translation>
+        </message>
+        <message>
+            <source>Snowfall</source>
+            <translation type="unfinished">Lumisadetta</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3080,6 +3186,11 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Storm</source>
             <translation>Myrsky</translation>
+        </message>
+        <message>
+            <source>Strong Thundershowers</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3267,6 +3378,10 @@ Slovakia - Roman Moravčík</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Ukkosta lähistöllä</translation>
+        </message>
+        <message>
+            <source>Thundershowers</source>
+            <translation type="unfinished">Ukkosta</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3476,6 +3591,10 @@ ajoitettuun päivitykseen.
         <message>
             <source>Very High</source>
             <translation>Erittäin korkea</translation>
+        </message>
+        <message>
+            <source>Violent Rain Showers</source>
+            <translation type="unfinished">Kevyitä sadekuuroja</translation>
         </message>
         <message>
             <source>Visible items:</source>

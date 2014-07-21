@@ -1343,6 +1343,20 @@ słowacki - Roman Moravčík</translation>
             <translation>Lekka mgła</translation>
         </message>
         <message>
+            <source>Haze, Smoke or Dust</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Heavy Freezing Rain</source>
+            <translation type="unfinished">Deszcz / marznący deszcz</translation>
+        </message>
+        <message>
+            <source>Heavy Precipitation</source>
+            <translation type="unfinished">
+Opady: </translation>
+        </message>
+        <message>
             <source>Heavy Rain</source>
             <translation>Silny deszcz</translation>
         </message>
@@ -1355,12 +1369,36 @@ słowacki - Roman Moravčík</translation>
             <translation>Obfite opady deszcu</translation>
         </message>
         <message>
+            <source>Heavy Rain Showers</source>
+            <translation type="unfinished">Obfite opady deszcu</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet</source>
+            <translation type="unfinished">Silny śnieg</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet Showers</source>
+            <translation type="unfinished">Obfite opady deszcu</translation>
+        </message>
+        <message>
             <source>Heavy Snow</source>
             <translation>Silny śnieg</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation type="unfinished">Silny deszcz / wiatr</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Showers</source>
+            <translation type="unfinished">Lekki przelotny śnieg</translation>
+        </message>
+        <message>
+            <source>Heavy Snowfall</source>
+            <translation type="unfinished">Silny śnieg</translation>
+        </message>
+        <message>
+            <source>Heavy Thunder</source>
+            <translation type="unfinished">Burza</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1405,6 +1443,11 @@ słowacki - Roman Moravčík</translation>
         <message>
             <source>Humidity:</source>
             <translation>Wilgotność:</translation>
+        </message>
+        <message>
+            <source>Ice Pellets</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1585,6 +1628,10 @@ słowacki - Roman Moravčík</translation>
             <translation>Lekki przelotny deszcz</translation>
         </message>
         <message>
+            <source>Light Rain Showers</source>
+            <translation type="unfinished">Lekki przelotny deszcz</translation>
+        </message>
+        <message>
             <source>Light Rain and Freezing Rain</source>
             <translation>Lekki deszcz i zamarzający deszcz</translation>
         </message>
@@ -1599,6 +1646,14 @@ słowacki - Roman Moravčík</translation>
         <message>
             <source>Light Rain with Thunder</source>
             <translation>Lekki deszcz z burzą</translation>
+        </message>
+        <message>
+            <source>Light Sleet</source>
+            <translation type="unfinished">Lekki śnieg</translation>
+        </message>
+        <message>
+            <source>Light Sleet Showers</source>
+            <translation type="unfinished">Lekki przelotny śnieg</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1625,12 +1680,25 @@ słowacki - Roman Moravčík</translation>
             <translation>Lekki przelotny śnieg</translation>
         </message>
         <message>
+            <source>Light Snow Showers</source>
+            <translation type="unfinished">Lekki przelotny śnieg</translation>
+        </message>
+        <message>
+            <source>Light Snowfall</source>
+            <translation type="unfinished">Lekki śnieg</translation>
+        </message>
+        <message>
             <source>Light intensity drizzle</source>
             <translation type="unfinished">Silny deszcz</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
             <translation type="unfinished">Silny deszcz</translation>
+        </message>
+        <message>
+            <source>Light or Moderate Precipitation</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1720,8 +1788,24 @@ słowacki - Roman Moravčík</translation>
             <translation>Mgiełka</translation>
         </message>
         <message>
+            <source>Moderate Freezing Rain</source>
+            <translation type="unfinished">Zachmurzenie, deszcz</translation>
+        </message>
+        <message>
             <source>Moderate Rain</source>
             <translation type="unfinished">Zachmurzenie, deszcz</translation>
+        </message>
+        <message>
+            <source>Moderate Rain Showers</source>
+            <translation type="unfinished">Zachmurzenie, deszcz</translation>
+        </message>
+        <message>
+            <source>Moderate Sleet</source>
+            <translation type="unfinished">Zachmurzenie, deszcz</translation>
+        </message>
+        <message>
+            <source>Moderate Snow Showers</source>
+            <translation type="unfinished">Rano przelotny śnieg</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -2419,6 +2503,11 @@ słowacki - Roman Moravčík</translation>
             </translation>
         </message>
         <message>
+            <source>Precipitation</source>
+            <translation type="unfinished">
+Opady: </translation>
+        </message>
+        <message>
             <source>Preference|Update</source>
             <translation>Aktualizowanie</translation>
         </message>
@@ -2946,6 +3035,11 @@ słowacki - Roman Moravčík</translation>
             <translation>Przelotny deszcz w pobliżu</translation>
         </message>
         <message>
+            <source>Showers or Intermittent Precipitation</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Sky is Clear</source>
             <translation type="unfinished">Przeważnie bezchmurnie</translation>
         </message>
@@ -2956,6 +3050,10 @@ słowacki - Roman Moravčík</translation>
         <message>
             <source>Sleet</source>
             <translation>Deszcz ze śniegiem</translation>
+        </message>
+        <message>
+            <source>Sleet Showers</source>
+            <translation type="unfinished">Lekki przelotny deszcz</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -2976,6 +3074,10 @@ słowacki - Roman Moravčík</translation>
         <message>
             <source>Snow Shower / Wind</source>
             <translation>Przelotny śnieg / wiatr</translation>
+        </message>
+        <message>
+            <source>Snow Showers</source>
+            <translation type="unfinished">Przelotny snieg</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -3004,6 +3106,10 @@ słowacki - Roman Moravčík</translation>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
             <translation>Śnieg do deszczu ze śniegiem / wiatr</translation>
+        </message>
+        <message>
+            <source>Snowfall</source>
+            <translation type="unfinished">Śnieg</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3093,6 +3199,11 @@ słowacki - Roman Moravčík</translation>
         <message>
             <source>Storm</source>
             <translation>Burza</translation>
+        </message>
+        <message>
+            <source>Strong Thundershowers</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3285,6 +3396,10 @@ Fundację wolnego oprogramowania.</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Pioruny w pobliżu</translation>
+        </message>
+        <message>
+            <source>Thundershowers</source>
+            <translation type="unfinished">Burza</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3495,6 +3610,10 @@ aktualizowania prognoz.
         <message>
             <source>Very High</source>
             <translation>Bardzo wysokie</translation>
+        </message>
+        <message>
+            <source>Violent Rain Showers</source>
+            <translation type="unfinished">Lekki przelotny deszcz</translation>
         </message>
         <message>
             <source>Visible items:</source>

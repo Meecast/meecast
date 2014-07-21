@@ -1326,6 +1326,20 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Nevel</translation>
         </message>
         <message>
+            <source>Haze, Smoke or Dust</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Heavy Freezing Rain</source>
+            <translation type="unfinished">Regen / IJzel</translation>
+        </message>
+        <message>
+            <source>Heavy Precipitation</source>
+            <translation type="unfinished">
+Neerslag: </translation>
+        </message>
+        <message>
             <source>Heavy Rain</source>
             <translation>Zware Regen</translation>
         </message>
@@ -1338,12 +1352,36 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Zware Regenbui</translation>
         </message>
         <message>
+            <source>Heavy Rain Showers</source>
+            <translation type="unfinished">Zware Regenbui</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet</source>
+            <translation type="unfinished">Zware Sneeuwval</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet Showers</source>
+            <translation type="unfinished">Zware Regenbui</translation>
+        </message>
+        <message>
             <source>Heavy Snow</source>
             <translation>Zware Sneeuwval</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation>Hevige Sneeuwval / Wind</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Showers</source>
+            <translation type="unfinished">Enkele Sneeuwbuien</translation>
+        </message>
+        <message>
+            <source>Heavy Snowfall</source>
+            <translation type="unfinished">Zware Sneeuwval</translation>
+        </message>
+        <message>
+            <source>Heavy Thunder</source>
+            <translation type="unfinished">Onweer</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1388,6 +1426,11 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Humidity:</source>
             <translation>Luchtvochtigheid:</translation>
+        </message>
+        <message>
+            <source>Ice Pellets</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1566,6 +1609,10 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Lichte Regenbui</translation>
         </message>
         <message>
+            <source>Light Rain Showers</source>
+            <translation type="unfinished">Lichte Regenbui</translation>
+        </message>
+        <message>
             <source>Light Rain and Freezing Rain</source>
             <translation>Lichte Regen en IJzel</translation>
         </message>
@@ -1580,6 +1627,14 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Light Rain with Thunder</source>
             <translation>Lichte Regen en Onweer</translation>
+        </message>
+        <message>
+            <source>Light Sleet</source>
+            <translation type="unfinished">Lichte Sneeuw</translation>
+        </message>
+        <message>
+            <source>Light Sleet Showers</source>
+            <translation type="unfinished">Lichte Sneeuwbui</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1606,12 +1661,25 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Lichte Sneeuwbui</translation>
         </message>
         <message>
+            <source>Light Snow Showers</source>
+            <translation type="unfinished">Lichte Sneeuwbui</translation>
+        </message>
+        <message>
+            <source>Light Snowfall</source>
+            <translation type="unfinished">Lichte Sneeuw</translation>
+        </message>
+        <message>
             <source>Light intensity drizzle</source>
             <translation>Lichte motregen</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
             <translation>Korte hevige regenbui</translation>
+        </message>
+        <message>
+            <source>Light or Moderate Precipitation</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1700,8 +1768,24 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Mist</translation>
         </message>
         <message>
+            <source>Moderate Freezing Rain</source>
+            <translation type="unfinished">Matige Regen</translation>
+        </message>
+        <message>
             <source>Moderate Rain</source>
             <translation>Matige Regen</translation>
+        </message>
+        <message>
+            <source>Moderate Rain Showers</source>
+            <translation type="unfinished">Matige Regen</translation>
+        </message>
+        <message>
+            <source>Moderate Sleet</source>
+            <translation type="unfinished">Matige Regen</translation>
+        </message>
+        <message>
+            <source>Moderate Snow Showers</source>
+            <translation type="unfinished">AM Sneeuwbuien</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -2388,6 +2472,11 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Neerslag:</translation>
         </message>
         <message>
+            <source>Precipitation</source>
+            <translation type="unfinished">
+Neerslag: </translation>
+        </message>
+        <message>
             <source>Preference|Update</source>
             <translation>Voorkeur | Update</translation>
         </message>
@@ -2902,6 +2991,11 @@ Slowaaks - Roman Moravčík</translation>
             <translation>Buien in de Omgeving</translation>
         </message>
         <message>
+            <source>Showers or Intermittent Precipitation</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Sky is Clear</source>
             <translation>Heldere lucht</translation>
         </message>
@@ -2912,6 +3006,10 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Sleet</source>
             <translation>Natte Sneeuw</translation>
+        </message>
+        <message>
+            <source>Sleet Showers</source>
+            <translation type="unfinished">Enkele Buien</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -2932,6 +3030,10 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Snow Shower / Wind</source>
             <translation>Sneeuwbui / Wind</translation>
+        </message>
+        <message>
+            <source>Snow Showers</source>
+            <translation type="unfinished">Sneeuwbui</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -2960,6 +3062,10 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
             <translation>Winterse Buien / Wind</translation>
+        </message>
+        <message>
+            <source>Snowfall</source>
+            <translation type="unfinished">Sneeuw</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3048,6 +3154,11 @@ Slowaaks - Roman Moravčík</translation>
         <message>
             <source>Storm</source>
             <translation>Storm</translation>
+        </message>
+        <message>
+            <source>Strong Thundershowers</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3233,6 +3344,10 @@ Foundation; versie 2.1 of latere versies.</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Onweer in de buurt</translation>
+        </message>
+        <message>
+            <source>Thundershowers</source>
+            <translation type="unfinished">Onweer</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3441,6 +3556,10 @@ van weerinformatie.
         <message>
             <source>Very High</source>
             <translation>Erg Hoog</translation>
+        </message>
+        <message>
+            <source>Violent Rain Showers</source>
+            <translation type="unfinished">Lichte Regenbui</translation>
         </message>
         <message>
             <source>Visible items:</source>

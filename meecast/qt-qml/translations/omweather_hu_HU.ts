@@ -1324,6 +1324,20 @@ Slovak - Roman Moravčík</source>
             <translation>Pára</translation>
         </message>
         <message>
+            <source>Haze, Smoke or Dust</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Heavy Freezing Rain</source>
+            <translation type="unfinished">Eső / jégeső</translation>
+        </message>
+        <message>
+            <source>Heavy Precipitation</source>
+            <translation type="unfinished">
+Előrejelzés:</translation>
+        </message>
+        <message>
             <source>Heavy Rain</source>
             <translation>Kiadós eső</translation>
         </message>
@@ -1336,12 +1350,36 @@ Slovak - Roman Moravčík</source>
             <translation>Felhőszakadás</translation>
         </message>
         <message>
+            <source>Heavy Rain Showers</source>
+            <translation type="unfinished">Felhőszakadás</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet</source>
+            <translation type="unfinished">Kiadós havazás</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet Showers</source>
+            <translation type="unfinished">Felhőszakadás</translation>
+        </message>
+        <message>
             <source>Heavy Snow</source>
             <translation>Kiadós havazás</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation>Kiadós havazás / szél</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Showers</source>
+            <translation type="unfinished">Elszórtan hózáporok</translation>
+        </message>
+        <message>
+            <source>Heavy Snowfall</source>
+            <translation type="unfinished">Kiadós havazás</translation>
+        </message>
+        <message>
+            <source>Heavy Thunder</source>
+            <translation type="unfinished">Mennydörgés</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1386,6 +1424,11 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Humidity:</source>
             <translation>Páratartalom:</translation>
+        </message>
+        <message>
+            <source>Ice Pellets</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1564,6 +1607,10 @@ Slovak - Roman Moravčík</source>
             <translation>Könnyű zápor</translation>
         </message>
         <message>
+            <source>Light Rain Showers</source>
+            <translation type="unfinished">Könnyű zápor</translation>
+        </message>
+        <message>
             <source>Light Rain and Freezing Rain</source>
             <translation>Könnyű eső és jégeső</translation>
         </message>
@@ -1578,6 +1625,14 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Light Rain with Thunder</source>
             <translation>Kisebb zivatarok</translation>
+        </message>
+        <message>
+            <source>Light Sleet</source>
+            <translation type="unfinished">Hószállingózás</translation>
+        </message>
+        <message>
+            <source>Light Sleet Showers</source>
+            <translation type="unfinished">Könnyű hózápor</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1604,12 +1659,25 @@ Slovak - Roman Moravčík</source>
             <translation>Könnyű hózápor</translation>
         </message>
         <message>
+            <source>Light Snow Showers</source>
+            <translation type="unfinished">Könnyű hózápor</translation>
+        </message>
+        <message>
+            <source>Light Snowfall</source>
+            <translation type="unfinished">Hószállingózás</translation>
+        </message>
+        <message>
             <source>Light intensity drizzle</source>
             <translation>Enyhe szitálás</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
             <translation>Enyhe zápor</translation>
+        </message>
+        <message>
+            <source>Light or Moderate Precipitation</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1698,8 +1766,24 @@ Slovak - Roman Moravčík</source>
             <translation>Köd</translation>
         </message>
         <message>
+            <source>Moderate Freezing Rain</source>
+            <translation type="unfinished">Közepesen erős esőzés</translation>
+        </message>
+        <message>
             <source>Moderate Rain</source>
             <translation>Közepesen erős esőzés</translation>
+        </message>
+        <message>
+            <source>Moderate Rain Showers</source>
+            <translation type="unfinished">Közepesen erős esőzés</translation>
+        </message>
+        <message>
+            <source>Moderate Sleet</source>
+            <translation type="unfinished">Közepesen erős esőzés</translation>
+        </message>
+        <message>
+            <source>Moderate Snow Showers</source>
+            <translation type="unfinished">de. hózáporok</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -2386,6 +2470,11 @@ Slovak - Roman Moravčík</source>
             <translation>Csapadék esélye:</translation>
         </message>
         <message>
+            <source>Precipitation</source>
+            <translation type="unfinished">
+Előrejelzés:</translation>
+        </message>
+        <message>
             <source>Preference|Update</source>
             <translation>Beállítások|Frissítés</translation>
         </message>
@@ -2898,6 +2987,11 @@ Slovak - Roman Moravčík</source>
             <translation>Záporok a környéken</translation>
         </message>
         <message>
+            <source>Showers or Intermittent Precipitation</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Sky is Clear</source>
             <translation>Az ég tisza</translation>
         </message>
@@ -2908,6 +3002,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Sleet</source>
             <translation>Ólmos eső, dara</translation>
+        </message>
+        <message>
+            <source>Sleet Showers</source>
+            <translation type="unfinished">Szorványos záporok</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -2928,6 +3026,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Snow Shower / Wind</source>
             <translation>Tartós havazás / szél</translation>
+        </message>
+        <message>
+            <source>Snow Showers</source>
+            <translation type="unfinished">Tartós havazás</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -2956,6 +3058,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
             <translation>Hó és havas eső / szél</translation>
+        </message>
+        <message>
+            <source>Snowfall</source>
+            <translation type="unfinished">Hó</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3044,6 +3150,11 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Storm</source>
             <translation>Vihar</translation>
+        </message>
+        <message>
+            <source>Strong Thundershowers</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3225,6 +3336,10 @@ Slovak - Roman Moravčík</source>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Zivatar a közelven</translation>
+        </message>
+        <message>
+            <source>Thundershowers</source>
+            <translation type="unfinished">Mennydörgés</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3434,6 +3549,10 @@ adatok rendszeres frissítéséhet.
         <message>
             <source>Very High</source>
             <translation>Nagyon magas</translation>
+        </message>
+        <message>
+            <source>Violent Rain Showers</source>
+            <translation type="unfinished">Könnyű zápor</translation>
         </message>
         <message>
             <source>Visible items:</source>

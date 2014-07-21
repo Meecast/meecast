@@ -1361,6 +1361,20 @@ Català - Agustí Clara</translation>
             <translation>Calitja</translation>
         </message>
         <message>
+            <source>Haze, Smoke or Dust</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Heavy Freezing Rain</source>
+            <translation type="unfinished">Pluja / Pluja gebradora</translation>
+        </message>
+        <message>
+            <source>Heavy Precipitation</source>
+            <translation type="unfinished">
+Precipitació: </translation>
+        </message>
+        <message>
             <source>Heavy Rain</source>
             <translation>Pluja intensa</translation>
         </message>
@@ -1373,12 +1387,36 @@ Català - Agustí Clara</translation>
             <translation>Ruixats intensos</translation>
         </message>
         <message>
+            <source>Heavy Rain Showers</source>
+            <translation type="unfinished">Ruixats intensos</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet</source>
+            <translation type="unfinished">Neu intensa</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet Showers</source>
+            <translation type="unfinished">Ruixats intensos</translation>
+        </message>
+        <message>
             <source>Heavy Snow</source>
             <translation>Neu intensa</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation>Neu intensa / Vent</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Showers</source>
+            <translation type="unfinished">Alguns ruixats de neu</translation>
+        </message>
+        <message>
+            <source>Heavy Snowfall</source>
+            <translation type="unfinished">Neu intensa</translation>
+        </message>
+        <message>
+            <source>Heavy Thunder</source>
+            <translation type="unfinished">Tempestes</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1423,6 +1461,11 @@ Català - Agustí Clara</translation>
         <message>
             <source>Humidity:</source>
             <translation>Humitat:</translation>
+        </message>
+        <message>
+            <source>Ice Pellets</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1601,6 +1644,10 @@ Català - Agustí Clara</translation>
             <translation>Ruixat de pluja suau</translation>
         </message>
         <message>
+            <source>Light Rain Showers</source>
+            <translation type="unfinished">Ruixat de pluja suau</translation>
+        </message>
+        <message>
             <source>Light Rain and Freezing Rain</source>
             <translation>Pluja suau i Pluja gebradora</translation>
         </message>
@@ -1615,6 +1662,14 @@ Català - Agustí Clara</translation>
         <message>
             <source>Light Rain with Thunder</source>
             <translation>Pluja suau amb Tempesta</translation>
+        </message>
+        <message>
+            <source>Light Sleet</source>
+            <translation type="unfinished">Neu poc intensa</translation>
+        </message>
+        <message>
+            <source>Light Sleet Showers</source>
+            <translation type="unfinished">Ruixats poc intensos de neu</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1641,12 +1696,25 @@ Català - Agustí Clara</translation>
             <translation>Ruixats poc intensos de neu</translation>
         </message>
         <message>
+            <source>Light Snow Showers</source>
+            <translation type="unfinished">Ruixats poc intensos de neu</translation>
+        </message>
+        <message>
+            <source>Light Snowfall</source>
+            <translation type="unfinished">Neu poc intensa</translation>
+        </message>
+        <message>
             <source>Light intensity drizzle</source>
             <translation>Plugims poc intensos</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
             <translation>Ruixats de poca intensitat</translation>
+        </message>
+        <message>
+            <source>Light or Moderate Precipitation</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1735,8 +1803,24 @@ Català - Agustí Clara</translation>
             <translation>Boirina</translation>
         </message>
         <message>
+            <source>Moderate Freezing Rain</source>
+            <translation type="unfinished">Pluja moderada</translation>
+        </message>
+        <message>
             <source>Moderate Rain</source>
             <translation>Pluja moderada</translation>
+        </message>
+        <message>
+            <source>Moderate Rain Showers</source>
+            <translation type="unfinished">Pluja moderada</translation>
+        </message>
+        <message>
+            <source>Moderate Sleet</source>
+            <translation type="unfinished">Pluja moderada</translation>
+        </message>
+        <message>
+            <source>Moderate Snow Showers</source>
+            <translation type="unfinished">a.m.: Ruixats de neu</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -2423,6 +2507,11 @@ Català - Agustí Clara</translation>
             <translation>Ppcp:</translation>
         </message>
         <message>
+            <source>Precipitation</source>
+            <translation type="unfinished">
+Precipitació: </translation>
+        </message>
+        <message>
             <source>Preference|Update</source>
             <translation>Actualització</translation>
         </message>
@@ -2935,6 +3024,11 @@ Català - Agustí Clara</translation>
             <translation>Ruixats localitzats</translation>
         </message>
         <message>
+            <source>Showers or Intermittent Precipitation</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Sky is Clear</source>
             <translation>Cel clar</translation>
         </message>
@@ -2945,6 +3039,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>Sleet</source>
             <translation>Aiguaneu</translation>
+        </message>
+        <message>
+            <source>Sleet Showers</source>
+            <translation type="unfinished">Alguns ruixats</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -2965,6 +3063,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>Snow Shower / Wind</source>
             <translation>Ruixats de neu / Vent</translation>
+        </message>
+        <message>
+            <source>Snow Showers</source>
+            <translation type="unfinished">Ruixats de neu</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -2993,6 +3095,10 @@ Català - Agustí Clara</translation>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
             <translation>De neu a aiguaneu / Vent</translation>
+        </message>
+        <message>
+            <source>Snowfall</source>
+            <translation type="unfinished">Neu</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3081,6 +3187,11 @@ Català - Agustí Clara</translation>
         <message>
             <source>Storm</source>
             <translation>Tempesta</translation>
+        </message>
+        <message>
+            <source>Strong Thundershowers</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3266,6 +3377,10 @@ qualsevol versió posterior.</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Tempestes localitzades</translation>
+        </message>
+        <message>
+            <source>Thundershowers</source>
+            <translation type="unfinished">Tempestes</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3474,6 +3589,10 @@ de la informació del temps.
         <message>
             <source>Very High</source>
             <translation>Molt alta</translation>
+        </message>
+        <message>
+            <source>Violent Rain Showers</source>
+            <translation type="unfinished">Ruixat de pluja suau</translation>
         </message>
         <message>
             <source>Visible items:</source>

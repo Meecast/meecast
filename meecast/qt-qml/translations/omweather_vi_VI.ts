@@ -1329,6 +1329,20 @@ Việt Nam- Quý Trọng</translation>
             <translation>Có sương mù</translation>
         </message>
         <message>
+            <source>Haze, Smoke or Dust</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
+            <source>Heavy Freezing Rain</source>
+            <translation type="unfinished">Có mưa kèm băng giá</translation>
+        </message>
+        <message>
+            <source>Heavy Precipitation</source>
+            <translation type="unfinished">
+Mưa:</translation>
+        </message>
+        <message>
             <source>Heavy Rain</source>
             <translation>Mưa to</translation>
         </message>
@@ -1341,12 +1355,36 @@ Việt Nam- Quý Trọng</translation>
             <translation>Mưa rào lớn</translation>
         </message>
         <message>
+            <source>Heavy Rain Showers</source>
+            <translation type="unfinished">Mưa rào lớn</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet</source>
+            <translation type="unfinished">Tuyết dày</translation>
+        </message>
+        <message>
+            <source>Heavy Sleet Showers</source>
+            <translation type="unfinished">Mưa rào lớn</translation>
+        </message>
+        <message>
             <source>Heavy Snow</source>
             <translation>Tuyết dày</translation>
         </message>
         <message>
             <source>Heavy Snow / Wind</source>
             <translation type="unfinished">Mưa lớn / Gió</translation>
+        </message>
+        <message>
+            <source>Heavy Snow Showers</source>
+            <translation type="unfinished">Có tuyết và mưa rào rải rác</translation>
+        </message>
+        <message>
+            <source>Heavy Snowfall</source>
+            <translation type="unfinished">Tuyết dày</translation>
+        </message>
+        <message>
+            <source>Heavy Thunder</source>
+            <translation type="unfinished">Sấm</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1391,6 +1429,11 @@ Việt Nam- Quý Trọng</translation>
         <message>
             <source>Humidity:</source>
             <translation>Độ ẩm:</translation>
+        </message>
+        <message>
+            <source>Ice Pellets</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1571,6 +1614,10 @@ Việt Nam- Quý Trọng</translation>
             <translation>Mưa rào nhẹ</translation>
         </message>
         <message>
+            <source>Light Rain Showers</source>
+            <translation type="unfinished">Mưa rào nhẹ</translation>
+        </message>
+        <message>
             <source>Light Rain and Freezing Rain</source>
             <translation>Mưa nhẹ và Mưa đá</translation>
         </message>
@@ -1585,6 +1632,14 @@ Việt Nam- Quý Trọng</translation>
         <message>
             <source>Light Rain with Thunder</source>
             <translation>Mưa nhẹ và sấm</translation>
+        </message>
+        <message>
+            <source>Light Sleet</source>
+            <translation type="unfinished">Tuyết nhẹ</translation>
+        </message>
+        <message>
+            <source>Light Sleet Showers</source>
+            <translation type="unfinished">Tuyết nhẹ mau</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1611,12 +1666,25 @@ Việt Nam- Quý Trọng</translation>
             <translation>Tuyết nhẹ mau</translation>
         </message>
         <message>
+            <source>Light Snow Showers</source>
+            <translation type="unfinished">Tuyết nhẹ mau</translation>
+        </message>
+        <message>
+            <source>Light Snowfall</source>
+            <translation type="unfinished">Tuyết nhẹ</translation>
+        </message>
+        <message>
             <source>Light intensity drizzle</source>
             <translation type="unfinished">Mưa to</translation>
         </message>
         <message>
             <source>Light intensity shower rain</source>
             <translation type="unfinished">Mưa to</translation>
+        </message>
+        <message>
+            <source>Light or Moderate Precipitation</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1706,8 +1774,24 @@ Việt Nam- Quý Trọng</translation>
             <translation>Sương mù</translation>
         </message>
         <message>
+            <source>Moderate Freezing Rain</source>
+            <translation type="unfinished">U ám và mưa</translation>
+        </message>
+        <message>
             <source>Moderate Rain</source>
             <translation type="unfinished">U ám và mưa</translation>
+        </message>
+        <message>
+            <source>Moderate Rain Showers</source>
+            <translation type="unfinished">U ám và mưa</translation>
+        </message>
+        <message>
+            <source>Moderate Sleet</source>
+            <translation type="unfinished">U ám và mưa</translation>
+        </message>
+        <message>
+            <source>Moderate Snow Showers</source>
+            <translation type="unfinished">AM Mưa tuyết</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -2402,6 +2486,11 @@ Việt Nam- Quý Trọng</translation>
             <translation>Mây phủ:</translation>
         </message>
         <message>
+            <source>Precipitation</source>
+            <translation type="unfinished">
+Mưa:</translation>
+        </message>
+        <message>
             <source>Preference|Update</source>
             <translation>Sở thích|Cập nhật</translation>
         </message>
@@ -2922,6 +3011,11 @@ Việt Nam- Quý Trọng</translation>
             <translation>Mưa ở vùng lân cận</translation>
         </message>
         <message>
+            <source>Showers or Intermittent Precipitation</source>
+            <translation type="unfinished">
+            </translation>
+        </message>
+        <message>
             <source>Sky is Clear</source>
             <translation type="unfinished">Ít mây, trời quang</translation>
         </message>
@@ -2932,6 +3026,10 @@ Việt Nam- Quý Trọng</translation>
         <message>
             <source>Sleet</source>
             <translation>Mưa đá</translation>
+        </message>
+        <message>
+            <source>Sleet Showers</source>
+            <translation type="unfinished">Mưa rào rải rác</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -2952,6 +3050,10 @@ Việt Nam- Quý Trọng</translation>
         <message>
             <source>Snow Shower / Wind</source>
             <translation>Có gió, mưa rào, tuyết rơi</translation>
+        </message>
+        <message>
+            <source>Snow Showers</source>
+            <translation type="unfinished">Có tuyết kèm mưa rào</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -2980,6 +3082,10 @@ Việt Nam- Quý Trọng</translation>
         <message>
             <source>Snow to Wintry Mix / Wind</source>
             <translation>Tuyết rơi, lạnh giá, có gió</translation>
+        </message>
+        <message>
+            <source>Snowfall</source>
+            <translation type="unfinished">Có tuyết rơi</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3068,6 +3174,11 @@ Việt Nam- Quý Trọng</translation>
         <message>
             <source>Storm</source>
             <translation>Có sấm sét</translation>
+        </message>
+        <message>
+            <source>Strong Thundershowers</source>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3253,6 +3364,10 @@ Việt Nam- Quý Trọng</translation>
         <message>
             <source>Thunder in the Vicinity</source>
             <translation>Sấm sét vùng lân cận</translation>
+        </message>
+        <message>
+            <source>Thundershowers</source>
+            <translation type="unfinished">Sấm</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3461,6 +3576,10 @@ for tuning images of applet</source>
         <message>
             <source>Very High</source>
             <translation>Rất cao</translation>
+        </message>
+        <message>
+            <source>Violent Rain Showers</source>
+            <translation type="unfinished">Mưa rào nhẹ</translation>
         </message>
         <message>
             <source>Visible items:</source>

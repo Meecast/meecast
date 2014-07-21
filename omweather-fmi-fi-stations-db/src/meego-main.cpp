@@ -104,7 +104,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
     val = root["observations"].get(root["observations"].getMemberNames()[0], nullval);
 
     double min_distance = 32000;
-    int max_count_of_parameters = 0;
+    uint max_count_of_parameters = 0;
 
     for (uint i = 0; i < val.size(); i++){
         /* Current weather */
@@ -314,7 +314,7 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
 
     /* Forecasts */
     val = root["forecasts"][0].get("forecast", nullval);
-    for (int i = 0; i < val.size(); i++){
+    for (uint i = 0; i < val.size(); i++){
         std::string utc_time_string;
         std::string _time_string;
         std::string local_time_string;

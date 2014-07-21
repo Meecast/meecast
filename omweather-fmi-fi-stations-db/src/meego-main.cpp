@@ -367,10 +367,10 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
                 fprintf(file_out," end=\"%li\">\n", utc_time + 3600*localtimezone + 3*3600); 
             }    
 
-            if (val[i].get("Temperature","").asCString() != "" || val[i].get("Temperature","").asCString() != "nan"){
+            if (val[i].get("Temperature","").asString() != "" || val[i].get("Temperature","").asString() != "nan"){
                 fprintf(file_out,"     <temperature>%i</temperature>\n", atoi(val[i].get("Temperature","").asCString()));
             }    
-            if (val[i].get("WeatherSymbol3","").asCString() != "" || val[i].get("WeatherSymbol3","").asCString() != "nan"){
+            if (val[i].get("WeatherSymbol3","").asString() != "" || val[i].get("WeatherSymbol3","").asString() != "nan"){
                 int result = 0;
                 dark = atoi(val[i].get("dark","").asCString());
                 result = 100*(dark);

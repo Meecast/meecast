@@ -11,11 +11,9 @@ TEMPLATE = lib
 
 
 HEADERS += src/meego-main.h \
-           src/hash.h \
 	   src/json/json.h
 
 SOURCES += src/meego-main.cpp \
-           src/hash.cpp \
            src/jsoncpp.cpp
 
 FORMS    +=

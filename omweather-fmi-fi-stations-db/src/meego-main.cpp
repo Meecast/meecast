@@ -31,7 +31,6 @@
 #include <vector>
 
 #define buff_size 2048
-xmlHashTablePtr hash_icons_fmifi_table_create(); 
 
 /*******************************************************************************/
 

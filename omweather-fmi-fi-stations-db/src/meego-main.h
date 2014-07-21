@@ -42,7 +42,6 @@
 #include <unistd.h>
 #include <string.h>
 #include <cctype>
-#include "hash.h"
 
 /*******************************************************************************/
 #endif

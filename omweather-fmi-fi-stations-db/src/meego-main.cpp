@@ -49,7 +49,6 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
          *delimiter = NULL;
     time_t current_time = 0;
     time_t utc_time = 0;
-    time_t after_noon = 0;
     time_t local_time = 0;
     int current_temperature = INT_MAX;
     int current_humidity = INT_MAX;

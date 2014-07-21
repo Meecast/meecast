@@ -30,7 +30,6 @@
 #include <iostream> 
 #include <vector>
 
-static xmlHashTablePtr hash_for_icons;
 #define buff_size 2048
 xmlHashTablePtr hash_icons_fmifi_table_create(); 
 
@@ -648,14 +647,11 @@ int
 convert_station_fmi_fi_data(const char *days_data_path, const char *result_file){
  
     int     days_number = -1;
-    char    *delimiter = NULL;
     FILE    *file_out;
     
     if(!days_data_path)
         return -1;
 
-    //hash_for_icons = hash_icons_fmifi_table_create();
- //   snprintf(buffer, sizeof(buffer)-1,"%s.timezone", result_file);
     /* check file accessability */
     if(!access(days_data_path, R_OK)){
             days_number = parse_and_write_days_xml_data(days_data_path, result_file);

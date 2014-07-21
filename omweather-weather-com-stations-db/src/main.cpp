@@ -498,7 +498,7 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
     xmlChar     *temp_xml_string;
     gint        count_hour = 0;
     gchar       buff[256];
-    struct tm   tmp_tm = {0};
+    struct tm   tmp_tm = {0,0,0,0,0,0,0,0,0,0,0}; 
     GSList      *hour_weather = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -618,7 +618,7 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
                 *child_node3 = NULL;
     xmlChar     *temp_xml_string = NULL;
     gint        count_hour = 0;
-    struct tm   last_update_time = {0};
+    struct tm   last_update_time = {0,0,0,0,0,0,0,0,0,0,0}; 
     FILE        *file_out;
     int         timezone_my = 0;
     int         hour = 0;
@@ -809,17 +809,17 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
 		        timezone_string[128],
                 uv_index[128];
 
-    struct tm   tmp_tm = {0};
-    struct tm   tm_l = {0};
-    struct tm   tmp_tm2 = {0};
+    struct tm   tmp_tm = {0,0,0,0,0,0,0,0,0,0,0}; 
+    struct tm   tm_l = {0,0,0,0,0,0,0,0,0,0,0}; 
+    struct tm   tmp_tm2 = {0,0,0,0,0,0,0,0,0,0,0}; 
     struct tm   *tm;
     time_t      t_start = 0, t_end = 0,
                 t_sunrise = 0, t_sunset = 0,
                 current_time = 0;
     FILE        *file_out;
     float       visible_float;
-    struct tm time_tm1 = {0};;
-    struct tm time_tm2 = {0};;
+    struct tm time_tm1 = {0,0,0,0,0,0,0,0,0,0,0}; 
+    struct tm time_tm2 = {0,0,0,0,0,0,0,0,0,0,0};
     int    localtimezone = 0;
 
 

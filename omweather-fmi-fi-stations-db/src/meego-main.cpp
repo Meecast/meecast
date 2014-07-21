@@ -585,16 +585,16 @@ parse_and_write_days_xml_data(const char *days_data_path, const char *result_fil
             if (val[i].get("PoP","").asCString() != ""){
                 fprintf(file_out,"     <ppcp>%i</ppcp>\n", atoi(val[i].get("PoP","").asCString()));
             }    
-            if (val[i].get("WindSpeedMS","").asCString() != ""){
+            if (val[i].get("WindSpeedMS","").asString() != ""){
                 fprintf(file_out,"     <wind_speed>%i</wind_speed>\n", atoi(val[i].get("WindSpeedMS","").asCString()));
             }    
-            if (val[i].get("WindCompass8","").asCString() != ""){
+            if (val[i].get("WindCompass8","").asString() != ""){
                 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", val[i].get("WindCompass8","").asCString());
             }    
-            if (val[i].get("Precipitation1h","").asCString() != ""){
+            if (val[i].get("Precipitation1h","").asString() != ""){
                 fprintf(file_out,"     <precipitation>%.1f</precipitation>\n", atof(val[i].get("Precipitation1h","").asCString()));
             }    
-            if (val[i].get("FeelsLike","").asCString() != ""){
+            if (val[i].get("FeelsLike","").asString() != ""){
                 fprintf(file_out,"     <flike>%i</flike>\n", atoi(val[i].get("FeelsLike","").asCString()));
             }    
 

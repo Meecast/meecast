@@ -10,6 +10,7 @@ import os
 import re
 import string
 import zipfile
+import json
 country = "Finland"
 country_code = "FI"
                 
@@ -37,7 +38,7 @@ baseurl = "http://download.geonames.org/export/dump/"
 forecasturl = "http://m.fmi.fi/mobile/interfaces/weatherdata.php?l=en&locations=" 
 
 #connect to database
-c = db.connect(database=r"./fmifi.org.db")
+c = db.connect(database=r"./fmi.fi.db")
 cu = c.cursor()
 
 #checking country name
@@ -58,12 +59,12 @@ urllib.urlretrieve (url, myzipfile)
 
 
 #unzip file
-fh = open(myzipfile, 'rb')
-z = zipfile.ZipFile(fh)
-outfile = open(country_code + ".txt", 'wb')
-outfile.write(z.read(country_code + ".txt"))
-outfile.close()
-fh.close()
+#fh = open(myzipfile, 'rb')
+#z = zipfile.ZipFile(fh)
+#outfile = open(country_code + ".txt", 'wb')
+#outfile.write(z.read(country_code + ".txt"))
+#outfile.close()
+#fh.close()
 
 #fill regions
 regions = {}
@@ -113,7 +114,7 @@ for line in fh.readlines():
     pattern = re.split('(\t)', line)
 #    print "Station %s" %(line)
 #    if (pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLC" or pattern[14] == "PPL"):    
-    if (pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLA3" or pattern[14] == "PPLC" or pattern[14] == "PPL"):
+    if (pattern[14] == "PPLA" or pattern[14] == "PPLA2" or pattern[14] == "PPLA3" or pattern[14] == "PPLC" or pattern[14] == "PPL" or pattern[14] == "ISL"):
         print "%s %s" %(pattern[4], pattern[28]) 
         if (pattern[20] != "" and int(pattern[28]) >= 00):
             if (regions_name.get(pattern[20]) == None):
@@ -143,23 +144,31 @@ for line in fh.readlines():
 
             req = urllib2.Request(url, None, {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'})
             page = urllib2.urlopen(req)
+            decoded_data = json.loads(page.read().decode(page.info().getparam('charset') or 'utf-8'))
+            station_name = decoded_data['forecasts'][0]['forecast'][0]['name']
+
             error_flag = False
             for line2 in page.readlines():
                 if (line2.find("Error") != -1):
                     error_flag = True
 
+
+
             if (error_flag):
                 continue
+
+            print "Station name: ", station_name 
+ 
             print "select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing(pattern[4]));
             cur = cu.execute("select id from stations where region_id='%i' and name = '%s'" %(region_id, normalizing4(pattern[4])))
             station_id= None
             for row in cur:
                 station_id = row[0]
             if (station_id == None):
-                cur = cu.execute("insert into stations (region_id, name, longititude, latitude, code) values ( '%i', '%s', '%s', '%s', '%s')" %(region_id, normalizing4(pattern[4]), pattern[10], pattern[8], pattern[8] +"%2C"+ pattern[10]))
+                cur = cu.execute("insert into stations (region_id, name, longititude, latitude, code) values ( '%i', '%s', '%s', '%s', '%s')" %(region_id, station_name, pattern[10], pattern[8], pattern[8] +"%2C"+ pattern[10]))
                 c.commit()
             else:
-                cur = cu.execute("update stations set region_id ='%i', name='%s', longititude='%s', latitude='%s', code='%s' where id ='%i'" %(region_id, normalizing4(pattern[4]), pattern[10], pattern[8], pattern[8] +"%2C"+ pattern[10], station_id))
+                cur = cu.execute("update stations set region_id ='%i', name='%s', longititude='%s', latitude='%s', code='%s' where id ='%i'" %(region_id, station_name, pattern[10], pattern[8], pattern[8] +"%2C"+ pattern[10], station_id))
                 c.commit()
     exit
 fh.close

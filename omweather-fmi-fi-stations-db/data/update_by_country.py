@@ -59,12 +59,12 @@ urllib.urlretrieve (url, myzipfile)
 
 
 #unzip file
-#fh = open(myzipfile, 'rb')
-#z = zipfile.ZipFile(fh)
-#outfile = open(country_code + ".txt", 'wb')
-#outfile.write(z.read(country_code + ".txt"))
-#outfile.close()
-#fh.close()
+fh = open(myzipfile, 'rb')
+z = zipfile.ZipFile(fh)
+outfile = open(country_code + ".txt", 'wb')
+outfile.write(z.read(country_code + ".txt"))
+outfile.close()
+fh.close()
 
 #fill regions
 regions = {}

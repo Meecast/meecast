@@ -665,23 +665,23 @@ Design UI per Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy and light rain</source>
-            <translation>Nuvolo e deboli piogge</translation>
+            <translation>Nuvoloso e deboli piogge</translation>
         </message>
         <message>
             <source>Cloudy and light snow</source>
-            <translation>Nuvolo e deboli nevicate</translation>
+            <translation>Nuvoloso e deboli nevicate</translation>
         </message>
         <message>
             <source>Cloudy and light wet snow</source>
-            <translation>Nuvolo e debole neve bagnata</translation>
+            <translation>Nuvoloso e debole neve bagnata</translation>
         </message>
         <message>
             <source>Cloudy and showers</source>
-            <translation>Nuvolo e rovesci</translation>
+            <translation>Nuvoloso e rovesci</translation>
         </message>
         <message>
             <source>Cloudy and snow showers</source>
-            <translation>Nuvolo e rovesci nevosi</translation>
+            <translation>Nuvoloso e rovesci nevosi</translation>
         </message>
         <message>
             <source>Cloudy and wet snow showers</source>
@@ -709,7 +709,7 @@ Design UI per Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Heavy Snow</source>
-            <translation>Nuvolo, forti Nevicate</translation>
+            <translation>Nuvoloso, forti nevicate</translation>
         </message>
         <message>
             <source>Cloudy, Light Rain</source>
@@ -721,7 +721,7 @@ Design UI per Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Nuvoloso, forti Piogge</translation>
+            <translation>Nuvoloso, Deboli piogge</translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
@@ -741,7 +741,7 @@ Design UI per Fremantle: Krebber Jan Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Strong Rain, Heavy Rain</source>
-            <translation type="unfinished">Nuvoloso, forti Piogge</translation>
+            <translation>Nuvoloso, Piogge intense</translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
@@ -1335,12 +1335,13 @@ Slovacco - Roman Moravčík</translation>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
-            <translation type="unfinished">Pioggia / Pioggia congelata</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Precipitation</source>
             <translation type="unfinished">
-Precipitazioni: </translation>
+            </translation>
         </message>
         <message>
             <source>Heavy Rain</source>
@@ -1356,15 +1357,18 @@ Precipitazioni: </translation>
         </message>
         <message>
             <source>Heavy Rain Showers</source>
-            <translation type="unfinished">Forti rovesci piovosi</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Sleet</source>
-            <translation type="unfinished">Forte nevicata</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Sleet Showers</source>
-            <translation type="unfinished">Forti rovesci piovosi</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Snow</source>
@@ -1376,15 +1380,18 @@ Precipitazioni: </translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
-            <translation type="unfinished">Alcuni rovesci Nevosi</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Snowfall</source>
-            <translation type="unfinished">Forte nevicata</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy Thunder</source>
-            <translation type="unfinished">Tuono</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1613,7 +1620,8 @@ Precipitazioni: </translation>
         </message>
         <message>
             <source>Light Rain Showers</source>
-            <translation type="unfinished">Rovesci con deboli piogge</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
@@ -1633,11 +1641,13 @@ Precipitazioni: </translation>
         </message>
         <message>
             <source>Light Sleet</source>
-            <translation type="unfinished">Deboli nevicate</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light Sleet Showers</source>
-            <translation type="unfinished">Rovesci di deboli nevicate</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1665,11 +1675,13 @@ Precipitazioni: </translation>
         </message>
         <message>
             <source>Light Snow Showers</source>
-            <translation type="unfinished">Rovesci di deboli nevicate</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light Snowfall</source>
-            <translation type="unfinished">Deboli nevicate</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
@@ -1772,7 +1784,8 @@ Precipitazioni: </translation>
         </message>
         <message>
             <source>Moderate Freezing Rain</source>
-            <translation type="unfinished">Pioggia moderata</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Moderate Rain</source>
@@ -1780,15 +1793,18 @@ Precipitazioni: </translation>
         </message>
         <message>
             <source>Moderate Rain Showers</source>
-            <translation type="unfinished">Pioggia moderata</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Moderate Sleet</source>
-            <translation type="unfinished">Pioggia moderata</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Moderate Snow Showers</source>
-            <translation type="unfinished">Nevicate sparse al matt.</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -1876,39 +1892,39 @@ Precipitazioni: </translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain</source>
-            <translation>Prevalentemente nuvoloso, Deboli piogge</translation>
+            <translation>Prevalentemente nuvoloso, deboli Piogge</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Drizzle</source>
-            <translation>Prevalentemente nuvoloso, Deboli piogge, pioggerella</translation>
+            <translation>Prevalentemente nuvoloso, Pioggerella</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, T-Storm</source>
-            <translation>Prevalentemente nuvoloso, Deboli piogge, temporale</translation>
+            <translation>Prevalentemente nuvoloso, deboli Piogge, Temporale</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Nuvoloso, forti Piogge</translation>
+            <translation>Prevalentemente nuvoloso, Deboli piogge</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
-            <translation>Prevalentemente nuvoloso, pioggia</translation>
+            <translation>Prevalentemente nuvoloso, Pioggia</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain, T-Storm</source>
-            <translation>Prevalentemente nuvoloso, pioggia, temporale</translation>
+            <translation>Prevalentemente nuvoloso, Pioggia, Temporale</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Smoke</source>
-            <translation>Prevalentemente nuvoloso, caligine</translation>
+            <translation>Prevalentemente nuvoloso, Caligine</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Snow</source>
-            <translation>Prevalentemente nuvoloso, neve</translation>
+            <translation>Prevalentemente nuvoloso, Neve</translation>
         </message>
         <message>
             <source>Mostly Cloudy, T-Storm</source>
-            <translation>Prevalentemente nuvoloso, temporale</translation>
+            <translation>Prevalentemente nuvoloso, Temporale</translation>
         </message>
         <message>
             <source>Mostly Sunny</source>
@@ -2348,31 +2364,31 @@ Precipitazioni: </translation>
         </message>
         <message>
             <source>Partly Cloudy Few Snow</source>
-            <translation>Parzialmente nuvoloso con poca neve</translation>
+            <translation>Parzialmente nuvoloso con poca Neve</translation>
         </message>
         <message>
             <source>Partly Cloudy Light Rain</source>
-            <translation>Parzialmente nuvoloso con deboli piogge</translation>
+            <translation>Parzialmente nuvoloso con deboli Piogge</translation>
         </message>
         <message>
             <source>Partly Cloudy T-Storm</source>
-            <translation>Parzialmente nuvoloso con temporale</translation>
+            <translation>Parzialmente nuvoloso con Temporale</translation>
         </message>
         <message>
             <source>Partly Cloudy and Windly</source>
-            <translation>Parzialmente nuvoloso e ventoso</translation>
+            <translation>Parzialmente nuvoloso e Ventoso</translation>
         </message>
         <message>
             <source>Partly Cloudy and Windy</source>
-            <translation>Parzialmente nuvoloso e ventoso</translation>
+            <translation>Parzialmente nuvoloso e Ventoso</translation>
         </message>
         <message>
             <source>Partly Cloudy and Windy</source>
-            <translation>Parzialmente nuvoloso e ventoso</translation>
+            <translation>Parzialmente nuvoloso e Ventoso</translation>
         </message>
         <message>
             <source>Partly Cloudy, Few Snow</source>
-            <translation>Parzialmente nuvoloso, poca neve</translation>
+            <translation>Parzialmente nuvoloso, poca Neve</translation>
         </message>
         <message>
             <source>Partly Cloudy, Haze</source>
@@ -2476,8 +2492,7 @@ Precipitazioni: </translation>
         </message>
         <message>
             <source>Precipitation</source>
-            <translation type="unfinished">
-Precipitazioni: </translation>
+            <translation>Precipitazioni</translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -3011,7 +3026,8 @@ Precipitazioni: </translation>
         </message>
         <message>
             <source>Sleet Showers</source>
-            <translation type="unfinished">Alcuni Rovesci</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3035,7 +3051,7 @@ Precipitazioni: </translation>
         </message>
         <message>
             <source>Snow Showers</source>
-            <translation type="unfinished">Rovesci nevosi</translation>
+            <translation>Rovesci nevosi</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -3067,7 +3083,8 @@ Precipitazioni: </translation>
         </message>
         <message>
             <source>Snowfall</source>
-            <translation type="unfinished">Neve</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Source</source>
@@ -3350,7 +3367,8 @@ later version.</translation>
         </message>
         <message>
             <source>Thundershowers</source>
-            <translation type="unfinished">Tuono</translation>
+            <translation type="unfinished">
+            </translation>
         </message>
         <message>
             <source>Today</source>
@@ -3563,7 +3581,7 @@ meteo periodicamente.
         </message>
         <message>
             <source>Violent Rain Showers</source>
-            <translation type="unfinished">Rovesci con deboli piogge</translation>
+            <translation>Violenti rovesci piovosi</translation>
         </message>
         <message>
             <source>Visible items:</source>

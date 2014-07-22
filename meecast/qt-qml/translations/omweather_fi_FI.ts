@@ -721,7 +721,7 @@ Fremantle käyttöliittymä: Krebber Jan ja Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Pilvistä, rankkasadetta</translation>
+            <translation>Pilvistä, kevyttä sadetta, kovaa sadetta</translation>
         </message>
         <message>
             <source>Cloudy, Rain</source>
@@ -741,7 +741,7 @@ Fremantle käyttöliittymä: Krebber Jan ja Niemelä Ulla
         </message>
         <message>
             <source>Cloudy, Strong Rain, Heavy Rain</source>
-            <translation type="unfinished">Pilvistä, rankkasadetta</translation>
+            <translation>Pilvistä, kovaa sadetta, rankkasadetta</translation>
         </message>
         <message>
             <source>Cloudy, thunderstorms with rain</source>
@@ -1243,8 +1243,9 @@ sinun tulee poistaa
  Swedish - Angela Nennebrandt,
  	Niklas Åkerström, 
  	Tomislav Veleckovik</source>
-            <translation type="unfinished">Ranska-  Nicolas Granziano, 
- 	Philippe, Benot Knecht 
+            <translation>Ranska -  Nicolas Granziano, 
+ 	Philippe, Benot Knecht, 
+ 	Quentin Caillard 
  Venäjä - Pavel Fialko, Vlad Vasiliev, 
  	Ed Bartosh
  Suomi - Marko Vertainen
@@ -1272,7 +1273,7 @@ sinun tulee poistaa
  Unkari - Salmi,
  Slovenia -  Boštjan,
  Tsekki - Jakub Kožíšek, Pavel Šrubař,
- Kiina (Taiwan) - osk2, 
+ Kiina(Taiwan) - osk2, 
  Vietnami - Hieu Nguyen
  	Anh Dương and truongnx, 
  Ruotsi - Angela Nennebrandt,
@@ -1361,17 +1362,15 @@ Slovakia - Roman Moravčík</translation>
         </message>
         <message>
             <source>Haze, Smoke or Dust</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sumua, savusumua tai pölyä</translation>
         </message>
         <message>
             <source>Heavy Freezing Rain</source>
-            <translation type="unfinished">Vesisadetta / Jäätävää sadetta</translation>
+            <translation>Kovaa jäätävää sadetetta</translation>
         </message>
         <message>
             <source>Heavy Precipitation</source>
-            <translation type="unfinished">
-Sade: </translation>
+            <translation>Kovaa sadetta</translation>
         </message>
         <message>
             <source>Heavy Rain</source>
@@ -1387,15 +1386,15 @@ Sade: </translation>
         </message>
         <message>
             <source>Heavy Rain Showers</source>
-            <translation type="unfinished">Rankkoja sadekuuroja</translation>
+            <translation>Kovia sadekuuroja</translation>
         </message>
         <message>
             <source>Heavy Sleet</source>
-            <translation type="unfinished">Rankkaa lumisadetta</translation>
+            <translation>Kovaa räntäsadetta</translation>
         </message>
         <message>
             <source>Heavy Sleet Showers</source>
-            <translation type="unfinished">Rankkoja sadekuuroja</translation>
+            <translation>Kovia räntäkuuroja</translation>
         </message>
         <message>
             <source>Heavy Snow</source>
@@ -1407,15 +1406,15 @@ Sade: </translation>
         </message>
         <message>
             <source>Heavy Snow Showers</source>
-            <translation type="unfinished">Ajoittain lumikuuroja</translation>
+            <translation>Kovia lumikuuroja</translation>
         </message>
         <message>
             <source>Heavy Snowfall</source>
-            <translation type="unfinished">Rankkaa lumisadetta</translation>
+            <translation>Kovaa lumisadetta</translation>
         </message>
         <message>
             <source>Heavy Thunder</source>
-            <translation type="unfinished">Ukkosta</translation>
+            <translation>Kovaa ukkosta</translation>
         </message>
         <message>
             <source>Heavy intensity rain</source>
@@ -1463,8 +1462,7 @@ Sade: </translation>
         </message>
         <message>
             <source>Ice Pellets</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rakeita</translation>
         </message>
         <message>
             <source>Icon set:</source>
@@ -1644,7 +1642,7 @@ Sade: </translation>
         </message>
         <message>
             <source>Light Rain Showers</source>
-            <translation type="unfinished">Kevyitä sadekuuroja</translation>
+            <translation>Kevyitä sadekuuroja</translation>
         </message>
         <message>
             <source>Light Rain and Freezing Rain</source>
@@ -1664,11 +1662,11 @@ Sade: </translation>
         </message>
         <message>
             <source>Light Sleet</source>
-            <translation type="unfinished">Kevyttä lumisadetta</translation>
+            <translation>Kevyttä räntäsadetta</translation>
         </message>
         <message>
             <source>Light Sleet Showers</source>
-            <translation type="unfinished">Kevyitä lumikuuroja</translation>
+            <translation>Kevyitä räntäkuuroja</translation>
         </message>
         <message>
             <source>Light Snow</source>
@@ -1696,11 +1694,11 @@ Sade: </translation>
         </message>
         <message>
             <source>Light Snow Showers</source>
-            <translation type="unfinished">Kevyitä lumikuuroja</translation>
+            <translation>Kevyitä lumikuuroja</translation>
         </message>
         <message>
             <source>Light Snowfall</source>
-            <translation type="unfinished">Kevyttä lumisadetta</translation>
+            <translation>Kevyttä lumisadetta</translation>
         </message>
         <message>
             <source>Light intensity drizzle</source>
@@ -1712,8 +1710,7 @@ Sade: </translation>
         </message>
         <message>
             <source>Light or Moderate Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kevyttä tai kohtalaista sadetta</translation>
         </message>
         <message>
             <source>Light rain</source>
@@ -1803,7 +1800,7 @@ Sade: </translation>
         </message>
         <message>
             <source>Moderate Freezing Rain</source>
-            <translation type="unfinished">Kohtalaista vesisadetta</translation>
+            <translation>Kohtalaista jäätävääsadetta</translation>
         </message>
         <message>
             <source>Moderate Rain</source>
@@ -1811,15 +1808,15 @@ Sade: </translation>
         </message>
         <message>
             <source>Moderate Rain Showers</source>
-            <translation type="unfinished">Kohtalaista vesisadetta</translation>
+            <translation>Kohtalaisia sadekuuroja</translation>
         </message>
         <message>
             <source>Moderate Sleet</source>
-            <translation type="unfinished">Kohtalaista vesisadetta</translation>
+            <translation>Kohtalaista räntäsadetta</translation>
         </message>
         <message>
             <source>Moderate Snow Showers</source>
-            <translation type="unfinished">ap: Lumikuuroja</translation>
+            <translation>Kohtalaisia lumikuuroja</translation>
         </message>
         <message>
             <source>Moderate rain</source>
@@ -1919,7 +1916,7 @@ Sade: </translation>
         </message>
         <message>
             <source>Mostly Cloudy, Light Rain, Weak Heavy Rain</source>
-            <translation type="unfinished">Pilvistä, rankkasadetta</translation>
+            <translation>Melko pilvistä, kevyttä sadetta, kovaa sadetta</translation>
         </message>
         <message>
             <source>Mostly Cloudy, Rain</source>
@@ -2507,8 +2504,7 @@ Sade: </translation>
         </message>
         <message>
             <source>Precipitation</source>
-            <translation type="unfinished">
-Sade: </translation>
+            <translation>Sadetta</translation>
         </message>
         <message>
             <source>Preference|Update</source>
@@ -3024,8 +3020,7 @@ Sade: </translation>
         </message>
         <message>
             <source>Showers or Intermittent Precipitation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sadekuuroja tai ajoittaisia sateita</translation>
         </message>
         <message>
             <source>Sky is Clear</source>
@@ -3041,7 +3036,7 @@ Sade: </translation>
         </message>
         <message>
             <source>Sleet Showers</source>
-            <translation type="unfinished">Ajoittain sadekuuroja</translation>
+            <translation>Räntäkuuroja</translation>
         </message>
         <message>
             <source>Smoke</source>
@@ -3065,7 +3060,7 @@ Sade: </translation>
         </message>
         <message>
             <source>Snow Showers</source>
-            <translation type="unfinished">Lumikuuroja</translation>
+            <translation>Lumikuuroja</translation>
         </message>
         <message>
             <source>Snow Showers / Wind Early</source>
@@ -3097,7 +3092,7 @@ Sade: </translation>
         </message>
         <message>
             <source>Snowfall</source>
-            <translation type="unfinished">Lumisadetta</translation>
+            <translation>Lumisadetta</translation>
         </message>
         <message>
             <source>Source</source>
@@ -3189,8 +3184,7 @@ Sade: </translation>
         </message>
         <message>
             <source>Strong Thundershowers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Voimakkaita ukkoskuuroja</translation>
         </message>
         <message>
             <source>Successfully loaded</source>
@@ -3381,7 +3375,7 @@ Sade: </translation>
         </message>
         <message>
             <source>Thundershowers</source>
-            <translation type="unfinished">Ukkosta</translation>
+            <translation>Ukkoskuuroja</translation>
         </message>
         <message>
             <source>Today</source>
@@ -3594,7 +3588,7 @@ ajoitettuun päivitykseen.
         </message>
         <message>
             <source>Violent Rain Showers</source>
-            <translation type="unfinished">Kevyitä sadekuuroja</translation>
+            <translation>Voimakkaita sadekuuroja</translation>
         </message>
         <message>
             <source>Visible items:</source>

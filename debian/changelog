@@ -6,6 +6,8 @@ meecast (0.9.6) unstable; urgency=low
   * Added fmi.fi source
   * Updated Catalan, Germany, Slovenian, Spanish,
     Russian, Hungarian, Danish, Italian, Finnish translations
+  * Fixed problem with null wind direction on main form
+  * Added the new source fmi.fi
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 08 Jul 2014 08:31:23 +0200
 

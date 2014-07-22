@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-20 19:23+0300\n"
-"PO-Revision-Date: 2014-06-07 18:28+0000\n"
+"POT-Creation-Date: 2014-07-22 15:31+0300\n"
+"PO-Revision-Date: 2014-07-21 11:36+0000\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/projects/p/"
 "meecast/language/fi_FI/)\n"
@@ -597,9 +597,8 @@ msgid "Cloudy, Light Rain, T-Storm"
 msgstr "Pilvistä, kevyttä vesisadetta, ukkosta"
 
 #: omweather/src/hash.data:56
-#, fuzzy
 msgid "Cloudy, Light Rain, Weak Heavy Rain"
-msgstr "Pilvistä, rankkasadetta"
+msgstr "Pilvistä, kevyttä sadetta, kovaa sadetta"
 
 #: omweather/src/hash.data:57
 msgid "Cloudy, Rain"
@@ -618,9 +617,8 @@ msgid "Cloudy, Snow"
 msgstr "Pilvistä, lumisadetta"
 
 #: omweather/src/hash.data:52
-#, fuzzy
 msgid "Cloudy, Strong Rain, Heavy Rain"
-msgstr "Pilvistä, rankkasadetta"
+msgstr "Pilvistä, kovaa sadetta, rankkasadetta"
 
 #: omweather/src/hash.data:60
 msgid "Cloudy, thunderstorms with rain"
@@ -1002,7 +1000,6 @@ msgid "Freezing Drizzle"
 msgstr "Jäätävää tihkusadetta"
 
 #: meecast/qt-qml/qml/AboutPage.qml:227
-#, fuzzy
 msgid ""
 "French -  Nicolas Granziano, \n"
 " \tPhilippe, Benot Knecht, \n"
@@ -1041,8 +1038,9 @@ msgid ""
 " \tNiklas Åkerström, \n"
 " \tTomislav Veleckovik"
 msgstr ""
-"Ranska-  Nicolas Granziano, \n"
-" \tPhilippe, Benot Knecht \n"
+"Ranska -  Nicolas Granziano, \n"
+" \tPhilippe, Benot Knecht, \n"
+" \tQuentin Caillard \n"
 " Venäjä - Pavel Fialko, Vlad Vasiliev, \n"
 " \tEd Bartosh\n"
 " Suomi - Marko Vertainen\n"
@@ -1070,7 +1068,7 @@ msgstr ""
 " Unkari - Salmi,\n"
 " Slovenia -  Boštjan,\n"
 " Tsekki - Jakub Kožíšek, Pavel Šrubař,\n"
-" Kiina (Taiwan) - osk2, \n"
+" Kiina(Taiwan) - osk2, \n"
 " Vietnami - Hieu Nguyen\n"
 " \tAnh Dương and truongnx, \n"
 " Ruotsi - Angela Nennebrandt,\n"
@@ -1154,19 +1152,15 @@ msgstr "Utua"
 
 #: omweather/src/hash.data:92
 msgid "Haze, Smoke or Dust"
-msgstr ""
+msgstr "Sumua, savusumua tai pölyä"
 
 #: omweather/src/hash.data:93
-#, fuzzy
 msgid "Heavy Freezing Rain"
-msgstr "Vesisadetta / Jäätävää sadetta"
+msgstr "Kovaa jäätävää sadetetta"
 
 #: omweather/src/hash.data:94
-#, fuzzy
 msgid "Heavy Precipitation"
-msgstr ""
-"\n"
-"Sade: "
+msgstr "Kovaa sadetta"
 
 #: omweather/src/hash.data:95
 msgid "Heavy Rain"
@@ -1181,19 +1175,16 @@ msgid "Heavy Rain Shower"
 msgstr "Rankkoja sadekuuroja"
 
 #: omweather/src/hash.data:98
-#, fuzzy
 msgid "Heavy Rain Showers"
-msgstr "Rankkoja sadekuuroja"
+msgstr "Kovia sadekuuroja"
 
 #: omweather/src/hash.data:99
-#, fuzzy
 msgid "Heavy Sleet"
-msgstr "Rankkaa lumisadetta"
+msgstr "Kovaa räntäsadetta"
 
 #: omweather/src/hash.data:100
-#, fuzzy
 msgid "Heavy Sleet Showers"
-msgstr "Rankkoja sadekuuroja"
+msgstr "Kovia räntäkuuroja"
 
 #: omweather/src/hash.data:101
 msgid "Heavy Snow"
@@ -1204,19 +1195,16 @@ msgid "Heavy Snow / Wind"
 msgstr "Rankkaa lumisadetta / Tuulista"
 
 #: omweather/src/hash.data:103
-#, fuzzy
 msgid "Heavy Snow Showers"
-msgstr "Ajoittain lumikuuroja"
+msgstr "Kovia lumikuuroja"
 
 #: omweather/src/hash.data:102
-#, fuzzy
 msgid "Heavy Snowfall"
-msgstr "Rankkaa lumisadetta"
+msgstr "Kovaa lumisadetta"
 
 #: omweather/src/hash.data:105
-#, fuzzy
 msgid "Heavy Thunder"
-msgstr "Ukkosta"
+msgstr "Kovaa ukkosta"
 
 #: omweather/src/hash.data:388
 msgid "Heavy intensity rain"
@@ -1248,7 +1236,7 @@ msgstr "Ilmankosteus: "
 
 #: omweather/src/hash.data:107
 msgid "Ice Pellets"
-msgstr ""
+msgstr "Rakeita"
 
 #: omweather/src/weather-settings.c:3326
 msgid "Icon set:"
@@ -1385,7 +1373,6 @@ msgid "Light Rain Shower"
 msgstr "Kevyitä sadekuuroja"
 
 #: omweather/src/hash.data:372
-#, fuzzy
 msgid "Light Rain Showers"
 msgstr "Kevyitä sadekuuroja"
 
@@ -1406,14 +1393,12 @@ msgid "Light Rain with Thunder"
 msgstr "Kevyttä vesisadetta ja ukkosta"
 
 #: omweather/src/hash.data:129
-#, fuzzy
 msgid "Light Sleet"
-msgstr "Kevyttä lumisadetta"
+msgstr "Kevyttä räntäsadetta"
 
 #: omweather/src/hash.data:130
-#, fuzzy
 msgid "Light Sleet Showers"
-msgstr "Kevyitä lumikuuroja"
+msgstr "Kevyitä räntäkuuroja"
 
 #: omweather/src/hash.data:131
 msgid "Light Snow"
@@ -1440,12 +1425,10 @@ msgid "Light Snow Shower"
 msgstr "Kevyitä lumikuuroja"
 
 #: omweather/src/hash.data:138
-#, fuzzy
 msgid "Light Snow Showers"
 msgstr "Kevyitä lumikuuroja"
 
 #: omweather/src/hash.data:132
-#, fuzzy
 msgid "Light Snowfall"
 msgstr "Kevyttä lumisadetta"
 
@@ -1459,7 +1442,7 @@ msgstr "Kevyitä sadekuuroja"
 
 #: omweather/src/hash.data:139
 msgid "Light or Moderate Precipitation"
-msgstr ""
+msgstr "Kevyttä tai kohtalaista sadetta"
 
 #: omweather/src/hash.data:370
 msgid "Light rain"
@@ -1546,28 +1529,24 @@ msgid "Mist"
 msgstr "Utua"
 
 #: omweather/src/hash.data:146
-#, fuzzy
 msgid "Moderate Freezing Rain"
-msgstr "Kohtalaista vesisadetta"
+msgstr "Kohtalaista jäätävääsadetta"
 
 #: omweather/src/hash.data:376
 msgid "Moderate Rain"
 msgstr "Kohtalaista vesisadetta"
 
 #: omweather/src/hash.data:377
-#, fuzzy
 msgid "Moderate Rain Showers"
-msgstr "Kohtalaista vesisadetta"
+msgstr "Kohtalaisia sadekuuroja"
 
 #: omweather/src/hash.data:145
-#, fuzzy
 msgid "Moderate Sleet"
-msgstr "Kohtalaista vesisadetta"
+msgstr "Kohtalaista räntäsadetta"
 
 #: omweather/src/hash.data:147
-#, fuzzy
 msgid "Moderate Snow Showers"
-msgstr "ap: Lumikuuroja"
+msgstr "Kohtalaisia lumikuuroja"
 
 #: omweather/src/hash.data:375
 msgid "Moderate rain"
@@ -1659,9 +1638,8 @@ msgid "Mostly Cloudy, Light Rain, T-Storm"
 msgstr "Enimmäkseen pilvistä, kevyttä vesisadetta, ukkosta"
 
 #: omweather/src/hash.data:170
-#, fuzzy
 msgid "Mostly Cloudy, Light Rain, Weak Heavy Rain"
-msgstr "Pilvistä, rankkasadetta"
+msgstr "Melko pilvistä, kevyttä sadetta, kovaa sadetta"
 
 #: omweather/src/hash.data:171
 msgid "Mostly Cloudy, Rain"
@@ -2104,11 +2082,8 @@ msgid "Ppcp:"
 msgstr "Sateen todennäköisyys:"
 
 #: omweather/src/hash.data:249
-#, fuzzy
 msgid "Precipitation"
-msgstr ""
-"\n"
-"Sade: "
+msgstr "Sadetta"
 
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836
@@ -2523,7 +2498,7 @@ msgstr "Sadekuuroja lähistöllä"
 
 #: omweather/src/hash.data:296
 msgid "Showers or Intermittent Precipitation"
-msgstr ""
+msgstr "Sadekuuroja tai ajoittaisia sateita"
 
 #: omweather/src/hash.data:383
 msgid "Sky is Clear"
@@ -2538,9 +2513,8 @@ msgid "Sleet"
 msgstr "Räntäsade"
 
 #: omweather/src/hash.data:298
-#, fuzzy
 msgid "Sleet Showers"
-msgstr "Ajoittain sadekuuroja"
+msgstr "Räntäkuuroja"
 
 #: omweather/src/hash.data:299
 msgid "Smoke"
@@ -2563,7 +2537,6 @@ msgid "Snow Shower / Wind"
 msgstr "Lumikuuroja / Tuulista"
 
 #: omweather/src/hash.data:305
-#, fuzzy
 msgid "Snow Showers"
 msgstr "Lumikuuroja"
 
@@ -2596,7 +2569,6 @@ msgid "Snow to Wintry Mix / Wind"
 msgstr "Lumi- ja räntäsadetta / Tuulista"
 
 #: omweather/src/hash.data:301
-#, fuzzy
 msgid "Snowfall"
 msgstr "Lumisadetta"
 
@@ -2649,7 +2621,7 @@ msgstr "Myrsky"
 
 #: omweather/src/hash.data:314
 msgid "Strong Thundershowers"
-msgstr ""
+msgstr "Voimakkaita ukkoskuuroja"
 
 #: omweather/src/weather-download.c:392
 msgid "Successfully loaded"
@@ -2796,9 +2768,8 @@ msgid "Thunder in the Vicinity"
 msgstr "Ukkosta lähistöllä"
 
 #: omweather/src/hash.data:327
-#, fuzzy
 msgid "Thundershowers"
-msgstr "Ukkosta"
+msgstr "Ukkoskuuroja"
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
@@ -2925,9 +2896,8 @@ msgid "Very High"
 msgstr "Erittäin korkea"
 
 #: omweather/src/hash.data:393
-#, fuzzy
 msgid "Violent Rain Showers"
-msgstr "Kevyitä sadekuuroja"
+msgstr "Voimakkaita sadekuuroja"
 
 #: omweather/src/weather-settings.c:3517 omweather/src/weather-settings.c:3522
 msgid "Visible items:"

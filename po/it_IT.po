@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MeeCast\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-20 19:23+0300\n"
-"PO-Revision-Date: 2014-06-10 11:50+0000\n"
+"POT-Creation-Date: 2014-07-22 15:31+0300\n"
+"PO-Revision-Date: 2014-07-21 11:51+0000\n"
 "Last-Translator: lorenzo facca <lorenzo.facca@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/meecast/language/"
 "it/)\n"
@@ -539,23 +539,23 @@ msgstr "Nuvoloso e Ventoso"
 
 #: omweather/src/hash.data:42
 msgid "Cloudy and light rain"
-msgstr "Nuvolo e deboli piogge"
+msgstr "Nuvoloso e deboli piogge"
 
 #: omweather/src/hash.data:43
 msgid "Cloudy and light snow"
-msgstr "Nuvolo e deboli nevicate"
+msgstr "Nuvoloso e deboli nevicate"
 
 #: omweather/src/hash.data:44
 msgid "Cloudy and light wet snow"
-msgstr "Nuvolo e debole neve bagnata"
+msgstr "Nuvoloso e debole neve bagnata"
 
 #: omweather/src/hash.data:45
 msgid "Cloudy and showers"
-msgstr "Nuvolo e rovesci"
+msgstr "Nuvoloso e rovesci"
 
 #: omweather/src/hash.data:46
 msgid "Cloudy and snow showers"
-msgstr "Nuvolo e rovesci nevosi"
+msgstr "Nuvoloso e rovesci nevosi"
 
 #: omweather/src/hash.data:47
 msgid "Cloudy and wet snow showers"
@@ -583,7 +583,7 @@ msgstr "Nuvoloso, forti Piogge, Temporale"
 
 #: omweather/src/hash.data:53
 msgid "Cloudy, Heavy Snow"
-msgstr "Nuvolo, forti Nevicate"
+msgstr "Nuvoloso, forti nevicate"
 
 #: omweather/src/hash.data:54
 msgid "Cloudy, Light Rain"
@@ -594,9 +594,8 @@ msgid "Cloudy, Light Rain, T-Storm"
 msgstr "Nuvoloso, deboli Piogge, Temporale"
 
 #: omweather/src/hash.data:56
-#, fuzzy
 msgid "Cloudy, Light Rain, Weak Heavy Rain"
-msgstr "Nuvoloso, forti Piogge"
+msgstr "Nuvoloso, Deboli piogge"
 
 #: omweather/src/hash.data:57
 msgid "Cloudy, Rain"
@@ -615,9 +614,8 @@ msgid "Cloudy, Snow"
 msgstr "Nuvoloso, Neve"
 
 #: omweather/src/hash.data:52
-#, fuzzy
 msgid "Cloudy, Strong Rain, Heavy Rain"
-msgstr "Nuvoloso, forti Piogge"
+msgstr "Nuvoloso, Piogge intense"
 
 #: omweather/src/hash.data:60
 msgid "Cloudy, thunderstorms with rain"
@@ -1120,16 +1118,12 @@ msgid "Haze, Smoke or Dust"
 msgstr ""
 
 #: omweather/src/hash.data:93
-#, fuzzy
 msgid "Heavy Freezing Rain"
-msgstr "Pioggia / Pioggia congelata"
+msgstr ""
 
 #: omweather/src/hash.data:94
-#, fuzzy
 msgid "Heavy Precipitation"
 msgstr ""
-"\n"
-"Precipitazioni: "
 
 #: omweather/src/hash.data:95
 msgid "Heavy Rain"
@@ -1144,19 +1138,16 @@ msgid "Heavy Rain Shower"
 msgstr "Forti rovesci piovosi"
 
 #: omweather/src/hash.data:98
-#, fuzzy
 msgid "Heavy Rain Showers"
-msgstr "Forti rovesci piovosi"
+msgstr ""
 
 #: omweather/src/hash.data:99
-#, fuzzy
 msgid "Heavy Sleet"
-msgstr "Forte nevicata"
+msgstr ""
 
 #: omweather/src/hash.data:100
-#, fuzzy
 msgid "Heavy Sleet Showers"
-msgstr "Forti rovesci piovosi"
+msgstr ""
 
 #: omweather/src/hash.data:101
 msgid "Heavy Snow"
@@ -1167,19 +1158,16 @@ msgid "Heavy Snow / Wind"
 msgstr "Forti Nevicate / Vento"
 
 #: omweather/src/hash.data:103
-#, fuzzy
 msgid "Heavy Snow Showers"
-msgstr "Alcuni rovesci Nevosi"
+msgstr ""
 
 #: omweather/src/hash.data:102
-#, fuzzy
 msgid "Heavy Snowfall"
-msgstr "Forte nevicata"
+msgstr ""
 
 #: omweather/src/hash.data:105
-#, fuzzy
 msgid "Heavy Thunder"
-msgstr "Tuono"
+msgstr ""
 
 #: omweather/src/hash.data:388
 msgid "Heavy intensity rain"
@@ -1349,9 +1337,8 @@ msgid "Light Rain Shower"
 msgstr "Rovesci con deboli piogge"
 
 #: omweather/src/hash.data:372
-#, fuzzy
 msgid "Light Rain Showers"
-msgstr "Rovesci con deboli piogge"
+msgstr ""
 
 #: omweather/src/hash.data:125
 msgid "Light Rain and Freezing Rain"
@@ -1370,14 +1357,12 @@ msgid "Light Rain with Thunder"
 msgstr "Deboli piogge con tuoni"
 
 #: omweather/src/hash.data:129
-#, fuzzy
 msgid "Light Sleet"
-msgstr "Deboli nevicate"
+msgstr ""
 
 #: omweather/src/hash.data:130
-#, fuzzy
 msgid "Light Sleet Showers"
-msgstr "Rovesci di deboli nevicate"
+msgstr ""
 
 #: omweather/src/hash.data:131
 msgid "Light Snow"
@@ -1404,14 +1389,12 @@ msgid "Light Snow Shower"
 msgstr "Rovesci di deboli nevicate"
 
 #: omweather/src/hash.data:138
-#, fuzzy
 msgid "Light Snow Showers"
-msgstr "Rovesci di deboli nevicate"
+msgstr ""
 
 #: omweather/src/hash.data:132
-#, fuzzy
 msgid "Light Snowfall"
-msgstr "Deboli nevicate"
+msgstr ""
 
 #: omweather/src/hash.data:374
 msgid "Light intensity drizzle"
@@ -1510,28 +1493,24 @@ msgid "Mist"
 msgstr "Nebbia"
 
 #: omweather/src/hash.data:146
-#, fuzzy
 msgid "Moderate Freezing Rain"
-msgstr "Pioggia moderata"
+msgstr ""
 
 #: omweather/src/hash.data:376
 msgid "Moderate Rain"
 msgstr "Pioggia moderata"
 
 #: omweather/src/hash.data:377
-#, fuzzy
 msgid "Moderate Rain Showers"
-msgstr "Pioggia moderata"
+msgstr ""
 
 #: omweather/src/hash.data:145
-#, fuzzy
 msgid "Moderate Sleet"
-msgstr "Pioggia moderata"
+msgstr ""
 
 #: omweather/src/hash.data:147
-#, fuzzy
 msgid "Moderate Snow Showers"
-msgstr "Nevicate sparse al matt."
+msgstr ""
 
 #: omweather/src/hash.data:375
 msgid "Moderate rain"
@@ -1612,40 +1591,39 @@ msgstr "Prevalentemente nuvoloso, forte nevicata, pioggia congelantesi"
 
 #: omweather/src/hash.data:167
 msgid "Mostly Cloudy, Light Rain"
-msgstr "Prevalentemente nuvoloso, Deboli piogge"
+msgstr "Prevalentemente nuvoloso, deboli Piogge"
 
 #: omweather/src/hash.data:168
 msgid "Mostly Cloudy, Light Rain, Drizzle"
-msgstr "Prevalentemente nuvoloso, Deboli piogge, pioggerella"
+msgstr "Prevalentemente nuvoloso, Pioggerella"
 
 #: omweather/src/hash.data:169
 msgid "Mostly Cloudy, Light Rain, T-Storm"
-msgstr "Prevalentemente nuvoloso, Deboli piogge, temporale"
+msgstr "Prevalentemente nuvoloso, deboli Piogge, Temporale"
 
 #: omweather/src/hash.data:170
-#, fuzzy
 msgid "Mostly Cloudy, Light Rain, Weak Heavy Rain"
-msgstr "Nuvoloso, forti Piogge"
+msgstr "Prevalentemente nuvoloso, Deboli piogge"
 
 #: omweather/src/hash.data:171
 msgid "Mostly Cloudy, Rain"
-msgstr "Prevalentemente nuvoloso, pioggia"
+msgstr "Prevalentemente nuvoloso, Pioggia"
 
 #: omweather/src/hash.data:172
 msgid "Mostly Cloudy, Rain, T-Storm"
-msgstr "Prevalentemente nuvoloso, pioggia, temporale"
+msgstr "Prevalentemente nuvoloso, Pioggia, Temporale"
 
 #: omweather/src/hash.data:173
 msgid "Mostly Cloudy, Smoke"
-msgstr "Prevalentemente nuvoloso, caligine"
+msgstr "Prevalentemente nuvoloso, Caligine"
 
 #: omweather/src/hash.data:174
 msgid "Mostly Cloudy, Snow"
-msgstr "Prevalentemente nuvoloso, neve"
+msgstr "Prevalentemente nuvoloso, Neve"
 
 #: omweather/src/hash.data:175
 msgid "Mostly Cloudy, T-Storm"
-msgstr "Prevalentemente nuvoloso, temporale"
+msgstr "Prevalentemente nuvoloso, Temporale"
 
 #: omweather/src/hash.data:176
 msgid "Mostly Sunny"
@@ -1955,27 +1933,27 @@ msgstr "Parzialmente nuvoloso / Ventoso"
 
 #: omweather/src/hash.data:223
 msgid "Partly Cloudy Few Snow"
-msgstr "Parzialmente nuvoloso con poca neve"
+msgstr "Parzialmente nuvoloso con poca Neve"
 
 #: omweather/src/hash.data:224
 msgid "Partly Cloudy Light Rain"
-msgstr "Parzialmente nuvoloso con deboli piogge"
+msgstr "Parzialmente nuvoloso con deboli Piogge"
 
 #: omweather/src/hash.data:225
 msgid "Partly Cloudy T-Storm"
-msgstr "Parzialmente nuvoloso con temporale"
+msgstr "Parzialmente nuvoloso con Temporale"
 
 #: omweather/src/hash.data:226
 msgid "Partly Cloudy and Windly"
-msgstr "Parzialmente nuvoloso e ventoso"
+msgstr "Parzialmente nuvoloso e Ventoso"
 
 #: omweather/src/hash.data:227 omweather/src/hash.data:228
 msgid "Partly Cloudy and Windy"
-msgstr "Parzialmente nuvoloso e ventoso"
+msgstr "Parzialmente nuvoloso e Ventoso"
 
 #: omweather/src/hash.data:229
 msgid "Partly Cloudy, Few Snow"
-msgstr "Parzialmente nuvoloso, poca neve"
+msgstr "Parzialmente nuvoloso, poca Neve"
 
 #: omweather/src/hash.data:230
 msgid "Partly Cloudy, Haze"
@@ -2068,11 +2046,8 @@ msgid "Ppcp:"
 msgstr "Probabilità pioggia:"
 
 #: omweather/src/hash.data:249
-#, fuzzy
 msgid "Precipitation"
-msgstr ""
-"\n"
-"Precipitazioni: "
+msgstr "Precipitazioni"
 
 #: omweather/src/weather-simple-settings.c:1653
 #: omweather/src/weather-simple-settings.c:2836
@@ -2502,9 +2477,8 @@ msgid "Sleet"
 msgstr "Nevischio"
 
 #: omweather/src/hash.data:298
-#, fuzzy
 msgid "Sleet Showers"
-msgstr "Alcuni Rovesci"
+msgstr ""
 
 #: omweather/src/hash.data:299
 msgid "Smoke"
@@ -2527,7 +2501,6 @@ msgid "Snow Shower / Wind"
 msgstr "Rovesci nevosi / Vento"
 
 #: omweather/src/hash.data:305
-#, fuzzy
 msgid "Snow Showers"
 msgstr "Rovesci nevosi"
 
@@ -2560,9 +2533,8 @@ msgid "Snow to Wintry Mix / Wind"
 msgstr "Nevischio poi Neve / Vento"
 
 #: omweather/src/hash.data:301
-#, fuzzy
 msgid "Snowfall"
-msgstr "Neve"
+msgstr ""
 
 #: omweather/src/weather-simple-settings.c:2295
 msgid "Source"
@@ -2760,9 +2732,8 @@ msgid "Thunder in the Vicinity"
 msgstr "Tuoni nelle vicinanze"
 
 #: omweather/src/hash.data:327
-#, fuzzy
 msgid "Thundershowers"
-msgstr "Tuono"
+msgstr ""
 
 #: omweather/src/weather-simple-popup.c:421
 #: omweather/src/weather-simple-popup.c:424
@@ -2890,9 +2861,8 @@ msgid "Very High"
 msgstr "Molto Alto"
 
 #: omweather/src/hash.data:393
-#, fuzzy
 msgid "Violent Rain Showers"
-msgstr "Rovesci con deboli piogge"
+msgstr "Violenti rovesci piovosi"
 
 #: omweather/src/weather-settings.c:3517 omweather/src/weather-settings.c:3522
 msgid "Visible items:"

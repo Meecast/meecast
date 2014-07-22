@@ -90,8 +90,15 @@ desktop-file-install --delete-original       \
 #/opt/com.meecast.omweather/share
 
 %changelog
-* Sun Jul 03 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.6
+* Tue Jul 22 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.6
   * Fixed donation link 
+  * Added translation string for gismeteo.ru
+  * Fixed sunrise and sunset time for weather.com source
+  * Added fmi.fi source
+  * Updated Catalan, Germany, Slovenian, Spanish,
+    Russian, Hungarian, Danish, Italian, Finnish translations
+  * Fixed problem with null wind direction on main form
+  * Added the new source fmi.fi
 
 * Sun Jul 03 2014 Vlad Vasilyeu <vasvlad@gmail.com> 0.9.5
   * Fixed problem with Now/Today waether data for Main Page 

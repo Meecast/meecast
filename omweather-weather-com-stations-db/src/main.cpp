@@ -1154,15 +1154,15 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                 /* 24h hi temperature */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"hi")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-				    if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A"))
+                                    if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A"))
                                     	snprintf(temp_hi, sizeof(temp_hi) - 1, "%s", (char*)temp_xml_string);
-				    xmlFree(temp_xml_string);
+                                    xmlFree(temp_xml_string);
                                     continue;
                                 }
                                 /* 24h low temperature */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"low")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-				    if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A"))
+                                    if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A"))
                                     	snprintf(temp_low, sizeof(temp_hi) - 1, "%s", (char*)temp_xml_string);
                                     xmlFree(temp_xml_string);
                                     continue;

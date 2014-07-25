@@ -1177,7 +1177,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     strptime((const char*)temp_xml_string, "%I:%M %p", &tmp_tm2);
                                     setlocale(LC_TIME, "");
                                     /* set begin of day in localtime */
-                                    fprintf(stderr, "sunrise %li %li %s\n", mktime(&tmp_tm2), timegm((&tmp_tm2), (const char*)temp_xml_string);
+                                    fprintf(stderr, "sunrise %li %li %s\n", mktime(&tmp_tm2), timegm(&tmp_tm2), (const char*)temp_xml_string);
                                     fprintf(stderr, "LocaltimeZone %i MyTimeZone %i\n", localtimezone, timezone_my);
                                     t_sunrise = mktime(&tmp_tm2) + localtimezone*3600 -  timezone_my*3600 ;
 //                                    t_sunrise = mktime(&tmp_tm2)  -  timezone_my*3600 + (timezone_my*3600 + 4*3600);

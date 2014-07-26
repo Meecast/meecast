@@ -1172,7 +1172,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     temp_xml_string = xmlNodeGetContent(child_node2);
                                     tmp_tm2.tm_year = tm->tm_year;
                                     tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
-                                    tmp_tm2.tm_isdst = 0;
+//                                    tmp_tm2.tm_isdst = 0;
                                     setlocale(LC_TIME, "POSIX");
                                     strptime((const char*)temp_xml_string, "%I:%M %p", &tmp_tm2);
                                     setlocale(LC_TIME, "");
@@ -1194,7 +1194,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     tmp_tm2.tm_year = tm->tm_year;
                                     tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
 
-                                    tmp_tm2.tm_isdst = 0;
+  //                                  tmp_tm2.tm_isdst = 0;
                                     t_sunset = mktime(&tmp_tm2) + localtimezone*3600 - timezone_my*3600;
 //                                    t_sunset = mktime(&tmp_tm2) - timezone_my*3600 - (timezone_my*3600 + 4*3600);
                                     xmlFree(temp_xml_string);

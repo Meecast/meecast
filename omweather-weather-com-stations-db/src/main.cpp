@@ -786,8 +786,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
     xmlChar     *part_of_day = NULL;
     gint        store2day = 0,
                 count_day = 0;
-    gint        timezone_my = 0;
-    gchar       temp_hi[256],
+    int        timezone_my = 0;
+    char       temp_hi[256],
                 temp_low[256],
                 temp_flike[256],
                 humidity_day[256],
@@ -808,6 +808,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                 wind_direction_night[256],
 		        timezone_string[128],
                 uv_index[128];
+
+    char        buffer[1024];
 
     struct tm   tmp_tm = {0,0,0,0,0,0,0,0,0,0,0}; 
     struct tm   tm_l = {0,0,0,0,0,0,0,0,0,0,0}; 
@@ -1170,16 +1172,20 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                 /* 24h sunrise */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"sunr")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-                                    tmp_tm2.tm_year = tm->tm_year;
-                                    tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
-//                                    tmp_tm2.tm_isdst = 0;
+                                    current_time = time(NULL);
+                                    gmtime_r(&current_time, &tmp_tm2);
+
+                                    snprintf(buffer, sizeof(buffer) - 1, "%i %i %i %s", 1900 + tm->tm_year, tm->tm_mon + 1, tm->tm_mday, (const char*)temp_xml_string);
+                                    fprintf(stderr," Time %s\n", buffer);
                                     setlocale(LC_TIME, "POSIX");
-                                    strptime((const char*)temp_xml_string, "%I:%M %p", &tmp_tm2);
+                                    strptime(buffer, "%Y %m %d %I:%M %p", &tmp_tm2);
                                     setlocale(LC_TIME, "");
                                     /* set begin of day in localtime */
                                     fprintf(stderr, "sunrise %li %li %s\n", mktime(&tmp_tm2), timegm(&tmp_tm2), (const char*)temp_xml_string);
                                     fprintf(stderr, "LocaltimeZone %i MyTimeZone %i\n", localtimezone, timezone_my);
-                                    t_sunrise = mktime(&tmp_tm2) + localtimezone*3600 -  timezone_my*3600 ;
+                                    //t_sunrise = mktime(&tmp_tm2) + 3600 -  localtimezone*3600 -  timezone_my*3600 ;
+                                    t_sunrise = mktime(&tmp_tm2) + 3600;
+                                    fprintf(stderr,"SUNRISE %li\n", t_sunrise);
 //                                    t_sunrise = mktime(&tmp_tm2)  -  timezone_my*3600 + (timezone_my*3600 + 4*3600);
                                     xmlFree(temp_xml_string);
                                     continue;
@@ -1194,8 +1200,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     tmp_tm2.tm_year = tm->tm_year;
                                     tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
 
-  //                                  tmp_tm2.tm_isdst = 0;
-                                    t_sunset = mktime(&tmp_tm2) + localtimezone*3600 - timezone_my*3600;
+                                    //tmp_tm2.tm_isdst = 1;
+                                    t_sunset = mktime(&tmp_tm2) + 3600 - localtimezone*3600 - timezone_my*3600;
 //                                    t_sunset = mktime(&tmp_tm2) - timezone_my*3600 - (timezone_my*3600 + 4*3600);
                                     xmlFree(temp_xml_string);
                                     continue;

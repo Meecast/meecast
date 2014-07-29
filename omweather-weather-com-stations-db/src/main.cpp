@@ -1184,7 +1184,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     fprintf(stderr, "sunrise %li %li %s\n", mktime(&tmp_tm2), timegm(&tmp_tm2), (const char*)temp_xml_string);
                                     fprintf(stderr, "LocaltimeZone %i MyTimeZone %i\n", localtimezone, timezone_my);
                                     //t_sunrise = mktime(&tmp_tm2) + 3600 -  localtimezone*3600 -  timezone_my*3600 ;
-                                    t_sunrise = mktime(&tmp_tm2) + 3600;
+                                    t_sunrise = mktime(&tmp_tm2);
                                     fprintf(stderr,"SUNRISE %li\n", t_sunrise);
 //                                    t_sunrise = mktime(&tmp_tm2)  -  timezone_my*3600 + (timezone_my*3600 + 4*3600);
                                     xmlFree(temp_xml_string);

@@ -162,7 +162,6 @@ DataModel::update_model(int period)
     int localtimezone = 0;
     struct tm time_tm1;
     struct tm time_tm2;
-
     std::cerr<<"Update model - period "<<period<<std::endl; 
 
     dp = Core::DataParser::Instance();
@@ -175,6 +174,8 @@ DataModel::update_model(int period)
     current_day = time(NULL);
     gmtime_r(&current_day, &time_tm1);
     localtime_r(&current_day, &time_tm2);
+    time_tm1.tm_isdst = 0;
+    time_tm2.tm_isdst = 0;
     localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
 
     /* set current day */ 
@@ -217,6 +218,7 @@ DataModel::update_model(int period)
 //    if (temp_data)
 //        current_day = current_day + 3600*dp->timezone();
 
+    fprintf(stderr, "timezone in update model %i localtimezone %i\n", timezone, localtimezone);
     /* fill current date */
     switch (period) {
         case current_period:

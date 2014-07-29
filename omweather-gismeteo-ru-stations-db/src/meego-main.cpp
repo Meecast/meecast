@@ -728,10 +728,12 @@ gismeteoru_parse_and_write_xml_data(const char *station_id, htmlDocPtr doc, cons
       snprintf(temp_buffer, sizeof(temp_buffer)-1,"%s %s", xpathObj->nodesetval->nodeTab[0]->content, buffer);
 //      utc_time = mktime(&current_tm) + localtimezone*3600;
       utc_time = mktime(&current_tm);
+      fprintf(stderr,"BUFFER:   %s\n", temp_buffer);
       strptime(temp_buffer, " %H:%M %d.%m.Y", &current_tm);
       setlocale(LC_TIME, "");
 //      utc_time = mktime(&current_tm) + localtimezone*3600;
       utc_time = mktime(&current_tm);
+      fprintf(stderr, "Sunrise time %li\n", utc_time);
       fprintf(file_out,"    <sunrise>%li</sunrise>\n", utc_time );
   }
   if (xpathObj)

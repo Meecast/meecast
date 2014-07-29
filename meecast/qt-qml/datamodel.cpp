@@ -178,6 +178,7 @@ DataModel::update_model(int period)
     time_tm2.tm_isdst = 0;
     localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
 
+
     /* set current day */ 
     current_day = time(NULL);
     /* Test !!!!! */

@@ -153,6 +153,8 @@ Controller::load_data(){
   current_day = time(NULL);
   gmtime_r(&current_day, &time_tm1);
   localtime_r(&current_day, &time_tm2);
+  time_tm1.tm_isdst = 0;
+  time_tm2.tm_isdst = 0;
   localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
   /* set current day */ 
   current_day = time(NULL);

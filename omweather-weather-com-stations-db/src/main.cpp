@@ -659,7 +659,7 @@ parse_and_write_detail_xml_data(const gchar *station_id, xmlNode *root_node, con
                         strptime((char *)temp_xml_string, "%D", &last_update_time);
                         last_update_time.tm_sec = 0; last_update_time.tm_min = 0;
 		       	        last_update_time.tm_hour = 0;
-                        last_update_time.tm_isdst = 1;
+                        last_update_time.tm_isdst = 0;
 
                         current_day = mktime(&last_update_time);
                         setlocale(LC_TIME, "");
@@ -823,6 +823,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
     int    localtimezone = 0;
 
 
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -837,8 +838,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
     gmtime_r(&current_time, &time_tm1);
     localtime_r(&current_time, &time_tm2);
 
-    time_tm1.tm_isdst = 1;
-    time_tm2.tm_isdst = 1;
+    time_tm1.tm_isdst = 0;
+    time_tm2.tm_isdst = 0;
     localtimezone = (mktime(&time_tm2) - mktime(&time_tm1))/3600; 
     fprintf(stderr,"Local Time Zone %i\n", localtimezone);
 
@@ -1170,16 +1171,18 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                 /* 24h sunrise */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"sunr")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-                                    tmp_tm2.tm_year = tm->tm_year;
-                                    tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
-                                    tmp_tm2.tm_isdst = 0;
                                     setlocale(LC_TIME, "POSIX");
                                     strptime((const char*)temp_xml_string, "%I:%M %p", &tmp_tm2);
                                     setlocale(LC_TIME, "");
+                                    tmp_tm2.tm_year = tm->tm_year;
+                                    tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
+                                    tmp_tm2.tm_isdst = 0;
+                                    time_t result_time = timegm(&tmp_tm2); 
                                     /* set begin of day in localtime */
-                                    fprintf(stderr, "sunrise %li %li %s\n", mktime(&tmp_tm2), timegm(&tmp_tm2), (const char*)temp_xml_string);
+                                    fprintf(stderr, "sunrise %li %li %s\n", result_time, timegm(&tmp_tm2), (const char*)temp_xml_string);
                                     fprintf(stderr, "LocaltimeZone %i MyTimeZone %i\n", localtimezone, timezone_my);
-                                    t_sunrise = mktime(&tmp_tm2) + localtimezone*3600 -  timezone_my*3600 ;
+                                    t_sunrise = result_time - timezone_my*3600;
+                                    //t_sunrise = mktime(&tmp_tm2) + localtimezone*3600 -  timezone_my*3600 ;
 //                                    t_sunrise = mktime(&tmp_tm2)  -  timezone_my*3600 + (timezone_my*3600 + 4*3600);
                                     xmlFree(temp_xml_string);
                                     continue;
@@ -1195,7 +1198,10 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     tmp_tm2.tm_mday = tm->tm_mday; tmp_tm2.tm_mon = tm->tm_mon;  
 
                                     tmp_tm2.tm_isdst = 0;
-                                    t_sunset = mktime(&tmp_tm2) + localtimezone*3600 - timezone_my*3600;
+                                    time_t result_time = timegm(&tmp_tm2);
+                                    t_sunset = result_time - timezone_my*3600;
+
+//                                    t_sunset = mktime(&tmp_tm2) + localtimezone*3600 - timezone_my*3600;
 //                                    t_sunset = mktime(&tmp_tm2) - timezone_my*3600 - (timezone_my*3600 + 4*3600);
                                     xmlFree(temp_xml_string);
                                     continue;

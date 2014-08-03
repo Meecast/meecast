@@ -1,7 +1,7 @@
 meecast (0.9.7) unstable; urgency=low
 
   * Fixed sunrise and sunset time for weather.com source again :)
-
+  * Updated Itailian, Hungarian, Turkish 
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 08 Jul 2014 08:31:23 +0200
 
